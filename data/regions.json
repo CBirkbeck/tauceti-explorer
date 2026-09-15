@@ -1,0 +1,645 @@
+{
+  "version": 1,
+  "purpose": "Explanatory subject regions and thematic cross-references for the included roadmap snapshot.",
+  "groups": {
+    "foundations": {
+      "description": "The shared constructions used throughout the atlas: schemes and stacks, derived sheaves, commutative algebra, homotopy theory and general K-theory. These roadmaps live together because they supply definitions and theorems used across several areas; specialized arithmetic constructions have their own homes.",
+      "topics": [
+        "Schemes, stacks and descent",
+        "Derived categories and sheaves",
+        "Deformation and patching algebra",
+        "Homotopy and spectra",
+        "General algebraic K-theory"
+      ],
+      "bridgeGroups": [
+        "motivic",
+        "cohomology",
+        "classical"
+      ],
+      "sources": [
+        "content/campaign/DeformationAndDerivedPatchingAlgebra/README.md",
+        "content/campaign/EnhancedDerivedSheaves/README.md",
+        "content/campaign/FoundationsAndLibraryIntegration/README.md",
+        "content/campaign/GeneralAlgebraicKTheory/README.md",
+        "content/campaign/SchemeAndStackFoundations/README.md",
+        "content/campaign/StableHomotopyKTheory/README.md"
+      ]
+    },
+    "classical": {
+      "description": "Integers, primes, number fields and explicit calculation, studied through analytic estimates, algebraic structure and counting. This region joins classical arithmetic to modern sieve methods, additive combinatorics, arithmetic statistics and certified algorithms; several routes lead into geometry, modular forms and cohomology.",
+      "topics": [
+        "Prime distribution, zeta functions and sieves",
+        "Exponential sums and additive combinatorics",
+        "Lattices, quadratic forms and reciprocity",
+        "Arithmetic statistics and counting",
+        "Approximation, transcendence and definability",
+        "Certified computation and finite fields"
+      ],
+      "bridgeGroups": [
+        "foundations",
+        "motivic",
+        "diophantine"
+      ],
+      "sources": [
+        "content/campaign/AdditiveCombinatorics/README.md",
+        "content/campaign/AnalyticNumberTheory/README.md",
+        "content/campaign/ArithmeticStatistics/README.md",
+        "content/campaign/ClassicalArithmeticCompletion/README.md",
+        "content/campaign/ComputationalNumberTheory/README.md",
+        "content/campaign/DiophantineApproximationAndTranscendence/README.md",
+        "content/campaign/ExponentialSumsAndCircleMethod/README.md",
+        "content/campaign/FiniteFieldsAndCharacterSums/README.md",
+        "content/campaign/GeometryOfNumbersAndQuadraticArithmetic/README.md",
+        "content/campaign/LogicAndDefinabilityInNumberTheory/README.md",
+        "content/campaign/ProbabilisticAndMetricNumberTheory/README.md",
+        "content/campaign/QSeriesPartitionsAndMockModularForms/README.md",
+        "content/campaign/SieveMethodsAndPrimePatterns/README.md",
+        "content/tau-ceti/Completed/EffectiveBounds/README.md",
+        "content/tau-ceti/Multiquadratic/README.md"
+      ]
+    },
+    "diophantine": {
+      "description": "Arithmetic questions about geometric objects: rational points, abelian varieties, moduli, heights and reduction. The common thread is using geometry to understand solutions of equations, including effective methods, finiteness theorems and arithmetic fundamental groups.",
+      "topics": [
+        "Rational points and Diophantine methods",
+        "Abelian varieties, Jacobians and moduli",
+        "Heights and Arakelov geometry",
+        "Néron models and semistable reduction",
+        "Complex multiplication and reciprocity",
+        "Anabelian geometry and arithmetic dynamics"
+      ],
+      "bridgeGroups": [
+        "modular",
+        "cohomology",
+        "iwasawa"
+      ],
+      "sources": [
+        "content/campaign/AbelianSchemesAndArithmeticModuli/README.md",
+        "content/campaign/AlgebraicModuliForArithmeticGeometry/README.md",
+        "content/campaign/AnabelianGeometryAndNonabelianChabauty/README.md",
+        "content/campaign/ArakelovGeometryAndAbelianHeights/README.md",
+        "content/campaign/ArithmeticDynamics/README.md",
+        "content/campaign/ComplexComparisonPartII/README.md",
+        "content/campaign/ComplexMultiplicationAndExplicitReciprocity/README.md",
+        "content/campaign/EffectiveDiophantineMethods/README.md",
+        "content/campaign/FaltingsFinitenessAndIsogenyTheorems/README.md",
+        "content/campaign/FiniteFlatGroupsAndIntegralPadicHodgeTheory/README.md",
+        "content/campaign/HeightsRationalPointsAndObstructions/README.md",
+        "content/campaign/InverseGaloisAndArithmeticFundamentalGroups/README.md",
+        "content/campaign/NeronModelsAndSemistableAbelianVarieties/README.md",
+        "content/tau-ceti/JacobianChallenge/README.md"
+      ]
+    },
+    "modular": {
+      "description": "The connections between modular forms, Shimura varieties and Galois representations. Roadmaps here assemble geometric towers, Hecke actions, p-adic families and deformation methods toward precisely stated modularity and automorphy results; the region has strong ties to cohomology and Iwasawa theory.",
+      "topics": [
+        "Modular forms, modular curves and Hecke theory",
+        "Shimura varieties and compactifications",
+        "Arithmetic Galois representations",
+        "Deformation rings and modularity lifting",
+        "p-adic families and completed cohomology",
+        "Perfectoid towers and automorphic bundles"
+      ],
+      "bridgeGroups": [
+        "iwasawa",
+        "diophantine",
+        "cohomology"
+      ],
+      "sources": [
+        "content/campaign/AlgebraicModularFormsAndSerreWeights/README.md",
+        "content/campaign/ArithmeticGaloisRepresentations/README.md",
+        "content/campaign/AutomorphicBundles/README.md",
+        "content/campaign/AutomorphicGaloisRepresentations/README.md",
+        "content/campaign/AutomorphicGaloisRepresentationsPartII/README.md",
+        "content/campaign/ClassicalSerreModularity/README.md",
+        "content/campaign/CompletedCohomologyAndLocalGlobalCompatibility/README.md",
+        "content/campaign/CompletedCohomologyPartII/README.md",
+        "content/campaign/EllipticCurveModularity/README.md",
+        "content/campaign/EndoscopicTransferAndUnitaryTraceComparison/README.md",
+        "content/campaign/GL2AutomorphicRepresentationsAndTransfer/README.md",
+        "content/campaign/GL2ModularityLifting/README.md",
+        "content/campaign/GlobalGaloisDeformations/README.md",
+        "content/campaign/HilbertModularVarietiesAndShimuraCurves/README.md",
+        "content/campaign/HodgeTateAndCanonicalSubgroups/README.md",
+        "content/campaign/IgusaVarietiesAndTorsionConcentration/README.md",
+        "content/campaign/IntegralHeckeAndGaloisDeterminants/README.md",
+        "content/campaign/LocalGaloisDeformationRings/README.md",
+        "content/campaign/ModularCurvesPartII/README.md",
+        "content/campaign/ModularityAndLanglandsExtensions/README.md",
+        "content/campaign/OrdinaryAutomorphicFormsAndModularityLifting/README.md",
+        "content/campaign/OverconvergentAutomorphicForms/README.md",
+        "content/campaign/PELModuli/README.md",
+        "content/campaign/PadicFamilies/README.md",
+        "content/campaign/PadicLocalLanglandsForGL2Qp/README.md",
+        "content/campaign/PerfectoidShimuraVarieties/README.md",
+        "content/campaign/PotentialAutomorphyInfrastructure/README.md",
+        "content/campaign/PotentialModularityAndCompatibleSystems/README.md",
+        "content/campaign/SerreWeightAndLevelOptimisation/README.md",
+        "content/campaign/ShimuraCompactifications/README.md",
+        "content/campaign/ShimuraData/README.md",
+        "content/campaign/ShimuraVarieties/README.md",
+        "content/campaign/SmallRamificationAndAbelianVarietyBaseCases/README.md",
+        "content/campaign/TorsionCohomologyInfrastructure/README.md",
+        "content/tau-ceti/ModularForms/README.md"
+      ]
+    },
+    "automorphic": {
+      "description": "The general theory of automorphic forms on reductive groups, built from local representations, adelic quotients and spectral analysis. This is the common setting used by the more specialized modular, Langlands and arithmetic special-value roadmaps.",
+      "topics": [
+        "Adeles, reductive groups and arithmetic quotients",
+        "Smooth representations of local groups",
+        "Automorphic forms and locally symmetric spaces",
+        "Spectral theory and trace distributions",
+        "Automorphic L-functions and local factors",
+        "Metaplectic groups and theta kernels"
+      ],
+      "bridgeGroups": [
+        "modular",
+        "iwasawa",
+        "diamonds"
+      ],
+      "sources": [
+        "content/campaign/AdelicAlgebraicGroups/README.md",
+        "content/campaign/ArithmeticLocallySymmetricSpaces/README.md",
+        "content/campaign/AutomorphicFormsOnReductiveGroups/README.md",
+        "content/campaign/AutomorphicLFunctionsAndLocalFactors/README.md",
+        "content/campaign/AutomorphicSpectralTheory/README.md",
+        "content/campaign/MetaplecticAutomorphicForms/README.md",
+        "content/campaign/ReductiveGroupsPartII/README.md",
+        "content/campaign/SmoothRepresentationsOfLocalGroups/README.md"
+      ]
+    },
+    "diamonds": {
+      "description": "Geometric structures used to approach local Langlands through the Fargues–Fontaine curve: diamonds, v-stacks, bundles and sheaf categories. The roadmaps build from local geometry toward Hecke correspondences, geometric Satake and spectral actions, with explicit coefficient and group hypotheses.",
+      "topics": [
+        "Diamonds, v-stacks and descent",
+        "Relative Fargues–Fontaine curves",
+        "Vector bundles, isocrystals and Newton strata",
+        "Sheaf categories and six operations",
+        "Geometric Satake and Hecke stacks",
+        "Local shtukas and spectral actions"
+      ],
+      "bridgeGroups": [
+        "cohomology",
+        "automorphic",
+        "foundations"
+      ],
+      "sources": [
+        "content/campaign/BunGAndNewtonStrata/README.md",
+        "content/campaign/DiamondEtaleCohomology/README.md",
+        "content/campaign/DiamondSixOperations/README.md",
+        "content/campaign/DiamondsAndVStacks/README.md",
+        "content/campaign/ExcursionOperatorsAndSpectralAction/README.md",
+        "content/campaign/FarguesFontaineDiamonds/README.md",
+        "content/campaign/GeometricSatakeAndFusion/README.md",
+        "content/campaign/HeckeStacksAndLocalShtukas/README.md",
+        "content/campaign/LanglandsParameterStacks/README.md",
+        "content/campaign/RelativeFarguesFontaine/README.md",
+        "content/campaign/VStackSheavesAndLisseCategories/README.md",
+        "content/campaign/VectorBundlesAndIsocrystals/README.md"
+      ]
+    },
+    "cohomology": {
+      "description": "Cohomology theories and nonarchimedean spaces that translate geometry into arithmetic invariants. Étale, crystalline, de Rham and prismatic constructions sit alongside comparison theorems, weights and p-adic Hodge theory; adic, perfectoid and Berkovich geometry provide their geometric settings.",
+      "topics": [
+        "Adic, perfectoid and Berkovich spaces",
+        "Étale cohomology, duality and perverse sheaves",
+        "Crystalline and derived de Rham cohomology",
+        "Prismatic and integral p-adic cohomology",
+        "p-adic Hodge comparison theorems",
+        "Weights, purity and the Weil conjectures"
+      ],
+      "bridgeGroups": [
+        "modular",
+        "diamonds",
+        "diophantine"
+      ],
+      "sources": [
+        "content/campaign/AInfCohomology/README.md",
+        "content/campaign/AdicCoefficientsAndComparisons/README.md",
+        "content/campaign/AdicEtaleGeometry/README.md",
+        "content/campaign/AdicSpacesPartII/README.md",
+        "content/campaign/ClassicalAdicEtaleCohomology/README.md",
+        "content/campaign/CohomologyComparisons/README.md",
+        "content/campaign/CrystallineCohomology/README.md",
+        "content/campaign/DeligneWeightsAndPurity/README.md",
+        "content/campaign/DerivedDeRhamCohomology/README.md",
+        "content/campaign/EtaleDualityAndPerverseSheaves/README.md",
+        "content/campaign/LefschetzPencilsAndVanishingCycles/README.md",
+        "content/campaign/PadicDifferentialEquationsAndRigidCohomology/README.md",
+        "content/campaign/PadicHodgeTheory/README.md",
+        "content/campaign/PerfectoidQuotients/README.md",
+        "content/campaign/PerfectoidSpaces/README.md",
+        "content/campaign/PrismaticCohomology/README.md",
+        "content/campaign/TropicalAndBerkovichArithmetic/README.md",
+        "content/campaign/WeightsInEtaleCohomology/README.md",
+        "content/campaign/WeilConjectures/README.md"
+      ]
+    },
+    "motivic": {
+      "description": "Algebraic K-theory, motives and regulators connect cycles and arithmetic to periods and special values of L-functions. The Habiro branch adds cyclotomic completions, arithmetic q-series and quantum-topological invariants. General-purpose foundations are separated from these arithmetic applications.",
+      "topics": [
+        "K-theory of fields, rings and schemes",
+        "Symbols, Bloch groups and explicit regulators",
+        "Motives and algebraic cycles",
+        "Periods and special values",
+        "Habiro rings and Nahm series",
+        "Arithmetic quantum topology and trace methods"
+      ],
+      "bridgeGroups": [
+        "foundations",
+        "iwasawa",
+        "cohomology"
+      ],
+      "sources": [
+        "content/campaign/ArithmeticKTheory/README.md",
+        "content/campaign/ArithmeticQuantumTopology/README.md",
+        "content/campaign/BorelRegulators/README.md",
+        "content/campaign/EllipticKTheory/README.md",
+        "content/campaign/EllipticRegulators/README.md",
+        "content/campaign/HabiroCohomologyFoundations/README.md",
+        "content/campaign/HabiroCyclotomicCompletions/README.md",
+        "content/campaign/HabiroNahmSeries/README.md",
+        "content/campaign/HabiroNumberFields/README.md",
+        "content/campaign/HabiroRings/README.md",
+        "content/campaign/K2SymbolsBrauer/README.md",
+        "content/campaign/K3BlochGroups/README.md",
+        "content/campaign/KTheoryFiniteLocalFields/README.md",
+        "content/campaign/KTheoryLowDegrees/README.md",
+        "content/campaign/MotivesAndAlgebraicCycles/README.md",
+        "content/campaign/MotivicEtaleKTheory/README.md",
+        "content/campaign/PadicHodgeRegulators/README.md",
+        "content/campaign/PeriodsAndSpecialValues/README.md",
+        "content/campaign/Polylogarithms/README.md",
+        "content/campaign/RefinedTraceMethods/README.md",
+        "content/campaign/SchemeKTheoryOperations/README.md",
+        "content/campaign/SpecialValuesBirchTate/README.md"
+      ]
+    },
+    "iwasawa": {
+      "description": "Arithmetic in p-adic towers, organized around Selmer groups, p-adic L-functions and Euler systems. These roadmaps relate analytic interpolation to Galois cohomology and descent, leading to specific main-conjecture and rank-zero or rank-one BSD targets with their stated hypotheses.",
+      "topics": [
+        "Selmer groups and Galois duality",
+        "p-adic measures and Iwasawa algebras",
+        "p-adic L-functions and modular symbols",
+        "Euler systems and Kolyvagin descent",
+        "Heegner points, cycles and height formulas",
+        "Main conjectures and rank-zero or rank-one BSD"
+      ],
+      "bridgeGroups": [
+        "modular",
+        "motivic",
+        "automorphic"
+      ],
+      "sources": [
+        "content/campaign/ArithmeticGaloisDuality/README.md",
+        "content/campaign/AutomorphicCongruences/README.md",
+        "content/campaign/AutomorphicPadicLFunctions/README.md",
+        "content/campaign/ColemanIntegration/README.md",
+        "content/campaign/ColemanPowerSeries/README.md",
+        "content/campaign/DirichletPadicLFunctions/README.md",
+        "content/campaign/EulerSystemsAndKolyvaginSystems/README.md",
+        "content/campaign/EulerSystemsCyclotomicMainConjecture/README.md",
+        "content/campaign/GeneralizedHeegnerCycles/README.md",
+        "content/campaign/GrossZagierAndArithmeticHeights/README.md",
+        "content/campaign/HeegnerPointEulerSystems/README.md",
+        "content/campaign/IntegralIwasawaTheory/README.md",
+        "content/campaign/KatoEulerSystems/README.md",
+        "content/campaign/LocallyAnalyticDistributions/README.md",
+        "content/campaign/ModularIwasawaMainConjectures/README.md",
+        "content/campaign/ModularSymbolsPadicLFunctions/README.md",
+        "content/campaign/NoncommutativeAndEquivariantIwasawa/README.md",
+        "content/campaign/PadicMeasuresIwasawaAlgebras/README.md",
+        "content/campaign/PhiGammaModulesAndIwasawaCohomology/README.md",
+        "content/campaign/RankZeroOneBSD/README.md",
+        "content/campaign/SelmerIwasawaCohomology/README.md"
+      ]
+    },
+    "functionfields": {
+      "description": "Arithmetic over function fields, together with higher-dimensional local arithmetic. Drinfeld modules, t-motives and global shtukas form characteristic-p counterparts to several number-field themes; higher local fields have their own reciprocity and class-field-theoretic constructions.",
+      "topics": [
+        "Global function fields and reciprocity",
+        "Drinfeld modules and t-modules",
+        "Characteristic-p special values",
+        "Global shtukas and function-field Langlands",
+        "Higher local fields",
+        "Higher class field theory"
+      ],
+      "bridgeGroups": [
+        "foundations",
+        "cohomology",
+        "motivic"
+      ],
+      "sources": [
+        "content/campaign/DrinfeldModulesAndTModules/README.md",
+        "content/campaign/FunctionFieldArithmetic/README.md",
+        "content/campaign/GlobalShtukasAndFunctionFieldLanglands/README.md",
+        "content/campaign/HigherLocalFieldsAndHigherClassFieldTheory/README.md"
+      ]
+    },
+    "analysis": {
+      "description": "Tau Ceti’s analysis roadmaps range from holomorphic functions and Hilbert-space expansions to probability, transport and partial differential equations. They share analytic constructions and estimates while retaining distinct endpoints, including de Finetti, semigroup and geometric function theory.",
+      "topics": [
+        "Conformal maps and contour integration",
+        "Orthogonal L² bases",
+        "Exchangeability and de Finetti",
+        "One-parameter semigroups",
+        "Optimal transport and Wasserstein geometry",
+        "Partial differential equations"
+      ],
+      "bridgeGroups": [
+        "modular",
+        "topology",
+        "algebra"
+      ],
+      "sources": [
+        "content/tau-ceti/ConformalMapping/README.md",
+        "content/tau-ceti/ContourIntegration/README.md",
+        "content/tau-ceti/Exchangeability/README.md",
+        "content/tau-ceti/OneParameterSemigroups/README.md",
+        "content/tau-ceti/OptimalTransport/README.md",
+        "content/tau-ceti/OrthogonalL2Bases/README.md",
+        "content/tau-ceti/PDE/README.md"
+      ]
+    },
+    "topology": {
+      "description": "The topology of spaces and manifolds, with covering spaces, geometric topology and both analytic and combinatorial Heegaard Floer theory. These roadmaps are grouped by their geometric objects and invariants; the separate homotopy foundations for K-theory also provide a useful thematic connection.",
+      "topics": [
+        "Universal covering spaces",
+        "Geometric topology of manifolds",
+        "Analytic Heegaard Floer homology",
+        "Grid homology and combinatorial models"
+      ],
+      "bridgeGroups": [
+        "analysis"
+      ],
+      "sources": [
+        "content/tau-ceti/CombinatorialHeegaardFloer/README.md",
+        "content/tau-ceti/GeometricTopology/README.md",
+        "content/tau-ceti/HeegaardFloer/README.md",
+        "content/tau-ceti/UniversalCovers/README.md"
+      ]
+    },
+    "algebra": {
+      "description": "Groups, algebras and their representations, from finite-group character tables to Lie groups, highest weights and reductive algebraic groups. The representation-theory collection contains linked subroadmaps; this region supplies algebraic structures used across automorphic and geometric arithmetic.",
+      "topics": [
+        "Finite groups, characters and induction",
+        "Semisimple algebras and quivers",
+        "Lie groups and Lie algebras",
+        "Root systems and highest weights",
+        "Compact and classical group representations",
+        "Reductive groups, Clifford algebras and spin representations"
+      ],
+      "bridgeGroups": [
+        "automorphic",
+        "modular",
+        "diamonds"
+      ],
+      "sources": [
+        "content/tau-ceti/ReductiveGroups/README.md",
+        "content/tau-ceti/RepresentationTheory/CharacterTheory/README.md",
+        "content/tau-ceti/RepresentationTheory/ClassicalGroups/README.md",
+        "content/tau-ceti/RepresentationTheory/CompactGroups/README.md",
+        "content/tau-ceti/RepresentationTheory/InductionRestriction/README.md",
+        "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+        "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+        "content/tau-ceti/RepresentationTheory/QuiverRepresentations/README.md",
+        "content/tau-ceti/RepresentationTheory/README.md",
+        "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+        "content/tau-ceti/RepresentationTheory/SchurWeyl/README.md",
+        "content/tau-ceti/RepresentationTheory/SemisimpleAlgebras/README.md",
+        "content/tau-ceti/RepresentationTheory/SpinRepresentations/README.md"
+      ]
+    }
+  },
+  "roadmapTags": {
+    "StableHomotopyKTheory": [
+      "topology",
+      "motivic"
+    ],
+    "EnhancedDerivedSheaves": [
+      "cohomology"
+    ],
+    "DeformationAndDerivedPatchingAlgebra": [
+      "modular"
+    ],
+    "GeneralAlgebraicKTheory": [
+      "motivic"
+    ],
+    "ArithmeticStatistics": [
+      "diophantine"
+    ],
+    "DiophantineApproximationAndTranscendence": [
+      "diophantine"
+    ],
+    "LogicAndDefinabilityInNumberTheory": [
+      "motivic"
+    ],
+    "QSeriesPartitionsAndMockModularForms": [
+      "modular",
+      "motivic"
+    ],
+    "FiniteFieldsAndCharacterSums": [
+      "cohomology"
+    ],
+    "ComplexComparisonPartII": [
+      "cohomology"
+    ],
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory": [
+      "cohomology",
+      "modular"
+    ],
+    "ComplexMultiplicationAndExplicitReciprocity": [
+      "modular"
+    ],
+    "TropicalAndBerkovichArithmetic": [
+      "diophantine"
+    ],
+    "ArithmeticQuantumTopology": [
+      "topology",
+      "classical"
+    ],
+    "HabiroNahmSeries": [
+      "modular",
+      "classical"
+    ],
+    "BorelRegulators": [
+      "automorphic"
+    ],
+    "PadicHodgeRegulators": [
+      "cohomology",
+      "iwasawa"
+    ],
+    "GeneralizedHeegnerCycles": [
+      "motivic",
+      "modular"
+    ],
+    "GrossZagierAndArithmeticHeights": [
+      "diophantine",
+      "automorphic"
+    ],
+    "RankZeroOneBSD": [
+      "diophantine",
+      "modular"
+    ],
+    "PadicFamilies": [
+      "iwasawa"
+    ],
+    "PerfectoidShimuraVarieties": [
+      "cohomology",
+      "diamonds"
+    ],
+    "HodgeTateAndCanonicalSubgroups": [
+      "cohomology"
+    ],
+    "ArithmeticLocallySymmetricSpaces": [
+      "topology"
+    ],
+    "MetaplecticAutomorphicForms": [
+      "algebra",
+      "classical"
+    ],
+    "GeometricSatakeAndFusion": [
+      "algebra",
+      "cohomology"
+    ],
+    "HeckeStacksAndLocalShtukas": [
+      "automorphic"
+    ],
+    "WeilConjectures": [
+      "classical",
+      "functionfields"
+    ],
+    "GlobalShtukasAndFunctionFieldLanglands": [
+      "automorphic",
+      "cohomology"
+    ]
+  },
+  "roadmapTagEvidence": {
+    "StableHomotopyKTheory": {
+      "source": "content/campaign/StableHomotopyKTheory/README.md",
+      "reason": "Homotopy fibres, group completion and spectra are constructed for algebraic K-theory."
+    },
+    "EnhancedDerivedSheaves": {
+      "source": "content/campaign/EnhancedDerivedSheaves/README.md",
+      "reason": "Enhanced sheaf categories and coherent operations support the cohomology roadmaps."
+    },
+    "DeformationAndDerivedPatchingAlgebra": {
+      "source": "content/campaign/DeformationAndDerivedPatchingAlgebra/README.md",
+      "reason": "The algebraic infrastructure is used by Galois deformation and modularity-lifting arguments."
+    },
+    "GeneralAlgebraicKTheory": {
+      "source": "content/campaign/GeneralAlgebraicKTheory/README.md",
+      "reason": "General constructions supply the arithmetic K-theory and regulator applications."
+    },
+    "ArithmeticStatistics": {
+      "source": "content/campaign/ArithmeticStatistics/README.md",
+      "reason": "Counting families is organized by heights and includes geometric parametrizations and Selmer distributions."
+    },
+    "DiophantineApproximationAndTranscendence": {
+      "source": "content/campaign/DiophantineApproximationAndTranscendence/README.md",
+      "reason": "Height estimates and approximation theorems supply rational-point and effective Diophantine methods."
+    },
+    "LogicAndDefinabilityInNumberTheory": {
+      "source": "content/campaign/LogicAndDefinabilityInNumberTheory/README.md",
+      "reason": "The roadmap explicitly includes motivic integration and transfer alongside valued-field logic."
+    },
+    "QSeriesPartitionsAndMockModularForms": {
+      "source": "content/campaign/QSeriesPartitionsAndMockModularForms/README.md",
+      "reason": "Theta, Jacobi and mock modular forms meet Habiro completions and arithmetic q-series."
+    },
+    "FiniteFieldsAndCharacterSums": {
+      "source": "content/campaign/FiniteFieldsAndCharacterSums/README.md",
+      "reason": "Its Weil–Deligne bounds and point-counting stages use cohomological inputs."
+    },
+    "ComplexComparisonPartII": {
+      "source": "content/campaign/ComplexComparisonPartII/README.md",
+      "reason": "Coherent GAGA and de Rham comparison are geometric comparison constructions used by arithmetic moduli."
+    },
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
+      "source": "content/campaign/FiniteFlatGroupsAndIntegralPadicHodgeTheory/README.md",
+      "reason": "Integral local Hodge theory links finite flat groups to Galois deformation rings and modularity applications."
+    },
+    "ComplexMultiplicationAndExplicitReciprocity": {
+      "source": "content/campaign/ComplexMultiplicationAndExplicitReciprocity/README.md",
+      "reason": "The roadmap explicitly consumes Shimura-variety CM reciprocity and constructs CM Galois realizations."
+    },
+    "TropicalAndBerkovichArithmetic": {
+      "source": "content/campaign/TropicalAndBerkovichArithmetic/README.md",
+      "reason": "Skeletons, divisors and specialization provide tools for arithmetic curves and dynamics."
+    },
+    "ArithmeticQuantumTopology": {
+      "source": "content/campaign/ArithmeticQuantumTopology/README.md",
+      "reason": "Framed links, surgery and quantum invariants connect Habiro rings to arithmetic q-series."
+    },
+    "HabiroNahmSeries": {
+      "source": "content/campaign/HabiroNahmSeries/README.md",
+      "reason": "Nahm-series asymptotics and Bloch classes meet modular functions and arithmetic q-series."
+    },
+    "BorelRegulators": {
+      "source": "content/campaign/BorelRegulators/README.md",
+      "reason": "Arithmetic-group and relative Lie-algebra cohomology construct regulator classes."
+    },
+    "PadicHodgeRegulators": {
+      "source": "content/campaign/PadicHodgeRegulators/README.md",
+      "reason": "Local p-adic comparison, Bloch–Kato exponentials and Perrin–Riou interpolation connect regulators to Iwasawa cohomology."
+    },
+    "GeneralizedHeegnerCycles": {
+      "source": "content/campaign/GeneralizedHeegnerCycles/README.md",
+      "reason": "Higher-dimensional cycles on modular geometry yield Abel–Jacobi classes and Euler systems."
+    },
+    "GrossZagierAndArithmeticHeights": {
+      "source": "content/campaign/GrossZagierAndArithmeticHeights/README.md",
+      "reason": "Arithmetic intersection and point-height formulas are compared with toric periods and automorphic L-values."
+    },
+    "RankZeroOneBSD": {
+      "source": "content/campaign/RankZeroOneBSD/README.md",
+      "reason": "The targets concern elliptic-curve ranks and Tate–Shafarevich finiteness, using modularity and arithmetic descent."
+    },
+    "PadicFamilies": {
+      "source": "content/campaign/PadicFamilies/README.md",
+      "reason": "Hida and Coleman families include p-adic L-functions and arithmetic specializations."
+    },
+    "PerfectoidShimuraVarieties": {
+      "source": "content/campaign/PerfectoidShimuraVarieties/README.md",
+      "reason": "Shimura towers are realized using perfectoid geometry and Hodge–Tate period maps."
+    },
+    "HodgeTateAndCanonicalSubgroups": {
+      "source": "content/campaign/HodgeTateAndCanonicalSubgroups/README.md",
+      "reason": "Relative p-adic comparison and integral period constructions feed automorphic geometry."
+    },
+    "ArithmeticLocallySymmetricSpaces": {
+      "source": "content/campaign/ArithmeticLocallySymmetricSpaces/README.md",
+      "reason": "Topological cohomology, local systems and Borel–Serre boundaries are constructed for arithmetic quotients."
+    },
+    "MetaplecticAutomorphicForms": {
+      "source": "content/campaign/MetaplecticAutomorphicForms/README.md",
+      "reason": "Weil representations and dual pairs supply theta kernels and half-integral-weight forms."
+    },
+    "GeometricSatakeAndFusion": {
+      "source": "content/campaign/GeometricSatakeAndFusion/README.md",
+      "reason": "Sheaf convolution and fusion recover the dual reductive group through a representation-theoretic equivalence."
+    },
+    "HeckeStacksAndLocalShtukas": {
+      "source": "content/campaign/HeckeStacksAndLocalShtukas/README.md",
+      "reason": "Local shtuka cohomology is built as a representation-valued functor with commuting actions."
+    },
+    "WeilConjectures": {
+      "source": "content/campaign/WeilConjectures/README.md",
+      "reason": "Cohomological zeta functions control finite-field point counts, including curves over finite fields."
+    },
+    "GlobalShtukasAndFunctionFieldLanglands": {
+      "source": "content/campaign/GlobalShtukasAndFunctionFieldLanglands/README.md",
+      "reason": "Global shtuka cohomology links function-field automorphic data to Galois parameters."
+    }
+  },
+  "notes": [
+    "Each roadmap has one primary region in atlas.json. Secondary tags describe mathematical themes; they are not additional dependency edges or completion claims.",
+    "bridgeGroups lists up to three other regions with the most recorded cross-region roadmap edges, counting both directions. It describes connections in this snapshot, not mathematical similarity or prerequisite order.",
+    "The 13 regions organize the included roadmaps rather than claiming an exhaustive taxonomy of mathematics.",
+    "Several primary homes intentionally follow the application: ComplexComparisonPartII and finite flat p-adic Hodge theory sit with arithmetic geometry; perfectoid Shimura towers sit with modular theory. Secondary tags make those methodological overlaps visible.",
+    "Arithmetic quantum topology has a motivic home because its current roadmap develops Habiro and regulator interfaces; the topology tag also exposes its link and three-manifold content.",
+    "The diamonds region concerns the Fargues–Fontaine/local-Langlands route. Global shtukas over function fields retain their separate function-field home.",
+    "General representation theory is a collection with child roadmaps. The metadata does not turn parent–child membership into a prerequisite."
+  ]
+}
