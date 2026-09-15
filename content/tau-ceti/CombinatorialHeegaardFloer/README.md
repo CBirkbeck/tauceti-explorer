@@ -1,0 +1,368 @@
+# Roadmap: Combinatorial Heegaard Floer and grid homology
+
+Heegaard Floer homology (Ozsváth–Szabó) and its knot-theoretic sibling knot Floer
+homology are among the most consequential inventions of twenty-first-century
+low-dimensional topology: they categorify the Alexander polynomial, detect Seifert
+genus and fiberedness, bound the slice genus and unknotting number (reproving the
+Milnor conjecture), and power most modern progress on surgery, concordance, and
+contact geometry. Nothing remotely near them exists in any proof assistant; Mathlib
+has no knots, no 3-manifolds, and no symplectic geometry. This roadmap is the
+**combinatorial half**: the bodies of theory that are formalizable now, with real
+topological payoffs of their own — grid homology, lattice homology, and the
+Ozsváth–Stipsicz–Szabó stable HF̂ — carried all the way down (definition, invariance
+proof, and applications). The analytic tower (Fredholm theory, transversality,
+Gromov compactness, gluing, Lagrangian Floer homology, holomorphic HF̂) is its
+companion [Heegaard Floer roadmap](../HeegaardFloer/README.md); the two meet at
+reconciliation theorems that the analytic roadmap states, since they wait on
+its slower track.
+
+This is **not a linear roadmap**. It is a family of lanes with many independent
+on-ramps; nearly every lane is publishable mathematics on its own, and several would
+be a first in any prover. Suggested homes: `TauCeti/KnotTheory/Grid/`,
+`TauCeti/KnotTheory/Diagrams/`, `TauCeti/Algebra/Bigraded/`,
+`TauCeti/LowDimTopology/` (lattice homology, Heegaard diagrams).
+
+## The organizing dichotomy
+
+**Combinatorial computability is not combinatorial definition-with-invariance.**
+Most "combinatorial" results in this field (Sarkar–Wang nice diagrams
+([arXiv:math/0607777](https://arxiv.org/abs/math/0607777)), the grid-diagram
+computability of all flavors (Manolescu–Ozsváth–Thurston
+[arXiv:0910.0078](https://arxiv.org/abs/0910.0078), resting on the ~280-page
+Manolescu–Ozsváth link surgery formula
+[arXiv:1011.1317](https://arxiv.org/abs/1011.1317)), bordered-Floer factoring of
+mapping classes ([arXiv:1010.2550](https://arxiv.org/abs/1010.2550))) are
+*algorithms whose correctness certificates are holomorphic*. Exactly two bodies of
+theory are combinatorial all the way down (definition, invariance proof, and
+applications), plus one combinatorial neighbor:
+
+1. **Grid homology for knots and links** (Manolescu–Ozsváth–Szabó–Thurston
+   [arXiv:math/0610559](https://arxiv.org/abs/math/0610559); the book
+   Ozsváth–Stipsicz–Szabó, *Grid Homology for Knots and Links*, AMS 2015). The
+   book's main line (Chapters 1–15) is deliberately self-contained: invariance
+   reduces to Cromwell's theorem (proved in its Appendix B), spectral sequences are
+   explicitly avoided, and the holomorphic identification (Chapter 16) is needed for
+   **nothing**: not invariance, not τ, not the combinatorial Milnor-conjecture
+   proof, not the slice-genus bound, not the Legendrian/transverse invariants, not
+   ℤ coefficients. What is lost without holomorphic input is only sharpness and
+   detection (genus *detection*, fiberedness, unknot detection).
+2. **Stable combinatorial HF̂ of 3-manifolds** (Ozsváth–Stipsicz–Szabó
+   [arXiv:0912.0830](https://arxiv.org/abs/0912.0830), ℤ-signs sequel
+   [arXiv:1301.0480](https://arxiv.org/abs/1301.0480)): the *unique* published
+   fully-combinatorial definition-plus-invariance of a Heegaard Floer 3-manifold
+   invariant: HF̂ up to tracked `(𝔽 ⊕ 𝔽)`-tensor factors, exactly HF̂ for
+   `b₁(Y) = 0` via a twisted refinement.
+3. **Lattice homology** of plumbed 3-manifolds (Némethi
+   [arXiv:0709.0841](https://arxiv.org/abs/0709.0841), after Ozsváth–Szabó
+   [arXiv:math/0203265](https://arxiv.org/abs/math/0203265)): pure lattice
+   combinatorics, invariance under Neumann moves, and Zemke's theorem
+   ([arXiv:2111.14962](https://arxiv.org/abs/2111.14962)) that it computes `HF⁻` of
+   all plumbed manifolds.
+
+These three are exactly what this roadmap formalizes. The holomorphic theory is
+**on the roadmap, not a non-goal** — it is just the [other half](../HeegaardFloer/README.md),
+and the seams where the two halves meet are the reconciliation theorems, which that
+roadmap owns (they are analytic-blocked, so they live with the slower track).
+
+## The end goals
+
+- **v1 (knots, combinatorial).** Grid homology `GH̃`, `GĤ`, `GH⁻` over 𝔽₂ with full
+  invariance, the concordance invariant τ, and the **Milnor conjecture**
+  `u(T_{p,q}) = (p−1)(q−1)/2`, a genuinely celebrated theorem (first proved by
+  Kronheimer–Mrowka with gauge theory), by pure combinatorics.
+- **v2 (3-manifolds, combinatorial).** Ozsváth–Stipsicz–Szabó's stable `HF̂_st(Y)`
+  over 𝔽₂, with its purely topological invariance proof.
+- **Reconciliations (owned by the analytic roadmap).** Each invariant here has a
+  "the two definitions agree" theorem matching it to its holomorphic counterpart
+  (grid homology = knot Floer homology; `HF̂_st` = stabilized holomorphic `HF̂`;
+  lattice homology = `HF⁻` of plumbed manifolds). These seams wait on the
+  analytic tower, which is the long pole, so they are stated and tracked in the
+  [analytic roadmap](../HeegaardFloer/README.md), not here.
+
+```lean
+-- the shapes we are building toward (state in Suggested.lean as the types land):
+--
+-- v1: grid homology is a link invariant, and τ bounds unknotting number:
+-- def GH' (G : GridDiagram) : BigradedModule (ZMod 2) := ...   -- simply blocked GĤ
+-- theorem GH'_invariant (G G' : GridDiagram) (h : G.MovesTo G') : GH' G ≅ GH' G'
+-- theorem tau_le_unknotting (K : GridKnot) : |τ K| ≤ unknottingNumber K
+-- theorem milnor_conjecture (p q : ℕ) (h : Nat.Coprime p q) :
+--     unknottingNumber (torusKnot p q) = (p - 1) * (q - 1) / 2
+```
+
+## Standing conventions (spell them out; never bake in)
+
+- **𝔽₂ first, ℤ as a separate later stage.** Signs are a genuinely separable layer
+  everywhere in this subject: grid homology has sign assignments
+  (MOST; Gallais [arXiv:0706.0089](https://arxiv.org/abs/0706.0089)). State every 𝔽₂
+  theorem so the coefficient ring can be generalized without restating the topology.
+- **A link *is* (at first) a grid diagram modulo grid moves.** Knot theory needs no
+  privileged representation: the grid theory is self-contained with this
+  definition, and the identification with embeddings `S¹ ↪ S³` (via Cromwell's
+  theorem and Reidemeister calculus) is its own lane (K), not a prerequisite.
+  Reconciliation theorems connect representations later; nothing in Lane G waits
+  for topology.
+- **State invariance naturality-ready.** In a proof assistant you must decide on
+  day one whether "the invariant" is an isomorphism class, a group, or a transitive
+  system of groups and isomorphisms (Juhász–Thurston–Zemke
+  [arXiv:1210.4996](https://arxiv.org/abs/1210.4996)). Phrase invariance as
+  specified isomorphisms attached to elementary moves, with composition laws stated
+  as separate (later) targets, even while the first theorems prove only the
+  isomorphism class. ⚠ Basepoint-moving maps act nontrivially (Zemke); do not
+  quotient them away silently.
+- **Track stabilization factors explicitly.** The fully blocked grid homology
+  `GH̃(G)` depends on grid size: `GH̃(G) ≅ GĤ(L) ⊗ W^{⊗(n−1)}` with
+  `W = 𝔽 ⊕ 𝔽` in bigradings (0,0), (−1,−1); OSS's 3-manifold invariant is *stable*
+  in the same sense. Build the "graded vector space up to `⊗W`-stabilization"
+  quotient as API, not ad hoc.
+- **Mind the bigrading bookkeeping.** Maslov gradings via the `J`-function
+  (`M_O(x) = J(x−O, x−O) + 1`), Alexander via
+  `A = ½(M_O − M_X) − (n−1)/2`: integer-valuedness is a lemma, not a definition.
+  Fix once whether differentials drop Maslov by 1 and preserve Alexander
+  (unblocked) and write the `(M, A)`-conventions table before stating anything.
+- **Keep "computes" as a requirement, not an afterthought.** The acceptance
+  criteria below evaluate the invariants on explicit small grids (`n ≤ 5` has at
+  most `120` generators). Definitions whose differentials cannot be evaluated by
+  `decide`/`Decidable` instances (or fast enough kernel reduction) on those
+  examples should be revised. (Lesson from Coq/Agda homology efforts: making
+  formal homology compute is the recurring pain point.)
+
+## Inventory: what Mathlib master gives us (consume)
+
+- **Homological algebra, the strong point:** `Mathlib/Algebra/Homology/*`,
+  complexes over any `ComplexShape ι` (so ℤ×ℤ-bigraded complexes are immediate),
+  homology via `ShortComplex`, homotopies and `HomotopyEquiv.toHomologyIso`
+  (`Homotopy.lean`), **mapping cones** (`HomotopyCofiber.lean`,
+  `HomotopyCategory/MappingCone.lean`), snake lemma and the long exact sequence
+  (`ShortComplex/ShortExact.lean`, `HomologySequence.lean`), bicomplexes/total
+  complexes, Euler characteristics (`EulerCharacteristic.lean`). All of it applies
+  over `ModuleCat (MvPolynomial (Fin n) (ZMod 2))` directly.
+- **Grid combinatorics:** `Mathlib/GroupTheory/Perm/*` (including `Sign`),
+  permutation matrices, `Finset`/`Fintype`, `ZMod n` for toroidal indexing.
+- **Graded objects:** `Mathlib/CategoryTheory/GradedObject.lean` (+ monoidal
+  structure), `DirectSum`, `MvPolynomial`.
+- **Presented monoids** (`Mathlib/Algebra/PresentedMonoid/Basic.lean`, from Hannah
+  Fechtner's braid program): the seed for Lane K's braid groups.
+
+## Inventory: what is missing (build here)
+
+Everything knot-theoretic (the only knot-adjacent file in Mathlib is
+`Algebra/Quandle.lean`); grid diagrams and grid moves; bigraded modules over
+`𝔽₂[V₁,…,Vₙ]` as a working API; the structure theorem for finitely generated
+bigraded `𝔽[U]`-modules (τ's home); filtered complexes and filtered homotopy type
+(Mathlib's spectral-sequence machinery is young and has no filtered-complex
+constructor, and the grid main line deliberately avoids spectral sequences, so
+only the filtered-complex API is needed); pointed Heegaard diagram combinatorics
+and the nice-move calculus; plumbing lattices and weight functions.
+
+---
+
+## The lanes
+
+### Lane G: grid homology (the spine)
+
+Follow Ozsváth–Stipsicz–Szabó's book, whose chapters are nearly a blueprint
+already. Milestone order:
+
+1. **Grid diagrams and grid states.** Toroidal `n × n` grids with `O`/`X`-markings
+   (one per row and column); grid states as bijections columns → rows; rectangles,
+   and **empty** rectangles `Rect°(x, y)`. ⚠ Encoding choice (plain
+   `Equiv.Perm (Fin n)` vs functions on `ZMod n` vs a `2n × 2n` double cover; cf.
+   Kyle Miller's "pointed cyclic orders" suggestion) deserves a short experiment
+   before committing; the 2025 summer project (acknowledgements) tried all three.
+2. **Gradings.** The `J`-function, `M_O`, `M_X`, `A`; integer-valuedness of `A`;
+   grading-change formulas across a rectangle.
+3. **The complexes and `∂² = 0`.** Fully blocked `GC̃` over 𝔽₂ (rectangles avoiding
+   all markings): `∂² = 0` by the juxtaposition case analysis (disjoint /
+   overlapping / annular pairs of empty rectangles), finite combinatorics, the
+   ideal first nontrivial theorem. Then unblocked `GC⁻` over `𝔽₂[V₁,…,Vₙ]` and
+   simply blocked `GĤ`.
+4. **Euler characteristic = Alexander polynomial**, via the grid determinant
+   formula (book, Chapter 3.3): an early, decidable, self-validating milestone.
+5. **Invariance over 𝔽₂.** Grid moves = commutation + (de)stabilization.
+   Commutation: pentagon-counting chain maps with hexagon-counting homotopies.
+   Stabilization: identify `GC⁻(G')` with the mapping cone of
+   `V₁ − V₂ : GC⁻(G)[V₁] → GC⁻(G)[V₁]` (consume Mathlib's cones). ⚠ The homologies
+   of the *blocked* theories depend on grid size through `⊗W` factors; only the
+   stabilization-quotient (or `GĤ`, `GH⁻`) is the link invariant.
+6. **All `V_i` act identically on homology**; `GH⁻` as `𝔽[U]`-module; the structure
+   theorem for finitely generated bigraded `𝔽[U]`-modules; **τ**.
+7. **`|τ(K)| ≤ u(K)`** via crossing-change maps; `τ(T_{p,q})` via the canonical
+   cycle; **the Milnor conjecture** (book Chapter 6, after Sarkar
+   [arXiv:1011.5265](https://arxiv.org/abs/1011.5265)).
+8. **Symmetries and the genus bound** `g(K) ≥ max{s : GĤ(K, s) ≠ 0}`. ⚠ The book is
+   explicit that the combinatorial treatment "falls short of showing these bounds
+   are sharp"; sharpness is holomorphic (the analytic roadmap's far future); state
+   the bound, not detection.
+9. **Skein exact sequence; alternating knots are thin; links** (multivariable
+   Alexander polynomial as Euler characteristic; grid polytope vs Thurston norm,
+   again bound only).
+10. **Slice genus:** `|τ(K)| ≤ g_s(K)` via saddle/birth/death maps and normal forms
+    of knot cobordisms (book Appendix B.5): the most topologically substantial
+    step of the combinatorial line; gives the combinatorial Kronheimer–Mrowka
+    theorem.
+11. **Legendrian and transverse GRID invariants** `λ^±`; reprove Chekanov's
+    Legendrian non-simplicity of `m(5₂)` combinatorially.
+12. **ℤ coefficients** via sign assignments (existence and uniqueness up to gauge;
+    MOST §15.2, or Gallais's spin-extension construction).
+13. **The filtered theory** (book Chapters 13–14): the Alexander filtration on the
+    grid complex over `𝔽[V]`; invariant = filtered quasi-isomorphism type: the
+    combinatorial stand-in for `CFK^∞`, and the door to Υ-type concordance
+    invariants. Needs Lane ALG's filtered-complex API.
+
+### Lane ALG: bigraded and filtered homological algebra
+
+Mostly assembling Mathlib pieces into a working API, plus genuinely new material:
+bigraded modules over `𝔽₂[V₁,…,Vₙ]` with grading-shift conventions; mapping-cone
+API at the bigraded level; the **structure theorem for finitely generated bigraded
+`𝔽[U]`-modules** (the algebraic home of τ and of "tower plus torsion"
+decompositions); **filtered chain complexes** and filtered chain homotopy
+equivalence, new to Mathlib, needed only from G.13 onward, and reusable far beyond
+this roadmap. ⚠ No spectral sequences are needed anywhere on the main line; resist
+building them here.
+
+### Lane K: knot-theory reconciliation
+
+The "no privileged representation" lane, which **consumes** the knot theory built in
+the [geometric-topology roadmap](../GeometricTopology/README.md) (layer 4: the
+presentations of a knot or link as first-class types, the maps between them, slice-ness,
+and the knot polynomials) and connects grid diagrams to it. Grid diagrams are one more
+presentation; this lane adds the grid-specific **adequacy theorem**, Cromwell's theorem
+(grid moves generate grid equivalence of links; book Appendix B.4, elementary but fiddly
+diagrammatic combinatorics), reconciling them with that roadmap's diagrams, braid closures,
+and embeddings `S¹ ↪ S³`, and checks G.4's grid determinant against that roadmap's
+Alexander polynomial. ⚠ Prior art (Isabelle/AFP knot theory; the Lean `leanknot`
+experiment) shows diagram-calculus *adequacy* is where such projects stall, which is
+exactly why Lane G does not wait for this lane. ⚠ Coordinate the braid-group and
+diagram-calculus foundations with the geometric-topology roadmap (and Hannah Fechtner's
+braid-group program) rather than duplicating them here.
+
+### Lane L: lattice homology
+
+Plumbing trees/graphs and their lattices; Némethi's lattice (co)homology
+`ℍ⁻`/`ℍ⁰` as a `ℤ[U]`-module from lattice points and weight functions; invariance
+under **Neumann moves**; computations for Seifert-fibered examples; `d`-invariant
+analogues. Entirely finite combinatorics plus bilinear forms; a self-contained
+on-ramp to the *3-manifold* side with no Heegaard diagrams at all, and the cheapest
+lane to start in parallel. Far-future reconciliation: Zemke's `ℍ⁻ ≅ HF⁻` (the
+analytic roadmap names the `HF⁻` side).
+
+### Lane H: combinatorial HF̂ of 3-manifolds
+
+The Ozsváth–Stipsicz–Szabó stable invariant
+([arXiv:0912.0830](https://arxiv.org/abs/0912.0830)):
+
+1. Pointed multi-pointed Heegaard diagram *combinatorics* (the diagram as data:
+   surface genus, attaching-curve combinatorics, basepoints, no smooth topology
+   yet); generators, domains, periodic domains, weak/strong **admissibility**.
+2. The nice-move calculus and "convenient" diagrams from pair-of-pants
+   decompositions; the chain complex (every count is a bigon or square).
+3. `HF̂_st(Y)` over 𝔽₂: well-definedness and the purely topological invariance
+   proof; lens spaces and `S¹ × S²` as the first computations.
+4. ℤ coefficients via sign assignments
+   ([arXiv:1301.0480](https://arxiv.org/abs/1301.0480)); the twisted refinement
+   recovering `HF̂(Y)` on the nose for `b₁(Y) = 0`.
+
+⚠ The serious topological input is **Reidemeister–Singer with basepoints** (any two
+pointed Heegaard diagrams of `Y` are connected by moves): Morse/Cerf theory that
+does not exist in Mathlib. Treat it the way Lane G treats Cromwell: make "diagrams
+modulo moves" the *definition* of the input equivalence class, state the invariance
+theorem against it, and put the identification with smooth 3-manifolds in a
+separable reconciliation target (which the analytic roadmap's Morse theory will
+eventually feed). ⚠ This package has no absolute gradings and no `U`-flavors; do not
+promise them here.
+
+The diagram combinatorics of H.1 are also the input the analytic roadmap's Lane F4
+consumes when it builds holomorphic `HF̂` over the same diagrams.
+
+## Acceptance criteria ("checks along the way")
+
+Concrete checks that rule out vacuous or mis-stated definitions:
+
+- **Grid homology computes:** `GĤ` of the unknot (2×2 grid) and the trefoil
+  (5×5), with their bigradings, by `decide`-style evaluation; `GH̃` of an `n × n`
+  unknot grid exhibits the `W^{⊗(n−1)}` factor (the grid-size dependence is real,
+  ruling out a vacuous stabilization quotient).
+- **Euler characteristic:** `χ(GĤ(K)) = Δ_K(t)` on the trefoil and figure-eight,
+  and in general (G.4), matching the grid determinant.
+- **τ bites:** `τ(T_{3,4}) = 3`; the Milnor conjecture for `T_{2,3}` and `T_{3,4}`
+  as instances of G.7; an alternating knot is thin (G.9).
+- **Oracle agreement:** spot-check `GĤ` ranks against published tables
+  (HFKcalc/Knot Atlas data) for a handful of ≤ 8-crossing knots.
+- **Lattice homology:** `ℍ` of a concrete negative-definite plumbing (e.g. the
+  `E₈`-plumbing / Poincaré sphere) matches the literature.
+- **`HF̂_st` computes:** lens spaces give `𝔽^p` (one generator per spin^c
+  structure); `S¹ × S²` exercises weak admissibility.
+
+The reconciliation seam — `HF̂(L(p,q))` computed analytically from the genus-1
+diagram agreeing with Lane H's combinatorial computation — is an acceptance
+criterion of the [analytic roadmap](../HeegaardFloer/README.md), where the
+holomorphic side lives.
+
+## References
+
+- P. Ozsváth, A. Stipsicz, Z. Szabó, *Grid Homology for Knots and Links*, AMS
+  Mathematical Surveys and Monographs 208, 2015: **the spine of Lane G**, nearly a
+  blueprint; Appendix A is Lane ALG's contents, Appendix B is Lane K's.
+- C. Manolescu, P. Ozsváth, S. Sarkar,
+  [arXiv:math/0607691](https://arxiv.org/abs/math/0607691); Manolescu–Ozsváth–
+  Szabó–Thurston [arXiv:math/0610559](https://arxiv.org/abs/math/0610559): grid
+  homology's origins; the latter is the self-contained one. (The former is also the
+  **grid homology = HFK** reconciliation, which the analytic roadmap owns.)
+- P. Ozsváth, A. Stipsicz, Z. Szabó,
+  [arXiv:0912.0830](https://arxiv.org/abs/0912.0830) and
+  [arXiv:1301.0480](https://arxiv.org/abs/1301.0480): Lane H.
+- A. Némethi, [arXiv:0709.0841](https://arxiv.org/abs/0709.0841): Lane L. (Zemke's
+  `ℍ⁻ ≅ HF⁻` reconciliation is cited and tracked in the analytic roadmap.)
+- É. Gallais, [arXiv:0706.0089](https://arxiv.org/abs/0706.0089): sign assignments
+  and ℤ coefficients for grid homology (G.12).
+- A. Juhász, D. Thurston, I. Zemke,
+  [arXiv:1210.4996](https://arxiv.org/abs/1210.4996): naturality, the capstone for
+  invariance phrased as a transitive system.
+- Hannah Fechtner's braid-group program
+  ([Lean Together 2025 talk](https://www.youtube.com/watch?v=qVzuTWycPaw)), whose
+  presented-monoid infrastructure is already in Mathlib and which Lane K should
+  build on rather than duplicate.
+
+## How to drive it
+
+Lanes G.1–3 (with ALG), L, and K can all start immediately and independently. The
+spine to push hardest is **G**: it reaches a famous theorem (Milnor conjecture)
+entirely within reach of current technology. Lane H follows G once the nice-move
+idiom is established. Nothing here waits for the analytic roadmap; the seams between
+them are the reconciliation theorems, which the analytic roadmap states and tracks.
+
+## Acknowledgements
+
+This roadmap builds directly on earlier discussions on the [Lean
+Zulip](https://leanprover.zulipchat.com/), and would not have been possible without
+them:
+
+- [#maths > Feasibility of formalizing Grid Homology for summer pro...](https://leanprover.zulipchat.com/#narrow/channel/116395-maths/topic/Feasibility.20of.20formalizing.20Grid.20Homology.20for.20summer.20pro.2E.2E.2E)
+  (summer 2025): an undergraduate team's grid-homology project (the first attempt
+  at this material in Lean) with Kevin Buzzard's encouragement ("It would be a
+  shame to miss this opportunity to get Heegaard Floer homology into mathlib") and
+  Kyle Miller's observation that grid-diagram combinatorics stands alone, the design
+  position Lane G adopts.
+- [#new members > knot theory](https://leanprover.zulipchat.com/#narrow/channel/113489-new%20members/topic/knot.20theory)
+  (2022–2024, Monica Omar, Kyle Miller, Kim Morrison, Junyan Xu, and others): the
+  richest design discussion of knot representations in Lean: oriented PD codes,
+  quandle invariants, and the "no privileged representation" philosophy this
+  roadmap follows; Junyan Xu raised grid diagrams and Heegaard Floer homology
+  there years before this roadmap.
+- [#general > dreams of big projects](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/dreams.20of.20big.20projects)
+  (2025, Siddhartha Gadgil, Patrick Massot): exotic ℝ⁴'s via combinatorial
+  Heegaard Floer theory and the Milnor conjecture as dream targets, and the
+  objection (combinatorial computation must "relate the result to actual
+  information") that this roadmap's reconciliation targets are designed to
+  answer.
+- [#general > O(1000) definitions for Annals](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/O.281000.29.20definitions.20for.20Annals)
+  (2026, Kevin Buzzard and others): Heegaard Floer homology and basic knot theory
+  as recurring missing definitions in recent Annals papers; also raised in recent
+  TauCetiProject target-selection discussions.
+- Hannah Fechtner's braid-group program
+  ([Lean Together 2025 talk](https://www.youtube.com/watch?v=qVzuTWycPaw)), whose
+  presented-monoid infrastructure is already in Mathlib and which Lane K should
+  build on rather than duplicate.
+
+Thanks to everyone who contributed to these discussions.
