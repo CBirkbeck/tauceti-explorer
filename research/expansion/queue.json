@@ -387,8 +387,12 @@
       "title": "Deligne weights, purity and the Weil bounds",
       "group": "cohomology",
       "stageCount": 11,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-02/DeligneWeightsAndPurity.json",
+      "draftNodes": 9,
+      "draftLinks": 9,
+      "assignment": "EXT-02",
+      "reviewNote": "Draft written by the EXT-02 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-02/HANDOFF.md."
     },
     {
       "id": "DerivedDeRhamCohomology",
@@ -509,8 +513,12 @@
       "title": "Étale duality, cycle classes and perverse sheaves",
       "group": "cohomology",
       "stageCount": 13,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-02/EtaleDualityAndPerverseSheaves.json",
+      "draftNodes": 2,
+      "draftLinks": 7,
+      "assignment": "EXT-02",
+      "reviewNote": "Draft written by the EXT-02 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-02/HANDOFF.md."
     },
     {
       "id": "EulerSystemsAndKolyvaginSystems",
@@ -857,8 +865,12 @@
       "title": "Lefschetz pencils, nearby cycles and vanishing cycles",
       "group": "cohomology",
       "stageCount": 10,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-02/LefschetzPencilsAndVanishingCycles.json",
+      "draftNodes": 9,
+      "draftLinks": 12,
+      "assignment": "EXT-02",
+      "reviewNote": "Draft written by the EXT-02 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-02/HANDOFF.md."
     },
     {
       "id": "LocalGaloisDeformationRings",
