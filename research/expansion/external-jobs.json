@@ -1,0 +1,375 @@
+{
+  "jobs": [
+    {
+      "id": "EXT-01",
+      "title": "Shared foundations",
+      "roadmapIds": [
+        "DeformationAndDerivedPatchingAlgebra",
+        "EnhancedDerivedSheaves",
+        "FoundationsAndLibraryIntegration",
+        "GeneralAlgebraicKTheory",
+        "SchemeAndStackFoundations",
+        "StableHomotopyKTheory"
+      ],
+      "state": "assigned_internal",
+      "assignedOn": "2026-09-15",
+      "note": "Claimed on 15 September 2026 and run unattended in a tmux session under the local account \"claude3\". Do not hand this job to another agent; packets land in research/expansion/external/EXT-01/."
+    },
+    {
+      "id": "EXT-02",
+      "title": "Geometry and cohomology",
+      "roadmapIds": [
+        "AdicCoefficientsAndComparisons",
+        "AdicEtaleGeometry",
+        "AdicSpacesPartII",
+        "ClassicalAdicEtaleCohomology",
+        "DeligneWeightsAndPurity",
+        "EtaleDualityAndPerverseSheaves",
+        "LefschetzPencilsAndVanishingCycles"
+      ],
+      "state": "assigned_internal",
+      "assignedOn": "2026-09-15",
+      "note": "Claimed by the internal research session on 15 September 2026. Do not hand this job to an external agent; its packets are written to research/expansion/external/EXT-02/ by the internal worker."
+    },
+    {
+      "id": "EXT-03",
+      "title": "Geometry and cohomology",
+      "roadmapIds": [
+        "PadicDifferentialEquationsAndRigidCohomology",
+        "PadicHodgeTheory",
+        "PerfectoidQuotients",
+        "PerfectoidSpaces",
+        "TropicalAndBerkovichArithmetic",
+        "WeightsInEtaleCohomology",
+        "WeilConjectures"
+      ],
+      "state": "assigned_internal",
+      "assignedOn": "2026-09-15",
+      "note": "Claimed by the internal research session on 15 September 2026. Do not hand this job to an external agent; its packets are written to research/expansion/external/EXT-03/ by the internal worker."
+    },
+    {
+      "id": "EXT-04",
+      "title": "Diamonds and geometric Langlands",
+      "roadmapIds": [
+        "BunGAndNewtonStrata",
+        "DiamondEtaleCohomology",
+        "DiamondSixOperations",
+        "DiamondsAndVStacks",
+        "ExcursionOperatorsAndSpectralAction",
+        "FarguesFontaineDiamonds"
+      ],
+      "state": "assigned_internal",
+      "assignedOn": "2026-09-15",
+      "note": "Claimed on 15 September 2026 and run unattended in a tmux session under the local account \"claude4\". Do not hand this job to another agent; packets land in research/expansion/external/EXT-04/."
+    },
+    {
+      "id": "EXT-05",
+      "title": "Diamonds and geometric Langlands",
+      "roadmapIds": [
+        "GeometricSatakeAndFusion",
+        "HeckeStacksAndLocalShtukas",
+        "LanglandsParameterStacks",
+        "RelativeFarguesFontaine",
+        "VStackSheavesAndLisseCategories",
+        "VectorBundlesAndIsocrystals"
+      ],
+      "state": "assigned_internal",
+      "assignedOn": "2026-09-15",
+      "note": "Claimed on 15 September 2026 and run unattended in a tmux session under the local account \"claude6\". Do not hand this job to another agent; packets land in research/expansion/external/EXT-05/."
+    },
+    {
+      "id": "EXT-06",
+      "title": "Arithmetic geometry",
+      "roadmapIds": [
+        "AbelianSchemesAndArithmeticModuli",
+        "AlgebraicModuliForArithmeticGeometry",
+        "AnabelianGeometryAndNonabelianChabauty",
+        "ArakelovGeometryAndAbelianHeights",
+        "ArithmeticDynamics",
+        "ComplexComparisonPartII",
+        "ComplexMultiplicationAndExplicitReciprocity"
+      ],
+      "state": "available"
+    },
+    {
+      "id": "EXT-07",
+      "title": "Arithmetic geometry",
+      "roadmapIds": [
+        "EffectiveDiophantineMethods",
+        "FaltingsFinitenessAndIsogenyTheorems",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+        "HeightsRationalPointsAndObstructions",
+        "InverseGaloisAndArithmeticFundamentalGroups",
+        "NeronModelsAndSemistableAbelianVarieties",
+        "tauceti:TauCetiRoadmap/JacobianChallenge"
+      ],
+      "state": "available"
+    },
+    {
+      "id": "EXT-08",
+      "title": "Classical and analytic number theory",
+      "roadmapIds": [
+        "AdditiveCombinatorics",
+        "AnalyticNumberTheory",
+        "ArithmeticStatistics",
+        "ClassicalArithmeticCompletion",
+        "ComputationalNumberTheory",
+        "DiophantineApproximationAndTranscendence",
+        "ExponentialSumsAndCircleMethod",
+        "FiniteFieldsAndCharacterSums"
+      ],
+      "state": "available"
+    },
+    {
+      "id": "EXT-09",
+      "title": "Classical and analytic number theory",
+      "roadmapIds": [
+        "GeometryOfNumbersAndQuadraticArithmetic",
+        "LogicAndDefinabilityInNumberTheory",
+        "ProbabilisticAndMetricNumberTheory",
+        "QSeriesPartitionsAndMockModularForms",
+        "SieveMethodsAndPrimePatterns",
+        "tauceti:Completed/EffectiveBounds",
+        "tauceti:TauCetiRoadmap/Multiquadratic"
+      ],
+      "state": "available"
+    },
+    {
+      "id": "EXT-10",
+      "title": "Modular, Shimura and Galois theory",
+      "roadmapIds": [
+        "AlgebraicModularFormsAndSerreWeights",
+        "ArithmeticGaloisRepresentations",
+        "AutomorphicBundles",
+        "AutomorphicGaloisRepresentations",
+        "AutomorphicGaloisRepresentationsPartII",
+        "ClassicalSerreModularity",
+        "CompletedCohomologyAndLocalGlobalCompatibility",
+        "CompletedCohomologyPartII",
+        "EllipticCurveModularity"
+      ],
+      "state": "available"
+    },
+    {
+      "id": "EXT-11",
+      "title": "Modular, Shimura and Galois theory",
+      "roadmapIds": [
+        "EndoscopicTransferAndUnitaryTraceComparison",
+        "GL2AutomorphicRepresentationsAndTransfer",
+        "GL2ModularityLifting",
+        "GlobalGaloisDeformations",
+        "HilbertModularVarietiesAndShimuraCurves",
+        "HodgeTateAndCanonicalSubgroups",
+        "IgusaVarietiesAndTorsionConcentration",
+        "IntegralHeckeAndGaloisDeterminants",
+        "LocalGaloisDeformationRings"
+      ],
+      "state": "available"
+    },
+    {
+      "id": "EXT-12",
+      "title": "Modular, Shimura and Galois theory",
+      "roadmapIds": [
+        "ModularCurvesPartII",
+        "ModularityAndLanglandsExtensions",
+        "OrdinaryAutomorphicFormsAndModularityLifting",
+        "OverconvergentAutomorphicForms",
+        "PELModuli",
+        "PadicLocalLanglandsForGL2Qp",
+        "PerfectoidShimuraVarieties",
+        "PotentialAutomorphyInfrastructure",
+        "PotentialModularityAndCompatibleSystems"
+      ],
+      "state": "available"
+    },
+    {
+      "id": "EXT-13",
+      "title": "Modular, Shimura and Galois theory",
+      "roadmapIds": [
+        "SerreWeightAndLevelOptimisation",
+        "ShimuraCompactifications",
+        "ShimuraData",
+        "ShimuraVarieties",
+        "SmallRamificationAndAbelianVarietyBaseCases",
+        "TorsionCohomologyInfrastructure",
+        "tauceti:TauCetiRoadmap/ModularForms"
+      ],
+      "state": "available"
+    },
+    {
+      "id": "EXT-14",
+      "title": "Iwasawa theory and special values",
+      "roadmapIds": [
+        "ArithmeticGaloisDuality",
+        "AutomorphicCongruences",
+        "AutomorphicPadicLFunctions",
+        "ColemanIntegration",
+        "ColemanPowerSeries",
+        "DirichletPadicLFunctions",
+        "EulerSystemsAndKolyvaginSystems"
+      ],
+      "state": "available"
+    },
+    {
+      "id": "EXT-15",
+      "title": "Iwasawa theory and special values",
+      "roadmapIds": [
+        "EulerSystemsCyclotomicMainConjecture",
+        "GeneralizedHeegnerCycles",
+        "GrossZagierAndArithmeticHeights",
+        "HeegnerPointEulerSystems",
+        "IntegralIwasawaTheory",
+        "KatoEulerSystems",
+        "ModularIwasawaMainConjectures"
+      ],
+      "state": "assigned_internal",
+      "assignedOn": "2026-09-15",
+      "note": "Claimed on 15 September 2026 and run unattended in a tmux session under the local account \"claude\". Do not hand this job to another agent; packets land in research/expansion/external/EXT-15/."
+    },
+    {
+      "id": "EXT-16",
+      "title": "Iwasawa theory and special values",
+      "roadmapIds": [
+        "ModularSymbolsPadicLFunctions",
+        "NoncommutativeAndEquivariantIwasawa",
+        "PadicMeasuresIwasawaAlgebras",
+        "PhiGammaModulesAndIwasawaCohomology",
+        "RankZeroOneBSD",
+        "SelmerIwasawaCohomology"
+      ],
+      "state": "assigned_internal",
+      "assignedOn": "2026-09-15",
+      "note": "Claimed on 15 September 2026 and run unattended in a tmux session under the local account \"claude2\". Do not hand this job to another agent; packets land in research/expansion/external/EXT-16/."
+    },
+    {
+      "id": "EXT-17",
+      "title": "K-theory, motives and periods",
+      "roadmapIds": [
+        "ArithmeticKTheory",
+        "ArithmeticQuantumTopology",
+        "BorelRegulators",
+        "EllipticKTheory",
+        "EllipticRegulators",
+        "HabiroCohomologyFoundations",
+        "HabiroCyclotomicCompletions",
+        "HabiroNahmSeries"
+      ],
+      "state": "available"
+    },
+    {
+      "id": "EXT-18",
+      "title": "K-theory, motives and periods",
+      "roadmapIds": [
+        "HabiroNumberFields",
+        "HabiroRings",
+        "K2SymbolsBrauer",
+        "K3BlochGroups",
+        "KTheoryFiniteLocalFields",
+        "KTheoryLowDegrees",
+        "MotivesAndAlgebraicCycles",
+        "MotivicEtaleKTheory"
+      ],
+      "state": "available"
+    },
+    {
+      "id": "EXT-19",
+      "title": "K-theory, motives and periods",
+      "roadmapIds": [
+        "PadicHodgeRegulators",
+        "PeriodsAndSpecialValues",
+        "Polylogarithms",
+        "RefinedTraceMethods",
+        "SchemeKTheoryOperations",
+        "SpecialValuesBirchTate"
+      ],
+      "state": "available"
+    },
+    {
+      "id": "EXT-20",
+      "title": "Function fields",
+      "roadmapIds": [
+        "DrinfeldModulesAndTModules",
+        "FunctionFieldArithmetic",
+        "GlobalShtukasAndFunctionFieldLanglands",
+        "HigherLocalFieldsAndHigherClassFieldTheory"
+      ],
+      "state": "available"
+    },
+    {
+      "id": "EXT-21",
+      "title": "Algebra and representation theory",
+      "roadmapIds": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+      ],
+      "state": "available"
+    },
+    {
+      "id": "EXT-22",
+      "title": "Algebra and representation theory",
+      "roadmapIds": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+        "tauceti:TauCetiRoadmap/RepresentationTheory",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+      ],
+      "state": "available"
+    },
+    {
+      "id": "EXT-23",
+      "title": "Analysis and probability",
+      "roadmapIds": [
+        "tauceti:TauCetiRoadmap/ConformalMapping",
+        "tauceti:TauCetiRoadmap/ContourIntegration",
+        "tauceti:TauCetiRoadmap/Exchangeability",
+        "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+        "tauceti:TauCetiRoadmap/OptimalTransport",
+        "tauceti:TauCetiRoadmap/OrthogonalL2Bases",
+        "tauceti:TauCetiRoadmap/PDE"
+      ],
+      "state": "available"
+    },
+    {
+      "id": "EXT-24",
+      "title": "Topology and Floer theory",
+      "roadmapIds": [
+        "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+        "tauceti:TauCetiRoadmap/GeometricTopology",
+        "tauceti:TauCetiRoadmap/HeegaardFloer",
+        "tauceti:TauCetiRoadmap/UniversalCovers"
+      ],
+      "state": "available"
+    },
+    {
+      "id": "EXT-25",
+      "title": "General automorphic theory",
+      "roadmapIds": [
+        "AdelicAlgebraicGroups",
+        "ArithmeticLocallySymmetricSpaces",
+        "AutomorphicFormsOnReductiveGroups",
+        "AutomorphicLFunctionsAndLocalFactors",
+        "AutomorphicSpectralTheory",
+        "MetaplecticAutomorphicForms",
+        "ReductiveGroupsPartII",
+        "SmoothRepresentationsOfLocalGroups"
+      ],
+      "state": "available"
+    }
+  ],
+  "internalRoadmaps": [
+    "PadicFamilies",
+    "LocallyAnalyticDistributions",
+    "AInfCohomology",
+    "CrystallineCohomology",
+    "DerivedDeRhamCohomology",
+    "PrismaticCohomology",
+    "CohomologyComparisons"
+  ]
+}
