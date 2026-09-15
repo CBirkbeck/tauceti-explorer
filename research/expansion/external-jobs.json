@@ -60,7 +60,7 @@
       ],
       "state": "assigned_internal",
       "assignedOn": "2026-09-15",
-      "note": "Claimed on 15 September 2026 and run unattended in a tmux session under the local account \"claude4\". Do not hand this job to another agent; packets land in research/expansion/external/EXT-04/."
+      "note": "Claimed on 15 September 2026; scheduled to run unattended in tmux under the local account \"claude4\" from 16 Sep 16:10 BST (weekly limit reset). Do not hand this job to another agent; packets land in research/expansion/external/EXT-04/."
     },
     {
       "id": "EXT-05",
@@ -105,7 +105,9 @@
         "NeronModelsAndSemistableAbelianVarieties",
         "tauceti:TauCetiRoadmap/JacobianChallenge"
       ],
-      "state": "available"
+      "state": "assigned_internal",
+      "assignedOn": "2026-09-15",
+      "note": "Claimed on 15 September 2026; scheduled to run unattended in tmux under the local account \"claude2\" from 16 Sep 02:10 BST (weekly limit reset). Do not hand this job to another agent; packets land in research/expansion/external/EXT-07/."
     },
     {
       "id": "EXT-08",
@@ -136,7 +138,9 @@
         "tauceti:Completed/EffectiveBounds",
         "tauceti:TauCetiRoadmap/Multiquadratic"
       ],
-      "state": "available"
+      "state": "assigned_internal",
+      "assignedOn": "2026-09-15",
+      "note": "Claimed on 15 September 2026; scheduled to run unattended in tmux under the local account \"claude4\" from 16 Sep 16:10 BST (weekly limit reset). Do not hand this job to another agent; packets land in research/expansion/external/EXT-09/."
     },
     {
       "id": "EXT-10",
@@ -245,7 +249,7 @@
       ],
       "state": "assigned_internal",
       "assignedOn": "2026-09-15",
-      "note": "Claimed on 15 September 2026 and run unattended in a tmux session under the local account \"claude2\". Do not hand this job to another agent; packets land in research/expansion/external/EXT-16/."
+      "note": "Claimed on 15 September 2026; scheduled to run unattended in tmux under the local account \"claude2\" from 16 Sep 02:10 BST (weekly limit reset). Do not hand this job to another agent; packets land in research/expansion/external/EXT-16/."
     },
     {
       "id": "EXT-17",
