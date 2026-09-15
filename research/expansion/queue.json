@@ -733,8 +733,12 @@
       "title": "Hecke correspondences and local shtuka cohomology",
       "group": "diamonds",
       "stageCount": 5,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-05/HeckeStacksAndLocalShtukas.json",
+      "draftNodes": 13,
+      "draftLinks": 13,
+      "assignment": "EXT-05",
+      "reviewNote": "Draft written by the EXT-05 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-05/HANDOFF.md."
     },
     {
       "id": "HeegnerPointEulerSystems",
@@ -857,8 +861,12 @@
       "title": "Parameter stacks, invariant theory and spectral coefficients",
       "group": "diamonds",
       "stageCount": 8,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-05/LanglandsParameterStacks.json",
+      "draftNodes": 16,
+      "draftLinks": 17,
+      "assignment": "EXT-05",
+      "reviewNote": "Draft written by the EXT-05 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-05/HANDOFF.md."
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles",
