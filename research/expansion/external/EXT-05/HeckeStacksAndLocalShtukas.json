@@ -1,0 +1,792 @@
+{
+ "roadmapId": "HeckeStacksAndLocalShtukas",
+ "status": "partial",
+ "summary": "Source decomposition of Hecke correspondences and local shtuka cohomology from Fargues-Scholze Chapter IX (introduction, IX.1, IX.2, IX.3, IX.5.1, IX.6.1-IX.6.3) read directly, together with Scholze-Weinstein's Definition 23.1.1 and Theorem 23.1.4 for the moduli of mixed-characteristic local G-shtukas. The decomposition keeps the two things the roadmap insists on distinguishing. First, the Hecke operator is built with the SOLID relative-homology functor p_{2 sharp}, not a naive lower-shriek; Fargues-Scholze say explicitly that the monoidal structure exists on the infinity-category because the solid convolution uses only pullback, tensor and pi_sharp, and that they 'would have to work harder' with lower-!-functors. Second, the Weil action is a map of CONDENSED animated groups W_E^I -> Aut(A), obtained from the enrichment of D_lis(Bun_G,Lambda) in condensed anima, and finite-set functoriality is coCartesian-fibration functoriality rather than a compatible family. The chain of consequences is traced in the source's own order: dualizability of V in the Satake category makes T_V biadjoint to T_{V^dual}, which formally gives preservation of limits, colimits and compact objects; ULA-preservation then follows by adjointness from the characterisation of ULA objects as those with perfect RHom against compacts; and Theorem IX.3.1 reads off compactness of RGamma_c of a local Shimura variety at pro-p level from compactness of T_mu applied to a compactly induced object, with continuity of the W_E-action coming from defining T_mu over Spd E/phi^Z. Several load-bearing imports (FS VII.4-VII.5, FS IV.7, Berkeley Lectures 23.2-24) are unread and are recorded as explicit gaps.",
+ "sources": [
+  {
+   "id": "FS-geometrization",
+   "title": "Geometrization of the local Langlands correspondence",
+   "authors": "Laurent Fargues, Peter Scholze",
+   "edition": "Author-hosted 356-page PDF (MPIM Bonn), inspected 2026-09-15; corresponds to arXiv:2102.13459v4 by metadata and contents, not by byte comparison. PDF page = printed page.",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+   "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+   "readSections": [
+    "IX introduction, printed pp. 317-319 (the Hecke correspondence, Thm. IX.0.1, Def. IX.0.2, Cor. IX.0.3, Def. IX.0.4, Thm. IX.0.5)",
+    "IX.1 Condensed infinity-categories, printed pp. 320-321 (Prop. IX.1.1, Prop. IX.1.2 and the end of its proof)",
+    "IX.2 Hecke operators, printed pp. 321-323 (the construction of S'_V, Prop. IX.2.1 with proof, Thm. IX.2.2 with proof, Cor. IX.2.3 with proof, Cor. IX.2.4)",
+    "IX.3 Cohomology of local Shimura varieties, printed pp. 324-325 (the local Shimura datum setup, Thm. IX.3.1 with full proof, and the admissibility/duality discussion after it)",
+    "IX.5, printed pp. 327-328 (Prop. IX.5.1 with the start of its proof)",
+    "IX.6, printed pp. 328-332 (Thm. IX.6.1, Prop. IX.6.2 with proof, Prop. IX.6.3 statement; Props. IX.6.4, IX.6.5 located but not read)",
+    "VI.12.1 (used for sw^*) and VI.9 (fusion), read for the GeometricSatakeAndFusion packet and reused here as cited inputs"
+   ]
+  },
+  {
+   "id": "SW20-berkeley",
+   "title": "Berkeley Lectures on p-adic Geometry",
+   "authors": "Peter Scholze, Jared Weinstein",
+   "edition": "Annals of Mathematics Studies 207; PDF dated 'March 27, 2020'. Printed page = PDF page - 10.",
+   "url": "https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf",
+   "sha256": "225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc",
+   "readSections": [
+    "23.1 Definition of mixed-characteristic local shtukas: Definition 23.1.1 with the full list of data and the boundedness condition, Remarks 23.1.2-23.1.3, Theorem 23.1.4 and the sentence after it, printed pp. 216-217",
+    "Corollary 23.3.2 (duality datum) located but not read",
+    "Propositions 19.1.2, 19.5.2, 19.5.3 read for the RelativeFarguesFontaine packet and reused here as cited inputs"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "HeckeStacksAndLocalShtukas:HS0/global-hecke-correspondence",
+   "parentStageId": "HeckeStacksAndLocalShtukas:HS0",
+   "title": "The global Hecke correspondence Bun_G <- Hck^I_G -> Bun_G x (Div^1)^I",
+   "kind": "construction",
+   "statement": "For a finite set I, Hck^I_G parametrizes over S in Perf pairs of G-torsors E_1, E_2 on X_S together with an isomorphism away from the chosen degree-one divisors, meromorphic along them, plus the leg data S -> (Div^1)^I. The two projections p_1 : Hck^I_G -> Bun_G and p_2 : Hck^I_G -> Bun_G x (Div^1)^I form the correspondence used to define Hecke operators. Bounded substacks for tuples of dominant cocharacters are the pullbacks of the bounded loci in the local Hecke stack; for a single minuscule mu the corresponding correspondence on Bun_{G,C} is PROPER AND SMOOTH over both factors.",
+   "hypotheses": [
+    "The isomorphism must be MEROMORPHIC along the divisors; this is tested on all representations in the Tannakian description (FS III.3, printed p. 97)",
+    "The bounded loci and their properness come from the local theory: Gr_{G,Div^d,<=mu_bullet} -> Div^d is proper, representable in spatial diamonds, of finite dim.trg (FS VI.2.7). The roadmap's warning applies: GLOBAL source/target maps are not declared representable merely because individual fibres are",
+    "The properness-and-smoothness statement quoted for a minuscule mu is asserted by Fargues-Scholze in the proof of Theorem IX.3.1 for the type-mu Hecke correspondence on Bun_{G,C}, not for arbitrary bounds",
+    "Hck^I_G is obtained from the local Hecke stack Hck_{G,Div^d} by pullback along (Div^1_X)^I -> Div^d_X; on Hecke STACKS the comparison map for a map I -> J of finite sets is not a closed immersion (FS footnote to VI.9)"
+   ],
+   "proofSteps": [
+    "Fargues-Scholze set up the correspondence in the opening of Chapter IX and define T_V by pull-tensor-push along it.",
+    "The local model is Hck_{G,Div^d} with its bounded substacks and Schubert stratification from VI.1-VI.2; the global stack is the pullback along the leg map.",
+    "The proper-and-smooth claim for a minuscule type is used in the proof of Theorem IX.3.1 to identify the local Shimura tower with a fibre of T_mu."
+   ],
+   "acceptance": [
+    "Check the trivial modification recovers the identity correspondence",
+    "Check a one-leg torus modification",
+    "Check that properness of the individual fibres does not give representability of p_1, p_2 globally"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "IX introduction, printed p. 317",
+     "excerpt": "Using the correspondence Bun_G <- Hck^I_G -> Bun_G x (Div^1)^I we get the Hecke operator T_V : D_et(Bun_G,Lambda) -> D_et(Bun_G x (Div^1)^I, Lambda) : A -> Rp_{2*}(p_1^* A tensor^L_Lambda S_V).",
+     "match": "The correspondence and the torsion-coefficient definition of the Hecke operator."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem IX.3.1, printed p. 324",
+     "excerpt": "Now mu gives rise to a Hecke operator T_mu = T_{V_mu} where V_mu is the highest weight representation of weight mu. It corresponds to the Hecke correspondence on Bun_{G,C} parametrizing modifications of type mu; this Hecke correspondence is proper and smooth over both factors.",
+     "match": "The geometric property of the bounded correspondence that the cohomological statements consume."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "III.3, printed p. 97",
+     "excerpt": "a modification between E and E' at D is an isomorphism E|_{X_S \\ D} -> E'|_{X_S \\ D} that is meromorphic along D. The latter means that for any representation in Rep_E(G), the associated isomorphism between vector bundles ... extends to a morphism F -> F'(kD) for k >> 0.",
+     "match": "The meromorphy condition defining the correspondence."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HeckeStacksAndLocalShtukas:HS0/demazure-generators-of-ULA-kernels",
+   "parentStageId": "HeckeStacksAndLocalShtukas:HS0",
+   "title": "Demazure generation of the ULA kernel category and preservation of D_lis",
+   "kind": "lemma",
+   "statement": "Over a geometric point Spd C -> Div^1_X, the category D^{ULA}(Hck_{G,Spd C/Div^1_X}, Z_l) is generated under colimits by the objects R f_{w-dot *} Z_l for f_{w-dot} : L^+I \\ Dem_{w-dot} -> Hck_{G,Spd C/Div^1_X} a Demazure resolution (modulo the action of an Iwahori) of a Schubert variety in the AFFINE FLAG variety. For each such generator the corresponding push-pull correspondence on Bun_{G,C} is PROPER AND COHOMOLOGICALLY SMOOTH, hence preserves D_lis(Bun_{G,C},Lambda).",
+   "hypotheses": [
+    "The generation statement is over a geometric point Spd C with C = E-breve-bar; it is what reduces Proposition IX.2.1 to a proper cohomologically smooth correspondence",
+    "The Demazure resolutions are taken in the AFFINE FLAG variety, not in the affine Grassmannian; the Iwahori quotient is part of the statement",
+    "The passage from the generators to all of D_lis uses Proposition VII.4.3 (relation between D_solid and D_et), which was NOT read",
+    "The reduction from a general I to I = {*} uses that V -> T_V is monoidal plus highest weight theory"
+   ],
+   "proofSteps": [
+    "Reduce by highest weight theory to V an exterior tensor product of representations of G-hat, then by monoidality to the tensor factors, hence to I = {*}.",
+    "Reduce the claim to showing that h_{2 sharp}(h_1^* A tensor^L_solid q^* B^dual) lies in D_lis for all B in D^{ULA}(Hck_{G,Spd C/Div^1_X}, Z_l).",
+    "Use that this category is generated under colimits by the Demazure objects R f_{w-dot *} Z_l.",
+    "For each such kernel the correspondence on Bun_{G,C} is proper and cohomologically smooth, so Proposition VII.4.3 gives preservation of D_lis."
+   ],
+   "acceptance": [
+    "Check that the Demazure generators really generate under colimits, on a rank-one group",
+    "Check that a proper cohomologically smooth correspondence preserves D_lis",
+    "Check the reduction to I = {*} is legitimate for a non-exterior-product V"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition IX.2.1, printed p. 322",
+     "excerpt": "Now the category of such B is generated (under colimits) by the objects R f_{w-dot *} Z_l for f_{w-dot} : L^+ I \\ Dem_{w-dot} -> Hck_{G,Spd C/Div^1_X} a Demazure resolution (modulo action of Iwahori) of some Schubert variety in the affine flag variety. Using Proposition VII.4.3, it thus suffices to see that for the corresponding push-pull correspondence on Bun_{G,C} with kernel given by the Demazure resolution, one has preservation of D_lis(Bun_{G,C},Lambda). But this is a proper and cohomologically smooth correspondence.",
+     "match": "The exact generation-and-reduction argument, naming the affine flag Demazure resolutions."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HeckeStacksAndLocalShtukas:HS1/satake-kernel-and-solid-monoidal-functor",
+   "parentStageId": "HeckeStacksAndLocalShtukas:HS1",
+   "title": "FS IX.2: the Satake kernel S'_V as a solid monoidal functor, extended from Z_l[sqrt q] to arbitrary Lambda",
+   "kind": "construction",
+   "statement": "Geometric Satake gives exact Rep_{Z_l[sqrt q]}(Q^I)-linear monoidal functors Rep_{Z_l[sqrt q]}((G-hat semidirect Q)^I) -> Sat(Hck^I_G, Z_l[sqrt q]) : V -> S_V, the target being the inverse limit over n of the Z/l^n[sqrt q]-versions, functorially in I. Composing with A -> D(A)^dual (Verdier duality relative to Hck^I_G -> [(Div^1)^I/L^+G]) gives exact monoidal functors into D_solid(Hck^I_G, Z_l[sqrt q]), where the target's monoidal structure is the convolution of FS VII.5. This extends uniquely by linearity to an exact Rep_Lambda(Q^I)-linear monoidal functor Rep_Lambda((G-hat semidirect Q)^I) -> D_solid(Hck^I_G, Lambda) : V -> S'_V.",
+   "hypotheses": [
+    "Lambda must be a Z_l[sqrt q]-ALGEBRA; the square root of q is what trivializes the cyclotomic twist in geometric Satake, and Q is a finite quotient of W_E through which the action on G-hat factors",
+    "The monoidal structure on D_solid(Hck^I_G, Z_l[sqrt q]) is available on the INFINITY-CATEGORY because the solid convolution uses only pullback, tensor product and pi_sharp, all naturally defined infinity-categorically; Fargues-Scholze note 'We would have to work harder to obtain this structure when employing lower-!-functors, as we have not defined them in a sufficiently structured way'",
+    "The functor from Rep((G-hat semidirect Q)^I) is monoidal in this setting because on perverse sheaves there are no higher coherences to take care of",
+    "The extension to general Lambda implicitly uses HIGHEST WEIGHT THEORY, through the identity Perf(B(G-hat semidirect Q)^I_{Z_l[sqrt q]}) tensor_{Perf(BQ^I)} Perf(*/Q^I_Lambda) = Perf(*/(G-hat semidirect Q)^I_Lambda), and that the free stable infinity-category with an exact functor from Rep_Lambda((G-hat semidirect Q)^I) is Perf(*/(G-hat semidirect Q)^I_Lambda)"
+   ],
+   "proofSteps": [
+    "Start from the geometric Satake equivalence of GS4 with the sqrt(q)-normalisation, giving V -> S_V into the Satake category with Z_l[sqrt q]-coefficients, defined as an inverse limit over torsion levels.",
+    "Compose with A -> D(A)^dual to land in the solid category, where the relevant monoidal structure is the VII.5 convolution; note that this functor is monoidal for the usual convolution on perverse sheaves and the solid convolution on the target.",
+    "Extend linearly to a general Z_l[sqrt q]-algebra Lambda using the highest-weight/perfect-complex identity."
+   ],
+   "acceptance": [
+    "Check T_unit = identity, i.e. S'_1 is the unit kernel",
+    "Check that the kernel lands in the dualizable/ULA category, which is what IX.2.2's adjointness argument uses",
+    "Check the sqrt(q) normalisation on a torus"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "IX.2, printed p. 321",
+     "excerpt": "We can compose with the functor A -> D(A)^dual (where the Verdier duality is relative to the projection Hck^I_G -> [(Div^1)^I/L^+G]) to get exact Rep_{Z_l[sqrt q]}(Q^I)-linear monoidal functors Rep_{Z_l[sqrt q]}((G-hat semidirect Q)^I) -> D_solid(Hck^I_G, Z_l[sqrt q]), functorially in I.",
+     "match": "The construction of the solid kernel from the Satake sheaf."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "IX.2, printed p. 321",
+     "excerpt": "We note that as the convolution on D_solid makes use only of pullback, tensor product, and pi_sharp-functors, all of which are defined naturally on infinity-categories, this monoidal structure is actually a monoidal structure on the infinity-category D_solid(Hck^I_G, Z_l[sqrt q]). (We would have to work harder to obtain this structure when employing lower-!-functors, as we have not defined them in a sufficiently structured way.)",
+     "match": "Records exactly why the solid pi_sharp is used rather than a naive lower-shriek, which is what the stage text asks to be respected."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "IX introduction, printed p. 317",
+     "excerpt": "As in the last chapter, we work over a Z_l[sqrt q]-algebra Lambda in order to trivialize the cyclotomic twist in the geometric Satake equivalence; let Q be a finite quotient of W_E over which the action on G-hat factors.",
+     "match": "The coefficient hypothesis and the role of sqrt(q)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HeckeStacksAndLocalShtukas:HS1/hecke-operator-via-relative-homology",
+   "parentStageId": "HeckeStacksAndLocalShtukas:HS1",
+   "title": "FS IX.2 and IX.2.1: T_V by pull-tensor-relative-homology, and preservation of D_lis",
+   "kind": "construction",
+   "statement": "Define T_V(A) = p_{2 sharp}(p_1^* A tensor^{L,solid}_Lambda S'_V) along the Hecke correspondence, giving T_V : D_lis(Bun_G,Lambda) -> D_solid(Bun_G x (Div^1)^I, Lambda). The passage from torsion Lambda to arbitrary Lambda is exactly the translation of Proposition VII.5.2. Pulling back to the diagonal geometric point Spd C -> (Div^1)^I with C = E-breve-bar, the functor depends only on the composite factoring over Rep_Lambda(G-hat^I), and then T_V : D_solid(Bun_G x Spd C, Lambda) -> D_solid(Bun_G x Spd C, Lambda) restricts to T_V : D_lis(Bun_G,Lambda) -> D_lis(Bun_G,Lambda).",
+   "hypotheses": [
+    "p_{2 sharp} is the SOLID relative-homology left adjoint of p_2^*, not an ordinary Rp_{2!}; the naive ECD lower-shriek is unavailable for the stacky map p_2",
+    "The tensor product is the solid one",
+    "For arbitrary (non-torsion) Lambda the definition rests on Proposition VII.5.2 (f_sharp Lambda = Rf_! Rf^! Lambda for separated cohomologically smooth f), which was NOT read",
+    "Proposition IX.2.1 is stated after pullback to the diagonal geometric point Spd C, where the functor factors over Rep_Lambda(G-hat^I) rather than Rep_Lambda((G-hat semidirect Q)^I)"
+   ],
+   "proofSteps": [
+    "Define T_V by pull-tensor-push with the solid relative homology.",
+    "For preservation of D_lis: reduce by highest weight theory and monoidality to I = {*}; reduce to showing h_{2 sharp}(h_1^* A tensor^L_solid q^* B^dual) in D_lis for all ULA B; use the Demazure generation and Proposition VII.4.3 for the proper cohomologically smooth correspondences."
+   ],
+   "acceptance": [
+    "Check T_V on the unit kernel gives the identity",
+    "Check that the naive Rp_{2!} is not defined for p_2, so that p_{2 sharp} is not a renaming",
+    "Check the factorisation over Rep_Lambda(G-hat^I) at the diagonal geometric point"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "IX.2, printed pp. 321-322",
+     "excerpt": "T_V(A) = p_{2 sharp}(p_1^* A tensor^{L,solid}_Lambda S'_V) where we consider the usual diagram Bun_G <- Hck^I_G -> Bun_G x (Div^1)^I. Note that we have thus essentially used the translation of Proposition VII.5.2 to extend the Hecke operators from the case of torsion rings Lambda to all Lambda.",
+     "match": "The definition with the solid relative homology and the exact reason the extension to general Lambda works."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition IX.2.1, printed p. 322",
+     "excerpt": "For any V in Rep_Lambda(G-hat^I), the functor T_V : D_solid(Bun_G x Spd C, Lambda) -> D_solid(Bun_G x Spd C, Lambda) restricts to a functor T_V : D_lis(Bun_G,Lambda) -> D_lis(Bun_G,Lambda).",
+     "match": "The preservation statement, stated at the diagonal geometric point."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HeckeStacksAndLocalShtukas:HS1/properties-and-weil-equivariance",
+   "parentStageId": "HeckeStacksAndLocalShtukas:HS1",
+   "title": "FS IX.2.2-IX.2.4: exactness, preservation of compact and ULA objects, duality, and the W_E^I-action",
+   "kind": "theorem",
+   "statement": "For V in Rep_Lambda(G-hat^I), T_V preserves all limits and colimits, compact objects and universally locally acyclic objects, and for the involution sw^* of Proposition VI.12.1 there are natural isomorphisms D_BZ(T_V(A)) = T_{sw^* V^dual}(D_BZ(A)) and RHom_lis(T_V(A),Lambda) = T_{sw^* V^dual} RHom_lis(A,Lambda). For V in Rep_Lambda((G-hat semidirect Q)^I), T_V takes values in D_solid(Bun_G x [*/W_E^I],Lambda) with lisse pullback, hence induces T_V : D_lis(Bun_G,Lambda) -> D_lis(Bun_G,Lambda)^{B W_E^I}; and the Hecke action gives exact Rep_Lambda(Q^I)-linear monoidal functors Rep_Lambda((G-hat semidirect Q)^I) -> End_Lambda(D_lis(Bun_G,Lambda)^omega)^{B W_E^I}, functorially in I.",
+   "hypotheses": [
+    "Preservation of limits, colimits and compact objects is FORMAL from monoidality plus dualizability of V in the Satake category, which gives T_V left and right adjoints both equal to T_{V^dual}",
+    "Preservation of ULA objects uses the characterisation of Proposition VII.7.9 (A is ULA if and only if RHom_Lambda(B,A) is perfect for all compact B) and then adjointness; it is NOT proved directly",
+    "The duality statements rest on the identity pi_sharp(T_V(A) tensor^L_solid B) = pi_sharp(A tensor^L_solid T_{sw^* V}(B)), both sides being the homology of Hck^I_G x_{(Div^1)^I} Spd C with coefficients in h_1^* A tensor h_2^* B tensor S'_V, plus Proposition VI.12.1",
+    "Corollary IX.2.3's reduction to I = {*} uses a possibly INFINITE resolution by exterior tensor products, legitimate because only finitely many weights of G-hat^I are involved",
+    "Corollary IX.2.3 also uses Corollary VII.2.7 and Proposition VII.7.3 (that D_lis(Bun_G,Lambda) -> D_lis(Bun_G x Spd C,Lambda) is an equivalence); neither was read"
+   ],
+   "proofSteps": [
+    "Monoidality of V -> T_V plus dualizability of V gives adjoints T_{V^dual} on both sides, hence preservation of limits, colimits and compact objects.",
+    "ULA preservation by VII.7.9 plus adjointness.",
+    "The duality isomorphisms from the displayed pi_sharp identity together with VI.12.1, using that T_{sw^* V^dual} is right adjoint to T_{sw^* V} for the Bernstein-Zelevinsky statement and left adjoint for the naive dual.",
+    "For IX.2.3: reduce to I = {*} by the resolution argument, then use VII.2.7 to reduce to the pullback to Bun_G x Spd C, where IX.2.1 and VII.7.3 apply.",
+    "IX.2.4 then packages the result as a monoidal functor into W_E^I-equivariant endofunctors of the compact objects."
+   ],
+   "acceptance": [
+    "Check T_V preserves compact objects on a compactly induced generator",
+    "Check the duality isomorphism on a self-dual V",
+    "Check continuity of the W_E^I-action, i.e. that it is a map of condensed animated groups and not merely abstract"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem IX.2.2 and proof, printed pp. 322-323",
+     "excerpt": "The functor V -> T_V is monoidal. As V is dualizable in the Satake category, with dual V^dual, it follows that T_V has a left and a right adjoint, given by T_{V^dual}, and hence it follows formally that it preserves all limits and colimits, and compact objects. Now recall that A in D_lis(Bun_G,Lambda) is universally locally acyclic if and only if for all compact B in D_lis(Bun_G,Lambda), the object RHom_Lambda(B,A) in D(Lambda) is perfect, by Proposition VII.7.9. Thus, the preservation of universally locally acyclic objects follows by adjointness from the preservation of compact objects.",
+     "match": "The complete mechanism: dualizability in the Satake category is what makes everything formal."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Corollary IX.2.4, printed p. 323",
+     "excerpt": "Endowing the stable Z_l-linear infinity-category D_lis(Bun_G,Lambda)^omega with the relatively discrete condensed structure, the Hecke action defines exact Rep_Lambda(Q^I)-linear monoidal functors Rep_Lambda((G-hat semidirect Q)^I) -> End_Lambda(D_lis(Bun_G,Lambda)^omega)^{B W_E^I}, functorially in I.",
+     "match": "The packaged statement with the condensed structure and the functoriality in I."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HeckeStacksAndLocalShtukas:HS1/condensed-enrichment",
+   "parentStageId": "HeckeStacksAndLocalShtukas:HS1",
+   "title": "FS IX.1: the condensed infinity-category structure and the identification of W_E^I-equivariant objects",
+   "kind": "construction",
+   "statement": "D_lis(Bun_G,Lambda) is given the structure of a condensed infinity-category by S -> D_lis(Bun_G x S,Lambda) for S extremally disconnected profinite; it is a full condensed infinity-subcategory of the condensed infinity-category D_solid(Bun_G,Lambda), which is a hypersheaf in S by v-hyperdescent. Consequently D_solid(Bun_G x [*/W_E^I],Lambda) = D_solid(Bun_G,Lambda)^{B W_E^I}, the objects A together with a map of CONDENSED ANIMATED GROUPS W_E^I -> Aut(A). Only the structure of an infinity-category enriched in condensed anima is needed. Pullback along Bun_G x (Div^1)^I -> Bun_G x [*/W_E^I] induces a fully faithful functor D_lis(Bun_G,Lambda)^{B W_E^I} -> D_solid(Bun_G x (Div^1)^I, Lambda), with essential image the objects whose pullback to Bun_G is lisse.",
+   "hypotheses": [
+    "The condensed structure is evaluated on EXTREMALLY DISCONNECTED profinite sets; the hypersheaf property is for D_solid and follows from the case of D(X_v,Lambda)",
+    "The W_E^I-action is a map of CONDENSED animated groups; a discrete abstract action is not what is constructed, which is exactly the roadmap's requirement",
+    "The identification D_solid(Bun_G x [*/W_E^I],Lambda) = D_solid(Bun_G,Lambda)^{B W_E^I} is 'a direct consequence of descent'",
+    "The full faithfulness in Proposition IX.1.1 factors through the identification of Corollary IV.7.2 (Drinfeld's lemma), which was NOT read"
+   ],
+   "proofSteps": [
+    "Define the condensed enrichment by S -> D_lis(Bun_G x S,Lambda).",
+    "Use v-hyperdescent of D_solid to get the hypersheaf property, hence the descent identification with B W_E^I-equivariant objects.",
+    "Observe that only enrichment in condensed anima (in fact condensed animated Lambda-modules) is needed.",
+    "Proposition IX.1.2 obtains this enrichment from the Lambda-linear stable structure, using that RGamma([*/K],B') is a direct summand of the stalk of B' at *, which has the relatively discrete condensed Z_l-module structure."
+   ],
+   "acceptance": [
+    "Check that the W_E-action on a Hecke image is continuous in the classical sense",
+    "Check the full faithfulness of Proposition IX.1.1 on an explicit object",
+    "Check that the enrichment is on extremally disconnected S and extends by hypersheaf descent"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "IX.1, printed p. 320",
+     "excerpt": "More concretely, this is the infinity-category of objects A in D_solid(Bun_G,Lambda) together with a map of condensed animated groups W_E^I -> Aut(A). We see in particular that to define D_solid(Bun_G,Lambda)^{B W_E^I}, we do not need to know the full structure as a condensed infinity-category. Rather, we only need the structure as an infinity-category enriched in condensed anima.",
+     "match": "The exact form of the continuous Weil action the stage text requires."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition IX.1.1, printed p. 320",
+     "excerpt": "The essential image of the first functor consists of all objects A in D_solid(Bun_G x [*/W_E^I],Lambda) whose pullback to Bun_G lies in D_lis(Bun_G,Lambda).",
+     "match": "The characterisation of the image, used in Corollary IX.2.3."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HeckeStacksAndLocalShtukas:HS2/local-shtuka-moduli",
+   "parentStageId": "HeckeStacksAndLocalShtukas:HS2",
+   "title": "Scholze-Weinstein Definition 23.1.1 and Theorem 23.1.4: moduli of mixed-characteristic local G-shtukas",
+   "kind": "definition",
+   "statement": "Let (G, b, {mu_i}) consist of a SMOOTH group scheme G with reductive generic fibre G and CONNECTED SPECIAL FIBRE, an element b in G(L) with L = W(k)[1/p], and conjugacy classes mu_1,...,mu_m of cocharacters G_m -> G_{Q_p-bar} with fields of definition E_i and E-breve_i = E_i . L. Then Sht_{G,b,{mu_i}} -> Spd E-breve_1 x_{Spd k} ... x_{Spd k} Spd E-breve_m sends S = Spa(R,R^+) to quadruples (P, {S_i^sharp}, phi_P, iota_r) where P is a G-torsor on S x-dot Spa Z_p, S_i^sharp is an untilt of S over E-breve_i, phi_P is an isomorphism (Frob_S^* P) -> P away from the union of the graphs Gamma_{x_i}, meromorphic along the closed Cartier divisor, and iota_r is a trivialization over Y_{[r,infty)}(S) for large r under which phi_P is identified with b x Frob_S. The boundedness condition is: at all GEOMETRIC RANK-1 POINTS of S, the relative position of Frob_S^* P and P at S_i^sharp is bounded in the BRUHAT ORDER by the sum of the mu_j with S_j^sharp = S_i^sharp. Theorem 23.1.4: Sht_{G,b,{mu_i}} is a locally spatial diamond.",
+   "hypotheses": [
+    "G is a SMOOTH group scheme with reductive generic fibre and CONNECTED special fibre; this is more general than a reductive group and is what allows parahoric levels",
+    "The boundedness condition is imposed at geometric RANK-1 points only, and the bound at a repeated untilt is the SUM of the corresponding mu_j - this is how coincident legs are handled",
+    "The trivialization iota_r is only required over Y_{[r,infty)}(S) for r large, i.e. near one end; it is part of the data, not a property",
+    "Scholze-Weinstein note that Sht_{(G,b,mu_bullet)} is already a v-sheaf by Proposition 19.5.3 before the locally-spatial-diamond theorem",
+    "The isomorphism class depends only on the class of b in B(G): replacing b by phi(y) b y^{-1} corresponds to composing iota_r with y x id",
+    "Remark 23.1.2: the boundedness condition is essentially the same as the one defining Gr_{G,Spd E_1 x ... x Spd E_m, <= mu_bullet}"
+   ],
+   "proofSteps": [
+    "Scholze-Weinstein give the functor of points and record the v-sheaf property from 19.5.3.",
+    "Theorem 23.1.4 is proved first in the case of no legs (23.2) and then for one leg (23.3), the general case by induction; only the statement and the opening of the argument were read here."
+   ],
+   "acceptance": [
+    "Check the no-leg case, which should be a classifying object for the automorphism group of b",
+    "Check a minuscule GL_n datum against the classical Rapoport-Zink space, remembering that this comparison is a theorem and not a definition",
+    "Check a nonminuscule bound, which is not a Rapoport-Zink space"
+   ],
+   "sources": [
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Definition 23.1.1, printed pp. 216-217",
+     "excerpt": "Let (G, b, {mu_i}) be a triple consisting of a smooth group scheme G with reductive generic fiber G and connected special fiber, an element b in G(L), and a collection mu_1, ..., mu_m of conjugacy classes of cocharacters G_m -> G_{Q_p-bar}.",
+     "match": "The exact hypotheses on the datum, including the connected special fibre that permits parahoric level."
+    },
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Definition 23.1.1, printed p. 217",
+     "excerpt": "The isomorphism phi_P is required to be meromorphic along the closed Cartier divisor union_{i=1}^m S_i^sharp in S x-dot Spa Z_p, and it is subject to the following boundedness condition: At all geometric rank 1 points of S, the relative position of Frob_S^* P and P at S_i^sharp is bounded by sum_{j | S_j^sharp = S_i^sharp} mu_j in the Bruhat order.",
+     "match": "The boundedness condition with its exact quantifier and the sum over coincident legs."
+    },
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Theorem 23.1.4 and the sentence after it, printed p. 217",
+     "excerpt": "The moduli space Sht_{G,b,{mu_i}} is a locally spatial diamond. Before embarking on the proof, let us note that the descent result of Proposition 19.5.3 already implies that Sht_{(G,b,mu_bullet)} is a v-sheaf.",
+     "match": "The representability theorem and the separate, weaker v-sheaf statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HeckeStacksAndLocalShtukas:HS2/hecke-fibre-description",
+   "parentStageId": "HeckeStacksAndLocalShtukas:HS2",
+   "title": "FS IX.3: the local Shimura tower as a fibre of the Hecke correspondence",
+   "kind": "comparison",
+   "statement": "For E = Q_p and a local Shimura datum (G, b, mu) with mu MINUSCULE and b in B(G,mu), the tower (M_{(G,b,mu),K})_{K in G(Q_p)} of partially proper smooth rigid-analytic spaces over E-breve constructed in Scholze-Weinstein Lecture 24 is identified, at level K, with the space of modifications of G-torsors of type mu from the G-bundle E_b to the G-bundle E_1, modulo the action of K. Under this identification, i_b^* T_mu(j_! c-Ind_K^{G(Q_p)} Z_l) is, up to shift, f_{K sharp} Z_l for f_K : M_{(G,b,mu),K,C} -> Spa C.",
+   "hypotheses": [
+    "mu must be MINUSCULE for the local Shimura datum; nonminuscule bounds give local shtuka moduli that are not local Shimura varieties",
+    "b must lie in B(G,mu), the mu-admissible subset of B(G)",
+    "E here denotes the REFLEX FIELD of mu, not the base local field; Fargues-Scholze flag this change of meaning explicitly",
+    "The identification is quoted from [SW20, Lecture 23, 24]; those lectures were read only for Definition 23.1.1 and Theorem 23.1.4, not for the local Shimura tower construction in Lecture 24",
+    "The Hecke correspondence of type mu is proper and smooth over both factors, which is what makes the fibre computation work"
+   ],
+   "proofSteps": [
+    "Apply T_mu = T_{V_mu} to A = j_! c-Ind_K^{G(Q_p)} Z_l, where j : Bun_G^1 = [*/G(Q_p)] -> Bun_G is the open immersion.",
+    "Restrict along i_b : Bun_G^b -> Bun_G and use the identification D_lis(Bun_G^b,Z_l) = D(G_b(Q_p),Z_l).",
+    "Identify the result with f_{K sharp} Z_l via the description of M_{(G,b,mu),K,C} as modifications of type mu from E_b to E_1 modulo K."
+   ],
+   "acceptance": [
+    "Check the identification for GL_2 and a minuscule mu against the Lubin-Tate tower",
+    "Check that a nonminuscule bound gives a local shtuka space with no classical counterpart",
+    "Check the level-K quotient and the transition maps between two pro-p levels"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem IX.3.1, printed p. 324",
+     "excerpt": "But this is, up to shift again, precisely f_{K sharp} Z_l, by the identification of M_{(G,b,mu),K,C} with the space of modifications of G-torsors of type mu from the G-bundle E_b to the G-bundle E_1, up to the action of K (cf. [SW20, Lecture 23, 24]).",
+     "match": "The exact fibre description, with its citation to the unread Lecture 24."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "IX.3, printed p. 324",
+     "excerpt": "Consider any local Shimura datum, consisting of a reductive group G over Q_p, a conjugacy class of minuscule cocharacters mu : G_m -> G_{Q_p-bar} with field of definition E|Q_p and some element b in B(G,mu) in B(G). (Beware that we are making a small sin here in changing the meaning of the letter E, using it now in its usual meaning as a reflex field.)",
+     "match": "The hypotheses of the local Shimura datum and the source's own warning about the notation clash."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HeckeStacksAndLocalShtukas:HS3/compactness-of-shtuka-cohomology",
+   "parentStageId": "HeckeStacksAndLocalShtukas:HS3",
+   "title": "FS IX.3.1: RGamma_c of a local Shimura variety is a compact object of D(G_b(Q_p),Z_l) at pro-p level, with continuous W_E-action",
+   "kind": "theorem",
+   "statement": "With RGamma_c(M_{(G,b,mu),K,C},Z_l) = colim over quasicompact opens U of RGamma_c(U,Z_l), where RGamma_c(U,Z_l) = lim_m RGamma_c(U,Z/l^m Z) in Huber's sense, the complex RGamma_c(M_{(G,b,mu),K,C},Z_l) is naturally a complex of SMOOTH G_b(Q_p)-representations and, IF K IS PRO-P, a COMPACT object of D(G_b(Q_p),Z_l); the action of W_E is continuous. In particular each H^i_c is a finitely generated smooth G_b(Q_p)-representation, and by descent this holds for all K, not necessarily pro-p.",
+   "hypotheses": [
+    "The compactness conclusion requires K PRO-P; for general K it is obtained by descent and only the finite generation of the individual H^i_c is stated",
+    "The colimit over quasicompact opens U and the limit over m must be taken in that order (Huber's definition); the stage text asks for exactly this ordering",
+    "The identification RGamma_c with f_{K sharp} Z_l up to shift rests on Proposition VII.5.2, i.e. R f_{K!} R f_K^! Z_l|_U = f_{K sharp} Z_l|_U for quasicompact U, and on the left-hand side being perfect so that it is the limit of its reductions mod l^m",
+    "Continuity of the W_E-action is obtained by defining T_mu with values in D_solid(Bun_G x Spd E/phi^Z, Z_l) and noting that W_E then acts as a CONDENSED group; 'In classical language, this means that the action is continuous'"
+   ],
+   "proofSteps": [
+    "Up to shift replace Z_l by the dualizing complex R f_K^! Z_l; by VII.5.2, R f_{K!} R f_K^! Z_l|_U = f_{K sharp} Z_l|_U for quasicompact U, and the left side is perfect so equals the limit of its mod-l^m reductions. Hence H^i_c(M_{(G,b,mu),K,C},Z_l) = H^i(f_{K sharp} Z_l) up to shift.",
+    "Apply T_mu to the compact object A = j_! c-Ind_K^{G(Q_p)} Z_l; by Theorem IX.2.2, T_mu(A) is compact.",
+    "By Proposition VII.7.4, i_b^* T_mu(A) in D_lis(Bun_G^b,Z_l) = D(G_b(Q_p),Z_l) is compact.",
+    "Identify this with f_{K sharp} Z_l via the fibre description.",
+    "For descent to E, define T_mu over Spd E/phi^Z; W_E then acts as a condensed group on i_b^* T_mu(A), i.e. continuously."
+   ],
+   "acceptance": [
+    "Check compactness fails for K not pro-p, or that only the descended statement is available there",
+    "Check that a perfect invariant complex at a level is not the same as finite-dimensionality of the infinite-level cohomology",
+    "Check continuity of the W_E-action in the classical sense"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem IX.3.1, printed p. 324",
+     "excerpt": "The complex RGamma_c(M_{(G,b,mu),K,C}, Z_l) is naturally a complex of smooth G_b(Q_p)-representations, and, if K is pro-p, a compact object in D(G_b(Q_p), Z_l). Moreover, the action of W_E is continuous.",
+     "match": "Exact statement with the pro-p hypothesis isolated."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem IX.3.1, printed p. 325",
+     "excerpt": "Descending to E, note that T_mu can be defined with values in D_solid(Bun_G x Spd E/phi^Z, Z_l), and takes values in those sheaves whose pullback to Bun_{G,C} lies in D_lis(Bun_G,Z_l). Thus W_E, as a condensed group, acts on i_b^* T_mu(A) ... considered as representations on condensed Z_l-modules. In classical language, this means that the action is continuous.",
+     "match": "How continuity is obtained, which is the content the stage text asks to be retained."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HeckeStacksAndLocalShtukas:HS3/admissibility-duality-and-adjunction",
+   "parentStageId": "HeckeStacksAndLocalShtukas:HS3",
+   "title": "FS IX.3 (after IX.3.1): perfectness against admissible representations, the adjoint description, and the Verdier pull-through",
+   "kind": "theorem",
+   "statement": "For each admissible representation rho of G_b(Q_p) on a Z_l-algebra Lambda, the complex RHom_{G_b(Q_p)}(RGamma_c(M_{(G,b,mu),K,C},Z_l), rho) is a PERFECT complex of Lambda-modules. Passing to the colimit over K one obtains, on each cohomology group, an admissible G(Q_p)-representation; in fact, since T_mu is left adjoint to T_{mu^dual}, the colimit is up to shift i_{1*} T_{mu^dual}(R i_{b*}[rho]) in D_lis(Bun_G^1,Lambda) = D(G(Q_p),Lambda), so there is a natural complex of admissible G(Q_p)-representations underlying colim_K RHom_{G_b(Q_p)}(RGamma_c, rho). For rho admissible one may pull Verdier duality through: i_{1*}T_{mu^dual}(R i_{b*}[rho]) = i_{1*}T_{mu^dual}(R i_{b*} D([rho^dual])) = i_{1*}T_{mu^dual}(D(i_b^![rho^dual])) = i_{1*}D(T_{sw^* mu}(i_{b!}[rho^dual])) = D(i_{1*}T_{sw^* mu}(i_{b!}[rho^dual])).",
+   "hypotheses": [
+    "rho must be ADMISSIBLE for the perfectness statement; admissibility here is in the sense of VS5, i.e. perfectness of the invariant complexes",
+    "The adjointness used is that T_mu is LEFT adjoint to T_{mu^dual}, which comes from dualizability of V_mu in the Satake category",
+    "The Verdier pull-through uses the duality isomorphisms of Theorem IX.2.2 with the involution sw^*",
+    "[rho] denotes the object of D(G_b(Q_p),Lambda) = D_lis(Bun_G^b,Lambda) attached to rho, and may be a complex of smooth representations"
+   ],
+   "proofSteps": [
+    "Perfectness of RHom against an admissible rho follows from compactness of RGamma_c at pro-p level (IX.3.1) and the characterisation of admissibility as perfectness of invariants.",
+    "Rewrite the colimit over K using the adjunction between T_mu and T_{mu^dual}.",
+    "Apply the duality isomorphisms of IX.2.2 successively to pull Verdier duality through the Hecke operator, using D([rho^dual]) = [rho] for admissible rho."
+   ],
+   "acceptance": [
+    "Check the perfectness statement for a single admissible rho and a fixed pro-p K",
+    "Check the adjunction i_{1*}T_{mu^dual}(R i_{b*}[rho]) against a direct computation for GL_2",
+    "Check that a trace divided by an index requires the index invertible in Lambda, as the stage text warns"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "IX.3, printed p. 325",
+     "excerpt": "In particular, for each admissible representation rho of G_b(Q_p) on a Z_l-algebra Lambda, the complex RHom_{G_b(Q_p)}(RGamma_c(M_{(G,b,mu),K,C}, Z_l), rho) is a perfect complex of Lambda-modules. Passing to the colimit over K, one obtains at least on each cohomology group an admissible G(Q_p)-representation. In fact, as T_mu is left adjoint to T_{mu^dual}, we see that this is (up to shift) given by i_{1*} T_{mu^dual}(R i_{b*}[rho]).",
+     "match": "The admissibility and adjoint-description statements."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "IX.3, printed p. 325",
+     "excerpt": "Assuming again that rho is admissible, one can pull through Verdier duality, i_{1*} T_{mu^dual}(R i_{b*}[rho]) = i_{1*} T_{mu^dual}(R i_{b*} D([rho^dual])) = i_{1*} T_{mu^dual}(D(i_b^![rho^dual])) = i_{1*} D(T_{sw^* mu}(i_{b!}[rho^dual])) = D(i_{1*} T_{sw^* mu}(i_{b!}[rho^dual])).",
+     "match": "The explicit duality computation, which is the level-change/duality compatibility the stage text asks for."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HeckeStacksAndLocalShtukas:HS4/uniform-wild-subgroup",
+   "parentStageId": "HeckeStacksAndLocalShtukas:HS4",
+   "title": "FS IX.5.1: a single open wild-inertia subgroup acts trivially on all Hecke images of a fixed compact object",
+   "kind": "theorem",
+   "statement": "Let A in D_lis(Bun_G,Lambda)^omega be any compact object. Then there is an OPEN SUBGROUP P of the WILD INERTIA subgroup of W_E such that for all finite sets I and all V in Rep((G-hat semidirect Q)^I), the object T_V(A) in D_lis(Bun_G,Lambda)^{B W_E^I} lies in the full infinity-subcategory D_lis(Bun_G,Lambda)^{B(W_E/P)^I}. Consequently D_lis(Bun_G,Lambda)^omega is an increasing union of full stable infinity-subcategories D^P_lis(Bun_G,Lambda)^omega on which the Hecke action factors through Rep_Lambda((G-hat semidirect Q)^I) -> End_Lambda(D^P_lis(Bun_G,Lambda)^omega)^{B(W_E/P)^I}.",
+   "hypotheses": [
+    "P is an open subgroup of the WILD inertia; the statement is not that the parameter factors through a finite quotient of W_E",
+    "P depends on the compact object A but is UNIFORM in I and in V - that uniformity is the whole content",
+    "The full faithfulness of D_lis(...)^{B(W_E/P)^I} inside D_lis(...)^{B W_E^I} follows from f_sharp Lambda = Lambda for f : [*/W_E^I] -> [*/(W_E/P)^I] plus the projection formula, which after pullback to a v-cover amounts to the vanishing of the Lambda-homology of P^I",
+    "The vanishing of the Lambda-homology of P^I uses that P is a pro-p group and l != p"
+   ],
+   "proofSteps": [
+    "Establish full faithfulness of the (W_E/P)^I-equivariant subcategory via f_sharp Lambda = Lambda, deduced from the vanishing of the Lambda-homology of P^I after pullback to a v-cover.",
+    "Show that the set of V for which P^I acts trivially on T_V(A) is closed under the relevant operations, so that it suffices to check on generators.",
+    "NOTE: only the statement and the first half of the proof (the full-faithfulness step) were read; the argument producing P was not."
+   ],
+   "acceptance": [
+    "Check the statement for A a compactly induced object at a pro-p level",
+    "Check that P depends on A but not on I or V",
+    "Check that this is what makes the excursion-operator formalism of VIII.4 applicable"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition IX.5.1, printed p. 327",
+     "excerpt": "Let A in D_lis(Bun_G,Lambda)^omega be any compact object. Then there is an open subgroup P in W_E of the wild inertia subgroup such that for all finite sets I and all V in Rep((G-hat semidirect Q)^I), the object T_V(A) in D_lis(Bun_G,Lambda)^{B W_E^I} lies in the full infinity-subcategory D_lis(Bun_G,Lambda)^{B(W_E/P)^I}.",
+     "match": "Exact statement with the uniformity in I and V."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition IX.5.1, printed pp. 327-328",
+     "excerpt": "which in turn follows from f_sharp Lambda = Lambda (and the projection formula for f_sharp), which can be deduced via base change from the case of [*/W_E^I] -> [*/(W_E/P)^I], or after pullback to a v-cover Spa C -> [*/(W_E/P)^I], for [Spa C/P^I] -> Spa C, where it amounts to the vanishing of the Lambda-homology of P^I.",
+     "match": "The mechanism of the full-faithfulness step, which is where l != p enters."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality",
+   "parentStageId": "HeckeStacksAndLocalShtukas:HS4",
+   "title": "FS IX.0.1(ii)-(iii) and IX.2.4: the coCartesian monoidal Hecke family over finite sets",
+   "kind": "theorem",
+   "statement": "As a functor of V, the Hecke action induces an exact Rep_Lambda(Q^I)-linear MONOIDAL functor Rep_Lambda((G-hat semidirect Q)^I) -> End_Lambda(D_lis(Bun_G,Lambda)^omega)^{B W_E^I}, where the target is W_E^I-equivariant objects inside the condensed infinity-category of endofunctors with the TRIVIAL W_E^I-action. Varying I, these functors are functorial in I in the strong sense: the objects are treated as coCartesian fibrations over the category of finite sets, and the functors are required to lift to the total space of these coCartesian fibrations.",
+   "hypotheses": [
+    "Functoriality in I is coCartesian-fibration functoriality, NOT merely a compatible family of functors for each I; Fargues-Scholze spell this out",
+    "The W_E^I-action on the target End_Lambda(D_lis(Bun_G,Lambda)^omega) is the TRIVIAL one; the nontriviality is in the equivariant structure of the functor",
+    "The monoidal structure on the source is the tensor product of representations; on the Hecke side it corresponds to convolution/fusion of kernels, so this statement consumes GS3's fusion and GS4's dual-group identification, not just GS2's convolution",
+    "The underlying source functor Rep((G-hat semidirect Q)^I) -> D_solid(Hck^I_G,Lambda) is functorial in I because the Satake side is (FS VI.9)"
+   ],
+   "proofSteps": [
+    "Assemble IX.2.4 for each I and check compatibility under maps of finite sets, using the functoriality in I of the Satake side (VI.9.2's square with pullback along W_E^J -> W_E^I, and VI.9.4's fusion functoriality).",
+    "Package as a lift to the total space of the coCartesian fibrations over the category of finite sets.",
+    "NOTE: Fargues-Scholze state this as part of Theorem IX.0.1(iii) with the explanatory paragraph; no separate proof was read."
+   ],
+   "acceptance": [
+    "Check the permutation action on a two-leg object",
+    "Check the effect of a map I -> J, in particular the diagonal I -> {*}",
+    "Check that pairwise compatibilities do not give the coCartesian lift"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem IX.0.1 (ii)-(iii) and the paragraph after it, printed p. 318",
+     "excerpt": "(iii) Varying also I, the functors of (ii) are functorial in I. Here, functoriality in I means, more precisely, that one treats the preceding objects as coCartesian fibrations over the category of finite sets, and the functors are then required to lift to the total space of these coCartesian fibrations.",
+     "match": "The precise meaning of finite-set functoriality, which the stage text requires rather than pairwise isomorphisms."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HeckeStacksAndLocalShtukas:HS4/isogeny-product-and-weil-restriction-diagrams",
+   "parentStageId": "HeckeStacksAndLocalShtukas:HS4",
+   "title": "FS IX.6.1-IX.6.3: the geometric diagrams for isogenies, products and Weil restriction",
+   "kind": "comparison",
+   "statement": "For G' -> G inducing an isomorphism of adjoint groups, with dual map G-hat -> G'-hat and pi : Bun_{G'} -> Bun_G, the square relating Z^spec(G'-hat,Lambda) -> End(pi^* A) and Z^spec(G-hat,Lambda) -> End(A) commutes. For G = G_1 x G_2 the corresponding square relating the tensor product of the spectral and geometric Bernstein centres commutes. For G = Res_{E'|E}G' there are canonical identifications Bun_{G'} = Bun_G, Z^1(W_E,G-hat)/G-hat = Z^1(W_{E'},G'-hat)/G'-hat and Exc(W,G-hat) = Exc(W',G'-hat), where P is an open subgroup of the wild inertia of W_{E'} inside W_E and W' inside W_{E'}/P is the preimage of W inside W_E/P.",
+   "hypotheses": [
+    "These statements are about the SPECTRAL and GEOMETRIC BERNSTEIN CENTRES, i.e. about parameters; the roadmap assigns the parameter identities themselves to ES6-ES7 and only the GEOMETRY of the diagrams to HS4. This node therefore records the diagrams and their geometric inputs, not the parameter conclusions",
+    "The isogeny statement's proof is an excursion-operator diagram chase using the Hecke correspondences for G and G' and the map Hck^I_{G'} -> Hck^I_G",
+    "The Weil-restriction statement requires the choice of an open subgroup P of the wild inertia of W_{E'}, and W' is defined as a preimage; this is the discretization apparatus of FS VIII",
+    "The product statement is proved by 'a straightforward diagram chase, noting that everything decomposes into products'"
+   ],
+   "proofSteps": [
+    "For isogenies: given an excursion datum for G', consider the two Hecke diagrams and the induced map between them, and chase.",
+    "For products: use Bun_{G_1 x G_2} = Bun_{G_1} x Bun_{G_2} and the decomposition of all data into products.",
+    "For Weil restriction: identify Bun_{G'} with Bun_G, the cocycle quotients and the excursion algebras, after choosing P.",
+    "NOTE: Theorem IX.6.1's proof was read only in its opening; Propositions IX.6.4 and IX.6.5 were located but not read."
+   ],
+   "acceptance": [
+    "Check the isogeny diagram for SL_n -> GL_n",
+    "Check the product statement for G_1 = G_2 = GL_1",
+    "Check the Weil-restriction identification of excursion algebras"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem IX.6.1, printed p. 328",
+     "excerpt": "Let G' -> G be a map of reductive groups inducing an isomorphism of adjoint groups, inducing a dual map G-hat -> G'-hat, and pi : Bun_{G'} -> Bun_G. Then for any A in D_lis(Bun_G,Lambda) the diagram [Z^spec(G'-hat,Lambda) -> End(pi^* A) ; Z^spec(G-hat,Lambda) -> End(A)] commutes.",
+     "match": "The isogeny compatibility; the geometric content is the comparison of the two Hecke correspondences."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition IX.6.3, printed p. 329",
+     "excerpt": "Choose P to be an open subgroup of the wild inertia of W_{E'} in W_E, and let W' in W_{E'}/P be the preimage of W in W_E/P. Then there are canonical identifications Bun_{G'} = Bun_G, Z^1(W_E,G-hat)/G-hat = Z^1(W_{E'},G'-hat)/G'-hat and Exc(W,G-hat) = Exc(W',G'-hat).",
+     "match": "The Weil-restriction identifications, including the discretization data they depend on."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "HeckeStacksAndLocalShtukas:HS0/global-hecke-correspondence",
+   "target": "HeckeStacksAndLocalShtukas:HS0/demazure-generators-of-ULA-kernels",
+   "reason": "The Demazure generation statement is about kernels on the very correspondence constructed in the first node; the conclusion is that the push-pull along that correspondence with a Demazure kernel is proper and cohomologically smooth.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition IX.2.1, printed p. 322"
+    }
+   ]
+  },
+  {
+   "source": "HeckeStacksAndLocalShtukas:HS1/satake-kernel-and-solid-monoidal-functor",
+   "target": "HeckeStacksAndLocalShtukas:HS1/hecke-operator-via-relative-homology",
+   "reason": "T_V is defined by tensoring the pullback with the kernel S'_V constructed in the previous node and applying p_{2 sharp}; without the solid monoidal kernel there is no operator.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "IX.2, printed pp. 321-322"
+    }
+   ]
+  },
+  {
+   "source": "HeckeStacksAndLocalShtukas:HS0/demazure-generators-of-ULA-kernels",
+   "target": "HeckeStacksAndLocalShtukas:HS1/hecke-operator-via-relative-homology",
+   "reason": "Proposition IX.2.1's proof reduces preservation of D_lis to the Demazure generators and then to properness and cohomological smoothness of the corresponding correspondence.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition IX.2.1, printed p. 322"
+    }
+   ]
+  },
+  {
+   "source": "HeckeStacksAndLocalShtukas:HS1/hecke-operator-via-relative-homology",
+   "target": "HeckeStacksAndLocalShtukas:HS1/properties-and-weil-equivariance",
+   "reason": "Theorem IX.2.2 and Corollaries IX.2.3-IX.2.4 are statements about the operator constructed in that node; the proof of IX.2.3 explicitly invokes Proposition IX.2.1.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Corollary IX.2.3, printed p. 323"
+    }
+   ]
+  },
+  {
+   "source": "HeckeStacksAndLocalShtukas:HS1/condensed-enrichment",
+   "target": "HeckeStacksAndLocalShtukas:HS1/properties-and-weil-equivariance",
+   "reason": "Corollary IX.2.3's conclusion that T_V induces a functor into D_lis(Bun_G,Lambda)^{B W_E^I} is phrased through Proposition IX.1.1, which is the condensed-enrichment statement.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Corollary IX.2.3 and Proposition IX.1.1, printed pp. 320, 323"
+    }
+   ]
+  },
+  {
+   "source": "HeckeStacksAndLocalShtukas:HS1/properties-and-weil-equivariance",
+   "target": "HeckeStacksAndLocalShtukas:HS3/compactness-of-shtuka-cohomology",
+   "reason": "The proof of Theorem IX.3.1 applies T_mu to a compact object and concludes compactness of T_mu(A) 'By Theorem IX.2.2'; the preservation of compact objects is the load-bearing input.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem IX.3.1, printed p. 324"
+    }
+   ]
+  },
+  {
+   "source": "HeckeStacksAndLocalShtukas:HS2/hecke-fibre-description",
+   "target": "HeckeStacksAndLocalShtukas:HS3/compactness-of-shtuka-cohomology",
+   "reason": "The identification of i_b^* T_mu(A) with f_{K sharp} Z_l up to shift is exactly the Hecke-fibre description of the local Shimura tower; without it the compactness statement would be about a Hecke image rather than about RGamma_c.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem IX.3.1, printed p. 324"
+    }
+   ]
+  },
+  {
+   "source": "HeckeStacksAndLocalShtukas:HS2/local-shtuka-moduli",
+   "target": "HeckeStacksAndLocalShtukas:HS2/hecke-fibre-description",
+   "reason": "The local Shimura tower is the minuscule case of the local shtuka moduli of Definition 23.1.1; the fibre description identifies that moduli space with a Hecke fibre.",
+   "sources": [
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Definition 23.1.1, printed pp. 216-217"
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "IX.3 and the proof of Theorem IX.3.1, printed p. 324"
+    }
+   ]
+  },
+  {
+   "source": "HeckeStacksAndLocalShtukas:HS3/compactness-of-shtuka-cohomology",
+   "target": "HeckeStacksAndLocalShtukas:HS3/admissibility-duality-and-adjunction",
+   "reason": "Perfectness of RHom_{G_b(Q_p)}(RGamma_c, rho) against an admissible rho is deduced from the compactness of RGamma_c at pro-p level established in Theorem IX.3.1.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "IX.3, printed p. 325"
+    }
+   ]
+  },
+  {
+   "source": "HeckeStacksAndLocalShtukas:HS1/properties-and-weil-equivariance",
+   "target": "HeckeStacksAndLocalShtukas:HS3/admissibility-duality-and-adjunction",
+   "reason": "The Verdier pull-through computation uses the duality isomorphisms of Theorem IX.2.2 with the involution sw^*, applied to the Hecke operators T_{mu^dual} and T_{sw^* mu}.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "IX.3, printed p. 325; Theorem IX.2.2, printed p. 322"
+    }
+   ]
+  },
+  {
+   "source": "HeckeStacksAndLocalShtukas:HS1/properties-and-weil-equivariance",
+   "target": "HeckeStacksAndLocalShtukas:HS4/uniform-wild-subgroup",
+   "reason": "Proposition IX.5.1 is a statement about T_V(A) inside D_lis(Bun_G,Lambda)^{B W_E^I}, the target produced by Corollary IX.2.3; the compactness of A is the compactness notion preserved by IX.2.2.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition IX.5.1, printed p. 327"
+    }
+   ]
+  },
+  {
+   "source": "HeckeStacksAndLocalShtukas:HS1/properties-and-weil-equivariance",
+   "target": "HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality",
+   "reason": "Corollary IX.2.4 is precisely the monoidal statement for fixed I; the coCartesian functoriality of Theorem IX.0.1(iii) assembles these.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Corollary IX.2.4, printed p. 323; Theorem IX.0.1 (iii), printed p. 318"
+    }
+   ]
+  },
+  {
+   "source": "HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality",
+   "target": "HeckeStacksAndLocalShtukas:HS4/isogeny-product-and-weil-restriction-diagrams",
+   "reason": "The excursion-operator diagram chases of IX.6.1-IX.6.3 are carried out on the coCartesian family of Hecke functors; the diagrams compare the Hecke correspondences of G and G' leg by leg, which needs the finite-set functoriality.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem IX.6.1, printed p. 328"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "HeckeStacksAndLocalShtukas:HS0",
+   "status": "partial",
+   "remaining": [
+    "The stage text asks for the stack of two G-bundles with an isomorphism away from the divisors together with source/target/leg maps, diagonal/repetition maps, bounded substacks, descent, representability of relative fibres by the bounded Grassmannian, and compactifiability/properness/dimension bounds per pushforward. Fargues-Scholze set up the correspondence in one display at the head of Chapter IX and do not devote a section to it; the local model (VI.1-VI.2) was decomposed in the GeometricSatakeAndFusion packet, but the GLOBAL statements (descent, representability of the relative fibres, the diagonal/repetition maps) were not located as proved statements anywhere read.",
+    "Chains of modifications and the identification of composition over disjoint legs and over collisions with the convolution diagrams were not located; the convolution diagrams themselves are FS VI.8, decomposed in the Satake packet.",
+    "Compatibility with extension of structure group, central characters and inner forms was not located."
+   ]
+  },
+  {
+   "stageId": "HeckeStacksAndLocalShtukas:HS1",
+   "status": "partial",
+   "remaining": [
+    "FS VII.4 (relation to D_et, Proposition VII.4.3) and VII.5 (dualizability, Proposition VII.5.2) were NOT read; both are load-bearing - VII.4.3 for preservation of D_lis in IX.2.1, VII.5.2 for defining T_V over non-torsion Lambda and for identifying f_sharp with Rf_! Rf^!.",
+    "Corollary IV.7.2 and Proposition IV.7.3 (Drinfeld's lemma), which give D_et(Bun_G x [*/W_E^I],Lambda) as a full subcategory of the target and identify local systems with W_E^I-representations, were NOT read.",
+    "Corollary VII.2.7 and Proposition VII.7.3, used in the proof of Corollary IX.2.3, were not read.",
+    "Proposition VII.7.9 (ULA equals stratumwise admissibility in the lisse setting), used for the ULA-preservation clause of IX.2.2, was located but its proof was not read; the etale analogue V.7.1 was decomposed in the VStackSheavesAndLisseCategories packet.",
+    "The explicit statement T_unit = identity, the scalar-extension compatibility and the tensor/convolution composition across arbitrary finite sets are implied by monoidality but were not isolated as source statements."
+   ]
+  },
+  {
+   "stageId": "HeckeStacksAndLocalShtukas:HS2",
+   "status": "partial",
+   "remaining": [
+    "Scholze-Weinstein Lecture 23 sections 23.2-23.5 (the case of no legs, the case of one leg, the proof of Theorem 23.1.4, the duality Corollary 23.3.2) were NOT read; only Definition 23.1.1, Remarks 23.1.2-23.1.3 and the statement of Theorem 23.1.4 were.",
+    "Scholze-Weinstein Lecture 24 (local Shimura varieties and the EL/PEL comparisons), which constructs the tower (M_{(G,b,mu),K}) and is cited by FS IX.3, was NOT read.",
+    "Compact-open level quotients, the transition maps, the cofinality and descent properties needed before describing the tower as an inverse limit of level sheaves, and the descent to the reflex field with its Weil action, were not located as proved statements in anything read.",
+    "The two commuting J_b(E) and J_{b'}(E) actions at a basic pair, which the completion contract asks to be constructed before cohomology, were not located."
+   ]
+  },
+  {
+   "stageId": "HeckeStacksAndLocalShtukas:HS3",
+   "status": "partial",
+   "remaining": [
+    "Proposition IX.3.2 was located but not read.",
+    "Proposition VII.7.4 (lisse compact generation), used in the proof of IX.3.1 to pass from compactness of T_mu(A) to compactness of i_b^* T_mu(A), was located but its proof was not read.",
+    "Huber's definition of compactly supported cohomology for partially proper rigid spaces ([Hub98]) was not read; only FS's recollection of it.",
+    "Level-change trace/pullback compatibilities and the invertibility condition on the index that the stage text requires were not located in anything read.",
+    "The comparison with SmoothRepresentationsOfLocalGroups SR.0-SR.2 was not attempted; that is another roadmap's stage."
+   ]
+  },
+  {
+   "stageId": "HeckeStacksAndLocalShtukas:HS4",
+   "status": "partial",
+   "remaining": [
+    "The creation/annihilation of a pair of dual legs and the coevaluation/evaluation triangle identities, which the stage text and its completion contract make explicit obligations, were NOT located as statements in FS IX. They are implicit in the monoidal structure plus dualizability (VI.8.2) and in the excursion formalism of FS VIII.4, which was not read.",
+    "FS VIII.4 (excursion operators) and Theorem VIII.4.1 were NOT read; the roadmap says the natural transformations of HS4 are the INPUT to excursion operators, so VIII.4 is the consumer, but Theorem IX.0.1's phrasing 'the categories D^P_lis(Bun_G,Lambda)^omega fit the bill of the discussion of Section VIII.4' should be checked against it.",
+    "The second half of the proof of Proposition IX.5.1 (the construction of P) was not read.",
+    "Propositions IX.6.4 and IX.6.5 (tori) were located but not read; Theorem IX.6.1's proof was read only in its opening.",
+    "Iterated modification compatibility and fusion along every finite-set map were recorded only through the coCartesian-functoriality statement of Theorem IX.0.1(iii), whose proof was not read."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "FS VII.4 and VII.5 are unread but carry the Hecke construction",
+   "neededBy": [
+    "HeckeStacksAndLocalShtukas:HS1/hecke-operator-via-relative-homology",
+    "HeckeStacksAndLocalShtukas:HS3/compactness-of-shtuka-cohomology"
+   ],
+   "detail": "Two results from the unread Chapter VII are load-bearing here. (a) Proposition VII.4.3, invoked in the proof of Proposition IX.2.1 to pass from the Demazure generators to preservation of D_lis. (b) Proposition VII.5.2, invoked twice: 'we have thus essentially used the translation of Proposition VII.5.2 to extend the Hecke operators from the case of torsion rings Lambda to all Lambda' (printed p. 322), and in the proof of Theorem IX.3.1 in the form R f_{K!} R f_K^! Z_l|_U = f_{K sharp} Z_l|_U (printed p. 324). Neither was read. NEXT SOURCE ACTION: read FS printed pp. 261-268 (VII.4-VII.5). This gap is shared with the VStackSheavesAndLisseCategories packet of this job, where it is recorded for stage VS2."
+  },
+  {
+   "title": "Drinfeld's lemma (FS IV.7) is unread but supplies the Weil action",
+   "neededBy": [
+    "HeckeStacksAndLocalShtukas:HS1/condensed-enrichment",
+    "HeckeStacksAndLocalShtukas:HS1/properties-and-weil-equivariance"
+   ],
+   "detail": "The target of the Hecke operator is identified with W_E^I-equivariant objects via Corollary IV.7.2 ('By Corollary IV.7.2, the target has D_et(Bun_G x [*/W_E^I],Lambda) as a full subcategory, and we will see below that T_V will factor over this subcategory', printed p. 317) and via Proposition IV.7.3 for the Satake side (FS VI.9.2). Section IV.7 was NOT opened. The stage text explicitly asks to 'Construct the continuous W_E^I action through Drinfeld's lemma', and warns that 'a discrete abstract action without continuity is insufficient for parameter stacks'. NEXT SOURCE ACTION: read FS printed pp. 164-166. This gap is shared with the GeometricSatakeAndFusion and VStackSheavesAndLisseCategories packets of this job."
+  },
+  {
+   "title": "Berkeley Lectures 23.2-23.5 and Lecture 24 are unread, so HS2 rests on a statement",
+   "neededBy": [
+    "HeckeStacksAndLocalShtukas:HS2/local-shtuka-moduli",
+    "HeckeStacksAndLocalShtukas:HS2/hecke-fibre-description"
+   ],
+   "detail": "Definition 23.1.1 (with its full data list and boundedness condition), Remarks 23.1.2-23.1.3 and the statement of Theorem 23.1.4 were read (printed pp. 216-217). The PROOF of Theorem 23.1.4 (sections 23.2 'the case of no legs', 23.3 'the case of one leg' with Corollary 23.3.2, and the remaining sections) was not, nor was Lecture 24, which constructs the local Shimura tower (M_{(G,b,mu),K}) that FS IX.3 identifies with a Hecke fibre. The roadmap names 'Berkeley sections 23.1-23.5 (bounded local shtukas and legs), sections 24.1-24.3 (local Shimura and EL/PEL comparisons), and section 19.5.1 (torsor description)' as the source route. NEXT SOURCE ACTION: read Berkeley printed pp. 217-235 (Lectures 23-24). VERIFIED PRESENT in the library: references/papers/ScholzeWeinstein_Berkeley.pdf, sha256 225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc."
+  },
+  {
+   "title": "The creation/annihilation and triangle identities of HS4 have no located source statement",
+   "neededBy": [
+    "HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality",
+    "HeckeStacksAndLocalShtukas:HS4/isogeny-product-and-weil-restriction-diagrams"
+   ],
+   "detail": "The HS4 stage text asks to 'Prove permutation, creation/annihilation of a pair of dual legs, coevaluation/evaluation identities, iterated modification compatibility and fusion along every finite-set map', and its completion contract says 'Creation and annihilation come with the two triangle identities and Weil continuity'. Chapter IX of Fargues-Scholze was searched section by section (IX.1-IX.7 statement list inspected); no proposition stating the triangle identities was found. They are implicit in (a) dualizability of V in the Satake category (VI.8.2, decomposed in the GeometricSatakeAndFusion packet), (b) the monoidal functoriality of IX.2.4, and (c) the excursion formalism of FS VIII.4, which was NOT read. NEXT SOURCE ACTION: read FS printed pp. 290-293 (VIII.4, Theorem VIII.4.1 and the definition of the excursion algebra) and check whether the triangle identities are stated there or have to be supplied. Recorded as an unresolved boundary, not as an input package."
+  },
+  {
+   "title": "IX.6 is about Bernstein centres, so only part of it belongs to HS4",
+   "neededBy": [
+    "HeckeStacksAndLocalShtukas:HS4/isogeny-product-and-weil-restriction-diagrams"
+   ],
+   "detail": "The HS4 stage text says: 'Group-map and Levi compatibility compares these exact Satake kernels; only the geometry of IX.6's diagrams belongs here. The parameter identities themselves are ES6-ES7.' Reading IX.6 confirms this reading of the source: Theorem IX.6.1, Propositions IX.6.2 and IX.6.3 are stated as commuting squares of SPECTRAL and GEOMETRIC BERNSTEIN CENTRES, with the parameter conclusions ('\u03c6_{A'} is the composite of \u03c6_A with G-hat -> G'-hat') drawn as corollaries. This packet records the diagrams and the geometric identifications (Bun_{G'} = Bun_G for Weil restriction; the product decomposition) and does NOT record the parameter conclusions, which belong to ExcursionOperatorsAndSpectralAction (EXT-04's roadmap). CROSS-JOB NOTE for the reviewer: if EXT-04 decomposes IX.6 for ES6/ES7, the geometric half recorded here should not be duplicated there."
+  }
+ ]
+}

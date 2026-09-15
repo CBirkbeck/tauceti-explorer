@@ -1,0 +1,991 @@
+{
+ "roadmapId": "LanglandsParameterStacks",
+ "status": "partial",
+ "summary": "Source decomposition of the stack of L-parameters and its invariant theory from Fargues-Scholze Chapter VIII read directly (VIII.1.1 in full with the proof of Theorem VIII.1.3, VIII.3.1-VIII.3.3, VIII.4 at statement level, VIII.5.1 and VIII.5.3), cross-checked against Dat-Helm-Kurinczuk-Moss's independent construction. The decomposition keeps the separations the roadmap insists on and confirms each against the source. L-parameters are condensed 1-COCYCLES (equivalently sections of the L-group projection), not homomorphisms, with the coefficient ring made condensed as Lambda_disc tensor_{Z_l,disc} Z_l. Finite wild ramification means triviality on an open subgroup of the wild inertia, proved by the connected-component argument for {A^{p^r}=1} in GL_N, and does not make the parameter factor through a finite Weil quotient. The unconditional comparison between the excursion algebra and the invariant algebra is a UNIVERSAL HOMEOMORPHISM (Haboush), an isomorphism only after inverting l or under the hypothesis that l does not divide |pi_1(G-hat)_tors|; Proposition VIII.3.8's bijection between excursion characters and conjugacy classes of semisimple parameters is stated over W_E and carries NO such hypothesis, so LP2:semisimple-characters does not inherit the good-prime restriction, exactly as the roadmap requires. The derived-versus-classical comparison is recorded as the source's amplitude argument (the universal animated algebra is a derived complete intersection whose pi_0 has the right dimension, hence discrete), not as an equality of geometric points. Fargues-Scholze's characteristic-two example (Remark VIII.5.18, G = (SL_2 x SL_2)/mu_2 with the switching automorphism) is recorded as the guard against weakening the prime-to-l hypotheses, and Dat-Helm-Kurinczuk-Moss's explicit warning that their dimension dim G-hat is ABSOLUTE and equals dim G + 1 is recorded as a normalisation difference from FS's relative dim G.",
+ "sources": [
+  {
+   "id": "FS-geometrization",
+   "title": "Geometrization of the local Langlands correspondence",
+   "authors": "Laurent Fargues, Peter Scholze",
+   "edition": "Author-hosted 356-page PDF (MPIM Bonn), inspected 2026-09-15; corresponds to arXiv:2102.13459v4 by metadata and contents, not by byte comparison. PDF page = printed page.",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+   "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+   "readSections": [
+    "VIII introduction, printed pp. 277-278 (Thm. VIII.0.1, VIII.0.2, VIII.0.3)",
+    "VIII.1.1, printed pp. 278-281 (Def. VIII.1.1, Rem. VIII.1.2, Thm. VIII.1.3 with its full proof including the discretization, the unique-extension binomial argument, and the dimension bound via deformation theory)",
+    "VIII.2, printed pp. 281-285 (statements of Prop. VIII.2.1-VIII.2.3, Def. VIII.2.4, Prop. VIII.2.5, Def. VIII.2.6, Thm. VIII.2.7, Def. VIII.2.8, Thm. VIII.2.9, Cor. VIII.2.10, Prop. VIII.2.11 located; proofs not read)",
+    "VIII.3.1-VIII.3.2, printed pp. 285-289 (Def. VIII.3.1, Prop. VIII.3.2, the Haboush argument, Def. VIII.3.4, Prop. VIII.3.5 with proof, Thm. VIII.3.6)",
+    "VIII.3.3, printed pp. 288-290 (Prop. VIII.3.7 with its relations, Prop. VIII.3.8)",
+    "VIII.4, printed pp. 290-293 (Thm. VIII.4.1, Def. VIII.4.2, Cor. VIII.4.3 located)",
+    "VIII.5 opening and VIII.5.1, printed pp. 293-296 (Thm. VIII.5.1, Thm. VIII.5.2 and the reduction, Prop. VIII.5.3, Def. VIII.5.4, Prop. VIII.5.5 with proof, Thm. VIII.5.6, Cor. VIII.5.7 with proof, Prop. VIII.5.8)",
+    "VIII.5.3, printed pp. 301-308 (Prop. VIII.5.14 with proof, Thm. VIII.5.15 with the start of its proof, Prop. VIII.5.17 (i)-(vi), Rem. VIII.5.18 with the characteristic-two example, Prop. VIII.5.19 with proof)"
+   ]
+  },
+  {
+   "id": "DHKM-parameters",
+   "title": "Moduli of Langlands parameters",
+   "authors": "Jean-Francois Dat, David Helm, Robert Kurinczuk, Gilbert Moss",
+   "edition": "arXiv:2009.06708v3 [math.NT], 29 February 2024; library PDF, 91 pages. Printed page = PDF page.",
+   "url": "https://arxiv.org/abs/2009.06708",
+   "sha256": "70b647bb5fbf924f20784a5084f7f38c9a2faf88e04690f38d76fc0be2a3213c",
+   "readSections": [
+    "Abstract and table of contents, printed p. 1",
+    "Introduction, printed pp. 2-3 (the three definitions of a parameter over Q_l-bar and the GL_2 non-flatness example for the Bellovin-Gee / Booher-Patrikis spaces)",
+    "Theorem 1.3 with its dimension caveat and Theorem 1.4, printed p. 6"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "LanglandsParameterStacks:LP0/condensed-cocycles-and-L-parameters",
+   "parentStageId": "LanglandsParameterStacks:LP0",
+   "title": "FS VIII.1.1: L-parameters as condensed 1-cocycles, and the condensed coefficient convention",
+   "kind": "definition",
+   "statement": "Fix l != p, the pinned dual group G-hat over Z_l with its STANDARD (pinning-compatible) W_E-action, factoring over a fixed finite quotient Q. For a Z_l-algebra Lambda, regard Lambda as the condensed Z_l-algebra Lambda_disc tensor_{Z_l,disc} Z_l, whose value on a profinite S is the ring of maps S -> Lambda taking values in a finite-type sub-Z_l-module and continuous. An L-parameter with coefficients in Lambda is a SECTION phi : W_E -> G-hat(Lambda) semidirect W_E of the projection of condensed groups, equivalently a condensed 1-COCYCLE phi : W_E -> G-hat(Lambda) for the given action, equivalently a map W_E -> G-hat(Lambda) semidirect Q lifting W_E -> Q.",
+   "hypotheses": [
+    "The action used is the STANDARD algebraic action compatible with the pinning, not the cyclotomically twisted one; Fargues-Scholze note the difference disappears after base change to Z_l[sqrt q] and that all results transfer by descent along Z_l[sqrt q]/Z_l",
+    "Lambda is condensed as Lambda_disc tensor_{Z_l,disc} Z_l; for Lambda = Q_l-bar this gives Lambda(S) = colim over finite L|Q_l of Cont(S,L)",
+    "A 1-cocycle for a NONTRIVIAL action is not a group homomorphism; the roadmap's warning is confirmed by the source's phrasing in terms of sections of the L-group projection",
+    "Concretely, for G-hat -> GL_N a closed embedding, the condition is that the associated map W_E -> GL_N(Lambda) is continuous, i.e. the matrix coefficients of its restriction to I_E take values in finite-type Z_l-modules and are continuous"
+   ],
+   "proofSteps": [
+    "Fargues-Scholze give the three equivalent descriptions (section of the L-group projection; condensed 1-cocycle; lift along W_E -> Q) and the concrete matrix-coefficient criterion.",
+    "The equivalence of the section and cocycle descriptions is the standard translation for a semidirect product."
+   ],
+   "acceptance": [
+    "Check the three descriptions agree for a split torus and for a nonsplit torus",
+    "Check that for Lambda = Q_l-bar the condensed structure gives the usual l-adic continuity",
+    "Check that a homomorphism W_E -> G-hat(Lambda) is not in general a cocycle when the action is nontrivial"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition VIII.1.1, printed p. 278",
+     "excerpt": "An L-parameter for G, with coefficients in Lambda, is a section phi : W_E -> G-hat(Lambda) semidirect W_E of the natural map of condensed groups G-hat(Lambda) semidirect W_E -> W_E. Equivalently, an L-parameter for G with coefficients in Lambda is a (condensed) 1-cocycle phi : W_E -> G-hat(Lambda) for the given W_E-action on G-hat.",
+     "match": "Both descriptions, in the source's own words."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "VIII.1.1, printed p. 278",
+     "excerpt": "Now let Lambda be any Z_l-algebra. As in the last chapter, we regard it as a condensed Z_l-algebra, as Lambda_disc tensor_{Z_l,disc} Z_l. Its value on a profinite set S is the ring of maps S -> Lambda that take values in a sub-Z_l-module of finite type and are continuous.",
+     "match": "The coefficient convention, which is what makes 'condensed cocycle' a finiteness condition."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "VIII introduction, printed p. 277",
+     "excerpt": "We get the dual group G-hat/Z_l, which we endow with its usual 'algebraic' action by W_E; the action thus factors over a finite quotient Q of W_E, and we fix such a quotient Q of W_E. (The difference to the cyclotomically twisted W_E-action disappears after base change to Z_l[sqrt q], and we could thus obtain analogues of all results below for this other action by a simple descent along Z_l[sqrt q]/Z_l.)",
+     "match": "Fixes which action is used and records the relation to the Satake-normalized one."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LanglandsParameterStacks:LP0/discretization-and-unique-extension",
+   "parentStageId": "LanglandsParameterStacks:LP0",
+   "title": "FS VIII.1.3 (first half): the discrete dense subgroup W and the unique extension of cocycles",
+   "kind": "theorem",
+   "statement": "Fix a quotient W_E -> W'_E by an open subgroup of the wild inertia P_E such that the W_E-action on G-hat factors over W'_E. Inside W'_E take the discrete dense subgroup W generated by the image of P_E, a CHOSEN generator tau of the tame inertia and a CHOSEN Frobenius sigma; then 0 -> I -> W -> sigma^Z -> 0 with 0 -> P -> I -> tau^{Z[1/p]} -> 0, P a finite p-group, and in W/P the relation sigma^{-1} tau sigma = tau^q holds. Any condensed 1-cocycle W'_E -> G-hat(Lambda) is determined by its restriction to W (since G-hat(Lambda) is quasiseparated and W is dense), and conversely every 1-cocycle W -> G-hat(Lambda) extends UNIQUELY to a condensed 1-cocycle on W'_E.",
+   "hypotheses": [
+    "tau and sigma are CHOICES; the roadmap asks for a change-of-choice comparison, which Fargues-Scholze do not spell out",
+    "The relation is stated as sigma^{-1} tau sigma = tau^q in W/P; the opposite convention would be sigma tau sigma^{-1} = tau^q, and the source's orientation must be preserved",
+    "The uniqueness of the extension uses that G-hat(Lambda) is QUASISEPARATED and W is dense in W'_E",
+    "The existence proof reduces, after a finite extension of E, to the case of trivial action and P = 1, then to GL_N, then to: for A in GL_N(Lambda) conjugate to A^q, the map n -> A^n on Z extends uniquely to Z-hat^p. The assumption forces all eigenvalues at all geometric points of Spec Lambda to be roots of unity of order prime to p; after replacing A by a prime-to-p power one reduces to A UNIPOTENT and uses the binomial series A^n = sum_{i>=0} binom(n,i)(A-1)^i, which converges because A - 1 is nilpotent and defines a map Z_l -> GL_N(Lambda)"
+   ],
+   "proofSteps": [
+    "Fargues-Scholze construct W and record the two exact sequences and the tame relation.",
+    "Determination by the restriction to W is from density plus quasiseparatedness.",
+    "For the extension: reduce to trivial action and P = 1 by a finite extension of E; embed G-hat into GL_N; reduce to extending n -> A^n from Z to Z-hat^p; use the eigenvalue argument to reduce to A unipotent; conclude with the binomial series, which gives Z_l -> GL_N(Lambda) and hence Z-hat^p -> Z_l -> GL_N(Lambda)."
+   ],
+   "acceptance": [
+    "Check the binomial-series extension explicitly for a single unipotent Jordan block over F_l",
+    "Check the tame relation orientation on an unramified GL_2 cocycle",
+    "Check independence of the choice of tau and sigma as an isomorphism of moduli functors, which the completion contract requires and the source does not spell out"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem VIII.1.3, printed p. 279",
+     "excerpt": "Inside W'_E, we look at the discrete dense subgroup W in W'_E generated by the image of P_E, a choice of generator of the tame inertia tau, and a choice of Frobenius sigma. Thus, W sits in an exact sequence 0 -> I -> W -> sigma^Z -> 0 where I in turn sits in an exact sequence 0 -> P -> I -> tau^{Z[1/p]} -> 0 where P is a finite p-group. Moreover, in W/P, the elements tau and sigma satisfy the commutation sigma^{-1} tau sigma = tau^q.",
+     "match": "The discretization and the exact orientation of the tame relation."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem VIII.1.3, printed p. 280",
+     "excerpt": "But then n -> A^n extends to a continuous map n -> A^n = (1 + (A-1))^n = sum_{i>=0} binom(n,i) (A-1)^i, defining a map Z_l -> GL_N(Lambda) (and hence Z-hat^p -> Z_l -> GL_N(Lambda)).",
+     "match": "The topological unipotent binomial-series argument the stage text names, with its coefficients."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LanglandsParameterStacks:LP1/decomposition-by-wild-kernel",
+   "parentStageId": "LanglandsParameterStacks:LP1",
+   "title": "FS VIII.1.3 (decomposition): the parameter space splits into open and closed pieces by the kernel on wild inertia",
+   "kind": "lemma",
+   "statement": "Any condensed 1-cocycle phi : W_E -> G-hat(Lambda) is trivial on an open subgroup of the wild inertia P_E, and P_E acts on G-hat through a finite quotient. For gamma in P_E acting trivially on G-hat, the locus where phi(gamma) = 1 is OPEN AND CLOSED. Hence the moduli space of L-parameters decomposes as a disjoint union of open and closed subspaces according to the kernel of phi on P_E, i.e. Z^1(W_E,G-hat) is the union of the open and closed affine subschemes Z^1(W_E/P,G-hat) as P runs through open subgroups of the wild inertia.",
+   "hypotheses": [
+    "The open-and-closed claim is proved by embedding G-hat into GL_N and using that A = 1 is a CONNECTED COMPONENT of the locus of A in GL_N with A^{p^r} = 1, checked by observing that the tangent space at A = 1 is trivial",
+    "Triviality on an open subgroup of P_E is a consequence of the condensed/continuity condition; it does NOT mean the parameter factors through a finite quotient of W_E, exactly as the roadmap warns",
+    "The union over P is not quasicompact; each piece is of finite type but the whole is only a disjoint union of affine schemes of finite type"
+   ],
+   "proofSteps": [
+    "Use the condensed condition to see that phi|_{P_E} is trivial on an open subgroup.",
+    "For gamma in P_E acting trivially on G-hat, embed G-hat into GL_N and use the connected-component/tangent-space argument to see that {phi(gamma) = 1} is open and closed.",
+    "Conclude the decomposition by the kernel of phi on P_E."
+   ],
+   "acceptance": [
+    "Check the open-and-closed statement for G-hat = GL_1 and a nontrivial finite wild image",
+    "Check that a parameter with finite wild ramification need not factor through a finite quotient of W_E",
+    "Check non-quasicompactness of the union"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem VIII.1.3, printed p. 279",
+     "excerpt": "Moreover, for any gamma in P_E acting trivially on G-hat, the locus where phi(gamma) = 1 is open and closed: Taking a closed embedding G-hat -> GL_N, this follows from A = 1 being a connected component of the locus of all A in GL_N such that A^{p^r} = 1, as can be checked by observing that the tangent space at A = 1 is trivial.",
+     "match": "The exact argument for the open-and-closed decomposition."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem VIII.0.1, printed p. 277",
+     "excerpt": "The scheme Z^1(W_E,G-hat) is a union of open and closed affine subschemes Z^1(W_E/P,G-hat) as P runs through open subgroups of the wild inertia subgroup of W_E, and each Z^1(W_E/P,G-hat) is a flat local complete intersection over Z_l of dimension dim G.",
+     "match": "The global structure statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LanglandsParameterStacks:LP1/representability-flatness-and-lci",
+   "parentStageId": "LanglandsParameterStacks:LP1",
+   "title": "FS VIII.1.3: Z^1(W_E,G-hat) is a disjoint union of finite-type affine schemes, flat and a relative complete intersection of dimension dim G",
+   "kind": "theorem",
+   "statement": "There is a scheme Z^1(W_E,G-hat) over Z_l parametrizing L-parameters, a disjoint union of affine schemes of finite type over Z_l, FLAT and a RELATIVE COMPLETE INTERSECTION of dimension dim G = dim G-hat. Equivalently, the Artin stack [X/G-hat] with X = Z^1(W,G-hat) is flat and a relative complete intersection of dimension 0 over Z_l.",
+   "hypotheses": [
+    "The dimension is the RELATIVE dimension over Z_l; compare the absolute-dimension normalization in Dat-Helm-Kurinczuk-Moss (see the separate node)",
+    "The deformation theory used is: for Lambda a field, the obstruction group is H^2(W, g-hat tensor_{Z_l} Lambda), the tangent space H^1, the infinitesimal automorphisms H^0, all with the W-action twisted by the local 1-cocycle phi",
+    "The numerical input is that the PRIME-TO-P cohomological dimension of W is 2 and the Euler characteristic of any representation is 0; this reduces everything to bounding all fibres of [X/G-hat] -> Spec Z_l by dimension at most 0",
+    "X is naturally defined over Z[1/p] and the discretization W is independent of l, so it suffices to bound the fibre over F_l-bar and then use constructibility of fibre dimension",
+    "The characteristic-l bound uses that the stack of 1-cocycles of the prime-to-l inertia I^l is smooth with each component a quotient of Spec F_l-bar by a centralizer C_{phi^{I^l}} in G-hat, a smooth group whose identity component is reductive by [PY02, Theorem 2.1]"
+   ],
+   "proofSteps": [
+    "Decompose by the wild kernel and fix W_E -> W'_E; identify Z^1(W'_E,G-hat) with Z^1(W,G-hat), an affine scheme of finite type since W is discrete and finitely generated.",
+    "Pass to the Artin stack [X/G-hat] and compute its deformation theory with the twisted W-action.",
+    "Use cd_{p'}(W) = 2 and vanishing Euler characteristic to reduce to a fibre-dimension bound.",
+    "Reduce to the fibre over F_l-bar by constructibility; map to the stack of I^l-cocycles, which is smooth with reductive-identity-component centralizers; fix phi^{I^l} and bound the closed subscheme X_{phi^{I^l}} by dim C_{phi^{I^l}}, mapping with finite fibres to maps W_E/I^l = Z_l semidirect sigma^Z -> C-tilde/phi^{I^l}(I^l)."
+   ],
+   "acceptance": [
+    "Check flatness for G = GL_2 and l dividing q^2 - 1, the case where the naive Bellovin-Gee/Booher-Patrikis space fails to be flat",
+    "Check the dimension dim G on a split torus",
+    "Check the deformation-theoretic Euler characteristic computation for W"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem VIII.1.3, printed p. 279",
+     "excerpt": "There is a scheme Z^1(W_E,G-hat) over Z_l parametrizing L-parameters for G, which is a disjoint union of affine schemes of finite type over Z_l. It is flat and a relative complete intersection of dimension dim G = dim G-hat.",
+     "match": "Exact statement, with the relative-dimension normalization."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem VIII.1.3, printed p. 280",
+     "excerpt": "Now note that by direct computation the prime-to-p cohomological dimension of W is 2, and the Euler characteristic of any representation is equal to 0. Thus, this analysis shows that we only have to prove that all fibres of [X/G-hat] -> Spec Z_l are of dimension at most 0.",
+     "match": "The numerical heart of the proof."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem VIII.1.3, printed p. 280",
+     "excerpt": "By deformation theory, that stack is smooth and each connected component is a quotient of Spec F_l-bar by the centralizer group C_{phi^{I^l}} in G-hat_{F_l-bar}, which is a smooth group, whose identity component is reductive by [PY02, Theorem 2.1].",
+     "match": "The characteristic-l input, naming the imported reductivity-of-centralizers theorem."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LanglandsParameterStacks:LP1/independent-source-and-dimension-normalisation",
+   "parentStageId": "LanglandsParameterStacks:LP1",
+   "title": "Dat-Helm-Kurinczuk-Moss: the independent construction, and a normalisation difference in the stated dimension",
+   "kind": "comparison",
+   "statement": "Dat-Helm-Kurinczuk-Moss construct a moduli space of Langlands parameters W_F -> ^L G for G-hat a split reductive group scheme over Z[1/p] with a W_F-action, show it is locally of finite type and flat over Z[1/p] and a REDUCED local complete intersection, parameterize connected and irreducible components, and study the GIT quotient by G-hat. Their Theorem 1.3 states that Z^1(W_F^0, G-hat) is SYNTOMIC (flat and locally a complete intersection) over Z^1(P_F,G-hat), generically smooth, of PURE ABSOLUTE DIMENSION dim(G-hat), with the explicit caveat that dim G-hat = dim G + 1 whenever G-hat is the Langlands dual of a reductive G over F, since the base scheme of G-hat has dimension 1. Theorem 1.4: if the centre of G-hat is smooth, all summands in their decomposition are connected.",
+   "hypotheses": [
+    "Their base is Z[1/p] rather than Z_l, and the flatness is over Z[1/p]",
+    "Their dimension statement is ABSOLUTE and equals dim G + 1; Fargues-Scholze's Theorem VIII.1.3 states RELATIVE dimension dim G over Z_l. These agree once the one-dimensional base is accounted for, and Dat-Helm-Kurinczuk-Moss flag the discrepancy explicitly. Any restatement must say which normalisation it uses",
+    "They additionally assert REDUCEDNESS, which is not part of Fargues-Scholze Theorem VIII.1.3 as stated",
+    "Their Theorem 1.4's connectedness conclusion needs the centre of G-hat to be SMOOTH",
+    "They record a concrete failure of the naive approach: for G = GL_2 and l dividing q^2 - 1, the analogue of the Bellovin-Gee / Booher-Patrikis space FAILS TO BE FLAT over W(F_l-bar), so it does not recover universal framed deformation rings"
+   ],
+   "proofSteps": [
+    "Dat-Helm-Kurinczuk-Moss reduce to TAME parameters for a tame action preserving a Borel pair (their Section 3), study that case in Section 2, and deduce Theorem 1.3 = their Theorem 4.1.",
+    "Fargues-Scholze follow the same discretization idea, attributing it to [DHKM20] and [Zhu20]: 'following [DHKM20] and [Zhu20] we define discrete dense subgroups W in W_E/P by discretizing the tame inertia, and the restriction Z^1(W_E/P,G-hat) -> Z^1(W,G-hat) is an isomorphism'.",
+    "NOTE: only the abstract, the introduction (printed pp. 2-3) and the statements of Theorems 1.3 and 1.4 were read; no proof from Dat-Helm-Kurinczuk-Moss was read."
+   ],
+   "acceptance": [
+    "Check the GL_2, l | q^2 - 1 non-flatness example against the flatness of Z^1",
+    "Check the dimension normalisation on a split torus: relative dimension dim T versus absolute dimension dim T + 1",
+    "Check reducedness, which Fargues-Scholze do not assert"
+   ],
+   "sources": [
+    {
+     "sourceId": "DHKM-parameters",
+     "locator": "Theorem 1.3 and the caveat after it, printed p. 6",
+     "excerpt": "The scheme Z^1(W_F^0, G-hat) is syntomic (flat and locally a complete intersection) over Z^1(P_F, G-hat), generically smooth, of pure absolute dimension dim(G-hat). Beware that dim G-hat = dim G + 1 whenever G-hat is the Langlands dual group of a reductive group G over F, since the base scheme of G-hat has dimension 1.",
+     "match": "The independent statement together with the explicit dimension-normalisation warning, which differs from the relative-dimension phrasing in Fargues-Scholze VIII.1.3."
+    },
+    {
+     "sourceId": "DHKM-parameters",
+     "locator": "Abstract, printed p. 1",
+     "excerpt": "We construct a moduli space of Langlands parameters W_F -> ^L G, and show that it is locally of finite type and flat over Z[1/p], and that it is a reduced local complete intersection.",
+     "match": "Their global statement, including reducedness."
+    },
+    {
+     "sourceId": "DHKM-parameters",
+     "locator": "Introduction, printed p. 2",
+     "excerpt": "For instance, when G = GL_2, and l divides q^2 - 1 (where q denotes the order of the residue field of F), the analogue of the spaces constructed by Bellovin-Gee and Booher-Patrikis fails to be flat over W(F_l-bar).",
+     "match": "A concrete integral pathology of the naive construction, useful as an acceptance test."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "VIII introduction, printed p. 277",
+     "excerpt": "To prove the theorem, following [DHKM20] and [Zhu20] we define discrete dense subgroups W in W_E/P by discretizing the tame inertia, and the restriction Z^1(W_E/P,G-hat) -> Z^1(W,G-hat) is an isomorphism, where the latter is clearly an affine scheme.",
+     "match": "Fargues-Scholze's own attribution of the discretization method."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LanglandsParameterStacks:LP1/derived-comparison-with-the-classical-scheme",
+   "parentStageId": "LanglandsParameterStacks:LP1",
+   "title": "FS VIII.3.5: the derived cocycle algebra is discrete",
+   "kind": "theorem",
+   "statement": "In the derived infinity-category D(Z_l), the map colim over (n, F_n -> W) of O(Z^1(F_n,G-hat)) -> O(Z^1(W,G-hat)) is an isomorphism. Both sides carry natural animated Z_l-algebra structures and the map is a morphism of such; hence it is an isomorphism of animated Z_l-algebras. In particular the derived object A = colim ... is DISCRETE: A = pi_0 A.",
+   "hypotheses": [
+    "The index category {(n, F_n -> W)} of maps from finite free groups to W is SIFTED, since it admits coproducts; this is needed for the colimit to compute the animated algebra",
+    "The left-hand side is the UNIVERSAL animated Z_l-algebra A with a 1-cocycle W -> G-hat(A); the right-hand side is pi_0 A",
+    "The argument is: the deformation-theoretic computation in the proof of Theorem VIII.1.3 shows A is a DERIVED complete intersection, and since pi_0 A has the correct dimension, A = pi_0 A. This is exactly the amplitude comparison the completion contract asks for, and it is NOT an argument from equality of geometric points",
+    "This statement is on underlying complexes; the refinement incorporating the G-hat-action is Theorem VIII.3.6 and needs the l-does-not-divide-|pi_1(G-hat)_tors| hypothesis"
+   ],
+   "proofSteps": [
+    "Identify the colimit with the universal animated Z_l-algebra carrying a 1-cocycle from W.",
+    "Apply the deformation theory of the proof of VIII.1.3 to see that A is a derived complete intersection.",
+    "Compare dimensions: pi_0 A has the correct dimension, so A is discrete."
+   ],
+   "acceptance": [
+    "Check the amplitude argument on a split torus, where everything is explicit",
+    "Check that equality of geometric points would not suffice",
+    "Check that the index category is sifted"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VIII.3.5 and proof, printed p. 288",
+     "excerpt": "The left-hand side defines an animated Z_l-algebra, in fact the universal animated Z_l-algebra A with a 1-cocycle W -> G-hat(A), and the right-hand side is given by pi_0 A. Now the deformation-theoretic arguments from the proof of Theorem VIII.1.3 show that A is a derived complete intersection, but as pi_0 A has the correct dimension, we get A = pi_0 A.",
+     "match": "The full proof; this is the source's amplitude calculation comparing the derived and classical cocycle objects."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "VIII.3.2, printed p. 287",
+     "excerpt": "Consider the category {(n, F_n -> W)} consisting of maps from finite free groups to W, with maps given by commutative diagrams F_n -> F_m -> W; this is a sifted index category (as it admits coproducts).",
+     "match": "The siftedness of the index category, needed for the animated-algebra statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism",
+   "parentStageId": "LanglandsParameterStacks:LP2:excursion-presentation",
+   "title": "FS VIII.3.3-VIII.3.4: the excursion algebra and the universal homeomorphism onto the invariant algebra",
+   "kind": "construction",
+   "statement": "For each n with a map F_n -> W one has a G-hat-equivariant map O(Z^1(F_n,G-hat)) -> O(Z^1(W,G-hat)), where Z^1(F_n,G-hat) = G-hat^n with appropriately twisted diagonal G-hat-conjugation. The map colim over (n,F_n -> W) of O(Z^1(F_n,G-hat)) -> O(Z^1(W,G-hat)) is an isomorphism of algebras WITH G-hat-action, because a 1-cocycle from W is uniquely specified by a compatible collection of 1-cocycles from all F_n -> W. By HABOUSH'S THEOREM on geometric reductivity, the induced map on G-hat-invariants Exc(W,G-hat) := colim O(Z^1(F_n,G-hat))^{G-hat} -> O(Z^1(W,G-hat))^{G-hat} is a UNIVERSAL HOMEOMORPHISM of finite-type Z_l-algebras, and an ISOMORPHISM AFTER INVERTING l. In particular the geometric points of Exc(W,G-hat) and of Z^1(W,G-hat) // G-hat agree.",
+   "hypotheses": [
+    "Without further hypotheses the map on invariants is only a universal homeomorphism, NOT an isomorphism; it becomes an isomorphism after inverting l, and integrally only under the hypothesis of Theorem VIII.3.6",
+    "The input is Haboush's theorem [Hab75] on geometric reductivity, which was not read",
+    "Z^1(F_n,G-hat) = G-hat^n with SIMULTANEOUS TWISTED G-hat-conjugation, the twisting being by the n given automorphisms",
+    "P must be an open subgroup of the wild inertia with the property that the W_E-action on G-hat factors over W_E/P"
+   ],
+   "proofSteps": [
+    "Identify Z^1(F_n,G-hat) with G-hat^n under twisted simultaneous conjugation.",
+    "Show the colimit map is an isomorphism of G-hat-algebras, since a cocycle on W is determined by compatible cocycles on all F_n -> W.",
+    "Apply Haboush's geometric reductivity to pass to invariants, getting a universal homeomorphism of finite-type Z_l-algebras, an isomorphism after inverting l."
+   ],
+   "acceptance": [
+    "Check the universal homeomorphism is not an isomorphism in an integral example at a bad prime",
+    "Check the identification Z^1(F_1,G-hat) = G-hat with twisted conjugation",
+    "Check agreement of geometric points"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "VIII.3.2, printed p. 287",
+     "excerpt": "By Haboush's theorem on geometric reductivity [Hab75] it follows that the map colim_{(n,F_n -> W)} O(Z^1(F_n,G-hat))^{G-hat} -> O(Z^1(W,G-hat))^{G-hat} on G-hat-invariants is a universal homeomorphism of finite type Z_l-algebras, and an isomorphism after inverting l.",
+     "match": "The exact strength of the unconditional statement, which the stage text insists on."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition VIII.3.4 and the sentence after it, printed p. 287",
+     "excerpt": "The algebra of excursion operators (for Z^1(W,G-hat)) is Exc(W,G-hat) = colim_{(n,F_n -> W)} O(Z^1(F_n,G-hat))^{G-hat}. We see in particular that the geometric points of Exc(W,G-hat) and Z^1(W,G-hat) // G-hat agree.",
+     "match": "The definition and the geometric-point consequence."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LanglandsParameterStacks:LP2:excursion-presentation/universal-property-of-the-excursion-algebra",
+   "parentStageId": "LanglandsParameterStacks:LP2:excursion-presentation",
+   "title": "FS VIII.3.7: the excursion algebra by generators and relations",
+   "kind": "theorem",
+   "statement": "Fix a finite quotient Q of W_E over which the W_E-action on G-hat factors, and let (G-hat semidirect Q)^n // G-hat be the GIT quotient under simultaneous conjugation. Then Exc(W,G-hat) is the UNIVERSAL Z_l-algebra A equipped with maps Theta_n : O((G-hat semidirect Q)^n // G-hat) -> Map(W^n,A) for n >= 1, LINEAR OVER O(Q^n) -> Map(W^n,A), subject to: for every map g : {1,...,m} -> {1,...,n} the induced square commutes, together with the further multiplication/reindexing relations of VIII.3.3.",
+   "hypotheses": [
+    "The maps Theta_n must be linear over O(Q^n) -> Map(W^n,A); dropping this linearity changes the universal object",
+    "The relations are indexed by maps g of finite sets, i.e. they are reindexing relations, plus the multiplication relations spelled out in the same subsection",
+    "n runs over n >= 1",
+    "The quotient (G-hat semidirect Q)^n // G-hat is the GIT quotient by SIMULTANEOUS conjugation"
+   ],
+   "proofSteps": [
+    "Fargues-Scholze verify that the algebra defined by the colimit satisfies this universal property.",
+    "NOTE: the proof was read only at the level of the statement and the displayed relations; the verification ('which thus has the desired universal property', printed p. 290) was not read in detail."
+   ],
+   "acceptance": [
+    "Check the universal property on a split torus, where the relations should be transparent",
+    "Check that omitting the O(Q^n)-linearity changes the answer",
+    "Check the reindexing relation for the diagonal map {1,2} -> {1}"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VIII.3.7, printed p. 288",
+     "excerpt": "The algebra of excursion operators Exc(W,G-hat) is the universal Z_l-algebra A equipped with maps Theta_n : O((G-hat semidirect Q)^n // G-hat) -> Map(W^n,A) for n >= 1, linear over O(Q^n) -> Map(W^n,A), subject to the following relations. If g : {1,...,m} -> {1,...,n} is any map, the induced diagram ... commutes.",
+     "match": "The universal property with its linearity condition and reindexing relations."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LanglandsParameterStacks:LP2:excursion-presentation/map-to-a-bernstein-center",
+   "parentStageId": "LanglandsParameterStacks:LP2:excursion-presentation",
+   "title": "FS VIII.4.1-VIII.4.2: excursion operators give a map from Exc(W,G-hat) to the Bernstein centre of a categorical datum",
+   "kind": "theorem",
+   "statement": "Given the categorical data of Section VIII.4 (a category C with a monoidal action of Rep((G-hat semidirect Q)^I) valued in W^I-equivariant endofunctors, functorially in I), there is a natural map of algebras Exc(W,G-hat) = colim over (n,F_n -> W) of O(Z^1(F_n,G-hat))^{G-hat} -> End(id_C), the Bernstein centre of C. The map is constructed from excursion data D = (I, V, alpha, beta, (gamma_i)_{i in I}) with I a finite set, V in Rep_{Z_l}((G-hat semidirect Q)^I), alpha : 1 -> V restricted to the DIAGONAL copy of G-hat, beta : V restricted to G-hat -> 1, and gamma_i in W. This is essentially due to V. Lafforgue.",
+   "hypotheses": [
+    "alpha and beta are maps of representations of the DIAGONAL G-hat inside G-hat^I inside (G-hat semidirect Q)^I; the restriction functor is to Rep_{Z_l}(G-hat)",
+    "The gamma_i lie in the DISCRETIZED group W, not in W_E; passing to W_E is the content of Proposition VIII.3.8 and of the uniform-wild-subgroup statement IX.5.1",
+    "The target is End(id_C), i.e. the Bernstein centre of the categorical datum; no representation-theoretic correspondence is assumed",
+    "Fargues-Scholze attribute the construction essentially to V. Lafforgue [Laf18]"
+   ],
+   "proofSteps": [
+    "Construct the excursion operator attached to an excursion datum as the composite A = T_1(A) -> T_V(A) -> T_V(A) -> T_1(A) = A using alpha, the (gamma_i), and beta.",
+    "Check the relations of Proposition VIII.3.7 for these operators, which gives a map out of the universal algebra.",
+    "NOTE: only the statement of Theorem VIII.4.1, Definition VIII.4.2 and the location of Corollary VIII.4.3 were read; the construction and verification were not."
+   ],
+   "acceptance": [
+    "Check that the excursion operator for I a singleton and V trivial is the identity",
+    "Check the relations for a map of finite sets on an explicit datum",
+    "Check that no parameter is produced at this stage, only operators"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem VIII.4.1, printed p. 291",
+     "excerpt": "Given the above categorical data, there is a natural map of algebras Exc(W,G-hat) = colim_{(n,F_n -> W)} O(Z^1(F_n,G-hat))^{G-hat} -> End(id_C) to the Bernstein center of C (i.e., the algebra of endomorphisms of the identity of C).",
+     "match": "The universal-property statement that makes the excursion algebra usable by consumers."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition VIII.4.2 and the sentence after it, printed p. 291",
+     "excerpt": "An excursion datum is a tuple D = (I, V, alpha, beta, (gamma_i)_{i in I}) consisting of a finite set I, an object V in Rep_{Z_l}((G-hat semidirect Q)^I) with maps alpha : 1 -> V|_{Rep_{Z_l}(G-hat)}, beta : V|_{Rep_{Z_l}(G-hat)} -> 1 and elements gamma_i in W. Here, the restriction Rep_{Z_l}((G-hat semidirect Q)^I) -> Rep_{Z_l}(G-hat) is the restriction to the diagonal copy of G-hat.",
+     "match": "The exact form of an excursion datum, including the diagonal restriction."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LanglandsParameterStacks:LP2:semisimple-characters/semisimple-parameters-and-closed-orbits",
+   "parentStageId": "LanglandsParameterStacks:LP2:semisimple-characters",
+   "title": "FS VIII.3.1-VIII.3.2: semisimplicity of a parameter and closedness of its orbit",
+   "kind": "definition",
+   "statement": "For L an algebraically closed field over Z_l, an L-parameter phi : W_E -> G-hat(L) semidirect W_E is SEMISIMPLE if whenever the image of phi is contained in a parabolic subgroup of G-hat semidirect W_E, it is contained in a Levi subgroup of that parabolic. Concretely: if some G-hat(L)-conjugate phi' of phi factors through P-hat(L) semidirect W_E, then there is g in P-hat(L) with g phi' g^{-1} = i_{L M} pr_{L M} composed with phi'. Dat-Helm-Kurinczuk-Moss Proposition 4.13: for an L-parameter phi, semisimplicity is equivalent to the G-hat-orbit of phi in Z^1(W_E,G-hat)_L being CLOSED.",
+   "hypotheses": [
+    "L must be ALGEBRAICALLY CLOSED and an algebra over Z_l; the roadmap asks for characteristic different from p, which is the standing l != p hypothesis",
+    "Parabolic and Levi subgroups are taken in G-hat semidirect W_E, not in G-hat; the standard parabolics correspond to finite W_E-stable subsets of the simple roots of G-hat",
+    "The equivalence with closedness of the orbit is quoted from [DHKM20, Proposition 4.13], which was NOT read",
+    "Semisimplicity is NOT the same as a full Weil-Deligne parameter with monodromy; the roadmap's warning is consistent with FS's separate treatment of Weil-Deligne parameters in VIII.2 (Definition VIII.2.4 for Q_l-algebras)"
+   ],
+   "proofSteps": [
+    "Fargues-Scholze give the definition and its concrete reformulation in terms of standard parabolics.",
+    "Proposition VIII.3.2 lists equivalent conditions, the first being closedness of the G-hat-orbit; it is attributed to Dat-Helm-Kurinczuk-Moss."
+   ],
+   "acceptance": [
+    "Check the definition for an unramified GL_2 parameter that is a nonsplit extension",
+    "Check that closedness of the orbit fails for a non-semisimple parameter",
+    "Check that a semisimple parameter is not a Weil-Deligne pair"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition VIII.3.1, printed p. 285",
+     "excerpt": "Let L be an algebraically closed field over Z_l. An L-parameter phi : W_E -> G-hat(L) semidirect W_E is semisimple if whenever the image of phi is contained in a parabolic subgroup of G-hat semidirect W_E then it is contained in a Levi subgroup of this parabolic subgroup.",
+     "match": "Verbatim definition."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VIII.3.2, printed p. 285",
+     "excerpt": "Let L be an algebraically closed field over Z_l and phi : W_E -> G-hat(L) semidirect W_E a parameter. The following are equivalent: (i) The G-hat-orbit of phi in Z^1(W_E,G-hat)_L is closed.",
+     "match": "The closed-orbit characterisation, with its attribution to [DHKM20, Proposition 4.13]."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LanglandsParameterStacks:LP2:semisimple-characters/character-bijection",
+   "parentStageId": "LanglandsParameterStacks:LP2:semisimple-characters",
+   "title": "FS VIII.3.8: excursion characters determine a unique conjugacy class of semisimple parameters",
+   "kind": "theorem",
+   "statement": "Let L be an algebraically closed field over Z_l. Then the following are in CANONICAL BIJECTION: (i) semisimple L-parameters phi : W_E -> G-hat(L) semidirect W_E up to G-hat(L)-conjugation; (ii) L-valued points of Z^1(W_E,G-hat) // G-hat; (iii) collections of Z_l-algebra maps Theta_n : O((G-hat semidirect Q)^n // G-hat) -> Map(W_E^n, L) for n >= 1, LINEAR over O(Q^n) -> Map(W_E^n,L), compatible with the reindexing squares for every map g : {1,...,m} -> {1,...,n} and with the further displayed relations.",
+   "hypotheses": [
+    "L algebraically closed over Z_l; the statement is about CONJUGACY CLASSES, not about individual parameters",
+    "In (iii) the maps are defined on W_E^n, not on the discretization W^n; this is the passage 'to W_E in place of W_E/P, where there is no natural (finite type) algebra anymore' that Fargues-Scholze flag before stating the proposition",
+    "The linearity over O(Q^n) is again part of the data",
+    "This statement does NOT require the hypothesis that l does not divide |pi_1(G-hat)_tors|; that hypothesis enters only in Theorem VIII.3.6 / VIII.5.1. The roadmap's insistence on keeping the two apart is confirmed by the source's ordering"
+   ],
+   "proofSteps": [
+    "Fargues-Scholze deduce the bijection from the excursion presentation of VIII.3.7 together with the identification of geometric points of Exc(W,G-hat) with those of Z^1(W,G-hat) // G-hat (which holds unconditionally by the universal homeomorphism), and from the closed-orbit characterisation of semisimplicity.",
+    "NOTE: only the statement of Proposition VIII.3.8 and the paragraph introducing it were read; its proof was not."
+   ],
+   "acceptance": [
+    "Check the bijection for a split torus",
+    "Check that the excursion character determines the conjugacy class and not the parameter",
+    "Check independence of the discretization and of the finite-wild choice, which the stage text requires and the source does not display"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VIII.3.8, printed p. 290",
+     "excerpt": "Let L be an algebraically closed field over Z_l. Then the following are in canonical bijection. (i) Semisimple L-parameters phi : W_E -> G-hat(L) semidirect W_E, up to G-hat(L)-conjugation. (ii) L-valued points of Z^1(W_E,G-hat) // G-hat. (iii) Collections of maps of Z_l-algebras Theta_n : O((G-hat semidirect Q)^n // G-hat) -> Map(W_E^n, L) for n >= 1, linear over O(Q^n) -> Map(W_E^n, L), such that ...",
+     "match": "Exact statement of the three-way bijection over W_E."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Before Proposition VIII.3.8, printed p. 290",
+     "excerpt": "Regarding the passage to W_E in place of W_E/P, where there is no natural (finite type) algebra anymore, we still have the following result.",
+     "match": "Records that the W_E-version is a statement about characters, not about a finite-type algebra."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem",
+   "parentStageId": "LanglandsParameterStacks:LP2:integral-invariants",
+   "title": "FS VIII.3.6 and VIII.5.1: the integral invariant theorem under l not dividing |pi_1(G-hat)_tors|",
+   "kind": "theorem",
+   "statement": "Assume l does not divide the order of pi_1(G-hat)_tors. Then colim over (n,F_n -> W) of O(Z^1(F_n,G-hat)) -> O(Z^1(W,G-hat)) is an isomorphism in the presentable stable infinity-category Ind Perf(*/G-hat); in particular Exc(W,G-hat) -> O(Z^1(W,G-hat))^{G-hat} is an ISOMORPHISM. Equivalently (Theorem VIII.0.2), H^i(G-hat, O(Z^1(W_E/P,G-hat))) = 0 for i > 0 and the formation of O(Z^1(W_E/P,G-hat))^{G-hat} commutes with ANY BASE CHANGE. All of these results also hold with Q_l-coefficients WITHOUT the assumption on l.",
+   "hypotheses": [
+    "The hypothesis is that l does NOT divide the order of pi_1(G-hat)_tors; it is required for the integral statements and is dropped only in the Q_l-coefficient case",
+    "The statement is an isomorphism in Ind Perf(*/G-hat), i.e. it incorporates the G-hat-action; the underlying-complex statement without the action is Proposition VIII.3.5 and needs no hypothesis",
+    "The higher-cohomology vanishing and the base-change compatibility of invariants are the two concrete consequences recorded in Theorem VIII.0.2",
+    "The reduction of VIII.5.1 to the characteristic-l statement VIII.5.2 uses that the map is an isomorphism after inverting l (semisimplicity of Rep G-hat over Q_l) and true on underlying complexes by VIII.3.5, so only the mod-l statement remains"
+   ],
+   "proofSteps": [
+    "Reduce Theorem VIII.5.1 to Theorem VIII.5.2 over L = F_l-bar: the colimit claim amounts to colim RGamma(G-hat, O(Z^1(F_n,G-hat)) tensor V) -> RGamma(G-hat, O(Z^1(W,G-hat)) tensor V) being an isomorphism for all V in Rep G-hat; it holds after inverting l by semisimplicity, and on underlying complexes by VIII.3.5, so it suffices mod l.",
+    "Prove the characteristic-l statement using the good-filtration t-structure and the fixed-point/Donkin results of VIII.5.3.",
+    "NOTE: the proof of Theorem VIII.5.2 itself (printed pp. 296-301) was not read."
+   ],
+   "acceptance": [
+    "Check the base change of invariants from Z_l to F_l-bar on a split torus",
+    "Exhibit a G-hat with l dividing |pi_1(G-hat)_tors| and check that the conclusion can fail, or record that no such example is displayed in the source",
+    "Check the rational version without the hypothesis"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem VIII.5.1, printed p. 293",
+     "excerpt": "Assume that l does not divide the order of pi_1(G-hat)_tors. Then the map colim_{(n,F_n -> W)} O(Z^1(F_n,G-hat)) -> O(Z^1(W,G-hat)) is an isomorphism in the presentable stable infinity-category Ind Perf(*/G-hat).",
+     "match": "The integral theorem with its exact hypothesis."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem VIII.0.2, printed p. 277",
+     "excerpt": "Then H^i(G-hat, O(Z^1(W_E/P,G-hat))) = 0 for i > 0 and the formation of the invariants O(Z^1(W_E/P,G-hat))^{G-hat} commutes with any base change.",
+     "match": "The vanishing and base-change consequences the stage text asks for."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "VIII introduction, printed p. 278",
+     "excerpt": "All of these results also hold with Q_l-coefficients, without the assumption on l.",
+     "match": "Confirms that the rational statements are separate and unrestricted, as the stage text requires."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LanglandsParameterStacks:LP3/good-filtration-t-structure",
+   "parentStageId": "LanglandsParameterStacks:LP3",
+   "title": "FS VIII.5.1: good filtrations, the good-filtration t-structure, and the cocycle algebra's good filtration",
+   "kind": "construction",
+   "statement": "For G reductive over an algebraically closed field of characteristic l: V admits a good filtration if and only if H^i(G,V tensor nabla_lambda) = 0 for i > 0 for all lambda (Donkin). The good-filtration dimension of V is the minimal i with H^j(G, V tensor nabla_lambda) = 0 for all lambda and j > i; every finite-dimensional representation has finite good filtration dimension. On Ind Perf(*/G), compactly generated by bounded complexes of G-representations, the GOOD FILTRATION T-STRUCTURE has connective part {M : H^i(G, M tensor nabla_lambda) = 0 for i > 0 for all lambda} and coconnective part {M : H^i(G, M tensor Delta_lambda) = 0 for i < 0 for all lambda}; it is SEPARATED, unlike the standard t-structure. O(G) with the G x G-action admits a good filtration (Koppinen, Donkin), hence for any map F_n -> Aut(G) the G-representation O(Z^1(F_n,G)) admits a good filtration.",
+   "hypotheses": [
+    "The tensor-product stability of good filtrations is the theorem of Donkin and Mathieu; the vanishing H^i(G,V) = 0 for i > 0 when V has a good filtration reduces to V = nabla_lambda and is Kempf's vanishing theorem. Neither was read",
+    "Perf(*/G) is NOT stable under the truncation operations of the good-filtration t-structure; Fargues-Scholze warn about this explicitly",
+    "The existence of the t-structure follows from Lurie's Higher Algebra Proposition 1.4.4.11",
+    "The standard t-structure on Ind Perf(*/G) is FAR FROM SEPARATED because of infinite cohomological dimension; separatedness of the good-filtration t-structure is what makes it usable",
+    "Corollary VIII.5.7 uses that Z^1(F_n,G) = G^n with simultaneous twisted conjugation, that O(G^n) has a good filtration as a G^{2n}-representation, and stability of good filtrations under tensor products on restricting to the diagonal G inside G^{2n}"
+   ],
+   "proofSteps": [
+    "Donkin's criterion characterises good filtrations by Ext-vanishing against the costandard modules.",
+    "Define the good-filtration dimension and the t-structure; existence by Lurie 1.4.4.11.",
+    "Separatedness: if M is infinity-connective then so is RGamma(G, M tensor nabla_lambda), hence zero; since this detects M = 0, the t-structure is separated.",
+    "O(G) has a good G x G-filtration by Koppinen/Donkin; restricting O(G^n) from G^{2n} to the diagonal G and using tensor stability gives Corollary VIII.5.7."
+   ],
+   "acceptance": [
+    "Check Donkin's criterion for SL_2 and a Weyl module in characteristic l",
+    "Check that Perf(*/G) is not stable under the truncations",
+    "Check the good filtration of O(Z^1(F_1,G)) = O(G) under twisted conjugation"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition VIII.5.4 and the paragraph after it, printed pp. 294-295",
+     "excerpt": "(i) An object M in Ind Perf(*/G) lies in the connective part of the t-structure if for all lambda one has H^i(G, M tensor nabla_lambda) = 0 for i > 0; equivalently, if M has good filtration dimension <= 0. (ii) An object M in Ind Perf(*/G) lies in the coconnective part of the t-structure if for all lambda one has H^i(G, M tensor Delta_lambda) = 0 for i < 0. ... We warn the reader that the subcategory Perf(*/G) in Ind Perf(*/G) is not stable under the truncation operations.",
+     "match": "The t-structure with the explicit warning about Perf."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Corollary VIII.5.7 and proof, printed p. 295",
+     "excerpt": "For any map F_n -> Aut(G), the G-representation O(Z^1(F_n,G)) admits a good filtration. Proof. Note that Z^1(F_n,G) = G^n, where the G-action is that of simultaneous twisted conjugation (by the n given automorphisms of G). But O(G^n) admits a good filtration as representation of G^{2n}, and restricting to G in G^{2n} it remains good by stability under tensor products.",
+     "match": "The statement that feeds the integral invariant theorem, with its full proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LanglandsParameterStacks:LP3/fixed-points-of-prime-to-l-group-actions",
+   "parentStageId": "LanglandsParameterStacks:LP3",
+   "title": "FS VIII.5.14 and VIII.5.19: fixed points of a prime-to-l group action are reductive with prime-to-l component group",
+   "kind": "theorem",
+   "statement": "Let L be algebraically closed of characteristic l > 0 and G a linear algebraic group over L with G^circ reductive and pi_0 G of order prime to l. Let P be a FINITE group of order PRIME TO l acting on G and H = G^P. Then H is a smooth linear algebraic group, H^circ is reductive, and pi_0 H is of order prime to l. Moreover (VIII.5.19), if P is in addition SOLVABLE and pi_1(G^circ)_tors has order prime to l, then also pi_1(H^circ)_tors has order prime to l.",
+   "hypotheses": [
+    "P must be FINITE of order PRIME TO l; the smoothness of fixed points of a finite group of order prime to the characteristic is the standard fact used",
+    "Reductivity of H^circ is quoted from [PY02, Theorem 2.1]",
+    "The prime-to-l order of pi_0 H is proved using the good-filtration dimension theory: O(product over P minus {1} of G) has a good G-filtration, and by [TvdK10, Corollary 1.5] every G-equivariant finitely generated module over it has finite good filtration dimension, so H^i(G,M) = 0 for large i; a subgroup H' of H with pi_0 H' = Z/lZ would give RGamma(G,O(G/H')) = RGamma(H',L) = RGamma(Z/lZ,L) with cohomology in all positive degrees, a contradiction",
+    "Fargues-Scholze note the pi_0 argument 'probably uses unnecessarily heavy machinery' and that for solvable P it follows from Steinberg's theorem by reducing to cyclic P and simply connected G",
+    "VIII.5.19's proof is a case-by-case run through the classification of simple groups and their automorphisms"
+   ],
+   "proofSteps": [
+    "Reduce to G connected; smoothness and affineness of fixed points is standard; reductivity of H^circ is [PY02, Thm. 2.1].",
+    "For pi_0 H: consider the action of G on the product over P minus {1} of G with Theta-twisted conjugation on each factor, whose coordinate algebra has a good G-filtration; apply [TvdK10, Cor. 1.5] to bound good filtration dimensions; G/H is a closed orbit; a Z/lZ in pi_0 H would give unbounded cohomology, a contradiction.",
+    "For VIII.5.19: induct to P = Z/pZ cyclic of prime order p != l, pass to the derived group and its simply connected cover, assume G simple, and run through types A, B, C, D (with triality) and the exceptional groups."
+   ],
+   "acceptance": [
+    "Check the statement for P = Z/2Z acting on SL_2 by an involution",
+    "Check that the prime-to-l hypothesis on |P| cannot be dropped (see the characteristic-two example of Remark VIII.5.18)",
+    "Check pi_1 preservation in type A under an outer involution"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VIII.5.14, printed p. 301",
+     "excerpt": "Let L be an algebraically closed field of characteristic l > 0, and let G be a linear algebraic group over L such that G^circ is reductive and pi_0 G is of order prime to l. Assume that P is a finite group of order prime to l acting on G and let H = G^P be the fixed points. Then H is a smooth linear algebraic group, H^circ is reductive, and pi_0 H is of order prime to l.",
+     "match": "Exact statement with all three hypotheses."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VIII.5.19, printed p. 308",
+     "excerpt": "Assume that G^circ is reductive and that P is a finite solvable group of order prime to l acting on G with fixed points H = G^P. If pi_1(G^circ)_tors is of order prime to l, then also pi_1(H^circ)_tors is of order prime to l.",
+     "match": "The compatibility that lets the prime-to-l fundamental-group hypothesis survive the fixed-point construction."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LanglandsParameterStacks:LP3/donkin-subgroup-and-generation",
+   "parentStageId": "LanglandsParameterStacks:LP3",
+   "title": "FS VIII.5.15, VIII.5.17 and Remark VIII.5.18: the Donkin property, generation of Perf, and the characteristic-two counterexample",
+   "kind": "theorem",
+   "statement": "Assume in addition that P is SOLVABLE. Then H^circ inside G^circ is a DONKIN SUBGROUP: for any representation V of G^circ admitting a good G^circ-filtration, V|_{H^circ} admits a good H^circ-filtration; equivalently, for any W of H^circ with a good filtration, Ind_{H^circ}^{G^circ} W admits a good G^circ-filtration. Proposition VIII.5.17 lists six equivalent assertions, including (v) the image of Perf(*/G^circ) -> Perf(*/H^circ) generates under cones and retracts, and (vi) the same for Perf(*/G) -> Perf(*/H). Remark VIII.5.18 shows the prime-to-l hypothesis on |P| cannot be weakened to 'quasi-semisimple' or even pinning-preserving automorphisms, and that the precise form of the centre matters: for G = (SL_2 x SL_2)/mu_2 with the switching automorphism, H = PGL_2 x (mu_2 x mu_2)/mu_2, and if l = 2 the nontrivial character of H is NOT generated by Perf(*/G) under cones and retracts.",
+   "hypotheses": [
+    "SOLVABILITY of P is assumed for VIII.5.15 and VIII.5.17; Fargues-Scholze say it is 'the only case relevant to us'",
+    "The equivalence of the good-filtration and the induced-filtration formulations is Proposition VIII.5.3 applied to H^circ",
+    "Remark VIII.5.18's example shows the failure is at l = 2 for a group whose centre is (SL_2 x SL_2)/mu_2; the obstruction is that for A in Perf(*/H) in the image of Perf(*/G), the summand A_1 with nontrivial central character has perfect homotopy invariants for the Z/2Z inside PGL_2",
+    "Fargues-Scholze note that in a previous version assertion (vi) was proved by an exhaustive case analysis, and that the individual assertions 'do not generally allow simple reductions to the case that G is simply connected and the precise form of the center matters'"
+   ],
+   "proofSteps": [
+    "VIII.5.15: use Proposition VIII.5.3 to see the two formulations are equivalent, then prove the Donkin property using the good-filtration t-structure.",
+    "VIII.5.17: prove (i),(iii),(v) equivalent and (ii),(iv),(vi) equivalent; (v) is equivalent to the bar resolution ... -> Ind Ind W -> Ind W -> W -> 0 being a resolution in Ind Perf(*/H^circ).",
+    "NOTE: only the statements, the list (i)-(vi), Remark VIII.5.18 and the opening of the proof of VIII.5.17 were read; the proofs of VIII.5.15 and VIII.5.17 were not."
+   ],
+   "acceptance": [
+    "Reproduce the characteristic-two example and check that the nontrivial character of H is not generated",
+    "Check the Donkin property for a Levi subgroup, which the theorem generalises",
+    "Check the equivalence of (v) and (vi)"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem VIII.5.15, printed p. 302",
+     "excerpt": "The subgroup H^circ in G^circ is a Donkin subgroup. In other words, for any representation V of G^circ that admits a good G^circ-filtration, also V|_{H^circ} admits a good H^circ-filtration. Equivalently, for any representation W of H^circ that admits a good H^circ-filtration, also Ind_{H^circ}^{G^circ} W admits a good G^circ-filtration.",
+     "match": "The Donkin subgroup property, under the standing solvability assumption."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Remark VIII.5.18, printed p. 308",
+     "excerpt": "The following example shows that the hypothesis that P is of order prime to l is important, and cannot be weakened to 'quasi-semisimple' automorphisms (preserving a Borel and a torus) or even automorphisms fixing a pinning; also, the example shows that the precise form of the center is critical. If G = (SL_2 x SL_2)/mu_2 with the automorphism switching the two factors, then H = PGL_2 x (mu_2 x mu_2)/mu_2. If we had l = 2, then ... This implies that the nontrivial character of H is not generated by Perf(*/G) under cones and retracts.",
+     "match": "The characteristic-two counterexample that the roadmap names as a guard against removing the prime-to-l assumptions."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LanglandsParameterStacks:LP4/generation-and-module-comparison",
+   "parentStageId": "LanglandsParameterStacks:LP4",
+   "title": "FS VIII.5.1 (last two clauses): generation of Perf on the parameter stack and the module description of Ind Perf",
+   "kind": "theorem",
+   "statement": "Assume l does not divide the order of pi_1(G-hat)_tors. Then the infinity-category Perf(Z^1(W,G-hat)/G-hat) is GENERATED UNDER CONES AND RETRACTS by the image of Perf(*/G-hat), and Ind Perf(Z^1(W,G-hat)/G-hat) identifies with the infinity-category of MODULES over O(Z^1(W,G-hat)) in Ind Perf(*/G-hat). Equivalently (Theorem VIII.0.2), Perf(Z^1(W_E/P,G-hat)/G-hat) is generated under cones, shifts and retracts by the image of Rep(G-hat), and Ind Perf(Z^1(W_E/P,G-hat)) is equivalent to modules over O(Z^1(W_E/P,G-hat)) in Ind Perf(BG-hat). All of this also holds with Q_l-coefficients without the hypothesis on l.",
+   "hypotheses": [
+    "The hypothesis l does not divide |pi_1(G-hat)_tors| is needed for the integral statement; the rational statement is unconditional",
+    "Perfect complexes on X/G are the DUALIZABLE objects of the quasicoherent derived infinity-category D(X/G); in positive characteristic these are usually NOT compact in D(X/G), even for reductive G - Fargues-Scholze warn about this",
+    "The criterion for M in Perf(X/G) to lie in the subcategory generated by Perf(*/G) is Proposition VIII.5.8: the natural map colim[... -> M tensor^L A tensor^L M^* -> M tensor^L M^*] -> M tensor_A M^* in Ind Perf(*/G) is an isomorphism",
+    "The statement is for a single finite-wild piece Z^1(W_E/P,G-hat); the union over P is NOT quasicompact, so a consumer must factor through one piece, as the roadmap notes"
+   ],
+   "proofSteps": [
+    "Reduce to the characteristic-l statement VIII.5.2 as in the integral invariant theorem.",
+    "Use Proposition VIII.5.8's criterion together with the good-filtration machinery and the Donkin/fixed-point results of VIII.5.3.",
+    "NOTE: the proof (printed pp. 296-301 and 308-314) was not read; only the statements and Proposition VIII.5.8 were."
+   ],
+   "acceptance": [
+    "Check generation for a split torus, where everything is explicit",
+    "Check that perfect complexes are not compact in D(X/G) in characteristic l",
+    "Check that the non-quasicompactness of the union over P forces a compact-support factorisation for each object of a consumer category"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem VIII.5.1, printed p. 293",
+     "excerpt": "Moreover, the infinity-category Perf(Z^1(W,G-hat)/G-hat) is generated under cones and retracts by Perf(*/G-hat), and Ind Perf(Z^1(W,G-hat)/G-hat) identifies with the infinity-category of modules over O(Z^1(W,G-hat)) in Ind Perf(*/G-hat).",
+     "match": "The two clauses that this stage owns."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "VIII.5.2, printed p. 295",
+     "excerpt": "We warn the reader that, being in positive characteristic, these objects are usually not compact in D(X/G), even when G is reductive.",
+     "match": "A scope caveat that must be preserved when restating the module comparison."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VIII.5.8, printed p. 296",
+     "excerpt": "Let M in Perf(X/G), with dual M^* and internal endomorphisms M tensor_A M^* in Perf(X/G). Then M is in Perf^{ind}(X/G) if and only if the natural map colim[... -> M tensor^L A tensor^L M^* -> M tensor^L M^*] -> M tensor_A M^* in Ind Perf(*/G) is an isomorphism.",
+     "match": "The generation criterion actually used."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "LanglandsParameterStacks:LP0/condensed-cocycles-and-L-parameters",
+   "target": "LanglandsParameterStacks:LP0/discretization-and-unique-extension",
+   "reason": "The unique-extension theorem is a statement about condensed 1-cocycles in the sense fixed by Definition VIII.1.1, and its proof uses the condensed coefficient convention (finite-type values, continuity) to control eigenvalues.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition VIII.1.1 and proof of Theorem VIII.1.3, printed pp. 278-280"
+    }
+   ]
+  },
+  {
+   "source": "LanglandsParameterStacks:LP0/discretization-and-unique-extension",
+   "target": "LanglandsParameterStacks:LP1/representability-flatness-and-lci",
+   "reason": "Representability is obtained by identifying Z^1(W_E/P,G-hat) with Z^1(W,G-hat), which is an affine scheme of finite type because W is discrete and finitely generated; the identification is exactly the unique-extension theorem.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem VIII.1.3, printed p. 280"
+    }
+   ]
+  },
+  {
+   "source": "LanglandsParameterStacks:LP1/decomposition-by-wild-kernel",
+   "target": "LanglandsParameterStacks:LP1/representability-flatness-and-lci",
+   "reason": "The scheme is a DISJOINT UNION of finite-type pieces; the decomposition by the kernel on wild inertia is what produces those pieces, and the geometric statements are proved piece by piece.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem VIII.1.3, printed p. 279"
+    }
+   ]
+  },
+  {
+   "source": "LanglandsParameterStacks:LP1/representability-flatness-and-lci",
+   "target": "LanglandsParameterStacks:LP1/derived-comparison-with-the-classical-scheme",
+   "reason": "Proposition VIII.3.5's proof says 'the deformation-theoretic arguments from the proof of Theorem VIII.1.3 show that A is a derived complete intersection, but as pi_0 A has the correct dimension, we get A = pi_0 A'; both the deformation theory and the dimension count come from VIII.1.3.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VIII.3.5, printed p. 288"
+    }
+   ]
+  },
+  {
+   "source": "LanglandsParameterStacks:LP1/representability-flatness-and-lci",
+   "target": "LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism",
+   "reason": "The excursion algebra is built from O(Z^1(F_n,G-hat)) and compared with O(Z^1(W,G-hat)); the finite-type and affineness properties of the latter, established in VIII.1.3, are what make the comparison a map of finite-type Z_l-algebras.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "VIII.3.2, printed p. 287"
+    }
+   ]
+  },
+  {
+   "source": "LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism",
+   "target": "LanglandsParameterStacks:LP2:excursion-presentation/universal-property-of-the-excursion-algebra",
+   "reason": "Proposition VIII.3.7 is a presentation of the algebra Exc(W,G-hat) defined in Definition VIII.3.4, so the construction is a strict prerequisite of its universal property.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition VIII.3.4 and Proposition VIII.3.7, printed pp. 287-288"
+    }
+   ]
+  },
+  {
+   "source": "LanglandsParameterStacks:LP2:excursion-presentation/universal-property-of-the-excursion-algebra",
+   "target": "LanglandsParameterStacks:LP2:excursion-presentation/map-to-a-bernstein-center",
+   "reason": "Theorem VIII.4.1 produces a map OUT of Exc(W,G-hat); the construction checks exactly the relations of Proposition VIII.3.7 for the explicit excursion operators, so the universal property is what makes the map well defined.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem VIII.4.1 and Definition VIII.4.2, printed p. 291"
+    }
+   ]
+  },
+  {
+   "source": "LanglandsParameterStacks:LP2:excursion-presentation/universal-property-of-the-excursion-algebra",
+   "target": "LanglandsParameterStacks:LP2:semisimple-characters/character-bijection",
+   "reason": "Condition (iii) of Proposition VIII.3.8 is literally the system of maps Theta_n with the relations of Proposition VIII.3.7, transported from W^n to W_E^n; the bijection is the character-level form of that presentation.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Propositions VIII.3.7 and VIII.3.8, printed pp. 288-290"
+    }
+   ]
+  },
+  {
+   "source": "LanglandsParameterStacks:LP2:semisimple-characters/semisimple-parameters-and-closed-orbits",
+   "target": "LanglandsParameterStacks:LP2:semisimple-characters/character-bijection",
+   "reason": "Item (i) of the bijection is the set of SEMISIMPLE parameters up to conjugation, and the passage to item (ii), points of the GIT quotient, is exactly the closed-orbit characterisation of semisimplicity.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VIII.3.2 and Proposition VIII.3.8, printed pp. 285, 290"
+    }
+   ]
+  },
+  {
+   "source": "LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism",
+   "target": "LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem",
+   "reason": "Theorem VIII.3.6 upgrades the unconditional universal homeomorphism of VIII.3.2 to an isomorphism under the hypothesis on pi_1(G-hat)_tors; the unconditional statement is the baseline the integral theorem improves.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "VIII.3.2 and Theorem VIII.3.6, printed pp. 287-288"
+    }
+   ]
+  },
+  {
+   "source": "LanglandsParameterStacks:LP3/good-filtration-t-structure",
+   "target": "LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem",
+   "reason": "The reduction of Theorem VIII.5.1 to characteristic l and its proof run entirely through the good-filtration t-structure and Corollary VIII.5.7 (that O(Z^1(F_n,G)) has a good filtration).",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem VIII.5.2 implies Theorem VIII.5.1, printed p. 294; Corollary VIII.5.7, printed p. 295"
+    }
+   ]
+  },
+  {
+   "source": "LanglandsParameterStacks:LP1/derived-comparison-with-the-classical-scheme",
+   "target": "LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem",
+   "reason": "The reduction of VIII.5.1 to the mod-l statement uses that the map 'is true on underlying complexes by Proposition VIII.3.5'; without the derived comparison only the invariants statement would be available.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem VIII.5.2 implies Theorem VIII.5.1, printed p. 294"
+    }
+   ]
+  },
+  {
+   "source": "LanglandsParameterStacks:LP3/fixed-points-of-prime-to-l-group-actions",
+   "target": "LanglandsParameterStacks:LP3/donkin-subgroup-and-generation",
+   "reason": "Theorem VIII.5.15 is stated for H = G^P with the standing hypotheses of VIII.5.14 (G^circ reductive, pi_0 G and |P| prime to l) plus solvability of P; the smoothness and reductivity of H are established in VIII.5.14.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VIII.5.14 and Theorem VIII.5.15, printed pp. 301-302"
+    }
+   ]
+  },
+  {
+   "source": "LanglandsParameterStacks:LP3/good-filtration-t-structure",
+   "target": "LanglandsParameterStacks:LP3/donkin-subgroup-and-generation",
+   "reason": "The Donkin property is a statement about good filtrations, and the equivalence of its two formulations is Proposition VIII.5.3; the proof of VIII.5.17's equivalences uses the good-filtration t-structure on Ind Perf(*/H^circ).",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem VIII.5.15 and Proposition VIII.5.17, printed pp. 302, 307-308"
+    }
+   ]
+  },
+  {
+   "source": "LanglandsParameterStacks:LP3/donkin-subgroup-and-generation",
+   "target": "LanglandsParameterStacks:LP4/generation-and-module-comparison",
+   "reason": "The generation clause of Theorem VIII.5.1 - Perf(Z^1(W,G-hat)/G-hat) generated by Perf(*/G-hat) - is proved through the generation statements of Proposition VIII.5.17 (v),(vi) applied to the fixed-point subgroups arising from the wild inertia action.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem VIII.5.1, printed p. 293; Proposition VIII.5.17, printed p. 307"
+    }
+   ]
+  },
+  {
+   "source": "LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem",
+   "target": "LanglandsParameterStacks:LP4/generation-and-module-comparison",
+   "reason": "Both clauses are parts of the same Theorem VIII.5.1 and share its hypothesis; the module comparison Ind Perf(Z^1/G-hat) = Modules over O(Z^1) in Ind Perf(*/G-hat) uses the invariant/base-change statement.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem VIII.5.1, printed p. 293"
+    }
+   ]
+  },
+  {
+   "source": "LanglandsParameterStacks:LP1/independent-source-and-dimension-normalisation",
+   "target": "LanglandsParameterStacks:LP1/representability-flatness-and-lci",
+   "reason": "Fargues-Scholze attribute the discretization method to Dat-Helm-Kurinczuk-Moss and Zhu, and Proposition VIII.3.2's closed-orbit criterion is quoted as [DHKM20, Proposition 4.13]; the independent construction is a genuine input and a cross-check on the dimension normalisation.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "VIII introduction, printed p. 277; Proposition VIII.3.2, printed p. 285"
+    },
+    {
+     "sourceId": "DHKM-parameters",
+     "locator": "Theorem 1.3, printed p. 6"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "LanglandsParameterStacks:LP0",
+   "status": "partial",
+   "remaining": [
+    "Restriction, scalar extension and sections of the L-group projection are covered only by the three equivalent descriptions of Definition VIII.1.1; no functoriality statements were located.",
+    "Change-of-choice comparison for the tame generator tau and the Frobenius sigma - which the stage text calls 'part of the interface' and the completion contract makes an explicit obligation - is NOT in anything read; Fargues-Scholze simply fix choices.",
+    "The local-field Weil group, inertia and wild inertia with their topologies are taken as given from upstream LocalFieldsRamification; nothing was read there."
+   ]
+  },
+  {
+   "stageId": "LanglandsParameterStacks:LP1",
+   "status": "partial",
+   "remaining": [
+    "[PY02, Theorem 2.1] (reductivity of the identity component of the centraliser), used at the crucial characteristic-l step, was NOT read.",
+    "Section VIII.2 (singularities of the moduli space, Weil-Deligne parameters, singular support: Propositions VIII.2.1-VIII.2.5, Definitions VIII.2.4, VIII.2.6, VIII.2.8, Theorems VIII.2.7, VIII.2.9, Corollary VIII.2.10, Proposition VIII.2.11) was located but NOT read.",
+    "Dat-Helm-Kurinczuk-Moss was read only at the level of the abstract, the introduction (printed pp. 2-3) and Theorems 1.3 and 1.4; none of its proofs, and none of Zhu's paper on the stack of arithmetic Langlands parameters (in the library, unread), were read.",
+    "The derived mapping stack over the finite pinned-action quotient, its tangent complex by cocycle cohomology, and the import of the cotangent construction from DerivedDeRhamCohomology DD.0 are not in FS; only the deformation-theoretic groups H^0, H^1, H^2 of the twisted adjoint cocycle complex were read."
+   ]
+  },
+  {
+   "stageId": "LanglandsParameterStacks:LP2",
+   "status": "partial",
+   "remaining": [
+    "Aggregate stage; inherits the remaining items of the three LP2 substages."
+   ]
+  },
+  {
+   "stageId": "LanglandsParameterStacks:LP2:excursion-presentation",
+   "status": "partial",
+   "remaining": [
+    "Haboush's theorem on geometric reductivity [Hab75], which gives the universal homeomorphism, was NOT read.",
+    "The detailed relations of Proposition VIII.3.7 beyond the reindexing square, and its proof, were read only in part.",
+    "Theorem VIII.4.1's construction of the excursion operators and Corollary VIII.4.3 were NOT read; only the statements of VIII.4.1 and Definition VIII.4.2.",
+    "V. Lafforgue's original construction [Laf18] was not consulted."
+   ]
+  },
+  {
+   "stageId": "LanglandsParameterStacks:LP2:semisimple-characters",
+   "status": "partial",
+   "remaining": [
+    "[DHKM20, Proposition 4.13], the closed-orbit characterisation of semisimplicity, was NOT read.",
+    "The proof of Proposition VIII.3.8 was NOT read; only its statement and the introductory paragraph.",
+    "The stage text asks to 'Construct the representative from the compatible invariant evaluations, prove simultaneous conjugacy/complete reducibility and continuity, and prove independence of the finite-wild/discretization choices'. None of these constructions was located as a proved statement in the passages read.",
+    "Fargues-Scholze's VIII.2 treatment of Weil-Deligne parameters (Definition VIII.2.4, for Q_l-algebras only) was located but not read; it is what distinguishes a semisimplification from a full Weil-Deligne parameter with monodromy."
+   ]
+  },
+  {
+   "stageId": "LanglandsParameterStacks:LP2:integral-invariants",
+   "status": "partial",
+   "remaining": [
+    "The proof of Theorem VIII.5.2 (the characteristic-l heart of the integral theorem, printed pp. 296-301) was NOT read; only the reduction of VIII.5.1 to it.",
+    "Propositions VIII.5.9-VIII.5.13 (the equivariant vector bundle machinery) were located but NOT read.",
+    "The transition maps under shrinking P and the continuity of evaluations on W_E, which the stage text requires, were not located as proved statements.",
+    "No example was found in the source showing that the conclusion fails when l divides |pi_1(G-hat)_tors|; the hypothesis is used but not shown to be necessary."
+   ]
+  },
+  {
+   "stageId": "LanglandsParameterStacks:LP3",
+   "status": "partial",
+   "remaining": [
+    "Donkin-Mathieu (tensor stability of good filtrations), Kempf vanishing, [Don81], [Kop84], [Don88], [TvdK10, Corollary 1.5] and [PY02, Theorem 2.1] are all imported and NONE was read.",
+    "The proofs of Theorem VIII.5.15 and Proposition VIII.5.17 (printed pp. 302-308) were read only in their opening lines.",
+    "Lemma VIII.5.16 was located but not read.",
+    "Highest-weight, Weyl and dual-Weyl modules are used as given; their construction on the upstream root-data carrier was not inspected."
+   ]
+  },
+  {
+   "stageId": "LanglandsParameterStacks:LP4",
+   "status": "partial",
+   "remaining": [
+    "The proof of the generation and module clauses of Theorem VIII.5.1 was NOT read.",
+    "Propositions VIII.5.9, VIII.5.10, VIII.5.11, VIII.5.12 and VIII.5.13 (the equivariant vector-bundle and derived-fibre-product machinery that carries the generation argument) were located but NOT read.",
+    "The action of Rep(G-hat) on Perf of the finite-wild quotient, and the compact-support factorisation through one finite-wild piece that the stage text requires for consumers, were not located as proved statements.",
+    "FS Chapter X (X.0-X.3, the spectral action), which the stage text names in its source route, was NOT read."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "The characteristic-l heart of the integral theorem (FS VIII.5.2 and its proof) is unread",
+   "neededBy": [
+    "LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem",
+    "LanglandsParameterStacks:LP4/generation-and-module-comparison"
+   ],
+   "detail": "Theorem VIII.5.1 and Theorem VIII.5.2 were read as statements, together with the reduction 'Theorem VIII.5.2 implies Theorem VIII.5.1' (printed p. 294), which uses semisimplicity over Q_l and Proposition VIII.3.5 on underlying complexes. The proof of Theorem VIII.5.2 itself occupies printed pp. 296-301 (Sections VIII.5.2 'Equivariant vector bundles' with Propositions VIII.5.8-VIII.5.13) and was NOT read beyond Proposition VIII.5.8's statement. Since both LP2:integral-invariants and LP4 rest entirely on it, they are recorded here as read STATEMENTS with unread proofs. NEXT SOURCE ACTION: read FS printed pp. 296-301 in full, in particular Propositions VIII.5.10, VIII.5.11, VIII.5.12 and VIII.5.13."
+  },
+  {
+   "title": "Zhu's stack of Langlands parameters is in the library and entirely unread",
+   "neededBy": [
+    "LanglandsParameterStacks:LP1/independent-source-and-dimension-normalisation"
+   ],
+   "detail": "Fargues-Scholze cite [Zhu20] alongside [DHKM20] as an independent construction ('These results have recently been obtained by Dat-Helm-Kurinczuk-Moss [DHKM20], and also Zhu [Zhu20]', printed p. 277) and again for the discretization method, and use [Zhu20, Lemma 3.1.8] in Proposition VIII.2.5. VERIFIED PRESENT: references/papers/Zhu_CoherentParameterSheaves.pdf, Xinwen Zhu, 'Coherent sheaves on the stack of Langlands parameters', arXiv:2008.02998v3 (13 November 2025), 84 pages, sha256 40b5f906d3238b80cde88e51f917e2c7a0f104a1d98bfb7366ac8dc4c35b79b2. Its first page and contents were inspected to confirm title and edition; NOTHING ELSE WAS READ. NEXT SOURCE ACTION: read Zhu section 2 (representation space) and section 3 (the stack of arithmetic Langlands parameters), including Lemma 3.1.8, and compare hypotheses and dimension normalisations with FS VIII.1.3 and DHKM Theorem 1.3."
+  },
+  {
+   "title": "Change-of-discretization independence is an explicit obligation with no source statement",
+   "neededBy": [
+    "LanglandsParameterStacks:LP0/discretization-and-unique-extension",
+    "LanglandsParameterStacks:LP2:semisimple-characters/character-bijection"
+   ],
+   "detail": "The LP0 stage text says 'A choice of tame generator is auxiliary, and change-of-choice comparison is part of the interface', and the completion contract says 'Construct finite-wild equations using a chosen tame generator and Frobenius, then prove change-of-generator independence as an isomorphism of moduli functors'. Fargues-Scholze fix 'a choice of generator of the tame inertia tau, and a choice of Frobenius sigma' (printed p. 279) and never revisit the choice; the independence is implicit in the fact that Z^1(W_E/P,G-hat) is defined without reference to W and the restriction to W is an isomorphism, but no explicit comparison isomorphism of moduli functors was located. LP2:semisimple-characters likewise asks for 'independence of the finite-wild/discretization choices', which Proposition VIII.3.8 delivers only implicitly by being stated over W_E. NEXT SOURCE ACTION: check Dat-Helm-Kurinczuk-Moss Section 3 (reduction to tame parameters) and Zhu Section 3, both of which set up the discretization explicitly, for a change-of-choice statement. Recorded as an unresolved boundary."
+  },
+  {
+   "title": "All modular-representation-theory inputs of LP3 are imported and unread",
+   "neededBy": [
+    "LanglandsParameterStacks:LP3/good-filtration-t-structure",
+    "LanglandsParameterStacks:LP3/fixed-points-of-prime-to-l-group-actions",
+    "LanglandsParameterStacks:LP3/donkin-subgroup-and-generation"
+   ],
+   "detail": "LP3's statements rest on six imported results, none of which was read: Donkin [Don81] (the Ext-vanishing criterion for good filtrations); Donkin [Don85] and Mathieu [Mat90] (tensor stability); Kempf [Kem76] (vanishing for nabla_lambda); Koppinen [Kop84] and Donkin [Don88] (O(G) has a good G x G-filtration); Touze-van der Kallen [TvdK10, Corollary 1.5] (finiteness of good filtration dimension); and Prasad-Yu [PY02, Theorem 2.1] (reductivity of the fixed-point identity component). None is in the supplied library: CATALOGUE.json, diamonds_fargues.json, additional_round02_diamonds_sources.json and the papers/ listing were searched and contain no Donkin, Mathieu, Kempf, Koppinen, Touze-van der Kallen or Prasad-Yu item. NEXT SOURCE ACTION: obtain Jantzen, 'Representations of Algebraic Groups' (2nd ed.), Part II Chapter 4, which collects the good-filtration theory including Kempf vanishing and the Donkin-Mathieu theorem, and Prasad-Yu, 'On quasi-reductive group schemes' (J. Algebraic Geom. 15 (2006)) or the cited [PY02]. Until then LP3's statements are read STATEMENTS whose inputs are unverified."
+  },
+  {
+   "title": "FS Chapter X (the spectral action) is unread; LP4's consumer contract is unchecked",
+   "neededBy": [
+    "LanglandsParameterStacks:LP4/generation-and-module-comparison"
+   ],
+   "detail": "The LP4 stage text says 'LP4 does not assume ES's spectral action; it supplies its universal algebraic input', and names 'X.1 and X.3' and 'X.0-X.3' in its source route. Chapter X (printed pp. 337-348: X.1 rational coefficients, X.2 elliptic parameters, X.3 integral coefficients) was NOT read. In particular the claim that the finite-free-group colimit theorem has a universal property for EXACT MONOIDAL FUNCTORS, and the requirement that a consumer factor through one finite-wild piece because the union is non-quasicompact, were not verified against Chapter X. NEXT SOURCE ACTION: read FS printed pp. 337-348, and check specifically whether the integral spectral action there imposes the additional restriction that l does not divide |pi_1(G-hat)_tors| (the roadmap says this restriction 'belongs to its consumer and is never removed by the existence of these categories'). ExcursionOperatorsAndSpectralAction is EXT-04's roadmap, so this is also a cross-job boundary."
+  }
+ ]
+}
