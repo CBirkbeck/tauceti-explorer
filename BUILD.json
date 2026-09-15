@@ -1,9 +1,52 @@
 {
   "roadmaps": 180,
-  "stages": 1604,
+  "stages": 1660,
   "originalStages": 1604,
-  "sourceRefinements": 0,
-  "reviewedDecompositions": [],
+  "sourceRefinements": 56,
+  "reviewedDecompositions": [
+    {
+      "roadmap": "AInfCohomology",
+      "status": "partial",
+      "nodes": 7,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "CrystallineCohomology",
+      "status": "partial",
+      "nodes": 7,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "DerivedDeRhamCohomology",
+      "status": "partial",
+      "nodes": 7,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "LocallyAnalyticDistributions",
+      "status": "partial",
+      "nodes": 13,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "PadicFamilies",
+      "status": "partial",
+      "nodes": 14,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "PrismaticCohomology",
+      "status": "partial",
+      "nodes": 8,
+      "review": "accepted",
+      "deferredLinks": 0
+    }
+  ],
   "terminalTargets": 1543,
   "groups": 13,
   "unmappedAreas": 16,
@@ -11,29 +54,30 @@
   "mathematicalSummaries": 180,
   "curatedStagePresentations": 333,
   "administrativeStages": 66,
-  "mathematicalStars": 1538,
+  "mathematicalStars": 1594,
   "plainTextPlanetLabels": 345,
   "bibliographicSources": 46,
-  "roadmapEdges": 1011,
-  "stageEdges": 3508,
+  "roadmapEdges": 1012,
+  "stageEdges": 3591,
   "sourceDocuments": 214,
-  "htmlBytes": 9683737,
-  "htmlSha256": "14d56bf30c6db3cfb90194a1772a180c10635c41d58c951a90d3979705ac8695",
+  "htmlBytes": 10126277,
+  "htmlSha256": "3904bf62277fbb7605d8176f677854da4776437df075daeb0a4b2758d4080a40",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
-    "src/shell.html": "444944885a1b136463f39a6b140a0b6ee92ed43cff44e3ecc2f9e5904f70c0bc",
-    "src/style.css": "5bea8ba0b15b0f3792e5ef8ed957c1bd8cb1c32dabe239314dc7a3368697a350",
+    "src/shell.html": "638b6ce5808c1ea47f443ffc7740d5ed49255919c349052efaa5d1022db097cc",
+    "src/style.css": "5e8be3a16a894874493fa5f3ace4db08e653249bb417a2e59b9ef7145fef66cf",
     "vendor/d3.v5.15.0.min.js": "9b442622c05770e322113466a53dea836210fe2d2a6b3240da68821f33a64b56",
     "vendor/katex.v0.16.28.min.js": "5e4f3b03c66a3360fe5c070da797900dd74437f58f23957443f4cbd26149f74e",
     "src/markdown.js": "506d454a15eb4447dccea27d2a7d24555c8b190489bb1a79c1b72d79b74ddcc5",
-    "src/graph.js": "4126ae5c859ac4c3887e56ab1c38c68f3670577bfa44ccbe441777f0c6b2ad1c",
-    "src/camera.js": "51e6e384b59f0919bbb0c2f6c2847f08a6342a5944a7e58c42b95f06baa51a8e",
+    "src/universe.js": "974efb0e44dd4c470738b1b86a405d2b7257a1a81db7c5978ef1e0f97451d032",
+    "src/graph.js": "831d8364783f4b1515defe82ed59db723351d83d8cab0f3a095edbc64228d721",
+    "src/camera.js": "a3a15b51c943a8dcee0e2d7a922700c11ce4c6f1de545ddc5da8fdfd2150a460",
     "src/progress.js": "702f60dc5d360cd9b8432e91a5697ad4be3636a34e0b81aa2996fc51ecd20a9b",
     "src/landmarks.js": "0785c99a8e93d71eeb7bfb8a17da1fa07da8d45f0502e5098ef26b853f06d47a",
     "src/presentation.js": "b5d24d0492940f53fcc64759e37fe3eabcb5fd66331f6c361d53383730e0bf05",
     "src/references.js": "9b640060068c4a9c73928fee162489e15f1d03c962650e95df9a317f55f8ce55",
-    "src/app.js": "338354eee189b92d86e438af7d67fac9e4cdc954393db38136c91d52cf09f4bb",
+    "src/app.js": "9d426164161aef32b5a063996cae0a214c211a9b95572297e13a6207a66f4c7f",
     "data/atlas.json": "390317021bf9a355ba05cef5f6b48b14432913fcece2911eb2350cabd53e76a4",
     "data/status.json": "2ab6e513876059d0a529e037dbabc733e2663c229d75f9c714530de6bf0e3256",
     "data/regions.json": "227b63c481009abac6c19436032dce0d1e225838744d8d6262baed3eb3fd6a7d",
@@ -44,6 +88,12 @@
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
     "vendor/D3-LICENSE.txt": "7a3cb0e5055874e67db9aa2d5fe26de23204fa994ffbad198901ffe9c812a717",
-    "vendor/KaTeX-LICENSE.txt": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3"
+    "vendor/KaTeX-LICENSE.txt": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3",
+    "data/decompositions/AInfCohomology.json": "21ac63c193596a1fa7b0fa79f7dbdd75f7e1544a23cf7de1ae08246f148811b2",
+    "data/decompositions/CrystallineCohomology.json": "23aa8927522d17f709b0709fac64d5f1409f8c4b66dd10d8a9d0545e2684e23e",
+    "data/decompositions/DerivedDeRhamCohomology.json": "9cc64b5f4b77e06a2a5d05dc3e201f041c3a1ffb39ea73ba0223baa6c6082078",
+    "data/decompositions/LocallyAnalyticDistributions.json": "b1dca72f4b2941dd184d9fe2b9172003edd98509931a18df1219f567298f1b5c",
+    "data/decompositions/PadicFamilies.json": "ed2657a4aa3d9189cf87f81f80451bf05a6b059e94b7a0bcdf29cf4b596ce83e",
+    "data/decompositions/PrismaticCohomology.json": "fd192a8111c42b8de60f6d9011e421159c7258179114f73687d2bd77ff5791b9"
   }
 }
