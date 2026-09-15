@@ -1,0 +1,483 @@
+{
+  "roadmapId": "CrystallineCohomology",
+  "status": "partial",
+  "summary": "The first algebraic branch of the saturated de Rham–Witt construction: Dieudonné complexes, the décalage description of Frobenius, Verschiebung, saturation, the Cartier criterion and the finite-level completion tower. This does not yet identify the construction with crystalline cohomology.",
+  "sources": [
+    {
+      "id": "blm-derhamwitt",
+      "title": "Revisiting the de Rham–Witt complex",
+      "authors": "Bhargav Bhatt, Jacob Lurie, Akhil Mathew",
+      "edition": "arXiv:1805.05501v3 [math.AG], 19 February 2020 (stamp on the extracted first page); supplied text extraction with printed pagination retained (last printed page header 157)",
+      "url": "https://arxiv.org/abs/1805.05501",
+      "sha256": "b5e1a506247bc076987c7fcc5178648a6c3b3832ded31031aa92a3de18e33a6c",
+      "readSections": [
+        "§§2.1–2.4, printed pp.13–18, statements and proofs; §2.5 Construction 2.5.1 and Remarks 2.5.2–2.5.3, pp.19–20; extracted lines 517–818"
+      ]
+    },
+    {
+      "id": "bms1-2019",
+      "title": "Integral p-adic Hodge theory",
+      "authors": "Bhargav Bhatt, Matthew Morrow, Peter Scholze",
+      "edition": "arXiv:1602.03148v3 (2019); supplied text extraction",
+      "url": "https://arxiv.org/abs/1602.03148",
+      "sha256": "04b1f8357a38045fed39ab060d3cb01142bcdbcc15fca985bc80216b99fba774",
+      "readSections": [
+        "§6.1–6.2, printed pp.49–55, statements and proofs; extracted lines 2980–3358"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "CrystallineCohomology:CR.4/dieudonne-complex",
+      "parentStageId": "CrystallineCohomology:CR.4",
+      "title": "Dieudonné complexes",
+      "kind": "definition",
+      "statement": "A Dieudonné complex is a cochain complex of abelian groups (M*,d) with a map of graded abelian groups F:M*→M* satisfying dF(x)=pF(dx); morphisms commute with d and F. For a p-torsion-free complex, (η_p M)^n={x∈p^nM^n : dx∈p^{n+1}M^{n+1}} is a subcomplex of M*[p^{-1}] (Construction 2.1.3; for complexes in nonnegative degrees η_pM⊆M, footnote 1). For termwise p-torsion-free M, a Dieudonné structure F is equivalent to a map of cochain complexes α_F:M*→(η_pM)*, α_F(x)=p^nF(x) for x∈M^n, with inverse F(x)=p^{-n}α(x).",
+      "hypotheses": [
+        "p is a prime, fixed throughout the source (BLM lines 237 and 463: 'a prime p which is implicitly fixed throughout the sequel').",
+        "Termwise p-torsion-freeness is required for the equivalence with the décalage description, not for the definition of a Dieudonné complex."
+      ],
+      "proofSteps": [
+        "Use dF=pFd to check that p^nF lands in the η_p submodule and commutes with the differentials.",
+        "Conversely divide α(x) by p^n inside the localization; membership in η_p makes the result an element of M.",
+        "Check the two constructions are inverse and preserve morphisms."
+      ],
+      "acceptance": [
+        "Distinguish F, a graded map, from α_F, a chain map.",
+        "Check the source equation dF=pFd on a homogeneous element and under tensor products."
+      ],
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Definition 2.1.1, Construction 2.1.3 and Remark 2.1.4, pp.13–14; extracted lines 517–549",
+          "excerpt": "These constructions are inverse",
+          "match": "The source constructs both maps with their degree scaling."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CrystallineCohomology:CR.4/saturated-frobenius",
+      "parentStageId": "CrystallineCohomology:CR.4",
+      "title": "Saturated Frobenius",
+      "kind": "definition",
+      "statement": "A Dieudonné complex is saturated when it is termwise p-torsion-free and F:M^n→{x∈M^n:dx∈pM^{n+1}} is bijective in every degree. Equivalently, α_F:M→η_p M is an isomorphism.",
+      "hypotheses": [
+        "A Dieudonné complex; saturation includes p-torsion-freeness."
+      ],
+      "proofSteps": [
+        "Identify p^n times the target of F with (η_p M)^n.",
+        "Use the established α_F dictionary to transport bijectivity to a chain isomorphism."
+      ],
+      "acceptance": [
+        "Check saturation is preserved by isomorphism of Dieudonné complexes.",
+        "Do not replace a strict chain isomorphism here with a derived fixed-point assertion."
+      ],
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Definition 2.2.1 and Remark 2.2.2, p.14; extracted lines 555–565",
+          "excerpt": "is an isomorphism",
+          "match": "The definition and its equivalent décalage formulation appear consecutively."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CrystallineCohomology:CR.4/verschiebung-identities",
+      "parentStageId": "CrystallineCohomology:CR.4",
+      "title": "Verschiebung and the differential",
+      "kind": "construction",
+      "statement": "On a saturated Dieudonné complex define V uniquely by F(Vx)=px. It is injective and satisfies FV=VF=p, FdV=d and Vd=p dV.",
+      "hypotheses": [
+        "The complex is saturated; in particular F is injective and M is p-torsion-free."
+      ],
+      "proofSteps": [
+        "Since d(px) belongs to pM, saturation puts px in the image of F; injectivity gives existence and uniqueness of V.",
+        "FV=p implies injectivity of V. Precompose with F and cancel F to obtain VF=p.",
+        "Combine dF=pFd and FV=p, cancel p, and then postcompose with V to obtain the differential identities."
+      ],
+      "acceptance": [
+        "Check all identities as maps of graded groups; V itself generally does not commute with d.",
+        "Retain the cancellation hypotheses in every step."
+      ],
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Remark 2.2.3 and Proposition 2.2.4 with proof, p.14; extracted lines 566–581",
+          "excerpt": "Since F is injective",
+          "match": "The proof uses injectivity and p-torsion-freeness for the stated cancellations."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CrystallineCohomology:CR.4/iterated-frobenius-divisibility",
+      "parentStageId": "CrystallineCohomology:CR.4",
+      "title": "Iterated Frobenius divisibility",
+      "kind": "lemma",
+      "statement": "For a saturated Dieudonné complex and every r≥0, F^r identifies M^n with {x∈M^n:dx∈p^rM^{n+1}}. Consequently every cocycle belongs to the image of every iterate F^r.",
+      "hypotheses": [
+        "The complex is saturated."
+      ],
+      "proofSteps": [
+        "The forward inclusion follows from dF^r=p^rF^rd.",
+        "For dx=p^r y with r>0, p-torsion-freeness gives dy=0.",
+        "Write x=F(x′) and y=F(y′) by saturation, cancel pF to obtain dx′=p^{r−1}y′, and apply induction."
+      ],
+      "acceptance": [
+        "Check r=0 and r=1 explicitly.",
+        "Apply the result to a cocycle to obtain infinite F-divisibility without asserting compatible choices beyond the unique lifts."
+      ],
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Proposition 2.2.5 and Remark 2.2.6, p.15; extracted lines 583–599",
+          "excerpt": "by induction on r",
+          "match": "The source gives this exact induction and its cocycle consequence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CrystallineCohomology:CR.4/saturation-colimit",
+      "parentStageId": "CrystallineCohomology:CR.4",
+      "title": "Saturation by iterated décalage",
+      "kind": "construction",
+      "statement": "Every Dieudonné complex M* admits a saturation M*→Sat(M*): a map to a saturated complex through which every map to a saturated complex factors uniquely. First quotient by the graded subgroup T* of elements killed by a power of p; on the p-torsion-free quotient take the direct limit of the sequence M*→(η_pM)*→(η_pη_pM)*→⋯ whose transition maps are α_F, η_p(α_F), η_p(η_p(α_F)),… (display (8)). Saturation is left adjoint to the inclusion DC_sat↪DC.",
+      "hypotheses": [
+        "A Dieudonné complex; no initial saturation or p-torsion-freeness assumption."
+      ],
+      "proofSteps": [
+        "Reduce to the p-torsion-free case by replacing M* by M*/T*; the source states this reduction without detail (p.15, lines 613–615). The elementary checks behind it are that T* is stable under d and F, that M*/T* is p-torsion-free, and that every map to a saturated (hence p-torsion-free) complex kills T*.",
+        "On the torsion-free quotient construct the η_p iteration.",
+        "Use commutation of η_p with filtered colimits to make the induced α_F invertible on the colimit.",
+        "The source asserts that the direct limit 'is a saturation of M*' (line 621) without further detail; the universal property is the check that a map to a saturated target extends uniquely at each η_p stage and that the compatible colimit map is unique."
+      ],
+      "acceptance": [
+        "Prove existence and uniqueness of the universal factorization.",
+        "Do not infer that M→Sat(M) is a quasi-isomorphism for an arbitrary singular input."
+      ],
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Proposition 2.3.1 and Corollary 2.3.2, p.15; extracted lines 600–623",
+          "excerpt": "commutes with filtered colimits",
+          "match": "The proof constructs the saturation from the torsion quotient and displayed colimit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CrystallineCohomology:CR.4/cartier-saturation-mod-p",
+      "parentStageId": "CrystallineCohomology:CR.4",
+      "title": "Cartier criterion for saturation",
+      "kind": "theorem",
+      "statement": "If M is a termwise p-torsion-free Dieudonné complex and F induces an isomorphism of graded groups M/p→H*(M/p), then M/p→Sat(M)/p is a quasi-isomorphism.",
+      "hypotheses": [
+        "M has Cartier type as defined in BLM 2.4.1; saturation alone does not imply this hypothesis."
+      ],
+      "proofSteps": [
+        "Use the generic Bockstein comparison (η_pM)/p≃(H*(M/p),β).",
+        "A map that is a quasi-isomorphism modulo p stays so after η_p: it induces an isomorphism on the Bockstein complexes.",
+        "Factor the Cartier map through α_F:M/p→(η_pM)/p; the Bockstein comparison and two-out-of-three make α_F a quasi-isomorphism.",
+        "Apply η_p repeatedly and pass to the filtered colimit describing saturation.",
+        "Passing from the stages (η_p^k M)/p to Sat(M)/p uses that cohomology and reduction modulo p commute with filtered colimits; this is not stated in the source."
+      ],
+      "acceptance": [
+        "Verify the triangle with F and the Bockstein comparison commutes.",
+        "Keep Cartier type separate from saturation; the source warns the saturation itself is generally not Cartier type."
+      ],
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Definition 2.4.1, Proposition 2.4.5, Corollary 2.4.6 and proof of Theorem 2.4.2, pp.16–18; extracted lines 661–764",
+          "excerpt": "it suffices to verify",
+          "match": "The proof reduces the full saturation tower to the first map using the Bockstein comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CrystallineCohomology:CR.4/verschiebung-completion-tower",
+      "parentStageId": "CrystallineCohomology:CR.4",
+      "title": "The de Rham–Witt completion tower",
+      "kind": "construction",
+      "statement": "For saturated M* form W_r(M)*=M*/(im V^r+im dV^r) for r≥0 (W_0(M)*=0), the restriction maps Res:W_{r+1}(M)*→W_r(M)*, and the completion W(M)*=lim_r W_r(M)*. F descends to F:W_r(M)*→W_{r−1}(M)* and V to V:W_r(M)*→W_{r+1}(M)*; passing to the limit makes W(M)* a Dieudonné complex, the construction is functorial, and the tautological map ρ_M:M*→W(M)* is a map of Dieudonné complexes (Remark 2.5.3).",
+      "hypotheses": [
+        "M is saturated; r≥0 and W_0(M)=0."
+      ],
+      "proofSteps": [
+        "The denominator is a subcomplex because d²=0.",
+        "Use FdV=d and FV=p to show F lowers the level.",
+        "Use Vd=p dV to show V raises the level.",
+        "Pass the compatible graded maps and the differential to the inverse limit; check naturality under maps of saturated complexes."
+      ],
+      "acceptance": [
+        "Check the indexing of F, V and restriction on finite quotients.",
+        "Keep proof of saturation/strictness of the completion and comparison with classical de Rham–Witt as further results."
+      ],
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Construction 2.5.1 and Remarks 2.5.2–2.5.3, pp.19–20; extracted lines 767–828",
+          "excerpt": "inverse limit of the tower",
+          "match": "The construction and operator descent are explicit; this passage does not prove the later comparison theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "CrystallineCohomology:CR.4/dieudonne-complex",
+      "target": "CrystallineCohomology:CR.4/saturated-frobenius",
+      "reason": "Supplies the Frobenius–décalage dictionary in the definition of saturation.",
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Remark 2.2.2, p.14, extracted lines 563–565"
+        }
+      ]
+    },
+    {
+      "source": "CrystallineCohomology:CR.4/saturated-frobenius",
+      "target": "CrystallineCohomology:CR.4/verschiebung-identities",
+      "reason": "Saturation gives the image condition and injectivity needed to define V.",
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Remark 2.2.3 and Proposition 2.2.4 proof, p.14, extracted lines 566–580"
+        }
+      ]
+    },
+    {
+      "source": "CrystallineCohomology:CR.4/verschiebung-identities",
+      "target": "CrystallineCohomology:CR.4/verschiebung-completion-tower",
+      "reason": "The identities ensure the level-changing operators descend to the completion tower.",
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Remark 2.5.2, p.19, extracted lines 782–811"
+        }
+      ]
+    },
+    {
+      "source": "CrystallineCohomology:CR.4/saturated-frobenius",
+      "target": "CrystallineCohomology:CR.4/iterated-frobenius-divisibility",
+      "reason": "The inductive divisibility argument uses the saturated image condition.",
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Proposition 2.2.5 proof, p.15, extracted lines 587–596"
+        }
+      ]
+    },
+    {
+      "source": "CrystallineCohomology:CR.4/saturated-frobenius",
+      "target": "CrystallineCohomology:CR.4/saturation-colimit",
+      "reason": "The colimit must satisfy the saturation criterion and its universal property.",
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Proposition 2.3.1 proof, p.15, extracted lines 613–621 (uses Remark 2.2.2)"
+        }
+      ]
+    },
+    {
+      "source": "CrystallineCohomology:CR.4/saturation-colimit",
+      "target": "CrystallineCohomology:CR.4/cartier-saturation-mod-p",
+      "reason": "Supplies the explicit saturation tower whose reduction is compared to M/p.",
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Proof of Theorem 2.4.2, p.18, extracted lines 738–748"
+        }
+      ]
+    },
+    {
+      "source": "AInfCohomology:AI.1/ideal-decalage-complex",
+      "target": "CrystallineCohomology:CR.4/dieudonne-complex",
+      "reason": "BLM Construction 2.1.3 defines η_p directly for p-torsion-free complexes of abelian groups; it is the I=(p), punctual-topos chart of BMS1 Definition 6.2/Remark 6.3. The link records the shared construction so that CR.4 and AI.1 use one η; BLM does not import BMS1 here, and no AΩ comparison is needed.",
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "BLM Construction 2.1.3, p.13, extracted lines 534–538; BMS1 Remark 6.3, p.49, extracted lines 3023–3027"
+        }
+      ]
+    },
+    {
+      "source": "AInfCohomology:AI.1/derived-decalage",
+      "target": "CrystallineCohomology:CR.4/saturation-colimit",
+      "reason": "BLM's proof uses that η_p (underived, on p-torsion-free complexes) commutes with filtered colimits, asserted without proof at lines 615–616; this makes the induced α_F on the colimit an isomorphism. BMS1 Corollary 6.5 records the derived statement that Lη_I commutes with filtered colimits. The elementary underived statement is what BLM uses and should be proved on the explicit complexes; it is not the derived statement.",
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "BLM Proposition 2.3.1 proof, p.15, extracted lines 615–621; BMS1 Corollary 6.5, p.50, extracted lines 3055–3057"
+        }
+      ]
+    },
+    {
+      "source": "AInfCohomology:AI.1/bockstein-reduction",
+      "target": "CrystallineCohomology:CR.4/cartier-saturation-mod-p",
+      "reason": "The Bockstein quasi-isomorphism γ:(η_pM)/p→(H*(M/p),β) is the homological input to the Cartier criterion through Corollary 2.4.6. BLM gives its own direct proof (kernel K* shown acyclic) and notes at p.17 that the result 'in the case of Lη_p appears in [BMS18, Prop. 6.12]'; the link records the shared result, not a dependence on BMS1.",
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "BLM Proposition 2.4.5 and proof, pp.17–18, extracted lines 694–727; Corollary 2.4.6, p.18, lines 728–737; BMS1 Proposition 6.12, pp.52–53"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "CrystallineCohomology:CR.0",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "CrystallineCohomology:CR.1",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "CrystallineCohomology:CR.2",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "CrystallineCohomology:CR.3",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "CrystallineCohomology:CR.3:Frobenius-isogeny",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "CrystallineCohomology:CR.3:duality",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "CrystallineCohomology:CR.4",
+      "status": "partial",
+      "remaining": [
+        "Remarks 2.3.3–2.3.4 (explicit description of Sat(M*) inside M*[F^{-1}]) lie in the read range (p.16) but are not decomposed.",
+        "Finish §2.5–2.8: saturation/strictness of completion and the derived p-complete fixed-point comparison.",
+        "Read the construction of the saturated de Rham–Witt algebra and its universal property.",
+        "Inspect the smooth perfect-field comparison, polynomial calculations, descent, and the separate relative Langer–Zink/crystalline comparison."
+      ]
+    },
+    {
+      "stageId": "CrystallineCohomology:CR.5:log-algebra",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "CrystallineCohomology:CR.5",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "CrystallineCohomology:CR.6",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "CrystallineCohomology:CR.7",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Strict completion and crystalline realization",
+      "neededBy": [
+        "CrystallineCohomology:CR.4/verschiebung-completion-tower"
+      ],
+      "detail": "The finite-level completion tower was read through Remark 2.5.3. Later proofs that completion is saturated/strict, and comparison with classical and crystalline cohomology, remain outside the inspected range."
+    },
+    {
+      "title": "Typed comparison with existing Witt operators",
+      "neededBy": [
+        "CrystallineCohomology:CR.4/verschiebung-identities",
+        "CrystallineCohomology:CR.4/verschiebung-completion-tower"
+      ],
+      "detail": "Mathlib WittVector/Frobenius.lean and Verschiebung.lean are relevant existing ring-level carriers. Review R2 grep of the TauCeti project found no Dieudonné-complex, saturation or de Rham–Witt construction (its 'Dieudonné' hits are the Cartan–Dieudonné theorem on quadratic forms). A saturated complex has different degree-sensitive operators; their exact Lean integration has not been checked and no implemented status is claimed."
+    },
+    {
+      "title": "Elementary facts asserted without proof in BLM §§2.1–2.5",
+      "neededBy": [
+        "CrystallineCohomology:CR.4/saturation-colimit",
+        "CrystallineCohomology:CR.4/cartier-saturation-mod-p",
+        "CrystallineCohomology:CR.4/verschiebung-completion-tower"
+      ],
+      "detail": "The source states without proof: that α_F is a map of cochain complexes (Remark 2.1.4); that η_p commutes with filtered colimits (Proposition 2.3.1 proof, line 616); the reduction to the p-torsion-free quotient M*/T* and that the displayed colimit 'is a saturation' (lines 613–621); that im(V^r)+im(dV^r) is a subcomplex (Construction 2.5.1); and, in the proof of Theorem 2.4.2, that the colimit description of Sat(M*) reduces the mod-p quasi-isomorphism to the stages. Each is an elementary check recorded in the node proof steps; none has been discharged elsewhere."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-R2",
+    "date": "2026-09-15",
+    "notes": "All seven nodes checked against BLM arXiv:1805.05501v3 (19 Feb 2020) §§2.1–2.5, extracted lines 517–828, printed pp.13–20; the extraction's first page carries the stamp 'arXiv:1805.05501v3 [math.AG] 19 Feb 2020', so the edition label was sharpened to exactly that. Corrections: transition maps of the saturation colimit are α_F, η_p(α_F), η_p²(α_F),… (display (8)), not iterates of α_F; the completion-tower statement now includes Res and ρ_M; locator line ranges trimmed to the cited results (661–764, 767–828); elementary steps the source asserts without proof are marked as such and collected in a new gap. All nine links have correct direction and verified usage sites; locators sharpened. The three cross-roadmap links from AInfCohomology:AI.1 are re-described as shared constructions/results (BLM proves Proposition 2.4.5 itself and defines η_p directly) rather than imports; supplier scope of AI.1 checked against its description (Lη construction, Bockstein model, CR.4 named as consumer). parentStageId CrystallineCohomology:CR.4 exists and is owned by CrystallineCohomology; all coverage stage ids exist. Packet status stays partial.",
+    "checked": [
+      {
+        "nodeId": "CrystallineCohomology:CR.4/dieudonne-complex",
+        "verdict": "verified",
+        "note": "Definition 2.1.1, Construction 2.1.3, Remark 2.1.4 (lines 517–549) match; statement now carries the explicit η_p formula and the nonnegative-degree footnote; fixed-prime convention cited."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.4/saturated-frobenius",
+        "verdict": "verified",
+        "note": "Definition 2.2.1(i)-(ii) and Remark 2.2.2 (lines 555–565) match."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.4/verschiebung-identities",
+        "verdict": "verified",
+        "note": "Remark 2.2.3 and Proposition 2.2.4 with proof (lines 566–580): existence/uniqueness of V, FV=VF=p, FdV=d, Vd=p dV and the cancellation uses match."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.4/iterated-frobenius-divisibility",
+        "verdict": "verified",
+        "note": "Proposition 2.2.5 induction and Remark 2.2.6 (lines 583–599) match."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.4/saturation-colimit",
+        "verdict": "corrected",
+        "note": "Transition maps corrected to η_p^k(α_F); universal-property definition (lines 600–610) added; the source's undetailed reduction and colimit assertion marked."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.4/cartier-saturation-mod-p",
+        "verdict": "verified",
+        "note": "Definition 2.4.1, Proposition 2.4.5 (Bockstein), Corollary 2.4.6 and the Theorem 2.4.2 proof (lines 661–764) match; locator trimmed; colimit step annotated."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.4/verschiebung-completion-tower",
+        "verdict": "verified",
+        "note": "Construction 2.5.1 and Remarks 2.5.2–2.5.3 (lines 767–828) match; Res, ρ_M and functoriality added; locator corrected."
+      }
+    ]
+  }
+}

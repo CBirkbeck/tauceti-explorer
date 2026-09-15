@@ -1,0 +1,697 @@
+{
+  "roadmapId": "AdicEtaleGeometry",
+  "status": "partial",
+  "summary": "Source-based expansion of the analytic adic geometry stages A0-A4. A0 and A2 are supplier contracts to AdicSpacesPartII and are expanded by identifying the exact Huber statements (fibre products 1.2.2, closed subspaces 1.4.1, finite morphisms 1.4.2-1.4.5, separated/proper/partially proper morphisms and valuative criteria 1.3, differentials and smooth/etale morphisms 1.6-1.7, analytification 1.2.7/1.7.3, generic fibres 1.9) already decomposed in the AdicSpacesPartII packet, with links. A1 is expanded from Huber 1.4.2, 1.6.6.ii, 1.7.1-1.7.5 (finite etale and etale local algebra), Huber 2.1 (the etale site), Scholze's pro-etale site (p-adic Hodge theory §3, Definitions 3.3, 3.9, Lemma 3.10, Propositions 3.12-3.13, 3.15, Lemma 3.16, Corollary 3.17) with the corrected covering convention of the erratum, and ECD Definition 6.2 / Theorems 6.1, 6.3 for perfectoid finite etale maps. A3 is expanded from ECD Proposition 6.4 (parts (o)-(iii) with their proofs; part (iv) with its proof sketch and its three imports). A4 is expanded from ECD Lemmas 15.1-15.3, Proposition 15.4, Definition 15.5 and Lemma 15.6 with proofs. Imports not read (Huber 1994 [Hu 3.8], Huber dimension theory §1.8, KL15 §8.2 etale maps of general adic spaces, KL16 pseudocoherent sheaves, FS IV.4.19, Sch12 Lemma 7.5, Elkik/Gabber-Ramero, ECD Theorem 8.7, Corollary 3.20, Lemma 10.13, Proposition 11.24, Lemma 11.31) are recorded as boundaries.",
+  "sources": [
+    {
+      "id": "Huber-EtaleCohomology-1996",
+      "title": "Étale Cohomology of Rigid Analytic Varieties and Adic Spaces",
+      "authors": "Roland Huber",
+      "edition": "Aspects of Mathematics E30, Vieweg 1996; supplied scanned copy with OCR text",
+      "url": "https://link.springer.com/book/10.1007/978-3-663-09991-8",
+      "sha256": "8e470878aea6938f582548eb72a568416d186b4289829f98802d33c5430a5b43",
+      "readSections": [
+        "§1.2 (1.2.1-1.2.7 with the proof of 1.2.2), §1.3 (1.3.1-1.3.19), §1.4 (1.4.1-1.4.9), §1.5 (1.5.1-1.5.10), §1.6 (1.6.1-1.6.10), §1.7 (1.7.1-1.7.11 with proofs), §1.9 (1.9.1-1.9.6), §2.1 (2.1.1-2.1.4 with proofs), §2.2 (2.2.1-2.2.2) — the same passages as recorded in the AdicSpacesPartII packet"
+      ]
+    },
+    {
+      "id": "Scholze-pAdicHodge-2013",
+      "title": "p-adic Hodge theory for rigid-analytic varieties",
+      "authors": "Peter Scholze",
+      "edition": "Forum of Mathematics, Pi 1 (2013), e1; author PDF as supplied in the library (page numbers of the supplied PDF)",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/pAdicHodgeTheory.pdf",
+      "sha256": "73dded06286031066e9d98b638e065d650688f1e36e877f4d711331a3508dee3",
+      "readSections": [
+        "§3, pp. 13-21: Definitions 3.1, 3.3, 3.4, 3.9; Propositions 3.2, 3.5, 3.7 (with the erratum's correction), 3.12, 3.13 (last sentence deleted per erratum), 3.15; Lemmas 3.6, 3.10, 3.11, 3.16, 3.18 (statement); Corollaries 3.8 (deleted per erratum), 3.17; all proofs in §3 read"
+      ]
+    },
+    {
+      "id": "Scholze-pAdicHodge-Erratum",
+      "title": "Erratum to 'p-adic Hodge theory for rigid-analytic varieties'",
+      "authors": "Peter Scholze",
+      "edition": "3-page author erratum as supplied in the library",
+      "url": "https://www.math.uni-bonn.de/people/scholze/pAdicHodgeErratum.pdf",
+      "sha256": "3cfa56b9e3875c04240d97739dccd58091e41f714c101d5470b95172f73cb235",
+      "readSections": [
+        "Items (1) (transfinite covers; corrected Proposition 3.7(i); corrected definition of covers in Definitions 3.3, 3.4, 3.9), (2) (removal of Proposition 3.8 and of the last sentence of Proposition 3.13), (3) (OB^+_dR; not used here) — read in full"
+      ]
+    },
+    {
+      "id": "Scholze-EtCohDiamonds-2026-04-14",
+      "title": "Étale cohomology of diamonds",
+      "authors": "Peter Scholze",
+      "edition": "Author manuscript dated April 14, 2026 (the copy supplied with the diamonds package); page numbers of that PDF",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf",
+      "sha256": "4ce3d1232a6e9e186d1a36da5cc659616569ac8dd2bb263510247c07995a26c1",
+      "readSections": [
+        "§5, pp. 24-26: Definition 5.7, Theorem 5.8, Proposition 5.9, Definition 5.10, Proposition 5.11 with proof",
+        "§6, pp. 26-29: Theorem 6.1, Definition 6.2, Theorem 6.3 (statements), Proposition 6.4 with its full proof, Proposition 6.5 with proof",
+        "§15, pp. 89-91: Lemmas 15.1-15.3, Proposition 15.4, Definition 15.5, Lemma 15.6, all with proofs"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AdicEtaleGeometry:A0/supplier-contract-fibre-products",
+      "parentStageId": "AdicEtaleGeometry:A0",
+      "title": "A0 supplier contract: the affinoid tensor product and fibre products of Huber 1.2.2 as the constructions A0 imports",
+      "kind": "comparison",
+      "statement": "A0's contract is met by Huber's Proposition 1.2.2 and Corollary 1.2.3 as recorded in AdicSpacesPartII:R0/fibre-products-existence: for morphisms of adic spaces f: X -> Z and g: Y -> Z the fibre product exists when f is locally of finite type, or when f is locally of weakly finite type and g is adic; on affinoids (case b) it is Spa of (C^▷ ⊗_{A^▷} B^▷ with the {I^n D_0}-topology, integral closure of C^+ ⊗_{A^+} B^+), and in case (a) it is the increasing union of the affinoid pieces Spa B⟨T⟩_{φ(M)∪L^m}/J_m. This supplies pullbacks along rational open immersions (open embeddings are locally of finite type) and along finite etale maps (finite morphisms are of finite type by 1.4.2) over analytic bases, where every morphism is adic. What 1.2.2 does not supply: the universal property of the completed tensor product itself for continuous morphisms of pairs (cited from Huber 1994 [Hu, 3.5]), uniformization, and any sheafiness statement for the resulting affinoid rings; the perfectoid pullback theorem is PerfectoidSpaces:P2's (not read here).",
+      "hypotheses": [
+        "Same hypotheses as Huber 1.2.2: f locally of finite type, or f locally of weakly finite type and g adic",
+        "Sheafiness of the affinoid pieces is not part of 1.2.2; over strongly noetherian or perfectoid bases it must be supplied separately"
+      ],
+      "proofSteps": [
+        "Identify the contract's cases with the two cases of 1.2.2; record that the completed-tensor universal property is imported from [Hu, 3.5]."
+      ],
+      "acceptance": [
+        "Rational pullback and finite etale pullback exist over any analytic adic space (A0's first two tests).",
+        "Scalar extension of a Tate algebra: case (a) with Z = Spa(k,k°), giving the ball-union description."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.2, Proposition 1.2.2, p. 47",
+          "excerpt": "The fibre product of f and g in the category of adic spaces exists if one of the following conditions is satisfied a) f is locally of finite type b) f is locally of weakly finite type and g is adic.",
+          "match": "The supplier statement."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.2, proof of 1.2.2, p. 48",
+          "excerpt": "By [Hu, 3.5.i] there exists a unique continuous morphism φ'_m: A⟨T⟩_M -> B⟨T⟩_{φ(M)∪L^m}",
+          "match": "The completed-tensor universal property is imported from Huber 1994."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicEtaleGeometry:A1/finite-etale-affinoid-algebra",
+      "parentStageId": "AdicEtaleGeometry:A1",
+      "title": "Finite and finite etale algebras over complete affinoid rings: topology, plus ring, spectrum (Huber 1.4.2, 1.6.6.ii; ECD 6.1-6.3 for perfectoid rings)",
+      "kind": "construction",
+      "statement": "Huber (1.4.2): a finite A^▷-algebra C over a complete affinoid ring A, with its natural A^▷-module topology and C^+ the integral closure of A^+ in C, is a complete affinoid ring finite over A ([Hu4, 3.12.10]); a morphism of affinoid rings is finite iff of topologically finite type with A^▷ -> B^▷ and A^+ -> B^+ integral, and then B^+ is the integral closure of A^+. Example 1.6.6.ii: for A a noetherian complete f-adic ring, adic spaces finite (resp. finite and etale) over Spa(A,A^+) correspond to schemes finite (resp. finite etale) over Spec A; the etale case is characterised by the infinitesimal lifting property against finite morphisms and square-zero closed subspaces. ECD Definition 6.2: a morphism f: Y -> X of perfectoid spaces is finite etale if for every open affinoid perfectoid U = Spa(R,R^+) ⊆ X, f^{-1}(U) = Spa(S,S^+) is affinoid perfectoid with R -> S finite etale and S^+ the integral closure of R^+; etale if locally an open immersion into a finite etale space; it suffices to check on a cover (Sch12 §7); composites, base changes and maps between (finite) etale maps are (finite) etale. Theorem 6.1 (almost purity: Faltings, KL15 3.6.21/5.5.9, Sch12 5.25/7.9): finite etale algebras over a perfectoid Tate ring are perfectoid, tilting is an equivalence on finite etale algebras, and S° is almost finite etale over R°. Theorem 6.3: tilting induces X_et ≅ X^♭_et, and for affinoid perfectoid X, H^i(X_et, O^+) is almost zero for i > 0 with H^0 = R^+.",
+      "hypotheses": [
+        "Huber: A complete affinoid; Example 1.6.6.ii needs A noetherian complete f-adic",
+        "ECD 6.1-6.3 are quoted with their references and not proved in the read text"
+      ],
+      "proofSteps": [
+        "Import [Hu4, 3.12.10] for the affinoid structure on finite algebras.",
+        "Compare the perfectoid definition 6.2 with Huber's 1.4.4/1.6.5 on affinoid perfectoid spaces (both are 'affinoid over affinoid with integrally closed plus ring'; the etale notion differs in form: ECD uses open-into-finite-etale, Huber uses infinitesimal lifting, compared through 1.6.8(d)/1.7.1)."
+      ],
+      "acceptance": [
+        "For a finite etale R-algebra S over a perfectoid R, Spa(S, S^+) is perfectoid (6.1(i)) — the input to sousperfectoid stability 6.3.3(2) in AdicSpacesPartII:R5.",
+        "The plus ring of a finite (etale) algebra is the integral closure of the base plus ring, not the tensor product."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.4, (1.4.2), p. 61",
+          "excerpt": "Conversely, if C is a finite A^▷-algebra equipped with the natural A^▷-module topology and if C^+ denotes the integral closure of A^+ in C then (C, C^+) is a complete affinoid ring which is finite over A ([Hu4, 3.12.10]).",
+          "match": "Topology and plus ring of a finite algebra."
+        },
+        {
+          "sourceId": "Scholze-EtCohDiamonds-2026-04-14",
+          "locator": "§6, Definition 6.2, p. 26",
+          "excerpt": "The morphism f is finite étale if for all open affinoid perfectoid Spa(R, R^+) = U ⊂ X, the preimage V = f^{-1}(U) = Spa(S, S^+) ⊂ Y is affinoid perfectoid, R -> S is a finite étale morphism of rings, and S^+ is the integral closure of R^+ in S.",
+          "match": "Perfectoid finite etale definition."
+        },
+        {
+          "sourceId": "Scholze-EtCohDiamonds-2026-04-14",
+          "locator": "§6, Theorem 6.1, p. 26",
+          "excerpt": "(i) For any finite étale R-algebra S, S is perfectoid.",
+          "match": "Almost purity statement (imported)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicEtaleGeometry:A1/etale-morphisms-local-description-and-comparison",
+      "parentStageId": "AdicEtaleGeometry:A1",
+      "title": "Etale morphisms of analytic adic spaces: standard-etale presentations, flat-unramified characterisation, openness and comparison with algebraic etale maps (Huber 1.7.1-1.7.9)",
+      "kind": "theorem",
+      "statement": "This is the A1 reexport of AdicSpacesPartII:R0/etale-local-structure: etale affinoid morphisms are exactly the standard-etale quotients Spa A⟨X⟩_T/(f_1..f_n) with unit Jacobian (1.7.1), stable under perturbation (1.7.2), locally open pieces of algebraic etale schemes when D is dense in A^▷ (1.7.3), locally quasi-finite (1.7.4), characterised by flatness plus unramifiedness or by the stalk criterion at maximal points (1.7.5), flat on rings in the two proved cases (1.7.6), and open (1.7.8 via 1.7.9). The 'local open-immersion/finite-etale description appropriate to analytic adic spaces' of the stage is 1.6.8(d) (unramified maps factor locally as closed embeddings into etale maps) combined with 1.7.3.ii/1.7.5 and, for perfectoid spaces, ECD Definition 6.2/Lemma 11.31 (etale = locally quasi-compact open immersion followed by finite etale; Lemma 11.31 not read). Base change, composition and cancellation are 1.6.7; the diagonal of an unramified map is an open embedding (1.6.8(c)).",
+      "hypotheses": [
+        "Analytic adic spaces; morphisms locally of finite type for 1.7.5",
+        "1.7.6 flatness only in the two cases proved by Huber"
+      ],
+      "proofSteps": [
+        "See the R0 node; nothing new is proved here."
+      ],
+      "acceptance": [
+        "Comparison test: for a rigid morphism f, etale in the rigid sense iff r(f) etale (1.7.11)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.7, Proposition 1.7.5, p. 87",
+          "excerpt": "a) f is etale. b) f is flat ... and unramified.",
+          "match": "Flat-unramified characterisation."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.6, Proposition 1.6.8, p. 79",
+          "excerpt": "c) The diagonal morphism Δ(f): X -> X ×_Y X is an open embedding.",
+          "match": "Diagonal description for unramified morphisms."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicEtaleGeometry:A1/etale-site-and-geometric-points",
+      "parentStageId": "AdicEtaleGeometry:A1",
+      "title": "The etale site of an adic space, its coverings, and the rigid/adic topos comparison (Huber Chapter 2 introduction, §2.1)",
+      "kind": "construction",
+      "statement": "X_et is Et/X with surjective families as coverings (using 1.6.7, 1.2.3.iii.d); base change gives morphisms of sites (1.5.3.ii, 1.7.4). Geometric points: for every point x there is a geometric point with support x; the fibre functors form a conservative family and every fibre functor of X~_et is of this form; the strict localization X(ξ) is the 'projective limit' of etale neighbourhoods and for analytic X is the spectrum of an algebraically closed affinoid field (Chapter 2 introduction, statements only; §2.5 not read). The rigid etale site uses strongly surjective families and ρ_X: r(X)~_et -> X~_et is an equivalence (2.1.4). Representable presheaves Hom_X(-, Z) are sheaves for Z etale over X or X analytic (2.2.2).",
+      "hypotheses": [
+        "The geometric-point and strict-localization statements are quoted from the Chapter 2 introduction; their proofs are in §2.5, not read",
+        "Field pairs (K,K^+) with higher-rank K^+ are retained: a geometric point of an analytic adic space is Spa of an algebraically closed affinoid field (K̄, K̄^+), not only Spa(K̄, O_K̄)"
+      ],
+      "proofSteps": [
+        "As in AdicSpacesPartII:R4/etale-site-and-rigid-comparison."
+      ],
+      "acceptance": [
+        "Enough points: the family of fibre functors at geometric points is conservative (Chapter 2 introduction).",
+        "Strict localizations of analytic adic spaces are spectra of algebraically closed affinoid fields (2.5.13, cited in 3.7.2's proof)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "Chapter 2 introduction, p. 108",
+          "excerpt": "Since the coverings of X_et are the surjective families of morphisms, the family of fibre functors (ε_x | x ∈ X) is conservative. Every fibre functor of the topos X~_et is isomorphic to a fibre functor of the form ε_ξ.",
+          "match": "Enough points and their description."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "Chapter 2 introduction, p. 108",
+          "excerpt": "for analytic adic spaces X, the strict localizations X(ξ) have a very simple structure, namely they are spectra of algebraically closed affinoid fields ((1.1.5), (1.1.6)).",
+          "match": "Structure of strict localizations."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicEtaleGeometry:A1/pro-etale-site-corrected",
+      "parentStageId": "AdicEtaleGeometry:A1",
+      "title": "The pro-etale site of a locally noetherian scheme or adic space with Scholze's corrected covering convention (p-adic Hodge theory §3 and erratum)",
+      "kind": "construction",
+      "statement": "For X a locally noetherian scheme or locally noetherian adic space (locally Spa(A,A^+) with A strongly noetherian or having a noetherian ring of definition; consequently etale Y -> X are locally connected), pro-X_et is the category of pro-objects (Definition 3.1/Proposition 3.2); |U| = lim |U_i|. Definition 3.9: U -> V in pro-X_et is etale/finite etale if pulled back from X_et; pro-etale if U = lim U_i with U_i -> V etale and U_i -> U_j finite etale surjective for large i > j (a pro-etale presentation); X_proet is the full subcategory of objects pro-etale over X, with coverings the families of pro-etale maps {U_i -> U} with |U| = ∪ f_i(|U_i|) — with the erratum's restriction: the covering maps U_i -> U must be transfinite compositions U_i = lim_{μ<λ} U_μ, U_0 = U, where each U_μ -> U_{<μ} := lim_{μ'<μ} U_{μ'} is the pullback of a finite etale surjective map in X_fet; for countable limits nothing changes; the category X_proet itself is unchanged. Lemma 3.10: fibre products along etale/finite etale/pro-etale maps exist in pro-X_et, are of the same type, and |U ×_V W| -> |U| ×_{|V|} |W| is surjective (inverse limits of nonempty finite sets / compact spaces); compositions of etale (finite etale) maps are etale (finite etale); quasi-compact opens of |U| are represented by etale V -> U with a universal property in X_proet; pro-etale maps are open (via openness of etale maps, Huber 1.7.8); surjective (finite) etale maps to objects of X_proet descend to a finite stage; pro-etale over pro-etale is pro-etale; finite limits exist (equalizers via intersections of open-closed subsets, using local finiteness of connected components). Lemma 3.11: on X_profet ⊆ X_proet the open maps are the pro-etale maps, giving a morphism of sites X_proet -> X_profet. Proposition 3.12: pro-etale presentations with affinoid U_i are quasi-compact, generating and stable under fibre products; the topos is algebraic and such U are coherent; quasi-compactness/quasi-separatedness of objects and morphisms are detected on |U|, |f|; X_proet is coherent iff |X| is. Proposition 3.13: for a point x, with Y = Spa(K,K^+) (resp. Spec K) -> X, there is a morphism of topoi i_x: Y~_profet -> X~_proet with i_x^* F the sheafification of V ↦ colim_{V -> U} F(U); if i_x^*F = 0 for all x then F = 0 (the paper's final sentence claiming 'enough points given by profinite covers of geometric points' and Proposition 3.8 are deleted by the erratum; both topoi are coherent and have enough points for abstract reasons). Proposition 3.15: X_{L,proet} ≅ X_proet/X_L for a separable extension L/K with X_L the formal inverse limit of the X_{L_i}. Lemma 3.16/Corollary 3.17: for F abelian on X_et and U = lim U_j qcqs in X_proet, H^i(U, ν^*F) = colim_j H^i(U_j, F); hence F ≅ Rν_*ν^*F and ν_Y^* Rf_{et,*}F ≅ Rf_{proet,*}ν_X^*F for qcqs f.",
+      "hypotheses": [
+        "X locally noetherian (scheme or adic space) — needed so that etale objects are locally connected (used in Lemma 3.10(vii)); the pro-etale site of a general analytic adic space or of a perfectoid space is not this site (ECD §8 defines the pro-etale site on Perf differently)",
+        "Coverings restricted to transfinite compositions of pullbacks of finite etale surjections (erratum item (1)); Proposition 3.7(i) as printed is false (Ribes-Zalesskii Example 5.6.9) and is replaced by the transfinite-induction variant",
+        "Proposition 3.8 and the last sentence of Proposition 3.13 are deleted (erratum item (2))"
+      ],
+      "proofSteps": [
+        "Define pro-objects and the finite etale / etale / pro-etale morphisms; verify the site axioms via Lemma 3.10.",
+        "Prove quasi-compactness and coherence via SGA 4 VI (3.12).",
+        "Construct i_x and prove conservativity (3.13) by reduction to X_profet and profinite π_1-sets.",
+        "Prove 3.16 by Čech acyclicity on X_proetqc reduced to etale covers at finite stages."
+      ],
+      "acceptance": [
+        "Countable pro-etale presentations are covers exactly as in the uncorrected paper; an arbitrary open surjection of profinite sets need not split, so an arbitrary open surjective family is not a cover.",
+        "For a geometric point x̄ of a connected X the pullback of a sheaf from X_et to X_profet ≅ π_1(X,x̄)-pfsets computes continuous group cohomology (3.7(iii)) for the corrected covers.",
+        "ν^* is fully faithful on abelian sheaves (3.17(i))."
+      ],
+      "sources": [
+        {
+          "sourceId": "Scholze-pAdicHodge-2013",
+          "locator": "§3, Definition 3.9, p. 15",
+          "excerpt": "A morphism U -> V of objects of pro − X_et is called pro-étale if it can be written as a cofiltered inverse limit U = lim U_i of objects U_i -> V étale over V, such that U_i -> U_j is finite étale and surjective for large i > j.",
+          "match": "Definition of pro-etale morphisms and presentations."
+        },
+        {
+          "sourceId": "Scholze-pAdicHodge-Erratum",
+          "locator": "item (1), p. 1",
+          "excerpt": "instead of asking that the morphisms U_i -> U are open, one asks the stronger condition that U_i -> U can be written as an inverse limit U_i = lim_{μ<λ} U_μ -> U of U_μ ∈ pro − X_fét, U_0 = U, where the limit is along the set of ordinals μ less than some ordinal λ, with the following property: for all μ < λ, U_μ -> U_{<μ} := lim_{μ'<μ} U_{μ'} is the pullback of a finite étale and surjective map in X_fét.",
+          "match": "The corrected covering convention."
+        },
+        {
+          "sourceId": "Scholze-pAdicHodge-Erratum",
+          "locator": "item (2), p. 1",
+          "excerpt": "Proposition 3.8 and the last sentence of Proposition 3.13 (concerning points) should be removed",
+          "match": "Deleted point assertions."
+        },
+        {
+          "sourceId": "Scholze-pAdicHodge-2013",
+          "locator": "§3, Lemma 3.16, p. 19",
+          "excerpt": "For any quasicompact and quasiseparated U = lim U_j ∈ X_proét and any i ≥ 0, we have H^i(U, ν^*F) = lim H^i(U_j, F).",
+          "match": "Etale/pro-etale comparison."
+        },
+        {
+          "sourceId": "Scholze-pAdicHodge-2013",
+          "locator": "§3, after Lemma 3.10, p. 17",
+          "excerpt": "It is part (vii) which is the most nonformal part: One needs that any U ∈ X_ét has locally on U only a finite number of connected components.",
+          "match": "Where the locally noetherian hypothesis enters."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicEtaleGeometry:A2/supplier-contract-separated-proper-smooth",
+      "parentStageId": "AdicEtaleGeometry:A2",
+      "title": "A2 supplier contract: separatedness, properness, valuative criteria, smooth charts, analytification and generic fibres, as supplied by the AdicSpacesPartII nodes",
+      "kind": "comparison",
+      "statement": "The A2 contract is met, in the noetherian analytic scope, by: separated/universally closed/proper/partially proper morphisms and the valuative criteria for analytic adic spaces (Huber 1.3.1-1.3.10 — AdicSpacesPartII:R0/separated-proper-partially-proper); differentials, unramified/smooth/etale morphisms, the Jacobian criteria 1.6.9 and the local structure 'smooth = etale over a relative ball' 1.6.10 with all M_i = {1} over Tate bases, openness of smooth maps 1.7.8, and the local algebraic-smoothness description (1.7.7) — AdicSpacesPartII:R0/differentials-unramified-smooth-etale and R0/etale-local-structure; analytification X^ad = X ×_{Spec D} Spa A of finite-type schemes (Huber 1.2.7/1.7.3, importing [Hu, 3.8]) — AdicSpacesPartII:R1/scheme-fibre-product-analytification; formal schemes of type (S), the generic-fibre functor d and its comparison with formal completions (Huber 1.9) — AdicSpacesPartII:R2 nodes. Not supplied by the read sources: dimension estimates (Huber §1.8, not read), analytic balls and tori as named objects beyond Spa A⟨T⟩_M, admissible blow-ups (Bosch-Lütkebohmert, absent).",
+      "hypotheses": [
+        "Noetherian analytic scope as in Huber: bases with noetherian rings of definition or strongly noetherian Tate rings for 1.7.6; analytic adic spaces for the valuative criteria"
+      ],
+      "proofSteps": [
+        "Cross-reference only."
+      ],
+      "acceptance": [
+        "The valuative criterion for separatedness is stated with quasi-separated f locally of weakly finite type (1.3.7); the properness criterion with f quasi-separated of +weakly finite type (1.3.9.ii)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.3, Corollary 1.3.9, p. 54",
+          "excerpt": "(Valuative criterion for properness and partially properness)",
+          "match": "Supplier statement location."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.6, Corollary 1.6.10, p. 80",
+          "excerpt": "f is smooth if and only if, for every x ∈ X, there exists a commutative diagram ... where U is an open neighbourhood of x in X, M_1, ..., M_n are finite subsets of A^▷ with M_i·A^▷ open in A^▷ for i = 1, ..., n, h is the natural morphism and g is etale.",
+          "match": "Smooth charts."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicEtaleGeometry:A3/etale-descent-to-finite-stage-6-4",
+      "parentStageId": "AdicEtaleGeometry:A3",
+      "title": "Etale maps to a cofiltered limit of affinoid perfectoid spaces descend to a finite stage: ECD Proposition 6.4 (o)-(iii) with proofs",
+      "kind": "theorem",
+      "statement": "Let X_i = Spa(R_i, R_i^+) be a cofiltered inverse system of affinoid perfectoid spaces, X = Spa(R, R^+) with R^+ the ϖ-adic completion of colim R_i^+ and R = R^+[1/ϖ] (ϖ a compatible pseudouniformizer). (o) |X| -> lim |X_i| is a homeomorphism of spectral spaces ([Hub93a, 3.9], [Sch12, 6.13(ii)]). (i) 2-colim (X_i)_fet -> X_fet is an equivalence (equivalently 2-colim (R_i)_fet -> R_fet; [Sch12, Lemma 7.5(i)] from Elkik / Gabber-Ramero 5.4.53). (ii) 2-colim (X_i)_et,qcqs -> X_et,qcqs is an equivalence. (iii) the same for quasi-compact separated etale spaces. Proof of (ii): faithfulness — two maps f_i, g_i agreeing over X have graphs with equal quasi-compact open images in |Z| = lim |Z_j|, hence equal images in |Z_j| for large j; intermediate step — a map f_i whose pullback to X is an isomorphism becomes an isomorphism over X_j for large j (surjectivity of f_j by quasi-compactness of the open image, then surjectivity of the diagonal Δ_{f_j}, an injection, hence an isomorphism); fullness — the graph of f: Y -> Y' is a quasi-compact open immersion, approximated by a quasi-compact open V_j ⊆ Y_j ×_{X_j} Y'_j whose projection to Y_j becomes an isomorphism, hence is one for large j; essential surjectivity — cover a qcqs etale Y by pieces that are composites of a rational open, a finite etale map and a rational open, each descending by (i), and glue by full faithfulness. Proof of (iii): separatedness of f_j for large j because an open-closed decomposition of an inverse limit of spectral spaces descends to a finite stage. Proposition 6.5 (also read): cofiltered limits of affinoid perfectoid spaces exist and are affinoid perfectoid; for ω_1-cofiltered systems colim R_i -> R is bijective; every affinoid perfectoid space is an ω_1-cofiltered limit of topologically countably generated ones.",
+      "hypotheses": [
+        "Affinoid perfectoid X_i (any characteristic); the set-theoretic clause requires the index category λ-small and X_i κ'-small as in Lemma 4.1",
+        "Parts (o) and (i) are imported from Huber 1993 (Prop. 3.9), Sch12 (6.13(ii), 7.5(i)), Elkik and Gabber-Ramero, none read here"
+      ],
+      "proofSteps": [
+        "Spectral-space limit arguments for faithfulness and fullness; quasi-compactness of open images; local structure of etale maps as rational-finite etale-rational composites."
+      ],
+      "acceptance": [
+        "A qcqs etale map to a limit of affinoid perfectoids is the pullback of a qcqs etale map at a finite stage, unique up to a further finite stage.",
+        "Separatedness is preserved in the descent (iii)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Scholze-EtCohDiamonds-2026-04-14",
+          "locator": "§6, Proposition 6.4, p. 27",
+          "excerpt": "(ii) Let X_ét,qcqs ⊂ X_ét denote the full subcategory of qcqs étale perfectoid spaces over X (and similarly for X_i). Then the base change functors (X_i)_ét,qcqs -> X_ét,qcqs induce an equivalence of categories 2-lim (X_i)_ét,qcqs -> X_ét,qcqs.",
+          "match": "Statement of the qcqs descent."
+        },
+        {
+          "sourceId": "Scholze-EtCohDiamonds-2026-04-14",
+          "locator": "§6, proof of Proposition 6.4, p. 28",
+          "excerpt": "Thus, we can assume that f is a composite of a rational open subset, a finite étale map, and a rational open subset. Each of these maps descends to X_i for large enough i (using (i)), finishing the proof of (ii).",
+          "match": "Essential surjectivity step."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicEtaleGeometry:A3/affinoid-etale-finite-stage-6-4-iv",
+      "parentStageId": "AdicEtaleGeometry:A3",
+      "title": "The affinoid finite-stage assertion ECD 6.4(iv): proof sketch and its three imports (Huber 1.7.1, KL16 pseudocoherent sheaves, FS IV.4.19)",
+      "kind": "theorem",
+      "statement": "6.4(iv): 2-colim (X_i)_et,aff -> X_et,aff is an equivalence, where X_et,aff is the category of affinoid perfectoid spaces etale over X. Full faithfulness follows from (ii). Essential surjectivity, as sketched in the source: work in characteristic p (transfer by tilting); for an etale map f: Y -> X = Spa(A,A^+) of affinoid perfectoid spaces of characteristic p, find a Zariski closed immersion of sousperfectoid adic spaces Y -> B^n_X whose ideal I is generated near Y by n functions f_1..f_n ∈ A⟨T_1..T_n⟩ (since Ω^1_{Y/X} = 0, I/I^2 ≅ Ω^1_{B^n_X/X}/I) — this is [FS26, Proposition IV.4.19], relying on Huber 1.7.1 extended to affinoid perfectoid spaces of characteristic p through the pseudocoherent sheaf theory of [KL16]; slightly perturbed f_i still define an affinoid sousperfectoid space etale over X (hence perfectoid) by the same result; close enough approximations are isomorphic to Y by the approximation results of (ii)-(iii); approximating the f_i at a finite stage X_i gives an affinoid etale object over X_i pulling back to Y. The stage's tasks 1-5 correspond to: (1) the KL16 pseudocoherent input, (2) the closed embedding into B^n_X with the conormal description, (3) pseudocoherence of the ideal sheaf and the affine quotient, (4) perturbation stability, (5) finite-stage approximation and identification via (ii).",
+      "hypotheses": [
+        "Characteristic p affinoid perfectoid X (then tilting); sousperfectoid adic spaces (AdicSpacesPartII:R5/sousperfectoid-rings) for the ambient B^n_X",
+        "Imports not read: [FS26, IV.4.13, IV.4.15, IV.4.17, IV.4.19], [KL16] pseudocoherent sheaves, the transfer by tilting of Zariski closed immersions (ECD 5.7-5.8, read: Zariski closed = strongly Zariski closed by [BS22, 7.4]); Huber 1.7.1 is read (AdicSpacesPartII:R0/etale-local-structure) but its proof uses noetherian rings of definition in point (3) and does not by itself cover perfectoid A"
+      ],
+      "proofSteps": [
+        "Tilt to characteristic p.",
+        "Embed Y into a relative ball and identify the ideal locally by n equations with unit Jacobian (FS IV.4.19).",
+        "Perturb and use (ii)/(iii) to identify with Y.",
+        "Approximate at a finite stage."
+      ],
+      "acceptance": [
+        "The stage's warning is confirmed by the source: the argument is a sketch citing FS IV.4.19, whose own proofs must be checked for circular use of diamond comparison before the special case is accepted.",
+        "Huber's point (3) in the proof of 1.7.1 ('we may assume that B^▷ is noetherian ((1.1.1))') is exactly the step that fails verbatim for perfectoid A; a pseudocoherent replacement is needed."
+      ],
+      "sources": [
+        {
+          "sourceId": "Scholze-EtCohDiamonds-2026-04-14",
+          "locator": "§6, proof of Proposition 6.4 (iv), p. 28",
+          "excerpt": "In (iv), fully faithfulness again follows from (ii). For essential surjectivity, we can work in characteristic p, where it follows from [Hub96, Proposition 1.7.1], which holds for affinoid perfectoid spaces of characteristic p by using the theory of pseudocoherent sheaves of Kedlaya–Liu, [KL16].",
+          "match": "The imported finite-presentation input."
+        },
+        {
+          "sourceId": "Scholze-EtCohDiamonds-2026-04-14",
+          "locator": "§6, proof of Proposition 6.4 (iv), p. 28",
+          "excerpt": "one can find a Zariski closed immersion of sousperfectoid adic spaces Y -> B^n_X, whose ideal I is necessarily generated by n functions f_1, ..., f_n ∈ A⟨T_1, ..., T_n⟩ in a neighborhood of Y (as Ω^1_{Y/X} = 0 and so I/I^2 ≅ Ω^1_{B^n_X/X}/I), see [FS26, Proposition IV.4.19].",
+          "match": "The embedding and conormal step with its FS import."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.7, proof of Proposition 1.7.1, point (3), p. 83",
+          "excerpt": "The assertion is trivial if the topology of B^▷ is discrete. Hence we may assume that B^▷ is noetherian ((1.1.1)).",
+          "match": "Where Huber's proof uses noetherianity."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicEtaleGeometry:A4/spd-of-tate-huber-pair-and-perfectoid-torsor",
+      "parentStageId": "AdicEtaleGeometry:A4",
+      "title": "Spd(A,A^+) as a v-sheaf, the finite etale torsor tower with perfectoid uniform completion, and the presentation of Spd(A,A^+) as a quotient of an affinoid perfectoid space (ECD 15.1-15.4)",
+      "kind": "construction",
+      "statement": "Lemma 15.1: Spd Z_p (untilts (X^♯, ι) of X ∈ Perf) is a v-sheaf; for a Tate Z_p-algebra A with open integrally closed A^+, Spd(A,A^+) (untilts with a continuous map of pairs (A,A^+) -> (O(X^♯), O^+(X^♯))) is a v-sheaf; proof of (i): for a v-cover Y -> X of affinoid perfectoids with an untilt Y^♯ descending on Y ×_X Y, choose ϖ with f([ϖ]) | p, compare (R^+/ϖ)^a = eq((S^+/ϖ)^a ⇉ (T^+/ϖ)^a) with the untilted equalizer, use vanishing of higher v-cohomology of O^+/ϖ (Theorem 8.7) and induction on n to get (W(R^+)/ξ)^a = eq(S^{♯+a} ⇉ T^{♯+a}) with ξ ≡ p mod [ϖ], and define R^♯ = (W(R^+)/ξ)[1/[ϖ]]. Lemma 15.2: for perfectoid A, Spd(A,A^+) = Spa(A^♭, A^{♭+}) (Corollary 3.20). Lemma 15.3: any ring A admits a cofiltered system of finite groups G_i with surjective transitions and compatible finite etale G_i-torsors A -> A_i with A_∞ = colim A_i having no nonsplit finite etale covers; for a Tate Z_p-algebra A the uniform completion of A_∞ is perfectoid (a pseudouniformizer ϖ with ϖ^p | p is found as a root of x^{p^n} − ϖ_0 x = ϖ_0, and Frobenius surjectivity on R°/ϖ from roots of x^p − ϖ^p x − f). Proposition 15.4: Spd(A_i, A_i^+) -> Spd(A,A^+) is a G_i-torsor of v-sheaves (Theorem 6.1); Spd(Â_∞, Â_∞^+) = lim Spd(A_i, A_i^+) -> Spd(A,A^+) is a G-torsor, G = lim G_i; hence Spa(Â_∞^♭, Â_∞^{♭+}) -> Spd(A,A^+) is a universally open qcqs quasi-pro-etale map from an affinoid perfectoid space, Spd(A,A^+) is a spatial diamond, and |Spd(A,A^+)| = |Spa(Â_∞^♭, Â_∞^{♭+})|/G = |Spa(A,A^+)| (the last equality from |Spa(A_i,A_i^+)|/G_i = |Spa(A,A^+)| and passage to the limit).",
+      "hypotheses": [
+        "A a Tate Z_p-algebra, A^+ open and integrally closed; A_i^+ the integral closure of A^+ in A_i; Â_∞^+ the closure of colim A_i^+",
+        "Imports not read: Theorem 8.7 (v-descent of O^+/ϖ up to almost zero), Corollary 3.20 (untilting equivalence), Lemma 10.13, Proposition 11.24 (quotients by profinite group actions are spatial diamonds), Theorem 6.1"
+      ],
+      "proofSteps": [
+        "v-sheaf property via almost-mathematics equalizers (15.1).",
+        "Construction of the torsor tower and the perfectoid uniform completion (15.3).",
+        "Torsor and quotient presentation and the topological identification (15.4)."
+      ],
+      "acceptance": [
+        "The uniform completion of A_∞, not A_∞ itself, is perfectoid; the pseudouniformizer argument produces ϖ with ϖ^p | p.",
+        "The topological space |Spd(A,A^+)| equals |Spa(A,A^+)| without any sheafiness assumption on (A,A^+)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Scholze-EtCohDiamonds-2026-04-14",
+          "locator": "§15, Lemma 15.3, p. 90",
+          "excerpt": "If A is a Tate Z_p-algebra, then the uniform completion Â_∞ of A_∞ is perfectoid.",
+          "match": "Perfectoidness of the uniform completion."
+        },
+        {
+          "sourceId": "Scholze-EtCohDiamonds-2026-04-14",
+          "locator": "§15, Proposition 15.4, p. 90",
+          "excerpt": "is a universally open qcqs quasi-pro-étale map from an affinoid perfectoid space, so that Spd(A, A^+) is a spatial diamond, with |Spd(A, A^+)| = |Spa(Â_∞^♭, Â_∞^{♭+})|/G = |Spa(Â_∞, Â_∞^+)|/G = |Spa(A, A^+)|.",
+          "match": "The presentation and the topological identification."
+        },
+        {
+          "sourceId": "Scholze-EtCohDiamonds-2026-04-14",
+          "locator": "§15, proof of Lemma 15.3, p. 90",
+          "excerpt": "Now look at the equation x^{p^n} − ϖ_0 x = ϖ_0. This determines a finite étale R-algebra, and so it admits a solution x = ϖ ∈ R.",
+          "match": "Pseudouniformizer argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicEtaleGeometry:A4/diamond-of-analytic-adic-space-and-etale-site-15-6",
+      "parentStageId": "AdicEtaleGeometry:A4",
+      "title": "The diamond Y^◇ of an analytic adic space over Z_p and the identification of etale sites (ECD Definition 15.5, Lemma 15.6) — stated here as the D6-owned endpoint of A4's analytic presentation",
+      "kind": "comparison",
+      "statement": "Gluing: for a rational open U ⊆ Spa(A,A^+), Spd(O(U), O^+(U)) is the open subfunctor of Spd(A,A^+) over U ⊆ |Spa(A,A^+)| = |Spd(A,A^+)|. Definition 15.5: Y^◇(X) = {((X^♯, ι), f: X^♯ -> Y)}/≅ for an analytic adic space Y over Z_p (also valid for the adic spaces of [SW13, 2.1]). Lemma 15.6: Y^◇ is a locally spatial diamond with |Y^◇| = |Y|, and with Y_et, Y_fet as in [KL15, Definition 8.2.19] there are equivalences of sites Y^◇_et ≅ Y_et and Y^◇_fet ≅ Y_fet. Proof: reduce to affinoid Y; spatiality from 15.4; finite etale sites via [KL15, 8.2.17] and the equivalences (Â_∞)_fet = 2-colim (A_i)_fet (and the same for C^0(G, Â_∞), C^0(G × G, Â_∞)) from [Sch12, Lemma 7.5(i)], with descent along the finite etale G_i-torsors; etale sites from the finite etale case plus the topological identification, since etale maps are locally quasi-compact open immersions followed by finite etale maps on both sides (Lemma 11.31, [KL15, 8.2.16]). Per the stage text, the representability and site comparison are owned by DiamondsAndVStacks:D6; A4 supplies the affinoid presentation of the previous node and must not use 15.6 to justify it.",
+      "hypotheses": [
+        "Y analytic over Z_p; the etale site of Y in the sense of KL15 §8.2 (general, not necessarily sheafy, adic spaces) — not read",
+        "Imports not read: Lemma 11.31, [KL15, 8.2.16-8.2.19], [Sch12, 7.5(i)]"
+      ],
+      "proofSteps": [
+        "Glue Spd over rational opens; define Y^◇; prove 15.6 as in the source."
+      ],
+      "acceptance": [
+        "|Y^◇| = |Y| and Y^◇_fet ≅ Y_fet; the etale-site comparison uses the local structure of etale maps on both sides."
+      ],
+      "sources": [
+        {
+          "sourceId": "Scholze-EtCohDiamonds-2026-04-14",
+          "locator": "§15, Lemma 15.6, p. 91",
+          "excerpt": "Then Y^◇ is a locally spatial diamond, with |Y^◇| = |Y|. Moreover, with Y_ét and Y_fét defined as in [KL15, Definition 8.2.19], one has equivalences of sites Y^◇_ét ≅ Y_ét and Y^◇_fét ≅ Y_fét.",
+          "match": "The endpoint statement."
+        },
+        {
+          "sourceId": "Scholze-EtCohDiamonds-2026-04-14",
+          "locator": "§15, proof of Lemma 15.6, p. 91",
+          "excerpt": "Choosing a G-torsor as in Proposition 15.4, this follows from the equivalence (Â_∞)_fét = 2-lim (A_i)_fét from [Sch12, Lemma 7.5 (i)]",
+          "match": "How the A4 presentation is used."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "AdicSpacesPartII:R0/fibre-products-existence",
+      "target": "AdicEtaleGeometry:A0/supplier-contract-fibre-products",
+      "reason": "A0 imports the fibre-product construction of Huber 1.2.2 (both cases) and Corollary 1.2.3; nothing else in the read sources supplies it.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.2, Proposition 1.2.2 and Corollary 1.2.3, pp. 47-49"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R0/finite-morphisms",
+      "target": "AdicEtaleGeometry:A1/finite-etale-affinoid-algebra",
+      "reason": "The affinoid ring structure on a finite algebra (1.4.2) and the definition of finite morphisms (1.4.4) are the algebraic inputs to finite etale adic morphisms.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.4, (1.4.2), (1.4.4), p. 61"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R0/etale-local-structure",
+      "target": "AdicEtaleGeometry:A1/etale-morphisms-local-description-and-comparison",
+      "reason": "A1 reexports the etale local structure 1.7.1-1.7.9 proved under R0.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.7, pp. 80-89"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R4/etale-site-and-rigid-comparison",
+      "target": "AdicEtaleGeometry:A1/etale-site-and-geometric-points",
+      "reason": "The site definition and the rigid/adic topos equivalence 2.1.4 are the same construction; R4 is the reexport, A1 the owner per both stage texts.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§2.1, pp. 109-111"
+        }
+      ]
+    },
+    {
+      "source": "AdicEtaleGeometry:A1/etale-morphisms-local-description-and-comparison",
+      "target": "AdicEtaleGeometry:A1/pro-etale-site-corrected",
+      "reason": "Lemma 3.10(iv) (pro-etale maps are open) reduces to openness of etale maps, cited from Huber Proposition 1.7.8.",
+      "sources": [
+        {
+          "sourceId": "Scholze-pAdicHodge-2013",
+          "locator": "§3, proof of Lemma 3.10 (iv), p. 16: 'this is true because étale maps are open, cf. [12], Proposition 1.7.8, in the adic case.'"
+        }
+      ]
+    },
+    {
+      "source": "AdicEtaleGeometry:A1/etale-site-and-geometric-points",
+      "target": "AdicEtaleGeometry:A1/pro-etale-site-corrected",
+      "reason": "X_proet is built from pro-objects of X_et and the projection ν: X_proet -> X_et compares the two sites (Lemma 3.16, Corollary 3.17).",
+      "sources": [
+        {
+          "sourceId": "Scholze-pAdicHodge-2013",
+          "locator": "§3, Definition 3.9 and Lemma 3.16, pp. 15 and 19"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R0/separated-proper-partially-proper",
+      "target": "AdicEtaleGeometry:A2/supplier-contract-separated-proper-smooth",
+      "reason": "A2's separatedness/properness/valuative-criteria contract is Huber 1.3.1-1.3.10.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.3, pp. 51-55"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R0/differentials-unramified-smooth-etale",
+      "target": "AdicEtaleGeometry:A2/supplier-contract-separated-proper-smooth",
+      "reason": "Continuous Kähler differentials (1.6.1-1.6.3), the Jacobian criterion (1.6.9) and smooth charts (1.6.10) are the A2 smoothness contract.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.6, pp. 76-80"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R1/scheme-fibre-product-analytification",
+      "target": "AdicEtaleGeometry:A2/supplier-contract-separated-proper-smooth",
+      "reason": "Analytification of finite-type schemes over a nonarchimedean field or over an affinoid pair is Huber (1.2.7)/(1.7.3), importing [Hu, 3.8].",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.2, (1.2.7), p. 50; §1.7, Corollary 1.7.3, p. 85"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R2/generic-fibre-functor-d",
+      "target": "AdicEtaleGeometry:A2/supplier-contract-separated-proper-smooth",
+      "reason": "Formal schemes of type (S) and their generic fibres 'in the scope required by H1' are Huber 1.9.1-1.9.6; H1:formal-adic-comparison consumes exactly these (see the ClassicalAdicEtaleCohomology packet).",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.9, pp. 95-98"
+        }
+      ]
+    },
+    {
+      "source": "AdicEtaleGeometry:A3/etale-descent-to-finite-stage-6-4",
+      "target": "AdicEtaleGeometry:A3/affinoid-etale-finite-stage-6-4-iv",
+      "reason": "Full faithfulness in (iv) and the identification of close approximations with Y use (ii) and (iii).",
+      "sources": [
+        {
+          "sourceId": "Scholze-EtCohDiamonds-2026-04-14",
+          "locator": "§6, proof of Proposition 6.4 (iv), p. 28: 'fully faithfulness again follows from (ii)' and 'this will in fact be isomorphic to Y, by the approximation results above'"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R0/etale-local-structure",
+      "target": "AdicEtaleGeometry:A3/affinoid-etale-finite-stage-6-4-iv",
+      "reason": "ECD cites Huber Proposition 1.7.1 as the finite-presentation input for affinoid etale maps, to be extended to perfectoid bases by KL16.",
+      "sources": [
+        {
+          "sourceId": "Scholze-EtCohDiamonds-2026-04-14",
+          "locator": "§6, proof of Proposition 6.4 (iv), p. 28"
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.7, Proposition 1.7.1, p. 80"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R5/sousperfectoid-rings",
+      "target": "AdicEtaleGeometry:A3/affinoid-etale-finite-stage-6-4-iv",
+      "reason": "The ambient relative ball B^n_X over affinoid perfectoid X and its perturbed closed subspaces are sousperfectoid adic spaces (Berkeley 6.3.3(iii)); ECD's sketch works in that category.",
+      "sources": [
+        {
+          "sourceId": "Scholze-EtCohDiamonds-2026-04-14",
+          "locator": "§6, proof of Proposition 6.4 (iv), p. 28: 'a Zariski closed immersion of sousperfectoid adic spaces Y -> B^n_X'"
+        }
+      ]
+    },
+    {
+      "source": "AdicEtaleGeometry:A1/finite-etale-affinoid-algebra",
+      "target": "AdicEtaleGeometry:A4/spd-of-tate-huber-pair-and-perfectoid-torsor",
+      "reason": "Proposition 15.4 uses Theorem 6.1 (almost purity) to see that Spd(A_i, A_i^+) -> Spd(A,A^+) is a G_i-torsor.",
+      "sources": [
+        {
+          "sourceId": "Scholze-EtCohDiamonds-2026-04-14",
+          "locator": "§15, proof of Proposition 15.4, p. 91: 'It follows from Theorem 6.1 that Spd(A_i, A_i^+) -> Spd(A, A^+) is a G_i-torsor.'"
+        }
+      ]
+    },
+    {
+      "source": "AdicEtaleGeometry:A4/spd-of-tate-huber-pair-and-perfectoid-torsor",
+      "target": "AdicEtaleGeometry:A4/diamond-of-analytic-adic-space-and-etale-site-15-6",
+      "reason": "Lemma 15.6 reduces to the affinoid case and uses the G-torsor presentation of 15.4 and the finite etale equivalences along the tower.",
+      "sources": [
+        {
+          "sourceId": "Scholze-EtCohDiamonds-2026-04-14",
+          "locator": "§15, proof of Lemma 15.6, p. 91"
+        }
+      ]
+    },
+    {
+      "source": "AdicEtaleGeometry:A4/diamond-of-analytic-adic-space-and-etale-site-15-6",
+      "target": "DiamondsAndVStacks:D6",
+      "reason": "The stage text assigns Spd(A,A^+), its diamond representability and the analytic/diamond etale-site agreement to D6; the node records ECD 15.5-15.6 as that endpoint and supplies the presentation of 15.4 to it. Checked against the D6 description in data/atlas.json (requires AdicEtaleGeometry:A4, D3, D5, PerfectoidSpaces:P1): D6 reads 'Using A4, prove ECD 15.2-15.4: a perfectoid pair gives its tilt, arbitrary Tate-pair presentations give spatial diamonds, and the topological and finite étale comparisons hold' and 'Prove ECD Lemma 15.6 in full'. So D6's scope covers 15.2-15.6 and consumes exactly the torsor-tower presentation recorded in the previous node.",
+      "sources": [
+        {
+          "sourceId": "Scholze-EtCohDiamonds-2026-04-14",
+          "locator": "§15, Definition 15.5 and Lemma 15.6, p. 91"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "AdicEtaleGeometry:A0",
+      "status": "partial",
+      "remaining": [
+        "The completed tensor product's own universal property, uniformization, and tracking of rings of definition/pseudouniformizers are in Huber 1994 [Hu, §§1-3] (absent); only the fibre-product theorem 1.2.2 and its explicit affinoid construction were read.",
+        "Sheafiness of the affinoid pieces: not addressed by 1.2.2; the perfectoid case (P2) not read.",
+        "Chart independence, associativity and unit coherence of glued fibre products: not verified beyond the affinoid reduction in 1.2.2."
+      ]
+    },
+    {
+      "stageId": "AdicEtaleGeometry:A1",
+      "status": "partial",
+      "remaining": [
+        "Sheafiness 'in the required situations' for finite etale algebras over complete Tate pairs: Huber 1.4.2 gives the affinoid ring; sheafiness (strongly noetherian, stably uniform, sousperfectoid) is in the AdicSpacesPartII:R3/R5 nodes; the general sheafy case (KL15 §8.2 / Definition 8.2.19) not read.",
+        "Geometric points, strict localizations, enough points: only the Chapter 2 introduction statements were read; §2.5 proofs not read.",
+        "Basis/slice-site comparisons for the small etale site: not read (Huber §2.3).",
+        "Generalized adic-space presentations for Huber's general analytic category: not read; ECD §15 uses KL15 8.2.16-8.2.19 for etale maps of general adic spaces.",
+        "Pro-etale site: fully read for locally noetherian X with the erratum; the pro-etale site of ECD §8 (on Perf) and its relation are not read."
+      ]
+    },
+    {
+      "stageId": "AdicEtaleGeometry:A2",
+      "status": "partial",
+      "remaining": [
+        "Dimension theory (Huber §1.8) not read.",
+        "Admissible formal models and blow-ups (Bosch-Lütkebohmert) absent from the library.",
+        "Compatibility of the classical constructions with A1's sites: only the site definition (2.1) and 2.2.2 were read."
+      ]
+    },
+    {
+      "stageId": "AdicEtaleGeometry:A3",
+      "status": "partial",
+      "remaining": [
+        "ECD 6.4(iv) is only sketched in the source; FS IV.4.13-IV.4.19 and KL16 pseudocoherent theory not read; Sch12 Lemma 7.5(i), Elkik and Gabber-Ramero (for 6.4(i)) and Huber 1993 Prop. 3.9 (for 6.4(o)) not read.",
+        "Tasks 1-5 of the stage remain proof obligations; only their mapping onto the source sketch is recorded."
+      ]
+    },
+    {
+      "stageId": "AdicEtaleGeometry:A4",
+      "status": "partial",
+      "remaining": [
+        "Imports of 15.1-15.6 not read: Theorem 8.7, Corollary 3.20, Lemma 10.13, Proposition 11.24, Lemma 11.31, KL15 8.2.16-8.2.19, Sch12 7.5(i).",
+        "The 'invariance of the valuation spectrum under uniform completion' clause of the stage is used implicitly (|Spd(A,A^+)| = |Spa(A,A^+)| via the torsor tower) but no separate statement about uniform completion was read.",
+        "The perfectoid equivalence relation / generalized-affinoid presentation for §15 beyond the G-torsor of 15.4: not read further (Proposition 11.24 not read)."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Huber 1994 (Math. Z. 217) absent: completed tensor products, [Hu, 3.5], [Hu, 3.8]",
+      "neededBy": [
+        "AdicEtaleGeometry:A0/supplier-contract-fibre-products",
+        "AdicEtaleGeometry:A2/supplier-contract-separated-proper-smooth"
+      ],
+      "detail": "Same boundary as recorded in the AdicSpacesPartII packet; A0's universal property and A2's analytification both import it."
+    },
+    {
+      "title": "Fargues-Scholze IV.4.13-IV.4.19 and Kedlaya-Liu 2016 pseudocoherent sheaves unread; ECD 6.4(iv) is a sketch",
+      "neededBy": [
+        "AdicEtaleGeometry:A3/affinoid-etale-finite-stage-6-4-iv"
+      ],
+      "detail": "FarguesScholze_Geometrization is in the library (extracted/FarguesScholze_Geometrization.txt) and KL16 (KedlayaLiu_ImperfectPeriodRings.pdf) is available; neither was read. Next action: read FS IV.4.13-IV.4.19 and check which of their proofs use diamond-theoretic results, then read KL16 §2.4-2.6 on pseudocoherent modules over Tate algebras."
+    },
+    {
+      "title": "KL15 §8.2 (etale maps and sites of general adic spaces, Definitions 8.2.16-8.2.19) unread",
+      "neededBy": [
+        "AdicEtaleGeometry:A4/diamond-of-analytic-adic-space-and-etale-site-15-6",
+        "AdicEtaleGeometry:A1/etale-morphisms-local-description-and-comparison"
+      ],
+      "detail": "ECD 15.6 compares Y^◇_et with Y_et in KL15's sense; the library has KL15 (KedlayaLiu_RelativePadicHodgeFoundations.pdf, extracted in scratch). Next action: read KL15 §8.2."
+    },
+    {
+      "title": "ECD internal imports for §15 (Theorem 8.7, Corollary 3.20, Lemma 10.13, Proposition 11.24, Lemma 11.31) unread",
+      "neededBy": [
+        "AdicEtaleGeometry:A4/spd-of-tate-huber-pair-and-perfectoid-torsor"
+      ],
+      "detail": "These are owned by the EXT-04 roadmaps (DiamondsAndVStacks D-stages); the A4 nodes record them as boundaries. Cross-job dependency."
+    },
+    {
+      "title": "Huber §2.5 (geometric points, strict localizations) and §2.3 (topos of a subset) unread",
+      "neededBy": [
+        "AdicEtaleGeometry:A1/etale-site-and-geometric-points"
+      ],
+      "detail": "Needed for the geometric-stalk and enough-points clauses of A1; read Huber pp. 117-138."
+    }
+  ]
+}

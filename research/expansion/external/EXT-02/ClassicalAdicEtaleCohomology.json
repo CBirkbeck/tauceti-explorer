@@ -1,0 +1,1028 @@
+{
+  "roadmapId": "ClassicalAdicEtaleCohomology",
+  "status": "partial",
+  "summary": "Source-based expansion of the formal/adic comparison substage H1:formal-adic-comparison from Huber's 1996 book §3.5 (the specialization morphism of sites lambda_X, pairs (X,L) and pseudo-adic supports, constructibility and stalks of lambda^*, the stalk theorems 3.5.8-3.5.10 for R^n lambda_*, restriction/extension-by-zero compatibilities 3.5.11, the scheme-completion comparison 3.5.13 with its corollaries 3.5.14-3.5.17) together with the henselian tube comparison 3.6.1 that proves them, of the henselian substage H1:henselian from §§3.1-3.2 (henselian f-adic rings, special and pro-special subsets, henselization along pro-special subsets, the fundamental comparison theorems 3.2.1, 3.2.9, 3.2.10, 3.2.12 and the structure of their proofs in §§3.3-3.4), of the H5 comparison theorems 3.7.2 (proper morphisms) and 3.8.1 (schemes over non-archimedean fields, proof routes only), and of the H0 continuity/stalk statements 2.4.2, 2.4.6, 2.6.1. The valuation-base nearby-cycle substages (§4.2), H2, H3 and H4 were not read.",
+  "sources": [
+    {
+      "id": "Huber-EtaleCohomology-1996",
+      "title": "Étale Cohomology of Rigid Analytic Varieties and Adic Spaces",
+      "authors": "Roland Huber",
+      "edition": "Aspects of Mathematics E30, Vieweg 1996; supplied scanned copy with OCR text (displayed formulas are frequently lost in the OCR; statements whose displays were lost are flagged in the nodes)",
+      "url": "https://link.springer.com/book/10.1007/978-3-663-09991-8",
+      "sha256": "8e470878aea6938f582548eb72a568416d186b4289829f98802d33c5430a5b43",
+      "readSections": [
+        "§2.4, pp. 125-126: (2.4.1), Definition 2.4.2, Remark 2.4.3.i; p. 129: Corollary 2.4.6 with its proof pointer, Example 2.4.7 statement",
+        "§2.6, pp. 138-139: Proposition 2.6.1 statement and the first lines of its proof, Example 2.6.2",
+        "Chapter 3 introduction, pp. 162-163",
+        "§3.1, pp. 163-173: Lemma 3.1.1 with proof, Definition 3.1.2, Lemma 3.1.3 with proof, Lemma 3.1.4, (3.1.5), Definition 3.1.6, Lemma 3.1.7 with proof, Corollaries 3.1.8-3.1.9, Lemma 3.1.10 with proof, (3.1.11), Proposition/Definition 3.1.12 with proof, Example 3.1.13",
+        "§3.2, pp. 173-183: Theorem 3.2.1, Corollaries 3.2.2-3.2.3, Example 3.2.4 with proof, Lemma 3.2.5 (proof delegated to [Hu3]), (3.2.6), Lemma 3.2.7 with proof, (3.2.8), Theorems 3.2.9-3.2.10, Example 3.2.11, Remarks 3.2.12-3.2.13",
+        "§3.3, pp. 183-185: Lemmas 3.3.1-3.3.2 with proofs, Theorem 3.3.3 statement and the opening of its proof",
+        "§3.4, pp. 193-194: Lemmas 3.4.2-3.4.3 statements and the derivation of (3.2.12) from them and (3.3.3)",
+        "§3.5, pp. 201-210: complete (Lemma 3.5.1 with proof, Remark 3.5.2, (3.5.3)-(3.5.5), Proposition 3.5.6 with proof, (3.5.7), Theorems 3.5.8-3.5.10, Corollary 3.5.11 with proof, (3.5.12), Theorem 3.5.13 with proof, Corollaries 3.5.14-3.5.17 with proofs)",
+        "§3.6, pp. 211-225: Proposition 3.6.1, Corollaries 3.6.2-3.6.3, the proof of 3.6.1 (reduction steps (I)-(IV) and induction steps (V)-(IX)), and the proofs of 3.5.8, 3.5.9, 3.5.10",
+        "§3.7, pp. 225-227: (3.7.1), Theorem 3.7.2 with proof, Lemma 3.7.3 with proof",
+        "§3.8, pp. 227-229: Theorem 3.8.1 statement and the two proof routes described by the source, Lemma 3.8.2 with proof",
+        "§3.9, pp. 229-237: statement of Theorem 3.9.1 and the outline (I)-(III) of its proof, read only to identify the inputs of the char 0 route of 3.8.1; not decomposed"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ClassicalAdicEtaleCohomology:H0/tilde-limits-and-cohomological-continuity",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H0",
+      "title": "Huber tilde-limits of quasi-compact quasi-separated pseudo-adic spaces and the continuity of etale cohomology (2.4.2, 2.4.6); stalks of R^n f_* via strict localizations (2.6.1)",
+      "kind": "theorem",
+      "statement": "(2.4.1)-(2.4.2): for a cofiltered category I, a functor i -> X_i to quasi-compact quasi-separated pseudo-adic spaces with adic transition morphisms, and compatible morphisms φ_i: X -> X_i, one writes X ~ lim X_i if (a) the induced map |X| -> lim |X_i| is a homeomorphism and (b) every x ∈ |X| has an affinoid open neighbourhood U such that the union of the images of the O_{X_i}(V) (over pairs (i,V) with φ_i(U) ⊆ V) is dense in O_X(U). Corollary 2.4.6: if I has a final object 0, F_0 is a sheaf of sets (resp. groups, resp. abelian groups) on X_{0,et} with preimages F on X and F_i on X_i, and X ~ lim X_i, then for n = 0 (resp. n ∈ {0,1}, resp. n ∈ N_0) the natural map colim_i H^n(X_i, F_i) -> H^n(X, F) is bijective (proof for abelian sheaves via [SGA 4, VI.8.7.7], (2.4.4) and (2.3.13)). Proposition 2.6.1: for f: X -> Y of weakly finite type and quasi-separated between pseudo-adic spaces, a geometric point ξ of Y with strict localization Y(ξ), and F a sheaf of sets (resp. groups, resp. abelian groups) on X_et with preimage G on X ×_Y Y(ξ), (R^n f_* F)_ξ ≅ H^n(X ×_Y Y(ξ), G) for the same ranges of n; proof begins from (R^n f_*F)_ξ = colim H^n(X ×_Y V, F) over etale neighbourhoods and Y(ξ) ~ lim V by (2.5.12). Example 2.6.2: for Y analytic and y a maximal point, Y(y) = y, so the stalk is the cohomology of the fibre.",
+      "hypotheses": [
+        "Tilde-limits: X_i quasi-compact quasi-separated pseudo-adic spaces, adic transition maps; condition (b) is a density condition, so X ~ lim X_i is not a categorical limit",
+        "2.4.6 needs a final object of I and sheaves pulled back from X_0",
+        "2.6.1: f of weakly finite type and quasi-separated"
+      ],
+      "proofSteps": [
+        "2.4.6: reduce to abelian sheaves and apply the SGA 4 continuity theorem to the site described in (2.4.4).",
+        "2.6.1: express the stalk as a colimit over etale neighbourhoods (2.5.4), identify Y(ξ) as a tilde-limit (2.5.12) and apply 2.4.6."
+      ],
+      "acceptance": [
+        "A tilde-limit X ~ lim X_i is recorded as such and not as an inverse limit; the roadmap's H0 requirement to state which limits are tilde-limits is satisfied by this node's definition.",
+        "For analytic Y and maximal y, (R^n f_*F)_y = H^n(X ×_Y Spa κ(y), F) (2.6.2)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§2.4, Definition 2.4.2, p. 125",
+          "excerpt": "b) For every x ∈ |X|, there exists an affinoid open neighbourhood U of x in X such that the subring E := ∪ im(φ_i^*: O_{X_i}(V) -> O_X(U)) of O_X(U) is dense in O_X(U)",
+          "match": "The density clause distinguishing tilde-limits from categorical limits."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§2.4, Corollary 2.4.6, p. 129",
+          "excerpt": "If φ: X ~ lim X_i then, for n = 0 (resp. n ∈ {0,1}, resp. n ∈ N_0), the natural mapping ... is bijective.",
+          "match": "Continuity of cohomology along tilde-limits; the display is lost in the OCR but the surrounding text fixes its content."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§2.6, Proposition 2.6.1, p. 138",
+          "excerpt": "Let f: X -> Y be a morphism of pseudo-adic spaces which is of weakly finite type and quasi-separated, let ξ be a geometric point of Y and let Y(ξ) be the strict localization of Y at ξ.",
+          "match": "Hypotheses of the stalk formula."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:henselian/henselian-f-adic-rings-and-henselization",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "title": "Henselian f-adic and affinoid rings; existence of henselizations (3.1.1-3.1.3)",
+      "kind": "construction",
+      "statement": "Lemma 3.1.1: for an f-adic ring A the following are equivalent: (i) some open subring B ⊆ A° with an open ideal I ⊆ A°° of B has (B,I) henselian; (ii) every such pair is henselian; (iii)/(iv) Spec B is henselian along its open primes for some/every open subring B of A°. Definition 3.1.2: such A is henselian; an affinoid ring is henselian if A^▷ is; complete f-adic rings are henselian and open subrings of henselian rings are henselian. Lemma 3.1.3: every f-adic ring A has a henselization ι: A -> A^h (universal among continuous maps to henselian f-adic rings) with completion ι^ an isomorphism, constructed as A_{D,I} = A ⊗_D D_I for a ring of definition D with ideal of definition I and D_I the henselization of the pair (D,I), topologised by {I^n D_I}; for affinoid rings A^h = ((A^▷)^h, (A^+)^h) with (A^+)^h integrally closed in (A^▷)^h by [EGA IV.18.12.15]. Section-wide caveat: §3.1 allows arbitrary f-adic rings, dropping the standing hypotheses (1.1.1).",
+      "hypotheses": [
+        "f-adic rings, not necessarily complete; the hypotheses (1.1.1) of the rest of the book are not assumed in §3.1",
+        "Henselian pairs in the sense of Raynaud [R, XI §2 Def. 3]; the criteria (1) (Gabber [G]) and (2) (integral extensions with I'^n b ∈ B') are used in the proof of 3.1.1"
+      ],
+      "proofSteps": [
+        "Prove criteria (1) and (2) for henselian pairs (the proof of (2) via clopen decompositions of finite Y' -> X' after base change).",
+        "Show independence of the open subring B and open ideal I via the integral closures D, E of B, B' in A° and V(I'E) = V(A°°).",
+        "Construct A_{D,I} and prove the universal property from the universal property of D_I and uniqueness of continuous extensions (ring maps t_1, t_2 on D_I agreeing on D coincide).",
+        "Affinoid case: (A^+)^h is a ring of integral elements of (A^▷)^h and the two universal maps agree."
+      ],
+      "acceptance": [
+        "A complete affinoid ring is henselian; the henselization does not change the completion.",
+        "(A^h)^+ = (A^+)^h, i.e. the plus-ring is henselized along with the ring, as the roadmap's 'track the plus ring in every completion' requires."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.1, Lemma 3.1.3.ii, p. 164",
+          "excerpt": "We have (A^h)^▷ = (A^▷)^h and (A^h)^+ = (A^+)^h. The completion ι^: A^ -> (A^h)^ is an isomorphism.",
+          "match": "Henselization of affinoid rings with its plus-ring and completion behaviour."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.1, opening, p. 163",
+          "excerpt": "In this paragraph we deviate from our supposition that we only consider f-adic rings which satisfy one of the conditions of (1.1.1). All results of this paragraph hold for arbitrary f-adic rings.",
+          "match": "Scope of §3.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:henselian/special-and-pro-special-subsets",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "title": "Special and pro-special subsets of Spa A and the henselization along rational subsets (3.1.4-3.1.10)",
+      "kind": "definition",
+      "statement": "Lemma 3.1.4: for a rational subset U of Spa A there is a henselian affinoid ring G_A(U) with im Spa(h) ⊆ U, universal among continuous maps to henselian affinoid rings with image in U; for U = R(T_1/s_1,...,T_n/s_n) it is the henselization of A⟨T_1/s_1,...,T_n/s_n⟩ (proved as [Hu, 1.3], using that maximal ideals of henselian f-adic rings are closed). (3.1.5): A(U) := G_A(U)^▷, the henselization of A along U, a presheaf on rational subsets. Definition 3.1.6: U ⊆ Spa A is special if U = S(D|E / t) = {x : |d(x)| ≤ |t(x)| ≠ 0 for d ∈ D, |e(x)| < |t(x)| for e ∈ E} with (D ∪ E ∪ {t})·A^▷ open; pro-special if an intersection of special subsets. Lemma 3.1.7: V is special iff V = {x ∈ U : |f_i(x)| < 1} for a rational U and f_i ∈ O_A(U). Corollary 3.1.8: special subsets are locally closed and constructible; pro-special subsets are convex and pro-constructible. Corollary 3.1.9: special subsets of Spa B for B = (O_A(U), O_A^+(U)) correspond to special subsets of Spa A inside U, and Spa A^ ≅ Spa A preserves special subsets. Lemma 3.1.10 (A Tate): locally closed constructible subsets are finite unions of special subsets open in the union; closed special subsets are the sets S(∅|E / t) with A^▷ = (E ∪ {t})A^▷ and closed constructible subsets are finite unions of them; open special subsets are rational; every special subset is the intersection of an open and a closed special subset.",
+      "hypotheses": [
+        "A an affinoid ring; Lemma 3.1.10 requires A Tate",
+        "Lemma 3.1.4 and 3.1.9 import [Hu, 1.3, 1.5] and [Hu1, 3.10], [Hu4, 3.4.11] (unread)"
+      ],
+      "proofSteps": [
+        "Represent special subsets through rational subsets and strict inequalities (3.1.7) using density of A^▷[T/s] in O_A(U) and [Hu1, 3.10].",
+        "For Tate A: closedness criterion via the closure formula (2) L̄ = ∩_n S(D|E_n / t^n) and the convex-subgroup construction v/H."
+      ],
+      "acceptance": [
+        "Every rational subset is special; a closed special subset in the Tate case has the form {|e(x)| < |t(x)| for all e ∈ E}.",
+        "The pseudo-adic spaces (Spa A, U) for pro-special U are the objects to which 3.2.1 applies."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.1, Definition 3.1.6, p. 166",
+          "excerpt": "A subset U of Spa A is called special if there exist an element t of A^▷ and finite subsets D, E of A^▷ such that the ideal (D ∪ E ∪ {t})·A^▷ generated by D ∪ E ∪ {t} is open in A^▷ and",
+          "match": "Definition of special subsets (display of the set lost in OCR; reconstructed from Lemma 3.1.7 and 3.1.10.ii)."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.1, Corollary 3.1.8, p. 167",
+          "excerpt": "Every special subset of Spa A is locally closed and constructible in Spa A. Hence every pro-special subset of Spa A is convex and pro-constructible in Spa A.",
+          "match": "Topological properties needed for pseudo-adic spaces."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:henselian/henselization-along-pro-special-subset",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "title": "Henselization of an affinoid ring along a pro-special subset: triples, construction, universal property and examples (3.1.11-3.1.13)",
+      "kind": "construction",
+      "statement": "(3.1.11): a triple (A,B,I) (B ⊆ A a subring, I an ideal of B) is henselian if (B,I) is a henselian pair; its henselization is (A ⊗_B B^h, B^h, I^h) for a henselization (B^h, I^h) of (B,I). Proposition/Definition 3.1.12: for a pro-special U = ∩_i S(D_i|E_i / t_i) and a pair (B,P) with B ⊆ A^+ a subring over which A^+ is integral and P ⊆ (A^▷)^{oo} an ideal of B with P·A^▷ open (e.g. (A^+, (A^▷)^{oo})), let F = A^▷[1/t_i], G = B[d/t_i, e/t_i], J = (P ∪ {e/t_i})G, and put A(U) := F^h for the henselization (F^h, G^h, J^h); then (i) A(U) is independent of the presentation and of (B,P), (ii) U ↦ A(U) is a presheaf on pro-special subsets restricting to (3.1.5) on rational subsets, (iii) continuous maps f: A -> B' with Spa(f)(V) ⊆ U induce compatible maps A(U) -> B'(V). Proof: define V(X) ⊆ Spv K for a triple X = (K,L,M) as the valuations bounded by 1 on L and < 1 on M; saturated triples (L integrally closed, M radical); (1) (X^c)^h ≅ (X^h)^c; (2) for a henselian saturated triple, L and M are recovered from V(X) and every prime of K is a support of some v ∈ V(X); then (3) the saturation Y of the henselization of (F,G,J) is universal among henselian saturated triples Z with im V(f) ⊆ r^{-1}(U), where r: Spv A^▷ -> Spv(A^▷, Q) is the retraction and (4) r^{-1}(U) is the set of primary generalizations of U. Example 3.1.13: (i) for A with the I-adic topology, A^h along I is the henselization of (A,A^+) along Spa(A,A^+); (ii) the henselization of A along a closed P ⊆ V(I) (or a point) is the henselization of (A,A) along π^{-1}(P) ⊆ Spa(A,A) (with π = the map of [Hu, 4.1] when A is noetherian); (iii) for s ∈ A and B = (A,A)(1/s), (A^h)_s is the henselization of B along λ^{-1}(P), where λ: Spa B -> V(s) agrees with λ: d(Spf A) -> Spf A when Spf A is of type (S); (iv) the henselization of an affinoid field (K,K^+) along its closed point is the henselization of K with respect to K^+ of (2.3.9).",
+      "hypotheses": [
+        "A an affinoid ring (arbitrary f-adic A^▷); U pro-special",
+        "The topology on A(U) for non-rational U is not known to exist naturally (source remark after (3.1.5)); A(U) is used as a ring with the discrete topology in §3.3",
+        "Imports: [EGA IV.18.12.15] (henselization of an integrally closed subring stays integrally closed), [Hu1, 3.1, 2.6, 3.3] (valuation spectra, retractions)"
+      ],
+      "proofSteps": [
+        "Construct (F,G,J) from the presentation and (B,P); henselize and saturate.",
+        "Prove (1)-(4) and the universal property (3); deduce independence (i), functoriality (ii),(iii)."
+      ],
+      "acceptance": [
+        "For a rational U the construction returns the ring of (3.1.5).",
+        "Example 3.1.13.iii identifies the henselization along λ^{-1}(P) ⊆ d(Spf A) with (A^h)_s — the bridge between henselian pairs and formal generic fibres used in 3.5.13's proof."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.1, Proposition and Definition 3.1.12, p. 170",
+          "excerpt": "We put A(U) := F^h, and call A(U) the henselization of A along U.",
+          "match": "Definition of the henselization along a pro-special subset."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.1, proof of 3.1.12, (3), p. 172",
+          "excerpt": "Y is a henselian saturated triple and im(V(h)) ⊆ r^{-1}(U), and if f: X -> Z is a morphism from X to a henselian saturated triple Z with im(V(f)) ⊆ r^{-1}(U) then there exists a unique morphism g: Y -> Z with f = g ∘ h.",
+          "match": "The universal property that yields independence and functoriality."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.1, Example 3.1.13.iii, p. 171",
+          "excerpt": "The preimage λ^{-1}(P) is a pro-special subset of Spa B, and (A^h)_s coincides with the henselization of B along λ^{-1}(P).",
+          "match": "Link between henselization along a closed subset of Spf A and the affinoid henselization."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:henselian/pro-special-comparison-theorem-3-2-1",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "title": "The fundamental comparison theorem for pro-special subsets (3.2.1-3.2.5) and the acyclicity of relative balls (3.2.4)",
+      "kind": "theorem",
+      "statement": "Theorem 3.2.1: for an affinoid ring A (not necessarily complete), a pro-special U ⊆ Spa A with henselization A(U) and Y = Spec A(U), and G a set (resp. ind-finite group, resp. abelian torsion group), there are natural isomorphisms H^n(Y, G_Y) ≅ H^n(U, G_U) for n = 0 (resp. n ∈ {0,1}, resp. n ∈ N_0), where U denotes the pseudo-adic space (Spa A, U). Corollary 3.2.2: for complete A, H^n(Spec A^▷, G) ≅ H^n(Spa A, G). Corollary 3.2.3: the same for Tate algebras of topologically finite type over k. Lemma 3.2.5 (Gabber-type affine analogue of proper base change): for A henselian along I and F an abelian torsion sheaf, H^n(Spec A, F) ≅ H^n(Spec A/I, F_0); proof delegated to [Hu3]. Example 3.2.4: for a rigid variety X over k with residue characteristic p and the closed polydisc B(r) (radii in sqrt|k^*|), F ≅ t_* t^* F and R^i t_* t^* F = 0 (i > 0) for (P − {p})-torsion F; likewise for open polydiscs via 3.9.2; proved through the pseudo-adic statement (γ) for B(s,m)_X and abelian (P − char^+(X))-torsion sheaves, in three steps: (I) constant coefficients over the spectrum of an algebraically closed affinoid field whose support contains the closed point, via 3.2.1, the henselization C of the polynomial ring along pB, the smooth base change theorem for Spec C_a -> Spec C and Lemma 3.2.5; (II) constructible sheaves by dévissage to j_!G_U; (III) general X by strict localizations and 2.6.1.",
+      "hypotheses": [
+        "3.2.1: A an affinoid ring, possibly incomplete; U pro-special; constant coefficients only",
+        "3.2.4: F a torsion sheaf with torsion prime to the residue characteristics char^+(X); radii in sqrt|k^*| (closed balls) or with ∞ (open balls)",
+        "Lemma 3.2.5 is imported from Huber, Math. Ann. 295 (1993) [Hu3], not in the library"
+      ],
+      "proofSteps": [
+        "3.2.1 is the special case of 3.2.12/3.3.3 for constant sheaves; its proof is §§3.3-3.4 (statement-level only here).",
+        "3.2.4 (I): identify B(s,m)_X with Spa(B_a, B) for B = A[T_1..T_n]; the support is the pro-special T = {|c(x)| < 1 for c ∈ p}; henselize along pB; smooth base change and 3.2.5 reduce to the polynomial ring over the strictly henselian A/p.",
+        "3.2.4 (II)-(III): filtration by j_!G_U and reduction to strict localizations by 2.6.1."
+      ],
+      "acceptance": [
+        "For a Tate algebra A of tft over k, etale cohomology of Spa(A,A°) with constant torsion coefficients equals that of Spec A (3.2.3).",
+        "Relative closed and open polydiscs are acyclic for prime-to-p torsion coefficients (3.2.4 α, β)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.2, Theorem 3.2.1, p. 174",
+          "excerpt": "Note that A in (3.2.1) is not necessarily complete (which is important for applications of (3.2.1)).",
+          "match": "Scope of the fundamental comparison theorem."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.2, Lemma 3.2.5, pp. 178-179",
+          "excerpt": "Let A be a ring which is henselian along an ideal I of A. Let F be an abelian torsion sheaf on (Spec A)_et and let F_0 be the restriction of F to (Spec A/I)_et. Then, for every n ∈ N_0, the natural mapping H^n(Spec A, F) -> H^n(Spec A/I, F_0) is bijective. Proof. [Hu3]",
+          "match": "The imported affine henselian comparison lemma."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:henselian/relative-comparison-3-2-9-3-2-12",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "title": "Relative comparison theorems for schemes over affinoid rings (3.2.7-3.2.13) and the structure of their proofs (3.3.3, 3.4.2-3.4.3)",
+      "kind": "theorem",
+      "statement": "Lemma 3.2.7: for schemes X locally of finite type over Y and a pseudo-adic space S with g: ℓ(S) -> Y, the fibre product S ×_Y X exists as a pseudo-adic space (built from [Hu, 3.8]) with p: S ×_Y X -> S locally of finite type and points surjecting onto compatible pairs. (3.2.8): g^{-1}: Et/X -> Et/S is a morphism of sites. Theorem 3.2.9: for U pro-special in Spa A, j: Y = Spec A(U) -> Spec A^▷ and i: U -> Spec A^▷, and F a sheaf of sets (resp. ind-finite groups, resp. abelian torsion groups) on (Spec A^▷)_et, H^n(Y, j^*F) ≅ H^n(U, i^*F) for n = 0 (resp. {0,1}, resp. all n). Theorem 3.2.10: for f: X -> Spec A^▷ (a) locally of finite type and (b) proper at every point x over the open subscheme V of non-open primes whose image specializes into i(U) ∩ V, with X' = X ×_{Spec A^▷} U and X'' = X ×_{Spec A^▷} Y, H^n(X', F') ≅ H^n(X'', F''). Example 3.2.11 (Fujiwara [F, 6.6.3]): for noetherian A henselian along I and X proper over Spec A − V(I), H^n(X, F) ≅ H^n(X ×_{Spec A} Spa(A,A), F'); in particular H^n(Spec A − V(I), F) ≅ H^n(Spa(A,A)_a, F'). Remark 3.2.12: for any X locally of finite type over Spec A^▷ there is a morphism of topoi γ: (X')~ -> (X'')~ compatible with the projections to X~ and inducing isomorphisms on H^n under condition (b). Proof structure (§§3.3-3.4): reduce to discrete A^▷ (3.3.3: with U pro-special, A(U) = F^h and B = (A(U), (G^h)^c), the tube V = {|j(x)| < 1, j ∈ (J^h)^c} ⊆ Spa B, and X''' = V ×_U X' = V ×_{Spec B^▷} X''); then Lemma 3.4.2 (primary generalizations W of q(Z) in Y are open; W = Y when Y ×_{U^d}(U^d)' -> (U^d)' is universally primarily specializing; if primary specializations form chains, q^*q_* F ≅ F and H^n(W,G) ≅ H^n(Z, q^*G)) and Lemma 3.4.3 (condition (b) of 3.2.10 gives universally primarily specializing with chain fibres) yield 3.2.12 from 3.3.3.",
+      "hypotheses": [
+        "3.2.9-3.2.10: A an affinoid ring, U pro-special; sheaves of sets / ind-finite groups / abelian torsion groups with the corresponding degree ranges",
+        "3.2.10(b): properness at points over the non-open primes whose images specialize into i(U) ∩ V; separated locally finite type maps are proper at x iff universally specializing at x (remark after 3.2.9)",
+        "Proofs of 3.3.3 (beyond its opening) and of 3.4.2-3.4.5 were not read"
+      ],
+      "proofSteps": [
+        "Reduce to discrete affinoid rings via the discrete affinoid ring A^d and the comparison of (Spa A^d, U^d) with (Spa A, U) (3.3.3 setup, 3.4.4-3.4.5).",
+        "Prove 3.3.3 by henselization along U and the tube V ⊆ Spa B.",
+        "Derive 3.2.12 from 3.3.3, 3.4.2 and 3.4.3 as displayed on p. 194."
+      ],
+      "acceptance": [
+        "3.2.11 recovers Fujiwara's theorem with A noetherian henselian along I and X proper over the complement of V(I).",
+        "Under 3.2.10(b) the comparison holds for non-constant coefficients pulled back from X."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.2, Theorem 3.2.10, p. 180",
+          "excerpt": "b) Let V denote the open subspace {p ∈ Spec A^▷ | p is not open in A^▷} of Spec A^▷ and let g: f^{-1}(V) -> V be the restriction of f. Then, for every x ∈ f^{-1}(V) such that f(x) specializes to a point of i(U) ∩ V, the morphism g is proper at x.",
+          "match": "The exact properness-at-points hypothesis of the relative comparison theorem."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.4, p. 193",
+          "excerpt": "From these two lemmata and (3.3.3) one can easily derive (3.2.12)",
+          "match": "Structure of the proof of 3.2.12."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.2, Example 3.2.11, p. 181",
+          "excerpt": "(The statement which we explain in this example is proved earlier by Fujiwara in [F, 6.6.3]).",
+          "match": "Attribution of the noetherian henselian case."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/etale-site-of-type-S-formal-scheme",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "title": "Etale morphisms and the etale site of a formal scheme of type (S); identification with the reduced special scheme",
+      "kind": "definition",
+      "statement": "For formal schemes X, Y of type (S), f: Y -> X is etale if it is adic and for every open U ⊆ X and every ideal of definition I ⊆ O_U the scheme morphism Y ×_X (U, O_U/I) -> (U, O_U/I) is etale. X_et is Et/X (type-(S) formal schemes etale over X) with surjective families as coverings. With I the ideal of functions vanishing at all points, X_red = (X, O_X/I) is a reduced scheme and Z/X ↦ Z ×_X X_red/X_red is an equivalence of sites (X_red)_et ≅ X_et by [EGA IV.18.1.2]; X_et is often identified with (X_red)_et. A morphism f: X -> Y of formal schemes induces f: X_et -> Y_et by base change (Y' etale of type (S) over Y gives X ×_Y Y' etale of type (S) over X).",
+      "hypotheses": [
+        "Formal schemes of type (S) (Huber §1.9 condition (S))",
+        "Topological invariance of the etale site [EGA IV.18.1.2]"
+      ],
+      "proofSteps": [
+        "Define etaleness modulo ideals of definition; define the site; quote EGA IV 18.1.2."
+      ],
+      "acceptance": [
+        "X_et depends only on the reduced special scheme; this is the 'identify X_et with the reduced special scheme's etale topos' clause of the stage."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, p. 201",
+          "excerpt": "is an equivalence of sites ([EGA IV.18.1.2]). Very often we identify X_et with (X_red)_et.",
+          "match": "Identification of the formal etale site with that of the reduced scheme."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/specialization-morphism-of-sites-lambda",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "title": "The specialization morphism of sites lambda_X: d(X)_et -> X_et (Lemma 3.5.1, Remark 3.5.2)",
+      "kind": "construction",
+      "statement": "Lemma 3.5.1: for X of type (S): (i) if f: Y -> X is etale then d(f): d(Y) -> d(X) is etale and the square with λ_X, λ_Y commutes; for y ∈ Y and s ∈ d(X) with f(y) = λ_X(s) there is t ∈ d(Y) with y = λ_Y(t), s = d(f)(t); (ii) Y/X ↦ d(Y)/d(X) is a morphism of sites λ_X: d(X)_et -> X_et. Proof of (i): reduce to X = Spf A affine (A as in (S)), cover Y by Y_i = Spf B_i^ for etale A-algebras B_i (completion in the I·B_i-adic topology); using σ: d(X) -> Spec A of (1.9.4), d(Y_i) is an open subspace of Spec B_i ×_{Spec A} d(X), hence etale over d(X) by (1.7.3); lifting of points: identify d(X), d(Y_i) with subsets of Spv A, Spv B_i, take the trivial valuations v, w with supports λ_X(s), y, note s is a primary generalization of v, and lift by [HK, 2.1.3] to a primary generalization t of w over s, which lies in d(Y_i). (ii): the functor commutes with fibre products and preserves coverings by (i). Remark 3.5.2: λ is compatible with the Zariski sites d(X)_zar -> X_zar.",
+      "hypotheses": [
+        "X of type (S); Y -> X etale in the sense of the previous node",
+        "Imports: (1.7.3) (adic spaces of etale schemes are etale), [HK, 2.1.3] (lifting of primary generalizations in valuation spectra, unread), (1.9.3)-(1.9.4)"
+      ],
+      "proofSteps": [
+        "Affine reduction and local description of etale formal schemes as completions of etale algebras.",
+        "Etaleness via σ and 1.7.3; point lifting via valuation spectra."
+      ],
+      "acceptance": [
+        "λ_X restricted to Zariski sites is the continuous map λ of 1.9.1.",
+        "For X = Spf O_K (rank one, algebraically closed fraction field) λ is a homeomorphism and etale maps are local isomorphisms (used in 3.5.6.ii)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, Lemma 3.5.1, p. 202",
+          "excerpt": "For every y ∈ Y and s ∈ d(X) with f(y) = λ_X(s) there exists a t ∈ d(Y) with y = λ_Y(t) and s = d(f)(t).",
+          "match": "Point-lifting property giving the covering-preservation of λ_X."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, proof of Lemma 3.5.1, p. 202",
+          "excerpt": "Hence by [HK, 2.1.3] there exists a primary generalization t of w in Spv B_i which lies over s.",
+          "match": "Identifies the valuation-spectrum import."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/pairs-and-pseudo-adic-supports",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "title": "Pairs (X,L), the pseudo-adic spaces d(X,L), the sites (X,L)_et and the identification with (L_red)_et (3.5.3-3.5.5)",
+      "kind": "construction",
+      "statement": "(3.5.3): for X of type (S) and L ⊆ X put d(X,L) := (d(X), λ_X^{-1}(L)); it is a prepseudo-adic space, and a pseudo-adic space when L is convex and locally pro-constructible (λ_X is spectral by 1.9.3). Adic morphisms of pairs induce d(f). The site (X,L)_et has objects (Y,S) with Y ∈ Et/X and S open in f^{-1}(L), coverings the families with S = ∪ f_i(S_i); (X,|X|)~ ≅ X~. By 3.5.1.i, (Y,S) ↦ d(Y,S) is a morphism of sites λ_{(X,L)}: d(X,L)_et -> (X,L)_et. (3.5.4): morphisms of pairs induce morphisms of sites, and for adic f the square with λ commutes. (3.5.5): if L is locally closed or a point, with L_red the reduced subscheme on L, the functor (Y,S) ↦ (preimage of S in L_red ×_X Y) is a morphism of sites (L_red)_et -> (X,L)_et inducing an equivalence of topoi (cf. 2.3.3); (X,L)~ is identified with (L_red)~.",
+      "hypotheses": [
+        "L convex and locally pro-constructible for d(X,L) to be pseudo-adic; L locally closed or a point for (3.5.5)",
+        "(2.3.3) (topos of a subset via the reduced subscheme) not read"
+      ],
+      "proofSteps": [
+        "Define the pairs, sites and λ_{(X,L)}; check functoriality; quote 2.3.3 for the topos identification."
+      ],
+      "acceptance": [
+        "For L = |X| everything reduces to the previous node.",
+        "For L a point y, (X,{y})~ is the etale topos of Spec of the residue field of y."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, (3.5.3), p. 203",
+          "excerpt": "Then d(X,L) is a prepseudo-adic space. Since λ_X: d(X) -> X is spectral ((1.9.3)), d(X,L) is a pseudo-adic space if L is convex and locally pro-constructible in X.",
+          "match": "Support pseudo-adic spaces and the hypothesis on L."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, (3.5.5), p. 204",
+          "excerpt": "The induced morphism of toposes φ~: (L_red)~ -> (X,L)~ is an equivalence (cf. (2.3.3)). We often identify (X,L)~ with (L_red)~.",
+          "match": "Identification of the support site with the reduced subscheme."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/constructibility-and-stalks-of-lambda-pullback",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "title": "lambda^* preserves constructibility and has stalks equal to those of the source sheaf (Proposition 3.5.6)",
+      "kind": "lemma",
+      "statement": "For X of type (S), L locally closed in X, Λ a noetherian ring and λ = λ_{(X,L)}: (i) if F is a constructible Λ-module on (X,L)_et then λ^*F is constructible on d(X,L)_et; (ii) for x ∈ |d(X,L)| = λ_X^{-1}(L) and y = λ_X(x), (λ^*F)_x̄ ≅ F_ȳ for every sheaf F on (X,L)_et. Proof: (i) stratify L by locally closed locally constructible L_i with F|(L_i)_red locally constant of finite type; by 3.5.4 λ^*F is locally constant of finite type on d(X,L_i), and λ_X^{-1}(L_i) is locally closed locally constructible by spectrality. (ii) special case X = Spf B for a complete microbial valuation ring B with algebraically closed fraction field: λ_X is a homeomorphism and etale maps into X or d(X) are local isomorphisms, so the assertion follows from 3.5.2; general case: for X = Spf A choose such B and g: d(Spf B) -> d(X) with x ∈ im g (e.g. B the completion of k(x)^+); since B = O_Y(Y) -> O_{d(Y)}(d(Y)) is an isomorphism there is a unique continuous adic μ: A -> B with g = d(Spf μ); pull back along f = Spf μ: (Y, f^{-1}(L)) -> (X,L) and use the special case plus (3.5.4).",
+      "hypotheses": [
+        "L locally closed; Λ noetherian for (i)",
+        "(ii) uses that O_Y(Y) = O_{d(Y)}(d(Y)) for Y = Spf B with B a complete microbial valuation ring"
+      ],
+      "proofSteps": [
+        "Stratification argument for (i).",
+        "Reduction to Spf of a complete microbial valuation ring with algebraically closed fraction field for (ii)."
+      ],
+      "acceptance": [
+        "Stalks of λ^*F at analytic points of the tube over y equal stalks of F at y; no cohomology is created by λ^* itself, only by Rλ_*."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, Proposition 3.5.6, p. 204",
+          "excerpt": "ii) Let x be a point of |d(X,L)| = λ_X^{-1}(L) ⊆ d(X) and put y := λ_X(x) ∈ L. Then, for every sheaf F on (X,L)_et, there is an isomorphism of stalks (λ^*F)_x̄ ≅ F_ȳ.",
+          "match": "Stalk statement."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, proof of 3.5.6, p. 204",
+          "excerpt": "(for example, take B as the completion of k(x)^+)",
+          "match": "The reduction device in the proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/stalks-of-higher-direct-images-lambda",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "title": "Stalks of R^n lambda_* F: the strict-localization/tube formula 3.5.8 under the type-(S) hypothesis, the filtered formula 3.5.9, and the constant-coefficient formula 3.5.10",
+      "kind": "theorem",
+      "statement": "Setup (3.5.7): X of type (S), L locally closed, F an abelian sheaf on d(X,L)_et, x ∈ L; U = Spf A an affine neighbourhood with A as in (S); B a topological ring isomorphic to A with a finitely generated ideal of definition J, principal if A is not noetherian; y ∈ Spec B the open prime over x; I the category of y-pointed affine etale schemes (Y_i, u_i) over Y = Spec B; Y_∞ = lim Y_i the strict localization; Y_i^ and Y_∞^ the formal completions along Spec B/J; f_i, f: Y_i^, Y_∞^ -> X. Theorem 3.5.8 (assume Y_∞^ of type (S)): (i) (R^nλ_*F)_x̄ = H^n(d(Y_∞^, f^{-1}(L)), F_∞) with F_∞ = d(f)^*F; (ii) if F is torsion and z is the closed point of Y_∞^, then this equals H^n(d(Y_∞^, {z}), F_∞) (display lost in OCR; reconstructed from the proof, which concludes exactly this equality). Theorem 3.5.9 (no type-(S) hypothesis on Y_∞^, F torsion): (R^nλ_*F)_x̄ = colim_i H^n(d(Y_i^, {z_i}), F_i) with z_i = u_i(y). Theorem 3.5.10 (F = λ^*G for a torsion sheaf G on (X,L)_et): (R^nλ_*F)_x̄ = H^n(V, M), where V = Y_∞ − (Y_∞ ×_Y Spec B/J) is the generic locus of the strict henselization and M the constant sheaf with value G_x̄. Proofs (§3.6): 3.5.8.i from 2.4.6 (tilde-limit of the d(Y_i^, f_i^{-1}(L)) over i with f_i^{-1}(L) closed); 3.5.8.ii from Corollary 3.6.3 applied to (Spa(C,C)_a, S ⊇ T) when A is noetherian (C the J-adic completion of the strict henselization) and to (Spa(C(1/s), D), S ⊇ T) with D the integral closure of C when A is not noetherian; 3.5.9 from 3.5.8.ii and 2.4.6 in the noetherian case, and in the non-noetherian case through the auxiliary pseudo-adic spaces P_i = (Spa(C_i, C_i^+), N_i), Q_i ⊆ P_i built from the localizations (B_i)_s with the discrete topology, the compatibilities (1),(2),(5), Corollary 3.6.3 for Q_∞ ⊆ P_∞, and the limit formula 2.4.6 for P_∞ ~ lim P_i, Q_∞ ~ lim Q_i, with (3.4.2.ii, iii.b) transporting cohomology between d(Y_i^, L_i) and P_i; 3.5.10 from 3.5.8.ii and (3.2.10) applied to the pro-special U ⊆ Spa(C,C) when A is noetherian, and in the non-noetherian case via the functor e(T) = (Spa(C_s, D), {|s| < 1}) on affine Y-schemes, the sites T_{et,•}, the equivalence (Y_0)~ ≅ Y~_{et,•} (Appendix A.5), Corollary 3.6.3 and the comparison 3.2.1 for e(Y_∞)'.",
+      "hypotheses": [
+        "3.5.8 requires the formal completion of the strict localization to be of type (S); 3.5.9 removes this but only for torsion F; 3.5.10 requires F = λ^*G with G torsion",
+        "In the non-noetherian case of (3.5.7) the ideal of definition of B is assumed principal (J = sB)",
+        "Imports not read: Appendix A.5, (3.4.2), (3.4.3), (3.2.10)'s proof, [HK], SGA 4 VI.8.7.7"
+      ],
+      "proofSteps": [
+        "Compute (R^nλ_*F)_x̄ as a colimit over etale neighbourhoods of x and identify with tilde-limits of the d(Y_i^, ·) (2.4.6).",
+        "Replace the support f^{-1}(L) by the closed point {z} using the henselian tube comparison 3.6.3 (the strict henselization is henselian along its maximal ideal).",
+        "For constant coefficients, pass from the tube over z to the scheme V by 3.2.10 (noetherian case) or by 3.2.1 on the discrete-topology models e(T) (non-noetherian case)."
+      ],
+      "acceptance": [
+        "Without the type-(S) assumption on Y_∞^ there is no analytic strict-localization space; 3.5.9's colimit over pointed etale neighbourhoods is the correct replacement, as the stage text demands.",
+        "For X = Spf O_K with O_K a complete rank-one valuation ring and x its closed point, 3.5.10 gives (R^nλ_*λ^*G)_x̄ = H^n(Spec of the fraction field of the strict henselization, G_x̄), i.e. Galois cohomology of the maximal unramified extension's fraction field."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, Theorem 3.5.8, p. 205",
+          "excerpt": "In the situation of (3.5.7), assume that the formal scheme Y_∞^ is of type (S). Put F_∞ := d(f)^*(F) ∈ d(Y_∞^, f^{-1}(L))~. Then i) (R^nλ_*F)_x̄ = H^n(d(Y_∞^, f^{-1}(L)), F_∞).",
+          "match": "The type-(S) hypothesis and part (i)."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, after 3.5.8, p. 206",
+          "excerpt": "If we delete in (3.5.8) the assumption that Y_∞^ is of type (S) then we must reformulate ii) in the following way",
+          "match": "Why 3.5.9 exists."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, Theorem 3.5.10, p. 206",
+          "excerpt": "Let V denote the open subscheme Y_∞ − (Y_∞ ×_Y Spec B/J) of Y_∞, and let M ∈ V~ be the constant sheaf on V_et to the group G_x̄. Then (R^nλ_*F)_x̄ = H^n(V, M).",
+          "match": "Constant-coefficient stalk formula."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/henselian-tube-comparison-3-6-1",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "title": "Cohomology of henselian tubes: Proposition 3.6.1 and Corollaries 3.6.2-3.6.3",
+      "kind": "theorem",
+      "statement": "Proposition 3.6.1: let A be an affinoid ring, J ⊆ I ideals of A^+ with A^+/J henselian along I/J; T = {|i(x)| < 1 ∀ i ∈ I} ⊆ U = {|j(x)| < 1 ∀ j ∈ J} closed pseudo-adic subspaces of Spa A; f: X -> Spec A^▷ a scheme satisfying (a),(b) of 3.2.10 or with A^▷ discrete; X_T = X ×_{Spec A^▷} T -> X_U; F an abelian torsion sheaf on (X_U)_et with preimage F' on X_T. Then H^n(X_U, F) ≅ H^n(X_T, F') for all n (display lost in OCR; content fixed by the corollaries and the proof). Corollary 3.6.2: for A^+ henselian along I, W a Zariski-open subset of Spa A containing the analytic points, T = {w ∈ W : |i(w)| < 1 ∀ i ∈ I}, F torsion on W_et: H^n(W, F) ≅ H^n(T, F'). Corollary 3.6.3: the same for a closed subset S of W and S ∩ T. Proof of 3.6.1 (read in full): reductions (I) to discrete A^▷ (via the discrete affinoid ring A^d and 3.4.2/3.4.3), (II) to X = Spec A^▷, (III) to J = 0 (henselization of the triple (A^▷, A^+, J) and 3.3.4), (IV) to A^▷ noetherian of finite dimension (writing (A^▷, A^+, I) as a filtered colimit of henselizations of finitely generated Z-triples, [KPR, 2.8.2], and constructible reductions 2.3.13.i, 2.7.8, 2.7.10.i, 2.4.6); then induction on m = dim A^▷: (V) for constructible convex S = {|a_i| < |b_i|} and constant G, via the henselizations A(S) ≅ A(S ∩ T) and 3.2.1; (VI) for closed constructible S and constant G, by the closed-covering spectral sequence 2.6.10, reduction to S = ∩ (Spa A − R(b_i/a_i)), the closed subset Z = {a = 0} with a = ∏ a_i ≠ 0, the local-cohomology comparison (VI.4) at points of Z' = Z ∩ T through strict henselizations B of A^▷ and the henselianity of B^+ along n, the open-part comparison (VI.5.i) via A' = (A^▷_a, A^+), the induction hypothesis on A^▷/aA^▷ for (VI.5.ii), and the relative cohomology sequences; (VII) for G = j_!P with P constant on an open constructible V ⊆ S by the five lemma; (VIII) for sheaves of the form f_*(j_*G) with f finite from a closed constructible S ⊆ Spa B, by the Čech-type spectral sequence 2.6.9 on the (p+1)-fold fibre products; (IX) general torsion F by the constructible dévissage 2.7.12.ii.",
+      "hypotheses": [
+        "A^+/J henselian along I/J; X satisfies 3.2.10(a),(b) or A^▷ discrete; F torsion",
+        "Imports not read: 3.3.4, 3.4.2-3.4.3 (statements read), 2.6.9-2.6.10 (spectral sequences), 2.7.8, 2.7.10, 2.7.12 (constructible dévissage), 2.5.13, [KPR, 2.8.2], [G]"
+      ],
+      "proofSteps": [
+        "Steps (I)-(IX) as listed; each is a separate lemma in the source's proof."
+      ],
+      "acceptance": [
+        "For a complete affinoid A and I = (A^▷)^{oo}·A^+ ∩ A^+ (henselian along I), the cohomology of Spa A_a-type Zariski opens equals that of the closed tube; this is the mechanism behind 3.5.8.ii.",
+        "The induction is on the Krull dimension of a discrete noetherian ring obtained after henselization; no completeness is used in the induction."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.6, Proposition 3.6.1, p. 211",
+          "excerpt": "Let A be an affinoid ring and I, J ideals of A^+ such that J ⊆ I and the ring A^+/J is henselian along the ideal I/J.",
+          "match": "Hypotheses of the tube comparison."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.6, step (IV), p. 213",
+          "excerpt": "We may assume that A^▷ is noetherian and dim A^▷ < ∞",
+          "match": "The noetherian reduction that makes the induction possible."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.6, step (IX), p. 219",
+          "excerpt": "We may assume that F is a constructible Z/mZ-module ((2.3.13.i), (2.7.8)). Then (IX) follows from (2.7.12.ii) and (VIII).",
+          "match": "Closing dévissage."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/restriction-and-extension-by-zero-3-5-11",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "title": "Compatibility of R^+lambda_* with restriction to a smaller support and with extension by zero from an open support (Corollary 3.5.11)",
+      "kind": "theorem",
+      "statement": "For X of type (S), L' ⊆ L locally closed, i: (X,L') -> (X,L) the identity-induced morphism, λ, λ' the specialization morphisms and E a torsion ring: (i) the natural transformation i^* ∘ R^+λ_* -> R^+λ'_* ∘ d(i)^* of functors D^+(d(X,L)_et, E) -> D^+((X,L')_et, E) is an isomorphism (from 3.5.9); (ii) if L' is open in L, the natural transformation j_! ∘ R^+λ'_* -> R^+λ_* ∘ d(i)_! (with j = i the open inclusion) is an isomorphism, proved by checking on (X,L') via (i) and on (X, L − L') where both sides vanish by (i) and d(j)^* d(i)_! = 0.",
+      "hypotheses": [
+        "E a torsion ring; L, L' locally closed; (ii) needs L' open in L"
+      ],
+      "proofSteps": [
+        "(i) from the filtered stalk formula 3.5.9 (stalks of both sides agree).",
+        "(ii) adjunction from the isomorphism R^+λ'_* ≅ i^* R^+λ_* d(i)_!, then the two-piece check."
+      ],
+      "acceptance": [
+        "The compatibilities hold in D^+ with torsion coefficients, exactly the scope of 3.5.9."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, Corollary 3.5.11, p. 206",
+          "excerpt": "Let E be a torsion ring. Then i) The natural morphism of functors from D^+(d(X,L)_et, E) to D^+((X,L')_et, E) ... is an isomorphism. ii) Assume that L' is open in L.",
+          "match": "Statement (displays lost in OCR; the two functors are read from the proof)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/scheme-completion-comparison-3-5-13",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "title": "Comparison i^* R^+ j_* K -> R^+ b_* a^* K for the completion of a scheme along a closed subscheme (3.5.12-3.5.15)",
+      "kind": "comparison",
+      "statement": "(3.5.12): X a scheme, Y ⊆ X closed defined by a finite-type quasi-coherent ideal I, U = X − Y, X^ the completion along Y; assume X locally noetherian, or I locally principal and X^ of type (S). Sites: i: Y_et -> X_et, j: U_et -> X_et, b = λ_{X^}: d(X^)_et -> X^_et ≅ Y_et, a: d(X^)_et -> U_et induced by σ_{X^}: d(X^) -> X (1.9.4), whose image lies in U (3.2.8). Theorem 3.5.13: (i) the morphisms φ_Z: d(Z^) -> Z ×_X d(X^) of 1.9.5 for Z ∈ Et/X give a natural transformation b^{-1} i^{-1} -> a^{-1} j^{-1}, hence ψ: i^* ∘ j_* -> b_* ∘ a^* on E-modules and, for every ring E, a natural transformation i^* ∘ R^+ j_* -> R^+ b_* ∘ a^* on D^+(U_et, E); (ii) if E is a torsion ring, this is an isomorphism. Proof: reduce to a sheaf K in degree 0 and to X = Spec A affine with (α) Â noetherian or (β) J principal and Â satisfying (S)(b); fix a geometric point ȳ of Y; over the category C of ȳ-pointed affine etale X-schemes (Z,u) with henselizations Z^h along Y ×_X Z, (1.i) (i^* R^n j_* K)_ȳ = colim H^n(U ×_X Z, K) and (1.ii) (R^n b_* a^* K)_ȳ = colim H^n(U ×_X Z^h, K); since lim U ×_X Z^h ≅ lim U ×_X Z, (1) gives the claim. (1.ii): (R^n b_* a^*K)_ȳ = colim H^n(d(Z^), a^*K); in case (α) d(Z^) = Spa(B,B)_a for B the affine algebra of Z with the J·B-adic topology and 3.2.10 (pro-special subset Spa(B,B), scheme Spec B − V(JB)) gives H^n(U ×_X Z^h, K) = H^n(d(Z^), a^*K); in case (β) d(Z^) = Spa(B(1/s), C) with C the integral closure of B, U ×_X Z^h is the spectrum of the henselization of (B(1/s), C) along Spa(B(1/s), C), and 3.2.9 gives the same equality. Corollary 3.5.14: R^+Γ(d(X^), a^*K) = R^+Γ(Y, i^* R^+ j_* K) for E torsion. Corollary 3.5.15: for a locally closed L ⊆ Y, R^+Γ(d(X^, L), K') = R^+Γ(L, K'') with K', K'' the restrictions of a^*K and i^* R^+ j_* K (proof via 3.5.11.i and 3.5.12).",
+      "hypotheses": [
+        "X locally noetherian, or I locally principal and X^ of type (S) (either hypothesis, exactly as 3.5.12)",
+        "E a torsion ring for the isomorphism; the transformation exists for every ring E",
+        "Imports: 3.2.9 and 3.2.10 (statements read, proofs in §§3.3-3.4 not read); 1.9.5; 3.2.8; the identification of the henselization along Spa(B(1/s),C) with the henselization of B along J (Example 3.1.13.iii)"
+      ],
+      "proofSteps": [
+        "Construct ψ from the φ_Z and adjunction; derive the derived transformation using R^+(i^* j_*) = i^* R^+ j_* and R^+(b_* a^*) -> R^+ b_* a^*.",
+        "Stalk computation at ȳ over the category C; identify both colimits via henselizations and 3.2.9/3.2.10.",
+        "Corollaries by taking global sections and restricting supports with 3.5.11."
+      ],
+      "acceptance": [
+        "Both alternatives in 3.5.12 cover the classical case of a DVR base (locally noetherian) and the nondiscrete rank-one case (principal ideal of definition, X^ of type (S)).",
+        "The theorem is stated for arbitrary torsion E; the prime-to-residue-characteristic restriction is not part of 3.5.13, in agreement with the stage text."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, (3.5.12), p. 207",
+          "excerpt": "We assume that X is locally noetherian or that I is locally generated by one element and X^ is of type (S).",
+          "match": "Exact hypotheses."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, Theorem 3.5.13, p. 208",
+          "excerpt": "If E is a torsion ring then (*) is an isomorphism of functors.",
+          "match": "Torsion scope of the isomorphism."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, proof of 3.5.13, p. 209",
+          "excerpt": "U ×_X Z^h is the spectrum of the henselization of the affinoid ring (B(1/s), C) along Spa(B(1/s), C). Hence (3.2.9) implies H^n(U ×_X Z^h, K) = H^n(d(Z^), a^*K).",
+          "match": "The nondiscrete case reduces to 3.2.9."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/valuation-ring-base-3-5-16",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "title": "The comparison over a microbial valuation ring base: Corollary 3.5.16",
+      "kind": "theorem",
+      "statement": "Let A be a microbial valuation ring with its valuation topology and X a scheme locally of finite type over A, with generic point η and closed point s of Spec A, j: X_η -> X, i: X_s -> X. Let X^ be the completion of X along X ×_A Spec A/I for a finitely generated ideal of definition I; then X^ is of type (S). Let Z = (d(X^), T) be the pseudo-adic space with T the preimage of the closed point of d(Spf A) = Spa(K,A) (1.9.2) under d(X^) -> d(Spf A), and c: Z -> X_η the natural morphism. Then for every torsion ring E and K ∈ D^+((X_η)_et, E), R^+Γ(Z, c^*K) = R^+Γ(X_s, i^* R^+ j_* K) (display lost in OCR; reconstructed from the proof). Proof: apply 3.5.15 with Y = X ×_A Spec A/I and L = X_s, noting X_η = X − Y and (d(X^), T) = d(X^, X_s).",
+      "hypotheses": [
+        "A microbial valuation ring (not necessarily rank one, not necessarily discretely valued); I finitely generated ideal of definition; X locally of finite type over A; E torsion"
+      ],
+      "proofSteps": [
+        "Verify X^ is of type (S) (A satisfies (S)(b)); apply 3.5.15."
+      ],
+      "acceptance": [
+        "The base need not be a discrete valuation ring; the support T is the tube over the closed point of Spa(K,A)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, Corollary 3.5.16, p. 210",
+          "excerpt": "Let A be a microbial valuation ring equipped with its valuation topology ((1.1.4)) and let X be a scheme locally of finite type over A.",
+          "match": "Base hypotheses."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, proof of 3.5.16, p. 210",
+          "excerpt": "We apply (3.5.15) with Y := X ×_{Spec A} Spec A/I and L = X_s. Since X_η = X − Y and (d(X^), T) = d(X^, X_s), we obtain the assertion.",
+          "match": "Proof route."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/vanishing-cycles-comparison-3-5-17",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "title": "Comparison of nearby cycles over a strictly henselian rank-one DVR with the cohomology of the geometric generic fibre of the formal completion: Corollary 3.5.17",
+      "kind": "comparison",
+      "statement": "Let A be a henselian discrete valuation ring of rank 1 with separably algebraically closed residue field, k its fraction field with the valuation topology, k̄^ the completion of an algebraic closure, η, s the generic and closed points of Spec A, X locally of finite type over A, E a torsion ring, K ∈ D^+((X_η)_et, E), and RΨ_η(K) ∈ D^+((X_s)_et, E) 'the complex of vanishing cycles of K' (Huber's name for i^* R j_* of the geometric generic fibre, i.e. the nearby-cycle object). Let Y be the rigid analytic variety over k^ associated with the completion X^ of X along X_s, Ȳ = Y ⊗̂_{k^} k̄^, and c: Ȳ_et -> (X_η)_et. Then R^+Γ(Ȳ, c^*K) is identified with R^+Γ(X_s̄, RΨ_η(K)) (display lost in OCR; the content is fixed by the proof, which applies 3.5.14 to X ×_A Ā and the closed subscheme X_s ×_A Ā, Ā the integral closure of A in k̄). The stage's warning is confirmed: the object compared is the nearby-cycle complex, not the cone RΦ.",
+      "hypotheses": [
+        "A henselian rank-one DVR with separably closed residue field; E torsion; K bounded below",
+        "The identification of d((X ×_A Ā)^) with Ȳ, and of the residue-field-stalk with RΨ, is implicit in the one-line proof and should be checked against the page image; the display of the statement is lost in the OCR"
+      ],
+      "proofSteps": [
+        "Base change to Ā (which is henselian and microbial with algebraically closed fraction field), apply 3.5.14, and read the left side as cohomology of the geometric generic fibre of the formal completion."
+      ],
+      "acceptance": [
+        "The Galois/inertia action on both sides must be matched separately; the source statement is a comparison of cohomology complexes only.",
+        "For X proper over A this recovers the classical comparison between nearby cycles and the cohomology of the generic fibre via proper base change; 3.5.17 does not require properness."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, Corollary 3.5.17, p. 210",
+          "excerpt": "Let A be a henselian discrete valuation ring of rank 1 with separably algebraically closed residue class field. ... let RΨ_η(K) ∈ D^+((X_s)_et, E) be the complex of vanishing cycles of K.",
+          "match": "Hypotheses and the terminology 'complex of vanishing cycles'."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, proof of 3.5.17, p. 210",
+          "excerpt": "Let Ā be the integral closure of A in the algebraic closure k̄ of k. Apply (3.5.14) to the scheme X ×_A Ā and the closed subscheme X_s ×_A Ā -> X ×_A Ā.",
+          "match": "Proof route via 3.5.14."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "title": "Comparison theorem for proper morphisms of schemes after base change to an adic space (Theorem 3.7.2, Lemma 3.7.3)",
+      "kind": "comparison",
+      "statement": "(3.7.1): R an adic space, S a scheme, φ: R -> S a morphism of locally ringed spaces, X, Y schemes locally of finite type over S with an S-morphism f; X^ad = X ×_S R, Y^ad = Y ×_S R ([Hu, 3.8]) and f^ad; φ_X, φ_Y induce morphisms of sites (3.2.8) with a commutative square. Theorem 3.7.2: if f is proper and Λ is a torsion ring, the base change transformation φ_Y^* R^+ f_* -> R^+ f^ad_* φ_X^* on D^+(X_et, Λ) is an isomorphism. Proof: reduce to Y = S affine, R affinoid, and (by proper base change for schemes along Spec O_R(R) -> S) to S = Spec O_R(R) with φ the identity-induced map; for a geometric point ξ of R with image η in S, the strict localization R(ξ) is Spa(B, B^+) for B the strict henselization of O_R(R) at supp η and B^+ = {v ≤ 1} for a valuation v extending ξ, topologised by {I^n B^+} (proof of 2.5.13); f^ad is quasi-compact and quasi-separated (3.7.3), so (R^n f^ad_* φ_X^*F)_ξ = H^n(X^ad ×_R Spa(B,B^+), G) by 2.6.1, while (R^n f_*F)_η = H^n(X ×_S Spec B, L); since B^+ is henselian along I and X^ad ×_R Spa(B,B^+) = (X ×_S Spec B) ×_{Spec B} Spa(B,B^+), 3.2.10 (with the pro-special subset Spa(B,B^+) and the proper map X ×_S Spec B -> Spec B) identifies the two. Lemma 3.7.3: for proper f, f^ad is separated and quasi-compact (separated since X ↦ X^ad preserves fibre products and closed embeddings; quasi-compact by Chow's lemma when O_R(R) is noetherian and non-discrete, or trivially when discrete; the remark notes f^ad is even proper, by 5.7.3.ii for analytic R and [Hu4, 3.12.8] in general).",
+      "hypotheses": [
+        "f proper; Λ a torsion ring; R an adic space and φ a morphism of locally ringed spaces",
+        "Lemma 3.7.3's quasi-compactness proof as written uses noetherianity of O_R(R) in the non-discrete case (Chow's lemma); the general case is delegated to [Hu4, 3.12.8]",
+        "Imports: proper base change for schemes, 2.5.13 (structure of strict localizations), 2.6.1, 3.2.10"
+      ],
+      "proofSteps": [
+        "Reductions to affine S = Spec O_R(R); strict localization at ξ as Spa(B,B^+); stalk comparison via 2.6.1 and 3.2.10."
+      ],
+      "acceptance": [
+        "For R = Spa(C, O_C) and S = Spec C the theorem compares proper pushforward of algebraic torsion sheaves with the analytic pushforward — the H5 'proper algebraic/analytic direct-image comparison'; note the source's R is a general adic space and S a general scheme, and the base ring topology enters only through R.",
+        "The theorem does not need constructibility or prime-to-p torsion."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.7, Theorem 3.7.2, p. 226",
+          "excerpt": "In the situation above, assume that f is proper. Let Λ be a torsion ring. Then the base change morphism of functors from D^+(X_et, Λ) to D^+((Y^ad)_et, Λ) ... is an isomorphism.",
+          "match": "Statement (display lost in OCR)."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.7, proof of 3.7.2, p. 227",
+          "excerpt": "The ring B^+ is henselian along I. Hence by (3.2.10) H^n(X^ad ×_R Spa(B,B^+), G) = H^n(X ×_S Spec B, L).",
+          "match": "The henselian comparison step."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.7, Lemma 3.7.3, p. 227",
+          "excerpt": "Then O_R(R) is noetherian and hence by Chow's Lemma ((EGA, II.5.6.2]) we may assume that f: X -> S is projective.",
+          "match": "Noetherian step in the written proof of quasi-compactness."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "title": "Comparison theorem for schemes of finite type over a complete non-archimedean field (Theorem 3.8.1) and its proof routes; the excision lemma 3.8.2",
+      "kind": "comparison",
+      "statement": "Let k be a complete non-archimedean field, X, Y schemes locally of finite type over k, f: X -> Y a k-morphism of finite type, X^rig, Y^rig the associated rigid varieties, φ_X, φ_Y the morphisms of sites. Let n be a natural number, prime to char k if char k > 0. Theorem 3.8.1: for every constructible Z/nZ-module F on X_et and every q, the base change map φ_Y^* R^q f_* F -> R^q f^rig_* φ_X^* F is bijective (display lost in OCR). Proof routes given by the source: if char k = 0, as the comparison over C in [SGA 4, XVI.4], using the proper comparison 3.7.2, the cohomological purity theorem 3.9.1(b) and Lemma 3.8.2; if char k > 0, as Berkovich's comparison [Ber1, 7.5], using cohomology with proper support for (partially proper) morphisms of rigid varieties with a comparison theorem (5.7.2) and Poincaré duality (7.5.3). Lemma 3.8.2: for a commutative triangle of k-schemes U -> X -> Y with g: X -> Y proper and f: U -> X, h: U -> Y open embeddings with f(U) = g^{-1}(h(U)), and F an abelian sheaf on (U^rig)_et, the natural morphism h^rig_! F -> R g^rig_* f^rig_! F is an isomorphism; proof: pass to adic spaces, where g' is quasi-compact and separated (3.7.3); for y ∈ Y' − h'(U') the strict localization Y'(y) maps into Y' − h'(U') since that set is closed under generalizations (2.5.13.i), so the preimage of f'_! F' on X' ×_{Y'} Y'(y) vanishes and (R^n g'_* f'_! F')_y = 0 by 2.6.1.",
+      "hypotheses": [
+        "k complete non-archimedean; f of finite type; F constructible Z/nZ with n prime to char k when char k > 0 (no restriction on the residue characteristic in the statement, but the char 0 route uses purity 3.9.1(b), whose hypothesis (b) requires n prime to char(S), finiteness of the set E of residue characteristics with char k(s) = 0 and invertibility of each p ∈ E, F locally constant of finite type and |S| closed under generalizations)",
+        "Proofs of 3.9.1 (points (I)-(III) with inputs 7.4.4, 4.4.1, 5.5.10, [L, 2.1]), 5.7.2 and 7.5.3 not read; the source does not write out the SGA 4 XVI.4 / Berkovich 7.5 arguments"
+      ],
+      "proofSteps": [
+        "Char 0: follow SGA 4 XVI.4 with 3.7.2, 3.9.1(b), 3.8.2.",
+        "Char p: follow Berkovich 7.5 with 5.7.2 and 7.5.3.",
+        "3.8.2 by the strict-localization vanishing argument."
+      ],
+      "acceptance": [
+        "The statement is for R^q f_* of constructible Z/nZ-modules, n prime to char k; the ECD §27 use (H5's target) must retain the finite-type and constructibility hypotheses and the base Spec C versus Spa(C, O_C) distinction handled by φ_X, φ_Y.",
+        "3.8.2 holds for arbitrary abelian sheaves F and is the excision input for the char 0 route."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.8, Theorem 3.8.1, pp. 227-228",
+          "excerpt": "We assume that if the characteristic char(k) of the ground field k is positive then n is prime to char(k). Theorem 3.8.1. In the situation from above, for every constructible Z/nZ-module F on X_et and every q ∈ N_0, the base change morphism ... is bijective.",
+          "match": "Statement and torsion hypothesis (display lost in OCR)."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.8, after 3.8.1, p. 228",
+          "excerpt": "If char(k) = 0 then one can prove (3.8.1) as the comparison theorem over C in [SGA 4, XVI.4]. One only has to know the comparison theorem for proper morphisms ((3.7.2)), the cohomological purity theorem which we will proved in (3.9.1.b) and the subsequent lemma. If char(k) > 0 then one can prove (3.8.1) as the comparison theorem in [Ber1, 7.5].",
+          "match": "The two proof routes and their inputs."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.8, proof of Lemma 3.8.2, p. 229",
+          "excerpt": "Then the preimage L of f'_! F' on X' ×_{Y'} Y'(y) vanishes. By (2.6.1) (R^n g'_* f'_! F')_y = H^n(X' ×_{Y'} Y'(y), L) = 0.",
+          "match": "Excision argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "AdicSpacesPartII:R2/generic-fibre-functor-d",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/specialization-morphism-of-sites-lambda",
+      "reason": "λ_X: d(X)_et -> X_et is built on the continuous map λ_X: d(X) -> X and the functor d of Proposition 1.9.1; the proof of 3.5.1 uses σ of (1.9.4) and the spectrality (1.9.3).",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, p. 201 and proof of Lemma 3.5.1, p. 202"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R0/etale-local-structure",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/specialization-morphism-of-sites-lambda",
+      "reason": "The etaleness of d(f) in 3.5.1.i is deduced from Corollary 1.7.3 (adic spaces attached to etale schemes are etale) applied to d(Y_i) ⊆ Spec B_i ×_{Spec A} d(X).",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, proof of Lemma 3.5.1, p. 202: 'Hence by (1.7.3) the morphism d(Y_i) -> d(X) is etale.'"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R2/formal-completion-and-algebraic-comparison",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/scheme-completion-comparison-3-5-13",
+      "reason": "The natural transformation b^{-1} i^{-1} -> a^{-1} j^{-1} in 3.5.13.i is defined by the morphisms φ_Z: d(Z^) -> Z ×_X d(X^) of (1.9.5), and the map a uses σ_{X^} of (1.9.4).",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, (3.5.12) and proof of Theorem 3.5.13, p. 208: 'By (1.9.5) there is a natural morphism φ_Z: d(Z^) -> Z ×_X d(X^).'"
+        }
+      ]
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/specialization-morphism-of-sites-lambda",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/pairs-and-pseudo-adic-supports",
+      "reason": "λ_{(X,L)} is defined from λ_X via 3.5.1.i.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, (3.5.3), p. 203"
+        }
+      ]
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/pairs-and-pseudo-adic-supports",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/constructibility-and-stalks-of-lambda-pullback",
+      "reason": "3.5.6 is stated for λ_{(X,L)} and its proof uses the functoriality (3.5.4).",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, proof of Proposition 3.5.6, pp. 204-205"
+        }
+      ]
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:henselian/henselization-along-pro-special-subset",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/henselian-tube-comparison-3-6-1",
+      "reason": "Step (III) henselizes the triple (A^▷, A^+, J) by (3.1.11); step (V) uses the henselizations A(S), A(S ∩ T) of (3.1.12) and their isomorphism; the induction uses henselian pairs throughout.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.6, proof of 3.6.1, steps (III) and (V), pp. 213-214"
+        }
+      ]
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:henselian/pro-special-comparison-theorem-3-2-1",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/henselian-tube-comparison-3-6-1",
+      "reason": "Step (V) concludes with 3.2.1 (cohomology of pro-special subsets equals cohomology of the henselization); the proof of 3.5.10 also uses 3.2.1 for e(Y_∞)'.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.6, step (V), p. 214: 'Now (V) follows from (3.2.1).'"
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.6, proof of 3.5.10, p. 225: 'By (3.2.1) we have (8)'"
+        }
+      ]
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:henselian/relative-comparison-3-2-9-3-2-12",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/scheme-completion-comparison-3-5-13",
+      "reason": "The stalk identification (1.ii) in the proof of 3.5.13 is 3.2.10 in the noetherian case and 3.2.9 in the principal-ideal case.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, proof of Theorem 3.5.13, p. 209"
+        }
+      ]
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:henselian/relative-comparison-3-2-9-3-2-12",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/stalks-of-higher-direct-images-lambda",
+      "reason": "The proofs of 3.5.8-3.5.10 use 3.2.10 (noetherian case of 3.5.10), 3.4.2.ii/iii.b and 3.4.3 (transport between d(Y_i^, L_i) and P_i), and the reduction step (I) of 3.6.1 uses 3.4.2/3.4.3.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.6, proofs of 3.5.9 and 3.5.10, pp. 220-224; step (I) of the proof of 3.6.1, p. 212"
+        }
+      ]
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/henselian-tube-comparison-3-6-1",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/stalks-of-higher-direct-images-lambda",
+      "reason": "3.5.8.ii and the key steps (6) of 3.5.9 and (6) of 3.5.10 are applications of Corollary 3.6.3 to the tubes over the closed point of the strict henselization.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.6, proof of 3.5.8, p. 219: 'Therefore by (3.6.3), H^n(d(Y_∞^, f^{-1}(L)), F_∞) = H^n(d(Y_∞^, {z}), F_∞).'"
+        }
+      ]
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H0/tilde-limits-and-cohomological-continuity",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/stalks-of-higher-direct-images-lambda",
+      "reason": "3.5.8.i and the limit steps (4), (7) of 3.5.9 and (5) of 3.5.10 are instances of Corollary 2.4.6 applied to tilde-limits of the d(Y_i^, ·), P_i, Q_i, e(Y_i).",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.6, proof of 3.5.8.i, p. 219; proof of 3.5.9, pp. 221-222"
+        }
+      ]
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/stalks-of-higher-direct-images-lambda",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/restriction-and-extension-by-zero-3-5-11",
+      "reason": "3.5.11.i follows immediately from 3.5.9.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, proof of Corollary 3.5.11, p. 207: 'i) follows immediately from (3.5.9).'"
+        }
+      ]
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/restriction-and-extension-by-zero-3-5-11",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/scheme-completion-comparison-3-5-13",
+      "reason": "Corollary 3.5.15 is proved from 3.5.11.i and (3.5.12).",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, proof of Corollary 3.5.15, p. 210"
+        }
+      ]
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/scheme-completion-comparison-3-5-13",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/valuation-ring-base-3-5-16",
+      "reason": "3.5.16 is 3.5.15 for Y = X ×_A Spec A/I and L = X_s.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, proof of Corollary 3.5.16, p. 210"
+        }
+      ]
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/scheme-completion-comparison-3-5-13",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/vanishing-cycles-comparison-3-5-17",
+      "reason": "3.5.17 is 3.5.14 applied to X ×_A Ā.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, proof of Corollary 3.5.17, p. 210"
+        }
+      ]
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H0/tilde-limits-and-cohomological-continuity",
+      "target": "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2",
+      "reason": "The stalk of R^n f^ad_* at ξ is computed by Proposition 2.6.1 over the strict localization Spa(B,B^+).",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.7, proof of Theorem 3.7.2, p. 226"
+        }
+      ]
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:henselian/relative-comparison-3-2-9-3-2-12",
+      "target": "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2",
+      "reason": "The final identification in the proof of 3.7.2 is Theorem 3.2.10 for the henselian pair (B, I) and the proper scheme X ×_S Spec B.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.7, proof of Theorem 3.7.2, p. 227"
+        }
+      ]
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2",
+      "target": "ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1",
+      "reason": "The char 0 route of 3.8.1 uses the proper comparison 3.7.2; Lemma 3.8.2 uses 3.7.3 for quasi-compactness and separatedness of g'.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.8, p. 228 and proof of Lemma 3.8.2, p. 229"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R1/scheme-fibre-product-analytification",
+      "target": "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2",
+      "reason": "X^ad = X ×_S R and f^ad in (3.7.1) are the scheme/adic fibre products of [Hu, 3.8] introduced in (1.2.7).",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.7, (3.7.1), p. 225"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ClassicalAdicEtaleCohomology:H0",
+      "status": "partial",
+      "remaining": [
+        "Only Definition 2.4.2, Corollary 2.4.6 and Proposition 2.6.1/Example 2.6.2 were read; the construction of module sheaves, injective resolutions, D^+, geometric points and strict localizations (§2.5, 2.5.12-2.5.16), constructible sheaves (§2.7), Leray and Čech comparisons, and the proof of 2.4.6 (SGA 4 VI.8.7.7 and (2.4.4)) remain unread.",
+        "The ECD-side sheaf constructions (UPSTREAM:ECD:SCH_SHEAVES) were not read."
+      ]
+    },
+    {
+      "stageId": "ClassicalAdicEtaleCohomology:H1",
+      "status": "partial",
+      "remaining": [
+        "H1 aggregates its four substages; only H1:henselian (partial) and H1:formal-adic-comparison (partial) were expanded. The LPV.0-2 trait supply and the identification of Huber's RΨ_η with the LPV trait object were not checked against the LPV stages."
+      ]
+    },
+    {
+      "stageId": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "status": "partial",
+      "remaining": [
+        "Proofs of 3.2.1/3.2.9/3.2.10/3.2.12 (§3.3 after the opening of 3.3.3; §3.4 Lemmas 3.4.2-3.4.5 with proofs) not read; only their statements and the derivation of 3.2.12 from 3.3.3 + 3.4.2 + 3.4.3 were read.",
+        "Lemma 3.2.5 is imported from Huber, Math. Ann. 295 (1993) [Hu3], which is not in the library.",
+        "Continuity under etale finite-presentation limits (the stage's phrase) corresponds to 2.4.6/2.7.10, not read beyond the statement of 2.4.6.",
+        "Lemma 3.1.4's proof is 'as [Hu, 1.3]' (Huber 1994, unread); Lemma 3.1.10.iii cites [Hu4, 3.4.11]."
+      ]
+    },
+    {
+      "stageId": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "status": "partial",
+      "remaining": [
+        "All statements 3.5.1-3.5.17 and the proofs of 3.5.1, 3.5.6, 3.5.11, 3.5.13-3.5.17, 3.6.1 and of 3.5.8-3.5.10 were read. Remaining imports: [HK, 2.1.3] (point lifting in valuation spectra), (2.3.3) (topos of a subset), Appendix A.5 (the site Y_{et,•}), (3.3.4), (3.4.2)-(3.4.3) proofs, (3.2.9)-(3.2.10) proofs, the spectral sequences (2.6.9)-(2.6.10), the constructible dévissage (2.7.8), (2.7.10), (2.7.12), (2.5.13), [KPR, 2.8.2], [G] (Gabber's henselian-pair criterion).",
+        "The displayed statements of 3.5.8.ii, 3.5.11, 3.5.13(*), 3.5.16 and 3.5.17 are lost in the OCR and were reconstructed from the surrounding proofs; they must be checked against the page images (pp. 205-210) before promotion.",
+        "The Galois/inertia action on RΨ_η in 3.5.17 is not discussed by the source; the stage's demand to 'verify the map and inertia action' is an additional task."
+      ]
+    },
+    {
+      "stageId": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "status": "not_read",
+      "remaining": [
+        "Huber §4.2 (pp. 240-253: 4.2.1-4.2.10) not read."
+      ]
+    },
+    {
+      "stageId": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+      "status": "not_read",
+      "remaining": [
+        "Huber 4.2.6-4.2.9 and their compatibility with §3.5 not read."
+      ]
+    },
+    {
+      "stageId": "ClassicalAdicEtaleCohomology:H2",
+      "status": "not_read",
+      "remaining": [
+        "Huber Theorem 4.1.1(c) (§4.1, p. 238) and the ECD Lemmas 14.6/16.3 not read."
+      ]
+    },
+    {
+      "stageId": "ClassicalAdicEtaleCohomology:H3",
+      "status": "not_read",
+      "remaining": [
+        "Huber Chapter 5 (compactifications, Rf_!), Proposition 5.5.8, Theorem 7.2.2 and Theorem 7.5.3 not read; only the citations of 5.7.2, 5.7.3, 7.5.3 inside §§3.7-3.8 were seen."
+      ]
+    },
+    {
+      "stageId": "ClassicalAdicEtaleCohomology:H4",
+      "status": "not_read",
+      "remaining": [
+        "Huber Theorem 6.2.2 and the disc/annulus computations not read (Example 3.2.4 gives the acyclicity of closed and open polydiscs for prime-to-p torsion, recorded under H1:henselian)."
+      ]
+    },
+    {
+      "stageId": "ClassicalAdicEtaleCohomology:H5",
+      "status": "partial",
+      "remaining": [
+        "Theorem 3.7.2 and Lemma 3.7.3 read with proofs; Theorem 3.8.1 read as a statement with the source's two proof routes; Lemma 3.8.2 read with proof; Theorem 3.9.1 read as a statement and outline only.",
+        "Unread: the SGA 4 XVI.4 argument, Berkovich [Ber1, 7.5], 5.7.2, 7.5.3, 3.9.1's proof inputs (7.4.4, 4.4.1, 5.5.10, Lütkebohmert [L, 2.1]), Proposition 6.1.1, Lütkebohmert's compactification theorem [Lüt95, 5.3], and the ECD §§25-27 usage.",
+        "Lemma 3.7.3's written quasi-compactness proof assumes O_R(R) noetherian (non-discrete case) or discrete; the general statement rests on [Hu4, 3.12.8]."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Huber, Math. Ann. 295 (1993) [Hu3] not in the library: proof of Lemma 3.2.5 (affine henselian comparison)",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:henselian/pro-special-comparison-theorem-3-2-1"
+      ],
+      "detail": "Lemma 3.2.5 (H^n(Spec A, F) ≅ H^n(Spec A/I, F_0) for A henselian along I and torsion F) is proved in Huber's Math. Ann. article, which the library's acquisition log records as an HTML response (references/download_failures). It is used in the proof of Example 3.2.4 and underlies §§3.3-3.4. Gabber's 'affine analog of proper base change' (Gabber 1994; also Stacks Project Tag 09ZI) states the same result and could be substituted after reading. Next action: obtain the article (DOI 10.1007/BF01444911) or read Stacks Tag 09ZI and record the substitution."
+    },
+    {
+      "title": "Proofs of Theorems 3.2.9, 3.2.10, 3.2.12 (Huber §§3.3-3.4) unread",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:henselian/relative-comparison-3-2-9-3-2-12",
+        "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/scheme-completion-comparison-3-5-13",
+        "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/stalks-of-higher-direct-images-lambda",
+        "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2"
+      ],
+      "detail": "The stalk identifications in 3.5.13, 3.5.8-3.5.10 and 3.7.2 all rest on 3.2.9/3.2.10. Read: 3.3.3 (pp. 184-191), 3.3.4, 3.4.2-3.4.5 (pp. 193-200), Appendix A.5."
+    },
+    {
+      "title": "OCR loss of displayed statements in §3.5",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/stalks-of-higher-direct-images-lambda",
+        "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/restriction-and-extension-by-zero-3-5-11",
+        "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/scheme-completion-comparison-3-5-13",
+        "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/valuation-ring-base-3-5-16",
+        "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/vanishing-cycles-comparison-3-5-17"
+      ],
+      "detail": "The displays of 3.5.8.ii, 3.5.11(i),(ii), 3.5.13(*), 3.5.14 (partly), 3.5.16 and 3.5.17 are absent from the OCR text. Each node records the reconstruction from the proof. Next action: render pages 205-210 of the library PDF (pdftoppm) and confirm the displays before promotion."
+    },
+    {
+      "title": "Identification of Huber's RΨ_η with the LPV.0 trait nearby-cycle object and the inertia action",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/vanishing-cycles-comparison-3-5-17"
+      ],
+      "detail": "3.5.17 compares complexes of cohomology; the equivariance under the inertia group and the comparison with the SGA 7 definition of RΨ used in LefschetzPencilsAndVanishingCycles:LPV.0 were not read in either source. Next action: read SGA 7 XIII §2 (RΨ definition) and match with Huber's definition on p. 210."
+    },
+    {
+      "title": "H5 inputs beyond §§3.7-3.8",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1"
+      ],
+      "detail": "Theorem 3.8.1's proof is delegated to SGA 4 XVI.4 (char 0) with 3.9.1(b) and to Berkovich (char p) with 5.7.2 and 7.5.3; 3.9.1's proof needs 7.4.4, 4.4.1, 5.5.10 and Lütkebohmert's Riemann existence input [L, 2.1]. Proposition 6.1.1 (finiteness) and Lütkebohmert's compactification theorem [Lüt95, 5.3] (needed by H5 per the stage text) are not in the library. Next action: read Huber §§4.4, 5.7, 6.1, 7.4-7.5 and acquire Lütkebohmert, 'The structure of proper rigid groups' (Crelle 468 (1995))."
+    },
+    {
+      "title": "§4.2 valuation-base nearby cycles unread",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports"
+      ],
+      "detail": "Huber 4.2.1-4.2.10 (pp. 240-253) not read; the two substages remain not_read."
+    }
+  ]
+}

@@ -1,0 +1,1302 @@
+{
+  "roadmapId": "AdicSpacesPartII",
+  "status": "partial",
+  "summary": "Source-based expansion of the analytic geometry stages R0-R5 from Huber's 1996 book (Chapter 1: finite-type morphisms, fibre products, separated/proper/partially proper morphisms with valuative criteria, finite and quasi-finite morphisms with the proper-plus-quasi-finite finiteness theorem 1.5.5, differentials and unramified/smooth/etale morphisms with the standard-etale local structure 1.7.1, the generic-fibre functor d of section 1.9 and its comparison with formal completions; Chapter 2: the etale site and the rigid/adic topos equivalence 2.1.4), from Conrad's rigid-analytic appendix (topological invariance of affinoids A.1.1, the fibral finiteness criterion A.1.2 with its scheme lemma A.1.4 and rig-point lemma A.1.5, the non-noetherian Berthelot-type functor 3.1.5-3.1.6, the Hasse-invariant loci of Theorem 4.1.1), from Kedlaya-Liu (Tate/Kiehl for affinoid algebras 2.5.20, sheafy acyclicity 2.4.23, Kiehl gluing of finite projective modules 2.7.7, Buzzard-Verberkmoes 2.8.10), and from the sousperfectoid material of Scholze-Weinstein 6.3 and Birkbeck-Heuer-Williams 3.1. Formal geometry F0 and dagger geometry F1 were not read. Every proof step that Huber or Conrad imports from an unavailable source (Huber 1994 Math. Z., Huber's 1993 habilitation, Bosch-Lutkebohmert I/II, BGR, Kopf GAGA) is recorded as a boundary, not as an input package.",
+  "sources": [
+    {
+      "id": "Huber-EtaleCohomology-1996",
+      "title": "Étale Cohomology of Rigid Analytic Varieties and Adic Spaces",
+      "authors": "Roland Huber",
+      "edition": "Aspects of Mathematics E30, Vieweg, Braunschweig/Wiesbaden 1996; supplied scanned copy with OCR text (formula OCR is unreliable; statements were read against the page images' logical structure and cross-checked between the statement and its later citations)",
+      "url": "https://link.springer.com/book/10.1007/978-3-663-09991-8",
+      "sha256": "8e470878aea6938f582548eb72a568416d186b4289829f98802d33c5430a5b43",
+      "readSections": [
+        "§1.1 (1.1.11), pp. 42-43: the functor r from rigid analytic varieties to adic spaces and its characterising properties (a)-(d)",
+        "§1.2, pp. 45-50: Definition 1.2.1, Proposition 1.2.2 with its full proof, Corollary 1.2.3, (1.2.4)-(1.2.7)",
+        "§1.3, pp. 51-60: Definitions 1.3.1-1.3.3, Lemma 1.3.4 with proof, Definition 1.3.5, Lemma 1.3.6, Propositions 1.3.7-1.3.8 with proofs, Corollary 1.3.9, Lemma 1.3.10, (1.3.11), Lemmas 1.3.12-1.3.16 with proofs, Remarks 1.3.17-1.3.19",
+        "§1.4, pp. 60-65: (1.4.1)-(1.4.2), Lemma 1.4.3 with proof, (1.4.4), Lemma 1.4.5, Proposition 1.4.6, Lemmas 1.4.7-1.4.9 with proofs",
+        "§1.5, pp. 66-76: Definition 1.5.1, Lemma 1.5.2, Corollary 1.5.3, Propositions 1.5.4-1.5.7, Lemmas 1.5.8-1.5.10, all with proofs",
+        "§1.6, pp. 76-80: Definition 1.6.1, (1.6.2) with proof, Proposition 1.6.3, Lemma 1.6.4, Definition 1.6.5, Example 1.6.6, Propositions 1.6.7-1.6.9 (stated; the source says they are proved as for schemes), Corollary 1.6.10 with proof",
+        "§1.7, pp. 80-90: Proposition 1.7.1 with its full proof (preparatory points (1)-(4)), Corollaries 1.7.2-1.7.4, Proposition 1.7.5, Lemma 1.7.6, (1.7.7), Proposition 1.7.8, Lemma 1.7.9, Definition 1.7.10, Proposition 1.7.11, all with proofs",
+        "§1.9, pp. 95-99: condition (S), Proposition 1.9.1 with proof, Example 1.9.2, (1.9.3)-(1.9.5), Proposition 1.9.6 (stated without proof in the source)",
+        "Chapter 2 introduction and §2.1, pp. 108-112: definition of the etale site, Definition 2.1.1, Lemma 2.1.2 with proof, (2.1.3), Proposition 2.1.4 with proof; §2.2 (2.2.1)-(2.2.2) with the proof of case (a)",
+        "§3.5 opening, pp. 201-202: only the paragraph introducing lambda_X: d(X)_et -> X_et and the statement of Lemma 3.5.1 (used solely to justify one link)",
+        "Bibliography, pp. 443-445: identification of the cited works [Hu], [Hu4], [BL], [BLR], [K], [L1], [R1], [FP]"
+      ]
+    },
+    {
+      "id": "Conrad-ModularRigid-2006",
+      "title": "Modular curves and rigid-analytic spaces",
+      "authors": "Brian Conrad",
+      "edition": "51-page author manuscript (Pure Appl. Math. Q. 2 (2006), no. 1, 29-110); internal page numbering; same copy as used by the PadicFamilies draft",
+      "url": "https://math.stanford.edu/~conrad/papers/genpaper.pdf",
+      "sha256": "ab6daecb7fa0679170fdd6b92021f206a9c990f621fc246eb146c3220d64e2bc",
+      "readSections": [
+        "§1.2 opening remarks on GAGA over fields and over artin rings (statements only; the cited proofs in [C3] and Kopf were not available)",
+        "§3.1, pp. 15-18: Definitions 3.1.1 and 3.1.4, Theorem 3.1.5 with its proof, Theorem 3.1.6 statement and the first paragraph of its proof",
+        "§4.1, pp. 26-27: proof of Theorem 4.1.1 (admissibility of the Hasse loci) from the fpqc reduction to the local description |a_{Gamma_A}| > h",
+        "Appendix A.1, pp. 36-39: Theorem A.1.1 with proof, Theorem A.1.2, Remark A.1.3, Lemma A.1.4 with proof, Lemma A.1.5, proof of Theorem A.1.2",
+        "Appendix B.3, Definition B.3.3 and Remark B.3.4 (definition of the Hasse invariant used in §4.1)",
+        "Bibliography entries [AM], [BL1], [BL2], [C1], [C3], [DR], [K]"
+      ]
+    },
+    {
+      "id": "KedlayaLiu-RelativeFoundations-2015",
+      "title": "Relative p-adic Hodge theory: foundations",
+      "authors": "Kiran S. Kedlaya, Ruochuan Liu",
+      "edition": "arXiv:1301.0792 version as supplied (published as Astérisque 371, 2015); page numbers of the supplied PDF",
+      "url": "https://arxiv.org/pdf/1301.0792",
+      "sha256": "a6a117423db62aec072442bb15b70e3175bcc3b631bdcd6d74f740e3c6cfd942",
+      "readSections": [
+        "§2.4, pp. 46-47: Theorem 2.4.23 with proof, Proposition 2.4.24 with proof",
+        "§2.5, pp. 47-52: Hypothesis 2.5.1, Lemma 2.5.2, Remark 2.5.3, Lemma 2.5.4, Corollary 2.5.5, Theorem 2.5.20 (proof is a citation of BGR), Corollary 2.5.21 with proof",
+        "§2.7, pp. 55-58: Remark 2.7.1, Lemma 2.7.2 with proof, Definition 2.7.3, Lemma 2.7.4 with proof, Proposition 2.7.5 with proof, Definition 2.7.6, Theorem 2.7.7 with proof, Remarks 2.7.8-2.7.9",
+        "§2.8, pp. 61-62: Theorem 2.8.10 with proof, Remarks 2.8.11-2.8.12"
+      ]
+    },
+    {
+      "id": "ScholzeWeinstein-Berkeley-2020",
+      "title": "Berkeley Lectures on p-adic Geometry",
+      "authors": "Peter Scholze, Jared Weinstein",
+      "edition": "Annals of Mathematics Studies 207, Princeton University Press 2020; supplied PDF stamped 'March 27, 2020'",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/Berkeley.pdf",
+      "sha256": "225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc",
+      "readSections": [
+        "§6.3, pp. 47-48: Definition 6.3.1, Example 6.3.2, Proposition 6.3.3 with proof, Proposition 6.3.4 with proof"
+      ]
+    },
+    {
+      "id": "BHW-OverconvergentHilbert-2023",
+      "title": "Overconvergent Hilbert modular forms via perfectoid modular varieties",
+      "authors": "Christopher Birkbeck, Ben Heuer, Chris Williams",
+      "edition": "Annales de l'Institut Fourier 73 (2023), no. 4, 1709-1794; journal pagination",
+      "url": "https://aif.centre-mersenne.org/item/10.5802/aif.3560.pdf",
+      "sha256": "d59b7f701eb5258c351d959be08d49f17946245ed1e5779317d2371981c2c5c4",
+      "readSections": [
+        "§3.1, pp. 1724-1725: Definition 3.2, Proposition 3.3, Corollary 3.4 with proof, Corollary 3.5 statement"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AdicSpacesPartII:R0/finite-type-morphism-classes",
+      "parentStageId": "AdicSpacesPartII:R0",
+      "title": "Adic morphisms and the four finite-type classes",
+      "kind": "definition",
+      "statement": "For a morphism of adic spaces f: X -> Y, define: f adic (locally, O_Y(V) -> O_X(U) is an adic ring homomorphism; equivalently f(X_a) ⊆ Y_a; automatic when Y is analytic); f locally of weakly finite type (the ring map O_Y(V) -> O_X(U) of f-adic rings is of topologically finite type); locally of +weakly finite type (additionally O_X^+(U) is the integral closure of O_Y^+(V)[E ∪ O_X(U)^{oo}] for a finite set E); locally of finite type (the map of affinoid rings (O_Y(V),O_Y^+(V)) -> (O_X(U),O_X^+(U)) is of topologically finite type); locally of finite presentation (finite type, plus finite presentation of the ring map when O_Y(V) is discrete). Each class is stable under restriction to open subspaces and under composition, and the classes are nested: finite presentation ⊆ finite type ⊆ +weakly finite type ⊆ weakly finite type ⊆ adic. For affinoid X -> Y of finite type the affinoid ring map is itself of topologically finite type. For rigid varieties, r(f) is locally of finite type.",
+      "hypotheses": [
+        "Adic spaces in Huber's sense (structure sheaf of complete f-adic rings with valuations); affinoid rings (A^▷, A^+)",
+        "The notions 'adic' and 'of topologically finite type' for ring homomorphisms are those of Huber 1994 [Hu, §3]; that paper is not in the library"
+      ],
+      "proofSteps": [
+        "Define each class locally on affinoid opens as in Definition 1.2.1 and record the inclusions displayed after it.",
+        "Independence of the chosen affinoid opens is quoted from [Hu, 3.2] and [Hu4, 3.3.23, 3.8.15]; those proofs were not read."
+      ],
+      "acceptance": [
+        "Every morphism to an analytic adic space is adic.",
+        "For a rigid morphism f, r(f) is locally of finite type; if f is a morphism of affinoid rigid varieties the affinoid ring map is of topologically finite type."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.2, Definition 1.2.1 and the following remarks, pp. 45-47",
+          "excerpt": "Then {morphisms locally of finite presentation} ⊆ {morphisms locally of finite type} ⊆ {morphisms locally of +weakly finite type} ⊆ {morphisms locally of weakly finite type} ⊆ {adic morphisms}.",
+          "match": "Fixes the exact hierarchy of finiteness classes that later stages must retain."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.2, p. 46",
+          "excerpt": "f is adic if and only if f(X_a) ⊆ Y_a [loc. cit.]. In particular, if Y is analytic then every morphism f: X -> Y is adic.",
+          "match": "Justifies dropping the adicity hypothesis over analytic bases."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R0/fibre-products-existence",
+      "parentStageId": "AdicSpacesPartII:R0",
+      "title": "Existence of fibre products of adic spaces (Huber 1.2.2) and their stability properties",
+      "kind": "construction",
+      "statement": "Let f: X -> Z and g: Y -> Z be morphisms of adic spaces. The fibre product X ×_Z Y exists in the category of adic spaces if (a) f is locally of finite type, or (b) f is locally of weakly finite type and g is adic. In case (b) with X, Y, Z affinoid the fibre product is Spa of the affinoid ring D = (D^▷, D^+) with D^▷ = C^▷ ⊗_{A^▷} B^▷ topologised by {I^n D_0}, D_0 the image of C_0 ⊗_{A_0} B_0 and D^+ the integral closure of C^+ ⊗_{A^+} B^+ in D^▷; the square of affinoid rings is cocartesian. In case (a) with C = A⟨T⟩_M/I, the fibre product is the increasing union of the affinoid spaces W_m = Spa B⟨T⟩_{φ(M) ∪ L^m}/J_m (L a finite set of topologically nilpotent elements of B with (φ(M_i) ∪ L^m)·B^▷ open), each W_{m_1} -> W_{m_2} being an open embedding onto the rational subset {v(ℓT_i) ≤ 1}. Consequences (Corollary 1.2.3): base change preserves locally finite presentation / finite type (case a), +weakly finite type (case b), weakly finite type and adicity, quasi-compactness and quasi-separatedness of the base-changed leg, and points of X ×_Z Y surject onto pairs (x,t) with f(x) = g(t).",
+      "hypotheses": [
+        "Case (a): f locally of finite type; case (b): f locally of weakly finite type and g adic",
+        "Continuous extension of maps on A⟨T⟩_M uses the universal property [Hu, 3.5] of restricted power series over f-adic rings (unread)",
+        "Sheafiness of the affinoid rings D, B⟨T⟩/J_m is not discussed at this point of the source; Huber's adic spaces are assumed to have sheafy affinoid pieces where they are defined"
+      ],
+      "proofSteps": [
+        "Case (b): form the tensor product of the underlying rings, the ring of definition D_0 with the I-adic topology, D^+ as integral closure; check the cocartesian property in affinoid rings.",
+        "Case (a): choose a presentation C = A⟨T⟩_M/I, the finite set L, and the compatible system B⟨T⟩_{φ(M)∪L^m}/J_m with J_m the closure of the ideal generated by the image of I; show t_{m_1,m_2} is an open embedding onto a rational subset; take the inductive limit W of the W_m.",
+        "Verify the universal property for affinoid test objects V = Spa D via the uniqueness clause of [Hu, 3.5] and factorisation through B⟨T⟩/J_m for m large.",
+        "Corollary 1.2.3 (i)-(iii) are read off from the construction; (iii.d) is quoted from the proof of [Hu, 3.9.i]."
+      ],
+      "acceptance": [
+        "For Z analytic every morphism is adic, so fibre products exist whenever f is locally of weakly finite type.",
+        "The affinoid product in case (b) has D^+ equal to the integral closure of C^+ ⊗ B^+, not C^+ ⊗ B^+ itself.",
+        "In case (a) the fibre product need not be affinoid when B has topologically nilpotent elements not adjusted by L; it is a union of the affinoid W_m."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.2, Proposition 1.2.2 and proof, pp. 47-49",
+          "excerpt": "The fibre product of f and g in the category of adic spaces exists if one of the following conditions is satisfied a) f is locally of finite type b) f is locally of weakly finite type and g is adic.",
+          "match": "Exact hypotheses for existence of fibre products."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.2, Corollary 1.2.3, p. 49",
+          "excerpt": "d) For every x ∈ X and t ∈ T with f(x) = g(t), there exists a s ∈ S with x = v(s) and t = u(s).",
+          "match": "Surjectivity of the fibre product onto compatible pairs of points, needed for coverings of the etale site."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R0/closed-adic-subspaces-and-embeddings",
+      "parentStageId": "AdicSpacesPartII:R0",
+      "title": "Closed adic subspaces, closed/open/locally closed embeddings, and comparison with rigid closed immersions",
+      "kind": "definition",
+      "statement": "For an affinoid ring A = (A^▷, A^+) and an ideal J of A^▷, A/J denotes the affinoid ring (A^▷/J, (A^+/J ∩ A^+)^c) with the quotient topology and the integral closure of A^+/(J∩A^+). For an adic space X and a quasi-coherent ideal I ⊆ O_X, the triple Y = ({x : I_x ≠ O_{X,x}}, (O_X/I)|Y, induced valuations) with the unique ring topology making O_X(U) -> O_Y(Y∩U) continuous and open for affinoid U is an adic space, the closed adic subspace defined by I; for X = Spa A and J = Γ(X,I) it is Spa(A/J). A morphism is a closed (resp. open, locally closed) embedding if it factors as an isomorphism onto such a subspace followed by the inclusion. For a Tate ring A of topologically finite type over a complete non-archimedean field k and any ideal J, (A,A°)/J = (A/J,(A/J)°) [BGR 6.3.4 Prop. 1], hence a morphism of rigid varieties is a closed embedding iff r(f) is a closed embedding of adic spaces.",
+      "hypotheses": [
+        "I is a quasi-coherent O_X-module (the source uses this word; for the affinoid case J is an arbitrary ideal of A^▷)",
+        "Existence of the adic space structure on Y is quoted from [Hu4, 3.6] and Huber's unpublished 'Coherent sheaves on adic spaces' [Hu2]; not read"
+      ],
+      "proofSteps": [
+        "Define A/J with the quotient topology and integrally closed plus-ring; define Y by support of O_X/I; quote [Hu4, 3.6] for the adic-space property.",
+        "For the rigid comparison use that quotients of tft Tate algebras have power-bounded elements equal to the image of the integral closure ([BGR 6.3.4 Prop. 1])."
+      ],
+      "acceptance": [
+        "Spa(A/J) is a closed adic subspace of Spa A with the ringed-space structure (A^▷/J, integral closure), not merely the closed subset V(J).",
+        "Closed embeddings are finite morphisms (Lemma 1.4.5.iii)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.4, (1.4.1), pp. 60-61",
+          "excerpt": "The adic spaces of the form (Y, O_Y, (v'_y | y ∈ Y)) are called the closed adic subspaces of X.",
+          "match": "The closed subspace is retained as an adic (ringed) space, matching the R0 requirement."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.4, (1.4.1), p. 61",
+          "excerpt": "Therefore, a morphism f: X -> Y of rigid analytic varieties over k is a closed embedding if and only if the associated morphism of adic spaces r(f): r(X) -> r(Y) is a closed embedding.",
+          "match": "Rigid/adic compatibility of closed immersions."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R0/separated-proper-partially-proper",
+      "parentStageId": "AdicSpacesPartII:R0",
+      "title": "Separated, proper and partially proper morphisms; valuative criteria for analytic adic spaces",
+      "kind": "theorem",
+      "statement": "Definitions (1.3.1-1.3.3): f is separated if it is locally of weakly finite type and the diagonal has closed image in X ×_Y X; universally closed if locally of weakly finite type and closed after every adic base change; proper if of +weakly finite type, separated and universally closed; (universally) specializing at a point via lifting of specializations (after adic base change); partially proper if locally of +weakly finite type, separated and universally specializing. Lemma 1.3.4: proper iff partially proper and quasi-compact (a quasi-compact specializing morphism is closed because images of closed sets are pro-constructible). Valuative criteria for analytic adic spaces in terms of valuation rings (x,A) of X, A ⊆ k(x)^+, and their centers: Proposition 1.3.7 (f quasi-separated and locally of weakly finite type): separated iff every (x,A) has at most one center over a given point of Y; Proposition 1.3.8: universally specializing at x_0 iff every center of f_v(x_0,A) on Y lifts to a center on X; Corollary 1.3.9: partially proper (resp. proper) iff existence and uniqueness of centers, for f quasi-separated locally of +weakly finite type (resp. of +weakly finite type); Lemma 1.3.10 restates this via diagrams with spectra of affinoid fields. Lemma 1.3.12: for X quasi-compact quasi-separated analytic, the space X_v of valuation rings with the topology generated by D(U,f) is spectral. Lemma 1.3.13: for f partially proper with Y qcqs, closures of quasi-compact subsets of X are quasi-compact. Lemmas 1.3.14-1.3.16: extension/uniqueness lemmas for morphisms defined on dense-generalising opens, injective quasi-compact maps are homeomorphisms onto their image, and specializations of a point with dense residue field are separated by f.",
+      "hypotheses": [
+        "Valuative criteria are stated for analytic adic spaces only ('For simplicity we explain here this criterion only for morphisms between analytic adic spaces'); the general criterion is in [Hu4]",
+        "Quasi-separatedness of f is required in 1.3.7 and 1.3.9; +weakly finite type in 1.3.9"
+      ],
+      "proofSteps": [
+        "Prove 1.3.4 via pro-constructibility of images of closed sets under quasi-compact morphisms and closure under specialization.",
+        "Prove 1.3.6: existence/uniqueness of a valuation ring with given support and center, from (1.1.10.iii); a valuation ring has a center on an affinoid X iff f(x) ∈ A for all f ∈ O_X^+(X).",
+        "1.3.7: (a)=>(b) by taking the center of Δ_v(A) on U_1 ×_V U_2; (b)=>(a) by pro-constructibility of Δ(X) and closure under specialization.",
+        "1.3.8: (a)=>(b) via base change to Y' = Spa(k(x),A) and the closed points of X'' = Spa(k(x),k(x)^+); (b)=>(a) by constructing a valuation ring A' ⊆ k(x_0')^+ inducing k(y')^+ and using 1.3.6.ii.",
+        "1.3.12: spectrality via the constructible topology, the map p: X_v^c -> X^c with fibres abstract Riemann surfaces, and the explicit description (2) of p(D) by polynomial inequalities.",
+        "1.3.13: the set S of valuation rings of T with a center on Y is quasi-compact (pro-constructible in T_v) and the center map c: S -> X is continuous."
+      ],
+      "acceptance": [
+        "Every finite morphism is proper (1.4.5.ii); quasi-compact partially proper equals proper (1.3.4).",
+        "For analytic adic spaces the criterion 1.3.10 is phrased with S, T spectra of affinoid fields (K, K^+) -> (K, K^{+'}) sharing the field K.",
+        "1.3.19: for a rigid morphism f, partially proper f gives partially proper r(f); the converse is only asserted when k° is discretely valued (via Lutkebohmert [L1])."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.3, Definitions 1.3.1-1.3.3, p. 51",
+          "excerpt": "ii) f is called proper if f is of +weakly finite type, separated and universally closed.",
+          "match": "Retains the +weakly-finite-type hypothesis in the definition of properness."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.3, Corollary 1.3.9, pp. 54-55",
+          "excerpt": "b) For every (x,A) ∈ X_v and every center y of (x,A) on Y, there exists a unique center z of (x,A) on X with y = f(z).",
+          "match": "Valuative criterion in the analytic case."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.3, before Definition 1.3.5, p. 52",
+          "excerpt": "For simplicity we explain here this criterion only for morphisms between analytic adic spaces.",
+          "match": "Scope restriction of the criterion as proved in the book."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R0/finite-morphisms",
+      "parentStageId": "AdicSpacesPartII:R0",
+      "title": "Finite morphisms of adic spaces: definition, base change, properness, and finiteness from proper fibres",
+      "kind": "theorem",
+      "statement": "(1.4.2) A morphism of complete affinoid rings A -> B is finite if it is of topologically finite type and A^▷ -> B^▷, A^+ -> B^+ are integral; then B^▷ carries the natural A^▷-module topology and B^+ is the integral closure of A^+; conversely a finite A^▷-algebra with its module topology and the integral closure of A^+ is a complete affinoid ring finite over A [Hu4, 3.12.10]. Lemma 1.4.3 (A, B complete Tate, B = A⟨T⟩/quotient with t_i ∈ B^+): B finite over A iff each t_i satisfies a monic p_i ∈ A^+[X] with p_i(t_i) topologically nilpotent. (1.4.4) f: X -> Y is finite if every y has an affinoid neighbourhood V with f^{-1}(V) affinoid and finite over V; then this holds for every affinoid V [Hu4, 3.6.20, 3.12.12]. Lemma 1.4.5: finite is stable under base change (affinoid product with the module topology), finite implies proper (specializing via [HK, 2.1.2, 2.1.6], trivially via 1.3.9 over analytic bases), closed embeddings are finite, and a rigid morphism is finite iff r(f) is finite. Proposition 1.4.6/Lemma 1.4.7: for f: X -> Y of finite type between analytic affinoid adic spaces, if the fibre X ×_Y Spa κ(y) is proper over Spa κ(y) then f is finite over an open neighbourhood of y; in particular proper implies finite. Lemma 1.4.8: topological nilpotence of an element b in the completed fibre B ⊗̂_A k(x) spreads to a rational neighbourhood of x. Lemma 1.4.9: finiteness descends along a finite h: T' -> T with O(T') faithfully flat over O(T).",
+      "hypotheses": [
+        "1.4.3 requires A, B complete Tate affinoid rings and a quotient presentation A⟨T_1,...,T_n⟩ -> B with t_i ∈ B^+",
+        "1.4.6-1.4.7 require analytic affinoid adic spaces and f of finite type",
+        "1.4.9 requires T affinoid, h finite, O_{T'}(T') faithfully flat over O_T(T)"
+      ],
+      "proofSteps": [
+        "1.4.3: reduce to a ring of definition B_0 = image of A_0⟨T⟩, show B_0/IB_0 is finite over A_0 via the monic relations, lift finiteness by [M, 28.P Lemma], and pass to B^+ and B^▷ = A^▷ ⊗_{A^+} B^+.",
+        "1.4.7: put K = κ(y)^▷, C = fibre algebra; use the diagram Z -> Spec C_0/IC_0 over Spa κ(y) -> Spec K^+/I to show the scheme map g is proper by the valuative criterion (cf. [Hu4, 3.12.5]), then finite by [EGA IV.18.12.8], hence K -> C finite; approximate the monic relations over the whole affinoid neighbourhood and conclude with 1.4.8 and 1.4.3.",
+        "1.4.8: write the image of b in B ⊗_A K as s(b_1 ⊗ e_1/d_1 + ...), pass to the rational subset U_1 = ∩ R(1/d_i) ∩ ∩ R(p_j/1) and check b ∈ sB'' there.",
+        "1.4.9: descend the module-finite algebra O_S(S) over O_T(T) by [EGA IV.2.7.1] and show S -> Z := the finite adic space of O_S(S) is a homeomorphism with topological-embedding, bijective ring maps."
+      ],
+      "acceptance": [
+        "Finiteness is local on the target and then holds for every affinoid open of the target.",
+        "A finite type morphism of analytic affinoid adic spaces that is proper is finite (1.4.6).",
+        "The affinoid base change of a finite morphism has plus-ring equal to the integral closure of the tensor product (proof of 1.4.5.i)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.4, Lemma 1.4.7, p. 62",
+          "excerpt": "Then, for every y ∈ Y such that X ×_Y Spa κ(y) -> Spa κ(y) is proper, there exists an open neighbourhood U of y such that f^{-1}(U) -> U is finite. In particular, if f is proper then f is finite.",
+          "match": "Finiteness from a proper fibre, the analytic-affinoid input to 1.5.5."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.4, Lemma 1.4.5, pp. 61-62",
+          "excerpt": "ii) Every finite morphism of adic spaces is proper. iii) Every closed embedding of adic spaces is finite.",
+          "match": "Places finite morphisms inside the proper class."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R0/quasi-finite-and-finiteness-criteria",
+      "parentStageId": "AdicSpacesPartII:R0",
+      "title": "Quasi-finite morphisms and the finiteness theorem 'quasi-finite and proper equals finite'",
+      "kind": "theorem",
+      "statement": "Definition 1.5.1: f locally quasi-finite if locally of weakly finite type with discrete fibres; quasi-finite if moreover quasi-compact. Lemma 1.5.2 (f weakly of finite type between analytic adic spaces): quasi-finite iff all fibres finite iff fibres over maximal points finite iff k(x)^^ finite over k(f(x))^^ for all x (resp. all maximal x) iff X ×_Y Spa κ(y) -> Spa κ(y) is finite for all maximal y; (a),(b),(d) are equivalent without analyticity. Corollary 1.5.3: locally quasi-finite is stable under base change (f locally of finite type, or g adic) and fibre-product points surject onto compatible pairs. Proposition 1.5.4: for f locally of weakly finite type between analytic adic spaces, locally quasi-finite iff O_{X,x} is finite over O_{Y,f(x)} at maximal points x; if f is locally of finite type also iff f is finite on a neighbourhood of each maximal point. Proposition 1.5.5: for f locally of finite type between analytic adic spaces, f is quasi-finite and proper iff f is finite. Proposition 1.5.6 (f locally of finite type, X quasi-separated, Y qcqs): locally quasi-finite and partially proper iff each x has opens U ⊇ closure{x}, V ⊇ closure{f(x)} with f: U -> V finite. Proposition 1.5.7 / Lemma 1.5.9: for rigid f, locally quasi-finite (dim f^{-1}(y) ≤ 0) iff r(f) locally quasi-finite; and for such f, partially proper (Kiehl-type relative compactness of affinoid pieces) iff r(f) partially proper, with no discreteness assumption on the valuation. Lemma 1.5.10: for a maximal point x of an affinoid Tate space, closure{x} is the intersection of the rational subsets containing it and of their closures.",
+      "hypotheses": [
+        "Analytic adic spaces throughout 1.5.2 (except the equivalences (a),(b),(d)), 1.5.4-1.5.6",
+        "1.5.5: f locally of finite type between analytic adic spaces; properness in the sense of 1.3.2",
+        "1.5.2 uses Noether normalisation and integrality of the power-bounded subring for tft Tate algebras over an affinoid field ([BGR 6.1.2 Cor. 2, 6.3.4 Prop. 1])"
+      ],
+      "proofSteps": [
+        "1.5.2: reduce by (1.2.4) to a fibre over Spa(K,K^+), choose an injective finite K⟨T_1..T_d⟩ -> A, and read each condition as d = 0.",
+        "1.5.4: for B of topologically finite type over A use 1.5.2(f) and 1.4.7 to get finiteness near a maximal point and identify O_{Y,y_0} ⊗ O_X(f^{-1}V) with the product of the stalks over y_0; for the +weakly case pass through Z = Spa(B^▷,(B^▷)°).",
+        "1.5.5: given y, choose a finite faithfully flat affinoid cover h: W -> V such that residue fields of points of Z = f^{-1}(V) ×_V W over w are purely inseparable over k(w)^^; prove (2) that the generalisation sets G_i of the finitely many points z_i over w are pairwise disjoint and open-closed in g^{-1}(G) using 1.3.6 and 1.3.7 (separatedness); choose affinoid K_i ⊆ Z around z_i, obtain finiteness of K_i ∩ g^{-1}(L_i) -> L_i by 1.4.7 and (1.2.4), shrink to L with g^{-1}(L) ⊆ ∪K_i; conclude finiteness over h^{-1}(U) for an affinoid U ∋ y and descend along h by 1.4.9.",
+        "1.5.6: use 1.3.13 to enclose closure{x_0} in a quasi-compact open W, define the pro-constructible set S of valuation rings of W with a center on Y but none on f^{-1}(y) ∩ W, and use 1.3.9 to find V with S(V) = ∅, hence W ∩ f^{-1}(V) -> V proper, then 1.5.5.",
+        "1.5.7: use Lemma 1.5.8 (local Noether normalisation X' -> B^n_{Y'} finite surjective over a locally closed affinoid Y' through a maximal point) to compare fibre dimension with n = 0.",
+        "1.5.9: (b)=>(c) by producing centers from the relative compactness X_i ⋐_Y Z_i; (c)=>(a) by 1.5.6 and 1.5.10 to build rational U_x with closure{x} ⊆ U_x and to show B̄ integral over Ā, then the affinoid generating system G and the rational subset Z_x ⋐_Y Z."
+      ],
+      "acceptance": [
+        "Finite implies quasi-finite and proper; the converse 1.5.5 needs both properness and 'locally of finite type' between analytic adic spaces.",
+        "1.5.9 gives rigid partial properness from adic partial properness for locally quasi-finite maps without discreteness of the valuation, in contrast to Remark 1.3.19.iii.",
+        "The proof of 1.5.5 uses a faithfully flat finite affinoid base change to make residue fields purely inseparable; check that such a W exists in the intended generality (the source says 'there exists' without a reference)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.5, Proposition 1.5.5, pp. 68-70",
+          "excerpt": "Let f: X -> Y be a morphism between analytic adic spaces which is locally of finite type. Equivalent are a) f is quasi-finite and proper b) f is finite.",
+          "match": "The adic finiteness theorem; its hypotheses are properness plus local finite type, not flatness plus constant fibre rank."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.5, Lemma 1.5.2, p. 66",
+          "excerpt": "b) For every y ∈ Y, f^{-1}(y) is a finite set. ... f) For every maximal point y of Y, the morphism X ×_Y Spa κ(y) -> Spa κ(y) is finite.",
+          "match": "Equivalent forms of quasi-finiteness used in 1.5.4 and 1.5.5."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.5, Lemma 1.5.9, pp. 73-75",
+          "excerpt": "(If the valuation of the ground field is discrete then the equivalence of (b) and (c) is already stated in (1.3.19).)",
+          "match": "Confirms that 1.5.9 removes the discreteness hypothesis in the locally quasi-finite case only."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R0/differentials-unramified-smooth-etale",
+      "parentStageId": "AdicSpacesPartII:R0",
+      "title": "Universal derivations, Omega_{X/Y}, and the infinitesimal definitions of unramified, smooth and etale morphisms",
+      "kind": "definition",
+      "statement": "For complete f-adic rings A -> B of topologically finite type, a universal continuous A-derivation d_{B/A}: B -> Ω_{B/A} into a complete topological B-module exists (1.6.2): (i) from a presentation B = A⟨X_1..X_n⟩_{M}/I it is the quotient of the free module on dX_i by the submodule generated by I·Ω and d(P) for generators P of I, so Ω_{B/A} is finitely generated and free with basis dX_i when I = 0; (ii) Ω_{B/A} = I/I^2 for the kernel I of B ⊗̂_A B -> B, which is a finitely generated ideal; (iii) if B is finite over A it is the algebraic universal derivation. Proposition 1.6.3: first fundamental exact sequence, conormal sequence for open surjections B -> C, base change along adic A -> A', and compatibility with localisations B(T/s). For f: X -> Y locally of weakly finite type, Ω_{X/Y} := Δ^*(I) for the ideal I of the diagonal in X ×_Y X; on affinoid pieces it is the module associated with Ω_{O_X(U)/O_Y(V)}. Lemma 1.6.4: for f locally quasi-finite between analytic adic spaces, at maximal points the stalk O_{X,x} is finite over O_{Y,f(x)} and the induced derivation is universal; a flat locally quasi-finite morphism stays flat after arbitrary base change. Definition 1.6.5: f is unramified (resp. smooth, etale) if locally of finite type (resp. finite presentation, finite presentation) and Hom_Y(Spa A, X) -> Hom_Y(Spa A/I, X) is injective (resp. surjective, bijective) for every affinoid ring A and square-zero ideal I of A^▷. Example 1.6.6: over discrete bases these agree with the scheme notions; over noetherian complete f-adic A the finite etale adic spaces over Spa(A,A^+) correspond to finite etale schemes over Spec A. Propositions 1.6.7-1.6.9 (stated, 'can be proved similarly as for schemes'): open embeddings are etale, locally closed embeddings unramified, Spa A⟨X⟩_T -> Spa A is smooth; composition, base change, cancellation, and locality on the source; unramified iff Ω_{X/Y} = 0 iff the diagonal is an open embedding iff locally a closed embedding into an etale Y-space; for smooth X -> Y, Ω is locally free, closed subspaces are etale/smooth at x iff generators of the ideal have differentials forming (part of) a basis, and a Y-morphism between spaces locally of finite type is etale/smooth iff d on Ω is bijective / left-invertible. Corollary 1.6.10: f: X -> Spa A is smooth iff locally it factors as an etale map to Spa A⟨T_1..T_n⟩_{M}; if A is Tate one can take all M_i = {1}.",
+      "hypotheses": [
+        "Ring maps of topologically finite type between complete f-adic rings; modules finitely generated over complete f-adic rings carry their natural topology [Hu, §2] (unread)",
+        "Definition 1.6.5 tests against affinoid rings A with square-zero ideals I of A^▷, not against arbitrary adic spaces",
+        "1.6.7-1.6.9 are only asserted in the source by analogy with schemes"
+      ],
+      "proofSteps": [
+        "(1.6.2.ii): show the kernel I of B ⊗̂ B -> B is generated by 1⊗n - n⊗1 for a finite dense generating set N via a density argument, then argue as in the algebraic case [I, 1.1.3].",
+        "Define Ω_{X/Y} by the diagonal and check affinoid compatibility.",
+        "1.6.4: combine (1.6.2.iii) with the proof of 1.5.4; flatness after base change via direct-factor decomposition of O_{X,x} ⊗ O_{Y',y'} at maximal points and (1.1.10.iii).",
+        "1.6.10: use local freeness of Ω (1.6.9.i), choose s_i with basis ds_i, adjust by finite sets M_i so that M_i·s_i ⊆ O^+, build g by [Hu, 3.5.i] and check etaleness by 1.6.9.iii and 1.6.2.i."
+      ],
+      "acceptance": [
+        "Over a Tate base the smooth local model is Spa A⟨T_1..T_n⟩ with no extra sets M_i.",
+        "Unramified implies locally quasi-finite (Corollary 1.7.4).",
+        "Finite etale adic spaces over a noetherian complete f-adic ring are finite etale schemes over Spec A (1.6.6.ii)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.6, Definition 1.6.5, p. 78",
+          "excerpt": "for any affinoid ring A, any ideal I of A^▷ with I^2 = {0} and any morphism Spa A -> Y, the mapping Hom_Y(Spa A, X) -> Hom_Y(Spa A/I, X) is injective (resp. surjective, resp. bijective).",
+          "match": "Exact form of the infinitesimal lifting definitions."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.6, before Proposition 1.6.7, p. 79",
+          "excerpt": "The following propositions (1.6.7), (1.6.8) and (1.6.9) can be proved similarly as for schemes (cf. [EGA], [I]).",
+          "match": "Records that these proofs are not written out in the source."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.6, Corollary 1.6.10, p. 80",
+          "excerpt": "If A is Tate and f is smooth then, for every x ∈ X, there exists a commutative diagram (*) with M_1 = ... = M_n = {1}.",
+          "match": "Smooth local structure used by BHW Corollary 3.4 and by the R5 product construction."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R0/etale-local-structure",
+      "parentStageId": "AdicSpacesPartII:R0",
+      "title": "Standard-etale local structure, flatness and openness of etale/smooth morphisms, comparison with algebraic and rigid etale maps",
+      "kind": "theorem",
+      "statement": "Proposition 1.7.1: for an affinoid ring A (not necessarily complete) and s: X -> Y = Spa A between affinoid adic spaces, s is etale iff X ≅ Spa B/I with B = A⟨X_1..X_n⟩_{T_1..T_n}, I = (f_1..f_n) and det(∂f_i/∂X_j) a unit in B^▷/I, where the f_i may be taken in B^▷ (ii) or even in A^▷[X_1..X_n] (iii). Corollary 1.7.2: the presentation is stable under small perturbation of the f_i (isomorphic quotient with e^*(x̄_i) close to x̄_i), and over a Tate A one may take all T_i = {1}. Corollary 1.7.3: for a ring homomorphism φ: D -> A^▷, every scheme X locally of finite type over Spec D defines X^ad := X ×_{Spec D} Spa A locally of finite type over Spa A ([Hu, 3.8]); (i) etale X -> Spec D gives etale X^ad -> Spa A; (ii) if im φ is dense, every affinoid etale Y -> Spa A is an open subspace of X^ad for some affine etale X -> Spec D; (iii) Y -> Spa A is etale iff Y ≅ Spa B with A -> B of algebraically finite type and A^▷ -> B^▷ algebraically etale. Corollary 1.7.4: unramified implies locally quasi-finite. Proposition 1.7.5 (f locally of finite type between analytic adic spaces): etale iff flat and unramified iff at maximal points O_{X,x} is flat over O_{Y,f(x)} with fibre a finite separable extension of k(f(x)). Lemma 1.7.6: etale between affinoid adic spaces implies O_Y(Y) -> O_X(X) flat (proved when A^▷ has a noetherian ring of definition, and when A^▷ is a strongly noetherian Tate ring). (1.7.7)-1.7.9: smooth morphisms are locally algebraically smooth and hence open. Definition 1.7.10/Proposition 1.7.11: rigid etale (flat with finite separable residue extensions) and smooth (locally etale over a relative ball) agree with the adic notions under r.",
+      "hypotheses": [
+        "1.7.1: Y affinoid, X affinoid",
+        "1.7.5: analytic adic spaces, f locally of finite type",
+        "1.7.6 is proved only in the two cases 'A^▷ has a noetherian ring of definition' and 'A^▷ is a strongly noetherian Tate ring'",
+        "1.7.9: A -> B adic, A^▷ -> B^▷ flat and finitely presented, B^+ the integral closure of A^+[L] for a finite L"
+      ],
+      "proofSteps": [
+        "(i)=>(ii): from a presentation C/J use 1.6.8/1.6.9 to pick f_1..f_m ∈ J whose classes form a basis of J/J^2 ≅ Ω ⊗ C/J, invert (1+j) by a rational localisation and adjoin X_{m+1} with f_{m+1} = 1 - (1+j)X_{m+1}.",
+        "(ii)=>(iii): four preparatory points: (1) an inverse-function statement for convergent power series with unit linear part over an f-adic ring, using [B, III.4.4 Prop. 5]; (2) perturbation of the values h(f_i) by small v_i through a continuous A-algebra map h: A⟨X⟩_T -> B; (3) small perturbations of topological generators of B define automorphisms, using a noetherian ring of definition or discreteness; (4) rational subsets U of Spa A⟨X⟩_T are preserved and mapped isomorphically by nearby morphisms. Then replace f_i by nearby polynomials f_i + s_i and show Spa B/I' ≅ Spa B/I inside U = {v(s_i) ≤ v(Δ) ≠ 0}.",
+        "(iii)=>(i) from 1.6.7.i and 1.6.9.",
+        "1.7.3.i: X^ad is locally Spa A⟨X⟩_T/(f_i) with the same Jacobian unit, so 1.7.1 applies; 1.7.3.ii: choose f_i ∈ D[X] by density and 1.7.2.i, then Y is open in the etale scheme X = Z[Δ^{-1}]; 1.7.3.iii: invert the Jacobian unit by adjoining X with 1 - dX.",
+        "1.7.5: (b)=>(a) factor X -> Z -> Y with g a closed embedding into an etale Z (1.6.8) and prove g flat via the graph and the openness of the diagonal; (c)=>(b) via 1.5.2, 1.6.4.i and Nakayama.",
+        "1.7.6: case (i) B flat over A^▷[X] by [Hu1, 1.7.i] and C_Δ etale over A^▷; case (ii) reduce to n = 1, show pA^▷⟨X⟩ is prime, and use that localisations of Dedekind rings give flatness of torsion-free modules.",
+        "1.7.9: openness of Spv(f) by [HK, 2.1.4] and retractions r_A, r_B of valuation spectra onto Spa."
+      ],
+      "acceptance": [
+        "An affinoid etale Y over Spa A with dense image of D in A^▷ is an open subspace of the adic space of an algebraic etale D-scheme (1.7.3.ii).",
+        "Over Tate bases the standard-etale presentation uses A⟨X_1..X_n⟩ (all T_i = {1}).",
+        "Smooth morphisms are open; the rigid definitions 1.7.10 match the adic ones (1.7.11)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.7, Proposition 1.7.1, p. 80",
+          "excerpt": "the image of the determinant det(∂f_i/∂X_j)_{i,j=1,...,n} ∈ B^▷ in B^▷/I is a unit of B^▷/I and X is Y-isomorphic to Spa B/I.",
+          "match": "Standard-etale local structure with the Jacobian unit condition."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.7, Corollary 1.7.3, pp. 85-86",
+          "excerpt": "Then by [Hu, 3.8] every scheme X locally of finite type over Spec D defines an adic space X^ad := X ×_{Spec D} Spa A locally of finite type over Spa A.",
+          "match": "Names the analytification construction and its imported source."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.7, Proposition 1.7.5, p. 87",
+          "excerpt": "a) f is etale. b) f is flat (i.e., for every x ∈ X, O_{X,x} is flat over O_{Y,f(x)}) and unramified.",
+          "match": "Flat-plus-unramified characterisation of etale for analytic adic spaces."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R1/scheme-fibre-product-analytification",
+      "parentStageId": "AdicSpacesPartII:R1",
+      "title": "Analytification as the fibre product of a locally finite type scheme with an adic space over a scheme ([Hu, 3.8])",
+      "kind": "construction",
+      "statement": "For a locally ringed morphism g: T -> S locally of finite type between schemes and a morphism of locally ringed spaces f: X -> S from an adic space X, there is an adic space X ×_S T over X (Huber (1.2.7), quoting [Hu, 3.8]). Specialisation: for a ring D, an affinoid ring A and φ: D -> A^▷, the induced Spa A -> Spec D makes X^ad := X ×_{Spec D} Spa A an adic space locally of finite type over Spa A for every D-scheme X locally of finite type (1.7.3). A morphism of adic spaces is locally of algebraically finite type iff locally it is an open subspace of V ×_{Spec O_Y(V)} L for a scheme L of finite type over Spec O_Y(V) (remark after (1.2.7)). Compatibilities read in the book: etale scheme morphisms give etale adic morphisms (1.7.3.i); affinoid etale maps are open pieces of algebraic etale maps when D is dense in A^▷ (1.7.3.ii).",
+      "hypotheses": [
+        "g locally of finite type; X an adic space; f a morphism of locally ringed spaces (Huber writes f: X -> S for a morphism of the underlying locally ringed spaces)",
+        "The construction, its independence of charts and its universal property live in Huber 1994 [Hu, 3.8], which is not in the library and was not read"
+      ],
+      "proofSteps": [
+        "Import [Hu, 3.8] (unread) for existence and universal property of X ×_S T.",
+        "For affine T = Spec D[X_1..X_n]/(f_i) the source's proof of 1.7.3.i exhibits the local charts Spa A⟨X_1..X_n⟩_{T_1..T_n}/(f_i) for varying finite sets T_i; this is the only explicit description of X^ad read."
+      ],
+      "acceptance": [
+        "For X = Spec k[T] and A = (k,k°) one obtains the adic affine line as the union of the balls Spa k⟨T⟩_{ {s^m} }, matching the case (a) construction in 1.2.2.",
+        "Etale algebraic maps analytify to etale adic maps (1.7.3.i)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.2, (1.2.7), p. 50",
+          "excerpt": "For morphisms of locally ringed spaces g: T -> S and f: X -> S where T, S are schemes, X is an adic space and g is locally of finite type, we have an adic space X ×_S T over X ([Hu, 3.8]).",
+          "match": "The scheme-to-adic fibre product underlying analytification, with its imported source."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.3 opening, p. 51",
+          "excerpt": "A morphism of adic spaces f: X -> Y is locally of algebraically finite type if and only if, for every x ∈ X, there exist open neighbourhoods U and V of x and f(x) in X and Y such that f(U) ⊆ V and U is V-isomorphic to an open subspace of an adic space of the shape V ×_{Spec O_Y(V)} L where L is a scheme of finite type over Spec O_Y(V).",
+          "match": "Characterises which adic morphisms are locally analytifications."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R1/rigid-adic-comparison-functor",
+      "parentStageId": "AdicSpacesPartII:R1",
+      "title": "The functor r from rigid analytic varieties to adic spaces and its equivalence onto quasi-separated locally finite type spaces",
+      "kind": "comparison",
+      "statement": "For a complete non-archimedean field k there is a functor r = r_k from rigid analytic varieties over Sp k to adic spaces over Spa(k,k°) ([Hu, 4.3]) characterised by: (a) r(Sp A) = Spa(A, A°) with r(f) induced by the k-algebra map; (b) open embeddings go to open embeddings; (c) a family of admissible opens is an admissible covering iff the r(X_i) cover r(X); (d) r is fully faithful. r(X) is locally of finite type over Spa(k,k°); r restricts to an equivalence between quasi-separated rigid varieties over Sp k (more generally over any rigid X) and adic spaces over Spa(k,k°) (over r(X)) whose structure morphisms are locally of finite type and quasi-separated. The points of X are identified with the points x of r(X) whose residue field k(x) is finite over k; admissible opens U satisfy r(U) ∩ X = U; for quasi-separated X, quasi-compact admissible opens correspond bijectively to quasi-compact opens of r(X) (affinoids to affinoids); constructible subsets of r(X) are determined by their trace on X; r commutes with fibre products; and the morphism of sites r(X) -> X induces an equivalence of topoi.",
+      "hypotheses": [
+        "k complete non-archimedean; rigid varieties in the sense of [BGR, 9.3.1]",
+        "The construction of r and the proofs of (a)-(d) are in Huber 1994 [Hu, 4.3] and [Hu4, 3.4.17], neither in the library"
+      ],
+      "proofSteps": [
+        "Import [Hu, 4.3] / [Hu4, 3.4.17] for the construction and the characterisation (a)-(d).",
+        "The identification e: X ≅ {x ∈ r(X) : k(x) finite over k} is defined pointwise via r(i) for i: Sp k(x) -> X."
+      ],
+      "acceptance": [
+        "r(Sp A) = Spa(A,A°); admissibility of coverings is detected by set-theoretic covering of r(X).",
+        "For quasi-separated X, open affinoid subspaces of X correspond to open affinoid subspaces of r(X)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.1, (1.1.11), pp. 42-43",
+          "excerpt": "r induces an equivalence from the category of quasi-separated rigid analytic varieties over Sp k to the category of adic spaces over Spa(k, k°) whose structure morphisms are locally of finite type and quasi-separated.",
+          "match": "Scope of the rigid/adic equivalence: quasi-separated and locally finite type only."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.1, (1.1.11), p. 43",
+          "excerpt": "The functor r commutes with fibre products.",
+          "match": "Needed for the etale-site comparison 2.1.2-2.1.4."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R1/proper-separated-comparisons",
+      "parentStageId": "AdicSpacesPartII:R1",
+      "title": "Comparison of separated/proper/partially proper morphisms between formal, rigid and adic settings (Huber 1.3.17-1.3.19, 1.5.9)",
+      "kind": "comparison",
+      "statement": "Remark 1.3.18: for A a complete valuation ring of rank 1, X, Y formal schemes flat and locally of finite type over A, f: X -> Y an A-morphism with rigid generic fibre f_rig and r(f_rig): (i) r(f_rig) separated iff f separated; (ii) proper iff proper; (iii) partially proper iff f|Z is proper for every irreducible closed Z ⊆ X (quoting [Hu4, 3.11, 3.13]). Remark 1.3.19: for a morphism f of rigid varieties over k, with partial properness defined by relative compactness U ⋐_W V of affinoid pieces (so that Kiehl-proper = quasi-compact and partially proper): f separated iff r(f) separated ([Hu4, 3.11.21.ii]); f partially proper implies r(f) partially proper, and the converse holds when k° is discretely valued (via Lutkebohmert [L1] and 1.3.18.iii); likewise for proper. Lemma 1.5.9 removes the discreteness assumption when f is locally quasi-finite. Remark 1.3.17: if every point of Y has an affinoid neighbourhood whose f-adic ring has a noetherian ring of definition over which it is finitely generated and f: X -> Y is proper of finite type, then R^n f_* F is coherent for coherent F ([Hu4, 3.12.13]).",
+      "hypotheses": [
+        "1.3.18: A complete rank-1 valuation ring; X, Y flat locally of finite type formal A-schemes; uses Raynaud's functor [R1]",
+        "1.3.19.iii-iv converse direction: k° discretely valued",
+        "1.3.17: the noetherian-ring-of-definition hypothesis on Y, f proper and of finite type",
+        "All proofs are in [Hu4] (Huber, Bewertungsspektrum und rigide Geometrie, 1993) or [L1] and were not read"
+      ],
+      "proofSteps": [
+        "Statements only; the proofs are delegated by the source to [Hu4] and [L1]. The one-line hint for 1.3.19.iii(a)=>(b) refers to the proof of 1.5.9, which was read (construction of centers from relative compactness)."
+      ],
+      "acceptance": [
+        "For the closed unit disc over Sp k, r of the inclusion of the open unit disc is partially proper but not proper (not quasi-compact).",
+        "Coherence of higher direct images is only asserted over bases with noetherian rings of definition; no statement is made for general nondiscrete O_K-models."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.3, Remark 1.3.19, pp. 59-60",
+          "excerpt": "Then (a) implies (b) and if the valuation ring k° is discrete then (b) implies (a). (The proof of the first statement is easy (see proof of (1.5.9)). The second statement follows from [L1] and (1.3.18.iii).)",
+          "match": "Exact discreteness caveat in the rigid/adic properness comparison."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.3, Remark 1.3.17, p. 59",
+          "excerpt": "Then, for every coherent O_X-module F on X, all direct image sheaves R^n f_* F are coherent O_Y-modules ([Hu4, 3.12.13]).",
+          "match": "Coherence of proper direct images with its noetherian-ring-of-definition hypothesis."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R2/formal-schemes-of-type-S",
+      "parentStageId": "AdicSpacesPartII:R2",
+      "title": "Formal schemes of type (S): the class on which the generic-fibre functor is defined",
+      "kind": "definition",
+      "statement": "A formal scheme X = (X, O_X) is of type (S) if every point has an open affine neighbourhood U such that the topology of A := O_X(U) is adic and either (a) A is noetherian, or (b) there is s ∈ A with sA an ideal of definition and the Tate ring A(1/s) (the localisation A_s topologised by {im(s^n A -> A_s)}) strongly noetherian. Examples: Spf A for a microbial valuation ring A with its valuation topology (any nonzero s in the height-one prime gives sA an ideal of definition and A(1/s) a non-archimedean field). For X of type (S), every formal affine open has an adic topology with a finitely generated ideal of definition. Morphisms of type-(S) formal schemes are called adic (resp. locally of finite type) if locally the ring maps are adic (resp. of topologically finite type) in the sense of [Hu, §3]. Formal completions of locally finite type morphisms along finite-type ideals preserve type (S) and are adic (1.9.5).",
+      "hypotheses": [
+        "Condition (S) is local on X and is stated for the rings of affine opens with adic topologies",
+        "The strongly noetherian hypothesis is on the Tate ring A(1/s), not on A"
+      ],
+      "proofSteps": [
+        "Define as in the source; check the microbial valuation ring example via (1.1.4).",
+        "1.9.5: if Y is of type (S) and f: X -> Y is locally of finite type then X̂ is of type (S) and f̂ is adic (asserted in the source)."
+      ],
+      "acceptance": [
+        "Spf O_K for a complete rank-one valuation ring O_K (not necessarily discretely valued) is of type (S) via (b).",
+        "A noetherian adic formal scheme is of type (S) via (a), and then d(X) = t(X)_a recovers the analytic locus of the earlier functor t of [Hu, 4.1]."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.9, condition (S), p. 96",
+          "excerpt": "b) there exists a s ∈ A such that sA is an ideal of definition of A and the Tate ring A(1/s) is strongly noetherian.",
+          "match": "The nondiscrete-valuation-ring case is admitted through (b), which is what the eigenvariety gap needs."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.9, p. 96",
+          "excerpt": "Thus the affine formal scheme Spf A is of type (S).",
+          "match": "Microbial valuation rings are covered."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R2/generic-fibre-functor-d",
+      "parentStageId": "AdicSpacesPartII:R2",
+      "title": "The analytic adic space d(X) associated with a formal scheme of type (S) and its comparison with Raynaud's generic fibre",
+      "kind": "construction",
+      "statement": "Proposition 1.9.1: for X of type (S) there exist an adic space d(X) and a morphism of topologically ringed spaces λ = λ_X: d(X) -> X such that (a) λ^{-1}(I)·O_{d(X)} = O_{d(X)} for the ideal sheaf I of functions vanishing at all points (so d(X) is analytic); (b) O_X -> λ_* O_{d(X)} lands in λ_* O^+_{d(X)} and induces a morphism of locally ringed spaces; (c) d(X) is universal among adic spaces with a map to X satisfying (a),(b). Hence d is a functor from type-(S) formal schemes with adic morphisms to analytic adic spaces. Proof: reduce to X = Spf A affine; if A is noetherian take t(X)_a with the restriction of π: t(X) -> X from [Hu, 4.1, 4.6.ii]; in case (b) let B be the integral closure of A in A(1/s), so (A(1/s), B) is an affinoid ring, and put d(X) = Spa(A(1/s), B) with λ induced by A -> B via (1) in the proof of [Hu, 4.1]; λ(x) is the open prime {a ∈ A : |a(x)| < 1}. Example 1.9.2: for a microbial valuation ring A with fraction field K, Spa(K,A) = d(Spf A) and λ is a homeomorphism onto Spf A; for A a rank-1 valuation ring and X locally of finite type over Spf A, there is a functorial isomorphism d(X) ≅ r(s(X)) with s Raynaud's generic-fibre functor [R1] and r the rigid-to-adic functor (1.1.11). (1.9.3): λ_X is spectral (d(U) is a spectral space for every affine U satisfying (S)).",
+      "hypotheses": [
+        "X of type (S); morphisms adic",
+        "Case (a) of the proof and the map λ in case (b) rely on Huber 1994 [Hu, 4.1, 4.6] (unread)",
+        "Example 1.9.2.ii uses Raynaud's functor s [R1] and is stated without proof"
+      ],
+      "proofSteps": [
+        "Reduce to affine X; construct Spa(A(1/s), B) in case (b); verify (a)-(c) via [Hu, 4.1](1).",
+        "Functoriality d(f) from (c).",
+        "Spectrality (1.9.3) from the affine case."
+      ],
+      "acceptance": [
+        "d(Spf O_K) = Spa(K, O_K) for a complete rank-one valued field K, with λ a homeomorphism onto the two-point space Spf O_K only when O_K has rank one (Spa(K,O_K) has two points for rank one).",
+        "For X locally of finite type over Spf O_K with O_K rank one, d(X) agrees with Huber's r applied to Raynaud's generic fibre; this is the link to Bosch-Lutkebohmert's formal models but it is not proved in the book."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.9, Proposition 1.9.1, pp. 96-97",
+          "excerpt": "Then there exist an adic space d(X) = (d(X), O_{d(X)}) and a morphism of topologically ringed spaces λ = λ_X: d(X) -> X such that",
+          "match": "Existence and universal property of the generic fibre functor."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.9, proof of 1.9.1, p. 97",
+          "excerpt": "Let B be the integral closure of A in A(1/s). Then (A(1/s), B) is an affinoid ring. Let d(X) be the affinoid adic space associated with (A(1/s), B).",
+          "match": "The explicit plus-ring in the nondiscrete case is the integral closure of A, not A itself."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.9, Example 1.9.2.ii, pp. 97-98",
+          "excerpt": "For every formal scheme X locally of finite type over Spf A, there is a functorial isomorphism d(X) ≅ r(s(X)).",
+          "match": "Comparison of d with Raynaud's rigid generic fibre for rank-one valuation rings."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R2/formal-completion-and-algebraic-comparison",
+      "parentStageId": "AdicSpacesPartII:R2",
+      "title": "Formal completion of a scheme, the morphism d(X̂) -> X and the comparison d(X̂) -> X ×_Y d(Ŷ)",
+      "kind": "comparison",
+      "statement": "(1.9.4) For a scheme X and its formal completion X̂ along a closed subscheme, assumed of type (S), there is a natural morphism of locally ringed spaces σ_X: d(X̂) -> X ([Hu, 4.6.iv]), the unique one such that for every open U ⊆ X, with e = (X̂ -> X)∘λ, e^{-1}(U) ⊆ σ^{-1}(U) and e^* = σ^* on O_X(U) ([Hu4, 3.10.7]). (1.9.5) Let f: X -> Y be locally of finite type between schemes, Y' ⊆ Y closed defined by a finite-type quasi-coherent ideal, X' = X ×_Y Y', and X̂, Ŷ the completions; if Ŷ is of type (S) then so is X̂, f̂ is adic, and the commutative square of σ's induces a d(Ŷ)-morphism φ: d(X̂) -> X ×_Y d(Ŷ) into the fibre product of [Hu, 3.8]. Proposition 1.9.6: (i) φ is a local isomorphism; (ii) if f is separated, φ is injective; (iii) if f is universally specializing, φ is surjective; hence for f separated and universally specializing (e.g. proper), φ is an isomorphism. The source states 'One can easily prove' and gives no proof.",
+      "hypotheses": [
+        "X̂ (resp. Ŷ) of type (S); the ideal defining Y' of finite type; f locally of finite type",
+        "(ii) requires f separated; (iii) requires f universally specializing (properness suffices since proper morphisms of schemes are universally closed)",
+        "The maps σ and the fibre product X ×_Y d(Ŷ) come from [Hu, 4.6.iv], [Hu4, 3.10.7] and [Hu, 3.8] (unread)"
+      ],
+      "proofSteps": [
+        "Construct σ from λ and the completion map with the uniqueness characterisation.",
+        "Form φ by the universal property of the fibre product.",
+        "1.9.6 has no written proof in the source; a proof must be supplied (local isomorphism from the local finite-type charts; injectivity from separatedness via the diagonal; surjectivity from lifting specialisations to closed points of the special fibre)."
+      ],
+      "acceptance": [
+        "For X = A^1_{O_K} -> Y = Spec O_K (not proper), φ identifies d(X̂) with the closed unit disc inside the adic affine line over Spa(K,O_K): a local isomorphism which is injective but not surjective, matching the roadmap's warning that nonproper generic fibres and completions differ.",
+        "For X proper over Y, d(X̂) ≅ X ×_Y d(Ŷ)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.9, Proposition 1.9.6, p. 98",
+          "excerpt": "i) φ is a local isomorphism. ii) If f is separated then φ is injective. iii) If f is universally specializing then φ is surjective. Hence if f is separated and universally specializing then φ is an isomorphism.",
+          "match": "The comparison of a model's formal generic fibre with the analytified algebraic generic fibre, with the exact hypotheses."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.9, before Proposition 1.9.6, p. 98",
+          "excerpt": "One can easily prove",
+          "match": "Records that the source omits the proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R2/berthelot-type-rig-functor-nonnoetherian-base",
+      "parentStageId": "AdicSpacesPartII:R2",
+      "title": "Conrad's Berthelot-type functor (·)^rig on FS_C for non-discretely valued k, and its preserved properties",
+      "kind": "construction",
+      "statement": "Fix an adic noetherian ring C with a continuous map C -> R to the valuation ring R of a complete non-archimedean field k (Examples: C = R when k is discretely valued; in general a complete DVR R_0 ⊆ R with R_0 -> R local; or C = Z discrete). FS_C is the category of locally noetherian formal schemes over Spf C whose underlying reduced scheme is locally of finite type over C_red; affine opens have algebras that are quotients of (C[[q_1..q_n]]){{T_1..T_m}}. For X in FS_C and a rigid space X over k, Hom^cont_C(X, X) consists of morphisms of locally ringed G-topologised spaces whose ring maps are C-algebra maps landing in locally power-bounded sections and carrying locally topologically nilpotent sections to such. Theorem 3.1.5: Hom^cont_C(·, X) is represented by a quasi-separated rigid space X^rig; (·)^rig takes open/closed immersions to open/closed immersions and open covers to admissible covers, commutes with fibre products (a), with analytic extension of k (b) and with change of C (c), preserves separatedness (d), and sends topologically finite type maps to quasi-compact maps (e). Theorem 3.1.6 (statement; proof only partially read): for f locally topologically of finite type, (·)^rig preserves finiteness, formal smoothness of pure relative dimension d (formally etale to etale), finite flatness of constant rank, properness, (faithful) flatness, fibre-dimension bounds, and flatness with geometrically reduced fibres of pure dimension d.",
+      "hypotheses": [
+        "C adic noetherian with continuous C -> R; k arbitrary complete non-archimedean (no discreteness)",
+        "Objects of FS_C are locally noetherian formal schemes; this functor does not apply to non-noetherian formal O_K-models when k is not discretely valued (those are the Bosch-Lutkebohmert setting)",
+        "Theorem 3.1.6 proof: only its first paragraph was read"
+      ],
+      "proofSteps": [
+        "Δ -> Spf C[[q]] pulling q back to the disc coordinate serves as Spf(C[[q]])^rig, because topologically nilpotent elements of a k-affinoid have sup norm < 1 and Δ is covered by the discs Δ_r.",
+        "For X = Spf(C[[q]]{{T}}/J) take the zero locus of J in Δ^n × B^m; identify (Spf A_{a})^rig with the locus where a is a unit with power-bounded inverse via A_{a} ≅ A{{T}}/(1 - aT).",
+        "Glue over open covers, first for separated X then in general; deduce (a)-(e)."
+      ],
+      "acceptance": [
+        "For C = Z[[q^{1/n}]] and the formal Tate curve, (·)^rig produces the relative Tate curve over the open unit disc (the source's application in §3.1, not read).",
+        "When k is discretely valued and C = R the functor recovers de Jong's [deJ, 7.2.4, 7.2.6]."
+      ],
+      "sources": [
+        {
+          "sourceId": "Conrad-ModularRigid-2006",
+          "locator": "§3.1, Theorem 3.1.5, p. 16",
+          "excerpt": "For any X in FS_C, the functor Hom^cont_C(·, X) on rigid spaces over k is represented by a quasi-separated rigid space X^rig",
+          "match": "Representability of the Berthelot-type generic fibre without discreteness of the valuation."
+        },
+        {
+          "sourceId": "Conrad-ModularRigid-2006",
+          "locator": "§3.1, Definition 3.1.1, p. 16",
+          "excerpt": "The category FS_C is the category of locally noetherian formal schemes X over Spf(C) whose underlying reduced ordinary scheme is locally of finite type over the quotient C_red of C by the ideal of topologically nilpotent elements.",
+          "match": "Exact class of formal schemes to which Conrad's functor applies."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R2/hasse-loci-admissible-opens",
+      "parentStageId": "AdicSpacesPartII:R2",
+      "title": "Admissibility of the Hasse-invariant loci S^{>h}, S^{≥h} via a formal model and a local formal-group coefficient (Conrad 4.1.1)",
+      "kind": "construction",
+      "statement": "For a generalized elliptic curve E -> S over a rigid space S over k, the loci S^{>h} (h ∈ [1/p,1) ∩ sqrt|k^×|) and S^{≥h} (h ∈ (1/p,1] ∩ sqrt|k^×|) of points whose fibre has Hasse invariant > h (resp. ≥ h) are admissible opens, their formation commutes with base change on S and with analytic extension of k, S^{≥h} -> S is quasi-compact, and {S^{≥h}}_{h > h_0} is an admissible cover of S^{>h_0}. Proof route read: by fpqc descent of admissible opens and of the properties 'open immersion' and 'quasi-compact' ([C3, 4.2.4, 4.2.7]) reduce to the universal Γ_1(N)-structure over the proper finitely presented R-scheme M (Theorem 3.2.3 for the analytified moduli interpretation); properness gives Ê^rig ≅ E^an_k and M̂^rig ≅ M^an_k ([C1, 5.3.1(4)]); on a formal affine Spf A ⊆ M̂ where e^*Ω̂^1 is trivial, the formal completion Γ_A of Ê along the identity is Spf(A[[X]]) with a formal group law, and with a_{Γ_A} the coefficient of X^p in [p]^*(X) the loci |a_{Γ_A}| > h (resp. ≥ h) on (Spf A)^rig are independent of the coordinate; by Lemma A.1.5 every point s of M^an_k is s^rig for a map A -> R_0 into the valuation ring of a finite extension, E_s has semistable reduction with formal group the completion of Ê_s, so h(E_s) = max(1/p, |a_{Γ_A}(s)|) by Definition B.3.3; hence S^{>h} ∩ (Spf A)^rig = {|a_{Γ_A}| > h}. The Hasse invariant here is h(E_k) = max(|a|,1/p) for a lifting the X^p-coefficient of [p] modulo p on the formal group of a semistable model (B.3.3), not a section of a line bundle.",
+      "hypotheses": [
+        "k a complete non-archimedean field with valuation ring R, p the residue characteristic; h constrained to sqrt|k^×| in the stated ranges",
+        "E -> S a generalized elliptic curve over a rigid space; the reduction to a proper finitely presented R-scheme M uses Theorem 3.2.3 (analytified moduli) and Corollary 2.2.5 / Theorems 2.2.3-2.2.4, 3.2.1 (not read)",
+        "Ê^rig ≅ E^an_k requires properness over R ([C1, 5.3.1(4)], unread)",
+        "Lemma A.1.5 (rig-points) is imported from Bosch-Lutkebohmert I §3.5 (unread)"
+      ],
+      "proofSteps": [
+        "fpqc descent to the universal case; identify formal and algebraic generic fibres by properness.",
+        "Trivialise e^*Ω̂^1 on formal affines and write the formal group as Spf A[[X]].",
+        "Show the coordinate-independence of |a_{Γ_A}| > h for h in the stated range.",
+        "Use rig-points (A.1.5) to compute h(E_s) fibrewise and identify the loci."
+      ],
+      "acceptance": [
+        "{|H| = 1} is the ordinary locus; the loci are quasi-compact over S for non-strict inequalities.",
+        "The construction is stated for the specific 'Hasse invariant' of B.3.3; a formulation by a section of a line bundle with valuation bound is not what Conrad proves and must be sourced separately."
+      ],
+      "sources": [
+        {
+          "sourceId": "Conrad-ModularRigid-2006",
+          "locator": "§4.1, proof of Theorem 4.1.1, p. 27",
+          "excerpt": "Thus, S^{>h} meets (Spf A)^rig in exactly the domain |a_{Γ_A}| > h, and similarly with non-strict inequalities for S^{≥h}. This proves the admissibility of S^{>h} and S^{≥h}",
+          "match": "The local description of the Hasse loci by a formal-group coefficient."
+        },
+        {
+          "sourceId": "Conrad-ModularRigid-2006",
+          "locator": "Appendix B.3, Definition B.3.3, p. 50",
+          "excerpt": "The Hasse invariant of E_k is h(E_k) = max(|a|, 1/p) ∈ [1/p, 1] for any a ∈ R_0 lifting a as above.",
+          "match": "Definition of the Hasse invariant actually used."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R2/fibral-finiteness-criterion",
+      "parentStageId": "AdicSpacesPartII:R2",
+      "title": "Conrad's fibral finiteness criterion for flat rigid maps (A.1.2) with its scheme lemma (A.1.4) and formal-model imports",
+      "kind": "theorem",
+      "statement": "Theorem A.1.2: a flat map f: X -> Y of rigid spaces over k (no discreteness assumption) is finite iff it is quasi-compact and separated with finite fibres and locally constant fibre rank on Y. Lemma A.1.4: a flat, locally finitely presented morphism of schemes is finite iff it is separated with finite fibres and locally constant fibre rank (no quasi-compactness needed). Lemma A.1.5: for Y flat and locally topologically of finite presentation over Spf R, every point y: Sp(k') -> Y^rig is y^rig for a unique closed immersion Spf B -> Y with B a finite flat R-domain, and every closed point of Y underlies such a map ([BL1, 3.5]). Remark A.1.3: the discretely valued case is Abbes-Mokrane [AM, Lemme A.1] (whose 'quasi-separated' must be strengthened to 'separated'); their completion argument fails for nondiscrete k since local rings of formal models are then non-noetherian. Proof of A.1.2 as read: reduce to Y affinoid, X, Y quasi-compact separated, constant rank d; choose a formal model f: X -> Y, automatically separated ([BL1, Prop. 4.7]), quasi-finite after modification ([BL2, Cor. 5.3]) and flat after further modification ([BL2, Thm. 5.2]) since base change and closed formal subschemes preserve quasi-finiteness and separatedness; it suffices that f_n = f mod I^{n+1} are finite, and each f_n is quasi-finite, separated, flat, finitely presented, so by A.1.4 it suffices that the fibres of the special-fibre map f̄ have constant rank d; constructibility ([EGA IV_3, 9.8.8]) reduces to closed points y_0; by A.1.5 pick Spf B -> Y through y_0 with B finite flat local; T = X ×_Y Spf B is quasi-finite flat over Spf B with one-point special fibre, hence affine and finite, T = Spf C with C finite free of rank d' over B; C ⊗_R k is the affinoid algebra of f^{-1}(y_k) of rank d, so d' = d. Proof of A.1.4 as read: reduce to constant rank d; for local Y base change fpqc to a henselian local ring, split X = X' ⊔ X'' by [EGA IV_4, 18.5.11(c)] with X' finite over Y and X'' with empty closed fibre, deduce X' finite free of rank d' = d and X' = X; for general Y spread out from Spec O_{Y,y} using a quasi-compact open U ⊇ X ×_Y Spec O_{Y,y} and finite presentation.",
+      "hypotheses": [
+        "f flat; quasi-compact; separated (quasi-separated is insufficient, cf. Remark A.1.3); finite fibres; fibre rank locally constant on Y",
+        "k arbitrary complete non-archimedean field; formal models over Spf R with R possibly non-noetherian",
+        "Imported and unread: [BL1, Prop. 4.7] (separatedness of formal models of separated rigid maps), [BL1, §3.5] (rig-points), [BL2, Thm. 5.2] (flattening by admissible blow-up), [BL2, Cor. 5.3] (quasi-finite formal models), [EGA IV_4, 18.5.11(c)], [EGA IV_3, 9.8.8], [EGA IV_2 for finite presentation spreading]",
+        "Necessity of quasi-compactness: the bijective local isomorphism {|t| = 1} ⊔ {|t| < 1} -> {|t| ≤ 1}"
+      ],
+      "proofSteps": [
+        "Scheme lemma A.1.4 via henselian base change, the structure theorem for separated locally quasi-finite maps, constancy of rank over the closed fibre and spreading out.",
+        "Formal-model reductions: separated, quasi-finite and flat models by [BL1]/[BL2].",
+        "Reduce finiteness of the formal map to finiteness of each f_n, then to constant fibre rank of the special fibre by A.1.4.",
+        "Compute the rank at closed points through rig-points and the finite free algebra C over the local finite flat domain B."
+      ],
+      "acceptance": [
+        "A finite flat rigid map has locally constant fibre rank, and conversely under the stated hypotheses.",
+        "The criterion is not a consequence of Huber 1.5.5 as stated: 1.5.5 needs properness (universal closedness), whereas A.1.2 replaces it by flatness plus locally constant rank; conversely A.1.2's conclusion implies properness.",
+        "Over a discretely valued k the statement is Abbes-Mokrane Lemme A.1 with 'separated'."
+      ],
+      "sources": [
+        {
+          "sourceId": "Conrad-ModularRigid-2006",
+          "locator": "Appendix A.1, Theorem A.1.2, p. 37",
+          "excerpt": "Let f: X -> Y be a flat map between rigid spaces. The map f is finite if and only if it is quasi-compact and separated with finite fibers and its fiber-rank is locally constant on Y.",
+          "match": "Exact statement and hypotheses of the finiteness criterion."
+        },
+        {
+          "sourceId": "Conrad-ModularRigid-2006",
+          "locator": "Appendix A.1, proof of Theorem A.1.2, p. 38",
+          "excerpt": "By [BL1, Prop. 4.7], the map f is automatically separated. By [BL2, Cor. 5.3], we may choose f to be quasi-finite. ... by [BL2, Thm. 5.2] we may also assume f is flat.",
+          "match": "Identifies the three Bosch-Lutkebohmert imports that remain unread."
+        },
+        {
+          "sourceId": "Conrad-ModularRigid-2006",
+          "locator": "Appendix A.1, Remark A.1.3, p. 37",
+          "excerpt": "we cannot use such completions because local rings on formal models are not noetherian when k is not discretely-valued.",
+          "match": "Why the noetherian F0 formal geometry cannot supply this criterion."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R2/topological-invariance-of-affinoid",
+      "parentStageId": "AdicSpacesPartII:R2",
+      "title": "Topological invariance of affinoidness and finiteness (Conrad A.1.1)",
+      "kind": "theorem",
+      "statement": "A rigid space X is affinoid iff X_red is affinoid; hence a morphism of rigid spaces is finite iff the induced morphism of reduced spaces is finite. Proof as read: i: Y_red -> Y induces a 'homeomorphism' of G-topologies (admissible opens and coverings lift uniquely), by reduction to affinoids and the Gerritzen-Grauert description of affinoid subdomains through rational and Weierstrass domains [BGR 7.3.5/3]; hence X is quasi-compact quasi-separated when X_red is affinoid and the nilpotent coherent ideal I allows induction to the square-zero case X_0 = Sp(A_0) ⊂ X; then A = O_X(X) is a k-Banach algebra of countable type via the left exact sequence over a finite affinoid cover, the extension 0 -> I -> A -> A_0 -> 0 with I a finite A_0-module, power-bounded lifts a_r of topological generators exist because power-boundedness is insensitive to nilpotents, [BGR 6.1.1/4] gives k⟨t,u⟩ -> A surjective, and the map ι: X -> Sp(A) is a closed immersion by [BGR 9.5.3/5], hence an isomorphism. The source notes that a Serre-type cohomological criterion for affinoidness is unavailable ([Liu] gives a qcqs surface with vanishing higher coherent cohomology that is not affinoid).",
+      "hypotheses": [
+        "Rigid spaces over a complete non-archimedean field k; no discreteness",
+        "Inputs from BGR (6.1.1/4, 7.3.5/3, 9.5.3/5) were not read"
+      ],
+      "proofSteps": [
+        "G-topology invariance under nil-thickening; reduction to square-zero ideals; Banach-algebra structure on global sections; lifting generators; closed-immersion criterion."
+      ],
+      "acceptance": [
+        "A finite morphism can be recognised on reduced spaces; Conrad uses this together with A.1.2 in the canonical subgroup construction."
+      ],
+      "sources": [
+        {
+          "sourceId": "Conrad-ModularRigid-2006",
+          "locator": "Appendix A.1, Theorem A.1.1, p. 36",
+          "excerpt": "A rigid space X is affinoid if and only if X_red is affinoid. In particular, a morphism f: Y -> Z between rigid spaces is finite if and only if the induced morphism Y_red -> Z_red is finite.",
+          "match": "Statement."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R3/tate-kiehl-affinoid",
+      "parentStageId": "AdicSpacesPartII:R3",
+      "title": "Tate acyclicity and Kiehl's coherent-sheaf equivalence for adic affinoid algebras over an analytic field (Kedlaya-Liu 2.5.20)",
+      "kind": "theorem",
+      "statement": "Let (A, A^+) be an adic Banach ring with A an affinoid algebra over an analytic field K (A^+ = A° not assumed). A is noetherian, every ideal is closed, finite A-modules are canonically finite Banach modules with continuous strict maps (2.5.2); Noether normalisation K{T_1..T_n} -> A finite strict (2.5.4); maximal ideals have residue fields finite over K and Maxspec(A) embeds in M(A) and in Spa(A,A^+) (2.5.5). Theorem 2.5.20: for an affinoid covering U of Spa(A,A^+) and a finite A-module M with associated O-module M̃, the Čech cohomology Ȟ^i(Spa(A,A^+), M̃; U) is M for i = 0 and 0 for i > 0 (in particular (A,A^+) is sheafy and H^i(Spa, M̃) = M, 0), and M -> M̃ is a tensor equivalence between finite A-modules and coherent O-modules; equivalently A -> B_1 ⊕ ... ⊕ B_n is an effective descent morphism for finite Banach modules. Corollary 2.5.21: closed-open subsets correspond to idempotents. The proofs are citations of Tate [BGR 8.2.1/5] and Kiehl [BGR 9.4.3/3].",
+      "hypotheses": [
+        "A an affinoid algebra over an analytic field K (Hypothesis 2.5.1); A^+ arbitrary ring of integral elements",
+        "The Tate and Kiehl proofs live in BGR, not in the library; only the reduction to the adic spectrum was read"
+      ],
+      "proofSteps": [
+        "Import Tate's acyclicity and Kiehl's theorem from BGR; KL check that the adic-spectrum formulation follows from the classical Maxspec statements via 2.5.9-2.5.19 (rational subdomains, Lemma 2.5.10 refinement of Maxspec coverings, Prop. 2.5.18 sheafiness)."
+      ],
+      "acceptance": [
+        "For A = K{T} the structure presheaf is a sheaf with vanishing higher Čech cohomology on rational coverings.",
+        "Coherent sheaves on an affinoid are exactly the M̃ for finite A-modules M."
+      ],
+      "sources": [
+        {
+          "sourceId": "KedlayaLiu-RelativeFoundations-2015",
+          "locator": "§2.5, Theorem 2.5.20, pp. 51-52",
+          "excerpt": "The functor M -> M̃ defines a tensor equivalence between finite A-modules and coherent sheaves of O-modules on Spa(A, A^+).",
+          "match": "Kiehl's theorem in the adic-spectrum formulation."
+        },
+        {
+          "sourceId": "KedlayaLiu-RelativeFoundations-2015",
+          "locator": "§2.5, proof of Theorem 2.5.20, p. 52",
+          "excerpt": "Part (a) is due to Tate; see [22, Corollary 8.2.1/5]. Part (b) is due to Kiehl; see [22, Theorem 9.4.3/3].",
+          "match": "Records that the proofs are imported from BGR."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R3/sheafy-tate-acyclicity-and-kiehl-gluing",
+      "parentStageId": "AdicSpacesPartII:R3",
+      "title": "Acyclicity of the structure sheaf and Kiehl gluing of finite projective modules over sheafy adic Banach rings (Kedlaya-Liu 2.4.23, 2.7.7)",
+      "kind": "theorem",
+      "statement": "Theorem 2.4.23: if (A,A^+) is sheafy then for every rational covering U of Spa(A,A^+), H^i(Spa, O) = Ȟ^i(Spa, O; U) equals A for i = 0 and 0 for i > 0; proof reduces by Proposition 2.4.21 to simple Laurent coverings, for which 0 -> A -> B_1 ⊕ B_2 -> B_{12} -> 0 is exact at B_{12} (Lemma 2.4.22) and, by sheafiness, at A and B_1 ⊕ B_2. Glueing squares (Definition 2.7.3): a commutative square R -> R_1, R_2 -> R_{12} of Banach rings with 0 -> R -> R_1 ⊕ R_2 -> R_{12} -> 0 strict exact, R_2 -> R_{12} of dense image, and M(R_1 ⊕ R_2) -> M(R) surjective. Lemma 2.7.2: for a strict surjection ψ: R_1 ⊕ R_2 -> S there is c > 0 such that every U ∈ GL_n(S) with |U - 1| < c factors as ψ(U_1)ψ(U_2). Lemma 2.7.4 / Proposition 2.7.5: for a finite projective glueing datum (M_1, M_2, M_{12}) on a glueing square, the kernel M of M_1 ⊕ M_2 -> M_{12} is a finite projective R-module with M ⊗_R R_i ≅ M_i. Definition 2.7.6 / Theorem 2.7.7: for sheafy (A,A^+) the structure sheaf satisfies the Tate sheaf property (acyclicity on every rational localisation) and the Kiehl glueing property (finite projective O(U)-modules ≅ locally free O-modules of finite rank on every rational U). Remark 2.7.1: rational localisation need not be flat in general (fails for perfectoid algebras), which is why only finite projective modules are glued.",
+      "hypotheses": [
+        "(A,A^+) sheafy (structure presheaf is a sheaf on every rational subspace)",
+        "Kiehl glueing is proved only for finite projective (locally free of finite rank) modules, not for all finite modules"
+      ],
+      "proofSteps": [
+        "Prove Čech acyclicity for simple Laurent coverings and reduce general rational coverings to them (Propositions 2.4.20-2.4.21).",
+        "Matrix factorisation (2.7.2) by successive approximation with constant d^{-2}.",
+        "Glue generators (2.7.4) by correcting the transition matrix with C_1 C_2^{-1}; conclude projectivity via Lemma 1.3.9 and surjectivity of Spec(R_1 ⊕ R_2) -> Spec R on maximal ideals through M(R).",
+        "Assemble 2.7.7 from acyclicity, 2.4.20 and 2.7.5."
+      ],
+      "acceptance": [
+        "For a sheafy affinoid, vector bundles on Spa(A,A^+) are finite projective A-modules.",
+        "For a perfectoid affinoid, rational localisation is not flat, so gluing of arbitrary finite modules is not asserted."
+      ],
+      "sources": [
+        {
+          "sourceId": "KedlayaLiu-RelativeFoundations-2015",
+          "locator": "§2.7, Theorem 2.7.7, p. 58",
+          "excerpt": "Let (A, A^+) be a sheafy adic Banach ring. Then the structure sheaf on Spa(A, A^+) satisfies the Tate sheaf property and the Kiehl glueing property.",
+          "match": "Statement with the sheafy hypothesis."
+        },
+        {
+          "sourceId": "KedlayaLiu-RelativeFoundations-2015",
+          "locator": "§2.7, Remark 2.7.1, p. 55",
+          "excerpt": "the map R -> S is flat when R is an affinoid algebra over an analytic field by Lemma 2.5.17, but need not be flat in general. For instance, flatness almost always fails for perfectoid algebras.",
+          "match": "Explains the restriction to finite projective modules."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R3/stably-uniform-sheafy",
+      "parentStageId": "AdicSpacesPartII:R3",
+      "title": "Stably uniform adic Banach rings are sheafy (Buzzard-Verberkmoes, Kedlaya-Liu 2.8.10) and the splitting criterion",
+      "kind": "lemma",
+      "statement": "A uniform Banach ring has norm equivalent to a power-multiplicative one (Definition 2.8.1); (A,A^+) is stably uniform if every rational localisation is uniform. Theorem 2.8.10: a stably uniform adic Banach ring is sheafy (proof: Corollary 2.8.9 verifies the criterion of Proposition 2.4.21 for simple Laurent coverings). Remark 2.8.11: whether every sheafy uniform ring is stably uniform is open; a sheafy ring with a rational covering by stably uniform rings is stably uniform. Remark 2.8.12: if A -> B is a bounded morphism of adic Banach rings with B stably uniform and A -> B split in Banach A-modules, then A is stably uniform (the splitting persists under rational localisation, and uniformity follows from criterion (c) of 2.8.1).",
+      "hypotheses": [
+        "Adic Banach rings in KL's sense (Banach rings with a topologically nilpotent unit in the relevant statements)",
+        "Uniformity/stable uniformity as in Definition 2.8.1"
+      ],
+      "proofSteps": [
+        "Corollary 2.8.9 exactness for simple Laurent coverings of uniform rings via the spectral seminorm; apply 2.4.21."
+      ],
+      "acceptance": [
+        "Perfectoid algebras are stably uniform and hence sheafy (KL 3.6.15, not read here); sousperfectoid rings are stably uniform via the splitting criterion (Berkeley 6.3.4)."
+      ],
+      "sources": [
+        {
+          "sourceId": "KedlayaLiu-RelativeFoundations-2015",
+          "locator": "§2.8, Theorem 2.8.10, p. 62",
+          "excerpt": "A stably uniform adic Banach ring is sheafy.",
+          "match": "The sheafiness criterion used for sousperfectoid spaces."
+        },
+        {
+          "sourceId": "KedlayaLiu-RelativeFoundations-2015",
+          "locator": "§2.8, Remark 2.8.12, p. 62",
+          "excerpt": "if (A, A^+) -> (B, B^+) is a bounded morphism of adic Banach rings such that B is stably uniform and A -> B splits in the category of Banach modules over A, then A is stably uniform.",
+          "match": "The splitting criterion behind Proposition 6.3.4 of the Berkeley lectures."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R4/etale-site-and-rigid-comparison",
+      "parentStageId": "AdicSpacesPartII:R4",
+      "title": "The etale site of an adic space and the equivalence with the rigid etale topos (Huber 2.1)",
+      "kind": "comparison",
+      "statement": "The etale site X_et of an adic space X is Et/X (adic spaces etale over X) with coverings the families (U_i -> U) whose images cover U (surjective families); this is a site by 1.6.7 and 1.2.3.iii.d, and f: X -> Y induces a morphism of sites via base change (1.5.3.ii, 1.7.4). Definition 2.1.1: an etale morphism of rigid varieties is strongly surjective if every quasi-compact admissible open of the target is the image of finitely many quasi-compact admissible opens of the source; the rigid etale site uses strongly surjective families ([SS, §1]). Lemma 2.1.2: f strongly surjective iff r(f) surjective (via pro-constructibility of images of quasi-compact opens under the spectral maps f_i, determination of constructible sets by rigid points, and openness of etale maps 1.7.8/1.7.11). (2.1.3): r commutes with the site morphisms. Proposition 2.1.4: ρ_X: r(X)~_et -> X~_et is an equivalence of topoi; proof: r is an equivalence between the quasi-separated subsites X'_et and r(X)'_et (by 1.1.11, 1.7.11, 2.1.2), every object has a covering by quasi-separated objects, so the comparison lemma [SGA 4, III.4.1] applies. (2.2.1)-(2.2.2): locally constant functions form a sheaf; Hom_X(-, Z) is a sheaf on X_et if Z is etale over X (proof read: descent of a morphism with h∘p_1 = h∘p_2 through the image U, Zariski's main theorem giving Z open in a finite T, and the finite etale A -> B being bijective by comparing maximal ideals via [Hu, 1.4]) or if X is analytic (proof via a criterion (1) with open and finite-etale coverings, not read).",
+      "hypotheses": [
+        "Etale morphisms as in 1.6.5; coverings by surjective families",
+        "2.1.4 is a statement about topoi of sheaves of sets on the two sites; the site morphism uses the quasi-separated subsites",
+        "2.2.2(b) (X analytic) relies on Lemma 2.2.8 and [JP, 3.2.2], not read"
+      ],
+      "proofSteps": [
+        "Define X_et and the pullback site morphism; prove 2.1.2 in both directions.",
+        "Prove 2.1.4 by the comparison lemma on quasi-separated subsites.",
+        "2.2.2(a): reduce to X, Z affinoid, show U = h(Y) is closed and open in a finite T, and that O_T(U) ≅ O_X(X)."
+      ],
+      "acceptance": [
+        "For a rigid variety X, sheaves on the rigid etale site are the same as sheaves on r(X)_et; every etale cohomology statement for adic spaces transfers.",
+        "The identification uses only quasi-separated etale objects, in line with the (1.1.11) equivalence."
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§2.1, Proposition 2.1.4, p. 111",
+          "excerpt": "For every rigid analytic variety X, the morphism of toposes ρ_X: r(X)~_et -> X~_et induced by p_X is an equivalence.",
+          "match": "The site/topos comparison R4 is to reexport."
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§2.1, p. 109",
+          "excerpt": "The etale site X_et of an adic space X is the category Et/X of adic spaces etale over X equipped with the Grothendieck topology such that a family (U_i -> U) of morphisms in Et/X is a covering if and only if U = ∪ f_i(U_i)",
+          "match": "Definition of the adic etale site."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R5/sousperfectoid-rings",
+      "parentStageId": "AdicSpacesPartII:R5",
+      "title": "Sousperfectoid Tate rings: stability under rational localisation, finite etale extension and Tate algebras, and sheafiness (Scholze-Weinstein 6.3, after Hansen-Kedlaya)",
+      "kind": "theorem",
+      "statement": "Definition 6.3.1: a complete Tate Z_p-algebra R is sousperfectoid if there is a perfectoid Tate ring R̃ with an injection R -> R̃ that splits as topological R-modules. Examples: perfectoid rings; Q_p⟨T⟩ via R̃ = Q_p^cycl⟨T^{1/p^∞}⟩. Proposition 6.3.3: for sousperfectoid R with a ring of integral elements R^+ and X = Spa(R,R^+): (1) O_X(U) is sousperfectoid for every rational U; (2) every finite etale R-algebra S is sousperfectoid; (3) R⟨T_1..T_n⟩ is sousperfectoid. Proof: R̃ ⊗̂_R O_X(U) = O_{X̃}(Ũ) is perfectoid and O_X(U) is a topological direct summand; S̃ = R̃ ⊗̂_R S is perfectoid by Theorem 7.4.5(1) and S is a direct summand; similarly R⟨T⟩ -> R̃⟨T^{1/p^∞}⟩. Proposition 6.3.4: a Tate-Huber pair (R,R^+) with R sousperfectoid is stably uniform, hence sheafy; proof: stability under rational localisation reduces to uniformity, R° -> R̃° suffices, and this is checked through maps R -> K to non-archimedean fields using that K -> R̃ ⊗̂_R K is injective (split) and O_L ∩ K = O_K.",
+      "hypotheses": [
+        "R a complete Tate Z_p-algebra; R^+ any ring of integral elements",
+        "Item (2) of 6.3.3 uses Theorem 7.4.5(1) (finite etale algebras over perfectoid rings are perfectoid), not read; this is the almost-purity input",
+        "Sheafiness follows via stably uniform ⇒ sheafy (Buzzard-Verberkmoes), Berkeley Theorem 6.1.10 / KL 2.8.10"
+      ],
+      "proofSteps": [
+        "Direct-summand argument for (1)-(3).",
+        "Uniformity via nonarchimedean-field quotients and the splitting."
+      ],
+      "acceptance": [
+        "Q_p⟨T⟩ and any smooth rigid space over a perfectoid field are sousperfectoid; a product of a perfectoid ring with a Tate algebra is sousperfectoid but not asserted to be perfectoid.",
+        "Spa(R,R^+) is an adic space (sheafy) for sousperfectoid R."
+      ],
+      "sources": [
+        {
+          "sourceId": "ScholzeWeinstein-Berkeley-2020",
+          "locator": "§6.3, Definition 6.3.1, p. 47",
+          "excerpt": "Then R is sousperfectoid if there exists a perfectoid Tate ring R̃ with an injection R -> R̃ that splits as topological R-modules.",
+          "match": "Definition."
+        },
+        {
+          "sourceId": "ScholzeWeinstein-Berkeley-2020",
+          "locator": "§6.3, Proposition 6.3.4, p. 48",
+          "excerpt": "Let (R, R^+) be a Tate-Huber pair such that R is sousperfectoid. Then (R, R^+) is stably uniform, and thus sheafy.",
+          "match": "Sheafiness of sousperfectoid pairs."
+        },
+        {
+          "sourceId": "ScholzeWeinstein-Berkeley-2020",
+          "locator": "§6.3, proof of Proposition 6.3.3, p. 48",
+          "excerpt": "if S is a finite étale R-algebra, then S̃ = R̃ ⊗_R S = R̃ ⊗̂_R S is a perfectoid Tate ring by Theorem 7.4.5 (1) below",
+          "match": "Locates the unread almost-purity import."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product",
+      "parentStageId": "AdicSpacesPartII:R5",
+      "title": "Existence of X ×_L Y as a sousperfectoid adic space for X perfectoid and Y smooth rigid (BHW Corollary 3.4) and the weight-space product",
+      "kind": "construction",
+      "statement": "Definition 3.2 (BHW): sousperfectoid Tate Z_p-algebras, Huber pairs and adic spaces (covered by affinoids Spa(R,R^+) with R sousperfectoid). Proposition 3.3 = Berkeley 6.3.4: sousperfectoid Huber pairs are stably uniform, so Spa(R,R^+) is a sheafy adic space. Corollary 3.4: for X a perfectoid space over L and Y a rigid space smooth over a perfectoid extension L'/L, the fibre product X ×_L Y exists as a sousperfectoid adic space. Proof: by Huber's Corollary 1.6.10 cover Y by opens etale over a disc B = Spa(L'⟨X_1..X_n⟩); fibre products of perfectoid spaces are perfectoid, so assume L = L' and X = Spa(S,S^+) affinoid perfectoid; X ×_L B = Spa(S⟨X_1..X_n⟩, ...) exists and is sousperfectoid by 6.3.3(i),(iii); then X ×_L Y = (X ×_L B) ×_B Y exists and is sousperfectoid because etale algebras over sousperfectoid algebras are sousperfectoid (6.3.3(ii)). Corollary 3.5 (statement only): for U smooth over L, X^*_{U,Γ(p^∞)}(ε)_a := X^*_{Γ(p^∞)}(ε)_a ×_L U exists as a sousperfectoid adic space and is the tilde-limit of the finite-level products.",
+      "hypotheses": [
+        "X perfectoid over L; Y smooth over a perfectoid extension L' of L (BHW's hypothesis); the reduction 'assume L = L'' uses that fibre products of perfectoid spaces are perfectoid",
+        "Etale-over-disc local structure of smooth rigid spaces: Huber Corollary 1.6.10 (read, node R0/differentials-unramified-smooth-etale)",
+        "Etale (not only finite etale) algebras over sousperfectoid algebras being sousperfectoid is attributed by BHW to Berkeley 6.3.3(ii); 6.3.3(2) as read states the finite etale case, and the general etale case needs the rational-localisation clause (1) in addition"
+      ],
+      "proofSteps": [
+        "Local structure of Y; reduce to affinoid perfectoid X and the disc; apply 6.3.3; base change along the etale map Y -> B."
+      ],
+      "acceptance": [
+        "The product of a perfectoid space with a smooth weight space is sousperfectoid, hence an adic space; it is not claimed to be perfectoid.",
+        "Finite-level products X^*_{U,Γ(p^n)}(ε)_a have the infinite-level product as tilde-limit (statement only)."
+      ],
+      "sources": [
+        {
+          "sourceId": "BHW-OverconvergentHilbert-2023",
+          "locator": "§3.1, Corollary 3.4, p. 1724",
+          "excerpt": "Let X be a perfectoid space over L and let Y be a rigid space smooth over a perfectoid extension L'/L. Then the fibre product X ×_L Y exists as a sousperfectoid adic space.",
+          "match": "The R5 product existence statement with its hypotheses."
+        },
+        {
+          "sourceId": "BHW-OverconvergentHilbert-2023",
+          "locator": "§3.1, proof of Corollary 3.4, pp. 1724-1725",
+          "excerpt": "The fibre product X ×_L Y = (X ×_L B) ×_B Y now exists and is sousperfectoid because algebras étale over a sousperfectoid algebra are again sousperfectoid (Proposition 6.3.3.(ii) op. cit.).",
+          "match": "Identifies the exact Berkeley inputs used."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "AdicSpacesPartII:R0/finite-morphisms",
+      "target": "AdicSpacesPartII:R0/quasi-finite-and-finiteness-criteria",
+      "reason": "Lemma 1.4.7 (finiteness near a point with proper fibre) and Lemma 1.4.9 (descent of finiteness along a finite faithfully flat affinoid map) are the two inputs that the proof of Proposition 1.5.5 combines with the disjointness of generalisation sets.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.5, proof of Proposition 1.5.5, pp. 69-70: 'there exists by (1.4.7) and (1.2.4) an open neighbourhood L_i' and 'This implies by (1.4.9) that f^{-1}(U) -> U is finite.'"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R0/separated-proper-partially-proper",
+      "target": "AdicSpacesPartII:R0/quasi-finite-and-finiteness-criteria",
+      "reason": "The proof of 1.5.5 uses the valuative description of centers (1.3.6) and separatedness (1.3.7) to show the generalisation sets G_i are disjoint; 1.5.6 uses 1.3.9, 1.3.12 and 1.3.13.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.5, proof of (2) in Proposition 1.5.5, p. 69, and proof of Proposition 1.5.6, pp. 70-71"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R0/differentials-unramified-smooth-etale",
+      "target": "AdicSpacesPartII:R0/etale-local-structure",
+      "reason": "Proposition 1.7.1 (i)=>(ii) chooses f_1..f_m from the identification J/J^2 ≅ Ω ⊗ C/J given by 1.6.3.ii, 1.6.8 and 1.6.9.ii, and (iii)=>(i) uses 1.6.7.i and 1.6.9.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.7, proof of Proposition 1.7.1, p. 81 and p. 85"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R0/etale-local-structure",
+      "target": "AdicSpacesPartII:R4/etale-site-and-rigid-comparison",
+      "reason": "The etale site's coverings and the site morphisms use 1.6.7 (base change of etale maps), 1.7.4 (unramified implies locally quasi-finite) and 1.5.3.ii; Lemma 2.1.2 uses openness of etale maps (1.7.8 via 1.7.11); Proposition 2.1.4 uses 1.7.11.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§2.1, p. 109 (site definition citing (1.6.7), (1.2.3.iii.d), (1.5.3.ii), (1.7.4)); proof of Lemma 2.1.2, p. 110; proof of Proposition 2.1.4, p. 111"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R0/differentials-unramified-smooth-etale",
+      "target": "AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product",
+      "reason": "BHW's proof of Corollary 3.4 covers the smooth rigid space Y by opens etale over a disc, citing Huber's Corollary 1.6.10 (smooth = locally etale over a relative ball, with all M_i = {1} over a Tate base).",
+      "sources": [
+        {
+          "sourceId": "BHW-OverconvergentHilbert-2023",
+          "locator": "§3.1, proof of Corollary 3.4, p. 1724: 'By [18, Corollary 1.6.10], the smooth rigid space Y can be covered by open subspaces which are étale over some disc'"
+        },
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.6, Corollary 1.6.10, p. 80"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R3/stably-uniform-sheafy",
+      "target": "AdicSpacesPartII:R5/sousperfectoid-rings",
+      "reason": "Proposition 6.3.4 concludes 'stably uniform, and thus sheafy'; the implication is the Buzzard-Verberkmoes theorem (KL 2.8.10), and the uniformity argument is the splitting criterion of KL Remark 2.8.12.",
+      "sources": [
+        {
+          "sourceId": "ScholzeWeinstein-Berkeley-2020",
+          "locator": "§6.3, Proposition 6.3.4 and proof, p. 48"
+        },
+        {
+          "sourceId": "KedlayaLiu-RelativeFoundations-2015",
+          "locator": "§2.8, Theorem 2.8.10 and Remark 2.8.12, p. 62"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R5/sousperfectoid-rings",
+      "target": "AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product",
+      "reason": "BHW Corollary 3.4 uses 6.3.3(i),(iii) for S⟨X_1..X_n⟩ and 6.3.3(ii) for etale base change, and Proposition 3.3 (= 6.3.4) for sheafiness of the resulting affinoids.",
+      "sources": [
+        {
+          "sourceId": "BHW-OverconvergentHilbert-2023",
+          "locator": "§3.1, Proposition 3.3 and proof of Corollary 3.4, pp. 1724-1725"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R2/formal-schemes-of-type-S",
+      "target": "AdicSpacesPartII:R2/generic-fibre-functor-d",
+      "reason": "Proposition 1.9.1 is stated for formal schemes of type (S) and its proof splits according to the alternatives (a)/(b) of condition (S).",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.9, Proposition 1.9.1 and proof, pp. 96-97"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R2/generic-fibre-functor-d",
+      "target": "AdicSpacesPartII:R2/formal-completion-and-algebraic-comparison",
+      "reason": "The morphism σ_X: d(X̂) -> X is defined through λ of 1.9.1 and the comparison φ is a morphism of adic spaces d(f̂) over d(Ŷ).",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.9, (1.9.4)-(1.9.5), p. 98"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R1/rigid-adic-comparison-functor",
+      "target": "AdicSpacesPartII:R2/generic-fibre-functor-d",
+      "reason": "Example 1.9.2.ii compares d(X) with r(s(X)), so the comparison of the adic generic fibre with Raynaud's rigid generic fibre passes through the functor r of (1.1.11).",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.9, Example 1.9.2.ii, pp. 97-98"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R1/scheme-fibre-product-analytification",
+      "target": "AdicSpacesPartII:R2/formal-completion-and-algebraic-comparison",
+      "reason": "The target X ×_Y d(Ŷ) of the comparison map φ in (1.9.5) is the scheme/adic fibre product of [Hu, 3.8] introduced in (1.2.7).",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§1.9, (1.9.5), p. 98: 'By [Hu, 3.8] we have the fibre product X ×_Y d(Y) which is an adic space over d(Y).'"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R2/generic-fibre-functor-d",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "reason": "H1:formal-adic-comparison constructs the specialization morphism λ_X: d(X)_et -> X_et for formal schemes of type (S) (Huber 3.5.1); the carrier λ_X: d(X) -> X and the functor d are exactly the outputs of Proposition 1.9.1, which §3.5 cites at its opening. The consumer's stage description names 'a formal scheme of type (S) in Hub96 §1.9' explicitly.",
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "§3.5, p. 201: 'In (1.9.1) we associated with every formal scheme X of type (S) an analytic adic space d(X). In this paragraph we study the relation between the etale cohomology of X and the etale cohomology of d(X) induced by the morphism of sites λ_X: d(X)_et -> X_et'"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R2/topological-invariance-of-affinoid",
+      "target": "AdicSpacesPartII:R2/fibral-finiteness-criterion",
+      "reason": "Both results are stated in Conrad's A.1 as the two properties of finite morphisms needed without discreteness; A.1.1 is used in the paper alongside A.1.2 (e.g. the finiteness of [n] in §2.2 and the Frobenius-lift arguments), but A.1.2's proof itself does not invoke A.1.1. Recorded as a same-appendix companion, not as a proof dependency.",
+      "sources": [
+        {
+          "sourceId": "Conrad-ModularRigid-2006",
+          "locator": "Appendix A.1, p. 36: 'There are two properties of finite morphisms that we require, the topological invariance of finiteness and a fibral criterion for finiteness.'"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R3/sheafy-tate-acyclicity-and-kiehl-gluing",
+      "target": "AdicSpacesPartII:R3/tate-kiehl-affinoid",
+      "reason": "KL Remark 2.7.8 notes that adic affinoid algebras over an analytic field are sheafy by Theorem 2.5.20, so the general sheafy statements 2.4.23/2.7.7 apply to them; conversely the classical Tate/Kiehl theorem is the model for the finite-projective gluing statement.",
+      "sources": [
+        {
+          "sourceId": "KedlayaLiu-RelativeFoundations-2015",
+          "locator": "§2.7, Remark 2.7.8, p. 58"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "AdicSpacesPartII:R0",
+      "status": "partial",
+      "remaining": [
+        "Completed tensor products with their topology and plus-ring, and the universal property of A⟨T⟩_M and of B ⊗̂ C: Huber 1994 (Math. Z. 217) §§1-3 is cited ([Hu, 3.5], [Hu, §2-3]) but absent from the library; only the fibre-product construction of 1.2.2 was read.",
+        "Sheafiness of the affinoid rings appearing in fibre products (strongly noetherian or otherwise): not addressed in the read sections; Huber's sheafiness theorem (Math. Z. 1994, Thm. 2.2) unread.",
+        "Propositions 1.6.7-1.6.9 are asserted by analogy with schemes; their proofs need to be written from EGA/Iversen.",
+        "Independence of presentation for smooth/etale (1.7.1-1.7.2 give perturbation stability; the general presentation-independence is via the intrinsic definition 1.6.5).",
+        "Lemma 1.7.6 is proved only in the two cases named in the node; a general flatness statement is not in the source.",
+        "The gluing of fibre products to locally strongly noetherian analytic spaces beyond affinoids is implicit in 1.2.2 (affinoid reduction) and was not separately verified."
+      ]
+    },
+    {
+      "stageId": "AdicSpacesPartII:R1",
+      "status": "partial",
+      "remaining": [
+        "The construction X ×_S T of [Hu, 3.8] (existence, independence of charts, gluing, compatibility with fibre products and immersions) is unread; only its use in 1.2.7, 1.7.3 and 1.9.5 was read.",
+        "Compatibility of analytification with finite maps, smoothness and etaleness: only the etale case (1.7.3.i) was read; smooth and finite cases unread.",
+        "Properness comparison 1.3.18-1.3.19 rests on [Hu4] and [L1], unread; discreteness caveat recorded.",
+        "Proper GAGA (Kopf; Conrad, Relative ampleness) is not in Huber's book and no copy is in the library; Conrad's paper only cites 'GAGA over fields/artin rings'.",
+        "Analytification of finite locally free group schemes, abelian schemes, isogenies and invariant differentials: not read (Conrad §2-3 partially covers generalized elliptic curves but was not read for this)."
+      ]
+    },
+    {
+      "stageId": "AdicSpacesPartII:R2",
+      "status": "partial",
+      "remaining": [
+        "Admissible formal schemes and admissible blow-ups (Bosch-Lutkebohmert I/II, Raynaud): no source in the library; Huber 1.9.2.ii only states the comparison d(X) ≅ r(s(X)) without proof.",
+        "Proof of Proposition 1.9.6 (local isomorphism, injectivity, surjectivity of φ) is absent from the source.",
+        "[Hu, 4.1, 4.6] construction of t and of λ in the noetherian case unread.",
+        "Conrad Theorem 3.1.6 proof read only in its first paragraph; Theorem 4.1.1's reduction inputs (Theorem 3.2.3, Corollary 2.2.5, [C1, 5.3.1(4)]) unread.",
+        "Bosch-Lutkebohmert inputs of A.1.2 ([BL1, 3.5], [BL1, 4.7], [BL2, 5.2], [BL2, 5.3]) and EGA inputs of A.1.4 unread.",
+        "A rational-subdomain-by-line-bundle-section construction with valuation bounds (the stage's formulation) was not found in the read sources; Conrad's Hasse loci use a formal-group coefficient instead.",
+        "Fractional p-valuation bounds via valuation ideals or chosen root extensions: not read."
+      ]
+    },
+    {
+      "stageId": "AdicSpacesPartII:R3",
+      "status": "partial",
+      "remaining": [
+        "Tate acyclicity and Kiehl's theorem proofs (BGR 8.2.1/5, 9.4.3/3) unread; only the adic-spectrum reformulation and the sheafy/finite-projective generalisation were read.",
+        "Coherence of proper direct images (Kiehl-type finiteness): only Huber Remark 1.3.17 with its [Hu4, 3.12.13] import; no proof read.",
+        "Analytic comparison statements for compactifications: not read.",
+        "Trace for finite locally free algebras and finite etale analytic maps, base change and composition laws, compatibility with the algebraic trace, and pull-identify-trace on coefficient sheaves: no source read. Library check: Mathlib.RingTheory.Trace.Defs defines Algebra.trace (noncomputable def trace : S →ₗ[R] R) with trace_eq_matrix_trace; the TauCeti project has no adic-space or sheaf-trace primitives (grep for 'Huber', 'AdicSpace', 'Spa (' found only topological-ring files); sheaf-level trace remains unchecked."
+      ]
+    },
+    {
+      "stageId": "AdicSpacesPartII:R4",
+      "status": "partial",
+      "remaining": [
+        "The pro-etale site (Scholze, p-adic Hodge theory for rigid-analytic varieties, §3, available as SS_ScholzePadicHodge in the library) was not read; R4 reexports AdicEtaleGeometry:A1, whose packet is not yet written.",
+        "Huber 2.2.2 case (b) and Lemma 2.2.8, and the geometric points / strict localisation material of §2.5, unread.",
+        "Restriction of sites to a smooth pair's boundary complement: not read."
+      ]
+    },
+    {
+      "stageId": "AdicSpacesPartII:R5",
+      "status": "partial",
+      "remaining": [
+        "Berkeley Theorem 7.4.5(1) (finite etale over perfectoid is perfectoid; almost purity) unread.",
+        "The 'etale' (not only finite etale) stability claimed by BHW for 6.3.3(ii) needs the combination of 6.3.3(1) and (2) plus Huber's local structure 1.7.1; this reconciliation was not read in a source.",
+        "Completed coefficient sheaves, torsor descent, sheaf base change and equalizer results, and the local compatibility of rational and integral sheaves (BHW §3.2 onwards) unread.",
+        "Hansen-Kedlaya 'Sheafiness criteria for Huber rings' (the original source of 6.3.1-6.3.4) not in the library."
+      ]
+    },
+    {
+      "stageId": "AdicSpacesPartII:F0",
+      "status": "not_read",
+      "remaining": [
+        "Spf of complete separated noetherian adic rings, formal functions, formal GAGA (EGA I §10, EGA III §§4-5 or Stacks Project 'Formal algebraization'/'Cohomology of Schemes' chapters): not read; no copy in the library text directory (only Stacks Crystalline/Divided-power chapters are extracted).",
+        "Noetherian formal fibre products, stability of finite and etale morphisms, Jacobian criteria: not read.",
+        "Note for the F0 reader: Huber 1.9 handles noetherian formal schemes through t(X)_a of [Hu, 4.1], and Conrad §3.1 handles locally noetherian formal schemes over an adic noetherian C; neither covers non-noetherian O_K-formal models."
+      ]
+    },
+    {
+      "stageId": "AdicSpacesPartII:F1",
+      "status": "not_read",
+      "remaining": [
+        "Dagger algebras and overconvergent de Rham complexes (Grosse-Klonne, Rigid analytic spaces with overconvergent structure sheaf, J. reine angew. Math. 519 (2000)) not in the library; nothing read."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Huber 1994 (Math. Z. 217, 'A generalization of formal schemes and rigid analytic varieties') absent from the library",
+      "neededBy": [
+        "AdicSpacesPartII:R0/fibre-products-existence",
+        "AdicSpacesPartII:R1/scheme-fibre-product-analytification",
+        "AdicSpacesPartII:R1/rigid-adic-comparison-functor",
+        "AdicSpacesPartII:R2/generic-fibre-functor-d"
+      ],
+      "detail": "Huber's book imports from [Hu]: the universal property of A⟨T⟩_M [Hu, 3.5] used in the proof of 1.2.2 and 1.7.1; the fibre product X ×_S T of a scheme with an adic space [Hu, 3.8] used for analytification and for 1.9.5; the functor t and the map π [Hu, 4.1, 4.6] used in the noetherian case of 1.9.1; the functor r [Hu, 4.3]; the maximal-ideal/support statement [Hu, 1.4] used in 2.2.2. Next action: obtain the Math. Z. article (Springer, DOI 10.1007/BF02571959) and read §§1-4."
+    },
+    {
+      "title": "Huber's habilitation [Hu4] (Bewertungsspektrum und rigide Geometrie, Regensburger Math. Schriften 23, 1993) absent",
+      "neededBy": [
+        "AdicSpacesPartII:R0/closed-adic-subspaces-and-embeddings",
+        "AdicSpacesPartII:R0/finite-morphisms",
+        "AdicSpacesPartII:R1/proper-separated-comparisons",
+        "AdicSpacesPartII:R2/formal-completion-and-algebraic-comparison"
+      ],
+      "detail": "Imports: closed adic subspaces [Hu4, 3.6]; finiteness for every affinoid open [Hu4, 3.6.20, 3.12.12]; finite affinoid rings [Hu4, 3.12.10]; the general valuative criteria and the formal/rigid properness comparison [Hu4, 3.11, 3.13, 3.11.21]; coherence of proper direct images [Hu4, 3.12.13]; σ_X characterisation [Hu4, 3.10.7]. No public copy is known; the statements are recorded as boundaries."
+    },
+    {
+      "title": "Bosch-Lutkebohmert, Formal and rigid geometry I (Math. Ann. 295) and II (Math. Ann. 296) absent; Conrad A.1.2 depends on them",
+      "neededBy": [
+        "AdicSpacesPartII:R2/fibral-finiteness-criterion",
+        "AdicSpacesPartII:R2/hasse-loci-admissible-opens"
+      ],
+      "detail": "The proof of Theorem A.1.2 uses [BL1, Prop. 4.7] (separatedness of a formal model of a separated map), [BL2, Cor. 5.3] (existence of a quasi-finite formal model after admissible blow-up), [BL2, Thm. 5.2] (flattening by admissible blow-up), and Lemma A.1.5 uses [BL1, §3.5] (rig-points). Lemma A.1.4 additionally uses [EGA IV_4, 18.5.11(c)] and [EGA IV_3, 9.8.8], unread here. Consequence for the PadicFamilies gap 'Formal-model finiteness beyond the existing geometric outline': no existing stage of data/atlas.json states these results (AdicSpacesPartII:R2 promises admissible formal schemes, blow-ups and the generic-fibre functor but no flattening or quasi-finite-model theorem; F0 is restricted to complete noetherian adic rings; AdicEtaleGeometry:A2 only supplies formal models 'in the scope required by H1'). The node AdicSpacesPartII:R2/fibral-finiteness-criterion is the proposed home; it becomes a genuine supplier only after the [BL1]/[BL2] and EGA inputs are read and decomposed. Next action: acquire Math. Ann. 295 (1993) 291-317 and 296 (1993) 403-429 (Springer/DigiZeitschriften) and read §3.5, §4 of I and §5 of II."
+    },
+    {
+      "title": "Proper GAGA and analytification of group schemes for R1 have no source in the library",
+      "neededBy": [
+        "AdicSpacesPartII:R1/scheme-fibre-product-analytification",
+        "AdicSpacesPartII:R1/proper-separated-comparisons"
+      ],
+      "detail": "Huber's book contains no GAGA theorem; Conrad's paper invokes 'GAGA over fields' (full faithfulness of analytification on proper k-schemes plus compatibility with coherent cohomology) and 'GAGA over artin rings' as known, citing Kopf (Math. Schriften Münster 1974) and [C3] (Relative ampleness). Neither is in the library. Next action: acquire Conrad, Relative ampleness in rigid geometry (Ann. Inst. Fourier 56 (2006)), §§2-4 and Kopf's thesis, or use the algebraic-coefficient GAGA of Huber's Chapter 3 comparison theorems if that suffices for the consumers."
+    },
+    {
+      "title": "BGR proofs of Tate acyclicity and Kiehl's theorem unread",
+      "neededBy": [
+        "AdicSpacesPartII:R3/tate-kiehl-affinoid"
+      ],
+      "detail": "Kedlaya-Liu 2.5.20 cites [BGR, 8.2.1/5] and [BGR, 9.4.3/3]; Bosch-Guntzer-Remmert is not in the library. The finite-projective version 2.7.7 was read with proof and can serve consumers needing vector-bundle gluing over sheafy affinoids; consumers needing all coherent sheaves over affinoid algebras still depend on Kiehl's theorem. Next action: read BGR §§8.2 and 9.4 (or Bosch, Lectures on Formal and Rigid Geometry, LNM 2105, §§4.3-4.5 and 6.3)."
+    },
+    {
+      "title": "Trace along finite locally free / finite etale analytic maps and pull-identify-trace on coefficient sheaves has no source read",
+      "neededBy": [
+        "AdicSpacesPartII:R3"
+      ],
+      "detail": "The R3 stage requires trace maps with base change and composition laws and compatibility with the algebraic trace. Nothing in Huber's Chapter 1-2, Kedlaya-Liu Chapter 2 or the read parts of the Berkeley lectures constructs a coherent-sheaf trace. Candidate algebraic primitive: Mathlib.RingTheory.Trace.Defs (Algebra.trace, trace_eq_matrix_trace) for finite free algebras; sheaf-level statements unchecked. Next action: source the trace from SGA 4 XVII 6.2 (trace for finite flat morphisms in the etale setting) or from Conrad's 'Relative ampleness' / BGR for coherent sheaves, then decompose."
+    },
+    {
+      "title": "Proof of Huber Proposition 1.9.6 not written in the source",
+      "neededBy": [
+        "AdicSpacesPartII:R2/formal-completion-and-algebraic-comparison"
+      ],
+      "detail": "The source says 'One can easily prove'. A complete argument (local isomorphism, injectivity from separatedness, surjectivity from universal specialization) must be supplied and checked; the roadmap's identification of the 'integral/good-reduction locus' as the image of φ is a consequence to be verified in that proof."
+    },
+    {
+      "title": "Pro-etale site and A1 reexport not read",
+      "neededBy": [
+        "AdicSpacesPartII:R4"
+      ],
+      "detail": "R4 is a reexport of AdicEtaleGeometry:A1; the pro-etale site of Scholze (p-adic Hodge theory for rigid-analytic varieties §3, in the library as SS_ScholzePadicHodge) and its corrected covering convention were not read. Next action: read Scholze §3 (Definitions 3.9-3.12, Lemma 3.16, Proposition 3.15) when writing the AdicEtaleGeometry packet, then reference from R4."
+    },
+    {
+      "title": "F0 and F1 sources not read",
+      "neededBy": [
+        "AdicSpacesPartII:F0",
+        "AdicSpacesPartII:F1"
+      ],
+      "detail": "F0 (noetherian formal schemes, formal functions, formal GAGA) needs EGA I §10 / EGA III §§4-5 or the Stacks Project chapters on formal algebraization; F1 needs Grosse-Klonne's dagger spaces. None is in the library. Next action: download the Stacks Project chapters (public) for F0; acquire Grosse-Klonne J. reine angew. Math. 519 for F1."
+    }
+  ]
+}

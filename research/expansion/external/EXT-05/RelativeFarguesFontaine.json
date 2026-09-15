@@ -1,0 +1,1348 @@
+{
+ "roadmapId": "RelativeFarguesFontaine",
+ "status": "partial",
+ "summary": "Source decomposition of the relative Fargues-Fontaine curve from Fargues-Scholze Chapter II.1, II.2.3, III.3 and VI.1, with the Beauville-Laszlo and G-torsor transfer read in Scholze-Weinstein's Berkeley Lectures. Covers: the ramified Witt lift and its universal property; the integral period space Y-curly_S with its rational charts, perfectoid base change to O_{E_infty} and the topological direct-summand derivation of sheafiness; the diamond formula Spd O_E x S; gluing over a general base; the radius function, affinoid annuli and Stein exhaustion; the Frobenius quotient X_S and its diamond; the degree-d divisor moduli with the product Cartier equation at coincident legs, affineness scope and v-descent of bundles on the divisor; the completed rings B^+ and B, specialising to B^+_dR at d = 1; the untilt/primitive-ideal correspondence and the Shilov-boundary norm estimate making an untilt a closed Cartier divisor; Div^1 = Spd(E)/phi^Z with its properness and cohomological smoothness; the isocrystal normalization of O(n) with its explicit sign reversal; the formal construction of X_S -> Proj P; and Beauville-Laszlo gluing with its Tannakian transfer to G-torsors. Every node's hypotheses are taken from the passage read. Ampleness/GAGA (FS II.2.6, II.2.7 equivalence) is deliberately left to VectorBundlesAndIsocrystals VB2:ampleness and only the formal map is claimed here.",
+ "sources": [
+  {
+   "id": "FS-geometrization",
+   "title": "Geometrization of the local Langlands correspondence",
+   "authors": "Laurent Fargues, Peter Scholze",
+   "edition": "Author-hosted 356-page PDF (MPIM Bonn), inspected 2026-09-15; corresponds to arXiv:2102.13459v4 by metadata and contents, not by byte comparison",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+   "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+   "readSections": [
+    "Chapter II preamble, pp. 45-47",
+    "II.1.1 The curve Y_C, pp. 47-54 (Prop. II.1.1-Lemma II.1.14)",
+    "II.1.2 The Fargues-Fontaine curve, pp. 54-57 (Def. II.1.15-Def./Prop. II.1.22)",
+    "II.2 preamble and Stein exhaustion, p. 57 (Prop. II.2.1)",
+    "II.2.1 Lubin-Tate formal groups, pp. 58-61 (Prop. II.2.2-Cor. II.2.4)",
+    "II.2.3 The algebraic curve, pp. 64-68 (Thm. II.2.6, Prop. II.2.7, Rem. II.2.8, Prop. II.2.9)",
+    "III.3 Beauville-Laszlo uniformization, pp. 97-99 (Prop. III.3.1, Lemma III.3.2)",
+    "VI.1 The Beilinson-Drinfeld Grassmannian, pp. 190-195 (Def. VI.1.1-Prop. VI.1.12)"
+   ]
+  },
+  {
+   "id": "SW20-berkeley",
+   "title": "Berkeley Lectures on p-adic Geometry",
+   "authors": "Peter Scholze, Jared Weinstein",
+   "edition": "Annals of Mathematics Studies 207; PDF dated 'March 27, 2020' on every page header",
+   "url": "https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf",
+   "sha256": "225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc",
+   "readSections": [
+    "5.2 (Lemma 5.2.8, Lemma 5.2.9 Beauville-Laszlo), printed pp. 38-39",
+    "5.3 Cartier divisors (Def. 5.3.1-Prop. 5.3.3), printed pp. 38-39",
+    "6.2 (Lemma 6.2.8, Def. 6.2.9, Lemma 6.2.10, Thm. 6.2.11), printed pp. 46-47",
+    "6.3 sousperfectoid rings (Def. 6.3.1, Ex. 6.3.2), printed p. 47",
+    "19.1 (Prop. 19.1.2, Rem. 19.1.3, Lemma 19.1.4), printed pp. 170-171",
+    "19.5 appendix (Thm. 19.5.2, Prop. 19.5.3), printed pp. 179-181"
+   ]
+  },
+  {
+   "id": "BMS18-integral",
+   "title": "Integral p-adic Hodge theory",
+   "authors": "Bhargav Bhatt, Matthew Morrow, Peter Scholze",
+   "edition": "Publications IHES 128 (2018) 219-397; library PDF, section 3 inspected 2026-09-15",
+   "url": "https://arxiv.org/abs/1602.03148",
+   "sha256": "285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a",
+   "readSections": [
+    "Section 3.2: Lemma 3.10 (i)-(ii) and Lemma 3.21, printed pp. 22-24 of the article text"
+   ]
+  },
+  {
+   "id": "GR02-almost",
+   "title": "Almost ring theory",
+   "authors": "Ofer Gabber, Lorenzo Ramero",
+   "edition": "arXiv:math/0201175v3, 'sixth (and final) release', 22 July 2002 (NOT the Springer LNM 1800 (2003) pagination cited by Fargues-Scholze as [GR03])",
+   "url": "https://arxiv.org/abs/math/0201175",
+   "sha256": "c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8",
+   "readSections": [
+    "Contents, PDF p. 2",
+    "Proposition 5.4.21 (henselian approximation), PDF p. 121",
+    "Theorem 5.8.14 and Claims 5.8.15-5.8.16 (lifting/descent of torsors), PDF p. 148"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "RelativeFarguesFontaine:RF0/ramified-witt-universal-property",
+   "parentStageId": "RelativeFarguesFontaine:RF0",
+   "title": "Ramified Witt coefficients as the unique flat pi-adic lift",
+   "kind": "construction",
+   "statement": "For a perfect F_q-algebra R there is a unique pi-adically complete flat O_E-algebra R-tilde with R-tilde/pi = R, and a unique multiplicative section [.]: R -> R-tilde of the reduction. It is realised as W_{O_E}(R) = W(R) tensor-hat_{W(F_q)} O_E with pi-adic completion; when E = F_q((pi)) has equal characteristic this is R[[pi]].",
+   "hypotheses": [
+    "R is a perfect F_q-algebra (perfectness is what makes the lift unique, not merely existent)",
+    "E is a nonarchimedean local field with residue field F_q of characteristic p, O_E its ring of integers, pi a chosen uniformizer",
+    "The tensor product W(R) tensor_{W(F_q)} O_E is completed pi-adically; without the completion the universal property fails",
+    "The equal-characteristic identification R[[pi]] uses the chosen uniformizer pi of E = F_q((pi))"
+   ],
+   "proofSteps": [
+    "Fargues-Scholze state the uniqueness of the pi-adically complete flat O_E-lift and of the Teichmueller section at the head of II.1.1, and then exhibit the lift as the pi-adically completed base change of p-typical Witt vectors along W(F_q) -> O_E.",
+    "The universal property in the form actually used later is the one invoked in the proof of Prop. II.1.2: for perfect R^+, maps W_{O_E}(R^+) -> A^+ into a pi-adically complete O_E-algebra correspond to maps R^+ -> (A^+)^flat.",
+    "The equal-characteristic case is read off from the formula, since W(R) tensor-hat_{W(F_q)} F_q[[pi]] = R[[pi]] for perfect R."
+   ],
+   "acceptance": [
+    "Check on R = F_q that W_{O_E}(F_q) = O_E and [.] is the Teichmueller lift of the residue field",
+    "Check that for E ramified over Q_p the ring W_{O_E}(R) is NOT W(R) with p renamed: compare W_{O_E}(F_q-bar) = O_{E-breve} with W(F_q-bar) for E = Q_p(pi), pi^2 = p",
+    "Check the change-of-uniformizer comparison for two uniformizers pi, pi' of the same E"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "II.1.1, printed p. 47",
+     "excerpt": "Recall that for any perfect F_q-algebra R, there is a unique pi-adically complete flat O_E-algebra R-tilde such that R-tilde = R/pi. There is a unique multiplicative lift [.] : R -> R-tilde of the identity R -> R, called the Teichmueller lift.",
+     "match": "This is verbatim the statement of the node; the displayed formula R-tilde = W_{O_E}(R) = W(R) tensor-hat_{W(F_q)} O_E and the parenthetical equal-characteristic remark follow immediately after it."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Prop. II.1.2, printed p. 49",
+     "excerpt": "By the universal property of W_{O_E}(R^+) in case R^+ is perfect, this is equivalent to giving a map R^+ -> (A^+)^flat such that the image of varpi in A^flat is invertible.",
+     "match": "Records the exact form of the universal property that the rest of Chapter II consumes, including the perfectness hypothesis on R^+."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF0:integral-Y/curly-Y-affinoid-definition",
+   "parentStageId": "RelativeFarguesFontaine:RF0:integral-Y",
+   "title": "The integral period space Y-curly_S and independence of the pseudouniformizer",
+   "kind": "definition",
+   "statement": "For S = Spa(R,R^+) affinoid perfectoid over F_q and varpi in R^+ a pseudouniformizer, set Y-curly_S = Spa W_{O_E}(R^+) \\ V([varpi]), where W_{O_E}(R^+) carries the (pi,[varpi])-adic topology. The result is independent of the choice of varpi, and the q-power Frobenius of R^+ induces an automorphism phi of Y-curly_S. The characteristic-p fibre V(pi) is retained: Y-curly_S is not base-changed to E.",
+   "hypotheses": [
+    "S = Spa(R,R^+) affinoid perfectoid of characteristic p; R^+ open and integrally closed",
+    "varpi in R^+ a pseudouniformizer, i.e. a topologically nilpotent unit of R",
+    "W_{O_E}(R^+) is given the (pi,[varpi])-adic topology, not the pi-adic one; the removed locus is V([varpi]) only, not V(pi[varpi])"
+   ],
+   "proofSteps": [
+    "Fargues-Scholze define Y-curly_S in the affinoid case by removing V([varpi]) from Spa W_{O_E}(R^+) with the (pi,[varpi])-adic topology.",
+    "Independence of varpi is deduced from the divisibility relations varpi | varpi'^n and varpi' | varpi^n valid for any two pseudouniformizers of R, which give equality of the removed closed subsets.",
+    "The Frobenius automorphism is induced by functoriality of W_{O_E}(-) applied to the q-power Frobenius of R^+."
+   ],
+   "acceptance": [
+    "Verify that V([varpi]) = V([varpi']) inside Spa W_{O_E}(R^+) for two pseudouniformizers",
+    "Verify on S = Spa(C,O_C) that the special fibre {pi = 0} of Y-curly_C is nonempty, so that Y-curly_S differs from Y_S",
+    "Verify that phi acts on Y-curly_S and fixes V(pi) setwise"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "II.1.1, printed p. 47",
+     "excerpt": "we let Y-curly_S = Spa W_{O_E}(R^+) \\ V([varpi]). Here W_{O_E}(R^+) has the (pi,[varpi])-adic topology. These objects do not depend on the choice of varpi, as for any choice of varpi, varpi' in R, one has varpi | varpi'^n, varpi' | varpi^n for some n > 0.",
+     "match": "Gives the definition, the topology and the independence argument exactly as stated in the node."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition II.1.15, printed p. 54",
+     "excerpt": "Y_S = Y-curly_S x_{Spa O_E} Spa E = Y-curly_S \\ V(pi), which for affinoid S = Spa(R,R^+) with pseudouniformizer varpi is given by Y_S = Spa W_{O_E}(R^+) \\ V(pi[varpi]).",
+     "match": "Confirms that Y-curly_S retains V(pi) and that the generic space Y_S is the strictly smaller open, as the stage text requires."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF0:integral-Y/chart-cover-perfectoidness-and-sheafiness",
+   "parentStageId": "RelativeFarguesFontaine:RF0:integral-Y",
+   "title": "FS II.1.1: rational charts, perfectoid base change to O_{E_infty}, and sheafiness by splitting",
+   "kind": "theorem",
+   "statement": "Y-curly_S is an analytic adic space over O_E. Letting E_infty be the completion of E(pi^{1/p^infty}), the base change Y-curly_S x_{Spa O_E} Spa O_{E_infty} is perfectoid, with tilt the perfectoid open unit disc S x_{F_q} Spa F_q[[t^{1/p^infty}]] = D_{S,perf}. Sheafiness of the structure presheaf on Y-curly_S is obtained from the perfectoid sheaf property because B_{S,[0,n]} splits off B_{S,[0,n]} tensor-hat_{O_E} O_{E_infty} as a topological direct factor.",
+   "hypotheses": [
+    "S = Spa(R,R^+) affinoid perfectoid of characteristic p with pseudouniformizer varpi",
+    "The charts are the rational subsets Y-curly_{S,[0,n]} = {|pi|^n <= |[varpi]| != 0} of Spa W_{O_E}(R^+), n a positive integer taken to be a power of p; by applying Frobenius on (R,R^+) one may reduce to n = 1",
+    "B_{S,[0,n]} = W_{O_E}(R^+)<pi^n/[varpi]>[1/[varpi]], and B^+_{S,[0,n]} is the INTEGRAL CLOSURE of W_{O_E}(R^+)<pi^n/[varpi]> in B_{S,[0,n]}",
+    "E_infty is the completion of E(pi^{1/p^infty}) for the chosen uniformizer pi",
+    "Perfectoidness of A^+_0 is obtained from BMS18 Lemma 3.10(ii), which requires a ring pi-adically complete with respect to an element whose p-th power divides p, that element a nonzerodivisor, and Frobenius S/pi -> S/pi^p an isomorphism"
+   ],
+   "proofSteps": [
+    "Cover Y-curly_S by the rational subsets Y-curly_{S,[0,n]} of Spa W_{O_E}(R^+) and reduce to n = 1 using the Frobenius of (R,R^+).",
+    "Reduce the adic-space (sheafiness) claim to showing that A = B_{S,[0,1]} tensor-hat_{O_E} O_{E_infty} is a perfectoid Tate algebra: the map B_{S,[0,1]} -> A is split injective as topological B_{S,[0,1]}-modules, so the perfectoid sheaf property descends. Fargues-Scholze point to the sousperfectoid formalism of Hansen-Kedlaya and SW20 Section 6.3 for this step.",
+    "Set A^+_0 = (W_{O_E}(R^+) tensor-hat_{O_E} O_{E_infty})[(pi^{1/p^infty}/[varpi])]^wedge_{[varpi]} and compute A^+_0/[varpi] = (R^+/varpi tensor_{F_q} O_{E_infty}/pi)[t_1^{1/p^infty}]/(pi^{1/p^m} - [varpi]^{1/p^m} t_1^{1/p^m}) = R^+/varpi[t_1^{1/p^infty}].",
+    "Conclude A^+_0 is integral perfectoid by BMS18 Lemma 3.10(ii), then A^+_0 -> A^+ is an almost isomorphism and A = A^+_0[1/[varpi]] is perfectoid by BMS18 Lemma 3.21.",
+    "Identify the tilt of A as R<t_1^{1/p^infty}> with t_1^sharp = [varpi]/pi, corresponding to the locus {|t| <= |varpi| != 0} inside D_{S,perf}."
+   ],
+   "acceptance": [
+    "Verify that B^+_{S,[0,n]} really is the integral closure and not the naive subring, on a base S whose R^+ is not a valuation ring",
+    "Verify the displayed computation of A^+_0/[varpi] on S = Spa(C,O_C) and on a non-field affinoid perfectoid S",
+    "Verify the topological splitting B_{S,[0,1]} -> B_{S,[0,1]} tensor-hat O_{E_infty} for ramified E/Q_p, where O_{E_infty}/O_E is not free"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.1.1 and proof, printed pp. 48",
+     "excerpt": "To see that Y-curly_S is an adic space (i.e. the structure presheaf is a sheaf) and Y-curly_S x_{Spa O_E} Spa O_{E_infty} is perfectoid, it is enough to prove that B_{S,[0,n]} tensor-hat_{O_E} O_{E_infty} is a perfectoid Tate algebra. Indeed, the algebra B_{S,[0,n]} splits off B_{S,[0,n]} tensor-hat_{O_E} O_{E_infty} as a direct factor as topological B_{S,[0,n]}-module.",
+     "match": "This is the direct-summand argument that the stage text insists on ('Derive sheafiness by the topological direct-summand argument, not by assuming all Witt rings are Tate')."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.1.1, printed p. 48",
+     "excerpt": "A^+_0/[varpi] = (R^flat/varpi tensor_{F_q} O_{E_infty}/pi)[t_1^{1/p^infty}]/(pi^{1/p^m} - [varpi]^{1/p^m} t_1^{1/p^m}) = R^+/varpi[t_1^{1/p^infty}]. This implies already that A^+_0 is integral perfectoid by [BMS18, Lemma 3.10 (ii)].",
+     "match": "Fixes the precise intermediate computation and names the imported criterion; the node records its hypotheses explicitly."
+    },
+    {
+     "sourceId": "BMS18-integral",
+     "locator": "Lemma 3.10, article p. 22",
+     "excerpt": "Let S be a ring which is pi-adically complete with respect to some element pi in S such that pi^p divides p, and assume that phi : S/pi S -> S/pi^p S is surjective. ... (ii) Conversely, if phi : S/pi S -> S/pi^p S is an isomorphism and pi is a non-zero-divisor, then Ker theta is a principal ideal (and hence S is perfectoid).",
+     "match": "The imported criterion read in the source; its hypotheses (pi^p | p, nonzerodivisor, Frobenius iso) must be carried into any reproof of FS II.1.1."
+    },
+    {
+     "sourceId": "BMS18-integral",
+     "locator": "Lemma 3.21, article p. 24",
+     "excerpt": "Let R_0 be a perfectoid ring which is pi-adically complete for some non-zero-divisor pi such that pi^p divides p. Then R = R_0[1/pi], endowed with the pi-adic topology on R_0, is a complete Tate ring which is perfectoid in Fontaine's sense. Moreover, pi R^circ is contained in R_0.",
+     "match": "The second imported criterion, used by FS to pass from A^+_0 to A = A^+_0[1/[varpi]]."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF0:integral-Y/untilt-functor-of-points",
+   "parentStageId": "RelativeFarguesFontaine:RF0:integral-Y",
+   "title": "FS II.1.2: the diamond of the integral period space is Spd O_E x S",
+   "kind": "theorem",
+   "statement": "For any perfectoid T over F_q, giving an untilt T^sharp of T together with a map T^sharp -> Y-curly_S of analytic adic spaces is the same as giving an untilt T^sharp with a map T^sharp -> Spa O_E and a map T -> S. Equivalently there is a natural isomorphism (Y-curly_S)^diamond = Spd O_E x S, and hence a natural map |Y-curly_S| -> |S|.",
+   "hypotheses": [
+    "S = Spa(R,R^+) affinoid perfectoid over F_q; the argument reduces to affinoid T = Spa(A,A^+)",
+    "R^+ is perfect, so that the universal property of W_{O_E}(R^+) applies",
+    "The condition imposed on the map W_{O_E}(R^+) -> A^+ is that the image of [varpi] be invertible in A (this is what cuts out Y-curly_S, and it corresponds to invertibility of varpi in A^flat)"
+   ],
+   "proofSteps": [
+    "Reduce to: for T perfectoid over O_E, maps T -> Y-curly_S correspond to maps T^flat -> S.",
+    "A map T -> Y-curly_S is a map W_{O_E}(R^+) -> A^+ whose value on [varpi] is invertible in A.",
+    "Apply the universal property of W_{O_E}(R^+) for perfect R^+ to convert this into a map R^+ -> (A^+)^flat with varpi invertible in A^flat, i.e. a map Spa(A^flat,A^{flat+}) -> Spa(R,R^+).",
+    "The product Spd O_E x S is the product of v-sheaves on Perf_{F_q}; no structural morphism Y-curly_S -> S of adic spaces is asserted, only the map on topological spaces."
+   ],
+   "acceptance": [
+    "Verify the claim for T = S^sharp an untilt of S itself, recovering the tautological section",
+    "Verify that the resulting map |Y-curly_S| -> |S| is the one used later to define the radius function",
+    "Check that the statement is about the diamond and does NOT produce an adic morphism Y-curly_S -> S"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.1.2 and proof, printed p. 49",
+     "excerpt": "Giving a map T -> Y-curly_S is equivalent to giving a map W_{O_E}(R^+) -> A^+ such that the image of [varpi] in A is invertible. By the universal property of W_{O_E}(R^+) in case R^+ is perfect, this is equivalent to giving a map R^+ -> (A^+)^flat such that the image of varpi in A^flat is invertible.",
+     "match": "The whole proof is this two-line conversion; the node records the invertibility condition, which is the only place the deleted locus V([varpi]) enters."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "After Proposition II.1.2, printed p. 49",
+     "excerpt": "In particular, there is a natural map |Y-curly_S| = |(Y-curly_S)^diamond| = |Spd O_E x S| -> |S|.",
+     "match": "Records that only a map of topological spaces is produced."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF0:integral-Y/gluing-for-general-base",
+   "parentStageId": "RelativeFarguesFontaine:RF0:integral-Y",
+   "title": "FS II.1.3: open immersion and cartesian square for affinoid subsets of the base",
+   "kind": "lemma",
+   "statement": "If S' is an affinoid subset of S then Y-curly_{S'} -> Y-curly_S is an open immersion, and the square (|Y-curly_{S'}| -> |Y-curly_S|, |S'| -> |S|) is cartesian. Consequently Y-curly_S can be defined for an arbitrary perfectoid space S by gluing, compatibly with the isomorphism (Y-curly_S)^diamond = Spd O_E x S.",
+   "hypotheses": [
+    "S' a (not necessarily rational) affinoid subset of the affinoid perfectoid S",
+    "The check of the isomorphism is performed after base change to O_{E_infty}, which is legitimate because the maps on structure sheaves are naturally split injective"
+   ],
+   "proofSteps": [
+    "Let Z be the open subset of Y-curly_S corresponding to |Y-curly_S| x_{|S|} |S'|; functoriality gives a map Y-curly_{S'} -> Z.",
+    "Check that this map is an isomorphism after base change to O_{E_infty}, using that structure-sheaf maps are split injective (the same splitting as in II.1.1).",
+    "After base change both sides are perfectoid, so it suffices to compare diamonds, where the claim is Prop. II.1.2.",
+    "Glue over an affinoid cover of a general perfectoid S."
+   ],
+   "acceptance": [
+    "Verify the cartesian property on a rational subset and on a non-rational affinoid subset",
+    "Verify that the glued Y-curly_S for non-affinoid S still satisfies (Y-curly_S)^diamond = Spd O_E x S"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.1.3 and proof, printed p. 49",
+     "excerpt": "To see that it is an isomorphism, we can check after base change to O_{E_infty} (as the maps on structure sheaves are naturally split injective). The base change of Y-curly_{S'} and Z become perfectoid, and hence it suffices to see that one gets an isomorphism after passing to diamonds, where it follows from Proposition II.1.2.",
+     "match": "Gives the exact proof route and the reason the base change is harmless, which is the same splitting used for sheafiness."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF0:annuli/radius-function-and-rational-annuli",
+   "parentStageId": "RelativeFarguesFontaine:RF0:annuli",
+   "title": "The radius function and the affinoid annuli Y_{S,I}",
+   "kind": "construction",
+   "statement": "Y_S = Y-curly_S \\ V(pi) = Spa W_{O_E}(R^+) \\ V(pi[varpi]). There is a map rad : |Y_S| -> (0,infty) sending x with rank-1 generalization x-tilde to log|[varpi](x-tilde)| / log|pi(x-tilde)|; it factors through the Berkovich quotient of |Y_S| and satisfies rad(phi(x)) = q rad(x). For a rational interval I = [a,b] contained in (0,infty), possibly with a = b, the subset Y_{S,I} = {|pi|^b <= |[varpi]| <= |pi|^a} is a rational open subset of Spa W_{O_E}(R^+), hence affinoid, Y_{S,I} = Spa(B_{S,I}, B^+_{S,I}).",
+   "hypotheses": [
+    "S = Spa(R,R^+) affinoid perfectoid with pseudouniformizer varpi; the function rad depends on varpi",
+    "I = [a,b] has rational endpoints; degenerate intervals a = b are allowed and still give rational subsets",
+    "The end 0 of the radius corresponds to the boundary divisor (pi) and the end infty to ([varpi]); both are outside Y_S",
+    "Y_{S,[0,n]} and Y_{S,[1,infty]} appearing in II.1.1 and II.2.5 are NOT contained in Y_S"
+   ],
+   "proofSteps": [
+    "Fargues-Scholze define rad on rank-1 generalizations and check it is constant on the fibres of the Berkovich quotient and scales by q under phi.",
+    "The annuli Y_{S,I} are rational subsets of the ambient Spa W_{O_E}(R^+) cut out by the two inequalities, so they are affinoid; sheafiness comes from the chart-level statement in II.1.1.",
+    "Fargues-Scholze record the warning that the half-open charts Y_{S,[0,1]} and Y_{S,[1,infty]} used in the cohomology computations lie in Y-curly_S but not in Y_S."
+   ],
+   "acceptance": [
+    "Check rad \u2218 phi = q rad on an explicit Gauss point for E = F_q((pi))",
+    "Check that Y_{S,[a,a]} is affinoid and that the presentation of X_S glues Y_{S,[1,1]} to Y_{S,[q,q]}",
+    "Check independence of varpi up to reparametrisation of rad"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.1.16, printed p. 54",
+     "excerpt": "The action of phi on Y_S is free and totally discontinuous. In fact, if S = Spa(R,R^+) is affinoid and varpi in R is a pseudouniformizer, one can define a map rad : |Y_S| -> (0,infty) taking any point x in Y_S with rank-1-generalization x-tilde to log |[varpi](x-tilde)|/log |pi(x-tilde)|. This factorizes through the Berkovich space quotient of |Y_S| and satisfies rad \u2218 phi = q . rad.",
+     "match": "Exact statement of the radius function and its equivariance."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "After Proposition II.1.16, printed p. 55",
+     "excerpt": "For any interval I = [a,b] contained in (0,infty) with rational ends (possibly with a = b), there is the open subset Y_{S,I} = {|pi|^b <= |[varpi]| <= |pi|^a} contained in rad^{-1}(I) contained in Y_S which is in fact a rational open subset of Spa W_{O_E}(R^+) and thus affinoid.",
+     "match": "Exact statement of the annuli, including the possibility a = b and the rationality claim."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.2.5, printed p. 62",
+     "excerpt": "(We warn the reader that Y_{S,[0,1]} and Y_{S,[1,infty]} are not contained in Y_S = Y_{S,(0,infty)}; we hope this clash of notation will not cause confusion.)",
+     "match": "Confirms the scope caveat recorded in the hypotheses."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF0:annuli/stein-exhaustion-and-higher-acyclicity",
+   "parentStageId": "RelativeFarguesFontaine:RF0:annuli",
+   "title": "Stein exhaustion of Y_S and vanishing of higher cohomology of vector bundles",
+   "kind": "lemma",
+   "statement": "For S = Spa(R,R^+) affinoid perfectoid, Y_S is the union over compact rational intervals I of the affinoid sousperfectoid spaces Y_{(R,R^+),I}, and for I_1 contained in I_2 the restriction O(Y_{(R,R^+),I_2}) -> O(Y_{(R,R^+),I_1}) has dense image. Consequently H^i(Y_{S,I}, F) = 0 for i > 0 and any vector bundle F, R^1 lim_I Gamma(Y_{(R,R^+),I}, F) = 0, and hence H^i(Y_S, F) = 0 for all i > 0.",
+   "hypotheses": [
+    "S affinoid perfectoid; I runs over compact intervals with rational ends",
+    "Each Y_{(R,R^+),I} is affinoid sousperfectoid (this is what gives acyclicity of vector bundles, and is inherited from the splitting argument of II.1.1)",
+    "The Mittag-Leffler condition is the density of the restriction maps, and the vanishing of R^1 lim is quoted from EGA 0_III 13.2.4"
+   ],
+   "proofSteps": [
+    "Fargues-Scholze list the three properties (i) compact rational intervals, (ii) affinoid sousperfectoid, (iii) dense restriction maps.",
+    "Point (ii) gives H^i(Y_{S,I}, F|_{Y_{S,I}}) = 0 for i > 0.",
+    "Point (iii) gives R^1 lim_I Gamma(Y_{(R,R^+),I}, F) = 0 by [Gro61, 0.13.2.4].",
+    "Combining, H^i(Y_S,F) = 0 for i > 0; hence for a bundle E on X_S, RGamma(X_S,E) is the two-term complex [H^0(Y_S,E) --(phi - 1)--> H^0(Y_S,E)] and vanishes in degrees > 1."
+   ],
+   "acceptance": [
+    "Verify density of restriction for E = F_q((pi)) using explicit Laurent series",
+    "Verify that the two-term description of RGamma(X_S,E) reproduces H^0(X_S,O) = E and H^1(X_S,O) = 0 pro-etale locally",
+    "Verify sousperfectoidness of Y_{S,I} for ramified E"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "II.2 preamble, printed p. 57",
+     "excerpt": "Then Y_S is 'Stein', one has Y_S = union over I contained in (0,infty) of Y_{(R,R^+),I} where (i) as before I is a compact interval with rational ends (ii) Y_{(R,R^+),I} is affinoid sous-perfectoid (iii) for I_1 contained in I_2, the restriction morphism O(Y_{(R,R^+),I_2}) -> O(Y_{(R,R^+),I_1}) has dense image.",
+     "match": "The three hypotheses of the node, stated verbatim."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "II.2 preamble, printed p. 57",
+     "excerpt": "Point (3) implies that R^1 lim_I Gamma(Y_{(R,R^+),I}, F) = 0 ([Gro61, 0.13.2.4]). We thus have H^i(Y_S,F) = 0 when i > 0.",
+     "match": "The conclusion and the imported Mittag-Leffler vanishing, with its exact citation."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF1/frobenius-quotient-and-presentation",
+   "parentStageId": "RelativeFarguesFontaine:RF1",
+   "title": "Freeness and total discontinuity of phi on Y_S, and the two-chart presentation of X_S",
+   "kind": "theorem",
+   "statement": "The action of phi on Y_S is free and totally discontinuous, so the quotient X_S = Y_S/phi^Z exists as an adic space. Concretely X_S is obtained from the affinoid Y_{S,[1,q]} by glueing along the isomorphism phi : Y_{S,[1,1]} -> Y_{S,[q,q]}. In particular X_S is qcqs when S is affinoid.",
+   "hypotheses": [
+    "S affinoid perfectoid with chosen pseudouniformizer varpi (used to define rad and the annuli)",
+    "Freeness and total discontinuity are deduced from rad \u2218 phi = q rad, so they use q > 1 and the fact that rad takes values in (0,infty) on Y_S, i.e. that both V(pi) and V([varpi]) have been removed",
+    "The presentation is by the single annulus [1,q] and NOT by Y-curly; the Frobenius action on Y-curly_S is not totally discontinuous at the special fibre"
+   ],
+   "proofSteps": [
+    "From rad \u2218 phi = q rad, the phi-orbit of any point has radii ... , r/q, r, qr, ... which are pairwise distinct and separated by the rational annuli, giving freeness and total discontinuity.",
+    "Take the fundamental domain Y_{S,[1,q]} and glue its two boundary annuli along phi; this presents X_S as a qcqs adic space when S is affinoid.",
+    "Fargues-Scholze mark this proof as 'directly from the definitions' and refer to SW20 Lecture 12 for the corresponding discussion."
+   ],
+   "acceptance": [
+    "Verify total discontinuity fails on Y-curly_S (the special fibre is phi-stable) so that the removal of V(pi) is essential",
+    "Verify that X_S is qcqs for S affinoid and that its two-chart presentation is independent of the chosen fundamental interval [1,q] vs [1,q^2]"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition II.1.15 and Proposition II.1.16, printed p. 54",
+     "excerpt": "For any perfectoid space S over F_q, the relative Fargues-Fontaine curve is X_S = Y_S/phi^Z where Y_S = Y-curly_S x_{Spa O_E} Spa E = Y-curly_S \\ V(pi).",
+     "match": "Definition of the quotient, showing that the generic locus is used."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "After Proposition II.1.16, printed p. 55",
+     "excerpt": "and one can form X_S as the quotient of Y_{S,[1,q]} via the identification phi : Y_{S,[1,1]} = Y_{S,[q,q]}. In particular, X_S is qcqs in case S is affinoid.",
+     "match": "The explicit two-chart presentation and the qcqs conclusion."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF1/diamond-formula-and-map-to-base",
+   "parentStageId": "RelativeFarguesFontaine:RF1",
+   "title": "The diamond of the relative curve and the qcqs map |X_S| -> |S|",
+   "kind": "comparison",
+   "statement": "There are natural isomorphisms (Y_S)^diamond = S x Spd(E) and (X_S)^diamond = (S x Spd(E))/(phi^Z x id). Although X_S carries no structural morphism of adic spaces to S, the absolute Frobenius phi x phi of S x Spd(E) acts trivially on the underlying topological space, giving |X_S| = |S x Spd(E)/(phi^Z x id)| = |S x Spd(E)/(id x phi^Z)| -> |S|, and this map is qcqs for every S.",
+   "hypotheses": [
+    "S a perfectoid space over F_q",
+    "The two quotients (phi^Z x id) and (id x phi^Z) agree on topological spaces only because the absolute Frobenius acts trivially on |S x Spd E|; they are different as v-sheaf quotients",
+    "The conclusion is a statement about topological spaces and diamonds; no adic morphism X_S -> S is claimed"
+   ],
+   "proofSteps": [
+    "Apply II.1.2 to get (Y_S)^diamond = S x Spd(E) after inverting pi.",
+    "Pass to the phi-quotient to get (X_S)^diamond.",
+    "Use triviality of absolute Frobenius on the topological space to exchange the two quotients and obtain |X_S| -> |S|, qcqs since |Spd(E)/phi^Z x S| -> |S| is qcqs by the total discontinuity in II.1.16."
+   ],
+   "acceptance": [
+    "Verify that |X_S| -> |S| is qcqs but that there is no morphism of adic spaces X_S -> S, e.g. by exhibiting the failure for S a geometric point",
+    "Verify the identification for S = Spa C and compare with the absolute curve X_C of Fargues-Fontaine"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "After Proposition II.1.16, printed p. 55",
+     "excerpt": "Although X_S does not sit over S, the absolute Frobenius phi x phi of S x Spd(E) acts trivially on the topological space and one has |X_S| = |(X_S)^diamond| = |S x Spd(E)/phi^Z x id| = |S x Spd(E)/id x phi^Z| -> |S|. Thus the topological space |X_S| sits over |S|, and for all S the map |X_S| -> |S| is qcqs.",
+     "match": "States both the caveat (no structural morphism) and the topological conclusion, as the stage text demands."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.1.17, printed p. 55",
+     "excerpt": "There is a natural isomorphism (Y_S)^diamond = S x Spd(E), descending to an isomorphism (X_S)^diamond = (S x Spd(E))/phi^Z x id.",
+     "match": "The diamond formulas over Perf_{F_q} with the chosen coefficient field E."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF2:integral-divisors/div-d-moduli-v-sheaf",
+   "parentStageId": "RelativeFarguesFontaine:RF2:integral-divisors",
+   "title": "FS VI.1.1: the degree-d divisor moduli as symmetric v-sheaf quotients",
+   "kind": "definition",
+   "statement": "For d >= 0 define the small v-sheaves on Perf_{F_q}: Div^d_{Y-curly} = (Spd O_E)^d/Sigma_d, Div^d_Y = (Spd E)^d/Sigma_d, Div^d_X = Div^d = (Spd E/phi^Z)^d/Sigma_d. The quotients are taken inside v-sheaves and remain small.",
+   "hypotheses": [
+    "Quotients by Sigma_d are v-sheaf quotients, not naive quotients of presheaves; smallness is preserved",
+    "Div^d_{Y-curly} uses Spd O_E, so it retains the characteristic-p locus; Div^d_Y and Div^d_X use Spd E",
+    "d = 0 is allowed and gives the final v-sheaf"
+   ],
+   "proofSteps": [
+    "Fargues-Scholze give the three definitions in one display and note that quotients of small v-sheaves are taken inside v-sheaves and are still small.",
+    "The Frobenius quotient in Div^d_X is applied factorwise to Spd E before taking Sigma_d-coinvariants."
+   ],
+   "acceptance": [
+    "Verify that Div^1_{Y-curly} = Spd O_E and Div^1 = Spd E/phi^Z, and that Div^1 over Perf_k is Spd E-breve/phi^Z",
+    "Verify that Div^2 is not the naive symmetric square on points: exhibit a v-cover needed to split a doubled leg"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition VI.1.1, printed p. 190",
+     "excerpt": "For any d >= 0, consider the small v-sheaves on Perf_{F_q} given by Div^d_{Y-curly} = (Spd O_E)^d/Sigma_d, Div^d_Y = (Spd E)^d/Sigma_d, Div^d_X = Div^d = (Spd E/phi^Z)^d/Sigma_d, where Sigma_d is the symmetric group.",
+     "match": "Verbatim definition, including the retention of Spd O_E in the integral case required by the stage text."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "After Definition VI.1.1, printed p. 190",
+     "excerpt": "As always, quotients of small v-sheaves are taken inside v-sheaves, and are still small (and in particular exist).",
+     "match": "Records the topology in which the quotient is formed."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF2:integral-divisors/product-equation-and-affineness",
+   "parentStageId": "RelativeFarguesFontaine:RF2:integral-divisors",
+   "title": "FS VI.1.2: the divisor attached to a degree-d leg tuple, its product equation and affineness",
+   "kind": "theorem",
+   "statement": "There is a functorial injection from Div^d_{Y-curly}(S) into closed Cartier divisors on Y-curly_S (and correspondingly for Div^d_Y on Y_S and Div^d_X on X_S). For affinoid perfectoid S = Spa(R,R^+) and ordered legs, the divisor is cut out by xi = product of xi_i where xi_i generates ker(theta_i : W_{O_E}(R^+) -> R_i^{sharp +}); it equals Spa(A,A^+) with A = W_{O_E}(R^+)[1/[varpi]]/xi and A^+ the integral closure of W_{O_E}(R^+)/xi. In the unordered case the ideal is obtained by v-descent of line bundles, not by choosing a generator. In cases (i) and (ii) D is affinoid for affinoid S; in case (iii) this holds locally in the analytic topology on S.",
+   "hypotheses": [
+    "S = Spa(R,R^+) affinoid perfectoid with pseudouniformizer varpi",
+    "Over (Spd O_E)^d one has d untilts R_i^sharp with primitive kernel generators xi_i; the product xi is then a nonzerodivisor and cuts out a closed Cartier divisor, including at coincident legs",
+    "For the unordered quotient the descent input is v-descent of LINE BUNDLES on Y_S, quoted as SW20 Proposition 19.5.3; a global generator need not exist",
+    "Affineness in case (iii) is only local on S; the global statement is false"
+   ],
+   "proofSteps": [
+    "Over (Spd O_E)^d and affinoid S, each xi_i defines a closed Cartier divisor by Prop. II.1.4; the product xi = prod xi_i defines another one, presented as Spa(A,A^+) with A = W_{O_E}(R^+)[1/[varpi]]/xi and A^+ the integral closure of W_{O_E}(R^+)/xi.",
+    "For a map S -> Div^d_{Y-curly} = (Spd O_E)^d/Sigma_d, the ideal sheaf is only defined v-locally; use v-descent of line bundles on Y_S (SW20 19.5.3) to descend the invertible ideal I contained in O_{Y-curly_S}, and check the Cartier property v-locally.",
+    "Show V(I) is quasicompact over S v-locally, hence contained in some Y-curly_{S,[0,n]}, so D = Spa(A,A^+) is affinoid in general.",
+    "Case (ii) follows by restricting to the open Y_S; case (iii) by descending along the Frobenius quotient, which is only locally split, giving affineness only locally on S."
+   ],
+   "acceptance": [
+    "Verify the doubled-leg case d = 2 with the two untilts equal: check that xi_1 xi_2 is still a nonzerodivisor and that the multiplicity is retained",
+    "Verify that the unordered divisor ideal is a line bundle without a global generator on a suitable non-split base",
+    "Verify the failure of global affineness for Div^d_X and the covering by loci where D_S is affinoid"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.1.2, printed p. 191",
+     "excerpt": "Then xi = prod_i xi_i defines another closed Cartier divisor, given by Spa(A,A^+) for A = W_{O_E}(R^+)[1/[varpi]]/xi, and A^+ the integral closure of W_{O_E}(R^+)/xi, where varpi in R is a pseudouniformizer.",
+     "match": "Gives the product Cartier equation at ordered legs together with the exact presentation of the divisor, including the integral closure."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.1.2, printed p. 191",
+     "excerpt": "Now the ideal sheaf of this closed Cartier divisor is a line bundle, and by [SW20, Proposition 19.5.3], line bundles on Y-curly_S satisfy v-descent. Thus, even if we are only given a map S -> Div^d_{Y-curly} = (Spd O_E)^d/Sigma_d, we can still define a line bundle I contained in O_{Y-curly_S}.",
+     "match": "The descent step for the unordered quotient, exactly as the stage text requires ('descended as a line bundle, not by choosing a global generator')."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.1.2, printed p. 191",
+     "excerpt": "Moreover, in case (i) and (ii), if S = Spa(R,R^+) is affinoid perfectoid, then for any closed Cartier divisor D contained in Y-curly_S resp. D contained in Y_S in the image of this embedding, the adic space D = Spa(Q,Q^+) is affinoid. In case (iii), the same happens locally in the analytic topology on S.",
+     "match": "Fixes the scope of affineness, which the stage text singles out."
+    },
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Proposition 19.5.3, printed p. 180",
+     "excerpt": "Let S be in Perf be a perfectoid space of characteristic p and let U be an open subset of S x-dot Spa Z_p. The functor on Perf_S sending any S' -> S to the groupoid of G-torsors on U x_{S x-dot Spa Z_p} S' x-dot Spa Z_p is a v-stack.",
+     "match": "The imported v-descent statement; specialising G = GL_1 gives the line-bundle descent used above. Note the source states it over Spa Z_p; the ramified O_E-version is used by FS without restatement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF2:integral-divisors/relative-degree-criterion",
+   "parentStageId": "RelativeFarguesFontaine:RF2:integral-divisors",
+   "title": "FS VI.1.3: geometric-fibre characterisation of degree-d relative Cartier divisors",
+   "kind": "comparison",
+   "statement": "Div^d_{Y-curly}(S) is exactly the set of relative Cartier divisors of degree d on Y-curly_S, that is, closed Cartier divisors whose pullback along every geometric point Spa(C,C^+) -> S is a Cartier divisor of degree d. The same holds for Div^d_Y and Div^d_X.",
+   "hypotheses": [
+    "The test objects are geometric points Spa(C,C^+) -> S with C complete algebraically closed, including higher-rank C^+, not only rank-1 points",
+    "Degree is measured on the fibre; the statement is a characterisation of the image of the injection of VI.1.2, not a new construction"
+   ],
+   "proofSteps": [
+    "Fargues-Scholze assert the characterisation and attribute the verification to Fargues' article [Far20b], where the notion of relative Cartier divisor is set up in analogy with classical algebraic geometry.",
+    "For d = 1 the corresponding statement is Remark II.1.5, proved there by checking the Cartier property after pullback to Spa(K(s),K(s)^+) for each s in S."
+   ],
+   "acceptance": [
+    "Verify the d = 1 case directly from Remark II.1.5",
+    "Test on a family where the two legs collide over a closed subset of S, and check that the fibre degree stays 2"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Remark VI.1.3, printed p. 191",
+     "excerpt": "As in [Far20b] one checks that Div^d_{Y-curly}(S) is the set of 'relative Cartier divisors' of degree d, that is to say Cartier divisors that give degree d Cartier divisors when pulled back via any geometric point Spa(C,C^+) -> S. The same holds for Div^d_Y and Div^d_X.",
+     "match": "Exact statement; FS defer the verification to Fargues' paper, which is the unresolved boundary recorded in gaps."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Remark II.1.5, printed p. 50",
+     "excerpt": "The preceding Cartier divisor satisfies the stronger property of being a 'relative Cartier divisor' in the sense that for all s in S its pullback to Y_{Spa(K(s),K(s)^+)} is a Cartier divisor.",
+     "match": "The degree-one case, proved in FS, which fixes the intended meaning of 'relative'."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF2:integral-divisors/v-descent-of-bundles-on-the-divisor",
+   "parentStageId": "RelativeFarguesFontaine:RF2:integral-divisors",
+   "title": "FS VI.1.4: vector bundles on D_S form a v-stack",
+   "kind": "theorem",
+   "statement": "Sending a perfectoid S with a map to Div^d_{Y-curly} (resp. Div^d_Y, Div^d_X) to the category of vector bundles on the associated divisor D_S defines a v-stack.",
+   "hypotheses": [
+    "S affinoid perfectoid is used in the descent argument; the general case follows by gluing",
+    "The geometric-point step requires C complete algebraically closed, where D_S is a finite sum of degree-1 divisors",
+    "The v-cover step uses that H^1_v(S, O(Y_{[0,n]})^+) is ALMOST zero, not zero, and the deduction of the perfectoid case from the base change to O_E[pi^{1/p^infty}]^wedge as a direct summand",
+    "The reduction from a general etale cover to a finite etale cover quotes de Jong-van der Put Prop. 3.2.2 and KL15 Prop. 8.2.20"
+   ],
+   "proofSteps": [
+    "Reduce the X_S and Y_S cases to Y-curly_S, since locally on S the relevant D_S are isomorphic.",
+    "For S = Spa(C,C^+): D_S is a finite sum of degree-1 Cartier divisors; induct on the degree and apply SW20 Lemma 17.1.8 at each untilt.",
+    "For an etale cover: reduce to a finite etale cover by dJvdP Prop. 3.2.2 / KL15 Prop. 8.2.20, note D_T -> D_S is finite etale since Y_T -> Y_S is, and apply ordinary finite etale descent.",
+    "For a v-cover: after etale localization assume E_T free, write the descent datum as a matrix that can be arranged to lie in 1 + [varpi] O^+(Y_{T x_S T,[0,n]})/xi, then use almost vanishing of H^1_v(S, O(Y_{[0,n]})^+) and the successive-approximation argument of SW20 Lemma 17.1.8 to produce an invariant basis in the limit."
+   ],
+   "acceptance": [
+    "Verify the successive-approximation bound explicitly for d = 1 and a split v-cover",
+    "Verify the almost (not exact) vanishing of the v-cohomology group, and that the almost error is absorbed by the limit",
+    "Check that finite etale descent for D_T -> D_S really applies when the legs collide"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.1.4 and proof, printed pp. 191-192",
+     "excerpt": "Now assume first that S = Spa(C,C^+) for some complete algebraically closed C. Then D_S is given by a finite sum of degree 1 Cartier divisors on Y-curly_S, and one can reduce by induction to the case of degree 1 Cartier divisors, where the result is [SW20, Lemma 17.1.8] applied to the corresponding untilt of S.",
+     "match": "The geometric-point base case and its imported input."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.1.4, printed p. 192",
+     "excerpt": "Now one uses that the v-cohomology group H^1_v(S, O(Y_{[0,n]})^+) is almost zero, as follows from almost vanishing in the perfectoid case, and writing it as a direct summand of the positive structure sheaf of the base change to O_E[pi^{1/p^infty}]^wedge.",
+     "match": "The exact form of the cohomological input, including the word 'almost' and the direct-summand reduction."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF2:integral-divisors/completed-rings-B-plus-and-B",
+   "parentStageId": "RelativeFarguesFontaine:RF2:integral-divisors",
+   "title": "The completed rings B^+_{Div^d} and B_{Div^d} along the divisor ideal",
+   "kind": "construction",
+   "statement": "Assuming D_S affinoid, as holds locally on S, let B^+_{Div^d_{Y-curly}}(S) (resp. B^+_{Div^d_Y}(S), B^+_{Div^d_X}(S)) be the global sections of the completion of O_{Y-curly_S} (resp. O_{Y_S}, O_{X_S}) along the ideal I_S, and set B_{Div^d_(-)}(S) = B^+_{Div^d_(-)}(S)[1/I_S]. These define v-sheaves B^+ contained in B over Div^d_(-) in all three cases. For d = 1 they are the rings usually denoted B^+_dR and B_dR.",
+   "hypotheses": [
+    "D_S must be affinoid for the description by global sections; this is only local on S in the X-case",
+    "The completion is along the invertible ideal I_S, and inverting I_S means inverting a local generator; the result is independent of that choice because I_S is invertible",
+    "The v-sheaf property is inherited from Prop. VI.1.4 applied to the infinitesimal thickenings O/I^m"
+   ],
+   "proofSteps": [
+    "Complete the three structure sheaves along I_S and take global sections over the affinoid divisor.",
+    "Invert the invertible ideal I_S to obtain B from B^+.",
+    "The v-sheaf property of B^+ and B follows by checking modulo powers of I_S, where the statement is Prop. VI.1.4 (this is exactly how it is used in the proof of VI.1.7).",
+    "Fargues-Scholze identify the d = 1 case with the classical de Rham period rings."
+   ],
+   "acceptance": [
+    "Verify that B^+_{Div^1_{Y-curly}} at a characteristic-p point of Spd O_E is the ramified Witt ring W_{O_E}(R^+)-completion and NOT a B_dR of a characteristic-zero untilt",
+    "Verify independence of the local generator of I_S in the localization",
+    "Verify inverse-limit completeness B^+ = lim B^+/I^m"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "After Proposition VI.1.4, printed p. 192",
+     "excerpt": "Assuming that D_S is affinoid, as is the case locally on S, we let B^+_{Div^d_{Y-curly}}(S) (resp. B^+_{Div^d_Y}(S), resp. B^+_{Div^d_X}(S)) be (the global sections of) the completion of O_{Y-curly_S} along I_S (resp. of O_{Y_S} along I_S, resp. of O_{X_S} along I_S), and B_{Div^d_(-)}(S) = B^+_{Div^d_(-)}(S)[1/I_S]. This defines v-sheaves B^+ contained in B over Div^d_(-) in all three cases. In the case of d = 1, those rings are the ones that are usually denoted B_dR, resp. B^+_dR.",
+     "match": "Verbatim construction, the affinoid hypothesis, and the identification for d = 1."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.1.7, printed p. 193",
+     "excerpt": "The category of vector bundles over B^+_{Div^d_{Y-curly}} (resp. B^+_{Div^d_Y}, B^+_{Div^d_X}) satisfies v-descent: It is enough to check this modulo powers of the ideal I_S, where the result is Proposition VI.1.4.",
+     "match": "Shows that the v-sheaf property of the completed rings is obtained from VI.1.4 through the I_S-adic filtration."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF2:untilts/primitive-untilt-correspondence",
+   "parentStageId": "RelativeFarguesFontaine:RF2:untilts",
+   "title": "Untilts as primitive degree-one ideals in the Witt ring",
+   "kind": "comparison",
+   "statement": "For (R,R^+) a perfectoid Tate-Huber pair of characteristic p, an untilt is the same as a primitive degree-one ideal J contained in W(R^+), i.e. one generated by an element xi = p + [varpi]alpha with varpi a pseudouniformizer of R^+ and alpha in W(R^+); any such xi is a nonzerodivisor. The correspondence sends (S,S^+) to (S^flat,S^{flat+}, ker theta) and (R,R^+,J) to (W(R^+)[1/[varpi]]/J, W(R^+)/J).",
+   "hypotheses": [
+    "(R,R^+) is a perfectoid Tate-Huber pair of characteristic p",
+    "Primitivity of degree 1 is the shape xi = p + [varpi]alpha; the untilt is allowed to have characteristic p (take xi = p), so this does not force a characteristic-zero untilt",
+    "In Scholze-Weinstein this is stated for p-typical Witt vectors over Z_p; the ramified O_E-version replaces p by pi and W by W_{O_E}"
+   ],
+   "proofSteps": [
+    "Scholze-Weinstein prove that ker theta is generated by an explicit element of the required shape, constructed from f in varpi R^+ with f^sharp congruent to p modulo p varpi^sharp R^{sharp +}.",
+    "Nonzerodivisor property: assume xi sum [c_n]p^n = 0, reduce modulo [varpi] to get c_n congruent 0 modulo varpi, divide and induct.",
+    "Generation of ker theta: theta induces a surjection W(R^+)/xi -> R^{sharp +} which is an isomorphism modulo [varpi] because W(R^+)/(xi,[varpi]) = W(R^+)/(p,[varpi]) = R^+/varpi = R^{sharp +}/varpi^sharp.",
+    "Fargues-Scholze use the corresponding ramified normalisation xi = pi - a[varpi] in the proof of Prop. II.1.4."
+   ],
+   "acceptance": [
+    "Verify the correspondence on the tautological untilt of R itself (xi = p), which must be allowed",
+    "Verify the ramified analogue of the shape xi = pi - a[varpi] for E ramified over Q_p",
+    "Verify that the plus ring of the untilt is W(R^+)/J and not merely the integral closure of the image"
+   ],
+   "sources": [
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Definition 6.2.9 and Lemma 6.2.10, printed p. 46",
+     "excerpt": "An ideal I contained in W(R^+) is primitive of degree 1 if I is generated by an element of the form xi = p + [varpi]alpha, with varpi in R^+ a pseudo-uniformizer and alpha in W(R^+). Lemma 6.2.10. Any element xi in W(R^+) of the form xi = p + [varpi]alpha ... is a nonzerodivisor.",
+     "match": "Exact definition and the nonzerodivisor lemma with its one-line induction proof."
+    },
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Theorem 6.2.11, printed p. 47",
+     "excerpt": "There is an equivalence of categories between: 1. Perfectoid Tate-Huber pairs (S,S^+) 2. Triples (R,R^+,J), where (R,R^+) is a perfectoid Tate-Huber pair of characteristic p and J contained in W(R^+) is primitive of degree 1. In one direction the map is (S,S^+) -> (S^flat, S^{flat+}, ker theta), and in the other, it is (R,R^+,J) -> (W(R^+)[[varpi]^{-1}]/J, W(R^+)/J).",
+     "match": "The precise equivalence, including the formula for the plus ring."
+    },
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Before Definition 6.2.9, printed p. 46",
+     "excerpt": "We remark that there is no assumption that an untilt of R should have characteristic 0. In particular R itself is an untilt of R, corresponding to xi = p.",
+     "match": "Confirms that the characteristic-p untilt is retained, matching the stage text's insistence on keeping the special fibre."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF2:untilts/closed-cartier-divisor-norm-estimate",
+   "parentStageId": "RelativeFarguesFontaine:RF2:untilts",
+   "title": "FS II.1.4: an untilt is a closed Cartier divisor, via a Shilov-boundary norm estimate",
+   "kind": "theorem",
+   "statement": "For S perfectoid over F_q, sections of (Y-curly_S)^diamond -> S, maps S -> Spd O_E, and untilts S^sharp of S over O_E are in natural bijection. Given such an untilt there is a natural closed immersion S^sharp -> Y-curly_S presenting S^sharp as a closed Cartier divisor: for U = Spa(A,A^+) contained in Y-curly_S with affinoid perfectoid pullback V = Spa(B,B^+) contained in S^sharp, the sequence 0 -> A --xi--> A -> B -> 0 is exact.",
+   "hypotheses": [
+    "S = Spa(R,R^+) affinoid perfectoid; the generator may be chosen of the form xi = pi - a[varpi] with a in W_{O_E}(R^+), after choosing a pseudouniformizer varpi in R^+ with varpi^sharp | pi",
+    "One may localize near S^sharp = V(xi) and assume U = {|xi| <= |[varpi]|^n} for some n > 0",
+    "Norms are the spectral norms, normalized on each completed residue field of Y-curly_S by |[varpi]| = 1/q",
+    "The estimate |xi a| >= q^{-n}|a| for all a in A gives BOTH injectivity and closed image; surjectivity onto B uses that R^sharp is the separated completion of A/xi",
+    "The maximum-modulus step is reduced to the Shilov boundary, then to U x_{Spa O_E} Spa O_{E_infty}, then to the tilt, an affinoid subset of D_{S,perf}, and finally by approximation to classical affinoid subsets of D_S"
+   ],
+   "proofSteps": [
+    "Deduce the bijection (i)-(iii) directly from Prop. II.1.2.",
+    "Write R^{sharp +} = W_{O_E}(R^+)/xi with xi = pi - a[varpi] obtained from pi = varpi^sharp theta(a).",
+    "To prove exactness, localize so that U = {|xi| <= |[varpi]|^n}; prove |xi a| >= q^{-n}|a| using that the spectral norm on U is the supremum over the Shilov boundary, all of whose points lie in {|xi| = |[varpi]|^n}.",
+    "Transfer the maximum principle through the split base change to O_{E_infty} and the tilt to D_{S,perf}, then approximate by classical affinoid subsets of D_S where the maximum principle is classical.",
+    "Conclude injectivity and closedness of the image of xi, and identify B = A/xi."
+   ],
+   "acceptance": [
+    "Verify the inequality |xi a| >= q^{-n}|a| on an explicit annulus for E = Q_p and for a ramified E",
+    "Verify the normalization |[varpi]| = 1/q and that changing varpi rescales but does not destroy the estimate",
+    "Verify the existence of varpi with varpi^sharp | pi on a non-field affinoid perfectoid base"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.1.4 and proof, printed p. 50",
+     "excerpt": "Then S^sharp = Spa(R^sharp, R^{sharp +}) is affinoid perfectoid as well, and R^{sharp +} = W_{O_E}(R^+)/xi for some nonzerodivisor xi in W_{O_E}(R^+) that can be chosen to be of the form pi - a[varpi] for some a in W_{O_E}(R^+) and suitable topologically nilpotent varpi in R.",
+     "match": "The ramified normalisation of the primitive generator used throughout Chapter II."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.1.4, printed p. 50",
+     "excerpt": "Endow A with the spectral norm, where we normalize the norm on each completed residue field of Y-curly_S by |[varpi]| = 1/q. We claim that with this choice of norm, one has |xi a| >= q^{-n}|a| for all a in A. In particular, this implies that xi : A -> A is injective, and has closed image.",
+     "match": "The exact analytic estimate and what it yields; this is the technical heart of the stage."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.1.4, printed p. 50",
+     "excerpt": "In fact, it is enough to consider the points in the Shilov boundary, i.e. those points Spa(C,O_C) -> U that admit a specialization Spa(C,C^+) -> Y-curly_S whose image is not contained in U; any such is necessarily contained in {|xi| = |[varpi]|^n}.",
+     "match": "Records the Shilov-boundary reduction that the stage text attributes to FarguesFontaineDiamonds F4 in the fixed-field case."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF2:untilts/div1-moduli-and-properness",
+   "parentStageId": "RelativeFarguesFontaine:RF2:untilts",
+   "title": "Div^1 = Spd E/phi^Z: degree-one divisors, properness and cohomological smoothness",
+   "kind": "theorem",
+   "statement": "A closed Cartier divisor of degree 1 on X_S is by definition one arising from a map S -> Spd(E)/phi^Z, equivalently locally on S from an untilt S^sharp over E. The moduli space of such is Div^1 = Spd(E)/phi^Z, where the quotient may be computed either as a v-sheaf quotient or for the topology of open covers, so that 'locally on S' may be read v-locally or on open subsets of |S|. The map Div^1 -> * is proper, representable in spatial diamonds, and cohomologically smooth.",
+   "hypotheses": [
+    "E is the fixed nonarchimedean local coefficient field; over Perf_k with k algebraically closed, Spd(E) is replaced by Spd(E-breve) and Div^1 = Spd(E-breve)/phi^Z",
+    "Cohomological smoothness of Spd(E) -> * is quoted from ECD Proposition 24.5 for E = Q_p, from which the finite-extension case follows formally; the equal-characteristic case is handled inside that proof",
+    "Properness is obtained from the valuative criterion of ECD Proposition 18.3 after qcqs-ness is established",
+    "Div^1 is the moduli of degree-1 divisors, not the curve itself; FS flag this explicitly"
+   ],
+   "proofSteps": [
+    "Sections of (Y_S)^diamond -> S correspond to maps S -> Spd E and to untilts over E (Prop. II.1.18, from II.1.4).",
+    "Composing S^sharp -> Y_S -> X_S still gives a closed Cartier divisor depending only on S -> Spd(E)/phi^Z, giving the injection of Spd(E)/phi^Z into closed Cartier divisors on X_S.",
+    "|Spd(E) x S| = |Y_S| -> |S| together with total discontinuity of phi^Z gives |Spd(E)/phi^Z x S| = |X_S| -> |S| qcqs for qcqs S, hence representability in spatial diamonds.",
+    "Properness then follows from the valuative criterion; cohomological smoothness is inherited from Spd(E) -> *."
+   ],
+   "acceptance": [
+    "Verify Div^1(C) = untilts of C over E modulo Frobenius, matching Def./Prop. II.1.22",
+    "Verify that the open-cover quotient and the v-sheaf quotient agree, so that a degree-1 divisor is analytically local on S",
+    "Check the identification of Div^1 with (BC(O(1)) minus zero)/E^times from Corollary II.2.4 as an independent test"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition II.1.19 and following, printed p. 56",
+     "excerpt": "A closed Cartier divisor of degree 1 on X_S is a closed Cartier divisor D contained in X_S that arises from a map S -> Spd(E)/phi^Z. Equivalently, it arises locally on S from an untilt S^sharp over E of S. The quotient Spd(E)/phi^Z that occurs here is the quotient in the category of v-sheaves; but we note that it agrees with the quotient computed in the category of sheaves on Perf_{F_q} for the topology of open covers.",
+     "match": "Definition plus the comparison of the two quotient topologies, which is what makes 'locally on S' unambiguous."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.1.21 and proof, printed p. 56",
+     "excerpt": "The map Div^1 -> * is proper, representable in spatial diamonds, and cohomologically smooth. Proof. First, Spd(E) -> * is representable in locally spatial diamonds and cohomologically smooth by [Sch17a, Proposition 24.5] (for E = Q_p, which formally implies the case of E finite over Q_p, and the equal characteristic case is handled in the proof).",
+     "match": "The three properties and the exact imported input, with its case distinction."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Corollary II.2.4, printed p. 61",
+     "excerpt": "There is a well-defined map BC(O(1)) \\ {0} -> Div^1 sending a nonzero section f in H^0(X_S, O_{X_S}(1)) to the closed Cartier divisor given by V(f). This descends to an isomorphism (BC(O(1)) \\ {0})/E^times = Div^1.",
+     "match": "An independent presentation of Div^1 usable as the acceptance test."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF2:untilts/BdR-completion-and-filtration",
+   "parentStageId": "RelativeFarguesFontaine:RF2:untilts",
+   "title": "B^+_dR, B_dR and the I_S-adic filtration at a degree-one divisor",
+   "kind": "construction",
+   "statement": "For d = 1 the rings of the previous construction are B^+_dR = B^+_{Div^1}(S) and B_dR = B^+_dR[1/I_S]. The filtration by powers of I_S has graded pieces I_S^m/I_S^{m+1}, which are line bundles on D_S (Breuil-Kisin twists {m}); changing the local generator of I_S changes the trivialization of the graded pieces but not the completed ring. At a geometric untilt the ring B^+_dR is a complete discrete valuation ring whose residue field is the untilt.",
+   "hypotheses": [
+    "Degree d = 1, so that D_S is the closed Cartier divisor attached to a single untilt S^sharp over E (resp. over O_E in the integral case)",
+    "The identification of I_S^m/I_S^{m+1} with a line bundle on D_S requires the Cartier property, i.e. invertibility of I_S; it is NOT a free module unless a generator has been chosen",
+    "The complete-discrete-valuation-ring description is asserted for geometric points: FS use that at a geometric point B^+_{Div^d_{Y-curly}}(S) is a product of complete discrete valuation rings with algebraically closed residue field"
+   ],
+   "proofSteps": [
+    "Instantiate the construction of B^+_{Div^d} at d = 1.",
+    "The graded pieces of the principal congruence filtration are computed in Prop. VI.1.10 and VI.1.11 as Lie G tensor I_S^m/I_S^{m+1}, where I_S^m/I_S^{m+1} is a line bundle on D_S; the same computation identifies the graded pieces of the filtration on B^+ itself.",
+    "At a geometric point, FS record that B^+_{Div^d_{Y-curly}}(S) is a product of complete discrete valuation rings with algebraically closed residue field, which gives the local structure and the residue map."
+   ],
+   "acceptance": [
+    "Verify that for S^sharp of characteristic p the ring B^+_{Div^1_{Y-curly}} is the completed ramified Witt ring, not a mixed-characteristic B^+_dR",
+    "Verify that gr^m is a line bundle that need not be trivial for a non-split base",
+    "Verify the independence of the completed ring from the chosen generator xi"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "After Proposition VI.1.4, printed p. 192",
+     "excerpt": "In the case of d = 1, those rings are the ones that are usually denoted B_dR, resp. B^+_dR.",
+     "match": "Identifies the d = 1 specialisation."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.1.10 and VI.1.11, printed pp. 194-195",
+     "excerpt": "(L^+_{Div^1_{Y-curly}} G)^{>=m}/(L^+_{Div^1_{Y-curly}} G)^{>=m+1} = (Lie G)^diamond {m} where {m} signifies a 'Breuil-Kisin twist' by I_S^m/I_S^{m+1}. ... sends a perfectoid space S -> Div^d_{Y-curly} with corresponding Cartier divisor D_S contained in Y-curly_S with ideal sheaf I_S to (Lie G tensor_{O_E} I_S^m/I_S^{m+1})(S) where I_S^m/I_S^{m+1} is a line bundle on D_S.",
+     "match": "Fixes the graded pieces of the I_S-adic filtration and states explicitly that they are line bundles on D_S."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.1.7, printed p. 193",
+     "excerpt": "Indeed, if S is a geometric point then B^+_{Div^d_{Y-curly}}(S) is a product of complete discrete valuation rings with algebraically closed residue field, so that all G-torsors are trivial.",
+     "match": "The local structure of B^+ at a geometric point, used for the residue field statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF3/isocrystal-line-bundles-and-sign",
+   "parentStageId": "RelativeFarguesFontaine:RF3",
+   "title": "O_{X_S}(n) from isocrystals, and the slope-reversal sign",
+   "kind": "construction",
+   "statement": "Fix an algebraically closed k over F_q and let E-breve = W_{O_E}(k)[1/pi] with Frobenius sigma. Functorially in S in Perf_k there is a natural exact tensor-functor Isoc_k -> Bun(X_S), (D,phi) -> E(D,phi), obtained by descending D tensor_{E-breve} O_{Y_S} along phi tensor phi. One sets O_{X_S}(n) = E(E-breve, pi^{-n} sigma); the functor REVERSES slopes, and for the simple isocrystal (D_lambda, phi_lambda) of slope lambda one sets O_{X_S}(-lambda) = E(D_lambda, phi_lambda).",
+   "hypotheses": [
+    "k is algebraically closed over F_q; S lies in Perf_k so that the constant isocrystal descends",
+    "phi denotes the q-power Frobenius on Y_S and sigma the Frobenius of E-breve; the descent is along the diagonal phi tensor phi",
+    "The eigenvalue convention is pi^{-n} sigma for O(n): the Frobenius eigenvalue and the degree have OPPOSITE signs",
+    "(D,phi) has phi a bijective sigma-semilinear endomorphism of a finite-dimensional E-breve vector space"
+   ],
+   "proofSteps": [
+    "Descend the constant bundle D tensor_{E-breve} O_{Y_S} along the Frobenius-semilinear automorphism phi tensor phi to a bundle on X_S = Y_S/phi^Z.",
+    "Exactness and the tensor structure are inherited from the constant construction.",
+    "Fargues-Scholze record the sign reversal explicitly when defining O_{X_S}(n) and again when defining O_{X_S}(-lambda) from the Dieudonne-Manin simple objects.",
+    "Cross-check: Prop. II.2.2 computes H^0(X_S, O(1)) = H^0(Y_S,O)^{phi = pi}, so the superscript on the Frobenius equation for O(1) is phi = pi."
+   ],
+   "acceptance": [
+    "Verify H^0(X_S, O_{X_S}(1)) = H^0(Y_S, O_{Y_S})^{phi=pi} and that H^0(O(-1)) = 0",
+    "Verify deg O(n) = n against Pic(X_C) = Z (Prop. II.2.10), confirming the sign",
+    "Verify the tensor and dual comparisons O(m) tensor O(n) = O(m+n), O(n)^dual = O(-n)"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "II.2 preamble, printed p. 58",
+     "excerpt": "We denote by O_{X_S}(n) the image of (E-breve, pi^{-n} sigma) (note the change of sign - the functor E reverses slopes); more generally, if (D_lambda, phi_lambda) is the simple isocrystal of slope lambda in Q in the Dieudonne-Manin classification, we let O_{X_S}(-lambda) = E(D_lambda, phi_lambda).",
+     "match": "The exact normalization and the explicit sign warning that the stage text demands."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.2.2, printed p. 60",
+     "excerpt": "defines a natural isomorphism G-tilde(R^{sharp +}) = H^0(X_S, O(1)) = H^0(Y_S, O_{Y_S})^{phi = pi}.",
+     "match": "Independent confirmation of the Frobenius eigenvalue convention for O(1)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF3/graded-algebra-and-algebraic-curve-map",
+   "parentStageId": "RelativeFarguesFontaine:RF3",
+   "title": "The graded ring P and the map of locally ringed spaces X_S -> X_S^alg",
+   "kind": "construction",
+   "statement": "For S affinoid perfectoid, set P = direct sum over n >= 0 of H^0(X_S, O_{X_S}(n)) and X_S^alg = Proj P. Formally (without any ampleness hypothesis) there is a natural map of locally ringed spaces f : (X_S, O_{X_S}) -> X_S^alg: for g in P_n and U = D(g) the nonvanishing locus in X_S, multiplication by g|_U is an isomorphism O_U -> O_U(n), and x = a/g^k in P[g^{-1}]_0 is sent to g|_U^{-k} composed with a, giving a ring map P[g^{-1}]_0 -> O(U); these glue.",
+   "hypotheses": [
+    "S affinoid perfectoid over F_q, so that X_S is a qcqs adic space and O(n) is defined by RF3's isocrystal normalization",
+    "The CONSTRUCTION of f needs no ampleness: Fargues-Scholze state 'the construction of the map is formal (and does not rely on any assumptions)'",
+    "Proj P is formed by glueing Spec P[g^{-1}]_0 over homogeneous g of positive degree; quasicompactness of X_S lets one use finitely many g of a single large degree",
+    "The statement that f^* is an equivalence on vector bundles and preserves cohomology is the GAGA theorem and needs the global-generation and vanishing hypotheses; it is owned by VectorBundlesAndIsocrystals VB2:ampleness, not here"
+   ],
+   "proofSteps": [
+    "Define P as the graded ring of global sections of the twists.",
+    "For each homogeneous g of positive degree, trivialize O(n) on D(g) by multiplication by g and build the ring map P[g^{-1}]_0 -> O(D(g)).",
+    "Check these are maps of local rings and glue over varying g, producing f : (X_S,O_{X_S}) -> Proj P.",
+    "Record that Proj P carries a tautological O(1) whose pullback is O_{X_S}(1), and that X_S^alg is quasicompact because finitely many g suffice."
+   ],
+   "acceptance": [
+    "Verify the construction of f without invoking II.2.6, i.e. on a bundle for which global generation has not yet been proved",
+    "Verify that the pullback of O_{Proj P}(1) is O_{X_S}(1)",
+    "Verify quasicompactness of Proj P using a finite set of degree-n sections"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.2.7, printed p. 67",
+     "excerpt": "The construction of the map f : (X,O_X) -> X^alg is formal (and does not rely on any assumptions): if g in P_n, then on the non-vanishing locus U = D(g) contained in X, there is an isomorphism g|_U : O_U -> O_U(n). Now, for x = a/g^k in P[g^{-1}]_0, g|_U^{-k} composed with a lies in O(U), and this defines a morphism of rings P[g^{-1}]_0 -> O(U).",
+     "match": "The formal construction, isolated from the ampleness hypotheses, exactly as this stage requires."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "After Proposition II.2.7, printed pp. 66-67",
+     "excerpt": "In our situation, if n is large enough so that O_X(n) is globally generated, then it is enough to consider only f in P_n for this given n, and in fact only a finite set of them (as X is quasicompact); in particular, Proj(P) is quasicompact. ... The pullback of O_{Proj(P)}(1) is then given by O_X(1).",
+     "match": "The quasicompactness and the identification of the tautological twist."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "After Proposition II.2.7, printed p. 68",
+     "excerpt": "In particular, for any affinoid perfectoid space S over F_q, we can define the algebraic curve X_S^alg = Proj of the direct sum over n >= 0 of H^0(X_S, O_{X_S}(n)).",
+     "match": "The instantiation for the relative curve with the affinoid hypothesis on S."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF4:vector-bundles/beauville-laszlo-module-gluing",
+   "parentStageId": "RelativeFarguesFontaine:RF4:vector-bundles",
+   "title": "The Beauville-Laszlo gluing lemma for non-noetherian coefficient rings",
+   "kind": "lemma",
+   "statement": "Let R be a commutative ring, f in R a nonzerodivisor and R-hat the f-adic completion of R. Then the category of R-modules M on which f is a nonzerodivisor is equivalent to the category of triples (M_{R-hat}, M_{R[f^{-1}]}, beta) where f is a nonzerodivisor on the R-hat-module M_{R-hat}, M_{R[f^{-1}]} is an R[f^{-1}]-module, and beta : M_{R-hat}[f^{-1}] -> M_{R[f^{-1}]} tensor_R R-hat is an isomorphism. Under this equivalence M is finite projective if and only if M_{R-hat} and M_{R[f^{-1}]} are finite projective.",
+   "hypotheses": [
+    "f is a nonzerodivisor in R; M is required to have f a nonzerodivisor",
+    "No noetherian or flatness hypothesis is imposed, and this is essential: Scholze-Weinstein point out that R -> R-hat may fail to be flat and that no descent datum over R-hat tensor_R R-hat is included, so the statement does NOT follow from fpqc descent",
+    "The finite projectivity criterion is part of the lemma, not an addendum"
+   ],
+   "proofSteps": [
+    "Scholze-Weinstein state the lemma as the key input for the equivalence between finite projective A-modules and locally finite free O_X-modules on a sheafy analytic adic space (Theorem 5.2.8, attributed to KL15 Theorem 2.7.7 and Kedlaya).",
+    "They record the two subtleties that block a descent-theoretic proof: possible non-flatness of R -> R-hat and the absence of a descent datum on the double completion.",
+    "Applying it with R the ring of an annulus chart and f a local generator of the Cartier ideal I_S gives the gluing of a bundle off D_S, a bundle on the formal neighbourhood, and an isomorphism on the punctured neighbourhood."
+   ],
+   "acceptance": [
+    "Verify the lemma on a non-noetherian example, e.g. R = W_{O_E}(R^+)[1/[varpi]] and f = xi",
+    "Verify that the equivalence is compatible with tensor products and duals, and with several disjoint divisors by iterating",
+    "Verify the finite-projectivity clause in both directions"
+   ],
+   "sources": [
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Lemma 5.2.9, printed p. 38",
+     "excerpt": "Let R be a commutative ring, let f in R be a non-zero-divisor, and let R-hat be the f-adic completion of R. Then the category of R-modules M where f is not a zero-divisor is equivalent to the category of pairs (M_{R-hat}, M[f^{-1}], beta) ... Under this equivalence, M is finite projective if and only if M_{R-hat} and M_{R[f^{-1}]} are finite projective.",
+     "match": "Verbatim statement including the finite-projectivity criterion required by this stage."
+    },
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "After Lemma 5.2.9, printed p. 38",
+     "excerpt": "This does not follow from fpqc descent because of two subtle points: R -> R-hat might not be flat if R is not noetherian, and also we have not included a descent datum on R-hat tensor_R R-hat.",
+     "match": "States exactly why the non-noetherian hypotheses must be retained, matching the stage text."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF4:vector-bundles/meromorphic-modification-at-a-divisor",
+   "parentStageId": "RelativeFarguesFontaine:RF4:vector-bundles",
+   "title": "Modifications at a degree-one divisor and the Beauville-Laszlo description of Gr_G",
+   "kind": "comparison",
+   "statement": "For E, E' bundles (or G-bundles) on X_S and D in Div^1(S), a modification between E and E' at D is an isomorphism E|_{X_S \\ D} -> E'|_{X_S \\ D} that is meromorphic along D, meaning that for every representation the associated isomorphism of vector bundles extends to a morphism F -> F'(kD) for k >> 0 via F' -> F'(kD). Beauville-Laszlo gluing identifies Gr_G/phi^Z -> Div^1 with the moduli of D in Div^1(S), E in Bun_G(X_S), and a modification between the trivial G-bundle and E at D.",
+   "hypotheses": [
+    "D is a degree-one closed Cartier divisor, so I_D is invertible and the formal neighbourhood is Spec B^+_dR(R^sharp)",
+    "Meromorphy is tested on all representations in Rep_E(G) in the Tannakian description; it is not automatic",
+    "Gr_G is the B^+_dR-affine Grassmannian: G-torsors on Spec B^+_dR(R^sharp) with a trivialization over Spec B_dR(R^sharp); FS consider it 'absolutely' over Spd(E) rather than over a fixed algebraically closed C",
+    "The identification is quoted from SW20 Proposition 19.1.2"
+   ],
+   "proofSteps": [
+    "Recall Gr_G over Spd E as the etale sheafification of (R,R^+) -> G(B_dR(R^sharp))/G(B^+_dR(R^sharp)), equivalently as G-torsors on Spec B^+_dR with a trivialization over Spec B_dR (SW20 19.1.2, proved by showing every such torsor is etale-locally trivial, lifting trivializations along Spec B^+_dR/xi^n using H^1_et(S^sharp,O)=0).",
+    "Since S^sharp is a closed Cartier divisor in the ambient space, the Beauville-Laszlo lemma turns a torsor on the formal neighbourhood plus a trivialization on the punctured neighbourhood into a torsor on the complement glued to a torsor near D.",
+    "Descending along phi^Z gives the map Gr_G/phi^Z -> Div^1 and hence the morphism of v-stacks Gr_G -> Bun_G."
+   ],
+   "acceptance": [
+    "Verify the meromorphy condition is representation-independent for a faithful representation plus its tensor constructions",
+    "Verify the case G = GL_n against the classical lattice description of Gr",
+    "Verify the compatibility of the modification with tensor products and duals"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "III.3, printed p. 97",
+     "excerpt": "a modification between E and E' at D is an isomorphism E|_{X_S \\ D} -> E'|_{X_S \\ D} that is meromorphic along D. The latter means that for any representation in Rep_E(G), the associated isomorphism between vector bundles, F|_{X_S \\ D} -> F'|_{X_S \\ D} extends to a morphism F -> F'(kD) for k >> 0 via F' -> F'(kD). Beauville-Laszlo gluing then identifies Gr_G/phi^Z -> Div^1 with the moduli of D in Div^1(S), E in Bun_G(X_S), and a modification between the trivial G-bundle and E at D, cf. [SW20, Proposition 19.1.2].",
+     "match": "Verbatim definition of meromorphic modification and the Beauville-Laszlo identification with its citation."
+    },
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Proposition 19.1.2 and proof, printed pp. 170-171",
+     "excerpt": "Recall that S^sharp is a closed Cartier divisor by Proposition 11.3.1. Thus, the identification with G-torsors over this locus follows from the Tannakian formalism and the Beauville-Laszlo lemma, Lemma 5.2.9.",
+     "match": "Shows that the imported identification is exactly Beauville-Laszlo plus Tannaka, so this stage supplies the linear half."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF4:G-torsors/three-descriptions-of-G-torsors",
+   "parentStageId": "RelativeFarguesFontaine:RF4:G-torsors",
+   "title": "Equivalence of geometric, cohomological and Tannakian G-torsors on sousperfectoid spaces",
+   "kind": "theorem",
+   "statement": "Let G be a smooth affine group scheme and X an analytic adic space over Z_p that is sousperfectoid. The categories of geometric G-torsors (adic spaces P -> X with G-action, etale-locally G x X), cohomological G-torsors (etale sheaves with G-action, etale-locally G) and Tannakian G-torsors (exact tensor functors Rep G -> Bun(X)) are canonically equivalent, with the explicit comparison functors. Moreover any geometric G-torsor P -> X is itself sousperfectoid and locally etale over a ball over X.",
+   "hypotheses": [
+    "G is SMOOTH; X is analytic over Z_p and SOUSPERFECTOID (locally Spa(R,R^+) with R sousperfectoid, i.e. admitting a perfectoid R-tilde with R -> R-tilde split as topological R-modules)",
+    "Sousperfectoidness is what makes every Y in X_et an adic space (SW20 Prop. 6.3.3) and makes O_{X_et} and vector bundles etale sheaves (KL15 Thm 8.2.22(c))",
+    "Step (2) uses etale descent of vector bundles (KL15 Thm 8.2.22(d)); step (3) uses that P(O_G(G)) is a faithfully flat R-algebra whose spectrum analytifies to the torsor",
+    "Bun(X) means vector bundles on X, and the tensor functor must be exact"
+   ],
+   "proofSteps": [
+    "(1) The etale sheaf of sections of a geometric torsor is a cohomological torsor.",
+    "(2) For a cohomological torsor Q and V in Rep G, the pushout Q x^G (V tensor_{Z_p} O_X) is a vector bundle by etale descent of vector bundles, and V -> Q x^G V is an exact tensor functor.",
+    "(3) For a Tannakian torsor P, write O_G(G) as a filtered colimit of objects of Rep G, extend P colimit-preservingly; then for affinoid X = Spa(R,R^+), P(O_G(G)) is faithfully flat over R and the analytification of its spectrum is a geometric torsor. Smoothness makes it locally etale over affine space, hence its analytification is locally etale over a ball, hence sousperfectoid by Prop. 6.3.3.",
+    "The three composites are equivalent to the identity."
+   ],
+   "acceptance": [
+    "Verify that the equivalence is independent of the chosen faithful representation of G",
+    "Verify compatibility with extension of structure group along G -> H",
+    "Check that the sousperfectoid hypothesis is satisfied by the annuli Y_{S,I} and by Spec B^+_dR-style bases before transferring the equivalence"
+   ],
+   "sources": [
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Theorem 19.5.2, printed pp. 179-180",
+     "excerpt": "The categories of geometric, cohomological, and Tannakian G-torsors on X are canonically equivalent. ... Moreover, any geometric G-torsor P -> X is itself a sousperfectoid adic space that is locally etale over a ball over X.",
+     "match": "Exact statement of the transfer used by this stage."
+    },
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Before Theorem 19.5.2, printed p. 179",
+     "excerpt": "So, assume from now on that G is smooth, and that X is an analytic adic space over Z_p that is sousperfectoid ... By Proposition 6.3.3, any Y in X_et is itself sousperfectoid, and in particular an adic space. This implies that O_{X_et} is an etale sheaf by [KL15, Theorem 8.2.22 (c)] (that is acyclic on affinoid subsets), and the same holds for vector bundles.",
+     "match": "Records the two standing hypotheses (smooth G, sousperfectoid X) and the imported sheaf statements, which must not be dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF4:G-torsors/v-descent-and-local-triviality",
+   "parentStageId": "RelativeFarguesFontaine:RF4:G-torsors",
+   "title": "v-descent of G-torsors and etale-local triviality over the completed divisor rings",
+   "kind": "theorem",
+   "statement": "G-torsors on open subsets of S x-dot Spa Z_p form a v-stack (SW20 19.5.3). Applied to the completed divisor rings: the category of vector bundles over B^+_{Div^d} satisfies v-descent (check modulo powers of I_S and apply VI.1.4), hence by the Tannakian formalism so does the category of G-bundles; and any G-bundle over B^+_{Div^d_{Y-curly}}(S) is etale-locally on S trivial. Consequently Hck_{G,Div^d} and Gr_{G,Div^d} are small v-stacks with the quotient presentations by loop groups.",
+   "hypotheses": [
+    "G reductive over O_E (resp. E, resp. E) for the local Hecke and Grassmannian statements; smooth affine for the general descent statement",
+    "The v-descent proof reduces to GL_n via Tannaka, then uses that U x_{Spa Z_p} Spa Z_p[p^{1/p^infty}]^wedge_p is perfectoid, so the base change of the cover is a v-cover of perfectoid spaces",
+    "Etale-local triviality over B^+: at a geometric point B^+ is a product of complete discrete valuation rings with algebraically closed residue field, so torsors are trivial; in general triviality modulo I_S implies triviality by lifting along nilpotent thickenings, and the passage from the residue to a neighbourhood is the step FS attribute to [GR03, Proposition 5.4.21]",
+    "The isomorphism Hck = L^+G \\ LG / L^+G is an isomorphism of ETALE stacks over Div^d, obtained after etale-local trivialization"
+   ],
+   "proofSteps": [
+    "SW20 prove 19.5.3 by reducing to vector bundles via Tannaka, base changing to Z_p[p^{1/p^infty}]^wedge to make everything perfectoid, invoking v-descent for perfectoid spaces (Prop. 17.1.8) and then descending back along the split inclusion.",
+    "FS apply this modulo I_S^m and pass to the limit, obtaining v-descent for bundles and hence for G-bundles over B^+_{Div^d}.",
+    "The isomorphism E_1 = E_2 over B_{Div^d} is a section of an affine scheme over that ring, which again satisfies v-descent; smallness follows as in Prop. III.1.3.",
+    "Etale-local triviality of G-torsors over B^+ gives the double-quotient presentation of Hck and the single-quotient presentation of Gr."
+   ],
+   "acceptance": [
+    "Verify that the presentation is as etale stacks and not merely v-stacks",
+    "Verify triviality of G-torsors on B^+ at a geometric point directly from the complete-discrete-valuation-ring description",
+    "Check the affineness hypothesis on Z used in Definition VI.1.5, without which L^+Z and LZ need not be v-sheaves"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.1.7, printed p. 193",
+     "excerpt": "Any G-bundle over B^+_{Div^d_{Y-curly}}(S) is etale locally on S trivial. Indeed, if S is a geometric point then B^+_{Div^d_{Y-curly}}(S) is a product of complete discrete valuation rings with algebraically closed residue field, so that all G-torsors are trivial. In general, note that triviality of the G-torsor over B^+_{Div^d_{Y-curly}}(S) is implied by triviality modulo I_S (as one can always lift sections over nilpotent thickenings). Then the result follows from [GR03, Proposition 5.4.21].",
+     "match": "Exact local-triviality argument and the imported reference whose numbering could not be matched in the locally available copy (see gaps)."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition VI.1.5 and following, printed p. 192",
+     "excerpt": "We note that we use affinity of Z to see that these are actually v-sheaves - this makes it possible to reduce to the v-sheaf property of the structure sheaf.",
+     "match": "Records the affineness hypothesis on the target scheme in the loop-space construction."
+    },
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Proof of Proposition 19.5.3, printed p. 180",
+     "excerpt": "We use the Tannakian interpretation of G-torsors. This directly reduces us to the case of G = GL_n, i.e. vector bundles. ... Recall that U is sousperfectoid; in fact, more precisely, the product U' = U x_{Spa Z_p} Spa Z_p[p^{1/p^infty}]^wedge_p is a perfectoid space.",
+     "match": "The proof route of the imported descent theorem, showing where sousperfectoidness enters."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "RelativeFarguesFontaine:RF0/ramified-witt-universal-property",
+   "target": "RelativeFarguesFontaine:RF0:integral-Y/curly-Y-affinoid-definition",
+   "reason": "Y-curly_S is defined as an open subspace of Spa W_{O_E}(R^+); the pi-adically complete flat O_E-lift and its Teichmueller section are the only input, and the universal property of W_{O_E}(R^+) for perfect R^+ is what the functor-of-points computation later consumes.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "II.1.1, printed p. 47 (definition of W_{O_E}) and printed p. 49 (proof of Prop. II.1.2)"
+    }
+   ]
+  },
+  {
+   "source": "RelativeFarguesFontaine:RF0:integral-Y/chart-cover-perfectoidness-and-sheafiness",
+   "target": "RelativeFarguesFontaine:RF0:integral-Y/gluing-for-general-base",
+   "reason": "The gluing argument checks the isomorphism Y-curly_{S'} -> Z after base change to O_{E_infty}, which is legitimate only because the structure-sheaf maps are split injective; that splitting is precisely the one established in the sheafiness proof.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.1.3, printed p. 49"
+    }
+   ]
+  },
+  {
+   "source": "RelativeFarguesFontaine:RF0:integral-Y/untilt-functor-of-points",
+   "target": "RelativeFarguesFontaine:RF0:integral-Y/gluing-for-general-base",
+   "reason": "After base change both sides are perfectoid, so the comparison reduces to diamonds, where it is exactly the isomorphism (Y-curly_S)^diamond = Spd O_E x S.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.1.3, printed p. 49"
+    }
+   ]
+  },
+  {
+   "source": "RelativeFarguesFontaine:RF0:annuli/radius-function-and-rational-annuli",
+   "target": "RelativeFarguesFontaine:RF1/frobenius-quotient-and-presentation",
+   "reason": "Freeness and total discontinuity of phi are deduced from rad \u2218 phi = q rad, and the explicit presentation of X_S glues Y_{S,[1,1]} to Y_{S,[q,q]}; both the radius function and the affinoid annuli are supplied by the RF0:annuli node.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.1.16 and the paragraph following it, printed pp. 54-55"
+    }
+   ]
+  },
+  {
+   "source": "RelativeFarguesFontaine:RF0:integral-Y/untilt-functor-of-points",
+   "target": "RelativeFarguesFontaine:RF1/diamond-formula-and-map-to-base",
+   "reason": "Proposition II.1.17 is proved by the single sentence 'This is immediate from Proposition II.1.2': the diamond formula for X_S is obtained by inverting pi in and then phi-quotienting the isomorphism (Y-curly_S)^diamond = Spd O_E x S.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.1.17 and proof, printed p. 55"
+    }
+   ]
+  },
+  {
+   "source": "RelativeFarguesFontaine:RF2:untilts/closed-cartier-divisor-norm-estimate",
+   "target": "RelativeFarguesFontaine:RF2:integral-divisors/product-equation-and-affineness",
+   "reason": "The degree-d divisor is built from d individual untilt divisors: 'Each of the xi_i defines a closed Cartier divisor by Proposition II.1.4.' The single-leg Cartier statement, with its norm estimate, is therefore a strict prerequisite of the product construction.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.1.2, printed p. 191, citing Proposition II.1.4 (printed p. 50)"
+    }
+   ]
+  },
+  {
+   "source": "RelativeFarguesFontaine:RF2:untilts/primitive-untilt-correspondence",
+   "target": "RelativeFarguesFontaine:RF2:untilts/closed-cartier-divisor-norm-estimate",
+   "reason": "The proof of Prop. II.1.4 starts from the identification R^{sharp +} = W_{O_E}(R^+)/xi with xi primitive of the form pi - a[varpi]; that identification is the ramified form of the untilt/primitive-ideal correspondence.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.1.4, printed p. 50"
+    },
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Theorem 6.2.11, printed p. 47"
+    }
+   ]
+  },
+  {
+   "source": "RelativeFarguesFontaine:RF2:integral-divisors/v-descent-of-bundles-on-the-divisor",
+   "target": "RelativeFarguesFontaine:RF2:integral-divisors/completed-rings-B-plus-and-B",
+   "reason": "The v-sheaf property of B^+_{Div^d} and B_{Div^d} is established by checking modulo powers of I_S, where the statement is exactly Proposition VI.1.4 about vector bundles on D_S and its infinitesimal thickenings.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.1.7, printed p. 193"
+    }
+   ]
+  },
+  {
+   "source": "RelativeFarguesFontaine:RF2:integral-divisors/completed-rings-B-plus-and-B",
+   "target": "RelativeFarguesFontaine:RF2:untilts/BdR-completion-and-filtration",
+   "reason": "B^+_dR and B_dR are the d = 1 instance of the general completed rings; the filtration and its graded line bundles I_S^m/I_S^{m+1} are read off from the general construction.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "After Proposition VI.1.4, printed p. 192; Propositions VI.1.10-VI.1.11, printed pp. 194-195"
+    }
+   ]
+  },
+  {
+   "source": "RelativeFarguesFontaine:RF0:annuli/stein-exhaustion-and-higher-acyclicity",
+   "target": "RelativeFarguesFontaine:RF3/graded-algebra-and-algebraic-curve-map",
+   "reason": "The graded ring P is built from H^0(X_S,O(n)), which is computed as the phi-equivariant part of H^0(Y_S,O(n)); the Stein exhaustion is what makes that group the whole of RGamma in degree 0 and kills higher cohomology on Y_S.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "II.2 preamble, printed p. 57"
+    }
+   ]
+  },
+  {
+   "source": "RelativeFarguesFontaine:RF3/isocrystal-line-bundles-and-sign",
+   "target": "RelativeFarguesFontaine:RF3/graded-algebra-and-algebraic-curve-map",
+   "reason": "P is the graded ring of sections of the twists O_{X_S}(n); their normalization (Frobenius eigenvalue pi^{-n}, degree +n) fixes the grading and hence Proj P.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "II.2 preamble, printed p. 58; after Proposition II.2.7, printed p. 68"
+    }
+   ]
+  },
+  {
+   "source": "RelativeFarguesFontaine:RF4:vector-bundles/beauville-laszlo-module-gluing",
+   "target": "RelativeFarguesFontaine:RF4:vector-bundles/meromorphic-modification-at-a-divisor",
+   "reason": "The identification of Gr_G with modifications is obtained by applying Beauville-Laszlo at the closed Cartier divisor S^sharp: the source explicitly writes that the identification 'follows from the Tannakian formalism and the Beauville-Laszlo lemma, Lemma 5.2.9'.",
+   "sources": [
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Proof of Proposition 19.1.2, printed p. 170"
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "III.3, printed p. 97"
+    }
+   ]
+  },
+  {
+   "source": "RelativeFarguesFontaine:RF4:vector-bundles/meromorphic-modification-at-a-divisor",
+   "target": "RelativeFarguesFontaine:RF4:G-torsors/three-descriptions-of-G-torsors",
+   "reason": "The Tannakian transfer is applied to the linear gluing: a G-torsor is an exact tensor functor into vector bundles, so the modification statement for bundles plus the equivalence of the three torsor notions gives the G-version. This is the direction the stage text fixes (linear patching first, then Tannaka).",
+   "sources": [
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Remark 19.1.3 and Theorem 19.5.2, printed pp. 170, 179-180"
+    }
+   ]
+  },
+  {
+   "source": "RelativeFarguesFontaine:RF4:G-torsors/three-descriptions-of-G-torsors",
+   "target": "RelativeFarguesFontaine:RF4:G-torsors/v-descent-and-local-triviality",
+   "reason": "The v-descent proof 'uses the Tannakian interpretation of G-torsors. This directly reduces us to the case of G = GL_n' - the equivalence of the three descriptions is the reduction step.",
+   "sources": [
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Proof of Proposition 19.5.3, printed p. 180"
+    }
+   ]
+  },
+  {
+   "source": "FarguesFontaineDiamonds:F4",
+   "target": "RelativeFarguesFontaine:RF2:untilts",
+   "reason": "PROPOSED NEW CROSS-ROADMAP EDGE. F4's own description states that it owns 'the fixed-field case of FS II.1.4', including the compatible-root base extension of the period annuli, the tilt computation and 'the maximum/annulus boundary estimate to obtain the lower bound for multiplication by the primitive generator', and says explicitly 'These analytic estimates are owned here'. RF2:untilts needs exactly that estimate in the relative and ramified case (FS II.1.4, printed p. 50: |xi a| >= q^{-n}|a| via the Shilov boundary, reduced to the tilt D_{S,perf} and then to classical affinoid subsets of D_S). The output supplied is the one-variable maximum-modulus/Shilov statement together with the perfectoidness of the base-changed annuli; the consumer uses it as the geometric-point case from which the relative statement is obtained by the reduction 'this question immediately reduces to the case that S is a geometric point' in FS's proof. The analogous edge F4 -> RF3 already exists in the atlas; the edge into RF2:untilts is the one the proof actually needs. Not proposed merely because both stages mention untilts: the shared object is the specific norm inequality.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.1.4, printed p. 50 ('Note that this question immediately reduces to the case that S is a geometric point.')"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "RelativeFarguesFontaine:RF0",
+   "status": "partial",
+   "remaining": [
+    "The stage text also requires the mixed-characteristic comparison of W_{O_E}(R) with the completed scalar extension of p-typical Witt vectors over W(F_q) as a proved statement, and the change-of-uniformizer comparison; FS state the formula but give no proof, so Hazewinkel/Drinfeld-style ramified Witt vector foundations must still be read.",
+    "Functoriality, reduction and topology statements for W_{O_E} are asserted here from the FS formula only."
+   ]
+  },
+  {
+   "stageId": "RelativeFarguesFontaine:RF0:integral-Y",
+   "status": "partial",
+   "remaining": [
+    "The sousperfectoid descent step is quoted by FS from [HK20] (Hansen-Kedlaya) and SW20 Section 6.3; only SW20 Definition 6.3.1/Example 6.3.2 were read, not Proposition 6.3.3 or the Hansen-Kedlaya paper.",
+    "FS assert that the displayed computation of A^+_0/[varpi] 'implies already' integral perfectoidness via BMS18 Lemma 3.10(ii); the verification that the hypotheses of that lemma (pi^p | p for the chosen element, Frobenius S/pi -> S/pi^p an isomorphism) hold for A^+_0 is not written out in FS and was not reconstructed here."
+   ]
+  },
+  {
+   "stageId": "RelativeFarguesFontaine:RF0:annuli",
+   "status": "partial",
+   "remaining": [
+    "Sousperfectoidness of each Y_{(R,R^+),I} is used but is quoted, not proved, in the passage read; the stably-uniform/sousperfectoid argument with explicit hypotheses is still to be read in SW20 Section 6.3 or Kedlaya-Liu.",
+    "Density of the restriction maps O(Y_{I_2}) -> O(Y_{I_1}) is asserted in FS without proof.",
+    "The explicit plus subrings B^+_{S,I} and the fixed-field Q_p comparison of RINGS (not just spectra) required by the stage text were not located in the passages read."
+   ]
+  },
+  {
+   "stageId": "RelativeFarguesFontaine:RF1",
+   "status": "partial",
+   "remaining": [
+    "FS prove Proposition II.1.16 with 'This follows directly from the definitions'; the verification that rad is well defined on all of |Y_S| and factors through the Berkovich quotient was not reconstructed.",
+    "Descent and pullback along a general map T -> S of perfectoid spaces, and compatibility of structure sheaves and valuations, are used implicitly but were not isolated as proved statements in the passages read.",
+    "Comparison with FarguesFontaineDiamonds F1-F3 in the fixed-field Q_p case was not carried out."
+   ]
+  },
+  {
+   "stageId": "RelativeFarguesFontaine:RF2",
+   "status": "partial",
+   "remaining": [
+    "Aggregate stage; inherits the remaining items of RF2:integral-divisors and RF2:untilts."
+   ]
+  },
+  {
+   "stageId": "RelativeFarguesFontaine:RF2:integral-divisors",
+   "status": "partial",
+   "remaining": [
+    "Remark VI.1.3 (relative-degree criterion) is attributed by FS to Fargues, 'Simple connexite des fibres d'une application d'Abel-Jacobi...' [Far20b]; that paper is not in the supplied library and was not read.",
+    "The v-cover step of Proposition VI.1.4 imports SW20 Lemma 17.1.8 and the almost vanishing of H^1_v(S,O^+); neither was read.",
+    "de Jong-van der Put Proposition 3.2.2 and KL15 Proposition 8.2.20 (reduction of an etale cover to a finite etale cover) were not read.",
+    "Construction of Div^d_X by Frobenius descent and the gluing/restriction to Div^d_Y were read only in the one-paragraph form of the proof of VI.1.2."
+   ]
+  },
+  {
+   "stageId": "RelativeFarguesFontaine:RF2:untilts",
+   "status": "partial",
+   "remaining": [
+    "The residue map, the full ideal filtration with all graded pieces, and the base-change conditions for B^+_dR are only partially covered: FS give the graded pieces in the loop-group form (VI.1.10/VI.1.11) but the intrinsic filtration statements were not separately located.",
+    "Effective Cartier divisors of degree d, their addition, the disjoint-divisor locus and the finite symmetric-power comparison 'in the source's range, retaining multiplicities' were not found in the passages read; the candidate location is Fargues' [Far20b] and FS VI.1, which only gives the symmetric-quotient definition.",
+    "ECD Proposition 24.5 (cohomological smoothness of Spd E) and ECD Proposition 18.3 (valuative criterion) were not read."
+   ]
+  },
+  {
+   "stageId": "RelativeFarguesFontaine:RF3",
+   "status": "partial",
+   "remaining": [
+    "Divisor sections and explicit transition functions for O(n) were not read; FS give the isocrystal definition and the Lubin-Tate section (Prop. II.2.2) but not a chart-level transition-function description.",
+    "The graded algebra's ring-theoretic properties for general affinoid S (beyond the formal construction of the map to Proj P) were not read.",
+    "The 'restriction identifications' the stage says it owns were not located as separate statements."
+   ]
+  },
+  {
+   "stageId": "RelativeFarguesFontaine:RF4",
+   "status": "partial",
+   "remaining": [
+    "Aggregate stage; inherits the remaining items of RF4:vector-bundles and RF4:G-torsors."
+   ]
+  },
+  {
+   "stageId": "RelativeFarguesFontaine:RF4:vector-bundles",
+   "status": "partial",
+   "remaining": [
+    "Only the statement of SW20 Lemma 5.2.9 was read; its proof (Beauville-Laszlo, Un lemme de descente, CRAS 1995) was not, so the non-noetherian argument itself is unverified.",
+    "Compatibility of the gluing with tensor, dual, base change and several disjoint divisors is asserted by the stage text but no source proof of these compatibilities was read.",
+    "Essential surjectivity and full faithfulness are packaged inside Lemma 5.2.9; the separate 'comparison on morphisms' the stage text asks for was not isolated."
+   ]
+  },
+  {
+   "stageId": "RelativeFarguesFontaine:RF4:G-torsors",
+   "status": "partial",
+   "remaining": [
+    "KL15 Theorem 8.2.22 (c) and (d), used for the etale sheaf property and etale descent of vector bundles on sousperfectoid spaces, were not read.",
+    "SW20 Proposition 6.3.3 (stability of sousperfectoidness under etale maps) was not read.",
+    "The reference [GR03, Proposition 5.4.21] used by FS for etale-local triviality of G-torsors over B^+ could not be matched in the locally available copy of Gabber-Ramero (see gaps).",
+    "Independence of the faithful representation and compatibility with extension of structure group are asserted by the stage text; only the general Tannakian equivalence was read."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Fargues' [Far20b] is absent from the supplied library",
+   "neededBy": [
+    "RelativeFarguesFontaine:RF2:integral-divisors/relative-degree-criterion",
+    "RelativeFarguesFontaine:RF2:untilts/div1-moduli-and-properness"
+   ],
+   "detail": "FS cite [Far20b] (L. Fargues) for (a) the equivalence of their Definition II.1.19 with a relative-Cartier-divisor definition (Remark II.1.20), (b) Remark VI.1.3's characterisation of Div^d(S) by geometric fibres, and (c) Corollary II.2.4 (Far20b Proposition 2.12) and the Lubin-Tate/Artin reciprocity comparison in Section 2.3. Searched the supplied library: CATALOGUE.json and the diamonds source files list no Fargues single-author paper besides FarguesFontaine_Courbes. NEXT SOURCE ACTION: obtain L. Fargues, 'Simple connexite des fibres d'une application d'Abel-Jacobi et corps de classes local' (Ann. Sci. ENS, author-hosted preprint) and read Definition 2.6, Proposition 2.12 and Section 2.3. Until then the geometric-fibre criterion is recorded as an unread import, not as an established input."
+  },
+  {
+   "title": "[GR03, Proposition 5.4.21] could not be matched in the locally available Gabber-Ramero copy",
+   "neededBy": [
+    "RelativeFarguesFontaine:RF4:G-torsors/v-descent-and-local-triviality"
+   ],
+   "detail": "FS's proof of Proposition VI.1.7 concludes etale-local triviality of G-torsors over B^+_{Div^d} by citing [GR03, Proposition 5.4.21], i.e. the Springer LNM 1800 (2003) edition of Gabber-Ramero 'Almost ring theory'. The library copy is arXiv:math/0201175v3, the 2002 'sixth (and final) release'; in that numbering Proposition 5.4.21 (PDF p. 121) is a henselian-approximation density statement ('Let X be a smooth quasi-projective R[t^{-1}]-scheme ... the natural map X(R[t^{-1}]) -> X(R^wedge[t^{-1}]) has dense image'), while the torsor lifting/descent results are in Section 5.8 (e.g. Theorem 5.8.14, PDF p. 148, which resumes the assumptions of 5.4.21). The two editions plausibly renumber. NEXT SOURCE ACTION: consult the published LNM 1800 numbering (or a copy with the 2003 pagination) to identify the exact cited statement, then check that the hypotheses (henselian pair, smooth quasi-projective scheme, (t,I)-adic completion) are actually satisfied by B^+_{Div^d}(S) -> B^+/I_S. Recorded as an unresolved import boundary, not as an input package."
+  },
+  {
+   "title": "Sousperfectoid machinery is quoted but unread",
+   "neededBy": [
+    "RelativeFarguesFontaine:RF0:integral-Y/chart-cover-perfectoidness-and-sheafiness",
+    "RelativeFarguesFontaine:RF0:annuli/stein-exhaustion-and-higher-acyclicity",
+    "RelativeFarguesFontaine:RF4:G-torsors/three-descriptions-of-G-torsors"
+   ],
+   "detail": "Three separate steps rest on sousperfectoid theory that was located but not read: (i) FS II.1.1 cites [HK20] and [SW20, Section 6.3] for descending sheafiness along the split inclusion; (ii) the Stein exhaustion asserts Y_{(R,R^+),I} is affinoid sousperfectoid; (iii) SW20 Theorem 19.5.2 needs Proposition 6.3.3 and KL15 Theorem 8.2.22 (c),(d). Verified present in the library: Scholze-Weinstein Berkeley PDF Definition 6.3.1 and Example 6.3.2 were read (printed p. 47). KedlayaLiu_RelativePadicHodgeFoundations.pdf is present in the library (sha256 a6a117423db62aec072442bb15b70e3175bcc3b631bdcd6d74f740e3c6cfd942) but Theorem 8.2.22 was not read. Hansen-Kedlaya 'Sheafiness criteria for Huber rings' was NOT found in the library (unchecked beyond CATALOGUE.json and the diamonds source files). NEXT SOURCE ACTION: read SW20 Proposition 6.3.3 and KL15 Theorem 8.2.22, and locate Hansen-Kedlaya."
+  },
+  {
+   "title": "Ramified Witt vector foundations are assumed, not decomposed",
+   "neededBy": [
+    "RelativeFarguesFontaine:RF0/ramified-witt-universal-property"
+   ],
+   "detail": "FS state the existence and uniqueness of the pi-adically complete flat O_E-lift and the Teichmueller section in one sentence with no proof and no citation. The stage text explicitly warns that 'A general E is not obtained by renaming p in a formula'. Nothing in the passages read proves the mixed-characteristic comparison with W(-) tensor-hat_{W(F_q)} O_E or the change-of-uniformizer isomorphism. NEXT SOURCE ACTION: read a ramified-Witt-vector source (Hazewinkel, 'Formal groups and applications', Ch. IV; or Drinfeld's pi-typical Witt vectors; or Fargues-Fontaine Courbes Chapter 1, which is in the library as FarguesFontaine_Courbes.pdf, sha256 cc159f38a3801c736b71ecea363496abe7706550bfb416600718ee9933922ca3) and decompose the universal property there."
+  },
+  {
+   "title": "Classical points of Y_C and X_C are not covered by any RF stage text",
+   "neededBy": [
+    "RelativeFarguesFontaine:RF1/diamond-formula-and-map-to-base"
+   ],
+   "detail": "FS II.1.6-II.1.14 and Definition/Proposition II.1.22 (classical points, the bijection with untilts, Proposition II.1.11's Spm(B) = |U|^cl, Corollary II.1.12's principal-ideal-domain property, Lemma II.1.14's inertia-surjectivity point used later in IV.7.3) were read but correspond to no stage text in the RelativeFarguesFontaine roadmap. They are consumed by VectorBundlesAndIsocrystals VB2:classification ('Geometric points') and by DiamondSixOperations/Drinfeld's lemma. They are decomposed in the VectorBundlesAndIsocrystals packet of this job rather than duplicated here. Flagged as a possible scope correction to the RF roadmap text."
+  }
+ ]
+}

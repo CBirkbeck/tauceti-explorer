@@ -1,0 +1,1604 @@
+{
+  "objective": "Source-based expansion of every mathematical roadmap and its cross-roadmap prerequisites",
+  "baseline": {
+    "roadmaps": 180,
+    "stages": 1604,
+    "stageEdges": 3508
+  },
+  "roadmaps": [
+    {
+      "id": "AInfCohomology",
+      "title": "Integral A_inf cohomology and Breuil–Kisin–Fargues structures",
+      "group": "cohomology",
+      "stageCount": 10,
+      "state": "integrated_partial",
+      "packet": "research/expansion/drafts/AInfCohomology.json",
+      "assignment": "integral-cohomology",
+      "draftNodes": 7,
+      "draftLinks": 10,
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-R2",
+        "date": "2026-09-15"
+      },
+      "promoted": "data/decompositions/AInfCohomology.json",
+      "note": "Reviewed packet promoted and merged at build time on 15 September 2026. Coverage remains partial: only the stages listed in the packet coverage were read; implementation status of every refinement is unchecked."
+    },
+    {
+      "id": "AbelianSchemesAndArithmeticModuli",
+      "title": "Abelian Schemes And Arithmetic Moduli",
+      "group": "diophantine",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "AdditiveCombinatorics",
+      "title": "Additive combinatorics, higher Fourier analysis and primes",
+      "group": "classical",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "AdelicAlgebraicGroups",
+      "title": "Adelic algebraic groups and arithmetic quotients",
+      "group": "automorphic",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons",
+      "title": "Adic coefficients and comparison with schemes",
+      "group": "cohomology",
+      "stageCount": 7,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-02/AdicCoefficientsAndComparisons.json",
+      "draftNodes": 14,
+      "draftLinks": 20,
+      "assignment": "EXT-02",
+      "reviewNote": "Draft written by the EXT-02 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-02/HANDOFF.md."
+    },
+    {
+      "id": "AdicEtaleGeometry",
+      "title": "Analytic adic geometry required for diamonds",
+      "group": "cohomology",
+      "stageCount": 5,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-02/AdicEtaleGeometry.json",
+      "draftNodes": 10,
+      "draftLinks": 16,
+      "assignment": "EXT-02",
+      "reviewNote": "Draft written by the EXT-02 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-02/HANDOFF.md."
+    },
+    {
+      "id": "AdicSpacesPartII",
+      "title": "Adic Spaces PartII",
+      "group": "cohomology",
+      "stageCount": 8,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-02/AdicSpacesPartII.json",
+      "draftNodes": 24,
+      "draftLinks": 14,
+      "assignment": "EXT-02",
+      "reviewNote": "Draft written by the EXT-02 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-02/HANDOFF.md."
+    },
+    {
+      "id": "AlgebraicModularFormsAndSerreWeights",
+      "title": "Algebraic modular forms, reduction and Serre weights",
+      "group": "modular",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry",
+      "title": "Algebraic moduli and representability for arithmetic geometry",
+      "group": "diophantine",
+      "stageCount": 12,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty",
+      "title": "Anabelian geometry and nonabelian Chabauty",
+      "group": "diophantine",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "AnalyticNumberTheory",
+      "title": "Analytic number theory, zeta functions and prime distribution",
+      "group": "classical",
+      "stageCount": 10,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ArakelovGeometryAndAbelianHeights",
+      "title": "Arakelov geometry and heights of abelian varieties",
+      "group": "diophantine",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ArithmeticDynamics",
+      "title": "Arithmetic dynamics",
+      "group": "diophantine",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ArithmeticGaloisDuality",
+      "title": "Global Galois duality and compact coefficients",
+      "group": "iwasawa",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations",
+      "title": "Arithmetic Galois representations and conductors",
+      "group": "modular",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ArithmeticKTheory",
+      "title": "K-theory of number fields and S-integers",
+      "group": "motivic",
+      "stageCount": 12,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ArithmeticLocallySymmetricSpaces",
+      "title": "Arithmetic locally symmetric spaces and their cohomology",
+      "group": "automorphic",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ArithmeticQuantumTopology",
+      "title": "Arithmetic quantum topology, Habiro invariants and regulators",
+      "group": "motivic",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ArithmeticStatistics",
+      "title": "Arithmetic statistics, counting fields and Selmer distributions",
+      "group": "classical",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "AutomorphicBundles",
+      "title": "Automorphic bundles and classical automorphic forms",
+      "group": "modular",
+      "stageCount": 9,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "AutomorphicCongruences",
+      "title": "Automorphic congruences and reverse main-conjecture divisibilities",
+      "group": "iwasawa",
+      "stageCount": 10,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "AutomorphicFormsOnReductiveGroups",
+      "title": "Automorphic forms on reductive groups",
+      "group": "automorphic",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "AutomorphicGaloisRepresentations",
+      "title": "Galois representations attached to modular and Hilbert modular forms",
+      "group": "modular",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII",
+      "title": "Automorphic Galois Representations PartII",
+      "group": "modular",
+      "stageCount": 10,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors",
+      "title": "Automorphic L-functions and local factors",
+      "group": "automorphic",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "AutomorphicPadicLFunctions",
+      "title": "Ray-class distributions and general automorphic constructions",
+      "group": "iwasawa",
+      "stageCount": 9,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "AutomorphicSpectralTheory",
+      "title": "Automorphic spectral theory and trace distributions",
+      "group": "automorphic",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "BorelRegulators",
+      "title": "Stable arithmetic cohomology and Borel regulators",
+      "group": "motivic",
+      "stageCount": 10,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "BunGAndNewtonStrata",
+      "title": "Reductive bundles, B(G) and Newton strata",
+      "group": "diamonds",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology",
+      "title": "The classical analytic cohomology inputs to diamonds",
+      "group": "cohomology",
+      "stageCount": 10,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-02/ClassicalAdicEtaleCohomology.json",
+      "draftNodes": 18,
+      "draftLinks": 19,
+      "assignment": "EXT-02",
+      "reviewNote": "Draft written by the EXT-02 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-02/HANDOFF.md."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion",
+      "title": "Classical arithmetic, sequences, polynomials and reciprocity",
+      "group": "classical",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ClassicalSerreModularity",
+      "title": "Classical Serre Modularity",
+      "group": "modular",
+      "stageCount": 18,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "CohomologyComparisons",
+      "title": "Cohomology comparisons: integral diagrams and rational period realizations",
+      "group": "cohomology",
+      "stageCount": 7,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/drafts/CohomologyComparisons.json",
+      "assignment": "integral-cohomology",
+      "reviewNote": "Draft written by R3 on 15 September 2026 from BMS1 §§3–4, 13–14 (20 nodes, 49 links, 12 gaps); handoff in research/expansion/reviews/cohomology-comparisons-handoff.md. Not independently reviewed; not promoted.",
+      "draftNodes": 20,
+      "draftLinks": 49
+    },
+    {
+      "id": "ColemanIntegration",
+      "title": "Coleman integration and noncritical Dirichlet L-values",
+      "group": "iwasawa",
+      "stageCount": 4,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ColemanPowerSeries",
+      "title": "Coleman power series, local units, and cyclotomic-unit quotients",
+      "group": "iwasawa",
+      "stageCount": 5,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "CompletedCohomologyAndLocalGlobalCompatibility",
+      "title": "Completed cohomology and p-adic local–global compatibility over Q",
+      "group": "modular",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "CompletedCohomologyPartII",
+      "title": "Completed cohomology, homology and arithmetic towers — Part II",
+      "group": "modular",
+      "stageCount": 9,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ComplexComparisonPartII",
+      "title": "Complex Comparison PartII",
+      "group": "diophantine",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ComplexMultiplicationAndExplicitReciprocity",
+      "title": "Complex multiplication and explicit reciprocity",
+      "group": "diophantine",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ComputationalNumberTheory",
+      "title": "Certified computational number theory and arithmetic data",
+      "group": "classical",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "CrystallineCohomology",
+      "title": "Crystalline cohomology, de Rham–Witt and logarithmic foundations",
+      "group": "cohomology",
+      "stageCount": 11,
+      "state": "integrated_partial",
+      "packet": "research/expansion/drafts/CrystallineCohomology.json",
+      "assignment": "integral-cohomology",
+      "draftNodes": 7,
+      "draftLinks": 9,
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-R2",
+        "date": "2026-09-15"
+      },
+      "promoted": "data/decompositions/CrystallineCohomology.json",
+      "note": "Reviewed packet promoted and merged at build time on 15 September 2026. Coverage remains partial: only the stages listed in the packet coverage were read; implementation status of every refinement is unchecked."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra",
+      "title": "Commutative algebra for deformation theory and patching",
+      "group": "foundations",
+      "stageCount": 9,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "DeligneWeightsAndPurity",
+      "title": "Deligne weights, purity and the Weil bounds",
+      "group": "cohomology",
+      "stageCount": 11,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "DerivedDeRhamCohomology",
+      "title": "Derived de Rham cohomology and its algebraic foundations",
+      "group": "cohomology",
+      "stageCount": 7,
+      "state": "integrated_partial",
+      "packet": "research/expansion/drafts/DerivedDeRhamCohomology.json",
+      "assignment": "integral-cohomology",
+      "draftNodes": 7,
+      "draftLinks": 8,
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-R2",
+        "date": "2026-09-15"
+      },
+      "promoted": "data/decompositions/DerivedDeRhamCohomology.json",
+      "note": "Reviewed packet promoted and merged at build time on 15 September 2026. Coverage remains partial: only the stages listed in the packet coverage were read; implementation status of every refinement is unchecked."
+    },
+    {
+      "id": "DiamondEtaleCohomology",
+      "title": "Étale cohomology of diamonds and its four operations",
+      "group": "diamonds",
+      "stageCount": 10,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "DiamondSixOperations",
+      "title": "Six operations, cohomological smoothness and biduality",
+      "group": "diamonds",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "DiamondsAndVStacks",
+      "title": "Pro-étale descent, diamonds and small v-stacks",
+      "group": "diamonds",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence",
+      "title": "Diophantine approximation and transcendence",
+      "group": "classical",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "DirichletPadicLFunctions",
+      "title": "Dirichlet p-adic L-functions, special values, and Eisenstein measures",
+      "group": "iwasawa",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "DrinfeldModulesAndTModules",
+      "title": "Drinfeld modules, t-motives and characteristic-p special values",
+      "group": "functionfields",
+      "stageCount": 9,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "EffectiveDiophantineMethods",
+      "title": "Effective Diophantine methods and certified rational points",
+      "group": "diophantine",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "EllipticCurveModularity",
+      "title": "Modularity and modular parametrisations of elliptic curves over Q",
+      "group": "modular",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "EllipticKTheory",
+      "title": "K-theory of curves and elliptic curves",
+      "group": "motivic",
+      "stageCount": 11,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "EllipticRegulators",
+      "title": "Elliptic regulators, explicit K₂ classes and L-values",
+      "group": "motivic",
+      "stageCount": 14,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison",
+      "title": "Endoscopic transfer and unitary trace comparison",
+      "group": "modular",
+      "stageCount": 15,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "EnhancedDerivedSheaves",
+      "title": "Enhanced derived categories of sheaves",
+      "group": "foundations",
+      "stageCount": 11,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "EtaleDualityAndPerverseSheaves",
+      "title": "Étale duality, cycle classes and perverse sheaves",
+      "group": "cohomology",
+      "stageCount": 13,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "EulerSystemsAndKolyvaginSystems",
+      "title": "Euler systems, Kolyvagin systems and higher-rank descent",
+      "group": "iwasawa",
+      "stageCount": 9,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "EulerSystemsCyclotomicMainConjecture",
+      "title": "Euler systems and the unconditional cyclotomic main conjecture",
+      "group": "iwasawa",
+      "stageCount": 5,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-15/EulerSystemsCyclotomicMainConjecture.json",
+      "draftNodes": 16,
+      "draftLinks": 16,
+      "assignment": "EXT-15",
+      "reviewNote": "Draft written by the EXT-15 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-15/HANDOFF.md."
+    },
+    {
+      "id": "ExcursionOperatorsAndSpectralAction",
+      "title": "Excursion operators and the spectral action",
+      "group": "diamonds",
+      "stageCount": 17,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod",
+      "title": "Exponential sums, decoupling and the circle method",
+      "group": "classical",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "FaltingsFinitenessAndIsogenyTheorems",
+      "title": "Faltings finiteness, semisimplicity and isogeny theorems",
+      "group": "diophantine",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "FarguesFontaineDiamonds",
+      "title": "The existing Fargues–Fontaine curve as a diamond",
+      "group": "diamonds",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "FiniteFieldsAndCharacterSums",
+      "title": "Finite fields, character sums, finite rings and coding interfaces",
+      "group": "classical",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "title": "Finite flat group schemes and integral p-adic Hodge theory",
+      "group": "diophantine",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "FoundationsAndLibraryIntegration",
+      "title": "Foundations, existing libraries, and proof integrity",
+      "group": "foundations",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "FunctionFieldArithmetic",
+      "title": "Global function fields, reciprocity and automorphic foundations",
+      "group": "functionfields",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "GL2AutomorphicRepresentationsAndTransfer",
+      "title": "GL₂ Automorphic Representations And Transfer",
+      "group": "modular",
+      "stageCount": 12,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "GL2ModularityLifting",
+      "title": "GL₂ Modularity Lifting",
+      "group": "modular",
+      "stageCount": 12,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "GeneralAlgebraicKTheory",
+      "title": "General algebraic K-theory",
+      "group": "foundations",
+      "stageCount": 15,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-01/GeneralAlgebraicKTheory.json",
+      "draftNodes": 24,
+      "draftLinks": 55,
+      "assignment": "EXT-01",
+      "reviewNote": "Draft written by the EXT-01 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-01/HANDOFF.md."
+    },
+    {
+      "id": "GeneralizedHeegnerCycles",
+      "title": "Generalized Heegner cycles and their Iwasawa variation",
+      "group": "iwasawa",
+      "stageCount": 9,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "GeometricSatakeAndFusion",
+      "title": "Geometric Satake over the Fargues–Fontaine curve",
+      "group": "diamonds",
+      "stageCount": 14,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-05/GeometricSatakeAndFusion.json",
+      "draftNodes": 23,
+      "draftLinks": 24,
+      "assignment": "EXT-05",
+      "reviewNote": "Draft written by the EXT-05 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-05/HANDOFF.md."
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic",
+      "title": "Geometry of numbers, quadratic forms and homogeneous arithmetic",
+      "group": "classical",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "GlobalGaloisDeformations",
+      "title": "Global Galois deformation rings",
+      "group": "modular",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "GlobalShtukasAndFunctionFieldLanglands",
+      "title": "Global shtukas and Langlands over function fields",
+      "group": "functionfields",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights",
+      "title": "Gross–Zagier formulas and arithmetic heights",
+      "group": "iwasawa",
+      "stageCount": 10,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-15/GrossZagierAndArithmeticHeights.json",
+      "draftNodes": 9,
+      "draftLinks": 12,
+      "assignment": "EXT-15",
+      "reviewNote": "Draft written by the EXT-15 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-15/HANDOFF.md."
+    },
+    {
+      "id": "HabiroCohomologyFoundations",
+      "title": "Q-Hodge filtrations and Habiro cohomology",
+      "group": "motivic",
+      "stageCount": 9,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "HabiroCyclotomicCompletions",
+      "title": "Cyclotomic completions and classical Habiro rings",
+      "group": "motivic",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "HabiroNahmSeries",
+      "title": "Nahm series, asymptotics and Habiro integrality",
+      "group": "motivic",
+      "stageCount": 11,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "HabiroNumberFields",
+      "title": "Number-field Habiro rings, finite regulators and K₃-graded modules",
+      "group": "motivic",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "HabiroRings",
+      "title": "Habiro rings: relative arithmetic constructions and cohomological coefficients",
+      "group": "motivic",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "HeckeStacksAndLocalShtukas",
+      "title": "Hecke correspondences and local shtuka cohomology",
+      "group": "diamonds",
+      "stageCount": 5,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "HeegnerPointEulerSystems",
+      "title": "Heegner-point Euler systems and arithmetic descent",
+      "group": "iwasawa",
+      "stageCount": 12,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions",
+      "title": "Heights, rational points and obstructions",
+      "group": "diophantine",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "HigherLocalFieldsAndHigherClassFieldTheory",
+      "title": "Higher local fields and higher class field theory",
+      "group": "functionfields",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "HilbertModularVarietiesAndShimuraCurves",
+      "title": "Hilbert Modular Varieties And Shimura Curves",
+      "group": "modular",
+      "stageCount": 13,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "HodgeTateAndCanonicalSubgroups",
+      "title": "Hodge–Tate theory, canonical subgroups, and automorphic period maps",
+      "group": "modular",
+      "stageCount": 9,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "IgusaVarietiesAndTorsionConcentration",
+      "title": "Igusa varieties, compactified period fibers and torsion concentration",
+      "group": "modular",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "IntegralHeckeAndGaloisDeterminants",
+      "title": "Integral Hecke actions, determinants and interpolation",
+      "group": "modular",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "IntegralIwasawaTheory",
+      "title": "Arithmetic Iwasawa theory and the main conjecture",
+      "group": "iwasawa",
+      "stageCount": 20,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "InverseGaloisAndArithmeticFundamentalGroups",
+      "title": "Inverse Galois theory and arithmetic fundamental groups",
+      "group": "diophantine",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "K2SymbolsBrauer",
+      "title": "Explicit K₂: symbols, residues and reciprocity",
+      "group": "motivic",
+      "stageCount": 14,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "K3BlochGroups",
+      "title": "Explicit K₃ and Bloch groups",
+      "group": "motivic",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "KTheoryFiniteLocalFields",
+      "title": "K-theory of finite and local fields",
+      "group": "motivic",
+      "stageCount": 10,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "KTheoryLowDegrees",
+      "title": "Explicit K₀: projectives, rank and determinant",
+      "group": "motivic",
+      "stageCount": 15,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "KatoEulerSystems",
+      "title": "Kato classes and explicit reciprocity for modular forms",
+      "group": "iwasawa",
+      "stageCount": 5,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-15/KatoEulerSystems.json",
+      "draftNodes": 22,
+      "draftLinks": 15,
+      "assignment": "EXT-15",
+      "reviewNote": "Draft written by the EXT-15 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-15/HANDOFF.md."
+    },
+    {
+      "id": "LanglandsParameterStacks",
+      "title": "Parameter stacks, invariant theory and spectral coefficients",
+      "group": "diamonds",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "LefschetzPencilsAndVanishingCycles",
+      "title": "Lefschetz pencils, nearby cycles and vanishing cycles",
+      "group": "cohomology",
+      "stageCount": 10,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "LocalGaloisDeformationRings",
+      "title": "Local Galois deformation rings and their components",
+      "group": "modular",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "LocallyAnalyticDistributions",
+      "title": "Locally analytic distributions, growth, and character spaces",
+      "group": "iwasawa",
+      "stageCount": 5,
+      "state": "integrated_partial",
+      "packet": "research/expansion/drafts/LocallyAnalyticDistributions.json",
+      "assignment": "eigenvarieties",
+      "draftNodes": 13,
+      "draftLinks": 17,
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-R1b",
+        "date": "2026-09-15"
+      },
+      "promoted": "data/decompositions/LocallyAnalyticDistributions.json",
+      "note": "Reviewed packet promoted and merged at build time on 15 September 2026. Coverage remains partial: only the stages listed in the packet coverage were read; implementation status of every refinement is unchecked."
+    },
+    {
+      "id": "LogicAndDefinabilityInNumberTheory",
+      "title": "Logic, definability, valued fields and motivic integration",
+      "group": "classical",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "MetaplecticAutomorphicForms",
+      "title": "Metaplectic groups, Weil representations and automorphic theta kernels",
+      "group": "automorphic",
+      "stageCount": 9,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ModularCurvesPartII",
+      "title": "Modular Curves PartII",
+      "group": "modular",
+      "stageCount": 20,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ModularIwasawaMainConjectures",
+      "title": "Main conjectures for modular forms and their families",
+      "group": "iwasawa",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ModularSymbolsPadicLFunctions",
+      "title": "Modular symbols and analytic p-adic L-functions of modular forms",
+      "group": "iwasawa",
+      "stageCount": 5,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions",
+      "title": "Modularity, automorphy and Langlands endpoint extensions",
+      "group": "modular",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles",
+      "title": "Algebraic cycles, pure and mixed motives",
+      "group": "motivic",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "MotivicEtaleKTheory",
+      "title": "Motivic and étale methods for arithmetic K-theory",
+      "group": "motivic",
+      "stageCount": 21,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarieties",
+      "title": "Néron models and semistable abelian varieties",
+      "group": "diophantine",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "NoncommutativeAndEquivariantIwasawa",
+      "title": "Noncommutative and equivariant Iwasawa theory",
+      "group": "iwasawa",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "OrdinaryAutomorphicFormsAndModularityLifting",
+      "title": "Ordinary automorphic forms and ordinary modularity lifting",
+      "group": "modular",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "OverconvergentAutomorphicForms",
+      "title": "Overconvergent Hilbert modular forms and p-adic automorphic coefficients",
+      "group": "modular",
+      "stageCount": 9,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "PELModuli",
+      "title": "Siegel and PEL moduli problems",
+      "group": "modular",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology",
+      "title": "P-adic differential equations, rigid cohomology and p-adic weights",
+      "group": "cohomology",
+      "stageCount": 8,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-03/PadicDifferentialEquationsAndRigidCohomology.json",
+      "draftNodes": 2,
+      "draftLinks": 2,
+      "assignment": "EXT-03",
+      "reviewNote": "Draft written by the EXT-03 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-03/HANDOFF.md."
+    },
+    {
+      "id": "PadicFamilies",
+      "title": "Hida and Coleman families, period modules, and family L-functions",
+      "group": "modular",
+      "stageCount": 8,
+      "state": "integrated_partial",
+      "packet": "research/expansion/drafts/PadicFamilies.json",
+      "assignment": "eigenvarieties",
+      "draftNodes": 14,
+      "draftLinks": 24,
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-R1",
+        "date": "2026-09-15"
+      },
+      "promoted": "data/decompositions/PadicFamilies.json",
+      "note": "Reviewed packet promoted and merged at build time on 15 September 2026. Coverage remains partial: only the stages listed in the packet coverage were read; implementation status of every refinement is unchecked."
+    },
+    {
+      "id": "PadicHodgeRegulators",
+      "title": "P-adic regulators and the local K₃ calculation",
+      "group": "motivic",
+      "stageCount": 11,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "PadicHodgeTheory",
+      "title": "P-adic Hodge theory and geometric comparison",
+      "group": "cohomology",
+      "stageCount": 10,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-03/PadicHodgeTheory.json",
+      "draftNodes": 10,
+      "draftLinks": 21,
+      "assignment": "EXT-03",
+      "reviewNote": "Draft written by the EXT-03 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-03/HANDOFF.md."
+    },
+    {
+      "id": "PadicLocalLanglandsForGL2Qp",
+      "title": "P-adic local Langlands for GL₂(Q_p)",
+      "group": "modular",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras",
+      "title": "P-adic measures, completed group algebras, and characteristic ideals",
+      "group": "iwasawa",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "PerfectoidQuotients",
+      "title": "Perfectoid quotients and their prismatic prerequisites",
+      "group": "cohomology",
+      "stageCount": 7,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-03/PerfectoidQuotients.json",
+      "draftNodes": 12,
+      "draftLinks": 24,
+      "assignment": "EXT-03",
+      "reviewNote": "Draft written by the EXT-03 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-03/HANDOFF.md."
+    },
+    {
+      "id": "PerfectoidShimuraVarieties",
+      "title": "Shimura towers and perfectoid representability",
+      "group": "modular",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "PerfectoidSpaces",
+      "title": "Perfectoid rings and spaces",
+      "group": "cohomology",
+      "stageCount": 10,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-03/PerfectoidSpaces.json",
+      "draftNodes": 33,
+      "draftLinks": 47,
+      "assignment": "EXT-03",
+      "reviewNote": "Draft written by the EXT-03 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-03/HANDOFF.md."
+    },
+    {
+      "id": "PeriodsAndSpecialValues",
+      "title": "Periods, motivic L-values and special-value conjectures",
+      "group": "motivic",
+      "stageCount": 10,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "PhiGammaModulesAndIwasawaCohomology",
+      "title": "(φ,Γ)-modules, Herr complexes and local Iwasawa cohomology",
+      "group": "iwasawa",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "Polylogarithms",
+      "title": "Polylogarithms, explicit regulators and Zagier statements",
+      "group": "motivic",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "PotentialAutomorphyInfrastructure",
+      "title": "Reusable infrastructure for potential automorphy over CM fields",
+      "group": "modular",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "PotentialModularityAndCompatibleSystems",
+      "title": "Potential Modularity And Compatible Systems",
+      "group": "modular",
+      "stageCount": 13,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "PrismaticCohomology",
+      "title": "Prismatic cohomology: relative, absolute, Nygaard and log variants",
+      "group": "cohomology",
+      "stageCount": 9,
+      "state": "integrated_partial",
+      "packet": "research/expansion/drafts/PrismaticCohomology.json",
+      "assignment": "integral-cohomology",
+      "draftNodes": 8,
+      "draftLinks": 13,
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-R2",
+        "date": "2026-09-15"
+      },
+      "promoted": "data/decompositions/PrismaticCohomology.json",
+      "note": "Reviewed packet promoted and merged at build time on 15 September 2026. Coverage remains partial: only the stages listed in the packet coverage were read; implementation status of every refinement is unchecked."
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory",
+      "title": "Probabilistic, metric and ergodic number theory",
+      "group": "classical",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms",
+      "title": "Q-series, partitions, Jacobi and mock modular forms",
+      "group": "classical",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "RankZeroOneBSD",
+      "title": "Rank-zero and rank-one Birch–Swinnerton-Dyer theory",
+      "group": "iwasawa",
+      "stageCount": 12,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ReductiveGroupsPartII",
+      "title": "Reductive groups, Part II: local structure and arithmetic models",
+      "group": "automorphic",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "RefinedTraceMethods",
+      "title": "Hochschild, cyclotomic and refined trace methods",
+      "group": "motivic",
+      "stageCount": 11,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "RelativeFarguesFontaine",
+      "title": "Relative Fargues–Fontaine curves and period geometry",
+      "group": "diamonds",
+      "stageCount": 11,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-05/RelativeFarguesFontaine.json",
+      "draftNodes": 24,
+      "draftLinks": 15,
+      "assignment": "EXT-05",
+      "reviewNote": "Draft written by the EXT-05 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-05/HANDOFF.md."
+    },
+    {
+      "id": "SchemeAndStackFoundations",
+      "title": "Scheme, stack, cohomology and intersection foundations",
+      "group": "foundations",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "SchemeKTheoryOperations",
+      "title": "K-theory of schemes, localisation and operations",
+      "group": "motivic",
+      "stageCount": 10,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "SelmerIwasawaCohomology",
+      "title": "Selmer groups, continuous integral cohomology, and Iwasawa cohomology",
+      "group": "iwasawa",
+      "stageCount": 5,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "SerreWeightAndLevelOptimisation",
+      "title": "Weight and level optimisation of residual modular representations",
+      "group": "modular",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ShimuraCompactifications",
+      "title": "Toroidal compactifications and boundary geometry",
+      "group": "modular",
+      "stageCount": 9,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ShimuraData",
+      "title": "Shimura data, Hermitian domains, and adelic level structures",
+      "group": "modular",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "ShimuraVarieties",
+      "title": "Complex Shimura varieties and canonical models",
+      "group": "modular",
+      "stageCount": 10,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns",
+      "title": "Sieve methods, prime gaps and prime patterns",
+      "group": "classical",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases",
+      "title": "Small ramification and the base cases for Serre modularity",
+      "group": "modular",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "SmoothRepresentationsOfLocalGroups",
+      "title": "Smooth representations of local groups",
+      "group": "automorphic",
+      "stageCount": 11,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "SpecialValuesBirchTate",
+      "title": "Birch–Tate and arithmetic special-value formulas",
+      "group": "motivic",
+      "stageCount": 13,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "StableHomotopyKTheory",
+      "title": "Homotopy foundations for algebraic K-theory",
+      "group": "foundations",
+      "stageCount": 12,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-01/StableHomotopyKTheory.json",
+      "draftNodes": 25,
+      "draftLinks": 28,
+      "assignment": "EXT-01",
+      "reviewNote": "Draft written by the EXT-01 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-01/HANDOFF.md."
+    },
+    {
+      "id": "TorsionCohomologyInfrastructure",
+      "title": "Reusable infrastructure for torsion in arithmetic cohomology",
+      "group": "modular",
+      "stageCount": 5,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic",
+      "title": "Berkovich spaces, tropical curves and nonarchimedean arithmetic",
+      "group": "cohomology",
+      "stageCount": 8,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-03/TropicalAndBerkovichArithmetic.json",
+      "draftNodes": 4,
+      "draftLinks": 3,
+      "assignment": "EXT-03",
+      "reviewNote": "Draft written by the EXT-03 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-03/HANDOFF.md."
+    },
+    {
+      "id": "VStackSheavesAndLisseCategories",
+      "title": "Artin v-stacks, solid and lisse coefficient categories",
+      "group": "diamonds",
+      "stageCount": 6,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-05/VStackSheavesAndLisseCategories.json",
+      "draftNodes": 21,
+      "draftLinks": 20,
+      "assignment": "EXT-05",
+      "reviewNote": "Draft written by the EXT-05 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-05/HANDOFF.md."
+    },
+    {
+      "id": "VectorBundlesAndIsocrystals",
+      "title": "Isocrystals, vector bundles and Banach–Colmez spaces",
+      "group": "diamonds",
+      "stageCount": 10,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-05/VectorBundlesAndIsocrystals.json",
+      "draftNodes": 23,
+      "draftLinks": 23,
+      "assignment": "EXT-05",
+      "reviewNote": "Draft written by the EXT-05 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-05/HANDOFF.md."
+    },
+    {
+      "id": "WeightsInEtaleCohomology",
+      "title": "Weights and purity in étale cohomology",
+      "group": "cohomology",
+      "stageCount": 6,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-03/WeightsInEtaleCohomology.json",
+      "draftNodes": 5,
+      "draftLinks": 10,
+      "assignment": "EXT-03",
+      "reviewNote": "Draft written by the EXT-03 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-03/HANDOFF.md."
+    },
+    {
+      "id": "WeilConjectures",
+      "title": "Weil conjectures and cohomological zeta functions",
+      "group": "cohomology",
+      "stageCount": 10,
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-03/WeilConjectures.json",
+      "draftNodes": 6,
+      "draftLinks": 8,
+      "assignment": "EXT-03",
+      "reviewNote": "Draft written by the EXT-03 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-03/HANDOFF.md."
+    },
+    {
+      "id": "tauceti:Completed/EffectiveBounds",
+      "title": "Effective arithmetic bounds and geometry of numbers",
+      "group": "classical",
+      "stageCount": 4,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+      "title": "Combinatorial Heegaard Floer and grid homology",
+      "group": "topology",
+      "stageCount": 22,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/ConformalMapping",
+      "title": "Conformal mapping and the geometric theory of holomorphic functions",
+      "group": "analysis",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/ContourIntegration",
+      "title": "Contour integration and the Hungerbühler–Wasem generalized residue theorem",
+      "group": "analysis",
+      "stageCount": 5,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/Exchangeability",
+      "title": "Exchangeability and de Finetti",
+      "group": "analysis",
+      "stageCount": 9,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/GeometricTopology",
+      "title": "Geometric topology and the solved Kirby-list problems",
+      "group": "topology",
+      "stageCount": 11,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/HeegaardFloer",
+      "title": "Heegaard Floer homology, analytically",
+      "group": "topology",
+      "stageCount": 22,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/JacobianChallenge",
+      "title": "The Jacobian challenge (Christian Merten's AG version)",
+      "group": "diophantine",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/ModularForms",
+      "title": "Modular forms — Hecke theory, newforms, and L-functions",
+      "group": "modular",
+      "stageCount": 16,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/Multiquadratic",
+      "title": "Multiquadratic fields and genus theory",
+      "group": "classical",
+      "stageCount": 4,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+      "title": "One-parameter semigroups, completely monotone and positive-definite functions, and Bochner-type representations",
+      "group": "analysis",
+      "stageCount": 9,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/OptimalTransport",
+      "title": "Optimal transport and Wasserstein geometry",
+      "group": "analysis",
+      "stageCount": 24,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/OrthogonalL2Bases",
+      "title": "Weighted orthogonal L² bases — completeness, Hilbert-basis structure, and product bases of orthogonal systems",
+      "group": "analysis",
+      "stageCount": 11,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/PDE",
+      "title": "Partial differential equations",
+      "group": "analysis",
+      "stageCount": 32,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "title": "Reductive algebraic groups",
+      "group": "algebra",
+      "stageCount": 10,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+      "title": "Character theory of finite groups, and computing character tables",
+      "group": "algebra",
+      "stageCount": 10,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+      "title": "Finite-dimensional representations of the classical groups",
+      "group": "algebra",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "title": "Representations of compact groups and the Peter-Weyl theorem",
+      "group": "algebra",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+      "title": "Induction, restriction, and Mackey theory for finite groups",
+      "group": "algebra",
+      "stageCount": 10,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+      "title": "Lie groups and the Lie algebra correspondence",
+      "group": "algebra",
+      "stageCount": 10,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+      "title": "Representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas",
+      "group": "algebra",
+      "stageCount": 10,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+      "title": "Quiver representations, path algebras, and Gabriel's theorem",
+      "group": "algebra",
+      "stageCount": 7,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/RepresentationTheory",
+      "title": "Representation theory",
+      "group": "algebra",
+      "stageCount": 0,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+      "title": "Root systems, Weyl groups, and the Cartan-Killing classification",
+      "group": "algebra",
+      "stageCount": 6,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+      "title": "Representations of the symmetric group, Specht modules, and Schur-Weyl duality",
+      "group": "algebra",
+      "stageCount": 10,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+      "title": "Semisimple algebras, Artin-Wedderburn, and the structure of their modules",
+      "group": "algebra",
+      "stageCount": 8,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+      "title": "Clifford algebras, the Pin and Spin groups, and spin representations",
+      "group": "algebra",
+      "stageCount": 10,
+      "state": "pending",
+      "packet": null
+    },
+    {
+      "id": "tauceti:TauCetiRoadmap/UniversalCovers",
+      "title": "Universal covers",
+      "group": "topology",
+      "stageCount": 5,
+      "state": "pending",
+      "packet": null
+    }
+  ],
+  "internalJobsClaimed": {
+    "jobs": [
+      "EXT-02",
+      "EXT-03",
+      "EXT-15",
+      "EXT-16"
+    ],
+    "claimedOn": "2026-09-15",
+    "state": "agents terminated by session rate limit before writing packets; scratch downloads only; relaunch after the limit resets"
+  }
+}

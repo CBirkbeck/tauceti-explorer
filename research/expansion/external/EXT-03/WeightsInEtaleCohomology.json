@@ -1,0 +1,255 @@
+{
+  "roadmapId": "WeightsInEtaleCohomology",
+  "status": "partial",
+  "summary": "Source decomposition of the weight formalism and of the Weil II results that stage R34.5 imports: Deligne, La conjecture de Weil II, Section 1.2 (pure numbers, punctually pure and mixed sheaves, ι-weights, twists, real sheaves) read in full, Theorem 3.3.1 with its devissages and the reduction to tamely ramified curves, the integrality bounds 3.3.2-3.3.3, Corollaries 3.3.4-3.3.6 with proofs, 3.3.7-3.3.11, and Theorem 3.4.1 with Lemmas 3.4.2-3.4.4 and the proof of geometric semisimplicity. Stages R34.1 and R34.5 are partially decomposed; R34.2, R34.3, R34.4 and R34.6 are recorded as not read. The atlas assigns these theorems to DeligneWeightsAndPurity DWP.0/DWP.7/DWP.8, whose packets do not yet exist; the nodes here record what was read and are candidates for relocation.",
+  "sources": [
+    {
+      "id": "deligne-weil-ii",
+      "title": "La conjecture de Weil. II",
+      "authors": "Pierre Deligne",
+      "edition": "Publ. Math. IHES 52 (1980) 137-252 (library copy SS_WeilII.pdf from Numdam; OCR text extraction with printed page numbers)",
+      "url": "https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf",
+      "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71",
+      "readSections": [
+        "Section 1.2 Poids: (1.2.1)-(1.2.14), pp. 153-155 (extraction lines 780-912)",
+        "Section 3.3: Theorem (3.3.1) with proof, (3.3.2), Corollary (3.3.3), Corollaries (3.3.4)-(3.3.6) with proofs, (3.3.7)-(3.3.11), pp. 204-207 (extraction lines 3085-3240)",
+        "Section 3.4: Theorem (3.4.1), Lemmas (3.4.2)-(3.4.4) with proofs, (3.4.5) proof of (iii), pp. 207-208 (extraction lines 3241-3300)"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "WeightsInEtaleCohomology:R34.1/pure-numbers-punctually-pure-and-mixed-sheaves",
+      "parentStageId": "WeightsInEtaleCohomology:R34.1",
+      "title": "Pure numbers, punctually pure and mixed sheaves, ι-weights, twists and real sheaves",
+      "kind": "definition",
+      "statement": "(1.2.1) For q a prime power and n ∈ Z, a number α ∈ Q̄_ℓ is pure of weight n relative to q if it is algebraic and all its complex conjugates have absolute value q^{n/2}. (1.2.2) For X of finite type over Z and a sheaf F on X: F is punctually pure of weight n if for every closed point x the eigenvalues of F_x are pure of weight n relative to N(x); F is mixed if it has a finite filtration with punctually pure successive quotients, whose weights (for nonzero quotients) are the punctual weights of F. The zero sheaf is pure of every weight and mixed with empty weight set. (1.2.3-1.2.4) The same terminology applies to ℓ-adic representations of Gal(k̄/k) for k finite and to Weil sheaves. (1.2.5) Punctually pure sheaves of weight n are stable under subobjects, quotients, extensions, inverse images and finite direct images; tensor products add weights; the dual of a lisse punctually pure sheaf of weight n has weight −n; mixed sheaves are stable under the same operations and tensor products; Q_ℓ(1) is punctually pure of weight −2. (1.2.6) For an isomorphism ι: Q̄_ℓ ≅ C, w_q^ι(α) := 2 log_q |ια| is the ι-weight; punctually ι-pure of weight β ∈ R and ι-mixed are defined accordingly and every representation of W(k̄/k) is automatically ι-mixed. (1.2.7) Twisting by the rank-one Weil sheaf Q_ℓ^{(b)} on Spec F_p (F acting by b ∈ Q̄_ℓ^×) shifts ι-weights by w_p^ι(b). (1.2.12-1.2.14) A lisse F is totally real (resp. ι-real) if the characteristic polynomials of all F_x have totally real algebraic (resp. ι-real) coefficients; a lisse punctually pure F of weight n is a direct summand of the totally real F ⊕ F^∨(−n).",
+      "hypotheses": [
+        "Weights of pure and mixed sheaves are integers by definition; ι-weights may be arbitrary real numbers (Remark 1.2.8), and Theorem 3.4.1 shows a posteriori that for X of finite type over F_p every ι-mixed sheaf is a sum of twists of ι-mixed sheaves with integral weights.",
+        "(1.2.6): purity of α for every ι implies algebraicity of α; arguments in Weil II treat each ι separately, and Remark 1.2.11 notes that only complex embeddings of the algebraic numbers in Q̄_ℓ are really needed.",
+        "Conjectures 1.2.9-1.2.10 (every sheaf is ι-mixed; properties of irreducible lisse sheaves with finite-order determinant) are stated, not proved, in the source."
+      ],
+      "proofSteps": [
+        "Definitions; the stabilities (1.2.5) are stated without proof (they follow from the linear algebra of eigenvalues under the listed operations).",
+        "(1.2.14): F ⊕ F^∨(−n) has characteristic polynomials with coefficients invariant under complex conjugation because the eigenvalues of F^∨(−n) are q_x^n/α = ᾱ-conjugates of those of F."
+      ],
+      "acceptance": [
+        "Q_ℓ(1) has weight −2; a Tate twist F(r) shifts weights by −2r; the dual of a lisse pure sheaf of weight n has weight −n.",
+        "A pure number for one embedding need not be algebraic: purity for all ι forces algebraicity (1.2.6)."
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "Section 1.2, Definitions (1.2.1)-(1.2.2), Variantes (1.2.3)-(1.2.4), Stabilites (1.2.5), (1.2.6)-(1.2.8), Definition (1.2.12), Variante (1.2.13), Remarque (1.2.14), pp. 153-155 (extraction lines 780-912)",
+          "excerpt": "Definition (1.2.1). — Soient q une puissance d'un nombre premier, et n ∈ Z. Un nombre α est dit pur de poids n, rel. q, s'il est algebrique et que tous ses conjugues complexes sont de valeur absolue q^{n/2}.",
+          "match": "The all-conjugates definition of weight that R34.1 must adopt (as opposed to a single-embedding ι-weight)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeightsInEtaleCohomology:R34.5/direct-image-with-compact-support-preserves-upper-weight-bounds",
+      "parentStageId": "WeightsInEtaleCohomology:R34.5",
+      "title": "Weil II main theorem 3.3.1: R^i f_! of a mixed sheaf of weights ≤ n is mixed of weights ≤ n + i",
+      "kind": "theorem",
+      "statement": "Let f: X → Y be a morphism of schemes of finite type over Z and F a sheaf on X mixed of weights ≤ n. Then for each i, R^i f_! F is mixed of weights ≤ n + i. The proof proceeds by devissage: (a) in F (short exact sequences, long exact sequence, split sequences); (b) in X (open U with closed complement S: from (fj)_! j^*F and (fi)_! i^*F); (c) in Y (base change to an open and its closed complement); (d) transitivity through the Leray spectral sequence for f = gh; (e) universal homeomorphisms Y' → Y (e.g. Y_red, or the normalization in a purely inseparable extension) may be inverted; (f) relative dimension 0 with F punctually pure: f_! F is punctually pure of the same weight and R^i f_! F = 0 for i ≠ 0. These reduce to f of relative dimension 1 with F lisse punctually pure of weight n; after passage to the generic point of Y and spreading out, to X the complement in X̄, projective and smooth of relative dimension 1 over Y, of a divisor D finite etale over Y, with F tamely ramified along D. Then R f̄_*(j_* F) is punctually pure of weight n + i by Theorem 3.2.3 (applied for every ι), Gr^M_k(i^* j_* F) is pure of weight n + k, k ≤ 0, by Theorem 1.8.4 (local monodromy weights, 1.8.6-1.8.8), and (f), (a) applied to 0 → j_! F → j_* F → i_* i^* j_* F → 0 conclude.",
+      "hypotheses": [
+        "Schemes of finite type over Z (so the theorem covers mixed characteristic bases); sheaves are constructible Q̄_ℓ-sheaves in the sense of Section 1.1; weights are integers (the ι-mixed real-weight variant is 3.3.10).",
+        "Imported and unread: Theorem 3.2.3 (H^i(C, j_* F) pure of weight n + i for C a smooth projective curve and F lisse punctually pure on an open U — DWP.6's scope), Theorem 1.8.4 and 1.8.6-1.8.8 (local monodromy filtration weights — DWP.5's scope), the existence of a finite cover u: D → C' with u^*F tamely ramified and F a direct summand of u_* u^* F over a perfect field, the base-change theorem for R f_! and the Leray spectral sequence.",
+        "The atlas assigns this theorem to DeligneWeightsAndPurity DWP.7; this node records the source structure for R34.5's import."
+      ],
+      "proofSteps": [
+        "Devissages (a)-(f) as listed, each justified by an exact sequence, the base-change theorem, the Leray spectral sequence, or invariance of etale cohomology under universal homeomorphisms.",
+        "Reduction to relative dimension 1, lisse punctually pure F of weight n; over a perfect field a curve has a dense smooth open and a finite surjective cover by the complement of an etale divisor in a smooth projective curve on which the pullback is tame, with F a direct summand of the pushforward; spread out from the generic point of Y by limit arguments and use (c), (e), (b), (f), (a).",
+        "Final step: purity of R^i f̄_* j_* F (3.2.3) and of the graded pieces of the local monodromy filtration on i^* j_* F (1.8.4), then the exact sequence 0 → j_! F → j_* F → i_* i^* j_* F → 0."
+      ],
+      "acceptance": [
+        "For Y = Spec F_q and F = Q_ℓ this gives H^i_c(X, Q_ℓ) mixed of weights ≤ i (3.3.4), and for X proper smooth purity of weight i (3.3.9).",
+        "The bound is only an upper bound on weights of R^i f_!; lower bounds need integrality (3.3.2-3.3.3) or duality (3.3.5)."
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "Section 3.3, Theorem (3.3.1) with proof, pp. 204-205 (extraction lines 3085-3149)",
+          "excerpt": "Les devissages (b), (c), (d) nous ramenent a supposer que f est de dimension relative 1, puis (a), (b) nous ramenent a supposer que F est lisse et ponctuellement pur de poids n.",
+          "match": "The structure of the proof, with its named devissages, which R34.5's import must respect."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeightsInEtaleCohomology:R34.5/integral-sheaves-and-lower-weight-bounds",
+      "parentStageId": "WeightsInEtaleCohomology:R34.5",
+      "title": "Integral sheaves: nonnegativity of weights and the lower bounds of Corollary 3.3.3",
+      "kind": "lemma",
+      "statement": "Call a sheaf integral if the eigenvalues of all Frobenii are algebraic integers. The weights of a mixed integral sheaf are ≥ 0: if an algebraic integer α is pure of weight n relative to q and of degree d, its norm is an ordinary integer of absolute value q^{nd/2}, so n ≥ 0. (3.3.3) For f: X → Y of finite type over Z and F integral and mixed of weights ≤ n, R^i f_! F is mixed of weights between 0 and n + i; if i exceeds the maximal fibre dimension d, the weights lie between 2(i − d) and n + i, because R^i f_! F and R^i f_! F(i − d) are integral by SGA 7 XXI (5.2.2) applied to the fibres.",
+      "hypotheses": [
+        "Integrality of R^i f_! F and of the twist R^i f_! F(i − d) for i > d is imported from SGA 7 XXI (5.2.2) (p-adic valuations of Frobenius eigenvalues), which was not read; the library's SGA 7 II extraction (Weil_SGA7II.txt) contains Expose XXI but was not opened in this session.",
+        "This lower-bound argument does not apply in the ι-mixed real-weight setting (3.3.10)."
+      ],
+      "proofSteps": [
+        "Norm argument for a single algebraic integer pure of weight n.",
+        "Combine 3.3.1 with integrality of R^i f_! F (weights ≥ 0) and of R^i f_! F(i − d) (weights of R^i f_! F ≥ 2(i − d))."
+      ],
+      "acceptance": [
+        "For F = Q_ℓ on X of dimension d: H^i_c(X, Q_ℓ) has weights in [0, i], and in [2(i − d), i] for i > d; e.g. H^2_c(A^1) = Q_ℓ(−1) has weight 2 = 2(2 − 1).",
+        "q^{-1} is pure of weight −2 but not an algebraic integer, so the bound needs the integrality hypothesis."
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "Section 3.3, (3.3.2) and Corollary (3.3.3) with proof, p. 205 (extraction lines 3150-3164)",
+          "excerpt": "D'apres SGA 7 XXI (5.2.2), applique aux fibres de f, les faisceaux R^i f_! F et R^i f_! F(i − d) sont en effet entiers.",
+          "match": "The exact external input for the lower bounds, as the DWP.7 text also notes ('the separately supplied integrality/denominator theorem of SGA7 XXI5')."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeightsInEtaleCohomology:R34.5/weights-of-cohomology-over-finite-fields",
+      "parentStageId": "WeightsInEtaleCohomology:R34.5",
+      "title": "Weights of H^i_c and H^i over finite fields: Corollaries 3.3.4-3.3.6, the Hodge-type localization 3.3.8 and the variants 3.3.10-3.3.11",
+      "kind": "theorem",
+      "statement": "Let X_0 be of finite type over F_q. (3.3.4) If F_0 is mixed of weights ≤ n then H^i_c(X, F) is mixed of weights ≤ n + i: every eigenvalue α of F on H^i_c is algebraic with all complex conjugates of absolute value q^{w/2} for some integer w ≤ n + i; if F_0 is integral then w ≥ 0, and w ≥ 2(i − d) for i > d = dim X. (3.3.5) If X_0 is smooth and F_0 lisse and mixed of weights ≥ n, then H^i(X, F) is mixed of weights ≥ n + i: reduce to X_0 pure of dimension N, apply 3.3.3 to the dual F_0^∨ (weights ≤ −n) to get H^{2N−i}_c(X, F^∨)(N) of weights ≤ −n − i, and use Poincare duality H^i(X, F) ≅ H^{2N−i}_c(X, F^∨)(N)^∨. (3.3.6) If X_0 is smooth and F_0 lisse punctually pure of weight n, the image of H^i_c(X, F) → H^i(X, F) is pure of weight n + i. (3.3.7-3.3.8) For α pure of weight n and a p-adic valuation v of Q(α) normalized by v(q) = 1, the pair (v(α), v(qα^{-1})) has sum n and both entries ≥ 0 when α is integral; for the constant sheaf and X of dimension ≤ d the pairs attached to eigenvalues on H^i lie in a lower triangle (compact support, or ordinary cohomology for X proper) and in an upper triangle (ordinary cohomology, X smooth) of the Hodge diagram. (3.3.10) 3.3.1 holds with 'mixed' replaced by 'ι-mixed' and n by β ∈ R, the weights appearing in R^i f_! F being β + i modulo the weights of F; 3.3.4 (except the integral part), 3.3.5 and 3.3.6 hold as stated. (3.3.11) 'Smooth' is used only for Poincare duality and can be replaced by the rational-homology-manifold condition Ra^! Q_ℓ = Q_ℓ(n)[2n] (e.g. etale-local quotients of smooth n-dimensional schemes by finite groups).",
+      "hypotheses": [
+        "3.3.4 is 3.3.1/3.3.3 with Y = Spec F_q, allowing Weil sheaves (notation (0.7)); 3.3.5 requires X_0 smooth (or the condition of 3.3.11) and F_0 lisse; 3.3.6 needs both hypotheses and punctual purity.",
+        "Poincare duality for lisse sheaves on smooth X and the identification of the dual of a mixed sheaf of weights ≥ n as mixed of weights ≤ −n (from 1.2.5(ii)) are used; the proof of 3.3.8 is 'facile' and not written out."
+      ],
+      "proofSteps": [
+        "3.3.5: dualize the upper bound for compact supports via Poincare duality with the twist (N) and the shift 2N − i.",
+        "3.3.6: the image of H^i_c → H^i is a quotient of a mixed sheaf of weights ≤ n + i and a subobject of one of weights ≥ n + i, hence pure.",
+        "3.3.8: combine 3.3.4's upper bound (with integrality) and the duality method of 3.3.5 to localize the pairs (r, s) = (v(α), v(qα^{-1}))."
+      ],
+      "acceptance": [
+        "G_m over F_q: H^1_c has weight 0 and H^1 has weight 2; the image of H^1_c → H^1 is 0, consistent with 3.3.6.",
+        "A proper smooth X_0: H^i pure of weight i (3.3.9), and the (r, s) pairs lie in the square [0, i] × [0, i] intersected with r + s = i."
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "Section 3.3, Corollaries (3.3.4)-(3.3.6) with proofs, (3.3.7)-(3.3.8), (3.3.10)-(3.3.11), pp. 205-207 (extraction lines 3165-3240)",
+          "excerpt": "D'apres (3.3.3), le groupe H^{2N−i}_c(X, F^∨)(N) est mixte de poids ≤ −n + (2N − i) − 2N = −n − i. La dualite de Poincare identifie H^i(X, F) a son dual, mixte de poids ≥ n + i.",
+          "match": "The duality argument for the lower bound, with its smoothness/lissity hypotheses that R34.5 must state."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeightsInEtaleCohomology:R34.5/structure-of-mixed-sheaves-and-geometric-semisimplicity",
+      "parentStageId": "WeightsInEtaleCohomology:R34.5",
+      "title": "Weil II 3.4.1: weight decomposition modulo Z, the weight filtration of lisse mixed sheaves, and geometric semisimplicity of pure lisse sheaves",
+      "kind": "theorem",
+      "statement": "Let F_0 be an ι-mixed sheaf on X_0 of finite type over F_q. (i) F_0 has a unique functorial decomposition F_0 = ⊕_{b ∈ R/Z} F_0(b) with the punctual ι-weights of F_0(b) in b; each F_0(b) is a twist of an ι-mixed sheaf with integral punctual weights. (ii) If the punctual weights of F_0 are integers and F_0 is lisse, F_0 has a unique finite increasing filtration W by lisse subsheaves with Gr^W_i(F_0) punctually ι-pure of weight i; it is functorial and every morphism of lisse ι-mixed sheaves with integral punctual weights is strictly compatible with W. (iii) If F_0 is lisse punctually ι-pure and X_0 is normal, the sheaf F on X = X_0 ⊗ F̄_q is semisimple. No semisimplicity of the arithmetic sheaf F_0 (the action of Frobenius) is asserted. Auxiliary: (3.4.2) 0 → H^0(X, Hom(F, G))_F → Ext^1(F_0, G_0) → H^1(X, Hom(F, G))^F is exact (F-invariants and coinvariants for W(F̄_q/F_q)); (3.4.3) for F_0, G_0 lisse punctually ι-pure of weights β, γ on smooth X_0, a geometrically nontrivial extension of F_0 by G_0 exists only if β ≡ γ mod Z and β > γ; (3.4.4) Ext^1(F_0, G_0) ≠ 0 only if β ≡ γ mod Z and β ≥ γ.",
+      "hypotheses": [
+        "(iii) requires X_0 normal (to pass to a dense smooth open without changing π_1-images) and lisse punctually ι-pure F_0; the conclusion is geometric semisimplicity only.",
+        "Proofs of (i) and (ii) were not read (only the statement and the proof of (iii) in 3.4.5 were); Lemma 3.4.3 uses 3.3.5 amplified by 3.3.10 to exclude the eigenvalue 1 of F on H^1(X, Hom(G, F)).",
+        "The atlas assigns 3.4.1 to DeligneWeightsAndPurity DWP.8."
+      ],
+      "proofSteps": [
+        "3.4.2: a geometrically trivial extension splits over X; splittings differ by Hom(F, G) and the class F(φ) − φ ∈ Hom(F, G)_F classifies the arithmetic extension.",
+        "3.4.3: Hom(G, F) is lisse of weight β − γ... (the source writes weights γ − β for Hom(F, G)); by 3.3.5 and 3.3.10 the weights of H^1(X, Hom) are of the form γ − β + 1 + m, m ≥ 0, so weight 0 (eigenvalue 1 of F) occurs only if β ≡ γ mod Z and β > γ.",
+        "3.4.5 (proof of (iii)): shrink to a smooth open; let F' be the maximal semisimple lisse subsheaf of F (sum of irreducible subsheaves), Frobenius-stable hence descending to F'_0; F''_0 = F_0/F'_0 has the same weight, so by 3.4.3 the extension is geometrically trivial, contradicting maximality unless F'' = 0."
+      ],
+      "acceptance": [
+        "A pure lisse sheaf on a normal X_0 whose geometric monodromy is unipotent is geometrically trivial; a nonsemisimple arithmetic Frobenius on H^i of a pure system remains possible (the DWP.10 acceptance example).",
+        "The weight filtration of a lisse mixed sheaf with integral weights is strictly functorial."
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "Section 3.4, Theorem (3.4.1), Lemmas (3.4.2)-(3.4.4) with proofs, (3.4.5) proof of (iii), pp. 207-208 (extraction lines 3241-3300)",
+          "excerpt": "(iii) Si F_0 est lisse ponctuellement ι-pur, et que X_0 est normal, alors le faisceau F sur X est semi-simple.",
+          "match": "The geometric semisimplicity statement, whose scope (normal base, geometric sheaf) is what R34.5 must not overstate as arithmetic semisimplicity."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "DeligneWeightsAndPurity:DWP.0",
+      "target": "WeightsInEtaleCohomology:R34.1/pure-numbers-punctually-pure-and-mixed-sheaves",
+      "reason": "DWP.0 owns Weil q-numbers with the all-embeddings absolute-value property, the separate ι-weight predicate, twists, duals and tensor rules; the node records Weil II's definitions of exactly these notions for sheaves, which R34.1 imports as its representation-convention adapter.",
+      "sources": [{"sourceId": "deligne-weil-ii", "locator": "Section 1.2, (1.2.1)-(1.2.7), pp. 153-154"}]
+    },
+    {
+      "source": "WeightsInEtaleCohomology:R34.1/pure-numbers-punctually-pure-and-mixed-sheaves",
+      "target": "WeightsInEtaleCohomology:R34.5/direct-image-with-compact-support-preserves-upper-weight-bounds",
+      "reason": "Theorem 3.3.1 is stated for mixed sheaves of weights ≤ n in the sense of 1.2.2 and its devissage (a) uses the stability of mixedness under extensions (1.2.5).",
+      "sources": [{"sourceId": "deligne-weil-ii", "locator": "Section 3.3, Theorem (3.3.1) and devissage (a), p. 204"}]
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.7",
+      "target": "WeightsInEtaleCohomology:R34.5/direct-image-with-compact-support-preserves-upper-weight-bounds",
+      "reason": "DWP.7's description is the proof of Weil II 3.3.1 with its devissages and the curve/local-monodromy inputs; R34.5 imports it and this node is the source record of the imported statement.",
+      "sources": [{"sourceId": "deligne-weil-ii", "locator": "Section 3.3, Theorem (3.3.1), p. 204"}]
+    },
+    {
+      "source": "WeightsInEtaleCohomology:R34.5/direct-image-with-compact-support-preserves-upper-weight-bounds",
+      "target": "WeightsInEtaleCohomology:R34.5/integral-sheaves-and-lower-weight-bounds",
+      "reason": "3.3.3 is 3.3.1 combined with integrality of R^i f_! F and R^i f_! F(i − d).",
+      "sources": [{"sourceId": "deligne-weil-ii", "locator": "Section 3.3, Corollary (3.3.3), p. 205"}]
+    },
+    {
+      "source": "WeightsInEtaleCohomology:R34.5/direct-image-with-compact-support-preserves-upper-weight-bounds",
+      "target": "WeightsInEtaleCohomology:R34.5/weights-of-cohomology-over-finite-fields",
+      "reason": "3.3.4 is the case Y = Spec F_q of 3.3.1/3.3.3; 3.3.5 applies 3.3.3 to the dual sheaf before dualizing.",
+      "sources": [{"sourceId": "deligne-weil-ii", "locator": "Section 3.3, Corollaries (3.3.4)-(3.3.5), pp. 205-206"}]
+    },
+    {
+      "source": "WeightsInEtaleCohomology:R34.5/integral-sheaves-and-lower-weight-bounds",
+      "target": "WeightsInEtaleCohomology:R34.5/weights-of-cohomology-over-finite-fields",
+      "reason": "The integral parts of 3.3.4 (w ≥ 0, w ≥ 2(i − d)) and the Hodge-diagram localization 3.3.8 use 3.3.2-3.3.3.",
+      "sources": [{"sourceId": "deligne-weil-ii", "locator": "Section 3.3, Corollary (3.3.4) and (3.3.7)-(3.3.8), pp. 205-206"}]
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "WeightsInEtaleCohomology:R34.5/weights-of-cohomology-over-finite-fields",
+      "reason": "EDC.2 owns Poincare duality H^i(X, F) ≅ H^{2N−i}_c(X, F^∨)(N)^∨ for smooth X and lisse F, the only input of 3.3.5 beyond 3.3.3, and the reason smoothness appears (3.3.11).",
+      "sources": [{"sourceId": "deligne-weil-ii", "locator": "Section 3.3, proof of Corollary (3.3.5) and (3.3.11), pp. 206-207"}]
+    },
+    {
+      "source": "WeightsInEtaleCohomology:R34.5/weights-of-cohomology-over-finite-fields",
+      "target": "WeightsInEtaleCohomology:R34.5/structure-of-mixed-sheaves-and-geometric-semisimplicity",
+      "reason": "Lemma 3.4.3 excludes the eigenvalue 1 of F on H^1(X, Hom(F, G)) using 3.3.5 amplified by the ι-mixed variant 3.3.10.",
+      "sources": [{"sourceId": "deligne-weil-ii", "locator": "Section 3.4, proof of Lemma (3.4.3), p. 208"}]
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.8",
+      "target": "WeightsInEtaleCohomology:R34.5/structure-of-mixed-sheaves-and-geometric-semisimplicity",
+      "reason": "DWP.8's description includes 'Prove Weil II 3.4.1: weight-class decomposition modulo Z; the unique functorial strict weight filtration on lisse mixed sheaves with integral weights; and geometric semisimplicity'; R34.5 imports it and this node records the source statement and the proof of (iii).",
+      "sources": [{"sourceId": "deligne-weil-ii", "locator": "Section 3.4, Theorem (3.4.1), p. 207"}]
+    },
+    {
+      "source": "WeightsInEtaleCohomology:R34.5/weights-of-cohomology-over-finite-fields",
+      "target": "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+      "reason": "Purity of H^i for proper smooth X_0 (3.3.9) is the coincidence of the bounds 3.3.4 and 3.3.5, consumed by WeilConjectures WC.6 as recorded in that packet.",
+      "sources": [{"sourceId": "deligne-weil-ii", "locator": "Section 3.3, paragraph before Corollary (3.3.9), p. 207"}]
+    }
+  ],
+  "coverage": [
+    {"stageId": "WeightsInEtaleCohomology:R34.1", "status": "partial", "remaining": ["The complex-level upper/lower/pure formalism (Weil II 6.2.2-6.2.7, DWP.8) and the representation-convention adapter on the imported Frobenius action were not read; the stabilities (1.2.5) are stated without proof in the source."]},
+    {"stageId": "WeightsInEtaleCohomology:R34.2", "status": "not_read", "remaining": ["Curve/abelian Weil bound via Jacobians (DWP.1): no source read."]},
+    {"stageId": "WeightsInEtaleCohomology:R34.3", "status": "not_read", "remaining": ["Nearby and vanishing cycles (SGA 7 II XIII-XIV; LPV.0-2): the library extraction Weil_SGA7II.txt was not opened."]},
+    {"stageId": "WeightsInEtaleCohomology:R34.4", "status": "not_read", "remaining": ["Lefschetz pencils and monodromy (Weil I Sections 4-6; LPV.3-5): not read."]},
+    {"stageId": "WeightsInEtaleCohomology:R34.5", "status": "partial", "remaining": ["Weil I Sections 3-7 (DWP.2-4) not read; Weil II 3.2.3 (curve case), 1.8.4/1.8.6-1.8.8 (local monodromy weights), the tame-cover reduction and the spreading-out arguments in the proof of 3.3.1, SGA 7 XXI 5.2.2 (integrality), the proofs of 3.4.1 (i)-(ii), hard Lefschetz (DWP.9) and the Kuga-Sato/R19 convention checks: not read."]},
+    {"stageId": "WeightsInEtaleCohomology:R34.6", "status": "not_read", "remaining": ["Purity applications to eigenforms and Kuga-Sato realizations (DWP.10): no source read."]}
+  ],
+  "gaps": [
+    {
+      "title": "DWP.7/DWP.8 supplier packets do not exist; nodes recorded here are candidates for relocation",
+      "neededBy": ["WeightsInEtaleCohomology:R34.5/direct-image-with-compact-support-preserves-upper-weight-bounds", "WeightsInEtaleCohomology:R34.5/weights-of-cohomology-over-finite-fields", "WeightsInEtaleCohomology:R34.5/structure-of-mixed-sheaves-and-geometric-semisimplicity"],
+      "detail": "R34.5 is an import stage; the atlas owners DWP.7 (3.3.1-3.3.9) and DWP.8 (3.4.1) belong to job EXT-02 (internal), whose packet directory is empty. The four R34.5 nodes record the source statements and the parts of the proofs read (devissages of 3.3.1, proofs of 3.3.3-3.3.6, proof of 3.4.1(iii)); when the DWP packets are written these nodes should become links to DWP nodes."
+    },
+    {
+      "title": "Unread inputs of Theorem 3.3.1",
+      "neededBy": ["WeightsInEtaleCohomology:R34.5/direct-image-with-compact-support-preserves-upper-weight-bounds"],
+      "detail": "Theorem 3.2.3 (weights of H^i(C, j_* F) on a smooth projective curve; the Hadamard-de la Vallee-Poussin/square-improvement argument of Sections 3.1-3.2), Theorem 1.8.4 with 1.8.6-1.8.8 (local monodromy filtration and its weights), the existence of tame finite covers with F a direct summand of u_* u^* F (needs Q̄_ℓ coefficients and trace splitting), and the base-change/Leray inputs were not read. Next action: read Weil II Sections 1.6-1.8 and 3.1-3.2 (extraction lines 1300-2000 and 2880-3084)."
+    },
+    {
+      "title": "Integrality theorem SGA 7 XXI 5.2.2 not read",
+      "neededBy": ["WeightsInEtaleCohomology:R34.5/integral-sheaves-and-lower-weight-bounds"],
+      "detail": "The lower bounds 0 and 2(i − d) rest on the integrality of Frobenius eigenvalues on R^i f_! F and R^i f_! F(i − d) (SGA 7 XXI 5.2.2). The library has Weil_SGA7II.txt (949 KB extraction); Expose XXI Section 5 should be read and recorded, as DWP.7's text also demands."
+    }
+  ]
+}

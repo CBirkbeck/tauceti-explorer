@@ -1,0 +1,468 @@
+{
+  "roadmapId": "DerivedDeRhamCohomology",
+  "status": "partial",
+  "summary": "Direct-sum derived de Rham cohomology and the actual conjugate-filtration proof, including its derived Frobenius twist, polynomial Cartier calculation and base change. The characteristic-zero example makes the Hodge-completion boundary explicit.",
+  "sources": [
+    {
+      "id": "bhatt-ddr-2012",
+      "title": "p-adic derived de Rham cohomology",
+      "authors": "Bhargav Bhatt",
+      "edition": "arXiv:1204.6560v1 (2012), supplied 50-page text extraction",
+      "url": "https://arxiv.org/abs/1204.6560",
+      "sha256": "f2602903f54261a6e3ecdbb57a99ecc56846875c03f4714ca22065ca5f43d942",
+      "readSections": [
+        "§1.5 conventions; §2 including proofs of Propositions 2.3, 2.7 and Corollary 2.5; §3.1–3.2 through Proposition 3.5, pp.3–7; extracted lines 168–408",
+        "Review R2 additionally read Corollary 3.8, Corollary 3.10 with proof, and Remark 3.12, p.8, extracted lines 415–446, to fix the smooth-comparison boundary"
+      ]
+    },
+    {
+      "id": "bms1-2019",
+      "title": "Integral p-adic Hodge theory",
+      "authors": "Bhargav Bhatt, Matthew Morrow, Peter Scholze",
+      "edition": "arXiv:1602.03148v3 (2019); supplied text extraction",
+      "url": "https://arxiv.org/abs/1602.03148",
+      "sha256": "04b1f8357a38045fed39ab060d3cb01142bcdbcc15fca985bc80216b99fba774",
+      "readSections": [
+        "§6.1–6.2, printed pp.49–55, statements and proofs; extracted lines 2980–3358"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "title": "De Rham cohomology from polynomial resolutions",
+      "kind": "construction",
+      "statement": "For a ring map A→B (or a map of simplicial commutative rings) define dR_(B/A)=|Ω*_(P•/A)|∈D(Mod_A), the direct-sum totalization along antidiagonals of the simplicial cochain complex n↦Ω*_(P_n/A), where P•→B is the canonical free A-algebra resolution. It carries an E∞-algebra structure and a decreasing, separated, exhaustive, multiplicative Hodge filtration Fil_H. The source asserts ('One can show', p.5, line 248, citing [Ill72, §VIII.2.1.1]) that any free resolution may be used, hence dR_(−/A) commutes with filtered colimits; that assertion is not proved in the inspected range. This node does not identify dR_(B/A) with the ordinary de Rham complex of every smooth algebra: see the characteristic-zero-completion-boundary node.",
+      "hypotheses": [
+        "A→B is a ring map, or a map of simplicial commutative rings in the source formulation.",
+        "Use a simplicial polynomial resolution and direct sums along antidiagonals."
+      ],
+      "proofSteps": [
+        "Apply the existing ordinary de Rham complex to every polynomial algebra P_n.",
+        "Totalize the simplicial cochain complex with the cohomological signs and direct sums.",
+        "Transport the Hodge filtration and multiplication from the polynomial complexes.",
+        "Compare free resolutions using the homotopy invariance supplied by the animation/resolution framework; its full construction is a recorded prerequisite."
+      ],
+      "acceptance": [
+        "Identify the complex for a polynomial algebra in its permitted computation model.",
+        "Make the direct-sum versus Hodge-completed construction explicit in the API and examples."
+      ],
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Definition 2.1, its explanatory paragraph and Remark 2.2, p.5; extracted lines 239–256",
+          "excerpt": "direct sums along antidiagonals",
+          "match": "The source specifies the totalization and explains its coherent resolution interpretation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+      "parentStageId": "DerivedDeRhamCohomology:DD.3",
+      "title": "The conjugate filtration",
+      "kind": "construction",
+      "statement": "Construct a functorial increasing filtration Fil^conj_i dR_(B/A), bounded below at i=0, separated and exhaustive, with gr^conj_i represented by the realization of n↦H^i(Ω*_(P_n/A))[-i]. The associated conjugate spectral sequence converges in the source sense.",
+      "hypotheses": [
+        "A→B and its free simplicial algebra resolution as above.",
+        "For spectral-sequence use the increasing bounded-below, separated, exhaustive filtration; further completed/global applications need their own convergence checks."
+      ],
+      "proofSteps": [
+        "Filter each polynomial de Rham column by its canonical cohomological truncations.",
+        "Realize these filtered columns using direct-sum totalization.",
+        "Compare another free resolution through a homotopy equivalence; it induces homotopy equivalences on the simplicial cohomology columns.",
+        "Invoke the source general spectral-sequence construction for increasing exhaustive filtrations."
+      ],
+      "acceptance": [
+        "Retain a filtered object, e.g. in D(Fun(N,Mod_A)), rather than a filtration only on the final cohomology.",
+        "Check that a map inducing equivalences on all conjugate graded pieces induces an equivalence of the uncompleted total objects."
+      ],
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Proposition 2.3, proof and Remark 2.4, p.5; extracted lines 258–290",
+          "excerpt": "filter each column",
+          "match": "The proof constructs the filtration column by column and checks independence of the resolution."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "title": "Derived base change and Künneth",
+      "kind": "comparison",
+      "statement": "There are natural equivalences dR_(B⊗^L_A C/A)≃dR_(B/A)⊗^L_A dR_(C/A) and dR_(B/A)⊗^L_A C≃dR_(B⊗^L_A C/C). All tensor products, including the algebra pushout, are derived.",
+      "hypotheses": [
+        "Ring maps A→B and A→C.",
+        "Interpret B⊗^L_A C as a simplicial commutative algebra unless Tor independence has been established."
+      ],
+      "proofSteps": [
+        "Check the polynomial-algebra identities by the decomposition of differential forms and the signed tensor differential.",
+        "Resolve B and C by free simplicial A-algebras.",
+        "Realize the polynomial identities and use the coherent colimit description of dR."
+      ],
+      "acceptance": [
+        "Test a Tor-independent polynomial square and a nonflat derived pushout.",
+        "Do not replace B⊗^L_A C by B⊗_A C without a Tor calculation."
+      ],
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Proposition 2.7 and proof, p.6; extracted lines 313–323",
+          "excerpt": "all tensor products are derived",
+          "match": "The statement and proof expressly use derived tensor and reduction to polynomial resolutions."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+      "parentStageId": "DerivedDeRhamCohomology:DD.3",
+      "title": "The derived Frobenius twist",
+      "kind": "definition",
+      "statement": "For A→B of F_p-algebras define B^(1)=B⊗^L_(A,Frob_A) A, together with the relative Frobenius B^(1)→B. The derived de Rham complex and its conjugate filtration are naturally B^(1)-linear.",
+      "hypotheses": [
+        "A and B are F_p-algebras.",
+        "The source identifies B^(1) with the usual (underived) Frobenius twist when Tor_i^A(Frob_*A,B)=0 for i>0 (p.6, lines 334–337), 'the primary case of interest'; without that vanishing only the derived twist (a simplicial commutative ring computed by P•⊗_(A,Frob)A) is defined."
+      ],
+      "proofSteps": [
+        "Compute the twist by P•⊗_(A,Frob_A)A.",
+        "Construct relative Frobenius from polynomial Frobenius maps and pass through the resolution.",
+        "Use the p-th-power linearity of the polynomial de Rham differential and transport it to the realization."
+      ],
+      "acceptance": [
+        "Keep the source and target structure maps in the Frobenius square.",
+        "Test a case with nonzero higher Tor so that the twist cannot be replaced by its degree-zero ring."
+      ],
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Notation 3.1 and following paragraph, p.6; extracted lines 331–353",
+          "excerpt": "viewed as a simplicial commutative ring",
+          "match": "The source defines precisely this derived pushout and states when it is underived."
+        },
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Proposition 3.5 statement, p.7; extracted lines 392–394",
+          "excerpt": "is B (1) -linear",
+          "match": "The B^(1)-linearity of the conjugate filtration is asserted in Proposition 3.5, not in Notation 3.1; Notation 3.1 only gives the B^(1)-module structure on dR_(B/A) via polynomial algebras (lines 352–353)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+      "parentStageId": "DerivedDeRhamCohomology:DD.3",
+      "title": "The polynomial Cartier map",
+      "kind": "comparison",
+      "statement": "For a free (polynomial) algebra F over an F_p-algebra A, construct the canonical isomorphism of F^(1)-modules C^{-1}:∧^k L_(F^(1)/A)≃H^k(Ω*_(F/A)) for every k, extending to a graded F^(1)-algebra isomorphism ⊕_k ∧^k L_(F^(1)/A)[−k]→⊕_k H^k(Ω*_(F/A))[−k] (for polynomial F^(1), ∧^k L_(F^(1)/A)=Ω^k_(F^(1)/A)). In one variable, applying the source recipe with the lift t↦t^p gives dt↦[t^{p−1}dt] in degree one; that formula is a consequence of the recipe and is not displayed in the source.",
+      "hypotheses": [
+        "A is an F_p-algebra and F is a free polynomial A-algebra.",
+        "The canonical assertion is on cohomology; a chain-level splitting obtained from a lift may depend on choices."
+      ],
+      "proofSteps": [
+        "Reduce the polynomial calculation to A=F_p by base change.",
+        "Choose a polynomial lift to W_2 and a compatible Frobenius lift.",
+        "Divide its action on one-forms by p and reduce modulo p; extend by exterior products.",
+        "Compute the one-coordinate de Rham complex, then tensor the coordinate calculations.",
+        "Use the source independence statement on cohomology; retain choice dependence of any chain-level decomposition."
+      ],
+      "acceptance": [
+        "Check the one-variable formula and the signed exterior-product formula.",
+        "Distinguish a canonical Cartier isomorphism from a chosen formality equivalence."
+      ],
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Theorem 3.2, proof and Remark 3.3, p.7; extracted lines 355–385",
+          "excerpt": "using local co-ordinates",
+          "match": "The proof gives the divided Frobenius construction and the distinction between choices at chain and cohomology levels."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+      "parentStageId": "DerivedDeRhamCohomology:DD.3",
+      "title": "Derived Cartier graded pieces",
+      "kind": "theorem",
+      "statement": "For every map A→B of F_p-algebras, gr^conj_i dR_(B/A)≃L∧^i L_(B^(1)/A)[−i], naturally as B^(1)-modules. The exterior power and Frobenius twist are derived.",
+      "hypotheses": [
+        "A→B is a map of F_p-algebras.",
+        "Use the common cotangent complex and derived exterior-power construction from DD.0."
+      ],
+      "proofSteps": [
+        "Use the conjugate-filtration description as the realization of H^i of polynomial de Rham complexes.",
+        "Apply the natural polynomial Cartier isomorphism in every simplicial degree.",
+        "Identify realization of the polynomial i-forms on the Frobenius-twisted resolution with L∧^i L_(B^(1)/A).",
+        "Transport the graded identities to the convergent conjugate spectral sequence."
+      ],
+      "acceptance": [
+        "Keep the shift [−i] and B^(1)-module structure.",
+        "Do not substitute the untwisted cotangent complex or infer Hodge-to-de Rham degeneration."
+      ],
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Proposition 3.5 and proof, p.7; extracted lines 392–408",
+          "excerpt": "The rest follows formally",
+          "match": "The entire proof is the stated polynomial Cartier-to-cotangent realization chain."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "title": "Why Hodge completion matters",
+      "kind": "lemma",
+      "statement": "For a map of Q-algebras A→B the direct-sum (uncompleted) derived de Rham complex satisfies dR_(B/A)≃A (Corollary 2.5). Hence the uncompleted theory cannot be identified with ordinary de Rham cohomology of smooth Q-algebras: for B=Q[t,t^{−1}] over Q the ordinary de Rham complex has the nonzero class dt/t in degree one while dR_(B/Q)≃Q (the source states exactly this example in Remark 3.12, p.8). Remark 2.6 identifies the Hodge-completed complex (product totalisation) as the variant whose Hodge-to-de Rham spectral sequence converges and which 'specialises to classical de Rham cohomology for smooth maps'; that completed comparison is asserted there, not proved in the inspected range. Hodge completion and p-adic completion are distinct operations. In characteristic p the uncompleted smooth comparison dR_(B/A)≃Ω*_(B/A) for smooth maps of Z/p^n-algebras is a separate theorem (Corollary 3.10, p.8; statement and proof read in review R2, imported inputs unread), not a consequence of this node.",
+      "hypotheses": [
+        "A and B are Q-algebras for the source equivalence.",
+        "The explicit ordinary counterexample uses the Laurent polynomial algebra over Q."
+      ],
+      "proofSteps": [
+        "In every polynomial resolution degree, ordinary polynomial de Rham cohomology is A in degree zero and zero above.",
+        "The conjugate graded pieces therefore vanish above zero; use exhaustiveness/convergence to identify the uncompleted total complex with A.",
+        "In Q[t,t^{−1}], d(t^n)=n t^{n−1}dt for n≠0 and d kills constants, so t^{−1}dt is not exact and the ordinary degree-one class is nonzero; Remark 3.12 (p.8, lines 442–446) records this example ('a one-dimensional (usual) de Rham cohomology group of degree 1 (with generator dx/x), but no derived de Rham cohomology')."
+      ],
+      "acceptance": [
+        "Use the Laurent-polynomial example to prevent an unrestricted uncompleted-to-ordinary equivalence.",
+        "Keep Hodge completion and p-completion as distinct operations."
+      ],
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Corollary 2.5, proof and Remark 2.6, pp.5–6; extracted lines 290–310",
+          "excerpt": "Hodge-completed version",
+          "match": "The source proves collapse in characteristic zero and identifies Hodge completion as the relevant different variant, asserting (not proving) that the completed theory specialises to classical de Rham cohomology for smooth maps."
+        },
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Remark 3.12 and Corollary 3.10, p.8; extracted lines 428–446 (read in review R2)",
+          "excerpt": "completely false in characteristic 0",
+          "match": "Remark 3.12 gives the Laurent-polynomial example verbatim; Corollary 3.10 states the uncompleted smooth comparison for Z/p^n-algebras that fails in characteristic zero, fixing the exact boundary DD.2 must respect."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+      "target": "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+      "reason": "The filtration is constructed on the same polynomial de Rham bicomplex.",
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Proposition 2.3 proof, p.5, extracted lines 265–272"
+        }
+      ]
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+      "target": "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+      "reason": "The totalization and resolution-independence mechanism globalizes the polynomial tensor identities.",
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Proposition 2.7 proof, p.6, extracted lines 321–322"
+        }
+      ]
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+      "target": "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+      "reason": "Cartier is linear over the correctly twisted coefficient algebra.",
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Theorem 3.2 statement, p.7, extracted lines 357–361 (isomorphism of F^(1)-modules)"
+        }
+      ]
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+      "target": "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+      "reason": "Supplies the polynomial cohomology description of each conjugate graded piece.",
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Proposition 3.5 proof, p.7, extracted lines 399–401"
+        }
+      ]
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+      "target": "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+      "reason": "Identifies those polynomial cohomology modules with differential forms.",
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Proposition 3.5 proof, p.7, extracted lines 402–406 ('By Theorem 3.2')"
+        }
+      ]
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+      "target": "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+      "reason": "Specifies the derived coefficient ring in the cotangent complex.",
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Proposition 3.5 statement, p.7, extracted lines 392–396"
+        }
+      ]
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+      "target": "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary",
+      "reason": "Exhaustiveness of the conjugate filtration proves the characteristic-zero collapse.",
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Corollary 2.5 proof, p.6, extracted lines 295–299"
+        }
+      ]
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+      "reason": "The final step identifies realized polynomial differential forms with the derived exterior power of the cotangent complex.",
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Proposition 3.5 proof, p.7, extracted lines 402–406; §1.5, p.4, line 182 ('All exterior powers that occur are derived as in [Qui70a, §7]')"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "DerivedDeRhamCohomology:DD.0",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "DerivedDeRhamCohomology:DD.1",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "DerivedDeRhamCohomology:DD.2",
+      "status": "partial",
+      "remaining": [
+        "Inspect the complete resolution-independence proof and enhanced multiplication, not just the source reduction to Illusie.",
+        "Read the Hodge graded formula, Hodge-completed comparison, transitivity and sheaf descent proofs.",
+        "The DD.2 stage text 'comparison with the ordinary de Rham complex for smooth maps' must be qualified: the uncompleted theory agrees with Ω*_(B/A) for smooth maps of Z/p^n-algebras (Corollary 3.10, p.8; statement and proof read in review R2, its inputs — devissage, base change, [Ill71, Prop. III.3.1.2] — unread), equals the base A for every map of Q-algebras (Corollary 2.5; Laurent example in Remark 3.12), and only the Hodge-completed variant is asserted to specialise to classical de Rham cohomology for smooth maps in characteristic zero (Remark 2.6, no proof in the source)."
+      ]
+    },
+    {
+      "stageId": "DerivedDeRhamCohomology:DD.3",
+      "status": "partial",
+      "remaining": [
+        "Complete the source proofs of classical Cartier independence and étale localization invoked in Theorem 3.2/Remark 3.4.",
+        "Inspect the general derived exterior-power/cotangent construction and the cited spectral-sequence convergence theorem.",
+        "Read the subsequent lci/divided-power applications in §3.3 and all completed/global convergence uses."
+      ]
+    },
+    {
+      "stageId": "DerivedDeRhamCohomology:DD.4",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "DerivedDeRhamCohomology:DD.5",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "DerivedDeRhamCohomology:DD.6",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Hodge completion changes the smooth comparison",
+      "neededBy": [
+        "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+        "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary"
+      ],
+      "detail": "DD.2 must distinguish a natural map to ordinary de Rham from an equivalence. Bhatt Corollary 2.5 rules out the uncompleted equivalence for all maps of Q-algebras (Remark 3.12 gives Q→Q[x,x^{-1}] explicitly); Corollary 3.10 gives the uncompleted equivalence for smooth maps of Z/p^n-algebras (proof via devissage, base change, convergence of the conjugate spectral sequence and [Ill71, Prop. III.3.1.2]; read in review R2 but not decomposed into a node); Remark 2.6 asserts that the Hodge-completed variant specialises to classical de Rham cohomology for smooth maps, citing [Bhaa] for the comparison with Hartshorne's algebraic de Rham cohomology. The completed comparison needs its own source proof."
+    },
+    {
+      "title": "Polynomial resolutions and convergence foundations",
+      "neededBy": [
+        "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+        "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+        "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces"
+      ],
+      "detail": "The inspected proofs invoke, without proof in the source: Illusie for homotopy invariance of free resolutions ([Ill72, §VIII.2.1.1], p.5, line 249); [Lur11, Proposition 1.2.2.14] for the filtered spectral sequence (p.5, line 277); [Ill71, §I.3.3.2 and Corollary I.3.3.4.6] for base change of flat simplicial modules along weak equivalences (p.4, lines 207–209), which underlies the derived Frobenius twist; [Qui70a, §7] for derived exterior powers (p.4, line 182); and [DI87, Theorem 1.2] for the classical Cartier isomorphism (p.7, line 356), of which the source proves only the free case by a coordinate check. Those imported proofs, and the exact current enhanced-category types, are not yet verified."
+    },
+    {
+      "title": "Typed library integration",
+      "neededBy": [
+        "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+        "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+        "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces"
+      ],
+      "detail": "Local mathlib has Kaehler/Basic.lean, Polynomial.lean, TensorProduct.lean and JacobiZariski.lean, plus cotangent modules for extensions. Review R2 grep of the TauCeti project found no derived de Rham, conjugate-filtration or Cartier construction. Those are candidate ordinary primitives, not a checked implementation of this simplicial derived functor; implementation status remains unchecked."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-R2",
+    "date": "2026-09-15",
+    "notes": "All seven nodes checked against Bhatt arXiv:1204.6560v1 §1.5, §2, §§3.1–3.2 (extracted lines 170–408, printed pp.3–7), plus Corollaries 3.8/3.10 and Remark 3.12 (p.8, lines 415–446) read by the reviewer to fix the completion boundary. DD.2 boundary: the packet never claimed an unrestricted equivalence; it is now phrased exactly as the source — uncompleted dR_(B/A)≃A for all maps of Q-algebras (Corollary 2.5), the Laurent example is the source's own (Remark 3.12), the Hodge-completed smooth comparison is asserted in Remark 2.6 without proof, and the characteristic-p smooth comparison is Corollary 3.10 (Z/p^n-algebras), outside the packet's nodes. Other corrections: the underived-twist condition restated as the source's sufficient condition rather than 'only when'; the B^(1)-linearity of the conjugate filtration re-sourced to Proposition 3.5; the one-variable Cartier formula marked as a consequence not displayed in the source; resolution independence marked as asserted ('One can show'). All eight links have correct direction and verified usage sites; locators sharpened. Supplier check: DD.0's description covers derived exterior powers of the cotangent complex. parentStageIds DD.2 and DD.3 exist and belong to DerivedDeRhamCohomology; all coverage stage ids exist. Imported results not previously named ([DI87, Thm 1.2], [Ill71, §I.3.3.2], [Qui70a, §7], [Ill71, Prop. III.3.1.2]) added to gaps. Orchestrator decision: the atlas DD.2 stage description's unqualified 'comparison with the ordinary de Rham complex for smooth maps' should be qualified as recorded in the DD.2 coverage entry. Packet status stays partial.",
+    "checked": [
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+        "verdict": "corrected",
+        "note": "Definition 2.1 and explanatory paragraph (lines 239–250) match; statement now names the canonical resolution, the E∞ structure and the separated/exhaustive Hodge filtration, and marks resolution independence as asserted ('One can show', citing [Ill72])."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+        "verdict": "verified",
+        "note": "Proposition 2.3 statement/proof and Remark 2.4 (lines 258–290) match, including the [Lur11, 1.2.2.14] import and the conservativity corollary."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+        "verdict": "verified",
+        "note": "Proposition 2.7 (lines 313–322) match; 'all tensor products are derived' retained; the source proof is the polynomial case plus free resolutions."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+        "verdict": "corrected",
+        "note": "Notation 3.1 (lines 331–353) match; Tor condition restated as the source's sufficient condition; conjugate-filtration linearity re-sourced to Proposition 3.5."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+        "verdict": "corrected",
+        "note": "Theorem 3.2 statement/proof and Remark 3.3 (lines 355–385) match; statement now gives the F^(1)-module isomorphism as in the source and marks the one-variable formula as a consequence not displayed there; [DI87] import added to gaps."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+        "verdict": "verified",
+        "note": "Proposition 3.5 statement and proof (lines 392–407) match; DD.0 supplies the derived exterior powers used in the 'hence' step."
+      },
+      {
+        "nodeId": "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary",
+        "verdict": "corrected",
+        "note": "Corollary 2.5 and Remark 2.6 (lines 287–308) match; Laurent example re-sourced to Remark 3.12 (p.8); completed comparison marked as asserted; characteristic-p boundary (Corollary 3.10) recorded."
+      }
+    ]
+  }
+}

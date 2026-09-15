@@ -1,0 +1,177 @@
+{
+  "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+  "status": "partial",
+  "summary": "Only the statement layer of stage RD.2 was read in this session: Kedlaya's formulation of the p-adic local monodromy theorem (quasi-unipotence of (σ,∇)-modules over the Robba ring), the slope filtration theorem for σ-modules (Theorem 1.2 / 6.10) and the reduction of the former to the latter via Tsuzuki's unit-root theorem, as described in Sections 1.1-1.4 of arXiv:math/0110124v4. No proof from Chapters 2-6 was read, and no other stage was examined; all other stages are recorded as not read. The packet records the exact hypotheses (choice of Frobenius σ, finite extension of Γ_con, residual separability when k is perfect) so that RD.2's consumers (RD.5, PadicHodgeTheory R06.3) do not import a weaker statement.",
+  "sources": [
+    {
+      "id": "kedlaya-monodromy-2003",
+      "title": "A p-adic local monodromy theorem",
+      "authors": "Kiran S. Kedlaya",
+      "edition": "arXiv:math/0110124v4, 1 January 2003 (scratch download; published in Ann. of Math. 160 (2004) 93-184); text extraction line numbers of the download",
+      "url": "https://arxiv.org/abs/math/0110124",
+      "readSections": [
+        "Section 1.1 (statement of Theorem 1.1, definition of quasi-unipotent), 1.2 (Frobenius filtrations and Crew's conjecture: statement of Theorem 1.2 and the reduction via Tsuzuki), 1.3 (applications) and the beginning of 1.4 (structure of the paper) (pp. 3-6; extraction lines 130-262)"
+      ],
+      "sha256": "f38f45d4a956187ba26872363fcb880bf9e18c20f611bd07e25825022c9fc568"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.2/quasi-unipotence-and-local-monodromy-statement",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.2",
+      "title": "Quasi-unipotent (σ,∇)-modules and the p-adic local monodromy theorem (statement)",
+      "kind": "theorem",
+      "statement": "A (σ,∇)-module M over the Robba ring Γ_an,con is quasi-unipotent if, after tensoring Γ_an,con over Γ_con with a finite extension of Γ_con, M admits a filtration by (σ,∇)-submodules whose successive quotients admit a basis of elements in the kernel of ∇ (when the residue field k is perfect one may require the extension to be residually separable). Theorem 1.1 (local monodromy theorem, proved in the more precise form Theorem 6.12): for any Frobenius σ of Γ_an,con, every (σ,∇)-module over Γ_an,con is quasi-unipotent. Whether a given ∇ admits a compatible Frobenius structure is independent of σ (change-of-Frobenius functors, Tsuzuki).",
+      "hypotheses": [
+        "Γ_an,con is the Robba ring over a complete discretely valued field of mixed characteristic with residue field k (Kedlaya's Chapter 2 notation, not read); σ is any Frobenius lift on it.",
+        "The Frobenius structure is essential: the theorem is false for differential modules without Frobenius (the stage's acceptance test), and the conclusion allows a finite extension of the base Γ_con, not only of the coefficient field.",
+        "The proof (Theorem 6.12) was not read; only the statement and the deduction strategy of Sections 1.1-1.2 were."
+      ],
+      "proofSteps": [
+        "Strategy as stated in Section 1.2: prove a slope filtration theorem for σ-modules over Γ_an,con (Theorem 1.2/6.10) by trivializing σ-modules over large auxiliary rings (Dieudonne-Manin type classification) and descending to the Robba ring; then reduce quasi-unipotence of a (σ,∇)-module to the case of a single slope defined over Γ_con[1/p], where Tsuzuki's unit-root theorem applies.",
+        "The independent proofs of Andre and Mebkhout proceed instead through the Christol-Mebkhout weight filtration of the connection; the atlas stage records these as alternative sources requiring separate conventions."
+      ],
+      "acceptance": [
+        "Consumers: finite-dimensionality of rigid cohomology with coefficients in an overconvergent F-isocrystal (Crew for curves, Kedlaya math/0208027 in general = RD.5), Kedlaya's p-adic Weil II (RD.6), and Berger's deduction of Fontaine's p-adic monodromy conjecture (de Rham implies potentially semistable) for PadicHodgeTheory R06.3.",
+        "A unipotent logarithmic extension has nilpotent residue; the theorem yields a filtration with trivial (horizontal) graded pieces only after the allowed finite extension."
+      ],
+      "sources": [
+        {
+          "sourceId": "kedlaya-monodromy-2003",
+          "locator": "Section 1.1, definition of quasi-unipotent and Theorem 1.1, p. 3-4 (extraction lines 130-146)",
+          "excerpt": "Theorem 1.1 (Local monodromy theorem). Let σ be any Frobenius for the Robba ring Γan,con. Then every (σ, ∇)-module over Γan,con is quasi-unipotent.",
+          "match": "The exact statement RD.2 must export, with the definition of quasi-unipotence fixing the permitted extension."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.2/slope-filtration-for-frobenius-modules-statement",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.2",
+      "title": "Slope filtration of σ-modules over the Robba ring and reduction of local monodromy to the unit-root case (statements)",
+      "kind": "theorem",
+      "statement": "Theorem 1.2 (precise form Theorem 6.10): every σ-module M over Γ_an,con has a canonical filtration 0 = M_0 ⊂ M_1 ⊂ ... ⊂ M_l = M by saturated σ-submodules such that each M_i/M_{i-1} is isomorphic over Γ_an,con to a σ-module N_i defined over Γ_con[1/p], the slopes of N_i are all equal to a rational number s_i, and s_1 < ... < s_l. Slopes are defined through the Dieudonne-Manin classification over the maximal unramified extension of the completion of a discrete valuation ring: over R[1/p] every σ-module is a direct sum of standard modules M_{λ,d} (F v_1 = v_2, ..., F v_d = λ v_1) of slope v_p(λ)/d, with the multiset of slopes independent of the decomposition. Reduction: a (σ,∇)-module over Γ_con[1/p] with a single slope is quasi-unipotent by Tsuzuki's unit-root theorem (the essential case being slope 0, where the module becomes a direct sum of trivial (σ,∇)-modules after a finite base extension), so Theorem 1.2 implies Theorem 1.1.",
+      "hypotheses": [
+        "Γ_an,con is not a discrete valuation ring, so slopes cannot be defined directly over it; the filtration theorem is what makes the reduction to Γ_con possible.",
+        "Tsuzuki's theorem [T1] on unit-root (σ,∇)-modules is imported, not read; it also specifies the extension needed.",
+        "Neither Theorem 6.10 nor 6.12 nor their proofs (Chapters 3-6: auxiliary rings, semiunit decompositions, slope factorizations, descent) were read."
+      ],
+      "proofSteps": [
+        "As described in Section 1.4: Chapter 2 recalls the Robba ring, its integral subring Γ_con and the completion (Amice ring); Chapter 3 constructs auxiliary 'big rings' after de Jong; later chapters prove the Dieudonne-Manin type classification over them and descend the filtration.",
+        "Deduction of Theorem 1.1 from Theorem 1.2: apply the filtration to the σ-module underlying a (σ,∇)-module, check that the filtration steps are ∇-stable (part of Theorem 6.12, unread), and apply Tsuzuki to each pure-slope quotient after twisting to slope 0."
+      ],
+      "acceptance": [
+        "A unit-root F-isocrystal on the annulus becomes trivial after a finite (residually separable, if k perfect) extension; a rank-one module of nonzero slope has a one-step filtration with that slope.",
+        "The slopes s_i are rational numbers and the filtration is canonical (functorial), which RD.1's slope-filtration contract must match."
+      ],
+      "sources": [
+        {
+          "sourceId": "kedlaya-monodromy-2003",
+          "locator": "Section 1.2, Theorem 1.2 and surrounding discussion of the Dieudonne-Manin classification and Tsuzuki's theorem, pp. 4-5 (extraction lines 164-215)",
+          "excerpt": "(a) each quotient M_i/M_{i−1} is isomorphic over Γan,con to a σ-module N_i defined over Γcon[1/p]; (b) the slopes of N_i are all equal to some rational number s_i; (c) s_1 < · · · < s_l.",
+          "match": "The slope filtration statement that RD.1 ('Frobenius slopes and slope filtrations') and RD.2 share; RD.2's proof route runs through it."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "PadicDifferentialEquationsAndRigidCohomology:RD.2/slope-filtration-for-frobenius-modules-statement",
+      "target": "PadicDifferentialEquationsAndRigidCohomology:RD.2/quasi-unipotence-and-local-monodromy-statement",
+      "reason": "Theorem 1.1 is deduced from Theorem 1.2 together with Tsuzuki's unit-root theorem, as stated in Section 1.2.",
+      "sources": [
+        {
+          "sourceId": "kedlaya-monodromy-2003",
+          "locator": "Section 1.2, last paragraph, p. 5"
+        }
+      ]
+    },
+    {
+      "source": "PadicDifferentialEquationsAndRigidCohomology:RD.2/quasi-unipotence-and-local-monodromy-statement",
+      "target": "PadicHodgeTheory:R06.3",
+      "reason": "Berger's deduction of Fontaine's p-adic monodromy conjecture (every de Rham representation is potentially semistable) from Theorem 1.1 is the export the atlas records (R06.3 requires RD.2); the bridge from representations to (σ,∇)-modules is proved in R06.3, not here.",
+      "sources": [
+        {
+          "sourceId": "kedlaya-monodromy-2003",
+          "locator": "Section 1.3, second paragraph, p. 6"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "PadicDifferentialEquationsAndRigidCohomology:RD.0",
+      "status": "not_read",
+      "remaining": [
+        "Dagger algebras and Robba rings: Kedlaya Chapter 2 and Berger's text (scratch extraction Berger_PadicDifferential.txt) not opened."
+      ]
+    },
+    {
+      "stageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "status": "not_read",
+      "remaining": [
+        "Differential modules, generic radii, Frobenius slopes: only the statement of the slope filtration (recorded under RD.2) was read."
+      ]
+    },
+    {
+      "stageId": "PadicDifferentialEquationsAndRigidCohomology:RD.2",
+      "status": "partial",
+      "remaining": [
+        "Proofs of Theorems 6.10 and 6.12 (Chapters 3-6 of Kedlaya), Tsuzuki's unit-root theorem [T1] and the change-of-Frobenius functors [T2, 3.4.10]; the stage's demand for the filtration, logarithmic solutions and their descent is not yet matched to precise statements."
+      ]
+    },
+    {
+      "stageId": "PadicDifferentialEquationsAndRigidCohomology:RD.3",
+      "status": "not_read",
+      "remaining": [
+        "Overconvergent isocrystals and frames (Berthelot): no source read."
+      ]
+    },
+    {
+      "stageId": "PadicDifferentialEquationsAndRigidCohomology:RD.4",
+      "status": "not_read",
+      "remaining": [
+        "Rigid cohomology and compact supports: no source read."
+      ]
+    },
+    {
+      "stageId": "PadicDifferentialEquationsAndRigidCohomology:RD.5",
+      "status": "not_read",
+      "remaining": [
+        "Finiteness (Kedlaya math/0208027, scratch download present) not read."
+      ]
+    },
+    {
+      "stageId": "PadicDifferentialEquationsAndRigidCohomology:RD.6",
+      "status": "not_read",
+      "remaining": [
+        "Fourier transform and p-adic Weil II (Kedlaya math/0210149, scratch download present) not read."
+      ]
+    },
+    {
+      "stageId": "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+      "status": "not_read",
+      "remaining": [
+        "Rigid-crystalline comparison and Weil-factor export: no source read."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Proof of the local monodromy theorem not read",
+      "neededBy": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.2/quasi-unipotence-and-local-monodromy-statement",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.2/slope-filtration-for-frobenius-modules-statement"
+      ],
+      "detail": "Only Sections 1.1-1.4 of Kedlaya's paper were read. Next source action: read Chapter 2 (rings), Chapter 3 (auxiliary rings, semiunit decompositions, Proposition 3.11 and Theorem 3.20), Chapters 4-5 (Dieudonne-Manin over the big rings) and Chapter 6 (Theorems 6.10, 6.12, Proposition 6.11), then Tsuzuki [T1]; extraction available in the scratch downloads (math_0110124.txt, 4508 lines)."
+    },
+    {
+      "title": "Scratch download not yet in the library catalogue",
+      "neededBy": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.2"
+      ],
+      "detail": "Kedlaya's paper (arXiv:math/0110124v4) was fetched by the earlier attempt into the scratch directory; its sha256 (recorded above) was computed in this session, but no CATALOGUE.json record exists. The library should register it (and math/0208027, math/0210149 for RD.5-RD.6) before promotion."
+    }
+  ]
+}

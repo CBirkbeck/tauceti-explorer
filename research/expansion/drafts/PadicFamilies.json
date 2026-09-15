@@ -1,0 +1,986 @@
+{
+  "roadmapId": "PadicFamilies",
+  "status": "partial",
+  "summary": "Detailed source-based expansion of the generic eigenvariety construction L2a: spectral charts, the finite-cover theorem, Hecke algebras, gluing, flat base change, radius independence and eigensystem points. The modular eigencurve and the ordinary/arithmetic family layers retain explicit unread source work.",
+  "sources": [
+    {
+      "id": "Buzzard-Eigenvarieties-2006",
+      "title": "Eigenvarieties",
+      "authors": "Kevin Buzzard",
+      "edition": "Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
+      "url": "https://www.ma.imperial.ac.uk/~buzzard/maths/research/papers/eigenvarieties.pdf",
+      "sha256": "0c54243868e2da8849452c4cc5a3d4e7b118cf17dd04487d4af137ab167ef57d",
+      "readSections": [
+        "§2, pp. 4–20: definitions and proofs of Proposition 2.1 through Lemma 2.13, including the explicitly delegated arguments",
+        "§3, pp. 20–25: resultant discussion, Lemma 3.1, Proposition 3.2 and Theorem 3.3 with their proof routes",
+        "§4, pp. 25–31: Lemmas 4.1–4.5 and proof of Theorem 4.6; pp. 29–30 also inspected as rendered PDF pages",
+        "§5, pp. 32–42: finite Hecke pieces, gluing, base change, links, Construction 5.7 and Lemmas 5.9–5.10",
+        "§6 opening, pp. 43–44: scope and explicit reliance on Coleman–Mazur; remaining modular application not read",
+        "R1-review (2026-09-15): §2 pp. 4–20, §3 pp. 20–25, §4 pp. 25–31 (pp. 29–30 rendered at 130 dpi with pdftoppm), §5 pp. 32–42 and §6 opening pp. 43–44 re-read against every node; SHA-256 of the library PDF re-verified and found identical to the copy currently served from the author's page (last updated 02/08/06; no errata listed; no arXiv version exists)."
+      ]
+    },
+    {
+      "id": "Conrad-ModularRigid-2006",
+      "title": "Modular curves and rigid-analytic spaces",
+      "authors": "Brian Conrad",
+      "edition": "51-page author manuscript, PDF metadata 20 January 2006; internal page numbering",
+      "url": "https://math.stanford.edu/~conrad/papers/genpaper.pdf",
+      "sha256": "ab6daecb7fa0679170fdd6b92021f206a9c990f621fc246eb146c3220d64e2bc",
+      "readSections": [
+        "Appendix A.1, pp. 37–39: Theorem A.1.2, Remark A.1.3, Lemmas A.1.4–A.1.5, and the proof of A.1.2",
+        "R1-review: Theorem A.1.2 statement and proof, Remark A.1.3, Lemmas A.1.4–A.1.5 re-read (internal pp. 36–39); PDF metadata re-checked (51 pages, created 20 January 2006)."
+      ]
+    },
+    {
+      "id": "Chenevier-FamillesGLn-2004",
+      "title": "Familles p-adiques de formes automorphes pour GL_n",
+      "authors": "Gaëtan Chenevier",
+      "edition": "Author copy glnfam.pdf (74 pages, PDF metadata 9 March 2008; internal page numbering); published in J. reine angew. Math. 570 (2004), 143–217, DOI 10.1515/crll.2004.031",
+      "url": "http://gaetan.chenevier.perso.math.cnrs.fr/articles/glnfam.pdf",
+      "sha256": "eaba21cc414dd7d2431e89cb53c637dd9c362c59773f8e193ddc507ded9f496e",
+      "readSections": [
+        "R1-review (fetched 2026-09-15 over plain http; the https host presents a mismatched certificate): Théorème C summary, internal pp. 6–7; Lemme 6.2.10, pp. 47–48; Théorème 6.3.6 statement, p. 51; §6.4.1 and Proposition 6.4.2 with proof, pp. 52–53; Lemme 6.4.3 and Corollaire 6.4.4, p. 54"
+      ]
+    },
+    {
+      "id": "ColemanMazur-Eigencurve-1998",
+      "title": "The eigencurve",
+      "authors": "Robert Coleman and Barry Mazur",
+      "edition": "113-page author preprint (PDF produced 20 July 2008 from the authors' file) as captured by the Internet Archive on 31 October 2008 from Coleman's Berkeley page; published in Galois representations in arithmetic algebraic geometry (Durham, 1996), LMS Lecture Note Series 254, CUP 1998, pp. 1–113, DOI 10.1017/CBO9780511662010.003",
+      "url": "https://web.archive.org/web/20081031155820id_/http://math.berkeley.edu/~coleman/eigen/coleman-mazur.pdf",
+      "sha256": "bf8e96f23fb3db2f886a5106547798c6d899941b316f340079b3aabb4ad04a70",
+      "readSections": [
+        "R1-review (fetched 2026-09-15; the live Berkeley URL and Mazur's Harvard page return 404): §1.1 'nested' definition, internal p. 11; Lemma 1.3.10, Theorem 1.3.11 and Corollary 1.3.12, pp. 24–26; Chapter 7 opening, §7.1 local pieces and Theorem 7.1.1, pp. 91–93; §7.4 opening and Lemma 7.4.1, pp. 101–102; Proposition 7.4.5, p. 104; Theorem 7.5.1 statement, p. 105. Chapters 2–6 and the proofs in §§7.2–7.5 remain unread."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "PadicFamilies:L2a/spectral-hypersurface",
+      "parentStageId": "PadicFamilies:L2a",
+      "title": "The Fredholm spectral hypersurface",
+      "kind": "construction",
+      "statement": "For a compact controlling operator φ on a (Pr) Banach R-module, form Z_φ=V(det(1−Tφ)) inside Sp(R)×A¹_an. The coordinate T records the reciprocal of a nonzero φ-eigenvalue.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "R is a reduced K-affinoid algebra with its supremum norm.",
+        "A commutative Hecke algebra acts continuously and contains φ."
+      ],
+      "proofSteps": [
+        "Use the entire Fredholm series to define a closed rigid subspace.",
+        "Cover the analytic affine line by closed discs and construct the truncated affinoid zero loci.",
+        "Use coefficientwise determinant base change to identify the pullback spectral hypersurface."
+      ],
+      "acceptance": [
+        "Keep the nilpotent structure of the zero locus.",
+        "Verify Tφ=1 on a selected eigenline; do not reverse the reciprocal convention."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§4 setup, pp. 25–26; §5, p. 32",
+          "excerpt": "the reciprocals of the non-zero eigenvalues",
+          "match": "This identifies the spectral coordinate and the zero-locus construction."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicFamilies:L2a/flat-spectral-charts",
+      "parentStageId": "PadicFamilies:L2a",
+      "title": "Flat quasi-finite spectral charts",
+      "kind": "lemma",
+      "statement": "Each closed-disc truncation Z_r of an entire Fredholm hypersurface with constant coefficient one maps flatly and quasi-finitely to the affinoid weight base. Every affinoid subdomain of Z has the same properties.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "R is a reduced K-affinoid algebra with its supremum norm.",
+        "The radius lies in the divisible closure of |K×|."
+      ],
+      "proofSteps": [
+        "After extending/rescaling the radius, reduce to R⟨T⟩/(P).",
+        "Use Weierstrass preparation to prove finite fibers.",
+        "Use flatness of the Tate algebra and the nonzero image of P in each residue-field Tate algebra, followed by the local flatness criterion."
+      ],
+      "acceptance": [
+        "Track why the constant coefficient one excludes the zero function in every fiber.",
+        "This is quasi-finite flatness, not a claim that the whole spectral map is finite."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 4.1 and Corollary 4.2, p. 27",
+          "excerpt": "quasi-finite and flat",
+          "match": "The proof separates Weierstrass preparation from the nonzerodivisor/local-flatness argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicFamilies:L2a/constant-rank-finiteness",
+      "parentStageId": "PadicFamilies:L2a",
+      "title": "Constant fiber rank gives finite charts",
+      "kind": "theorem",
+      "statement": "An affinoid spectral domain over an admissible open weight domain is finite flat when all its fibers have the same finite rank. The imported general criterion requires flatness, quasi-compactness, separatedness, finite fibers and locally constant fiber rank.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "R is a reduced K-affinoid algebra with its supremum norm."
+      ],
+      "proofSteps": [
+        "Apply the already proved flatness of spectral charts.",
+        "Invoke Conrad’s rigid finiteness criterion; its proof passes through flat quasi-finite formal models and a scheme-theoretic fiber-rank criterion.",
+        "Verify each geometric hypothesis for the selected chart."
+      ],
+      "acceptance": [
+        "Retain quasi-compactness and separatedness, including over nondiscretely valued fields.",
+        "Require the generic formal-model supplier to provide the stated theorem, not just an object called a formal model."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Corollary 4.3, p. 27",
+          "excerpt": "full force of Raynaud’s",
+          "match": "Buzzard explicitly identifies the formal-model dependence."
+        },
+        {
+          "sourceId": "Conrad-ModularRigid-2006",
+          "locator": "Theorem A.1.2 and proof, internal pp. 37–39",
+          "excerpt": "quasi-compact and separated with finite fibers",
+          "match": "The checked criterion supplies the missing finiteness implication and exposes its formal-model inputs."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicFamilies:L2a/newton-degree-loci",
+      "parentStageId": "PadicFamilies:L2a",
+      "title": "Newton polygons and fiber-degree loci",
+      "kind": "lemma",
+      "statement": "For a fixed closed-disc radius, the loci where the truncated spectral fiber has degree at least i are finite unions of affinoid domains, vanish for sufficiently large i and form a decreasing filtration of the weight base.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "R is a reduced K-affinoid algebra with its supremum norm.",
+        "The defining series is entire with constant coefficient one."
+      ],
+      "proofSteps": [
+        "Choose a uniform coefficient cutoff after which |r_n|r^n<1.",
+        "Describe the locus where the weighted n-th coefficient achieves the maximum by affinoid inequalities.",
+        "Read fiber degree from the Newton polygon to express the degree-at-least-i locus as a finite union of these domains."
+      ],
+      "acceptance": [
+        "Prove a single finite cutoff valid over the whole affinoid base.",
+        "Do not assume that an arbitrary quasi-finite image of an affinoid is affinoid."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 4.4 and proof, p. 28",
+          "excerpt": "a finite union of affinoid subdomains",
+          "match": "The finite coefficient cutoff and Newton-polygon argument give exactly this admissible structure."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicFamilies:L2a/strict-slope-neighborhoods",
+      "parentStageId": "PadicFamilies:L2a",
+      "title": "Strict neighborhoods with a fixed slope block",
+      "kind": "construction",
+      "statement": "Let r be in the divisible closure of |K×| and let V be an affinoid subdomain of B=Max(R) over which f_r:f_r^{-1}(V)→V is finite of constant degree d>0. Construct an affinoid subdomain X of B that is a strict neighbourhood of V (Buzzard's p. 28 definition: there is a finite union W of affinoid subdomains with V∩W=∅ and X∪W=B) and a radius s>r in the divisible closure of |K×| such that Y=f_s^{-1}(X) contains f_r^{-1}(V), is finite flat of degree d over X, and is open-and-closed in the full spectral preimage f^{-1}(X), so Y lies in the cover C.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "R is a reduced K-affinoid algebra with its supremum norm; P(T)=Σ r_n T^n is entire with r_0=1.",
+        "r lies in the divisible closure of |K×| and V is an affinoid subdomain of B.",
+        "The initial block f_r^{-1}(V)→V is finite of positive constant degree d."
+      ],
+      "proofSteps": [
+        "Newton polygons: constant fibre degree d over V means |r_d(x)|≠0 and −log|r_n(x)| ≥ (n−d)log r − log|r_d(x)| for all n, strictly for n>d; use r_0=1 at n=0 to get |r_d(x)| ≥ r^{−d} on V.",
+        "Entire decay gives N>d with −log|r_n(x)| > n log(r+1) for n≥N on all of B; the maximum modulus principle on the affinoid V gives t with r<t<r+1 such that −log|r_n(x)| ≥ (n−d)log t − log|r_d(x)| for all n on V, with equality only at n=d.",
+        "Choose γ1,γ2,δ1,δ2 in log of the divisible closure of |K×| with log r<γ1<γ2<log t and δ1 < −log|r_d| < δ2 on V. Define X by the N Laurent/rational conditions δ1 ≤ −log|r_d(x)| ≤ δ2; −log|r_n(x)|+log|r_d(x)| ≥ (n−d)γ1 for 0 ≤ n < d (the n=0 condition −log|r_d(x)| ≤ dγ1 is the uniform lower bound for |r_d| on X that the printed range 0<n<d omits); −log|r_n(x)|+log|r_d(x)| ≥ (n−d)log t for d<n<N (printed as (n−d)t). On X the bound |r_d|≥e^{−δ2} makes r_d a unit, so the ratio conditions are Weierstrass conditions inside a Laurent domain and X is an affinoid subdomain.",
+        "Strict neighbourhood: V satisfies every defining inequality strictly, so V⊂X. Let W be the union of the affinoid subdomains {|r_d| ≥ e^{−δ1}}, {|r_d| ≤ e^{−δ2}} and, for each ratio condition, {|r_d| ≥ e^{−δ2}} ∩ {reversed ratio inequality}; the intersection with the Laurent domain where r_d is a unit is needed for these pieces to be affinoid subdomains (a bare condition |r_n| ≥ c|r_d| is not an affinoid subdomain at common zeros of r_n and r_d). Then V∩W=∅ and X∪W=B; the manuscript prints X∩W=∅ and X∪V=B, which are the wrong identities.",
+        "Set s=exp(γ2). For x∈X and every n≠d one has −log|r_n(x)|+log|r_d(x)| > (n−d)γ2: for 0≤n<d from γ1<γ2, for d<n<N from γ2<log t, and for n≥N from the entire bound together with the n=0 condition (log|r_d(x)| ≥ −dγ1). Hence the Newton polygon of P_x has exactly d roots of norm ≤ s and none of norm s, so f_s^{-1}(X)→X has constant degree d and Corollary 4.3 makes it finite flat.",
+        "Y∈C: once Y→X is finite, Y is open and closed in f^{-1}(X) by footnote 2 (Grosse-Klönne; BGR 9.6.3/3 and 9.5.3/5); alternatively make the pointwise 'no root of norm s' uniform on the affinoid X by the maximum modulus principle to obtain an empty annulus s<|T|≤s' over X."
+      ],
+      "acceptance": [
+        "Recheck the displayed inequalities against the corrected statement recorded in the gap 'Printed radius and strict-neighbourhood errors': (n−d)log t not (n−d)t; V∩W=∅ and X∪W=B; the n=0 (equivalently δ2<dγ2) lower bound for |r_d| on X; affinoid pieces of W taken inside {|r_d| ≥ e^{−δ2}}.",
+        "Test the corrected construction on P(T)=1+uT over B=Sp K⟨u⟩ with V={|u|=1}, r=1, d=1: without the lower bound for |r_d|=|u| the printed X contains points with empty fibre over the disc of radius s, so the degree is not constant.",
+        "Prove the finite-flat and open-and-closed conclusions from the corrected inequalities, keeping radii and logarithmic radii distinct."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 4.5 and proof, pp. 29–30 (rendered PDF pages inspected by the author of the packet and again by R1-review)",
+          "excerpt": "functions on affinoids attain their bounds",
+          "match": "This uniform bound is the core source step; the packet records, rather than silently copies, the printed defects listed in the gap."
+        },
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Definition of strict neighbourhood, p. 28",
+          "excerpt": "U ∩ S is empty, • U ∪ T = B",
+          "match": "The definition requires a witness disjoint from V (=S) whose union with X (=T) is B; this fixes the corrected identities V∩W=∅ and X∪W=B."
+        },
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "p. 30, lines 'and let W be the union of these N affinoids, then X ∩ W is empty and X ∪ V = B'",
+          "excerpt": "then X ∩ W is empty and X ∪ V = B",
+          "match": "Verbatim record of the printed (incorrect) identities; X∩W is nonempty on the boundary where equality holds and X∪V=X≠B in general."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicFamilies:L2a/admissible-slope-cover",
+      "parentStageId": "PadicFamilies:L2a",
+      "title": "An admissible cover by finite slope blocks",
+      "kind": "theorem",
+      "statement": "The affinoid domains Y of Z that are finite surjective over an affinoid weight domain and open-and-closed in its full spectral preimage form an admissible cover of Z.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "R is a reduced K-affinoid algebra with its supremum norm."
+      ],
+      "proofSteps": [
+        "For each truncated Z_r, filter the base by the finite degree-at-least-i loci U_i of Lemma 4.4 (each a finite union of affinoids, U_{i+1}⊆U_i, empty for large i).",
+        "Start with the maximal-degree locus U_d: cover it by affinoids V_α, where the degree is exactly d, so Corollary 4.3 gives finite flatness; enlarge each block to a strict neighbourhood X_α with Y_α=f_{s_α}^{-1}(X_α) by Lemma 4.5.",
+        "Descend by induction on i: from a witness W with W∩U_i=∅ and W∪⋃X_α=B, cover W∩U_{i−1} (a finite union of affinoids on which the degree is exactly i−1) by new blocks, apply Lemma 4.5 to them, and intersect witnesses to keep a strict-neighbourhood witness for U_{i−1}.",
+        "Coverage of f_r^{-1}(U_{i−1}) needs, for the old blocks, f_r^{-1}(X_α)⊆Y_α, which holds because s_α>r; record this in the induction hypothesis H(i), since the printed H(i) only records f_r^{-1}(U_i)⊆⋃Y_α and the printed step ends without checking coverage of points of U_{i−1}∖U_i lying in some X_α.",
+        "Conclude that every Z_r is covered by finitely many selected affinoids; since Y∩Z_r is an affinoid subdomain of the affinoid Z_r, the cover is admissible."
+      ],
+      "acceptance": [
+        "Establish a finite cover on each Z_r, not merely coverage of geometric points.",
+        "Keep the strict-neighborhood induction and the finite-flatness theorem as explicit prerequisites."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Theorem 4.6 and full proof, pp. 30–31",
+          "excerpt": "a finite collection of affinoids",
+          "match": "The source proves admissibility by finite covers of each truncation and descending degree induction."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicFamilies:L2a/slope-polynomials",
+      "parentStageId": "PadicFamilies:L2a",
+      "title": "A polynomial for each spectral block",
+      "kind": "construction",
+      "statement": "For a connected affinoid weight domain A and a finite-flat spectral block Y of degree d, identify O(Y) with A[T]/(Q₀), normalize Q₀ to have constant term one, and obtain a coprime factor Q of the Fredholm series. Apply the Riesz theorem to obtain the associated finite projective Hecke-stable summand N.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "R is a reduced K-affinoid algebra with its supremum norm.",
+        "Y belongs to the admissible slope cover."
+      ],
+      "proofSteps": [
+        "Take the characteristic polynomial Q_0 (monic of degree d) of the spectral coordinate T acting on the finite projective module O(Y) over the connected affinoid A=O(X); Cayley–Hamilton gives A[T]/(Q_0)→O(Y).",
+        "Use the closed immersion of Y in X×B[0,r] and the equivalence of residue and finite-module Banach norms (BGR 3.7.4/1) to prove that A[T]/(Q_0)→O(Y) is surjective; equal ranks make it an isomorphism, so F_A vanishes in A{{T}}/(Q_0) and Q_0 divides F_A.",
+        "Normalise Q=a_0^{-1}Q_0 with Q(0)=1 and unit leading coefficient. The source invokes Theorem 3.3 without arguing that Q is coprime to S:=F_A/Q. Supply it: Y is open and closed in f^{-1}(X), so over each point x the roots of Q_x are the roots of F_x lying in Y_x with their full multiplicities; hence S_x has no root in common with Q_x, Res(Q,S) has no zero on Max(A), so it is a unit in the affinoid A and (Q,S)=1 by the resultant-unit criterion.",
+        "Apply the exact finite-slope theorem to obtain N with Q*(φ)=0 on N; the projector lies in the closure of A[φ], so N is stable under the commuting Hecke algebra."
+      ],
+      "acceptance": [
+        "Prove Q(0)=1 and a unit leading coefficient, and justify coprimality with the complementary factor.",
+        "Prove coprimality of Q with the cofactor S explicitly (the source omits it); test on a chart whose fibre over some point has a root of F_x of multiplicity 2 to see why the open-and-closed property is what guarantees full multiplicities in Q_x.",
+        "Keep N finite projective; a global basis is not part of the conclusion."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§5, pp. 34–35",
+          "excerpt": "in general N will not be free",
+          "match": "The source derives the slope polynomial from O(Y) and invokes Theorem 3.3 with projective, not free, output."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicFamilies:L2a/finite-hecke-images",
+      "parentStageId": "PadicFamilies:L2a",
+      "title": "Finite Hecke algebras on slope blocks",
+      "kind": "construction",
+      "statement": "Let T(Y) be the image of the commuting Hecke algebra in End_A(N). It is finite over A and over O(Y), where the spectral coordinate acts as φ⁻¹. Its affinoid spectrum D(Y) is therefore finite over Y.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "R is a reduced K-affinoid algebra with its supremum norm.",
+        "N is the finite projective slope summand."
+      ],
+      "proofSteps": [
+        "The Riesz projector commutes with Hecke operators, so every Hecke action restricts to N.",
+        "Use Noetherianity and finiteness of End_A(N) to prove that the Hecke image is finite.",
+        "Use the reciprocal slope polynomial and its unit constant term to express φ⁻¹ polynomially and construct O(Y)→T(Y)."
+      ],
+      "acceptance": [
+        "Retain generalized eigenspaces and nilpotents.",
+        "Verify that the finite algebra is the actual image on N, not an abstract algebra specified by desired eigenvalues."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§5, pp. 34–35",
+          "excerpt": "A-algebra and hence an affinoid",
+          "match": "The source constructs the Hecke-image algebra inside End_A(N) and its spectral map."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicFamilies:L2a/hecke-chart-gluing",
+      "parentStageId": "PadicFamilies:L2a",
+      "title": "Gluing Hecke charts",
+      "kind": "construction",
+      "statement": "Construct compatible identifications of D(Y) under affinoid restriction and intersections of spectral blocks, then glue the D(Y) and their finite maps to a separated rigid eigenvariety finite over Z.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "R is a reduced K-affinoid algebra with its supremum norm."
+      ],
+      "proofSteps": [
+        "Restrict a block idempotent to a smaller weight affinoid and identify the Hecke algebra by flat completed base change.",
+        "For two blocks multiply their idempotents to describe the intersection and its corresponding connected components.",
+        "Check the cocycle and glue both spaces and morphisms along the admissible spectral cover."
+      ],
+      "acceptance": [
+        "Prove the overlap maps are the prescribed pullbacks.",
+        "Prove separatedness and local finiteness of the glued morphism."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemmas 5.1–5.3 and gluing argument, pp. 35–37",
+          "excerpt": "we can glue the maps",
+          "match": "The finite charts glue through the explicitly compared intersections and restriction maps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicFamilies:L2a/flat-eigenvariety-base-change",
+      "parentStageId": "PadicFamilies:L2a",
+      "title": "Flat base change of eigenvarieties",
+      "kind": "comparison",
+      "statement": "For a flat morphism R→R′ of reduced affinoid algebras, the eigenvariety formed after completed scalar extension agrees with the pullback eigenvariety. The spectral hypersurface commutes with arbitrary continuous coefficient extension, but the same assertion for the Hecke-image algebra requires a separate argument.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "R is a reduced K-affinoid algebra with its supremum norm.",
+        "R→R′ is flat for the eigenvariety comparison."
+      ],
+      "proofSteps": [
+        "Lemma 5.4: the spectral variety commutes with any continuous base change by Lemma 2.13.",
+        "Pull back the admissible finite-slope cover: for Y∈C its pullback Y′ lies in C′; the pulled-back blocks form an admissible cover of Z_{φ′} because finitely many of them cover each pulled-back truncation Z′_r (the source's appeal to BGR 9.1.4/2 for the separated space Z_{φ′} supplies affinoidness of intersections, not admissibility by itself).",
+        "Use flatness of R→R′ to commute taking the finite Hecke image inside End_A(N) with coefficient extension; without flatness the natural map from D(Y′) to the pullback of D(Y) need not be an isomorphism.",
+        "Glue the finite-chart comparisons along the pulled-back cover."
+      ],
+      "acceptance": [
+        "Retain the flatness hypothesis.",
+        "Use the source’s R=K⟨X,Y⟩ example to test failure after specialization X=Y=0."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemmas 5.4–5.5 and counterexample discussion, pp. 37–38",
+          "excerpt": "flatness is necessary",
+          "match": "The source distinguishes determinant base change from Hecke-image base change and gives a concrete nonflat failure."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicFamilies:L2a/linked-banach-families",
+      "parentStageId": "PadicFamilies:L2a",
+      "title": "Radius changes and linked Banach modules",
+      "kind": "comparison",
+      "statement": "A primitive link α:M′→M with compact Hecke-equivariant c:M→M′ satisfying αc=φ and cα=φ induces an isomorphism of eigenvarieties. Finite composites of primitive links have the same property.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "R is a reduced K-affinoid algebra with its supremum norm.",
+        "M and M′ satisfy (Pr) and carry the same commuting Hecke actions."
+      ],
+      "proofSteps": [
+        "Use the cyclic determinant identity (Lemma 2.12; the proof on p. 40 cites Lemma 2.13 for this step, which is the base-change lemma, while p. 39 correctly cites Lemma 2.12) to identify the Fredholm hypersurfaces and hence the slope covers C and C′.",
+        "On every slope block, φ is invertible on N and N′ by a polynomial ψ(φ) in R[φ] because Q* has unit constant term.",
+        "Show ψ(φ)c is a two-sided inverse to α:N′→N on the finite projective summands (α and c commute with φ, so they respect the kernels of Q*(φ)); transport their Hecke-image algebras and glue."
+      ],
+      "acceptance": [
+        "Require genuine intertwining identities for a radius change; equality of pointwise eigenvalues is insufficient.",
+        "Check compatibility with all chart-gluing maps."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Primitive links and Lemma 5.6 with proof, pp. 39–40",
+          "excerpt": "a two-sided inverse",
+          "match": "The proof gives an explicit inverse on each slope summand, which induces the eigenvariety isomorphism."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicFamilies:L2a/global-weight-gluing",
+      "parentStageId": "PadicFamilies:L2a",
+      "title": "The eigenvariety over weight space",
+      "kind": "construction",
+      "statement": "For a reduced rigid weight space W with (Pr) Banach modules on its affinoids, compact controlling operators, commuting Hecke actions and compatible links under restriction, glue the affinoid constructions to a rigid eigenvariety over W.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "W is a reduced rigid space; for each admissible affinoid open X⊆W, R_X=O(X) with its supremum norm carries a (Pr) Banach module M_X with a commuting action of T and compact φ_X.",
+        "For affinoid opens X_i⊆X_j there are links α_{ij}: M_{X_i} → M_{X_j} ⊗̂_{O(X_j)} O(X_i) with the cocycle α_{13} = (α_{23} ⊗̂ 1) ∘ α_{12} for X_1⊆X_2⊆X_3. The printed display 'α_ij: M_{X_i} → M_{X_i} ⊗̂_{O(X_i)} O(X_j)' on p. 41 is mis-indexed; the corrected typing above is the one used in the proof of Construction 5.7."
+      ],
+      "proofSteps": [
+        "Compare the module on a smaller affinoid with the base extension of the module on a larger one using the link theorem.",
+        "Use flat affinoid base change to compare their eigenvarieties.",
+        "Apply the compatibility of the links to verify descent and glue over W."
+      ],
+      "acceptance": [
+        "Prove canonical restriction to every affinoid and independence of the covering.",
+        "Do not infer reducedness or flatness over W from reducedness of W."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Construction 5.7 and proof, pp. 40–41",
+          "excerpt": "To the above data",
+          "match": "This is the global eigenvariety machine; the displayed index conventions must be typed through the restriction maps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicFamilies:L2a/eigenpacket-points",
+      "parentStageId": "PadicFamilies:L2a",
+      "title": "Points and finite-slope eigenpackets",
+      "kind": "theorem",
+      "statement": "Identify L-points of the constructed eigenvariety with φ-finite simultaneous Hecke eigensystems in the completed coefficient fibers, for complete extensions L/K. This classifies eigensystems, not a unique eigenvector or its multiplicity.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "R is a reduced K-affinoid algebra with its supremum norm."
+      ],
+      "proofSteps": [
+        "Reduce to K-points: the source asserts that separatedness of D_φ lets one base extend to L; the base change of the whole construction along R_X→R_X⊗̂_K L must be justified (it is a flat base change of reduced affinoids, so Lemmas 5.4–5.5 apply), which the source leaves implicit.",
+        "Reduce to a finite projective slope module N over an affinoid chart Y with base X∋P; K-points of D(Y) above P are K-algebra maps from T(Y)/mT(Y) to K.",
+        "For a residue specialization compare T(Y)/mT(Y) with its image S in End_K(N/mN); Lemma 5.10 proves the kernel is nilpotent by Cayley–Hamilton on matrices whose entries lie in m, so both have the same prime ideals, and a K-valued character of the commutative algebra S has a common eigenvector in N/mN.",
+        "Conversely an eigenvector m∈M_X⊗̂K with λ(φ)≠0 gives a point (P,λ(φ)^{-1}) of Z_φ (1−λ(φ)^{-1}φ is not injective, so by Lemma 3.1 over K the Fredholm series vanishes there); choose Y∈C containing it; then Q*_P(λ(φ))=0 and Q*(φ) is invertible on the specialised complement, so m lies in N⊗K. The source states the reduction to N⊗K without this argument."
+      ],
+      "acceptance": [
+        "Retain the distinction between the point classification and an isomorphism of possibly nonreduced specialized Hecke algebras.",
+        "Check that the controlling eigenvalue is nonzero.",
+        "Write out the two directions of the bijection separately; the source's one-sentence reduction to N⊗K and its base-change remark are not proofs."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemmas 5.9–5.10 and proofs, p. 42",
+          "excerpt": "the kernel of the map",
+          "match": "The nilpotent-kernel argument explains why eigenpackets can specialize correctly even when the full algebra does not commute with base change."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicFamilies:L2a/equidimensional-components",
+      "parentStageId": "PadicFamilies:L2a",
+      "title": "Equidimensionality and components of the eigenvariety",
+      "kind": "theorem",
+      "statement": "If the reduced weight space W is equidimensional of dimension n, then the eigenvariety D_φ of Construction 5.7 is equidimensional of dimension n, and each irreducible component of D_φ maps finitely and surjectively onto an irreducible component of the spectral variety Z_φ. Under Chenevier's additional identification of the components of Z_φ, those are Fredholm hypersurfaces cut out by prime Fredholm series and their images in W are Zariski open in components of W.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value; the data of Construction 5.7 with every affinoid X⊆W reduced and equidimensional of dimension n.",
+        "Irreducible components of rigid spaces are taken in the sense of Conrad, Irreducible components of rigid spaces (Ann. Inst. Fourier 49, 1999), which is imported unread.",
+        "The description of the components of Z_φ as prime Fredholm hypersurfaces uses Coleman–Mazur Theorem 1.3.11 over power-series rings, or Conrad's 4.3.2, and is not proved for an arbitrary reduced W."
+      ],
+      "proofSteps": [
+        "For a chart Y∈C with connected base X=Max(A), the Hecke image T(Y) is a commutative A-subalgebra of End_A(N) with N finite projective, hence T(Y) is A-torsion-free after every flat base change (Chenevier, Lemme 6.2.10, first assertion).",
+        "A finite A-algebra that is torsion-free after flat base change has every irreducible component of its spectrum mapping surjectively onto an irreducible component of Spec A, so it is equidimensional of dimension n when A is (Lemme 6.2.10, second and third assertions; the proof localises at the image of a minimal prime and uses that the fibre is discrete and that a torsion-free quotient forces the image prime to be minimal).",
+        "Apply this to A ⊂ A[φ^{-1}] ⊂ T(Y): the affinoid Y has O(Y)=A[T]/(Q) whose map to A[φ^{-1}] is a nil-isomorphism (Lemme 6.4.3: the characteristic polynomial ideal satisfies I^r⊂(P)⊂I), so Y, Max A[φ^{-1}] and D(Y) share equidimension n, and π and the projection to X send components to components.",
+        "Glue: an irreducible component Σ of D_φ meets each D(Y) in a union of components (Conrad 2.2.9), its image π(Σ) is an irreducible closed analytic subset of Z_φ (Conrad 2.2.3) of dimension n, hence a component of the n-equidimensional Z_φ (Conrad 2.2.7).",
+        "Buzzard's Lemma 5.8 states this result for the general machine and delegates the proof to Chenevier's Proposition 6.4.2; the argument above uses only T(Y)⊂End_A(N) and equidimensionality of the charts, so the delegation is legitimate in Buzzard's generality once the imported component theory is available."
+      ],
+      "acceptance": [
+        "State the torsion-freeness and equidimensionality lemma as a purely algebraic statement about finite algebras over Noetherian rings and test it on A=K⟨X,Y⟩ with the nonreduced example of Buzzard p. 33, where T(Z_φ)=R⊕I is finite and torsion-free.",
+        "Do not claim the Zariski-density statement for images of components without the Fredholm-series factorisation input (Coleman–Mazur 1.3.11 or Conrad 4.3.2)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 5.8 and its one-line proof, p. 41",
+          "excerpt": "This is Proposition 6.4.2 of [8].",
+          "match": "Buzzard states equidimensionality, surjectivity onto components of Z_φ and Zariski-density of images and delegates the entire proof to Chenevier."
+        },
+        {
+          "sourceId": "Chenevier-FamillesGLn-2004",
+          "locator": "Proposition 6.4.2 and proof, internal p. 53",
+          "excerpt": "Le lemme 6.2.10 s’applique à A(V) ⊂ A(V)[a(Up)^{-1}] ⊂ H(Y)",
+          "match": "The proof reduces equidimensionality to the algebraic lemma applied to the Hecke image inside End of the finite projective slope module, which is exactly the structure available in Buzzard's machine."
+        },
+        {
+          "sourceId": "Chenevier-FamillesGLn-2004",
+          "locator": "Lemme 6.2.10 and proof, internal pp. 47–48",
+          "excerpt": "B est sans torsion sur A et ce après tout changement de base plat sur A",
+          "match": "This is the algebraic input: subalgebras of End_A(N) for projective N are torsion-free, and finite torsion-free algebras over equidimensional Noetherian rings are equidimensional with components mapping onto components."
+        },
+        {
+          "sourceId": "Chenevier-FamillesGLn-2004",
+          "locator": "Lemme 6.4.3 and Corollaire 6.4.4, internal p. 54",
+          "excerpt": "I^r ⊂ (P) ⊂ I",
+          "match": "The nil-isomorphism between O(Y) and A[φ^{-1}] and the Zariski-open image statement."
+        },
+        {
+          "sourceId": "ColemanMazur-Eigencurve-1998",
+          "locator": "Theorem 1.3.11 and Corollary 1.3.12, internal pp. 24–26",
+          "excerpt": "there exist unique distinct prime Fredholm series over A, P_i(T), and positive integers n_i",
+          "match": "The factorisation into prime Fredholm series used by Chenevier to identify the components of Z; stated for power-series rings over O, not for an arbitrary reduced affinoid base."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "R1-review"
+    }
+  ],
+  "links": [
+    {
+      "source": "PadicFamilies:L2a/spectral-hypersurface",
+      "target": "PadicFamilies:L2a/flat-spectral-charts",
+      "reason": "The entire Fredholm series with constant coefficient one defines the Tate-algebra quotients.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 4.1"
+        }
+      ]
+    },
+    {
+      "source": "PadicFamilies:L2a/flat-spectral-charts",
+      "target": "PadicFamilies:L2a/constant-rank-finiteness",
+      "reason": "Conrad’s criterion upgrades flat quasi-finite affinoid pieces once their fiber rank is constant.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Corollary 4.3"
+        }
+      ]
+    },
+    {
+      "source": "PadicFamilies:L2a/spectral-hypersurface",
+      "target": "PadicFamilies:L2a/newton-degree-loci",
+      "reason": "Uniform entire coefficient decay bounds the Newton polygons.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 4.4"
+        }
+      ]
+    },
+    {
+      "source": "PadicFamilies:L2a/newton-degree-loci",
+      "target": "PadicFamilies:L2a/strict-slope-neighborhoods",
+      "reason": "The degree-d coefficient and strict Newton gap control the larger radius.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 4.5"
+        }
+      ]
+    },
+    {
+      "source": "PadicFamilies:L2a/constant-rank-finiteness",
+      "target": "PadicFamilies:L2a/strict-slope-neighborhoods",
+      "reason": "Constant degree in the enlarged domain gives the finite-flat map.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 4.5"
+        }
+      ]
+    },
+    {
+      "source": "PadicFamilies:L2a/newton-degree-loci",
+      "target": "PadicFamilies:L2a/admissible-slope-cover",
+      "reason": "The finite degree filtration is the induction parameter.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Theorem 4.6"
+        }
+      ]
+    },
+    {
+      "source": "PadicFamilies:L2a/strict-slope-neighborhoods",
+      "target": "PadicFamilies:L2a/admissible-slope-cover",
+      "reason": "Strict neighborhoods maintain admissible coverage of the remainder at each induction step.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Theorem 4.6"
+        }
+      ]
+    },
+    {
+      "source": "PadicFamilies:L2a/admissible-slope-cover",
+      "target": "PadicFamilies:L2a/slope-polynomials",
+      "reason": "Finite-flat spectral blocks supply their coordinate characteristic polynomials.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§5, pp. 34–35"
+        }
+      ]
+    },
+    {
+      "source": "PadicFamilies:L2a/slope-polynomials",
+      "target": "PadicFamilies:L2a/finite-hecke-images",
+      "reason": "The finite projective slope module carries a Hecke action and a polynomial inverse for φ.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§5, pp. 34–35"
+        }
+      ]
+    },
+    {
+      "source": "PadicFamilies:L2a/finite-hecke-images",
+      "target": "PadicFamilies:L2a/hecke-chart-gluing",
+      "reason": "Finite Hecke charts must be identified under restrictions and block intersections.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemmas 5.1–5.3"
+        }
+      ]
+    },
+    {
+      "source": "PadicFamilies:L2a/hecke-chart-gluing",
+      "target": "PadicFamilies:L2a/flat-eigenvariety-base-change",
+      "reason": "The finite-chart comparison must be compatible with the gluing data.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 5.5"
+        }
+      ]
+    },
+    {
+      "source": "PadicFamilies:L2a/finite-hecke-images",
+      "target": "PadicFamilies:L2a/linked-banach-families",
+      "reason": "A link identifies slope modules and therefore their actual Hecke-image algebras.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 5.6"
+        }
+      ]
+    },
+    {
+      "source": "PadicFamilies:L2a/linked-banach-families",
+      "target": "PadicFamilies:L2a/global-weight-gluing",
+      "reason": "Links compare the independently defined modules on nested weight affinoids.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Construction 5.7"
+        }
+      ]
+    },
+    {
+      "source": "PadicFamilies:L2a/flat-eigenvariety-base-change",
+      "target": "PadicFamilies:L2a/global-weight-gluing",
+      "reason": "Affinoid restriction is flat and compares each local eigenvariety with the geometric pullback.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Construction 5.7"
+        }
+      ]
+    },
+    {
+      "source": "PadicFamilies:L2a/finite-hecke-images",
+      "target": "PadicFamilies:L2a/eigenpacket-points",
+      "reason": "The finite Hecke-image specialization admits the nilpotent-kernel comparison.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemmas 5.9–5.10"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/summand-fredholm-theory",
+      "target": "PadicFamilies:L2a/spectral-hypersurface",
+      "reason": "The determinant is an entire coefficient-compatible series on the actual (Pr) Banach module.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§5, p. 32"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/finite-slope-summands",
+      "target": "PadicFamilies:L2a/slope-polynomials",
+      "reason": "Riesz theory turns the coprime spectral polynomial into a finite projective Hecke-stable summand.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§5, p. 34"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/cyclic-determinant-identity",
+      "target": "PadicFamilies:L2a/linked-banach-families",
+      "reason": "The primitive-link factorizations force equal characteristic series.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§5, p. 39"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "PadicFamilies:L2a/flat-spectral-charts",
+      "reason": "Affinoid products and Tate-algebra base changes construct the truncated hypersurface and its residue fibers.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 4.1"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R2",
+      "target": "PadicFamilies:L2a/constant-rank-finiteness",
+      "reason": "Corollary 4.3 imports Conrad Theorem A.1.2, whose proof runs through admissible formal models (the objects R2 constructs). R2's stated scope (admissible formal schemes, admissible blow-ups, generic-fibre functor, Hasse domains) does not include Bosch–Lütkebohmert I Prop. 4.7 and §3.5 rig-points, II Thm 5.2/Cor. 5.3 (flat and quasi-finite models), the scheme lemma A.1.4, or the finiteness criterion itself, and F0 restricts formal geometry to Noetherian adic rings, which excludes the valuation ring of a nondiscretely valued K. R1-review keeps this edge as a partial-supplier edge with the remainder recorded in the gap 'Formal-model finiteness beyond the existing geometric outline'; it does not assert supply.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Corollary 4.3"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "PadicFamilies:L2a/hecke-chart-gluing",
+      "reason": "Finite coherent algebras, affinoid restriction and coherent descent underlie the Hecke chart comparisons.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemmas 5.1–5.3"
+        }
+      ]
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L0a",
+      "target": "PadicFamilies:L2a/global-weight-gluing",
+      "reason": "The character-space owner supplies the rigid weight space and its affinoid restriction maps.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Construction 5.7"
+        }
+      ]
+    },
+    {
+      "source": "PadicFamilies:L2a/finite-hecke-images",
+      "target": "PadicFamilies:L2a/equidimensional-components",
+      "reason": "The Hecke image T(Y)⊂End_A(N) with N finite projective is the object to which the torsion-freeness/equidimensionality lemma is applied.",
+      "sources": [
+        {
+          "sourceId": "Chenevier-FamillesGLn-2004",
+          "locator": "Proposition 6.4.2, proof, internal p. 53"
+        }
+      ]
+    },
+    {
+      "source": "PadicFamilies:L2a/hecke-chart-gluing",
+      "target": "PadicFamilies:L2a/equidimensional-components",
+      "reason": "The global statement is glued from the charts D(Y) using that a component of D_φ meets each D(Y) in a union of components.",
+      "sources": [
+        {
+          "sourceId": "Chenevier-FamillesGLn-2004",
+          "locator": "Proposition 6.4.2, proof, internal p. 53"
+        },
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 5.8, p. 41"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "PadicFamilies:L0a",
+      "status": "not_read",
+      "remaining": [
+        "Read the complete source proof for this stage; the generic machine does not by itself construct the modular coefficient modules, classicality or Galois families."
+      ]
+    },
+    {
+      "stageId": "PadicFamilies:L0",
+      "status": "not_read",
+      "remaining": [
+        "Read the complete source proof for this stage; the generic machine does not by itself construct the modular coefficient modules, classicality or Galois families."
+      ]
+    },
+    {
+      "stageId": "PadicFamilies:L1",
+      "status": "not_read",
+      "remaining": [
+        "Read the complete source proof for this stage; the generic machine does not by itself construct the modular coefficient modules, classicality or Galois families."
+      ]
+    },
+    {
+      "stageId": "PadicFamilies:L2a",
+      "status": "partial",
+      "remaining": [
+        "Decompose the imported analytic and rigid-geometric source proofs listed in the gaps (Bosch–Lütkebohmert formal-model theorems, Conrad A.1.2/A.1.4, Conrad's irreducible-component theory).",
+        "Lemma 4.5: the four printed defects are recorded with corrected statements by R1-review; carry the corrected argument through Theorem 4.6 (including the strengthened induction hypothesis) in a node-level proof before implementation.",
+        "Construct and glue the coherent eigenmodule sheaf, with its nonreduced/generalized-eigenspace comparisons; the space construction alone does not finish the original stage.",
+        "Audit the exact coefficient and restriction-map types (the corrected typing of the links α_ij is recorded in the global-weight-gluing node) and complete the two directions of Lemma 5.9 before claiming source closure."
+      ]
+    },
+    {
+      "stageId": "PadicFamilies:L2",
+      "status": "not_read",
+      "remaining": [
+        "Read the complete source proof for this stage; the generic machine does not by itself construct the modular coefficient modules, classicality or Galois families.",
+        "Coleman–Mazur, The eigencurve, is now available (Internet Archive capture of the authors' preprint, provenance in the sources list); R1-review read only §1.1, §1.3.10–1.3.12, §7.1 and the statements of 7.4.5 and 7.5.1. Read Chapters 2–7 (overconvergent modules, the compact U_p, Theorem 7.1.1's q-expansion pairing, reducedness 7.4.5, D≅C^red 7.5.1) before decomposing L2."
+      ]
+    },
+    {
+      "stageId": "PadicFamilies:L3",
+      "status": "not_read",
+      "remaining": [
+        "Read the complete source proof for this stage; the generic machine does not by itself construct the modular coefficient modules, classicality or Galois families."
+      ]
+    },
+    {
+      "stageId": "PadicFamilies:L4",
+      "status": "not_read",
+      "remaining": [
+        "Read the complete source proof for this stage; the generic machine does not by itself construct the modular coefficient modules, classicality or Galois families."
+      ]
+    },
+    {
+      "stageId": "PadicFamilies:L5",
+      "status": "not_read",
+      "remaining": [
+        "Read the complete source proof for this stage; the generic machine does not by itself construct the modular coefficient modules, classicality or Galois families."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Formal-model finiteness beyond the existing geometric outline",
+      "neededBy": [
+        "PadicFamilies:L2a/constant-rank-finiteness",
+        "PadicFamilies:L2a/admissible-slope-cover"
+      ],
+      "detail": "Conrad A.1.2 was read through its proof (again by R1-review). It requires Bosch–Lütkebohmert, Formal and rigid geometry I (Math. Ann. 295, 1993), Proposition 4.7 and §3.5 (rig-points, via Conrad's Lemma A.1.5), and II (Math. Ann. 296, 1993), Theorem 5.2 and Corollary 5.3 (flat and quasi-finite formal models); those primary proofs remain unread. Its scheme step is Lemma A.1.4, proved by fpqc base change to a henselian local ring, the structure theorem for separated locally quasi-finite maps (EGA IV_4 18.5.11(c)), constancy of rank over the closed fibre and spreading out of finite presentation; this was read but its EGA chain remains unexpanded. Remark A.1.3 notes that the discretely valued case is Abbes–Mokrane Lemme A.1 and that local rings of formal models are not Noetherian for nondiscrete K. R1-review supplier assessment (Task 4): no stage in data/atlas.json explicitly supplies these results in the needed generality. AdicSpacesPartII:R2 constructs admissible formal schemes, admissible blow-ups and the generic-fibre functor but states no flattening, quasi-finite-model or finiteness criterion; AdicSpacesPartII:F0 restricts formal geometry to complete Noetherian adic rings (excluding O_K for nondiscrete K) and only promises properness/separatedness/smoothness comparisons with formal models; AdicEtaleGeometry:A2 supplies admissible formal models 'in the scope required by H1' (étale cohomology); ClassicalAdicEtaleCohomology:H1 treats nondiscrete valuation bases only for nearby cycles and H1:henselian constructs affinoid henselizations, not the scheme lemma A.1.4; SchemeAndStackFoundations:SF.1 owns fpqc descent on the scheme side. Closest candidates, in order: AdicSpacesPartII:R2, AdicSpacesPartII:F0, AdicEtaleGeometry:A2, ClassicalAdicEtaleCohomology:H1:henselian, SchemeAndStackFoundations:SF.1. No edge asserting supply was added; the existing R2 edge is annotated as partial."
+    },
+    {
+      "title": "Printed radius and strict-neighborhood errors",
+      "neededBy": [
+        "PadicFamilies:L2a/strict-slope-neighborhoods"
+      ],
+      "detail": "Verified by R1-review on pp. 29–30 rendered from the library PDF (SHA-256 0c5424…, identical to the copy currently served by the author's page, last updated 02/08/06; the CUP 2007 edition, LMS LNS 320 pp. 59–120, was not obtained and no errata page or arXiv version exists). Printed text and corrections: (1) The third family defining X prints '−log|r_n(x)| + log|r_d(x)| ≥ (n−d)t for d<n<N', and the same '(n−d)t' recurs in the reversed inequalities defining W and in the parenthetical 'for all n ≥ N' on p. 30. The preceding sentence establishes the bound with (n−d)log(t), and every other quantity (γ1, γ2, δ1, δ2, log r, log t) is logarithmic; since t > log t the printed condition is stronger than what holds on V, so V ⊂ X would fail. Corrected: (n−d)log(t) in all three places. (2) p. 30 prints 'then X ∩ W is empty and X ∪ V = B. Hence X is a strict neighbourhood of V'. The definition on p. 28 requires a finite union of affinoids U with U ∩ S = ∅ and U ∪ T = B for T a strict neighbourhood of S; with S=V, T=X, U=W the required identities are V ∩ W = ∅ and X ∪ W = B. These hold: V satisfies each inequality strictly, and a point outside X violates some non-strict inequality hence satisfies the reversed one. The printed identities are false in general (X ∩ W contains boundary points where equality holds; X ∪ V = X). (3) The second family is printed for 0<n<d, which gives N−1 equations although the text announces N; with n=0 (r_0=1) the condition reads −log|r_d(x)| ≤ dγ1 and is exactly the uniform lower bound for |r_d| on X needed to make n=0 and n≥N lose the Newton-polygon maximum at radius s=exp(γ2). Without it (or the equivalent constraint δ2<dγ2, which is achievable since −log|r_d| ≤ d log r < dγ2 on V but is not imposed by the printed choice of δ2) the claim that f_s^{-1}(X)→X has constant degree d is false: for P(T)=1+uT on the closed unit disc with V={|u|=1}, r=1, d=1, the printed X={|u| ≥ e^{−δ2}} with δ2>γ2 contains points over which the fibre in the disc of radius s is empty. (4) The N affinoids making up W are printed as the sets where a reversed ratio inequality holds; a set {|r_n| ≥ c|r_d|} is not an affinoid subdomain when r_n and r_d have a common zero. Intersecting each such piece with the Laurent domain {|r_d| ≥ e^{−δ2}} (where r_d is a unit) repairs this without affecting V∩W=∅ or X∪W=B. (5) The concluding 'no elements of norm s, hence Y is disconnected from its complement' is pointwise; footnote 2 (Grosse-Klönne) shows the open-and-closed property follows from finiteness of Y→X, so the sentence is not load-bearing. The nodes strict-slope-neighborhoods and admissible-slope-cover carry the corrected statements. Next source action: obtain the CUP 2007 text to check whether any of (1)–(4) was corrected in print."
+    },
+    {
+      "title": "Complete primary modular eigencurve proof (source now acquired, mostly unread)",
+      "neededBy": [
+        "PadicFamilies:L2"
+      ],
+      "detail": "The catalogue selects Coleman–Mazur, The eigencurve (1998), DOI 10.1017/CBO9780511662010.003. R1-review acquired the authors' 113-page preprint from the Internet Archive capture (31 October 2008) of Coleman's Berkeley page, https://web.archive.org/web/20081031155820id_/http://math.berkeley.edu/~coleman/eigen/coleman-mazur.pdf, SHA-256 bf8e96f23fb3db2f886a5106547798c6d899941b316f340079b3aabb4ad04a70, fetched 2026-09-15; the live Berkeley URL and Barry Mazur's Harvard page return 404. Read so far: §1.1 (nested spaces, p. 11), Lemma 1.3.10–Corollary 1.3.12 (pp. 24–26), Chapter 7 opening and §7.1 with Theorem 7.1.1 (pp. 91–93: the local pieces D(V) over an affinoid Y of weight space, N(V) locally free of rank deg Q_V, T(V) the image of H⊗A in End_A(N(V)), the q-expansion pairing 0→T(V)→Hom_A(N(V),A)→M→0), §7.4 opening with Lemma 7.4.1 (pp. 101–102), Proposition 7.4.5 (D reduced, nested, components generically isomorphic to Fredholm hypersurfaces, p. 104) and the statement of Theorem 7.5.1 (D ≅ C^red, p. 105). The footnote on p. 91 records that the proof of [C-BMF] Proposition A5.8 works over any K after replacing 'x∈V' by 'closed points x of V', the argument Buzzard's §4 generalises. Buzzard's opening §6 imports these constructions; this packet still does not claim to have read the complete modular proof (Chapters 2–6, §§7.2–7.5 proofs) or to derive the distribution-valued cohomology and critical-point results from the generic machine."
+    },
+    {
+      "title": "Coherent eigenmodules and nonflat specialization",
+      "neededBy": [
+        "PadicFamilies:L2a",
+        "PadicFamilies:L2"
+      ],
+      "detail": "The original stages promise the coherent eigenmodule/eigensymbol sheaf, Tor comparisons and generalized eigenspaces. The inspected finite Hecke algebra construction and flat-base-change lemma do not alone prove this entire package. Read and decompose the sheaf gluing and the modular nonflat comparison arguments, with a separate source for critical-point multiplicities. R1-review note: Coleman–Mazur §7.1 (now on disk) constructs the pairing 0→T(V)→Hom_A(N(V),A)→M→0 via q-expansions in the modular case, which is the kind of statement the coherent eigenmodule sheaf must generalise; it depends on the q-expansion principle and is not available for the generic machine."
+    },
+    {
+      "title": "Dimension theorem narrowed; dense classical points still require separate inputs",
+      "neededBy": [
+        "PadicFamilies:L2a",
+        "AutomorphicGaloisRepresentationsPartII:AG2.3"
+      ],
+      "detail": "Buzzard Lemma 5.8 delegates equidimensionality to Chenevier Proposition 6.4.2. R1-review read that proposition with its proof (author copy glnfam.pdf, internal p. 53), Lemme 6.2.10 (pp. 47–48) and Lemme 6.4.3 (p. 54): the argument uses only that the Hecke image is a commutative subalgebra of End_A(N) for N finite projective over an equidimensional reduced affinoid A, so it applies in Buzzard's generality; the new node equidimensional-components (addedBy R1-review) records it. Remaining imports: Conrad, Irreducible components of rigid spaces, results 2.1.5, 2.2.3, 2.2.7, 2.2.9 and 4.3.2, and Coleman–Mazur Theorem 1.3.11 (prime factorisation of Fredholm series over O[[T_1,…,T_m]], now on disk but its proof via Theorem 1.3.7 unread) for the identification of the components of Z_φ; these are needed for the 'components map onto Fredholm hypersurfaces' and Zariski-density clauses, not for equidimensionality. Dense classical points and unitary classicality require the application's actual overconvergent coefficient and control arguments (Chenevier §6.4.5 and §7 for unitary groups; Coleman–Mazur for the modular case). This packet does not infer them from eigenpacket-point classification."
+    }
+  ],
+  "libraryReview": {
+    "status": "discovery_only",
+    "scope": "Read the existing AdicSpacesPartII R0/R2/R3 contracts and character-space owner before assigning cross-roadmap links. Local Mathlib keyword searches did not establish an implemented eigenvariety machine; no implementation availability is certified."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-R1",
+    "date": "2026-09-15",
+    "notes": "All 13 original nodes and 22 links checked against the Buzzard manuscript (SHA-256 verified) and Conrad A.1; 7 nodes corrected in place (strict-slope-neighborhoods, admissible-slope-cover, slope-polynomials, flat-eigenvariety-base-change, linked-banach-families, global-weight-gluing, eigenpacket-points), 6 verified unchanged. The Lemma 4.5 printed errors claimed by the draft are confirmed and two further defects were found (missing lower bound for |r_d| on X, i.e. the n=0 inequality / δ2<dγ2, with an explicit counterexample; and the affinoidness of the reversed-inequality pieces of W). No unresolved contradiction remains after the corrections; the packet status stays partial because the formal-model finiteness inputs, Conrad's component theory and the modular application are unread. One node added (equidimensional-components, addedBy R1-review) after reading Chenevier Prop. 6.4.2 with Lemme 6.2.10; Chenevier and Coleman–Mazur added as sources with provenance. The AdicSpacesPartII:R2 edge is kept only as an annotated partial-supplier edge; the orchestrator may drop it if policy forbids partial-supplier edges. Details in research/expansion/reviews/eigenvariety-review.md.",
+    "checked": [
+      {
+        "nodeId": "PadicFamilies:L2a/spectral-hypersurface",
+        "verdict": "verified",
+        "note": "§4 setup pp. 25–26 and §5 p. 32 match; excerpt 'the reciprocals of the non-zero eigenvalues' found on p. 32."
+      },
+      {
+        "nodeId": "PadicFamilies:L2a/flat-spectral-charts",
+        "verdict": "verified",
+        "note": "Lemma 4.1/Cor. 4.2 p. 27: Weierstrass preparation for quasi-finiteness, flatness via Matsumura 22.6 with the residue-field Tate algebra; excerpt found."
+      },
+      {
+        "nodeId": "PadicFamilies:L2a/constant-rank-finiteness",
+        "verdict": "verified",
+        "note": "Cor. 4.3 p. 27 and Conrad A.1.2 (internal p. 37) hypotheses match; formal-model inputs recorded in the gap."
+      },
+      {
+        "nodeId": "PadicFamilies:L2a/newton-degree-loci",
+        "verdict": "verified",
+        "note": "Lemma 4.4 p. 28: cutoff N, affinoids S_i, U_i=∪_{j≥i}S_j; U_{i+1}⊆U_i stated on p. 30."
+      },
+      {
+        "nodeId": "PadicFamilies:L2a/strict-slope-neighborhoods",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses, proofSteps, acceptance and sources rewritten with the corrected inequalities; two additional printed defects recorded (n=0 lower bound for |r_d| with counterexample P=1+uT; affinoid pieces of W)."
+      },
+      {
+        "nodeId": "PadicFamilies:L2a/admissible-slope-cover",
+        "verdict": "corrected",
+        "note": "Theorem 4.6 pp. 30–31 matches; proofSteps now record that the induction hypothesis must include f_r^{-1}(X_α)⊆Y_α (from s_α>r), which the printed H(i) omits."
+      },
+      {
+        "nodeId": "PadicFamilies:L2a/slope-polynomials",
+        "verdict": "corrected",
+        "note": "§5 pp. 34–35 match; the source invokes Theorem 3.3 without proving (Q,S)=1; a proof via the open-and-closed property and the resultant-unit criterion is added."
+      },
+      {
+        "nodeId": "PadicFamilies:L2a/finite-hecke-images",
+        "verdict": "verified",
+        "note": "pp. 34–35: T(Y)⊂End_A(N) finite over A, finite over O(Y)=A[S]/(Q*(S)) via S↦φ, T↦φ^{-1}; excerpt found."
+      },
+      {
+        "nodeId": "PadicFamilies:L2a/hecke-chart-gluing",
+        "verdict": "verified",
+        "note": "Lemmas 5.1–5.3 pp. 35–37 match (T(Y′)=T(Y)⊗̂O(X′), idempotent products, BGR 9.3.2/1 and 9.3.3/1 gluing, separatedness and finiteness)."
+      },
+      {
+        "nodeId": "PadicFamilies:L2a/flat-eigenvariety-base-change",
+        "verdict": "corrected",
+        "note": "Lemmas 5.4–5.5 pp. 37–38 and the K⟨X,Y⟩ counterexample match; proofSteps now justify admissibility of the pulled-back cover by finite covers of each Z′_r rather than by separatedness alone."
+      },
+      {
+        "nodeId": "PadicFamilies:L2a/linked-banach-families",
+        "verdict": "corrected",
+        "note": "Definition and Lemma 5.6 pp. 39–40 match; proofSteps note that p. 40 cites Lemma 2.13 where Lemma 2.12 (cyclic identity) is meant."
+      },
+      {
+        "nodeId": "PadicFamilies:L2a/global-weight-gluing",
+        "verdict": "corrected",
+        "note": "Construction 5.7 pp. 40–41 matches; the hypotheses now state the corrected typing of the links α_ij: M_{X_i}→M_{X_j}⊗̂_{O(X_j)}O(X_i) and cocycle, since the printed display is mis-indexed."
+      },
+      {
+        "nodeId": "PadicFamilies:L2a/eigenpacket-points",
+        "verdict": "corrected",
+        "note": "Lemmas 5.9–5.10 p. 42 match; proofSteps now supply the two directions of the bijection (eigenvector lies in N⊗K via Lemma 3.1 over K and Theorem 3.3) and flag the implicit base change K→L."
+      },
+      {
+        "nodeId": "PadicFamilies:L2a/equidimensional-components",
+        "verdict": "added",
+        "note": "New node (addedBy R1-review) from Buzzard Lemma 5.8 and Chenevier Prop. 6.4.2 / Lemme 6.2.10 / Lemme 6.4.3, read in the author copy; imports Conrad's component theory and Coleman–Mazur 1.3.11 unread."
+      }
+    ]
+  }
+}

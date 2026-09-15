@@ -1,0 +1,583 @@
+{
+  "roadmapId": "PadicHodgeTheory",
+  "status": "partial",
+  "summary": "Source decomposition of the rational relative period-sheaf theory of Scholze, p-adic Hodge theory for rigid-analytic varieties, Sections 4 and 6 (with Lemma 3.18 and Lemma 5.5), read together with the 2013/2016 erratum: completed structure sheaves on the pro-etale site, affinoid perfectoid objects and their etale pullbacks, almost acyclicity of the completed integral structure sheaf, the sheaves A_inf, B_inf, B_dR^+, B_dR and their values on affinoid perfectoids, the corrected structural de Rham sheaf OB_dR^+ and its local description B_dR^+[[X_1, ..., X_n]], the Poincare lemma with Griffiths transversality and strict exactness, Faltings's extension, and the computation of the cohomology of gr^i OB_dR. This covers stage P8:local-rational and the B_dR^+ part of R06.1. The proper comparison suffix of P8, the period functors, monodromy, integral and geometric stages and the Robba-ring stage are recorded as not read.",
+  "sources": [
+    {
+      "id": "sch13-padic-hodge",
+      "title": "p-adic Hodge theory for rigid-analytic varieties",
+      "authors": "Peter Scholze",
+      "edition": "Author's version as posted on the author's web page (library copy SS_ScholzePadicHodge.pdf; published in Forum of Mathematics, Pi 1 (2013), e1); printed page numbers of that copy",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/pAdicHodgeTheory.pdf",
+      "sha256": "73dded06286031066e9d98b638e065d650688f1e36e877f4d711331a3508dee3",
+      "readSections": [
+        "Lemma 3.18 with proof (p. 20-21)",
+        "Section 4 Structure sheaves on the pro-etale site: Definition 4.1 - Lemma 4.12 with proofs (Proposition 4.8 statement only) (pp. 21-28)",
+        "Lemma 5.5 with proof and the statement of Lemma 5.6 (pp. 30-31)",
+        "Section 6 The relative de Rham period sheaves: Definition 6.1 - Remark 6.20 with all proofs (pp. 35-41)"
+      ]
+    },
+    {
+      "id": "sch16-erratum",
+      "title": "Erratum to p-adic Hodge theory for rigid-analytic varieties",
+      "authors": "Peter Scholze",
+      "edition": "Author's erratum (library copy SS_ScholzePadicHodgeErratum.pdf; published in Forum of Mathematics, Pi 4 (2016), e6)",
+      "url": "https://www.math.uni-bonn.de/people/scholze/pAdicHodgeErratum.pdf",
+      "sha256": "3cfa56b9e3875c04240d97739dccd58091e41f714c101d5470b95172f73cb235",
+      "readSections": [
+        "Items (1)-(3) in full: corrected pro-etale covers, removal of the point descriptions, corrected definition of OB_dR^+ and the strengthened form of Proposition 6.10 with its proof (pp. 1-3)"
+      ]
+    },
+    {
+      "id": "sch12-perfectoid",
+      "title": "Perfectoid spaces",
+      "authors": "Peter Scholze",
+      "edition": "arXiv:1111.4914v1 (library copy); cited as [18] in the p-adic Hodge theory paper",
+      "url": "https://arxiv.org/abs/1111.4914",
+      "sha256": "065441a872c5861560014f5c7675fdd4606b5796684f6a829747f01afee18e7b",
+      "readSections": [
+        "Sections 6-7 as recorded in the PerfectoidSpaces packet; used here only through the nodes of that packet"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "PadicHodgeTheory:R06.1/bdr-plus-of-perfectoid-affinoid-algebras",
+      "parentStageId": "PadicHodgeTheory:R06.1",
+      "title": "A_inf, B_inf, B_dR^+ and B_dR of a perfectoid affinoid (K, K^+)-algebra; the element ξ",
+      "kind": "construction",
+      "statement": "Let K be a perfectoid field of characteristic 0 with an open bounded valuation subring K^+, and fix π ∈ K♭ with π♯/p ∈ (K^+)^×. For a perfectoid affinoid (K, K^+)-algebra (R, R^+) set A_inf(R, R^+) = W(R♭+), B_inf = A_inf[1/p], B_dR^+(R, R^+) = lim B_inf/(ker θ)^i. There is ξ ∈ A_inf(K, K^+) of the form ξ = [π] − Σ_{i≥1} p^i [x_i] (x_i ∈ O_{K♭}) generating ker(θ: A_inf(K, K^+) → K^+); ξ is not a zero-divisor, hence unique up to a unit, and for every (R, R^+) the same ξ generates ker(θ: A_inf(R, R^+) → R^+) and is a nonzerodivisor there. Consequently B_dR(R, R^+) := B_dR^+(R, R^+)[ξ^{-1}] carries the filtration Fil^i = ξ^i B_dR^+ with gr^i B_dR(R, R^+) ≅ ξ^i R, a free R-module of rank 1, and gr^• B_dR(R, R^+) ≅ R[ξ^{±1}].",
+      "hypotheses": [
+        "K perfectoid of characteristic 0; π ∈ K♭ with |π♯| = |p| (π♯/p a unit of K^+); (R, R^+) perfectoid affinoid over (K, K^+), so R♭+ is flat over K♭+ and R^+ is flat over Z_p; θ: W(R♭+) → R^+ surjective (from PerfectoidSpaces P1).",
+        "The construction of ξ uses only that θ([π]) ∈ p(K^+)^× can be written as Σ_{i≥1} p^i θ([x_i]), i.e. surjectivity of θ for (K, K^+)."
+      ],
+      "proofSteps": [
+        "Nonzerodivisor: if ξ y = 0 with y = Σ p^i [y_i] ≠ 0, flatness of W(R♭+) over Z_p lets one assume y_0 ≠ 0; reducing mod p gives π y_0 = 0 in R♭+, impossible since R♭+ is flat over K♭+.",
+        "Generation: for y ∈ ker θ, W(R♭+)/(ξ, p) = R♭+/π = R^+/p shows y ≡ z_0 ξ mod p; iterating gives y − (Σ_{i≤k} p^i z_i) ξ ∈ p^{k+1} W(R♭+), and p-adic completeness and separatedness of W(R♭+) give y = (Σ p^i z_i) ξ.",
+        "Cor. 6.4: ξ has the same properties in B_inf, so gr^i B_dR(R, R^+) = ξ^i B_dR^+/ξ^{i+1} B_dR^+ ≅ ξ^i R."
+      ],
+      "acceptance": [
+        "For (R, R^+) = (C, O_C), ξ generates ker θ ⊂ A_inf and B_dR^+(C) = lim A_inf[1/p]/ξ^i is the classical Fontaine ring with gr^i = C ξ^i.",
+        "The element t = log([ε]) ∈ Fil^1 B_dR^+(K, K^+), for K = completed Q_p(μ_{p^∞}), generates Fil^1 and Gal(Q_p(μ_{p^∞})/Q_p) acts on it through the cyclotomic character (used in Prop. 6.7)."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch13-padic-hodge",
+          "locator": "Section 6, the definitions before Lemma 6.3, Lemma 6.3 with proof, Corollary 6.4 with proof, pp. 35-36 (extraction lines 2026-2081)",
+          "excerpt": "As a first step, we will find z_0 ∈ W(R♭+) so that y − z_0 ξ is divisible by p. Indeed, W(R♭+)/(ξ, p) = R♭+/π = R^+/p, so that f is mapped to zero in this quotient, which amounts to the existence of z_0 as desired.",
+          "match": "The principal-kernel argument, uniform in (R, R^+) over (K, K^+), which R06.1 needs for B_dR^+ and its filtration."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeTheory:P8:local-rational/proetale-structure-sheaves-and-valuations",
+      "parentStageId": "PadicHodgeTheory:P8:local-rational",
+      "title": "Structure sheaves O_X, O_X^+, Ô_X^+, Ô_X on X_proet and the continuous valuations on their sections",
+      "kind": "definition",
+      "statement": "For a locally noetherian adic space X over Spa(Q_p, Z_p), define on X_proet the uncompleted structure sheaf O_X = ν^* O_{X_et} with O_X^+ = ν^* O^+_{X_et}, the integral completed structure sheaf Ô_X^+ = lim O_X^+/p^n and Ô_X = Ô_X^+[1/p]. For U ∈ X_proet: every x ∈ |U| gives a continuous valuation f ↦ |f(x)| on O_X(U) which extends to Ô_X(U); O_X^+(U) = {f ∈ O_X(U) : |f(x)| ≤ 1 for all x} and Ô_X^+(U) = {f ∈ Ô_X(U) : |f(x)| ≤ 1 for all x}, so Ô_X^+(U) ⊂ Ô_X(U) is integrally closed; O_X^+/p^n → Ô_X^+/p^n is an isomorphism of sheaves and Ô_X^+(U) is flat over Z_p and p-adically complete.",
+      "hypotheses": [
+        "X locally noetherian adic over Spa(Q_p, Z_p); U qcqs with a pro-etale presentation U = lim U_i (assertions are local in U).",
+        "The pro-etale site is Scholze's Definition 3.9 with the erratum's corrected notion of covers (transfinite compositions of pullbacks of finite etale surjections; unchanged for countable limits); the category X_proet itself is unchanged.",
+        "It is not known whether O_X(U) is dense in Ô_X(U) for arbitrary U, nor whether (|U|, Ô_X|_{|U|}, valuations) is always an adic space (remark after Lemma 4.2); both hold on the basis of affinoid perfectoid U."
+      ],
+      "proofSteps": [
+        "(i) O_X(U) = colim O_X(U_i), and a point x is a compatible system of points x_i, so the valuations on O_X(U_i) combine.",
+        "(ii) For i large, |U| → |U_i| is surjective, so |f(x)| ≤ 1 on |U| forces |f_i(x_i)| ≤ 1 on |U_i| and f_i ∈ O_X^+(U_i).",
+        "(iii) formal from flatness of O_X^+ over Z_p; (iv) define |f(x)| via max(|f_n(x̃)|, |p|^n) over local lifts, which is independent of the lift; (v) reduce to: |f(x)| ≤ |p|^n everywhere implies f ∈ p^n Ô_X^+(U), by writing f = f_0 + p^n g on a cover and applying (ii) to f_0."
+      ],
+      "acceptance": [
+        "For U = X affinoid, O_X(X) = O_{X_et}(X) and Ô_X^+(X) is the p-adic completion of O^+(X).",
+        "The valuations on Ô_X(U) are continuous for the topology with basis p^n Ô_X^+(U)."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch13-padic-hodge",
+          "locator": "Section 4, Definition 4.1, Lemma 4.2 with proof and the following remark, pp. 21-22 (extraction lines 1134-1218)",
+          "excerpt": "We caution the reader that we do not know whether O_X(U) ⊂ Ô_X(U) is always dense with respect to the topology on Ô_X(U) having p^n Ô_X^+(U), n ≥ 0, as a basis of open neighborhoods of 0.",
+          "match": "Records the exact limits of what is proved for general U, motivating the affinoid perfectoid basis."
+        },
+        {
+          "sourceId": "sch16-erratum",
+          "locator": "Item (1), p. 1",
+          "excerpt": "In the definition of covers in X_profet, Definition 3.3, instead of asking that the morphisms U_i → U are open, one asks the stronger condition that U_i → U can be written as an inverse limit U_i = lim_{μ<λ} U_μ → U of U_μ ∈ pro-X_fet, U_0 = U, ... for all μ < λ, U_μ → U_{<μ} is the pullback of a finite etale and surjective map in X_fet.",
+          "match": "The corrected covering condition the stage text requires ('open surjections of arbitrary profinite sets need not split')."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeTheory:P8:local-rational/affinoid-perfectoid-objects-and-etale-pullbacks",
+      "parentStageId": "PadicHodgeTheory:P8:local-rational",
+      "title": "Affinoid perfectoid objects of X_proet, the functor U ↦ Û, and stability under etale and pro-etale maps",
+      "kind": "construction",
+      "statement": "Over a perfectoid field K of characteristic 0 with open bounded valuation subring K^+, and X locally noetherian over Spa(K, K^+): U ∈ X_proet is affinoid perfectoid if it has a pro-etale presentation U = lim U_i by affinoids U_i = Spa(R_i, R_i^+) such that, with R^+ the p-adic completion of colim R_i^+ and R = R^+[1/p], (R, R^+) is a perfectoid affinoid (K, K^+)-algebra; Û := Spa(R, R^+) is independent of the presentation, Û ~ lim U_i in the sense of Sch12 Definition 7.14 and |Û| = |U|. (Lemma 4.5) If V_i → U_i is etale, a composite of rational subsets and finite etale maps, then V = V_i ×_{U_i} U is affinoid perfectoid with V̂ = V_i ×_{U_i} Û and, for A_j the p-adic completion of the p-torsionfree quotient of S_j^+ ⊗_{R_j^+} R^+, S = A_j[1/p], the cokernel of A_j → S^+ is killed by a power of p, and for every ε > 0 in log Γ it is killed by p^ε for j large. (Lemma 4.6, Cor. 4.7) Anything pro-etale over a perfectoid U is perfectoid, and for X smooth over Spa(K, K^+) the affinoid perfectoid U form a basis of X_proet; Prop. 4.8 (Colmez) extends the basis statement to all locally noetherian X.",
+      "hypotheses": [
+        "K perfectoid of characteristic 0 (needed so that perfectoid affinoid (K, K^+)-algebras make sense in Sch12's field-based framework); X locally noetherian over Spa(K, K^+).",
+        "Lemma 4.5 imports Sch12 Theorem 6.3(ii) (rational localizations of perfectoid affinoids are perfectoid), Lemma 6.4 (the subalgebras R^+⟨(f_i♯/g♯)^{1/p^m}⟩ with p^ε-bounded cokernel), Theorem 7.9(iii) (almost purity: S_j ⊗_{R_j} R perfectoid and uniformly almost finitely generated), Lemma 7.3(iv) and Proposition 7.10 (fibre products of finite etale maps).",
+        "Corollary 4.7 uses that a smooth X locally admits an etale map to the torus T^n (Huber [12] Corollary 1.6.10, unread) and the explicit cover T̃^n = lim Spa(K⟨T_i^{±1/p^m}⟩, K^+⟨T_i^{±1/p^m}⟩) of Example 4.4."
+      ],
+      "proofSteps": [
+        "Rational case: W = pullback of the rational subset to Û has (T, T^+) = (O_Û(W), O^+_Û(W)) perfectoid affinoid; with the natural topology on T_j = S_j ⊗_{R_j} R making the image of S_j^+ ⊗ R^+ open and bounded, Spa(T_j, T_j^+) = V_j ×_{U_j} Û, and (T, T^+) is the completion of (T_j, T_j^+), so T = A_j[1/p] and T^+ bounded gives the p-power bound on the cokernel.",
+        "S^+ = T^+: injectivity of S_j^+/p^n → T^+/p^n for j large (W → V_j surjective) and surjectivity by approximating p^N f by elements of S_j^+ modulo p^{n+N} and dividing by p^N.",
+        "p^ε-bound: exhibit topologically finitely generated R^+-subalgebras T_ε^+ ⊂ T^+ with p^ε-torsion cokernel (Sch12 Lemma 6.4) and approximate their generators from S_j^+.",
+        "Finite etale case: T = S_j ⊗_{R_j} R is perfectoid by almost purity, Spa(T, T^+) is the fibre product by Sch12 7.3(iv)/7.10, and T^{+a} = T°a is uniformly almost finitely generated over R°a (7.9(iii)), giving the p^ε-bound.",
+        "Lemma 4.6: factor V → U as an inverse limit of finite etale surjections over an etale V_0 → U; each finite etale piece comes from a finite level and completed direct limits of perfectoid affinoids are perfectoid affinoid."
+      ],
+      "acceptance": [
+        "T̃^n ∈ (T^n)_proet is affinoid perfectoid with (T̃^n)^ = Spa(K⟨T_i^{±1/p^∞}⟩, K^+⟨T_i^{±1/p^∞}⟩).",
+        "For a rational subset {|T| ≤ |p|} of the torus, the cokernel of A_j → S^+ is p-power torsion but not zero at any finite level j."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch13-padic-hodge",
+          "locator": "Section 4, Definition 4.3, Example 4.4, Lemma 4.5 with proof, Lemma 4.6, Corollary 4.7, Proposition 4.8 (statement), pp. 22-25 (extraction lines 1219-1377)",
+          "excerpt": "Then (T, T^+) is a perfectoid affinoid (K, K^+)-algebra by Theorem 6.3 (ii) of [18], W = Spa(T, T^+). Recall that for perfectoid affinoid (K, K^+)-algebras (A, A^+), A^+ is open and bounded, i.e. carries the p-adic topology.",
+          "match": "Shows exactly where the PerfectoidSpaces sheaf theorem and boundedness enter the pullback lemma."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeTheory:P8:local-rational/completed-structure-sheaf-on-affinoid-perfectoids",
+      "parentStageId": "PadicHodgeTheory:P8:local-rational",
+      "title": "Ô_X^+(U) = R^+ and almost vanishing of H^i(U, Ô_X^+) for affinoid perfectoid U",
+      "kind": "theorem",
+      "statement": "Let U ∈ X_proet be affinoid perfectoid with Û = Spa(R, R^+), in the almost setting for K^+ and its ideal of topologically nilpotent elements. Then (i) O_X^+(U)/b = R^+/b for nonzero b ∈ K^+, and this is almost equal to (O_X^+/b)(U); (ii) the image of (O_X^+/b_1)(U) in (O_X^+/b_2)(U) equals R^+/b_2 when |b_1| < |b_2|; (iii) Ô_X^+(U) = R^+ and Ô_X(U) = R; (iv) Ô_X^+(U) is the p-adic completion of O_X^+(U); (v) H^i(U, Ô_X^+) is almost zero for i > 0. In particular for perfectoid U, (|U|, Ô_X|_{|U|}, valuations) is the perfectoid space Û. (Lemma 3.18) If for an inverse system F_i of abelian sheaves there is a basis B with R^1 lim F_i(U) = 0 and H^j(U, F_i) = 0 (j > 0) for U ∈ B, then R^j lim F_i = 0 for j > 0, (lim F_i)(U) = lim F_i(U), and H^j(U, lim F_i) = 0 for U ∈ B, j > 0.",
+      "hypotheses": [
+        "U affinoid perfectoid; covers of U may be assumed to be a single V = lim V_j → V_{j'} → U with V_{j'} a composite of rational embeddings and finite etale maps and V_j → V_{j'} finite etale surjective (uses the corrected covering notion and quasicompactness of U).",
+        "Imports: giving a sheaf on X_proet is equivalent to giving a presheaf on affinoid perfectoid objects with the sheaf property for pro-etale covers by such (Proposition 4.8/Corollary 4.7); Lemma 4.5 (Čech complex of the cover is that of the etale cover V̂ → Û); Sch12 Proposition 7.13 (H^i(W_et, O^{+a}_W) = 0 for affinoid perfectoid W); the almost version of Lemma 3.18."
+      ],
+      "proofSteps": [
+        "(i) F(U) := (O^+(Û)/b)^a is a sheaf with vanishing higher cohomology: reduce the Čech complex of a cover V → U to a direct limit of Čech complexes of etale covers V̂_j → Û, which are almost exact by Sch12 7.13; hence F = (O_X^+/b)^a.",
+        "(ii) For f ∈ (O_X^+/b_1)(U) and c = b_1/b_2, c f = g comes from R^+ by (i); by valuations g = c h with h ∈ R^+, and injectivity of c: O_X^+/b_2 → O_X^+/b_1 gives f ≡ h in (O_X^+/b_2)(U).",
+        "(iii) Ô_X^+(U) = lim (O_X^+/p^n)(U) = lim R^+/p^n = R^+ by (ii); invert p for Ô_X(U) = R.",
+        "(v) H^i(U, O_X^+/p^n) almost zero for all n by (i); conclude with the almost version of Lemma 3.18 (R^1 lim vanishes on the basis because the transition maps on sections are surjective up to almost zero)."
+      ],
+      "acceptance": [
+        "For U = T̃^n, Ô_X(U) = K⟨T_i^{±1/p^∞}⟩ and H^i(U, Ô_X^+) is almost zero for i > 0.",
+        "The statement is 'almost equal' in (i) and 'equal' in (iii): passing to the inverse limit over n removes the almost defect using (ii)."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch13-padic-hodge",
+          "locator": "Section 4, Lemma 4.10 with proof and Remark 4.11, pp. 26-27 (extraction lines 1426-1503); Lemma 3.18 with proof, pp. 20-21 (extraction lines 1093-1133)",
+          "excerpt": "so the statement follows from the vanishing of H^i(W_et, O^{+a}_{W_et}), i > 0, for any affinoid perfectoid space W, proved in [18], Proposition 7.13. This shows in particular that F = (O_X^+/b)^a, giving part (i).",
+          "match": "The reduction of pro-etale almost acyclicity to the etale almost acyclicity of PerfectoidSpaces P3."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeTheory:P8:local-rational/period-sheaves-definitions",
+      "parentStageId": "PadicHodgeTheory:P8:local-rational",
+      "title": "The pro-etale period sheaves A_inf, B_inf, B_dR^+, B_dR and their filtrations",
+      "kind": "definition",
+      "statement": "On X_proet for X locally noetherian over Spa(Q_p, Z_p): A_inf = W(Ô^+_{X♭}) with B_inf = A_inf[1/p] and θ: A_inf → Ô_X^+ extending to θ: B_inf → Ô_X; B_dR^+ = lim B_inf/(ker θ)^n with Fil^i B_dR^+ = (ker θ)^i B_dR^+; B_dR = B_dR^+[t^{-1}] for any local generator t of Fil^1 B_dR^+, with Fil^i B_dR = Σ_{j∈Z} t^{-j} Fil^{i+j} B_dR^+. Locally on X_proet the element t exists, is unique up to a unit and is not a zero-divisor, so B_dR and its filtration are well defined.",
+      "hypotheses": [
+        "Ô^+_{X♭} is the tilted completed integral structure sheaf (Definition 5.9 of the source, not read here; it is lim_Φ Ô_X^+/p on affinoid perfectoids); the Witt vector sheaf is taken sectionwise.",
+        "Existence, uniqueness and regularity of t are proved locally by Theorem 6.5(i) on affinoid perfectoid U (see the next node); before that the definition of B_dR is only provisional."
+      ],
+      "proofSteps": [
+        "Sheaves are defined by the displayed formulas; the inverse limit defining B_dR^+ is taken in sheaves."
+      ],
+      "acceptance": [
+        "On an affinoid perfectoid U with Û = Spa(R, R^+) these sheaves have sections A_inf(R, R^+), B_inf(R, R^+), B_dR^+(R, R^+), B_dR(R, R^+) (Theorem 6.5).",
+        "gr^i B_dR ≅ Ô_X(i) globally on X_proet (Proposition 6.7)."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch13-padic-hodge",
+          "locator": "Section 6, Definition 6.1 and Remark 6.2, p. 35 (extraction lines 2006-2024)",
+          "excerpt": "We will see that locally on X_proet, the element t exists, is unique up to a unit and is not a zero-divisor. This shows that the sheaf B_dR and its filtration are well-defined.",
+          "match": "The definition and the deferred well-definedness claim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeTheory:P8:local-rational/period-sheaves-on-affinoid-perfectoids",
+      "parentStageId": "PadicHodgeTheory:P8:local-rational",
+      "title": "Values and acyclicity of the period sheaves on affinoid perfectoids; profinite covers; gr^i B_dR = Ô_X(i)",
+      "kind": "theorem",
+      "statement": "Let X be locally noetherian over Spa(K, K^+), K perfectoid of characteristic 0, and U ∈ X_proet affinoid perfectoid with Û = Spa(R, R^+). (Theorem 6.5) (i) A_inf(U) = A_inf(R, R^+), and likewise for B_inf, B_dR^+, B_dR; in particular ξ generates Fil^1 B_dR^+(U), is unique up to a unit and is not a zero-divisor. (ii) H^i(U, F) is almost zero for i > 0 for each of these sheaves (almost setting relative to A_inf(K, K^+) and the ideal generated by all [π^{1/p^N}]). (iii) [π] is invertible in B_dR^+(U) and B_dR(U), so their higher cohomology vanishes outright. (Corollary 6.6) For a profinite set S and V = U × S, F(V) = Hom_cont(S, F(U)) for F among Ô_X^+, Ô_X, Ô^+_{X♭}, Ô_{X♭}, A_inf, B_inf, B_dR^+, B_dR, gr^i B_dR, with the natural inverse/direct limit and quotient topologies. (Proposition 6.7) gr^i B_dR ≅ Ô_X(i) on X_proet, where (i) is the Tate twist by Ẑ_p(1) = lim μ_{p^n}.",
+      "hypotheses": [
+        "Theorem 6.5 relies on the description of W(Ô^+_{X♭})/p^m by induction on m with almost vanishing, Lemma 3.18 for the inverse limit, exactness of the direct limit for B_inf, and the exact sequences 0 → B_inf → B_inf → B_inf/(ker θ)^i → 0 whose defect on sections is controlled by the almost zero H^1(U, B_inf).",
+        "The step from 'almost zero' to 'zero' for B_dR^+ and B_dR uses that [π] maps to the unit π♯ in B_inf(K, K^+)/(ker θ) = K, so [π] is invertible in B_inf/(ker θ), hence in B_dR^+.",
+        "Proposition 6.7 uses K = completed Q_p(μ_{p^∞}), t = log([ε]) with the Galois group acting through the cyclotomic character, and Proposition 3.15 (X_{K,proet} ≅ X_proet/X_K, not read) to descend from X_K to X."
+      ],
+      "proofSteps": [
+        "Describe W(Ô^+_{X♭})/p^m on U inductively (each graded piece is Ô^+_{X♭}, whose sections and almost acyclicity come from the tilted version of Lemma 4.10); apply Lemma 3.18 for A_inf, then a direct limit for B_inf.",
+        "For B_dR^+: exactness of 0 → B_inf(U) → B_inf(U) → (B_inf/(ker θ)^i)(U) → 0 up to the almost zero H^1(U, B_inf); invertibility of [π] in B_inf/(ker θ) upgrades almost statements to actual ones; pass to the inverse limit.",
+        "Corollary 6.6: 'go through all identifications' (the source gives no further argument).",
+        "Proposition 6.7: over X_{K,proet}, gr^i B_dR = t^i Ô_X with t = log([ε]) generating Fil^1; the cyclotomic action descends the isomorphism to gr^i B_dR ≅ Ô_X(i)."
+      ],
+      "acceptance": [
+        "For U = X̃_K (the perfectoid torus cover) and S = Z_p^n, the Čech nerve of X̃_K → X_K has terms X̃_K × Z_p^{n(j-1)}, so the Cartan-Leray spectral sequence computes continuous group cohomology (used in Prop. 6.16).",
+        "B_dR^+(U) = B_dR^+(R, R^+) carries the ξ-adic filtration with gr^i = ξ^i R."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch13-padic-hodge",
+          "locator": "Section 6, Theorem 6.5 with proof, Corollary 6.6, Proposition 6.7 with proof, pp. 36-37 (extraction lines 2082-2142)",
+          "excerpt": "We see that all statements follow once we know that [π] is invertible in B_inf/(ker θ). But the latter is a sheaf of B_inf(K, K^+)/(ker θ) = K-modules, and [π] maps to the unit π♯ ∈ K^×.",
+          "match": "The mechanism converting almost acyclicity into actual acyclicity for the rational period sheaves, which the stage's 'rational local acyclicity' refers to."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeTheory:P8:local-rational/corrected-structural-de-rham-sheaf",
+      "parentStageId": "PadicHodgeTheory:P8:local-rational",
+      "title": "The structural de Rham sheaves OB_dR^+ and OB_dR (corrected definition) and their connection",
+      "kind": "definition",
+      "statement": "Let X be smooth over Spa(k, O_k), k a discretely valued complete extension of Q_p with perfect residue field κ. Ω^1_X = ν^* Ω^1_{X_et}. Corrected definition (erratum item (3)): for affinoid perfectoid U = lim U_i, U_i = Spa(R_i, R_i^+), with completed direct limit (R, R^+), OB_dR^+ is the sheafification of the presheaf U ↦ colim_i of the ker θ-adic completion of (R_i^+ ⊗̂_{W(κ)} A_inf(R, R^+))[1/p], where ⊗̂ is the p-adic completion of the tensor product and θ is the tensor product of R_i^+ → R^+ with θ: A_inf(R, R^+) → R^+. Fil^i OB_dR^+ = (ker θ)^i OB_dR^+, OB_dR = OB_dR^+[t^{-1}] with Fil^i OB_dR = Σ_j t^{-j} Fil^{i+j} OB_dR^+. The original definition OB_dR^+ = lim (O_X ⊗_{W(κ)} B_inf)/(ker θ)^n (Definition 6.8) is wrong. OB_inf = O_X ⊗_{W(κ)} B_inf carries a unique B_inf-linear connection ∇ extending that of O_X, which extends B_dR^+-linearly to OB_dR^+ and B_dR-linearly to OB_dR.",
+      "hypotheses": [
+        "X smooth over a discretely valued k with perfect residue field (needed for W(κ) and for the local etale maps to tori); the sheaves live on X_proet.",
+        "The erratum states that with the corrected definition 'the results of the paper are not affected'; the extension of ∇ to the corrected completion is asserted in Remark 6.9 for the original definition and must be re-checked for the corrected one (the erratum does not discuss ∇ explicitly; see gap)."
+      ],
+      "proofSteps": [
+        "Definition; the connection on OB_inf is the tensor product connection d ⊗ 1 and extends to completions by continuity."
+      ],
+      "acceptance": [
+        "On U ∈ X_proet/X̃ affinoid perfectoid, OB_dR^+(U) = B_dR^+(R, R^+)[[X_1, ..., X_n]] (erratum's strengthened Proposition 6.10), which is already a sheaf on X_proet/X̃.",
+        "gr^0 OB_dR restricted to X_proet/X̃_K is Ô_X[X_1/ξ, ..., X_n/ξ] (Corollary 6.15)."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch16-erratum",
+          "locator": "Item (3), pp. 1-2",
+          "excerpt": "Then OB_dR^+ is the sheafification of the presheaf sending U to the direct limit over i of the ker θ-adic completion of (R_i^+ ⊗̂_{W(κ)} A_inf(R, R^+))[1/p]. Here, the completed tensor product is the p-adic completion of the tensor product",
+          "match": "The corrected construction required verbatim by the stage text ('p-adically completed tensor with A_inf before p-inversion and kernel-of-theta completion, followed by the specified colimit/sheafification')."
+        },
+        {
+          "sourceId": "sch13-padic-hodge",
+          "locator": "Section 6, Definition 6.8 and Remark 6.9, p. 37 (extraction lines 2143-2175)",
+          "excerpt": "Also note that the sheaf OB_inf admits a unique B_inf-linear connection ∇ : OB_inf → OB_inf ⊗_{O_X} Ω^1_X, extending the one on O_X. This connection extends uniquely to the completion",
+          "match": "The connection, stated for the superseded definition; its transfer to the corrected sheaf is recorded as a gap."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeTheory:P8:local-rational/local-structure-of-structural-de-rham-sheaf",
+      "parentStageId": "PadicHodgeTheory:P8:local-rational",
+      "title": "OB_dR^+|_X̃ ≅ B_dR^+|_X̃[[X_1, ..., X_n]] over an etale map to the torus",
+      "kind": "theorem",
+      "statement": "Let X → T^n be etale, X̃ = X ×_{T^n} T̃^n, and u_i = T_i ⊗ 1 − 1 ⊗ [T_i♭] ∈ OB_inf|_X̃ (in ker θ). Then X_i ↦ u_i defines an isomorphism B_dR^+|_X̃[[X_1, ..., X_n]] → OB_dR^+|_X̃ of sheaves on X_proet/X̃. Strengthened form (erratum): for U ∈ X_proet/X̃_K affinoid perfectoid with (R, R^+) as above and i sufficiently large, the ker θ-adic completion S_i of (R_i^+ ⊗̂_{W(κ)} A_inf(R, R^+))[1/p] is isomorphic to B_dR^+(R, R^+)[[X_1, ..., X_n]] via the constructed map, independently of i, so OB_dR^+(U) = B_dR^+(R, R^+)[[X_1, ..., X_n]].",
+      "hypotheses": [
+        "X smooth over Spa(k, O_k) with an etale map to T^n; K a perfectoid completion of an algebraic extension of k; work over X_proet/X̃_K.",
+        "Lemma 6.11: for a finitely generated O_k-algebra S, any f: S → B_dR^+(R, R^+)[[X]] with θ(f(S)) ⊂ R^+ extends to the p-adic completion of S (because finitely generated R^+-submodules of gr^i B_dR^+(R, R^+) ≅ R are p-adically complete).",
+        "Lemma 6.12: an affinoid U = Spa(R, R^+) of finite type over Spa(W(κ)[1/p], W(κ)) with an etale map to T^n has R^+ = p-adic completion of a finitely generated W(κ)[T^{±1}]-algebra R_0^+ with R_0 = R_0^+[1/p] etale over W(κ)[1/p][T^{±1}]; this uses Huber [12] Corollary 1.7.3(iii), Remark 1.2.6(iii) and excellence of W(κ) (unread).",
+        "Hensel's lemma for the ker θ-adically complete ring B_dR^+(U)[[X]] with residue ring Ô_X(U)."
+      ],
+      "proofSteps": [
+        "Construct W(κ)[1/p][T^{±1}] → B_dR^+|_X̃[[X]] by T_i ↦ [T_i♭] + X_i (invertible since its reduction [T_i♭] is).",
+        "For affinoid perfectoid U = lim U_i over X̃_K, apply Lemma 6.12 to U_i → T^n, lift the etale algebras R_{i0} uniquely by Hensel's lemma to B_dR^+(U)[[X]], extend to the p-adic completions R_i^+ by Lemma 6.11, and take direct limits: this gives an O_X|_X̃_K-algebra structure on B_dR^+|_X̃_K[[X]] compatible with the reduction B_dR^+[[X]]/(ker θ) = Ô_X and sending T_i to [T_i♭] + X_i.",
+        "This induces (O_X ⊗_{W(κ)} W(Ô^+_{X♭}))|_X̃_K → B_dR^+|_X̃_K[[X]] and hence OB_dR^+|_X̃_K → B_dR^+|_X̃_K[[X]], inverse to X_i ↦ u_i.",
+        "Erratum: the composite S_i → B_dR^+(R, R^+)[[X]] → S_i is the identity because (B_dR^+(R, R^+)/ξ^r)[X]/(X)^r → (R_i^+ ⊗̂ A_inf(R, R^+))[1/p]/(ker θ)^r is surjective for each r: R_i^+[X]/(X)^r → (R_i^+ ⊗̂ R_i^+)/(ker θ_i)^r is injective with p-power-torsion cokernel, base change along R_i^+ → (B_dR(R, R^+)/ξ^r)_0 (an open bounded subring) gives an isomorphism up to bounded p-power torsion, and inverting p and using (ker θ_i)^r ⊗̂ (B_dR/ξ^r)_0 ⊂ (ker θ)^r concludes."
+      ],
+      "acceptance": [
+        "For X = T^n itself, OB_dR^+(X̃_K) = B_dR^+(R̃, R̃^+)[[X_1, ..., X_n]] with (R̃, R̃^+) the perfectoid torus algebra, and u_i = T_i − [T_i♭].",
+        "The erratum notes that 'the analogue of this assertion fails with the original definition of OB_dR^+', i.e. the corrected completion is necessary for S_i → B_dR^+[[X]] → S_i to be the identity."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch13-padic-hodge",
+          "locator": "Section 6, Proposition 6.10 with proof, Lemmas 6.11-6.12 with proofs, pp. 37-39 (extraction lines 2176-2265)",
+          "excerpt": "By Hensel's lemma, we can lift R_{i0} uniquely to B_dR^+(U)[[X_1, ..., X_n]], hence we get lifts of R_{i0}^+. These extend to the p-adic completion, hence we get lifts of O_X^+(U_i), and thus of O_X(U_i). Take the direct limits of these lifts to conclude.",
+          "match": "The lifting argument producing the O_X-algebra structure on B_dR^+[[X]]."
+        },
+        {
+          "sourceId": "sch16-erratum",
+          "locator": "Item (3), strengthened Proposition 6.10 and its proof, pp. 2-3",
+          "excerpt": "We claim that with the corrected definition, also the composite S_i → B_dR^+(R, R^+)[[X_1, ..., X_n]] → S_i is the identity; the analogue of this assertion fails with the original definition of OB_dR^+.",
+          "match": "The corrected local structure statement and the reason the original definition failed."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeTheory:P8:local-rational/poincare-lemma-and-faltings-extension",
+      "parentStageId": "PadicHodgeTheory:P8:local-rational",
+      "title": "The relative Poincare lemma, Griffiths transversality, strict exactness, Faltings's extension and gr^• OB_dR",
+      "kind": "theorem",
+      "statement": "For X smooth of dimension n over Spa(k, O_k), the sequence 0 → B_dR^+ → OB_dR^+ → OB_dR^+ ⊗_{O_X} Ω^1_X → ... → OB_dR^+ ⊗_{O_X} Ω^n_X → 0 of sheaves on X_proet is exact; ∇ satisfies Griffiths transversality ∇(Fil^i) ⊂ Fil^{i-1} ⊗ Ω^1, and with Ω^i_X in degree i the sequence is strict exact for the filtrations. Consequently (Faltings's extension) 0 → Ô_X(1) → gr^1 OB_dR^+ → Ô_X ⊗_{O_X} Ω^1_X → 0 is exact, and over X_proet/X̃_K, gr^i OB_dR ≅ ξ^i Ô_X[X_1/ξ, ..., X_n/ξ], so gr^• OB_dR ≅ Ô_X[ξ^{±1}, X_1, ..., X_n] with ξ and X_i in degree 1.",
+      "hypotheses": [
+        "X smooth over Spa(k, O_k), k discretely valued with perfect residue field; the statements are local on X_proet and are checked on X_proet/X̃ using the local description B_dR^+[[X_1, ..., X_n]].",
+        "Sch13 proves the Poincare lemma by 'Using the description of Proposition 6.10, this is obvious': the de Rham complex of B_dR^+[[X_1, ..., X_n]] over B_dR^+ with ∇(X_i) = dT_i... (formal power series Poincare lemma in characteristic 0); the identification of ∇ under Proposition 6.10 (∇ u_i = dT_i) is used implicitly."
+      ],
+      "proofSteps": [
+        "Under Proposition 6.10, OB_dR^+|_X̃ is the formal power series ring over B_dR^+|_X̃ in the u_i with ∇(u_i) = dT_i ⊗ 1; the de Rham complex of a power series ring over a Q-algebra is a resolution of the constants, and the filtration statements are read off degreewise.",
+        "Faltings's extension is the first graded piece of the strict exact Poincare sequence, using gr^1 B_dR^+ = Ô_X(1) (Proposition 6.7).",
+        "Corollary 6.15: gr^i of B_dR^+[[X]] with the (ξ, X_1, ..., X_n)-adic filtration is ξ^i Ô_X[X_1/ξ, ..., X_n/ξ]."
+      ],
+      "acceptance": [
+        "R^1 ν_* Ô_X(1) ≅ Ω^1_{X_et} via the connecting map of Faltings's extension (Corollary 6.19).",
+        "For n = 0 the Poincare lemma reads B_dR^+ = OB_dR^+."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch13-padic-hodge",
+          "locator": "Section 6, Corollaries 6.13-6.15 with proofs, p. 39 (extraction lines 2266-2293)",
+          "excerpt": "Moreover, the derivation ∇ satisfies Griffiths transversality with respect to the filtration on OB_dR^+, and with respect to the grading giving Ω^i_X degree i, the sequence is strict exact. Proof. Using the description of Proposition 6.10, this is obvious.",
+          "match": "The Poincare lemma and strictness claims as stated, with the proof delegated to the local description."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeTheory:P8:local-rational/cohomology-of-graded-structural-de-rham-sheaf",
+      "parentStageId": "PadicHodgeTheory:P8:local-rational",
+      "title": "Cohomology of gr^i OB_dR on affinoids with a toric etale chart; ν_* OB_dR = O_{X_et} and R^1 ν_* Ô_X(1) = Ω^1",
+      "kind": "theorem",
+      "statement": "Let X = Spa(R, R^+) be affinoid of finite type over Spa(k, O_k) with an etale map X → T^n which is a composite of rational embeddings and finite etale maps. (i) If K contains all p-power roots of unity, H^q(X_K, gr^0 OB_dR) = 0 for q > 0 and equals R ⊗̂_k K for q = 0. (ii) H^q(X, gr^i OB_dR) = 0 unless i = 0 and q ∈ {0, 1}; (gr^0 OB_dR)(X) = R and H^1(X, gr^0 OB_dR) = R · log χ, χ the cyclotomic character. Consequently, for X smooth over Spa(k, O_k): ν_* OB_dR = O_{X_et}, ν_* Ô_X = O_{X_et}, ν_* Ô_X(n) = 0 for n ≥ 1, R^1 ν_* Ô_X(1) ≅ Ω^1_{X_et} via the connecting map of Faltings's extension, R^1 ν_* Ô_X(n) = 0 for n ≥ 2; more generally R^i ν_* Ô_X(j) = Ω^i_{X_et} for i = j, Ω^i_{X_et} log χ for i = j + 1, and 0 otherwise.",
+      "hypotheses": [
+        "X affinoid of finite type over Spa(k, O_k) with the stated toric etale chart; K = completion of k(μ_{p^∞}) in (ii), Γ_k = Gal(k(μ_{p^∞})/k).",
+        "Inputs: Cartan-Leray for the Z_p^n-cover X̃_K → X_K whose fibre products are affinoid perfectoid (so the higher cohomology of the sheaves vanishes there); Corollary 6.6 for gr^0 OB_dR; Lemma 6.17 (γ_i(V_j) = V_j + δ_{ij} for V_i = t^{-1} log([T_i♭]/T_i)); Lemma 6.18 (R^+ ⊗̂_{O_k⟨T^{±1}⟩} O_K⟨T^{±1/p^∞}⟩ → R̃^+ injective with p-power-torsion cokernel, from Lemma 4.5(ii)); Lemma 5.5 (continuous Z_p^n-cohomology of the perfectoid torus via the Koszul complex, with the cokernel of ∧^q R_0^n → H^q_cont(Z_p^n, R) killed by ζ_p − 1 and compatibility with base change); Brinon [5] Proposition 4.1.2 (unread); Tate's computation of H^q_cont(Γ_k, Q_p(i)) ([19], unread)."
+      ],
+      "proofSteps": [
+        "(i) H^q(X_K, gr^0 OB_dR) = H^q_cont(Z_p^n, gr^0 OB_dR(X̃_K)) with gr^0 OB_dR(X̃_K) = R̃[V_1, ..., V_n]; the inclusion (R ⊗̂_k K)[V] ⊂ R̃[V] induces an isomorphism on continuous cohomology (check on the associated graded for the polynomial degree, where Z_p^n acts trivially on the V_i, and use Lemma 6.18 with Lemma 5.5 for R ⊗̂ K ⊂ R̃).",
+        "Compute H^q_cont(Z_p^n, (R ⊗̂ K)[V]) inductively: γ_i − 1 acts on S[V_i] by P ↦ P(V_i + 1) − P(V_i), with kernel the constants and trivial cokernel.",
+        "(ii) All gr^i OB_dR are isomorphic to gr^0 on X_proet/X_K; for the cover X_K → X with Γ_k-fibre products, H^q(X_K^{m/X}, gr^i OB_dR) = Hom_cont(Γ_k^{m-1}, H^q(X_K, gr^i OB_dR)), giving H^q(X, gr^i OB_dR) = H^q_cont(Γ_k, R ⊗̂_k K(i)) = R ⊗_{Q_p} H^q_cont(Γ_k, Q_p(i)) (the map R(i) → R ⊗̂ K(i) is a Γ_k-cohomology isomorphism as in Lemma 5.5), and Tate's computation of the latter.",
+        "Corollary 6.19: after inverting t the Poincare lemma gives 0 → B_dR → OB_dR → ..., whose 0-th graded piece injects ν_* Ô_X into ν_* gr^0 OB_dR = O_{X_et}; the graded pieces 0 → Ô_X(n) → gr^n OB_dR → gr^{n-1} OB_dR ⊗ Ω^1 → ... give the vanishing and the identification of R^1 ν_* Ô_X(1)."
+      ],
+      "acceptance": [
+        "For X = T^n over k, H^1(X, gr^0 OB_dR) = k⟨T^{±1}⟩ log χ and R^1 ν_* Ô_X(1) = Ω^1 with basis dT_i/T_i.",
+        "The result H^q(X, gr^i OB_dR) = 0 for i ≠ 0 is what makes the de Rham comparison (Section 7 of the source) work; it is not proved here for non-toric charts."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch13-padic-hodge",
+          "locator": "Section 6, Proposition 6.16 with proof, Lemmas 6.17-6.18, Corollary 6.19 with proof, Remark 6.20, pp. 39-41 (extraction lines 2294-2420); Section 5, Lemma 5.5 with proof, pp. 30-31 (extraction lines 1668-1731)",
+          "excerpt": "If we set S = (R ⊗̂_k K)[V_1, ..., V_{i-1}], then the map γ_i − 1 sends a polynomial P ∈ S[V_i] to P(V_i + 1) − P(V_i). One sees that the kernel of γ_i − 1 consists precisely of the constant polynomials, i.e. S, and the cokernel of γ_i − 1 is trivial.",
+          "match": "The inductive group-cohomology computation that kills higher cohomology of gr^0 OB_dR over X_K."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "AInfCohomology:AI.0:integral",
+      "target": "PadicHodgeTheory:R06.1/bdr-plus-of-perfectoid-affinoid-algebras",
+      "reason": "AI.0:integral constructs A_inf = W(O_C♭), θ and its nonzerodivisor kernel generator for C; the node re-proves the principal-kernel statement uniformly for all perfectoid affinoid (K, K^+)-algebras with the same ξ ∈ A_inf(K, K^+), and R06.1 is required by the atlas to use AI.0:integral's A_inf/θ rather than a second carrier.",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 6, Lemma 6.3, p. 35"}]
+    },
+    {
+      "source": "PadicHodgeTheory:R06.1/bdr-plus-of-perfectoid-affinoid-algebras",
+      "target": "PadicHodgeTheory:P8:local-rational/period-sheaves-on-affinoid-perfectoids",
+      "reason": "Theorem 6.5(i) identifies B_dR^+(U) with B_dR^+(R, R^+) and uses that ξ generates ker θ and is a nonzerodivisor for the exact sequences 0 → B_inf → B_inf → B_inf/(ker θ)^i → 0.",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 6, proof of Theorem 6.5, p. 36"}]
+    },
+    {
+      "source": "AdicEtaleGeometry:A1",
+      "target": "PadicHodgeTheory:P8:local-rational/proetale-structure-sheaves-and-valuations",
+      "reason": "A1 owns the pro-etale site with Scholze's corrected covering definition (transfinite towers of pullbacks of finite etale surjections); Definition 4.1 and Lemma 4.2 are sheaves and sections on that site and use pro-etale presentations U = lim U_i.",
+      "sources": [{"sourceId": "sch16-erratum", "locator": "Item (1), p. 1"}, {"sourceId": "sch13-padic-hodge", "locator": "Section 4, proof of Lemma 4.2, p. 22"}]
+    },
+    {
+      "source": "PadicHodgeTheory:P8:local-rational/proetale-structure-sheaves-and-valuations",
+      "target": "PadicHodgeTheory:P8:local-rational/affinoid-perfectoid-objects-and-etale-pullbacks",
+      "reason": "Affinoid perfectoid objects are defined through pro-etale presentations and the completed direct limit of the (R_i, R_i^+); Û ~ lim U_i uses |U| and the residue fields from Lemma 4.2.",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 4, Definition 4.3 and following paragraph, p. 23"}]
+    },
+    {
+      "source": "PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity",
+      "target": "PadicHodgeTheory:P8:local-rational/affinoid-perfectoid-objects-and-etale-pullbacks",
+      "reason": "Sch12 Theorem 6.3(ii) (rational localizations of a perfectoid affinoid are perfectoid affinoid) is the first step of Lemma 4.5's rational case.",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 4, proof of Lemma 4.5, p. 23 ('by Theorem 6.3 (ii) of [18]')"}]
+    },
+    {
+      "source": "PerfectoidSpaces:P2/rational-localization-of-perfectoid-affinoids",
+      "target": "PadicHodgeTheory:P8:local-rational/affinoid-perfectoid-objects-and-etale-pullbacks",
+      "reason": "The topologically finitely generated subalgebras R^+⟨(f_i♯/g♯)^{1/p^m}⟩ of Sch12 Lemma 6.4 provide the p^ε-bounded approximations in Lemma 4.5(iii).",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 4, proof of Lemma 4.5, p. 24 ('It follows from Lemma 6.4 of [18]')"}]
+    },
+    {
+      "source": "PerfectoidSpaces:P3/almost-purity-theorem",
+      "target": "PadicHodgeTheory:P8:local-rational/affinoid-perfectoid-objects-and-etale-pullbacks",
+      "reason": "In the finite etale case of Lemma 4.5, Sch12 Theorem 7.9(iii) shows T = S_j ⊗_{R_j} R is perfectoid and T°a is uniformly almost finitely generated over R°a, giving parts (i)-(iii).",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 4, proof of Lemma 4.5, p. 24"}]
+    },
+    {
+      "source": "PerfectoidSpaces:P3/strongly-etale-morphisms-and-base-change",
+      "target": "PadicHodgeTheory:P8:local-rational/affinoid-perfectoid-objects-and-etale-pullbacks",
+      "reason": "Sch12 Lemma 7.3(iv) and Proposition 7.10 identify Spa(T, T^+) with the fibre product V_j ×_{U_j} Û for finite etale V_j → U_j.",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 4, proof of Lemma 4.5, p. 24 ('By [18], Lemma 7.3 (iv) and Proposition 7.10')"}]
+    },
+    {
+      "source": "PerfectoidSpaces:P7/tilde-limits-and-etale-topos-comparison",
+      "target": "PadicHodgeTheory:P8:local-rational/affinoid-perfectoid-objects-and-etale-pullbacks",
+      "reason": "For an affinoid perfectoid U = lim U_i, Û ~ lim U_i in the sense of Sch12 Definition 7.14, hence |Û| = |U|; the K(π,1) argument of Theorem 4.9 also uses Sch12 Corollary 7.18.",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 4, paragraph after Example 4.4, p. 23, and proof of Theorem 4.9, p. 26"}]
+    },
+    {
+      "source": "PadicHodgeTheory:P8:local-rational/affinoid-perfectoid-objects-and-etale-pullbacks",
+      "target": "PadicHodgeTheory:P8:local-rational/completed-structure-sheaf-on-affinoid-perfectoids",
+      "reason": "Lemma 4.10 uses the basis of affinoid perfectoids (Cor. 4.7/Prop. 4.8) to describe sheaves by their values on them, and Lemma 4.5 to identify the Čech complex of a pro-etale cover with that of an etale cover of Û.",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 4, proof of Lemma 4.10 (i), pp. 26-27"}]
+    },
+    {
+      "source": "PerfectoidSpaces:P3/etale-site-tilting-and-etale-almost-acyclicity",
+      "target": "PadicHodgeTheory:P8:local-rational/completed-structure-sheaf-on-affinoid-perfectoids",
+      "reason": "The almost exactness of the etale Čech complex of O^{+a} on an affinoid perfectoid space (Sch12 Proposition 7.13) is the input proving that (O_X^+/b)^a is an acyclic sheaf on the affinoid perfectoid basis.",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 4, proof of Lemma 4.10 (i), p. 27"}]
+    },
+    {
+      "source": "PadicHodgeTheory:P8:local-rational/completed-structure-sheaf-on-affinoid-perfectoids",
+      "target": "PadicHodgeTheory:P8:local-rational/period-sheaves-on-affinoid-perfectoids",
+      "reason": "The inductive description of W(Ô^+_{X♭})/p^m and the almost vanishing of its cohomology on U rest on Lemma 4.10 (and its tilted version), and Lemma 3.18 is used again for the inverse limit defining A_inf.",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 6, proof of Theorem 6.5, p. 36"}]
+    },
+    {
+      "source": "PadicHodgeTheory:P8:local-rational/period-sheaves-definitions",
+      "target": "PadicHodgeTheory:P8:local-rational/period-sheaves-on-affinoid-perfectoids",
+      "reason": "Theorem 6.5 computes the sections of the sheaves defined in Definition 6.1 and justifies Remark 6.2 (local existence and regularity of t).",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 6, Theorem 6.5 (i), p. 36"}]
+    },
+    {
+      "source": "PadicHodgeTheory:P8:local-rational/period-sheaves-on-affinoid-perfectoids",
+      "target": "PadicHodgeTheory:P8:local-rational/corrected-structural-de-rham-sheaf",
+      "reason": "OB_dR = OB_dR^+[t^{-1}] needs the local generator t of Fil^1 B_dR^+ (unique up to unit, nonzerodivisor) supplied by Theorem 6.5(i); the corrected definition of OB_dR^+ is stated on affinoid perfectoid U with (R, R^+) from Theorem 6.5.",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 6, Remark 6.9, p. 37"}, {"sourceId": "sch16-erratum", "locator": "Item (3), p. 2"}]
+    },
+    {
+      "source": "PadicHodgeTheory:P8:local-rational/corrected-structural-de-rham-sheaf",
+      "target": "PadicHodgeTheory:P8:local-rational/local-structure-of-structural-de-rham-sheaf",
+      "reason": "Proposition 6.10 describes the sheaf defined in the previous node; the erratum's proof works with the corrected completion S_i.",
+      "sources": [{"sourceId": "sch16-erratum", "locator": "Item (3), pp. 2-3"}]
+    },
+    {
+      "source": "PadicHodgeTheory:P8:local-rational/period-sheaves-on-affinoid-perfectoids",
+      "target": "PadicHodgeTheory:P8:local-rational/local-structure-of-structural-de-rham-sheaf",
+      "reason": "The target B_dR^+|_X̃[[X_1, ..., X_n]] has sections B_dR^+(R, R^+)[[X]] on affinoid perfectoid U by Theorem 6.5(i), and gr^i B_dR^+(R, R^+) ≅ R is used in Lemma 6.11.",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 6, proof of Lemma 6.11, p. 38"}]
+    },
+    {
+      "source": "PadicHodgeTheory:P8:local-rational/local-structure-of-structural-de-rham-sheaf",
+      "target": "PadicHodgeTheory:P8:local-rational/poincare-lemma-and-faltings-extension",
+      "reason": "The Poincare lemma, Griffiths transversality and strict exactness are proved by the formal power series description of Proposition 6.10.",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 6, proof of Corollary 6.13, p. 39"}]
+    },
+    {
+      "source": "PadicHodgeTheory:P8:local-rational/period-sheaves-on-affinoid-perfectoids",
+      "target": "PadicHodgeTheory:P8:local-rational/poincare-lemma-and-faltings-extension",
+      "reason": "Faltings's extension uses gr^1 B_dR^+ = Ô_X(1) (Proposition 6.7).",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 6, Corollary 6.14, p. 39"}]
+    },
+    {
+      "source": "PadicHodgeTheory:P8:local-rational/poincare-lemma-and-faltings-extension",
+      "target": "PadicHodgeTheory:P8:local-rational/cohomology-of-graded-structural-de-rham-sheaf",
+      "reason": "Corollary 6.19 derives ν_* Ô_X = O_{X_et} and R^1 ν_* Ô_X(1) = Ω^1 from the graded pieces of the Poincare lemma and from gr^• OB_dR (Corollary 6.15) used in Proposition 6.16.",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 6, proof of Corollary 6.19, p. 41"}]
+    },
+    {
+      "source": "PadicHodgeTheory:P8:local-rational/period-sheaves-on-affinoid-perfectoids",
+      "target": "PadicHodgeTheory:P8:local-rational/cohomology-of-graded-structural-de-rham-sheaf",
+      "reason": "The Cartan-Leray computations use the affinoid perfectoid fibre products of X̃_K → X_K (vanishing of higher cohomology) and Corollary 6.6 (values on U × S are continuous maps), producing continuous group cohomology.",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 6, proof of Proposition 6.16 (i) and (ii), pp. 40-41"}]
+    },
+    {
+      "source": "PadicHodgeTheory:P8:local-rational/poincare-lemma-and-faltings-extension",
+      "target": "CohomologyComparisons:CP.3",
+      "reason": "CP.3's description consumes 'the rational pro-etale period-sheaf construction supplied by PadicHodgeTheory P8:local-rational (sheaves, local acyclicity and Poincare lemma)' and the corrected structural B_dR^+ sheaf; these are the outputs of this node and its predecessors.",
+      "sources": [{"sourceId": "sch13-padic-hodge", "locator": "Section 6, Corollary 6.13, p. 39"}]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "PadicHodgeTheory:R06.1",
+      "status": "partial",
+      "remaining": [
+        "Only the B_dR^+/B_dR construction for perfectoid affinoid (K, K^+)-algebras with the principal kernel (Lemma 6.3, Corollary 6.4) and the cyclotomic action on t = log([ε]) (Proposition 6.7) were read; the topology, Galois action, Frobenius, B_cris^+, B_cris, B_st, monodromy N and the comparison with Fontaine's arithmetic construction were not read (no source in this session).",
+        "The identification of ξ with AI.0:integral's kernel generator is asserted via the shared A_inf/θ, not checked against an AI.0 packet (the AInfCohomology draft has only AI.1 nodes)."
+      ]
+    },
+    {
+      "stageId": "PadicHodgeTheory:R06.2",
+      "status": "not_read",
+      "remaining": ["Period functors D_HT, D_dR, D_cris, D_st and admissibility: no source read in this session."]
+    },
+    {
+      "stageId": "PadicHodgeTheory:R06.3",
+      "status": "not_read",
+      "remaining": ["p-adic monodromy theorem and Weil-Deligne parameters: not read (Kedlaya's local monodromy paper is in the scratch downloads but was not opened)."]
+    },
+    {
+      "stageId": "PadicHodgeTheory:R06.4",
+      "status": "not_read",
+      "remaining": ["Fontaine-Laffaille / small-weight interface: not read."]
+    },
+    {
+      "stageId": "PadicHodgeTheory:R06.5",
+      "status": "not_read",
+      "remaining": ["Geometric comparison applications: not read; Section 7 (filtered modules with connection, Theorem 7.11) and Section 8 (relative comparison) of the source were only indexed."]
+    },
+    {
+      "stageId": "PadicHodgeTheory:R06.6",
+      "status": "not_read",
+      "remaining": ["Arithmetic consequences: not read."]
+    },
+    {
+      "stageId": "PadicHodgeTheory:P7",
+      "status": "not_read",
+      "remaining": ["Container stage; see P7:annulus-foundations."]
+    },
+    {
+      "stageId": "PadicHodgeTheory:P7:annulus-foundations",
+      "status": "not_read",
+      "remaining": ["Robba rings and overconvergent coefficient rings: not read (Berger's and Kedlaya's texts are in the scratch extractions but were not opened)."]
+    },
+    {
+      "stageId": "PadicHodgeTheory:P8",
+      "status": "partial",
+      "remaining": [
+        "Only the sub-stage P8:local-rational was read. The proper comparison/application suffix (Theorem 7.11 de Rham comparison for proper smooth X with filtered modules with connection, Section 8 relative comparison, Theorem 8.8) and the degree-one abelian comparison exported to HodgeTateAndCanonicalSubgroups T1 were not read."
+      ]
+    },
+    {
+      "stageId": "PadicHodgeTheory:P8:local-rational",
+      "status": "partial",
+      "remaining": [
+        "Crystalline and semistable relative period sheaves (B_cris, B_st sheaves) demanded by the stage text are not in Scholze's paper; a source (e.g. Brinon 2008, or Tan-Tong / Bhatt-Morrow-Scholze for the crystalline sheaf) must be chosen and read.",
+        "Imported and unread: Proposition 3.15 (localized sites X_{K,proet} = X_proet/X_K), Definition 5.9 (tilted structure sheaf Ô^+_{X♭}), Proposition 4.8 (Colmez; affinoid perfectoid basis for all locally noetherian X), Huber [12] Corollaries 1.6.10 and 1.7.3(iii) and Remark 1.2.6(iii), Brinon [5] Proposition 4.1.2, Tate's computation of H^q_cont(Γ_k, Q_p(i)) [19].",
+        "The extension of ∇ to the corrected OB_dR^+ and the compatibility ∇(u_i) = dT_i under Proposition 6.10 are used implicitly in 'this is obvious' (Corollary 6.13) and were not written out.",
+        "Theorem 4.9 (K(π,1) for p-torsion coefficients) and Lemma 4.12 (local systems tensor O^+/p) were read but not recorded as nodes: they belong to the primitive comparison theorem (Theorem 5.1), which is outside this sub-stage; no owner stage was identified.",
+        "The integral objects Ô_X^+ and A_inf are assigned by the atlas to AInfCohomology:AI.3, whose draft has no such nodes yet; the two nodes on Ô_X^+ here are candidates for relocation."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "AI.3 supplier nodes for Ô_X^+ and the A_inf sheaf do not exist yet",
+      "neededBy": ["PadicHodgeTheory:P8:local-rational/proetale-structure-sheaves-and-valuations", "PadicHodgeTheory:P8:local-rational/completed-structure-sheaf-on-affinoid-perfectoids", "PadicHodgeTheory:P8:local-rational/period-sheaves-definitions"],
+      "detail": "The stage text imports the integral A_inf sheaf (and implicitly Ô_X^+, Ô^+_{X♭}) from AInfCohomology:AI.3, but research/expansion/drafts/AInfCohomology.json contains only AI.1 (decalage) nodes. The two integral nodes recorded here (Definition 4.1/Lemma 4.2 and Lemma 4.10) are the Scholze-paper proofs of exactly those statements; when AI.3 is written they should move there and P8:local-rational should link to them."
+    },
+    {
+      "title": "Crystalline and semistable period sheaves absent from the source",
+      "neededBy": ["PadicHodgeTheory:P8:local-rational"],
+      "detail": "Scholze's paper constructs only A_inf, B_inf, B_dR^+, B_dR and OB_dR^+; the stage additionally asks for crystalline/semistable period sheaves 'from the same rings as R06.1'. No such construction was read. Next action: choose a source (Brinon, Representations p-adiques cristallines et de de Rham dans le cas relatif, Mem. SMF 112, or the A_cris/B_cris sheaves of Tan-Tong 'Crystalline comparison isomorphisms in p-adic Hodge theory: the absolutely unramified case') and record it in the catalogue."
+    },
+    {
+      "title": "Connection on the corrected OB_dR^+ and its identification under the local isomorphism",
+      "neededBy": ["PadicHodgeTheory:P8:local-rational/corrected-structural-de-rham-sheaf", "PadicHodgeTheory:P8:local-rational/poincare-lemma-and-faltings-extension"],
+      "detail": "Remark 6.9 constructs ∇ for the original (incorrect) OB_dR^+; the erratum states that results are unaffected but does not restate ∇ for the p-adically completed tensor product. The Poincare lemma proof ('obvious' from Proposition 6.10) needs ∇(u_i) = dT_i ⊗ 1 and continuity of ∇ for the ker θ-adic topology on the corrected completion. Next action: write out the extension of d ⊗ 1 to R_i^+ ⊗̂ A_inf(R, R^+) and its ker θ-adic completion, and check the formula on u_i."
+    },
+    {
+      "title": "Unread external inputs of Section 6",
+      "neededBy": ["PadicHodgeTheory:P8:local-rational/local-structure-of-structural-de-rham-sheaf", "PadicHodgeTheory:P8:local-rational/cohomology-of-graded-structural-de-rham-sheaf"],
+      "detail": "Lemma 6.12 imports Huber, Etale cohomology of rigid analytic varieties and adic spaces, Corollary 1.7.3(iii) and Remark 1.2.6(iii) and excellence of W(κ); Corollary 4.7 imports Huber Corollary 1.6.10; Proposition 6.16 follows Brinon's Proposition 4.1.2 and uses Tate's H^q_cont(Γ_k, Q_p(i)). The library has SUP_Huber_EtaleCohomology_1996.pdf (OCR caveats). Next action: read Hub96 1.2.6, 1.6.10, 1.7.3 and Tate's 'p-divisible groups' Section 3.3."
+    },
+    {
+      "title": "Tate-ring generality and the field hypothesis on K",
+      "neededBy": ["PadicHodgeTheory:P8:local-rational/affinoid-perfectoid-objects-and-etale-pullbacks"],
+      "detail": "Section 4 of the source works over a perfectoid field K of characteristic 0 with open bounded valuation subring K^+ because it relies on Sch12's field-based perfectoid theory; the PerfectoidSpaces packet records the same boundary. Any use of P8:local-rational over a base that is not a perfectoid field (e.g. Spa(k, O_k) directly) goes through the base change X_K and Proposition 3.15, which was not read."
+    },
+    {
+      "title": "Candidate Lean primitives (unchecked)",
+      "neededBy": ["PadicHodgeTheory:R06.1/bdr-plus-of-perfectoid-affinoid-algebras"],
+      "detail": "Mathlib (vendored in TauCeti) has Mathlib.RingTheory.Perfectoid.FontaineTheta (fontaineTheta : 𝕎 R♭ →+* R with surjectivity) and Mathlib.RingTheory.Perfectoid.BDeRham (fontaineThetaInvertP, BDeRhamPlus, BDeRham as types), which match the definitions of B_inf, B_dR^+ and B_dR for a p-adically complete ring; neither the principal-kernel statement nor any sheaf-theoretic statement was found. Implementation status remains unchecked."
+    }
+  ]
+}

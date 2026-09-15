@@ -1,0 +1,1455 @@
+{
+  "roadmapId": "GeneralAlgebraicKTheory",
+  "status": "partial",
+  "summary": "Source-based expansion of Quillen and Waldhausen K-theory and its nonconnective extension. For exact categories: Quillen's Q-construction with its universal property and the proof that π₁BQM is K₀M; the definition and elementary properties of K_i (Quillen 1973 §2; Weibel IV §6); the + = Q theorem for split exact categories via the extension category EA and Theorem B (Weibel IV §7); additivity via Theorem A, the resolution and dévissage theorems, and the full proof of the localization theorem for Serre subcategories (Quillen §§3–5; Weibel V §§3–5); cofinality with its degree-zero correction. For Waldhausen categories: the axioms and the S.-construction with its induced cofibrations (Weibel II §9, IV §8; Waldhausen §1.3), Waldhausen's additivity theorem from simplicial Theorems A/B (Waldhausen §1.4, image-checked pages), the relative S.-construction fibration and delooping (§1.5; Weibel V.1.7), Waldhausen localization and approximation (Weibel V §2; Schlichting App. A) and the Gillet–Waldhausen comparison. Relative groups and the excision boundary (Weibel IV 1.11). Schlichting's negative K-theory of Frobenius pairs: set-up, localization in negative degrees, the flasque countable envelope and suspension, the nonconnective spectrum, derived-equivalence invariance, agreement and vanishing theorems. Morita/colimit invariance and biexact products are recorded with their unread imports. Several imported proofs (Waldhausen §1.6 and 1.9, Suslin excision, Thomason–Trobaugh fundamental theorem, product coherence) remain unread and are listed as gaps.",
+  "sources": [
+    {
+      "id": "Quillen-HigherK-I-1973",
+      "title": "Higher algebraic K-theory: I",
+      "authors": "Daniel Quillen",
+      "edition": "Algebraic K-theory I (Battelle 1972), Lecture Notes in Math. 341, Springer 1973, pp. 85–147; scanned copy (63 PDF pages). Locators give LNM page (printed at page foot) and PDF page.",
+      "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf",
+      "sha256": "5d2db42d3fec06156da4e6f6d5a85fb9a04358df59141d3abe74a57b815bae04",
+      "readSections": [
+        "§2 The K-groups of an exact category, complete: exact categories, the category QM and its universal property, Theorem 1 with proof, definition of K_i, elementary properties (6)–(12), LNM pp. 99–104 (PDF 15–20)",
+        "§3 Characteristic exact sequences and filtrations, complete: Theorem 2 with proof, Corollaries 1–3, applications, LNM pp. 105–108 (PDF 21–24)",
+        "§4 Reduction by resolution, complete: Theorem 3 with proof, Corollary 1 and Lemma, Corollaries 2–3, transfer maps, LNM pp. 108–112 (PDF 24–28)",
+        "§5 Dévissage and localization in abelian categories, complete: Theorem 4 with proof and Corollaries 1–2, Theorem 5 with Lemmas 1–5 and proof, Dedekind corollary, LNM pp. 112–116 (PDF 28–32)",
+        "§6 opening (graded rings, Lemma 1, Theorem 6 statement and proof), LNM pp. 117–118 (PDF 33–34), for the use of Theorem 2 Corollary 2"
+      ]
+    },
+    {
+      "id": "Weibel-KBook-II",
+      "title": "The K-book: An introduction to algebraic K-theory, Chapter II: The Grothendieck group K₀",
+      "authors": "Charles A. Weibel",
+      "edition": "Author's online chapter file Kbook.II.pdf (106 pages; chapter page numbers equal PDF page numbers). Published book numbering differs.",
+      "url": "https://www.math.rutgers.edu/~weibel/Kbook/Kbook.II.pdf",
+      "sha256": "529ea8a5853e9fa55279e7ad79047155409b10847bd924b56f708f0950ebc607",
+      "readSections": [
+        "§1 group completion of monoids, pp. II.1–4, and §2 opening p. II.5 (context for K₀ and cofinality of free modules)",
+        "§9 K₀ of a Waldhausen category: Definitions 9.1 (W0–W2), 9.1.1 (W3, saturation), 9.1.2, Examples 9.1.3–9.1.5, 9.1.6–9.1.8 (biWaldhausen categories, exact functors, Waldhausen subcategories), 9.2 chain complexes with Lemma 9.2.1, Theorem 9.2.2, Lemma 9.2.4, 9.3 extension categories, pp. II.87–92"
+      ]
+    },
+    {
+      "id": "Weibel-KBook-IV",
+      "title": "The K-book: An introduction to algebraic K-theory, Chapter IV: Definitions of higher K-theory",
+      "authors": "Charles A. Weibel",
+      "edition": "Author's online chapter file Kbook.IV.pdf (93 pages; chapter page numbers equal PDF page numbers).",
+      "url": "https://www.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf",
+      "sha256": "9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248",
+      "readSections": [
+        "§1 relative groups 1.11.1–1.11.3 and Exercises 1.15–1.17, 1.21, pp. IV.8–9, IV.16",
+        "§6 Quillen's Q-construction, complete: Definition 6.1, 6.1.2–6.1.3, Proposition 6.2 with proof, Definition 6.3, 6.3.1–6.3.5, 6.4, Cofinality 6.4.1, 6.5 (QQ), 6.6 products, 6.7, 6.8–6.9, Exercises 6.1–6.16, pp. IV.53–61",
+        "§7 The + = Q theorem, complete, pp. IV.61–65",
+        "§8 Waldhausen's wS. construction, Definitions 8.1–8.5, 8.5.1–8.5.5, 8.6–8.11 including Cofinality 8.9 with proof and Theorem 8.10 with proof, Exercises 8.1–8.15, pp. IV.66–75",
+        "§10 Non-connective spectra, Definitions 10.1 and 10.4, Theorem 10.2 and Corollary 10.3 with proof, 10.4.1, 10.5–10.6, Exercises, pp. IV.79–81"
+      ]
+    },
+    {
+      "id": "Weibel-KBook-V",
+      "title": "The K-book: An introduction to algebraic K-theory, Chapter V: The fundamental theorems of higher K-theory",
+      "authors": "Charles A. Weibel",
+      "edition": "Author's online chapter file Kbook.V.pdf (90 pages; chapter page numbers equal PDF page numbers).",
+      "url": "https://www.math.rutgers.edu/~weibel/Kbook/Kbook.V.pdf",
+      "sha256": "52dcc8ee3a1764e5ea309c59f093ac8e2a1ea64f3b94bacc05e6a2b6125b1da8",
+      "readSections": [
+        "§1 The Additivity theorem, complete: Definition 1.1, Theorem 1.2 with proof, Extension Theorem 1.3 with both proofs, Corollary 1.3.1, 1.4, Projective Bundle Theorem 1.5 and proof, 1.5.4, Severi–Brauer 1.6, Proposition 1.7 with proof, Proposition 1.8, 1.9 flasque categories, Exercises 1.1–1.10, pp. V.1–11",
+        "§2 Waldhausen localization and Approximation, complete: Theorem 2.1 with proof, Theorem 2.2 with proof and Remark 2.2.1, Theorem 2.3 with proof, Corollary 2.3.1, Theorem 2.4 with partial proof, Proposition 2.4.1 (proof partly omitted by the author), Remark 2.4.2, Proposition 2.5 with proof, 2.5.1, 2.6.1–2.6.3, 2.7.1–2.7.4, Exercises 2.1–2.9, pp. V.12–19",
+        "§3 Resolution Theorem 3.1 with proof, Proposition 3.1.1 with proof, 3.2–3.7.2, pp. V.20–24; §3 exercises p. V.33",
+        "§4 Dévissage, complete, pp. V.33–35; §5 Localization Theorem 5.1 with complete proof, Corollary 5.2, Exercises 5.1–5.3, pp. V.35–38"
+      ]
+    },
+    {
+      "id": "Waldhausen-KTheoryOfSpaces-1985",
+      "title": "Algebraic K-theory of spaces",
+      "authors": "Friedhelm Waldhausen",
+      "edition": "Algebraic and Geometric Topology (New Brunswick 1983), Lecture Notes in Math. 1126, Springer 1985, pp. 318–419; scanned copy (101 PDF pages), printed page = PDF page + 317. The text layer of printed pp. 337–338 and 346 is empty; those pages were read from 100 dpi renderings.",
+      "url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/kspaces.pdf",
+      "sha256": "2f452696998132a438fe7596deb681fefcf829829b4604ca1029083e4dcb1c6e",
+      "readSections": [
+        "§1.3 The K-theory of a category with cofibrations and weak equivalences: S_nC as functors Ar[n] → C, wS.C, the definition Ω|wS.C|, the spectrum remark, Proposition 1.3.1, Proposition 1.3.2 with proof, Observations 1.3.3–1.3.4, Corollary 1.3.5, Thomason's wT., printed pp. 328–334",
+        "§1.4 The additivity theorem: Lemma 1.4.1 with proof and corollary, Theorem 1.4.2 and its deduction from Lemma 1.4.3, Lemmas 1.4.A–1.4.B, proof of Lemma 1.4.3, sublemma with proof, printed pp. 335–340",
+        "§1.5 Applications of the additivity theorem: Lemmas 1.5.1–1.5.2, Proposition 1.5.3, pairings, Definition 1.5.4, Proposition 1.5.5 with proof, Corollaries 1.5.6–1.5.8, Proposition 1.5.9 with proof of its assertions, printed pp. 341–347",
+        "Section headings of §§1.6–1.9 located (fibration theorem 1.6.4, approximation theorem 1.6.7, appendix 1.9); their proofs were not read"
+      ]
+    },
+    {
+      "id": "Schlichting-NegativeK-2003",
+      "title": "Negative K-theory of derived categories",
+      "authors": "Marco Schlichting",
+      "edition": "Author preprint dated 16 June 2003 (28 pages); the published version was not compared.",
+      "url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/schlneg.pdf",
+      "sha256": "f59620e3ba25d5a8591a108d2b9647b68b5caf04794745862d2aa71e178b5aa6",
+      "readSections": [
+        "Complete paper: introduction; §1 (1.1–1.9 with proofs); §2 (2.1–2.11); §3 (3.1–3.5); §4 (4.1–4.8); §5 (5.1–5.11); §6 (6.1–6.4); §7 (7.1–7.3); §8 (8.1–8.3); §9 (9.1–9.8); §10 (10.1–10.5); §11 (11.1–11.19); Appendix A (A.1–A.11 with proofs); references, pp. 1–28"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "GeneralAlgebraicKTheory:K.1/exact-categories-and-Q-construction",
+      "parentStageId": "GeneralAlgebraicKTheory:K.1",
+      "title": "Exact categories and Quillen's category QM",
+      "kind": "construction",
+      "statement": "An exact category is an additive category M with a family E of short sequences M′ ↣ M ↠ M″ such that (a) E is closed under isomorphism and contains the split sequences, and in each sequence i is a kernel of j and j a cokernel of i; (b) admissible epimorphisms are closed under composition and base change by arbitrary maps, admissible monomorphisms under composition and cobase change; (c) if M → M″ has a kernel and N → M → M″ is an admissible epimorphism for some N → M, then M → M″ is an admissible epimorphism, and dually. QM has the objects of M; a morphism M → M′ is an isomorphism class (isomorphisms inducing the identity on M and M′, unique when they exist) of diagrams M ↞ N ↣ M′ with an admissible epimorphism and an admissible monomorphism, composed by fibre product. Equivalently a morphism is an admissible layer M₀ ⊂ M₁ ⊂ M′ with an isomorphism M ≅ M₁/M₀. Each morphism factors uniquely up to unique isomorphism as u = i_! j^!, every morphism of QM is a monomorphism, QM/M′ is equivalent to the ordered set of admissible layers of M′, isomorphisms of QM are those of M, and Q(M^op) ≅ QM exchanging injective and surjective arrows.",
+      "hypotheses": [
+        "The isomorphism classes of diagrams M ↞ N ↣ M′ form a set (for example M well-powered); for K-groups one uses a small exact category or an equivalent small subcategory.",
+        "Quillen's axioms (a)–(c); Keller's axioms Ex0–Ex2^op are equivalent to them (Schlichting 3.1, citing Keller 1990, not read)."
+      ],
+      "proofSteps": [
+        "Composition of M ↞ N ↣ M′ and M′ ↞ N′ ↣ M″ uses the fibre product N ×_{M′} N′, whose projection to N is an admissible epimorphism by base change and whose map to N′ is an admissible monomorphism (Quillen §2; Weibel IV Definition 6.1).",
+        "Associativity and well-definedness on isomorphism classes follow from the universal property of fibre products (stated as clear by Quillen).",
+        "Identify morphisms with admissible layers using the correspondence between admissible subobjects and admissible quotient objects (Quillen §2; Weibel IV Exercise 6.1).",
+        "The injective-followed-by-surjective factorization u = j′^! i′_! comes from the bicartesian square of an admissible layer (Quillen §2, LNM p. 101).",
+        "Quillen's embedding of M in the abelian category of left exact functors is sketched with details omitted; it is not needed for the definition."
+      ],
+      "acceptance": [
+        "Morphisms from 0 to M in QM correspond to admissible subobjects of M (Weibel IV 6.1.2).",
+        "For split exact structures on an additive category the admissible epimorphisms are split surjections; do not identify split and nonsplit structures (roadmap test).",
+        "Check the pinned Tau Ceti `ExactStructure` fields against (a)–(c) before using it as the carrier (unchecked)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§2 'Exact categories' and 'The category QM', LNM pp. 99–102 (PDF 15–18)",
+          "excerpt": "A morphism from M to M' in the category is by definition an isomorphism class of these diagrams.",
+          "match": "Quillen's definition of morphisms of QM (scan OCR drops the symbol QM); the axioms a)–c) precede it."
+        },
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Definition 6.1, 6.1.2, Remark 6.1.3, Exercises 6.1–6.4, pp. IV.53, IV.59",
+          "excerpt": "The composition of the above morphism with a morphism B և C2 ֌ C is A և C1 ֌ C, where C1 = B2 ×B C2 .",
+          "match": "Composition by fibre product, as in the node statement."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.1/Q-construction-universal-property",
+      "parentStageId": "GeneralAlgebraicKTheory:K.1",
+      "title": "Universal property of QM",
+      "kind": "lemma",
+      "statement": "Let M be an exact category and C a category. Suppose given objects hM of C for M in M, maps i_!: hM′ → hM for admissible monomorphisms i: M′ ↣ M and j^!: hM″ → hM for admissible epimorphisms j: M ↠ M″, such that (a) (i′i)_! = i′_! i_!, (jj′)^! = j′^! j^! and identities go to identities, and (b) for every bicartesian square with horizontal admissible monomorphisms and vertical admissible epimorphisms, i_! j′^! = j^! i′_!. Then there is a unique functor QM → C compatible with these operations. In particular an exact functor F: M → M′ induces QF: QM → QM′.",
+      "hypotheses": [
+        "M exact category with QM a category (set-theoretic hypothesis of the preceding node)."
+      ],
+      "proofSteps": [
+        "Every morphism of QM factors as i_! j^! uniquely up to unique isomorphism, so a functor is determined by its values on injective and surjective arrows.",
+        "Relations (a) give functoriality within each class; relation (b) is exactly what is needed to compose a surjective arrow followed by an injective one, which is rewritten via the bicartesian square (Quillen §2, LNM p. 102)."
+      ],
+      "acceptance": [
+        "The functor F_S used in the proof of π₁BQM = K₀M (F_S(i_!) = id, F_S(j^!) = multiplication by [Ker j]) is constructed by this universal property.",
+        "An exact functor induces a functor QM → QM′ and hence K_i(M) → K_i(M′)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§2, properties a)–b) and the paragraph after them, LNM p. 102 (PDF 18)",
+          "excerpt": "this data induces a unique functor",
+          "match": "Quillen's universal property of QM, stated after the relations a) and b)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.1/pi1-BQ-equals-K0",
+      "parentStageId": "GeneralAlgebraicKTheory:K.1",
+      "title": "π₁(BQM, 0) is the Grothendieck group K₀M",
+      "kind": "theorem",
+      "statement": "For a small exact category M with chosen zero object 0, π₁(BQM, 0) is canonically isomorphic to K₀M, the abelian group generated by classes [M] with [M] = [M′] + [M″] for every exact sequence. Under the isomorphism the class [A] is represented by the loop 0 ↣ A ↞ 0 (the two edges 0 ↣ A and 0 ↞ A), and a morphism A ↞ B₂ ↣ B of QM corresponds to the class of the kernel of B₂ ↠ A.",
+      "hypotheses": [
+        "M small exact category, 0 a chosen zero object.",
+        "Orientation conventions of the loop must be fixed once; Weibel's representative is the loop composed of 0 ↣ A and 0 ↞ A."
+      ],
+      "proofSteps": [
+        "(Quillen) By the covering-space classification (StableHomotopyKTheory H.1), coverings of BQM correspond to morphism-inverting functors F: QM → Sets; it suffices to show the category of such F is equivalent to K₀M-sets via F ↦ F(0).",
+        "Replace such F by an isomorphic one with F(0 ↣ M) = identity; call this full subcategory Γ.",
+        "Given a K₀M-set S, define F_S(M) = S, F_S(i_!) = id, F_S(j^!) = multiplication by [Ker j], using the universal property of QM.",
+        "Conversely, for F in Γ and an exact sequence M′ ↣ M ↠ M″, the bicartesian relation gives F(j_M^!) = F(j_{M′}^!) F(j_{M″}^!) in Aut F(0), so the universal property of K₀M gives a unique homomorphism K₀M → Aut F(0) with [M] ↦ F(j_M^!); the two constructions are inverse isomorphisms of categories.",
+        "(Weibel) Alternatively take the maximal tree T = {0 ↣ A}; by the maximal-tree presentation π₁ is generated by the [0 ↞ A] and every relation [f][g] = [f∘g] reduces to the additivity relation [0 ↞ B] = [0 ↞ A][0 ↞ C] coming from 0 ↣ C ↞ B = 0 ↞ A ↣ B."
+      ],
+      "acceptance": [
+        "The inverse map K₀M → π₁ is defined by the universal property of K₀ (not by comparing cardinalities), matching the roadmap contract.",
+        "K₀M could equally be defined as the possibly nonabelian group on the same generators and relations; the relations force commutativity (Quillen's remark in the proof).",
+        "Compatibility with + = Q: the isomorphism identifies [A] with the class of A in K₀(S⁻¹S) (Weibel IV Exercise 7.8).",
+        "Compare with the pinned Tau Ceti `ExactK0` class map on objects and conflation relations (unchecked)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§2 'The fundamental group of QM', Theorem 1 with proof, LNM pp. 102–103 (PDF 18–19)",
+          "excerpt": "by the universal property of K M , there is a unique group homomorphism",
+          "match": "Step of Quillen's proof that constructs the K₀M-action from a morphism-inverting functor (scan OCR of K₀M)."
+        },
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Proposition 6.2 with proof and Example 6.2.3, p. IV.54",
+          "excerpt": "Since every relation [f ] · [g] = [f ◦ g] may be rewritten in terms of the additivity relation",
+          "match": "Final step of Weibel's maximal-tree proof of the same theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories",
+      "parentStageId": "GeneralAlgebraicKTheory:K.1",
+      "title": "K-groups of an exact category and their elementary properties",
+      "kind": "definition",
+      "statement": "For a small exact category M, K_i(M) = π_{i+1}(BQM, 0) for i ≥ 0, independent of the zero object; for an exact category with a set of isomorphism classes one uses an equivalent small subcategory, the choice being irrelevant. K_i is a functor from exact categories and exact functors to abelian groups, isomorphic exact functors induce equal maps, K_i(M^op) ≅ K_i(M), K_i(M × M′) ≅ K_iM ⊕ K_iM′ with the sum in K_iM induced by ⊕, and K_i commutes with filtered colimits of exact categories. For a ring A, K_iA = K_i(P(A)); a ring map induces A′ ⊗_A − and K_i(A × A′) = K_iA ⊕ K_iA′, K_i commutes with filtered colimits of rings (using idempotent matrices), and P ↦ Hom_A(P, A) gives K_iA ≅ K_i(A^op). BQM is a homotopy-commutative H-space via ⊕.",
+      "hypotheses": [
+        "Small exact category, or a set of isomorphism classes (equivalent small model).",
+        "Filtered colimits are indexed by small filtering categories; for rings the functor A ↦ P(A) is replaced by idempotent matrices so that it is a functor."
+      ],
+      "proofSteps": [
+        "A unique map 0 → 0′ in QM gives a canonical path, so the groups do not depend on the zero object (Quillen §2).",
+        "Natural isomorphisms of exact functors induce homotopic maps (StableHomotopyKTheory H.1, natural transformations give homotopies); equivalent small models give homotopy equivalent BQ (Weibel IV Exercise 6.2).",
+        "Q(M × M′) = QM × QM′ and realization preserves products (compactly generated topology), giving (8); ⊕ induces the group sum because M ↦ M ⊕ 0 and M ↦ 0 ⊕ M are isomorphic to the identity (Quillen §2).",
+        "Q commutes with filtered colimits and Proposition 3 of §1 gives (9) (StableHomotopyKTheory H.1 filtered-colimits node)."
+      ],
+      "acceptance": [
+        "The zero exact category has contractible K-theory (roadmap test).",
+        "K_n(M_r(A)) ≅ K_n(A) via Morita equivalence P(A) ≃ P(M_r(A)) (see K.7 node).",
+        "Quillen's remark that K₁ of an exact category differs in general from Bass's universal determinant group (Gersten–Murthy examples) must be respected when comparing with K₁ models."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Definition 6.3, Remark 6.3.1, Definitions 6.3.2–6.3.4, Elementary Properties 6.4, pp. IV.54–56",
+          "excerpt": "Kn (A) = πn KA = πn+1 (BQA) for n ≥ 0.",
+          "match": "Definition of the K-groups with the indexing used by the roadmap."
+        },
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§2 'Higher K-groups' and 'Elementary properties of K-groups', formulas (6)–(12), LNM pp. 103–104 (PDF 19–20)",
+          "excerpt": "Note first of all that the K-groups are independent of the choice of the zero object",
+          "match": "Quillen's elementary properties summarized in the node."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q",
+      "parentStageId": "GeneralAlgebraicKTheory:K.2:plus",
+      "title": "The + = Q theorem for split exact categories",
+      "kind": "comparison",
+      "statement": "If A is a split exact category and S = iso A, then ΩBQA ≃ B(S⁻¹S), so K_n(A) ≅ K_n(S) for n ≥ 0. For every ring R, ΩBQP(R) ≃ K₀(R) × BGL(R)⁺ (a space-level description after choosing component representatives), hence K_n(R) = K_nP(R) agrees with π_n BGL(R)⁺ for n ≥ 1. The homotopy fibration used is S⁻¹S → S⁻¹EA → QA, where EA is the category of admissible exact sequences and S acts by A′□(A ↣ B ↠ C) = (A′ ⊕ A ↣ A′ ⊕ B ↠ C).",
+      "hypotheses": [
+        "A split exact: every admissible exact sequence splits; for nonsplit A the category ⟨S, E_C⟩ need not be connected (Weibel IV Remark 7.5.2) and Theorem B cannot be applied to EA → QA itself unless A ≅ 0 (Exercise 7.4).",
+        "S = iso A has faithful translations (Weibel IV Exercise 7.1)."
+      ],
+      "proofSteps": [
+        "Define EA with morphisms the equivalence classes of diagrams (7.3.1); the target functor t: EA → QA is fibred with fibre E_C and base change φ* (Lemma 7.7, Exercise 7.2), and E₀ ≃ S (Example 7.4.1).",
+        "Each E_C is symmetric monoidal via (A₁ ⊕ A₂ ↣ B₁ ×_C B₂ ↠ C), with faithful monoidal S → E_C, A ↦ (A ↣ A ⊕ C ↠ C) (Lemma 7.5).",
+        "Proposition 7.6: S⁻¹S → S⁻¹E_C → ⟨S, E_C⟩ is a fibration (Exercise 4.7), and L = ⟨S, E_C⟩ is contractible: it is a connected group-like H-space (split exactness) and the diagonal E → E ∗ E gives a homotopy between the identity and multiplication by 2.",
+        "Theorem 7.8: S⁻¹EA → QA satisfies Quillen's Theorem B because the base changes for 0 ↣ C and 0 ↞ C compose with S⁻¹S ≃ S⁻¹E_C to A ↦ A and A ↦ A ⊕ C (Exercise 7.5), both homotopy equivalences.",
+        "Proof of 7.1: EA ≃ Sub(iQA) is contractible (Exercise 7.3); an action on a contractible category is invertible, so S⁻¹EA is contractible (Exercise 4.6); hence ΩBQA ≃ B(S⁻¹S).",
+        "Corollary 7.2 combines this with B(S⁻¹S) ≃ K₀(R) × BGL(R)⁺ for S = iso P(R) (StableHomotopyKTheory H.4 cofinality node)."
+      ],
+      "acceptance": [
+        "π₁BQA ≅ K₀(S) identifies [A] with [A] (Exercise 7.8); π₂BQA ≅ K₁(S) identifies the class [α] of an automorphism with its class in K₁(iso A) (Exercise 7.9).",
+        "The transpose-inverse involution on BGL(R)⁺ agrees with the duality involution on QP(R) (Exercise 7.10).",
+        "Products agree up to basepoint-preserving homotopy (Theorem 7.9) — imported from Waldhausen 1978 9.2.6 and Weibel 1981 4.3, not read."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "§7, Theorem 7.1, Corollary 7.2, Definition 7.3, 7.4, Lemma 7.5, Remark 7.5.2, Proposition 7.6, Lemma 7.7, Theorem 7.8 with proofs, Theorem 7.9, Exercises 7.1–7.10, pp. IV.61–65",
+          "excerpt": "We have to show that Quillen’s Theorem B applies, i.e., that the base changes ϕ∗ of 7.7 are homotopy equivalences.",
+          "match": "Key step of the proof of Theorem 7.8; the remaining steps are on the same pages."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories",
+      "parentStageId": "GeneralAlgebraicKTheory:K.3",
+      "title": "Additivity: the extension category and characteristic sequences",
+      "kind": "theorem",
+      "statement": "Let M be an exact category and E the exact category of short exact sequences in M, with exact functors s, t, q (sub, total, quotient). Then (s, q): QE → QM × QM is a homotopy equivalence. Consequently, for an exact sequence F′ ↣ F ↠ F″ of exact functors M′ → M one has F_* = F′_* + F″_* on K_i; for an admissible filtration 0 = F₀ ⊂ ⋯ ⊂ F_n = F with exact quotients F_*=Σ(F_p/F_{p−1})_*; and for an exact sequence 0 → F₀ → ⋯ → F_n → 0 of exact functors Σ(−1)^p (F_p)_* = 0.",
+      "hypotheses": [
+        "Exact categories with a set of isomorphism classes; the functors in the sequences are exact and the sequences are pointwise exact.",
+        "For the filtration corollary the quotient functors F_p/F_{p−1} must be exact."
+      ],
+      "proofSteps": [
+        "By Theorem A it suffices that each comma category C = (s, q)/(M, N) of triples (E, u: sE → M, v: qE → N) is contractible (Quillen Theorem 2 proof).",
+        "Let C′ ⊂ C be the triples with u surjective and C″ ⊂ C′ those with in addition v injective. The inclusion C′ ⊂ C has a left adjoint by pushing out E along the injective part of u (universal arrow X → X̄, uniqueness via the least admissible layer); C″ ⊂ C′ has a left adjoint by pulling back along the surjective part of v.",
+        "Adjoint functors are homotopy equivalences, so C ≃ C″, and C″ has an initial object (0, j_M^!, i_{N!}), so it is contractible.",
+        "Corollary 1: the split-sequence functor f: M′ × M″ → E is a section of (s, q), hence t_* = (s_* + q_*) on K-groups; Corollaries 2–3 follow by induction.",
+        "Weibel V.1.3 gives an equivalent proof with subcategories T_A, T_C, functors p, q and natural transformations, and T_A ∩ T_C having an initial object."
+      ],
+      "acceptance": [
+        "Additivity gives K_iX a module structure over K₀X for vector bundles on a ringed space via (E ⊗ −)_* (Quillen §3 Applications).",
+        "For graded rings, K_i(P_gr(A)) ≅ Z[t, t⁻¹] ⊗ K_iA₀ via characteristic filtrations (Quillen §3 Proposition; Weibel V Corollary 1.8.1).",
+        "Flasque categories (∞ ≅ 1 ⊕ ∞) have contractible K-theory by additivity (Eilenberg swindle, Weibel V 1.9)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§3, Theorem 2 with proof and Corollaries 1–3, LNM pp. 105–107 (PDF 21–23)",
+          "excerpt": "It suffices by Theorem A to show the category (s,q)/(M,N) is contractible",
+          "match": "Opening of Quillen's proof of Theorem 2, followed by the adjoint and initial-object arguments summarized."
+        },
+        {
+          "sourceId": "Weibel-KBook-V",
+          "locator": "Additivity Theorem 1.2, Extension Theorem 1.3 and its proof for exact categories, Corollary 1.2.1, pp. V.2–4",
+          "excerpt": "Then F∗ ≃ F∗′ + F∗′′ as H-space maps K(B) → K(C)",
+          "match": "Statement of additivity deduced from the extension theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.3/resolution-theorem",
+      "parentStageId": "GeneralAlgebraicKTheory:K.3",
+      "title": "Resolution theorem and transfer maps",
+      "kind": "theorem",
+      "statement": "Let P be a full exact subcategory of an exact category H, closed under extensions and under kernels of admissible surjections in H, such that every object of H has a finite P-resolution 0 → P_n → ⋯ → P₀ → M → 0. Then QP → QH is a homotopy equivalence and K_i(P) ≅ K_i(H). In particular K_i(A) ≅ K_i(P_∞(A)) for every ring A, K_i(A) ≅ G_i(A) = K_i(Modf(A)) for A noetherian regular, and for a regular noetherian separated scheme K(X) ≃ G(X). If f: A → B is a ring map with B of finite projective dimension over A, restriction of scalars defines transfers f_*: K_iB → K_iA with (gf)_* = f_*g_* and, for commutative rings, the projection formula f_*(f^*x · y) = x · f_*y.",
+      "hypotheses": [
+        "P ⊂ H full, closed under extensions and under kernels of admissible surjections; finite P-resolutions of every object.",
+        "Regular means noetherian with every module of finite projective dimension; for schemes separatedness is required (Weibel V Remark 3.4.2 gives a nonseparated counterexample for K₀)."
+      ],
+      "proofSteps": [
+        "Reduce to resolutions of length one by the filtration H = ∪H_n with H₀ = P; each H_{n−1} ⊂ H_n is closed under admissible subobjects and extensions (Weibel V Theorem 3.1 proof; Quillen §4 Lemma and Corollary 1).",
+        "Length one (Quillen Theorem 3, Weibel V Proposition 3.1.1): factor QP → QH through the full subcategory Q on objects of P; i/P is equivalent to a poset of layers contracted by natural transformations to (0, 0 ↣ P), so i is a homotopy equivalence by Theorem A.",
+        "For j: Q → QH use the dual of Theorem A: M\\j contains the full subcategory C of surjections P ↠ M as a homotopy equivalent coreflective subcategory, and C is contractible via natural transformations through P ×_M P₀.",
+        "Corollaries: apply to P(A) ⊂ P_∞(A), to vector bundles in coherent sheaves, and to Tor-acyclic modules for finite Tor-dimension base change (Quillen §4 Corollaries 2–3).",
+        "Transfers: restriction of scalars P(B) → P_∞(A) followed by the resolution isomorphism; the projection formula comes from an isomorphism of exact functors X ⊗_B (B ⊗_A Y) ≅ X ⊗_A Y (Quillen §4 (3)–(5))."
+      ],
+      "acceptance": [
+        "Construct the alternating-resolution inverse only in degree zero; in higher degrees the proof does not use functorial resolutions, which rarely exist (Quillen §4 remark).",
+        "The transfer K(R[s]) → ... maps for i: R → R[s] satisfy i_* = 0 on G-theory by additivity (Weibel V Example 3.5.1).",
+        "K₀ of the affine line with doubled origin: G₀ = Z ⊕ Z but K₀VB = Z (separatedness hypothesis)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-V",
+          "locator": "Resolution Theorem 3.1 with proof, Proposition 3.1.1 with proof, Theorems 3.2–3.4, Remark 3.4.2, 3.5, Example 3.5.3, pp. V.20–23",
+          "excerpt": "Let P be a full exact subcategory of an exact category H, such that P is closed under extensions and under kernels of admissible surjections in H.",
+          "match": "Exact hypotheses of the resolution theorem used in the node."
+        },
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§4, Theorem 3 with proof, Corollary 1 and Lemma, Corollaries 2–3, transfer maps (3)–(5), LNM pp. 108–112 (PDF 24–28)",
+          "excerpt": "The st:dard proof for K consists in defining an inverse map",
+          "match": "Quillen's explanation that the degree-zero inverse via resolutions does not extend, motivating the Theorem A proof (scan OCR)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.3/devissage-theorem",
+      "parentStageId": "GeneralAlgebraicKTheory:K.3",
+      "title": "Dévissage theorem",
+      "kind": "theorem",
+      "statement": "Let A ⊂ B be an exact abelian subcategory of an abelian category, closed under subobjects and quotients (and finite products), such that every object of B has a finite filtration with subquotients in A. Then QA → QB is a homotopy equivalence and K_i(A) ≅ K_i(B). If every object of B has finite length, K_i(B) ≅ ⊕_j K_i(D_j) with D_j the opposite endomorphism division rings of representatives of the simple objects. If I is a nilpotent ideal in a noetherian ring A, then G_i(A/I) ≅ G_i(A).",
+      "hypotheses": [
+        "A and B abelian with a set of isomorphism classes; A closed in B under subobjects, quotients and finite products.",
+        "Finite filtrations with subquotients in A exist for every object of B; the associated quotient functor need not be exact (Weibel V Example 4.2.1), so admissible-filtration additivity does not replace dévissage."
+      ],
+      "proofSteps": [
+        "By Theorem A it suffices that f/M is contractible for every M in B; f/M is equivalent to the ordered set J(M) of layers (M₀, M₁) of M with M₁/M₀ in A (Quillen Theorem 4 proof).",
+        "Using the finite filtration, it suffices that J(M′) ⊂ J(M) is a homotopy equivalence when M/M′ is in A.",
+        "Define r(M₀, M₁) = (M₀ ∩ M′, M₁ ∩ M′) and s(M₀, M₁) = (M₀ ∩ M′, M₁); these are well defined because A is closed under subobjects and products; ri = id and natural transformations i r ⇐ s ⇒ id give a homotopy inverse (Weibel V Theorem 4.1 proof via adjoints).",
+        "Finite-length corollary: reduce to semisimple objects by dévissage, then to one simple object by products and filtered colimits, and use Hom(X, −): A ≃ modules over D = End(X)^op."
+      ],
+      "acceptance": [
+        "G_*(Z/p^r) ≅ K_*(F_p) (Weibel V §4 opening).",
+        "K_*M_s(R) ≅ G_*(R/sR) for s-torsion modules over a noetherian ring (Weibel V Application 4.4)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-V",
+          "locator": "Devissage Theorem 4.1 with proof, Corollary 4.2, Examples 4.2.1, Applications 4.3–4.4, pp. V.33–34",
+          "excerpt": "Let i : A ⊂ B be an inclusion of abelian categories such that A is an exact abelian subcategory of B (II.6.1.5) and A is closed in B under subobjects and quotients.",
+          "match": "Hypotheses of the dévissage theorem as stated in the node."
+        },
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§5, Theorem 4 with proof and Corollaries 1–2, LNM pp. 112–113 (PDF 28–29)",
+          "excerpt": "Hence by Prop. 2, r is a homotopy inverse for i, so the proof is complete.",
+          "match": "Conclusion of Quillen's proof using the functors r and s."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.3/abelian-localization-theorem",
+      "parentStageId": "GeneralAlgebraicKTheory:K.3",
+      "title": "Quillen's localization theorem for Serre subcategories",
+      "kind": "theorem",
+      "statement": "Let B be a Serre subcategory of a small abelian category A with quotient functor loc: A → A/B. Then K(B) → K(A) → K(A/B) is a homotopy fibration sequence, giving a long exact sequence ⋯ → K_{n+1}(A/B) → K_n(B) → K_n(A) → K_n(A/B) → K_{n−1}(B) → ⋯ ending in K₀(B) → K₀(A) → K₀(A/B) → 0, functorial for exact functors of pairs. For a Dedekind domain A with fraction field F this gives ⋯ → ⊕_m K_i(A/m) → K_iA → K_iF → ⊕_m K_{i−1}(A/m) → ⋯, where the first map is the sum of transfers and the second is induced by A → F.",
+      "hypotheses": [
+        "B ⊂ A Serre subcategory (closed under subobjects, quotients and extensions) of a small abelian category; exact categories that are not abelian are not covered (Quillen: dévissage and localization apply only to abelian categories).",
+        "The Dedekind corollary also uses the resolution theorem (A regular) and dévissage for torsion modules."
+      ],
+      "proofSteps": [
+        "QB → QA → Q(A/B) is constant at 0 on QB, so the map factors through the comma category 0\\Q loc; by Theorem B it suffices that (a) every u*: V\\Q loc → V′\\Q loc is a homotopy equivalence and (b) QB → 0\\Q loc is one (Quillen Theorem 5 proof).",
+        "Lemma 1 (Claims 5.1.2–5.1.3): the full subcategory F_V of pairs (M, u) with u an isomorphism is homotopy equivalent to V\\Q loc, since each comma category is a filtering poset of layers, hence contractible; F₀ ≅ QB gives (b).",
+        "For N in A, the category E_N of pairs (M, h: M → N) with loc(h) an isomorphism has a kernel functor k_N: E_N → QB; Lemma 2 shows the restriction to epimorphic h is a homotopy equivalence by a left adjoint via pushout and an initial object.",
+        "Lemma 3: E′_N ⊂ E_N is a homotopy equivalence by Theorem B's corollary applied to the fibred functor (M, h) ↦ Im h over the poset of subobjects with quotient in B, which has a final object; Lemma 4: isomorphisms mod B induce homotopy equivalences g_* by a natural transformation Ker h ↣ Ker gh.",
+        "Lemma 5: F_V is isomorphic to the filtered colimit of E_N over pairs (N, loc N ≅ V), so by Proposition 3 each E_N → F_V is a homotopy equivalence; a homotopy-commutative square then shows (i_{V!})*: V\\Q loc → 0\\Q loc is a homotopy equivalence, proving (a)."
+      ],
+      "acceptance": [
+        "The boundary K₁(A/B) → K₀(B) sends the class of α: A → A invertible mod B to [coker α] − [ker α] (Weibel V Exercise 5.1); fix the sign here before comparing with tame symbols.",
+        "For s ∈ S central in a noetherian ring, ∂(s) = [R/sR] − [I] with I the s-torsion (Weibel V Example 6.1.2).",
+        "Mod ℓ localization sequences follow from the fibration (Weibel V Corollary 5.2)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§5, Theorem 5, Corollary, and proof with Lemmas 1–5, LNM pp. 113–116 (PDF 29–32)",
+          "excerpt": "In view of Theorem B, §1, it suffices to establish the following assertions.",
+          "match": "Reduction of the localization theorem to assertions a) and b), proved by Lemmas 1–5."
+        },
+        {
+          "sourceId": "Weibel-KBook-V",
+          "locator": "Abelian Localization Theorem 5.1 with proof (Claims 5.1.2–5.1.7), Corollary 5.2, Exercise 5.1, pp. V.35–38",
+          "excerpt": "Let B be a Serre subcategory of a (small) abelian category A.",
+          "match": "Statement of the theorem whose proof is reorganized as Claims 5.1.2–5.1.7."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.3/cofinality-degree-zero-correction",
+      "parentStageId": "GeneralAlgebraicKTheory:K.3",
+      "title": "Cofinality with the degree-zero correction",
+      "kind": "theorem",
+      "statement": "(Exact categories) If B ⊂ A is an exact subcategory closed under extensions and cofinal (for every A there is A′ with A ⊕ A′ in B), then BQB is homotopy equivalent to the covering space of BQA corresponding to the subgroup K₀(B) ⊂ K₀(A); hence K_n(B) ≅ K_n(A) for n > 0 while K₀(B) may be a proper subgroup. (Waldhausen) If A is strictly cofinal in B then wS.A → wS.B is a homotopy equivalence. (Thomason) For a Waldhausen category A with a cylinder functor satisfying the cylinder axiom and a surjection π: K₀(A) → G, the subcategory B of objects with π[B] = 0 gives a homotopy fibration K(B) → K(A) → G, so K_n(B) ≅ K_n(A) for n > 0 and 0 → K₀(B) → K₀(A) → G → 0 is exact.",
+      "hypotheses": [
+        "Exact case: closure under extensions and cofinality; Waldhausen case: strict cofinality (for every B there is A with B ∨ A isomorphic to an object of A), or cofinality plus closure under extensions and K₀ agreement (Weibel IV 8.9).",
+        "Thomason's version needs a cylinder functor with the cylinder axiom (Schlichting A.4 replaces this by factorizations into a cofibration followed by a weak equivalence, with ∅ = 0)."
+      ],
+      "proofSteps": [
+        "Exact case (Weibel IV Exercise 6.6): the functor ψ: QA → G sending A ↞ B₂ ↣ B to φ[Ker] satisfies Theorem B, so B(ψ/*) is the homotopy fibre of BQA → BG; Theorem A identifies QB with ψ⁻¹(*) ≃ ψ/* under cofinality.",
+        "Waldhausen 1.5.9: reduce by Corollary 1.5.6/1.5.7 to contractibility of wS.F.(B, A); by the realization lemma reduce to strict cofinality of S_nA in S_nB (Assertion 1) and of A(m, w) in B(m, w) (Assertion 2), and prove the simplicial set s.(B, A) contractible by moving finitely many simplices into A with a single added object (Assertion 3).",
+        "Weibel IV 8.9 gives the same argument via Lemma 8.9.2 and Grayson's trick; Thomason's version (Weibel V Theorem 2.3) applies Waldhausen localization to the weak equivalences w = {A → A′ : π[A] = π[A′]} together with wS.(A, w) ≃ BG (Weibel IV Theorem 8.10)."
+      ],
+      "acceptance": [
+        "Free modules are strictly cofinal in stably free modules but not in projective modules (Waldhausen p. 346).",
+        "Idempotent completion: an exact category is cofinal in its idempotent completion, and K₀ can change while positive K-groups agree (Weibel IV Exercise 8.13; Schlichting 5.5).",
+        "Do not state K₀ agreement for a merely cofinal subcategory."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Cofinality 6.4.1 and Exercise 6.6, pp. IV.56, IV.60; Waldhausen Cofinality 8.9 with proof and Lemma 8.9.2, Theorem 8.10 with proof, pp. IV.72–73",
+          "excerpt": "Then BQB is homotopy equivalent to the covering space of BQA corresponding to the subgroup K0 (B) of K0 (A) = π1 (BQA).",
+          "match": "Exact-category cofinality with its degree-zero correction."
+        },
+        {
+          "sourceId": "Waldhausen-KTheoryOfSpaces-1985",
+          "locator": "§1.5, Proposition 1.5.9 and its proof, printed pp. 346–347 (p. 346 read from rendered image)",
+          "excerpt": "If A is strictly cofinal in B then wS.A → wS.B is a homotopy equivalence.",
+          "match": "Waldhausen's strict cofinality proposition, proved by Assertions 1–3."
+        },
+        {
+          "sourceId": "Weibel-KBook-V",
+          "locator": "Cofinality Theorem 2.3 with proof and Corollary 2.3.1, pp. V.14–15",
+          "excerpt": "Then vs.B → vs.A → BG and its delooping K(B) → K(A) → G are homotopy fibrations.",
+          "match": "Thomason's cofinality theorem with its hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.4:construction/waldhausen-categories-and-S-construction",
+      "parentStageId": "GeneralAlgebraicKTheory:K.4:construction",
+      "title": "Waldhausen categories and the S.-construction with induced cofibrations",
+      "kind": "construction",
+      "statement": "A category with cofibrations has a distinguished zero object, isomorphisms and all 0 → A are cofibrations, and pushouts along cofibrations exist with cofibrations stable under cobase change (W0–W2); a Waldhausen category adds a subcategory of weak equivalences containing isomorphisms and satisfying the gluing axiom (W3). S_nC is the category of functors A: Ar[n] → C, (i, j) ↦ A_{i,j}, with A_{j,j} = 0, every A_{i,j} → A_{i,k} a cofibration and A_{i,j} ↣ A_{i,k} ↠ A_{j,k} a cofibration sequence; equivalently sequences of cofibrations A_{0,1} ↣ ⋯ ↣ A_{0,n} with chosen subquotients. A morphism of S_nC is a cofibration when for all i < j < k the induced map of cofibration sequences is a cofibration in S₂C (the components on sub and quotient objects and the map A′_{i,j} ∪_{A_{i,j}} A_{i,k} → A′_{i,k} are cofibrations), and a weak equivalence when it is objectwise a weak equivalence. [n] ↦ S_nC is a simplicial Waldhausen category; K(C) = Ω|wS.C| with |wS₀C| a point, BwC → Ω|wS.C| from the 1-skeleton, and π₁|wS.C| ≅ K₀(C).",
+      "hypotheses": [
+        "C small; exact functors preserve zero, cofibrations, weak equivalences and pushouts along cofibrations.",
+        "Objectwise cofibrations do not suffice for cofibrations in diagram categories; the latching condition must be imposed (Weibel IV 8.3; Schlichting A.6 for finite posets).",
+        "Saturation, extension and cylinder axioms are extra hypotheses needed only by later theorems."
+      ],
+      "proofSteps": [
+        "Define W0–W3, saturation, exact functors and Waldhausen subcategories (Weibel II 9.1, 9.1.1, 9.1.8).",
+        "Define the extension category S₂C = E(C) with its cofibrations and weak equivalences (Weibel II 9.3, IV 8.2) and S_nC with choices of subquotients (Weibel IV Definition 8.3; Waldhausen §1.3).",
+        "Faces delete a row and column of the staircase (∂₀ quotients by A_{0,1}), degeneracies duplicate; they are exact (Weibel IV Definition 8.3.1 and Exercises 8.1–8.2, stated as exercises; Waldhausen refers to the lemmas of §1.1 upon inspection).",
+        "Proposition 8.4: for a simplicial space X. with X₀ a point, π₁|X.| is the free group on π₀X₁ modulo ∂₁x = ∂₂x·∂₀x; with X. = BwS.C this is K₀(C).",
+        "Schlichting A.6–A.8: for a finite poset P a map of P-diagrams is a cofibration if each canonical map colim_{I(S<P, P)} X → X₁(P) exists and is a cofibration; such colimits exist by induction (A.7)."
+      ],
+      "acceptance": [
+        "An exact category with admissible monomorphisms as cofibrations and isomorphisms as weak equivalences is a Waldhausen category whose cofibration sequences are the admissible exact sequences (Weibel II Example 9.1.3).",
+        "Bounded chain complexes in an exact category with degreewise admissible monomorphisms and quasi-isomorphisms computed in an ambient abelian category (Weibel II 9.2); K₀Ch(A) = 0 by the Eilenberg swindle while K₀Ch^b(A) ≅ K₀(A) under closure under kernels of surjections (Theorem 9.2.2, Exercise 9.11 warning).",
+        "Finite based CW complexes with cellular inclusions and weak homotopy equivalences: K₀ = Z (Weibel II Proposition 9.1.5)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-II",
+          "locator": "Definitions 9.1 and 9.1.1 (W0–W3), 9.1.2, Example 9.1.3, 9.1.8, 9.2, 9.3, pp. II.87–92",
+          "excerpt": "(W3) Glueing for weak equivalences.",
+          "match": "Gluing axiom completing the definition of a Waldhausen category."
+        },
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Definitions 8.1, 8.2, 8.3, 8.3.1, Remark 8.3.2, Proposition 8.4 with proof, Definition 8.5, Cylinder functors 8.8, pp. IV.66–71",
+          "excerpt": "A map A. → B. is a cofibration when for every 0 ≤ i < j < k ≤ n the map of cofibration sequences",
+          "match": "The induced cofibrations on S_nC required by the roadmap."
+        },
+        {
+          "sourceId": "Waldhausen-KTheoryOfSpaces-1985",
+          "locator": "§1.3, printed pp. 328–330",
+          "excerpt": "is a pushout; in other words,",
+          "match": "Waldhausen's definition of S_nC as functors on Ar[n] with pushout (cofibration-sequence) conditions."
+        },
+        {
+          "sourceId": "Schlichting-NegativeK-2003",
+          "locator": "Appendix A.6–A.8, pp. 25–26",
+          "excerpt": "The colimit colimI(S<P ,P ) X exists in C and the canonical map colimI(S<P ,P ) X → X1 (P ) is a cofibration.",
+          "match": "Cofibrations in finite diagram categories, generalizing the S_n condition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.4:construction/iS-construction-versus-Q-construction",
+      "parentStageId": "GeneralAlgebraicKTheory:K.4:construction",
+      "title": "Comparison |iS.A| ≃ BQA for exact categories (exercise-level route)",
+      "kind": "comparison",
+      "statement": "For a small exact category A regarded as a Waldhausen category with isomorphisms as weak equivalences, there is a homotopy equivalence |iS.A| ≃ BQA, so the Waldhausen and Quillen K-theory spaces agree. Route: |s.A| ≃ |iS.A| (Waldhausen 1.4.1 corollary), the Segal subdivision Sub(s.A) ≃ s.A maps to the nerve of QA, and Sub(iS_nA) ≃ iQ_nA degreewise, with BQA ≃ |iQ.A|.",
+      "hypotheses": [
+        "A small exact category; weak equivalences are the isomorphisms."
+      ],
+      "proofSteps": [
+        "Lemma 1.4.1: an isomorphism of exact functors induces a homotopy of the object simplicial sets; hence the simplicial object [m] ↦ i_mS.A has homotopy equivalent faces and s.A ≃ is.A (Waldhausen §1.4, proof read).",
+        "Objects of iS₃A and iS₅A determine morphisms and composable pairs in QA, giving Sub(s.A) → N(QA) (Weibel IV Exercise 8.5, statement only).",
+        "Sub(iS_nA) ≃ iQ_nA and BQA ≃ |iQ.A| (Waldhausen 1.6.5, cited) give the comparison diagram (Weibel IV Exercise 8.6, statement only); Waldhausen's own proof (Appendix 1.9) was not read."
+      ],
+      "acceptance": [
+        "The automorphism class in π₂|s.A| agrees with [α] ∈ π₂BQA (Weibel IV Exercise 8.7).",
+        "For finite pointed sets the same route gives K(Sets_fin) ≃ Z × BΣ_∞⁺ (Exercise 8.8)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Exact Categories 8.6 and Exercises 8.5–8.7, pp. IV.69–70, IV.74–75",
+          "excerpt": "Waldhausen proved in [W1126, 1.9] that there is a homotopy equivalence between |iS.A| and BQA",
+          "match": "Statement of the comparison with its proof left as exercises."
+        },
+        {
+          "sourceId": "Waldhausen-KTheoryOfSpaces-1985",
+          "locator": "§1.4, Lemma 1.4.1 with proof and corollary, printed p. 335",
+          "excerpt": "An isomorphism between two such functors f and f' induces a homotopy",
+          "match": "First step of the route (OCR of Lemma 1.4.1)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.4/waldhausen-additivity-theorem",
+      "parentStageId": "GeneralAlgebraicKTheory:K.4",
+      "title": "Waldhausen's additivity theorem",
+      "kind": "theorem",
+      "statement": "For a category C with cofibrations and weak equivalences, the map wS.E(C) → wS.C × wS.C, (A ↣ C ↠ B) ↦ (A, B), is a homotopy equivalence. Equivalent formulations: (1) wS.E(A, C, B) → wS.A × wS.B is a homotopy equivalence; (3) the maps induced by t and s ∨ q on wS.E(C) are homotopic; (4) for a cofibration sequence F′ ↣ F ↠ F″ of exact functors (with admissible squares), |wS.F| ≃ |wS.F′| ∨ |wS.F″|. With a cylinder functor satisfying the cylinder axiom, suspension is a homotopy inverse on K(C).",
+      "hypotheses": [
+        "C a category with cofibrations and weak equivalences (no saturation, extension or cylinder axiom needed for the theorem itself).",
+        "A cofibration sequence of functors requires F(A′) ∪_{F′(A′)} F′(A) → F(A) to be a cofibration for every cofibration A′ ↣ A."
+      ],
+      "proofSteps": [
+        "Proposition 1.3.2: (2) is a special case of (1), (3) of (4); (2) ⇒ (3) by restricting along the section (A, B) ↦ (A ↣ A ∨ B ↠ B); (3) ⇒ (4) by naturality through G: C′ → E(C); (4) ⇒ (1) by the cofibration sequence of endofunctors (A ↣ A ↠ *) ↣ id ↠ (* ↣ B ↠ B) on E(A, C, B) (Waldhausen §1.3).",
+        "Reduce to cofibrations only: define C(m, w) as diagrams of m weak equivalences; s.C(m, w) is the nerve bisimplicial set of wS.C, so the theorem follows from Lemma 1.4.3 (s.E(C) → s.C × s.C is a homotopy equivalence) and the realization lemma (Waldhausen Theorem 1.4.2).",
+        "Lemmas 1.4.A/1.4.B (simplicial Theorems A and B for f/(n, y)) follow from Quillen's Theorems A and B via the category simp(Y) of simplices and N simp(Y) → Y (Waldhausen p. 337).",
+        "Sublemma: for f = s: s.E(C) → s.C every w_*: f/(m, w*y) → f/(n, y) is a homotopy equivalence; reduce to v_{i*}: f/(0, *) → f/(n, A′), and show v_{n*}j_*p ≃ id on f/(n, A′) by an explicit simplicial homotopy built from cobase change along the forced map Ā → A with choices of pushouts made in C (pp. 338–340).",
+        "Lemma B then gives the fibration s.C → s.E(C) → s.C; comparing with the product fibration via split cofibration sequences proves Lemma 1.4.3 (p. 338). Weibel V.1.3 gives the same statement via Exercise IV.8.10 (Theorem B for simplicial sets)."
+      ],
+      "acceptance": [
+        "Admissible filtrations with exact quotients give F_* = Σ(F_i/F_{i−1})_* (Weibel V Proposition 1.8).",
+        "Relation Σ_* + 1 = cone_* = 0 under the cylinder axiom (Weibel V Example 1.2.3).",
+        "Corollary 1.3.5: additivity holds for the stabilized definition without the long proof; do not use that shortcut for the unstabilized space."
+      ],
+      "sources": [
+        {
+          "sourceId": "Waldhausen-KTheoryOfSpaces-1985",
+          "locator": "§1.3 Proposition 1.3.2 with proof, printed pp. 331–332; §1.4 Theorem 1.4.2, Lemmas 1.4.1, 1.4.3, 1.4.A, 1.4.B, sublemma and proofs, printed pp. 335–340 (pp. 337–338 from rendered images)",
+          "excerpt": "These two lemmas follow at once from theorems A and B of Quillen [ 8].",
+          "match": "Waldhausen's reduction of the simplicial fibration criteria to Quillen's theorems, used in the proof of Lemma 1.4.3."
+        },
+        {
+          "sourceId": "Weibel-KBook-V",
+          "locator": "Additivity Theorem 1.2, Extension Theorem 1.3 with proof for Waldhausen categories, Corollary 1.3.1, Example 1.2.3, pp. V.2–4",
+          "excerpt": "The following calculation of K(E), used in the proof of the Additivity Theorem 1.2, is due to Quillen [Q341] for exact categories and to Waldhausen [W1126] for Waldhausen categories.",
+          "match": "Confirms the extension theorem as the core of additivity in both settings."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.4/relative-S-construction-fibration-and-delooping",
+      "parentStageId": "GeneralAlgebraicKTheory:K.4",
+      "title": "Relative S.-construction fibration and the delooping |wS.C| ≃ Ω|wS.S.C|",
+      "kind": "theorem",
+      "statement": "For an exact functor f: A → B of categories with cofibrations and weak equivalences, let S.(f: A → B) be the pullback of S.A → S.B ← PS.B. Then wS.B → wS.S.(f) → wS.S.A is a fibration up to homotopy. In particular (f = id) wS.C → P(wS.S.C) → wS.S.C is one, so |wS.C| ≃ Ω|wS.S.C| and |wS.^{(n)}C| ≃ Ω|wS.^{(n+1)}C| for n ≥ 1; for exact functors A → B → C the square with wS.B → wS.S.(A → B) over wS.C → wS.S.(A → C) is homotopy cartesian; wS.B → wS.C → wS.S.(B → C) is a fibration sequence; and a retract C of B splits wS.B ≃ wS.C × wS.S.(C → B).",
+      "hypotheses": [
+        "Exact functors of categories with cofibrations and weak equivalences; uses the additivity theorem in formulation (4).",
+        "Uses the fibration criterion for simplicial spaces with connected base terms (Waldhausen 1978, Lemma 5.2), which was not read."
+      ],
+      "proofSteps": [
+        "Lemma 1.5.1: the path object PX of a simplicial object is simplicially homotopy equivalent to the constant object X₀, with an explicit homotopy; hence |P(wS.C)| is contractible and wC → P(wS.C) → wS.C gives |wC| → Ω|wS.C| (Waldhausen §1.5).",
+        "Proposition 1.5.5: by the fibration criterion it suffices that for each n, wS.B → wS.S_n(f) → wS.S_nA is a fibration up to homotopy, the base being connected.",
+        "Identify S_n(f) with pairs of filtered objects in A and B with an isomorphism of filtered objects; the cofibration sequence of endofunctors j′ ↣ id ↠ j″ with values in C′ ≅ B and C″ ≅ S_nA and additivity (4) show wS.B × wS.S_nA → wS.S_n(f), given by split cofibration sequences, is a retraction and a coretraction up to homotopy, hence the sequence is the product fibration.",
+        "Proposition 1.5.3 is the case of the path construction; the realization lemma gives the iterated statements; Corollaries 1.5.6–1.5.8 follow by comparing fibration sequences (Waldhausen).",
+        "Weibel V Proposition 1.7 gives the same fibration Ω|wS.(S.B)| → |wS.C| → |wS.(S.f)| → |wS.(S.B)| from the extension-category Corollary 1.3.1 and Waldhausen 1978, 5.2."
+      ],
+      "acceptance": [
+        "The first map |wC| → Ω|wS.C| is not a homotopy equivalence in general (group completion); only the later structure maps are.",
+        "K₋₁(f) = π₁|wS.S.f| is the cokernel of K₀(B) → K₀(C) (Weibel IV Exercise 8.11).",
+        "Biexact functors A × B → C with the admissibility condition induce |wS.A| ∧ |wS.B| → |wwS.S.C| and pairings on K-theory (Waldhausen p. 342)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Waldhausen-KTheoryOfSpaces-1985",
+          "locator": "§1.5, Lemmas 1.5.1–1.5.2, Proposition 1.5.3, Definition 1.5.4, Proposition 1.5.5 with proof, Corollaries 1.5.6–1.5.8, printed pp. 341–345",
+          "excerpt": "the sequence is the same, up to homotopy, as the trivial fibration sequence",
+          "match": "Key step of the proof of Proposition 1.5.5, obtained from the additivity theorem."
+        },
+        {
+          "sourceId": "Weibel-KBook-V",
+          "locator": "Proposition 1.7 with proof and Remark 1.7.1, p. V.8; Exercise 1.7, p. V.10",
+          "excerpt": "Our next application of Additivity was used in IV, 8.5.3–5 to show that K(C) is an infinite loop space.",
+          "match": "Confirms that the delooping used for the K-theory spectrum depends on additivity."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.4/waldhausen-localization-fibration-theorem",
+      "parentStageId": "GeneralAlgebraicKTheory:K.4",
+      "title": "Waldhausen localization (fibration) theorem",
+      "kind": "theorem",
+      "statement": "Let A be a category with cofibrations with two categories of weak equivalences v(A) ⊂ w(A), both making A a Waldhausen category, and let A^w be the Waldhausen subcategory (A^w, v) of objects A with 0 → A in w. If (A, w) has a cylinder functor satisfying the cylinder axiom and w satisfies saturation and extension, then K(A^w) → K(A, v) → K(A, w) is a homotopy fibration with long exact sequence ending in K₀(A^w) → K₀(A, v) → K₀(A, w) → 0. Schlichting's variant replaces the cylinder functor by the requirement that every map factor as a cofibration followed by a map in w; then vS.C^w → wS.C^w ≃ * over vS.C → wS.C is homotopy cartesian.",
+      "hypotheses": [
+        "v ⊂ w; cylinder functor with cylinder axiom for (A, w); w saturated and satisfies the extension axiom.",
+        "Schlichting A.3: factorization of every map into a cofibration followed by a map in w, plus saturation and extension for w."
+      ],
+      "proofSteps": [
+        "Form the bicategory v.w.C of squares with vertical maps in v and horizontal maps in w; wC → v.w.C is a homotopy equivalence (swallowing lemma, Weibel IV 3.10.2 and Exercise 3.13), and similarly for S_nC.",
+        "The sub-bicategory v.co w.C whose horizontal maps are also cofibrations is homotopy equivalent to v.w.C, using saturation and the cylinder axiom on each C(m, v) (Weibel IV Exercise 8.14; Schlichting A.11 replaces this by the factorization hypothesis).",
+        "By the extension axiom trivial cofibrations are cofibrations with quotient in C^w, giving S_n(f) ≃ co w_nC for f: (C^w, v) → (C, v) and vS.S.f ≃ v.co w.S.C.",
+        "The top row vS.C^w → vS.C → v.co w.S.C is thus the relative S.-construction fibration (previous node), and the square compares it with wS.C ≃ v.w.S.C (Weibel V Theorem 2.1 proof); Schlichting's proof replaces Waldhausen 1.6.3 by A.11 in Waldhausen's proof of 1.6.4, which was not read."
+      ],
+      "acceptance": [
+        "Thomason's cofinality theorem is the special case w = {π[A] = π[A′]} (Weibel V Theorem 2.3).",
+        "K(R on S) → K(R) → K(S⁻¹R) for a central multiplicative set, where the last map is surjective on K₀ only up to cofinality (Weibel V Theorem 2.6.3); for S with zero divisors K(H_S(R)) is not the fibre (Exercise 2.9).",
+        "G(X on Z) → G(X) → G(X − Z) for noetherian X (Weibel V 2.6.2)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-V",
+          "locator": "Waldhausen Localization Theorem 2.1 with proof, Theorem 2.3, Proposition 2.5, 2.6.1–2.6.3, Exercise 2.9, pp. V.12–17, V.19",
+          "excerpt": "In addition, we suppose that (A, w) has a cylinder functor satisfying the Cylinder Axiom (IV.8.8), and that w(A) satisfies the Saturation and Extension Axioms",
+          "match": "Exact hypotheses of the localization theorem."
+        },
+        {
+          "sourceId": "Schlichting-NegativeK-2003",
+          "locator": "Appendix A.3, A.5, A.11 and 'Proof of Fibration A.3', pp. 24–27",
+          "excerpt": "If every map in C is the composition of a cofibration followed by a map in wC and if wC satisfies the saturation and extension axiom, then the square",
+          "match": "Variant without cylinder functors, whose proof is a modification of Waldhausen 1.6.4."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.4/waldhausen-approximation-theorem",
+      "parentStageId": "GeneralAlgebraicKTheory:K.4",
+      "title": "Waldhausen approximation theorem",
+      "kind": "theorem",
+      "statement": "Let F: A → B be an exact functor between saturated Waldhausen categories such that (a) a map of A is a weak equivalence iff its image is, and (App) every map F(A) → B factors as F(a) for a map (which may be taken to be a cofibration) a: A → A′ followed by a weak equivalence F(A′) ≃ B. If A has a cylinder functor satisfying the cylinder axiom (Waldhausen), or merely every map of A factors as a cofibration followed by a weak equivalence (Schlichting), then wA → wB and wS.A → wS.B are homotopy equivalences and K(A) ≃ K(B).",
+      "hypotheses": [
+        "Saturation of both categories; (App) including the detection of weak equivalences; cylinder functor with cylinder axiom or the factorization property in A.",
+        "The theorem can fail without cylinders or factorizations: A_⊕ ⊂ A satisfies (App) but K₀ differs (Weibel V Remark 2.4.2)."
+      ],
+      "proofSteps": [
+        "(App) passes to S_nA → S_nB (Weibel V Exercise 2.1; Waldhausen 1.6.6, cited by Schlichting, not read), so it suffices to prove wF: wA → wB is a homotopy equivalence and realize (Weibel V Theorem 2.4 proof).",
+        "By Theorem A it suffices that each comma category (F ↓ B) is contractible; it is non-empty by factoring ∅ → B (Schlichting A.2 proof).",
+        "Criterion A.10: a non-empty category is contractible if every functor from a finite poset to it is null-homotopic, since Sd² of a finite simplicial set is the nerve of a finite poset (Thomason 1980, cited).",
+        "Given P → (F ↓ B), factor ∅ → X as a cofibration followed by a weak equivalence in the diagram category (A.9), take colim_P Y (exists by A.7, preserved by F), factor colim F(Y) → B by (App), and use saturation to get a null-homotopy X ← Y → cZ.",
+        "Weibel's own proof omits the five-page simplicial argument and refers to Waldhausen 1.6.7; the decomposed proof here is Schlichting's."
+      ],
+      "acceptance": [
+        "K(A) ≃ KCh^b(A) ≃ KCh^{hb}_±(A) ≃ KCh^{hb}(A) for abelian A (Weibel V 2.7.1).",
+        "K(R) ≃ KCh^b(P(R)) ≃ KCh_perf(R) (Weibel V 2.7.2), and K(X) = KCh_perf(X) agrees with KVB(X) when every coherent sheaf is a quotient of a vector bundle (2.7.3).",
+        "Changing cofibrations with fixed weak equivalences does not change K-theory (Weibel V 2.5.1)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-V",
+          "locator": "Waldhausen Approximation Theorem 2.4, Proposition 2.4.1, Remark 2.4.2, 2.7.1–2.7.4, pp. V.15–18",
+          "excerpt": "We omit this part of the proof, which is lengthy (5 pages), and does not seem relevant to this book, and refer the reader to [W1126, 1.6.7].",
+          "match": "Shows that Weibel's proof is incomplete, so the decomposition uses Schlichting's appendix."
+        },
+        {
+          "sourceId": "Schlichting-NegativeK-2003",
+          "locator": "Appendix A.1, A.2, A.7, A.9, A.10 and 'Proof of Approximation A.2', pp. 24–27",
+          "excerpt": "Suppose further that the identity functor on A satisfies approximation, i.e., every morphism in A is the composition of a cofibration followed by a weak equivalence.",
+          "match": "Hypothesis of Schlichting's version, proved in full in the appendix."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.4/gillet-waldhausen-comparison",
+      "parentStageId": "GeneralAlgebraicKTheory:K.4",
+      "title": "Gillet–Waldhausen: K(A) ≃ KCh^b(A)",
+      "kind": "comparison",
+      "statement": "Let A be an exact category closed under kernels of surjections in an ambient abelian category, and Ch^b(A) the Waldhausen category of bounded complexes with degreewise admissible monomorphisms as cofibrations and quasi-isomorphisms (computed in the ambient abelian category) as weak equivalences. Then A ⊂ Ch^b(A) induces K(A) ≃ KCh^b(A). Without closure under kernels the statement still holds after replacing A by the subcategory A′ of the idempotent completion with class in K₀(A). The split-cofibration structure on Ch^b(A) has the same K-theory.",
+      "hypotheses": [
+        "A closed under kernels of surjections in its ambient abelian category (otherwise K₀(A) may differ from K₀Ch^b(A)); weak equivalences are quasi-isomorphisms in the ambient abelian category, not chain homotopy equivalences.",
+        "Uses Waldhausen localization with a cylinder functor on Ch^b(A) (mapping cylinder, Weibel IV Example 8.8.3)."
+      ],
+      "proofSteps": [
+        "For a ≤ b, Ch^{[a,b]} with isomorphisms as weak equivalences has as its category of acyclic objects the admissibly exact complexes A^{[a,b]}_exact, using closure under kernels of surjections (Weibel V Exercise 2.4).",
+        "By additivity, K(A^{[a,b]}_exact) ≃ K(A)^{b−a} and K(iso Ch^{[a,b]}) ≃ K(A)^{b−a+1} ('forget differentials', Exercises 1.5–1.6), the map between them being induced by (B_{a+1}, …, B_b) ↦ (B_{a+1}, B_{a+1} ⊕ B_{a+2}, …, B_b), whose homotopy cofibre is K(A) via the Euler characteristic.",
+        "Pass to the colimit over a → −∞, b → ∞ and apply Waldhausen localization to iso Ch^b ⊂ quasi-isomorphisms to identify the cofibre with KCh^b(A) (Weibel V Theorem 2.2 proof, following Thomason–Trobaugh 1.11.7).",
+        "Remark 2.2.1: the Yoneda embedding into left exact functors and Waldhausen cofinality remove the kernel-closure hypothesis."
+      ],
+      "acceptance": [
+        "K₀Ch^b(A) ≅ K₀(A) with [C] = Σ(−1)^i[C_i] (Weibel II Theorem 9.2.2) as the degree-zero check.",
+        "splitCh^b(A) → Ch^b(A) is a K-equivalence (Weibel V Exercise 2.3, exercise-level).",
+        "Do not replace quasi-isomorphisms by chain homotopy equivalences without a separate argument for the category used."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-V",
+          "locator": "Theorem 2.2 (Gillet–Waldhausen) with proof, Remark 2.2.1, Exercises 1.5–1.6, 2.3–2.4, pp. V.10, V.13–14, V.19",
+          "excerpt": "Taking the direct limit as a → −∞ and b → +∞ yields a homotopy fibration",
+          "match": "Final step of the proof before applying Waldhausen localization."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.5/relative-K-theory-and-excision-boundary",
+      "parentStageId": "GeneralAlgebraicKTheory:K.5",
+      "title": "Relative K-theory, support K-theory and the excision boundary",
+      "kind": "definition",
+      "statement": "For a ring homomorphism f: R → R′, K(f) is the homotopy fibre of K(R) → K(R′), with long exact sequence ⋯ → K_{n+1}(R′) → K_n(f) → K_n(R) → K_n(R′) → ⋯ → K₁(R′) → K₀(f) → K₀(R) → K₀(R′); all K_n(f), including K₀(f), are abelian groups via the functorial H-space structure. For an ideal I, K(R, I) = K(R → R/I), with K₀(R, I) ≅ K₀(I) and K₁(R, I) the classical relative group. For an exact functor f: B → C of Waldhausen categories, K(f) = Ω²|wS.(S.f)| fits into a long exact sequence ending K₀(B) → K₀(C) → K₋₁(f) → 0. Support K-theory for a central multiplicative set S is K(R on S) = KCh^b_S(P(R)), which differs from the relative theory of R → S⁻¹R in degree zero. Excision is not automatic: a nonunital ring I satisfies absolute excision for K₁ iff I = I², and (Suslin) for K_n iff Tor^{Z⊕I}_i(Z, Z) = 0 for i = 1, …, n; H-unital rings satisfy excision in all degrees.",
+      "hypotheses": [
+        "Unital rings and ring homomorphisms for K(f); nonunital I is treated through the augmented ring Z ⊕ I.",
+        "The excision criteria are quoted from Suslin 1995 and Suslin–Wodzicki 1992 without proof in the source read."
+      ],
+      "proofSteps": [
+        "Define K(f) as a homotopy fibre and read off the exact sequence of the fibration (Weibel IV 1.11.1; StableHomotopyKTheory H.2 homotopy-fibre node).",
+        "Identify K₀(R, I) and K₁(R, I) with the classical relative groups (Weibel IV Exercise 1.15, statement with hint).",
+        "Waldhausen version: the relative S.-construction and its fibration (K.4 relative-S-construction node; Weibel IV 8.5.3 and V.1.7).",
+        "Support theory for localization: Weibel V Theorem 2.6.3 gives K(R on S) → K(R) → K(S⁻¹R) via approximation and cofinality, so the comparison with K(R → S⁻¹R) must carry the cofinality correction at K₀.",
+        "Absolute excision: record Suslin's and Suslin–Wodzicki's criteria as quoted in Weibel IV 1.11.2; their proofs are source boundaries."
+      ],
+      "acceptance": [
+        "Test a nonunital I with I² ≠ I to show failure of K₁ excision (Weibel III Remark 2.2.1, not read).",
+        "Suspension rings: K₀(R) × BGL(R)⁺ ≃ ΩBGL(S(R))⁺ via absolute excision for M(R) (Weibel IV 1.11.3).",
+        "For S containing zero divisors, K(H_S(R)) is not the homotopy fibre of K(R) → K(S⁻¹R) (Weibel V Exercise 2.9)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Relative groups 1.11.1, Absolute Excision 1.11.2, Suspension Rings 1.11.3, pp. IV.8–9; Exercise 1.15, p. IV.16; Relative K-theory spaces 8.5.3, p. IV.69",
+          "excerpt": "By III, Remark 2.2.1, I satisfies absolute excision for K1 if and only if I = I 2 .",
+          "match": "Quoted excision criterion showing that unrestricted excision fails; the relative group definition is on the preceding page."
+        },
+        {
+          "sourceId": "Weibel-KBook-V",
+          "locator": "Theorem 2.6.3 with proof and Exercise 2.9, pp. V.17, V.19",
+          "excerpt": "Instead, as in II.9.8, we define K(R on S) to be the K-theory of ChbS P(R)",
+          "match": "Support K-theory definition distinguished from relative theory."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.6/schlichting-set-up-and-negative-localization",
+      "parentStageId": "GeneralAlgebraicKTheory:K.6",
+      "title": "Schlichting's set-up for negative K-groups and localization in negative degrees",
+      "kind": "theorem",
+      "statement": "A sequence A → B → C of small triangulated categories is exact if the composite is zero, A → B is fully faithful and B/A → C is cofinal (fully faithful, every object a direct summand of one in the image). Given a category of models M with D: M → (small triangulated categories) and functors id → F → S preserving exact sequences with IK₀(FM) = 0 and M → FM → SM exact, define IK₀(M) = K₀ of the idempotent completion of DM and IK_{−n}(M) = IK₀(S^nM). An exact sequence A → B → C in M then gives an exact sequence ⋯ → IK_i(A) → IK_i(B) → IK_i(C) → IK_{i−1}(A) → ⋯ for i ≤ 0, and a map with cofinal D(f) induces isomorphisms on IK_i, i ≤ 0. IK_{−1}(M) = 0 iff every Verdier quotient DN/DM in an exact sequence is idempotent complete.",
+      "hypotheses": [
+        "Models are required: the construction is for triangulated categories with a chosen model in M, not for arbitrary triangulated categories.",
+        "Uses three facts: the idempotent completion of a triangulated category is triangulated (Balmer–Schlichting), dense subcategories correspond to subgroups of K₀ (Thomason 1997), and exact sequences give exact IK₀ sequences (SGA 5 VIII 3.1); these were not read."
+      ],
+      "proofSteps": [
+        "Form the 3×3 diagram of idempotent completions of D applied to A → B → C, F(−) and S(−) with exact rows and columns; DFM is idempotent complete because IK₀(FM) = 0 (Schlichting 1.5).",
+        "Define δ: IK₀(C) → IK₀(SA) by lifting c to B in DFB with p_F(B) ≅ i_C(c) and setting δ(c) = [p_B(B)]; independence of the lift uses IK₀(FA) = 0, and distinguished triangles give additivity (Lemma 1.6).",
+        "Exactness at IK₀(C) and IK₋₁(A) by diagram chases using Thomason's classification (Theorem 1.7 proof); negative degrees follow by applying the case i = 0 to S^i.",
+        "Corollary 1.8 applies 1.7 to 0 → A → B; Remark 1.9 characterizes IK₋₁."
+      ],
+      "acceptance": [
+        "For central non-zero-divisors S in R, the sequence IK₀(A) → IK₀(R) → IK₀(S⁻¹R) → IK₋₁(A) → ⋯ with A the S-torsion modules of projective dimension ≤ 1 recovers Carter's sequence (Schlichting 5.5).",
+        "The first map in the K₀ sequence need not be injective nor the last surjective (Schlichting 1.2)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Schlichting-NegativeK-2003",
+          "locator": "§1, Definition 1.1, Facts 1.2, Set-up 1.3, Definition 1.4, 1.5, Lemma 1.6, Theorem 1.7 with proof, Corollary 1.8, Remark 1.9, pp. 4–6",
+          "excerpt": "The functor S is called suspension, and F stands for “flasque”.",
+          "match": "Set-up 1.3 whose hypotheses the node lists; Theorem 1.7 is proved on the next page."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.6/frobenius-pairs-flasque-envelope-and-suspension",
+      "parentStageId": "GeneralAlgebraicKTheory:K.6",
+      "title": "Frobenius pairs, the flasque countable envelope and the suspension functor",
+      "kind": "construction",
+      "statement": "A Frobenius pair A = (A, A₀) is a fully faithful inclusion of small Frobenius categories preserving projective-injectives; its derived category is the Verdier quotient DA = stable(A)/stable(A₀). The countable envelope FE of an exact category (sequences of inflations, Hom = lim_i colim_j) is exact, has exact countable coproducts, and is flasque (T ⊕ id ≅ T with T = ⊕_{i≥0} t^i). For a Frobenius pair, FA = (FA, FA₀) is a Frobenius pair, DA → DFA is fully faithful, DFA has countable coproducts and is c-compactly generated by DA, and the idempotent completion of DA is the c-compact part of DFA. The suspension SA = (FA, S₀A), with S₀A the objects vanishing in DFA/DA, satisfies DSA = DFA/DA, and id → F → S satisfies Set-up 1.3 on the category of Frobenius pairs. For an exact category E, (Ch^bE, Ac^bE) with degreewise split conflations is a Frobenius pair with derived category D^b(E), and IK_i(E) := IK_i(Ch^bE, Ac^bE).",
+      "hypotheses": [
+        "Small Frobenius categories; maps of Frobenius pairs are exact functors preserving projective-injective objects and the subcategories.",
+        "c-compactness means Hom(X, −) commutes with countable coproducts; Theorem 2.9 (a variant of Neeman 1992) requires R ⊂ T closed under countable coproducts with R^c ⊂ T^c."
+      ],
+      "proofSteps": [
+        "Homotopy colimits in triangulated categories with countable coproducts and Hom out of c-compact objects commuting with them (Schlichting 2.2–2.4); Lemma 2.6 and Corollaries 2.7, 2.10; Theorem 2.9 with proof via calculus of fractions.",
+        "Countable envelope and flasqueness (Lemma 4.2 with explicit T and natural isomorphism A ⊕ TA ≅ TA).",
+        "Proposition 4.4: A is c-compact in FA ⊂ Lex A and colim A_i = hocolim A_i by the sequence ⊕A_i → ⊕A_i → colim A_i; the pair case follows from Theorem 2.9.",
+        "Theorem 4.8: IK₀(FA) = 0 because DFA has countable coproducts; F preserves exact sequences by 4.4, 4.6, 2.10; S by Lemma 2.11.",
+        "Examples 5.3–5.4: chain complexes with degreewise split conflations form a Frobenius category whose projective-injectives are the contractible complexes; the homotopy category modulo acyclics is D^b(E)."
+      ],
+      "acceptance": [
+        "IK₀(E) = K₀(E) for idempotent complete E and K₀ of the idempotent completion otherwise (Schlichting 5.5).",
+        "Additivity for IK_i (Theorem 6.1, Corollary 6.2) and commutation with filtered colimits (Lemma 6.3, Corollary 6.4)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Schlichting-NegativeK-2003",
+          "locator": "§2 (2.1–2.11), §3 (3.1–3.5), §4 (4.1–4.8), §5 (5.3–5.5), §6 (6.1–6.4), pp. 6–14",
+          "excerpt": "The countable envelope FE of an exact category E is flasque",
+          "match": "Lemma 4.2, the flasque input to the set-up; the other listed results supply the suspension and examples."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance",
+      "parentStageId": "GeneralAlgebraicKTheory:K.6",
+      "title": "The nonconnective K-theory spectrum of a Frobenius pair",
+      "kind": "theorem",
+      "statement": "For a Frobenius pair A with K(A) = Ω|wS.A| (cofibrations the inflations, weak equivalences the maps invertible in DA), the spaces K(A), K(SA), K(S²A), … with maps K(A) → ΩK(SA) from the square K(A) → K(A, A) ≃ * over * ≃ K(FA) → K(SA) form a spectrum IK(A) with ΩIK(A) an Ω-spectrum, π_i IK(A) = K_i(A) for i > 0, π₀ = K₀ of the idempotent completion of DA, and π_i = IK_i(A) for i < 0. An exact sequence of Frobenius pairs gives a homotopy cartesian square IK(A) → IK(B) over * → IK(C) and a long exact sequence in all degrees. A map of Frobenius pairs inducing an equivalence DA → DB induces a homotopy equivalence K(A) → K(B); a cofinal D(f) induces isomorphisms on π_i, i > 0, and a monomorphism on π₀. For an exact category E, π_i IK(E) are Quillen's K-groups for i > 0.",
+      "hypotheses": [
+        "Additive categories are strictified to have unital associative sums (May 1974, cited).",
+        "Derived invariance needs a map of models (Frobenius pairs); an abstract triangulated equivalence is not enough (models are essential, Schlichting's introduction citing Schlichting 2002)."
+      ],
+      "proofSteps": [
+        "K(FA) is contractible functorially: the flasque functor T and the functorial homotopy between loop and H-space multiplications give id ≃ * (Lemma 11.3); K(A, A) is contractible since each S_n(A, A) has an initial object.",
+        "Cofinality 11.17: reduce to the subcategory B₁ with objects in the image of DA, apply 11.15 and cofinality A.4.",
+        "Fibration 11.18: apply the fibration theorem A.3 to the change of weak equivalences from (B, B₀) to (B, B₁), using that Frobenius pairs have factorizations (11.2).",
+        "Theorem 11.7: with Â the pair whose derived category is the idempotent completion, 11.17 and 11.18 give K(Â) ≃ ΩK(SA) ≃ ΩK((SA)^), so ΩIK is an Ω-spectrum and the homotopy groups are as stated.",
+        "Proposition 11.15: translate Thomason–Trobaugh 1.9.8 to Frobenius pairs: the category C of (A, F(A) ↣ B) with B/F(A) acyclic retracts onto A, and C → B is a K-equivalence by the dual approximation property, verified by homotopy-commutative diagram manipulations."
+      ],
+      "acceptance": [
+        "Agreement with connective K-theory holds in positive degrees; in degree zero it holds only for idempotent-complete inputs (π₀ is K₀ of the idempotent completion).",
+        "Theorem 11.10 localization in all degrees for D^b(A) → D^b(B) → D^b(C) exact; resolution-type derived equivalences give isomorphisms in all degrees.",
+        "Quasi-isomorphic dg algebras have isomorphic IK-groups (11.14)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Schlichting-NegativeK-2003",
+          "locator": "§11, Definitions 11.1, 11.4, Remark 11.2, Lemma 11.3, Theorems 11.7 and 11.10 with proofs, 11.13, Propositions 11.15, 11.17, 11.18 with proofs, pp. 19–24",
+          "excerpt": "Then the spectrum ΩIK(A) is an Ω-spectrum.",
+          "match": "Theorem 11.7, whose proof uses the cofinality and fibration propositions recorded in the steps."
+        },
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "§10, Definitions 10.1 and 10.4, Theorem 10.2, Corollary 10.3 with proof, pp. IV.79–80",
+          "excerpt": "For many applications, it is useful to have a spectrum-level version of this construction",
+          "match": "Alternative Bass-type nonconnective spectrum for rings, built from the Fundamental Theorem (not decomposed here)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.6/agreement-and-vanishing-of-negative-K",
+      "parentStageId": "GeneralAlgebraicKTheory:K.6",
+      "title": "Agreement with Bass/Thomason negative K-groups and vanishing theorems",
+      "kind": "theorem",
+      "statement": "IK_i(R) agrees with Bass's (and Pedersen's) K_i(R) for rings R, IK_i(X) with Thomason's K_i^B(X) for quasi-compact quasi-separated schemes, and IK_i(A) with Karoubi's and Pedersen–Weibel's groups for additive categories, i ≤ 0. IK₋₁(E) is the monoid of isomorphism classes of idempotents of the unbounded derived category D(E) modulo those that split; IK₋₁(A) = 0 for every small abelian category; IK_i(A) = 0 for i < 0 for every small noetherian abelian category; consequently K_i(R) = 0 for i < 0 when finitely generated R-modules form a noetherian abelian category derived-equivalent to projectives (regular noetherian R), and negative G-theory of a noetherian scheme vanishes.",
+      "hypotheses": [
+        "Agreement for rings and schemes rests on Thomason's projective bundle theorem and the proof of Bass's fundamental theorem in Thomason–Trobaugh 6.6(b), neither read.",
+        "Vanishing needs the noetherian hypothesis (Gabber's remark 9.8); the conjecture for all small abelian categories is open in the source. Schlichting 9.5 says 'regular ring' but uses that finitely generated modules form an abelian (noetherian) category, so R must be noetherian (or coherent)."
+      ],
+      "proofSteps": [
+        "Agreement (7.1): the projective line splitting IK_i(P¹_X) ≅ IK_i(X)² carries over to Frobenius models, and Thomason–Trobaugh's argument gives the Bass sequence 0 → IK_i(X) → IK_i(X[T]) ⊕ IK_i(X[T⁻¹]) → IK_i(X[T, T⁻¹]) → IK_{i−1}(X) → 0; induction from IK₀ = K₀^B (imported proofs not read). For additive categories use the cone and suspension categories and Cárdenas–Pedersen (not read).",
+        "8.1–8.2: D^±(E) have vanishing IK_n by the Eilenberg swindle T = ⊕[2n], so IK₋₁(E) = K₀ of the idempotent completion of D(E), and Thomason's description of the cokernel gives the idempotent presentation.",
+        "9.1: extend the t-structure to D(A) and its idempotent completion; truncations land in D^−(A), D^+(A), which are idempotent complete, and D(A) is extension closed in its completion, so D(A) is idempotent complete.",
+        "9.3: for noetherian A form A[t] ⊂ End(Lex A) and its Serre subcategory Nil; Lemma 9.4 (Keller's criterion via injective envelopes) gives an exact sequence D^b(Nil) → D^b(A[t]) → D^b(A[t, t⁻¹]); additivity on 0 → A[t] → A[t] → A → 0 shows IK_n(i) = 0, the retraction Nil → A shows IK_n(j) injective, and descending induction from IK₋₁ = 0 gives vanishing."
+      ],
+      "acceptance": [
+        "Check a singular ring retains nonzero negative K-groups (roadmap acceptance; examples such as Weibel IV Examples 2.10.2 are only quoted, not proved).",
+        "Do not infer vanishing of negative K for singular rings from the connective model.",
+        "The map from Bass's K₋₁(R) to IK₋₁(R) is described explicitly on idempotents of R[t, t⁻¹] (Schlichting 8.3)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Schlichting-NegativeK-2003",
+          "locator": "§7 Theorem 7.1 with proof sketch and Remarks 7.2–7.3, §8 (8.1–8.3), §9 Theorems 9.1 and 9.3 with proofs, Lemma 9.4, Examples 9.5–9.6, Conjecture 9.7, Remark 9.8, pp. 14–18",
+          "excerpt": "As the latter category is abelian, it follows that Ki (R) = 0 for i < 0 (7.1, 9.3, 1.8).",
+          "match": "Example 9.5 deriving Bass vanishing from agreement, noetherian vanishing and derived invariance."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.7/invariance-products-and-colimits",
+      "parentStageId": "GeneralAlgebraicKTheory:K.7",
+      "title": "Equivalence, Morita, product and filtered-colimit invariance",
+      "kind": "theorem",
+      "statement": "Exact equivalences induce K-equivalences; Morita equivalent rings have equivalent P(R) ≃ P(S) and M(R) ≃ M(S), hence K_n(R) ≅ K_n(S) and G_n(R) ≅ G_n(S); in particular K(M_r(A)) ≃ K(A). K-theory takes finite products of exact categories and rings to products and commutes with filtered colimits of exact categories (and of rings via idempotent matrices); IK_n commutes with filtered colimits of Frobenius pairs. At the enhanced level, a map of Frobenius pairs inducing an equivalence of derived categories induces an equivalence of K-theory spectra.",
+      "hypotheses": [
+        "Morita invariance is induced by an actual equivalence of exact categories; derived invariance requires a map of models, not a bare triangulated equivalence.",
+        "Filtered colimits over small filtering index categories."
+      ],
+      "proofSteps": [
+        "Equivalent exact categories give equivalent Q-categories (Weibel IV Exercise 6.2) and homotopy equivalent classifying spaces.",
+        "Morita: II.2.7 equivalences P(R) ≃ P(S) (Weibel IV 6.3.5; Chapter II not re-read here).",
+        "Products and filtered colimits: Quillen §2 (8)–(12) and Weibel IV 6.4, using compatibility of realization with products and filtered colimits.",
+        "Frobenius pairs: Schlichting Lemma 6.3 (colimits of flasque envelopes remain flasque) and Proposition 11.15 (derived invariance)."
+      ],
+      "acceptance": [
+        "K(M_r(A)) ≃ K(A) via the explicit Morita equivalence (roadmap test; Weibel IV Exercise 1.21 gives the BGL⁺ version).",
+        "Finite direct products of rings produce product spectra (roadmap test).",
+        "Exhibit that a triangulated equivalence without models is not used as an input."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Morita Invariance 6.3.5, Elementary Properties 6.4, Exercises 6.2 and 6.11, pp. IV.55–56, IV.59, IV.61",
+          "excerpt": "Recall from II.2.7 that if two rings R and S are Morita equivalent then there are equivalences",
+          "match": "Morita invariance as a consequence of equivalences of exact categories."
+        },
+        {
+          "sourceId": "Schlichting-NegativeK-2003",
+          "locator": "Lemma 6.3 with proof, Proposition 11.15 with proof, pp. 13–14, 22–23",
+          "excerpt": "Let F : A → B be a map of Frobenius pairs such that DA → DB is a an equivalence. Then K(A) → K(B) is a homotopy equivalence.",
+          "match": "Derived invariance at the level of models."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.7/biexact-pairings-and-products",
+      "parentStageId": "GeneralAlgebraicKTheory:K.7",
+      "title": "External products from biexact functors",
+      "kind": "construction",
+      "statement": "A biexact functor ⊗: A × B → C of exact categories (partial functors exact, A ⊗ 0 = 0 ⊗ B = 0) induces QA ⊗ QB → QQC, a map BQA ∧ BQB → BQQC and bilinear products K_i(A) ⊗ K_j(B) → K_{i+j}(C) via the reduced join and Waldhausen's delooping BQA ≃ ΩBQQA. For Waldhausen categories a biexact functor satisfying the admissibility condition (F(A′, B) ∪_{F(A, B)} F(A, B′) → F(A′, B′) a cofibration) induces |wS.A| ∧ |wS.B| → |wwS.S.C|. For a commutative ring R (or scheme X), tensor product makes K_*(R) (K_*(X)) a graded-commutative ring with unit and G_*(A) a K_*(R)-module; transfers satisfy projection formulas. The K₀ product agrees with the classical product.",
+      "hypotheses": [
+        "Condition A ⊗ 0 = 0 ⊗ B = 0 may require replacing categories by equivalent ones (Weibel IV 6.6).",
+        "Graded commutativity, associativity and unit homotopies and the spectrum-level pairing are quoted (Gillet 7.12, Loday 1976, Waldhausen 1978) and not proved in the sources read."
+      ],
+      "proofSteps": [
+        "Send a pair of morphisms A₀ ↞ A₁ ↣ A₂, B₀ ↞ B₁ ↣ B₂ to the 3×3 bimorphism (6.6.1) of QQC; the bifunctor realizes to BQA × BQB → BQQC, which factors through the smash product because ⊗ vanishes on QA ⊗ 0 and 0 ⊗ QB (Weibel IV 6.6).",
+        "Use ΩBQQC ≃ BQC (Waldhausen 1978 p. 196, quoted; Weibel IV 6.5 and Exercise 6.8) and the reduced join to get (6.6.3).",
+        "Waldhausen categories: the biexact functor induces a map of bisimplicial bicategories and the delooping |wS.C| ≃ Ω|wS.S.C| (K.4 relative-S-construction node) plus the swallowing lemma identify the target (Waldhausen p. 342).",
+        "Module structures and projection formulas from isomorphisms of biexact functors (Weibel IV 6.6.4–6.6.5; Weibel V 3.3.2 and Example 3.5.3)."
+      ],
+      "acceptance": [
+        "Agreement with the K₀ product (Weibel IV Exercise 6.9) and with the plus-construction product (Weibel IV Theorem 7.9, imported).",
+        "Compatibility with localization boundaries: ∂({x, y}) = {∂x, y} (Weibel V Exercise 5.3, exercise-level).",
+        "The K₁ ⊗ K₁ → K₂ product agrees with the Steinberg-symbol product (Weibel IV Theorem 1.10, quoted from Loday)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Definition 6.6, (6.6.1)–(6.6.3), Remarks 6.6.4, Example 6.6.5, Definition 6.5 and Exercises 6.8–6.10, pp. IV.56–57, IV.60",
+          "excerpt": "Given such a biexact functor, the bicategory map QA ⊗ QB → bi(QC) of 3.10.2 factors through the forgetful functor QQC → bi(QC).",
+          "match": "Construction of the external product from a biexact functor."
+        },
+        {
+          "sourceId": "Waldhausen-KTheoryOfSpaces-1985",
+          "locator": "§1.5, paragraph on external pairings after Proposition 1.5.3, printed p. 342",
+          "excerpt": "The ingredient that one needs is a bi-exact functor of categories with",
+          "match": "Waldhausen's pairing with the admissibility condition for cofibrations."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "GeneralAlgebraicKTheory:K.1/exact-categories-and-Q-construction",
+      "target": "GeneralAlgebraicKTheory:K.1/Q-construction-universal-property",
+      "reason": "The universal property is a statement about the injective/surjective factorization of morphisms of QM constructed there.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "§2, LNM pp. 101–102"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.1/Q-construction-universal-property",
+      "target": "GeneralAlgebraicKTheory:K.1/pi1-BQ-equals-K0",
+      "reason": "Quillen's proof builds the morphism-inverting functor F_S from a K₀M-set by the universal property of QM.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "Proof of Theorem 1, LNM p. 103"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.1/pi1-BQ-equals-K0",
+      "target": "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories",
+      "reason": "The indexing K_i = π_{i+1}BQM and the agreement of the new K₀ with the Grothendieck group rest on Theorem 1.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "'Higher K-groups', LNM p. 103"}]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.1/coverings-fundamental-group-local-coefficients",
+      "target": "GeneralAlgebraicKTheory:K.1/pi1-BQ-equals-K0",
+      "reason": "Theorem 1 is proved by identifying coverings of BQM with morphism-inverting functors on QM (Proposition 1); Weibel's proof uses the maximal-tree presentation of π₁ from the same node.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "Proof of Theorem 1, LNM p. 102"}, {"sourceId": "Weibel-KBook-IV", "locator": "Proposition 6.2 proof, p. IV.54"}]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.1/filtered-colimits-of-categories",
+      "target": "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories",
+      "reason": "Commutation of K_i with filtered colimits of exact categories and rings is formula (9), derived from Proposition 3 on filtered colimits of classifying spaces.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "§2 (9), LNM p. 104"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.1/exact-categories-and-Q-construction",
+      "target": "GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q",
+      "reason": "The + = Q theorem compares ΩBQA with B(S⁻¹S) through the target functor EA → QA on extension sequences.",
+      "sources": [{"sourceId": "Weibel-KBook-IV", "locator": "Definition 7.3 and Theorem 7.8, pp. IV.62–63"}]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2/quillen-theorem-b",
+      "target": "GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q",
+      "reason": "Theorem 7.8 (S⁻¹S → S⁻¹EA → QA is a homotopy fibration) is an application of Theorem B to the fibred functor S⁻¹EA → QA after checking base changes.",
+      "sources": [{"sourceId": "Weibel-KBook-IV", "locator": "Proof of Theorem 7.8, pp. IV.63–64"}]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.4/quillen-localization-of-homology",
+      "target": "GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q",
+      "reason": "Proposition 7.6 and the proof of 7.1 use that S⁻¹S is a group completion and the invertible-action lemmas (Exercises 4.6–4.7) from the S⁻¹X theory.",
+      "sources": [{"sourceId": "Weibel-KBook-IV", "locator": "Theorem 7.1 remark, Proposition 7.6 and proof of 7.1, pp. IV.61–64"}]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.4/cofinality-projective-modules",
+      "target": "GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q",
+      "reason": "Corollary 7.2 identifies ΩBQP(R) with K₀(R) × BGL(R)⁺ by combining Theorem 7.1 with Corollary 4.11.1.",
+      "sources": [{"sourceId": "Weibel-KBook-IV", "locator": "Corollary 7.2, p. IV.62"}]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2/quillen-theorem-a",
+      "target": "GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories",
+      "reason": "Theorem 2 is proved by showing the comma categories (s, q)/(M, N) contractible and applying Theorem A.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "Proof of Theorem 2, LNM p. 105"}]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.1/natural-transformations-adjoints-contractibility",
+      "target": "GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories",
+      "reason": "The reduction C ≃ C′ ≃ C″ uses that inclusions with left adjoints are homotopy equivalences, and the final step uses an initial object.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "Proof of Theorem 2, LNM pp. 105–106"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories",
+      "target": "GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories",
+      "reason": "The corollaries are identities of induced maps on K_i of exact categories, using the sum formula from ⊕.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "§2 (8) and §3 Corollary 1, LNM pp. 103–106"}]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2/quillen-theorem-a",
+      "target": "GeneralAlgebraicKTheory:K.3/resolution-theorem",
+      "reason": "Both halves of the proof (i: QP → Q and j: Q → QH) use Theorem A or its dual on comma categories.",
+      "sources": [{"sourceId": "Weibel-KBook-V", "locator": "Proof of Proposition 3.1.1, pp. V.20–21"}]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2/quillen-theorem-a",
+      "target": "GeneralAlgebraicKTheory:K.3/devissage-theorem",
+      "reason": "Dévissage reduces to contractibility of the comma categories f/M, a Theorem A argument.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "Proof of Theorem 4, LNM p. 112"}]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2/quillen-theorem-b",
+      "target": "GeneralAlgebraicKTheory:K.3/abelian-localization-theorem",
+      "reason": "The localization theorem is deduced from Theorem B applied to Q loc, and Lemma 3 uses the corollary of Theorem B for fibred functors.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "Proof of Theorem 5 and Lemma 3, LNM pp. 113–115"}]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.1/filtered-colimits-of-categories",
+      "target": "GeneralAlgebraicKTheory:K.3/abelian-localization-theorem",
+      "reason": "Lemma 1 uses that filtering categories are contractible, and Lemma 5 uses Proposition 3 Corollary 1 for the filtered colimit of the categories E_N.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "Lemmas 1 and 5, LNM pp. 114–116"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.3/resolution-theorem",
+      "target": "GeneralAlgebraicKTheory:K.3/abelian-localization-theorem",
+      "reason": "The Dedekind-domain corollary of the localization theorem identifies K′_iA with K_iA by Theorem 3 Corollary 2.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "Corollary to Theorem 5, LNM p. 113"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.3/devissage-theorem",
+      "target": "GeneralAlgebraicKTheory:K.3/abelian-localization-theorem",
+      "reason": "The Dedekind-domain corollary identifies K_i of torsion modules with ⊕_m K_i(A/m) by Theorem 4 Corollary 1.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "Corollary to Theorem 5, LNM p. 113"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4:construction/waldhausen-categories-and-S-construction",
+      "target": "GeneralAlgebraicKTheory:K.4/waldhausen-additivity-theorem",
+      "reason": "Additivity is a statement about wS. of the extension category E(C) = S₂C with its induced cofibrations.",
+      "sources": [{"sourceId": "Waldhausen-KTheoryOfSpaces-1985", "locator": "Proposition 1.3.2 and Theorem 1.4.2, pp. 331, 336"}]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2/quillen-theorem-a",
+      "target": "GeneralAlgebraicKTheory:K.4/waldhausen-additivity-theorem",
+      "reason": "Lemma 1.4.A (homotopy equivalence from contractible f/(n, y)) is translated from Quillen's Theorem A via simp(Y).",
+      "sources": [{"sourceId": "Waldhausen-KTheoryOfSpaces-1985", "locator": "Lemmas 1.4.A–1.4.B, p. 337"}]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2/quillen-theorem-b",
+      "target": "GeneralAlgebraicKTheory:K.4/waldhausen-additivity-theorem",
+      "reason": "Lemma 1.4.B, used to obtain the fibration s.C → s.E(C) → s.C, is Quillen's Theorem B for simplicial sets.",
+      "sources": [{"sourceId": "Waldhausen-KTheoryOfSpaces-1985", "locator": "Lemma 1.4.B and proof of Lemma 1.4.3, p. 337"}]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2/bisimplicial-realization-lemma",
+      "target": "GeneralAlgebraicKTheory:K.4/waldhausen-additivity-theorem",
+      "reason": "Theorem 1.4.2 is deduced from Lemma 1.4.3 degreewise in the w-direction by the realization lemma.",
+      "sources": [{"sourceId": "Waldhausen-KTheoryOfSpaces-1985", "locator": "Proof of theorem from Lemma 1.4.3, p. 336"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4/waldhausen-additivity-theorem",
+      "target": "GeneralAlgebraicKTheory:K.4/relative-S-construction-fibration-and-delooping",
+      "reason": "Proposition 1.5.5 identifies each degree of the relative sequence with the product fibration using additivity in formulation (4).",
+      "sources": [{"sourceId": "Waldhausen-KTheoryOfSpaces-1985", "locator": "Proof of Proposition 1.5.5, pp. 343–344"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4/relative-S-construction-fibration-and-delooping",
+      "target": "StableHomotopyKTheory:H.5:S-delooping/iterated-S-construction-omega-spectrum",
+      "reason": "Supplies |wS.^{(n)}C| ≃ Ω|wS.^{(n+1)}C| for n ≥ 1 (Proposition 1.5.3 via 1.5.5), which the spectrum node uses to show the iterated S.-construction is an Ω-spectrum beyond its first term.",
+      "sources": [{"sourceId": "Waldhausen-KTheoryOfSpaces-1985", "locator": "Proposition 1.5.3 and the following paragraph, p. 342"}, {"sourceId": "Weibel-KBook-V", "locator": "Proposition 1.7 and Remark 1.7.1, p. V.8"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4/relative-S-construction-fibration-and-delooping",
+      "target": "GeneralAlgebraicKTheory:K.4/waldhausen-localization-fibration-theorem",
+      "reason": "The localization proof identifies its top row with the relative S.-construction fibration vS.C^w → vS.C → vS.(S.f).",
+      "sources": [{"sourceId": "Weibel-KBook-V", "locator": "Proof of Theorem 2.1, p. V.13"}]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2/quillen-theorem-a",
+      "target": "GeneralAlgebraicKTheory:K.4/waldhausen-approximation-theorem",
+      "reason": "Both Weibel's reduction (Proposition 2.4.1) and Schlichting's proof show wF is a homotopy equivalence by contractibility of the comma categories (F ↓ B) and Theorem A.",
+      "sources": [{"sourceId": "Schlichting-NegativeK-2003", "locator": "Proof of Approximation A.2, pp. 26–27"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4/waldhausen-additivity-theorem",
+      "target": "GeneralAlgebraicKTheory:K.4/gillet-waldhausen-comparison",
+      "reason": "The proof computes K(iso Ch^{[a,b]}) and K(A^{[a,b]}_exact) as products of K(A) using additivity (Example 1.4, Exercises 1.5–1.6).",
+      "sources": [{"sourceId": "Weibel-KBook-V", "locator": "Proof of Theorem 2.2, pp. V.13–14"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4/waldhausen-localization-fibration-theorem",
+      "target": "GeneralAlgebraicKTheory:K.4/gillet-waldhausen-comparison",
+      "reason": "The cofibre of K(A_exact) → K(iso Ch^b) is identified with KCh^b(A) by Waldhausen localization for the change from isomorphisms to quasi-isomorphisms.",
+      "sources": [{"sourceId": "Weibel-KBook-V", "locator": "Proof of Theorem 2.2, p. V.14"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4/waldhausen-approximation-theorem",
+      "target": "GeneralAlgebraicKTheory:K.4/gillet-waldhausen-comparison",
+      "reason": "The extension to perfect complexes K(R) ≃ KCh^b(P(R)) ≃ KCh_perf(R) combines Gillet–Waldhausen with approximation.",
+      "sources": [{"sourceId": "Weibel-KBook-V", "locator": "Perfect complexes 2.7.2, p. V.18"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4/waldhausen-localization-fibration-theorem",
+      "target": "GeneralAlgebraicKTheory:K.3/cofinality-degree-zero-correction",
+      "reason": "Thomason's cofinality theorem is proved by applying Waldhausen localization to the weak equivalences detected by π: K₀(A) → G.",
+      "sources": [{"sourceId": "Weibel-KBook-V", "locator": "Proof of Theorem 2.3, p. V.14"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4/relative-S-construction-fibration-and-delooping",
+      "target": "GeneralAlgebraicKTheory:K.3/cofinality-degree-zero-correction",
+      "reason": "Waldhausen's strict cofinality proof starts from Corollaries 1.5.6–1.5.7 to reduce to contractibility of wS.F.(B, A).",
+      "sources": [{"sourceId": "Waldhausen-KTheoryOfSpaces-1985", "locator": "Proof of Proposition 1.5.9, p. 346"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4/relative-S-construction-fibration-and-delooping",
+      "target": "GeneralAlgebraicKTheory:K.5/relative-K-theory-and-excision-boundary",
+      "reason": "The Waldhausen relative space K(f) = Ω²|wS.(S.f)| and its long exact sequence come from the relative S.-construction fibration.",
+      "sources": [{"sourceId": "Weibel-KBook-IV", "locator": "Relative K-theory spaces 8.5.3, p. IV.69"}]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence",
+      "target": "GeneralAlgebraicKTheory:K.5/relative-K-theory-and-excision-boundary",
+      "reason": "Relative K-theory of a ring map is a homotopy fibre, and its exact sequence with the pointed-set and group terms comes from that construction.",
+      "sources": [{"sourceId": "Weibel-KBook-IV", "locator": "Relative groups 1.11.1, p. IV.8"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.6/schlichting-set-up-and-negative-localization",
+      "target": "GeneralAlgebraicKTheory:K.6/frobenius-pairs-flasque-envelope-and-suspension",
+      "reason": "Theorem 4.8 verifies the hypotheses of Set-up 1.3 for Frobenius pairs with the functors F and S constructed there.",
+      "sources": [{"sourceId": "Schlichting-NegativeK-2003", "locator": "Theorem 4.8, p. 10"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.6/frobenius-pairs-flasque-envelope-and-suspension",
+      "target": "GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance",
+      "reason": "The spectrum uses K(FA) contractible (flasque envelope) and the exact sequences A → FA → SA of Frobenius pairs.",
+      "sources": [{"sourceId": "Schlichting-NegativeK-2003", "locator": "Lemma 11.3, Definition 11.4, Theorem 11.7, pp. 20–21"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4/waldhausen-approximation-theorem",
+      "target": "GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance",
+      "reason": "Proposition 11.15 (derived invariance) concludes with the dual approximation property A.2 for C → B.",
+      "sources": [{"sourceId": "Schlichting-NegativeK-2003", "locator": "Proof of Proposition 11.15, pp. 22–23"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4/waldhausen-localization-fibration-theorem",
+      "target": "GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance",
+      "reason": "Proposition 11.18 is the fibration theorem A.3 applied to changing weak equivalences from (B, B₀) to (B, B₁), which gives the homotopy cartesian squares of Theorems 11.7 and 11.10.",
+      "sources": [{"sourceId": "Schlichting-NegativeK-2003", "locator": "Proposition 11.18 and proofs of 11.7, 11.10, pp. 21–24"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.6/schlichting-set-up-and-negative-localization",
+      "target": "GeneralAlgebraicKTheory:K.6/agreement-and-vanishing-of-negative-K",
+      "reason": "The vanishing and presentation results use the negative localization sequence (Theorem 1.7) and Corollary 1.8.",
+      "sources": [{"sourceId": "Schlichting-NegativeK-2003", "locator": "8.1, 9.3, 9.5, pp. 15–17"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.6/frobenius-pairs-flasque-envelope-and-suspension",
+      "target": "GeneralAlgebraicKTheory:K.6/agreement-and-vanishing-of-negative-K",
+      "reason": "Agreement and vanishing are statements about IK_i(E) = IK_i(Ch^bE, Ac^bE) and use additivity for IK_i (Corollary 6.2).",
+      "sources": [{"sourceId": "Schlichting-NegativeK-2003", "locator": "5.4, 6.2, 7.1, 9.3, pp. 11–17"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance",
+      "target": "GeneralAlgebraicKTheory:K.7/invariance-products-and-colimits",
+      "reason": "Enhanced (model-level) derived invariance is Proposition 11.15.",
+      "sources": [{"sourceId": "Schlichting-NegativeK-2003", "locator": "Proposition 11.15, p. 22"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories",
+      "target": "GeneralAlgebraicKTheory:K.7/invariance-products-and-colimits",
+      "reason": "Product and filtered-colimit compatibility are the elementary properties (8)–(12) of Quillen's K-groups.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "§2 (8)–(12), LNM pp. 103–104"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4/relative-S-construction-fibration-and-delooping",
+      "target": "GeneralAlgebraicKTheory:K.7/biexact-pairings-and-products",
+      "reason": "Waldhausen's pairing lands in |wwS.S.C| and becomes a K-theory pairing through the delooping |wS.C| ≃ Ω|wS.S.C|.",
+      "sources": [{"sourceId": "Waldhausen-KTheoryOfSpaces-1985", "locator": "Pairings paragraph, p. 342"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q",
+      "target": "KTheoryLowDegrees:U.6",
+      "reason": "Supplies the identification of K₁(A) = π₂BQP(A) with π₁ of K₀(A) × BGL(A)⁺, and Exercise 7.9 identifies the class of an automorphism α in π₂BQA with its class in K₁(iso A); U.6 needs this to compare a loop represented by a matrix with its explicit quotient class.",
+      "sources": [{"sourceId": "Weibel-KBook-IV", "locator": "Corollary 7.2 and Exercise 7.9, pp. IV.62, IV.65"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.3/abelian-localization-theorem",
+      "target": "ArithmeticKTheory:N.2",
+      "reason": "Supplies the localization sequence ⋯ → ⊕_m K_i(A/m) → K_iA → K_iF → ⊕_m K_{i−1}(A/m) → ⋯ for a Dedekind domain with its maps identified (transfers and the map induced by A → F); N.2 applies it to O_{F,S} and proves the additional finite-support and injectivity statements itself.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "Theorem 5 and Corollary, LNM p. 113"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.3/resolution-theorem",
+      "target": "ArithmeticKTheory:N.2",
+      "reason": "N.2's sequence uses K_n(O_{F,S}) rather than G-theory; the identification K_i ≅ K′_i for the regular ring O_{F,S} is the resolution theorem's Corollary 2.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "§4 Corollary 2, LNM p. 110"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.3/devissage-theorem",
+      "target": "ArithmeticKTheory:N.2",
+      "reason": "The finite-support term ⊕K_n(k(p)) arises from dévissage for finite-length torsion modules (Theorem 4 Corollary 1).",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "§5 Theorem 4 Corollary 1, LNM pp. 112–113"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.3/resolution-theorem",
+      "target": "ArithmeticKTheory:N.1",
+      "reason": "Supplies the K-theory transfer f_* for finite maps with the functoriality (gf)_* = f_*g_* and the projection formula; N.1 compares norms of ideals with this transfer.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "§4 'Transfer maps', (3)–(5), LNM p. 111"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.3/abelian-localization-theorem",
+      "target": "K2SymbolsBrauer:T.3:localization-comparison",
+      "reason": "Supplies the localization long exact sequence and its natural boundary maps (with the degree-one boundary formula ∂[α] = [coker α] − [ker α]); T.3 identifies the degree-two boundary with the tame symbol and fixes the sign.",
+      "sources": [{"sourceId": "Weibel-KBook-V", "locator": "Theorem 5.1 and Exercise 5.1, pp. V.35–38"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.3/abelian-localization-theorem",
+      "target": "K2SymbolsBrauer:T.5",
+      "reason": "Supplies the exact sequence ⊕K₂(k(p)) → K₂(O_F) → K₂(F) → ⊕K₁(k(p)) → K₁(O_F) used to identify K₂(O_F) with the tame kernel; T.5 adds the vanishing of K₂ of finite fields for injectivity.",
+      "sources": [{"sourceId": "Quillen-HigherK-I-1973", "locator": "Corollary to Theorem 5, LNM p. 113"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.5/relative-K-theory-and-excision-boundary",
+      "target": "K2SymbolsBrauer:T.6",
+      "reason": "Supplies relative groups K(R, I) = fib(K(R) → K(R/I)) with their exact sequence and identification of K₀, K₁; T.6 tests square-zero and nilpotent relative examples against Dennis–Stein symbols.",
+      "sources": [{"sourceId": "Weibel-KBook-IV", "locator": "1.11.1 and Exercise 1.15, pp. IV.8, IV.16"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.5/relative-K-theory-and-excision-boundary",
+      "target": "NoncommutativeAndEquivariantIwasawa:NE.2",
+      "reason": "Supplies relative K₀(f) for an arbitrary (noncommutative) ring map f with the exact sequence K₁(R) → K₁(R′) → K₀(f) → K₀(R) → K₀(R′); NE.2 applies it to Λ → Λ_S for the localization boundary and characteristic elements.",
+      "sources": [{"sourceId": "Weibel-KBook-IV", "locator": "Relative groups 1.11.1, p. IV.8"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance",
+      "target": "SchemeKTheoryOperations:S.3",
+      "reason": "Supplies the homotopy cartesian square and long exact sequence in all degrees for an exact sequence of Frobenius pairs; S.3 must still prove that perfect complexes with support give an exact sequence D_Z(X) → D(X) → D(U) up to direct factors (Thomason–Trobaugh, not supplied here).",
+      "sources": [{"sourceId": "Schlichting-NegativeK-2003", "locator": "Theorem 11.10 and 5.10, pp. 13, 21–22"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.6/agreement-and-vanishing-of-negative-K",
+      "target": "SchemeKTheoryOperations:S.2",
+      "reason": "Supplies agreement of IK_i(X) with Thomason's K^B_i(X) for qcqs schemes and vanishing of negative G-theory of noetherian schemes; S.2 uses these when comparing K(X) and G(X) without asserting vanishing for singular schemes.",
+      "sources": [{"sourceId": "Schlichting-NegativeK-2003", "locator": "Theorem 7.1, Remark 7.3, Example 9.6, pp. 14–17"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.7/biexact-pairings-and-products",
+      "target": "K2SymbolsBrauer:T.2:graded-map",
+      "reason": "Supplies the bilinear products K_i ⊗ K_j → K_{i+j} and the graded ring structure on K_*(F) for a field; T.2:graded-map builds K^M_*(F) → K_*(F) from these products.",
+      "sources": [{"sourceId": "Weibel-KBook-IV", "locator": "(6.6.3) and Example 6.6.5, p. IV.57"}]
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.7/biexact-pairings-and-products",
+      "target": "SchemeKTheoryOperations:S.6",
+      "reason": "Supplies external products from biexact tensor products on VB(X) and the graded-commutative ring K_*(X) (with commutativity quoted); S.6 extends them to supports and relative theories.",
+      "sources": [{"sourceId": "Weibel-KBook-IV", "locator": "Example 6.6.5, p. IV.57"}]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "GeneralAlgebraicKTheory:K.1",
+      "status": "partial",
+      "remaining": [
+        "Naturality of the small-model transport in exact functors (Weibel IV Exercise 6.2 is stated as an exercise).",
+        "Declaration-level comparison of Quillen's axioms and K₀ with the pinned Tau Ceti ExactStructure and ExactK0 (unchecked).",
+        "Quillen's embedding of an exact category into left exact functors is sketched with details omitted."
+      ]
+    },
+    {
+      "stageId": "GeneralAlgebraicKTheory:K.2",
+      "status": "partial",
+      "remaining": [
+        "Aggregates K.2:plus (partial) and K.2:low-degree-comparisons (not source-decomposed)."
+      ]
+    },
+    {
+      "stageId": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons",
+      "status": "not_read",
+      "remaining": [
+        "The comparison of π₁, π₂, π₃ with the explicit U, T and V models has not been decomposed; inputs read elsewhere are Weibel IV Corollary 1.7.1 and Exercise 1.9 (StableHomotopyKTheory H.3 node) and Exercises 7.8–7.9.",
+        "Weibel chapter III (K₁, K₂, Matsumoto) and the supplier stages KTheoryLowDegrees:U.6, K2SymbolsBrauer:T.1:plus and K3BlochGroups:V.4 were not read for this stage."
+      ]
+    },
+    {
+      "stageId": "GeneralAlgebraicKTheory:K.2:plus",
+      "status": "partial",
+      "remaining": [
+        "Written proofs of Weibel IV Exercises 4.6, 4.7, 7.1–7.3 and 7.5 used in the + = Q proof.",
+        "Naturality of the comparison in ring maps and block sums; product agreement (Theorem 7.9) imports Waldhausen 1978 9.2.6 and Weibel 1981 4.3.",
+        "Cofinality statement that projectives have free complements is supplied by KTheoryLowDegrees:Z.1 (linked in the StableHomotopyKTheory packet)."
+      ]
+    },
+    {
+      "stageId": "GeneralAlgebraicKTheory:K.3",
+      "status": "partial",
+      "remaining": [
+        "Localization for exact (non-abelian) subcategories under additional hypotheses is not covered (only Serre subcategories of abelian categories and the Waldhausen/Schlichting versions).",
+        "Degree-zero alternating-resolution inverse compared with the existing K₀ resolution theorem (Weibel II, not re-read).",
+        "Gabriel's construction of the quotient abelian category A/B is imported (Quillen cites Gabriel 1962)."
+      ]
+    },
+    {
+      "stageId": "GeneralAlgebraicKTheory:K.4",
+      "status": "partial",
+      "remaining": [
+        "Waldhausen §1.6 proofs (fibration theorem 1.6.4 with Lemma 1.6.3, approximation Lemma 1.6.6 and Theorem 1.6.7) not read; Schlichting's appendix depends on them in part.",
+        "Waldhausen 1978 Lemma 5.2 (fibration criterion) and Exercise IV.8.10/3.11 (Theorem B for simplicial sets) not read.",
+        "Ordering issue: additivity and the relative fibration must precede StableHomotopyKTheory:H.5:S-delooping, while the atlas records K.4 as requiring H.5:S-delooping."
+      ]
+    },
+    {
+      "stageId": "GeneralAlgebraicKTheory:K.4:construction",
+      "status": "partial",
+      "remaining": [
+        "Waldhausen §1.1–1.2 (lemmas on filtered objects and the exactness of face maps) read only through Weibel; OCR of Waldhausen's pages is poor.",
+        "Proof of |iS.A| ≃ BQA (Waldhausen Appendix 1.9; Weibel IV Exercises 8.5–8.6) not read."
+      ]
+    },
+    {
+      "stageId": "GeneralAlgebraicKTheory:K.5",
+      "status": "partial",
+      "remaining": [
+        "Proofs of excision theorems (Suslin 1995; Suslin–Wodzicki 1992) and of K₁ excision iff I = I² (Weibel III) not read; no counterexample decomposed.",
+        "Unitization comparison for nonunital rings (K(Z ⊕ I, I)) beyond the quoted statements."
+      ]
+    },
+    {
+      "stageId": "GeneralAlgebraicKTheory:K.6",
+      "status": "partial",
+      "remaining": [
+        "Thomason's projective bundle theorem and Thomason–Trobaugh 6.6(b) (Bass fundamental theorem) behind agreement 7.1; Cárdenas–Pedersen for additive categories.",
+        "Fundamental theorem with Nil terms (Weibel V §8) and the Bass-spectrum route (Weibel IV §10 needs V.8.4) not read.",
+        "Balmer–Schlichting idempotent completion, Thomason's classification of dense subcategories, Keller's criteria, Neeman's localization results cited by Schlichting."
+      ]
+    },
+    {
+      "stageId": "GeneralAlgebraicKTheory:K.7",
+      "status": "partial",
+      "remaining": [
+        "Associativity, unit and symmetry homotopies of products and graded commutativity (Loday 1976; Gillet; Waldhausen 1978) not read.",
+        "Compatibility of products with relative groups, localization boundaries (Weibel V Exercise 5.3) and transfers beyond the projection formula."
+      ]
+    },
+    {
+      "stageId": "GeneralAlgebraicKTheory:KU-fundamental",
+      "status": "partial",
+      "remaining": [
+        "Aggregates K.3, K.4, K.5 and StableHomotopyKTheory:KU-homotopy; all partial."
+      ]
+    },
+    {
+      "stageId": "GeneralAlgebraicKTheory:KU-nonconnective",
+      "status": "partial",
+      "remaining": [
+        "Aggregates K.6, K.7, KU-fundamental and KU-pluscomparison; all partial."
+      ]
+    },
+    {
+      "stageId": "GeneralAlgebraicKTheory:KU-pluscomparison",
+      "status": "partial",
+      "remaining": [
+        "Aggregates K.2:plus (partial) with KTheoryLowDegrees:U.6, K2SymbolsBrauer:T.1:plus and StableHomotopyKTheory:KU-plus, which are outside this job or partial."
+      ]
+    },
+    {
+      "stageId": "GeneralAlgebraicKTheory:KU-qconstruction",
+      "status": "partial",
+      "remaining": [
+        "Aggregates K.1 (partial) with StableHomotopyKTheory:KU-existing and KU-homotopy."
+      ]
+    },
+    {
+      "stageId": "GeneralAlgebraicKTheory:KU-waldhausen",
+      "status": "partial",
+      "remaining": [
+        "Aggregates K.4 and StableHomotopyKTheory:H.5:S-delooping and KU-spectra; the ordering issue between additivity and delooping must be resolved first."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Additivity must precede the S.-delooping (atlas edge direction)",
+      "neededBy": ["GeneralAlgebraicKTheory:K.4", "StableHomotopyKTheory:H.5:S-delooping", "GeneralAlgebraicKTheory:K.4/relative-S-construction-fibration-and-delooping"],
+      "detail": "Waldhausen states that the additivity theorem is needed to prove that the S.-spectrum is an Ω-spectrum beyond its first term (§1.3, p. 330) and proves the delooping (Proposition 1.5.3) from Proposition 1.5.5, which uses additivity (§1.5). Weibel IV 8.5.5 likewise relies on V.1.7, proved from the extension theorem. The atlas edge StableHomotopyKTheory:H.5:S-delooping → GeneralAlgebraicKTheory:K.4 therefore cannot apply to K.4's additivity and delooping content; this packet links the K.4 additivity/fibration nodes into the H.5:S-delooping node instead. Next action: at integration, replace or reverse the stage-level edge, or move additivity into K.4:construction."
+    },
+    {
+      "title": "Waldhausen §1.6 and 1.9 proofs and the 1978 fibration criterion",
+      "neededBy": ["GeneralAlgebraicKTheory:K.4/waldhausen-localization-fibration-theorem", "GeneralAlgebraicKTheory:K.4/waldhausen-approximation-theorem", "GeneralAlgebraicKTheory:K.4:construction/iS-construction-versus-Q-construction", "GeneralAlgebraicKTheory:K.4/relative-S-construction-fibration-and-delooping"],
+      "detail": "Read: Weibel V Theorem 2.1 (complete proof) and Schlichting Appendix A (complete proofs that cite Waldhausen 1.6.3, 1.6.4 and 1.6.6). Not read: Waldhausen §1.6 (printed pp. 348–359), Appendix 1.9 (Q-construction comparison), and Waldhausen 1978 'Algebraic K-theory of generalized free products' Lemma 5.2. The scanned OCR of §1.6 is poor; next action is to render printed pp. 348–359 and 374–378 as images and read them."
+    },
+    {
+      "title": "Excision in algebraic K-theory",
+      "neededBy": ["GeneralAlgebraicKTheory:K.5/relative-K-theory-and-excision-boundary"],
+      "detail": "Only the statements quoted in Weibel IV 1.11.2 were read (Suslin's Tor criterion, Suslin–Wodzicki, K₁ excision iff I = I²). No proof or explicit counterexample was decomposed. Next action: acquire Suslin, 'Excision in the integral algebraic K-theory' (Proc. Steklov 1995) and Weibel chapter III §2 (in the library as Kbook.III)."
+    },
+    {
+      "title": "Imported inputs of Schlichting's negative K-theory",
+      "neededBy": ["GeneralAlgebraicKTheory:K.6/agreement-and-vanishing-of-negative-K", "GeneralAlgebraicKTheory:K.6/schlichting-set-up-and-negative-localization", "GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance"],
+      "detail": "Schlichting's own arguments were read in full, but agreement with Bass/Thomason uses Thomason 1993 (projective bundle) and Thomason–Trobaugh 6.6(b); Facts 1.2 use Balmer–Schlichting 2001, Thomason 1997 and SGA 5 VIII 3.1; Lemma 9.4 uses Keller's criteria; 11.15 translates Thomason–Trobaugh 1.9.8. Thomason–Trobaugh is in the library (sha256 4e9397e8…492f); next action is to read TT §§1.9, 1.11, 6.1–6.6."
+    },
+    {
+      "title": "Fundamental theorem with Nil terms",
+      "neededBy": ["GeneralAlgebraicKTheory:K.6"],
+      "detail": "The roadmap asks for the fundamental theorem K(R[t, t⁻¹]) with NK terms and Bass's negative groups; Weibel IV §10 constructs the Bass spectrum assuming V.6.2, V.8.2 and V.8.4, which were not read. Next action: read Weibel V §§6–8 (library copy) and Thomason–Trobaugh §6."
+    },
+    {
+      "title": "Coherence of products",
+      "neededBy": ["GeneralAlgebraicKTheory:K.7/biexact-pairings-and-products"],
+      "detail": "Associativity, unit and graded-commutativity homotopies and the spectrum-level pairing are quoted in Weibel IV 6.6.4–6.6.5 and Theorem 1.10 from Gillet, Loday and Waldhausen 1978; none was read. Next action: locate Waldhausen 1978 §9 and Loday 1976 or use Blumberg–Gepner–Tabuada multiplicative structures if an ∞-categorical route is adopted (EnhancedDerivedSheaves E5:abstract)."
+    },
+    {
+      "title": "Low-degree comparisons with the explicit K₁, K₂, K₃ models",
+      "neededBy": ["GeneralAlgebraicKTheory:K.2:low-degree-comparisons"],
+      "detail": "No source reading was done for this stage itself. The inputs are split across StableHomotopyKTheory H.3 (π₂BG⁺ ≅ H₂(P), K₃ ≅ H₃(St)) and the + = Q node here; the explicit models live in EXT-18 roadmaps. Next action: after those packets exist, decompose the combination with Weibel chapter III."
+    }
+  ]
+}

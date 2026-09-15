@@ -1,0 +1,1435 @@
+{
+ "roadmapId": "GeometricSatakeAndFusion",
+ "status": "partial",
+ "summary": "Source decomposition of geometric Satake over the Fargues-Fontaine curve from Fargues-Scholze Chapter VI read directly (VI.1-VI.4, VI.6-VI.12, with VI.5 at statement level), together with Bhatt-Scholze's projectivity theorem for the Witt vector affine Grassmannian and Keel's semiampleness criterion for the positive-characteristic input it rests on. The decomposition follows the roadmap's ordering constraints and verifies them against the source: the open-cell smoothness of l-dimension <2rho,mu> (VI.2.4) is the same statement as the Bun_G chart input IV.1.18, whose proof Fargues-Scholze explicitly defer to VI.2.4, so GS0:Schubert-smoothness genuinely precedes Satake; the congruence bound of VI.2.8 is stated in terms of the weights of sum_j mu_j on Lie G and is what licenses the finite-dimensional truncation used inside the proof of the ULA criterion VI.6.4; convolution is constructed on ambient bounded sheaves first (VI.8.1(i),(ii)) and only closed on the Satake category after fusion (VI.8.1(iii), VI.8.2); fusion is built from the disjoint-leg full faithfulness VI.9.3 with the Koszul sign rule pinned down by the deg-shift in the fibre functor; and the decomposition-theorem input appears exactly once, in the last clause of VI.7.5, which Fargues-Scholze annotate as 'ultimately makes use of the decomposition theorem (and thus requires the degeneration to the Witt vector affine Grassmannian)'. The Witt-side stage is decomposed from Bhatt-Scholze's actual argument - h-descent plus the fibral criterion 6.8 to descend the Demazure line bundle, then Keel's Theorem 1.9 with Lemmas 1.7-1.8 applied to an h-cover because Keel needs projectivity - and the source's own admission that no direct section-theoretic construction is available is recorded. GS4:classical-Satake-comparison is marked not_read: no passage in FS Chapter VI covers it.",
+ "sources": [
+  {
+   "id": "FS-geometrization",
+   "title": "Geometrization of the local Langlands correspondence",
+   "authors": "Laurent Fargues, Peter Scholze",
+   "edition": "Author-hosted 356-page PDF (MPIM Bonn), inspected 2026-09-15; corresponds to arXiv:2102.13459v4 by metadata and contents, not by byte comparison. PDF page = printed page.",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+   "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+   "readSections": [
+    "VI.0 introduction, printed pp. 187-190 (Thm. VI.0.1 context, Thm. VI.0.2, Prop. VI.0.3)",
+    "VI.1, printed pp. 190-196 (Def. VI.1.1 - Lemma VI.1.13, with the proofs of VI.1.2, VI.1.4, VI.1.7, VI.1.11, VI.1.12)",
+    "VI.2, printed pp. 196-201 (Cartan decomposition, Rem. VI.2.1, Def. VI.2.2, Prop. VI.2.3, Prop. VI.2.4 with proof, Prop. VI.2.7, Prop. VI.2.8 with proof)",
+    "VI.3, printed pp. 201-207 (Prop. VI.3.1, Cor. VI.3.5, Prop. VI.3.7 with the start of its proof, Cor. VI.3.8)",
+    "VI.4, printed pp. 207-209 (Prop. VI.4.1, Prop. VI.4.2 with proof)",
+    "VI.5, printed pp. 209-211 (Def. VI.5.1, Prop. VI.5.2, Prop. VI.5.3, Def. VI.5.4, Thm. VI.5.5, Def. VI.5.6, Prop. VI.5.7)",
+    "VI.6, printed pp. 211-215 (Def. VI.6.1, Prop. VI.6.2 with proof, Lemma VI.6.3, Prop. VI.6.4 with proof, Prop. VI.6.5 with proof, Cor. VI.6.6, Cor. VI.6.7, Prop. VI.6.8)",
+    "VI.7, printed pp. 215-224 (Def./Prop. VI.7.1 with proof, Prop. VI.7.2 with proof, Lemma VI.7.3, Prop. VI.7.4, Prop. VI.7.5 with proof, Cor. VI.7.6, Prop. VI.7.7, Def. VI.7.8, Prop. VI.7.9, Def./Prop. VI.7.10, Prop. VI.7.12, Prop. VI.7.13)",
+    "VI.8, printed pp. 224-226 (the 2-category remark, Prop. VI.8.1 with proof, Prop. VI.8.2 with proof, Rem. VI.8.3)",
+    "VI.9, printed pp. 226-230 (Def. VI.9.1, Prop. VI.9.2, Prop. VI.9.3 with proof, the even/odd sign discussion, Def./Prop. VI.9.4, Cor. VI.9.5 with proof, Prop. VI.9.6 with proof)",
+    "VI.10, printed pp. 230-231 (Prop. VI.10.1 with the start of its proof, Prop. VI.10.2, Prop. VI.10.3)",
+    "VI.11, printed pp. 235-239 (Thm. VI.11.1 with the torus and generic-fibre steps, Lemmas VI.11.2, VI.11.3, VI.11.4)",
+    "VI.12, printed p. 239 (Prop. VI.12.1, Rem. VI.12.2)",
+    "IV.1.2.1, printed p. 112 (Prop. IV.1.18 and its deferral to Prop. VI.2.4)"
+   ]
+  },
+  {
+   "id": "BS17-witt-grassmannian",
+   "title": "Projectivity of the Witt vector affine Grassmannian",
+   "authors": "Bhargav Bhatt, Peter Scholze",
+   "edition": "arXiv:1507.06490v3 [math.AG], 21 February 2017 (published Invent. Math. 209 (2017)); library PDF, printed page = PDF page",
+   "url": "https://arxiv.org/abs/1507.06490",
+   "sha256": "b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e",
+   "readSections": [
+    "1.1-1.3 Introduction, Theorems 1.1, 1.2, 1.3, Remark 1.4 and the outline, printed pp. 1-3",
+    "Theorem 6.8 with proof and Remark 6.12 context, printed p. 23",
+    "8.1 Statements: Definition 8.1, Theorem 8.2 (Zhu), Theorem 8.3 and the strategy paragraph, printed p. 32",
+    "8.2-8.3 headers and 8.4 Proof of Theorem 8.3 with the Keel application, printed pp. 32-35"
+   ]
+  },
+  {
+   "id": "Keel99-basepoint",
+   "title": "Basepoint freeness for nef and big line bundles in positive characteristic",
+   "authors": "Sean Keel",
+   "edition": "Annals of Mathematics 149 (1999), 253-286; library copy is arXiv:math/9901149v1 (1 January 1999) with the Annals pagination printed. Printed page = PDF page + 252.",
+   "url": "https://arxiv.org/abs/math/9901149",
+   "sha256": "2ec4141aea36ad77e5b504f01617ffbbe17de0af27f8b2c5f4a1f4ee6afde398",
+   "readSections": [
+    "Abstract and 0.0 Definition-Lemma, 0.1 Definition, 0.2 Theorem, 0.3 Corollary, printed pp. 253-254",
+    "1.7 Lemma with proof, 1.8 Lemma with sketch, 1.9 Theorem with proof, printed pp. 262-263"
+   ]
+  },
+  {
+   "id": "SW20-berkeley",
+   "title": "Berkeley Lectures on p-adic Geometry",
+   "authors": "Peter Scholze, Jared Weinstein",
+   "edition": "Annals of Mathematics Studies 207; PDF dated 'March 27, 2020'. Printed page = PDF page - 10.",
+   "url": "https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf",
+   "sha256": "225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc",
+   "readSections": [
+    "Propositions 19.1.2, 19.5.2, 19.5.3 (read for the RelativeFarguesFontaine packet and reused here as cited inputs); Propositions 19.4.2, 20.3.6, 20.5.4 located by citation only and NOT read"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "GeometricSatakeAndFusion:GS0:loop-geometry/loop-groups-and-local-hecke",
+   "parentStageId": "GeometricSatakeAndFusion:GS0:loop-geometry",
+   "title": "FS VI.1.5-VI.1.9: loop groups, the local Hecke stack and the Beilinson-Drinfeld Grassmannian",
+   "kind": "construction",
+   "statement": "For Z an AFFINE scheme over O_E, define L^+_{Div^d_Y-curly} Z(S) = Z(B^+_{Div^d_Y-curly}(S)) and L_{Div^d}Z(S) = Z(B_{Div^d}(S)); similarly over E and over X. For G reductive, the local Hecke stack Hck_{G,Div^d} sends an affinoid perfectoid S -> Div^d (with D_S affinoid) to pairs of G-bundles E_1, E_2 on Spec B^+ with an isomorphism over Spec B; the Beilinson-Drinfeld Grassmannian Gr_{G,Div^d} sends S to a G-bundle on Spec B^+ with a trivialization over Spec B. Both are small v-stacks/v-sheaves, and as ETALE stacks/sheaves over Div^d one has Hck = (L^+G) \\ (LG) / (L^+G) and Gr = (LG)/(L^+G).",
+   "hypotheses": [
+    "Z must be AFFINE for L^+Z and LZ to be v-sheaves; Fargues-Scholze say affinity is what allows the reduction to the v-sheaf property of the structure sheaf, and explicitly do not pursue the general case",
+    "In the Div^d_X case the functors are defined only on the full subcategory of affinoid perfectoid S -> Div^d_X for which D_S is affinoid; this is a BASIS, not all of them",
+    "G-bundles are taken in the algebraic sense on the spectrum of the ring, and in Tannakian terms as exact tensor functors from Rep_E G to vector bundles",
+    "The quotient presentations are as ETALE stacks/sheaves, obtained after etale-local trivialization; they are not v-stack presentations",
+    "G is REDUCTIVE over O_E (resp. E); the roadmap's warning applies - a ramified group has no reductive integral O_E-model, so the integral statements are for split (or unramified) models after the splitting extension"
+   ],
+   "proofSteps": [
+    "Define loop and positive loop spaces from the completed rings B^+ and B of RF2.",
+    "For the v-stack property: vector bundles over B^+ satisfy v-descent by checking modulo powers of I_S and applying Proposition VI.1.4; by Tannaka, G-bundles do too; the isomorphism over B is a section of an affine scheme, which again satisfies v-descent. Smallness follows as in Proposition III.1.3.",
+    "For the presentation: any G-bundle over B^+(S) is etale-locally trivial - at a geometric point B^+ is a product of complete discrete valuation rings with algebraically closed residue field so all torsors are trivial, and in general triviality modulo I_S lifts along nilpotent thickenings (with [GR03, Prop. 5.4.21] for the spreading step).",
+    "Trivializing E_1 and E_2 etale-locally produces the double-quotient presentation."
+   ],
+   "acceptance": [
+    "Check that the presentation is as etale stacks, by exhibiting a v-locally but not etale-locally trivial situation if one exists",
+    "Check that the definition on Div^d_X really only uses a basis of affinoid-divisor loci",
+    "Check the Tannakian formulation against a faithful representation of G"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition VI.1.5 and the remark after it, printed p. 192",
+     "excerpt": "Let Z be an affine scheme over O_E. The positive loop space L^+_{Div^d_Y-curly} Z (resp. loop space L_{Div^d_Y-curly} Z) of Z is the v-sheaf over Div^d_Y-curly given by S -> Z(B^+_{Div^d_Y-curly}(S)) (resp. S -> Z(B_{Div^d_Y-curly}(S))). ... We note that we use affinity of Z to see that these are actually v-sheaves.",
+     "match": "The construction with its affineness hypothesis made explicit."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.1.7, printed p. 193",
+     "excerpt": "The local Hecke stack Hck_{G,Div^d} is a small v-stack. There is a natural isomorphism of etale stacks over Div^d_Y-curly: Hck_{G,Div^d} = (L^+ G) \\ (L G) / (L^+ G).",
+     "match": "The torsor interpretation, stated for the ETALE topology as the stage text requires."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition VI.1.6, printed p. 193",
+     "excerpt": "Also note that in the case of Div^d_X, the local Hecke functor is only defined on a certain full subcategory of affinoid perfectoid S -> Div^d_X, namely those where D_S is affinoid; but any S -> Div^d_X admits an open cover by such by Proposition VI.1.2, so we have still defined the functor on a basis.",
+     "match": "The scope caveat for the X-case."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS0:loop-geometry/congruence-filtration-and-graded-pieces",
+   "parentStageId": "GeometricSatakeAndFusion:GS0:loop-geometry",
+   "title": "FS VI.1.10-VI.1.12: principal congruence subgroups, their graded pieces, and cohomological smoothness",
+   "kind": "theorem",
+   "statement": "L^+_{Div^d} G carries the filtration by principal congruence subgroups (L^+ G)^{>=m} = ker(G(B^+) -> G(B^+/I_S^m)). For d = 1, L^+G/(L^+G)^{>=1} = G^diamond and (L^+G)^{>=m}/(L^+G)^{>=m+1} = (Lie G)^diamond{m}, a Breuil-Kisin twist by I_S^m/I_S^{m+1}. For general d, (L^+G)^{>=m}/(L^+G)^{>=m+1} sends S -> Div^d_Y-curly to (Lie G tensor_{O_E} I_S^m/I_S^{m+1})(S), where I_S^m/I_S^{m+1} is a LINE BUNDLE on D_S; this is representable in locally spatial diamonds, partially proper, and cohomologically smooth of l-dimension d times dim G. Moreover L^+G/(L^+G)^{>=1} -> Div^d_Y-curly parametrizes maps D_S -> G, and for any quasiprojective SMOOTH Z over O_E the sheaf T_Z of maps D_S -> Z is representable in locally spatial diamonds, partially proper and cohomologically smooth of l-dimension d dim Z.",
+   "hypotheses": [
+    "The identification of the graded pieces uses the EXPONENTIAL, hence needs the congruence level m >= 1",
+    "I_S^m/I_S^{m+1} is a line bundle on D_S and need not be trivial; the twist {m} is the Breuil-Kisin twist by it",
+    "For the filtration argument one pulls back along the QUASI-PRO-ETALE SURJECTIVE map (Div^1_Y-curly)^d -> Div^d_Y-curly, where d ideal sheaves I_1,...,I_d are available and O_{D_S} is filtered by O/I_1, I_1/I_1 I_2, ..., I_1...I_{d-1}/I_1...I_d, each isomorphic to O_{S_i^sharp} after pullback to an affinoid perfectoid S",
+    "Z must be QUASIPROJECTIVE and SMOOTH over O_E for the T_Z statement; the proof starts from affine space and propagates along separated etale maps, using Lemma VI.1.13 to see that T_{Z'} -> T_Z is separated etale"
+   ],
+   "proofSteps": [
+    "Define the congruence filtration by the kernels of reduction modulo I_S^m.",
+    "For d = 1: the m = 0 quotient is G^diamond by definition; the higher graded pieces come from the exponential.",
+    "For general d and m >= 1: the exponential identifies the graded piece with Lie G tensor I_S^m/I_S^{m+1}; representability, partial properness and cohomological smoothness are checked after pullback along (Div^1_Y-curly)^d -> Div^d_Y-curly using the filtration of O_{D_S} by the partial products of the ideals, each subquotient being O_{S_i^sharp}.",
+    "For T_Z: the affine-space case is the previous step; separated etale Z' -> Z gives separated etale T_{Z'} -> T_Z by Lemma VI.1.13; every geometric point of T_Z has finite image so T_Z is covered by T_{Z'} for affine Z', and affine Z admitting etale maps to A^d_{O_E} reduce to the affine-space case."
+   ],
+   "acceptance": [
+    "Check the d = 2 case at coincident legs, where the filtration of O_{D_S} still has O_{S_i^sharp} subquotients",
+    "Check that the Breuil-Kisin twist is nontrivial on a base where I_S^m/I_S^{m+1} is not free",
+    "Check cohomological smoothness of L^+G/(L^+G)^{>=1} -> Div^d via T_G"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.1.11, printed p. 195",
+     "excerpt": "sends a perfectoid space S -> Div^d_Y-curly with corresponding Cartier divisor D_S in Y-curly_S with ideal sheaf I_S to (Lie G tensor_{O_E} I_S^m/I_S^{m+1})(S) where I_S^m/I_S^{m+1} is a line bundle on D_S. This is representable in locally spatial diamonds, partially proper, and cohomologically smooth of l-dimension equal to d times the dimension of G.",
+     "match": "Exact statement of the graded pieces with the line-bundle caveat."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.1.11, printed p. 195",
+     "excerpt": "For this in turn, note that over (Div^1_Y-curly)^d, we have d ideal sheaves I_1, ..., I_d, and one can filter O_{D_S} by O_{D_S}/I_1, I_1/I_1 I_2, ..., I_1 ... I_{d-1}/I_1 ... I_d, each of which is, after pullback to an affinoid perfectoid space S, isomorphic to O_{S_i^sharp}.",
+     "match": "The explicit filtration that handles coincident legs."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.1.12, printed p. 195",
+     "excerpt": "For any quasiprojective smooth scheme Z over O_E, the sheaf T_Z -> Div^d_Y-curly taking a perfectoid S over Div^d_Y-curly to maps D_S -> Z (of locally ringed spaces) is representable in locally spatial diamonds, partially proper, and cohomologically smooth over Div^d_Y-curly of l-dimension equal to d times the dimension of Z.",
+     "match": "The statement with its quasiprojectivity and smoothness hypotheses."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness",
+   "parentStageId": "GeometricSatakeAndFusion:GS0:loop-geometry",
+   "title": "FS VI.2.2-VI.2.7: bounded relative position, closedness, ind-presentation and properness of Schubert diamonds",
+   "kind": "theorem",
+   "statement": "Assume G split over O_E with T in B in G. By the Cartan decomposition over a geometric point, Hck_{G,Div^1_Y-curly}(S)/iso = X_*(T)^+. For mu dominant, Hck_{G,Div^1,<=mu} is the subfunctor of points whose relative position at every geometric point is some mu' <= mu in the dominance order; it is a CLOSED subfunctor, Hck_{G,Div^1} = colim_mu Hck_{G,Div^1,<=mu}, and Gr_{G,Div^1,<=mu} -> Div^1_Y-curly is proper and representable in spatial diamonds. For several legs and mu_bullet, Hck_{G,Div^d,<=mu_bullet} is closed and Gr_{G,Div^d,<=mu_bullet} -> Div^d_Y-curly is proper, representable in spatial diamonds and of finite dim.trg.",
+   "hypotheses": [
+    "G is assumed SPLIT over O_E in this section; a general G is handled by a finite etale extension of O_E resp. E, and the results are then 'useful in the general case' by descent, not by a reductive integral model for a ramified group",
+    "The whole of Y-curly is used, so the Cartier divisor pi = 0 is INCLUDED; at that divisor C^sharp = C and B^+_dR(C^sharp) = W_{O_E}(C) - this is the special fibre the roadmap insists on retaining",
+    "The index category of the mu is a disjoint union over pi_1(G) of filtered partially ordered sets, not a single filtered poset",
+    "Surjectivity of the colimit uses that for quasicompact S only finitely many strata are met, since the meromorphic isomorphism of G-bundles has bounded poles, together with separatedness of Gr -> Div^1 and properness of Gr_{<=mu} -> Div^1",
+    "The properness and representability statements themselves are quoted from SW20 Propositions 20.3.6 and 20.5.4, which were NOT read"
+   ],
+   "proofSteps": [
+    "Over a geometric point S = Spa(C,C^+) of Div^1_Y-curly = Spd O_E with untilt C^sharp, the ring B^+_dR(C^sharp) is a complete discrete valuation ring with residue field C^sharp and uniformizer xi, so the Cartan decomposition gives Hck(S)/iso = X_*(T)^+.",
+    "Define the bounded subfunctors by the pointwise dominance condition; closedness and the ind-presentation are SW20 20.3.6, checked after passing to Gr, which is a v-cover of Hck.",
+    "The colimit statement is proved by the boundedness-of-poles argument plus the v-cover assembled from the proper Gr_{<=mu}.",
+    "For several legs, pull back to (Div^1_Y-curly)^d and quote SW20 20.5.4."
+   ],
+   "acceptance": [
+    "Check the pi = 0 divisor case, where B^+_dR(C^sharp) = W_{O_E}(C), against the roadmap's requirement to keep the characteristic-p fibre",
+    "Check the dominance-order closure relations on GL_2 with a nonminuscule mu",
+    "Check that the index poset is a disjoint union over pi_1(G) of filtered posets"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Remark VI.2.1, printed p. 197",
+     "excerpt": "Since we work over Y-curly and do not restrict ourselves to Y, we include the case of the Cartier divisor pi = 0. For this divisor, C^sharp = C and B^+_dR(C^sharp) = W_{O_E}(C).",
+     "match": "Confirms that the integral divisor space retains the ramified Witt special fibre, which the roadmap identifies as the supplier of the Satake degeneration."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.2.3 and proof, printed p. 197",
+     "excerpt": "For surjectivity, note that for any quasicompact S with a map S -> Gr_{G,Div^1_Y-curly}, only finitely many strata can be met, as the meromorphic isomorphism of G-bundles necessarily has bounded poles.",
+     "match": "The finiteness argument behind the ind-presentation."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.2.7 and proof, printed p. 201",
+     "excerpt": "The map Gr_{G,Div^d,<=mu_bullet} -> Div^d_Y-curly is proper, representable in spatial diamonds, and of finite dim. trg. Proof. This can be checked after pullback to (Div^1_Y-curly)^d. Then it follows from [SW20, Proposition 20.5.4].",
+     "match": "The multi-leg properness with its imported source, which is an unread boundary."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness",
+   "parentStageId": "GeometricSatakeAndFusion:GS0:Schubert-smoothness",
+   "title": "FS VI.2.4 (= IV.1.18): the open Schubert cell is cohomologically smooth of l-dimension <2rho,mu>",
+   "kind": "theorem",
+   "statement": "The section [mu] : Div^1_Y-curly -> Hck_{G,Div^1,mu} given by mu(xi) for a local generator xi of I_S is a v-cover, giving Hck_{G,Div^1,mu} = [Div^1/(L^+G)_mu] where (L^+G)_mu is the closed stabilizer of [mu]. Its congruence quotients are (L^+G)_mu/(L^+G)^{>=1}_mu = (P_mu^-)^diamond inside L^+G/(L^+G)^{>=1} = G^diamond, and (L^+G)_mu^{>=m}/(L^+G)_mu^{>=m+1} = (Lie G)^diamond_{mu <= m}{m}, where P_mu^- is the parabolic with Lie algebra (Lie G)_{mu<=0} and (Lie G)_{mu<=m} is the weight-<=m part for the adjoint mu-action. Consequently Gr_{G,Div^1,mu} = L^+G/(L^+G)_mu is cohomologically smooth of l-dimension <2rho,mu> over Div^1_Y-curly.",
+   "hypotheses": [
+    "[mu] is independent of the choice of local generator xi only up to the action of L^+G",
+    "The l-dimension is <2rho,mu> with the standard half-sum-of-positive-roots normalization",
+    "The GL_n case is proved by an explicit lattice computation using [SW20, Proposition 19.4.2] to see that the filtration steps Fil^i_Xi (R^sharp)^n are finite projective of rank the multiplicity of -i among k_1,...,k_n; SW20 19.4.2 was NOT read",
+    "The general case is reduced to GL_n; Fargues-Scholze use this to prove Proposition IV.1.18, which is stated in Chapter IV with the proof deferred to here"
+   ],
+   "proofSteps": [
+    "Show [mu] is surjective on geometric points: for GL_n and S = Spa(R,R^+) with untilt S^sharp, localize so that the Fil^i_Xi (R^sharp)^n are free, choose a compatible basis e_1,...,e_n, lift to f_j and set g_j = xi^{k_j} f_j; then the f_j form a B_dR-basis and the g_j a B^+_dR-basis of Xi, moving Xi to the standard lattice xi^{k_1}B^+_dR + ... + xi^{k_n}B^+_dR.",
+    "Compute the stabilizer: matrices A with A_{ij} in xi^{k_i - k_j} B^+ for i < j; this gives the identification of the first congruence quotient with (P_mu^-)^diamond and of the higher ones with the weight-truncated Lie algebra.",
+    "Deduce cohomological smoothness of L^+G/(L^+G)_mu of l-dimension <2rho,mu> from the graded-piece computation of Propositions VI.1.10-VI.1.12."
+   ],
+   "acceptance": [
+    "Check <2rho,mu> for a minuscule mu of GL_2 (should be 1)",
+    "Check the parabolic P_mu^- appearing at level 1 for a nonminuscule mu",
+    "Check that the section [mu] is independent of xi only up to L^+G"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.2.4, printed pp. 198-199",
+     "excerpt": "In particular, Gr_{G,Div^1_Y-curly,mu} = L^+_{Div^1}G/(L^+_{Div^1}G)_mu is cohomologically smooth of l-dimension <2rho,mu> over Div^1_Y-curly.",
+     "match": "The exact smoothness and dimension statement, which is the stage's deliverable to BG2."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.2.4, printed p. 198",
+     "excerpt": "(L^+G)_mu/(L^+G)^{>=1}_mu = (P_mu^-)^diamond in L^+G/(L^+G)^{>=1} = G^diamond and (L^+G)^{>=m}_mu/(L^+G)^{>=m+1}_mu = (Lie G)^diamond_{mu<=m}{m}, where P_mu^- in G is the parabolic with Lie algebra (Lie G)_{mu<=0}, and (Lie G)_{mu<=m} in Lie G is the subspace on which mu acts via weights <= m via the adjoint action.",
+     "match": "The parabolic-flag base and unipotent-fibre description the stage text asks for."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition IV.1.18 and the sentence after it, printed p. 112",
+     "excerpt": "For any mu in X_*(T)^+, the open Schubert cell Gr_{G,mu}/Spd E' is cohomologically smooth of l-dimension <2rho,mu>. We defer the proof to Proposition VI.2.4 as we do not want to make a digression on Gr_G here.",
+     "match": "Confirms that IV.1.18 and VI.2.4 are the same statement, so the Bun_G chart really consumes this stage."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncation-of-the-loop-action",
+   "parentStageId": "GeometricSatakeAndFusion:GS0:Schubert-smoothness",
+   "title": "FS VI.2.8: the loop action on a bounded locus factors through a finite truncation, with an explicit congruence bound",
+   "kind": "lemma",
+   "statement": "For mu_bullet = (mu_j)_{j in J}, the action of L^+_{Div^d}G on Gr_{G,Div^d,<=mu_bullet} factors over (L^+G)^{<m} = L^+G/(L^+G)^{>=m}, where m is chosen so that for mu = sum_j mu_j all weights of mu on Lie G are <= m.",
+   "hypotheses": [
+    "The bound m is determined by the WEIGHTS OF mu = sum_j mu_j ON Lie G under the adjoint action, not by the cocharacter's pairing with 2rho",
+    "The verification is on geometric points, legitimate because everything is separated",
+    "The reduction to d = 1 is by a decomposition into products at a geometric point"
+   ],
+   "proofSteps": [
+    "Show that (L^+G)^{>=m} acts trivially; since everything is separated this may be checked on geometric points.",
+    "At a geometric point decompose into products to reduce to d = 1.",
+    "Apply Proposition VI.2.4, whose congruence description (L^+G)^{>=m}_mu/(L^+G)^{>=m+1}_mu = (Lie G)_{mu<=m}{m} shows that (L^+G)^{>=m} is contained in the stabilizer once all weights of mu on Lie G are <= m."
+   ],
+   "acceptance": [
+    "Compute the bound m explicitly for GL_2 and mu = (1,0), and for a nonminuscule mu",
+    "Check that the truncated group (L^+G)^{<m} is a finite-dimensional-type object as needed to be in the Artin-stack setting",
+    "Check that the bound depends on sum_j mu_j and not on the individual mu_j"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.2.8 and proof, printed p. 201",
+     "excerpt": "For any mu_bullet = (mu_j)_{j in J} as above, the action of L^+_{Div^d_Y-curly} G on Gr_{G,Div^d,<=mu_bullet} factors over (L^+_{Div^d}G)^{<m} where m is chosen so that for mu = sum_{j in J} mu_j, all weights of mu on Lie G are <= m.",
+     "match": "Exact statement including the explicit congruence bound the stage text demands."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS0:Witt-geometry/witt-lattice-functor-and-representability",
+   "parentStageId": "GeometricSatakeAndFusion:GS0:Witt-geometry",
+   "title": "Bhatt-Scholze Theorem 8.3 (= Theorem 1.1): the Witt vector affine Grassmannian is an ind-(perfection of a projective variety)",
+   "kind": "theorem",
+   "statement": "For a sequence lambda = (lambda_1,...,lambda_n,0,...) of non-negative integers, let Gr_{<=lambda} be the functor on perfect F_p-algebras sending X in Perf to the set of finite projective W(O_X)-submodules E in W(O_X)^n such that the inclusion is an isogeny and the cokernel Q has type <= lambda. Then Gr_{<=lambda} is representable by a PROPER PERFECTLY FINITELY PRESENTED F_p-scheme carrying a natural AMPLE line bundle L; in particular it is the perfection of a projective F_p-scheme, and the whole Gr^{W}_{aff} is an inductive limit of perfections of projective varieties.",
+   "hypotheses": [
+    "R must be PERFECT: for a general F_p-algebra W(R) may have p-torsion and W(R)/p -> R may fail to be an isomorphism; for perfect R, W(R) is the unique p-adically complete flat Z_p-algebra lifting R",
+    "A perfectly finitely presented scheme is NOT finite type; Bhatt-Scholze note it is an open question whether a natural finite-type structure exists beyond the minuscule cells, which are canonically perfections of classical Grassmannians",
+    "Gr_{<=lambda} is a v-sheaf by their Theorem 4.1 and Corollary 4.4; Gr_lambda = Gr_{<=lambda} minus the union of Gr_{<=mu} for mu < lambda is open, and Gr_{<=mu} is a closed immersion for mu <= lambda (Lemma 7.9)",
+    "Their proof is INDEPENDENT of Zhu's Theorem 8.2 (representability by the perfection of a proper algebraic space)"
+   ],
+   "proofSteps": [
+    "Construct the line bundle L on Gr_{<=lambda}. Two constructions are given: a K-theoretic one, extending det : K(R) -> Pic^Z(R) along alpha : K(R) -> K(W(R) on R) using de Jong's alterations and h-descent for line bundles; and a geometric one on the Demazure resolution parametrizing filtrations of p^a W(R)^n/M with finite projective graded pieces.",
+    "Prove L is ample by induction on lambda, using Keel's semiampleness criterion applied to an h-cover (Keel applies only to projective schemes, so it is applied to the Demazure resolution, not to Gr_{<=lambda} directly).",
+    "Conclude representability by a proper perfectly finitely presented scheme with an ample line bundle, hence the perfection of a projective variety."
+   ],
+   "acceptance": [
+    "Check the minuscule cells against perfections of classical Grassmannians",
+    "Check that the K-theoretic construction of L is optional, as the roadmap requires the geometric route",
+    "Check the type-<=lambda condition and the closed/open stratification"
+   ],
+   "sources": [
+    {
+     "sourceId": "BS17-witt-grassmannian",
+     "locator": "Theorem 8.3 and the paragraph after it, printed p. 32",
+     "excerpt": "The functor Gr_{<=lambda} is representable by a proper perfectly finitely presented F_p-scheme, and there is a natural ample line bundle L in Pic(Gr_{<=lambda}). In particular, Gr_{<=lambda} is the perfection of a projective F_p-scheme. ... Our proof of Theorem 8.3 is independent of Theorem 8.2.",
+     "match": "Exact statement and the independence from Zhu's earlier result."
+    },
+    {
+     "sourceId": "BS17-witt-grassmannian",
+     "locator": "1.2 Introduction, printed p. 2",
+     "excerpt": "The primary issue is that for a general F_p-algebra R, its ring of Witt vectors W(R) is pathological: it may contain p-torsion, and the natural map W(R)/p -> R may not be an isomorphism. However, if R is perfect ... W(R) may be characterized as the unique (up to unique isomorphism) p-adically complete flat Z_p-algebra lifting R.",
+     "match": "Records why the perfect hypothesis is essential, and connects to the same characterisation used for W_{O_E} in RF0."
+    },
+    {
+     "sourceId": "BS17-witt-grassmannian",
+     "locator": "1.2, printed p. 3",
+     "excerpt": "We remark that it is a very interesting question whether there is a natural 'finite-type' structure on the Witt vector affine Grassmannian. For example, all minuscule Schubert cells ... are canonically the perfections of classical Grassmannians; it is natural to wonder if such a story extends deeper into the stratification.",
+     "match": "Confirms the roadmap's warning that a perfect scheme need not itself be finite type."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS0:Witt-geometry/h-descent-and-fibral-criterion",
+   "parentStageId": "GeometricSatakeAndFusion:GS0:Witt-geometry",
+   "title": "Bhatt-Scholze Theorems 1.2 and 6.8/1.3: h-descent for vector bundles on perfect schemes and the fibral descent criterion",
+   "kind": "theorem",
+   "statement": "Any vector bundle E on a perfect F_p-scheme X gives an h-sheaf on perfect schemes over X via pullback, with H^i_h(X,E) = H^i(X,E) for all i, and effective descent for vector bundles holds along h-covers of perfect schemes. Moreover, if f : X -> Y is a proper perfectly finitely presented map in Perf with Rf_* O_X = O_Y (equivalently, in the published form, the perfection of a proper surjective map of F_p-schemes with connected geometric fibres), then E in Vect(X) descends to Y if and only if E is trivial on every geometric fibre X_{y-bar}.",
+   "hypotheses": [
+    "X must be a PERFECT F_p-scheme; the h-topology is subcanonical on perfect schemes but not in general",
+    "Theorem 1.2's first part is attributed to Gabber (cf. [BST13, Section 3]); the second part extends to the full derived category in their Section 11",
+    "Theorem 6.8 is stated with the hypothesis Rf_* O_X = O_Y; Remark 1.4 records that an earlier version used this stronger hypothesis and that the published Theorem 1.3 weakens it to connectedness of the geometric fibres",
+    "The proof of 6.8 uses v-descent for vector bundles and their Proposition 6.1, reduces by Lemma 6.2 to Y affine with connected components spectra of valuation rings, and concludes by Lemma 6.4"
+   ],
+   "proofSteps": [
+    "Establish the h-sheaf property and cohomology comparison for vector bundles on perfect schemes (Theorem 1.2), using the criterion for an fppf sheaf to be an h-sheaf in terms of abstract blowup squares (their Theorem 2.9).",
+    "For the fibral criterion: one direction is clear; for the converse, reduce by v-descent and Proposition 6.1 to a v-cover, by Lemma 6.2 to Y affine with valuation-ring components, spread a trivialization over a clopen neighbourhood, and reduce to Y = Spec(V) for a valuation ring, where Lemma 6.4 applies.",
+    "Apply this to descend the Demazure line bundle L-tilde from the Demazure resolution to Gr_{<=lambda}."
+   ],
+   "acceptance": [
+    "Check the fibral criterion on the Demazure resolution used for the line bundle",
+    "Check that the h-topology statement fails for non-perfect schemes",
+    "Check the difference between the Rf_* O_X = O_Y hypothesis and the connected-geometric-fibres hypothesis"
+   ],
+   "sources": [
+    {
+     "sourceId": "BS17-witt-grassmannian",
+     "locator": "Theorem 1.2, printed p. 2",
+     "excerpt": "Any vector bundle E on a perfect F_p-scheme X gives a sheaf for the h-topology on perfect schemes over X via pullback, and one has H^i_h(X,E) = H^i(X,E) for all i. Moreover, one has effective descent for vector bundles along h-covers of perfect schemes.",
+     "match": "The descent input the roadmap names as BS17 sections 2-4."
+    },
+    {
+     "sourceId": "BS17-witt-grassmannian",
+     "locator": "Theorem 6.8, printed p. 23",
+     "excerpt": "Let f : X -> Y be a proper perfectly finitely presented map in Perf such that Rf_* O_X = O_Y; in particular, all geometric fibres of f are connected. Let E in Vect(X). Then E descends to Y if and only if for all geometric points y-bar of Y, E is trivial on the fibre X_{y-bar}.",
+     "match": "The trivial-on-geometric-fibres descent criterion the roadmap requires (BS17 6.8/6.12)."
+    },
+    {
+     "sourceId": "BS17-witt-grassmannian",
+     "locator": "Remark 1.4, printed p. 3",
+     "excerpt": "In a previous version this theorem was stated under the stronger hypothesis Rf_* O_X = O_Y.",
+     "match": "Records the hypothesis change between versions, which matters when citing 1.3 versus 6.8."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel",
+   "parentStageId": "GeometricSatakeAndFusion:GS0:Witt-geometry",
+   "title": "Bhatt-Scholze section 8.4 and Keel 1.7-1.9: ampleness of L by induction using the semiampleness criterion",
+   "kind": "theorem",
+   "statement": "Keel's criterion: for a nef line bundle L on a scheme X projective over a field of positive characteristic, L is semi-ample (resp. EWM) if and only if L restricted to the exceptional locus E(L) is semi-ample (resp. EWM), where E(L) is the closure of the union of the irreducible subvarieties Z with L^{dim Z} . Z = 0. Two auxiliary lemmas are used: if L = A + D with A ample and D effective Cartier then E(L) is contained in D (Lemma 1.7), and if X = X_1 union X_2 with L|_{X_i} semi-ample and E(L) contained in X_1 then L is semi-ample (Lemma 1.8). Bhatt-Scholze use these to prove ampleness of L on Gr_{<=lambda} by induction on lambda: L-tilde is nef on the Demazure resolution, E(L-tilde) is contained in the preimage of the union of the Gr_{<=mu} with mu < lambda, the inductive hypothesis plus Lemma 1.8 makes L-tilde|_{E(L-tilde)} semiample, hence L-tilde is semiample by Theorem 1.9, and the Stein factorisation then yields the ample bundle downstairs.",
+   "hypotheses": [
+    "Keel's Theorem 1.9 requires X PROJECTIVE over a field of POSITIVE CHARACTERISTIC; it is false in characteristic zero. Bhatt-Scholze note it 'only applies to projective schemes, so we cannot apply it directly to Gr_{<=lambda}; instead, we will apply it to a suitable h-cover'",
+    "L must be NEF for the criterion to apply; nefness of L-tilde is their Lemma 8.10",
+    "Bigness of L-tilde and the containment of the exceptional locus use the factorisation L-tilde^{tensor N} = A(D) with A ample and D effective missing a chosen point x in Gr_lambda, plus Keel Lemma 1.7",
+    "Bhatt-Scholze say explicitly that, unlike in equal characteristic, they are NOT able to give a direct construction of enough sections of L giving a projective embedding"
+   ],
+   "proofSteps": [
+    "Keel 1.7: if Z is not contained in D then D|_Z is effective Cartier and L^k . Z >= A^k . Z > 0; so E(L) is contained in D, and the finiteness of the union of exceptional subvarieties is by induction on dim X.",
+    "Keel 1.9: induct on dim X, reduce by 1.8 to L big and by 1.4-1.5 to X reduced, write L = A + D by Kodaira's lemma, apply induction to L|_D and conclude by 1.6.",
+    "Bhatt-Scholze: by induction assume L|_{Gr_{<=mu}} ample for mu < lambda; L-tilde is nef; E(L-tilde) is contained in psi^{-1}(union_{mu<lambda} Gr_{<=mu}); by Keel Lemma 1.8 the restriction is semiample; by Keel Theorem 1.9 L-tilde is semiample; take the Stein factorisation phi : Gr-tilde_lambda -> X of L-tilde, which is a proper surjective perfectly finitely presented map with geometrically connected fibres (hence a v-cover) with L-tilde^{tensor N} = phi^* M for M ample."
+   ],
+   "acceptance": [
+    "Check nefness of L-tilde (their Lemma 8.10) independently",
+    "Check the base case lambda minimal, where Gr_{<=lambda} is a classical Grassmannian",
+    "Check that Keel's criterion genuinely needs positive characteristic, e.g. via the standard counterexample"
+   ],
+   "sources": [
+    {
+     "sourceId": "Keel99-basepoint",
+     "locator": "1.9 Theorem, printed p. 262",
+     "excerpt": "Let L be a nef line bundle on a scheme X, projective over a field of positive characteristic. L is semi-ample (resp. EWM) if and only if L|_{E(L)} is semi-ample (resp. EWM).",
+     "match": "The exact criterion actually invoked by Bhatt-Scholze (note: their citation is to Theorem 1.9 and Lemmas 1.7, 1.8, not to Theorem 0.2)."
+    },
+    {
+     "sourceId": "Keel99-basepoint",
+     "locator": "0.1 Definition, printed p. 253",
+     "excerpt": "An irreducible subvariety Z in X is called exceptional for L if L|_Z is not big, i.e. if L^{dim Z} . Z = 0. If L is nef the exceptional locus of L, denoted by E(L), is the closure, with reduced structure, of the union of all exceptional subvarieties.",
+     "match": "The definition of the exceptional locus that the roadmap names as a sub-obligation."
+    },
+    {
+     "sourceId": "BS17-witt-grassmannian",
+     "locator": "Proof of Theorem 8.3, printed p. 35",
+     "excerpt": "First, we prove that L-tilde is semiample on Gr-tilde_lambda. Note that L-tilde is nef by Lemma 8.10. Using Keel's [Kee99, Theorem 1.9], it is enough to check that L-tilde|_{E(L-tilde)} is semiample. By Lemma 8.11, the locus E(L-tilde) is contained in psi^{-1}(Gr_{<=lambda} minus Gr_lambda) = psi^{-1}(union_{mu<lambda} Gr_{<=mu}). By induction, we know that L|_{Gr_{<=mu}} is ample for mu < lambda. Using [Kee99, Lemma 1.8], this shows L|_{union_{mu<lambda} Gr_{<=mu}} is semiample, and thus L-tilde|_{E(L-tilde)} is semiample.",
+     "match": "The exact inductive argument, naming the three Keel results used."
+    },
+    {
+     "sourceId": "BS17-witt-grassmannian",
+     "locator": "1.2, printed p. 3",
+     "excerpt": "Having constructed the line bundle L, we prove that it is ample by using a fundamental result of Keel, [Kee99], on semiample line bundles in positive characteristic. Unfortunately, contrary to the situation in equal characteristic, we are not able to give a direct construction of enough sections of L which would give a projective embedding.",
+     "match": "Confirms that no direct section-theoretic route is available, so Keel's criterion is not optional."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS0:Witt-geometry/semi-infinite-intersections-and-MV-cycles",
+   "parentStageId": "GeometricSatakeAndFusion:GS0:Witt-geometry",
+   "title": "FS VI.3.7-VI.3.8: affineness and equidimensionality of Mirkovic-Vilonen cycles in the Witt Grassmannian",
+   "kind": "theorem",
+   "statement": "In the Witt vector affine Grassmannian Gr^{Witt}_G over F-bar_q, an increasing union of perfections of projective varieties by Bhatt-Scholze, let S_lambda = LU . [lambda] be the semi-infinite orbit. Then for any dominant mu, the intersection S_lambda intersect Gr^{Witt}_{G,<=mu} is representable by an AFFINE scheme, and it is equidimensional of dimension <rho, mu + lambda>.",
+   "hypotheses": [
+    "The ambient object is the WITT vector affine Grassmannian over an algebraically closed field of characteristic p, not the B^+_dR Grassmannian",
+    "The proof picks a closed immersion G -> GL_n to reduce to GL_n, and uses the ample line bundle L on Gr^{Witt}_G constructed in Bhatt-Scholze; without that ample bundle the affineness argument does not start",
+    "The equidimensionality argument is a dimension-drop count: at each step the dimension can drop by at most 1, and in <2rho,mu> steps it drops by <2rho,mu>",
+    "Fargues-Scholze note that Corollary VI.3.8 is [MV07, Theorem 3.2], with a different proof in Zhu based on point counting, the classical Satake isomorphism and the Kato-Lusztig formula"
+   ],
+   "proofSteps": [
+    "Reduce to G = GL_n by a closed immersion.",
+    "Use the ample line bundle L on Gr^{Witt}_G from Bhatt-Scholze; show its pullback to Gr^{Witt}_B is trivial, which forces the intersections with Schubert varieties to be affine.",
+    "Run the dimension-drop count along the stratification to get equidimensionality of dimension <rho, mu+lambda>."
+   ],
+   "acceptance": [
+    "Check the dimension formula <rho,mu+lambda> on GL_2",
+    "Check that the ample line bundle input is genuinely used (the roadmap identifies this as the reason GS0:Witt-geometry owns the projectivity input to VI.3.7)",
+    "Compare with the Kato-Lusztig/point-counting proof to cross-check"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.3.7 and the start of its proof, printed pp. 205-206",
+     "excerpt": "For any mu in X_*(T)^+, the intersection S_lambda intersect Gr^{Witt}_{G,<=mu} is representable by an affine scheme. Proof. Picking a closed immersion G -> GL_n, one can reduce to G = GL_n. In that case, there is an ample line bundle L on Gr^{Witt}_G constructed in [BS17].",
+     "match": "Shows that the Bhatt-Scholze ample line bundle is a named input, confirming the roadmap's claim that this stage owns the projectivity input to VI.3.7."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Corollary VI.3.8, printed p. 206",
+     "excerpt": "The scheme S_lambda intersect Gr^{Witt}_{G,<=mu} is equidimensional of dimension <rho, mu + lambda>.",
+     "match": "The Mirkovic-Vilonen dimension statement used later for the weight functors."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization",
+   "parentStageId": "GeometricSatakeAndFusion:GS1",
+   "title": "FS VI.3.1, VI.3.5 and VI.4.2: semi-infinite strata, the hyperbolic-localization constant term, and conservativity",
+   "kind": "theorem",
+   "statement": "For a cocharacter lambda with parabolic P_lambda and Levi M_lambda, the map Gr_{P_lambda,Div^d} = disjoint union over nu of Gr^nu_{P_lambda,Div^d} -> Gr_{G,Div^d} is bijective on geometric points and a locally closed immersion on each piece; the union over nu' <= nu has closed image; the G_m-action via lambda extends to an A^1-action whose fixed points are Gr_{M_lambda,Div^d}. On G_m-monodromic bounded complexes the natural map from the !-pullback-star-pushforward correspondence to the star-pullback-!-pushforward one is an isomorphism, defining CT_B. If B is a Borel and A is a bounded complex on Hck_{G,S/Div^d} with support quasicompact over S and CT_B(A) = 0, then A = 0.",
+   "hypotheses": [
+    "The comparison map is only asserted on the G_m-MONODROMIC bounded subcategory in the sense of Definition IV.6.11",
+    "Conservativity (VI.4.2) needs B to be a BOREL and the support of A to be quasicompact over S",
+    "The proof of VI.4.2 reduces to S = Spa(C,C^+) strictly local, then removes double points to assume d distinct untilts, then lifts to a splitting unramified extension E'|E - this last step uses that one works over Y-curly where the splitting extension can be taken unramified",
+    "Formation of CT_B commutes with any base change in S by Corollary VI.3.5"
+   ],
+   "proofSteps": [
+    "Establish the stratification by semi-infinite orbits and the A^1-extension of the G_m-action with fixed points the Levi Grassmannian (VI.3.1).",
+    "Prove the hyperbolic-localization comparison on G_m-monodromic complexes (VI.3.5), which also gives base-change compatibility.",
+    "For conservativity: reduce to a strictly local S with d distinct untilts and split G; stratify Hck by tuples (mu_1,...,mu_d) of dominant cocharacters with strata the classifying stacks of the stabilizers; take a maximal stratum on which A is nonzero and apply hyperbolic localization there."
+   ],
+   "acceptance": [
+    "Check conservativity on a single nonminuscule Schubert stratum",
+    "Check base-change compatibility of CT_B",
+    "Check that G_m-monodromicity is needed for the comparison map"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.3.1, printed p. 202",
+     "excerpt": "The map Gr_{P_lambda,Div^d} = disjoint union over nu of Gr^nu_{P_lambda,Div^d} -> Gr_{G,Div^d} is bijective on geometric points, and it is a locally closed immersion on each Gr^nu. The union over nu' <= nu of Gr^{nu'} has closed image in Gr_{G,Div^d}. The action of G_m via lambda on Gr_{P_lambda,Div^d} extends to an action of the monoid A^1, and the G_m-fixed points agree with Gr_{M_lambda,Div^d}.",
+     "match": "The semi-infinite stratification and the attractor/fixed-point structure."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.4.2 and proof, printed p. 208",
+     "excerpt": "Assume that B in G is a Borel. Let S -> Div^d_Y-curly be any small v-sheaf. Let A in D_et(Hck_{G,S/Div^d}, Lambda) with support quasicompact over S. Assume that the hyperbolic localization CT_B(A) = 0 of the pullback of A to Gr_{G,S/Div^d} vanishes. Then A = 0.",
+     "match": "The conservativity statement with its exact hypotheses."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS1/relative-perverse-t-structure",
+   "parentStageId": "GeometricSatakeAndFusion:GS1",
+   "title": "FS VI.7.1-VI.7.4: the relative perverse t-structure on the local Hecke stack and its hyperbolic characterisation",
+   "kind": "construction",
+   "statement": "For S -> Div^d_Y-curly a small v-stack there is a unique t-structure on D_et(Hck_{G,S/Div^d},Lambda)^{bd} with A in ^p D^{<=0} if and only if for every geometric point Spa(C,C^+) -> S and every open Schubert cell parametrized by mu_1,...,mu_r (r the number of distinct untilts) the pullback of A sits in cohomological degrees <= - sum_i <2rho,mu_i>. On the heart Perv, pullback to Gr is fully faithful, and if A in ^p D^{<=0}, B in ^p D^{>=0} then RHom(A,B) is in D^{>=0}. Pullback along S' -> S is t-exact, and for split G the shifted constant term CT_B[deg] is t-exact and conservative from the perverse t-structure to the standard one on Gr_T.",
+   "hypotheses": [
+    "The t-structure is defined on BOUNDED complexes, and its existence uses a presentable stable infinity-categorical refinement on each bounded closed Z inside Hck, with Lurie's Proposition 1.4.4.11 for existence and uniqueness; t-exactness of the inclusions as Z grows lets these glue",
+    "The shift is by sum over the r DISTINCT untilts of <2rho,mu_i>, so coincident legs are handled by the number of distinct points, not by d",
+    "Full faithfulness of Perv -> D_et(Gr)^{bd} rests on Lemma VI.7.3 about connected group actions, applied to a finite-dimensional approximation of Gr x_{Div^d} L^+G -> Gr",
+    "deg : Gr_T -> Z is the locally constant map obtained by pairing the sum of relative positions with 2rho"
+   ],
+   "proofSteps": [
+    "Existence and uniqueness of the t-structure by Lurie's criterion on each bounded closed subset, glued along t-exact inclusions.",
+    "Full faithfulness on the heart: first show RHom(A,B) is in D^{>=0} for A in ^pD^{<=0}, B in ^pD^{>=0}, using that C tensor A is in ^pD^{<=-1} for C in D^{<=-1}; then by descent reduce to showing that any map between pullbacks to Gr is automatically L^+G-equivariant, which is Lemma VI.7.3.",
+    "t-exactness of pullback in S and of CT_B[deg] is VI.7.4; conservativity of CT_B[deg] is VI.4.2."
+   ],
+   "acceptance": [
+    "Check the shift convention on a single minuscule cell of GL_2",
+    "Check that CT_B[deg] is t-exact but CT_B alone is not",
+    "Check t-exactness of pullback along a geometric point"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition/Proposition VI.7.1, printed p. 215",
+     "excerpt": "the pullback of A to this open Schubert cell sits in cohomological degrees <= - sum_{i=1}^r <2rho, mu_i>.",
+     "match": "The exact normalization of the relative perverse t-structure, with r the number of DISTINCT untilts."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.7.4, printed p. 218",
+     "excerpt": "Then CT_B[deg] is t-exact for the perverse t-structure on the source, and the standard t-structure on the right. As CT_B[deg] is conservative, this implies in particular that ...",
+     "match": "The hyperbolic characterisation of the t-structure, which is how ^p D^{>=0} becomes describable."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS1/ULA-sheaves-on-the-hecke-stack",
+   "parentStageId": "GeometricSatakeAndFusion:GS1",
+   "title": "FS VI.6.1-VI.6.6: ULA sheaves on Hck, switching invariance, and the one-leg stalkwise criterion",
+   "kind": "theorem",
+   "statement": "A in D_et(Hck_{G,S/Div^d},Lambda) is ULA over S if it is bounded and its pullback to Gr_{G,S/Div^d} is ULA over S. This condition is invariant under the switching involution sw. For a Borel B with torus quotient T, a bounded A is ULA over S if and only if CT_B(A) is ULA over S, equivalently if and only if R pi_{T,S,*} CT_B(A) is locally constant with perfect fibres. For split G and d = 1, a bounded A is ULA over S if and only if for every dominant mu the restriction of A along the section [mu] : S -> Hck_{G,S/Div^1} is locally constant with perfect fibres. The ULA subcategory is stable under Verdier duality, tensor, internal Hom and the four functors j_! j^*, Rj_* j^*, j_! Rj^!, Rj_* Rj^! for a Schubert-cell immersion j, all commuting with pullback in S.",
+   "hypotheses": [
+    "Boundedness is part of the definition of ULA on Hck",
+    "sw-invariance (VI.6.2) is proved by comparing the two pro-systems (L G)_U/(L^+G)^{>=m} and (L^+G)^{>=m} \\ (L G)_U, which are pro-isomorphic with cohomologically smooth transition maps (Lemma VI.6.3)",
+    "The proof of VI.6.4 passes to a bounded part of Hck and replaces the quotient by L^+G by a FINITE-DIMENSIONAL quotient in order to be in the Artin-stack setting - this is exactly the truncation supplied by VI.2.8",
+    "VI.6.5 is stated for SPLIT G; for general G one applies it etale-locally on S",
+    "The stability statements of VI.6.6 are for d = 1 (S -> Div^1_Y-curly)"
+   ],
+   "proofSteps": [
+    "Definition VI.6.1 and Proposition VI.6.2 (sw-invariance via the pro-isomorphic congruence towers and Lemma VI.6.3's two-out-of-six argument).",
+    "VI.6.4 forward direction: Corollary VI.3.5, ind-properness of pi_T,S and Corollary IV.2.12. Converse: assume S strictly totally disconnected and G split; use the dualizability criterion Theorem IV.2.23; apply Proposition VI.4.2 to G x G to reduce to CT_{B^- x B}; use that hyperbolic localization commutes with exterior tensor products and Proposition IV.6.13.",
+    "VI.6.5 forward: reduce to j_{mu!}Lambda, argue v-locally over Div^1, base change to S = Spd O_C, use Proposition VI.5.2 and Proposition IV.2.13 to pass to the affine flag variety, and conclude by Proposition VI.5.7 (Demazure). Converse: induct on the support, using that on a maximal Schubert cell the stratum is the classifying space of a pro-cohomologically-smooth group.",
+    "VI.6.6 follows from Corollary IV.2.25 for duality and base change, and from the stalkwise criterion plus the six functors for the rest."
+   ],
+   "acceptance": [
+    "Check the stalkwise criterion on j_{mu!}Lambda[d_mu]",
+    "Check sw-invariance on a non-symmetric example",
+    "Check that the finite-dimensional truncation used in the proof of VI.6.4 is the one from VI.2.8"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.6.5, printed p. 214",
+     "excerpt": "Then A is universally locally acyclic over S if and only if for all mu in X_*(T)^+, the restriction of A to the section [mu] : S -> Hck_{G,S/Div^1} is locally constant with perfect fibres in D_et(S,Lambda).",
+     "match": "The stalkwise one-leg criterion, which is the practical characterisation used throughout."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.6.4, printed p. 213",
+     "excerpt": "(Implicitly, we pass here to a bounded part of Hck_{G,Div^d} and replace the quotient by L^+_{Div^d}G by a finite-dimensional quotient in order to be in the setting of Artin stacks.)",
+     "match": "Records that the Artin-stack machinery is applied only after the truncation of VI.2.8."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS1/integral-family-comparison",
+   "parentStageId": "GeometricSatakeAndFusion:GS1",
+   "title": "FS VI.6.7: equivalence of ULA categories over Spd O_C, Spd C and Spd k",
+   "kind": "comparison",
+   "statement": "For C a complete algebraically closed extension of E with residue field k, taking S = Spd O_C, Spd C and Spd k, the restriction functors D^{ULA}_et(Hck_{G,Spd C/Div^1},Lambda) <- D^{ULA}_et(Hck_{G,Spd O_C/Div^1},Lambda) -> D^{ULA}_et(Hck_{G,Spd k/Div^1},Lambda) are EQUIVALENCES.",
+   "hypotheses": [
+    "The middle term is over Spd O_C, i.e. over the INTEGRAL divisor space Div^1_Y-curly = Spd O_E, which retains the characteristic-p point; replacing Y-curly by Y would delete the right-hand term",
+    "The statement is about the ULA subcategories, not about all of D_et",
+    "G is not assumed split here (Fargues-Scholze say 'In the following corollaries, we no longer assume that G is split')",
+    "The proof is not spelled out in the passage read beyond 'Corollary VI.6.7' following VI.6.6; the mechanism is the stalkwise criterion VI.6.5 applied over the three bases"
+   ],
+   "proofSteps": [
+    "The stalkwise criterion VI.6.5 characterises ULA objects by local constancy with perfect fibres of the restrictions along the sections [mu].",
+    "Over Spd O_C the sections [mu] specialise compatibly to the generic and special points, so local systems with perfect fibres restrict equivalently.",
+    "NOTE: the proof of Corollary VI.6.7 was not printed in the passage read; only the statement and its position immediately after VI.6.6 were. Recorded as a read statement with an unread proof."
+   ],
+   "acceptance": [
+    "Check the equivalence on j_{mu!}Lambda[d_mu] over the three bases",
+    "Check that the special fibre is the Witt Grassmannian side and the generic fibre the B^+_dR side",
+    "Check that a formal analogy between the two Grassmannians does not give this equivalence, as the roadmap warns"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Corollary VI.6.7, printed p. 214",
+     "excerpt": "For a complete algebraically closed extension C of E with residue field k, taking S = Spd O_C, S = Spd C and S = Spd k, the functors D^{ULA}_et(Hck_{G,Spd C/Div^1}, Lambda) <- D^{ULA}_et(Hck_{G,Spd O_C/Div^1}, Lambda) -> D^{ULA}_et(Hck_{G,Spd k/Div^1}, Lambda) are equivalences.",
+     "match": "The special/generic fibre comparison the stage text calls for, stated exactly."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS2:correspondences/satake-category-and-fibre-functor",
+   "parentStageId": "GeometricSatakeAndFusion:GS2:correspondences",
+   "title": "FS VI.7.8-VI.7.12: the Satake category of ULA flat perverse sheaves and its exact faithful fibre functor",
+   "kind": "definition",
+   "statement": "Sat(Hck_{G,S/Div^d},Lambda) is the full subcategory of objects that are universally locally acyclic AND flat perverse; this definition is invariant under sw^*. For split G and dominant mu with d_mu = <2rho,mu>, the objects ^p j_{mu!}Lambda[d_mu] = ^p H^0(j_{mu!}Lambda[d_mu]) and ^p R j_{mu*}Lambda[d_mu] lie in Sat. The functor R pi_{G,S*} takes values in complexes all of whose H^i are local systems of FINITE PROJECTIVE Lambda-modules, each H^i(R pi_{G,S*}) is exact, and F_{G,S} = the direct sum over i of H^i(R pi_{G,S*}) is exact, faithful and conservative; it detects kernels and cokernels whose F-image kernel is a direct summand. The image of Sat in D_et(Gr) is stable under Verdier duality, and D is an equivalence with D^2 = id.",
+   "hypotheses": [
+    "FLATNESS of the perverse object over Lambda is part of the definition and is what excludes the Tor obstruction to t-exactness",
+    "The finite-projectivity of the H^i of R pi_{G,S*} is part of Definition/Proposition VI.7.10, not an extra assumption",
+    "For VI.7.5 (the properties of ^p j_{mu!}Lambda[d_mu]) Fargues-Scholze state that the FINAL statement - that the kernel and cokernel of ^p H^0(j_{mu!}Lambda[d_mu]) -> ^p H^0(R j_{mu*}Lambda[d_mu]) are killed by l^{a(mu)} - 'ultimately makes use of the decomposition theorem (and thus requires the degeneration to the Witt vector affine Grassmannian)'",
+    "The degree-0 part of CT_B(A)[deg] is locally finite free because it is computed by the top compactly supported cohomology of the Mirkovic-Vilonen cycles S_lambda intersect Gr^{Witt}_{G,mu}, which is finite free for any separated variety"
+   ],
+   "proofSteps": [
+    "Define Sat by the two conditions and note sw-invariance from VI.6.2 and the sw-invariance of flat perversity.",
+    "For VI.7.5: A = j_{mu!}Lambda[d_mu] is in ^pD^{<=0} and ULA; CT_B(A)[deg] sits in degrees <= 0 with degree-0 part locally finite free by the MV-cycle computation; t-exactness of CT_B[deg] transfers this to ^pH^0(A); Verdier duality and Proposition IV.6.13 give the dual statement and the isomorphism ^p Rj_{mu*}Lambda[d_mu](d_mu) = D(^p j_{mu!}Lambda[d_mu]).",
+    "VI.7.10's exactness and faithfulness use conservativity (VI.4.2) and a Barr-Beck type assertion.",
+    "VI.7.12 gives Verdier duality on Sat."
+   ],
+   "acceptance": [
+    "Check flatness over Lambda = Z/l^2 on an example with nonsemisimple reduction",
+    "Check that F_{G,S} is faithful but not full",
+    "Check the l^{a(mu)} bound and confirm that the decomposition theorem enters only there"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition VI.7.8, printed p. 221",
+     "excerpt": "Let Sat(Hck_{G,S/Div^d},Lambda) in D_et(Hck_{G,S/Div^d},Lambda) be the full subcategory of all objects that are universally locally acyclic and flat perverse. This definition has the virtue that it is invariant under switching sw^*.",
+     "match": "Verbatim definition with both conditions."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition/Proposition VI.7.10, printed p. 222",
+     "excerpt": "takes values in complexes C in D_et(S,Lambda) such that all H^i(C) are local systems of finite projective Lambda-modules, and each functor H^i(R pi_{G,S*}) : Sat(Hck_{G,S/Div^d},Lambda) -> LocSys(S,Lambda) is exact. ... The functor F_{G,S} is exact, faithful, and conservative.",
+     "match": "The fibre functor with its exactness and finite-projectivity properties."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "After Proposition VI.7.5, printed p. 219",
+     "excerpt": "We remark that the final statement ultimately makes use of the decomposition theorem (and thus requires the degeneration to the Witt vector affine Grassmannian).",
+     "match": "Isolates exactly where the decomposition theorem - the late GS4:rational-reductivity input - is needed."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram",
+   "parentStageId": "GeometricSatakeAndFusion:GS2:correspondences",
+   "title": "FS VI.8: convolution on bounded sheaves on the local Hecke stack, via the 2-category of correspondences",
+   "kind": "construction",
+   "statement": "The convolution product on D_et(Hck_{S/Div^d},Lambda)^{bd} is defined by pull-push along the convolution diagram; formally, D_et(Hck_{S/Div^d},Lambda)^{bd} is the category of endomorphisms of [Div^d/L^+G] x_{Div^d} S in the 2-category C_T of Subsection IV.2.3.3, for T = [Div^d/L G] x_{Div^d} S, after extending that formalism to maps that are IND-representable in locally spatial diamonds with closed immersions in the ind-system and using bounded sheaves as morphisms. Convolution preserves universal local acyclicity, and preserves ^p D^{<=0}.",
+   "hypotheses": [
+    "The 2-category C_T of IV.2.3.3 is set up for REPRESENTABLE compactifiable maps; Hck -> Div^d is only ind-representable, so the formalism has to be extended, using closed immersions in the ind-system and bounded sheaves as the morphism categories. Fargues-Scholze flag this as a correction that 'is corrected by passing to bounded sheaves'",
+    "Part (i) (preservation of ULA) uses Proposition IV.2.11 (proper pushforward) and Proposition IV.2.26",
+    "Part (ii) (preservation of ^pD^{<=0}) is checked for S = Spa(C,C^+) strictly local and G split, after a devissage to !-extensions of constant sheaves on open Schubert cells (which are ULA), and by the Kunneth formula reduces to d = 1; one then passes to the universal situation over (Div^1_Y-curly)^2 and uses density of the complement of the diagonal plus Proposition VI.7.4"
+   ],
+   "proofSteps": [
+    "Set up the convolution diagram and the pull-push operation with proper-support pushforward.",
+    "Identify the monoidal structure with composition in the extended 2-category C_T.",
+    "Prove ULA-preservation from IV.2.11 and IV.2.26.",
+    "Prove ^pD^{<=0}-preservation by the devissage, Kunneth reduction to d = 1, and the density argument over (Div^1)^2 followed by restriction to the diagonal, which is exactly A_1 star A_2."
+   ],
+   "acceptance": [
+    "Check associativity and unit on three minuscule objects",
+    "Check that convolution before GS3 is NOT yet known to preserve Sat (that is GS2:Satake-closure)",
+    "Check the Kunneth reduction to one leg"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "VI.8, printed p. 224",
+     "excerpt": "the category D_et(Hck_{S/Div^d},Lambda)^{bd} is precisely the category of endomorphisms of [Div^d_Y-curly/L^+_{Div^d}G] x_{Div^d} S in the 2-category C_T defined in Subsection IV.2.3.3 ... This problem is corrected by passing to bounded sheaves - one can extend the formalism to the case of maps that are ind-representable in locally spatial diamonds, with closed immersions in the ind-system, using categories of bounded sheaves as morphisms.",
+     "match": "The exact formal setting of convolution and the extension that has to be made."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.8.1 (i),(ii) and proof, printed p. 225",
+     "excerpt": "(i) If A_1 and A_2 are universally locally acyclic, then A_1 star A_2 is universally locally acyclic. (ii) If A_1 and A_2 lie in ^p D^{<=0}, then A_1 star A_2 is in ^p D^{<=0}. ... By the Kunneth formula one can then reduce to the case d = 1.",
+     "match": "The two preservation statements available before the Satake closure."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS2:Satake-closure/convolution-preserves-satake-and-dualizability",
+   "parentStageId": "GeometricSatakeAndFusion:GS2:Satake-closure",
+   "title": "FS VI.8.1(iii) and VI.8.2: convolution preserves the Satake category, and all its objects are dualizable",
+   "kind": "theorem",
+   "statement": "If A_1, A_2 lie in Sat(Hck_{G,S/Div^d},Lambda) then so does A_1 star A_2. Moreover every object of the monoidal category Sat(Hck_{G,S/Div^d},Lambda) is left and right dualizable, with right dual sw^* D(A), where sw is the switching isomorphism induced by inversion on L_{Div^d}G.",
+   "hypotheses": [
+    "Part (iii) is deduced from (i), (ii) and the observation that CONVOLUTION COMMUTES WITH VERDIER DUALITY; flatness is preserved because both the object and its dual are perverse",
+    "The dualizability statement is proved for all of D^{ULA}(Hck), using Proposition IV.2.24, 'modulo the technical nuisance that everything is only ind-representable here; everything adapts to that setting'",
+    "sw-invariance of the ULA condition is Proposition VI.6.2, and stability of Sat under Verdier duality is Proposition VI.7.12",
+    "Fargues-Scholze remark that in the classical setting dualizability is asserted without proof at the end of [MV07, Section 11]"
+   ],
+   "proofSteps": [
+    "(iii) from (i) and (ii) plus compatibility of convolution with Verdier duality: if A_1, A_2 are ULA and flat perverse, then A_1 star A_2 is ULA and lies in ^pD^{<=0}; applying the same to the duals gives ^pD^{>=0}, hence perversity, and flatness follows.",
+    "Dualizability: all ULA objects are left dualizable with right dual sw^* D(A) by Proposition IV.2.24 adapted to the ind-representable setting; sw^* D preserves Sat by VI.6.2 and VI.7.12."
+   ],
+   "acceptance": [
+    "Check that the right dual of ^p j_{mu!}Lambda[d_mu] is the expected object for the dual cocharacter",
+    "Check the Tor obstruction: exhibit a nonflat perverse object whose convolution is not perverse, or record that none is given in the source",
+    "Check that this closure is used only AFTER the fusion construction, as the roadmap requires"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.8.1 (iii) and the end of its proof, printed p. 225",
+     "excerpt": "(iii) If A_1, A_2 are in Sat(Hck_{G,S/Div^d},Lambda), then also A_1 star A_2 is in Sat(Hck_{G,S/Div^d},Lambda). ... Finally, part (iii) easily follows from (i), (ii), and the observation that convolution commutes with Verdier duality.",
+     "match": "The closure statement and the exact mechanism."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.8.2 and proof, printed pp. 225-226",
+     "excerpt": "All objects of the monoidal category Sat(Hck_{G,S/Div^d},Lambda) are (left and right) dualizable. The right dual of A in Sat is given by sw^* D(A) where sw : Hck_{G,Div^d} = Hck_{G,Div^d} is the switching isomorphism (induced by inversion on L_{Div^d}G).",
+     "match": "Dualizability with the explicit dual, needed for Tannakian reconstruction."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS3:fusion/disjoint-leg-factorization-and-full-faithfulness",
+   "parentStageId": "GeometricSatakeAndFusion:GS3:fusion",
+   "title": "FS VI.9.3: restriction to the disjoint-leg locus is fully faithful",
+   "kind": "theorem",
+   "statement": "Let I = I_1 union ... union I_k and let j : (Div^1_X)^{I;I_1,...,I_k} inside (Div^1_X)^I be the open locus where x_i and x_{i'} differ whenever i, i' lie in different I_j. Then j^* : Sat^I_G(Lambda) -> Sat^{I;I_1,...,I_k}_G(Lambda) is fully faithful, and likewise j^* on LocSys((Div^1_X)^I,Lambda).",
+   "hypotheses": [
+    "Full faithfulness is equivalent to A -> ^p H^0(R j_* j^* A) being an isomorphism for all A in Sat^I_G(Lambda)",
+    "The proof needs i^* i^! A in ^p D^{>=2} for the complementary closed i : Z -> (Div^1_X)^I; this is reduced by working locally to split G and applying the t-exact conservative functor R pi_{T*} CT_B[deg]",
+    "The input is that Z admits a stratification by PARTIAL DIAGONALS with smooth strata of l-CODIMENSION >= 1 inside the smooth (Div^1_X)^I, whence i^* i^! Lambda in D^{>=2}"
+   ],
+   "proofSteps": [
+    "Reduce full faithfulness to A = ^p H^0(R j_* j^* A).",
+    "Reduce to i^* i^! A in ^p D^{>=2}.",
+    "Work locally to assume G split and apply R pi_{T*} CT_B[deg], which is t-exact and lands in local systems of finite projective Lambda-modules.",
+    "Use the partial-diagonal stratification of Z with smooth strata of l-codimension >= 1 to get i^* i^! Lambda in D^{>=2}.",
+    "The same argument proves the LocSys statement directly."
+   ],
+   "acceptance": [
+    "Check the codimension-1 input for two legs",
+    "Check full faithfulness for k = 2 and I_1, I_2 singletons",
+    "Check the analogous statement for local systems, which gives the Weil-group functoriality"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.9.3 and proof, printed p. 227",
+     "excerpt": "this follows from the observation that i^* i^! Lambda in D^{>=2}, which follows from the observation that Z admits a stratification (by partial diagonals) with smooth strata of l-codimension >= 1 inside the smooth (Div^1_X)^I.",
+     "match": "The geometric input behind full faithfulness on the disjoint-leg locus."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule",
+   "parentStageId": "GeometricSatakeAndFusion:GS3:fusion",
+   "title": "FS VI.9.4 and the even/odd decomposition: the fusion product and the Koszul sign normalisation",
+   "kind": "construction",
+   "statement": "Over the disjoint-leg locus, Hck^I_G restricted there is the product of the Hck^{I_j}_G, so exterior product gives a monoidal functor Sat^{I_1}_G x ... x Sat^{I_k}_G -> Sat^{I;I_1,...,I_k}_G. Each Hck^I_G = (Hck^I_G)^{even} disjoint union (Hck^I_G)^{odd} according to the parity of d_{mu_bullet} = sum_i <2rho,mu_i>, and this is an open-and-closed decomposition because the dominance order compares only elements of the same parity. One imposes a MINUS SIGN whenever two sheaves concentrated on the odd parts are commuted. The image of the exterior product lands in Sat^I_G, defining the fusion product, a functor of monoidal categories functorial in I_1,...,I_k, and F^I becomes symmetric monoidal.",
+   "hypotheses": [
+    "The sign rule is imposed BY HAND; equivalently, it is forced by the shift by deg inside F^I, and 'this in fact pins down this choice of signs by faithfulness of the functors'",
+    "The even/odd decomposition is open and closed precisely because the dominance order does not compare elements of different parity",
+    "By Proposition VI.7.4, sheaves concentrated on the even (resp. odd) part have F^I concentrated in even (resp. odd) degrees",
+    "Fargues-Scholze note (footnote, crediting Tony Feng) that on HECKE STACKS the map Gr^I_G x_{(Div^1)^I} (Div^1)^J -> Gr^J_G being a closed immersion is a statement about Gr, not about Hck",
+    "The fusion product is constructed WITHOUT any characteristic-zero semisimplicity input"
+   ],
+   "proofSteps": [
+    "Identify Hck^I_G over the disjoint-leg locus with the product of the Hck^{I_j}_G and form the exterior product.",
+    "Decompose into even and odd parts and impose the sign rule; check the commuting square with the fibre functors and the exterior tensor product on local systems.",
+    "Show the image lands in Sat^I_G by Proposition VI.9.3 (full faithfulness of j^*) applied to the extension.",
+    "Deduce that each Sat^I_G is symmetric monoidal with the fusion product refining convolution, functorially in I."
+   ],
+   "acceptance": [
+    "Check the sign rule on two odd objects, e.g. two minuscule GL_2 objects with d_mu = 1",
+    "Check coherence for three legs and the two successive diagonal factorizations, as the completion contract requires",
+    "Check that F^I is symmetric monoidal with the chosen signs and not a super variant"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "VI.9, printed p. 228",
+     "excerpt": "Now we impose that when forming the above exterior product, we introduce a minus sign whenever we commute two sheaves concentrated on the odd parts. ... Indeed, note that the functors F^I invoke a shift by deg, which exactly introduces this sign rule. This in fact pins down this choice of signs by faithfulness of the functors.",
+     "match": "The Koszul sign normalisation the roadmap insists on, together with the reason it is forced."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition/Proposition VI.9.4, printed p. 229",
+     "excerpt": "The image of Sat^{I_1}_G(Lambda) x ... x Sat^{I_k}_G(Lambda) -> Sat^{I;I_1,...,I_k}_G(Lambda) lands in Sat^I_G(Lambda) in Sat^{I;I_1,...,I_k}_G(Lambda), defining the fusion product ... a functor of monoidal categories, functorial in I_1, ..., I_k.",
+     "match": "The fusion construction itself."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS3:fusion/finite-set-functoriality-and-constant-terms",
+   "parentStageId": "GeometricSatakeAndFusion:GS3:fusion",
+   "title": "FS VI.9.2, VI.9.5, VI.9.6: Weil-group local systems, duality compatibility and constant-term compatibility",
+   "kind": "theorem",
+   "statement": "LocSys((Div^1_X)^I,Lambda) is naturally equivalent to Rep_{W_E^I}(Lambda), the category of continuous representations of W_E^I on finite projective Lambda-modules. For a map f : I -> J of finite sets there is a natural monoidal functor Sat^I_G(Lambda) -> Sat^J_G(Lambda) compatible with composition, and the square with F^I, F^J and pullback along W_E^J -> W_E^I commutes naturally. For A in Sat^I_G there are natural isomorphisms F^I(sw^* A) = F^I(A) and D(sw^* A) = sw^* D(A); D is symmetric monoidal and D o F^I = (F^I)^* as symmetric monoidal functors. For a parabolic P with Levi M, the constant term functors CT^I_P[deg_P] : Sat^I_G -> Sat^I_M commute with the fusion product, functorially in I and in permutations of I_1,...,I_k, hence are symmetric monoidal.",
+   "hypotheses": [
+    "The identification LocSys = Rep_{W_E^I} is 'a consequence of Proposition IV.7.3', i.e. of Drinfeld's lemma in FS IV.7, which was NOT read",
+    "The functor for f : I -> J comes from the natural closed immersion Gr^I_G x_{(Div^1)^I}(Div^1)^J -> Gr^J_G; Fargues-Scholze add a footnote that on HECKE STACKS the map is not a closed immersion",
+    "VI.9.5 uses dualizability (VI.8.2) and Proposition VI.7.12",
+    "VI.9.6 is proved by passing to the disjoint-leg locus, applying the Kunneth formula, and invoking VI.9.3"
+   ],
+   "proofSteps": [
+    "VI.9.2 from Drinfeld's lemma (IV.7.3).",
+    "Functoriality in I by pull-push along Gr^I_G <- Gr^I_G x_{(Div^1)^I}(Div^1)^J -> Gr^J_G, preserving the equivariance condition.",
+    "VI.9.5: dualizability gives sw^* D sw^* D(A) = A; since sw^* and D are self-inverse this gives their commutation. Since F^I is symmetric monoidal, F^I(sw^* D(A)) and F^I(A) are dual; by VI.7.12 the dual of F^I(A) is F^I(D(A)); substituting gives F^I(sw^* A) = F^I(A).",
+    "VI.9.6: restrict to the disjoint-leg locus, use Kunneth, extend back by VI.9.3."
+   ],
+   "acceptance": [
+    "Check the coCartesian functoriality for a surjection I -> J and for a diagonal",
+    "Check that pairwise isomorphisms for two legs do not give the coherent family, as the roadmap warns",
+    "Check symmetric monoidality of CT_P[deg_P] on a minuscule object"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.9.2 and proof, printed p. 226",
+     "excerpt": "The category LocSys((Div^1_X)^I, Lambda) is naturally equivalent to the category Rep_{W_E^I}(Lambda) of continuous representations of W_E^I on finite projective Lambda-modules. Proof. This is a consequence of Proposition IV.7.3.",
+     "match": "The Weil-group identification, whose proof is Drinfeld's lemma - an unread import."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Footnote 1 to VI.9, printed p. 226",
+     "excerpt": "We thank Tony Feng for pointing out that on Hecke stacks the map is not a closed immersion.",
+     "match": "A correction in the source itself, worth preserving: the closed immersion is on Grassmannians, not Hecke stacks."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.9.6, printed p. 230",
+     "excerpt": "For any finite set I decomposed into finite sets I = I_1 union ... union I_k, the diagram [Sat^{I_1}_G x ... x Sat^{I_k}_G -> Sat^I_G ; CT^{I_j}_P[deg_P] ; CT^I_P[deg_P]] commutes functorially in I and permutations of I_1, ..., I_k.",
+     "match": "The constant-term compatibility needed for the dual-group identification."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS4:rational-reductivity/rational-semisimplicity",
+   "parentStageId": "GeometricSatakeAndFusion:GS4:rational-reductivity",
+   "title": "FS VI.11 (generic fibre step) and VI.7.5: rational semisimplicity of the Satake category and reductivity of the generic fibre",
+   "kind": "theorem",
+   "statement": "Working over Z_l with l != p, set Sat_G(Z_l) = lim_m Sat_G(Z/l^m Z) and Sat_G(Q_l) = Sat_G(Z_l)[1/l]. Then Sat_G(Q_l) is the direct sum over dominant mu of Rep^cont_{W_E}(Q_l) tensor A_mu, where A_mu = ^p j_{mu!}Z_l[d_mu]; in particular the rational Satake category is (geometrically) semisimple, and the generic fibre of the Tannakian group scheme is reductive.",
+   "hypotheses": [
+    "The reduction to Z_l coefficients is legitimate because the statement is equivalent to having isomorphisms over Z/nZ for all n prime to p (Tannakian perspective) plus the Chinese remainder theorem",
+    "The semisimplicity input is the last clause of Proposition VI.7.5, whose proof Fargues-Scholze say 'ultimately makes use of the decomposition theorem (and thus requires the degeneration to the Witt vector affine Grassmannian)'",
+    "The roadmap's constraint is confirmed by the source's structure: the decomposition theorem is applied to finite-type proper models over an algebraic closure of a finite field, reached through the Witt degeneration, not to the diamond directly",
+    "Rational semisimplicity does NOT identify the integral group scheme; that is the separate content of GS4:integral-dual-group"
+   ],
+   "proofSteps": [
+    "Reduce to Z_l coefficients by the Tannakian/Chinese-remainder argument.",
+    "Use VI.7.5's last clause: the kernel and cokernel of ^pH^0(j_{mu!}Lambda[d_mu]) -> ^pH^0(Rj_{mu*}Lambda[d_mu]) are killed by l^{a(mu)}; after inverting l the two agree, so the standard and costandard objects coincide and Sat_G(Q_l) decomposes as a direct sum over mu.",
+    "Following [MV07, Section 7], deduce that Rep of the generic fibre of the Tannakian group is semisimple, hence the generic fibre is reductive."
+   ],
+   "acceptance": [
+    "Check the decomposition of Sat_G(Q_l) for G = GL_2",
+    "Check that the same argument fails mod l, i.e. that no integral semisimplicity is asserted",
+    "Check that the decomposition-theorem input is applied on the Witt side"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "VI.11, printed p. 236",
+     "excerpt": "First, it follows from Proposition VI.7.5 that its category of representations Sat_G(Q_l) is given by Sat_G(Q_l) = direct sum over mu of Rep^cont_{W_E}(Q_l) tensor A_mu. (Here Sat_G(Q_l) = Sat_G(Z_l)[1/l], where Sat_G(Z_l) = lim_m Sat_G(Z/l^m Z).)",
+     "match": "The rational decomposition, which is what gives reductivity of the generic fibre."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "After Proposition VI.7.5, printed p. 219",
+     "excerpt": "We remark that the final statement ultimately makes use of the decomposition theorem (and thus requires the degeneration to the Witt vector affine Grassmannian).",
+     "match": "Confirms the roadmap's claim that this is a late decomposition-theorem dependency routed through the Witt degeneration."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/tannakian-left-adjoint",
+   "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+   "title": "FS VI.10.1: the left adjoint of the fibre functor and its fusion decomposition",
+   "kind": "theorem",
+   "statement": "For a quasicompact closed substack Hck^I_{G,(W_i)_i} of Hck^I_G with corresponding full subcategory Sat^I_{G,(W_i)_i}(Lambda), the functor F^I : Sat^I_{G,(W_i)_i}(Lambda) -> Rep_{W_E^I}(Lambda) admits a left adjoint L^I_{(W_i)_i} with: (i) L^I_{(W_i)_i}(V) = L^I_{(W_i)_i}(1) tensor V for V in Rep_{W_E^I}(Lambda), using that Sat^I_G is tensored over Rep_{W_E^I}; (ii) L^I_{(W_i)_i}(1) = the fusion over i in I of L^{{i}}_{W_i}(1); (iii) for I a single element, the left adjoint is the restriction of the left adjoint to the direct sum over m of H^m(R pi_{G*}) : Perv(Hck^{{i}}_{G,W},Lambda) -> Mod_{W_E}(Lambda).",
+   "hypotheses": [
+    "The left adjoint is constructed only on the QUASICOMPACT bounded pieces Sat^I_{G,(W_i)_i}; the whole Satake category is the colimit of these",
+    "Property (i) uses that Sat^I_G(Lambda) is TENSORED over Rep_{W_E^I}(Lambda)",
+    "Property (ii) expresses the left adjoint's value on the unit as a FUSION, which is where GS3 is consumed",
+    "Fargues-Scholze reduce the construction to finding the value on the unit satisfying (ii) and (iii); property (i) then defines the left adjoint in general"
+   ],
+   "proofSteps": [
+    "Show it suffices to produce L^I_{(W_i)_i}(1) satisfying (ii) and (iii).",
+    "Construct the one-element case as the left adjoint to the perverse-cohomology fibre functor on the bounded perverse category.",
+    "Define the general case by fusing the one-element values.",
+    "Extend to all V by tensoring, using the Rep_{W_E^I}-linear structure.",
+    "NOTE: only the statement and the first lines of the proof were read; the construction of the one-element left adjoint was not."
+   ],
+   "acceptance": [
+    "Check the left adjoint on a single minuscule bound for GL_2",
+    "Check that the fusion formula (ii) is what makes the Hopf algebra a tensor product over I",
+    "Check the Rep_{W_E^I}-linearity used in (i)"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.10.1, printed pp. 230-231",
+     "excerpt": "(ii) There is a natural isomorphism L^I_{(W_i)_i}(1) = fusion over i in I of L^{{i}}_{W_i}(1) as the fusion of L^{{i}}_{W_i}(1) in Sat^{{i}}_{G,W_i}(Lambda).",
+     "match": "The property that makes the Tannakian Hopf algebra a tensor product of I copies, as described in the chapter introduction."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/dual-group-identification",
+   "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+   "title": "FS VI.11.1: the Tannakian group is canonically the Langlands dual group, W_E-equivariantly",
+   "kind": "theorem",
+   "statement": "There is a canonical W_E-equivariant isomorphism between the Tannakian group scheme attached to the Satake category and the Langlands dual group G-hat. Under it the W_E-action agrees with the usual pinned action up to an explicit cyclotomic twist; if a square root of q lies in Lambda the twist can be trivialized and Sat^I_G(Lambda) becomes the category of (G-hat semidirect W_E)^I-representations on finite projective Lambda-modules.",
+   "hypotheses": [
+    "The proof works over Z_l for l != p; the reduction from general Lambda uses that the statement is equivalent to having isomorphisms over Z/nZ for all n prime to p plus the Chinese remainder theorem",
+    "The isomorphism is first constructed for SPLIT G with a fixed split torus, Borel and trivializations of all simple root groups (a pinning); independence of the pinning is argued because pinnings vary algebraically while automorphisms of G-hat/Z_l form an l-adic group; the general case is by Galois descent",
+    "For G = T a torus, Gr_{T,Div^1_X} = X_*(T) x Div^1_X and Sat_T is X_*(T)-graded objects in Rep^cont_{W_E}(Z_l), giving the dual torus with X^*(T-hat) = X_*(T)",
+    "The map T-hat -> (Tannakian group) is shown to be a closed immersion using the objects A_mu = ^p j_{mu!}Z_l[d_mu], whose mu-weight space is one-dimensional",
+    "Fargues-Scholze note their formulation is more precise than [MV07], where no canonical isomorphism is given, and that in particular the Tannakian group depending only on G up to inner automorphisms 'is not clear'",
+    "The integral identification uses the rank-one Levi maps and that G-hat(Z-hat_l) inside G-hat(Q-hat_l) is a maximal compact open subgroup generated by the rank-1 Levi subgroups, by Bruhat-Tits theory"
+   ],
+   "proofSteps": [
+    "Reduce to Z_l coefficients.",
+    "Handle G = T: the Satake category is X_*(T)-graded W_E-representations, so the Tannakian group is the dual torus.",
+    "Use the symmetric monoidal constant-term functor CT_B[deg] : Sat_G -> Sat_T, which commutes with the fibre functors via the identity (direct sum over i of H^i(R pi_{G*})) = H^0(R pi_{T*} CT_B[deg]), to get a W_E-equivariant map T-hat -> Tannakian group; it is a closed immersion by the one-dimensionality of the mu-weight space of A_mu.",
+    "Use the rational semisimplicity of GS4:rational-reductivity to know the generic fibre is reductive and identify it via [MV07, Section 7].",
+    "Pass from Z/l^n to Z_l and recover the integral group scheme from the torus and rank-one Levi maps, using that G-hat(Z-hat_l) is a maximal compact open generated by rank-1 Levis (Bruhat-Tits), with the auxiliary Lemmas VI.11.2 (subgroups of SL_2/F_l containing the diagonal torus), VI.11.3 (flat Z_l-modules with injective reduction) and VI.11.4 ([PY06, Corollary 5.2]).",
+    "Verify pinning-independence and descend to nonsplit G."
+   ],
+   "acceptance": [
+    "Check the cyclotomic twist and the role of sqrt(q) on a torus",
+    "Check the rank-one calculation for PGL_2",
+    "Check that rational reductivity alone does not give the integral statement, as the roadmap warns"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem VI.11.1 and the following remarks, printed p. 235",
+     "excerpt": "There is a canonical W_E-equivariant isomorphism [Tannakian group] = G-hat. ... We note that the formulation of this theorem is slightly more precise than the formulation in [MV07], where no canonical isomorphism is given. Also, we handle the case of non-split groups. Note that in particular, [the Tannakian group] only depends on G up to inner automorphisms; this is not clear.",
+     "match": "The theorem and the source's own record of what is and is not obvious."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem VI.0.2, printed p. 190",
+     "excerpt": "There is a canonical isomorphism [Tannakian group] = G-hat with the Langlands dual group, under which the action of W_E on [it] agrees with the usual action of W_E on G-hat up to an explicit cyclotomic twist. If sqrt(q) is in Lambda, the cyclotomic twist can be trivialized, and Sat^I_G(Lambda) is naturally equivalent to the category of (G-hat semidirect W_E)^I-representations on finite projective Lambda-modules.",
+     "match": "The normalized form with the sqrt(q) condition the roadmap requires."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "VI.0, printed p. 190",
+     "excerpt": "As these maps M -> G-hat are even defined integrally, and G-hat(Z-hat_l) in G-hat(Q-hat_l) is a maximal compact open subgroup by Bruhat-Tits theory, generated by the rank 1 Levi subgroups, one can then deduce that [the Tannakian group] = G-hat integrally, again with an explicit (cyclotomic) pinning.",
+     "match": "The integral-recovery argument from rank-one Levi maps and maximal-compact generation."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/chevalley-involution",
+   "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+   "title": "FS VI.0.3/VI.12.1: the switching involution is the Chevalley involution conjugated by rho-hat(-1)",
+   "kind": "theorem",
+   "statement": "The involution sw of the local Hecke stack, reversing the roles of the two G-torsors and induced by inversion on LG, induces via sw^* an involution of Sat^I_G(Lambda) that upgrades to a symmetric monoidal functor commuting with the fibre functor, hence a W_E-equivariant automorphism of the Tannakian group. Under the identification with G-hat, this automorphism is the Chevalley involution of the split group G-hat, conjugated by rho-hat(-1) in G-hat_ad(Z_l).",
+   "hypotheses": [
+    "The upgrade of sw^* to a symmetric monoidal functor commuting with the fibre functor uses F^I(sw^* A) = F^I(A) from Corollary VI.9.5, which itself uses dualizability (VI.8.2) and VI.7.12",
+    "The sign rho-hat(-1) is essential: Fargues-Scholze record that Ginzburg's alternative construction of the commutativity constraint 'overlooked the sign rho-hat(-1)'",
+    "Remark VI.12.2 notes that there is a DIFFERENT construction of the commutativity constraint not using fusion, based on the Chevalley involution (a categorical Gelfand trick); this packet decomposes the fusion route, as the roadmap requires"
+   ],
+   "proofSteps": [
+    "Show sw^* is symmetric monoidal and commutes with F^I, using Corollary VI.9.5.",
+    "Conclude that sw^* gives a W_E-equivariant automorphism of the Tannakian group.",
+    "Identify it with the Chevalley involution conjugated by rho-hat(-1).",
+    "NOTE: only the statements (VI.0.3, VI.12.1) and Remark VI.12.2 were read; the proof of VI.12.1 was not."
+   ],
+   "acceptance": [
+    "Check the rho-hat(-1) conjugation on PGL_2 versus SL_2",
+    "Check compatibility of sw^* with Verdier duality and with inversion of modifications",
+    "Check that the fusion commutativity constraint and the Chevalley-involution one agree"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.12.1 and Remark VI.12.2, printed p. 239",
+     "excerpt": "Under the isomorphism [Tannakian group] = G-hat with the dual group, the isomorphism sw^* is given by the Chevalley involution, up to conjugation by rho-hat(-1) in G-hat_ad(Z_l). ... For the Satake category, this construction was first proposed by Ginzburg [Gin90], who however overlooked the sign rho-hat(-1).",
+     "match": "Exact statement with the sign, and the historical record of the sign being overlooked."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "GeometricSatakeAndFusion:GS0:loop-geometry/loop-groups-and-local-hecke",
+   "target": "GeometricSatakeAndFusion:GS0:loop-geometry/congruence-filtration-and-graded-pieces",
+   "reason": "The congruence subgroups are defined as kernels of G(B^+) -> G(B^+/I_S^m) inside the positive loop group constructed in the first node; the graded-piece computation is a statement about that group.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition VI.1.5, Proposition VI.1.10, printed pp. 192-194"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS0:loop-geometry/congruence-filtration-and-graded-pieces",
+   "target": "GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness",
+   "reason": "Cohomological smoothness of Gr_{G,Div^1,mu} = L^+G/(L^+G)_mu of l-dimension <2rho,mu> is deduced from the graded-piece description of the congruence filtration of the stabilizer, i.e. from Propositions VI.1.10-VI.1.12.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.2.4, printed pp. 198-199"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness",
+   "target": "GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncation-of-the-loop-action",
+   "reason": "The proof of VI.2.8 reduces to d = 1 at a geometric point and then invokes VI.2.4's description of (L^+G)_mu, whose congruence quotients show that (L^+G)^{>=m} lies in the stabilizer once all weights of mu on Lie G are <= m.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.2.8, printed p. 201"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness",
+   "target": "GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncation-of-the-loop-action",
+   "reason": "VI.2.8 is a statement about the bounded locus Gr_{G,Div^d,<=mu_bullet}, whose closedness, properness and ind-presentation are supplied by VI.2.3 and VI.2.7.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Propositions VI.2.3, VI.2.7, VI.2.8, printed pp. 197-201"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS0:Witt-geometry/h-descent-and-fibral-criterion",
+   "target": "GeometricSatakeAndFusion:GS0:Witt-geometry/witt-lattice-functor-and-representability",
+   "reason": "The line bundle L on Gr_{<=lambda} is produced by descending the Demazure line bundle L-tilde along a proper cover; the descent criterion used is exactly Theorem 6.8/1.3, and the h-descent of Theorem 1.2 is what makes the K-theoretic construction and the v-descent steps legitimate.",
+   "sources": [
+    {
+     "sourceId": "BS17-witt-grassmannian",
+     "locator": "1.2 Introduction, printed pp. 2-3; Theorem 6.8, printed p. 23"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel",
+   "target": "GeometricSatakeAndFusion:GS0:Witt-geometry/witt-lattice-functor-and-representability",
+   "reason": "Theorem 8.3's ampleness assertion is proved by induction on lambda using Keel's Theorem 1.9 and Lemmas 1.7-1.8 applied to the Demazure resolution; without that criterion Bhatt-Scholze have no construction of enough sections.",
+   "sources": [
+    {
+     "sourceId": "BS17-witt-grassmannian",
+     "locator": "Proof of Theorem 8.3, printed p. 35"
+    },
+    {
+     "sourceId": "Keel99-basepoint",
+     "locator": "1.9 Theorem, printed p. 262"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS0:Witt-geometry/witt-lattice-functor-and-representability",
+   "target": "GeometricSatakeAndFusion:GS0:Witt-geometry/semi-infinite-intersections-and-MV-cycles",
+   "reason": "FS's proof of Proposition VI.3.7 begins by picking a closed immersion into GL_n and then uses 'an ample line bundle L on Gr^{Witt}_G constructed in [BS17]'; the affineness of the MV intersections is deduced from triviality of its pullback to Gr^{Witt}_B.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.3.7, printed pp. 205-206"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS0:Witt-geometry/semi-infinite-intersections-and-MV-cycles",
+   "target": "GeometricSatakeAndFusion:GS2:correspondences/satake-category-and-fibre-functor",
+   "reason": "The local finite freeness of the degree-0 part of CT_B(A)[deg] in Proposition VI.7.5 is obtained from the top compactly supported cohomology of the Mirkovic-Vilonen cycles S_lambda intersect Gr^{Witt}_{G,mu}; this is where the Witt-side geometry enters the construction of the Satake fibre functor.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.7.5, printed p. 219"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization",
+   "target": "GeometricSatakeAndFusion:GS1/relative-perverse-t-structure",
+   "reason": "The description of ^p D^{>=0} - which Fargues-Scholze say is 'a priori not easy' - is obtained through the t-exact conservative functor CT_B[deg], whose construction and conservativity are VI.3.5 and VI.4.2.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.7.4 and the paragraph before it, printed p. 218"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization",
+   "target": "GeometricSatakeAndFusion:GS1/ULA-sheaves-on-the-hecke-stack",
+   "reason": "Proposition VI.6.4 characterises ULA objects through CT_B, and its converse direction applies Proposition VI.4.2 to G x G and uses that hyperbolic localization commutes with exterior tensor products.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.6.4, printed p. 213"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncation-of-the-loop-action",
+   "target": "GeometricSatakeAndFusion:GS1/ULA-sheaves-on-the-hecke-stack",
+   "reason": "The proof of VI.6.4 explicitly passes to a bounded part of Hck and replaces L^+G by a finite-dimensional quotient 'in order to be in the setting of Artin stacks'; that replacement is licensed by the truncation bound of VI.2.8.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.6.4, printed p. 213; Proposition VI.2.8, printed p. 201"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS1/ULA-sheaves-on-the-hecke-stack",
+   "target": "GeometricSatakeAndFusion:GS1/integral-family-comparison",
+   "reason": "Corollary VI.6.7 is stated immediately after Corollary VI.6.6 and concerns the ULA subcategories; the stalkwise criterion VI.6.5 is what makes the three bases comparable.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Corollaries VI.6.6 and VI.6.7, printed p. 214"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS1/relative-perverse-t-structure",
+   "target": "GeometricSatakeAndFusion:GS2:correspondences/satake-category-and-fibre-functor",
+   "reason": "The Satake category is defined as the ULA and FLAT PERVERSE objects, so it is a subcategory of the heart of the t-structure constructed in GS1; and the fibre functor's exactness is measured against that t-structure.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition VI.7.8, printed p. 221; Definition/Proposition VI.7.10, printed p. 222"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS1/ULA-sheaves-on-the-hecke-stack",
+   "target": "GeometricSatakeAndFusion:GS2:correspondences/satake-category-and-fibre-functor",
+   "reason": "Universal local acyclicity is one of the two defining conditions of the Satake category, and its sw-invariance (VI.6.2) is what makes Definition VI.7.8 symmetric in the two bundles.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition VI.7.8 and the sentence after it, printed p. 221"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram",
+   "target": "GeometricSatakeAndFusion:GS2:Satake-closure/convolution-preserves-satake-and-dualizability",
+   "reason": "Part (iii) of VI.8.1 'easily follows from (i), (ii), and the observation that convolution commutes with Verdier duality'; parts (i) and (ii) are the ambient statements established in GS2:correspondences.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.8.1, printed p. 225"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS3:fusion/disjoint-leg-factorization-and-full-faithfulness",
+   "target": "GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule",
+   "reason": "The fusion product is defined by exterior product on the disjoint-leg locus and then extended; that the extension exists and is unique is exactly the full faithfulness of j^* proved in VI.9.3.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.9.3 and Definition/Proposition VI.9.4, printed pp. 227-229"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS1/relative-perverse-t-structure",
+   "target": "GeometricSatakeAndFusion:GS3:fusion/disjoint-leg-factorization-and-full-faithfulness",
+   "reason": "The proof of VI.9.3 works with ^p H^0(Rj_* j^* A) and needs i^* i^! A in ^p D^{>=2}, verified by applying the t-exact conservative functor R pi_{T*} CT_B[deg]; both the t-structure and its hyperbolic characterisation come from GS1.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.9.3, printed p. 227"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS2:Satake-closure/convolution-preserves-satake-and-dualizability",
+   "target": "GeometricSatakeAndFusion:GS3:fusion/finite-set-functoriality-and-constant-terms",
+   "reason": "Corollary VI.9.5's proof starts 'By Proposition VI.8.2, all A in Sat^I_G(Lambda) are dualizable, with dual sw^* D(A)', and uses that in a symmetric monoidal category this forces sw^* D sw^* D(A) = A.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Corollary VI.9.5, printed pp. 229-230"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule",
+   "target": "GeometricSatakeAndFusion:GS4:integral-dual-group/tannakian-left-adjoint",
+   "reason": "Property (ii) of Proposition VI.10.1 expresses L^I_{(W_i)_i}(1) as the FUSION of the one-leg left adjoints; the fusion product is therefore a strict prerequisite for the Tannakian reconstruction, not merely a compatible structure.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.10.1 (ii), printed p. 231"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS4:integral-dual-group/tannakian-left-adjoint",
+   "target": "GeometricSatakeAndFusion:GS4:integral-dual-group/dual-group-identification",
+   "reason": "The Hopf algebra whose representations recover Sat^I_G is built from the left adjoint of the fibre functor; Theorem VI.11.1 identifies the resulting group scheme with G-hat.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "VI.0 introduction, printed p. 190; VI.10, printed p. 230"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS4:rational-reductivity/rational-semisimplicity",
+   "target": "GeometricSatakeAndFusion:GS4:integral-dual-group/dual-group-identification",
+   "reason": "The identification proceeds by first analysing the generic fibre, whose reductivity comes from the rational decomposition of Sat_G(Q_l); the integral statement is then recovered from torus and rank-one Levi maps. The source's own summary says the generic fibre 'is reductive, as the Satake category with Q_l-coefficients is (geometrically) semisimple: For this, we use the degeneration to the Witt vector affine Grassmannian and the decomposition theorem for schemes'.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "VI.0 introduction, printed p. 190; VI.11, printed p. 236"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS3:fusion/finite-set-functoriality-and-constant-terms",
+   "target": "GeometricSatakeAndFusion:GS4:integral-dual-group/dual-group-identification",
+   "reason": "The W_E-equivariant map T-hat -> Tannakian group is built from the symmetric monoidal constant term CT_B[deg] and its commutation with the fibre functors; symmetric monoidality of CT_P[deg_P] with respect to fusion is Proposition VI.9.6.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "VI.11, printed p. 236; Proposition VI.9.6, printed p. 230"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS3:fusion/finite-set-functoriality-and-constant-terms",
+   "target": "GeometricSatakeAndFusion:GS4:integral-dual-group/chevalley-involution",
+   "reason": "That sw^* upgrades to a symmetric monoidal functor commuting with the fibre functor rests on F^I(sw^* A) = F^I(A), which is Corollary VI.9.5.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition VI.0.3 and the paragraph before it, printed p. 190; Corollary VI.9.5, printed p. 229"
+    }
+   ]
+  },
+  {
+   "source": "GeometricSatakeAndFusion:GS1/integral-family-comparison",
+   "target": "GeometricSatakeAndFusion:GS4:rational-reductivity/rational-semisimplicity",
+   "reason": "The decomposition theorem is available only on finite-type proper models over an algebraic closure of a finite field, i.e. on the Witt/special-fibre side; transporting the resulting semisimplicity back to the Satake category over Div^1 is exactly the equivalence of ULA categories over Spd O_C, Spd C and Spd k.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Corollary VI.6.7, printed p. 214; the remark after Proposition VI.7.5, printed p. 219"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "GeometricSatakeAndFusion:GS0",
+   "status": "partial",
+   "remaining": [
+    "Aggregate stage; inherits the remaining items of the three GS0 substages."
+   ]
+  },
+  {
+   "stageId": "GeometricSatakeAndFusion:GS0:loop-geometry",
+   "status": "partial",
+   "remaining": [
+    "SW20 Propositions 19.4.2, 20.3.6 and 20.5.4, which supply the lattice filtration, the closedness/ind-presentation of the bounded loci and the multi-leg properness, were NOT read.",
+    "FS VI.5 (affine flag variety, Demazure varieties: Def. VI.5.1, Prop. VI.5.2, VI.5.3, Def. VI.5.4, Thm. VI.5.5, Def. VI.5.6, Prop. VI.5.7) was read only at the level of statements located in the section listing; the parahoric-model inputs from ReductiveGroupsPartII were not inspected.",
+    "The agreement of the torsor-modification and loop-quotient descriptions via Beauville-Laszlo is used implicitly; the explicit comparison is the RelativeFarguesFontaine RF4 material and was decomposed there, not re-verified here.",
+    "Descent of the bounded loci under the pinned Galois action for nonsplit G, and the closure relations under finite extension of E, were not located as separate statements."
+   ]
+  },
+  {
+   "stageId": "GeometricSatakeAndFusion:GS0:Schubert-smoothness",
+   "status": "partial",
+   "remaining": [
+    "SW20 Proposition 19.4.2, used in the GL_n lattice computation of VI.2.4, was not read.",
+    "The stage text also asks for truncated positive loop groups and their congruence filtration by VECTOR-GROUP quotients with cohomological smoothness; VI.1.11 gives the graded pieces and their smoothness, but the truncated groups (L^+G)^{<m} themselves were not separately analysed.",
+    "The descent of the Galois-orbit cells Gr_{G,mu-bar} was not read."
+   ]
+  },
+  {
+   "stageId": "GeometricSatakeAndFusion:GS0:Witt-geometry",
+   "status": "partial",
+   "remaining": [
+    "Bhatt-Scholze sections 2-7 were NOT read: the h-topology and abstract blowup squares (Thm. 2.9), perfect schemes and the perfection functor (section 3), the proof of Theorem 1.2 (section 4), the K-theoretic determinant (section 5, which the roadmap explicitly excludes), the rest of section 6 (Props. 6.1, 6.2, Lemmas 6.4, 6.11, Rem. 6.12) and section 7 (families of torsion W(k)-modules, Lemma 7.9).",
+    "Bhatt-Scholze section 8.2 (the Demazure resolution) and 8.3 (the construction of L, Theorem 8.8), and Lemmas 8.9, 8.10, 8.11 used in the ampleness induction, were located but NOT read.",
+    "Keel's sections 1-2 beyond Lemmas 1.7-1.8 and Theorem 1.9 were not read; in particular 1.4, 1.5, 1.6 and the EWM theory, and the Frobenius-power extension/descent of sections that the roadmap names as a sub-obligation.",
+    "Zhu sections 1.1-1.4 and Appendix A, which the roadmap names for the perfect-space carrier, were NOT read (Zhu_MixedCharacteristicSatake.pdf is in the library, unread).",
+    "Berkeley Lectures 19.2-19.3, 20.3-20.5 and Lecture 21, named for the integral family and bounded properness, were NOT read.",
+    "The identification of the v-sheaf attached to the perfections with the fibre of GS0:loop-geometry over the characteristic-p point of Div^1_Y-curly was not located as a proved statement."
+   ]
+  },
+  {
+   "stageId": "GeometricSatakeAndFusion:GS1",
+   "status": "partial",
+   "remaining": [
+    "FS IV.6 (hyperbolic localization, Braden's theorem, Prop. IV.6.11's definition of G_m-monodromic, Prop. IV.6.13) was NOT read; it is imported at several points of VI.3-VI.7.",
+    "FS IV.7 (Drinfeld's lemma, Prop. IV.7.3) was NOT read; it is what identifies LocSys((Div^1_X)^I) with Rep_{W_E^I}.",
+    "The scheme-side perverse/recollement foundation (EtaleDualityAndPerverseSheaves EDC.4-EDC.5) was not inspected; it is another roadmap's stage.",
+    "Lurie's Higher Algebra Proposition 1.4.4.11, used for the existence of the t-structure, was not read.",
+    "The proof of Corollary VI.6.7 was not printed in the passage read.",
+    "FS VI.5 (affine flag variety and Demazure resolutions), used in the proof of VI.6.5, was read only at statement level."
+   ]
+  },
+  {
+   "stageId": "GeometricSatakeAndFusion:GS2",
+   "status": "partial",
+   "remaining": [
+    "Aggregate stage; inherits the remaining items of GS2:correspondences and GS2:Satake-closure."
+   ]
+  },
+  {
+   "stageId": "GeometricSatakeAndFusion:GS2:correspondences",
+   "status": "partial",
+   "remaining": [
+    "The proof of Proposition VI.7.5 was read only in its first half; the Verdier-duality half and the l^{a(mu)} bound (which uses the decomposition theorem) were not fully read.",
+    "Propositions VI.7.6, VI.7.7, VI.7.11 and VI.7.13 (constant terms for a parabolic) were located but not read.",
+    "The 'ambient associativity and unit with coherent maps' that the stage text requires were not located as explicit statements in FS; convolution associativity is inherited from composition in the 2-category C_T, whose coherence was not verified."
+   ]
+  },
+  {
+   "stageId": "GeometricSatakeAndFusion:GS2:Satake-closure",
+   "status": "partial",
+   "remaining": [
+    "Proposition IV.2.24, used for dualizability, was not read.",
+    "The semi-infinite/hyperbolic-localization estimates the stage text names are those of VI.3 and IV.6; IV.6 was not read.",
+    "The exact place where coefficient flatness excludes the Tor obstruction to t-exactness was not isolated in the source; FS record flatness as part of Definition VI.7.8 but do not display the obstruction."
+   ]
+  },
+  {
+   "stageId": "GeometricSatakeAndFusion:GS3",
+   "status": "partial",
+   "remaining": [
+    "Aggregate stage; inherits the remaining items of GS3:fusion."
+   ]
+  },
+  {
+   "stageId": "GeometricSatakeAndFusion:GS3:fusion",
+   "status": "partial",
+   "remaining": [
+    "FS IV.7.3 (Drinfeld's lemma), on which Proposition VI.9.2 rests, was NOT read.",
+    "The coherence of the collision maps for THREE legs and two different successive diagonal factorizations, which the completion contract makes an explicit obligation, is asserted by FS as 'functorial in I_1, ..., I_k and compatible with composition' but no coherence proof was read.",
+    "Proposition VI.6.8 (the multi-leg ULA statement over the disjoint-leg locus) was located but not read."
+   ]
+  },
+  {
+   "stageId": "GeometricSatakeAndFusion:GS4",
+   "status": "partial",
+   "remaining": [
+    "Aggregate stage; inherits the remaining items of the three GS4 substages."
+   ]
+  },
+  {
+   "stageId": "GeometricSatakeAndFusion:GS4:rational-reductivity",
+   "status": "partial",
+   "remaining": [
+    "The decomposition theorem itself (BBD) was not read; it is EtaleDualityAndPerverseSheaves EDC.7, another roadmap's stage, and its hard-Lefschetz input DWP.9 is a further dependency.",
+    "The [MV07, Section 7] argument that the generic fibre is reductive was not read.",
+    "The transport of semisimplicity from the finite-type proper models through perfection and through the ULA comparison was not verified beyond the statement of VI.6.7."
+   ]
+  },
+  {
+   "stageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+   "status": "partial",
+   "remaining": [
+    "The proof of Theorem VI.11.1 was read only through the torus case, the closed-immersion step and the generic-fibre discussion (printed pp. 235-236); the rank-one/PGL_2 analysis, the pinning-independence argument and the Galois descent for nonsplit G (printed pp. 236-239) were NOT read.",
+    "Lemmas VI.11.2, VI.11.3 and VI.11.4 ([PY06, Corollary 5.2]) were located but not read.",
+    "Propositions VI.10.2 and VI.10.3 (the abstract Tannakian criterion and the exterior tensor product) were located but not read; the construction of the one-element left adjoint in VI.10.1 was not read.",
+    "Naturality for Levi restriction/constant term, products, maps inducing isomorphisms on adjoint groups, and Weil restriction - which HS4 and ES6/ES7 require - were not located as proved statements.",
+    "The proof of Proposition VI.12.1 was not read."
+   ]
+  },
+  {
+   "stageId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison",
+   "status": "not_read",
+   "remaining": [
+    "NOT READ. This stage asks for the comparison of the Frobenius trace of a Satake object on a finite-type special-fibre model with the spherical Hecke function in the unramified/hyperspecial case, including Haar volume of the hyperspecial subgroup, geometric Frobenius, q^{<rho,mu>} and the chosen half twist, importing the classical Satake transform from SmoothRepresentationsOfLocalGroups SR.4. No passage covering this was found in FS VI (the chapter ends with VI.12 on the Chevalley involution). Candidate sources: Zhu_MixedCharacteristicSatake.pdf section 2 (in the library, unread), and the classical Satake literature. Nothing in this packet addresses it."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Zhu's mixed-characteristic Satake paper is in the library and entirely unread",
+   "neededBy": [
+    "GeometricSatakeAndFusion:GS0:Witt-geometry/witt-lattice-functor-and-representability",
+    "GeometricSatakeAndFusion:GS4:classical-Satake-comparison"
+   ],
+   "detail": "The roadmap names 'Zhu sections 1-2 and Appendix A' as a primary source for the perfect-space carrier of the Witt vector affine Grassmannian and its relation to finite-type models, and warns that 'Zhu's independent commutativity proof is not silently imported instead of FS fusion, nor are its inputs to equal-characteristic Satake made circular here'. VERIFIED PRESENT: references/papers/Zhu_MixedCharacteristicSatake.pdf, 'Affine Grassmannians and the geometric Satake in mixed characteristic', arXiv:1407.8519v3 (20 July 2016), 63 pages, sha256 2c23e397d21e84812daec2c637e2a763eec54ef0d784748eb74e3b2093de1e5b. Its first page and table of contents were inspected to confirm the title and edition; NOTHING ELSE WAS READ. NEXT SOURCE ACTION: read Zhu sections 1.1-1.4 (p-adic loop groups, affine Grassmannians for GL_n, the Demazure resolution, affine flag varieties), section 2 (the geometric Satake) and Appendix A. Note that FS's Theorem 8.2 attribution to Zhu (representability by the perfection of a proper algebraic space) is weaker than Bhatt-Scholze Theorem 8.3, and FS's proof is independent of it."
+  },
+  {
+   "title": "Bhatt-Scholze sections 2-7 and 8.2-8.3 are unread, so the line bundle L is a read STATEMENT with an unread construction",
+   "neededBy": [
+    "GeometricSatakeAndFusion:GS0:Witt-geometry/witt-lattice-functor-and-representability",
+    "GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel"
+   ],
+   "detail": "The roadmap makes the geometric construction of L an explicit obligation: 'use the GEOMETRIC determinant line construction on a Demazure resolution and the trivial-on-geometric-fibres descent criterion (BS17 section 6, especially 6.8/6.12); prove its positivity/ampleness by the semiampleness criterion used in BS17 sections 7-8'. What was actually read: the introduction (Theorems 1.1, 1.2, 1.3, Remark 1.4, the outline), Theorem 6.8 with its proof, the statements of Definition 8.1, Theorems 8.2 and 8.3 with the strategy paragraph, and the proof of Theorem 8.3 in section 8.4 including the three Keel citations. NOT READ: section 2 (h-topology, Theorem 2.9), section 3 (perfect schemes), section 4 (proof of Theorem 1.2), section 6 apart from 6.8 (Propositions 6.1, 6.2, Lemmas 6.4, 6.11, Remark 6.12), section 7 (families of torsion W(k)-modules, Lemma 7.9 giving the closed immersions Gr_{<=mu} in Gr_{<=lambda}), section 8.2 (the Demazure resolution) and section 8.3 (Theorem 8.8, the construction of L) and the auxiliary Lemmas 8.9, 8.10 (nefness), 8.11 (the exceptional locus). NEXT SOURCE ACTION: read BS17 printed pp. 4-22 and pp. 32-35 in full. Until then the existence of the ample line bundle is an unread import, not an input package."
+  },
+  {
+   "title": "Keel's semiampleness machinery beyond 1.7-1.9 is unread",
+   "neededBy": [
+    "GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel"
+   ],
+   "detail": "The roadmap makes the Keel criterion a sub-obligation: 'construct the exceptional locus of a nef line bundle, its restriction criterion, Frobenius-power extension/descent of sections, and the reduction yielding semiampleness; verify the positivity assumptions before the projectivity conclusion'. READ: Abstract, 0.0 Definition-Lemma, 0.1 Definition (exceptional locus), 0.2 Theorem, 0.3 Corollary (printed pp. 253-254), and 1.7 Lemma with proof, 1.8 Lemma with sketch, 1.9 Theorem with proof (printed pp. 262-263). NOT READ: 1.1-1.6 (including Kodaira's lemma application 1.6 and the reductions 1.4, 1.5), the whole of Section 2 (which Keel says contains the complete proof of 1.8, e.g. 2.10.1 and 2.12), and the Frobenius-power section-extension arguments that carry the positive-characteristic content. NEXT SOURCE ACTION: read Keel printed pp. 255-262 and Section 2. Note that Keel's 1.8 is only SKETCHED in Section 1 ('Sketch of Proof. This follows easily from [Kol95,8.4] and [Ar70,6.1]'), so the complete proof genuinely requires Section 2."
+  },
+  {
+   "title": "FS IV.6 and IV.7 are unread but are imported throughout Chapter VI",
+   "neededBy": [
+    "GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization",
+    "GeometricSatakeAndFusion:GS1/ULA-sheaves-on-the-hecke-stack",
+    "GeometricSatakeAndFusion:GS3:fusion/finite-set-functoriality-and-constant-terms"
+   ],
+   "detail": "Section IV.6 (hyperbolic localization / Braden's theorem, including Definition IV.6.11 of G_m-monodromic and Proposition IV.6.13 on compatibility with Verdier duality) and Section IV.7 (Drinfeld's lemma, Proposition IV.7.3) were NOT opened. They are used at: Corollary VI.3.5 (the hyperbolic-localization comparison), the proofs of VI.6.4 and VI.7.5 (IV.6.13), and Proposition VI.9.2 (IV.7.3, which is what turns local systems on (Div^1_X)^I into W_E^I-representations and hence supplies the Weil action of the final Satake theorem). FS themselves caution in the Chapter IV introduction: 'The theme here is the idea pi_1((Div^1)^I) = W_E^I. Unfortunately, we know no definition of pi_1 making this true, but for example it becomes true when considering Lambda-local systems for any Lambda.' NEXT SOURCE ACTION: read FS printed pp. 155-166. This gap is shared with the VStackSheavesAndLisseCategories packet of this job, where it is recorded for stage VS1."
+  },
+  {
+   "title": "GS4:classical-Satake-comparison has no corresponding passage in FS VI",
+   "neededBy": [
+    "GeometricSatakeAndFusion:GS4:classical-Satake-comparison"
+   ],
+   "detail": "Chapter VI of Fargues-Scholze ends with VI.12 (the Chevalley involution); the section list VI.1-VI.12 was inspected and contains no Frobenius-trace/spherical-Hecke-function comparison. The stage's content - comparing the trace of Frobenius on a Satake object over a finite-type special-fibre model with the spherical Hecke function, with Haar volume of the hyperspecial subgroup, geometric Frobenius, q^{<rho,mu>} and the half twist - therefore has no source in the primary reference for this roadmap. NEXT SOURCE ACTION: look in Zhu, 'Affine Grassmannians and the geometric Satake in mixed characteristic' section 2 (in the library, unread) and in the classical Satake literature (Gross, 'On the Satake isomorphism'; Haines-Kottwitz-Prasad). Also check SmoothRepresentationsOfLocalGroups SR.4, which the stage text says supplies the classical Satake transform and which belongs to another roadmap. This stage is marked not_read in coverage."
+  }
+ ]
+}

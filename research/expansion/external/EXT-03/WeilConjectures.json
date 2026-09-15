@@ -1,0 +1,308 @@
+{
+  "roadmapId": "WeilConjectures",
+  "status": "partial",
+  "summary": "Source decomposition of the zeta-function formalism and of the deduction of the Weil conjectures from the purity lemma, following Deligne, La conjecture de Weil I, Section 1 ((1.1)-(1.7) and (1.12)-(1.14)) read with proofs, the SGA 4 1/2 Rapport Section 3 (Theorems 3.1-3.2, Proposition 3.3, Corollary 3.4: L-functions from the trace formula) and Theorem 4.10 (statement), the SGA 4 1/2 Cycle Section 3 (Lefschetz trace formula in the proper smooth case via Kunneth and the trace morphism, Corollaries 3.7-3.8), and Weil II Corollary 3.3.9 (extension from projective to proper smooth). Stages WC.1, WC.2, WC.3 and WC.6 are partially decomposed; WC.0, WC.4, WC.5 (and its two sub-stages) and WC.7 are recorded as not read. The exact functional equation and the trace-formula proof itself (Rapport Sections 4-6) were not read.",
+  "sources": [
+    {
+      "id": "deligne-weil-i",
+      "title": "La conjecture de Weil. I",
+      "authors": "Pierre Deligne",
+      "edition": "Publ. Math. IHES 43 (1974) 273-307 (library copy SS_WeilI.pdf from Numdam; OCR text extraction with printed page numbers)",
+      "url": "https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf",
+      "sha256": "8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5",
+      "readSections": [
+        "Section 1: (1.1)-(1.7) including the proof of (1.7) => (1.6), and (1.8)-(1.14) (pp. 273-279; extraction lines 55-330)"
+      ]
+    },
+    {
+      "id": "sga4half",
+      "title": "Cohomologie etale (SGA 4 1/2)",
+      "authors": "Pierre Deligne, with J. F. Boutot, A. Grothendieck, L. Illusie, J. L. Verdier",
+      "edition": "Lecture Notes in Mathematics 569, Springer 1977 (library copy Weil_SGA4Half.pdf from publications.ias.edu; OCR extraction of variable quality)",
+      "url": "https://publications.ias.edu/sites/default/files/Number32.pdf",
+      "sha256": "fb2939521f4c0ea0cdd55a90bec2e618e32fb433c78b194e705c6d989f4e42a6",
+      "readSections": [
+        "[Rapport] Section 3 (Theorems 3.1-3.2, the deduction of 3.1 from 3.2, Proposition 3.3 with proof, Corollary 3.4 statement), pp. 85-86 of the volume (extraction lines 5596-5700); Theorem 4.10 statement (extraction lines 6266-6275)",
+        "[Cycle] Section 3 (3.1-3.8: Lefschetz trace formula in the proper smooth case), pp. 150-152 (extraction lines 11672-11810)"
+      ]
+    },
+    {
+      "id": "deligne-weil-ii",
+      "title": "La conjecture de Weil. II",
+      "authors": "Pierre Deligne",
+      "edition": "Publ. Math. IHES 52 (1980) 137-252 (library copy SS_WeilII.pdf from Numdam; OCR text extraction)",
+      "url": "https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf",
+      "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71",
+      "readSections": [
+        "(3.3.7)-(3.3.9) and (3.3.10)-(3.3.11), pp. 206-207 (extraction lines 3186-3240); the rest of Section 3.3 is recorded in the WeightsInEtaleCohomology packet"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "WeilConjectures:WC.1/zeta-function-euler-product-and-point-counts",
+      "parentStageId": "WeilConjectures:WC.1",
+      "title": "The zeta function as an Euler product over closed points and its logarithmic derivative in terms of point counts",
+      "kind": "definition",
+      "statement": "For X_0 separated of finite type over F_q, with |X_0| its closed points, deg(x) = [k(x) : F_q] and q_x = q^{deg x}: Z(X_0, t) = Π_{x∈|X_0|} (1 − t^{deg x})^{-1} ∈ Z[[t]], converging for |t| small, with ζ_{X_0}(s) = Z(X_0, q^{-s}). Identifying |X| (closed points of X = X_0 ×_{F_q} F̄_q) with X_0(F̄_q), the Frobenius F acts as x ↦ x^q, the fixed points of F^n are X_0(F_{q^n}), |X_0| is the set of F-orbits with deg(x) the orbit size, and N_n := #X_0(F_{q^n}) = Σ_{deg(x) | n} deg(x). Consequently t d/dt log Z(X_0, t) = Σ_{n>0} N_n t^n. For an endomorphism F of a finite-dimensional vector space, t d/dt log det(1 − Ft)^{-1} = Σ_{n>0} Tr(F^n) t^n; more generally (Rapport 3.3) for a finitely generated projective module M over a commutative ring A and f ∈ End(M), T d/dT log det(1 − fT)^{-1} = Σ Tr(f^n) T^n.",
+      "hypotheses": [
+        "X_0 separated of finite type over F_q (Deligne writes 'variete algebrique'); the Euler product converges for |t| small because there are finitely many closed points of each degree.",
+        "The trace identity is proved in Sch12-style generality in Rapport 3.3 by reduction to M free of rank 1 over an algebraically closed field of characteristic 0 (principle of permanence of algebraic identities), using additivity of both sides in short exact sequences."
+      ],
+      "proofSteps": [
+        "(1.4)(a)-(d): F-fixed closed points of X are the F_q-points; F^n-fixed points are the F_{q^n}-points; closed points of X_0 are F-orbits of size deg(x); each x ∈ |X_0| with deg(x) | n contributes deg(x) points to X_0(F_{q^n}).",
+        "(1.5.2): logarithmic derivative of the Euler product gives Σ_x deg(x) t^{deg x}/(1 − t^{deg x}) = Σ_n N_n t^n.",
+        "(1.5.3)/Rapport 3.3: verify for dim 1 and use additivity in short exact sequences."
+      ],
+      "acceptance": [
+        "X_0 = Spec F_q: Z = (1 − t)^{-1}; X_0 = P^1: Z = 1/((1 − t)(1 − qt)); N_n for a finite etale scheme with a nontrivial component permutation is computed from orbit sizes (the WC.7 test).",
+        "N_r = Σ_{m|r} m a_m with a_m the number of closed points of degree m, and the Mobius inversion for a_m."
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "Section 1, (1.1.1)-(1.1.3), (1.4) a)-d), (1.5.2)-(1.5.3), pp. 273-275 (extraction lines 57-70, 108-150, 150-170)",
+          "excerpt": "d) De b) et c) resulte la formule (1.4.1) #X^{F^n} = #X_0(F_{q^n}) = Σ_{deg(x)|n} deg(x).",
+          "match": "The finite-extension point-count formula that WC.1 must prove ('N_r = Σ_{m|r} m a_m')."
+        },
+        {
+          "sourceId": "sga4half",
+          "locator": "[Rapport] Section 3, Proposition 3.3 with proof, p. 86 (extraction lines 5663-5692)",
+          "excerpt": "Par le principe de prolongement des identites algebriques, il suffit de la verifier pour A un corps algebriquement clos de caracteristique 0. Les deux membres etant additifs en M dans une extension 0 → M' → M → M'' → 0, il suffit meme de ne traiter que le cas ou M est de rang 1",
+          "match": "The proof of the logarithmic-derivative identity used to pass from traces to determinants."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeilConjectures:WC.1/cohomological-formula-from-the-trace-formula",
+      "parentStageId": "WeilConjectures:WC.1",
+      "title": "Grothendieck's cohomological expression Z(X_0, t) = Π det(1 − F* t | H^i_c(X, Q_ℓ))^{(−1)^{i+1}} and its L-function generalization",
+      "kind": "theorem",
+      "statement": "Let ℓ ≠ p. Grothendieck's Lefschetz formula #X^{F^n} = Σ_i (−1)^i Tr(F^{*n}, H^i_c(X, Q_ℓ)) (Weil I (1.5.1)) yields Z(X_0, t) = Π_i det(1 − F* t, H^i_c(X, Q_ℓ))^{(−1)^{i+1}}, an identity in Q_ℓ[[t]] between an element of Z[[t]] and the Taylor expansion of an element of Q_ℓ(t). More generally (Rapport 3.1-3.2; Weil I (1.14)), for a constructible Q_ℓ-sheaf F_0 on X_0, L(X_0, F_0, t) := Π_{x∈|X_0|} det(1 − F_x t^{deg x}, F_0)^{-1} equals Π_i det(1 − F* t, H^i_c(X, F))^{(−1)^{i+1}}, as a consequence of the trace formula Σ_{x∈X^{F^n}} Tr(F^{n*}, F_x) = Σ_i (−1)^i Tr(F^{*n}, H^i_c(X, F)) for all n; the deduction compares logarithmic derivatives term by term using Proposition 3.3.",
+      "hypotheses": [
+        "X_0 separated of finite type over F_q; ℓ ≠ p; H^i_c are Grothendieck's ℓ-adic cohomology groups with proper support, finite-dimensional and zero for i > 2 dim X (Weil I (1.3), (1.10)); F* is defined via the finite morphism F and the canonical isomorphism F*F ≅ F (Weil I (1.11)-(1.12)).",
+        "The trace formula itself (Rapport 3.2, deduced from Theorem 4.10 for K_0 ∈ D^b_ctf(X_0, Λ) with Λ a noetherian torsion ring killed by an integer prime to p) is an imported theorem: Rapport Sections 4-6 were not read. The atlas assigns it to UPSTREAM:CohomologicalPointCounting:TraceFormula."
+      ],
+      "proofSteps": [
+        "Set T = t^f-free normalization as in the Rapport (T = t); both sides are formal power series with constant term 1 over a field of characteristic 0, so it suffices to compare T d/dT log of both sides.",
+        "Left side: T d/dT log L = Σ_{n>0} T^n Σ_{x∈X^{F^n}} Tr(F^n, F_x) (grouping closed points of degree d | n).",
+        "Right side: by Proposition 3.3, T d/dT log Π det(1 − F* T, H^i_c)^{(−1)^{i+1}} = Σ_n T^n Σ_i (−1)^i Tr(F^{*n}, H^i_c); the trace formula identifies the coefficients."
+      ],
+      "acceptance": [
+        "Weil I (1.5.4): for F = Q_ℓ one recovers Z(X_0, t); for X_0 = P^1 the formula gives 1/((1 − t)(1 − qt)) with H^0 = Q_ℓ, H^2 = Q_ℓ(−1).",
+        "The right-hand side lies in Q_ℓ(t); rationality over Q is a separate step (next node)."
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "Section 1, (1.5)-(1.5.4), (1.12)-(1.14.3), pp. 275-279 (extraction lines 140-170, 262-330)",
+          "excerpt": "(1.5.4) Z(X_0, t) = Π det(1 − F* t, H^i_c(X, Q_ℓ))^{(−1)^{i+1}}. Le membre de droite est un element de Q_ℓ(t). La formule affirme que son developpement de Taylor en t = 0, a priori une serie formelle dans Q_ℓ[[t]] de terme constant un, est dans Z[[t]], et est egal au membre de gauche",
+          "match": "The precise meaning of the cohomological formula as an identity of formal power series."
+        },
+        {
+          "sourceId": "sga4half",
+          "locator": "[Rapport] Section 3, Theorems 3.1-3.2 and the deduction of 3.1 from 3.2, p. 85 (extraction lines 5596-5660)",
+          "excerpt": "Theoreme 3.2.- Pour tout entier n, Σ_{x∈X^{F^n}} Tr(F^{n*}, F_x) = Σ_i (−1)^i Tr(F^{*n}, H^i_c(X, F)). Rappelons brievement la methode classique pour deduire 3.1 de 3.2.",
+          "match": "The trace formula statement and the logarithmic-derivative deduction of the L-function formula."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeilConjectures:WC.1/rationality-over-q-via-hankel-determinants",
+      "parentStageId": "WeilConjectures:WC.1",
+      "title": "Z(X_0, t) is a rational function over Q with coprime numerator and denominator in Z[t] of constant term 1",
+      "kind": "lemma",
+      "statement": "Since Z(X_0, t) ∈ Z[[t]] and its image in Q_ℓ[[t]] is the Taylor expansion of a rational function, the Hankel determinants H_k = det((a_{i+j+k})_{0≤i,j≤N}) vanish for k > M for suitable N, M; vanishing holds in Q_ℓ iff it holds in Q, so Z(X_0, t) ∈ Z[[t]] ∩ Q(t). Writing Z = P/Q with P, Q ∈ Z[t] coprime and positive constant terms, Fatou's lemma (Z ∈ Z[[t]] with constant term 1) forces the constant terms of P and Q to be 1.",
+      "hypotheses": [
+        "Only the integrality of the coefficients (from the Euler product) and the cohomological rationality over Q_ℓ are used; no purity input.",
+        "Fatou's lemma is cited without proof; the Hankel criterion for rationality of power series is classical (not proved in the source)."
+      ],
+      "proofSteps": [
+        "Hankel criterion in both directions over Q_ℓ and over Q; the determinants are integers, so their vanishing is field-independent.",
+        "Fatou: a power series with integer coefficients that is rational has a representation with denominator of constant term 1; combined with the positive-constant-term normalization, both constant terms are 1."
+      ],
+      "acceptance": [
+        "For X_0 a smooth projective curve of genus g, Q = (1 − t)(1 − qt) and P ∈ Z[t] of degree 2g with P(0) = 1 (once the P_i are identified, WC.3).",
+        "Uniqueness of the coprime representation with positive constant terms."
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "Section 1, proof of (1.7) => (1.6), first paragraph, p. 276 (extraction lines 197-215)",
+          "excerpt": "Cette nullite est vraie dans Q_ℓ si et seulement si elle l'est dans Q; Z(X_0, t) est donc le developpement en serie de Taylor d'un element de Q(t). En d'autres termes, Z(X_0, t) ∈ Z[[t]] ∩ Q(t) ⊂ Q(t). ... D'apres un lemme de Fatou, que Z(X_0, t) soit dans Z[[t]] et de terme constant un implique que les termes constants de P et Q sont 1.",
+          "match": "The rational-descent and normalization lemmas the stage lists ('Fatou/Gauss and rational-descent lemmas')."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeilConjectures:WC.2/lefschetz-trace-formula-proper-smooth-via-duality",
+      "parentStageId": "WeilConjectures:WC.2",
+      "title": "Lefschetz trace formula for endomorphisms of proper smooth varieties via Kunneth, the trace morphism and cycle classes",
+      "kind": "theorem",
+      "statement": "Let X, Y be proper smooth varieties over an algebraically closed field k, purely of dimensions N and M, ℓ invertible in k. Via Kunneth H*(X × Y) = H*(X) ⊗ H*(Y), a class η ∈ H^{2q}(X × Y)(q) defines η_{XY}: H*(Y)(N − q) → H*(X), ξ ↦ ∫_Y η · pr_2^* ξ. (3.3) For p + q = N + M, ε ∈ H^{2p}(X × Y)(p), η ∈ H^{2q}(X × Y)(q): Tr_{X×Y}(η · ε) = Tr(η_{XY} ε_{YX}, H*(X)), the trace on the right taken in the graded (super) sense. (3.6) For q = M and η = cl(B) the class of a subscheme B ⊂ X × Y finite over X, η_{XY} = Tr_{B/X} ∘ pr_2^*; for B the graph of f: X → Y, η_{XY} = f^*. (3.7) For f an endomorphism of proper smooth X with isolated fixed points, Σ (−1)^i Tr(f^*, H^i(X)) is the number of fixed points counted with multiplicity (intersection multiplicity of the graph with the diagonal). (3.8) For X a curve over k obtained by base change from X_0/F_q and f the Frobenius, Σ (−1)^i Tr(f^*, H^i_c(X)) is the number of fixed points of f.",
+      "hypotheses": [
+        "X, Y proper and smooth over an algebraically closed field; the trace morphism Tr: H^{2M}(Y)(M) → Q_ℓ and Poincare duality (isomorphism H*(Y) ≅ H*(Y)^∨) as in [Cycle] Section 1 and [Dualite]; cycle classes of [Cycle] Section 2 with the intersection-multiplicity interpretation (Remark 3.5, via an alternating sum of Tor).",
+        "Remark 3.4: the proof of 3.3 does not use that the duality maps are isomorphisms, nor smoothness of X and Y, but without smoothness there are few useful cohomology classes.",
+        "Corollary 3.8 handles non-smooth curves by reduction to the smooth locus and its projective completion (proof only partially read)."
+      ],
+      "proofSteps": [
+        "Fix an isomorphism Q_ℓ(1) ≅ Q_ℓ and retain only the Z/2-grading; η_{XY} is the image of η under H*(X) ⊗ H*(Y) ≅ H*(X) ⊗ H*(Y)^∨ = Hom(H*(Y), H*(X)); the definition of the trace then reduces 3.3 to Tr_{X×Y} = Tr_X ⊗ Tr_Y.",
+        "3.6: by 3.2 and the projection formula for cl(B), η_{XY}(ξ) = Tr_{X×Y/X}(cl(B) · pr_2^* ξ) = Tr_{B/X}(pr_2^* ξ).",
+        "3.7: take A = graph of the identity, B = graph of f in 3.5 and apply 3.3 and 3.6."
+      ],
+      "acceptance": [
+        "For X = P^1 and f = Frobenius, Tr(f^*, H^0) + Tr(f^*, H^2) = 1 + q = #P^1(F_q).",
+        "The statement is about ordinary cohomology of proper X; for open X the Rapport's compact-support trace formula is needed, which is not proved by this route."
+      ],
+      "sources": [
+        {
+          "sourceId": "sga4half",
+          "locator": "[Cycle] Section 3, 3.1-3.3 with proof, Remarks 3.4-3.5, Proposition 3.6 with proof, Corollaries 3.7-3.8, pp. 150-152 (extraction lines 11672-11810)",
+          "excerpt": "Corollaire 3.7 - Soit f un endomorphisme de X propre et lisse sur un corps algebriquement clos k. On suppose que les points fixes de f sont isoles. Alors, la trace Σ(−1)^i Tr(f^*, H^i(X)) est le nombre de points fixes de f, chacun compte avec sa multiplicite.",
+          "match": "The duality-based Lefschetz formula, the only part of WC.2's duality package read; the functional equation is not derived here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity",
+      "parentStageId": "WeilConjectures:WC.3",
+      "title": "From the purity lemma to integral, ℓ-independent characteristic polynomials: Deligne's (1.7) => (1.6)",
+      "kind": "theorem",
+      "statement": "Let X_0 be projective smooth over F_q and assume (1.7): for each i and ℓ ≠ p the eigenvalues of F* on H^i(X, Q_ℓ) are algebraic numbers all of whose complex conjugates have absolute value q^{i/2}. Then (1.6): det(t·1 − F*, H^i(X, Q_ℓ)) has integer coefficients independent of ℓ, and its complex roots have absolute value q^{i/2}. Proof: with P_i(t) = det(1 − F* t, H^i(X, Q_ℓ)), (1.7) makes the P_i pairwise coprime, so Z = Π P_i^{(−1)^{i+1}} is in lowest terms and P = Π_{i odd} P_i, Q = Π_{i even} P_i. Let K ⊂ Q̄_ℓ be generated over Q by the roots of R = PQ; the roots of P_i are those roots of R all of whose complex conjugates have absolute value q^{−i/2}, a set stable under Gal(K/Q), so P_i ∈ Q[t]; by Gauss's lemma (or because its roots are inverses of algebraic integers) P_i ∈ Z[t]; and this description of the roots is independent of ℓ, hence so is P_i.",
+      "hypotheses": [
+        "X_0 projective and smooth ('non singuliere') over F_q; (1.7) is used for all i and all ℓ ≠ p, with the all-complex-conjugates formulation (not a single embedding).",
+        "Uses the rationality and normalization lemma (previous WC.1 node) and the cohomological formula; multiplicities are handled through the polynomial identity, not merely root sets.",
+        "Invertibility of F* (so that deg P_i = b_i) is not stated in this passage; it follows from the nonvanishing of eigenvalues asserted by (1.7)."
+      ],
+      "proofSteps": [
+        "Distinct absolute values q^{−i/2} of the roots of P_i for different i prevent common roots, so the alternating product is reduced.",
+        "Galois stability of the root set of P_i (characterized by the absolute values of all conjugates) gives P_i ∈ Q[t]; integrality by Gauss's lemma given P, Q ∈ Z[t] with constant term 1.",
+        "ℓ-independence: the characterization of the roots of P_i inside the ℓ-independent rational function Z(X_0, t) does not involve ℓ."
+      ],
+      "acceptance": [
+        "For a smooth projective curve, P_1 ∈ Z[t] of degree 2g with reciprocal roots of absolute value q^{1/2}, independent of ℓ.",
+        "The argument does not assert semisimplicity of F*, nor does it use it."
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "Section 1, Theorem (1.6), Lemma (1.7) and the proof of (1.7) => (1.6), pp. 276-277 (extraction lines 189-230)",
+          "excerpt": "Les racines de P_i(t) sont celles des racines de R(t) ayant la propriete que tous leurs conjugues complexes sont de valeur absolue q^{−i/2}. Cet ensemble est stable sous Gal(K/Q). Le polynome P_i(t) est donc a coefficients rationnels.",
+          "match": "The all-conjugates Galois-stability argument the stage requires, with the ℓ-independence conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+      "parentStageId": "WeilConjectures:WC.6",
+      "title": "Extension of the Weil conjectures from projective to proper smooth varieties (Weil II 3.3.9)",
+      "kind": "application",
+      "statement": "Let X_0 be proper and smooth over F_q. Then H^i(X, Q_ℓ) is pure of weight i, and for each i the polynomial det(t·1 − F, H^i(X, Q_ℓ)) has integer coefficients independent of ℓ (ℓ ≠ p) whose complex roots have absolute value q^{i/2}. Proof: the upper bound H^i_c mixed of weight ≤ i (3.3.4 with F = Q_ℓ, weight 0) and the lower bound H^i mixed of weight ≥ i for smooth X_0 (3.3.5, by Poincare duality) coincide for proper X_0, so H^i is pure of weight i; then argue as in Weil I (1.7) => (1.6). (3.3.7-3.3.8) For the constant sheaf, the pairs (r, s) = (v(α), v(qα^{-1})) of normalized p-adic valuations of Frobenius eigenvalues on H^i lie in the indicated triangles of the Hodge-type diagram (lower triangle in compact-support or proper cohomology, upper triangle in ordinary cohomology of smooth X). (3.3.11) 'Smooth' enters only through Poincare duality and may be replaced by the rational-homology-manifold condition Ra^! Q_ℓ = Q_ℓ(n)[2n], e.g. for etale-local quotients of smooth schemes by finite groups.",
+      "hypotheses": [
+        "Weil II Theorem 3.3.1 (Rf_! preserves 'mixed of weight ≤ n + i') and its corollaries 3.3.4-3.3.6 are the inputs; they are recorded in the WeightsInEtaleCohomology packet and assigned by the atlas to DeligneWeightsAndPurity DWP.7, which explicitly exports 'the smooth proper nonprojective extension used by WC (3.3.9)'.",
+        "The integrality of the P_i still uses the Weil I argument (Fatou, Gauss) on the proper X_0; the trace formula holds for proper X_0 as well."
+      ],
+      "proofSteps": [
+        "H^i_c(X, Q_ℓ) = H^i(X, Q_ℓ) for proper X; weights ≤ i from 3.3.4 and ≥ i from 3.3.5.",
+        "Purity of each H^i gives coprimality of the P_i and the rest of Weil I's argument applies verbatim."
+      ],
+      "acceptance": [
+        "A proper smooth nonprojective variety (e.g. a Hironaka-type example) satisfies the same integrality and absolute-value statements as projective ones.",
+        "For G_m (smooth, not proper) the weights of H^1_c and H^1 differ (0 vs 2), illustrating why properness is needed for purity of the whole H^i."
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "Section 3.3, (3.3.7)-(3.3.11), pp. 206-207 (extraction lines 3186-3240)",
+          "excerpt": "Prenons X_0 propre et lisse. On trouve que H^i(X, Q_ℓ) est pur de poids i. Raisonnant comme dans I (preuve de (1.7) => (1.6)), on retrouve le theoreme principal (1.6) de I, avec « projectif » remplace par « propre »",
+          "match": "The exact mechanism of the projective-to-proper extension WC.6 asks for."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "WeilConjectures:WC.1/zeta-function-euler-product-and-point-counts",
+      "target": "WeilConjectures:WC.1/cohomological-formula-from-the-trace-formula",
+      "reason": "The logarithmic derivative Σ N_n t^n and the identity T d/dT log det(1 − fT)^{-1} = Σ Tr(f^n) T^n are what the trace formula is compared with, term by term.",
+      "sources": [{"sourceId": "deligne-weil-i", "locator": "Section 1, (1.5.2)-(1.5.4), p. 275"}]
+    },
+    {
+      "source": "WeilConjectures:WC.1/cohomological-formula-from-the-trace-formula",
+      "target": "WeilConjectures:WC.1/rationality-over-q-via-hankel-determinants",
+      "reason": "Rationality over Q_ℓ of Z(X_0, t) comes from the cohomological formula; the Hankel argument then descends it to Q.",
+      "sources": [{"sourceId": "deligne-weil-i", "locator": "Section 1, proof of (1.7) => (1.6), p. 276"}]
+    },
+    {
+      "source": "WeilConjectures:WC.1/rationality-over-q-via-hankel-determinants",
+      "target": "WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity",
+      "reason": "The reduced representation Z = P/Q with P, Q ∈ Z[t] of constant term 1 is the starting point of the identification of the P_i.",
+      "sources": [{"sourceId": "deligne-weil-i", "locator": "Section 1, proof of (1.7) => (1.6), pp. 276-277"}]
+    },
+    {
+      "source": "WeilConjectures:WC.1/cohomological-formula-from-the-trace-formula",
+      "target": "WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity",
+      "reason": "Z = Π P_i^{(−1)^{i+1}} with P_i = det(1 − F* t, H^i) is the identity whose reducedness (from purity) identifies P = Π_{i odd} P_i and Q = Π_{i even} P_i.",
+      "sources": [{"sourceId": "deligne-weil-i", "locator": "Section 1, (1.5.4) and proof of (1.7) => (1.6), pp. 275-277"}]
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.4",
+      "target": "WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity",
+      "reason": "The atlas assigns the proof of Lemma (1.7) (Weil I Sections 3-7: fundamental estimate, pencils, tensor-power argument) to DWP.2-DWP.4; WC.3 consumes the purity lemma in its all-conjugates form.",
+      "sources": [{"sourceId": "deligne-weil-i", "locator": "Section 1, Lemma (1.7) and 'La suite de cet article est consacree a la demonstration de (1.7)', p. 277"}]
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "WeilConjectures:WC.2/lefschetz-trace-formula-proper-smooth-via-duality",
+      "reason": "EDC.2 owns the trace morphism Tr_f and Poincare duality for smooth proper varieties, which [Cycle] 3.1-3.3 use through Kunneth and the identification H*(Y) ≅ H*(Y)^∨ to define η_{XY} and to reduce 3.3 to Tr_{X×Y} = Tr_X ⊗ Tr_Y.",
+      "sources": [{"sourceId": "sga4half", "locator": "[Cycle] 3.1-3.3, pp. 150-151"}]
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.7",
+      "target": "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+      "reason": "DWP.7's description states that it exports 'for constant coefficients the smooth proper nonprojective extension used by WC (3.3.9)' together with the Rf_! bound (3.3.1), the compact-support bound (3.3.4) and the duality lower bound (3.3.5) on which 3.3.9 rests.",
+      "sources": [{"sourceId": "deligne-weil-ii", "locator": "Section 3.3, Corollary 3.3.9 and the paragraph before it, p. 207"}]
+    },
+    {
+      "source": "WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity",
+      "target": "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+      "reason": "Corollary 3.3.9 is proved by 'raisonnant comme dans I (preuve de (1.7) => (1.6))' once purity of H^i is known for proper smooth X_0.",
+      "sources": [{"sourceId": "deligne-weil-ii", "locator": "Section 3.3, before Corollary 3.3.9, p. 207"}]
+    }
+  ],
+  "coverage": [
+    {"stageId": "WeilConjectures:WC.0", "status": "not_read", "remaining": ["Source reconciliation of private packets and Lean audit: not a source-reading task; nothing read."]},
+    {"stageId": "WeilConjectures:WC.1", "status": "partial", "remaining": ["The trace formula itself (Rapport Theorem 3.2 from Theorem 4.10, Sections 4-6: reduction to Z/ℓ^n-cohomology, Nielsen-Wecken method) not read; the Hankel rationality criterion and Fatou's lemma cited without proof; disjoint-union/open-closed factorization and finite-base-extension behaviour of Z not read from a source."]},
+    {"stageId": "WeilConjectures:WC.2", "status": "partial", "remaining": ["The exact functional equation Z(X, 1/(q^d T)) = ± q^{dχ/2} T^χ Z(X, T) and the determinant identity were not read from any source (EDC.8 is the atlas supplier of the reciprocal-pairing interface); only the duality-based Lefschetz formula of [Cycle] Section 3 was read, and its Section 1-2 inputs (trace, cycle class, Remark 3.5's Tor formula) were not."]},
+    {"stageId": "WeilConjectures:WC.3", "status": "partial", "remaining": ["Weil I Sections 2-7 (the proof of Lemma 1.7) are DWP.2-DWP.4's scope and were not read; invertibility of F* and deg P_i = b_i are not spelled out in the passage read."]},
+    {"stageId": "WeilConjectures:WC.4", "status": "not_read", "remaining": ["Betti-number comparison in families: no source read."]},
+    {"stageId": "WeilConjectures:WC.5", "status": "not_read", "remaining": ["Point-count estimates and the curve case: not read from a source (Weil I (8.1)-(8.4) applications were only indexed)."]},
+    {"stageId": "WeilConjectures:WC.5:power-sum-converse", "status": "not_read", "remaining": ["Elementary finite-spectrum lemma: no source read."]},
+    {"stageId": "WeilConjectures:WC.5:surface-alternative", "status": "not_read", "remaining": ["Intersection-theoretic curve bound: no source read."]},
+    {"stageId": "WeilConjectures:WC.6", "status": "partial", "remaining": ["Weil II 3.3.1's proof and 3.3.3-3.3.6 are recorded in the WeightsInEtaleCohomology packet and assigned to DWP.7; the sheaf L-function trace formula for mixed sheaves on separated finite-type X and the crystalline-Frobenius comparison interface were not read."]},
+    {"stageId": "WeilConjectures:WC.7", "status": "not_read", "remaining": ["Worked realizations and final assembly: not a source-reading task; nothing read."]}
+  ],
+  "gaps": [
+    {
+      "title": "Grothendieck's trace formula is imported, not decomposed",
+      "neededBy": ["WeilConjectures:WC.1/cohomological-formula-from-the-trace-formula", "WeilConjectures:WC.2/lefschetz-trace-formula-proper-smooth-via-duality"],
+      "detail": "Rapport Theorem 3.2 is deduced from Theorem 4.10 (trace formula for K_0 ∈ D^b_ctf(X_0, Λ), Λ noetherian torsion killed by an integer prime to p) by the ℓ-adic limit argument of 4.11; Sections 4-6 (extraction lines 5750-6800) were not read. The atlas supplier UPSTREAM:CohomologicalPointCounting:TraceFormula does not exist as a stage record in data/atlas.json (lookup returned nothing), so the import boundary has no atlas owner to link to. Next action: read Rapport Sections 4-6 or decide on the PR196 TraceFormula owner."
+    },
+    {
+      "title": "Functional equation not read from a source",
+      "neededBy": ["WeilConjectures:WC.2"],
+      "detail": "No passage deriving Z(X, 1/(q^d T)) = (−1)^χ Δ T^χ Z(X, T) with Δ² = q^{dχ} was read; Deligne only cites Grothendieck for the functional equation ((1.2)). Candidate sources in the library: SGA 4 1/2 [Dualite] and [Cycle] Section 1 for the pairing; the private Freitag-Kiehl copy (upstream/WeilConjectures references) has no text extraction. EDC.8's description promises the reciprocal-pairing/determinant interface."
+    },
+    {
+      "title": "Candidate Lean primitives (unchecked)",
+      "neededBy": ["WeilConjectures:WC.1/zeta-function-euler-product-and-point-counts"],
+      "detail": "The atlas stage text refers to private PointCounting.lean/ZetaFunction.lean files that are not in the TauCeti tree searched here; no Lean audit was performed in this session. Implementation status remains unchecked."
+    }
+  ]
+}

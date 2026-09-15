@@ -1,0 +1,565 @@
+{
+  "roadmapId": "PrismaticCohomology",
+  "status": "partial",
+  "summary": "The algebra and descent that precede prismatic cohomology: δ-rings, distinguished elements, rigidity, boundedness, perfect prisms, regular-ideal envelopes and the structure sheaf. Imported flatness, perfectoid and derived-completion arguments remain explicit proof boundaries.",
+  "sources": [
+    {
+      "id": "bs-prisms-2022",
+      "title": "Prisms and Prismatic Cohomology",
+      "authors": "Bhargav Bhatt, Peter Scholze",
+      "edition": "arXiv:1905.08229v4, 12 January 2022; supplied text extraction",
+      "url": "https://arxiv.org/abs/1905.08229",
+      "sha256": "211f628989d652d15675a5a1bf7aad9531246b3f4d3c774172c727b5387bb22f",
+      "readSections": [
+        "§2.1 Definition 2.1/Remarks 2.2–2.4, pp.13–14; Lemmas 2.23–2.25 and proofs, p.19; §3 Lemmas 3.1–3.10 and proofs, pp.28–32; Corollary 3.12 and Proposition 3.13 with proofs, pp.33–35; §4.1 Definition 4.1 and Remark 4.2, p.36",
+        "Review R2 additionally read §1.2 complete-flatness conventions, p.11, lines 464–476; §2 opening conventions, p.13, lines 559–567; Lemma 3.6 with proof, pp.29–30, lines 1333–1363"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "PrismaticCohomology:PR.0/delta-frobenius-dictionary",
+      "parentStageId": "PrismaticCohomology:PR.0",
+      "title": "δ-rings and Frobenius lifts",
+      "kind": "definition",
+      "statement": "Construct δ-rings: a commutative ring R with a map of sets δ:R→R, δ(0)=δ(1)=0, δ(xy)=x^pδ(y)+y^pδ(x)+pδ(x)δ(y) and δ(x+y)=δ(x)+δ(y)+(x^p+y^p−(x+y)^p)/p, where the last expression is the integral polynomial (x^p+y^p−(x+y)^p)/p∈Z[x,y]. The map φ(x)=x^p+pδ(x) is a ring endomorphism lifting Frobenius on R/p. Conversely, if R is p-torsion-free, any lift φ of Frobenius on R/p comes from a unique δ-structure δ(x)=(φ(x)−x^p)/p (Remark 2.2); the source asserts this reconstruction only under p-torsion-freeness (Remark 2.5, read only in its opening lines, gives the general derived formulation). Equivalently a δ-structure is a ring section w(x)=(x,δ(x)) of ε:W_2(R)→R (Remark 2.4).",
+      "hypotheses": [
+        "p is a fixed prime and all rings in BS22 §2 are Z_(p)-algebras (p.13, lines 559 and 566: 'Fix a prime p… All our rings are Z(p)-algebras').",
+        "The reconstruction of δ from φ is stated for p-torsion-free R only (Remark 2.2, lines 581–584)."
+      ],
+      "proofSteps": [
+        "Use divisibility of the mixed binomial coefficients to interpret the additive correction as an integral polynomial.",
+        "Expand the two δ-identities to verify φ preserves sums and products.",
+        "In the torsion-free case divide φ(x)−x^p by p and cancel p to recover each δ-identity.",
+        "Compare δ with a ring section of W_2(R)→R using the displayed length-two Witt operations."
+      ],
+      "acceptance": [
+        "Check the Witt-section dictionary on both ring operations.",
+        "Keep a Frobenius congruence distinct from δ-data in rings with p-torsion."
+      ],
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Definition 2.1 and Remarks 2.2–2.4, pp.13–14; extracted lines 568–605",
+          "excerpt": "if R is a p-torsionfree ring",
+          "match": "The source isolates the hypothesis for reconstructing δ and supplies the Witt-section interpretation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PrismaticCohomology:PR.0/distinguished-factor-rigidity",
+      "parentStageId": "PrismaticCohomology:PR.0",
+      "title": "Factors of distinguished elements",
+      "kind": "lemma",
+      "statement": "If d=fh is distinguished in a δ-ring, and f,p belong to the Jacobson radical, then h is a unit and f is distinguished. Multiplying a distinguished d by a unit preserves distinguishedness when d,p lie in the Jacobson radical.",
+      "hypotheses": [
+        "A is a δ-ring; distinguished means δ(d) is a unit.",
+        "For the factor statement f,p∈rad(A); for unit multiplication d,p∈rad(A)."
+      ],
+      "proofSteps": [
+        "Expand δ(fh); the f^pδ(h) and pδ(f)δ(h) terms lie in the radical, so h^pδ(f) is a unit.",
+        "Conclude h and δ(f) are units.",
+        "For a unit u, expand δ(ud): u^pδ(d) is a unit and the remaining two terms lie in the radical."
+      ],
+      "acceptance": [
+        "Test why the radical hypotheses allow the unit-plus-radical step.",
+        "Use these statements on the source and target generators of a prism map."
+      ],
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Lemmas 2.23–2.24 and proofs, p.19; extracted lines 840–858",
+          "excerpt": "which proves both claims",
+          "match": "The proofs are the explicit δ-product expansions followed by the Jacobson-radical unit criterion."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PrismaticCohomology:PR.0/local-distinguished-prism-generators",
+      "parentStageId": "PrismaticCohomology:PR.0",
+      "title": "Local distinguished generators",
+      "kind": "lemma",
+      "statement": "For a locally principal ideal I in a δ-ring A with p and I in rad(A), the following are equivalent: p∈I^p+φ(I)A; p∈I+φ(I)A; there is a faithfully flat map A→A′ of δ-rings that is an ind-(Zariski localization) such that IA′=(d) for a distinguished element d with d,p∈rad(A′).",
+      "hypotheses": [
+        "I is locally principal and p,I lie in the Jacobson radical.",
+        "No global orientation is assumed."
+      ],
+      "proofSteps": [
+        "For a principal ideal (d), use Lemma 2.25 to equate distinguishedness with p∈(d,φ(d)).",
+        "Choose finitely many g_i generating the unit ideal with IA[1/g_i] principal, localize each A[1/g_i] along V(p,I) and take the product A′; the unique δ-A-algebra structure on these localizations is Remark 2.16 (cited at line 1277, not read).",
+        "Take their product to obtain a faithfully flat algebra with a single distinguished generator.",
+        "For the reverse implication, use φ(d)=d^p+pδ(d) and descend the containment by faithful flatness."
+      ],
+      "acceptance": [
+        "Verify the faithfully flat map and generator after base change.",
+        "Retain the distinction between a locally orientable prism and a chosen global orientation."
+      ],
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Lemma 2.25 and Lemma 3.1 with proofs, pp.19,28; extracted lines 859–873 and 1266–1285",
+          "excerpt": "ind-(Zariski localization)",
+          "match": "The proof constructs the covering and uses the principal distinguished-element criterion."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PrismaticCohomology:PR.0/rigidity-prism-ideal",
+      "parentStageId": "PrismaticCohomology:PR.0",
+      "title": "Rigidity of the prism ideal",
+      "kind": "theorem",
+      "statement": "For a map of prisms (A,I)→(B,J), the natural map I⊗_A B→J is an isomorphism and IB=J. Conversely, for a δ-ring map A→B with B derived (p,I)-complete, (B,IB) is a prism exactly when B[I]=0.",
+      "hypotheses": [
+        "(A,I) is a prism throughout; in the converse A→B is a map of δ-rings with B derived (p,I)-complete.",
+        "A prism means I Cartier, A derived (p,I)-complete and p∈I+φ(I)A.",
+        "In the converse B[I]=0 means injectivity of I⊗_A B→B, not vanishing of an arbitrarily chosen torsion ideal."
+      ],
+      "proofSteps": [
+        "Use local distinguished generators d and e after compatible faithfully flat changes of base.",
+        "Write d=ef and apply distinguished-factor rigidity to show f is a unit.",
+        "Descend the ideal isomorphism.",
+        "For the converse, identify B[I]=0 with the base-changed invertible module injecting into B; then verify Cartier, completeness and the inherited p-containment."
+      ],
+      "acceptance": [
+        "Check equality of ideals and the stronger invertible-module isomorphism.",
+        "Verify the converse without assuming that A→B is flat."
+      ],
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Definition 3.2 and Lemma 3.5 with proof, pp.28–29; extracted lines 1286–1300 and 1316–1332",
+          "excerpt": "In particular, IB = J",
+          "match": "The proof relies on distinguished-factor rigidity and gives the exact torsion criterion in the converse."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PrismaticCohomology:PR.0/bounded-prism-complete-flatness",
+      "parentStageId": "PrismaticCohomology:PR.0",
+      "title": "Complete flatness over bounded prisms",
+      "kind": "theorem",
+      "statement": "Over a bounded prism (A,I), a derived (p,I)-complete, (p,I)-completely flat complex M is discrete and classically (p,I)-complete; M has no I^n-torsion and M/I^nM has bounded p-power torsion. In particular bounded prisms are classically complete and admit completely faithfully flat oriented covers.",
+      "hypotheses": [
+        "(A,I) is bounded: A/I has bounded p-power torsion.",
+        "M is (p,I)-completely flat in the sense of BS22 §1.2 (p.11, lines 464–465: M⊗^L_A N is discrete for every (p,I)-torsion A-module N) and derived (p,I)-complete. The statement of Lemma 3.7(2) omits derived completeness, but its proof uses 'the derived I-completeness of M' (p.31, lines 1415–1416) and the remark following the statement restricts to derived (p,I)-complete complexes; the hypothesis is retained here."
+      ],
+      "proofSteps": [
+        "Replace derived (p,I)-completion by iterated Koszul limits R lim_n R lim_m Kos(A;I^n,p^m), using the Koszul complex of invertible modules from [Sta, Tag 0622] (line 1387, not read).",
+        "Use the Cartier divisor to reduce the I-part to A/I^n; propagate bounded p-torsion by dévissage.",
+        "Apply the p-completely flat bounded-torsion lemma to M⊗^L A/I^n, producing a discrete module and no I^n-torsion.",
+        "Take the derived I-limit and compare the remaining p-completion with the ordinary limit.",
+        "Complete the oriented ind-Zariski cover from the preceding local-generator result and apply rigidity."
+      ],
+      "acceptance": [
+        "Record all completion and flatness hypotheses on the exported discreteness result.",
+        "Do not replace derived completion by an ordinary completion without the bounded-torsion argument."
+      ],
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Lemma 3.7 and proof, pp.30–31; extracted lines 1365–1426",
+          "excerpt": "M is discrete",
+          "match": "The proof gives the iterated Koszul argument and names BMS19 Lemma 4.7 as the p-complete flatness input."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PrismaticCohomology:PR.0/perfect-prisms-perfectoid-rings",
+      "parentStageId": "PrismaticCohomology:PR.0",
+      "title": "Perfect prisms and perfectoid rings",
+      "kind": "comparison",
+      "statement": "The functors R↦(A_inf(R),ker θ) and (A,I)↦A/I give an equivalence between integral perfectoid rings in BMS1 §3 and perfect prisms. This is an equivalence to prove, not a definition of either category.",
+      "hypotheses": [
+        "Perfect means φ_A is an isomorphism.",
+        "Use the shared integral perfectoid/A_inf definitions and their θ map."
+      ],
+      "proofSteps": [
+        "Use that ker θ⊂A_inf(R) is generated by a distinguished nonzerodivisor and that A_inf(R) is classically (p,ker θ)-complete to construct the forward prism. The source cites [BMS18, Remark 3.11]; BMS1 lines 1443–1448 (read in review R2) show ker θ is generated by ξ and that ξ generates ker θ iff its Witt coordinate ξ_1 is a unit of R^♭; matching that notion of 'distinguished' with δ(ξ)∈A^× goes through BS22 Lemma 2.33 (unread).",
+        "For a perfect prism, use principality/boundedness (Lemma 3.8, whose proof uses Lemma 3.6 for principality, Lemma 2.28 for p-torsion-freeness and Lemma 2.34 for bounded torsion), A≅W(S) for perfect S (Corollary 2.31) and the distinguished-element expansion d=[a_0]+pu with u a unit (Lemma 2.33).",
+        "Prove the quotient is p-complete, has surjective mod-p Frobenius and has a p-th-root divisor of p.",
+        "For the reverse composite construct A_inf(A/I)→A by universal pro-infinitesimal thickening.",
+        "Use rigidity of distinguished generators and completeness to reduce the isomorphism to the common quotient A/I."
+      ],
+      "acceptance": [
+        "Verify both unit/counit maps on rings, ideals and δ-structures.",
+        "Record the universal-thickening and perfect-δ Witt classification inputs explicitly."
+      ],
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Lemmas 3.8–3.9 and Theorem 3.10 with proof, pp.31–32; extracted lines 1427–1479",
+          "excerpt": "universal pro-inﬁnitesimal thickening",
+          "match": "The proof constructs the quotient and identifies both composites using completion and the universal thickening."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PrismaticCohomology:PR.0/regular-prismatic-envelopes",
+      "parentStageId": "PrismaticCohomology:PR.0",
+      "title": "Prismatic envelopes of regular ideals",
+      "kind": "construction",
+      "statement": "Let (A,I) be bounded, B a (p,I)-completely flat δ-A-algebra, and J⊃IB locally generated by I and a sequence (p,I)-completely regular relative to A. Construct the universal map (B,J)→(C,IC) to a prism over (A,I). C is completely flat over A, commutes with bounded-prism base change and admits the stated completely flat localization formula in B.",
+      "hypotheses": [
+        "Bounded base prism and completely flat δ-algebra B.",
+        "The relative complete-regularity condition is BS22 Definition 2.42, to be preserved precisely."
+      ],
+      "proofSteps": [
+        "Descend from oriented bases using completed faithfully flat descent and the base-change compatibility.",
+        "Reduce further to J globally of the form (I,x_1,…,x_r) using the flat-localization property (3) and the sheaf property of D_(p,I)-comp(−) rather than its completely flat part, since B{J/I}^∧ is typically not (p,I)-completely flat over B (p.34, lines 1565–1570).",
+        "For I=(d), adjoin δ-elements x_i/d in the derived completed category.",
+        "Use complete flatness to show this animated algebra is discrete and d-torsion-free, then verify the universal property.",
+        "To prove complete flatness, follow the source Frobenius pullback diagram, pass from distinguished d to φ(y), and then to p via the PD envelope.",
+        "Apply Corollary 2.44 and detect complete flatness by the map from that PD envelope to the Koszul reduction.",
+        "The diagram argument asserts without citation that ψ, the Frobenius of the free (p,z)-complete δ-ring Z_p{z}^∧, is (p,z)-completely faithfully flat (p.35, line 1608); the identification φ(y)=p·u in π_0(D) uses Lemma 2.24."
+      ],
+      "acceptance": [
+        "Prove the universal factorization rather than declaring the quotient a prism.",
+        "Keep the assertion completely flat over A separate from any unsupported flatness over B.",
+        "Check compatibility with base change and local changes of regular generators."
+      ],
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Proposition 3.13 and full proof, pp.33–35; extracted lines 1534–1616",
+          "excerpt": "typically not (p, I)-completely ﬂat over B",
+          "match": "The proof supplies the oriented adjunction and the nontrivial flatness reduction; the warning specifies the correct base."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PrismaticCohomology:PR.1/prismatic-structure-sheaf",
+      "parentStageId": "PrismaticCohomology:PR.1",
+      "title": "The prismatic structure sheaf",
+      "kind": "construction",
+      "statement": "The opposite category of bounded prisms with completely faithfully flat covers is a site. The assignments (B,J)↦B and B/J are sheaves with the source acyclicity property. For X over A/I, restricting to prisms over (A,I) with Spf(B/IB)→X defines its relative prismatic site and structure/reduced structure sheaves.",
+      "hypotheses": [
+        "All site objects are bounded prisms and covers are completely faithfully flat.",
+        "The ordinary site is defined for p-adic formal X, but the smooth comparison theorems require smooth X."
+      ],
+      "proofSteps": [
+        "Construct pushouts of a cover using the derived (p,I)-completion D of the derived tensor product B⊗^L_A C; that D is (p,I)-completely faithfully flat over C is invoked as 'standard properties' (p.33, lines 1522–1523).",
+        "Use bounded complete-flatness and ideal rigidity to show the pushout is a bounded prism and remains a cover.",
+        "Compute the completed Čech nerve B•; Kos(A;p^n,I^n)→Kos(B•;p^n,I^n) is a limit diagram by faithfully flat descent for maps of simplicial commutative rings (asserted, p.33, lines 1529–1530), and the inverse limit over n gives A≃lim B•, the sheaf axiom and vanishing of higher Čech cohomology.",
+        "Tensor with the perfect Cartier quotient A/I for the reduced structure sheaf.",
+        "Form the relative category with the specified map to X, preserving covering topology."
+      ],
+      "acceptance": [
+        "Check variance of the opposite category and the explicit structure maps.",
+        "Do not identify ordinary site cohomology of arbitrary singular X with the later left Kan extended theory."
+      ],
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Corollary 3.12 with proof and Definition 4.1/Remark 4.2, pp.33,36; extracted lines 1511–1533 and 1634–1667",
+          "excerpt": "main theorems",
+          "match": "The cover/Čech construction establishes the sheaves; Remark 4.2 separates the smooth comparisons from the singular extension."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "PrismaticCohomology:PR.0/delta-frobenius-dictionary",
+      "target": "PrismaticCohomology:PR.0/distinguished-factor-rigidity",
+      "reason": "The δ-product identity drives the factor-unit argument.",
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Lemmas 2.23–2.24 proofs, p.19, extracted lines 843–858 (expansion of δ(ud) and δ(fh))"
+        }
+      ]
+    },
+    {
+      "source": "PrismaticCohomology:PR.0/distinguished-factor-rigidity",
+      "target": "PrismaticCohomology:PR.0/local-distinguished-prism-generators",
+      "reason": "Distinguished-factor and unit lemmas prove the principal criterion used on the cover.",
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Lemma 2.25 proof, p.19, extracted lines 871–872; Lemma 3.1 proof, p.28, extracted line 1281"
+        }
+      ]
+    },
+    {
+      "source": "PrismaticCohomology:PR.0/local-distinguished-prism-generators",
+      "target": "PrismaticCohomology:PR.0/rigidity-prism-ideal",
+      "reason": "The ideal comparison is reduced to compatible distinguished generators.",
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Lemma 3.5 proof, p.29, extracted lines 1320–1323"
+        }
+      ]
+    },
+    {
+      "source": "PrismaticCohomology:PR.0/distinguished-factor-rigidity",
+      "target": "PrismaticCohomology:PR.0/rigidity-prism-ideal",
+      "reason": "The factor between two distinguished generators is a unit.",
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Lemma 3.5 proof, p.29, extracted lines 1325–1326"
+        }
+      ]
+    },
+    {
+      "source": "PrismaticCohomology:PR.0/local-distinguished-prism-generators",
+      "target": "PrismaticCohomology:PR.0/bounded-prism-complete-flatness",
+      "reason": "Supplies the cover completed to obtain a bounded oriented prism.",
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Lemma 3.7(4) proof, p.31, extracted lines 1424–1426"
+        }
+      ]
+    },
+    {
+      "source": "PrismaticCohomology:PR.0/rigidity-prism-ideal",
+      "target": "PrismaticCohomology:PR.0/bounded-prism-complete-flatness",
+      "reason": "The I-torsion criterion identifies the completed algebra as a prism.",
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Lemma 3.7(3),(4) proofs, p.31, extracted lines 1420–1426"
+        }
+      ]
+    },
+    {
+      "source": "PrismaticCohomology:PR.0/bounded-prism-complete-flatness",
+      "target": "PrismaticCohomology:PR.0/regular-prismatic-envelopes",
+      "reason": "Discreteness and I-torsion-freeness turn the derived adjunction into a prism.",
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Proposition 3.13 proof, p.34, extracted lines 1574–1576"
+        }
+      ]
+    },
+    {
+      "source": "PrismaticCohomology:PR.0/rigidity-prism-ideal",
+      "target": "PrismaticCohomology:PR.1/prismatic-structure-sheaf",
+      "reason": "Prism ideal rigidity identifies the correct ideal on tensor-product pushouts.",
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Corollary 3.12 proof, p.33, extracted line 1518"
+        }
+      ]
+    },
+    {
+      "source": "PrismaticCohomology:PR.0/bounded-prism-complete-flatness",
+      "target": "PrismaticCohomology:PR.1/prismatic-structure-sheaf",
+      "reason": "Complete flatness makes those pushouts bounded prisms with the required cover property.",
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Corollary 3.12 proof, p.33, extracted lines 1522–1524"
+        }
+      ]
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.1",
+      "target": "PrismaticCohomology:PR.0/bounded-prism-complete-flatness",
+      "reason": "Supplies derived Koszul completion, bounded-torsion criteria and completed flat descent used by Lemma 3.7.",
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Lemma 3.7 proof, pp.30–31, extracted lines 1384–1419 ([Sta, Tag 0622] Koszul complexes; [BMS19, Lemma 4.7] bounded-torsion flatness; remark on completed descent, lines 1377–1382)"
+        }
+      ]
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.1",
+      "target": "PrismaticCohomology:PR.1/prismatic-structure-sheaf",
+      "reason": "Completed descent is the Čech-limit argument that proves the prismatic structure sheaf property.",
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Corollary 3.12 proof, p.33, extracted lines 1522–1523 and 1529–1531"
+        }
+      ]
+    },
+    {
+      "source": "CrystallineCohomology:CR.0",
+      "target": "PrismaticCohomology:PR.0/regular-prismatic-envelopes",
+      "reason": "CR.0 supplies the free divided-power algebra A′⟨y⟩ over A′ and the A′-algebra map A′⟨y⟩→Kos(A′;p,y) used to detect (p,y)-complete flatness; BS22 Corollary 2.39 (unread; recorded gap) identifies D=A′{φ(y)/p}^∧ with that PD algebra (p.35, lines 1612–1613).",
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Proposition 3.13 proof, p.35, extracted lines 1610–1616"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidQuotients:Q0:integral-algebra",
+      "target": "PrismaticCohomology:PR.0/perfect-prisms-perfectoid-rings",
+      "reason": "Supplies integral perfectoid rings in the BS22 sense with A_inf(R)=W(R^♭) and θ for a general perfectoid R (Q0:integral-algebra's 'necessary A_inf/θ descriptions'); the forward functor R↦(A_inf(R),ker θ) needs ker θ generated by a nonzerodivisor and classical (p,ker θ)-completeness ([BMS18, §3, Lemma 3.10/Remark 3.11]). Review R2 re-pointed this link from AInfCohomology:AI.0:integral, whose description covers only A_inf=W(O_C^♭) for the field C (the acceptance example (A_inf,ker θ)), which does not cover the general equivalence; PerfectoidQuotients:Q0:integral-algebra is already in PR.0's requires.",
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Theorem 3.10 proof, p.31, extracted lines 1455–1458"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "PrismaticCohomology:PR.0",
+      "status": "partial",
+      "remaining": [
+        "Lemma 3.6 (φ(I)A principal with distinguished generator; φ*(I) and I^p trivial; read in review R2, pp.29–30, lines 1333–1363, using Lemma 2.34 and perfection) and Examples 3.3–3.4 lie in the read range but are not decomposed; Lemma 3.6 is used by Lemma 3.8(1) and Lemma 3.9.",
+        "Read the perfect δ-ring/Witt classification and torsion lemmas 2.28,2.31,2.33,2.34 and the pro-infinitesimal-thickening proof.",
+        "Inspect Definition 2.42 and Corollaries 2.39/2.44 with all regularity and PD hypotheses, not just their uses in the envelope proof.",
+        "Complete the free δ-algebra/localization and perfection constructions, plus the concrete crystalline/Breuil–Kisin/q-prism examples."
+      ]
+    },
+    {
+      "stageId": "PrismaticCohomology:PR.1",
+      "status": "partial",
+      "remaining": [
+        "Read the étale-site comparison and Čech–Alexander computation in §§4.1–4.3.",
+        "Read the crystalline, Hodge–Tate and de Rham comparisons in §§5–6 including their Frobenius twists.",
+        "Inspect the foundational complete-flat descent and sheaf-acyclicity criterion used after the computed Čech vanishing."
+      ]
+    },
+    {
+      "stageId": "PrismaticCohomology:PR.2",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "PrismaticCohomology:PR.3",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "PrismaticCohomology:PR.4",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "PrismaticCohomology:PR.5",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "PrismaticCohomology:PR.6",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "PrismaticCohomology:PR.7",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "PrismaticCohomology:PR.8",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Perfect prism algebra still imported",
+      "neededBy": [
+        "PrismaticCohomology:PR.0/perfect-prisms-perfectoid-rings"
+      ],
+      "detail": "Theorem 3.10 and its full proof were read, but Lemma 2.28 (perfect δ-rings are p-torsion-free), Corollary 2.31 (A≅W(S)), Lemma 2.33 (d=[a_0]+pu), Lemma 2.34 (bounded torsion of A/d), Lemma 3.6 (read but not decomposed) and the universal A_inf pro-infinitesimal thickening proof have not been inspected. The forward functor imports [BMS18, §3, Lemma 3.10/Remark 3.11] (read in review R2 at BMS1 lines 1443–1448: ξ generates ker θ iff its Witt coordinate ξ_1 is a unit), whose notion of 'distinguished' must be matched with δ(ξ)∈A^× via Lemma 2.33. They must be decomposed or matched to a verified supplier before this equivalence is execution-ready."
+    },
+    {
+      "title": "Regular prismatic envelope flatness inputs",
+      "neededBy": [
+        "PrismaticCohomology:PR.0/regular-prismatic-envelopes"
+      ],
+      "detail": "The full envelope proof was read. Its hard algebra is delegated to Corollaries 2.39 and 2.44 and Definition 2.42; these interiors, complete faithfully flat descent for derived (p,I)-complete completely flat modules (remark after Lemma 3.7), the sheaf property of D_(p,I)-comp(−) used in the second reduction (p.34, lines 1565–1570), and the uncited (p,z)-complete faithful flatness of the Frobenius ψ of Z_p{z}^∧ (p.35, line 1608) remain to inspect. Relative complete regularity must not be weakened to an arbitrary ordinary regular sequence."
+    },
+    {
+      "title": "No checked implementation status",
+      "neededBy": [
+        "PrismaticCohomology:PR.0/delta-frobenius-dictionary",
+        "PrismaticCohomology:PR.0/perfect-prisms-perfectoid-rings",
+        "PrismaticCohomology:PR.0/regular-prismatic-envelopes"
+      ],
+      "detail": "Existing Witt and divided-power primitives were located in local mathlib (Mathlib/RingTheory/WittVector: Frobenius, Verschiebung, Teichmuller, Truncated). Review R2 grep of the TauCeti project and mathlib found no δ-ring, p-derivation or prism construction. No typechecked construction of δ-rings, prisms or the derived envelope has been matched in this packet, so implementation status remains unchecked."
+    },
+    {
+      "title": "Uncited standard inputs in BS22 §3 proofs",
+      "neededBy": [
+        "PrismaticCohomology:PR.0/local-distinguished-prism-generators",
+        "PrismaticCohomology:PR.0/bounded-prism-complete-flatness",
+        "PrismaticCohomology:PR.1/prismatic-structure-sheaf"
+      ],
+      "detail": "Remark 2.16 (unique δ-structure on ind-Zariski localizations; Lemma 3.1 proof, line 1277); [Sta, Tag 0622] (Koszul complexes of invertible modules; Lemma 3.7 proof, line 1387); [BMS19, Lemma 4.7] (p-completely flat complexes over rings with bounded p-power torsion are discrete with bounded torsion; line 1409–1413); the bounded-torsion devissage from A/I to A/I^n (lines 1403–1404); 'standard properties' making the completed pushout completely faithfully flat and faithfully flat descent for simplicial commutative rings (Corollary 3.12 proof, lines 1522–1523, 1529–1530). None was read; DerivedDeRhamCohomology:DD.1 is the recorded supplier for the completion/descent items."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-R2",
+    "date": "2026-09-15",
+    "notes": "All eight nodes checked against BS22 arXiv:1905.08229v4 (12 Jan 2022): Definition 2.1 and Remarks 2.2–2.4 (lines 568–605, pp.13–14), Lemmas 2.23–2.25 (lines 840–872, p.19), Lemmas 3.1–3.10 with proofs (lines 1266–1479, pp.28–32), Corollary 3.12 and Proposition 3.13 with proofs (lines 1512–1616, pp.33–35), Definition 4.1 and Remark 4.2 (lines 1636–1668, p.36); the reviewer also read the §1.2 complete-flatness convention, the §2 opening conventions and Lemma 3.6. Corrections: the δ/Frobenius converse restated as the source's p-torsion-free reconstruction (the Z_(p)-algebra hypothesis is confirmed by p.13, line 566 and kept); Lemma 3.1(3) now includes d,p∈rad(A′); the rigidity converse records that (A,I) is a prism; Lemma 3.7(2)'s omitted-but-used derived-completeness hypothesis is documented and retained; Proposition 3.13's second reduction and the uncited faithful flatness of ψ added; Theorem 3.10's imports ([BMS18, Rem. 3.11], Lemmas 2.28/2.33/2.34, 3.6) named. Links: all thirteen have correct direction and verified usage sites, locators sharpened; the perfect-prism supplier link was re-pointed from AInfCohomology:AI.0:integral (O_C only) to PerfectoidQuotients:Q0:integral-algebra (general perfectoid rings, already in PR.0's requires) — orchestrator to confirm. parentStageIds PR.0 and PR.1 exist and belong to PrismaticCohomology; all coverage stage ids exist. Packet status stays partial.",
+    "checked": [
+      {
+        "nodeId": "PrismaticCohomology:PR.0/delta-frobenius-dictionary",
+        "verdict": "corrected",
+        "note": "Definition 2.1, Remarks 2.2–2.4 (lines 568–605) match; converse now phrased as the source's p-torsion-free reconstruction; Z_(p)-algebra and fixed-prime conventions cited to lines 559/566; W_2 section dictionary retained."
+      },
+      {
+        "nodeId": "PrismaticCohomology:PR.0/distinguished-factor-rigidity",
+        "verdict": "verified",
+        "note": "Lemmas 2.23–2.24 statements and δ-expansion proofs (lines 840–858) match; locator trimmed."
+      },
+      {
+        "nodeId": "PrismaticCohomology:PR.0/local-distinguished-prism-generators",
+        "verdict": "corrected",
+        "note": "Lemma 2.25 and Lemma 3.1 (lines 860–872, 1266–1285) match; statement now includes d,p∈rad(A′); Remark 2.16 import recorded."
+      },
+      {
+        "nodeId": "PrismaticCohomology:PR.0/rigidity-prism-ideal",
+        "verdict": "corrected",
+        "note": "Definition 3.2 and Lemma 3.5 with proof (lines 1286–1331) match; converse hypothesis '(A,I) a prism' made explicit."
+      },
+      {
+        "nodeId": "PrismaticCohomology:PR.0/bounded-prism-complete-flatness",
+        "verdict": "verified",
+        "note": "Lemma 3.7(1)–(4) and proof (lines 1365–1426) match; the derived-completeness hypothesis used in the proof but absent from the statement of (2) is documented; [Sta 0622] and [BMS19, 4.7] imports recorded."
+      },
+      {
+        "nodeId": "PrismaticCohomology:PR.0/perfect-prisms-perfectoid-rings",
+        "verdict": "verified",
+        "note": "Lemmas 3.8–3.9 and Theorem 3.10 with proof (lines 1427–1479) match; imported inputs named in proof steps and gaps; supplier link re-pointed to Q0:integral-algebra."
+      },
+      {
+        "nodeId": "PrismaticCohomology:PR.0/regular-prismatic-envelopes",
+        "verdict": "verified",
+        "note": "Proposition 3.13 statement (1)–(3) and full proof (lines 1534–1616) match; the second (global-J) reduction and the uncited faithful flatness of ψ added."
+      },
+      {
+        "nodeId": "PrismaticCohomology:PR.1/prismatic-structure-sheaf",
+        "verdict": "verified",
+        "note": "Corollary 3.12 with proof, Definition 4.1 and Remark 4.2 (lines 1512–1533, 1636–1668) match; uncited descent inputs recorded."
+      }
+    ]
+  }
+}

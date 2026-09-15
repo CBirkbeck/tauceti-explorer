@@ -1,0 +1,490 @@
+{
+  "roadmapId": "AInfCohomology",
+  "status": "partial",
+  "summary": "The generic décalage argument: torsion removal, descent to the derived category, multiplicativity, the Bockstein model and the precise completeness theorems. This is the early homological input to AΩ, saturated Dieudonné theory and Nygaard filtrations; the geometric AΩ arguments remain unread in this packet.",
+  "sources": [
+    {
+      "id": "bms1-2019",
+      "title": "Integral p-adic Hodge theory",
+      "authors": "Bhargav Bhatt, Matthew Morrow, Peter Scholze",
+      "edition": "arXiv:1602.03148v3 (2019); supplied text extraction",
+      "url": "https://arxiv.org/abs/1602.03148",
+      "sha256": "04b1f8357a38045fed39ab060d3cb01142bcdbcc15fca985bc80216b99fba774",
+      "readSections": [
+        "§6.1–6.2, printed pp.49–55, statements and proofs; extracted lines 2980–3358"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AInfCohomology:AI.1/ideal-decalage-complex",
+      "parentStageId": "AInfCohomology:AI.1",
+      "title": "Décalage of a torsion-free complex",
+      "kind": "construction",
+      "statement": "For an invertible ideal sheaf I in a ringed topos (T,O_T) and a cochain complex C of O_T-modules that is termwise I-torsion-free (I⊗C^i→C^i injective for all i, with image I·C^i), construct (η_I C)^i={x∈C^i : dx∈I·C^{i+1}}⊗_{O_T}I^{⊗i}. The differential is d_C⊗id, which lands in I·C^{i+1}⊗I^{⊗i}≅C^{i+1}⊗I^{⊗(i+1)} (using I⊗C^{i+1}≅I·C^{i+1}) and, because d²=0, in the degree-(i+1) submodule. Locally, if I=(f), it is the subcomplex of C[1/f] consisting of x∈f^i C^i with dx∈f^{i+1}C^{i+1}, with the differential of C[1/f]; in that case η_I(C[1])≅(η_I C)[1] by multiplication by f in each degree.",
+      "hypotheses": [
+        "I⊂O_T is invertible.",
+        "C is termwise I-torsion-free; negative tensor powers mean the dual invertible sheaf."
+      ],
+      "proofSteps": [
+        "Use injectivity of I⊗C^i→C^i to identify its image and factor the differential.",
+        "Apply d²=0 to show the factor lands in the required next-degree submodule.",
+        "Identify a principal chart with the localized formula; retain the tensor twist rather than choosing a global generator."
+      ],
+      "acceptance": [
+        "Check d²=0 and functoriality on chain maps.",
+        "Check the principal description in negative as well as nonnegative degrees."
+      ],
+      "sources": [
+        {
+          "sourceId": "bms1-2019",
+          "locator": "Definition 6.2 and Remark 6.3, p.49; extracted lines 3005–3027",
+          "excerpt": "not on a chosen",
+          "match": "The ideal-based definition and local principal identification are given explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AInfCohomology:AI.1/decalage-cohomology",
+      "parentStageId": "AInfCohomology:AI.1",
+      "title": "Torsion removed from cohomology",
+      "kind": "lemma",
+      "statement": "For every integer i, H^i(η_I C)≅(H^i(C)/H^i(C)[I])⊗I^{⊗i}; here H^i(C)[I] is the kernel of H^i(C)→H^i(C)⊗I^{-1}. Hence η_I preserves quasi-isomorphisms between I-torsion-free complexes.",
+      "hypotheses": [
+        "The hypotheses of the décalage construction."
+      ],
+      "proofSteps": [
+        "Identify Z^i(η_I C) with Z^i(C)⊗I^{⊗i}.",
+        "Obtain the induced surjection from H^i(C)⊗I^{⊗i}.",
+        "Identify its kernel by lifting a boundary one degree lower; the lift condition is exactly annihilation by I."
+      ],
+      "acceptance": [
+        "Compute the two-term complex [A --f→ A], with A f-torsion-free.",
+        "Keep I^{⊗i} in the natural isomorphism when I has no chosen generator."
+      ],
+      "sources": [
+        {
+          "sourceId": "bms1-2019",
+          "locator": "Lemma 6.4 and proof, pp.49–50; extracted lines 3028–3053",
+          "excerpt": "killing the I-torsion",
+          "match": "The source identifies cycles, constructs the surjection and computes its kernel."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AInfCohomology:AI.1/derived-decalage",
+      "parentStageId": "AInfCohomology:AI.1",
+      "title": "The derived décalage functor",
+      "kind": "construction",
+      "statement": "η_I descends from strongly K-flat representatives to a functor Lη_I:D(O_T)→D(O_T), compatible with filtered colimits and canonical truncations. It is generally not exact.",
+      "hypotheses": [
+        "A ringed topos and an invertible ideal I.",
+        "Existence of strongly K-flat resolutions is a required input, not proved by the torsion calculation."
+      ],
+      "proofSteps": [
+        "Use BMS1 Lemma 6.1 to present the derived category by strongly K-flat complexes.",
+        "Use the cohomology formula to invert quasi-isomorphisms.",
+        "For filtered colimits and canonical truncations the source (Corollary 6.5) states the compatibility without proof; the check compares the explicit complex η_I C with its cohomology formula degreewise on strongly K-flat representatives.",
+        "Use the short exact sequence Z/p→Z/p²→Z/p to detect nonexactness for I=(p)."
+      ],
+      "acceptance": [
+        "Prove resolution independence.",
+        "Verify Lη_p(Z/p)=0 but Lη_p(Z/p²)≅Z/p."
+      ],
+      "sources": [
+        {
+          "sourceId": "bms1-2019",
+          "locator": "Lemma 6.1, Corollary 6.5 and Remark 6.6, pp.49–50; extracted lines 2998–3004 and 3054–3065",
+          "excerpt": "is not exact",
+          "match": "The source gives the localization argument and the explicit nonexactness example."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AInfCohomology:AI.1/decalage-products",
+      "parentStageId": "AInfCohomology:AI.1",
+      "title": "Products through décalage",
+      "kind": "construction",
+      "statement": "Construct the natural lax symmetric monoidal map Lη_I C⊗^L Lη_I D→Lη_I(C⊗^L D). No general claim that this map is an equivalence is made.",
+      "hypotheses": [
+        "A ringed topos and invertible ideal I; strongly K-flat representatives for derived tensor."
+      ],
+      "proofSteps": [
+        "On a homogeneous pair of degrees i,j use I^i⊗I^j≅I^{i+j}.",
+        "The signed Leibniz identity puts d(x⊗y) in I times the target whenever dx and dy are in I times their next degrees.",
+        "Verify compatibility with symmetry, associativity and quasi-isomorphisms before descending the transformation."
+      ],
+      "acceptance": [
+        "Check the Koszul sign in the symmetry constraint.",
+        "Check compatibility with multiplication on an I-torsion-free differential graded algebra."
+      ],
+      "sources": [
+        {
+          "sourceId": "bms1-2019",
+          "locator": "Proposition 6.7 and proof, p.50, extracted lines 3067–3080; Lemma 6.13, p.53, extracted lines 3204–3212",
+          "excerpt": "lax symmetric monoidal",
+          "match": "The proof supplies the actual termwise product and its differential calculation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AInfCohomology:AI.1/bockstein-reduction",
+      "parentStageId": "AInfCohomology:AI.1",
+      "title": "Bockstein reduction of décalage",
+      "kind": "comparison",
+      "statement": "There is a natural quasi-isomorphism (Lη_I C)⊗^L O_T/I≃(H^i(C⊗^L O_T/I)⊗I^{⊗i},β), where β is induced by 0→I/I²→O_T/I²→O_T/I→0. The right-hand side is a complex with the Bockstein differential, not a graded group with zero differential.",
+      "hypotheses": [
+        "C∈D(O_T), I invertible.",
+        "Use a termwise I-torsion-free representative for the explicit map."
+      ],
+      "proofSteps": [
+        "For an I-torsion-free complex the underived tensor product with O_T/I represents the derived one (stated in the source proof, p.52, lines 3164–3166; it follows from the resolution 0→I→O_T→O_T/I→0 and injectivity of I⊗C^i→C^i).",
+        "Map η_I C modulo I to cohomology modulo I by sending a representative to its residue cocycle.",
+        "Identify the differential on the target with the boundary from reduction modulo I².",
+        "Reduce the quasi-isomorphism proof to degree zero by shifting and twisting.",
+        "For injectivity lift a Bockstein boundary one degree lower and check the error lies in I·η_I C.",
+        "For surjectivity lift a class killed by β to a class modulo I²; the lift defines a cocycle modulo I in η_I C."
+      ],
+      "acceptance": [
+        "Verify β²=0 and functoriality of the comparison.",
+        "Compare the multiplicative map with the cup product when C comes from a differential graded algebra."
+      ],
+      "sources": [
+        {
+          "sourceId": "bms1-2019",
+          "locator": "Proposition 6.12 and proof, pp.52–53; extracted lines 3148–3202",
+          "excerpt": "Bockstein-type boundary map",
+          "match": "The two lifting arguments prove the stated comparison with its differential."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AInfCohomology:AI.1/preservation-derived-completeness",
+      "parentStageId": "AInfCohomology:AI.1",
+      "title": "Décalage preserves derived completeness",
+      "kind": "lemma",
+      "statement": "If C is derived J-complete, then Lη_I C is derived J-complete. This is a preservation result; it does not assert that Lη_I commutes with completion at an unrelated ideal J.",
+      "hypotheses": [
+        "The ringed topos T is replete.",
+        "J is a locally finitely generated ideal; I is invertible."
+      ],
+      "proofSteps": [
+        "Use the completeness criterion on cohomology modules and the Serre-subcategory property: BMS1 Lemma 6.15, quoted there from [11, Proposition 3.4.4, Lemma 3.4.14] (Bhatt–Scholze, The pro-étale topology for schemes) and recorded here as a DD.1 requirement.",
+        "Express H^i(C)[I] as a kernel between derived J-complete modules; use locality for the invertible twist.",
+        "Apply closure under cokernels to the torsion quotient and then the criterion on cohomology."
+      ],
+      "acceptance": [
+        "Retain repleteness and local finite generation in the exported statement.",
+        "Keep the preservation statement distinct from a natural commutation equivalence."
+      ],
+      "sources": [
+        {
+          "sourceId": "bms1-2019",
+          "locator": "§6.2 opening hypotheses; Lemmas 6.15 and 6.19, pp.53–55; extracted lines 3233–3256 and 3326–3333",
+          "excerpt": "not true in general",
+          "match": "The source proves preservation by kernel/cokernel closure and explicitly rejects unrestricted commutation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AInfCohomology:AI.1/completion-at-decalage-ideal",
+      "parentStageId": "AInfCohomology:AI.1",
+      "title": "Completion at the décalage ideal",
+      "kind": "comparison",
+      "statement": "For the derived I-completion Ĉ of C, the natural maps completion_I(Lη_I C)→Lη_I(Ĉ)→Rlim_n Lη_I(C⊗^L O_T/I^n) are quasi-isomorphisms.",
+      "hypotheses": [
+        "A replete ringed topos.",
+        "I is an invertible ideal sheaf locally free of rank one."
+      ],
+      "proofSteps": [
+        "Use preservation of derived completeness to construct the first map.",
+        "Localize to I=(f) and test equivalences modulo f on derived f-complete complexes.",
+        "All three complexes are derived f-complete (Ĉ by construction, Lη_I Ĉ by the preservation lemma, the R lim as a limit of derived complete complexes), and a map of derived f-complete complexes is a quasi-isomorphism once it is one modulo f; the source uses this derived Nakayama step (p.55, lines 3344–3346) without citation.",
+        "For the first map apply the Bockstein model, since C/f≃Ĉ/f with the same Bockstein.",
+        "For the second map use that D→{D⊗^L O_T/f^n}_n is a pro-quasi-isomorphism for an O_T/f-module complex D."
+      ],
+      "acceptance": [
+        "Verify the maps, including their direction, against the I-adic inverse-limit model.",
+        "Account separately for derived Nakayama and the pro-quasi-isomorphism input before declaring the proof executable."
+      ],
+      "sources": [
+        {
+          "sourceId": "bms1-2019",
+          "locator": "Lemma 6.20 and proof, p.55; extracted lines 3334–3358",
+          "excerpt": "the Bockstein stays the same",
+          "match": "The source proves both maps by reduction and the pro-system calculation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "AInfCohomology:AI.1/ideal-decalage-complex",
+      "target": "AInfCohomology:AI.1/decalage-cohomology",
+      "reason": "The explicit cycles and boundaries determine the torsion quotient.",
+      "sources": [
+        {
+          "sourceId": "bms1-2019",
+          "locator": "Lemma 6.4 proof, pp.49–50, extracted lines 3040–3053"
+        }
+      ]
+    },
+    {
+      "source": "AInfCohomology:AI.1/decalage-cohomology",
+      "target": "AInfCohomology:AI.1/derived-decalage",
+      "reason": "Quasi-isomorphism invariance permits descent to the derived category.",
+      "sources": [
+        {
+          "sourceId": "bms1-2019",
+          "locator": "Corollary 6.5, p.50, extracted lines 3054–3057 ('In particular, the following corollary follows')"
+        }
+      ]
+    },
+    {
+      "source": "AInfCohomology:AI.1/derived-decalage",
+      "target": "AInfCohomology:AI.1/decalage-products",
+      "reason": "The derived functor carries the termwise product.",
+      "sources": [
+        {
+          "sourceId": "bms1-2019",
+          "locator": "Proposition 6.7 proof, p.50, extracted lines 3071–3080"
+        }
+      ]
+    },
+    {
+      "source": "AInfCohomology:AI.1/ideal-decalage-complex",
+      "target": "AInfCohomology:AI.1/bockstein-reduction",
+      "reason": "The explicit décalage submodule supplies the residue-cocycle map.",
+      "sources": [
+        {
+          "sourceId": "bms1-2019",
+          "locator": "Proposition 6.12 proof, p.52, extracted lines 3167–3171"
+        }
+      ]
+    },
+    {
+      "source": "AInfCohomology:AI.1/decalage-cohomology",
+      "target": "AInfCohomology:AI.1/preservation-derived-completeness",
+      "reason": "The cohomology quotient reduces completeness to kernels and cokernels.",
+      "sources": [
+        {
+          "sourceId": "bms1-2019",
+          "locator": "Lemma 6.19 proof, p.55, extracted lines 3328–3331"
+        }
+      ]
+    },
+    {
+      "source": "AInfCohomology:AI.1/preservation-derived-completeness",
+      "target": "AInfCohomology:AI.1/completion-at-decalage-ideal",
+      "reason": "Preservation gives completeness and constructs the first comparison map.",
+      "sources": [
+        {
+          "sourceId": "bms1-2019",
+          "locator": "Lemma 6.20 statement, p.55, extracted line 3343 ('the first map exists because Lη_I Ĉ is I-adically complete')"
+        }
+      ]
+    },
+    {
+      "source": "AInfCohomology:AI.1/bockstein-reduction",
+      "target": "AInfCohomology:AI.1/completion-at-decalage-ideal",
+      "reason": "The Bockstein complex identifies the first map after reduction modulo I.",
+      "sources": [
+        {
+          "sourceId": "bms1-2019",
+          "locator": "Lemma 6.20 proof, p.55, extracted lines 3346–3348"
+        }
+      ]
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.1",
+      "target": "AInfCohomology:AI.1/preservation-derived-completeness",
+      "reason": "Supplies the criterion for derived completeness on cohomology and its abelian closure, used on the torsion kernel and quotient.",
+      "sources": [
+        {
+          "sourceId": "bms1-2019",
+          "locator": "Lemma 6.15 (quoting [11, Proposition 3.4.4, Lemma 3.4.14]), p.54, extracted lines 3251–3254; used in the Lemma 6.19 proof, p.55, lines 3328–3331"
+        }
+      ]
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.1",
+      "target": "AInfCohomology:AI.1/completion-at-decalage-ideal",
+      "reason": "Supplies conservativity of reduction on complete complexes and the derived completion/pro-system calculation.",
+      "sources": [
+        {
+          "sourceId": "bms1-2019",
+          "locator": "Lemma 6.20 proof, p.55, extracted lines 3344–3353"
+        }
+      ]
+    },
+    {
+      "source": "AInfCohomology:AI.1/bockstein-reduction",
+      "target": "CrystallineCohomology:CR.4",
+      "reason": "Supplies the Bockstein model (Lη_I C)⊗^L O_T/I≃(H*(C/I),β) whose p-principal, punctual-topos case is BLM Proposition 2.4.5, the homological input to the Cartier criterion (BLM Theorem 2.4.2 via Corollary 2.4.6). BLM proves that case directly and notes that it 'appears in [BMS18, Prop. 6.12]'; the link records a shared result reused by CR.4's saturated Dieudonné theory, not a dependence of BLM's proof on BMS1.",
+      "sources": [
+        {
+          "sourceId": "bms1-2019",
+          "locator": "BMS1 Proposition 6.12, pp.52–53, extracted lines 3148–3202; BLM p.17, extracted lines 694–697 and Proposition 2.4.5, pp.17–18"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "AInfCohomology:AI.0:integral",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "AInfCohomology:AI.0",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "AInfCohomology:AI.0:period-comparison",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "AInfCohomology:AI.1",
+      "status": "partial",
+      "remaining": [
+        "Stacks Tag 077J statement and proof were read in review R2; its auxiliary tags (Modules on Sites 18.28.8, Derived Categories 13.29.1, K-flatness of bounded-above flat complexes and of filtered colimits) and the EnhancedDerivedSheaves:E1 supplier remain uninspected.",
+        "Derived completion foundational proofs cited as [11, §3.4] (Bhatt–Scholze pro-étale topology) and the uncited derived Nakayama and pro-quasi-isomorphism steps in Lemma 6.20 are not yet decomposed.",
+        "Proposition 6.8, Lemmas 6.9–6.11, 6.14 and 6.17–6.18 (pp.50–54) lie in the read range but are not yet decomposed; Lemmas 6.10–6.11 are needed by AI.3.",
+        "Koszul calculations in §§7–8, the nonflat base-change criterion and any counterexample to unrelated-ideal commutation remain to inspect."
+      ]
+    },
+    {
+      "stageId": "AInfCohomology:AI.2",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "AInfCohomology:AI.3",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "AInfCohomology:AI.4",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "AInfCohomology:AI.5",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "AInfCohomology:AI.6",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    },
+    {
+      "stageId": "AInfCohomology:AI.7",
+      "status": "not_read",
+      "remaining": [
+        "Full source argument and all imported prerequisites remain to be inspected."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Resolution existence behind the derived functor",
+      "neededBy": [
+        "AInfCohomology:AI.1/derived-decalage"
+      ],
+      "detail": "BMS1 Lemma 6.1 (p.49, lines 2998–3004) reduces to Stacks Tag 077J. Review R2 read Tag 077J (Cohomology on Sites, Lemma 21.17.10, public page, 2026-09-15): for any complex G• of O-modules on a ringed site there are bounded-above complexes K_n• whose terms are direct sums of modules j_{U!}O_U, with termwise split injections K_n•→K_{n+1}• and colim K_n•→G• a quasi-isomorphism; its proof cites Modules on Sites Lemma 18.28.8, Derived Categories Lemma 13.29.1 and exactness of filtered colimits. Strong K-flatness of colim K_n• (BMS1's parenthetical) additionally needs flatness of j_{U!}O_U, K-flatness of bounded-above complexes of flat modules and of filtered colimits of K-flat complexes; those auxiliary Stacks lemmas and the exact enhanced-sheaf supplier (EnhancedDerivedSheaves:E1) have not been read."
+    },
+    {
+      "title": "Completion foundations and pro-system input",
+      "neededBy": [
+        "AInfCohomology:AI.1/preservation-derived-completeness",
+        "AInfCohomology:AI.1/completion-at-decalage-ideal"
+      ],
+      "detail": "BMS1 quotes its reference [11, §3.4] (Bhatt–Scholze, The pro-étale topology for schemes, Astérisque 369) for the replete-topos completeness criterion and the Serre-subcategory closure properties (Lemma 6.15) and for the R lim Koszul model of derived completion (p.53, lines 3237–3246); none of [11] was read. Lemma 6.20 also uses, without citation, derived Nakayama for derived f-complete complexes (p.55, lines 3344–3346) and the pro-quasi-isomorphism D→{D⊗^L O_T/f^n}_n for complexes of O_T/f-modules (lines 3351–3353). These are recorded DD.1 requirements; neither a new proof nor an implementation claim is substituted."
+    },
+    {
+      "title": "Library comparison not discharged",
+      "neededBy": [
+        "AInfCohomology:AI.1/ideal-decalage-complex",
+        "AInfCohomology:AI.1/derived-decalage",
+        "AInfCohomology:AI.1/bockstein-reduction"
+      ],
+      "detail": "Local mathlib has cochain/derived-category, homological-complex, Witt-vector and ideal primitives (Mathlib/Algebra/Homology, Mathlib/RingTheory/WittVector). Review R2 grep of the TauCeti project found no décalage, Lη or Bockstein-complex construction (the only 'Dieudonné' hits are the Cartan–Dieudonné theorem for quadratic forms). No Lean types were checked; all node implementation statuses remain unchecked."
+    },
+    {
+      "title": "Results in the read range not yet decomposed",
+      "neededBy": [
+        "AInfCohomology:AI.1"
+      ],
+      "detail": "Within pp.50–54 (lines 3083–3321) the packet does not decompose Proposition 6.8 (Lη_f symmetric monoidal over a valuation ring; its proof cites Lemma 7.9), Lemma 6.9 (natural transformations I^{⊗m}⊗τ^{≤m}→τ^{≤m}Lη_I and τ^{≥n}Lη_I→I^{⊗n}⊗τ^{≥n} when H^n(C)[I]=0), Lemma 6.10 (canonical map Lη_I C→C for C∈D^{≥0} with H^0(C)[I]=0), Lemma 6.11 (Lη_{I·J}≅Lη_I∘Lη_J), Lemma 6.14 (commutation with flat pullback of ringed topoi), Lemma 6.17 (classical = derived complete and separated) and Lemma 6.18 (cohomology of completed direct sums). Lemmas 6.10–6.11 are used by the AΩ construction in AI.3; these were read but are not part of the present nodes."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-R2",
+    "date": "2026-09-15",
+    "notes": "All seven nodes checked line by line against BMS1 arXiv:1602.03148v3 §§6.1–6.2 (extracted lines 2981–3353, printed pp.49–55). Corrections: the misspelling of 'Décalage' in two node titles fixed; the differential in Definition 6.2 restated as d_C⊗id followed by I·C^{i+1}⊗I^{⊗i}≅C^{i+1}⊗I^{⊗(i+1)} (not 'induced by the inclusion'); the uncited underived-tensor step of Proposition 6.12 and the uncited derived Nakayama step of Lemma 6.20 added as proof steps; Corollary 6.5's filtered-colimit/truncation claims flagged as asserted without proof. All ten links have correct direction and verified usage sites; link locators sharpened from '§6.1–6.2, cited proofs' to lemma and line references. The CR.4 link now records that BLM Proposition 2.4.5 has its own proof (BLM p.17) rather than importing BMS1. Stacks Tag 077J was read (public page) and the gap updated; [11, §3.4] remains unread and stays a gap. parentStageId AInfCohomology:AI.1 exists and is owned by AInfCohomology; all coverage stage ids exist. Supplier check: DerivedDeRhamCohomology:DD.1's description covers the completeness criterion, conservativity of reduction and the R lim Koszul model. Packet status stays partial.",
+    "checked": [
+      {
+        "nodeId": "AInfCohomology:AI.1/ideal-decalage-complex",
+        "verdict": "corrected",
+        "note": "Title misspelling of 'Décalage' fixed; differential description aligned with the commutative diagram of Definition 6.2; shift isomorphism of Remark 6.3 recorded; locator lines 3005–3027."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/decalage-cohomology",
+        "verdict": "verified",
+        "note": "Statement, torsion definition via I^{⊗-1}, cycle identification, surjection and kernel lift match Lemma 6.4 and proof (lines 3028–3053)."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/derived-decalage",
+        "verdict": "verified",
+        "note": "Lemma 6.1, Corollary 6.5, Remark 6.6 match; proof step for filtered colimits/truncations now marked as asserted without proof in the source; Tag 077J gap updated after reading the public page."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/decalage-products",
+        "verdict": "verified",
+        "note": "Proposition 6.7 termwise map, signed Leibniz identity and lax symmetric monoidal descent match lines 3067–3080; Lemma 6.13 (dga case) lines 3204–3212; line numbers added to the locator."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/bockstein-reduction",
+        "verdict": "verified",
+        "note": "Statement, Bockstein sequence, reduction to H^0, injectivity and surjectivity lifts match Proposition 6.12 and proof (lines 3148–3202); uncited underived-tensor fact added as a proof step."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/preservation-derived-completeness",
+        "verdict": "corrected",
+        "note": "Title misspelling of 'Décalage' fixed; hypotheses (replete topos, locally finitely generated J, invertible I) and the kernel/cokernel argument match §6.2 opening and Lemma 6.19; proof step now names Lemma 6.15's source [11]."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/completion-at-decalage-ideal",
+        "verdict": "verified",
+        "note": "Both maps, their direction and the two mod-f reductions match Lemma 6.20 (lines 3334–3353); the uncited derived Nakayama step added as a proof step and gap."
+      }
+    ]
+  }
+}

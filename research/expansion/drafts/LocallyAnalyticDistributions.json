@@ -1,0 +1,850 @@
+{
+  "roadmapId": "LocallyAnalyticDistributions",
+  "status": "partial",
+  "summary": "Source-based expansion of the compact-operator and Fredholm/Riesz portion of L4, including Banach direct summands, entire determinants and finite projective slope factors. The locally analytic function/distribution constructions and arithmetic compactness estimates remain outside the inspected scope.",
+  "sources": [
+    {
+      "id": "Buzzard-Eigenvarieties-2006",
+      "title": "Eigenvarieties",
+      "authors": "Kevin Buzzard",
+      "edition": "Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
+      "url": "https://www.ma.imperial.ac.uk/~buzzard/maths/research/papers/eigenvarieties.pdf",
+      "sha256": "0c54243868e2da8849452c4cc5a3d4e7b118cf17dd04487d4af137ab167ef57d",
+      "readSections": [
+        "§2, pp. 4–20: definitions and proofs of Proposition 2.1 through Lemma 2.13, including the explicitly delegated arguments",
+        "§3, pp. 20–25: resultant discussion, Lemma 3.1, Proposition 3.2 and Theorem 3.3 with their proof routes",
+        "§4, pp. 25–31: Lemmas 4.1–4.5 and proof of Theorem 4.6; pp. 29–30 also inspected as rendered PDF pages",
+        "§5, pp. 32–42: finite Hecke pieces, gluing, base change, links, Construction 5.7 and Lemmas 5.9–5.10",
+        "§6 opening, pp. 43–44: scope and explicit reliance on Coleman–Mazur; remaining modular application not read",
+        "R1b-review (2026-09-15): §2 pp. 4–20 (Proposition 2.1 through Lemma 2.13) and §3 pp. 20–25 (A{{T}}, division, resultants, Lemma 3.1, Proposition 3.2, Theorem 3.3) re-read against every node and link of this packet; SHA-256 of the library PDF re-verified (82 pages, TeX, created 2 August 2006)."
+      ]
+    },
+    {
+      "id": "Coleman-BanachFamilies-manuscript",
+      "title": "P-adic Banach Spaces and Families of Modular Forms",
+      "authors": "Robert F. Coleman",
+      "edition": "93-page manuscript hosted by Frank Calegari; PDF creation metadata 4 August 2004; internal page numbering differs from Inventiones 127 (1997), 417–479",
+      "url": "https://math.uchicago.edu/~fcale/Files/Cole2.pdf",
+      "sha256": "d4035d4c48825de9ce9da47791e328f4bd03c8e6145f40ccb8ab80712b5f1b5c",
+      "readSections": [
+        "§A3, internal pp. 22–28: analytic resultant construction and Lemmas A3.4–A3.8, Theorem A3.9",
+        "§A4, internal pp. 28–31: resolvent/invertibility argument and the displayed Riesz proof; comparison with Buzzard’s corrected generality remains explicit",
+        "R1b-review (2026-09-15; SHA-256 re-verified): §A1 definitions of multiplicative elements, I(A) and hypothesis M; Theorem A2.1, Remark A2.2 and Corollary A2.1.1 (internal pp. 17–18); Lemmas A3.5, A3.7, A3.8 and Theorem A3.9 with proofs (pp. 26–28); §A4 heading, Lemma A4.1 with proof (pp. 28–29), Proposition A4.2 and the displayed Theorem A4.3 argument, Remarks A4.4 and the statement of Theorem A4.5 (pp. 29–30). Note: the proof of Lemma A4.1 cites 'Corollary A2.2.1' for the corollary numbered A2.1.1 in the manuscript."
+      ]
+    },
+    {
+      "id": "Serre-EndomorphismesCC-1962",
+      "title": "Endomorphismes complètement continus des espaces de Banach p-adiques",
+      "authors": "Jean-Pierre Serre",
+      "edition": "Publications mathématiques de l'IHÉS 12 (1962), 69–85; Numdam digitisation (18-page PDF wrapper produced 6 October 2025), original page numbering",
+      "url": "http://www.numdam.org/item/PMIHES_1962__12__69_0/",
+      "sha256": "67a032c129ad2a36adeeadc4b4ccb3c0ab17c5a1ef8de83f7dda85f2115fe402",
+      "readSections": [
+        "R1b-review (PDF at http://www.numdam.org/item/PMIHES_1962__12__69_0.pdf, first fetched by R1 on 2026-09-15 and re-fetched by R1b on 2026-09-15 with identical SHA-256): §1 conventions (K complete, non-archimedean, non-trivial valuation; E ≅ c(I)), Propositions 1–2 and Remarques 1–2, pp. 69–71; §5 preliminaries, the reduction-mod-ideal construction of det(1−tu), Proposition 7 (a)–(d) with proof, Corollaires 1–3, Remarques 1–3, Proposition 8 with proof and Lemme 2, pp. 74–78; §6 Proposition 10 and Lemme 3 with proof, pp. 78–79; §7 Propositions 11–12 with proofs and the Corollaire (alternative de Fredholm), pp. 80–82. Not read: §§2–4 (Propositions 3–6, the matrix criterion in the field case), Proposition 9, §8 duality, §9 examples."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "LocallyAnalyticDistributions:L4/orthonormalizable-modules",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "title": "Orthonormalizable Banach modules",
+      "kind": "definition",
+      "statement": "Construct c_A(I), the A-valued families tending to zero outside finite sets with the supremum norm, and its universal property: continuous A-linear maps c_A(I) → M correspond to bounded families of vectors of M.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "A is a commutative Noetherian K-Banach algebra.",
+        "A ≠ 0; the zero ring is handled by the convention on p. 8 (the zero module counts as ONable of arbitrary rank)."
+      ],
+      "proofSteps": [
+        "Sum a coefficient family against a bounded vector family using nonarchimedean convergence.",
+        "Recover a continuous map from its values on the coordinate vectors; the operator norm is the supremum of their norms.",
+        "Describe continuous maps between such modules by bounded matrices whose output coefficients tend to zero for every input coordinate."
+      ],
+      "acceptance": [
+        "Prove existence, uniqueness, completeness and the operator-norm formula.",
+        "Treat an arbitrary index set; do not silently restrict to countable bases."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§2, pp. 7–9",
+          "excerpt": "the set of bounded maps",
+          "match": "This is the stated universal property of c_A(I), followed by its matrix description."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/finite-submodule-approximation",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "title": "Finite submodules and coordinate approximation",
+      "kind": "lemma",
+      "statement": "A finitely generated submodule P of an orthonormalizable Banach A-module is closed. For every ε>0 there is a finite coordinate projection π_T with ‖π_T(p)−p‖ ≤ ε‖p‖ for all p in P.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "A is a commutative Noetherian K-Banach algebra.",
+        "The ambient Banach module is orthonormalizable."
+      ],
+      "proofSteps": [
+        "Use Noetherianity on the coordinate columns of finitely many generators to find a finite projection injective on P.",
+        "Compare P's subspace norm with its finite-module Banach topology through that projection: with Q the finite module P in its canonical Banach topology, Q → P → A^S is continuous by Lemma 2.2 and Proposition 2.1(b) (BGR 3.7.3/2–3), and the image in A^S is closed by BGR Proposition 3.7.3/1, so the two norms on P are equivalent and P is closed in M.",
+        "Apply the nonarchimedean open mapping theorem to a finite free presentation and rescale by a fixed element of K of norm less than one."
+      ],
+      "acceptance": [
+        "Prove the uniform estimate for every p, not just for the chosen generators.",
+        "Verify the finite-module topology and open-mapping inputs before using closedness."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 2.3 and proof, pp. 10–11",
+          "excerpt": "P is a closed subset of M",
+          "match": "The proof establishes closedness and then the uniform finite-coordinate approximation needed by compactness."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/compact-matrix-criterion",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "title": "Completely continuous matrix criterion",
+      "kind": "theorem",
+      "statement": "For a continuous map between orthonormalizable A-Banach modules, compactness in the sense of operator-norm limits of finite-rank maps is equivalent to sup_i |a_ij| tending to zero as the output index j leaves finite sets.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "A is a commutative Noetherian K-Banach algebra.",
+        "Use the source’s matrix convention φ(e_i)=Σ_j a_ij f_j."
+      ],
+      "proofSteps": [
+        "The coefficient condition gives finite-rank approximations π_Tφ in operator norm.",
+        "For the converse first reduce to finite-rank maps, then apply uniform coordinate approximation on a finite submodule containing the image.",
+        "Pass to the operator-norm closure."
+      ],
+      "acceptance": [
+        "Keep complete continuity distinct from unproved equivalence with a topological compact-image definition.",
+        "Do not drop Noetherianity: the source explicitly leaves that extension open."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 2.4 and proof, pp. 11–12",
+          "excerpt": "φ is compact if and only if",
+          "match": "The displayed criterion is proved using Lemma 2.3(c); the subsequent remark records the Noetherian boundary."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/fredholm-determinant",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "title": "Fredholm determinant from finite minors",
+      "kind": "construction",
+      "statement": "For a compact endomorphism φ of an orthonormalizable A-Banach module, construct P_φ(T)=det(1−Tφ) as the convergent sums of principal minors and prove that it is entire with constant coefficient one.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "A is a commutative Noetherian K-Banach algebra.",
+        "φ is an operator-norm limit of finite-rank endomorphisms."
+      ],
+      "proofSteps": [
+        "Form each coefficient as the signed sum of determinants indexed by finite subsets of the basis.",
+        "Use decay of the matrix columns to prove coefficient summability and convergence for every scalar radius: let r_1 ≥ r_2 ≥ … be the decreasing rearrangement of r_j = sup_i |a_ij| (which tends to zero by the matrix criterion); each product over an n-element index set involves n distinct column indices, so |c_n| ≤ r_1⋯r_n and |c_n|R^n ≤ (r_1R)⋯(r_nR) → 0 for every R > 0 (Serre, Proposition 7 b). The estimate uses only |ab| ≤ |a||b| in A and transfers verbatim; Serre's own definition of the series (reduction of a norm-≤1 operator modulo ideals of the valuation ring and a projective limit of finite-rank determinants) is replaced in the source by the direct minor formula.",
+        "Compare finite-coordinate truncations with ordinary finite-dimensional determinants."
+      ],
+      "acceptance": [
+        "The rank-finite specialization recovers the algebraic determinant.",
+        "Prove |c_n|r^n→0 for every r>0, rather than only convergence on one disc."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§2 after Proposition 2.4, pp. 12–13; Lemma 2.5",
+          "excerpt": "characteristic power series",
+          "match": "The source defines the series by principal minors and invokes Serre’s estimates for convergence and continuity."
+        },
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "§5, Proposition 7 (a)–(d) and proof, pp. 74–76",
+          "excerpt": "son rayon de convergence est infini",
+          "match": "Buzzard's convergence claim on p. 12 is made 'following Proposition 7 of [15]'; the proof's product estimate |c_m| ≤ r_1⋯r_m is coefficientwise and valid over a Banach algebra, and (d) is the finite-rank comparison used in Lemma 2.5(b)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/determinant-invariance",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "title": "Determinants independent of bases and norms",
+      "kind": "comparison",
+      "statement": "The Fredholm determinant of a compact endomorphism depends only on the Banach-module topology. It is unchanged by choosing a different orthonormal basis or an equivalent norm that makes the module orthonormalizable.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "A is a commutative Noetherian K-Banach algebra."
+      ],
+      "proofSteps": [
+        "Prove continuity of the determinant under operator-norm limits.",
+        "Compare a finite-rank endomorphism with its algebraic determinant on a finite free submodule containing its image.",
+        "Approximate simultaneously in the two equivalent norms to pass from algebraic invariance to the infinite-dimensional determinant."
+      ],
+      "acceptance": [
+        "Do not assume an arbitrary finite submodule lies in a finite free one; use the finite-coordinate approximations from the source.",
+        "Test a module that is only potentially orthonormalizable."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 2.5 and Corollary 2.6, pp. 13–14",
+          "excerpt": "independent of choice of basis",
+          "match": "Finite-dimensional determinant invariance is transported through approximations to equivalent Banach norms."
+        },
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "§5, Proposition 8 and proof, p. 77",
+          "excerpt": "la topologie de la convergence uniforme sur toute partie",
+          "match": "Lemma 2.5(a) cites this 'mutatis mutandis'; the proof shows |c_m^{(n)} − c_m| ≤ ε for all m once |u − u_n| ≤ η, which is Buzzard's 'uniformly in the coefficients' and is what makes evaluation of the series at points of A continuous in the operator."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/cyclic-determinant-identity",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "title": "Cyclic determinant identity",
+      "kind": "lemma",
+      "statement": "If u:M→N is compact and v:N→M is continuous between potentially orthonormalizable Banach A-modules, both composites are compact and det(1−Tuv)=det(1−Tvu).",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "A is a commutative Noetherian K-Banach algebra.",
+        "Lemma 2.7 is printed for ONable modules; the potentially ONable case follows by choosing equivalent ONable norms, since compactness and the determinant depend only on the topology (Corollary 2.6 and p. 17). The (Pr) case is Lemma 2.12, left as an exercise in the source."
+      ],
+      "proofSteps": [
+        "Reduce the compact map to finite rank by determinant continuity.",
+        "Approximate its image inside finite coordinate submodules.",
+        "Approximate v only on the relevant finite submodule, then apply the finite-dimensional cyclic determinant identity."
+      ],
+      "acceptance": [
+        "Never claim π_Tv→v in operator norm for a general noncompact v.",
+        "Track the domains of uv and vu and compare their power-series coefficients."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 2.7 and proof, pp. 15–16",
+          "excerpt": "It is unfortunately not the case",
+          "match": "The proof explicitly warns that a global approximation to v is unavailable and performs the restricted finite-module approximation instead."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/completed-base-change",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "title": "Completed base change of Banach modules",
+      "kind": "comparison",
+      "statement": "A continuous map A→B of commutative Noetherian K-Banach algebras sends a potentially orthonormalizable module M to M ⊗̂_A B with transported basis. Compact maps stay compact and their Fredholm determinants are obtained by applying A→B coefficientwise.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "A is a commutative Noetherian K-Banach algebra.",
+        "B is a commutative Noetherian K-Banach algebra.",
+        "The completed tensor product M ⊗̂_A B and its norm are used without definition (BGR §2.1.7); the proof of Lemma 2.8 needs only that |Σ_{i∈S} e_i ⊗ b_i| is bounded by a constant multiple of max_i |b_i|."
+      ],
+      "proofSteps": [
+        "Construct mutually inverse maps between c_A(I) ⊗̂_A B and c_B(I) using finite sums and completion.",
+        "Transport the matrix of a compact map and apply the column-decay criterion.",
+        "Pass the coefficient map through the convergent determinant sums."
+      ],
+      "acceptance": [
+        "Prove the comparison for continuous coefficient maps; contractivity is not required in the potentially orthonormalizable formulation.",
+        "Keep this determinant base-change theorem separate from the later Hecke-image base-change theorem."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 2.8 and Corollaries 2.9–2.10, pp. 17–18",
+          "excerpt": "we do not need to assume",
+          "match": "The source constructs the completed-tensor comparison and explicitly distinguishes continuity from contractivity."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/projective-banach-modules",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "title": "Banach direct summands",
+      "kind": "definition",
+      "statement": "Define property (Pr) by the existence of a Banach complement making P⊕Q potentially orthonormalizable. Prove its lifting characterization against surjective continuous maps, and prove that a finite Banach module has (Pr) exactly when its underlying A-module is projective.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "A is a commutative Noetherian K-Banach algebra."
+      ],
+      "proofSteps": [
+        "Use the open mapping theorem to lift bounded vector families through a surjection.",
+        "Apply the lifting characterization to a finite free presentation for the converse implication.",
+        "Keep categorical epimorphisms distinct from surjective underlying maps."
+      ],
+      "acceptance": [
+        "Preserve nonfree finite projective examples; an orthonormal basis cannot be assumed for every (Pr) module.",
+        "Prove both directions of the lifting characterization (the source sketches only the key point for P = c_A(I)): (Pr) ⇒ lifting by realising P as a direct summand of a potentially ONable module; lifting ⇒ (Pr) by splitting a bounded surjection c_A(I) → P. Also prove the claim stated without proof on p. 18 that a finite projective A-module with its Banach topology has (Pr)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Property (Pr) discussion and Lemma 2.11, pp. 18–19",
+          "excerpt": "whose underlying module map is",
+          "match": "The text warns that categorical epimorphisms need not be the surjections used in the lifting characterization."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/summand-fredholm-theory",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "title": "Fredholm theory on Banach direct summands",
+      "kind": "construction",
+      "statement": "Extend the Fredholm determinant to compact endomorphisms of (Pr) modules by adding a zero operator on a complement. Prove independence of the complement, multiplicativity on direct sums, the cyclic identity and completed base change.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "A is a commutative Noetherian K-Banach algebra.",
+        "All Banach modules carrying determinants satisfy (Pr)."
+      ],
+      "proofSteps": [
+        "Compare two complements inside their common larger orthonormalizable direct sum.",
+        "Use conjugation and the determinant of a zero summand to establish independence.",
+        "Reduce the cyclic and scalar-extension identities to the potentially orthonormalizable results."
+      ],
+      "acceptance": [
+        "The determinant on a finite projective module agrees with its algebraic determinant.",
+        "Supply actual proofs for the exercises in Lemmas 2.12–2.13 and for the two ingredients stated without proof on pp. 19–20: the determinant of φ ⊕ 0 on M ⊕ N equals that of φ (immediate from the matrix definition with the union basis), and det(1 − X(φ ⊕ ψ)) = det(1 − Xφ)det(1 − Xψ) for compact φ, ψ on (Pr) modules (Serre, Lemme 2 of §5, in the field case)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§2, pp. 19–20; Lemmas 2.12–2.13",
+          "excerpt": "independent of choice of Q",
+          "match": "The complement construction and its invariance precede the two extension lemmas."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-resultants",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "title": "Entire functions and analytic resultants",
+      "kind": "construction",
+      "statement": "Construct the entire series ring A{{T}}, division by a monic polynomial and the resultant Res(Q,P) for monic Q and entire P. Prove that Res(Q,P) is a unit exactly when Q and P generate the unit ideal.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "A is a commutative Noetherian K-Banach algebra."
+      ],
+      "proofSteps": [
+        "Normalize coefficients, prove polynomial division first, and pass to convergent truncations.",
+        "Define the resultant through elementary symmetric functions, equivalently the norm of P in A[T]/(Q).",
+        "Use the resultant's Bézout identity and multiplicativity to prove the unit criterion: Res(Q,P) ∈ (Q,P) is proved for polynomial P from Lang, Algebra, Ch. IV §8 and extended to entire P by writing P = BQ + R with R a polynomial (Lemma A3.5); conversely if fQ + gP = 1 then 1 = Res(Q, gP) = Res(Q,g)·Res(Q,P) (Lemma A3.7)."
+      ],
+      "acceptance": [
+        "Keep uniform convergence estimates under coefficient scaling.",
+        "Do not assume A{{T}} is complete for the unit-disc supremum norm."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§3, pp. 20–21",
+          "excerpt": "monic polynomial of degree",
+          "match": "Buzzard records the entire-series division and continuity arguments needed for the Noetherian Banach setting."
+        },
+        {
+          "sourceId": "Coleman-BanachFamilies-manuscript",
+          "locator": "§A3, internal pp. 22–27, especially Lemmas A3.5 and A3.7",
+          "excerpt": "a linear combination of Q and P",
+          "match": "The checked primary argument supplies the Bézout and resultant-unit step."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/fredholm-resolvent",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "title": "Fredholm resolvents and spectral invertibility",
+      "kind": "theorem",
+      "statement": "For a compact φ on a (Pr) A-Banach module and a monic Q, Q is coprime to P_φ in A{{T}} exactly when Q*(φ) is invertible, where Q*(X)=X^deg(Q)Q(X^−1).",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "A is a commutative Noetherian K-Banach algebra.",
+        "M satisfies (Pr).",
+        "The forward direction uses P_v = D(1−Q*, P_φ) for v = 1 − Q*(φ) (Coleman Theorem A3.9, stated for orthonormizable modules and proved by reduction modulo I ∈ I(A), which for a K-Banach algebra contains ρA^0) and D(1−Q*, P_φ)(1) = Res(Q, P_φ) (Lemma A3.8 (11), Q monic); for a (Pr) module apply them to φ ⊕ 0, using that the polynomial 1−Q* has zero constant term.",
+        "The converse direction (Q*(φ) invertible ⇒ (Q, P_φ) = 1) writes Q*(φ)(1−w) = 1, notes w = v(w−1) is compact, and needs det(1−v)·det(1−w) = det((1−v)(1−w)) = 1 for the commuting compact v, w (Serre §5, Corollaire 1 to Proposition 7; Coleman Corollary A2.1.1, cited as A2.2.1 in the proof of Lemma A4.1). Buzzard's §2 neither states nor proves this product identity in the Noetherian Banach/(Pr) setting; see the gap 'Product multiplicativity of Fredholm determinants'."
+      ],
+      "proofSteps": [
+        "Construct the entire operator-valued resolvent F(X) = P_φ(X)/(1−Xφ) = Σ v_m X^m with v_0 = 1 and v_m = c_m + φ v_{m−1}, so each v_m ∈ A[φ]; Serre's Lemme 3 gives |v_m| ≤ r_1⋯r_m by the adjugate (Cramer) formula in finite rank, then for finitely supported columns, then by a limit, hence |v_m|R^m → 0 for all R (Proposition 10). The argument uses only matrix entries in A and the identity |φ| = sup|a_ij| (p. 9), so it transfers to ONable A-modules, and to (Pr) modules via φ ⊕ 0, whose resolvent is F(X) ⊕ P_φ(X)·1.",
+        "Apply polynomial spectral mapping to v=1−Q*(φ); evaluate its resolvent identity at one.",
+        "Combine the resulting resultant identity with the unit criterion; reverse the argument using an inverse for Q*(φ)."
+      ],
+      "acceptance": [
+        "Prove convergence in operator norm before evaluating the resolvent.",
+        "The reciprocal polynomial convention must match the later eigenvalue coordinate."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 3.1 and preceding resolvent discussion, p. 22",
+          "excerpt": "an invertible operator on M",
+          "match": "Buzzard states the criterion in the (Pr), Noetherian Banach generality."
+        },
+        {
+          "sourceId": "Coleman-BanachFamilies-manuscript",
+          "locator": "Lemma A4.1, internal pp. 28–29",
+          "excerpt": "Thus it follows from Lemma A3.7",
+          "match": "The checked proof derives invertibility from the resolvent-resultant identity."
+        },
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "§6, Proposition 10 with Lemme 3, pp. 78–79; §7, Proposition 11 and proof, p. 80; §5, Corollaire 1 to Proposition 7, p. 76",
+          "excerpt": "il faut et il suffit que H(a)",
+          "match": "Proposition 11 is the field-case, degree-one instance of Lemma 3.1 (Q = X − a); its converse uses Corollaire 1 to Proposition 7 exactly as Coleman's Lemma A4.1 uses Corollary A2.1.1, which is the identity Buzzard leaves unstated."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/riesz-root-projectors",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "title": "Riesz projectors at a Fredholm root",
+      "kind": "theorem",
+      "statement": "If a is a root of order h of P_φ in the Hasse-derivative sense, split M=N⊕F into closed φ-stable summands with (1−aφ)^h=0 on N and 1−aφ invertible on F. Construct the projectors in the operator-norm closure of A[φ], and prove N is finite projective of rank h. For h > 0, a is a unit and det(1−Tφ|N) = (1−a^{−1}T)^h.",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "A is a commutative Noetherian K-Banach algebra.",
+        "M satisfies (Pr).",
+        "The h-th Hasse derivative at a is a unit and all lower derivatives vanish.",
+        "a ∈ A (Serre: a ∈ K, where 'unit' reads 'non-zero'); for h ≥ 1 the definition forces a ∈ A^× (p. 22)."
+      ],
+      "proofSteps": [
+        "Following Serre's Proposition 12, which Buzzard says goes through unchanged: apply the divided derivatives Δ^s to (1−Tφ)F(T) = P_φ(T) and evaluate at T = a, obtaining v_s := Δ^sF(a) with (1−aφ)v_0 = 0, (1−aφ)v_s − φv_{s−1} = 0 for 0 < s < h and (1−aφ)v_h − φv_{h−1} = c := Δ^hP_φ(a), a unit; hence (1−aφ)^{s+1}v_s = 0 for s < h. Put e = c^{−1}(1−aφ)v_h and f = −c^{−1}φv_{h−1}: then e + f = 1 and f·e^h = 0, so p = e^h and q = (e+f)^h − e^h are complementary projectors in the closure of A[φ], with (1−aφ)^h q = 0 and (1−aφ)^h v_h^h = c^h p; set N = ker p = im q and F = im p. All operators involved commute.",
+        "Serre then bounds dim N(a) ≤ h using that every finite-dimensional φ-stable subspace of c(I) is complemented with quotient again of the form c(J) (Remarque 2 of §1, a field-specific fact) together with Lemme 2 of §5; Buzzard diverges here: (1−aφ)^h = 0 on N expresses the identity of N as a polynomial in φ without constant term, hence compact on the (Pr) module N; a finite-rank α with |1 − α| small is invertible (Neumann series in the complete algebra Hom(N,N), 'elementary argument' on p. 23), so N = α(N) is finitely generated.",
+        "Use (Pr) to obtain projectivity (Lemma 2.11), then factor P = P_N·P_F (multiplicativity on direct sums) and apply Lemma 3.1 to φ|_F with Q = (T−a)^h to see (1−a^{−1}T)^h coprime to P_F, hence dividing P_N, and by uniqueness of division dividing it in A[T]; write P_N = D·(1−a^{−1}T)^h and P = (1−a^{−1}T)^h·G, so D | G in A{{T}} and D(a) is a unit; φ is invertible on N so det(φ|N) ∈ A^× and the leading coefficient of D is a unit; reducing modulo each maximal ideal, (1−āφ̄)^h = 0 forces P̄_N = (1−ā^{−1}T)^{rank}, so D̄ = 1, the rank is h, and D = 1 (constant term 1)."
+      ],
+      "acceptance": [
+        "Generalized eigenspaces and the exact power h remain visible.",
+        "Handle h=0 separately; for h>0 prove that a is a unit."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2 and proof, pp. 23–24",
+          "excerpt": "the identity is compact",
+          "match": "This is the key step converting the analytic projector summand into a finite projective A-module."
+        },
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "§7, Proposition 12 and proof, pp. 80–81; §1, Remarque 2, p. 71; §5, Lemme 2, p. 77",
+          "excerpt": "la dimension de N(a) est finie",
+          "match": "The projector construction is the part Buzzard imports; the dimension count is where he diverges, because Remarque 2 of §1 (finite-dimensional subspaces of c(I) are complemented with quotient c(J)) has no analogue over a Banach algebra A."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/finite-slope-summands",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "title": "Finite projective slope summands",
+      "kind": "theorem",
+      "statement": "If P_φ(T)=Q(T)S(T), where Q(0)=S(0)=1, Q is a degree-n polynomial with unit leading coefficient and (Q,S)=1, construct the unique closed φ-stable splitting M=N⊕F with Q*(φ)=0 on N and invertible on F. Prove N finite projective of rank n and det(1−Tφ|N)=Q(T).",
+      "hypotheses": [
+        "K is complete for a nontrivial nonarchimedean absolute value.",
+        "A is a commutative Noetherian K-Banach algebra.",
+        "M satisfies (Pr).",
+        "S is entire and Q is relatively prime to S in A{{T}}."
+      ],
+      "proofSteps": [
+        "Set v = 1 − Q*(φ)/Q*(0) = B(φ) with B ∈ T·A{{T}} (Q*(0) is the unit leading coefficient of Q); spectral mapping (Coleman Theorem A3.9, applied to φ ⊕ 0 for a (Pr) module) gives P_v = D(B,Q)·D(B,S) = (1−T)^n·D(B,S), and D(B,S)(1) = Res(Q/Q*(0), S) by Lemma A3.8 (11) for the monic polynomial Q/Q*(0), a unit by Lemma A3.7 since (Q,S) = 1; hence 1 is a zero of order n of P_v in the divided-derivative sense.",
+        "Apply the Riesz root splitting to v to obtain rank n and initially a power-annihilation statement.",
+        "Factor determinants: P_F is coprime to Q by Lemma 3.1 applied to φ|_F (with the monic Q/Q*(0)), so Q divides P_N = G in A{{T}}; G is a polynomial of degree ≤ n (N projective of rank n) with G(0) = 1, and uniqueness of division by the monic Q/Q*(0) gives G = Q; Cayley–Hamilton on the rank-n projective N then gives Q*(φ) = 0 on N, improving the power-annihilation Q*(φ)^n = 0 delivered by Proposition 3.2."
+      ],
+      "acceptance": [
+        "Prove the exact annihilator Q*, not merely a power of Q*.",
+        "Show every operator commuting with φ preserves both summands because the projectors lie in the closure of A[φ]."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Theorem 3.3 and proof, pp. 24–25",
+          "excerpt": "so we are not quite home yet",
+          "match": "The source corrects the gap between power-annihilation and the exact reciprocal-polynomial conclusion."
+        },
+        {
+          "sourceId": "Coleman-BanachFamilies-manuscript",
+          "locator": "§A4, argument displayed after Proposition A4.2 (the Theorem A4.3 proof), internal pp. 28–29",
+          "excerpt": "D(B, S)(1) = Res(Q/Q∗ (0), S)",
+          "match": "The order-n zero at T = 1 is obtained exactly as in the packet's first proof step; Buzzard's Theorem 3.3 follows this argument and then repairs the power-annihilation conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "LocallyAnalyticDistributions:L4/orthonormalizable-modules",
+      "target": "LocallyAnalyticDistributions:L4/finite-submodule-approximation",
+      "reason": "Coordinate expansions and finite projections let a finite-module norm be compared with its subspace norm.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 2.3"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/finite-submodule-approximation",
+      "target": "LocallyAnalyticDistributions:L4/compact-matrix-criterion",
+      "reason": "Uniform approximation on finite submodules proves the difficult direction of the matrix criterion.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 2.4"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/compact-matrix-criterion",
+      "target": "LocallyAnalyticDistributions:L4/fredholm-determinant",
+      "reason": "Column decay makes the determinant coefficients and entire estimates converge.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§2, pp. 12–13"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/fredholm-determinant",
+      "target": "LocallyAnalyticDistributions:L4/determinant-invariance",
+      "reason": "Continuity and finite-rank comparison transfer algebraic basis invariance to the Fredholm series.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 2.5 and Corollary 2.6"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/finite-submodule-approximation",
+      "target": "LocallyAnalyticDistributions:L4/cyclic-determinant-identity",
+      "reason": "The proof approximates u globally and v only on the finite image submodule.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 2.7"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/determinant-invariance",
+      "target": "LocallyAnalyticDistributions:L4/cyclic-determinant-identity",
+      "reason": "Limits and finite-dimensional determinant comparison justify the two approximation steps.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 2.7"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/orthonormalizable-modules",
+      "target": "LocallyAnalyticDistributions:L4/completed-base-change",
+      "reason": "The c_A(I) model constructs the completed tensor and transported basis.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 2.8"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/compact-matrix-criterion",
+      "target": "LocallyAnalyticDistributions:L4/completed-base-change",
+      "reason": "The matrix decay criterion proves compactness after coefficient extension.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Corollary 2.9"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/determinant-invariance",
+      "target": "LocallyAnalyticDistributions:L4/summand-fredholm-theory",
+      "reason": "Equivalent norms and conjugation invariance remove dependence on the chosen complement.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§2, pp. 19–20"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/projective-banach-modules",
+      "target": "LocallyAnalyticDistributions:L4/summand-fredholm-theory",
+      "reason": "Property (Pr) supplies the complement used to define the determinant.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§2, pp. 19–20"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/cyclic-determinant-identity",
+      "target": "LocallyAnalyticDistributions:L4/summand-fredholm-theory",
+      "reason": "The cyclic identity extends from orthonormalizable modules to direct summands.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 2.12"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/completed-base-change",
+      "target": "LocallyAnalyticDistributions:L4/summand-fredholm-theory",
+      "reason": "Completed scalar extension preserves (Pr) and the Fredholm determinant.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 2.13"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/entire-resultants",
+      "target": "LocallyAnalyticDistributions:L4/fredholm-resolvent",
+      "reason": "The resultant-unit criterion turns the resolvent identity into spectral invertibility.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma 3.1"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/summand-fredholm-theory",
+      "target": "LocallyAnalyticDistributions:L4/fredholm-resolvent",
+      "reason": "The characteristic power series and polynomial operations are defined on the actual (Pr) module.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§3, p. 22"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/fredholm-resolvent",
+      "target": "LocallyAnalyticDistributions:L4/riesz-root-projectors",
+      "reason": "Coprimality separates the root factor from the invertible complement.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/projective-banach-modules",
+      "target": "LocallyAnalyticDistributions:L4/riesz-root-projectors",
+      "reason": "A finitely generated (Pr) summand is algebraically projective.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/riesz-root-projectors",
+      "target": "LocallyAnalyticDistributions:L4/finite-slope-summands",
+      "reason": "Apply the root decomposition to the polynomial transform of φ and recover the exact slope factor.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Theorem 3.3"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/fredholm-resolvent",
+      "target": "LocallyAnalyticDistributions:L4/finite-slope-summands",
+      "reason": "Lemma 3.1 applied to φ|_F shows P_F coprime to Q, which forces Q | P_N and then P_N = Q; the same resultant/spectral-mapping data (D(1−Q*/Q*(0), P_φ)(1) = Res(Q/Q*(0), P_φ)) produces the order-n zero of P_v at T = 1.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Theorem 3.3, proof, pp. 24–25"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4/summand-fredholm-theory",
+      "target": "LocallyAnalyticDistributions:L4/riesz-root-projectors",
+      "reason": "N inherits (Pr) from M = N ⊕ F, and the factorisation P = P_N·P_F used to identify P_N is the multiplicativity of the (Pr)-module determinant on direct sums.",
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2, proof, p. 23; §2, p. 20"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "LocallyAnalyticDistributions:L0",
+      "status": "not_read",
+      "remaining": [
+        "Read the complete source proofs for this existing stage."
+      ]
+    },
+    {
+      "stageId": "LocallyAnalyticDistributions:L1",
+      "status": "not_read",
+      "remaining": [
+        "Read the complete source proofs for this existing stage."
+      ]
+    },
+    {
+      "stageId": "LocallyAnalyticDistributions:L2",
+      "status": "not_read",
+      "remaining": [
+        "Read the complete source proofs for this existing stage."
+      ]
+    },
+    {
+      "stageId": "LocallyAnalyticDistributions:L3",
+      "status": "not_read",
+      "remaining": [
+        "Read the complete source proofs for this existing stage."
+      ]
+    },
+    {
+      "stageId": "LocallyAnalyticDistributions:L4",
+      "status": "partial",
+      "remaining": [
+        "Construct the affinoid-valued analytic/distribution modules and their actual compact semigroup operators from their primary sources (not started).",
+        "Write out the product multiplicativity det((1−Xu)(1−Xv)) = det(1−Xu)det(1−Xv) for commuting compact operators on (Pr) modules over a Noetherian K-Banach algebra, which Lemma 3.1's converse imports from Serre/Coleman and Buzzard §2 does not state.",
+        "Transport Coleman Theorem A3.9 (spectral mapping P_{B(φ)} = D(B,P_φ)) and Lemma A3.8 to (Pr) modules over Noetherian K-Banach algebras (reduction modulo ρA^0 and the φ ⊕ 0 trick), as used in Lemma 3.1 and Theorem 3.3.",
+        "Audit the Bourbaki open-mapping theorem and Bosch–Güntzer–Remmert inputs (2.1.7 completed tensor products, 2.1.8/3, 3.7.2/2, 3.7.3/1–3) behind Proposition 2.1, Lemma 2.2, Lemma 2.3 and Lemma 2.8.",
+        "Prove the exercise extensions Lemmas 2.12–2.13, the two unproved ingredients on pp. 19–20, the lifting characterization of (Pr) in both directions and 'finite projective ⇒ (Pr)'.",
+        "Serre's Propositions 7–8 and 10–12 have now been read (R1b); his §§2–4 matrix criterion for the field case and Proposition 9 were not needed and remain unread.",
+        "Check exact library carriers and formulate implementation declarations only after these source boundaries are resolved."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Determinant estimates and Riesz projector construction in Serre (now read)",
+      "neededBy": [
+        "LocallyAnalyticDistributions:L4/fredholm-determinant",
+        "LocallyAnalyticDistributions:L4/determinant-invariance",
+        "LocallyAnalyticDistributions:L4/fredholm-resolvent",
+        "LocallyAnalyticDistributions:L4/riesz-root-projectors"
+      ],
+      "detail": "R1b-review read Serre, Publ. Math. IHÉS 12 (1962), Propositions 7–8 (§5), 10 (§6) and 11–12 (§7) with their proofs, in the Numdam copy (SHA-256 67a032…). Setting: K complete non-archimedean with non-trivial valuation, E a Banach space isomorphic to c(I), u completely continuous; discreteness of the valuation is assumed only in Propositions 1, 2, 5, 9, 13, 15, none of which Buzzard uses. What transfers verbatim to Noetherian K-Banach algebras: the coefficient formula and the estimate |c_m| ≤ r_1⋯r_m (Proposition 7 a, b), the finite-rank comparison (7 d), the uniform coefficient estimate |c_m^{(n)} − c_m| ≤ ε (Proposition 8), the recurrence v_m = c_m + u v_{m−1} and the bound |v_m| ≤ r_1⋯r_m for the resolvent (Proposition 10, Lemme 3), the resolvent identity H(a) = (1−au)P(a,u) (Proposition 11) and the divided-derivative construction of the projectors p = e^h, q = (e+f)^h − e^h (Proposition 12). What does not transfer and is replaced in Buzzard: Serre's definition of det(1−tu) by reduction modulo ideals of the valuation ring (Buzzard uses the minor formula directly), and the count dim N(a) = h, which uses Remarque 2 of §1 (finite-dimensional subspaces of c(I) are complemented with quotient c(J)) and Lemme 2 of §5; Buzzard replaces it by compactness of the identity on N, Lemma 2.11 and the reduction-modulo-maximal-ideals argument on pp. 23–24. Still unread: Serre §§2–4 (the field-case matrix criterion, Propositions 3–6), Proposition 9 and §§8–9."
+    },
+    {
+      "title": "Product multiplicativity of Fredholm determinants",
+      "neededBy": [
+        "LocallyAnalyticDistributions:L4/fredholm-resolvent"
+      ],
+      "detail": "The converse direction of Lemma 3.1 (Coleman Lemma A4.1, which Buzzard says 'goes through unchanged') writes Q*(φ)(1−w) = 1 and uses det(1−v)·det(1−w) = det((1−v)(1−w)) = 1 for the commuting compact operators v = 1 − Q*(φ) and w. Serre proves this (Corollaire 1 to Proposition 7) by reduction modulo ideals of the valuation ring in the field case; Coleman states it as Corollary A2.1.1 (cited as A2.2.1 in the proof of A4.1) for orthonormizable modules by the same reduction. Buzzard's §2 contains no statement of it. R1b-review sketched a proof in Buzzard's toolkit: approximate v and w by π_T v and π_T' w (Lemma 2.3(c)), whose images and the image of π_T v + π_T' w − π_T v π_T' w lie in the finite free coordinate module A^{T∪T'}; Lemma 2.5(b) identifies all three Fredholm series with algebraic determinants on that module, where the product rule holds; Lemma 2.5(a) (uniform coefficient convergence, i.e. Serre's Proposition 8) then passes the identity, evaluated at X = 1, to the limit; the (Pr) case follows via φ ⊕ 0. This route has not been written out and the packet does not claim it; until it is, Lemma 3.1's converse rests on an unstated import."
+    },
+    {
+      "title": "Nonarchimedean open mapping and finite-module topologies",
+      "neededBy": [
+        "LocallyAnalyticDistributions:L4/finite-submodule-approximation",
+        "LocallyAnalyticDistributions:L4/projective-banach-modules"
+      ],
+      "detail": "Buzzard Proposition 2.1 invokes Bourbaki, EVT I §3.3 Théorème 1 (open mapping, with 'homomorphisme' meaning strict morphism) and Bosch–Güntzer–Remmert Propositions 3.7.3/2–3; Lemma 2.3(b) also uses BGR 3.7.3/1 (submodules of finite Banach modules are closed), p. 6 uses BGR 3.7.2/2 (ideals of A are closed), p. 8 uses BGR Corollary 2.1.8/3 (bounded = continuous) and Lemma 2.8 uses the completed tensor product of BGR §2.1.7. The precise Noetherian Banach hypotheses are retained, but this pass has not decomposed those cited proofs. Existing coefficient norm constructions must be checked for the required module generality."
+    },
+    {
+      "title": "Polynomial spectral mapping in the corrected generality",
+      "neededBy": [
+        "LocallyAnalyticDistributions:L4/fredholm-resolvent",
+        "LocallyAnalyticDistributions:L4/finite-slope-summands"
+      ],
+      "detail": "Coleman's §A3 (division, resultants, Lemmas A3.5, A3.7, A3.8 and Theorem A3.9) was read by R1b-review. Theorem A3.9 (P_{B(u)} = D(B, P_u) for B ∈ T·A{{T}}) is stated for orthonormizable E over a Banach algebra with I(A) ≠ ∅ and proved by reduction modulo I ∈ I(A) followed by a limit; for a K-Banach algebra ρA^0 ∈ I(A) since ρ ∈ K^× is multiplicative. Buzzard asserts (p. 20) that §A3 applies to commutative Noetherian K-Banach algebras and uses A3.9 through Lemma 3.1 and in Theorem 3.3 (where the monic polynomial is Q/Q*(0), so that D(B,S)(1) = Res(Q/Q*(0), S) by A3.8 (11)); for (Pr) modules the identity must be transported through φ ⊕ 0, which is legitimate because B(0) = 0. The reduction-modulo-ideal proof of A3.9 presupposes that Coleman's construction of P_u agrees with Buzzard's minor formula (it does, by Serre Proposition 7 a). The transport of every convergence and spectral-mapping step must still be written out before claiming proof-plan closure; nothing contradictory was found."
+    }
+  ],
+  "libraryReview": {
+    "status": "discovery_only",
+    "scope": "Local Mathlib Analysis and Geometry text searches plus the existing Fredholm-operator files were inspected. No declaration was type-checked as supplying this nonarchimedean affinoid Fredholm-determinant machine. All node implementation statuses stay unchecked."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-R1b",
+    "date": "2026-09-15",
+    "notes": "All 13 nodes and 17 original links checked against Buzzard §§2–3 (SHA-256 re-verified), Coleman §A3–A4 and Serre 1962 §§1, 5–7 (Numdam PDF fetched and hashed, Propositions 7–8 and 10–12 read with proofs); 9 nodes verified, 4 corrected in place (cyclic-determinant-identity, projective-banach-modules, fredholm-resolvent, riesz-root-projectors); no node was removed or added. Two links added for direct uses at the cited locations (fredholm-resolvent → finite-slope-summands, Lemma 3.1 on p. 25; summand-fredholm-theory → riesz-root-projectors, P = P_N P_F on p. 23); link graph checked acyclic and all endpoints exist; the three PadicFamilies.json links consuming this packet's nodes point at existing node IDs. Most important finding: Lemma 3.1's converse imports the product multiplicativity of Fredholm determinants (Serre Cor. 1 to Prop. 7 / Coleman Cor. A2.1.1) which Buzzard's §2 never states; recorded as a new gap with a sketched but unwritten proof route, not disguised as an input. Serre's Prop. 12 dimension count is field-specific (Remarque 2 of §1) and Buzzard's replacement argument was checked. No contradiction remains; packet status stays partial because the locally analytic distribution modules and compact semigroup operators (the rest of L4) are unread, the BGR/Bourbaki inputs are undecomposed and the exercises 2.12–2.13 are unproved. Details in research/expansion/reviews/eigenvariety-review.md.",
+    "checked": [
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/orthonormalizable-modules",
+        "verdict": "verified",
+        "note": "pp. 7–9 match: c_A(I) with the max norm, the universal property 'natural bijection between Hom_A(c_A(I),M) and the set of bounded maps I → M' (p. 8), |φ| = sup|n_i| and the two matrix conditions (p. 9); the A ≠ 0 convention (p. 8) added as a hypothesis."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-submodule-approximation",
+        "verdict": "verified",
+        "note": "Lemma 2.3(a)–(c) and proof pp. 10–11 match; excerpt found in (b); proof step 2 now names the BGR inputs (3.7.3/1–3) that (b) actually uses."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/compact-matrix-criterion",
+        "verdict": "verified",
+        "note": "Proposition 2.4 p. 11 and proof p. 12 match (both directions, finite-rank reduction via Lemma 2.3(c)); the Remark on p. 12 leaves the non-Noetherian case open as recorded."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/fredholm-determinant",
+        "verdict": "verified",
+        "note": "Definition on p. 12 (c_S, c_n = (−1)^n Σ c_S, convergence by Proposition 2.4, entireness 'following Proposition 7 of [15]') matches; Serre Proposition 7 now read and the estimate |c_n| ≤ r_1⋯r_n recorded in the proof steps with a Serre source entry."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/determinant-invariance",
+        "verdict": "verified",
+        "note": "Lemma 2.5(a)–(c) pp. 13–14 and Corollary 2.6 p. 14 match, including the caveat that finite submodules need not lie in finite free ones (p. 15); Serre Proposition 8 read and attached as the source of Lemma 2.5(a)."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/cyclic-determinant-identity",
+        "verdict": "corrected",
+        "note": "Lemma 2.7 pp. 15–16 matches the proof steps and the excerpt; the printed lemma is for ONable modules, so a hypothesis now records that the potentially ONable case follows by Corollary 2.6 and the (Pr) case is the exercise Lemma 2.12."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/completed-base-change",
+        "verdict": "verified",
+        "note": "Lemma 2.8 p. 17 and Corollaries 2.9–2.10 p. 18 match, including the continuity-not-contractivity remark; a hypothesis records the undefined completed tensor product (BGR 2.1.7)."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/projective-banach-modules",
+        "verdict": "corrected",
+        "note": "(Pr) definition, the referee's lifting characterization (sketched only for c_A(I)), the epimorphism warning and Lemma 2.11 pp. 18–19 match; acceptance item 2 ('independence from a chosen complement') belonged to the next node and is replaced by the two directions of the lifting characterization and the unproved 'finite projective ⇒ (Pr)'."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/summand-fredholm-theory",
+        "verdict": "verified",
+        "note": "pp. 19–20 match: definition via φ ⊕ 0, independence of Q by the isometric conjugation inside P ⊕ Q ⊕ P ⊕ R, the two 'standard ingredients' and the exercises 2.12–2.13; acceptance item 2 now lists the unproved ingredients explicitly."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-resultants",
+        "verdict": "verified",
+        "note": "Buzzard pp. 20–21 (A{{T}}, division with the Lemma A3.1 uniqueness trick, renormalisation into A_0⟨T⟩, local uniform continuity) and Coleman Lemmas A3.5, A3.7 pp. 26 match; excerpts found; proof step 3 now records the Lang IV §8 input and the exact Bézout/multiplicativity argument."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/fredholm-resolvent",
+        "verdict": "corrected",
+        "note": "Lemma 3.1 p. 22 and Coleman Lemma A4.1 pp. 28–29 match; Serre Propositions 10–11 read. Two hypotheses added: the forward direction needs Theorem A3.9 and Lemma A3.8 (11) transported to (Pr) modules, and the converse needs the product multiplicativity det(1−v)det(1−w) = det((1−v)(1−w)), which Buzzard §2 never states (new gap)."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-root-projectors",
+        "verdict": "corrected",
+        "note": "Proposition 3.2 pp. 23–24 matches; statement now includes the source's conclusion det(1−Tφ|N) = (1−a^{−1}T)^h for h > 0 and a ∈ A; proof steps rewritten from Serre's Proposition 12 (now read: divided derivatives, e, f, p = e^h, q), identifying exactly where Buzzard diverges (Serre's dimension count uses Remarque 2 of §1) and completing the terse reduction-modulo-maximal-ideals argument."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-slope-summands",
+        "verdict": "verified",
+        "note": "Theorem 3.3 pp. 24–25 matches; the order-n zero at T = 1 is now derived explicitly from Coleman A3.9/A3.8 with the monic Q/Q*(0) (Coleman's displayed A4.3 argument, source entry added) and the final Cayley–Hamilton step is spelled out; excerpt found on p. 25."
+      }
+    ]
+  }
+}

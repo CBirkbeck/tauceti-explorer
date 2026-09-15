@@ -1,0 +1,1424 @@
+{
+ "roadmapId": "VectorBundlesAndIsocrystals",
+ "status": "partial",
+ "summary": "Source decomposition of isocrystals, vector bundles on the relative Fargues-Fontaine curve and Banach-Colmez geometry, from Fargues-Scholze II.1.1-II.1.2, II.2 and II.3 read line by line, with the isocrystal category, the standard slope block, the division algebra D_lambda and the coefficient-change adjunction read in Fargues-Fontaine's book (Chapter 8.2.3-8.2.4) and the Harder-Narasimhan axiomatics in its Chapter 5.5. The decomposition keeps the two branches the roadmap insists on separate: the ampleness branch (FS II.2.6's quantitative global generation with its explicit N, N', qN > N', M estimates; the axiomatic GAGA of II.2.7 with both of its hypotheses; the schematic curve of II.2.9) feeds VB2:classification and the properness branch; the properness branch (II.2.16 and the contracting-action lemma II.2.17) feeds VB4's nowhere-vanishing-section argument and NOT the classification. The classification theorem II.2.14 is decomposed through its actual induction - minimal twist d, enlargement of C via a GL_n(E)-v-quasitorsor, reduction to integral slope by unramified descent, and the two invocations of the key lemma II.2.15, whose own proof is the power-series classification of E-linear endomorphisms of the affine line. Every hypothesis recorded is the one in the passage read: affinoid S for H^1-vanishing, the bound 0 < lambda <= [E:Q_p] for perfectoid-ball representability, negative slopes for E_1 and positive slopes for E_0 in II.3.5, constant rank and constant polygon in II.2.19, and pro-etale (not etale) locality of the splitting.",
+ "sources": [
+  {
+   "id": "FS-geometrization",
+   "title": "Geometrization of the local Langlands correspondence",
+   "authors": "Laurent Fargues, Peter Scholze",
+   "edition": "Author-hosted 356-page PDF (MPIM Bonn), inspected 2026-09-15; corresponds to arXiv:2102.13459v4 by metadata and contents, not by byte comparison. PDF page = printed page.",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+   "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+   "readSections": [
+    "Chapter II preamble pp. 45-47 (Thm. II.0.3, II.0.4, II.0.5, Def. II.0.6)",
+    "II.1.1 pp. 50-54 (Prop. II.1.11, Cor. II.1.12, Rem. II.1.13, Lemma II.1.14)",
+    "II.1.2 pp. 56-57 (Def./Prop. II.1.22)",
+    "II.2 preamble p. 57-58 (Prop. II.2.1, isocrystal functor)",
+    "II.2.1 pp. 58-61 (Prop. II.2.2, II.2.3, Cor. II.2.4)",
+    "II.2.2 pp. 62-64 (Prop. II.2.5 with full proof)",
+    "II.2.3 pp. 64-68 (Thm. II.2.6 with full proof, Prop. II.2.7 with proof, Rem. II.2.8, Prop. II.2.9, Prop. II.2.10)",
+    "II.2.4 pp. 69-72 (Ex. II.2.11, Prop. II.2.12, Prop. II.2.13 with proof, Thm. II.2.14 with proof, Lemma II.2.15 with proof)",
+    "II.2.5 pp. 72-75 (Prop. II.2.16, Lemma II.2.17 with proof, Rem. II.2.18, Thm. II.2.19 with proof, Cor. II.2.20)",
+    "II.3 pp. 75-83 (Prop. II.3.1, II.3.2, Cor. II.3.3, Prop. II.3.4 with proof, Prop. II.3.5 with proof, Prop. II.3.6, Prop. II.3.7 with proof, Lemma II.3.8)"
+   ]
+  },
+  {
+   "id": "FF18-courbes",
+   "title": "Courbes et fibres vectoriels en theorie de Hodge p-adique",
+   "authors": "Laurent Fargues, Jean-Marc Fontaine (with a preface by Pierre Colmez)",
+   "edition": "Book PDF, 400 pages, printed pages running to 389; published as Asterisque 406, SMF 2018. Colmez's preface occupies printed pp. 1-50 and is NOT part of the Fargues-Fontaine text. Printed page = PDF page - 10. Correspondence with the printed Asterisque volume was not byte-verified.",
+   "url": "https://webusers.imj-prg.fr/~laurent.fargues/Courbe_fichier_principal.pdf",
+   "sha256": "cc159f38a3801c736b71ecea363496abe7706550bfb416600718ee9933922ca3",
+   "readSections": [
+    "Table des matieres, PDF pp. 7-9",
+    "5.5 Filtrations de Harder-Narasimhan: 5.5.1 formalisme general, Def. 5.5.1, Thm. 5.5.4(1)-(3), Def. 5.5.5, Prop. 5.5.6, and examples 5.5.2.1-5.5.2.3 (printed pp. 212-215)",
+    "8.2.3 Lien avec les isocristaux: Def. 8.2.5, Prop. 8.2.6, Def. 8.2.7, Prop. 8.2.8 with proof, the E'|E adjunction, Rem. 8.2.9 (printed pp. 286-288)",
+    "8.2.4 Classification des fibres: Thm. 8.2.10 (printed p. 288)",
+    "Colmez preface 2.5.3, Prop. 2.36 and Thm. 2.37 (printed pp. 26-27) - used only as a signpost, attributed to Colmez"
+   ]
+  },
+  {
+   "id": "SW13-moduli",
+   "title": "Moduli of p-divisible groups",
+   "authors": "Peter Scholze, Jared Weinstein",
+   "edition": "arXiv:1211.6357v2 [math.NT], 13 April 2013 (published Camb. J. Math. 1 (2013) 145-237); library PDF, printed page = PDF page",
+   "url": "https://arxiv.org/abs/1211.6357",
+   "sha256": "984411ef6c3d735a713684d4c9251fbad411a40eab33cefed8ab5c8412b09f6d",
+   "readSections": [
+    "Abstract and Theorem A with Remark 1.0.1, printed p. 3",
+    "Proposition 3.1.3 (i)-(iii) with proof and Remark 3.1.4, printed p. 22",
+    "Section 3.5 and Lemma 3.5.1 with proof, printed p. 29"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "VectorBundlesAndIsocrystals:VB0/isocrystal-category-and-standard-block",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB0",
+   "title": "Isocrystals over L = W_{O_E}(F_q-bar)[1/pi] and the standard slope block",
+   "kind": "definition",
+   "statement": "Let L = W_{O_E}(F_q-bar) (i.e. E-breve's ring of integers) with its Frobenius sigma; phi-Mod_L is the category of finite-dimensional L-vector spaces D with a sigma-linear isomorphism phi. For coprime d, h with h > 0 the standard block has basis e_1,...,e_h with phi(e_i) = e_{i+1} for i < h and phi(e_h) = pi^{-d} e_1, so phi^h = pi^{-d} sigma^h. Fargues-Fontaine's functor E(D,phi) sends it to a bundle isomorphic to the direct sum of O_X(-lambda)^{m_lambda}, where m_lambda is the multiplicity of the slope lambda in the Dieudonne-Manin decomposition; it is compatible with tensor products and duals.",
+   "hypotheses": [
+    "The category depends on E and not only on L: if E'|E is unramified then L_E = L_{E'} but phi-Mod_{L_E} differs from phi-Mod_{L_{E'}}; Fargues-Fontaine flag this abuse of notation explicitly",
+    "phi is required to be a sigma-linear ISOMORPHISM (bijective), not merely injective",
+    "The residue field of L is algebraically closed (F_q-bar); the Dieudonne-Manin decomposition is used in that setting only",
+    "The block convention phi(e_h) = pi^{-d} e_1 gives slope -d/h for the isocrystal and slope +d/h for the associated bundle; the atlas stage text uses the opposite block normalization phi^r = pi^s sigma^r, for which E(-) yields O(-s/r). The sign must be fixed once and recorded."
+   ],
+   "proofSteps": [
+    "Fargues-Fontaine define phi-Mod_L (Def. 8.2.5), form the graded P-module M(D,phi) = direct sum over i in N of (D tensor_L B)^{phi = pi^i}, and identify M of the standard block with the module M(d,h) computed in the preceding section.",
+    "Proposition 8.2.6 then deduces from the Dieudonne-Manin theorem that E(D,phi) := the sheaf associated to M(D,phi) is a vector bundle isomorphic to the sum of O_X(-lambda)^{m_lambda}.",
+    "Compatibility with tensor products and duals is asserted as part of Prop. 8.2.6; the alternative description as (Y x D)/phi^Z is Remark 8.2.9.",
+    "Fargues-Scholze use the same functor with the normalization O_{X_S}(n) = E(E-breve, pi^{-n} sigma) and record 'note the change of sign - the functor E reverses slopes'."
+   ],
+   "acceptance": [
+    "Check the standard block of slope d/h against O_X(d/h) having rank h and degree d",
+    "Check tensor additivity and dual negation of slopes on two explicit blocks",
+    "Check that the category really depends on E by comparing phi-Mod_{L_E} and phi-Mod_{L_{E'}} for E'|E unramified of degree 2"
+   ],
+   "sources": [
+    {
+     "sourceId": "FF18-courbes",
+     "locator": "Definition 8.2.5 and the remark after it, printed p. 286",
+     "excerpt": "On note phi-Mod_L la categorie des isocristaux formes d'un L-espace vectoriel de dimension finie muni d'un isomorphisme sigma-lineaire. ... Remarquons cependant qu'il s'agit la d'un abus de notation puisque cette categorie ne depend pas seulement de L_E mais egalement de E (si E'|E est non-ramifiee alors L_E = L_{E'}).",
+     "match": "Fixes the definition and the E-dependence caveat that the stage text needs."
+    },
+    {
+     "sourceId": "FF18-courbes",
+     "locator": "Before Proposition 8.2.6, printed p. 287",
+     "excerpt": "Si D = <e_1, ..., e_h> avec phi(e_i) = e_{i+1} si i < h et phi(e_h) = pi^{-d} e_1 alors M(D,phi) = M(d,h).",
+     "match": "The explicit standard block with its Frobenius normalization."
+    },
+    {
+     "sourceId": "FF18-courbes",
+     "locator": "Proposition 8.2.6, printed p. 287",
+     "excerpt": "C'est un fibre vectoriel isomorphe a la somme directe sur lambda dans Q de O_X(-lambda)^{m_lambda} ou m_lambda est la multiplicite de la pente lambda dans la decomposition de Dieudonne-Manin de (D,phi). Cela definit un foncteur compatible au produit tensoriels et aux duaux.",
+     "match": "The slope-reversal statement and the tensor/dual compatibility."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "II.2 preamble, printed p. 58",
+     "excerpt": "We denote by O_{X_S}(n) the image of (E-breve, pi^{-n} sigma) (note the change of sign - the functor E reverses slopes).",
+     "match": "Fargues-Scholze's normalization, which the roadmap follows."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB0/endomorphism-division-algebra",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB0",
+   "title": "The endomorphism division algebra D_lambda of the stable bundle O_X(lambda)",
+   "kind": "theorem",
+   "statement": "For lambda = d/h in lowest terms with h > 0, let D_lambda be the central division algebra over E given by D_lambda = E_h[Pi] with Pi^h = pi^d and Pi x = sigma_E(x) Pi for all x in E_h, where E_h is the unramified extension of E of degree h. Then there is an isomorphism D_lambda -> End(O_{X_E}(lambda)).",
+   "hypotheses": [
+    "lambda = d/h with gcd(d,h) = 1 and h > 0; E_h is the degree-h unramified extension of E inside E-bar",
+    "The cyclic-algebra presentation is the explicit one: generators E_h and Pi, relations Pi^h = pi^d and Pi x = sigma_E(x) Pi",
+    "F is algebraically closed (this is Chapter 8's standing hypothesis: 'le cas F alg. clos'); the statement is about the curve X = X_{F,E}",
+    "The dimension count uses O_X(lambda) tensor O_X(-lambda) = O_X^{h^2}, which is point (4) of Fargues-Fontaine Proposition 5.6.23"
+   ],
+   "proofSteps": [
+    "D_lambda is by construction the endomorphism algebra of the simple isocrystal of slope -lambda, so Prop. 8.2.6 gives an embedding D_lambda -> End(O_X(lambda)).",
+    "End(O_X(lambda)) = H^0(X, O_X(lambda) tensor O_X(lambda)^dual).",
+    "By Prop. 5.6.23(4), O_X(lambda) tensor O_X(-lambda) is isomorphic to O_X^{h^2}, so dim_E End(O_{X_E}(lambda)) = h^2 = dim_E D_lambda, and the embedding is an isomorphism.",
+    "NOTE: the Brauer invariant of D_lambda is NOT computed in the passage read; only the cyclic presentation and the dimension are. The stage text makes the Brauer-invariant compatibility an explicit obligation; see gaps."
+   ],
+   "acceptance": [
+    "Check D_0 = E and D_{1/h} = the division algebra of invariant 1/h for small h",
+    "Check the dimension count h^2 on lambda = 1/2",
+    "Check that the E-algebra structure, not only the E-dimension, matches"
+   ],
+   "sources": [
+    {
+     "sourceId": "FF18-courbes",
+     "locator": "Definition 8.2.7, printed p. 287",
+     "excerpt": "Pour lambda dans Q nous noterons D_lambda l'algebre a division centrale sur E definie par D_lambda = E_h[Pi] si lambda = d/h, (d,h) = 1, avec Pi^h = pi^d et pour tout x dans E_h, Pi x = sigma_E(x) Pi.",
+     "match": "The explicit cyclic-algebra presentation demanded by the stage text."
+    },
+    {
+     "sourceId": "FF18-courbes",
+     "locator": "Proposition 8.2.8 and proof, printed pp. 287-288",
+     "excerpt": "Il y a un isomorphisme D_lambda -> End(O_{X_E}(lambda)). ... Or, d'apres le point (4) de la proposition 5.6.23 on a O_X(lambda) tensor O_X(lambda)^dual = O_X(lambda) tensor O_X(-lambda) = O_X^{h^2} et donc dim_E End(O_{X_E}(lambda)) = h^2.",
+     "match": "Statement and the full proof, including the imported dimension computation."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB0/scalar-extension-adjunction",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB0",
+   "title": "Change of coefficient field: adjoint functors on isocrystals match pullback and pushforward on the curve",
+   "kind": "comparison",
+   "statement": "Let E'|E be a finite extension with maximal unramified subextension E'_0|E of degree f, so sigma_{E'} = sigma_E^f. There are two adjoint functors between phi-Mod_{L_E} and phi-Mod_{L_{E'}}: upward, (D,phi) -> (D tensor_{L_E} L_{E'}, phi^f tensor sigma_{E'}); downward, (D,phi) -> the induced isocrystal on the direct sum over i = 0..f-1 of D tensor_{L_E, sigma_E^i} L_E with the explicit cyclic Frobenius xi. Under E(-) these correspond to pi_{E'|E}^* and pi_{E'|E *} along pi_{E'|E} : X_{E'} -> X_E.",
+   "hypotheses": [
+    "E'|E finite; f is the degree of the maximal unramified subextension E'_0|E, and the identity sigma_{E'} = sigma_E^f is used",
+    "The downward functor is given by the explicit formula xi(x_0 tensor lambda_0, ..., x_{f-1} tensor lambda_{f-1}) = (phi(x_{f-1}) tensor sigma_E(lambda_{f-1}), x_0 tensor sigma_E(lambda_0), ..., x_{f-2} tensor sigma_E(lambda_{f-2}))",
+    "Slopes are NOT preserved: Fargues-Scholze record that for E'|E finite separable of degree r the pullback of O_{X_{C,E}}(1) is O_{X_{C,E'}}(r), so HN slopes scale by r"
+   ],
+   "proofSteps": [
+    "Fargues-Fontaine write down the two functors and state that E(-) intertwines them with pullback and pushforward along pi_{E'|E}.",
+    "Fargues-Scholze use exactly this in the proof of Thm. II.2.14: 'Let E'|E be the unramified extension of degree r, and consider the covering f : X_{C,E'} -> X_{C,E}. Then O_{X_C}(lambda) = f_* O_{X_{C,E'}}(s)', reducing a slope s/r to an integral slope.",
+    "The slope-scaling factor is recorded in Prop. II.2.13's second statement and its proof ('the pullback of O_{X_{C,E}}(1) is O_{X_{C,E'}}(r), causing the mismatch in slopes')."
+   ],
+   "acceptance": [
+    "Check f_* O_{X_{C,E'}}(s) = O_{X_C}(s/r) for the unramified extension of degree r",
+    "Check the slope-scaling factor r on an explicit rank-one example",
+    "Check that the adjunction unit/counit are the expected maps"
+   ],
+   "sources": [
+    {
+     "sourceId": "FF18-courbes",
+     "locator": "8.2.3, printed p. 288",
+     "excerpt": "On verifie alors que via le foncteur E(-) ces deux foncteurs correspondent aux deux fleches Fib_{X_E} <-> Fib_{X_{E'}} ou pi_{E'|E} : X_{E'} -> X_E.",
+     "match": "The comparison statement between the isocrystal adjunction and the geometric pullback/pushforward."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem II.2.14, printed p. 70",
+     "excerpt": "Let E'|E be the unramified extension of degree r, and consider the covering f : X_{C,E'} = X_{C,E} tensor_E E' -> X_{C,E} = X_C. Then O_{X_C}(lambda) = f_* O_{X_{C,E'}}(s), and so it suffices to find a nonzero map O_{X_{C,E'}}(s) -> f^* E.",
+     "match": "Shows precisely how the change-of-coefficients comparison is consumed in the classification proof."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.2.13, printed p. 69",
+     "excerpt": "Note that the pullback of O_{X_{C,E}}(1) is O_{X_{C,E'}}(r), causing the mismatch in slopes.",
+     "match": "The slope-scaling factor, which must not be dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB1/v-descent-for-bundles-and-cohomology",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB1",
+   "title": "FS II.2.1: cohomology of bundles on X_T is a v-sheaf of complexes, and bundles form a v-stack",
+   "kind": "theorem",
+   "statement": "For S perfectoid over F_q and E a vector bundle on X_S, the functor T -> RGamma(X_T, E|_{X_T}) on Perf_S is a v-sheaf of complexes; the functor T -> H^0(Y_T, E|_{Y_T}) is a v-sheaf whose cohomology vanishes for T affinoid. Moreover S -> {groupoid of vector bundles on X_S} is a v-stack.",
+   "hypotheses": [
+    "S perfectoid over F_q; the reduction to Y_T uses the two-term Frobenius description RGamma(X_S,E) = [H^0(Y_S,E) --(phi-1)--> H^0(Y_S,E)]",
+    "The proof reduces to compact rational intervals I and uses that E|_{Y_{T,I}} is a RETRACT of O^n_{Y_{T,I}}, hence reduces to the structure sheaf",
+    "Exactness of the Cech complex is checked after completed tensor with E_infty = E(pi^{1/p^infty})^wedge, where all algebras become perfectoid, and then quoted from ECD Theorem 8.7 and Proposition 8.8",
+    "v-descent of the groupoid of bundles is quoted from SW20 Lemma 17.1.8 and Proposition 19.5.3"
+   ],
+   "proofSteps": [
+    "Reduce RGamma(X_S,E) to H^0(Y_S,-) via the phi-fixed-point description from the Stein exhaustion.",
+    "Reduce to affinoid S and to a single compact rational interval I.",
+    "Reduce to the structure sheaf because E|_{Y_{T,I}} is a retract of a free module.",
+    "Base change to E_infty to make all algebras perfectoid, so that the Cech complex for the v-cover Y_{T,I} x_E E_infty -> Y_{S,I} x_E E_infty is exact by ECD Thm 8.7/Prop 8.8, and descend back along the split inclusion."
+   ],
+   "acceptance": [
+    "Check the exactness of the Cech complex for a split v-cover and for a pro-etale cover",
+    "Check that the vanishing of higher cohomology of H^0(Y_T,-) really needs T affinoid",
+    "Check effectivity of descent for a bundle with nontrivial descent datum"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.2.1 and proof, printed p. 57",
+     "excerpt": "The functor taking any T in Perf_S to RGamma(X_T, E|_{X_T}) is a v-sheaf of complexes. In fact, the functor taking any T in Perf_S to H^0(Y_T, E|_{Y_T}) is a v-sheaf, whose cohomology vanishes in case T is affinoid. Moreover, sending S to the groupoid of vector bundles on X_S defines a v-stack.",
+     "match": "Verbatim statement including the affinoid hypothesis for the vanishing."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.2.1, printed p. 57",
+     "excerpt": "Then E|_{Y_{T,I}} is a retract of O^n_{Y_{T,I}}, so we can reduce to the structure sheaf. ... This can be checked after taking a completed tensor product with E_infty = E(pi^{1/p^infty})^wedge. In that case, all algebras become perfectoid, and Y_{T,I} x_E E_infty -> Y_{S,I} x_E E_infty is a v-cover of affinoid perfectoid spaces.",
+     "match": "The two reduction steps and the perfectoid base change that makes the imported descent theorem applicable."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB1/degree-rank-slope-and-HN-formalism",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB1",
+   "title": "Degree, rank, slope, the Harder-Narasimhan formalism and its axioms",
+   "kind": "construction",
+   "statement": "Pic(X_C) = Z via n -> O_{X_C}(n), so deg(E) := deg(det E) is well defined and mu(E) = deg(E)/rk(E) for E nonzero. Rank and degree are additive in short exact sequences, so the Harder-Narasimhan axiomatics of Fargues-Fontaine 5.5.1 apply: semistable means mu(F) <= mu(E) for all proper nonzero subbundles F, stable means strict inequality, Hom(C_{>= lambda}, C^{<= mu}) = 0 for lambda > mu, C_lambda^ss is abelian and stable under extensions, its objects have finite length and its simple objects are the stable objects of slope lambda. Every E on X_C admits a unique exhaustive separating Q-indexed HN filtration by saturated subbundles, functorial in E.",
+   "hypotheses": [
+    "The degree is defined via Pic(X_C) = Z, which is Proposition II.2.10, itself proved from Proposition II.2.9 (removing a closed point leaves a principal ideal domain) and Proposition II.2.2 (O([x]) = O(1))",
+    "Slope requires POSITIVE rank; the zero bundle is excluded (the stage's completion contract makes this explicit)",
+    "The HN formalism in Fargues-Fontaine is stated for an exact category C with a fibre functor to an abelian category and two additive functions rank and degree, with the degree formula for a morphism that is a generic-fibre isomorphism: deg(E') = deg(E) + deg(E'/u(E)), the torsion sheaf degree being the sum over points of deg(x) times the length",
+    "Proposition II.2.12 is stated over a GEOMETRIC point X_C, not over a general base"
+   ],
+   "proofSteps": [
+    "Establish Pic(X_C) = Z: any line bundle becomes trivial after removing one closed point of X_C^alg (Prop. II.2.9); the local rings of X_C^alg are discrete valuation rings, so any line bundle is O(n[x]); and O([x]) = O(1) by Prop. II.2.2.",
+    "Verify additivity of rank and degree in short exact sequences and the torsion-quotient degree formula, which is Fargues-Fontaine's example 5.5.2.1.",
+    "Apply the general formalism to get the HN filtration, its uniqueness and functoriality, and the abelian category C_lambda^ss with stable objects as its simple objects (Prop. 5.5.6).",
+    "Example II.2.11 verifies that O_{X_C}(lambda) is stable of slope lambda by passing to r-th wedge powers: det(F) = O(s) embeds in O(r lambda)^m, giving s <= r lambda with equality forcing r to be at least the denominator of lambda."
+   ],
+   "acceptance": [
+    "Verify stability of O(lambda) for lambda = 1/2 by the wedge-power argument",
+    "Verify Hom(O(lambda), O(mu)) = 0 for lambda > mu",
+    "Verify that the HN filtration is by SATURATED subbundles, and give an example where a non-saturated subsheaf has larger slope"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.2.10 and proof, printed p. 68",
+     "excerpt": "The map Z -> Pic(X_C), n -> O_{X_C}(n), is an isomorphism. Proof. By Proposition II.2.9, any line bundle becomes trivial after removing one closed point x in X_C^alg. As the local rings of X_C^alg are discrete valuation rings, this implies that any line bundle is of the form O_{X_C}(n[x]) for some n in Z. But O_{X_C}([x]) = O_{X_C}(1) by Proposition II.2.2.",
+     "match": "The basis of the degree function, with its full proof."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "After Proposition II.2.10, printed p. 69",
+     "excerpt": "It is easy to see that this satisfies the Harder-Narasimhan axiomatics [FF18, 5.5.1] (for example, rank and degree are additive in short exact sequences).",
+     "match": "Names the imported axiomatics."
+    },
+    {
+     "sourceId": "FF18-courbes",
+     "locator": "Theoreme 5.5.4 (1)-(3) and Definition 5.5.5, Proposition 5.5.6, printed pp. 214",
+     "excerpt": "2. Lorsque lambda > mu, Hom(C_{>=lambda}, C^{<=mu}) = 0. ... 3. Pour tout lambda dans R, C_lambda^ss = C^{<=lambda} inter C_{>=lambda} est une categorie abelienne stable par extensions dans C. ... Proposition 5.5.6. Soit lambda dans R. Tout objet de la categorie abelienne C_lambda^ss est de longueur finie. Les objets simples de C_lambda^ss sont les objets stables de pente lambda.",
+     "match": "The actual content of the imported axiomatics, read in the source."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Example II.2.11, printed p. 69",
+     "excerpt": "Passing to r-th wedge powers, we get an injection det(F) = O_{X_C}(s) -> O_{X_C}(r lambda)^m, using that the r-th wedge of O_{X_C}(lambda) is a direct sum of copies of O_{X_C}(r lambda). This implies that s <= r lambda.",
+     "match": "The stability proof for O(lambda)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB1",
+   "title": "FS II.2.5: cohomology of O(lambda) and representability of the associated Banach-Colmez spaces",
+   "kind": "theorem",
+   "statement": "Let lambda be rational. (i) If lambda < 0 then H^0(X_S, O(lambda)) = 0 for all S, and BC(O(lambda)[1]) -> * is relatively representable in locally spatial diamonds, partially proper and cohomologically smooth. (ii) For lambda = 0, E -> BC(O) is an isomorphism of pro-etale sheaves, the pro-etale sheafification of S -> H^1(X_S,O) vanishes, and RGamma_proet(S,E) -> RGamma(X_S,O_{X_S}) is an isomorphism. (iii) For lambda > 0, H^1(X_S,O(lambda)) = 0 for all AFFINOID S, and BC(O(lambda)) -> * is relatively representable in locally spatial diamonds, partially proper and cohomologically smooth. (iv) If 0 < lambda <= [E:Q_p] (resp. all positive lambda in equal characteristic) then BC(O(lambda)) = Spd k[[x_1^{1/p^infty},...,x_r^{1/p^infty}]] where lambda = r/s in lowest terms with r, s > 0.",
+   "hypotheses": [
+    "The vanishing H^1(X_S, O(lambda)) = 0 for lambda > 0 requires S AFFINOID; the statement is false without it",
+    "Part (iv) has the bound 0 < lambda <= [E:Q_p] in mixed characteristic; there is no such bound in equal characteristic. Outside that range BC(O(lambda)) is not claimed to be a perfectoid ball",
+    "The reduction to lambda = n integral is by replacing E by its unramified extension of degree s",
+    "The p-adic case of (iv) is quoted from Scholze-Weinstein 'Moduli of p-divisible groups' [SW13, Theorem A, Proposition 3.1.3(iii)]",
+    "Parts (i) and (iii) use ECD Proposition 23.13 (extensions) and Proposition 24.2 (closed immersions), which were not read"
+   ],
+   "proofSteps": [
+    "Reduce to lambda = n integral by an unramified base change of E of degree s.",
+    "Prove surjectivity of phi - pi^n : B_{R,[1,q]} -> B_{R,[1,1]} by splitting an element into a part in B_{R,[0,1]}[1/pi], where g = phi^{-1}(f) + pi^n phi^{-2}(f) + ... converges, and a part in [varpi]B_{R,[1,infty]}, where g = -pi^{-n}f - pi^{-2n}phi(f) - ... converges. This gives H^1(X_S,O(n)) = 0 for n > 0 and affinoid S.",
+    "Upgrade to a quasi-isomorphism of two-term complexes using the two short exact sequences involving W_{O_E}(R^+)[1/pi], reducing to invertibility of phi - pi^n on B_{R,[0,q]}[1/pi] and on W_{O_E}(R^+)[1/pi].",
+    "Part (iv) in equal characteristic is an explicit power-series computation: phi(r_i) = r_{i+n} forces free choice of r_1,...,r_n, and convergence holds exactly when all r_i are topologically nilpotent. In mixed characteristic reduce to E = Q_p by pushforward along X_{S,E} -> X_{S,Q_p} and quote [SW13].",
+    "Part (iii) for general n > 0 by induction along 0 -> BC(O(n)) -> BC(O(n+1)) -> (A^1_{S^sharp})^diamond -> 0 (from Prop. II.2.3), with base case n = 1.",
+    "Part (ii) from the n = 0 sequence 0 -> H^0(X_S,O) -> H^0(X_S,O(1)) -> R^sharp -> H^1(X_S,O) -> 0, whose middle map is the Lubin-Tate logarithm, pro-etale locally surjective with kernel E.",
+    "Part (i) from 0 -> E -> (A^1_{S^sharp})^diamond -> BC(O(-1)[1]) -> 0 and induction using 0 -> (A^1_{S^sharp})^diamond -> BC(O(-n)[1]) -> BC(O(-n+1)[1]) -> 0."
+   ],
+   "acceptance": [
+    "Verify the explicit convergence of the two series for a ramified E",
+    "Verify BC(O(1)) = Spd F_q[[x^{1/p^infty}]] and its identification with the universal cover of the Lubin-Tate group",
+    "Verify that the bound lambda <= [E:Q_p] in (iv) is used, e.g. by checking that BC(O(2)) for E = Q_p is not a perfectoid ball"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.2.5, printed p. 62",
+     "excerpt": "(iii) For lambda > 0, one has H^1(X_S, O_{X_S}(lambda)) = 0 for all affinoid S in Perf_{F_q}, and the projection from BC(O(lambda)) : S -> H^0(X_S,O_{X_S}(lambda)) to the point * is relatively representable in locally spatial diamonds, partially proper, and cohomologically smooth. (iv) If 0 < lambda <= [E:Q_p] (resp. for all positive lambda if E is of equal characteristic), there is an isomorphism BC(O(lambda)) = Spd k[[x_1^{1/p^infty}, ..., x_r^{1/p^infty}]] where lambda = r/s with coprime integers r, s > 0.",
+     "match": "Exact statement with the affinoid hypothesis in (iii) and the slope bound in (iv)."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.2.5, printed pp. 62-63",
+     "excerpt": "If f is in B_{R,[0,1]}, then the series g = phi^{-1}(f) + pi^n phi^{-2}(f) + pi^{2n} phi^{-3}(f) + ... converges in B_{R,[0,q]} (with its evident definition) and thus in B_{R,[1,q]}, and f = phi(g) - pi^n g.",
+     "match": "The explicit convergent series that proves the surjectivity, i.e. the actual mechanism behind the vanishing."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB2:ampleness/quantitative-global-generation",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB2:ampleness",
+   "title": "FS II.2.6 (after KL15 6.2.4): sufficiently positive twists are globally generated with vanishing H^1",
+   "kind": "theorem",
+   "statement": "Let S = Spa(R,R^+) be affinoid perfectoid over F_q and E any vector bundle on X_S. There is an integer n_0 such that for all n >= n_0 the twist E(n) is globally generated, i.e. admits a surjection O_{X_S}^m -> E(n), and H^1(X_S, E(n)) = 0.",
+   "hypotheses": [
+    "S AFFINOID perfectoid; a pseudouniformizer varpi in R is chosen and all B_{R,I} carry the spectral norm normalized by ||[varpi]|| = 1/q",
+    "One first reduces to M_{[1,q]} FREE, using that equality in the Grothendieck group of finite projective B_{R,[1,1]}-modules is stable isomorphism, so after increasing m the kernel modules become isomorphic",
+    "One then arranges A in GL_m(B_{R,[1,q]}) (not merely GL_m(B_{R,[1,1]})) by repeating the argument with the presentation of X_S as the quotient of Y_{S,[1,q^2]}",
+    "Integers N, N' are chosen with A having entries in pi^N W_{O_E}(R^+)<([varpi]/pi)^{+-1}> and A^{-1} in pi^{-N'} W_{O_E}(R^+)<[varpi]/pi^{1/q}, [varpi]/pi>; after twisting one arranges qN > N' and N > 0",
+    "A rational r with 1 < r <= q is fixed; M is chosen large depending only on N, N' and r"
+   ],
+   "proofSteps": [
+    "Reduce to M_{[1,q]} free by a Grothendieck-group/stable-isomorphism argument that produces a phi-equivariant surjection from a free phi-module.",
+    "Write phi_M = A^{-1} phi with A in GL_m(B_{R,[1,q]}); twisting by O(n) replaces A by A pi^n, so the integers N, N' can be shifted to satisfy qN > N' and N > 0.",
+    "Seek sections v_i = [varpi]^M e_i - v'_i with ||v'_i||_{B_{R,[r,q]}} <= q^{-M-1}; such v_i restrict to a basis of B_{R,[r,q]}^m because the change-of-basis matrix lies in [varpi^M](Id + [varpi]M_m(B^circ_{R,[r,q]})).",
+    "Reduce to the quantitative surjectivity (II.2.1): for w in pi^M W_{O_E}(R^+)<([varpi]/pi)^{+-1}>^m there is v in B_{R,[1,q]}^m with (phi - A)v = w and ||v||_{B_{R,[r,q]}} <= q^{-M-1}.",
+    "Prove it by the explicit splitting w = w_1 + w_2 with w_1 in [varpi]^{N-1}pi^{M-N+1}W<[varpi]/pi>^m and w_2 in [varpi]^N pi^{M-N}W<[varpi]/pi>^m, setting v = phi^{-1}(w_1) - A^{-1}w_2 and checking that the residual w' lies in pi^{M+1}W<([varpi]/pi)^{+-1}>^m, using N > 0 for one term and qN > N' for the other; iterate and sum.",
+    "Estimate ||phi^{-1}(w_1)||_{B_{R,[r,q]}} <= q^{-(N-1)/q - rM + rN - r} and ||A^{-1}w_2||_{B_{R,[r,q]}} <= q^{rN' - rM}, both <= q^{-M-1} for M large; conclude convergence.",
+    "Repeat over different strips and different pseudouniformizers to get global generation of E."
+   ],
+   "acceptance": [
+    "Verify the two norm estimates numerically for E = Q_p, m = 1 and an explicit A",
+    "Verify that the reduction to a free phi-module is needed, i.e. that the naive argument fails for a non-free finite projective module",
+    "Verify the conclusion on E = O(-1) where n_0 must be at least 1"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem II.2.6, printed p. 64",
+     "excerpt": "Let S = Spa(R,R^+) be an affinoid perfectoid space over F_q and let E be any vector bundle on X_S. Then there is an integer n_0 such that for all n >= n_0, the vector bundle E(n) is globally generated, i.e. there is a surjective map O_{X_S}^m -> E(n) for some m >= 0, and moreover H^1(X_S, E(n)) = 0.",
+     "match": "Exact statement with the affinoid hypothesis."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem II.2.6, printed p. 65",
+     "excerpt": "Let us choose integers N and N' such that the matrix A has entries in pi^N W_{O_E}(R^+)<([varpi]/pi)^{+-1}>, the matrix A^{-1} has entries in pi^{-N'} W_{O_E}(R^+)<[varpi]/pi^{1/q}, [varpi]/pi>. By twisting, we can replace N and N' by N + n and N' + n; we can thus arrange that qN > N', N > 0.",
+     "match": "The exact numerical hypotheses that the twisting achieves; these are the quantitative core of the theorem."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem II.2.6, printed p. 66",
+     "excerpt": "Thus, taking M large enough (depending only on N, N' and r > 1), the process above converges, giving the desired result.",
+     "match": "The convergence conclusion and the exact parameters it depends on."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB2:ampleness/gaga-equivalence",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB2:ampleness",
+   "title": "FS II.2.7: an axiomatic GAGA theorem for a locally ringed spectral space with an ample twist",
+   "kind": "theorem",
+   "statement": "Let (X,O_X) be a locally ringed spectral space with a line bundle O_X(1) such that for every vector bundle E there is n_0 with E(n) globally generated for n >= n_0, and such that H^i(X, E(n)) = 0 for i > 0 and all sufficiently large n. Let P be the graded ring of sections of the twists and X^alg = Proj P. Then pullback along the natural map (X,O_X) -> X^alg is an equivalence between vector bundles on X^alg and on X, and H^i(X^alg, E^alg) -> H^i(X,E) is an isomorphism for all i >= 0. X^alg is independent of the chosen O_X(1) up to canonical isomorphism.",
+   "hypotheses": [
+    "X is a locally ringed SPECTRAL space (quasicompactness is used to reduce to finitely many sections)",
+    "BOTH hypotheses are needed: eventual global generation of every vector bundle AND eventual vanishing of all higher cohomology of every twisted bundle",
+    "The functor E -> E-tilde is exact precisely because H^1(X, E(n)) = 0 for n large",
+    "The splitting obstruction argument needs H^1(X, Hom(E,F)(n')) = 0 for n' large, i.e. the vanishing hypothesis applied to Hom-bundles"
+   ],
+   "proofSteps": [
+    "Define E-tilde as the quasicoherent O_{X^alg}-module attached to the graded P-module of sections of E(n); exactness comes from the vanishing hypothesis.",
+    "Show E-tilde is a vector bundle: take a surjection O_X^m -> E(n) with kernel F; the surjection splits after twisting by a section f in P_{n'} because the obstruction lies in H^1(X, Hom(E,F)(n')), which vanishes for n' large; hence E-tilde is a vector bundle on Spec P[f^{-1}]_0, and these cover X^alg.",
+    "The natural map f^* E-tilde -> E is an isomorphism locally, hence globally.",
+    "For cohomology: by ampleness of O_{X^alg}(1) write a surjection O(-n)^m -> (E^alg)^dual, dualize to an injection E^alg -> O(n)^m with vector-bundle cokernel; deduce injectivity then bijectivity on H^0; conclude for higher i by the Cech complex for the cover Spec P[f_i^{-1}]_0, whose terms are filtered colimits of H^0 of twists."
+   ],
+   "acceptance": [
+    "Check that the equivalence fails if only global generation and not the H^i-vanishing is assumed",
+    "Check independence of the choice of O_X(1) on an explicit example",
+    "Check the isomorphism on H^1 for E = O(-2) on X_C"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.2.7, printed p. 66",
+     "excerpt": "Let (X,O_X) be a locally ringed spectral space equipped with a line bundle O_X(1) such that for any vector bundle E on X, there is some n_0 such that for all n >= n_0, the bundle E(n) is globally generated. Moreover, assume that for i > 0, the cohomology group H^i(X, E(n)) = 0 vanishes for all sufficiently large n.",
+     "match": "The exact hypotheses of the axiomatic GAGA statement."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.2.7, printed p. 67",
+     "excerpt": "The map O_X^m -> E(n) splits after twisting, i.e. for any f in P_{n'} with n' large enough, there is a map E(n - n') -> O_X^m such that E(n-n') -> O_X^m -> E(n) is multiplication by f. Indeed, the obstruction to such a splitting is a class in H^1(X, Hom(E,F)(n')) which vanishes for n' large enough.",
+     "match": "The step that makes E-tilde a vector bundle, and which consumes the vanishing hypothesis for Hom-bundles."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB2:ampleness/schematic-curve-at-a-geometric-point",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB2:ampleness",
+   "title": "FS II.2.9: X_C^alg is connected regular noetherian of dimension 1 with PID complements",
+   "kind": "theorem",
+   "statement": "Let C be a complete algebraically closed nonarchimedean field over F_q. Then X_C^alg is a connected regular noetherian scheme of Krull dimension 1; the map |X_C| -> |X_C^alg| induces a bijection between the classical points |X_C|^cl and the closed points of X_C^alg; and for any classical point x, the complement X_C^alg \\ {x} is the spectrum of a principal ideal domain.",
+   "hypotheses": [
+    "C complete algebraically closed over F_q; the statement is at a geometric point, not in families",
+    "The key input is the exact sequence 0 -> O_{X_C} -> O_{X_C}(1) -> O_{C^sharp} -> 0 coming from Lubin-Tate theory (Prop. II.2.3), which supplies for each classical point x a section f_x in H^0(X_C, O(1)) with vanishing locus exactly x",
+    "The factorisation argument uses that a nonzero g in H^0(X_C, O(n)) has only finitely many zeroes, all at classical points, which is Cor. II.1.12"
+   ],
+   "proofSteps": [
+    "For a classical point x with untilt C^sharp, the section f from the Lubin-Tate exact sequence has vanishing locus Spec C^sharp in X_C^alg; this locus is affine because it is Zariski closed in D_+(g) for any g in H^0(O(1)) not vanishing at x, and its global sections are computed by Prop. II.2.2.",
+    "For a nonzero g in H^0(X_C, O(n)): its zeroes are finitely many classical points x_1,...,x_m, and g = f_{x_1}^{n_1} ... f_{x_m}^{n_m} h with h nowhere vanishing; h then trivializes O(n') so n' = 0 and h lies in E^times.",
+    "This factorisation shows P[f^{-1}]_0 is a principal ideal domain and that every maximal ideal comes from a classical point of |X_C|."
+   ],
+   "acceptance": [
+    "Verify the factorisation of an explicit degree-2 section",
+    "Verify that Pic^0 is trivial, i.e. that the complement of a point has trivial Picard group",
+    "Verify the bijection between closed points and classical points on X_C for E of equal characteristic"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.2.9 and proof, printed p. 68",
+     "excerpt": "Then X_C^alg is a connected regular noetherian scheme of Krull dimension 1, and the map |X_C| -> |X_C^alg| induces a bijection between |X_C|^cl and the closed points of |X_C^alg|. Moreover, for any classical point x in |X_C|, the complement X_C^alg \\ {x} is the spectrum of a principal ideal domain.",
+     "match": "Exact statement."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.2.9, printed p. 68",
+     "excerpt": "This has finitely many zeroes on X_C, all at classical points x_1, ..., x_m. For each x_i, we have a section f_{x_i} in H^0(X_C, O_{X_C}(1)) as before, and then g = f_1^{n_1} ... f_m^{n_m} h for some n_i >= 1, and some h in H^0(X_C, O_{X_C}(n')) that is everywhere nonzero. In particular, h defines an isomorphism O_{X_C} -> O_{X_C}(n'), whence n' = 0, and h is in E^times.",
+     "match": "The factorisation that gives the PID property."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB2:classification/classical-points-and-principal-ideal-domains",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB2:classification",
+   "title": "FS II.1.11-II.1.12 and II.1.22: classical points, maximal ideals and PID/Dedekind structure",
+   "kind": "theorem",
+   "statement": "Let U = Spa(B,B^+) be an affinoid subset of Y_C. Then for any maximal ideal m of B the quotient B/m is a nonarchimedean field, and Spm(B) -> |U| is a bijection onto |U|^cl = |U| intersect |Y_C|^cl. U has finitely many connected components, and if U is connected then B is a principal ideal domain. Correspondingly, the classical points of X_C are |Y_C|^cl/phi^Z and are in bijection with Div^1(C); for U = Spa(B,B^+) an affinoid open of X_C with U connected, B is a Dedekind domain (in fact a PID, by the Picard computation).",
+   "hypotheses": [
+    "C is complete algebraically closed over F_q; these statements are at a geometric point",
+    "The key input is Proposition II.0.2 ('Zariski closed implies strongly Zariski closed', quoted from [Sch15, II.2], [BS22, Remark 7.5], [Sch17a, Def. 5.7, Thm. 5.8]), which lets one transport Zariski closed subsets through tilting",
+    "The finiteness of connected components uses that any quasicompact open subset of |D_C| has finitely many connected components",
+    "The PID argument uses that the spectral norm on U is a supremum over the finitely many Shilov boundary points"
+   ],
+   "proofSteps": [
+    "Show a nonzero f in B vanishes only at classical points: if V(f) contained a nonclassical point it would contain a nonclassical rank-1 point (V(f) is generalizing), hence after base change to some C'|C an open subset U', contradicting injectivity of O(U) -> O(U').",
+    "Injectivity of O(U) -> O(U') is reduced through Prop. II.0.2 to open subsets of D_{C,perf}, where O(V) -> O(V') is topologically free over the classical Tate-algebra map O(W) -> O(W') with basis t^i, i in [0,1) intersect Z[1/p], and injectivity is classical.",
+    "For the PID property: each maximal ideal is principal since it comes from a closed Cartier divisor. For nonzero f, V(f) is closed with no nontrivial specializations hence profinite; normalising xi_x to have norm >= 1 on the Shilov boundary and assuming f = xi_x^n g_n for all n gives ||f||_{U_x} <= |[varpi]|^n ||f|| -> 0, a contradiction; hence f = xi_x^n g with g(x) nonzero, so V(f) is discrete and finite, and f factors as a product of the xi_{x_i} times a unit.",
+    "For X_C, Y_C -> X_C is locally split, so the result is local on U and glues."
+   ],
+   "acceptance": [
+    "Verify Prop. II.0.2's role by exhibiting a nonclassical rank-1 point whose preimage in some |Y_{C'}| contains an open set (Prop. II.1.9, Lemma II.1.10)",
+    "Verify the Shilov-boundary normalisation argument on an explicit annulus",
+    "Verify the footnote's upgrade from Dedekind to PID via Pic(X_C) = Z"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.1.11, printed p. 53",
+     "excerpt": "Let U = Spa(B,B^+) be an affinoid subset of Y_C. Then for any maximal ideal m of B, the quotient B/m is a nonarchimedean field, inducing an injection Spm(B) -> |U|. This gives a bijection between Spm(B) and |U|^cl := |U| intersect |Y_C|^cl.",
+     "match": "Exact statement."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Corollary II.1.12, printed p. 53",
+     "excerpt": "We may normalize xi_x so that its norm at all of these finitely many points is >= 1. Then for any n, if f = xi_x^n g_n, one has ||g_n|| <= ||f||. But inside the open neighborhood U_x = {|xi_x| <= |[varpi]|} of x, this implies that ||f||_{U_x} <= |[varpi]|^n ||f|| for all n, and thus ||f||_{U_x} = 0 as n -> infinity.",
+     "match": "The quantitative argument giving discreteness of the zero locus, hence the PID property."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition/Proposition II.1.22 and its footnote, printed p. 56",
+     "excerpt": "Any such U has only finitely many connected components, and if U is connected, then B is a Dedekind domain. [footnote] The results on the Picard group of X_C proved below actually imply that B is a principal ideal domain.",
+     "match": "The X_C-version and the Picard upgrade."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB2:classification/HN-filtration-base-change",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB2:classification",
+   "title": "FS II.2.13: the Harder-Narasimhan filtration commutes with extension of C and rescales under extension of E",
+   "kind": "lemma",
+   "statement": "Let E be a vector bundle on X_C and C'|C an extension of complete algebraically closed nonarchimedean fields with pullback E'. Then (E')^{>= lambda} is the pullback of E^{>= lambda}. If instead E'|E is a finite separable extension of degree r and E' is the pullback along X_{C,E'} = X_{C,E} tensor_E E' -> X_{C,E}, then (E')^{>= lambda} is the pullback of E^{>= lambda/r}.",
+   "hypotheses": [
+    "C and C' complete algebraically closed over F_q",
+    "For the coefficient-field statement E'|E is finite SEPARABLE of degree r; one may assume it Galois by passing to Galois hulls",
+    "The proof for C'|C uses v-descent of bundles (Prop. II.2.1) and an induction on the rank",
+    "The slope shift by r comes from the pullback of O_{X_{C,E}}(1) being O_{X_{C,E'}}(r)"
+   ],
+   "proofSteps": [
+    "By uniqueness of the HN filtration it suffices to show that pullbacks of semistable bundles are semistable.",
+    "Assume E semistable but E' not; by induction on rank assume the HN filtration of E' is compatible with base change; take the first nontrivial piece F of E' with mu(F) > mu(E').",
+    "Show F descends to X_C: by Prop. II.2.1 it suffices that the two pullbacks of F to X_{C' hat-tensor_C C'} agree, and this holds because there are no nonzero maps F -> E'/F after base change to X_R for any perfectoid C'-algebra R (such a map would exist for some algebraically closed C'', but F is semistable of slope larger than every HN slope of E'/F).",
+    "For E'|E use Galois descent instead, and record the slope shift."
+   ],
+   "acceptance": [
+    "Verify the rank-2 case explicitly for an unramified quadratic E'|E",
+    "Verify that the statement fails without separability of E'|E, or record that the hypothesis is used",
+    "Verify the descent step on a rank-3 bundle with two HN slopes"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.2.13 and proof, printed p. 69",
+     "excerpt": "This is true as there are no nonzero maps from F to E'/F after base change to X_R for any perfectoid C'-algebra R: If there were such a nonzero map, there would also be a nonzero map for some choice of R = C'' a complete algebraically closed nonarchimedean field. But then F is still semistable and all pieces of the Harder-Narasimhan filtration of E'/F are of smaller slope, so such maps do not exist.",
+     "match": "The descent step of the proof, which is where v-descent and the slope inequalities are used."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB2:classification",
+   "title": "FS II.2.14: every bundle on X_C splits as a sum of the stable O(lambda)",
+   "kind": "theorem",
+   "statement": "Any vector bundle E on X_C is isomorphic to a direct sum of bundles O_{X_C}(lambda), lambda in Q. If E is semistable of slope lambda then E is isomorphic to O_{X_C}(lambda)^m for some m >= 0. Equivalently the functor Isoc -> Bun(X_C) induces a bijection on isomorphism classes; it is NOT asserted to be fully faithful on morphisms.",
+   "hypotheses": [
+    "C complete algebraically closed over F_q",
+    "The induction is on the rank n, assuming the theorem for all bundles of rank <= n-1 over ALL choices of the coefficient field E",
+    "The non-semistable case uses H^1(X_C, O(lambda)) = 0 for lambda > 0 (Prop. II.2.5(iii))",
+    "The semistable case uses stability of O(lambda) (Ex. II.2.11) and Ext^1(O(lambda),O(lambda)) = 0 (Prop. II.2.5(ii))",
+    "One is free to enlarge C: the v-sheaf of isomorphisms E -> O_{X_C}^n is a v-quasitorsor under GL_n(E) and becomes a torsor once a section exists somewhere; v-descent of GL_n(E)-torsors (ECD Lemma 10.13) makes it pro-etale over Spa C, hence with a section",
+    "Existence of SOME injection O(-d) -> E is Theorem II.2.6 (ampleness)"
+   ],
+   "proofSteps": [
+    "Induct on rank; rank 1 is Prop. II.2.10.",
+    "If E is not semistable, its HN filtration splits by vanishing of H^1(X_C, O(lambda)) for lambda > 0, so the theorem follows from the induction hypothesis.",
+    "If E is semistable of slope lambda = s/r, it suffices to find a nonzero map O(lambda) -> E: stability makes it injective, the quotient is again semistable of slope lambda hence O(lambda)^{m-1} by induction, and the extension splits since Ext^1(O(lambda),O(lambda)) = 0.",
+    "Reduce to integral lambda by the unramified base change of degree r using O_{X_C}(lambda) = f_* O_{X_{C,E'}}(s); then twist to lambda = 0.",
+    "Let d >= 0 be minimal (after possibly enlarging C) with an injection O(-d) -> E; such d exists by Thm. II.2.6. Suppose d > 0. Minimality makes F = E/O(-d) a bundle, to which induction applies.",
+    "If d >= 2, find O(-d+2) -> F by induction, pull back to an extension O(-d) -> G -> O(-d+2), twist to O(-1) -> G(d-1) -> O(1) and apply Lemma II.2.15 to get O -> G(d-1), hence O(-d+1) -> E, contradicting minimality.",
+    "If d = 1 and F is not semistable, take F' in F of degree >= 1 and rank <= n-2; the pullback extension E' has slope >= 0 and by induction has a global section.",
+    "If d = 1 and F is semistable, then F = O(1/(n-1)) and the remaining case is exactly Lemma II.2.15."
+   ],
+   "acceptance": [
+    "Verify that the functor is not fully faithful: compare Hom in isocrystals with H^0 of the Hom-bundle for O(0) (End = E vs. H^0(X_C,O) = E - then check a case where they differ, e.g. Hom(O(-1),O(0)))",
+    "Verify the minimal-d argument on a rank-2 bundle of slope 0",
+    "Verify the extension-splitting step using Prop. II.2.5(ii)"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem II.2.14, printed p. 70",
+     "excerpt": "Any vector bundle E on X_C is isomorphic to a direct sum of vector bundles of the form O_{X_C}(lambda) with lambda in Q. If E is semistable of slope lambda, then E is isomorphic to O_{X_C}(lambda)^m for some m >= 0.",
+     "match": "Exact statement."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem II.2.14, printed p. 70",
+     "excerpt": "Next, we observe that we are free to replace C by an extension. Indeed, consider the v-sheaf sending S in Perf_C to the isomorphisms E -> O_{X_C}^n. This is a v-quasitorsor under GL_n(E) (using Proposition II.2.5 (ii)). If there is some extension of C where we can find a nonzero section of E (and thus also trivialize E), then it is a v-torsor under GL_n(E). By v-descent of GL_n(E)-torsors, cf. [Sch17a, Lemma 10.13], it is then representable by a space pro-etale over Spa C, and thus admits a section.",
+     "match": "The enlargement-of-C device, which is what lets Lemma II.2.15 be used even though it only produces a section after an extension."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem II.2.14, printed p. 70",
+     "excerpt": "Let d >= 0 be minimal such that there is an injection O_{X_C}(-d) -> E, possibly after base enlarging C; by Theorem II.2.6 some such d exists. We want to see that d = 0, so assume d > 0 by way of contradiction.",
+     "match": "The minimal-twist induction, and its dependence on the ampleness theorem."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB2:classification/key-extension-lemma",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB2:classification",
+   "title": "FS II.2.15: the key lemma producing a global section of an extension of O(1/n) by O(-1)",
+   "kind": "lemma",
+   "statement": "Let 0 -> O_{X_C}(-1) -> E -> O_{X_C}(1/n) -> 0 be an extension of vector bundles on X_C, n >= 1. Then there is an extension C'|C of complete algebraically closed nonarchimedean fields with H^0(X_{C'}, E|_{X_{C'}}) nonzero.",
+   "hypotheses": [
+    "C complete algebraically closed over F_q; the conclusion only holds after an extension C'|C, which is why Thm. II.2.14 needs the v-torsor device",
+    "The proof uses the identification BC(O_{X_C}(-1)[1]) = (A^1_{C^sharp})^diamond/E from Prop. II.2.5(i)",
+    "The classification of E-linear maps (A^1_{C^sharp})^diamond -> (A^1_{C^sharp})^diamond is reduced to maps of adic spaces A^1 -> A^1 by [SW20, Proposition 10.2.3] in the p-adic case, and to A^1_{C,perf} -> A^1_{C,perf} in the equal-characteristic case, where fractional powers X^{1/p^i} may a priori occur",
+    "The contradiction in the p-adic case uses that A^1_{C^sharp} is not a perfectoid space; in equal characteristic Fargues-Scholze explicitly say they could not settle whether BC(O(-1)[1]) is perfectoid, and argue differently"
+   ],
+   "proofSteps": [
+    "Assume H^0 vanishes after every extension; then passing to Banach-Colmez spaces gives an injection of v-sheaves f : BC(O(1/n)) -> BC(O(-1)[1]).",
+    "The image cannot lie in the classical points (those are totally disconnected while the source is connected and not a point), so it contains a nonclassical point; after base change to some C' it contains a nonempty open subset, by the presentation BC(O(-1)[1]) = (A^1_{C^sharp})^diamond/E and the behaviour of nonclassical points of A^1 (as in the proof of Prop. II.1.11).",
+    "Translate to the origin and rescale by the contracting E^times-action to conclude f is surjective, hence an isomorphism.",
+    "Then BC(O(-1)[1]) would be a perfectoid space. In the p-adic case this is absurd since (A^1_{C^sharp})^diamond would be pro-etale over a perfectoid space.",
+    "In general: there is a nonzero map BC(O(1/n)) -> (A^1_{C^sharp})^diamond (evaluate at the chosen untilt); composing with f^{-1} gives a nonzero E-linear map (A^1_{C^sharp})^diamond -> (A^1_{C^sharp})^diamond, i.e. an additive convergent power series g with g(aX) = a g(X) for a in E. The relation g(pi X) = pi g(X) alone forces g(X) = cX, so g is zero or an isomorphism; but the constructed map is nonzero with nontrivial kernel - contradiction."
+   ],
+   "acceptance": [
+    "Verify that the classical points of BC(O(-1)[1]) form a totally disconnected subset while BC(O(1/n)) is connected",
+    "Verify the power-series argument: derive from g(pi X) = pi g(X) that only the linear coefficient survives, including the fractional-exponent case",
+    "Verify the claim that A^1_{C^sharp} is not perfectoid"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Lemma II.2.15, printed p. 71",
+     "excerpt": "Let 0 -> O_{X_C}(-1) -> E -> O_{X_C}(1/n) -> 0 be an extension of vector bundles on X_C, for some n >= 1. Then there is some extension C'|C of complete algebraically closed nonarchimedean fields such that H^0(X_{C'}, E|_{X_{C'}}) is nonzero.",
+     "match": "Exact statement, including the necessity of enlarging C."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Lemma II.2.15, printed pp. 71-72",
+     "excerpt": "The equation g(pi X) = pi g(X) alone in fact shows that only the linear coefficient of g may be nonzero, so g(X) = cX for some c in C^sharp, and thus g is either an isomorphism or zero. But our given map is nonzero with nontrivial kernel, giving a contradiction.",
+     "match": "The final contradiction, which is the actual content of the 'new and direct proof' Fargues-Scholze advertise."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Footnote 5 to Lemma II.2.15, printed p. 71",
+     "excerpt": "We believe that also when E is of equal characteristic, BC(O_{X_C}(-1)[1]) is not a perfectoid space, but we were not able to settle this easily.",
+     "match": "Records that the p-adic shortcut is unavailable in equal characteristic, so the power-series argument is the one that must be reproved in general."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/lubin-tate-universal-cover",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples",
+   "title": "FS II.2.2: H^0(X_S,O(1)) is the universal cover of the Lubin-Tate formal group",
+   "kind": "theorem",
+   "statement": "Let S = Spa(R,R^+) be affinoid perfectoid over F_q with untilt S^sharp over E, and let O_{X_S}(1) correspond to the isocrystal (E, pi^{-1}). Then X -> sum over i in Z of pi^i [X^{q^{-i}}] defines a natural isomorphism G-tilde(R^{sharp+}) = R^{circ circ} -> H^0(X_S, O(1)) = H^0(Y_S, O_{Y_S})^{phi = pi}, and the evaluation map H^0(X_S,O(1)) -> R^sharp at S^sharp is the logarithm map log_G : G-tilde(R^{sharp+}) -> G(R^{sharp+}) -> R^sharp.",
+   "hypotheses": [
+    "G = G_LT is the Lubin-Tate formal O_E-module over O_E-breve, normalized by M = W_{O_E}(k) with F = sigma/pi in Dieudonne theory (with the SW20 renormalisation dividing F by p and base changing along W(k) tensor_{Z_p} O_E -> W_{O_E}(k)); under this normalisation G is already defined over O_E",
+    "G-tilde = inverse limit of G along multiplication by pi, isomorphic to Spf O_E[[X-tilde^{1/p^infty}]]; for pi-adically complete A one has G-tilde(A) = G-tilde(A/pi) = Hom_{O_E}(E/O_E, G(A/pi))[1/pi] = the topologically nilpotent elements of A^flat",
+    "The equal-characteristic case is a direct power-series computation with the condition r_i = r_{i+1}^q",
+    "In the p-adic case the proof replaces B_{R,[1,infty]} by the crystalline period ring B^+_crys of R^{sharp+}/pi and cites [SW13, Theorem A]. What [SW13, Theorem A] actually states, read in the source, is: for R f-semiperfect the Dieudonne module functor on p-divisible groups UP TO ISOGENY is fully faithful, and if R = S/J with S perfect and J regular then it is fully faithful on p-divisible groups themselves. Here f-semiperfect means Frobenius is surjective and lim_Phi R has a finitely generated ideal of definition; O_C/p is the motivating example. The deduction of the displayed identity B^{phi=pi}_{R,[1,infty]} = Hom_{O_E}(E/O_E, G(R^{sharp+}/pi))[1/pi] from that full-faithfulness statement is NOT written out in Fargues-Scholze.",
+    "The explicit-formula compatibility is [SW13, Lemma 3.5.1], read: the map G-tilde(R) -> M(G)(S)[1/p] coming from Dieudonne theory agrees with q log, proved by functoriality reduction to G = Q_p/Z_p.",
+    "The perfectoid-ball shape of the universal cover is [SW13, Proposition 3.1.3(iii)], read: if R is perfect of characteristic p, G connected and Lie G free of dimension d, then G-tilde = Spf R[[X_1^{1/p^infty}, ..., X_d^{1/p^infty}]]."
+   ],
+   "proofSteps": [
+    "Equal characteristic: H^0(Y_S,O) is a space of Laurent series sum r_i pi^i with convergence conditions; phi = pi forces r_i = r_{i+1}^q, so everything is determined by r_0, which may be any topologically nilpotent element of R.",
+    "Mixed characteristic: rewrite H^0(X_S,O(1)) as B_{R,[1,infty]}^{phi = pi}; by the contracting property of Frobenius replace B_{R,[1,infty]} by B^+_crys of R^{sharp+}/pi and apply [SW13, Theorem A] to identify it with Hom_{O_E}(E/O_E, G(R^{sharp+}/pi))[1/pi] = G-tilde(R^{sharp+}).",
+    "The agreement with the explicit series is [SW13, Lemma 3.5.1]; compatibility with the logarithm is immediate from the formulas."
+   ],
+   "acceptance": [
+    "Verify the series sum pi^i [X^{q^{-i}}] converges and is phi = pi in an explicit chart",
+    "Verify the logarithm formula log_G(X) = X + X^q/pi + ... + X^{q^n}/pi^n + ... and its convergence as a map of rigid spaces",
+    "Verify G-tilde(A) = A^{flat,circ circ} on a concrete A"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.2.2, printed p. 60",
+     "excerpt": "the map G-tilde(R^{sharp+}) = R^{circ circ} -> H^0(Y_S, O_{Y_S}) : X -> sum_{i in Z} pi^i [X^{q^{-i}}] defines a natural isomorphism G-tilde(R^{sharp+}) = H^0(X_S, O(1)) = H^0(Y_S,O_{Y_S})^{phi = pi}. Under this isomorphism, the map ... of evaluation at S^sharp is given by the logarithm map.",
+     "match": "Exact statement including the explicit series and the logarithm identification."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.2.2, printed p. 60",
+     "excerpt": "By the contracting property of Frobenius, one can also replace B_{R,[1,infty]} with the crystalline period ring B^+_crys of R^{sharp+}/pi here, and then [SW13, Theorem A] gives the desired ...",
+     "match": "Names the imported input in the p-adic case, which is an unread boundary."
+    },
+    {
+     "sourceId": "SW13-moduli",
+     "locator": "Theorem A, printed p. 3",
+     "excerpt": "Let R be an f-semiperfect ring. Then the Dieudonne module functor on p-divisible groups up to isogeny is fully faithful. If moreover R is the quotient R = S/J of a perfect ring S by a regular ideal J in S, then the Dieudonne module functor on p-divisible groups is fully faithful.",
+     "match": "The imported theorem, read in the source. It is a full-faithfulness statement; Fargues-Scholze's use of it to produce an explicit identification of B^{phi=pi} is a compression that this packet records as an open step."
+    },
+    {
+     "sourceId": "SW13-moduli",
+     "locator": "Proposition 3.1.3 (iii), printed p. 22",
+     "excerpt": "If R is perfect of characteristic p, G is connected and Lie G is free of dimension d, then G-tilde = Spf R[[X_1^{1/p^infty}, ..., X_d^{1/p^infty}]].",
+     "match": "Supplies the perfectoid-ball shape of the universal cover, which is what makes BC(O(lambda)) a perfectoid open ball in Proposition II.2.5 (iv)."
+    },
+    {
+     "sourceId": "SW13-moduli",
+     "locator": "Lemma 3.5.1 with proof, printed p. 29",
+     "excerpt": "The map G-tilde(R) -> M(G)(S)[p^{-1}] agrees with q log : G-tilde(R) -> M(G)(S)[p^{-1}].",
+     "match": "The compatibility of the Dieudonne-theoretic map with the logarithm, which is what identifies the evaluation map of Proposition II.2.2 with log_G."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/fundamental-exact-sequence",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples",
+   "title": "FS II.2.3 and II.2.4: the fundamental exact sequence and (BC(O(1)) minus 0)/E^times = Div^1",
+   "kind": "theorem",
+   "statement": "For any perfectoid S with untilt S^sharp over E_infty, the above construction gives an exact sequence 0 -> O_{X_S} -> O_{X_S}(1) -> O_{S^sharp} -> 0 of O_{X_S}-modules. Consequently there is a well-defined map BC(O(1)) minus {0} -> Div^1 sending a nonzero section f to V(f), and it descends to an isomorphism (BC(O(1)) minus {0})/E^times = Div^1.",
+   "hypotheses": [
+    "For II.2.3 the untilt S^sharp must be over E_infty (the completion of the union of the Lubin-Tate level fields E_n), not merely over E; this is what supplies the canonical nonzero section",
+    "The check that the map O_{X_S} -> I(1) is an isomorphism is done on geometric points",
+    "The vanishing locus computation identifies the zeroes of the logarithm on G-tilde^ad_E minus {0} with the disjoint union over n of Spa E_n, each a simple zero",
+    "Corollary II.2.4 uses BC(O(1)) = Spd F_q[[X^{1/p^infty}]], so BC(O(1)) minus {0} = Spa F_q((X^{1/p^infty})) = Spd E_infty, and the map to Div^1 is Spd E_infty -> Spd E -> Spd E/phi^Z, a quotient first by O_E^times and then by pi^Z"
+   ],
+   "proofSteps": [
+    "The Lubin-Tate section gives a map O_{X_S} -> I(1) where I is the ideal sheaf of S^sharp, a line bundle by Prop. II.1.18.",
+    "To see it is an isomorphism, check on geometric points S = Spa C; the section is f = sum pi^i [X-tilde^{q^{-i}}], the base change of the function sum pi^i X-tilde^{q^{-i}} on (Spa O_E[[X-tilde^{1/p^infty}]])_E minus V(X-tilde).",
+    "Under G-tilde = Spf O_E[[X-tilde^{1/p^infty}]] this function is the logarithm; its vanishing locus is exactly the disjoint union of the Spa E_n inside G-tilde^ad_E minus {0}, with a simple zero at each. This gives the exact sequence.",
+    "For II.2.4: identify BC(O(1)) minus {0} with Spd E_infty; the resulting E^times-quotient is exactly Div^1 = Spd E/phi^Z, and the induced map from the absolute Galois group of E to the profinite completion of E^times is the Artin reciprocity map."
+   ],
+   "acceptance": [
+    "Verify the simple-zero claim for the logarithm at each level E_n",
+    "Verify that O_{X_S}([S^sharp]) = O_{X_S}(1), which is what makes deg O(1) = 1",
+    "Verify the Artin reciprocity identification against local class field theory"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.2.3, printed p. 60",
+     "excerpt": "For any perfectoid space S with untilt S^sharp over E_infty, the above construction defines an exact sequence 0 -> O_{X_S} -> O_{X_S}(1) -> O_{S^sharp} -> 0 of O_{X_S}-modules.",
+     "match": "Exact statement including the E_infty hypothesis on the untilt."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.2.3, printed p. 61",
+     "excerpt": "But this is precisely the disjoint union over n of Spa E_n inside G-tilde^ad_E minus {0}, with a simple zero at each of these points. This gives exactly the claimed statement.",
+     "match": "The zero-locus computation that proves exactness."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Corollary II.2.4 and proof, printed p. 61",
+     "excerpt": "This descends to an isomorphism (BC(O(1)) minus {0})/E^times = Div^1. ... Here, the first map Spd E_infty -> Spd E is a quotient under O_E^times, and the second map Spd E -> Spd E/phi^Z then corresponds to the quotient by pi^Z, as phi = pi on BC(O(1)).",
+     "match": "Statement and the two-step quotient identification."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB3:projectivized-properness/properness-of-projectivized-BC",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB3:projectivized-properness",
+   "title": "FS II.2.16: BC(E) is a locally spatial diamond partially proper over S, and its projectivization is proper",
+   "kind": "theorem",
+   "statement": "Let S be a perfectoid space over F_q and E a vector bundle on X_S. Then BC(E) : T -> H^0(X_T, E|_{X_T}) is a locally spatial diamond, partially proper over S, and (BC(E) minus {0})/E^times is a locally spatial diamond, proper over S. The proof uses only ampleness (II.2.6) and the positive-twist statement II.2.5(iii); it does not use the classification theorem.",
+   "hypotheses": [
+    "S may be assumed qcqs for the second part",
+    "The presentation 0 -> E -> O_{X_S}(n)^m -> O_{X_S}(n')^{m'} is obtained by applying Thm. II.2.6 to E^dual and dualising, with n, n' > 0 - the positivity of n, n' is what lets II.2.5(iii) apply",
+    "It suffices to treat (BC(E) minus {0})/pi^Z because the O_E^times-action is free, so ECD Proposition 11.24 (last part) applies",
+    "The contracting-action criterion is checked by formally reducing to BC(O_{X_S}(n)^m) and then to A^1_{S^sharp} by evaluating sections at a collection of untilts"
+   ],
+   "proofSteps": [
+    "Apply Thm. II.2.6 to get O_{X_S}(-n')^{m'} -> O_{X_S}(-n)^m -> E^dual with n, n' > 0; dualise to 0 -> E -> O_{X_S}(n)^m -> O_{X_S}(n')^{m'}.",
+    "Hence BC(E) is a closed subspace of BC(O_{X/S}(n))^m, and the first part follows from Prop. II.2.5(iii).",
+    "For the second part, reduce to the pi^Z-quotient and apply Lemma II.2.17 on contracting actions of an automorphism on a taut locally spectral space whose generalization sets are totally ordered chains."
+   ],
+   "acceptance": [
+    "Verify that the image of (BC(E) minus {0})/E^times -> S is closed, which is the use made of properness in Thm. II.2.19(i)",
+    "Verify the hypotheses of Lemma II.2.17 for A^1_{S^sharp} with the multiplication-by-pi action",
+    "Check the independence of the argument from Thm. II.2.14, as the stage text requires"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.2.16 and proof, printed p. 72",
+     "excerpt": "Using Theorem II.2.6, choose a presentation O_{X_S}(-n')^{m'} -> O_{X_S}(-n)^m -> E^dual with n, n' > 0. Dualizing, we get an exact sequence 0 -> E -> O_{X_S}(n)^m -> O_{X_S}(n')^{m'}. This implies that BC(E) is a closed subspace of BC(O_{X/S}(n))^m, so the first part follows from Proposition II.2.5 (iii).",
+     "match": "The proof route, showing it uses only ampleness and II.2.5(iii) - exactly the independence the stage text demands."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB3:projectivized-properness/contracting-action-lemma",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB3:projectivized-properness",
+   "title": "FS II.2.17: quotients by contracting automorphisms of taut locally spectral spaces",
+   "kind": "lemma",
+   "statement": "Let X be a taut locally spectral space such that for every x the set X_x of generalizations of x is a totally ordered chain under specialization. Let gamma be an automorphism of X whose fixed-point set X_0 is a spectral space, such that (i) for all x, gamma^n(x) converges to X_0 as n -> +infinity, and (ii) for all x outside X_0, gamma^n(x) leaves every quasicompact open as n -> -infinity. Then X_0 is closed, gamma acts freely and totally discontinuously on X minus X_0, and (X minus X_0)/gamma^Z is a spectral space.",
+   "hypotheses": [
+    "X taut locally spectral; generalization sets totally ordered chains (automatic for locally spatial diamonds by ECD Prop. 11.19, and tautness holds if X is partially proper over a spatial diamond by ECD Prop. 18.10)",
+    "X_0 must be a spectral space, and both convergence conditions (i) and (ii) are needed",
+    "Total discontinuity is in the strong sense: the action map (X minus X_0) x Z -> (X minus X_0) x (X minus X_0) is a closed immersion"
+   ],
+   "proofSteps": [
+    "Arrange a quasicompact open neighbourhood U of X_0 with gamma(U) contained in U, by covering U with the gamma^{-n}(U) and using quasicompactness.",
+    "Show X_0 = intersection over n >= 0 of gamma^n(U), and that for any other quasicompact open neighbourhood V of X_0 some gamma^n(U) lies in V (the gamma^n(U) minus V form a decreasing sequence of spectral spaces with empty limit).",
+    "Use tautness: the closure U-bar is quasicompact and the sequences gamma^n(U) and gamma^n(U-bar) are cofinal, so X_0 is closed.",
+    "For freeness/discontinuity: for x outside X_0 pick V inside U minus gamma^{n+1}(U) containing x, so gamma^i(V) misses V for i >= n+1; for the finitely many remaining i use the totally ordered generalization hypothesis: X_x has a unique generic point eta, and X_x meeting gamma^i(X_x) forces gamma^i(eta) = eta, so eta in X_0, hence x in X_0 since X_0 is closed - contradiction.",
+    "Conclude the quotient is locally spectral, quasiseparated (intersections of admissible V's are admissible) and quasicompact (U-bar minus gamma(U) surjects continuously and bijectively onto it from a spectral space)."
+   ],
+   "acceptance": [
+    "Verify hypotheses (i),(ii) for A^1_C with multiplication by pi",
+    "Verify that the totally ordered generalization hypothesis is genuinely used, by finding where the argument breaks without it",
+    "Verify quasicompactness of the quotient on an explicit example"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Lemma II.2.17, printed p. 72",
+     "excerpt": "Then X_0 is a closed subspace of X, the action of gamma on X minus X_0 is free and totally discontinuous (i.e. the action map (X minus X_0) x Z -> (X minus X_0) x (X minus X_0) is a closed immersion), and the quotient (X minus X_0)/gamma^Z is a spectral space.",
+     "match": "Exact conclusion including the strong form of total discontinuity."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Lemma II.2.17, printed p. 73",
+     "excerpt": "By our assumption on X, the space X_x has a unique generic point eta in X_x (X_x is pro-constructible in a spectral space thus spectral and by our hypothesis X_x is irreducible), which must then also be the unique generic point of gamma^i(X_x) if X_x meets gamma^i(X_x).",
+     "match": "The step that consumes the totally-ordered-generalizations hypothesis."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB3:general-BC/positive-slope-resolution",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB3:general-BC",
+   "title": "FS II.3.1 and Cor. II.3.3: resolving a positive-slope bundle by semistable bundles of small slope",
+   "kind": "lemma",
+   "statement": "Let S be perfectoid over F_q and E a vector bundle on X_S all of whose HN slopes at all geometric points are >= 1/r for some r >= 1. Then locally in the analytic topology on S there is an exact sequence 0 -> O_{X_S}^m -> F -> E -> 0 with F fiberwise semistable of degree 1/r. Corollary II.3.3 gives the variants used later, in particular (iii) an etale-local exact sequence 0 -> G -> O_{X_S}(1/r)^m -> E -> 0 when all slopes are positive.",
+   "hypotheses": [
+    "All HN slopes at ALL geometric points are >= 1/r; the conclusion is only local in the ANALYTIC topology on S for II.3.1 and etale-local for Cor. II.3.3(iii)",
+    "The rank and degree of E are assumed constant, n and d with d >= n/r, and m = dr - n",
+    "One picks m untilts S_i^sharp over E that are PAIRWISE DISJOINT inside X_S, i.e. m maps S -> BC(O(1)) minus {0}, disjointness arranged via fractional powers of a pseudouniformizer",
+    "The proof of Cor. II.3.3(ii) passes to the unramified extension E_{2r} of degree 2r and uses pushforward along pi_{2r} : X_{S,E_{2r}} -> X_S, so E is only a DIRECT SUMMAND of pi_{2r *} pi_{2r}^* E = E tensor_E E_{2r}"
+   ],
+   "proofSteps": [
+    "Reduce to constant rank n and degree d and affinoid S; set m = dr - n.",
+    "Choose m pairwise disjoint untilts via m maps S -> BC(O(1)) minus {0}, using fractional powers of a pseudouniformizer to force disjointness.",
+    "Build F as the corresponding modification, checking fibrewise semistability of slope 1/r.",
+    "For Cor. II.3.3(ii): apply II.3.1 to pi_{2r}^* E(-1) over X_{S,E_{2r}}, push forward, and use that E is a direct summand of E tensor_E E_{2r}."
+   ],
+   "acceptance": [
+    "Verify disjointness of the chosen untilts explicitly",
+    "Verify the degree/rank bookkeeping m = dr - n on an example",
+    "Verify that E is only a summand of the pushforward, so the conclusion is about a summand"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.3.1, printed p. 75",
+     "excerpt": "Let S be a perfectoid space over F_q, and let E be a vector bundle on X_S such that all Harder-Narasimhan slopes of E at all geometric points are >= 1/r, for some r >= 1. Then locally (in the analytic topology) on S, there is an exact sequence 0 -> O_{X_S}^m -> F -> E -> 0 where F is semistable of degree 1/r at all geometric points.",
+     "match": "Exact statement with the analytic-locality caveat."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.3.1, printed p. 75",
+     "excerpt": "We can assume S = Spa(R,R^+) is affinoid perfectoid and pick m untilts S_i^sharp over E, i = 1, ..., m, such that S_1^sharp, ..., S_m^sharp are pairwise disjoint inside X_S; more precisely, choose m maps S -> BC(O(1)) minus {0}. (The disjointness can be ensured by defining these maps through suitable fractional powers of a pseudouniformizer.)",
+     "match": "The construction step, including how disjointness is arranged."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Corollary II.3.3, printed p. 79",
+     "excerpt": "Here pi_{2r *} F' is fiberwise semistable of slope 1/r, and E is a direct summand of pi_{2r *} pi_{2r}^* E = E tensor_E E_{2r}.",
+     "match": "Records that only a direct-summand conclusion is available."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB3:general-BC",
+   "title": "FS II.3.5: two-term Banach-Colmez spaces, properness and cohomological smoothness",
+   "kind": "theorem",
+   "statement": "Let S be perfectoid over F_q and [E_1 -> E_0] a map of vector bundles on X_S such that at all geometric points E_1 has only negative HN slopes. Then (i) BC([E_1 -> E_0]) is a locally spatial diamond, partially proper over S; (ii) (BC([E_1 -> E_0]) minus {0})/E^times is a locally spatial diamond, proper over S; (iii) if moreover all HN slopes of E_0 at all geometric points are positive, then BC([E_1 -> E_0]) -> S is cohomologically smooth.",
+   "hypotheses": [
+    "E_1 must have only NEGATIVE slopes at all geometric points; this is what makes H^0(X_T,E_1) = 0 (Prop. II.3.4(i)) so that the two-term complex has a well-defined H_0",
+    "Part (iii) additionally requires all slopes of E_0 to be POSITIVE",
+    "All assertions are etale-local, in fact v-local, on S",
+    "The reduction replaces [E_1 -> E_0] by a quasi-isomorphic [E'_1 -> O_{X_S}(-d)^m] obtained from a surjection O_{X_S}(-d)^m -> E_0 with d > 0 given by Thm. II.2.6; E'_1 still has only negative slopes",
+    "Separatedness of BC(O_{X_S}(-d)^m[1]) from Prop. II.2.5(i) is used to reduce (i) and (ii) to BC(E'_1[1])"
+   ],
+   "proofSteps": [
+    "Simplify the complex: choose d > 0 and a surjection O_{X_S}(-d)^m -> E_0 (Thm. II.2.6), let E'_1 = ker(E_1 + O_{X_S}(-d)^m -> E_0); then [E'_1 -> O_{X_S}(-d)^m] -> [E_1 -> E_0] is a quasi-isomorphism.",
+    "Use 0 -> BC([E'_1 -> O(-d)^m]) -> BC(E'_1[1]) -> BC(O(-d)^m[1]) and separatedness of the last term to reduce (i),(ii) to BC(E'_1[1]).",
+    "Apply Cor. II.3.3(iv) to the dual of E'_1 to get, etale-locally and after adding a bundle, 0 -> BC(E'_1[1]) -> BC(O(-1/r)^m[1]) -> BC(G[1]), reducing to the explicitly known negative Banach-Colmez spaces of Prop. II.2.5(i).",
+    "Part (iii) uses Cor. II.3.3 again to present E_0 and then Prop. II.2.5(iii)'s cohomological smoothness."
+   ],
+   "acceptance": [
+    "Verify the negative-slope hypothesis is necessary by exhibiting failure of partial properness otherwise",
+    "Verify (iii) on [0 -> O(1)] where cohomological smoothness is II.2.5(iii)",
+    "Verify the quasi-isomorphism step preserves the negative-slope condition"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.3.5, printed pp. 79-80",
+     "excerpt": "Let [E_1 -> E_0] be a map of vector bundles on X_S such that at all geometric points of S, the bundle E_1 has only negative Harder-Narasimhan slopes. (i) The Banach-Colmez space BC([E_1 -> E_0]) ... is a locally spatial diamond, partially proper over S. ... (iii) Assume that all Harder-Narasimhan slopes of E_0 at all geometric points are positive. Then BC([E_1 -> E_0]) -> S is cohomologically smooth.",
+     "match": "Exact statement with both slope hypotheses."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.3.5, printed p. 80",
+     "excerpt": "Let E'_1 be the kernel of E_1 + O_{X_S}(-d)^m -> E_0. Then we find a quasi-isomorphism [E'_1 -> O_{X_S}(-d)^m] -> [E_1 -> E_0]. Note also that E'_1 still satisfies the assumption on negative slopes.",
+     "match": "The simplification step and the check that the hypothesis is preserved."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB3:general-BC/absolute-BC-spatiality",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB3:general-BC",
+   "title": "FS II.3.6-II.3.7: Div^d as a diamond and absolute Banach-Colmez spaces of pure-sign isocrystals",
+   "kind": "theorem",
+   "statement": "The sum map (Div^1)^d -> Div^d is a quasi-pro-etale cover identifying Div^d = (Div^1)^d/Sigma_d, so Div^d is a diamond. For an isocrystal D with only negative slopes (resp. only positive slopes), working on Perf_k: (i) BC(D) minus {0} (resp. BC(D[1]) minus {0}) is a spatial diamond; (ii) the quotient by E^times is proper, representable in spatial diamonds and cohomologically smooth.",
+   "hypotheses": [
+    "D has slopes of a single sign; mixed-sign isocrystals are not covered by this statement",
+    "One works on Perf_k with k algebraically closed",
+    "The proof of (i) chooses, by Dieudonne-Manin, a basis in which phi is E-rational and U = phi^N is diagonal with entries powers of pi for some N > 0 - i.e. D is DECENT in the sense of Rapoport-Zink Definition 1.8",
+    "The identification of the U-action with Frob^N holds only after base change to Spa F_q((t^{1/p^infty})), and uses that the absolute Frobenius acts trivially on topological spaces",
+    "Surjectivity of the sum map is checked on geometric points using Prop. II.2.9 (every element of P_d is a product of elements of P_1)"
+   ],
+   "proofSteps": [
+    "For II.3.6: all spaces are proper over * by Prop. II.2.16(ii), so the sum map is proper; surjectivity as v-sheaves is checked on geometric points via the factorisation in the proof of Prop. II.2.9; one gets bijectivity up to Sigma_d, hence Div^d = (Div^1)^d/Sigma_d; the projection is quasi-pro-etale, and Div^1 = Spd E/phi^Z is a diamond, so Div^d is a diamond.",
+    "For II.3.7(ii): apply Prop. II.3.5 and, for cohomological smoothness after the E^times-quotient, ECD Proposition 24.2.",
+    "For II.3.7(i): use decency to make U = phi^N act as Frob^N; then U^{-1} (resp. U) on the base change to Spa F_q((t^{1/p^infty})) satisfies the hypotheses of Lemma II.2.17, so the quotient is a spatial diamond, and one translates back using triviality of the absolute Frobenius on topological spaces; then apply Lemma II.3.8.",
+    "For positive Banach-Colmez spaces one concludes from Prop. II.3.6, as BC(D) minus {0} is an E^times-torsor over a space built from Div^d."
+   ],
+   "acceptance": [
+    "Verify decency explicitly for the simple isocrystal of slope 1/n",
+    "Verify Div^2 = (Div^1)^2/Sigma_2 on geometric points",
+    "Verify the identification of the U-action with Frob^N after base change"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.3.6 and proof, printed p. 82",
+     "excerpt": "To check surjectivity as v-sheaves, we can then check on geometric points, where it follows from Proposition II.2.9 (in whose proof we checked that any element of P_d is a product of elements of P_1). In fact, we even get bijectivity up to the Sigma_d-action, and thus the isomorphism Div^d = (Div^1)^d/Sigma_d as v-sheaves.",
+     "match": "Shows the exact input from the schematic-curve factorisation."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.3.7, printed p. 82",
+     "excerpt": "By the Dieudonne-Manin classification, we can find a basis for D so that phi is E-rational and U := phi^N is a diagonal matrix with entries powers of pi for some N > 0; this essentially means that V is decent in the sense of [RZ96, Definition 1.8].",
+     "match": "The decency hypothesis extracted from Dieudonne-Manin, which is the actual input."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB4/semicontinuity-of-HN-polygon",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB4",
+   "title": "FS II.2.19(i): upper semicontinuity of the Harder-Narasimhan polygon in families",
+   "kind": "theorem",
+   "statement": "Let S be a perfectoid space over F_q and E a vector bundle on X_S of constant rank n. The function sending a geometric point Spa C -> S to the Harder-Narasimhan polygon of E|_{X_C} is upper semicontinuous. The endpoint of the polygon is locally constant.",
+   "hypotheses": [
+    "E has CONSTANT RANK n; the polygon is described as the convex hull of the points (i,d_i), i = 0..n, where d_i is the maximal integer with H^0(X_C, (wedge^i E)(-d_i)|_{X_C}) nonzero",
+    "The proof needs properness of (BC(F) minus {0})/E^times -> S (Prop. II.2.16), NOT the classification theorem",
+    "The local constancy of the endpoint is obtained by applying the same argument to the dual of the determinant"
+   ],
+   "proofSteps": [
+    "Express the HN polygon as the convex hull of (i,d_i) with d_i maximal such that H^0(X_C, (wedge^i E)(-d_i)) is nonzero.",
+    "Reduce to: for any bundle F on X_S, the locus of geometric points with H^0(X_C, F|_{X_C}) nonzero is closed in S.",
+    "That locus is exactly the image of (BC(F) minus {0})/E^times -> S, which is proper by Prop. II.2.16, so its image is closed.",
+    "Apply the same to the dual of det E to get local constancy of the endpoint."
+   ],
+   "acceptance": [
+    "Verify the convex-hull description of the polygon on a rank-2 example with slopes 0 and 1",
+    "Exhibit a family where the polygon jumps and check the direction of semicontinuity",
+    "Check that the argument does not use Thm. II.2.14"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem II.2.19, printed p. 74",
+     "excerpt": "Note that the Harder-Narasimhan polygon can be described as the convex hull of the points (i,d_i) for i = 0, ..., n, where d_i is the maximal integer such that H^0(X_C, (wedge^i E)(-d_i)|_{X_C}) is nonzero. ... But note that this is precisely the image of (BC(F) minus {0})/E^times -> S. As this map is proper by Proposition II.2.16, its image is closed.",
+     "match": "The complete proof of part (i), showing exactly which input is used."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB4",
+   "title": "FS II.2.19(ii): the global HN filtration on constant-polygon loci and its pro-etale splitting",
+   "kind": "theorem",
+   "statement": "Assume the HN polygon of E is constant on S. Then there exists a global separated exhaustive decreasing Harder-Narasimhan filtration E^{>= lambda} in E specialising to the HN filtration at each point; and after replacing S by a PRO-ETALE cover the filtration can be split, with isomorphisms E^lambda = O_{X_S}(lambda)^{n_lambda} for integers n_lambda >= 0.",
+   "hypotheses": [
+    "Constant HN polygon on S; E of constant rank",
+    "The global filtration is obtained v-locally and then descends; the SPLITTING and the trivialisation of the graded pieces are only pro-etale-local, because the trivialisation of each E^lambda is a torsor under a locally profinite group (ECD Lemma 10.13)",
+    "The v-local nonzero map O_{X_S}(lambda) -> E is produced using that BC(F) minus {0} -> (BC(F) minus {0})/E^times -> S is a v-cover: the first map is an E^times-torsor, the second is proper and surjective on geometric points hence surjective by ECD Lemma 12.11",
+    "Surjectivity of the dual map E^dual -> O_{X_S}(-lambda) is checked over geometric points using stability of O_{X_C}(-lambda)",
+    "The final extension is split after a further pro-etale cover using Prop. II.2.5(i)-(ii)"
+   ],
+   "proofSteps": [
+    "Reduce to producing v-locally an isomorphism E = direct sum of O_{X_S}(lambda)^{n_lambda}; the filtration then exists v-locally and descends.",
+    "Induct on the rank. Let lambda be the maximal slope. Finding a fibrewise nonzero map O_{X_S}(lambda) -> E is the same as finding a fibrewise nonzero map O_{X_S} -> F = Hom(O_{X_S}(lambda), E); such a map exists over the v-cover BC(F) minus {0} -> S.",
+    "The dual map E^dual -> O_{X_S}(-lambda) is surjective (checked at geometric points using stability), so the cokernel E' of O_{X_S}(lambda) -> E is a vector bundle with constant HN polygon.",
+    "By induction E' = direct sum of O_{X_S}(lambda')^{n_{lambda'}} with lambda' <= lambda; the extension splits after a further pro-etale cover by Prop. II.2.5(i)-(ii).",
+    "Finally, the trivialisation of each graded piece is a torsor under a locally profinite group, hence trivial after a pro-etale cover by ECD Lemma 10.13."
+   ],
+   "acceptance": [
+    "Verify that v-local splitting really upgrades to pro-etale and not to etale",
+    "Verify the surjectivity of the dual map at a geometric point using stability of O(-lambda)",
+    "Exhibit a constant-polygon family where the filtration does not split Zariski-locally"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem II.2.19 (ii), printed p. 74",
+     "excerpt": "Assume that the Harder-Narasimhan polygon of E is constant. Then there exists a global (separated exhaustive decreasing) Harder-Narasimhan filtration E^{>= lambda} in E specializing to the Harder-Narasimhan filtration at each point. Moreover, after replacing S by a pro-etale cover, the Harder-Narasimhan filtration can be split, and there are isomorphisms E^lambda = O_{X_S}(lambda)^{n_lambda} for some integers n_lambda >= 0.",
+     "match": "Exact statement, including that only the pro-etale-local splitting is claimed."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem II.2.19, printed pp. 74-75",
+     "excerpt": "But then BC(F) minus {0} -> (BC(F) minus {0})/E^times -> S is a v-cover over which such a map exists: The first map is an E^times-torsor and thus a v-cover, while the second map is proper and surjective on geometric points, thus surjective by [Sch17a, Lemma 12.11].",
+     "match": "The exact mechanism by which properness of the projectivized Banach-Colmez space produces the nowhere-vanishing section, which the stage text singles out."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals:VB4/slope-zero-local-systems",
+   "parentStageId": "VectorBundlesAndIsocrystals:VB4",
+   "title": "FS II.2.20: slope-zero bundles are pro-etale E-local systems",
+   "kind": "comparison",
+   "statement": "For S a perfectoid space, the category of pro-etale E-local systems L is equivalent to the category of vector bundles on X_S whose Harder-Narasimhan polygon is constant 0, via L -> L tensor_E O_{X_S}.",
+   "hypotheses": [
+    "The condition is that the HN polygon is CONSTANT ZERO, i.e. everywhere semistable of slope 0, not merely fibrewise trivial",
+    "Full faithfulness is proved by pro-etale descent, reducing to L trivial, and then by Prop. II.2.5(ii): H^0(X_S,O) = E and H^1(X_S,O) = RGamma_proet(S,E) in degree 1",
+    "Essential surjectivity is Thm. II.2.19(ii) applied with a single slope 0",
+    "A local system is not the same as a globally trivial bundle: the descent datum is the content"
+   ],
+   "proofSteps": [
+    "Full faithfulness: descend pro-etale-locally to L trivial and apply Prop. II.2.5(ii) to identify Hom.",
+    "Essential surjectivity: apply Thm. II.2.19(ii) to E with constant zero polygon; pro-etale locally E is trivial, and the descent datum gives the local system."
+   ],
+   "acceptance": [
+    "Exhibit a slope-zero bundle with nontrivial monodromy, i.e. a nonconstant local system, confirming that pro-etale triviality is not global triviality",
+    "Check tensor and scalar-extension compatibility of the equivalence",
+    "Check that a bundle with fibrewise slope 0 but nonconstant polygon is excluded"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Corollary II.2.20 and proof, printed p. 75",
+     "excerpt": "Let S be a perfectoid space. The category of pro-etale E-local systems L is equivalent to the category of vector bundles on X_S whose Harder-Narasimhan polygon is constant 0, via L -> L tensor_E O_{X_S}. Proof. First, the functor is fully faithful, as we can see by pro-etale descent (to assume L is trivial) and Proposition II.2.5. Now essential surjectivity follows from Theorem II.2.19.",
+     "match": "Exact statement and its two-step proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "VectorBundlesAndIsocrystals:VB0/isocrystal-category-and-standard-block",
+   "target": "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles",
+   "reason": "The classification theorem's target objects are exactly the bundles O_{X_C}(lambda) = E(D_{-lambda}), and its statement 'the functor from Isoc_E to vector bundles on X_C induces a bijection on isomorphism classes' (FS Thm. II.0.3) is about the functor constructed in this node. The sign convention fixed here (E reverses slopes) is what makes the statement of II.2.14 unambiguous.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Theorem II.0.3, printed p. 46; II.2 preamble, printed p. 58"
+    },
+    {
+     "sourceId": "FF18-courbes",
+     "locator": "Proposition 8.2.6, printed p. 287"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB0/scalar-extension-adjunction",
+   "target": "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles",
+   "reason": "The proof of II.2.14 reduces a rational slope s/r to an integral slope by the identity O_{X_C}(lambda) = f_* O_{X_{C,E'}}(s) for the degree-r unramified extension E'|E. That identity is the geometric side of the isocrystal adjunction of this node.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem II.2.14, printed p. 70"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists",
+   "target": "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles",
+   "reason": "Three separate steps of the proof of II.2.14 consume Proposition II.2.5: (a) H^1(X_C,O(lambda)) = 0 for lambda > 0 splits the HN filtration in the non-semistable case; (b) Ext^1(O(lambda),O(lambda)) = 0 (part (ii)) splits the final extension; (c) part (ii) is also what makes the isomorphism sheaf a v-quasitorsor under GL_n(E).",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem II.2.14, printed p. 70"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB2:ampleness/quantitative-global-generation",
+   "target": "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles",
+   "reason": "The existence of a minimal d with an injection O(-d) -> E, on which the whole induction rests, is obtained from Theorem II.2.6: 'by Theorem II.2.6 some such d exists'.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem II.2.14, printed p. 70"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB2:classification/key-extension-lemma",
+   "target": "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles",
+   "reason": "Lemma II.2.15 is invoked twice in the proof of II.2.14: to rule out d >= 2 (after twisting the extension to O(-1) -> G(d-1) -> O(1)), and as the final remaining case d = 1 with F semistable, where F = O(1/(n-1)).",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem II.2.14, printed pp. 70-71"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists",
+   "target": "VectorBundlesAndIsocrystals:VB2:classification/key-extension-lemma",
+   "reason": "The proof of the key lemma uses the explicit presentation BC(O_{X_C}(-1)[1]) = (A^1_{C^sharp})^diamond/E, which is exactly the content of Proposition II.2.5(i) for lambda = -1 together with the exact sequence 0 -> E -> (A^1_{S^sharp})^diamond -> BC(O(-1)[1]) -> 0.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Lemma II.2.15, printed p. 71; Proof of Proposition II.2.5 part (i), printed p. 64"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/lubin-tate-universal-cover",
+   "target": "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists",
+   "reason": "Part (iv) of II.2.5 and the inductive proof of part (iii) both start from BC(O(1)) = Spd F_q[[x^{1/p^infty}]], which is Proposition II.2.2; and the induction step uses the exact sequence 0 -> O(n) -> O(n+1) -> O_{S^sharp} -> 0 of Proposition II.2.3, which is built from the same Lubin-Tate section.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.2.5, printed p. 63"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/fundamental-exact-sequence",
+   "target": "VectorBundlesAndIsocrystals:VB2:ampleness/schematic-curve-at-a-geometric-point",
+   "reason": "Proposition II.2.9's proof begins 'Using Lubin-Tate formal groups, we see that there is an exact sequence 0 -> O_{X_C} -> O_{X_C}(1) -> O_{C^sharp} -> 0 on X_C'; the section f it supplies is what cuts out each closed point and drives the factorisation giving the PID property.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.2.9, printed p. 68"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB2:ampleness/quantitative-global-generation",
+   "target": "VectorBundlesAndIsocrystals:VB2:ampleness/gaga-equivalence",
+   "reason": "The axiomatic GAGA theorem has global generation and higher-cohomology vanishing as hypotheses; Theorem II.2.6 is exactly what verifies them for (X_S, O_{X_S}(1)) with S affinoid perfectoid.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.2.7, printed p. 66; instantiation printed p. 68"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB2:ampleness/gaga-equivalence",
+   "target": "VectorBundlesAndIsocrystals:VB2:ampleness/schematic-curve-at-a-geometric-point",
+   "reason": "Proposition II.2.9 is a statement about X_C^alg = Proj P and the comparison map |X_C| -> |X_C^alg|; both are supplied by the GAGA construction, and the argument computes global sections of the vanishing locus 'via Proposition II.2.2' inside D_+(g).",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.2.9, printed p. 68"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB2:ampleness/schematic-curve-at-a-geometric-point",
+   "target": "VectorBundlesAndIsocrystals:VB1/degree-rank-slope-and-HN-formalism",
+   "reason": "Pic(X_C) = Z, on which the degree function rests, is proved from Proposition II.2.9: a line bundle becomes trivial after removing one closed point, and the local rings of X_C^alg are discrete valuation rings.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.2.10, printed p. 68"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB2:ampleness/quantitative-global-generation",
+   "target": "VectorBundlesAndIsocrystals:VB3:projectivized-properness/properness-of-projectivized-BC",
+   "reason": "The presentation 0 -> E -> O_{X_S}(n)^m -> O_{X_S}(n')^{m'} with n, n' > 0, which realises BC(E) as a closed subspace of BC(O(n))^m, is produced by applying Theorem II.2.6 to E^dual and dualising.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.2.16, printed p. 72"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB3:projectivized-properness/contracting-action-lemma",
+   "target": "VectorBundlesAndIsocrystals:VB3:projectivized-properness/properness-of-projectivized-BC",
+   "reason": "Properness of the projectivized space is deduced from the contracting-action lemma applied to the pi^Z-action, after reducing to BC(O_{X_S}(n)^m) and then to A^1_{S^sharp}; the O_E^times-quotient is handled separately by ECD Prop. 11.24.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.2.16, printed p. 72"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB3:projectivized-properness/properness-of-projectivized-BC",
+   "target": "VectorBundlesAndIsocrystals:VB4/semicontinuity-of-HN-polygon",
+   "reason": "Semicontinuity is proved by identifying the non-vanishing locus of H^0(X_C,F) with the image of the proper map (BC(F) minus {0})/E^times -> S and concluding that it is closed. Properness, not mere surjectivity, is the property used.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem II.2.19 part (i), printed p. 74"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB3:projectivized-properness/properness-of-projectivized-BC",
+   "target": "VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting",
+   "reason": "The v-local nowhere-vanishing section is produced from the composite BC(F) minus {0} -> (BC(F) minus {0})/E^times -> S: the second map is surjective because it is proper and surjective on geometric points (ECD Lemma 12.11). A pointwise classification alone would not give this.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem II.2.19 part (ii), printed p. 75"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles",
+   "target": "VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting",
+   "reason": "The induction in II.2.19(ii) uses the geometric-point classification twice: to know that the maximal slope lambda is attained by a stable O(lambda) and that the dual map E^dual -> O(-lambda) is surjective at geometric points (using stability of O_{X_C}(-lambda)).",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Theorem II.2.19, printed p. 75"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting",
+   "target": "VectorBundlesAndIsocrystals:VB4/slope-zero-local-systems",
+   "reason": "Essential surjectivity of L -> L tensor_E O_{X_S} is exactly Theorem II.2.19(ii) in the case of the constant zero polygon; full faithfulness uses Proposition II.2.5(ii) after pro-etale descent.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Corollary II.2.20, printed p. 75"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB3:general-BC/positive-slope-resolution",
+   "target": "VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces",
+   "reason": "The reduction of BC(E'_1[1]) to the explicitly known negative Banach-Colmez spaces uses Corollary II.3.3(iv) applied to the dual of E'_1, and Corollary II.3.3 is deduced from Proposition II.3.1.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.3.5, printed p. 80; Corollary II.3.3 and proof, printed p. 79"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces",
+   "target": "VectorBundlesAndIsocrystals:VB3:general-BC/absolute-BC-spatiality",
+   "reason": "Part (ii) of Proposition II.3.7 (properness, representability, cohomological smoothness of the E^times-quotient) 'follows from Proposition II.3.5' together with ECD Proposition 24.2 for the quotient.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.3.7, printed p. 82"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB2:ampleness/schematic-curve-at-a-geometric-point",
+   "target": "VectorBundlesAndIsocrystals:VB3:general-BC/absolute-BC-spatiality",
+   "reason": "Surjectivity of the sum map (Div^1)^d -> Div^d in Proposition II.3.6 is checked on geometric points using the factorisation of homogeneous sections established inside the proof of Proposition II.2.9 ('any element of P_d is a product of elements of P_1').",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.3.6, printed p. 82"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB2:classification/classical-points-and-principal-ideal-domains",
+   "target": "VectorBundlesAndIsocrystals:VB2:ampleness/schematic-curve-at-a-geometric-point",
+   "reason": "Proposition II.2.9's factorisation argument uses that a nonzero homogeneous section has finitely many zeroes, all at classical points - that is Corollary II.1.12 together with Proposition II.1.11's identification of maximal ideals with classical points.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.2.9, printed p. 68; Corollary II.1.12, printed p. 53"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB2:classification/HN-filtration-base-change",
+   "target": "VectorBundlesAndIsocrystals:VB4/semicontinuity-of-HN-polygon",
+   "reason": "Semicontinuity is a statement about the polygon at geometric points; for it to be well posed one needs the polygon to be insensitive to enlarging C, which is Proposition II.2.13. The same proposition also fixes the slope rescaling when the coefficient field is enlarged, which the proof of Corollary II.3.3 relies on.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proposition II.2.13, printed p. 69; Proof of Corollary II.3.3, printed p. 79"
+    }
+   ]
+  },
+  {
+   "source": "VectorBundlesAndIsocrystals:VB1/v-descent-for-bundles-and-cohomology",
+   "target": "VectorBundlesAndIsocrystals:VB2:classification/HN-filtration-base-change",
+   "reason": "The descent of the first HN piece F from X_{C'} to X_C is justified by 'By Proposition II.2.1, it suffices to see that the two pullbacks of F to X_{C' hat-tensor_C C'} agree', i.e. by the v-stack property of vector bundles.",
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition II.2.13, printed p. 69"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "VectorBundlesAndIsocrystals:VB0",
+   "status": "partial",
+   "remaining": [
+    "The Dieudonne-Manin classification itself was NOT read in a source that proves it. Fargues-Fontaine Prop. 8.2.6 quotes it ('Du theoreme de Dieudonne-Manin on deduit le resultat suivant'); the only statement inspected is in Pierre Colmez's preface to the volume (Prop. 2.36, printed p. 26), which is a survey and gives no proof. The E-ramified version over L = W_{O_E}(F_q-bar)[1/pi] was not located with a proof.",
+    "The Brauer invariant of D_lambda and its compatibility with the cyclic-algebra presentation - which the stage text makes an explicit obligation - is NOT in the passages read; Fargues-Fontaine give only the presentation and the dimension count.",
+    "Fargues-Fontaine Proposition 5.6.23(4), used to compute dim_E End(O(lambda)) = h^2, was not read.",
+    "Descent forms of isocrystals over a non-algebraically-closed perfectoid field are not covered by anything read."
+   ]
+  },
+  {
+   "stageId": "VectorBundlesAndIsocrystals:VB1",
+   "status": "partial",
+   "remaining": [
+    "ECD Theorem 8.7 / Proposition 8.8 (v-descent for perfectoid spaces) and SW20 Lemma 17.1.8, imported by the proof of II.2.1, were not read.",
+    "The comparison of bundles on X_S with finite projective modules on annuli plus Frobenius descent is used implicitly throughout but no source statement for it was read (candidate: SW20 Theorem 5.2.8 / KL15 Theorem 2.7.7, statement read but not proof).",
+    "Saturated subbundles, torsion quotients and the degree formula for a generic-fibre isomorphism were read only in Fargues-Fontaine's general formalism (5.5.2.1), not verified for X_S.",
+    "ECD Propositions 23.13 and 24.2, used in the proof of II.2.5(i),(iii), were not read."
+   ]
+  },
+  {
+   "stageId": "VectorBundlesAndIsocrystals:VB2",
+   "status": "partial",
+   "remaining": [
+    "Aggregate stage; inherits the remaining items of VB2:ampleness and VB2:classification."
+   ]
+  },
+  {
+   "stageId": "VectorBundlesAndIsocrystals:VB2:ampleness",
+   "status": "partial",
+   "remaining": [
+    "Kedlaya-Liu Proposition 6.2.4 and Theorem 6.3.9, of which FS II.2.6 and II.2.7 are respectively a proof and an axiomatisation, were not read; KedlayaLiu_RelativePadicHodgeFoundations.pdf is present in the library but unread.",
+    "Kedlaya-Liu Corollary 1.5.3, cited for the reduction to a free phi-module, was not read.",
+    "The claim that X^alg is independent of the choice of O_X(1) (Remark II.2.8) is stated without proof in the source ('One can check that ...')."
+   ]
+  },
+  {
+   "stageId": "VectorBundlesAndIsocrystals:VB2:classification",
+   "status": "partial",
+   "remaining": [
+    "FS Proposition II.0.2 ('Zariski closed implies strongly Zariski closed'), imported into the proof of II.1.11, cites [Sch15, Section II.2], [BS22, Remark 7.5] and [Sch17a, Definition 5.7, Theorem 5.8]; none was read. BhattScholze_Prisms.pdf is in the library (Remark 7.5 unread).",
+    "ECD Lemma 10.13 (v-descent of torsors under a locally profinite group), essential to the 'free to enlarge C' device, was not read.",
+    "SW20 Proposition 10.2.3, used to classify E-linear maps of (A^1)^diamond in the p-adic case of Lemma II.2.15, was not read.",
+    "FS Proposition II.2.12 (existence/uniqueness/functoriality of the HN filtration on X_C) is stated with an empty proof box in the source; the argument is the general formalism of FF 5.5.1, read, but the verification of its hypotheses for Bun(X_C) was not written out anywhere read.",
+    "The stage text's requirement that the isocrystal functor be recorded as NOT fully faithful is supported by the wording of FS Theorem II.0.3 ('induces a bijection on isomorphism classes'), but no source passage exhibiting a failure of full faithfulness was found."
+   ]
+  },
+  {
+   "stageId": "VectorBundlesAndIsocrystals:VB3",
+   "status": "partial",
+   "remaining": [
+    "Aggregate stage; inherits the remaining items of the three VB3 substages."
+   ]
+  },
+  {
+   "stageId": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples",
+   "status": "partial",
+   "remaining": [
+    "[SW13] has now been identified and partly read (Theorem A, Proposition 3.1.3, Lemma 3.5.1). What remains unresolved is the STEP Fargues-Scholze compress: how full faithfulness of the Dieudonne functor over the f-semiperfect ring R^{sharp+}/pi yields the identification B^{phi=pi}_{R,[1,infty]} = Hom_{O_E}(E/O_E, G(R^{sharp+}/pi))[1/pi]. Fargues-Scholze give no intermediate argument and [SW13, Theorem A] alone does not state it.",
+    "The renormalisation of covariant Dieudonne theory used for pi-divisible O_E-modules (dividing F by p and base changing along W(k) tensor_{Z_p} O_E -> W_{O_E}(k), cited as [SW20, p. 99]) was not read.",
+    "The uniqueness of the Lubin-Tate formal O_E-module and the claim that under the chosen normalisation G is already defined over O_E were read only as assertions in FS II.2.1.",
+    "FS's convergence statement for log_G as a map of rigid-analytic varieties G^ad_E -> G^ad_{a,E}, and the exactness of 0 -> G^ad_E[pi^infty] -> G^ad_E -> G^ad_{a,E} -> 0 on the big etale site, are asserted from the formula without proof.",
+    "NOTE ON A LOCATOR IN THE STAGE TEXT: the stage says to use 'II.2.15's endomorphism analysis'. In the version read, II.2.15 is the key extension lemma, whose proof contains the classification of E-linear endomorphisms of (A^1_{C^sharp})^diamond. Flagged for the reviewer in case the stage text refers to a different numbering."
+   ]
+  },
+  {
+   "stageId": "VectorBundlesAndIsocrystals:VB3:projectivized-properness",
+   "status": "partial",
+   "remaining": [
+    "ECD Propositions 11.19, 11.24 and 18.10, quoted in Remark II.2.18 and in the proof of II.2.16, were not read.",
+    "The formal reduction of the hypotheses of Lemma II.2.17 'to the case of BC(O_{X_S}(n)^m) and from there to A^1_{S^sharp} by evaluating sections at some collection of untilts' is asserted in one sentence in FS and not carried out."
+   ]
+  },
+  {
+   "stageId": "VectorBundlesAndIsocrystals:VB3:general-BC",
+   "status": "partial",
+   "remaining": [
+    "FS Proposition II.3.2, Corollary II.3.3 parts (i),(ii),(iv) and Lemma II.3.8 were seen in outline (statements located, proofs only partly read).",
+    "Rapoport-Zink Definition 1.8 (decency), used in the proof of II.3.7(i), was not read; the Rapoport-Zink book is not in the library (unchecked beyond CATALOGUE.json and the diamonds source lists).",
+    "ECD Lemma 7.19, Definition 10.1(i), Propositions 11.4, 11.6 and 24.2, quoted in II.3.6 and II.3.7, were not read.",
+    "The stage's requirement to 'identify the locally profinite E-vector-space behavior' for degree-zero pieces was not matched to a specific read statement."
+   ]
+  },
+  {
+   "stageId": "VectorBundlesAndIsocrystals:VB4",
+   "status": "partial",
+   "remaining": [
+    "Kedlaya-Liu Theorems 7.4.5, 7.4.9, 7.3.7, Proposition 7.3.6 and Theorem 8.5.12, of which FS II.2.19 and II.2.20 are restatements/extensions, were not read.",
+    "ECD Lemmas 10.13 and 12.11, used for the pro-etale splitting and for surjectivity of the proper map, were not read.",
+    "The 'source's dominance convention' for the HN polygon is fixed in FS only via the convex-hull description; the comparison with Fargues-Fontaine's concave convention (FF 5.5) was not carried out and is a genuine normalisation risk."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Dieudonne-Manin is quoted, never proved, in anything read",
+   "neededBy": [
+    "VectorBundlesAndIsocrystals:VB0/isocrystal-category-and-standard-block",
+    "VectorBundlesAndIsocrystals:VB0/endomorphism-division-algebra",
+    "VectorBundlesAndIsocrystals:VB3:general-BC/absolute-BC-spatiality"
+   ],
+   "detail": "Fargues-Scholze use 'the simple isocrystal of slope lambda in the Dieudonne-Manin classification' (printed p. 58) and 'By the Dieudonne-Manin classification, we can find a basis for D so that phi is E-rational and U := phi^N is a diagonal matrix with entries powers of pi' (printed p. 82) without proof. Fargues-Fontaine Prop. 8.2.6 says 'Du theoreme de Dieudonne-Manin on deduit le resultat suivant' (printed p. 287) - also a quotation. The only statement located in the library is Proposition 2.36 on printed p. 26, which is inside PIERRE COLMEZ'S PREFACE to the Fargues-Fontaine volume and is explicitly a recollection ('Rappelons l'enonce du classique theoreme de Dieudonne-Manin'), stated for Q_p-breve and with no proof. NEXT SOURCE ACTION: read a source that proves Dieudonne-Manin over W_{O_E}(k)[1/pi] for k algebraically closed - candidates are Zink, 'Cartiertheorie kommutativer formaler Gruppen' (cited as [62] in the Fargues-Fontaine bibliography, not in the library) or Demazure's Lectures on p-divisible groups. Until then VB0's central classification is an unread import, NOT an input package."
+  },
+  {
+   "title": "The Brauer invariant of D_lambda is an open obligation",
+   "neededBy": [
+    "VectorBundlesAndIsocrystals:VB0/endomorphism-division-algebra"
+   ],
+   "detail": "The VB0 stage text says: 'Use the campaign's Brauer/local-field theory for the invariant and prove its compatibility with the explicit cyclic algebra; absent such an input, the cyclic-algebra and Brauer-invariant calculation is an obligation here.' Fargues-Fontaine Definition 8.2.7 (printed p. 287) gives only the presentation D_lambda = E_h[Pi], Pi^h = pi^d, Pi x = sigma_E(x) Pi, and Proposition 8.2.8 computes only dim_E End(O(lambda)) = h^2. No passage read computes inv(D_lambda). NEXT SOURCE ACTION: read Serre, Corps locaux (cited as [59] in the Fargues-Fontaine bibliography) Ch. XII-XIII, or the campaign's own Brauer-group roadmap, for the invariant of a cyclic algebra (E_h/E, sigma_E, pi^d), and record the resulting sign relative to lambda = d/h."
+  },
+  {
+   "title": "Kedlaya-Liu is present in the library but unread, while three theorems are attributed to it",
+   "neededBy": [
+    "VectorBundlesAndIsocrystals:VB2:ampleness/quantitative-global-generation",
+    "VectorBundlesAndIsocrystals:VB2:ampleness/gaga-equivalence",
+    "VectorBundlesAndIsocrystals:VB4/semicontinuity-of-HN-polygon",
+    "VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting",
+    "VectorBundlesAndIsocrystals:VB4/slope-zero-local-systems"
+   ],
+   "detail": "FS attribute Theorem II.2.6 to [KL15, Proposition 6.2.4], call Proposition II.2.7 'an axiomatization of [KL15, Theorem 6.3.9]', and attribute Theorem II.2.19 to [KL15, Theorem 7.4.5, Theorem 7.4.9, Theorem 7.3.7, Proposition 7.3.6] and Corollary II.2.20 to [KL15, Theorem 8.5.12]. VERIFIED PRESENT in the library: references/papers/KedlayaLiu_RelativePadicHodgeFoundations.pdf, 'Relative p-adic Hodge theory: foundations', 210 pages, sha256 a6a117423db62aec072442bb15b70e3175bcc3b631bdcd6d74f740e3c6cfd942. NOT READ. FS give self-contained proofs of II.2.6, II.2.7 and II.2.19, which is what this packet decomposed; the Kedlaya-Liu originals are therefore not on the critical path, but the attribution should be checked before any statement is credited to them. NEXT SOURCE ACTION: read KL15 6.2.4, 6.3.9, 7.3.6-7.3.7, 7.4.5, 7.4.9, 8.5.12 and compare hypotheses (in particular whether KL15 covers equal-characteristic E, which FS say they extend)."
+  },
+  {
+   "title": "Fargues-Scholze compress the step from [SW13, Theorem A] to the explicit B^{phi=pi} identification",
+   "neededBy": [
+    "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/lubin-tate-universal-cover",
+    "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists"
+   ],
+   "detail": "RESOLVED IN PART. The library file references/papers/R02_DF_ScholzeWeinsteinModuli.pdf was opened and verified to be Scholze-Weinstein, 'Moduli of p-divisible groups', arXiv:1211.6357v2 (13 April 2013), sha256 984411ef6c3d735a713684d4c9251fbad411a40eab33cefed8ab5c8412b09f6d. Theorem A (printed p. 3), Proposition 3.1.3 (printed p. 22) and Lemma 3.5.1 (printed p. 29) were read and are now cited directly in the nodes. WHAT REMAINS: Theorem A asserts full faithfulness of the Dieudonne module functor over f-semiperfect rings. Fargues-Scholze's proof of Proposition II.2.2 writes 'then [SW13, Theorem A] gives the desired B^{phi=pi}_{R,[1,infty]} = Hom_{O_E}(E/O_E, G(R^{sharp+}/pi))[1/pi] = G-tilde(R^{sharp+}/pi) = G-tilde(R^{sharp+})', with no intermediate argument. Full faithfulness does not by itself compute the phi = pi eigenspace of B^+_crys; the missing link is the identification of that eigenspace with the Dieudonne module of the Lubin-Tate group, i.e. an essential-surjectivity/classification input. NEXT SOURCE ACTION: read [SW13] Section 5 (the classification of p-divisible groups over O_C) and Proposition 5.1.6 / Theorem 5.2.1 there, and the corresponding passage in Scholze-Weinstein's Berkeley Lectures Lecture 14, to supply the missing step. Until then the p-adic half of Proposition II.2.2 is an unresolved import boundary."
+  },
+  {
+   "title": "Harder-Narasimhan sign/dominance convention is not pinned across sources",
+   "neededBy": [
+    "VectorBundlesAndIsocrystals:VB4/semicontinuity-of-HN-polygon",
+    "VectorBundlesAndIsocrystals:VB1/degree-rank-slope-and-HN-formalism"
+   ],
+   "detail": "FS describe the HN polygon as the convex hull of (i,d_i) with d_i maximal such that H^0(X_C,(wedge^i E)(-d_i)) is nonzero, and state upper semicontinuity (printed p. 74). Fargues-Fontaine's preface records that the HN polygon 'est concave' (printed p. 26 region, in Colmez's preface). Convex-hull-of-lower-points and concave-polygon conventions differ by a sign. The two were not reconciled in the passages read, and the isocrystal functor additionally reverses slopes. This is a live normalisation risk for any consumer that compares an isocrystal Newton polygon with a bundle HN polygon. NEXT SOURCE ACTION: read Fargues-Fontaine 5.5 in full (printed pp. 212-220) and fix one convention explicitly in the roadmap text."
+  }
+ ]
+}
