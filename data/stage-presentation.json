@@ -1,0 +1,1382 @@
+{
+  "AInfCohomology:AI.0": {
+    "title": "Fontaine’s integral period rings",
+    "summary": "Construct A_inf from Witt vectors of a tilted valuation ring, together with Frobenius, the map to the original valuation ring and its kernel. Compare its crystalline and de Rham period-ring maps with their filtrations and twists."
+  },
+  "AInfCohomology:AI.0:integral": {
+    "title": "A_inf, Frobenius and the Fontaine kernel",
+    "summary": "Construct the integral period ring A_inf, its Frobenius and Fontaine map, and the distinguished kernel generators arising from compatible p-power roots of unity. Prove the required completeness, torsion and nonzerodivisor properties."
+  },
+  "AInfCohomology:AI.0:period-comparison": {
+    "title": "Crystalline and de Rham period-ring maps",
+    "summary": "Compare the maps from A_inf to crystalline and de Rham period rings, including their Frobenius twists and defining ideals. Keep the divided-power and adic completion constructions distinct."
+  },
+  "AInfCohomology:AI.7": {
+    "title": "Breuil–Kisin cohomology and descent",
+    "summary": "Construct Frobenius-equipped cohomology over W(k)[[u]] for smooth proper formal schemes over a complete discrete valuation ring. Compare its A_inf, de Rham and crystalline specializations, retaining the dependence on a uniformizer and possible cohomological torsion."
+  },
+  "AbelianSchemesAndArithmeticModuli:A6": {
+    "title": "Homomorphisms, Rosati positivity and Weil restriction",
+    "summary": "Study Hom and endomorphism groups of abelian varieties, Poincaré complete reducibility, Rosati positivity and polarized isogeny degrees. Construct Weil restriction and prove that finite étale restriction of an abelian scheme is again an abelian scheme."
+  },
+  "AdelicAlgebraicGroups:AA.5": {
+    "title": "Ideles, modular quotients and quaternionic volumes",
+    "summary": "Identify adelic quotients for GL₁ with idele classes and the GL₂ rational case with upper-half-plane quotients. Compare compact definite quaternionic quotients and their volumes under changes of level."
+  },
+  "AdicEtaleGeometry:A0": {
+    "title": "Completed tensor products and adic fibre products",
+    "summary": "Construct completed tensor products of compatible Huber pairs and their integral plus subrings. Prove the universal properties needed for adic fibre products, distinguishing separated completion from uniformization."
+  },
+  "AlgebraicModularFormsAndSerreWeights:R15.6": {
+    "title": "Residual modularity and Serre weight and conductor",
+    "summary": "Define residual modularity through an eigenform and its residual Galois representation. Formulate Serre’s predicted weight and conductor, with determinant congruences and finite-flat weight-two consequences."
+  },
+  "AlgebraicModuliForArithmeticGeometry:R09.7d": {
+    "title": "Smooth compactification with normal-crossings boundary",
+    "summary": "For a smooth quasi-projective variety in characteristic zero, construct a smooth projective compactification preserving the original open variety and with strict normal-crossings complement. Over the complex numbers, describe the analytic polydisc charts used in extension theorems."
+  },
+  "AnabelianGeometryAndNonabelianChabauty:NC.1": {
+    "title": "Reconstruction of hyperbolic curves from fundamental groups",
+    "summary": "Reconstruct the specified smooth proper hyperbolic curves over number fields from outer Galois-equivariant fundamental-group data. Isomorphism and morphism versions retain their distinct hypotheses."
+  },
+  "AnabelianGeometryAndNonabelianChabauty:NC.6": {
+    "title": "Selmer varieties and Chabauty–Kim equations",
+    "summary": "Relate arithmetic fundamental-group reconstruction to Selmer varieties and iterated-integral equations for rational points. Describe finite Chabauty–Kim loci and the precision needed for their equations, retaining any motivic assumptions in conditional results."
+  },
+  "AnalyticNumberTheory:AN.4": {
+    "title": "Hecke and Artin L-functions and the class-number formula",
+    "summary": "Relate ideal counting and Hecke characters to completed L-functions, the analytic class-number formula and Chebotarev estimates. Keep meromorphic continuation of Artin L-functions separate from the stronger holomorphy conjecture."
+  },
+  "AnalyticNumberTheory:AN.6": {
+    "title": "Zero-free regions and conditional prime estimates",
+    "summary": "Apply zero-free regions, density estimates and explicit formulas to sieve and counting problems. Distinguish unconditional estimates from statements assuming the Riemann hypothesis, its generalizations or prime-pattern conjectures."
+  },
+  "ArithmeticGaloisRepresentations:G7": {
+    "title": "Tensor constructions and polarized Galois representations",
+    "summary": "Construct exterior and symmetric powers, tensor induction and scalar restriction for continuous Galois representations. Develop polarizations, their signs and determinant constraints, together with the residual-image conditions used to choose auxiliary primes."
+  },
+  "ArithmeticKTheory:N.8": {
+    "title": "Explicit K-groups of rational and quadratic fields",
+    "summary": "Compute low-degree K-groups for the integers, Gaussian integers and selected quadratic fields. Compare integral tame kernels with field K-groups and localization sequences for S-integers."
+  },
+  "ArithmeticLocallySymmetricSpaces:ALS.5": {
+    "title": "Finite-level Poincaré–Lefschetz duality",
+    "summary": "Construct duality and compact-support pairings on arithmetic manifolds with corners, with orientation twists and perfect coefficient complexes. Prove compatibility with boundary triangles, level maps and Hecke adjoints, retaining the conditions needed when stabilizers occur."
+  },
+  "ArithmeticLocallySymmetricSpaces:ALS.6": {
+    "title": "Cohomology of arithmetic towers",
+    "summary": "Assemble restriction, corestriction and Hecke actions across towers of arithmetic quotients. Compare finite-level descent with completed cohomology and boundary triangles, keeping derived inverse-limit terms."
+  },
+  "ArithmeticQuantumTopology:QT.7": {
+    "title": "Quantum modularity and arithmetic asymptotic conjectures",
+    "summary": "Formulate quantum-modularity, refined-volume and arithmetic-resurgence statements with specified invariants and limiting regimes. Keep proved examples separate from conjectural families and numerical evidence."
+  },
+  "ArithmeticStatistics:ST.5": {
+    "title": "Higher moments and local arithmetic distributions",
+    "summary": "Study higher moments, local statistics, random-matrix models and function-field analogues of arithmetic distributions. Distinguish established asymptotic results from probabilistic models, with explicit convergence and uniformity conditions."
+  },
+  "AutomorphicBundles:B1.general": {
+    "title": "Canonical principal bundles on general Shimura varieties",
+    "summary": "Construct the general canonical principal bundle and its compatibility with conjugation, extending beyond Hodge-type and abelian-type cases."
+  },
+  "AutomorphicBundles:B2.general": {
+    "title": "Associated automorphic bundles and realizations",
+    "summary": "Form associated vector bundles from the general canonical principal bundle and the relevant algebraic representations. Compare their geometric realizations through the specified canonical maps."
+  },
+  "AutomorphicBundles:B3.general": {
+    "title": "Canonical extensions over toroidal compactifications",
+    "summary": "Construct canonical and subcanonical extensions of general automorphic bundles over toroidal compactifications. Preserve logarithmic connections and the comparison maps between realizations."
+  },
+  "AutomorphicFormsOnReductiveGroups:AF.5": {
+    "title": "Hecke characters and classical modular forms",
+    "summary": "Identify GL₁ automorphic forms with Hecke characters and the GL₂ rational case with classical modular forms. Compare central characters, normalized Hecke operators and algebraic modular forms on groups compact at infinity."
+  },
+  "AutomorphicGaloisRepresentationsPartII:AG2.7": {
+    "title": "Invariant lattices and residual Galois representations",
+    "summary": "Choose invariant lattices after proving a coefficient field of realization, and compare their residual semisimplifications. Relate reductions of Frobenius polynomials to residual Hecke ideals, preserving the precise eigenvalue conditions at auxiliary primes."
+  },
+  "AutomorphicLFunctionsAndLocalFactors:AL.5": {
+    "title": "Euler factors and critical-value normalization",
+    "summary": "Compare primitive and imprimitive L-values, character twists and conductor exponents in the specified GL₂ and Rankin–Selberg families. Treat vanishing interpolation factors through explicit limiting or derivative formulas rather than cancellation."
+  },
+  "AutomorphicPadicLFunctions:L5": {
+    "title": "Periods, interpolation and p-adic L-function conjectures",
+    "summary": "Compare period choices, coefficient fields and Euler-factor conventions across the constructed p-adic L-functions. Formulate broader existence conjectures using explicit realizations, critical values and refinements without assuming their solutions."
+  },
+  "BorelRegulators:R.1": {
+    "title": "Arithmetic groups and finite-type classifying spaces",
+    "summary": "Study arithmetic groups arising from orders in division algebras through reduction theory and Borel–Serre compactification. Construct block inclusions and finite-type homotopy models needed for higher K-theory."
+  },
+  "BorelRegulators:R.7": {
+    "title": "Borel–Beilinson regulator comparison",
+    "summary": "Compare Borel and Beilinson–Deligne regulators with their exact normalization factors. Relate coordinate-free maps and regulator matrices, including low-rank examples over rational and imaginary quadratic fields."
+  },
+  "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison": {
+    "title": "Formal completion and étale specialization",
+    "summary": "Construct specialization from an analytic generic fibre to the special fibre of a formal scheme and compute tube stalks. Compare cohomology near a closed subscheme with the cohomology of its formal completion under the stated finiteness hypotheses."
+  },
+  "ClassicalAdicEtaleCohomology:H1:valuation-exports": {
+    "title": "Valuation-base invariance and cohomology with supports",
+    "summary": "Prove support comparisons and cohomological invariance for the specified surjective maps of valuation spectra. Establish constructibility and finiteness with the required presentation, dimension and boundary assumptions."
+  },
+  "ClassicalArithmeticCompletion:CA.5": {
+    "title": "Integral bases, discriminants and ideal factorization",
+    "summary": "Relate integral bases, units, class groups, relative discriminants and Frobenius to exact arithmetic computations. Compare matrix calculations with intrinsic number-field invariants in quadratic and cyclotomic examples."
+  },
+  "ClassicalSerreModularity:R26.1": {
+    "title": "Serre modularity in level one",
+    "summary": "State the level-one residual modularity theorem with its classical Serre weight and all residual-characteristic cases. Identify the prescribed-lift and ramification-reduction statements needed for its proof and strengthened corollary."
+  },
+  "ClassicalSerreModularity:R27.6": {
+    "title": "Serre’s weight-and-conductor modularity theorem",
+    "summary": "Produce a normalized newform of the predicted conductor and weight for each residual representation covered by classical Serre modularity. Prove determinant compatibility and coefficient-field invariance, including the finite-flat weight-two consequence."
+  },
+  "ClassicalSerreModularity:R33.1": {
+    "title": "Weight reduction through compatible systems",
+    "summary": "Begin the qualitative Serre modularity argument by changing coefficient characteristic and obtaining a weight-two lift in a compatible system. Handle soluble and reducible branches with their separate local and residual-image hypotheses."
+  },
+  "CohomologyComparisons:CP.0": {
+    "title": "Geometric fibres and period-ring comparison maps",
+    "summary": "Relate a formal scheme, its special fibre and its analytic generic fibre through their cohomological sites. Construct compatible crystalline, semistable and de Rham period-ring maps with Frobenius and Tate-twist conventions."
+  },
+  "CohomologyComparisons:CP.6": {
+    "title": "Chern classes, products and p-adic comparison",
+    "summary": "Compare cup products, duals, traces and Chern classes across étale, de Rham, crystalline and prismatic cohomology. Derive the corresponding geometric Galois-representation statements with their integral, ramification and weight restrictions."
+  },
+  "CompletedCohomologyAndLocalGlobalCompatibility:R31.6": {
+    "title": "Local–global compatibility and Fontaine–Mazur consequences",
+    "summary": "Formulate the local–global compatibility and support statements used in the specified modularity-lifting branches. Retain small-prime exceptions, local exclusions and the de Rham and oddness hypotheses needed for Fontaine–Mazur consequences."
+  },
+  "CompletedCohomologyPartII:CC.8": {
+    "title": "Galois and Hecke actions on completed cohomology",
+    "summary": "Compare completed cohomology with modular, Siegel, unitary and Hilbert tower models. Transport continuous Galois and Hecke actions through the level maps and localize at a residual Hecke ideal."
+  },
+  "ComplexComparisonPartII:C6": {
+    "title": "GAGA and de Rham comparison in explicit geometries",
+    "summary": "Compute coherent and de Rham comparisons for projective space, infinitesimal thickenings, complex elliptic curves and the multiplicative group. Relate modular differentials, Hodge sections and isogeny graphs through their actual comparison maps."
+  },
+  "ComplexMultiplicationAndExplicitReciprocity:CM.2": {
+    "title": "Complex multiplication and reflex-norm reciprocity",
+    "summary": "Compare complex-multiplication reciprocity with type and reflex norms. Identify ideal, idele and torsion actions while distinguishing the field of definition, endomorphism field and reflex field."
+  },
+  "ComplexMultiplicationAndExplicitReciprocity:CM.6": {
+    "title": "Class fields and torsion fields from complex multiplication",
+    "summary": "Relate ring and ray class fields to torsion, Hecke characters and ideal actions in proved complex-multiplication cases. Describe the level functions that generate the asserted fields, with elliptic and higher-dimensional examples."
+  },
+  "CrystallineCohomology:CR.3:duality": {
+    "title": "Crystalline trace and Poincaré duality",
+    "summary": "Construct the trace and derived cup-product duality for proper smooth crystalline cohomology. Compare diagonal classes, Gysin maps and base change, retaining torsion through derived duals."
+  },
+  "CrystallineCohomology:CR.7": {
+    "title": "Crystalline coefficients and Gauss–Manin connections",
+    "summary": "Relate crystals, connections, Frobenius and logarithmic monodromy to Dieudonné theory and deformation of p-divisible groups. Construct the finite-projective coefficient and relative Gauss–Manin comparisons needed for arithmetic families."
+  },
+  "DeligneWeightsAndPurity:DWP.10": {
+    "title": "Frobenius weights and arithmetic point-count bounds",
+    "summary": "Apply weights to Hecke-stable cohomological subquotients, duals and Tate twists, and derive point-count errors with the correct component contributions. Keep independence of the coefficient prime and broader weight–monodromy statements separate from basic purity."
+  },
+  "DeligneWeightsAndPurity:DWP.2": {
+    "title": "Purity for symplectic local systems",
+    "summary": "Prove the fundamental purity estimate for a local system on an open projective line with a nondegenerate alternating pairing, open geometric symplectic monodromy and rational local characteristic polynomials. Retain these hypotheses when extending coefficients."
+  },
+  "DeligneWeightsAndPurity:DWP.5": {
+    "title": "Local weights and monodromy on curves",
+    "summary": "Develop pure and mixed sheaves and their weight filtrations over finite fields. Prove the local weight theorem on curves, relating monodromy-graded pieces and boundary invariants to Frobenius weights."
+  },
+  "DerivedDeRhamCohomology:DD.5": {
+    "title": "Quasisyntomic descent and filtered cohomology",
+    "summary": "Construct quasisyntomic sites and semiperfectoid covers, then prove descent for completed cotangent powers and derived de Rham cohomology. Establish the required filtered convergence, base-change and proper smooth perfectness results."
+  },
+  "DerivedDeRhamCohomology:DD.6": {
+    "title": "Logarithmic cotangent and derived de Rham complexes",
+    "summary": "Construct logarithmic cotangent complexes and derived de Rham cohomology with their Hodge and conjugate filtrations. Compare logarithmic crystalline cohomology under the precise local-complete-intersection and Cartier-type hypotheses."
+  },
+  "DiamondEtaleCohomology:C9": {
+    "title": "Compact objects in étale cohomology of diamonds",
+    "summary": "Under uniform cohomological-dimension bounds, prove compact generation and identify compact objects in the derived étale category. Use bounded constructible complexes for finite-field coefficients and perfect-constructible complexes in the general coefficient setting."
+  },
+  "DiamondSixOperations:S5": {
+    "title": "Cohomological smoothness of balls and quotients",
+    "summary": "Prove cohomological smoothness and normalized duality for the perfectoid ball, suitable profinite quotients and smooth analytic maps. Retain the prime-to-coefficient and quotient-representability hypotheses in each case."
+  },
+  "DiophantineApproximationAndTranscendence:DT.4": {
+    "title": "Effective bounds for Thue and S-unit equations",
+    "summary": "Apply lower bounds for linear forms in logarithms to Thue, Thue–Mahler, S-unit and exponential equations. Prove explicit height bounds that justify the remaining finite search."
+  },
+  "EffectiveDiophantineMethods:ED.6": {
+    "title": "Certified Chabauty calculations and Diophantine examples",
+    "summary": "Apply quadratic or nonabelian Chabauty with verified rank, height and precision hypotheses. Compare the resulting p-adic candidates with global rational points and work out exhaustive examples for several classes of equations."
+  },
+  "EllipticKTheory:E.1": {
+    "title": "Projective elliptic curves and isogenies",
+    "summary": "Construct the smooth projective scheme of a nonsingular Weierstrass curve and compare its rational points and group law with the equation-based description. Relate isogenies, divisors, kernels and invariant differentials across these descriptions."
+  },
+  "EllipticKTheory:E.5": {
+    "title": "Pullback, transfer and the K-theory projection formula",
+    "summary": "Construct K-theory pullbacks and appropriate proper pushforwards for curves. For finite flat maps and isogenies, prove the projection formula using the K₀ class of the direct-image algebra, simplifying to degree multiplication only when justified."
+  },
+  "EllipticKTheory:E.8": {
+    "title": "Elliptic K-groups, symbols and integral residues",
+    "summary": "Relate K₀ through K₃ of elliptic curves to localization, coniveau and arithmetic-integral symbols. Work out nontrivial symbol classes, non-rational closed-point residues and bad-fibre integrality calculations without asserting a general explicit classification of all groups."
+  },
+  "EllipticRegulators:ER.6": {
+    "title": "Integral elliptic regulators and Beilinson’s conjecture",
+    "summary": "Formulate the elliptic Beilinson conjecture on the integral part of K-theory using its determinant line and normalized L-value. Distinguish a constructed nonzero regulator class from a theorem describing the entire regulator space."
+  },
+  "EllipticRegulators:ER.8": {
+    "title": "Syntomic elliptic regulators at good reduction",
+    "summary": "Compare syntomic regulators with explicit symbols and p-adic elliptic integrals in good-reduction cases. Formulate the associated p-adic Beilinson conjecture with its periods and exceptional factors, separate from the proved real-regulator identities."
+  },
+  "EndoscopicTransferAndUnitaryTraceComparison:ET.2a": {
+    "title": "Perverse sheaves and decomposition in endoscopy",
+    "summary": "Use scheme-theoretic duality and perverse sheaves to study the geometric correspondences occurring in endoscopy. Separate the construction of the perverse category from later purity and decomposition results."
+  },
+  "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity": {
+    "title": "Verdier duality and perverse intermediate extension",
+    "summary": "Develop the duality, middle-perverse truncation, recollement and intermediate-extension statements required for endoscopic geometry. These constructions precede the pure decomposition theorem."
+  },
+  "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:pure-decomposition": {
+    "title": "Pure intersection complexes and decomposition",
+    "summary": "Apply the pure intersection-complex and decomposition results needed in the geometric proof of endoscopic transfer. Preserve the coefficient, weight and properness assumptions of those theorems."
+  },
+  "EndoscopicTransferAndUnitaryTraceComparison:ET.7": {
+    "title": "Unitary base change and Igusa cohomology comparison",
+    "summary": "Compare unitary automorphic characters with general linear groups through the specified base-change identities. Relate these identities to the separate Igusa-cohomology comparison, retaining split-place and coefficient hypotheses."
+  },
+  "EnhancedDerivedSheaves:E0": {
+    "title": "Quasicategories, differential graded nerves and derived sheaves",
+    "summary": "Construct mapping spaces, functors, equivalences and coherent limits in a model of higher categories. Build the differential graded nerve of complexes and identify its mapping spaces and homotopy category."
+  },
+  "EnhancedDerivedSheaves:E5": {
+    "title": "Monoidal stable categories and animated algebra",
+    "summary": "Construct symmetric monoidal stable higher categories, operadic algebras, modules and Ind-completions. Develop the animated commutative algebra and coherent group actions needed for geometric and cohomological constructions."
+  },
+  "EnhancedDerivedSheaves:E5:abstract": {
+    "title": "Symmetric monoidal stable categories",
+    "summary": "Construct symmetric monoidal higher categories and their algebras, modules and functors with coherent universal properties. Develop exact and idempotent-complete stable categories and Karoubi completion."
+  },
+  "EnhancedDerivedSheaves:E5:cotangent-export": {
+    "title": "Cotangent complexes and derived algebra comparisons",
+    "summary": "Relate cotangent complexes to derivations, transitivity and base change, with derived exterior powers and Tor-amplitude conditions. Compare animated commutative algebra with other derived-algebra models only in the valid characteristic-dependent ranges."
+  },
+  "EnhancedDerivedSheaves:E5:spectra-comparison": {
+    "title": "Spectra and Eilenberg–Mac Lane comparison",
+    "summary": "Compare concrete spectra and spectral modules with the abstract monoidal stable-category construction. Prove the tensor, Eilenberg–Mac Lane and coherent group-action comparisons used in derived sheaf theory."
+  },
+  "EtaleDualityAndPerverseSheaves:EDC.0": {
+    "title": "Constructible coefficients and cohomology with supports",
+    "summary": "Construct cohomology with supports as a localization fibre, retaining the closed immersion and coefficient complexes. Compare coefficient extension and reduction, derived tensors, compact-support projection formulas and Künneth maps."
+  },
+  "EtaleDualityAndPerverseSheaves:EDC.5": {
+    "title": "Perverse sheaves and intermediate extension",
+    "summary": "Construct the middle perverse t-structure on the appropriate constructible category of a finite-type scheme over a field. Prove truncation, recollement and intermediate extension, including the characterization by absence of boundary subobjects and quotients."
+  },
+  "EtaleDualityAndPerverseSheaves:EDC.8": {
+    "title": "Cohomological correspondences and Frobenius duality",
+    "summary": "Construct cohomological correspondences and fixed-point trace classes using Verdier duality. Relate Frobenius characteristic polynomials in complementary degrees through Poincaré pairings, with the required properness and trace hypotheses."
+  },
+  "EulerSystemsAndKolyvaginSystems:ES.0": {
+    "title": "Selmer conditions, quotients and core rank",
+    "summary": "Construct local Selmer conditions and propagate them through lattice quotients and rationalization. Relate annihilators under local duality, cartesian conditions and core rank using finite-level Euler-characteristic formulas."
+  },
+  "EulerSystemsAndKolyvaginSystems:ES.8": {
+    "title": "Iwasawa specialization of Euler systems",
+    "summary": "Construct inverse-limit systems and specialize Euler and Kolyvagin classes under explicit control hypotheses. Distinguish residual primitivity from Iwasawa primitivity and track exceptional primes and finite or pseudo-null error terms."
+  },
+  "EulerSystemsCyclotomicMainConjecture:L3": {
+    "title": "Cyclotomic main-conjecture equality",
+    "summary": "Use cyclotomic-unit index and class-number formulas to turn characteristic-ideal divisibilities into equalities. Treat character components and augmentation factors separately and retain finite-level errors before passing to the tower."
+  },
+  "ExcursionOperatorsAndSpectralAction:ES0:classical-center": {
+    "title": "Excursion operators and the Bernstein center",
+    "summary": "Compare the center arising from excursion operators with the classical Bernstein-block description over characteristic-zero coefficients. Keep this comparison separate from the operator construction over more general coefficient rings."
+  },
+  "ExcursionOperatorsAndSpectralAction:ES4": {
+    "title": "Spectral support and localization",
+    "summary": "Define support through central functions on the relevant pieces of the Langlands-parameter space. Study localization, exact triangles, coefficient change and duality, with applications to commuting actions on local shtuka cohomology."
+  },
+  "ExcursionOperatorsAndSpectralAction:ES6:duality": {
+    "title": "Contragredients and the Chevalley involution",
+    "summary": "Relate Bernstein–Zelevinsky duality and smooth contragredients to the Chevalley involution on Langlands parameters. Retain the induction and duality hypotheses needed beyond supercuspidal representations."
+  },
+  "ExponentialSumsAndCircleMethod:ES.4": {
+    "title": "Minor arcs, Waring’s problem and sums of primes",
+    "summary": "Combine major- and minor-arc estimates to prove specified Waring-type, prime-sum and many-variable results. Prime-weighted problems require their own decomposition identities and bilinear estimates, with explicit variable and degree ranges."
+  },
+  "ExponentialSumsAndCircleMethod:ES.5": {
+    "title": "Uniform bounds for rational and integral points",
+    "summary": "Compare determinant-method and arithmetic-geometric counting arguments. State bounds with explicit dependence on degree, coefficients and height, keeping upper bounds distinct from positive asymptotic main terms."
+  },
+  "FaltingsFinitenessAndIsogenyTheorems:R28.6": {
+    "title": "Tate modules, Hom groups and rational isogenies",
+    "summary": "Apply semisimplicity and the Tate-module description of homomorphisms to detect isogenies and prove finiteness within rational isogeny classes. Derive the required rank-one Hom and prime-degree isogeny consequences for elliptic curves."
+  },
+  "FarguesFontaineDiamonds:F0": {
+    "title": "The adic Fargues–Fontaine curve",
+    "summary": "Describe the punctured Witt-vector space attached to a characteristic-p perfectoid field and its Frobenius quotient. Use its rational annuli and adic topology as the geometric starting point for diamond comparison."
+  },
+  "FiniteFieldsAndCharacterSums:FF.5": {
+    "title": "Character-sum bounds and local arithmetic",
+    "summary": "Apply character-sum estimates and finite-ring calculations to exponential sums, local densities and exact arithmetic algorithms. Keep the conductor and degree constants explicit in each specialization."
+  },
+  "FoundationsAndLibraryIntegration:LI.0": {
+    "title": "Source versions and declaration audit",
+    "summary": "Administrative record of source versions, imports and theorem assumptions. This task checks which results can be reused; it introduces no mathematical theorem.",
+    "hidden": true
+  },
+  "FoundationsAndLibraryIntegration:LI.5": {
+    "title": "Compilation and proof-assumption checks",
+    "summary": "Administrative checks for compilation, proof-task tracking and theorem assumptions. This task validates integration of mathematical results without defining an additional mathematical topic.",
+    "hidden": true
+  },
+  "FunctionFieldArithmetic:FA.7": {
+    "title": "Divisor arithmetic and explicit function-field computations",
+    "summary": "Compute divisors, ray characters, conductors and L-polynomials with exact finite-field and Riemann–Roch methods. Relate global function fields to local completions at a chosen place."
+  },
+  "GL2AutomorphicRepresentationsAndTransfer:R17.6": {
+    "title": "Soluble residual modularity in characteristic two",
+    "summary": "Construct modularity witnesses for the specified characteristic-two representations with soluble projective image. Prove the base-change and descent comparisons needed for compatible systems, retaining ramification and irreducibility conditions."
+  },
+  "GL2ModularityLifting:R22.6": {
+    "title": "Dyadic modularity lifting and Barsotti–Tate representations",
+    "summary": "Prove the required 2-adic modularity-lifting results and their stronger Barsotti–Tate form. Retain residual-image, real-place and local-deformation hypotheses through the twisting arguments."
+  },
+  "GL2ModularityLifting:R32.1": {
+    "title": "Modularity-lifting theorems across residual characteristics",
+    "summary": "State separate lifting results for odd-prime residually modular, dyadic nonsolvable, residually reducible and ordinary characteristic-three cases. Compare residual-image formulations with their exact local exceptions."
+  },
+  "GL2ModularityLifting:R32.5": {
+    "title": "Ordinary modularity lifting at p = 3",
+    "summary": "Use ordinary lifting and the appropriate crystalline calculation to treat the characteristic-three branch. Match the residual characters and twisting normalization rather than applying a theorem restricted to larger primes."
+  },
+  "GL2ModularityLifting:R32.6": {
+    "title": "Modularity across changes of coefficient prime",
+    "summary": "Transfer modularity through compatible systems while changing coefficient prime. Treat reducible reductions at ramified primes separately, using de Rham lifting under the available local-comparison hypotheses."
+  },
+  "GeneralAlgebraicKTheory:K.2": {
+    "title": "Ring K-theory and the plus construction",
+    "summary": "Construct K-theory from finitely generated projective modules and compare the Q-construction with direct-sum group completion. Identify the zero component with the plus construction on the stable general linear group."
+  },
+  "GeneralAlgebraicKTheory:K.2:plus": {
+    "title": "Ring K-theory and the plus construction",
+    "summary": "Construct K-theory from finitely generated projective modules and compare the Q-construction with direct-sum group completion. Identify the zero component with the plus construction on the stable general linear group."
+  },
+  "GeneralAlgebraicKTheory:K.2:low-degree-comparisons": {
+    "title": "Low-degree comparisons in ring K-theory",
+    "summary": "Compare the homotopy groups of ring K-theory with the explicit low-degree constructions. Preserve the natural maps between the Q-construction, stable general linear groups and their plus constructions."
+  },
+  "GeneralAlgebraicKTheory:K.4": {
+    "title": "Waldhausen’s S-construction and delooping",
+    "summary": "Construct the simplicial categories of filtered objects in a Waldhausen category and iterate them to form K-theory spectra. Prove additivity, delooping and the relevant fibration and comparison theorems with their hypotheses."
+  },
+  "GeneralAlgebraicKTheory:K.4:construction": {
+    "title": "Waldhausen’s S-construction and delooping",
+    "summary": "Construct the simplicial categories of filtered objects in a Waldhausen category and iterate them to form K-theory spectra. Prove additivity, delooping and the relevant fibration and comparison theorems with their hypotheses."
+  },
+  "GeneralAlgebraicKTheory:K.7": {
+    "title": "Morita invariance and products in K-theory",
+    "summary": "Prove invariance under the relevant categorical equivalences and compatibility with products and filtered colimits. Construct external products and relate them to localization boundaries, transfers, K₀ tensor products and K₁ units."
+  },
+  "ArithmeticKTheory:KU-arithmeticstructure": {
+    "title": "Twists, odd groups, even components and regular primes",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "ArithmeticKTheory:KU-finitegeneration": {
+    "title": "Arithmetic K-theory finite generation",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "AutomorphicPadicLFunctions:KU-hilberteisenstein": {
+    "title": "Hilbert Eisenstein theory and p-adic interpolation",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "BorelRegulators:KU-arithmeticgroups": {
+    "title": "Reduction theory and arithmetic-group finiteness",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "BorelRegulators:KU-borelranks": {
+    "title": "Stable arithmetic cohomology and Borel ranks",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "BorelRegulators:KU-borelreg": {
+    "title": "Borel regulator, lattice and zeta proportionality",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "DirichletPadicLFunctions:KU-zeta": {
+    "title": "Completed Dedekind zeta and special values",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "EllipticKTheory:KU-curvek": {
+    "title": "Curve K0–K3 and localisation",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "EllipticKTheory:KU-models": {
+    "title": "Regular arithmetic models and integral parts",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "EllipticKTheory:KU-symbols": {
+    "title": "Explicit elliptic symbol classes and transfer",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "EllipticRegulators:KU-cmvalue": {
+    "title": "Bloch CM class and exact L-value theorem",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "EllipticRegulators:KU-ellipticanalytic": {
+    "title": "Elliptic uniformisation, periods and comparison",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "EllipticRegulators:KU-ellipticpadic": {
+    "title": "Good-reduction p-adic elliptic regulator",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "EllipticRegulators:KU-ellipticreg": {
+    "title": "Elliptic Deligne regulator and divisor formula",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "EllipticRegulators:KU-modularparam": {
+    "title": "Algebraic modular curves and proved modular parametrisations",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "EllipticRegulators:KU-modularreg": {
+    "title": "General modular constructed-class theorem",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "GeneralAlgebraicKTheory:KU-fundamental": {
+    "title": "Resolution, devissage, relative theory and localisation",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "GeneralAlgebraicKTheory:KU-nonconnective": {
+    "title": "Nonconnective K-theory and Morita/product interfaces",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "GeneralAlgebraicKTheory:KU-pluscomparison": {
+    "title": "Ring K-theory and plus comparison",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "GeneralAlgebraicKTheory:KU-qconstruction": {
+    "title": "Q-construction and existing ExactK0 comparison",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "GeneralAlgebraicKTheory:KU-waldhausen": {
+    "title": "S-construction, additivity and delooping",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "HabiroNahmSeries:KU-admissibility": {
+    "title": "Formal Gaussian series and finite-support product theorem",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "HabiroNahmSeries:KU-habiromembership": {
+    "title": "Frobenius congruence and module membership",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "HabiroNahmSeries:KU-nahmasymptotic": {
+    "title": "Nahm solutions, q-series and root asymptotics",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "HabiroNahmSeries:KU-nahmtorsion": {
+    "title": "Modularity implies Bloch torsion",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "HabiroNumberFields:KU-finitereg": {
+    "title": "Finite Chern and cyclic-dilogarithm maps",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "HabiroNumberFields:KU-habiromodules": {
+    "title": "K3-indexed Habiro modules",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "HabiroNumberFields:KU-habiroring": {
+    "title": "Number-field Habiro ring and Taylor gluing",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "IntegralIwasawaTheory:KU-allmain": {
+    "title": "All-prime determinant main conjecture",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "IntegralIwasawaTheory:KU-brumerstark": {
+    "title": "Integral Brumer–Stark, Ritter–Weiss and generalised Ribet theorem",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "IntegralIwasawaTheory:KU-iwasawamodules": {
+    "title": "Arithmetic Iwasawa modules and determinants",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "IntegralIwasawaTheory:KU-maincomparison": {
+    "title": "Modern/classical formulation comparison at 2",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "IntegralIwasawaTheory:KU-oddmain": {
+    "title": "Classical odd-primary main conjectures",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "K2SymbolsBrauer:KU-k2classical": {
+    "title": "Steinberg groups, symbols and tame residues",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "K3BlochGroups:KU-blochk3": {
+    "title": "Homological K3 and Suslin/Bloch comparison",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "KTheoryFiniteLocalFields:KU-finitefields": {
+    "title": "Bott/Brauer lifting and finite-field K-theory",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "KTheoryFiniteLocalFields:KU-localp": {
+    "title": "Local residue-characteristic calculations and completion",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "KTheoryFiniteLocalFields:KU-rigidity": {
+    "title": "Henselian rigidity away from residue characteristic",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "KTheoryLowDegrees:KU-k0classical": {
+    "title": "Projective-module and arithmetic K0",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "KTheoryLowDegrees:KU-k1classical": {
+    "title": "Classical K1 and determinant calculus",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "KTheoryLowDegrees:KU-matrices": {
+    "title": "Stable matrices and elementary groups",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "MotivicEtaleKTheory:KU-continuous": {
+    "title": "Finite and continuous arithmetic coefficient complexes",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "MotivicEtaleKTheory:KU-duality": {
+    "title": "Arithmetic duality, compact support and real-place conventions",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "MotivicEtaleKTheory:KU-etalehigher": {
+    "title": "Higher etale K-theory comparison",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "MotivicEtaleKTheory:KU-motivic": {
+    "title": "Higher Chow groups and motivic complexes",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "MotivicEtaleKTheory:KU-motivicspectral": {
+    "title": "Motivic filtration and spectral sequence",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "MotivicEtaleKTheory:KU-normresidue": {
+    "title": "Full norm-residue proof and its geometric prerequisites",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "MotivicEtaleKTheory:KU-tate2": {
+    "title": "Tate degree-two arithmetic comparison",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "PadicHodgeRegulators:KU-padicreg": {
+    "title": "p-adic and syntomic regulators",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "Polylogarithms:KU-polyloganalysis": {
+    "title": "Classical polylogarithms and their functional equations",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "Polylogarithms:KU-realregulators": {
+    "title": "Explicit low-weight regulators and comparisons",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "RefinedTraceMethods:KU-traces": {
+    "title": "Hochschild and cyclotomic trace constructions",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "SchemeKTheoryOperations:KU-geometry": {
+    "title": "Finite locally free sheaves, curves and perfect-complex prerequisites",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "SchemeKTheoryOperations:KU-operations": {
+    "title": "Operations, cycles and Riemann–Roch",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "SchemeKTheoryOperations:KU-schemek": {
+    "title": "Scheme K/G-theory, supports and descent",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "SpecialValuesBirchTate:KU-birchabelian": {
+    "title": "Classical totally real abelian-Q endpoint",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "SpecialValuesBirchTate:KU-birchall": {
+    "title": "All-totally-real Birch–Tate and S-integers",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "SpecialValuesBirchTate:KU-birchodd": {
+    "title": "Birch–Tate at odd primes",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "SpecialValuesBirchTate:KU-birchq": {
+    "title": "Birch–Tate for Q independently",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "SpecialValuesBirchTate:KU-conjectures": {
+    "title": "Higher special-value, Zagier, Leopoldt and elliptic statements",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "StableHomotopyKTheory:KU-existing": {
+    "title": "Existing algebra, category theory, topology and arithmetic",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "StableHomotopyKTheory:KU-homotopy": {
+    "title": "Nerves, fibres, classifying spaces and Quillen A/B",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "StableHomotopyKTheory:KU-plus": {
+    "title": "Plus construction and homotopy group completion",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "StableHomotopyKTheory:KU-spectra": {
+    "title": "Spectrum and coefficient foundations",
+    "summary": "Duplicate readiness checkpoint for mathematical stages already represented elsewhere in this roadmap collection. The source explicitly identifies it as an aggregation, not an additional mathematical construction.",
+    "hidden": true
+  },
+  "AnalyticNumberTheory:AN.0": {
+    "title": "Dirichlet series and summation",
+    "summary": "Develop arithmetic functions and Dirichlet series, including absolute convergence, Euler products, partial summation and Mellin transforms. Prove Perron inversion with explicit truncation errors and justify each interchange of sums, derivatives and limits."
+  },
+  "FoundationsAndLibraryIntegration:LI.1": {
+    "title": "Commutative algebra and linear algebra",
+    "summary": "Develop the localization, integral closure, tensor-product and completion constructions used in arithmetic geometry. Study flatness, finite presentation, dimension, regular sequences, dualizing modules, determinants and Fitting ideals through their universal properties and base-change maps."
+  },
+  "FoundationsAndLibraryIntegration:LI.2": {
+    "title": "Measure, Fourier analysis and spectral theory",
+    "summary": "Relate Haar and product measures, Lebesgue and Bochner integration, Fourier and Mellin transforms, and holomorphic continuation. Establish convergence and continuity results for distributions, Sobolev spaces and spectral theory with explicit analytic hypotheses."
+  },
+  "FoundationsAndLibraryIntegration:LI.3": {
+    "title": "Homological algebra and sheaves",
+    "summary": "Develop limits, adjunctions, abelian and exact categories, resolutions, derived functors and spectral sequences. Relate monoidal structures and sheafification through natural comparison maps, distinguishing ordinary derived categories from their higher-categorical enhancements."
+  },
+  "FoundationsAndLibraryIntegration:LI.4": {
+    "title": "Local and global arithmetic foundations",
+    "summary": "Relate number fields, local fields, ramification and class field theory through norms, reciprocity and Frobenius. Connect profinite cohomology, Chebotarev, modular forms and elliptic curves using compatible arithmetic conventions."
+  },
+  "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ": {
+    "title": "Pinned Chevalley–Demazure group schemes",
+    "summary": "Construct split reductive group schemes over the integers from root data, equipped with a maximal torus, Borel subgroup and chosen simple-root vectors. Prove base-change compatibility, root-subgroup relations and uniqueness of pinned isomorphisms, with the exceptional small-characteristic isogenies."
+  },
+  "GeneralizedHeegnerCycles:GH.6": {
+    "title": "Nonvanishing and Selmer ranks for Heegner cycles",
+    "summary": "Study nonvanishing of generalized Heegner cycles and its consequences for Selmer groups, with the conductor, root-number and residual-representation hypotheses made explicit. Relate rank-one universal norms and nonzero cycle classes to rank and parity statements without assuming a height formula from an analytic zero alone."
+  },
+  "GeneralizedHeegnerCycles:GH.8": {
+    "title": "Weight-two specialization and Iwasawa comparisons",
+    "summary": "Compare generalized Heegner cycles in weight two with Heegner points, tracking parametrizations, differentials, twists and periods. Relate ordinary-family reciprocity laws to characteristic ideals and determinant normalizations in Iwasawa theory."
+  },
+  "GeometricSatakeAndFusion:GS0:Schubert-smoothness": {
+    "title": "Schubert cells and cohomological smoothness",
+    "summary": "Describe Schubert cells using truncated positive loop groups, flag varieties and unipotent fibers. Establish their cohomological smoothness away from the residue characteristic, with the expected root-theoretic dimension and Galois descent."
+  },
+  "GeometricSatakeAndFusion:GS4:rational-reductivity": {
+    "title": "Rational Satake semisimplicity and reductivity",
+    "summary": "Use proper finite-type models of Witt-vector Schubert varieties and the decomposition theorem to prove semisimplicity of the rational Satake category. Deduce reductivity of its generic Tannakian group; integral and modular coefficients require separate arguments."
+  },
+  "GeometryOfNumbersAndQuadraticArithmetic:GN.5": {
+    "title": "Lattice reduction, heights and counting",
+    "summary": "Develop lattice reduction with exact changes of basis and quantitative approximation bounds. Apply the resulting reduced bases to height estimates and arithmetic counting problems."
+  },
+  "GlobalGaloisDeformations:R04.6": {
+    "title": "Global-to-local deformation presentations",
+    "summary": "Describe global Galois deformation rings by their maps to local deformation rings, including dimensions, universal representations and auxiliary-prime conditions. Track compatibility with prescribed local behavior and real places at the prime two."
+  },
+  "GrossZagierAndArithmeticHeights:GZ.0": {
+    "title": "Periods, heights and normalizations",
+    "summary": "Compare the normalizations of automorphic L-functions, complex multiplication traces, reciprocity maps and arithmetic heights. Calculate how changes in differentials, polarizations, measures and periods rescale height pairings and their determinants."
+  },
+  "HabiroCohomologyFoundations:HQ.7": {
+    "title": "Explicit Habiro cohomology and specialization",
+    "summary": "Calculate polynomial q-differentials, finite étale arithmetic examples and specializations at q = 1. Compare these calculations with de Rham and p-adic cohomology, distinguishing Hodge completion from the uncompleted theory and accounting for derived-limit and torsion terms."
+  },
+  "HabiroCyclotomicCompletions:HC.6": {
+    "title": "Taylor evaluation and cyclotomic substitution",
+    "summary": "Construct Taylor expansion, evaluation and p-adic substitution maps for cyclotomic completions and their modules. Work out examples over the integers and at a primitive third root of unity, retaining the hypotheses required for completion and change of cyclotomic order."
+  },
+  "HabiroNahmSeries:HB.10": {
+    "title": "Explicit Nahm sums and arithmetic coefficients",
+    "summary": "Study explicit Nahm sums through their algebraic solutions, Bloch and K-theory classes, excluded primes and coefficient modules. Include rank-one product identities and q-difference equations, while treating topological invariance as a separate mathematical question."
+  },
+  "HabiroNumberFields:HB.1": {
+    "title": "Integral Bloch groups and finite Chern classes",
+    "summary": "Compare integral definitions of Bloch groups, keeping track of the torsion differences at two and three. Construct finite Chern classes from K₃ using Bockstein maps, Tate twists and Galois cohomology, with the relevant roots-of-unity and ramification hypotheses."
+  },
+  "HabiroRings:HR.6": {
+    "title": "Habiro rings as degree-zero cohomology",
+    "summary": "Identify relative Habiro rings with degree-zero étale q-Hodge and Habiro cohomology. Compare multiplication, cyclotomic specialization and completion at q = 1, together with scalar and Picard-group constructions for modules indexed by K₃."
+  },
+  "HabiroRings:HR.7": {
+    "title": "Arithmetic and toric Habiro examples",
+    "summary": "Calculate Habiro rings over the integers, finite étale arithmetic rings and toric bases, including the effect of inverting primes. Distinguish evaluation at a root of unity from its full Taylor expansion, and compare q-Witt Frobenius transitions with degree-zero cohomology."
+  },
+  "HeckeStacksAndLocalShtukas:HS4": {
+    "title": "Fusion, duality and Weil actions",
+    "summary": "Establish compatibility of Hecke kernels with permutations, fusion and iterated modifications. Construct creation and annihilation of dual legs through evaluation and coevaluation, and prove compatibility with Weil-group actions."
+  },
+  "HeegnerPointEulerSystems:HE.5": {
+    "title": "Local reciprocity at Kolyvagin primes",
+    "summary": "Prove the finite–singular relations at Kolyvagin primes and compare transverse, self-dual and cartesian local conditions. Construct auxiliary primes by Chebotarev and account for errors arising at the coefficient prime and from Tamagawa factors."
+  },
+  "HeegnerPointEulerSystems:HE.7s": {
+    "title": "Exceptional primes and complex multiplication",
+    "summary": "Study the exceptional-prime and complex-multiplication branches of Heegner-point descent, including Kolyvagin error bounds and real-multiplication methods. The intended all-prime conclusions require separate dyadic and complex-multiplication arguments beyond the generic-prime case."
+  },
+  "HeegnerPointEulerSystems:HE.8c": {
+    "title": "Anticyclotomic nonvanishing hypotheses",
+    "summary": "Study non-torsion of Heegner-point traces in anticyclotomic towers and the more general totally real and complex-multiplication setting. Keep track of conductor, central-character and root-number conditions, distinguishing existence at some conductor from nonvanishing for every character."
+  },
+  "HigherLocalFieldsAndHigherClassFieldTheory:HL.7": {
+    "title": "Higher reciprocity and arithmetic surfaces",
+    "summary": "Apply residue and reciprocity maps to Brauer groups and duality in Galois cohomology. Work out two-dimensional local-field and arithmetic-surface examples, with norm compatibility and the required coefficient restrictions."
+  },
+  "HilbertModularVarietiesAndShimuraCurves:H5": {
+    "title": "Classical modular curves and Hilbert geometry",
+    "summary": "Recover classical modular curves from the degree-one Hilbert modular setting and compare the geometry over real quadratic fields. Study dimensions, rational boundary components, connected components, descent and the constraints on weights imposed by central units."
+  },
+  "IgusaVarietiesAndTorsionConcentration:IG.7": {
+    "title": "Generic Hecke localization and cohomological concentration",
+    "summary": "Study cohomology localized at a Hecke ideal under genericity conditions on the residual Galois representation and Frobenius eigenvalues. Relate the surviving ordinary strata to vanishing below the middle dimension, and compactly supported vanishing above it."
+  },
+  "InverseGaloisAndArithmeticFundamentalGroups:IG.6": {
+    "title": "Explicit Galois realizations and dessins",
+    "summary": "Construct explicit field extensions and covers with prescribed Galois groups, and analyze specialization. Study Belyi pairs and dessins, their Galois action and peripheral inertia, distinguishing fields of moduli from fields of definition."
+  },
+  "K3BlochGroups:V.1": {
+    "title": "K₃ and the homology of the Steinberg group",
+    "summary": "Relate K₃ to the third integral homology of the stable Steinberg group using its superperfectness and the Hurewicz theorem. Develop explicit bar cycles, boundaries and stabilization maps for arithmetic calculations."
+  },
+  "K3BlochGroups:V.3": {
+    "title": "The pre-Bloch group and five-term relations",
+    "summary": "Construct the pre-Bloch group from five-term relations and define the Bloch group as the kernel of its tensor-valued boundary. Compare integral conventions carefully, since antisymmetric tensor quotients and exterior squares differ by torsion."
+  },
+  "KTheoryLowDegrees:U.6": {
+    "title": "K₁, determinants and the plus construction",
+    "summary": "Identify K₁ with the fundamental group of the plus construction and compare determinants and transfer maps. Calculate examples for the integers, finite fields, localizations and products, using explicit matrix identities."
+  },
+  "KTheoryLowDegrees:Z.2": {
+    "title": "Rank functions on the prime spectrum",
+    "summary": "Define the rank of a finite projective module as a locally constant function on the prime spectrum. Derive the field and local-ring cases and explain why disconnected rings require separate ranks on their connected components."
+  },
+  "KTheoryLowDegrees:Z.6": {
+    "title": "K₀, Euler classes and projective bundles",
+    "summary": "Compare the Grothendieck group of projective modules with degree-zero algebraic K-theory. Study Euler classes, localization and Cartan maps, and calculate projective-line and Dedekind-domain examples that distinguish rank from the ideal class."
+  },
+  "LefschetzPencilsAndVanishingCycles:LPV.0": {
+    "title": "Nearby cycles, inertia and vanishing cycles",
+    "summary": "Construct nearby cycles over a henselian trait, with inertia actions and Milnor-fiber stalk descriptions. Define vanishing cycles by the specialization triangle and prove the relevant proper-pushforward and smooth-base-change comparisons."
+  },
+  "LefschetzPencilsAndVanishingCycles:LPV.6": {
+    "title": "Perverse nearby cycles and intermediate extension",
+    "summary": "Establish exactness of nearby and vanishing cycles for the perverse t-structure, with the shifts appropriate to a map to the affine line. Compare intermediate extension, duality and adic realization across the permitted coefficient systems."
+  },
+  "LocalGaloisDeformationRings:R08.5": {
+    "title": "Dyadic and boundary-weight deformation rings",
+    "summary": "Study Galois deformation conditions at the prime two and at weights outside the basic Fontaine–Laffaille range. Include crystalline and Barsotti–Tate conditions, twists and real-place behavior without relying on trace decompositions that fail in characteristic two."
+  },
+  "LocalGaloisDeformationRings:R08.6": {
+    "title": "Dimensions and components of local deformation rings",
+    "summary": "Describe local Galois deformation rings with prescribed conditions through their dimensions, tangent spaces, components and nonemptiness. Include good-dihedral conditions and dyadic weight-two types needed to compare local and global deformations."
+  },
+  "LogicAndDefinabilityInNumberTheory:LD.5": {
+    "title": "Definable counting and local densities",
+    "summary": "Apply definability and transfer principles to arithmetic counting and local densities. Specify the language, parameters and finite sets of exceptional primes needed for uniform statements."
+  },
+  "MetaplecticAutomorphicForms:MP.6": {
+    "title": "Factorization of theta integrals and seesaw identities",
+    "summary": "Factor global theta integrals into local expressions with compatible self-dual measures. Establish spectral projections and seesaw identities in their convergent or regularized settings, keeping these comparisons distinct from a complete global period formula."
+  },
+  "ModularCurvesPartII:R12.6": {
+    "title": "Descent, diamond operators and connected components",
+    "summary": "Study descent of modular curves across levels and compare diamond operators, complex conjugation and rational cusp fields. Relate analytic connected components to their algebraic counterparts."
+  },
+  "ModularCurvesPartII:R13.6": {
+    "title": "Degeneration of modular curves at bad primes",
+    "summary": "Describe dual graphs, component maps and formal parameters at cusps in degenerating modular curves. Compare Hecke and degeneracy maps on bad fibers and their nearby-cycle descriptions."
+  },
+  "ModularCurvesPartII:R14.4": {
+    "title": "Ihara’s lemma and level-change maps",
+    "summary": "Study Ihara’s lemma and the injectivity and torsion properties of maps between modular-curve cohomology at different levels. Track the Hecke actions and local hypotheses required for level change."
+  },
+  "ModularCurvesPartII:R14.6": {
+    "title": "Monodromy, Hecke operators and modular Jacobians",
+    "summary": "Study character groups and monodromy exact sequences with their Hecke actions, including the Eichler–Shimura relation on special fibers. Compare freeness under auxiliary level change and Abel–Jacobi maps normalized at a rational cusp."
+  },
+  "ModularIwasawaMainConjectures:L5": {
+    "title": "Euler factors, coefficient changes and μ-invariants",
+    "summary": "Compare Iwasawa-theoretic statements under changes of coefficients and Euler factors, and study their consequences for μ-invariants. Separate ordinary higher-weight and crystalline nonordinary settings, with conjectural extensions stated under their own hypotheses."
+  },
+  "ModularIwasawaMainConjectures:L6": {
+    "title": "Comparing branches of modular Iwasawa theory",
+    "summary": "Compare Selmer groups, determinant lines and period normalizations in anticyclotomic, Eisenstein and supersingular settings. Identify the additional reciprocity laws and main-conjecture arguments needed in each branch."
+  },
+  "ModularSymbolsPadicLFunctions:L4": {
+    "title": "Weight-two p-adic L-functions and coefficient changes",
+    "summary": "Calculate p-adic L-functions of weight-two forms and their twists in ordinary and supersingular settings. Track refinement choices, Euler factors, scalar extension and the extra restrictions that arise at critical slope."
+  },
+  "ModularityAndLanglandsExtensions:ML.0": {
+    "title": "Automorphic and Galois normalization",
+    "summary": "Compare automorphic representations and Galois representations through their coefficient fields, infinity types, local parameters and conductors. Fix the reciprocity and twisting conventions needed to state local–global compatibility precisely."
+  },
+  "ModularityAndLanglandsExtensions:ML.2": {
+    "title": "Potential automorphy and descent",
+    "summary": "Study automorphy after a specified extension of the base field under regularity, polarization, residual-image and local hypotheses. Treat descent back to the original field as a further theorem with its own conditions."
+  },
+  "ModularityAndLanglandsExtensions:ML.4": {
+    "title": "Classical-group packets and multiplicity formulas",
+    "summary": "Develop the classification of automorphic representations of classical groups through local packets, transfer and global multiplicity formulas. Track the stabilization and fundamental-lemma inputs and distinguish the hypotheses for unitary and symplectic groups."
+  },
+  "K2SymbolsBrauer:T.2:graded-map": {
+    "title": "Milnor and algebraic K-theory products",
+    "summary": "Construct the natural graded map from Milnor K-theory to algebraic K-theory using products. Its degree-two isomorphism is Matsumoto’s theorem; higher degrees require separate comparisons."
+  },
+  "K2SymbolsBrauer:T.3:localization-comparison": {
+    "title": "Tame symbols and the localization boundary",
+    "summary": "Identify the tame symbol of a discrete valuation with the boundary in the algebraic K-theory localization sequence. Develop finite support, higher Milnor residues and transfer formulas with their signs, residue degrees and ramification factors."
+  },
+  "LefschetzPencilsAndVanishingCycles:LPV.7": {
+    "title": "Semistable curves and invariant cycles",
+    "summary": "Compute nearby cycles and monodromy for proper strictly semistable curves from their normalization, nodes and dual graph. Prove invariant-cycle results for the specified smooth-total-space and potentially pure settings, retaining the hypotheses needed for specialization onto inertia invariants."
+  },
+  "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves": {
+    "title": "Nearby cycles of semistable curves",
+    "summary": "For a proper strictly semistable curve over a henselian trait, calculate nearby cycles, the specialization sequence and monodromy from the normalization and dual graph. Compare this description with component groups, Jacobians and Tate modules."
+  },
+  "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles": {
+    "title": "Local and global invariant cycles",
+    "summary": "Prove specialization onto inertia invariants for proper families with smooth total space and smooth generic fiber in the stated equicharacteristic setting. Extend the argument to potentially pure complexes and global invariant cycles under the required arithmetic-model and support hypotheses."
+  },
+  "MotivicEtaleKTheory:M.6a": {
+    "title": "Coniveau filtrations and cycle complexes",
+    "summary": "Construct the support filtration and homotopy-coniveau tower of algebraic K-theory. Use moving and excision to identify its layers with cycle complexes for the specified smooth schemes and compare the resulting global models."
+  },
+  "NeronModelsAndSemistableAbelianVarieties:R11.6": {
+    "title": "Monodromy and reduction of abelian varieties",
+    "summary": "Construct character-group exact sequences and monodromy maps compatible with degeneracy maps. Study semistable and good reduction, and compare equation-level elliptic invariants with their scheme-theoretic definitions."
+  },
+  "NoncommutativeAndEquivariantIwasawa:NE.5": {
+    "title": "Noncommutative zeta elements and interpolation",
+    "summary": "Formulate zeta elements in localized K₁ through their localization boundary and interpolation at Artin representations. Track periods, local factors and exceptional zeros, and compare norm, restriction and abelianization with commutative determinant formulas."
+  },
+  "NoncommutativeAndEquivariantIwasawa:NE.6": {
+    "title": "Noncommutative Iwasawa main theorems",
+    "summary": "Develop the integral logarithms, congruences, abelian pseudomeasures and localization calculations used in noncommutative Iwasawa main theorems. State existence and uniqueness separately, preserving the odd-prime, totally real, admissibility and μ-invariant assumptions of each result."
+  },
+  "NoncommutativeAndEquivariantIwasawa:NE.7": {
+    "title": "Leading terms and equivariant descent",
+    "summary": "Construct leading terms through derived specialization, Bockstein maps and regulators when ordinary evaluations vanish. Prove descent in relative K-theory under the required semisimplicity and finiteness conditions, including exceptional zeros and noncommutative Fitting invariants."
+  },
+  "OrdinaryAutomorphicFormsAndModularityLifting:R21.6": {
+    "title": "Ordinary modularity lifting and classical families",
+    "summary": "State ordinary modularity-lifting results with their finite-level automorphic realizations and precise local hypotheses. Construct the classical ordinary families that connect these lifting results to subsequent p-adic variation."
+  },
+  "OverconvergentAutomorphicForms:O8": {
+    "title": "Siegel and unitary overconvergent coefficients",
+    "summary": "Construct overconvergent coefficient sheaves on Siegel varieties over the established anticanonical domains. Compare scalar and vector-valued algebraic specializations with Hodge bundles, and extend the coefficient construction to unitary domains when their analytic reduction is supplied."
+  },
+  "PELModuli:M5": {
+    "title": "Siegel, Hilbert and unitary moduli problems",
+    "summary": "Construct Siegel moduli in every dimension, Hilbert moduli from trace pairings over totally real fields, and unitary examples with specified signatures. Calculate reflex fields and dimensions and include nonprincipal polarization types."
+  },
+  "PELModuli:M6": {
+    "title": "Arithmetic moduli, level structures and descent",
+    "summary": "Construct moduli stacks at arbitrary level and universal abelian schemes at levels where the moduli problem is rigidified. Compare rational moduli points with families by calculating the descent obstruction, including examples with nonprincipal polarizations."
+  },
+  "PadicDifferentialEquationsAndRigidCohomology:RD.7": {
+    "title": "Rigid, crystalline and étale Frobenius comparisons",
+    "summary": "For smooth proper varieties over finite fields, compare rational rigid and crystalline cohomology compatibly with Frobenius. Combine these comparisons with purity and finite-extension zeta identities to identify the individual Frobenius characteristic polynomials with their étale counterparts."
+  },
+  "PadicHodgeRegulators:D.5": {
+    "title": "Syntomic regulators of curves",
+    "summary": "Construct degree-two syntomic regulators for smooth proper curves under the specified good-reduction hypotheses and compare them with explicit symbol formulas. Prove pullback, pushforward and specialization formulas, separating the additional logarithmic theory required for semistable reduction."
+  },
+  "PadicHodgeTheory:P7:annulus-foundations": {
+    "title": "Robba rings and analytic coefficients",
+    "summary": "Construct bounded, overconvergent and Robba rings from convergent Laurent series on annuli, with their norms, topologies, Frobenius and cyclotomic actions. Prove the restriction, coefficient-extension and completed-tensor comparisons needed for p-adic representations."
+  },
+  "PadicHodgeTheory:R06.4": {
+    "title": "Integral p-adic Hodge theory in small weights",
+    "summary": "Compare integral classifications with their rational period-functor consequences in the Fontaine–Laffaille range. Retain the weight intervals and nilpotence restrictions at boundary weights, and treat the prime two and Breuil–Kisin cases separately."
+  },
+  "PerfectoidShimuraVarieties:S0.general": {
+    "title": "Infinite-level diamonds for general Shimura data",
+    "summary": "Construct the infinite-level diamond as the limit of finite-level canonical models for general Shimura data. Perfectoid representability and Hodge–Tate period maps require further geometric results."
+  },
+  "PerfectoidSpaces:P0": {
+    "title": "Almost rings and almost modules",
+    "summary": "Develop almost mathematics relative to an idempotent ideal satisfying the required flatness conditions. Construct almost-zero modules, almostification, tensor and Hom, and almost finite étale algebras, then compare the resulting categories for the standard perfectoid ideals."
+  },
+  "PeriodsAndSpecialValues:PS.6": {
+    "title": "Birch–Swinnerton-Dyer and Bloch–Kato formulas",
+    "summary": "Identify the terms of motivic determinant lines with Mordell–Weil regulators, torsion, periods, Tamagawa numbers and Tate–Shafarevich groups in the established cases. Distinguish rank and finiteness results from fixed-prime valuations and complete leading-coefficient formulas."
+  },
+  "PeriodsAndSpecialValues:PS.7": {
+    "title": "Rigorous computation of periods and special values",
+    "summary": "Calculate exact algebraic factors and rigorously bounded approximations to period integrals and convergent L-value expressions. Compare normalizations and prove error bounds sufficient for stated inequalities, while retaining higher-rank and general special-value formulas as conjectures where unresolved."
+  },
+  "Polylogarithms:P.6": {
+    "title": "Leopoldt’s conjecture and polylogarithmic identities",
+    "summary": "Formulate Leopoldt’s conjecture as injectivity of the completed global-unit map to local logarithms and prove its equivalence with nonvanishing of the p-adic regulator after removing torsion. Establish explicit five-term, conjugation and differential identities for low-weight polylogarithms."
+  },
+  "PotentialAutomorphyInfrastructure:PA.0": {
+    "title": "Integral cohomology and Hecke actions",
+    "summary": "Compare algebraic local systems and finite-level cohomology complexes with their integral Hecke actions. Prove compatibility with coefficient change, level change and boundary localization, and construct the boundary filtrations and splittings under their stated genericity hypotheses."
+  },
+  "PotentialAutomorphyInfrastructure:PA.5": {
+    "title": "Operations on compatible Galois systems",
+    "summary": "Study restriction, tensor products, duals, character twists and symmetric powers of compatible systems of Galois representations. Track Frobenius polynomials, Hodge–Tate weights, monodromy and lattices, asserting regularity, purity and polarization only under the hypotheses that preserve them."
+  },
+  "PotentialModularityAndCompatibleSystems:R23.6": {
+    "title": "Residual and characteristic-zero potential modularity",
+    "summary": "Distinguish potential modularity of a residual representation from potential modularity of a supplied characteristic-zero lift. State the field extensions and local hypotheses in each case and compare their consequences for modular deformation problems and compatible systems."
+  },
+  "PotentialModularityAndCompatibleSystems:R24.4": {
+    "title": "Modularity lifting in the Khare–Wintenberger range",
+    "summary": "Establish modularity lifting for crystalline and semistable weight-two representations and the specified odd-prime weight intervals. Retain cyclotomic irreducibility at odd primes and the nonsolvable-image and residual-weight restrictions in dyadic cases."
+  },
+  "PrismaticCohomology:PR.5": {
+    "title": "Absolute prismatic cohomology and Cartier–Witt stacks",
+    "summary": "Construct absolute prismatic sites and Cartier–Witt stacks and compare their crystals with relative prismatic cohomology. Develop Frobenius, Nygaard filtrations, Breuil–Kisin twists and syntomic complexes under the required boundedness and completeness assumptions."
+  },
+  "RankZeroOneBSD:BSD.0": {
+    "title": "Elliptic L-functions, analytic rank and twists",
+    "summary": "Construct the analytic continuation and functional equation of an elliptic curve’s Euler product through modularity. Define analytic rank by its finite vanishing order at the central point, prove root-number parity, and compare quadratic twists through every local Euler factor."
+  },
+  "RankZeroOneBSD:BSD.9": {
+    "title": "Explicit rank-zero and rank-one BSD comparisons",
+    "summary": "Distinguish analytic-rank equality, finiteness of the Tate–Shafarevich group and fixed-prime or all-prime leading-term formulas. Work out elliptic-curve examples with rigorously bounded central values or derivatives, tracking height and period normalizations and the arithmetic hypotheses of each conclusion."
+  },
+  "RefinedTraceMethods:RT.4": {
+    "title": "Complex K-theory and q-Hodge comparisons",
+    "summary": "Construct connective and periodic complex K-theory from vector bundles and Bott periodicity. Study their trace-theoretic filtrations and comparisons with q-Hodge and Habiro cohomology under the required spherical-lift and coefficient hypotheses."
+  },
+  "RefinedTraceMethods:RT.4:topological": {
+    "title": "Complex K-theory and Bott periodicity",
+    "summary": "Construct complex topological K-theory from vector bundles and prove Bott periodicity with its multiplicative structure. Identify the homotopy groups of its connective and periodic spectra and prove that inverting the Bott element relates them."
+  },
+  "RefinedTraceMethods:RT.4:q-Hodge": {
+    "title": "Even filtrations and q-Hodge cohomology",
+    "summary": "For a quasisyntomic ring with two invertible and a specified connective spherical E₂-lift, construct a complete multiplicative even filtration with graded q-de Rham and q-Hodge comparisons. Develop genuine finite-cyclic fixed-point constructions and their compatibility with Bott localization."
+  },
+  "RefinedTraceMethods:RT.4:Habiro-comparison": {
+    "title": "Trace-theoretic Habiro cohomology",
+    "summary": "Compare even-graded Habiro cohomology with limits of finite-cyclic and residual-circle fixed-point constructions in periodic complex K-theory. For number fields, retain the specified spherical étale lift and the inversion of primes dividing six and the discriminant."
+  },
+  "RefinedTraceMethods:RT.6": {
+    "title": "Quasisyntomic traces and prismatic filtrations",
+    "summary": "Compute topological Hochschild and cyclic invariants by quasisyntomic descent and construct their complete multiplicative filtrations. Compare the graded pieces with prismatic cohomology, Nygaard filtrations, Breuil–Kisin twists and syntomic complexes, including the trace-theoretic instances used in Habiro cohomology."
+  },
+  "SchemeAndStackFoundations:SF.6": {
+    "title": "Cycle classes and arithmetic cohomology comparisons",
+    "summary": "Construct natural comparisons among crystalline, prismatic, analytic and adic cohomology under their precise geometric and coefficient hypotheses. Compare cycle classes, traces and intersection pairings through these maps."
+  },
+  "SerreWeightAndLevelOptimisation:R20.6": {
+    "title": "Bounded level and weight-two modular forms",
+    "summary": "Derive bounded-level, weight-two and trivial-character modular realizations for the relevant elliptic representations at sufficiently large good primes. Track the optimization hypotheses and the additional dyadic arguments required for the full strong form of Serre’s conjecture."
+  },
+  "ShimuraCompactifications:C2.general": {
+    "title": "Toroidal compactifications for general Shimura data",
+    "summary": "Glue and descend toroidal compactifications using canonical models for general Shimura data. Preserve the rational boundary components, cone data and cusp stabilizers throughout the construction."
+  },
+  "ShimuraCompactifications:C3.general": {
+    "title": "Hecke maps on general toroidal compactifications",
+    "summary": "Extend level-change, cone-refinement and Hecke maps to toroidal compactifications for general Shimura data. Prove compatibility with boundary descriptions without asserting integral models at all primes."
+  },
+  "ShimuraVarieties:V8.general": {
+    "title": "Functoriality of general canonical models",
+    "summary": "Extend level-change and functorial comparison maps to canonical models for general Shimura data. Relate these constructions to the previously established Hodge-type and abelian-type cases."
+  },
+  "SmallRamificationAndAbelianVarietyBaseCases:R25.6": {
+    "title": "Small-prime cases of residual modularity",
+    "summary": "Compare the residual modularity cases distinguished by characteristic, weight, ramification and image. Prove the local calculations for exceptional transitions and retain the coefficient assumptions required in each small-prime case."
+  },
+  "SmoothRepresentationsOfLocalGroups:SR.0": {
+    "title": "The category of smooth representations",
+    "summary": "Construct the abelian category of representations in which every vector has an open stabilizer. Study smooth vectors, compact-open invariants and admissibility, then form the enhanced derived category on this abelian foundation."
+  },
+  "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category": {
+    "title": "Smooth representations and compact-open invariants",
+    "summary": "Construct kernels, cokernels, sums and filtered colimits of smooth representations and the smooth-vector adjunction. Study compact-open invariants and distinguish admissibility from stronger finiteness conditions."
+  },
+  "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension": {
+    "title": "The derived category of smooth representations",
+    "summary": "Construct the enhanced derived category of the abelian category of smooth representations. Relate its objects and derived operations to complexes of representations with open vector stabilizers."
+  },
+  "SmoothRepresentationsOfLocalGroups:SR.3a": {
+    "title": "Uniform admissibility",
+    "summary": "For a fixed compact open subgroup, prove a uniform bound on the dimension of its invariants in irreducible smooth complex representations. Derive the bound from Hecke-algebra decompositions, commutative-subalgebra estimates and Burnside’s theorem."
+  },
+  "SmoothRepresentationsOfLocalGroups:SR.6": {
+    "title": "Integral Hecke finiteness and second adjointness",
+    "summary": "Prove finiteness over a finitely generated center for the specified Hecke algebras over noetherian ℓ-adic coefficient algebras, with ℓ different from the residue characteristic. Establish second adjointness when the residue characteristic is invertible, tracking modulus characters and normalization choices."
+  },
+  "SpecialValuesBirchTate:B.1": {
+    "title": "The Birch–Tate formula",
+    "summary": "For a totally real number field, formulate the value of its Dedekind zeta function at −1 in terms of the order of K₂ of its integers and the invariants of the second Tate twist. Establish the finiteness of these arithmetic terms and retain the degree-dependent sign."
+  },
+  "SpecialValuesBirchTate:B.3": {
+    "title": "Birch–Tate over the rationals and quadratic fields",
+    "summary": "Derive the Birch–Tate formula over the rationals from independent calculations of K₂ of the integers, the second Tate-twist invariants and the zeta value at −1. Study real quadratic examples through tame kernels, cyclotomic computations and Dirichlet L-functions."
+  },
+  "SpecialValuesBirchTate:B.8": {
+    "title": "Higher Lichtenbaum formulas and regulators",
+    "summary": "Formulate higher special-value formulas using algebraic K-groups, regulators and determinant lines. Prove the specified odd-primary consequences for totally real fields, treat real-place and dyadic corrections separately, and include leading terms when complex places force vanishing."
+  },
+  "StableHomotopyKTheory:H.5": {
+    "title": "Spectra, stable homotopy and deloopings",
+    "summary": "Construct spectra, stable homotopy groups, fiber and cofiber sequences and the stable homotopy category. Prove the delooping comparison for the iterated S-construction and construct the products needed for graded algebraic K-theory."
+  },
+  "StableHomotopyKTheory:H.5:spectra": {
+    "title": "Spectra and stable homotopy",
+    "summary": "Construct suspension spectra, loops, shifts and stable homotopy groups indexed by integers. Develop stable equivalences, fiber and cofiber sequences, their long exact sequences and the stable homotopy category."
+  },
+  "StableHomotopyKTheory:H.5:S-delooping": {
+    "title": "The S-construction and K-theory spectra",
+    "summary": "Prove that iterating the S-construction gives a connective spectrum through its delooping theorem. Construct smash products and the induced pairings on homotopy groups, with the coherent multiplicative refinements required for K-theory."
+  },
+  "TorsionCohomologyInfrastructure:TC.4": {
+    "title": "Torsion cohomology and Hecke polynomials",
+    "summary": "Compare the constructions taking finite-level torsion cohomology to Hecke characteristic polynomials after the specified nilpotent quotient. Prove compatibility across coefficient powers and levels, including class-field and modular-curve examples where torsion classes need not lift to characteristic zero."
+  },
+  "TropicalAndBerkovichArithmetic:TB.7": {
+    "title": "Nonarchimedean uniformization and integration",
+    "summary": "Construct Tate uniformization and Schottky quotients for totally degenerate curves, with their period lattices and descent. Compare Coleman primitives, annular residues and global integrals, and relate semistable graph corrections to arithmetic heights."
+  },
+  "VectorBundlesAndIsocrystals:VB0": {
+    "title": "Isocrystals and Dieudonné–Manin slopes",
+    "summary": "Construct isocrystals as finite-dimensional spaces with an invertible Frobenius-semilinear map. Prove the Dieudonné–Manin classification over the stipulated algebraically closed residue base and calculate simple slopes, morphisms and endomorphism division algebras, including their relation to vector-bundle degrees."
+  },
+  "WeightsInEtaleCohomology:R34.6": {
+    "title": "Purity in automorphic Galois representations",
+    "summary": "Apply geometric purity to the eigenspaces realizing modular and automorphic Galois representations. Deduce coefficient-independent Frobenius bounds and compatibility with Hecke projectors, using local monodromy–weight results only in the cases where they are established."
+  },
+  "WeilConjectures:WC.0": {
+    "title": "Finite-field varieties and geometric Frobenius",
+    "summary": "Specify the finite-field varieties, geometric base changes and Frobenius actions underlying zeta functions. Establish finiteness of rational points over finite extensions and keep cohomological degrees and coefficient primes explicit in geometric statements."
+  },
+  "WeilConjectures:WC.1": {
+    "title": "Zeta functions and finite extensions",
+    "summary": "Relate point counts to numbers of closed points by Möbius inversion and derive the Euler product of the zeta function. Prove compatibility with disjoint unions, open–closed decompositions and finite base extension, and descend cohomological rationality to a normalized rational function over the rationals."
+  },
+  "WeilConjectures:WC.6": {
+    "title": "Weights beyond smooth projective varieties",
+    "summary": "Extend purity to smooth proper varieties in the permitted setting and use compactly supported cohomology for general finite-type varieties and mixed sheaves. Compare finite-field crystalline and étale Frobenius characteristic polynomials when the required comparison theorem is available."
+  },
+  "WeilConjectures:WC.7": {
+    "title": "Zeta functions of projective spaces, curves and products",
+    "summary": "Calculate Frobenius factors for projective spaces, finite étale schemes, smooth curves, elliptic curves and products. Relate product varieties through the tensor-product action on cohomology and verify rationality, functional equations and the expected weights in these examples."
+  },
+  "Polylogarithms:P.4": {
+    "title": "Polylogarithmic complexes and Zagier’s conjecture",
+    "summary": "Define rational polylogarithmic complexes using explicit configurations and relations, and construct embedding-wise regulator determinants. Formulate Zagier’s conjecture with its period and discriminant normalization, separating existence of suitable elements, motivic comparison and the special-value identity."
+  },
+  "PerfectoidQuotients:Q0:integral-algebra": {
+    "title": "Integral perfectoid rings and their completions",
+    "summary": "Construct integral perfectoid rings, their A_inf rings and Fontaine’s θ map, and compare them with Tate perfectoid rings. Distinguish ordinary, derived p-adic and pseudouniformizer-adic completion in passages from semiperfectoid quotients to Tate rings."
+  },
+  "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic": {
+    "title": "Division-algebra automorphic forms over function fields",
+    "summary": "Construct automorphic forms for division algebras over global function fields, including compactness modulo center and discrete spectral decomposition. Establish the simple trace comparisons and prescribed local realizations needed in the stated transfer range, with central-character and auxiliary-place hypotheses retained."
+  },
+  "tauceti:Completed/EffectiveBounds#layer-0-the-geometry-of-numbers-engine": {
+    "title": "Lattice packing and doubling bounds",
+    "summary": "Bound the number of lattice points in boxes and polydiscs using separation and packing arguments. Prove quantitative doubling estimates comparing the points in a region with those in its dilation."
+  },
+  "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets": {
+    "title": "Effective discriminant and ideal-count bounds",
+    "summary": "Bound a number-field discriminant using the discriminant of a basis of algebraic integers. Derive explicit upper bounds for the number of nonzero ideals of bounded norm from the Dedekind zeta function, with worked arithmetic examples."
+  },
+  "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-g-grid-homology-the-spine": {
+    "title": "Grid homology of knots and links",
+    "summary": "Construct knot and link homology from grid diagrams, graded states and counts of empty rectangles. Prove invariance under grid moves, relate the Euler characteristic to the Alexander polynomial and develop concordance bounds, symmetries and filtered refinements."
+  },
+  "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-8": {
+    "title": "Grid-homology symmetries and genus bounds",
+    "summary": "Study symmetries of grid homology and prove that nonzero groups in Alexander grading s give the lower bound g(K) ≥ s for the knot genus. Genus detection requires additional holomorphic theory; the combinatorial result here is the bound."
+  },
+  "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-alg-bigraded-and-filtered-homological-algebra": {
+    "title": "Bigraded modules and filtered chain complexes",
+    "summary": "Develop bigraded modules, grading shifts and mapping cones over polynomial rings. Prove the structure theorem for finitely generated bigraded modules over a one-variable polynomial ring and construct filtered chain complexes and filtered chain-homotopy equivalences."
+  },
+  "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-k-knot-theory-reconciliation": {
+    "title": "Grid diagrams and topological knots",
+    "summary": "Relate grid diagrams to knot diagrams, braid closures and embedded knots in the three-sphere. Prove that grid moves generate the equivalence of represented links and compare the grid determinant with the Alexander polynomial."
+  },
+  "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-h-4": {
+    "title": "Integral combinatorial Heegaard Floer homology",
+    "summary": "Use sign assignments to define combinatorial Heegaard Floer homology over the integers. Develop the twisted refinement for three-manifolds with first Betti number zero, distinguishing invariance under diagram moves from identification with smooth three-manifolds."
+  },
+  "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l0--the-local-mapping-engine": {
+    "title": "Local conformal mapping theorems",
+    "summary": "Derive Rouché’s theorem, Hurwitz’s theorem and local mapping-degree properties from contour integration and the argument principle. Establish Morera’s theorem and relate locally uniform limits to the geometry of zeros."
+  },
+  "tauceti:TauCetiRoadmap/Exchangeability#layer-3-l²-averaging-library-and-the-standard-borel-de-finetti-route": {
+    "title": "L² averaging and de Finetti’s theorem",
+    "summary": "Use covariance identities and bounds on block averages to study exchangeable and contractable sequences. Develop the L² averaging proof of de Finetti’s theorem for standard-Borel-valued sequences, identifying their conditional independent and identically distributed structure."
+  },
+  "tauceti:TauCetiRoadmap/Exchangeability#layer-7-public-api-and-examples": {
+    "title": "Equivalent forms of de Finetti’s theorem",
+    "summary": "Compare exchangeability, contractability, mixtures of independent identically distributed sequences and conditional independence. Relate empirical measures to the unique mixing law and characterize the extreme exchangeable laws as independent identically distributed laws in the stated setting."
+  },
+  "tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group": {
+    "title": "Manifolds, boundaries and gluing",
+    "summary": "Construct manifold boundaries, collar and tubular neighborhoods, gluing along boundary faces and connected sums with their choice-independence theorems. Develop piecewise-linear chart structures using locally finite polyhedral subdivisions, while keeping smooth, piecewise-linear and topological structures distinct."
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-m-1": {
+    "title": "Morse trajectories and Morse homology",
+    "summary": "Construct stable and unstable manifolds and achieve Morse–Smale transversality using Sard’s theorem. Prove compactness and gluing for broken trajectories, define the Morse differential, and identify the resulting invariant homology with singular homology."
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f0-the-nonlinear-analysis-substrate": {
+    "title": "Fredholm operators and Sard–Smale transversality",
+    "summary": "Develop Fredholm index theory, stability under compact and small perturbations, and the Fredholm property of strip operators with invertible asymptotics. Prove Sard–Smale transversality and describe regular zero sets of Fredholm sections as manifolds of the expected dimension."
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f1-the-cauchyriemann-elliptic-package-shared-with-the-pde-roadmap": {
+    "title": "Elliptic theory for Cauchy–Riemann operators",
+    "summary": "Develop Sobolev estimates and regularity for Cauchy–Riemann operators on surfaces and strips, including totally real boundary conditions. Prove Fredholm properties and the boundary Riemann–Roch formula, relating the Maslov index to spectral flow."
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-1": {
+    "title": "Sobolev spaces on surfaces and strips",
+    "summary": "Construct Sobolev spaces of maps on surfaces and strips, their trace maps and multiplication estimates. Retain the condition kp > 2 for the stated multiplication results in dimension two."
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-2": {
+    "title": "Cauchy–Riemann estimates and boundary regularity",
+    "summary": "Prove Calderón–Zygmund estimates for the Cauchy–Riemann operator using the Cauchy kernel and derive interior elliptic regularity. Treat totally real boundary conditions through Schwarz reflection in the specified local setting."
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-3": {
+    "title": "Fredholm index, Maslov index and Riemann–Roch",
+    "summary": "Study linear Cauchy–Riemann operators on disks and strips as Fredholm maps between Sobolev spaces. Prove Riemann–Roch with boundary and relate the index to Maslov indices and spectral flow."
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-1": {
+    "title": "Symplectic structures and pseudoholomorphic maps",
+    "summary": "Define symplectic manifolds, tame and compatible almost complex structures, pseudoholomorphic maps and their energy. Establish the local symplectic geometry supplied by Darboux’s and Moser’s theorems."
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f4-heegaard-floer-homology-holomorphically": {
+    "title": "Holomorphic Heegaard Floer homology",
+    "summary": "Construct Heegaard Floer homology by counting holomorphic disks in symmetric products of Heegaard surfaces. Develop Spinᶜ structures, Maslov indices and admissibility bounds, prove invariance over the field with two elements, and extend toward integral coefficients and cobordism maps."
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-3": {
+    "title": "Almost complex structures and disk transversality",
+    "summary": "Choose nearly symmetric almost complex structures suitable for Heegaard Floer theory and prove transversality of the relevant holomorphic disks. Use admissibility to obtain the energy bounds needed when monotonicity is unavailable."
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-5": {
+    "title": "Floer variants, cobordisms and surgery triangles",
+    "summary": "Extend Heegaard Floer theory to integral coefficients through orientation systems and construct its plus, minus and infinity variants. Develop holomorphic triangle counts, cobordism maps, surgery exact triangles, correction terms and naturality."
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f5-beyond-far-horizon-named-so-nobody-mistakes-the-scope": {
+    "title": "Cylindrical, bordered and knot Floer homology",
+    "summary": "Develop the cylindrical reformulation of Heegaard Floer theory using varying source curves and the appropriate symplectic-field-theory compactness. Extend toward bordered Floer homology and knot Floer homology from doubly pointed diagrams, enabling comparison with grid homology."
+  },
+  "tauceti:TauCetiRoadmap/OptimalTransport#layer-16-public-api-extraction-and-end-to-end-examples": {
+    "title": "Exact finite optimal-transport examples",
+    "summary": "Work out finite, Dirac and product examples across optimal transport and Wasserstein geometry. Compare exact mathematical solutions with numerical approximations whose residuals and error bounds are certified, retaining the hypotheses of the relevant transport and duality theorems."
+  },
+  "tauceti:TauCetiRoadmap/OrthogonalL2Bases#a1--hermite-polynomial-api": {
+    "title": "Hermite polynomials and Gaussian orthogonality",
+    "summary": "Prove differentiation, integration-by-parts and generating-function identities for the probabilists’ Hermite polynomials. Establish their Gaussian orthogonality with the exact factorial normalization, in both Lebesgue-density and Gaussian-probability forms."
+  },
+  "tauceti:TauCetiRoadmap/OrthogonalL2Bases#part-b--the-family-agnostic-spine-the-reusable-layer": {
+    "title": "Moment determinacy and orthogonal L² bases",
+    "summary": "Derive completeness of weighted polynomial systems from moment determinacy under exponential-integrability hypotheses. Construct normalized Hilbert bases, compare weighted measures through multiplication by the square root of the weight, and prove completeness of product bases for σ-finite measures."
+  },
+  "tauceti:TauCetiRoadmap/OrthogonalL2Bases#b1--completeness-toolkit-moment-determinacy": {
+    "title": "Moment determinacy and completeness",
+    "summary": "Prove that an integrable function with sufficient exponential integrability and vanishing polynomial moments is zero almost everywhere, using analyticity and uniqueness of its Fourier transform. Apply this result to completeness of weighted polynomial systems in L², including Gaussian and compactly supported cases."
+  },
+  "tauceti:TauCetiRoadmap/OrthogonalL2Bases#part-d--the-multidimensional-hermite-basis-a-later-milestone-of-this-roadmap-consumes-b3": {
+    "title": "Multidimensional Hermite bases",
+    "summary": "Construct multidimensional Hermite bases as products of one-dimensional bases, indexed by multi-indices. Prove completeness for both Lebesgue and Gaussian L² spaces and compare their normalizations through weighting and coordinatewise dilation."
+  },
+  "tauceti:TauCetiRoadmap/PDE#lane-a-function-spaces-on-a-domain-the-universal-prerequisite": {
+    "title": "Sobolev and Hölder spaces on domains",
+    "summary": "Construct Sobolev spaces from weak derivatives and compare them with the Bessel-potential scale where they agree. Develop density, embeddings, Poincaré inequalities, traces, extension operators and compactness, together with Hölder spaces for elliptic regularity."
+  },
+  "tauceti:TauCetiRoadmap/PDE#milestone-a-3": {
+    "title": "Sobolev and Bessel-potential spaces",
+    "summary": "Prove agreement between integer-order weak-derivative Sobolev spaces and Bessel-potential spaces on Euclidean space. Include the Hilbert-space case and the integer-order comparison for 1 < p < ∞."
+  },
+  "tauceti:TauCetiRoadmap/PDE#milestone-b-9": {
+    "title": "Real and complex interpolation",
+    "summary": "Prove the Marcinkiewicz interpolation theorem, deriving strong-type bounds from weak-type estimates. Establish the Riesz–Thorin theorem through complex interpolation of operator norms."
+  },
+  "tauceti:TauCetiRoadmap/PDE#milestone-b-10": {
+    "title": "Calderón–Zygmund operators and Fourier multipliers",
+    "summary": "Construct the Calderón–Zygmund decomposition and prove singular-integral bounds on Lᵖ for 1 < p < ∞, with weak type (1,1) and the L∞-to-BMO endpoint. Develop the Mihlin–Hörmander multiplier theorem under its differentiability hypotheses."
+  },
+  "tauceti:TauCetiRoadmap/PDE#lane-c-maximum-principles-and-potential-theory": {
+    "title": "Maximum principles and potential theory",
+    "summary": "Develop mean-value properties, maximum principles, Hopf’s lemma and Harnack inequalities for harmonic and elliptic equations. Construct fundamental solutions, Green functions and Poisson kernels, and solve Dirichlet problems by Perron’s method with barriers ensuring boundary attainment."
+  },
+  "tauceti:TauCetiRoadmap/PDE#lane-d-linear-elliptic-existence-the-energy-method": {
+    "title": "Weak elliptic solutions and the energy method",
+    "summary": "Formulate elliptic boundary-value problems through bounded energy forms and Gårding’s inequality. Use coercivity for existence and uniqueness, compactness for the Fredholm alternative, and a compact self-adjoint inverse to construct the Dirichlet Laplacian’s eigenfunction basis."
+  },
+  "tauceti:TauCetiRoadmap/PDE#lane-f-parabolic-and-evolution-equations": {
+    "title": "Parabolic equations and heat semigroups",
+    "summary": "Develop time-dependent Sobolev and Bochner spaces in a Gelfand triple. Prove existence and uniqueness for linear parabolic equations by Galerkin approximation and energy estimates, and construct heat semigroups, their generators and smoothing estimates."
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine": {
+    "title": "Finite-dimensional representations of sl₂",
+    "summary": "Construct highest-weight modules for sl₂ using raising and lowering operators. Classify finite-dimensional irreducible representations and prove complete reducibility, then deduce integral weights and diagonalizability of the Cartan operator in characteristic zero."
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-0-the-jacobson-radical-and-the-semisimplicity-criterion-supporting-api-optional": {
+    "title": "The Jacobson radical and semisimplicity",
+    "summary": "Study the Jacobson radical of a finite-dimensional algebra, its nilpotence and the semisimplicity of the quotient. Prove the radical criterion for semisimplicity and compare radicals and semiprimary structures under passage to the opposite ring."
+  },
+  "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti": {
+    "title": "Universal covers and deck transformations",
+    "summary": "Construct the universal cover of a path-connected, locally path-connected and semilocally simply connected space from based paths modulo endpoint-preserving homotopy. Prove the covering and lifting properties and develop the fundamental-group action and deck-transformation group."
+  },
+  "tauceti:TauCetiRoadmap/UniversalCovers#stage-4-applications": {
+    "title": "Homotopy groups from universal covers",
+    "summary": "Use universal covers and deck transformations to calculate the fundamental group of the circle and the vanishing of its higher homotopy groups. Extend these methods to tori, real projective spaces and Eilenberg–Mac Lane spaces."
+  },
+  "BunGAndNewtonStrata:BG2": {
+    "summary": "The stack Bun_G parametrizes G-bundles on the relative Fargues–Fontaine curve. Its construction combines v-descent and uniformization by Hecke modifications with the classification of geometric points by B(G); the Kottwitz invariant is locally constant and Newton slopes are semicontinuous. For ℓ ≠ p, the stack is an ℓ-cohomologically smooth Artin v-stack of dimension zero."
+  },
+  "ClassicalArithmeticCompletion:CA.0": {
+    "summary": "Divisibility, Euclidean algorithms and unique prime factorization lead to congruences, valuations and the Chinese remainder theorem. Arithmetic functions are organized by Dirichlet convolution and Möbius inversion, with applications to divisor sums. The Chinese remainder theorem for noncoprime moduli retains its compatibility condition."
+  },
+  "ExcursionOperatorsAndSpectralAction:ES1": {
+    "summary": "Excursion operators connect functions on the stack of Langlands parameters with the center of the category of lisse sheaves and with Bernstein centers. Compact objects have a common finite wild-ramification cutoff; general noncompact objects need not. The stronger invariant-coordinate map requires the order of the component group of Z(G) to be invertible in the coefficient ring."
+  },
+  "ExcursionOperatorsAndSpectralAction:ES6": {
+    "title": "Functoriality and duality of local Langlands parameters",
+    "summary": "Study how semisimple local Langlands parameters behave under isogenies, products, Weil restriction, character twists and central characters. For tori, the construction agrees with local class field theory with a fixed Frobenius normalization. Duality introduces the Chevalley involution, and pullbacks or exterior products are treated through their appropriate irreducible constituents."
+  },
+  "ExcursionOperatorsAndSpectralAction:ES7": {
+    "summary": "Compare the geometric assignment of semisimple parameters with parabolic induction and with the classical local Langlands correspondence for GL_n. The parabolic comparison tracks the Levi cocycle, modulus character and Tate twists; characteristic-zero agreement over p-adic fields follows from cohomological realizations and trace comparisons. Semisimple parameters alone do not recover the monodromy operator of a Weil–Deligne representation."
+  },
+  "FiniteFieldsAndCharacterSums:FF.3": {
+    "summary": "Polynomial factorization over finite fields, irreducibility witnesses and Hensel lifting lead to certified algorithms for counting rational points. Complexity bounds distinguish bit operations from the use of randomness, and point counts are compared with cohomological trace formulas and proven error bounds."
+  },
+  "GeometricSatakeAndFusion:GS0": {
+    "summary": "Beilinson–Drinfeld Grassmannians classify modifications of G-bundles at varying divisors. Loop-group quotients, Beauville–Laszlo gluing and dominant cocharacters describe their Schubert cells, closures and dimensions. The geometry includes cohomological smoothness of open cells and projectivity of bounded Witt-vector Grassmannians, with integral models used under their required splitting hypotheses."
+  },
+  "GeometricSatakeAndFusion:GS3": {
+    "summary": "When modification points are disjoint, the Grassmannian factors into a product; allowing the points to collide produces fusion. Universally locally acyclic sheaves give the collision maps and their compatibility under repeated collisions. These constructions provide associativity, symmetry, units and finite-set functoriality, with signs and half-Tate twists fixed so that the cohomology functor is symmetric monoidal."
+  },
+  "GeometricSatakeAndFusion:GS4": {
+    "summary": "Reconstruct the Langlands dual group from the tensor category of Satake sheaves and its total-cohomology fibre functor. Weight functors and rank-one calculations identify the torus, root datum and integral group scheme, while descent supplies the Weil action. The equivalence is compared with Levi restriction, Verdier duality and the classical spherical Hecke algebra; rational semisimplicity is kept distinct from the integral theorem."
+  },
+  "GeometryOfNumbersAndQuadraticArithmetic:GN.1": {
+    "summary": "Blichfeldt's theorem and Minkowski's first and second theorems relate the volume of a convex body to lattice points and successive minima. Their inequalities yield applications to ideal classes and units in number fields. Measurability, symmetry, lattice rank and boundary conventions remain explicit."
+  },
+  "LanglandsParameterStacks:LP2": {
+    "summary": "Construct the excursion algebra from invariant functions on finite free-group cocycle spaces. Over an algebraically closed field of characteristic different from p, its characters determine conjugacy classes of continuous semisimple Langlands parameters with finite wild ramification. Comparing this algebra with the invariant-coordinate algebra of the parameter stack requires additional hypotheses for integral coefficients."
+  },
+  "LogicAndDefinabilityInNumberTheory:LD.0": {
+    "summary": "First-order languages for rings and valued fields provide structures, formulas, definable sets and interpretations in arithmetic fields. Ultraproducts and Łoś's theorem transfer statements between structures. Nonstandard arithmetic is formulated using explicit elementary extensions, with parameters and quantifier domains specified."
+  },
+  "PadicHodgeTheory:P7": {
+    "title": "Robba rings and crystalline representation comparisons",
+    "summary": "Construct bounded, overconvergent and Robba rings from convergent Laurent series on annuli, with their topologies, Frobenius and cyclotomic Γ-actions. Compare the resulting period constructions with étale (φ,Γ)-modules and Galois representations. For crystalline representations in the relevant weight and base-field range, relate Wach modules to filtered crystalline periods and integral lattices."
+  },
+  "PerfectoidQuotients:Q0": {
+    "summary": "Integral perfectoid rings are related to Tate perfectoid rings through integral subrings and the A_inf and θ constructions. Perfect prisms provide an equivalent algebraic description involving δ-rings and Frobenius. Derived completion and simplicial commutative algebra are used with their flatness, regularity and torsion hypotheses."
+  },
+  "QSeriesPartitionsAndMockModularForms:QM.1": {
+    "summary": "Theta functions, the Dedekind eta function and Jacobi forms combine transformation laws with Fourier expansions. Their weights, indices and multiplier systems connect integral and half-integral weight modular forms. Branch choices and cusp behavior are checked against the chosen metaplectic normalization."
+  },
+  "QSeriesPartitionsAndMockModularForms:QM.3": {
+    "summary": "Harmonic Maass forms are studied through the weight Laplacian, growth conditions and the holomorphic and nonholomorphic parts of their Fourier expansions. The ξ-operator relates these forms to their shadows. Poincaré series, pairings and exact sequences describe its kernel and image in the specified weight and growth spaces."
+  },
+  "RelativeFarguesFontaine:RF2": {
+    "summary": "Untilts determine Cartier divisors on relative Fargues–Fontaine spaces. Completion along a divisor produces local de Rham period rings and their filtrations, with residue fields identified at geometric untilts. Effective divisors, symmetric powers and Frobenius descent organize several modification points, including coincident points and the integral special fibre."
+  },
+  "RelativeFarguesFontaine:RF4": {
+    "summary": "Beauville–Laszlo gluing reconstructs a vector bundle from its restriction away from a Cartier divisor, its formal completion and an identification on the punctured neighbourhood. The gluing equivalence respects tensor products, duals and base change. Tannakian descriptions extend this construction to G-torsors and their modifications."
+  },
+  "ShimuraData:D0": {
+    "summary": "Weil restriction expresses the points of a group over a finite separable extension as the points of a group over the base field. Compare this construction on local and adelic topological points, including products and base change. Applications include the Deligne torus, Hilbert modular groups and morphisms of Shimura data."
+  },
+  "VectorBundlesAndIsocrystals:VB2": {
+    "summary": "Positive twists give global generation and vanishing of higher cohomology, allowing comparison of bundles on analytic and schematic Fargues–Fontaine curves. At a geometric point, every vector bundle decomposes into stable bundles O(λ) indexed by rational slopes. Their ranks, degrees, Hom and Ext groups support the classification and Harder–Narasimhan filtrations; the isocrystal comparison here is a bijection on isomorphism classes."
+  },
+  "VectorBundlesAndIsocrystals:VB3": {
+    "title": "Banach–Colmez spaces and spaces of sections",
+    "summary": "Banach–Colmez spaces describe sections and cohomology of vector bundles on the Fargues–Fontaine curve. Positive line bundles and Lubin–Tate universal covers supply basic examples, while slope conditions control dimensions and cohomological smoothness. Projectivized section spaces and their properness are used to construct nowhere-zero sections in families."
+  },
+  "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-10": {
+    "title": "The slice-genus bound",
+    "summary": "Prove that the absolute value of the grid-homology invariant τ is bounded by the slice genus of a knot. Construct saddle, birth and death maps and use normal forms of knot cobordisms to establish the bound."
+  },
+  "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-h-1": {
+    "title": "Pointed Heegaard diagrams and admissibility",
+    "summary": "Describe pointed and multipointed Heegaard diagrams through their surface genus, attaching curves and basepoints. Construct generators, domains and periodic domains and define weak and strong admissibility in this combinatorial setting."
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-5": {
+    "title": "Gluing pseudoholomorphic curves",
+    "summary": "Construct gluing maps using pregluing, uniformly bounded right inverses, quadratic estimates and Newton iteration. Prove that the resulting families cover neighborhoods of broken configurations, completing the local description of compactified moduli spaces."
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-1": {
+    "title": "Symmetric products of Heegaard surfaces",
+    "summary": "Construct the smooth complex geometry of a Heegaard surface’s symmetric product and its totally real attaching tori. Study the second homotopy group in genus greater than two and the basepoint divisor, including positivity of its intersection with holomorphic disks."
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-4": {
+    "title": "The hat Floer complex and invariance",
+    "summary": "Define the hat Heegaard Floer differential over the field with two elements and prove that its square vanishes. Establish independence of the almost complex structure and invariance under isotopy, handleslides and stabilization using continuation maps and the specified torus-isotopy comparison."
+  }
+}
