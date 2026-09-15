@@ -89,7 +89,9 @@
         "ComplexComparisonPartII",
         "ComplexMultiplicationAndExplicitReciprocity"
       ],
-      "state": "available"
+      "state": "assigned_internal",
+      "assignedOn": "2026-09-15",
+      "note": "Claimed on 15 September 2026; queued to run unattended in tmux under the local account \"claude3\" after EXT-01. Do not hand this job to another agent; packets land in research/expansion/external/EXT-06/."
     },
     {
       "id": "EXT-07",
@@ -118,7 +120,9 @@
         "ExponentialSumsAndCircleMethod",
         "FiniteFieldsAndCharacterSums"
       ],
-      "state": "available"
+      "state": "assigned_internal",
+      "assignedOn": "2026-09-15",
+      "note": "Claimed on 15 September 2026; queued to run unattended in tmux under the local account \"claude\" after EXT-15. Do not hand this job to another agent; packets land in research/expansion/external/EXT-08/."
     },
     {
       "id": "EXT-09",
@@ -148,7 +152,9 @@
         "CompletedCohomologyPartII",
         "EllipticCurveModularity"
       ],
-      "state": "available"
+      "state": "assigned_internal",
+      "assignedOn": "2026-09-15",
+      "note": "Claimed on 15 September 2026; queued to run unattended in tmux under the local account \"claude6\" after EXT-05. Do not hand this job to another agent; packets land in research/expansion/external/EXT-10/."
     },
     {
       "id": "EXT-11",
