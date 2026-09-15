@@ -1,12 +1,15 @@
 # EXT-02 handoff — Geometry and cohomology (internal claim, 2026-09-15)
 
-Status: IN PROGRESS. Updated as packets are written. All packets are `status: partial`.
+Status: SESSION COMPLETE (2026-09-15). Seven packets written, all `status: partial`. Nothing committed.
 
 ## Files written (all validated: json.load, node parents / link endpoints / coverage ids checked against data/atlas.json, link graphs acyclic, every stage of each roadmap has a coverage record)
 - `AdicSpacesPartII.json` — 24 nodes, 14 links, 8 coverage records (R0-R5 partial; F0, F1 not_read), 9 gaps.
 - `ClassicalAdicEtaleCohomology.json` — 18 nodes, 19 links, 10 coverage records (H0, H1, H1:henselian, H1:formal-adic-comparison, H5 partial; H1:valuation-nearby-cycles, H1:valuation-exports, H2, H3, H4 not_read), 6 gaps. Deepest stage: H1:formal-adic-comparison (Huber §3.5 complete with the §3.6 proofs).
 - `AdicEtaleGeometry.json` — 10 nodes, 16 links, 5 coverage records (A0-A4 all partial), 5 gaps. A1 carries the pro-étale site with the erratum's corrected covering convention; A3 records ECD 6.4(iv) as a sketch with its FS/KL16 imports; A4 carries ECD 15.1-15.6.
 - `AdicCoefficientsAndComparisons.json` — 14 nodes, 20 links, 7 coverage records (L0-L6 all partial), 6 gaps. ECD §§26-27 read completely; de Jong 4.1/5.8/6.5 statements and reduction strategies read.
+- `DeligneWeightsAndPurity.json` — 9 nodes, 9 links, 11 coverage records (DWP.2, DWP.7 partial; the other nine not_read), 4 gaps. Weil I §3 complete with its auxiliary inputs; Weil II §3.3 complete with the statements of its imports 3.2.3, 1.8.4, 1.8.8 and the §1.2 definitions.
+- `LefschetzPencilsAndVanishingCycles.json` — 9 nodes, 12 links, 10 coverage records (LPV.0, LPV.2 partial; others not_read), 4 gaps. SGA 7 XIII §§0.2, 1.1-1.4, 2.1 complete; XV §3.1-3.3 (statements, proof through step (B)).
+- `EtaleDualityAndPerverseSheaves.json` — 2 nodes, 7 links, 13 coverage records (EDC.2, EDC.6 partial; others not_read), 2 gaps. Thin: only cross-links to the comparison theorems read elsewhere plus Weil I (2.12).
 
 ## Sources read (with exact scope)
 - Huber 1996, in addition to the Chapter 1-2 passages below: §2.4 (2.4.1-2.4.7), §2.6 (2.6.1-2.6.2), §3.1 complete, §3.2 complete (proofs of 3.2.4 read; 3.2.5 delegated to [Hu3]), §3.3 (3.3.1-3.3.3 statement), §3.4 (3.4.2-3.4.3 statements and the derivation of 3.2.12), §3.5 complete, §3.6 complete (proof of 3.6.1 and of 3.5.8-3.5.10), §3.7 complete, §3.8 complete, §3.9 statement and outline, §6.1 Proposition 6.1.1 statement.
@@ -14,6 +17,9 @@ Status: IN PROGRESS. Updated as packets are written. All packets are `status: pa
 - Scholze, Étale cohomology of diamonds (14 April 2026 manuscript): §5 (5.7-5.11), §6 complete, §15 complete, §26 complete, §27 complete; statements of 14.6, 14.12, 16.1, 16.3, 17.6, 19.5, 24.4.
 - de Jong, Smoothness, semi-stability and alterations: 2.12, 2.16, 4.1-4.11, 5.8-5.10, 6.1-6.9.
 - Bhatt-Scholze, The pro-étale topology for schemes: 3.4.1, 3.4.2, 3.4.4, 3.4.12, 3.5 setup, 3.5.1, 3.5.7 with proof.
+- Deligne, Weil I (numdam OCR): (1.5.1)-(1.5.4), (1.6)-(1.7) opening, (1.13)-(1.15), (2.10)-(2.14), §3 complete (3.1-3.9 with proofs).
+- Deligne, Weil II (numdam OCR): (1.2.1)-(1.2.6), (1.7.4)-(1.7.5) opening, (1.8.4) statement and proof opening, (1.8.8)-(1.8.9) statements, (3.2.3) statement, §3.3 complete (3.3.1-3.3.11 with proofs).
+- SGA 7 II (IAS scan, poor OCR): Exposé XIII introduction, 0.2, 1.1-1.4, 2.1.1-2.1.8; Exposé XV table of contents, 3.1.1-3.1.2, 3.2.1-3.2.3, 3.3.1-3.3.6 and proof steps (A)-(B).
 - Huber, *Étale Cohomology of Rigid Analytic Varieties and Adic Spaces* (Vieweg 1996; library OCR copy, sha256 8e470878…): §1.1 (1.1.11); §1.2 (1.2.1-1.2.7 with the proof of 1.2.2); §1.3 (1.3.1-1.3.19 with proofs of 1.3.4, 1.3.6-1.3.8, 1.3.12-1.3.16); §1.4 (1.4.1-1.4.9 with proofs); §1.5 (1.5.1-1.5.10 with proofs); §1.6 (1.6.1-1.6.10); §1.7 (1.7.1-1.7.11 with proofs); §1.9 (1.9.1-1.9.6); Chapter 2 introduction and §2.1 (2.1.1-2.1.4 with proofs), §2.2 (2.2.1-2.2.2, proof of case (a)); §3.5 opening paragraph and the statement of Lemma 3.5.1; bibliography.
 - Conrad, *Modular curves and rigid-analytic spaces* (author manuscript, sha256 ab6daecb…): §1.2 GAGA remarks; §3.1 (3.1.1-3.1.5 with proof, 3.1.6 statement and first proof paragraph); §4.1 proof of Theorem 4.1.1 (the fpqc reduction and local |a_Γ| description); Appendix A.1 (A.1.1-A.1.5 with proofs); B.3.3-B.3.4.
 - Kedlaya-Liu, *Relative p-adic Hodge theory: foundations* (arXiv 1301.0792, sha256 a6a11742…): §2.4 (2.4.23-2.4.24), §2.5 (2.5.1-2.5.5, 2.5.20-2.5.21), §2.7 (2.7.1-2.7.9), §2.8 (2.8.10-2.8.12).
@@ -52,8 +58,16 @@ Answer after reading AdicSpacesPartII R0-R2 sources: **no existing stage's scope
 11. **AdicCoefficientsAndComparisons:L6**: ECD 27.7's proof passes through 27.6 and therefore inherits the prime-to-p, finite-coefficient hypothesis; 27.6-27.7 defer four computations (purity/Kummer on normal-crossing strata, dimension induction, Spec K -> Spec O, descent from alterations) that no read source writes out.
 12. **AdicCoefficientsAndComparisons:L0**: ECD 26.2 uses Bhatt-Scholze 3.5.7 with noetherianity replaced by the regular-sequence hypothesis; BS15's text as read only states the unbounded extension for regular m (3.5.7(5)); Lemma 3.5.5 unread.
 
+13. **DeligneWeightsAndPurity:DWP.2**: in Weil I the half-unit error appears in Corollaries 3.8-3.9 (|α| ≤ q^{β/2+1} for H^1_c; q^{β/2} ≤ |α| ≤ q^{β/2+1} for H^1(P^1, j_*F), exponents reconstructed from OCR fragments), not in Theorem 3.2, where the limit k → ∞ already gives exact weight β; the stage text's placement is consistent but the exact exponents must be checked on page images. Weyl's symplectic invariant theory and the trace formula (1.12.1, delegated to SGA 5) and Poincaré duality (2.12, delegated to SGA 4 XVIII 3.2.5) are unproved imports in Weil I.
+14. **DeligneWeightsAndPurity:DWP.7**: Weil II 3.3.1 is stated over any base of finite type over Z (not only over F_q); its curve step imports 3.2.3 and 1.8.4/1.8.8 'pour tout ι' and two unreferenced curve facts (existence of a tame finite cover after purely inseparable base extension; F a direct summand of u_*u^*F). 3.3.10 confirms that the ι-mixed variant yields weights modulo Z only.
+15. **LefschetzPencilsAndVanishingCycles:LPV.2**: SGA 7 XV proves the odd-dimensional Picard-Lefschetz formula by reduction to the transcendental case XIV 3.2.11 (with an explicit caveat that a compatibility of XIV 2.1 with cup products and traces 'would have to be verified'); the stage's demand for an all-characteristic algebraic proof is not met by the source as written; the mixed-characteristic step (C) via Spec Z[T] was not read. The even case uses the Kummer/quadratic character ε_x = ε^{v(b)} (residue characteristic ≠ 2) or the Clifford-centre extension (3.2.2).
+16. **LefschetzPencilsAndVanishingCycles:LPV.0**: Deligne's R^iΨ(K) are called 'faisceaux de cycles évanescents' although they are the nearby-cycle sheaves; RΦ = Φ(RΨ) is the cone. The specialization sequence 2.1.8.9 requires f proper (or regularity at infinity).
+
 ## Next actions
-- DeligneWeightsAndPurity: DWP.2 from Weil I §3 (in progress); DWP.7 from Weil II §3.3.
-- LefschetzPencilsAndVanishingCycles: LPV.0 from SGA 7 II XIII §§1-2; LPV.2 from XV.
-- EtaleDualityAndPerverseSheaves: SGA 4½ [Dualité], [Cycle]; BBD needs OCR (library PDF is image-only; tesseract is available).
-- ClassicalAdicEtaleCohomology: H1:valuation-nearby-cycles from Huber §4.2 (pp. 240-253).
+- ClassicalAdicEtaleCohomology: H1:valuation-nearby-cycles from Huber §4.2 (pp. 240-253); verify the OCR-lost displays of §3.5 on page images.
+- AdicSpacesPartII:R2 / PadicFamilies: acquire Bosch-Lütkebohmert I/II and decompose A.1.2's imports under the node `AdicSpacesPartII:R2/fibral-finiteness-criterion`.
+- AdicEtaleGeometry:A3: read FS IV.4.13-IV.4.19 and KL16 pseudocoherent modules.
+- DeligneWeightsAndPurity: DWP.5-DWP.6 from Weil II §§1.6-1.8, 3.2 (inputs of 3.3.1); Weyl invariant theory for DWP.2.
+- LefschetzPencilsAndVanishingCycles: XV §2 (local computation) and the rest of the proof of 3.3.5-3.3.6; XIII 2.2-2.4.
+- EtaleDualityAndPerverseSheaves: OCR BBD (tesseract available); SGA 4 XVIII / SGA 4½ [Dualité], [Cycle].
+- All packets: the numdam/IAS OCR copies garble displays; page-image verification is required before promotion of any node whose excerpt is marked 'OCR cleaned' or 'reconstructed'.

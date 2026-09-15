@@ -1,0 +1,592 @@
+{
+  "roadmapId": "LefschetzPencilsAndVanishingCycles",
+  "status": "partial",
+  "summary": "Source-based expansion of LPV.0 from SGA 7 II Exposé XIII (Deligne, Le formalisme des cycles évanescents): the henselian-trait conventions 0.2, Galois sheaves 1.1, the fibre-product topos Y ×_s S with its galoisian description 1.2, the left exact functor Ψ 1.3 with its functorialities, the variation 1.4, and the derived functor RΨ of 2.1 with the vanishing triangle 2.1.2.4, the stalk formula 2.1.4, local acyclicity 2.1.5, the derived functorialities 2.1.6-2.1.7 (proper and smooth base change) and the specialization sequence and diagrams 2.1.8; and of LPV.2 from Exposé XV (La formule de Picard-Lefschetz) §3: the setting 3.1.1, Proposition 3.1.2 (concentration and rank of R^nΨ at an ordinary quadratic point), the even-dimensional variation 3.2.1-3.2.3, the odd-dimensional setup 3.3.1-3.3.4 (the character c_b, the local model Q − b = 0, the vanishing cycle ±δ from the primitive quotient of the quadric), and the statements of Propositions 3.3.5-3.3.6 with the transcendental reduction (A)-(B) of their proof. The remaining stages were not read.",
+  "sources": [
+    {
+      "id": "SGA7II-1973",
+      "title": "Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340",
+      "authors": "Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne",
+      "edition": "Springer 1973; IAS author-archive scan with OCR (the OCR is poor: symbols ~, @, 4 replace accents and Greek letters; statements were reconstructed from the surrounding French text and the numbered cross-references)",
+      "url": "https://publications.ias.edu/sites/default/files/Number12.pdf",
+      "sha256": "fa679debfc8ada3232d7e752a1837fc6ce474488e20a44d7641cf296876e1297",
+      "readSections": [
+        "Exposé XIII: Introduction (transcendental picture, Construction 0.1), 0.2 conventions, §1.1 (1.1.1-1.1.3), §1.2 (1.2.1-1.2.9), §1.3 (1.3.1-1.3.10), §1.4 (1.4.1-1.4.3), §2.1 (2.1.1-2.1.8); §2.2-2.4 not read",
+        "Exposé XV: table of contents; §3.1 (3.1.1-3.1.2 with proof sketch), §3.2 (3.2.1-3.2.3), §3.3 (3.3.1-3.3.4, statements of 3.3.5-3.3.6 and steps (A)-(B) of the proof); §§1-2 and the rest of the proof of 3.3.5-3.3.6 not read"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "LefschetzPencilsAndVanishingCycles:LPV.0/henselian-trait-conventions-and-galois-sheaves",
+      "parentStageId": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "title": "Conventions on henselian traits and geometric points (XIII 0.2) and Galois sheaves on schemes over a field (XIII 1.1)",
+      "kind": "definition",
+      "statement": "0.2: a trait is the spectrum of a discrete valuation ring; henselian/strictly henselian as usual; for S = Spec V a henselian trait, s is the closed point, η the generic point, η̄ a geometric generic point (localized at η) and s̄ the corresponding geometric closed point (I 0.0.3); S̄ is the spectrum of the normalization of V in k(η̄), with residue field an inseparable extension of k(s̄); Gal(η̄/η) and the exact sequence 1 -> I -> Gal(η̄/η) -> Gal(s̄/s) -> 1 with I the inertia group (display lost in OCR); 'sheaf' means sheaf on the étale site; a torsion sheaf is prime to the residue characteristics if multiplication by the characteristic exponent of each k(s) is an automorphism. 1.1: for Y over a field k with separable closure k̄ and Ȳ = Y ⊗ k̄, a continuous homomorphism u: G -> Gal(k̄/k) of a profinite group, an action of G on a sheaf of sets S on Ȳ compatible with the action on Ȳ is continuous (1.1.2) if for every quasi-compact étale U -> Y, G acts continuously on the discrete set S(Ū); Rappel 1.1.3: the functor F ↦ F̄ with its Gal(k̄/k)-action is an equivalence between sheaves of sets on Y and sheaves on Ȳ with continuous compatible Galois action (proof by writing k̄ as a colimit of finite Galois extensions and Galois descent).",
+      "hypotheses": [
+        "S a henselian trait; k(s̄) residue field of S̄ may be an inseparable extension of k(s̄)",
+        "Torsion coefficients prime to the residue characteristic for the abelian theory (2.1.1)"
+      ],
+      "proofSteps": [
+        "Galois descent for the equivalence 1.1.3 (full faithfulness via invariants, essential surjectivity via finite Galois levels)."
+      ],
+      "acceptance": [
+        "For Y = Spec k the equivalence recovers Gal(k̄/k)-sets."
+      ],
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, Rappel 1.1.3, p. 7",
+          "excerpt": "Le foncteur F ↦ F̄ muni de l'action de Gal(k̄/k) est une équivalence de la catégorie des faisceaux d'ensembles sur Y avec la catégorie des faisceaux d'ensembles sur Ȳ munis d'une action continue de Gal(k̄/k) compatible à l'action de Gal(k̄/k) sur Ȳ.",
+          "match": "The galoisian description used throughout (OCR cleaned)."
+        },
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, 0.2.5, p. 5",
+          "excerpt": "On note S̄ le spectre du normalisé de V dans k(η̄), de corps résiduel une extension inséparable de k(s̄).",
+          "match": "Conventions on S̄ and geometric points."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LefschetzPencilsAndVanishingCycles:LPV.0/fibre-product-topos-Y-times-S",
+      "parentStageId": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "title": "The specialization morphism sp: S -> s and the 2-fibre-product topos Y ×_s S with its galoisian description (XIII 1.2)",
+      "kind": "construction",
+      "statement": "1.2.1: for S local henselian with closed point i: s -> S, S' ↦ S' ×_S s is an equivalence between finite étale S-schemes and finite étale s-schemes; the inverse defines a morphism of sites sp: S -> s (SGA 4 VIII 7) with sp_*F = i^*F (1.2.1.1) and, for F on an open U (or on η), sp_*F = i^*j_*F (1.2.1.2). 1.2.2: for a henselian trait S, sheaves on S are triples (F_s, F_η, φ: F_s -> i^*j_*F_η) (SGA 4 IV 9.5.4); via 1.1, i^*j_* is the functor of I-invariants, so sheaves on S are triples (a Gal(s̄/s)-set F_s̄, a Gal(η̄/η)-set F_η̄, an equivariant φ: F_s̄ -> F_η̄^I); the functors sp^*, sp_*, j^*, j_*, i^*, i_* are written out in these terms (1.2.2(c)). 1.2.3-1.2.4: for Y a scheme over s, the 2-fibre product Y ×_s S of the étale topoi of Y and S over that of s exists (Giraud) and is described by triples (F_s a sheaf on Y, i.e. a sheaf on Ȳ with continuous Gal(s̄/s)-action; F_η a sheaf on Ȳ with continuous Gal(η̄/η)-action compatible via 1.1.1; φ: F_s -> F_η equivariant); Y ×_s S is the union of the open Y ×_s η and the closed complement Y, with the same formulas for sp = pr_1, j, i; 1.2.4.2 independence of the choice of k(η̄); 1.2.5-1.2.6: points of Y ×_s η and Y ×_s S, conservative families, Point(Y ×_s S) ≅ Point(Y) ×_{Point(s)} Point(S); 1.2.7: functoriality in Y (f_*, f^* formulas 1.2.7.1-2 for quasi-compact f) and in S (surjective morphisms of henselian traits, f^* formula 1.2.7.3, f_* as induced representation for finite f); 1.2.8-1.2.9: f_! (extension by zero for locally closed immersions; direct image with proper support formula 1.2.8.1 for f locally of finite type and separated) and its right adjoint f^! for locally closed immersions, extended to quasi-finite f for abelian sheaves (SGA 4 XVIII 3.1.8), with f^! = f^* for étale f.",
+      "hypotheses": [
+        "S a henselian trait; Y a scheme over s; the 2-fibre product is taken for the étale topoi (Giraud); readers may take the galoisian description 1.2.4 as the definition",
+        "For non-separably-closed residue field the 2-product must be fibred over Spec(k)_et (introduction, item c))"
+      ],
+      "proofSteps": [
+        "Equivalence of finite étale covers of S and s (henselian), giving sp.",
+        "Description of sheaves on S by triples (SGA 4 IV 9.5.4) and identification of i^*j_* with I-invariants.",
+        "Galoisian description of Y ×_s S; verification of independence (1.2.4.2) by functoriality in the separable closure."
+      ],
+      "acceptance": [
+        "A sheaf on Y ×_s S restricted to the closed Y is F_s and to the open Y ×_s η is F_η; sp^*(F_s) = (F_s, F_s, id).",
+        "Points (x, s̄) and (x, η̄) form conservative families (1.2.5)."
+      ],
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, Construction 1.2.4, p. 10",
+          "excerpt": "Les faisceaux F sur Y ×_s S s'identifient aux triples (a) F_s est un faisceau sur Y, soit encore un faisceau F_s̄ sur Ȳ = Y ⊗_s s̄, muni d'une action continue de Gal(s̄/s) compatible à l'action de Gal(s̄/s) sur Ȳ (b) F_η est un faisceau F_η̄ sur Ȳ, muni d'une action continue de Gal(η̄/η), compatible à l'action (via 1.1.1) de Gal(η̄/η) sur Ȳ (c) φ est un morphisme équivariant de F_s dans F_η",
+          "match": "The galoisian description of the topos (OCR cleaned)."
+        },
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, 1.2.2(b), p. 9",
+          "excerpt": "Via l'équivalence (a), le foncteur i^*j_* s'identifie au foncteur 'invariants sous I'.",
+          "match": "Identification of i^*j_* with inertia invariants."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LefschetzPencilsAndVanishingCycles:LPV.0/functor-psi-and-functorialities",
+      "parentStageId": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "title": "The left exact functor Ψ: (sheaves on X) -> (sheaves on X_s ×_s S), its η-part Ψ_η = ī^* j̄_*, and its functorialities (XIII 1.3)",
+      "kind": "construction",
+      "statement": "1.3.1-1.3.2: for p: X -> S over a henselian trait, with X̄ = X ×_S S̄, the cartesian diagram X_s̄ -> X̄ <- X_η̄ over s̄ -> S̄ <- η̄; for F a sheaf on X_η with pullback F_η̄ on X_η̄ put Ψ_η(F) = ī^* j̄_* F_η̄ (1.3.2.2), a sheaf on X_s̄ with continuous Gal(η̄/η)-action compatible with the action on X_s̄, i.e. a sheaf on X_s ×_s η; Ψ_η is left exact (1.3.2.3). 1.3.3: for F on X with restrictions F_η, F_s, put Ψ(F)_η = Ψ_η(F_η), Ψ(F)_s = F_s, and φ induced by the adjunction F -> j_*j^*F; Ψ(F) = (F_s, Ψ_η(F_η), φ) is a sheaf on X_s ×_s S and Ψ is left exact (1.3.3.3); 1.3.4 notations. 1.3.5-1.3.10 (functorialities, useful mainly in derived form): for f: X -> X' over S, base change gives Ψ f_* -> f_* Ψ (1.3.6.1), an isomorphism for f proper (SGA 4 XII 5.1(i)), whose essential case X' = S is Γ(X_η̄, F) -> Γ(X_s̄ ×_s η̄, Ψ_η F) (1.3.6.3); f^*Ψ -> Ψ f^* (1.3.7.1); for f quasi-finite, f_!Ψ -> Ψ f_! (1.3.8.1), inverse of 1.3.6.1 for f finite; Ψ f^! -> f^! Ψ (1.3.9.1), inverse of 1.3.7.1 for f étale; base change of traits S' -> S: f^*Ψ -> Ψ f^* (1.3.10.1).",
+      "hypotheses": [
+        "S a henselian trait; X any S-scheme; sheaves of sets (pointed sets for f_!)",
+        "Ψ is not in general the direct image of a morphism of topoi (1.3.1)"
+      ],
+      "proofSteps": [
+        "Define Ψ_η by pullback to η̄, direct image to X̄ and restriction to X_s̄; check the Galois action.",
+        "Assemble the triple with the adjunction map; derive the functorialities from base change maps."
+      ],
+      "acceptance": [
+        "For X = S, Ψ_η(F) is the Gal(η̄/η)-set F_η̄ viewed over s̄ and Ψ(F)_s = F_s with φ: F_s -> F_η̄^I."
+      ],
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, 1.3.1, p. 13",
+          "excerpt": "Ce foncteur n'est pas en général le foncteur image directe d'un morphisme de topos.",
+          "match": "Nature of Ψ."
+        },
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, 1.3.6, p. 15",
+          "excerpt": "Le morphisme de changement de base induit un morphisme de foncteurs Ψ f_* -> f_* Ψ qui est un isomorphisme pour f propre (SGA4 XII 5.1(i)).",
+          "match": "Proper compatibility at the underived level (OCR cleaned)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LefschetzPencilsAndVanishingCycles:LPV.0/variation-morphism",
+      "parentStageId": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "title": "The variation Var(σ): Φ(K)_η -> K_η for a complex K on Y ×_s S and σ in the inertia group (XIII 1.4)",
+      "kind": "construction",
+      "statement": "1.4.1-1.4.2: for K a complex of A-modules on Y ×_s S, i.e. a triple (K_s, K_η, φ) with K_s̄, K_η̄ complexes on Ȳ with continuous Gal(s̄/s), resp. Gal(η̄/η), actions and φ equivariant, K is homotopic to a triple K' with φ' injective and the sequence 0 -> K'_s -> K'_η -> coker(φ') -> 0 (1.4.2.1) split degreewise (take K'_η the sum of K_η and the cone of sp^*K_s); Φ(K) := coker(φ') gives a distinguished triangle sp^*K_s -> K_η -> Φ(K) -> in K(Y ×_s η, A) depending only on K (1.4.2.2), passing to the derived category and yielding the long exact sequence ... -> H^i(V, K_s) -> H^i(V, K_η) -> H^i(V, Φ(K)_η) -> ...; 1.4.3: the inertia group I acts trivially on K'_s, so for σ ∈ I the endomorphism σ − 1 of K'_η factors through Var(σ): coker(φ') -> K'_η; in the derived category this defines the variation Var(σ): Φ(K)_η -> K_η (1.4.3.1) with σ = 1 + Var(σ)q on K_η (1.4.3.2), σ = 1 + q Var(σ) on Φ(K)_η (1.4.3.3), q: K_η -> Φ(K)_η the natural map, and Var(στ) = Var(σ) q Var(τ) + Var(σ) + Var(τ) (1.4.3.4).",
+      "hypotheses": [
+        "A a ring (or a sheaf of rings on Y); K ∈ D(Y ×_s S, A)",
+        "I acts trivially on the s-part"
+      ],
+      "proofSteps": [
+        "Replace K by a homotopic triple with injective, degreewise split φ'; define Φ as the cokernel; factor σ − 1 through Φ."
+      ],
+      "acceptance": [
+        "The variation determines the inertia action on K_η through 1.4.3.2; the cocycle rule 1.4.3.4 is the algebraic analogue of the classical variation."
+      ],
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, 1.4.3, p. 17",
+          "excerpt": "Le groupe d'inertie I agit trivialement sur K'_s. Pour tout σ ∈ I l'endomorphisme σ − 1 de K'_η se factorise donc par un morphisme Var(σ): coker(φ') -> K'_η",
+          "match": "Definition of the variation (OCR cleaned)."
+        },
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, (1.4.3.2)-(1.4.3.4), p. 17",
+          "excerpt": "σ = 1 + Var(σ) q (sur K_η); σ = 1 + q Var(σ) (sur Φ(K)_η); Var(στ) = Var(σ) q Var(τ) + Var(σ) + Var(τ)",
+          "match": "The identities satisfied by Var."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle",
+      "parentStageId": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "title": "RΨ, RΨ_η, RΦ, the vanishing triangle, the stalk formula and local acyclicity (XIII 2.1.1-2.1.5)",
+      "kind": "construction",
+      "statement": "2.1.1: S a henselian trait, A a torsion ring prime to the residue characteristic p (more generally a torsion sheaf of rings prime to the residue characteristics; the main case A = Z/ℓ^n, ℓ invertible on S). 2.1.2: RΨ: D^+(X, A) -> D^+(X_s ×_s S, A) and RΨ_η: D^+(X_η, A) -> D^+(X_s ×_s η, A) are the derived functors of Ψ, Ψ_η; since restriction of an injective to the open X_η stays injective and pullback to X_η̄ is acyclic, (2.1.2.1) RΨ(K)_s = i^*K, (2.1.2.2) RΨ(K)_η = RΨ_η(K_η), (2.1.2.3) RΨ_η(K)_η̄ = ī^* R j̄_* K_η̄ (displays partly lost in OCR); with RΨ_η(K) := (RΨ(K))_η, RΦ(K) := Φ(RΨ(K)) the triangle 1.4.2.2 becomes the distinguished triangle sp^* i^*K -> RΨ_η(K_η) -> RΦ(K) -> (2.1.2.4) on X_s ×_s η, with the variation Var(σ): RΦ(K)_η -> RΨ_η(K) (2.1.2.5); the R^iΨ(A) (or R^iΨ(K)) are the sheaves of vanishing cycles (Deligne's terminology for the nearby-cycle sheaves). 2.1.3-2.1.4 (stalk formula): for a geometric point x̄ of X_s̄ and the strict henselization X_(x̄), a scheme over the strict henselization S^nr with geometric generic point η̄^nr, (RΨ(K))_(x̄, η̄) = RΓ(X_(x̄) ×_{S^nr} η̄, K), in particular R^iΨ(K)_(x̄,η̄) = H^i(X_(x̄) ×_{S^nr} η̄, K) — the cohomology of the strict-local geometric Milnor fibre. 2.1.5 (local acyclicity, from SGA 4 XV 2.1): if f is smooth and F locally constant then RΦ(F) = 0; more generally RΦ(K) = 0 where f is smooth and the H^i(K) are locally constant.",
+      "hypotheses": [
+        "A torsion, prime to the residue characteristic (0.2.7); K ∈ D^+",
+        "The stalk formula uses the strict henselization at x̄ and the strict henselization S^nr of the trait",
+        "Local acyclicity of smooth morphisms is imported from SGA 4 XV 2.1"
+      ],
+      "proofSteps": [
+        "Derive Ψ using injectives; verify (2.1.2.1)-(2.1.2.3).",
+        "Apply Φ to obtain the triangle and Var.",
+        "Stalk: compute (RΨ_η K)_(x̄,η̄) via the strict localization and (2.1.2.3).",
+        "Local acyclicity: SGA 4 XV 2.1."
+      ],
+      "acceptance": [
+        "For a smooth family with locally constant coefficients RΦ = 0 and sp^*i^*K ≅ RΨ_η(K_η).",
+        "For a disjoint union, RΨ is computed componentwise (functoriality in X); for a nodal curve over a trait the stalk formula at the node gives the cohomology of the Milnor fibre (an annulus), to be checked against XV §2."
+      ],
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, 2.1.1, p. 17",
+          "excerpt": "Soient S un trait hensélien comme en (0.2.5) et A un anneau de torsion premier à la caractéristique résiduelle p de S (0.2.7).",
+          "match": "Coefficient hypothesis."
+        },
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, Proposition 2.1.4, p. 19",
+          "excerpt": "On a (RΨ(K))_(x̄,η̄) = RΓ(X_(x̄) ×_{S^nr} η̄, K); en particulier, R^iΨ(K)_(x̄,η̄) = H^i(X_(x̄) ×_{S^nr} η̄, K)",
+          "match": "Stalk formula (OCR cleaned)."
+        },
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, Reformulation 2.1.5, p. 19",
+          "excerpt": "Si f est lisse et F un faisceau localement constant, on a RΦ(F) = 0",
+          "match": "Local acyclicity."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LefschetzPencilsAndVanishingCycles:LPV.0/derived-functorialities-and-specialization-sequence",
+      "parentStageId": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "title": "Derived functorialities of RΨ (proper and smooth base change, f_!, f^!, change of trait) and the specialization sequence with inertia/variation diagrams (XIII 2.1.6-2.1.8)",
+      "kind": "theorem",
+      "statement": "2.1.6: on Y ×_s S, f^* is exact; f_* has a right derived functor with (Rf_*K)_η = Rf_{η*}(K_η), (Rf_*K)_s = Rf_{s*}(K_s) for f quasi-compact (2.1.6.1-2); f_! is exact for f quasi-finite, and in general (f separated of finite type, Y' noetherian) Rf_! := Rf̄_* ∘ j_! for a factorization f = f̄ j (j open immersion, f̄ proper), independent of the factorization by the arguments of SGA 4 XVII; Rf^! is used only for quasi-finite f. 2.1.7 (deriving 1.3.5-1.3.10): RΨ Rf_* -> Rf_* RΨ (2.1.7.1) is an isomorphism for f proper (proper base change, SGA 4 XII 5.1); f^* RΨ -> RΨ f^* (2.1.7.2) is an isomorphism for f smooth (smooth base change, SGA 4 XVI 1.2); Rf_! RΨ -> RΨ Rf_! (2.1.7.3), for f proper the inverse of 2.1.7.1; RΨ Rf^! -> Rf^! RΨ (2.1.7.4) for f quasi-finite, inverse of 2.1.7.2 for f étale; for a surjective change of trait S' -> S, f^*RΨ ≅ RΨ f^* (2.1.7.5); the same for RΨ_η. 2.1.8 (X' = S): for K ∈ D^+(X_η, A), morphisms Rf_* -> Rf_* RΨ (2.1.8.1), Rf_! RΨ -> Rf_! (2.1.8.2), hence RΓ(X_η̄, K) -> RΓ(X_s̄, RΨ_η(K)) (2.1.8.3) and RΓ_c(X_s̄, RΨ_η(K)) -> RΓ_c(X_η̄, K) (2.1.8.4), with commutative diagrams (2.1.8.5-6) relating (R^if_*K)_s̄ -> H^i(X_η̄,K) and the specialization; for σ ∈ I the diagrams (2.1.8.7-8) express σ − 1 on H^i(X_η̄, K) (resp. H^i_c) through H^i(X_s̄, RΨ_η K) -> H^i(X_s̄, RΦ K) -Var(σ)-> H^i(X_s̄, RΨ_η K). For f proper, 2.1.8.1/2.1.8.2 and 2.1.8.3/2.1.8.4 are inverse isomorphisms, and the triangle 2.1.2.4 gives the long exact specialization sequence ... -> H^i(X_s̄, K) -> H^i(X_η̄, K) -> H^i(X_s̄, RΦ(K)) -> ... (2.1.8.9): the vanishing complex RΦ(K) measures the difference between the cohomologies of the geometric fibres, and by 2.1.8.7 the variation determines the inertia action on H^i(X_η̄, K). Properness may be replaced by regularity conditions at infinity on f and K (continuation not read).",
+      "hypotheses": [
+        "Rf_! needs f separated of finite type and Y' noetherian; Rf^! only for quasi-finite f",
+        "Proper base change (SGA 4 XII 5.1) and smooth base change (SGA 4 XVI 1.2) are imported",
+        "The specialization sequence 2.1.8.9 as written requires f proper (or the regularity-at-infinity replacement)"
+      ],
+      "proofSteps": [
+        "Derive the underived functorialities 1.3.5-1.3.10; identify isomorphisms via the base change theorems.",
+        "Specialize to X' = S and expand the triangle into the long exact sequence; express σ − 1 via Var."
+      ],
+      "acceptance": [
+        "Direction: specialization goes from H^i(X_s̄, K) to H^i(X_η̄, K) (through RΨ), and RΦ sits in degree shift 0 in the triangle sp^*i^*K -> RΨ_η -> RΦ -> (no shift), so the connecting map raises the degree by one.",
+        "Inertia and Galois equivariance are built into the topos X_s ×_s S (all maps are equivariant)."
+      ],
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, 2.1.7.1-2, p. 20",
+          "excerpt": "D'après le théorème de changement de base pour un morphisme propre (SGA4 XII 5.1), ce morphisme est un isomorphisme si f est propre. ... D'après le théorème de changement de base pour un morphisme lisse (SGA4 XVI 1.2), ce morphisme est un isomorphisme si f est lisse.",
+          "match": "Proper and smooth compatibilities (OCR cleaned)."
+        },
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, 2.1.8.9, p. 22",
+          "excerpt": "Le complexe évanescent RΦ(K) exprime donc la différence entre les cohomologies des fibres géométriques X_η̄ et X_s̄ (à valeurs dans l'image réciproque de K). D'après (2.1.8.7), la variation Var(σ) détermine l'action du groupe d'inertie I sur H^i(X_η̄, K). Ces faits sont à la base de toutes les applications de la méthode des cycles évanescents.",
+          "match": "The specialization sequence and its use (OCR cleaned)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point-nearby-cycles-3-1-2",
+      "parentStageId": "LefschetzPencilsAndVanishingCycles:LPV.2",
+      "title": "Concentration and rank of the nearby cycles at ordinary quadratic singular points (XV 3.1.1-3.1.2)",
+      "kind": "theorem",
+      "statement": "3.1.1: S a henselian trait, f: X -> S flat of finite type, purely of relative dimension n, with special fibre X_s smooth except at a finite set Σ of points where X_s has an ordinary quadratic singularity; E ⊆ Σ the points near which the generic fibre is smooth; A a torsion ring prime to the residue characteristic. Proposition 3.1.2: (i) R^iΦ(A) = 0 for i ≠ n (the OCR shows 'R^iΦ'; the concentration is for the vanishing cycles); (ii) R^nΦ(A) is zero outside Σ and its restriction to E is a sheaf of A-modules of rank 1; (iii) for every geometric point x̄ of E the form (a,b) of 2.2.5(C) puts (R^nΦ(A))_x̄ and H^n_{x̄}(X_s, R^nΦ(A)) in duality; these are free of rank one for n ≠ 0 and of rank 2 for n = 0. Proof: étale-local, so assume S strictly henselian and X the hypersurface in A^{n+1}_S defined by a quadratic equation satisfying 2.2.1(a)(b) (apply 1.3.2); f is smooth outside Σ so RΦ = 0 there; by 2.2.4 RΦ vanishes outside E; assume 2.2.5 (≠ 0); (ii),(iii) follow from 2.2.5 (A),(B),(C).",
+      "hypotheses": [
+        "f flat of finite type of pure relative dimension n; X_s smooth outside finitely many ordinary quadratic points; A torsion prime to the residue characteristic",
+        "The local computation 2.2.5 (§2 of XV, not read) is the real content; 1.3.2 (local form of ordinary quadratic singularities) not read"
+      ],
+      "proofSteps": [
+        "Reduce étale-locally to the standard quadratic hypersurface (1.3.2).",
+        "Apply local acyclicity off Σ and the computation of §2.2."
+      ],
+      "acceptance": [
+        "Outside E (points where the generic fibre is not smooth nearby) the vanishing cycles vanish (2.2.4).",
+        "For n = 0 the rank is 2 (two points degenerating to one)."
+      ],
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XV, Proposition 3.1.2, p. 24",
+          "excerpt": "(i) Les faisceaux R^iΦ(Λ) sont nuls pour i ≠ n. (ii) Le faisceau R^nΦ(Λ) est nul en dehors de Σ. Sa restriction à E est un faisceau de Λ-modules de rang 1",
+          "match": "Concentration and rank (OCR cleaned; the source's Φ symbol is rendered as a garbled glyph)."
+        },
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XV, proof of 3.1.2, p. 24",
+          "excerpt": "Les assertions de 3.1.2 sont de nature locale pour la topologie étale. Ceci permet de ne traiter que le cas où S est strictement hensélien, et où X est l'hypersurface de l'espace affine relatif A^{n+1}_S défini par une équation quadratique vérifiant 2.2.1 (a) (b) (appliquer 1.3.2).",
+          "match": "Reduction to the standard model."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LefschetzPencilsAndVanishingCycles:LPV.2/even-relative-dimension-variation-3-2",
+      "parentStageId": "LefschetzPencilsAndVanishingCycles:LPV.2",
+      "title": "Even relative dimension n = 2m: the natural generator ±δ of H^n_{x}(R^nΦ(A(m))), the quadratic character ε_x of inertia and Var(σ)(a) = (−1)^m (ε_x(σ) − 1)/2 · (a,δ)δ (XV 3.2.1-3.2.3)",
+      "kind": "theorem",
+      "statement": "Notation of 3.1 with n = 2m, S strictly henselian (general case by descent). Proposition 3.2.1: (i) for x ∈ E the group H^n_{x}(R^nΦ(A(m))) has a natural generator δ, well defined up to sign, characterised by naturality in A and (δ,δ) = (−1)^m·2 (for n = 0 add Tr(δ) = 0); (ii) for a suitable character ε_x: I -> {±1} of the inertia group (independent of A), Var(σ)(a) = (−1)^m ((ε_x(σ) − 1)/2)(a δ) δ for a ∈ R^nΦ(A(m)), whence σ(δ) = ε_x(σ) δ. Proof: pass to the universal case A = Z_ℓ; up to sign only one δ satisfies (i); reduce as in 3.1.2 to 2.2.5 and apply 2.2.5 (D). Complément 3.2.2: if the henselization of X at x is that of the projective quadric Σ a_ij X_i X_j = 0 at x_0, ε_x is defined by the separable quadratic extension of the fraction field given by the centre of the even Clifford algebra Z(C^+(Q)). 3.2.3: in residue characteristic ≠ 2, I has a unique nontrivial character ε of order 2 (σ(√t) = ε(σ)√t for a uniformizer t); X_(x) is the henselization at 0 of Σ a_ij x_i x_j = b with b in the maximal ideal and Q nondegenerate; the centre of the Clifford algebra is k(η)(√((−1)^{m+1}·2b·det(a_ij))) (Bourbaki Alg. ch. 9 §9 no. 4), so ε_x = ε^{v(b)}: the variation vanishes if v(b) is even and ε_x = ε otherwise.",
+      "hypotheses": [
+        "n = 2m even; S strictly henselian; x ∈ E",
+        "3.2.3 requires residue characteristic ≠ 2 and uses the Clifford-algebra description; the characteristic-2 case is only covered by 3.2.2's Clifford-centre description",
+        "The proof depends on 2.2.5(D) (not read)"
+      ],
+      "proofSteps": [
+        "Universal case A = Z_ℓ and uniqueness of δ up to sign.",
+        "Reduction to the standard quadric and 2.2.5(D).",
+        "Clifford-algebra computation of ε_x."
+      ],
+      "acceptance": [
+        "For v(b) even the local monodromy is trivial in even relative dimension; for v(b) odd it is the reflection σ(δ) = −δ (when ε_x(σ) = −1).",
+        "Sign convention: (δ,δ) = (−1)^m·2 fixes δ up to sign; the n mod 4 sign table of the stage must be checked against this normalisation."
+      ],
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XV, Proposition 3.2.1, pp. 24-25",
+          "excerpt": "(δ,δ) = (−1)^m 2 (pour n = 0, ajouter la condition Tr(δ) = 0). (ii) Pour un caractère ε_x: I -> {±1} convenable (indépendant de Λ) du groupe d'inertie I, la variation s'écrit Var(σ)(a) = (−1)^m ((ε_x(σ) − 1)/2)(a δ) δ",
+          "match": "The even-dimensional formula (OCR cleaned)."
+        },
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XV, 3.2.3, pp. 25-26",
+          "excerpt": "La variation est nulle si b est de valuation paire, et sinon ε_x = ε",
+          "match": "Explicit character in residue characteristic ≠ 2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LefschetzPencilsAndVanishingCycles:LPV.2/odd-relative-dimension-picard-lefschetz-3-3",
+      "parentStageId": "LefschetzPencilsAndVanishingCycles:LPV.2",
+      "title": "Odd relative dimension n = 2m+1: the character c_b, the vanishing cycle ±δ_x from the primitive quotient of the tangent quadric, and the Picard-Lefschetz formulas Var(σ)(a) = (−1)^{m+1} c_{b(x)}(σ)(aδ)δ and σ(a) = a + (−1)^{m+1} c_{b(x)}(σ)(aδ_x)δ_x (XV 3.3.1-3.3.6)",
+      "kind": "theorem",
+      "statement": "3.3.1: S = Spec A strictly local noetherian, f: X -> S flat of finite type of pure relative dimension n whose special fibre has only nondegenerate quadratic singular points; near a singular x_0, X/S is locally isomorphic to Q − b = 0 in A^{n+1}_S with b in the maximal ideal and Q a nondegenerate quadratic form; the ideal (b) ⊆ A depends only on (X/S, x_0) (near x there is a section over Spec A/(b) along which the relative Jacobian ideal is trivial); b(x) denotes a generator. 3.3.2: for S normal, n invertible in A and b ≠ 0, c_b^{(n)}: Gal(Frac A) -> μ_n, σ ↦ σ(ⁿ√−b)/ⁿ√−b, compatible in n; for A a Z/n-algebra the composite to A(1) is independent of n and factors through π_1(S − {b = 0}). 3.3.3: for S a strictly henselian trait, n = 2m+1, x a singular point near which X is smooth, and X_1/S the local model Q − b = 0 (b ≠ 0 in the maximal ideal): with X_s(x) the henselization, X̃_s(x) its blow-up at x, Y the exceptional quadric, the composite H^{n−1}(Y, A(m)) <- H^{n−1}(X̃_s(x), A(m)) -> H^{n−1}(X_s(x) − {x}, A(m)) -> H^n_{x}(X_s, A(m)) -> H^n_{x}(X_s, RΨ(A(m))) identifies the last group with the primitive quotient (XII 3.5) of the cohomology of the quadric Y (by 2.2.7 in a locally isomorphic situation); the images of the two natural generators of that quotient (classes of the generatrices of Y) are the basis vectors ±δ of H^n_{x}(X_s, RΨ(A(m))). 3.3.4: in the general setting of 3.3.1 with n = 2m+1, ±δ_x ∈ H^0(S, R^n f_! A(m)) are the images of the primitive generators via H^{n−1}(Y, A(m)) <- ... -> H^n_c(X_s, A(m)) -> H^0(S, R^n f_! A(m)); ±δ_x is the vanishing cycle at x; for S a trait, ±δ ∈ H^n_c(X_η̄, A(m)) is the image under XIII 2.1.8.4 of the class ±δ of 3.3.3. Proposition 3.3.5: for S a henselian trait and X/S as in 3.3.3, the variation is Var(σ)(a) = (−1)^{m+1} c_{b(x)}(σ)(aδ)δ. Proposition 3.3.6: for S strictly local regular and f: X -> S proper and flat of relative dimension n = 2m+1 with exactly one non-smooth point x of X_s, quadratic nondegenerate, and b(x) a parameter, Galois acts on the cohomology of the geometric generic fibre by σ(a) = a + (−1)^{m+1} c_{b(x)}(σ)(aδ_x)δ_x. Proof (read up to step (B)): the odd case is reduced to the transcendental case of XIV 3.2.11 by a specialization argument over a base of dimension > 1, handled ad hoc; (A) for k algebraically closed of characteristic 0 and S the henselization of Spec k[T] at 0 with b(x) a uniformizer, by the Lefschetz principle assume k = C, reduce to the base change of Σ z_i^2: C^{n+1} -> C, identify ±δ with the transcendental vanishing cycle via XIV 2.1, and deduce 3.3.5 from XIV 3.2.11 (modulo a compatibility of XIV 2.1 with cup products and traces, noted by the source as not fully verified); (B) 3.3.6 in the situation of (A) with X proper follows from XIII 2.4.6.2; (C) mixed-characteristic case via the strict henselization of Spec Z[T] — not read.",
+      "hypotheses": [
+        "n = 2m+1 odd; S strictly local noetherian (3.3.1), strictly henselian trait (3.3.3, 3.3.5), strictly local regular with b(x) a parameter and f proper (3.3.6)",
+        "A torsion prime to the residue characteristic; the character c_b needs n invertible",
+        "Imports not read: XV §2 (2.2.5-2.2.7), XII 3.5 (primitive cohomology of quadrics), XIV 2.1 and 3.2.11 (transcendental vanishing cycles and Picard-Lefschetz), XIII 2.4.6.2 (isolated singularities), and steps (C) onward of the proof"
+      ],
+      "proofSteps": [
+        "Local model and the invariant (b) (3.3.1); the Kummer character c_b (3.3.2).",
+        "Construction of δ from the primitive quotient of the quadric (3.3.3-3.3.4).",
+        "Reduction to the transcendental case (A), then (B), (C)... (not read)."
+      ],
+      "acceptance": [
+        "The formula has the sign (−1)^{m+1} and the twist A(m); the quadratic character is replaced by the Kummer character c_b of −b.",
+        "The 'δ = 0' case of the stage (exceptional skyscraper in degree n+1) is not in the read part; 3.1.2(ii) shows R^nΦ vanishes outside E."
+      ],
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XV, Proposition 3.3.5, p. 28",
+          "excerpt": "Pour S un trait hensélien et X/S comme en 3.3.3, la variation est donnée par Var(σ)(a) = (−1)^{m+1} c_{b(x)}(σ)(aδ)δ",
+          "match": "Odd-dimensional variation formula (OCR cleaned)."
+        },
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XV, Proposition 3.3.6, p. 28",
+          "excerpt": "Alors, Galois agit sur la cohomologie de la fibre générale géométrique par σ(a) = a + (−1)^{m+1} c_{b(x)}(σ)(aδ_x)δ_x",
+          "match": "The Picard-Lefschetz formula (OCR cleaned)."
+        },
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XV, 3.3, p. 26",
+          "excerpt": "Pour démontrer la formule de Picard-Lefschetz en dimension relative impaire, nous devrons nous ramener au cas transcendant, traité en XIV 3.2.11.",
+          "match": "The proof route through the transcendental case."
+        },
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XV, (A), p. 29",
+          "excerpt": "(en toute rigueur, il faudrait avoir vérifié une compatibilité entre l'isomorphisme XIV 2.1 et les cup-produits et traces)",
+          "match": "The source's own caveat."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.0/henselian-trait-conventions-and-galois-sheaves",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.0/fibre-product-topos-Y-times-S",
+      "reason": "The galoisian description 1.2.4 of Y ×_s S is built on the equivalence 1.1.3 for Y over s and over η.",
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, 1.2.2(a) and 1.2.4, pp. 9-10"
+        }
+      ]
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.0/fibre-product-topos-Y-times-S",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.0/functor-psi-and-functorialities",
+      "reason": "Ψ takes values in sheaves on X_s ×_s S (1.3.3.3); its functorialities derive from 1.2.7-1.2.9.",
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, 1.3.3 and 1.3.5, pp. 13-14"
+        }
+      ]
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.0/fibre-product-topos-Y-times-S",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.0/variation-morphism",
+      "reason": "Var is defined for complexes on Y ×_s S written as triples (1.4.2).",
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, 1.4.2, p. 16"
+        }
+      ]
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.0/functor-psi-and-functorialities",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle",
+      "reason": "RΨ is the derived functor of Ψ (2.1.2).",
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, 2.1.2, p. 18"
+        }
+      ]
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.0/variation-morphism",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle",
+      "reason": "RΦ(K) = Φ(RΨ(K)) and the triangle 2.1.2.4 with Var 2.1.2.5 are the derived form of 1.4.2.2/1.4.3.1.",
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, 2.1.2.4-2.1.2.5, p. 19"
+        }
+      ]
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.0/derived-functorialities-and-specialization-sequence",
+      "reason": "2.1.7-2.1.8 derive the functorialities of 1.3.5-1.3.10 for RΨ and expand the triangle into the specialization sequence.",
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, 2.1.7-2.1.8, pp. 20-22"
+        }
+      ]
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point-nearby-cycles-3-1-2",
+      "reason": "3.1.2 concerns the sheaves R^iΦ(A) of XIII 2.1.2 and uses local acyclicity (RΦ = 0 where f is smooth).",
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XV, 3.1.2 and its proof, p. 24"
+        }
+      ]
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.0/variation-morphism",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.2/even-relative-dimension-variation-3-2",
+      "reason": "3.2.1(ii) computes Var(σ) of XIII 1.4.3/2.1.2.5.",
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XV, Proposition 3.2.1, p. 25"
+        }
+      ]
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.0/derived-functorialities-and-specialization-sequence",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.2/odd-relative-dimension-picard-lefschetz-3-3",
+      "reason": "The vanishing cycle ±δ ∈ H^n_c(X_η̄, A(m)) is the image of the local class under XIII 2.1.8.4, and 3.3.6 describes the inertia action determined by Var via 2.1.8.7.",
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XV, 3.3.4, p. 27: 'est l'image par XIII 2.1.8.4 de la classe (3.3.3)'"
+        }
+      ]
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point-nearby-cycles-3-1-2",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.2/even-relative-dimension-variation-3-2",
+      "reason": "3.2 keeps the notation and reductions of 3.1 and uses the rank-one statement to normalise δ.",
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XV, 3.2, p. 24"
+        }
+      ]
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point-nearby-cycles-3-1-2",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.2/odd-relative-dimension-picard-lefschetz-3-3",
+      "reason": "3.3.3 uses 3.1.2(iii)'s rank-one group H^n_{x}(X_s, RΨ(A(m))) and identifies it with the primitive quotient of the quadric.",
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XV, 3.3.3, p. 27"
+        }
+      ]
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/vanishing-cycles-comparison-3-5-17",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle",
+      "reason": "Huber's Corollary 3.5.17 compares his 'complex of vanishing cycles' RΨ_η(K) with the cohomology of the generic fibre of the formal completion; the object compared is the nearby-cycle complex RΨ_η of XIII 2.1.2 (for a strictly henselian rank-one DVR), not RΦ; this link records the consumer relationship named in ClassicalAdicEtaleCohomology:H1's stage text, with the identification of the two definitions still to be verified (gap).",
+      "sources": [
+        {
+          "sourceId": "SGA7II-1973",
+          "locator": "Exposé XIII, 2.1.2.3, p. 18; Huber 1996 §3.5, Corollary 3.5.17, p. 210"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "status": "partial",
+      "remaining": [
+        "XIII §2.2 (trace compatibilities), §2.3 (finiteness in equal characteristic zero), §2.4 (isolated singularities, including 2.4.6.2 used by XV) not read; constructibility of RΨ for the excellent finite-type trait setting (SGA 4½ [Th. finitude]) not read.",
+        "The oriented-product-topos construction is given only in galoisian form here; the comparison with Grothendieck's Exposé I §2 formalism and with the 'PR196 local acyclicity' definition of the stage was not read.",
+        "Displays of 2.1.2.3, 2.1.8.3-8 are partly lost in the OCR and reconstructed from the surrounding text."
+      ]
+    },
+    {
+      "stageId": "LefschetzPencilsAndVanishingCycles:LPV.1",
+      "status": "not_read",
+      "remaining": [
+        "Not read (XIII 1.4 gives the variation; the monodromy operator/inertia structure of the stage was not otherwise sourced)."
+      ]
+    },
+    {
+      "stageId": "LefschetzPencilsAndVanishingCycles:LPV.2",
+      "status": "partial",
+      "remaining": [
+        "XV §1 (ordinary quadratic singularities, Tougeron-Artin, canonical forms 1.2-1.3) and §2 (cohomology of the cone, computation 2.2.1-2.2.7) not read; these carry the actual local computation on which 3.1.2, 3.2.1, 3.3.3 rest.",
+        "Proof of 3.3.5-3.3.6 read only through steps (A)-(B); steps (C) onward (mixed characteristic via Spec Z[T]) not read; XIV 2.1/3.2.11 and XIII 2.4.6.2 not read.",
+        "The characteristic-2 distinction and the δ = 0 case of the stage were not found in the read pages.",
+        "The n mod 4 sign table was not verified; the read normalisations are (δ,δ) = (−1)^m·2 (even case) and the sign (−1)^{m+1} (odd case)."
+      ]
+    },
+    {
+      "stageId": "LefschetzPencilsAndVanishingCycles:LPV.3",
+      "status": "not_read",
+      "remaining": [
+        "XVII (Lefschetz pencils) not read."
+      ]
+    },
+    {
+      "stageId": "LefschetzPencilsAndVanishingCycles:LPV.4",
+      "status": "not_read",
+      "remaining": [
+        "XVIII not read."
+      ]
+    },
+    {
+      "stageId": "LefschetzPencilsAndVanishingCycles:LPV.5",
+      "status": "not_read",
+      "remaining": [
+        "Not read."
+      ]
+    },
+    {
+      "stageId": "LefschetzPencilsAndVanishingCycles:LPV.6",
+      "status": "not_read",
+      "remaining": [
+        "Not read."
+      ]
+    },
+    {
+      "stageId": "LefschetzPencilsAndVanishingCycles:LPV.7",
+      "status": "not_read",
+      "remaining": [
+        "Not read."
+      ]
+    },
+    {
+      "stageId": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+      "status": "not_read",
+      "remaining": [
+        "Not read."
+      ]
+    },
+    {
+      "stageId": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "status": "not_read",
+      "remaining": [
+        "Not read."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "XV §2 local computation (2.2.1-2.2.7) unread",
+      "neededBy": [
+        "LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point-nearby-cycles-3-1-2",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/even-relative-dimension-variation-3-2",
+        "LefschetzPencilsAndVanishingCycles:LPV.2/odd-relative-dimension-picard-lefschetz-3-3"
+      ],
+      "detail": "All three §3 results reduce to 2.2.4-2.2.7 (vanishing off E, the form (a,b), 2.2.5(A)-(D), the primitive quotient identification 2.2.7). Next action: read XV pp. 13-23 (library text lines ~11430-12190) and XII 3.5-3.7."
+    },
+    {
+      "title": "Transcendental inputs XIV 2.1, XIV 3.2.11 and the compatibility caveat",
+      "neededBy": [
+        "LefschetzPencilsAndVanishingCycles:LPV.2/odd-relative-dimension-picard-lefschetz-3-3"
+      ],
+      "detail": "The odd-dimensional formula is proved by reduction to the complex-analytic Picard-Lefschetz formula XIV 3.2.11 through the comparison XIV 2.1, and Deligne notes that a compatibility of XIV 2.1 with cup products and traces would have to be verified 'en toute rigueur'. The stage's requirement of an all-characteristic algebraic proof is therefore not met by the source as written; the mixed-characteristic step (C) via the strict henselization of Spec Z[T] must be read (library lines ~12640-12700) to see how the source passes from characteristic 0 to p."
+    },
+    {
+      "title": "XIII 2.2-2.4 and constructibility",
+      "neededBy": [
+        "LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle"
+      ],
+      "detail": "Trace compatibilities (2.2), finiteness in equal characteristic 0 (2.3), isolated singularities (2.4, including 2.4.6.2 used in XV (B)) not read; constructibility over excellent traits is in SGA 4½ [Th. finitude] 3.2 (library Weil_SGA4Half.txt), not read."
+    },
+    {
+      "title": "Identification of Huber's RΨ_η with SGA 7 XIII's RΨ_η and inertia equivariance",
+      "neededBy": [
+        "LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle"
+      ],
+      "detail": "Both are ī^* R j̄_* on the geometric generic fibre over a strictly henselian trait, but Huber's is formulated on X_s̄ with the comparison to d(X̂) ⊗̂ k̄^ (3.5.17) and the inertia action is not discussed there; the equality must be recorded explicitly before ClassicalAdicEtaleCohomology:H1 can consume LPV.0."
+    }
+  ]
+}

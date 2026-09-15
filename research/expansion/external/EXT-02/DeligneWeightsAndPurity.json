@@ -1,0 +1,604 @@
+{
+  "roadmapId": "DeligneWeightsAndPurity",
+  "status": "partial",
+  "summary": "Source-based expansion of two stages: DWP.2 (Weil I §3: the fundamental estimate Theorem 3.2 with Lemmas 3.3-3.7 and Corollaries 3.8-3.9, together with the auxiliary results 1.5.3, 1.13-1.14, 2.10, 2.12 that the proof invokes) and DWP.7 (Weil II §3.3: the fundamental direct-image theorem 3.3.1 with its dévissages (a)-(f) and the curve reduction, the integrality remark 3.3.2, Corollaries 3.3.3-3.3.9 and the variants 3.3.10-3.3.11, together with the statements of the imported results 3.2.3 and 1.8.4/1.8.8 and the weight definitions 1.2.1-1.2.6). The remaining nine stages were not read and are marked not_read.",
+  "sources": [
+    {
+      "id": "Deligne-WeilI-1974",
+      "title": "La conjecture de Weil. I",
+      "authors": "Pierre Deligne",
+      "edition": "Publ. Math. IHÉS 43 (1974), 273-307; numdam scan with OCR (formulas garbled; statements reconstructed from surrounding prose and cross-checked with the cited lemmas)",
+      "url": "https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf",
+      "sha256": "8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5",
+      "readSections": [
+        "§1: (1.5.1)-(1.5.4) (log derivative identity and cohomological expression of Z), (1.6)-(1.7), (1.13)-(1.15) (local factors, Z(X_0,F_0,t), the trace formula (1.14.3))",
+        "§2: Scholie (2.10), (2.11), Théorème (2.12) (Poincaré duality for curves with j_*), (2.14) bibliographic remarks",
+        "§3 complete: (3.1), Théorème (3.2) with proof, Lemmes (3.3)-(3.6) with proofs, (3.7), Corollaires (3.8)-(3.9) with proofs"
+      ]
+    },
+    {
+      "id": "Deligne-WeilII-1980",
+      "title": "La conjecture de Weil. II",
+      "authors": "Pierre Deligne",
+      "edition": "Publ. Math. IHÉS 52 (1980), 137-252; numdam scan with OCR",
+      "url": "https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf",
+      "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71",
+      "readSections": [
+        "§1.2: Définitions (1.2.1)-(1.2.2), Variantes (1.2.3)-(1.2.4), Stabilités (1.2.5), (1.2.6) (ι-weights)",
+        "§1.7: Lemme (1.7.4) and the opening of (1.7.5)",
+        "§1.8: Théorème (1.8.4) statement and the opening of its proof; Remarque (1.8.8); Corollaire (1.8.9) statement",
+        "§3.2: Théorème (3.2.3) statement",
+        "§3.3 complete: Théorème (3.3.1) with proof, (3.3.2), Corollaires (3.3.3)-(3.3.6) with proofs, (3.3.7), Corollaires (3.3.8)-(3.3.9), (3.3.10)-(3.3.11)"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "DeligneWeightsAndPurity:DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.2",
+      "title": "Setting of Weil I §3: lisse Q_ℓ-sheaves on an open U_0 ⊆ P^1 over F_q, the local factors det(1 − F_x t, F_0), the L-function Z(U_0, F_0, t), the log-derivative identity (1.5.3) and Grothendieck's trace formula (1.14.3)",
+      "kind": "definition",
+      "statement": "(3.1): U_0 is a curve over F_q, complement in P^1 of a finite set of closed points; U its base change to F̄_q; u a closed point; F_0 a lisse ('constant tordu') Q_ℓ-sheaf on U_0 with pullback F to U. For β ∈ Z, F_0 is of weight β if for every x ∈ |U_0| the eigenvalues of F_x on F_0,x̄ (1.13: F_x = F^{deg x}, well defined up to isomorphism) are algebraic numbers all of whose complex conjugates have absolute value q_x^{β/2}; e.g. Q_ℓ(r) has weight −2r. (1.14): Z(U_0, F_0, t) = ∏_{x ∈ |U_0|} det(1 − F_x t^{deg x}, F_0)^{-1} ∈ Q_ℓ[[t]]; by (1.5.3) — for an endomorphism F of a vector space V, t d/dt log det(1 − F t, V)^{-1} = Σ_{n>0} Tr(F^n, V) t^n — its logarithmic derivative is Σ_n Σ_{x ∈ X_0(F_{q^n})} Tr(F_x^n, F_0) t^n (1.14.2), and the Lefschetz trace formula (1.12.1) gives (1.14.3): Z(U_0, F_0, t) = ∏_i det(1 − F^* t, H^i_c(U, F))^{(−1)^{i+1}}, an identity in Q_ℓ[[t]].",
+      "hypotheses": [
+        "F_0 lisse (locally constant, 'constant tordu') Q_ℓ-sheaf; U_0 ⊆ P^1 open over F_q; the trace formula (1.12.1) is quoted from SGA 5 (Deligne's (2.14 D): the proof is 'hélas' in SGA 5)",
+        "Weights are defined via absolute values of all complex conjugates of algebraic eigenvalues"
+      ],
+      "proofSteps": [
+        "Define local Frobenius F_x and its characteristic polynomial (1.13).",
+        "Define Z as the Euler product (1.14.1); compute its log derivative by (1.5.3); apply the trace formula to obtain (1.14.3)."
+      ],
+      "acceptance": [
+        "For F_0 = Q_ℓ one recovers the zeta function Z(U_0, t) of (1.1.2).",
+        "(1.14.3) is an identity of formal power series; rationality of Z follows from it."
+      ],
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§3, (3.1), p. 283",
+          "excerpt": "Nous dirons que F est de poids β si pour tout x ∈ |U_0|, les valeurs propres de F_x agissant sur F_0 (1.13) sont des nombres algébriques dont tous les conjugués complexes sont de valeur absolue q_x^{β/2}.",
+          "match": "Definition of weight (OCR cleaned)."
+        },
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§1, (1.14.3), p. 279",
+          "excerpt": "Cette formule est une identité dans Q_ℓ[[t]].",
+          "match": "The trace-formula identity used in (3.7) and (3.8)."
+        },
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§1, (1.5.3), p. 275",
+          "excerpt": "(le vérifier pour dim(V) = 1, et observer que les deux membres sont additifs en V dans une suite exacte courte).",
+          "match": "Proof of the log-derivative identity."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.2/fundamental-estimate-theorem-3-2",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.2",
+      "title": "Weil I Théorème (3.2): a lisse Q_ℓ-sheaf with a nondegenerate alternating pairing to Q_ℓ(−β), open symplectic geometric monodromy and rational local factors is of weight β",
+      "kind": "theorem",
+      "statement": "Hypotheses: (i) F_0 carries a nondegenerate alternating bilinear form ψ: F_0 ⊗ F_0 -> Q_ℓ(−β), β ∈ Z; (ii) the image of π_1(U, u) in GL(F_ū) is an open subgroup of the symplectic group Sp(F_ū, ψ); (iii) for every x ∈ |U_0| the polynomial det(1 − F_x t, F_0) has rational coefficients. Conclusion: F_0 is of weight β. One may assume U affine and F_0 ≠ 0. Proof (3.7): for a partition P of [1,2k] into pairs {i_a, j_a}, ψ_P: F^{⊗2k} -> Q_ℓ(−kβ) contracts the pairs; by (ii) the coinvariants of π_1(U,ū) on F^{⊗2k} are those of the full symplectic group (π_1 is Zariski dense in Sp), and by H. Weyl (The classical groups, ch. VI §1) for a suitable set P' of partitions (depending on dim F) the ψ_P, P ∈ P', induce an isomorphism (F^{⊗2k})_{Sp} ≅ Q_ℓ(−kβ)^N with N = #P'; by (2.10) H^2_c(U, F^{⊗2k}) = Q_ℓ(−kβ−1)^N; since H^0_c(U, F^{⊗2k}) = 0 (U affine), (1.14.3) reduces to Z(U_0, F_0^{⊗2k}, t) = det(1 − F^* t, H^1_c(U, F^{⊗2k}))/(1 − q^{kβ+1} t)^N, a rational function with poles only at t = q^{−kβ−1}; if α is an eigenvalue of F_x on F_0 then α^{2k} is an eigenvalue on F_0^{⊗2k}, 1/α^{2k deg x} is a pole of the local factor det(1 − F_x t^{deg x}, F_0^{⊗2k})^{-1}, and by (3.4), (3.6) |1/α^{2k deg x}| ≥ |q^{−kβ−1}| for every complex conjugate, i.e. |α| ≤ q_x^{β/2 + 1/(2k)}; letting k -> ∞, |α| ≤ q_x^{β/2}; ψ makes q_x^β α^{-1} an eigenvalue too, giving |α| ≥ q_x^{β/2}.",
+      "hypotheses": [
+        "Exactly (i)-(iii) above; rationality (iii) and open image (ii) are hypotheses, not consequences of the pairing",
+        "Weyl's invariant theory for Sp is imported (The classical groups, VI §1) and not proved in the source",
+        "U affine (achieved by shrinking), F_0 ≠ 0"
+      ],
+      "proofSteps": [
+        "Lemma 3.3: rational nonnegative coefficients of the log derivative of the local factors of F_0^{⊗2k} (Tr(F_x^n, F_0^{⊗2k}) = Tr(F_x^n, F_0)^{2k} ≥ 0 rational, via (iii) and (1.5.3)).",
+        "Lemma 3.4: the local factors det(1 − F_x t, F_0^{⊗2k})^{-1} are power series with nonnegative rational coefficients (exponentiate the log series).",
+        "Lemmas 3.5-3.6: for a product f = ∏ f_n of power series with constant term 1 and nonnegative real coefficients, with ord(f_n − 1) -> ∞, the radius of absolute convergence of each f_n is at least that of f; for meromorphic functions this bounds the smallest pole of f_n below by that of f.",
+        "(3.7): symplectic coinvariants (Weyl), H^2_c via (2.10), the trace formula, pole location, the k -> ∞ limit, and the reciprocal eigenvalue from ψ."
+      ],
+      "acceptance": [
+        "The bound obtained before the limit is |α| ≤ q_x^{β/2 + 1/(2k)}: the half-unit error retained by the stage text appears in Corollary 3.8 rather than in 3.2 itself, where the limit k -> ∞ removes it.",
+        "Hypothesis (iii) is used only through Lemma 3.3 (positivity of Tr(F_x^n)^{2k}); (ii) only through the coinvariant computation."
+      ],
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§3, Théorème (3.2), p. 284",
+          "excerpt": "(ii) L'image de π_1(U, u) dans GL(F) est un sous-groupe ouvert du groupe symplectique Sp(F, ψ). (iii) Pour tout x ∈ |U_0|, le polynôme det(1 − F_x t, F) est à coefficients rationnels. Alors, F est de poids β.",
+          "match": "Statement with hypotheses (OCR cleaned)."
+        },
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§3, (3.7), p. 285",
+          "excerpt": "Faisant tendre k vers l'infini, on trouve que |α| ≤ q_x^{β/2}. Par ailleurs, l'existence de ψ assure que q_x^β α^{-1} est également valeur propre, d'où l'inégalité",
+          "match": "The limit and the reciprocal-eigenvalue step."
+        },
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§3, (3.7), p. 285",
+          "excerpt": "D'après H. Weyl (The classical groups, Princeton University Press, chap. VI, §1) pour P' ⊂ P convenable, dépendant de dim(F), les ψ_P pour P ∈ P' définissent un isomorphisme",
+          "match": "The invariant-theory import."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.2/positivity-and-radius-lemmas-3-3-3-6",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.2",
+      "title": "The positivity, exponentiation and radius-of-convergence lemmas (Weil I 3.3-3.6)",
+      "kind": "lemma",
+      "statement": "Lemma 3.3: for x ∈ |U_0|, t d/dt log det(1 − F_x t, F_0^{⊗2k})^{-1} is a formal series with nonnegative rational coefficients, because Tr(F_x^n, F_0^{⊗2k}) = Tr(F_x^n, F_0)^{2k} is a nonnegative rational number (hypothesis (iii) gives Tr(F_x^n, F_0) ∈ Q) and (1.5.3) applies. Lemma 3.4: the local factors det(1 − F_x t, F_0^{⊗2k})^{-1} are formal series with nonnegative rational coefficients (the log has no constant term and nonnegative coefficients by 3.3; its exponential therefore has nonnegative coefficients). Lemma 3.5: for a sequence f_n = Σ a_{n,i} t^i of formal series with constant term 1 and nonnegative real coefficients with ord(f_n − 1) -> ∞ and f = ∏ f_n, the radius of absolute convergence of f_n is at least that of f (if f = Σ a_i t^i then a_{n,i} ≤ a_i). Lemma 3.6: under the hypotheses of 3.5, if f and the f_n are Taylor expansions of meromorphic functions, then inf{|z| : f(z) = ∞} ≤ inf{|z| : f_n(z) = ∞} (these are the radii of absolute convergence).",
+      "hypotheses": [
+        "(iii) of 3.2 for the rationality; nonnegativity from even tensor powers 2k",
+        "Real/complex analysis of power series only"
+      ],
+      "proofSteps": [
+        "Coefficientwise comparison a_{n,i} ≤ a_i for products of nonnegative series.",
+        "Identification of the radius of absolute convergence with the distance to the nearest pole for meromorphic functions."
+      ],
+      "acceptance": [
+        "For a single eigenvalue α with F_0 of rank 1 the local factor is Σ α^{2kn} t^n (deg x = 1), with nonnegative coefficients when α^2 ∈ Q_{≥0}."
+      ],
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§3, Lemme (3.5), p. 284",
+          "excerpt": "Alors, le rayon de convergence absolue de f_n est au moins égal à celui de f. Si f = Σ a_i t^i, on a en effet a_{n,i} ≤ a_i.",
+          "match": "Radius lemma with its one-line proof (OCR cleaned)."
+        },
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§3, Lemme (3.3), p. 284",
+          "excerpt": "L'hypothèse (iii) assure que, pour tout n, Tr(F_x^n, F_0) ∈ Q. Le nombre Tr(F_x^n, F_0^{⊗2k}) = Tr(F_x^n, F_0)^{2k} est donc rationnel positif, et on applique (1.5.3).",
+          "match": "Positivity via even tensor powers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.2/curve-duality-inputs-2-10-2-12",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.2",
+      "title": "Cohomology of lisse sheaves on curves over an algebraically closed field: H^0_c, H^2_c via coinvariants (Scholie 2.10), j_* and Poincaré duality with j_* (Théorème 2.12)",
+      "kind": "theorem",
+      "statement": "Scholie (2.10): for X a smooth connected curve over algebraically closed k, x a closed point and F a lisse Q_ℓ-sheaf: (i) H^0_c(X, F) = 0 if X is affine; (ii) H^2_c(X, F) = (F_x̄)_{π_1(X,x̄)}(−1). (2.11): for X projective smooth connected, U = X − S open with S finite, j: U -> X and F lisse on U, j_*F is constructible with stalk at s ∈ S of rank ≤ the generic rank, namely the invariants under the local monodromy group. Théorème (2.12): the pairing Tr(x ∪ y): H^i(X, j_*F) ⊗ H^{2−i}(X, j_*F^∨(1)) -> H^2(X, j_*(F ⊗ F^∨)(1)) -> H^2(X, Q_ℓ(1)) ≅ Q_ℓ is a perfect duality. Deligne's (2.14 E): (2.12) follows from SGA 4 XVIII (3.2.5) by a local computation (for tame F it could also be obtained transcendentally); the statement 'figurera explicitement dans la version définitive de SGA 5'.",
+      "hypotheses": [
+        "k algebraically closed; X smooth connected (2.10) / projective smooth connected (2.12); F lisse Q_ℓ (passage from torsion coefficients is 'formal', per (2.14 A))",
+        "(2.12) is not proved in Weil I; it is delegated to SGA 4 XVIII 3.2.5 plus a local computation"
+      ],
+      "proofSteps": [
+        "(2.10 i): a lisse sheaf has no sections with finite support on an affine curve; (ii): H^2_c is the coinvariants twisted by (−1), from Poincaré duality on the curve.",
+        "(2.12): import from SGA 4 XVIII."
+      ],
+      "acceptance": [
+        "For F = Q_ℓ on U affine, H^2_c(U, Q_ℓ) = Q_ℓ(−1).",
+        "The pairing of (2.12) is used in (3.9) to get the lower bound on H^1(P^1, j_*F)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§2, Scholie (2.10), p. 282",
+          "excerpt": "(i) H^0_c(X, F) = 0 si X est affine. (ii) H^2_c(X, F) = (F)_{π_1(X, x̄)}(−1).",
+          "match": "H^2_c as coinvariants (OCR cleaned)."
+        },
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§2, (2.14 E), p. 283",
+          "excerpt": "La forme (2.12) du théorème de dualité de Poincaré résulte du résultat général SGA 4, XVIII (3.2.5) (pour S = Spec(k), X = X, K = j_*F, L = Q_ℓ) par un calcul local qui n'est pas difficile.",
+          "match": "Import boundary for the duality with j_*."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.2/coarse-weight-bounds-corollaries-3-8-3-9",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.2",
+      "title": "Weil I Corollaires (3.8)-(3.9): algebraicity and the coarse bounds q^{(β+1)/2 − 1/2} ≤ |α| ≤ q^{(β+1)/2 + 1/2} for H^1_c(U,F) and H^1(P^1, j_*F)",
+      "kind": "theorem",
+      "statement": "Corollary 3.8 (under the hypotheses of 3.2): every eigenvalue α of F^* on H^1_c(U, F) is algebraic with all complex conjugates satisfying |α| ≤ q^{β/2 + 1}. Proof: (1.14.3) for F reduces to Z(U_0, F_0, t) = det(1 − F^* t, H^1_c(U, F)) since H^0_c = H^2_c = 0 (U affine, F of weight β ≠ ... — the source: 'La formule (1.14.3) pour F se réduit à Z = det(1 − F^*t, H^1_c)'); the left side is a formal series with rational coefficients by the product expansion and (iii), so the right side is a polynomial with rational coefficients with root 1/α, whence algebraicity; it remains to show the Euler product converges absolutely (hence is nonzero) for |t| < q^{−β/2−1}: with det(1 − F_x t, F_0) = ∏_i (1 − α_{i,x} t), |α_{i,x}| = q_x^{β/2} by (3.2), convergence follows from Σ_{i,x} |α_{i,x} t^{deg x}| ≤ N Σ_x q_x^{−1−ε} < ∞ for |t| = q^{−β/2−1−ε}, using that the affine line has at most q^n closed points of degree n. Corollary 3.9: with j_0: U_0 -> P^1 and j: U -> P^1, every eigenvalue α of F^* on H^1(P^1, j_*F) is algebraic with q^{β/2} ≤ |α| ≤ q^{β/2 + 1} (the printed exponents are (β+1)/2 ∓ 1/2): the exact sequence 0 -> j_!F -> j_*F -> j_*F/j_!F -> 0 gives H^1_c(U,F) -> H^1(P^1, j_*F) -> 0 (the quotient is supported on finitely many points), so α occurs in H^1_c(U,F) and 3.8 applies; Poincaré duality (2.12) makes q^{β+1} α^{-1} an eigenvalue, giving the lower bound.",
+      "hypotheses": [
+        "Hypotheses of 3.2; U affine",
+        "Absolute convergence of the Euler product uses the point count of the affine line and (3.2)",
+        "The precise exponents in the printed displays are OCR-garbled; the reconstruction |α| ≤ q^{(β+1)/2 + 1/2} = q^{β/2+1} for 3.8 and q^{(β+1)/2 − 1/2} ≤ |α| ≤ q^{(β+1)/2 + 1/2} for 3.9 follows the visible fragments 'p+1 1 / 2 2' and the duality argument"
+      ],
+      "proofSteps": [
+        "Algebraicity from rational coefficients of det(1 − F^*t, H^1_c).",
+        "Absolute convergence of the Euler product in the disc |t| < q^{−β/2−1}.",
+        "Boundary exact sequence for j_! -> j_* and duality (2.12)."
+      ],
+      "acceptance": [
+        "These bounds are coarse (a full unit wide); the sharp statement (weights of H^1_c ≤ β+1, of H^1(P^1, j_*F) = β+1) is Weil II 3.2.3/3.3.x and must not be substituted here.",
+        "The half-unit error is what the tensor-power argument of DWP.4 removes."
+      ],
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§3, Corollaire (3.8), p. 286",
+          "excerpt": "Le premier membre est une série formelle à coefficients rationnels, vu son développement en produit et l'hypothèse (iii). Le second membre est donc un polynôme à coefficients rationnels; 1/α en est racine. Ceci prouve déjà que α est algébrique.",
+          "match": "Algebraicity step."
+        },
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§3, Corollaire (3.9), pp. 286-287",
+          "excerpt": "La valeur propre α apparaît donc déjà dans H^1_c(U, F), et est justiciable de (3.8) ... La dualité de Poincaré (2.12) assure que q^{β+1} α^{-1} est également valeur propre, d'où l'inégalité",
+          "match": "Boundary sequence and duality (OCR cleaned)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.7/weights-mixed-sheaves-definitions",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.7",
+      "title": "Weil II §1.2: pure numbers, punctually pure and mixed sheaves, stabilities, and ι-weights",
+      "kind": "definition",
+      "statement": "(1.2.1): for q a prime power and n ∈ Z, α is pure of weight n rel. q if it is algebraic and all its complex conjugates have absolute value q^{n/2}; 'number' means element of Q̄_ℓ. (1.2.2): for X of finite type over Z and F a Q̄_ℓ-sheaf on X, F is punctually pure (of weight n) if for every closed x the eigenvalues of F_x are pure of weight n rel. N(x); F is mixed if it has a finite filtration with punctually pure successive quotients, whose weights (of the nonzero quotients) are the punctual weights of F. The zero sheaf is pure of every weight and mixed with empty weight set. Variants (1.2.3)-(1.2.4): representations of Gal(k̄/k) for finite k, Weil sheaves, and Frobenius-modules. Stabilities (1.2.5): punctually pure sheaves of weight n are stable under quotients, subsheaves, extensions, inverse images and direct images by finite morphisms; tensor products add weights and the dual of a lisse punctually pure sheaf of weight n has weight −n; mixed sheaves are stable under the same operations and tensor products; Q̄_ℓ(1) is punctually pure of weight −2. (1.2.6): for an isomorphism ι: Q̄_ℓ ≅ C, w_q(α) = 2 log_q |ια| is the ι-weight; F is punctually ι-pure of weight β ∈ R if all Frobenius eigenvalues have ι-weight β; α is pure of weight n iff ια has absolute value q^{n/2} for every ι, and then α is automatically algebraic.",
+      "hypotheses": [
+        "X of finite type over Z (mixed characteristic allowed); Q̄_ℓ-sheaves with ℓ invertible",
+        "Weights in (1.2.2) are integers; ι-weights (1.2.6) are real"
+      ],
+      "proofSteps": [
+        "Definitions only."
+      ],
+      "acceptance": [
+        "Q̄_ℓ(1) has weight −2; duals of lisse pure sheaves negate weights.",
+        "ι-purity for all ι is equivalent to purity, and forces algebraicity."
+      ],
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilII-1980",
+          "locator": "§1.2, Définition (1.2.2), p. 153",
+          "excerpt": "(ii) F est mixte s'il admet une filtration finie de quotients successifs des faisceaux ponctuellement purs. Les poids de ceux de ces quotients qui sont non nuls sont les poids ponctuels de F.",
+          "match": "Definition of mixed sheaves (OCR cleaned)."
+        },
+        {
+          "sourceId": "Deligne-WeilII-1980",
+          "locator": "§1.2, (1.2.6), p. 154",
+          "excerpt": "Le nombre α est alors automatiquement algébrique, sans quoi ια pourrait être n'importe quel nombre transcendant.",
+          "match": "Purity for all ι implies algebraicity."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.7/fundamental-direct-image-theorem-3-3-1",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.7",
+      "title": "Weil II Théorème (3.3.1): for f: X -> Y of finite type over Z and F mixed of weights ≤ n, R^i f_! F is mixed of weights ≤ n + i — the dévissages and the curve reduction",
+      "kind": "theorem",
+      "statement": "Statement: f: X -> Y a morphism of schemes of finite type over Z, F a sheaf on X mixed of weights ≤ n; then for each i, R^i f_! F is mixed of weights ≤ n+i. Dévissages: (a) in F along short exact sequences (long exact sequence; split case); (b) in X: for j: U -> X open with complement i: S -> X, it suffices to treat R^i(fj)_! j^*F and R^i(fi)_! i^*F (via 0 -> j_!j^*F -> F -> i_*i^*F -> 0); (c) in Y: it suffices to check after base change to an open V and its complement T (base change theorem); (d) transitivity for f = gh via the Leray spectral sequence R^i g_! R^j h_!; (e) it suffices to check after base change along a universal homeomorphism Y' -> Y (e.g. Y_red, or the normalization in a purely inseparable extension); (f) if f has relative dimension 0 and F is punctually pure then f_! = R^0 f_! is punctually pure of the same weight and R^i f_! = 0 for i ≠ 0, and one concludes by (a). Reduction: (b),(c),(d) reduce to relative dimension 1; (a),(b) to F lisse and punctually pure of weight n. For a curve C over a field K and F lisse, after a finite purely inseparable extension of K: (α) there is a finite set whose complement C' is smooth over K; (β) there is a finite surjective cover u: D -> C' with D the complement in a smooth projective curve D̄ of a divisor E étale over K such that u^*F is tamely ramified along E, and F is a direct summand of u_*u^*F = Ru_*u^*F. Applied to the generic fibre of f at a generic point η of Y and spread out by the usual limit arguments to a neighbourhood of η in Y_red; by (c),(e) assume this neighbourhood is all of Y_red and Y_red smooth, then by (b),(f),(a) assume X is the complement in X̄, projective and smooth of pure relative dimension 1 over Y, of a divisor D finite étale over Y, with F tamely ramified along D. Then R f_! F = R f̄_*(j_!F); from 0 -> j_!F -> j_*F -> i_*i^*j_*F -> 0 and the local monodromy filtration M on i^*j_*F ((1.8.6)-(1.8.8)), compatible with passage to fibres, Theorem (3.2.3) applied to all isomorphisms ι gives R^1 f̄_* j_*F punctually pure of weight n+1, and Theorem (1.8.4) (for all ι) gives Gr^M_k(i^*j_*F) pure of weight n+k on D and zero for k > 0 (1.8.8); f̄ i is finite, and (f),(a) finish.",
+      "hypotheses": [
+        "f of finite type over Z (arbitrary base of finite type over Z, so both characteristic p and mixed characteristic); F mixed of weights ≤ n (integer weights)",
+        "Imports: the proper/compact-support base change theorem and Leray spectral sequence for R f_!; the curve facts (α),(β) (existence of a tame finite cover after purely inseparable base extension) are stated without reference; Theorem (3.2.3) (curve case for lisse punctually ι-pure F: weights of H^1(X̄, j_*F) equal β+1) and Theorem (1.8.4) (Gr^M_k of the local monodromy filtration is ι-pure of weight β+k) are used for every ι; their proofs (§§3.2 and 1.8) were not read",
+        "The direct-summand claim F ⊆ u_*u^*F uses a trace argument, not spelled out"
+      ],
+      "proofSteps": [
+        "Dévissages (a)-(f).",
+        "Reduction to relative dimension 1, lisse punctually pure F, tame ramification along a finite étale divisor over a smooth base.",
+        "Curve case via 3.2.3 and the monodromy-filtration purity 1.8.4/1.8.8, then finiteness of f̄ i."
+      ],
+      "acceptance": [
+        "Weights are only bounded above; the lower bound needs integrality (3.3.2-3.3.3) or duality (3.3.5).",
+        "The theorem holds over any base of finite type over Z, not just over a finite field."
+      ],
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilII-1980",
+          "locator": "§3.3, Théorème (3.3.1), p. 204",
+          "excerpt": "Soient f: X -> Y un morphisme de schémas de type fini sur Z, et F un faisceau sur X. Si F est mixte de poids ≤ n, alors, pour chaque i, R^i f_! F est mixte de poids ≤ n + i.",
+          "match": "Statement (OCR cleaned)."
+        },
+        {
+          "sourceId": "Deligne-WeilII-1980",
+          "locator": "§3.3, proof of (3.3.1), p. 205",
+          "excerpt": "Les dévissages (b), (c), (d) nous ramènent à supposer que f est de dimension relative 1, puis (a), (b) nous ramènent à supposer que F est lisse et ponctuellement pur de poids n.",
+          "match": "The reduction."
+        },
+        {
+          "sourceId": "Deligne-WeilII-1980",
+          "locator": "§3.3, proof of (3.3.1), p. 205",
+          "excerpt": "Le théorème (3.2.3), appliqué à tous les isomorphismes ι, assure donc que R^1 f̄_* j_* F est ponctuellement pur de poids n+1, et le théorème (1.8.4) (lui aussi pour tout ι) assure que Gr^M_k(i^* j_* F), nul pour k > 0, est pur de poids n+k sur D (1.8.8).",
+          "match": "The two imported inputs of the curve case."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.7/cohomological-bounds-3-3-2-3-3-6",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.7",
+      "title": "Integrality lower bounds (3.3.2-3.3.3), the compact-support and ordinary cohomology bounds over finite fields (3.3.4-3.3.5) and purity of the image H^i_c -> H^i (3.3.6)",
+      "kind": "theorem",
+      "statement": "(3.3.2): using SGA 7 XXI 5 on p-adic valuations of Frobenius eigenvalues: a sheaf is 'entier' if its Frobenius eigenvalues are algebraic integers; weights of a mixed integral sheaf are ≥ 0 (the norm of an algebraic integer pure of weight n and degree d is an ordinary integer of absolute value q^{nd/2}). Corollary 3.3.3: for f: X -> Y of finite type over Z and F integral, mixed of weights ≤ n, R^i f_! F is mixed of weights between 0 and n+i; if i exceeds the maximal fibre dimension d, the weights lie between 2(i−d) and n+i (SGA 7 XXI (5.2.2) applied to the fibres makes R^i f_! F and R^i f_! F(i−d) integral). Corollary 3.3.4 (Y = Spec F_q, Weil sheaves allowed in characteristic p): for X_0 of finite type over F_q and F_0 mixed of weights ≤ n, H^i_c(X, F) is mixed of weights ≤ n+i: every eigenvalue α of F is algebraic with all conjugates of absolute value q^{w/2} for some integer w ≤ n+i; if F_0 is integral, w ≥ 0, and w ≥ 2(i−d) if i > d = dim X. Corollary 3.3.5: for X_0 smooth of finite type over F_q and F_0 lisse mixed of weights ≥ n, H^i(X, F) is mixed of weights ≥ n+i (reduce to pure dimension N; the dual F_0^∨ is mixed of weights ≤ −n; by 3.3.3, H^{2N−i}_c(X, F^∨)(N) is mixed of weights ≤ −n + (2N−i) − 2N = −n−i; Poincaré duality identifies H^i(X,F) with its dual). Corollary 3.3.6: for X_0 smooth of finite type and F_0 lisse pure of weight n, the image of H^i_c(X,F) -> H^i(X,F) is pure of weight n+i.",
+      "hypotheses": [
+        "3.3.3-3.3.4 integrality clauses need F integral and SGA 7 XXI 5.2.2 (not read)",
+        "3.3.5-3.3.6 need X_0 smooth and F_0 lisse (Poincaré duality)",
+        "In characteristic p, étale sheaves may be replaced by Weil sheaves (stated after 3.3.3)"
+      ],
+      "proofSteps": [
+        "Norm argument for nonnegativity of integral weights.",
+        "SGA 7 XXI 5.2.2 for the twist (i−d).",
+        "Duality argument for 3.3.5; combine with 3.3.4 for 3.3.6."
+      ],
+      "acceptance": [
+        "For F_0 = Q̄_ℓ and X_0 smooth proper, H^i(X, Q̄_ℓ) is pure of weight i (3.3.7-3.3.9).",
+        "Without smoothness, a pure stalk condition on a singular X_0 does not give the lower bound of 3.3.5."
+      ],
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilII-1980",
+          "locator": "§3.3, Corollaire (3.3.5), p. 206",
+          "excerpt": "Soient X_0 lisse de type fini sur F_q et F_0 un faisceau lisse mixte de poids ≥ n sur X_0. Alors, H^i(X, F) est mixte de poids ≥ n + i.",
+          "match": "Lower bound with its smooth/lisse hypotheses (OCR cleaned)."
+        },
+        {
+          "sourceId": "Deligne-WeilII-1980",
+          "locator": "§3.3, (3.3.2), p. 205",
+          "excerpt": "Les poids d'un faisceau mixte entier sont nécessairement positifs",
+          "match": "Integrality lower bound."
+        },
+        {
+          "sourceId": "Deligne-WeilII-1980",
+          "locator": "§3.3, Corollaire (3.3.3), p. 205",
+          "excerpt": "D'après SGA 7 XXI (5.2.2), appliqué aux fibres de f, les faisceaux R^i f_! F et R^i f_! F(i − d) sont en effet entiers.",
+          "match": "The SGA 7 XXI import."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.7/hodge-type-triangles-and-proper-smooth-purity-3-3-7-3-3-11",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.7",
+      "title": "The (r,s) valuation triangles (3.3.7-3.3.8), purity for proper smooth varieties (3.3.9), the ι-mixed variant (3.3.10) and the rational-homology-manifold variant (3.3.11)",
+      "kind": "theorem",
+      "statement": "(3.3.7): for α pure of weight n rel. q and a p-adic valuation v normalized by v(q) = 1, attach (v(α), v(q^n α^{-1})), nonnegative if α is integral, with sum n; for the constant sheaf, 3.3.4 and the duality method of 3.3.5 locate these pairs (Corollary 3.3.8: for X of dimension ≤ d, in compact-support cohomology (or ordinary cohomology for X proper) (r,s) lies in a lower triangle of the diagram; for ordinary cohomology and X smooth in an upper triangle; the diagram is lost in the OCR). Corollary 3.3.9: for X_0 proper and smooth over F_q, det(t·1 − F, H^i(X, Q̄_ℓ)) has integer coefficients independent of ℓ (ℓ ≠ p) and its complex roots have absolute value q^{i/2} — the main theorem (1.6) of Weil I with 'projective' replaced by 'proper' (argue as in Weil I, proof of (1.7) => (1.6)). (3.3.10): Theorem 3.3.1 holds with the same proof for ι-mixed sheaves and n replaced by β ∈ R; the only weights in R^i f_! F are numbers ≤ β+i congruent mod Z to weights of F; the integrality argument 3.3.2 does not apply, but 3.3.4 (except integral clauses), 3.3.5, 3.3.6 hold verbatim. (3.3.11): 'lisse' enters only through Poincaré duality, so it may be replaced by the condition Ra^!Q̄_ℓ = Q̄_ℓ(n)[2n] for the structure map a (e.g. étale-local quotients of smooth schemes by finite groups).",
+      "hypotheses": [
+        "3.3.9: X_0 proper smooth over F_q",
+        "3.3.10: ι-mixed real weights; no integrality conclusions",
+        "3.3.11: the condition (*) Ra^! Q̄_ℓ = Q̄_ℓ(n)[2n]"
+      ],
+      "proofSteps": [
+        "3.3.8 by combining the upper bounds, integrality and duality.",
+        "3.3.9 from 3.3.4/3.3.5 with F = Q̄_ℓ and the argument of Weil I (1.7) => (1.6).",
+        "3.3.10 by rerunning the proof of 3.3.1 with ι-weights; 3.3.11 by replacing smoothness with the dualizing condition."
+      ],
+      "acceptance": [
+        "The ι-mixed version yields weights modulo Z only; integer weights are not inferred from it (stage requirement confirmed by 3.3.10's last sentence).",
+        "3.3.9 is the smooth proper (nonprojective) purity export used by WC."
+      ],
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilII-1980",
+          "locator": "§3.3, Corollaire (3.3.9), p. 207",
+          "excerpt": "Soit X_0 une variété propre et lisse sur F_q. Pour chaque i, le polynôme caractéristique det(t·1 − F, H^i(X, Q̄_ℓ)) est à coefficients entiers, indépendants de ℓ (ℓ ≠ p). Les racines complexes α de ce polynôme (les conjugués complexes des valeurs propres de F^*) sont de valeur absolue |α| = q^{i/2}.",
+          "match": "Proper smooth purity (OCR cleaned)."
+        },
+        {
+          "sourceId": "Deligne-WeilII-1980",
+          "locator": "§3.3, (3.3.10), p. 207",
+          "excerpt": "Le théorème (3.3.1) vaut, avec la même démonstration, avec mixte remplacé par ι-mixte, et n remplacé par β ∈ R. Les seuls poids qui peuvent apparaître dans R^i f_! F sont les nombres ≤ β + i congrus mod Z à l'un des poids qui apparaît dans F. L'argument (3.3.2) pour minorer les poids ne s'applique plus dans ce contexte.",
+          "match": "ι-mixed variant and its limits."
+        },
+        {
+          "sourceId": "Deligne-WeilII-1980",
+          "locator": "§3.3, (3.3.11), p. 207",
+          "excerpt": "Dans tout ceci, l'hypothèse « lisse » n'apparaît que pour justifier la dualité de Poincaré.",
+          "match": "Role of smoothness."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "DeligneWeightsAndPurity:DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves",
+      "target": "DeligneWeightsAndPurity:DWP.2/fundamental-estimate-theorem-3-2",
+      "reason": "The proof (3.7) uses the trace formula (1.14.3) to write Z(U_0, F_0^{⊗2k}, t) as a rational function and (1.13) for the local eigenvalues.",
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§3, (3.7), p. 285"
+        }
+      ]
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.2/positivity-and-radius-lemmas-3-3-3-6",
+      "target": "DeligneWeightsAndPurity:DWP.2/fundamental-estimate-theorem-3-2",
+      "reason": "(3.7) invokes (3.4) and (3.6) to bound the poles of the local factors by the global pole q^{−kβ−1}.",
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§3, (3.7), p. 285: 'D'après (3.4) et (3.6), on a donc'"
+        }
+      ]
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.2/curve-duality-inputs-2-10-2-12",
+      "target": "DeligneWeightsAndPurity:DWP.2/fundamental-estimate-theorem-3-2",
+      "reason": "H^2_c(U, F^{⊗2k}) is computed by Scholie (2.10)(ii) as coinvariants twisted by (−1).",
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§3, (3.7), p. 285: 'D'après (2.10), la formule ci-dessus donne'"
+        }
+      ]
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.2/fundamental-estimate-theorem-3-2",
+      "target": "DeligneWeightsAndPurity:DWP.2/coarse-weight-bounds-corollaries-3-8-3-9",
+      "reason": "Corollary 3.8 uses the weight-β conclusion of 3.2 to prove absolute convergence of the Euler product; 3.9 uses 3.8.",
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§3, Corollaire (3.8), p. 286: 'D'après (3.2), |α_{i,x}| = q_x^{β/2}'"
+        }
+      ]
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.2/curve-duality-inputs-2-10-2-12",
+      "target": "DeligneWeightsAndPurity:DWP.2/coarse-weight-bounds-corollaries-3-8-3-9",
+      "reason": "Corollary 3.9 uses the duality (2.12) with j_* to obtain the lower bound.",
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§3, Corollaire (3.9), p. 287"
+        }
+      ]
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.7/weights-mixed-sheaves-definitions",
+      "target": "DeligneWeightsAndPurity:DWP.7/fundamental-direct-image-theorem-3-3-1",
+      "reason": "3.3.1 is stated for mixed sheaves in the sense of (1.2.2) and its proof uses the stabilities (1.2.5) implicitly in the dévissages.",
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilII-1980",
+          "locator": "§3.3, Théorème (3.3.1), p. 204"
+        }
+      ]
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.7/fundamental-direct-image-theorem-3-3-1",
+      "target": "DeligneWeightsAndPurity:DWP.7/cohomological-bounds-3-3-2-3-3-6",
+      "reason": "3.3.3-3.3.6 are corollaries of 3.3.1 (with integrality or duality added).",
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilII-1980",
+          "locator": "§3.3, pp. 205-206"
+        }
+      ]
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.7/cohomological-bounds-3-3-2-3-3-6",
+      "target": "DeligneWeightsAndPurity:DWP.7/hodge-type-triangles-and-proper-smooth-purity-3-3-7-3-3-11",
+      "reason": "3.3.8-3.3.9 combine 3.3.4 and 3.3.5 for the constant sheaf.",
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilII-1980",
+          "locator": "§3.3, (3.3.7)-(3.3.9), pp. 206-207"
+        }
+      ]
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.2/curve-duality-inputs-2-10-2-12",
+      "target": "DeligneWeightsAndPurity:DWP.7/cohomological-bounds-3-3-2-3-3-6",
+      "reason": "Corollary 3.3.5 uses Poincaré duality for smooth X_0 in the same way as Weil I 2.12 is used in 3.9; the general duality theorem is imported from SGA 4 XVIII in both papers (EtaleDualityAndPerverseSheaves:EDC.2 is the atlas owner).",
+      "sources": [
+        {
+          "sourceId": "Deligne-WeilII-1980",
+          "locator": "§3.3, proof of Corollaire (3.3.5), p. 206"
+        },
+        {
+          "sourceId": "Deligne-WeilI-1974",
+          "locator": "§2, (2.14 E), p. 283"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "DeligneWeightsAndPurity:DWP.0",
+      "status": "not_read",
+      "remaining": [
+        "Not read in this pass (Weil II §1.2 definitions are recorded under DWP.7 and can be reused)."
+      ]
+    },
+    {
+      "stageId": "DeligneWeightsAndPurity:DWP.1",
+      "status": "not_read",
+      "remaining": [
+        "Weil I §§1-2 beyond (1.5), (1.13)-(1.15), (2.10)-(2.14) not read."
+      ]
+    },
+    {
+      "stageId": "DeligneWeightsAndPurity:DWP.2",
+      "status": "partial",
+      "remaining": [
+        "Weyl's symplectic invariant theory (The classical groups VI §1) not read; the finite-rank invariant/coinvariant calculation is a proof obligation.",
+        "The Lefschetz trace formula (1.12.1) is delegated by Deligne to SGA 5; Poincaré duality (2.12) to SGA 4 XVIII 3.2.5 plus a local computation; neither read.",
+        "The precise exponents of Corollaries 3.8-3.9 are reconstructed from OCR fragments and the duality argument; verify on the page images (pp. 286-287).",
+        "Descent of the theorem to Q_ℓ-models / scalar extension issues raised by the stage are not discussed in Weil I."
+      ]
+    },
+    {
+      "stageId": "DeligneWeightsAndPurity:DWP.3",
+      "status": "not_read",
+      "remaining": [
+        "Weil I §§4-6 not read."
+      ]
+    },
+    {
+      "stageId": "DeligneWeightsAndPurity:DWP.4",
+      "status": "not_read",
+      "remaining": [
+        "Weil I §7 not read."
+      ]
+    },
+    {
+      "stageId": "DeligneWeightsAndPurity:DWP.5",
+      "status": "not_read",
+      "remaining": [
+        "Weil II §§1.6-1.8, 2 not read beyond the statements of 1.8.4, 1.8.8, 1.8.9."
+      ]
+    },
+    {
+      "stageId": "DeligneWeightsAndPurity:DWP.6",
+      "status": "not_read",
+      "remaining": [
+        "Weil II §3.2 not read beyond the statement of 3.2.3."
+      ]
+    },
+    {
+      "stageId": "DeligneWeightsAndPurity:DWP.7",
+      "status": "partial",
+      "remaining": [
+        "Proofs of Theorem 3.2.3 (§3.2) and Theorem 1.8.4 (§1.8) not read; the curve facts (α),(β) and the direct-summand claim F ⊆ u_*u^*F have no reference in the source; the 'usual limit arguments' for spreading out are not written.",
+        "SGA 7 XXI 5.2.2 (integrality of R^i f_! F(i−d)) not read.",
+        "The (r,s) diagram of 3.3.8 is lost in the OCR.",
+        "The argument 'as in Weil I (1.7) => (1.6)' for 3.3.9 (integrality and ℓ-independence of the characteristic polynomial) was read in Weil I only up to its beginning (p. 276)."
+      ]
+    },
+    {
+      "stageId": "DeligneWeightsAndPurity:DWP.8",
+      "status": "not_read",
+      "remaining": [
+        "Weil II §3.4 and §6 not read."
+      ]
+    },
+    {
+      "stageId": "DeligneWeightsAndPurity:DWP.9",
+      "status": "not_read",
+      "remaining": [
+        "Weil II §4 not read."
+      ]
+    },
+    {
+      "stageId": "DeligneWeightsAndPurity:DWP.10",
+      "status": "not_read",
+      "remaining": [
+        "Not read."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Symplectic invariant theory (Weyl) for the coinvariants of F^{⊗2k}",
+      "neededBy": [
+        "DeligneWeightsAndPurity:DWP.2/fundamental-estimate-theorem-3-2"
+      ],
+      "detail": "Deligne cites H. Weyl, The classical groups, ch. VI §1, for the isomorphism (F^{⊗2k})_{Sp} ≅ Q_ℓ(−kβ)^N by contraction pairings; the source neither states the precise form nor proves it. Next action: read Weyl VI §1 or a modern account (e.g. Procesi, Lie Groups, ch. 11) and record N and the set P' of partitions; check the atlas representation-theory owner (tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups) for a supplier before adding it here."
+    },
+    {
+      "title": "Trace formula and Poincaré duality imports of Weil I",
+      "neededBy": [
+        "DeligneWeightsAndPurity:DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves",
+        "DeligneWeightsAndPurity:DWP.2/curve-duality-inputs-2-10-2-12"
+      ],
+      "detail": "(1.12.1) is delegated to SGA 5 and (2.12) to SGA 4 XVIII 3.2.5 + local computation. The library has SGA 4 XVII-XVIII (Weil_SGA4_XVII_XVIII.txt) and SGA 4½ [Rapport] for the trace formula; neither was read in this pass. EtaleDualityAndPerverseSheaves:EDC.2 is the atlas owner of the duality; the trace formula owner is the PR196 TraceFormula upstream named by the stage."
+    },
+    {
+      "title": "Weil II inputs 3.2.3 and 1.8.4 unread",
+      "neededBy": [
+        "DeligneWeightsAndPurity:DWP.7/fundamental-direct-image-theorem-3-3-1"
+      ],
+      "detail": "The curve case of 3.3.1 rests on Théorème (3.2.3) (weights of H^1(X̄, j_*F) for lisse punctually ι-pure F on a dense open of a smooth projective curve equal β+1) and Théorème (1.8.4) (ι-purity of Gr^M_k of the local monodromy filtration). Both are DWP.5-DWP.6 material (Weil II §§1.6-1.8, 3.2) and were not read. Next action: read §3.2 (pp. 197-204) and §1.8 (pp. 175-178)."
+    },
+    {
+      "title": "OCR losses in Weil I §3 and Weil II §3.3",
+      "neededBy": [
+        "DeligneWeightsAndPurity:DWP.2/coarse-weight-bounds-corollaries-3-8-3-9",
+        "DeligneWeightsAndPurity:DWP.7/hodge-type-triangles-and-proper-smooth-purity-3-3-7-3-3-11"
+      ],
+      "detail": "The exponents in (3.8)-(3.9) and the diagram of (3.3.8) are garbled in the numdam OCR; verify on rendered pages before promotion."
+    }
+  ]
+}
