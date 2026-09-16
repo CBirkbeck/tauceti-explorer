@@ -174,7 +174,9 @@
         "IntegralHeckeAndGaloisDeterminants",
         "LocalGaloisDeformationRings"
       ],
-      "state": "available"
+      "state": "assigned_internal",
+      "assignedOn": "2026-09-16",
+      "note": "Claimed on 16 September 2026; queued to run unattended in tmux under the local account \"claude\" after its review job. Do not hand this job to another agent; packets land in research/expansion/external/EXT-11/."
     },
     {
       "id": "EXT-12",
@@ -190,7 +192,9 @@
         "PotentialAutomorphyInfrastructure",
         "PotentialModularityAndCompatibleSystems"
       ],
-      "state": "available"
+      "state": "assigned_internal",
+      "assignedOn": "2026-09-16",
+      "note": "Claimed on 16 September 2026; queued to run unattended in tmux under the local account \"claude6\" after its review job. Do not hand this job to another agent; packets land in research/expansion/external/EXT-12/."
     },
     {
       "id": "EXT-13",

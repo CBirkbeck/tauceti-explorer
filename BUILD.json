@@ -1,8 +1,8 @@
 {
   "roadmaps": 180,
-  "stages": 1660,
+  "stages": 1860,
   "originalStages": 1604,
-  "sourceRefinements": 56,
+  "sourceRefinements": 256,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -19,9 +19,58 @@
       "deferredLinks": 0
     },
     {
+      "roadmap": "DeformationAndDerivedPatchingAlgebra",
+      "status": "partial",
+      "nodes": 18,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
       "roadmap": "DerivedDeRhamCohomology",
       "status": "partial",
       "nodes": 7,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "EulerSystemsCyclotomicMainConjecture",
+      "status": "partial",
+      "nodes": 16,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "GeneralAlgebraicKTheory",
+      "status": "partial",
+      "nodes": 24,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "GeneralizedHeegnerCycles",
+      "status": "partial",
+      "nodes": 6,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "GrossZagierAndArithmeticHeights",
+      "status": "partial",
+      "nodes": 9,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "HeegnerPointEulerSystems",
+      "status": "partial",
+      "nodes": 8,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "KatoEulerSystems",
+      "status": "partial",
+      "nodes": 22,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -33,6 +82,13 @@
       "deferredLinks": 0
     },
     {
+      "roadmap": "PadicDifferentialEquationsAndRigidCohomology",
+      "status": "partial",
+      "nodes": 2,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
       "roadmap": "PadicFamilies",
       "status": "partial",
       "nodes": 14,
@@ -40,9 +96,58 @@
       "deferredLinks": 0
     },
     {
+      "roadmap": "PadicHodgeTheory",
+      "status": "partial",
+      "nodes": 10,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "PerfectoidQuotients",
+      "status": "partial",
+      "nodes": 12,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "PerfectoidSpaces",
+      "status": "partial",
+      "nodes": 33,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
       "roadmap": "PrismaticCohomology",
       "status": "partial",
       "nodes": 8,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "StableHomotopyKTheory",
+      "status": "partial",
+      "nodes": 25,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "TropicalAndBerkovichArithmetic",
+      "status": "partial",
+      "nodes": 4,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "WeightsInEtaleCohomology",
+      "status": "partial",
+      "nodes": 5,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "WeilConjectures",
+      "status": "partial",
+      "nodes": 6,
       "review": "accepted",
       "deferredLinks": 0
     }
@@ -54,14 +159,14 @@
   "mathematicalSummaries": 180,
   "curatedStagePresentations": 333,
   "administrativeStages": 66,
-  "mathematicalStars": 1594,
+  "mathematicalStars": 1794,
   "plainTextPlanetLabels": 345,
   "bibliographicSources": 46,
-  "roadmapEdges": 1012,
-  "stageEdges": 3591,
+  "roadmapEdges": 1016,
+  "stageEdges": 3885,
   "sourceDocuments": 214,
-  "htmlBytes": 10138763,
-  "htmlSha256": "d63d707c16ff1106e103a2802422e9088221b3a2ed5706c222ddea5e5ba3ed59",
+  "htmlBytes": 13154681,
+  "htmlSha256": "0d723d682e9674b5a68012cd8fc225a5d2fb0dc68f4d49be698da8a1ae1e02eb",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -91,9 +196,24 @@
     "vendor/KaTeX-LICENSE.txt": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3",
     "data/decompositions/AInfCohomology.json": "21ac63c193596a1fa7b0fa79f7dbdd75f7e1544a23cf7de1ae08246f148811b2",
     "data/decompositions/CrystallineCohomology.json": "23aa8927522d17f709b0709fac64d5f1409f8c4b66dd10d8a9d0545e2684e23e",
+    "data/decompositions/DeformationAndDerivedPatchingAlgebra.json": "321c5e0b0f72aaadbba1c1180cfe7d41fb32bdef7093c3252e16c886ceb01628",
     "data/decompositions/DerivedDeRhamCohomology.json": "9cc64b5f4b77e06a2a5d05dc3e201f041c3a1ffb39ea73ba0223baa6c6082078",
+    "data/decompositions/EulerSystemsCyclotomicMainConjecture.json": "16261f019175c15002a14fd78a42e9ee7418379098fe2cb18f572b490f661917",
+    "data/decompositions/GeneralAlgebraicKTheory.json": "6f4955f3b16cd3c8ec496094097e69e87866bf38d8bf7d0a3b65e188149efada",
+    "data/decompositions/GeneralizedHeegnerCycles.json": "d7ba42b6a0b8a44525d0fe855956d2d415e080bb08bdd346c429d25930b2ec9c",
+    "data/decompositions/GrossZagierAndArithmeticHeights.json": "99e4aa2b637df399a3e1f98c53aab0f8849c6c2b9b1d91283a954888e04af27c",
+    "data/decompositions/HeegnerPointEulerSystems.json": "fef57d72219c5ea730da6329b5c7544e6d9438f997d5483b31697b52851900fc",
+    "data/decompositions/KatoEulerSystems.json": "a3f1f6bd393cd3d9adafb5f6286d67505460cdbd939490ed2870c4bf3db8e22d",
     "data/decompositions/LocallyAnalyticDistributions.json": "b1dca72f4b2941dd184d9fe2b9172003edd98509931a18df1219f567298f1b5c",
+    "data/decompositions/PadicDifferentialEquationsAndRigidCohomology.json": "d0a627da138ce532710864ae8fcd720f77893fbd94c007bfc6b887a685f65f36",
     "data/decompositions/PadicFamilies.json": "ed2657a4aa3d9189cf87f81f80451bf05a6b059e94b7a0bcdf29cf4b596ce83e",
-    "data/decompositions/PrismaticCohomology.json": "fd192a8111c42b8de60f6d9011e421159c7258179114f73687d2bd77ff5791b9"
+    "data/decompositions/PadicHodgeTheory.json": "e09f63b74397f31b146464b67ac37858fe1ac98e8948db4121cfeb6ddbd98c8d",
+    "data/decompositions/PerfectoidQuotients.json": "3350c72722dc53fb820b0ff2f1223f8344ce591b7de2a2bb38004128718d0177",
+    "data/decompositions/PerfectoidSpaces.json": "b460bbc91e9a795c8499b25605f1a9369c11383f91a8aee1c5215788992c9b05",
+    "data/decompositions/PrismaticCohomology.json": "fd192a8111c42b8de60f6d9011e421159c7258179114f73687d2bd77ff5791b9",
+    "data/decompositions/StableHomotopyKTheory.json": "660ee5ae3c4c849c3c37f39cbd24af0dd951b162706e0378a4967c48d5cd6e66",
+    "data/decompositions/TropicalAndBerkovichArithmetic.json": "e0b874f052634edab9da6a71e7fa5329f7fa1443c316b326cb07ac94dcab5e38",
+    "data/decompositions/WeightsInEtaleCohomology.json": "4a41151244faf21477866c23a4cd43d5a212e2fbafac8a6b5504f0e19d5f3b43",
+    "data/decompositions/WeilConjectures.json": "532f2a6f1ccd3188a4ed372133937f0cc0057236fd5a981d640a0295c7566d41"
   }
 }

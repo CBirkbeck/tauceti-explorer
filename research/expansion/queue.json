@@ -423,17 +423,18 @@
       "title": "Commutative algebra for deformation theory and patching",
       "group": "foundations",
       "stageCount": 9,
-      "state": "draft_reviewed",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-01/DeformationAndDerivedPatchingAlgebra.json",
       "draftNodes": 18,
       "draftLinks": 30,
       "assignment": "EXT-01",
-      "reviewNote": "Independent review by independent-review-REVIEW-EXT-01-EXT-15: accepted. Not promoted yet.",
       "review": {
         "status": "accepted",
         "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
         "date": "2026-09-16"
-      }
+      },
+      "promoted": "data/decompositions/DeformationAndDerivedPatchingAlgebra.json",
+      "note": "Independently reviewed packet promoted and merged at build time on 16 September 2026. Coverage remains partial; implementation status of every refinement is unchecked."
     },
     {
       "id": "DeligneWeightsAndPurity",
@@ -598,17 +599,18 @@
       "title": "Euler systems and the unconditional cyclotomic main conjecture",
       "group": "iwasawa",
       "stageCount": 5,
-      "state": "draft_reviewed",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-15/EulerSystemsCyclotomicMainConjecture.json",
       "draftNodes": 16,
       "draftLinks": 16,
       "assignment": "EXT-15",
-      "reviewNote": "Independent review by independent-review-REVIEW-EXT-01-EXT-15: accepted. Not promoted yet.",
       "review": {
         "status": "accepted",
         "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
         "date": "2026-09-15"
-      }
+      },
+      "promoted": "data/decompositions/EulerSystemsCyclotomicMainConjecture.json",
+      "note": "Independently reviewed packet promoted and merged at build time on 16 September 2026. Coverage remains partial; implementation status of every refinement is unchecked."
     },
     {
       "id": "ExcursionOperatorsAndSpectralAction",
@@ -711,34 +713,36 @@
       "title": "General algebraic K-theory",
       "group": "foundations",
       "stageCount": 15,
-      "state": "draft_reviewed",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-01/GeneralAlgebraicKTheory.json",
       "draftNodes": 24,
       "draftLinks": 55,
       "assignment": "EXT-01",
-      "reviewNote": "Independent review by independent-review-REVIEW-EXT-01-EXT-15: accepted. Not promoted yet.",
       "review": {
         "status": "accepted",
         "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
         "date": "2026-09-15"
-      }
+      },
+      "promoted": "data/decompositions/GeneralAlgebraicKTheory.json",
+      "note": "Independently reviewed packet promoted and merged at build time on 16 September 2026. Coverage remains partial; implementation status of every refinement is unchecked."
     },
     {
       "id": "GeneralizedHeegnerCycles",
       "title": "Generalized Heegner cycles and their Iwasawa variation",
       "group": "iwasawa",
       "stageCount": 9,
-      "state": "draft_reviewed",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-15/GeneralizedHeegnerCycles.json",
       "draftNodes": 6,
       "draftLinks": 6,
       "assignment": "EXT-15",
-      "reviewNote": "Independent review by independent-review-REVIEW-EXT-01-EXT-15: accepted. Not promoted yet.",
       "review": {
         "status": "accepted",
         "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
         "date": "2026-09-16"
-      }
+      },
+      "promoted": "data/decompositions/GeneralizedHeegnerCycles.json",
+      "note": "Independently reviewed packet promoted and merged at build time on 16 September 2026. Coverage remains partial; implementation status of every refinement is unchecked."
     },
     {
       "id": "GeometricSatakeAndFusion",
@@ -781,17 +785,18 @@
       "title": "Gross–Zagier formulas and arithmetic heights",
       "group": "iwasawa",
       "stageCount": 10,
-      "state": "draft_reviewed",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-15/GrossZagierAndArithmeticHeights.json",
       "draftNodes": 9,
       "draftLinks": 12,
       "assignment": "EXT-15",
-      "reviewNote": "Independent review by independent-review-REVIEW-EXT-01-EXT-15: accepted. Not promoted yet.",
       "review": {
         "status": "accepted",
         "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
         "date": "2026-09-16"
-      }
+      },
+      "promoted": "data/decompositions/GrossZagierAndArithmeticHeights.json",
+      "note": "Independently reviewed packet promoted and merged at build time on 16 September 2026. Coverage remains partial; implementation status of every refinement is unchecked."
     },
     {
       "id": "HabiroCohomologyFoundations",
@@ -850,17 +855,18 @@
       "title": "Heegner-point Euler systems and arithmetic descent",
       "group": "iwasawa",
       "stageCount": 12,
-      "state": "draft_reviewed",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-15/HeegnerPointEulerSystems.json",
       "draftNodes": 8,
       "draftLinks": 8,
       "assignment": "EXT-15",
-      "reviewNote": "Independent review by independent-review-REVIEW-EXT-01-EXT-15: accepted. Not promoted yet.",
       "review": {
         "status": "accepted",
         "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
         "date": "2026-09-16"
-      }
+      },
+      "promoted": "data/decompositions/HeegnerPointEulerSystems.json",
+      "note": "Independently reviewed packet promoted and merged at build time on 16 September 2026. Coverage remains partial; implementation status of every refinement is unchecked."
     },
     {
       "id": "HeightsRationalPointsAndObstructions",
@@ -967,17 +973,18 @@
       "title": "Kato classes and explicit reciprocity for modular forms",
       "group": "iwasawa",
       "stageCount": 5,
-      "state": "draft_reviewed",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-15/KatoEulerSystems.json",
       "draftNodes": 22,
       "draftLinks": 15,
       "assignment": "EXT-15",
-      "reviewNote": "Independent review by independent-review-REVIEW-EXT-01-EXT-15: accepted. Not promoted yet.",
       "review": {
         "status": "accepted",
         "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
         "date": "2026-09-16"
-      }
+      },
+      "promoted": "data/decompositions/KatoEulerSystems.json",
+      "note": "Independently reviewed packet promoted and merged at build time on 16 September 2026. Coverage remains partial; implementation status of every refinement is unchecked."
     },
     {
       "id": "LanglandsParameterStacks",
@@ -1150,17 +1157,18 @@
       "title": "P-adic differential equations, rigid cohomology and p-adic weights",
       "group": "cohomology",
       "stageCount": 8,
-      "state": "draft_reviewed",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-03/PadicDifferentialEquationsAndRigidCohomology.json",
       "draftNodes": 2,
       "draftLinks": 2,
       "assignment": "EXT-03",
-      "reviewNote": "Independent review by independent-review-REVIEW-EXT-03: accepted. Not promoted yet.",
       "review": {
         "status": "accepted",
         "reviewer": "independent-review-REVIEW-EXT-03",
         "date": "2026-09-15"
-      }
+      },
+      "promoted": "data/decompositions/PadicDifferentialEquationsAndRigidCohomology.json",
+      "note": "Independently reviewed packet promoted and merged at build time on 16 September 2026. Coverage remains partial; implementation status of every refinement is unchecked."
     },
     {
       "id": "PadicFamilies",
@@ -1193,17 +1201,18 @@
       "title": "P-adic Hodge theory and geometric comparison",
       "group": "cohomology",
       "stageCount": 10,
-      "state": "draft_reviewed",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-03/PadicHodgeTheory.json",
       "draftNodes": 10,
       "draftLinks": 21,
       "assignment": "EXT-03",
-      "reviewNote": "Independent review by independent-review-REVIEW-EXT-03: accepted. Not promoted yet.",
       "review": {
         "status": "accepted",
         "reviewer": "independent-review-REVIEW-EXT-03",
         "date": "2026-09-15"
-      }
+      },
+      "promoted": "data/decompositions/PadicHodgeTheory.json",
+      "note": "Independently reviewed packet promoted and merged at build time on 16 September 2026. Coverage remains partial; implementation status of every refinement is unchecked."
     },
     {
       "id": "PadicLocalLanglandsForGL2Qp",
@@ -1230,17 +1239,18 @@
       "title": "Perfectoid quotients and their prismatic prerequisites",
       "group": "cohomology",
       "stageCount": 7,
-      "state": "draft_reviewed",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-03/PerfectoidQuotients.json",
       "draftNodes": 12,
       "draftLinks": 24,
       "assignment": "EXT-03",
-      "reviewNote": "Independent review by independent-review-REVIEW-EXT-03: accepted. Not promoted yet.",
       "review": {
         "status": "accepted",
         "reviewer": "independent-review-REVIEW-EXT-03",
         "date": "2026-09-15"
-      }
+      },
+      "promoted": "data/decompositions/PerfectoidQuotients.json",
+      "note": "Independently reviewed packet promoted and merged at build time on 16 September 2026. Coverage remains partial; implementation status of every refinement is unchecked."
     },
     {
       "id": "PerfectoidShimuraVarieties",
@@ -1255,17 +1265,18 @@
       "title": "Perfectoid rings and spaces",
       "group": "cohomology",
       "stageCount": 10,
-      "state": "draft_reviewed",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-03/PerfectoidSpaces.json",
       "draftNodes": 33,
       "draftLinks": 47,
       "assignment": "EXT-03",
-      "reviewNote": "Independent review by independent-review-REVIEW-EXT-03: accepted. Not promoted yet.",
       "review": {
         "status": "accepted",
         "reviewer": "independent-review-REVIEW-EXT-03",
         "date": "2026-09-16"
-      }
+      },
+      "promoted": "data/decompositions/PerfectoidSpaces.json",
+      "note": "Independently reviewed packet promoted and merged at build time on 16 September 2026. Coverage remains partial; implementation status of every refinement is unchecked."
     },
     {
       "id": "PeriodsAndSpecialValues",
@@ -1486,17 +1497,18 @@
       "title": "Homotopy foundations for algebraic K-theory",
       "group": "foundations",
       "stageCount": 12,
-      "state": "draft_reviewed",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-01/StableHomotopyKTheory.json",
       "draftNodes": 25,
       "draftLinks": 28,
       "assignment": "EXT-01",
-      "reviewNote": "Independent review by independent-review-REVIEW-EXT-01-EXT-15: accepted. Not promoted yet.",
       "review": {
         "status": "accepted",
         "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
         "date": "2026-09-15"
-      }
+      },
+      "promoted": "data/decompositions/StableHomotopyKTheory.json",
+      "note": "Independently reviewed packet promoted and merged at build time on 16 September 2026. Coverage remains partial; implementation status of every refinement is unchecked."
     },
     {
       "id": "TorsionCohomologyInfrastructure",
@@ -1511,17 +1523,18 @@
       "title": "Berkovich spaces, tropical curves and nonarchimedean arithmetic",
       "group": "cohomology",
       "stageCount": 8,
-      "state": "draft_reviewed",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-03/TropicalAndBerkovichArithmetic.json",
       "draftNodes": 4,
       "draftLinks": 3,
       "assignment": "EXT-03",
-      "reviewNote": "Independent review by independent-review-REVIEW-EXT-03: accepted. Not promoted yet.",
       "review": {
         "status": "accepted",
         "reviewer": "independent-review-REVIEW-EXT-03",
         "date": "2026-09-16"
-      }
+      },
+      "promoted": "data/decompositions/TropicalAndBerkovichArithmetic.json",
+      "note": "Independently reviewed packet promoted and merged at build time on 16 September 2026. Coverage remains partial; implementation status of every refinement is unchecked."
     },
     {
       "id": "VStackSheavesAndLisseCategories",
@@ -1552,34 +1565,36 @@
       "title": "Weights and purity in étale cohomology",
       "group": "cohomology",
       "stageCount": 6,
-      "state": "draft_reviewed",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-03/WeightsInEtaleCohomology.json",
       "draftNodes": 5,
       "draftLinks": 10,
       "assignment": "EXT-03",
-      "reviewNote": "Independent review by independent-review-REVIEW-EXT-03: accepted. Not promoted yet.",
       "review": {
         "status": "accepted",
         "reviewer": "independent-review-REVIEW-EXT-03",
         "date": "2026-09-16"
-      }
+      },
+      "promoted": "data/decompositions/WeightsInEtaleCohomology.json",
+      "note": "Independently reviewed packet promoted and merged at build time on 16 September 2026. Coverage remains partial; implementation status of every refinement is unchecked."
     },
     {
       "id": "WeilConjectures",
       "title": "Weil conjectures and cohomological zeta functions",
       "group": "cohomology",
       "stageCount": 10,
-      "state": "draft_reviewed",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-03/WeilConjectures.json",
       "draftNodes": 6,
       "draftLinks": 8,
       "assignment": "EXT-03",
-      "reviewNote": "Independent review by independent-review-REVIEW-EXT-03: accepted. Not promoted yet.",
       "review": {
         "status": "accepted",
         "reviewer": "independent-review-REVIEW-EXT-03",
         "date": "2026-09-16"
-      }
+      },
+      "promoted": "data/decompositions/WeilConjectures.json",
+      "note": "Independently reviewed packet promoted and merged at build time on 16 September 2026. Coverage remains partial; implementation status of every refinement is unchecked."
     },
     {
       "id": "tauceti:Completed/EffectiveBounds",
