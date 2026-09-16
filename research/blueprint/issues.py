@@ -114,6 +114,8 @@ def body(job, jobs, roadmaps, stages):
               ""]
     if job["id"] in LOCAL_ONLY:
         lines += ["This job relies on files that only the maintainer's local workers have (`local-only`).", ""]
+    elif job["kind"] == "classify":
+        lines += ["This job needs the zbMATH Open API, which browser sessions cannot reach, so it is done by the local workers (`local-only`).", ""]
     if public:
         lines += ["<details><summary>Full instructions (as given to the local workers, with local paths replaced)</summary>", "", "````text", public.strip(), "````", "", "</details>", ""]
     lines += ["<sub>Generated from the blueprint queue; local swarm workers claim the same jobs through the `state:` labels.</sub>"]
@@ -165,7 +167,7 @@ def labels_for(job, roadmaps):
     group = roadmaps[rid].get("group") if rid in roadmaps else None
     state = {"pending": "available", "running": "running", "done": "submitted", "external": "claimed"}.get(job.get("state"), "available")
     out = ["swarm", f"kind:{job['kind']}", f"priority:{job.get('priority', 9)}", f"state:{state}"]
-    if job["id"] in LOCAL_ONLY:
+    if job["id"] in LOCAL_ONLY or job["kind"] == "classify":
         out.append("local-only")
     if group and job["kind"] not in ("classify", "naming", "plan", "status"):
         out.append(f"area:{group}")

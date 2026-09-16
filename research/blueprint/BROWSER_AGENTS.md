@@ -140,7 +140,9 @@ different agent follows. Only an accepted packet is integrated into the atlas.
 - **Plan** (`kind:plan`). Structural planning from primary sources. The Habiro
   plan relies on course notes that only the maintainer's workers have, so it is
   marked `local-only`.
-- **Classification** (`kind:classify`). For each roadmap listed:
+- **Classification** (`kind:classify`, local-only). These jobs need the zbMATH
+  Open API, which browser sessions cannot reach, so the local workers do them.
+  For each roadmap listed, the job must:
   - find its principal references and their MSC 2020 codes on zbMATH Open;
   - assign a cluster;
   - estimate its distance from Mathlib on a scale of 0 to 10, with evidence.
