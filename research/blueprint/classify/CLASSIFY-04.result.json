@@ -1,0 +1,426 @@
+[
+ {
+  "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+  "primaryMsc": "14K",
+  "secondaryMsc": [
+   "14L",
+   "14D",
+   "14G"
+  ],
+  "cluster": "arithmetic-geometry",
+  "distance": 7,
+  "distanceRationale": "Mathlib has smooth morphisms and equation-level reduction types of Weierstrass curves, and Tau Ceti has abelian varieties over a field, DVR models of curves and the combinatorial Picard group of a fibre's intersection matrix. There are no abelian schemes, Néron models or smoothening, no Tate modules of abelian varieties, and no semiabelian schemes, Raynaud extensions or generalised Jacobians. The targets (BLR, SGA 7 IX, Faltings–Chai degeneration) need several research-level layers on top of the missing abelian-scheme and formal-geometry theory.",
+  "mathlibEvidence": [
+   "mathlib:WeierstrassCurve.HasGoodReduction, WeierstrassCurve.HasMultiplicativeReduction (Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean) — equation-level reduction types only",
+   "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety (TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean) — abelian varieties over a field, no abelian schemes over a base",
+   "tauceti:TauCeti.Model (TauCeti/AlgebraicGeometry/Curves/StableReduction/Model/Basic.lean) — flat finitely presented models of curves over a DVR",
+   "tauceti:TauCeti.NumericalType.picToCoker (TauCeti/AlgebraicGeometry/Curves/StableReduction/Picard/Basic.lean) — combinatorial Picard group of a fibre type, not a Néron component group",
+   "absent: Néron models and the Néron mapping property, smoothening, semiabelian schemes, Tate modules of abelian varieties, Raynaud extensions, generalised Jacobians (no declarations matching Neron[A-Z]/NeronModel, Semistab, Semiabelian, TateModule, AbelianScheme)"
+  ],
+  "references": [
+   {
+    "title": "Néron models",
+    "authors": "Bosch, Siegfried; Lütkebohmert, Werner; Raynaud, Michel",
+    "zbmath": 46134,
+    "msc": [
+     "14A15",
+     "14K30",
+     "14L15",
+     "14-02",
+     "14C22"
+    ]
+   },
+   {
+    "title": "Modèles de Néron et monodromie (SGA 7 I, Exp. IX)",
+    "authors": "Grothendieck, A.",
+    "zbmath": 3392632,
+    "msc": [
+     "14E30",
+     "14K15",
+     "14L05"
+    ]
+   },
+   {
+    "title": "Degeneration of abelian varieties",
+    "authors": "Faltings, Gerd; Chai, Ching-Li",
+    "zbmath": 49143,
+    "msc": [
+     "14K10",
+     "14-02",
+     "14K15",
+     "14L15",
+     "14D10",
+     "14D15",
+     "14L05"
+    ]
+   },
+   {
+    "title": "Modèles minimaux des variétés abéliennes sur les corps locaux et globaux",
+    "authors": "Néron, André",
+    "zbmath": 3215171,
+    "msc": [
+     "14Gxx"
+    ]
+   },
+   {
+    "title": "Good reduction of abelian varieties",
+    "authors": "Serre, Jean-Pierre; Tate, J.",
+    "zbmath": 3275185,
+    "msc": []
+   },
+   {
+    "title": "Spécialisation du foncteur de Picard",
+    "authors": "Raynaud, M.",
+    "zbmath": 3330567,
+    "msc": [
+     "14D05"
+    ]
+   },
+   {
+    "title": "Variétés abéliennes et géométrie rigide",
+    "authors": "Raynaud, Michel",
+    "zbmath": 3353451,
+    "msc": [
+     "14K15"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+  "primaryMsc": "11R",
+  "secondaryMsc": [
+   "19B",
+   "11S",
+   "11G"
+  ],
+  "cluster": "iwasawa-theory-and-special-values",
+  "distance": 10,
+  "distanceRationale": "Mathlib supplies generic Ore localization, Weierstrass preparation for power series and continuous group cohomology, and Tau Ceti has K₀ of abelian categories. There are no completed group rings of p-adic Lie groups, no K₁ or relative K₀ of rings with localization sequences, no reduced norms or SK₁, no commutative main conjecture and no p-adic L-functions of totally real fields. The targets are Kakde's and Ritter–Weiss's equivariant main conjectures, extended by uniqueness results from 2025–2026: frontier theorems resting on many unbuilt theories.",
+  "mathlibEvidence": [
+   "mathlib:OreLocalization (Mathlib/GroupTheory/OreLocalization/Basic.lean) — generic noncommutative Ore localization, without the canonical Ore set of CFKSV",
+   "mathlib:PowerSeries.IsWeierstrassDivision (Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean) — Weierstrass division/preparation for one-variable power series",
+   "mathlib:continuousCohomology (Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean) — continuous group cohomology, no Iwasawa cohomology complexes",
+   "tauceti:TauCeti.AbelianK0 (TauCeti/CategoryTheory/GrothendieckGroup/Abelian.lean) — K₀ of an abelian category only",
+   "absent: completed group rings O[[G]] of p-adic Lie groups, K₁ and relative K₀ of rings, reduced norms and SK₁, characteristic elements, Fitting ideals, p-adic L-functions of totally real fields (no declarations matching CompletedGroupRing, Iwasawa algebra, K1/KTheory, reducedNorm, characteristicIdeal, fittingIdeal)"
+  ],
+  "references": [
+   {
+    "title": "The GL₂ main conjecture for elliptic curves without complex multiplication",
+    "authors": "Coates, John; Fukaya, Takako; Kato, Kazuya; Sujatha, Ramdorai; Venjakob, Otmar",
+    "zbmath": 2204266,
+    "msc": [
+     "11R23",
+     "11G40"
+    ]
+   },
+   {
+    "title": "The main conjecture of Iwasawa theory for totally real fields",
+    "authors": "Kakde, Mahesh",
+    "zbmath": 6222257,
+    "msc": [
+     "11R23",
+     "11R42",
+     "11R80",
+     "19B28"
+    ]
+   },
+   {
+    "title": "On the \"main conjecture\" of equivariant Iwasawa theory",
+    "authors": "Ritter, Jürgen; Weiss, Alfred",
+    "zbmath": 5950700,
+    "msc": [
+     "11R23",
+     "11R42",
+     "11S40"
+    ]
+   },
+   {
+    "title": "A formulation of conjectures on p-adic zeta functions in noncommutative Iwasawa theory",
+    "authors": "Fukaya, Takako; Kato, Kazuya",
+    "zbmath": 5620988,
+    "msc": [
+     "11S23",
+     "11G40",
+     "11R23",
+     "11S40"
+    ]
+   },
+   {
+    "title": "On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory",
+    "authors": "Burns, David; Venjakob, Otmar",
+    "zbmath": 5165897,
+    "msc": [
+     "11G40",
+     "11R65",
+     "19A31",
+     "19B28"
+    ]
+   },
+   {
+    "title": "An unconditional equivariant main conjecture in Iwasawa theory and applications",
+    "authors": "Gambheera, Rusiru; Popescu, Cristian D.",
+    "zbmath": 8139324,
+    "msc": [
+     "11R23",
+     "11R29",
+     "11R34",
+     "11R42",
+     "11R70"
+    ]
+   },
+   {
+    "title": "On uniqueness in equivariant Iwasawa theory (arXiv:2608.22601)",
+    "authors": "Ritter, Jürgen; Weiss, Alfred",
+    "zbmath": 903143609,
+    "msc": [
+     "11R23",
+     "11R18",
+     "11R54",
+     "11S40",
+     "19F99"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "11R",
+   "14F"
+  ],
+  "cluster": "galois-representations-and-langlands",
+  "distance": 9,
+  "distanceRationale": "Tau Ceti has classical Hecke, U_p and diamond operators on Γ₀(N)/Γ₁(N) forms and eigenforms, but there are no ordinary projectors, Iwasawa/weight-space algebras, Hilbert modular forms, Galois representations attached to modular forms, deformation rings, pseudorepresentations or patching. Hida theory and the Skinner–Wiles residually reducible R=T theorems sit on top of all of these, together with p-adic Hodge input (Berger–Li–Zhu).",
+  "mathlibEvidence": [
+   "tauceti:HeckeRing.GL2.heckeSlashGamma1CuspFormEnd (TauCeti/NumberTheory/ModularForms/HeckeSlash/Gamma1.lean) — Hecke operators on classical Γ₁(N) cusp forms",
+   "tauceti:HeckeRing.GL2.heckeUNat (TauCeti/NumberTheory/ModularForms/HeckeSlash/BadPrime/Basic.lean) — U_p operators, with no ordinary idempotent",
+   "tauceti:HeckeRing.GL2.IsEigenformAwayFromLevel (TauCeti/NumberTheory/ModularForms/Eigenform.lean)",
+   "mathlib:CuspForm (Mathlib/NumberTheory/ModularForms/Basic.lean)",
+   "absent: Hida's ordinary projector, Λ-adic forms and Hecke algebras, Galois representations of modular/Hilbert forms, Galois deformation rings, pseudorepresentations/determinant laws, Taylor–Wiles patching (no declarations matching ordinaryProjector, DeformationRing, Pseudorepresentation, DeterminantLaw, HeckeAlgebra)"
+  ],
+  "references": [
+   {
+    "title": "Galois representations into GL₂(Z_p[[X]]) attached to ordinary cusp forms",
+    "authors": "Hida, Haruzo",
+    "zbmath": 3989449,
+    "msc": [
+     "11F80",
+     "11F67",
+     "11F33",
+     "11F11",
+     "11F25",
+     "11R23"
+    ]
+   },
+   {
+    "title": "On p-adic Hecke algebras for GL₂ over totally real fields",
+    "authors": "Hida, Haruzo",
+    "zbmath": 4075183,
+    "msc": [
+     "11F33",
+     "11F80",
+     "11F41"
+    ]
+   },
+   {
+    "title": "Residually reducible representations and modular forms",
+    "authors": "Skinner, C. M.; Wiles, A. J.",
+    "zbmath": 1560381,
+    "msc": [
+     "11F80",
+     "11F11"
+    ]
+   },
+   {
+    "title": "Nearly ordinary deformations of irreducible residual representations",
+    "authors": "Skinner, C. M.; Wiles, Andrew J.",
+    "zbmath": 1796108,
+    "msc": [
+     "11F80",
+     "11F33",
+     "11F11"
+    ]
+   },
+   {
+    "title": "Serre's modularity conjecture. I",
+    "authors": "Khare, Chandrashekhar; Wintenberger, Jean-Pierre",
+    "zbmath": 5636295,
+    "msc": [
+     "11F80",
+     "11R39",
+     "11F11"
+    ]
+   },
+   {
+    "title": "Serre's modularity conjecture: the level one case",
+    "authors": "Khare, Chandrashekhar",
+    "zbmath": 5077493,
+    "msc": [
+     "11F80",
+     "11F11",
+     "11R39"
+    ]
+   },
+   {
+    "title": "A simplified proof of Serre's conjecture",
+    "authors": "Dieulefait, Luis Victor; Pacetti, Ariel Martín",
+    "zbmath": 7733909,
+    "msc": [
+     "11F33"
+    ]
+   },
+   {
+    "title": "Construction of some families of 2-dimensional crystalline representations",
+    "authors": "Berger, Laurent; Li, Hanfeng; Zhu, Hui June",
+    "zbmath": 2120960,
+    "msc": [
+     "11F80",
+     "11F33",
+     "11F85",
+     "14F30"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "OverconvergentAutomorphicForms",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "11G",
+   "14G"
+  ],
+  "cluster": "modular-and-automorphic-forms",
+  "distance": 10,
+  "distanceRationale": "Tau Ceti has Huber rings and the adic spectrum Spa with rational subsets and a structure presheaf, and Mathlib has ring-level perfectoid constructions such as θ and B_dR^+. There are no adic or perfectoid spaces, no Hodge–Tate period map, no Hilbert modular varieties or forms, no weight spaces or locally analytic representations and no toroidal compactifications. The endpoint (Birkbeck–Heuer–Williams 2023, compared with Andreatta–Iovita–Pilloni) is recent research resting on all of these.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.ValuationSpectrum.spa (TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean) — adic spectrum of a Huber pair, with rational subsets but no adic spaces",
+   "tauceti:TauCeti.Huber.IsHuberRing (TauCeti/RingTheory/Huber/Basic.lean)",
+   "mathlib:BDeRhamPlus (Mathlib/RingTheory/Perfectoid/BDeRham.lean) — ring-level perfectoid constructions only",
+   "tauceti:HeckeRing.GL2.heckeSlashGamma1CuspFormEnd (TauCeti/NumberTheory/ModularForms/HeckeSlash/Gamma1.lean) — Hecke operators on classical elliptic modular forms only",
+   "absent: perfectoid spaces and the Hodge–Tate period map, Hilbert modular varieties and forms, p-adic weight spaces, locally analytic induced modules, overconvergent sheaves (no declarations matching Overconvergent, HilbertModular, PerfectoidSpace, LocallyAnalytic)"
+  ],
+  "references": [
+   {
+    "title": "Overconvergent Hilbert modular forms via perfectoid modular varieties",
+    "authors": "Birkbeck, Christopher; Heuer, Ben; Williams, Chris",
+    "zbmath": 7710614,
+    "msc": [
+     "11F77",
+     "11F41",
+     "11F33"
+    ]
+   },
+   {
+    "title": "On overconvergent Hilbert modular cusp forms",
+    "authors": "Andreatta, Fabrizio; Iovita, Adrian; Pilloni, Vincent",
+    "zbmath": 6720833,
+    "msc": [
+     "11F41",
+     "11F85"
+    ]
+   },
+   {
+    "title": "p-adic families of Siegel modular cuspforms",
+    "authors": "Andreatta, Fabrizio; Iovita, Adrian; Pilloni, Vincent",
+    "zbmath": 6399445,
+    "msc": [
+     "11F85",
+     "11F46"
+    ]
+   },
+   {
+    "title": "p-adic automorphic forms on reductive groups",
+    "authors": "Hida, Haruzo",
+    "zbmath": 2194134,
+    "msc": [
+     "11F33",
+     "11F46",
+     "11F55",
+     "11G18"
+    ]
+   },
+   {
+    "title": "Higher Coleman theory (arXiv:2110.10251)",
+    "authors": "Boxer, George; Pilloni, Vincent",
+    "zbmath": 900492888,
+    "msc": [
+     "arXiv:math.NT"
+    ]
+   },
+   {
+    "title": "Overconvergent modular forms and perfectoid Shimura curves",
+    "authors": "Chojecki, Przemysław; Hansen, D.; Johansson, C.",
+    "zbmath": 6684202,
+    "msc": [
+     "11G18",
+     "11F33",
+     "11F70"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "PELModuli",
+  "primaryMsc": "14G",
+  "secondaryMsc": [
+   "11G",
+   "14K"
+  ],
+  "cluster": "arithmetic-geometry",
+  "distance": 8,
+  "distanceRationale": "Tau Ceti supplies the linear-algebra and group inputs: polarized Hodge structures, the split symplectic group scheme with its reductivity, and isogenies of abelian varieties over a field. There are no algebraic spaces or stacks and no Artin representability, no abelian schemes with polarizations, Rosati involutions or level structures, no Weil pairings, no deformation theory of abelian schemes and no Shimura varieties. Lan's and Kottwitz's constructions need several research-level layers on top of these missing foundations.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.Hodge.Polarization (TauCeti/Geometry/Hodge/Polarization.lean) — polarized Hodge structures, the linear-algebra side of a PEL datum",
+   "tauceti:TauCeti.Symplectic.coordinateHopfAlgebra (TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean) — split symplectic group scheme, with no similitude group of a PEL datum",
+   "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny (TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean) — isogenies over a field only",
+   "absent: algebraic spaces and stacks, Artin representability, polarized abelian schemes with endomorphism structure, Rosati involutions, Weil pairings, level structures, Shimura data and varieties (no declarations matching AlgebraicSpace, AlgebraicStack, Rosati, WeilPairing, LevelStructure, Shimura)"
+  ],
+  "references": [
+   {
+    "title": "Arithmetic compactifications of PEL-type Shimura varieties",
+    "authors": "Lan, Kai-Wen",
+    "zbmath": 6151348,
+    "msc": [
+     "14-02",
+     "11G18",
+     "14G35",
+     "14K10"
+    ]
+   },
+   {
+    "title": "An example-based introduction to Shimura varieties",
+    "authors": "Lan, Kai-Wen",
+    "zbmath": null,
+    "msc": []
+   },
+   {
+    "title": "Points on some Shimura varieties over finite fields",
+    "authors": "Kottwitz, Robert E.",
+    "zbmath": 40191,
+    "msc": [
+     "14G35",
+     "14G15",
+     "14G10",
+     "11S40",
+     "14K05",
+     "11G18"
+    ]
+   },
+   {
+    "title": "p-adic automorphic forms on Shimura varieties",
+    "authors": "Hida, Haruzo",
+    "zbmath": 2107001,
+    "msc": [
+     "11F33",
+     "11G18",
+     "11-02",
+     "14G35",
+     "11F41",
+     "11G45"
+    ]
+   }
+  ]
+ }
+]

@@ -75,9 +75,10 @@
    "prompt": "research/blueprint/prompts/PLAN-HABIRO.md",
    "state": "running",
    "account": "claude",
-   "lane": 2,
-   "startedAt": "2026-09-16T10:51:54Z",
-   "attempts": 1
+   "lane": 1,
+   "attempts": 2,
+   "startedAt": "2026-09-16T11:14:07Z",
+   "note": "moved to the swarm server after a session limit on the Mac; scratch notes copied"
   },
   {
    "id": "REV-PLAN-HABIRO",
@@ -144,11 +145,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/CLASSIFY-01.md",
-   "state": "pending",
-   "account": null,
-   "lane": null,
-   "attempts": 1,
-   "startedAt": "2026-09-16T10:14:27Z",
+   "state": "running",
+   "account": "claude2",
+   "lane": 2,
+   "attempts": 2,
+   "startedAt": "2026-09-16T11:14:07Z",
    "note": "interrupted by an orchestrator restart at 25/36 roadmaps; the next attempt continues from the saved file",
    "promptPreface": "CONTINUATION: an earlier attempt saved research/blueprint/classify/CLASSIFY-01.result.json. Keep its entries (check them briefly) and classify only the roadmaps it lacks, then rewrite the whole file.\n\n"
   },
@@ -200,12 +201,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/CLASSIFY-02.md",
-   "state": "running",
+   "state": "external",
    "account": "claude2",
    "lane": 2,
    "attempts": 1,
    "startedAt": "2026-09-16T10:51:54Z",
-   "note": "released after a usage limit on claude6/1 at 2026-09-16T10:25:33Z"
+   "note": "finishing on the Mac before the move; outputs will be copied here"
   },
   {
    "id": "CLASSIFY-03",
@@ -257,10 +258,10 @@
    "prompt": "research/blueprint/prompts/CLASSIFY-03.md",
    "state": "pending",
    "account": null,
-   "lane": null,
+   "lane": 1,
    "attempts": 1,
-   "startedAt": "2026-09-16T10:15:45Z",
-   "note": "interrupted by an orchestrator restart at 30/36 roadmaps; the next attempt continues from the saved file",
+   "startedAt": "2026-09-16T11:14:07Z",
+   "note": "released after a usage limit on claude6/1 at 2026-09-16T11:14:11Z",
    "promptPreface": "CONTINUATION: an earlier attempt saved research/blueprint/classify/CLASSIFY-03.result.json. Keep its entries (check them briefly) and classify only the roadmaps it lacks, then rewrite the whole file.\n\n"
   },
   {
@@ -311,11 +312,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/CLASSIFY-04.md",
-   "state": "pending",
-   "account": null,
+   "state": "running",
+   "account": "claude2",
    "lane": 1,
-   "startedAt": "2026-09-16T10:51:54Z",
-   "attempts": 0,
+   "attempts": 1,
+   "startedAt": "2026-09-16T11:14:07Z",
    "note": "released after a usage limit on claude6/1 at 2026-09-16T10:52:00Z"
   },
   {
@@ -369,9 +370,9 @@
    "state": "pending",
    "account": null,
    "lane": 2,
-   "startedAt": "2026-09-16T10:51:55Z",
    "attempts": 0,
-   "note": "released after a usage limit on claude6/2 at 2026-09-16T10:52:00Z"
+   "startedAt": "2026-09-16T11:14:07Z",
+   "note": "released after a usage limit on claude6/2 at 2026-09-16T11:14:12Z"
   },
   {
    "id": "CLASSIFY-06",
@@ -417,7 +418,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/CLASSIFY-06.md",
-   "state": "pending"
+   "state": "external",
+   "account": null,
+   "lane": 2,
+   "startedAt": "2026-09-16T11:14:07Z",
+   "attempts": 0,
+   "note": "claimed on GitHub issue #9"
   },
   {
    "id": "DESIGN-LV",
@@ -435,7 +441,11 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-LV.md",
-   "state": "pending"
+   "state": "running",
+   "account": "claude",
+   "lane": 2,
+   "startedAt": "2026-09-16T11:14:07Z",
+   "attempts": 1
   },
   {
    "id": "REV-DESIGN-LV",
@@ -2321,7 +2331,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #67"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
@@ -2387,7 +2398,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_StandardDistributions.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #69"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_StandardDistributions",
@@ -2420,7 +2432,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_UniversalCovers.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #70"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_UniversalCovers",
@@ -2453,7 +2466,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #71"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
