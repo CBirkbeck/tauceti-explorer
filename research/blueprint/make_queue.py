@@ -574,9 +574,13 @@ def main():
     for job in jobs:
         if job["id"] in previous:
             kept = previous[job["id"]]
-            for key in ("state", "account", "lane", "attempts", "startedAt", "finishedAt", "seconds", "result", "note"):
+            for key in ("state", "account", "lane", "attempts", "startedAt", "finishedAt", "seconds", "result", "note",
+                        "promptPreface", "integrated"):
                 if key in kept:
                     job[key] = kept[key]
+            # A preface added by the orchestrator (for example a continuation note) survives regeneration.
+            if kept.get("promptPreface") and job.get("prompt") in prompts:
+                prompts[job["prompt"]] = kept["promptPreface"] + prompts[job["prompt"]]
         merged.append(job)
     extra_old = [j for j in old if j["id"] not in {x["id"] for x in merged}]
     merged += extra_old
