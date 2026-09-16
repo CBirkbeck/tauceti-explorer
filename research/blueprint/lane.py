@@ -192,6 +192,10 @@ def run(job, account, workers: Path):
     env = dict(os.environ)
     env["CLAUDE_CONFIG_DIR"] = str(Path.home() / f".{account}")
     env["CLAUDE_CODE_EFFORT_LEVEL"] = "max"
+    # Workers run the checkers against the lane's baseline, with any extra tools first on the path.
+    env["TAUCETI_BASELINE"] = os.environ.get("TAUCETI_BASELINE", str(workers / "baseline"))
+    if os.environ.get("TAUCETI_TOOLS_BIN"):
+        env["PATH"] = os.environ["TAUCETI_TOOLS_BIN"] + os.pathsep + env.get("PATH", "")
     started = time.time()
     with open(log_path, "w") as out:
         try:
@@ -220,6 +224,8 @@ def main():
     ap.add_argument("--start-at", default=None, help="local ISO time (Europe/London) before which the lane sleeps")
     ap.add_argument("--wait-session", default=None, help="tmux session that must end before the lane starts")
     ap.add_argument("--once", action="store_true")
+    ap.add_argument("--drain-file", default=None,
+                    help="when this file exists the lane finishes its current job and stops (default: research/blueprint/.drain-<host>)")
     args = ap.parse_args()
     workers = Path(args.workers)
     name = f"{args.account}/{args.lane}"
@@ -234,7 +240,12 @@ def main():
             time.sleep(60)
     idle = 0
     started_from = Path(__file__).stat().st_mtime
+    import socket
+    drain = Path(args.drain_file) if args.drain_file else REPO / "research" / "blueprint" / f".drain-{socket.gethostname().split('.')[0]}"
     while True:
+        if drain.exists():
+            print(f"{stamp()} {name}: drain file {drain.name} present; stopping", flush=True)
+            return
         if Path(__file__).stat().st_mtime != started_from:
             print(f"{stamp()} {name}: lane.py changed; reloading", flush=True)
             os.execv(sys.executable, [sys.executable, __file__, *[a for a in sys.argv[1:]]])

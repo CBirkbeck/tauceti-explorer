@@ -189,7 +189,7 @@
     "msc": [
      "11B25",
      "11N13",
-     "37A45",
+     "37A44",
      "11A41"
     ]
    },
@@ -209,7 +209,7 @@
      "11K31",
      "11P82",
      "28D05",
-     "37A45"
+     "37A44"
     ]
    },
    {
@@ -226,7 +226,7 @@
     "authors": "Green, Ben; Tao, Terence",
     "zbmath": 6024998,
     "msc": [
-     "37A45",
+     "37A44",
      "11N13"
     ]
    },
@@ -329,7 +329,7 @@
     "zbmath": 900499667,
     "msc": [
      "14F20",
-     "14F05",
+     "14F08",
      "14G22",
      "14G20"
     ]
@@ -399,7 +399,7 @@
     "zbmath": 900499667,
     "msc": [
      "14F20",
-     "14F05",
+     "14F08",
      "14G22",
      "14G20"
     ]
@@ -1130,6 +1130,836 @@
      "11F12",
      "11R37",
      "11R42"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "ArithmeticKTheory",
+  "primaryMsc": "19F",
+  "secondaryMsc": [
+   "11R",
+   "19D",
+   "14F"
+  ],
+  "cluster": "k-theory-and-motives",
+  "distance": 9,
+  "distanceRationale": "Mathlib has class groups and class numbers, Dirichlet's unit theorem and the Grothendieck group of a monoid, but no algebraic K-theory beyond these: no plus or Q-construction, no K₂ or Milnor K-theory, no localization sequence, no Borel stable cohomology of arithmetic groups and no étale Chern classes. The integral and 2-primary structure theorems (Soulé, Rognes–Weibel) rest on motivic cohomology and the Bloch–Kato/Milnor conjectures, none of which exists.",
+  "mathlibEvidence": [
+   "mathlib:NumberField.Units.unitLattice (Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean) — Dirichlet's unit theorem",
+   "mathlib:NumberField.classNumber (Mathlib/NumberTheory/NumberField/ClassNumber.lean)",
+   "mathlib:ClassGroup (Mathlib/RingTheory/ClassGroup/Basic.lean)",
+   "mathlib:Algebra.GrothendieckGroup (Mathlib/GroupTheory/MonoidLocalization/GrothendieckGroup.lean) — group completion of a monoid only",
+   "absent: higher algebraic K-groups, K₂ and Milnor K-theory, the localization sequence, étale Chern classes, Bloch groups (no matching declarations)"
+  ],
+  "references": [
+   {
+    "title": "Algebraic K-theory of rings of integers in local and global fields",
+    "authors": "Weibel, Charles",
+    "zbmath": 2247517,
+    "msc": [
+     "19F27",
+     "19D50"
+    ]
+   },
+   {
+    "title": "The K-book. An introduction to algebraic K-theory",
+    "authors": "Weibel, Charles A.",
+    "zbmath": 6123945,
+    "msc": [
+     "19-00",
+     "19-01",
+     "19Axx",
+     "19Bxx",
+     "19Cxx",
+     "19Dxx",
+     "19Fxx",
+     "19L64",
+     "19E08",
+     "19F27",
+     "19M05"
+    ]
+   },
+   {
+    "title": "Finite generation of the groups K_i of rings of algebraic integers",
+    "authors": "Quillen, Daniel",
+    "zbmath": 3552752,
+    "msc": [
+     "19F99",
+     "11R70",
+     "18F25"
+    ]
+   },
+   {
+    "title": "Stable real cohomology of arithmetic groups",
+    "authors": "Borel, Armand",
+    "zbmath": 3495395,
+    "msc": [
+     "57T99",
+     "18F25"
+    ]
+   },
+   {
+    "title": "K-théorie des anneaux d'entiers de corps de nombres et cohomologie étale",
+    "authors": "Soulé, C.",
+    "zbmath": 3681872,
+    "msc": [
+     "11R70",
+     "11R80",
+     "14G10",
+     "14C35",
+     "14F20",
+     "18F25"
+    ]
+   },
+   {
+    "title": "Two-primary algebraic K-theory of rings of integers in number fields",
+    "authors": "Rognes, J.; Weibel, C.",
+    "zbmath": 1355956,
+    "msc": [
+     "19D50",
+     "11R70",
+     "11S70",
+     "14F20",
+     "19F27",
+     "14F42"
+    ]
+   },
+   {
+    "title": "Relations between K_2 and Galois cohomology",
+    "authors": "Tate, John",
+    "zbmath": 3559703,
+    "msc": [
+     "11R70",
+     "11R34",
+     "12G05",
+     "19F15"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "ArithmeticLocallySymmetricSpaces",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "22E",
+   "20J",
+   "57T"
+  ],
+  "cluster": "modular-and-automorphic-forms",
+  "distance": 7,
+  "distanceRationale": "Mathlib has Lie groups, manifolds with corners, properly discontinuous actions and singular homology, and Tau Ceti has relative singular homology and abstract double-coset Hecke rings. There are no symmetric spaces of reductive groups or Cartan involutions, no arithmetic quotients or Borel–Serre compactification, no local systems with sheaf-cohomology comparison on orbifolds, and no Hecke correspondences on cochain complexes with Poincaré–Verdier duality. That is several research-level layers, on top of the adelic reduction theory, which is also missing.",
+  "mathlibEvidence": [
+   "mathlib:LieGroup (Mathlib/Geometry/Manifold/Algebra/LieGroup.lean)",
+   "mathlib:ModelWithCorners (Mathlib/Geometry/Manifold/IsManifold/Basic.lean)",
+   "mathlib:ProperlyDiscontinuousSMul (Mathlib/Topology/Algebra/ConstMulAction.lean)",
+   "tauceti:TopPair.singularHomology (TauCeti/AlgebraicTopology/Singular/Relative.lean)",
+   "tauceti:HeckeCoset.degree (TauCeti/NumberTheory/HeckeRing/Basic.lean) — abstract double-coset Hecke rings",
+   "absent: Riemannian symmetric spaces and Cartan involutions, the Borel–Serre compactification, local systems on arithmetic quotients, Hecke correspondences on cochains (no matching declarations)"
+  ],
+  "references": [
+   {
+    "title": "Corners and arithmetic groups",
+    "authors": "Borel, Armand; Serre, Jean-Pierre",
+    "zbmath": 3430964,
+    "msc": [
+     "22E15",
+     "57T99",
+     "14F99",
+     "57T10",
+     "20J06"
+    ]
+   },
+   {
+    "title": "Potential automorphy over CM fields",
+    "authors": "Allen, Patrick B.; Calegari, Frank; Caraiani, Ana; Gee, Toby; Helm, David; Le Hung, Bao; Newton, James; Scholze, Peter; Taylor, Richard; Thorne, Jack A.",
+    "zbmath": 7668527,
+    "msc": [
+     "11F80",
+     "11F55",
+     "11G18",
+     "14G05",
+     "14G35"
+    ]
+   },
+   {
+    "title": "Harmonic analysis in weighted L_2-spaces",
+    "authors": "Franke, Jens",
+    "zbmath": 1146352,
+    "msc": [
+     "11F75",
+     "11F72",
+     "22E41"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "ArithmeticQuantumTopology",
+  "primaryMsc": "57K",
+  "secondaryMsc": [
+   "17B",
+   "81T",
+   "19E"
+  ],
+  "cluster": "topology",
+  "distance": 9,
+  "distanceRationale": "Tau Ceti has braid groups, the Temperley–Lieb (Jones) representation, the Alexander polynomial and grid diagrams, and Mathlib has braided and rigid monoidal categories. There are no ribbon categories or quantum groups, no colored Jones polynomials or Reshetikhin–Turaev invariants, no surgery presentations or Kirby calculus, no Habiro completions, and no hyperbolic ideal triangulations or extended Bloch groups. Kirby's theorem and Habiro's unified invariant are deep, and the later stages reach the research frontier.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.TemperleyLieb.jones (TauCeti/KnotTheory/TemperleyLieb.lean)",
+   "tauceti:TauCeti.BraidGroup (TauCeti/GroupTheory/SpecificGroups/Braid.lean)",
+   "tauceti:TauCeti.KnotTheory.alexander (TauCeti/KnotTheory/Alexander.lean)",
+   "mathlib:CategoryTheory.BraidedCategory (Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean) and CategoryTheory.RigidCategory (Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean)",
+   "absent: ribbon categories, U_q(sl₂), colored Jones polynomials, Kirby calculus, WRT invariants, Habiro rings, extended Bloch groups (no matching declarations)"
+  ],
+  "references": [
+   {
+    "title": "A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres",
+    "authors": "Habiro, Kazuo",
+    "zbmath": 5236751,
+    "msc": [
+     "57K16",
+     "57K31",
+     "57K30"
+    ]
+   },
+   {
+    "title": "Unified quantum invariants for integral homology spheres associated with simple Lie algebras",
+    "authors": "Habiro, Kazuo; Lê, Thang T. Q.",
+    "zbmath": 6638822,
+    "msc": [
+     "57K16",
+     "57K31",
+     "17B37"
+    ]
+   },
+   {
+    "title": "Invariants of 3-manifolds via link polynomials and quantum groups",
+    "authors": "Reshetikhin, N.; Turaev, V. G.",
+    "zbmath": 4196952,
+    "msc": [
+     "57M99",
+     "81T99"
+    ]
+   },
+   {
+    "title": "A calculus for framed links in S^3",
+    "authors": "Kirby, Robion",
+    "zbmath": 3587730,
+    "msc": [
+     "57K10",
+     "57R65"
+    ]
+   },
+   {
+    "title": "Extended Bloch group and the Cheeger-Chern-Simons class",
+    "authors": "Neumann, Walter D.",
+    "zbmath": 2105193,
+    "msc": [
+     "57K31",
+     "19E99",
+     "57T99",
+     "58J28"
+    ]
+   },
+   {
+    "title": "A polynomial invariant of integral homology 3-spheres",
+    "authors": "Ohtsuki, Tomotada",
+    "zbmath": 749179,
+    "msc": [
+     "57K30"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "ArithmeticStatistics",
+  "primaryMsc": "11G",
+  "secondaryMsc": [
+   "11R",
+   "11E",
+   "11P"
+  ],
+  "cluster": "analytic-number-theory",
+  "distance": 6,
+  "distanceRationale": "Mathlib has Minkowski's lattice-point theorem, Hermite's finiteness theorem for bounded discriminant, class groups and Selmer groups of Dedekind domains, and Tau Ceti proves Mordell–Weil over number fields with explicit 2-Selmer groups. Missing are the integral invariant theory of binary quartic and ternary cubic forms, orbit parametrizations, lattice-point counts in cusped fundamental domains, uniformity estimates for sieving to infinitely many local conditions, and p-adic orbit densities: several layers of research-level geometry of numbers.",
+  "mathlibEvidence": [
+   "mathlib:MeasureTheory.exists_ne_zero_mem_lattice_of_measure_mul_two_pow_lt_measure (Mathlib/MeasureTheory/Group/GeometryOfNumbers.lean)",
+   "mathlib:NumberField.finite_of_discr_bdd (Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean)",
+   "mathlib:IsDedekindDomain.selmerGroup (Mathlib/RingTheory/DedekindDomain/SelmerGroup.lean)",
+   "tauceti:WeierstrassCurve.Affine.fg_point_of_numberField (TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean) and WeierstrassCurve.Affine.selmerGroup₂ (…/MordellWeil/SelmerGroup.lean)",
+   "absent: invariant theory of binary quartic and ternary cubic forms, orbit parametrizations of rings and genus-one models, counting in cusped fundamental domains, average Selmer sizes (no matching declarations)"
+  ],
+  "references": [
+   {
+    "title": "Binary quartic forms having bounded invariants, and the boundedness of the average rank of elliptic curves",
+    "authors": "Bhargava, Manjul; Shankar, Arul",
+    "zbmath": 6383663,
+    "msc": [
+     "11G05",
+     "11E76",
+     "11P21"
+    ]
+   },
+   {
+    "title": "Ternary cubic forms having bounded invariants, and the existence of a positive proportion of elliptic curves having rank 0",
+    "authors": "Bhargava, Manjul; Shankar, Arul",
+    "zbmath": 6399444,
+    "msc": [
+     "11E76",
+     "11G05"
+    ]
+   },
+   {
+    "title": "Heuristics on class groups of number fields",
+    "authors": "Cohen, H.; Lenstra, H. W. jun.",
+    "zbmath": 3889661,
+    "msc": [
+     "11R29",
+     "11R11",
+     "11Y40",
+     "11R16",
+     "11R18"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "AutomorphicBundles",
+  "primaryMsc": "14G",
+  "secondaryMsc": [
+   "11G",
+   "11F",
+   "32N"
+  ],
+  "cluster": "modular-and-automorphic-forms",
+  "distance": 8,
+  "distanceRationale": "Mathlib has analytic modular forms and q-expansions, and Tau Ceti has reductive affine group schemes and fppf quotient torsors. There are no Shimura data, Shimura varieties or canonical models, no associated vector bundles of torsors on schemes, no toroidal or minimal compactifications and no Fourier–Jacobi expansions. The canonical and subcanonical extension theorems (Harris, Milne, Lan) rest on compactification theory that is itself far from the library.",
+  "mathlibEvidence": [
+   "mathlib:ModularForm (Mathlib/NumberTheory/ModularForms/Basic.lean)",
+   "mathlib:UpperHalfPlane.qExpansion (Mathlib/NumberTheory/ModularForms/QExpansion.lean)",
+   "tauceti:TauCeti.CommHopfAlgCat.fppfQuotientTorsorAction (TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Torsor.lean)",
+   "tauceti:TauCeti.ReductiveAffineGroupSchemeCat (TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean)",
+   "absent: Shimura varieties and canonical models, associated bundles on schemes, toroidal and minimal compactifications, automorphic vector bundles (no matching declarations)"
+  ],
+  "references": [
+   {
+    "title": "Canonical models of (mixed) Shimura varieties and automorphic vector bundles",
+    "authors": "Milne, J. S.",
+    "zbmath": 4154609,
+    "msc": [
+     "14G35",
+     "11G18",
+     "14A20",
+     "11F99"
+    ]
+   },
+   {
+    "title": "Arithmetic vector bundles and automorphic forms on Shimura varieties. I",
+    "authors": "Harris, Michael",
+    "zbmath": 3964018,
+    "msc": [
+     "14G25",
+     "14K15",
+     "32N15",
+     "11F27",
+     "32N10",
+     "14F06"
+    ]
+   },
+   {
+    "title": "Arithmetic vector bundles and automorphic forms on Shimura varieties. II",
+    "authors": "Harris, Michael",
+    "zbmath": 3989524,
+    "msc": [
+     "14G25",
+     "32N15",
+     "14K15",
+     "11F27",
+     "14A20",
+     "32N10"
+    ]
+   },
+   {
+    "title": "An example-based introduction to Shimura varieties",
+    "authors": "Lan, Kai-Wen",
+    "zbmath": null,
+    "msc": []
+   },
+   {
+    "title": "Arithmetic compactifications of PEL-type Shimura varieties",
+    "authors": "Lan, Kai-Wen",
+    "zbmath": 6151348,
+    "msc": [
+     "14-02",
+     "11G18",
+     "14G35",
+     "14K10"
+    ]
+   },
+   {
+    "title": "On the rigid cohomology of certain Shimura varieties",
+    "authors": "Harris, Michael; Lan, Kai-Wen; Taylor, Richard; Thorne, Jack",
+    "zbmath": 6646666,
+    "msc": [
+     "11F70",
+     "11G18",
+     "14G35"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "AutomorphicCongruences",
+  "primaryMsc": "11R",
+  "secondaryMsc": [
+   "11F",
+   "11G",
+   "11S"
+  ],
+  "cluster": "iwasawa-theory-and-special-values",
+  "distance": 10,
+  "distanceRationale": "The library has analytic modular forms, level-N Eisenstein series, newforms and Hecke rings. It has no Iwasawa algebras or characteristic ideals, Selmer complexes, Hida families, unitary Shimura varieties with Klingen/Siegel Eisenstein series and Fourier–Jacobi expansions, deformation rings with patching, Kato or Beilinson–Flach Euler systems, or p-adic local Langlands. The targets (Skinner–Urban, Fouquet–Wan, Castella–Liu–Wan, Burungale–Castella–Skinner) are frontier results resting on all of these.",
+  "mathlibEvidence": [
+   "mathlib:eisensteinSeries (Mathlib/NumberTheory/ModularForms/EisensteinSeries/Defs.lean) — level-N Eisenstein series on the upper half-plane",
+   "tauceti:HeckeRing.GL2.Newform (TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean)",
+   "mathlib:IsDedekindDomain.selmerGroup (Mathlib/RingTheory/DedekindDomain/SelmerGroup.lean) — K^×/n Selmer groups only",
+   "mathlib:continuousCohomology (Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean)",
+   "absent: Iwasawa algebras and characteristic ideals, Hida families, pseudorepresentations and deformation rings, Euler systems, unitary Shimura varieties, p-adic L-functions (no matching declarations)"
+  ],
+  "references": [
+   {
+    "title": "The Iwasawa main conjectures for GL_2",
+    "authors": "Skinner, Christopher; Urban, Eric",
+    "zbmath": 6261655,
+    "msc": [
+     "11R23",
+     "11F85",
+     "11G05",
+     "11F80",
+     "11F33"
+    ]
+   },
+   {
+    "title": "The Iwasawa main conjecture for universal families of modular motives",
+    "authors": "Fouquet, Olivier; Wan, Xin",
+    "zbmath": 900514661,
+    "msc": [
+     "arXiv:math.NT"
+    ]
+   },
+   {
+    "title": "Base change and Iwasawa main conjectures for GL_2",
+    "authors": "Burungale, Ashay; Castella, Francesc; Skinner, Christopher",
+    "zbmath": 8103160,
+    "msc": [
+     "11R23",
+     "11G05",
+     "11G40",
+     "11F33"
+    ]
+   },
+   {
+    "title": "Iwasawa-Greenberg main conjecture for nonordinary modular forms and Eisenstein congruences on GU(3,1)",
+    "authors": "Castella, Francesc; Liu, Zheng; Wan, Xin",
+    "zbmath": 7634437,
+    "msc": [
+     "11R23",
+     "11F33",
+     "11F67"
+    ]
+   },
+   {
+    "title": "The Iwasawa main conjecture for Hilbert modular forms",
+    "authors": "Wan, Xin",
+    "zbmath": 6502818,
+    "msc": [
+     "11R23",
+     "11F41"
+    ]
+   },
+   {
+    "title": "Zeta morphisms for rank two universal deformations",
+    "authors": "Nakamura, Kentaro",
+    "zbmath": 7749817,
+    "msc": [
+     "11F80",
+     "11F85",
+     "11S25"
+    ]
+   },
+   {
+    "title": "Deformation rings and Hecke algebras in the totally real case",
+    "authors": "Fujiwara, Kazuhiro",
+    "zbmath": 900027876,
+    "msc": [
+     "11F55",
+     "11F80",
+     "11G18"
+    ]
+   },
+   {
+    "title": "p-adic Hodge theory and values of zeta functions of modular forms",
+    "authors": "Kato, Kazuya",
+    "zbmath": 2123616,
+    "msc": [
+     "11F85",
+     "11F67",
+     "11G40",
+     "11R33",
+     "11S80",
+     "14G10",
+     "14G35"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "AutomorphicFormsOnReductiveGroups",
+  "primaryMsc": "22E",
+  "secondaryMsc": [
+   "11F",
+   "20G",
+   "17B"
+  ],
+  "cluster": "modular-and-automorphic-forms",
+  "distance": 7,
+  "distanceRationale": "Mathlib has Lie groups, universal enveloping algebras, Haar measure, Schwartz functions with the Fourier transform and adeles, and Tau Ceti adds reductive group schemes over fields. There are no (g,K)-modules or Harish-Chandra modules, no Casselman–Wallach/Bernstein–Krötz globalization, no relative Lie algebra or continuous cohomology with the van Est isomorphism, no adelic automorphic forms of moderate growth, constant terms or cusp forms, and no restricted tensor-product factorization. That is several layers of graduate and research-level analysis on reductive groups.",
+  "mathlibEvidence": [
+   "mathlib:UniversalEnvelopingAlgebra (Mathlib/Algebra/Lie/UniversalEnveloping.lean)",
+   "mathlib:LieGroup (Mathlib/Geometry/Manifold/Algebra/LieGroup.lean)",
+   "mathlib:SchwartzMap.fourierTransformCLM (Mathlib/Analysis/Distribution/SchwartzSpace/Fourier.lean)",
+   "mathlib:NumberField.AdeleRing (Mathlib/NumberTheory/NumberField/AdeleRing.lean)",
+   "tauceti:TauCeti.ReductiveAffineGroupSchemeCat (TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean)",
+   "absent: (g,K)-modules, smooth Fréchet globalizations, relative Lie algebra cohomology, automorphic forms on adelic quotients, constant terms and cusp forms for reductive groups (no matching declarations)"
+  ],
+  "references": [
+   {
+    "title": "Automorphic forms and automorphic representations",
+    "authors": "Borel, Armand; Jacquet, H.",
+    "zbmath": 3643576,
+    "msc": [
+     "22E55",
+     "20G35",
+     "11F27"
+    ]
+   },
+   {
+    "title": "On the notion of an automorphic representation. A supplement to the preceding paper",
+    "authors": "Langlands, R. P.",
+    "zbmath": 3643577,
+    "msc": [
+     "22E55",
+     "20G35",
+     "11F27"
+    ]
+   },
+   {
+    "title": "An introduction to the trace formula",
+    "authors": "Arthur, James",
+    "zbmath": 5071307,
+    "msc": [
+     "11F72",
+     "11-02"
+    ]
+   },
+   {
+    "title": "Harmonic analysis in weighted L_2-spaces",
+    "authors": "Franke, Jens",
+    "zbmath": 1146352,
+    "msc": [
+     "11F75",
+     "11F72",
+     "22E41"
+    ]
+   },
+   {
+    "title": "Smooth Fréchet globalizations of Harish-Chandra modules",
+    "authors": "Bernstein, Joseph; Krötz, Bernhard",
+    "zbmath": 6308374,
+    "msc": [
+     "22E45",
+     "22E15"
+    ]
+   },
+   {
+    "title": "Continuous cohomology, discrete subgroups, and representations of reductive groups",
+    "authors": "Borel, A.; Wallach, N.",
+    "zbmath": 1380627,
+    "msc": [
+     "22E46",
+     "22Exx",
+     "22E40",
+     "22E35",
+     "22E45",
+     "17B55",
+     "22-02"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "AutomorphicGaloisRepresentations",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "11G",
+   "14G",
+   "11R"
+  ],
+  "cluster": "galois-representations-and-langlands",
+  "distance": 9,
+  "distanceRationale": "Mathlib and Tau Ceti have analytic modular forms, newforms with Hecke operators, the absolute Galois group and topological representations. There is no étale cohomology of modular curves or Kuga–Sato varieties, no Eichler–Shimura congruence relation, no Weil conjectures, no Shimura curves or Hilbert modular varieties, no local Langlands correspondence for GL₂ and no p-adic comparison theorems. Constructing these representations with full local–global compatibility (Deligne, Carayol, Saito) needs many unbuilt research-level theories.",
+  "mathlibEvidence": [
+   "tauceti:HeckeRing.GL2.Newform (TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean)",
+   "mathlib:ModularForm (Mathlib/NumberTheory/ModularForms/Basic.lean)",
+   "mathlib:Field.absoluteGaloisGroup (Mathlib/FieldTheory/AbsoluteGaloisGroup.lean)",
+   "mathlib:AlgebraicGeometry.Scheme.etaleTopology (Mathlib/AlgebraicGeometry/Sites/Etale.lean) — no ℓ-adic cohomology built on it",
+   "absent: étale cohomology of modular curves, Eichler–Shimura relation, Weil–Deligne representations, Hilbert modular varieties, crystalline comparison theorems (no matching declarations)"
+  ],
+  "references": [
+   {
+    "title": "Formes modulaires et représentations l-adiques",
+    "authors": "Deligne, Pierre",
+    "zbmath": 3328792,
+    "msc": [
+     "11F70"
+    ]
+   },
+   {
+    "title": "Formes modulaires de poids 1",
+    "authors": "Deligne, Pierre; Serre, Jean-Pierre",
+    "zbmath": 3501600,
+    "msc": [
+     "11F12",
+     "11R37",
+     "11R42"
+    ]
+   },
+   {
+    "title": "Sur les représentations l-adiques associées aux formes modulaires de Hilbert",
+    "authors": "Carayol, Henri",
+    "zbmath": 3997910,
+    "msc": [
+     "11F70",
+     "11F67",
+     "11G25",
+     "11F41"
+    ]
+   },
+   {
+    "title": "Hilbert modular forms and p-adic Hodge theory",
+    "authors": "Saito, Takeshi",
+    "zbmath": 5625823,
+    "msc": [
+     "11F80",
+     "11F41",
+     "11G18",
+     "14G35"
+    ]
+   },
+   {
+    "title": "Serre's modularity conjecture. II",
+    "authors": "Khare, Chandrashekhar; Wintenberger, Jean-Pierre",
+    "zbmath": 5636296,
+    "msc": [
+     "11F80",
+     "11F11",
+     "11R39"
+    ]
+   },
+   {
+    "title": "The p-adic analytic space of pseudocharacters of a profinite group and pseudorepresentations over arbitrary rings",
+    "authors": "Chenevier, Gaëtan",
+    "zbmath": 6589914,
+    "msc": [
+     "11F80",
+     "22E50",
+     "14G22",
+     "13A99",
+     "11F85"
+    ]
+   },
+   {
+    "title": "A simplified proof of Serre's conjecture",
+    "authors": "Dieulefait, Luis Victor; Pacetti, Ariel Martín",
+    "zbmath": 7733909,
+    "msc": [
+     "11F33"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "11G",
+   "14G",
+   "11R"
+  ],
+  "cluster": "galois-representations-and-langlands",
+  "distance": 10,
+  "distanceRationale": "Everything missing for the rank-two case (étale cohomology, Shimura varieties, local Langlands) is missing here too. On top of that, the roadmap needs compact unitary and PEL Shimura varieties with Kuga–Sato local systems, Igusa varieties and the stabilized trace formula, eigenvarieties, dagger/rigid cohomology on toroidal compactifications, and nearby-cycle monodromy arguments. The targets (Shin, Chenevier–Harris, Harris–Lan–Taylor–Thorne, Caraiani, Varma) are at the current research frontier.",
+  "mathlibEvidence": [
+   "mathlib:Field.absoluteGaloisGroup (Mathlib/FieldTheory/AbsoluteGaloisGroup.lean)",
+   "mathlib:TopRep (Mathlib/RepresentationTheory/Continuous/TopRep.lean)",
+   "tauceti:TauCeti.ReductiveAffineGroupSchemeCat (TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean)",
+   "absent: unitary and PEL Shimura varieties, Igusa varieties, the trace formula, eigenvarieties, rigid cohomology, local Langlands for GL_n, Weil–Deligne representations (no matching declarations)"
+  ],
+  "references": [
+   {
+    "title": "Galois representations arising from some compact Shimura varieties",
+    "authors": "Shin, Sug Woo",
+    "zbmath": 5960691,
+    "msc": [
+     "11F80",
+     "11G18",
+     "11F03",
+     "14G35"
+    ]
+   },
+   {
+    "title": "Construction of automorphic Galois representations. II",
+    "authors": "Chenevier, Gaëtan; Harris, Michael",
+    "zbmath": 6266535,
+    "msc": [
+     "11F80",
+     "11F85",
+     "11F70",
+     "11S37",
+     "22E55",
+     "22E50"
+    ]
+   },
+   {
+    "title": "On the rigid cohomology of certain Shimura varieties",
+    "authors": "Harris, Michael; Lan, Kai-Wen; Taylor, Richard; Thorne, Jack",
+    "zbmath": 6646666,
+    "msc": [
+     "11F70",
+     "11G18",
+     "14G35"
+    ]
+   },
+   {
+    "title": "Local-global compatibility and the action of monodromy on nearby cycles",
+    "authors": "Caraiani, Ana",
+    "zbmath": 6095601,
+    "msc": [
+     "22E57",
+     "11F70",
+     "11F80",
+     "11R39",
+     "14G35"
+    ]
+   },
+   {
+    "title": "Monodromy and local-global compatibility for l=p",
+    "authors": "Caraiani, Ana",
+    "zbmath": 6361764,
+    "msc": [
+     "11F80",
+     "11G18",
+     "11R39"
+    ]
+   },
+   {
+    "title": "Local-global compatibility for regular algebraic cuspidal automorphic representations when ℓ ≠ p",
+    "authors": "Varma, Ila",
+    "zbmath": 7810681,
+    "msc": [
+     "11F80",
+     "11G18",
+     "11R39"
+    ]
+   },
+   {
+    "title": "Compatibility of local and global Langlands correspondences",
+    "authors": "Taylor, Richard; Yoshida, Teruyoshi",
+    "zbmath": 5120650,
+    "msc": [
+     "11R39",
+     "11F70",
+     "11F80",
+     "14G35"
+    ]
+   },
+   {
+    "title": "Potential automorphy over CM fields",
+    "authors": "Allen, Patrick B.; Calegari, Frank; Caraiani, Ana; Gee, Toby; Helm, David; Le Hung, Bao; Newton, James; Scholze, Peter; Taylor, Richard; Thorne, Jack A.",
+    "zbmath": 7668527,
+    "msc": [
+     "11F80",
+     "11F55",
+     "11G18",
+     "14G05",
+     "14G35"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "22E",
+   "11R",
+   "11S"
+  ],
+  "cluster": "modular-and-automorphic-forms",
+  "distance": 6,
+  "distanceRationale": "Mathlib has Schwartz functions and the Fourier transform on real vector spaces, Poisson summation on ℝ, the Mellin transform, Haar measures, adeles, and Dirichlet L-functions with functional equations. There are no Schwartz–Bruhat functions or adelic Poisson summation, no Tate zeta integrals, no smooth or admissible representations of p-adic and real GL_n, no Whittaker models, Satake isomorphism or L-groups, and no Godement–Jacquet or Rankin–Selberg theory. Several graduate and research-level layers of representation theory are missing.",
+  "mathlibEvidence": [
+   "mathlib:mellin (Mathlib/Analysis/MellinTransform.lean)",
+   "mathlib:Real.tsum_eq_tsum_fourier (Mathlib/Analysis/Fourier/PoissonSummation.lean)",
+   "mathlib:SchwartzMap.fourierTransformCLM (Mathlib/Analysis/Distribution/SchwartzSpace/Fourier.lean)",
+   "mathlib:NumberField.AdeleRing (Mathlib/NumberTheory/NumberField/AdeleRing.lean)",
+   "absent: Schwartz–Bruhat functions, Tate zeta integrals, Whittaker models, the Satake isomorphism, Godement–Jacquet and Rankin–Selberg integrals (no matching declarations)"
+  ],
+  "references": [
+   {
+    "title": "Fourier analysis in number fields, and Hecke's zeta-functions",
+    "authors": "Tate, J. T.",
+    "zbmath": 7568187,
+    "msc": [
+     "11R37",
+     "11R42",
+     "11L07",
+     "11M41"
+    ]
+   },
+   {
+    "title": "Zeta functions of simple algebras",
+    "authors": "Godement, Roger; Jacquet, Hervé",
+    "zbmath": 3385758,
+    "msc": [
+     "11R54",
+     "11S45",
+     "11-02",
+     "22E55",
+     "11R42",
+     "11F70",
+     "20G35"
+    ]
+   },
+   {
+    "title": "Rankin-Selberg convolutions",
+    "authors": "Jacquet, Hervé; Piatetski-Shapiro, Ilya I.; Shalika, Joseph",
+    "zbmath": 3832249,
+    "msc": [
+     "22E50",
+     "32N10",
+     "11F70"
+    ]
+   },
+   {
+    "title": "Archimedean Rankin-Selberg integrals",
+    "authors": "Jacquet, Hervé",
+    "zbmath": 5614211,
+    "msc": [
+     "11F70",
+     "22E46",
+     "11F66"
     ]
    }
   ]

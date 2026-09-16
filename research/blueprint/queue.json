@@ -149,7 +149,8 @@
    "lane": null,
    "attempts": 1,
    "startedAt": "2026-09-16T10:14:27Z",
-   "note": "interrupted by an orchestrator restart at 25/36 roadmaps; the next attempt continues from the saved file"
+   "note": "interrupted by an orchestrator restart at 25/36 roadmaps; the next attempt continues from the saved file",
+   "promptPreface": "CONTINUATION: an earlier attempt saved research/blueprint/classify/CLASSIFY-01.result.json. Keep its entries (check them briefly) and classify only the roadmaps it lacks, then rewrite the whole file.\n\n"
   },
   {
    "id": "CLASSIFY-02",
@@ -259,7 +260,8 @@
    "lane": null,
    "attempts": 1,
    "startedAt": "2026-09-16T10:15:45Z",
-   "note": "interrupted by an orchestrator restart at 30/36 roadmaps; the next attempt continues from the saved file"
+   "note": "interrupted by an orchestrator restart at 30/36 roadmaps; the next attempt continues from the saved file",
+   "promptPreface": "CONTINUATION: an earlier attempt saved research/blueprint/classify/CLASSIFY-03.result.json. Keep its entries (check them briefly) and classify only the roadmaps it lacks, then rewrite the whole file.\n\n"
   },
   {
    "id": "CLASSIFY-04",
