@@ -1,0 +1,3038 @@
+{
+ "job": "AUDIT-11",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "ShimuraVarieties": {
+   "summary": "The libraries contain only GL₂-specific substrate: Mathlib's arithmetic subgroups of GL(2,ℝ) acting properly discontinuously on ℍ, cusps, congruence subgroups, ideles and finite étale algebras. Tau Ceti adds SL₂ strong approximation modulo N, abstract Hecke rings with associativity, the level-one ring ℂ[E₄,E₆], linear-algebraic Hodge structures, abelian varieties and the class-formation framework. Everything the roadmap actually constructs is missing: adelic Shimura varieties and their complex structure, neat levels, Baily–Borel, Borel extension, reflex norms and canonical models, CM theory, the Hodge/abelian-type and Milne descent arguments, and the scheme-level modular-curve comparison.",
+   "layers": {
+    "ShimuraVarieties:V0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Arithmeticity and commensurability of Γ = G(ℚ)₊ ∩ gKg⁻¹ for a reductive ℚ-group G and compact open K ⊂ G(𝔸_f)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Subgroup.Commensurable",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/Commensurable.lean",
+         "line": 58,
+         "fit": "related"
+        },
+        {
+         "name": "Subgroup.IsArithmetic",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/ArithmeticSubgroups.lean",
+         "line": 102,
+         "fit": "special case"
+        },
+        {
+         "name": "HeckeRing.GLn.commensurable_map_SLnZ",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/GLn/Basic.lean",
+         "line": 176,
+         "fit": "special case"
+        },
+        {
+         "name": "HeckeRing.GLn.posDetInt_le_commensurator",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/GLn/Basic.lean",
+         "line": 579,
+         "fit": "related"
+        }
+       ],
+       "note": "Commensurability is Mathlib's general group-theoretic notion, but \"arithmetic\" is defined only for subgroups of GL(2,ℝ) commensurable with SL(2,ℤ). Tau Ceti proves that finite-index subgroups of SL_n(ℤ) are commensurable with SL_n(ℤ) in GL_n(ℚ), with integral positive-determinant matrices in the commensurator. Nothing attaches an arithmetic group to a compact open level of a reductive ℚ-group."
+      },
+      {
+       "target": "Reduction-theory inputs: rational parabolics, Siegel sets, finite arithmetic coverings and finiteness of G(ℚ)\\G(𝔸_f)/K",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ModularGroup.fd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Modular.lean",
+         "line": 367,
+         "fit": "special case"
+        },
+        {
+         "name": "ModularGroup.exists_smul_mem_fd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Modular.lean",
+         "line": 426,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.classNumber",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+         "line": 64,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.finite_rayClassGroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Finite.lean",
+         "line": 154,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only the SL(2,ℤ) fundamental domain and the GL₁ cases of component finiteness (finite class and ray class groups) exist. There are no Siegel sets, no rational parabolics of a general group and no general finiteness of adelic double cosets."
+      },
+      {
+       "target": "Hermitian-domain and effective-action specialization (the action of G^ad(ℚ)⁺ ∩ Γ on X⁺ with its kernel removed)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library defines Hermitian symmetric domains, Shimura data or effective arithmetic actions."
+      },
+      {
+       "target": "Existence of neat congruence subgroups",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neatness is not defined anywhere; no torsion-freeness theorem for Γ(N), N ≥ 3, was found either."
+      },
+      {
+       "target": "Properly discontinuous action of the effective arithmetic groups on X⁺",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Subgroup.IsArithmetic.properlyDiscontinuous",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/ProperlyDiscontinuous.lean",
+         "line": 31,
+         "fit": "special case"
+        },
+        {
+         "name": "UpperHalfPlane.instProperlyDiscontinuousSL2RSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/UpperHalfPlane/ProperAction.lean",
+         "line": 128,
+         "fit": "special case"
+        },
+        {
+         "name": "Subgroup.Commensurable.properlyDiscontinuousSMul_iff",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Group/DiscontinuousSubgroup.lean",
+         "line": 80,
+         "fit": "related"
+        },
+        {
+         "name": "Subgroup.properlyDiscontinuousSMul_of_tendsto_cofinite",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Group/Subgroup.lean",
+         "line": 155,
+         "fit": "related"
+        }
+       ],
+       "note": "Proved only on ℍ: arithmetic subgroups of GL(2,ℝ) and discrete subgroups of SL(2,ℝ) act properly discontinuously, and proper discontinuity is commensurability-invariant. Nothing covers a general Hermitian symmetric domain."
+      },
+      {
+       "target": "Connected-component decomposition Sh_K(ℂ) ≅ ⊔ Γ_g\\X⁺ as an analytic isomorphism, independent of representatives",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no adelic double quotient G(ℚ)\\(X × G(𝔸_f))/K in either library, even for GL₂."
+      },
+      {
+       "target": "Strong approximation for semisimple simply connected groups with a noncompact factor",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Matrix.SpecialLinearGroup.map_intCast_zmod_surjective",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SpecialLinearGroup/Basic.lean",
+         "line": 428,
+         "fit": "special case"
+        },
+        {
+         "name": "CongruenceSubgroup.exists_mem_Gamma_map_intCast_zmod_eq",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/CongruenceSubgroups/Basic.lean",
+         "line": 742,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only the elementary SL₂ form exists: SL₂(ℤ) → SL₂(ℤ/N) is surjective, including along a coprime level. There is no adelic strong approximation for simply connected groups."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraData:D5",
+       "note": "D5 also defines neatness, the arithmetic subgroup attached to a compact open level and a connected component, and the effective arithmetic action."
+      },
+      {
+       "layer": "ArithmeticLocallySymmetricSpaces:ALS.0",
+       "note": "ALS.0 proves the finite decomposition of X_K into arithmetic Γ-components, proper discontinuity and freeness at neat level, for general reductive groups."
+      },
+      {
+       "layer": "AdelicAlgebraicGroups:AA.3",
+       "note": "AA.3 owns the reduction theory V0 consumes: Siegel sets and finiteness of G(F)\\G(𝔸_f)/K."
+      },
+      {
+       "layer": "AdelicAlgebraicGroups:AA.4",
+       "note": "AA.4 develops strong approximation for simply connected almost-simple groups, the input V0 restricts to."
+      }
+     ]
+    },
+    "ShimuraVarieties:V1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Topology and complex-analytic structure on the double quotient G(ℚ)\\(X × G(𝔸_f))/K",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.rootsOfUnityBallQuotientHomeomorph",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/RootsOfUnityQuotient.lean",
+         "line": 151,
+         "fit": "related"
+        }
+       ],
+       "note": "There is no complex structure on any arithmetic quotient, not even Γ\\ℍ. Tau Ceti has only the local model: a disc modulo a finite rotation group is a disc."
+      },
+      {
+       "target": "Level maps and Hecke translations [x,a] ↦ [x,ag] from level K to g⁻¹Kg, agreeing with the quotient formulas",
+       "library": "absent",
+       "declarations": [],
+       "note": "There are no finite-level Shimura varieties to map between."
+      },
+      {
+       "target": "Covering and finite étale analytic properties of level maps at neat levels",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "isQuotientCoveringMap_quotientMk_of_properlyDiscontinuousSMul",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Covering/Quotient.lean",
+         "line": 244,
+         "fit": "related"
+        },
+        {
+         "name": "isCoveringMapOn_quotientMk_of_properlyDiscontinuousSMul",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Covering/Quotient.lean",
+         "line": 239,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves the general topological input: the quotient map of a properly discontinuous action is a covering map on the free locus. It is not applied to level maps, and there is no analytic finite étale notion."
+      },
+      {
+       "target": "Effective deck group of a normal level inclusion K′ ⊂ K, a quotient of K/K′",
+       "library": "absent",
+       "declarations": [],
+       "note": "No deck-group calculation for arithmetic quotients exists."
+      },
+      {
+       "target": "Hecke correspondence through K ∩ gKg⁻¹ with both maps and its composition law, independent of coefficient sheaves",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsHeckeTriple",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
+         "line": 75,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
+         "line": 189,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeCosetModule.mul",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/Multiplication.lean",
+         "line": 95,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeCosetModule.mul_assoc",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/Associativity.lean",
+         "line": 457,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the algebraic shadow exists: Hecke coset modules of double cosets with the convolution product and its mixed-level associativity (Shimura, Chapter 3). The geometric correspondence Sh_{K∩gKg⁻¹} ⇉ Sh_K is absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticLocallySymmetricSpaces:ALS.3",
+       "note": "ALS.3 constructs the same two finite-level maps through K∩gKg⁻¹ and the resulting Hecke correspondences, on cochain complexes."
+      },
+      {
+       "layer": "AdelicAlgebraicGroups:AA.4",
+       "note": "AA.4 constructs finite covering maps for nested compact opens at neat levels, their degrees, and the Cartesian diagrams of Hecke correspondences."
+      }
+     ]
+    },
+    "ShimuraVarieties:V2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Rational boundary components and their incidence",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsCusp",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Cusps.lean",
+         "line": 58,
+         "fit": "special case"
+        },
+        {
+         "name": "Subgroup.IsArithmetic.isCusp_iff_isCusp_SL2Z",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Cusps.lean",
+         "line": 147,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only the GL₂ case exists: cusps of arithmetic subgroups of GL(2,ℝ) are the points of ℙ¹(ℚ). There are no boundary components of a general Hermitian domain."
+      },
+      {
+       "target": "Satake topology, and compactness of the arithmetic quotient of the partial compactification",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither the Satake topology nor any compactification of Γ\\ℍ exists."
+      },
+      {
+       "target": "Analytic structure and normality of the compactified quotient",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Automorphic forms with their growth condition, and the Koecher principle where used",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ModularForm",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+         "line": 74,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only elliptic modular forms exist, with holomorphy at the cusps built into the definition. There are no automorphic forms on a general Hermitian domain and no Koecher principle."
+      },
+      {
+       "target": "Finite generation of the graded ring of automorphic forms, and separation by sufficiently high weights",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ModularForm.mvPolynomialEquivModularForms",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/LevelOne/GradedRing.lean",
+         "line": 746,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ModularForm.evalE₄E₆_surjective",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/LevelOne/GradedRing.lean",
+         "line": 314,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only level one is done: Tau Ceti proves that the level-one modular forms form ℂ[E₄,E₆]. Finite generation at other levels, and separation of points, are absent."
+      },
+      {
+       "target": "Projective realization and Chow algebraization",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no Chow theorem and no analytic GAGA in either library."
+      },
+      {
+       "target": "Algebraic open variety, projective normal minimal compactification, boundary stratification, and algebraicity of level maps",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ComplexComparisonPartII:C4",
+       "note": "C4 states the projective-realization → Chow algebraization step of Baily–Borel as its own export."
+      },
+      {
+       "layer": "ShimuraCompactifications:C6",
+       "note": "C6 proves the Koecher extension theorem needed for Hilbert sections, one case of the Koecher step V2 must justify."
+      },
+      {
+       "layer": "ShimuraCompactifications:C5",
+       "note": "C5 proves graded-section finite generation and projectivity of the integral PEL minimal compactification, the integral analogue of V2's construction."
+      },
+      {
+       "layer": "ModularCurvesPartII:R12.3",
+       "note": "R12.3 constructs the compactified modular curve with its cusp parameters, the GL₂ instance of the minimal compactification."
+      }
+     ]
+    },
+    "ShimuraVarieties:V3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Extension of holomorphic maps from products of punctured discs into the arithmetic quotient (Borel extension)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has Borel's extension theorem or even the big Picard theorem."
+      },
+      {
+       "target": "Borel's algebraicity theorem (Milne Theorem 3.14 and Lemma 3.15)",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Reduction of a general smooth algebraic source to quasi-projective charts, and descent of the algebraic maps",
+       "library": "absent",
+       "declarations": [],
+       "note": "The normal-crossings compactification input (R09.7d) is also absent: there is no resolution of singularities."
+      },
+      {
+       "target": "Uniqueness of the algebraization at neat levels, and functoriality for morphisms of data",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Extension to all levels by finite quotients, with the finite-quotient and normalization statements used in V8",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has quotients of schemes by finite groups."
+      }
+     ],
+     "duplicates": []
+    },
+    "ShimuraVarieties:V4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Reflex norm on ideles for a special pair (T,h)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.IdeleGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 93,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.IdeleClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 119,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the idele group and idele class group of a number field. There are no algebraic tori over ℚ with cocharacters, special pairs or reflex norms."
+      },
+      {
+       "target": "Comparison of the supplier's Artin normalization with Milne's, with a named conversion",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFieldTheory.Formation",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 123,
+         "fit": "related"
+        }
+       ],
+       "note": "There is no global Artin reciprocity map for number fields. Tau Ceti has only the abstract class-formation framework of Artin–Tate."
+      },
+      {
+       "target": "Definition of a canonical model over E(G,X), by the reciprocity law at special points and their fields of definition",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Independence of the idele lifting a Galois automorphism",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Finite-level torus models as finite étale schemes from the finite Galois sets given by reciprocity",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CommAlgCat.FiniteEtale",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Etale/Finite.lean",
+         "line": 58,
+         "fit": "related"
+        },
+        {
+         "name": "CommAlgCat.FiniteEtale.equivOfIsSepClosed",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Etale/Finite.lean",
+         "line": 161,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the category of finite étale algebras with its fibre functor, and its anti-equivalence with finite sets over a separably closed field. Galois descent to finite Gal(Ē/E)-sets and the torus models are absent."
+      },
+      {
+       "target": "Functoriality of torus models and compatibility with the geometric double quotient",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Density of special points and their Hecke translates",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+       "note": "CM.0 also constructs reflex norms on the torus/idele objects."
+      }
+     ]
+    },
+    "ShimuraVarieties:V5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Algebraization of polarized weight-one variations over smooth algebraic bases",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.isPolarization_of_weilOperator_invariant_on_realPoints_of_pos",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeightOne/Polarization.lean",
+         "line": 122,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has only linear-algebraic polarized weight-one Hodge structures (the Riemann bilinear relations). There are no variations of Hodge structure and no algebraization theorems."
+      },
+      {
+       "target": "CM types, reflex types and reflex norms",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.IsCMField",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/CMField.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "CM fields exist (Mathlib IsCMField, and Tau Ceti's multiquadratic CM-field material). CM types, reflex fields and reflex norms do not."
+      },
+      {
+       "target": "Tate-module action on CM abelian varieties",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 94,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.End",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti defines abelian varieties over a field and their endomorphism monoids. Tate modules of abelian varieties and CM structures are absent."
+      },
+      {
+       "target": "Main theorem of complex multiplication: reduction at suitable primes, Shimura–Taniyama, polarizations and levels, full reciprocity law",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "The Siegel moduli model satisfies the canonical-model condition",
+       "library": "absent",
+       "declarations": [],
+       "note": "There are no Siegel moduli spaces in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+       "note": "CM.0 constructs CM types and reflex norms, which V5 also constructs."
+      },
+      {
+       "layer": "PELModuli:M4",
+       "note": "M4 proves compatibility of the moduli Galois action with CM reciprocity and identifies the moduli pieces with canonical models, overlapping V5's Siegel canonical-model step."
+      }
+     ]
+    },
+    "ShimuraVarieties:V6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Canonical-model inheritance for a Shimura subdatum (Hodge type), with its special-point proof",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Connected Shimura varieties, their adelic/Galois symmetry, and equivalence with the nonconnected formulation",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Descent through central isogenies of derived groups and finite component quotients; abelian-type canonical models",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.GroupScheme.IsCentralIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/GroupScheme/CentralIsogeny/Basic.lean",
+         "line": 243,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has central isogenies of group schemes as general group theory. Nothing concerns Shimura varieties."
+      }
+     ],
+     "duplicates": []
+    },
+    "ShimuraVarieties:V7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Reduction to connected, simple, simply connected data",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.SimplyConnectedSemisimpleCommHopfAlgCat",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/SimplyConnected/Basic.lean",
+         "line": 146,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has simply connected semisimple group schemes as Hopf algebras. There are no Shimura data to reduce."
+      },
+      {
+       "target": "The group as a restriction of scalars from a totally real field",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.IsTotallyReal",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
+         "line": 47,
+         "fit": "related"
+        }
+       ],
+       "note": "Totally real number fields exist in Mathlib; Weil restriction of algebraic groups does not exist in either library."
+      },
+      {
+       "target": "Auxiliary totally real extension, splitting over a CM quadratic extension, and type-A₁ subdata with their compatibilities",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.IsCMField",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/CMField.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Conjugated Shimura datum for an automorphism of ℂ, and algebraic comparison of the conjugated varieties compatible on A₁ subvarieties",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Uniqueness giving the cocycle law, continuity of the descent datum, and effective quasi-projective descent to the reflex field",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": []
+    },
+    "ShimuraVarieties:V8": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Level maps and Hecke correspondences over the reflex field, with analytic comparison and functoriality",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Descent of the minimal compactifications to the reflex field",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Sh_{K(N)}(GL₂, ℍ±) ≅ Y_full(N)_ℚ for N ≥ 3",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has modular curves as schemes, nor the moduli of elliptic curves with level structure."
+      },
+      {
+       "target": "Determinant morphism equals the Weil-pairing morphism; fibre over ζ is Y(N,ζ), with analytification Γ(N)\\ℍ",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CongruenceSubgroup.Gamma",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+         "line": 41,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the principal congruence subgroup Γ(N). The Weil pairing and the analytic quotient Γ(N)\\ℍ as a complex curve are absent."
+      },
+      {
+       "target": "Dictionary between row-basis actions and the adelic convention; Γ₁ and Γ₀ comparisons with fine/coarse qualifications",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CongruenceSubgroup.Gamma0",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "CongruenceSubgroup.Gamma1",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+         "line": 131,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Comparison of minimal compactifications, cusp loci and Tate parameters",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ModularCurvesPartII:R12.2",
+       "note": "R12.2 classifies full, Γ₁ and Γ₀ level structures under uniformisation, with the fine/coarse distinction and the determinant–root-of-unity identification that V8 restates."
+      },
+      {
+       "layer": "PELModuli:M5",
+       "note": "M5 proves the genus-one comparison of Siegel moduli with #81, including the determinant/Weil-pairing convention."
+      },
+      {
+       "layer": "ShimuraCompactifications:C6",
+       "note": "C6 compares the generic-fibre minimal curve with ModularCurvesPartII R13.4a/R13.4b, the same comparison V8 states."
+      },
+      {
+       "layer": "HilbertModularVarietiesAndShimuraCurves:H5",
+       "note": "H5 identifies the F = ℚ Hilbert constructions with the modular-curve ones, overlapping V8's GL₂ comparison."
+      },
+      {
+       "layer": "AdelicAlgebraicGroups:AA.5",
+       "note": "AA.5 identifies the GL₂/ℚ upper-half-plane component through ModularCurvesPartII uniformization."
+      }
+     ]
+    },
+    "ShimuraVarieties:V8.general": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "V8's level maps and functorial canonical-model comparisons for the general data of V7",
+       "library": "absent",
+       "declarations": [],
+       "note": "This depends on V7 and V8, neither of which exists."
+      }
+     ],
+     "duplicates": []
+    }
+   }
+  },
+  "SmallRamificationAndAbelianVarietyBaseCases": {
+   "summary": "The libraries have the number-field substrate R25.1 starts from: Mathlib's Minkowski discriminant bound, Hermite–Minkowski, Hermite finiteness, root discriminants, the different ideal with its tame exponent, and Tau Ceti's effective Hermite count. Missing: wild local different bounds, Odlyzko-type analytic bounds with certified numerics, and everything from R25.2 on, namely the Tate–Serre, Fontaine and Schoof nonexistence theorems, GL₂-type terminal cases and the base-case table. Neither library has global Galois representations with ramification conditions, reduction of abelian varieties, or ramification theory for finite flat group schemes.",
+   "layers": {
+    "SmallRamificationAndAbelianVarietyBaseCases:R25.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Local discriminant (different) upper bounds for torsion fields, with wild ramification retained",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "pow_sub_one_dvd_differentIdeal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/Different.lean",
+         "line": 742,
+         "fit": "related"
+        },
+        {
+         "name": "dvd_differentIdeal_iff",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/Different.lean",
+         "line": 958,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.not_pow_ramificationIdx_dvd_differentIdeal",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/Different.lean",
+         "line": 121,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.natAbs_discr_eq_absNorm_differentIdeal_mul_natAbs_discr_pow",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Different.lean",
+         "line": 89,
+         "fit": "related"
+        }
+       ],
+       "note": "The different-ideal theory exists: 𝔭^(e−1) ∣ 𝔇 (Mathlib), 𝔭 ∣ 𝔇 iff ramified, the exact tame exponent e−1 (Tau Ceti), and the discriminant as the norm of the different in towers. Missing: any wild upper bound (v(𝔇) ≤ e−1+v(e)), higher ramification groups for number fields, and Fontaine's bound for torsion of finite flat group schemes."
+      },
+      {
+       "target": "Geometry-of-numbers (Minkowski) lower bound for |d_K| in terms of degree and signature, with root discriminants",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "NumberField.abs_discr_ge'",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+         "line": 208,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.abs_discr_ge",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+         "line": 242,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.abs_discr_gt_two",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+         "line": 273,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.rootDiscr",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+         "line": 77,
+         "fit": "exact"
+        }
+       ],
+       "note": "abs_discr_ge' is the Minkowski bound n^(2n)/((4/π)^(2r₂)·n!²) ≤ |d_K|, and abs_discr_ge its exponential form (4/9)(3π/4)^n for n > 1. Mathlib also defines the root discriminant."
+      },
+      {
+       "target": "Analytic explicit-formula (Odlyzko-type) discriminant lower bounds, with certified numerical inequalities",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has Odlyzko/Poitou-type bounds or any Weil explicit formula for Dedekind zeta functions. Minkowski's bound is too weak for the torsion fields in the Tate and Fontaine arguments."
+      },
+      {
+       "target": "Completeness of a finite exceptional list of number fields from the bound, and validation of the listed fields",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.finite_of_discr_bdd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+         "line": 496,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le_hermiteCountBound",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean",
+         "line": 228,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.abs_discr_eq_of_basis_isIntegral_of_span_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Discriminant/OfIntegralBasis.lean",
+         "line": 102,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.exists_not_isUnramifiedIn",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ExistsRamified.lean",
+         "line": 31,
+         "fit": "related"
+        }
+       ],
+       "note": "Hermite finiteness (Mathlib), an explicit upper bound on the number of fields of bounded discriminant, and discriminant computation from an integral basis (Tau Ceti) exist, as does Minkowski's theorem that every K ≠ ℚ ramifies. No certified enumeration or completeness proof for a specific list exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+       "note": "R07.6 proves Fontaine's ramification bound for finite flat torsion and its normalized different bound, the local input R25.1 turns into discriminant bounds."
+      },
+      {
+       "layer": "tauceti:Completed/EffectiveBounds#layer-2-effective-hermiteminkowski-the-summit",
+       "note": "EffectiveBounds layer 2 owns the effective Hermite–Minkowski count of fields with bounded discriminant, used in R25.1's list-completeness step."
+      }
+     ]
+    },
+    "SmallRamificationAndAbelianVarietyBaseCases:R25.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Tate: no odd absolutely irreducible two-dimensional mod-2 representation of Gal(ℚ̄/ℚ) unramified outside 2",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.exists_not_isUnramifiedAt_int",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ExistsRamified.lean",
+         "line": 41,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has Galois representations with ramification conditions. Only Minkowski's theorem that ℚ has no unramified extension, the degenerate input, is present."
+      },
+      {
+       "target": "Serre: the mod-3 analogue, unramified outside 3",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Treatment of soluble and nonsoluble images, and of larger coefficient fields F_{2^k}, F_{3^k}",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": []
+    },
+    "SmallRamificationAndAbelianVarietyBaseCases:R25.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Fontaine: no positive-dimensional abelian variety over ℚ with good reduction everywhere, in all dimensions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 94,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.HasGoodReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 325,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti defines abelian varieties over a field and Mathlib defines good reduction of a Weierstrass equation over a DVR. There is no reduction theory for abelian varieties, and not even the conductor-one elliptic case."
+      },
+      {
+       "target": "Finite flat group-scheme, ramification and discriminant arguments for the torsion",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean",
+         "line": 129,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has finite locally free commutative affine group schemes with Cartier duality over an affine base, but no ramification theory for their generic-fibre points."
+      },
+      {
+       "target": "Conversion of the torsion restrictions into a contradiction",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": []
+    },
+    "SmallRamificationAndAbelianVarietyBaseCases:R25.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Schoof: no nonzero semistable abelian variety over ℚ with good reduction outside one prime p ∈ {2,3,5,7,13}",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Classification and extension calculations for the finite flat group schemes over ℤ[1/p]",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean",
+         "line": 129,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the general category of finite locally free commutative group schemes with Cartier duality exists; no extension groups or classification."
+      },
+      {
+       "target": "Global argument passing from torsion group schemes to the abelian variety",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": []
+    },
+    "SmallRamificationAndAbelianVarietyBaseCases:R25.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Geometric realisation of the weight-two compatible systems in the exact Snowden/source form, with good/semistable reduction verified",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has compatible systems, GL₂-type abelian varieties or their reduction."
+      },
+      {
+       "target": "Local crystalline-to-ordinary calculations at the terminal weights",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Reduction of each small-weight terminal case to a theorem of R25/R17/R21",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ClassicalSerreModularity:R33.4",
+       "note": "R33.4 constructs the semistable GL₂-type abelian variety in Snowden's form for the weight-6 terminal case, and does the characteristic-three ordinary calculation for weights 2 and 4."
+      },
+      {
+       "layer": "ClassicalSerreModularity:R26.5",
+       "note": "R26.5 applies the R25 exclusions to each remaining base case after verifying dimension, field of definition and reduction set."
+      }
+     ]
+    },
+    "SmallRamificationAndAbelianVarietyBaseCases:R25.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Table of every base case used by R26 and R33: characteristic, weight, ramification, image, coefficient assumptions and proof supplier",
+       "library": "absent",
+       "declarations": [],
+       "note": "This is bookkeeping over theorems that do not yet exist."
+      },
+      {
+       "target": "A separate local calculation for each exceptional transition, independent of the Serre theorem being initialised",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ClassicalSerreModularity:R26.5",
+       "note": "R26.5 must also list the finite set of exceptional characteristics and weights with their terminal theorems."
+      }
+     ]
+    }
+   }
+  },
+  "tauceti:TauCetiRoadmap/BelyiMaps": {
+   "summary": "Tau Ceti already has almost all of Layer 0: permutation triples, relabeling, monodromy and automorphism groups, the opposite-convention involution, full cycle data, the transposition step and sign identities, combinatorial χ ≤ 2 with genus, and orders with geometry type. It also has the Layer 2.1–2.2 ribbon-graph carrier with triple → dessin, and the inverse-class involution of 3.2. Several items the roadmap treats as unresolved supplier contracts are already there: Mathlib's IsCoveringMap.monodromyPerm is 5.3's monodromy homomorphism, and Tau Ceti's universal-cover classification supplies 6.2's associated cover of a π₁-set (no inverse), the general subgroup/deck/regular classification behind 6.3–6.5, and the profinite-completion fibre-functor theorem behind 12.6. Genuinely missing: passports, dessins → triples, the branch-point S₃-action, executable enumeration and the Frobenius formula, triangle groups, ℂ∖{0,1} with π₁ ≅ F₂ and van Kampen, and all of Layers 7–14 (compactification, Riemann-surface theory, algebraic Belyi pairs, Belyi's theorem, fields of moduli, ẑ and profinite powers, the branch-cycle and pro-ℓ theorems, faithfulness, LMFDB semantics).",
+   "layers": {
+    "tauceti:TauCetiRoadmap/BelyiMaps#layer-0-permutation-triples": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "0.1 Carrier PermutationTriple n (σinf·σ1·σ0 = 1): ofTwo, extensionality from two components, Fintype/DecidableEq, trivial triple, degree 0 and 1, transport, relation rotations",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PermutationTriple",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 71,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.ofTwo",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 88,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.ext_of_two",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 126,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.transport",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 148,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.σ0_mul_σinf_mul_σ1_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 114,
+         "fit": "exact"
+        }
+       ],
+       "note": "Same relation and composition order as the roadmap. The Fintype, DecidableEq, One and Subsingleton (for Subsingleton (Fin n), covering n = 0, 1) instances are unnamed instances in Basic.lean, lines 171–187."
+      },
+      {
+       "target": "0.1 Opposite-convention involution, preserving cycle types, monodromy groups, connectedness and automorphism groups",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PermutationTriple.equivOppositeConvention",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 200,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.cycleData_inv_components",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/CycleData.lean",
+         "line": 112,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.closure_inv_pair_eq_monodromyGroup",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 328,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.isConnected_equivOppositeConvention_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 372,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.automorphismGroup_equivOppositeConvention",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 416,
+         "fit": "exact"
+        }
+       ],
+       "note": "Componentwise inversion, as a bijection onto the triples with σ0·σ1·σinf = 1."
+      },
+      {
+       "target": "0.2 Relabeling MulAction by simultaneous conjugation; isomorphism as a decidable orbit relation; IsoClass; compatibility with ofTwo and the involution; preservation of cycle data",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PermutationTriple.Equivalent",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 261,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.equivalent_iff_exists_smul_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 266,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.IsoClass",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 281,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.smul_ofTwo",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 240,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.equivOppositeConvention_smul",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 255,
+         "fit": "exact"
+        }
+       ],
+       "note": "The MulAction and DecidableRel Equivalent instances are unnamed (Basic.lean lines 235, 273); cycleData_smul and isConnected_smul_iff give the preservation statements."
+      },
+      {
+       "target": "0.3 Monodromy group closure{σ0,σ1}: contains σinf, equals the closure of all three, conjugated by relabeling",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PermutationTriple.monodromyGroup",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 298,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.σinf_mem_monodromyGroup",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 309,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.closure_triple_eq_monodromyGroup",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 318,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.monodromyGroup_smul",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 335,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "0.4 IsConnected := n ≠ 0 ∧ pretransitive monodromy, with a decidability instance",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.PermutationTriple.IsConnected",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 346,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.isConnected_smul_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 358,
+         "fit": "exact"
+        }
+       ],
+       "note": "The definition includes the n ≠ 0 clause and is relabeling-invariant. No Decidable instance for IsConnected was found; Layer 3.1's isConnectedB is also absent."
+      },
+      {
+       "target": "0.4 Automorphism group = simultaneous centralizer; free action for connected triples, so its order divides n; conjugation under relabeling",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PermutationTriple.automorphismGroup",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 381,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.automorphismGroup_eq_centralizer",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 394,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.automorphismGroup_eq_centralizer_monodromyGroup",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 405,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.eq_one_of_mem_automorphismGroup_of_apply_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 432,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.card_automorphismGroup_dvd",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 448,
+         "fit": "exact"
+        }
+       ],
+       "note": "The freeness and divisibility statements assume only pretransitivity of the monodromy group. automorphismGroup_smul gives the conjugation."
+      },
+      {
+       "target": "0.5 Full cycle partitions (fixed points included), cycle counts, sum = n, comparison with Equiv.Perm.partition, conjugation/transport invariance",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PermutationTriple.cycleData",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/CycleData.lean",
+         "line": 44,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.cycleCounts",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/CycleData.lean",
+         "line": 61,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.sum_cycleData",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/CycleData.lean",
+         "line": 80,
+         "fit": "exact"
+        },
+        {
+         "name": "Equiv.Perm.fullCycleType",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Perm/Partition.lean",
+         "line": 81,
+         "fit": "exact"
+        },
+        {
+         "name": "Equiv.Perm.orbitCount_eq_card_parts_partition",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Perm/OrbitCount/Basic.lean",
+         "line": 217,
+         "fit": "exact"
+        }
+       ],
+       "note": "Tau Ceti's cycleData uses Mathlib's Equiv.Perm.partition directly. The PolynomialGaloisGroups name fullCycleType also exists in Tau Ceti, as Equiv.Perm.fullCycleType, with conjugation and transport lemmas. The cycle count via cycleType is Mathlib's Equiv.Perm.parts_partition."
+      },
+      {
+       "target": "0.5 Transposition step lemma (merge/split of cycle counts) and sign identity sign σ = (−1)^(n − cycleCount σ)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.orbitCount_swap_mul_add_one_of_not_sameCycle",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Perm/SwapFactors.lean",
+         "line": 266,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.orbitCount_swap_mul_of_sameCycle",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Perm/SwapFactors.lean",
+         "line": 287,
+         "fit": "exact"
+        },
+        {
+         "name": "Equiv.Perm.sign_eq_neg_one_pow_card_sub_orbitCount",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Perm/OrbitCount/Basic.lean",
+         "line": 237,
+         "fit": "exact"
+        }
+       ],
+       "note": "The right-multiplication forms (orbitCount_mul_swap_…) are also present."
+      },
+      {
+       "target": "0.6 Euler characteristic χ(t): parity, additivity over disjoint sums (with cycle-data concatenation and componentwise monodromy), χ ≤ 2 for connected triples by the transposition induction, and the junk-free genus",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PermutationTriple.eulerChar",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/EulerCharacteristic.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.even_eulerChar",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/EulerCharacteristic.lean",
+         "line": 107,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.eulerChar_disjointSum",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/EulerCharacteristic.lean",
+         "line": 251,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.IsConnected.eulerChar_le_two",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/EulerCharacteristic.lean",
+         "line": 131,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.IsConnected.two_sub_two_mul_genus",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/EulerCharacteristic.lean",
+         "line": 222,
+         "fit": "exact"
+        }
+       ],
+       "note": "disjointSum, cycleData_disjointSum and monodromyGroup_disjointSum_le are also present. The bound is proved combinatorially, as the roadmap requires."
+      },
+      {
+       "target": "0.6 Decomposition of any triple, up to relabeling, as the disjoint sum of its orbit restrictions, and the bound χ(t) ≤ 2·#orbits",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.PermutationTriple.not_isConnected_disjointSum",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/DisjointSum.lean",
+         "line": 138,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the forward construction and disconnectedness of disjoint sums exist; neither the orbit decomposition nor the general bound was found."
+      },
+      {
+       "target": "0.7 orderTriple = (orderOf σ0, orderOf σ1, orderOf σinf) = lcm of cycle partitions; GeometryType by exact rational comparison; invariance under relabeling and the involution",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PermutationTriple.orderTriple",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/GeometryType.lean",
+         "line": 49,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.orderTriple_eq_lcm_cycleData",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/GeometryType.lean",
+         "line": 66,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GeometryType",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/GeometryType.lean",
+         "line": 112,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.geometryType",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/GeometryType.lean",
+         "line": 169,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.geometryType_inv_components",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/GeometryType.lean",
+         "line": 229,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "0.8 Named example suite: degree-one, cyclicTriple n, the 4z(1−z) triple, a disconnected sum, an isomorphic pair, torusTriple, the S₃ triple, each with invariants proved",
+       "library": "absent",
+       "declarations": [],
+       "note": "Tau Ceti has only two anonymous examples (z ↦ z³ and a disjoint sum of trivial covers) in EulerCharacteristic.lean; none of the named examples exists."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/BelyiMaps#layer-1-passports-blocks-and-finite-label-semantics": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "1.1 ConnectedTriple subtype with the restricted relabeling action",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "1.1 PassportSpec with admissibility and membership (conjugate monodromy, equal full cycle types), with invariance lemmas",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Equiv.Perm.fullCycleType",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Perm/Partition.lean",
+         "line": 81,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "1.2 Passport class sets and passportSize; the passport determines degree, genus, orderTriple and geometry type",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "1.3 Normalizer formulation: isomorphism classes ↔ N_{S_n}(G)-orbits of generating product-one triples in G³",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Subgroup.normalizer",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
+         "line": 667,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "1.4 Quotient triples from block systems, cycle-data refinement, IsPrimitive via IsPreprimitive, transitivity of quotients",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MulAction.IsBlockSystem",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/GroupAction/Blocks.lean",
+         "line": 405,
+         "fit": "related"
+        },
+        {
+         "name": "MulAction.IsPreprimitive",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/GroupAction/Primitive.lean",
+         "line": 91,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has blocks and primitivity, and Tau Ceti has primitive actions from extremal blocks (GroupTheory/Perm/Blocks.lean), but nothing about triples."
+      },
+      {
+       "target": "1.5 passportOf : ConnectedTriple n → PassportSpec n with admissibility and its universal property",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "1.6 Label semantics at reference degrees n ≤ 11 through the nTj reference subgroups",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.TransitiveGroupLabel",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Perm/TransitiveGroupLabel.lean",
+         "line": 96,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.referenceSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Perm/TransitiveGroupLabel.lean",
+         "line": 84,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.numTransitiveGroups",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Perm/TransitiveGroupLabel.lean",
+         "line": 45,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the nTj reference subgroups and label predicate only for degrees ≤ 5. The atlas's PolynomialGaloisGroups also stops at Layer 6 (n ≤ 5); the \"Layer 7\" the roadmap cites for n ≤ 11 does not exist. The passport-label predicate is absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates",
+       "note": "Owns the nTj label predicate that 1.6 interprets, but only for n ≤ 5, short of 1.6's n ≤ 11."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/BelyiMaps#layer-2-dessins-as-finite-bipartite-ribbon-graphs": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "2.1 BipartiteRibbonGraph carrier with morphisms, isomorphisms, automorphism group, face permutation, connectedness, components, vertex degrees, Euler characteristic and degree sums",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.BipartiteRibbonGraph",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/RibbonGraph/Basic.lean",
+         "line": 47,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.BipartiteRibbonGraph.facePerm",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/RibbonGraph/Basic.lean",
+         "line": 103,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.BipartiteRibbonGraph.IsConnected",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/RibbonGraph/Basic.lean",
+         "line": 142,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.BipartiteRibbonGraph.eulerChar",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/RibbonGraph/Basic.lean",
+         "line": 207,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.BipartiteRibbonGraph.Aut",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/RibbonGraph/Basic.lean",
+         "line": 584,
+         "fit": "exact"
+        }
+       ],
+       "note": "The fields match the roadmap (universe-polymorphic rather than Type). Hom and Iso are present, and so are sum_blackDegree and sum_whiteDegree."
+      },
+      {
+       "target": "2.2 Triple → dessin: the graph of a triple, connected iff the triple is, faces ↔ cycles of σinf, equal Euler characteristics",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PermutationTriple.ribbonGraph",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/RibbonGraph/OfPermutationTriple.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.isConnected_ribbonGraph",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/RibbonGraph/OfPermutationTriple.lean",
+         "line": 122,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.facePerm_ribbonGraph",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/RibbonGraph/OfPermutationTriple.lean",
+         "line": 108,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.faceCount_ribbonGraph",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/RibbonGraph/OfPermutationTriple.lean",
+         "line": 178,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.eulerChar_ribbonGraph",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/RibbonGraph/OfPermutationTriple.lean",
+         "line": 184,
+         "fit": "exact"
+        }
+       ],
+       "note": "Defined for every n, not only n ≠ 0."
+      },
+      {
+       "target": "2.3 Dessin → triple via a numbering of the edges, well defined up to relabeling, with facePerm ↦ σinf",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "2.4 Equivalence of classifications (round trips; bijection of isomorphism classes of connected dessins and triples; automorphism groups)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.PermutationTriple.ribbonGraphIsoSmul",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/RibbonGraph/OfPermutationTriple.lean",
+         "line": 131,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the triple → graph direction and its compatibility with relabeling exist."
+      },
+      {
+       "target": "2.5 Parity, χ ≤ 2 and genus for connected dessins, transported from Layer 0.6",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.PermutationTriple.eulerChar_ribbonGraph",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/RibbonGraph/OfPermutationTriple.lean",
+         "line": 184,
+         "fit": "related"
+        }
+       ],
+       "note": "Holds for graphs of triples through eulerChar_ribbonGraph; it is not available for an arbitrary connected ribbon graph without 2.3–2.4."
+      },
+      {
+       "target": "2.6 The six branch-point operations with composite identities, the S₃-action on isomorphism classes and ordered passports, the dessin formulas, and agreement of the combinatorial, topological and algebraic actions",
+       "library": "absent",
+       "declarations": [],
+       "note": "No swap01, swap1Inf, rot or rotInv exists in the library."
+      },
+      {
+       "target": "2.7 Dessin examples of the Layer 0.8 suite",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/BelyiMaps#layer-3-finite-enumeration-and-character-theoretic-counts": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "3.1 Executable enumeration: computable cycle decomposition with comparison theorem, isConnectedB, primitivity decision, enumeration Finsets of classes and passport fibres, decide-checked counts",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.PermutationTriple",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the Fintype and DecidableEq instances on triples and the decidable relabeling relation exist (unnamed instances, Basic.lean). Computed cycle types, Boolean connectedness and primitivity, and the class and passport Finsets are absent."
+      },
+      {
+       "target": "3.2 Inverse-class involution on ConjClasses G, with carrier (C⁻¹) = (carrier C)⁻¹ and equal class sizes",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.instInvolutiveInvConjClasses",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Group/Conj.lean",
+         "line": 111,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ConjClasses.inv_mk",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Group/Conj.lean",
+         "line": 122,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ConjClasses.mem_carrier_inv_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Group/Conj.lean",
+         "line": 133,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ConjClasses.card_carrier_inv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Group/Conj.lean",
+         "line": 153,
+         "fit": "exact"
+        }
+       ],
+       "note": "The roadmap says this is \"on no other roadmap\"; Tau Ceti already has it (Algebra/Group/Conj.lean)."
+      },
+      {
+       "target": "3.2 Product-one count = |Cinf|·structureConstant; character formula for structure constants; assembled Frobenius product-one formula; the S₃ worked check",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.structureConstant",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/StructureConstants.lean",
+         "line": 64,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Representation.centralCharacter_classSumCenter_mul_character_one",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/CentralCharacter.lean",
+         "line": 165,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ClassFunction.card_conjClass_mul_sum_char_mul_char_inv",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Completeness.lean",
+         "line": 167,
+         "fit": "related"
+        }
+       ],
+       "note": "All inputs are present in Tau Ceti: structure constants, the class-sum central-character formula ω(K_C)·χ(1) = |C|·χ(g), and second orthogonality. The count conversion, the character formula for structure constants and the Frobenius formula are absent."
+      },
+      {
+       "target": "3.3 Generating-triple counts by strong downward recursion over the subgroup lattice",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "3.4 Counts to passport sizes: classesOfType, genCount, normalizer orbits, exact division formula with C_{S_n}(G), centralizer bound",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MulAction.sum_card_fixedBy_eq_card_orbits_mul_card_group",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/GroupAction/Quotient.lean",
+         "line": 268,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.card_automorphismGroup_dvd",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 448,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Burnside's lemma. Semiregularity of the centralizer is proved only for the monodromy group of a triple, not for an arbitrary pretransitive G. The passport-size formula is absent."
+      },
+      {
+       "target": "3.5 Complete tables for n ≤ 4 (1, 3, 7, 26 classes), every ordered passport of size 1, the degree-5 C₅ passport of size 3, and the database comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/BelyiMaps#layer-4-triangle-groups": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "4.1 TriangleGroup a b c as a presented group, with universal property, rotation isomorphisms, elimination of z, and parameter 0",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PresentedGroup",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/PresentedGroup.lean",
+         "line": 39,
+         "fit": "related"
+        },
+        {
+         "name": "PresentedGroup.toGroup",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/PresentedGroup.lean",
+         "line": 135,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "4.2 Triples with orders dividing (a,b,c) as permutation representations; classification of connected triples by transitive finite actions",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "4.3 Dividing/exact/surjective predicates and the necessary conditions n·(1/a+1/b+1/c−1) ≤ 2",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Equiv.Perm.exists_with_cycleType_iff",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/Perm/Cycle/PossibleTypes.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.orderTriple_eq_lcm_cycleData",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/GeometryType.lean",
+         "line": 66,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "4.4 Orbifold Euler characteristic; spherical classification with orders m, 2m, 12, 24, 60 (presentation comparisons and coset enumerations); Euclidean infiniteness by the affine representation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DihedralGroup",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/SpecificGroups/Dihedral.lean",
+         "line": 33,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.dihedralGroupMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/Dihedral/Basic.lean",
+         "line": 252,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti can recognize a group generated by two non-identity involutions as dihedral. There are no triangle groups, coset enumeration or finiteness classification."
+      },
+      {
+       "target": "4.5 Hyperbolic infiniteness via the SL(2,ℝ) representation, the trigonometric lemma and the Fricke trace identity",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Matrix.GeneralLinearGroup.IsHyperbolic",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/FinTwo.lean",
+         "line": 224,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib only defines hyperbolic 2×2 matrices; the trace identity and the infinite-order consequence are absent."
+      },
+      {
+       "target": "4.6 Regular triples ↔ finite-index normal subgroups of the triangle group",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
+       "note": "Constructs hyperbolic triangle groups from polygon reflections and proves discreteness and faithfulness, the geometric counterpart of 4.5's infiniteness."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "5.1 U = ℂ∖{0,1} with its two-set cover, instances (T2, locally path-connected, path-connected, second countable, semilocally simply connected), open embedding into OnePoint ℂ, punctured-disc neighbourhoods, six anharmonic self-homeomorphisms",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.SemilocallySimplyConnectedSpace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/SemilocallySimplyConnected/Basic.lean",
+         "line": 74,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the semilocal simple connectivity class and derives it from strong local contractibility, but no instance covers open subsets of ℂ. The space U and its structure are absent."
+      },
+      {
+       "target": "5.2 Peripheral loops γ0, γ1 and periph0/1/Inf, with the mob01 pointwise identities",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "5.3 monodromyHom : FundamentalGroup X x →* Equiv.Perm (p⁻¹{x}) with its value lemma and naturality in maps of covers",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "IsCoveringMap.monodromyPerm",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Homotopy/Lifting.lean",
+         "line": 446,
+         "fit": "exact"
+        },
+        {
+         "name": "IsCoveringMap.coe_monodromyPerm",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Homotopy/Lifting.lean",
+         "line": 450,
+         "fit": "exact"
+        },
+        {
+         "name": "IsCoveringMap.fundamentalGroupMulAction",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Homotopy/Lifting.lean",
+         "line": 439,
+         "fit": "exact"
+        },
+        {
+         "name": "IsCoveringMap.monodromyNatTrans",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Homotopy/Monodromy/Functoriality.lean",
+         "line": 102,
+         "fit": "more general"
+        },
+        {
+         "name": "IsCoveringMap.fiberMap_monodromy",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Homotopy/Monodromy/Functoriality.lean",
+         "line": 61,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib's monodromyPerm is exactly this homomorphism, with no ᵐᵒᵖ, although the roadmap plans to build it. Tau Ceti adds naturality in maps of covers."
+      },
+      {
+       "target": "5.3 Compatibility of monodromy with pullback of covers along f : Y → X",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library defines pullbacks of covering spaces."
+      },
+      {
+       "target": "5.4 Punctured convex domains: radial deformation retraction, π₁(ℂ∖{0}) ≅ ℤ from the exponential cover, transport, and identification with the winding number",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AddCircle.fundamentalGroupMulEquivInt",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/UniversalCover/Circle/FundamentalGroup.lean",
+         "line": 123,
+         "fit": "related"
+        },
+        {
+         "name": "Complex.isAddQuotientCoveringMap_exp",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/CoveringMap.lean",
+         "line": 31,
+         "fit": "related"
+        },
+        {
+         "name": "IsQuotientCoveringMap.fundamentalGroupEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Homotopy/Lifting.lean",
+         "line": 690,
+         "fit": "related"
+        }
+       ],
+       "note": "Present: π₁ of the circle ≅ ℤ (Tau Ceti), the exponential quotient covering and the quotient-cover π₁ comparison (Mathlib). Absent: π₁(ℂ∖{0}), the retraction and the winding-number invariant."
+      },
+      {
+       "target": "5.5 Two-open Seifert–van Kampen with simply connected intersection, with the named canonical map vanKampenLift, its bijectivity and vanKampenEquiv (supplier contract)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.FundamentalGroupoid.iSup_im_map_subtypeVal_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/FundamentalGroupoid/CoverGeneration.lean",
+         "line": 104,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.FundamentalGroupoid.functor_ext",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/FundamentalGroupoid/CoverGeneration.lean",
+         "line": 127,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves only the generation half of the groupoid van Kampen theorem and uniqueness of functors out of the fundamental groupoid. The pushout/free-product theorem is absent."
+      },
+      {
+       "target": "5.6 π₁(U,b) ≃* FreeGroup (Fin 2) with of 0 ↦ periph0, of 1 ↦ periph1, and corollaries",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "5.7 Basepoint change: the peripheral conjugacy classes are independent of path and basepoint",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "FundamentalGroup.fundamentalGroupMulEquivOfPath",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicTopology/FundamentalGroupoid/FundamentalGroup.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.FundamentalGroup.basepointChangeSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/FundamentalGroup/BasepointChange.lean",
+         "line": 84,
+         "fit": "related"
+        }
+       ],
+       "note": "The basepoint-change isomorphisms exist; the peripheral statement needs 5.2 and 5.6."
+      },
+      {
+       "target": "5.8 periphInf is the clockwise radius-3 loop, i.e. the peripheral class at ∞",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+       "note": "Stage 1 owns the two-open van Kampen theorem that 5.5 pins as a supplier contract (the roadmap names UniversalCovers, whose atlas stages contain no van Kampen), including the wedge-of-circles free-group check."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "6.1 The three carriers ConnectedFiberNumberedCover, ConnectedPointedCover, ConnectedCover over U with their isomorphisms; the monodromy triple; E connected ⇔ triple connected; invariance and relabeling",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ConnectedCoveringSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Covering/Category.lean",
+         "line": 406,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the category of connected covering spaces of a general base, but no Belyi carriers or monodromy triples."
+      },
+      {
+       "target": "6.2 Associated cover of an arbitrary discrete π₁-set: covering projection, fibre equivalence with S, monodromy equal to the action with no inverse, functoriality",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.UniversalCover.ActionCover",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/UniversalCover/Classification/ActionCover.lean",
+         "line": 74,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.UniversalCover.isCoveringMap_actionCoverProj",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/UniversalCover/Classification/ActionCover.lean",
+         "line": 93,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.UniversalCover.actionCoverFiberEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/UniversalCover/Classification/ActionCover.lean",
+         "line": 163,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.UniversalCover.monodromy_actionCoverFiberEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/UniversalCover/Classification/ActionCover.lean",
+         "line": 178,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.CoveringSpace.fiberActionEquivalence",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/UniversalCover/Classification/FundamentalGroupAction.lean",
+         "line": 157,
+         "fit": "more general"
+        }
+       ],
+       "note": "Under exactly the roadmap's standing hypotheses (path-connected, locally path-connected, semilocally simply connected X), built as the balanced product of the universal cover. The monodromy identity is monodromy g (e a) = e (g • a). The roadmap calls this an unresolved supplier contract."
+      },
+      {
+       "target": "6.2 Finite corollary: the numbered connected cover of U attached to a transitive finite action",
+       "library": "absent",
+       "declarations": [],
+       "note": "Blocked only by U's instances (5.1) and 5.6."
+      },
+      {
+       "target": "6.3 Classification at three levels (numbered ↔ ConnectedTriple, unnumbered ↔ ConnectedIsoClass, pointed ↔ MarkedIsoClass), forgetful maps, and compatibility with the branch-point action",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ConnectedCoveringSpace.transitiveFiberActionEquivalence",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/UniversalCover/Classification/FundamentalGroupAction.lean",
+         "line": 248,
+         "fit": "more general"
+        },
+        {
+         "name": "IsCoveringMap.exists_homeomorph_comp_eq_iff_exists_range_eq_map_conj",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/UniversalCover/Classification/Unpointed.lean",
+         "line": 144,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.UniversalCover.existsUnique_subgroup_homeomorph_subgroupQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/UniversalCover/Classification/Bijection.lean",
+         "line": 97,
+         "fit": "more general"
+        }
+       ],
+       "note": "The general classification is in Tau Ceti: connected covers ≌ transitive π₁-sets, pointed covers ↔ subgroups, unpointed covers ↔ conjugacy classes. The triple-level quotients, the MarkedIsoClass comparison and the Möbius pullback identities are absent."
+      },
+      {
+       "target": "6.4 Deck group of a numbered cover ≅ automorphismGroup of its triple, as subgroups of Perm (Fin n)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.UniversalCover.deckSubgroupQuotientProjEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/UniversalCover/Classification/DeckGroup.lean",
+         "line": 62,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.UniversalCover.deckFundamentalGroupEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/UniversalCover/Deck/FundamentalGroup/UniversalCover.lean",
+         "line": 108,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti computes Deck(Ũ/H) ≃* N(H)/H and Deck(Ũ) ≃* π₁ᵐᵒᵖ; the identification with the centralizer of the monodromy action is absent."
+      },
+      {
+       "target": "6.5 Regular covers: deck-transitive ⇔ regular triple ⇔ normal subgroup ⇔ free monodromy; deck group ≅ monodromy group",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsCoveringMap.isRegular_iff_normal_range",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/UniversalCover/Classification/Regular.lean",
+         "line": 50,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Deck.isRegular_iff_fiber_isPretransitive",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/UniversalCover/Deck/Regular/Monodromy.lean",
+         "line": 45,
+         "fit": "more general"
+        }
+       ],
+       "note": "The general criterion (regular ⇔ recovered subgroup normal, and regularity from one fibre) is present; the triple-level equivalences are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+       "note": "Stage 2 states the general classification (pointed ↔ subgroups, unpointed ↔ conjugacy classes, via π₁-sets), deck groups N(H)/H and regular ⇔ normal, which 6.2–6.5 restate generically."
+      },
+      {
+       "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+       "note": "IG.3 constructs branched covers from product-one generating tuples, overlapping the triple ↔ cover classification of 6.3."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/BelyiMaps#layer-7-compactification-and-topological-branched-covers": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "7.1 Connected finite covers of the punctured disc are z ↦ z^e, with deck group ℤ/e",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "isCoveringMap_zpow",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/CoveringMap.lean",
+         "line": 81,
+         "fit": "related"
+        }
+       ],
+       "note": "The local model covering exists in Mathlib. π₁(𝔻*) and the classification of its finite covers are absent."
+      },
+      {
+       "target": "7.2 FilledCover p: added points from components over punctured discs, topology, Hausdorff, second countable, charted, compact",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "7.3 fillMap to OnePoint ℂ: continuity, properness, surjectivity, restriction, local model w ↦ w^e",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "7.4 Uniqueness of the compactification up to unique homeomorphism",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "7.5 Ramification dictionary: fibres ↔ cycles, local degrees = cycle lengths, Σe = n",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "7.6 Embedded bipartite graph of the preimage of [0,1]",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "7.7 TopBranchedCover carrier, well-defined local degree, and equivalence with connected finite covers of U",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/BelyiMaps#layer-8-riemann-surfaces-and-analytic-riemann-existence": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "8.1 Riemann sphere OnePoint ℂ as a complex manifold (charts z, 1/z; IsManifold 𝓘(ℂ) ω) and open-submanifold instances for ℂ, U, 𝔻*",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "OnePoint.equivProjectivization",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean",
+         "line": 84,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library puts a ChartedSpace ℂ structure on OnePoint ℂ; Mathlib has only its identification with ℙ¹ as a topological space."
+      },
+      {
+       "target": "8.1 The three named comparisons of holomorphy (chart analyticity, ContMDiff at ω, meromorphy for maps to the sphere)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MeromorphicOn",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Meromorphic/Basic.lean",
+         "line": 496,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "8.1 Maximum principle: a holomorphic function on a compact connected complex manifold is constant",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "MDifferentiable.exists_eq_const_of_compactSpace",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Manifold/Complex.lean",
+         "line": 171,
+         "fit": "more general"
+        },
+        {
+         "name": "MDifferentiable.isLocallyConstant",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Manifold/Complex.lean",
+         "line": 156,
+         "fit": "more general"
+        }
+       ],
+       "note": "Stated for any compact (preconnected) complex manifold and normed target, as the roadmap intends to consume it."
+      },
+      {
+       "target": "8.2 Local normal form and ramificationIndex for holomorphic maps of Riemann surfaces (chart independence, branch locus discrete, multiplicativity)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.exists_localDegree",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/LocalDegree.lean",
+         "line": 197,
+         "fit": "related"
+        },
+        {
+         "name": "analyticOrderAt",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Analytic/Order.lean",
+         "line": 47,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the planar local mapping theorem (a value near f z₀ is attained exactly n times). A Riemann-surface ramification index and its API are absent."
+      },
+      {
+       "target": "8.3 Degree theorem for nonconstant maps of compact Riemann surfaces: surjective, finite fibres, Σe constant, covering off branch values",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "8.4 AnalyticBelyiPair with examples, morphisms, finite automorphism group and attached triple",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "8.5 Unique complex structure on the filled cover making fillMap holomorphic; the superelliptic torus example",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "8.6 Analytic Riemann existence for three-point covers (four classifications agree) and the genus reconciliation",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "8.7 Canonical orientation, and the rotations of the embedded dessin equal to σ0, σ1, σinf",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications",
+       "note": "FuchsianOrbifolds 5 defines local multiplicity from the analytic normal form and degree as a fibre sum, with fibre independence, multiplicativity and Riemann–Hurwitz: the content of 8.2–8.3."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-6-the-level-one-modular-quotient-in-construction-order",
+       "note": "FuchsianOrbifolds 6 works with ℙ¹ as a compact Riemann surface and the degree-one biholomorphism theorem, overlapping 8.1's sphere instance."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas",
+       "note": "ModularForms 10B owns compact-Riemann-surface Riemann–Roch and the analytic/topological genus comparison that 8.6's genus reconciliation applies."
+      },
+      {
+       "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+       "note": "IG.3 constructs branched covers from product-one tuples via Riemann existence, overlapping 8.6."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "9.1 AlgebraicBelyiPair over a characteristic-zero field (function field with exact constants, finite k(t) ↪ F unramified outside t = 0, 1, ∞)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.IsFunctionField",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Basic.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.infty",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
+         "line": 98,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.adicOfIrreducible",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
+         "line": 227,
+         "fit": "related"
+        }
+       ],
+       "note": "The AlgebraicCurves supplier vocabulary is present in Tau Ceti: function fields, places and the finite and infinite places of k(t). The Belyi carrier is absent."
+      },
+      {
+       "target": "9.1 Local (e,f) data at the marked places, weighted partition via Σ e·f = n, residue degrees > 1 over non-closed k",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.ramificationIdx",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean",
+         "line": 294,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.relativeDegree",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean",
+         "line": 443,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Fundamental.lean",
+         "line": 77,
+         "fit": "more general"
+        }
+       ],
+       "note": "The fundamental identity for separable extensions of function fields is proved (Stichtenoth 3.1.11). The Belyi-specific local data and the t ↦ tⁿ example are absent."
+      },
+      {
+       "target": "9.1 Algebraic S₃-action by postcomposition with the anharmonic Möbius maps, and its agreement with the combinatorial action",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "9.2 Meromorphic function field M(X) of a connected Riemann surface (field operations by characterization), ord_x, divisors, M(ℙ¹) = ℂ(t)",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "9.3 [M(X) : ℂ(t)] = deg β (symmetric functions; point and fibre separation; generation)",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "9.4 Points of X ↔ places of M(X)/ℂ, value group ℤ, matching ramification indices, exact constants",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "9.5 Algebraization of analytic Belyi pairs and comparison with the regular projective model (points, ramification, genus, divisors, automorphisms)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.genus",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Genus.lean",
+         "line": 189,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.riemannRochSpace",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "9.6 Local comparison at a place: covering components ↔ places of K[y]/(m), e = d_i, the unramified criterion",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "9.7 Analytification of algebraic Belyi pairs over ℂ and mutual inverse with 9.5",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "9.8 Comparison contract (degrees, genera, partitions, triple class, automorphisms, divisors)",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+       "note": "AlgebraicCurves 12 builds the function-field ↔ regular projective curve dictionary and comparison contracts that 9.1 and 9.5 state their Belyi forms against."
+      },
+      {
+       "layer": "ComplexComparisonPartII:C4",
+       "note": "C4 owns Chow algebraization and algebraic-versus-analytic comparison for complex curves, overlapping the GAGA-type comparison of 9.5–9.7."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "10.1 Branch values of composites and multiplicativity of ramification indices",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.ramificationIdx_restrict_mul",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Tower.lean",
+         "line": 80,
+         "fit": "related"
+        }
+       ],
+       "note": "Multiplicativity of e in towers of function fields is present. The branch-value formula for composites and for rational functions is absent."
+      },
+      {
+       "target": "10.2 Köck degree-reduction step with the Galois-stable cardinality measure",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "10.3 Belyi polynomials B_{m,n}, the three-point step over PGL₂(ℚ), and polynomial Belyification",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "10.4 Every function field over ℚ̄ admits a Belyi map",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "10.5 Aut(ℂ): extension of automorphisms of subfields, closedness and finiteness statements; conjugate pairs and the relative moduli field M(F,t)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsAlgClosed.equivOfTranscendenceBasis",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/IsAlgClosed/Classification.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib classifies algebraically closed fields by transcendence bases but does not state the extension or fixed-field results for Aut(ℂ)."
+      },
+      {
+       "target": "10.6 Finitely many Belyi pairs of degree n over ℚ̄ or ℂ; M(F,t) is a number field",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "10.7 Belyi pairs over ℂ descend to a number field (Köck 2.2), and the classification corollary",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "10.8 Acceptance examples (tⁿ, the genus-one torus pair, a plane quartic)",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "11.1 Galois conjugation of Belyi pairs over ℚ̄, as an action preserving degree, genus and partitions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Field.absoluteGaloisGroup",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
+         "line": 43,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "11.2 Finite orbits and open stabilizers",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "11.3 Field of moduli as the fixed field of the stabilizer, with equivariance",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "InfiniteGalois.fixedField_fixingSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Galois/Infinite.lean",
+         "line": 85,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "11.4 Weil descent for function fields at a finite Galois level (effectiveness, field, exact constants, unramifiedness descend)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.GaloisDescent.span_invariants_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/GaloisDescent/Span.lean",
+         "line": 38,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GaloisDescent.liftBaseChange_injective_of_invariant",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/GaloisDescent/Injective.lean",
+         "line": 42,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves semilinear Galois descent for vector spaces over a finite Galois extension (Milne A.64), the input to step 3. The function-field descent and its checks are absent."
+      },
+      {
+       "target": "11.5 Field-of-definition certificates; every field of definition contains the field of moduli",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "11.6 Trivial automorphism group ⇒ field of moduli is a field of definition",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "11.7 trueOrbitSize = [field of moduli : ℚ] and the surjection G/H ↠ G/S from embeddings",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+       "note": "IG.3 states field-of-moduli and descent conditions and requires an example where the field of moduli is not a field of definition, overlapping 11.3–11.6."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "12.1 ẑ as a topological commutative ring: comparison with the procyclic group, projections to ZMod n, ℓ-adic components, units, universal property for characters",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ProfiniteGrp.profiniteCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Category/ProfiniteGrp/Completion.lean",
+         "line": 191,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has ẑ, as a ring or as a named group."
+      },
+      {
+       "target": "12.2 Profinite exponentiation x ^ᶻ a with naturality and the ring law",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "12.3 ℤ_ℓ-powers on pro-ℓ groups and x ^ᶻ a = x ^[ℓ] (component_ℓ a)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.existsUnique_continuousMonoidHom_maximalProPQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Algebra/Group/Profinite/MaximalProP.lean",
+         "line": 379,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the maximal pro-p quotient with its universal property, the factorization the proof uses; the ℤ_ℓ-power itself is absent."
+      },
+      {
+       "target": "12.4 ℚ̄/ℂ base-change equivalence of Belyi pairs",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "12.5 π₁ᵍᵉᵒ := Gal(Ω/ℚ̄(t)) for the maximal extension unramified outside 0, 1, ∞",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "12.6 Continuous isomorphism π₁ᵍᵉᵒ ≃ₜ* profiniteCompletion (FreeGroup (Fin 2)) via Galois categories and fibre functors",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.FiniteCoveringSpace.fiberFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/UniversalCover/Classification/GaloisCategory.lean",
+         "line": 249,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.FiniteCoveringSpace.instProfiniteCompletionIsFundamentalGroup",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/UniversalCover/Classification/ProfiniteFiberFunctor.lean",
+         "line": 69,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.FiniteCoveringSpace.profiniteCompletionAutFiberFunctorMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/UniversalCover/Classification/ProfiniteFiberFunctor.lean",
+         "line": 94,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.FiniteCoveringSpace.profiniteCompletionAutFiberFunctorMulEquiv_isHomeomorph",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/UniversalCover/Classification/ProfiniteFiberFunctor.lean",
+         "line": 152,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.galoisCategory_of_equivalence",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Galois/Transport.lean",
+         "line": 93,
+         "fit": "related"
+        }
+       ],
+       "note": "The topological half (steps 1 and 5 for any nice base) is in Tau Ceti: finite covers form a Galois category whose fundamental group is the profinite completion of π₁, as a homeomorphic group isomorphism. Missing: the algebraic Galois category FÉt(ℚ̄(t);Ω)ᵒᵖ, the fibre-functor-compatible equivalence, and π₁(U) ≅ F₂ (5.6)."
+      },
+      {
+       "target": "12.7 ContinuousOut G, functoriality along topologically characteristic subgroups, actions on conjugacy classes, outer action of an extension",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.map_proPKernel_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Algebra/Group/Profinite/MaximalProP.lean",
+         "line": 186,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the preservation of the pro-p kernel by continuous equivalences (characteristicity) is present."
+      },
+      {
+       "target": "12.8 Arithmetic exact sequence 1 → π₁ᵍᵉᵒ → Gal(Ω/ℚ(t)) → Gal(ℚ̄/ℚ) → 1 and the outer action ρ",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "12.9 Peripheral inertia (cyclic of order e in characteristic 0), tame character to lim μ_n, orientation of 12.6",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ValuationSubring.inertiaSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/RamificationGroup.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.residueAut",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Inertia.lean",
+         "line": 124,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.ramificationGroup_one_eq_bot",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/RamificationGroup.lean",
+         "line": 418,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has inertia groups of places in Galois function-field extensions and proves G₁ trivial in characteristic 0. Cyclicity of G₀/G₁, the tame character and the tower are absent (the file says so explicitly)."
+      },
+      {
+       "target": "12.10 The ẑ-cyclotomic character assembled from all finite levels, with ℓ-adic components",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "modularCyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 212,
+         "fit": "related"
+        },
+        {
+         "name": "cyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 307,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has each finite level and the ℓ-adic character; the ẑˣ-valued assembly needs 12.1."
+      },
+      {
+       "target": "12.11 Branch-cycle theorem ρ(σ)[P] = [P ^ᶻ χ(σ)], with the Kummer identity pinning the convention",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "12.12 Finite branch-cycle corollary (Nielsen classes) and passport invariance along Galois orbits",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+       "note": "IG.0 builds the profinite automorphism group of the fibre functor on finite étale covers (Galois categories), the machinery of 12.5–12.6."
+      },
+      {
+       "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+       "note": "IG.1 proves the geometric/arithmetic fundamental-group exact sequence and constructs decomposition, inertia and tame quotients, overlapping 12.8–12.9."
+      },
+      {
+       "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+       "note": "IG.6 asks to compare peripheral inertia and the cyclotomic branch-cycle convention, the content of 12.9–12.11."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+       "note": "Proves the same tame-character computation (σ ↦ σ(π^{1/m})/π^{1/m} with cyclotomic conjugation action) in the local-field setting that 12.9/12.11 use for function fields."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+       "note": "Builds Ẑ ≅ lim ℤ/n from the profinite-completion API, as a group, overlapping the carrier of 12.1."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/BelyiMaps#layer-13-the-pro-ℓ-peripheral-theorem-and-faithfulness": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "13.1 Δ_ℓ = freeProP ℓ (Fin 2) with P_ℓ, T_ℓ, C_ℓ, and the descended outer action ρ_ℓ",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.maximalProPQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Algebra/Group/Profinite/MaximalProP.lean",
+         "line": 90,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.map_proPKernel_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Algebra/Group/Profinite/MaximalProP.lean",
+         "line": 186,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the maximal pro-p quotient and characteristicity of its kernel; free profinite and free pro-p groups are absent."
+      },
+      {
+       "target": "13.2 Surjectivity of cyclotomicCharacter ℓ onto ℤ_ℓˣ and of the ẑˣ character over ℚ",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsCyclotomicExtension.autEquivPow",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/Gal.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.cyclotomic.irreducible_rat",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Roots.lean",
+         "line": 190,
+         "fit": "related"
+        },
+        {
+         "name": "cyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 307,
+         "fit": "related"
+        }
+       ],
+       "note": "The finite-level input Gal(ℚ(ζ_n)/ℚ) ≃ (ZMod n)ˣ is in Mathlib; the limit surjectivity is absent."
+      },
+      {
+       "target": "13.3 Peripheral-power theorem with three independent conjugators, and the conjugation-transfer lemma",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "13.4 The dyadic instance ℓ = 2",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "13.5 Faithfulness of Gal(ℚ̄/ℚ) on dessins by Lenstra's genus-0 argument, with the polynomial decomposition lemma",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/BelyiMaps#layer-14-lmfdb-assertion-semantics": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "14.1 Passport-record certificate mirroring belyi_passports, with a validity predicate",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "14.2 Map-orbit record: stored triples are componentwise inverses of this roadmap's triples, preserving all asserted invariants; base field vs field of moduli; trueOrbitSize vs storedEmbeddingCount",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.PermutationTriple.equivOppositeConvention",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+         "line": 200,
+         "fit": "related"
+        }
+       ],
+       "note": "The convention involution and its preservation lemmas exist (Layer 0); nothing about database records does."
+      },
+      {
+       "target": "14.3 Certification-level table for every record field",
+       "library": "absent",
+       "declarations": [],
+       "note": "Bookkeeping."
+      },
+      {
+       "target": "14.4 TabulatedPassport certificate for the one-per-S₃-orbit convention",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "14.5 Label grammar and agreement with certified invariants",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.TransitiveGroupLabel",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Perm/TransitiveGroupLabel.lean",
+         "line": 96,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "14.6 Frozen acceptance suite and reconciliation with the degree ≤ 4 table",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": []
+    }
+   }
+  }
+ }
+}

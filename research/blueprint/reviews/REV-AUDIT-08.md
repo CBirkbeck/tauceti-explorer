@@ -61,7 +61,11 @@ and NC.3 → R02.6 are declared-supplier links rather than overlaps, and their n
 
 ## Corrections
 
-**Status changes (3).**
+The 50 corrections are the 7 name fixes above, 3 status changes, 9 corrected overclaims, 7 reworded
+"zero occurrences" claims, 12 completed citations and 12 duplicate changes. A tenth overclaim, at
+R35.6, is recorded together with that entry's alias fix.
+
+**Status changes.**
 
 | Entry | Audit said | Now |
 |---|---|---|
@@ -69,7 +73,7 @@ and NC.3 → R02.6 are declared-supplier links rather than overlaps, and their n
 | AbelianSchemes A3 · layer verdict | not built | **partly built**, the same kind of field-case coverage as A1 |
 | ArithmeticDynamics DY.0 · periodic and preperiodic points, orbit maps | wholly in Mathlib | **partial.** Preperiodic points are defined in neither library (the word never occurs), and no forward-orbit map of a self-map exists |
 
-**Overclaims corrected (9).**
+**Overclaims corrected.**
 
 - **ArithmeticDirichletSeries Layer 9.** The entry and the summary said the Chebyshev growth bound
   is derived. Only `∑_{n≤t} a n = O(t log t)` is (`isBigO_sum_Icc_norm_of_boundary`), and
@@ -94,7 +98,7 @@ and NC.3 → R02.6 are declared-supplier links rather than overlaps, and their n
 - **ArithmeticDirichletSeries Layer 4.** The Northcott instance rests on
   `Ring.HasFiniteQuotients.finite_absNorm_le`, not on a deprecated alias.
 
-**Literal "zero occurrences" claims reworded (7).** In each case the substance stands.
+**Literal "zero occurrences" claims reworded.** In each case the substance stands.
 
 - `Siegel` occurs as Siegel's lemma.
 - `Chabauty` and `Coleman` occur in Tau Ceti provenance comments.
@@ -102,7 +106,7 @@ and NC.3 → R02.6 are declared-supplier links rather than overlaps, and their n
 - "no `Pic` of a scheme" overlooks `LineBundleClass X`, which is the Picard monoid (A0, NC.5).
 - "no Dieudonné theory" overlooks Mathlib's one-dimensional `WittVector.isocrystal_classification`.
 
-**Citations completed (12).** Each of these entries omitted a directly relevant declaration.
+**Citations completed.** Each of these entries omitted a directly relevant declaration.
 
 - **Mathlib's `NumberTheory/Chebyshev.lean` (ArithmeticDirichletSeries 5, 6).** This is the
   `K = ℚ` case of `primeTheta`/`primePsi`, of the higher-prime-power bound (`psi_sub_theta_le`) and
@@ -120,7 +124,7 @@ and NC.3 → R02.6 are declared-supplier links rather than overlaps, and their n
 - **R35.1.** The product formula itself, `NumberField.prod_abs_eq_one`.
 - **DY.5.** `Polynomial.Gal.galAction`.
 
-**Duplicates (12).** Eleven overlaps were added, and one note was corrected:
+**Duplicates.** Eleven overlaps were added, and one note was corrected:
 
 - ArithmeticDirichletSeries 6 → Chebotarev 5. Chebotarev builds its own cancellation continuation
   `cyclotomicCharacterSeriesC`.
