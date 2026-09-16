@@ -57,36 +57,39 @@
       "title": "Adic coefficients and comparison with schemes",
       "group": "cohomology",
       "stageCount": 7,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-02/AdicCoefficientsAndComparisons.json",
       "draftNodes": 14,
       "draftLinks": 20,
       "assignment": "EXT-02",
-      "reviewNote": "Draft written by the EXT-02 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-02/HANDOFF.md."
+      "promoted": "data/decompositions/AdicCoefficientsAndComparisons.json",
+      "note": "Independently reviewed (REVIEW-EXT-05-EXT-02, 16 September 2026: 12 verified, 2 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "AdicEtaleGeometry",
       "title": "Analytic adic geometry required for diamonds",
       "group": "cohomology",
       "stageCount": 5,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-02/AdicEtaleGeometry.json",
       "draftNodes": 10,
       "draftLinks": 16,
       "assignment": "EXT-02",
-      "reviewNote": "Draft written by the EXT-02 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-02/HANDOFF.md."
+      "promoted": "data/decompositions/AdicEtaleGeometry.json",
+      "note": "Independently reviewed (REVIEW-EXT-05-EXT-02, 16 September 2026: 9 verified, 1 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "AdicSpacesPartII",
       "title": "Adic Spaces PartII",
       "group": "cohomology",
       "stageCount": 8,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-02/AdicSpacesPartII.json",
       "draftNodes": 24,
       "draftLinks": 14,
       "assignment": "EXT-02",
-      "reviewNote": "Draft written by the EXT-02 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-02/HANDOFF.md."
+      "promoted": "data/decompositions/AdicSpacesPartII.json",
+      "note": "Independently reviewed (REVIEW-EXT-05-EXT-02, 16 September 2026: 24 verified, 0 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "AlgebraicModularFormsAndSerreWeights",
@@ -293,12 +296,13 @@
       "title": "The classical analytic cohomology inputs to diamonds",
       "group": "cohomology",
       "stageCount": 10,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-02/ClassicalAdicEtaleCohomology.json",
       "draftNodes": 18,
       "draftLinks": 19,
       "assignment": "EXT-02",
-      "reviewNote": "Draft written by the EXT-02 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-02/HANDOFF.md."
+      "promoted": "data/decompositions/ClassicalAdicEtaleCohomology.json",
+      "note": "Independently reviewed (REVIEW-EXT-05-EXT-02, 16 September 2026: 15 verified, 3 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "ClassicalArithmeticCompletion",
@@ -446,12 +450,13 @@
       "title": "Deligne weights, purity and the Weil bounds",
       "group": "cohomology",
       "stageCount": 11,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-02/DeligneWeightsAndPurity.json",
       "draftNodes": 9,
       "draftLinks": 9,
       "assignment": "EXT-02",
-      "reviewNote": "Draft written by the EXT-02 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-02/HANDOFF.md."
+      "promoted": "data/decompositions/DeligneWeightsAndPurity.json",
+      "note": "Independently reviewed (REVIEW-EXT-05-EXT-02, 16 September 2026: 6 verified, 3 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "DerivedDeRhamCohomology",
@@ -584,12 +589,13 @@
       "title": "Étale duality, cycle classes and perverse sheaves",
       "group": "cohomology",
       "stageCount": 13,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-02/EtaleDualityAndPerverseSheaves.json",
       "draftNodes": 2,
       "draftLinks": 7,
       "assignment": "EXT-02",
-      "reviewNote": "Draft written by the EXT-02 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-02/HANDOFF.md."
+      "promoted": "data/decompositions/EtaleDualityAndPerverseSheaves.json",
+      "note": "Independently reviewed (REVIEW-EXT-05-EXT-02, 16 September 2026: 1 verified, 1 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "EulerSystemsAndKolyvaginSystems",
@@ -754,12 +760,13 @@
       "title": "Geometric Satake over the Fargues–Fontaine curve",
       "group": "diamonds",
       "stageCount": 14,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-05/GeometricSatakeAndFusion.json",
       "draftNodes": 23,
       "draftLinks": 24,
       "assignment": "EXT-05",
-      "reviewNote": "Draft written by the EXT-05 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-05/HANDOFF.md."
+      "promoted": "data/decompositions/GeometricSatakeAndFusion.json",
+      "note": "Independently reviewed (REVIEW-EXT-05-EXT-02, 16 September 2026: 14 verified, 9 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "GeometryOfNumbersAndQuadraticArithmetic",
@@ -848,12 +855,13 @@
       "title": "Hecke correspondences and local shtuka cohomology",
       "group": "diamonds",
       "stageCount": 5,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-05/HeckeStacksAndLocalShtukas.json",
       "draftNodes": 13,
       "draftLinks": 13,
       "assignment": "EXT-05",
-      "reviewNote": "Draft written by the EXT-05 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-05/HANDOFF.md."
+      "promoted": "data/decompositions/HeckeStacksAndLocalShtukas.json",
+      "note": "Independently reviewed (REVIEW-EXT-05-EXT-02, 16 September 2026: 12 verified, 1 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "HeegnerPointEulerSystems",
@@ -996,24 +1004,26 @@
       "title": "Parameter stacks, invariant theory and spectral coefficients",
       "group": "diamonds",
       "stageCount": 8,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-05/LanglandsParameterStacks.json",
       "draftNodes": 16,
       "draftLinks": 17,
       "assignment": "EXT-05",
-      "reviewNote": "Draft written by the EXT-05 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-05/HANDOFF.md."
+      "promoted": "data/decompositions/LanglandsParameterStacks.json",
+      "note": "Independently reviewed (REVIEW-EXT-05-EXT-02, 16 September 2026: 14 verified, 2 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "LefschetzPencilsAndVanishingCycles",
       "title": "Lefschetz pencils, nearby cycles and vanishing cycles",
       "group": "cohomology",
       "stageCount": 10,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-02/LefschetzPencilsAndVanishingCycles.json",
       "draftNodes": 9,
       "draftLinks": 12,
       "assignment": "EXT-02",
-      "reviewNote": "Draft written by the EXT-02 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-02/HANDOFF.md."
+      "promoted": "data/decompositions/LefschetzPencilsAndVanishingCycles.json",
+      "note": "Independently reviewed (REVIEW-EXT-05-EXT-02, 16 September 2026: 6 verified, 3 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "LocalGaloisDeformationRings",
@@ -1394,12 +1404,13 @@
       "title": "Relative Fargues–Fontaine curves and period geometry",
       "group": "diamonds",
       "stageCount": 11,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-05/RelativeFarguesFontaine.json",
       "draftNodes": 24,
       "draftLinks": 15,
       "assignment": "EXT-05",
-      "reviewNote": "Draft written by the EXT-05 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-05/HANDOFF.md."
+      "promoted": "data/decompositions/RelativeFarguesFontaine.json",
+      "note": "Independently reviewed (REVIEW-EXT-05-EXT-02, 16 September 2026: 18 verified, 6 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "SchemeAndStackFoundations",
@@ -1546,24 +1557,26 @@
       "title": "Artin v-stacks, solid and lisse coefficient categories",
       "group": "diamonds",
       "stageCount": 6,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-05/VStackSheavesAndLisseCategories.json",
       "draftNodes": 21,
       "draftLinks": 20,
       "assignment": "EXT-05",
-      "reviewNote": "Draft written by the EXT-05 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-05/HANDOFF.md."
+      "promoted": "data/decompositions/VStackSheavesAndLisseCategories.json",
+      "note": "Independently reviewed (REVIEW-EXT-05-EXT-02, 16 September 2026: 17 verified, 4 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "VectorBundlesAndIsocrystals",
       "title": "Isocrystals, vector bundles and Banach–Colmez spaces",
       "group": "diamonds",
       "stageCount": 10,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-05/VectorBundlesAndIsocrystals.json",
       "draftNodes": 23,
       "draftLinks": 23,
       "assignment": "EXT-05",
-      "reviewNote": "Draft written by the EXT-05 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-05/HANDOFF.md."
+      "promoted": "data/decompositions/VectorBundlesAndIsocrystals.json",
+      "note": "Independently reviewed (REVIEW-EXT-05-EXT-02, 16 September 2026: 20 verified, 3 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "WeightsInEtaleCohomology",

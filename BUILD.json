@@ -1,13 +1,41 @@
 {
   "roadmaps": 180,
-  "stages": 1880,
+  "stages": 2086,
   "originalStages": 1604,
-  "sourceRefinements": 276,
+  "sourceRefinements": 482,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
       "status": "partial",
       "nodes": 7,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "AdicCoefficientsAndComparisons",
+      "status": "partial",
+      "nodes": 14,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "AdicEtaleGeometry",
+      "status": "partial",
+      "nodes": 10,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "AdicSpacesPartII",
+      "status": "partial",
+      "nodes": 24,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "ClassicalAdicEtaleCohomology",
+      "status": "partial",
+      "nodes": 18,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -33,9 +61,23 @@
       "deferredLinks": 0
     },
     {
+      "roadmap": "DeligneWeightsAndPurity",
+      "status": "partial",
+      "nodes": 9,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
       "roadmap": "DerivedDeRhamCohomology",
       "status": "partial",
       "nodes": 7,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "EtaleDualityAndPerverseSheaves",
+      "status": "partial",
+      "nodes": 2,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -61,9 +103,23 @@
       "deferredLinks": 0
     },
     {
+      "roadmap": "GeometricSatakeAndFusion",
+      "status": "partial",
+      "nodes": 23,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
       "roadmap": "GrossZagierAndArithmeticHeights",
       "status": "partial",
       "nodes": 9,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "HeckeStacksAndLocalShtukas",
+      "status": "partial",
+      "nodes": 13,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -78,6 +134,20 @@
       "roadmap": "KatoEulerSystems",
       "status": "partial",
       "nodes": 22,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "LanglandsParameterStacks",
+      "status": "partial",
+      "nodes": 16,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "LefschetzPencilsAndVanishingCycles",
+      "status": "partial",
+      "nodes": 9,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -131,6 +201,13 @@
       "deferredLinks": 0
     },
     {
+      "roadmap": "RelativeFarguesFontaine",
+      "status": "partial",
+      "nodes": 24,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
       "roadmap": "StableHomotopyKTheory",
       "status": "partial",
       "nodes": 25,
@@ -141,6 +218,20 @@
       "roadmap": "TropicalAndBerkovichArithmetic",
       "status": "partial",
       "nodes": 4,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "VStackSheavesAndLisseCategories",
+      "status": "partial",
+      "nodes": 21,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "VectorBundlesAndIsocrystals",
+      "status": "partial",
+      "nodes": 23,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -166,14 +257,14 @@
   "mathematicalSummaries": 180,
   "curatedStagePresentations": 333,
   "administrativeStages": 66,
-  "mathematicalStars": 1814,
+  "mathematicalStars": 2020,
   "plainTextPlanetLabels": 405,
   "bibliographicSources": 46,
-  "roadmapEdges": 1016,
-  "stageEdges": 3937,
+  "roadmapEdges": 1018,
+  "stageEdges": 4147,
   "sourceDocuments": 214,
-  "htmlBytes": 13507775,
-  "htmlSha256": "ba4d0d0c56abc77de01f52316f63ed2146f4064d10afae15a6e571d9e300156f",
+  "htmlBytes": 16205033,
+  "htmlSha256": "07dca3151d0586ccc65d4686a961cb4d62a795735bb28e3861953275f964dbd9",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -202,16 +293,26 @@
     "vendor/D3-LICENSE.txt": "7a3cb0e5055874e67db9aa2d5fe26de23204fa994ffbad198901ffe9c812a717",
     "vendor/KaTeX-LICENSE.txt": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3",
     "data/decompositions/AInfCohomology.json": "21ac63c193596a1fa7b0fa79f7dbdd75f7e1544a23cf7de1ae08246f148811b2",
+    "data/decompositions/AdicCoefficientsAndComparisons.json": "f4b95bf28315e01737def5a89db6f9541e1f23972fd84951f1c6ff2d9674de65",
+    "data/decompositions/AdicEtaleGeometry.json": "e23184339956d47522d3d9d45092aef1faeb51faf15f3782dc2f92a136cb2d63",
+    "data/decompositions/AdicSpacesPartII.json": "d4909cc2642583c2b1d6e982d9fdd72ca072889390f149b5b5e1e252438fea53",
+    "data/decompositions/ClassicalAdicEtaleCohomology.json": "6a1f973b066c48f8d43a62d7bf5295291a0e6ce1461cde9cb0b70e0e7d554a46",
     "data/decompositions/CohomologyComparisons.json": "faf6fbd2a1d4f28b38a4cfe0243234a8ec602c827a1e0219d6a999fd20a35381",
     "data/decompositions/CrystallineCohomology.json": "23aa8927522d17f709b0709fac64d5f1409f8c4b66dd10d8a9d0545e2684e23e",
     "data/decompositions/DeformationAndDerivedPatchingAlgebra.json": "321c5e0b0f72aaadbba1c1180cfe7d41fb32bdef7093c3252e16c886ceb01628",
+    "data/decompositions/DeligneWeightsAndPurity.json": "bb613c02849e17e4fcb2ed389f6f9716b1b21670581315e11df12d506fc6b150",
     "data/decompositions/DerivedDeRhamCohomology.json": "9cc64b5f4b77e06a2a5d05dc3e201f041c3a1ffb39ea73ba0223baa6c6082078",
+    "data/decompositions/EtaleDualityAndPerverseSheaves.json": "07b31c0db29629811c1c62d5ac1b27827eca762b4b1686c83976e5a7151edb06",
     "data/decompositions/EulerSystemsCyclotomicMainConjecture.json": "16261f019175c15002a14fd78a42e9ee7418379098fe2cb18f572b490f661917",
     "data/decompositions/GeneralAlgebraicKTheory.json": "6f4955f3b16cd3c8ec496094097e69e87866bf38d8bf7d0a3b65e188149efada",
     "data/decompositions/GeneralizedHeegnerCycles.json": "d7ba42b6a0b8a44525d0fe855956d2d415e080bb08bdd346c429d25930b2ec9c",
+    "data/decompositions/GeometricSatakeAndFusion.json": "b45717ae98fff067fe84b8389bbb951be2d2f0cf86ca5ea92c73545373696652",
     "data/decompositions/GrossZagierAndArithmeticHeights.json": "99e4aa2b637df399a3e1f98c53aab0f8849c6c2b9b1d91283a954888e04af27c",
+    "data/decompositions/HeckeStacksAndLocalShtukas.json": "6dd645ea78c1bfbe887f4f33480489d1ee18d1d2c660c87adada868497a62dae",
     "data/decompositions/HeegnerPointEulerSystems.json": "fef57d72219c5ea730da6329b5c7544e6d9438f997d5483b31697b52851900fc",
     "data/decompositions/KatoEulerSystems.json": "a3f1f6bd393cd3d9adafb5f6286d67505460cdbd939490ed2870c4bf3db8e22d",
+    "data/decompositions/LanglandsParameterStacks.json": "4ee98ac702ca6dbb042062ecc308196fd457fa61ea27dbd09d76c7b71614595b",
+    "data/decompositions/LefschetzPencilsAndVanishingCycles.json": "e3073fdb5195ea57471b7282ce3be8041cb34ad6130442cb2217098cfb365403",
     "data/decompositions/LocallyAnalyticDistributions.json": "b1dca72f4b2941dd184d9fe2b9172003edd98509931a18df1219f567298f1b5c",
     "data/decompositions/PadicDifferentialEquationsAndRigidCohomology.json": "d0a627da138ce532710864ae8fcd720f77893fbd94c007bfc6b887a685f65f36",
     "data/decompositions/PadicFamilies.json": "ed2657a4aa3d9189cf87f81f80451bf05a6b059e94b7a0bcdf29cf4b596ce83e",
@@ -219,8 +320,11 @@
     "data/decompositions/PerfectoidQuotients.json": "3350c72722dc53fb820b0ff2f1223f8344ce591b7de2a2bb38004128718d0177",
     "data/decompositions/PerfectoidSpaces.json": "b460bbc91e9a795c8499b25605f1a9369c11383f91a8aee1c5215788992c9b05",
     "data/decompositions/PrismaticCohomology.json": "fd192a8111c42b8de60f6d9011e421159c7258179114f73687d2bd77ff5791b9",
+    "data/decompositions/RelativeFarguesFontaine.json": "88565395c1d43c0a484f7d2e3e02ac8bb437a8223624ee44daf221c144514e8b",
     "data/decompositions/StableHomotopyKTheory.json": "660ee5ae3c4c849c3c37f39cbd24af0dd951b162706e0378a4967c48d5cd6e66",
     "data/decompositions/TropicalAndBerkovichArithmetic.json": "e0b874f052634edab9da6a71e7fa5329f7fa1443c316b326cb07ac94dcab5e38",
+    "data/decompositions/VStackSheavesAndLisseCategories.json": "c88ca7df5e89c9d4db7c9a0eb7a2a4adb2a3fcd28b9db647007f420b08d5085c",
+    "data/decompositions/VectorBundlesAndIsocrystals.json": "fdbac76db40806c39866334c8b06f46f938a7c806c886caa06b0020a8172dd9f",
     "data/decompositions/WeightsInEtaleCohomology.json": "4a41151244faf21477866c23a4cd43d5a212e2fbafac8a6b5504f0e19d5f3b43",
     "data/decompositions/WeilConjectures.json": "532f2a6f1ccd3188a4ed372133937f0cc0057236fd5a981d640a0295c7566d41"
   }
