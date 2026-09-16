@@ -2,7 +2,7 @@
 """Take in pull requests from external (browser) workers.
 
   python3 research/blueprint/intake.py list
-  python3 research/blueprint/intake.py merge <pr> [--yes]
+  python3 research/blueprint/intake.py merge <pr> [--yes] [--complete]
 
 A submission is merged only when every changed file lies in a swarm output
 path, contains no local filesystem path, is valid JSON where it is JSON, and
@@ -80,9 +80,31 @@ def main():
     if "--yes" not in sys.argv:
         print("dry run; pass --yes to merge")
         return
+    if "--complete" in sys.argv and not complete:
+        # Orchestrator decision: a full submission whose file predates the status field.
+        complete = True
+        mark_complete = [f["path"] for f in data["files"] if f["path"].endswith(".json") and "/links/" in f["path"]]
+    else:
+        mark_complete = []
     if data["isDraft"]:
         gh("pr", "ready", str(number))
     gh("pr", "merge", str(number), "--squash", "--delete-branch")
+    if mark_complete:
+        import pathlib
+        repo = pathlib.Path(__file__).resolve().parents[2]
+        subprocess.run(["git", "pull", "--rebase", "--autostash", "-q"], cwd=repo, check=True)
+        for path in mark_complete:
+            target = repo / path
+            packet = json.loads(target.read_text())
+            packet = {"roadmapId": packet.get("roadmapId"), "protocol": packet.get("protocol"), "status": "complete",
+                      **{k: v for k, v in packet.items() if k not in ("roadmapId", "protocol", "status")}}
+            target.write_text(json.dumps(packet, indent=1, ensure_ascii=False) + "\n")
+            subprocess.run(["git", "add", path], cwd=repo, check=True)
+        subprocess.run(["git", "commit", "-q", "-m",
+                        f"Record #{number}'s link map as a complete submission\n\nThe worker's file predates the status field; the orchestrator judged the "
+                        f"submission complete for independent review.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\n"
+                        f"Claude-Session: https://claude.ai/code/session_01LyKFDWpehc4bVvmBWzVFPQ\n"], cwd=repo, check=True)
+        subprocess.run(["git", "push", "-q"], cwd=repo, check=True)
     note = ("Orchestrator: merged as a checkpoint; the job stays open for continuation from the merged files and handoff note."
             if not complete else "Orchestrator: merged; the job is complete and goes to independent review.")
     gh("pr", "comment", str(number), "--body", note)
