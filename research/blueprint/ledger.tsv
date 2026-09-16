@@ -61,3 +61,6 @@
 2026-09-16T21:20:47Z	claude4/2	AUDIT-06	done	1436	{"layers": 50, "audited": 50}
 2026-09-16T21:34:21Z	claude4/1	AUDIT-08	done	1179	{"layers": 38, "audited": 38}
 2026-09-16T21:34:26Z	claude2/1	REV-AUDIT-04	done	1766	{"layers": 39, "audited": 39, "review": "accepted"}
+2026-09-16T21:35:21Z	claude4/1	AUDIT-10	limit	59	2026-09-17T01:00:00+00:00
+2026-09-16T21:35:30Z	claude4/2	AUDIT-09	limit	883	2026-09-17T01:00:00+00:00
+2026-09-16T21:41:07Z	claude2/2	AUDIT-07	done	2167	{"layers": 30, "audited": 30}
