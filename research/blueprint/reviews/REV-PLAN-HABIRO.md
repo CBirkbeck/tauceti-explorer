@@ -5,7 +5,14 @@
 and `AnalyticHabiroStack`.
 
 **Verdict: accepted**, with the corrections below applied in place. The structure holds: five new roadmaps, and the
-six existing roadmaps kept and rescoped. Before correction the plan had real defects:
+six existing roadmaps kept and rescoped.
+
+The review ran in two passes. Sections 1–7 record the first pass. Section 8 records a second, independent pass that
+re-derived the checks from the sources rather than from the first pass's conclusions; it found eleven further
+defects, all local and all corrected, and it confirmed the first pass's structural findings. Questions 9–11 in
+section 7 come from the second pass.
+
+Before correction the plan had real defects:
 
 - two ordering errors;
 - a missing requirement (HQ.4 on HQ.3);
@@ -212,7 +219,7 @@ absent from the index); `Pentagonal.tprod_one_sub_pow` (l. 146); `WittVector.fon
     Both rings map by re-expansion to $\mathbb Z_p[\zeta_{pm}][[q-\zeta_m]]$ (Wagner v2 Remark 2.14, which uses re-expansion,
     not "identification with the $(p,\Phi_m)$-adic completion"). The Nov and Dec versions print the correct form.
   - Item 8: the Lecture 8 variant must drop all of (ii), since over $\mathcal H^{\mathrm{an}}$ the polynomial $\Phi_m(q)$ divides the unit
-    $1-q^m$.
+    $1-q^m$. Revised by T1.
   - Item 9: Remark 8.5 is described precisely, and the inconsistency between $(1-t;q)_\infty$ and $(t-1;q)_\infty$ is added.
   - Item 17: the V5A2 "erratum" is a margin note pointing to [GZ21]. The notes do not claim a correction of the
     published asymptotics.
@@ -290,7 +297,7 @@ absent from the index); `Pentagonal.tprod_one_sub_pow` (l. 146); `WittVector.fon
 ### 4.5 `AnalyticHabiroStack`
 
 - **Conventions.** $\mathcal H^{\mathrm{an}}_{\mathrm{(i)}}$ drops all of (ii). This is forced because $\Phi_m(q)\mid1-q^m$, a unit in
-  $\mathcal H^{\mathrm{an}}$, so the specialisations at $q=\zeta_m$ exist only for the variant. $\mathcal H^{\mathrm{an}}$ maps to $B_m$.
+  $\mathcal H^{\mathrm{an}}$, so the specialisations at $q=\zeta_m$ exist only for the variant. $\mathcal H^{\mathrm{an}}$ maps to $B_m$. Revised by T1.
 - **HS.0.** Nonvanishing locators.
 - **HS.1.**
   - Source status added: Lemma 8.1 calls $G$ a subgroup without proof, and Lemma 7.14 is a proof outline.
@@ -348,10 +355,118 @@ absent from the index); `Pentagonal.tprod_one_sub_pow` (l. 146); `WittVector.fon
    RT.4:q-Hodge responsible for the ku paper's Theorem 4.17.
 4. **HQ.7.** Accept that it no longer waits for HQ.6?
 5. **D13.** Accept RS.0 without analytic prerequisites, with the analytic instance in RS.2?
-6. **Lecture 8 variant.** Confirm the reading that $\mathcal H^{\mathrm{an}}_{\mathrm{(i)}}$ drops all of condition (ii), including invertibility
-   of $1-q^n$, and that HS states the $q=\zeta_m$ specialisations over it and the $B_m$ base changes over $\mathcal H^{\mathrm{an}}$.
+6. **Lecture 8 variant.** Superseded by question 9: the second pass found that the notes describe the variant
+   differently, so this is no longer a question about how to read them but about a repair.
 7. **D7(i).** HQ.9 works in Garoufalidis–Wheeler's naive relative cohomology $H_{\mathrm{naiv}}(X/B)$ of families with
    Gauss–Manin connection, next to the relative conjectures that D6 excludes. Confirm that HQ.9's classes are in scope
    and the relative conjectures are not.
 8. **D10.** QW.1 and HR.1 still require PR.0, which requires `PerfectoidQuotients` Q0:integral-algebra and hence
    `PerfectoidSpaces` P1 and P3. Should the δ-ring split of PR.0 be decided before `QWittVectors` is blueprinted?
+9. **Lecture 8 variant, revised (supersedes question 6).** The notes say in so many words that the variant removes
+   only one clause: "the condition that for all $\varepsilon>0$ the sequence $u^{\varepsilon n}/(1-q^n)$ is a nullsequence is
+   removed" (V5A4 p. 41). With $1-q^n$ still invertible the specialisations at $q=\zeta_m$ are still empty, so the
+   announced variant does not support Lemma 8.1, Example 8.2 or the expectations after it. The review now has HS
+   work with the ring defined by condition (i) alone — the ring Remark 7.9 calls the one "one would only want in
+   principle" — and says so, instead of presenting that ring as Lecture 8's. Confirm this repair, and confirm that
+   the $B_m$ base changes over $\mathcal H^{\mathrm{an}}$ are stated as targets although they are not in the notes.
+10. **Meyer–Wagner Lemma 3.17.** Wagner v2 reduces the surjectivity half of Theorem 4.22(a) to the universal case
+    $A=\mathbb Z_p\{x\}$, $R=\mathbb Z_p\{x\}/x^\alpha$ and takes the divided-power lifts from Meyer–Wagner Lemma 3.17
+    (Wagner v2, p. 65). No stage of the atlas owned that lemma. The review gives it to HQ.5, whose blueprint job
+    must then read Meyer–Wagner §3. The alternative is a request to `RefinedTraceMethods`, which today owns the ku
+    comparison and refined $\mathrm{TC}^-$ but not these lifts. Accept HQ.5 as the owner?
+11. **HB.3's suppliers.** HB.3 now builds the Bloch class of an arbitrary non-degenerate Nahm solution "with HB.1's
+    torsion convention", but it required only `Polylogarithms` P.1, which owns polylogarithms and the Bloch–Wigner
+    function, not the Bloch group. The review adds `K3BlochGroups` V.3 and `HabiroNumberFields` HB.1 to its
+    requirements. This makes `HabiroNahmSeries` HB.3 wait for `HabiroNumberFields` HB.1, which the order of §7
+    already arranges (step 5 before step 6). Accept?
+
+## 8. Second pass: independent re-review
+
+This pass repeated the review from the sources, without assuming the first pass's conclusions.
+
+### 8.1 What was re-derived
+
+- **Source identity.** The SHA-256 of the three primary sources was recomputed and matches plan §1.1:
+  GSWZ v2 `308d1dd1…`, the V5A2 notes of 6 March 2025 `58c2ea7f…`, the V5A4 notes `4cc50e0b…`.
+- **Locators.** A statement index of both sets of notes was built from the rendered pages, independently of the
+  plan, and compared with Appendix A. Every V5A2 entry and every V5A4 entry agrees with the first page on which
+  the statement appears, including Appendix A of V5A4 (p. 44) and Lemma A.1 (p. 45). GSWZ locators were checked in
+  the TeX source of the e-print: (emdef) is equation (16) on p. 8; Definition 1.3 and Theorem 1 are on p. 9;
+  Definition 1.4 and Theorem 2 on p. 10, with "we assume that $p$ is prime to 6" in the text *after* Definition 1.4;
+  Remark 5.5, §5.3 and Example 5.6 on p. 65.
+- **Baseline.** About seventy cited declarations were read again in the pinned trees (Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369`, Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`). Every line
+  number in §4.1 is correct, including the corrections of §3.4: `HasSubst` is nilpotence of the constant
+  coefficient (`Substitution.lean`, l. 40); `MonoidalClosed (LightCondMod R)` is at `Light/Monoidal.lean`, l. 56,
+  in a block running ll. 35–62; the λ-ring TODO is the module docstring of `Binomial.lean`, ll. 56–59, with
+  `BinomialRing` at l. 76; `Dickson.lean` l. 115 says Mathlib has no Λ-rings; `TauCeti.ValuationSpectrum.spa` is at
+  `Spa/Basic.lean`, l. 97, and no declaration `Spa` exists; Tau Ceti has no Witt vectors of rings, no δ-rings, no
+  condensed material and no stacks; Mathlib has no $q$-analogues (the `Pochhammer.lean` TODO asks for them) and no
+  polylogarithm. One naming imprecision was fixed (§8.2, item 8).
+- **Other references.** The statements the definitions carry were read in the copies fetched to the scratch
+  directory: Wagner v5 §§2, 4 and 5; Wagner v2 §§3 and 4; Scholze, *Six-Functor Formalisms*, Lecture X; Aoki §4;
+  Rodríguez Camargo §§2–3, 6–7. Spot results: Wagner v5 Lemma 2.1's last clause is stated for all $\alpha\in\mathbb Z$ and
+  fails at $\alpha=0$, as §8 item 25 says; Remark 2.47 defines "perfectly covered" and its footnote gives the
+  equivalent forms QW.1 restores; Wagner v2 p. 65 proves Theorem 4.22(b) as "a special case of [Wag25,
+  Theorem 4.17]"; Aoki Definition 4.21 makes a ring stack a finite-coproduct-preserving functor
+  $\mathrm{Pol}\to\mathrm{CAlg}(\mathcal C)$, so the RS variance convention is right; Scholze Theorem 10.6, Remarks 10.7–10.8 and
+  Examples 10.1, 10.9 match RS.1–RS.2; RC Theorems 2.3.3, 3.2.4, 3.3.1, 3.4.2 and 6.2.11 and Definitions 3.1.1,
+  3.2.1, 6.3.9, 6.3.16, 6.3.23, 7.1.1, 7.2.7 match SA and AS.
+- **Closure and ordering.** The atlas `requires` lists and `stageEdges` were merged, the five new roadmaps added
+  with the `requires` of their definitions, and every requirement change of §§6.1–6.7 and of this review applied.
+  Every referenced id resolves and the graph is acyclic, before and after the second pass's changes. The blueprint
+  order of §7 was checked stage by stage against that graph; no step precedes one of its prerequisites.
+- **Mathematics.** The direct proof of $D_{\zeta_m}(1)^{24m}=m^{12m}$ that HB.8 adopts was verified from
+  $D_{\zeta_m}(z)=\prod_{\ell=1}^{m-1}(1-\zeta_m^\ell z)^{\ell/m}$: with $P=\prod_\ell(1-\zeta_m^\ell)^\ell$ one gets
+  $P^2=m^m(-1)^{m(m-1)/2}\zeta_m^{-m(m^2-1)/6}$, whose non-$m^m$ factor is a sixth root of unity, so $P^{24}=m^{12m}$.
+  The reading of Example 8.6 with $x=(-1)^{\mathrm{Hab}}=q^{1/2}$ was checked: at $q=1$ the branch is $\zeta_2=-1$ and the
+  condition becomes $(2-y)^n$, as HS.2 states.
+- **Hygiene.** The five definitions parse, carry every field of PROTOCOL §7, keep their original formatting, use no
+  forbidden scope wording, and contain no private paths. The plan's four occurrences of "TODO" are quotations of
+  Mathlib's own comments.
+
+### 8.2 Findings of the second pass, and the changes made
+
+| # | finding | evidence | correction |
+|---|---|---|---|
+| T1 | **The Lecture 8 variant is misreported.** The plan and the HS conventions say the variant of Lecture 8 drops all of condition (ii). Lecture 8 says the opposite in print: it removes only the null-sequence clause. The repair is still needed — with $1-q^n$ invertible, $\Phi_m(q)$ divides the unit $1-q^m$ and the specialisations are empty — but it is a repair, not a reading. | V5A4 p. 41: "We will consider a variant of this, where the condition that for all $\varepsilon>0$ the sequence $u^{\varepsilon n}/(1-q^n)$ is a nullsequence is removed." Remark 7.9 (p. 38): "one would only want (i) in principle". | Plan §3.3 (Lecture 8 row) and §8 item 8 rewritten to give the printed variant, the reason it does not suffice, and the choice of the (i)-only ring with Remark 7.9 as its warrant. `AnalyticHabiroStack` README conventions and HS.0 rewritten to match. Question 9. |
+| T2 | **Wagner v2 Theorem 4.22(a) has an unowned input.** HQ.5 keeps 4.22(a). Its surjectivity half reduces to the universal case and cites Meyer–Wagner Lemma 3.17 for the divided-power lifts. No stage owned that lemma. | Wagner v2 p. 65: "This reduces the problem to the universal case $A=\mathbb Z_p\{x\}$ and $R=\mathbb Z_p\{x\}/x^\alpha$ for $\alpha\ge2$. In this case the desired lifts have been constructed in [MW24, Lemma 3.17]." | HQ.5 owns it: §6.5 HQ.5 row, §1.4 and new §8 item 29. Question 10. |
+| T3 | **HB.3 gains a Bloch-group target without a Bloch-group supplier.** HB.3 now builds the Bloch class of an arbitrary non-degenerate Nahm solution with HB.1's torsion convention, but requires only `Polylogarithms` P.1. | Atlas: `HabiroNahmSeries:HB.3` requires `Polylogarithms:P.1`; P.1's text covers polylogarithms and the Bloch–Wigner function, and plan §4.2 L5 puts $P(F)$, $B(F)$ and the five-term relation in `K3BlochGroups` V.3. | §6.4 HB.3 row adds V.3 and HB.1; §5.3 gains the edges. The union graph stays acyclic. Question 11. |
+| T4 | **V5A4 Remark 2.20 had no owner.** §3.3 lists it as a target; §6.5 HQ.1 did not. It is the construction of the operators $\gamma_{i,M}=\tilde\nabla^q_{i,M}+\mathrm{id}_M$ and the twisted tensor product, which Corollary 2.21 rests on. | V5A4 p. 11: "The preceding discussion of Remark 2.20 implies the following. Corollary 2.21…" | §6.5 HQ.1 row names Remark 2.20 with Cor 2.21. |
+| T5 | **V5A4 Remarks 4.16–4.17 were misplaced.** §6.5 moved Proposition 4.15 to QW.2 but left Remark 4.16, which fixes the index shift in that same ghost square, unassigned, and put Remark 4.17 ("there are no restriction maps on $q\text{-}W_m$") in HQ.4, where it duplicates `QWittVectors`' own convention and Wagner v5 2.14. | V5A4 p. 24: Remark 4.16 is the index-shift sentence for Prop 4.15; Remark 4.17 is the no-restrictions sentence. `QWittVectors` QW.2 already owned "Ghost square (V5A4 Proposition 4.15 and Remark 4.16)". | §6.5 HQ.4 row: 4.16 and 4.17 move to QW.2 with 4.15, and 4.17 is dropped from HQ.4's list. QW.2's "No restrictions" target now cites V5A4 Remark 4.17. |
+| T6 | **QW.6 skipped three items of Wagner v5 §4.** 4.17 (the graded algebra structure with the Bockstein differentials, which QW.6's own acceptance test uses), 4.20 (the factors of Lemma 4.19's pullback are static) and 4.23 (the Frobenii and Verschiebungen on $H^*_{R/A,\square}(m)$, without which Construction 4.26 has nothing to build a $q$-FV-system from). | Wagner v5 §4: 4.17 Lemma, 4.20 Remark, 4.23 "Frobenius and Verschiebung". | QW.6's targets now name 4.17, 4.20 and 4.23. |
+| T7 | **QWittVectors' README scope omitted Remark 3.28**, which QW.7's stage description carries, and described the opening construction of Wagner v2 §3.5 only as "the construction before Lemma 3.30". | Wagner v2 §3.5 opens with the animation of $\mathrm{fil}^\star_{\mathrm{Hdg}_m}q\text{-}W_m\Omega^*$, then Lemma 3.30, Corollary 3.31, then 3.32. Both descriptions name the same object, so §4.2 L8 and the README agree. | README scope adds Remark 3.28 and says the construction opens §3.5. |
+| T8 | **Locators.** (a) The plan attributes the definition of $\varepsilon_m$ to CGZ Theorem 1.6; GSWZ attribute it to CGZ Theorem 1.5 and use Theorem 1.6 with its equation (14) only in the proof of Theorem 5. (b) `IsHuberRing` is `TauCeti.Huber.IsHuberRing`. | GSWZ p. 8: "the unit $\varepsilon_m(\xi)$ defined in [CGZ, Thm.1.5]"; GSWZ §3.3: "this follows from Theorem 1.6 and equation (14) of [CGZ] combined with Hutchinson". Baseline: `TauCeti/RingTheory/Huber/Basic.lean`, l. 154. | §4.2 L5 and the §4.3 checklist row distinguish the two CGZ locators; §4.1 gives the full Huber name and line. |
+| T9 | **A boundary was declared in only one place.** RS.2 states Scholze Example 10.9 for nonarchimedean $K$, while the source states it for any Banach field of characteristic zero and its conclusion there is the analytic Riemann–Hilbert identification at $K=\mathbb C$. `AnalyticStacks` lists that as a non-goal; `RingStacksAndTransmutation`, which owns the example, did not. | 6FF Example 10.9: "Let $K$ be a Banach field of characteristic 0… If $K=\mathbb C$, it turns out that $\mathbb A^{1,\mathrm{an}}_{\mathrm{dR},\mathbb C}=\mathbb C^{\mathrm{Betti}}\times_{\mathrm{Spec}(\mathbb Z)}\mathrm{AnSpec}(\mathbb C)$". `SolidAnalyticRings` non-goals exclude liquid structures. | RS README: the scope line says "the nonarchimedean half", a non-goal entry names the archimedean half and the Riemann–Hilbert identification with the reason, and RS.2 says why $K$ is nonarchimedean here. |
+| T10 | **RS.3 cited one Aoki lemma for three.** The correspondence between maps to $[0,\infty)$ and families of idempotent algebras is Lemma 4.34; multiplicativity is Lemma 4.35; the semivalue conditions are Lemma 4.36. | Aoki Lemmas 4.34, 4.35, 4.36. | RS.3 names all three and the conditions $\{0\}\subset D_0$, $D_r\cdot D_s\subset D_{r+s}$. |
+| T11 | **§7 undercounted where the tracks meet.** It names three meeting points and omits HQ.6, which needs HS.3; that meeting is handled in the assembly step but is not named as one. | Plan §6.5 HQ.6 adds HS.3; §7 step 13. | §7 names the assembly meeting. |
+
+### 8.3 Checked in the second pass and left unchanged
+
+- The structure: five new roadmaps with the stated groups, the six existing roadmaps kept, four rescoped, every
+  stage of all six accounted for in §6.
+- The homes required by the job description. Ring stacks, quasi-ideals and transmutation: RS.0, with the analytic
+  instance in RS.2 and the Habiro stack in HS. Condensed, solid and analytic inputs: SA.0–SA.4 and AS.0–AS.4.
+  $q$-de Rham and $q$-Hodge complexes: framed in QW.6, coordinate-independent in HQ.1 ($p$-adically PR.6), derived
+  and twisted in HQ.2, $q$-Hodge filtrations and Habiro–Hodge in HQ.3, framed Habiro–Hodge in HQ.4, trace-theoretic
+  in HQ.5-trace through RT.4:q-Hodge. $q$-Witt vectors: QW.2–QW.4, with the $q$-de Rham–Witt complexes in QW.5 and
+  QW.7. Bloch group and $K_3$: `K3BlochGroups` V.3–V.5, `Polylogarithms` P.1–P.2, `ArithmeticKTheory` N.5,
+  `MotivicEtaleKTheory` M.1 and M.7, `KTheoryFiniteLocalFields` L.6, `ColemanIntegration` L2,
+  `PadicHodgeRegulators` D.1–D.4, and HB.1–HB.2 for the CGZ-specific conventions.
+- The partition of Wagner v2 §3 after 3.13: HQ.2 takes 3.14–3.20, 3.22 and 3.29; QW.7 takes 3.21, 3.23–3.28, the
+  construction opening §3.5, and 3.30–3.31; HQ.3 takes 3.32–3.54. No item is claimed twice and none is left out.
+- The split of V5A4 Proposition 7.11 between HS.0 (the $q$-difference complex) and HS.4 (the closed Habiro unit
+  disc), each naming the other, and the "should be quasi-isomorphic" status the notes give it.
+- The five definitions' non-goals and roadmap-for-a-roadmap notes, which are definite and do not use the forbidden
+  vocabulary.
+
+### 8.4 Second-pass observations outside the edit scope
+
+1. CGZ and Hutchinson are not among the sources supplied to this job, so the locators CGZ Theorem 1.5, Theorem 1.6
+   with equation (14), and Hutchinson Theorem 3.1 were checked only through GSWZ's citations of them. GSWZ do not
+   give a theorem number for Hutchinson; the blueprint job for HB.2 should confirm "Theorem 3.1" in the paper.
+2. The atlas text of HQ.5 and HQ.5-trace is one shared block, so the move of Theorem 4.22(b) to HQ.5-trace needs
+   that block split when the plan is adopted, alongside the HQ.1, HQ.3 and HQ.4 rewrites already noted in §6.
+3. `CrystallineCohomology` CR.4 requires only AI.1 and CR.2, so `QWittVectors` QW.5 may require it without a cycle;
+   the text change §6.7 asks for ("Habiro HQ.4 owns the $q$-deformation and specialization maps" → QW.5) is the
+   only edit CR.4 needs.

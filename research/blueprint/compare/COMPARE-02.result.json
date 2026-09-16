@@ -1,0 +1,395 @@
+{
+ "job": "COMPARE-02",
+ "notes": {
+  "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries": {
+   "targets": "Analytic infrastructure for arithmetic Dirichlet series over a number field: arithmetic functions on nonzero ideals regrouped by norm into Mathlib's LSeries, ideal convolution and von Mangoldt transforms, Euler products and their logarithmic derivatives, Abel and Perron summation, Dirichlet-density calculus, Landau positivity, Wiener-Ikehara, and the generic prime-number-theorem transfer delivering psi, theta and pi.",
+   "baselineHas": [
+    "Mathlib/NumberTheory/LSeries/ (LSeries, LSeriesSummable, abscissaOfAbsConv), Mathlib/NumberTheory/ArithmeticFunction.lean, Mathlib/NumberTheory/EulerProduct/ and Mathlib/NumberTheory/AbelSummation.lean",
+    "Mathlib/NumberTheory/NumberField/DirichletDensity.lean: NumberField.Set.primeIdealZetaSum, HasDirichletDensity, dirichletDensity; Mathlib/NumberTheory/NumberField/DedekindZeta.lean: dedekindZeta_residue",
+    "TauCeti/NumberTheory/ArithmeticDirichletSeries/ (28 files, ~665 declarations) incl. TauCeti.regroupByNorm, TauCeti.idealCount_linearBounds, TauCeti.abscissaOfAbsConv_normCoeff_one, TauCeti.dedekindZeta_eulerProduct_hasProd, TauCeti.tendsto_truncatedPerron_LSeries, TauCeti.primePsi/primeTheta, TauCeti.standardPrimePowerRemoval",
+    "TauCeti/NumberTheory/LSeries/Landau.lean (TauCeti.LSeries.landau, the 3-4-1 package) and TauCeti/NumberTheory/LSeries/WienerIkehara/ (the smoothed Fourier form only)"
+   ],
+   "missing": [
+    "Layer 9: the sharp Wiener-Ikehara theorem from the LSeriesHasSum/boundary hypotheses, and its variants; grep finds no wienerIkehara declaration, only the smoothed Fourier statements",
+    "Layer 7: Dirichlet-density calculus above Mathlib's bare definitions - the all-prime normalization P_all(s) = log(1/(s-1)) + O(1), finite-difference/squeeze/fibre lemmas, IsLower/UpperDirichletDensityBound",
+    "Layer 6.5: HasCancellation and continuedLFunctionOfWeight with analyticity on Re s > 1 - 1/[K:Q], and the arithmetic Perron interface for explicit formulas",
+    "Layer 10: PrimeBoundaryRemainder and the summit primeNumberTheoremTransfer; no theory is taken from another roadmap (prerequisites are empty), only the conditional boundary export from LFunctions"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/PolynomialGaloisGroups": {
+   "targets": "The permutation-group semantics of Polynomial.Gal: full cycle types, the orbit/irreducible-factor dictionary, blocks versus intermediate fields, the discriminant square-root test for the alternating group, Galois resolvents with their symmetric-function descent, Frobenius specialization through factor degrees, the nTj transitive-group labels in degree at most five, and van der Waerden's realization of S_n over Q.",
+   "baselineHas": [
+    "Mathlib/FieldTheory/PolynomialGaloisGroup.lean (Polynomial.Gal, galActionHom, galActionHom_injective) and Mathlib/GroupTheory/GroupAction/Blocks.lean (MulAction.IsBlock, isCoatom_stabilizer_iff_preprimitive)",
+    "TauCeti/FieldTheory/GaloisGroups/{Orbits,Blocks,Stabilizer,MultipleTransitivity,Degree}.lean: TauCeti.isPretransitive_iff_irreducible, TauCeti.rootBlockIntermediateFieldOrderIso (Layers 0 and 2)",
+    "TauCeti/FieldTheory/GaloisGroups/Discriminant/{Basic,Field}.lean (Polynomial.Monic.isSquare_discr_iff_range_le_alternatingGroup) and Resolvent/{Symmetric,Specialization}.lean (MvPolynomial.universalResolvent, galResolvent, TauCeti.vietaHom, existsUnique_orbitProduct)",
+    "TauCeti/GroupTheory/Perm/WreathProduct.lean and TransitiveGroupLabel.lean (TauCeti.WreathProduct, numTransitiveGroups, referenceSubgroup for n <= 5, TransitiveGroupLabel); TauCeti/FieldTheory/GaloisGroups/FactorDegrees.lean"
+   ],
+   "missing": [
+    "Layer 1's recognition theorems: a primitive subgroup containing a transposition is S_n, a transitive group containing an (n-1)-cycle is 2-transitive, and the odd-power-transposition lemma",
+    "Layer 4's registered specifications and decision tables: the quartic D4 invariant, the quintic F20 invariant and pair sum with their exact stabilizer theorems, and the resolvent factorization criteria",
+    "Layer 5's imported input: Dedekind's factorization theorem (gal cycle type = factor degrees), owned by NumberFieldArithmetic 3.10 and resting on decomposition and inertia groups and residue Galois groups, of which the baseline has essentially nothing (one declaration matching decompositionGroup)",
+    "Layer 6: the classification of the transitive subgroups of S_n for n <= 5 up to conjugacy, HasGaloisLabel and the recognition theorems feeding it",
+    "Layer 9: the explicit monic integral polynomials with prescribed reductions at 2, 3 and 5, their coefficientwise CRT assembly, and HasFullSymmetricGaloisGroup"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/StablePeriodicCurved": {
+   "targets": "Happel's triangulated stable category of a Frobenius exact category; finitely generated Gorenstein-projectives, the Verdier singularity category and Buchweitz's equivalence; differential modules and n-periodic complexes with their homotopy and derived categories; compression, orbit categories and Stai's triangulated hull; curved DG algebras, modules and duplexes with Positselski's derived categories of the second kind; matrix factorizations with Eisenbud's and Orlov's theorems; and the flagship k[x]/(x^n) calculation.",
+   "baselineHas": [
+    "Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean, Mathlib/Algebra/Homology/HomotopyCategory.lean, Mathlib/Algebra/Homology/DerivedCategory/Basic.lean, CategoryTheory.Quotient and ObjectProperty.triangEnvelope",
+    "TauCeti/CategoryTheory/Exact/ExactStructure.lean (ConflationClass, ExactStructure with Quillen's E0/E1/E2) and Exact/Frobenius.lean (ExactStructure.IsFrobenius, split_isFrobenius)",
+    "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean (two-sided morphism ideals and their additive quotients - explicitly the Layer 0 substrate)",
+    "TauCeti/Algebra/Algebra/Frobenius/Basic.lean (LinearMap.IsFrobeniusFunctional, nakayamaAut, self-injectivity) and TauCeti/Algebra/Homology/DG/ (uncurved DG algebras and right modules)"
+   ],
+   "missing": [
+    "Layer 1: the stable quotient of a Frobenius exact category with suspension/loop quasi-inverse autoequivalences and Happel's triangulation, plus stable functors",
+    "Layer 2: totally acyclic complexes, Gorenstein-projective modules, the Verdier quotient D_sg(R) and Buchweitz's equivalence, with the Keller-Vossieck comparison",
+    "Layers 3-4: differential modules and n-periodic complexes, K_n(A) and D_n(A) with their triangulated instances, compression, the constructed orbit category with Keller's universal property, and Stai's full faithfulness and triangulated-hull theorems",
+    "Layers 5-6: curved DG algebras, modules and duplexes, and the absolutely acyclic/coacyclic/contraacyclic classes with Positselski's Theorems 7.8-7.9",
+    "Layers 7-8: matrix factorizations, HMF(S,w) and its Frobenius exact model, Eisenbud's hypersurface theorem, Orlov's HMF ~ D_sg(X_0), and the reconciliation functors; grep finds no MatrixFactorization, SingularityCategory, GorensteinProjective, PeriodicComplex or CurvedDG declaration anywhere"
+   ]
+  },
+  "AlgebraicModularFormsAndSerreWeights": {
+   "targets": "Geometric (Katz) modular forms over coefficient rings with their comparison to analytic forms, the q-expansion principle and integral Hecke theory, the characteristic-p operations (Hasse invariant, Frobenius/Verschiebung, theta, filtration), Serre's full local weight recipe k(rho-bar) with the Edixhoven comparison, the Deligne-Serre lifting lemma, and the definitions used to state the classical Serre conjecture.",
+   "baselineHas": [
+    "Mathlib/NumberTheory/ModularForms/Basic.lean (ModularForm) and Mathlib/NumberTheory/ModularForms/QExpansion.lean (UpperHalfPlane.qExpansion) - analytic forms only",
+    "TauCeti/NumberTheory/ModularForms/Newforms/ (HeckeRing.GL2.Newform) and TauCeti/NumberTheory/HeckeRing/GL2/ (double cosets, diamond operators, Hecke slash)",
+    "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean and Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean, with no ramification filtration or fundamental characters",
+    "Mathlib/AlgebraicGeometry/ schemes and quasi-coherent sheaves, but no Hodge bundle and no modular curve as a scheme"
+   ],
+   "missing": [
+    "Imported from ModularCurvesPartII R12.6/R13.4/R14.3: compactified algebraic modular curves over Z with generalised elliptic curves, Tate curves, integral coarse spaces, Hodge bundles, algebraic Hecke correspondences and cohomological realisations - itself resting on coherent GAGA, abelian schemes, Neron models and algebraic spaces",
+    "Imported from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.5: finite flat group schemes and integral p-adic Hodge theory (Fontaine-Laffaille) for the local weight recipe",
+    "Imported from AutomorphicGaloisRepresentations R19.1: the Galois representation attached to an eigenform, i.e. the etale cohomology of modular curves",
+    "Its own six layers: Hodge bundle and geometric forms with GAGA comparison (R15.1), q-expansion principle and integral Hecke theory (R15.2), Hasse invariant, theta operator and Igusa curves (R15.3), the full piecewise Serre recipe including p = 2 and 3 (R15.4), Deligne-Serre eigenvalue lifting (R15.5), residual-modularity definitions (R15.6)"
+   ]
+  },
+  "ComplexComparisonPartII": {
+   "targets": "Coherent analytic modules on analytifications of complex schemes, analytic coherent cohomology with the projective-space computation, projective and then proper coherent GAGA with the cohomology comparison in every degree, Chow algebraization of closed analytic subspaces and of holomorphic maps, and the algebraic de Rham-Betti comparison with its logarithmic version for open curves.",
+   "baselineHas": [
+    "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean (CategoryTheory.Sheaf.H) and Mathlib/Algebra/Category/ModuleCat/Sheaf/Quasicoherent.lean (IsQuasicoherent, IsFinitePresentation)",
+    "Mathlib/AlgebraicGeometry/ (schemes, projective schemes, proper morphisms, Normalization.lean) and Mathlib/RingTheory/Kaehler/ for the algebraic differentials",
+    "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean - formal one-variable Weierstrass division only, not convergent several-variable division",
+    "TauCeti/Analysis/Complex/HolomorphicSheaf.lean - the sheaf of holomorphic functions on C only; grep finds no Analytification, GAGA, AnalyticSpace or Stein declaration"
+   ],
+   "missing": [
+    "Imported from ComplexComparison Part I (PR196 Layers 0-2, 8-12): complex analytic spaces, the analytification of all finite-type schemes including nilpotents, Riemann existence and the constructible Artin comparison",
+    "C0: convergent several-variable Weierstrass preparation/division, Oka coherence of the holomorphic structure sheaf, coherent analytic modules, nonreduced analytic subspaces, and faithful flatness of the local-ring comparison",
+    "C1: Cousin/dbar solutions and Stein/Leray acyclicity, analytic O(n) on projective space with its cohomology in all degrees, Cartan-Serre finiteness and generation after twisting",
+    "C2-C4: the GAGA equivalence with cohomology comparison and relative pushforward, proper GAGA via the Chow-lemma and coherent-devissage package imported from AlgebraicModuliForArithmeticGeometry R09.2-3 together with proper algebraic spaces, and Chow's algebraicity theorem",
+    "C5: the algebraic de Rham complex, the analytic Poincare lemma, hypercohomology comparison with singular cohomology, cup/trace/Gauss-Manin compatibilities, and the logarithmic residue sequence for open curves"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/ModularCurves": {
+   "targets": "Katz-Mazur arithmetic moduli: elliptic curves as group schemes over an arbitrary base with isogenies, Picard and Cartier-Nishi duality and the Weil pairing; Drinfeld level structures; the KM moduli formalism; the First Main Theorem (regularity of [Gamma(N)], [Gamma_1(N)] and balanced [Gamma_1(N)]); cyclicity and [Gamma_0(N)]; quotient problems, coarse moduli, the j-line and Y_0(N); and the compactified coarse curves over Z[1/N] with their cusps and the Shimura covering.",
+   "baselineHas": [
+    "Mathlib/AlgebraicGeometry/ (schemes, Morphisms/FlatRank.lean with Scheme.Hom.finrank, Group/Affine.lean hopfSpec, Normalization.lean)",
+    "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean (cartierDuality for finite locally free commutative affine group schemes) - Layer 0B over an affine base",
+    "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/ (degree of [N] and of Frobenius, over a field) and TauCeti/AlgebraicGeometry/AbelianVariety/ (Hom, End, Isogeny, TangentSpace)",
+    "Mathlib/AlgebraicGeometry/EllipticCurve/ WeierstrassCurve in affine, projective and Jacobian coordinates - equations over a ring, not a relative smooth proper group scheme"
+   ],
+   "missing": [
+    "Layer 0: relative effective Cartier divisors with the fibre criterion, finite quotients and torsors, effective descent and spreading out, Hom-schemes and parameter spaces for subgroup schemes",
+    "Layers 1-2: elliptic curves over a base scheme with pole sheaves, the scheme-theoretic group law and cubic polarisation; isogenies and quotients, Picard duality, Cartier-Nishi duality and the Weil pairing, endomorphism degree and rigidity",
+    "Layers 3-4: full sets of sections, A-structures and the four Drinfeld level structures; moduli problems over Ell/R, the Weierstrass presentation, rigidifiers and KM 4.7.0, and regularity of a moduli problem",
+    "Layers 7-8: formal completion at the zero section, universal deformations, p-divisible groups with the connected-etale sequence and Frobenius kernels, Serre-Tate theory with level structure, the three characteristic-p calculations, then finiteness of [N-Isog], generator schemes, the cyclicity theorem and the Axiomatic Isomorphism Theorem for [Gamma_0(N)]",
+    "Layers 9-10: quotient problems, invariant quotients and coarse moduli schemes with KM 8.1.5-8.1.6, the coarse j-line and Y_0(N), and compactification by normalisation with cusps and the Shimura covering"
+   ]
+  },
+  "AInfCohomology": {
+   "targets": "The AOmega complex and the integral A_inf cohomology RGamma_Ainf of a smooth proper formal scheme over O_C, with perfectness and the Breuil-Kisin-Fargues structure of its cohomology, the de Rham, Hodge-Tate, crystalline/A_cris and etale specializations, torsion control, the semistable logarithmic extension, and cohomological Breuil-Kisin descent.",
+   "baselineHas": [
+    "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean (WittVector.fontaineTheta, surjective_fontaineTheta) and Mathlib/RingTheory/Perfectoid/Untilt.lean",
+    "Mathlib/RingTheory/Perfectoid/BDeRham.lean (BDeRhamPlus, BDeRham) - a bare ring whose own TODO list still has the theta extension, the DVR property and principality of ker theta",
+    "Mathlib/RingTheory/Perfection.lean (PreTilt, Tilt), Mathlib/RingTheory/WittVector/ and Mathlib/RingTheory/DividedPowers/Basic.lean (no PD envelope, no A_cris)",
+    "TauCeti/AlgebraicGeometry/AdicSpace/Spa/ and TauCeti/RingTheory/Huber/ (adic spectra of Huber pairs, rational subsets, structure presheaf)"
+   ],
+   "missing": [
+    "Perfectoid spaces, formal schemes and the pro-etale site of an adic space with almost purity (PerfectoidSpaces P3, AdicEtaleGeometry A1, PerfectoidQuotients Q0)",
+    "The derived decalage functor Leta on a replete ringed topos, with the Bockstein description and the BMS1 Lemma 6.19-6.20 completion comparisons (AI.1, on DerivedDeRhamCohomology DD.1 and EnhancedDerivedSheaves E1)",
+    "BKF modules over A_inf and Fargues' equivalence with (T, Xi) pairs, which needs the Fargues-Fontaine curve and its vector bundles (RelativeFarguesFontaine RF4) and the B_dR filtration from PadicHodgeTheory R06.1/P7",
+    "Crystalline cohomology with PD envelopes, Langer-Zink de Rham-Witt and the log/Hyodo-Kato theory (CR.0-CR.6), derived de Rham and prismatic cohomology with the AOmega = phi* Delta comparison (PR.1, PR.6), and the THH/trace bridge (RT.6)",
+    "Its own construction and proofs: AOmega on a toric perfectoid cover with framing independence, the four specializations, perfectness and torsion inequalities, and the Cesnavicius-Koshikawa semistable extension"
+   ]
+  },
+  "ArithmeticQuantumTopology": {
+   "targets": "Framed links, surgery presentations of closed 3-manifolds and Kirby calculus; ribbon categories and the Reshetikhin-Turaev invariants from U_q(sl2); colored Jones polynomials with Habiro's cyclotomic expansion; the unified invariant of integral homology spheres with its root-of-unity WRT and Ohtsuki-series evaluations; Bloch classes and regulators of hyperbolic manifolds; state integrals, and faithful statements of the quantum-modularity conjectures.",
+   "baselineHas": [
+    "TauCeti/GroupTheory/SpecificGroups/Braid.lean (TauCeti.BraidGroup) and TauCeti/KnotTheory/{Markov,TemperleyLieb,Alexander}.lean (TauCeti.TemperleyLieb.jones, the Jones polynomial through the Temperley-Lieb braid representation)",
+    "TauCeti/KnotTheory/Grid/ and GaussCode/, PDCode/, SmoothLink/ (grid diagrams, moves, grid homology, link diagram combinatorics)",
+    "TauCeti/LowDimTopology/DehnSurgery/Slope.lean and TauCeti/LowDimTopology/Plumbing/ (surgery slopes, plumbing lattices and their homology)",
+    "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean and Monoidal/Rigid/Basic.lean (braided and rigid monoidal categories, with no twist or ribbon structure)"
+   ],
+   "missing": [
+    "QT.0: surgery presentations of oriented closed 3-manifolds and the Kirby move theorem, with framing-anomaly conventions - grep finds no Kirby, ThreeManifold or framedLink declaration",
+    "QT.1-QT.2: ribbon categories with twists and quantum traces, U_q(sl2) with its integral forms and admissible root-of-unity semisimplification, the RT surgery normalization, colored Jones polynomials and Habiro's cyclotomic expansion with integrality",
+    "QT.3-QT.4: the unified invariant in the cyclotomic completion with Kirby invariance, and its WRT/Ohtsuki evaluations and general Lie type, taking HabiroCyclotomicCompletions HC.1/HC.3/HC.4/HC.6 (cyclotomic completions, expansions, root evaluation, rigidity) which are themselves unbuilt",
+    "QT.5: oriented ideal tetrahedra, gluing and completeness equations, extended Bloch elements, Pachner invariance and the volume/Chern-Simons regulator comparison, importing K3BlochGroups V.3/V.5 and hence K_3-indecomposable, Suslin's exact sequence and the algebraic K-theory roadmaps beneath them",
+    "QT.6-QT.7: state sums/integrals with their contours and stationary-phase expansions, and the quantum-modularity and resurgence statements with their example ledger"
+   ]
+  },
+  "DeligneWeightsAndPurity": {
+   "targets": "Weil q-numbers and iota-weights with their functorial linear algebra; the Riemann hypothesis for smooth projective varieties over finite fields (Weil I); and Weil II's mixed direct-image theorem with sharp cohomological bounds, weight filtrations, geometric semisimplicity and absolute hard Lefschetz.",
+   "baselineHas": [
+    "Mathlib/AlgebraicGeometry/Sites/{Etale,Proetale,AffineEtale}.lean - the small etale and pro-etale sites with abelian sheaf categories, i.e. sites only",
+    "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean and Isogeny/OneSubFrobenius/Degree.lean (degree_oneSubFrobeniusIsogeny_eq_pointCount, the identity behind Hasse's bound)",
+    "TauCeti/AlgebraicGeometry/AbelianVariety/ (Hom, End, Isogeny, Product) with no polarization, Rosati involution or Tate module",
+    "Mathlib splitting-field, characteristic-polynomial and algebraic-number API for the weight definitions of DWP.0"
+   ],
+   "missing": [
+    "The whole l-adic etale cohomology apparatus: lisse and constructible sheaves, the six operations, proper and smooth base change, compact support and Poincare duality, and the Grothendieck-Lefschetz trace formula (upstream CohomologicalPointCounting ConstructibleEtale/EtaleBaseChange/CompactSupport/TraceFormula); grep finds no EtaleCohomology, Lisse, PerverseSheaf or TateModule declaration",
+    "Etale duality and perverse sheaves EDC.0-EDC.4, and Lefschetz pencils with vanishing cycles and their monodromy LPV.0-LPV.7",
+    "Polarized abelian schemes with Rosati positivity and the Tate realization (AbelianSchemes A2/A6), and the Jacobian/Abel-Jacobi comparison for curves",
+    "Its own ten stacked layers: the symplectic tensor-power estimate of Weil I Theorem 3.2, pencil local-factor rationality with the function-field Chebotarev density argument, the dimension induction and Kunneth error removal, the Weil II local weights and square-improvement argument, the fundamental direct-image theorem, mixed complexes and weight filtrations, and absolute hard Lefschetz"
+   ]
+  },
+  "PadicDifferentialEquationsAndRigidCohomology": {
+   "targets": "Dagger algebras and Robba rings; differential modules with generic radii, Frobenius structures and slope filtrations; the p-adic local monodromy theorem; overconvergent isocrystals on frames; rigid cohomology with and without compact support, its finiteness, duality and Kunneth; the rigid trace formula, p-adic Fourier transform and Kedlaya's p-adic weight (Weil II) theorem; and the rigid-crystalline comparison with the l-adic zeta factorization.",
+   "baselineHas": [
+    "Mathlib/RingTheory/WittVector/Isocrystal.lean (WittVector.Isocrystal, isocrystal_classification) - one-dimensional isocrystals only",
+    "TauCeti/RingTheory/Huber/Restricted/PowerSeries.lean (TauCeti.Huber.IsRestricted) and TauCeti/AlgebraicGeometry/AdicSpace/Spa/ (adic spectra, rational subsets)",
+    "Mathlib/RingTheory/Kaehler/Basic.lean (KaehlerDifferential) - algebraic differentials with no connection or differential-module theory",
+    "Mathlib/Analysis/ p-adic analysis and Mathlib/RingTheory/WittVector/FrobeniusFractionField for the Frobenius lifts"
+   ],
+   "missing": [
+    "RD.0-RD.1: overconvergent (dagger) algebras as unions over strict radii, bounded and full Robba rings with radius-indexed norms, and finite projective differential modules with generic radii, cyclic vectors, Frobenius pullback and slope filtrations; grep finds no Robba, Dagger or Overconvergent declaration",
+    "RD.2: the p-adic local monodromy theorem (quasi-unipotence after a finite Robba extension) with its logarithmic solutions and descent",
+    "RD.3-RD.5: frames, tubes and strict neighbourhoods on formal schemes, overconvergent F-isocrystals with embedding independence, rigid cohomology and compact support with frame independence and localization triangles, and then finiteness, Poincare duality and Kunneth by devissage and alterations",
+    "RD.6: the rigid Lefschetz trace formula, the p-adic Fourier transform with conductor/radius estimates, and Kedlaya's sharp compact-support weight inequalities",
+    "RD.7's imports: crystalline cohomology CR.3, WeilConjectures WC.1, and DeligneWeightsAndPurity DWP.4 - i.e. Deligne's Weil I purity and therefore the whole l-adic etale cohomology and Lefschetz-pencil apparatus beneath it"
+   ]
+  },
+  "BunGAndNewtonStrata": {
+   "targets": "G-torsors on the Fargues-Fontaine curve and their tensor-functor description; B(G) as sigma-conjugacy classes with the Kottwitz map kappa and the Newton cocharacter nu; the v-stack Bun_G with Hecke-modification uniformization and the bijection |Bun_G| -> B(G); FS IV.1.19, that Bun_G is an l-cohomologically smooth Artin v-stack of dimension zero; the basic and nonbasic Newton strata with their automorphism v-groups; and the local charts M_b.",
+   "baselineHas": [
+    "Mathlib/RingTheory/WittVector/Isocrystal.lean (isocrystal_classification) - one-dimensional isocrystals only, no B(G)",
+    "TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean (TauCeti.ReductiveAffineGroupSchemeCat) and TauCeti/Algebra/AlgebraicGroup/Dynamic/ (Cocharacter.mapLevi, parabolics and Levis)",
+    "TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Torsor.lean (fppf quotient torsors) and TauCeti/LinearAlgebra/RootSystem/ (root data, simply connected root data)",
+    "TauCeti/AlgebraicGeometry/AdicSpace/Spa/ and TauCeti/RingTheory/Huber/ (Huber pairs and adic spectra, the substrate under perfectoid spaces)"
+   ],
+   "missing": [
+    "Perfectoid and sousperfectoid spaces, diamonds and v-stacks with the v-topology and small v-sheaves (PerfectoidSpaces, DiamondsAndVStacks D6); grep finds no Perfectoid space, Diamond or vStack declaration",
+    "The relative Fargues-Fontaine curve with untilts, Beauville-Laszlo patching and G-torsors on it (RF0-RF4), together with the classification of vector bundles and isocrystals and the Banach-Colmez spaces (VB0-VB4)",
+    "l-adic sheaves and the six operations on v-stacks with cohomological smoothness and dualizing complexes (DiamondSixOperations S4/S5, VStackSheaves VS0/VS1), and Schubert-cell smoothness in the B_dR Grassmannian (GS0)",
+    "Its own seven stages: G-isocrystals and J_b, the Kottwitz and Newton maps with their classification of B(G), the definition and uniformization of Bun_G, FS IV.1.19 smoothness, the stratum descriptions with the Banach-Colmez filtration of the connected kernel, and the filtered-bundle charts M_b"
+   ]
+  },
+  "ClassicalSerreModularity": {
+   "targets": "Khare's level-one theorem with its Corollary 1.2; the Khare-Wintenberger induction W_r => L_r => W_{r+1} with good-dihedral primes, the dyadic refinement and the characteristic-two weight-four and even-conductor cases; the full classical Serre conjecture producing a newform of level N(rho-bar) and weight k(rho-bar); and the independent qualitative route of R33.",
+   "baselineHas": [
+    "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean (HeckeRing.GL2.Newform, strong multiplicity one) with no attached Galois representation",
+    "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean, Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean and Mathlib/RepresentationTheory/Continuous/TopRep.lean",
+    "TauCeti/NumberTheory/Chebotarev/ (FrobeniusPrimeSet, auxiliary primes, orthogonality) - groundwork without the density theorem",
+    "TauCeti/NumberTheory/HeckeRing/GL2/ and TauCeti/NumberTheory/ModularForms/ (analytic forms, Atkin-Lehner, nebentypus)"
+   ],
+   "missing": [
+    "The Galois representation attached to an eigenform and the residual representation (R01, R19), and the Serre weight and conductor (R15) - so even the statement of the theorem is unavailable",
+    "Weight and level optimisation, i.e. Ribet's level-lowering theorem and its dyadic refinements (R20), which needs Jacobians of modular and Shimura curves and Ihara's lemma",
+    "Local and global Galois deformation rings and the Taylor-Wiles-Kisin patching machinery, hence the GL2 modularity lifting theorems (R22/R32), the ordinary and residually reducible results incl. Skinner-Wiles (R21), Langlands-Tunnell and soluble base change (R17), potential modularity with compatible systems (R24), and the Fontaine/Schoof small-ramification base cases (R25)",
+    "Integral p-adic Hodge theory inputs: Fontaine-Laffaille, finite flat group schemes and Kisin's 2-adic Barsotti-Tate theorem",
+    "Its own eighteen stages: the conductor-one prescribed lifts and weight-cycle estimates, the degenerate residual branches, the good-dihedral induction of KW I, the removal of the good-dihedral condition, and the two assemblies R27.6 and R33.6"
+   ]
+  },
+  "ModularityAndLanglandsExtensions": {
+   "targets": "An endpoint and normalization registry for automorphic/Galois objects; weight-one and broader modularity over totally real and CM fields; the potential-automorphy assembly of Allen-Calegari-Caraiani-Gee-Helm-Le Hung-Newton-Scholze-Taylor-Thorne; Newton-Thorne symmetric-power automorphy with Sato-Tate equidistribution; the Arthur/Mok/KMSW classification for classical groups; and the known functorial transfers with the frontier statements.",
+   "baselineHas": [
+    "TauCeti/NumberTheory/ModularForms/Newforms/ (classical newforms with strong multiplicity one) - no automorphic representations",
+    "Mathlib/NumberTheory/LSeries/ (DirichletCharacter.LFunction_ne_zero_of_one_le_re) - no Rankin-Selberg or symmetric-power L-functions",
+    "Mathlib/NumberTheory/NumberField/AdeleRing.lean and TauCeti/Algebra/AlgebraicGroup/GeneralLinear/ root data - adeles and GL_n root data, no automorphic forms on GL_n(A), Weil groups or L-groups",
+    "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean (Frobenius prime sets, no Artin L-functions)"
+   ],
+   "missing": [
+    "Automorphic representations of reductive groups over number fields, L-groups, local parameters, conductors and infinity types - the vocabulary in which every one of its endpoints is stated (AutomorphicFormsOnReductiveGroups, SmoothRepresentationsOfLocalGroups)",
+    "The automorphic spectral decomposition, Eisenstein series, truncation and the coarse/fine/invariant trace formula (AutomorphicSpectralTheory AS.0-AS.6), and then stabilization, endoscopic transfer, the fundamental lemma, packets and multiplicities for Arthur's classification",
+    "The full potential-automorphy infrastructure PA.0-PA.5 (integral cohomology interface, Fontaine-Laffaille degree shifting, ordinary induction, derived local deformation conditions, ultraproduct patching), which itself imports TorsionCohomologyInfrastructure, Igusa varieties and torsion concentration, derived patching algebra and n-dimensional deformation theory",
+    "Galois representations attached to automorphic forms and their local-global compatibility (AutomorphicGaloisRepresentations and Part II), plus Newton-Thorne symmetric-power automorphy",
+    "The analytic inputs for the Weyl criterion, i.e. nonvanishing of symmetric-power L-functions on the edge of the critical strip (AnalyticNumberTheory AN.4)"
+   ]
+  },
+  "TorsionCohomologyInfrastructure": {
+   "targets": "The reusable interfaces behind Scholze's torsion paper: integral sheaf and formal-model transport with almost acyclicity on affinoid perfectoid charts; the Hodge-Tate period-map comparison of automorphic bundle lattices with approximating finite-level sections; the comparison diagram between finite-level torsion classes, completed cohomology and Cech cohomology on perfectoid charts with a quantified nilpotent ideal; boundary induction with determinant factor extraction; and the four-route compatibility theorem.",
+   "baselineHas": [
+    "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean (ValuationSpectrum.spa, rational subsets, structure presheaf) and TauCeti/RingTheory/Huber/ (Huber rings, power-bounded elements)",
+    "Mathlib/NumberTheory/HeckeRing/Defs.lean with TauCeti/NumberTheory/HeckeRing/GL2 and GLn double-coset computations - no Hecke action on the cohomology of arithmetic groups",
+    "Mathlib/RingTheory/PolynomialLaw/Basic.lean - the algebraic base for Chenevier determinants, with no determinant of a representation or Cayley-Hamilton quotient",
+    "Mathlib/AlgebraicGeometry/ and Mathlib/Topology/Sheaves/ for the sheaf-theoretic substrate; grep finds no Shimura, HodgeTate, completedCohomology, BorelSerre, Satake or Perfectoid-space declaration"
+   ],
+   "missing": [
+    "Glued adic spaces, formal models, perfectoid spaces and almost mathematics (AdicSpacesPartII F0/R3, PerfectoidSpaces P2/P8) - without them TC.0's integral-sheaf comparisons have no objects at all",
+    "Shimura varieties of Hodge type and their perfectoid infinite-level towers with the Hodge-Tate period map (PerfectoidShimuraVarieties S3) and the automorphic vector bundles with their lattices (AutomorphicBundles B3)",
+    "Arithmetic locally symmetric spaces with the Borel-Serre boundary, their finite-level chain models and Hecke action, and completed cohomology (ArithmeticLocallySymmetricSpaces ALS.0-4, CompletedCohomologyPartII CC.1/CC.2/CC.4/CC.8)",
+    "Integral Hecke algebras and Galois determinants with factor extraction (IntegralHeckeAndGaloisDeterminants IHG.0-IHG.4) and the characteristic-zero automorphic Galois package (AutomorphicGaloisRepresentationsPartII AG2.2), which rest on Arthur-type classification for the symplectic branch",
+    "Its own five interface stages, each of which is a proved comparison on those objects rather than a structure field"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+   "b": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "ArithmeticDirichletSeries is nearly on the library already - TauCeti/NumberTheory/ArithmeticDirichletSeries/ covers Layers 0-6 and 8 (regroupByNorm, Euler products, truncated Perron, landau, primePsi/primeTheta) so only the sharp Wiener-Ikehara, the Dirichlet-density calculus and the boundary/transfer package remain, with no external roadmap. PolynomialGaloisGroups has comparable foundations but a longer remainder - Jordan-type recognition theorems, the D4/F20 resolvent decision tables, the n<=5 transitive-group classification and HasGaloisLabel, van der Waerden's S_n construction - and it must import Dedekind's factorization theorem, whose decomposition/inertia ramification theory the baseline does not have."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+   "b": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "PolynomialGaloisGroups needs a handful of elementary layers on top of Polynomial.Gal, MulAction.IsBlock, discr and the already-present resolvent and reference-subgroup files. StablePeriodicCurved must build eight stacked layers that are absent entirely - Happel's triangulation of the stable category, Gorenstein-projectives and Buchweitz's equivalence with D_sg, periodic complexes and D_n(A), orbit categories and Stai's hull, curved DG modules and Positselski's co/contraderived categories, and matrix factorizations with Eisenbud and Orlov - of which only the Layer 0 substrate (ExactStructure.IsFrobenius, MorphismIdeal quotients) exists."
+  },
+  {
+   "a": "AlgebraicModularFormsAndSerreWeights",
+   "b": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "StablePeriodicCurved is self-contained pure algebra whose foundations (exact structures, Frobenius exact categories, morphism-ideal quotients, Mathlib's triangulated and derived categories) are in place. AlgebraicModularFormsAndSerreWeights cannot even define a geometric modular form until compactified algebraic modular curves with Hodge bundles and Hecke correspondences exist (ModularCurvesPartII R12-R14, itself resting on coherent GAGA, abelian schemes, Neron models and algebraic spaces), and its weight recipe needs integral p-adic Hodge theory (R07.5) while its final layer needs Galois representations of eigenforms (R19.1)."
+  },
+  {
+   "a": "AlgebraicModularFormsAndSerreWeights",
+   "b": "ComplexComparisonPartII",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ComplexComparisonPartII is one large block - coherent analytic sheaves with Oka coherence, Stein/Cousin cohomology, GAGA, Chow and algebraic de Rham - on top of Part I's analytification and the Chow-lemma/algebraic-spaces package. AlgebraicModularFormsAndSerreWeights needs that same coherent GAGA as an indirect input (ModularCurvesPartII lists ComplexComparisonPartII among its prerequisites) and then, beyond it, the whole compactified modular-curve moduli with integral Hecke theory, finite flat group schemes and Fontaine-Laffaille for k(rho-bar), and etale cohomology for the attached Galois representation."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ModularCurves",
+   "b": "ComplexComparisonPartII",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Both need a large absent geometry. ComplexComparisonPartII must build complex analytic spaces, several-variable Weierstrass division and Oka coherence, analytic cohomology of projective space, GAGA, Chow and log de Rham - roughly six layers, plus Part I analytification and the R09 Chow-lemma package. ModularCurves must build more and stack it deeper: relative Cartier divisors and subgroup-scheme parameter spaces, elliptic curves as relative group schemes with Cartier-Nishi duality and the Weil pairing, Drinfeld level structures, the KM moduli formalism, p-divisible groups with Serre-Tate and universal deformations, cyclicity, coarse moduli and compactification - eleven layers and 58 stages, none of which exists beyond Cartier duality for finite locally free affine group schemes."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ModularCurves",
+   "b": "AInfCohomology",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "ModularCurves is self-contained classical algebraic geometry with a real base in place (Mathlib schemes and FlatRank, TauCeti CartierDuality and isogeny degrees). AInfCohomology needs perfectoid spaces, formal schemes and the pro-etale site with almost purity, the Leta decalage functor, BKF modules through the Fargues-Fontaine curve, and crystalline, derived de Rham and prismatic cohomology - about eleven prerequisite developments of which the library has only Witt vectors, fontaineTheta, tilting and a bare BDeRhamPlus whose own TODOs still include principality of ker theta."
+  },
+  {
+   "a": "AInfCohomology",
+   "b": "ArithmeticQuantumTopology",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "ArithmeticQuantumTopology starts from a genuine base - BraidGroup, TemperleyLieb.jones, Alexander, grid homology, surgery slopes, braided and rigid monoidal categories - and its heaviest imports (Habiro cyclotomic completions) are self-contained; only QT.5's regulator stage reaches into the K-theory/Bloch-group tower. AInfCohomology has no comparable base: perfectoid spaces, the pro-etale site with almost purity, Leta, crystalline with PD envelopes and de Rham-Witt, prismatic cohomology and the Fargues-Fontaine curve must all be built before AOmega can even be defined, and each of AI.3-AI.7 stacks on all of them."
+  },
+  {
+   "a": "ArithmeticQuantumTopology",
+   "b": "DeligneWeightsAndPurity",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "ArithmeticQuantumTopology must build Kirby calculus, ribbon categories with U_q(sl2) at roots of unity, the Habiro expansion, and a K_3/Bloch-group regulator branch - but its link-diagram and Jones-polynomial layer is partly in TauCeti already. DeligneWeightsAndPurity cannot state Weil I until l-adic constructible sheaves, the six operations, Poincare duality and the Grothendieck trace formula exist (the baseline has only the etale and pro-etale sites), and then needs perverse sheaves EDC.0-4, Lefschetz pencils LPV.0-7 and polarized abelian schemes with Rosati positivity before its own ten-layer Weil I/Weil II argument."
+  },
+  {
+   "a": "PadicDifferentialEquationsAndRigidCohomology",
+   "b": "DeligneWeightsAndPurity",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "RD.7 lists DeligneWeightsAndPurity DWP.4 among its inputs, so p-adic differential equations needs Deligne's Weil I purity and the whole l-adic etale apparatus beneath it as a sub-part. On top of that it must build dagger algebras and Robba rings, (phi,nabla)-modules with slope filtrations, the p-adic local monodromy theorem, frames and overconvergent F-isocrystals, rigid cohomology with finiteness and duality, and Kedlaya's p-adic Fourier transform and weight bounds, plus crystalline cohomology CR.3 - none of which has any declaration in the baseline."
+  },
+  {
+   "a": "PadicDifferentialEquationsAndRigidCohomology",
+   "b": "BunGAndNewtonStrata",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Both sit on towers that are entirely missing. PadicDifferentialEquations needs Weil I plus crystalline cohomology plus the Robba/rigid-cohomology programme, on an adic-space base that TauCeti has partly built (Spa, Huber pairs). BunG needs that same adic base and then perfectoid and sousperfectoid spaces, diamonds and v-stacks, l-adic sheaves and the six operations on v-stacks with cohomological smoothness, the relative Fargues-Fontaine curve with Beauville-Laszlo patching, the classification of bundles and isocrystals with Banach-Colmez spaces, and Schubert smoothness in the B_dR Grassmannian - a longer chain, and one that contains a second full etale-cohomology formalism for diamonds."
+  },
+  {
+   "a": "BunGAndNewtonStrata",
+   "b": "ClassicalSerreModularity",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "BunG is a single (very deep) geometric tower: perfectoid spaces, diamonds, six operations on v-stacks and the Fargues-Fontaine curve, then seven stages of Bun_G. ClassicalSerreModularity cannot even state its theorem without Galois representations of eigenforms and the Serre weight and conductor, and its proof needs Ribet level-lowering, local and global deformation rings with Taylor-Wiles patching, the GL2 modularity lifting theorems, Skinner-Wiles, Langlands-Tunnell and soluble base change, potential modularity with compatible systems, Fontaine-Laffaille and Kisin's 2-adic Barsotti-Tate theorem, and then eighteen stages of the KW induction."
+  },
+  {
+   "a": "ClassicalSerreModularity",
+   "b": "ModularityAndLanglandsExtensions",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "ClassicalSerreModularity is two-dimensional over Q: Galois representations of eigenforms, weight/level optimisation, GL2 modularity lifting and the KW induction. ModularityAndLanglandsExtensions needs all of the automorphic vocabulary it does not have (automorphic representations of reductive groups, L-groups, local parameters), the invariant trace formula with stabilization, endoscopic transfer and the fundamental lemma for Arthur's classification, and the n-dimensional potential-automorphy infrastructure PA.0-PA.5 which itself imports TorsionCohomologyInfrastructure and Igusa varieties - two further towers on top of a modularity-lifting base of comparable size."
+  },
+  {
+   "a": "TorsionCohomologyInfrastructure",
+   "b": "ModularityAndLanglandsExtensions",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "TorsionCohomologyInfrastructure is a supplier of ModularityAndLanglandsExtensions: its ML.2 consumes PotentialAutomorphyInfrastructure PA.5, and that roadmap lists TorsionCohomologyInfrastructure among its prerequisites. So ML needs the same perfectoid Shimura geometry, completed cohomology and Galois determinants, and beyond them the trace formula and Arthur's classification (ML.4), Newton-Thorne symmetric-power automorphy and the analytic nonvanishing inputs for Sato-Tate (ML.3)."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+   "b": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "ArithmeticDirichletSeries is missing only the sharp Wiener-Ikehara theorem, the Dirichlet-density calculus above Mathlib's HasDirichletDensity, the cancellation package and the summit transfer, on top of ~665 existing declarations covering Layers 0-6 and 8. StablePeriodicCurved is missing eight stacked layers with no declarations at all - no stable category of a Frobenius exact category, no Gorenstein-projectives or singularity category, no periodic complexes, no orbit category or Stai hull, no curved DG modules, no matrix factorizations."
+  },
+  {
+   "a": "TorsionCohomologyInfrastructure",
+   "b": "ArithmeticQuantumTopology",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ArithmeticQuantumTopology has real starting points in TauCeti (braid groups, Temperley-Lieb Jones polynomial, grid homology, surgery slopes) and a self-contained Habiro-completion supplier, so its gap is Kirby calculus, quantum groups at roots of unity, and a K_3/Bloch regulator branch. TorsionCohomologyInfrastructure has no objects to compare at all: it needs glued adic spaces, formal models, perfectoid spaces and almost mathematics, then perfectoid Shimura varieties with the Hodge-Tate period map, automorphic bundles, locally symmetric spaces with Borel-Serre boundary, completed cohomology, and Galois determinants, before any of its five interface stages can be stated."
+  },
+  {
+   "a": "AInfCohomology",
+   "b": "ClassicalSerreModularity",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "AInfCohomology is one tower - perfectoid, crystalline, prismatic and the Fargues-Fontaine curve - and its own ten stages. ClassicalSerreModularity needs a comparable p-adic Hodge input (Fontaine-Laffaille, finite flat group schemes, Kisin's Barsotti-Tate theorem) and, on top of it, modular curves and their etale cohomology for the attached Galois representations, Ribet level-lowering, deformation rings and Taylor-Wiles patching, Langlands-Tunnell, potential modularity and compatible systems, before eighteen stages of the KW induction."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ModularCurves",
+   "b": "PadicDifferentialEquationsAndRigidCohomology",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "ModularCurves is large but self-contained and classical, and its base (schemes, finite locally free group schemes with Cartier duality, normalization, isogeny degrees) is partly present. PadicDifferentialEquations needs Robba rings and dagger algebras, slope filtrations, the p-adic local monodromy theorem, overconvergent isocrystals and rigid cohomology with finiteness and duality, and then imports crystalline cohomology CR.3 and DeligneWeightsAndPurity DWP.4, i.e. Weil I and the entire l-adic etale formalism, none of which exists."
+  },
+  {
+   "a": "DeligneWeightsAndPurity",
+   "b": "ComplexComparisonPartII",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ComplexComparisonPartII must build complex analytic geometry (Oka coherence, Stein cohomology), GAGA, Chow and algebraic de Rham on top of Part I's analytification - large, but a single coherent-sheaf-theoretic block with the algebraic side already in Mathlib. DeligneWeightsAndPurity must first have l-adic constructible sheaves with the six operations, base change, compact support, Poincare duality and the trace formula, then perverse sheaves and Lefschetz pencils with vanishing cycles, then polarized abelian schemes with Rosati positivity, and only then its own ten-layer Weil I and Weil II argument."
+  },
+  {
+   "a": "ModularityAndLanglandsExtensions",
+   "b": "BunGAndNewtonStrata",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "BunG is geometric and explicitly assumes no automorphic input: perfectoid spaces, diamonds and v-stacks, six operations, the Fargues-Fontaine curve and Bun_G. ModularityAndLanglandsExtensions needs automorphic representations, L-groups and local parameters merely to state its endpoints, then the invariant trace formula with stabilization and the fundamental lemma for Arthur's classification, and the potential-automorphy infrastructure over CM fields, which drags in perfectoid Shimura varieties, completed cohomology and Igusa varieties - so a strictly larger and longer-stacked body of theory."
+  },
+  {
+   "a": "AlgebraicModularFormsAndSerreWeights",
+   "b": "ArithmeticQuantumTopology",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ArithmeticQuantumTopology's first two layers have a partial base in TauCeti (braids, Temperley-Lieb Jones, link diagrams) and its Habiro supplier is self-contained, so its gap is Kirby calculus, U_q(sl2) at roots of unity, the unified invariant, and a Bloch/regulator branch. AlgebraicModularFormsAndSerreWeights has essentially nothing towards a geometric modular form: it needs the compactified algebraic modular curves with Hodge bundles and Hecke correspondences (ModularCurvesPartII, and behind it GAGA, abelian schemes, Neron models and algebraic spaces), finite flat group schemes with Fontaine-Laffaille for the weight recipe, and etale cohomology for the attached Galois representations."
+  },
+  {
+   "a": "PadicDifferentialEquationsAndRigidCohomology",
+   "b": "TorsionCohomologyInfrastructure",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "PadicDifferentialEquations needs Weil I (hence the l-adic etale formalism), crystalline cohomology and the whole Robba/rigid-cohomology programme. TorsionCohomologyInfrastructure needs a comparable etale and crystalline background for its automorphic Galois inputs and, in addition, glued adic spaces with formal models, perfectoid spaces and almost mathematics, perfectoid Shimura varieties with the Hodge-Tate period map, automorphic vector bundles, arithmetic locally symmetric spaces with Borel-Serre boundary and completed cohomology, and integral Hecke algebras with Galois determinants."
+  },
+  {
+   "a": "DeligneWeightsAndPurity",
+   "b": "tauceti:TauCetiRoadmap/ModularCurves",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ModularCurves is deep - eleven layers through Drinfeld level structures, Serre-Tate and coarse moduli - but it is self-contained classical algebraic geometry sitting on Mathlib's scheme theory and TauCeti's group schemes and Cartier duality. DeligneWeightsAndPurity sits on a foundation that does not exist at all: l-adic constructible sheaves with the six operations, duality and the trace formula, perverse sheaves and Lefschetz pencils with vanishing cycles, and polarized abelian schemes with Rosati positivity, before its own Weil I and Weil II layers."
+  },
+  {
+   "a": "BunGAndNewtonStrata",
+   "b": "AInfCohomology",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Both need the perfectoid and Fargues-Fontaine tower. AInfCohomology adds crystalline with PD envelopes and de Rham-Witt, derived de Rham, prismatic cohomology and the THH bridge, and its own Leta and AOmega work. BunG needs the same perfectoid and FF-curve base (including the classification of bundles and Banach-Colmez spaces) and, beyond it, diamonds and v-stacks, l-adic sheaves and the six operations on v-stacks with cohomological smoothness, and Schubert smoothness in the B_dR Grassmannian - a second full cohomological formalism that AInf does not require."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+   "b": "ComplexComparisonPartII",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "StablePeriodicCurved builds eight layers of new homological algebra, but on a base that is already there: ExactStructure with IsFrobenius, MorphismIdeal quotients, Mathlib's Pretriangulated, HomotopyCategory and DerivedCategory, and DG algebras. ComplexComparisonPartII has no analytic base at all - the library's only holomorphic sheaf is on C - so it must build complex analytic spaces and analytification (Part I), convergent Weierstrass division and Oka coherence, Stein/Cousin cohomology, GAGA, proper GAGA through the Chow lemma and algebraic spaces, Chow's theorem, and the algebraic de Rham comparison."
+  }
+ ]
+}

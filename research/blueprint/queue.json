@@ -98,12 +98,15 @@
    "avoidAccountOf": "PLAN-HABIRO",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-PLAN-HABIRO.md",
-   "state": "pending",
-   "account": null,
+   "state": "done",
+   "account": "claude4",
    "lane": 2,
-   "startedAt": "2026-09-16T13:38:02Z",
-   "attempts": 0,
-   "note": "released after a usage limit on claude2/2 at 2026-09-16T14:18:28Z"
+   "startedAt": "2026-09-16T15:05:07Z",
+   "attempts": 1,
+   "note": "",
+   "finishedAt": "2026-09-16T15:26:58Z",
+   "seconds": 1306,
+   "result": {}
   },
   {
    "id": "CLASSIFY-01",
@@ -37168,12 +37171,15 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-02.md",
    "timeout": 14400,
-   "state": "pending",
-   "account": null,
+   "state": "done",
+   "account": "claude4",
    "lane": 1,
-   "startedAt": "2026-09-16T14:17:40Z",
-   "attempts": 0,
-   "note": "released after a usage limit on claude2/1 at 2026-09-16T14:18:03Z"
+   "startedAt": "2026-09-16T15:05:07Z",
+   "attempts": 1,
+   "note": "",
+   "finishedAt": "2026-09-16T15:24:35Z",
+   "seconds": 1168,
+   "result": {}
   },
   {
    "id": "COMPARE-03",
@@ -37202,7 +37208,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-03.md",
    "timeout": 14400,
-   "state": "pending"
+   "state": "running",
+   "account": "claude4",
+   "lane": 1,
+   "startedAt": "2026-09-16T15:24:35Z",
+   "attempts": 1
   },
   {
    "id": "COMPARE-04",
@@ -37231,7 +37241,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-04.md",
    "timeout": 14400,
-   "state": "pending"
+   "state": "running",
+   "account": "claude4",
+   "lane": 2,
+   "startedAt": "2026-09-16T15:27:00Z",
+   "attempts": 1
   },
   {
    "id": "COMPARE-05",
