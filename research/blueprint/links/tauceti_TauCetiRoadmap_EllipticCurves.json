@@ -1,0 +1,67 @@
+{
+  "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "protocol": "links-v1",
+  "status": "partial",
+  "summary": "Unfinished checkpoint: one provisional overlap retained, no accepted dependency edges. The previously proposed GlobalNumberFields S-class edge is withdrawn because its supplier stage identifier does not exist in the pinned canonical extract. This is not a catalogue-wide link map.",
+  "provenance": {
+    "worker": "ChatGPT Pro — cgp-9dbda3a312c1",
+    "sessionId": "cgp-9dbda3a312c1",
+    "jobId": "LINK-tauceti_TauCetiRoadmap_EllipticCurves",
+    "issue": 14,
+    "inputRevision": "7821d19ab4fd547181beb46287f8968ec64847d1",
+    "date": "2026-09-16",
+    "baseline": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+    },
+    "baselineDeclarationsChecked": [],
+    "recheckedAgainst": "088ac3dcfb573a1e875fcea971ce54526bbe74d3"
+  },
+  "links": [],
+  "overlaps": [
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors"
+      ],
+      "detail": "Both developments construct function fields, DVR places and valuation/divisor infrastructure. AlgebraicCurves develops arbitrary one-variable function fields; EllipticCurves specializes an explicit nonsingular Weierstrass equation, its point at infinity and its equation-level point group. Neither the shared vocabulary nor a general genus-one theorem establishes a dependency between the present implementations.",
+      "recommendation": "rescope",
+      "proposal": "Keep general function-field/place and divisor infrastructure in AlgebraicCurves, and Weierstrass presentations, explicit infinity orders and their point-group comparisons in EllipticCurves. Specify comparison maps between the two carriers before replacing the elliptic construction by an import. In particular, do not require general Riemann–Roch for the elementary elliptic Picard computation."
+    }
+  ],
+  "examined": [
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "result": "overlap",
+      "note": "Earlier run reports a full README and twelve-stage reading. The checkpoint preserves only the provisional Layer-0 overlap; full coverage is not certified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+      "result": "none",
+      "note": "Earlier S-unit/S-class dependency withdrawn on reinspection: canonical Layer 2 is moduli and ray class carriers, not the nonexistent S-integer/S-unit/S-class stage cited in the old draft. No replacement supplier established."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+      "result": "overlap",
+      "note": "Read the README introduction and canonical Layers 0–2. Comparison recorded only at function-field/place level; the remaining stages have not been fully examined."
+    },
+    {
+      "roadmapId": "tauceti:Completed/EffectiveBounds",
+      "result": "none",
+      "note": "Read the complete roadmap. Its quantitative class-number/regulator and geometry-of-numbers bounds are not an identified input of the elliptic descent proof; their ability to imply some qualitative finiteness does not justify a dependency."
+    }
+  ],
+  "remainingWork": [
+    "Complete the all-roadmap and new-roadmap screen required by issue #14.",
+    "Reverify the retained overlap against both complete source stages, and establish an actual S-unit/S-class supplier before adding any descent edge.",
+    "Check exact quotations, all stage identifiers, duplicates across all link packets, and combined-graph cycles. Run the repository validator with its complete inputs.",
+    "The prior private scratch worklist is not present among the two files recovered in this run; reconstruct it from the canonical twelve elliptic stage records."
+  ],
+  "withdrawnCandidates": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-s-integers-s-units-and-s-classes",
+      "consumer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+      "reason": "Supplier ID is not a canonical stage at input revision 7821d19ab4fd547181beb46287f8968ec64847d1. The earlier quoted S-class sentence was not established in the retrieved canonical source and must not be treated as verified evidence. Find an actual supplier before restoring any dependency."
+    }
+  ]
+}
