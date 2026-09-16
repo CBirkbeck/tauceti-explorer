@@ -263,6 +263,139 @@
    "farther": "b",
    "strength": "slight",
    "reason": "Class field theory's thirteen missing layers stand on a real substrate - Mathlib's Tate complex, TauCeti's Herbrand quotient, continuous cohomology, idele groups and the local unit filtration - whereas K2 must import four foundations absent from the library entirely (spectra and the plus construction, Quillen localisation, Milnor K-theory, the norm-residue map) before any symbol or reciprocity target is reachable."
+  },
+  {
+   "a": "HabiroNahmSeries",
+   "b": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Class field theory is one classical tower over carriers the library already has (Tate cohomology, ideles, local unit filtrations, Herbrand quotients); Nahm series needs the number-field Habiro ring and its K3-indexed modules, hence the whole algebraic and etale K-theory stack with Bloch groups and p-adic regulators, and on top of that polylogarithms, finite-index modular functions at cusps and the all-orders radial asymptotic expansion."
+  },
+  {
+   "a": "HabiroNahmSeries",
+   "b": "AutomorphicPadicLFunctions",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Nahm series needs the K-theory/Bloch/regulator stack plus polylogarithms and the saddle-point asymptotics; the automorphic roadmap needs a tower of comparable foundations and much more besides - locally analytic distributions and Fredholm theory, modular curves and modular symbols, arithmetic locally symmetric spaces, automorphic L-factors, and PEL unitary Shimura varieties with toroidal compactifications and Igusa towers - before Deligne-Ribet, Katz and EHLS can be stated."
+  },
+  {
+   "a": "HabiroNumberFields",
+   "b": "AutomorphicPadicLFunctions",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Habiro number fields needs the K-theory stack with Bloch groups, Borel and syntomic regulators and the cyclotomic Habiro completions; the automorphic roadmap needs ray-class distributions, locally analytic distribution modules, modular symbols, automorphic forms on reductive groups, PEL/unitary Shimura varieties with Igusa towers and the doubling method, and Hida-Coleman families on top - a strictly larger and deeper missing tower."
+  },
+  {
+   "a": "HabiroNumberFields",
+   "b": "PadicFamilies",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Habiro number fields must build K0-K3 and higher K-theory, motivic/etale K-theory with the norm residue, Bloch groups and p-adic regulators; p-adic families must build all of modular curves with their etale cohomology, Galois representations over Hecke algebras, Iwasawa algebras and rigid-analytic Fredholm theory for eigenvarieties, Kato's Euler system and Selmer/Iwasawa cohomology - roughly twice as many supplier stages."
+  },
+  {
+   "a": "VectorBundlesAndIsocrystals",
+   "b": "PadicFamilies",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Bundles and isocrystals needs perfectoid spaces, diamonds, the relative Fargues-Fontaine curve and the six operations, then Dieudonne-Manin and Banach-Colmez geometry; p-adic families needs that same adic/etale foundation (through the etale cohomology of modular curves) and in addition Hida theory, eigenvarieties with Fredholm theory, big Galois representations and Kato's Euler system."
+  },
+  {
+   "a": "VectorBundlesAndIsocrystals",
+   "b": "GL2ModularityLifting",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Every supplier the bundle roadmap needs - perfectoid spaces, diamonds, the relative Fargues-Fontaine curve, adic etale cohomology - already lies inside the modularity-lifting closure, which further requires automorphic Galois representations, local and global deformation rings, Taylor-Wiles patching, Shimura curves and Hilbert modular varieties, completed cohomology and p-adic local Langlands for GL2(Q_p)."
+  },
+  {
+   "a": "GL2ModularityLifting",
+   "b": "HabiroCohomologyFoundations",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "q-Hodge and Habiro cohomology needs the prismatic, crystalline, derived de Rham, A_inf and trace-method stack with filtered infinity-categorical machinery; modularity lifting needs a comparable p-adic Hodge foundation and then modular curves and Shimura varieties, automorphic Galois representations, deformation rings and patching, and p-adic local Langlands - about four times the stage closure."
+  },
+  {
+   "a": "HabiroCohomologyFoundations",
+   "b": "RelativeFarguesFontaine",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "The relative Fargues-Fontaine curve is itself inside the Habiro cohomology closure (through A_inf and Breuil-Kisin-Fargues modules), and on top of it that roadmap needs prismatic and crystalline cohomology, derived de Rham and the q-de Rham-Witt complex, filtered animated algebra, THH-based trace methods and the Habiro rings."
+  },
+  {
+   "a": "GL2ModularityLifting",
+   "b": "RelativeFarguesFontaine",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "The Fargues-Fontaine curve needs perfectoid spaces, diamonds and Witt period rings - all of which sit inside the modularity-lifting closure anyway - while modularity lifting additionally needs Galois deformation theory, Taylor-Wiles patching, Shimura curves, completed cohomology and p-adic local Langlands for GL2(Q_p)."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/UniversalCovers",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Every universal-cover stage is already in TauCeti - the deck group, the pointed and unpointed Galois correspondence, the pi_n API, pi1(S^1) ~= Z, pi1(RP^n) and K(G,1) recognition - whereas character theory still needs the cuspidal representations of GL2(F_q) with their character values and the assembled table, and the general cyclotomic lift for the Dixon-Schneider solver."
+  },
+  {
+   "a": "AutomorphicPadicLFunctions",
+   "b": "VectorBundlesAndIsocrystals",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Bundles and isocrystals needs perfectoid spaces, diamonds, the relative curve and the six operations before Dieudonne-Manin and Banach-Colmez spaces; the automorphic roadmap needs that whole adic/etale foundation as well, and then automorphic forms on reductive groups, PEL unitary Shimura varieties with Igusa towers, overconvergent cohomology and Hida families before its interpolation theorems."
+  },
+  {
+   "a": "HabiroNahmSeries",
+   "b": "K2SymbolsBrauer",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "K2 symbols is a proper part of what Nahm series must build - its finite Chern classes and Bloch classes run through Milnor K2, K3 and the norm-residue map - and Nahm series adds polylogarithms, the number-field Habiro ring with its K3-indexed modules, finite-index modular functions at cusps and the all-orders radial asymptotic expansion."
+  },
+  {
+   "a": "PadicFamilies",
+   "b": "RelativeFarguesFontaine",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "The Fargues-Fontaine curve needs the perfectoid and diamond foundation plus ramified Witt period rings and Cartier divisors; p-adic families needs a comparable adic/etale foundation under the etale cohomology of modular curves and, beyond it, modular symbols, Hecke-algebra Galois representations, Iwasawa algebras, eigenvariety Fredholm theory and Kato's Euler system."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+   "b": "tauceti:TauCetiRoadmap/Exchangeability",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Exchangeability's Layers 0-7 are complete - the de Finetti and Ryll-Nardzewski summits are proved on all three routes - leaving only the Markov and array converses; algebraic curves still lacks the Hurwitz genus formula via the cotrace, constant-field extension theory, residues and the Kaehler/Weil comparison, the elliptic and hyperelliptic model classes, the 84(g-1) bound and the whole function-field/curve dictionary."
+  },
+  {
+   "a": "HabiroNumberFields",
+   "b": "HabiroCohomologyFoundations",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Both are frontier Habiro-family towers with nothing in the baseline; the number-field ring needs the entire algebraic and etale K-theory stack with Bloch groups, Suslin's K3 theorem, Borel regulators and syntomic regulators (about 220 stages), while the cohomology roadmap needs the somewhat smaller prismatic / crystalline / derived de Rham / A_inf / trace-method stack (about 125), which is only marginally deeper."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+   "b": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Curves already has places, divisors, Riemann's theorem, Weil differentials with the canonical class and the different exponent in TauCeti, so about five layers remain; class field theory has only the Layer 1 formation scaffolding and still needs class formations and fundamental classes, Tate's theorem, the Artin map, the local Brauer invariant and duality, local and global reciprocity, the two fundamental inequalities, global existence and Kronecker-Weber."
+  },
+  {
+   "a": "HabiroNumberFields",
+   "b": "HabiroNahmSeries",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Nahm series consumes the number-field Habiro ring and its K3-indexed modules whole (HB.6, HB.7 are its prerequisites), and then adds polylogarithms, the distinguished Nahm solution with its Bloch class, the all-orders radial root-of-unity asymptotics, the finite-index cusp analysis and the GSWZ admissibility and Frobenius-congruence theorems."
+  },
+  {
+   "a": "RelativeFarguesFontaine",
+   "b": "VectorBundlesAndIsocrystals",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "The bundle roadmap's isocrystal classification, ampleness and GAGA, Banach-Colmez spaces and relative HN strata are all built on the curve that RF0-RF3 constructs, and it additionally needs the six operations on diamonds for cohomological smoothness; the curve borrows back only the Tannakian G-torsor transfer in RF4."
+  },
+  {
+   "a": "GL2ModularityLifting",
+   "b": "PadicFamilies",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Both need modular curves, their etale cohomology and Galois representations at comparable scale, but modularity lifting consumes part of the Hida-family theory itself and then needs local and global deformation rings, Taylor-Wiles patching, Shimura curves and Hilbert modular varieties, completed cohomology with local-global compatibility and p-adic local Langlands for GL2(Q_p); p-adic families instead adds only the Kato/Iwasawa branch."
   }
  ]
 }

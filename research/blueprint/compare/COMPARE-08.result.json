@@ -1,0 +1,418 @@
+{
+ "job": "COMPARE-08",
+ "notes": {
+  "tauceti:Completed/OrthogonalL2Bases": {
+   "targets": "Hermite functions as a Hilbert basis of L²(ℝ;𝕜) with ladder, oscillator and Fourier eigen-relations; the Gaussian Hermite basis of L²(N(0,1)); a family-agnostic spine (moment-determinacy completeness, orthogonality relation → HilbertBasis, weight isometry); product and Pi Hilbert bases of L²(μ⊗ν); the Chebyshev basis of L²(measureT); multidimensional Hermite bases.",
+   "baselineHas": [
+    "TauCeti.hermiteHilbertBasis and coe_hermiteHilbertBasis (TauCeti/Analysis/SpecialFunctions/Hermite/Function/HilbertBasis.lean), with TauCeti.fourier_twoPiHermiteFunction and TauCeti.hermiteFunction_oscillator",
+    "TauCeti.ae_eq_zero_of_forall_moment_eq_zero (TauCeti/Probability/Moments/VanishingMoments.lean), TauCeti.hilbertBasisOfWeightedMeasure and TauCeti.weightL2Isometry",
+    "TauCeti.prodHilbertBasis (TauCeti/Analysis/InnerProductSpace/L2/Product.lean), TauCeti.hermiteFunctionPiBasis and TauCeti.gaussianHermitePiBasis",
+    "TauCeti.chebyshevTHilbertBasis (TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/HilbertBasis.lean); data/status.json records the roadmap complete"
+   ],
+   "missing": [
+    "Nothing substantive: every stated target is realized in the pinned Tau Ceti baseline (roadmap archived as complete)"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/AlgebraicCodingTheory": {
+   "targets": "Linear and additive code API with generator/check matrices and code equivalences; minimum distance with Euclidean and Hermitian duals; weight enumerators and the q-ary MacWilliams identity; Type II codes (length ≡ 0 mod 8); explicit tetracode, hexacode and extended Golay codes G24 and G12 with their enumerators; Construction A with discriminant, unimodularity and evenness criteria; codes as isotropic discriminant subgroups with A_{P_m(C)} ≅ C^⊥/C.",
+   "baselineHas": [
+    "TauCeti.LinearCode, TauCeti.AdditiveCode, Matrix.generatedBy, Matrix.checkedBy and LinearCode.exists_isGeneratorMatrix (TauCeti/InformationTheory/Coding/Basic.lean, Matrix.lean)",
+    "hammingNorm and hammingDist (Mathlib/InformationTheory/Hamming.lean); AddChar.sum_eq_zero_of_ne_one (Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean)",
+    "the completed integral-lattice library TauCeti/LinearAlgebra/IntegralLattice/ (discriminant groups, overlattices of isotropic subgroups, IntermediateCarrier.discriminantOrthogonalQuotientIsometry, A/D/E root lattices)",
+    "TauCeti.FiniteQuadraticModule.isIsotropic_coordinatePower_iff (TauCeti/LinearAlgebra/FiniteBilinearModule/CoordinatePower.lean)"
+   ],
+   "missing": [
+    "Layer 1 remainder: puncturing, shortening, direct sums, permutation/monomial/semilinear equivalences and stabilizers",
+    "Layer 2: minimum distance, Euclidean dual via the dot product, Hermitian dual over F₄, puncture/shorten duality",
+    "Layer 3: weight distributions and enumerators, finite Fourier lemma, MacWilliams identity",
+    "Layer 4: doubly-even, self-dual and Type II codes, 8 | n, enumerator invariances",
+    "Layer 5: tetracode, hexacode, G24 and G12 verified by exact finite computation",
+    "Layer 6: Construction A lattices, dual-carrier identity, discriminant formula, even/unimodular criteria",
+    "Layer 7: code-to-discriminant-module isometries for mℤ^ι and the A₂/D₄ alphabets, consuming the completed gluing theorem"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa": {
+   "targets": "Every finite-dimensional Lie algebra over an arbitrary field has a faithful finite-dimensional representation, in Hochschild's strengthened form preserving ad-nilpotence; separate characteristic-zero (Ado) and characteristic-p (Iwasawa) theorems, the matrix form and the Lie III interface.",
+   "baselineHas": [
+    "PBW filtration and spanning half: TauCeti.UniversalEnvelopingAlgebra.span_orderedPBWMonomials_eq_pbwFiltration and pbwAssociatedGradedMap_injective_iff (TauCeti/Algebra/Lie/UniversalEnveloping/PBW/); ι_injective only for abelian L (UniversalEnveloping/Abelian.lean)",
+    "TauCeti.exists_isCompl_of_isKilling (TauCeti/Algebra/Lie/HighestWeight/CompleteReducibility.lean): Weyl complete reducibility over algebraically closed characteristic-zero fields",
+    "Mathlib LieAlgebra.radical, LieAlgebra.maxNilpotentIdeal, LieDerivation and LieAlgebra.SemiDirectSum (Mathlib/Algebra/Lie/)",
+    "Ideal.mem_iInf_smul_pow_eq_bot_iff (Mathlib/RingTheory/Filtration.lean)"
+   ],
+   "missing": [
+    "full PBW injectivity and basis for general L, with U(L) a Noetherian domain (owned by LieHighestWeight, not yet built)",
+    "nilradical theory, augmentation ideal and weighted PBW truncation for nilpotent L",
+    "noncommutative derivations of U(S), lifted Lie derivations, base change of nil and radical, D(rad) ≤ nil in characteristic zero, derivation-stable cofinite ideals",
+    "extension of nilrepresentations across split ideal extensions",
+    "Levi decomposition (with Weyl complete reducibility descended to arbitrary characteristic-zero fields), Ado's theorem and Hochschild's strengthening",
+    "central p-polynomials, module-finiteness of U(L) over a central subalgebra, Krull-intersection separation, the characteristic-p theorem and the field dispatch"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/AlgebraicTopology": {
+   "targets": "Groupoid van Kampen; relative singular homology with Eilenberg–Steenrod axioms and local coefficients; excision and Mayer–Vietoris; cellular homology and cofibrations; Eilenberg–Zilber/Künneth, Wang, transfer, Cartan–Leray, Serre and Čech spectral sequences; cohomology with cup/cap products and Poincaré(–Lefschetz) duality; Euler-characteristic theorems; relative homotopy groups, Hurewicz and Whitehead theorems.",
+   "baselineHas": [
+    "Mathlib singular homology with homotopy invariance (Mathlib/AlgebraicTopology/SingularHomology/HomotopyInvariance.lean) and the TopPair.HomologyPretheory interface (Mathlib/AlgebraicTopology/EilenbergSteenrod.lean)",
+    "TopPair.singularHomology_exact_relative (TauCeti/AlgebraicTopology/Singular/Relative.lean, with Triple.lean and Empty.lean)",
+    "TauCeti.LocalCoefficientSystem with monodromy (TauCeti/AlgebraicTopology/LocalCoefficient.lean) and TauCeti.FundamentalGroupoid.iSup_im_map_subtypeVal_eq_top (cover generation)",
+    "Mathlib classical CW complexes (Mathlib/Topology/CWComplex/Classical/Basic.lean) and the spectral-object formalism (Mathlib/Algebra/Homology/SpectralObject/)"
+   ],
+   "missing": [
+    "van Kampen colimit property and presentation corollaries",
+    "dimension and additivity axioms, disc/sphere computations, homology with local coefficients",
+    "barycentric subdivision, small chains, excision, Mayer–Vietoris",
+    "cellular chain complex and comparison, degrees of sphere maps, homotopy extension, cellular approximation",
+    "acyclic models and Eilenberg–Zilber, Künneth spectral sequence, transfer, Cartan–Leray sequence, Serre fibrations and the Serre spectral sequence, Čech–singular sequence",
+    "singular cohomology, universal coefficients, cup/cap products, orientation local system, fundamental class, Poincaré–Lefschetz duality, linking form (consuming collars, only partly built in TauCeti/Geometry/Manifold/Boundary/Collar/)",
+    "relative and Kan homotopy groups, Hurewicz, Whitehead, finite CW type of smooth manifolds (consuming a smooth triangulation theorem not in the library)"
+   ]
+  },
+  "DiophantineApproximationAndTranscendence": {
+   "targets": "Heights and irrationality exponents; Liouville and Roth; Schmidt's subspace theorem with S-unit and decomposable-form finiteness; Lindemann–Weierstrass, Gelfond–Schneider and explicit Baker-type bounds for complex and p-adic logarithms; effective Thue, Thue–Mahler and S-unit bounds; Mahler functions, E- and G-functions and algebraic independence.",
+   "baselineHas": [
+    "Height.mulHeight₁, Height.logHeight and Northcott finiteness (Mathlib/NumberTheory/Height/)",
+    "Int.Matrix.exists_ne_zero_int_vec_norm_le (Mathlib/NumberTheory/SiegelsLemma.lean)",
+    "Liouville.transcendental (Mathlib/NumberTheory/Transcendental/Liouville/Basic.lean); Real.exists_int_int_abs_mul_sub_le and continued-fraction convergents (Mathlib/NumberTheory/DiophantineApproximation/)",
+    "LindemannWeierstrass.P_le, the analytic part only (Mathlib/NumberTheory/Transcendental/Lindemann/AnalyticalPart.lean)"
+   ],
+   "missing": [
+    "DT.0 irrationality exponents and approximation constants; Minkowski's second theorem (GeometryOfNumbersAndQuadraticArithmetic GN.1)",
+    "DT.1 Roth's theorem (index estimates, Roth's lemma, auxiliary polynomials)",
+    "DT.2 archimedean and p-adic subspace theorem, S-unit and decomposable-form equations",
+    "DT.3 full Lindemann–Weierstrass, Gelfond–Schneider, Baker/Matveev and p-adic linear-form bounds",
+    "DT.4 effective Thue, Thue–Mahler and S-unit bounds with certified lattice reduction (GN.5)",
+    "DT.5 Mahler's method, Siegel–Shidlovskii E-functions, G-functions, algebraic independence"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups": {
+   "targets": "Exponential map, Ad/ad, closed-subgroup theorem and matrix Lie groups; Lie functor and BCH; Frobenius, subalgebra ↔ immersed subgroup, Lie's third theorem and the equivalence of simply connected Lie groups with finite-dimensional real Lie algebras; universal covers and U(g); maximal tori, Weyl group and Weyl integration; complexification and the unitary trick; flag manifolds, Bruhat and Borel–Weil; Cartan, Iwasawa and KAK decompositions.",
+   "baselineHas": [
+    "lieExp, isLocalDiffeomorphAt_lieExp_zero and oneParameterSubgroupEquiv (TauCeti/Geometry/Lie/Exponential/)",
+    "Ad/ad with lieMap, lieMap_comp, map_lieExp and lieMap_injective (TauCeti/Geometry/Lie/Adjoint/, Functor.lean, Faithfulness.lean)",
+    "TauCeti.Lie.lieSubalgebraOfSubgroup with the limit criterion and local separation (TauCeti/Geometry/Lie/Subgroup/); NormedSpace.localBCH germ (TauCeti/Analysis/Normed/Algebra/BCH/Local.lean)",
+    "TauCeti.SU2.weyl_integration_formula_normalized (SU(2) only); Mathlib LieGroup and LeftInvariantDerivation"
+   ],
+   "missing": [
+    "closed-subgroup theorem (embedded Lie subgroup structure) and the matrix groups as Lie groups",
+    "BCH series expansion and its transport to abstract Lie groups",
+    "Frobenius theorem, immersed subgroups, Lie's third theorem via the whole Ado–Iwasawa roadmap, the equivalence of categories",
+    "Lie group structure on universal covers; U(g) as invariant differential operators (needs full PBW)",
+    "maximal tori, torus exhaustion and conjugacy (degree argument on G/T), N(T)/T ≅ W, general Weyl integration formula",
+    "complexification of compact groups, real forms, unitary trick",
+    "Borel subgroups, flag manifolds as compact complex manifolds, Bruhat decomposition, Borel–Weil with holomorphic line bundles",
+    "Cartan involutions, restricted roots, Iwasawa and KAK decompositions"
+   ]
+  },
+  "QSeriesPartitionsAndMockModularForms": {
+   "targets": "Formal q-series and partition identities; theta, eta and Jacobi forms with multiplier systems; the Hardy–Ramanujan–Rademacher exact formula; harmonic Maass forms and the ξ-operator; Zwegers's mock theta completions; quantum modular forms linked to Habiro rings and WRT invariants; a completely proved monstrous moonshine example.",
+   "baselineHas": [
+    "Nat.Partition.hasProd_genFun (Mathlib/Combinatorics/Enumerative/Partition/GenFun.lean)",
+    "ModularForm.eta and ModularForm.logDeriv_eta_eq_E2 (Mathlib/NumberTheory/ModularForms/DedekindEta.lean)",
+    "jacobiTheta₂_functional_equation (Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean)",
+    "HVertexOperator (Mathlib/Algebra/Vertex/HVertexOperator.lean); Tau Ceti analytic Hecke and newform theory (TauCeti/NumberTheory/ModularForms/)"
+   ],
+   "missing": [
+    "QM.0 q-binomial and product identities, congruences, specialization maps",
+    "QM.1 multiplier systems, half-integral weight and Jacobi forms (MetaplecticAutomorphicForms MP.7–MP.8 with adelic and automorphic prerequisites)",
+    "QM.2 Kloosterman sums, Bessel functions and the circle method (ExponentialSumsAndCircleMethod ES.3, routed through Weil–Deligne bounds), Rademacher series",
+    "QM.3 harmonic Maass forms, ξ-operator, Poincaré series, Bruinier–Funke pairing",
+    "QM.4 Appell–Lerch sums, indefinite theta functions, Zwegers completions",
+    "QM.5 quantum modular forms consuming WRT invariants (ArithmeticQuantumTopology QT.4) and Habiro rings (HabiroCyclotomicCompletions HC.3–HC.4)",
+    "QM.6 vertex operator algebras, the moonshine module, no-ghost theorem, Monster Lie algebra, genus-zero statements via ModularCurvesPartII R12.3 (with GAGA and compactified moduli)"
+   ]
+  },
+  "ReductiveGroupsPartII": {
+   "targets": "For connected reductive groups over nonarchimedean local fields: topology on rational points, Weil restriction and the Deligne torus, relative and valued root data, Bruhat–Tits buildings with their group action, parahoric and congruence group schemes, Iwasawa/Cartan/Iwahori–Bruhat decompositions, and the pinned dual group and L-group over ℤ.",
+   "baselineHas": [
+    "TauCeti.ReductiveAffineGroupSchemeCat (TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean) and the affine group scheme and Hopf library (TauCeti/Algebra/AlgebraicGroup/)",
+    "TauCeti.TitsSystem.bruhatCell (TauCeti/GroupTheory/TitsSystem/Bruhat/Basic.lean): abstract BN-pairs",
+    "TauCeti.GeneralLinear.diagonalRootDatum (TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Root/Datum.lean) and Mathlib RootPairing (Mathlib/LinearAlgebra/RootSystem/Defs.lean)"
+   ],
+   "missing": [
+    "from Tau Ceti ReductiveGroups (Layers 5–9 not started): unipotent radical, Borel and torus conjugacy, root datum of (G,T) and relative root systems, isomorphism and existence theorems, Chevalley–Demazure group schemes over ℤ",
+    "RG2.0 topology on X(E) and compactness of integral points",
+    "RG2.0a Weil restriction of affine schemes and the Deligne torus (with AlgebraicModuliForArithmeticGeometry R09.1)",
+    "RG2.1 relative roots, valued root groups, affine root system and apartment",
+    "RG2.2 Bruhat–Tits building, G(E)-action, fixed-point theorem",
+    "RG2.3 parahoric group schemes with connected special fibre, pro-p congruence subgroups",
+    "RG2.4 Iwasawa, Cartan and Iwahori–Bruhat decompositions",
+    "RG2.5 pinned dual group and L-group over ℤ"
+   ]
+  },
+  "ModularCurvesPartII": {
+   "targets": "Identify the algebraic modular curves with the analytic ones (uniformisation, level structures, cusps, connectedness, weight-two forms as differentials); compactified integral moduli via generalized elliptic curves, Tate curves, coarse spaces and regular/semistable bad-fibre models; algebraic Hecke correspondences, Jacobians and integral Hecke algebras, étale and Betti H¹ with duality, Ihara's lemma, modular abelian varieties A_f and Eichler–Shimura/character-group interfaces.",
+   "baselineHas": [
+    "PeriodPair.weierstrassP (Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean)",
+    "CongruenceSubgroup.Gamma1 (Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean) and HeckeRing.GL2.finrank_cuspFormsNewEigenspace_eq_one (TauCeti/NumberTheory/ModularForms/Newforms/MultiplicityOne.lean)",
+    "Tau Ceti elliptic curves over fields and the abelian-variety category (TauCeti/AlgebraicGeometry/EllipticCurve/, TauCeti/AlgebraicGeometry/AbelianVariety/)",
+    "AlgebraicGeometry.Scheme.proetaleTopology (Mathlib/AlgebraicGeometry/Sites/Proetale.lean): sites on schemes but no étale cohomology theorems"
+   ],
+   "missing": [
+    "ComplexComparisonPartII C0–C5: coherent analytic sheaves, GAGA, Chow algebraization, de Rham–Betti comparison",
+    "AlgebraicModuliForArithmeticGeometry R09.1–R09.5: Hilbert/Quot functors, algebraic spaces, stacks, coarse spaces",
+    "EtaleDualityAndPerverseSheaves EDC.0–EDC.4 over EnhancedDerivedSheaves E0–E3, nearby cycles (LefschetzPencilsAndVanishingCycles, WeightsInEtaleCohomology R34.3)",
+    "abelian schemes A1–A3 and A6, Néron models R11.1–R11.4, finite flat groups R07.1, Jacobian and relative Picard layers",
+    "R12 analytic comparison, cusps and connectedness",
+    "R13 generalized elliptic curves, compactified level moduli, Tate curves, coarse spaces, bad-fibre models",
+    "R14 Hecke correspondences, Jacobians and Hecke algebras, cohomological realizations, Ihara's lemma, A_f, Eichler–Shimura interfaces"
+   ]
+  },
+  "PerfectoidSpaces": {
+   "targets": "Almost mathematics; perfectoid Tate rings, tilts and marked untilts; sheafiness, perfectoid spaces and fibre products; almost purity and the étale tilting equivalence; morphisms and Zariski closed immersions; cofiltered limits and finite étale approximation; pro-étale presentations; tilde-limits of Frobenius-controlled towers; finite quotients and closed perfectoidization; continuous torsor descent.",
+   "baselineHas": [
+    "TauCeti.Huber.Pair and TauCeti.Huber.IsTateRing (TauCeti/RingTheory/Huber/)",
+    "TauCeti.ValuationSpectrum.spa and presentationLimitPresheaf (TauCeti/AlgebraicGeometry/AdicSpace/Spa/): rational subsets and a structure presheaf, without sheafiness or adic spaces",
+    "PreTilt.untilt (Mathlib/RingTheory/Perfectoid/Untilt.lean) and WittVector.fontaineTheta (Mathlib/RingTheory/Perfectoid/FontaineTheta.lean)"
+   ],
+   "missing": [
+    "completion of Tau Ceti AdicSpaces (sheafiness, adic spaces) and AdicSpacesPartII R0–R3, R5, F0",
+    "AdicEtaleGeometry A0–A3 (fibre products, finite étale and étale geometry) and ClassicalAdicEtaleCohomology H0",
+    "DiamondsAndVStacks D0–D4 and EnhancedDerivedSheaves E0–E5",
+    "P0 almost mathematics; P1 perfectoid Tate rings and tilting; P2 perfectoid spaces; P3 almost purity",
+    "P4–P6 morphisms, limits, finite étale approximation, pro-étale presentations",
+    "P7–P9 tilde-limits, quotients and torsor descent, with PerfectoidQuotients Q4 resting on prismatic, crystalline and derived de Rham cohomology"
+   ]
+  },
+  "SmallRamificationAndAbelianVarietyBaseCases": {
+   "targets": "Explicit discriminant bounds for torsion fields; Tate–Serre nonexistence of small-characteristic representations; Fontaine's theorem that no abelian variety over ℚ has everywhere good reduction; Schoof's semistable one-prime theorem; GL₂-type and ordinary terminal cases; a complete proved base-case table for Serre modularity.",
+   "baselineHas": [
+    "NumberField.abs_discr_ge (Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean) and different-ideal lemmas (TauCeti/RingTheory/DedekindDomain/Different/)",
+    "the completed effective Hermite–Minkowski development (TauCeti/NumberTheory/EffectiveBounds/)",
+    "TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat with Cartier duality (TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean)",
+    "WeierstrassCurve.HasGoodReduction (Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean)"
+   ],
+   "missing": [
+    "R25.1 Odlyzko-type bounds and local discriminant bounds, consuming ArithmeticGaloisRepresentations R01.2 and Fontaine's ramification bound R07.6 (integral p-adic Hodge theory, whose period rings pass through PerfectoidSpaces)",
+    "R25.2 Tate and Serre nonexistence theorems",
+    "R25.3 Fontaine's theorem (finite flat group schemes, Tate modules, Néron-model arguments)",
+    "R25.4 Schoof's theorem, consuming Faltings–Shafarevich finiteness R28.5 and Néron models R11.6",
+    "R25.5 terminal cases consuming ordinary modularity lifting R21.6 (Hida theory, Galois representations of Hilbert modular forms, ModularCurvesPartII, Shimura curves, deformation rings) and potential modularity R24.6",
+    "R25.6 the base-case table"
+   ]
+  },
+  "DiamondEtaleCohomology": {
+   "targets": "ECD §§14, 16–21: étale, quasi-pro-étale and v-sites of diamonds with their comparisons; the base change theorem; the left-completed D_ét with v-descent and presentability; the four operations; proper and partially proper maps with canonical compactification; extension by zero and proper base change; base-field invariance; constructible coefficients; cohomological dimension bounds; compact generation.",
+   "baselineHas": [
+    "TauCeti.ValuationSpectrum.spa and TauCeti.Huber.IsHuberRing (affinoid adic spectra only)",
+    "AlgebraicGeometry.Scheme.proetaleTopology (Mathlib/AlgebraicGeometry/Sites/Proetale.lean)",
+    "WittVector.fontaineTheta (Mathlib/RingTheory/Perfectoid/FontaineTheta.lean)",
+    "Mathlib derived categories and Grothendieck topologies (Mathlib/Algebra/Homology/DerivedCategory/, Mathlib/CategoryTheory/Sites/)"
+   ],
+   "missing": [
+    "PerfectoidSpaces P0–P6 with adic foundations (AdicSpacesPartII, AdicEtaleGeometry A0–A4)",
+    "DiamondsAndVStacks D0–D6 (v-topology, diamonds, spatial diamonds, analytic adic spaces as diamonds)",
+    "EnhancedDerivedSheaves E0–E5 (enhanced derived sheaves, presentability, hyperdescent)",
+    "ClassicalAdicEtaleCohomology H0–H4 (Huber) with scheme étale duality EDC.0–EDC.4 and proper base change for schemes",
+    "ArithmeticGaloisDuality R02.1–R02.2 (continuous Hochschild–Serre)",
+    "C0–C3 sites, base change, D_ét and the four operations",
+    "C4–C6 canonical compactification, proper base change, base-field invariance",
+    "C7–C9 constructibility, dimension bounds, compact generation"
+   ]
+  },
+  "GrossZagierAndArithmeticHeights": {
+   "targets": "Point heights on abelian varieties and the Poincaré pairing; admissible arithmetic intersection pairings and Faltings–Hriljac; automorphic realizations on quaternionic Shimura curves; Saito–Tunnell dichotomy and test vectors; the Waldspurger formula; arithmetic generating series and incoherent Eisenstein kernels; local intersection identities; the Yuan–Zhang–Zhang Gross–Zagier formula with explicit specializations; the BDP p-adic Waldspurger formula.",
+   "baselineHas": [
+    "Height.logHeight and Northcott finiteness (Mathlib/NumberTheory/Height/)",
+    "WeierstrassCurve.Affine.Point.canonicalHeight (TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean) and WeierstrassCurve.Affine.regulator_eq_abs_det_neronTateGramMatrix",
+    "QuaternionAlgebra.normForm (TauCeti/Algebra/Quaternion/NormForm.lean)",
+    "Tau Ceti analytic newform theory (TauCeti/NumberTheory/ModularForms/Newforms/)"
+   ],
+   "missing": [
+    "GZ.1–GZ.2 Néron–Tate heights on abelian varieties and arithmetic intersection theory on arithmetic surfaces (ArakelovGeometryAndAbelianHeights R35.1, NeronModels R11.4, ComplexComparisonPartII C2)",
+    "GZ.3 Shimura-curve realizations (HilbertModularVarietiesAndShimuraCurves R18.4–R18.5, global Jacquet–Langlands R17.3 with trace-formula prerequisites, ModularCurvesPartII R14.6)",
+    "GZ.4–GZ.5 local toric theory (SmoothRepresentationsOfLocalGroups SR.5, EndoscopicTransfer ET.6) and Waldspurger via theta (MetaplecticAutomorphicForms MP.6, AutomorphicSpectralTheory AS.4)",
+    "GZ.6–GZ.7 CM cycles from HeegnerPointEulerSystems HE.1, which consumes elliptic-curve and Serre modularity with its base cases; incoherent Eisenstein series; local intersection identities",
+    "GZ.8 the Yuan–Zhang–Zhang formula and explicit specializations",
+    "GZ.9 BDP p-adic L-functions with p-adic Hodge regulators (period rings, via PerfectoidSpaces)"
+   ]
+  },
+  "IntegralIwasawaTheory": {
+   "targets": "Cyclotomic Z_p-towers and Λ-modules; arithmetic inverse limits and weak Leopoldt; Kubota–Leopoldt and Deligne–Ribet p-adic zeta functions; specialization and Euler characteristics; the Mazur–Wiles and Wiles main conjectures; integral Brumer–Stark with Ritter–Weiss modules; the compactly supported Iwasawa complex and Kurihara's all-prime determinant main conjecture; comparisons with classical and K-theoretic formulations; the cyclotomic-unit index formula, Iwasawa's growth formula, the Vandiver case, Ferrero–Washington and Baker–Brumer.",
+   "baselineHas": [
+    "PowerSeries.IsWeierstrassDivision (Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean)",
+    "bernoulli (Mathlib/NumberTheory/Bernoulli.lean) and NumberField.dedekindZeta_residue (Mathlib/NumberTheory/NumberField/DedekindZeta.lean)",
+    "cyclotomic-unit associatedness lemmas (Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean)",
+    "OpenNormalSubgroup.IsAbelianClassFieldLayer (TauCeti/NumberTheory/ClassFieldTheory/Formation/AbelianLayer.lean) and TauCeti.dedekindZeta_eulerProduct_hasProd"
+   ],
+   "missing": [
+    "Λ-module theory with characteristic and Fitting ideals and μ/λ invariants (PadicMeasuresIwasawaAlgebras L1, L4, L5), plus global class field theory",
+    "I.1–I.2 and L0–L2 towers, inverse limits, cyclotomic units, growth formula",
+    "I.3 p-adic zeta functions via DirichletPadicLFunctions and AutomorphicPadicLFunctions (Hilbert Eisenstein series, overconvergent cohomology, ModularCurvesPartII R12–R14.1)",
+    "I.4 and I.8 Iwasawa cohomology complexes (SelmerIwasawaCohomology L3, ArithmeticGaloisDuality D7)",
+    "I.5 Mazur–Wiles and Wiles theorems (Hecke algebras, Eisenstein ideals, Galois representations)",
+    "I.6, I.7 and I.9 integral Brumer–Stark (IntegralHeckeAndGaloisDeterminants IHG.6) and Kurihara's determinant theorem",
+    "I.10 comparisons consuming ArithmeticKTheory and MotivicEtaleKTheory (norm-residue theorem) over Quillen K-theory",
+    "L3–L4 Vandiver case, Baker–Brumer, Ferrero–Washington"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "tauceti:Completed/OrthogonalL2Bases",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Every OrthogonalL2Bases target (hermiteHilbertBasis, prodHilbertBasis, chebyshevTHilbertBasis, weightL2Isometry) is already in Tau Ceti. AlgebraicCodingTheory still needs minimum distance and duals, weight enumerators with MacWilliams, Type II codes, the explicit Golay and hexacode computations, Construction A and the discriminant-module bridge."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Coding theory is shallow finite algebra (MacWilliams, Golay/hexacode verification, Construction A) over the completed integral-lattice library. Ado–Iwasawa must first get full PBW with U(L) a Noetherian domain, then stack nilradical and derivation theory, derivation-stable cofinite ideals, Levi decomposition with Weyl reducibility over non-closed fields, and the central p-polynomial/Krull route."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Ado–Iwasawa is a single algebraic programme (PBW, nilradical, Levi, central p-polynomials) over Mathlib's rich Lie theory. AlgebraicTopology must build excision, cellular homology, Eilenberg–Zilber/Künneth, the Serre and Cartan–Leray spectral sequences, cup/cap products with Poincaré duality and Hurewicz/Whitehead, and also consumes collars and a smooth triangulation theorem that are not built."
+  },
+  {
+   "a": "DiophantineApproximationAndTranscendence",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Diophantine needs long proofs (Roth, the subspace theorem, Baker/Matveev bounds, E/G-functions), but they sit on existing heights, Siegel's lemma and Liouville with few stacked layers. AlgebraicTopology needs a comparable amount of theory built as a deeper tower of new constructions (subdivision/excision → cellular homology → Eilenberg–Zilber and Serre spectral sequences → cup/cap products and Poincaré duality → Hurewicz/Whitehead) plus unbuilt geometric-topology inputs."
+  },
+  {
+   "a": "DiophantineApproximationAndTranscendence",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Diophantine's missing theorems (Roth, the subspace theorem, explicit linear forms in logarithms, Siegel–Shidlovskii) are deep but mostly long proofs on existing height theory. LieGroups needs the whole Ado–Iwasawa roadmap for Lie III plus absent geometric foundations (closed-subgroup and Frobenius theorems, quotient and complex manifolds for G/T and G_ℂ/B, a degree argument for torus conjugacy) before maximal tori, Weyl integration, Borel–Weil and KAK."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+   "b": "QSeriesPartitionsAndMockModularForms",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "LieGroups needs Ado, Frobenius, maximal tori, complexification and Borel–Weil. QSeries needs half-integral weight and Jacobi forms, Rademacher's formula, harmonic Maass forms and Zwegers completions, plus quantum modular forms built on WRT invariants, a full moonshine proof (VOAs, no-ghost theorem, Monster Lie algebra) and part of ModularCurvesPartII, a much larger body."
+  },
+  {
+   "a": "QSeriesPartitionsAndMockModularForms",
+   "b": "ReductiveGroupsPartII",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ReductiveGroupsPartII needs the unbuilt structure and existence theory of reductive groups and Chevalley–Demazure schemes, then Bruhat–Tits buildings and parahorics. QSeries needs several independent large towers (metaplectic and Jacobi forms over adelic automorphic prerequisites that already import RG2.0a, harmonic Maass and mock theta theory, WRT invariants, and moonshine with VOAs and the Monster Lie algebra)."
+  },
+  {
+   "a": "ModularCurvesPartII",
+   "b": "ReductiveGroupsPartII",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ReductiveGroupsPartII's gap is reductive structure and existence theory plus Bruhat–Tits buildings and parahorics. ModularCurvesPartII needs several foundations that are all absent (GAGA, algebraic stacks and coarse spaces, étale cohomology with Poincaré duality, Néron models and Jacobians) before its own compactified moduli, bad-fibre models, Hecke correspondences, Ihara's lemma and A_f."
+  },
+  {
+   "a": "PerfectoidSpaces",
+   "b": "ModularCurvesPartII",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "PerfectoidSpaces must finish adic spaces and add adic étale geometry, almost mathematics, tilting, almost purity, diamonds D1–D4 and the prismatic inputs behind Q4. ModularCurvesPartII needs a somewhat larger set of absent foundations (GAGA, stacks and coarse spaces, étale duality and nearby cycles, abelian schemes, Néron models) plus twenty stages of its own moduli and Hecke theory."
+  },
+  {
+   "a": "SmallRamificationAndAbelianVarietyBaseCases",
+   "b": "PerfectoidSpaces",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "PerfectoidSpaces is one foundational tower over adic spaces. SmallRamification's base-case table consumes Faltings–Shafarevich finiteness, Néron models, integral p-adic Hodge theory (whose period rings already pass through perfectoid tilts), ordinary modularity lifting over totally real fields and potential modularity."
+  },
+  {
+   "a": "DiamondEtaleCohomology",
+   "b": "SmallRamificationAndAbelianVarietyBaseCases",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "DiamondEtaleCohomology needs perfectoid spaces, diamonds, enhanced derived sheaves and Huber's étale cohomology. SmallRamification needs Faltings finiteness, ordinary modularity lifting (Galois representations of Hilbert modular forms, Hida theory, deformation rings) and potential modularity, and its declared prerequisites for R25.5 even reach DiamondEtaleCohomology."
+  },
+  {
+   "a": "DiamondEtaleCohomology",
+   "b": "GrossZagierAndArithmeticHeights",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "GrossZagier's stack contains the modularity machinery behind Heegner points (and, through its declared Jacquet–Langlands route, diamond étale cohomology) plus Shimura curves, theta and Waldspurger, Arakelov intersection theory and the Yuan–Zhang–Zhang formula. That is far beyond the perfectoid, diamond and derived-sheaf tower that DiamondEtaleCohomology needs."
+  },
+  {
+   "a": "IntegralIwasawaTheory",
+   "b": "GrossZagierAndArithmeticHeights",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "IntegralIwasawaTheory needs p-adic zeta functions, the Wiles, Dasgupta–Kakde and Kurihara main conjectures and K-theory comparisons including the norm-residue theorem. GrossZagier needs all of SmallRamification's modularity stack (Faltings, modularity lifting, potential and Serre modularity) plus Shimura curves, the theta correspondence, arithmetic intersection theory and YZZ, a markedly larger missing body."
+  },
+  {
+   "a": "SmallRamificationAndAbelianVarietyBaseCases",
+   "b": "IntegralIwasawaTheory",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Both are near the top. IntegralIwasawaTheory adds Quillen and motivic K-theory with the norm-residue theorem and the Brumer–Stark and Kurihara main-conjecture machinery. SmallRamification's prerequisites (Faltings–Shafarevich finiteness, Hida-theoretic ordinary lifting, potential modularity, Shimura varieties and integral p-adic Hodge theory) form a broader missing stack."
+  },
+  {
+   "a": "tauceti:Completed/OrthogonalL2Bases",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "OrthogonalL2Bases is fully realized in Tau Ceti (hermiteHilbertBasis, prodHilbertBasis, chebyshevTHilbertBasis). Ado–Iwasawa still needs full PBW, nilradical and derivation theory, Levi decomposition and the central p-polynomial/Krull argument."
+  },
+  {
+   "a": "PerfectoidSpaces",
+   "b": "GrossZagierAndArithmeticHeights",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "PerfectoidSpaces is one foundational tower (adic geometry, almost purity, diamonds, prismatic inputs) that GrossZagier itself reaches through p-adic Hodge regulators. GrossZagier additionally needs modular and Shimura curves, automorphic theta theory, Arakelov heights, Heegner points with modularity, and YZZ."
+  },
+  {
+   "a": "ReductiveGroupsPartII",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "AlgebraicTopology's gap is large, but it builds on Mathlib's singular homology, homological algebra and CW complexes. ReductiveGroupsPartII must first supply the unstarted structure, existence and Chevalley–Demazure layers of reductive group theory, then stack relative valued root data, buildings, parahoric group schemes and decompositions, which makes a deeper tower."
+  },
+  {
+   "a": "ModularCurvesPartII",
+   "b": "DiamondEtaleCohomology",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "The two share étale duality, stacks, abelian schemes and enhanced derived sheaves. Beyond that, ModularCurvesPartII adds GAGA, Néron models and its own moduli and Hecke theory, whereas DiamondEtaleCohomology adds Huber's adic étale cohomology, perfectoid spaces with almost purity, diamonds and v-descent, prismatic inputs and ECD's four operations, a larger and deeper addition."
+  },
+  {
+   "a": "DiophantineApproximationAndTranscendence",
+   "b": "QSeriesPartitionsAndMockModularForms",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Diophantine's missing theorems (Roth, the subspace theorem, Baker bounds, E/G-functions) sit on existing heights and Siegel's lemma. QSeries needs metaplectic and Jacobi forms, harmonic Maass and mock theta theory, WRT invariants and a moonshine proof with VOAs and the Monster Lie algebra, plus pieces of ModularCurvesPartII."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Coding theory needs only finite-algebra layers over the completed lattice library. LieGroups needs the closed-subgroup and Frobenius theorems, Lie III via all of Ado–Iwasawa, maximal tori and Weyl integration, complexification, Borel–Weil and the KAK decomposition."
+  },
+  {
+   "a": "IntegralIwasawaTheory",
+   "b": "ModularCurvesPartII",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "IntegralIwasawaTheory consumes ModularCurvesPartII itself (R12–R14.1, for Hilbert–Eisenstein p-adic interpolation). On top of that it needs p-adic L-functions, Iwasawa cohomology, the Wiles, Dasgupta–Kakde and Kurihara main conjectures, and K-theory with the norm-residue theorem."
+  },
+  {
+   "a": "GrossZagierAndArithmeticHeights",
+   "b": "SmallRamificationAndAbelianVarietyBaseCases",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "GrossZagier's Heegner-point input needs elliptic-curve and Serre modularity, whose base cases are SmallRamification's table. So it contains SmallRamification's whole stack and adds Shimura-curve realizations, theta and Waldspurger, arithmetic intersection theory and the YZZ formula."
+  },
+  {
+   "a": "DiophantineApproximationAndTranscendence",
+   "b": "PerfectoidSpaces",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Diophantine's gaps (Roth, the subspace theorem, Baker bounds, E/G-functions) rest on existing heights. PerfectoidSpaces needs unfinished adic spaces, adic étale geometry, almost mathematics, tilting and almost purity, diamonds, enhanced derived sheaves and prismatic cohomology."
+  },
+  {
+   "a": "ReductiveGroupsPartII",
+   "b": "DiamondEtaleCohomology",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "ReductiveGroupsPartII needs reductive structure theory plus Bruhat–Tits buildings and parahorics. DiamondEtaleCohomology needs perfectoid spaces, diamonds with v-descent, enhanced derived sheaves, and Huber and scheme étale duality before ECD's four operations, compactifications and constructibility."
+  }
+ ]
+}
