@@ -1,0 +1,872 @@
+{
+ "job": "AUDIT-14",
+ "baseline": "mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; tauceti f790474821cf4256814db967cb154e7af3d0c369",
+ "roadmaps": {
+  "AutomorphicLFunctionsAndLocalFactors": {
+   "summary": "Mathlib already has the real-variable toolkit this roadmap asks for: the Schwartz space and Fourier transform on real inner-product spaces, Fourier inversion, Poisson summation for ℤ ⊂ ℝ, Mellin transforms with inversion, and differentiation under the integral. It also has Deligne's Γ_ℝ/Γ_ℂ, finite-ring Gauss sums and Dirichlet conductors, and the GL₁/ℚ global theory in classical theta–Mellin form (continuation, functional equation with Gauss-sum root number, Euler product, trivial-character pole, removal of Euler factors by change of level), as well as Hecke's continuation and functional-equation package for holomorphic cusp forms on arithmetic subgroups, which is the holomorphic GL₂/ℚ case. Tau Ceti adds the discreteness of K in 𝔸_K, ideal-indexed Euler products over number fields, and Shimura's Hecke-ring structure for GL₂ (the polynomial p-local Hecke ring and the prime-power recurrence). Everything local-field-theoretic and adelic is missing: Schwartz–Bruhat spaces at finite places, standard additive characters and self-dual measures, adelic Poisson summation, Tate local zeta integrals and ε-factors, Hecke L-functions beyond ℚ, and all of Godement–Jacquet, Rankin–Selberg, Satake/L-group Euler factors and the interpolation interfaces. Neither library has smooth admissible representations of p-adic groups.",
+   "layers": {
+    "AutomorphicLFunctionsAndLocalFactors:AL.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "local Schwartz–Bruhat spaces: locally constant compactly supported functions at finite places, Schwartz functions at real and complex places",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "SchwartzMap",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Distribution/SchwartzSpace/Basic.lean",
+         "line": 77,
+         "fit": "special case"
+        }
+       ],
+       "note": "`SchwartzMap` (𝓢(E,F) on a real normed space) covers the archimedean places ℝ and ℂ ≅ ℝ². Neither library packages locally constant compactly supported functions on a nonarchimedean local field as a space; searches for Schwartz–Bruhat/Bruhat–Schwartz and for `LocallyConstant` with `HasCompactSupport` found nothing."
+      },
+      {
+       "target": "Fourier transform on local fields with respect to a nontrivial additive character; self-duality of the local additive groups",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Fourier.fourierIntegral",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/FourierTransform.lean",
+         "line": 340,
+         "fit": "more general"
+        },
+        {
+         "name": "VectorFourier.fourierIntegral",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/FourierTransform.lean",
+         "line": 82,
+         "fit": "more general"
+        },
+        {
+         "name": "SchwartzMap.fourierTransformCLM",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Distribution/SchwartzSpace/Fourier.lean",
+         "line": 51,
+         "fit": "special case"
+        },
+        {
+         "name": "AddChar.exists_fourierAddChar_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Fourier/AddCircle.lean",
+         "line": 182,
+         "fit": "related"
+        }
+       ],
+       "note": "`Fourier.fourierIntegral e μ f` is defined for any commutative ring with a unitary character `AddChar 𝕜 Circle` and a measure, so a local-field transform can be written, but only the real inner-product-space case has theorems. No standard character x ↦ exp(2πi{Tr x}_p) of ℚ_p or its extensions, no self-dual Haar measure and no isomorphism F_v ≅ F_v^ exist. `Mathlib/NumberTheory/Padics/AddChar.lean` classifies p-adic-valued characters of ℤ_p (Amice), a different object. Tau Ceti classifies continuous characters of the circle only."
+      },
+      {
+       "target": "restricted tensor-product adelic Schwartz–Bruhat space S(𝔸_F) = ⊗'_v S(F_v)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "RestrictedProduct",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.AdeleRing",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "The restricted product and 𝔸_K exist as topological rings. There is no restricted tensor product of local function spaces and no space of factorizable adelic test functions; searches for restricted tensor products found nothing in either library."
+      },
+      {
+       "target": "Fourier inversion (local and adelic, including the reflected argument)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Continuous.fourierInv_fourier_eq",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/Inversion.lean",
+         "line": 174,
+         "fit": "special case"
+        },
+        {
+         "name": "MeasureTheory.Integrable.fourierInv_fourier_eq",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/Inversion.lean",
+         "line": 165,
+         "fit": "special case"
+        }
+       ],
+       "note": "Inversion is proved on finite-dimensional real inner-product spaces with the 2π convention, for integrable f with integrable 𝓕f (continuous or at continuity points). This covers the real and complex places; nothing covers nonarchimedean fields or 𝔸_F."
+      },
+      {
+       "target": "change-of-character and change-of-measure formulas for local and adelic Fourier transforms",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "VectorFourier.fourierIntegral_comp_add_right",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/FourierTransform.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "Real.fourier_comp_linearIsometry",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/FourierTransform.lean",
+         "line": 455,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.integral_fourierAtom_eq_charFun_neg_two_pi_smul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/Fourier/Convention.lean",
+         "line": 78,
+         "fit": "related"
+        }
+       ],
+       "note": "Proved covariances are translation and linear isometries on real spaces, and Tau Ceti converts between the 2π Fourier convention and Mathlib's characteristic-function convention on real inner-product spaces. There is no formula relating the transforms for ψ and ψ(a·), and no rescaling of self-dual measures."
+      },
+      {
+       "target": "adelic Poisson summation for the diagonal lattice F ⊂ 𝔸_F, with the volume of 𝔸_F/F",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Real.tsum_eq_tsum_fourier",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/PoissonSummation.lean",
+         "line": 102,
+         "fit": "special case"
+        },
+        {
+         "name": "SchwartzMap.tsum_eq_tsum_fourier",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/PoissonSummation.lean",
+         "line": 219,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.discreteTopology_principalSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/Adeles/Discrete.lean",
+         "line": 64,
+         "fit": "related"
+        }
+       ],
+       "note": "Poisson summation is proved only for ℤ ⊂ ℝ: for continuous f with locally uniform summability of translates, and for Schwartz f. Tau Ceti proves K discrete and closed in 𝔸_K. Compactness of 𝔸_K/K (only mentioned in that file's docstring), its covolume, and any lattice or adelic Poisson formula are absent."
+      },
+      {
+       "target": "holomorphic parameter integrals, Mellin transforms and the domination estimates that justify differentiating under the integral",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "hasDerivAt_integral_of_dominated_loc_of_deriv_le",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Calculus/ParametricIntegral.lean",
+         "line": 288,
+         "fit": "exact"
+        },
+        {
+         "name": "mellin",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/MellinTransform.lean",
+         "line": 91,
+         "fit": "exact"
+        },
+        {
+         "name": "mellin_differentiableAt_of_isBigO_rpow",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/MellinTransform.lean",
+         "line": 401,
+         "fit": "exact"
+        },
+        {
+         "name": "mellinInv_mellin_eq",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/MellinInversion.lean",
+         "line": 92,
+         "fit": "exact"
+        }
+       ],
+       "note": "Differentiation of parametric integrals over any `RCLike` field (so holomorphic dependence), the Mellin transform on (0,∞) with convergence and holomorphy in s from rpow bounds, and Mellin inversion are all proved. They are real-line tools: no Mellin transform over F_v^× for finite v or over the idele class group is defined."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicFormsOnReductiveGroups:AF.0",
+       "note": "Also builds adelic test functions as restricted tensor products of locally constant compactly supported functions at finite places (with C_c^∞ rather than Schwartz functions at infinity), so there should be a single restricted-tensor-product construction."
+      },
+      {
+       "layer": "MetaplecticAutomorphicForms:MP.4",
+       "note": "Defines the adelic Weil representation on the restricted tensor product of local Schwartz spaces and proves compatibility with changes of additive character, the same space and change-of-character formulas as AL.0."
+      },
+      {
+       "layer": "FunctionFieldArithmetic:FA.2",
+       "note": "The global-function-field counterpart: self-dual local characters and Haar measures from a differential, the residue pairing, discreteness and cocompactness of K ⊂ 𝔸_K, and adelic Poisson summation."
+      },
+      {
+       "layer": "AnalyticNumberTheory:AN.0",
+       "note": "Also plans Mellin transforms and convergence proofs for interchanging limits, differentiation and Euler products, the analytic tools of AL.0's last sentence."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-5-full-adeles-and-the-additive-quotient",
+       "note": "Declared supplier rather than overlap: it states discreteness of K in 𝔸_K and compactness of 𝔸_K/K, the lattice and covolume that AL.0's Poisson summation takes from GlobalNumberFields. Discreteness is already proved in Tau Ceti."
+      }
+     ]
+    },
+    "AutomorphicLFunctionsAndLocalFactors:AL.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "local Tate zeta integral Z(f,χ,s) = ∫ f(x)χ(x)|x|^s d×x for a quasi-character χ of F_v^× and a Schwartz–Bruhat f, convergent for Re s > 0",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "mellin",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/MellinTransform.lean",
+         "line": 91,
+         "fit": "special case"
+        },
+        {
+         "name": "Complex.GammaIntegral_eq_mellin",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Deriv.lean",
+         "line": 45,
+         "fit": "special case"
+        },
+        {
+         "name": "Complex.integral_cpow_mul_exp_neg_mul_Ioi",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
+         "line": 372,
+         "fit": "special case"
+        }
+       ],
+       "note": "At a real place and on ℝ_{>0}, the integral is Mathlib's Mellin transform, and ∫_0^∞ t^{a−1}e^{−rt} dt = r^{−a}Γ(a) is proved. There are no quasi-characters of F_v^× as objects, no multiplicative Haar measure d×x on a local field, and no nonarchimedean zeta integral."
+      },
+      {
+       "target": "rationality of the nonarchimedean zeta integrals in q_v^{−s}",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ArithmeticFunction.ofPowerSeries",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/LFunction.lean",
+         "line": 66,
+         "fit": "related"
+        }
+       ],
+       "note": "No nonarchimedean zeta integral exists to be rational. Mathlib's `ofPowerSeries q f` only turns a formal power series in T = q^{−s} into a formal Dirichlet series."
+      },
+      {
+       "target": "meromorphic continuation of the archimedean zeta integrals",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeakFEPair.differentiableAt_Λ",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean",
+         "line": 394,
+         "fit": "related"
+        },
+        {
+         "name": "Complex.Gammaℝ",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+         "line": 45,
+         "fit": "special case"
+        }
+       ],
+       "note": "Continuation is available for Γ (hence for the Gaussian integral Γ_ℝ) and, abstractly, for Mellin transforms of Mathlib's weak FE-pairs (constant plus rapid decay, with f(1/x) = εx^k g(x)). There is no continuation of ∫_{ℝ^×} f(x)χ(x)|x|^s d×x for a general Schwartz f by Taylor expansion at 0, and no ℂ^× version."
+      },
+      {
+       "target": "L-, ε- and γ-factors with exact normalizations and the local functional equation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DirichletCharacter.rootNumber",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 272,
+         "fit": "related"
+        },
+        {
+         "name": "DirichletCharacter.gammaFactor",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 207,
+         "fit": "related"
+        },
+        {
+         "name": "Complex.Gammaℝ_div_Gammaℝ_one_sub",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+         "line": 157,
+         "fit": "related"
+        }
+       ],
+       "note": "No local ε- or γ-factor and no local functional equation exist. `rootNumber` is the global root number of a Dirichlet character (Gauss sum over ZMod N divided by i^a√N), `gammaFactor` its archimedean factor, and the Γ_ℝ reflection identities are archimedean γ-factor ratios. None is obtained from a local integral."
+      },
+      {
+       "target": "real and complex gamma factors Γ_ℝ(s) = π^{−s/2}Γ(s/2) and Γ_ℂ(s) = 2(2π)^{−s}Γ(s)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Complex.Gammaℝ",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+         "line": 45,
+         "fit": "exact"
+        },
+        {
+         "name": "Complex.Gammaℂ",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+         "line": 53,
+         "fit": "exact"
+        },
+        {
+         "name": "Complex.Gammaℝ_div_Gammaℝ_one_sub",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+         "line": 157,
+         "fit": "exact"
+        },
+        {
+         "name": "hasSum_mellin_pi_mul_sq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/MellinEqDirichlet.lean",
+         "line": 118,
+         "fit": "related"
+        }
+       ],
+       "note": "Deligne's archimedean factors are in Mathlib with their doubling and reflection formulas, poles and residues. They are identified with the Mellin transform of a Gaussian theta sum (`hasSum_mellin_pi_mul_sq`), but not as the local zeta integral of the Gaussian against a character of ℝ^×."
+      },
+      {
+       "target": "unramified and ramified characters of F_v^×, conductor exponents, Gauss sums and character twists",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "gaussSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/GaussSum.lean",
+         "line": 72,
+         "fit": "special case"
+        },
+        {
+         "name": "gaussSum_mul_gaussSum_eq_card",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/GaussSum.lean",
+         "line": 188,
+         "fit": "special case"
+        },
+        {
+         "name": "DirichletCharacter.conductor",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 246,
+         "fit": "special case"
+        },
+        {
+         "name": "DirichletCharacter.primitiveCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 307,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib has Gauss sums over finite rings, with g(χ)g(χ⁻¹) = χ(−1)#R for nontrivial χ on a finite field, and conductors and primitive characters of Dirichlet characters. There is no unramified/ramified decomposition of characters of ℚ_p^× or K_v^×, no conductor exponent a(χ_v), and no local Gauss sum of a ramified character against ψ_v. Tau Ceti has only ring conductors (e.g. the conductor exponent of an order), not character conductors."
+      },
+      {
+       "target": "global zeta integral: Euler factorization, meromorphic continuation and functional equation of Hecke L-functions via Poisson summation, keeping the trivial-character poles",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "DirichletCharacter.IsPrimitive.completedLFunction_one_sub",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 284,
+         "fit": "special case"
+        },
+        {
+         "name": "DirichletCharacter.LSeries_eulerProduct_hasProd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/EulerProduct/DirichletLSeries.lean",
+         "line": 114,
+         "fit": "special case"
+        },
+        {
+         "name": "DirichletCharacter.LFunctionTrivChar_residue_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 182,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.dedekindZeta_eulerProduct_hasProd",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 386,
+         "fit": "related"
+        }
+       ],
+       "note": "For F = ℚ and finite-order characters, Mathlib proves continuation, the functional equation with conductor, Gauss-sum root number and parity, the Euler product and the residue of the trivial character. It uses the classical Hurwitz/theta–Mellin route (with `completedRiemannZeta_one_sub` for ζ), not idelic integrals. Over a general number field there is only the Dedekind zeta series with its residue as a one-sided real limit (Mathlib) and its Euler product for Re s > 1 (Tau Ceti). No continuation or functional equation of Dedekind zeta or Hecke L-functions exists, and no idelic zeta integral."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.1",
+       "note": "Continuation, functional equations with conductor, Gauss sum and parity, gamma factors and the principal-character pole for ζ and Dirichlet L-functions: the F = ℚ finite-order case of AL.1's global statements, which Mathlib largely has."
+      },
+      {
+       "layer": "AnalyticNumberTheory:AN.4",
+       "note": "Completed Hecke and Dedekind L-functions over number fields with real/complex gamma factors, residues and ramified Euler factors, the same global targets as AL.1."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+       "note": "Defines Hecke characters as continuous characters of the idele class group, with local components, finite conductor and unitary part: the character carriers and conductors that AL.1 computes local factors for."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+       "note": "Classifies the continuous characters of ℝ^× and ℂ^× as |x|^s sgn(x)^ε and (z/|z|)^k|z|^s, the archimedean quasi-characters whose zeta integrals produce AL.1's real and complex gamma factors."
+      },
+      {
+       "layer": "DirichletPadicLFunctions:L0",
+       "note": "Proves Mellin-transform continuation, primitive-character Gauss sums, conductor change and imprimitive Euler-factor deletion, and the Dedekind-zeta pole, which it attributes to AL.1's trivial-character Tate theorem. These overlap AL.1's Dirichlet-character and trivial-character targets."
+      },
+      {
+       "layer": "AutomorphicFormsOnReductiveGroups:AF.5",
+       "note": "Proves the GL₁ dictionary with Hecke characters, including infinity type, conductor and unitary twist: the same character bookkeeping AL.1 does locally."
+      }
+     ]
+    },
+    "AutomorphicLFunctionsAndLocalFactors:AL.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "local Godement–Jacquet zeta integrals from Schwartz(–Bruhat) functions on M_n(E) and matrix coefficients of irreducible admissible representations of GL_n(E)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has smooth or admissible representations of GL_n over a local field or their matrix coefficients; searches for admissible/smooth representation, matrix coefficient, Godement and Jacquet found nothing relevant. Only abstract Haar measure on locally compact groups and Schwartz functions on real vector spaces are available."
+      },
+      {
+       "target": "nonarchimedean rationality in q^{−s}, the fractional-ideal characterization of L(s,π) and the local functional equation with γ(s,π,ψ)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing: no local zeta integrals, no fractional ideal of ℂ[q^{±s}] and no ε-factors for GL_n."
+      },
+      {
+       "target": "archimedean gamma factors via Casselman–Wallach globalizations, Schwartz estimates and meromorphic parameter integrals; their functional equation",
+       "library": "absent",
+       "declarations": [],
+       "note": "No (g,K)-modules, Harish-Chandra modules or smooth Fréchet globalizations exist in either library (AutomorphicFormsOnReductiveGroups AF.1 owns them)."
+      },
+      {
+       "target": "unramified spherical computation L(s,π) = det(1 − q^{−s}A_π)^{−1} and comparison with the Satake parameter",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GLn.polynomialRingEquivTwo",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/GLn/PolynomialRing/Injective.lean",
+         "line": 684,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.heckeT_prime_pow_recurrence",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/GL2/Recurrence.lean",
+         "line": 210,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves Shimura's Theorem 3.20 for n = 2 (and n = 1): the p-local Hecke ring of GL_n over ℚ relative to GL_n(ℤ) is a polynomial ring on the diagonal double cosets. It also proves the GL₂ recurrence T(p^{k+1}) = T(p)T(p^k) − p·T(p,p)T(p^{k−1}), the formal identity behind the degree-two Euler factor. There is no spherical function, Satake transform, unramified principal series or local zeta integral."
+      },
+      {
+       "target": "global integral for cuspidal automorphic representations of GL_n: Euler factorization, analytic continuation and functional equation, with the n = 1 pole separated",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ModularForm.weakFEPair",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/LFunction.lean",
+         "line": 61,
+         "fit": "special case"
+        },
+        {
+         "name": "CuspForm.differentiable_L",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/LFunction.lean",
+         "line": 190,
+         "fit": "special case"
+        },
+        {
+         "name": "HeckeRing.GL2.Newform.qExpansion_coeff_mul",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Coefficient.lean",
+         "line": 102,
+         "fit": "special case"
+        },
+        {
+         "name": "HeckeRing.GL2.Newform.qExpansion_coeff_prime_pow_add_two",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Coefficient.lean",
+         "line": 114,
+         "fit": "special case"
+        },
+        {
+         "name": "DirichletCharacter.IsPrimitive.completedLFunction_one_sub",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 284,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only classical special cases exist, proved by Hecke's Mellin argument rather than adelic integrals. For n = 2 over ℚ and holomorphic modular forms on an arithmetic subgroup, Mathlib packages f(it) and its S-translate as a weak FE-pair (continuation and a functional equation relating f to f|S) and proves cusp-form L-functions entire; Tau Ceti identifies the coefficient L-series with them (`CuspForm.hasEntireExtension_qExpansion_coeff`). For a newform, Tau Ceti proves the formal Euler factorization at primes not dividing the level: a_{mn} = a_m a_n for coprime good m, n, and a_{p^{r+2}} = a_p a_{p^{r+1}} − χ(p)p^{k−1}a_{p^r}. The analytic Euler product is not stated. For n = 1 over ℚ there are Dirichlet L-functions. Nothing exists for n ≥ 3, for Maass forms or over other number fields."
+      },
+      {
+       "target": "bounds and normalization conversions for use in interpolation formulas",
+       "library": "absent",
+       "declarations": [],
+       "note": "No GL_n local-factor normalizations exist to convert between."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+       "note": "Relates the GL_n Hecke polynomial P_v(X) to the normalized Satake transform, determinant character and Tate twist: the unramified comparison AL.2 derives from the spherical zeta integral, so the two normalization dictionaries must coincide."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+       "note": "Hecke's completed L-function and functional equation for newforms of level N with the Atkin–Lehner sign, and their Euler product: the holomorphic GL₂/ℚ case of AL.2's global Euler factorization and functional equation."
+      },
+      {
+       "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+       "note": "Constructs local constants for GL_m on the analytic side and proves their dictionary with Weil–Deligne constants. Its text assigns the integral constructions to AL, so its analytic L/ε-factors must be AL.2's rather than a second construction."
+      }
+     ]
+    },
+    "AutomorphicLFunctionsAndLocalFactors:AL.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "comparison of the nonarchimedean Whittaker/derivative constructions of SR.5 with the classical complex Whittaker model",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Whittaker functional, Kirillov model or Bernstein–Zelevinsky derivative exists in either library; the word Whittaker occurs only in bibliography entries for Whittaker–Watson."
+      },
+      {
+       "target": "GL_n × GL_m local Rankin–Selberg integrals: convergence, nonarchimedean rationality and gcd-normalized L-factors",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing. Searches for Rankin–Selberg, Jacquet–Piatetski-Shapiro–Shalika and gcd L-factors found nothing; Tau Ceti's only 'Rankin' is Rankin's trick in an ideal-counting bound."
+      },
+      {
+       "target": "archimedean Whittaker functionals with uniqueness and continuity on Casselman–Wallach globalizations, completed tensor products, and Jacquet's estimates (§§2–16)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PiTensorProduct.injectiveSeminorm",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Normed/Module/PiTensorProduct/InjectiveSeminorm.lean",
+         "line": 78,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the injective seminorm on finite tensor products of normed spaces, but no completed projective tensor product of Fréchet spaces, no globalization and no Whittaker functional."
+      },
+      {
+       "target": "archimedean holomorphic multiples, boundedness in vertical strips, gamma factors and functional equation without a gcd argument",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PhragmenLindelof.vertical_strip",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/PhragmenLindelof.lean",
+         "line": 275,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the general Phragmén–Lindelöf principle in a vertical strip is available as a tool; no Rankin–Selberg integral exists to apply it to."
+      },
+      {
+       "target": "unramified computations, global unfolding for cuspidal data, poles in the contragredient/twist case and nonvanishing in the proved regions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "UpperHalfPlane.petersson",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Petersson.lean",
+         "line": 31,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines only the Petersson integrand y^k f(τ)·conj f'(τ); there is no unfolding of an Eisenstein series against cusp forms and no Rankin–Selberg L-function."
+      },
+      {
+       "target": "comparison of integral rational structures, Gauss sums and complex periods with the cohomological normalization; periods up to their scalar ambiguity",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "gaussSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/GaussSum.lean",
+         "line": 72,
+         "fit": "related"
+        }
+       ],
+       "note": "Finite-ring Gauss sums exist, but there is no period of an automorphic representation, no cohomological normalization and no rational structure to compare."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ModularSymbolsPadicLFunctions:L1",
+       "note": "Defines period lines and scalar periods Ω_f^± of a newform up to basis choice, with Gauss sums and critical values of twists: the GL₂ × GL₁ case of AL.3's period comparison and scalar-ambiguity requirement."
+      },
+      {
+       "layer": "EllipticRegulators:ER.7",
+       "note": "Proves a Rankin–Selberg/Hecke evaluation of the regulator integral for modular units at a stated level and character, a specific GL₂ × GL₂ unfolding that should consume AL.3 rather than reprove it."
+      },
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.5",
+       "note": "Declared supplier: builds the Bernstein–Zelevinsky derivatives and Whittaker functionals AL.3 imports. The comparison with the classical complex Whittaker model sits on the boundary and should have one owner."
+      }
+     ]
+    },
+    "AutomorphicLFunctionsAndLocalFactors:AL.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Euler polynomial det(1 − r(t_v)X) attached to the Satake semisimple conjugacy class t_v and an algebraic representation r of the L-group",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Matrix.charpolyRev",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+         "line": 291,
+         "fit": "related"
+        }
+       ],
+       "note": "`Matrix.charpolyRev M = det(1 − X·M)` supplies the polynomial once a matrix is given. No L-group, no Satake class and no representation of a dual group exist in either library; searches for Satake, L-group, Langlands dual and dual group found nothing."
+      },
+      {
+       "target": "invariance of the Euler polynomial under conjugacy, direct sum, tensor product, duality and scalar extension",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Matrix.charpoly_units_conj",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+         "line": 285,
+         "fit": "related"
+        },
+        {
+         "name": "LinearMap.charpoly_prodMap",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Charpoly/ToMatrix.lean",
+         "line": 63,
+         "fit": "related"
+        },
+        {
+         "name": "LinearMap.charpoly_baseChange",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Charpoly/BaseChange.lean",
+         "line": 23,
+         "fit": "related"
+        }
+       ],
+       "note": "The linear algebra for conjugacy, direct sums and base change is in Mathlib for characteristic polynomials (hence for their reverses). There is no formula for the characteristic polynomial of a tensor product or of the contragredient in terms of the factors, and nothing ties these to Satake parameters."
+      },
+      {
+       "target": "partial Euler product L^S(s,π,r) and its convergence under a supplied bound on the Satake eigenvalues",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ArithmeticFunction.ofPowerSeries",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/LFunction.lean",
+         "line": 66,
+         "fit": "related"
+        },
+        {
+         "name": "ArithmeticFunction.eulerProduct",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/LFunction.lean",
+         "line": 262,
+         "fit": "related"
+        },
+        {
+         "name": "ArithmeticFunction.IsMultiplicative.eulerProduct_tprod",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/EulerProduct/Basic.lean",
+         "line": 261,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.hasProd_eulerFactor",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 335,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.Newform.qExpansion_coeff_prime_pow_add_two",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Coefficient.lean",
+         "line": 114,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib builds formal L-functions from local power series in q^{−s} (`ofPowerSeries`, `eulerProduct`) and proves ∏_p Σ_e f(p^e) = Σ f(n) for multiplicative f with absolutely summable values. Tau Ceti has the ideal-indexed Euler product of a multiplicative weight over a number field, and the degree-two good-prime recurrence of newform coefficients (the standard L-function of GL₂/ℚ in formal form). The step from an eigenvalue bound |α_{v,i}| ≤ q_v^θ to absolute convergence of a degree-n Euler product for Re s > 1 + θ is not proved, and no L^S(s,π,r) is defined."
+      },
+      {
+       "target": "comparison with the AL.1–AL.3 factors and with Weil–Deligne L-factors under an actual local-compatibility theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Weil group, Weil–Deligne representation or local L-factor of a Galois representation exists in either library, and no AL.1–AL.3 factors exist to compare."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+       "note": "For GL_n and its standard representation, constructs the Hecke polynomial Σ(−1)^i q^{i(i−1)/2}T_{v,i}X^{n−i} and relates it to normalized Satake: the same unramified Euler polynomial as AL.4 in that case."
+      },
+      {
+       "layer": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+       "note": "Builds the normalization dictionary among normalized Satake, the integral Hecke polynomial, Frobenius conventions and Tate twists, the conventions AL.4's Euler polynomials must follow."
+      },
+      {
+       "layer": "PeriodsAndSpecialValues:PS.1",
+       "note": "Defines completed L-functions from local Weil–Deligne data, the Galois-side factors AL.4 is to compare with."
+      }
+     ]
+    },
+    "AutomorphicLFunctionsAndLocalFactors:AL.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "removal and reinsertion of Euler factors at a finite set, and imprimitive/primitive comparisons",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "DirichletCharacter.LFunction_changeLevel",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 150,
+         "fit": "special case"
+        },
+        {
+         "name": "DirichletCharacter.changeLevel_primitiveCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 310,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.restrict",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 311,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.normCoeff_supportedPart",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Basic.lean",
+         "line": 475,
+         "fit": "related"
+        }
+       ],
+       "note": "For Dirichlet characters Mathlib proves L(χ at level N, s) = L(χ, s)·∏_{p∣N}(1 − χ(p)p^{−s}) as entire or meromorphic functions, and identifies a character with the change of level of its primitive character. Tau Ceti restricts ideal weights away from a finite set of primes and proves finite Euler products for the supported part. Nothing exists for GL₂ or Rankin–Selberg L-functions."
+      },
+      {
+       "target": "critical-value normalization, functional-equation sign and algebraicity inputs for the GL₂ and Rankin families of AutomorphicPadicLFunctions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "riemannZeta_neg_nat_eq_bernoulli",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+         "line": 251,
+         "fit": "related"
+        },
+        {
+         "name": "DirichletCharacter.rootNumber",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 272,
+         "fit": "related"
+        }
+       ],
+       "note": "Only GL₁/ℚ analogues exist: rationality of ζ(−k) via Bernoulli numbers and the root number of a Dirichlet character. No critical values, periods or signs of GL₂ or Rankin–Selberg L-functions are formalized."
+      },
+      {
+       "target": "compatibility of conductor exponents, local test vectors and character twists",
+       "library": "absent",
+       "declarations": [],
+       "note": "No local conductor exponent of a representation, no newvector or test vector, and no twisting of local representations exists."
+      },
+      {
+       "target": "explicit limiting or derivative results for vanishing Euler factors (exceptional zeros), without cancellation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing on exceptional zeros or L-invariants in either library."
+      },
+      {
+       "target": "export of the formulas both as formal local polynomials and as complex evaluations",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ArithmeticFunction.ofPowerSeries",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/LFunction.lean",
+         "line": 66,
+         "fit": "related"
+        },
+        {
+         "name": "LSeries",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/Basic.lean",
+         "line": 164,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's route from local polynomials, through `PowerSeries.invOfUnit` and `ofPowerSeries`/`eulerProduct`, to `LSeries` provides the formal-versus-complex carriers. The GL₂ and Rankin formulas to export do not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DirichletPadicLFunctions:L0",
+       "note": "Proves conductor change, imprimitive Euler-factor deletion and algebraicity of the complex values for Dirichlet characters: AL.5's removal/reinsertion and algebraicity interfaces for GL₁."
+      },
+      {
+       "layer": "DirichletPadicLFunctions:L2",
+       "note": "Primitive/imprimitive comparisons, conductor change and the interpolation formula with its removed Euler factor (1 − (χη)(p)p^{k−1}), the GL₁ instance of AL.5's contracts."
+      },
+      {
+       "layer": "AutomorphicPadicLFunctions:L5",
+       "note": "Proves changes of periods, coefficients and primitive/imprimitive conventions across the p-adic constructions, the consumer-side twin of AL.5's normalization interfaces."
+      },
+      {
+       "layer": "ModularSymbolsPadicLFunctions:L1",
+       "note": "States the GL₂ interpolation formula with its Euler factor (1 − χ(p)p^j/α), Gauss sum, (2πi)^{j+1} and period normalization, the critical-value normalization AL.5 is to supply."
+      },
+      {
+       "layer": "PeriodsAndSpecialValues:PS.1",
+       "note": "Formulates normalized critical values with signs and powers of 2πi and retains ramified and imprimitive corrections: the same normalization targets from the periods side."
+      }
+     ]
+    }
+   }
+  }
+ }
+}

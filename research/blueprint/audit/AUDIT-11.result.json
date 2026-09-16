@@ -3033,6 +3033,2554 @@
      "duplicates": []
     }
    }
+  },
+  "tauceti:TauCetiRoadmap/EllipticCurves": {
+   "summary": "Tau Ceti has built a large part of Layers 0, 1, 5 and 6: the point–place and class-group dictionaries, the function-field isogeny with degree, Frobenius, relative Frobenius, [n] of degree n², Hom as an additive group, factorisation, the invariant differential with [n]*ω = n • ω, the formal group and its points, quadratic twists with the general-M point isomorphism, Mordell–Weil with naïve and canonical heights and the regulator, and Nagell–Lutz. Several items the roadmap documents treat as missing are present: deg (1 − π_q) = #E(𝔽_q), [n]*ω = n • ω, a function with divisor n(T) − n(O), finiteness of Mathlib's K(S, n) Selmer group, and, in Mathlib, the Dedekind finite-approximation lemma planned for Layer 4.5b. Tau Ceti's canonical height uses half the normalisation the roadmap pins. Missing: the quadratic degree form and End ring, the dual, Vélu and Verschiebung, E[N], the Weil pairing and Tate module, the Hasse bound, supersingularity and zeta, point reduction, Tate's algorithm and the Tate curve, global minimal models and Kraus, general twists, Selmer/Sha/BSD, and all of Layer 8.",
+   "layers": {
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Places of W.FunctionField: affine places are the maximal ideals of the coordinate ring, which is Dedekind for elliptic W; the place at infinity with ord x = −2, ord y = −3 and residue field K; ord, uniformisers, residue fields, degree",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.isDedekindDomain_coordinateRing_of_isIntegrallyClosed",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/CoordinateRing.lean",
+         "line": 544,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.isIntegrallyClosed_coordinateRing",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/CoordinateRing.lean",
+         "line": 535,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.infinityPlace.isUniformizer_X_div_mk_Y",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/InfinityPlace/Basic.lean",
+         "line": 350,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.infinity",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/PointPlace.lean",
+         "line": 79,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.degree_infinity",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/PointPlace.lean",
+         "line": 196,
+         "fit": "exact"
+        }
+       ],
+       "note": "Places are the general TauCeti.Place of TauCeti/FieldTheory/FunctionField/Place. The valuation-level place at infinity is WeierstrassCurve.Affine.infinityPlace (InfinityPlace/Basic.lean:216), with x and y poles in infinityPlace.X and infinityPlace.mk_Y and uniqueness in isEquiv_infinityPlace_of_one_lt. Local rings at primes are DVRs (CoordinateRing.isDiscreteValuationRing_localizationAtPrime). Evaluating a function away from its poles is available only through Divisor.eval."
+      },
+      {
+       "target": "inducedPlace along F₂ →ₐ[K] F₁: restriction with e and f, functoriality, and the fundamental identity Σ e·f = [F₁ : F₂] with no separability hypothesis",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.restrict",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean",
+         "line": 283,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Place.ramificationIdx",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean",
+         "line": 294,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Place.relativeDegree",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean",
+         "line": 443,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Place.ramificationIdx_restrict_mul",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Tower.lean",
+         "line": 80,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Fundamental.lean",
+         "line": 77,
+         "fit": "special case"
+        }
+       ],
+       "note": "Restriction, e, f and tower multiplicativity exist for general function-field extensions in a scalar tower (restrict_restrict, relativeDegree_restrict_mul). The fundamental identity needs Algebra.IsSeparable F F′, so it does not cover inseparable isogenies such as Frobenius. The prime-level identity TauCeti.Isogeny.sum_ramificationIdx_mul_inertiaDeg_eq_degree drops separability but assumes Module.Finite and Module.Flat instances."
+      },
+      {
+       "target": "Point–place dictionary for elliptic W: W.toAffine.Point ≃ degree-1 places, O ↦ infinityPlace, (x₀, y₀) ↦ (X − x₀, Y − y₀)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.pointEquivDegreeOnePlace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/PointPlace.lean",
+         "line": 327,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.coe_pointEquivDegreeOnePlace_zero",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/PointPlace.lean",
+         "line": 335,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.coe_pointEquivDegreeOnePlace_mk",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/PointPlace.lean",
+         "line": 341,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.CoordinateRing.equationEquivDegreeOnePlace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/Place.lean",
+         "line": 191,
+         "fit": "more general"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.CoordinateRing.pointPlace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/Place.lean",
+         "line": 119,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated with [W.IsElliptic], as the roadmap asks."
+      },
+      {
+       "target": "Divisor group on places, deg, div f for f ≠ 0 with deg (div f) = 0",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.principal",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Principal.lean",
+         "line": 134,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Divisor.degree_principal",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean",
+         "line": 234,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Divisor.degreeClass",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean",
+         "line": 263,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Divisor.ker_degreeClass_eq_picZero",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean",
+         "line": 278,
+         "fit": "more general"
+        }
+       ],
+       "note": "General function-field divisor calculus (Divisor/Principal.lean, Divisor/ProductFormula.lean), specialised to W.FunctionField through W.isFunctionField."
+      },
+      {
+       "target": "Class-group anchor: Point.toClass_surjective and toClassEquiv with no ellipticity hypothesis, and the points as degree-0 divisor classes",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.toClass_surjective",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/ToClass.lean",
+         "line": 655,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.toClassEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/ToClass.lean",
+         "line": 672,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.pointEquivDegreeZeroDivisorClass",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/DivisorClass.lean",
+         "line": 79,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.val_pointEquivDegreeZeroDivisorClass_some",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/DivisorClass.lean",
+         "line": 88,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.degreeOneAddEquivDegreeZeroClassGroup",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Elliptic.lean",
+         "line": 258,
+         "fit": "more general"
+        }
+       ],
+       "note": "toClass_surjective carries no smoothness or ellipticity hypothesis. pointEquivDegreeZeroDivisorClass sends P to the class of (P) − (O). The roadmap treats toClass_surjective as a Mathlib-track item still to land; it is already in Tau Ceti."
+      },
+      {
+       "target": "Principal-divisor characterisation (AEC III.3.4–5): Σ nᵢPᵢ is principal iff deg = 0 and Σ[nᵢ]Pᵢ = O",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.exists_principal_zsmul_pointPlace_sub_infinity",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/TorsionDivisor.lean",
+         "line": 42,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Divisor.divisorClass_eq_zero_iff",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Principal.lean",
+         "line": 196,
+         "fit": "related"
+        }
+       ],
+       "note": "The characterisation follows from the additive equivalence pointEquivDegreeZeroDivisorClass but is not stated as a theorem. Only the n(T) − n(O) instance for an n-torsion point T is stated."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+       "note": "Builds the general Place k F carrier, valuation rings, ord and degree of which this layer uses the elliptic case."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+       "note": "Owns the general divisor group, principal divisors and the product formula deg (div f) = 0 used here."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+       "note": "Owns P′ ∣ P, e, f and the fundamental identity Σ e·f = [F′ : F] with no separability hypothesis, which is this layer's inducedPlace bullet in general form."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
+       "note": "Its elliptic-function-field milestones name the same Dedekind coordinate ring, point–place dictionary and Cl⁰ ≅ ClassGroup W.CoordinateRing triangle as this layer."
+      },
+      {
+       "layer": "FunctionFieldArithmetic:FA.1",
+       "note": "Also constructs divisors with residue-degree-weighted degree and the principal divisor product formula for function fields."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-05-base-change-galois-actions-translations-and-descent-cross-cutting": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Base change of Weierstrass equations, coordinate rings, function fields, points and isogenies, compatible with identity, composition and MapsInfinity",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.baseChange",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+         "line": 236,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.CoordinateRing.map_bijective",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/CoordinateRingMap.lean",
+         "line": 109,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.FunctionField.map_comp_map",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Map.lean",
+         "line": 150,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.mapAlong",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/MapAlong.lean",
+         "line": 84,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.map",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/BaseChange.lean",
+         "line": 212,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib has base change of equations and points (WeierstrassCurve.Affine.Point.map, Point.baseChange). Tau Ceti adds FunctionField.map with map_id and map_map, CoordinatePullback.MapsInfinity.map, and Isogeny.map with id_map, comp_map and map_map."
+      },
+      {
+       "target": "Base-change compatibility with degree, separability, duals and induced point maps",
+       "library": "absent",
+       "declarations": [],
+       "note": "Isogeny/BaseChange.lean has no degree or separability statement; duals and induced point maps do not exist yet."
+      },
+      {
+       "target": "Galois actions on coefficients, functions, points, places, divisors and isogenies",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.map",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+         "line": 231,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.map",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+         "line": 824,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.map_frobeniusAlgHom_eq_self_iff_mem_range_baseChange",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/FrobeniusFixed.lean",
+         "line": 108,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib's functorial maps along algebra homomorphisms give the action on coefficients and points. No packaged Galois action on functions, places, divisors or isogenies was found."
+      },
+      {
+       "target": "Function-field pullbacks of the translations τ_P, with the action and composition laws",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.translation",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Translation/Basic.lean",
+         "line": 274,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.translation_add",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Translation/Basic.lean",
+         "line": 309,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.translation_zero",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Translation/Basic.lean",
+         "line": 303,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.translationHom",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Translation/Basic.lean",
+         "line": 314,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.translationHom_injective",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Translation/Basic.lean",
+         "line": 366,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Fixed-field theorem for the translation action of a finite subgroup (input to the dual isogeny)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.finrank_translationFixedField",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Translation/FixedField.lean",
+         "line": 161,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.isGalois_translationFixedField",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Translation/FixedField.lean",
+         "line": 155,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.fixingSubgroup_translationFixedField",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Translation/FixedField.lean",
+         "line": 171,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.card_translationFixingSubgroup_eq_finrank_iff_isGalois_and_forall_exists_translation",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Translation/FixedField.lean",
+         "line": 334,
+         "fit": "more general"
+        }
+       ],
+       "note": "K(W) is Galois over the fixed field of a finite Φ, of degree #Φ, with Galois group exactly the translations by Φ."
+      },
+      {
+       "target": "Descent of function-field maps from Kˢᵉᵖ to K by a Galois-equivariance criterion",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.VariableChange.exists_baseChange_eq_of_map_eq",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/GaloisDescent.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.exists_baseChange_eq_of_map_eq",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/GaloisDescent.lean",
+         "line": 84,
+         "fit": "related"
+        }
+       ],
+       "note": "Only descent of variable changes and points along a quadratic extension exists (GaloisDescent.lean)."
+      },
+      {
+       "target": "Descent of the symmetric Vélu coefficients for Galois-stable finite subgroups",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Isogeny type (pullback + mapsInfinity), finiteness, deg ≥ 1, separable and inseparable degrees, identity and composition with deg (ψ ∘ φ) = deg ψ · deg φ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Basic.lean",
+         "line": 139,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.finiteDimensional",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Degree.lean",
+         "line": 124,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.degree_pos",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Degree.lean",
+         "line": 153,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.degree_comp",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Degree.lean",
+         "line": 190,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.separableDegree_mul_inseparableDegree",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Separability.lean",
+         "line": 143,
+         "fit": "exact"
+        }
+       ],
+       "note": "Also Isogeny.comp, Isogeny.id, separableDegree_comp and inseparableDegree_comp. The roadmap calls this bullet Mathlib-track; it is in Tau Ceti now."
+      },
+      {
+       "target": "Intermediate ring: integral closure of W₂.CoordinateRing in W₁.FunctionField, module-finite and integrally closed, locally free of rank deg φ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.intermediateRing",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Basic.lean",
+         "line": 143,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.isIntegralClosure_intermediateRing",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Basic.lean",
+         "line": 243,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.moduleFinite_intermediateRing_of_isDedekindDomain",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Finite.lean",
+         "line": 124,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.isIntegrallyClosed_intermediateRing",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/IntegrallyClosed.lean",
+         "line": 93,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.finrank_intermediateRing_eq_degree",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Rank.lean",
+         "line": 182,
+         "fit": "exact"
+        }
+       ],
+       "note": "Also isDedekindDomain_intermediateRing and moduleProjective_intermediateRing."
+      },
+      {
+       "target": "pushClass on class groups via extended relative norm (ClassGroup.extendedRelNormHom), and toPointHom : W₁.Point →+ W₂.Point",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Ideal.dvd_relNorm_iff_exists_liesOver_dvd",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/DedekindDomain/RelNorm.lean",
+         "line": 64,
+         "fit": "related"
+        }
+       ],
+       "note": "No pushClass, toPointHom or extendedRelNormHom was found. Only relative-norm lemmas (TauCeti/NumberTheory/DedekindDomain/RelNorm.lean) exist."
+      },
+      {
+       "target": "[n] for every n: both pullbacks, [m] ∘ [n] = [mn], additivity, compatibility with the point-group scalar multiplication, deg [n] = n²",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.mulByIntIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/MapsInfinity.lean",
+         "line": 98,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.mulByIntIsogeny_comp_mulByIntIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Comp.lean",
+         "line": 75,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.ofIsogeny_mulByIntIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Hom.lean",
+         "line": 49,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.zsmul_point_eq_smulEval",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/ZSMul.lean",
+         "line": 1013,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.degree_mulByIntIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Degree.lean",
+         "line": 67,
+         "fit": "exact"
+        }
+       ],
+       "note": "ofIsogeny_mulByIntIsogeny identifies [n] with n • id in the additive group Hom, which gives additivity. The division-polynomial form x ∘ [n] = φₙ/ψₙ² is fieldPullback_mulByIntIsogeny_X. Base-change compatibility of [n] is not stated."
+      },
+      {
+       "target": "q-power Frobenius π_q over 𝔽_q, purely inseparable of degree q, and deg (1 − π_q) = #E(𝔽_q)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.frobeniusIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Frobenius/Basic.lean",
+         "line": 106,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.degree_frobeniusIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Frobenius/Basic.lean",
+         "line": 149,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.isPurelyInseparable_frobeniusIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Frobenius/Basic.lean",
+         "line": 139,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.degree_oneSubFrobeniusIsogeny_eq_pointCount",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Degree.lean",
+         "line": 96,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.isSeparable_oneSubFrobeniusIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Separable.lean",
+         "line": 58,
+         "fit": "exact"
+        }
+       ],
+       "note": "deg (1 − π_q) = #E(𝔽_q) is proved against WeierstrassCurve.pointCount. Tau Ceti's STATUS.md (at 0430506) still lists it as missing."
+      },
+      {
+       "target": "Relative Frobenius: the twist W^(p) with coefficient description, F_{W/K} with its pullback and point formula, iterated twists and iterates",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.relativeFrobeniusIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/RelativeFrobenius.lean",
+         "line": 150,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.degree_relativeFrobeniusIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/RelativeFrobenius.lean",
+         "line": 213,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.iterateRelativeFrobeniusIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/RelativeFrobenius.lean",
+         "line": 275,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.degree_iterateRelativeFrobeniusIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/RelativeFrobenius.lean",
+         "line": 335,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.mapAlong_iterateFrobenius_some",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/MapAlong.lean",
+         "line": 174,
+         "fit": "exact"
+        }
+       ],
+       "note": "The twist is Mathlib's W.map (frobenius F p), consumed as the roadmap intends. Pure inseparability is an instance (isPurelyInseparable_relativeFrobeniusIsogeny)."
+      },
+      {
+       "target": "Base change of Frobenius twists and relative Frobenius; the factorisation φ = φ_sep ∘ F^r with uniqueness; Verschiebung with V ∘ F = F ∘ V = [p]",
+       "library": "absent",
+       "declarations": [],
+       "note": "RelativeFrobenius.lean lists all three as remaining."
+      },
+      {
+       "target": "Hom(W₁, W₂) carrier (zero map ⊔ isogenies), degree with deg 0 = 0, and the AddCommGroup (the sum of isogenies is an isogeny or zero)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.Hom",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
+         "line": 106,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.Hom.eq_zero_or_exists_ofIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
+         "line": 183,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.Hom.degree_eq_zero_iff",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
+         "line": 209,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.Hom.polePointsAddEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Add.lean",
+         "line": 218,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.Hom.ofIsogeny_add_ofIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Add.lean",
+         "line": 260,
+         "fit": "exact"
+        }
+       ],
+       "note": "The AddCommGroup instance is transported from points with a pole at infinity (Hom/Add.lean:204)."
+      },
+      {
+       "target": "End(E) a ring containing ℤ[π_q], with the rank dichotomy for ℤ[π_q]",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.Hom.mul_def",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
+         "line": 341,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.Hom.add_comp",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Add.lean",
+         "line": 282,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.Hom.instNontrivialEnd",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
+         "line": 350,
+         "fit": "related"
+        }
+       ],
+       "note": "End is only a MonoidWithZero with NoZeroDivisors (unnamed instances, Hom/Basic.lean:325, 336). Composition is additive in the outer argument only, so there is no ring structure and no ℤ[π_q]."
+      },
+      {
+       "target": "Degree as a positive-definite quadratic form on Hom: deg [n] = n², parallelogram law, bilinearity of deg (φ + ψ) − deg φ − deg ψ",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.Hom.degree_zsmul",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Hom.lean",
+         "line": 62,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Isogeny.Hom.degree_eq_zero_iff",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
+         "line": 209,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.Hom.degree_comp",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
+         "line": 272,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.QuadraticMap.ofParallelogram",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/OfParallelogram.lean",
+         "line": 185,
+         "fit": "related"
+        }
+       ],
+       "note": "Only homogeneity deg (n • f) = n² deg f and definiteness are present. The parallelogram law and bilinearity are missing. The generic packaging of a parallelogram-law function as a QuadraticMap ℤ, whose docstring names the degree form as a consumer, is ready (LinearAlgebra/QuadraticForm/OfParallelogram.lean)."
+      },
+      {
+       "target": "EndOver K E, GeometricEnd E, CMAction R E, HasGeometricCM, and End(E) of an ordinary curve over 𝔽_q is an order in ℚ(π_q)",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Aut(E, O) as the units of the endomorphism ring, identified with the stabiliser of the curve in VariableChange",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.autGroup",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Aut.lean",
+         "line": 212,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.autGroupMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Aut.lean",
+         "line": 222,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.Hom.isUnit_iff_degree_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Units.lean",
+         "line": 41,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.exists_comp_eq_id_and_comp_eq_id_of_degree_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Factorisation.lean",
+         "line": 118,
+         "fit": "related"
+        }
+       ],
+       "note": "Both sides exist separately: the stabiliser subgroup, and units of the End monoid characterised by degree one. No identification between them was found."
+      },
+      {
+       "target": "Factorisation theorem: ψ = λ ∘ φ for a unique isogeny λ iff ψ*K(W₃) ⊆ φ*K(W₂), with the zero case",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.existsUnique_comp_eq_iff_fieldRange_le",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Factorisation.lean",
+         "line": 80,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.Hom.zero_comp",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
+         "line": 226,
+         "fit": "related"
+        }
+       ],
+       "note": "The degree formula follows from Isogeny.degree_comp."
+      },
+      {
+       "target": "Vélu quotient W/Φ by a finite Galois-stable subgroup, the inseparable quotient W^(p), and exhaustiveness",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Dual isogeny φ̂ with φ̂ ∘ φ = [deg φ] and φ ∘ φ̂ = [deg φ], built via Kˢᵉᵖ base change and descent; MapsInfinity λ ↔ λ_*(O₂) = O₃; bilinearity; deg φ̂ = deg φ",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.CoordinatePullback.mapsInfinity_iff_isEquiv_comap_infinityPlace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/InfinityPlace.lean",
+         "line": 219,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.isEquiv_comap_infinityPlace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/InfinityPlace.lean",
+         "line": 146,
+         "fit": "exact"
+        }
+       ],
+       "note": "The unpointed induced-place criterion for MapsInfinity is present and is already used to package λ in the factorisation proof. The dual itself is absent."
+      },
+      {
+       "target": "[n]-surjectivity on Kˢᵉᵖ-points for n invertible in K (smul_surjective)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.card_ker_mulByIntIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/KernelCard.lean",
+         "line": 117,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Invariant differential ω = dx/(2y + a₁x + a₃): basis of Ω[F(W)/K], pullback via KaehlerDifferential, separability criterion, additivity (φ + ψ)*ω = φ*ω + ψ*ω, [n]*ω = n • ω, [n] separable iff char K ∤ n",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.invariantDifferentialBasis",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/InvariantDifferential.lean",
+         "line": 137,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.isSeparable_iff_pullbackDifferential_ne_zero",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Differential.lean",
+         "line": 179,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.Hom.pullbackDifferential_add_invariantDifferential",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Differential.lean",
+         "line": 116,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.pullbackDifferential_mulByIntIsogeny_invariantDifferential",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Separability.lean",
+         "line": 47,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.isSeparable_mulByIntIsogeny_iff",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Separability.lean",
+         "line": 56,
+         "fit": "exact"
+        }
+       ],
+       "note": "Tau Ceti's STATUS.md (at 0430506) still lists [n]*ω = n • ω as missing."
+      },
+      {
+       "target": "Translation-invariance of ω (AEC III.5.1)",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Separable ⟹ unramified: e_w = 1 at every place, so #fibre = deg over a separably closed field",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.card_ker_eq_degree_iff",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Kernel.lean",
+         "line": 163,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.ncard_primesOver_le_degree",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Rank.lean",
+         "line": 266,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.sum_ramificationIdx_mul_inertiaDeg_eq_degree",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Rank.lean",
+         "line": 239,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.card_ker_mulByIntIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/KernelCard.lean",
+         "line": 117,
+         "fit": "special case"
+        }
+       ],
+       "note": "The general statement is absent. #ker = deg is reduced to a fixed-field condition, and it is proved only for [n] over an algebraically closed field with n invertible."
+      },
+      {
+       "target": "Formal group (i): the elliptic formal group law as a Mathlib FormalGroup, and [m] on Ê",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.formalGroup",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Basic.lean",
+         "line": 58,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.isComm_formalGroup",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Basic.lean",
+         "line": 83,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.formalAdd_assoc",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Add/Assoc.lean",
+         "line": 657,
+         "fit": "exact"
+        }
+       ],
+       "note": "The law is present over any commutative ring. No [m]-series on Ê was found."
+      },
+      {
+       "target": "Formal group (ii): formal logarithm and exponential over a ℚ-algebra",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Formal group (iii): Ê(𝔪) as an honest group of points over a complete field",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.FormalGroupPoint",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/AdicPoint.lean",
+         "line": 69,
+         "fit": "more general"
+        },
+        {
+         "name": "WeierstrassCurve.FormalGroupPoint.instAddCommGroup",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/AdicPoint.lean",
+         "line": 133,
+         "fit": "more general"
+        },
+        {
+         "name": "WeierstrassCurve.formalPointHomAdicCompletion",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/AdicCompletion.lean",
+         "line": 264,
+         "fit": "special case"
+        }
+       ],
+       "note": "The group is built on any adic ideal of a complete linearly topologised ring. The map to curve points is given for adic completions of Dedekind domains (discretely valued case)."
+      },
+      {
+       "target": "Formal group (iv): Ê(𝔪) ≅ E₁(K), the kernel of reduction of an integral model",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.formalPointHomAdicCompletion_injective",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/AdicCompletion.lean",
+         "line": 283,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.range_formalPointHomAdicCompletion",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Range.lean",
+         "line": 158,
+         "fit": "related"
+        }
+       ],
+       "note": "The image is computed as the points whose x has a pole, i.e. the kernel of reduction without naming it. No reduction map on points and no E₁ exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+       "note": "Its field-level degree block (mulByInt_functionField_degree: [K(E) : [N]*K(E)] = N²) repeats this layer's deg [n] = n², which Tau Ceti already proves as Isogeny.degree_mulByIntIsogeny."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#2c-the-factorisation-dual",
+       "note": "Constructs the dual isogeny scheme-theoretically over a base, with φ̂ ∘ φ = [n] and φ ∘ φ̂ = [n], overlapping this layer's field-level dual."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#2f-endomorphism-degree-trace-and-rigidity",
+       "note": "Proves α̂ = [tr α] − α, the quadratic relation and (tr α)² ≤ 4 deg α over a base, overlapping this layer's degree form and the Katz–Mazur trace route it mentions."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
+       "note": "Item PD-3 builds relative Frobenius and Verschiebung with V ∘ F = p = F ∘ V for elliptic curves over a characteristic-p base."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#7c-formal-completion-at-the-zero-section",
+       "note": "Constructs the formal group of an elliptic curve over a complete local ring intrinsically, overlapping the formal-group milestones here."
+      },
+      {
+       "layer": "AbelianSchemesAndArithmeticModuli:A3",
+       "note": "Constructs isogenies, their duals and [n] of rank n^(2g) for abelian schemes, of which the elliptic dual and [n] are the g = 1 case."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "E[N] ≃+ (ZMod N)² over a separably closed field with char K ∤ N (torsion_addEquiv_prod), E[N] as Submodule.torsionBy",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.card_ker_mulByIntIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/KernelCard.lean",
+         "line": 117,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Isogeny.mem_ker_mulByIntIsogeny_iff",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Kernel.lean",
+         "line": 55,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.mem_range_baseChange_of_zsmul_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Torsion/AlgClosed.lean",
+         "line": 56,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the count #E[n] = n² over an algebraically closed field with n invertible is present. The group structure is absent."
+      },
+      {
+       "target": "Weil-pairing prerequisites: a function with divisor N(P) − N(O), moving a divisor within its class to disjoint support, and evaluation of a function on a divisor",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.exists_principal_zsmul_pointPlace_sub_infinity",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/TorsionDivisor.lean",
+         "line": 42,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.exists_linearlyEquivalent_disjoint_support",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/DisjointSupport.lean",
+         "line": 54,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Divisor.eval",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean",
+         "line": 118,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Divisor.eval_mul",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean",
+         "line": 283,
+         "fit": "more general"
+        }
+       ],
+       "note": "Tau Ceti's STATUS.md (at 0430506) still lists \"a function with divisor N(P) − N(O)\" as needed; it is at TorsionDivisor.lean:42. The divisor moving and evaluation lemmas are for general function fields."
+      },
+      {
+       "target": "Weil reciprocity f(div g) = g(div f), and independence of all function and divisor choices",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Weil reciprocity was found in either library."
+      },
+      {
+       "target": "Weil pairing e_N as an additive bilinear map into Additive (rootsOfUnity N K): alternating, nondegenerate, Galois-equivariant, e_N(φP, Q) = e_N(P, φ̂Q), functorial in the field",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Tate module T_ℓE = lim E[ℓⁿ], free of rank 2 over ℤ_ℓ, ℓ-adic Weil pairing, continuous Galois representation into Module.Aut ℤ_ℓ (T_ℓE), ℤ_ℓ(1) and det = cyclotomic character",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "cyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 307,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing",
+       "note": "Constructs e_N scheme-theoretically from Cartier–Nishi duality and compares it with this layer's equation-level weilPairing."
+      },
+      {
+       "layer": "AbelianSchemesAndArithmeticModuli:A3",
+       "note": "Constructs Weil pairings and Tate-module pairings for abelian schemes, the elliptic case being this layer's pairing."
+      },
+      {
+       "layer": "ArithmeticGaloisRepresentations:R01.6",
+       "note": "Constructs Tate modules of elliptic curves with rank, continuity and the Weil-pairing determinant, the same milestones as this layer's Tate-module bullet."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Finite (W.toAffine.Point) over a finite field",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.finite_point",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FinitePoint.lean",
+         "line": 53,
+         "fit": "more general"
+        }
+       ],
+       "note": "An instance over any finite commutative ring."
+      },
+      {
+       "target": "frobeniusTrace = #F + 1 − pointCount, with pointCount the projective count including the singular point and no IsElliptic hypothesis",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.pointCount",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+         "line": 69,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.frobeniusTrace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+         "line": 97,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.frobeniusTrace_eq_card_point",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+         "line": 111,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "pointCount W = #W.Point + 1 when Δ = 0 and = #W.Point otherwise (at most one singular point, automatically rational)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.pointCount_eq_card_point_add_one_iff",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/SingularPointCount.lean",
+         "line": 98,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.pointCount_eq_card_point",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+         "line": 82,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.exists_isSingular_of_Δ_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Singular.lean",
+         "line": 319,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.eq_of_isSingular_of_isSingular",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Singular.lean",
+         "line": 377,
+         "fit": "exact"
+        }
+       ],
+       "note": "The Δ = 0 case combines pointCount_eq_card_point_add_one_of_isSingular with exists_isSingular_of_Δ_eq_zero (perfect fields, so every finite field)."
+      },
+      {
+       "target": "frobeniusTrace returns 1, −1, 0 at split multiplicative, nonsplit multiplicative and additive reduction",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.localPolynomial",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 43,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's localPolynomial hard-codes these local factors but does not relate them to point counts."
+      },
+      {
+       "target": "IsSupersingular / IsOrdinary by E[p](Kˢᵉᵖ) = O; base-change invariance for arbitrary L/K via Verschiebung; the finite-field criterion p ∣ a_q and the other equivalences",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Hasse bound a_q² ≤ 4q (hasse_bound)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.degree_oneSubFrobeniusIsogeny_eq_pointCount",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Degree.lean",
+         "line": 96,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Matrix.sq_le_four_mul_of_exists_nonneg_pencil_det",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/PencilDiscriminant.lean",
+         "line": 100,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Matrix.sq_le_four_mul_of_exists_nonneg_symplectic_multiplier",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/PencilDiscriminant.lean",
+         "line": 125,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.QuadraticMap.ofParallelogram",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/OfParallelogram.lean",
+         "line": 185,
+         "fit": "related"
+        }
+       ],
+       "note": "deg (1 − π_q) = #E(𝔽_q) is present. The ported HasseWeil endgame t² ≤ 4q is proved with the ℓ-torsion matrix data (determinants or symplectic multipliers of deg(rπ − s)) as a hypothesis; supplying it needs the Weil pairing. The degree-form route lacks the parallelogram law."
+      },
+      {
+       "target": "Point-level counterparts: Frobenius induces (x, y) ↦ (x^q, y^q); kernel cardinality = degree on the separable locus",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.map_translation_tautologicalPoint_frobeniusIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Frobenius/Translation.lean",
+         "line": 37,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.card_ker_oneSubFrobeniusIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Kernel.lean",
+         "line": 83,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Isogeny.card_ker_eq_degree_iff",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Kernel.lean",
+         "line": 163,
+         "fit": "related"
+        }
+       ],
+       "note": "The kernel count is proved for 1 − π_q only; the general separable statement is absent."
+      },
+      {
+       "target": "Zeta function Z(E/𝔽_q, T): count identity with the π_qⁿ-fixed-point model, Frobenius identities π ∘ π̂ = [q] and π + π̂ = [a_q], trace recursion, rationality, functional equation, RH",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.ncard_setOf_map_frobeniusAlgHom_eq_self",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/FrobeniusFixed.lean",
+         "line": 139,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.FiniteField.pow_card_eq_self_iff_mem_range_algebraMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/Finite/FrobeniusFixed.lean",
+         "line": 72,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries.exp",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Exp.lean",
+         "line": 49,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the fixed-point count is present: the q-power map fixes exactly #E(K) of the points over an extension. No zeta function, dual Frobenius or trace recursion."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "WeilConjectures:WC.5",
+       "note": "Proves the general curve point-count bound and recovers the elliptic Hasse bound as a compatibility theorem with this layer's route."
+      },
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.1",
+       "note": "Proves Weil's eigenvalue bound for curves and abelian varieties over finite fields, of which the Hasse bound is the genus-one case."
+      },
+      {
+       "layer": "FunctionFieldArithmetic:FA.5",
+       "note": "Constructs the curve zeta function over 𝔽_q with its rationality, covering this layer's zeta strand in general genus."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
+       "note": "Defines EllipticCurve.IsSupersingular and ordinarity scheme-theoretically via the connected–étale sequence of E[p]."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "HasPotentialGoodReduction over a complete DVR (good reduction of a minimal model after a finite extension), with the j-integrality criterion AEC VII.5.5 as a theorem",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.HasGoodReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 325,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's good/multiplicative/split/additive reduction classes and WeierstrassCurve.minimal, which the layer consumes as they stand, exist."
+      },
+      {
+       "target": "localMinimalDiscriminant: the ideal of Δ of a local minimal model, independence of the minimal model, v(Δ_min), and v(Δ) = v(Δ_min) + 12·f_v for integral models",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.valuation_Δ_eq_of_isMinimal_smul",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MinimalModel.lean",
+         "line": 163,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.valuation_u_eq_one_of_isMinimal_smul",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MinimalModel.lean",
+         "line": 181,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.exists_isMinimal",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 287,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.valuation_Δ_aux",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 259,
+         "fit": "related"
+        }
+       ],
+       "note": "Two minimal models have equal v(Δ), which is the independence statement. The ideal and the 12·f_v comparison are absent."
+      },
+      {
+       "target": "HasGoodOrdinaryReduction and HasGoodSupersingularReduction (finite residue field), with the dichotomy, trace compatibility and unramified base change",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Reduction map on points via projective coordinates; E₀(K), E₁(K); 0 → E₁ → E₀ → Ẽ_ns(k) → 0; Ê(𝔪) ≅ E₁(K)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.range_formalPointHomAdicCompletion",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Range.lean",
+         "line": 158,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.valuation_xCoord_le_one_and_valuation_yCoord_le_one_of_notMem_range",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Range.lean",
+         "line": 178,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.valuation_x_le_one_and_valuation_y_le_one_of_valuation_x_lt_exp_two",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/ValuationIntegrality.lean",
+         "line": 324,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.reduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 318,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib reduces the curve, not points. Tau Ceti identifies the formal-group image with the points whose x has a pole, and shows the others are integral. The point reduction map, E₀ and the exact sequence are absent."
+      },
+      {
+       "target": "Néron–Ogg–Shafarevich: (i) good reduction iff unramified T_ℓ (ℓ ≠ char k); (ii) potential good reduction iff finite inertia image; (iii) under potential good reduction, the E[N] criterion for N ≥ 3",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Tate's algorithm: ReductionSymbol, termination, disjointness, invariance, residue-polynomial and split/nonsplit tests, Ogg exponent v(Δ) − m + 1, c_p = [E(K) : E₀(K)]",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.splits_nodePolynomial_map_iff_isSquare",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/NodePolynomial.lean",
+         "line": 209,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.isMinimal_of_valuation_c₄_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MinimalModel.lean",
+         "line": 131,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.HasSplitMultiplicativeReduction.of_isMinimal_smul",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MinimalModel.lean",
+         "line": 210,
+         "fit": "related"
+        }
+       ],
+       "note": "Only fragments are present: the node-polynomial splitting test behind the split/nonsplit decision, and the unit-c₄ minimality criterion. The algorithm, symbols, exponent and c_p are absent."
+      },
+      {
+       "target": "Tate curve E_q over a complete rank-1 valued field: q-series over ℤ⟦q⟧ with divisibility by 12, L^×/q^ℤ ≅ E_q(L) compatible in L and Galois-equivariant, Δ(q), j(q), v(Δ) = v(q), split multiplicative reduction",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+       "note": "Proves Néron–Ogg–Shafarevich for abelian varieties, which contains this layer's elliptic statements."
+      },
+      {
+       "layer": "ModularCurvesPartII:R13.3",
+       "note": "Builds the Tate curve in the generalised-elliptic setting with its q-expansion comparison, overlapping the Tate-curve q-series constructed here."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+       "note": "Builds the Tate curve over ℤ[1/N]((q)) as its own milestone and states that this layer's point-level Tate uniformisation is not its supplier."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-45a-invariant-theory-over-a-dedekind-domain-aec-viii8": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Localisation instances: Algebra, IsScalarTower and IsFractionRing relating Localization.AtPrime v.asIdeal to an arbitrary fraction field K",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsFractionRing.isFractionRing_of_isDomain_of_isLocalization",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Localization/LocalizationLocalization.lean",
+         "line": 278,
+         "fit": "related"
+        },
+        {
+         "name": "IsLocalization.AtPrime.isDiscreteValuationRing_of_dedekind_domain",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/Dvr.lean",
+         "line": 112,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib provides the instance only for K = FractionRing O. The theorem above gives IsFractionRing once the Algebra and IsScalarTower instances are supplied; those instances are not."
+      },
+      {
+       "target": "IsGlobalMinimal (with integrality over O as a theorem), IsSemiGlobalMinimal (disjunction form), IsSharpSemiGlobalMinimalAt",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "minimalDiscriminantIdeal with model independence; for integral W, (Δ W) = 𝔇 iff W is globally minimal",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Obstruction exponents f_v, defect ideal 𝔍_W, weierstrassDefectClass, (Δ W) = 𝔇 · 𝔍_W¹², globalMinimalityClass, weierstrassClass and weierstrassClass_eq_inv_weierstrassDefectClass, with a worked principal-𝔇 example",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "IsReducedMinimal over ℚ (global minimality plus a₁, a₃ ∈ {0, 1}, a₂ ∈ {−1, 0, 1})",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "IsSemistable: invariance, local criterion v(Δ) = 0 ∨ v(c₄) = 0 on a minimal model, unramified base change, only Iₙ occurs",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.isMinimal_of_valuation_c₄_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MinimalModel.lean",
+         "line": 131,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.badPrimes",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/BadPrimes.lean",
+         "line": 114,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-45b-global-equation-construction-over-a-number-field": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Kraus local criterion: HasKrausThreeWitness, HasKrausTwoWitness, KrausLocalCondition, krausLocalCondition_iff_exists_integralModel, krausLocalCondition_of_not_dvd_six",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.VariableChange.exists_baseChange_eq_of_smul_eq",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/IntegralModel.lean",
+         "line": 172,
+         "fit": "related"
+        }
+       ],
+       "note": "Only integrality descent for a change of variables between two integral models with unit scaling exists (IntegralModel.lean)."
+      },
+      {
+       "target": "Finite approximation: 𝓞K → ∏_{v ∈ T} 𝓞K / v^{n_v} is surjective for distinct primes, with the comparison to localisation quotients",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "IsDedekindDomain.exists_representative_mod_finset",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+         "line": 960,
+         "fit": "more general"
+        },
+        {
+         "name": "IsDedekindDomain.quotientEquivPiOfFinsetProdEq",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+         "line": 950,
+         "fit": "more general"
+        },
+        {
+         "name": "IsDedekindDomain.exists_forall_sub_mem_ideal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+         "line": 971,
+         "fit": "more general"
+        },
+        {
+         "name": "IsLocalization.AtPrime.equivQuotMaximalIdealPow",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Localization/AtPrime/Basic.lean",
+         "line": 614,
+         "fit": "exact"
+        }
+       ],
+       "note": "The roadmap plans to own this in TauCeti/NumberTheory/DedekindDomain/FiniteApproximation.lean. Mathlib already has it for any Dedekind domain (Ideal/Lemmas.lean:960–978), and equivQuotMaximalIdealPow gives R ⧸ p^n ≃ₐ Rₚ ⧸ 𝔪^n."
+      },
+      {
+       "target": "Global Kraus construction: patch a₁, a₃, b₂ residues (with b₂ ≡ a₁² mod 4), set s = a₁/2, r = b₂/12, t = a₃/2; KrausGlobalCondition and krausGlobalCondition_iff_exists_integralModel",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Patching local minimal changes of variables (AEC VIII.8.2 route)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.exists_isMinimal",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 287,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Global-minimality equivalence over 𝓞K: globalMinimalityClass = 1 iff a global minimal integral equation exists; class number one implies existence",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Existence and uniqueness of the reduced minimal equation over ℚ (existsUnique_reducedMinimal)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Rat.classNumber_eq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+         "line": 218,
+         "fit": "related"
+        },
+        {
+         "name": "Rat.ringOfIntegersEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Basic.lean",
+         "line": 430,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "External contract NumberField.exists_primeIdeal_mk_eq_avoiding (every ideal class has a prime outside a finite set)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.NarrowClassGroup.exists_mk0_eq_and_isCoprime",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/CoprimeRepresentative.lean",
+         "line": 138,
+         "fit": "related"
+        }
+       ],
+       "note": "Outside the roadmap by its own statement. Tau Ceti has only coprime (not prime) narrow-class representatives, and its Chebotarev development does not yet give the prime version."
+      },
+      {
+       "target": "Sharp construction at a representative prime v₀ ∤ 6: 𝔍_W = (u)v₀ and KrausGlobalCondition give C with IsSharpSemiGlobalMinimalAt",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "General pointed twists: the type of twists, Aut(E_{Kˢᵉᵖ}, O) with its continuous Galois action, cocycle extraction, effective descent, the H¹ classification (stretch) and its continuous nonabelian H¹ prerequisite",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.exists_smul_eq_or_exists_smul_eq_quadraticTwist",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 717,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.map_quadraticTwistVariableChange",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 631,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.VariableChange.exists_baseChange_eq_of_map_eq",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/GaloisDescent.lean",
+         "line": 57,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only the case split by one quadratic extension L with j ∉ {0, 1728} is present: the cocycle [−1] and descent of variable changes along L/K. No continuous nonabelian H¹ was found in either library."
+      },
+      {
+       "target": "Every pointed isomorphism of Weierstrass models over a field is a VariableChange",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.exists_comp_eq_id_and_comp_eq_id_of_degree_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Factorisation.lean",
+         "line": 118,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Aut(E, O) ≅ {±1} for j ∉ {0, 1728}",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.autGroupMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Aut.lean",
+         "line": 222,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.autGroup",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Aut.lean",
+         "line": 212,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.eq_one_or_eq_negVariableChange_of_smul_eq",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Aut.lean",
+         "line": 178,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Quadratic twists classified by K^×/(K^×)² (char ≠ 2) and by K/℘(K) (char 2)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.exists_smul_eq_or_exists_smul_eq_quadraticTwist",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 717,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the classification for a fixed extension L is present, not the parametrisation by square classes or Artin–Schreier classes."
+      },
+      {
+       "target": "quadraticTwistOf E t n over any commutative ring: invariants scale by D, elliptic iff D is a unit (over a field D ≠ 0), same j",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.quadraticTwistOf",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 163,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Δ_quadraticTwistOf",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 233,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.c₄_quadraticTwistOf",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 223,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.isElliptic_quadraticTwistOf_iff",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 277,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.j_quadraticTwistOf",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 284,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "quadraticTwist E L for a separable quadratic L/K, with j(E^L) = j(E)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.quadraticTwist",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 451,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.j_quadraticTwist",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 478,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.exists_quadraticTwist_eq",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 462,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.not_exists_smul_quadraticTwist_eq",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 657,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Point isomorphism E^L(M) ≅ E(M) for every field M ⊇ L (e.g. M = Kˢᵉᵖ), Galois anti-equivariant by the quadratic character",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.quadraticTwistPointEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 809,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.quadraticTwistPointEquiv_map",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 861,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.quadraticTwistPointEquiv_map_eq_neg_map_of_not_fixed",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 889,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.quadraticTwistPointEquiv_map_eq_quadraticCharacter_smul_map",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 926,
+         "fit": "exact"
+        },
+        {
+         "name": "Algebra.IsQuadraticExtension.quadraticCharacter",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/Galois/Basic.lean",
+         "line": 109,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated for any field M in a tower K ⊆ L ⊆ M, which is the general-M target the roadmap says is not yet available."
+      },
+      {
+       "target": "Nonsplit multiplicative reduction becomes split after a separable quadratic twist (exists_quadraticTwist_hasSplitMultiplicativeReduction)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.HasSplitMultiplicativeReduction.of_isMinimal_smul",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MinimalModel.lean",
+         "line": 210,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.isMinimal_of_valuation_c₄_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MinimalModel.lean",
+         "line": 131,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.splits_nodePolynomial_map_iff_isSquare",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/NodePolynomial.lean",
+         "line": 209,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.nodePolynomial_coeff_zero_quadraticTwistOf",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 249,
+         "fit": "related"
+        }
+       ],
+       "note": "MinimalModel.lean presents these as the ingredients; the headline theorem is absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Mordell–Weil: AddGroup.FG (W.toAffine.Point) over a number field (fg_point_of_numberField)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.fg_point_of_numberField",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean",
+         "line": 129,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.fg_point",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean",
+         "line": 90,
+         "fit": "more general"
+        }
+       ],
+       "note": "fg_point is the Dedekind-fraction-field version with Northcott absolute values."
+      },
+      {
+       "target": "Weak Mordell–Weil by the x − θ Kummer map into A(S, 2), finiteness of A(S, 2), and discharge of Mathlib's K(S, n) finiteness TODO",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.finiteIndex_range_nsmulAddMonoidHom_two",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/WeakMordellWeil.lean",
+         "line": 94,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.finite_selmerGroupA",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroupA.lean",
+         "line": 149,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.range_μ_le_selmerGroupA",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroupA.lean",
+         "line": 219,
+         "fit": "exact"
+        },
+        {
+         "name": "IsDedekindDomain.selmerGroup.finite",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/SelmerGroup/Basic.lean",
+         "line": 362,
+         "fit": "exact"
+        },
+        {
+         "name": "IsDedekindDomain.finite_selmerGroup_of_numberField",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/SelmerGroup/NumberField.lean",
+         "line": 44,
+         "fit": "exact"
+        }
+       ],
+       "note": "The TODO \"proofs of finiteness for global fields\" in Mathlib/RingTheory/DedekindDomain/SelmerGroup.lean is discharged in TauCeti/RingTheory/DedekindDomain/SInteger/SelmerGroup."
+      },
+      {
+       "target": "Naïve x-height WeierstrassCurve.Affine.Point.naiveHeight, approximate parallelogram law, Northcott finiteness",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.naiveHeight",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/NaiveHeight.lean",
+         "line": 91,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.approx_parallelogram_law",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/NaiveHeight.lean",
+         "line": 146,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.finite_naiveHeight_le",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/NaiveHeight.lean",
+         "line": 186,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.abs_logHeight_addSubMap_sub_two_mul_logHeight_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/EllipticCurve.lean",
+         "line": 45,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's Height/EllipticCurve.lean still has only the addSubMap estimate, with the height itself as a TODO."
+      },
+      {
+       "target": "Canonical height ĥ as a proved limit with bounded difference from h, quadraticity, nonnegativity, ĥ = 0 ↔ torsion, pinned to ĥ(P) = lim h(x(nP))/n²",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 124,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.tendsto_naiveHeight_two_pow_nsmul_div_four_pow",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 166,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.abs_canonicalHeight_sub_naiveHeight_le",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 196,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight_parallelogram_law",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 211,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight_eq_zero_iff_isOfFinAddOrder",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 338,
+         "fit": "exact"
+        }
+       ],
+       "note": "All the properties are proved, but for the other normalisation: Tau Ceti defines ĥ = lim h(2ⁿP)/(2·4ⁿ), half of the roadmap's pinned lim h(x(nP))/n². The regulator below inherits that factor."
+      },
+      {
+       "target": "Néron–Tate pairing and regulator as a Gram determinant, basis-independent, with Reg = 1 in rank 0",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.neronTatePairing",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 374,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.neronTateGramMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/PointModTorsion.lean",
+         "line": 129,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.regulator",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+         "line": 91,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.abs_det_neronTateGramMatrix_basis_change",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+         "line": 78,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+         "line": 104,
+         "fit": "exact"
+        }
+       ],
+       "note": "Uses Tau Ceti's ĥ normalisation (see the previous target)."
+      },
+      {
+       "target": "Isogeny compatibility ĥ_{E′}(φP) = deg φ · ĥ_E(P)",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Explicit 2-descent: local conditions, the explicit 2-Selmer group in square classes of K[X]/(f), its finiteness, the rank bound, and the y² = x³ − x + 1 acceptance test",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.selmerGroup₂",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+         "line": 104,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.localCondition",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/LocalCondition.lean",
+         "line": 257,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.range_μ_le_selmerGroup₂",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+         "line": 120,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.pow_rank_le_card_of_range_μ_le",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+         "line": 142,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.mem_selmerGroupA_of_forall_localRes",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SemilocalComparison.lean",
+         "line": 418,
+         "fit": "related"
+        }
+       ],
+       "note": "Finiteness is proved for A(S, 2) but not stated for selmerGroup₂, and the rank computation for y² = x³ − x + 1 was not found."
+      },
+      {
+       "target": "Finiteness of E(K)_tors as a corollary of Mordell–Weil",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.finite_torsion",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean",
+         "line": 74,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Nagell–Lutz over ℚ: long integral model (integral unless order 2, then 4x, 8y ∈ ℤ, with the discriminant companion) and short model (x, y ∈ ℤ and y = 0 or y² ∣ Δ)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.isInteger_or_order_two_of_torsion_rat",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/NagellLutz.lean",
+         "line": 271,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.isInteger_four_mul_x_and_eight_mul_y_of_order_two",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/NagellLutz.lean",
+         "line": 179,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.evalEval_ψ₂_eq_zero_or_sq_dvd_four_mul_Δ_rat",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Torsion/Discriminant.lean",
+         "line": 248,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.lutz_nagell",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/ShortNagellLutz.lean",
+         "line": 151,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Formal-group integrality refinement: every prime in a coordinate denominator appears to order ≥ 2",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.sq_dvd_den_of_prime_of_dvd",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Denominator.lean",
+         "line": 141,
+         "fit": "more general"
+        }
+       ],
+       "note": "Proved over the fraction field of any UFD by an elementary argument, not via Layer 4's filtration."
+      },
+      {
+       "target": "Reduction-injectivity E(ℚ)_tors ↪ Ẽ_ns(𝔽_p) for good odd p (prime-to-p torsion in general)",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.0",
+       "note": "Constructs canonical heights and the Néron–Tate pairing on abelian varieties, which contain this layer's elliptic canonical height."
+      },
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.1",
+       "note": "Proves weak Mordell–Weil and finite generation for abelian varieties by Kummer maps and descent, with an elliptic 2-descent as its acceptance test."
+      },
+      {
+       "layer": "GrossZagierAndArithmeticHeights:GZ.1",
+       "note": "Builds canonical heights, isogeny pullback and the torsion zero locus on abelian varieties, and compares its dimension-one case with this layer's height."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Forced-discrete cohomology constructor (open-stabiliser action on a bare abelian group, discrete topology imposed), with the finite-Galois-quotient colimit comparison",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ofDiscreteModule",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 226,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.IsSmoothDiscrete",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 254,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitFiniteQuotientColimit1",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Colimit.lean",
+         "line": 493,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContCohomology.DiscreteShortExact",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/ShortExact.lean",
+         "line": 181,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has continuous cohomology of discrete modules and the colimit description in degrees 0 and 1. But ofDiscreteModule requires [DiscreteTopology M] on an existing topology rather than imposing it, so the forced-discrete wrapper is not there."
+      },
+      {
+       "target": "Selmer structures 𝓕 on a discrete G_K-module (local conditions, unramified almost everywhere) and Sel_𝓕(M/K) ⊆ H¹(K, M)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsDedekindDomain.selmerGroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/SelmerGroup.lean",
+         "line": 163,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "m-descent: Kummer sequence for [m], 0 → E(K)/mE(K) → Sel_m(E/K) → Ш(E/K)[m] → 0, finiteness of Sel_m (AEC X.4.2)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.kummerMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 187,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.kummerClassMap_injective",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 298,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.pow_rank_le_card_of_range_μ_le",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+         "line": 142,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the Kummer map for μₙ ⊆ (Kˢ)ˣ and the explicit étale-algebra 2-descent of Layer 6 exist."
+      },
+      {
+       "target": "Ш(E/K) and the Weil–Châtelet group WC(E/K) = H¹(G_K, E(Kˢᵉᵖ))",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Local–global interface: places and completions, Kˢᵉᵖ → K_vˢᵉᵖ embeddings up to conjugacy, restriction maps, local Kummer maps, unramified local cohomology, the set S, and finiteness of H¹(G_{K,S}, E[m])",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Stretch: BSD quotient assuming Ш finite, and Cassels' isogeny invariance with its prerequisites (isogeny Selmer groups, local Tate duality, equal local Euler factors)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.regulator",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+         "line": 91,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.localEulerFactor",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 57,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Real period Ω(E) = 2∫ dx/√D_W(x) via lintegral on the reduced global minimal model over ℚ",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "Statement-only BSD over ℚ, with the analytic continuation of the actual Dirichlet series as hypothesis",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.LFunction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.LSeries",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 84,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines the formal L-function and L-series of a Weierstrass curve over a number field."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SelmerIwasawaCohomology:L2",
+       "note": "Defines local conditions and Selmer groups for general Galois modules, the general-module Selmer structure this layer sets up first."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
+       "note": "Owns discrete G-modules and their openness properties, the coefficient theory behind this layer's forced-discrete constructor."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+       "note": "Owns the colimit over finite quotients that this layer lists as its constructor's API."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+       "note": "Owns the absolute Galois group interface and Kummer theory, part of this layer's Galois-specific packaging."
+      },
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.1",
+       "note": "Constructs Kummer maps and Selmer groups for isogenies of abelian varieties, which contain the elliptic m-Selmer groups here."
+      },
+      {
+       "layer": "RankZeroOneBSD:BSD.5",
+       "note": "Proves isogeny invariance of the BSD defect using the arithmetic quotient and equality of all L-factors, overlapping this layer's Cassels stretch goal."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "IsMinimalPairNF on WeierstrassCurve ℤ, bundled MinimalPairModel, exists_minimalPairModel and minimalPairModel_unique",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.IsShortNF",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/NormalForms.lean",
+         "line": 185,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.shortCurve",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/ShortWeierstrass.lean",
+         "line": 81,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "shortEquationHeight, naiveHeight E on the minimal-pair model, naiveHeight_eq, naiveHeight_variableChange, bounded-height finiteness of minimal-pair equations, relation to Δ = −16(4A³ + 27B²)",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "abcQuality E under j ∉ {0, 1728}, depending only on j",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "UniqueFactorizationMonoid.radical",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Radical/Basic.lean",
+         "line": 148,
+         "fit": "related"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "szpiroRatio (N > 1) and the Szpiro, modified Szpiro and abc conjecture statements against the algorithmic conductor",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Polynomial.abc",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/FLT/MasonStothers.lean",
+         "line": 55,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has only the polynomial abc (Mason–Stothers)."
+      },
+      {
+       "target": "Implications: modified Szpiro ⟹ Szpiro ⟹ abc with exponent 3/2; abc ⟹ modified Szpiro; the semistable algorithmic–Artin conductor comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "asymptoticFermat from Szpiro via the Frey curve",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      },
+      {
+       "target": "integralPoints W for integral W: stability under negation, bijection under u = ±1 integral changes, decidable bounded search",
+       "library": "absent",
+       "declarations": [],
+       "note": ""
+      }
+     ],
+     "duplicates": []
+    }
+   }
   }
  }
 }
