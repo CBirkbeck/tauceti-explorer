@@ -65,6 +65,13 @@
     "checked": "statement read at the pinned commit"
    },
    {
+    "ref": "mathlib:AlgebraicTopology.singularHomologyFunctor",
+    "kind": "def",
+    "module": "Mathlib/AlgebraicTopology/SingularHomology/Basic.lean",
+    "provides": "Singular homology in degree n with coefficients in an object of a category with homology.",
+    "checked": "statement read at the pinned commit (via the baseline search report)"
+   },
+   {
     "ref": "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq",
     "kind": "theorem",
     "module": "Mathlib/Analysis/Analytic/Uniqueness.lean",
@@ -429,6 +436,13 @@
     "checked": "statement read at the pinned commit"
    },
    {
+    "ref": "tauceti:TauCeti.CoveringSpace.monodromyEquivalence",
+    "kind": "def",
+    "module": "TauCeti/AlgebraicTopology/UniversalCover/Classification/MonodromyEquivalence.lean",
+    "provides": "Covering spaces of a path-connected, locally path-connected, semilocally simply connected space ≌ functors from the fundamental groupoid to types.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
     "ref": "tauceti:TauCeti.LocalCoefficientSystem.monodromyRepresentation",
     "kind": "def",
     "module": "TauCeti/AlgebraicTopology/LocalCoefficient.lean",
@@ -503,6 +517,9 @@
    "url": "https://pagine.dm.unipi.it/~a019210/Farb%20Magalit_Primer%20on%20Teichmuller%20theory.pdf",
    "sha256": "46c4cc848134ba38d6e7fe15462aac3069796db23b0e34a50a9018773d7fc7f2",
    "readSections": [
+    "§1.1 Theorem 1.1 (classification of surfaces) and the conventions following it (pp. 18–19)",
+    "§1.3 The change of coordinates principle (pp. 38–43)",
+    "§3.1.1 Dehn twists and their action on curves, Facts 3.6–3.9 (pp. 64–75)",
     "§3.6.2 Proposition 3.19 (pp. 89–90)",
     "§4.2 Theorem 4.6, Fact 4.7 and the proof (pp. 101–105)",
     "§6.2 Proposition 6.2 (p. 173)",
@@ -4429,6 +4446,735 @@
     "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Crystalline/Finiteness",
     "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
    }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.5/surface",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.5",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.5"
+   ],
+   "title": "Surfaces with boundary and punctures",
+   "kind": "definition",
+   "statement": "A surface is the complement S = Σ ∖ P of a finite set P of interior points in a compact connected oriented topological 2-manifold Σ with (possibly empty) boundary. Its type (g, b, n) consists of the genus g of the closed surface obtained by capping the boundary circles of Σ with disks, the number b of boundary circles and the number n = #P of punctures, and χ(S) = 2 − 2g − b − n. A simple closed curve is the image of a topological embedding S¹ → S ∖ ∂S, oriented by the orientation of S¹; it is separating if its complement is disconnected. H₁(S; ℤ) carries the algebraic intersection form î (the intersection pairing of Poincaré–Lefschetz duality restricted to absolute classes), which is alternating and, when b + n ≤ 1, perfect.",
+   "hypotheses": [
+    "Σ compact connected oriented 2-manifold with boundary",
+    "P finite subset of the interior"
+   ],
+   "proofSteps": [
+    "Define the type from the classification of compact surfaces (next node) applied to Σ with its boundary circles capped.",
+    "Define î through Poincaré–Lefschetz duality H₁(Σ) × H₁(Σ, ∂Σ) → ℤ composed with H₁(Σ) → H₁(Σ, ∂Σ); removing punctures does not change H₁ of the compact model up to the classes of the small loops around them, which lie in the radical.",
+    "Perfectness for b + n ≤ 1: then H₁(S) ≅ H₁(Σ̂) for the closed surface Σ̂, where Poincaré duality is perfect."
+   ],
+   "acceptance": [
+    "S_{g} (closed genus g): χ = 2 − 2g and î is the standard symplectic form on ℤ^{2g}.",
+    "The thrice-punctured sphere ℙ¹(ℂ) ∖ {0, 1, ∞}: type (0, 0, 3), χ = −1, H₁ ≅ ℤ² with î = 0."
+   ],
+   "prerequisites": [
+    "FoundationsAndLibraryIntegration:LI.4",
+    "mathlib:AlgebraicTopology.singularHomologyFunctor"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§8.1, p. 39",
+     "excerpt": "by a “surface” we mean the complement of finitely many interior points inside a connected, orientable, compact two-dimensional manifold with boundary.",
+     "match": "LV's convention, adopted verbatim."
+    },
+    {
+     "sourceId": "farb-margalit",
+     "locator": "§1.1, p. 18",
+     "excerpt": "Any closed, connected, orientable surface is homeomorphic to the connect sum of a 2–dimensional sphere with g ≥ 0 tori.",
+     "match": "The genus used in the type."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "Surface",
+     "role": "constructor",
+     "statement": "A surface as a punctured compact connected oriented 2-manifold with boundary."
+    },
+    {
+     "name": "Surface.genus",
+     "role": "data",
+     "statement": "The genus g."
+    },
+    {
+     "name": "Surface.numBoundary",
+     "role": "data",
+     "statement": "The number b of boundary circles."
+    },
+    {
+     "name": "Surface.numPunctures",
+     "role": "data",
+     "statement": "The number n of punctures."
+    },
+    {
+     "name": "Surface.eulerChar_eq",
+     "role": "characterisation",
+     "statement": "χ(S) = 2 − 2g − b − n, computed from singular homology."
+    },
+    {
+     "name": "Surface.intersectionForm",
+     "role": "data",
+     "statement": "The algebraic intersection form î on H₁(S; ℤ), alternating."
+    },
+    {
+     "name": "Surface.intersectionForm_perfect",
+     "role": "other",
+     "statement": "î is perfect when b + n ≤ 1."
+    },
+    {
+     "name": "SimpleClosedCurve",
+     "role": "constructor",
+     "statement": "Oriented simple closed curves in the interior, up to isotopy; the predicate IsSeparating."
+    },
+    {
+     "name": "Surface.cut",
+     "role": "other",
+     "statement": "The surface S_α obtained by cutting along a simple closed curve or proper arc, with its gluing map (GeometricTopology Layer 1)."
+    },
+    {
+     "name": "Surface.examples",
+     "role": "example",
+     "statement": "Closed surfaces, the thrice- and four-times-punctured spheres, the torus with one boundary circle."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Topology/Surface",
+    "namespace": "TauCeti.LawrenceVenkatesh.Surface"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology — AlgebraicTopology Stage 2 (singular homology, local coefficient systems); tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality — AlgebraicTopology Stage 6 (cohomology, products, Poincaré duality, intersection pairing); tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group — GeometricTopology Layer 1 (cutting and gluing manifolds along submanifolds)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.5/surface-classification",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.5",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.5"
+   ],
+   "title": "Classification of compact surfaces",
+   "kind": "theorem",
+   "statement": "Every closed connected orientable surface is homeomorphic to the connected sum of a sphere with g ≥ 0 tori, for a unique g; every compact connected orientable surface is obtained from a closed one by removing b ≥ 0 open disks with disjoint closures, and the pair (g, b) determines it up to homeomorphism. Consequently two surfaces (in the sense of the previous node) are homeomorphic by an orientation-preserving homeomorphism if and only if they have the same type (g, b, n); for a closed surface of genus g, H₁(S_g; ℤ) ≅ ℤ^{2g}.",
+   "hypotheses": [
+    "compact connected orientable 2-manifolds (with boundary)"
+   ],
+   "proofSteps": [
+    "Triangulate the surface (Radó's theorem; for smooth surfaces, smooth triangulation).",
+    "Reduce a triangulated closed surface to a polygon with identified edges and bring the edge word to the normal form ∏ a_i b_i a_i⁻¹ b_i⁻¹ by cut-and-paste moves.",
+    "Distinguish normal forms by H₁ (rank 2g) and the number of boundary components; orientation-preserving homeomorphisms between surfaces of the same type exist because every surface admits orientation-reversing homeomorphisms."
+   ],
+   "acceptance": [
+    "The torus has genus 1 and H₁ ≅ ℤ².",
+    "A compact Riemann surface is a closed orientable surface, and its genus is half the rank of H₁."
+   ],
+   "prerequisites": [
+    "FoundationsAndLibraryIntegration:LI.4",
+    "MordellLawrenceVenkatesh:LV.5/surface"
+   ],
+   "sources": [
+    {
+     "sourceId": "farb-margalit",
+     "locator": "§1.1, Theorem 1.1, p. 18",
+     "excerpt": "Any closed, connected, orientable surface is homeomorphic to the connect sum of a 2–dimensional sphere with g ≥ 0 tori.",
+     "match": "The statement; Farb–Margalit refer to the literature for the proof, which is outlined here."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Topology/Surface",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations — AlgebraicTopology Stage 4 (CW pairs and cellular homology); tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead — AlgebraicTopology Stage 8 (relative homotopy, long exact sequences); tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group — GeometricTopology Layer 1 (cutting and gluing manifolds along submanifolds)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.5/mapping-class-group",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.5",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.5"
+   ],
+   "title": "The mapping class group",
+   "kind": "definition",
+   "statement": "For a surface S, Mod(S) is the group of isotopy classes of orientation-preserving homeomorphisms of S that restrict to the identity on ∂S, isotopies being required to fix ∂S pointwise; homeomorphisms may permute the punctures. For x in the interior, S* denotes S with the marked point x (equivalently S ∖ {x} with the new puncture fixed), and Mod(S*) the corresponding group of classes fixing x. Mod(S) acts on H₁(S; ℤ) preserving î (the symplectic representation Ψ), on the set of isotopy classes of simple closed curves, and, through Out(π₁(S)), on the set of isomorphism classes of finite coverings of S.",
+   "hypotheses": [
+    "S a surface"
+   ],
+   "proofSteps": [
+    "Homeomorphisms isotopic relative to ∂S induce the same map on H₁, on isotopy classes of curves and on conjugacy classes of homomorphisms π₁(S) → G, so the actions factor through Mod(S).",
+    "The action on coverings: f sends a covering Z → S to Z → S →(f⁻¹)… S, i.e. to the pullback along f⁻¹; in terms of monodromy it is precomposition with the outer automorphism f_*⁻¹."
+   ],
+   "acceptance": [
+    "Mod(S_{0,3}) is the symmetric group on the three punctures (Farb–Margalit §2.2).",
+    "Mod of an annulus is ℤ, generated by the twist map."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.5/surface",
+    "MordellLawrenceVenkatesh:LV.5/surface-classification",
+    "FoundationsAndLibraryIntegration:LI.4",
+    "tauceti:TauCeti.CoveringSpace.monodromyEquivalence"
+   ],
+   "sources": [
+    {
+     "sourceId": "farb-margalit",
+     "locator": "§1.3, p. 38",
+     "excerpt": "It roughly states that any two collections of simple closed curves in S with the same intersection pattern can be taken to each other via an orientation-preserving homeomorphism of S.",
+     "match": "Mapping classes act on configurations of curves."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "MappingClassGroup",
+     "role": "constructor",
+     "statement": "Mod(S) = Homeo⁺(S, ∂S)/isotopy rel ∂S."
+    },
+    {
+     "name": "MappingClassGroup.marked",
+     "role": "constructor",
+     "statement": "Mod(S*) for a marked interior point x."
+    },
+    {
+     "name": "MappingClassGroup.homologyRep",
+     "role": "data",
+     "statement": "Ψ : Mod(S) → Aut(H₁(S; ℤ), î)."
+    },
+    {
+     "name": "MappingClassGroup.actCurves",
+     "role": "data",
+     "statement": "The action on isotopy classes of simple closed curves."
+    },
+    {
+     "name": "MappingClassGroup.actCovers",
+     "role": "data",
+     "statement": "The action on isomorphism classes of finite coverings of S via Out(π₁ S)."
+    },
+    {
+     "name": "MappingClassGroup.forget",
+     "role": "data",
+     "statement": "Forget : Mod(S*) → Mod(S), filling in the marked point; surjective."
+    },
+    {
+     "name": "MappingClassGroup.examples",
+     "role": "example",
+     "statement": "Mod(D²) = 1 (Alexander lemma) and Mod(annulus) = ℤ."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Topology/MappingClassGroup",
+    "namespace": "TauCeti.LawrenceVenkatesh.Surface"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence — UniversalCovers Stage 2 (lifting criterion and Galois correspondence of covers)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.5/change-of-coordinates",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.5",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.5"
+   ],
+   "title": "Change of coordinates for simple closed curves",
+   "kind": "lemma",
+   "statement": "Let S be a surface. (a) Two nonseparating simple closed curves in S are related by an orientation-preserving homeomorphism of S fixing ∂S and the punctures. (b) Two ordered pairs (a, b), (a', b') of simple closed curves meeting transversally in exactly one point are related by such a homeomorphism. (c) If S is closed of genus g, there is a geometric symplectic basis: simple closed curves a_1, b_1, …, a_g, b_g with a_i ∩ b_i one transverse point and all other pairs disjoint, whose classes form a symplectic basis of H₁(S; ℤ); any two such systems are related by a homeomorphism. (d) Every nonseparating simple closed curve a admits a simple closed curve b meeting it transversally once.",
+   "hypotheses": [
+    "S a surface; for (c) S closed"
+   ],
+   "proofSteps": [
+    "Cut S along the given curves; the cut surfaces have the same type (Euler characteristic, number of boundary components, punctures and connectivity are determined by the combinatorial data), so by the classification theorem they are homeomorphic by a homeomorphism respecting the boundary circles coming from the curves.",
+    "Glue back: choose the homeomorphism compatibly with the gluing maps on the boundary circles (a homeomorphism of a circle is isotopic to a rotation or a reflection, and orientations are prescribed).",
+    "(c) and (d) follow from (a), (b) and the standard picture on the connected sum of tori."
+   ],
+   "acceptance": [
+    "On the torus, the curves (1, 0) and (1, k) are related by T^k in the other coordinate.",
+    "A separating and a nonseparating curve are not related."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.5/surface-classification",
+    "MordellLawrenceVenkatesh:LV.5/mapping-class-group",
+    "FoundationsAndLibraryIntegration:LI.4"
+   ],
+   "sources": [
+    {
+     "sourceId": "farb-margalit",
+     "locator": "§1.3, p. 38",
+     "excerpt": "It roughly states that any two collections of simple closed curves in S with the same intersection pattern can be taken to each other via an orientation-preserving homeomorphism of S.",
+     "match": "The principle; Farb–Margalit leave the verifications to the reader."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Topology/ChangeOfCoordinates",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group — GeometricTopology Layer 1 (cutting and gluing manifolds along submanifolds)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.5/dehn-twist",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.5",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.5"
+   ],
+   "title": "Dehn twists",
+   "kind": "definition",
+   "statement": "For a simple closed curve α in a surface S, a regular neighbourhood N ≅ S¹ × [0, 1] (orientation-preserving) and the twist map T(θ, t) = (θ + 2πt, t) of the annulus, the Dehn twist T_α is φ ∘ T ∘ φ⁻¹ on N and the identity outside N. Its class T_a ∈ Mod(S) depends only on the isotopy class a of α; T_{f(a)} = f T_a f⁻¹ for f ∈ Mod(S); twists about disjoint curves commute; T_a = 1 when a bounds a disk or a once-punctured disk.",
+   "hypotheses": [
+    "α a simple closed curve in S"
+   ],
+   "proofSteps": [
+    "Well-definedness from the uniqueness of regular neighbourhoods up to isotopy.",
+    "Conjugation formula: f T_α f⁻¹ is the twist in the neighbourhood f(N) of f(α).",
+    "Disjoint curves have disjoint neighbourhoods, so the twists commute; a twist in the neighbourhood of a curve bounding a (once-punctured) disk is isotopic to the identity by the Alexander lemma."
+   ],
+   "acceptance": [
+    "On the torus with the standard basis, T_b acts on H₁ by the matrix [[1, 0], [±1, 1]].",
+    "The boundary twist of a once-punctured disk is trivial in Mod."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.5/mapping-class-group",
+    "MordellLawrenceVenkatesh:LV.5/surface"
+   ],
+   "sources": [
+    {
+     "sourceId": "farb-margalit",
+     "locator": "§3.1.1, p. 68",
+     "excerpt": "perform the twist map T on the annulus N , and fix every point outside of N .",
+     "match": "The definition of T_α."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "dehnTwist",
+     "role": "constructor",
+     "statement": "T_a ∈ Mod(S) for an isotopy class a of simple closed curves."
+    },
+    {
+     "name": "dehnTwist_conj",
+     "role": "relation",
+     "statement": "f T_a f⁻¹ = T_{f(a)}."
+    },
+    {
+     "name": "dehnTwist_commute",
+     "role": "relation",
+     "statement": "T_a T_b = T_b T_a when a and b are disjoint."
+    },
+    {
+     "name": "dehnTwist_eq_one",
+     "role": "simp",
+     "statement": "T_a = 1 if a bounds a disk or a once-punctured disk."
+    },
+    {
+     "name": "dehnTwist_support",
+     "role": "other",
+     "statement": "T_α is supported in any prescribed regular neighbourhood of α."
+    },
+    {
+     "name": "multitwist",
+     "role": "data",
+     "statement": "∏ T_{e_i}^{m_i} for pairwise disjoint curves e_i."
+    },
+    {
+     "name": "dehnTwist_torus",
+     "role": "example",
+     "statement": "The twists about the two standard curves of the torus."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Topology/DehnTwist",
+    "namespace": "TauCeti.LawrenceVenkatesh.Surface"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.5/dehn-twist-homology",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.5",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.5"
+   ],
+   "title": "Action of Dehn twists and multitwists on homology",
+   "kind": "lemma",
+   "statement": "Let S be a surface and b an oriented simple closed curve. For every x ∈ H₁(S; ℤ) and k ∈ ℤ, Ψ(T_b^k)(x) = x + k·î(x, b)·[b]. Consequently, for pairwise disjoint oriented simple closed curves e_1, …, e_r and integers m_i, the multitwist ∏ T_{e_i}^{m_i} acts by x ↦ x + Σ_i m_i î(x, e_i)[e_i]; in particular it is unipotent, and it is the identity on the î-orthogonal of span{[e_i]}.",
+   "hypotheses": [
+    "S a surface",
+    "b an oriented simple closed curve"
+   ],
+   "proofSteps": [
+    "The twist is supported in an annulus N around b. Represent x by a cycle transverse to b; each transverse crossing of b is replaced by an arc that runs once around N, which changes the cycle by ±[b] with the sign of the crossing.",
+    "Summing over crossings gives x + î(x, b)[b] for k = 1; iterate, using î(b, b) = 0.",
+    "For disjoint curves the twists commute and î(e_i, e_j) = 0, so the formulas compose additively."
+   ],
+   "acceptance": [
+    "On S_g with a geometric symplectic basis, T_{b_1} sends a_1 to a_1 ± b_1 and fixes the other basis vectors (Farb–Margalit Proposition 6.3).",
+    "A separating curve has [b] = 0, so its twist acts trivially on H₁."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.5/dehn-twist",
+    "MordellLawrenceVenkatesh:LV.5/surface",
+    "MordellLawrenceVenkatesh:LV.5/change-of-coordinates",
+    "FoundationsAndLibraryIntegration:LI.4"
+   ],
+   "sources": [
+    {
+     "sourceId": "farb-margalit",
+     "locator": "§6.3, Proposition 6.3, p. 176",
+     "excerpt": "Let a and b be isotopy classes of oriented simple closed curves in Sg . For any k ≥ 0, we have",
+     "match": "Farb–Margalit continue: Ψ(T_b^k)([a]) = [a] + k·î(a, b)[b]; the proof is local, which gives the statement on any surface."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Topology/DehnTwist",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology — AlgebraicTopology Stage 2 (singular homology, local coefficient systems); tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality — AlgebraicTopology Stage 6 (cohomology, products, Poincaré duality, intersection pairing)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.5/primitive-classes-simple",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.5",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.5"
+   ],
+   "title": "Primitive homology classes are represented by simple closed curves",
+   "kind": "lemma",
+   "statement": "Let g ≥ 1. A nonzero class of H₁(S_g; ℤ) is represented by an oriented simple closed curve if and only if it is primitive; a simple closed curve is nonseparating if and only if its class is nonzero, and then its class is primitive. The same holds on a closed surface with one puncture or with one boundary circle (where H₁ is identified with that of the closed surface), and every class of H₁ is a sum of classes of simple closed curves.",
+   "hypotheses": [
+    "g ≥ 1"
+   ],
+   "proofSteps": [
+    "Farb–Margalit's topological Euclidean algorithm: write the class in a geometric symplectic basis and reduce the coordinates by twists, which preserve simplicity.",
+    "A nonseparating curve has a dual curve meeting it once (change of coordinates), so its class pairs to 1 with an integral class and is primitive; a separating curve bounds a subsurface and is null-homologous.",
+    "One puncture or one boundary circle: the inclusion into the capped surface induces an isomorphism on H₁ and simple closed curves can be isotoped off the cap."
+   ],
+   "acceptance": [
+    "(2, 0) ∈ H₁(T²) is not represented by a simple closed curve; (2, 3) is.",
+    "On S_2 the class a_1 + a_2 is represented by a simple closed curve."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.5/change-of-coordinates",
+    "MordellLawrenceVenkatesh:LV.5/dehn-twist-homology",
+    "MordellLawrenceVenkatesh:LV.5/surface"
+   ],
+   "sources": [
+    {
+     "sourceId": "farb-margalit",
+     "locator": "§6.2, Proposition 6.2, p. 173",
+     "excerpt": "A nonzero element of H1 (Sg ; Z) is represented by an oriented simple closed curve if and only if it is primitive.",
+     "match": "Statement for closed surfaces."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Topology/SimpleClosedCurve",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.5/birman-exact-sequence",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.5",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.5"
+   ],
+   "title": "Point pushing and the Birman exact sequence",
+   "kind": "theorem",
+   "statement": "Let S be a surface with χ(S) < 0 and x an interior point. Pushing x along loops defines a homomorphism Push : π₁(S, x) → Mod(S*), and 1 → π₁(S, x) → Mod(S*) → Mod(S) → 1 (with Forget on the right) is exact. For a simple loop α at x, Push([α]) = T_a T_b⁻¹, where a and b are the simple closed curves in S ∖ {x} obtained by pushing α off itself to the left and to the right; a and b are nonseparating in S ∖ {x} if and only if α is nonseparating in S.",
+   "hypotheses": [
+    "χ(S) < 0",
+    "x in the interior of S"
+   ],
+   "proofSteps": [
+    "Push(α) is the end of an isotopy of S extending the motion of x along α (isotopy extension for points); independence of the choices is the content of the theorem (Farb–Margalit, proof via the fibration Homeo(S) → S).",
+    "Exactness at Mod(S*): a class in the kernel of Forget is isotopic to the identity in S, and the track of x is a loop α with the class equal to Push(α⁻¹); Forget is surjective because a homeomorphism can be isotoped to fix x.",
+    "Injectivity: Push(α) acts on π₁(S, x) by conjugation by α, and π₁(S) has trivial centre when χ(S) < 0.",
+    "The formula for simple loops: the isotopy pushing x once around α is supported in the annulus between a and b, where it equals T_a T_b⁻¹."
+   ],
+   "acceptance": [
+    "S = S_{0,3} (thrice-punctured sphere) and α a loop around one puncture: a bounds a once-punctured disk, so Push(α) = T_b⁻¹ with b enclosing that puncture and x.",
+    "For S closed of genus ≥ 2 and α nonseparating, Push(α) is a nontrivial element acting trivially on H₁(S)."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.5/mapping-class-group",
+    "MordellLawrenceVenkatesh:LV.5/dehn-twist",
+    "FoundationsAndLibraryIntegration:LI.4"
+   ],
+   "sources": [
+    {
+     "sourceId": "farb-margalit",
+     "locator": "§4.2, Theorem 4.6, p. 102",
+     "excerpt": "Let S be a surface with χ(S) < 0, possibly with punctures and/or boundary. Let S ∗ be the surface obtained from S by marking a point x in the interior of S. Then the following se- quence is exact:",
+     "match": "The Birman exact sequence."
+    },
+    {
+     "sourceId": "farb-margalit",
+     "locator": "§4.2, Fact 4.7, p. 103",
+     "excerpt": "where a and b are the isotopy classes of the simple closed curves in S ∗ = S − x obtained by pushing α off itself to the left and right, respectively.",
+     "match": "Push of a simple loop."
+    },
+    {
+     "sourceId": "farb-margalit",
+     "locator": "§4.2, p. 104",
+     "excerpt": "The isotopy classes a and b are nonseparating in S ∗ if and only if α is nonseparating in S.",
+     "match": "Nonseparation."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "pointPush",
+     "role": "constructor",
+     "statement": "Push : π₁(S, x) →* Mod(S*)."
+    },
+    {
+     "name": "pointPush_injective",
+     "role": "other",
+     "statement": "Push is injective when χ(S) < 0."
+    },
+    {
+     "name": "range_pointPush",
+     "role": "characterisation",
+     "statement": "range Push = ker Forget."
+    },
+    {
+     "name": "pointPush_simple",
+     "role": "relation",
+     "statement": "Push([α]) = T_a T_b⁻¹ for a simple loop α."
+    },
+    {
+     "name": "pointPush_homology",
+     "role": "other",
+     "statement": "Push(α) acts trivially on H₁(S) (it lies in the kernel of Forget, and H₁(S ∖ x) → H₁(S) is equivariant)."
+    },
+    {
+     "name": "pointPush_example",
+     "role": "example",
+     "statement": "The thrice-punctured sphere case."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Topology/Birman",
+    "namespace": "TauCeti.LawrenceVenkatesh.Surface"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead — AlgebraicTopology Stage 8 (relative homotopy, long exact sequences); tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence — UniversalCovers Stage 2 (lifting criterion and Galois correspondence of covers)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.5/capping-surjective",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.5",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.5"
+   ],
+   "title": "Capping boundary circles and forgetting points are surjective on mapping class groups",
+   "kind": "lemma",
+   "statement": "Let S be a surface and S' the surface obtained by capping a boundary circle β with a once-marked disk. Then 1 → ⟨T_β⟩ → Mod(S) → Mod(S', p) → 1 is exact (Mod(S', p) fixing the marked point p). Consequently, capping all boundary circles with disks induces a surjection Mod(S) → Mod(Ŝ) onto the mapping class group of the capped surface, compatible with the maps on H₁.",
+   "hypotheses": [
+    "S a surface with boundary circle β"
+   ],
+   "proofSteps": [
+    "The capping sequence is Farb–Margalit Proposition 3.19.",
+    "Forgetting the marked points is surjective (Birman exact sequence, right-hand map), and a composite of surjections is surjective.",
+    "The inclusion S ⊆ Ŝ is equivariant, which gives the compatibility on H₁."
+   ],
+   "acceptance": [
+    "Capping the torus with one boundary circle gives Mod(T°) → Mod(T²) = SL₂(ℤ), surjective."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.5/mapping-class-group",
+    "MordellLawrenceVenkatesh:LV.5/birman-exact-sequence"
+   ],
+   "sources": [
+    {
+     "sourceId": "farb-margalit",
+     "locator": "§3.6.2, Proposition 3.19, p. 89",
+     "excerpt": "Let S ′ be the surface ob- tained from a surface S by capping the boundary component β with a once- marked disk; call the marked point in this disk p.",
+     "match": "The capping homomorphism."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Topology/Birman",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.5/symplectic-representation-surjective",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.5",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.5"
+   ],
+   "title": "Surjectivity of the symplectic representation",
+   "kind": "theorem",
+   "statement": "For g ≥ 1 the symplectic representation Ψ : Mod(S_g) → Sp(2g, ℤ) is surjective.",
+   "hypotheses": [
+    "g ≥ 1"
+   ],
+   "proofSteps": [
+    "By Proposition 6.3 the twists about curves in a geometric symplectic basis and about the curves a_i + a_{i+1} map to symplectic transvections.",
+    "These transvections generate Sp(2g, ℤ) (Farb–Margalit's first proof, via a generating set of Sp(2g, ℤ); the second proof uses transitivity on primitive vectors, Proposition 6.2)."
+   ],
+   "acceptance": [
+    "g = 1: Mod(T²) ≅ SL₂(ℤ), generated by the images of the two standard twists."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.5/dehn-twist-homology",
+    "MordellLawrenceVenkatesh:LV.5/primitive-classes-simple",
+    "MordellLawrenceVenkatesh:LV.5/change-of-coordinates",
+    "mathlib:Matrix.SL2.transvection_induction"
+   ],
+   "sources": [
+    {
+     "sourceId": "farb-margalit",
+     "locator": "§6.3, Theorem 6.4, p. 177",
+     "excerpt": "The representation Ψ : Mod(Sg ) → Sp(2g, Z) is surjective for g ≥ 1.",
+     "match": "The theorem."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Topology/SymplecticRepresentation",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.5/fadell-neuwirth-sequence",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.5",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.5"
+   ],
+   "title": "The configuration fibration of a surface and its fundamental groups",
+   "kind": "lemma",
+   "statement": "Let S be a connected surface without boundary and F(S) := {(x, y) ∈ S × S : x ≠ y} with p(x, y) = y. Then p is a locally trivial fibre bundle with fibre S ∖ {y}, and for y₀ ≠ x₀ the sequence π₁(S ∖ {y₀}, x₀) → π₁(F(S), (x₀, y₀)) → π₁(S, y₀) → 1 (the first map x ↦ (x, y₀)) is exact; its image Γ̄ is normal, and conjugation by π₁(F(S)) preserves the conjugacy class c of a small loop around y₀ in S ∖ {y₀}. For S = Y closed of genus g ≥ 1 the first map is injective. For S of genus g ≥ 1 closed, π₁(S ∖ {y₀}, x₀) is free on classes x_1, x_1', …, x_g, x_g' such that a small loop around y₀ is conjugate to [x_1, x_1'] ⋯ [x_g, x_g'], and H₁(S ∖ {y₀}) → H₁(S) is an isomorphism.",
+   "hypotheses": [
+    "S connected without boundary",
+    "y₀ ≠ x₀"
+   ],
+   "proofSteps": [
+    "Local triviality: for y in a disk D around y₀ choose homeomorphisms h_y of S supported in a slightly larger disk, continuous in y, with h_y(y₀) = y; then (x, y) ↦ (h_y⁻¹ x, y) trivializes p over D.",
+    "A locally trivial bundle over a paracompact base has the homotopy lifting property, which gives exactness of the long exact sequence in low degrees: surjectivity on π₁ because the fibre is path connected, exactness in the middle by lifting null-homotopies.",
+    "The monodromy of the bundle along a loop is a homeomorphism of the fibre that is the identity near the end at y₀ up to isotopy, so it preserves the peripheral class c.",
+    "Injectivity for closed S of genus ≥ 1: π₂(S) = 0, since the universal cover of S is a plane (or by the free-group structure of π₁ of the punctured surface).",
+    "Presentation: by the classification, S is a 4g-gon with edge word ∏ [a_i, b_i]; removing an interior point of the 2-cell, the punctured surface deformation retracts onto the wedge of 2g circles, whose fundamental group is free (van Kampen), and the boundary of the 2-cell reads ∏[x_i, x_i']."
+   ],
+   "acceptance": [
+    "S = ℂ ∖ {0}: F(S) → S has fibre ℂ ∖ {0, y}, with π₁ free of rank 2.",
+    "g = 1: π₁(T² ∖ {pt}) is free on two generators x, x' and the puncture loop is [x, x']."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.5/surface-classification",
+    "MordellLawrenceVenkatesh:LV.5/surface",
+    "FoundationsAndLibraryIntegration:LI.4"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§7.3, proof of Lemma 7.4, p. 38",
+     "excerpt": "Now the long exact sequence for homotopy groups of a fibration gives rise to an exact sequence of topological fundamental groups; in the setting at hand this is short exact because the π2 of Y − {y0 } vanishes.",
+     "match": "LV's statement; the vanishing needed for injectivity is that of π₂ of the base Y."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§5, p. 26",
+     "excerpt": "Note that we can identify π1geom with the profinite completion of a free group on 2g generators x1 , x01 , . . . , xg , x0g in such a way that the loop around y0 corresponds to the conjugacy class of [x1 , x01 ][x2 , x02 ] . . . [xg , x0g ].",
+     "match": "The presentation of the punctured surface group."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Topology/Configuration",
+    "namespace": "TauCeti.LawrenceVenkatesh.Surface"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid — AlgebraicTopology Stage 1 (van Kampen theorem and group presentations); tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead — AlgebraicTopology Stage 8 (relative homotopy, long exact sequences); tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group — GeometricTopology Layer 1 (cutting and gluing manifolds along submanifolds); tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence — UniversalCovers Stage 2 (lifting criterion and Galois correspondence of covers)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.5/covering-dehn-twist-lift",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.5",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.5"
+   ],
+   "title": "Lifting powers of Dehn twists to finite coverings",
+   "kind": "lemma",
+   "statement": "Let S be a surface, Z° → S a connected finite covering of degree n with monodromy Cov : π₁(S, s₀) → Sym(F) (F the fibre), and e a simple closed curve in S. Let n_e be the order of Cov(e) and (d_1, …, d_k) its cycle type. Then the preimage of e is a disjoint union of simple closed curves e_1, …, e_k, with e_i of degree d_i over e; T_e^{n_e} fixes the isomorphism class of the covering, and the homeomorphism ∏_i T_{e_i}^{n_e/d_i} (twists supported in the preimages of a regular neighbourhood of e) lifts T_e^{n_e}. If the centralizer of the image of Cov in Sym(F) is trivial, this is the only lift. The same holds for the compactified (branched) coverings when S is a punctured closed surface and the twists are supported away from the punctures.",
+   "hypotheses": [
+    "Z° → S finite connected covering",
+    "e simple closed curve"
+   ],
+   "proofSteps": [
+    "The preimage of an annulus N around e is a disjoint union of annuli N_i, with N_i → N the connected d_i-fold covering of annuli, whose core curve e_i maps with degree d_i.",
+    "On N_i, the twist T^{n_e/d_i} of the core covers T^{n_e} on N: in the coordinates (θ, t) ↦ (d_i θ, t), the map (θ, t) ↦ (θ + 2π(n_e/d_i)t, t) covers (θ, t) ↦ (θ + 2πn_e t, t), and both are the identity near the boundary circles, so the lift extends by the identity.",
+    "Lifts of a homeomorphism differ by deck transformations, i.e. by elements of the centralizer of the monodromy image, which is trivial by assumption.",
+    "Branched case: the twists are supported away from the branch points, so the lift extends over the filled-in points."
+   ],
+   "acceptance": [
+    "The double cover of the four-times-punctured sphere by a four-times-punctured torus, with e enclosing two punctures: Cov(e) = 1, k = 2, and T_e lifts to T_{e_1}T_{e_2}.",
+    "An Aff(q)-cover and a curve with Cov(e) a q-cycle: k = 1, and T_e^q lifts to T_{e_1}."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.5/dehn-twist",
+    "MordellLawrenceVenkatesh:LV.5/mapping-class-group",
+    "FoundationsAndLibraryIntegration:LI.4",
+    "mathlib:IsCoveringMap.monodromyPerm",
+    "mathlib:IsCoveringMap.existsUnique_continuousMap_lifts"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§8.3, p. 42",
+     "excerpt": "The preimage of e under Z → Y is a disjoint union of circles e1 , . . . , ek , with the circles ei in natural bijection with the cycles in the permutation.",
+     "match": "LV continue: D_e^{n_e} lifts to the product of the commuting twists D_{e_i}^{n_e/d_i}."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Topology/CoveringTwist",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence — UniversalCovers Stage 2 (lifting criterion and Galois correspondence of covers)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.5/configuration-family-monodromy",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.5",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.5"
+   ],
+   "title": "Monodromy of families of branched covers over configuration spaces",
+   "kind": "lemma",
+   "statement": "Let Σ be a closed oriented surface, B ⊂ Σ finite, S = Σ ∖ B with χ(S) ≤ −1 (so χ(S ∖ {y}) < 0), and F(S) → S the configuration fibration. Let 𝒵° → F(S) be a finite covering and, for y ∈ S, let Z_y be the compact surface obtained by filling in the punctures of the covering Z°_y → Σ ∖ (B ∪ {y}) (the branched covering of Σ). Then: (a) ⋃_y Z_y is a locally trivial fibre bundle 𝒵̄ → S with fibre Z_{y₀}; (b) for a loop γ at y₀, the monodromy of 𝒵̄ along γ is represented by a homeomorphism h_γ of Z_{y₀} that lifts a homeomorphism φ_γ of Σ fixing B ∪ {y₀} whose class in Mod(Σ ∖ (B ∪ {y₀})) is Push(γ) (for S* = S with marked point y₀); (c) consequently the monodromy action of π₁(S, y₀) on H₁(Z_{y₀}; ℤ) is given by lifts of point-pushing maps; if the lift of Push(γ) is unique (trivial centralizer of the monodromy of Z°_{y₀}), the action is the lifted action, and in general it differs from a chosen lift by a deck transformation.",
+   "hypotheses": [
+    "χ(S) ≤ −1",
+    "𝒵° → F(S) finite covering"
+   ],
+   "proofSteps": [
+    "Isotopy extension: the loop γ extends to an isotopy φ_t of Σ fixing B with φ_t(y₀) = γ(t), which trivializes F(S) over γ by (x, t) ↦ (φ_t(x), γ(t)).",
+    "Lift the trivialization to 𝒵° by the homotopy lifting property of coverings, starting from the identity at t = 0; the end map h_γ° is a homeomorphism of Z°_{y₀} lifting φ_1.",
+    "A homeomorphism of punctured-disk coverings that lifts a homeomorphism of the base extending over the puncture extends over the filled-in points; this gives h_γ on Z_{y₀} and the local triviality (a).",
+    "φ_1 represents Push(γ) by definition of the push map; the monodromy of the homology local system of 𝒵̄ is induced by h_γ.",
+    "Two lifts of φ_1 differ by a deck transformation of Z°_{y₀}."
+   ],
+   "acceptance": [
+    "The Legendre family: Σ = ℙ¹(ℂ), B = {0, 1, ∞}, Z_λ the double cover branched at {0, 1, λ, ∞}.",
+    "The Kodaira–Parshin family: B = ∅, Σ = Y(ℂ) of genus ≥ 2, Z_y the Aff(q)-covers branched at y."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.5/fadell-neuwirth-sequence",
+    "MordellLawrenceVenkatesh:LV.5/birman-exact-sequence",
+    "MordellLawrenceVenkatesh:LV.5/covering-dehn-twist-lift",
+    "FoundationsAndLibraryIntegration:LI.4",
+    "mathlib:IsCoveringMap.existsUnique_continuousMap_lifts",
+    "tauceti:TauCeti.LocalCoefficientSystem.monodromyRepresentation"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§8.2.3, p. 41",
+     "excerpt": "This identification is compatible with monodromy, and so Theorem 8.1 translates to definition (5.1) of full monodromy.",
+     "match": "LV assert the compatibility of the topological monodromy with the lifted point-pushing action; the node supplies the argument."
+    },
+    {
+     "sourceId": "farb-margalit",
+     "locator": "§4.2, Theorem 4.6, p. 102",
+     "excerpt": "Let S be a surface with χ(S) < 0, possibly with punctures and/or boundary. Let S ∗ be the surface obtained from S by marking a point x in the interior of S. Then the following se- quence is exact:",
+     "match": "Push maps."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Topology/ConfigurationFamily",
+    "namespace": "TauCeti.LawrenceVenkatesh.Surface"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology — AlgebraicTopology Stage 2 (singular homology, local coefficient systems); tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence — UniversalCovers Stage 2 (lifting criterion and Galois correspondence of covers)."
   }
  ],
  "requests": [
@@ -4736,6 +5482,66 @@
    ]
   },
   {
+   "supplier": "tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group",
+   "need": "Cutting a topological surface along a finite family of disjoint simple closed curves or proper arcs and regluing, with the cut surface compact and the gluing homeomorphism recorded; regular (collar) neighbourhoods of simple closed curves in surfaces and their uniqueness up to isotopy; isotopy extension for points and for embedded circles in surfaces; triangulability of compact surfaces (Radó).",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.5/surface",
+    "MordellLawrenceVenkatesh:LV.5/surface-classification",
+    "MordellLawrenceVenkatesh:LV.5/change-of-coordinates",
+    "MordellLawrenceVenkatesh:LV.5/fadell-neuwirth-sequence"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+   "need": "The based van Kampen theorem for two open sets with path-connected intersection and the free-group presentation of the fundamental group of a finite wedge of circles.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.5/fadell-neuwirth-sequence"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+   "need": "Singular homology of surfaces with ℤ coefficients, local coefficient systems on a path-connected space and their monodromy representation, with the basepoint-change formula.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.5/surface",
+    "MordellLawrenceVenkatesh:LV.5/dehn-twist-homology",
+    "MordellLawrenceVenkatesh:LV.5/configuration-family-monodromy"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+   "need": "Cellular homology of finite CW complexes, used for the 4g-gon model of a closed orientable surface (H₁ ≅ ℤ^{2g}, H₂ ≅ ℤ) and for graphs.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.5/surface-classification"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+   "need": "Poincaré–Lefschetz duality for compact oriented surfaces with boundary, the resulting intersection pairing on H₁ (perfect for closed surfaces), and its compatibility with orientation-preserving homeomorphisms.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.5/surface",
+    "MordellLawrenceVenkatesh:LV.5/dehn-twist-homology"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+   "need": "For a locally trivial fibre bundle E → B with path-connected fibre F over a paracompact base: the homotopy lifting property and the exact sequence π₂(B) → π₁(F) → π₁(E) → π₁(B) → 1; π₂ of a closed orientable surface of positive genus vanishes.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.5/fadell-neuwirth-sequence",
+    "MordellLawrenceVenkatesh:LV.5/birman-exact-sequence"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+   "need": "Classification of (possibly disconnected) covering spaces of a connected, locally path-connected, semilocally simply connected space by π₁-sets, with the fibre monodromy and path/homotopy lifting; lifts of homeomorphisms of the base to a connected covering exist when the induced outer automorphism preserves the conjugacy class of the monodromy, and two lifts differ by a deck transformation.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.5/mapping-class-group",
+    "MordellLawrenceVenkatesh:LV.5/birman-exact-sequence",
+    "MordellLawrenceVenkatesh:LV.5/fadell-neuwirth-sequence",
+    "MordellLawrenceVenkatesh:LV.5/covering-dehn-twist-lift",
+    "MordellLawrenceVenkatesh:LV.5/configuration-family-monodromy"
+   ]
+  },
+  {
    "supplier": "FoundationsAndLibraryIntegration:LI.4",
    "need": "Integrate LocalFieldsRamification Layer 2 (unramified extensions and Frobenius) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius below are available to consumers.",
    "neededBy": [
@@ -4808,7 +5614,62 @@
    "need": "Integrate UniversalCovers Stage 2 (lifting criterion and Galois correspondence of covers) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence below are available to consumers.",
    "neededBy": [
     "MordellLawrenceVenkatesh:LV.3/algebraic-monodromy-group",
-    "MordellLawrenceVenkatesh:LV.3/complex-period-map"
+    "MordellLawrenceVenkatesh:LV.3/complex-period-map",
+    "MordellLawrenceVenkatesh:LV.5/mapping-class-group",
+    "MordellLawrenceVenkatesh:LV.5/birman-exact-sequence",
+    "MordellLawrenceVenkatesh:LV.5/fadell-neuwirth-sequence",
+    "MordellLawrenceVenkatesh:LV.5/covering-dehn-twist-lift",
+    "MordellLawrenceVenkatesh:LV.5/configuration-family-monodromy"
+   ]
+  },
+  {
+   "supplier": "FoundationsAndLibraryIntegration:LI.4",
+   "need": "Integrate AlgebraicTopology Stage 2 (singular homology, local coefficient systems) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology below are available to consumers.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.5/surface",
+    "MordellLawrenceVenkatesh:LV.5/dehn-twist-homology",
+    "MordellLawrenceVenkatesh:LV.5/configuration-family-monodromy"
+   ]
+  },
+  {
+   "supplier": "FoundationsAndLibraryIntegration:LI.4",
+   "need": "Integrate AlgebraicTopology Stage 6 (cohomology, products, Poincaré duality, intersection pairing) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality below are available to consumers.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.5/surface",
+    "MordellLawrenceVenkatesh:LV.5/dehn-twist-homology"
+   ]
+  },
+  {
+   "supplier": "FoundationsAndLibraryIntegration:LI.4",
+   "need": "Integrate GeometricTopology Layer 1 (cutting and gluing manifolds along submanifolds) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group below are available to consumers.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.5/surface",
+    "MordellLawrenceVenkatesh:LV.5/surface-classification",
+    "MordellLawrenceVenkatesh:LV.5/change-of-coordinates",
+    "MordellLawrenceVenkatesh:LV.5/fadell-neuwirth-sequence"
+   ]
+  },
+  {
+   "supplier": "FoundationsAndLibraryIntegration:LI.4",
+   "need": "Integrate AlgebraicTopology Stage 4 (CW pairs and cellular homology) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations below are available to consumers.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.5/surface-classification"
+   ]
+  },
+  {
+   "supplier": "FoundationsAndLibraryIntegration:LI.4",
+   "need": "Integrate AlgebraicTopology Stage 8 (relative homotopy, long exact sequences) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead below are available to consumers.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.5/surface-classification",
+    "MordellLawrenceVenkatesh:LV.5/birman-exact-sequence",
+    "MordellLawrenceVenkatesh:LV.5/fadell-neuwirth-sequence"
+   ]
+  },
+  {
+   "supplier": "FoundationsAndLibraryIntegration:LI.4",
+   "need": "Integrate AlgebraicTopology Stage 1 (van Kampen theorem and group presentations) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid below are available to consumers.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.5/fadell-neuwirth-sequence"
    ]
   }
  ],
@@ -4840,9 +5701,9 @@
   },
   {
    "stageId": "MordellLawrenceVenkatesh:LV.5",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "No nodes written yet for this layer."
+    "Decompose the proof of the classification of compact surfaces from a source (see gap surface-classification-proof), or obtain it from a roadmap that owns it."
    ]
   },
   {
@@ -4881,7 +5742,15 @@
    ]
   }
  ],
- "gaps": [],
+ "gaps": [
+  {
+   "title": "Proof of the classification of compact surfaces",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.5/surface-classification"
+   ],
+   "detail": "The node outlines the standard proof (Radó's triangulation theorem, then reduction of a triangulated surface to the polygon normal form by cut-and-paste), but no source proof was read: Farb–Margalit state Theorem 1.1 and refer to the literature, and no atlas roadmap owns the theorem. Missing source: a textbook proof including triangulability, for example Moise, Geometric Topology in Dimensions 2 and 3, or Thomassen's proof of the Jordan–Schönflies theorem and the classification. The restructure proposal assigns the theorem to a MappingClassGroups roadmap."
+  }
+ ],
  "restructure": [
   {
    "action": "split",

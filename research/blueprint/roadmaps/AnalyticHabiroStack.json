@@ -1,0 +1,146 @@
+{
+ "id": "AnalyticHabiroStack",
+ "title": "The analytic Habiro ring and the Habiro ring stack",
+ "group": "motivic",
+ "summary": "Scholze's analytic Habiro ring: Laurent series in u with |q| = 1, where the q-Pochhammer symbols (q;q)_n decay rapidly and 1 − q^n is invertible with controlled growth. Also its comparison map from Habiro's ring; the thickened subgroup G of the analytic torus of elements x with (x;q)_n of rapid decay; the analytic Habiro torus G_m/G; the operation x ↦ 1 −_Hab x; and the Habiro ring stack, with associativity from the five-term relation. Scholze's transmutation criterion then gives analytic Habiro cohomology as a six-functor formalism on schemes of finite type over Z. The roadmap adds specialisations at roots of unity, the comparison with analytic de Rham stacks at q = 1, and the norm on the Habiro ring stack.",
+ "readme": "# The analytic Habiro ring and the Habiro ring stack\n\n## Purpose\n\nThis roadmap follows Lectures 6–8 of P. Scholze's course *V5A4 – Habiro cohomology* (Bonn, summer 2025, notes\nby W. J. G. Ong). It constructs:\n\n- the analytic Habiro ring $\\mathcal H^{\\mathrm{an}}$, the Clausen–Scholze analytic version of Habiro's ring\n  $\\mathcal H=\\lim_n\\mathbb Z[q]/(q;q)_n$;\n- the thickened subgroup $G\\subset\\mathbb G^{\\mathrm{an}}_{m,\\mathcal H^{\\mathrm{an}}}$ of elements $x$ with $((x;q)_n)_n$ of rapid\n  decay, and $(\\mathbb G_m)^{\\mathrm{Hab}}=\\mathbb G^{\\mathrm{an}}_{m,\\mathcal H^{\\mathrm{an}}}/G$;\n- the operation $x\\mapsto1-_{\\mathrm{Hab}}x$;\n- the Habiro ring stack $(\\mathbb A^{1,\\mathrm{an}})^{\\mathrm{Hab}}$, glued from two copies of $(\\mathbb G_m)^{\\mathrm{Hab}}$, whose\n  associativity comes from the five-term relation.\n\nScholze's criterion (`RingStacksAndTransmutation` RS.2) then gives the transmutation $X\\mapsto X^{\\mathrm{Hab}}$\nfrom separated schemes of finite type over $\\mathbb Z$ to analytic stacks over $\\mathcal H^{\\mathrm{an}}$, and the\nsix-functor formalism $D_{\\mathrm{Hab}}(X)=D_{qc}(X^{\\mathrm{Hab}})$ of analytic Habiro cohomology (V5A4 Theorem 1.8).\n\n**Source status.** V5A4 Theorem 1.8 is attributed to Scholze without a written proof. Lectures 7–8 contain\ndefinitions, the key lemmas with proof outlines, and several statements labelled as expectations. Aoki\n(arXiv:2603.01877v1, Theorem 1.7) cites the lecture recordings for the analytic Habiro stack. Every target\nbelow therefore names its locator and, where the notes give only an outline or an expectation, says so; the\nblueprint for this roadmap records the missing arguments as gaps.\n\n## Scope\n\nIn scope:\n\n- V5A4 Lecture 6, Examples 6.10–6.11 and Remark 6.13, as they apply to $(-)^{\\mathrm{Hab}}$;\n- V5A4 Lecture 7, Remark 7.1 to Remark 7.16, and Lecture 8 in full;\n- the comparison of $D_{qc}((\\mathbb G_m)^{\\mathrm{Hab}})$ with modules with modified $q$-connection;\n- the specialisations at $q=\\zeta_m$ and the comparison with the analytic de Rham stack at $q=1$;\n- the norm on the Habiro ring stack.\n\n## Conventions\n\n- $\\mathbb Z((u))_\\square$ is normed by $|u|=c\\in(0,1)$ (`SolidAnalyticRings` SA.4, `AnalyticStacks` AS.4). A sequence\n  $(a_n)$ has *rapid decay* if $(a_n/u^{kn})_n$ is a null sequence for every $k\\ge1$ (V5A4 Definition 7.8(i)).\n- $(x;q)_n=\\prod_{i=0}^{n-1}(1-xq^i)$, $[n]_q$ and $q$-binomial and $q$-multinomial coefficients follow\n  `HabiroCyclotomicCompletions` HC.1.\n- $\\mathcal H^{\\mathrm{an}}$ denotes the ring of V5A4 Definition 7.8 with both conditions (i) and (ii).\n  $\\mathcal H^{\\mathrm{an}}_{\\mathrm{(i)}}$ denotes the variant of Lecture 8, which imposes (i) only. Condition (ii) is read with\n  $u^{\\varepsilon n}$ meaning $u^{\\lfloor\\varepsilon n\\rfloor}$ for rational $\\varepsilon>0$.\n- $X^{\\mathrm{Hab}}$ is the transmutation along $(\\mathbb A^{1,\\mathrm{an}})^{\\mathrm{Hab}}$. $D_{\\mathrm{Hab}}(X)=D_{qc}(X^{\\mathrm{Hab}})$.\n\n## Sources\n\nW. J. G. Ong's notes of Scholze's course *V5A4 – Habiro cohomology* (Bonn, summer 2025), Lectures 1 and 6–8.\nScholze, *Six-Functor Formalisms*, Lecture X. Aoki, *Berkovich 2-motives and normed ring stacks*, §4.4 and\nTheorem 1.7. Faddeev–Kashaev, *Quantum dilogarithm*, for the pentagon identity. Garoufalidis–Scholze–\nWheeler–Zagier, *The Habiro ring of a number field*, §1.3, for Habiro's ring as a ring of Taylor-glued\nfunctions. Rodríguez Camargo, *The analytic de Rham stack in rigid geometry*, for the analytic de Rham stack.\n\n## Layers\n\n- **HS.0** The analytic Habiro ring.\n- **HS.1** The subgroup $G$, the analytic $(\\mathbb G_m)^{\\mathrm{Hab}}$ and specialisations at roots of unity.\n- **HS.2** The operation $1-_{\\mathrm{Hab}}x$ and the Habiro ring stack.\n- **HS.3** Transmutation and the six-functor formalism of analytic Habiro cohomology.\n- **HS.4** The normed Habiro ring stack and specialisations.\n\n## Boundaries\n\n- `HabiroCyclotomicCompletions` owns Habiro's ring and the $q$-analogue toolkit.\n- `HabiroCohomologyFoundations` owns algebraic Habiro cohomology, $q$-connections and modified $q$-connections\n  (V5A4 Lectures 2–5), and the statement of the algebraic–analytic comparison (HQ.6). This roadmap supplies the\n  analytic side of that comparison.\n- `SolidAnalyticRings`, `AnalyticStacks` and `RingStacksAndTransmutation` own all foundations. This roadmap\n  applies them to $q$-series.\n\n## Non-goals\n\nThe following are not targets of this roadmap:\n\n- Wagner's algebraic Habiro–Hodge complexes (`HabiroCohomologyFoundations`);\n- the comparison theorem between algebraic and analytic Habiro cohomology, which is stated in HQ.6 and is open\n  in the sources (Wagner, arXiv:2510.04782v2, 1.17, expects it only after a completed localisation);\n- $q$-divided-power candidates $\\mathbb G_a^{q\\text{-}\\sharp}$ and $\\mathbb G_m^{q\\text{-}\\sharp}$, which the notes discard;\n- the course description's announcements (realisation of Berkovich motives, stacky étale cohomology of rigid\n  varieties over fields of equal characteristic zero), which the notes do not contain.\n\n**Roadmap-for-a-roadmap (not to be followed as work in this roadmap):** a sequel would extend\n$X\\mapsto X^{\\mathrm{Hab}}$ to Berkovich spaces of finite type over $\\mathbb Z$ through the normed ring stack of HS.4, and\nderive Habiro realisation functors from Berkovich motives (Aoki, Theorems D and 1.7). Neither step has a\nwritten proof in the sources.",
+ "prerequisites": [
+  "AnalyticStacks",
+  "HabiroCohomologyFoundations",
+  "HabiroCyclotomicCompletions",
+  "RingStacksAndTransmutation",
+  "SolidAnalyticRings"
+ ],
+ "stages": [
+  {
+   "key": "HS.0",
+   "title": "The analytic Habiro ring",
+   "description": "The analytic Habiro ring (V5A4 Definition 7.8, Remark 7.9, Lemma 7.10, Proposition 7.11, Example 7.15,\nRemark 7.16; Lecture 8, first paragraph).\n\n**Targets.**\n- *The base circle.* The overconvergent unit circle $\\{|q|=1\\}\\subset\\mathbb G^{\\mathrm{an}}_m$ over $\\mathbb Z((u))_\\square$, cut out by\n  the idempotent algebras of $\\{|q|\\le1\\}$ and $\\{|q^{-1}|\\le1\\}$. Its ring of functions is the \"free\n  $\\mathbb Z((u))_\\square$-algebra on $q$ with $|q|=1$\" of Definition 7.8.\n- *$\\mathcal H^{\\mathrm{an}}$* (Definition 7.8). $\\mathcal H^{\\mathrm{an}}$ is the universal algebra over the base circle in which: (i) for\n  every $k\\ge1$, $((q;q)_n/u^{kn})_{n\\ge1}$ is a null sequence; (ii) every $1-q^n$ is invertible and, for every\n  $\\varepsilon>0$, $(u^{\\varepsilon n}/(1-q^n))_{n\\ge1}$ is a null sequence. It is built with SA.4's construction for\n  forcing null sequences. Also the variant $\\mathcal H^{\\mathrm{an}}_{\\mathrm{(i)}}$ imposing (i) only (Lecture 8) and the map\n  $\\mathcal H^{\\mathrm{an}}_{\\mathrm{(i)}}\\to\\mathcal H^{\\mathrm{an}}$. Remark 7.9 records that the definition is preliminary; both rings are\n  targets here.\n- *Comparison with Habiro's ring* (Lemma 7.10). A map $\\mathcal H\\to\\mathcal H^{\\mathrm{an}}_{\\mathrm{(i)}}$, and hence to $\\mathcal H^{\\mathrm{an}}$.\n  It sends $\\sum_nf_n(q)(q;q)_n$, with $f_n\\in\\mathbb Z[q^{\\pm1}]$, to the convergent sum\n  $\\sum_nu^nf_n(q)\\,\\frac{(q;q)_n}{u^n}$, using HC.2's factorial expansions. It is compatible with the maps from\n  $\\mathbb Z[q^{\\pm1}]$ and independent of the chosen expansion.\n- *Nonvanishing* (Example 7.15, Remark 7.16). For every $m\\ge1$,\n  $B_m=\\mathbb Q(\\zeta_m)((u))_\\square\\langle q-\\zeta_m\\rangle^\\dagger_0[1/(q-\\zeta_m)]$ is an $\\mathcal H^{\\mathrm{an}}$-algebra. For $B_1$,\n  $(1-q)^n\\mid(q;q)_n$ and $1-q^n=(1-q)[n]_q$ with $[n]_q$ a unit of norm $1$ give (i) and (ii). Hence\n  $\\mathcal H^{\\mathrm{an}}\\neq0$. The notes also state $\\mathcal H^{\\mathrm{an}}/p\\ne0$ without proof; this is a target with source status\n  \"stated in Remark 7.16\".\n- *The disc complex* (algebraic content of Proposition 7.11). Let $\\mathcal H^{\\mathrm{an}}\\langle T\\rangle^\\dagger_1$ be the\n  overconvergent functions on the unit disc over $\\mathcal H^{\\mathrm{an}}$. The $q$-difference complex\n  $\\mathcal H^{\\mathrm{an}}\\langle T\\rangle^\\dagger_1\\to\\mathcal H^{\\mathrm{an}}\\langle T\\rangle^\\dagger_1$, $T^n\\mapsto(1-q^n)T^{n-1}$, has cohomology\n  $\\mathcal H^{\\mathrm{an}}$ in degree $0$ and $0$ in degree $1$, using the invertibility and growth bound (ii).\n\n**Inputs.** From `SolidAnalyticRings` SA.4: normed base, disc algebras and forcing null sequences. From\n`AnalyticStacks` AS.4: overconvergent discs and annuli. From `HabiroCyclotomicCompletions`: HC.1 ($q$-Pochhammer\nsymbols, $q$-integers) and HC.2 (factorial expansions in $\\mathcal H$).\n\n**Acceptance.** $q^{\\pm1}\\in\\mathcal H^{\\mathrm{an}}$ have norm $1$. The image of $\\sum_n(q;q)_n$ (Kontsevich–Zagier) in\n$\\mathcal H^{\\mathrm{an}}$ is computed to precision $u^N$. The composite $\\mathcal H\\to\\mathcal H^{\\mathrm{an}}\\to B_1$ agrees with the Taylor\nexpansion at $q=1$ followed by the evident map $\\mathbb Z[[q-1]]\\to B_1$. The disc complex is written out in degrees\n$\\le3$.",
+   "requires": [
+    "SolidAnalyticRings:SA.4",
+    "AnalyticStacks:AS.4",
+    "HabiroCyclotomicCompletions:HC.1",
+    "HabiroCyclotomicCompletions:HC.2"
+   ]
+  },
+  {
+   "key": "HS.1",
+   "title": "The subgroup G, the analytic (G_m)^Hab and specialisations at roots of unity",
+   "description": "The subgroup $G$, the analytic $(\\mathbb G_m)^{\\mathrm{Hab}}$ and specialisations at roots of unity (V5A4 Examples 2.25,\n6.10–6.11, Definition 7.12, Remark 7.13, Lemma 7.14, Lemma 8.1, Examples 8.2–8.3).\n\n**Targets.**\n- *The subgroup $G$* (Definition 7.12, Remark 7.13).\n  $G=\\{x\\in\\mathbb G^{\\mathrm{an}}_{m,\\mathcal H^{\\mathrm{an}}}:((x;q)_n)_n\\text{ has rapid decay}\\}$, realised as\n  $\\operatorname{AnSpec}\\mathrm{colim}_k\\,\\mathcal H^{\\mathrm{an}}[((x;q)_n/u^{kn})_{n\\ge0}\\text{ null}]$. $G$ is a subgroup: closure under\n  products and inverses follows from the expansion of $(xy;q)_n$ in the $(x;q)_r$ and $(y;q)_{n-r}$ with\n  $q$-power multiples of $q$-binomial coefficients as coefficients. $q\\in G$ by condition (i), so $G$ is a thickening\n  of $q^{\\mathbb Z}$.\n- *The torus* (Definition 7.12).\n  $(\\mathbb G_m)^{\\mathrm{Hab}}:=\\mathbb G^{\\mathrm{an}}_{m,\\mathcal H^{\\mathrm{an}}}/G$ as a group object in analytic stacks over $\\mathcal H^{\\mathrm{an}}$.\n- *Full faithfulness* (Lemma 7.14). For $f:*/q^{\\mathbb Z}\\to*/G$, $f^*:D_{qc}(*/G)\\to D_{qc}(*/q^{\\mathbb Z})$ is fully faithful.\n  The proof shows that $f_*$ of the unit is the unit, using condition (ii). Hence\n  $D_{qc}((\\mathbb G_m)^{\\mathrm{Hab}})$ is a full subcategory of $D_{qc}(\\mathbb G^{\\mathrm{an}}_{m,\\mathcal H^{\\mathrm{an}}}/q^{\\mathbb Z})$, cut out by a\n  convergence condition.\n- *Modified $q$-connections* (Examples 2.25, 6.10–6.11). The algebraic identification of\n  $D_{qc}(\\mathbb G_{m,\\mathcal H}/q^{\\mathbb Z})$ with modules with modified $q$-connection, imported from HQ.1. Its analytic\n  counterpart: $D_{qc}(\\mathbb G^{\\mathrm{an}}_{m,\\mathcal H^{\\mathrm{an}}}/q^{\\mathbb Z})$ is modules over $\\mathbb G^{\\mathrm{an}}_{m,\\mathcal H^{\\mathrm{an}}}$ with a semilinear\n  automorphism covering $x\\mapsto qx$. The base change along $\\mathcal H\\to\\mathcal H^{\\mathrm{an}}$ of Lemma 7.10 is compatible with it.\n- *Roots of unity* (Lemma 8.1). At $q=\\zeta_m$, i.e. after base change to $B_m$ or to a quotient where\n  $\\Phi_m(q)=0$, $G$ is the overconvergent neighbourhood of $\\mu_m\\subset\\mathbb G^{\\mathrm{an}}_m$. The notes' proof uses\n  periodicity of $(x;\\zeta_m)_n$ and the equivalence between rapid decay of $((1-x^m)^n)_n$ and $x$ lying in an\n  overconvergent neighbourhood of $\\mu_m$.\n- *The de Rham specialisation* (Example 8.2). At $q=1$, $G=(\\{1\\}\\subset\\mathbb G^{\\mathrm{an}}_m)^\\dagger$ and\n  $\\mathbb G^{\\mathrm{an}}_m/G$ is the analytic de Rham stack $(\\mathbb G^{\\mathrm{an}}_m)_{\\mathrm{dR}}$. At $q=\\zeta_m$, $x\\mapsto x^m$ gives\n  $\\mathbb G^{\\mathrm{an}}_m/(\\mu_m)^\\dagger\\simeq(\\mathbb G^{\\mathrm{an}}_m)_{\\mathrm{dR}}$. The base of the specialisation is not a Banach field, so the\n  analytic de Rham stack over it is constructed here from RS.2's definition, and the required properties of\n  Theorem 10.6 are verified over this base. Source status: stated in Example 8.2 without proof.\n- *Square roots* (Example 8.3). The subring of $\\mathcal H^{\\mathrm{an}}[q^{1/2}]$ where $((-q^{1/2};q)_n)_n$ has rapid decay, and\n  $(-1)^{\\mathrm{Hab}}=q^{1/2}$, with specialisation $\\zeta_{2m}$ at $q=\\zeta_m$.\n\n**Inputs.** HS.0. From `RingStacksAndTransmutation` RS.2: the analytic de Rham ring stack. From `AnalyticStacks`\nAS.4: $\\mathbb G^{\\mathrm{an}}_m$ and overconvergent neighbourhoods. From `HabiroCohomologyFoundations` HQ.1: modified\n$q$-connections and V5A4 Example 2.25. From `HabiroCyclotomicCompletions` HC.1: $q$-binomial identities for\n$(xy;q)_n$.\n\n**Acceptance.** $q^{\\mathbb Z}\\subset G$. $(x;q)_n$ for $x=q^{-1}$ is eventually zero, so $q^{-1}\\in G$. For $m=2$, the\nspecialisation of $G$ contains $-1$. The full subcategory of Lemma 7.14 is tested on the module\n$\\mathcal H^{\\mathrm{an}}\\langle x^{\\pm1}\\rangle$ with $x\\mapsto qx$.",
+   "requires": [
+    "AnalyticHabiroStack:HS.0",
+    "RingStacksAndTransmutation:RS.2",
+    "AnalyticStacks:AS.4",
+    "HabiroCohomologyFoundations:HQ.1",
+    "HabiroCyclotomicCompletions:HC.1"
+   ]
+  },
+  {
+   "key": "HS.2",
+   "title": "The operation 1 −_Hab x and the Habiro ring stack",
+   "description": "The operation $1-_{\\mathrm{Hab}}x$ and the Habiro ring stack (V5A4 Remark 6.13, Definition 8.4, Remark 8.5, Example 8.6\nand the discussion of Lecture 8).\n\n**Targets.**\n- *The torsor* (Definition 8.4). For $x\\in\\mathbb G^{\\mathrm{an}}_{m,\\mathcal H^{\\mathrm{an}}}\\setminus G$, the subspace $1-_{\\mathrm{Hab}}x$ consists of\n  those $y\\in\\mathbb G^{\\mathrm{an}}_{m}$ for which a sequence $(s_n(x,y))_n$ has rapid decay. The two printed forms are:\n  - Definition 8.4: $s_n=\\sum_{k+\\ell=n}(-1)^nq^{\\binom k2+\\binom\\ell2}\\binom{n}{\\ell,\\ n-k-\\ell}_q\\,x^ky^\\ell$, whose\n    $q$-trinomial has last index $0$ on the printed range;\n  - Example 8.6: $s_n=\\sum_{m=0}^n(-1)^m\\binom nm_qq^{\\binom m2}x^m(y;q)_{n-m}$.\n\n  The second specialises at $q=1$ to $(1-x-y)^n$, as the construction requires. The stage fixes the definition\n  by this specialisation requirement and proves that the admissible formulations cut out the same subspace.\n  It proves that $1-_{\\mathrm{Hab}}x$ is a $G$-torsor whose map to $\\mathbb G^{\\mathrm{an}}_m$ is injective, so $x\\mapsto1-_{\\mathrm{Hab}}x$\n  defines $(\\mathbb G_m\\setminus\\{1\\})^{\\mathrm{Hab}}\\to(\\mathbb G_m)^{\\mathrm{Hab}}$. Source status: defined in Definition 8.4; the torsor\n  property is stated without proof.\n- *Cartier duality.* The Cartier dual\n  $G^\\vee=\\bigcup_k\\operatorname{AnSpec}\\big(\\mathcal H^{\\mathrm{an}}\\big[u^{kn}\\tfrac{(T;q)_n}{(q;q)_n}\\big]^\\dagger\\big)$. The description of\n  $\\mathbb G_m/G$ through additive maps $G^\\vee/q^{\\mathbb Z}\\to B\\mathbb G_m$. The line bundle on $G^\\vee/q^{\\mathbb Z}$ with descent datum\n  $q^n\\mapsto(gx;q)_n$. The function $(t;q)_\\infty(t-1;q)_\\infty$ on the torsor, which solves two $q$-difference\n  equations. Source status: sketched in Lecture 8.\n- *The ring stack.* $(\\mathbb A^{1,\\mathrm{an}})^{\\mathrm{Hab}}$ is glued from two copies of $(\\mathbb G_m)^{\\mathrm{Hab}}$ along $x\\mapsto1-_{\\mathrm{Hab}}x$\n  (Remark 6.13 with RS.0's determination by the affine line). Subtraction is $x-y=x(1-_{\\mathrm{Hab}}y/x)$,\n  multiplication comes from the group structure of $(\\mathbb G_m)^{\\mathrm{Hab}}$, and $0$ is the added point. The ring\n  axioms hold. Associativity of addition follows from the five-term relation. The route adopted here is the quantum\n  pentagon identity for $(x;q)_\\infty$ (Faddeev–Kashaev), transported to the rapid-decay torsors. Source status:\n  Lecture 8 states \"The only nontrivial verification here is for the associativity, which is given by the five-term\n  relation for the dilogarithm\", without proof.\n- *Alternative description* (Remark 8.5). $(\\mathbb A^{1,\\mathrm{an}}_{\\mathcal H^{\\mathrm{an}}})^{\\mathrm{Hab}}\\simeq\\mathbb A^{1,\\mathrm{an}}_{\\mathcal H^{\\mathrm{an}}}/\\sim$,\n  where the equivalence relation is the rapid decay of the Pochhammer sequence written $(x;y)_n$ in the notes. Its\n  precise form is pinned by comparison with Definition 8.4.\n- *Integers* (Example 8.6 and the discussion after Example 8.2). The canonical map $\\mathbb Z\\to(\\mathbb A^{1,\\mathrm{an}})^{\\mathrm{Hab}}$,\n  $n\\mapsto n^{\\mathrm{Hab}}$. $2^{\\mathrm{Hab}}=1+_{\\mathrm{Hab}}1=1-_{\\mathrm{Hab}}(-1)^{\\mathrm{Hab}}$ with $(-1)^{\\mathrm{Hab}}=q^{1/2}$ (Example 8.3); this is\n  Example 8.6 with its printed $x$ read as $q^{1/2}$, so that the $q=1$ specialisation of the condition is\n  $(2-y)^n$. At $q=\\zeta_m$, $n^{\\mathrm{Hab}}$ specialises to $n^{1/m}$ when $n$ is invertible.\n- *Specialisations.* At $q=1$, $(1-_{\\mathrm{Hab}}x)|_{q=1}=1-x$ and $(\\mathbb A^{1,\\mathrm{an}})^{\\mathrm{Hab}}|_{q=1}\\simeq(\\mathbb A^{1,\\mathrm{an}})_{\\mathrm{dR}}$. At\n  $q=\\zeta_m$, $(1-_{\\mathrm{Hab}}x)|_{q=\\zeta_m}=(1-x^m)^{1/m}$ under the identification of HS.1. Source status: stated as\n  expectations after Example 8.2.\n- *Variant.* All constructions over $\\mathcal H^{\\mathrm{an}}_{\\mathrm{(i)}}$, and the locus where condition (ii) fails, on which the\n  notes warn that the ring stack is ill-behaved.\n\n**Inputs.** HS.1. From `RingStacksAndTransmutation` RS.0: ring stacks, gluing, determination by the affine line.\nFrom `HabiroCyclotomicCompletions` HC.1: $q$-binomial and $q$-multinomial identities, and the $q$-binomial theorem\nand Euler identities for $(x;q)_\\infty$. The quantum pentagon identity is proved here, following Faddeev–Kashaev.\n\n**Acceptance.** The $n=0,1,2$ terms of both printed forms of $s_n$ are written out and compared. At $q=1$ the torsor\nis $(1-x)\\cdot(\\{1\\})^\\dagger$. $1+_{\\mathrm{Hab}}1$ agrees with Example 8.6 read as above. The pentagon identity is checked\nin the ring of formal power series in two $q$-commuting variables to total degree $3$.",
+   "requires": [
+    "AnalyticHabiroStack:HS.1",
+    "RingStacksAndTransmutation:RS.0",
+    "HabiroCyclotomicCompletions:HC.1"
+   ]
+  },
+  {
+   "key": "HS.3",
+   "title": "Transmutation and the six-functor formalism of analytic Habiro cohomology",
+   "description": "Transmutation and the six-functor formalism of analytic Habiro cohomology (V5A4 Theorem 1.8, Examples 6.10–6.11,\nProposition 6.12, Proposition 7.11; Scholze, *Six-Functor Formalisms*, Theorem 10.6).\n\n**Targets.**\n- *Hypotheses of Theorem 10.6* for $R=(\\mathbb A^{1,\\mathrm{an}})^{\\mathrm{Hab}}$ over $S=\\operatorname{AnSpec}\\mathcal H^{\\mathrm{an}}$:\n  - $R\\to*$ is $!$-able and cohomologically smooth, and $1\\to f_!f^!1$ is an equivalence;\n  - $0:*\\to R$ is a closed immersion, $R^\\times=(\\mathbb G_m)^{\\mathrm{Hab}}\\hookrightarrow R$ is an open immersion, and\n    $j_!1\\to1\\to i_*1$ is a fibre sequence.\n  Source status: asserted by V5A4 Theorem 1.8 (Scholze) and by Aoki Theorem 1.7; no written proof. Also, over the\n  variant $\\mathcal H^{\\mathrm{an}}_{\\mathrm{(i)}}$, the precise locus where these hypotheses hold.\n- *Transmutation.* $X\\mapsto X^{\\mathrm{Hab}}$ from separated schemes of finite type over $\\mathbb Z$ to $0$-truncated analytic\n  stacks over $\\mathcal H^{\\mathrm{an}}$. It commutes with finite limits and Zariski gluing (Proposition 6.12), and sends étale,\n  smooth and proper maps to cohomologically étale, smooth and proper maps. $D_{\\mathrm{Hab}}(X):=D_{qc}(X^{\\mathrm{Hab}})$ is a\n  six-functor formalism (V5A4 Theorem 1.8; Examples 6.10–6.11). Analytic Habiro cohomology is\n  $R\\Gamma_{\\mathrm{Hab}}(X)=R\\Gamma(X^{\\mathrm{Hab}},\\mathcal O)$, a $\\mathcal H^{\\mathrm{an}}$-module.\n- *Computations.* The Habiro cohomology of the overconvergent unit disc $D_0(1)^\\dagger$ is $\\mathcal H^{\\mathrm{an}}$, which is\n  Proposition 7.11: the transmuted disc is computed by the complex of HS.0. For $\\mathbb G_m$, $R\\Gamma_{\\mathrm{Hab}}$ is the\n  analytic $q$-de Rham complex $\\mathcal H^{\\mathrm{an}}\\langle x^{\\pm1}\\rangle\\xrightarrow{\\gamma-1}\\mathcal H^{\\mathrm{an}}\\langle x^{\\pm1}\\rangle$ under the\n  full faithfulness of Lemma 7.14. For $\\mathbb A^1$, it is $\\mathcal H^{\\mathrm{an}}$ in degree $0$ (homological triviality).\n- *Interface.* The functor from algebraic data to analytic data: the base change along $\\mathcal H\\to\\mathcal H^{\\mathrm{an}}$ of the\n  modified-$q$-connection description of HQ.1 lands in $D_{\\mathrm{Hab}}(\\mathbb G_m)$ exactly on the convergent objects. This\n  map is what `HabiroCohomologyFoundations` HQ.6 compares.\n\n**Inputs.** HS.2. From `RingStacksAndTransmutation` RS.2: Theorem 10.6. From `AnalyticStacks` AS.4: cohomological\nsmoothness of $\\mathbb A^{1,\\mathrm{an}}$ over the base and the excision sequences.\n\n**Acceptance.** $\\mathbb P^1_{\\mathbb Z}\\mapsto(\\mathbb P^1)^{\\mathrm{Hab}}$ is cohomologically proper and smooth, with $R\\Gamma_{\\mathrm{Hab}}$ free of rank $2$\nover $\\mathcal H^{\\mathrm{an}}$ (degrees $0$ and $2$). The base change of $R\\Gamma_{\\mathrm{Hab}}(\\mathbb G_m)$ to $B_1$ is the analytic de Rham\ncohomology of $\\mathbb G_m$. The étale map $x\\mapsto x^2$ on $\\mathbb G_m$ over $\\mathbb Z[1/2]$ becomes cohomologically étale.",
+   "requires": [
+    "AnalyticHabiroStack:HS.2",
+    "RingStacksAndTransmutation:RS.2",
+    "AnalyticStacks:AS.4"
+   ]
+  },
+  {
+   "key": "HS.4",
+   "title": "The normed Habiro ring stack and specialisations",
+   "description": "The normed Habiro ring stack and specialisations (V5A4 Lecture 7 opening and Remark 7.1; Aoki Definition 4.31 and\nTheorem 1.7).\n\n**Targets.**\n- *The norm.* The composite $\\mathbb G^{\\mathrm{an}}_{m,\\mathcal H^{\\mathrm{an}}}\\to\\mathbb G^{\\mathrm{an}}_{m,\\mathcal H^{\\mathrm{an}}}/q^{\\mathbb Z}\\to(\\mathbb G_m)^{\\mathrm{Hab}}\\to[0,\\infty)^{\\mathrm{Betti}}$\n  exhibits $\\mathbb G^{\\mathrm{an}}_{m,\\mathcal H^{\\mathrm{an}}}$ as a normed analytic stack. The norm $N$ on $(\\mathbb G_m)^{\\mathrm{Hab}}$ is well defined\n  because $|q|=1$ and $G$ lies in $\\{|x|=1\\}$. $N$ extends to $(\\mathbb A^{1,\\mathrm{an}})^{\\mathrm{Hab}}$ with $N(0)=0$, and makes\n  $(\\mathbb A^{1,\\mathrm{an}})^{\\mathrm{Hab}}$ a ring stack with an absolute value in the sense of Aoki Definition 4.31 (RS.3). Its\n  restriction along $\\mathbb A^{1,\\mathrm{an}}_{\\mathcal H^{\\mathrm{an}}}$ recovers the norm of the normed analytic ring $\\mathcal H^{\\mathrm{an}}$, whose preimage\n  of $[0,\\infty)$ is $\\mathbb A^{1,\\mathrm{an}}_{\\mathcal H^{\\mathrm{an}}}$ (V5A4 Lecture 7). Source status: formulated as the desideratum of\n  Lecture 7; asserted through Aoki Theorem 1.7.\n- *Discs.* The Habiro discs $N^{-1}[0,r]$ and $N^{-1}[0,r)$ and their overconvergence (Aoki Remark 4.33). The open unit\n  disc is homologically trivial, the condition of Aoki Theorem D (source status: asserted through Aoki Theorem 1.7).\n  The transmutation of $D_0(r)^\\dagger$ is the Habiro disc.\n- *Specialisations.* Base change of the normed ring stack along $\\mathcal H^{\\mathrm{an}}\\to B_m$. For $m=1$, the comparison with\n  the analytic de Rham ring stack $(\\mathbb A^{1,\\mathrm{an}})_{\\mathrm{dR}}$ over $B_1$ as normed ring stacks. For general $m$, the\n  comparison through $x\\mapsto x^m$ of HS.1–HS.2.\n\n**Inputs.** HS.3. From `RingStacksAndTransmutation` RS.3: normed ring stacks and absolute values.\n\n**Acceptance.** $N(q)=1$ and $N(n^{\\mathrm{Hab}})=1$ for $n$ invertible. For $m=1$ the disc of radius $r<1$ around $0$ in\n$(\\mathbb A^{1,\\mathrm{an}})^{\\mathrm{Hab}}|_{B_1}$ matches the overconvergent disc of the analytic de Rham stack. The Sierpiński\nsuturing induced by $N$ is the suturing $(\\mathbb G_m)^{\\mathrm{Hab}}\\subset(\\mathbb A^{1,\\mathrm{an}})^{\\mathrm{Hab}}\\supset\\{0\\}$ of HS.3.",
+   "requires": [
+    "AnalyticHabiroStack:HS.3",
+    "RingStacksAndTransmutation:RS.3"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "ong-v5a4",
+   "title": "Habiro Cohomology (notes of P. Scholze's course V5A4, Bonn, summer semester 2025)",
+   "authors": "Wern Juin Gabriel Ong (notes of lectures by Peter Scholze)",
+   "edition": "notes covering the lectures of 11 April to 11 July 2025, 50 pp.; not publicly posted, cited by title, author, course and date; the URL is the MPIM archive of the lecture recordings named in the notes",
+   "url": "https://archive.mpim-bonn.mpg.de/id/eprint/5155/",
+   "readSections": [
+    "Lecture 1 (11 April 2025): Theorem 1.8, Remark 1.9",
+    "Lecture 2 (2 May 2025): Example 2.25",
+    "Lecture 6 (20 June 2025): Examples 6.10–6.11, Proposition 6.12, Remarks 6.13–6.14",
+    "Lecture 7 (4 July 2025): all",
+    "Lecture 8 (11 July 2025): all"
+   ]
+  },
+  {
+   "id": "scholze-habiro-course-description",
+   "title": "Vorlesung (V5A4): Habiro Cohomology, course description",
+   "authors": "Peter Scholze",
+   "edition": "Bonn, summer semester 2025",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/ss2025_habiro.pdf",
+   "readSections": [
+    "full course description (announced topics)"
+   ]
+  },
+  {
+   "id": "scholze-six-functor",
+   "title": "Six-Functor Formalisms",
+   "authors": "Peter Scholze",
+   "edition": "arXiv:2510.26269v2 (22 January 2026)",
+   "url": "https://arxiv.org/abs/2510.26269v2",
+   "readSections": [
+    "Lecture X: Theorem 10.6, Examples 10.4, 10.9"
+   ]
+  },
+  {
+   "id": "aoki-normed-ring-stacks",
+   "title": "Berkovich 2-motives and normed ring stacks",
+   "authors": "Ko Aoki",
+   "edition": "arXiv:2603.01877v1 (2 March 2026)",
+   "url": "https://arxiv.org/abs/2603.01877v1",
+   "readSections": [
+    "Theorem 1.7 and Theorem D (statements)",
+    "§4.4 (Definition 4.31, Remarks 4.32–4.33)"
+   ]
+  },
+  {
+   "id": "faddeev-kashaev",
+   "title": "Quantum dilogarithm",
+   "authors": "Ludwig D. Faddeev; Rinat M. Kashaev",
+   "edition": "Modern Phys. Lett. A 9 (1994), 427-434; arXiv:hep-th/9310070v1",
+   "url": "https://arxiv.org/abs/hep-th/9310070v1",
+   "readSections": [
+    "full paper (pentagon identity for the quantum dilogarithm)"
+   ]
+  },
+  {
+   "id": "gswz",
+   "title": "The Habiro ring of a number field",
+   "authors": "Stavros Garoufalidis; Peter Scholze; Campbell Wheeler; Don Zagier",
+   "edition": "arXiv:2412.04241v2 (27 August 2025)",
+   "url": "https://arxiv.org/abs/2412.04241v2",
+   "readSections": [
+    "§1.3 (Habiro's ring as Taylor-glued functions)"
+   ]
+  },
+  {
+   "id": "rc-analytic-de-rham",
+   "title": "The analytic de Rham stack in rigid geometry",
+   "authors": "Juan Esteban Rodríguez Camargo",
+   "edition": "arXiv:2401.07738v1 (15 January 2024)",
+   "url": "https://arxiv.org/abs/2401.07738v1",
+   "readSections": [
+    "§5.2 (analytic de Rham stack)"
+   ]
+  }
+ ],
+ "status": "draft"
+}

@@ -1476,6 +1476,1556 @@
     ]
   },
   {
+    "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory",
+    "primaryMsc": "20C",
+    "secondaryMsc": [
+      "17B",
+      "22E",
+      "16G"
+    ],
+    "cluster": "lie-theory-and-representations",
+    "distance": 2,
+    "distanceRationale": "This index page has no targets of its own, so its distance is the median over its twelve sub-roadmaps as classified in this batch: SemisimpleAlgebras 0; CharacterTheory, CompactGroups, RootSystems 1; InductionRestriction, LieHighestWeight, QuiverRepresentations, SchurWeyl, SpinRepresentations 2; AdoIwasawa, ClassicalGroups 3; LieGroups 5. Tau Ceti already covers most of the finite-group, compact-group (Peter–Weyl), symmetric-group, root-system and semisimple-Lie-algebra cores. The farthest lanes are the smooth Lie-group correspondence, the group-level classical-group classification and Ado–Iwasawa.",
+    "mathlibEvidence": [
+      "mathlib:Representation and FDRep (Mathlib/RepresentationTheory/Basic.lean, Mathlib/RepresentationTheory/FDRep.lean) — the shared representation spine",
+      "tauceti:TauCeti.peterWeylBasis (TauCeti/RepresentationTheory/Compact/PeterWeyl.lean) and TauCeti.card_irreducibleCharacters (TauCeti/RepresentationTheory/CharacterTable/Table.lean) — compact and finite-group cores",
+      "tauceti:TauCeti.partitionEquivSimpleFDRepClasses (TauCeti/RepresentationTheory/Symmetric/Specht/Completeness.lean) and TauCeti.existsUnique_dynkinType (TauCeti/LinearAlgebra/RootSystem/FiniteType/Classification.lean) — symmetric-group and root-system classifications",
+      "tauceti:TauCeti.existsUnique_isDominantIntegral_highestWeight_of_finiteDimensional_irreducible (TauCeti/Algebra/Lie/HighestWeight/Existence.lean) and TauCeti.card_blocks_eq (TauCeti/RingTheory/Semisimple/BlockCount.lean) — Lie-algebra and semisimple-algebra cores",
+      "absent (farthest sub-roadmaps): Lie's third theorem and maximal-torus theory for Lie groups, Ado–Iwasawa, the group-level highest-weight classification for GLₙ/SOₙ/Spₙ (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "Representation theory. A first course",
+        "authors": "Fulton, William; Harris, Joe",
+        "zbmath": 51906,
+        "msc": [
+          "22-01",
+          "20-01",
+          "20G05",
+          "22E46",
+          "17B10",
+          "22E60",
+          "17B20",
+          "17-01"
+        ]
+      },
+      {
+        "title": "Symmetry, representations, and invariants",
+        "authors": "Goodman, Roe; Wallach, Nolan R.",
+        "zbmath": 5557103,
+        "msc": [
+          "22-01",
+          "17-01",
+          "20G05",
+          "20G45",
+          "22E45",
+          "22E46",
+          "22E10"
+        ]
+      },
+      {
+        "title": "Methods of representation theory, with applications to finite groups and orders. Vol. I",
+        "authors": "Curtis, Charles W.; Reiner, Irving",
+        "zbmath": 3736029,
+        "msc": [
+          "20-02",
+          "16-02",
+          "20Cxx",
+          "16H05",
+          "16Gxx",
+          "16U30",
+          "20C05",
+          "20C10",
+          "20C15",
+          "20C20",
+          "20C25",
+          "16P10"
+        ]
+      },
+      {
+        "title": "Linear representations of finite groups",
+        "authors": "Serre, Jean-Pierre",
+        "zbmath": 3552764,
+        "msc": [
+          "20Cxx",
+          "20Dxx",
+          "11S20",
+          "16D40",
+          "16E20"
+        ]
+      },
+      {
+        "title": "Character theory of finite groups",
+        "authors": "Isaacs, I. Martin",
+        "zbmath": 3526920,
+        "msc": [
+          "20Cxx",
+          "20-02",
+          "20D99"
+        ]
+      },
+      {
+        "title": "Introduction to Lie algebras and representation theory",
+        "authors": "Humphreys, J. E.",
+        "zbmath": 3401123,
+        "msc": [
+          "17-02",
+          "17B10",
+          "17B05",
+          "17B20",
+          "20G05",
+          "20G40",
+          "22E60"
+        ]
+      },
+      {
+        "title": "Representations of compact Lie groups",
+        "authors": "Bröcker, Theodor; tom Dieck, Tammo",
+        "zbmath": 3929321,
+        "msc": [
+          "22-02",
+          "22E45",
+          "22C05"
+        ]
+      },
+      {
+        "title": "Introduction to representation theory",
+        "authors": "Etingof, Pavel; Golberg, Oleg; Hensel, Sebastian; Liu, Tiankai; Schwendner, Alex; Vaintrob, Dmitry; Yudovina, Elena",
+        "zbmath": 5943514,
+        "msc": [
+          "20-01",
+          "16-01",
+          "17-01",
+          "00-01",
+          "20C15",
+          "16G20",
+          "17B10",
+          "20G05"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+    "primaryMsc": "17B",
+    "secondaryMsc": [
+      "16S",
+      "16W"
+    ],
+    "cluster": "lie-theory-and-representations",
+    "distance": 3,
+    "distanceRationale": "Mathlib has the Lie-algebra substrate: enveloping algebras, nilpotent and solvable ideals, Engel and Lie's theorems, semidirect sums, and the generalized Krull intersection theorem. Tau Ceti adds the PBW filtration with ordered-monomial spanning, the associated-graded comparison map, and Weyl complete reducibility for Killing algebras. Still missing is one layer of textbook theory (Jacobson, Ch. VI): PBW injectivity for non-abelian L, the nilradical, derivations lifted to U(L), Levi decomposition, and central p-polynomials, followed by the Ado–Iwasawa–Hochschild theorems themselves.",
+    "mathlibEvidence": [
+      "mathlib:UniversalEnvelopingAlgebra (Mathlib/Algebra/Lie/UniversalEnveloping.lean), LieAlgebra.maxNilpotentIdeal (Mathlib/Algebra/Lie/Nilpotent.lean), LieAlgebra.radical (Mathlib/Algebra/Lie/Solvable.lean) — enveloping algebra and nilpotent/solvable ideals, but not the nilradical nil L the roadmap needs",
+      "mathlib:Ideal.mem_iInf_smul_pow_eq_bot_iff (Mathlib/RingTheory/Filtration.lean) — the generalized Krull intersection theorem used by the positive-characteristic track",
+      "tauceti:TauCeti.UniversalEnvelopingAlgebra.span_orderedPBWMonomials_eq_pbwFiltration and pbwAssociatedGradedMap_injective_iff (TauCeti/Algebra/Lie/UniversalEnveloping/PBW/) — PBW filtration and spanning half; the file notes that injectivity is 'the remaining PBW theorem'; TauCeti.UniversalEnvelopingAlgebra.ι_injective (UniversalEnveloping/Abelian.lean) covers only abelian L",
+      "tauceti:TauCeti.complementedLattice_lieSubmodule_of_isKilling (TauCeti/Algebra/Lie/HighestWeight/CompleteReducibility.lean) — Weyl complete reducibility, an input to Levi decomposition",
+      "absent: Ado or Iwasawa theorem, faithful finite-dimensional representation of a general Lie algebra, Levi decomposition of Lie algebras, derivations of U(L), central p-polynomials (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "On the representation of Lie algebras",
+        "authors": "Iwasawa, Kenkichi",
+        "zbmath": null,
+        "msc": [],
+        "note": "Japanese Journal of Mathematics 19 (1948), 405–426 (MR0032613); not found in zbMATH Open by author, year, or title search"
+      },
+      {
+        "title": "An addition to Ado's theorem",
+        "authors": "Hochschild, G.",
+        "zbmath": 3230385,
+        "msc": []
+      },
+      {
+        "title": "Lie algebras",
+        "authors": "Jacobson, Nathan",
+        "zbmath": 3196329,
+        "msc": [
+          "17Bxx",
+          "17-01",
+          "17B05",
+          "17B10",
+          "17B20",
+          "17B40"
+        ]
+      },
+      {
+        "title": "Representation theory. A first course",
+        "authors": "Fulton, William; Harris, Joe",
+        "zbmath": 51906,
+        "msc": [
+          "22-01",
+          "20-01",
+          "20G05",
+          "22E46",
+          "17B10",
+          "22E60",
+          "17B20",
+          "17-01"
+        ]
+      },
+      {
+        "title": "Ado's theorem (expository notes)",
+        "authors": "Asgarli, Shamil",
+        "zbmath": null,
+        "msc": [],
+        "note": "unpublished lecture notes (UBC); not indexed in zbMATH Open"
+      },
+      {
+        "title": "Yet another proof of the Ado theorem",
+        "authors": "Zusmanovich, Pasha",
+        "zbmath": 6642235,
+        "msc": [
+          "17B10",
+          "17B30"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+    "primaryMsc": "20C",
+    "secondaryMsc": [
+      "68W",
+      "20D",
+      "20G"
+    ],
+    "cluster": "lie-theory-and-representations",
+    "distance": 1,
+    "distanceRationale": "Deliverables A–C are essentially built in Tau Ceti on top of Mathlib's characters and row orthogonality. That covers class functions, completeness, #irreducibles = #classes, Σ nᵢ² = |G| and nᵢ ∣ |G|, the Galois action, the Dixon–Schneider specification with uniqueness, good-prime existence, and a certified rational/cyclotomic solver. Most of D is also done: the Frobenius–Schur trichotomy, Burnside's pᵃqᵇ theorem, Frobenius kernels, and the GL₂(𝔽_q) principal series, Steinberg and linear rows. What remains is the cuspidal series of GL₂(𝔽_q) with its irreducibility and the assembled full table.",
+    "mathlibEvidence": [
+      "mathlib:Representation.character and FDRep.char_orthonormal (Mathlib/RepresentationTheory/Character.lean) — characters and first orthogonality",
+      "tauceti:TauCeti.card_irreducibleCharacters, TauCeti.sum_characterDegree_sq_eq_card, TauCeti.characterDegree_dvd_card (TauCeti/RepresentationTheory/CharacterTable/Table.lean) — Layers 2–4",
+      "tauceti:TauCeti.ClassData.isCharacterTableSpec_of_dixonCyclotomicCharacterTable?_eq_some (CharacterTable/Dixon/Cyclotomic/Solver.lean) and TauCeti.exists_isGoodDixonPrime (Dixon/Prime.lean) — certified Dixon–Schneider solver (Layers 5–6)",
+      "tauceti:TauCeti.isSolvable_of_card_eq_prime_pow_mul_prime_pow (CharacterTable/Solvable.lean), TauCeti.frobeniusKernel_isComplement' (RepresentationTheory/FrobeniusGroup.lean), TauCeti.frobeniusSchurIndicatorRow_eq_one_or_eq_zero_or_eq_neg_one (FrobeniusSchur/InvolutionCount.lean) — Layers 4, 7, 8",
+      "tauceti:TauCeti.simple_GL2PrincipalSeries_iff (CharacterTable/GL2/PrincipalSeries/Irreducible.lean) and TauCeti.card_conjClasses_GL2 (LinearAlgebra/Matrix/GeneralLinearGroup/ConjugacyClasses.lean); absent: GL2Cuspidal irreducible representations and the assembled GL₂(𝔽_q) table (only the elliptic induced class function in GL2/EllipticInduction.lean)"
+    ],
+    "references": [
+      {
+        "title": "Character theory of finite groups",
+        "authors": "Isaacs, I. Martin",
+        "zbmath": 3526920,
+        "msc": [
+          "20Cxx",
+          "20-02",
+          "20D99"
+        ]
+      },
+      {
+        "title": "Linear representations of finite groups",
+        "authors": "Serre, Jean-Pierre",
+        "zbmath": 3552764,
+        "msc": [
+          "20Cxx",
+          "20Dxx",
+          "11S20",
+          "16D40",
+          "16E20"
+        ]
+      },
+      {
+        "title": "Representations and characters of groups (2nd ed.)",
+        "authors": "James, Gordon; Liebeck, Martin",
+        "zbmath": 1666801,
+        "msc": [
+          "20C15",
+          "20-01"
+        ]
+      },
+      {
+        "title": "Methods of representation theory, with applications to finite groups and orders. Vol. I",
+        "authors": "Curtis, Charles W.; Reiner, Irving",
+        "zbmath": 3736029,
+        "msc": [
+          "20-02",
+          "16-02",
+          "20Cxx",
+          "16H05",
+          "16Gxx",
+          "16U30",
+          "20C05",
+          "20C10",
+          "20C15",
+          "20C20",
+          "20C25",
+          "16P10"
+        ]
+      },
+      {
+        "title": "High speed computation of group characters",
+        "authors": "Dixon, J. D.",
+        "zbmath": 3266723,
+        "msc": []
+      },
+      {
+        "title": "Dixon's character table algorithm revisited",
+        "authors": "Schneider, Gerhard J. A.",
+        "zbmath": 4148390,
+        "msc": [
+          "20C15",
+          "20-04",
+          "68W30",
+          "20C34"
+        ]
+      },
+      {
+        "title": "Representation theory. A first course",
+        "authors": "Fulton, William; Harris, Joe",
+        "zbmath": 51906,
+        "msc": [
+          "22-01",
+          "20-01",
+          "20G05",
+          "22E46",
+          "17B10",
+          "22E60",
+          "17B20",
+          "17-01"
+        ]
+      },
+      {
+        "title": "Representations of SL₂(𝔽_q)",
+        "authors": "Bonnafé, Cédric",
+        "zbmath": 5806103,
+        "msc": [
+          "22-02",
+          "22-01",
+          "22E50"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+    "primaryMsc": "20G",
+    "secondaryMsc": [
+      "22E",
+      "05E",
+      "17B"
+    ],
+    "cluster": "lie-theory-and-representations",
+    "distance": 3,
+    "distanceRationale": "Tau Ceti has built most of the scaffolding. That includes the standard representations of GLₙ, SLₙ, Oₙ and Spₙ, polynomial tensor, symmetric and exterior powers, and Young-symmetrizer Weyl modules. It also has the GLₙ/Sₘ double-centralizer theorem, torus weight decompositions, Schur polynomials, the Weyl and hook-content dimension numbers with Gelfand–Tsetlin pattern counts, and the 𝔤𝔩ₙ Lie-algebra highest-weight existence theorems. Still missing is the representation-theoretic layer of Fulton–Harris and Goodman–Wallach: the highest-weight classification of rational GLₙ, SOₙ and Spₙ irreducibles, characters as Schur polynomials, the dimension theorem for Vλ, and the branching isomorphisms with the Gelfand–Tsetlin basis and generators.",
+    "mathlibEvidence": [
+      "mathlib:YoungDiagram (Mathlib/Combinatorics/Young/YoungDiagram.lean) and MvPolynomial.hsymm (Mathlib/RingTheory/MvPolynomial/Symmetric/Defs.lean) — the combinatorial and symmetric-function engine",
+      "tauceti:TauCeti.stdRep (ClassicalGroups/Standard.lean), TauCeti.tensorPowerRep (ClassicalGroups/TensorPower.lean), TauCeti.weylModuleOfShape (ClassicalGroups/WeylModule.lean), TauCeti.IsRationalRep.isInternal_weightSpace (ClassicalGroups/Weight/Decomposition.lean) — Layers 0–3 scaffolding under TauCeti/RepresentationTheory/",
+      "tauceti:TauCeti.centralizer_range_tensorPowerRep_eq_range_permTensorActionAlgHom (TauCeti/RepresentationTheory/Symmetric/TensorAction/GeneralLinear.lean) — Schur–Weyl double centralizer",
+      "tauceti:TauCeti.schurPoly (TauCeti/RingTheory/MvPolynomial/Symmetric/Schur/Basic.lean), TauCeti.GTPattern.card_topRow_eq_weylDimension (ClassicalGroups/GelfandTsetlin/Dimension.lean), TauCeti.weylDimension_eq_prod_detShiftShape_div_hookLength (ClassicalGroups/HookContent.lean) — combinatorial sides of Layers 4–6",
+      "absent: character of an irreducible equals the Schur polynomial, finrank of an irreducible equals weylDimension, group-level highest-weight classification of GLₙ/SOₙ/Spₙ irreducibles, GLₙ ↓ GLₙ₋₁ branching isomorphism, gtBasis and Gelfand–Tsetlin generators (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "Representation theory. A first course",
+        "authors": "Fulton, William; Harris, Joe",
+        "zbmath": 51906,
+        "msc": [
+          "22-01",
+          "20-01",
+          "20G05",
+          "22E46",
+          "17B10",
+          "22E60",
+          "17B20",
+          "17-01"
+        ]
+      },
+      {
+        "title": "Symmetry, representations, and invariants",
+        "authors": "Goodman, Roe; Wallach, Nolan R.",
+        "zbmath": 5557103,
+        "msc": [
+          "22-01",
+          "17-01",
+          "20G05",
+          "20G45",
+          "22E45",
+          "22E46",
+          "22E10"
+        ]
+      },
+      {
+        "title": "The classical groups, their invariants and representations",
+        "authors": "Weyl, Hermann",
+        "zbmath": 3032538,
+        "msc": [
+          "20-01",
+          "13-01",
+          "13A50",
+          "20Gxx"
+        ]
+      },
+      {
+        "title": "Lie groups. An approach through invariants and representations",
+        "authors": "Procesi, Claudio",
+        "zbmath": 2225793,
+        "msc": [
+          "22-02",
+          "22E10",
+          "05E10",
+          "14L24",
+          "14M15",
+          "17B10",
+          "20G05",
+          "13A50"
+        ]
+      },
+      {
+        "title": "Symmetric functions and Hall polynomials (2nd ed.)",
+        "authors": "Macdonald, Ian Grant",
+        "zbmath": 739282,
+        "msc": [
+          "05E05",
+          "05-02",
+          "05E10",
+          "20-02",
+          "05A17",
+          "05A15",
+          "20C25",
+          "20C30"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+    "primaryMsc": "22C",
+    "secondaryMsc": [
+      "43A",
+      "22E"
+    ],
+    "cluster": "lie-theory-and-representations",
+    "distance": 1,
+    "distanceRationale": "Tau Ceti has built the roadmap through its summit on top of Mathlib's Haar measure and Hilbert-basis API. That covers Haar averaging and unitarizability, complete reducibility, matrix coefficients with Schur orthogonality, the Peter–Weyl theorem as peterWeylBasis with Parseval, and the character Hilbert basis with isotypic projectors. The SU(2) engine case is there too: torus conjugacy, the Sym^d classification, and Weyl-character closed forms with torus-side orthonormality. What remains is the measure-theoretic Weyl integration formula on SU(2), which the source file explicitly leaves out, and the packaged G×G decomposition L²(G) ≅ ⨁ End(V_π).",
+    "mathlibEvidence": [
+      "mathlib:MeasureTheory.Measure.haar (Mathlib/MeasureTheory/Measure/Haar/Basic.lean) and fourierBasis (Mathlib/Analysis/Fourier/AddCircle.lean) — Haar measure and Peter–Weyl for the circle",
+      "tauceti:TauCeti.peterWeylBasis and TauCeti.IsIrrepSkeleton.dense_modelSubmodule (TauCeti/RepresentationTheory/Compact/PeterWeyl.lean) — the Peter–Weyl Hilbert basis and uniform density (Layer 5)",
+      "tauceti:TauCeti.ContRepresentation.character_orthonormal_self (Compact/Character/Basic.lean), TauCeti.characterBasis (Compact/Character/Basis.lean), ContRepresentation.isotypicProjector (Compact/Character/IsotypicProjection.lean) — Layer 6",
+      "tauceti:TauCeti.SU2.existsUnique_nonempty_equiv_symPower (TauCeti/RepresentationTheory/SU2/Exhaustion.lean) and TauCeti.SU2.weyl_integration_formula_normalized (SU2/Weyl/Orthogonality.lean) — SU(2) classification and Weyl-density normalization",
+      "absent: the Weyl integration formula itself (Haar integral of a class function on SU(2) equals the torus integral), and an explicit L²(G) ≅ ⨁̂ End(V_π) isomorphism of G×G-representations (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "Lie groups (2nd ed.)",
+        "authors": "Bump, Daniel",
+        "zbmath": 6189103,
+        "msc": [
+          "22-01",
+          "22Exx",
+          "22C05",
+          "20Cxx",
+          "53C35",
+          "11Fxx"
+        ]
+      },
+      {
+        "title": "Lie groups beyond an introduction (2nd ed.)",
+        "authors": "Knapp, Anthony W.",
+        "zbmath": 1849081,
+        "msc": [
+          "22E15",
+          "22-01",
+          "22E46"
+        ]
+      },
+      {
+        "title": "A course in abstract harmonic analysis (2nd ed.)",
+        "authors": "Folland, Gerald B.",
+        "zbmath": 6473590,
+        "msc": [
+          "43-01"
+        ]
+      },
+      {
+        "title": "Representations of compact Lie groups",
+        "authors": "Bröcker, Theodor; tom Dieck, Tammo",
+        "zbmath": 3929321,
+        "msc": [
+          "22-02",
+          "22E45",
+          "22C05"
+        ]
+      },
+      {
+        "title": "Abstract harmonic analysis. Vol. I: Structure of topological groups. Integration theory. Group representations",
+        "authors": "Hewitt, Edwin; Ross, Kenneth A.",
+        "zbmath": 3187168,
+        "msc": [
+          "43-02",
+          "22-03"
+        ]
+      },
+      {
+        "title": "Abstract harmonic analysis. Vol. II: Structure and analysis for compact groups. Analysis on locally compact Abelian groups",
+        "authors": "Hewitt, Edwin; Ross, Kenneth A.",
+        "zbmath": 3338817,
+        "msc": [
+          "43-02",
+          "43A22",
+          "43A05",
+          "43A65"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+    "primaryMsc": "20C",
+    "secondaryMsc": [
+      "19A",
+      "20J"
+    ],
+    "cluster": "lie-theory-and-representations",
+    "distance": 2,
+    "distanceRationale": "Mathlib provides the Ind/Res/Coind adjunctions. Tau Ceti has built Layers 0–5 on top of them: transitivity, the projection formula, the induced-character formula and Frobenius reciprocity for characters, the Mackey decomposition as a natural isomorphism, Mackey's irreducibility criterion, and Clifford theory. It also has most of Layers 6–7: the representation ring, Artin's induction theorem and Artin's corollary, and projective representations classified by H² with twisted group algebras. What remains is a textbook chunk: Brauer's integral induction theorem over (hyper)elementary subgroups, Brauer's characterization of characters, the ℚ(ζ_e) splitting-field corollary, and Schur representation groups (covers).",
+    "mathlibEvidence": [
+      "mathlib:Rep.indResAdjunction (Mathlib/RepresentationTheory/Induced.lean) — Frobenius reciprocity as an adjunction",
+      "tauceti:TauCeti.Rep.indFunctorCompIso (Induction/Transitivity.lean), TauCeti.indProjection (Induction/Projection.lean), TauCeti.character_indFDRep (Induction/Character.lean), TauCeti.frobenius_reciprocity_classFunction (Induction/FrobeniusReciprocity.lean) — Layers 0–2 under TauCeti/RepresentationTheory/",
+      "tauceti:Rep.mackeyDecomposition (Induction/Mackey/Decomposition.lean), TauCeti.simple_indFDRep_iff (Induction/Mackey/Irreducible.lean), FDRep.clifford_restrict_iso (Induction/Clifford/Equivalence.lean) — Layers 3–5",
+      "tauceti:TauCeti.ClassFunction.natCard_nsmul_mem_indVirtualCharacters_isCyclic (Induction/Artin/Basic.lean) and TauCeti.IsProjectiveRep.cohomologyClass_eq_zero_iff (ProjectiveRepresentation/SchurMultiplier.lean) — Artin induction and the Schur-multiplier obstruction",
+      "absent: Brauer's induction theorem (integral surjectivity from elementary subgroups), IsHyperelementary, Brauer's characterization of characters, the cyclotomic splitting-field theorem, representation groups/Schur covers (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "Linear representations of finite groups",
+        "authors": "Serre, Jean-Pierre",
+        "zbmath": 3552764,
+        "msc": [
+          "20Cxx",
+          "20Dxx",
+          "11S20",
+          "16D40",
+          "16E20"
+        ]
+      },
+      {
+        "title": "Character theory of finite groups",
+        "authors": "Isaacs, I. Martin",
+        "zbmath": 3526920,
+        "msc": [
+          "20Cxx",
+          "20-02",
+          "20D99"
+        ]
+      },
+      {
+        "title": "Methods of representation theory, with applications to finite groups and orders. Vol. I",
+        "authors": "Curtis, Charles W.; Reiner, Irving",
+        "zbmath": 3736029,
+        "msc": [
+          "20-02",
+          "16-02",
+          "20Cxx",
+          "16H05",
+          "16Gxx",
+          "16U30",
+          "20C05",
+          "20C10",
+          "20C15",
+          "20C20",
+          "20C25",
+          "16P10"
+        ]
+      },
+      {
+        "title": "Representations and characters of groups (2nd ed.)",
+        "authors": "James, Gordon; Liebeck, Martin",
+        "zbmath": 1666801,
+        "msc": [
+          "20C15",
+          "20-01"
+        ]
+      },
+      {
+        "title": "Groups and representations",
+        "authors": "Alperin, J. L.; Bell, Rowen B.",
+        "zbmath": 826242,
+        "msc": [
+          "20-01",
+          "20C15",
+          "20Dxx",
+          "20D20",
+          "20D10"
+        ]
+      },
+      {
+        "title": "On induced representations of groups",
+        "authors": "Mackey, George W.",
+        "zbmath": 3070469,
+        "msc": []
+      },
+      {
+        "title": "Projective representations of finite groups",
+        "authors": "Karpilovsky, Gregory",
+        "zbmath": 3906714,
+        "msc": [
+          "20C25",
+          "20C05",
+          "20-02"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+    "primaryMsc": "22E",
+    "secondaryMsc": [
+      "17B",
+      "53C",
+      "22C"
+    ],
+    "cluster": "lie-theory-and-representations",
+    "distance": 5,
+    "distanceRationale": "Mathlib has only the LieGroup class and left-invariant derivations. Tau Ceti adds Deliverable A's first half: the Lie exponential as a local diffeomorphism at 0, classification of one-parameter subgroups, Ad/ad with Ad∘exp = exp∘ad, the Lie functor with faithfulness, the Lie subalgebra of a closed subgroup with its limit criterion, and a Banach-algebra local BCH. Still missing are several layers of standard graduate Lie theory: the embedded closed-subgroup theorem and group-level BCH, Frobenius integrability and Lie's third theorem, simply connected covers, compact maximal-torus conjugacy with general Weyl integration, complexification, Borel–Weil and Bruhat, and the Cartan/Iwasawa/KAK decompositions.",
+    "mathlibEvidence": [
+      "mathlib:LieGroup (Mathlib/Geometry/Manifold/Algebra/LieGroup.lean) and LeftInvariantDerivation (Mathlib/Geometry/Manifold/Algebra/LeftInvariantDerivation.lean) — Lie groups and their Lie algebras",
+      "tauceti:lieExp (TauCeti/Geometry/Lie/Exponential/Basic.lean), isLocalDiffeomorphAt_lieExp_zero (Exponential/LocalInverse.lean), oneParameterSubgroupEquiv (Exponential/Classification.lean) — Layer 0",
+      "tauceti:TauCeti.Lie.tangentAd_mulInvariantExp_smul_self (TauCeti/Geometry/Lie/Adjoint/Exponential/Formula.lean) and lieMap (TauCeti/Geometry/Lie/Functor.lean) — Layers 1 and 3 (Ad/ad, Lie functor)",
+      "tauceti:TauCeti.Lie.lieSubalgebraOfSubgroup (TauCeti/Geometry/Lie/Subgroup/LieAlgebra.lean) and NormedSpace.localBCH (TauCeti/Analysis/Normed/Algebra/BCH/Local.lean) — partial Layers 2–3",
+      "absent: embedded Lie subgroup structure on closed subgroups, Frobenius theorem for distributions, Lie's third theorem, maximal tori of compact Lie groups and the general Weyl integration formula, Lie group complexification, Borel–Weil, Iwasawa/KAK decompositions (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "An introduction to Lie groups and Lie algebras",
+        "authors": "Kirillov, Alexander jun.",
+        "zbmath": 5306922,
+        "msc": [
+          "17-01",
+          "22-01",
+          "17B20",
+          "17B10",
+          "17B05"
+        ]
+      },
+      {
+        "title": "Lie groups (2nd ed.)",
+        "authors": "Bump, Daniel",
+        "zbmath": 6189103,
+        "msc": [
+          "22-01",
+          "22Exx",
+          "22C05",
+          "20Cxx",
+          "53C35",
+          "11Fxx"
+        ]
+      },
+      {
+        "title": "Lie groups beyond an introduction (2nd ed.)",
+        "authors": "Knapp, Anthony W.",
+        "zbmath": 1849081,
+        "msc": [
+          "22E15",
+          "22-01",
+          "22E46"
+        ]
+      },
+      {
+        "title": "Representations of compact Lie groups",
+        "authors": "Bröcker, Theodor; tom Dieck, Tammo",
+        "zbmath": 3929321,
+        "msc": [
+          "22-02",
+          "22E45",
+          "22C05"
+        ]
+      },
+      {
+        "title": "Lie groups, Lie algebras, and representations. An elementary introduction (2nd ed.)",
+        "authors": "Hall, Brian C.",
+        "zbmath": 6423130,
+        "msc": [
+          "22-01",
+          "22E60",
+          "17-01"
+        ]
+      },
+      {
+        "title": "Lie algebras and Lie groups. 1964 lectures, given at Harvard University",
+        "authors": "Serre, Jean-Pierre",
+        "zbmath": 52847,
+        "msc": [
+          "17Bxx",
+          "22Exx",
+          "17-01",
+          "22-01",
+          "17B37",
+          "17B20",
+          "14L05",
+          "17B01",
+          "17B30",
+          "17B10"
+        ]
+      },
+      {
+        "title": "Lie groups, Lie algebras, and their representations",
+        "authors": "Varadarajan, V. S.",
+        "zbmath": 1561756,
+        "msc": [
+          "22-02",
+          "22E45",
+          "22E60",
+          "17B10",
+          "17B15"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+    "primaryMsc": "17B",
+    "secondaryMsc": [
+      "16S",
+      "20G",
+      "17C"
+    ],
+    "cluster": "lie-theory-and-representations",
+    "distance": 2,
+    "distanceRationale": "Mathlib reaches the Killing root system and sl₂ triples. Tau Ceti has built the representation theory on that base: Verma modules and L(λ), the dominant-integral classification of finite-dimensional irreducibles, Weyl complete reducibility, Weyl invariance of characters with the Weyl denominator and numerator identities, central characters, Freudenthal's formula, the full 𝔤𝔩ₙ layer, and carriers for the octonions, the Albert algebra and E₆/E₇ minuscule modules. Still missing, all standard (Humphreys §§17–24, Jacobson): PBW injectivity, the last step of the Weyl character formula with the dimension and Kostant formulas, the minuscule Pieri rule, the Harish-Chandra isomorphism, the Serre-presentation isomorphism, and identifying the exceptional models with LieAlgebra.g₂…e₈.",
+    "mathlibEvidence": [
+      "mathlib:LieAlgebra.IsKilling.rootSystem (Mathlib/Algebra/Lie/Weights/RootSystem.lean) and IsSl2Triple (Mathlib/Algebra/Lie/Sl2.lean) — structure theory consumed by Layers 0–2",
+      "tauceti:TauCeti.VermaModule (TauCeti/Algebra/Lie/HighestWeight/Verma.lean), TauCeti.existsUnique_isDominantIntegral_highestWeight_of_finiteDimensional_irreducible (HighestWeight/Existence.lean), TauCeti.finiteDimensional_iff_isDominantIntegral_of_isHighestWeightVector (HighestWeight/FiniteDimensional.lean) — Layers 3–4",
+      "tauceti:TauCeti.complementedLattice_lieSubmodule_of_isKilling (HighestWeight/CompleteReducibility.lean), TauCeti.freudenthal_multiplicity_formula (HighestWeight/Freudenthal.lean), TauCeti.formalCharacter_mul_weylDenominator_eq_of_forall_coeff_isDominantIntegral_eq (HighestWeight/Character.lean; the file notes the final Weyl-formula step is not yet proved) — Layers 5–7",
+      "tauceti:TauCeti.glIrreducible (TauCeti/Algebra/Lie/GeneralLinear/Carrier.lean), TauCeti.Octonion.finrank_eq_eight (TauCeti/Algebra/Octonion/Basic.lean), TauCeti.AlbertAlgebra.finrank_eq_twentySeven (TauCeti/Algebra/AlbertAlgebra.lean), TauCeti.serreLift_surjective (TauCeti/Algebra/Lie/Presentation/Serre.lean) — Layer 9 and partial Layers 7–8",
+      "absent: PBW injectivity for non-abelian L, Harish-Chandra isomorphism, Serre-presentation isomorphism with the Killing algebra, Kostant multiplicity formula, minuscule Pieri rule, Der(𝕆) ≅ g₂ and the other exceptional identifications (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "Introduction to Lie algebras and representation theory",
+        "authors": "Humphreys, J. E.",
+        "zbmath": 3401123,
+        "msc": [
+          "17-02",
+          "17B10",
+          "17B05",
+          "17B20",
+          "20G05",
+          "20G40",
+          "22E60"
+        ]
+      },
+      {
+        "title": "Complex semisimple Lie algebras",
+        "authors": "Serre, Jean-Pierre",
+        "zbmath": 4021392,
+        "msc": [
+          "17B20",
+          "17-01",
+          "17B22",
+          "17B30",
+          "17B05",
+          "17B10"
+        ]
+      },
+      {
+        "title": "Representation theory. A first course",
+        "authors": "Fulton, William; Harris, Joe",
+        "zbmath": 51906,
+        "msc": [
+          "22-01",
+          "20-01",
+          "20G05",
+          "22E46",
+          "17B10",
+          "22E60",
+          "17B20",
+          "17-01"
+        ]
+      },
+      {
+        "title": "Representations of semisimple Lie algebras in the BGG category 𝒪",
+        "authors": "Humphreys, James E.",
+        "zbmath": 5309234,
+        "msc": [
+          "17-02",
+          "17B10",
+          "17B20",
+          "17B35"
+        ]
+      },
+      {
+        "title": "Elements of mathematics. Lie groups and Lie algebras. Chapters 7–9",
+        "authors": "Bourbaki, Nicolas",
+        "zbmath": 2126494,
+        "msc": [
+          "17-02",
+          "22-02",
+          "01A75"
+        ]
+      },
+      {
+        "title": "Symmetry, representations, and invariants",
+        "authors": "Goodman, Roe; Wallach, Nolan R.",
+        "zbmath": 5557103,
+        "msc": [
+          "22-01",
+          "17-01",
+          "20G05",
+          "20G45",
+          "22E45",
+          "22E46",
+          "22E10"
+        ]
+      },
+      {
+        "title": "Exceptional Lie algebras",
+        "authors": "Jacobson, Nathan",
+        "zbmath": 3342159,
+        "msc": [
+          "17B25",
+          "17-02"
+        ]
+      },
+      {
+        "title": "Enveloping algebras",
+        "authors": "Dixmier, Jacques",
+        "zbmath": 918232,
+        "msc": [
+          "17-02",
+          "17B35",
+          "17B10",
+          "17B30",
+          "17B45",
+          "16S30",
+          "16D60"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+    "primaryMsc": "16G",
+    "secondaryMsc": [
+      "16D",
+      "16E",
+      "17B"
+    ],
+    "cluster": "lie-theory-and-representations",
+    "distance": 2,
+    "distanceRationale": "Mathlib gives quivers, paths and Morita equivalence. Tau Ceti has built most of Layers 0–5: path algebras with admissible ideals and basic algebras, quiver representations as modules, Krull–Schmidt, projective covers and injective envelopes, Euler/Tits forms and BGP reflection and Coxeter functors, and uniqueness of indecomposables by dimension vector. It also proves 'positive-definite Tits form ⇒ finite type with #indecomposables ≤ #positive roots' and has Kronecker/one-loop counterexamples, the AR translate and a Kronecker almost-split sequence. Still missing is textbook material: the converse (finite type ⇒ ADE) with the indecomposable ↔ positive-root bijection in general, Gabriel's presentation theorem, and general existence of AR sequences with the AR quiver.",
+    "mathlibEvidence": [
+      "mathlib:Quiver.Path (Mathlib/Combinatorics/Quiver/Path.lean) and IsMoritaEquivalent (Mathlib/RingTheory/Morita/Basic.lean) — paths and Morita equivalence",
+      "tauceti:TauCeti.exists_equiv_linearEquiv_of_isLocalRing_end (TauCeti/RingTheory/KrullSchmidt/Uniqueness.lean) — Krull–Schmidt uniqueness (Layer 2)",
+      "tauceti:TauCeti.nonempty_iso_iff_dimVector_eq_of_indecomposable (TauCeti/RepresentationTheory/Quiver/Reflection/Uniqueness.lean) — reflection-functor theory (Layer 4)",
+      "tauceti:TauCeti.isFiniteRepType_of_titsForm_posDef and TauCeti.card_skeleton_indecomposable_le_card_positiveRoots (Quiver/FiniteRepType/PosDef.lean), TauCeti.not_isFiniteRepType_kronecker (Quiver/Kronecker/FiniteRepType.lean) — one direction of Gabriel's theorem (Layer 5)",
+      "tauceti:TauCeti.AuslanderReitenTranslate (TauCeti/Algebra/Module/AuslanderReiten/Translate.lean) and TauCeti.isAlmostSplit_kroneckerARSequence (Quiver/Kronecker/AlmostSplit.lean); absent: finite type ⇒ ADE for general quivers, Gabriel's Ext-quiver presentation theorem, general existence of almost-split sequences and the AR quiver"
+    ],
+    "references": [
+      {
+        "title": "Introduction to representation theory",
+        "authors": "Etingof, Pavel; Golberg, Oleg; Hensel, Sebastian; Liu, Tiankai; Schwendner, Alex; Vaintrob, Dmitry; Yudovina, Elena",
+        "zbmath": 5943514,
+        "msc": [
+          "20-01",
+          "16-01",
+          "17-01",
+          "00-01",
+          "20C15",
+          "16G20",
+          "17B10",
+          "20G05"
+        ]
+      },
+      {
+        "title": "Elements of the representation theory of associative algebras. Vol. 1: Techniques of representation theory",
+        "authors": "Assem, Ibrahim; Simson, Daniel; Skowroński, Andrzej",
+        "zbmath": 2228448,
+        "msc": [
+          "16-01",
+          "16-02",
+          "16G10",
+          "16G60",
+          "16G70",
+          "16B50",
+          "16E30"
+        ]
+      },
+      {
+        "title": "Representation theory of Artin algebras",
+        "authors": "Auslander, Maurice; Reiten, Idun; Smalø, Sverre O.",
+        "zbmath": 707210,
+        "msc": [
+          "16-02",
+          "16G10",
+          "16G70",
+          "16G20",
+          "16G60",
+          "16E30",
+          "16D90"
+        ]
+      },
+      {
+        "title": "An introduction to quiver representations",
+        "authors": "Derksen, Harm; Weyman, Jerzy",
+        "zbmath": 6848902,
+        "msc": [
+          "16-02",
+          "16G20",
+          "16G10",
+          "16G70",
+          "13A50",
+          "14L24"
+        ]
+      },
+      {
+        "title": "Unzerlegbare Darstellungen. I",
+        "authors": "Gabriel, Peter",
+        "zbmath": 3366955,
+        "msc": [
+          "16G20",
+          "16G60"
+        ]
+      },
+      {
+        "title": "Coxeter functors and a theorem of Gabriel's",
+        "authors": "Bernshteĭn, I. N.; Gel'fand, I. M.; Ponomarev, V. A.",
+        "zbmath": 3424078,
+        "msc": [
+          "15A03",
+          "05C99",
+          "18A25",
+          "16G20"
+        ]
+      },
+      {
+        "title": "Quiver representations",
+        "authors": "Schiffler, Ralf",
+        "zbmath": 6323251,
+        "msc": [
+          "16G20",
+          "16-01",
+          "16G70"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+    "primaryMsc": "17B",
+    "secondaryMsc": [
+      "20F",
+      "51F",
+      "05E"
+    ],
+    "cluster": "lie-theory-and-representations",
+    "distance": 1,
+    "distanceRationale": "Mathlib has RootPairing, bases, Cartan matrices, Weyl groups and CoxeterSystem. Tau Ceti has built nearly all of Layers 1–6 on top: positive roots and inversions, the Coxeter matrix of a base with the surjection from the presented Coxeter group, strong exchange and Bruhat order, dominant chambers as a fundamental domain, the longest element, the finite-type Cartan-matrix classification into valid Dynkin types with rigidity, and simply connected root data. What remains is small: Tits' injectivity (the full weylCoxeterSystem), coordinate realizations proving each Dynkin type exists, base-independence of the type, and the Aₙ ↦ Sₙ₊₁ and G₂ ↦ Dih₆ identifications.",
+    "mathlibEvidence": [
+      "mathlib:RootPairing.Base.cartanMatrix (Mathlib/LinearAlgebra/RootSystem/CartanMatrix.lean), RootPairing.weylGroup (Mathlib/LinearAlgebra/RootSystem/WeylGroup.lean), CoxeterSystem (Mathlib/GroupTheory/Coxeter/Basic.lean)",
+      "tauceti:TauCeti.existsUnique_dynkinType and TauCeti.nonempty_equiv_of_classifiedDynkinType_eq (TauCeti/LinearAlgebra/RootSystem/FiniteType/Classification.lean) — Cartan–Killing classification of bases and rigidity (Layer 5)",
+      "tauceti:TauCeti.weylCoxeterHom_surjective (TauCeti/LinearAlgebra/RootSystem/Coxeter/Presentation.lean) and CoxeterSystem.strongExchange (TauCeti/GroupTheory/Coxeter/StrongExchange.lean) — Layers 2–3; the file notes injectivity (Tits) remains",
+      "tauceti:TauCeti.existsUnique_mem_orbit_inter_dominantChamber (RootSystem/FundamentalDomain.lean) and TauCeti.longestElement (RootSystem/LongestElement.lean) — Layer 4",
+      "absent: injectivity of weylCoxeterHom (weylCoxeterSystem), exists_rootPairing_of_dynkinType coordinate realizations, base-independence of the Dynkin type, Weyl group ≅ Sₙ₊₁ / DihedralGroup 6 identifications (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "Elements of mathematics. Lie groups and Lie algebras. Chapters 4–6",
+        "authors": "Bourbaki, Nicolas",
+        "zbmath": 1713119,
+        "msc": [
+          "17-02",
+          "22-02",
+          "22E10",
+          "22E15",
+          "22E60",
+          "17B20",
+          "20E42",
+          "20F55",
+          "51F15"
+        ]
+      },
+      {
+        "title": "Reflection groups and Coxeter groups",
+        "authors": "Humphreys, James E.",
+        "zbmath": 47598,
+        "msc": [
+          "20F55",
+          "20G05",
+          "20-02",
+          "51F15",
+          "20H15"
+        ]
+      },
+      {
+        "title": "Introduction to Lie algebras and representation theory",
+        "authors": "Humphreys, J. E.",
+        "zbmath": 3401123,
+        "msc": [
+          "17-02",
+          "17B10",
+          "17B05",
+          "17B20",
+          "20G05",
+          "20G40",
+          "22E60"
+        ]
+      },
+      {
+        "title": "Infinite dimensional Lie algebras (3rd ed.)",
+        "authors": "Kac, Victor G.",
+        "zbmath": 194085,
+        "msc": [
+          "17B67",
+          "17-02",
+          "17B65",
+          "17B68",
+          "17B69",
+          "81R10"
+        ]
+      },
+      {
+        "title": "Combinatorics of Coxeter groups",
+        "authors": "Björner, Anders; Brenti, Francesco",
+        "zbmath": 2186170,
+        "msc": [
+          "05-01",
+          "20F55",
+          "68R15"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+    "primaryMsc": "20C",
+    "secondaryMsc": [
+      "05E",
+      "20G",
+      "13A"
+    ],
+    "cluster": "lie-theory-and-representations",
+    "distance": 2,
+    "distanceRationale": "Mathlib contributes Young diagrams, partitions and cycle types. Tau Ceti has built Layers 0–5 in full: dominance, Young subgroups and permutation modules, symmetrizers, Specht modules via the submodule theorem, the classification partitionEquivSimpleFDRepClasses, the standard polytabloid basis, and the hook-length formula. It also has the Sₙ character table with column orthogonality, Kostka numbers with Schur = Σ K·m, rim hooks, the GL/Sₙ double-centralizer theorem, and Brauer diagram composition with O/Sp-commuting cup/cap operators. Still missing are standard results: the Murnaghan–Nakayama rule, the Frobenius characteristic and Jacobi–Trudi, RSK, the explicit (ℂᵈ)^{⊗n} ≅ ⊕ S^λ ⊗ 𝕊^λ decomposition, and orthogonal/symplectic Schur–Weyl duality via the Brauer algebra.",
+    "mathlibEvidence": [
+      "mathlib:YoungDiagram (Mathlib/Combinatorics/Young/YoungDiagram.lean) and Equiv.Perm.partition (Mathlib/GroupTheory/Perm/Cycle/Type.lean) — diagrams and cycle types",
+      "tauceti:TauCeti.isIrreducible_spechtModule (Symmetric/Specht/SubmoduleTheorem.lean), TauCeti.partitionEquivSimpleFDRepClasses (Symmetric/Specht/Completeness.lean), TauCeti.finrank_spechtModule_eq_factorial_div_prod_hookLength (Symmetric/Specht/HookLength.lean) — Layers 3–5 under TauCeti/RepresentationTheory/",
+      "tauceti:TauCeti.symmetricCharacterTable_column_orthogonality (Symmetric/Specht/Orthogonality.lean), YoungDiagram.IsRimHook (TauCeti/Combinatorics/Young/RimHook.lean), TauCeti.schurPoly_eq_sum_kostkaNumber_smul_msymm (TauCeti/RingTheory/MvPolynomial/Symmetric/Schur/Monomial.lean) — partial Layers 6–7",
+      "tauceti:TauCeti.centralizer_span_range_map_const_eq_range_permTensorActionAlgHom (Symmetric/TensorAction/SchurWeyl.lean) and TauCeti.commute_orthogonalCupCap_tensorPower (ClassicalGroups/BrauerGenerators/Orthogonal.lean) — double centralizer, Brauer generators",
+      "absent: Murnaghan–Nakayama rule, Frobenius characteristic map, Jacobi–Trudi, RSK correspondence, the multiplicity-free Schur–Weyl decomposition, and the orthogonal/symplectic centralizer theorem for the Brauer algebra (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "The representation theory of the symmetric groups",
+        "authors": "James, G. D.",
+        "zbmath": 3609919,
+        "msc": [
+          "20C30",
+          "20B30",
+          "20-02"
+        ]
+      },
+      {
+        "title": "Young tableaux. With applications to representation theory and geometry",
+        "authors": "Fulton, William",
+        "zbmath": 1001729,
+        "msc": [
+          "14M15",
+          "05E10",
+          "14-02",
+          "20-02",
+          "05-02",
+          "20C30",
+          "20C33",
+          "22E45"
+        ]
+      },
+      {
+        "title": "The symmetric group. Representations, combinatorial algorithms, and symmetric functions (2nd ed.)",
+        "authors": "Sagan, Bruce E.",
+        "zbmath": 1601795,
+        "msc": [
+          "05E10",
+          "05E05",
+          "05-02",
+          "20C20"
+        ]
+      },
+      {
+        "title": "Representation theory. A first course",
+        "authors": "Fulton, William; Harris, Joe",
+        "zbmath": 51906,
+        "msc": [
+          "22-01",
+          "20-01",
+          "20G05",
+          "22E46",
+          "17B10",
+          "22E60",
+          "17B20",
+          "17-01"
+        ]
+      },
+      {
+        "title": "Symmetric functions and Hall polynomials (2nd ed.)",
+        "authors": "Macdonald, Ian Grant",
+        "zbmath": 739282,
+        "msc": [
+          "05E05",
+          "05-02",
+          "05E10",
+          "20-02",
+          "05A17",
+          "05A15",
+          "20C25",
+          "20C30"
+        ]
+      },
+      {
+        "title": "On algebras which are connected with the semisimple continuous groups",
+        "authors": "Brauer, Richard",
+        "zbmath": 3028184,
+        "msc": []
+      },
+      {
+        "title": "Symmetry, representations, and invariants",
+        "authors": "Goodman, Roe; Wallach, Nolan R.",
+        "zbmath": 5557103,
+        "msc": [
+          "22-01",
+          "17-01",
+          "20G05",
+          "20G45",
+          "22E45",
+          "22E46",
+          "22E10"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+    "primaryMsc": "16K",
+    "secondaryMsc": [
+      "16D",
+      "16N",
+      "12G"
+    ],
+    "cluster": "lie-theory-and-representations",
+    "distance": 0,
+    "distanceRationale": "Mathlib proves Artin–Wedderburn existence, Schur's lemma and isotypic decomposition. Tau Ceti has built every remaining layer. That covers invariance of the block count, simple-module classes of the regular module, the double-centralizer theorem, and tensor products of central simple algebras staying simple. It also covers A ⊗ Aᵒᵖ ≅ M_{dim A}(K), the square-dimension theorem, Skolem–Noether, the centralizer theorem, the Brauer group as a commutative group, and finite separable splitting fields, maximal subfields and the index. The roadmap is essentially complete.",
+    "mathlibEvidence": [
+      "mathlib:IsSemisimpleRing.exists_ringEquiv_pi_matrix_divisionRing (Mathlib/RingTheory/SimpleModule/WedderburnArtin.lean) — Artin–Wedderburn existence",
+      "tauceti:TauCeti.card_blocks_eq (TauCeti/RingTheory/Semisimple/BlockCount.lean) and TauCeti.centralizer_centralizer_of_isSemisimpleModule (TauCeti/RingTheory/Semisimple/DoubleCentralizer.lean) — Layers 2–3",
+      "tauceti:TauCeti.IsSimpleRing.tensorProduct (instance), TauCeti.IsSimpleRing.isSquare_finrank (Algebra/CentralSimple/Degree.lean), TauCeti.Algebra.tensorOpAlgEquivMatrix (Algebra/CentralSimple/Opposite.lean) — Layer 4",
+      "tauceti:TauCeti.skolemNoether (Algebra/CentralSimple/SkolemNoether.lean) and TauCeti.finrank_mul_finrank_centralizer (Algebra/CentralSimple/Centralizer.lean) — Layer 5",
+      "tauceti:TauCeti.BrauerGroup.instCommGroup (TauCeti/Algebra/BrauerGroup/Group.lean) and TauCeti.Algebra.exists_isSplittingField_finrank_eq_index (Algebra/CentralSimple/Index.lean) — Layer 6"
+    ],
+    "references": [
+      {
+        "title": "A first course in noncommutative rings (2nd ed.)",
+        "authors": "Lam, T. Y.",
+        "zbmath": 1633834,
+        "msc": [
+          "16-01",
+          "16D70",
+          "16D60",
+          "16L30",
+          "16W60"
+        ]
+      },
+      {
+        "title": "Associative algebras",
+        "authors": "Pierce, Richard S.",
+        "zbmath": 3783206,
+        "msc": [
+          "16-01",
+          "16D70",
+          "16P10",
+          "16Gxx",
+          "16Kxx"
+        ]
+      },
+      {
+        "title": "Representation theory of finite groups and associative algebras",
+        "authors": "Curtis, Charles W.; Reiner, Irving",
+        "zbmath": 3212917,
+        "msc": [
+          "20Cxx",
+          "20-01",
+          "16-01",
+          "20C05",
+          "16S34",
+          "20C10",
+          "20C20",
+          "16Gxx",
+          "16P10",
+          "16L60"
+        ]
+      },
+      {
+        "title": "Basic algebra II (2nd ed.)",
+        "authors": "Jacobson, Nathan",
+        "zbmath": 195162,
+        "msc": [
+          "16-01",
+          "13-01",
+          "12-01",
+          "18-01",
+          "16-02",
+          "12-02",
+          "13-02",
+          "18-02"
+        ]
+      },
+      {
+        "title": "Central simple algebras and Galois cohomology",
+        "authors": "Gille, Philippe; Szamuely, Tamás",
+        "zbmath": 5047789,
+        "msc": [
+          "12-02",
+          "16-02",
+          "12G05",
+          "16K20",
+          "14F22",
+          "19C30"
+        ]
+      },
+      {
+        "title": "Noncommutative rings",
+        "authors": "Herstein, I. N.",
+        "zbmath": 3282724,
+        "msc": [
+          "16-01",
+          "16-02"
+        ]
+      },
+      {
+        "title": "Noncommutative algebra",
+        "authors": "Farb, Benson; Dennis, R. Keith",
+        "zbmath": 464655,
+        "msc": [
+          "16-01",
+          "16K20",
+          "00-01",
+          "16D60",
+          "20C05",
+          "16N20",
+          "16D10",
+          "14F22"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+    "primaryMsc": "15A",
+    "secondaryMsc": [
+      "22E",
+      "17B",
+      "11E"
+    ],
+    "cluster": "lie-theory-and-representations",
+    "distance": 2,
+    "distanceRationale": "Mathlib defines CliffordAlgebra, pinGroup and spinGroup. Tau Ceti has built Layers 0–4 and much of 5, 7 and 9 on top: the filtration with gr Cliff ≅ ⋀V, the structure theorem via polarizations, and Pin/Spin double covers with ℤ/2 kernels and the spinor-norm sequence. It also has the spin and half-spin modules with irreducibility and weight-space decomposition, type-B/D integral forms, Spin₃ ≅ SL₂, real Clifford algebras with the Bott isomorphism, the quadratic realization with Kostant's left-regular module, and the 𝔤𝔩_N CAR isotypy instance. Still missing: Spin₄ ≅ SL₂×SL₂, Spin₅ ≅ Sp₄ and Spin₆ ≅ SL₄, triality as an outer automorphism of Spin₈, and the general Kostant isotypy corollary with its multiplicities.",
+    "mathlibEvidence": [
+      "mathlib:CliffordAlgebra (Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean), pinGroup and spinGroup (Mathlib/LinearAlgebra/CliffordAlgebra/SpinGroup.lean)",
+      "tauceti:CliffordAlgebra.filtrationGradedEquiv (TauCeti/LinearAlgebra/CliffordAlgebra/FiltrationGradedEquiv.lean) and TauCeti.SpinPolarizationData.evenCliffordEquivProdMatrix (TauCeti/RepresentationTheory/Spin/Structure.lean) — Layers 0–1",
+      "tauceti:CliffordAlgebra.spinToSpecialOrthogonal_surjective (CliffordAlgebra/Spin/Surjectivity.lean) and CliffordAlgebra.zmodTwoMulEquivKerPinToOrthogonal (CliffordAlgebra/Pin/Kernel.lean) — double covers (Layer 2)",
+      "tauceti:TauCeti.spinRep_isIrreducible_of_odd, TauCeti.isIrreducible_spinRep_of_isSquare (RepresentationTheory/Spin/Irreducible.lean), TauCeti.nonempty_spinGroup_mulEquiv_specialLinearGroup_of_finrank_eq_three (Spin/Exceptional/Three/Group.lean), TauCeti.realCliffordBottEquiv (CliffordAlgebra/BottPeriodicity.lean) — Layers 4, 6, 7",
+      "tauceti:CliffordAlgebra.kostantLieModule (CliffordAlgebra/Quadratic/Lie/LeftRegular.lean) and TauCeti.isIsotypicOfType_glIrreducible_car (Algebra/Lie/GeneralLinear/CAR/Isotypic.lean); absent: Spin₄/Spin₅/Spin₆ exceptional isomorphisms, Spin₈ triality automorphism, general kostant_isotypic/kostant_multiplicity (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "Representation theory. A first course",
+        "authors": "Fulton, William; Harris, Joe",
+        "zbmath": 51906,
+        "msc": [
+          "22-01",
+          "20-01",
+          "20G05",
+          "22E46",
+          "17B10",
+          "22E60",
+          "17B20",
+          "17-01"
+        ]
+      },
+      {
+        "title": "Symmetry, representations, and invariants",
+        "authors": "Goodman, Roe; Wallach, Nolan R.",
+        "zbmath": 5557103,
+        "msc": [
+          "22-01",
+          "17-01",
+          "20G05",
+          "20G45",
+          "22E45",
+          "22E46",
+          "22E10"
+        ]
+      },
+      {
+        "title": "Spin geometry",
+        "authors": "Lawson, H. Blaine jun.; Michelsohn, Marie-Louise",
+        "zbmath": 44927,
+        "msc": [
+          "57-02",
+          "57R15",
+          "53C20",
+          "58-02",
+          "57R20",
+          "57R42",
+          "57R22",
+          "58J32",
+          "58J20",
+          "15A66",
+          "58D17"
+        ]
+      },
+      {
+        "title": "The algebraic theory of spinors",
+        "authors": "Chevalley, Claude",
+        "zbmath": 3091887,
+        "msc": [
+          "15A66",
+          "15A63",
+          "11E57",
+          "81R25",
+          "15-01",
+          "20-01",
+          "20Gxx"
+        ]
+      },
+      {
+        "title": "The theory of spinors (rev. ed.)",
+        "authors": "Cartan, Élie",
+        "zbmath": 3238347,
+        "msc": []
+      },
+      {
+        "title": "Lectures on exceptional Lie groups",
+        "authors": "Adams, J. F.",
+        "zbmath": 981574,
+        "msc": [
+          "22E15",
+          "22E10",
+          "15A66",
+          "17B25",
+          "22-01"
+        ]
+      },
+      {
+        "title": "Clifford algebra analogue of the Hopf–Koszul–Samelson theorem, the ρ-decomposition C(𝔤) = End V_ρ ⊗ C(P), and the 𝔤-module structure of ⋀𝔤",
+        "authors": "Kostant, Bertram",
+        "zbmath": 989820,
+        "msc": [
+          "17B10",
+          "17B20",
+          "15A66"
+        ]
+      },
+      {
+        "title": "Clifford algebras and Lie theory",
+        "authors": "Meinrenken, Eckhard",
+        "zbmath": 6135889,
+        "msc": [
+          "15A66",
+          "17B20",
+          "17B35",
+          "17B55",
+          "15-02",
+          "15A75",
+          "22E45",
+          "17-02",
+          "22-02"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+    "primaryMsc": "18G",
+    "secondaryMsc": [
+      "16E",
+      "13D",
+      "18E"
+    ],
+    "cluster": "homological-algebra-and-categories",
+    "distance": 5,
+    "distanceRationale": "Mathlib supplies the triangulated homotopy and derived categories and localization. Tau Ceti adds part of Layer 0: Quillen exact structures with a Frobenius predicate, the morphism-ideal quotient, and DG right modules. Nothing beyond that exists. Missing are Happel's triangulated stable category, self-injective and Gorenstein-projective stable categories with Buchweitz's singularity-category equivalence, differential modules and periodic derived categories with Stai's hull, and curved DG modules with Positselski's derived categories of the second kind. Matrix factorizations with HMF and Orlov's comparison are missing too. That is several layers, the later ones research-level.",
+    "mathlibEvidence": [
+      "mathlib:CategoryTheory.Pretriangulated (Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean), HomotopyCategory (Mathlib/Algebra/Homology/HomotopyCategory.lean), DerivedCategory (Mathlib/Algebra/Homology/DerivedCategory/Basic.lean) — triangulated/derived substrate",
+      "tauceti:TauCeti.ExactStructure (TauCeti/CategoryTheory/Exact/ExactStructure.lean), TauCeti.ExactStructure.IsFrobenius and TauCeti.ExactStructure.split_isFrobenius (TauCeti/CategoryTheory/Exact/Frobenius.lean) — exact and Frobenius structures (Layer 0)",
+      "tauceti:TauCeti.MorphismIdeal.Quotient (TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean) — additive ideal quotients (Layer 0)",
+      "tauceti:TauCeti.IsDGRightModule (TauCeti/Algebra/Homology/DG/Module/Right/Defs.lean) — uncurved DG right modules only",
+      "absent: triangulated stable category of a Frobenius exact category, singularity category / Gorenstein-projective modules, periodic complexes and duplexes, curved DG algebras/modules and coderived/contraderived categories, matrix factorizations (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "Triangulated categories in the representation theory of finite dimensional algebras",
+        "authors": "Happel, Dieter",
+        "zbmath": 40982,
+        "msc": [
+          "16Gxx",
+          "16P10",
+          "16B50",
+          "18-02",
+          "16-02",
+          "16D50",
+          "16Exx",
+          "16E10"
+        ]
+      },
+      {
+        "title": "Exact categories",
+        "authors": "Bühler, Theo",
+        "zbmath": 5658833,
+        "msc": [
+          "18E10",
+          "18-02"
+        ]
+      },
+      {
+        "title": "Chain complexes and stable categories",
+        "authors": "Keller, Bernhard",
+        "zbmath": 6019,
+        "msc": [
+          "18G35",
+          "18G10",
+          "18E10"
+        ]
+      },
+      {
+        "title": "Maximal Cohen-Macaulay modules and Tate cohomology",
+        "authors": "Buchweitz, Ragnar-Olaf",
+        "zbmath": 7498869,
+        "msc": [
+          "13-02",
+          "13C14",
+          "13Dxx",
+          "13H10",
+          "16Exx",
+          "18G65"
+        ]
+      },
+      {
+        "title": "The triangulated hull of periodic complexes",
+        "authors": "Stai, Torkil",
+        "zbmath": 6911552,
+        "msc": [
+          "16E35",
+          "18G80"
+        ]
+      },
+      {
+        "title": "Differential graded Koszul duality: an introductory survey",
+        "authors": "Positselski, Leonid",
+        "zbmath": 7738090,
+        "msc": [
+          "16E35",
+          "16E45",
+          "16S37",
+          "16T15",
+          "16W60",
+          "18G80"
+        ]
+      },
+      {
+        "title": "Homological algebra on a complete intersection, with an application to group representations",
+        "authors": "Eisenbud, David",
+        "zbmath": 3693423,
+        "msc": [
+          "13D99",
+          "13H10",
+          "14M10",
+          "13H05"
+        ]
+      },
+      {
+        "title": "Triangulated categories of singularities and D-branes in Landau-Ginzburg models",
+        "authors": "Orlov, D. O.",
+        "zbmath": 5071248,
+        "msc": [
+          "81T30",
+          "81T40",
+          "14E15"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+    "primaryMsc": "14H",
+    "secondaryMsc": [
+      "14D",
+      "14G",
+      "14N"
+    ],
+    "cluster": "algebraic-geometry",
+    "distance": 8,
+    "distanceRationale": "Mathlib has schemes, fibres, the valuative criteria and DVRs. Tau Ceti has only the first scaffolding under Curves/StableReduction: finite DVR extensions, a Model structure with isomorphisms, and the combinatorics of Stacks-style numerical types with weighted Picard groups and torsion bounds. The theorem needs the whole Jacobian lane (coherent cohomology and base change, duality, Picard schemes, ℓ-torsion of Pic⁰) plus nodal families, relative dualizing sheaves, blowups, intersection theory and Lipman resolution on arithmetic surfaces, minimal models, and Artin–Winters semistable reduction. Canonical contraction and descent, and stable maps, also remain: many layers of research-level algebraic geometry.",
+    "mathlibEvidence": [
+      "mathlib:AlgebraicGeometry.ValuativeCriterion (Mathlib/AlgebraicGeometry/ValuativeCriterion.lean), AlgebraicGeometry.Scheme.Hom.fiber (Mathlib/AlgebraicGeometry/Fiber.lean), IsDiscreteValuationRing (Mathlib/RingTheory/DiscreteValuationRing/Basic.lean)",
+      "tauceti:TauCeti.FiniteDVRExtension (TauCeti/AlgebraicGeometry/Curves/StableReduction/DVRExtension/Basic.lean) and TauCeti.Model (Curves/StableReduction/Model/Basic.lean) — DVR extensions and models (part of Layer 0)",
+      "tauceti:TauCeti.NumericalType.IsMinimal (Curves/StableReduction/NumericalType/Minimal.lean) and TauCeti.NumericalType.finite_torsion (Curves/StableReduction/Picard/Torsion.lean) — combinatorial half of Layer 6",
+      "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.cohomologyZeroEquiv (TauCeti/AlgebraicGeometry/Cohomology/Basic.lean) — only the start of the coherent-cohomology lane it consumes",
+      "absent: nodal/prestable/stable curve families, relative dualizing sheaf, blowups and Rees-algebra Proj, intersection theory on arithmetic surfaces, regular and minimal models, semistable reduction, stable maps (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "The Stacks Project, Chapter 55 (Semistable Reduction) and the chapter on algebraic curves",
+        "authors": "The Stacks Project Authors",
+        "zbmath": null,
+        "msc": [],
+        "note": "online reference (stacks.math.columbia.edu); not indexed as a document in zbMATH Open"
+      },
+      {
+        "title": "The irreducibility of the space of curves of a given genus",
+        "authors": "Deligne, Pierre; Mumford, D.",
+        "zbmath": 3289080,
+        "msc": [],
+        "note": "the 1969 IHÉS record carries no MSC; the zbMATH record of the Russian translation (3368758) is classified 14G35, 14H10, 14D20"
+      },
+      {
+        "title": "Degenerate fibres and stable reduction of curves",
+        "authors": "Artin, M.; Winters, G.",
+        "zbmath": 3312425,
+        "msc": []
+      },
+      {
+        "title": "The projectivity of the moduli space of stable curves. II: The stacks M_{g,n}",
+        "authors": "Knudsen, Finn F.",
+        "zbmath": 3865475,
+        "msc": [
+          "14H10",
+          "14D20"
+        ]
+      },
+      {
+        "title": "Stacks of stable maps and Gromov-Witten invariants",
+        "authors": "Behrend, K.; Manin, Yu.",
+        "zbmath": 949883,
+        "msc": [
+          "14H10",
+          "14F99"
+        ]
+      },
+      {
+        "title": "Notes on stable maps and quantum cohomology",
+        "authors": "Fulton, W.; Pandharipande, R.",
+        "zbmath": 1126797,
+        "msc": [
+          "14N10",
+          "14H10",
+          "14E99",
+          "81T20",
+          "81T70"
+        ]
+      },
+      {
+        "title": "Algebraic geometry and arithmetic curves",
+        "authors": "Liu, Qing",
+        "zbmath": 1748084,
+        "msc": [
+          "14Exx",
+          "14G40",
+          "14-01",
+          "14-02",
+          "14A15"
+        ]
+      }
+    ]
+  },
+  {
     "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
     "primaryMsc": "60E",
     "secondaryMsc": [
@@ -1574,6 +3124,170 @@
           "00A20"
         ],
         "note": "print companion of the online NIST Digital Library of Mathematical Functions cited by the roadmap (chapters 7 and 8)"
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+    "primaryMsc": "57M",
+    "secondaryMsc": [
+      "55Q",
+      "55P",
+      "54D"
+    ],
+    "cluster": "topology",
+    "distance": 0,
+    "distanceRationale": "Mathlib contributes covering maps, homotopy lifting, the lifting criterion and the fundamental groupoid. Tau Ceti has built every stage on top. That covers the based-path universal cover as a simply connected covering, the deck group with Deck(proj) ≃* π₁, and the pointed/unpointed Galois correspondence with regular covers and N(H)/H. It also covers π_n of a cover ≅ π_n of the base for n ≥ 2, π₁(S¹) ≅ ℤ, the higher homotopy of circles and tori, π₁(ℝPⁿ), and recognition of K(G,1) spaces. The roadmap is essentially complete.",
+    "mathlibEvidence": [
+      "mathlib:IsCoveringMap (Mathlib/Topology/Covering/Basic.lean), IsCoveringMap.liftHomotopy and IsCoveringMap.existsUnique_continuousMap_lifts_of_range_le (Mathlib/Topology/Homotopy/Lifting.lean) — covering maps and lifting",
+      "tauceti:TauCeti.UniversalCover.deckFundamentalGroupEquiv (TauCeti/AlgebraicTopology/UniversalCover/Deck/FundamentalGroup/UniversalCover.lean) — Stage 1",
+      "tauceti:TauCeti.UniversalCover.existsUnique_subgroup_homeomorph_subgroupQuotient (UniversalCover/Classification/Bijection.lean) and IsCoveringMap.isRegular_iff_normal_range (UniversalCover/Classification/Regular.lean) — Stage 2 Galois correspondence",
+      "tauceti:IsCoveringMap.homotopyGroupMulEquiv (TauCeti/Topology/Homotopy/HomotopyGroup/Covering.lean) — Stage 3 higher homotopy of covers",
+      "tauceti:AddCircle.fundamentalGroupMulEquivInt (UniversalCover/Circle/FundamentalGroup.lean) and IsQuotientCoveringMap.isEilenbergMacLaneSpaceOne (TauCeti/AlgebraicTopology/EilenbergMacLane/Covering.lean) — Stage 4 applications"
+    ],
+    "references": [
+      {
+        "title": "Algebraic topology",
+        "authors": "Hatcher, Allen",
+        "zbmath": 2103273,
+        "msc": [
+          "55-01",
+          "55Nxx",
+          "55Pxx",
+          "55Qxx"
+        ],
+        "note": "the roadmap cites no literature (only mathlib4 PRs #31576, #38292, #40135 and a Zulip thread); standard textbook for §1.3 covering spaces and §4.1–4.2 higher homotopy"
+      },
+      {
+        "title": "Algebraic topology",
+        "authors": "Spanier, Edwin H.",
+        "zbmath": 3235051,
+        "msc": [],
+        "note": "standard reference (Ch. 2, covering spaces); chosen because the roadmap cites no literature"
+      },
+      {
+        "title": "Topology (2nd ed.)",
+        "authors": "Munkres, James R.",
+        "zbmath": 1461253,
+        "msc": [
+          "54-01",
+          "55-01"
+        ],
+        "note": "standard reference (Ch. 9 and 13, fundamental group and classification of covering spaces); chosen because the roadmap cites no literature"
+      },
+      {
+        "title": "Algebraic topology",
+        "authors": "tom Dieck, Tammo",
+        "zbmath": 5318519,
+        "msc": [
+          "55-01",
+          "57-01"
+        ],
+        "note": "standard reference (Ch. 3, coverings and the Galois correspondence); chosen because the roadmap cites no literature"
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+    "primaryMsc": "16G",
+    "secondaryMsc": [
+      "16E",
+      "16S",
+      "18G"
+    ],
+    "cluster": "lie-theory-and-representations",
+    "distance": 6,
+    "distanceRationale": "Tau Ceti has built the strict-algebra half on its path-algebra API: doubled quivers, zigzag algebras with bases, dimensions, centers, nondegenerate trace pairings and self-injectivity, and graded Cartan matrices for D₄, E₈ and affine E₈. It also has additive preprojective algebras with gauge, opposite and orientation independence, plus A∞ algebras only at the level of Stasheff identities. The derived half is absent: quadratic/Koszul duality and Etingof–Eu Koszulity, 2- and 3-dimensional Ginzburg DG algebras and Calabi–Yau completions, Hochschild cohomology with minimal A∞ deformations and Liu–Wang intrinsic formality, and Khovanov–Seidel braid actions. Those are several research-level layers resting on a largely unbuilt DG/A∞ sibling roadmap.",
+    "mathlibEvidence": [
+      "mathlib:SimpleGraph (Mathlib/Combinatorics/SimpleGraph/Basic.lean), Quiver.Symmetrify (Mathlib/Combinatorics/Quiver/Symmetric.lean), TwoSidedIdeal.span (Mathlib/RingTheory/TwoSidedIdeal/Operations.lean) — graphs, doubled quivers, relation quotients",
+      "tauceti:TauCeti.zigzagAlgebra (TauCeti/RepresentationTheory/Quiver/Zigzag/Componentwise.lean), TauCeti.zigzagTracePairing_nondegenerate and TauCeti.moduleInjective_zigzagAlgebra (Quiver/Zigzag/) — Layers 1–2",
+      "tauceti:TauCeti.zigzagGradedCartanMatrix_affineE8_eq (Quiver/Zigzag/ADE/CartanMatrix.lean) and TauCeti.finrank_center_zigzagAlgebra_E8 (Quiver/Zigzag/ADE/Basic.lean) — Layer 3 and named ADE examples",
+      "tauceti:TauCeti.preprojectiveAlgebraEquivGauged (Quiver/Preprojective/Gauge.lean) and TauCeti.reorientDoubledEquiv (Quiver/Preprojective/Orientation.lean) — Layer 4; TauCeti.AInfinityAlgebra.stasheff (TauCeti/Algebra/Homology/AInfinity/Algebra.lean) — A∞ basics only",
+      "absent: quadratic and Koszul duals of zigzag/preprojective algebras, Ginzburg DG algebras and Calabi–Yau completions, Hochschild cohomology and minimal A∞ deformations of zigzag algebras, intrinsic formality for trees, braid group actions by bimodule complexes / spherical twists (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "A category for the adjoint representation",
+        "authors": "Huerfano, Ruth Stella; Khovanov, Mikhail",
+        "zbmath": 1717602,
+        "msc": [
+          "17B37",
+          "16G10"
+        ]
+      },
+      {
+        "title": "Algebraic properties of zigzag algebras",
+        "authors": "Ehrig, Michael; Tubbenhauer, Daniel",
+        "zbmath": 7167986,
+        "msc": [
+          "16G10",
+          "05C50",
+          "16E05",
+          "16S37",
+          "33C45"
+        ],
+        "note": "zbMATH Open record redacted (conflicting licenses); matched via arXiv:1807.11173, Comm. Algebra 48 (2020), 11–36"
+      },
+      {
+        "title": "Koszulity and the Hilbert series of preprojective algebras",
+        "authors": "Etingof, Pavel; Eu, Ching-Hwa",
+        "zbmath": 5236140,
+        "msc": [
+          "16G20",
+          "16S37"
+        ]
+      },
+      {
+        "title": "Quiver algebras, weighted projective lines, and the Deligne-Simpson problem",
+        "authors": "Crawley-Boevey, William",
+        "zbmath": 5057391,
+        "msc": [
+          "16G20",
+          "14H60",
+          "17B67",
+          "15A24"
+        ]
+      },
+      {
+        "title": "Koszul duality patterns in Floer theory",
+        "authors": "Etgü, Tolga; Lekili, Yankı",
+        "zbmath": 6779918,
+        "msc": [
+          "57R58",
+          "16E45"
+        ]
+      },
+      {
+        "title": "Deformed Calabi-Yau completions",
+        "authors": "Keller, Bernhard; Van den Bergh, Michel",
+        "zbmath": 5912116,
+        "msc": [
+          "18E35",
+          "16S80"
+        ]
+      },
+      {
+        "title": "A∞-deformations of zigzag algebras via Ginzburg dg algebras",
+        "authors": "Liu, Junyang; Wang, Zhengfang",
+        "zbmath": 8042412,
+        "msc": [
+          "16E05",
+          "16E40",
+          "13D03",
+          "16G20",
+          "16E60"
+        ]
+      },
+      {
+        "title": "Quivers, Floer cohomology, and braid group actions",
+        "authors": "Khovanov, Mikhail; Seidel, Paul",
+        "zbmath": 1680622,
+        "msc": [
+          "53D40",
+          "18G10",
+          "20F36",
+          "57R58"
+        ]
       }
     ]
   }
