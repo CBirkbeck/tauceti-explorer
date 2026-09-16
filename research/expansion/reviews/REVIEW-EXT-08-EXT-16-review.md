@@ -924,3 +924,260 @@ None at node level. Not proved in any source read:
 2. Confirm re-parenting the Nakayama node to L5.
 3. Source choice for determinant lines (L5): Knudsen–Mumford, Fukaya–Kato §1, or Burns–Venjakob §2.1
    as a statement-level interim source.
+
+## 12. PhiGammaModulesAndIwasawaCohomology.json
+
+**Review status: accepted.** Nodes: 22 (15 verified, 7 corrected, 0 unverifiable). Draft links: 7
+(4 verified, one with its reason corrected; 3 annotated). Links added: 9. Gaps: 9 draft (3 extended),
+2 added.
+
+### Sources and provenance
+
+All five sources are library copies; hashes match:
+
+| Source | Library file | SHA-256 | Pages |
+| --- | --- | --- | --- |
+| Herr, BSMF 126 (1998) | `papers/R02_KI_Herr1998.pdf` | `e1a31625…19c7373` | PDF p. = printed p. − 561; renders of pp. 579, 592 |
+| Cherbonnier–Colmez | `papers/R02_KI_CherbonnierColmez1998.pdf` | `cee9e858…eb3f` | running headers; TOC is one lower from §III |
+| Kedlaya–Pottharst–Xiao v3 | `papers/R02_KI_KPX2014.pdf` | `dfd271fa…12b8c` | PDF p. = printed p. |
+| Berger, *Limites* | `papers/KI_Berger_WachLimits.pdf` | `2032ac0b…eeef` | PDF p. = printed p. |
+| Lei–Loeffler–Zerbes | `papers/KI_LLZ_WachModules.pdf` | `5981c2f6…52cd5` | p. 8 |
+
+No sources were fetched.
+
+### Nodes
+
+| Node | Verdict | Finding |
+| --- | --- | --- |
+| PG.0/tilt-field-of-norms… | verified | Matches Herr §1.1.1. One acceptance item mistranscribed E_{K₀}((K₀)_∞) as "k_0((pi_0))_infinity". |
+| PG.0/cyclotomic-coefficient-rings… | verified | CC §I matches; noted that the torsion layer has order 2 at p = 2. |
+| PG.0/obstruction… | verified | Lemma 1.1 and the Wach import match. |
+| PG.1/fontaine-etale-equivalence… | verified | Thm. 1.2 quoted; import stands. |
+| PG.1/etale-lattice… | verified | Prop. 2.4 with proof matches. |
+| PG.2/overconvergent-rings… | verified | Def. II.3.1 matches. |
+| PG.2/cherbonnier-colmez-overconvergence-theorem | verified | Matches. Locators p. 15 → **p. 16**. Imports recorded: the continuous inverse from [2], and Prop. III.4.3. |
+| PG.2/overconvergence-stability… | verified | Thm. II.3.2, Prop. II.4.1 and Lemma II.4.2 match. |
+| PG.3/herr-complex-computes… | verified | Thm. 2.1 and effaceability (pp. 572–577) match. |
+| PG.3/change-of-topological-generator | corrected | KPX's map is [1, 1 ⊕ δ, δ]; the packet dropped the degree-2 component. |
+| PG.3/torsion-subgroup-conventions… | corrected | **Wrong attribution:** the D^Δ Herr complex was attributed to Cherbonnier–Colmez, who form no Herr complex; it is the atlas PG.3 wording. |
+| PG.3/three-step-filtration… | corrected | **Missing shift:** Thm. 4.3 reads H^i(gr⁰) = **H^{i−1}**(Γ_K, M/(ψ−1)M) (render, p. 592). Also removed the claim that Thm. 3.8 needs total ramification. |
+| PG.4/psi-as-a-normalized-trace… | verified | Herr §3.1.1 and LLZ match. |
+| PG.4/psi-on-etale-modules… | verified | Prop. 3.1 matches. |
+| PG.4/structure-of-the-kernel-of-psi | corrected | **Misread:** Prop. 3.2(5) is ⊕_{i∈ℕ} Ker ψ ≅ M_nil via Σ φ^i(a_i) (render, p. 579), not "O_E(K) ⊗ Ker ψ". **False acceptance item:** it asked for a failure of Thm. 3.8 without total ramification, but Herr §3.3.4 proves Thm. 3.8 for every K by reducing to an unramified extension. |
+| PG.5/psi-complex-is-quasi-isomorphic… | corrected | Prop. 4.1 matches (chain-map signs checked). **Wrong hypothesis:** it does not inherit Lemma 3.9's total-ramification hypothesis. |
+| PG.5/iwasawa-complex… | verified | Matches. Locators fixed (p. 36; pp. 45–46; p. 46). KPX Cor. 4.4.11 recorded: the rational H_Iw ⊗̂ R^∞ ≅ H_ψ. |
+| PG.6/wach-module-existence… | verified | Berger Thm. 2.1 and Lemma 2.2 match; introduction locator p. 1 → p. 2. |
+| PG.6/wach-module-conditions… | corrected | LLZ's lattice list gives (2) only as "G∞ preserves N(T)", without triviality mod π; the packet said "the same three conditions". |
+| PG.6/integral-gluing-bound… | corrected | Prop. 4.4 and Rem. 4.5 match. **Reviewer caveat:** the step "χ(γ)^m ≡ 1 mod pⁿ ⇒ p^{n−1}(p−1) \| m" needs p odd. At p = 2 the exponent of Z₂^× mod 2ⁿ is 2^{n−2}, and Berger does treat p = 2 elsewhere. |
+| PG.7/relative-families… | verified | Thm. 2.2.17, footnote and Lemma 2.2.18 match. |
+| PG.7/finiteness-and-base-change… | verified | Thms. 4.4.1–4.4.6 match; locator p. 43 → p. 44. |
+
+### Links
+
+* Étale lattice → Herr complex: verified. Locator now points to the Lemma 2.2 proof (pp. 576–577).
+* Trace ψ → module ψ: verified.
+* Ker ψ → ψ-complex: verified. **Reason corrected**: no total-ramification hypothesis is imported.
+* Change of generator → KPX finiteness: verified.
+* CC theorem → KPX families: annotated as **unverified**. KPX cite Kedlaya–Liu and Berger–Colmez, not
+  CC 1998.
+* `PadicMeasuresIwasawaAlgebras:L2/phi-psi…` → PG.4 trace ψ: annotated as a **comparison observation,
+  not a supply**. No cited passage uses the measure ψ, the atlas demands proved comparison maps
+  between the carriers, and the link adds a stage dependency the atlas lacks. No cycle results.
+* PG.5 KPX → `PadicHodgeRegulators:L2`: annotated as **partial** after reading the consumer, which
+  needs the integral Rlim-of-corestriction comparison.
+
+Links added:
+
+1. Field of norms → Fontaine equivalence.
+2. Fontaine equivalence → Herr complex.
+3. Fontaine equivalence → module ψ.
+4. Module ψ → Ker ψ.
+5. CC rings → overconvergent rings.
+6. Overconvergence definition → CC theorem.
+7. Thm. II.3.2(iii) → CC theorem.
+8. KPX Prop. 4.2.3 → KPX finiteness.
+9. Herr complex → change of generator.
+
+### Structure, coverage, gaps
+
+All `parentStageId`s and coverage ids exist. The validator's single note is the intentional
+cross-packet endpoint in the PadicMeasures link.
+
+Coverage notes added:
+
+* PG.4: Thm. 3.8 is unconditional.
+* PG.5: KPX Cor. 4.4.11.
+* PG.6: statement of Berger Thm. 5.1.
+
+Gaps extended:
+
+* The PG.3/PG.4 ordering gap now also depends on PG.5 (Prop. 4.1).
+* Integral Iwasawa comparison: KPX Cor. 4.4.11 is rational only.
+* Berger §5: statement read.
+
+Gaps added:
+
+1. Imported results in Herr's proof of Thm. 3.8: Serre, *Corps locaux*; Wintenberger; Hasse–Arf;
+   Wyman.
+2. The p = 2 divisibility caveat in Berger Prop. 4.4.
+
+### Unverifiable items
+
+None at node level. Not read or not obtained:
+
+* Fontaine's Festschrift article.
+* Cherbonnier's thesis.
+* CC §§III.2–III.4.
+* CC 1999 (JAMS).
+* KPX §§3, 5, 6.
+* Herr §5 beyond Prop. 5.2.
+* Wach 1996.
+* Herr 2001 / Liu 2008 (duality).
+
+### Supplier questions for the orchestrator
+
+1. Where should Herr's finiteness/Euler-characteristic acceptance live, given it needs PG.4 (Ker ψ) and
+   PG.5 (Prop. 4.1)?
+2. A proved comparison map between the measure ψ (PadicMeasures L2) and the (φ,Γ)-module ψ (PG.4):
+   which stage owns it?
+3. The integral Iwasawa comparison (CC 1999) is needed by PadicHodgeRegulators:L2; acquire it.
+4. Berger Prop. 4.4 at p = 2: restrict PG.6 to odd p, or source a p = 2 argument.
+
+## 13. RankZeroOneBSD.json
+
+**Review status: accepted.** Nodes: 10 (5 verified, 5 corrected, 0 unverifiable). Draft links: 7
+(6 verified, 3 of them with locator fixes; 1 annotated partial). Links added: 1. Gaps: 6 draft
+(3 extended), 5 added. One open question about a source argument is recorded as a gap (see below).
+
+### Sources and provenance
+
+The six draft sources are library copies, and all hashes match:
+
+| Source | Library file | SHA-256 | Pages |
+| --- | --- | --- | --- |
+| Jetchev–Skinner–Wan, arXiv:1512.06894v1 | `papers/BSD_JSW.pdf` | `908562ef…d49d` | PDF p. = printed p. |
+| Bump–Friedberg–Hoffstein, Invent. 102 | `papers/BSD_BFH.pdf` | `d50ad2f1…9f2c` | no text layer; PDF p. 1 is the GDZ cover, printed pp. 543–544 = PDF pp. 2–3 (300 dpi renders) |
+| Castella–Grossi–Skinner, arXiv:2303.04373v2 | `papers/BSD_CGS.pdf` | `5046d757…af90` | PDF p. = printed p. |
+| Keller–Yin, arXiv:2402.12781v2 | `papers/BSD_KellerYin.pdf` | `bb64820b…c90a` | PDF p. = printed p. |
+| Castella, erratum | `papers/BSD_CastellaMultiplicativeErratum.pdf` | `c04dff16…edcf` | all 5 pages |
+| W. Zhang, CDM 2013 survey | `papers/BSD_ZhangBSDsurvey.pdf` | `9bb6e995…0d7b` | PDF p. = printed p. |
+
+Sources added in review:
+
+| Source | Where | SHA-256 | Date |
+| --- | --- | --- | --- |
+| Burungale–Skinner–Tian–Wan, arXiv:2409.01350v2 (pp. 2–4 only) | library `papers/R02_KI_BSTW2024.pdf` | `18e05982…1ecf` (matches catalogue) | 2026-09-16 |
+| arXiv abstract page 1411.6352 (withdrawal notice) | fetched to scratch from `https://arxiv.org/abs/1411.6352` | `15fe7768…e97b` (HTML as fetched) | 2026-09-16 |
+| arXiv abstract page 1412.1767 (withdrawal notice) | fetched to scratch from `https://arxiv.org/abs/1412.1767` | `00baa3b8…bc2c` (HTML as fetched) | 2026-09-16 |
+
+Library and catalogue claims checked:
+
+* `BSD_GrossZagier.pdf` yields 224 characters of text (header only), and `BSD_GrossKolyvagin.pdf`
+  yields 12.
+* CGLS (`7cd995e0…`) and BSTW (`18e05982…`) hashes match the packet.
+* Present in the library: CLW, CH18 and its erratum, LV19, KO20, Hsieh 2014, EW16, Kato 2004,
+  `SUP_YZZ_GrossZagier_2013`, `BSD_ZhangIndivisibility` ([Zha14]), `BSD_YZZExplicit`
+  (Cai–Shu–Tian) and `BSD_ZhangHeights` ([Zha01a]).
+* Absent: Skinner–Zhang (1407.1099), GV00, Tian, [Tat66], [Ski14b] and [Kob13].
+* Catalogued as not acquired: FH95 and Ribet–Takahashi.
+
+The atlas texts for BSD.0–BSD.9 (including 6a and 7a) were read.
+
+### Nodes
+
+| Node | Verdict | Finding |
+| --- | --- | --- |
+| BSD.0/twisted-completed-l-function… | verified | BFH p. 543 matches (render). Annotated two things: the parity statement follows the *untwisted* functional equation, and the "newform of the stated level" explanation is authored. |
+| BSD.2/bfh-quadratic-twist-nonvanishing… | verified | Theorem and the ε = +1 reduction match verbatim. The authored infinite-family iteration was checked (reviewer computation). Added BFH's note that (ii) was proved earlier by Waldspurger. Added the **scope limit**: BFH can prescribe only splitting. |
+| BSD.3/gross-zagier-kolyvagin… | verified | Zhang Thm. 1.4, the auxiliary-field sentence and Remark 7 (p. 7) match. The JSW quote spans pp. 1–2. |
+| BSD.5/rationality…tamagawa-period-dictionary | corrected | **Missing hypothesis:** JSW's (7.3.a) uses good reduction at p (Tamagawa number 1 above p). Added the period relation (7.3.e) Ω_f^cong = √\|D\|·Ω_E·Ω_{E^D}, its derivation from (7.3.b)–(7.3.d) with the [SZ14, Lem. 9.6] hypotheses (ρ̄ irreducible, p ∤ D, p split), Remark 7.3.3, and the D-sign convention. |
+| BSD.6/jsw-p-part-of-bsd-in-analytic-rank-one | corrected | Five errors. (1) **Overstated hypothesis:** "N⁻ > 1, not the classical Heegner setting" is from the introduction, but the proof takes N⁻ = 1 with q ramified in K′ when N is prime, and N⁻ = 1 for K″ (pp. 45, 47). The operative condition is (gen-H) plus a non-split prime divisor of N. (2) **Conflation:** Thm. 6.1.4 is the *two-variable* Λ_{K,R}[1/p] divisibility; the anticyclotomic Λ_R[1/p] statement is Thm. 6.1.5; Thm. 6.1.6 upgrades to Λ_R and drops "Σ ⊇ places over N·D_K". (3) Both auxiliary fields come from **Friedberg–Hoffstein [FH95, Thm. B]**, and the explicit GZ variant is [Zha14, p. 245] / [CST14]. (4) The CM remark omitted the p-adic height nonvanishing, and the C^Σ(W) factors were misdescribed. (5) **Provenance:** the supersingular case rests on [Wan14a] and [Wan14b], both **withdrawn** on arXiv. |
+| BSD.6/jsw-rank-zero-branches | corrected | Statement and Remarks 7.2.2–7.2.3 (pp. 42–43) match. **Provenance:** (iii) = [Wan14b, Cor. 4.8] is withdrawn and "superseded by part of" BSTW. BSTW Thms. 1.3/1.5 allow only twists with discriminant coprime to Np and divisible only by primes of ordinary reduction, narrower than JSW (iii). Zhang Thm. 1.5 locator is §1.4, p. 7, not §1.5, p. 8. |
+| BSD.6a/castella-corrected-multiplicative-branch | verified | Thm. 1.1, Thm. A′, both Remarks and Lemmas 2.1–2.2 match. Annotated that "withdrawn/invalidates" paraphrases "affects the proof … should replace". The rest of §2 (pp. 3–4) was read and its imports listed. Reviewer computation: under O_K/N ≅ Z/NZ the nonsplit q in (iii) must be **ramified**. |
+| BSD.7/cgs-theorem-d… | verified | Thm. D, its proof, Remark 1.2.1 and the examples (pp. 4–5) match. Thm. A and Greenberg's μ ≥ m (citing [Gre99, Prop. 5.7]) are on **p. 2**, not p. 4. The torsion-exclusion acceptance item was checked by reviewer computation. Annotated that the r = 1 field selection is unnamed (inside CGLS22) and that the examples use FH95. |
+| BSD.7/keller-yin-broader-eisenstein-branch… | corrected | Thm. 4.2.1 and its proof (pp. 42–43) match. **Misattribution:** "characteristic ideals are no longer Fitting ideals … free parts" (§0.2, p. 5) concerns the Hida-family proof of the multiplicative Thm. D (§5.1(e), Lemma 5.1.2), not Thm. C. Two locators moved from §0.1 p. 3 to §0.2 p. 5. Open question added (see below). |
+| BSD.7a/eisenstein-main-conjecture-inputs | corrected | **False "not read":** the statement of KY Thm. 3.0.8 (IMC2) is Thm. A on p. 4 and is now recorded with its hypotheses (weight 2r with r odd, p ordinary ∤ N, K as in §0.1). The Fitting attribution was fixed, CGS Thm. C (p. 3) recorded, and three locators fixed. |
+
+### Links
+
+* BSD.0 sign rule → BFH: verified.
+* BFH → GZ–Kolyvagin: verified (Zhang p. 7; BFH p. 544).
+* BSD.5 dictionary → JSW rank one: verified. Locator made precise: (7.3.e) is used in (7.4.c) on
+  p. 46, and (7.3.a) for K′ on p. 47 and for K″ on p. 48.
+* JSW rank zero → JSW rank one: verified. Locator "pp. 46 and 48" → **p. 47 (7.4.d) and p. 48
+  (7.4.e)**. Annotated that branch (iii) is the withdrawn [Wan14b].
+* BSD.7a → CGS Thm. D: verified; locator Thm. A p. 4 → **p. 2**.
+* BSD.7a → Keller–Yin: verified.
+* BFH → CGS Thm. D: annotated **partial**, for three reasons. The r = 1 K-selection is unnamed and
+  sits inside the unread CGLS22 Thm. 5.3.1. A reviewer computation shows BFH (ii) with S = {ℓ \| N}
+  ∪ {2, p} satisfies (Heeg), (disc) and (spl), because a split 2 forces D_K ≡ 1 mod 8. The worked
+  examples use FH95 with ψ(5) = −1, an inert condition BFH cannot impose. The atlas has this
+  dependency only transitively.
+
+Link added: GZ–Kolyvagin → JSW rank one. JSW p. 41 gives rank 1 and finite Sha over Q, and p. 45
+uses the same theorem over K′ to verify (corank 1) and (sur).
+
+### Structure, coverage, gaps
+
+All `parentStageId`s and coverage ids exist. The validator reports no problems, and the cycle check
+over the EXT-08 and EXT-16 packets finds 0 cycles.
+
+Coverage corrections:
+
+* **BSD.5:** `papers/ADD_RT97.pdf` is **Rohrlich–Tunnell**, "An elementary case of Serre's
+  conjecture", not Ribet–Takahashi. Ribet–Takahashi is catalogued as not acquired.
+* **BSD.6:** `R02_KI_Wan2015.pdf` is Wan's Hilbert-modular-forms main conjecture (Zhang's [54]),
+  and `R02_KI_WanNonordinary.pdf` is arXiv:1607.07729v4. Neither is a JSW citation. JSW's [Wan14a]
+  (1412.1767) and [Wan14b] (1411.6352) are withdrawn and not acquired, and [Wan13] (ANT 2020) is
+  not catalogued.
+* **BSD.6a:** the stage names BSTW Thm. 1.14 with §§3–6 and 9–10 and the endpoint Thm. 1.3. It
+  mentions Thm. 1.5 only to forbid importing its p-adic Gross–Zagier proof without assigning inputs.
+* **BSD.7 / BSD.7a:** the statements of CGS Thm. C and KY Thm. 3.0.8 were read.
+* **BSD.7:** the stage's preprint-versus-published audit and its ordinarity check are not done.
+
+Gaps extended:
+
+* GZ/Kolyvagin text layer: the JSW proof uses [Zha14, p. 245] / [CST14], both in the library.
+* BFH proof: JSW use FH95, not BFH.
+* BSTW unread: Remark 1.4(i) and the narrower twist clause.
+
+Gaps added:
+
+1. The supersingular case of JSW rests on two withdrawn Wan preprints (arXiv provenance recorded).
+2. BFH prescribes only splitting, but JSW K′/K″, the CGS examples and Castella's Thm. 1.1 need
+   inert or ramified conditions, and FH95 is absent.
+3. Imported results in the Castella erratum's proofs of Thms. 2.3 and 1.1, with exact locators.
+4. **Open question** on Keller–Yin Thm. 4.2.1 (below).
+5. The preprint-versus-published status of JSW, CGS and Keller–Yin.
+
+### Unverifiable items
+
+None at node level. Not read or not obtained:
+
+* BFH's proof (pp. 545–618).
+* Gross–Zagier and Gross–Kolyvagin (no text layer).
+* JSW §§2, 4, 5 and Cor. 3.4.2.
+* CGS §§2–9 and CGLS22.
+* KY §§1–3, 5.2 and Appendices A–B.
+* BSTW beyond pp. 2–4.
+* The erratum's imports.
+* FH95, SZ14, GV00, Ribet–Takahashi, [Tat66], [Ski14b], [Kob13].
+* Any p = 2 source (Tian; Tian–Yuan–Zhang).
+
+### Supplier questions for the orchestrator
+
+1. **Withdrawn inputs.** Should BSD.6's supersingular branch be re-sourced through CLW (non-ordinary
+   divisibility) and BSTW Thms. 1.3/1.5? If so, who checks JSW's twist D″ against BSTW's
+   "ordinary primes only" twist clause? Is the published JSW (Camb. J. Math.) cited differently?
+2. **Auxiliary fields.** BSD.2 needs Friedberg–Hoffstein 1995 (inert and ramified conditions), not
+   only BFH 1990. Should FH95 be acquired and its Thm. B made a BSD.2 node?
+3. **Keller–Yin rank zero.** Their §4.2 cites [CGLS22, Thm. 5.1.4] (Greenberg–Vatsal) for the
+   twist-side vanishing. By reviewer computation, twisting by χ_K keeps φ\|G_p and flips parity, so
+   when φ\|G_p ∈ {1, ω} with the wrong parity, neither (GV) nor CGS Thm. A covers E^K. The pages read
+   also do not show the rank-zero case (e.g. 11a3, φ = 1). Read CGLS22 §5.1 and KY §§1–4 (or the
+   published version) before BSD.7 relies on the full Thm. 4.2.1. KY p. 2 also states the (GV)
+   parity reversed relative to KY p. 42 and CGS p. 2.
+4. **Ordinarity.** Which stage proves that good Eisenstein primes of elliptic curves are ordinary?
+   Keller–Yin only assert it.
+5. **Ribet–Takahashi** is not in the library (the `ADD_RT97` file is Rohrlich–Tunnell); BSD.5
+   needs it acquired.
