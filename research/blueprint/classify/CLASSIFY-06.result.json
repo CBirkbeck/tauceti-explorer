@@ -1,0 +1,568 @@
+[
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "primaryMsc": "14H",
+    "secondaryMsc": [
+      "14K",
+      "14F",
+      "14D"
+    ],
+    "cluster": "algebraic-geometry",
+    "distance": 6,
+    "distanceRationale": "The checked declarations supply invertible modules and scheme-module cohomology, not Picard representability or proper coherent-cohomology finiteness and base change. A provisional distance of 6 reflects those research-level layers not covered by this source sample; it must be reassessed against additional Tau Ceti suppliers and is not a proof of their absence.",
+    "mathlibEvidence": [
+      {
+        "library": "mathlib",
+        "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "path": "Mathlib/RingTheory/PicardGroup.lean",
+        "declaration": "Module.Invertible",
+        "checkedStatement": "For a module over a commutative semiring, the class asserts bijectivity of the canonical contraction from its dual tensor the module to the base; it is not a scheme-level Picard representability theorem.",
+        "blobSha": "8407ce4b91a84d80e99fccacfae314a67dcdbdf1",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/PicardGroup.lean",
+        "sourceReadLines": "1-125"
+      },
+      {
+        "library": "tauceti",
+        "commit": "f790474821cf4256814db967cb154e7af3d0c369",
+        "path": "TauCeti/AlgebraicGeometry/Cohomology/Basic.lean",
+        "declaration": "TauCeti.AlgebraicGeometry.Scheme.Modules.cohomologyZeroEquiv",
+        "checkedStatement": "For any scheme X and sheaf of modules M, identifies degree-zero cohomology with its additive group of global sections; no properness, cohomology finiteness or base-change theorem is asserted.",
+        "blobSha": "35b88d6a820880bce94a58b6a31ac00bf6a671e6",
+        "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/Cohomology/Basic.lean",
+        "sourceReadLines": "1-210"
+      }
+    ],
+    "references": [
+      {
+        "title": "Algebraic Geometry",
+        "authors": [
+          "Robin Hartshorne"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: Chapters II, III (including III.12), IV"
+      },
+      {
+        "title": "Jacobian Varieties",
+        "authors": [
+          "James S. Milne"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: construction and universal property; in Arithmetic Geometry"
+      },
+      {
+        "title": "Abelian Varieties",
+        "authors": [
+          "David Mumford"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: cube/square, dual variety and polarizations"
+      },
+      {
+        "title": "Néron Models",
+        "authors": [
+          "Siegfried Bosch",
+          "Werner Lütkebohmert",
+          "Michel Raynaud"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: Chapters 8–9"
+      }
+    ],
+    "assessmentStatus": "partial",
+    "classificationProvenance": "provisional subject assessment from the roadmap; not inferred from retrieved zbMATH metadata",
+    "inputRevision": "208dfaa714e7a39ced93ba5453aae4b64882cbef",
+    "roadmapBlobSha": "aedda48979b6c3544a1dce041d00221204d64655",
+    "atlasBlobSha": "37f2add06983c206067d1104e0f40a839cc3961a",
+    "worker": "ChatGPT Pro — cgp-212bf5d92a8b",
+    "remainingWork": [
+      "Retrieve and verify the principal references in zbMATH; record the matching document IDs and actual MSC2020 codes.",
+      "Reassess the provisional classification against the retrieved bibliographic metadata.",
+      "Verify the embedded atlas readme against the source README and reconcile any difference before treating the assessment as final.",
+      "Complete the target-by-target pinned coverage audit needed to finalize this provisional distance; this checkpoint verifies only the explicitly listed declarations."
+    ],
+    "readStatus": {
+      "roadmapDocument": "full corresponding content/tau-ceti README read at inputRevision",
+      "atlasSummary": "read from the atlas blob",
+      "atlasEmbeddedReadme": "The corresponding source README was read; byte-for-byte equivalence to the embedded atlas readme was not independently checked."
+    },
+    "searchProvenance": {
+      "method": "GitHub code search on default branches for discovery, followed by the pinned source reads listed in mathlibEvidence.",
+      "queries": [
+        {
+          "query": "JacobianVariety",
+          "result": "Both repositories; one Tau Ceti planning-comment hit in AbelianVariety/Basic.lean. The hit is not a checked Jacobian construction."
+        }
+      ],
+      "exhaustive": false
+    },
+    "bibliographicAccessBlocker": "Required api.zbmath.org/v1/document/_search requests could not be retrieved in this session; no successful matching API record was obtained. This is an access failure, not evidence that the cited works lack database entries.",
+    "validationScope": "A parseable partial checkpoint, not a complete CLASSIFY-06 result and not evidence of a Lean build or independent mathematical review.",
+    "referenceVerification": "References are selected from the pinned roadmap, not verified against matching zbMATH API records. Null zbmath and empty msc mean unverified, not absent. Roadmap locators are not claims that the primary source passages were inspected.",
+    "sourceVerification": "Only the explicitly listed declaration statements and surrounding hypotheses were inspected at the pins; no Lean build, axiom audit or recursive proof audit was run.",
+    "inputRecheckRevision": "49f74b4d2bace99a76ceff4ac2199a3384c83c57",
+    "batchInputBlobSha": "b319626d72cd203634362afe1d53777465d11307",
+    "baselineBlobSha": "fdb00afdfae8e5728e070f310f5a880707764bc2"
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+    "primaryMsc": "11R",
+    "secondaryMsc": [
+      "12F",
+      "11E"
+    ],
+    "cluster": "algebraic-number-theory",
+    "distance": 3,
+    "distanceRationale": "The pinned Tau Ceti sources already provide the independent-square-root degree theorem and the ordinary genus-field construction for imaginary quadratic fields, so the early roadmap layers must not be counted as wholly missing. The provisional score of 3 concerns the class-group quotient identification and the narrow real-quadratic theory, whose complete coverage was not verified in this checkpoint; it is not an assertion that those results are absent.",
+    "mathlibEvidence": [
+      {
+        "library": "mathlib",
+        "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "path": "Mathlib/FieldTheory/KummerExtension.lean",
+        "declaration": "X_pow_sub_C_splits_of_isPrimitiveRoot",
+        "checkedStatement": "Over a field K, a primitive nth root of unity and a root alpha with alpha^n=a imply that X^n-C(a) splits; this does not assert the multiquadratic genus-field theorem.",
+        "blobSha": "91c3b8660f316cc860b3d749068a787b60e747f0",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/KummerExtension.lean",
+        "sourceReadLines": "1-180"
+      },
+      {
+        "library": "tauceti",
+        "commit": "f790474821cf4256814db967cb154e7af3d0c369",
+        "path": "TauCeti/NumberTheory/Multiquadratic/Degree.lean",
+        "declaration": "TauCeti.Multiquadratic.finrank_adjoin_range",
+        "checkedStatement": "For fields K,L with an algebra structure, finite index type, chosen square roots and NeZero (2:K), nonempty-subset-product nonsquareness gives finrank of their adjoin equal to 2^Nat.card of the index type.",
+        "blobSha": "b378e6086d513a5bb0d0da309ee83abc59463f0b",
+        "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/Multiquadratic/Degree.lean",
+        "sourceReadLines": "1-210"
+      },
+      {
+        "library": "tauceti",
+        "commit": "f790474821cf4256814db967cb154e7af3d0c369",
+        "path": "TauCeti/NumberTheory/Multiquadratic/GenusField.lean",
+        "declaration": "TauCeti.Multiquadratic.IsGenusField",
+        "checkedStatement": "For an integer radicand, number field and chosen square root, packages a quadratic generated subfield, an abelian Galois extension over Q, unramifiedness at finite and infinite places, and root-preserving maximality among such abelian number-field extensions. This is the ordinary all-places predicate, not the narrow finite-places-only predicate.",
+        "blobSha": "8504ea6562a316d6918504ff993817d7f244b767",
+        "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/Multiquadratic/GenusField.lean",
+        "sourceReadLines": "1-145"
+      },
+      {
+        "library": "tauceti",
+        "commit": "f790474821cf4256814db967cb154e7af3d0c369",
+        "path": "TauCeti/NumberTheory/Multiquadratic/GenusField.lean",
+        "declaration": "TauCeti.Multiquadratic.isGenusField_candidateGenusField",
+        "checkedStatement": "For a squarefree negative integer d, the prime-discriminant candidate field with its named square root satisfies IsGenusField. The predicate and the theorem statement were both read at the pin; the imported arithmetic proof chain was not independently audited.",
+        "blobSha": "8504ea6562a316d6918504ff993817d7f244b767",
+        "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/Multiquadratic/GenusField.lean",
+        "sourceReadLines": "1-145"
+      }
+    ],
+    "references": [
+      {
+        "title": "Primes of the Form x² + ny²",
+        "authors": [
+          "David A. Cox"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: genus theory and ring class fields"
+      },
+      {
+        "title": "Reciprocity Laws: From Euler to Eisenstein",
+        "authors": [
+          "Franz Lemmermeyer"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: genus theory and genus fields"
+      },
+      {
+        "title": "A Course in Computational Algebraic Number Theory",
+        "authors": [
+          "Henri Cohen"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: class groups and 2-rank"
+      },
+      {
+        "title": "Über den Dirichletschen Körper",
+        "authors": [
+          "S. Kuroda"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: multiquadratic fields",
+        "matchingCaution": "Title and author initial reproduced as cited by the roadmap; the full author identity and bibliographic match remain unresolved."
+      }
+    ],
+    "assessmentStatus": "partial",
+    "classificationProvenance": "provisional subject assessment from the roadmap; not inferred from retrieved zbMATH metadata",
+    "inputRevision": "208dfaa714e7a39ced93ba5453aae4b64882cbef",
+    "roadmapBlobSha": "138bdc717257dad8a0b5cb4851bd58dadff01f0b",
+    "atlasBlobSha": "37f2add06983c206067d1104e0f40a839cc3961a",
+    "worker": "ChatGPT Pro — cgp-212bf5d92a8b",
+    "remainingWork": [
+      "Retrieve and verify the principal references in zbMATH; record the matching document IDs and actual MSC2020 codes.",
+      "Reassess the provisional classification against the retrieved bibliographic metadata.",
+      "Verify the embedded atlas readme against the source README and reconcile any difference before treating the assessment as final.",
+      "Complete the target-by-target pinned coverage audit needed to finalize this provisional distance; this checkpoint verifies only the explicitly listed declarations."
+    ],
+    "readStatus": {
+      "roadmapDocument": "full corresponding content/tau-ceti README read at inputRevision",
+      "atlasSummary": "read from the atlas blob",
+      "atlasEmbeddedReadme": "The corresponding source README was read; byte-for-byte equivalence to the embedded atlas readme was not independently checked."
+    },
+    "searchProvenance": {
+      "method": "GitHub code search on default branches for discovery, followed by the pinned source reads listed in mathlibEvidence.",
+      "queries": [
+        {
+          "query": "sqrtTower",
+          "result": "Tau Ceti Degree.lean discovered and opened at the pin."
+        },
+        {
+          "query": "genusField",
+          "result": "Tau Ceti GenusField.lean discovered and opened at the pin."
+        }
+      ],
+      "exhaustive": false
+    },
+    "bibliographicAccessBlocker": "Required api.zbmath.org/v1/document/_search requests could not be retrieved in this session; no successful matching API record was obtained. This is an access failure, not evidence that the cited works lack database entries.",
+    "validationScope": "A parseable partial checkpoint, not a complete CLASSIFY-06 result and not evidence of a Lean build or independent mathematical review.",
+    "referenceVerification": "References are selected from the pinned roadmap, not verified against matching zbMATH API records. Null zbmath and empty msc mean unverified, not absent. Roadmap locators are not claims that the primary source passages were inspected.",
+    "sourceVerification": "Only the explicitly listed declaration statements and surrounding hypotheses were inspected at the pins; no Lean build, axiom audit or recursive proof audit was run.",
+    "inputRecheckRevision": "49f74b4d2bace99a76ceff4ac2199a3384c83c57",
+    "batchInputBlobSha": "b319626d72cd203634362afe1d53777465d11307",
+    "baselineBlobSha": "fdb00afdfae8e5728e070f310f5a880707764bc2"
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+    "primaryMsc": "47D",
+    "secondaryMsc": [
+      "43A",
+      "44A"
+    ],
+    "cluster": "analysis",
+    "distance": 1,
+    "distanceRationale": "The pinned Tau Ceti sources already construct the general-growth Hille-Yosida semigroup and prove existence of the finite-measure Berg-Christensen-Ressel representation, on top of Mathlib's partial-operator infrastructure. The provisional score of 1 allows for the remaining API and completion audit, rather than treating the dynamical and representation layers as unbuilt; this is not a certificate that every roadmap target is complete.",
+    "mathlibEvidence": [
+      {
+        "library": "mathlib",
+        "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "path": "Mathlib/Topology/Algebra/Module/LinearPMap.lean",
+        "declaration": "LinearPMap.IsClosed",
+        "checkedStatement": "For modules over a commutative ring with topological spaces on source and target, closedness of a partial linear map means closedness of its graph in the product topology; the definition does not require that its domain be the whole space.",
+        "blobSha": "e5da29e849e9c1471705a0a9bbe52abde1610485",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Module/LinearPMap.lean",
+        "sourceReadLines": "1-120"
+      },
+      {
+        "library": "tauceti",
+        "commit": "f790474821cf4256814db967cb154e7af3d0c369",
+        "path": "TauCeti/Analysis/Semigroups/Generation/HilleYosida/Generation.lean",
+        "declaration": "TauCeti.Semigroups.hilleYosida_generation",
+        "checkedStatement": "For a partial linear endomorphism A of a real Banach space, 1 <= M, dense domain, every real lambda > omega in its resolvent set and the bounds ||R(lambda,A)^n|| <= M/(lambda-omega)^n for n >= 1, constructs a StronglyContinuousSemigroup whose generator is A and whose HasGrowthBound is omega M. The surrounding section variables and conclusion were read; no contraction-only specialization was substituted.",
+        "blobSha": "8e10379a4c889d8d4c6f934ac2471df6e751126c",
+        "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Semigroups/Generation/HilleYosida/Generation.lean",
+        "sourceReadLines": "1-280"
+      },
+      {
+        "library": "tauceti",
+        "commit": "f790474821cf4256814db967cb154e7af3d0c369",
+        "path": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/Existence.lean",
+        "declaration": "TauCeti.exists_representsLaplaceFourier",
+        "checkedStatement": "For a finite-dimensional real inner-product space V with its Borel measurable structure and F on NNReal x V, IsSemigroupGroupPD F, continuity and bounded range imply existence of a representing measure. This checked declaration is the existence half; uniqueness is not claimed on the strength of this declaration alone.",
+        "blobSha": "7f56272455eb713563ee1a8a681a2f576e1329ca",
+        "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/Existence.lean",
+        "sourceReadLines": "1-105"
+      },
+      {
+        "library": "tauceti",
+        "commit": "f790474821cf4256814db967cb154e7af3d0c369",
+        "path": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/Transform.lean",
+        "declaration": "TauCeti.RepresentsLaplaceFourier.isFiniteMeasure",
+        "checkedStatement": "A RepresentsLaplaceFourier witness implies IsFiniteMeasure for its measure. The adjacent eq_laplaceFourierTransform theorem and the earlier exponential-form transform statement were read, confirming the finite-measure and 2*pi Fourier conventions used by the preceding existence result.",
+        "blobSha": "4b76a11b9ecd49de68b91f9f8063357fef094f36",
+        "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/Transform.lean",
+        "sourceReadLines": "1-145,175-240"
+      }
+    ],
+    "references": [
+      {
+        "title": "One-Parameter Semigroups for Linear Evolution Equations",
+        "authors": [
+          "Klaus-Jochen Engel",
+          "Rainer Nagel"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "Part A: II.3.5-3.8; References",
+        "candidateBibliography": {
+          "source": "https://portal.mardi4nfdi.de/wiki/One-Parameter_Semigroups_for_Linear_Evolution_Equations",
+          "sourceRevision": "89368316",
+          "zbmathLink": "https://zbmath.org/0952.47036",
+          "candidateZblNumber": "0952.47036",
+          "candidateMsc": [
+            "34K35",
+            "35K30",
+            "47-02",
+            "34K30",
+            "47D06"
+          ],
+          "doi": "10.1007/B97696",
+          "observed": "Mirror title and both authors match; the mirror links this Zbl number and displays these MSC codes. Direct follow-up to zbmath.org returned HTTP 403. The API document ID, MSC version and complete authoritative record have not been verified."
+        }
+      },
+      {
+        "title": "Semigroups of Linear Operators and Applications to Partial Differential Equations",
+        "authors": [
+          "Amnon Pazy"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "Part A: Chapter 1; References"
+      },
+      {
+        "title": "Bernstein Functions: Theory and Applications",
+        "authors": [
+          "René L. Schilling",
+          "Renming Song",
+          "Zoran Vondraček"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: second edition, 2012; Part B"
+      },
+      {
+        "title": "Fourier Analysis on Groups",
+        "authors": [
+          "Walter Rudin"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: 1962; Bochner theorem and positive-definite functions"
+      },
+      {
+        "title": "A Course in Abstract Harmonic Analysis",
+        "authors": [
+          "Gerald B. Folland"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: second edition, 2016"
+      },
+      {
+        "title": "Harmonic Analysis on Semigroups",
+        "authors": [
+          "Christian Berg",
+          "Jens Peter Reus Christensen",
+          "Paul Ressel"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "Part C: Theorem 4.1.13; References"
+      }
+    ],
+    "assessmentStatus": "partial",
+    "classificationProvenance": "provisional subject assessment from the roadmap; not inferred from retrieved zbMATH metadata",
+    "inputRevision": "208dfaa714e7a39ced93ba5453aae4b64882cbef",
+    "roadmapBlobSha": "06a238d922cc80e4b2e27fc215611ad927eac69f",
+    "atlasBlobSha": "37f2add06983c206067d1104e0f40a839cc3961a",
+    "worker": "ChatGPT Pro — cgp-212bf5d92a8b",
+    "remainingWork": [
+      "Retrieve and verify the principal references in zbMATH; record the matching document IDs and actual MSC2020 codes.",
+      "Reassess the provisional classification against the retrieved bibliographic metadata.",
+      "Verify the embedded atlas readme against the source README and reconcile any difference before treating the assessment as final.",
+      "Complete the target-by-target pinned coverage audit needed to finalize this provisional distance; this checkpoint verifies only the explicitly listed declarations."
+    ],
+    "readStatus": {
+      "roadmapDocument": "full corresponding content/tau-ceti README read at inputRevision",
+      "atlasSummary": "read from the atlas blob",
+      "atlasEmbeddedReadme": "The corresponding source README was read; byte-for-byte equivalence to the embedded atlas readme was not independently checked."
+    },
+    "searchProvenance": {
+      "method": "GitHub code search on default branches for discovery, followed by the pinned source reads listed in mathlibEvidence.",
+      "queries": [
+        {
+          "query": "hilleYosida",
+          "result": "Both repositories; Tau Ceti generation source discovered and opened at the pin."
+        },
+        {
+          "query": "LinearPMap",
+          "result": "Mathlib source discovered and opened at the pin."
+        },
+        {
+          "query": "bcr_semigroup_bochner",
+          "result": "Both repositories; Tau Ceti existence file discovered and its existence statement opened at the pin."
+        }
+      ],
+      "exhaustive": false
+    },
+    "bibliographicAccessBlocker": "Required api.zbmath.org/v1/document/_search requests could not be retrieved in this session; no successful matching API record was obtained. This is an access failure, not evidence that the cited works lack database entries.",
+    "validationScope": "A parseable partial checkpoint, not a complete CLASSIFY-06 result and not evidence of a Lean build or independent mathematical review.",
+    "referenceVerification": "References are selected from the pinned roadmap, not verified against matching zbMATH API records. Null zbmath and empty msc mean unverified, not absent. Roadmap locators are not claims that the primary source passages were inspected.",
+    "sourceVerification": "Only the explicitly listed declaration statements and surrounding hypotheses were inspected at the pins; no Lean build, axiom audit or recursive proof audit was run.",
+    "inputRecheckRevision": "49f74b4d2bace99a76ceff4ac2199a3384c83c57",
+    "batchInputBlobSha": "b319626d72cd203634362afe1d53777465d11307",
+    "baselineBlobSha": "fdb00afdfae8e5728e070f310f5a880707764bc2"
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+    "primaryMsc": "60E",
+    "secondaryMsc": [
+      "60B",
+      "33B",
+      "33C"
+    ],
+    "cluster": "probability",
+    "distance": 3,
+    "distanceRationale": "Mathlib already supplies the Gaussian measure and its Radon-Nikodym formula, while pinned Tau Ceti supplies the finite-product Gaussian density. The remaining scope includes a broad distribution API and normalized symmetric-matrix measure/Wishart work, so 3 is a provisional standard-graduate-layer estimate rather than a claim of missing probability foundations; the bounded search did not find the proposed nonsingularWishartMeasure spelling.",
+    "mathlibEvidence": [
+      {
+        "library": "mathlib",
+        "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "path": "Mathlib/Probability/Distributions/Gaussian/Real.lean",
+        "declaration": "ProbabilityTheory.rnDeriv_gaussianReal",
+        "checkedStatement": "For every real mean and nonnegative variance, the Radon-Nikodym derivative of gaussianReal against volume equals gaussianPDF almost everywhere, including the zero-variance Dirac branch. This does not assert absolute continuity at zero variance.",
+        "blobSha": "2c0b1fd72f5d80415d0286f4c016cbd59ffca4b0",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Probability/Distributions/Gaussian/Real.lean",
+        "sourceReadLines": "210-340"
+      },
+      {
+        "library": "tauceti",
+        "commit": "f790474821cf4256814db967cb154e7af3d0c369",
+        "path": "TauCeti/Probability/Distributions/Gaussian/Pi.lean",
+        "declaration": "TauCeti.pi_gaussianReal_eq_withDensity",
+        "checkedStatement": "For a finite index type, the product of standard real Gaussian measures equals product Lebesgue measure with density ENNReal.ofReal of the product of coordinate Gaussian real densities. This statement is isotropic product density, not the full Wishart theory.",
+        "blobSha": "b21e1edd976de54137042694cc16b923206503d3",
+        "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Distributions/Gaussian/Pi.lean",
+        "sourceReadLines": "1-145"
+      }
+    ],
+    "references": [
+      {
+        "title": "Continuous Univariate Distributions, Volume 1",
+        "authors": [
+          "Norman L. Johnson",
+          "Samuel Kotz",
+          "N. Balakrishnan"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: second edition, 1994; scalar continuous families and transformations"
+      },
+      {
+        "title": "Continuous Univariate Distributions, Volume 2",
+        "authors": [
+          "Norman L. Johnson",
+          "Samuel Kotz",
+          "N. Balakrishnan"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: second edition, 1995; scalar continuous families and transformations"
+      },
+      {
+        "title": "Univariate Discrete Distributions",
+        "authors": [
+          "Norman L. Johnson",
+          "Adrienne W. Kemp",
+          "Samuel Kotz"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: third edition, 2005; Chapters 3-6"
+      },
+      {
+        "title": "Aspects of Multivariate Statistical Theory",
+        "authors": [
+          "Robb J. Muirhead"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: Chapter 2 matrix Jacobians; Chapter 3 multivariate Gamma, Wishart and Bartlett"
+      },
+      {
+        "title": "Reforming the Wishart characteristic function",
+        "authors": [
+          "Eberhard Mayerhofer"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "Layer 6 and References: arXiv:1901.09347; branch ambiguity",
+        "candidateArxivId": "1901.09347"
+      },
+      {
+        "title": "An Introduction to Multivariate Statistical Analysis",
+        "authors": [
+          "Theodore W. Anderson"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: third edition, 2003; conditional Gaussians"
+      },
+      {
+        "title": "Multivariate Statistics: A Vector Space Approach",
+        "authors": [
+          "Morris L. Eaton"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: IMS Lecture Notes-Monograph Series 53"
+      },
+      {
+        "title": "NIST Digital Library of Mathematical Functions",
+        "authors": [
+          "NIST Digital Library of Mathematical Functions"
+        ],
+        "zbmath": null,
+        "msc": [],
+        "roadmapLocator": "References: Chapters 7 and 8, especially sections 7.2, 7.11, 8.2 and 8.17"
+      }
+    ],
+    "assessmentStatus": "partial",
+    "classificationProvenance": "provisional subject assessment from the roadmap; not inferred from retrieved zbMATH metadata",
+    "inputRevision": "208dfaa714e7a39ced93ba5453aae4b64882cbef",
+    "roadmapBlobSha": "754b87b5eb8d0e066a2ab00a94ed40f92768dfe6",
+    "atlasBlobSha": "37f2add06983c206067d1104e0f40a839cc3961a",
+    "worker": "ChatGPT Pro — cgp-212bf5d92a8b",
+    "remainingWork": [
+      "Retrieve and verify the principal references in zbMATH; record the matching document IDs and actual MSC2020 codes.",
+      "Reassess the provisional classification against the retrieved bibliographic metadata.",
+      "Verify the embedded atlas readme against the source README and reconcile any difference before treating the assessment as final.",
+      "Complete the target-by-target pinned coverage audit needed to finalize this provisional distance; this checkpoint verifies only the explicitly listed declarations."
+    ],
+    "readStatus": {
+      "roadmapDocument": "full corresponding content/tau-ceti README read at inputRevision",
+      "atlasSummary": "read from the atlas blob",
+      "atlasEmbeddedReadme": "The corresponding source README was read; byte-for-byte equivalence to the embedded atlas readme was not independently checked."
+    },
+    "searchProvenance": {
+      "method": "GitHub code search on default branches for discovery, followed by the pinned source reads listed in mathlibEvidence.",
+      "queries": [
+        {
+          "query": "gaussianReal_eq_withDensity",
+          "result": "Both repositories; Tau Ceti Pi.lean discovered and opened at the pin; Density.lean is an additional unverified candidate."
+        },
+        {
+          "query": "rnDeriv_gaussianReal",
+          "result": "Mathlib source discovered and opened at the pin."
+        },
+        {
+          "query": "nonsingularWishartMeasure",
+          "result": "Both repositories returned no hits for this spelling; not a proof of absence, and not a pinned-tree exhaustive search."
+        }
+      ],
+      "exhaustive": false
+    },
+    "bibliographicAccessBlocker": "Required api.zbmath.org/v1/document/_search requests could not be retrieved in this session; no successful matching API record was obtained. This is an access failure, not evidence that the cited works lack database entries.",
+    "validationScope": "A parseable partial checkpoint, not a complete CLASSIFY-06 result and not evidence of a Lean build or independent mathematical review.",
+    "referenceVerification": "References are selected from the pinned roadmap, not verified against matching zbMATH API records. Null zbmath and empty msc mean unverified, not absent. Roadmap locators are not claims that the primary source passages were inspected.",
+    "sourceVerification": "Only the explicitly listed declaration statements and surrounding hypotheses were inspected at the pins; no Lean build, axiom audit or recursive proof audit was run.",
+    "inputRecheckRevision": "49f74b4d2bace99a76ceff4ac2199a3384c83c57",
+    "batchInputBlobSha": "b319626d72cd203634362afe1d53777465d11307",
+    "baselineBlobSha": "fdb00afdfae8e5728e070f310f5a880707764bc2"
+  }
+]
