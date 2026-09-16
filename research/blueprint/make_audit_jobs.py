@@ -41,6 +41,7 @@ COMMON = """INPUTS
 - Retired roadmaps: data/roadmap-retirements.json.
 
 HOW TO SEARCH (this is the heart of the job; be thorough)
+- The index is a search aid built from the source text, not a complete list: it can miss a declaration or give it the wrong namespace. Before calling a target absent, grep the Lean sources for its key words (grep -rn -i, and read the hits in context); before citing a name, confirm its namespace in the file. Case-insensitive searches are noisy, so never cut the output short with head before reading what is relevant.
 - Search by concept as well as by name. For each target, try the Mathlib naming conventions (for example IsDedekindDomain, Ideal.IsPrime, NumberField.RingOfIntegers, IsLocalization, Module.Flat, MeasureTheory.Measure.haar), synonyms, and the key words of its statement, with grep -i -P on declarations.tsv, then grep -rn -i in the Lean sources for docstrings and notation.
 - Open the Lean file at the line and read the statement before citing a declaration. Compare hypotheses and generality: a general Mathlib theorem covers a special case the layer asks for (for example, Mathlib's Dedekind domain theory covers the ring of integers of a number field).
 - Tau Ceti is a large library (about 70,000 declarations) with its own conventions; search it as carefully as Mathlib before calling anything missing.

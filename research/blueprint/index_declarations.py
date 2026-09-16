@@ -12,11 +12,14 @@ import re
 import sys
 from pathlib import Path
 
-DECL = re.compile(r"^\s*(?:@\[[^\]]*\]\s*)*(?:(?:private|protected|noncomputable|partial|unsafe|nonrec|scoped)\s+)*"
+# Modifiers include `public` and `meta` from Lean's module system, which recent
+# Mathlib files use (`public theorem ...`, `@[expose] public section`).
+MODIFIERS = r"(?:(?:private|protected|public|noncomputable|partial|unsafe|nonrec|scoped|meta)\s+)*"
+DECL = re.compile(r"^\s*(?:@\[[^\]]*\]\s*)*" + MODIFIERS +
                   r"(theorem|lemma|def|abbrev|structure|class|instance|inductive|opaque|axiom|irreducible_def|alias)\s+"
                   r"(?!\()([^\s:({\[⦃]+)")
 NAMESPACE = re.compile(r"^\s*namespace\s+(\S+)")
-SECTION = re.compile(r"^\s*(?:noncomputable\s+)?section(?:\s+(\S+))?\s*$")
+SECTION = re.compile(r"^\s*(?:@\[[^\]]*\]\s*)*" + MODIFIERS + r"section(?:\s+(\S+))?\s*$")
 END = re.compile(r"^\s*end(?:\s+(\S+))?\s*$")
 
 
@@ -40,7 +43,9 @@ def scan(root: Path, library: str, relative_to: Path, out):
                     continue
             m = NAMESPACE.match(stripped)
             if m:
-                stack.append(("ns", m.group(1)))
+                # `namespace A.B` opens A then B; `end A.B` closes both.
+                for part in m.group(1).split("."):
+                    stack.append(("ns", part))
                 continue
             m = SECTION.match(stripped)
             if m:
@@ -53,12 +58,14 @@ def scan(root: Path, library: str, relative_to: Path, out):
                     if name is None:
                         stack.pop()
                     else:
-                        # `end A.B` closes `namespace A.B`; pop until the matching entry.
-                        for i in range(len(stack) - 1, -1, -1):
-                            if stack[i][1] == name:
-                                del stack[i:]
-                                break
+                        parts = name.split(".")
+                        tail = [entry[1] for entry in stack[-len(parts):]]
+                        if len(parts) <= len(stack) and tail == parts and all(entry[0] == "ns" for entry in stack[-len(parts):]):
+                            del stack[-len(parts):]
+                        elif stack[-1] == ("sec", name):
+                            stack.pop()
                         else:
+                            # Unmatched: close the innermost block, as before.
                             stack.pop()
                 continue
             m = DECL.match(stripped)
@@ -78,10 +85,14 @@ def scan(root: Path, library: str, relative_to: Path, out):
 
 def main():
     base = Path(sys.argv[1])
-    with open(base / "declarations.tsv", "w", encoding="utf-8") as out:
+    # Written beside the index and moved into place, so a worker reading it
+    # never sees a half-written file.
+    partial = base / "declarations.tsv.partial"
+    with open(partial, "w", encoding="utf-8") as out:
         out.write("library\tname\tkind\tfile\tline\tsignature\n")
         t = scan(base / "TauCeti" / "TauCeti", "tauceti", base / "TauCeti", out)
         m = scan(base / "mathlib" / "Mathlib", "mathlib", base / "mathlib", out)
+    partial.replace(base / "declarations.tsv")
     print(f"indexed tauceti {t}, mathlib {m}")
 
 
