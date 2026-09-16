@@ -1,0 +1,425 @@
+{
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+  "protocol": "links-v1",
+  "summary": "Six proposed prerequisite links to CharacterTheory, QuiverRepresentations and QuadraticFormInvariants, plus three scoped overlap recommendations. No incoming prerequisite is asserted. Character indexing is distinguished from direct baseline Wedderburn use; semilinear descent, bicommutant generality, and algebraic/cohomological Brauer carriers remain explicit. This is a source-text link audit, not a library implementation or an approval of the input roadmaps.",
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-2-wedderburn-irreducible-indexing-and-the-count",
+      "reason": "Selected reuse route for the block-to-simple-module indexing dictionary only: apply the canonical-index comparison to the finite-dimensional split semisimple group algebra k[G], with G finite, k algebraically closed and char(k) not dividing |G|. Character Theory explicitly consumes Wedderburn existence directly from Mathlib; this edge does NOT make that existence theorem or the whole character theory depend on this roadmap. Its optional alternative of reproving the indexing bridge should be replaced by this precise reuse.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
+          "quote": "the\n  chosen index is in bijection with isomorphism classes of simple `R`-modules (via Layer 1.5)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-2-wedderburn-irreducible-indexing-and-the-count",
+          "quote": "What\n  that roadmap supplies to this one is the machine-checked block ⇆ simple-module dictionary\n  (`blocks_equiv_simpleModules` there), which the Layer 2.5 indexing may consume instead of\n  reproving."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+      "reason": "For a finite-dimensional k-algebra A, apply the algebra Wedderburn presentation and canonical block/simple-module indexing to A/J(A). The quiver owner must still prove the passage between simple A-modules and simple A/J(A)-modules and the lifting/projective-cover results; a semisimple-ring primitive-idempotent theorem does not by itself provide those results for A. The target explicitly assigns the Wedderburn side to this supplier.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
+          "quote": "the\n  chosen index is in bijection with isomorphism classes of simple `R`-modules (via Layer 1.5)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+          "quote": "and its Wedderburn decomposition indexes the simple\n  modules; over `[IsAlgClosed k]` the blocks are matrix algebras over `k`. Consume\n  [semisimple algebras](../SemisimpleAlgebras/README.md) for the Wedderburn side."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products",
+      "target": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-5-the-brauer-valued-invariants",
+      "reason": "The Brauer-valued quaternion/Clifford constructions use closure of finite-dimensional central simple K-algebras under tensor product, the product-of-dimensions formula, and the opposite-algebra package. The quadratic-form owner retains the quaternion and parity-sensitive Clifford central-simplicity proofs. Its earlier quaternion Layer 2 explicitly does not require central simplicity, so no link to that earlier layer is asserted.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products",
+          "quote": "**Tensor product of central simple is central simple.** Mathlib proves centrality of `A ⊗_K B`; build the\n  missing **simplicity** of `A ⊗_K B` for `A, B` central simple over a field (so central simple algebras\n  are closed under `⊗_K`), with `finrank K (A ⊗ B) = finrank K A · finrank K B`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-5-the-brauer-valued-invariants",
+          "quote": "**[SSA Layer 4]** the tensor product of two central simple algebras is central simple,\n  with the finrank formula, and the opposite-algebra package;"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
+      "target": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-5-the-brauer-valued-invariants",
+      "reason": "The target uses the actual commutative group structure on the quotient BrauerGroup K, with multiplication induced by tensor product and inverse induced by the opposite algebra, plus scalar-extension homomorphisms for the target base-change comparison. A Brauer equivalence relation or an unstructured quotient alone does not supply these operations.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
+          "quote": "the **`CommGroup` structure** on `BrauerGroup K`: multiplication induced by `⊗_K` (well-defined on Brauer\n  classes by Layer 4 simplicity and matrix absorption), identity `[K]`, inverse `[Aᵒᵖ]` (the prerequisites\n  above), commutativity from `A ⊗ B ≃ B ⊗ A`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-5-the-brauer-valued-invariants",
+          "quote": "**[SSA Layer 6]** the `CommGroup` structure on `BrauerGroup K` and the quotient API\n  for `Brauer.CSA_Setoid`;"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
+      "target": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²",
+      "reason": "The algebra/cohomology comparison requires the Brauer group and splitting predicate, finite separable splitting fields, and base-change homomorphisms. The supplier provides finite separable splitting; the consumer must embed such a field into a chosen separable closure and prove that its finite Galois closure still splits the algebra. A merely finite extension or an abstract group with the right cardinality is insufficient. The naturality square also consumes the named scalar-extension map.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
+          "quote": "every central simple `K`-algebra is split by **some\n  finite** extension, and, isolating the separability theory (existence of a separable maximal subfield),\n  refined to a **finite separable** extension."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²",
+          "quote": "`exists_finiteSeparable_splittingField`: `A` is split by a finite separable\n     subextension of `Kˢ/K`. The mathematics is SSA Layer 6's; that roadmap states the\n     milestone in prose and exports no target signature, so the shape consumed here is\n     frozen under this name, and the contract table gains a row when the signature\n     exists."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-5-skolem-noether-and-the-centralizer-theorem",
+      "target": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²",
+      "reason": "Use only the L-algebra-automorphism corollary for M_n(L), after removing the coefficient automorphism from the semilinear descent action. If tau_sigma is sigma-semilinear and e_sigma is entrywise sigma, then tau_sigma composed with e_sigma^{-1} is L-linear and hence inner by this supplier. Do NOT apply Skolem-Noether directly to a semilinear automorphism: inner automorphisms fix scalar matrices. Input clarification G4 records the necessary repair to the consumer prose. The noncentral-source generalization is not needed for this matrix-algebra application.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-5-skolem-noether-and-the-centralizer-theorem",
+          "quote": "In particular every\n  `K`-algebra automorphism of a central simple algebra is **inner**."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²",
+          "quote": "Each `σ ∈ Gal(L/K)` moves `φ` by a\n      `σ`-semilinear automorphism of `M_n(L)`, Skolem-Noether makes that automorphism\n      inner, and the chosen conjugators multiply up to the cocycle. This is the only step\n      of the comparison that uses Skolem-Noether."
+        }
+      ]
+    }
+  ],
+  "overlaps": [
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-0-the-jacobson-radical-and-the-semisimplicity-criterion-supporting-api-optional",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra"
+      ],
+      "detail": "Both stages package nilpotence of the Jacobson radical and semisimplicity of the radical quotient for a finite-dimensional algebra. This is a genuine shared finite-dimensional convenience API, not an overlap between all of radical theory and all of quiver theory.",
+      "recommendation": "rescope",
+      "proposal": "Keep one finite-dimensional radical/quotient convenience API, supplied by the SemisimpleAlgebras supporting layer or a verified common baseline. Quiver Layer 3 consumes it and retains radical powers, admissible ideals, idempotent lifting, semiperfectness, covers, and basic-algebra/Morita reduction. Do not turn the optional left-right semiprimary cleanup into a prerequisite for all quiver work."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-8-schur-weyl-duality"
+      ],
+      "detail": "The stages meet at endomorphism/centralizer and bicommutant APIs, but the currently stated density theorem assumes a simple module whereas the Schur-Weyl tensor space is generally semisimple with several isotypic components. They are not interchangeable theorem statements; a direct dependency would hide a missing intermediate result.",
+      "recommendation": "rescope",
+      "proposal": "Expose a separate finite-dimensional semisimple image-bicommutant theorem in the algebra owner, derived componentwise using the simple-module density theorem and the finite isotypic decomposition. Keep the identification of the two tensor-action images and the partition decomposition in SchurWeyl. Work with images in End(V), not a falsely faithful symmetric-group algebra action in small dimension. Add a dependency only after this intermediate output is specified; no such edge is submitted here."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants"
+      ],
+      "detail": "Both contain the real Brauer group of order two as an endpoint, but SemisimpleAlgebras uses central-simple-algebra classes and ClassFieldTheory uses continuous H2. The latter additionally fixes the real invariant 1/2. Equal abstract groups do not identify the carriers or normalize a comparison.",
+      "recommendation": "keep",
+      "proposal": "Keep the algebraic and cohomological calculations with their current owners and compare them through QuadraticFormInvariants 7B, including the Hamilton class and invariant 1/2. Do not make ClassFieldTheory depend on the quaternion-symbol route. If replacing the Frobenius-classification proof by this comparison, first separate the real example from the general Brauer infrastructure: otherwise importing 7B back into the whole of Layer 6 introduces a circular stage-level dependency."
+    }
+  ],
+  "examined": [
+    {"roadmapId": "AInfCohomology", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "AbelianSchemesAndArithmeticModuli", "result": "none", "note": "A6 read in full. Poincare reducibility and semisimplicity of geometric endomorphisms are geometric outputs, not consequences of a semisimple-ring hypothesis alone."},
+    {"roadmapId": "AdditiveCombinatorics", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "AdelicAlgebraicGroups", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "AdicCoefficientsAndComparisons", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "AdicEtaleGeometry", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "AdicSpacesPartII", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "AlgebraicModularFormsAndSerreWeights", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "AlgebraicModuliForArithmeticGeometry", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "AnabelianGeometryAndNonabelianChabauty", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "AnalyticNumberTheory", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "ArakelovGeometryAndAbelianHeights", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "ArithmeticDynamics", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "ArithmeticGaloisDuality", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "ArithmeticGaloisRepresentations", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "ArithmeticKTheory", "result": "none", "note": "N.7 inspected in full. The arithmetic Brauer/Tate comparison requires local/global inputs, not merely central-simple-algebra classes."},
+    {"roadmapId": "ArithmeticLocallySymmetricSpaces", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "ArithmeticQuantumTopology", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "ArithmeticStatistics", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "AutomorphicBundles", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "AutomorphicCongruences", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "AutomorphicFormsOnReductiveGroups", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "AutomorphicGaloisRepresentations", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "AutomorphicGaloisRepresentationsPartII", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "AutomorphicLFunctionsAndLocalFactors", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "AutomorphicPadicLFunctions", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "AutomorphicSpectralTheory", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "BorelRegulators", "result": "none", "note": "R.1 and R.3 inspected in full. Orders in central division algebras require arithmetic-group and stable-cohomology inputs not supplied by the generic algebra structure theorem."},
+    {"roadmapId": "BunGAndNewtonStrata", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "ClassicalAdicEtaleCohomology", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "ClassicalArithmeticCompletion", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "ClassicalSerreModularity", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "CohomologyComparisons", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "ColemanIntegration", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "ColemanPowerSeries", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "CompletedCohomologyPartII", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "ComplexComparisonPartII", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "ComplexMultiplicationAndExplicitReciprocity", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "ComputationalNumberTheory", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "CrystallineCohomology", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "DeformationAndDerivedPatchingAlgebra", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "DeligneWeightsAndPurity", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "DerivedDeRhamCohomology", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "DiamondEtaleCohomology", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "DiamondSixOperations", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "DiamondsAndVStacks", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "DiophantineApproximationAndTranscendence", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "DirichletPadicLFunctions", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "DrinfeldModulesAndTModules", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "EffectiveDiophantineMethods", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "EllipticCurveModularity", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "EllipticKTheory", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "EllipticRegulators", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "EndoscopicTransferAndUnitaryTraceComparison", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "EnhancedDerivedSheaves", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "EtaleDualityAndPerverseSheaves", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "EulerSystemsAndKolyvaginSystems", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "EulerSystemsCyclotomicMainConjecture", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "ExcursionOperatorsAndSpectralAction", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "ExponentialSumsAndCircleMethod", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "FaltingsFinitenessAndIsogenyTheorems", "result": "none", "note": "R28.1 read in full. Jordan-Zassenhaus for lattices over an order is an explicitly separate obligation, not supplied by finite-dimensional Wedderburn structure."},
+    {"roadmapId": "FarguesFontaineDiamonds", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "FiniteFieldsAndCharacterSums", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "FoundationsAndLibraryIntegration", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "FunctionFieldArithmetic", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "GL2AutomorphicRepresentationsAndTransfer", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "GL2ModularityLifting", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "GeneralAlgebraicKTheory", "result": "none", "note": "K.7 read in full. Enhanced Morita invariance and external products are not the algebraic Brauer relation or matrix absorption."},
+    {"roadmapId": "GeneralizedHeegnerCycles", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "GeometricSatakeAndFusion", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "GeometryOfNumbersAndQuadraticArithmetic", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "GlobalGaloisDeformations", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "GlobalShtukasAndFunctionFieldLanglands", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "GrossZagierAndArithmeticHeights", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "HabiroCohomologyFoundations", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "HabiroCyclotomicCompletions", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "HabiroNahmSeries", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "HabiroNumberFields", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "HabiroRings", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "HeckeStacksAndLocalShtukas", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "HeegnerPointEulerSystems", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "HeightsRationalPointsAndObstructions", "result": "none", "note": "RP.2 and RP.3 read in full. Scheme/adelic Brauer evaluation and reciprocity require bridges beyond the field Brauer group; no direct exact supplier is specified."},
+    {"roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory", "result": "none", "note": "HL.1 and HL.7 read in full. Higher residues, norms and arithmetic reciprocity do not follow from the general field Brauer-group construction."},
+    {"roadmapId": "HilbertModularVarietiesAndShimuraCurves", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "HodgeTateAndCanonicalSubgroups", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "IgusaVarietiesAndTorsionConcentration", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "IntegralHeckeAndGaloisDeterminants", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "IntegralIwasawaTheory", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "InverseGaloisAndArithmeticFundamentalGroups", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "K2SymbolsBrauer", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "K3BlochGroups", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "KTheoryFiniteLocalFields", "result": "none", "note": "L.1 inspected in full. Brauer lifting is a representation-theoretic construction, not the field Brauer group."},
+    {"roadmapId": "KTheoryLowDegrees", "result": "none", "note": "Relevant U.1/U.3/U.6 and Z.1/Z.2 descriptions inspected. K0 of a division ring and Dieudonne determinant have their own exact inputs; no inferred shortcut through this roadmap."},
+    {"roadmapId": "KatoEulerSystems", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "LanglandsParameterStacks", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "LefschetzPencilsAndVanishingCycles", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "LocalGaloisDeformationRings", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "LocallyAnalyticDistributions", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "LogicAndDefinabilityInNumberTheory", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "MetaplecticAutomorphicForms", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "ModularCurvesPartII", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "ModularIwasawaMainConjectures", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "ModularSymbolsPadicLFunctions", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "ModularityAndLanglandsExtensions", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "MotivesAndAlgebraicCycles", "result": "none", "note": "MC.3 and MC.5 read in full. Jannsen endomorphism/idempotent decomposition is a candidate, but its selected proof leaves are expressly unacquired; no exact new supplier interface is justified by that text."},
+    {"roadmapId": "MotivicEtaleKTheory", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "NeronModelsAndSemistableAbelianVarieties", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "NoncommutativeAndEquivariantIwasawa", "result": "none", "note": "NE.3 read in full. Reduced norms and SK1 are not stated outputs of SemisimpleAlgebras; the semisimple total-quotient hypothesis alone does not establish a new dependency."},
+    {"roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "OverconvergentAutomorphicForms", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "PELModuli", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "PadicDifferentialEquationsAndRigidCohomology", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "PadicFamilies", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "PadicHodgeRegulators", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "PadicHodgeTheory", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "PadicLocalLanglandsForGL2Qp", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "PadicMeasuresIwasawaAlgebras", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "PerfectoidQuotients", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "PerfectoidShimuraVarieties", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "PerfectoidSpaces", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "PeriodsAndSpecialValues", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "PhiGammaModulesAndIwasawaCohomology", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "Polylogarithms", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "PotentialAutomorphyInfrastructure", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "PotentialModularityAndCompatibleSystems", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "PrismaticCohomology", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "ProbabilisticAndMetricNumberTheory", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "QSeriesPartitionsAndMockModularForms", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "RankZeroOneBSD", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "ReductiveGroupsPartII", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "RefinedTraceMethods", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "RelativeFarguesFontaine", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "SchemeAndStackFoundations", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "SchemeKTheoryOperations", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "SelmerIwasawaCohomology", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "SerreWeightAndLevelOptimisation", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "ShimuraCompactifications", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "ShimuraData", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "ShimuraVarieties", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "SieveMethodsAndPrimePatterns", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "SmallRamificationAndAbelianVarietyBaseCases", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "SmoothRepresentationsOfLocalGroups", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "SpecialValuesBirchTate", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "StableHomotopyKTheory", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "TorsionCohomologyInfrastructure", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "TropicalAndBerkovichArithmetic", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "VStackSheavesAndLisseCategories", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "VectorBundlesAndIsocrystals", "result": "none", "note": "VB0 inspected in full. The cyclic-algebra/local-invariant calculation needs arithmetic Brauer comparison; the generic field Brauer-group API is not that calculation."},
+    {"roadmapId": "WeightsInEtaleCohomology", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "WeilConjectures", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:Completed/ContourIntegration", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:Completed/EffectiveBounds", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:Completed/IntegralLattices", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:Completed/OrthogonalL2Bases", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/Chebotarev", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory", "result": "overlap", "note": "Local Brauer Layer 5, local-formation Layer 6 and global Brauer Layer 10 read in full. Continuous-H2 carrier and independent cohomological route; real-endpoint overlap, not an algebraic-Brauer prerequisite."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/Exchangeability", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms", "result": "none", "note": "Layer 4 read in full. Projective/simple bases and the division-endomorphism correction are supplied through QuiverRepresentations; no bypass around that owner is recorded."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/HopfRinow", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ModularCurves", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ModularForms", "result": "none", "note": "Layer 8G read in full. The newform/Hecke-character correspondence needs its own rationality and eigenline proofs; semisimple vocabulary alone does not identify a new output of this supplier."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/PDE", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants", "result": "links", "note": "Layers 2 and 5 and sublayer 7B read in full. Tensor/Brauer/splitting/linear Skolem-Noether links; central simplicity is explicitly not needed by Layer 2. Coefficient untwisting in 7B needs clarification."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory", "result": "links", "note": "Complete document read. Link is restricted to the block/simple indexing bridge; direct Mathlib Wedderburn consumption is explicit. Brauer splitting and Frobenius-Schur indicators do not supply field Brauer groups or Frobenius division-algebra classification."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups", "result": "none", "note": "Layers 2 and 5 read in full. Schur is transported from FDRep; Peter-Weyl is analytic and uses Hilbert direct sums. No new ring-theoretic supplier link follows."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight", "result": "none", "note": "Layers 6 and 7 read in full. Ring-level isotypic objects are imported through an enveloping-algebra dictionary; central characters use the highest-weight line, not unrestricted Schur scalarity."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations", "result": "links", "note": "Layer 3 read in full. Wedderburn dictionary link and radical-package overlap; general-algebra idempotent lifting and projective covers are not supplied by the semisimple special case."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl", "result": "overlap", "note": "Layers 8 and 9 read in full. Simple-module density is too narrow for the semisimple image bicommutant theorem. The diagram Brauer algebra is not a field Brauer group."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras", "result": "links", "note": "All eight source-stage descriptions and the complete document read; stage inputs/outputs recorded. Source conventions and ordering clarifications G1-G3/G5 retained."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations", "result": "none", "note": "Layers 4 and 9 read in full. Clifford matrix units are constructed from wedge/contraction operators; Lie isotypy is a separate theorem. No dependence on the simple-module density theorem is asserted."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/StableReduction", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers", "result": "none", "note": "Summary read; full-text scan found no candidate."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
+    {"roadmapId": "MordellLawrenceVenkatesh", "result": "none", "note": "New-roadmap summary and document read; full-text screen and LV.0, LV.1 and LV.4 descriptions read. Semilinear centralizer estimates and Brauer-Nesbitt are not the central-simple-algebra centralizer theorem or the field Brauer group; no exact new supplier link."}
+  ],
+  "provenance": {
+    "jobId": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
+    "issue": 66,
+    "worker": "ChatGPT Pro — cgp-7cf7c77d34d7",
+    "sessionId": "cgp-7cf7c77d34d7",
+    "inputRevision": "49f74b4d2bace99a76ceff4ac2199a3384c83c57",
+    "atlasGitBlob": "37f2add06983c206067d1104e0f40a839cc3961a",
+    "pagesArtifactId": 10443549849,
+    "pagesRunId": 35090562755,
+    "pagesArtifactSha256": "e30e6a9df1ec5d56b3ba218bb3b53e7acacf30dfce9de711c62e9af629c27b82",
+    "baseline": {
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "created": "2026-09-16T09:50:49Z"
+    },
+    "declarationVerification": "No pinned library declaration availability claim is made. Names quoted from the roadmaps are documentary evidence only; their source statements were not independently audited.",
+    "corpus": {
+      "roadmaps": 212,
+      "upstreamRoadmaps": 60,
+      "stages": 1968,
+      "stageEdges": 3508,
+      "keywordPositiveRoadmaps": 103,
+      "newRoadmapPackets": 1,
+      "otherLinkPackets": 2,
+      "examinedTotal": 213
+    },
+    "method": "All roadmap summaries and full-corpus keyword scans are the breadth pass; matching contexts triage candidates. Full reading is claimed only where noted. All selected link/overlap endpoint stage descriptions were read in full. Root and CharacterTheory documents were read in full. A none result means no justified new link in this search, not proof of absence. Inferred is used conservatively when only the consumer names the supplier, following the stricter wording of protocol section 10.",
+    "searchFamilies": {
+      "semisimple": "semisimpl|Wedderburn|Schur|isotypic|semiprim|Jacobson|simple[- ]module|minimal left ideal|primitive[- ]idempoten",
+      "central_simple": "central[- ]simple|central[- ]division|division[- ]algebr|division[- ]ring|Skolem|double[- ]centrali[sz]|double[- ]commut|bicommut|centralizer theorem|tensorOp|IsCentralSimple",
+      "Brauer": "Brauer|Azumaya|IsSplittingField|splitting[- ]field|maximal[- ]subfield",
+      "module_structure": "\\bMorita\\b|matrix[- ]algebr|matrix[- ]ring|matrix[- ]block|matrix[- ]factor|Clifford|\\bquaternion|endomorphism[- ]division"
+    },
+    "submissionInputRevision": "b82b494ac1b384423eacc1276c6716f15e186b6d",
+    "refresh": {
+      "pagesArtifactId": 10443974393,
+      "pagesRunId": 35092670298,
+      "pagesArtifactSha256": "948e8c35e3db2354b3abec24525c55a8287f216094a393739b0865c152e52d5c",
+      "atlasAndExistingRoadmapTextsUnchanged": true,
+      "protocolGitBlob": "41099c03ea64d701d05b1277a83141ef9d4868db",
+      "validatorGitBlob": "88135efe5a74ef82e088f3fa3189893e27a7867a",
+      "newRoadmapsRead": [
+        "MordellLawrenceVenkatesh"
+      ],
+      "otherLinkPacketsChecked": [
+        "tauceti_TauCetiRoadmap_StandardDistributions.json",
+        "tauceti_TauCetiRoadmap_UniversalCovers.json"
+      ]
+    }
+  },
+  "inputClarifications": [
+    {
+      "id": "G1",
+      "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-1-simple-modules-schur-and-isotypic-components",
+      "detail": "The scalar Schur sentence prints End_k(S) instead of the acting-algebra-linear endomorphisms. For A=M_2(k), S=k^2 is simple over A but End_k(S) is M_2(k), not k. Correct the notation and retain finite-dimensionality/algebraic closure before using this as a supplier."
+    },
+    {
+      "id": "G2",
+      "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem",
+      "detail": "Reconcile the displayed matrix-ring D in Layer 3 with the standing left-module opposite-endomorphism convention and the intrinsic division-ring convention in Layer 2. A generic noncommutative division ring must not silently be identified with its opposite."
+    },
+    {
+      "id": "G3",
+      "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products",
+      "detail": "The square-dimension proof needs preservation of central simplicity under field extension. That output is explicitly placed in Layer 6. Name and expose it before the Layer 4 degree construction; an acyclic atlas graph does not validate this prose ordering."
+    },
+    {
+      "id": "G4",
+      "stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²",
+      "detail": "The descent paragraph says that a sigma-semilinear automorphism of M_n(L) is made inner. Correct it to tau_sigma = Int(g_sigma) composed with entrywise sigma, applying Skolem-Noether to the L-linear residual automorphism. The scalar cocycle is g_sigma sigma(g_tau) g_(sigma tau)^(-1). This repair is required to read the proposed Layer-5 dependency correctly."
+    },
+    {
+      "id": "G5",
+      "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
+      "detail": "The real example explicitly needs Hamilton centrality/division and the real central-division classification. No exact independent algebraic-classification supplier was identified in this search. Frobenius-Schur indicators for finite groups do not fill that request. The cohomological alternative needs the comparison and a split of the real example to avoid a back-edge through 7B."
+    }
+  ],
+  "status": "complete"
+}
