@@ -1406,5 +1406,486 @@
     ]
    }
   ]
+ },
+ {
+  "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+  "primaryMsc": "11S",
+  "secondaryMsc": [
+   "14F",
+   "11R",
+   "11F"
+  ],
+  "cluster": "p-adic-geometry",
+  "distance": 8,
+  "distanceRationale": "Mathlib provides continuous group cohomology, the cyclotomic character, Witt vectors and the Amice transform on ℤ_p⟦X⟧. There is no field of norms, no cyclotomic period ring A_K or B_K, no overconvergent or Robba ring, no étale (φ,Γ)-module or Fontaine equivalence, and no Herr complex, ψ operator, Iwasawa cohomology or Wach module. Fontaine, Cherbonnier–Colmez, Herr, Berger and Kedlaya–Pottharst–Xiao are established research theorems needing several such layers.",
+  "mathlibEvidence": [
+   "mathlib:continuousCohomology (Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean) — continuous cochains, the comparison target for Herr complexes",
+   "mathlib:modularCyclotomicCharacter (Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean) — the cyclotomic character",
+   "mathlib:AbstractMeasure.amiceTransformEquiv (Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean) — ℤ_p⟦X⟧ side of the rank-one φ/ψ formulas, with no φ or ψ operators",
+   "mathlib:WittVector.teichmuller (Mathlib/RingTheory/WittVector/Teichmuller.lean)",
+   "absent: field of norms, A_K/B_K and overconvergent/Robba coefficient rings, étale (φ,Γ)-modules, Herr complexes, the ψ operator and Iwasawa cohomology, Wach modules, relative (φ,Γ)-module families (no declarations matching FieldOfNorms, PhiGamma, Robba, HerrComplex, IwasawaCohomology, Wach)"
+  ],
+  "references": [
+   {
+    "title": "Représentations p-adiques des corps locaux. I",
+    "authors": "Fontaine, Jean-Marc",
+    "zbmath": 16093,
+    "msc": [
+     "11S23",
+     "14F30",
+     "14L05"
+    ]
+   },
+   {
+    "title": "Représentations p-adiques surconvergentes",
+    "authors": "Cherbonnier, F.; Colmez, P.",
+    "zbmath": 1229597,
+    "msc": [
+     "11S20",
+     "14F30",
+     "11S25"
+    ]
+   },
+   {
+    "title": "Sur la cohomologie galoisienne des corps p-adiques",
+    "authors": "Herr, Laurent",
+    "zbmath": 1328375,
+    "msc": [
+     "11S31",
+     "14F30",
+     "14L05"
+    ]
+   },
+   {
+    "title": "Théorie d'Iwasawa des représentations p-adiques d'un corps local",
+    "authors": "Cherbonnier, Frédéric; Colmez, Pierre",
+    "zbmath": 1229032,
+    "msc": [
+     "11S23",
+     "11R23",
+     "11S25"
+    ]
+   },
+   {
+    "title": "Représentations p-adiques potentiellement cristallines",
+    "authors": "Wach, Nathalie",
+    "zbmath": 947521,
+    "msc": [
+     "11S31",
+     "14F30",
+     "14L05",
+     "14F40"
+    ]
+   },
+   {
+    "title": "Limites de représentations cristallines",
+    "authors": "Berger, Laurent",
+    "zbmath": 2140860,
+    "msc": [
+     "11S25",
+     "11F80",
+     "11R23",
+     "14F30"
+    ]
+   },
+   {
+    "title": "Cohomology of arithmetic families of (φ,Γ)-modules",
+    "authors": "Kedlaya, Kiran S.; Pottharst, Jonathan; Xiao, Liang",
+    "zbmath": 6355531,
+    "msc": [
+     "11F33",
+     "11R23",
+     "11S25",
+     "11S31"
+    ]
+   },
+   {
+    "title": "Coleman maps and the p-adic regulator",
+    "authors": "Lei, Antonio; Loeffler, David; Zerbes, Sarah Livia",
+    "zbmath": 6054529,
+    "msc": [
+     "11R23",
+     "11F80",
+     "11S25"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "Polylogarithms",
+  "primaryMsc": "19F",
+  "secondaryMsc": [
+   "11R",
+   "19E",
+   "14G"
+  ],
+  "cluster": "k-theory-and-motives",
+  "distance": 9,
+  "distanceRationale": "Mathlib has the complex logarithm and argument, Bernoulli functions and the Dirichlet regulator of a number field (the weight-one case), and Tau Ceti has the Euler product of the Dedekind zeta function. There are no polylogarithms or Bloch–Wigner function, no Bloch groups or higher algebraic K-theory, no Borel regulator and no Goncharov complexes. The single-valued polylogarithms are graduate analysis, but the proved endpoints are Bloch's weight-two and Goncharov's weight-three regulator comparisons. These rest on Borel's theorem, Suslin's K₃ theory and motivic cohomology, none of which is built.",
+  "mathlibEvidence": [
+   "mathlib:NumberField.Units.regulator (Mathlib/NumberTheory/NumberField/Units/Regulator.lean) — Dirichlet regulator, the weight-one analogue",
+   "mathlib:Complex.log (Mathlib/Analysis/SpecialFunctions/Complex/Log.lean) — principal logarithm, with no polylogarithms",
+   "mathlib:bernoulliFun (Mathlib/NumberTheory/ZetaValues.lean) — Bernoulli coefficients needed for single-valued polylogarithms",
+   "tauceti:TauCeti.dedekindZeta_eulerProduct_hasProd (TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean) — Dedekind zeta Euler product, without special values at integers n ≥ 2",
+   "absent: classical and single-valued polylogarithms, Bloch–Wigner dilogarithm, Bloch groups, K₃ and higher K-theory of fields, Borel regulator, Goncharov's polylogarithmic complexes (no declarations matching Polylog, Dilogarithm, BlochWigner, BlochGroup, KTheory)"
+  ],
+  "references": [
+   {
+    "title": "Regulators (Handbook of K-theory, II.3)",
+    "authors": "Goncharov, Alexander B.",
+    "zbmath": 2247520,
+    "msc": [
+     "19E15",
+     "14G10",
+     "11R39"
+    ]
+   },
+   {
+    "title": "Higher regulators, algebraic K-theory, and zeta functions of elliptic curves",
+    "authors": "Bloch, Spencer J.",
+    "zbmath": 1479597,
+    "msc": [
+     "19F27",
+     "14G10",
+     "14-02",
+     "19D50",
+     "19-02",
+     "11G40"
+    ]
+   },
+   {
+    "title": "Geometry of configurations, polylogarithms, and motivic cohomology",
+    "authors": "Goncharov, A. B.",
+    "zbmath": 814488,
+    "msc": [
+     "19F27",
+     "14C35",
+     "14F20",
+     "11R42",
+     "11R70",
+     "33E20"
+    ]
+   },
+   {
+    "title": "Motivic correlators, cluster varieties and Zagier's conjecture on ζ_F(4) (arXiv:1803.08585)",
+    "authors": "Goncharov, Alexander B.; Rudenko, Daniil",
+    "zbmath": 900500103,
+    "msc": [
+     "arXiv:math.NT",
+     "arXiv:math.AG"
+    ]
+   },
+   {
+    "title": "Polylogarithms, Dedekind zeta functions, and the algebraic K-theory of fields",
+    "authors": "Zagier, Don",
+    "zbmath": 4202408,
+    "msc": [
+     "11R42",
+     "11R70",
+     "19F27"
+    ]
+   },
+   {
+    "title": "The K-book. An introduction to algebraic K-theory",
+    "authors": "Weibel, Charles A.",
+    "zbmath": 6123945,
+    "msc": [
+     "19-00",
+     "19-01",
+     "19Axx",
+     "19Bxx",
+     "19Cxx",
+     "19Dxx",
+     "19Fxx",
+     "19L64",
+     "19E08",
+     "19F27",
+     "19M05"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "PotentialAutomorphyInfrastructure",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "14G",
+   "11G",
+   "11R"
+  ],
+  "cluster": "galois-representations-and-langlands",
+  "distance": 10,
+  "distanceRationale": "Tau Ceti has Frobenius prime sets and an auxiliary-prime selection lemma for Chebotarev arguments, plus classical GL₂ Hecke operators, and Mathlib has ultrafilters. There are no arithmetic locally symmetric spaces or Borel–Serre complexes, and no Galois representations attached to torsion classes. Integral Weyl modules and Fontaine–Laffaille degree shifting, Galois deformation rings and derived or ultraproduct patching are also absent. The source (Allen et al., Annals 2023) is a frontier theorem combining Scholze and Caraiani–Scholze torsion results with Calegari–Geraghty patching.",
+  "mathlibEvidence": [
+   "tauceti:NumberField.Chebotarev.mem_frobeniusPrimeSet_iff_artinSymbol_eq (TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean) — Frobenius prime sets",
+   "tauceti:NumberField.exists_auxiliaryPrime (TauCeti/NumberTheory/Chebotarev/AuxiliaryPrime.lean) — auxiliary primes for the Chebotarev argument, not Taylor–Wiles primes",
+   "tauceti:HeckeRing.GL2.heckeSlashGamma0CuspFormEnd (TauCeti/NumberTheory/ModularForms/HeckeSlash/Gamma0.lean) — classical GL₂ Hecke operators only",
+   "mathlib:Ultrafilter (Mathlib/Order/Filter/Ultrafilter/Defs.lean) — abstract ultrafilters for ultrapatching",
+   "absent: arithmetic locally symmetric spaces and their integral Hecke complexes, Galois representations for torsion classes, integral Weyl modules and degree shifting, Galois deformation rings, derived and ultraproduct patching (no declarations matching LocallySymmetric, BorelSerre, WeylModule, DeformationRing, Patching)"
+  ],
+  "references": [
+   {
+    "title": "Potential automorphy over CM fields",
+    "authors": "Allen, Patrick B.; Calegari, Frank; Caraiani, Ana; Gee, Toby; Helm, David; Le Hung, Bao; Newton, James; Scholze, Peter; Taylor, Richard; Thorne, Jack A.",
+    "zbmath": 7668527,
+    "msc": [
+     "11F80",
+     "11F55",
+     "11G18",
+     "14G05",
+     "14G35"
+    ]
+   },
+   {
+    "title": "Modularity lifting beyond the Taylor–Wiles method",
+    "authors": "Calegari, Frank; Geraghty, David",
+    "zbmath": 6830049,
+    "msc": [
+     "11F33",
+     "11F80"
+    ]
+   },
+   {
+    "title": "On the generic part of the cohomology of non-compact unitary Shimura varieties",
+    "authors": "Caraiani, Ana; Scholze, Peter",
+    "zbmath": 7814421,
+    "msc": [
+     "11R39",
+     "14G35",
+     "14G45"
+    ]
+   },
+   {
+    "title": "On torsion in the cohomology of locally symmetric varieties",
+    "authors": "Scholze, Peter",
+    "zbmath": 6514750,
+    "msc": [
+     "14G20",
+     "11F46",
+     "11S37",
+     "14G35",
+     "11G18",
+     "22E50"
+    ]
+   },
+   {
+    "title": "Automorphy for some l-adic lifts of automorphic mod l Galois representations. II",
+    "authors": "Taylor, Richard",
+    "zbmath": 5528894,
+    "msc": [
+     "11F80",
+     "11G18",
+     "11R34"
+    ]
+   },
+   {
+    "title": "Construction de représentations p-adiques",
+    "authors": "Fontaine, Jean-Marc; Laffaille, Guy",
+    "zbmath": 3927099,
+    "msc": [
+     "14L05",
+     "14F30",
+     "14G20",
+     "20G05"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "PotentialModularityAndCompatibleSystems",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "11R",
+   "14G",
+   "11G"
+  ],
+  "cluster": "galois-representations-and-langlands",
+  "distance": 9,
+  "distanceRationale": "Tau Ceti has Chebotarev Frobenius prime sets, abstract class formations and abelian varieties over a field. There is no Moret-Bailly/Skolem theorem, no Hilbert–Blumenthal moduli or torsion twists, and no Galois representations of Hilbert modular forms. Galois deformation rings, modularity lifting and compatible systems of ℓ-adic representations are also missing. Taylor's potential modularity and the Khare–Wintenberger lift and compatible-system theorems are established research results resting on many of these unbuilt layers.",
+  "mathlibEvidence": [
+   "tauceti:NumberField.Chebotarev.mem_frobeniusPrimeSet_iff_artinSymbol_eq (TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean) — Frobenius prime sets",
+   "tauceti:TauCeti.ClassFieldTheory.abelianizationGalEquiv (TauCeti/NumberTheory/ClassFieldTheory/Formation/AbelianLayer.lean) — abstract class formations",
+   "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety (TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean) — abelian varieties over a field, without real multiplication or moduli",
+   "absent: Moret-Bailly's theorem, Hilbert–Blumenthal moduli and their twists, Galois deformation rings, modularity lifting, compatible systems of ℓ-adic representations (no declarations matching MoretBailly, HilbertModular, DeformationRing, CompatibleSystem)"
+  ],
+  "references": [
+   {
+    "title": "Remarks on a conjecture of Fontaine and Mazur",
+    "authors": "Taylor, Richard",
+    "zbmath": 2011896,
+    "msc": [
+     "11F80",
+     "11G40"
+    ]
+   },
+   {
+    "title": "Groupes de Picard et problèmes de Skolem. II",
+    "authors": "Moret-Bailly, Laurent",
+    "zbmath": 4154608,
+    "msc": [
+     "14G25",
+     "11R04",
+     "13F05",
+     "11D41"
+    ]
+   },
+   {
+    "title": "Serre's modularity conjecture. I",
+    "authors": "Khare, Chandrashekhar; Wintenberger, Jean-Pierre",
+    "zbmath": 5636295,
+    "msc": [
+     "11F80",
+     "11R39",
+     "11F11"
+    ]
+   },
+   {
+    "title": "Serre's modularity conjecture. II",
+    "authors": "Khare, Chandrashekhar; Wintenberger, Jean-Pierre",
+    "zbmath": 5636296,
+    "msc": [
+     "11F80",
+     "11F11",
+     "11R39"
+    ]
+   },
+   {
+    "title": "Existence of families of Galois representations and new cases of the Fontaine–Mazur conjecture",
+    "authors": "Dieulefait, Luis V.",
+    "zbmath": 2124768,
+    "msc": [
+     "11F80"
+    ]
+   },
+   {
+    "title": "Automorphic lifts of prescribed types",
+    "authors": "Gee, Toby",
+    "zbmath": 5898899,
+    "msc": [
+     "11F80",
+     "11F33",
+     "11F41"
+    ]
+   },
+   {
+    "title": "On two dimensional weight two odd representations of totally real fields (arXiv:0905.4266)",
+    "authors": "Snowden, Andrew",
+    "zbmath": 900069413,
+    "msc": [
+     "arXiv:math.NT"
+    ]
+   },
+   {
+    "title": "On a conjecture of Conrad, Diamond, and Taylor",
+    "authors": "Savitt, David",
+    "zbmath": 2223079,
+    "msc": [
+     "11F80",
+     "14L15"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "PrismaticCohomology",
+  "primaryMsc": "14F",
+  "secondaryMsc": [
+   "14G",
+   "19D",
+   "14A"
+  ],
+  "cluster": "p-adic-geometry",
+  "distance": 10,
+  "distanceRationale": "Mathlib has divided-power structures, the Witt-vector Frobenius, derived categories of abelian categories and the naive cotangent complex. There are no δ-rings, prisms or prismatic sites, no animated rings or derived p-completion, and no formal schemes or crystalline cohomology. Nygaard filtrations, the Cartier–Witt stack, prismatic F-crystals and log structures are also missing. The targets include absolute and logarithmic prismatic cohomology and the crystalline F-crystal equivalence (2022–2025), frontier results resting on many unbuilt theories.",
+  "mathlibEvidence": [
+   "mathlib:DividedPowers (Mathlib/RingTheory/DividedPowers/Basic.lean) — PD structures, without PD or prismatic envelopes",
+   "mathlib:WittVector.frobenius (Mathlib/RingTheory/WittVector/Frobenius.lean) — Frobenius on Witt vectors, with no δ-ring abstraction",
+   "mathlib:DerivedCategory (Mathlib/Algebra/Homology/DerivedCategory/Basic.lean) — derived categories, with no animated rings or derived completion",
+   "mathlib:Algebra.Extension.cotangentComplex (Mathlib/RingTheory/Extension/Cotangent/Basic.lean) — naive cotangent complex only",
+   "absent: δ-rings, prisms and relative/absolute prismatic sites, Hodge–Tate and étale comparisons, Nygaard filtration, Cartier–Witt stack, prismatic F-crystals, log structures (no declarations matching DeltaRing, Prism, Nygaard, CartierWitt, LogStructure)"
+  ],
+  "references": [
+   {
+    "title": "Prisms and prismatic cohomology",
+    "authors": "Bhatt, Bhargav; Scholze, Peter",
+    "zbmath": 7611906,
+    "msc": [
+     "14F20",
+     "14F30",
+     "14F40"
+    ]
+   },
+   {
+    "title": "Topological Hochschild homology and integral p-adic Hodge theory",
+    "authors": "Bhatt, Bhargav; Morrow, Matthew; Scholze, Peter",
+    "zbmath": 7059677,
+    "msc": [
+     "14F30",
+     "55P42",
+     "14C35"
+    ]
+   },
+   {
+    "title": "Absolute prismatic cohomology (arXiv:2201.06120)",
+    "authors": "Bhatt, Bhargav; Lurie, Jacob",
+    "zbmath": 900522145,
+    "msc": [
+     "arXiv:math.AG",
+     "arXiv:math.NT"
+    ]
+   },
+   {
+    "title": "Prismatic F-crystals and crystalline Galois representations",
+    "authors": "Bhatt, Bhargav; Scholze, Peter",
+    "zbmath": 7693592,
+    "msc": [
+     "14F30"
+    ]
+   },
+   {
+    "title": "Logarithmic prismatic cohomology I (arXiv:2007.14037)",
+    "authors": "Koshikawa, Teruhisa",
+    "zbmath": 900506072,
+    "msc": [
+     "arXiv:math.AG",
+     "arXiv:math.NT"
+    ]
+   },
+   {
+    "title": "Logarithmic prismatic cohomology. II",
+    "authors": "Koshikawa, Teruhisa; Yao, Zijian",
+    "zbmath": 8090551,
+    "msc": [
+     "14A21",
+     "14F20",
+     "14F30",
+     "14F40",
+     "14G20"
+    ]
+   },
+   {
+    "title": "On the Beilinson fiber square",
+    "authors": "Antieau, Benjamin; Mathew, Akhil; Morrow, Matthew; Nikolaus, Thomas",
+    "zbmath": 7628867,
+    "msc": [
+     "14F30",
+     "14F40",
+     "19D55",
+     "19E15"
+    ]
+   },
+   {
+    "title": "Integral p-adic Hodge theory",
+    "authors": "Bhatt, Bhargav; Morrow, Matthew; Scholze, Peter",
+    "zbmath": 7018374,
+    "msc": [
+     "14F30",
+     "11G25",
+     "14B99",
+     "13A35",
+     "14G45"
+    ]
+   }
+  ]
  }
 ]
