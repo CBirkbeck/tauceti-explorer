@@ -12,6 +12,7 @@ agents can claim the same jobs.
 from __future__ import annotations
 
 import argparse
+import re
 import json
 import subprocess
 from pathlib import Path
@@ -53,6 +54,11 @@ def publicize(text):
         (r"Your scratch directory is [^.]*\(create it\)\.", "Use your own scratch space."),
         (r"Your scratch directory is [^.]*\.", "Use your own scratch space."),
         (r" \(grep -i -P\)", ""),
+        (r"^- The roadmap text and stages: data/atlas\.json.*$",
+         "- The roadmap text and stages: research/blueprint/atlas/roadmaps/<id>.json (file name: the roadmap id with ':' and '/' replaced by '_'), which holds the roadmap record, all its stages with full descriptions and every stage edge touching it, together with the roadmap document named in its `document` field. data/atlas.json itself is too large for browser tools (see research/blueprint/atlas/README.md). New roadmaps are defined in research/blueprint/roadmaps/*.json."),
+        (r"^- data/atlas\.json: roadmaps\[\].*$",
+         "- research/blueprint/atlas/: index.json (every roadmap and stage), roadmaps/<id>.json (one roadmap's stages with descriptions and its stage edges), areas/<area>-<n>.json (every stage description in an area, for text search) and stage-edges.json (all recorded stage links). data/atlas.json itself is too large for browser tools."),
+        (r"data/atlas\.json", "data/atlas.json (browser agents: use the extracts in research/blueprint/atlas/, described in its README)"),
     ]
     for pattern, replacement in whole_lines:
         text = re.sub(pattern, replacement, text, flags=re.M)
@@ -168,7 +174,7 @@ def labels_for(job, roadmaps):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("command", choices=["render", "publish", "sync"])
+    ap.add_argument("command", choices=["render", "publish", "sync", "refresh"])
     ap.add_argument("--kinds", default="blueprint,design,link,plan,review,assembly,classify,naming")
     ap.add_argument("--pace", type=float, default=7.5, help="seconds between issue creations (GitHub allows about 500 an hour)")
     ap.add_argument("--limit", type=int, default=0)
@@ -224,6 +230,18 @@ def main():
         return
     if args.command == "sync":
         sync(mapping)
+    if args.command == "refresh":
+        import time
+        for job in jobs:
+            number = mapping.get(job["id"])
+            if not number:
+                continue
+            text = body(job, jobs, roadmaps, stages)
+            if re.search(r"/Users/|/private/|mcu22seu", text):
+                print("skipped (private path)", job["id"]); continue
+            result = subprocess.run(["gh", "issue", "edit", str(number), "--body", text], capture_output=True, text=True, cwd=REPO)
+            print("refreshed" if result.returncode == 0 else "failed", job["id"], number, result.stderr.strip()[:120], flush=True)
+            time.sleep(args.pace)
 
 
 STATE_LABELS = ("state:available", "state:claimed", "state:running", "state:submitted", "state:done")
