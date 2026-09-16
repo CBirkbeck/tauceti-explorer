@@ -1331,6 +1331,2435 @@
      "duplicates": []
     }
    }
+  },
+  "tauceti:Completed/OrthogonalL2Bases": {
+   "summary": "Every target of this completed roadmap is in Tau Ceti, sorry-free: the Hermite polynomial API (derivative recursion, Gaussian-weight integrability, the one-step pairing recursion, the generating function, and both orthogonality normalizations), the Hermite functions ψₙ with their regularity, SchwartzMap packaging, parity, ladder relations, creation/annihilation/number/oscillator CLMs and the eigen-equation, hermiteHilbertBasis with coe_hermiteHilbertBasis and Parseval, the Fourier-eigenfunction relation on the 2π-scaled functions, the Gaussian measure-side basis with the dilation lemma, the family-agnostic spine (moment determinacy in Probability/Moments, weightL2Isometry, HilbertBasis.mapₗᵢ, hilbertBasisOfWeightedMeasure / hilbertBasisOfOrthogonalSystem, prodHilbertBasis and piHilbertBasis), the Chebyshev instance with its cosine transfer, and both multidimensional Hermite bases. Mathlib contributes the Hermite polynomials themselves (Polynomial.hermite, degree_hermite, the Rodrigues formula), the Chebyshev polynomials with measureT and its orthogonality relations, HilbertBasis.mkOfOrthogonalEqBot, and the Fourier-integral machinery — and, as the roadmap claims, nothing else: no Hermite functions, no weight-to-measure L² isometry, no ≃ₗᵢ-transport of a HilbertBasis, and OrthonormalBasis.tensorProduct is Fintype-indexed and abstract, so it does not give the L²(μ ⊗ ν) statement B3 proves. Nothing on this roadmap is genuinely missing; the only things the documents name as still open — IsFiniteMeasure measureT and the real→RCLike cast of Chebyshev completeness — are both discharged in the baseline.",
+   "layers": {
+    "tauceti:Completed/OrthogonalL2Bases#part-a--the-hermite-basis-of-l²ℝ-the-v1-anchor": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "The Hermite functions ψₙ(x) = cₙ·Hₙ(x√2)·e^{-x²/2} built on Mathlib's Polynomial.hermite, not a new family",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.hermiteFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Basic.lean",
+         "line": 38,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.hermite",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Hermite/Basic.lean",
+         "line": 48,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.hermiteDilated",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/MemLp.lean",
+         "line": 57,
+         "fit": "related"
+        }
+       ],
+       "note": "Definition is exactly the roadmap's, with the probabilists' Hₙ from Mathlib and the dilated polynomial Hₙ(·√2) carried as its own definition for the basis bridge."
+      },
+      {
+       "target": "The canonical orthonormal basis of L²(ℝ), as the Part A milestone",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.hermiteHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/HilbertBasis.lean",
+         "line": 106,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.coe_hermiteHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/HilbertBasis.lean",
+         "line": 123,
+         "fit": "exact"
+        }
+       ],
+       "note": "HilbertBasis ℕ 𝕜 (Lp 𝕜 2 volume) for any [RCLike 𝕜], with the element-level identification of the vectors with hermiteFunctionLp. Nothing of this kind in Mathlib."
+      },
+      {
+       "target": "Placement: polynomial facts mirroring Mathlib's RingTheory/Polynomial/Hermite, analytic facts under Analysis/SpecialFunctions",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "Polynomial.derivative_hermite_succ",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/Hermite/Derivative.lean",
+         "line": 54,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.memLp_two_hermiteFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/MemLp.lean",
+         "line": 97,
+         "fit": "exact"
+        }
+       ],
+       "note": "The file layout follows the roadmap: TauCeti/RingTheory/Polynomial/Hermite/{Derivative,GeneratingFunction,Real}.lean and TauCeti/Analysis/SpecialFunctions/Hermite/**."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:Completed/OrthogonalL2Bases#a1--hermite-polynomial-api",
+       "note": "Part A is the umbrella whose text is the concatenation of A1, A2, A3 and A3′; the targets are stated there in full."
+      },
+      {
+       "layer": "tauceti:Completed/OrthogonalL2Bases#a3--the-hermite-basis-of-l²ℝ-𝕜",
+       "note": "Owns the headline hermiteHilbertBasis milestone that Part A announces."
+      }
+     ]
+    },
+    "tauceti:Completed/OrthogonalL2Bases#a1--hermite-polynomial-api": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "derivative (hermite (n+1)) = (n+1) • hermite n, and Mathlib's degree_hermite reused",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "Polynomial.derivative_hermite_succ",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/Hermite/Derivative.lean",
+         "line": 54,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.derivative_hermite",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/Hermite/Derivative.lean",
+         "line": 74,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.iterate_derivative_hermite",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/Hermite/Derivative.lean",
+         "line": 84,
+         "fit": "more general"
+        },
+        {
+         "name": "Polynomial.degree_hermite",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Hermite/Basic.lean",
+         "line": 101,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib has hermite_succ (the three-term recursion) and degree/leadingCoeff/monicity but not the derivative identity; Tau Ceti adds it in the Polynomial namespace, as the roadmap's placement note asks."
+      },
+      {
+       "target": "Integrability of a polynomial against the Gaussian weight",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.integrable_aeval_mul_gaussian",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Orthogonality.lean",
+         "line": 58,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.integrable_aeval_mul_aeval_mul_gaussian",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Orthogonality.lean",
+         "line": 75,
+         "fit": "more general"
+        }
+       ],
+       "note": "Stated for p : ℤ[X] against e^{-(x²/2)}, plus the two-polynomial form the orthogonality proof uses."
+      },
+      {
+       "target": "The one-step weighted-pairing recursion ∫ p·H_{n+1}·w = ∫ p'·Hₙ·w (via Rodrigues)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.integral_aeval_mul_hermite_succ",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Orthogonality.lean",
+         "line": 85,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.deriv_gaussian_eq_hermite_mul_gaussian",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Hermite/Gaussian.lean",
+         "line": 42,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.aeval_derivative_hermite",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Orthogonality.lean",
+         "line": 67,
+         "fit": "related"
+        }
+       ],
+       "note": "One integration by parts against Mathlib's Rodrigues formula (Hermite/Gaussian.lean), exactly the route the layer prescribes."
+      },
+      {
+       "target": "The generating function ∑' n, Hₙ(x)·tⁿ/n! = e^{xt − t²/2}",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "Polynomial.hermite_generating_function",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/Hermite/GeneratingFunction.lean",
+         "line": 146,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.hasSum_hermite_generating_function",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/Hermite/GeneratingFunction.lean",
+         "line": 113,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both the HasSum and tsum forms; absent from Mathlib."
+      },
+      {
+       "target": "Milestone (Lebesgue form): ∫ Hₘ·Hₙ·e^{-x²/2} = if m = n then n!·√(2π) else 0",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.integral_hermite_mul_hermite_mul_gaussian",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Orthogonality.lean",
+         "line": 142,
+         "fit": "exact"
+        }
+       ],
+       "note": "The named milestone, under the roadmap's own name. Mathlib proves no Hermite orthogonality relation."
+      },
+      {
+       "target": "Milestone (Gaussian-measure form): ∫ Hₘ·Hₙ ∂N(0,1) = if m = n then n! else 0",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.integral_hermite_mul_hermite_gaussianReal",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Orthogonality.lean",
+         "line": 163,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.integral_hermite_mul_hermite_mul_gaussianPDFReal",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Hermite/Basis.lean",
+         "line": 55,
+         "fit": "related"
+        }
+       ],
+       "note": "The density-divided form the measure-side basis consumes, plus its gaussianPDFReal restatement."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:Completed/OrthogonalL2Bases#a2--the-hermite-functions-ψₙ--ℝ--ℝ": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "hermiteFunction with its regularity: Continuous, ContDiff ℝ ⊤, MemLp 2, and a SchwartzMap",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.hermiteFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Basic.lean",
+         "line": 38,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.contDiff_hermiteFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Basic.lean",
+         "line": 91,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.memLp_two_hermiteFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/MemLp.lean",
+         "line": 97,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hermiteSchwartzMap",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Schwartz.lean",
+         "line": 131,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.integrable_hermiteFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/MemLp.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "The SchwartzMap packaging is there (with the gaussianSchwartzMap and temperate-growth infrastructure behind it), so the ladder relations do elevate to 𝒮(ℝ) as the layer intends."
+      },
+      {
+       "target": "Companion API: parity ψₙ(−x) = (−1)ⁿψₙ(x), ψ₀ and ψ₁ simp forms, ‖ψₙ‖₂ = 1",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.hermiteFunction_neg",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Basic.lean",
+         "line": 136,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hermiteFunction_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Basic.lean",
+         "line": 98,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hermiteFunction_one",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Basic.lean",
+         "line": 104,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.norm_hermiteFunctionLp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Orthonormal.lean",
+         "line": 124,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hermiteFunction_two",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Basic.lean",
+         "line": 124,
+         "fit": "related"
+        }
+       ],
+       "note": "All present, including the ψ₀ = π^{-1/4}e^{-x²/2} and ψ₁ = √2·x·ψ₀ acceptance forms."
+      },
+      {
+       "target": "Ladder relations x·ψₙ and ψₙ′ in terms of ψ_{n±1}, and the a, a† operators",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.mul_hermiteFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Ladder.lean",
+         "line": 110,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.deriv_hermiteFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Ladder.lean",
+         "line": 186,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hermiteAnnihilationCLM",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Operator.lean",
+         "line": 44,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.hermiteCreationCLM",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Operator.lean",
+         "line": 49,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.hermiteNumberCLM",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Operator.lean",
+         "line": 153,
+         "fit": "more general"
+        }
+       ],
+       "note": "More than the layer asks: the pointwise ladder identities are there, and a, a† and the number operator are already packaged as continuous linear maps on 𝒮(ℝ), which the layer deliberately deferred downstream."
+      },
+      {
+       "target": "Milestone: pointwise orthonormality ∫ ψₘψₙ = δₘₙ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.integral_hermiteFunction_mul_hermiteFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Orthonormal.lean",
+         "line": 52,
+         "fit": "exact"
+        }
+       ],
+       "note": "Under the roadmap's own name."
+      },
+      {
+       "target": "Milestone: the oscillator eigen-equation −ψₙ″ + x²ψₙ = (2n+1)ψₙ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.hermiteFunction_oscillator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Oscillator.lean",
+         "line": 97,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.deriv_deriv_hermiteFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Oscillator.lean",
+         "line": 89,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.hermiteOscillatorCLM_apply_hermiteSchwartzMap",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Operator.lean",
+         "line": 223,
+         "fit": "more general"
+        }
+       ],
+       "note": "Both pointwise and as an eigenvector statement for the oscillator CLM on 𝒮(ℝ)."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:Completed/OrthogonalL2Bases#a3--the-hermite-basis-of-l²ℝ-𝕜": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "hermiteFunctionLp 𝕜 : ℕ → Lp 𝕜 2 volume, and Orthonormal 𝕜 of it",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.hermiteFunctionLp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Lp.lean",
+         "line": 49,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.orthonormal_hermiteFunctionLp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Orthonormal.lean",
+         "line": 118,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.coeFn_hermiteFunctionLp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Lp.lean",
+         "line": 55,
+         "fit": "related"
+        }
+       ],
+       "note": "The real ψₙ cast through algebraMap ℝ 𝕜, for any [RCLike 𝕜], exactly as specified."
+      },
+      {
+       "target": "Completeness: f orthogonal to every ψₙ implies f = 0 a.e., by the entire-Fourier-transform / vanishing-moments route",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.orthogonal_span_range_bareNormalizedLp_eq_bot",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/PolynomialCompleteness.lean",
+         "line": 165,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.ae_eq_zero_of_forall_moment_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Moments/VanishingMoments.lean",
+         "line": 229,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.exp_moment_gaussianWeight",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/HilbertBasis.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "Completeness is obtained as the B1/B2 instance rather than proved again for the Hermite family — the 𝕜-generic statement covers ℝ and ℂ in one theorem, as the layer requires. The load-bearing moment lemma lives in Probability/Moments/VanishingMoments.lean."
+      },
+      {
+       "target": "Fourier eigenfunction: the Hermite functions diagonalize the Fourier transform, with the 2π-scaling convention pinned",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.fourier_twoPiHermiteFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Fourier/Basic.lean",
+         "line": 433,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.twoPiHermiteFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Fourier/Basic.lean",
+         "line": 48,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.fourier_twoPiHermiteFunctionLp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Fourier/HilbertBasis.lean",
+         "line": 336,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.twoPiHermiteHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Fourier/HilbertBasis.lean",
+         "line": 233,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.repr_fourier_twoPiHermiteHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Fourier/HilbertBasis.lean",
+         "line": 380,
+         "fit": "related"
+        }
+       ],
+       "note": "Exactly the convention the layer pins: the eigen-relation is stated for the 2π-scaled functions against Mathlib's e^{-2πixξ} fourierIntegral, and is lifted to the Lp vectors and to a whole second Hilbert basis diagonalizing 𝓕. Not in Mathlib."
+      },
+      {
+       "target": "Headline milestone: hermiteHilbertBasis 𝕜 with Parseval in tsum_inner_mul_inner orientation",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.hermiteHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/HilbertBasis.lean",
+         "line": 106,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.tsum_inner_mul_inner_hermiteFunctionLp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Parseval.lean",
+         "line": 53,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.tsum_norm_sq_inner_hermiteFunctionLp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Parseval.lean",
+         "line": 60,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hasSum_hermiteFunctionLp_expansion",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Parseval.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "HilbertBasis.mkOfOrthogonalEqBot",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/InnerProductSpace/l2Space.lean",
+         "line": 556,
+         "fit": "related"
+        }
+       ],
+       "note": "Built by mkOfOrthogonalEqBot through the B2 bridge, with the Parseval identity in the stated orientation and the ‖f‖² = ∑‖⟪ψₙ,f⟫‖² acceptance form."
+      },
+      {
+       "target": "Element-level export coe_hermiteHilbertBasis",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.coe_hermiteHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/HilbertBasis.lean",
+         "line": 123,
+         "fit": "exact"
+        },
+        {
+         "name": "HilbertBasis.coe_mkOfOrthogonalEqBot",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/InnerProductSpace/l2Space.lean",
+         "line": 561,
+         "fit": "related"
+        }
+       ],
+       "note": "⇑(hermiteHilbertBasis 𝕜) = hermiteFunctionLp 𝕜, the anti-vacuity pin the layer names as a deliverable."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:Completed/OrthogonalL2Bases#a3--the-gaussian-hermite-basis-measure-side-the-enhancements-named-instance": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "gaussianHermiteHilbertBasis 𝕜 : HilbertBasis ℕ 𝕜 (Lp 𝕜 2 (gaussianReal 0 1)), the bare normalized Hₙ/√(n!)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.gaussianHermiteHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Hermite/Basis.lean",
+         "line": 138,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.gaussianHermiteHilbertBasisAux",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Hermite/Basis.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.hilbertBasisOfWeightedMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean",
+         "line": 169,
+         "fit": "more general"
+        }
+       ],
+       "note": "Exactly the B2 instance the layer describes, with μ = volume and w = gaussianPDFReal 0 1."
+      },
+      {
+       "target": "coe_gaussianHermiteHilbertBasis: the vectors are a.e. Hₙ/√(n!)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.coeFn_gaussianHermiteHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Hermite/Basis.lean",
+         "line": 146,
+         "fit": "exact"
+        }
+       ],
+       "note": "Named coeFn_ rather than coe_, but it is the a.e. element-level statement the layer specifies."
+      },
+      {
+       "target": "memLp_hermite_gaussianReal (n) (v): variance-general L² membership of Hₙ/√(n!) under gaussianReal 0 v",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.memLp_hermite_gaussianReal",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Hermite/MemLp.lean",
+         "line": 46,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.memLp_hermiteℝ_normalized",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Hermite/Basis.lean",
+         "line": 98,
+         "fit": "special case"
+        }
+       ],
+       "note": "Under the roadmap's own name, with the variance parameter as specified."
+      },
+      {
+       "target": "The dilation relation: weightL2Isometry applied to the Gaussian basis gives 2^{-1/4}·ψₙ(·/√2), not ψₙ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.weightL2Isometry_gaussianHermiteHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Hermite/Basis.lean",
+         "line": 250,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.sqrt_gaussianPDFReal_smul_gaussianHermiteHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Hermite/Basis.lean",
+         "line": 224,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.hasSum_gaussianHermite_expansion",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Hermite/Parseval.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "The lemma the layer asks for by name (as weightL2Isometry_gaussianHermiteHilbertBasis_apply), carrying the dilation explicitly, together with the Parseval expansion on the Gaussian side."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:Completed/OrthogonalL2Bases#part-b--the-family-agnostic-spine-the-reusable-layer": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "The three family-agnostic pieces B1 (completeness), B2 (orthogonality → HilbertBasis), B3 (product basis), stated without reference to any family",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ae_eq_zero_of_forall_moment_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Moments/VanishingMoments.lean",
+         "line": 229,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hilbertBasisOfOrthogonalSystem",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean",
+         "line": 193,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hilbertBasisOfWeightedMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean",
+         "line": 169,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.prodHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/L2/Product.lean",
+         "line": 346,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.piHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/L2/Pi.lean",
+         "line": 366,
+         "fit": "exact"
+        }
+       ],
+       "note": "All three live in family-agnostic files (Probability/Moments, Analysis/InnerProductSpace/{WeightedOrthogonalBasis, PolynomialCompleteness, L2/Product, L2/Pi}) with no mention of Hermite or Chebyshev, as the layer requires."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:Completed/OrthogonalL2Bases#b1--completeness-toolkit-moment-determinacy",
+       "note": "Part B is the umbrella whose text is the concatenation of B1, B2 and B3; each target is stated in full in its own sub-layer."
+      },
+      {
+       "layer": "tauceti:Completed/OrthogonalL2Bases#b2--orthogonality-relation--hilbertbasis",
+       "note": "Same umbrella relation."
+      },
+      {
+       "layer": "tauceti:Completed/OrthogonalL2Bases#b3--l²-product-basis",
+       "note": "Same umbrella relation."
+      }
+     ]
+    },
+    "tauceti:Completed/OrthogonalL2Bases#b1--completeness-toolkit-moment-determinacy": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Moment determinacy: an L¹ function with all exponential moments finite and all polynomial moments zero is a.e. zero",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ae_eq_zero_of_forall_moment_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Moments/VanishingMoments.lean",
+         "line": 229,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ae_eq_zero_of_forall_moment_eq_zero_of_exists_integrable_exp",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Moments/VanishingMoments.lean",
+         "line": 303,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.ae_eq_zero_of_forall_moment_eq_zero_of_finite_expMoments",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Moments/VanishingMoments.lean",
+         "line": 348,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.complexMGF_eventuallyEq_of_forall_integral_pow_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Moments/Determinacy.lean",
+         "line": 89,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Measure.ext_of_forall_integral_pow_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Moments/Determinacy.lean",
+         "line": 145,
+         "fit": "related"
+        }
+       ],
+       "note": "The hypothesis is the weighted-L¹ integrability the layer insists on (∫ e^{a|x|}|g| < ∞), not a pointwise bound, and the single-positive-a variant is there too; routed through the analytic complex MGF / characteristic function, which is the fourierIntegral-side argument in Mathlib's idiom rather than a signed-measure detour."
+      },
+      {
+       "target": "The √w-envelope form: g ∈ L²(dx) orthogonal to every pₙ·√w implies g = 0, distinguished from L²(w)-orthogonality",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.orthogonal_span_range_bareNormalizedLp_eq_bot",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/PolynomialCompleteness.lean",
+         "line": 165,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.orthogonal_span_range_bareNormalizedLp_eq_bot_of_span_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/PolynomialCompleteness.lean",
+         "line": 110,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.memLp_two_bareNormalized",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/PolynomialCompleteness.lean",
+         "line": 69,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.integral_pow_mul_clm_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Moments/VanishingMoments.lean",
+         "line": 279,
+         "fit": "related"
+        }
+       ],
+       "note": "Stated on the weighted measure w·μ for an exact-degree polynomial family, which is the form both the Hermite and Chebyshev instances consume; the envelope/measure distinction is handled by weightL2Isometry rather than by two separate completeness theorems."
+      },
+      {
+       "target": "The compact-support case (Chebyshev) goes through the same lemma",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.orthogonal_span_normalizedChebyshevTLp_eq_bot",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/HilbertBasis.lean",
+         "line": 69,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.monomial_moment_measureT_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/HilbertBasis.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.isFiniteMeasure_of_integrable_exp_mul_abs",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Moments/VanishingMoments.lean",
+         "line": 248,
+         "fit": "related"
+        }
+       ],
+       "note": "Chebyshev completeness is derived from the same moment lemma via the vanishing monomial moments on the compactly supported measureT — no Stone–Weierstrass route, exactly as the layer specifies."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:Completed/OrthogonalL2Bases#b2--orthogonality-relation--hilbertbasis": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "From ∫ pₘpₙ w ∂μ = cₙδ plus completeness to a HilbertBasis of L²(μ) via the √w normalization, for any σ-finite μ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.hilbertBasisOfOrthogonalSystem",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean",
+         "line": 193,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.orthonormal_bareNormalizedLp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean",
+         "line": 156,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.bareNormalizedLp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean",
+         "line": 69,
+         "fit": "related"
+        }
+       ],
+       "note": "Stated over an arbitrary measurable space with an arbitrary measure and weight (0 < w a.e.), with the cast through algebraMap ℝ 𝕜; the Chebyshev instance does land on a compact weighted measure, so the genericity is real and exercised."
+      },
+      {
+       "target": "Element-level export coe_* for the bridge output",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.coe_hilbertBasisOfOrthogonalSystem",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean",
+         "line": 205,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.coeFn_hilbertBasisOfOrthogonalSystem",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean",
+         "line": 225,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.coe_hilbertBasisOfWeightedMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean",
+         "line": 180,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both the Lp-vector and the explicit-function forms, so the Hermite and Chebyshev coe_ lemmas are specializations rather than re-derivations, as the layer requires."
+      },
+      {
+       "target": "weightL2Isometry : L²(w·μ) ≃ₗᵢ L²(μ), multiplication by √w, over an arbitrary measurable space",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.weightL2Isometry",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Function/WeightL2Isometry.lean",
+         "line": 113,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.weightL2Isometry_apply",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Function/WeightL2Isometry.lean",
+         "line": 157,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.weightL2Isometry_symm_apply",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Function/WeightL2Isometry.lean",
+         "line": 163,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eLpNorm_sqrt_smul_withDensity",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Function/WeightL2Isometry.lean",
+         "line": 55,
+         "fit": "related"
+        }
+       ],
+       "note": "In TauCeti/MeasureTheory/Function/, free of any polynomial content, with the element-level pin — the generality and placement the layer prescribes. No Mathlib analogue."
+      },
+      {
+       "target": "HilbertBasis.mapₗᵢ: transport of a Hilbert basis along a linear isometry equivalence",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "HilbertBasis.mapₗᵢ",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/HilbertBasis/Map.lean",
+         "line": 34,
+         "fit": "exact"
+        },
+        {
+         "name": "HilbertBasis.mapₗᵢ_apply",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/HilbertBasis/Map.lean",
+         "line": 47,
+         "fit": "exact"
+        },
+        {
+         "name": "HilbertBasis.mapₗᵢ_trans",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/HilbertBasis/Map.lean",
+         "line": 72,
+         "fit": "related"
+        }
+       ],
+       "note": "Confirms the claimed Mathlib gap: Mathlib's HilbertBasis API (l2Space.lean) has ofRepr, mk and mkOfOrthogonalEqBot but no ≃ₗᵢ-transport."
+      },
+      {
+       "target": "hilbertBasisOfWeightedMeasure: the bare-polynomial basis of L²(w·μ), the mapₗᵢ-partner of the envelope basis",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.hilbertBasisOfWeightedMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean",
+         "line": 169,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.coe_hilbertBasisOfWeightedMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean",
+         "line": 180,
+         "fit": "exact"
+        }
+       ],
+       "note": "The envelope basis is literally defined as the weightL2Isometry-image of this one, so the two normalizations are related by construction rather than by a separate comparison theorem."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:Completed/OrthogonalL2Bases#b3--l²-product-basis": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Orthonormality of the pointwise products (the Fubini half)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.orthonormal_L2prodMul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/L2/Product.lean",
+         "line": 185,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.L2prodMul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/L2/Product.lean",
+         "line": 93,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.inner_L2prodMul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/L2/Product.lean",
+         "line": 163,
+         "fit": "related"
+        }
+       ],
+       "note": "The tensor of two L² vectors is constructed as an actual element of L²(μ ⊗ ν), with the factoring of inner products."
+      },
+      {
+       "target": "The load-bearing half: the products are complete in L²(μ ⊗ ν), for σ-finite μ, ν",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.orthogonal_span_range_L2prodMul_eq_bot",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/L2/Product.lean",
+         "line": 327,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.prodHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/L2/Product.lean",
+         "line": 346,
+         "fit": "exact"
+        },
+        {
+         "name": "OrthonormalBasis.tensorProduct",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/InnerProductSpace/TensorProduct.lean",
+         "line": 763,
+         "fit": "related"
+        }
+       ],
+       "note": "[SigmaFinite μ] [SigmaFinite ν] are explicit hypotheses and the completeness is proved, not assumed. The layer's reading of Mathlib is right: OrthonormalBasis.tensorProduct requires [Fintype ι₁] [Fintype ι₂] and lives on the abstract E ⊗[𝕜] F, so it does not give this."
+      },
+      {
+       "target": "Element-level export coe_productHilbertBasis",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.coeFn_prodHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/L2/Product.lean",
+         "line": 362,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.prodHilbertBasis_apply",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/L2/Product.lean",
+         "line": 356,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.coeFn_piHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/L2/Pi.lean",
+         "line": 389,
+         "fit": "exact"
+        }
+       ],
+       "note": "Named prodHilbertBasis rather than productHilbertBasis, with both the Lp-tensor and a.e.-pointwise-product forms, and the same pair for the Fintype-indexed pi version."
+      },
+      {
+       "target": "Index-genericity, and the iterated Measure.pi version indexed by Π i, κ i",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.piHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/L2/Pi.lean",
+         "line": 366,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.piHilbertBasis_apply",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/L2/Pi.lean",
+         "line": 373,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.piHilbertBasis_repr_L2piMul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/L2/Pi.lean",
+         "line": 381,
+         "fit": "related"
+        }
+       ],
+       "note": "Both are stated for arbitrary index types ι₁, ι₂ (resp. a dependent family κ), so B2's ℕ-indexing never has to be generalized, exactly as the layer plans."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:Completed/OrthogonalL2Bases#part-c--a-second-family-the-chebyshev-basis-of-l²-11": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Inputs from Mathlib: Polynomial.Chebyshev.T, measureT and the orthogonality relations, T_real_cos",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Polynomial.Chebyshev.measureT",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+         "line": 49,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.Chebyshev.integral_eval_T_real_mul_eval_T_real_measureT_of_ne",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+         "line": 131,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.Chebyshev.integral_eval_T_real_mul_self_measureT_zero",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+         "line": 138,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.Chebyshev.integral_T_real_mul_self_measureT_of_ne_zero",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+         "line": 143,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.Chebyshev.T_real_cos",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Basic.lean",
+         "line": 148,
+         "fit": "exact"
+        }
+       ],
+       "note": "All five inputs the layer names are present in Mathlib at the pinned commit, under exactly those names."
+      },
+      {
+       "target": "Milestone: chebyshevHilbertBasis 𝕜 : HilbertBasis ℕ 𝕜 (Lp 𝕜 2 measureT), the normalized Tₙ/√cₙ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.chebyshevTHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/HilbertBasis.lean",
+         "line": 91,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.coe_chebyshevTHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/HilbertBasis.lean",
+         "line": 98,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.normalizedChebyshevTLp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Measure.lean",
+         "line": 262,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.orthonormal_normalizedChebyshevTLp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Measure.lean",
+         "line": 336,
+         "fit": "exact"
+        }
+       ],
+       "note": "Named chebyshevTHilbertBasis; c₀ = π and cₙ = π/2 as specified, with the element-level pin. There is also a chebyshevWeightL2Isometry giving the envelope normalization on volume.restrict [-1,1]."
+      },
+      {
+       "target": "Completeness reusing B1 on the compactly supported measureT",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.orthogonal_span_normalizedChebyshevTLp_eq_bot",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/HilbertBasis.lean",
+         "line": 69,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.monomial_moment_measureT_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/HilbertBasis.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ae_mem_Icc_measureT",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Measure.lean",
+         "line": 185,
+         "fit": "related"
+        }
+       ],
+       "note": "For every [RCLike 𝕜], so the real→RCLike cast the layer lists as open is discharged; no second completeness mechanism is introduced."
+      },
+      {
+       "target": "The named open targets: IsFiniteMeasure measureT, the compactly-supported instance of B1, the RCLike cast",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.chebyshevMeasureT.instIsFiniteMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Measure.lean",
+         "line": 60,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.chebyshevMeasureT_univ",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Measure.lean",
+         "line": 46,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.chebyshevMeasureT_eq_withDensity",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Measure.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "All three are closed in the baseline — the IsFiniteMeasure instance the roadmap calls 'derivable, currently no instance' now exists, with measureT univ = π."
+      },
+      {
+       "target": "Acceptance target: the basis corresponds to the cosine basis under x = cos θ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.chebyshevCosineL2Equiv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Cosine/Transfer.lean",
+         "line": 114,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.chebyshevCosineHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Cosine/HilbertBasis.lean",
+         "line": 42,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.chebyshevCosineL2Equiv_normalizedChebyshevTLp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Cosine/HilbertBasis.lean",
+         "line": 66,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.chebyshevTHilbertBasis_repr_chebyshevCosineL2Equiv_symm",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Cosine/HilbertBasis.lean",
+         "line": 93,
+         "fit": "exact"
+        }
+       ],
+       "note": "A genuine unitary transfer, not just T_real_cos: the equivalence of L²(measureT) with the cosine side, the corresponding cosine Hilbert basis, and the matching of the two bases under it."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:Completed/OrthogonalL2Bases#part-d--the-multidimensional-hermite-basis-a-later-milestone-of-this-roadmap-consumes-b3": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Multidimensional Hermite basis of L²(ℝᵈ): Ψ_α = ∏ᵢ ψ_{αᵢ}(xᵢ), a HilbertBasis (ι → ℕ) of Lp 2 (Measure.pi volume)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.hermiteFunctionPiBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Pi/Basis.lean",
+         "line": 41,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hermiteFunctionPiBasis_apply",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Pi/Basis.lean",
+         "line": 50,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.coeFn_hermiteFunctionPiBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Pi/Basis.lean",
+         "line": 60,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hasSum_L2piMul_hermiteFunctionLp_expansion",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Pi/Parseval.lean",
+         "line": 132,
+         "fit": "related"
+        }
+       ],
+       "note": "The B3 ∘ A3 instantiation the layer names, with the element-level coe and a full Parseval file."
+      },
+      {
+       "target": "Measure-side gaussianHermitePiBasis on L²(γ^ι), with coe_ and the coordinatewise dilation caveat",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.gaussianHermitePiBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Hermite/Pi/Basis.lean",
+         "line": 54,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.coeFn_gaussianHermitePiBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Hermite/Pi/Basis.lean",
+         "line": 71,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.weightL2Isometry_gaussianHermitePiBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Hermite/Pi/Basis.lean",
+         "line": 129,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hasSum_gaussianHermitePi_expansion",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Hermite/Pi/Parseval.lean",
+         "line": 132,
+         "fit": "related"
+        }
+       ],
+       "note": "Under exactly the roadmap's name, with the coordinatewise weightL2Isometry relation carrying the per-coordinate dilation, as A3′ warns."
+      },
+      {
+       "target": "Laguerre and Jacobi L² bases (explicitly deferred to a separate future roadmap)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Confirmed: neither Mathlib nor Tau Ceti defines Laguerre or Jacobi polynomials at the pinned commits, so the layer's reason for deferring them still holds. Out of scope here, so it does not affect the verdict."
+      }
+     ],
+     "duplicates": []
+    }
+   }
+  },
+  "tauceti:TauCetiRoadmap/ConformalMapping": {
+   "summary": "This roadmap is essentially already built — not in Mathlib, but in Tau Ceti's own TauCeti/Analysis/Complex/Conformal/ (about 110 files, ~2600 declarations, no sorry and no axiom). Every L0–L4 summit exists as a named theorem: TauCeti.rouche, TauCeti.hurwitz, TauCeti.morera, TauCeti.localDegree, TauCeti.montel, TauCeti.vitali, the Schwarz–Pick/pseudo-hyperbolic and Poincaré-metric API with the full classification of Aut(𝔻) (TauCeti.unitDiscAut, TauCeti.mem_unitDiscAut_iff), TauCeti.riemannMapping with its normalized and uniqueness companions, and the reflection/Painlevé/monodromy package (TauCeti.exists_differentiableOn_eqOn_conj_of_symmetric, TauCeti.monodromy_theorem), including reflection across an analytic arc and across a circle. Mathlib still supplies only the Cauchy foundations the README credits it with — the open mapping theorem, AbsMax, Schwarz's lemma, BranchLogRoot, plus Complex.exists_injective_not_dense_image_deriv_ne_zero in RiemannMapping.lean — and MontelSpace remains the unrelated locally-convex notion. What is genuinely unfinished is at the top: L5 has Carathéodory's continuity theorem but not the closure homeomorphism (injectivity of the boundary extension on the circle is never established, only the reduction TauCeti.injOn_closure_of_injOn_frontier and the packaging TauCeti.closureHomeomorph), and L6 has the whole Schwarz–Christoffel apparatus — integrand, primitive, vertices, edges, the vertex at infinity, the polygon and its Jordan boundary — but not the statement that the map is a bijection of ℍ onto the polygon's interior, which SchwarzChristoffel/Infinity.lean explicitly leaves to later work.",
+   "layers": {
+    "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l0--the-local-mapping-engine": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Rouché's theorem (symmetric and classical forms; zeros counted with multiplicity)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.rouche",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Rouche.lean",
+         "line": 303,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.rouche_symm",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Rouche.lean",
+         "line": 268,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.rouche_add",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Rouche.lean",
+         "line": 312,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.rouche_symm_nullHomologous",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Rouche.lean",
+         "line": 487,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.rouche_exists_eq_zero_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Rouche.lean",
+         "line": 368,
+         "fit": "related"
+        }
+       ],
+       "note": "Disc form: f, g analyticOnNhd on closedBall c R with ‖f − g‖ < ‖f‖ on the sphere gives equality of the finsums of analyticOrderNatAt over ball c R. The symmetric hypothesis ‖f − g‖ < ‖f‖ + ‖g‖ and a null-homologous cycle version over an arbitrary open set are also proved. Mathlib has no Rouché theorem at all."
+      },
+      {
+       "target": "Hurwitz: a locally uniform limit of zero-free holomorphic maps is zero-free or identically zero; the injectivity corollary",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.hurwitz",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Hurwitz.lean",
+         "line": 262,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hurwitz_forall_ne_or_forall_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Hurwitz.lean",
+         "line": 246,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hurwitz_injOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Hurwitz.lean",
+         "line": 283,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hurwitz_eventually_exists_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Hurwitz.lean",
+         "line": 170,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.hurwitz_forall_ne",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Hurwitz.lean",
+         "line": 230,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated for TendstoLocallyUniformlyOn on a connected open set, with the zero-counting input taken from the argument principle; hurwitz_injOn is the limit-of-injections dichotomy the Riemann mapping theorem needs. Mathlib's only Hurwitz-type lemmas are private inside mathlib4#33505, not in the pinned baseline."
+      },
+      {
+       "target": "Morera's theorem as a named theorem",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.morera",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Morera.lean",
+         "line": 41,
+         "fit": "exact"
+        },
+        {
+         "name": "Complex.isConservativeOn_and_continuousOn_iff_isDifferentiableOn",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/HasPrimitives.lean",
+         "line": 280,
+         "fit": "more general"
+        }
+       ],
+       "note": "TauCeti.morera is a two-line specialization of Mathlib's conservativity ↔ differentiability equivalence, which is the stronger statement; the layer's target is precisely to expose it under the classical name, and it does."
+      },
+      {
+       "target": "The open-mapping degree: local valence of a holomorphic map, and the local injectivity criterion",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.localDegree",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/LocalDegree.lean",
+         "line": 99,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.localDegree_card",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/LocalDegree.lean",
+         "line": 166,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_localDegree",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/LocalDegree.lean",
+         "line": 197,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_injOn_nhds_iff_deriv_ne_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/LocalDegree.lean",
+         "line": 321,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.deriv_ne_zero_of_injOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/LocalDegree.lean",
+         "line": 334,
+         "fit": "exact"
+        }
+       ],
+       "note": "Every nearby value is attained exactly analyticOrderNatAt-many times, counted with multiplicity and (for a simple value) as a cardinality; the derivative of a holomorphic injection of an open set vanishes nowhere. Mathlib has the open mapping theorem but no degree/valence count."
+      },
+      {
+       "target": "The consumed inputs: argument principle, residues, winding numbers, homological Cauchy theorem (from the ContourIntegration roadmap), open mapping and maximum modulus (from Mathlib)",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "TauCeti.argumentPrinciple_windingNumber",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/ArgumentPrinciple.lean",
+         "line": 100,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.argumentPrinciple",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Argument/Principle.lean",
+         "line": 251,
+         "fit": "more general"
+        },
+        {
+         "name": "AnalyticOnNhd.is_constant_or_isOpenMap",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/OpenMapping.lean",
+         "line": 177,
+         "fit": "exact"
+        },
+        {
+         "name": "Complex.norm_eqOn_closedBall_of_isMaxOn",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/AbsMax.lean",
+         "line": 183,
+         "fit": "related"
+        }
+       ],
+       "note": "The layer says consume, do not re-derive, and that is what happens: the ArgumentPrinciple.lean file here is a thin disc-shaped restatement over the Contour development, and the open-mapping/AbsMax inputs come straight from Mathlib."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:Completed/ContourIntegration#layer-2-residues-the-cauchy-primitive-and-the-classical-residue-theorem",
+       "note": "Owns the argument principle, residues and winding numbers that L0 declares it consumes; the overlap is by design and L0 adds only the conformal-geometric consequences."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l1--normal-families--montel-the-analytic-theorem-not-montelspace": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Local boundedness of a family of holomorphic maps, with its equicontinuity consequences",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsLocallyBoundedOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/NormalFamilies.lean",
+         "line": 101,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsLocallyBoundedOn.equicontinuousOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/NormalFamilies.lean",
+         "line": 222,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsLocallyBoundedOn.deriv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/NormalFamilies.lean",
+         "line": 241,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsLocallyBoundedOn.equicontinuousOn_deriv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/NormalFamilies.lean",
+         "line": 258,
+         "fit": "exact"
+        }
+       ],
+       "note": "Bounded on each compact subset, exactly as the generality bar asks; the Cauchy estimate on a doubled ball gives local Lipschitz bounds, hence equicontinuity of the family and of its derivatives."
+      },
+      {
+       "target": "Montel's selection theorem: locally bounded ⇒ every sequence has a locally uniformly convergent subsequence with holomorphic limit",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.montel",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Montel/Basic.lean",
+         "line": 81,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.isCompact_closure_range_of_isLocallyBoundedOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Montel/Precompact.lean",
+         "line": 140,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isCompact_closure_range_iff_isLocallyBoundedOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Montel/Precompact.lean",
+         "line": 196,
+         "fit": "more general"
+        }
+       ],
+       "note": "Stated not just for ℂ but for maps into any proper complex normed space E, with the precompactness of the restricted family in C(Ω,E) as an iff; the roadmap only asked for the scalar case. Mathlib's MontelSpace (Analysis/LocallyConvex/Montel.lean) is the unrelated locally-convex notion, as the README says, and is not used."
+      },
+      {
+       "target": "Vitali's theorem: a locally bounded family converging pointwise on a set with a limit point converges locally uniformly",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.vitali",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Vitali.lean",
+         "line": 118,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.vitali_of_tendsto",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Vitali.lean",
+         "line": 160,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.tendstoLocallyUniformlyOn_of_isLocallyBoundedOn_of_forall_tendsto",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Vitali.lean",
+         "line": 189,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eqOn_of_subseq_limits",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Vitali.lean",
+         "line": 97,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.exists_differentiableOn_tendstoLocallyUniformlyOn_of_isLocallyBoundedOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Vitali.lean",
+         "line": 210,
+         "fit": "related"
+        }
+       ],
+       "note": "Proved by Montel plus the identity theorem on subsequential limits; no Vitali theorem for holomorphic families exists in Mathlib (Mathlib's 'Vitali' names are the covering-family and Vitali–Carathéodory results in measure theory)."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l2--schwarz-lemma-extensions": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "The pseudo-hyperbolic metric on 𝔻 and the Schwarz–Pick inequality for holomorphic self-maps",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.pseudoHyperbolicExpr",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/PseudoHyperbolic.lean",
+         "line": 48,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.pseudoHyperbolicExpr_map_le",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzPick/Basic.lean",
+         "line": 126,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.pseudoHyperbolicExpr_map_le_unitDisc",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzPick/Basic.lean",
+         "line": 164,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.pseudoHyperbolicExpr_triangle",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Hyperbolic/Triangle.lean",
+         "line": 403,
+         "fit": "exact"
+        },
+        {
+         "name": "Complex.dist_le_dist_of_mapsTo_ball",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/Schwarz.lean",
+         "line": 215,
+         "fit": "special case"
+        }
+       ],
+       "note": "|(f z − f w)/(1 − conj (f w)·f z)| ≤ |(z − w)/(1 − conj w·z)| for a holomorphic self-map of the ball, obtained by conjugating Mathlib's Schwarz lemma with the disc automorphisms; the triangle inequality for the pseudo-hyperbolic expression is proved separately."
+      },
+      {
+       "target": "The derivative form of Schwarz–Pick, and the rigidity/equality case",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.norm_deriv_div_one_sub_norm_sq_unitDiscStandardAutomorphismFormula_of_norm_lt_one",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzPick/AutomorphismIsometry.lean",
+         "line": 73,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_forall_unitDisc_eq_unitDiscStandardAutomorphismEquiv_of_pseudoHyperbolicExpr_map_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzPick/Rigidity.lean",
+         "line": 257,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_forall_unitDisc_eq_unitDiscStandardAutomorphismEquiv_of_hyperbolicDist_map_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzPick/Rigidity.lean",
+         "line": 294,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.pseudoHyperbolicExpr_unitDiscStandardAutomorphismEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzPick/Isometry.lean",
+         "line": 93,
+         "fit": "exact"
+        }
+       ],
+       "note": "Equality anywhere forces the map to be a disc automorphism — the rigidity half the Riemann mapping proof's maximizer argument relies on. Mathlib has only the derivative bound at the centre (Complex.norm_deriv_le_div_of_mapsTo_ball)."
+      },
+      {
+       "target": "The hyperbolic (Poincaré) metric on 𝔻: distance, geodesics, length, the metric-space instance",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.hyperbolicDist",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Hyperbolic/Distance.lean",
+         "line": 68,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PoincareDisc",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Poincare/MetricSpace.lean",
+         "line": 61,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PoincareDisc.dist_map_le",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Poincare/SchwarzPick.lean",
+         "line": 132,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PoincareDisc.lipschitzWith_one",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Poincare/SchwarzPick.lean",
+         "line": 145,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_hyperbolicLength_eq_hyperbolicDist",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Hyperbolic/Length.lean",
+         "line": 649,
+         "fit": "exact"
+        }
+       ],
+       "note": "A full MetricSpace instance on the type synonym PoincareDisc with the closed forms (cosh/sinh/tanh/exp of the distance), the geodesic and orthogonal-circle theory, and Schwarz–Pick as 1-Lipschitzness — well beyond what the layer asks for. Mathlib has the hyperbolic metric only on the upper half-plane (UpperHalfPlane.dist)."
+      },
+      {
+       "target": "The disc automorphism group Aut(𝔻) = {e^{iθ}(z−a)/(1−ā z)}",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.unitDiscAut",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/UnitDisc/Automorphism/Group.lean",
+         "line": 82,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.mem_unitDiscAut_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/UnitDisc/Automorphism/Group.lean",
+         "line": 146,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.unitDiscStandardAutomorphismEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/UnitDisc/Automorphism/Basic.lean",
+         "line": 42,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.existsUnique_eq_unitDiscStandardAutomorphismEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/UnitDisc/Automorphism/Parametrization.lean",
+         "line": 141,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.stabilizer_zero_eq_unitDiscRotation_subgroupOf",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/UnitDisc/Automorphism/Group.lean",
+         "line": 258,
+         "fit": "related"
+        }
+       ],
+       "note": "A genuine Subgroup of Equiv.Perm Complex.UnitDisc, with membership characterized as being one of the standard automorphisms, a unique (u, a) ∈ Circle × UnitDisc parametrization, transitivity, and the rotation stabilizer of 0. Mathlib has Complex.UnitDisc but no automorphism group."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
+       "note": "Also develops hyperbolic geodesics, half-planes and convex polygons, but on Mathlib's upper half-plane rather than on 𝔻, and for Fuchsian-group purposes; the metric content overlaps, the Schwarz–Pick and Aut(𝔻) content does not."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l3--the-riemann-mapping-theorem-summit": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "The Riemann mapping theorem: a simply connected open Ω ⊊ ℂ admits a holomorphic bijection onto the unit disc",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.riemannMapping",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Existence.lean",
+         "line": 69,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_bijOn_ball_differentiableOn_invFunOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Existence.lean",
+         "line": 83,
+         "fit": "exact"
+        },
+        {
+         "name": "Complex.exists_injective_not_dense_image_deriv_ne_zero",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/RiemannMapping.lean",
+         "line": 51,
+         "fit": "related"
+        },
+        {
+         "name": "Complex.exists_mapsTo_unitBall_injOn_deriv_ne_zero",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/RiemannMapping.lean",
+         "line": 120,
+         "fit": "related"
+        }
+       ],
+       "note": "Stated exactly in the shape the generality bar prescribes: IsOpen Ω, IsSimplyConnected Ω (Mathlib's SimplyConnectedSpace ↥Ω, which carries nonemptiness), Ω ≠ univ, conclusion BijOn f Ω (ball 0 1) with DifferentiableOn and nonvanishing derivative. Sorry-free. Mathlib's RiemannMapping.lean holds only the two partial results cited, which are strictly weaker."
+      },
+      {
+       "target": "The biholomorphism packaging: holomorphic inverse, partial homeomorphism, homeomorphism of Ω with the disc",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.exists_bijOn_differentiableOn_invFunOn_of_isSimplyConnected",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Equivalence.lean",
+         "line": 109,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_openPartialHomeomorph_of_isSimplyConnected",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Equivalence.lean",
+         "line": 134,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.nonempty_homeomorph_unitDisc_of_isSimplyConnected",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Equivalence.lean",
+         "line": 170,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.riemannMapping_homeomorph",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Conformal.lean",
+         "line": 56,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_bijOn_self_apply_eq_of_isSimplyConnected",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Equivalence.lean",
+         "line": 216,
+         "fit": "exact"
+        }
+       ],
+       "note": "The packaged ≃ / ConformalAt companions the layer asks for, including the two-simply-connected-domains form and the ConformalAt statement in Conformal.lean."
+      },
+      {
+       "target": "The extremal-family argument: the pointed injection family is nonempty and normal, and |f′(z₀)| attains its maximum",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.exists_isMaxOn_norm_deriv_of_isSimplyConnected",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/ExtremalFamily.lean",
+         "line": 242,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_isPointedDiscInjectionOn_one_lt_norm_deriv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Koebe.lean",
+         "line": 197,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.surjOn_ball_of_isMaxOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Koebe.lean",
+         "line": 244,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.moebius",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Koebe.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "Exactly the standard route the layer prescribes — Montel + Hurwitz give the maximizer, and the Koebe square-root trick shows a non-surjective maximizer can be beaten."
+      },
+      {
+       "target": "Uniqueness up to Aut(𝔻), and the normalized Riemann map",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.exists_eqOn_unitDiscStandardAutomorphismFormula_comp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Uniqueness.lean",
+         "line": 65,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsNormalizedRiemannMapOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Normalization.lean",
+         "line": 122,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_isNormalizedRiemannMapOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Normalization.lean",
+         "line": 170,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsNormalizedRiemannMapOn.eqOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Normalization.lean",
+         "line": 196,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.riemannMapping_normalized",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Normalization.lean",
+         "line": 219,
+         "fit": "exact"
+        }
+       ],
+       "note": "Two Riemann maps differ by composition with a standard disc automorphism, and the normalization f z₀ = 0, deriv f z₀ > 0 pins the map uniquely — more than the layer's 'uniqueness up to Aut(𝔻)'."
+      },
+      {
+       "target": "The square-root / holomorphic-log step, consumed from Mathlib's BranchLogRoot",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Complex.exists_continuousOn_pow_eq",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/BranchLogRoot.lean",
+         "line": 67,
+         "fit": "exact"
+        },
+        {
+         "name": "Complex.exists_continuousOn_eqOn_exp_comp",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/BranchLogRoot.lean",
+         "line": 37,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_sq_eq_sub_injOn_ne_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/DiscInjection.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.exists_differentiableOn_pow_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/BranchLogRoot.lean",
+         "line": 165,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib supplies continuous branches of log and n-th roots on a simply connected open set; TauCeti/Analysis/Complex/BranchLogRoot.lean upgrades the log branch to a holomorphic one and derives holomorphic n-th roots from it, and DiscInjection.lean's square-root trick uses that, exactly as the layer directs."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l4--analytic-continuation--the-reflection-principle": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Schwarz reflection across ℝ, with the explicit witness F z = if 0 ≤ z.im then f z else conj (f (conj z))",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.schwarzReflection",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Reflection/Basic.lean",
+         "line": 51,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.differentiableOn_schwarzReflection_of_symmetric",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Reflection/Principle.lean",
+         "line": 50,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_differentiableOn_eqOn_conj_of_symmetric",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Reflection/Principle.lean",
+         "line": 65,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.continuousOn_schwarzReflection_of_symmetric",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Reflection/Basic.lean",
+         "line": 289,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.schwarzReflection_conj_of_real_on_axis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Reflection/Basic.lean",
+         "line": 143,
+         "fit": "related"
+        }
+       ],
+       "note": "Hypotheses are exactly the classical ones: Ω open and conj-stable, f continuous on Ω ∩ {0 ≤ im}, holomorphic on Ω ∩ {0 < im}, real on the axis. Sorry-free; the antiholomorphic-composition lemma the layer calls L4.0 is inside Reflection/Basic.lean. Absent from Mathlib."
+      },
+      {
+       "target": "Reflection across an analytic arc and across a circle, by Möbius reduction",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.chartedSchwarzReflection",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Reflection/Arc.lean",
+         "line": 49,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.differentiableOn_chartedSchwarzReflection_of_symmetric",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Reflection/Arc.lean",
+         "line": 160,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.differentiableOn_circleSchwarzReflection_of_symmetric",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Reflection/Circle/Principle.lean",
+         "line": 154,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.injOn_schwarzReflection_of_symmetric",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Reflection/Injective.lean",
+         "line": 138,
+         "fit": "related"
+        }
+       ],
+       "note": "The arc case is run through an analytic chart carrying the arc to the real locus; the circle case through the Möbius map of Reflection/Circle/Conjugate.lean. Injectivity of the reflected map is proved too, which the layer does not ask for."
+      },
+      {
+       "target": "Painlevé removability across an arc (and across a line or a circle)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.differentiableOn_of_continuousOn_of_differentiableOn_im_ne_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Removability/Basic.lean",
+         "line": 182,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.differentiableOn_of_continuousOn_of_differentiableOn_diff_of_subset_range_lineMap",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Removability/Basic.lean",
+         "line": 265,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.differentiableOn_of_continuousOn_of_differentiableOn_diff_coord_im_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Removability/Arc.lean",
+         "line": 95,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.differentiableOn_of_continuousOn_of_differentiableOn_diff_sphere",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Removability/Circle.lean",
+         "line": 167,
+         "fit": "exact"
+        }
+       ],
+       "note": "The Morera/rectangle argument is carried in Removability/Basic.lean and transported to any subset of a line, to a charted analytic arc, and to a sphere. Distinct from Mathlib's point-removability (Complex.differentiableOn_update_limUnder_insert_of_isLittleO), which removes isolated points only."
+      },
+      {
+       "target": "The monodromy theorem: continuations along homotopic paths agree",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.monodromy_theorem",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Monodromy.lean",
+         "line": 392,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.monodromy_theorem_of_free_homotopy",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Monodromy.lean",
+         "line": 354,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.IsAnalyticContinuationAlong",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Continuation/Basic.lean",
+         "line": 190,
+         "fit": "exact"
+        },
+        {
+         "name": "IsLocalHomeomorph.monodromy_theorem",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Homotopy/Lifting.lean",
+         "line": 154,
+         "fit": "related"
+        }
+       ],
+       "note": "Analytic continuation along a path is defined for germs of maps ℂ → E into a complex Banach space, and the monodromy theorem is proved both rel endpoints and for a free homotopy with moving endpoints. Mathlib's monodromy theorem is the abstract lifting statement for a separated local homeomorphism, not the analytic one; TauCeti/Analysis/Complex/HolomorphicSheaf.lean supplies the étale space that would connect them."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-2",
+       "note": "Names Schwarz reflection as the tool for boundary regularity under totally real boundary conditions — a consumer of L4, not a second construction of it."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve",
+       "note": "Explicitly disclaims duplication ('No Schwarz reflection, boundary correspondence, or universal-cover argument is duplicated'), so it consumes L4/L5 rather than restating them."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l5--carathéodory-boundary-correspondence": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Carathéodory's continuity theorem: a conformal map of the disc onto a bounded Jordan domain extends continuously to the closed disc",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.exists_continuousOn_closedBall_eqOn_of_isJordanCurve_frontier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Caratheodory.lean",
+         "line": 214,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_continuousOn_closedBall_bijOn_ball_of_isJordanCurve_frontier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Caratheodory.lean",
+         "line": 239,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_tendsto_nhdsWithin_of_isJordanCurve_frontier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Caratheodory.lean",
+         "line": 194,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.exists_diam_image_ball_inter_ball_le_of_isJordanCurve_frontier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Caratheodory.lean",
+         "line": 124,
+         "fit": "related"
+        }
+       ],
+       "note": "Proved in full by the crosscut/length–area argument, with the Jordan-curve and crosscut machinery (Crosscut/*.lean, Jordan/*.lean, ClusterSet.lean, LengthArea.lean) built out underneath it. Sorry-free."
+      },
+      {
+       "target": "The boundary correspondence: the extension carries frontier to frontier, and is a homeomorphism of the closures",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.image_frontier_eq_frontier_image",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/BoundaryCorrespondence.lean",
+         "line": 202,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.closureHomeomorph",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/BoundaryCorrespondence.lean",
+         "line": 237,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.bijOn_closure_closure_image",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/BoundaryCorrespondence.lean",
+         "line": 220,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.injOn_closure_of_injOn_frontier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/ClusterSet.lean",
+         "line": 208,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.not_eqOn_const_inter_sphere_of_injOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/ArcConstancy.lean",
+         "line": 271,
+         "fit": "related"
+        }
+       ],
+       "note": "Missing: injectivity of the continuous extension on the bounding circle. closureHomeomorph takes that injectivity as a hypothesis, and injOn_closure_of_injOn_frontier reduces closed-disc injectivity to it, but no theorem in the baseline discharges it for a Jordan domain — so the milestone's 'homeomorphism of the closures' is proved only conditionally. Caratheodory.lean states this gap itself."
+      },
+      {
+       "target": "Prime ends (explicitly out of scope for the L5 milestone)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither Mathlib nor Tau Ceti defines prime ends; grep over both baselines for 'primeEnd'/'PrimeEnd' finds nothing. The layer scopes this out, so it does not hold the verdict back."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve",
+       "note": "Consumes the boundary correspondence for the analytic modular curve and explicitly disclaims duplicating it."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l6--schwarzchristoffel": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The Schwarz–Christoffel integrand ∏ (z − aᵢ)^{eᵢ} and its primitive, holomorphic and conformal on ℍ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.differentiableOn_schwarzChristoffelIntegrand",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Integrand.lean",
+         "line": 87,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hasDerivAt_schwarzChristoffelPrimitive",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Primitive.lean",
+         "line": 84,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.conformalAt_schwarzChristoffelPrimitive",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Primitive.lean",
+         "line": 117,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eqOn_schwarzChristoffelPrimitive",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Primitive.lean",
+         "line": 126,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.logDeriv_schwarzChristoffelIntegrand",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Integrand.lean",
+         "line": 125,
+         "fit": "related"
+        }
+       ],
+       "note": "The integrand is zero-free and holomorphic on the upper half-plane, the primitive is conformal there and characterized by its derivative and normalization. Nothing comparable exists in Mathlib."
+      },
+      {
+       "target": "Boundary behaviour: the map extends to ℝ, the edges are straight segments, the prevertices map to vertices, the turning is by the exterior angles",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.schwarzChristoffelBoundary",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Boundary.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.schwarzChristoffelEdgeAngle_sub_eq_pi_mul_exponent_sum_of_adjacent",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Edge.lean",
+         "line": 141,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_tendsto_schwarzChristoffelPrimitive_injOn_collinear",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Edge.lean",
+         "line": 353,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.schwarzChristoffelBoundary_image_Icc_prevertex",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/ClosedEdge.lean",
+         "line": 331,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.tendsto_schwarzChristoffelPrimitive_atInfinity",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Infinity.lean",
+         "line": 376,
+         "fit": "exact"
+        }
+       ],
+       "note": "Each prevertex-free real interval goes to a straight segment, consecutive edge directions differ by π times the exponent, the two unbounded edges close up at a single vertex at infinity, and the vertices are affinely independent at convex prevertices."
+      },
+      {
+       "target": "The image polygon, and that the map is a conformal bijection of ℍ onto its interior",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.schwarzChristoffelPolygon",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Polygon/Basic.lean",
+         "line": 71,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.range_schwarzChristoffelCompactifiedBoundary",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Polygon/Boundary.lean",
+         "line": 57,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isJordanCurve_range_schwarzChristoffelCompactifiedBoundary",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Compactification.lean",
+         "line": 137,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.schwarzChristoffelCompactifiedBoundary_injective_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Compactification.lean",
+         "line": 119,
+         "fit": "related"
+        }
+       ],
+       "note": "Missing: the summit itself. The polygon is constructed and its boundary is identified with the range of the compactified boundary map (a Jordan curve when that map is injective), but no theorem says the primitive is a bijection of ℍ onto the polygon's interior; SchwarzChristoffel/Infinity.lean:39 records that 'identifying the image of the half-plane with its interior, is left to later work'. That identification is what needs L5's boundary correspondence, which is itself only conditional."
+      },
+      {
+       "target": "The converse direction: every polygon is the image of ℍ under such a map (the classical Schwarz–Christoffel theorem)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing in the baseline produces prevertices from a given polygon; the development runs only in the forward direction, from exponents and prevertices to an image."
+      }
+     ],
+     "duplicates": []
+    }
+   }
   }
  }
 }

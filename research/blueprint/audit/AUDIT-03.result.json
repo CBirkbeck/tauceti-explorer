@@ -1808,7 +1808,12 @@
        "note": "Isometry functoriality is Isometry.discriminantBilinearIsometry."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+       "note": "Asks again, for the Construction A lattice P_m(C), for this layer's dual lattice and integrality criterion: the carrier equality P_m(C)^dual = P_m(C^perp) and 'P_m(C) bundles as an IntegralLattice exactly when C <= C^perp' are the coordinate instances of L^dual = B.dualSubmodule L and L <= L^dual iff integral. Unlike its Layer 7, that layer does not say it consumes this roadmap."
+      }
+     ]
     },
     "tauceti:Completed/IntegralLattices#layer-3-finite-bilinear-and-quadratic-modules": {
      "verdict": "built",
@@ -2228,6 +2233,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
        "note": "Specializes the correspondence and the A_{L_H} = H^perp/H comparison to Construction A lattices; it says it consumes this gluing theory, so this is a consumer rather than a duplicate."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+       "note": "Its three Construction A theorems are the coordinate instances of this layer: disc(P_m(C)) = m^#iota / (#C)^2 is disc(L_H) = disc(L)/[L_H:L]^2 with [L_H:L] = |H|; 'integral P_m(C) is unimodular exactly when C = C^perp' is 'L_H is unimodular exactly when H is Lagrangian'; and 'P_m(C) is even exactly when q_m vanishes on C' is the even-overlattice correspondence with the quadratic discriminant form. Together with the Layer 2 entry this is the larger of the two AlgebraicCodingTheory overlaps; its Layer 7 is the one that declares itself a consumer."
       }
      ]
     },
@@ -3458,6 +3467,10 @@
       {
        "layer": "AnalyticNumberTheory:AN.4",
        "note": "Its 'Hecke, Dedekind and Artin analytic interfaces' lists Chebotarev as a target of the L-function route, overlapping with this density theorem."
+      },
+      {
+       "layer": "FunctionFieldArithmetic:FA.5",
+       "note": "Its 'function-field Chebotarev statement', with the congruence restriction on degrees imposed by the constant field and genus/conductor error terms, is the function-field analogue of this layer's summit. Like FA.4 against Class Field Theory, it is the same theorem in the setting this roadmap does not cover, so it is an analogue rather than a second proof of the number-field statement."
       }
      ]
     },
@@ -3821,6 +3834,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
        "note": "Its 10.4 prime ideal theorem is the all-prime denominator this layer needs."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+       "note": "Its 7.3 owns the generic implication from natural to Dirichlet density, through the Abel-summation interface and the named all-prime denominator hypothesis AllPrimeDirichletDenominatorAsymptotic. That is the general form of this layer's denominator and of its Dirichlet-versus-natural-density agreement theorem; the Layer 3 entry cites the same stage for the density calculus, this one for the two-density bridge."
       }
      ]
     }
@@ -5426,5 +5443,42 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-03",
+  "date": "2026-09-16",
+  "checked": 198,
+  "corrections": [
+   {
+    "layer": "tauceti:Completed/IntegralLattices#layer-4-overlattices-and-isotropic-subgroups",
+    "target": "duplicates of layer 4 (overlattices and isotropic subgroups)",
+    "was": "one duplicate listed (AlgebraicCodingTheory layer 7)",
+    "now": "added tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+    "why": "AlgebraicCodingTheory layer 6 is, with layer 7, one of only two atlas layers outside this roadmap that name IntegralLattice, and the audit caught only layer 7. Layer 6 restates three of this layer's theorems in Construction A coordinates: disc(P_m(C)) = m^#iota/(#C)^2 (the index-squared discriminant formula), integral P_m(C) unimodular iff C = C^perp (unimodular iff Lagrangian), and P_m(C) even iff q_m vanishes on C (the even-overlattice correspondence). Layer 7 opens by declaring itself a bridge that consumes this roadmap; layer 6 makes no such declaration."
+   },
+   {
+    "layer": "tauceti:Completed/IntegralLattices#layer-2-duality-and-the-finite-discriminant-group",
+    "target": "duplicates of layer 2 (duality and the finite discriminant group)",
+    "was": "no duplicates listed",
+    "now": "added tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+    "why": "The same layer 6 also asks for P_m(C)^dual = P_m(C^perp) as a literal carrier equality and for the integrality criterion C <= C^perp, which are this layer's dual lattice B.dualSubmodule L and its L <= L^dual iff integral, read in the coordinate model."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+    "target": "duplicates of layer 10 (Dirichlet-density Chebotarev)",
+    "was": "one duplicate listed (AnalyticNumberTheory:AN.4)",
+    "now": "added FunctionFieldArithmetic:FA.5",
+    "why": "FA.5 plans a function-field Chebotarev theorem for curves over a finite field, with the degree-congruence restriction the constant field forces. The audit already flags FA.4 as the function-field analogue of Class Field Theory layers 6, 11 and 12, and FA.5 stands in exactly that relation to this layer; it is the only other atlas stage that plans a Chebotarev theorem rather than consuming one."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems",
+    "target": "duplicates of layer 14 (natural density and consistency theorems)",
+    "was": "one duplicate listed (ArithmeticDirichletSeries layer 10)",
+    "now": "added tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+    "why": "Layer 10 of Arithmetic Dirichlet Series supplies the prime ideal theorem this layer needs as a denominator, and the audit records that. Its layer 7.3 separately owns the natural-to-Dirichlet implication and the named all-prime denominator hypothesis, which is the general form of this layer's last agreement theorem (compatibility of the Dirichlet-density and natural-density results)."
+   }
+  ],
+  "notes": "All 198 targets were examined and the whole batch re-checked mechanically; only the four duplicate lists above needed changing. Citations: every one of the 501 cited declarations exists in the pinned baseline at exactly the claimed library, file and line, with no wrong name, file or line anywhere (261 theorem, 168 def, 35 abbrev, 11 instance, 10 structure, 7 class, 7 lemma, 2 alias; no axiom, no structure field cited as a result). Only one cited file contains the token sorry at all, Mathlib/GroupTheory/FiniteAbelian/Basic.lean, and both occurrences are inside a commented-out TODO sketch of DirectSum.congr; the declaration actually cited from that file, Subgroup.finiteIndex_range_powMonoidHom_of_fg at line 204, is unaffected. Statements: about seventy-five cited declarations were opened and read in the Lean source, and the signature of every one of the 282 exact or more-general citations on a presence target was compared with its target. The notes are unusually exact about the fine print and each spot check confirmed it: the doubling bound really does carry finiteness of the box intersection as a hypothesis rather than deriving it; the Gram-matrix nondegeneracy really is a theorem with a det != 0 hypothesis rather than an instance; the Smith invariant factors and the bilinear H-perp/H comparison for odd overlattices really do need only [IsNondegenerate] in this baseline, so the three items IntegralLattices/STATUS.md still lists as open are closed and the audit is right to say so; the Chebotarev fixed-field fibre count really is stated for the primes of L and not of E, which is why that target is partial; the Tate restriction and corestriction maps really do exist only in degrees 0 and -1 (plus negSuccCor and HNegTwoCor through homology), so the all-degree Layer 0 target is partial; and the ADE rows really do pin the quadratic values, q(omega_1) = n/(2(n+1)), q(s) = q(c) = n/8 with the Klein-four model for even D_n and ZMod 4 for odd D_n, E6 2/3, E7 3/4, and an actual lattice isometry E8 = D8+ rather than an appeal to uniqueness of determinant-one lattices. Absences: all 117 absent or partial targets were re-searched independently, by Mathlib naming convention against declarations.tsv and by concept against both Lean trees. Every absence holds. There is no Milnor K-theory, tame symbol, de Rham-Witt or Artin-Schreier-Witt theory, norm-residue (Bloch-Kato) theorem, Kato complex, Parshin chain, higher adele, Galois Tate twist, cohomological dimension or etale fundamental group; no class formation, Tate's theorem, fundamental class, abstract or local or global Artin map, cohomological Brauer group, local invariant, local Tate duality, Weil group, Hasse norm theorem, Hilbert symbol, Hilbert or ray or ring class field, or Kronecker-Weber in general; no RayClassCharacter, ray-class ideal count, unsmoothed Wiener-Ikehara theorem, prime ideal theorem or prime number theorem (Mathlib's Nat.primeCounting has only tendsto atTop), and no Dirichlet- or natural-density theorem for any Frobenius fibre. The 165 'Steinberg' declarations are Steinberg groups and representations plus the quaternion Steinberg relation, as the audit says; ramification filtrations exist only in lower numbering for function-field places, with no upper numbering anywhere. Verdicts: all ten 'built' layers and the single 'process' layer were confirmed against their layer descriptions. HL.7 as 'process' follows the convention AUDIT-01 set for consumer and comparison layers. EffectiveBounds layer 0 is 'built' on its mathematical content; the audit itself records that the README's process instruction to reconcile the box engine with ZLattice was not followed, which is the honest reading. The boundary between 'partly built' and 'not built' is used consistently across all 46 layers: a layer is 'partly built' exactly when some target is fully present, and 'not built' when every target is absent or only partial. Duplicates: all 58 resolve to real atlas stages, none of them in the retired FoundationsAndLibraryIntegration, and every claimed overlap is borne out by the cited stage's own description, including the several that are correctly labelled adjacent or consumer rather than duplicate. Four more were found and added. Candidates that were checked and deliberately not added: ArithmeticGaloisDuality:D7 disclaims local Tate duality in favour of this roadmap's layer 5 in its own text; SelmerIwasawaCohomology:L1 and QuadraticFormInvariants 6E both name Class Field Theory as the owner and only compare; LocalFieldsRamification layers 1 and 3 say their conductor exports are consumed by ClassFieldTheory.conductorExponent, so they supply layer 7 rather than duplicate it; PolynomialGaloisGroups layers 5 and 6 explicitly disclaim Chebotarev; and EllipticCurves layer 7 uses Hermite-Minkowski as an input rather than restating the effective count."
  }
 }
