@@ -1,0 +1,359 @@
+{
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+  "protocol": "links-v1",
+  "status": "partial",
+  "summary": "Four incoming and eight outgoing stage interfaces across six partner roadmaps, plus one radical-API overlap. The screen distinguishes composition Cartan matrices from symmetrized Euler matrices, controls acyclic versus doubled quivers and keeps finite-module stable quotients separate from Frobenius triangulations. See handoff for exact coverage, source corrections and validation. Two further independently examined quiver-to-zigzag edges were omitted because they landed in the Zigzag packet during this run.",
+  "implementationStatus": "unchecked",
+  "provenance": {
+    "worker": "ChatGPT Pro — cgp-e0de6ed408a1",
+    "sessionId": "cgp-e0de6ed408a1",
+    "jobId": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations",
+    "issue": 63,
+    "inputCommit": "49f74b4d2bace99a76ceff4ac2199a3384c83c57",
+    "compatibleMainChecked": "28a4580b9ac7d536b360fc7742e838415f4e347e",
+    "atlasBlob": "37f2add06983c206067d1104e0f40a839cc3961a",
+    "roadmapSnapshot": "faa5423b925964415cc926802ab206567719d3f4",
+    "baseline": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+    },
+    "sourceKind": "Repository roadmap contracts at the input commit; no implementation or external-book verification is claimed.",
+    "submissionBranch": "cgp-e0de6ed408a1/link-quiver-representations"
+  },
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+      "reason": "Apply the assembled Wedderburn presentation to the semisimple quotient A/J(A) of a finite-dimensional k-algebra, not to A itself. Its matrix blocks and division-ring simple-module dictionary index the simple A-modules used for primitive idempotents and projective covers. The alg-closed specialization splits the division rings; retain them over a general field. Quiver Layer 3 still owns semiperfectness, covers and bound-quiver presentation, not supplied by Wedderburn alone.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
+          "quote": "pin a `WedderburnPresentation R`: a **chosen** finite index of\n  blocks, degrees `n : ι → ℕ`, division rings `D : ι → Type u`, and the equivalence `R ≃+* ∏ᵢ Matₙᵢ(Dᵢ)`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+          "quote": "and its Wedderburn decomposition indexes the simple\n  modules; over `[IsAlgClosed k]` the blocks are matrix algebras over `k`. Consume\n  [semisimple algebras](../SemisimpleAlgebras/README.md) for the Wedderburn side."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification",
+      "reason": "Use the positive-root, simple-root coefficient and height-lowering API of a finite reduced crystallographic root system in the ADE dimension-vector induction. Quiver theory must separately prove that an orientation-compatible admissible BGP sequence realizes the root-theoretic descent; arbitrary simple-reflection lowering is not that theorem. Root coordinates live over an auxiliary characteristic-zero realization and do not impose characteristic zero on the algebraically closed representation field k.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange",
+          "quote": "A positive root that is not a simple root is lowered in height by some\n  simple reflection"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification",
+          "quote": "Every positive root reduces to a simple root under an admissible sequence of\n     simple reflections, decreasing `Base.height`"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification",
+      "reason": "Use finite-type Cartan classification and realizations to identify connected positive-definite simply-laced graph matrices with valid A/D/E types. Quiver theory supplies the representation-finiteness argument and dimension-vector/root bijection. This does not make arbitrary indefinite Tits forms finite RootPairings; it does not import the root classification as a proof of Gabriel. Keep the finite connected quiver and alg-closed field hypotheses of the consumer.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+          "quote": "An indecomposable finite-type Cartan matrix\n  reindexes, up to a single simultaneous row/column relabelling, to `DynkinType.cartanMatrix t` for a\n  **unique valid** `t`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification",
+          "quote": "State the graph condition through the Cartan matrix and\n  [root systems](../RootSystems/README.md)' Dynkin data (`CoxeterMatrix.A/D/E₆/E₇/E₈`)"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-6-auslander-reiten-theory",
+      "reason": "Use only the generic additive ideal quotient: on finite-dimensional left A-modules, the ideal generated by maps through finite-dimensional projectives consists of such factorizations because projectives are closed under finite biproducts and isomorphism. The injective version is dual. Quotient functoriality and opposite compatibility support the stable/costable transpose and DTr constructions. Transport the supplier's right-module instances along A-op if used. Do not assume A self-injective or claim this additive quotient is triangulated; Frobenius hypotheses belong to the later stable-category theorem.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+          "quote": "For a class `P` of objects, define the ideal generated by maps `X → Q → Y` with `P(Q)`. The\ndefinition is its additive closure"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-6-auslander-reiten-theory",
+          "quote": "it is well-defined only up to projectives, through minimal presentations and duality on\nfinite-dimensional modules, so 6B-6D are prerequisites."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-2-the-krull-schmidt-theorem",
+      "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "reason": "Finite-length Krull-Schmidt existence and uniqueness provide the free commutative monoid of finite projective summands, hence the indecomposable-projective basis of split K0 in the finite-dimensional module setting. GEF owns group completion, small-model and exact-category comparisons; it cannot infer this basis merely from Jordan-Hölder. The simple basis is a separate finite-length theorem. Apply only to finite direct sums of nonzero indecomposables, not arbitrary exact categories.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-2-the-krull-schmidt-theorem",
+          "quote": "Two decompositions of a finite-dimensional module into\n  indecomposables have the same number of summands and a **bijection matching the summands up to\n  isomorphism**"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+          "quote": "Under the explicit finite, basic/split, and Krull--Schmidt\n  hypotheses supplied by the quiver roadmap, prove that indecomposable projective classes form a\n  basis of `K₀(proj A)` and simple classes form a basis of `G₀(mod A)`."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+      "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "reason": "Consume simple-indexed projective covers and composition multiplicities for finite-dimensional A to construct the categorical Cartan map. The source stores C_Q(i,j)=[P_i:S_j], while GEF stores C_G(i,j)=[P_j:S_i]; prove C_G=transpose(C_Q). Hom dimensions introduce dim_k End(S_i) over non-splitting fields; do not replace multiplicities by uncorrected dimensions. GEF owns the K0 map and comparison, whereas quiver theory owns the algebraic matrix.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+          "quote": "primarily by the **Jordan-Hölder multiplicities** `Cᵢⱼ = [Pᵢ : Sⱼ]` of `Sⱼ` in the projective cover\n  `Pᵢ`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+          "quote": "its `(i,j)` entry is `[P_j:S_i]`.  Compare this with the quiver roadmap's Cartan matrix"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors",
+      "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+      "reason": "For a finite acyclic quiver and finite-dimensional representations over a field, consume the length-one projective resolution and Ringel Hom-minus-Ext1 identity to compare categorical Ext-Euler with the integer form on dimension vectors. GEF must identify its categorical Ext with the resolution cokernel and prove finite support. No reverse dependency on GEF is needed to construct quiver Ext1. The symmetric graph form is E+E^T, not the composition Cartan matrix.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors",
+          "quote": "`eulerForm (dimVector M) (dimVector N) = dim_k Hom(M, N) − dim_k Ext¹(M, N)`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+          "quote": "For a finite acyclic quiver, prove that the categorical Ext-Euler form agrees with Tau Ceti's\n  Ringel form on dimension vectors and with the landed projective evaluation."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms",
+      "reason": "Once the specific zigzag algebra is proved finite-dimensional and split/basic, consume its ordinary primitive-idempotent/projective-cover and composition-Cartan infrastructure. Zigzag supplies homogeneous projectives and graded radical layers and compares the q=1 specialization; align row/column conventions with GEF by an explicit transpose. This dependency does not assert hereditary Ext vanishing for self-injective zigzag algebras, or finite dimensionality of arbitrary preprojective quotients.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+          "quote": "Build `projectiveCover M`: a projective `P` with an\n  essential epimorphism `P ↠ M` (superfluous kernel), **unique up to isomorphism**"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms",
+          "quote": "Define the indecomposable graded left projective `P_i = Z e_i`, its simple head, socle, radical\nlayers, grading shifts, and all homogeneous `Hom(P_i,P_j{d})` spaces."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors",
+      "target": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
+      "reason": "For the ordinary finite acyclic quiver algebra in cohomological degree zero, compare the perfect-DG Euler pairing to the quiver Ringel form using its length-one resolution and dimension-vector identity. DGAInfinity owns perfect envelopes and RHom comparison, while GEF supplies categorical Euler descent. Explicitly pass from the right-module convention to left modules over the opposite algebra (or the opposite quiver); this is not equality of differently ordered raw matrices. Do not infer smoothness of every finite-global-dimension algebra over an imperfect field from this edge.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors",
+          "quote": "Over an **acyclic** `Q` the path algebra is hereditary (global dimension\n  `≤ 1`), so every representation has a length-one projective resolution"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
+          "quote": "for an acyclic quiver compare\n  it with `TauCeti.eulerForm`."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-0-quivers-and-the-path-algebra",
+      "target": "tauceti:TauCetiRoadmap/DGAInfinity#layer-11-relative-quadratic-and-derived-koszul-duality",
+      "reason": "The finite-quiver quadratic acceptance calculation uses the path model and vertex idempotents. For S=k^I and the finite arrow bimodule V, DGAInfinity must prove T_S(V) agrees with the path algebra with the chosen product order, then compare the R=0 and length-two-relation quotients. Quiver Layer 0 supplies the path model, not quadratic/Koszul duality, completed tensor algebras, or finiteness of all paths. The duality remains under finite-projectivity and separable semisimple-base hypotheses.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-0-quivers-and-the-path-algebra",
+          "quote": "Build its unit `1 = ∑ᵥ eᵥ` as the **finite** sum of trivial paths"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-11-relative-quadratic-and-derived-koszul-duality",
+          "quote": "Compute a finite quiver quadratic example over `k^I`, and expose the\n  base-change, opposite, and bimodule-duality interfaces needed by downstream applications"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+      "target": "tauceti:TauCetiRoadmap/DGAInfinity#layer-3-minimal-models-and-homological-transfer",
+      "reason": "The source-pinned four-vertex transfer acceptance test uses an ordinary bound algebra kQ/(γβα). Reuse the admissible-quotient API rather than invent a second bound algebra: for the oriented four-vertex line the arrow ideal J satisfies J^4=0 and (γβα)⊆J^2. This is an input to that named example, not a prerequisite for Kadeishvili's theorem for arbitrary DG algebras. No alg-closed hypothesis is needed merely to form this presented quotient; DGAInfinity owns its resolution and nonzero transferred m3 computation.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+          "quote": "the notion of an **admissible ideal** (`rad^N ⊆ I ⊆ rad²`) with the quotient\n  path-algebra `kQ/I` API"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-3-minimal-models-and-homological-transfer",
+          "quote": "As a source-pinned second check, implement Keller's Section 3.3 example: the four-vertex linearly\noriented quiver with the length-three relation `γβα=0`."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-1-representations-of-a-quiver-as-kq-modules",
+      "target": "tauceti:TauCetiRoadmap/DGAInfinity#layer-7-dg-and-a-quotients-verdier-comparison-and-k₀-localization",
+      "reason": "The linearly oriented three-vertex acceptance case for DG localization uses the vertex projective that generates the killed subcategory and the three projectives on which the quotient is computed. Reuse the path-module/projective dictionary and convert left A-modules to the supplier's right-module convention through A-op. DGAInfinity owns the DG enhancement, homotopically flat quotient and Verdier/K0 comparisons; no categorical quotient is supplied by quiver theory.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-1-representations-of-a-quiver-as-kq-modules",
+          "quote": "`Pᵢ = kQ · eᵢ` (the left\n  ideal, with basis the paths **starting** at `i`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-7-dg-and-a-quotients-verdier-comparison-and-k₀-localization",
+          "quote": "let `B` be the full pretriangulated subcategory thickly generated by the middle\nvertex projective."
+        }
+      ]
+    }
+  ],
+  "overlaps": [
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-0-the-jacobson-radical-and-the-semisimplicity-criterion-supporting-api-optional",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra"
+      ],
+      "detail": "Both stages package nilpotence of the Jacobson radical of a finite-dimensional algebra and semisimplicity of its quotient. These are the same finite-dimensional algebra convenience results, unlike the separate quiver-only semiperfectness and presentation construction.",
+      "recommendation": "rescope",
+      "proposal": "Assign the shared finite-dimensional radical/semisimple-quotient package to SemisimpleAlgebras Layer 0 and have Quiver Layer 3 consume it once ownership is agreed. Keep primitive-idempotent lifting, projective covers, Cartan multiplicities and admissible presentations in Quiver Layer 3. The optional opposite-ring generality in Semisimple Layer 0 must not block the smaller finite-dimensional API. Do not merge whole roadmaps; no directed edge is asserted for this unresolved duplicate ownership."
+    }
+  ],
+  "examined": [
+    {"roadmapId":"tauceti:Completed/ContourIntegration","result":"none","note":"Summary/index screen only. Contour integration is analytic and does not supply path-algebra concatenation."},
+    {"roadmapId":"tauceti:Completed/EffectiveBounds","result":"none","note":"Summary/index screen only. Explicit analytic bounds and growth estimates do not consume the finite-algebra or root classification interfaces."},
+    {"roadmapId":"tauceti:Completed/IntegralLattices","result":"none","note":"Summary/index screen only. Integral Gram/discriminant/glue data is not the module composition Cartan matrix. ADE examples alone do not make quiver representations a prerequisite."},
+    {"roadmapId":"tauceti:Completed/OrthogonalL2Bases","result":"none","note":"Summary/index screen only. Orthogonal Hilbert bases are unrelated to indecomposable finite-module summands."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/AdicSpaces","result":"none","note":"Summary and stage-list screen. Valuations, rational localizations and sheafiness are not the finite-dimensional module inputs here."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCodingTheory","result":"none","note":"Summary and stage-list screen. Finite-field codes, distance and decoding do not supply path algebras or indecomposable-module classification."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCurves","result":"none","note":"Summary and stage-list screen. Function fields, divisors and curve cohomology have different carriers from finite quiver representations."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicTopology","result":"none","note":"Summary and stage-list screen. Homotopy and (co)homology constructions do not identify a finite-dimensional algebra interface for this job."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/AnalyticToricGeometry","result":"none","note":"Summary and stage-list screen. Toric analytic charts and tropicalization are not quiver relation quotients."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries","result":"none","note":"Summary and stage-list screen. Dirichlet-series and Euler-product terminology is unrelated to the bilinear Ringel form."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/BelyiMaps","result":"none","note":"Summary and stage-list screen. Dessins and monodromy use graphs but not the category of modules over a quiver path algebra."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/CFSGStatement","result":"none","note":"Summary and stage-list screen. Finite-simple-group classification is not Gabriel classification; no shared construction identified."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/Chebotarev","result":"none","note":"Summary and stage-list screen. Frobenius classes and prime distribution do not consume these finite-module constructions."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ClassFieldTheory","result":"none","note":"Summary and stage-list screen. Reciprocity and norm groups use arithmetic, not the proposed quiver interfaces."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer","result":"none","note":"Summary and stage-list screen. Finite generators and differentials are a Floer complex, not a quiver-representation category."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ConformalMapping","result":"none","note":"Summary and stage-list screen. Conformal maps and complex analysis do not consume path-algebra paths."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/DGAInfinity","result":"links","note":"Boundary, conventions, Layers 3, 7, 9, 10 and 11 and quiver acceptance passages inspected. Links record ordinary-algebra/vertex-projective inputs to two named acceptance tests and Ringel/quadratic comparisons; generic DG and A-infinity foundations are not rebuilt from quiver theory."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/DenseGraphLimits","result":"none","note":"Summary and stage-list screen. Graphons and finite graph counts are not path-algebra or finite-representation-type constructions."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/EllipticCurves","result":"none","note":"Summary and stage-list screen. Elliptic-curve models, group laws and reduction have no supported direct quiver-stage interface in the summary screen."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/Exchangeability","result":"none","note":"Summary and stage-list screen. Probability kernels and exchangeable structures do not provide the module decomposition theorem."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/FuchsianOrbifolds","result":"none","note":"Summary and stage-list screen. Orbifold presentations and triangle groups do not use the finite ADE quiver classification."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/GeometricTopology","result":"none","note":"Summary and stage-list screen. Manifolds and geometric decomposition have no supported path-algebra consumer in the summary screen."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/GlobalNumberFields","result":"none","note":"Summary and stage-list screen. Global arithmetic and ideal theory are not finite-dimensional noncommutative module theory."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms","result":"none","note":"Summary and stage-list screen. Quadratic arithmetic uses local-global invariants, not the graph Tits form with a representation-theoretic interpretation."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/GrothendieckEulerForms","result":"links","note":"Full README and relevant stages read. Consume Krull-Schmidt, projective covers/Cartan multiplicities and the acyclic Ringel identity. GEF owns exact K0, graded lifts, categorical Ext and comparisons. Explicit transpose C_G=C_Q^T is necessary."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/HeegaardFloer","result":"none","note":"Summary and stage-list screen. Analytic Floer moduli and differentials are not a prerequisite for quiver representations."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/HodgeStructures","result":"none","note":"Summary and scope read. Polarized semisimplicity and filtered linear algebra do not imply the finite-dimensional-algebra Krull-Schmidt theorem; no quiver interface stated."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/HopfRinow","result":"none","note":"Summary and stage-list screen. Riemannian completeness and geodesic results do not consume algebraic quiver paths."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/JacobianChallenge","result":"none","note":"Summary and stage-list screen. Picard/Jacobian and curve cohomology constructions do not identify a finite-quiver input."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/LocalFieldsRamification","result":"none","note":"Summary and stage-list screen. Valuations and ramification are not the radical of a finite-dimensional algebra."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ModularCurves","result":"none","note":"Summary and stage-list screen. Moduli of elliptic curves and Hecke correspondences do not state one of the audited quiver constructions."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ModularForms","result":"none","note":"Summary and stage-list screen. Modular forms and Hecke operators are not a general finite-algebra decomposition API."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/Multiquadratic","result":"none","note":"Summary and stage-list screen. Multiquadratic extensions and explicit arithmetic are unrelated to the quadratic Tits form."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/NumberFieldArithmetic","result":"none","note":"Summary and stage-list screen. Ideals, units and class groups have no supported stage interface in this screen."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/OneParameterSemigroups","result":"none","note":"Summary and stage-list screen. Topological/analytic semigroups differ from finite-dimensional algebra module categories."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/OptimalTransport","result":"none","note":"Summary and stage-list screen. Transport plans and metric/measure geometry do not supply these algebraic objects."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/PDE","result":"none","note":"Summary and stage-list screen. Partial differential equations and Sobolev theory have no supported quiver-stage interface."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups","result":"none","note":"Summary and stage-list screen. Permutation/Galois constructions are not Gabriel or Auslander-Reiten theory."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteCohomology","result":"none","note":"Summary and stage-list screen. Continuous cochains and general coefficient modules are not covered by finite-dimensional quiver Ext1; no direct link inferred from Ext terminology."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteProPGroups","result":"none","note":"Summary and stage-list screen. Profinite topology and cohomological dimension do not reuse the finite acyclic quiver resolution at the stated generality."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants","result":"none","note":"Summary and stage-list screen. Witt and Clifford invariants are distinct from graph dimension vectors and Ringel forms."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ReductiveGroups","result":"none","note":"Summary and stage-list screen. Root data is supplied by RootSystems, not quiver Gabriel classification; no reverse root-data dependency."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory","result":"none","note":"Summary and stage-list screen. Family index has no stage construction; keep stage-level links in the owning subroadmaps."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa","result":"none","note":"Summary and stage-list screen. Faithful Lie representations and PBW/enveloping-algebra machinery do not require finite-dimensional path-algebra or AR theory."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory","result":"none","note":"Summary and stage-list screen. Maschke/Schur and character orthogonality use semisimple representation theory, not the general indecomposable decomposition or quiver classification."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups","result":"none","note":"Summary and stage-list screen. Tensor constructions and invariant theory use the Lie/root/Schur-Weyl owners, not finite quiver representation type."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups","result":"none","note":"Summary and stage-list screen. Hilbert representations and Peter-Weyl are not finite-length module decompositions in the quiver regime."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction","result":"none","note":"Summary and stage-list screen. Induction and projective representations (up to scalars) are not projective modules or their covers. No direct interface supported."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups","result":"none","note":"Summary and stage-list screen. Smooth Lie groups and integration of Lie algebras do not use quiver path algebras."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight","result":"none","note":"Summary and stage-list screen. Highest-weight and Verma-module theory is not finite-quiver classification. Infinite-dimensional Verma modules prevent importing finite-length arguments without extra hypotheses."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations","result":"links","note":"Full own README and all seven stage descriptions read; inputs/outputs and conventions recorded. Root, finite-algebra, stable quotient, K0 and explicit algebra examples distinguished."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems","result":"links","note":"Full README read. Positive roots/height and finite-type Cartan classification feed Gabriel; arbitrary indefinite Tits forms are outside this finite root-system owner. Root Cartan matrices are not module composition Cartan matrices."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl","result":"none","note":"Summary and stage-list screen. Specht modules and double-centralizer/tensor constructions have no stated dependence on path algebras or AR theory."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras","result":"links","note":"Full README read. Wedderburn of A/J feeds Quiver Layer 3. Both roadmaps also package finite-dimensional radical cleanup; record that common block as a rescope overlap, not a second directed edge."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations","result":"none","note":"Summary and stage-list screen. Clifford/Spin modules use root/CSA structure rather than quiver classification. Shared ADE vocabulary is not a dependency."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/StablePeriodicCurved","result":"links","note":"Boundary, conventions and Layers 0-2 read. The generic additive factoring-ideal quotient feeds AR stable morphisms; do not import Frobenius/self-injective hypotheses or triangulation into arbitrary finite-dimensional algebras."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/StableReduction","result":"none","note":"Summary and stage-list screen. Dual graphs of stable curves do not by themselves define a quiver representation or path-algebra module."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/StandardDistributions","result":"none","note":"Summary and stage-list screen. Probability distributions do not supply any of the algebraic constructions; no relationship asserted."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/UniversalCovers","result":"none","note":"Summary and stage-list screen. Topological paths and covering-space lifts differ from combinatorial paths used to build a path algebra."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ZigzagPreprojective","result":"links","note":"Full README read. Path algebra and finite-module/projective interfaces feed its explicit quotients and graded projectives. Do not import hereditary Ext-vanishing into doubled cyclic quivers, or claim preprojective finite-dimensionality from Gabriel alone. At submission refresh, the independently authored Zigzag link packet already recorded Q0→Z0 and Q1→Z3; these two pairs are not repeated here."},
+    {"roadmapId":"ArithmeticGaloisRepresentations","result":"none","note":"Scope and Krull-topology search passages: continuous Galois representations/semisimplification do not provide or explicitly consume Krull-Schmidt quiver theory."},
+    {"roadmapId":"DeformationAndDerivedPatchingAlgebra","result":"none","note":"Summary and R03.3/P7-P9/R03.1-R03.6 passages: complete Noetherian local coefficient rings and Auslander-Buchsbaum are not finite-dimensional noncommutative algebra/AR theory."},
+    {"roadmapId":"EnhancedDerivedSheaves","result":"none","note":"Foundations-area extract E0-E4: unbounded sheaf enhancements, replacements and completion need different size/general-ring hypotheses, not the finite-dimensional quiver construction."},
+    {"roadmapId":"GeneralAlgebraicKTheory","result":"none","note":"Summary and Morita/K.7 passages: its exact-category and enhanced K-theory invariance is broader than finite-dimensional basic-algebra reduction; categorical K0 is owned by GEF."},
+    {"roadmapId":"KTheoryLowDegrees","result":"none","note":"Z.1 passage: stabilized idempotent presentations of arbitrary finitely generated projectives are not the finite-dimensional primitive-idempotent/projective-cover construction."},
+    {"roadmapId":"RefinedTraceMethods","result":"none","note":"RT.1 and Morita-invariance passages: algebraic cyclic and topological trace theories do not use the finite quiver classification."},
+    {"roadmapId":"SchemeAndStackFoundations","result":"none","note":"Summary screen: scheme/stack carriers and descent do not identify an audited quiver interface."}
+  ],
+  "requests": [
+    {"id":"Q-LINK-REQ-01","owner":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations","detail":"Correct Layer 0: vertex idempotents together with arrows generate the unital path algebra; arrows alone do not. Two isolated vertices give k×k and the scalar diagonal subalgebra."},
+    {"id":"Q-LINK-REQ-02","owner":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations","detail":"Correct the worked Cartan check. For 1→2, rows-projectives C_Q=[[1,1],[0,1]], whereas the root Cartan matrix is [[2,-1],[-1,2]]. The latter is E+E^T for E=[[1,-1],[0,1]], not C_Q."},
+    {"id":"Q-LINK-REQ-03","owner":"tauceti:TauCetiRoadmap/GrothendieckEulerForms","detail":"Publish the left-module transpose bridge C_G=C_Q^T; identical handedness does not mean identical row/column indexing. Preserve dim End(S_i) factors over a nonsplitting field."},
+    {"id":"Q-LINK-REQ-04","owner":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations","detail":"Separate arbitrary-quiver integral Tits reflections from finite RootPairing realization. The finite ADE root owner does not cover indefinite or affine Tits forms. Also discharge the BGP-admissible descent step separately from generic root height lowering and retain the no-killed-simple condition at each Coxeter step."},
+    {"id":"Q-LINK-REQ-05","owner":"tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras","detail":"Resolve the finite-dimensional radical API overlap with Quiver Layer 3 before adding a directed dependency for that common block."},
+    {"id":"Q-LINK-REQ-06","owner":"tauceti:TauCetiRoadmap/StablePeriodicCurved","detail":"Expose the generic additive factoring-ideal quotient separately from the Frobenius/triangulated part of Layer 0, for reuse in AR stable/costable module categories."}
+  ],
+  "validation": {
+    "localJson": "Python JSON parse, required fields, 12 unique cross-roadmap pairs with both evidence sides, no cycle within this packet, request-ID uniqueness, and matrix convention checks passed; this is NOT scripts/check_links.py.",
+    "fullRepositoryValidator": "Not run locally: container DNS failed when downloading the repository/atlas. PR workflow result must be checked from actual validator output, not just a green job.",
+    "mathematicalReview": "independent review required",
+    "validatorPath": "scripts/check_links.py",
+    "validatorBlob": "88135efe5a74ef82e088f3fa3189893e27a7867a"
+  },
+  "limitations": [
+    "A link is a planned interface, not a verified declaration at either baseline pin.",
+    "All confidence labels conservatively use inferred; one-sided roadmap citations are not treated as two-sided explicit endorsements.",
+    "Absence of a link means no supported interface was found in the stated screen, not a proof of mathematical nondependence."
+  ],
+  "coverage": {
+    "upstreamRoadmapsScreened": 60,
+    "ownStagesRead": 7,
+    "fullNearbyReadmes": [
+      "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+      "content/tau-ceti/RepresentationTheory/SemisimpleAlgebras/README.md",
+      "content/tau-ceti/GrothendieckEulerForms/README.md",
+      "content/tau-ceti/ZigzagPreprojective/README.md"
+    ],
+    "searchesPerformed": [
+      "QuiverRepresentations (atlas-wide references and graph records)",
+      "quiver (all pre-own-roadmap records through line 69500, including DGAInfinity/GEF matches; own/Root/Semisimple/Zigzag read separately)",
+      "Auslander (separated Auslander-Buchsbaum from Auslander-Reiten)",
+      "Krull and Krull-Schmidt/Krull--Schmidt (separated topology/dimension from module decomposition)",
+      "projective cover (pre-own-roadmap records through line 69500)",
+      "Morita (campaign/prefix records through line 35000)"
+    ],
+    "remainingWork": [
+      "Finish the campaign-wide object/synonym sweep, particularly remaining Morita/Cartan/Euler/Ext and stable-quotient matches outside the inspected prefix. Read both full stage descriptions for any new candidate.",
+      "Finish all neighboring campaign-area summaries; the foundations extract was inspected only through the early EnhancedDerivedSheaves records, not its complete contents.",
+      "Read the new MordellLawrenceVenkatesh roadmap and any later new roadmaps, and check newly integrated StandardDistributions, UniversalCovers, AdicSpaces, OrthogonalL2Bases and later packets for duplicates/cycles. The Zigzag packet was checked for quiver endpoints and two duplicated edges were removed.",
+      "Reconcile any RootSystems worker submission from issue #64 before integration; preserve a single copy of any shared stage edge.",
+      "Run the full repository validator and resolve every error, then obtain independent mathematical link review."
+    ],
+    "completeness": "Partial catalogue-wide checkpoint. The 60 upstream roadmaps were screened at the depths stated in examined; no exhaustive campaign-wide completeness claim."
+  },
+  "alreadyRecorded": [
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-0-quivers-and-the-path-algebra",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-0-affine-simply-laced-diagrams-doubled-graphs-relation-quotients-and-grading-descent",
+      "packet": "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json",
+      "packetBlob": "5e65d8ae7fb32b7898891cd85ba8b08dd8c02b22",
+      "note": "Read at submission-base commit; omitted from links to avoid a duplicate. Retain the target-owned quotient/gradation bridges and the no-acyclicity boundary."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-1-representations-of-a-quiver-as-kq-modules",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms",
+      "packet": "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json",
+      "packetBlob": "5e65d8ae7fb32b7898891cd85ba8b08dd8c02b22",
+      "note": "Read at submission-base commit; omitted from links to avoid a duplicate. Retain the target-owned quotient/gradation bridges and the no-acyclicity boundary."
+    }
+  ]
+}
