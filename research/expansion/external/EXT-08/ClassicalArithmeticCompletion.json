@@ -1,0 +1,218 @@
+{
+  "roadmapId": "ClassicalArithmeticCompletion",
+  "status": "partial",
+  "summary": "Source decomposition of the reciprocity core of CA.1 from Shoup's freely distributed Version 2: Euler's criterion and the two-to-one squaring map, the multiplicativity and periodicity of the Legendre symbol, Gauss's lemma with its permutation argument, the lattice-point count giving both (a|p) = (-1)^{sum floor(ja/p)} and the supplementary law (2|p) = (-1)^{(p^2-1)/8}, and the quadratic reciprocity law proved by partitioning a rectangle of lattice points. CA.0 receives the Chinese remainder theorem with its bijection form and an explicit note that the non-coprime case demanded by the stage's acceptance condition is only an exercise in the source. CA.2 through CA.7 are not read. Two structural gaps are recorded: CA.3 is an input of five stages and has no acquired source, and Gauss sums for composite moduli have no owner anywhere in the atlas as currently read.",
+  "sources": [
+    {
+      "id": "shoup-ntb-v2",
+      "title": "A Computational Introduction to Number Theory and Algebra (Version 2)",
+      "authors": "Victor Shoup",
+      "edition": "Version 2, the author's freely distributable PDF from https://www.shoup.net/ntb/ (598 pp.), downloaded 2026-09-16",
+      "url": "https://shoup.net/ntb/ntb-v2.pdf",
+      "sha256": "8e1abc54f4510c3f274dfbed07ea602a6a439ee24b2c916e61abe829b402ec06",
+      "readSections": [
+        "Theorem 2.6 (Chinese remainder theorem) with proof and its bijection restatement, printed pp. 22-24",
+        "Section 2.8: Theorem 2.20 (half of Z_p^* are squares) and Theorem 2.21 (Euler's criterion) with proofs, printed pp. 37-38",
+        "Section 12.1: Theorem 12.1 (the five properties of the Legendre symbol), Theorem 12.2 (Gauss's lemma) with proof, Theorem 12.3 with proof and the supplementary law at 2, Theorem 12.4 (quadratic reciprocity) with proof, printed pp. 342-346",
+        "Table of contents, printed pp. v-ix, used to locate Chapters 1, 2, 13, 14, 16, 17, 18 and sections 4.5, 7.5, 12.2-12.4"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ClassicalArithmeticCompletion:CA.0/chinese-remainder-theorem-with-its-bijection-form",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.0",
+      "title": "Chinese remainder theorem: solvability, uniqueness modulo the product, and the bijection form",
+      "kind": "theorem",
+      "statement": "Let {n_i}_{i=1}^{k} be a PAIRWISE relatively prime family of positive integers and a_1,...,a_k arbitrary integers. Then there is a in Z with a == a_i (mod n_i) for all i, and a' in Z is a solution of the same system if and only if a == a' (mod n) where n = prod_i n_i. Equivalently, with I_m := {0,...,m-1}, the map tau : I_n -> I_{n_1} x ... x I_{n_k}, a |-> (a mod n_1, ..., a mod n_k), is a bijection.",
+      "hypotheses": [
+        "The family must be PAIRWISE relatively prime, not merely have gcd 1 as a family; for a non-coprime family the system is solvable only under compatibility conditions on the a_i (Shoup's Exercise 2.16 treats the general case)",
+        "The n_i are positive; the uniqueness is modulo the product n, not modulo any individual n_i",
+        "The bijection form requires the target to be the product of the truncated interval sets I_{n_i}, matching the choice of representatives"
+      ],
+      "proofSteps": [
+        "Construct idempotents e_1,...,e_k with e_j == 1 (mod n_i) if j = i and e_j == 0 (mod n_i) otherwise, using the pairwise coprimality; then a = sum_i a_i e_i solves the system.",
+        "Uniqueness: two solutions differ by an integer divisible by every n_i, hence by their product since the n_i are pairwise coprime.",
+        "The bijection form follows from existence (surjectivity) and uniqueness (injectivity) together with |I_n| = prod |I_{n_i}|."
+      ],
+      "acceptance": [
+        "CA.0's acceptance condition asks that CRT be instantiated at non-coprime moduli with its compatibility hypothesis; the statement above does NOT cover that case and the source defers it to an exercise, so a consumer must not apply it to non-coprime moduli.",
+        "Check the k = 1 and k = 0 degenerate cases (empty product n = 1).",
+        "Check the worked table for n_1 = 3, n_2 = 5 in the source: as a runs over 0..14 the pairs (a mod 3, a mod 5) hit every pair exactly once."
+      ],
+      "sources": [
+        {
+          "sourceId": "shoup-ntb-v2",
+          "locator": "Theorem 2.6 and its restatement as a bijection, printed pp. 22-24",
+          "excerpt": "Theorem 2.6 (Chinese remainder theorem). Let {n_i}_{i=1}^{k} be a pairwise relatively prime family of positive integers, and let a_1,...,a_k be arbitrary integers. Then there exists a solution a in Z to the system of congruences a == a_i (mod n_i) (i = 1,...,k). Moreover, any a' in Z is a solution to this system of congruences if and only if a == a' (mod n), where n := prod_{i=1}^{k} n_i.",
+          "match": "Verbatim statement with the pairwise-coprimality hypothesis and the uniqueness modulo the product, plus the bijection restatement on p. 24."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.1/legendre-symbol-euler-criterion-and-gauss-lemma",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+      "title": "The Legendre symbol: Euler's criterion, multiplicativity and Gauss's lemma",
+      "kind": "theorem",
+      "statement": "Let p be an odd prime. (Theorem 2.20) Exactly half the elements of Z_p^* are squares. (Theorem 2.21, Euler's criterion) For alpha in Z_p^*, alpha^{(p-1)/2} = +-1; it is +1 if alpha is a square and -1 if not. (Theorem 12.1(i)-(iii)) Consequently (a|p) == a^{(p-1)/2} (mod p), so (-1|p) = (-1)^{(p-1)/2}; the symbol is multiplicative, (a|p)(b|p) = (ab|p); and it depends only on a mod p. (Theorem 12.2, Gauss's lemma) If p does not divide a, put alpha_j := ja mod p for j = 1,...,(p-1)/2 and let n be the number of j with alpha_j > p/2; then (a|p) = (-1)^n.",
+      "hypotheses": [
+        "p an odd prime throughout; Euler's criterion is stated for alpha in Z_p^*, so the case a == 0 (mod p) is excluded and the Legendre symbol is 0 there by a separate convention",
+        "Gauss's lemma requires p not dividing a but allows a even, which is what makes the case a = 2 accessible",
+        "Theorem 2.20's proof uses that the squaring map on Z_p^* is exactly two-to-one, which needs p odd"
+      ],
+      "proofSteps": [
+        "Theorem 2.20: the squaring map sigma on Z_p^* is two-to-one (every image has exactly two preimages), so its image has half the size of Z_p^*.",
+        "Euler's criterion: with gamma = alpha^{(p-1)/2}, Euler's theorem gives gamma^2 = alpha^{p-1} = 1, and in Z_p only +-1 square to 1, so gamma = +-1; the two cases are separated by the order of alpha in the cyclic group Z_p^*.",
+        "Gauss's lemma: let r_1,...,r_n be the alpha_j exceeding p/2 and s_1,...,s_k the rest. The r_i and s_j are distinct and non-zero, 0 < p - r_i < p/2, and no p - r_i equals an s_j (else ua == -va (mod p) with 1 <= u,v <= (p-1)/2, impossible). Hence s_1,...,s_k, p-r_1,...,p-r_n is a permutation of 1,...,(p-1)/2, and comparing the two products of ((p-1)/2)! gives the sign (-1)^n."
+      ],
+      "acceptance": [
+        "Check the convention at a == 0 (mod p): the Legendre symbol is 0 and Euler's criterion does not apply; CA.1's acceptance condition on normalization requires this to be explicit.",
+        "Check multiplicativity on a non-residue times a non-residue, which must give a residue.",
+        "Check Gauss's lemma for p = 7, a = 3: alpha_j = 3, 6, 2 for j = 1,2,3, of which one (namely 6) exceeds 3.5, so (3|7) = -1; verify directly that 3 is a non-residue mod 7."
+      ],
+      "sources": [
+        {
+          "sourceId": "shoup-ntb-v2",
+          "locator": "Theorem 2.20 and Theorem 2.21, printed pp. 37-38; Theorem 12.1 and Theorem 12.2 with proof, printed pp. 342-344",
+          "excerpt": "Theorem 2.21 (Euler's criterion). Let p be an odd prime and alpha in Z_p^*. (i) alpha^{(p-1)/2} = +-1. (ii) If alpha in (Z_p^*)^2 then alpha^{(p-1)/2} = 1. (iii) If alpha not in (Z_p^*)^2 then alpha^{(p-1)/2} = -1. ... Theorem 12.2 (Gauss' lemma). Let p be an odd prime and let a be an integer not divisible by p. Define alpha_j := ja mod p for j = 1,...,(p-1)/2, and let n be the number of indices j for which alpha_j > p/2. Then (a|p) = (-1)^n.",
+          "match": "Both statements verbatim with their hypotheses, and the proof of Gauss's lemma summarized in the proof steps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.1/quadratic-reciprocity-with-the-supplementary-law-at-two",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+      "title": "Quadratic reciprocity and the supplementary law at 2, by the lattice-point counting proof",
+      "kind": "theorem",
+      "statement": "(Theorem 12.3) If p is an odd prime and gcd(a,2p) = 1 then (a|p) = (-1)^t with t = sum_{j=1}^{(p-1)/2} floor(ja/p); and (2|p) = (-1)^{(p^2-1)/8}. (Theorem 12.4) If p and q are distinct odd primes then (p|q)(q|p) = (-1)^{((p-1)/2)((q-1)/2)}. Together with Theorem 12.1(i)-(iii) these give the complete Legendre-symbol calculus: the main reciprocity law, the supplementary law at -1, and the supplementary law at 2.",
+      "hypotheses": [
+        "Theorem 12.3's first assertion needs gcd(a,2p) = 1, i.e. a odd and prime to p; the assertion about (2|p) is proved separately within the same theorem because a = 2 is even",
+        "Theorem 12.4 needs p and q DISTINCT odd primes",
+        "The counting argument is over the rectangle 1 <= x <= (p-1)/2, 1 <= y <= (q-1)/2, which contains no pair with qx = py precisely because p and q are distinct primes"
+      ],
+      "proofSteps": [
+        "Theorem 12.3: from ja = p floor(ja/p) + alpha_j, summing over j = 1,...,(p-1)/2 gives (12.1); the permutation identity of Gauss's lemma gives (12.2); subtracting and reducing modulo 2 yields (a|p) = (-1)^t via Theorem 12.2. The case a = 2 is handled by the same bookkeeping and gives the exponent (p^2-1)/8.",
+        "Theorem 12.4: partition the rectangle S = {(x,y) : 1 <= x <= (p-1)/2, 1 <= y <= (q-1)/2} into S_1 = {qx > py} and S_2 = {qx < py}; then |S_1| = sum_{x=1}^{(p-1)/2} floor(qx/p) and |S_2| = sum_{y=1}^{(q-1)/2} floor(py/q), and |S_1| + |S_2| = |S| = ((p-1)/2)((q-1)/2). Applying Theorem 12.3 to a = q modulo p and to a = p modulo q gives the product formula.",
+        "Theorem 12.1(iv) and (v) are exactly the conclusions of Theorems 12.3 and 12.4, as the source notes."
+      ],
+      "acceptance": [
+        "CA.1's acceptance condition requires residue symbols at 2 and at infinite places to be recorded. The supplementary law at 2 is present here; the sign at the infinite place (the real place) corresponds to (-1|p) = (-1)^{(p-1)/2} and must be recorded as a separate statement.",
+        "Check the exclusion qx = py in the partition: it fails if p = q, which is why distinctness is required.",
+        "Numerical check: (3|5)(5|3) = (-1)^{1 . 1} = -1, and indeed 3 is a non-residue mod 5 while 5 == 2 is a non-residue mod 3, giving (-1)(-1) = 1 -- so verify the convention carefully on this example before trusting an implementation.",
+        "Check (2|p) for p = 7 ((7^2-1)/8 = 6, so (2|7) = +1) against 3^2 = 2 mod 7."
+      ],
+      "sources": [
+        {
+          "sourceId": "shoup-ntb-v2",
+          "locator": "Theorem 12.3 with proof and Theorem 12.4 with proof, printed pp. 344-346",
+          "excerpt": "Theorem 12.3. If p is an odd prime and gcd(a,2p) = 1, then (a|p) = (-1)^t where t = sum_{j=1}^{(p-1)/2} floor(ja/p). Also, (2|p) = (-1)^{(p^2-1)/8}. ... Theorem 12.4. If p and q are distinct odd primes, then (p|q)(q|p) = (-1)^{((p-1)/2)((q-1)/2)}.",
+          "match": "Both statements verbatim with hypotheses, and the lattice-point partition argument recorded in the proof steps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "ClassicalArithmeticCompletion:CA.1/legendre-symbol-euler-criterion-and-gauss-lemma",
+      "target": "ClassicalArithmeticCompletion:CA.1/quadratic-reciprocity-with-the-supplementary-law-at-two",
+      "reason": "Theorem 12.3's proof begins from the permutation identity established inside the proof of Gauss's lemma (Theorem 12.2) and ends by invoking Theorem 12.2 itself to convert the parity count into the Legendre symbol; Theorem 12.4 then applies Theorem 12.3 twice. Euler's criterion supplies Theorem 12.1(i)-(iii), without which the symbol is not multiplicative and the two applications cannot be combined.",
+      "sources": [
+        {
+          "sourceId": "shoup-ntb-v2",
+          "locator": "Proofs of Theorems 12.3 and 12.4, printed pp. 344-346"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ClassicalArithmeticCompletion:CA.0",
+      "status": "partial",
+      "remaining": [
+        "Only the Chinese remainder theorem was decomposed. Not read: Shoup Chapter 1 (divisibility, ideals and gcds, consequences of unique factorization, printed pp. 1-14), sections 2.1-2.3 and 2.5-2.7 (equivalence relations, congruences, linear congruences, residue classes, Euler's phi function, Euler and Fermat), and section 2.9 (summations over divisors, which is where Moebius inversion and Dirichlet convolution live).",
+        "The non-coprime CRT with its compatibility hypothesis, explicitly required by CA.0's acceptance condition, is only an exercise (Exercise 2.16) in the source."
+      ]
+    },
+    {
+      "stageId": "ClassicalArithmeticCompletion:CA.1",
+      "status": "partial",
+      "remaining": [
+        "The Jacobi symbol and its computation (Shoup sections 12.2-12.3, printed pp. 346-349) were located but not read.",
+        "Gauss and Jacobi SUMS, named in CA.1's text, are not in Shoup; they are decomposed in the EXT-08 FiniteFieldsAndCharacterSums packet from SGA 4 1/2, but only for finite fields, not for Z/N.",
+        "Higher reciprocity through class field theory (the KED-CFT half of the source route) was not read; Kedlaya's class field theory notes were located at https://kskedlaya.org/papers/cft-ptx.pdf but not acquired.",
+        "Power residues and the structure of Z_n^* (Shoup section 7.5) not read.",
+        "Residue symbols at infinite places are not treated by Shoup at all.",
+        "Supplier note: Shoup sections 12.2-12.4 (Jacobi symbol, its computation in O(len(n)^2), and testing quadratic residuosity) are the computational consumers of the reciprocity law. No prerequisite edge CA.1 -> ComputationalNumberTheory:CN.1 is proposed: the Miller-Rabin test decomposed in the EXT-08 ComputationalNumberTheory packet uses only the square-root structure of Z_n^*, not reciprocity, so an edge on the strength of shared vocabulary would be unjustified."
+      ]
+    },
+    {
+      "stageId": "ClassicalArithmeticCompletion:CA.2",
+      "status": "not_read",
+      "remaining": [
+        "Sequences and generating functions: Shoup Chapter 18 (linearly generated sequences) and section 16.8 (formal power series and Laurent series) were located in the table of contents but not read. Bernoulli/Euler numbers, automatic sequences, Farey sequences and Christol-type bridges have no source read."
+      ]
+    },
+    {
+      "stageId": "ClassicalArithmeticCompletion:CA.3",
+      "status": "not_read",
+      "remaining": [
+        "Shoup Chapters 13-14 (modules, vector spaces, matrices, Gaussian elimination), 16 (unique factorization of polynomials, minimal polynomials, extension fields, formal derivatives) and 17 (polynomial arithmetic) were located but not read. Resultants, discriminants and Smith/Hermite normal forms are not covered by Shoup and need a separate source.",
+        "Note: CA.3 is a declared input of FF.0, CN.0, ST.1 and GN.5, so it is a heavily consumed stage; nothing in EXT-08 decomposes it."
+      ]
+    },
+    {
+      "stageId": "ClassicalArithmeticCompletion:CA.4",
+      "status": "not_read",
+      "remaining": [
+        "Pell equations, sums of squares, descent, numerical semigroups: no source read. Shoup section 4.5 ('An effective version of Fermat's two squares theorem', printed pp. 86-89) is the one relevant item located and was not read."
+      ]
+    },
+    {
+      "stageId": "ClassicalArithmeticCompletion:CA.5",
+      "status": "not_read",
+      "remaining": [
+        "Number-field arithmetic handoff: no source read. Shoup does not treat number fields."
+      ]
+    },
+    {
+      "stageId": "ClassicalArithmeticCompletion:CA.6",
+      "status": "not_read",
+      "remaining": [
+        "Mahler measure, house, Pisot/Salem classes: no dedicated source read. The one item verified anywhere in EXT-08 is the definition of the Mahler measure M(alpha) = a_0 prod_i max(1,|alpha^{(i)}|) and its appearance in Liouville's constant 2^{1-d} M(alpha)^{-1} (Evertse Chapter 6, Theorem 6.1), recorded in the EXT-08 DiophantineApproximationAndTranscendence packet. The stage's own text already flags this as a new acquisition task."
+      ]
+    },
+    {
+      "stageId": "ClassicalArithmeticCompletion:CA.7",
+      "status": "not_read",
+      "remaining": [
+        "Integral Galois modules and orders: no source read. The stage's own text already flags this as a new acquisition task naming Noether's local tame normal-basis theorem and Froehlich's Galois-module theory."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "CA.3 is a declared input of five stages and has no acquired source in EXT-08",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.3"
+      ],
+      "detail": "Checked in data/atlas.json: CA.3 is required by ArithmeticStatistics:ST.1, ClassicalArithmeticCompletion:CA.4 and CA.6, ComputationalNumberTheory:CN.0, FiniteFieldsAndCharacterSums:FF.0 and GeometryOfNumbersAndQuadraticArithmetic:GN.5. Of the material CA.3 promises, Shoup covers polynomial arithmetic, minimal polynomials, formal derivatives and Gaussian elimination (Chapters 13, 14, 16, 17), but NOT resultants, discriminants, Smith or Hermite normal forms, or rational canonical forms; and none of those chapters was read. Next source action: read Shoup Chapters 16-17 for the polynomial half, and select a separate source for normal forms (for example Cohen, 'A Course in Computational Algebraic Number Theory', Chapter 2, which is not freely available)."
+    },
+    {
+      "title": "Gauss sums for composite moduli have no owner",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.1"
+      ],
+      "detail": "CA.1's text asks for 'Gauss/Jacobi sums' alongside quadratic reciprocity. Shoup does not treat Gauss sums at all. The EXT-08 FiniteFieldsAndCharacterSums packet decomposes Gauss sums over a FINITE FIELD (SGA 4 1/2 [Sommes trig.] 4.1-4.4), which does not cover the modulus-N Gauss sums tau(chi) = sum_{l mod N} chi(l) e^{2 pi i l/N} that the Dirichlet L-function functional equation needs (see the same issue recorded in the EXT-08 AnalyticNumberTheory packet). Next source action: select a source that treats characters of Z/N and their Gauss sums (Kedlaya's notes state the needed facts but leave |tau(chi)| = N^{1/2} as an exercise) and decide whether CA.1, FF.1 or FF.4 should own them."
+    },
+    {
+      "title": "Higher reciprocity via class field theory is unread",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.1"
+      ],
+      "detail": "CA.1 asks for 'source-scoped higher reciprocity through class field theory' with normalizations agreeing with LI.4 and with finite-field characters. Nothing of the sort was read. The named source KED-CFT resolves to Kedlaya's class field theory notes at https://kskedlaya.org/papers/cft-ptx.pdf, which were located during this job but not downloaded or read. Next source action: acquire that file and read the Artin reciprocity statement together with its local normalizations; note that the EXT-08 AnalyticNumberTheory packet records the same file as the next action for the class-field-theory input to the Artin L-function continuation, so one reading serves both."
+    }
+  ]
+}

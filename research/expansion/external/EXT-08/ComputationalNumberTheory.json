@@ -1,0 +1,286 @@
+{
+  "roadmapId": "ComputationalNumberTheory",
+  "status": "partial",
+  "summary": "Source decomposition of CN.0's cost model and CN.1's primality and polynomial-factorization content from Shoup's freely distributed Version 2: the RAM machine model under which every running-time claim is to be read; the Miller-Rabin test with the subgroup L_n, the Carmichael obstruction, the replacement set L'_n and the one-sided error bound |L'_n| <= (n-1)/4; the AKS algorithm with the underlying binomial identity in both directions, the bound O(len(n)^5) on the auxiliary modulus r, the running-time bound O(len(n)^{16.5}) and both correctness statements; and the three-phase factorization of polynomials over a finite field with its exact operation counts, including the tightness of the Cantor-Zassenhaus bound. The result-type distinction that CN.1's acceptance condition demands (probable prime versus proven prime) is made explicit. CN.2 through CN.5 are not read, and it is recorded that the roadmap's declared source cannot supply them.",
+  "sources": [
+    {
+      "id": "shoup-ntb-v2",
+      "title": "A Computational Introduction to Number Theory and Algebra (Version 2)",
+      "authors": "Victor Shoup",
+      "edition": "Version 2, the author's freely distributable PDF from https://www.shoup.net/ntb/ (598 pp.), downloaded 2026-09-16",
+      "url": "https://shoup.net/ntb/ntb-v2.pdf",
+      "sha256": "8e1abc54f4510c3f274dfbed07ea602a6a439ee24b2c916e61abe829b402ec06",
+      "readSections": [
+        "Section 3.1-3.2: asymptotic notation (with Exercises 3.11-3.16) and the RAM machine model with its instruction set, printed pp. 50-54",
+        "Section 3.3.4: Theorem 3.1 (the two-high-digit quotient criterion) with proof, printed pp. 58-59",
+        "Section 10.2: the set L_n and Theorem 10.1, Carmichael numbers and Theorem 10.2, the set L'_n and Theorem 10.3 with the proof's key steps (10.1)-(10.3), printed pp. 307-310",
+        "Section 10.3: the algorithm MR(n,k) and its error analysis, the trial-division preprocessing and the cost comparison O(len(n)) versus O(len(n)^3) per Miller-Rabin iteration, Theorem 10.4, printed pp. 311-317",
+        "Chapter 19 (finite fields) in full, printed pp. 509-521 -- read for the EXT-08 FiniteFieldsAndCharacterSums packet and reused here for the CN.0 carrier discussion",
+        "Section 20.3: Theorem 20.3, Theorem 20.4 and Theorem 20.5 (square-free decomposition and its cost), printed pp. 526-529",
+        "Section 20.4: Theorem 20.6 (distinct-degree factorization, O(l^3 len(q)) operations), Theorems 20.7 and 20.8 (equal-degree splitting, expected O(k l^2 len(q)) operations for p = 2 and p > 2), Theorem 20.9 (Cantor-Zassenhaus, expected O(l^3 len(q)) operations), printed pp. 530-538",
+        "Section 20.5: Theorem 20.10 (Berlekamp's Algorithm B1, O(l^3 + l^2 len(q)) operations), printed p. 540",
+        "Chapter 21 (deterministic primality testing): Theorem 21.1 with proof, the statement of Algorithm AKS (Fig. 21.1), Theorem 21.2 with proof, Theorem 21.3 (running time O(len(n)^{16.5})) with proof, Theorem 21.4, Theorem 21.5, and the statements of Lemmas 21.6-21.11, printed pp. 548-560",
+        "Table of contents, printed pp. v-ix"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ComputationalNumberTheory:CN.0/ram-machine-model-and-bit-complexity",
+      "parentStageId": "ComputationalNumberTheory:CN.0",
+      "title": "The RAM machine model and the bit-complexity convention used by all running-time statements",
+      "kind": "definition",
+      "statement": "A RAM consists of an unbounded sequence of memory cells m[0], m[1], m[2], ..., each holding an arbitrary integer, together with a program: a finite sequence of instructions of three types. ARITHMETIC instructions have the form gamma <- alpha * beta where * is addition, subtraction, multiplication or integer division (floor), and alpha, beta are of the form c, m[a] or m[m[a]] and gamma of the form m[a] or m[m[a]], with c an integer constant and a a non-negative integer constant. BRANCHING instructions have the form IF alpha REL beta GOTO i with REL one of =, !=, <, >, <=, >=. The HALT instruction stops execution. Execution starts at I_0 and follows branches until HALT. Input and output are assumed to be in memory cells at prescribed locations; no input/output instructions are specified.",
+      "hypotheses": [
+        "Memory cells hold ARBITRARY integers, so a naive unit-cost reading of this model would be unrealistic; the running-time statements elsewhere in the source are in terms of len(n), the bit length, which is the convention that makes them meaningful",
+        "The instruction set is finite and fixed; in particular integer division is a primitive, which matters for the division-with-remainder analysis",
+        "The model is idealized: the source states explicitly that high-level algorithm descriptions 'can be routinely translated into the machine-language of an actual computer' and that the formal model exists 'so that our theorems on the running times of algorithms have a precise mathematical meaning'"
+      ],
+      "proofSteps": [
+        "The source defines the model directly; there is nothing to prove.",
+        "The model is instantiated immediately in section 3.3 on basic integer arithmetic, where the cost of each operation is expressed in terms of the number of base-B digits.",
+        "Theorem 3.1 illustrates the level of detail at which the source works: the quotient floor(x/y) is determined by the two high-order digits, precisely 'Let x and y be integers such that 0 <= x = x' 2^n + s and 0 < y = y' 2^n for some integers n, s, x', y' with n >= 0 and 0 <= s < 2^n. Then floor(x/y) = floor(x'/y')'."
+      ],
+      "acceptance": [
+        "CN.0's acceptance condition asks that conversions commute with ring/field operations and carry equality/embedding proofs. This node supplies only the machine and cost model; the carrier/representation half is NOT supplied by the sections read.",
+        "Check that a claimed running time is stated in bit operations (as a function of len(n)) and not in unit-cost RAM steps; the two differ by a factor that is unbounded in this model.",
+        "Check that randomness is a separate resource: the model above is deterministic, and probabilistic algorithms are treated in Shoup Chapter 9, which was not read."
+      ],
+      "sources": [
+        {
+          "sourceId": "shoup-ntb-v2",
+          "locator": "Section 3.2 'Machine models and complexity theory', printed pp. 53-54",
+          "excerpt": "So that our theorems on the running times of algorithms have a precise mathematical meaning, we formally define an 'idealized' computer: the random access machine or RAM. A RAM consists of an unbounded sequence of memory cells m[0], m[1], m[2], ..., each of which can store an arbitrary integer, together with a program.",
+          "match": "The model as defined in the source, which is the semantics under which every running-time statement in the other nodes of this packet is to be read."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ComputationalNumberTheory:CN.1/miller-rabin-probabilistic-primality",
+      "parentStageId": "ComputationalNumberTheory:CN.1",
+      "title": "Miller-Rabin: the sets L_n and L'_n, Carmichael numbers, and the one-sided error bound 1/4",
+      "kind": "theorem",
+      "statement": "Define L_n := {alpha in Z_n^+ : alpha^{n-1} = 1}, a subgroup of Z_n^*. (Theorem 10.1) If n is prime then L_n = Z_n^*; if n is composite and L_n is a PROPER subgroup of Z_n^*, then |L_n| <= (n-1)/2. (Theorem 10.2) Every Carmichael number (an odd composite n with L_n = Z_n^*) has the form n = p_1 ... p_r with r > 2 distinct primes. Writing n - 1 = t 2^h with t odd, the Miller-Rabin test uses instead L'_n, the set of alpha for which the sequence alpha^t, alpha^{2t}, ..., alpha^{t 2^h} reaches 1 with the last non-one entry equal to -1. (Theorem 10.3) If n is prime then L'_n = Z_n^*; if n is composite then |L'_n| <= (n-1)/4. Membership in L_n can be tested in time O(len(n)^3) by repeated squaring.",
+      "hypotheses": [
+        "n is the odd integer being tested; the bound (n-1)/4 in Theorem 10.3 holds for EVERY odd composite n, with no Carmichael exception -- that is the whole point of replacing L_n by L'_n",
+        "Theorem 10.1's second clause needs the hypothesis that L_n is a PROPER subgroup; without it the bound is false, and Carmichael numbers are exactly the counterexamples",
+        "The error is ONE-SIDED: a prime input is always accepted, so a 'composite' answer is certain while a 'prime' answer is probabilistic",
+        "The analysis of |L'_n| uses the decomposition n = prod p_i^{e_i}, the cyclic structure of each Z_{p_i^{e_i}}^*, and g := min{h, h_1, ..., h_r} where phi(p_i^{e_i}) = t_i 2^{h_i}"
+      ],
+      "proofSteps": [
+        "Theorem 10.1: L_n is the kernel of the (n-1)-power map on Z_n^*, hence a subgroup; if n is prime, |Z_n^*| = n-1 and Lagrange gives L_n = Z_n^*; if L_n is proper then |Z_n^*| = t |L_n| with t > 1, so |L_n| <= |Z_n^*|/2 <= (n-1)/2.",
+        "Theorem 10.3: first show every alpha in L'_n satisfies alpha^{t 2^g} = 1, by a minimal-counterexample argument on the index j where alpha^{t 2^j} = -1, contradicting that the order of alpha_i^t divides |Z_{p_i^{e_i}}^*|. Hence L'_n is contained in rho_{g-1}^{-1}({+-1}) where rho_j is the (t 2^j)-power map, giving |L'_n| <= 2 |Ker rho_{g-1}|. The CRT isomorphism gives |Ker rho_j| = prod_i gcd(t_i 2^{h_i}, t 2^j), whence 2^r |Ker rho_{g-1}| = |Ker rho_g| <= |Ker rho_h|; combining yields the bound, with the case r = 2 handled separately using Theorem 10.2.",
+        "The algorithm MR(n,k) runs k independent iterations; by Theorem 10.3 a composite input is accepted with probability at most 4^{-k}, while a prime input is always accepted.",
+        "PROOF-READING BOUNDARY: the full case analysis at the end of the proof of Theorem 10.3 and the analysis of Theorem 10.4 (the distribution of the number of tests performed during random prime generation) were read only in outline."
+      ],
+      "acceptance": [
+        "CN.1's acceptance condition requires probable prime and proven prime to be SEPARATE result types. Miller-Rabin yields only 'probable prime'; the AKS node yields 'proven prime'. An implementation that conflates them is unsound.",
+        "Carmichael test: n = 561 = 3 . 11 . 17 satisfies L_n = Z_n^*, so Theorem 10.1's bound does not apply to it; check that Theorem 10.3 still gives |L'_{561}| <= 140.",
+        "Check the one-sidedness explicitly: there is no bound on the probability of rejecting a prime, because that probability is zero.",
+        "Cost check: one Miller-Rabin iteration costs O(len(n)^3) while trial division by small primes costs O(len(n)) per prime, which is why the source recommends trial-division preprocessing."
+      ],
+      "sources": [
+        {
+          "sourceId": "shoup-ntb-v2",
+          "locator": "Theorem 10.1 with proof, Theorem 10.2, Theorem 10.3 with the key steps of its proof, printed pp. 307-310",
+          "excerpt": "Theorem 10.1. If n is prime, then L_n = Z_n^*. If n is composite and L_n is a proper subgroup of Z_n^*, then |L_n| <= (n-1)/2. ... Theorem 10.3. If n is prime, then L'_n = Z_n^*. If n is composite, then |L'_n| <= (n-1)/4.",
+          "match": "Both bounds verbatim with their hypotheses, and the proof structure recorded in the proof steps; the Carmichael obstruction to the first is Theorem 10.2 on the same pages."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ComputationalNumberTheory:CN.1/aks-deterministic-primality",
+      "parentStageId": "ComputationalNumberTheory:CN.1",
+      "title": "AKS: a deterministic polynomial-time primality proof, with its exact running-time bound",
+      "kind": "theorem",
+      "statement": "(Theorem 21.1) For an integer n > 1: if n is prime then (X + a)^n = X^n + a in Z_n[X] for all a in Z_n; conversely if n is composite then that identity FAILS for every a in Z_n^*. Algorithm AKS: (1) reject if n = a^b with a, b > 1; (2) find the least r > 1 with either gcd(n,r) > 1, or gcd(n,r) = 1 and the multiplicative order of [n]_r in Z_r^* greater than 4 len(n)^2; (3) accept if r = n; (4) reject if gcd(n,r) > 1; (5) for j = 1 to 2 len(n) floor(r^{1/2}) + 1, reject if (X + j)^n != X^n + j modulo X^r - 1 in Z_n[X]; (6) accept. (Theorem 21.2) For n > 1 and m >= 1 the least prime r with r not dividing n and the order of [n]_r greater than m is O(m^2 len(n)); hence the r found in step 2, which need not be prime, is O(len(n)^5). (Theorem 21.3) AKS can be implemented in time O(len(n)^{16.5}). (Theorem 21.4) A prime input is accepted. (Theorem 21.5) A composite input is rejected.",
+      "hypotheses": [
+        "Theorem 21.1's converse direction needs a in Z_n^*, not merely a in Z_n; the proof uses that p^k does not divide binomial(n,p) for a prime p with n = p^k m and p not dividing m",
+        "Step 2's threshold is the multiplicative order exceeding 4 len(n)^2, and step 5's loop bound is 2 len(n) floor(r^{1/2}) + 1; both constants enter the correctness proof",
+        "The perfect-power test of step 1 is necessary: without it the argument in step 5 can be satisfied by prime powers",
+        "Step 3 covers the case where the search reaches r = n, which happens only for small n",
+        "The running time O(len(n)^{16.5}) is for the implementation described, using classical (not fast) arithmetic in Z_n[X]/(X^r - 1)"
+      ],
+      "proofSteps": [
+        "Theorem 21.1, forward: (X+a)^n = X^n + a^n + sum_{i=1}^{n-1} binomial(n,i) a^i X^{n-i}; for prime n every binomial(n,i) with 1 <= i <= n-1 is divisible by n and a^n = a by Fermat, so the identity holds in Z_n[X].",
+        "Theorem 21.1, converse: for composite n take a prime p | n with n = p^k m, p not dividing m; the numerator of binomial(n,p) = n(n-1)...(n-p+1)/p! is divisible by p^k and no higher power, the denominator by p and no higher power, so p^k does not divide binomial(n,p); with a in Z_n^* the coefficient of X^{n-p} is non-zero.",
+        "Theorem 21.2: a prime r is 'bad' if r | n or r | (n^d - 1) for some d <= m, so every bad r divides n prod_{d=1}^{m} (n^d - 1); bounding the number of prime divisors of this product gives the O(m^2 len(n)) bound on the least good prime.",
+        "Theorem 21.3: with r = O(len(n)^5), step 5 performs O(r^{1/2} len(n)) exponentiations to the power n in Z_n[X]/(X^r - 1); each takes O(len(n)) ring operations, each of which takes O(r^2) operations in Z_n, each of which takes time O(len(n)^2).",
+        "Theorem 21.5 is the substantial direction and is proved through Lemmas 21.6-21.11, using the ring E built from Z_n[X]/(X^r-1), the sets C(alpha) and D(k), and the assumptions (A1)-(A5).",
+        "PROOF-READING BOUNDARY: Lemmas 21.6-21.11 and the assumptions (A1)-(A5) were read as statements only; the proof of Theorem 21.5 was not read in detail."
+      ],
+      "acceptance": [
+        "CN.1's acceptance condition on separate result types: AKS produces a PROVEN prime, with no error probability, and this is what distinguishes it from Miller-Rabin.",
+        "Practicality check: the source states explicitly that AKS 'has no real practical significance' compared with Miller-Rabin; an implementation choosing AKS for performance reasons is misreading the source.",
+        "Check each of the five steps separately on small inputs, in particular n = 9 (rejected in step 1) and n = 2, 3 (accepted in step 3).",
+        "Check the exponent 16.5 is for the stated implementation; a faster polynomial arithmetic changes it, and the source's bound should not be quoted as intrinsic."
+      ],
+      "sources": [
+        {
+          "sourceId": "shoup-ntb-v2",
+          "locator": "Theorem 21.1 with proof, Fig. 21.1 (Algorithm AKS), Theorem 21.2 with proof, Theorem 21.3 with proof, Theorems 21.4 and 21.5, printed pp. 548-552",
+          "excerpt": "Theorem 21.1. Let n > 1 be an integer. If n is prime, then for all a in Z_n, we have the following identity in the ring Z_n[X]: (X + a)^n = X^n + a. Conversely, if n is composite, then for all a in Z_n^*, the identity (21.1) does not hold. ... Theorem 21.3. Algorithm AKS can be implemented so that its running time is O(len(n)^{16.5}). ... Theorem 21.5. If the input to Algorithm AKS is composite, then the output is false.",
+          "match": "The underlying identity with both directions and their hypotheses, the exact algorithm, and the running-time and correctness statements."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ComputationalNumberTheory:CN.1/polynomial-factorization-over-finite-fields",
+      "parentStageId": "ComputationalNumberTheory:CN.1",
+      "title": "Square-free decomposition, distinct-degree and equal-degree factorization, with operation counts",
+      "kind": "construction",
+      "statement": "Let F be a finite field of characteristic p with q elements and f in F[X] monic of degree l > 0. (Theorem 20.3) If gcd(f, D(f)) = f then f = g(X^p) for some g, and writing g = sum_i a_i X^i one has f = h^p with h = sum_i a_i^{p^{w-1}} X^i. (Theorem 20.4) If f = f_1^{e_1} ... f_r^{e_r} is the factorization into irreducibles then f/gcd(f, D(f)) = prod over those i with e_i not == 0 (mod p) of f_i. (Theorem 20.5) Algorithm SFD computes a square-free decomposition using O(l^2 + l (w-1) len(p)/p) operations in F. (Theorem 20.6) Distinct-degree factorization uses O(l^3 len(q)) operations in F. (Theorems 20.7, 20.8) Equal-degree splitting uses an expected O(k l^2 len(q)) operations in F, for p = 2 and for p > 2 respectively. (Theorem 20.9) The whole Cantor-Zassenhaus algorithm uses an expected O(l^3 len(q)) operations in F, and this bound is tight (attained when the input is irreducible). (Theorem 20.10) Berlekamp's Algorithm B1 uses O(l^3 + l^2 len(q)) operations in F.",
+      "hypotheses": [
+        "All counts are in OPERATIONS IN F, not bit operations; converting requires multiplying by the cost of an F-operation, which is where the RAM/bit model of CN.0 enters",
+        "q = p^w; the square-free decomposition cost has a term depending on w and p separately because of the p-th power extraction in Theorem 20.3",
+        "Equal-degree splitting is PROBABILISTIC: the bounds in Theorems 20.7 and 20.8 are expected values, and the failure probability per pair of irreducible factors is 1/2 for p = 2 and at most 5/9 for p > 2",
+        "Cantor-Zassenhaus as analysed assumes a square-free input; SFD is used as preprocessing and the bound of Theorem 20.9 survives that preprocessing",
+        "Berlekamp's B1 is deterministic in the stated form but its cost includes Gaussian elimination on an l x l matrix over F"
+      ],
+      "proofSteps": [
+        "Theorem 20.3: gcd(f, D(f)) = f forces D(f) = 0 since deg D(f) < deg f; writing f = sum_i c_i X^i, D(f) = sum_i i c_i X^{i-1} = 0 forces c_i = 0 unless p | i, so f = g(X^p); the p-th root is extracted coefficientwise using the Frobenius, giving the exponent p^{w-1}.",
+        "Theorem 20.4 is a direct consequence of Theorem 20.3 together with the multiplicity bookkeeping for the derivative.",
+        "Theorem 20.5 is proved by tracking, at the beginning of the j-th inner iteration, that g = prod_{i in S_{>=j}} f_i and f = prod_{i in S_{>=j}} f_i^{e_i - j + 1} prod_{i in S'} f_i^{e_i}, where S is the set of i with e_i not divisible by p and S' its complement.",
+        "Theorem 20.6: the main loop runs at most l times, each iteration performing a q-th powering at O(l^2 len(q)) operations plus gcd and division at O(l^2), giving O(l^3 len(q)).",
+        "Theorems 20.7-20.9: the expected number of loop iterations in EDF is O(len(r)), proved by a coupling argument over pairs of irreducible factors; combining with DDF and SFD gives Theorem 20.9.",
+        "PROOF-READING BOUNDARY: the detailed probabilistic analysis of Theorem 20.7 and the proof of Theorem 20.8 (left as an exercise in the source) were not read."
+      ],
+      "acceptance": [
+        "CN.1's acceptance condition requires that a factorization output multiply back to the input. Check this after each of the three phases separately (square-free, distinct-degree, equal-degree), since each phase has its own invariant.",
+        "Check the p | e_i case in Theorem 20.4: those factors are invisible to f/gcd(f,D(f)) and are recovered only via the p-th root of Theorem 20.3.",
+        "Check the randomness model: Theorems 20.7 and 20.8 bound an EXPECTED cost, so a worst-case deterministic bound cannot be quoted from them; Berlekamp's B1 (Theorem 20.10) is the deterministic alternative in the sections read.",
+        "Check the tightness remark for Theorem 20.9: an irreducible input really does cost O(l^3 len(q)) operations."
+      ],
+      "sources": [
+        {
+          "sourceId": "shoup-ntb-v2",
+          "locator": "Theorems 20.3, 20.4, 20.5, printed pp. 526-529; Theorems 20.6, 20.7, 20.8, 20.9, printed pp. 530-538; Theorem 20.10, printed p. 540",
+          "excerpt": "Theorem 20.4. Let f in F[X] be a monic polynomial of degree l > 0. Suppose that the factorization of f into irreducibles is f = f_1^{e_1} ... f_r^{e_r}. Then f/gcd(f, D(f)) = prod_{1<=i<=r, e_i not== 0 (mod p)} f_i. ... Theorem 20.9. The Cantor-Zassenhaus factoring algorithm uses an expected number of O(l^3 len(q)) operations in F. This bound is tight, since in the worst case, when the input is irreducible, the algorithm really does do this much work.",
+          "match": "The square-free decomposition identity with the p-divisibility condition on the exponents, and the overall expected operation count with the source's own tightness remark."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "ComputationalNumberTheory:CN.0/ram-machine-model-and-bit-complexity",
+      "target": "ComputationalNumberTheory:CN.1/aks-deterministic-primality",
+      "reason": "Theorem 21.3's bound O(len(n)^{16.5}) is a bit-complexity statement: its derivation multiplies O(r^{1/2} len(n)) exponentiations by O(len(n)) ring operations by O(r^2) operations in Z_n by O(len(n)^2) time per Z_n-operation. Every one of those factors is a cost in the model of CN.0, so the claim is meaningless without it.",
+      "sources": [
+        {
+          "sourceId": "shoup-ntb-v2",
+          "locator": "Proof of Theorem 21.3, printed p. 549"
+        }
+      ]
+    },
+    {
+      "source": "FiniteFieldsAndCharacterSums:FF.0/irreducible-polynomial-census-and-existence",
+      "target": "ComputationalNumberTheory:CN.1/polynomial-factorization-over-finite-fields",
+      "reason": "The distinct-degree factorization step is a sequence of gcd computations with X^{q^k} - X, and its correctness is exactly the census identity X^{q^l} - X = prod_{k | l} P_k proved in FF.0 from Shoup Theorem 19.10: the gcd of f with X^{q^k} - X is the product of the irreducible factors of f of degree dividing k. This is the specific output consumed; the atlas already has FF.3 -> CN.1, and this records the node-level content of that edge.",
+      "sources": [
+        {
+          "sourceId": "shoup-ntb-v2",
+          "locator": "Theorem 19.10, printed p. 513, and the distinct-degree factorization algorithm of section 20.4, printed pp. 530-534"
+        }
+      ]
+    },
+    {
+      "source": "ComputationalNumberTheory:CN.1/miller-rabin-probabilistic-primality",
+      "target": "ComputationalNumberTheory:CN.1/aks-deterministic-primality",
+      "reason": "NOT a mathematical dependency: AKS does not use Miller-Rabin. The edge records the result-type contract that CN.1's acceptance condition demands. Miller-Rabin's output is a 'probable prime' with one-sided error at most 4^{-k} (Theorem 10.3), AKS's output is a proven prime (Theorems 21.4 and 21.5), and a consumer must carry the distinction. The source itself makes the comparison explicit, noting that AKS 'has no real practical significance' next to Miller-Rabin.",
+      "sources": [
+        {
+          "sourceId": "shoup-ntb-v2",
+          "locator": "Chapter 21 opening paragraph, printed p. 548; Theorem 10.3, printed p. 309"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ComputationalNumberTheory:CN.0",
+      "status": "partial",
+      "remaining": [
+        "Only the machine and cost model was decomposed. Not read: section 3.3 (basic integer arithmetic) beyond Theorem 3.1, section 3.4 (computing in Z_n), section 3.5 (faster integer arithmetic), Chapter 4 (Euclid's algorithm, rational reconstruction), Chapter 9 (probabilistic algorithms, where the randomness model is fixed) and Chapter 8 (finite and discrete probability distributions).",
+        "Representations of algebraic numbers, ideals, lattices and p-adic approximations are not covered by Shoup at all and have no source read.",
+        "CN.0's acceptance condition on conversions commuting with ring/field operations is NOT addressed by anything read."
+      ]
+    },
+    {
+      "stageId": "ComputationalNumberTheory:CN.1",
+      "status": "partial",
+      "remaining": [
+        "The final case analysis in the proof of Theorem 10.3 and the whole of Theorem 10.4 were read only in outline.",
+        "Lemmas 21.6-21.11 and assumptions (A1)-(A5), i.e. the actual proof of AKS correctness on composite inputs (Theorem 21.5), were read as statements only.",
+        "Integer factorization: Chapter 15 (smooth numbers, subexponential discrete logarithms and factoring, printed pp. 399-418) was located but NOT read, so nothing here supplies integer factoring.",
+        "Primality CERTIFICATES (as opposed to tests) -- Pratt certificates, ECPP -- have no source read; AKS gives a decision procedure, not a short certificate.",
+        "The detailed probabilistic analysis behind Theorems 20.7 and 20.8 was not read, and Theorem 20.8's proof is left as an exercise in the source.",
+        "Deterministic factorization algorithms (Shoup section 20.6) not read."
+      ]
+    },
+    {
+      "stageId": "ComputationalNumberTheory:CN.2",
+      "status": "not_read",
+      "remaining": [
+        "Integral bases, orders, ideal decomposition, unit and class groups, local expansions: no source read. Shoup does not treat number fields, so the SHOUP half of this stage's source route cannot supply CN.2 at all; a separate source (for example Cohen's 'A Course in Computational Algebraic Number Theory', not freely available) is required."
+      ]
+    },
+    {
+      "stageId": "ComputationalNumberTheory:CN.3",
+      "status": "not_read",
+      "remaining": [
+        "Modular symbols, Hecke matrices, q-expansions, point counts, isogenies, Sturm bounds: no source read. Shoup covers none of this."
+      ]
+    },
+    {
+      "stageId": "ComputationalNumberTheory:CN.4",
+      "status": "not_read",
+      "remaining": [
+        "Interval/ball arithmetic, precision propagation, certified roots, L-value approximation: no source read. Shoup does not treat validated numerics. Note that CN.4 requires AnalyticNumberTheory:AN.4, which IS partially decomposed in the EXT-08 AnalyticNumberTheory packet (Hecke L-functions and their functional equations); the numerical-evaluation half has no source."
+      ]
+    },
+    {
+      "stageId": "ComputationalNumberTheory:CN.5",
+      "status": "not_read",
+      "remaining": [
+        "Certificate schemas, dataset provenance, benchmark reporting: no source read; this is a methodology stage rather than a mathematical one."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Integer factorization has no read source anywhere in EXT-08",
+      "neededBy": [
+        "ComputationalNumberTheory:CN.1"
+      ],
+      "detail": "Verified: polynomial factorization over finite fields (Shoup Chapter 20) with full operation counts, and both primality routes (Miller-Rabin and AKS). Not verified: any integer factoring algorithm. Shoup Chapter 15 ('Subexponential-time discrete logarithms and factoring', printed pp. 399-418) covers the quadratic-sieve-style method and was located in the table of contents but not read; the number field sieve is not in Shoup at all. Next source action: read Shoup Chapter 15 (no new acquisition needed) and record the smoothness hypotheses and the heuristic versus proved status of the running times -- Shoup is careful about which factoring running times are heuristic."
+    },
+    {
+      "title": "Primality certificates versus primality tests",
+      "neededBy": [
+        "ComputationalNumberTheory:CN.1/aks-deterministic-primality"
+      ],
+      "detail": "CN.1 asks for 'primality certificates and source-scoped deterministic/probabilistic tests'. What was read supplies TESTS: Miller-Rabin (probabilistic, one-sided) and AKS (deterministic). Neither produces a short independently checkable certificate: AKS's 'proof' is the whole execution trace. Verified: the exact statements and the running-time bound. Not verified: any certificate scheme. Next source action: select a source for Pratt certificates (elementary, from Lucas's converse of Fermat) and, if elliptic-curve certificates are wanted, an ECPP reference; neither is in Shoup."
+    },
+    {
+      "title": "CN.0's carrier and conversion requirements are unmet",
+      "neededBy": [
+        "ComputationalNumberTheory:CN.0/ram-machine-model-and-bit-complexity"
+      ],
+      "detail": "CN.0 asks for exact representations of integers, rationals, algebraic numbers, finite fields, ideals, lattices and p-adic approximations, with conversions carrying equality/embedding proofs, and for canonical mathematical carriers separated from computable presentations. Verified: only the RAM model and the bit-complexity convention. Shoup does supply finite-field presentations (Chapter 19, read for the FF packet: E = F[X]/(f) with the isomorphism of Theorem 19.14), but nothing about ideals, lattices or p-adic approximations, and nothing about carrier/presentation separation. Next source action: this stage's requirements are partly a formalization-design question rather than a source question; the mathematical half needs Shoup Chapters 16-17 plus a lattice source."
+    },
+    {
+      "title": "Shoup cannot supply CN.2, CN.3 or CN.4",
+      "neededBy": [
+        "ComputationalNumberTheory:CN.2",
+        "ComputationalNumberTheory:CN.3",
+        "ComputationalNumberTheory:CN.4"
+      ],
+      "detail": "Checked against the table of contents, printed pp. v-ix: the book's 21 chapters cover integers, congruences, computing with large integers, Euclid's algorithm, the distribution of primes, abelian groups, rings, probability, probabilistic algorithms, primality testing, discrete logarithms, quadratic reciprocity, modules and vector spaces, matrices, subexponential algorithms, more rings, polynomial arithmetic, linearly generated sequences, finite fields, algorithms for finite fields, and deterministic primality testing. There is no number-field, modular-forms or validated-numerics material. CN.2-CN.4 therefore need sources outside this roadmap's declared route (SHOUP, LOCAL). Recorded so that the route is not treated as adequate."
+    }
+  ]
+}

@@ -1,0 +1,419 @@
+{
+  "roadmapId": "DiophantineApproximationAndTranscendence",
+  "status": "partial",
+  "summary": "Source decomposition from Evertse's Leiden lecture notes on Diophantine Approximation (chapters 1, 4, 5, 6, 7): Dirichlet's approximation theorem with both its pigeonhole and Minkowski proofs and the simultaneous version (DT.0); Liouville's inequality with the explicit effective constant 2^{1-d} M(alpha)^{-1} and a complete proof, together with Thue's approximation theorem proved in full by the auxiliary-polynomial/Siegel's-Lemma method, and the explicit contrast between effective Liouville and ineffective Thue-through-Roth (DT.1); Schmidt's Subspace Theorem with its exceptional subspaces, the reason the conclusion cannot be strengthened to finiteness, and the half-page deduction of Roth from it (DT.2); the Lindemann-Weierstrass theorem in Baker's form with its proof route, and Baker's quantitative lower bound for linear forms in logarithms with Matveev's fully explicit constant (DT.3); and effective finiteness for unit, Thue and superelliptic equations (DT.4). Three central theorems -- Roth, the Subspace Theorem and Baker's quantitative bound -- are STATED but not proved in this source, and each is recorded as an explicit gap with a next source action rather than presented as an input. DT.5 has no source.",
+  "sources": [
+    {
+      "id": "evertse-dio-notes",
+      "title": "Diophantine Approximation (lecture notes for the Leiden mastermath course), chapters 1, 4, 5, 6, 7",
+      "authors": "Jan-Hendrik Evertse",
+      "edition": "2019 edition of the notes, chapter PDFs dio19-1.pdf, dio19-4.pdf, dio19-5.pdf, dio19-6.pdf, dio19-7.pdf, downloaded 2026-09-16 from the author's Leiden page",
+      "url": "http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml",
+      "sha256": "chapter files: ch1 299eabc4e88d0e114bc35819531c803699c3beb2873b9b24e11afadd84d82e23; ch4 1d120934e01ca54eb985678211716b7f5dd656dc3ad6882ed8cbfbbff5ddee54; ch5 1f60cf276ff1a995036c7a238f20b9ce98a0ccfb65e1e759e95fd48b2b49e3b5; ch6 07430cdb8be3a56ce39fd6c442f6c153f9b7fadfdcb7ae327a51e21ae63da97a; ch7 8535b816bfc2899719849ab531686f2a7d812d0427ac9042b4ee7c86fe726610",
+      "readSections": [
+        "Chapter 1, section 1.1: Theorem 1.1 (Dirichlet 1842) with proof, Corollary 1.2, Theorem 1.3 (Minkowski's first convex body theorem) with the derivation of Theorem 1.1 from it, Theorem 1.4 (Dirichlet, simultaneous, stated without proof), printed pp. 1-3",
+        "Chapter 1, section 1.2: Theorem 1.5 (Roth) and Theorem 1.6 (Schmidt) as announcements, printed pp. 4-5",
+        "Chapter 4: Theorem 4.1 (Hermite) and the chain Lemma 4.2 - Lemma 4.7, Theorem 4.8 (Lindemann-Weierstrass in Baker's form) with Corollaries 4.9, 4.10, Theorem 4.11 and the reduction Theorem 4.11 => Theorem 4.8, Lemmas 4.12-4.15, section 4.3 statements (Theorem 4.16 Gel'fond-Schneider, Theorem 4.19 Baker 1966, Corollary 4.20), printed pp. 1-20",
+        "Chapter 5, section 5.1: Theorem 5.1 (Baker 1966), Theorem 5.2 (Baker 1975) with the meaning of effectivity, Corollary 5.3, Theorem 5.4 (Matveev 2000) with the fully explicit constant, Corollary 5.5, Theorem 5.6 (Tijdeman), printed pp. 85-89",
+        "Chapter 5, sections 5.2-5.3: Dirichlet's unit theorem (Theorem 5.8) and the effective lemmas 5.9-5.11, Theorem 5.12 (effective finiteness for unit equations) and its attribution, Theorem 5.14 (Baker 1968, superelliptic/hyperelliptic equations) and the worked example (5.8), printed pp. 90-99",
+        "Chapter 6, section 6.1: Theorem 6.1 (Liouville, with the explicit constant 2^{1-d} M(alpha)^{-1}) with proof, the history Thue-Siegel-Gel'fond-Dyson-Roth, Theorem 6.2 (Roth) stated, the effectivity discussion, Theorem 6.3, Corollary 6.4, Theorem 6.5 (Fel'dman), Theorems 6.6, 6.7, 6.8, printed pp. 107-114",
+        "Chapter 6, section 6.2: Theorem 6.9 (Thue's approximation theorem) with its complete proof -- Siegel's Lemma as quoted, the norm inequalities (6.13)-(6.15), divided derivatives, Lemma 6.10 (construction of P_r, Q_r), Lemma 6.11, Lemma 6.12, Lemma 6.13, and Theorem 6.14, printed pp. 115-127",
+        "Chapter 7, section 7.1: Theorem 7.1 (Subspace Theorem, Schmidt 1972) with the ineffectivity remark, Corollary 7.2 (deduction of Roth), Lemma 7.3, Theorem 7.4, Lemma 7.5, Lemma 7.6, Theorem 7.7, Theorem 7.8 with proof, Theorem 7.9 with Lemmas 7.10-7.12, Theorem 7.13, printed pp. 137-150"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.0/dirichlet-approximation-from-minkowski",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.0",
+      "title": "Dirichlet's approximation theorem, its pigeonhole and Minkowski proofs, and the simultaneous version",
+      "kind": "theorem",
+      "statement": "(Theorem 1.1) For every real alpha and every integer Q >= 2 there are integers x, y, not both 0, with |x - alpha y| <= Q^{-1}, 0 < y <= Q and gcd(x,y) = 1. (Corollary 1.2) If alpha is irrational there are infinitely many coprime pairs (x,y) with y >= 0 and |alpha - x/y| <= y^{-2}. (Theorem 1.3, Minkowski) A central symmetric convex body C in R^n with vol(C) >= 2^n contains a non-zero lattice point of Z^n. (Theorem 1.4, Dirichlet, simultaneous) For real alpha_1,...,alpha_n and real Q > 1 there is (x_1,...,x_n,y) in Z^{n+1} with |x_i - alpha_i y| <= Q^{-1} for all i and 0 < y <= Q^n; if the alpha_i are not all rational there are infinitely many coprime tuples with |alpha_i - x_i/y| <= y^{-1-1/n} for all i and y > 0.",
+      "hypotheses": [
+        "In Theorem 1.1 the bound is on |x - alpha y|, not on |alpha - x/y|; the second form follows by dividing by y and costs a factor y",
+        "Minkowski's theorem needs C to be convex, symmetric about 0, and of volume at least 2^n; the strict statement with volume > 2^n and the closed version with >= 2^n for compact C differ, and the source uses the >= 2^n form for the body C_Q",
+        "In the derivation of Theorem 1.1 from Theorem 1.3 the case y = 0 must be excluded separately: it would force x = +-1, and (+-1, 0) is not in C_Q because Q > 1",
+        "Theorem 1.4 is stated in the source WITHOUT proof",
+        "The exponent 1 + 1/n in the simultaneous version is the one that Schmidt's subspace theorem later improves to 1 + 1/n + delta for algebraic alpha_i"
+      ],
+      "proofSteps": [
+        "Pigeonhole proof of Theorem 1.1: partition [0,1] into Q subintervals of length 1/Q, apply the box principle to the Q+1 numbers 1 and {k alpha} for k = 1,...,Q, obtaining integers x, y with 0 < |y| <= Q and |x - alpha y| <= 1/Q; divide by gcd and fix the sign.",
+        "Minkowski proof: apply Theorem 1.3 to C_Q = {(x,y) in R^2 : |x - alpha y| <= Q^{-1}, |y| <= Q}, a central symmetric convex body of area 4 = 2^2, to get a non-zero lattice point; then normalize gcd and sign, and rule out y = 0 as above.",
+        "Corollary 1.2 follows from Theorem 1.1 by letting Q -> infinity and using irrationality to ensure the pairs do not stabilize."
+      ],
+      "acceptance": [
+        "Check the exclusion of y = 0, which is where Q > 1 is used; with Q = 1 the statement is false.",
+        "Check that the area of C_Q is exactly 4 independently of alpha and Q; this is the reason Minkowski applies with no slack.",
+        "Check the exponent in Corollary 1.2: y^{-2}, not y^{-1}; and that it is the classical benchmark against which Liouville and Roth are measured.",
+        "Rational test: for alpha = p/q the conclusion of Corollary 1.2 fails to give infinitely many DISTINCT approximations; irrationality is needed."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-dio-notes",
+          "locator": "Chapter 1, Theorem 1.1 with both proofs and Theorem 1.3, printed pp. 1-3",
+          "excerpt": "Theorem 1.1 (Dirichlet, 1842). Let alpha in R. Then for every integer Q >= 2 there are integers x, y, not both 0, such that |x - alpha y| <= Q^{-1}, 0 < y <= Q and gcd(x,y) = 1. ... Theorem 1.3 (Minkowski's first convex body theorem, 1896). Let C subset R^n be a central symmetric convex body of volume (n-dimensional measure) vol C >= 2^n. Then C contains a point x in Z^n with x != 0.",
+          "match": "Both statements verbatim, together with the derivation of the first from the second recorded in the proof steps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.1/liouville-inequality-with-explicit-constant",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.1",
+      "title": "Liouville's inequality with the explicit effective constant 2^{1-d} M(alpha)^{-1}",
+      "kind": "theorem",
+      "statement": "Let alpha be an algebraic number of degree d >= 1. Then |xi - alpha| >= c(alpha) H(xi)^{-d} for every rational xi != alpha, where H(x/y) = max(|x|,|y|) for coprime x, y, and one may take c(alpha) = 2^{1-d} M(alpha)^{-1} with M(alpha) = a_0 prod_{i=1}^{d} max(1, |alpha^{(i)}|) the Mahler measure of alpha (a_0 the leading coefficient of the primitive minimal polynomial, alpha^{(i)} the conjugates). The constant is effectively computable.",
+      "hypotheses": [
+        "alpha algebraic of degree d >= 1; xi rational and different from alpha",
+        "H is the height of a rational number as max of the absolute values of coprime numerator and denominator",
+        "The primitive minimal polynomial has a_0 > 0 and gcd(a_0,...,a_d) = 1; the Mahler measure uses this normalization",
+        "Effectivity: the constant is explicit, in contrast with Thue/Siegel/Gel'fond/Dyson/Roth"
+      ],
+      "proofSteps": [
+        "Set F(X,Y) = Y^d F_alpha(X/Y) = a_0 prod_i (X - alpha^{(i)} Y), a binary form with integer coefficients.",
+        "For xi = x/y with coprime integers and y > 0, F(x,y) is a non-zero integer, so |F(x,y)| >= 1.",
+        "Factor |F(x,y)| / (2^{d-1} M(alpha) H(xi)^d) as the product of |x - alpha y| / (max(1,|alpha|) max(|x|,y)) and the terms |x - alpha^{(i)} y| / (2 max(1,|alpha^{(i)}|) max(|x|,y)) for i >= 2.",
+        "Bound the first factor by |alpha - x/y| and each remaining factor by 1, giving |F(x,y)| / (2^{d-1} M(alpha) H(xi)^d) <= |alpha - x/y|; combined with |F(x,y)| >= 1 this is the claim."
+      ],
+      "acceptance": [
+        "Check the case d = 1: the inequality becomes |xi - alpha| >= c/H(xi), consistent with the fact that a rational alpha can be approximated only to order 1 by other rationals with bounded denominator.",
+        "Check the two trivial inequalities in the proof, in particular |x - alpha^{(i)} y| <= 2 max(1,|alpha^{(i)}|) max(|x|,y), which is where the factor 2^{d-1} comes from.",
+        "Check effectivity: M(alpha) is computable from the minimal polynomial, so c(alpha) is an explicit number; this is exactly what distinguishes DT.1's Liouville half from its Roth half.",
+        "Check that the hypothesis xi != alpha is needed only when alpha is rational."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-dio-notes",
+          "locator": "Chapter 6, Theorem 6.1 with the alternative proof, printed pp. 107-108",
+          "excerpt": "Theorem 6.1. Let alpha be an algebraic number of degree d >= 1. Then there is an effectively computable number c(alpha) > 0 such that |xi - alpha| >= c(alpha) H(xi)^{-d} for every xi in Q with xi != alpha. ... We define the Mahler measure of alpha by M(alpha) := a_0 prod_{i=1}^{d} max(1, |alpha^{(i)}|). We prove Theorem 6.1 with c(alpha) = 2^{1-d} M(alpha)^{-1}.",
+          "match": "Statement, explicit constant and the complete proof summarized in the proof steps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.1/thue-approximation-theorem-and-the-auxiliary-polynomial-method",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.1",
+      "title": "Thue's approximation theorem with a complete auxiliary-polynomial proof, and the status of Roth",
+      "kind": "theorem",
+      "statement": "(Theorem 6.9, Thue) Let alpha be a real algebraic number of degree d >= 3 and let kappa > d/2 + 1. Then |xi - alpha| <= H(xi)^{-kappa} has only finitely many solutions in rationals xi. (Theorem 6.2, Roth 1955) For alpha real algebraic of degree >= 3 and every kappa > 2 there is c(alpha,kappa) > 0 with |xi - alpha| >= c(alpha,kappa) H(xi)^{-kappa} for all rational xi. Both are INEFFECTIVE: the proofs show finiteness but do not permit computing the constant or listing the solutions. Roth is stated but NOT proved in this source; Thue's theorem is proved in full.",
+      "hypotheses": [
+        "alpha real algebraic of degree d >= 3 in both statements; for d <= 2 Liouville's effective inequality is stronger",
+        "Thue's exponent is kappa > d/2 + 1, strictly weaker than Roth's kappa > 2 when d >= 3; the intermediate improvements are Siegel 1921 (kappa >= 2 sqrt d), Gel'fond and Dyson 1949 (kappa > sqrt(2d))",
+        "The auxiliary construction uses a parameter epsilon with 0 < epsilon < 1/2 chosen depending on d and kappa, and a positive integer r chosen afterwards",
+        "Siegel's Lemma is used in the form: for a number field K of degree d and integers N > dM > 0 and coefficients a_{ij} in O_K of house at most A, the system has a non-zero integer solution with max|x_i| <= (3NA)^{dM/(N - dM)}",
+        "Roth's theorem also holds for rational and quadratic alpha (weaker than Liouville there) and, trivially, for non-real algebraic alpha"
+      ],
+      "proofSteps": [
+        "Lemma 6.10 (auxiliary polynomials): for every r >= 1 there exist P_r, Q_r in Z[X] of degree at most [(1/2 + epsilon) d r], not both zero, with P_r - alpha Q_r divisible by (X - alpha)^r and ||P_r||, ||Q_r|| <= C_1^r, where C_1 = 6b max(1,house(alpha))^{d(1 + 1/epsilon)} and b is a denominator of alpha. Proof: the divisibility is r linear conditions on 2m+2 > (1 + 2 epsilon) d r unknowns, so Siegel's Lemma applies and gives the height bound.",
+        "Lemma 6.11: if (X - beta)^m divides F in Q[X] and f is the minimal polynomial of beta, then f^m divides F.",
+        "Lemma 6.12 (non-vanishing at a controlled index): for two rational xi_1, xi_2 there is k <= d(2 epsilon r + 1) with P_r^{((k))}(xi_1) != xi_2 Q_r^{((k))}(xi_1). The proof analyses F := P_r Q_r' - P_r' Q_r and shows F is not identically zero, using that otherwise P_r/Q_r would be constant, forcing f^r | Q_r with r deg f = rd > (1/2 + epsilon) d r >= deg Q_r, impossible since epsilon < 1/2.",
+        "Lemma 6.13 supplies the effectively computable comparison constant, and the theorem follows by evaluating the auxiliary polynomial at two hypothetical very good approximations and comparing the resulting upper and lower bounds; the two-approximation structure is exactly the source of the ineffectivity.",
+        "PROOF-READING BOUNDARY: Lemma 6.13 and the final inequality chain (printed pp. 121-127) were read only in outline; Siegel's Lemma (Theorem 3.20 of Chapter 3) was not read."
+      ],
+      "acceptance": [
+        "DT.1's acceptance condition requires Roth to be stated for algebraic irrational alpha and epsilon > 0 with a finiteness conclusion that provides no effective list. Both halves are met by this source, but the PROOF of Roth is not present: only Thue's weaker theorem is proved. A consumer must not treat this source as supplying Roth's proof.",
+        "Check the exponent comparison: for d = 3, Thue gives kappa > 5/2 and Roth kappa > 2; for d = 4, Thue gives kappa > 3.",
+        "Check where the ineffectivity enters: the argument needs TWO solutions xi_1, xi_2 with H(xi_2) much larger than H(xi_1), so it bounds the number of solutions but not their size.",
+        "Check epsilon < 1/2, which is used in Lemma 6.12 to contradict f^r | Q_r; the argument breaks at epsilon = 1/2."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-dio-notes",
+          "locator": "Chapter 6, Theorem 6.9 and Lemmas 6.10-6.12 with proofs, printed pp. 115-121",
+          "excerpt": "Theorem 6.9. Let alpha be a real algebraic number of degree d >= 3 and kappa > d/2 + 1. Then the inequality |xi - alpha| <= H(xi)^{-kappa} in xi in Q has only finitely many solutions. ... Lemma 6.10. For every positive integer r there exist polynomials P_r, Q_r in Z[X] of degree at most [(1/2 + epsilon)dr], not both equal to 0, with the following properties: P_r - alpha Q_r is divisible by (X - alpha)^r, ||P_r|| <= C_1^r, ||Q_r|| <= C_1^r",
+          "match": "The theorem with its exact exponent and the auxiliary-polynomial construction with the Siegel's Lemma input, as recorded in the proof steps."
+        },
+        {
+          "sourceId": "evertse-dio-notes",
+          "locator": "Chapter 6, Theorem 6.2 and the effectivity discussion, printed pp. 109-110",
+          "excerpt": "Theorem 6.2 (Roth, 1955). Let alpha be a real algebraic number of degree >= 3. Then for every kappa > 2 there exists a constant c(alpha,kappa) > 0 such that |xi - alpha| >= c(alpha,kappa) H(xi)^{-kappa} for every xi in Q. ... It should be noted that Theorem 6.1 is effective ... In contrast, the results of Thue, Siegel, Gel'fond, Dyson and Roth mentioned above are ineffective",
+          "match": "Roth's statement as given in this source (without proof) and the explicit contrast between effective Liouville and ineffective Thue-through-Roth."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.2/subspace-theorem-and-its-exceptional-subspaces",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.2",
+      "title": "Schmidt's Subspace Theorem, the necessity of the exceptional subspaces, and the deduction of Roth",
+      "kind": "theorem",
+      "statement": "(Theorem 7.1) Let n >= 2 and let L_i = alpha_{i1} X_1 + ... + alpha_{in} X_n, i = 1,...,n, be n linearly independent linear forms with algebraic coefficients, and let C > 0, delta > 0. Then the solutions of |L_1(x) ... L_n(x)| <= C ||x||^{-delta} in x in Z^n are contained in a union of finitely many proper linear subspaces of Q^n. The proof is ineffective: it does not permit determining the subspaces. (Corollary 7.2) The case n = 2 with L_1 = Y, L_2 = X - alpha Y yields Roth's theorem. (Theorem 7.8) For algebraic alpha, C > 0 and kappa > d + 1, the inequality |xi - alpha| <= C H(xi)^{-kappa} has only finitely many solutions among algebraic xi of degree at most d, where H(xi) is the maximum of the absolute values of the coefficients of the primitive minimal polynomial.",
+      "hypotheses": [
+        "The n forms must be LINEARLY INDEPENDENT and have coefficients algebraic over Q; the variables range over Z^n and ||.|| is the maximum norm",
+        "The conclusion is containment in finitely many proper subspaces, NOT finiteness: if some L_i vanishes at a non-zero integer point x_0 then every multiple lambda x_0 is a solution, so infinitely many solutions can occur. Replacing the inequality by 0 < |L_1 ... L_n| <= C ||x||^{-delta} does give finiteness for n = 2 (Lemma 7.3) but not in general",
+        "Ineffectivity is inherited by every consequence, including Roth",
+        "In Theorem 7.8 the height of an algebraic number is the height of its primitive minimal polynomial, a different normalization from the rational-number height used in DT.1"
+      ],
+      "proofSteps": [
+        "Corollary 7.2: given a solution xi = x/y of |xi - alpha| <= C H(xi)^{-kappa} with kappa = 2 + delta, multiply by y^2 to get |y(x - alpha y)| <= C max(|x|,|y|)^{-delta}; the forms Y and X - alpha Y are linearly independent, so the Subspace Theorem applies and puts the coprime pairs (x,y) into finitely many one-dimensional subspaces of Q^2, each of which determines xi uniquely.",
+        "Theorem 7.8: for a solution xi with primitive minimal polynomial F = x_0 + x_1 X + ... + x_d X^d, write |F(alpha)| = |integral_0^1 F'(xi + t(alpha - xi)) (alpha - xi) dt| <= |alpha - xi| max_{0<=t<=1} |F'(xi + t(alpha - xi))| and bound the derivative by C' ||x||, giving |F(alpha)| <= |xi - alpha| C' ||x||; then apply Theorem 7.7 to the d+1 linear forms in x_0,...,x_d.",
+        "PROOF-READING BOUNDARY: the Subspace Theorem itself is stated without proof in this source; Theorem 7.7 and Lemmas 7.5, 7.6 were read as statements only."
+      ],
+      "acceptance": [
+        "DT.2's acceptance condition requires the exceptional finite union of proper subspaces to be constructed at theorem level and finiteness kept separate from effectiveness. Both are explicit here: the subspaces are part of the conclusion, and the source states that they cannot be determined.",
+        "Degenerate check: take n = 2, L_1 = X, L_2 = Y and the solutions (lambda, 0); the product vanishes, so the inequality holds for all lambda and there are infinitely many solutions inside one subspace. This is exactly why (7.3) with the strict lower bound 0 < |L_1 ... L_n| is introduced.",
+        "Check the deduction of Roth: the multiplication by y^2 is what converts the exponent 2 + delta into the required -delta on the right-hand side.",
+        "Check the two height conventions (rational height vs. minimal-polynomial height) before combining DT.1 and DT.2 statements."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-dio-notes",
+          "locator": "Chapter 7, Theorem 7.1 with the ineffectivity remark, Corollary 7.2 with proof, and the discussion of (7.3), printed pp. 137-139",
+          "excerpt": "Theorem 7.1. (Subspace Theorem, W.M. Schmidt, 1972). Let n >= 2, let L_i = alpha_{i1} X_1 + ... + alpha_{in} X_n (i = 1,...,n) be n linearly independent linear forms with coefficients in Q-bar and let C > 0, delta > 0. Then the set of solutions of |L_1(x) ... L_n(x)| <= C ||x||^{-delta} in x in Z^n is contained in a union T_1 u ... u T_t of finitely many proper linear subspaces of Q^n. Remark. The proof of the Subspace Theorem is ineffective, i.e., it does not enable to determine the subspaces.",
+          "match": "Verbatim statement with the linear-independence and algebraicity hypotheses, the subspace conclusion, and the explicit ineffectivity."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.3/lindemann-weierstrass-in-bakers-form",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.3",
+      "title": "The Lindemann-Weierstrass theorem in Baker's form, with a complete proof route",
+      "kind": "theorem",
+      "statement": "(Theorem 4.8) Let alpha_1,...,alpha_n and beta_1,...,beta_n be algebraic numbers with the alpha_i pairwise distinct and all beta_i non-zero. Then beta_1 e^{alpha_1} + ... + beta_n e^{alpha_n} != 0. Consequences: (Corollary 4.9) e^alpha is transcendental for every non-zero algebraic alpha, and pi is transcendental; (Corollary 4.10) if alpha_1,...,alpha_n are algebraic and linearly independent over Q then e^{alpha_1},...,e^{alpha_n} are algebraically independent.",
+      "hypotheses": [
+        "The alpha_i must be PAIRWISE DISTINCT and the beta_i all NON-ZERO; either failure makes the statement false",
+        "All alpha_i, beta_i are algebraic, i.e. in Q-bar, and may be complex",
+        "The proof passes through Theorem 4.11, a 'weak Lindemann-Weierstrass theorem' formulated over a normal field L, and the reduction Theorem 4.11 => Theorem 4.8 uses a Galois-symmetrization step",
+        "The transcendence of pi is deduced from Corollary 4.9(i) via e^{pi i} = -1, so it uses that pi i is algebraic if pi is"
+      ],
+      "proofSteps": [
+        "Theorem 4.1 (Hermite): e is transcendental, proved via the auxiliary function F built from a polynomial f, with Lemma 4.2 (the identity for integral_0^x e^{x-t} f(t) dt), Corollary 4.3, Lemma 4.4, Lemma 4.5, Lemma 4.6 (M is a non-zero integer for p > |q_0 n|) and Lemma 4.7 (|M| < 1 for p large) -- a contradiction.",
+        "Theorem 4.11 is the corresponding statement over a normal field L; its proof uses the analogous quantities M_1,...,M_t with Lemma 4.12, Lemma 4.13, Lemma 4.14 (M_1 a non-zero algebraic integer for p large) and Lemma 4.15 (|M_k| < 1 for p large).",
+        "Theorem 4.11 => Theorem 4.8: assume Theorem 4.8 fails; symmetrize the hypothetical relation over the Galois group of a normal field containing all data, noting the source's remark that the conclusions are unaffected if each delta_i is replaced by m delta_i.",
+        "Corollary 4.9 and Corollary 4.10 are short deductions: for 4.10, expand a hypothetical polynomial relation among the e^{alpha_i} and apply Theorem 4.8 to the resulting exponential sum.",
+        "PROOF-READING BOUNDARY: the details of Lemmas 4.12-4.15 and of the symmetrization were read only in outline."
+      ],
+      "acceptance": [
+        "Hypothesis test: with alpha_1 = alpha_2 the sum (beta_1 + beta_2) e^{alpha_1} can vanish; with some beta_i = 0 the statement reduces to fewer terms. Both hypotheses must be carried.",
+        "Check Corollary 4.9(ii): the transcendence of pi needs e^{pi i} = -1 and the fact that the product of two algebraic numbers is algebraic.",
+        "Check that Corollary 4.10 gives ALGEBRAIC independence, a strictly stronger conclusion than linear independence.",
+        "Check that Theorem 4.8 is the Lindemann-Weierstrass theorem in Baker's formulation, equivalent to the classical one; the source states this equivalence."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-dio-notes",
+          "locator": "Chapter 4, Theorem 4.8, Corollaries 4.9 and 4.10, Theorem 4.11 and the reduction, printed pp. 6-11",
+          "excerpt": "Theorem 4.8. Let alpha_1,...,alpha_n, beta_1,...,beta_n in Q-bar. Suppose that alpha_1,...,alpha_n are pairwise distinct, and that beta_1,...,beta_n != 0. Then beta_1 e^{alpha_1} + ... + beta_n e^{alpha_n} != 0. ... Corollary 4.9. (i) Let alpha in Q-bar be non-zero. Then e^alpha is transcendental. (ii) pi is transcendental. ... Corollary 4.10. Let alpha_1,...,alpha_n be algebraic numbers in C that are linearly independent over Q. Then e^{alpha_1},...,e^{alpha_n} are algebraically independent.",
+          "match": "Verbatim statement with both hypotheses and the two corollaries whose proofs are given on the same pages."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.3/baker-lower-bounds-for-linear-forms-in-logarithms",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.3",
+      "title": "Baker's theorem, the quantitative lower bound, and Matveev's fully explicit version",
+      "kind": "theorem",
+      "statement": "(Theorem 5.1, Baker 1966) Let alpha_1,...,alpha_m be algebraic, not 0 or 1, let gamma be algebraic and beta_1,...,beta_m algebraic and non-zero; fix logarithms log alpha_i (any solutions of e^z = alpha_i) and assume log alpha_1,...,log alpha_m are linearly independent over Q. Then gamma + beta_1 log alpha_1 + ... + beta_m log alpha_m != 0. (Theorem 5.2, Baker 1975) With the same alpha_i and arbitrary algebraic gamma, beta_i, if Lambda := gamma + sum_i beta_i log alpha_i != 0 then |Lambda| >= (eB)^{-C} where B = max(H(gamma), H(beta_1),...,H(beta_m)) and C is effectively computable in terms of m, the degrees of gamma and the beta_i, the degrees and heights of the alpha_i, and the chosen branches of the logarithms. (Corollary 5.3) If alpha_1,...,alpha_m are algebraic, not 0 or 1, and b_1,...,b_m are integers with alpha_1^{b_1} ... alpha_m^{b_m} != 1, then |alpha_1^{b_1} ... alpha_m^{b_m} - 1| >= (eB)^{-C'} with B = max|b_i| and C' effectively computable from m and the degrees and heights of the alpha_i. (Theorem 5.4, Matveev 2000) For non-zero RATIONAL a_1,...,a_m and integers b_i with a_1^{b_1} ... a_m^{b_m} != 1, the same bound holds with the explicit C' = 21 e m^{4.5} 30^{m+3} prod_{j=1}^{m} max(1, log H(a_j)).",
+      "hypotheses": [
+        "The non-vanishing hypothesis Lambda != 0 (equivalently alpha_1^{b_1} ... alpha_m^{b_m} != 1) is essential and must be verified at every use site: the bound says nothing when Lambda = 0",
+        "The branches of the logarithms are part of the data; C depends on them, and Corollary 5.3 fixes log z = log|z| + i arg z with -pi < arg z <= pi",
+        "In Theorem 5.1 the beta_i must be non-zero and the log alpha_i linearly independent over Q; in Theorem 5.2 neither is assumed, the hypothesis being only Lambda != 0",
+        "B is a height of the COEFFICIENTS, not of the alpha_i; the dependence on the alpha_i is inside C",
+        "Effectivity means: going through the proof yields an explicit value of C; Matveev's theorem makes this completely explicit in the rational case"
+      ],
+      "proofSteps": [
+        "The source derives Corollary 5.3 from Theorem 5.2 by taking gamma = 0, beta_i = b_i in Z, choosing the principal branch, and converting the logarithmic statement into a multiplicative one.",
+        "Corollary 5.5 illustrates the strength: for integers a, b >= 2 there is an effectively computable C_1 with |a^m - b^n| >= max(a^m,b^n)/(e max(m,n))^{C_1} whenever a^m != b^n, hence for each non-zero k the equation a^m - b^n = k has m, n bounded effectively.",
+        "PROOF BOUNDARY: Theorems 5.1, 5.2 and 5.4 are stated WITHOUT proof in this source; the proofs are in Baker's work and Matveev's paper and were not read."
+      ],
+      "acceptance": [
+        "DT.3's acceptance condition requires the linear form to be non-zero and the exact degree/height/prime dependence recorded before use in a finite search. Both are explicit here: the non-vanishing hypothesis is stated, and Matveev's constant records the dependence completely in the rational case.",
+        "Check the p-adic analogue separately: the source's Theorem 5.16 (Yu, 1986) is the p-adic version and has its own constants; a complex bound must not be used p-adically.",
+        "Check the branch dependence: changing arg conventions changes Lambda by a multiple of 2 pi i and can change whether Lambda = 0.",
+        "Numerical check: apply Corollary 5.5 to a = 2, b = 3, k = 1 and verify the resulting bound is consistent with 3^2 - 2^3 = 1."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-dio-notes",
+          "locator": "Chapter 5, Theorems 5.1, 5.2, Corollary 5.3, Theorem 5.4, printed pp. 85-87",
+          "excerpt": "Theorem 5.2 (A. Baker, 1975). ... Assume that Lambda := gamma + beta_1 log alpha_1 + ... + beta_m log alpha_m != 0. Then |Lambda| >= (eB)^{-C} where B = max(H(gamma), H(beta_1),...,H(beta_m)), and where C is an effectively computable positive number depending on m, on the degrees of gamma, beta_1,...,beta_m, on the degrees and heights of alpha_1,...,alpha_m, and on the choices of log alpha_1,...,log alpha_m. ... Theorem 5.4 (Matveev, 2000) ... C' = 21 e m^{4.5} 30^{m+3} prod_{j=1}^{m} max(1, log H(a_j)).",
+          "match": "The quantitative theorem with its exact dependence, the non-vanishing hypothesis, and the fully explicit rational constant."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.4/effective-finiteness-for-unit-and-thue-equations",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.4",
+      "title": "Effective finiteness for unit equations, Thue equations and superelliptic equations from logarithmic forms",
+      "kind": "application",
+      "statement": "(Theorem 5.12) For a number field K and alpha, beta in K^*, the unit equation alpha x + beta y = 1 in units x, y of O_K has at most finitely many solutions, and these can be determined effectively. (Theorem 5.14, Baker 1968) If f in Z[X] has no multiple zeros, deg f >= 2 when n >= 3 and deg f >= 3 when n = 2, then y^n = b f(x) has only finitely many integer solutions and its solution set can be determined effectively. The effectivity comes from Baker's lower bounds for linear forms in logarithms, combined with Dirichlet's unit theorem and effective versions of it (Lemmas 5.9-5.11); Siegel proved the finiteness in 1921 by an INEFFECTIVE argument.",
+      "hypotheses": [
+        "Theorem 5.12 is about units of O_K, not about arbitrary S-units; the S-unit generalization requires the p-adic bound (Theorem 5.16, Yu)",
+        "The effective route needs: Dirichlet's unit theorem (Theorem 5.8, the image of the log map is a lattice in H and the kernel is the roots of unity), an effective bound on expressing a unit in a fundamental system (Lemma 5.9), an effective Lemma 5.10, and Corollary 5.11 giving an effectively determinable finite set of associates of a given algebraic integer",
+        "In Theorem 5.14 the hypothesis that f has no multiple zeros is essential, and the degree thresholds differ between the hyperelliptic case n = 2 and the superelliptic case n >= 3",
+        "The reduction of y^n = b f(x) to unit or Thue equations is by factoring and controlling the gcd; the source illustrates it on y^3 = 2x(x-3), where the gcd of 2x and x-3 divides 6"
+      ],
+      "proofSteps": [
+        "Write a hypothetical solution of the unit equation in terms of a fundamental system of units; the exponents become the integer coefficients b_i of a linear form in logarithms.",
+        "Apply Corollary 5.3 (or Theorem 5.4) to bound |alpha x - 1| = |beta y| from below by (eB)^{-C'} with B the maximum exponent; comparing with the upper bound coming from the equation bounds B effectively.",
+        "Convert the bound on B into a bound on the heights of x and y using the effective unit-theorem lemmas, giving a finite effectively computable search region.",
+        "For Theorem 5.14 the worked example shows the reduction: 2x = a u^3, x - 3 = b v^3 with a, b composed of primes in {2,3} and exponents in {0,1,2}, reducing the equation to finitely many Thue equations.",
+        "PROOF BOUNDARY: the full proofs of Theorem 5.12 and Theorem 5.14 were read only in outline (the worked example was read in full); Lemmas 5.9-5.11 were read as statements."
+      ],
+      "acceptance": [
+        "DT.4's acceptance condition requires every reduction to preserve the solution set and the final search region to be justified by a proven bound. Check both on the worked example y^3 = 2x(x-3): the factorization into 2x = a u^3, x - 3 = b v^3 must be shown to lose no solutions.",
+        "Check the contrast with Siegel's 1921 ineffective finiteness: the same conclusion, but no search region.",
+        "Check the degree thresholds in Theorem 5.14 separately for n = 2 and n >= 3.",
+        "Check that the p-adic case needs Theorem 5.16 (Yu) and is not covered by the complex bound."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-dio-notes",
+          "locator": "Chapter 5, section 5.3, Theorem 5.12 with its attribution and Theorem 5.14 with the worked example, printed pp. 95-99",
+          "excerpt": "Theorem 5.12. Eq. (5.3) has at most finitely many solutions, and these can be determined effectively. In 1921, Siegel proved that (5.3) has only finitely many solutions, but his proof is ineffective ... Our proof, based on lower bounds for linear forms in logarithms, does give a method to determine the solutions. ... Theorem 5.14 (Baker, 1968). Assume that f has no multiple zeros and that f has degree at least 2 if n >= 3 and degree at least 3 if n = 2. Then (5.7) has only finitely many solutions, and its set of solutions can be determined effectively.",
+          "match": "Both effective finiteness statements with their hypotheses and the explicit contrast with Siegel's ineffective result."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "target": "DiophantineApproximationAndTranscendence:DT.0/dirichlet-approximation-from-minkowski",
+      "reason": "GN.1's declared scope is 'Blichfeldt and Minkowski first/second theorems with measurable convex symmetric bodies and boundary conventions'. The consumer needs exactly Minkowski's first convex body theorem in the form 'central symmetric convex C with vol(C) >= 2^n contains a non-zero lattice point', applied to the explicit body C_Q = {(x,y) : |x - alpha y| <= Q^{-1}, |y| <= Q} of area 4. GN.1's acceptance condition explicitly mentions equality/boundary hypotheses, which is the >= 2^n versus > 2^n distinction that this application sits on. Scope check: matches.",
+      "sources": [
+        {
+          "sourceId": "evertse-dio-notes",
+          "locator": "Chapter 1, Theorem 1.3 and the derivation of Theorem 1.1 from it, printed pp. 2-3"
+        }
+      ]
+    },
+    {
+      "source": "DiophantineApproximationAndTranscendence:DT.1/liouville-inequality-with-explicit-constant",
+      "target": "DiophantineApproximationAndTranscendence:DT.1/thue-approximation-theorem-and-the-auxiliary-polynomial-method",
+      "reason": "Liouville's inequality is the effective baseline against which Thue's theorem is an improvement, and the source states that for degree d <= 2 Roth and Thue are weaker than Liouville. The two nodes together are what DT.1's acceptance condition asks for: an effective bound and an ineffective finiteness statement, kept apart.",
+      "sources": [
+        {
+          "sourceId": "evertse-dio-notes",
+          "locator": "Chapter 6, the paragraph after Theorem 6.2, printed p. 110"
+        }
+      ]
+    },
+    {
+      "source": "DiophantineApproximationAndTranscendence:DT.3/baker-lower-bounds-for-linear-forms-in-logarithms",
+      "target": "DiophantineApproximationAndTranscendence:DT.4/effective-finiteness-for-unit-and-thue-equations",
+      "reason": "The effectivity of Theorem 5.12 and Theorem 5.14 comes entirely from the quantitative lower bound: exponents in a fundamental system of units become the integer coefficients b_i, and Corollary 5.3 bounds |alpha_1^{b_1} ... alpha_m^{b_m} - 1| from below by (eB)^{-C'}, which contradicts the upper bound coming from the equation once B is large. Removing the quantitative bound leaves only Siegel's ineffective finiteness.",
+      "sources": [
+        {
+          "sourceId": "evertse-dio-notes",
+          "locator": "Chapter 5, section 5.3, the discussion after Theorem 5.12, printed p. 95"
+        }
+      ]
+    },
+    {
+      "source": "DiophantineApproximationAndTranscendence:DT.3/lindemann-weierstrass-in-bakers-form",
+      "target": "DiophantineApproximationAndTranscendence:DT.3/baker-lower-bounds-for-linear-forms-in-logarithms",
+      "reason": "The source presents Theorem 5.1 as 'Baker's transcendence result from the previous chapter', i.e. as the qualitative statement (Theorem 4.19) whose quantitative refinement is Theorem 5.2. The Lindemann-Weierstrass material of Chapter 4 is the context in which the qualitative non-vanishing statement is established and from which the quantitative version is then sought.",
+      "sources": [
+        {
+          "sourceId": "evertse-dio-notes",
+          "locator": "Chapter 5, opening of section 5.1, printed p. 85; Chapter 4, Theorem 4.19, printed p. 15"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "DiophantineApproximationAndTranscendence:DT.0",
+      "status": "partial",
+      "remaining": [
+        "Weil heights over number fields and local absolute values with the product formula (DT.0's core) were not read; Evertse Chapter 3 (algebraic numbers and number fields) contains the height definitions used and was NOT read.",
+        "Continued fractions are not treated in the chapters read.",
+        "Theorem 1.4 (simultaneous Dirichlet) is stated in the source without proof.",
+        "Irrationality exponents are used implicitly; no separate treatment was read."
+      ]
+    },
+    {
+      "stageId": "DiophantineApproximationAndTranscendence:DT.1",
+      "status": "partial",
+      "remaining": [
+        "ROTH'S THEOREM IS NOT PROVED IN THE SOURCE READ. Evertse states it (Theorem 6.2) and proves Thue's weaker theorem (Theorem 6.9) in full as a model. DT.1 asks for 'a complete source proof of Roth'; this packet does not supply one.",
+        "Siegel's Lemma (Theorem 3.20 of Chapter 3) is quoted in the form used but Chapter 3 was not read.",
+        "Lemma 6.13 and the final inequality chain of the proof of Theorem 6.9 (printed pp. 121-127) were read only in outline.",
+        "Theorem 6.14 (a variant with an effective constant for the number of solutions) and section 6.3 (connections with the abc-conjecture, Belyi's theorem) were not read."
+      ]
+    },
+    {
+      "stageId": "DiophantineApproximationAndTranscendence:DT.2",
+      "status": "partial",
+      "remaining": [
+        "THE SUBSPACE THEOREM IS NOT PROVED IN THE SOURCE READ; Theorem 7.1 is stated with an explicit remark that its proof is ineffective, and no proof is given.",
+        "The p-adic Subspace Theorem is the subject of Evertse Chapter 8, which was downloaded but NOT read.",
+        "S-unit equations and decomposable-form equations: only Theorem 7.13 and Theorem 7.14 were seen as statements; their proofs were not read.",
+        "The quantitative Subspace Theorem (bounding the NUMBER of subspaces), mentioned in the source's remark, has no source read."
+      ]
+    },
+    {
+      "stageId": "DiophantineApproximationAndTranscendence:DT.3",
+      "status": "partial",
+      "remaining": [
+        "Baker's theorems 5.1 and 5.2 and Matveev's Theorem 5.4 are stated WITHOUT proof in the source read.",
+        "Gel'fond-Schneider (Theorem 4.16) is stated without proof; Evertse section 4.4 treats a special case and was not read.",
+        "The p-adic analogue (Theorem 5.16, Yu 1986) is stated without proof.",
+        "The detailed lemmas 4.12-4.15 in the proof of the weak Lindemann-Weierstrass theorem were read only in outline."
+      ]
+    },
+    {
+      "stageId": "DiophantineApproximationAndTranscendence:DT.4",
+      "status": "partial",
+      "remaining": [
+        "The full proofs of Theorem 5.12 and Theorem 5.14 were read only in outline; only the worked example y^3 = 2x(x-3) was read in full.",
+        "Dirichlet's unit theorem (Theorem 5.8) and the effective lemmas 5.9-5.11 were read as statements only.",
+        "Thue-Mahler and S-unit equations require the p-adic bound (Theorem 5.16) and were not decomposed.",
+        "Lattice reduction and certified residual enumeration belong to EffectiveDiophantineMethods:ED.2 by DT.4's own text and were not read."
+      ]
+    },
+    {
+      "stageId": "DiophantineApproximationAndTranscendence:DT.5",
+      "status": "not_read",
+      "remaining": [
+        "Mahler functions, E- and G-functions, algebraic independence, functional transcendence and unlikely intersections: no source read. Evertse's notes do not cover this material."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "No read proof of Roth's theorem anywhere in EXT-08",
+      "neededBy": [
+        "DiophantineApproximationAndTranscendence:DT.1/thue-approximation-theorem-and-the-auxiliary-polynomial-method",
+        "DiophantineApproximationAndTranscendence:DT.2/subspace-theorem-and-its-exceptional-subspaces"
+      ],
+      "detail": "Verified: Roth's statement (Theorem 6.2), its history, its ineffectivity, and the complete proof of Thue's weaker theorem with exponent kappa > d/2 + 1, including the Siegel's Lemma construction of the auxiliary polynomials and the index lemma. Not verified: Roth's own proof, which needs Roth's lemma on the index of polynomials in many variables -- a result not present in the chapters read. Next source action: acquire Schmidt, 'Diophantine Approximation', Lecture Notes in Mathematics 785 (Springer 1980), Chapter V, or Bombieri-Gubler, 'Heights in Diophantine Geometry', Chapter 6; neither is freely available, so institutional access is required. Alternatively Evertse's earlier (2010/2011) versions of these notes may contain a Roth chapter; only the 2019 chapter files were inspected."
+    },
+    {
+      "title": "No read proof of the Subspace Theorem",
+      "neededBy": [
+        "DiophantineApproximationAndTranscendence:DT.2/subspace-theorem-and-its-exceptional-subspaces"
+      ],
+      "detail": "Verified: the statement with its hypotheses (n >= 2, n linearly independent forms with algebraic coefficients), the conclusion as containment in finitely many proper subspaces, the necessity of that weaker conclusion (the example L_1(x_0) = 0), and the applications Corollary 7.2, Theorem 7.8, Theorem 7.9, Theorem 7.13. Not verified: any proof. Next source action: Schmidt, LNM 785, Chapter VI, or Schmidt's original papers (Acta Math. 125 (1970) and Compositio 1972); also Evertse's Chapter 8 for the p-adic version, which was downloaded but not read."
+    },
+    {
+      "title": "Baker's quantitative theorem and Matveev's constant are quoted without proof",
+      "neededBy": [
+        "DiophantineApproximationAndTranscendence:DT.3/baker-lower-bounds-for-linear-forms-in-logarithms",
+        "DiophantineApproximationAndTranscendence:DT.4/effective-finiteness-for-unit-and-thue-equations"
+      ],
+      "detail": "Verified: the exact statements of Theorems 5.1, 5.2, Corollary 5.3, Theorem 5.4 and Theorem 5.16, including precisely which quantities the constant C depends on and the fully explicit Matveev constant 21 e m^{4.5} 30^{m+3} prod_j max(1, log H(a_j)). Not verified: any proof. Since DT.4's entire effectivity rests on these, the effective half of this roadmap is not source-decomposed. Next source action: Baker, 'Transcendental Number Theory' (CUP 1975), Chapter 3, and Matveev, Izv. Math. 64 (2000), 1217-1269; neither is freely available."
+    },
+    {
+      "title": "Height normalization: two conventions in play, and the DT.0 product-formula requirement is unmet",
+      "neededBy": [
+        "DiophantineApproximationAndTranscendence:DT.0/dirichlet-approximation-from-minkowski",
+        "DiophantineApproximationAndTranscendence:DT.2/subspace-theorem-and-its-exceptional-subspaces"
+      ],
+      "detail": "Verified: the source uses H(x/y) = max(|x|,|y|) for rationals (Chapter 6) and H(xi) = max of the absolute values of the coefficients of the primitive minimal polynomial for algebraic numbers (Chapter 7, before Theorem 7.8). These agree on rationals. Not verified: the absolute Weil height and its product-formula normalization, which is what DT.0's acceptance condition ('height normalization agrees with the product formula and denominator conventions') actually requires; that material is in Evertse Chapter 3, which was not read. Next source action: read Evertse Chapter 3 (dio19-3.pdf, already downloaded)."
+    },
+    {
+      "title": "Direction of the DT.1 -> DT.2 edge relative to the source",
+      "neededBy": [
+        "DiophantineApproximationAndTranscendence:DT.2/subspace-theorem-and-its-exceptional-subspaces"
+      ],
+      "detail": "The atlas orders DT.1 (Liouville and Roth) before DT.2 (Subspace theorem). In the source read, Roth is DEDUCED from the Subspace Theorem in half a page (Corollary 7.2), so at the level of statements the implication runs Subspace => Roth. This is not a contradiction: the Subspace Theorem's proof develops the Thue-Siegel-Roth method, so the atlas ordering is a proof-development ordering rather than a logical-implication ordering. Recorded so that a reviewer does not read the existing edge as a claim that Roth is used in proving the Subspace Theorem in the form stated. No edge change is proposed; resolving this needs the Subspace Theorem's proof, which was not read. NOTE: an earlier draft of this packet carried a DT.2 -> DT.1 node link recording the deduction. It was removed because, projected to stage level, it forms a two-cycle with the existing atlas edge DT.1 -> DT.2. The mathematical observation (Corollary 7.2 deduces Roth from the Subspace Theorem in half a page, printed pp. 138-139) is retained here instead of as an edge."
+    }
+  ]
+}

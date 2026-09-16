@@ -1,0 +1,296 @@
+{
+  "roadmapId": "FoundationsAndLibraryIntegration",
+  "status": "partial",
+  "summary": "Source-based expansion of the library-integration roadmap, limited to the stages with mathematical content. LI.1: independence of finite presentation from the chosen presentation and the finite-type-but-not-finitely-presented example (Stacks 10.6.3, §110.38); flatness criteria via ideals and Tor, base change and localization (Stacks 10.39, 10.75); Fitting ideals and their independence of the presentation (Stacks 15.8). LI.3: the Grothendieck spectral sequence for composite derived functors (Stacks 13.22) and the existence and exactness of sheafification (Stacks 7.10, 18.11). The gaps pair each node with the pinned Mathlib/TauCeti declarations found by grep, recording whether their signatures were compared. LI.0, LI.2, LI.4 and LI.5 are audit or process stages, or had no source read, and are marked not read.",
+  "sources": [
+    {
+      "id": "StacksProject-book-2026",
+      "title": "The Stacks Project (book.pdf)",
+      "authors": "The Stacks Project Authors",
+      "edition": "book.pdf with PDF CreationDate 30 January 2026 (7641 pages); PDF page = printed page; results cited by number and stable tag.",
+      "url": "https://stacks.math.columbia.edu/download/book.pdf",
+      "sha256": "e44ecf82641aa70fc690a8dc2a7f7e7bc570c6a2b16e53245580a59dceef7712",
+      "readSections": [
+        "Chapter 7 Sites and Sheaves §7.10: Lemmas 7.10.1, 7.10.5–7.10.6, Theorem 7.10.10, Proposition 7.10.12, Lemma 7.10.15, pp. 255–260",
+        "Chapter 10 Commutative Algebra: Definition 10.6.1 and Lemma 10.6.3, p. 439; Definition 10.39.1, Lemmas 10.39.5, 10.39.7, 10.39.18, pp. 517–522; Lemma 10.75.8 and Remark 10.75.9, p. 611; Example 10.82.6, p. 625",
+        "Chapter 13 Derived Categories §13.22: Lemmas 13.22.1–13.22.2, with statements of Lemmas 13.21.2–13.21.3, p. 1064",
+        "Chapter 15 More on Algebra §15.8: Lemmas 15.8.1–15.8.2, Definition 15.8.3, Lemma 15.8.4, pp. 1203–1207; Example 15.91.9, p. 1443",
+        "Chapter 18 Modules on Sites: Lemmas 18.11.1–18.11.2, pp. 1687–1688; Chapter 31: Example 31.18.8, pp. 2692–2693; Chapter 110 Examples: §110.38 and Lemma 110.38.1, p. 7357"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "FoundationsAndLibraryIntegration:LI.1/finite-presentation-independent-of-presentation",
+      "parentStageId": "FoundationsAndLibraryIntegration:LI.1",
+      "title": "Finite presentation does not depend on the chosen presentation",
+      "kind": "lemma",
+      "statement": "An R-algebra S is of finite type if there is a surjection R[x₁, …, x_n] → S, and of finite presentation if S ≅ R[x₁, …, x_n]/(f₁, …, f_m) (Stacks Definition 10.6.1). If R → S is of finite presentation and α: R[x₁, …, x_n] → S is any surjection, then Ker α is a finitely generated ideal (Lemma 10.6.3). Finite type does not imply finite presentation: Stacks Examples §110.38 gives ring maps, such as R → R[x, y]/(xy, ay; a ∈ I) and R → R ⊕ (R/I)ε, that are flat and of finite type but not of finite presentation, for an ideal I with R/I finite flat but not projective, so that I is not finitely generated and I = I² (Lemma 110.38.1, whose proof is 'See discussion above').",
+      "hypotheses": [
+        "R → S of finite presentation; α any surjection from a polynomial ring in finitely many variables.",
+        "The §110.38 example depends on §110.33 and Algebra Lemmas 10.108.2 and 10.108.5, which were not read."
+      ],
+      "proofSteps": [
+        "Write S = R[y₁, …, y_m]/(f₁, …, f_k).",
+        "Lift α(x_i) to g_i ∈ R[y], so that S = R[x_i, y_j]/(f_l, x_i − g_i).",
+        "Choose h_j ∈ R[x] with α(h_j) equal to the class of y_j.",
+        "Let ψ: R[x_i, y_j] → R[x_i] send y_j ↦ h_j; then Ker α = ψ((f_l, x_i − g_i)), which is finitely generated."
+      ],
+      "acceptance": [
+        "Distinguish finite type from finite presentation (stage acceptance) using the §110.38 example; over a Noetherian base the notions agree.",
+        "Kernels of all finite presentations of the same algebra are finitely generated, so the notion is independent of the presentation."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Definition 10.6.1 (00F3) and Lemma 10.6.3 (00R2), p. 439",
+          "excerpt": "the kernel of α is a finitely generated ideal",
+          "match": "Lemma 10.6.3."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "§110.38 (05LB) and Lemma 110.38.1 (05LC), p. 7357",
+          "excerpt": "In this section we give some examples of ring maps and morphisms which are of finite type and flat but not of finite presentation.",
+          "match": "Opening of §110.38."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FoundationsAndLibraryIntegration:LI.1/flatness-criteria-base-change-and-localization",
+      "parentStageId": "FoundationsAndLibraryIntegration:LI.1",
+      "title": "Flatness: ideal and Tor criteria, base change and localization",
+      "kind": "theorem",
+      "statement": "An R-module M is flat if tensoring with M preserves exactness of N₁ → N₂ → N₃ (Stacks Definition 10.39.1). The following are equivalent: M is flat; N ⊗ M → N′ ⊗ M is injective for every injection N ⊂ N′; I ⊗ M → M is injective for every ideal I; the same for every finitely generated ideal I (Lemma 10.39.5). Equivalently Tor_i(M, −) = 0 for i > 0, or Tor₁(M, −) = 0, or Tor₁(M, R/I) = 0 for all (finitely generated) ideals I (Lemma 10.75.8), and Tor₁(M, R/I) = Ker(I ⊗ M → M) (Remark 10.75.9). Flatness and faithful flatness are preserved by base change M ↦ M ⊗_R R′ (Lemma 10.39.7). Localizations S⁻¹R are flat; an S⁻¹R-module is flat over R iff it is flat over S⁻¹R; M is flat iff all M_p (resp. all M_m) are flat; and flatness can be tested on a cover by principal opens and at primes of an R-algebra (Lemma 10.39.18, whose parts (1)–(5) have proofs omitted). Torsion Z-modules are not flat (Example 10.82.6(2), asserted).",
+      "hypotheses": [
+        "Commutative rings; only parts (6)–(7) of Lemma 10.39.18 are proved in the source.",
+        "The non-flat examples in the Stacks Project (10.82.6, 15.91.9, 31.18.8) are asserted without written computations."
+      ],
+      "proofSteps": [
+        "Lemma 10.39.5, (4) ⇒ (1): factor N₁ → N₂ → N₃ through K and Q, so it suffices that − ⊗ M preserves injections (using 10.12.10).",
+        "Reduce to K finite, since K ⊗ M is a colimit over finite submodules, and to N finite by a directed colimit (10.8.4).",
+        "Write N = Rⁿ/L and K = L′/L; it suffices that L ⊗ M → Mⁿ is injective, proved by induction on n using L ∩ (R ⊕ 0) and a diagram with exact rows.",
+        "Base case L = I an ideal: I is a directed colimit of finitely generated ideals and tensor products commute with colimits.",
+        "Lemma 10.75.8: for flat M, F• ⊗ M resolves N ⊗ M; conversely apply the long exact Tor sequence (10.75.2) to 0 → I → R → R/I → 0 and use Lemma 10.39.5."
+      ],
+      "acceptance": [
+        "Nonflat tensor example (stage acceptance): for M = Z/2 and I = 2Z, I ⊗ M ≅ Z/2 maps to zero in M, so I ⊗ M → M is not injective.",
+        "Map each geometric consumer (flat morphisms, faithfully flat descent) to the ring-level statement it uses."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Definition 10.39.1 (00HB) and Lemma 10.39.5 (00HD), pp. 517–518",
+          "excerpt": "The implications (1) implies (2) implies (3) implies (4) are all trivial. Thus we prove (4) implies (1).",
+          "match": "Proof of Lemma 10.39.5."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemma 10.75.8 (00M5) and Remark 10.75.9 (00M6), p. 611",
+          "excerpt": "It now suffices to show that the last condition implies that M is flat.",
+          "match": "Proof of Lemma 10.75.8."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemma 10.39.7 (00HI), p. 519; Lemma 10.39.18 (00HT), p. 522; Example 10.82.6 (058N), p. 625",
+          "excerpt": "For instance over R = Z, take M to be any torsion module.",
+          "match": "Example 10.82.6(2)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FoundationsAndLibraryIntegration:LI.1/fitting-ideals",
+      "parentStageId": "FoundationsAndLibraryIntegration:LI.1",
+      "title": "Fitting ideals and their independence of the presentation",
+      "kind": "construction",
+      "statement": "For a matrix A over R, I_r(A) is the ideal of r × r minors, with I₀ = R and I_r = 0 for r > min(n, m); these ideals decrease in r, I_{r+n′}(B) ⊂ I_r(A) when A consists of the first rows of B, I_r(CA) ⊂ I_r(A), and there is a sum formula for block-diagonal matrices (Lemma 15.8.1, proof omitted). For a finite R-module M with presentation ⊕_J R → Rⁿ → M → 0 given by a matrix A, the ideal Fit_k(M) of (n − k)-minors of A does not depend on the presentation (Lemma 15.8.2); these are the Fitting ideals (Definition 15.8.3), with Fit_{−1}(M) = 0 and an increasing chain ending at R. Lemma 15.8.4: Fit_n(M) = R if M is generated by n elements; a formula for direct sums; Fit_k(M ⊗_R R′) is generated by the image of Fit_k(M); finitely presented M have finitely generated Fitting ideals; monotonicity under surjections; Fit₀(M) ⊂ Ann(M); V(Fit₀(M)) = Supp(M); and Fit₀(R/I) = I.",
+      "hypotheses": [
+        "M finite; finite generation of the Fitting ideals needs M finitely presented.",
+        "Lemma 15.8.1 on minors has its proof omitted in the source."
+      ],
+      "proofSteps": [
+        "Lemma 15.8.2: Fit_k(M) equals the ideal generated by the (n − k)-minors of all matrices whose columns lie in K = Ker(Rⁿ → M).",
+        "Adding n′ generators that map to zero does not change the ideal (pad with zeros and unit vectors, project, and apply Lemma 15.8.1).",
+        "For two presentations, Schanuel's lemma (Algebra 10.109.1) and the previous step reduce to n = m with an invertible C compatible with the maps to M; then z′ = Cz and Lemma 15.8.1 give one inclusion, and symmetry gives the other.",
+        "Lemma 15.8.4: base change of a presentation is a presentation because tensor products are right exact; Fit₀(M) ⊂ Ann(M) because each maximal minor f satisfies A′B = f·1; V(Fit₀) = Supp(M) by Nakayama's lemma (10.20.1)."
+      ],
+      "acceptance": [
+        "Test: Fit₀(R/I) = I, and Fit₀(Z/2 ⊕ Z/3) = (6) over Z.",
+        "Keep the inclusion Fit₀(M) ⊂ Ann(M) distinct from equality when consumers use characteristic or annihilator ideals."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "§15.8 (07Z6): Lemma 15.8.1 (07Z7), Lemma 15.8.2 (07Z8), p. 1204",
+          "excerpt": "By Schanuel’s lemma (Algebra, Lemma 10.109.1) and the results of the previous paragraph, we may assume m = n",
+          "match": "Proof of Lemma 15.8.2."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Definition 15.8.3 (07Z9) and Lemma 15.8.4 (07ZA), p. 1205",
+          "excerpt": "The Fitting ideals of a finite module are the ideals determined by the construction of Lemma 15.8.2.",
+          "match": "Definition 15.8.3."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FoundationsAndLibraryIntegration:LI.3/grothendieck-spectral-sequence",
+      "parentStageId": "FoundationsAndLibraryIntegration:LI.3",
+      "title": "The Grothendieck spectral sequence for a composition of derived functors",
+      "kind": "theorem",
+      "statement": "Let A, B, C be abelian categories and F: A → B, G: B → C left exact functors such that RF, RG and R(G∘F) are everywhere defined on D⁺; there is a canonical transformation t: R(G∘F) → RG ∘ RF, which need not be an isomorphism (Stacks §13.22). If A and B have enough injectives, F(I) is right G-acyclic for every injective I iff t is an isomorphism (Lemma 13.22.1). Under these hypotheses, for X ∈ D⁺(A) there is a spectral sequence (E_r, d_r) in C with d_r of bidegree (r, −r + 1) and E₂^{p,q} = R^pG(H^q(RF(X))), which is bounded, converges to H^{p+q}(R(G∘F)(X)) and has finite filtrations; for an object A of A it reads E₂^{p,q} = R^pG(R^qF(A)) ⇒ R^{p+q}(G∘F)(A) (Lemma 13.22.2).",
+      "hypotheses": [
+        "Enough injectives in A and B; F carries injectives to G-acyclic objects; bounded below complexes.",
+        "The construction of t (Lemma 13.14.16) was not read."
+      ],
+      "proofSteps": [
+        "Lemma 13.22.1: (⇐) evaluate t at an injective object; (⇒) represent by an injective resolution, where t becomes G(F(I•)) → RG(F(I•)), an isomorphism by Lemma 13.16.7.",
+        "Lemma 13.22.2: represent X by a bounded below complex A•, choose an injective resolution A• → I•, and a Cartan–Eilenberg resolution F(I•) → I•,• (Lemma 13.21.2).",
+        "Apply the second spectral sequence of Lemma 13.21.3, with E₂^{p,q} = R^pG(H^q(K•)) for K• = F(I•), bounded and convergent (its proof uses Homology 12.25.1, 12.25.3 and 12.25.4)."
+      ],
+      "acceptance": [
+        "Comparison maps are natural and respect shifts and signs (stage acceptance): the spectral sequence is attached to the constructed transformation t, not to an assumed equivalence.",
+        "Test: the Leray spectral sequence H^p(Y, R^qf_*F) ⇒ H^{p+q}(X, F), with F = f_* and G = Γ(Y, −)."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "§13.22 (015L), p. 1064",
+          "excerpt": "This transformation need not always be an isomorphism.",
+          "match": "§13.22 on the comparison map t."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemmas 13.22.1 (015M) and 13.22.2 (015N), p. 1064; statements of Lemmas 13.21.2 (015I) and 13.21.3 (015J)",
+          "excerpt": "Apply the second spectral sequence of Lemma 13.21.3.",
+          "match": "Proof of Lemma 13.22.2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FoundationsAndLibraryIntegration:LI.3/sheafification-exists-and-is-exact",
+      "parentStageId": "FoundationsAndLibraryIntegration:LI.3",
+      "title": "Existence, universal property and exactness of sheafification",
+      "kind": "theorem",
+      "statement": "For a presheaf F on a site, F⁺(U) is the colimit of the zeroth Čech cohomology H⁰ over coverings of U, a filtered colimit (Stacks Lemmas 7.10.5–7.10.6). F⁺ is separated, F⁺ is a sheaf if F is separated, and F⁺⁺ is always a sheaf (Theorem 7.10.10). F^# = F⁺⁺ has the universal property of sheafification, so sheafification is left adjoint to the inclusion of sheaves into presheaves (Proposition 7.10.12), and sheafification of presheaves of sets is exact (Lemma 7.10.15). For a presheaf of O-modules F, F^# is uniquely an O^#-module with the adjunction property (Lemma 18.11.1, proof omitted), and sheafification PMod(O) → Mod(O^#) is exact (Lemma 18.11.2).",
+      "hypotheses": [
+        "Sites with covering families as in the Stacks Project; one gluing check in Theorem 7.10.10 is left to the reader, and the functoriality Lemma 7.10.4 is not proved.",
+        "Comparison with sieve-based constructions is not part of the source (see gap)."
+      ],
+      "proofSteps": [
+        "Lemma 7.10.15: sheafification is a left adjoint, hence right exact (Categories 4.24.6).",
+        "The colimits defining F⁺ are directed (Lemmas 7.10.5–7.10.6), so F ↦ F⁺ commutes with finite limits (Categories 4.19.2).",
+        "Conclude with Lemma 7.10.1 for F^# = F⁺⁺.",
+        "Lemma 18.11.2 holds because the corresponding statement holds for sheafification PAb(C) → Ab(C)."
+      ],
+      "acceptance": [
+        "Record the unit F → F^# and the adjunction, not only the existence of an associated sheaf (stage: every comparison map is natural).",
+        "Keep ordinary sheafification separate from the enhanced constructions owned by EnhancedDerivedSheaves (stage text)."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "§7.10: Lemmas 7.10.5 (00W6), 7.10.6 (00W7), Theorem 7.10.10 (00WB), Proposition 7.10.12 (00WH), pp. 255–259",
+          "excerpt": "In other words, the functor of sheafification is the left adjoint to the inclusion functor i.",
+          "match": "Proposition 7.10.12."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemma 7.10.15 (00WJ), p. 260",
+          "excerpt": "Since it is a left adjoint it is right exact, see Categories, Lemma 4.24.6.",
+          "match": "Proof of Lemma 7.10.15."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemmas 18.11.1 (03CY) and 18.11.2 (03EI), pp. 1687–1688",
+          "excerpt": "This is true because it holds for sheafification PAb(C) → Ab(C).",
+          "match": "Proof of Lemma 18.11.2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [],
+  "coverage": [
+    {
+      "stageId": "FoundationsAndLibraryIntegration:LI.0",
+      "status": "not_read",
+      "remaining": [
+        "Audit stage with no mathematical source. Facts read from the local checkout for the declaration ledger (not audited): Lean toolchain leanprover/lean4:v4.34.0-rc2, Mathlib commit 30a58f795ae8c95b8299fe3c9ded1e6498a9e9fe, TauCeti commit e42b4b86a44895faf8de5dea0c69b486dd49d0c6.",
+        "The named source KED-CFT was not found in the local library catalogue; transitive-axiom inspection and reproduction in a clean checkout were not done."
+      ]
+    },
+    {
+      "stageId": "FoundationsAndLibraryIntegration:LI.1",
+      "status": "partial",
+      "remaining": [
+        "Localization, integral closure, Dedekind domains, completions, tensor products, dimension, regular sequences, dualizing modules and determinants were not source-decomposed.",
+        "The §110.38 example's inputs (§110.33, Algebra 10.108.2, 10.108.5) and explicit computations for the non-flat examples."
+      ]
+    },
+    {
+      "stageId": "FoundationsAndLibraryIntegration:LI.2",
+      "status": "not_read",
+      "remaining": [
+        "No source statement read for Haar and product measures, integration, Fourier and Mellin transforms, meromorphic continuation, distributions, Sobolev spaces or spectral theory; catalogue candidates and one library fact are recorded in the gaps."
+      ]
+    },
+    {
+      "stageId": "FoundationsAndLibraryIntegration:LI.3",
+      "status": "partial",
+      "remaining": [
+        "Universes, limits, adjunctions, abelian and exact categories, resolutions and monoidal structures were not source-decomposed.",
+        "Cartan–Eilenberg resolutions and the spectral sequences of a double complex (Lemmas 13.21.2–13.21.3, Homology 12.25) and the transformation t (Lemma 13.14.16) were read as statements only."
+      ]
+    },
+    {
+      "stageId": "FoundationsAndLibraryIntegration:LI.4",
+      "status": "not_read",
+      "remaining": [
+        "Import ledger for NumberFieldArithmetic, GlobalNumberFields, LocalFieldsRamification, ClassFieldTheory, ProfiniteCohomology, Chebotarev, ModularForms and EllipticCurves is an audit of supplier snapshots, not done in this pass."
+      ]
+    },
+    {
+      "stageId": "FoundationsAndLibraryIntegration:LI.5",
+      "status": "not_read",
+      "remaining": [
+        "Process gate (proof-task splitting, compilation and axiom inspection); no mathematical source applies."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Fitting ideals are absent from the pinned libraries",
+      "neededBy": ["FoundationsAndLibraryIntegration:LI.1/fitting-ideals"],
+      "detail": "Grep of the pinned Mathlib (commit 30a58f79…) and TauCeti for fittingIdeal, 'Fitting ideal' and ideals of minors found only the Fitting decomposition and Fitting's lemma. The chain Lemma 15.8.1 → 15.8.2 → 15.8.4 must be constructed; the proof of Lemma 15.8.1 is omitted in the Stacks Project and needs determinant expansions."
+    },
+    {
+      "title": "Library status of the flatness criteria",
+      "neededBy": ["FoundationsAndLibraryIntegration:LI.1/flatness-criteria-base-change-and-localization"],
+      "detail": "Candidates in Mathlib, signatures compared by the reader: Module.Flat.iff_rTensor_injective (Mathlib/RingTheory/Flat/Tensor.lean), stating flatness iff I ⊗ M → R ⊗ M is injective for finitely generated I, which matches Lemma 10.39.5 (1)⇔(4) up to the identification R ⊗ M ≅ M; Module.Flat.baseChange (Flat/Stability.lean) for the flat half of 10.39.7; IsLocalization.flat and Module.flat_iff_of_isLocalization (Flat/Localization.lean) for 10.39.18(1)–(2). Module.flat_of_isLocalized_maximal assumes Flat R (M_P) although its docstring says flat over R_P. No Tor criterion (Lemma 10.75.8) was found; Mathlib/RingTheory/Flat/CategoryTheory.lean records it as a TODO, while CategoryTheory.Tor exists (Mathlib/CategoryTheory/Monoidal/Tor.lean)."
+    },
+    {
+      "title": "Library status of finite presentation and explicit counterexamples",
+      "neededBy": ["FoundationsAndLibraryIntegration:LI.1/finite-presentation-independent-of-presentation", "FoundationsAndLibraryIntegration:LI.1/flatness-criteria-base-change-and-localization"],
+      "detail": "Lemma 10.6.3 is matched by Algebra.FinitePresentation.ker_fg_of_mvPolynomial (Mathlib/RingTheory/FinitePresentation.lean; signature compared by the reader), with Algebra.FinitePresentation defined via a surjection from a polynomial ring with finitely generated kernel, and Algebra.FinitePresentation.of_finiteType for Noetherian bases. Neither Mathlib nor TauCeti contains a non-flat or a finite-type-but-not-finitely-presented example (grep); the Stacks examples are asserted (10.82.6) or rely on unread inputs (§110.38)."
+    },
+    {
+      "title": "Grothendieck spectral sequence and composition of derived functors are absent",
+      "neededBy": ["FoundationsAndLibraryIntegration:LI.3/grothendieck-spectral-sequence"],
+      "detail": "No Cartan–Eilenberg resolution, comparison transformation t or G-acyclicity predicate was found in Mathlib or TauCeti. CategoryTheory.SpectralSequence (Mathlib/Algebra/Homology/SpectralSequence/Basic.lean) records pages and page-to-page isomorphisms without a convergence field in the parts inspected; CategoryTheory.Abelian.SpectralObject.spectralSequence and Functor.rightDerived/totalRightDerived exist as infrastructure candidates (unchecked)."
+    },
+    {
+      "title": "Covering-family versus sieve-based sheafification",
+      "neededBy": ["FoundationsAndLibraryIntegration:LI.3/sheafification-exists-and-is-exact"],
+      "detail": "Mathlib's CategoryTheory.HasSheafify treats left exactness as a field of the class; its concrete instance (Mathlib/CategoryTheory/Sites/LeftExact.lean) requires a concrete target with multiequalizers, colimits over covers preserved by the forgetful functor, reflection of isomorphisms, finite limits and small covers; PresheafOfModules.sheafification takes a locally bijective map into a sheaf of rings. These follow the Stacks route (reduce modules to abelian groups), but the comparison of F⁺⁺ built from covering families with Mathlib's sieve-based plus construction was not made."
+    },
+    {
+      "title": "Analysis foundations have no source reading",
+      "neededBy": ["FoundationsAndLibraryIntegration:LI.2"],
+      "detail": "Catalogue candidates, not read: Tate, Fourier analysis in number fields and Hecke's zeta-functions (sha256 0c40f263…f6c8); Franke, Harmonic analysis in weighted L²-spaces (sha256 3c0465f6…c58b); Arthur, An introduction to the trace formula (sha256 2b662301…c510); Godement–Jacquet LNM 260 has no file. Library fact for the acceptance test: MeasureTheory.Integrable.fourierInv_fourier_eq (Mathlib/Analysis/Fourier/Inversion.lean) assumes f and its Fourier transform integrable and f continuous at v, on a finite-dimensional real inner product space with Borel measure, with transform ∫ e(−⟨v, w⟩) f(v) dv, e(x) = exp(2πix) and no normalizing constant. Next action: read Tate's thesis §2 for self-dual measures and sign conventions."
+    }
+  ]
+}

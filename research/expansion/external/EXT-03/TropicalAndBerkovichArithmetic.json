@@ -1,17 +1,18 @@
 {
   "roadmapId": "TropicalAndBerkovichArithmetic",
   "status": "partial",
-  "summary": "Partial decomposition of stage TB.2 (semistable vertex sets, skeletons, retraction and the stable reduction theorem) from Baker-Payne-Rabinoff, On the structure of nonarchimedean analytic curves, Section 3 and Theorem 4.22, and of stage TB.5 (faithful tropicalization, tropical multiplicities as sums of expansion factors) from the statements of Theorems 1.1-1.4 of Baker-Payne-Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves. Proofs beyond Section 3 of the first paper were not read; all other stages are recorded as not read.",
+  "summary": "Partial decomposition of stage TB.2 (semistable vertex sets, skeletons, retraction and the stable reduction theorem) from Baker-Payne-Rabinoff, On the structure of nonarchimedean analytic curves, Section 3 and Theorem 4.22, and of stage TB.5 (faithful tropicalization, tropical multiplicities as sums of expansion factors) from the statements of Theorems 1.1-1.4 of Baker-Payne-Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves. Proofs beyond Section 3 of the first paper were not read; all other stages are recorded as not read. Independent review (REVIEW-EXT-03, 2026-09-16) re-fetched both papers from arXiv (both SHA-256 values match the packet), re-read the cited passages and corrected the standing hypotheses of both nodes; see the review object.",
   "sources": [
     {
       "id": "bpr-structure-2014",
       "title": "On the structure of nonarchimedean analytic curves",
       "authors": "Matthew Baker, Sam Payne, Joseph Rabinoff",
-      "edition": "arXiv:1404.0279v1, 1 April 2014 (scratch download; published in Tropical and non-Archimedean geometry, Contemp. Math. 605 (2013))",
+      "edition": "arXiv:1404.0279v1 [math.AG], 1 April 2014 (published in Tropical and non-Archimedean geometry, Contemp. Math. 605 (2013); this is the paper cited as [BPR13] by the tropicalization paper). Not in the library catalogue. Extraction line numbers refer to a pdftotext -layout extraction of this PDF (1299 lines).",
       "url": "https://arxiv.org/abs/1404.0279",
       "readSections": [
         "Section 3: Definition 3.1 - Proposition 3.9 with proofs (semistable vertex sets, skeleta, completed skeleta, retraction) (pp. 7-9; extraction lines 374-484)",
-        "Theorem 4.22 (stable reduction theorem) and Corollary 4.23, statements and the first lines of the proof (extraction lines 885-900)"
+        "Theorem 4.22 (stable reduction theorem) and Corollary 4.23, statements and the first lines of the proof (extraction lines 885-900)",
+        "REVIEW-EXT-03 (re-fetched 2026-09-16 from https://arxiv.org/pdf/1404.0279v1, 363304 bytes; SHA-256 identical to the value recorded above; stamp \"arXiv:1404.0279v1 [math.AG] 1 Apr 2014\"): Section 3 opening conventions, Definitions 3.1, 3.3, 3.5, 3.7, Remark 3.6, Lemmas 3.2, 3.4, 3.8 and Proposition 3.9 with all proofs, and Definition 3.10 (pp. 7-9, lines 370-490); Theorem 4.22 with the whole printed proof and Corollary 4.23 (lines 878-905)."
       ],
       "sha256": "5e40117270a0051d9661c9bbd0317968b810573796a5c2408582f20692568a11"
     },
@@ -19,10 +20,11 @@
       "id": "bpr-tropicalization-2016",
       "title": "Nonarchimedean geometry, tropicalization, and metrics on curves",
       "authors": "Matthew Baker, Sam Payne, Joseph Rabinoff",
-      "edition": "arXiv:1104.0320v3, 10 June 2015 (scratch download; published in Algebraic Geometry 3 (2016) 63-105)",
+      "edition": "arXiv:1104.0320v3 [math.AG], 10 June 2015 (published in Algebraic Geometry 3 (2016) 63-105). The paper notes that its numbering differs from v2 and that the former Section 5 was extracted and published separately as [BPR13] (= the structure paper above). Not in the library catalogue. Extraction line numbers refer to a pdftotext -layout extraction (2144 lines).",
       "url": "https://arxiv.org/abs/1104.0320",
       "readSections": [
-        "Introduction: statements of Theorems 1.1-1.4 and the surrounding discussion of expansion factors m_rel(e) and tropical multiplicities (pp. 2-3; extraction lines 60-140)"
+        "Introduction: statements of Theorems 1.1-1.4 and the surrounding discussion of expansion factors m_rel(e) and tropical multiplicities (pp. 2-3; extraction lines 60-140)",
+        "REVIEW-EXT-03 (re-fetched 2026-09-16 from https://arxiv.org/pdf/1104.0320v3, 577783 bytes; SHA-256 identical to the value recorded above; stamp \"arXiv:1104.0320v3 [math.AG] 10 Jun 2015\"): the version remark and the whole introduction, including the standing hypotheses, the definition of H°(X^an) as the space of non-leaves, Theorems 1.1-1.4, the expansion-factor discussion and the gcd formula (pp. 1-3, lines 20-145); Remark 5.6 with (5.6.1) (lines 1237-1245)."
       ],
       "sha256": "19fbd64ec043835cbadad0375df562d78aa62b26b4820bd1e9f0f79d45c4348e"
     }
@@ -33,7 +35,7 @@
       "parentStageId": "TropicalAndBerkovichArithmetic:TB.2",
       "title": "Semistable vertex sets, semistable decompositions and the skeleton of a curve",
       "kind": "definition",
-      "statement": "Let X be a smooth connected projective curve over an algebraically closed complete nonarchimedean field K, X̂ its analytification and X = X̂ minus a finite set D of punctures. A semistable vertex set of X̂ is a finite set V of type-2 points such that X̂^an ∖ V is a disjoint union of open balls and finitely many open annuli; a semistable vertex set of X additionally has the punctures in distinct open-ball components. The skeleton Σ(X, V) = V ∪ ⋃ Σ(A) over the generalized open annuli A of the decomposition; the completed skeleton Σ̂(X, V) is its closure in X̂^an, equal to Σ(X, V) ∪ D, a graph with vertex set V ∪ D whose open edges are the skeleta of the annuli. (Lemma 3.2) The limit boundary of an open ball component is a single vertex; an open annulus component S(a)^+ has σ: (0, r) → A (r = val(a)) extending continuously to [0, r] with endpoints in V (possibly equal); a punctured ball has endpoints one vertex and one puncture. (Lemma 3.4) Σ is closed, compact iff X = X̂; its limit boundary is D; the components of X^an ∖ Σ are open balls with one-point limit boundary in Σ; Σ is the set of points with no affinoid neighbourhood isomorphic to B(1) and disjoint from V.",
+      "statement": "Standing conventions of the source (Section 3 opening): K is algebraically closed and complete with respect to a nontrivial nonarchimedean valuation; X is a smooth connected algebraic curve over K, X̂ is its smooth completion (a curve, not an analytification) and D = X̂ ∖ X is the finite set of punctures. Analytifications are written X^an and X̂^an. A semistable vertex set of X̂ is a finite set V of type-2 points such that X̂^an ∖ V is a disjoint union of open balls and finitely many open annuli; a semistable vertex set of X additionally has the punctures in distinct open-ball components. The skeleton Σ(X, V) = V ∪ ⋃ Σ(A) over the generalized open annuli A of the decomposition; the completed skeleton Σ̂(X, V) is its closure in X̂^an, equal to Σ(X, V) ∪ D, a graph with vertex set V ∪ D whose open edges are the skeleta of the annuli. (Lemma 3.2) The limit boundary of an open ball component is a single vertex; an open annulus component S(a)^+ has σ: (0, r) → A (r = val(a)) extending continuously to [0, r] with endpoints in V (possibly equal); a punctured ball has endpoints one vertex and one puncture. (Lemma 3.4) Σ is closed, compact iff X = X̂; its limit boundary is D; the components of X^an ∖ Σ are open balls with one-point limit boundary in Σ; Σ is the set of points with no affinoid neighbourhood isomorphic to B(1) and disjoint from V.",
       "hypotheses": [
         "K algebraically closed and complete with respect to a nontrivial nonarchimedean valuation (the paper's standing assumption); type-2 points; annuli are standard generalized open annuli S(a)^+ with modulus val(a).",
         "Semistable vertex sets of X̂ correspond bijectively to isomorphism classes of semistable formal models (Theorem 4.11, not read)."
@@ -43,8 +45,8 @@
         "Lemma 3.4: (1)-(3) follow from Lemma 3.2 and Lemma 2.12 (an annulus minus its skeleton is a union of open balls); (4) uses Proposition 2.4 (skeleton of an annulus)."
       ],
       "acceptance": [
-        "For a curve with good reduction, V = {the Gauss-type point of the reduction} is a semistable vertex set with Σ = V (single vertex; the vertex genus is the genus of the curve).",
-        "For a Tate elliptic curve, a minimal semistable vertex set gives a skeleton which is a loop of length −val(j)."
+        "Reviewer-authored test: for a curve with good reduction the single Gauss-type point of the reduction is a semistable vertex set with Σ = V. The statement that its vertex genus is the genus of the curve uses the genus theory of BPR14 Section 4, which was not read.",
+        "For an elliptic curve with bad reduction the minimal skeleton is a loop of length −val(j). The tropicalization paper states this in its introduction, citing [BPR13, Remark 4.24]; that remark was not read."
       ],
       "sources": [
         {
@@ -71,7 +73,7 @@
         "Proposition 3.9: the continuous image of the connected X^an under τ_V is Σ."
       ],
       "acceptance": [
-        "The retraction of a type-1 point in an open-ball component is the vertex at its limit boundary; refining V by adding a type-2 point in an annulus subdivides an edge and the retractions are compatible."
+        "The retraction of a point in an open-ball component of X^an ∖ Σ is the single point of its limit boundary, which lies in Σ but need not be a vertex of V: by Lemma 3.4(3) it is a point of Σ, and for a ball hanging off the interior of an edge it is an interior point of that edge. Compatibility of the retractions under refinement of V (subdividing an edge) is a reviewer-authored test; the refinement theory is Proposition 3.13, which was not read."
       ],
       "sources": [
         {
@@ -91,10 +93,12 @@
       "statement": "Theorem 4.22: a semistable vertex set of X exists. If V is a minimal semistable vertex set then (1) if χ(X) ≤ 0, Σ(X, V) is the set of points of X^an with no affinoid neighbourhood isomorphic to B(1); (2) if χ(X) < 0, V is stable and V = {x ∈ Σ(X, V): x is a topological vertex (valence ≥ 3) or g(x) > 0}. Corollary 4.23: for χ(X) ≤ 0 there is a unique set-theoretic minimal skeleton and for χ(X) < 0 a unique stable vertex set.",
       "hypotheses": [
         "Existence is deduced from Deligne-Mumford's stable reduction theorem in the analytic form of Bosch-Lutkebohmert [BL85, Theorem 7.1] over a non-noetherian rank-1 valuation ring; the source's proof beyond its first lines was not read.",
-        "χ(X) is the Euler characteristic of Definition 4.19 (not read); g(x) is the genus of a type-2 point."
+        "χ(X) is the Euler characteristic of Definition 4.19 and g(x) the genus of a type-2 point (Section 4, not read). A topological vertex means a vertex of valence at least 3, as defined just before Theorem 4.22."
       ],
       "proofSteps": [
-        "Existence for X̂ from [BL85, Theorem 7.1]; existence for the punctured X by adding vertices separating punctures (proof not read further)."
+        "Existence for X̂: the classical Deligne-Mumford theorem, in the analytic form proved over a non-noetherian rank-1 valuation ring in [BL85, Theorem 7.1].",
+        "Existence for the punctured X: \"follows from Proposition 3.13(3)\" (unread), not from an ad hoc addition of vertices separating punctures.",
+        "Minimality: for χ(X) < 0 the second assertion follows by applying Proposition 4.21 \"in the standard way\"; for χ(X) ≤ 0, Proposition 4.21(1) makes every genus-zero vertex of Σ have valence at least two, and Lemma 3.4(4) gives Σ′ ⊂ Σ for the set Σ′ of points without an affinoid neighbourhood isomorphic to B(1). Propositions 3.13 and 4.21 were not read; the rest of the proof of (1) was not read."
       ],
       "acceptance": [
         "A genus ≥ 2 curve has a unique stable vertex set; a Tate curve (χ = 0) has a unique minimal skeleton (the loop) but no unique minimal vertex set."
@@ -102,7 +106,7 @@
       "sources": [
         {
           "sourceId": "bpr-structure-2014",
-          "locator": "Section 4, Theorem 4.22 and Corollary 4.23 with the opening of the proof (extraction lines 885-900)",
+          "locator": "Section 4, Theorem 4.22, Corollary 4.23 and the printed proof of 4.22 (extraction lines 889-905)",
           "excerpt": "Theorem 4.22. (Stable reduction theorem) There exists a semistable vertex set of X. If V is a minimal semistable vertex set of X then: (1) If χ(X) ≤ 0 then Σ(X, V) is the set of points in X^an that do not admit an affinoid neighborhood isomorphic to B(1).",
           "match": "The existence statement TB.2 needs after the finite extension supplied by semistable reduction."
         }
@@ -114,9 +118,9 @@
       "parentStageId": "TropicalAndBerkovichArithmetic:TB.5",
       "title": "Faithful tropicalization of finite subgraphs and the tropical multiplicity formula (statements)",
       "kind": "theorem",
-      "statement": "Let X be a curve over an algebraically closed complete nonarchimedean field K and H°(X^an) the set of non-type-1 points with its metric. (Theorem 1.1) For every finite embedded subgraph Γ ⊂ H°(X^an) there is a closed embedding of X into a quasiprojective toric variety, meeting the dense torus T, such that Γ maps isometrically onto its image in Trop(X ∩ T); the set of such embeddings is stable under domination and hence cofinal. (Theorem 1.3) Trop(X ∩ T) has a polyhedral structure such that for each edge e' finitely many segments e_1, ..., e_r of H°(X^an) map homeomorphically onto e', every other segment in the preimage is contracted, and the tropical multiplicity is m_Trop(e') = m_rel(e_1) + ... + m_rel(e_r), where m_rel(e) is the absolute value of the integer slope of the affine map e → e'. (Theorem 1.4) If in_w(X ∩ T) is irreducible and generically reduced for all w in a finite subgraph Γ' ⊂ Trop(X ∩ T), there is a unique embedded subgraph Γ ⊂ H°(X^an) mapping homeomorphically onto Γ', and this map is an isometry. For an affine curve embedded by invertible functions f_1, ..., f_n, m_rel(e) = gcd(s_1(e), ..., s_n(e)) with s_i(e) the slope of log|f_i| along e (Remark 5.6; slopes computable by the slope formula of BPR13 Theorem 5.15).",
+      "statement": "Standing hypotheses (stated in the introduction): K is an algebraically closed field complete with respect to a nontrivial nonarchimedean valuation, and X is a nonsingular curve over K. H°(X^an) is the set of non-leaves of X^an, i.e. the points contained in an embedded open segment; the leaves are the K-points together with the type-4 points, so H°(X^an) is not simply the complement of the type-1 points. Its canonical metric is defined through semistable models ([BPR13]). (Theorem 1.1) For every finite embedded subgraph Γ ⊂ H°(X^an) there is a closed embedding of X into a quasiprojective toric variety, meeting the dense torus T, such that Γ maps isometrically onto its image in Trop(X ∩ T); the set of such embeddings is stable under domination and hence cofinal. (Theorem 1.3) Trop(X ∩ T) has a polyhedral structure such that for each edge e' finitely many segments e_1, ..., e_r of H°(X^an) map homeomorphically onto e', every other segment in the preimage is contracted, and the tropical multiplicity is m_Trop(e') = m_rel(e_1) + ... + m_rel(e_r), where m_rel(e) is the absolute value of the integer slope of the affine map e → e'. (Theorem 1.4) If in_w(X ∩ T) is irreducible and generically reduced for all w in a finite subgraph Γ' ⊂ Trop(X ∩ T), there is a unique embedded subgraph Γ ⊂ H°(X^an) mapping homeomorphically onto Γ', and this map is an isometry. For an affine curve embedded by invertible functions f_1, ..., f_n, m_rel(e) = gcd(s_1(e), ..., s_n(e)) with s_i(e) the absolute value of the slope of the integer-affine function log|f_i| along e (Remark 5.6; slopes computable by the slope formula of BPR13 Theorem 5.15).",
       "hypotheses": [
-        "K algebraically closed and complete; X a curve (smooth? the introduction does not restate the standing hypotheses; the body's assumptions were not read); tropicalization Trop(X ∩ T) is the closure of trop(X(K) ∩ T) with the polyhedral structure of Theorem 4.28.",
+        "K algebraically closed and complete with a nontrivial valuation; X nonsingular (both stated in the introduction). Trop(X ∩ T) is the closure of trop(X(K) ∩ T), with the polyhedral structure of Theorem 4.28 (not read).",
         "Proofs (Sections 4-6: polyhedral domains, Theorem 4.30 finiteness of ψ^P, Theorem 5.8 compatibility of multiplicities, Corollary 5.9) were not read."
       ],
       "proofSteps": [
@@ -152,22 +156,22 @@
     {
       "source": "TropicalAndBerkovichArithmetic:TB.2/semistable-vertex-sets-and-skeleta",
       "target": "TropicalAndBerkovichArithmetic:TB.2/stable-reduction-and-minimal-skeleta",
-      "reason": "Theorem 4.22 asserts existence and minimality properties of the objects defined in Section 3.",
+      "reason": "Theorem 4.22 asserts existence and the minimality characterizations for the semistable vertex sets and skeleta defined in Section 3, and its printed proof uses Lemma 3.4(4) of this node for the inclusion Σ′ ⊂ Σ.",
       "sources": [
         {
           "sourceId": "bpr-structure-2014",
-          "locator": "Section 4, Theorem 4.22"
+          "locator": "Section 4, Theorem 4.22 with proof (extraction lines 889-905, \"By Lemma 3.4(4) we have Σ′ ⊂ Σ\")"
         }
       ]
     },
     {
       "source": "TropicalAndBerkovichArithmetic:TB.2/semistable-vertex-sets-and-skeleta",
       "target": "TropicalAndBerkovichArithmetic:TB.5/faithful-tropicalization-and-expansion-factors",
-      "reason": "Faithful tropicalization is stated for finite subgraphs of H°(X^an), whose metric and skeleta come from the semistable decomposition theory of BPR13/BPR14; Theorem 1.3's segments e_i lie in skeleta.",
+      "reason": "The tropicalization paper states Theorems 1.1-1.4 for finite embedded subgraphs of H°(X^an), whose polyhedral structure and canonical metric it defines through semistable models, citing [BPR13] as its primary reference; [BPR13] is the structure paper decomposed in this node. The segments e_i of Theorem 1.3 are embedded segments of H°(X^an).",
       "sources": [
         {
           "sourceId": "bpr-tropicalization-2016",
-          "locator": "Introduction, paragraph before Theorem 1.1 and Theorem 1.3, pp. 2-3"
+          "locator": "Introduction, paragraph defining H°(X^an) and the citation of [BPR13], p. 1 (extraction lines 43-50); Theorem 1.3, p. 2 (lines 104-115)"
         }
       ]
     }
@@ -191,7 +195,7 @@
       "stageId": "TropicalAndBerkovichArithmetic:TB.2",
       "status": "partial",
       "remaining": [
-        "Section 4 of BPR14 (semistable formal models, Theorem 4.11 bijection with vertex sets, genus formula, Definition 4.19, proof of Theorem 4.22 via [BL85, Theorem 7.1]) and compatibility with finite extensions of K: not read."
+        "Section 4 of BPR14 (semistable formal models, Theorem 4.11 bijection with vertex sets, genus formula, Definition 4.19, Proposition 4.21 and the proof of Theorem 4.22 via [BL85, Theorem 7.1]), Proposition 3.13 (refinement and the punctured case, used by that proof) and compatibility with finite extensions of K: not read."
       ]
     },
     {
@@ -236,7 +240,7 @@
       "neededBy": [
         "TropicalAndBerkovichArithmetic:TB.5/faithful-tropicalization-and-expansion-factors"
       ],
-      "detail": "Only the introduction of BPR16 was read. Next action: read Sections 4-5 (extraction lines 700-1300 of 1104.0320.txt), in particular Theorem 4.28 (polyhedral structure), Theorem 4.30, Proposition 5.4, Theorem 5.8 and Corollary 5.9, and record the standing hypotheses on X."
+      "detail": "Only the introduction of BPR16 and Remark 5.6 were read. The standing hypotheses are in fact stated in the introduction (K algebraically closed and complete with a nontrivial valuation, X nonsingular), so the node now records them; what remains unread is the body. Next action: read Sections 4-5, in particular Theorem 4.28 (polyhedral structure), Theorem 4.30, Proposition 5.4, Theorem 5.8 and Corollary 5.9 (layout extraction lines 1071-1300), and the domination order (5.15.1)."
     },
     {
       "title": "Semistable models and genus bookkeeping",
@@ -244,6 +248,42 @@
         "TropicalAndBerkovichArithmetic:TB.2/stable-reduction-and-minimal-skeleta"
       ],
       "detail": "The stage requires vertex genera, the genus formula g(X) = g(Σ) + Σ g(x), the bijection with semistable formal models (BPR14 Theorem 4.11) and compatibility with refinement and base change; these are in BPR14 Section 4, not read. The sha256 of both BPR downloads was computed in this session and recorded in the sources; catalogue entries must still be created before promotion."
+    },
+    {
+      "title": "Both Baker-Payne-Rabinoff papers are outside the library catalogue",
+      "neededBy": [
+        "TropicalAndBerkovichArithmetic:TB.2/semistable-vertex-sets-and-skeleta",
+        "TropicalAndBerkovichArithmetic:TB.5/faithful-tropicalization-and-expansion-factors"
+      ],
+      "detail": "Neither arXiv:1404.0279v1 nor arXiv:1104.0320v3 is in CATALOGUE.json. REVIEW-EXT-03 re-fetched both from arXiv on 2026-09-16 and confirmed that the packet's SHA-256 values are correct (5e401172... and 19fbd64e...), so the records can be created from the packet's source entries. The related unread sources named in the coverage (Chambert-Loir math/0304023 for TB.6, BPR13 Theorem 5.15 for TB.3) are also uncatalogued."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REVIEW-EXT-03",
+    "date": "2026-09-16",
+    "notes": "Both sources are outside the library, so the reviewer re-fetched them from arXiv: the packet's SHA-256 values are correct for arXiv:1404.0279v1 and arXiv:1104.0320v3, the arXiv stamps match the recorded editions, and a pdftotext -layout extraction reproduces every cited line number. All four nodes and all three links were checked; all four nodes were corrected, none is unverifiable.\nCorrections: (1) the standing conventions of the structure paper were garbled (X is the curve, X̂ its smooth completion, D = X̂ ∖ X); (2) H°(X^an) is the space of non-leaves, which excludes type-4 points as well as K-points; (3) the tropicalization paper does state its standing hypotheses in the introduction, contrary to the packet's note; (4) the existence of a semistable vertex set for a punctured curve follows from Proposition 3.13(3), not from an ad hoc vertex addition; (5) the retraction of a ball component lands in Σ but not necessarily in V; (6) slopes in the gcd formula are absolute values. Acceptance items that depend on unread sections are now labelled.\nThe three links have the right direction and their cited locations do use the source node's output; the reasons and locators were sharpened, in particular by recording that the tropicalization paper cites [BPR13] (the structure paper) for the metric on H°(X^an). Note for integration: the link from TB.2 to TB.5 is a stage-level edge that the atlas does not have (it routes TB.2 → TB.3 → TB.5); it is acyclic.\nAll parentStageIds are TB.2 or TB.5 and are owned by the roadmap; all eight coverage stage ids exist. A gap was added recording that neither paper is in CATALOGUE.json. Packet status stays partial.",
+    "checked": [
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/semistable-vertex-sets-and-skeleta",
+        "verdict": "corrected",
+        "note": "Definitions 3.1, 3.3, 3.5, Remark 3.6 and Lemmas 3.2, 3.4 with their proofs (lines 370-466) match, including the limit-boundary cases and the proof of Lemma 3.2(1). The standing conventions were garbled: the source takes X to be a smooth connected algebraic curve, X̂ its smooth completion (not an analytification) and D = X̂ ∖ X. Corrected, and the two acceptance items were attributed (vertex genus needs Section 4; the loop length is quoted from the tropicalization paper)."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/retraction-to-the-skeleton",
+        "verdict": "corrected",
+        "note": "Definition 3.7, Lemma 3.8 and Proposition 3.9 (lines 467-483) match, including the \"left as an exercise to the reader\" boundary. The acceptance item said the retraction of a point in a ball component is \"the vertex at its limit boundary\"; Lemma 3.4(3) only gives a point of Σ, which may be interior to an edge. Corrected, and the refinement claim marked reviewer-authored."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/stable-reduction-and-minimal-skeleta",
+        "verdict": "corrected",
+        "note": "Theorem 4.22 and Corollary 4.23 are verbatim. The proof step for the punctured case guessed \"adding vertices separating punctures\"; the printed proof says it follows from Proposition 3.13(3). The proof steps now name Proposition 3.13(3), Proposition 4.21 and Lemma 3.4(4), all of which the printed proof uses, and the locator covers the whole printed proof."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.5/faithful-tropicalization-and-expansion-factors",
+        "verdict": "corrected",
+        "note": "Theorems 1.1, 1.3 and 1.4 and the expansion-factor discussion (lines 64-140) match, as does the gcd formula, which is stated in the introduction with a pointer to Remark 5.6 (read: (5.6.1) gives m_rel(e) = gcd(s_1, ..., s_n)). Two corrections: H°(X^an) is the set of non-leaves, and the leaves are the K-points together with the type-4 points, so it is not the complement of the type-1 points; and the standing hypotheses (K algebraically closed and complete with a nontrivial valuation, X nonsingular) are stated in the introduction, contrary to the packet's hypothesis note. The slopes s_i(e) are absolute values."
+      }
+    ]
+  }
 }

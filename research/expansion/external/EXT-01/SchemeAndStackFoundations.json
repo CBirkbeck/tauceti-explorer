@@ -1,0 +1,881 @@
+{
+  "roadmapId": "SchemeAndStackFoundations",
+  "status": "partial",
+  "summary": "Source-based expansion of scheme and stack foundations from the Stacks Project, Bhatt–Scholze and de Jong. SF.0: fibre products by gluing and the Zariski representability criterion, relative Spec, and the named morphism classes with base change. SF.1: faithfully flat descent of modules via the Amitsur complex, fpqc descent of quasi-coherent sheaves and affine morphisms, and statement-level algebraic spaces, the bootstrap theorem, quotient stacks and Keel–Mori. SF.2: independence of quasi-coherent cohomology from the topology, the pro-étale versus étale comparisons including the left-completion theorem, and statement-level smooth/proper base change and Rf_!. SF.3: degree, genus and Riemann–Roch for Gorenstein proper curves, representability of the Picard scheme of a smooth projective curve and H¹_ét(μ_n) = Pic⁰[n]. SF.4: formal functions, Grothendieck existence and algebraization; flat deformations of modules and schemes; modifications, alterations, Lipman's resolution criterion and de Jong's alteration theorems. SF.5: proper pushforward and flat pullback on rational equivalence, the key formula, Gysin maps and Chern classes, intersection products with the moving lemma and projection formula. SF.6 was not read. Recorded gaps include the stage-order issue that Riemann–Roch for curves uses a Chow-homology lemma, and the absence of Hodge index, surface Riemann–Roch and the Frobenius-graph computation from the library.",
+  "sources": [
+    {
+      "id": "StacksProject-book-2026",
+      "title": "The Stacks Project (book.pdf)",
+      "authors": "The Stacks Project Authors",
+      "edition": "book.pdf with PDF CreationDate 30 January 2026 (7641 pages); PDF page = printed page; results cited by number and stable tag.",
+      "url": "https://stacks.math.columbia.edu/download/book.pdf",
+      "sha256": "e44ecf82641aa70fc690a8dc2a7f7e7bc570c6a2b16e53245580a59dceef7712",
+      "readSections": [
+        "Chapter 26 Schemes: Lemmas 26.14.1–26.14.2, 26.15.4, 26.16.1, 26.17.2–26.17.4 and Definition/Lemma 26.21.3, 26.21.12, pp. 2290–2308; Chapter 27: §27.4 relative spectrum, pp. 2320–2322",
+        "Chapter 29 Morphisms: Definitions and base-change lemmas 29.21.1/4, 29.25.1/8, 29.34.1/5, 29.36.1/4, 29.41.1/5, pp. 2457–2512; Definitions 29.51.11–29.51.12, p. 2551",
+        "Chapter 30 Cohomology of Schemes: §30.20 (Lemmas 30.20.1–30.20.7), §§30.24–30.25 (30.24.1–30.24.3, 30.25.2–30.25.4), §30.27 (Theorem 30.27.1, Remark 30.27.2), §30.28 (30.28.1–30.28.4), pp. 2626–2652",
+        "Chapter 33 Varieties: Definitions 33.3.1, 33.43.1, 33.44.1, Lemma 33.44.2, Proposition 33.45.13 (statement), pp. 2809–2913",
+        "Chapter 35 Descent: §35.2 (35.2.2, 35.2.4), §35.3 (35.3.1–35.3.9), §35.5 (35.5.1–35.5.2), §§35.8–35.9 (35.8.1, 35.9.1–35.9.4), §§35.34–35.39 (35.34.3, 35.36.2 statement, 35.37.1–35.37.2, 35.38.1, 35.39.1), pp. 2966–3058",
+        "Chapter 37 More on Morphisms: Lemma 37.11.7, p. 3202; Chapter 42 Chow Homology: Key Lemma 42.6.3, Situation 42.7.1, §§42.12–42.20, 42.26–42.30, Definitions 42.37.1, 42.38.1, 42.41.1, Lemmas 42.41.3, 42.54.5, 42.58.1, §42.62, §42.66, pp. 3693–3834",
+        "Chapter 43 Intersection Theory: §43.2, Lemma 43.13.5, §43.17, Lemma 43.22.1, Lemmas 43.24.1–43.24.3, Theorem 43.25.2, §43.26, Lemma 43.27.1, pp. 3860–3905",
+        "Chapter 44 Picard Schemes of Curves: Definition 44.4.1, Lemmas 44.4.3, 44.5.1, 44.6.1–44.6.5, Proposition 44.6.6, Lemmas 44.6.7, 44.7.1, pp. 3905–3922",
+        "Chapter 53 Algebraic Curves: Lemmas 53.4.1–53.4.3, 53.5.1–53.5.2, Definition 53.8.1, Lemmas 53.8.2–53.8.4, 53.10.1–53.10.3, pp. 4426–4438; Chapter 54: Definition 54.14.1, Theorem 54.14.5 (statement), p. 4533; Chapter 55: Theorem 55.18.1 (statement), p. 4604",
+        "Chapter 59 Étale Cohomology: Theorem 59.22.4 (statement), Lemma 59.69.1, Theorems 59.89.2 and 59.91.11 (statements), pp. 4778–4940; Chapter 63: §63.9 (statements 63.9.1–63.9.4), p. 5185",
+        "Chapter 65 Algebraic Spaces: Definition 65.6.1, Theorem 65.10.5; Chapter 80 Bootstrap: Theorems 80.6.1, 80.10.1, Lemma 80.11.7; Chapter 83: Definition 83.6.1; Chapter 91 Deformation Theory: §§91.3–91.8; Chapter 94 Algebraic Stacks: Lemma 94.10.11, Definition 94.12.1, Theorem 94.17.3; Chapter 97: Theorem 97.17.2, Lemma 97.18.3; Chapter 106: Definition 106.12.1, Theorem 106.13.9 (statements for chapters 65–106 except §§91.3–91.8)"
+      ]
+    },
+    {
+      "id": "BhattScholze-ProEtale",
+      "title": "The pro-étale topology for schemes",
+      "authors": "Bhargav Bhatt and Peter Scholze",
+      "edition": "arXiv:1309.1198v2 (17 December 2014), library copy; own page numbers.",
+      "url": "https://arxiv.org/pdf/1309.1198v2",
+      "sha256": "ae0960a28f0f25300211569cd350def057d6c0f781f635694182868e766d3c84",
+      "readSections": [
+        "§5.1 Lemmas 5.1.1–5.1.2, Corollary 5.1.6; §5.2 Proposition 5.2.6, Lemma 5.2.7, Remark 5.2.8; §5.3 Proposition 5.3.2 and the following discussion, pp. 34–39"
+      ]
+    },
+    {
+      "id": "deJong-Alterations-1996",
+      "title": "Smoothness, semi-stability and alterations",
+      "authors": "A. Johan de Jong",
+      "edition": "Publ. Math. IHÉS 83 (1996), from p. 51; library scan with an OCR text layer (garbled symbols), printed page = PDF page + 49.",
+      "url": "https://www.numdam.org/item/PMIHES_1996__83__51_0.pdf",
+      "sha256": "9e4e7dab2525e9a0fb0820752434c5a168914873b6118f5a967fcccae257ffb7",
+      "readSections": [
+        "§1 (p. 51); 2.4, 2.9 (last sentence), 2.12, 2.16, 2.17, 2.19, 2.20, 2.24, pp. 55–63",
+        "Theorem 4.1, Remark 4.2 and the proof 4.5–4.28, pp. 66–78",
+        "Theorem 5.8, 6.3, Theorem 6.5, Theorem 7.3, Theorem 8.2 (statements), pp. 79–91"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "SchemeAndStackFoundations:SF.0/fibre-products-by-gluing-and-representability",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "title": "Fibre products of schemes via gluing and the Zariski representability criterion",
+      "kind": "theorem",
+      "statement": "The category of schemes has a final object Spec Z, products and fibre products (Stacks Lemma 26.16.1). The proof uses the representability criterion Lemma 26.15.4: a functor F on schemes is representable if it satisfies the sheaf property for the Zariski topology and has subfunctors F_i that are representable, representable by open immersions, and jointly cover F. For affine inputs the fibre product is Spec(A ⊗_R B) (Lemma 26.17.2). Gluing data of locally ringed spaces glue (Lemma 26.14.1), and if all pieces are schemes the result is a scheme (Lemma 26.14.2).",
+      "hypotheses": [
+        "No hypotheses for existence.",
+        "Lemma 26.14.1 states the mapping properties of glued spaces with their proof omitted."
+      ],
+      "proofSteps": [
+        "Spec Z is final (Lemma 26.6.4), so only fibre products are needed (Categories 4.18.4).",
+        "For X → S ← Y set F(T) = Mor(T, X) ×_{Mor(T, S)} Mor(T, Y) and verify Lemma 26.15.4; F is a Zariski sheaf by gluing morphisms with Lemma 26.14.1.",
+        "Subfunctors F_{i,j,k} come from affine opens U_i ⊂ S, V_j ⊂ f⁻¹U_i, W_k ⊂ g⁻¹U_i; each is representable by Lemma 26.6.7 (affine fibre products agree in schemes and locally ringed spaces), representable by open immersions via a⁻¹V_j ∩ b⁻¹W_k, and together they cover.",
+        "Lemma 26.15.4 itself: choose X_i representing F_i and opens U_{ij} where the universal element lies in F_j; the comparison maps are isomorphisms satisfying the cocycle condition; glue (Lemmas 26.14.1–26.14.2) and use the sheaf property to produce the universal element."
+      ],
+      "acceptance": [
+        "Base-change diagrams identify every arrow (stage acceptance): record both projections and the induced maps.",
+        "Test: Spec(A ⊗_R B) for affine inputs, and a non-affine gluing of two affine lines along an open subscheme."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemmas 26.14.1 (01JB), 26.14.2 (01JC), 26.15.4 (01JJ), 26.16.1 (01JM), 26.17.2–26.17.4 (01JQ–01JS), pp. 2290–2298",
+          "excerpt": "The category of schemes has a final object, products and fibre products.",
+          "match": "Lemma 26.16.1."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemma 26.14.1, pp. 2290–2291",
+          "excerpt": "The proof of the mapping properties is omitted.",
+          "match": "Omitted part of the gluing lemma."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/relative-spectrum",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "title": "The relative spectrum of a quasi-coherent algebra",
+      "kind": "construction",
+      "statement": "For a quasi-coherent O_S-algebra A, the functor (27.4.0.1) of pairs (f: T → S, φ) with φ an algebra map from f^*A to O_T is representable (Lemma 27.4.3); the representing scheme π: Spec_S(A) → S is the relative spectrum (Definition 27.4.5). It is affine over affine opens of S, compatible with base change, and satisfies A ≅ π_*O (Lemma 27.4.6); for quasi-compact quasi-separated f there is a canonical map as in Lemma 27.4.7.",
+      "hypotheses": [
+        "A quasi-coherent O_S-algebra. Relative Proj was not read."
+      ],
+      "proofSteps": [
+        "Lemma 27.4.1: compatibility of the functor with base change.",
+        "Lemma 27.4.2: the affine case.",
+        "Lemma 27.4.3: representability by the Zariski criterion Lemma 26.15.4; proofs not decomposed further in this pass."
+      ],
+      "acceptance": [
+        "Test: Spec_S(O_S[x]) is the affine line over S."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "(27.4.0.1) (01LR), Lemmas 27.4.1–27.4.3 (01LS–01LU), Definition 27.4.5 (01LW), Lemmas 27.4.6–27.4.7 (01LX–01LY), pp. 2320–2322",
+          "excerpt": "The relative spectrum of A over S, or simply the spectrum of A over S is the scheme constructed in Lemma 27.3.4",
+          "match": "Definition 27.4.5."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/morphism-classes-and-base-change",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "title": "Separated, finitely presented, flat, smooth, étale and proper morphisms and base change",
+      "kind": "definition",
+      "statement": "Separated morphisms (Definition 26.21.3) are stable under base change (Lemma 26.21.12(3)). A morphism is of finite presentation if it is locally of finite presentation, quasi-compact and quasi-separated (Definition 29.21.1), stable under base change (Lemma 29.21.4). Flatness is defined at points of the source relative to the target (Definition 29.25.1) and is stable under base change (Lemma 29.25.8). Smooth morphisms (Definition 29.34.1) carry no separation or quasi-compactness hypotheses and are stable under base change (Lemma 29.34.5). A morphism is étale if it is étale at every point (Definition 29.36.1), stable under base change (Lemma 29.36.4). A morphism is proper if it is separated, of finite type and universally closed (Definition 29.41.1), stable under base change (Lemma 29.41.5).",
+      "hypotheses": [
+        "Statement-level reading; proofs of the base-change lemmas were not decomposed.",
+        "No Stacks statement was found for the stage acceptance claim that a flat universal family cannot establish flatness of its parameter scheme."
+      ],
+      "proofSteps": [
+        "Proofs not read in this pass; stability under base change is by the cited lemma in each case."
+      ],
+      "acceptance": [
+        "State flatness, smoothness and properness as properties of named morphisms (stage text)."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Definitions 26.21.3 (01KK), 29.21.1 (01TP), 29.25.1 (01U3), 29.34.1 (01V5), 29.36.1 (02GI), 29.41.1 (01W1); Lemmas 26.21.12 (01KU), 29.21.4 (01TS), 29.25.8 (01U9), 29.34.5 (01VB), 29.36.4 (02GO), 29.41.5 (01W4), pp. 2305–2512",
+          "excerpt": "We say f is proper if f is separated, finite type, and universally closed.",
+          "match": "Definition 29.41.1."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Definition 29.34.1, p. 2485",
+          "excerpt": "Note that there is no separation or quasi-compactness hypotheses in the definition.",
+          "match": "Remark after the definition of smooth morphisms."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.1/faithfully-flat-descent-of-modules",
+      "parentStageId": "SchemeAndStackFoundations:SF.1",
+      "title": "Descent of modules along faithfully flat ring maps (Amitsur complex)",
+      "kind": "theorem",
+      "statement": "Let R → A be faithfully flat. For every R-module M the extended Amitsur cochain complex 0 → M → A ⊗_R M → A ⊗_R A ⊗_R M → ⋯ is exact (Stacks Lemma 35.3.6). Every descent datum (N, φ) for modules along R → A (Definition 35.3.1) is effective; M ↦ (A ⊗_R M, can) is an equivalence from R-modules to descent data; and its inverse is H⁰ of the associated cosimplicial module (Proposition 35.3.9). The source proves effectivity and omits the proofs of the other two statements.",
+      "hypotheses": [
+        "R → A faithfully flat.",
+        "Omitted in the source: Lemma 35.3.3, degrees −1 and 0 of Lemma 35.3.6, and parts (2)–(3) of Proposition 35.3.9."
+      ],
+      "proofSteps": [
+        "Lemma 35.3.2: the cocycle condition makes the relevant composite a projector that is an isomorphism.",
+        "Lemma 35.3.5: if R → A has a section, the complex is exact (Simplicial 14.28.4–14.28.6).",
+        "Lemma 35.3.6: exactness descends along faithfully flat R → R′; take R′ = A, where A → A ⊗_R A has a section, and apply Lemma 35.3.5.",
+        "Lemmas 35.3.7–35.3.8: a descent datum is effective iff A ⊗ H⁰ → N is an isomorphism, and effectivity descends along faithfully flat maps.",
+        "Proposition 35.3.9(1): reduce to R → A with a section σ; put M = {n : 1 ⊗ n = φ(n ⊗ 1)}; writing φ(n ⊗ 1) = Σ a_i ⊗ x_i gives n = Σ a_i x_i, and applying σ to the cocycle identity shows Σ σ(a_i)x_i ∈ M, proving surjectivity of A ⊗ M → N; injectivity follows by applying φ."
+      ],
+      "acceptance": [
+        "Test: Z → Z_p × Z[1/p] is faithfully flat, and a module glued from compatible data over Z_p and Z[1/p] descends.",
+        "Flatness vocabulary is supplied by FoundationsAndLibraryIntegration LI.1."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Definition 35.3.1 (023G), Lemmas 35.3.2–35.3.8 (023H, 023I, 023L, 023M, 039W, 039X), Proposition 35.3.9 (023N); Lemma 35.3.6 on p. 2973, Proposition 35.3.9 on p. 2974",
+          "excerpt": "Suppose that R → A is faithfully flat, see Algebra, Definition 10.39.1. Then for any R-module M the extended cochain complex (35.3.4.1) is exact.",
+          "match": "Lemma 35.3.6."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Proposition 35.3.9, p. 2974",
+          "excerpt": "We only prove (1) and omit the proofs of (2) and (3).",
+          "match": "Omitted parts of Proposition 35.3.9."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.1/fpqc-descent-of-quasi-coherent-sheaves-and-affine-morphisms",
+      "parentStageId": "SchemeAndStackFoundations:SF.1",
+      "title": "fpqc descent of quasi-coherent sheaves and of affine morphisms",
+      "kind": "theorem",
+      "statement": "For an fpqc covering {U_i → S} of a scheme, every descent datum on quasi-coherent sheaves is effective, and QCoh(S) → descent data is fully faithful (Proposition 35.5.2). Descent data (V_i/X_i, φ_{ij}) relative to an fpqc covering with each V_i → X_i affine are effective (Lemma 35.37.1); the same holds for closed immersions (Lemma 35.37.2) and quasi-affine morphisms (Lemma 35.38.1). Lemma 35.39.1 relates representability of a sheaf to effectivity of its descent datum, and remarks that the omission of fpqc there is deliberate.",
+      "hypotheses": [
+        "fpqc coverings (Topologies Definition 34.9.1). Lemma 35.36.2, used to localize, applies to τ ∈ {fpqc, fppf, étale, smooth, syntomic} and classes P stable under base change and finite disjoint unions that are effective over surjective τ-maps of affines (statement only).",
+        "Full faithfulness uses Lemma 35.2.2, whose proof is omitted, and a final check in Proposition 35.5.2 is omitted."
+      ],
+      "proofSteps": [
+        "Affine S with a standard covering: Γ(S, O) → Γ(∐ U_i, O) is faithfully flat (Lemma 35.5.1), so Proposition 35.3.9 applies.",
+        "General coverings: refine over an affine cover (Topologies 34.9.8, Definition 34.9.10) and glue (Lemma 35.2.4); faithfulness because a flat local ring map is faithfully flat (Algebra 10.39.17).",
+        "Lemma 35.37.1: affineness is local on the base and stable under base change (Morphisms 29.11.3, 29.11.9), so Lemma 35.36.2 reduces to one faithfully flat Spec A → Spec R; with V = Spec B, Proposition 35.3.9 gives C = Ker(B → A ⊗_R B) with A ⊗_R C ≅ B; C is closed under products because φ is an algebra map; U = Spec C descends V."
+      ],
+      "acceptance": [
+        "Stage: effective descent for the required objects; the classes shown effective in the parts read are quasi-coherent modules, affine morphisms, closed immersions and quasi-affine morphisms.",
+        "Test: descent of an affine morphism along Spec A → Spec R faithfully flat."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemma 35.5.1 (023S), Proposition 35.5.2 (023T), pp. 2984–2985",
+          "excerpt": "Any descent datum on quasi-coherent sheaves for U = {Ui → S} is effective.",
+          "match": "Proposition 35.5.2."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemma 35.36.2 (02W3), Lemmas 35.37.1 (0245), 35.37.2 (03I0), 35.38.1 (0247), 35.39.1 (02W5), pp. 3055–3058",
+          "excerpt": "If each morphism Vi → Xi is affine, then the descent datum is effective.",
+          "match": "Lemma 35.37.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.1/algebraic-spaces-stacks-and-quotients",
+      "parentStageId": "SchemeAndStackFoundations:SF.1",
+      "title": "Algebraic spaces, the bootstrap theorem, quotient stacks and Keel–Mori (statements)",
+      "kind": "definition",
+      "statement": "An algebraic space over S is an fppf sheaf F with representable diagonal and a surjective étale morphism from a scheme (Definition 65.6.1); the quotient U/R of a scheme by an étale equivalence relation is an algebraic space (Theorem 65.10.5). Bootstrap (Theorem 80.10.1): F is an algebraic space if it is a quotient U/R with s, t flat and locally of finite presentation and j an equivalence relation, or a sheaf with a surjective, flat, locally finitely presented cover by an algebraic space that is representable by algebraic spaces, or a sheaf with representable diagonal and such a cover. If G → B is flat and locally of finite presentation and acts freely on X, then X/G is an algebraic space and X is an fppf G-torsor over it (Lemma 80.11.7). Algebraic stacks (Definition 94.12.1) have diagonal representable by algebraic spaces, which is equivalent to Isom sheaves being algebraic spaces (Lemma 94.10.11). [U/R] is an algebraic stack for smooth groupoids (Theorem 94.17.3) and when s, t are flat and locally of finite presentation (Theorem 97.17.2); [B/G] is algebraic iff G is flat and locally of finite presentation (Lemma 97.18.3). Keel–Mori (Theorem 106.13.9): an algebraic stack with finite inertia I_X → X has a uniform categorical moduli space f: X → M with f separated, quasi-compact and a universal homeomorphism (Definition 106.12.1).",
+      "hypotheses": [
+        "Statement-level reading: proofs of Theorems 80.10.1, 94.17.3, 97.17.2 and 106.13.9 and the definition of inertia were not read.",
+        "No standalone Stacks lemma stating that [X/G] is algebraic, and no main-text definition of coarse moduli space, were found; Stacks uses categorical moduli spaces (Definition 106.12.1) and coarse quotients (Definition 83.6.1)."
+      ],
+      "proofSteps": [
+        "Proofs not read in this pass. As recorded by the reader, Theorem 80.10.1 uses Lemma 80.5.3, and Keel–Mori uses Lemmas 106.13.4, 106.13.7 and 106.13.8."
+      ],
+      "acceptance": [
+        "Separate a moduli functor from a stack and a coarse space from a fine moduli object (stage text): the Keel–Mori output is a uniform categorical moduli space, not a fine moduli space.",
+        "A quotient consumer must receive the universal property and the stabilizer (inertia) hypotheses explicitly; representability and properness are separate proofs (stage acceptance)."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Definition 65.6.1 (025Y), Theorem 65.10.5 (02WW), Theorems 80.6.1 (03Y3), 80.10.1 (04S6), Lemma 80.11.7 (06PH), pp. 5260–6092",
+          "excerpt": "Any one of the following conditions implies that F is an algebraic space:",
+          "match": "Theorem 80.10.1."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemma 94.10.11 (045G), Definition 94.12.1 (026O), Theorem 94.17.3 (04TK), Theorem 97.17.2 (06FI), Lemma 97.18.3 (06PL), pp. 6732–6850; Definition 106.12.1 (0DUG), Theorem 106.13.9 (0DUT), p. 7232",
+          "excerpt": "and f is separated, quasi-compact, and a universal homeomorphism.",
+          "match": "Theorem 106.13.9 (Keel–Mori)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.2/quasi-coherent-cohomology-independent-of-topology",
+      "parentStageId": "SchemeAndStackFoundations:SF.2",
+      "title": "Cohomology of quasi-coherent modules is independent of the topology",
+      "kind": "theorem",
+      "statement": "For a quasi-coherent O_S-module F and τ ∈ {Zariski, étale, smooth, syntomic, fppf}, H^q(S, F) = H^q((Sch/S)_τ, F^a) = H^q(S_Zar, F^a) = H^q(S_étale, F^a) (Stacks Proposition 35.9.3, restated as Étale Cohomology Theorem 59.22.4); fpqc is not included. Compatibility with pushforward holds only for quasi-compact quasi-separated morphisms on the small Zariski or étale sites (Proposition 35.9.4).",
+      "hypotheses": [
+        "F quasi-coherent; τ among Zariski, étale, smooth, syntomic, fppf."
+      ],
+      "proofSteps": [
+        "q = 0: F^a is a sheaf (Lemma 35.8.1, from Proposition 35.5.2 and Topologies 34.4.2, 34.5.2, 34.6.2, 34.7.2, 34.9.7).",
+        "Lemma 35.9.1 reduces to a single affine covering; Lemma 35.9.2 identifies the Čech complex with s((A/R)• ⊗ M), so higher Čech cohomology vanishes by Lemma 35.3.6.",
+        "Cohomology on Sites 21.10.9 gives vanishing of higher cohomology on affines; for separated U, 21.10.7 and Cohomology of Schemes 30.2.6 give the comparison.",
+        "General S: compare injective resolutions (Derived Categories 13.18.6) and the Čech spectral sequences over an affine cover, which agree on E₂."
+      ],
+      "acceptance": [
+        "Test: H^q(A^n_R, O) = 0 for q > 0 on each listed site.",
+        "Do not extend to the fpqc site or to non-quasi-coherent coefficients."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemma 35.8.1 (03DT), Lemmas 35.9.1 (03FI), 35.9.2 (03FJ), Propositions 35.9.3 (03DW) and 35.9.4 (03LC), pp. 2995–2996; Theorem 59.22.4 (03P2), p. 4778",
+          "excerpt": "In this section we prove that cohomology of quasi-coherent modules is independent of the choice of topology.",
+          "match": "Opening of §35.9."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.2/pro-etale-versus-etale-derived-categories",
+      "parentStageId": "SchemeAndStackFoundations:SF.2",
+      "title": "Pro-étale versus étale sheaves and derived categories (Bhatt–Scholze §§5.1–5.3)",
+      "kind": "comparison",
+      "statement": "For a scheme X let X_proét be the site of weakly étale X-schemes with fpqc covers (Definition 4.1.1) and ν: Shv(X_proét) → Shv(X_ét). For an étale sheaf F, ν^*F is computed by colimits over presentations U = lim U_i (Lemma 5.1.1), and ν^* is fully faithful on sheaves with essential image described by this formula (Lemma 5.1.2). For bounded below K, K ≃ ν_*ν^*K (Corollary 5.1.6), so ν^*: D^+(X_ét) → D^+(X_proét) is fully faithful with described essential image (Proposition 5.2.6); if X_ét is locally of finite cohomological dimension, the statements extend to unbounded complexes (Remark 5.2.8). The subcategory D_cc(X_proét) of §5.3 is equivalent to the left completion of D(X_ét), via μ = R lim ν^* and γ = {ν_*τ^{≥−n}} (Proposition 5.3.2).",
+      "hypotheses": [
+        "X any scheme (no qcqs hypothesis) in §5.1; abelian sheaves; bounded below in Proposition 5.2.6 unless X_ét is locally of finite cohomological dimension (Remark 5.2.8, stated with 'one can show').",
+        "Proposition 5.3.2 uses repleteness of X_proét (Propositions 4.2.8, 3.2.3(1)) and left completeness of replete topoi (Proposition 3.3.3), decomposed in EnhancedDerivedSheaves E2."
+      ],
+      "proofSteps": [
+        "Lemma 5.1.1: the problem is local on X, so assume X affine; use ind-étale presentations (Remark 4.2.5), the sheaf criterion (Lemma 4.2.6), the fact that Zariski and étale covers come from some U_i, and filtered colimits.",
+        "Corollary 5.1.6: reduce to sheaves by a triangulated class closed under filtered colimits; it suffices that H^p(U, ν^*I) = 0 for injective I, where Čech cohomology suffices (SGA 4 V.4.3) and covers are cofinal by Theorem 2.3.4; conclude as filtered colimits are exact.",
+        "Proposition 5.2.6: follows formally from Corollary 5.1.6 together with Lemma 5.2.7 (a functor with a fully faithful adjoint is a Verdier quotient by its kernel).",
+        "Proposition 5.3.2: ν^* factors through the left completion by repleteness and Proposition 3.3.3; the bounded-below case is 5.2.6; K ∈ D_cc iff all truncations are; μ and γ are mutually inverse ('one can check')."
+      ],
+      "acceptance": [
+        "Coefficient level: these comparisons are for abelian sheaves; ℓ-adic and rational coefficients need Bhatt–Scholze §§5.5–6 (not read) (stage acceptance).",
+        "When D(X_ét) is not left-complete, the authors do not know an example separating their D′ from D_cc (p. 39)."
+      ],
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "§5.1 Lemmas 5.1.1–5.1.2 and Corollary 5.1.6, pp. 34–36",
+          "excerpt": "The claim follows as filtered colimits are exact.",
+          "match": "Proof of Corollary 5.1.6."
+        },
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "§5.2 Proposition 5.2.6, Lemma 5.2.7, Remark 5.2.8; §5.3 Proposition 5.3.2, pp. 36–39",
+          "excerpt": "one can check that µ and γ realise the desired mutually inverse equivalences.",
+          "match": "End of the proof of Proposition 5.3.2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.2/torsion-base-change-and-compact-support",
+      "parentStageId": "SchemeAndStackFoundations:SF.2",
+      "title": "Smooth and proper base change for torsion sheaves and Rf_! (statements)",
+      "kind": "theorem",
+      "statement": "Smooth base change (Stacks Theorem 59.89.2): for a cartesian square with f smooth and g quasi-compact quasi-separated, base change holds in all degrees for abelian sheaves whose stalks at geometric points are torsion of orders invertible on S. Proper base change (Theorem 59.91.11): for f proper and any g, base change holds for abelian torsion sheaves, with no invertibility condition. For f separated of finite type with quasi-compact quasi-separated target, Rf_! = Rf̄_* ∘ j_! on bounded below complexes with torsion cohomology sheaves (or on all complexes for torsion Λ), independent of the compactification and compatible with base change (§63.9, Lemmas 63.9.1–63.9.4).",
+      "hypotheses": [
+        "Torsion orders invertible on the base for smooth base change; torsion only for proper base change.",
+        "Proofs not read; compactification (More on Flatness 38.33.8) and Lemma 59.78.2 enter them."
+      ],
+      "proofSteps": [
+        "Proofs not read in this pass."
+      ],
+      "acceptance": [
+        "Specify torsion order invertible on the base where required, and distinguish torsion, ℓ-adic and rational coefficients (stage acceptance); these statements are for torsion abelian sheaves only.",
+        "Integrate CohomologicalPointCounting and EtaleDualityAndPerverseSheaves suppliers rather than a parallel six-operations API (stage text)."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Theorem 59.89.2 (0EYU), p. 4927; Theorem 59.91.11 (095T), pp. 4939–4940",
+          "excerpt": "Let f : X → Y be a proper morphism of schemes.",
+          "match": "Set-up of Theorem 59.91.11."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "§63.9 (0F7H) and Lemmas 63.9.1–63.9.4 (0F7I–0F7L), p. 5185",
+          "excerpt": "K which are bounded below and whose cohomology sheaves are torsion.",
+          "match": "Domain of Rf_! in §63.9."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.3/degree-genus-and-riemann-roch-for-proper-curves",
+      "parentStageId": "SchemeAndStackFoundations:SF.3",
+      "title": "Degree, genus and Riemann–Roch for Gorenstein proper curves",
+      "kind": "theorem",
+      "statement": "For X proper over a field k of dimension at most 1, deg L = χ(L) − χ(O_X), and deg E = χ(E) − n·χ(O_X) for E locally free of rank n; the degree depends on the triple E/X/k (Definition 33.44.1) and is invariant under field extension (Lemma 33.44.2). X has a dualizing module ω_X = H⁻¹(ω•_X), coherent and Cohen–Macaulay, with Hom(F, ω_X) = Hom_k(H¹(X, F), k) for quasi-coherent F, and ω_X ≅ Ω_{X/k} if X is smooth of relative dimension 1 (Lemma 53.4.1). For X proper of dimension 1 with H⁰(X, O_X) = k, the (arithmetic) genus is g = dim_k H¹(X, O_X) (Definition 53.8.1). Riemann–Roch (Lemma 53.5.2): if X is proper over k, Gorenstein and equidimensional of dimension 1, then ω_X is invertible, deg ω_X = −2χ(O_X), χ(E) = deg E − ½·rank(E)·deg ω_X, and h^i(E) = h^{1−i}(E^∨ ⊗ ω_X). Hence deg ω_X = 2g − 2 (Lemma 53.8.3) and, for smooth X, h⁰(Ω) = g and deg Ω = 2g − 2 (Lemma 53.8.4). In genus 0 with H⁰ = k, degree-0 invertible modules are trivial, degree d > 0 gives h⁰ = d + 1 and a closed immersion into P^d, and Gorenstein genus-0 curves are plane conics (Lemmas 53.10.1–53.10.3).",
+      "hypotheses": [
+        "Gorenstein and equidimensional of dimension 1 for Riemann–Roch; nonsingular (normal) curves are Gorenstein (Duality for Schemes 48.24.3).",
+        "Duality inputs (Duality for Schemes 48.24.2–48.24.4, Dualizing Complexes 47.20.2) were read as statements only; the proof uses Chow Homology Lemma 42.41.3, which belongs to stage SF.5 material (see gap)."
+      ],
+      "proofSteps": [
+        "Gorenstein implies Cohen–Macaulay (48.24.2), so ω_X is a dualizing module (Lemma 53.4.2) and is invertible (§48.24).",
+        "Apply (53.5.0.3) to ω_X; it combines Definition 33.44.1 with (53.5.0.2), which is Chow Homology Lemma 42.41.3: deg E = deg(c₁(E) ∩ [X]₁).",
+        "Lemma 53.5.1 gives χ(O_X) = −χ(ω_X), hence deg ω_X = −2χ(O_X).",
+        "Substitute back for general E; the symmetry of dimensions is Remark 53.4.3 (h⁰(L) = h¹(L⁻¹ ⊗ ω_X))."
+      ],
+      "acceptance": [
+        "Genus zero: triviality of degree-0 line bundles and the conic embedding (Lemmas 53.10.1–53.10.3).",
+        "Genus one: no Stacks result beyond an example was found; the genus-one test needs another source.",
+        "Extension of scalars: degree and genus are invariant (Lemmas 33.44.2, 53.8.2)."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Definition 33.44.1 (0AYR), Lemma 33.44.2 (0B59), p. 2903; Lemmas 53.4.1 (0BS2), 53.5.1 (0BS5), 53.5.2 (0BS6), pp. 4426–4431",
+          "excerpt": "Let X be a proper scheme over a field k which is Gorenstein and equidimensional of dimension 1.",
+          "match": "Lemma 53.5.2 (Riemann–Roch)."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Definition 53.8.1 (0BY7), Lemmas 53.8.2–53.8.4 (0BY9, 0C19, 0C1A), 53.10.1–53.10.3 (0C6M, 0C6T, 0C6N), pp. 4435–4438",
+          "excerpt": "This is sometimes called the arithmetic genus of X.",
+          "match": "Definition 53.8.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.3/picard-scheme-of-a-smooth-projective-curve",
+      "parentStageId": "SchemeAndStackFoundations:SF.3",
+      "title": "Representability of the Picard scheme of a smooth projective curve and H¹_ét(μ_n)",
+      "kind": "theorem",
+      "statement": "Let k be separably closed and X a smooth projective curve over k. The Picard functor Pic_{X/k}, the fppf sheafification of T ↦ Pic(X_T) (Definition 44.4.1), is representable (Proposition 44.6.6). Moreover Pic_{X/k} = ∐_d Pic^d with each Pic^d a g-dimensional smooth proper variety, Pic⁰ is an open and closed subgroup, γ_d: Hilb^d → Pic^d is surjective for d ≥ g and smooth for d ≥ 2g − 1, and Hilb^g → Pic^g is birational (Lemma 44.6.7). When H⁰ = k and a rational point exists, Pic(X) = Pic(X_{k′})^{Gal} (Lemma 44.7.1). For X smooth projective of genus g over an algebraically closed field and n invertible, H¹_ét(X, μ_n) = Pic⁰(X)[n] canonically, and this is non-canonically (Z/n)^{2g} (Lemma 59.69.1).",
+      "hypotheses": [
+        "No section is assumed: a rational point exists because k is separably closed (Varieties 33.25.6). Proposition 44.3.6 and Definition 44.6.3 involve geometric irreducibility; the reader did not locate where the hypotheses of Proposition 44.6.6 supply it (not verified).",
+        "Lemma 59.69.1 uses Groupoids Proposition 39.9.11 (torsion of abelian varieties), which the source describes as a key fact without an elementary proof."
+      ],
+      "proofSteps": [
+        "Choose a rational point σ; Lemma 44.6.1 feeds Lemma 44.4.3 (via Descent Proposition 35.5.2), giving the split exact sequence 0 → Pic(T) → Pic(X_T) → Pic_{X/k}(T) → 0, so Pic_{X/k} ≅ Pic_{X/k,σ}.",
+        "Apply the criterion Lemma 44.5.1 (from Schemes 26.15.4): the sheaf property from the proof of 44.4.3; the open subfunctor where Rf_{T*}L is invertible in degree 0 (Lemma 44.6.2, via Derived Categories of Schemes 36.32.3); this subfunctor is an open of Hilb^g (Lemma 44.6.4, via Proposition 44.3.6, Remark 44.3.7, 36.30.4 and deg L = g); translates cover (Lemma 44.6.5, via 30.17.1 and Varieties 33.43.8).",
+        "Lemma 59.69.1: Theorems 59.24.1 and 59.68.5, the Kummer sequence (59.28.1), Lemma 44.6.7 and Groupoids Proposition 39.9.11."
+      ],
+      "acceptance": [
+        "The Stacks Project contains no identification of the Jacobian Tate module with degree-one étale cohomology with dual conventions, and does not name an Abel–Jacobi map; γ_d is the available map (stage acceptance cannot be met from this source).",
+        "Degree zero: Pic⁰ is open and closed (Lemma 44.6.7)."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Definition 44.4.1 (0B9L), Lemmas 44.4.3 (0B9N), 44.5.1 (0B9Q), 44.6.1–44.6.5 (0B9U–0B9Y), Proposition 44.6.6 (0B9Z, p. 3919), Lemmas 44.6.7 (0BA0), 44.7.1 (0CDT)",
+          "excerpt": "Let k be a separably closed field. Let X be a smooth projective curve over k.",
+          "match": "Hypotheses of Proposition 44.6.6."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemma 59.69.1 (03RQ), p. 4864",
+          "excerpt": "This key fact, namely the description of the torsion in the Picard group of a smooth projective curve",
+          "match": "The source's comment on the deep input behind Lemma 59.69.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.4/formal-functions-grothendieck-existence-and-algebraization",
+      "parentStageId": "SchemeAndStackFoundations:SF.4",
+      "title": "Theorem on formal functions, Grothendieck's existence theorem and algebraization",
+      "kind": "theorem",
+      "statement": "(Formal functions, Theorem 30.20.5) For A Noetherian, I ⊂ A an ideal, f: X → Spec A proper and F coherent, H^p(X, F)^∧ ≅ lim_n H^p(X, F/IⁿF), and this is a homeomorphism for the limit topologies. (Grothendieck existence, Theorem 30.27.1) If A is Noetherian and complete with respect to I and X is separated of finite type over A, the completion functor F ↦ (F/IⁿF) is an equivalence from coherent sheaves with support proper over A to coherent formal systems (F_n, F_{n+1}|_{X_n} ≅ F_n) with support proper over A (Remark 30.27.2). (Algebraization, Theorem 30.28.4) A compatible system of schemes X_n over A/Iⁿ with compatible invertible L_n, with X₁ proper and L₁ ample, comes from a proper X with ample L; the ampleness hypothesis cannot be dropped.",
+      "hypotheses": [
+        "A Noetherian; for existence, A complete with respect to I and X separated of finite type; supports proper over A.",
+        "Uniqueness in Lemma 30.28.3 (morphisms) is omitted in the source."
+      ],
+      "proofSteps": [
+        "Formal functions: ⊕ H^p(IⁿF) is finite over the Rees algebra (Lemma 30.20.1, via 30.19.3); the systems are pro-isomorphic (Lemma 30.20.3); Mittag-Leffler with kernels in I^{n−c}H^p (Lemma 30.20.4); hence the limit equals the completion.",
+        "Existence, full faithfulness: Lemma 30.24.1 via the Hom sheaf, 30.23.5 and 30.20.6. Projective case: H¹-vanishing (Lemma 30.24.2) lets sections lift, giving surjections from (L^{−d})^{⊕t}, and 30.23.2–30.23.4 conclude (Lemma 30.24.3).",
+        "Proper case (Proposition 30.25.4): Noetherian induction (30.10.1), Chow's lemma (30.18.1), coherence of pushforward (30.19.1), Lemmas 30.25.2–30.25.3.",
+        "General case: the same induction with Chow's lemma to a quasi-projective Y, a compactification (29.43.11) and a support argument (Algebra 10.96.6, Serre subcategory 30.26.11).",
+        "Algebraization: H¹-vanishing (30.19.3) lifts an embedding into P^N, then Lemma 30.28.1."
+      ],
+      "acceptance": [
+        "An algebraized object comes with a comparison to its completion (stage acceptance): the existence theorem provides exactly F ↦ (F/IⁿF).",
+        "Without an ample invertible sheaf, algebraization of formal schemes fails (Theorem 30.28.4 discussion)."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemmas 30.20.1–30.20.7 (02O8–02OD), Theorem 30.20.5 (02OC), p. 2628; Lemmas 30.24.1–30.24.3 (0883–0885), Proposition 30.25.4 (088C), Theorem 30.27.1 (088E), Remark 30.27.2 (088F), p. 2647",
+          "excerpt": "Moreover, this is in fact a homeomorphism for the limit topologies.",
+          "match": "Theorem 30.20.5 (formal functions)."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Theorem 30.28.4 (089A), p. 2651",
+          "excerpt": "we need to assume we have an ample invertible sheaf, as the result is false without such an assumption.",
+          "match": "Necessity of the ample sheaf in algebraization."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.4/infinitesimal-deformations-of-flat-modules-and-schemes",
+      "parentStageId": "SchemeAndStackFoundations:SF.4",
+      "title": "First-order deformations of flat modules and flat schemes: obstruction, torsor, automorphisms",
+      "kind": "theorem",
+      "statement": "Let (X ⊂ X′) → (S ⊂ S′) be a strict morphism of first-order thickenings of ringed spaces (Definition 91.3.2) with J = Ker(O_{S′} → O_S), f′ flat, and F an O_X-module flat over S. A lift of F to an O_{X′}-module flat over S′ exists iff the class o(F, f^*J ⊗ F, 1) ∈ Ext²(F, f^*J ⊗ F) vanishes; if a lift exists, isomorphism classes of lifts form a principal homogeneous space under Ext¹(F, f^*J ⊗ F), and automorphisms of a lift are given by Ext⁰(F, f^*J ⊗ F) (Lemma 91.6.1). For a first-order thickening of schemes S ⊂ S′ and flat X → S, assuming a flat lift exists, lifts form a torsor under Ext¹(NL_{X/S}, f^*C_{S/S′}) and infinitesimal automorphisms are Ext⁰ (Lemma 91.8.1). Square-zero extensions correspond to Ext¹(NL, G) (Lemma 91.7.4), and a morphism is smooth iff it is locally of finite presentation and formally smooth (Lemma 37.11.7).",
+      "hypotheses": [
+        "Strictness, flatness of f′ and of F over S for the module statement; for schemes the existence of a lift is assumed.",
+        "No existence/obstruction statement for deformations of schemes was found; the proof of Lemma 91.7.1(2) is omitted, and Remark 91.7.9 only notes that the relevant maps are close to forming a distinguished triangle."
+      ],
+      "proofSteps": [
+        "The hypotheses give I = f^*J for the ideal of X in X′ (Lemma 91.5.2).",
+        "Existence iff obstruction vanishes: Lemma 91.5.7, via the obstruction Lemma 91.4.4.",
+        "Torsor: Lemma 91.5.6, via Lemma 91.4.3; automorphisms: Lemma 91.5.3, via Lemma 91.5.1.",
+        "Schemes: the ideal of X in X′ is f^*C_{S/S′} (More on Morphisms 37.10.1); the torsor statement is Lemma 91.7.3, built on Lemma 91.7.1 and Lemma 91.7.2; the automorphism statement is Lemma 91.7.1(2), whose proof is omitted."
+      ],
+      "acceptance": [
+        "Infinitesimal lifting and obstruction complexes (stage text): the module case gives obstruction, torsor and automorphisms; the scheme case read here gives only torsor and automorphisms.",
+        "Test: deformations of a smooth affine scheme are trivial (NL_{X/S} is finite projective in degree 0, so Ext¹ vanishes on affines)."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Definition 91.3.2 (08L1), Lemmas 91.4.3–91.4.4 (08L7–08L8), 91.5.1–91.5.7 (08LH–08LN), Lemma 91.6.1 (08VR), p. 6600",
+          "excerpt": "If such a module exists, then the set of isomorphism classes of lifts is principal homogeneous under",
+          "match": "Lemma 91.6.1."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemmas 91.7.1–91.7.4 (08U8, 08UB, 08UC, 0GPZ), Remark 91.7.9 (0GQ4), Lemma 91.8.1 (0D14), p. 6608; Lemma 37.11.7 (02H6), p. 3202",
+          "excerpt": "In this section we spell out what the results in Section 91.7 mean for deformations of schemes.",
+          "match": "Opening of §91.8."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.4/modifications-alterations-and-de-jong-theorems",
+      "parentStageId": "SchemeAndStackFoundations:SF.4",
+      "title": "Modifications, alterations, Lipman's resolution criterion and de Jong's alteration theorems",
+      "kind": "theorem",
+      "statement": "A modification is a proper birational morphism from an integral scheme (Stacks Definition 29.51.11); an alteration is a proper dominant morphism from an integral scheme that is finite over a nonempty open (Definition 29.51.12), as in de Jong except that Stacks does not require Noetherian schemes (de Jong 2.17, 2.20: an alteration is generically étale iff the function field extension is separable, and compositions of alterations are alterations). A resolution is a modification with regular source (Definition 54.14.1); for a two-dimensional integral Noetherian scheme, the existence of an alteration from a regular scheme, of a resolution, and of a resolution by normalized blowups, and finiteness of the normalization with finitely many singular points whose completions are normal, are equivalent (Lipman, Theorem 54.14.5). De Jong Theorem 4.1: for a variety X over a field k and a proper closed subset Z ⊂ X there are an alteration φ₁: X₁ → X and an open immersion X₁ ⊂ X̄₁ with X̄₁ projective and regular such that φ₁⁻¹(Z) together with the boundary is a strict normal crossings divisor in X̄₁; if k is perfect, φ₁ may be chosen generically étale; X̄₁ is smooth and geometrically irreducible over a finite extension of k (Remark 4.2). De Jong Theorem 6.5: for X over a trait S (the spectrum of a complete discrete valuation ring) and a proper closed subset Z containing the special fibre, after a finite extension of traits S₁ → S there are an alteration and a projective X̄₁ with geometrically irreducible generic fibre whose pair is strict semi-stable (6.3). For a smooth projective curve C over the fraction field K of a discrete valuation ring with H⁰ = K, semistable reduction holds after a finite separable extension K′/K (Stacks Theorem 55.18.1).",
+      "hypotheses": [
+        "De Jong's variety convention (2.9) was only partly read; Theorem 6.5 is over a complete DVR; resolution is a theorem only in the named two-dimensional setting of Theorem 54.14.5.",
+        "The de Jong copy is an OCR text layer with garbled symbols; only clean fragments are quoted. Proofs of Stacks 54.14.5 and 55.18.1 were not read."
+      ],
+      "proofSteps": [
+        "De Jong 4.5–4.10: reduce to k algebraically closed, X quasi-projective (Chow's lemma) and then projective, Z a divisor after blowing up, and X normal.",
+        "4.11–4.12: fibre X over P^{d−1} in curves (Lemma 4.11), with connected fibres by Stein factorization.",
+        "4.13–4.16: add a divisor meeting each fibre component in at least three smooth points (Lemma 4.13) and make Z a union of sections.",
+        "4.17–4.21: obtain a stable pointed curve using level-ℓ moduli (2.24) and extend the rational map after flattening (2.19, Lemma 4.20).",
+        "4.22–4.28: apply the induction hypothesis on the base, use the local form uv = t₁⋯t_r (Lemma 3.2) and blow up the singular locus to reach strict normal crossings."
+      ],
+      "acceptance": [
+        "Alterations and modifications keep distinct outputs (stage text): alterations allow finite extensions of the function field and are weaker than resolution.",
+        "A model records its base, generic fibre and allowable base extension (stage acceptance): Theorem 6.5 requires a finite extension of traits."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Definitions 29.51.11 (0AAZ), 29.51.12 (0AB0), p. 2551; Definition 54.14.1 (0BGK), Theorem 54.14.5 (0BGP), p. 4533; Theorem 55.18.1 (0CDN), p. 4604",
+          "excerpt": "This is the definition as given in [dJ96], except that here we do not require X and Y to be Noetherian.",
+          "match": "Definition 29.51.12."
+        },
+        {
+          "sourceId": "deJong-Alterations-1996",
+          "locator": "§1, p. 51",
+          "excerpt": "This is weaker than resolution of singularities in that we allow finite extensions of the function field",
+          "match": "Introduction comparing alterations with resolution."
+        },
+        {
+          "sourceId": "deJong-Alterations-1996",
+          "locator": "2.20, p. 61; Theorem 4.1 with proof 4.5–4.28, pp. 66–78; Theorem 6.5, p. 83",
+          "excerpt": "A composition of alterations is an alteration.",
+          "match": "2.20."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.5/pushforward-and-pullback-respect-rational-equivalence",
+      "parentStageId": "SchemeAndStackFoundations:SF.5",
+      "title": "Proper pushforward and flat pullback of cycles respect rational equivalence",
+      "kind": "theorem",
+      "statement": "In Situation 42.7.1 (S locally Noetherian and universally catenary with a dimension function δ; integer coefficients), proper pushforward (Definition 42.12.1) and flat pullback (Definition 42.14.1) of cycles preserve rational equivalence (Definition 42.19.1): if p is proper and α ~rat β then p_*α ~rat p_*β (Lemma 42.20.3), and the flat pullback analogue holds (Lemma 42.20.2).",
+      "hypotheses": [
+        "Situation 42.7.1, the generality of Thomason's work cited there; Z-coefficients (rational coefficients appear in §42.58)."
+      ],
+      "proofSteps": [
+        "Reduce to p_*i_*div(f) for a single integral W, using local finiteness (42.11.2) and functoriality of pushforward (42.12.2).",
+        "If dim p(W) < k the pushforward is zero.",
+        "If dim p(W) = k, the generic fibre is a proper curve and the claim is Lemma 42.18.3 (via 42.18.2 and 42.15.2).",
+        "If dim p(W) = k + 1, Lemma 42.18.1 gives p_*div(f) = div(Nm f) (Algebra 10.121.8).",
+        "Flat pullback: Lemma 42.20.2 via Lemma 42.20.1."
+      ],
+      "acceptance": [
+        "Integrality versus rational coefficients (stage acceptance): these statements are integral.",
+        "Test: pushforward of div(f) along a finite map is div of the norm of f (Lemma 42.18.1)."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Situation 42.7.1 (02QL), p. 3694",
+          "excerpt": "It is exactly the generality discussed in [Tho90].",
+          "match": "Situation 42.7.1."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Definitions 42.12.1 (02R4), 42.14.1 (02RB), 42.19.1 (02RW); Lemmas 42.18.1–42.18.3 (02RT, 02RQ, 02RU), 42.20.2 (02S1), 42.20.3 (02S2), p. 3712",
+          "excerpt": "In this section we show that flat pullback and proper pushforward commute with rational equivalence.",
+          "match": "Opening of §42.20."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.5/key-formula-gysin-maps-and-chern-classes",
+      "parentStageId": "SchemeAndStackFoundations:SF.5",
+      "title": "The key lemma, capping with c₁, Gysin maps and Chern classes",
+      "kind": "theorem",
+      "statement": "Key Lemma 42.6.3: for a two-dimensional Noetherian local domain A with fraction field K and f, g ∈ K*, the sum over height-one primes q of ord_{A/q}(∂_{A_q}(f, g)) vanishes. Key formula 42.27.1: for invertible modules L and N with meromorphic sections s and t, c₁(N) ∩ div_L(s) and c₁(L) ∩ div_N(t) differ by an explicit sum of divisors of tame symbols. Consequences: capping with c₁ respects rational equivalence (Lemma 42.28.2) and satisfies p_*(c₁(p^*L) ∩ α) = c₁(L) ∩ p_*α (Lemma 42.26.4); the Gysin map of an effective Cartier divisor (Definition 42.29.1) satisfies i_*i^* = c₁(L) ∩ − (Lemma 42.29.4) and factors through rational equivalence (Lemma 42.30.2); Chern classes are defined via the projective bundle formula (Definitions 42.37.1, 42.38.1); degrees of zero-cycles are defined (Definition 42.41.1); and there is an excess formula c(Z → X, N) ∩ [Y] = c_top(E) ∩ [Z ×_X Y] (Lemma 42.54.5, set-up not read).",
+      "hypotheses": [
+        "Situation 42.7.1 throughout; tame symbols from §42.5.",
+        "The projective bundle formula 42.36.2 and the localized Chern classes of §42.54 were read as statements only."
+      ],
+      "proofSteps": [
+        "Key formula: changes of trivializations are handled by bilinearity, and the Key Lemma is applied coefficientwise.",
+        "Lemma 42.30.2: Gysin maps respect rational equivalence by Lemmas 42.29.8, 42.20.3, 42.28.2 and 42.30.1."
+      ],
+      "acceptance": [
+        "Projection and excess-intersection formulas (stage acceptance): Lemma 42.26.4 and Lemma 42.54.5.",
+        "Test the Key Lemma on A = k[x, y] localized at (x, y) with f = x and g = y."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Key Lemma 42.6.3 (0EAX), p. 3693; opening of §42.28 after the key formula 42.27.1",
+          "excerpt": "Applying the key lemma we obtain the fundamental properties of intersecting with invertible sheaves.",
+          "match": "The source applies the key lemma to derive the properties of capping with c₁."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemma 42.26.4 (02SU), key formula 42.27.1 (0AYC, p. 3728), Lemma 42.28.2 (02TI), Definition 42.29.1 (02T8), Lemma 42.29.4 (02T9), Lemma 42.30.2 (02TO), Definitions 42.37.1 (02U0), 42.38.1 (02U5), 42.41.1 (0AZ1), Lemma 42.54.5 (0FBM, p. 3803)",
+          "excerpt": "In this section we use the key formula to show the Gysin homomorphism factor through rational equivalence.",
+          "match": "Opening of §42.30."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.5/intersection-products-moving-lemma-and-projection-formula",
+      "parentStageId": "SchemeAndStackFoundations:SF.5",
+      "title": "Intersection products, the moving lemma and the projection formula",
+      "kind": "theorem",
+      "statement": "For X smooth over a field, the Chow Homology chapter defines α · β = Δ^!(α × β), which is associative (§42.62, 42.62.1), with projection formula f_*(α · f^!β) = f_*α · β for f proper between smooth k-schemes (Lemma 42.62.4); with rational coefficients there is a product on CH ⊗ Q for X Noetherian, regular, finite dimensional with affine diagonal (Lemma 42.58.1). The Intersection Theory chapter works over an algebraically closed field: for X nonsingular projective, any cycle α is rationally equivalent to α′ meeting a given β properly (Moving Lemma 43.24.3); proper intersections carry Serre's Tor multiplicities (Lemma 43.13.5, §43.17); the intersection product is well defined on rational equivalence classes (Theorem 43.25.2, §43.26); and for f flat proper between nonsingular varieties with α and f^*β intersecting properly, f_*(α) · β = f_*(α · f^*β) (Lemma 43.22.1). Grothendieck–Riemann–Roch is only stated (§42.66).",
+      "hypotheses": [
+        "Chapter 43: nonsingular projective varieties over an algebraically closed field; Chapter 42 product: smooth over a field.",
+        "Lemma 43.24.2 has its details omitted and Remark 43.25.3 (quasi-projective case) is not proved."
+      ],
+      "proofSteps": [
+        "Lemma 43.22.1: reduce to single subvarieties; a positive-dimensional generic fibre gives zero (29.28.4); otherwise use finiteness near generic points (30.21.2), the derived projection formula (36.22.1) and a Tor comparison.",
+        "Moving Lemma 43.24.3: induction using Lemma 43.24.1 (after Roberts), Lemma 43.24.2 (details omitted), Lemma 43.22.2 and 43.17.1."
+      ],
+      "acceptance": [
+        "The Hodge index theorem, surface Riemann–Roch, the proof of Grothendieck–Riemann–Roch and the graph-of-Frobenius computation for Weil's bound are not in the Stacks Project (stage acceptance requires another source).",
+        "Integrality versus rational coefficients: Chapter 43 products are integral; Lemma 42.58.1 is rational."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemmas 43.13.5 (0AZQ), 43.22.1 (0B10, p. 3892), 43.24.1–43.24.3 (0B0E, 0B1T, 0B1U, p. 3899), Theorem 43.25.2 (0B1V), §43.26 (0B0G); §42.62 (0FC0), Lemma 42.62.4 (0FFC), p. 3826; Lemma 42.58.1 (0FEY), p. 3815",
+          "excerpt": "The actual moving is done using the following lemma.",
+          "match": "§43.24, before the moving lemma."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "§42.66 (02UO), p. 3834",
+          "excerpt": "We will return to this elsewhere (insert future reference here).",
+          "match": "Grothendieck–Riemann–Roch stated without proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "SchemeAndStackFoundations:SF.0/fibre-products-by-gluing-and-representability",
+      "target": "SchemeAndStackFoundations:SF.0/relative-spectrum",
+      "reason": "Lemma 27.4.3 proves representability of the relative spectrum functor with the Zariski criterion Lemma 26.15.4.",
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemma 27.4.3, p. 2321"
+        }
+      ]
+    },
+    {
+      "source": "SchemeAndStackFoundations:SF.1/faithfully-flat-descent-of-modules",
+      "target": "SchemeAndStackFoundations:SF.1/fpqc-descent-of-quasi-coherent-sheaves-and-affine-morphisms",
+      "reason": "The affine case of Proposition 35.5.2 and the proof of Lemma 35.37.1 apply Proposition 35.3.9.",
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Proofs of Proposition 35.5.2 and Lemma 35.37.1, pp. 2985, 3056"
+        }
+      ]
+    },
+    {
+      "source": "SchemeAndStackFoundations:SF.1/faithfully-flat-descent-of-modules",
+      "target": "SchemeAndStackFoundations:SF.2/quasi-coherent-cohomology-independent-of-topology",
+      "reason": "Lemma 35.9.2 identifies the Čech complex with an Amitsur complex, whose exactness is Lemma 35.3.6.",
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemma 35.9.2, p. 2995"
+        }
+      ]
+    },
+    {
+      "source": "SchemeAndStackFoundations:SF.1/fpqc-descent-of-quasi-coherent-sheaves-and-affine-morphisms",
+      "target": "SchemeAndStackFoundations:SF.2/quasi-coherent-cohomology-independent-of-topology",
+      "reason": "The degree-zero case uses that F^a is a sheaf for these topologies (Lemma 35.8.1), proved from Proposition 35.5.2.",
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemma 35.8.1 and proof of Proposition 35.9.3, pp. 2995–2996"
+        }
+      ]
+    },
+    {
+      "source": "SchemeAndStackFoundations:SF.1/fpqc-descent-of-quasi-coherent-sheaves-and-affine-morphisms",
+      "target": "SchemeAndStackFoundations:SF.3/picard-scheme-of-a-smooth-projective-curve",
+      "reason": "Lemma 44.4.3, which splits the Picard exact sequence, uses Descent Proposition 35.5.2.",
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemma 44.4.3"
+        }
+      ]
+    },
+    {
+      "source": "SchemeAndStackFoundations:SF.0/fibre-products-by-gluing-and-representability",
+      "target": "SchemeAndStackFoundations:SF.3/picard-scheme-of-a-smooth-projective-curve",
+      "reason": "The representability criterion Lemma 44.5.1 is proved from Schemes Lemma 26.15.4.",
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemma 44.5.1"
+        }
+      ]
+    },
+    {
+      "source": "SchemeAndStackFoundations:SF.5/pushforward-and-pullback-respect-rational-equivalence",
+      "target": "SchemeAndStackFoundations:SF.5/key-formula-gysin-maps-and-chern-classes",
+      "reason": "Lemma 42.30.2 uses Lemma 42.20.3 to show that Gysin maps factor through rational equivalence.",
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Lemma 42.30.2"
+        }
+      ]
+    },
+    {
+      "source": "SchemeAndStackFoundations:SF.5/key-formula-gysin-maps-and-chern-classes",
+      "target": "SchemeAndStackFoundations:SF.5/intersection-products-moving-lemma-and-projection-formula",
+      "reason": "The Chapter 42 product α · β = Δ^!(α × β) uses Gysin homomorphisms and Chern-class machinery built on the key formula.",
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "§42.62, p. 3826"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E2/left-completion-and-postnikov-convergence",
+      "target": "SchemeAndStackFoundations:SF.2/pro-etale-versus-etale-derived-categories",
+      "reason": "Proposition 5.3.2 identifies D_cc(X_proét) with the left completion of D(X_ét) using that replete topoi have left-complete derived categories (Bhatt–Scholze Proposition 3.3.3).",
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "Proof of Proposition 5.3.2, p. 38"
+        }
+      ]
+    },
+    {
+      "source": "SchemeAndStackFoundations:SF.4/modifications-alterations-and-de-jong-theorems",
+      "target": "AdicCoefficientsAndComparisons:L5",
+      "reason": "L5 proves the forms of de Jong's Theorems 4.1 and 6.5 used by the comparison theorem; this node records their exact statements, hypotheses and the proof structure of Theorem 4.1.",
+      "sources": [
+        {
+          "sourceId": "deJong-Alterations-1996",
+          "locator": "Theorems 4.1 and 6.5, pp. 66, 83"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "SchemeAndStackFoundations:SF.0",
+      "status": "partial",
+      "remaining": [
+        "Relative Proj, quasi-coherent module constructions and affine gluing beyond Lemma 26.14.1 (whose mapping properties are omitted in the source).",
+        "Proofs of the base-change lemmas for the morphism classes; no source statement found for the acceptance claim about flat universal families."
+      ]
+    },
+    {
+      "stageId": "SchemeAndStackFoundations:SF.1",
+      "status": "partial",
+      "remaining": [
+        "Proofs of the bootstrap theorem, algebraicity of quotient stacks and Keel–Mori; the definition of inertia; stabilizer conditions and atlas independence.",
+        "fppf descent beyond quasi-coherent modules and affine or quasi-affine morphisms; Poonen, Rational Points on Varieties, chapters 3–5 (named by the stage) not checked in the library."
+      ]
+    },
+    {
+      "stageId": "SchemeAndStackFoundations:SF.2",
+      "status": "partial",
+      "remaining": [
+        "Proofs of smooth and proper base change and of the §63.9 compact-support results; ℓ-adic and rational coefficients (Bhatt–Scholze §§5.5–6 not read).",
+        "Localization sequences and cohomology with compact support for the specified coefficient levels."
+      ]
+    },
+    {
+      "stageId": "SchemeAndStackFoundations:SF.3",
+      "status": "partial",
+      "remaining": [
+        "Serre duality proofs (Duality for Schemes, chapter 48), genus one, Abel–Jacobi maps and the identification of the Jacobian Tate module with degree-one étale cohomology.",
+        "Integration with the AlgebraicCurves and JacobianChallenge suppliers named by the stage."
+      ]
+    },
+    {
+      "stageId": "SchemeAndStackFoundations:SF.4",
+      "status": "partial",
+      "remaining": [
+        "Obstruction theory for deformations of schemes via the cotangent complex; proofs of Lipman's theorem and of semistable reduction for curves; Néron models and stable reduction owners.",
+        "De Jong §3 (Lemma 3.2, Proposition 3.6) and the imported moduli, flattening and Stein factorization results."
+      ]
+    },
+    {
+      "stageId": "SchemeAndStackFoundations:SF.5",
+      "status": "partial",
+      "remaining": [
+        "Grothendieck–Riemann–Roch (stated without proof in Stacks §42.66), the Hodge index theorem, surface Riemann–Roch, adjunction and the graph/diagonal intersection lemmas for the product-of-curves route to Weil bounds.",
+        "The set-up of the excess intersection formula (§42.54) and Fulton's Intersection Theory, which is not in the library."
+      ]
+    },
+    {
+      "stageId": "SchemeAndStackFoundations:SF.6",
+      "status": "not_read",
+      "remaining": [
+        "No source read: interface comparisons to crystalline/prismatic, analytic and ℓ-adic owners, cycle classes and traces."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Riemann–Roch for curves uses a Chow-homology lemma owned later",
+      "neededBy": [
+        "SchemeAndStackFoundations:SF.3/degree-genus-and-riemann-roch-for-proper-curves",
+        "SchemeAndStackFoundations:SF.3",
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "detail": "Stacks Lemma 53.5.2 uses (53.5.0.2) = Chow Homology Lemma 42.41.3 (deg E = deg(c₁(E) ∩ [X]₁)). The atlas orders SF.3 before SF.5 (SF.5 requires SF.4, which requires SF.3), so no link was added from the SF.5 nodes. Either prove the degree formula for curves directly in SF.3 or move the needed Chow-homology lemmas before SF.3."
+    },
+    {
+      "title": "Surface intersection theory and the Weil bound route are not in the library",
+      "neededBy": [
+        "SchemeAndStackFoundations:SF.5/intersection-products-moving-lemma-and-projection-formula",
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "detail": "The Stacks Project does not contain the Hodge index theorem (only mentioned in §64.14 and an exercise), surface Riemann–Roch, a proof of Grothendieck–Riemann–Roch, or the graph-of-Frobenius computation (§64.14 discusses Weil's proof 'without proofs'). Fulton's Intersection Theory is cited by Stacks but is not in the library. Next action: acquire Fulton and a source for the Hodge index theorem on surfaces (e.g. Hartshorne V.1) before decomposing SF.5's surface stages."
+    },
+    {
+      "title": "Proofs for algebraic spaces and stacks were not read",
+      "neededBy": [
+        "SchemeAndStackFoundations:SF.1/algebraic-spaces-stacks-and-quotients",
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "detail": "Only statements were read for the bootstrap theorem (80.10.1), quotient stacks (94.17.3, 97.17.2), [B/G] (97.18.3) and Keel–Mori (106.13.9). Next action: read Stacks chapters 80 (§§80.5–80.10), 94 (§94.17) and 106 (§106.13) with proofs, and the definition of inertia."
+    },
+    {
+      "title": "Base change theorems and coefficient levels in étale cohomology",
+      "neededBy": [
+        "SchemeAndStackFoundations:SF.2/torsion-base-change-and-compact-support",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "detail": "Smooth and proper base change and the §63.9 results were read as statements; ℓ-adic and rational coefficients were not found in the parts read. The CohomologicalPointCounting and EtaleDualityAndPerverseSheaves suppliers named by the stage were not examined. Next action: read Stacks §§59.89–59.91 proofs and Bhatt–Scholze §§5.5–6."
+    },
+    {
+      "title": "Hypotheses of Picard representability and the Jacobian Tate module",
+      "neededBy": [
+        "SchemeAndStackFoundations:SF.3/picard-scheme-of-a-smooth-projective-curve",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "detail": "Proposition 44.3.6 and Definition 44.6.3 use geometric irreducibility, and it was not located where Proposition 44.6.6's hypotheses (k separably closed, X a smooth projective curve) supply it. The Stacks Project has no identification of the Jacobian Tate module with H¹_ét under dual conventions and no Abel–Jacobi statement. Next action: check Stacks Definition 33.43.1 conventions for 'curve' against 44.6.6 and source the Tate-module comparison from the AlgebraicCurves/JacobianChallenge suppliers."
+    },
+    {
+      "title": "Obstruction classes for deformations of schemes",
+      "neededBy": [
+        "SchemeAndStackFoundations:SF.4/infinitesimal-deformations-of-flat-modules-and-schemes"
+      ],
+      "detail": "The Deformation Theory chapter read gives an obstruction class only for flat modules (Lemma 91.6.1); for schemes it gives the torsor and automorphisms under an existence assumption, with Lemma 91.7.1(2) omitted. Next action: read the Stacks Cotangent Complex chapter or Illusie, Complexe cotangent I (library djvu copy) for obstructions in Ext²(L_{X/S}, −)."
+    },
+    {
+      "title": "De Jong §3 and imported inputs",
+      "neededBy": [
+        "SchemeAndStackFoundations:SF.4/modifications-alterations-and-de-jong-theorems"
+      ],
+      "detail": "The proof of Theorem 4.1 uses §3 (Lemma 3.2, Proposition 3.6), moduli of stable pointed curves (Knudsen, Deligne), Raynaud–Gruson flattening, Stein factorization and Chow's lemma; none was read, and the OCR text has garbled formulas. Next action: render the relevant pages as images and read §3 and 2.19–2.24."
+    },
+    {
+      "title": "Candidate library primitives found by grep (unchecked)",
+      "neededBy": [
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.3",
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "detail": "Grep of the pinned Mathlib (commit 30a58f79…) and TauCeti found candidates, none compared with the source statements: Mathlib/AlgebraicGeometry/Pullbacks.lean; Mathlib/AlgebraicGeometry/Morphisms/Flat.lean, Smooth.lean, Etale.lean, Proper.lean, Separated.lean, FinitePresentation.lean and Descent.lean; Mathlib/AlgebraicGeometry/ProjectiveSpectrum; Mathlib/AlgebraicGeometry/Sites/Etale.lean and Sites/AffineEtale.lean; Mathlib/RingTheory/PicardGroup.lean (ring-theoretic Picard group); TauCeti/FieldTheory/FunctionField (Riemann–Roch material for function fields). No relative Spec, algebraic space, algebraic stack, formal scheme or Chow group declarations were found."
+    }
+  ]
+}

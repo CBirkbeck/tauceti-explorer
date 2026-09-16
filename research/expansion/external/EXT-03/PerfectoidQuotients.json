@@ -1,7 +1,7 @@
 {
   "roadmapId": "PerfectoidQuotients",
   "status": "partial",
-  "summary": "Source decomposition of Bhatt-Scholze, Prisms and prismatic cohomology (arXiv v4), Section 7 in full: universal prisms and perfectoidizations of semiperfectoid rings (7.1-7.3), derived prismatic cohomology with its Hodge-Tate filtration and the discreteness/initial-object results (7.6-7.10), lifting of quasisyntomic covers and Andre's flatness lemma (7.11, 7.14-7.15), the surjectivity theorem 7.4 with its proof, and the application to Zariski closed subsets (Remark 7.5, ECD 5.7-5.8). The auxiliary results Lemma 4.8, Lemmas 3.5, 3.8, 3.9, Theorem 3.10 and the statement of Theorem 6.3 were read; PR.0 nodes of the existing PrismaticCohomology draft are referenced as suppliers where their scope covers the need. Stage Q1 (the PR.1 Hodge-Tate re-export) is not decomposed here.",
+  "summary": "Source decomposition of Bhatt-Scholze, Prisms and prismatic cohomology (arXiv v4), Section 7 in full: universal prisms and perfectoidizations of semiperfectoid rings (7.1-7.3), derived prismatic cohomology with its Hodge-Tate filtration and the discreteness/initial-object results (7.6-7.10), lifting of quasisyntomic covers and Andre's flatness lemma (7.11, 7.14-7.15), the surjectivity theorem 7.4 with its proof, and the application to Zariski closed subsets (Remark 7.5, ECD 5.7-5.8). The auxiliary results Lemma 4.8, Lemmas 3.5, 3.8, 3.9, Theorem 3.10 and the statement of Theorem 6.3 were read; PR.0 nodes of the existing PrismaticCohomology draft are referenced as suppliers where their scope covers the need. Stage Q1 (the PR.1 Hodge-Tate re-export) is not decomposed here. Independent review (REVIEW-EXT-03, 2026-09-15) re-read Section 7 and the cited auxiliary results, and additionally read BS22 Lemmas 3.5, 3.8-3.9 and Theorem 3.10 with proofs, §8.1 through the proof of Proposition 8.5, BMS1 Lemma 3.20 and ECD §5.6-5.11; see the review object.",
   "sources": [
     {
       "id": "bs-prisms-2022",
@@ -13,7 +13,8 @@
       "readSections": [
         "Section 7 in full: Notation 7.1, Proposition 7.2, Corollary 7.3, Theorem 7.4 with proof, Remark 7.5, Construction 7.6, Lemmas 7.7-7.8, Example 7.9, Proposition 7.10, Proposition 7.11, Examples 7.12-7.13, Theorem 7.14, Remark 7.15 (pp. 55-62; extraction lines 2412-2795)",
         "Statements and proofs of Lemma 4.8 (pp. 38-39), Lemma 3.9 (pp. 31-32); statements of Lemma 3.5, Lemma 3.8, Theorem 3.10 (with the first paragraph of its proof), Theorem 6.3, Corollary 2.39, Definition 2.42, Lemma 2.34, Corollary 2.31, Remark 4.7",
-        "Section 8 opening: Notation 8.1 and Definition 8.2 (statement only)"
+        "Section 8 opening: Notation 8.1 and Definition 8.2 (statement only)",
+        "REVIEW-EXT-03 (2026-09-15; library extraction, stamp \"arXiv:1905.08229v4 [math.AG] 12 Jan 2022\"): Section 7 re-read in full (lines 2412-2786). Also read: Lemma 3.5 with proof (p. 29, lines 1316-1331); Lemmas 3.8-3.9 and Theorem 3.10 with proofs (pp. 31-32, lines 1427-1480); Remark 4.6, Remark 4.7 and Lemma 4.8 with proof (pp. 38-39, lines 1728-1758); statements of Corollary 2.31, Lemma 2.34, Corollary 2.39, Definition 2.42 and Theorem 6.3; §8.1 from Notation 8.1 through the proof of Proposition 8.5 (pp. 63-66, lines 2796-2931)."
       ]
     },
     {
@@ -24,18 +25,31 @@
       "url": "https://arxiv.org/abs/1802.03261",
       "sha256": "b2338ef19714f39aeac2aaaa4e8d6bd708020815016bbe5541a74e4db3594038",
       "readSections": [
-        "Definition 4.10 (quasisyntomic rings and covers), Definition 4.18 and Proposition 4.19 (perfectoid rings; statements), Definition 4.20, Remarks 4.21-4.22 (quasiregular semiperfectoid rings) (pp. 20-23; extraction lines 929-1094)"
+        "Definition 4.10 (quasisyntomic rings and covers), Definition 4.18 and Proposition 4.19 (perfectoid rings; statements), Definition 4.20, Remarks 4.21-4.22 (quasiregular semiperfectoid rings) (pp. 20-23; extraction lines 929-1094)",
+        "REVIEW-EXT-03 (2026-09-15; library extraction, stamp \"arXiv:1802.03261v2 [math.AG] 9 Apr 2019\"): Definition 4.10-Lemma 4.25 re-read, including Example 4.12, Lemmas 4.15-4.17, Example 4.24 and the statement of Lemma 4.25 (pp. 20-24, lines 925-1100)."
       ]
     },
     {
       "id": "ecd-2026",
       "title": "Etale cohomology of diamonds",
       "authors": "Peter Scholze",
-      "edition": "Version prepared for the Asterisque volume (bibliography dated 2026); library copy EtCohDiamonds.pdf; arXiv:1709.07343 is the preprint",
-      "url": "https://arxiv.org/abs/1709.07343",
+      "edition": "Supplied revision dated 14 April 2026 (library copy EtCohDiamonds.pdf, catalogue: \"deliberately not replaced with a live copy\"); arXiv:1709.07343 is an earlier preprint with different numbering. Extraction line numbers refer to pdftotext -layout of the library PDF.",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf",
       "sha256": "4ce3d1232a6e9e186d1a36da5cc659616569ac8dd2bb263510247c07995a26c1",
       "readSections": [
-        "Section 5, Definition 5.7, Theorem 5.8 with its proof-by-reference and the following remark, Proposition 5.9 (pp. 24-25; extraction lines 1107-1133)"
+        "Section 5, Definition 5.7, Theorem 5.8 with its proof-by-reference and the following remark, Proposition 5.9 (pp. 24-25; extraction lines 1107-1133)",
+        "REVIEW-EXT-03 (2026-09-15; SHA-256 of the library PDF re-verified; a regenerated pdftotext -layout extraction reproduces lines 1107-1133): Definitions 5.6-5.7, Theorem 5.8 with the following remark, Proposition 5.9 with proof, Definition 5.10 and Proposition 5.11 with proof (pp. 24-26, lines 1098-1165)."
+      ]
+    },
+    {
+      "id": "bms1-integral-2018",
+      "title": "Integral p-adic Hodge theory",
+      "authors": "Bhargav Bhatt, Matthew Morrow, Peter Scholze",
+      "edition": "arXiv:1602.03148v3 [math.AG], 15 January 2019 (library copy; line numbers of the library text extraction)",
+      "url": "https://arxiv.org/abs/1602.03148",
+      "sha256": "285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a",
+      "readSections": [
+        "REVIEW-EXT-03 (2026-09-15): Lemma 3.20 with proof, the remark after it and Lemma 3.21 statement (pp. 26-27, lines 1622-1672)."
       ]
     }
   ],
@@ -45,18 +59,18 @@
       "parentStageId": "PerfectoidQuotients:Q0:integral-algebra",
       "title": "Integral perfectoid, semiperfectoid, quasisyntomic and quasiregular semiperfectoid rings",
       "kind": "definition",
-      "statement": "(BMS2 4.18) A ring R is perfectoid if it is p-adically complete, there is π ∈ R with π^p = pu for a unit u, Frobenius is surjective on R/p, and ker(θ: A_inf(R) = W(R♭) → R) is principal; then ker θ is generated by a nonzerodivisor ξ = p + [π♭]^p α, L_{R/Z_p} has p-complete Tor-amplitude in degree −1 with p-completion R[1], and R[p^∞] = R[p]. (BMS2 4.10) A is quasisyntomic if p-complete with bounded p^∞-torsion and L_{A/Z_p} has p-complete Tor-amplitude in [−1, 0]; a map of such rings is a quasisyntomic cover if p-completely faithfully flat with p-complete Tor-amplitude of L_{B/A} in [−1, 0]. (BS22 7.1) S is semiperfectoid if it is a derived p-complete ring admitting a surjection from a perfectoid ring; it is quasiregular if in addition it has bounded p^∞-torsion and L_{S/Z_p}[−1] is p-completely flat over S, in which case S is classically p-complete. (BMS2 4.20, 4.22) Equivalently S is quasiregular semiperfectoid iff quasisyntomic, receiving a map from a perfectoid ring, with S/p semiperfect; conditions (2)-(3) may be replaced by the existence of a surjection from a perfectoid ring.",
+      "statement": "(BMS2 4.18) A ring R is perfectoid if it is p-adically complete, there is π ∈ R with π^p = pu for a unit u, Frobenius is surjective on R/p, and ker(θ: A_inf(R) = W(R♭) → R) is principal; then ker θ is generated by a nonzerodivisor ξ = p + [π♭]^p α, L_{R/Z_p} has p-complete Tor-amplitude in degree −1 with p-completion R[1], and R[p^∞] = R[p]. (BMS2 4.10) A is quasisyntomic if p-complete with bounded p^∞-torsion and L_{A/Z_p} has p-complete Tor-amplitude in [−1, 0]; a map of such rings is a quasisyntomic cover if p-completely faithfully flat with p-complete Tor-amplitude of L_{B/A} in [−1, 0]. (BS22 7.1) S is semiperfectoid if it is a derived p-complete ring admitting a surjection from a perfectoid ring; it is quasiregular if in addition it has bounded p^∞-torsion and L_{S/Z_p}[−1] is p-completely flat over S, in which case S is classically p-complete. (BMS2 4.20, 4.22; the identification with BS22 Notation 7.1 is a packet-authored reconciliation via Remarks 4.21-4.22) S is quasiregular semiperfectoid iff quasisyntomic, receiving a map from a perfectoid ring, with S/p semiperfect; conditions (2)-(3) may be replaced by the existence of a surjection from a perfectoid ring.",
       "hypotheses": [
         "All completions are p-adic (BMS2) or derived p-adic (BS22 Notation 7.1); BS22 asks only derived p-completeness for semiperfectoid, and Notation 7.1 records that quasiregularity forces classical p-completeness.",
         "Perfectoid here is the integral notion of BMS1 §3, not the Tate-ring notion of PerfectoidSpaces:P1; the comparison for R^+ inside a perfectoid Tate ring is not proved in the sources read (gap)."
       ],
       "proofSteps": [
-        "BMS2 Remark 4.21: semiperfectness of S/p gives Ω¹_{(S/p)/F_p} = 0, so L_{S/R} ⊗^L S/p ∈ D^{≤ −1} for any R → S, whence the Tor-amplitude of L_{S/Z_p} is concentrated in degree −1.",
+        "BMS2 Remark 4.21: semiperfectness of S/p gives Ω¹_{(S/p)/F_p} = 0, so L_{S/R} ⊗^L S/p ∈ D^{≤ −1} for any R → S. For S ∈ QSyn, whose L_{S/Z_p} has p-complete Tor-amplitude in [−1, 0], this places the Tor-amplitude in degree −1.",
         "BMS2 Remark 4.22: given R → S with R perfectoid and S/p semiperfect, R ⊗̂_{Z_p} W(S♭) is perfectoid and surjects onto S (S♭ the inverse-limit perfection of S/p), so the two formulations of the definition agree."
       ],
       "acceptance": [
         "The ϖ-adic completion of R^+/(I ∩ R^+) for R^+ integral perfectoid is semiperfectoid (Remark 7.5), and R⟨X^{1/p^∞}⟩/(X − f) for perfectoid R is quasiregular semiperfectoid (proof of Prop. 7.10).",
-        "A perfectoid ring is quasiregular semiperfectoid with L_{R/Z_p}^∧ = R[1]; O_C/p is semiperfect but not quasisyntomic-relevant as a Z_p-algebra without completion."
+        "A perfectoid ring is quasiregular semiperfectoid with L_{R/Z_p}^∧ = R[1] (Example 4.24, Proposition 4.19). O_C/p is quasiregular semiperfectoid, and a test must not classify it otherwise. It is p-complete with bounded p-torsion, a quotient of the perfectoid O_C by the nonzerodivisor p, and L_{(O_C/p)/O_C} ≅ (p)/(p²)[1] is p-completely flat in degree −1, so BMS2 Lemma 4.25 applies (the regular-quotient formula is DD.0 content)."
       ],
       "sources": [
         {
@@ -82,13 +96,13 @@
       "statement": "Let (A, I) be a perfect prism with perfectoid ring R = A/I. For any prism (B, J), any ring map A/I → B/J lifts uniquely to a map of prisms (A, I) → (B, J). Hence (R)_Δ = (R/A)_Δ. The dual statement fails: a prism (A, I) may admit several maps to a perfect prism (B, J) with the same reduction.",
       "hypotheses": [
         "(A, I) perfect (φ_A bijective); B and B/J derived p-complete; B may have p-torsion, which is why being a δ-map must be checked separately.",
-        "Uses that L_{A/Z_p} vanishes after derived p-completion because A = W(S) for a perfect F_p-algebra S (Corollary 2.31).",
+        "Uses that L_{A/Z_p} vanishes after derived p-completion because A is the ring of Witt vectors of a perfect F_p-algebra. The source states this without proof; identifying a perfect prism with W(A/p) is Corollary 2.31, a packet-supplied reference.",
         "Placement: Lemma 4.8 is an application of PR.0's perfect-prism/perfectoid-ring correspondence and rigidity, so it is filed under Q0:animated-application (which imports PR.0), not under Q0:integral-algebra (which PR.0 itself requires)."
       ],
       "proofSteps": [
         "Deformation theory: Hom(A, B) ≅ Hom(A, B/J) ≅ Hom(A, B/(J, p)) since L_{A/Z_p}^∧ = 0 and B, B/J are derived p-complete; so A → A/I → B/J lifts uniquely to α: A → B, compatible with Frobenius lifts, with α(I) ⊂ J.",
         "α is a δ-map: it factors uniquely through B^perf = lim_φ B → B by bijectivity of φ on A; B^perf is a perfect δ-ring, hence p-torsionfree, so the φ-equivariant map A → B^perf is automatically a δ-map, and B^perf → B is a δ-map by construction.",
-        "Rigidity (Lemma 3.5, supplied by PrismaticCohomology:PR.0/rigidity-prism-ideal) gives J = IB for the resulting map of prisms."
+        "The proof ends there: α is a δ-map with α(I) ⊂ J, hence a map of prisms. Rigidity (Lemma 3.5, IB = J) is not used in Lemma 4.8. It is used in the proof of Proposition 7.2 (\"K = dC by Lemma 3.5\"), and the PR.0 rigidity link was re-targeted there by REVIEW-EXT-03."
       ],
       "acceptance": [
         "For R = O_C and any prism (B, J) with a map O_C → B/J, there is a unique prism map (A_inf(O_C), (ξ)) → (B, J), so the absolute prismatic site of Spf O_C is the relative site over A_inf.",
@@ -109,11 +123,12 @@
       "parentStageId": "PerfectoidQuotients:Q2",
       "title": "The category of prisms under a semiperfectoid ring has an initial object with principal ideal",
       "kind": "construction",
-      "statement": "For a semiperfectoid ring S, the category of prisms (A, I) with a map S → A/I (the absolute prismatic site (Spf S)_Δ) has an initial object (Δ^init_S, I) with I = (d) principal. Δ^init_S is a derived (p, d)-complete δ-A_inf(R)-algebra in which d is a nonzerodivisor, obtained from B = A_inf(R){x_f | f ∈ J}/(d x_f − f | f ∈ J)_δ (J = ker(A_inf(R) → R → S)) by killing the smallest δ-stable ideal containing the d^∞-torsion, taking H^0 of the derived (p, d)-completion, and iterating transfinitely.",
+      "statement": "For a semiperfectoid ring S, the category of all prisms (A, I) with a map S → A/I has an initial object (Δ^init_S, I) with I = (d) principal. Δ^init_S is a derived (p, d)-complete δ-A_inf(R)-algebra in which d is a nonzerodivisor, obtained from B = A_inf(R){x_f | f ∈ J}/(d x_f − f | f ∈ J)_δ (J = ker(A_inf(R) → R → S)) by killing the smallest δ-stable ideal containing the d^∞-torsion, taking H^0 of the derived (p, d)-completion, and iterating transfinitely. The source identifies this category with the absolute prismatic site (Spf S)_Δ of Remark 4.7. The objects of that site are bounded prisms, whereas Δ^init_S \"is not bounded in general\", so Δ^init_S need not be an object of (Spf S)_Δ.",
       "hypotheses": [
         "S = R/J' for a perfectoid ring R (surjection chosen); (A_inf(R), ker θ = (d)) is the initial prism under R (Lemma 4.8) and ker θ is principal.",
         "Δ^init_S is not bounded in general; its perfection is the well-behaved object (Corollary 7.3).",
-        "The transfinite induction uses that derived completion commutes with ω₁-filtered colimits."
+        "The transfinite induction uses that derived completion commutes with ω₁-filtered colimits.",
+        "Asserted, not argued: that the transfinite torsion-removal process ends in a d-torsion-free derived (p, d)-complete ring still receiving a unique map to every (C, K), and that Remark 4.7's bounded site is the category meant."
       ],
       "proofSteps": [
         "Given a prism (C, K) with S → C/K, Lemma 4.8 gives a unique (A_inf(R), (d)) → (C, K) and K = dC by rigidity (Lemma 3.5); d is a nonzerodivisor in C, so each f ∈ J has a unique quotient f/d ∈ C.",
@@ -122,8 +137,8 @@
         "R = A_inf(R)/d → Δ^init_S/d factors through S because all elements of J become divisible by d."
       ],
       "acceptance": [
-        "For S = R perfectoid, Δ^init_S = A_inf(R) (no relations needed).",
-        "For S = R/(f) with f admitting compatible p-power roots, Theorem 7.4's proof shows the perfection of Δ^init_S/d is the p-completion of R/(f^{1/p^∞})."
+        "For S = R perfectoid, Δ^init_S = A_inf(R) by Lemma 4.8, since (A_inf(R), ker θ) is already initial among prisms under R.",
+        "For S = R/(f) with f admitting compatible p-power roots, Corollary 7.3 and the proof of Theorem 7.4 together give that the p-adic completion of (Δ^init_S)_perf/I is the p-completion of R/(f^{1/p^∞})."
       ],
       "sources": [
         {
@@ -177,7 +192,7 @@
       "proofSteps": [
         "Define Δ_{R/A} as the left Kan extension; on smooth algebras nothing changes (1).",
         "The Hodge-Tate comparison for smooth algebras (Theorem 6.3: Ω^i_{R/(A/I)} ≅ H^i(Δ̄_{R/A}){i}) left-Kan-extends to the filtration with graded pieces the completed derived exterior powers of the cotangent complex, since ∧^i L extends Ω^i.",
-        "(2)-(5) are read off from the filtration: etale/quasisyntomic descent of derived exterior powers of the cotangent complex, base change of L, and colimit preservation of the associated graded."
+        "(2)-(5) are stated as \"immediate consequences\". Packet-authored reading: they follow from the filtration by etale/quasisyntomic descent of completed derived exterior powers of the cotangent complex, base change of L, and colimit preservation of the associated graded. For (3) the source points only to a variant for derived de Rham cohomology in characteristic p ([BMS19, Example 5.11], unread)."
       ],
       "acceptance": [
         "For R = A/I⟨X⟩, gr^1 = R{−1}[−1] and the filtration recovers the Hodge-Tate comparison Ω¹ ≅ H¹(Δ̄){1}.",
@@ -202,7 +217,8 @@
       "hypotheses": [
         "Discreteness of Δ_{R/A} (hence of Δ̄_{R/A} = Δ_{R/A} ⊗^L_A A/I for (2)).",
         "The δ-structure is obtained from the functorial Čech-Alexander model F_A(R) and the map F_A(R) → W_2(F_A(R)) classifying δ-structures, together with the pullback square W_2(B) = B ×_{B ⊗^L F_p} B for simplicial commutative rings.",
-        "BS22 conjectures that (Δ_{R/A}, IΔ_{R/A}) is itself initial; only weak initiality plus the retract is proved."
+        "BS22 conjectures that (Δ_{R/A}, IΔ_{R/A}) is itself initial; only weak initiality plus the retract is proved.",
+        "Lemma 7.8 is stated for an idempotent complete category. The source applies it to (R/A)_Δ without checking idempotent completeness; this is a gap. In part (3), \"Using the argument from part (1), one shows that this is in fact a map of δ-rings\" is asserted."
       ],
       "proofSteps": [
         "(1) Build the map Δ_{R/A} ≅ colim lim F_A(R) → colim lim W_2(F_A(R)) of E_∞-rings over A → W_2(A), splitting restriction; identify the target with W_2(Δ_{R/A}) using the pullback square and discreteness; this is a δ-structure refining φ_R.",
@@ -231,7 +247,8 @@
       "statement": "Fix a bounded prism (A, I) and R = A/J with J = (I, f_1, ..., f_r), f_1, ..., f_r Koszul-regular on A/I, R with bounded p-torsion. Then Δ_{R/A} is concentrated in degree 0 and I-torsionfree, and (Δ_{R/A}, IΔ_{R/A}) is the initial object of (R/A)_Δ; locally where I = (d), Δ_{R/A} = A{f_1/d, ..., f_r/d}^∧ (the prismatic envelope A{J/I}^∧ of Proposition 3.13).",
       "hypotheses": [
         "Koszul-regularity of f_1, ..., f_r on A/I and bounded p-torsion of R; principal I after localization on Spf A.",
-        "Imports: Proposition 3.13 (prismatic envelopes of regular ideals; supplied by PrismaticCohomology:PR.0/regular-prismatic-envelopes), Lemma 7.7, the Hodge-Tate filtration, and a standard free-resolution computation cited to [Bha12, Claim 3.30] (unread)."
+        "Imports: Proposition 3.13 (prismatic envelopes of regular ideals; supplied by PrismaticCohomology:PR.0/regular-prismatic-envelopes), Lemma 7.7, the Hodge-Tate filtration, and a standard free-resolution computation cited to [Bha12, Claim 3.30] (unread).",
+        "Also used: Lemma 7.7(1)-(2) to regard (Δ_{R/A}, IΔ_{R/A}) as an object of (R/A)_Δ, and the assertion \"the formation of both sides commutes with arbitrary base change\" (Construction 7.6(4) for Δ, free δ-adjunction for B)."
       ],
       "proofSteps": [
         "Δ_{R/A} is discrete and I-torsionfree by the Hodge-Tate filtration (gr^i are completed exterior powers of L_{R/(A/I)} = J/(J² + I)[1]), so it is an object of (R/A)_Δ.",
@@ -239,7 +256,7 @@
         "B → Δ_{R/A} has a retraction by Lemma 7.7, so B/IB → Δ̄_{R/A} has p-torsionfree cokernel; it suffices that B/IB[1/p] → Δ̄_{R/A}[1/p] is surjective, which holds because Δ̄_{R/A}[1/p] is generated as a Banach R[1/p]-algebra by gr^1 = J/(J² + I){−1} and J/I maps onto it."
       ],
       "acceptance": [
-        "R = A/(I, f) with f a nonzerodivisor on A/I: Δ_{R/A} = A{f/d}^∧ and the initial prism is obtained by adjoining f/d.",
+        "R = A/(I, f) with f a nonzerodivisor on A/I and R of bounded p-torsion: Δ_{R/A} = A{f/d}^∧, and the initial prism is obtained by adjoining f/d.",
         "The example is the engine of Proposition 7.10 via the rings T = R⟨X_1^{1/p^∞}, ..., X_r^{1/p^∞}⟩/(X_1 − f_1, ..., X_r − f_r)."
       ],
       "sources": [
@@ -259,16 +276,17 @@
       "kind": "theorem",
       "statement": "Let S be quasiregular semiperfectoid, R → S any map from a perfectoid ring, (A, I) = (A_inf(R), ker θ). Then Δ_{S/A} is discrete, (Δ_{S/A}, IΔ_{S/A}) is the initial prism Δ^init_S with a map S → Δ^init_S/I (so Δ_{S/A} does not depend on R), and S → Δ̄_{S/A} = Δ_{S/A}/I is p-completely faithfully flat. Notation: Δ_S := Δ^init_S = Δ_{S/A}.",
       "hypotheses": [
-        "S quasiregular (bounded p^∞-torsion and L_{S/R}[−1] p-completely flat) and semiperfectoid; R perfectoid mapping to S (not necessarily surjectively).",
-        "Uses the Hodge-Tate filtration (all gr^i = completed ∧^i L_{S/R}[−i]{−i} p-completely flat, hence discrete), Lemma 7.7(3), Example 7.9, and the invariance of Δ_{S/A} under R ↦ R⟨Y_i^{1/p^∞}⟩ and under A ↦ A_inf(R⟨X^{1/p^∞}⟩)."
+        "S quasiregular in the sense of Notation 7.1 (bounded p^∞-torsion and L_{S/Z_p}[−1] p-completely flat) and semiperfectoid; R perfectoid mapping to S, not necessarily surjectively. The proof uses the consequence that L_{S/R}[−1] is p-completely flat.",
+        "Uses the Hodge-Tate filtration (all gr^i = completed ∧^i L_{S/R}[−i]{−i} p-completely flat, hence discrete), Lemma 7.7(3), Example 7.9, and the invariance of Δ_{S/A} under R ↦ R⟨Y_i^{1/p^∞}⟩ and under A ↦ A_inf(R⟨X^{1/p^∞}⟩).",
+        "Implicit in the reduction: the idempotents of Lemma 7.7(3) are natural in S. This is needed so that surjectivity of Δ_{S'} → Δ_S and the filtered colimit S' = colim T transfer \"idempotent = id\". The source also writes Δ_{S/R} for Δ_{S/A}."
       ],
       "proofSteps": [
-        "Discreteness and faithful flatness: the completed derived exterior powers ∧^i L_{S/R}[−i] are p-completely flat S-modules, so the Hodge-Tate filtration exhibits Δ̄_{S/A} as p-completely faithfully flat over S and discrete; Δ_{S/A} is then discrete by (p, I)-completeness.",
+        "Discreteness and faithful flatness: the completed derived exterior powers ∧^i L_{S/R}[−i] are p-completely flat S-modules, so the Hodge-Tate filtration exhibits Δ̄_{S/A} as discrete and p-completely faithfully flat over S (source). That Δ_{S/A} is then discrete follows by derived (p, I)-completeness (packet-authored step).",
         "Initiality: it suffices that the idempotent of Lemma 7.7(3) is the identity. Replace R by R⟨Y_i^{1/p^∞} | i ∈ I⟩ (no change to cotangent complexes) to make R → S surjective with kernel generated by {f_j}; S' = R⟨X_j^{1/p^∞}⟩/(X_j − f_j)^∧ → S is surjective on rings and on cotangent complexes, so Δ_{S'/R} → Δ_{S/R} is surjective and it suffices to treat S'.",
         "S' is a filtered colimit of T = R⟨X_1^{1/p^∞}, ..., X_r^{1/p^∞}⟩/(X_1 − f_1, ..., X_r − f_r), and Δ_{T/A} ≅ Δ_{T/A'} for A' = A_inf(R⟨X^{1/p^∞}⟩) compatibly with idempotents; Example 7.9 (T is a Koszul-regular quotient of A'/I) shows the idempotent is the identity."
       ],
       "acceptance": [
-        "For S = O_C/p... not semiperfectoid over Z_p in the required sense; for S = R/(f) with f admitting compatible p-power roots and R perfectoid, Δ_S is the completed prismatic envelope A_inf(R){[f♭]/d}^∧ (Example 7.9 with r = 1).",
+        "O_C/p is quasiregular semiperfectoid (see the Q0:integral-algebra node), so Proposition 7.10 applies to it. For S = R/(f) with R perfectoid, f admitting compatible p-power roots, f a nonzerodivisor on R and R/f of bounded p-torsion, Δ_S is the completed prismatic envelope A_inf(R){[f♭]/d}^∧ (Example 7.9 with r = 1 and lift [f♭] of f).",
         "Independence of R: Δ_{S/A_inf(R)} ≅ Δ_{S/A_inf(R')} for any two perfectoid rings mapping to S."
       ],
       "sources": [
@@ -288,17 +306,17 @@
       "kind": "theorem",
       "statement": "Let (A, I) be a bounded prism and R a quasisyntomic A/I-algebra. Then there is (B → B/IB ← R) ∈ (R/A)_Δ with R → B/IB p-completely faithfully flat. Consequently (1) (A, I) → (B, IB) is a flat map of prisms, faithfully flat if A/I → R is p-completely faithfully flat; (2) if A is perfect, (A, I) → (B, IB)_perf is flat, faithfully flat under the same condition.",
       "hypotheses": [
-        "R quasisyntomic over A/I; the cover S := A/I⟨x_j^{1/p^∞}⟩ ⊗̂^L_{A/I⟨x_j⟩} R built from a surjection A/I⟨x_j | j ∈ J⟩ → R is a quasisyntomic cover with S/p relatively semiperfect over A/(I, p), so L^∧_{S/(A/I)}[−1] is p-completely flat.",
+        "R quasisyntomic over A/I; the cover S := A/I⟨x_j^{1/p^∞}⟩ ⊗̂^L_{A/I⟨x_j⟩} R built from a surjection A/I⟨x_j | j ∈ J⟩ → R is a quasisyntomic cover with S/p relatively semiperfect over A/(I, p), so L^∧_{S/(A/I)}[−1] is p-completely flat. The source asserts both properties with \"It is easy to see\" and \"In particular\".",
         "The prism B = Δ_{S/A} is produced by the first half of the proof of Proposition 7.10 and Lemma 7.7 (discreteness gives the δ-structure); (2) uses passage to filtered colimits (perfection = colim over φ)."
       ],
       "proofSteps": [
         "Construct S by formally extracting p-power roots of a set of generators x_j; R → S is a quasisyntomic cover and A/(I, p) → S/p is relatively semiperfect (quotient of a flat algebra with bijective relative Frobenius), so Ω¹_{S/(A/I)}/p = 0 and L^∧_{S/(A/I)}[−1] is p-completely flat.",
         "As in Proposition 7.10, the Hodge-Tate filtration shows Δ_{S/A} is discrete and S → Δ̄_{S/A} p-completely faithfully flat; Lemma 7.7 makes B = Δ_{S/A} a prism over (A, I).",
-        "(1): A/I → R → S → B/IB is a composite of p-completely flat maps (faithfully flat if the first is); (2): perfection is a filtered colimit of Frobenius twists, preserving (faithful) flatness."
+        "(1): A/I → R → S → B/IB is a composite of p-completely flat maps (faithfully flat if the first is); (2): perfection is a filtered colimit of Frobenius twists, preserving (faithful) flatness. The passage from p-complete flatness of A/I → B/IB to (p, I)-complete flatness of A → B is not written out."
       ],
       "acceptance": [
         "For R = A/I itself the construction gives a faithfully flat prism cover in which every element of a generating set has compatible p-power roots.",
-        "Footnote 12 examples: for a perfect crystalline prism take R_∞ the perfection of R; with etale coordinates take R_∞ = R[y_i^{1/p^∞}]^∧/(y_i − x_i)."
+        "Examples of Example 7.12's covers R → R_∞ (footnote 12, which belongs to Example 7.12, not to Proposition 7.11): for a perfect crystalline prism take R_∞ the perfection of R; with etale coordinates take R_∞ = R[y_i^{1/p^∞}]^∧/(y_i − x_i)."
       ],
       "sources": [
         {
@@ -322,12 +340,12 @@
         "Transfinite iteration of R ↦ R_1 and the perfectoidness/faithful flatness at limit stages are asserted in one sentence; the stage text asks for completeness, perfectoidness, faithful flatness and size bounds at limit stages explicitly."
       ],
       "proofSteps": [
-        "Proposition 7.11(2) applied to R̃ gives a perfect prism (B, IB) over (A, I) with R̃ → B/IB =: R_1 such that R → R̃ → R_1 is p-completely faithfully flat; R_1 is perfectoid and every monic polynomial over R has a root in R_1.",
+        "Proposition 7.11(2) applied to R̃ gives a perfect prism (B, IB) over (A, I) with R̃ → B/IB =: R_1 such that R → R̃ → R_1 is p-completely faithfully flat; R_1 is perfectoid and every monic polynomial over R has a root in R_1. (Proposition 7.11(2) gives flatness of (A, I) → (B, IB)_perf; the proof of Theorem 7.14 writes \"perfect prism (B, IB)\" for this perfection.)",
         "Transfinitely iterate R ↦ R_1 to obtain a quasisyntomic cover R → R' with R' perfectoid and absolutely integrally closed.",
         "Remark 7.15 (sketch): for S = R⟨Y^{1/p^∞}⟩/(f(Y)), the map S → Δ̄_S is a cover (Prop. 7.10); after reducing to p-torsionfree R and choosing ϖ with (ϖ^p) = (p), φ_A^*(T/ϖ) is the pd-envelope of f(Y) in R/ϖ[Y^{1/p^∞}] (Corollary 2.39), and pd-envelopes of nonzerodivisors in F_p-algebras are ind-syntomic (A/f^p[g_1, g_2, ...]/(g_i^p)), lifting along nilpotent thickenings; alternatively [GR, Theorem 16.9.17]."
       ],
       "acceptance": [
-        "Over R = O_C the lemma is trivial (O_C is absolutely integrally closed); over R = Z_p^cycl it produces a faithfully flat perfectoid extension containing roots of all monic polynomials, hence compatible p-power roots of every element.",
+        "Over R = O_C with C algebraically closed the lemma is trivial, since O_C is absolutely integrally closed. Over R = Z_p^cycl it produces a faithfully flat perfectoid extension containing roots of all monic polynomials, hence compatible p-power roots of every element.",
         "Compatible p-power roots of a specified f come from roots of the monic polynomials Y^{p^n} − f solved compatibly (absolute integral closedness gives roots at every degree; compatibility is arranged by choosing successively)."
       ],
       "sources": [
@@ -347,7 +365,7 @@
       "kind": "theorem",
       "statement": "For any semiperfectoid ring S, the map S → S_perfd to the universal perfectoid ring under S is surjective. In the principal case S = R/(f) with R perfectoid and f admitting compatible p-power roots, S_perfd is the p-adic completion of R/(f^{1/p^∞}).",
       "hypotheses": [
-        "S = R/J with R perfectoid; the reduction to finitely generated J 'using filtered colimits' and to principal J 'by induction' is stated without details (the stage text demands the correctly completed filtered-colimit argument).",
+        "S = R/J with R perfectoid; the reduction to finitely generated J 'using filtered colimits' and to principal J 'by induction' is stated without details (the stage text demands the correctly completed filtered-colimit argument). The printed proof writes \"I = (f)\" for the principal ideal J.",
         "Uses Theorem 7.14 to pass to a p-completely faithfully flat perfectoid R → R' in which f has compatible p-power roots, and the base-change/descent compatibility of S ↦ S_perfd along R → R' (stated as 'we can assume', not argued; see gap).",
         "Uses that perfectoid rings are reduced and that the p-completion of R/(f^{1/p^∞}) is perfectoid (asserted)."
       ],
@@ -357,7 +375,7 @@
         "Any map S = R/f → T with T perfectoid factors through the p-completion of R/(f^{1/p^∞}) because T is reduced (f^{1/p^n} maps to a nilpotent, hence to 0); this completion is itself perfectoid, so it is S_perfd, and R → S → S_perfd are surjective."
       ],
       "acceptance": [
-        "S = O_C/(p^{1/p^∞})... is already perfect; S = R/(f) for R = Z_p^cycl⟨T^{1/p^∞}⟩ and f = T − 1 gives S_perfd = completion of R/((T−1)^{1/p^∞}) after adjoining the roots via Theorem 7.14.",
+        "Principal case with roots already present: for R = Z_p^cycl⟨T^{1/p^∞}⟩ and f = T, S_perfd = (R/(T^{1/p^∞}))^∧ = Z_p^cycl, a quotient of R. For f without compatible roots in R (e.g. T − 1), the printed proof passes to R' by Theorem 7.14 and computes (S ⊗̂_R R')_perfd, so such a test also exercises the unproved base-change step (see gap).",
         "Surjectivity means S_perfd is a quotient, not merely a ring under S."
       ],
       "sources": [
@@ -377,18 +395,18 @@
       "kind": "application",
       "statement": "Let X = Spa(R, R^+) be affinoid perfectoid (R a perfectoid Tate ring with pseudo-uniformizer ϖ, R^+ ⊂ R° open and integrally closed) and I ⊂ R an ideal. Let S be the ϖ-adic completion of R^+/(I ∩ R^+); S is semiperfectoid, R' := S_perfd[1/ϖ] is a perfectoid Tate ring which is a quotient of R, every map from R to a perfectoid ring vanishing on I factors uniquely through R', and the vanishing locus of I in X is the strongly Zariski closed subset Spa(R', R'^+) with R'^+ the minimal open integrally closed subring of R' containing the image of R^+. Hence (ECD 5.8) every Zariski closed immersion Z → X (closed immersion whose image is the zero locus of an ideal) is strongly Zariski closed (Z = Spa(S, S^+) affinoid with R → S surjective and S^+ the integral closure of R^+ in S); the claim in [Sch15, Remark II.2.4] that the notions differ was erroneous. ECD adds that Theorem 7.4 also implies almost surjectivity on plus rings, independently of [KL15, 3.6.9(c)].",
       "hypotheses": [
-        "R^+ must be an integral perfectoid ring for S to be semiperfectoid (BS22 asserts 'S is a semiperfectoid ring' without proof; the comparison Tate-perfectoid R^+ ⇒ integral perfectoid R^+ is not in the sources read).",
-        "The identification of Spa(R', R'^+) with the vanishing locus and the universal property for perfectoid Tate rings (not just p-complete perfectoid rings) follow from Theorem 7.4 by inverting ϖ; the passage between S_perfd (integral, p-complete) and R' (Tate) uses that ϖ-adic and p-adic completions agree here (ϖ^p | p).",
+        "S must be semiperfectoid. BS22 asserts \"S is a semiperfectoid ring\" without proof. The required input is BMS1 Lemma 3.20, read by the reviewer: if a complete Tate ring R is perfectoid in Fontaine's sense, then every ring of integral elements R^+ is an integral perfectoid ring. Sch12 perfectoid K-algebras are perfectoid in Fontaine's sense (remark after 3.20). S is then a quotient of R^+ and derived p-complete. The proof of 3.20 imports BMS1 Lemmas 3.9-3.10 and [45, Lemma 5.5], none read.",
+        "Passing between S_perfd (integral, p-complete) and R' (Tate) needs the ϖ-adic and p-adic topologies on R^+ to agree. This holds when p is a unit of R, since p is then a pseudo-uniformizer; ϖ^p | p alone does not give it. In characteristic p, derived p-completeness is automatic and the ϖ-adic completion of Remark 7.5 must be used. The source does not discuss either case.",
         "ECD's printed remark reads 'S^+ → R^+ is almost surjective'; the mathematically meaningful direction is R^+ → S^+ (almost surjectivity of the plus ring map), as in [KL15, 3.6.9(c)]; recorded as a probable misprint."
       ],
       "proofSteps": [
         "Form S = (R^+/(I ∩ R^+))^∧_ϖ; by Theorem 7.4, S → S_perfd is surjective, so R^+ → S_perfd is surjective and R → R' = S_perfd[1/ϖ] is surjective.",
-        "Universal property: a map R → T to a perfectoid (Tate) ring vanishing on I induces R^+ → T^+ vanishing on I ∩ R^+, hence S → T^+, hence S_perfd → T^+, hence R' → T.",
+        "Universal property: a continuous map R → T to a perfectoid Tate ring vanishing on I sends R^+ into T° and vanishes on I ∩ R^+, hence induces S → T°. T° is an integral perfectoid ring by BMS1 Lemma 3.20, so this gives S_perfd → T° and then R' → T, which is unique because R → R' is surjective. The integrality and continuity inputs are packet-authored; the source says only \"any map from R to a perfectoid ring that vanishes on I factors uniquely over R'\".",
         "The vanishing locus of I is therefore Spa(R', R'^+) with R'^+ the minimal open integrally closed subring containing the image of R^+; this is strongly Zariski closed by definition, giving ECD Theorem 5.8 via Definition 5.7."
       ],
       "acceptance": [
-        "For X the perfectoid closed disc and I = (T): R' is the completed... quotient R/(T^{1/p^∞})^ after choosing roots, a perfectoid field-like point, strongly Zariski closed.",
-        "Diagonals: Δ_f: Y → Y ×_X Y is strongly Zariski closed because S ⊗̂_R S → S is surjective (ECD Proposition 5.9), so it is an immersion; this uses only the definition, not Theorem 5.8."
+        "For X = Spa(K⟨T^{1/p^∞}⟩, K°⟨T^{1/p^∞}⟩) and I = (T): S = (K°⟨T^{1/p^∞}⟩/(T))^∧ and, by the principal case of Theorem 7.4 (T has compatible roots), S_perfd = K°, so R' = K. The Zariski closed subset is the origin Spa(K, K°), and the kernel of R → R' is the closed ideal generated by all T^{1/p^n}, not (T).",
+        "Diagonals (for affinoid X = Spa(R, R^+), Y = Spa(S, S^+)): Δ_f is strongly Zariski closed because S ⊗̂_R S → S is surjective, so Δ_f is an immersion (ECD Proposition 5.9). This uses only the definitions, not Theorem 5.8."
       ],
       "sources": [
         {
@@ -402,6 +420,12 @@
           "locator": "Section 5, Definition 5.7, Theorem 5.8 with proof and following remark, pp. 24-25 (extraction lines 1107-1125)",
           "excerpt": "Theorem 5.8. Let f : Z → X = Spa(R, R^+) be a Zariski closed immersion. Then f is strongly Zariski closed. Proof. This follows from [BS22, Theorem 7.4, Remark 7.5].",
           "match": "The consumer statement (ECD 5.8) and its definitions of Zariski closed and strongly Zariski closed maps."
+        },
+        {
+          "sourceId": "bms1-integral-2018",
+          "locator": "Section 3.2, Lemma 3.20 with proof and following remark, pp. 26-27 (lines 1628-1665)",
+          "excerpt": "Let R be a complete Tate ring with a ring of integral elements R+ ⊂ R. If R is perfectoid in Fontaine’s sense, then R+ is perfectoid.",
+          "match": "The comparison Remark 7.5 needs so that the completed quotient of R^+ is semiperfectoid and so that T° is an integral perfectoid ring in the universal property."
         }
       ],
       "implementationStatus": "unchecked"
@@ -410,12 +434,12 @@
   "links": [
     {
       "source": "PrismaticCohomology:PR.0/rigidity-prism-ideal",
-      "target": "PerfectoidQuotients:Q0:animated-application/perfect-prism-is-initial-over-its-perfectoid-ring",
-      "reason": "The lifted δ-map α : A → B with α(I) ⊂ J is a map of prisms; rigidity (Lemma 3.5) gives IB = J, which the Proposition 7.2 proof uses in the form K = dC.",
+      "target": "PerfectoidQuotients:Q2/initial-prism-of-a-semiperfectoid-ring",
+      "reason": "Rigidity (Lemma 3.5) gives K = dC for the unique map (A_inf(R), (d)) → (C, K) in the proof of Proposition 7.2, so that d is a nonzerodivisor in C and the quotients f/d exist. Re-targeted by REVIEW-EXT-03: the proof of Lemma 4.8 does not use Lemma 3.5.",
       "sources": [
         {
           "sourceId": "bs-prisms-2022",
-          "locator": "Section 4.1, proof of Lemma 4.8, p. 39; Section 7.1, proof of Proposition 7.2, p. 55"
+          "locator": "Section 7.1, proof of Proposition 7.2, p. 55 (line 2438)"
         }
       ]
     },
@@ -530,6 +554,17 @@
       ]
     },
     {
+      "source": "PerfectoidQuotients:Q2/derived-prismatic-cohomology-and-hodge-tate-filtration",
+      "target": "PerfectoidQuotients:Q2/lci-quotient-prism-is-initial",
+      "reason": "Example 7.9 obtains discreteness and I-torsion-freeness of Δ_{R/A} from the Hodge-Tate comparison, and identifies gr^1 = J/(J² + I){−1} for the final surjectivity. Added by REVIEW-EXT-03.",
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Section 7.2, Example 7.9, p. 59 (lines 2619-2621, 2638-2642)"
+        }
+      ]
+    },
+    {
       "source": "PerfectoidQuotients:Q2/discrete-derived-prismatic-cohomology-gives-a-weakly-initial-prism",
       "target": "PerfectoidQuotients:Q2/lci-quotient-prism-is-initial",
       "reason": "The retraction of B → Δ_{R/A} used to prove the isomorphism comes from Lemma 7.7.",
@@ -559,6 +594,17 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Section 7.2, proof of Proposition 7.10, p. 60"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidQuotients:Q2/discrete-derived-prismatic-cohomology-gives-a-weakly-initial-prism",
+      "target": "PerfectoidQuotients:Q2/qrsp-derived-prismatic-cohomology-is-the-initial-prism",
+      "reason": "Proposition 7.10 reduces initiality to showing that the idempotent endomorphism of Lemma 7.7(3) is the identity. Added by REVIEW-EXT-03.",
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Section 7.2, proof of Proposition 7.10, pp. 59-60 (lines 2656-2658, 2667-2677)"
         }
       ]
     },
@@ -603,6 +649,17 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Section 7.3, proof of Proposition 7.11, p. 60"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidQuotients:Q2/discrete-derived-prismatic-cohomology-gives-a-weakly-initial-prism",
+      "target": "PerfectoidQuotients:Q3/lifting-quasisyntomic-covers-to-prisms",
+      "reason": "Proposition 7.11 uses Lemma 7.7 to get the δ-structure on B = Δ_{S/A}, making (B, IB) a prism. Added by REVIEW-EXT-03.",
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Section 7.3, proof of Proposition 7.11, p. 60 (lines 2699-2700)"
         }
       ]
     },
@@ -662,6 +719,21 @@
       ]
     },
     {
+      "source": "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings",
+      "target": "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
+      "reason": "Remark 7.5 applies Theorem 7.4 to S = (R^+/(I ∩ R^+))^∧, which must be semiperfectoid in the sense of Notation 7.1, i.e. a derived p-complete quotient of an integral perfectoid ring. The comparison \"R^+ integral perfectoid\" is BMS1 Lemma 3.20 (see the gap). Added by REVIEW-EXT-03.",
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Section 7.1, Remark 7.5, p. 56 (lines 2477-2479)"
+        },
+        {
+          "sourceId": "bms1-integral-2018",
+          "locator": "Section 3.2, Lemma 3.20, p. 26"
+        }
+      ]
+    },
+    {
       "source": "PerfectoidSpaces:P4",
       "target": "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
       "reason": "P4 owns the definitions of closed immersions, Zariski closed and strongly Zariski closed immersions (ECD 5.6-5.7) on which the statement of ECD 5.8 is made; Q4 supplies the theorem back to P8 as the atlas prescribes.",
@@ -685,7 +757,7 @@
       "stageId": "PerfectoidQuotients:Q0:integral-algebra",
       "status": "partial",
       "remaining": [
-        "Comparison between perfectoid Tate rings with their rings of integral elements (PerfectoidSpaces:P1) and integral perfectoid rings in the sense of BMS1 §3 / BMS2 4.18: not in the sources read (BMS1 Lemma 3.20-3.21 range; needed for Remark 7.5's claim that (R^+/(I ∩ R^+))^∧ is semiperfectoid).",
+        "Comparison between perfectoid Tate rings with their rings of integral elements (PerfectoidSpaces:P1) and integral perfectoid rings: located and read by the reviewer as BMS1 Lemma 3.20 (pp. 26-27), with Lemma 3.21 for the converse passage R_0 ↦ R_0[1/π]. Not yet a node. Its proof imports BMS1 Lemmas 3.9-3.10 and [45, Lemma 5.5], which were not read.",
         "BMS2 Proposition 4.19 (ξ nonzerodivisor of the stated form, L_{R/Z_p}^∧ = R[1], R[p^∞] = R[p]) read as a statement; proof via BMS1 Lemma 3.10 not read.",
         "Distinction between ordinary, derived p-adic and ϖ-adic completions for semiperfectoid rings: only Notation 7.1's remark (quasiregular implies classically p-complete) was read."
       ]
@@ -713,7 +785,9 @@
         "Construction 7.6's consequences (2)-(5) are asserted in the source without proof; the base-change law (4) and the 'flat-base-change compatibility needed to descend surjectivity of perfectoidization' demanded by the stage are not proved in Section 7.",
         "Lemma 7.7(1): the identification colim lim W_2(F_A(R)) = W_2(Δ_{R/A}) and the functorial Čech-Alexander model are stated, not detailed.",
         "Example 7.9's final surjectivity onto gr^1 cites [Bha12, Claim 3.30] (unread).",
-        "Section 8 (perfectoidizations of arbitrary p-complete R-algebras via the perfect prismatic site, Proposition 8.5 identifying S_perfd with Δ_{S/A,perf}/I for semiperfectoid S, arc-descent) was not read."
+        "Section 8 (perfectoidizations of arbitrary p-complete R-algebras via the perfect prismatic site, Proposition 8.5 identifying S_perfd with Δ_{S/A,perf}/I for semiperfectoid S, arc-descent) was not read.",
+        "Lemma 7.7(3) applies Lemma 7.8, which requires an idempotent complete category; idempotent completeness of (R/A)_Δ is not verified in the source.",
+        "Proposition 7.2 is about all prisms under S, while Remark 4.7's absolute prismatic site consists of bounded prisms and Δ^init_S need not be bounded; the identification in the source needs this qualification."
       ]
     },
     {
@@ -732,7 +806,8 @@
       "remaining": [
         "Proof of Theorem 7.4: the reductions 'using filtered colimits' (to finitely generated J) and 'by induction' (to principal J), and the descent of surjectivity along the faithfully flat R → R' of Theorem 7.14, are not spelled out; the stage text explicitly asks for the completed filtered-colimit argument and the base-change compatibility of S ↦ S_perfd.",
         "Remark 7.5: semiperfectoidness of (R^+/(I ∩ R^+))^∧ needs R^+ integral perfectoid (unread comparison); identification of the plus ring R'^+ and almost surjectivity R^+ → R'^+ ([KL15, 3.6.9(c)] or via Theorem 7.4) not proved in the sources read.",
-        "ECD Definition 5.7 and Theorem 5.8 read; ECD §5's injection/closed-immersion theory (5.1-5.6, 5.9-5.11) not read (belongs to PerfectoidSpaces:P4)."
+        "ECD Definition 5.7 and Theorem 5.8 read; ECD §5's injection/closed-immersion theory (5.1-5.6, 5.9-5.11) not read (belongs to PerfectoidSpaces:P4).",
+        "BS22 §8.1 was read through the proof of Proposition 8.5 (pp. 63-66). It does not supply a non-circular base-change argument for the proof of Theorem 7.4: the proof of Proposition 8.5 uses Theorem 7.4 and itself asserts that \"the formation of S ↦ S_perfd commutes with p-completely flat base change on R\" (p. 65)."
       ]
     }
   ],
@@ -751,7 +826,7 @@
       "neededBy": [
         "PerfectoidQuotients:Q4/surjectivity-of-perfectoidization"
       ],
-      "detail": "The printed proof says 'By Theorem 7.14, we can assume that f admits compatible p-power roots', i.e. it replaces R by a p-completely faithfully flat perfectoid R' and S by S ⊗̂ R'. The compatibility (S ⊗̂_R R')_perfd = S_perfd ⊗̂_R R' and faithfully flat descent of surjectivity are not argued in Section 7; Construction 7.6(4) (base change of derived prismatic cohomology) and Section 8 (Proposition 8.5, arc-descent) are the likely sources. Next action: read BS22 §8.1-8.2 (extraction lines 2796-3110)."
+      "detail": "The printed proof says 'By Theorem 7.14, we can assume that f admits compatible p-power roots', i.e. it replaces R by a p-completely faithfully flat perfectoid R' and S by S ⊗̂ R'. The compatibility (S ⊗̂_R R')_perfd = S_perfd ⊗̂_R R' and faithfully flat descent of surjectivity are not argued in Section 7; Construction 7.6(4) (base change of derived prismatic cohomology) is the available input. The reviewer read BS22 §8.1 through the proof of Proposition 8.5 (lines 2796-2931, pp. 63-66). Definition 8.2's derived perfectoidization Δ_{S/A,perf} ⊗^L_A A/I satisfies flat base change formally by 7.6(4), but its identification with the Corollary 7.3 perfectoidization for semiperfectoid S (Proposition 8.5) uses Theorem 7.4 (\"where the composite is surjective by Theorem 7.4\"), and the same proof asserts again that \"the formation of S ↦ S_perfd commutes with p-completely flat base change on R\" (line 2917). Section 8 therefore cannot be cited for this step without circularity. A direct argument must still be supplied, for example through a quasiregular semiperfectoid cover (Proposition 7.10) and 7.6(4), together with p-completely faithfully flat descent of surjectivity."
     },
     {
       "title": "Reductions to finitely generated and principal ideals in Theorem 7.4",
@@ -766,7 +841,7 @@
         "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
         "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings"
       ],
-      "detail": "Remark 7.5 needs R^+ (open, integrally closed in R° of a perfectoid Tate ring) to be an integral perfectoid ring so that the ϖ-adic completion of R^+/(I ∩ R^+) is semiperfectoid, and needs ϖ-adic and p-adic completions to agree. This comparison is standard (BMS1 §3, Lemma 3.20-3.21 range) but was not read. It is exactly the Q0:integral-algebra content 'relation to Tate perfectoid rings and integral subrings'. Next action: read Bhatt-Morrow-Scholze, Integral p-adic Hodge theory §3 (library extracted/BhattMorrowScholze_IntegralPadicHodge.txt)."
+      "detail": "Remark 7.5 needs R^+ (open and integrally closed in R° of a perfectoid Tate ring) to be an integral perfectoid ring, so that the ϖ-adic completion of R^+/(I ∩ R^+) is semiperfectoid; the universal property needs the same for T°. REVIEW-EXT-03 located and read the statement: BMS1 Lemma 3.20 (arXiv v3, pp. 26-27), \"If R is perfectoid in Fontaine's sense, then R+ is perfectoid\", with the remark that Sch12 perfectoid K-algebras are perfectoid in Fontaine's sense. Its proof uses BMS1 Lemmas 3.9-3.10 and [45, Lemma 5.5] (unread). The ϖ-adic versus p-adic completion issue is recorded in the Q4 node: the two agree when p is a unit of R, while in characteristic p only the ϖ-adic completion makes sense. Next action: decompose BMS1 Lemma 3.20 as a Q0:integral-algebra node and read BMS1 Lemmas 3.9-3.10."
     },
     {
       "title": "Limit-stage claims in Andre's flatness lemma",
@@ -787,7 +862,86 @@
       "neededBy": [
         "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings"
       ],
-      "detail": "Mathlib (vendored in the TauCeti project) has Mathlib.RingTheory.WittVector, Mathlib.RingTheory.Perfection (Perfection, PreTilt) and Mathlib.RingTheory.Perfectoid.FontaineTheta (fontaineTheta : 𝕎 R♭ →+* R for p-adically complete R, with surjectivity under Frobenius surjectivity on R/p); no δ-ring, prism, cotangent complex, derived completion or animated ring library was found, and the TauCeti sources contain no perfectoid material. Implementation status of every node is unchecked."
+      "detail": "Mathlib (vendored in the TauCeti project) has Mathlib.RingTheory.WittVector, Mathlib.RingTheory.Perfection (Perfection, PreTilt) and Mathlib.RingTheory.Perfectoid.FontaineTheta (fontaineTheta : 𝕎 R♭ →+* R for p-adically complete R, with surjectivity under Frobenius surjectivity on R/p); no δ-ring, prism, derived completion or animated ring library was found. For the cotangent complex, only the naive cotangent complex exists (Mathlib/RingTheory/Extension/Cotangent/*, H1Cotangent; checked by REVIEW-EXT-03), not the simplicial L_{B/A}, and the TauCeti sources contain no perfectoid material. Implementation status of every node is unchecked."
+    },
+    {
+      "title": "Unverified hypotheses and asserted steps in §§4.1, 7.1-7.3 (reviewer list)",
+      "neededBy": [
+        "PerfectoidQuotients:Q0:animated-application/perfect-prism-is-initial-over-its-perfectoid-ring",
+        "PerfectoidQuotients:Q2/initial-prism-of-a-semiperfectoid-ring",
+        "PerfectoidQuotients:Q2/discrete-derived-prismatic-cohomology-gives-a-weakly-initial-prism",
+        "PerfectoidQuotients:Q2/qrsp-derived-prismatic-cohomology-is-the-initial-prism",
+        "PerfectoidQuotients:Q3/lifting-quasisyntomic-covers-to-prisms"
+      ],
+      "detail": "(a) Lemma 4.8: vanishing of L^∧_{W(S)/Z_p} for perfect S is stated without proof. (b) Proposition 7.2: termination of the transfinite torsion removal is asserted, and the initial object among all prisms need not be bounded, whereas Remark 4.7's site consists of bounded prisms. (c) Lemma 7.7(3)/7.8: idempotent completeness of (R/A)_Δ is not checked, and the δ-map property in part (3) is asserted. (d) Proposition 7.10: the idempotents must be natural in S for the surjectivity and colimit reductions, and the \"regular semiperfectoid\" rings T are asserted to be Koszul-regular quotients. (e) Proposition 7.11: R → S a quasisyntomic cover and relative semiperfectness are \"easy to see\", and the passage to (p, I)-complete flatness of A → B is not written. Next action: supply these arguments or locate them (BMS2 §4 for (d)-(e); Stacks or Lurie for idempotent completeness)."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REVIEW-EXT-03",
+    "date": "2026-09-15",
+    "notes": "Scope checked: all 12 nodes and all links, against the library copies of BS22 (arXiv v4, stamp verified), BMS2 (arXiv v2, stamp verified) and the supplied ECD revision (SHA-256 verified; a regenerated layout extraction reproduces the cited lines). The reviewer also read BS22 Lemmas 3.5, 3.8-3.9, Theorem 3.10 and §8.1 through the proof of Proposition 8.5, BMS2 Lemmas 4.15-4.25, and BMS1 Lemma 3.20; BMS1 was added as a source.\nNodes: 1 verified, 11 corrected, 0 unverifiable. Main corrections:\n(1) Two acceptance items declared O_C/p outside the semiperfectoid/QRSP class; it is quasiregular semiperfectoid by BMS2 Lemma 4.25.\n(2) Lemma 4.8's proof does not use rigidity; the PR.0 rigidity link was re-targeted to Proposition 7.2.\n(3) Proposition 7.2 concerns all prisms, while Remark 4.7's site is bounded; qualified.\n(4) The p-adic versus ϖ-adic completion step in Remark 7.5 was justified by \"ϖ^p | p\", which is insufficient; corrected.\n(5) The R^+ integral-perfectoid gap is now located in BMS1 Lemma 3.20 (read; imports recorded).\n(6) BS22 §8 cannot supply the base change used in the proof of Theorem 7.4 without circularity, since Proposition 8.5 uses Theorem 7.4 and re-asserts that base change.\n(7) Acceptance examples that silently used base change or lacked hypotheses were fixed, and packet-authored steps are labelled.\nLinks: four added (Hodge-Tate filtration → Example 7.9; Lemma 7.7 → Propositions 7.10 and 7.11; Q0:integral-algebra → Remark 7.5 node). Supplier scopes checked against atlas descriptions: DD.0, DD.1, DD.5, E5:animation, PR.1 and PerfectoidSpaces:P4 cover the stated needs. The PR.0 draft nodes (rigidity, perfect prisms, regular envelopes) state what is used.\nStructure: all parentStageIds belong to PerfectoidQuotients and all coverage ids exist. The Lean gap was corrected: mathlib has the naive cotangent complex. Packet status stays partial.",
+    "checked": [
+      {
+        "nodeId": "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings",
+        "verdict": "corrected",
+        "note": "BMS2 Definitions 4.10, 4.18, 4.20, Proposition 4.19, Remarks 4.21-4.22 and BS22 Notation 7.1 match. The \"Equivalently\" reconciliation with Notation 7.1 is now labelled packet-authored, and the Remark 4.21 conclusion needs S ∈ QSyn. Acceptance item \"O_C/p ... not quasisyntomic-relevant\" was wrong: O_C/p is quasiregular semiperfectoid by Lemma 4.25."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q0:animated-application/perfect-prism-is-initial-over-its-perfectoid-ring",
+        "verdict": "corrected",
+        "note": "Lemma 4.8 with proof (lines 1740-1757) matches. The packet's third proof step (rigidity, Lemma 3.5) is not in the proof of 4.8 and was removed; the link was re-targeted to Proposition 7.2. Corollary 2.31 is a packet-supplied reference for A = W(A/p)."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q2/initial-prism-of-a-semiperfectoid-ring",
+        "verdict": "corrected",
+        "note": "Proposition 7.2 with proof (lines 2426-2460) matches. The statement conflated the category of all prisms with the bounded absolute prismatic site, although Δ^init_S need not be bounded (qualified). The acceptance examples were reworded (Lemma 4.8; Corollary 7.3 with the proof of 7.4)."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q2/universal-perfectoidization",
+        "verdict": "verified",
+        "note": "Corollary 7.3 and Lemma 3.9 (read with proof) match, including the derived-versus-classical completion claims. The printed \"perfect prisms (A, I) with a map R → A/I\" should read S → A/I; the packet's proof step already uses the correct form."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q2/derived-prismatic-cohomology-and-hodge-tate-filtration",
+        "verdict": "corrected",
+        "note": "Construction 7.6 (lines 2494-2532) and the Theorem 6.3 statement match. The derivation of (2)-(5) is labelled packet-authored, and the [BMS19, Example 5.11] pointer for (3) is recorded."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q2/discrete-derived-prismatic-cohomology-gives-a-weakly-initial-prism",
+        "verdict": "corrected",
+        "note": "Lemmas 7.7-7.8 with proofs (lines 2533-2617) match. The idempotent-completeness hypothesis of Lemma 7.8 is not verified for (R/A)_Δ in the source (recorded), and the asserted δ-map in part (3) is noted."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q2/lci-quotient-prism-is-initial",
+        "verdict": "corrected",
+        "note": "Example 7.9 (lines 2618-2644) matches. The acceptance example lacked the bounded p-torsion hypothesis, and the uses of Lemma 7.7(1)-(2) and of base change were added. [Bha12, Claim 3.30] remains unread."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q2/qrsp-derived-prismatic-cohomology-is-the-initial-prism",
+        "verdict": "corrected",
+        "note": "Proposition 7.10 with proof (lines 2645-2677) matches. Quasiregularity is defined via L_{S/Z_p}[−1], not L_{S/R}[−1]. The acceptance claim that O_C/p is \"not semiperfectoid\" was wrong, and the Example 7.9 specialization lacked the nonzerodivisor/bounded-torsion hypotheses. Naturality of idempotents is noted as implicit."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q3/lifting-quasisyntomic-covers-to-prisms",
+        "verdict": "corrected",
+        "note": "Proposition 7.11 with proof (lines 2680-2702) matches. \"It is easy to see\" assertions and the implicit flatness passage are labelled. Footnote 12 belongs to Example 7.12, not 7.11."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q3/andre-flatness-lemma",
+        "verdict": "corrected",
+        "note": "Theorem 7.14 with proof and Remark 7.15 (lines 2731-2773) match. The acceptance item needs C algebraically closed for O_C to be absolutely integrally closed. The \"perfect prism (B, IB)\" notation for the perfection is noted."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q4/surjectivity-of-perfectoidization",
+        "verdict": "corrected",
+        "note": "The proof of Theorem 7.4 (lines 2774-2785) matches; the misprint \"I = (f)\" for J is noted. The acceptance example silently used base change; it was replaced by a root-bearing example plus an explicit pointer to the base-change gap."
+      },
+      {
+        "nodeId": "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
+        "verdict": "corrected",
+        "note": "Remark 7.5 (lines 2470-2482) and ECD Definition 5.7, Theorem 5.8, the remark and Proposition 5.9 (layout lines 1107-1133) match, and the ECD misprint S^+ → R^+ is confirmed. The p-adic versus ϖ-adic completion claim (\"ϖ^p | p\") was insufficient; it holds when p is a unit of R and is undiscussed in characteristic p. The universal property needs T° integral perfectoid, now BMS1 Lemma 3.20 (read). The closed-disc acceptance example was rewritten with the correct kernel."
+      }
+    ]
+  }
 }

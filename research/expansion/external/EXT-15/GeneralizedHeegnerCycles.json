@@ -1,0 +1,660 @@
+{
+ "roadmapId": "GeneralizedHeegnerCycles",
+ "status": "partial",
+ "summary": "Source decomposition of generalized Heegner cycles from Bertolini-Darmon-Prasanna (introduction read in full), Castella-Hsieh together with its published erratum (both read for the statements and corrections that the roadmap depends on), and Longo-Vigni (hypothesis package and main Lambda-adic theorem). Covers: the variety X_r = W_r x A^r with its proper smooth model over Z[1/N] and the resulting Bloch-Kato containment; the cycles Delta_phi indexed by isogenies, their homological triviality (with the r = 0 correction) and the Main Theorem relating a SPECIAL VALUE of the anticyclotomic p-adic L-function to the SQUARE of an Abel-Jacobi image, together with its scaling law under omega_A -> lambda omega_A; the three published corrections to Castella-Hsieh Sec. 7 (Lemma 7.5 needs L/Q_p unramified and is not known in the ramified case; Prop. 7.8's correct proof is Kobayashi-Ota's; Lemma 7.10 is about p-ramified ABELIAN extensions); Castella-Hsieh Thm. 4.9 with its interpolation range -r < j < r and Thm. 5.7 with the factor (-c_o^{r-1}), the order-two element sigma_{-1,p} and the t-power convention; Longo-Vigni's admissibility Def. 2.1 with the explicit exceptional set Xi, the exclusion of K = Q(i) and Q(sqrt(-3)), and Thm. 3.5's oriented divisibility; and Castella-Hsieh's Selmer consequences Thms. 6.1-6.4 with Thm. 6.3 in its CORRECTED form. GH.7 and GH.8 are not_read; GH.3 is only partially read. The load-bearing replacement proof (Kobayashi-Ota Lemma 4.10) and Hsieh's nonvanishing theorem were NOT read, although both sources are present in the library.",
+ "sources": [
+  {
+   "id": "bertolini-darmon-prasanna-generalized-heegner",
+   "title": "Generalized Heegner cycles and p-adic Rankin L-series",
+   "authors": "Massimo Bertolini; Henri Darmon; Kartik Prasanna (with an appendix by Brian Conrad)",
+   "edition": "Duke Math. J. 162 (2013), no. 6, 1033-1148, DOI 10.1215/00127094-2142056 (inspected 2026-09-15)",
+   "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf",
+   "sha256": "223bfdad6571c211a1b3e11c4688f2831f06a642eafef7c3552c9506a7188fbc",
+   "readSections": [
+    "Abstract and table of contents, printed p. 1033",
+    "Sec. 0 'Introduction', printed pp. 1033-1039 (the variety X_r = W_r x A^r, the indexing of the cycles by isogenies, the statement that they are homologically trivial, the etale and p-adic Abel-Jacobi maps (0.0.1) and (0.0.2), the three simplifying assumptions and the MAIN THEOREM, and the remarks on the scaling of omega_A and on the r = j = 0 case)",
+    "Read during the independent review: Sec. 0's three simplifying assumptions and the MAIN THEOREM, printed pp. 1037-1038; Prop. 2.4 (the projector computation), Remark 2.6 (field of definition) and Prop. 2.7 (homological triviality), printed p. 1063"
+   ]
+  },
+  {
+   "id": "castella-hsieh-heegner-cycles-padic-L",
+   "title": "Heegner cycles and p-adic L-functions",
+   "authors": "Francesc Castella; Ming-Lun Hsieh",
+   "edition": "Author's revised version as distributed on the second author's page (inspected 2026-09-15); published in Math. Ann. 370 (2018), 567-628. The copy read already carries the footnote correcting the proof of Prop. 7.8 and the corrected form of Thm. 6.3.",
+   "url": "https://www.math.ntu.edu.tw/~mlhsieh/research/HCES.pdf",
+   "sha256": "5c85ea3c0d53ce4825ade4213b930c6542bf628cba6d506bb8c3e46960f02bba",
+   "readSections": [
+    "Introduction, the paragraphs describing Thms. 3.7, 5.7 and 6.3",
+    "Remark 4.8 and Thm. 4.9 with the opening of its proof",
+    "Thm. 5.7 with the opening of its proof and Cor. 5.8",
+    "Sec. 6.1-6.4: (6.1), Thms. 6.1, 6.2 with proof, 6.3, 6.4",
+    "Sec. 7: the statements of Lemma 7.5, Prop. 7.8 and the footnote attached to the proof of Prop. 7.8",
+    "Read during the independent review from the PDF's own text layer (the library holds no extraction for this file): Thm. 3.9 with its proof, Remark 4.8, Thm. 4.9, Thm. 5.7 with its proof, Cor. 5.8, (6.1), Thms. 6.1-6.4 with their proofs, Lemma 7.5, Prop. 7.8 with its proof and the correcting footnote, Thm. 7.7, Thm. 7.9, Lemma 7.10"
+   ]
+  },
+  {
+   "id": "castella-hsieh-erratum",
+   "title": "Erratum to 'Heegner cycles and p-adic L-functions'",
+   "authors": "Francesc Castella; Ming-Lun Hsieh",
+   "edition": "Author erratum (inspected 2026-09-15)",
+   "url": "https://www.math.ntu.edu.tw/~mlhsieh/research/erratum2.pdf",
+   "sha256": "2a8b615daf100b0f2e8ee5890462a91dde9c860492ec920d2a1a7d5827028678",
+   "readSections": [
+    "The entire erratum: the corrections to Thm. 6.3, Lemma 7.5, Prop. 7.8 and Lemma 7.10, with the reference to Kobayashi-Ota"
+   ]
+  },
+  {
+   "id": "longo-vigni-kolyvagin-generalized-heegner",
+   "title": "Kolyvagin systems and Iwasawa theory of generalized Heegner cycles",
+   "authors": "Matteo Longo; Stefano Vigni",
+   "edition": "arXiv:1605.03168v1 [math.NT], 10 May 2016 (inspected 2026-09-15); published in Kyoto J. Math. 59 (2019)",
+   "url": "https://arxiv.org/pdf/1605.03168",
+   "sha256": "afc1a2146cae0397c5aabb337f5955d182a0dab3dd50949ec2e274426a9a5c75",
+   "readSections": [
+    "Sec. 2.2, printed pp. 3-4: the definition of the exceptional set Xi, Def. 2.1 (admissible triples), Remark 2.2, Assumption 2.3 and the additional assumption O_K^x = {+-1}",
+    "Sec. 2.3, printed p. 4: the construction of the anticyclotomic Z_p-extension and the splitting Gal(K[p^{m+1}]/K) = Gamma_m x Delta",
+    "Sec. 3: the hypotheses (H.1)-(H.5), Assumption 3.2 and Thm. 3.5 with its proof sketch",
+    "Sec. 4: the statements of Lemma 4.2, Prop. 4.5 and Thm. 4.12, and the introductory paragraph of Sec. 4",
+    "Read during the independent review from the PDF's own text layer: (H.0)-(H.5) in full, Assumption 3.2 in full (all three clauses), Thm. 3.5 with its proof, Lemma 4.2 with its proof, Cor. 4.3, Prop. 4.5 and Thm. 4.12"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "GeneralizedHeegnerCycles:GH.0/the-variety-X-r-and-its-smooth-proper-model",
+   "parentStageId": "GeneralizedHeegnerCycles:GH.0",
+   "title": "The variety X_r = W_r x A^r fibred over the modular curve, and its model over Z[1/N]",
+   "kind": "construction",
+   "statement": "Fix an imaginary quadratic field K, a CM elliptic curve A with complex multiplication by the full ring of integers O_K, defined over the Hilbert class field H of K, and a prime p not dividing N. Replace the (2r)-dimensional Kuga-Sato variety W_{2r} by the (2r+1)-dimensional variety X_r = W_r x A^r, where W_r is the r-th (desingularised) fibre power of the universal elliptic curve over the modular curve C. Like W_{2r}, the variety X_r is fibred over C and carries an infinite collection of special cycles defined over abelian extensions of K. As shown in the appendix of Bertolini-Darmon-Prasanna (by Brian Conrad), X_r admits a PROPER SMOOTH MODEL over Spec Z[1/N]; consequently, for F a finite extension of Q_p, the image of the etale Abel-Jacobi map is contained in the Bloch-Kato subspace H^1_f.",
+   "hypotheses": [
+    "A has CM by the FULL ring of integers O_K and is defined over the Hilbert class field H, not merely over an arbitrary field with CM by an order",
+    "p does not divide N; this is what makes the good-reduction/smooth-proper statement available and what places the Abel-Jacobi image in H^1_f",
+    "W_r is the DESINGULARISED r-fold fibre product; the desingularisation is part of the construction and the smooth proper model of the appendix is for X_r, not for a naive fibre product",
+    "the dimension of X_r is 2r + 1, and the relevant Chow group is CH^{r+1}(X_r)_{0,Q}, with subscript 0 for homologically trivial and Q for rational coefficients -- the cycles are taken with RATIONAL coefficients throughout"
+   ],
+   "proofSteps": [
+    "Form the r-fold fibre power of the universal elliptic curve over C and desingularise, obtaining W_r; take the product with A^r.",
+    "The appendix constructs a proper smooth model of X_r over Spec Z[1/N].",
+    "Combine with the comparison theorems between p-adic etale cohomology and de Rham cohomology to convert the etale Abel-Jacobi map (0.0.1) into the p-adic one (0.0.2)."
+   ],
+   "acceptance": [
+    "Check the dimension count: X_r has dimension 2r + 1 and the cycles have codimension r + 1, so they are r-dimensional.",
+    "Check that the Bloch-Kato containment is a CONSEQUENCE of the smooth proper model over Z[1/N] and not an assumption.",
+    "Check that the coefficients are rational at this stage; the stage text warns that a class in rational cohomology is not automatically integral, and no integrality statement is made here."
+   ],
+   "sources": [
+    {
+     "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
+     "locator": "Sec. 0, printed pp. 1034-1035",
+     "excerpt": "The present work replaces the Kuga-Sato variety W_{2r} by the (2r+1)-dimensional variety X_r := W_r x A^r, where A is a fixed elliptic curve with complex multiplication by the ring of integers of an imaginary quadratic field K, defined, say, over the Hilbert class field H of K. Like W_{2r}, the variety X_r is fibered over the modular curve C and is also equipped with an infinite collection of special cycles defined over abelian extensions of K.",
+     "match": "Gives the construction of X_r and the field of definition of A, as recorded in the statement and hypotheses."
+    },
+    {
+     "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
+     "locator": "Sec. 0, printed p. 1035",
+     "excerpt": "As shown in the appendix, the variety X_r admits a proper smooth model over Spec Z[1/N], and hence the image of AJ^et_F (for F a finite extension of Q_p) is contained in the Bloch-Kato subspace H^1_f. The comparison theorems between p-adic etale cohomology and de Rham cohomology then allow us to view (0.0.1) as a map AJ_F (called the p-adic Abel-Jacobi map): AJ_F : CH^{r+1}(X_r)_{0,Q}(F) -> Fil^{r+1} H^{2r+1}_dR(X_r/F)^dual.",
+     "match": "Gives the smooth proper model, the Bloch-Kato consequence, and the passage from the etale to the p-adic Abel-Jacobi map."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeneralizedHeegnerCycles:GH.1/generalized-heegner-cycles-and-their-abel-jacobi-images",
+   "parentStageId": "GeneralizedHeegnerCycles:GH.1",
+   "title": "The cycles Delta_phi, their homological triviality, and the p-adic Abel-Jacobi formula",
+   "kind": "theorem",
+   "statement": "The generalized Heegner cycles are indexed by isogenies phi : A -> A'. The cycle Delta_phi attached to phi is supported on the fibre (A')^r x A^r above the point of C attached to A', and is essentially the r-fold self-product of the GRAPH of phi. Section 2.3 of Bertolini-Darmon-Prasanna establishes that the Delta_phi are HOMOLOGICALLY TRIVIAL. When r = 0 the cycle is a CM point on the modular curve C and one REPLACES Delta_phi by Delta_phi - infinity_1, where infinity_1 is any cusp; for r >= 1 no such correction is needed, because Prop. 2.4 (a computation of the projector epsilon_X on the de Rham cohomology of X_r) implies epsilon_X H^{2r+2}(X,Q) = 0. The homological-triviality statement itself is Prop. 2.7, not Prop. 2.4. The cycles are all defined over abelian extensions of K -- by Remark 2.6, over the compositum of the abelian extension over which the isomorphism class of (A,t_A) is defined with the ring class field H_c of conductor c -- so their images under the etale, p-adic and complex Abel-Jacobi maps are defined. Moreover Sec. 2.4 shows that the classical Heegner cycles on W_{2r} attached to K are the images of generalized Heegner cycles on X_{2r} under a suitable ALGEBRAIC CORRESPONDENCE, so the generalized cycles carry at least as much arithmetic information as the classical ones. The MAIN THEOREM (stated under three simplifying hypotheses, the general form being Thm. 5.13) reads: with Delta = Delta_1 the cycle attached to the identity isogeny, viewed in CH^{r+1}(X_r)_0(Q-bar_p)_Q, L_p(f, chi)/Omega_p^{2(r-2j)} = [(1 - chi-bar(p-bar) a_p + chi-bar(p-bar)^2 p^{k-1})/j!]^2 times AJ_{Q-bar_p}(Delta)(omega_f wedge omega_A^j eta_A^{r-j})^2; the analytic side is a SPECIAL VALUE of the p-adic L-series, not a derivative, and the algebraic side involves Abel-Jacobi IMAGES, not p-adic heights.",
+   "hypotheses": [
+    "the three simplifying assumptions of the displayed Main Theorem are: (1) K has class number 1 and odd discriminant d_K < -3, with epsilon_K the associated odd Dirichlet character; (2) f lies in S_k(Gamma_0(N), epsilon_K^k), and d_K must divide N when k is odd; (3) the grossencharacter chi lies in Sigma^{(1)}_cc(N) and has the explicit form chi(alpha) = epsilon_K^k(alpha) alpha^{k-1-j} alpha-bar^{1+j} for some 0 <= j <= r. The general statement is Thm. 5.13",
+    "the character chi lies OUTSIDE the range of classical interpolation defining the anticyclotomic p-adic L-function L_p(f,chi); the classical value L(f, chi^{-1}, 0) vanishes but L_p(f,chi) is not forced to vanish",
+    "the formula depends on the choice of the differential omega_A: replacing omega_A by lambda omega_A multiplies BOTH sides by lambda^{2(2j-r)}, so the identity is equivariant rather than absolute",
+    "the two sides are SQUARES; the analytic side carries the square of the Euler-type factor and the square of the Abel-Jacobi pairing, which is the source of the distinction between the BDP distribution and its square",
+    "the case r = 0 needs the EXPLICIT correction Delta_phi - infinity_1 (subtract an arbitrary cusp) to make the CM point homologically trivial; for r >= 1 the cycle is already homologically trivial. In both cases the statement is Prop. 2.7; Prop. 2.4 is the cohomological input, not the statement"
+   ],
+   "proofSteps": [
+    "Define Delta_phi as (essentially) the r-fold self-product of the graph of phi inside the fibre (A')^r x A^r.",
+    "Prove homological triviality (Prop. 2.4 for r >= 1; a correction for r = 0), so that the Abel-Jacobi maps apply.",
+    "Compare with the classical Heegner cycles on W_{2r} via an algebraic correspondence (Sec. 2.4).",
+    "Compute AJ_{Q-bar_p}(Delta) by the Serre-Tate/rigid-analytic method of Sec. 3 and match it with the p-adic L-value; the proof occupies Secs. 3-5 and was NOT read here."
+   ],
+   "acceptance": [
+    "Check that the cycle is the self-product of the GRAPH of phi and not of its image, and that the r = 0 correction is applied in its explicit form Delta_phi - infinity_1.",
+    "Check the scaling behaviour under omega_A -> lambda omega_A, which fixes the normalisation of the period Omega_p.",
+    "Check that the analytic side is a special value OUTSIDE the interpolation range, not a derivative; conflating it with a p-adic height derivative formula would be an error.",
+    "Check the simplest case r = j = 0, where the formula relates formal-group logarithms of Heegner divisors to values of L_p(f,chi) at finite-order characters shifted by the norm."
+   ],
+   "sources": [
+    {
+     "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
+     "locator": "Sec. 0, printed pp. 1034-1035",
+     "excerpt": "These generalized Heegner cycles are naturally indexed by isogenies phi : A -> A'. The cycle attached to phi, denoted Delta_phi, is supported on the fiber (A')^r x A^r above a point of C attached to A', and is essentially equal to the r-fold self-product of the graph of phi. Section 2.3 defines the cycles Delta_phi precisely and establishes some of their basic properties. In particular, it shows that generalized Heegner cycles are homologically trivial.",
+     "match": "Gives the indexing, the support, the graph description and the homological triviality."
+    },
+    {
+     "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
+     "locator": "Sec. 2.3, Remark 2.6 and Prop. 2.7, printed p. 1063",
+     "excerpt": "The generalized Heegner cycles Delta_phi are all defined over abelian extensions of K. More precisely, if (phi, A') belongs to Isog_c(A), then the associated cycles can be defined over the compositum of the abelian extension H-tilde/K over which the isomorphism class of (A, t_A) is defined with the ring class field H_c of conductor c. When r = 0, the generalized Heegner cycle Delta_phi is a CM point on the modular curve C. In this case, we replace Delta_phi by Delta_phi - infinity_1, where infinity_1 is any cusp, in order to make Delta_phi homologically trivial. The same is true when r >= 1 by Proposition 2.4, which implies that epsilon_X H^{2r+2}(X,Q) = 0. Thus we record the following. PROPOSITION 2.7. The cycle Delta_phi is homologically trivial on X_r.",
+     "match": "Gives the r = 0 correction explicitly, the precise field of definition, and the fact that homological triviality is the content of Prop. 2.7 with Prop. 2.4 as its cohomological input. Transcribed in review, replacing an excerpt that had paraphrased the correction inside brackets and attributed the statement to Prop. 2.4."
+    },
+    {
+     "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
+     "locator": "Sec. 0, MAIN THEOREM, printed p. 1038",
+     "excerpt": "Let Delta = Delta_1 be the generalized Heegner cycle attached to 1 : A -> A, viewed as an element of CH^{r+1}(X_r)_0(Q-bar_p)_Q via iota. Then L_p(f, chi)/Omega_p^{2(r-2j)} = [(1 - chi-bar(p-bar) a_p + chi-bar(p-bar)^2 p^{k-1}) (1/j!)]^2 AJ_{Q-bar_p}(Delta)(omega_f wedge omega_A^j eta_A^{r-j})^2, where AJ_{Q-bar_p} is the p-adic Abel-Jacobi map of (0.0.2), omega_f is the class in Omega^{r+1}(W_r) attached to f in Corollary 2.3 of Section 2.1, and omega_A^j eta_A^{r-j} is the class in H^r(A^r) defined in (1.4.6) of Section 1.4.",
+     "match": "Gives the displayed Main Theorem with its Euler-type factor, the factorial 1/j!, and the squares on both sides."
+    },
+    {
+     "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
+     "locator": "Sec. 0, after the MAIN THEOREM, printed p. 1038",
+     "excerpt": "Note that it is a special value and not a derivative of the p-adic L-series that occurs on the analytic side of this formula, while the algebraic side involves the Abel-Jacobi images of generalized Heegner cycles rather than their (p-adic) heights. Note also that if omega_A is replaced by a nonzero multiple lambda omega_A, then both sides of the equation above are multiplied by lambda^{2(2j-r)}.",
+     "match": "Records both the special-value-versus-derivative distinction and the scaling law, as in the hypotheses and acceptance."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeneralizedHeegnerCycles:GH.2/local-condition-at-p-and-the-castella-hsieh-corrections",
+   "parentStageId": "GeneralizedHeegnerCycles:GH.2",
+   "title": "The local condition at p for the derived classes, and the published corrections to its proof",
+   "kind": "lemma",
+   "statement": "Castella-Hsieh's Prop. 7.8 asserts that the collection c^{heeg,dagger} of SPECIALISED generalized-Heegner classes -- the specialisations at chi^{-1} of the classes z_{f,c_n} -- is an Euler system for the local condition L^*, with c^{heeg,dagger}_K = z_f^{chi^{-1}}. Verifying the Euler-system axiom (E5) is what requires Kolyvagin's DERIVATIVE classes to satisfy the FINITE (Bloch-Kato) local condition at p. In the original paper this was deduced from Lemma 7.5 (stated for p > 2r - 1 and p not dividing c, for a place w of K_c above p). THE PUBLISHED ERRATUM RECORDS THREE CORRECTIONS. (i) Lemma 7.5 requires the further assumption that L/Q_p be UNRAMIFIED, in order to use Fontaine-Laffaille theory; the authors state that they do not know whether Lemma 7.5 holds when L/Q_p is ramified. (ii) Since Lemma 7.5 was crucially used in Prop. 7.8, the proof of Prop. 7.8 must instead go through Perrin-Riou's theory; the correct proof has been given by Kobayashi and Ota, Lemma 4.10 of 'Anticyclotomic main conjecture for modular forms and integral Perrin-Riou twists'. (iii) In Lemma 7.10, 'a p-ramified extension' should read 'a p-ramified ABELIAN extension'. The revised version of the paper carries a footnote to the same effect: the argument given there 'is false since Lemma 7.5 only applies to absolute unramified extensions'.",
+   "hypotheses": [
+    "Lemma 7.5 as PRINTED assumes p > 2r - 1, p not dividing c, and that L'/L/K_{c,w} are finite unramified extensions -- unramifiedness RELATIVE to K_{c,w}. The erratum adds the stronger ABSOLUTE requirement that L/Q_p be unramified, which is what makes the Fontaine-Laffaille description of H^1_f (via [BK90, Lem. 4.5(c)]) applicable; the distinction between relative and absolute unramifiedness is exactly where the original argument fails",
+    "the authors explicitly do NOT know whether Lemma 7.5 holds for ramified L/Q_p, so the original argument must not be silently extended to ramified coefficients",
+    "Prop. 7.8's conclusion survives, but only via the Kobayashi-Ota Perrin-Riou argument; a decomposition that cites Castella-Hsieh Lemma 7.5 for ramified coefficients is citing a statement the authors withdraw",
+    "Lemma 7.10 concerns p-ramified ABELIAN extensions only"
+   ],
+   "proofSteps": [
+    "The erratum itself gives the corrections; no new proof is supplied there.",
+    "The replacement proof of Prop. 7.8 is Kobayashi-Ota Lemma 4.10 (the revised Castella-Hsieh footnote cites [KO18, Lemma 5.7] for the correct argument, while the erratum cites [KO20, Lemma 4.10]; the two numberings refer to different versions of the same Kobayashi-Ota paper).",
+    "Remark 4.8 of Castella-Hsieh records, independently of Sec. 7, that the classes z_{f,chi,c} lie in the Bloch-Kato Selmer group by Nekovar Thm. 3.3.1, so the BOTTOM class's local condition does not depend on Lemma 7.5; it is the DERIVED classes whose local condition at p needed the corrected argument."
+   ],
+   "acceptance": [
+    "Check every use of Castella-Hsieh Lemma 7.5 for the unramifiedness hypothesis; the stage text is explicit that the original proof must not be extended to ramified coefficients.",
+    "Check that Prop. 7.8 is cited together with the Kobayashi-Ota replacement, or else that the statement is restricted to the unramified range.",
+    "Check the two different Kobayashi-Ota lemma numbers (4.10 in the erratum, 5.7 in the paper's footnote) and confirm which version is being used.",
+    "Check that Remark 4.8's Nekovar-based statement about the bottom class is logically independent of Lemma 7.5."
+   ],
+   "sources": [
+    {
+     "sourceId": "castella-hsieh-erratum",
+     "locator": "Erratum, the Lemma 7.5 item",
+     "excerpt": "Lemma 7.5: We have to assume further L/Q_p to be unramified in the proof in order to use Fontaine-Laffaille theory, and we do not know if Lemma 7.5 holds when L/Q_p is ramified. This lemma was crucially used in Prop. 7.8 to conclude the Kolyvagin's derivative classes satisfy the local condition at p, which one can instead use Perrin-Riou's theory to verify. The correct proof of Prop. 7.8 has been given in a work of Kobayashi and Ota [KO20, Lemma 4.10].",
+     "match": "Gives corrections (i) and (ii) verbatim, including the authors' statement that they do not know whether Lemma 7.5 holds in the ramified case."
+    },
+    {
+     "sourceId": "castella-hsieh-erratum",
+     "locator": "Erratum, the Lemma 7.10 item",
+     "excerpt": "Lemma 7.10: '...be a p-ramified extension..' should read 'be a p-ramified abelian extension...'. The explanation after Lemma 7.10 is revised in the latest version of this paper.",
+     "match": "Gives correction (iii)."
+    },
+    {
+     "sourceId": "castella-hsieh-heegner-cycles-padic-L",
+     "locator": "Sec. 7, footnote to the proof of Prop. 7.8",
+     "excerpt": "[the argument] given here is false since Lemma 7.5 only applies to absolute unramified extensions. One may use instead Perrin-Riou's theory to show Proposition 7.8. See [KO18, Lemma 5.7] for the correct [proof].",
+     "match": "Confirms that the copy read is the revised version and that it carries the same correction with a different Kobayashi-Ota lemma number."
+    },
+    {
+     "sourceId": "castella-hsieh-heegner-cycles-padic-L",
+     "locator": "Remark 4.8",
+     "excerpt": "By [Nek00, Thm. 3.3.1], the classes z_{f,chi,c} from Sec. 4.4 lie in the Bloch-Kato Selmer group Sel(K_c, T tensor chi) contained in H^1(K_c, T tensor chi); in particular, loc_p(z_{f,a}) in H^1_f(K_{c,p}, T tensor S^{r-1}(A)) and loc_p(z_{f,chi}) in H^1_f(K_p, T tensor chi).",
+     "match": "Records the independent statement for the bottom classes, which is what the third proofStep relies on."
+    },
+    {
+     "sourceId": "castella-hsieh-heegner-cycles-padic-L",
+     "locator": "Lemma 7.5 and Prop. 7.8 (statements), Sec. 7",
+     "excerpt": "Lemma 7.5. Suppose p > 2r - 1 and p not dividing c. Let w be a place of K_c above p, and let K_{c,w} be the completion of K_c at w. If L'/L/K_{c,w} are finite unramified extensions, then the corestriction map cor_{L'/L} : H^1_f(L', T_M tensor chi) -> H^1_f(L, T_M tensor chi) is surjective, and the restriction map res_{L,L'} : H^1(L, T_M tensor chi^{-1})/H^1_f(L, T_M tensor chi^{-1}) -> H^1(L', T_M tensor chi^{-1})/H^1_f(L', T_M tensor chi^{-1}) is injective. ... Proposition 7.8. The collection c^{heeg,dagger} in ES(T, chi, L^*) is an Euler system for the local condition L^* with c^{heeg,dagger}_K = z_f^{chi^{-1}}.",
+     "match": "Gives both statements as printed, showing that Lemma 7.5's unramifiedness is relative to K_{c,w} (the erratum's extra hypothesis is absolute) and that the Euler system of Prop. 7.8 is the collection of specialised, not derived, classes; added in review."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeneralizedHeegnerCycles:GH.4/castella-hsieh-abel-jacobi-formula-and-big-logarithm-reciprocity",
+   "parentStageId": "GeneralizedHeegnerCycles:GH.4",
+   "title": "Castella-Hsieh's p-adic Abel-Jacobi formula (Thm. 4.9) and its Lambda-adic reciprocity (Thm. 5.7)",
+   "kind": "theorem",
+   "statement": "THEOREM 4.9: suppose p = p p-bar splits in K; let psi be an anticyclotomic Hecke character of infinity type (r,-r) and conductor c_o O_K with (c_o, Np) = 1. If phi-hat in X_{p^infinity} is the p-adic avatar of an anticyclotomic Hecke character of infinity type (r+j, -j-r) with -r < j < r and conductor p^n O_K with n >= 1, then L_{p,psi}(f)(phi-hat^{-1}) / Omega_p^{-2j} = [g(phi_p^{-1}) phi_p(p^n) c_o^{1-r} psi-hat_p^{-1}(p^n) / (r-1+j)!] times the pairing < log_p(z_{f,chi}), omega_f tensor omega_A^{r-1+j} eta_A^{r-1-j} t^{1-2r} >, where chi = psi-hat^{-1} phi-hat and log_p = log composed with loc_p. THEOREM 5.7: suppose p = p p-bar splits in K, let f in S^{new}_{2r}(Gamma_0(N)) with p not dividing N be a p-ORDINARY newform, and let psi be an anticyclotomic Hecke character of infinity type (r,-r) and conductor c_o O_K with p not dividing c_o. Then < L_{p,psi}(z_f), omega_f tensor t^{-2r} > = (-c_o^{r-1}) . L_{p,psi}(f) . sigma_{-1,p} in Lambda-hat^{ur}_F(Gamma-tilde), where sigma_{-1,p} = rec_p(-1) restricted to K_{p^infinity} is an element of ORDER TWO of Gamma-tilde.",
+   "hypotheses": [
+    "p SPLITS in K as p p-bar; both theorems assume this",
+    "in Thm. 4.9 the interpolation range is -r < j < r; this is exactly the range in which epsilon(V_{f,chi}) = -1 (see (6.1)), i.e. the sign is -1 and the classical central value vanishes",
+    "Thm. 4.9 requires the conductor conditions (c_o, Np) = 1 and n >= 1; Thm. 5.7 requires p not dividing c_o and p not dividing N",
+    "Thm. 5.7 additionally requires f to be p-ORDINARY and of weight 2r (i.e. f in S^{new}_{2r}(Gamma_0(N)))",
+    "the right-hand side of Thm. 5.7 carries BOTH the explicit factor (-c_o^{r-1}) AND the group-like element sigma_{-1,p} of order two; an identity stated without sigma_{-1,p} is not this theorem",
+    "the t-power convention is fixed by the pairings < ., omega_f tensor t^{-2r} > and < ., omega_f tensor omega_A^{r-1+j} eta_A^{r-1-j} t^{1-2r} >; the exponents of t differ between the two theorems and must be tracked",
+    "the coefficient ring on the right of Thm. 5.7 is Lambda-hat^{ur}_F(Gamma-tilde), the UNRAMIFIED completion; the identity is asserted there, not up to an unspecified unit",
+    "the sign epsilon(V_{f,chi}) is computed as a product of local root numbers epsilon(1/2, pi_{K_v} tensor chi_v): under the Heegner hypothesis every finite place contributes 1, and the archimedean place contributes (sqrt(-1))^{|2r-1+2j|+|1-2r+2j|}. The base of that power is sqrt(-1), not -1"
+   ],
+   "proofSteps": [
+    "Thm. 4.9 is proved by a Serre-Tate coordinate computation: since the Fourier coefficients a_n(f-flat) vanish for p | n, the operator U_p annihilates f-hat-flat, so the associated measure is supported on Z_p^x; Lemma 3.1 then converts the twisted evaluation into a theta-operator expression, and Prop. 3.3 assembles the sum over Pic(O_{c_o}).",
+    "Thm. 5.7 is deduced from Thm. 4.9 with j = 0 together with Lemma 5.4 (which gives z^chi_f = alpha^{-n} z_{f,chi} for the chi-specialisation) and Thm. 5.1 (the interpolation property of the Lambda-adic logarithm), after checking that the epsilon-factor of the p-adic Galois character phi-hat_p in the sense of Loeffler-Zerbes Sec. 2.8 agrees with Tate's epsilon-factor: epsilon(phi-hat_p) = epsilon(0, phi_p) = g(phi_p^{-1}) phi_p(-p^n).",
+    "The identity of measures follows because the two sides agree at the p-adic avatars phi-hat^{-1} of a Zariski-dense set of Hecke characters of conductor p^n, n > 1."
+   ],
+   "acceptance": [
+    "Check the interpolation range -r < j < r and its equivalence with epsilon(V_{f,chi}) = -1 in (6.1); outside that range the relevant sign is +1 and the statement to prove is a vanishing, not a formula.",
+    "Check both the factor (-c_o^{r-1}) and the order-two element sigma_{-1,p} in Thm. 5.7; the stage text specifically warns that the revised version includes that group-like factor and fixes the t-power convention.",
+    "Check the two t-exponents (1-2r in Thm. 4.9 and -2r in Thm. 5.7) and the self-dual twist relating them.",
+    "Check the epsilon-factor comparison epsilon(phi-hat_p) = g(phi_p^{-1}) phi_p(-p^n), which is where the Gauss sum enters.",
+    "Check that L_{p,psi}(f) is the SQUARE-ROOT BDP distribution, not the square interpolating complex central L-values."
+   ],
+   "sources": [
+    {
+     "sourceId": "castella-hsieh-heegner-cycles-padic-L",
+     "locator": "Thm. 4.9",
+     "excerpt": "Theorem 4.9. Suppose p = p p-bar splits in K. Let psi be an anticyclotomic Hecke character of infinity type (r, -r) and conductor c_o O_K with (c_o, N p) = 1. If phi-hat in X_{p^infinity} is the p-adic avatar of an anticyclotomic Hecke character of infinity type (r + j, -j - r) with -r < j < r and conductor p^n O_K with n >= 1, then L_{p,psi}(f)(phi-hat^{-1})/Omega_p^{-2j} = [g(phi_p^{-1}) phi_p(p^n) c_o^{1-r} psi-hat_p^{-1}(p^n) / (r - 1 + j)!] . < log_p(z_{f,chi}), omega_f tensor omega_A^{r-1+j} eta_A^{r-1-j} t^{1-2r} >, where chi := psi-hat^{-1} phi-hat and log_p := log o loc_p.",
+     "match": "Gives the formula with its full hypothesis list, the factorial, the Gauss sum and the t-power convention."
+    },
+    {
+     "sourceId": "castella-hsieh-heegner-cycles-padic-L",
+     "locator": "Thm. 5.7",
+     "excerpt": "Theorem 5.7. Suppose p = p p-bar splits in K. Let f in S^{new}_{2r}(Gamma_0(N)) with p not dividing N be a p-ordinary newform, and let psi be an anticyclotomic Hecke character of infinity type (r, -r) and conductor c_o O_K with p not dividing c_o. Then < L_{p,psi}(z_f), omega_f tensor t^{-2r} > = (-c_o^{r-1}) . L_{p,psi}(f) . sigma_{-1,p} in Lambda-hat^{ur}_F(Gamma-tilde), where sigma_{-1,p} := rec_p(-1)|_{K_{p^infinity}} in Gamma-tilde is an element of order two.",
+     "match": "Gives the Lambda-adic reciprocity with the explicit constant, the order-two element and the coefficient ring."
+    },
+    {
+     "sourceId": "castella-hsieh-heegner-cycles-padic-L",
+     "locator": "proof of Thm. 5.7",
+     "excerpt": "Applying Lemma 5.4, we find that z^chi_f = alpha^{-n} z_{f,chi}, where z^chi_f denotes the chi-specialization of z_f. By Theorem 4.9 (with j = 0), we thus obtain ... On the other hand, a straightforward calculation reveals that the epsilon-factor for the p-adic Galois character phi-hat_p defined in [LZ14, Sec. 2.8] agrees with Tate's epsilon-factor for phi_p, i.e. epsilon(phi-hat_p) = epsilon(0, phi_p) = g(phi_p^{-1}) phi_p(-p^n).",
+     "match": "Gives the deduction of Thm. 5.7 from Thm. 4.9 and the epsilon-factor comparison."
+    },
+    {
+     "sourceId": "castella-hsieh-heegner-cycles-padic-L",
+     "locator": "Sec. 6.1, (6.1)",
+     "excerpt": "epsilon(V_{f,chi}) = (sqrt(-1))^{|2r-1+2j|+|1-2r+2j|} = -1 <=> -r < j < r.",
+     "match": "Confirms that the interpolation range of Thm. 4.9 is exactly the sign -1 range. Corrected in review: the base of the power is sqrt(-1), not -1 as the packet had transcribed."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeneralizedHeegnerCycles:GH.5/longo-vigni-admissibility-and-the-lambda-adic-bound",
+   "parentStageId": "GeneralizedHeegnerCycles:GH.5",
+   "title": "Longo-Vigni's admissibility hypotheses and the Lambda-adic Kolyvagin-system theorem",
+   "kind": "theorem",
+   "statement": "Let Xi be the set of primes p such that p divides 6 N (k-2)! phi(N) c_f, OR such that the image of the p-adic representation rho_{f,p} : G_Q -> GL_2(O_F tensor Z_p) attached to f by Deligne does not contain the set {g in GL_2(O_F tensor Z_p) : det(g) in (Z_p^x)^{k-1}}; Xi is finite. DEFINITION 2.1: the triple (f,K,p) is ADMISSIBLE if (1) p is not in Xi and p does not divide h_K, (2) p does not ramify in F, (3) p SPLITS in K, and (4) a_p is a unit of O_p. Longo-Vigni assume throughout that (f,K,p) is admissible AND, 'for simplicity', that O_K^x = {+-1}, i.e. that K is neither Q(sqrt(-1)) nor Q(sqrt(-3)). THEOREM 3.5: let (T, F_Lambda, L) be a Selmer triple satisfying (H.1)-(H.5) and Assumption 3.2, and set X := H^1_{F_Lambda}(K,A)^dual. If for some s >= 1 the Selmer triple (T, F_Lambda, L_s) admits a Kolyvagin system kappa with kappa_1 nonzero, then (1) H^1_{F_Lambda}(K,T) is a torsion-free Lambda-module of RANK 1; (2) there is a torsion Lambda-module M with char(M) = char(M)^iota and a pseudo-isomorphism X ~ Lambda + M + M; (3) char(M) divides char(H^1_{F_Lambda}(K,T)/Lambda kappa_1). THEOREM 4.12 states that the Lambda-module H_infinity is free of rank 1, generated by kappa-tilde_1. ASSUMPTION 3.2, read in full during the independent review, is imposed IN ADDITION to (H.0)-(H.4) with R = O (where (H.0) is that T is free of rank two over R) and has three clauses: (1) V is crystalline and, for every prime v of K above p, its restriction to G_{Q_p} carries a filtration 0 -> Fil^+_v(T) -> T -> Fil^-_v(T) -> 0 with both Fil^{pm}_v(T) free of rank one over O and inertia acting trivially on Fil^-_v(T); (2) the pairing of (H.4) induces ( , ) : T x A -> (F/O)(1) under which Fil^+_v(T) and Fil^+_v(A) are exact annihilators of each other; (3) the groups H^0(K_{infinity,v}, Fil^-_v(A)) and H^0(K_v, Fil^-_v(A)) are finite for all v dividing p.",
+   "hypotheses": [
+    "all four conditions of Def. 2.1 are needed, and they are NOT interchangeable: (1) excludes the finite bad set Xi and the primes dividing h_K, (2) is unramifiedness in the coefficient field F, (3) is splitting in K, (4) is ordinariness at p",
+    "the exceptional set Xi contains p dividing 6 N (k-2)! phi(N) c_f -- so p = 2, 3, the primes dividing the level, the primes dividing (k-2)! and the primes dividing the congruence number c_f are all excluded -- AND the big-image condition on rho_{f,p}",
+    "the additional simplifying assumption O_K^x = {+-1} EXCLUDES K = Q(i) and K = Q(sqrt(-3)) in this presentation",
+    "the hypotheses (H.1)-(H.5) are Howard's, adapted: (H.1) T-bar absolutely irreducible over R/m as a G_K-representation, ... (H.5)(a) the G_K-action on T-bar extends to G_Q with tau splitting it. Assumption 3.2 additionally requires V crystalline at every v above p, together with the ordinary filtration, the annihilator pairing and the finiteness conditions recorded there",
+    "conclusion (3) is a DIVISIBILITY, oriented as char(M) divides char(H^1/Lambda kappa_1); the reverse divisibility is not asserted",
+    "Remark 2.2 records that conditions (1) and (2) exclude only finitely many primes, that condition (3) holds for a set of density 1/2, and that condition (4) -- ordinariness at p -- is only EXPECTED to hold for infinitely many p, and then with the proviso 'at least if F is not Q'; Longo-Vigni relate the question to the Lang-Trotter conjectures",
+    "a source-internal numbering slip to be aware of: in the proof of Cor. 4.3 and again in Sec. 5.1 Longo-Vigni invoke 'condition (5) in Assumption 2.3', but Assumption 2.3 is the admissibility of (f,K,p) and Def. 2.1 lists FOUR conditions; the intended reference is condition (4), a_p in O_p^x. This is the source's slip, not the packet's"
+   ],
+   "proofSteps": [
+    "Longo-Vigni prove Thm. 3.5 by replacing Howard's Props. 2.1.3 and 2.2.8 with their Props. 3.3 and 3.4, using the vanishing A_p(K_infinity) = 0 of Lemma 2.4(3) to prove torsion-freeness as in Howard's Lemma 2.2.9, and then following Howard's Thm. 2.2.10.",
+    "The Lambda-adic Kolyvagin system is built in Sec. 4 from the generalized Heegner cycles of Bertolini-Darmon-Prasanna in the variant introduced by Castella-Hsieh, using a universal-norm relation (Lemma 4.2, in the spirit of Perrin-Riou's relations) which the authors state is proved there for the first time, and a compatible family (Prop. 4.5).",
+    "Theorem 4.12 identifies the resulting Lambda-module H_infinity as free of rank one on kappa-tilde_1."
+   ],
+   "acceptance": [
+    "Check every clause of Def. 2.1 and the additional O_K^x = {+-1} assumption when instantiating; the stage text is explicit that all of them must be preserved.",
+    "Check that (H.1)-(H.5) and Assumption 3.2 are VERIFIED for the generalized-Heegner representation and are not inherited from the elliptic-curve case: Assumption 3.2's crystallinity and ordinary filtration are extra.",
+    "Check the orientation of the divisibility in (3) and that it is not upgraded to equality.",
+    "Check Lemma 4.2 and Prop. 4.5 as genuine existence statements; the stage text warns that formal inverse limits without existence or integral compatibility do not discharge them."
+   ],
+   "sources": [
+    {
+     "sourceId": "longo-vigni-kolyvagin-generalized-heegner",
+     "locator": "Sec. 2.2, the definition of Xi, printed p. 3",
+     "excerpt": "p | 6N(k - 2)! phi(N) c_f; the image of the p-adic representation rho_{f,p} : G_Q -> GL_2(O_F tensor Z_p) attached to f by Deligne does not contain the set {g in GL_2(O_F tensor Z_p) | det(g) in (Z_p^x)^{k-1}}. By [18, Lemma 3.8], the set Xi is finite.",
+     "match": "Gives the exceptional set verbatim, including the explicit factor 6N(k-2)!phi(N)c_f and the big-image condition."
+    },
+    {
+     "sourceId": "longo-vigni-kolyvagin-generalized-heegner",
+     "locator": "Sec. 2.2, Def. 2.1 and Remark 2.2, printed p. 4",
+     "excerpt": "Definition 2.1. The triple (f, K, p) is admissible if (1) p is not in Xi union {ell prime : ell | h_K}; (2) p does not ramify in F; (3) p splits in K; (4) a_p in O_p^x. Remark 2.2. Since Xi is finite, conditions (1) and (2) in Definition 2.1 exclude only finitely many primes. On the other hand, the set of primes satisfying condition (3) has density 1/2.",
+     "match": "Gives the four admissibility conditions and the density remarks."
+    },
+    {
+     "sourceId": "longo-vigni-kolyvagin-generalized-heegner",
+     "locator": "Sec. 2.2, after Assumption 2.3, printed p. 4",
+     "excerpt": "Finally, we also assume, for simplicity, that O_K^x = {+-1}, i.e., that K not= Q(sqrt(-1)) and K not= Q(sqrt(-3)).",
+     "match": "Gives the additional field exclusion recorded in the hypotheses."
+    },
+    {
+     "sourceId": "longo-vigni-kolyvagin-generalized-heegner",
+     "locator": "Sec. 3, Thm. 3.5 with its proof",
+     "excerpt": "Theorem 3.5. Let (T, F_Lambda, L) be a Selmer triple satisfying (H.1)-(H.5) and Assumption 3.2. Set X := H^1_{F_Lambda}(K, A)^dual. Suppose that for some s >= 1 the Selmer triple (T, F_Lambda, L_s) admits a Kolyvagin system kappa with kappa_1 not= 0. Then (1) H^1_{F_Lambda}(K, T) is a torsion-free Lambda-module of rank 1; (2) there exist a torsion Lambda-module M such that char(M) = char(M)^iota and a pseudo-isomorphism X ~ Lambda + M + M; (3) char(M) divides char(H^1_{F_Lambda}(K, T)/Lambda kappa_1).",
+     "match": "Gives the theorem with its three conclusions and its two hypothesis packages."
+    },
+    {
+     "sourceId": "longo-vigni-kolyvagin-generalized-heegner",
+     "locator": "Sec. 4 introduction and Thm. 4.12",
+     "excerpt": "Along the way we prove a technical result on universal norms (Lemma 4.2), much in the spirit of Perrin-Riou's relations in [26, Sec. 3.3]. To the best of our knowledge, these formulas are considered here for the first time. ... Theorem 4.12. The Lambda-module H_infinity is free of rank 1, generated by kappa-tilde_1.",
+     "match": "Records that the universal-norm relations are new here and gives the freeness statement."
+    },
+    {
+     "sourceId": "longo-vigni-kolyvagin-generalized-heegner",
+     "locator": "Sec. 3, Assumption 3.2, printed pp. 8-9",
+     "excerpt": "In addition to conditions (H.0)-(H.4) with R = O, we impose on T the following set of assumptions, which are all verified when T, as in the case that concerns us, arises from a modular form. Assumption 3.2. (1) The p-adic representation V is crystalline and for every prime v of K above p its restriction to G_{Q_p} is equipped with a filtration of G_{Q_p}-modules 0 -> Fil^+_v(T) -> T -> Fil^-_v(T) -> 0 where Fil^{pm}_v(T) are both free of rank 1 over O and inertia acts trivially on Fil^-_v(T). (2) The pairing in (H.4) gives rise to a pairing ( , ) : T x A -> (F/O)(1) still denoted by the same symbol, and we require that Fil^+_v(T) and Fil^+_v(A) be exact annihilators of each other under ( , ). (3) The groups H^0(K_{infinity,v}, Fil^-_v(A)) and H^0(K_v, Fil^-_v(A)) are finite for all primes v | p.",
+     "match": "Gives Assumption 3.2 in full, which the packet had recorded as read only in its first clause; added in review."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeneralizedHeegnerCycles:GH.6/selmer-consequences-with-the-corrected-dimension-formula",
+   "parentStageId": "GeneralizedHeegnerCycles:GH.6",
+   "title": "Castella-Hsieh's Selmer consequences, including the CORRECTED growth formula",
+   "kind": "application",
+   "statement": "THEOREM 6.1: suppose epsilon(V_{f,chi}) = -1. Then (1) if z_{f,chi} is nonzero, Sel(K, V_{f,chi}) = F . z_{f,chi} -- i.e. the Selmer group is one-dimensional, spanned by the generalized Heegner class; and (2) the classes z_{f,chi phi} are nonzero in H^1(K, V_{f,chi phi}) for ALL BUT FINITELY MANY finite-order characters phi : Gal(K_{p^infinity}/K) -> mu_{p^infinity}. Part (1) restates Thm. 7.7, which in fact gives Sel(K, V tensor chi) = Sel_{F_BK}(K, V tensor chi) = F . z_{f,chi}, i.e. the Selmer group coincides with the Bloch-Kato one. Part (2) follows from Thm. 4.9 together with the nonvanishing of the p-adic L-function: THEOREM 3.9 reads 'suppose (N_f, D_K) = 1; then for all but finitely many phi in X_{p^infinity} we have L_{p,psi}(f)(phi) nonzero', and its proof selects an auxiliary prime ell prime to p N D_K prod_{q | c^-}(1+q) with rho-bar_{f,ell} restricted to G_K absolutely irreducible, and then invokes [Hsi14, Theorem C]. THEOREM 6.2 (f ordinary at p): if L(f,chi,r) is nonzero then Sel(K, V_{f,chi}) = {0}. Its proof uses that nonvanishing forces epsilon(V_{f,chi}) = +1, hence chi of infinity type (j,-j) with |j| >= r; after replacing chi by chi^tau one may assume j >= r, and then V_{f,chi}|_{G_{K_p}} has positive Hodge-Tate weights while those of V_{f,chi}|_{G_{K_p-bar}} are all <= 0, so by Bloch-Kato Thm. 4.1(ii) H^1_f(K_v, V_{f,chi}) = H^1(K_v, V_{f,chi}) for v = p-bar and {0} for v = p; Cor. 5.8 then gives loc_{p-bar}(z^chi_f) nonzero (the factor e^0_p(f,chi) never vanishes) and Thm. 7.9 -- 'if loc_p(z^chi_f) is nonzero then Sel(K, V tensor chi) = {0}' -- concludes. THEOREM 6.3 (CORRECTED FORM): there is a non-negative integer e such that dim_F Sel(K_{p^n}, V_{f,chi}) = [(1 - epsilon(V_{f,chi}))/2] . [K_{p^n} : K] + e for all sufficiently large n. THEOREM 6.4 (f ordinary at p): ord_{s=r} L(f,chi,s) is congruent to dim_F Sel(K, V_{f,chi}) modulo 2.",
+   "hypotheses": [
+    "Thm. 6.1(1) is conditional on z_{f,chi} being NONZERO; it does not prove nonvanishing",
+    "Thm. 6.1(2) gives nonvanishing for all but finitely many finite-order phi -- an almost-all statement, not a statement for every phi; it depends on Hsieh's nonvanishing theorem with its own local-root-number, conductor and residual hypotheses",
+    "Thms. 6.2 and 6.4 additionally assume f ORDINARY at p; Thm. 6.1 does not",
+    "the ORIGINAL printed form of Thm. 6.3 was corrected by the erratum to the displayed formula with the factor (1 - epsilon(V_{f,chi}))/2; the copy read already carries the corrected form",
+    "Thm. 6.2's proof uses Bloch-Kato Thm. 4.1(ii) and the asymmetry of Hodge-Tate weights at p versus p-bar, which requires p to SPLIT in K",
+    "the stage text warns that one must NOT infer nonzero higher cycles from a simple complex L-zero without an additional height/nondegeneracy theorem; nothing in Thms. 6.1-6.4 supplies that implication"
+   ],
+   "proofSteps": [
+    "Thm. 6.1(1) is a restatement of Thm. 7.7, which is the output of the Euler/Kolyvagin-system machinery of Sec. 7 (whose local condition at p is the corrected Prop. 7.8 of GH.2).",
+    "Thm. 6.1(2) combines the Abel-Jacobi formula of Thm. 4.9 with the nonvanishing of the p-adic L-function (Thm. 3.9), so a zero class would force a zero L-value at the corresponding character.",
+    "Thm. 6.2 runs the sign argument, the Hodge-Tate weight comparison and Bloch-Kato Thm. 4.1(ii) to kill the local condition at p, then uses Cor. 5.8 and Thm. 7.9.",
+    "Thm. 6.3 follows by combining Thms. 6.1 and 6.2 with the nonvanishing of the p-adic L-function.",
+    "Thm. 6.4 combines the above with Nekovar's parity results for p-adic families."
+   ],
+   "acceptance": [
+    "Check that Thm. 6.3 is quoted in the CORRECTED form with the factor (1 - epsilon(V_{f,chi}))/2; the uncorrected expression is withdrawn by the erratum.",
+    "Check that Thm. 6.1(2) is an almost-all statement and that the finitely many exceptions are not identified.",
+    "Check which results need f ordinary at p (6.2 and 6.4) and which do not (6.1).",
+    "Check that Hsieh's nonvanishing theorem is quoted with its own hypotheses. The packet did NOT read [Hsi14]; the review established only the interface, namely that Castella-Hsieh's Thm. 3.9 assumes (N_f, D_K) = 1 and invokes [Hsi14, Theorem C] through an auxiliary prime ell with absolutely irreducible residual restriction.",
+    "Check the splitting hypothesis p = p p-bar used in the Hodge-Tate weight argument of Thm. 6.2."
+   ],
+   "sources": [
+    {
+     "sourceId": "castella-hsieh-heegner-cycles-padic-L",
+     "locator": "Thm. 6.1 with its proof",
+     "excerpt": "Theorem 6.1. Suppose that epsilon(V_{f,chi}) = -1. The following two statements hold. (1) If z_{f,chi} not= 0, then Sel(K, V_{f,chi}) = F . z_{f,chi}. (2) The classes z_{f,chi phi} are nonzero in H^1(K, V_{f,chi phi}) for all but finitely many finite order characters phi : Gal(K_{p^infinity}/K) -> mu_{p^infinity}. Proof. The first part is a restatement of Theorem 7.7. The second part follows immediately from Theorem 4.9 and the nonvanishing of the p-adic L-function in Theorem 3.9.",
+     "match": "Gives both parts with their conditional and almost-all character, and their proof inputs."
+    },
+    {
+     "sourceId": "castella-hsieh-heegner-cycles-padic-L",
+     "locator": "Thm. 6.2 with its proof",
+     "excerpt": "Theorem 6.2. If L(f, chi, r) not= 0, then Sel(K, V_{f,chi}) = {0}. Proof. The nonvanishing of the central value L(f, chi, r) implies that epsilon(V_{f,chi}) = +1, and hence chi has infinity type (j, -j) with j >= r or j <= -r by (6.1). ... One then immediately checks that V_{f,chi}|_{G_{K_p}} has positive Hodge-Tate weights, while the Hodge-Tate weights of V_{f,chi}|_{G_{K_p-bar}} are all <= 0. By [BK90, Thm. 4.1(ii)] we thus have (6.2) H^1_f(K_v, V_{f,chi}) = H^1(K_v, V_{f,chi}) if v = p-bar, {0} if v = p.",
+     "match": "Gives the rank-zero statement and the Hodge-Tate/Bloch-Kato step of its proof."
+    },
+    {
+     "sourceId": "castella-hsieh-heegner-cycles-padic-L",
+     "locator": "Thm. 6.3",
+     "excerpt": "Theorem 6.3. There exists a non-negative integer e such that the formula dim_F Sel(K_{p^n}, V_{f,chi}) = [(1 - epsilon(V_{f,chi}))/2] . [K_{p^n} : K] + e holds for all sufficiently large n.",
+     "match": "Gives the growth formula in its corrected form, as it appears in the revised copy read."
+    },
+    {
+     "sourceId": "castella-hsieh-erratum",
+     "locator": "Erratum, the Thm. 6.3 item",
+     "excerpt": "Theorem 6.3: The statement should read dim_F Sel(K_{p^n}, V_{f,chi}) = [(1 - epsilon(V_{f,chi}))/2] . [K_{p^n} : K] + e.",
+     "match": "Gives the correction, confirming that the form recorded here is the corrected one."
+    },
+    {
+     "sourceId": "castella-hsieh-heegner-cycles-padic-L",
+     "locator": "Thm. 6.4",
+     "excerpt": "Theorem 6.4. Suppose that f is ordinary at p. Then we have ord_{s=r} L(f, chi, s) congruent to dim_F Sel(K, V_{f,chi}) (mod 2).",
+     "match": "Gives the parity statement with its ordinariness hypothesis."
+    },
+    {
+     "sourceId": "castella-hsieh-heegner-cycles-padic-L",
+     "locator": "Thm. 3.9 with its proof, and Thms. 7.7 and 7.9",
+     "excerpt": "Theorem 3.9. Suppose (N_f, D_K) = 1. For all but finitely many phi in X_{p^infinity}, we have L_{p,psi}(f)(phi) not= 0. Proof. Since f has conductor prime to D_K, f can not be a CM form arising from K ... there exist infinitely many primes ell such that ell is prime to pND_K prod_{q | c^-}(1+q) [and] the residual Galois representation rho-bar_{f,ell}|_{G_K} is absolutely irreducible. By [Hsi14, Theorem C], the central L-values L^alg(1/2, pi_K tensor psi phi) are non-zero modulo ell for all but finitely many finite order characters phi in X_{p^infinity}. ... Theorem 7.7. If z_{f,chi} not= 0 in H^1(K, V tensor chi), then Sel(K, V tensor chi) = Sel_{F_BK}(K, V tensor chi) = F . z_{f,chi}. ... Theorem 7.9. If loc_p(z^chi_f) not= 0, then Sel(K, V tensor chi) = {0}.",
+     "match": "Gives the three theorems that the Selmer consequences rest on, including Thm. 3.9's hypothesis (N_f,D_K) = 1 and its precise external input [Hsi14, Theorem C]; added in review, where these statements were read for the first time in this packet."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "GeneralizedHeegnerCycles:GH.0/the-variety-X-r-and-its-smooth-proper-model",
+   "target": "GeneralizedHeegnerCycles:GH.1/generalized-heegner-cycles-and-their-abel-jacobi-images",
+   "reason": "The cycles Delta_phi live on X_r and their Abel-Jacobi images are taken in the cohomology of X_r; the passage from the etale map (0.0.1) to the p-adic map (0.0.2) in which the Main Theorem is stated uses the smooth proper model over Z[1/N] and the p-adic comparison theorems, both of which belong to GH.0.",
+   "sources": [
+    {
+     "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
+     "locator": "Sec. 0, printed pp. 1034-1035 and the MAIN THEOREM, printed p. 1038"
+    }
+   ]
+  },
+  {
+   "source": "GeneralizedHeegnerCycles:GH.1/generalized-heegner-cycles-and-their-abel-jacobi-images",
+   "target": "GeneralizedHeegnerCycles:GH.4/castella-hsieh-abel-jacobi-formula-and-big-logarithm-reciprocity",
+   "reason": "Castella-Hsieh's Thm. 4.9 is the generalisation of the Bertolini-Darmon-Prasanna Main Theorem to arbitrary class number and to the full family of anticyclotomic characters, with log_p(z_{f,chi}) in place of AJ(Delta) and with the extra parameter j; Longo-Vigni record that Castella-Hsieh use 'a variant of these cycles'. The cycles and their Abel-Jacobi realisation are therefore the input.",
+   "sources": [
+    {
+     "sourceId": "longo-vigni-kolyvagin-generalized-heegner",
+     "locator": "Sec. 4 introduction ('the generalized Heegner cycles of Bertolini, Darmon and Prasanna can be used to define a Kolyvagin system ... Actually, we will use a variant of these cycles introduced by Castella and Hsieh')"
+    },
+    {
+     "sourceId": "castella-hsieh-heegner-cycles-padic-L",
+     "locator": "Thm. 4.9"
+    }
+   ]
+  },
+  {
+   "source": "GeneralizedHeegnerCycles:GH.2/local-condition-at-p-and-the-castella-hsieh-corrections",
+   "target": "GeneralizedHeegnerCycles:GH.6/selmer-consequences-with-the-corrected-dimension-formula",
+   "reason": "Theorem 6.1(1) is a restatement of Thm. 7.7, which is the conclusion of the Euler/Kolyvagin-system argument of Sec. 7; that argument requires Prop. 7.8, i.e. that the DERIVED classes satisfy the local condition at p. Since the original proof of Prop. 7.8 is withdrawn and replaced by the Kobayashi-Ota argument, every use of Thm. 6.1(1) inherits that corrected input.",
+   "sources": [
+    {
+     "sourceId": "castella-hsieh-erratum",
+     "locator": "the Lemma 7.5 item"
+    },
+    {
+     "sourceId": "castella-hsieh-heegner-cycles-padic-L",
+     "locator": "Prop. 7.8 and Thm. 6.1"
+    }
+   ]
+  },
+  {
+   "source": "GeneralizedHeegnerCycles:GH.4/castella-hsieh-abel-jacobi-formula-and-big-logarithm-reciprocity",
+   "target": "GeneralizedHeegnerCycles:GH.6/selmer-consequences-with-the-corrected-dimension-formula",
+   "reason": "Theorem 6.1(2) is deduced from Thm. 4.9 together with the nonvanishing of the p-adic L-function: the Abel-Jacobi formula converts nonvanishing of L_{p,psi}(f) at a character into nonvanishing of the corresponding class. Theorem 6.2 uses Cor. 5.8, which is the corollary of Thm. 5.7.",
+   "sources": [
+    {
+     "sourceId": "castella-hsieh-heegner-cycles-padic-L",
+     "locator": "proofs of Thms. 6.1 and 6.2"
+    }
+   ]
+  },
+  {
+   "source": "GeneralizedHeegnerCycles:GH.4/castella-hsieh-abel-jacobi-formula-and-big-logarithm-reciprocity",
+   "target": "GeneralizedHeegnerCycles:GH.5/longo-vigni-admissibility-and-the-lambda-adic-bound",
+   "reason": "Longo-Vigni build their Lambda-adic Kolyvagin system from the Castella-Hsieh variant of the generalized Heegner cycles, so the classes z_{f,chi} and their Lambda-adic interpolation (Thm. 5.7) are the raw material on which the universal-norm relations of Lemma 4.2 and the family of Prop. 4.5 are constructed.",
+   "sources": [
+    {
+     "sourceId": "longo-vigni-kolyvagin-generalized-heegner",
+     "locator": "Sec. 4 introduction"
+    }
+   ]
+  },
+  {
+   "source": "GeneralizedHeegnerCycles:GH.5/longo-vigni-admissibility-and-the-lambda-adic-bound",
+   "target": "GeneralizedHeegnerCycles:GH.6/selmer-consequences-with-the-corrected-dimension-formula",
+   "reason": "The atlas stage text asks that LV Thm. 4.12's rank-one universal-norm module be combined with the Castella-Hsieh consequences. Longo-Vigni's Thm. 3.5 supplies the Lambda-adic structure statement (rank-one torsion-free, paired pseudo-isomorphism, oriented divisibility) whose finite-level specialisations are the Selmer statements of Thms. 6.1-6.3. This edge records the direction of that combination; it is NOT claimed here that either statement is derived from the other in the sources read.",
+   "sources": [
+    {
+     "sourceId": "longo-vigni-kolyvagin-generalized-heegner",
+     "locator": "Thms. 3.5 and 4.12"
+    },
+    {
+     "sourceId": "castella-hsieh-heegner-cycles-padic-L",
+     "locator": "Thms. 6.1 and 6.3"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "GeneralizedHeegnerCycles:GH.0",
+   "status": "partial",
+   "remaining": [
+    "Bertolini-Darmon-Prasanna Sec. 1 ('Preliminaries', printed pp. 1041-1055) was not read: it contains the correspondences, the classes omega_A and eta_A (1.4.6), and the coefficient projectors.",
+    "Sec. 2.1 (Cor. 2.3, defining omega_f in Omega^{r+1}(W_r)) was not read.",
+    "The appendix on Kuga-Sato schemes (printed pp. 1139-1143) was not read; it is the source of the smooth proper model over Z[1/N] used in this packet's statement.",
+    "The stage text asks to track factorials, CM units, level and discriminant denominators before asserting an integral projector. The factorial 1/j! and the CM-unit scaling lambda^{2(2j-r)} are recorded, but the integrality of the projectors was not inspected."
+   ]
+  },
+  {
+   "stageId": "GeneralizedHeegnerCycles:GH.1",
+   "status": "partial",
+   "remaining": [
+    "Bertolini-Darmon-Prasanna Sec. 2 (printed pp. 1055-1064) was not read beyond the quotations in the introduction: the precise definition of Delta_phi in Sec. 2.3, the proof of Prop. 2.4 (homological triviality for r >= 1), the r = 0 correction, and the comparison with classical Heegner cycles in Sec. 2.4.",
+    "Sec. 3 (p-adic Abel-Jacobi maps, printed pp. 1064-1088), Sec. 4 (period integrals and central values, pp. 1088-1127) and Sec. 5 (anticyclotomic p-adic L-functions, pp. 1127-1139) were not read. Theorem 5.13, the general form of the Main Theorem, was NOT read -- only the simplified version stated in the introduction.",
+    "The stage text asks for the codimension, the precise ring-class field of rationality and the comparison with a chosen lattice in V_f(r) tensor chi, and for the de Rham/syntomic realisation with its compatibility with the etale class. Only the qualitative statements were inspected.",
+    "The stage text asks to bound every denominator and prove descent; no integrality statement was inspected."
+   ]
+  },
+  {
+   "stageId": "GeneralizedHeegnerCycles:GH.2",
+   "status": "partial",
+   "remaining": [
+    "Castella-Hsieh Sec. 7 was read only at the level of the statements of Lemma 7.5, Prop. 7.8 and Lemma 7.10 plus the correcting footnote; the proofs were not read.",
+    "Kobayashi-Ota's Lemma 4.10 (the replacement proof of Prop. 7.8 via Perrin-Riou's theory) was NOT read. R02_KI_KobayashiOta2020.pdf is present in the library with a usable PDF text layer, though the library holds no pre-extracted copy of it; Lemma 4.10 was located in it during review. This is the single most important next read for this stage.",
+    "The stage text asks for tame and p-power trace relations through correspondences, geometric Frobenius congruences, conjugation and character-twist identities with conductor and CM-unit initial exceptions. None of these was inspected.",
+    "The stage text asks to TEST the restrictions explicitly (the unramified-coefficient hypothesis, the abelian hypothesis in Lemma 7.10). No test case was constructed."
+   ]
+  },
+  {
+   "stageId": "GeneralizedHeegnerCycles:GH.3",
+   "status": "partial",
+   "remaining": [
+    "Longo-Vigni Sec. 4.1-4.2 were read only at the level of the statement lines of Lemma 4.2 ('For all m >= 2 there exist q_m, r_m in O_p[G(n)] with q_{m+1} congruent to a_p q_m (mod p), q_2 = 1, ...') and Prop. 4.5 ('There exists a family ...'); NEITHER full statement nor either proof was read.",
+    "The stage text names LV Lemma 4.2 and Prop. 4.5 as explicit universal-norm construction targets and warns that formal inverse limits do not discharge them. That warning is CONFIRMED by the source, which describes Lemma 4.2 as a technical result on universal norms proved there for the first time; but the construction itself has not been decomposed.",
+    "The stage text asks for the initial Euler factor, coefficient completion, corestriction compatibility, and the retention of finite ring-class torsion and p not dividing h_K. Admissibility condition (1) of LV Def. 2.1 does include p not dividing h_K, and that is recorded at GH.5; the other items were not inspected.",
+    "The comparison of the finite-level specialisations with the GH.1 cycle classes was not inspected."
+   ]
+  },
+  {
+   "stageId": "GeneralizedHeegnerCycles:GH.4",
+   "status": "partial",
+   "remaining": [
+    "The proofs of Castella-Hsieh Thms. 4.9 and 5.7 were read only in their opening steps (the Serre-Tate/U_p argument and Lemma 3.1 for 4.9; Lemma 5.4 and the epsilon-factor comparison for 5.7). Lemma 3.1, Prop. 3.3, Lemma 5.4 and Thm. 5.1 were NOT read.",
+    "The stage text asks to import the vector-valued local regulator and to construct explicitly the differential/period functional producing the scalar; the pairings < ., omega_f tensor t^{-2r} > were recorded but their construction was not inspected.",
+    "The stage text asks to distinguish the square-root BDP distribution from its square interpolating complex central L-values. The square in the Bertolini-Darmon-Prasanna Main Theorem is recorded at GH.1, but the precise dictionary between the two normalisations was not established.",
+    "Corollary 5.8 was seen only in its opening line."
+   ]
+  },
+  {
+   "stageId": "GeneralizedHeegnerCycles:GH.5",
+   "status": "partial",
+   "remaining": [
+    "(H.0)-(H.5) and Assumption 3.2 were read IN FULL during the independent review and are now recorded in the node, so the stage text's requirement to preserve the ordinary crystalline filtration, the annihilator pairing and the finiteness of both local invariant groups can be checked against the packet. What remains unread is their VERIFICATION for the generalized-Heegner representation T_P.",
+    "The proof of Thm. 3.5 was read only as the two-sentence sketch referring to Howard's Lemma 2.2.9 and Thm. 2.2.10; Props. 3.3, 3.4 and Lemma 2.4(3) were not read.",
+    "The verification that the generalized-Heegner representation T_P satisfies (H.1)-(H.5) (Sec. 3, 'The verification of this property goes as in the proof of ...') was not read.",
+    "The construction of the Kolyvagin system in Sec. 4.3 from the classes beta[n] of Prop. 4.5 was not read."
+   ]
+  },
+  {
+   "stageId": "GeneralizedHeegnerCycles:GH.6",
+   "status": "partial",
+   "remaining": [
+    "Castella-Hsieh Thms. 3.9, 7.7 and 7.9 WERE read during the independent review and are now recorded; Thm. 3.7 was not. Thm. 3.9 rests on [Hsi14, Theorem C], which was not read: R02_KI_Hsieh2014.pdf is present with a usable PDF text layer, though the library holds no pre-extracted copy.",
+    "The stage text asks to use Hsieh's theorem WITH its local-root-number, conductor and residual hypotheses. Those hypotheses were not inspected at all.",
+    "Longo-Vigni Thm. 4.12's role as the rank-one universal-norm module was recorded from its statement only.",
+    "The stage text warns against inferring nonzero higher cycles from a simple complex L-zero without an additional height/nondegeneracy theorem, and says this generalized Bloch-Kato implication remains distinct. The Castella-Hsieh remarks containing that discussion were not read."
+   ]
+  },
+  {
+   "stageId": "GeneralizedHeegnerCycles:GH.7",
+   "status": "not_read",
+   "remaining": [
+    "Nothing on Hida-family big Heegner classes was read. Castella, 'On the p-adic variation of Heegner points' (R02_KI_Castella2020.pdf) IS present with a usable PDF text layer, though the library holds no pre-extracted copy of it, and is the named source; its Thms. 2.11, 3.4/3.7, 4.3, 5.3 and 6.5 were not inspected.",
+    "Howard's big Heegner point construction was not read.",
+    "The Yager-module unramified exponential comparison, the ideal J = (Psi(Frob_p) - 1, gamma_0 - 1) and the pseudo-null correction were not inspected.",
+    "Next source: Castella 2020, Secs. 2-6."
+   ]
+  },
+  {
+   "stageId": "GeneralizedHeegnerCycles:GH.8",
+   "status": "not_read",
+   "remaining": [
+    "Nothing on the weight-two comparison was read. The stage requires the specialisation at weight two to agree with HeegnerPointEulerSystems HE.3/HE.8 after the exact modular parametrisation, differential, twist and period comparisons.",
+    "Bertolini-Darmon-Prasanna record that the case r = j = 0 of their Main Theorem 'involves the formal group logarithms of points in the Jacobians of modular curves arising from certain divisors supported on Heegner points' and gives 'a new p-adic variant of the Gross-Zagier formula in the traditional setting'. That is the weight-two comparison in embryo, but the precise identification with the HE classes was not traced.",
+    "The stage text warns against generalising from a source-qualified ordinary family to all supersingular cycles; Wan's non-ordinary branch (R02_KI_WanNonordinary.pdf, present) was not read."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Kobayashi-Ota Lemma 4.10 -- the replacement proof of Castella-Hsieh Prop. 7.8 -- is unread",
+   "neededBy": [
+    "GeneralizedHeegnerCycles:GH.2/local-condition-at-p-and-the-castella-hsieh-corrections",
+    "GeneralizedHeegnerCycles:GH.6/selmer-consequences-with-the-corrected-dimension-formula"
+   ],
+   "detail": "Verified: the erratum's statement that Castella-Hsieh Lemma 7.5 needs L/Q_p unramified, that the authors do not know whether it holds in the ramified case, that it was crucially used in Prop. 7.8, and that the correct proof of Prop. 7.8 is Kobayashi-Ota Lemma 4.10; also verified that the revised Castella-Hsieh text carries a footnote to the same effect citing [KO18, Lemma 5.7]. NOT verified: the Kobayashi-Ota argument itself, i.e. the Perrin-Riou-theoretic verification that the derived classes satisfy the local condition at p. WITHOUT IT, the local condition at p for the derived classes is an unproved input to Thm. 7.7 and hence to Thm. 6.1(1). The source IS available: R02_KI_KobayashiOta2020.pdf is registered in CATALOGUE.json (id R02_KI_KobayashiOta2020, sha256 377cf3e5c53b00bed813a06e18ad8dac9315997497f2dabe57a435664b9764b4). CORRECTED IN REVIEW: it is present as a PDF with a usable text layer, but NOT among the library's pre-extracted files: CATALOGUE.json records no text_path for it and references/text/ holds no extraction. Extracting the PDF directly yields about 5400 lines, and Lemma 4.10 is present in that copy, so the read is a budget question rather than an access one. Next source action: read Kobayashi-Ota Lemma 4.10 (and Lemma 5.7 of the earlier version) and reconcile the two numberings."
+  },
+  {
+   "title": "The proofs in Bertolini-Darmon-Prasanna Secs. 1-5 are unread, including Thm. 5.13 itself",
+   "neededBy": [
+    "GeneralizedHeegnerCycles:GH.0/the-variety-X-r-and-its-smooth-proper-model",
+    "GeneralizedHeegnerCycles:GH.1/generalized-heegner-cycles-and-their-abel-jacobi-images"
+   ],
+   "detail": "Verified: everything recorded in the GH.0 and GH.1 nodes comes from the introduction (printed pp. 1033-1039) and is a statement of the authors about their own later sections. NOT verified: the definition of Delta_phi in Sec. 2.3, Prop. 2.4, the comparison with classical Heegner cycles in Sec. 2.4, the construction of omega_f (Cor. 2.3) and of omega_A^j eta_A^{r-j} (1.4.6), the p-adic Abel-Jacobi computation of Sec. 3, and THEOREM 5.13 -- the general form of the Main Theorem, which is the statement the roadmap actually needs. The whole paper is present and text-extracted (5000+ lines). Next source action: read Sec. 2.3-2.4 and Sec. 5 (Thm. 5.13) in that order."
+  },
+  {
+   "title": "Hsieh's nonvanishing theorem, with its local-root-number, conductor and residual hypotheses, is unread",
+   "neededBy": [
+    "GeneralizedHeegnerCycles:GH.6/selmer-consequences-with-the-corrected-dimension-formula",
+    "GeneralizedHeegnerCycles:GH.4/castella-hsieh-abel-jacobi-formula-and-big-logarithm-reciprocity"
+   ],
+   "detail": "Verified: that Castella-Hsieh Thm. 6.1(2), Thm. 6.2 and Thm. 6.3 all rely on the nonvanishing of the p-adic L-function stated as their Thm. 3.9, which they attribute to Hsieh's nonvanishing results ('Appealing to the nonvanishing results of [Hsi14], in Theorem 3.7 we show that the p-adic L-function ...'). NOT verified: the statement or hypotheses of Hsieh's theorem, nor Castella-Hsieh Thms. 3.7 and 3.9. The atlas stage text requires the theorem to be used WITH its local-root-number, conductor and residual hypotheses; none of these has been recorded here. The source IS available: R02_KI_Hsieh2014.pdf (id R02_KI_Hsieh2014, sha256 a662df673725f6abbdb5b3ee272e78973c125cbc5d6fd0ba9307c790e8070718), present as a PDF with a usable text layer, but NOT among the library's pre-extracted files: CATALOGUE.json records no text_path for it and references/text/ holds no extraction; extracting it directly yields about 5500 lines. Established in review: the precise interface is Castella-Hsieh's Thm. 3.9, which assumes (N_f, D_K) = 1 and invokes [Hsi14, Theorem C]; that is the statement whose hypotheses still have to be read. Next source action: read Hsieh, 'Special values of anticyclotomic Rankin-Selberg L-functions', and Castella-Hsieh Secs. 3.3-3.4."
+  },
+  {
+   "title": "Longo-Vigni: (H.2)-(H.4) and Assumption 3.2 are now read; what remains is their verification for T_P",
+   "neededBy": [
+    "GeneralizedHeegnerCycles:GH.5/longo-vigni-admissibility-and-the-lambda-adic-bound"
+   ],
+   "detail": "PARTLY DISCHARGED IN REVIEW. Verified: Def. 2.1's four admissibility conditions, the explicit exceptional set Xi including 6N(k-2)!phi(N)c_f and the big-image condition, the additional assumption O_K^x = {+-1} excluding K = Q(i) and Q(sqrt(-3)), Remark 2.2's density statements, (H.0)-(H.5) IN FULL, Assumption 3.2 IN FULL (all three clauses: the crystalline ordinary filtration with both graded pieces free of rank one and inertia trivial on Fil^-, the exact-annihilator condition for the induced pairing, and the finiteness of both H^0 groups), Thm. 3.5 with its proof, Lemma 4.2 with its proof, Cor. 4.3, Prop. 4.5 and Thm. 4.12. STILL NOT verified: that the generalized-Heegner representation T_P satisfies (H.1)-(H.5) and Assumption 3.2 -- Longo-Vigni dispose of this in one sentence ('The verification of this property goes as in the proof of ...') and refer to Howard; and Props. 3.3, 3.4 and Lemma 2.4(3), which are the replacements for Howard's Props. 2.1.3 and 2.2.8 inside the proof of Thm. 3.5. The file is present as a PDF with a usable text layer, but NOT among the library's pre-extracted files: CATALOGUE.json records no text_path for it and references/text/ holds no extraction; extracting it directly yields about 1600 lines (the packet's figure of 1174 came from a different extraction). Next source action: read LV Sec. 3.1-3.2 (Props. 3.3, 3.4) and the verification passage in Sec. 3.3, then Howard's Thm. 2.2.10."
+  },
+  {
+   "title": "GH.7 and GH.8 are not started; their sources are present and extracted",
+   "neededBy": [
+    "GeneralizedHeegnerCycles:GH.7",
+    "GeneralizedHeegnerCycles:GH.8"
+   ],
+   "detail": "Nothing about the Hida-family classes or the weight-two comparison has been verified. Castella, 'On the p-adic variation of Heegner points' (id R02_KI_Castella2020, sha256 6ebd71311d6841d15d653183e9ca3adaabbe9720416e86f6731e7c1ecbb1156d) is present as a PDF with a usable text layer, but NOT among the library's pre-extracted files: CATALOGUE.json records no text_path for it and references/text/ holds no extraction (extracting it directly yields about 2900 lines, not the 2022 recorded here) and contains the Thms. 2.11, 3.4/3.7, 4.3, 5.3 and 6.5 that the stage text names as SEPARATE checkpoints rather than one black-box theorem. Wan's non-ordinary paper (R02_KI_WanNonordinary.pdf) is also present. Next source action: read Castella 2020 Secs. 2-6 for GH.7, then use its weight-two specialisation together with the EXT-15 HeegnerPointEulerSystems packet's HE.3/HE.8 nodes for GH.8."
+  },
+  {
+   "title": "Atlas-text check: the Castella-Hsieh corrections cited by the stage descriptions are CONFIRMED",
+   "neededBy": [
+    "GeneralizedHeegnerCycles:GH.2",
+    "GeneralizedHeegnerCycles:GH.6"
+   ],
+   "detail": "This is a verification report, not an unread boundary. The GH.2 stage text states that 'the unramified-coefficient hypothesis is required in Lemma 7.5', that 'Proposition 7.8's local condition' should be proved 'by the corrected Perrin-Riou route of Kobayashi-Ota, Lemma 4.10', and that 'Lemma 7.10 concerns p-ramified abelian extensions'. The GH.6 stage text states that Theorem 6.3's dimension formula is '((1-eps(V_f,chi))/2)[K_{p^n}:K]+e, not the uncorrected expression'. ALL FOUR claims were checked against the published erratum (read in full) and are CORRECT, including the Kobayashi-Ota lemma number 4.10. One refinement: the revised Castella-Hsieh text itself cites the same correction as [KO18, Lemma 5.7], a different numbering of the same Kobayashi-Ota result; a later reader should not treat the two numbers as a discrepancy. No atlas edit is proposed."
+  }
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
+  "date": "2026-09-16",
+  "notes": "Independent review of all 6 nodes, 6 links, 9 coverage records and 6 gaps against the four sources. All four are in the supplied library and the SHA-256 of each library file was recomputed and matches the packet exactly (BDP 223bfdad..., Castella-Hsieh 5c85ea3c..., its erratum 2a8b615d..., Longo-Vigni afc1a214...); nothing was fetched from the network. Three of the four have NO pre-extracted text in the library, so their PDFs' own text layers were extracted into the scratch directory and read there. Read for the review: BDP Sec. 0 in full with Prop. 2.4, Remark 2.6 and Prop. 2.7; Castella-Hsieh Thm. 3.9 with its proof, Remark 4.8, Thm. 4.9, Thm. 5.7 with its proof, Cor. 5.8, (6.1), Thms. 6.1-6.4 with their proofs, and Sec. 7's Lemma 7.5, Prop. 7.8 with the correcting footnote, Thms. 7.7 and 7.9 and Lemma 7.10; the erratum in full; and Longo-Vigni's Xi, Def. 2.1, Remark 2.2, (H.0)-(H.5), Assumption 3.2, Thm. 3.5, Lemma 4.2, Cor. 4.3, Prop. 4.5 and Thm. 4.12. Verdicts: 1 verified, 5 corrected, 0 unverifiable. The corrections of substance are three. (i) GH.1 presented a paraphrase inside a quotation: BDP state the r = 0 correction explicitly as Delta_phi - infinity_1, and homological triviality is Prop. 2.7, with Prop. 2.4 supplying only the cohomological vanishing. (ii) GH.2 described Prop. 7.8 as being about the derived classes; its subject is the collection of specialised classes, and the erratum's extra hypothesis on Lemma 7.5 is ABSOLUTE unramifiedness over Q_p, the printed lemma already assuming relative unramifiedness. (iii) GH.4's excerpt for (6.1) had (-1) where the source has (sqrt(-1)). Beyond those, GH.5 and GH.6 were extended with material read during the review: Longo-Vigni's Assumption 3.2 in full (which partly discharges a gap), and Castella-Hsieh Thms. 3.9, 7.7 and 7.9 with the precise interface to Hsieh's Theorem C. A recurring factual error in the gaps and coverage records was corrected: four follow-on sources (Kobayashi-Ota, Hsieh 2014, Castella 2020, Longo-Vigni itself) are described as 'text-extracted' with line counts. The library holds NO extraction for any of them -- CATALOGUE.json records no text_path -- although each PDF does carry a usable text layer, and the quoted line counts do not match a direct extraction. That distinction matters for planning: the reads are budget-limited, not access-limited, but a worker looking for references/text/ files will not find them. All 6 links are internal to the roadmap, both endpoints exist in every case, every direction runs prerequisite to consumer and matches the atlas's own stage requirements, and each cited locator does use the source node's output. The GH.5 -> GH.6 link is the weakest: its reason states openly that neither statement is derived from the other in the sources read, and records only the direction in which the atlas asks them to be combined. That is honest and the atlas has GH.6 requiring GH.5, so it was kept as written. Coverage records name all nine real stages of the roadmap; GH.7 and GH.8 are honestly not_read and GH.3 carries no node. Implementation status stays unchecked throughout and the packet status stays partial.",
+  "checked": [
+   {
+    "nodeId": "GeneralizedHeegnerCycles:GH.0/the-variety-X-r-and-its-smooth-proper-model",
+    "verdict": "verified",
+    "note": "Both excerpts match Bertolini-Darmon-Prasanna Sec. 0 (pp. 1034-1035) word for word: the replacement of W_{2r} by X_r = W_r x A^r, A with CM by the full ring of integers and defined over the Hilbert class field, the fibration over C, the proper smooth model over Spec Z[1/N] from the appendix, the resulting Bloch-Kato containment and the passage from (0.0.1) to the p-adic map (0.0.2). The hypothesis 'p does not divide N' is the source's own standing assumption in Sec. 3."
+   },
+   {
+    "nodeId": "GeneralizedHeegnerCycles:GH.1/generalized-heegner-cycles-and-their-abel-jacobi-images",
+    "verdict": "corrected",
+    "note": "The Main Theorem and its three simplifying assumptions were checked against printed pp. 1037-1038 and match exactly, including the factor 1/j!, the squares on both sides, the special-value-not-derivative remark and the scaling law lambda^{2(2j-r)}. Correction: the second source entry presented a PARAPHRASE inside a quotation -- '[and a correction is needed]' -- where the source states the correction explicitly (replace Delta_phi by Delta_phi - infinity_1 for any cusp), and it attributed homological triviality to Prop. 2.4. The statement is Prop. 2.7; Prop. 2.4 is the projector computation that supplies the cohomological vanishing. Excerpt, statement, hypothesis and acceptance item corrected, and Remark 2.6's precise field of definition added."
+   },
+   {
+    "nodeId": "GeneralizedHeegnerCycles:GH.2/local-condition-at-p-and-the-castella-hsieh-corrections",
+    "verdict": "corrected",
+    "note": "The erratum was read in full and all three of its items match the node verbatim, as does the revised paper's footnote citing [KO18, Lemma 5.7]. Two corrections. Prop. 7.8's subject is the collection c^{heeg,dagger} of SPECIALISED Heegner classes with c^{heeg,dagger}_K = z_f^{chi^{-1}}, not 'the collection of derived classes'; it is axiom (E5) whose verification needs the derivative classes' local condition. And Lemma 7.5 as printed already assumes L'/L/K_{c,w} unramified RELATIVE to K_{c,w}; the erratum's extra hypothesis is ABSOLUTE unramifiedness over Q_p, which is precisely where the original argument fails. A source entry with both printed statements was added."
+   },
+   {
+    "nodeId": "GeneralizedHeegnerCycles:GH.4/castella-hsieh-abel-jacobi-formula-and-big-logarithm-reciprocity",
+    "verdict": "corrected",
+    "note": "Thms. 4.9 and 5.7 and the proof passage were checked character by character against the paper and match, including the Gauss sum, the factorial (r-1+j)!, the conductor factor c_o^{1-r}, the two t-powers, the constant (-c_o^{r-1}), the order-two element sigma_{-1,p} and the coefficient ring. Correction: the excerpt for (6.1) transcribed the base of the power as (-1); the source has (sqrt(-1)). A hypothesis recording how the sign is assembled from local root numbers was added."
+   },
+   {
+    "nodeId": "GeneralizedHeegnerCycles:GH.5/longo-vigni-admissibility-and-the-lambda-adic-bound",
+    "verdict": "corrected",
+    "note": "Xi, Def. 2.1, Remark 2.2, the O_K^x = {+-1} assumption, Thm. 3.5 with its proof, Lemma 4.2, Prop. 4.5 and Thm. 4.12 all match the source verbatim. Extended in review: (H.0)-(H.5) and Assumption 3.2 were read in full and the three clauses of Assumption 3.2 are now recorded in the statement, which discharges part of the corresponding gap. Two hypotheses were sharpened: Remark 2.2's expectation for condition (4) carries the proviso 'at least if F is not Q', and Longo-Vigni's own cross-references to 'condition (5) in Assumption 2.3' do not match Def. 2.1's four conditions -- a source-internal numbering slip, now flagged."
+   },
+   {
+    "nodeId": "GeneralizedHeegnerCycles:GH.6/selmer-consequences-with-the-corrected-dimension-formula",
+    "verdict": "corrected",
+    "note": "Thms. 6.1, 6.2, 6.3 and 6.4 were read with their proofs and match the node exactly, including the corrected growth formula, the Hodge-Tate weight argument with its stated convention, and the ordinariness hypotheses. Extended in review: Thm. 7.7 also identifies the Selmer group with the Bloch-Kato one; Thm. 7.9 reads 'if loc_p(z^chi_f) is nonzero then Sel(K, V tensor chi) = {0}'; and Thm. 3.9, the nonvanishing input, assumes (N_f, D_K) = 1 and invokes [Hsi14, Theorem C] through an auxiliary prime with absolutely irreducible residual restriction. A source entry with those three statements was added and the acceptance item about Hsieh was made precise."
+   }
+  ]
+ }
+}

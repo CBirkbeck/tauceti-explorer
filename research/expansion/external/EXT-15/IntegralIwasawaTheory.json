@@ -1,0 +1,703 @@
+{
+ "roadmapId": "IntegralIwasawaTheory",
+ "status": "partial",
+ "summary": "Source decomposition of the parts of the integral Iwasawa programme for which primary sources were actually readable: Rodrigues Jacinto-Williams Sec. 13.4 (read in full) for the cyclotomic-tower class-field-theory sequence, the control statement and the Vandiver collapse; Dasgupta-Kakde-Silliman-Wang's introduction (read in full) for the generalised Ritter-Weiss modules, the conditions (A1)-(A5), the quadratic presentation, the keystone Fitting-ideal theorem with its explicit 2^t normalisation and the Brumer-Stark conclusion; and Kurihara Secs. 2.6 and 4 for the (S,T) form of the keystone theorem, the compactly supported Iwasawa complex with its Selmer comparison, and the equivariant main conjecture Det(RGamma_c)^{-1} = g Lambda INCLUDING p = 2. Two structural points are recorded with their sources: the minus construction is the QUOTIENT Z[G]/(1+c) and not an eigenspace or an idempotent summand, which is what makes the p = 2 statements meaningful; and Kurihara's Lemma 4.2(1) is an isomorphism only for p > 2, with a cokernel of order 2 at p = 2 whose cohomological source is H^1(Delta', Q_p/Z_p) = Z/2Z. This packet covers 6 of the 20 stages with nodes. THE OTHER 14 ARE MARKED not_read OR partial WITH NO NODES, and three of them are blocked by missing sources: Mazur-Wiles is present but has no text layer, Wiles's totally real paper and Ferrero-Washington and Washington's book are absent from the library. The five KU-prefixed aggregate stages were not worked because their prerequisites lie in eight roadmaps outside EXT-15.",
+ "sources": [
+  {
+   "id": "rodrigues-jacinto-williams-padic-L",
+   "title": "An introduction to p-adic L-functions",
+   "authors": "Joaquin Rodrigues Jacinto; Chris Williams",
+   "edition": "arXiv:2309.15692v2 (inspected 2026-09-15)",
+   "url": "https://arxiv.org/pdf/2309.15692v2",
+   "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
+   "readSections": [
+    "Sec. 13.2-13.4, printed pp. 66-68: Remark 13.7 (the Lambda(Gamma)-action by conjugation), Thm. 13.8, Remark 13.9, Def. 13.10, Thm. 13.11, Def. 13.12, Prop. 13.13 with proof, Cor. 13.14 with proof, Prop. 13.15, Cor. 13.16 with the start of its proof"
+   ]
+  },
+  {
+   "id": "dasgupta-kakde-silliman-wang-brumer-stark-over-Z",
+   "title": "The Brumer-Stark Conjecture over Z",
+   "authors": "Samit Dasgupta; Mahesh Kakde; Jesse Silliman; Jiuya Wang",
+   "edition": "arXiv:2310.16399v1, 25 October 2023 (inspected 2026-09-15)",
+   "url": "https://arxiv.org/pdf/2310.16399",
+   "sha256": "e32514db92247fb0a9b4e3fa120161df4ceaf88f5b1339144f26f996662cb6b0",
+   "readSections": [
+    "Contents, printed pp. 1-2",
+    "Sec. 1.1, printed p. 3: the Deligne-Ribet condition on T and Thm. 1.1 (the Brumer-Stark conjecture)",
+    "Sec. 1.2 'Ritter-Weiss Modules', printed pp. 4-5: conditions (A1)-(A5), the short exact sequence defining nabla, the definition of Z[G]^- and M_-, the quadratic presentation statement, Thm. 1.2 with the definition (4) of Theta/2^t, the Deligne-Ribet/Kurihara integrality argument, and the remark that Thm. 1.2 was already known for p odd"
+   ]
+  },
+  {
+   "id": "kurihara-class-groups-iwasawa-cm",
+   "title": "On class groups and Iwasawa modules of CM-fields",
+   "authors": "Masato Kurihara",
+   "edition": "Author preprint dated 2025 (inspected 2026-09-15)",
+   "url": "https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf",
+   "sha256": "22ebb98ed24bcebe814ea2f6ba6b4681d7dbafd309b55f06b02f5807fec8ff33",
+   "readSections": [
+    "Abstract and Sec. 1 'Introduction', printed pp. 1-2",
+    "Sec. 2.6 region, printed pp. 13-14: Thm. 2.12 with the discussion of its equivalence, the keystone theorem (7), the change from (Sigma, Sigma') to (S,T), and the remark on the equivariant Tamagawa number conjecture",
+    "Sec. 4.1-4.2, printed pp. 23-25: the definition of g_{F_infinity/k,S}, Thm. 4.1, the reductions in its proof, the distinguished triangle and exact sequence (12), and Lemma 4.2 with the p > 2 part of its proof"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "IntegralIwasawaTheory:L1/four-term-class-field-theory-sequence-in-the-cyclotomic-tower",
+   "parentStageId": "IntegralIwasawaTheory:L1",
+   "title": "The four-term exact sequence relating global units, semilocal units, the p-ramified group and the class groups",
+   "kind": "theorem",
+   "statement": "Let F_n be the real cyclotomic fields, U_n the local units and U_{n,1} the principal ones, V_n = O_{F_n}^x the global units, E_n the p-adic closure of V_n inside U_n, E_n^+ = E_n intersect U_n^+, E_{n,1} = E_n intersect U_{n,1}, E_{n,1}^+ = E_n^+ intersect U_{n,1}, and E_{infinity,1}^+ = lim E_{n,1}^+. PROPOSITION 13.13: global class field theory gives, at each finite level, a short exact sequence 0 -> E_{n,1}^+ -> U_{n,1}^+ -> Gal(M_n^+/L_n^+) -> 0; taking the inverse limit over n gives 0 -> E_{infinity,1}^+ -> U_{infinity,1}^+ -> Gal(M_infinity^+/L_infinity^+) -> 0, EXACTNESS IN THE LIMIT being justified because all three modules are finitely generated Z_p-modules and therefore satisfy the Mittag-Leffler condition. COROLLARY 13.14: combining this with the tautological short exact sequence 0 -> Gal(M_infinity^+/L_infinity^+) -> X_infinity^+ -> Y_infinity^+ -> 0 supplied by the fundamental theorem of Galois theory, and with the third isomorphism theorem in the form Gal(M_infinity^+/L_infinity^+) = (E_{infinity,1}^+/U_{infinity,1}^+) = (E_{infinity,1}^+/C_{infinity,1}^+)/(U_{infinity,1}^+/C_{infinity,1}^+), one obtains the four-term exact sequence of Lambda(G)-modules 0 -> E_{infinity,1}^+/C_{infinity,1}^+ -> U_{infinity,1}^+/C_{infinity,1}^+ -> X_infinity^+ -> Y_infinity^+ -> 0.",
+   "hypotheses": [
+    "M_infinity is the maximal abelian p-extension of L_infinity unramified outside p and L_infinity is the maximal unramified abelian p-extension, so X_infinity = Gal(M_infinity/L_infinity-base) and Y_infinity = Gal(L_infinity/F_infinity) are DIFFERENT modules classifying different extensions; they are not interchangeable in a main conjecture",
+    "the passage to the inverse limit is exact only because all the modules are finitely generated over Z_p (the Mittag-Leffler condition); this is stated explicitly and is not automatic",
+    "the units appearing are the PRINCIPAL local units U_{n,1} and the corresponding closures E_{n,1}, not the full unit groups; the plus superscripts are the totally real parts",
+    "Leopoldt's conjecture for the F_n is used to know that E_n is a finite Z_p-module of rank r_1 + r_2 - 1 = p^{n-1}(p-1)/2; it is known in this case by a theorem of Brumer",
+    "the quotient in the middle is U/E, not E/U"
+   ],
+   "proofSteps": [
+    "Global class field theory (Washington Cor. 13.6) gives the finite-level sequence (13.1).",
+    "Take the inverse limit, exact by Mittag-Leffler.",
+    "Apply the fundamental theorem of Galois theory to get the short exact sequence with X_infinity^+ and Y_infinity^+, and the third isomorphism theorem to rewrite Gal(M_infinity^+/L_infinity^+) as the quotient of the two unit quotients.",
+    "Splice the two sequences."
+   ],
+   "acceptance": [
+    "Check the distinction between X_infinity^+ (p-ramified) and Y_infinity^+ (unramified) at every use.",
+    "Check that the exactness of the inverse limit is justified by finite generation over Z_p, and that Leopoldt (via Brumer) is what gives the rank of E_n.",
+    "Check the direction of the middle quotient: it is U/E and not E/U.",
+    "Check the Lambda(Gamma)-action: by Remark 13.7 it is defined by sigma . x = sigma-tilde x sigma-tilde^{-1} for any lift sigma-tilde, well defined and extended by continuity because O_L[Gamma] is dense in Lambda(Gamma) and the latter is Hausdorff."
+   ],
+   "sources": [
+    {
+     "sourceId": "rodrigues-jacinto-williams-padic-L",
+     "locator": "Sec. 13.4, Prop. 13.13 with its proof, printed pp. 67-68",
+     "excerpt": "Proposition 13.13. There is an exact sequence of Lambda(Gamma^+)-modules 0 -> E^+_{infinity,1} -> U^+_{infinity,1} -> Gal(M^+_infinity/L^+_infinity) -> 0. Proof. Global class field theory (see [Was97, Cor. 13.6]) gives a short exact sequence 0 -> E^+_{n,1} -> U^+_{n,1} -> Gal(M_n^+/L_n^+) -> 0. (13.1) Taking the inverse limit over n gives the result. This is exact as all modules in the sequence above are finitely generated Z_p-modules (so satisfy the Mittag-Leffler condition).",
+     "match": "Gives the finite-level sequence, the limit, and the exactness justification recorded in the hypotheses."
+    },
+    {
+     "sourceId": "rodrigues-jacinto-williams-padic-L",
+     "locator": "Sec. 13.4, Cor. 13.14 with its proof, printed p. 68",
+     "excerpt": "Corollary 13.14. We have an exact sequence of Lambda(G)-modules 0 -> E^+_{infinity,1}/C^+_{infinity,1} -> U^+_{infinity,1}/C^+_{infinity,1} -> X^+_infinity -> Y^+_infinity -> 0. Proof. The fundamental theorem of Galois theory yields a short exact sequence 0 -> Gal(M^+_infinity/L^+_infinity) -> X^+_infinity -> Y^+_infinity -> 0. The result now follows from Proposition 13.13, as Gal(M^+_infinity/L^+_infinity) = (E^+_{infinity,1}/U^+_{infinity,1}) = (E^+_{infinity,1}/C^+_{infinity,1})/(U^+_{infinity,1}/C^+_{infinity,1}), the last identification being the third isomorphism theorem.",
+     "match": "Gives the four-term sequence and the exact splicing argument."
+    },
+    {
+     "sourceId": "rodrigues-jacinto-williams-padic-L",
+     "locator": "Sec. 13.4, Def. 13.12 and the paragraph after it, printed p. 67",
+     "excerpt": "Definition 13.12. For any n >= 1, define E_n as the p-adic closure of the global units V_n = O_{F_n}^x inside the local units U_n, let E_n^+ := E_n intersect U_n^+, and let E_{n,1} := E_n intersect U_{n,1}, E^+_{n,1} := E_n^+ intersect U_{n,1}; E_{infinity,1} := lim E_{n,1}, E^+_{infinity,1} = lim E^+_{n,1}. Leopoldt's conjecture (which is known in this case by a theorem of Brumer) states that for any n >= 1, the group E_n is a finite Z_p-module of rank r_1 + r_2 - 1 = p^{n-1}(p-1)/2.",
+     "match": "Gives the exact definitions of all the unit modules and records the Leopoldt/Brumer input."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralIwasawaTheory:L2/control-theorem-for-the-unramified-iwasawa-module",
+   "parentStageId": "IntegralIwasawaTheory:L2",
+   "title": "The control statement (Y_infinity^+)_{Gamma_n^+} = Y_n^+ and its use",
+   "kind": "theorem",
+   "statement": "With Y_n^+ = Gal(L_n^+/F_n^+), which class field theory identifies with Cl(F_n^+) tensor_Z Z_p, and Gamma_n^+ = Gal(F_infinity^+/F_n^+), one has for all n >= 0 the identification of COINVARIANTS (Y_infinity^+)_{Gamma_n^+} = Y_n^+. This is the control statement quoted by Rodrigues Jacinto-Williams as Washington Prop. 13.22, with their own proof given in their Appendix A (Prop. A.6). It is the mechanism that converts a statement about the Iwasawa module Y_infinity^+ into statements about the finite-level class groups, and it is what makes Nakayama's lemma applicable: knowing Y_1^+ = 0 gives (Y_infinity^+)_{Gamma_0^+} = 0 and hence Y_infinity^+ = 0.",
+   "hypotheses": [
+    "the identification is with the module of COINVARIANTS, not the invariants; the left-hand side is (Y_infinity^+)_{Gamma_n^+}",
+    "Y_n^+ is identified with Cl(F_n^+) tensor Z_p by class field theory -- the identification (13.2) -- so the control statement is simultaneously a statement about class groups and about Galois groups",
+    "the statement as quoted is for the totally real cyclotomic tower, which is totally ramified at the unique prime above p; the general Z_p-extension version requires the eventual-ramification analysis that the stage text asks for separately",
+    "Nakayama's lemma applies because Y_infinity^+ is a finitely generated Lambda-module and Gamma_0^+ is procyclic"
+   ],
+   "proofSteps": [
+    "Rodrigues Jacinto-Williams quote the statement from Washington and refer to their own Appendix A for a proof; the appendix was NOT read here.",
+    "The application in Cor. 13.16(i) runs: if p does not divide h_1^+ then by (13.2) Y_1^+ = 0, so by the control statement 0 = Y_1^+ = (Y_infinity^+)_{Gamma_0^+}, and Nakayama's lemma gives Y_infinity^+ = 0.",
+    "Part (ii) then reverses the implication at every level: Y_n^+ = 0 for all n, hence p does not divide h_n^+ for any n."
+   ],
+   "acceptance": [
+    "Check that the argument in Cor. 13.16(i) is genuinely TWO steps -- first Y_1^+ = 0 from the class-number hypothesis via (13.2), then Y_infinity^+ = 0 by Nakayama -- and not a single application of the control statement.",
+    "Check the coinvariants-versus-invariants direction.",
+    "Check the identification Y_n^+ = Cl(F_n^+) tensor Z_p, which is what makes p not dividing h_n^+ equivalent to Y_n^+ = 0.",
+    "Check that the general Z_p-extension version requires additional ramification control, which this statement does not supply."
+   ],
+   "sources": [
+    {
+     "sourceId": "rodrigues-jacinto-williams-padic-L",
+     "locator": "Sec. 13.4, (13.2) and Prop. 13.15, printed p. 68",
+     "excerpt": "Y_n^+ := Gal(L_n^+/F_n^+) isomorphic to Cl(F_n^+) tensor_Z Z_p. (13.2) Proposition 13.15 ([Was97, Prop. 13.22]). For all n >= 0, we have (Y^+_infinity)_{Gamma^+_n} = Y_n^+, where Gamma_n^+ = Gal(F^+_infinity/F_n^+) and the left-hand side is the module of coinvariants. Proof. See Proposition A.6.",
+     "match": "Gives the control statement with the coinvariants and the class-group identification, and records that the proof is deferred to the appendix."
+    },
+    {
+     "sourceId": "rodrigues-jacinto-williams-padic-L",
+     "locator": "Sec. 13.4, Cor. 13.16 with proof, printed p. 68",
+     "excerpt": "Corollary 13.16. If p is a Vandiver prime, then: (i) Y^+_infinity = 0; (ii) p does not divide h_n^+ for any n >= 1; (iii) E^+_{infinity,1}/C^+_{infinity,1} = 0. Proof. By (13.2), we deduce that p does not divide h_n^+ if and only if Y_n^+ = 0. (i) By Proposition 13.15, if p does not divide h_1^+, then 0 = Y_1^+ = (Y^+_infinity)_{Gamma_0^+} = 0. By Nakayama's lemma, this implies that Y^+_infinity = 0. (ii) Combining (i) with Proposition 13.15 shows Y_n^+ = 0, hence the result.",
+     "match": "Gives the two-step Nakayama argument explicitly."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralIwasawaTheory:L3/vandiver-collapse-and-the-module-isomorphism",
+   "parentStageId": "IntegralIwasawaTheory:L3",
+   "title": "The Vandiver hypothesis and the collapse of the four-term sequence to an isomorphism",
+   "kind": "theorem",
+   "statement": "Define h_n^+ = #Cl(F_n^+) and say p is a VANDIVER PRIME if p does not divide h_1^+. THEOREM 13.11: if p is a Vandiver prime then there is an ISOMORPHISM of Lambda(Gamma^+)-modules X_infinity^+ = Lambda(Gamma^+)/I(Gamma^+)_{zeta_p}; in particular Iwasawa's Main Conjecture holds. The mechanism is COROLLARY 13.16: under the Vandiver hypothesis, (i) Y_infinity^+ = 0, (ii) p does not divide h_n^+ for any n >= 1, and (iii) E_{infinity,1}^+/C_{infinity,1}^+ = 0, where (iii) is proved using the finite-level cyclotomic-unit index [V_n^+ : D_n^+] = h_n^+ of Thm. 11.7, which is prime to p by (ii). Substituting (i) and (iii) into the four-term sequence of Cor. 13.14 collapses it to U_{infinity,1}^+/C_{infinity,1}^+ = X_infinity^+, and the Coleman-map computation of the left-hand side (their Thm. 12.23) gives the stated isomorphism. THE UNCONDITIONAL STATEMENT IS WEAKER: Thm. 13.8 asserts only the equality of IDEALS ch_{Lambda(Gamma^+)}(X_infinity^+) = I(Gamma^+)_{zeta_p}, and the module isomorphism of Thm. 13.11 is NOT asserted without Vandiver.",
+   "hypotheses": [
+    "Vandiver's hypothesis is p not dividing h_1^+, i.e. the class number of the FIRST layer F_1^+, not of F^+ = Q(mu_p)^+ alone; Rodrigues Jacinto-Williams define it at level 1 and the equivalence with the usual formulation passes through Cor. 13.16(ii)",
+    "Vandiver's hypothesis is NOT known for all p; Thm. 13.11 is therefore conditional",
+    "the collapse needs BOTH Y_infinity^+ = 0 and E_{infinity,1}^+ = C_{infinity,1}^+; either one alone leaves a four-term or three-term sequence",
+    "step (iii) uses the finite-level index formula [V_n^+ : D_n^+] = h_n^+, which is an independent theorem (their Thm. 11.7) and belongs to the index-formula stage",
+    "the conclusion is a MODULE ISOMORPHISM, strictly stronger than the ideal equality of Thm. 13.8"
+   ],
+   "proofSteps": [
+    "By (13.2), p not dividing h_n^+ is equivalent to Y_n^+ = 0; the Vandiver hypothesis gives this at n = 1.",
+    "The control statement plus Nakayama gives Y_infinity^+ = 0, and then Y_n^+ = 0 for all n.",
+    "The index formula [V_n^+ : D_n^+] = h_n^+ is then prime to p, from which (iii) follows.",
+    "Substituting into Cor. 13.14 gives U_{infinity,1}^+/C_{infinity,1}^+ = X_infinity^+, and the local-unit computation identifies the left-hand side with Lambda(Gamma^+)/I(Gamma^+)_{zeta_p}."
+   ],
+   "acceptance": [
+    "Check that the unconditional theorem is the IDEAL equality (Thm. 13.8) and that the isomorphism requires Vandiver; asserting the isomorphism unconditionally would be an unjustified strengthening.",
+    "Check that the collapse uses both vanishing statements from Cor. 13.16.",
+    "Check the index formula input [V_n^+ : D_n^+] = h_n^+ and that it is Thm. 11.7, proved independently of the main conjecture.",
+    "Check that the local-unit identification is a statement about LOCAL units and does not by itself give the Galois-theoretic conclusion."
+   ],
+   "sources": [
+    {
+     "sourceId": "rodrigues-jacinto-williams-padic-L",
+     "locator": "Sec. 13.4, Def. 13.10 and Thm. 13.11, printed p. 67",
+     "excerpt": "Definition 13.10. Let h_n^+ := #Cl(F_n^+) be the class number of F_n^+. We say p is a Vandiver prime if p does not divide h_1^+. The rest of these notes are dedicated to the following theorem of Iwasawa. Theorem 13.11. If p is a Vandiver prime, we have an isomorphism of Lambda(Gamma^+)-modules X^+_infinity = Lambda(Gamma^+)/I(Gamma^+)_{zeta_p}. In particular, Iwasawa's Main Conjecture holds.",
+     "match": "Gives the definition of a Vandiver prime at level 1 and the conditional module isomorphism."
+    },
+    {
+     "sourceId": "rodrigues-jacinto-williams-padic-L",
+     "locator": "Sec. 13.3, Thm. 13.8, printed p. 67",
+     "excerpt": "Theorem 13.8 (Iwasawa Main Conjecture). X^+_infinity is a finitely generated torsion Lambda(Gamma^+)-module, and ch_{Lambda(Gamma^+)}(X^+_infinity) = I(Gamma^+)_{zeta_p}.",
+     "match": "Gives the unconditional ideal equality, against which the conditional isomorphism is contrasted."
+    },
+    {
+     "sourceId": "rodrigues-jacinto-williams-padic-L",
+     "locator": "Sec. 13.4, Cor. 13.16(iii) with the start of its proof, printed p. 68",
+     "excerpt": "(iii) E^+_{infinity,1}/C^+_{infinity,1} = 0. ... (iii) In Theorem 11.7 we saw that [V_n^+ : D_n^+] = h_n^+, which is prime to p by (ii). We claim",
+     "match": "Records that step (iii) rests on the finite-level index formula of Thm. 11.7."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralIwasawaTheory:I.6/ritter-weiss-modules-and-the-A1-A5-conditions",
+   "parentStageId": "IntegralIwasawaTheory:I.6",
+   "title": "Generalised Ritter-Weiss modules, the conditions (A1)-(A5) and the quadratic presentation",
+   "kind": "construction",
+   "statement": "Let F be a number field, H/F finite abelian with G = Gal(H/F), S_infinity the archimedean places of F and S_ram the finite places ramifying in H. Let Sigma, Sigma' be DISJOINT finite sets of places of F satisfying (A1) Sigma union Sigma' contains S_infinity union S_ram, and (A2) the torsion subgroup of O^*_{H,S_infinity,Sigma'} = {u in O_H^* : u congruent to 1 (mod q) for all primes q above primes in Sigma'} is TRIVIAL. Then there is a Z[G]-module nabla^{Sigma'}_Sigma(H), generalising the construction of Ritter-Weiss (which did not consider the smoothing set Sigma') and the authors' own earlier work (which imposed the additional condition Sigma contains S_infinity), sitting in a short exact sequence of Z[G]-modules 0 -> Cl^{Sigma'}_Sigma(H) -> nabla^{Sigma'}_Sigma(H) -> X_{H,Sigma} -> 0, where X_{H,Sigma} is the group of degree-zero divisors on the places of H above Sigma and Cl^{Sigma'}_Sigma(H) is the Sigma-depleted, Sigma'-smoothed class group. Now specialise: F totally real, H a CM field, c in G the complex conjugation, Z[G]^- = Z[G]/(1+c) -- which is FINITE FREE over Z and in particular TORSION FREE -- and M_- = M tensor_{Z[G]} Z[G]^- = M/(1+c)M. Impose further (A3) Sigma nonempty, (A4) Sigma contains {v in S_ram : v divides p}, (A5) Sigma' contains {v in S_ram : v does not divide p}. Under (A1)-(A5) the module nabla^{Sigma'}_Sigma(H)_{p,-} = nabla^{Sigma'}_Sigma(H) tensor_{Z[G]} Z_p[G]^- is QUADRATICALLY PRESENTED over Z_p[G]^-, hence its Fitting ideal is PRINCIPAL.",
+   "hypotheses": [
+    "Sigma and Sigma' must be DISJOINT; (A1) requires only their union to contain S_infinity union S_ram, so neither alone need contain the archimedean places -- this is precisely the generalisation over the authors' earlier work, which required Sigma to contain S_infinity",
+    "(A2) is a genuine torsion-freeness condition on the Sigma'-smoothed units, not a formality",
+    "for the minus construction, Z[G]^- is defined as the QUOTIENT Z[G]/(1+c), not as an eigenspace and not as the image of an idempotent; at p = 2 the minus quotient, the minus eigensubmodule and an integral idempotent summand are NOT the same object, and the source uses the quotient throughout",
+    "(A4) and (A5) split S_ram at p: the p-adic ramified places go into Sigma and the prime-to-p ramified places into Sigma'",
+    "the quadratic presentation -- and hence the principality of the Fitting ideal -- is a theorem under (A1)-(A5), not part of the definition"
+   ],
+   "proofSteps": [
+    "Construct nabla^{Sigma'}_Sigma(H) as in the source's Sec. 4 (the Ritter-Weiss complex, its global and local pieces, and the quadratic presentation of Sec. 4.5); that construction was NOT read here, only its output.",
+    "The short exact sequence relating the depleted-smoothed class group, nabla and the degree-zero divisor group is the structural statement quoted in the introduction.",
+    "The quadratic presentation over Z_p[G]^- is asserted under (A1)-(A5) and is what makes the Fitting ideal principal."
+   ],
+   "acceptance": [
+    "Check that Sigma and Sigma' are disjoint and that only their UNION is required to contain S_infinity union S_ram.",
+    "Check the p = 2 warning: Z[G]^- is a quotient. Any argument that treats it as an eigenspace or as e^- Z[G] needs 2 inverted.",
+    "Check (A2) in the intended application; the Deligne-Ribet condition on T in Thm. 1.1 is a different condition and serves a different purpose (integrality of L_{S,T}(chi,0)).",
+    "Check that the principality of the Fitting ideal is derived from the quadratic presentation and is not assumed."
+   ],
+   "sources": [
+    {
+     "sourceId": "dasgupta-kakde-silliman-wang-brumer-stark-over-Z",
+     "locator": "Sec. 1.2, printed p. 4",
+     "excerpt": "Let Sigma, Sigma' denote disjoint finite sets of places of F satisfying the following conditions: (A1) Sigma union Sigma' contains S_infinity union S_ram. (A2) The torsion subgroup of O^*_{H,S_infinity,Sigma'} = {u in O_H^* : u congruent to 1 (mod q) for all primes q above primes in Sigma'} is trivial. We will define a Z[G]-module nabla^{Sigma'}_Sigma(H) that generalizes the construction of Ritter-Weiss [23] (which did not consider the smoothing set Sigma') and our previous work [11] (which imposed an additional condition Sigma contains S_infinity). The module nabla^{Sigma'}_Sigma(H) sits in a short exact sequence of Z[G]-modules 0 -> Cl^{Sigma'}_Sigma(H) -> nabla^{Sigma'}_Sigma(H) -> X_{H,Sigma} -> 0.",
+     "match": "Gives (A1), (A2), the two generalisations over earlier constructions, and the defining short exact sequence."
+    },
+    {
+     "sourceId": "dasgupta-kakde-silliman-wang-brumer-stark-over-Z",
+     "locator": "Sec. 1.2, printed pp. 4-5",
+     "excerpt": "Assume that F is totally real and that H is a CM field. Denote by c in G the complex conjugation, and define Z[G]^- = Z[G]/(1 + c). Note that Z[G]^- is finite free as a Z-module and in particular has no torsion. For any Z[G]-module M, we define M_- = M tensor_{Z[G]} Z[G]^- = M/(1 + c)M. Fix a prime p. We impose the further conditions (A3) Sigma nonempty. (A4) Sigma contains {v in S_ram : v | p}. (A5) Sigma' contains {v in S_ram : v does not divide p}.",
+     "match": "Gives the minus construction as a QUOTIENT, its freeness over Z, and the three further conditions."
+    },
+    {
+     "sourceId": "dasgupta-kakde-silliman-wang-brumer-stark-over-Z",
+     "locator": "Sec. 1.2, printed p. 5",
+     "excerpt": "Under conditions (A1)-(A5), we prove that nabla^{Sigma'}_Sigma(H)_{p,-} is quadratically presented over Z_p[G]^-, and hence that its Fitting ideal is principal.",
+     "match": "Gives the quadratic presentation and the consequent principality."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralIwasawaTheory:I.7/the-integral-fitting-ideal-theorem-and-brumer-stark",
+   "parentStageId": "IntegralIwasawaTheory:I.7",
+   "title": "The keystone Fitting-ideal theorem over Z, its one-half normalisation, and the Brumer-Stark conclusion",
+   "kind": "theorem",
+   "statement": "THEOREM 1.2 (Dasgupta-Kakde-Silliman-Wang): under conditions (A1)-(A5), Fitt_{Z_p[G]^-}(nabla^{Sigma'}_Sigma(H)_{p,-}) = (Theta^{Sigma'}_Sigma/2^t), where t = #(S_infinity intersect Sigma') and Theta^{Sigma'}_Sigma/2^t is the UNIQUE element of Z_p[G]^- with chi(Theta^{Sigma'}_Sigma/2^t) = L_{Sigma,Sigma'}(chi^{-1},0)/2^t for all ODD characters chi of G. Its existence in (c-1)/2 . Z_p[G], and hence in Z_p[G]^-, follows from the Deligne-Ribet congruence together with an argument of Kurihara. The theorem was already proved for p ODD in the authors' earlier work, so the content here is the case p = 2; most of the arguments are given for all p. THEOREM 1.1 (the Brumer-Stark conjecture) is deduced: assume S contains S_infinity and S_ram, and that T satisfies the Deligne-Ribet condition ensuring the integrality of L_{S,T}(chi,0) -- namely T contains two primes of different residue characteristic, or one prime of residue characteristic larger than n + 1. Let p be a prime of F not in S union T that splits completely in H, and fix a prime P of H above p. Then there exists u in H^* with (i) |u|_w = 1 for all places w of H not above p, INCLUDING THE COMPLEX PLACES; (ii) sum over sigma in G of chi(sigma) ord_{sigma^{-1}(P)}(u) = L_{S,T}(chi,0) for all characters chi of G; and (iii) u congruent to 1 modulo q O_H for all q in T. KURIHARA'S Thm. 2.12 packages the same input in the (S,T) normalisation: if S contains S_ram(K/k) and (O^T_{K,S})^x is Z-torsion free, then Fitt_{Z_p[G]^-}(nabla^T_S(K)_{p,-}) = theta^T_{K/k,S} Z_p[G]^- and Fitt_{Z_p[G]^-}(Sel^T_S(K)_{p,-}) = (theta^T_{K/k,S})^# Z_p[G]^-.",
+   "hypotheses": [
+    "the normalisation carries the explicit divisor 2^t with t = #(S_infinity intersect Sigma'); this is the archimedean minus correction and it is NOT a harmless unit at p = 2",
+    "the element Theta^{Sigma'}_Sigma/2^t is characterised by its values at ODD characters only",
+    "Theorem 1.1's hypotheses on T are the Deligne-Ribet condition (two primes of different residue characteristic, or one of residue characteristic > n+1); this is what makes L_{S,T}(chi,0) integral and is separate from (A1)-(A5)",
+    "condition (i) of Thm. 1.1 includes the COMPLEX places; the usual Brumer-Stark statement over Z requires this and it is stated explicitly",
+    "Kurihara's Thm. 2.12 requires S to contain S_ram(K/k) and (O^T_{K,S})^x to be Z-TORSION FREE, and its two displayed equations are EQUIVALENT: if A is a relation matrix of nabla^T_S(K)_p then (A-transpose)^# is a relation matrix of Sel^T_S(K)_p, so it suffices to prove the first",
+    "the passage from the keystone pair (Sigma, Sigma') to the pair (S,T) is not formal: Kurihara records that it uses the argument in the proof of Lemma 6 of a separate Dasgupta-Kakde-Silliman-Wang paper"
+   ],
+   "proofSteps": [
+    "The authors reduce Thm. 1.2 to the construction of a triple (T-tilde, phi, rho) with certain properties, after establishing in their Sec. 2.5 the 'important and surprisingly delicate' result that an INCLUSION in Thm. 1.2 already implies EQUALITY.",
+    "The Galois-representation input is the Hilbert-modular construction of their Sec. 3 (Hecke algebra, cusp form and homomorphism, Galois representation) together with Ribet's lemma in their Sec. 2.7.",
+    "The Ritter-Weiss complex and its quadratic presentation are constructed in their Sec. 4, and a duality theorem for class formations in their Sec. 5.",
+    "Kurihara deduces his Thm. 2.12 from the keystone theorem (7), Fitt_{Z_p[G]^-}(nabla^{Sigma'}_Sigma(K)_{p,-}) = theta^{Sigma'}_{K/k,Sigma} Z_p[G]^-, proved by Dasgupta-Kakde for p > 2 and by Dasgupta-Kakde-Silliman-Wang for p = 2, by changing (Sigma,Sigma') to (S,T). He also notes that the minus part of the equivariant Tamagawa number conjecture for K/k implies Thm. 2.12."
+   ],
+   "acceptance": [
+    "Check the 2^t normalisation and the definition of t; a statement without it is not this theorem.",
+    "Check that Thm. 1.2 for p odd is the earlier result and that the new content is p = 2; the residually indistinguishable case that arises there is not covered by a theorem assuming distinct residual characters.",
+    "Check the Deligne-Ribet condition on T separately from (A1)-(A5).",
+    "Check that the inclusion-implies-equality step is a theorem (Sec. 2.5) and not a formality.",
+    "Check Kurihara's transpose argument: the two Fitting-ideal statements are equivalent via (A-transpose)^#, so proving one suffices; the sharp symbol is the involution and must be tracked."
+   ],
+   "sources": [
+    {
+     "sourceId": "dasgupta-kakde-silliman-wang-brumer-stark-over-Z",
+     "locator": "Sec. 1.2, Thm. 1.2 and (4), printed p. 5",
+     "excerpt": "Theorem 1.2. Under conditions (A1)-(A5), we have Fitt_{Z_p[G]^-}(nabla^{Sigma'}_Sigma(H)_{p,-}) = (Theta^{Sigma'}_Sigma/2^t), where t = #(S_infinity intersect Sigma'). Here Theta^{Sigma'}_Sigma/2^t denotes the unique element of Z_p[G]^- such that chi(Theta^{Sigma'}_Sigma/2^t) = L_{Sigma,Sigma'}(chi^{-1}, 0)/2^t (4) for all odd characters chi in G-hat.",
+     "match": "Gives the theorem with the explicit 2^t normalisation and the characterisation at odd characters."
+    },
+    {
+     "sourceId": "dasgupta-kakde-silliman-wang-brumer-stark-over-Z",
+     "locator": "Sec. 1.2, printed p. 5",
+     "excerpt": "The congruence of Deligne-Ribet [15, Corollary 8.9] together with the argument of Kurihara recalled in [11, Lemma 3.4] implies that there exists an element satisfying (4) in ((c-1)/2) Z_p[G]. The existence of Theta^{Sigma'}_Sigma/2^t in Z_p[G]^- follows. ... Theorem 1.2 was proven for p odd in [11], so it suffices to prove the result for p = 2.",
+     "match": "Records the integrality argument and that the new content is the case p = 2."
+    },
+    {
+     "sourceId": "dasgupta-kakde-silliman-wang-brumer-stark-over-Z",
+     "locator": "Sec. 1.1, Thm. 1.1, printed p. 3",
+     "excerpt": "Assume now that S contains the set S_infinity of real places and the set S_ram of finite primes ramifying in H. Assume that T satisfies the Deligne-Ribet condition ensuring the integrality of L_{S,T}(chi, 0), namely that T contains two primes of different residue characteristic, or one prime of residue characteristic larger than n + 1. Theorem 1.1 (Brumer-Stark Conjecture). Let p not in S union T be a prime of F that splits completely in H. Fix a prime P of H above p. There exists an element u in H^* satisfying the following. We have |u|_w = 1 for all places w of H not lying above p, including the complex places. We have sum_{sigma in G} chi(sigma) ord_{sigma^{-1}(P)}(u) = L_{S,T}(chi, 0) for all characters chi : G -> C^*. We have u congruent to 1 (mod q O_H) for all q in T.",
+     "match": "Gives the Brumer-Stark statement with the Deligne-Ribet condition and the explicit inclusion of the complex places."
+    },
+    {
+     "sourceId": "kurihara-class-groups-iwasawa-cm",
+     "locator": "Sec. 2.6, Thm. 2.12 with the following discussion, printed pp. 13-14",
+     "excerpt": "Theorem 2.12. (Dasgupta, Kakde, Silliman, Wang) Suppose that S contains S_ram(K/k) and (O^T_{K,S})^x is Z-torsion free. Then we have Fitt_{Z_p[G]^-}(nabla^T_S(K)_{p,-}) = theta^T_{K/k,S} Z_p[G]^-, and Fitt_{Z_p[G]^-}(Sel^T_S(K)_{p,-}) = (theta^T_{K/k,S})^# Z_p[G]^-. We first note that the two equations are equivalent. In fact, if A = (a_{ij}) is a relation matrix of nabla^T_S(K)_p as a Z_p[G]-module, (tA)^# = (a^#_{ji}) becomes a relation matrix of Sel^T_S(K)_p.",
+     "match": "Gives the (S,T) form with its two hypotheses and the transpose argument showing the two equations are equivalent."
+    },
+    {
+     "sourceId": "kurihara-class-groups-iwasawa-cm",
+     "locator": "Sec. 2.6, printed p. 14",
+     "excerpt": "The theorem which was proved by Dasgupta and Kakde in [8] Theorem 3.3 for p > 2, and by Dasgupta, Kakde, Silliman, and Wang in [10] Theorem 1.2 for p = 2, is Fitt_{Z_p[G]^-}(nabla^{Sigma'}_Sigma(K)_{p,-}) = theta^{Sigma'}_{K/k,Sigma} Z_p[G]^-, (7) which they called the keystone theorem. By the argument in the proof of Lemma 6 in [9], we can change (Sigma, Sigma') to (S, T) to get the first equation in Theorem 2.12.",
+     "match": "Records the keystone theorem, the split between the p > 2 and p = 2 sources, and that the change of sets is a separate argument."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralIwasawaTheory:I.8/compactly-supported-iwasawa-complex-and-the-selmer-comparison",
+   "parentStageId": "IntegralIwasawaTheory:I.8",
+   "title": "The complex RGamma_c(O_{F_infinity,S}, Z_p(1)) and Kurihara's Lemma 4.2",
+   "kind": "construction",
+   "statement": "Let k be totally real, F/k finite abelian and totally real, F_infinity/F cyclotomic, K = F(mu_{2p}), K_infinity = F_infinity(mu_{2p}) = F(mu_{p^infinity}), Delta = Gal(K_infinity/F_infinity) and Delta' = Gal(K/F) generated by the complex conjugation rho, so that K/F is quadratic after the normalising reduction F = K^+. For a Delta'-module M put M_- = M/(1+rho). Define Sel^T_S(K_infinity)_p as the projective limit of the Sel^T_S(K_n)_p along the norm maps, and Sel_S(K_infinity)_p similarly. There is a distinguished triangle RGamma_c(O_{K_infinity,S}, Z_p) -> RGamma_{c,T}(O_{K_infinity,S}, Z_p) -> (direct sum over w in T_{K_infinity} of Q_p/Z_p(1))^dual[-2] ->, whose first two complexes have second cohomology Sel_S(K_infinity)_p and Sel^T_S(K_infinity)_p and third cohomology (Q_p/Z_p(1))^dual and 0 respectively; hence there is an exact sequence (12) 0 -> Sel_S(K_infinity)_p -> Sel^T_S(K_infinity)_p -> direct sum over w in T_{K_infinity} of Z_p(-1) -> Z_p(-1) -> 0. LEMMA 4.2: (1) for p > 2 there is an isomorphism of Lambda_{F_infinity}-modules (Sel_S(K_infinity)_p)_-(1) = X_{F_infinity,S}; FOR p = 2 there is only a natural INJECTIVE homomorphism (Sel_S(K_infinity)_p)_-(1) -> X_{F_infinity,S} WHOSE COKERNEL IS OF ORDER 2. (2) Fitt_{Lambda_{F_infinity}}((Sel^T_S(K_infinity)_p)_-(1)) = (product over v in T of (1 - Frob_v)) g_{F_infinity/k,S} Lambda_{F_infinity}.",
+   "hypotheses": [
+    "S is taken to contain the archimedean places, the places over p and the ramified places, and T as in Kurihara's Thm. 2.12",
+    "the reduction to the case F = K^+ with K/F quadratic is legitimate because Gal(F_infinity/k) splits as a finite abelian group times Z_p, so one may choose F' with F_infinity = F' k_infinity and F' intersect k_infinity = k and replace F by F'; and because g_{M_infinity/k,S} is the image of g_{F_infinity/k,S} under restriction, so the equality descends to every intermediate field",
+    "the p = 2 statement is NOT an isomorphism: the cokernel is a finite group of order 2, equivalently there is a Z/2 kernel on the dual side. This is a FINITE Z/2 correction, not a free Z_2-module, and it must be carried through before any height-one localisation discards it",
+    "the p > 2 proof uses H^i(Delta', Q_p/Z_p) = 0 for i >= 1; at p = 2 one has instead H^1(Delta', Q_p/Z_p) = Z/2Z and H^2(Delta', Q_p/Z_p) = 0, which is exactly the source of the order-2 discrepancy",
+    "the Tate twist (1) in Lemma 4.2 is part of the statement; the identification is between (Sel_S)_-(1) and X_{F_infinity,S}, not between the untwisted modules"
+   ],
+   "proofSteps": [
+    "Proposition 2.11 identifies the Pontryagin dual of Sel_S(K_infinity)_p with H^1_et(O_{K_infinity,S}, Q_p/Z_p(1)) = H^1(Gal(L_S/K_infinity), Q_p/Z_p(1)) for L_S/K_infinity the maximal extension unramified outside S.",
+    "For p > 2, the minus part of that dual is H^1(Gal(L_S/K_infinity), Q_p/Z_p)^{rho = -1} = H^1(Gal(L_S/K_infinity), Q_p/Z_p)^{Delta'}(1) = H^1(Gal(L_S/F_infinity), Q_p/Z_p)(1) = Hom(X_{F_infinity,S}, Q_p/Z_p)(1), using H^i(Delta', Q_p/Z_p) = 0 for i >= 1; dualising again gives (1).",
+    "For p = 2 the same inflation-restriction argument leaves a Z/2, because H^1(Delta', Q_p/Z_p) = Z/2Z while H^2(Delta', Q_p/Z_p) = 0.",
+    "Part (2) follows from Thm. 2.12 together with the exact sequence (12) and the definition of g_{F_infinity/k,S} as the image of tau(theta^#_{K_infinity/k,S}) under the restriction Q(Lambda_{K_infinity}) -> Q(Lambda_{F_infinity})."
+   ],
+   "acceptance": [
+    "Check that the p = 2 statement of Lemma 4.2(1) is an injection with cokernel of order 2 and NOT an isomorphism; this is the finite correction the stage text insists on.",
+    "Check the exact sequence (12): it has FOUR terms and ends in Z_p(-1), not in zero after three terms.",
+    "Check the Tate twists in every comparison square, and the involution tau and sharp operation relating the CM Stickelberger element to the totally real pseudomeasure g_{F_infinity/k,S}.",
+    "Check the reduction to F = K^+: it uses both the splitting of Gal(F_infinity/k) and the compatibility of g under restriction."
+   ],
+   "sources": [
+    {
+     "sourceId": "kurihara-class-groups-iwasawa-cm",
+     "locator": "Sec. 4.2, printed pp. 23-24",
+     "excerpt": "Since Gal(F_infinity/k) is a direct product of a finite abelian group of order prime to p and a finitely generated Z_p-module of rank 1, it is a direct product of a finite abelian group and Z_p. Therefore, we can take a subfield F' contained in F_infinity such that F_infinity = F' k_infinity and F' intersect k_infinity = k where k_infinity/k is the cyclotomic Z_p-extension. ... If we prove the equality in Theorem 4.1 for F_infinity/k, then for any intermediate field M of F/k and its cyclotomic Z_p-extension M_infinity, we can get the equality in Theorem 4.1 for M_infinity/k since g_{M_infinity/k,S} is the image of g_{F_infinity/k,S} under the natural restriction map. Therefore, in order to prove Theorem 4.1, we may assume that F = K^+, the maximal totally real subfield of K.",
+     "match": "Gives the two reductions recorded in the hypotheses."
+    },
+    {
+     "sourceId": "kurihara-class-groups-iwasawa-cm",
+     "locator": "Sec. 4.2, the distinguished triangle and (12), printed p. 24",
+     "excerpt": "Proposition 2.4 (i) in [5] tells us that there is a distinguished triangle RGamma_c(O_{K_infinity,S}, Z_p) -> RGamma_{c,T}(O_{K_infinity,S}, Z_p) -> (direct sum over w in T_{K_infinity} of Q_p/Z_p(1))^dual[-2] ->. The second cohomology of the first two complexes are Sel_S(K_infinity)_p, Sel^T_S(K_infinity)_p, respectively ... and the third cohomology of them are (Q_p/Z_p(1))^dual, 0, respectively. It follows that we have an exact sequence 0 -> Sel_S(K_infinity)_p -> Sel^T_S(K_infinity)_p -> direct sum over w in T_{K_infinity} of Z_p(-1) -> Z_p(-1) -> 0. (12)",
+     "match": "Gives the triangle, the cohomology identifications and the four-term exact sequence (12)."
+    },
+    {
+     "sourceId": "kurihara-class-groups-iwasawa-cm",
+     "locator": "Sec. 4.2, Lemma 4.2, printed p. 24",
+     "excerpt": "Lemma 4.2. (1) We have an isomorphism (Sel_S(K_infinity)_p)_-(1) = X_{F_infinity,S} of Lambda_{F_infinity}-modules for p > 2 where (1) is the Tate twist. For p = 2, there is a natural injective homomorphism (Sel_S(K_infinity)_p)_-(1) -> X_{F_infinity,S} whose cokernel is of order 2. (2) We have Fitt_{Lambda_{F_infinity}}((Sel^T_S(K_infinity)_p)_-(1)) = (product over v in T of (1 - Frob_v)) g_{F_infinity/k,S} Lambda_{F_infinity}.",
+     "match": "Gives both parts, including the explicit order-2 cokernel at p = 2."
+    },
+    {
+     "sourceId": "kurihara-class-groups-iwasawa-cm",
+     "locator": "Sec. 4.2, proof of Lemma 4.2(1), printed pp. 24-25",
+     "excerpt": "For p = 2, we know H^1(Delta', Q_p/Z_p) = Z/2Z, and H^2(Delta', Q_p/Z_p) = 0. Therefore, the natural map from Hom(X_{F_infinity,S}, Q_p/Z_p) = H^1(Gal(L_S/F_infinity), Q_p/Z_p)",
+     "match": "Identifies the exact cohomological source of the order-2 discrepancy at p = 2."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralIwasawaTheory:I.9/equivariant-iwasawa-main-conjecture-including-p-equals-2",
+   "parentStageId": "IntegralIwasawaTheory:I.9",
+   "title": "Kurihara's equivariant Iwasawa main conjecture Det(RGamma_c)^{-1} = g Lambda, including p = 2",
+   "kind": "theorem",
+   "statement": "Let k be totally real, F/k finite abelian and totally real, F_infinity/F the cyclotomic Z_p-extension, and S a finite set of places containing the archimedean places, the places over p and the ramified places. Let Det denote the determinant functor from the category of perfect torsion complexes over Lambda_{F_infinity} to Q(Lambda_{F_infinity}), and let g_{F_infinity/k,S} be the image of tau(theta^#_{K_infinity/k,S}) under the restriction map Q(Lambda_{K_infinity}) -> Q(Lambda_{F_infinity}). THEOREM 4.1 (Equivariant Iwasawa Main Conjecture): Det(RGamma_c(O_{F_infinity,S}, Z_p(1)))^{-1} = g_{F_infinity/k,S} Lambda_{F_infinity}. The equality can equivalently be formulated using K-groups. THE THEOREM INCLUDES p = 2. The base k is an ARBITRARY totally real field and F = k is permitted; the statement is not restricted to fields abelian over Q.",
+   "hypotheses": [
+    "S contains S_infinity, the p-adic places and the ramified places; a different S changes both sides",
+    "the determinant is taken on the category of PERFECT TORSION complexes, so perfectness of RGamma_c(O_{F_infinity,S}, Z_p(1)) is part of the input (I.8)",
+    "the element g_{F_infinity/k,S} is obtained from the CM Stickelberger element theta_{K_infinity/k,S} by applying the sharp involution and the cyclotomic twist tau and then restricting; the involution and twist are part of the statement",
+    "the theorem holds at p = 2, where the comparison with the Selmer modules is only an injection with cokernel of order 2 (Lemma 4.2(1)); the proof must dispose of that finite correction",
+    "an equality of characters over a field of fractions is NOT this statement: the assertion is an equality of Lambda_{F_infinity}-modules, i.e. integral"
+   ],
+   "proofSteps": [
+    "Reduce to F = K^+ with K/F quadratic, using the splitting of Gal(F_infinity/k) and the compatibility of g under restriction (I.8).",
+    "Use the exact sequence (12) and Lemma 4.2(2) to compute the Fitting ideal of (Sel^T_S(K_infinity)_p)_-(1) in terms of g_{F_infinity/k,S} and the Euler factors at T.",
+    "Use Lemma 4.2(1) to pass to X_{F_infinity,S}; at p = 2 this step introduces the finite cokernel of order 2, which Kurihara disposes of because the relevant computation is at height one and the two sides differ by a finite module.",
+    "Since Theorem 4.1 is an equality of two invertible modules, it suffices to compare them after localisation at the relevant height-one primes; the exact sequence (12) and Lemma 4.2 show the two sides differ by a finite Lambda_{F_infinity}-module M, which is invisible after localisation.",
+    "Corollary 4.3 is then deduced from Theorem 4.1 by a standard argument."
+   ],
+   "acceptance": [
+    "Check that the finite Z/2 correction of Lemma 4.2(1) is carried through the argument and only then discarded at height one; treating it as a free Z_2-module, or ignoring it before localisation, would be an error.",
+    "Check that the base k is arbitrary totally real and that F = k is allowed; a statement restricted to abelian-over-Q fields is strictly weaker.",
+    "Check the involution and twist in the definition of g_{F_infinity/k,S}; a formulation without tau and the sharp operation is a different element.",
+    "Check the finite-level-to-Iwasawa transition and the descent back to Lambda_{F_infinity}: a characterwise identity over Q(Lambda_{F_infinity}) is not yet the integral statement."
+   ],
+   "sources": [
+    {
+     "sourceId": "kurihara-class-groups-iwasawa-cm",
+     "locator": "Sec. 4.1, Thm. 4.1, printed p. 23",
+     "excerpt": "We denote the determinant functor D^{perf}_{tors}(Lambda_{F_infinity}) -> Q(Lambda_{F_infinity}) by Det. Our formulation of the Equivariant Iwasawa Main Conjecture is as follows. Theorem 4.1. (Equivariant Iwasawa Main Conjecture) We have Det(RGamma_c(O_{F_infinity,S}, Z_p(1)))^{-1} = g_{F_infinity/k,S} Lambda_{F_infinity}. We can formulate this equality by using K-groups as in [31], [19].",
+     "match": "Gives the theorem with the determinant functor and the K-group reformulation."
+    },
+    {
+     "sourceId": "kurihara-class-groups-iwasawa-cm",
+     "locator": "Sec. 4.1, printed p. 23",
+     "excerpt": "so g_{F_infinity/k,S} is the image of tau(theta^#_{K_infinity/k,S}) under the restriction map Q(Lambda_{K_infinity}) -> Q(Lambda_{F_infinity}).",
+     "match": "Gives the definition of g via the sharp involution and the twist tau."
+    },
+    {
+     "sourceId": "kurihara-class-groups-iwasawa-cm",
+     "locator": "Sec. 4.2, printed p. 25",
+     "excerpt": "Now we prove Theorem 4.1. Since Theorem 4.1 is an equality of two [invertible modules] ... finite Lambda_{F_infinity}-module M. Therefore, the exact sequence (12) and Lemma 4.2 [give the equality] of Lambda_{F_infinity,p}-modules. Using Lemma 4.2 (2), we have ... the proof of Theorem 4.1.",
+     "match": "Gives the shape of the final argument: the two sides differ by a finite module, which is handled by localisation."
+    },
+    {
+     "sourceId": "kurihara-class-groups-iwasawa-cm",
+     "locator": "Abstract, printed p. 1",
+     "excerpt": "In particular, we give a simple proof of the Equivariant Iwasawa main conjecture including the case p = 2, using their keystone theorems due to Dasgupta and Kakde in [Annals of Math.197(2023),289-388] and due to Dasgupta, Kakde, Silliman and Wang in [arXiv:2310.16399].",
+     "match": "Confirms that the theorem includes p = 2 and identifies its two keystone inputs."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "IntegralIwasawaTheory:L1/four-term-class-field-theory-sequence-in-the-cyclotomic-tower",
+   "target": "IntegralIwasawaTheory:L3/vandiver-collapse-and-the-module-isomorphism",
+   "reason": "Theorem 13.11's proof consists of collapsing exactly the four-term sequence of Cor. 13.14 by substituting the two vanishing statements of Cor. 13.16; without that sequence there is nothing to collapse.",
+   "sources": [
+    {
+     "sourceId": "rodrigues-jacinto-williams-padic-L",
+     "locator": "Sec. 13.4, Cor. 13.14 and Cor. 13.16, printed p. 68"
+    }
+   ]
+  },
+  {
+   "source": "IntegralIwasawaTheory:L2/control-theorem-for-the-unramified-iwasawa-module",
+   "target": "IntegralIwasawaTheory:L3/vandiver-collapse-and-the-module-isomorphism",
+   "reason": "Cor. 13.16(i) derives Y_infinity^+ = 0 from the Vandiver hypothesis in two steps: first Y_1^+ = 0 via the class-group identification (13.2), then Y_infinity^+ = 0 by applying Prop. 13.15 at n = 0 together with Nakayama's lemma. The control statement is the load-bearing step.",
+   "sources": [
+    {
+     "sourceId": "rodrigues-jacinto-williams-padic-L",
+     "locator": "Sec. 13.4, proof of Cor. 13.16, printed p. 68"
+    }
+   ]
+  },
+  {
+   "source": "IntegralIwasawaTheory:I.6/ritter-weiss-modules-and-the-A1-A5-conditions",
+   "target": "IntegralIwasawaTheory:I.7/the-integral-fitting-ideal-theorem-and-brumer-stark",
+   "reason": "Theorem 1.2 computes the Fitting ideal of exactly the module nabla^{Sigma'}_Sigma(H)_{p,-} constructed at I.6, under exactly the conditions (A1)-(A5) imposed there, and the PRINCIPALITY of that Fitting ideal -- without which the equality with a single element could not even be stated -- is the quadratic-presentation consequence proved at I.6.",
+   "sources": [
+    {
+     "sourceId": "dasgupta-kakde-silliman-wang-brumer-stark-over-Z",
+     "locator": "Sec. 1.2, printed p. 5"
+    }
+   ]
+  },
+  {
+   "source": "IntegralIwasawaTheory:I.7/the-integral-fitting-ideal-theorem-and-brumer-stark",
+   "target": "IntegralIwasawaTheory:I.8/compactly-supported-iwasawa-complex-and-the-selmer-comparison",
+   "reason": "Lemma 4.2(2) computes Fitt_{Lambda}((Sel^T_S(K_infinity)_p)_-(1)) and Kurihara obtains it from Theorem 2.12 -- the (S,T) form of the Dasgupta-Kakde-Silliman-Wang keystone theorem -- applied at each finite layer and passed to the limit through the exact sequence (12). The finite-level Fitting-ideal theorem is therefore the analytic input to the Iwasawa-theoretic lemma.",
+   "sources": [
+    {
+     "sourceId": "kurihara-class-groups-iwasawa-cm",
+     "locator": "Sec. 4.2, Lemma 4.2(2) and the lines before it, printed pp. 24-25"
+    }
+   ]
+  },
+  {
+   "source": "IntegralIwasawaTheory:I.8/compactly-supported-iwasawa-complex-and-the-selmer-comparison",
+   "target": "IntegralIwasawaTheory:I.9/equivariant-iwasawa-main-conjecture-including-p-equals-2",
+   "reason": "Theorem 4.1 is proved by comparing Det(RGamma_c) with the Selmer modules through exactly Lemma 4.2 and the exact sequence (12): part (2) supplies the analytic side, part (1) identifies the arithmetic side with X_{F_infinity,S}, and at p = 2 part (1)'s order-2 cokernel is the finite correction that the height-one localisation discards. The complex itself, with its perfectness, is the object whose determinant is taken.",
+   "sources": [
+    {
+     "sourceId": "kurihara-class-groups-iwasawa-cm",
+     "locator": "Sec. 4.2, printed pp. 24-25"
+    }
+   ]
+  },
+  {
+   "source": "EulerSystemsCyclotomicMainConjecture:L3",
+   "target": "IntegralIwasawaTheory:L3/vandiver-collapse-and-the-module-isomorphism",
+   "reason": "The output supplied is the UNCONDITIONAL ideal equality ch_{Lambda(Gamma^+)}(X_infinity^+) = I(Gamma^+)_{zeta_p} (Rodrigues Jacinto-Williams Thm. 13.8), which in the chi-component packaging is Rubin Thm. III.2.10, char(Z_infinity^chi) = L_chi Lambda. The consuming node's point is precisely that Thm. 13.11's MODULE ISOMORPHISM is a strictly stronger statement available only under Vandiver, whereas the unconditional statement is the ideal equality owned by the cyclotomic Euler-system stage. The edge records the direction of that separation, which the IntegralIwasawaTheory:L3 stage text itself states ('The unconditional theorem is R08, and does not assume or prove that every prime is Vandiver'). The EXT-15 EulerSystemsCyclotomicMainConjecture packet decomposes the supplier side.",
+   "sources": [
+    {
+     "sourceId": "rodrigues-jacinto-williams-padic-L",
+     "locator": "Sec. 13.3-13.4, Thms. 13.8 and 13.11, printed p. 67"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "IntegralIwasawaTheory:I.1",
+   "status": "partial",
+   "remaining": [
+    "Only the Lambda(Gamma)-action by conjugation (Rodrigues Jacinto-Williams Remark 13.7: sigma . x = sigma-tilde x sigma-tilde^{-1} for any lift, well defined and extended by continuity because O_L[Gamma] is dense in Lambda(Gamma) and the latter is Hausdorff) and Kurihara's splitting Gal(F_infinity/k) = finite abelian x Z_p were read.",
+    "The construction of the cyclotomic Z_p-extension, its layers, decomposition and inertia groups and ramification outside p was not read from any source.",
+    "The generator-change formulas and the statement that the kernel of Lambda -> Z_p[Gamma/Gamma^{p^n}] is generated by (1+T)^{p^n} - 1 (and NOT by T^{p^n} or T^n) were not verified against a source.",
+    "The stage's warning that integral character idempotents need not exist when p divides the group order is CONSISTENT with what was read: Dasgupta-Kakde-Silliman-Wang work with the quotient Z[G]^- = Z[G]/(1+c) precisely to avoid idempotents at p = 2. That consistency is recorded, but the general statement was not sourced."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:I.2",
+   "status": "partial",
+   "remaining": [
+    "The distinction the stage insists on -- between the unramified class-group module and the module classifying extensions unramified outside S -- was verified in the sources read: Rodrigues Jacinto-Williams keep Y_infinity^+ (unramified) and X_infinity^+ (p-ramified) apart throughout Sec. 13, and Kurihara's X_{F_infinity,S} is the S-ramified module. But the construction of these inverse limits and their transition maps was not read.",
+    "The comparison of class-group and Galois descriptions by class field theory was read only in the two instances quoted at L1 and L3 ((13.2) and Prop. 13.13).",
+    "Weak Leopoldt in the cyclotomic tower -- which the stage says is a THEOREM TO PROVE HERE with its standard hypotheses -- was not read. Rubin records it as Remark II.3.5 (the assertion that X_infinity is Lambda-torsion is called the weak Leopoldt conjecture for T) but that is a different setting.",
+    "The exact sequences involving local units, global units and ramification modules were read only in the specific form of Prop. 13.13."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:I.3",
+   "status": "not_read",
+   "remaining": [
+    "Nothing on p-adic zeta functions and interpolation was read for this stage. The natural sources are Deligne-Ribet and Rodrigues Jacinto-Williams Secs. 10-12; neither was read.",
+    "The Deligne-Ribet congruence IS used in the sources read (Dasgupta-Kakde-Silliman-Wang cite Deligne-Ribet Cor. 8.9 for the integrality of Theta/2^t, and the Deligne-Ribet condition on T appears in their Thm. 1.1), but the construction and interpolation property of the p-adic zeta function were not inspected.",
+    "The Deligne-Ribet pseudomeasure, which the I.8 stage text asks to relate to the CM Stickelberger element, was not read."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:I.4",
+   "status": "not_read",
+   "remaining": [
+    "Nothing on specialisation and Euler characteristics was read.",
+    "The I.9 and I.10 stage texts both warn that a correction invisible after height-one localisation can affect an arithmetic specialisation, and this packet's I.9 node records exactly such a correction (the order-2 cokernel of Kurihara Lemma 4.2(1)). Recovering the finite-level correction before applying I.4 is therefore a concrete, identified task -- but it was not carried out."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:I.5",
+   "status": "not_read",
+   "remaining": [
+    "Mazur-Wiles, 'Class fields of abelian extensions of Q', IS present in the library (ADD_MazurWiles_AbelianExtensions.pdf, sha256 4cb3aa50...) but has NO TEXT LAYER: pdftotext yields only the GDZ front matter. It could not be read.",
+    "Wiles, 'The Iwasawa conjecture for totally real fields', is ABSENT: CATALOGUE.json record ADD_Wiles_TotallyRealIwasawa has status 'acquisition_failed' and no resolved file.",
+    "PARTIAL SUBSTITUTE, recorded for the integrator: the EXT-15 EulerSystemsCyclotomicMainConjecture packet decomposes Rubin's Euler-system proof of the abelian-Q main conjecture (Thm. III.2.10 and Cor. III.2.4, the latter attributed to Mazur-Wiles Thm. 1.10.1), so the abelian-Q half of this stage has a source-decomposed route THROUGH A DIFFERENT PROOF. The Hecke-algebra/Eisenstein-ideal proof programme that the stage text actually asks for was not read at all.",
+    "The endpoint the stage says is consumed downstream -- an equality of finite arithmetic Euler characteristics and the p-adic valuation of zeta_F(-1) -- was not located in any source read."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:I.6",
+   "status": "partial",
+   "remaining": [
+    "Dasgupta-Kakde-Silliman-Wang Sec. 4 (the construction of the Ritter-Weiss complex, its global and local pieces, the quadratic presentation of Sec. 4.5, the comparison nabla^T_S(H) with Galois cohomology in Sec. 4.6, and the Fitting-ideals-and-transposes material of Sec. 4.7) was NOT read; only the output described in the introduction.",
+    "Their Sec. 5 (the duality theorem for class formations, both the finite-G and profinite-G versions, and functoriality) was not read.",
+    "The equivariant Artin L-functions, their S- and T-modifications and the integral Stickelberger elements were not constructed from a source; only the characterisation (4) of Theta^{Sigma'}_Sigma/2^t at odd characters was read.",
+    "The stage asks that the finitely-generated and finite-presentation hypotheses required by Kurihara's finite-level theorems be proved here; those hypotheses were not located."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:I.7",
+   "status": "partial",
+   "remaining": [
+    "The PROOF of Dasgupta-Kakde-Silliman-Wang Thm. 1.2 was not read: their Sec. 2.5 (inclusion implies equality), Sec. 2.7 (Ribet's lemma), Sec. 3 (Hecke algebra, cusp form and homomorphism, Galois representation) and the reduction to the triple (T-tilde, phi, rho) were all only seen in the table of contents and the introduction's outline.",
+    "Dasgupta-Kakde's odd-prime paper was extracted for this job (5402 lines) but NOT read; the stage text insists the odd-prime result and the integral refinement have DISTINCT proof obligations, and that distinction has not been decomposed here.",
+    "The generalised Ribet lemma for residually INDISTINGUISHABLE characters -- which the stage says is essential at p = 2 and is not an application of a theorem assuming distinct residual characters -- was not read.",
+    "The passage from (Sigma, Sigma') to (S,T), which Kurihara attributes to the proof of Lemma 6 of a further Dasgupta-Kakde-Silliman-Wang paper, was not read.",
+    "Kurihara's Thm. 2.12 was read as a statement with its equivalence argument; his Sec. 2.1-2.5 (the definitions of nabla^T_S, Sel^T_S and theta^T) were not."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:I.8",
+   "status": "partial",
+   "remaining": [
+    "Kurihara's Sec. 2 (in particular Prop. 2.11, identifying the Pontryagin dual of Sel_S(K_infinity)_p with etale cohomology, and the definitions of the Selmer modules) was not read.",
+    "The reference [5] (Burns-Kurihara-Sano or similar), from which Prop. 2.4(i) and (iii) are quoted for the distinguished triangle and the cohomology identifications, was not read.",
+    "The perfectness of RGamma_c(O_{F_infinity,S}, Z_p(1)), its derived inverse-limit description and the identification of its cohomology with the S-ramified Iwasawa module in degree two and Z_p in degree three -- which the stage asks for 'in the exact form of Kurihara Sec. 4' -- were read only through Lemma 4.2 and the sequence (12), not established.",
+    "The relation between the CM Stickelberger element and the totally real Deligne-Ribet pseudomeasure was read only as the definition of g_{F_infinity/k,S} via tau and the sharp involution; the pseudomeasure itself was not inspected.",
+    "The p = 2 proof of Lemma 4.2(1) was read only to the point where the Z/2 enters; its completion was not read."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:I.9",
+   "status": "partial",
+   "remaining": [
+    "The final steps of the proof of Kurihara Thm. 4.1 (printed p. 25) were read only in outline; the display showing that the two sides differ by a finite Lambda-module was partially legible in the extraction.",
+    "Corollary 4.3 and Sec. 5 (Thm. 5.1 and the finite-level consequences) were not read.",
+    "The localisation at ALL relevant height-one primes and the descent back to the integral coefficient ring, which the stage asks for explicitly, were not verified step by step.",
+    "The determinant/Fitting comparison was read only through Lemma 4.2(2)."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:I.10",
+   "status": "not_read",
+   "remaining": [
+    "Nothing on the comparison with the classical formulations was read. Kolster, 'A relation between the 2-primary parts of the main conjecture and the Birch-Tate conjecture', IS present in the library (KI_Kolster_BirchTate_1989.pdf) and was NOT read.",
+    "The nonequivariant characteristic-ideal statements, including the (gamma - 1) g factor at the trivial character, were not derived.",
+    "The agreement of twists, duality, omitted primes, finite modules and real-place conventions -- which the stage says is a SUBSTANTIVE comparison theorem and not a change of terminology -- was not attempted."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:KU-allmain",
+   "status": "not_read",
+   "remaining": [
+    "This aggregate stage was not worked. Its two named inputs I.8 and I.9 are partially decomposed in this packet; its other inputs (KU-brumerstark, KU-iwasawamodules, MotivicEtaleKTheory:KU-duality) were not.",
+    "Next action: complete I.8 and I.9 (Kurihara Secs. 2 and 4 in full) and then assemble."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:KU-brumerstark",
+   "status": "not_read",
+   "remaining": [
+    "This aggregate stage was not worked. Its inputs I.6 and I.7 are partially decomposed here; AutomorphicPadicLFunctions:KU-hilberteisenstein and KU-iwasawamodules were not inspected.",
+    "The Ritter-Weiss and generalised Ribet components named in the stage title are precisely the unread parts of I.6 and I.7 recorded above."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:KU-iwasawamodules",
+   "status": "not_read",
+   "remaining": [
+    "This aggregate stage was not worked. It has ten declared prerequisites spanning four other roadmaps, none of which was inspected in this packet."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:KU-maincomparison",
+   "status": "not_read",
+   "remaining": [
+    "This aggregate stage was not worked. It depends on I.10, which is itself not_read, and on KU-allmain.",
+    "The p = 2 comparison it names is exactly where this packet's I.8/I.9 nodes record the order-2 correction of Kurihara Lemma 4.2(1); that correction is the concrete object such a comparison would have to track."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:KU-oddmain",
+   "status": "not_read",
+   "remaining": [
+    "This aggregate stage was not worked. It depends on I.5 (not_read, sources unavailable) and KU-iwasawamodules (not_read)."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:L0",
+   "status": "not_read",
+   "remaining": [
+    "Nothing on the global cyclotomic index formula was read. Rodrigues Jacinto-Williams Thm. 11.7 -- the index formula [O^x_{Q(mu_{p^n})} : D_n] = [O^x_{Q(mu_{p^n})^+} : D_n^+] = h_n^+ that the stage names as its target -- was NOT read; only its USE in their Cor. 13.16(iii) was seen.",
+    "The regulator determinant calculation for cyclotomic units via Gauss sums and the complex L(chi,1) formula was not read.",
+    "The variants and correction factors for general abelian fields (as opposed to prime-power conductor) were not inspected.",
+    "The source IS present and extracted; Sec. 11 is the next read."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:L1",
+   "status": "partial",
+   "remaining": [
+    "Rodrigues Jacinto-Williams Sec. 13.1-13.2 (the construction of the fields L_n, M_n, the modules X_infinity, Y_infinity and the ideal I(Gamma^+)_{zeta_p}) was not read; only Remark 13.7 and Sec. 13.4 were.",
+    "The ray-class reciprocity giving the finite-level sequence (13.1) is quoted from Washington Cor. 13.6 and was not read.",
+    "The stage asks that all closures and principal-unit restrictions agree with the Coleman-map owner's conventions; that comparison was not made.",
+    "The universal property of each maximal abelian pro-p extension with its ramification condition, and the composita needed to identify the Galois groups, were not constructed."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:L2",
+   "status": "partial",
+   "remaining": [
+    "Only the control statement Prop. 13.15 and its use in Cor. 13.16 were read. Its proof (Rodrigues Jacinto-Williams Appendix A, Prop. A.6) was NOT read.",
+    "The decomposition of the Galois group using inertia, the computation of its closed commutator subgroup, and the isomorphism Y_n = Y_infinity/((gamma^{p^n} - 1) Y_infinity) were not read.",
+    "The growth formula v_p(#Cl(F_n)) = mu p^n + lambda n + nu for n large, with mu, lambda >= 0 and nu an INTEGER (possibly negative), was not read.",
+    "The extension to an arbitrary Z_p-extension, with eventual ramification control and the inertia-generated correction modules, was not read; the stage warns that the exact one-prime control formula must NOT be retained in the general theorem."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:L3",
+   "status": "partial",
+   "remaining": [
+    "The Coleman-map computation identifying U^+_{infinity,1}/C^+_{infinity,1} with Z_p[[G^+]]/(I(G^+) zeta_p) (their Thm. 12.23) was NOT read; it belongs to the Coleman-map owner and is the second half of the collapse.",
+    "The completion of the proof of Cor. 13.16(iii) (the claim after 'We claim') was not read.",
+    "The 'standard isotypic formulations with their Tate twists and involutions' that the stage asks for as PROVED comparisons were not established.",
+    "Note recorded for the integrator: this packet's L3 node states explicitly that Thm. 13.11's module isomorphism is conditional on Vandiver and that the unconditional statement is the ideal equality Thm. 13.8, which is exactly what the stage text requires."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:L4",
+   "status": "not_read",
+   "remaining": [
+    "Nothing on abelian Leopoldt or Ferrero-Washington was read. Ferrero-Washington is ABSENT from the library: CATALOGUE.json record FerreroWashington_Mu has no resolved file. Washington's book, which contains the Sec. 7.5 proof the stage names, is also absent (record Washington_CyclotomicFields2, no resolved file).",
+    "The Baker-Brumer p-adic logarithmic linear-independence theorem and its auxiliary-polynomial argument were not read. Rodrigues Jacinto-Williams quote Brumer's theorem for Leopoldt in the cyclotomic case (Def. 13.12) but do not prove it.",
+    "Greenberg's Conjecture A.15 was not read.",
+    "IMPORTANT CONSISTENCY CHECK PERFORMED: the stage warns that a transfer of the mu-invariant using the main conjecture must NOT enter the proof of the main conjecture itself. In Greither's proof (decomposed in the EXT-15 EulerSystemsCyclotomicMainConjecture packet) mu = 0 is used as an INPUT to discard accumulated factors, i.e. in the direction the stage permits. No circularity was found in the sources read."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Mazur-Wiles has no text layer and Wiles's totally real paper is absent; I.5 has no readable primary source",
+   "neededBy": [
+    "IntegralIwasawaTheory:I.5",
+    "IntegralIwasawaTheory:KU-oddmain"
+   ],
+   "detail": "Verified by inspection of the library: ADD_MazurWiles_AbelianExtensions.pdf is registered (id MazurWiles_AbelianExtensions, sha256 4cb3aa5017548e342a221724c3c5d38c3f19721053ccbbdd8a20bb3e0ba463d9, 14.7 MB) but pdftotext produces ONLY the Goettingen GDZ front matter -- it is a scan with no OCR layer. Wiles, 'The Iwasawa conjecture for totally real fields', is registered as ADD_Wiles_TotallyRealIwasawa with status 'acquisition_failed' and NO resolved file (the catalogue records only a JSTOR URL). CONSEQUENCE: the Hecke-algebra/Eisenstein-ideal proof programme that stage I.5 asks for has no readable source in this library, and nothing about it has been verified here. PARTIAL MITIGATION: the EXT-15 EulerSystemsCyclotomicMainConjecture packet decomposes Rubin's Euler-system route to the SAME abelian-Q endpoint (Cor. III.2.4 is attributed there to Mazur-Wiles Thm. 1.10.1, and Thm. III.2.10 gives the Iwasawa statement), so the abelian-Q theorem is source-decomposed via a different proof. Next source action: OCR the Mazur-Wiles scan, and ACQUIRE Wiles, Ann. of Math. 131 (1990), 493-540."
+  },
+  {
+   "title": "The Ritter-Weiss construction and the modular-forms input to the Brumer-Stark theorem are unread",
+   "neededBy": [
+    "IntegralIwasawaTheory:I.6/ritter-weiss-modules-and-the-A1-A5-conditions",
+    "IntegralIwasawaTheory:I.7/the-integral-fitting-ideal-theorem-and-brumer-stark"
+   ],
+   "detail": "Verified: conditions (A1)-(A5), the defining short exact sequence for nabla^{Sigma'}_Sigma(H), the minus construction as a QUOTIENT Z[G]/(1+c), the quadratic-presentation and principality statement, Thm. 1.2 with the explicit 2^t normalisation and its characterisation at odd characters, the Deligne-Ribet/Kurihara integrality argument, Thm. 1.1 (Brumer-Stark) with the Deligne-Ribet condition on T and the inclusion of the complex places, and Kurihara's Thm. 2.12 with its transpose-equivalence argument. NOT verified: any proof. In particular Dasgupta-Kakde-Silliman-Wang Sec. 2.5 ('the important and surprisingly delicate result that an inclusion in Theorem 1.2 [implies] equality'), Sec. 2.7 (Ribet's lemma, including the residually INDISTINGUISHABLE case that the atlas says is essential at p = 2), Sec. 3 (the Hilbert-modular Hecke algebra, cusp form and Galois representation) and Secs. 4-5 (the Ritter-Weiss complex and the duality theorem for class formations). Dasgupta-Kakde's odd-prime paper was also extracted (5402 lines) but not read, so the DISTINCT proof obligations of the odd-prime and the integral cases have not been separated. Both sources are present. Next source action: read Dasgupta-Kakde-Silliman-Wang Secs. 2.5 and 2.7 first, since those are the two steps the atlas singles out."
+  },
+  {
+   "title": "The p = 2 finite correction in Kurihara Lemma 4.2(1) is recorded but its disposal is only partly read",
+   "neededBy": [
+    "IntegralIwasawaTheory:I.8/compactly-supported-iwasawa-complex-and-the-selmer-comparison",
+    "IntegralIwasawaTheory:I.9/equivariant-iwasawa-main-conjecture-including-p-equals-2",
+    "IntegralIwasawaTheory:KU-maincomparison"
+   ],
+   "detail": "Verified: that for p > 2 Lemma 4.2(1) is an ISOMORPHISM (Sel_S(K_infinity)_p)_-(1) = X_{F_infinity,S}, that for p = 2 it is only an INJECTION with cokernel of ORDER 2, and that the cohomological source of the discrepancy is H^1(Delta', Q_p/Z_p) = Z/2Z with H^2(Delta', Q_p/Z_p) = 0 (against the vanishing of all H^i, i >= 1, for p odd). Verified: that the proof of Thm. 4.1 disposes of the discrepancy because the two sides differ by a FINITE Lambda-module, invisible after localisation at height one. NOT verified in detail: the completion of the p = 2 case of Lemma 4.2(1)'s proof (the extraction becomes partially illegible there), and the exact height-one localisation argument in the final page of Sec. 4.2. This matters because stage I.10 warns that 'a correction invisible after height-one localisation can affect an arithmetic specialisation'. Next source action: read Kurihara pp. 24-26 from a clean copy and record the finite-level form of the correction."
+  },
+  {
+   "title": "Ferrero-Washington and Washington's book are absent from the library",
+   "neededBy": [
+    "IntegralIwasawaTheory:L4",
+    "EulerSystemsCyclotomicMainConjecture:L4"
+   ],
+   "detail": "Verified by searching CATALOGUE.json: FerreroWashington_Mu ('The Iwasawa invariant mu_p vanishes for abelian number fields') and Washington_CyclotomicFields2 ('Introduction to Cyclotomic Fields, 2nd edition (1997)') both exist as catalogue records with NO resolved local file. CONSEQUENCE: stage L4's two named deliverables -- the Ferrero-Washington theorem following the primary proof or Washington Sec. 7.5, and abelian Leopoldt with its Baker-Brumer input -- have no readable source here. Greither's proof (decomposed in the sibling EXT-15 packet) USES mu = 0 as an input, and the EXT-15 EulerSystemsCyclotomicMainConjecture packet separately needs Washington for the f(T,psi) normalisation dictionary, so this single acquisition unblocks two stages in two different roadmaps. ACQUISITION REQUEST: Washington, Introduction to Cyclotomic Fields, 2nd ed., and Ferrero-Washington, Ann. of Math. 109 (1979), 377-395. CIRCULARITY CHECK PERFORMED: the stage warns against deriving mu = 0 from the main conjecture being proved; in Greither's argument mu = 0 is an input used to discard accumulated factors, which is the permitted direction. No circularity was found."
+  },
+  {
+   "title": "Kolster's 2-primary comparison and the Birch-Tate endpoint are unread",
+   "neededBy": [
+    "IntegralIwasawaTheory:I.10",
+    "IntegralIwasawaTheory:KU-maincomparison"
+   ],
+   "detail": "Nothing about the comparison between the equivariant determinant statement and the classical formulation used in the implication from the 2-primary main conjecture to Birch-Tate has been verified. The source IS present: KI_Kolster_BirchTate_1989.pdf is registered in CATALOGUE.json (id Kolster_BirchTate_1989, 'A relation between the 2-primary parts of the main conjecture and the Birch-Tate conjecture'). It was NOT read, and no text extraction of it was made for this job. The stage text is explicit that this is a substantive comparison theorem, requiring agreement of twists, duality, omitted primes, finite modules and real-place conventions, and that the degree-two weight-two finite-group equality must be exported with all factors visible. Next source action: extract and read Kolster's paper, then match its conventions against Kurihara Thm. 4.1."
+  },
+  {
+   "title": "Five aggregate KU stages were not worked at all",
+   "neededBy": [
+    "IntegralIwasawaTheory:KU-allmain",
+    "IntegralIwasawaTheory:KU-brumerstark",
+    "IntegralIwasawaTheory:KU-iwasawamodules",
+    "IntegralIwasawaTheory:KU-maincomparison",
+    "IntegralIwasawaTheory:KU-oddmain"
+   ],
+   "detail": "This is a scope report rather than a mathematical gap. The five KU-prefixed stages of IntegralIwasawaTheory are aggregation points whose declared prerequisites span ArithmeticGaloisDuality, ArithmeticKTheory, MotivicEtaleKTheory, PadicMeasuresIwasawaAlgebras, SelmerIwasawaCohomology, StableHomotopyKTheory, AutomorphicPadicLFunctions and SpecialValuesBirchTate -- eight roadmaps, none of which is assigned to EXT-15. Nothing about them has been verified here and no node is proposed under any of them. They are marked not_read in coverage with their unread inputs named. Next action for the integrator: these stages should be decomposed only after their cross-roadmap suppliers have been, since their content is precisely the assembly of those suppliers' outputs."
+  }
+ ]
+}

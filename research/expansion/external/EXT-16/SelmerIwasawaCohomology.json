@@ -1,0 +1,723 @@
+{
+ "roadmapId": "SelmerIwasawaCohomology",
+ "status": "partial",
+ "summary": "Source decomposition from three primary sources read directly: Rubin's Euler Systems author draft (Ch. I Sections 2, 3.1, 5, 7 and all of Appendix B), Nekovar's Selmer complexes (Asterisque 310) INTRODUCTION Sections 0.8-0.13 only, and Rodrigues Jacinto-Williams Sec. 13.5 read in full. Four points are recorded. (1) THE KUMMER IDENTIFICATION IS A COMPLETION: Rubin Example 2.1 writes H^1(K,Z_p(1)) = inverse limit of K^x/(K^x)^{p^n} = K^x COMPLETED-tensor Z_p, and the inverse-limit step is Prop. B.2.3, which needs finiteness of H^0(K, mu_{p^n}); this is exactly the stage's warning against replacing the completion by an algebraic tensor product. (2) THE LONG EXACT SEQUENCE IN CONTINUOUS COHOMOLOGY IS CONDITIONAL on the existence of a continuous set-theoretic section, and Rubin states the three coefficient situations in which he uses it. Relatedly, Nekovar states that no satisfactory general Hochschild-Serre formalism for continuous cohomology exists, and defines his unramified local conditions by explicit formulas instead. (3) THE SELMER COMPLEX IS A MAPPING FIBRE AND ITS COHOMOLOGY DOES NOT INJECT into global cohomology; Nekovar's worked ordinary-elliptic-curve comparison exhibits the extra term H^0(G_p,T^-), which detects a trivial zero, and a finite error group C whose order at each v is the local Tamagawa factor. Nekovar also restricts to Greenberg's local conditions because 'the general case would require a heavy dose of crystalline machinery, which is not yet available'. (4) THE IWASAWA IDENTIFICATION CARRIES A TWIST AND AN INVOLUTION: RGamma_Iw = RGamma_cont(G_{K,S}, (T tensor R(Gamma))<-1>), the degeneration of the Ext spectral sequences holds only modulo pseudo-null modules, and the Iwasawa Selmer-complex duality needs the hypothesis that no prime of Sigma_f splits completely in K_infinity/K. For L4, Greenberg's Conjecture 13.21 is recorded with its ordinarity hypothesis, its separate corank and characteristic-ideal assertions, the conditionality of the latter on r_V = r_{V-dual} = 0, and RJW's Remark 13.23 showing the case n = 0 is not covered. All five stages are partial. Only the introduction of Nekovar was read; Rubin Ch. I Sections 3.2-4 and RJW Sec. 10.5 remain unread; Poitou-Tate, local Tate duality, Greenberg's and Coates-Perrin-Riou's papers, Coates-Sujatha and a determinant-of-a-complex source are all absent from the supplied library.",
+ "sources": [
+  {
+   "id": "rubin-euler-systems-draft",
+   "title": "Euler Systems (author course draft)",
+   "authors": "Karl Rubin",
+   "edition": "Author draft of the Annals of Mathematics Studies 147 book, distributed via the Southwestern Center notes page (inspected 2026-09-16)",
+   "url": "https://swc-math.github.io/notes/files/99RubinES.pdf",
+   "sha256": "de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50",
+   "readSections": [
+    "Ch. I Sec. 2, printed p. 3: Example 2.1 (the Kummer computations) and Lemma 2.2 with proof",
+    "Ch. I Sec. 3.1, printed pp. 4-5: Definition 3.1 (unramified cohomology), Lemma 3.2 with proof, Corollary 3.3",
+    "Ch. I Sec. 5, printed pp. 11-12: Definition 5.1 (the Selmer groups S^Sigma and S_Sigma), Remark 5.2, Lemma 5.3 with proof, Lemma 5.4 with proof, Remark 5.5",
+    "Ch. I Sec. 7, printed pp. 17-18: Remark 7.1 (orthogonality of Bloch-Kato subspaces under potential semistability), Theorem 7.3 (Poitou-Tate) with the start of its proof",
+    "Appendix B, printed pp. 151-154: Proposition 1.1, Definition 2.1, Remark 2.2, Propositions 2.3, 2.4, 2.5 with proof, Remark 2.6, Proposition 2.7, Lemma 2.8 with proof, Lemma 3.1 with proof"
+   ]
+  },
+  {
+   "id": "nekovar-selmer-complexes",
+   "title": "Selmer complexes",
+   "authors": "Jan Nekovar",
+   "edition": "Asterisque 310 (2006) (Numdam scan, inspected 2026-09-16)",
+   "url": "https://www.numdam.org/item/AST_2006__310__R1_0.pdf",
+   "sha256": "61c84e5ad3252a2e520747215ac57a282addc2b58c824a3637bcd77bbe02153f",
+   "readSections": [
+    "Introduction Sec. 0.8, printed pp. 9-10: 0.8.0 (the definition of the Selmer complex as a total complex, the exact triangle and the long exact sequence (0.8.0.1)) and 0.8.1 (Greenberg's local conditions and the unramified conditions defined by explicit formulas)",
+    "Introduction Sec. 0.9, printed pp. 10-11: the orthogonality constraint on local conditions, the Pontryagin-duality pairs (0.9.1) and the incompleteness of the duality diagram (0.9.2)",
+    "Introduction Sec. 0.10, printed p. 12: the comparison with classical Selmer groups for an ordinary elliptic curve, the exact sequence with H^0(G_p, T^-) and the finite group C, and the trivial-zero interpretation",
+    "Introduction Sec. 0.11-0.13, printed pp. 13-15: the Iwasawa algebra R(Gamma), the tautological character, the involution iota, the twists M<n> and M^iota, the Shapiro identification of RGamma_Iw, the duality diagram (0.12.1)-(0.12.2), the spectral sequences (0.12.3), pseudo-nullity and the degeneration, and the hypothesis that no prime of Sigma_f splits completely in K_infinity/K",
+    "Table of contents, printed pp. iii-vi (used only for section page numbers)"
+   ]
+  },
+  {
+   "id": "rjw-padic-l-functions",
+   "title": "An introduction to p-adic L-functions",
+   "authors": "Joaquin Rodrigues Jacinto; Chris Williams",
+   "edition": "arXiv:2309.15692v2, 19 December 2024 (inspected 2026-09-16)",
+   "url": "https://arxiv.org/pdf/2309.15692v2",
+   "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
+   "readSections": [
+    "Sec. 13.5, printed pp. 69-72: Definition 13.18 with its footnote defining unramified cohomology, Definition 13.19 (Greenberg and Bloch-Kato local conditions), Remark 13.20, Sec. 13.5.2 (the reinterpretation of X_infinity^+ as a Greenberg Selmer group) in full, Sec. 13.5.3, Conjecture 13.21, Example 13.22, Remark 13.23 and Remark 13.24"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "SelmerIwasawaCohomology:L0/continuous-cochain-cohomology-and-its-long-exact-sequences",
+   "parentStageId": "SelmerIwasawaCohomology:L0",
+   "title": "Tate's continuous cochain cohomology and the exactness hypothesis",
+   "kind": "definition",
+   "statement": "For G profinite and T a topological G-module, set C^i(G,T) = Maps(G^i, T) (continuous maps, compact-open topology) with the usual coboundaries, and H^i(G,T) = ker d^i / im d^{i-1}. A short exact sequence 0 -> T' -> T -> T'' -> 0 gives a short exact sequence of cochain complexes, and hence a long exact cohomology sequence, PROVIDED there is a continuous set-theoretic section T'' -> T. Such a section exists when T'' is topologically discrete (equivalently when T' is open in T), and when T is a finitely generated Z_p-module or a finite-dimensional Q_p-vector space with its usual topology.",
+   "hypotheses": [
+    "The cochains are continuous MAPS, not necessarily homomorphisms; this is Tate's definition and differs from the naive derived-functor definition",
+    "The long exact sequence is NOT automatic: it requires a continuous set-theoretic section of T -> T''. Rubin states explicitly that the three listed situations are the only ones in which he uses these groups",
+    "No claim is made for arbitrary topological G-modules"
+   ],
+   "proofSteps": [
+    "Define C^i(G,T) with the compact-open topology and the usual coboundary formulas.",
+    "Given a continuous section of T -> T'', the sequence of cochain groups is exact in each degree, because a continuous cochain into T'' lifts by composing with the section.",
+    "Take the long exact sequence of the resulting short exact sequence of complexes.",
+    "Verify the section exists in the three listed cases."
+   ],
+   "acceptance": [
+    "Exhibit a short exact sequence of topological G-modules with no continuous section and check the long exact sequence fails",
+    "Check the definition agrees with the usual profinite group cohomology for discrete torsion T",
+    "Check H^1(K, Q_p/Z_p) = Hom(G_K, Q_p/Z_p) and H^1(K, Z_p) = Hom(G_K, Z_p)"
+   ],
+   "sources": [
+    {
+     "sourceId": "rubin-euler-systems-draft",
+     "locator": "Appendix B, Definition 2.1 and Remark 2.2, printed pp. 151-152",
+     "excerpt": "If 0 -> T' -> T -> T'' -> 0 is an exact sequence and if there is a continuous section (again a set map, not necessarily a homomorphism) from T'' -> T, then 0 -> C^i(G,T') -> C^i(G,T) -> C^i(G,T'') -> 0 is exact for every i and there is a long exact sequence",
+     "match": "The hypothesis that makes the long exact sequence available; this is the 'correct cohomological hypotheses and topologies' the stage insists on."
+    },
+    {
+     "sourceId": "rubin-euler-systems-draft",
+     "locator": "Appendix B, Remark 2.2, printed p. 152",
+     "excerpt": "when T is a finitely generated Z_p-module, or a finite-dimensional Q_p-vector space, with the usual topology, there is a continuous section. These are the only situations in which we will use these cohomology groups.",
+     "match": "Delimits exactly the coefficient categories in which the source's statements are valid."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L0/inverse-limit-and-rationalization-comparisons-for-continuous-cohomology",
+   "parentStageId": "SelmerIwasawaCohomology:L0",
+   "title": "Comparison of continuous cohomology with inverse limits and with rationalization",
+   "kind": "lemma",
+   "statement": "(i) If T = inverse limit of T_n with each T_n finite discrete and i > 0, and if H^{i-1}(G,T_n) is finite for every n, then H^i(G,T) = inverse limit of H^i(G,T_n). (ii) If T is a finitely generated Z_p-module then H^i(G,T) has no divisible elements and H^i(G,T) tensor Q_p -> H^i(G, T tensor Q_p) is an isomorphism. (iii) Inflation-restriction is exact in low degrees, and under the finiteness hypothesis that H^1 and H^2 of G and H^1 of H are finite on all modules of finite p-power order, the five-term Hochschild-Serre sequence extends to 0 -> H^1(G/H, T^H) -> H^1(G,T) -> H^1(H,T)^{G/H} -> H^2(G/H, T^H) -> H^2(G,T) for T discrete, or finitely generated over Z_p, or a finite-dimensional Q_p-vector space.",
+   "hypotheses": [
+    "(i) requires the finiteness of H^{i-1}(G,T_n) for EVERY n; this is the exactness-of-inverse-limits input and is exactly the hypothesis the stage asks to record per tower",
+    "(iii) requires the finiteness hypothesis on H^1 and H^2 of G and H^1 of H; Rubin's Remark 2.6 notes this holds whenever the pro-p part of G is topologically finitely generated",
+    "The extended Hochschild-Serre sequence is NOT proved in general: it is proved for T/p^n T (discrete) and then obtained by an inverse limit using (i), which is where the finiteness is used again"
+   ],
+   "proofSteps": [
+    "(iii) For T discrete the sequence is standard. For T finitely generated over Z_p, apply the discrete case to T/p^n T, note all terms are finite by hypothesis, and pass to the inverse limit using (i).",
+    "For T a finite-dimensional Q_p-vector space, choose a G-stable Z_p-lattice T_0, run the previous case, tensor with Q_p and use (ii).",
+    "Proposition 1.1(i): an inverse system of short exact sequences with COMPACT left terms has exact inverse limit; this is the exactness input for towers."
+   ],
+   "acceptance": [
+    "Check the finiteness hypothesis for G = Gal(K_Sigma/K) with K a number field and Sigma finite (Rubin Proposition 2.7(i))",
+    "Exhibit a tower where the finiteness fails and the inverse limit comparison breaks",
+    "Check H^1(G, T) = T/(gamma-1)T for G isomorphic to Zhat with topological generator gamma (Lemma 2.8)"
+   ],
+   "sources": [
+    {
+     "sourceId": "rubin-euler-systems-draft",
+     "locator": "Appendix B, Proposition 2.3, printed p. 152",
+     "excerpt": "Suppose i > 0 and T = inverse limit of T_n where each T_n is a finite (discrete) G-module. If H^{i-1}(G,T_n) is finite for every n then H^i(G,T) = inverse limit of H^i(G,T_n).",
+     "match": "The comparison the stage calls the derived-limit/lim^1 input, in the form actually used, with its finiteness hypothesis."
+    },
+    {
+     "sourceId": "rubin-euler-systems-draft",
+     "locator": "Appendix B, Proposition 2.5(ii) and its proof, printed p. 152",
+     "excerpt": "Then for every n >= 0, T/p^n T is discrete so there is a Hochschild-Serre exact sequence for T/p^n T. Our hypotheses ensure that all the terms in this sequence are finite, and so taking the inverse limit over n and applying Proposition 2.3 gives the exact sequence of (ii) for T.",
+     "match": "Shows that the 'full Hochschild-Serre' for non-discrete coefficients is obtained by a limit under finiteness, not by a general formalism."
+    },
+    {
+     "sourceId": "nekovar-selmer-complexes",
+     "locator": "Introduction Sec. 0.8.1, printed p. 10",
+     "excerpt": "Unfortunately, there does not seem to be a satisfactory general formalism of the Hochschild-Serre spectral sequence for continuous cohomology. As a result, we define C_ur by explicit formulas.",
+     "match": "An independent source stating that no general Hochschild-Serre formalism for continuous cohomology is available; a consumer must not assume one."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L0/integral-kummer-comparison-in-the-tower",
+   "parentStageId": "SelmerIwasawaCohomology:L0",
+   "title": "H^1(K, Z_p(1)) is the p-adic completion of K^x, not an algebraic tensor product",
+   "kind": "theorem",
+   "statement": "For K a field of characteristic not p, Kummer theory gives H^1(K, mu_{p^n}) = K^x/(K^x)^{p^n} and hence H^1(K, mu_{p^infinity}) = K^x tensor Q_p/Z_p; passing to the inverse limit using the continuous-cohomology comparison gives H^1(K, Z_p(1)) = inverse limit over n of H^1(K, mu_{p^n}) = inverse limit over n of K^x/(K^x)^{p^n}, which is the COMPLETED tensor product K^x completed-tensor Z_p, not the algebraic tensor product K^x tensor Z_p.",
+   "hypotheses": [
+    "char K is not p, so Kummer theory applies and mu_{p^n} has the right size",
+    "The inverse limit step is Rubin Proposition B.2.3 with i = 1, which needs H^0(K, mu_{p^n}) finite for every n; that holds since mu_{p^n}(K) is finite",
+    "K^x is in general NOT finitely generated (this is the point of the stage's warning); the algebraic tensor product K^x tensor Z_p is therefore not the completion, and Rubin's notation is explicitly the completed tensor product",
+    "For units, S-units and local multiplicative groups the two agree only when the group involved is finitely generated, which must be proved separately in each case"
+   ],
+   "proofSteps": [
+    "Kummer theory gives the exact sequence and hence H^1(K, mu_{p^n}) = K^x/(K^x)^{p^n}.",
+    "For the direct limit, H^1(K, mu_{p^infinity}) = K^x tensor Q_p/Z_p.",
+    "For the inverse limit, apply Proposition B.2.3 with T = Z_p(1) = inverse limit of mu_{p^n} and i = 1; the hypothesis is finiteness of H^0(K, mu_{p^n}).",
+    "Identify the resulting inverse limit with the p-adic completion of K^x."
+   ],
+   "acceptance": [
+    "For K a number field, check that the natural map from the algebraic tensor product O_{K,S}^x tensor Z_p to H^1 is an isomorphism (S-units ARE finitely generated), and that the same statement for K^x is false",
+    "For K a p-adic field, check the completion against the structure of K^x",
+    "Check tower compatibility under the norm/corestriction maps"
+   ],
+   "sources": [
+    {
+     "sourceId": "rubin-euler-systems-draft",
+     "locator": "Ch. I Sec. 2, Example 2.1, printed p. 3",
+     "excerpt": "and by Kummer theory and Proposition B.2.3, respectively H^1(K, mu_{p^infinity}) = K^x tensor (Q_p/Z_p), H^1(K, Z_p(1)) = inverse limit of H^1(K, mu_{p^n}) = inverse limit of K^x/(K^x)^{p^n} = K^x completed-tensor Z_p, where completed-tensor denotes the (p-adically) completed tensor product.",
+     "match": "Exactly the identification the stage requires, with the source itself writing the COMPLETED tensor product, which is the point the stage warns about."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L1/orthogonality-of-local-conditions-and-poitou-tate-for-selmer-groups",
+   "parentStageId": "SelmerIwasawaCohomology:L1",
+   "title": "Poitou-Tate duality in the form that identifies the annihilator of a local condition",
+   "kind": "theorem",
+   "statement": "Let K be a number field, T a p-adic representation of G_K ramified at finitely many primes, and for v dividing p fix H^1_f(K_v,V) and H^1_f(K_v,V^*) that are ORTHOGONAL COMPLEMENTS under the local Tate pairing. For M nonzero in O and finite sets Sigma_0 contained in Sigma of places: (i) there are exact sequences 0 -> S^{Sigma_0}(K,W_M) -> S^Sigma(K,W_M) -> sum over v in Sigma - Sigma_0 of H^1_s(K_v,W_M) and 0 -> S_Sigma(K,W_M^*) -> S_{Sigma_0}(K,W_M^*) -> sum of H^1_f(K_v,W_M^*); (ii) the images of these two localization maps are EXACT ORTHOGONAL COMPLEMENTS under the sum of the local pairings; (iii) S_{Sigma_0}(K,W_M^*)/S_Sigma(K,W_M^*) is isomorphic to Hom_O(coker(loc^s_{Sigma,Sigma_0}), O/MO).",
+   "hypotheses": [
+    "The orthogonality of H^1_f(K_v,V) and H^1_f(K_v,V^*) at v dividing p is a HYPOTHESIS, not automatic. Rubin's Remark 7.1 records that it holds when V is potentially semistable at v, citing Bloch-Kato and Fontaine-Perrin-Riou",
+    "At v not dividing p the relevant statement is that H^1_ur(K_v, W_M) and H^1_ur(K_v, W_M^*) are orthogonal complements; this is where the unramified condition's annihilator is computed",
+    "The proof reduces to the case where Sigma contains all infinite places, all primes above p and all primes of ramification, so that S^Sigma(K, W_M) = H^1(K_Sigma/K, W_M) by Lemma 5.3",
+    "The global input is the Poitou-Tate exact sequence, quoted from Milne, Arithmetic Duality Theorems Thm. I.4.10, or Tate; that sequence is NOT proved in Rubin"
+   ],
+   "proofSteps": [
+    "(i) is immediate from the definitions of the Selmer groups.",
+    "(ii) Use the nondegenerate local pairing H^1_s(K_v, W_M) x H^1_f(K_v, W_M^*) -> O/MO from Theorem 4.1 and Proposition 4.3(ii).",
+    "Reduce to Sigma large, so that both Selmer groups are H^1(K_Sigma/K, -) by Lemma 5.3.",
+    "Insert the segment S^Sigma(K,W_M) -> sum over v in Sigma of H^1(K_v, W_M) -> S^Sigma(K, W_M^*)^dual of the Poitou-Tate sequence.",
+    "(iii) follows from (ii) by dualizing the cokernel."
+   ],
+   "acceptance": [
+    "Compute the annihilator of the unramified condition at a prime of good reduction and check it is the unramified condition on the dual",
+    "Check the potential-semistability hypothesis is needed at v dividing p by exhibiting a non-orthogonal pair otherwise",
+    "Check (iii) with Sigma_0 empty, recovering the standard bound used by Euler systems"
+   ],
+   "sources": [
+    {
+     "sourceId": "rubin-euler-systems-draft",
+     "locator": "Ch. I Sec. 7, Theorem 7.3, printed pp. 17-18",
+     "excerpt": "(ii) The images loc^s_{Sigma,Sigma_0}(S^Sigma(K,W_M)) and loc^f_{Sigma,Sigma_0}(S_{Sigma_0}(K,W_M^*)) are orthogonal complements of each other with respect to the pairing sum over v in Sigma - Sigma_0 of < , >_v.",
+     "match": "This is the 'identifying the actual annihilator of each chosen local condition' obligation named by the stage, in the exact form the source proves it."
+    },
+    {
+     "sourceId": "rubin-euler-systems-draft",
+     "locator": "Ch. I Sec. 7, Remark 7.1, printed p. 17",
+     "excerpt": "If the representation V is potentially semistable at a place v dividing p, then the Bloch-Kato subspaces H^1_f(K_v,V) and H^1_f(K_v,V^*) are orthogonal complements",
+     "match": "The hypothesis under which the Bloch-Kato conditions are admissible inputs to the duality; it is not automatic and must travel with the statement."
+    },
+    {
+     "sourceId": "nekovar-selmer-complexes",
+     "locator": "Introduction Sec. 0.9, printed p. 10",
+     "excerpt": "we require, for all v in S_f, the composite morphism of complexes U_v^-(X) -> C_cont(G_v,X) -> D(C_cont(G_v,D(X)(1)))[-2] -> D(U_v^+(D(X)(1)))[-2] (in which the map underlies Tate's local duality) to be a quasi-isomorphism.",
+     "match": "The same orthogonality requirement stated at the level of complexes, which is what the Selmer-complex duality of L2 needs; for Greenberg's conditions Nekovar says it follows from orthogonality of X^+ and D(X)(1)^+."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L2/selmer-groups-from-local-conditions-relaxed-and-strict",
+   "parentStageId": "SelmerIwasawaCohomology:L2",
+   "title": "The relaxed and strict Selmer groups attached to a finite set Sigma",
+   "kind": "definition",
+   "statement": "Let K be a number field, T a p-adic representation of G_K unramified outside a finite set, and for each place v a choice of H^1_f(K_v, -) with H^1_s(K_v, -) = H^1(K_v,-)/H^1_f(K_v,-). For a finite set Sigma of places define S^Sigma(K,W) = ker(H^1(K,W) -> sum over v not in Sigma of H^1_s(K_v,W)) (relaxed at Sigma) and S_Sigma(K,W) = ker(S^Sigma(K,W) -> sum over v in Sigma of H^1(K_v,W)) (strict at Sigma); with Sigma empty both equal S(K,W). The same definitions are made for T and for W_M. If Sigma contains all primes above p then S^Sigma and S_Sigma do not depend on the choice of H^1_f at p. If Sigma contains all infinite places, all primes above p and all primes of ramification, then S^Sigma(K,A) = H^1(K_Sigma/K, A) for A = T, W or W_M.",
+   "hypotheses": [
+    "The sum over v not in Sigma is well defined because a class restricts to zero in all but finitely many H^1_s(K_v,W); this uses that T is ramified at only finitely many primes",
+    "Lemma 5.3 needs H^1_f(K_v,A) = H^1_ur(K_v,A) for v outside Sigma, which is Rubin's Lemmas 3.5(iv) and 3.8(ii) and requires v not dividing p",
+    "Lemma 5.4 (the imprimitive surjection) holds for the RELAXED groups S^Sigma; Remark 5.5 records that it may FAIL for the strict groups S_Sigma",
+    "The passage between T, V and W is governed by Lemma 2.2(iii): the kernel of H^1(K,T) -> H^1(K,W) is M H^1(K,T) + H^1(K,T)_tors, so saturation statements are separate lemmas"
+   ],
+   "proofSteps": [
+    "Define H^1_s as the quotient by the chosen local condition and form the two kernels.",
+    "Lemma 5.3: for v outside Sigma the condition is the unramified one, so S^Sigma(K,A) = ker(H^1(K,A) -> product of Hom(I_v,A)) = ker(H^1(K,A) -> H^1(K_Sigma,A)) = H^1(K_Sigma/K,A).",
+    "Lemma 5.4: by Lemma 2.2(i) the image of H^1(K,W_M) in H^1(K,W) is H^1(K,W)_M, and the preimage of S^Sigma(K,W)_M is S^Sigma(K,W_M); hence the surjection.",
+    "Lemma 2.2(iii) gives the kernel of the change-of-coefficients map and hence the lattice-change formulas."
+   ],
+   "acceptance": [
+    "Recover the classical p-power Selmer group of an abelian variety as S(K, A[p^infinity]) (Rubin Proposition 6.7)",
+    "Check that S^Sigma(K,W_M) -> S^Sigma(K,W)_M is surjective but that the analogous map for S_Sigma need not be",
+    "Check independence of the choice at p when Sigma contains all primes above p"
+   ],
+   "sources": [
+    {
+     "sourceId": "rubin-euler-systems-draft",
+     "locator": "Ch. I Sec. 5, Definition 5.1, printed pp. 11-12",
+     "excerpt": "S^Sigma(K,W) consists of all classes c in H^1(K,W) satisfying the local conditions: c_v in H^1_f(K_v,W) if v not in Sigma, no restriction for v in Sigma, and S_Sigma(K,W) has the additional restrictions c_v = 0 if v in Sigma.",
+     "match": "The relaxed and strict conditions the stage asks to define separately, stated on the actual cohomology groups."
+    },
+    {
+     "sourceId": "rubin-euler-systems-draft",
+     "locator": "Ch. I Sec. 5, Lemma 5.3 with proof, printed p. 12",
+     "excerpt": "Suppose Sigma contains all infinite places, all primes above p, and all primes of K where T is ramified. If A = T, W, or W_M with M in O, then S^Sigma(K,A) = H^1(K_Sigma/K,A).",
+     "match": "The comparison with the ramification-restricted cohomology, with the exact hypothesis on Sigma."
+    },
+    {
+     "sourceId": "rubin-euler-systems-draft",
+     "locator": "Ch. I Sec. 5, Lemma 5.4 and Remark 5.5, printed p. 12",
+     "excerpt": "Remark 5.5. Lemma 5.4 need not be true if we replace S^Sigma by S_Sigma",
+     "match": "The failure of the imprimitive comparison for the strict groups; this is precisely the kind of distinction the stage requires be kept."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L2/selmer-complex-as-a-mapping-fibre-with-greenberg-local-conditions",
+   "parentStageId": "SelmerIwasawaCohomology:L2",
+   "title": "The Selmer complex, its exact triangle, and why only Greenberg conditions are treated",
+   "kind": "construction",
+   "statement": "Let X be a bounded complex of admissible R[G_{K,S}]-modules. Local conditions are a collection A(X) = (i_v^+(X) : U_v^+(X) -> C_cont(G_v, X))_{v in S_f} of morphisms of complexes of R-modules with U_v^+(X) satisfying finiteness conditions. The Selmer complex is the total complex of C_cont(G_{K,S},X) + sum over v of U_v^+(X) -> sum over v of C_cont(G_v,X); writing U_v^-(X) = Cone(i_v^+), the exact triangle RGamma_f(X) -> RGamma_cont(G_{K,S},X) -> sum over v of U_v^-(X) gives the long exact sequence (0.8.0.1). IN PARTICULAR the canonical map H^i_f(X) -> H^i_cont(G_{K,S},X) NEED NOT BE INJECTIVE. Nekovar treats only Greenberg's local conditions: for v in a subset Sigma containing all primes above p one is given a morphism X_v^+ -> X and sets U_v^+(X) = C_cont(G_v, X_v^+); for the remaining v one takes explicitly defined unramified complexes.",
+   "hypotheses": [
+    "The local conditions are morphisms of COMPLEXES, not submodules of cohomology; the stage's 'submodules or maps of complexes' must be read as the latter for the Selmer complex",
+    "The Selmer complex is a mapping fibre, so its cohomology does NOT inject into global cohomology in general; the failure is measured by the U_v^- terms",
+    "Nekovar states explicitly that Greenberg's are 'the only local conditions that can be handled by elementary methods; the general case would require a heavy dose of crystalline machinery, which is not yet available'. So Bloch-Kato conditions are NOT covered by this source",
+    "The unramified conditions are defined by explicit formulas because no general Hochschild-Serre formalism for continuous cohomology is available; for X = A^0 concentrated in degree 0 the explicit complex is (X^0)^{I_v} -> (X^0)^{I_v} with the map f_v - 1, in degrees 0 and 1",
+    "Greenberg's filtration is a G_v-stable (decomposition group) subobject X_v^+ -> X, not a globally stable one"
+   ],
+   "proofSteps": [
+    "Form the total complex of the displayed two-term diagram of complexes; this is by definition the mapping fibre of the difference of the global localization and the local conditions.",
+    "Set U_v^-(X) = Cone(i_v^+(X)) and read off the exact triangle and the long exact sequence.",
+    "For Greenberg's conditions, take U_v^+(X) = C_cont(G_v, X_v^+) for v in Sigma and the explicit unramified complex otherwise.",
+    "Record that the canonical map to global cohomology is not injective, so that H^i_f is an 'extended' Selmer group."
+   ],
+   "acceptance": [
+    "Check Nekovar's elliptic-curve computation: for E/Q ordinary at p with p not 2 there is an exact sequence 0 -> H^0(G_p, T^-) -> H^1_f(T) -> Sel(G_{Q,S},T) -> C -> 0 with C finite and H^0(G_p,T^-) nonzero exactly in the split multiplicative case",
+    "Check the explicit unramified complex computes H^1_ur in degrees 0 and 1",
+    "Check the mapping-fibre construction reproduces the classical Selmer group under the stated H^0 vanishing"
+   ],
+   "sources": [
+    {
+     "sourceId": "nekovar-selmer-complexes",
+     "locator": "Introduction Sec. 0.8.0, printed p. 9",
+     "excerpt": "Selmer groups have been traditionally defined as subgroups of elements of H^1(G_{K,S}, -) satisfying suitable local conditions in H^1(G_v, -) (for v in S). In our approach we have no choice but to impose local conditions on the level of complexes, rather than cohomology.",
+     "match": "States the design decision the stage's 'Construct the Selmer complex as an actual mapping fibre' demands, and the reason for it."
+    },
+    {
+     "sourceId": "nekovar-selmer-complexes",
+     "locator": "Introduction Sec. 0.8.0, printed p. 10",
+     "excerpt": "In particular, the canonical map H^i_f(X) -> H^i_cont(G_{K,S},X) need not be injective.",
+     "match": "The precise failure that distinguishes the Selmer complex from the classical Selmer group; it must not be suppressed."
+    },
+    {
+     "sourceId": "nekovar-selmer-complexes",
+     "locator": "Introduction Sec. 0.8.1, printed p. 10",
+     "excerpt": "In the present work we consider only Greenberg's local conditions, defined as follows (these are the only local conditions that can be handled by elementary methods; the general case would require a heavy dose of crystalline machinery, which is not yet available).",
+     "match": "Confirms that Bloch-Kato local conditions are outside this source's scope, matching the stage's decision to defer them to L4."
+    },
+    {
+     "sourceId": "nekovar-selmer-complexes",
+     "locator": "Introduction Sec. 0.10, printed p. 12",
+     "excerpt": "0 -> H^0(G_p,T^-) -> H^1_f(T) -> Sel(G_{Q,S},T) -> C -> 0, in which C is a finite group ... In other words, H^1_f(T) is an 'extended Selmer group' in the sense of Mazur, Tate and Teitelbaum and the term H^0(G_p,T^-) detects the presence of a 'trivial zero' of the p-adic L-function of E.",
+     "match": "The worked comparison with the classical Selmer group under Greenberg conditions, including the exact error terms; this is the 'prove its cohomology gives the classical group under the stated H^0 conditions' item."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L3/iwasawa-cohomology-via-shapiro-with-the-inverse-action",
+   "parentStageId": "SelmerIwasawaCohomology:L3",
+   "title": "RGamma_Iw(K_infinity/K, T) = RGamma_cont(G_{K,S}, F_Gamma(T)) with the twist and involution made explicit",
+   "kind": "theorem",
+   "statement": "Let K be a number field, S as usual, K contained in K_infinity contained in K_S Galois with Gamma = Gal(K_infinity/K) isomorphic to Z_p^r (or Z_p^r times a finite abelian A), G = G_{K,S}, and R_tilde = R(Gamma) = inverse limit of R[Gal(K_alpha/K)]. Let chi_Gamma : G -> Gamma -> R_tilde^x be the tautological character and iota the R-linear involution with iota(gamma) = gamma^{-1}. For an R[G]-module M, M<n> is M with g acting by chi_Gamma(g)^n g, and M^iota is M with gamma acting by iota(gamma). Then Shapiro's Lemma gives H^i_Iw(K_infinity/K,T) = inverse limit over alpha of H^i_cont(Gal(K_S/K_alpha),T) = H^i(RGamma_cont(G_{K,S}, F_Gamma(T))) where F_Gamma(T) = (T tensor_R R_tilde)<-1>, and dually H^i(K_S/K_infinity, A) = H^i(RGamma_cont(G_{K,S}, F_Gamma(A))) with F_Gamma(A) = Hom_{R,cont}(R_tilde, A)<-1>.",
+   "hypotheses": [
+    "The twist by <-1> is part of the statement: the induced module carries the tautological character to the power -1, which is exactly the 'inverse Galois action precisely specified' the stage demands",
+    "The involution iota must be carried in all duality statements; the dual of an Iwasawa module is an R_tilde-module through iota",
+    "T and A are bounded complexes of admissible R[G]-modules of finite (resp. co-finite) type over R",
+    "Gamma is isomorphic to Z_p^r, or to Z_p^r times a finite abelian group in the 'tame' case; no noncommutative case is claimed here"
+   ],
+   "proofSteps": [
+    "Write K_infinity as the union of the finite layers K_alpha and form R_tilde as the inverse limit of the finite group rings.",
+    "Apply Shapiro's Lemma layer by layer (Nekovar Sections 8.3 and 8.4) to identify the inverse limit of the H^i over the tower with the cohomology of the induced module.",
+    "Track the Galois action: the induced module is (T tensor R_tilde)<-1>, i.e. the tautological character appears with exponent -1.",
+    "The same argument with Hom_{R,cont}(R_tilde, A)<-1> gives the discrete statement."
+   ],
+   "acceptance": [
+    "Check for r = 1 and T = Z_p that H^1_Iw is the classical inverse limit under corestriction",
+    "Check the twist convention by computing the Gamma-action on H^1_Iw(K_infinity/K, Z_p(1))",
+    "Check that dropping the involution breaks the duality diagram (0.12.2)"
+   ],
+   "sources": [
+    {
+     "sourceId": "nekovar-selmer-complexes",
+     "locator": "Introduction Sec. 0.12, printed pp. 13-14",
+     "excerpt": "An easy application of Shapiro's Lemma (cf. Sect. 8.3 and 8.4) shows that these are the cohomology groups of the following objects of D(R_tilde Mod): RGamma_Iw(K_infinity/K,T) = RGamma_cont(G_{K,S}, F_Gamma(T)), RGamma(K_S/K_infinity,A) = RGamma_cont(G_{K,S}, F_Gamma(A)), where F_Gamma(T) = (T tensor_R R_tilde)<-1>, F_Gamma(A) = Hom_{R,cont}(R_tilde,A)<-1>",
+     "match": "The identification with the induced completed-group-ring representation, with the <-1> twist printed explicitly."
+    },
+    {
+     "sourceId": "nekovar-selmer-complexes",
+     "locator": "Introduction Sec. 0.11, printed p. 13",
+     "excerpt": "We denote by chi_Gamma : G -> Gamma -> R_tilde^x the tautological character of G and by iota : R_tilde -> R_tilde the R-linear involution satisfying iota(gamma) = gamma^{-1} for all gamma in Gamma.",
+     "match": "Fixes the two pieces of notation whose suppression is what the stage warns against."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L3/iwasawa-duality-spectral-sequences-and-pseudo-null-degeneration",
+   "parentStageId": "SelmerIwasawaCohomology:L3",
+   "title": "Poitou-Tate duality over the Iwasawa algebra and the Ext spectral sequences",
+   "kind": "theorem",
+   "statement": "Applying Poitou-Tate duality over R_tilde to the duality diagram (0.12.1) for F_Gamma(T), F_Gamma(T^*), F_Gamma(A), F_Gamma(A^*) yields a duality diagram relating RGamma_Iw(K_infinity/K,T) and RGamma_{c,Iw}(K_infinity/K, T^*(1))[3], and spectral sequences of the form E_2^{i,j} = Ext^i_{R_tilde}(D(H^{-j}(K_S/K_infinity,A)), R_tilde) converging to H^{i+j}_Iw(K_infinity/K,T). Since codim supp E_2^{i,j} is at least i, the spectral sequence degenerates in the quotient category (R_tilde Mod)/(pseudo-null) into short exact sequences in which one term has no R_tilde-torsion and the other has support in codimension at least 1. In the classical case R = Z_p the spectral sequence is Jannsen's.",
+   "hypotheses": [
+    "'Pseudo-null' means finitely generated with support of codimension at least 2 in Spec(R_tilde); the degeneration is only in the quotient category by pseudo-nulls, NOT on the nose",
+    "The duality uses the involution iota on R_tilde; the codimension bound codim supp(E_2^{i,j}) >= i is what drives the degeneration",
+    "The statement is for bounded complexes of admissible R[G]-modules of finite (resp. co-finite) type over R",
+    "Nekovar attributes the classical case to an unpublished note of Jannsen, who also considered noncommutative Gamma"
+   ],
+   "proofSteps": [
+    "Establish the duality diagram (0.12.1) for the four induced objects over R_tilde (Nekovar Sec. 8.4.6.6).",
+    "Apply the Poitou-Tate duality of Sec. 0.7.1 over R_tilde to get (0.12.2).",
+    "Read off the Ext spectral sequences (0.12.3).",
+    "Use codim supp E_2^{i,j} >= i to degenerate modulo pseudo-nulls."
+   ],
+   "acceptance": [
+    "For R = Z_p, T = Z_p and T = Z_p(1), recover the classical statements (Nekovar 0.14.1)",
+    "Check that the degeneration fails on the nose by exhibiting a pseudo-null discrepancy",
+    "Check that torsion of a global H^2 is NOT automatic: the stage warns against it and the spectral sequence only gives a codimension statement"
+   ],
+   "sources": [
+    {
+     "sourceId": "nekovar-selmer-complexes",
+     "locator": "Introduction Sec. 0.12, printed p. 14",
+     "excerpt": "recall that an R_tilde-module M is pseudo-null if it is finitely generated and its support supp(M) has codimension >= 2 in Spec(R_tilde). As codim supp(E_2^{i,j}) >= i, the spectral sequence E_r degenerates in the quotient category (R_tilde Mod)/(pseudo-null) into short exact sequences",
+     "match": "The exact form of the degeneration, with 'modulo pseudo-null' retained; this is what a consumer must not upgrade to an exact statement."
+    },
+    {
+     "sourceId": "nekovar-selmer-complexes",
+     "locator": "Introduction Sec. 0.12, printed pp. 14-15",
+     "excerpt": "The spectral sequence E_2 = Ext^i(D(H^j(K_S/K_infinity,A)),A) => H^{i+j}_Iw(K_infinity/K,T) was in this case constructed in an unpublished note of Jannsen (who also considered the case of non-commutative Gamma).",
+     "match": "Attribution and the note that the source of the classical case is unpublished, which is a real provenance caveat."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L3/iwasawa-selmer-complexes-and-the-non-splitting-hypothesis",
+   "parentStageId": "SelmerIwasawaCohomology:L3",
+   "title": "Selmer complexes over the tower and the hypothesis on completely split primes",
+   "kind": "construction",
+   "statement": "Given compatible systems of local conditions U_v^+(X) along the tower {K_alpha}, one defines Selmer complexes RGamma_{f,Iw}(K_infinity/K, X) for X = T, T^*(1) and RGamma_f(K_S/K_infinity, Y) for Y = A, A^*(1). Over each finite layer the duality diagram may carry nonzero error terms, but their limit over the tower is very often pseudo-null (or co-pseudo-null). For Greenberg's local conditions this holds under the hypothesis that NO PRIME v in Sigma_f SPLITS COMPLETELY in K_infinity/K.",
+   "hypotheses": [
+    "The local conditions must form a COMPATIBLE system along the tower; Greenberg's conditions do, because they come from a fixed G_v-stable subobject",
+    "The vanishing of the error terms in the limit is only 'up to pseudo-null' and only under the non-splitting hypothesis on primes in Sigma_f",
+    "Greenberg's local conditions have a built-in base change property (Nekovar 0.14.3), which is what makes the compatible system exist"
+   ],
+   "proofSteps": [
+    "Define the Selmer complexes layer by layer from the compatible local conditions and take the limit.",
+    "Compare the finite-layer duality diagrams; the error terms Err_v are finite at each layer with order the local Tamagawa factor of T at v.",
+    "Under the non-splitting hypothesis the limits of these error terms become pseudo-null, which is what Nekovar records at Sec. 8.9.9."
+   ],
+   "acceptance": [
+    "Check the local Tamagawa factor interpretation of the finite-layer error term",
+    "Exhibit a tower where a prime splits completely and the error term is not pseudo-null",
+    "Check the base-change property of Greenberg's conditions"
+   ],
+   "sources": [
+    {
+     "sourceId": "nekovar-selmer-complexes",
+     "locator": "Introduction Sec. 0.13, printed p. 15",
+     "excerpt": "Although over each finite layer K_alpha the diagram (0.9.2) may involve non-zero error terms, the limit of these error terms over the tower is very often pseudo-null (or co-pseudo-null). For example, Greenberg's local conditions induce similar local conditions over each K_alpha. If we assume that no prime v in Sigma_f splits completely in K_infinity/K, then (cf. 8.9.9)",
+     "match": "The construction with the exact hypothesis under which the error terms become negligible; the stage's 'retain the correction complexes' is exactly this point."
+    },
+    {
+     "sourceId": "nekovar-selmer-complexes",
+     "locator": "Introduction Sec. 0.10, printed p. 11-12",
+     "excerpt": "The cohomology groups of Err_v(T) are finite groups of common order equal to the 'local Tamagawa factor' of T at v",
+     "match": "Identifies the finite-layer error term with the Tamagawa factor, so it cannot be discarded without changing the arithmetic."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L4/greenberg-and-bloch-kato-selmer-structures",
+   "parentStageId": "SelmerIwasawaCohomology:L4",
+   "title": "Selmer structures, the Greenberg condition at p, and the Bloch-Kato condition",
+   "kind": "definition",
+   "statement": "Let M be a topological O_L-module with a continuous O_L-linear G_F-action unramified outside a finite set. A Selmer structure L = (L_v) for M over F is a choice of subspace L_v of H^1(F_v, M) for every finite place v, with L_v = H^1_ur(F_v,M) for almost all v, where H^1_ur(F_v,M) = ker(H^1(F_v,M) -> H^1(I_{F_v},M)). The Selmer group is H^1_L(F,M) = ker(H^1(F,M) -> sum over finite v of H^1(F_v,M)/L_v). Greenberg's condition at p assumes V is p-ORDINARY, i.e. there is a saturated finite G_Q-invariant filtration Fil^i of V on which the inertia group I_{Q_p} acts on Fil^i/Fil^{i+1} by the i-th power of the cyclotomic character; then L_{v_p}^{Gr} = ker(H^1(F_{v_p},W) -> H^1(I_{v_p},W) -> H^1(I_{v_p}, W/Fil^1 W)). The Bloch-Kato condition is L_{v_p}^{BK} = image of H^1_f(F_{v_p},V) = ker(H^1(F_{v_p},V) -> H^1(F_{v_p}, V tensor B_cris)) in H^1(F_{v_p},W).",
+   "hypotheses": [
+    "RJW work over F = F_infinity^+ = Q(mu_{p^infinity})^+, NOT over the cyclotomic Z_p-extension Q_infinity/Q as Greenberg does; they flag the difference explicitly",
+    "The Greenberg condition requires V to be p-ordinary in the stated strong sense: a SATURATED, FINITE, G_Q-invariant filtration with inertia acting by powers of the cyclotomic character on the graded pieces",
+    "The Bloch-Kato condition needs B_cris, i.e. the period rings, which is why it cannot be an input to the earlier cohomology construction",
+    "The two conditions coincide in some fundamental examples but not in general; RJW refer to Kato and Perrin-Riou Sec. 2.4.7 for the relation",
+    "Only Selmer structures with unramified conditions away from p are considered in what follows"
+   ],
+   "proofSteps": [
+    "Definition 13.18 fixes the notion of Selmer structure and Selmer group with the almost-all-unramified requirement.",
+    "Definition 13.19(1) constructs the Greenberg condition from the ordinary filtration by composing restriction to inertia with the projection modulo Fil^1.",
+    "Definition 13.19(2) constructs the Bloch-Kato condition from H^1_f(F_{v_p},V) and pushes it into H^1(F_{v_p},W).",
+    "Remark 13.20 records that the two agree in fundamental examples without asserting a general comparison."
+   ],
+   "acceptance": [
+    "Check H^1_ur is the kernel of restriction to inertia, not the kernel of restriction to the decomposition group",
+    "Check that Greenberg's filtration is stable under the decomposition group at p and need not be globally stable",
+    "Compare the two conditions for an ordinary elliptic curve"
+   ],
+   "sources": [
+    {
+     "sourceId": "rjw-padic-l-functions",
+     "locator": "Sec. 13.5.1, Definition 13.18 with footnote (15), printed p. 69",
+     "excerpt": "A Selmer structure L = (L_v)_v for M over F is a choice of subspace L_v contained in H^1(F_v,M) for every finite place v of F such that, for almost all v, we have L_v = H^1_ur(F_v,M). ... Here, the unramified cohomology groups are defined as H^1_ur(F_v,M) = ker(H^1(F_v,M) -> H^1(I_{F_v},M)), where I_{F_v} denotes the inertia group of F_v and the map is restriction.",
+     "match": "The definition with the almost-all condition and the precise definition of the unramified subgroup."
+    },
+    {
+     "sourceId": "rjw-padic-l-functions",
+     "locator": "Sec. 13.5.1, Definition 13.19(1), printed p. 70",
+     "excerpt": "Greenberg's approach assumes that the representation V is p-ordinary, in the sense that there exists a saturated, finite, G_Q-invariant filtration Fil^i of V such that the inertia group I_{Q_p} of G_{Q_p} acts on the ith graded piece Fil^i/Fil^{i+1} as the ith power of the cyclotomic character",
+     "match": "The exact ordinarity hypothesis; the stage's warning that the filtration is stable under a DECOMPOSITION group is refined here: RJW require G_Q-invariance of the filtration and prescribe the inertia action on the graded pieces."
+    },
+    {
+     "sourceId": "rjw-padic-l-functions",
+     "locator": "Sec. 13.5.1, printed p. 69",
+     "excerpt": "This differs from [Gre89], who works over the cyclotomic Z_p-extension Q_infinity/Q (cf. Remark 13.9).",
+     "match": "A convention difference inside the normative source that must be tracked when comparing with Greenberg's original formulation."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L4/class-group-modules-as-greenberg-selmer-groups-of-tate-twists",
+   "parentStageId": "SelmerIwasawaCohomology:L4",
+   "title": "Recovering X_infinity and Y_infinity from Selmer groups of Z_p(n), with the parity restrictions",
+   "kind": "theorem",
+   "statement": "Let p be odd, F_infinity = Q(mu_{p^infinity}), F = F_infinity^+, T_n = Z_p(n), W_n = (Q_p/Z_p)(n). Then H^1(F,W_n) = Hom_{cts,{+-1}}(G_{F_infinity}, W_n), and for n > 0 the Greenberg Selmer group H^1_{L_Gr}(F_infinity, W_n) = Hom_cts((X_infinity)^{c = (-1)^n}, W_n), while for n <= 0 it equals Hom_cts((Y_infinity)^{c = (-1)^n}, W_n). Here X_infinity = Gal(M_infinity/F_infinity) with M_infinity the maximal abelian pro-p extension of F_infinity unramified outside p, and Y_infinity its unramified analogue. The natural surjection X_infinity -> X_infinity^+ induces an isomorphism (X_infinity)^{c=1} = X_infinity^+, and similarly for Y. Consequently for EVEN POSITIVE n, H^1_{L_Gr}(F_infinity, W_n) = Hom_cts(X_infinity^+, W_n), a twist of the Pontryagin dual of the module X_infinity^+ appearing in the Main Conjecture.",
+   "hypotheses": [
+    "p ODD: the inflation-restriction identification H^1(F,W_n) = H^1(G_{F_infinity},W_n)^{+-1} uses that Gal(F_infinity/F) = {1,c} has order 2 prime to p",
+    "c acts on W_n as (-1)^n, which is what produces the parity split between even and odd n",
+    "The identification (X_infinity)^{c=1} = X_infinity^+ is quoted from Coates-Sujatha p. 6",
+    "The statement splits at n > 0 versus n <= 0: X_infinity for positive n and Y_infinity for non-positive n. This is the 'even-positive/odd-negative restriction' the stage names"
+   ],
+   "proofSteps": [
+    "Since G_{F_infinity} acts trivially on W_n, H^1(F_infinity,W_n) = Hom_cts(G_{F_infinity},W_n).",
+    "Inflation-restriction with Gal(F_infinity/F) = {1,c} of order 2 and p odd gives H^1(F,W_n) = Hom_{cts,{+-1}}(G_{F_infinity},W_n).",
+    "Since W_n is abelian and p-power torsion, factor through the maximal abelian pro-p quotient Gal(F_infinity^{ab,pro-p}/F_infinity).",
+    "Unramifiedness away from p makes sigma descend to X_infinity; the condition at p separates X_infinity from Y_infinity according to the sign of n.",
+    "Use c acting by (-1)^n and the Coates-Sujatha identification to reach X_infinity^+ for even positive n."
+   ],
+   "acceptance": [
+    "Check the case n = 2 and compare with the Main Conjecture statement of RJW Theorem 13.8",
+    "Check that p = 2 breaks the inflation-restriction step",
+    "Check the Y_infinity case for n <= 0"
+   ],
+   "sources": [
+    {
+     "sourceId": "rjw-padic-l-functions",
+     "locator": "Sec. 13.5.2, printed pp. 70-71",
+     "excerpt": "As Gal(F_infinity/F_infinity^+) = {1,c} isomorphic to {+-1} (with the non-trivial element given by complex conjugation) and p is odd, the inflation-restriction sequence gives H^1(F,W_n) = H^1(G_{F_infinity},W_n)^{+-1}",
+     "match": "The odd-p hypothesis appears in the middle of the computation and is what makes the eigenspace decomposition legitimate."
+    },
+    {
+     "sourceId": "rjw-padic-l-functions",
+     "locator": "Sec. 13.5.2, printed p. 71",
+     "excerpt": "We see that if n > 0, we have H^1_{L_Gr}(F_infinity,W_n) = Hom_cts((X_infinity)^{c=(-1)^n}, W_n) ... Similarly for n <= 0 we have H^1_{L_Gr}(F_infinity,W_n) = Hom_cts((Y_infinity)^{c=(-1)^n}, W_n).",
+     "match": "The two-case statement with the parity condition, exactly the comparison the stage requires instead of a uniform assertion."
+    },
+    {
+     "sourceId": "rjw-padic-l-functions",
+     "locator": "Sec. 13.5.2, printed p. 71",
+     "excerpt": "As in [CS06, p.6], the natural surjection X_infinity -> X_infinity^+ induces an isomorphism (X_infinity)^{c=1} = X_infinity^+",
+     "match": "The quoted input identifying the plus part; Coates-Sujatha is not in the supplied library, so this step is an unread import."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L4/greenberg-iwasawa-main-conjecture-statement-with-hypotheses",
+   "parentStageId": "SelmerIwasawaCohomology:L4",
+   "title": "Greenberg's Main Conjecture and its criticality hypotheses",
+   "kind": "application",
+   "statement": "Let T, V, W be as above with V ordinary at p, and V^dual = Hom_cts(V, Q_p(1)) the Tate dual. Let L(V,s) be the L-function of V, L_infinity(V,s) the Gamma factor (which has no zeros), and r_V the order of the pole of L_infinity(V,s) at s = 1. Coates and Perrin-Riou conjectured the existence of a p-adic L-function for V in the fraction field of Lambda(Gamma^+). Greenberg's conjecture: (i) H^1_{L_Gr}(F,W) has Lambda(Gamma^+)-corank equal to r_V; (ii) IF r_V = r_{V^dual} = 0, then the characteristic ideal of the Pontryagin dual of H^1_{L_Gr}(F,W) as a Lambda(Gamma^+)-module coincides with the ideal generated by the p-adic L-function of V.",
+   "hypotheses": [
+    "V must be ORDINARY at p for the Greenberg Selmer group to be defined",
+    "Part (ii) is CONDITIONAL on r_V = r_{V^dual} = 0; the positive-rank statement is a different assertion and is not part of this conjecture",
+    "The existence of the p-adic L-function is itself the separate Coates-Perrin-Riou conjecture; Greenberg's conjecture PRESUPPOSES it and does not prove it",
+    "The case V = Q_p (n = 0) is NOT covered: RJW's Remark 13.23 shows the underlying criticality assumption fails there, since L_infinity(Q_p^dual, s) = L_infinity(Q_p, 1-s) forces r_{Q_p^dual} = 1. In Greenberg's terminology L(Q_p(n),1) = zeta(1-n) and L(Q_p(n)^dual,1) = zeta(n) are both critical only when n is even and strictly positive, or n is odd and negative",
+    "Noncommutative versions exist and are attributed to Kato and to Fukaya-Kato; they are different statements"
+   ],
+   "proofSteps": [
+    "State the conjecture as RJW do, with the corank assertion (i) and the conditional characteristic-ideal assertion (ii).",
+    "Example 13.22: for even positive n, the Pontryagin dual is X_infinity^+(-n) and the p-adic L-function is the n-th twist of Kubota-Leopoldt, so the conjecture becomes a twist of the Iwasawa Main Conjecture.",
+    "Remark 13.23 delimits which Tate twists are covered."
+   ],
+   "acceptance": [
+    "Instantiate at V = Q_p(n) for even positive n and check the conjecture reduces to a twist of Theorem 13.8",
+    "Check that n = 0 is excluded by computing r_{Q_p^dual}",
+    "Check that the corank statement (i) is separate from the characteristic-ideal statement (ii)"
+   ],
+   "sources": [
+    {
+     "sourceId": "rjw-padic-l-functions",
+     "locator": "Sec. 13.5.3, Conjecture 13.21, printed p. 71",
+     "excerpt": "(i) H^1_{L_Gr}(F,W) has Lambda(Gamma^+)-corank equal to r_V. (ii) If r_V = r_{V^dual} = 0, then the characteristic ideal of the Pontryagin dual of H^1_{L_Gr}(F,W) (as a Lambda(Gamma^+)-module) coincides with the ideal generated by the p-adic L-function of V.",
+     "match": "The conjecture with its two separate assertions and the explicit rank-zero hypothesis on (ii), exactly as the stage requires."
+    },
+    {
+     "sourceId": "rjw-padic-l-functions",
+     "locator": "Sec. 13.5.3, Remark 13.23, printed pp. 71-72",
+     "excerpt": "In Greenberg's terminology, L(Q_p(n),1) = zeta(1-n) and L(Q_p(n)^dual,1) = zeta(n) are both critical only when n is even and (strictly) positive, or n is odd and negative, so the case n = 0 is not covered.",
+     "match": "The criticality restriction the stage names as 'the even-positive/odd-negative restrictions in RJW Sec. 13.5'."
+    },
+    {
+     "sourceId": "rjw-padic-l-functions",
+     "locator": "Sec. 13.5.3, printed p. 71",
+     "excerpt": "Coates-Perrin-Riou conjectured in [CPR89] that there should exist a p-adic L-function for V, which in this context lies in the field of fractions of Lambda(Gamma^+).",
+     "match": "Makes explicit that the existence of the p-adic L-function is an independent conjecture, so no theorem asserting existence for every motive is being introduced."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "SelmerIwasawaCohomology:L0/continuous-cochain-cohomology-and-its-long-exact-sequences",
+   "target": "SelmerIwasawaCohomology:L0/integral-kummer-comparison-in-the-tower",
+   "reason": "The Kummer identification passes from H^1(K, mu_{p^n}) to H^1(K, Z_p(1)) through Rubin Proposition B.2.3, which is a statement about the continuous cohomology of an inverse limit and needs the long exact sequences and the finiteness of H^0(K, mu_{p^n}). The completed tensor product on the right of Example 2.1 is exactly the inverse limit that proposition produces.",
+   "sources": [
+    {
+     "sourceId": "rubin-euler-systems-draft",
+     "locator": "Example 2.1 (printed p. 3) citing Prop. B.2.3 (printed p. 152)"
+    }
+   ]
+  },
+  {
+   "source": "SelmerIwasawaCohomology:L2/selmer-complex-as-a-mapping-fibre-with-greenberg-local-conditions",
+   "target": "SelmerIwasawaCohomology:L3/iwasawa-selmer-complexes-and-the-non-splitting-hypothesis",
+   "reason": "The Iwasawa Selmer complexes of Sec. 0.13 are defined from 'suitably compatible systems of local conditions U_v^+(X) along the tower', i.e. from the finite-level construction of Sec. 0.8 applied layer by layer; and the error terms whose pseudo-nullity is asserted are the Err_v of the finite-level duality diagram (0.9.2). The dependency is on the construction and on its error terms, both of which are outputs of the L2 node.",
+   "sources": [
+    {
+     "sourceId": "nekovar-selmer-complexes",
+     "locator": "Sec. 0.13 (printed p. 15) building on Sec. 0.8 (pp. 9-10) and Sec. 0.9-0.10 (pp. 10-12)"
+    }
+   ]
+  },
+  {
+   "source": "SelmerIwasawaCohomology:L3/iwasawa-cohomology-via-shapiro-with-the-inverse-action",
+   "target": "SelmerIwasawaCohomology:L3/iwasawa-duality-spectral-sequences-and-pseudo-null-degeneration",
+   "reason": "The duality diagram (0.12.2) and the spectral sequences (0.12.3) are obtained by applying Poitou-Tate duality over R_tilde to the four objects F_Gamma(T), F_Gamma(T^*), F_Gamma(A), F_Gamma(A^*); without the Shapiro identification there is nothing over R_tilde to which the global duality applies.",
+   "sources": [
+    {
+     "sourceId": "nekovar-selmer-complexes",
+     "locator": "Sec. 0.12, printed pp. 13-15"
+    }
+   ]
+  },
+  {
+   "source": "PadicMeasuresIwasawaAlgebras:L1/measures-are-the-completed-group-algebra",
+   "target": "SelmerIwasawaCohomology:L3/iwasawa-cohomology-via-shapiro-with-the-inverse-action",
+   "reason": "The atlas already records PadicMeasuresIwasawaAlgebras:L1 as a prerequisite of SelmerIwasawaCohomology:L3. What is actually supplied, and used, is the construction R_tilde = R(Gamma) = inverse limit of R[Gal(K_alpha/K)] together with its topology and continuous module theory: Nekovar's R(Gamma) in Sec. 0.11 is literally that inverse limit, and the induced module (T tensor_R R_tilde)<-1> is a continuous R_tilde[G]-module in the sense L1 constructs. L1's warning that the inverse limit of K[G/H] is NOT the space of bounded measures matters here because Nekovar works integrally throughout.",
+   "sources": [
+    {
+     "sourceId": "nekovar-selmer-complexes",
+     "locator": "Sec. 0.11, printed p. 13"
+    }
+   ]
+  },
+  {
+   "source": "SelmerIwasawaCohomology:L4/class-group-modules-as-greenberg-selmer-groups-of-tate-twists",
+   "target": "SelmerIwasawaCohomology:L4/greenberg-iwasawa-main-conjecture-statement-with-hypotheses",
+   "reason": "Example 13.22 is the instantiation of Conjecture 13.21 at V = Q_p(n) for even positive n, and it uses precisely the identification H^1_{L_Gr}(F,W_n) = Hom_cts(X_infinity^+, W_n) established in Sec. 13.5.2, together with the twist X_infinity^+(-n) of its Pontryagin dual. Without the Selmer-group computation the conjecture has no known instance in these notes.",
+   "sources": [
+    {
+     "sourceId": "rjw-padic-l-functions",
+     "locator": "Sec. 13.5.2 (printed p. 71) feeding Example 13.22 (printed p. 71)"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "SelmerIwasawaCohomology:L0",
+   "status": "partial",
+   "remaining": [
+    "The imports named by the stage (compact continuous cochains and derived-limit comparison, lim^1 sequence, discrete comparison, full Hochschild-Serre with edge maps, continuous cup products, twists, duals, corestriction, finite/infinite Shapiro and projection formulas) are owned by ArithmeticGaloisDuality R02; only Rubin's Appendix B versions were read here. The lim^1 sequence itself is NOT in Rubin's Appendix B (he uses the exactness of inverse limits of compact groups, Prop. 1.1(i), instead)",
+    "Continuous cup products, twists and projection formulas were not read",
+    "The separate statements for number-field units, S-units and local multiplicative groups (when the completion agrees with an algebraic tensor product) are flagged in the node's acceptance but not sourced",
+    "The determinant-line input from PadicMeasuresIwasawaAlgebras:L5 was not used"
+   ]
+  },
+  {
+   "stageId": "SelmerIwasawaCohomology:L1",
+   "status": "partial",
+   "remaining": [
+    "Local Tate duality itself (Rubin Ch. I Sec. 4, Theorem 4.1 and Proposition 4.3) was NOT read; only its use in Theorem 7.3 was read. The unramified/bad-prime comparison terms the stage asks to calculate are in Rubin Lemmas 3.5 and 3.8, which were not read",
+    "The Poitou-Tate exact sequence is quoted by Rubin from Milne, Arithmetic Duality Theorems Thm. I.4.10, and from Tate; Milne's book is not in the supplied library",
+    "Euler-characteristic formulas, compact support with modified real-place terms at p = 2, and cohomological-dimension theorems were not read",
+    "The Selmer-complex duality map (the complex-level counterpart) is recorded only through Nekovar Sec. 0.9's orthogonality requirement; the construction of the duality map was not read"
+   ]
+  },
+  {
+   "stageId": "SelmerIwasawaCohomology:L2",
+   "status": "partial",
+   "remaining": [
+    "Greenberg's condition at p is defined here from RJW Def. 13.19(1) and Nekovar Sec. 0.8.1; the strict and relaxed conditions from Rubin Def. 5.1. The four conditions the stage asks to define SEPARATELY (unramified, strict, relaxed, Greenberg) are therefore covered, but the compatibility comparisons between them were not read",
+    "The compact Pontryagin dual with the contragredient action and the involution convention is only recorded through Nekovar's iota (Sec. 0.11); no proof of the involution convention was read",
+    "Saturation and the passage from V to T and A are covered only by Rubin Lemma 2.2(iii); the systematic lattice-change formulas were not read",
+    "Nekovar Ch. 6 (the actual definition chapter for Selmer complexes) and Ch. 9 (the comparison 9.6.3, 9.6.7 quoted in Sec. 0.10) were NOT read; only the introduction was read"
+   ]
+  },
+  {
+   "stageId": "SelmerIwasawaCohomology:L3",
+   "status": "partial",
+   "remaining": [
+    "Nekovar Ch. 8 (Iwasawa theory: Sections 8.3, 8.4, 8.4.6.6 and 8.9.9, which are the actual proofs behind Sections 0.11-0.13) was NOT read; only the introduction's statements were read",
+    "Finite generation, base change and the specialization spectral sequences are stated in the introduction but their proofs are in Ch. 8",
+    "Control statements with explicit kernels and cokernels through H^0, inertia and local quotient terms were not read",
+    "The determinant-line formulation for perfect Iwasawa complexes and its relation to characteristic ideals is NOT covered: no determinant-of-a-complex source was found in the library (same gap as PadicMeasuresIwasawaAlgebras:L5)",
+    "Infinite-level local conditions as limits were not read"
+   ]
+  },
+  {
+   "stageId": "SelmerIwasawaCohomology:L4",
+   "status": "partial",
+   "remaining": [
+    "RJW Sec. 10.5 (the cohomological reinterpretation of the Coleman map, named in the stage's acceptance) was located at printed p. 52 but NOT read",
+    "The comparison with the R06 exact sequence (RJW Corollary 13.14) was not read in this job; EXT-15's IntegralIwasawaTheory packet reports reading Sec. 13.4 including Cor. 13.14",
+    "Bloch-Kato local conditions are defined here from RJW Def. 13.19(2) but no comparison theorem with the ordinary condition, and no exceptional factors, were read. RJW refer to Kato and to Perrin-Riou Sec. 2.4.7; neither was consulted",
+    "The Hodge/gamma-factor notion of criticality is recorded only through RJW's r_V (order of the pole of L_infinity at s=1) and Remark 13.23; the general realization-data definition was not read",
+    "Greenberg's original paper [Gre89] is not in the supplied library"
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Stage-ordering finding: L1's duality theorem consumes L2's Selmer-group definitions",
+   "neededBy": [
+    "SelmerIwasawaCohomology:L1",
+    "SelmerIwasawaCohomology:L2"
+   ],
+   "detail": "THIS IS A FINDING ABOUT THE ATLAS, NOT ABOUT A SOURCE. Rubin's Poitou-Tate theorem (Ch. I Thm. 7.3, printed pp. 17-18), which is the content of stage L1 ('identifying the actual annihilator of each chosen local condition'), is stated entirely in terms of the relaxed and strict Selmer groups S^Sigma and S_Sigma of Definition 5.1, and its proof reduces to the case of large Sigma by invoking Lemma 5.3 (S^Sigma(K,W_M) = H^1(K_Sigma/K,W_M)). Both are stage L2 content by the atlas's division. data/atlas.json records L1 -> L2 (L2 requires L1), so no L2 -> L1 edge is proposed here; adding one would create a two-cycle. VERIFIED: Rubin Def. 5.1, Lemma 5.3 with proof, and Thm. 7.3 with the start of its proof. RESOLUTION NEEDED BY THE ATLAS OWNER: the plain Selmer-group DEFINITIONS (Rubin Def. 5.1 and Lemma 5.3) are prerequisites of the duality theorem, whereas the complex-level Selmer structures, Pontryagin duals and mapping fibres of L2 genuinely come after it; the definitions should probably move to L1 or to a shared earlier stage."
+  },
+  {
+   "title": "Only the introduction of Nekovar's Selmer complexes was read",
+   "neededBy": [
+    "SelmerIwasawaCohomology:L2",
+    "SelmerIwasawaCohomology:L3"
+   ],
+   "detail": "Asterisque 310 is 559 printed pages; this job read Sections 0.8-0.13 of the introduction (printed pp. 9-15). Those sections STATE the Selmer complex, its exact triangle, Greenberg's local conditions, the Shapiro identification with the <-1> twist, the duality diagrams, the Ext spectral sequences and the pseudo-null degeneration, and they name the internal references (Ch. 6 for the definitions, Sections 8.3, 8.4, 8.4.6.6, 8.9.9 for the Iwasawa statements, 9.6.3 and 9.6.7 for the classical comparison). VERIFIED: all of the statements quoted in this packet, together with the explicit caveats (non-injectivity of H^i_f -> H^i_cont, the restriction to Greenberg conditions, the absence of a general Hochschild-Serre formalism, the pseudo-null-only degeneration, the non-splitting hypothesis). NOT VERIFIED: any proof. Next source action: read Ch. 6 and Ch. 8 of the copy already in the library (papers/KI_Nekovar_SelmerComplexes.pdf). The Numdam scan's OCR is poor in the body; page images may be needed."
+  },
+  {
+   "title": "Poitou-Tate duality is quoted, not proved, in every source read",
+   "neededBy": [
+    "SelmerIwasawaCohomology:L1"
+   ],
+   "detail": "Rubin's proof of Theorem 7.3 inserts a segment of 'the Poitou-Tate duality exact sequence ([Mi] Theorem I.4.10 or [T1] Theorem 3.1)'. Milne, Arithmetic Duality Theorems, and Tate's Congres paper are absent from CATALOGUE.json. Nekovar Sec. 0.7.1 likewise states global duality without proof in the introduction. VERIFIED: the shape of the sequence used, the local orthogonality it is combined with, and the exact conclusion (ii) and (iii) of Theorem 7.3. NOT VERIFIED: the Poitou-Tate sequence itself. Next source action: Milne, Arithmetic Duality Theorems, 2nd ed., Thm. I.4.10, or NSW, Cohomology of Number Fields, Sec. VIII.6. Neither is in the library. NOTE: the stage says ArithmeticGaloisDuality R02 is the OWNER of this theorem, so this is a supplier request rather than a gap this roadmap must close."
+  },
+  {
+   "title": "Local Tate duality and the unramified/bad-prime comparison terms were not read",
+   "neededBy": [
+    "SelmerIwasawaCohomology:L1"
+   ],
+   "detail": "Rubin Ch. I Sec. 4 (Theorem 4.1, Proposition 4.3) and Lemmas 3.5, 3.8 contain the local pairing, the orthogonality of the unramified conditions and the finiteness statements used everywhere in Sections 5 and 7. They are in the library copy and were not read in this pass. VERIFIED: their statements as used inside Theorem 7.3 and Lemma 5.3. NOT VERIFIED: the statements themselves or their proofs. Next source action: read Rubin Ch. I Sections 3.2-3.5 and 4 (printed pp. 5-11)."
+  },
+  {
+   "title": "No determinant-line formulation for perfect Iwasawa complexes",
+   "neededBy": [
+    "SelmerIwasawaCohomology:L3"
+   ],
+   "detail": "Stage L3 requires the determinant-line formulation for perfect Iwasawa complexes and its relation to characteristic ideals via PadicMeasuresIwasawaAlgebras L5. No source in the supplied library was located for determinants of perfect complexes; see the identically named gap in this job's PadicMeasuresIwasawaAlgebras packet. Nekovar's footnote (8) in the introduction remarks that 'it is natural to expect that det of H_Iw(K_infinity/K,T)' relates to p-adic L-functions, but the determinant formalism itself is not developed in the sections read. Next source action: Knudsen-Mumford, or Kato's Iwasawa-theory lectures, or Fukaya-Kato Sec. 1; none present."
+  },
+  {
+   "title": "Greenberg's original formulation and the Coates-Perrin-Riou conjecture were not read",
+   "neededBy": [
+    "SelmerIwasawaCohomology:L4"
+   ],
+   "detail": "RJW Sec. 13.5.3 states Conjecture 13.21 'due to Greenberg [Gre89]' and attributes the existence of the p-adic L-function to Coates-Perrin-Riou [CPR89]. Neither paper is in the supplied library. RJW also flag that they work over Q(mu_{p^infinity})^+ whereas Greenberg works over the cyclotomic Z_p-extension, so the two formulations are not literally the same statement. VERIFIED: RJW's statement of the conjecture, its two separate assertions, the ordinarity hypothesis, the criticality restriction of Remark 13.23, and the worked instance of Example 13.22. NOT VERIFIED: Greenberg's own formulation or the precise dictionary between the two base fields. Next source action: R. Greenberg, Iwasawa theory for p-adic representations, Adv. Stud. Pure Math. 17 (1989); J. Coates and B. Perrin-Riou, On p-adic L-functions attached to motives over Q, Adv. Stud. Pure Math. 17 (1989)."
+  },
+  {
+   "title": "Coates-Sujatha is the cited source for the plus-part identification",
+   "neededBy": [
+    "SelmerIwasawaCohomology:L4/class-group-modules-as-greenberg-selmer-groups-of-tate-twists"
+   ],
+   "detail": "The step '(X_infinity)^{c=1} = X_infinity^+' is quoted by RJW as '[CS06, p.6]'. Coates-Sujatha, Cyclotomic Fields and Zeta Values (2006), is catalogued (CoatesSujatha_CyclotomicZeta) with no file. This is the same absent source as in the PadicMeasuresIwasawaAlgebras packet. VERIFIED: the statement and its role in the computation. NOT VERIFIED: its proof. Next source action: acquire Coates-Sujatha, or substitute Washington Sec. 13."
+  }
+ ]
+}

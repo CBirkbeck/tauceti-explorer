@@ -1,0 +1,460 @@
+{
+ "roadmapId": "ModularIwasawaMainConjectures",
+ "status": "partial",
+ "summary": "Source decomposition of the modular Iwasawa main conjectures from Fouquet-Wan's universal-family paper (Sec. 1.1 read in full, plus Lemma 4.50 and Thm. 4.51) and Burungale-Castella-Skinner's base-change paper (introduction read in full). Covers: the cohomological formulation (FW Conjecture 1.5) with Kato's zeta element and the explicit statement that it is WEAKER than the leading-term conjecture at the finitely many vanishing characters, together with Lemma 4.50's Poitou-Tate equivalence with the Selmer formulation; FW Thm. 1.6, the Skinner-Urban divisibility, with its three hypotheses (absolute residual irreducibility, the ramified auxiliary prime with dim rho-bar^{I_ell} = 1 and dim rho-bar^{G_{Q_ell}} = 0, and the ordinary filtration with DISTINCT residual characters) and BOTH of the caveats the authors attach to it -- the lifted weight restriction k = 2 mod p-1 and the canonical-versus-Gross period comparison that Sec. 4.8 bypasses; FW Thm. 1.7 with its two purely residual hypotheses and the three features the authors emphasise (residual-only hypotheses, supercuspidal reduction at p allowed, no mu-invariant assumption); BCS Thm. 1.1.2 with its CAREFUL rational (Lambda tensor Q_p, under (irrQ) and p > 3) versus integral (Lambda, additionally under (im)) split, the removal of (mult), the excluded residually dihedral case, and the precise relation to Wan's conditional theorem; and FW Thm. 1.8, the universal-family trivialisation over the REGULAR ring O[[X_1,X_2,X_3]], with the unobstructedness clause that limits when the deformation ring is a power-series ring. L5 and L6 are not_read; the signed half of L4 and Skinner-Urban's own paper were not read at all.",
+ "sources": [
+  {
+   "id": "fouquet-wan-universal-imc",
+   "title": "The Iwasawa Main Conjecture for universal families of modular motives",
+   "authors": "Olivier Fouquet; Xin Wan",
+   "edition": "arXiv:2107.13726v3 (inspected 2026-09-15)",
+   "url": "https://arxiv.org/pdf/2107.13726v3",
+   "sha256": "39cee6cec8a5d56baf5c0b19dd892a571bc7945eab281d6ec9a9c14fa70294ee",
+   "readSections": [
+    "Sec. 1.1, printed pp. 5-8: Thm. 1.4 (both parts) and Kato's divisibility; Conjecture 1.5 with its footnote comparing it to Conjecture 1.3; the paragraph on the k = 2 mod p-1 restriction and the period-comparison issue; Thm. 1.6 with its three hypotheses; Sec. 1.1.2 with Thm. 1.7 and the three features the authors highlight; Thm. 1.8 with the two following remarks; the definition of Sel_Q(f)",
+    "Sec. 4.8 region, printed pp. around Lemma 4.50 and Thm. 4.51: Lemma 4.50 with its proof, and Thm. 4.51 with the opening of its proof"
+   ]
+  },
+  {
+   "id": "burungale-castella-skinner-base-change-imc",
+   "title": "Base change and Iwasawa main conjectures for GL_2",
+   "authors": "Ashay Burungale; Francesc Castella; Christopher Skinner",
+   "edition": "arXiv:2405.00270v2, dated 19 March 2025 (inspected 2026-09-15)",
+   "url": "https://arxiv.org/pdf/2405.00270v2",
+   "sha256": "bf87592cdbaabb5c57004bfd44dd5b4d712cb306bbbdc36520a3daf92fa416f3",
+   "readSections": [
+    "Contents and Sec. 1 'Introduction', printed pp. 1-3: Sec. 1.1 with Conjecture 1.1.1, the hypotheses (irrQ) and (mult), the summary of Kato's and Skinner-Urban's contributions, Thm. 1.1.2 with (im), and Remark 1.1.3(i)-(iii); Sec. 1.2 opening with (disc), (Heeg), (spl) and the Lambda-adic Heegner class",
+    "Sec. 1.2, statements of Thms. 1.2.2 and 1.2.4 (located; read as statements only)"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "ModularIwasawaMainConjectures:L0/cohomological-formulation-and-its-ordinary-comparison",
+   "parentStageId": "ModularIwasawaMainConjectures:L0",
+   "title": "The cohomological main conjecture (FW Conjecture 1.5) and its Poitou-Tate comparison with the Selmer formulation",
+   "kind": "definition",
+   "statement": "Let f be a normalised eigencuspform, M(f) its motive, T a Galois-stable lattice, Lambda_Iw the cyclotomic Iwasawa algebra and Delta(M(f))_Iw the Iwasawa-theoretic fundamental line. Theorem 1.4 produces a canonical element z(f)_Iw in Delta(M(f))_Iw tensor Frac(Lambda_Iw) whose complex periods compute the special values: per_C(per_p^{-1}(chi_cyc^r chi(z(f)_Iw)) tensor 1) = L^{{p}}(M(f)^*(1), chi^{-1}, -r). CONJECTURE 1.5 (the Iwasawa Main Conjecture for M(f)) asserts that z(f)_Iw is a BASIS of Delta(M(f))_Iw, equivalently that char_{Lambda_Iw} H^2_et(Z[1/p], T tensor Lambda_Iw) = char_{Lambda_Iw} (H^1_et(Z[1/p], T tensor Lambda_Iw) / Lambda_Iw . z(f)_Iw). The authors note that Conjecture 1.5 is WEAKER than their Conjecture 1.3, because it predicts nothing about the behaviour of the zeta element at the finitely many chi where L(M(f)^*(1), chi^{-1}, -r) vanishes. LEMMA 4.50 gives the comparison with the Selmer formulation: writing F_1 for the image of z(f)_Iw in H^1(Q_S/Q, T)/Lambda-part and F for the characteristic polynomial of the v-dual Selmer group X_{v-dual}(f), Conjecture 1.5 for M(f) is EQUIVALENT to the equality of principal ideals (F_1) = (F); the proof is by Poitou-Tate duality, in the same way as in Kobayashi's Theorem 7.4, with L_p^{+-} there playing the role of F_1 here.",
+   "hypotheses": [
+    "the cohomology is H^i_et(Z[1/p], -), i.e. with the extension-by-zero/local conditions away from p used in the source; replacing it by unrestricted Galois cohomology for a larger set S requires a correction",
+    "Conjecture 1.5 is an equality of CHARACTERISTIC IDEALS over Lambda_Iw, not of leading terms; it says nothing at the finitely many characters where the complex L-value vanishes",
+    "Theorem 1.4's second part -- Kato's divisibility -- requires k > 2, OR that M(f) has potential good reduction AND that the image of rho_f restricted to G_{Q(zeta_{p^infinity})} contains a conjugate of SL_2(Z_p)",
+    "Lemma 4.50 is an equivalence, not a one-way implication, and it is proved by Poitou-Tate; the comparison is between the COHOMOLOGICAL and the (v-dual) SELMER formulations",
+    "the period comparison per_C o per_p^{-1} is part of the statement of Thm. 1.4; a formulation without it is not the same conjecture"
+   ],
+   "proofSteps": [
+    "Kato proved the first part of Thm. 1.4 by constructing the elements z_{M,N} in K_2(Y(M,N)) as Steinberg products of two Siegel units; a reciprocity law links their images under the dual exponential composed with the Chern class map to products of Eisenstein series and hence to L-values.",
+    "The second part (the divisibility) follows by the Euler-system method of Thaine, Rubin and Kolyvagin as axiomatised by Perrin-Riou, Kato and Rubin, applied to the classes z_m in H^1_et(Z[1/p, zeta_m], T).",
+    "Lemma 4.50 converts Conjecture 1.5 into the Selmer equality (F_1) = (F) by Poitou-Tate duality."
+   ],
+   "acceptance": [
+    "Check that Conjecture 1.5 is the WEAKER statement: it is explicitly not the leading-term/special-value conjecture at the characters where the L-value vanishes.",
+    "Check the two alternative hypotheses in Thm. 1.4(2); the large-image condition is on the restriction to G_{Q(zeta_{p^infinity})}, not to G_Q.",
+    "Check that Lemma 4.50 is used in BOTH directions, and that the Selmer group there is the v-dual one of the source's Sec. 4.3.",
+    "Check the local-condition set: the cohomology is over Z[1/p], and any enlargement of S changes both sides."
+   ],
+   "sources": [
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Sec. 1.1, Conjecture 1.5 and its footnote, printed p. 6",
+     "excerpt": "Conjecture 1.5 ([68] Conjecture 12.10). Let z(f)_Iw in Delta(M(f))_Iw tensor_{Lambda_Iw} Frac(Lambda_Iw) be the basis of theorem 1.4. Then z(f)_Iw is a basis of Delta(M(f))_Iw. Equivalently, there is an equality of characteristic ideals char_{Lambda_Iw} H^2_et(Z[1/p], T tensor Lambda_Iw) = char_{Lambda_Iw} H^1_et(Z[1/p], T tensor Lambda_Iw)/Lambda_Iw . z(f)_Iw. ... Conjecture 1.5 is weaker than conjecture 1.3, as it predicts nothing on the behavior of the zeta element at the finitely many chi where L(M(f)^*(1), chi^{-1}, -r) vanishes.",
+     "match": "Gives the conjecture in both forms and the explicit statement that it is the weaker one."
+    },
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Sec. 1.1, Thm. 1.4(2), printed p. 5",
+     "excerpt": "If k > 2 or if M(f) has potential good reduction and if the image of rho_f|G_{Q(zeta_{p^infinity})} contains a subgroup conjugated to SL_2(Z_p), then there is an inclusion Delta(M(f))^{-1}_Iw contained in Lambda_Iw . z(f)_Iw of invertible Lambda_Iw-modules inside Delta(M(f))_Iw tensor Frac(Lambda_Iw). Equivalently, z(f)_Iw can then be seen as a class in H^1_et(Z[1/p], T tensor Lambda_Iw) and there is a divisibility of characteristic ideals char H^2_et(...) | char H^1_et(...)/Lambda_Iw . z(f)_Iw.",
+     "match": "Gives Kato's divisibility with its exact alternative hypotheses."
+    },
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Sec. 1.1, after Conjecture 1.5, printed p. 6",
+     "excerpt": "K.Kato proved the first statement of theorem 1.4 by introducing a family of distinguished elements {z_{M,N} in K_2(Y(M,N))}_{M,N} where z_{M,N} is the Steinberg product of two well-defined Siegel units. A delicate reciprocity law links the images of the classes z_{M,N} through the dual exponential map composed with the Chern class map to products of Eisenstein series and hence to special values of L-functions.",
+     "match": "Records the construction and reciprocity law underlying Thm. 1.4, matching the EXT-15 KatoEulerSystems packet."
+    },
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Lemma 4.50 with its proof",
+     "excerpt": "Lemma 4.50. Conjecture 1.5 for M(f) is equivalent to the equality (F_1) = (F) as principal ideals of Lambda_Iw. Proof. This is proved using Poitou-Tate duality in the same way as in the proof of [77, Theorem 7.4], once it is observed that the role L_p^{+-} in loc.cit is played here by F_1.",
+     "match": "Gives the equivalence with the Selmer formulation and names Poitou-Tate as the mechanism."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularIwasawaMainConjectures:L1/skinner-urban-divisibility-as-recorded-by-fouquet-wan",
+   "parentStageId": "ModularIwasawaMainConjectures:L1",
+   "title": "The ordinary divisibility (FW Theorem 1.6) with its three hypotheses and its two proof caveats",
+   "kind": "theorem",
+   "statement": "THEOREM 1.6 (recorded by Fouquet-Wan as Skinner-Urban Theorem 3.19): let f in S_k(Gamma_0(N)) with p not dividing N be an eigencuspform of weight k >= 2, and assume the following three hypotheses on rho_f: (1) the G_Q-representation rho-bar_f is ABSOLUTELY IRREDUCIBLE; (2) there exists ell exactly dividing N such that dim_F(rho-bar_f)^{I_ell} = 1 and dim_F(rho-bar_f)^{G_{Q_ell}} = 0; (3) the restriction of rho_f to G_{Q_p} fits into a short exact sequence of O[G_{Q_p}]-modules 0 -> chi_1 -> rho_f|G_{Q_p} -> chi_2 -> 0 with chi-bar_1 DIFFERENT FROM chi-bar_2. Then char_{Lambda_Iw}(H^1_et(Z[1/p], T tensor Lambda_Iw)/Lambda_Iw . z(f)_Iw) DIVIDES char_{Lambda_Iw} H^2_et(Z[1/p], T tensor Lambda_Iw) -- the divisibility OPPOSITE to Kato's. TWO CAVEATS recorded by Fouquet-Wan: the cited source carries the assumption k congruent to 2 modulo p - 1, which was LIFTED by the second named author in a separate paper; and deducing Thm. 1.6 from the cited source 'would need an argument comparing the canonical period and the Gross period, which might not exist in the relevant literature in a satisfying generality for our purpose', so Fouquet-Wan give in their Sec. 4.8 indications on how to reprove Thm. 1.6 BYPASSING that issue.",
+   "hypotheses": [
+    "all three hypotheses are on rho_f, and hypothesis (2) is the ramified-auxiliary-prime condition ell EXACTLY dividing N with a one-dimensional inertia invariant and no G_{Q_ell}-invariant",
+    "hypothesis (3) is the ordinary filtration at p together with DISTINCT RESIDUAL characters chi-bar_1, chi-bar_2; the distinctness is essential and is not implied by the filtration",
+    "the weight restriction k congruent to 2 mod p - 1 present in the cited source is NOT part of Thm. 1.6 as stated, because it was lifted separately; a decomposition that carries it would be weaker than the theorem, and one that omits the lifting reference would be unsourced",
+    "the deduction from the cited source requires a canonical-versus-Gross period comparison that the authors say may not exist in the literature in sufficient generality; their Sec. 4.8 gives an alternative route",
+    "the conclusion is ONE divisibility; combined with Kato's opposite divisibility (Thm. 1.4(2)) it gives the equality of Conjecture 1.5, but only where BOTH sets of hypotheses hold"
+   ],
+   "proofSteps": [
+    "The divisibility is the Eisenstein-congruence result of Skinner-Urban, obtained from congruences on the unitary group GU(2,2) over imaginary quadratic fields.",
+    "Fouquet-Wan record two modifications: the weight restriction is removed by Wan, and the period issue is avoided by their own Sec. 4.8 argument.",
+    "A footnote records that the assumptions of Thm. 1.6 are enough to deduce Thm. 1.4 (i.e. Kato's side), so the two divisibilities can be combined under the hypotheses of Thm. 1.6 alone.",
+    "Theorem 4.51 is the corresponding equality statement in the crystalline short case: if rho_f|G_{Q_p} is crystalline (equivalently p does not divide N) and short, rho-bar_f|G_{Q_p} is absolutely irreducible, and there is ell exactly dividing N with dim rho-bar^{I_ell} = 1 and dim rho-bar^{G_{Q_ell}} = 0, then Conjecture 1.5 holds for M(f); its proof uses Thm. 1.4 and Lemma 4.50 to get one divisibility and then compares at a single arithmetic point."
+   ],
+   "acceptance": [
+    "Check hypothesis (3)'s distinctness clause chi-bar_1 not equal to chi-bar_2 explicitly; an ordinary filtration alone is weaker.",
+    "Check that the weight restriction k congruent to 2 mod p - 1 has been lifted, and cite the lifting, rather than either carrying it or omitting the reference.",
+    "Check whether the intended application needs the canonical-Gross period comparison; if so, the Sec. 4.8 route must be used.",
+    "Check that Thm. 1.6 alone is a divisibility, and that the equality requires Kato's side as well; the footnote asserting that Thm. 1.6's hypotheses suffice for Thm. 1.4 is the bridge and should be verified.",
+    "Check the different hypothesis sets of Thm. 1.6 and Thm. 4.51: the latter needs crystalline-and-short at p and absolute irreducibility of the LOCAL residual representation, the former an ordinary filtration with distinct residual characters."
+   ],
+   "sources": [
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Sec. 1.1, Thm. 1.6, printed pp. 6-7",
+     "excerpt": "Theorem 1.6 ([117] Theorem 3.19). Let f in S_k(Gamma_0(N)) with p not dividing N be an eigencuspform of weight k >= 2. Assume the following hypotheses on rho_f. 1. The G_Q-representation rho-bar_f is absolutely irreducible. 2. There exists ell||N, such that dim_F rho-bar_f^{I_ell} = 1 and dim_F rho-bar_f^{G_{Q_ell}} = 0. 3. The restriction of rho_f to G_{Q_p} fits into a short exact sequence of O[G_{Q_p}]-modules 0 -> chi_1 -> rho_f|G_{Q_p} -> chi_2 -> 0 with chi-bar_1 not= chi-bar_2. Then there is a divisibility of characteristic ideals char_{Lambda_Iw} H^1_et(Z[1/p], T tensor Lambda_Iw)/Lambda_Iw . z(f)_Iw | char_{Lambda_Iw} H^2_et(Z[1/p], T tensor Lambda_Iw).",
+     "match": "Gives the theorem with all three hypotheses and the direction of the divisibility."
+    },
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Sec. 1.1, the paragraph before Thm. 1.6, printed p. 6",
+     "excerpt": "assumptions k congruent to 2 mod p - 1, which was lifted by the second named author in [124]. In addition, to deduce the following result from [117], one would need an argument comparing the canonical period and the Gross period, which might not exist in the relevant literature in a satisfying generality for our purpose. In order to provide a self-contained argument, indications on how to reprove theorem 1.6 in a way that bypasses this issue are given in section 4.8.",
+     "match": "Records both caveats verbatim: the lifted weight restriction and the period-comparison difficulty with its Sec. 4.8 workaround."
+    },
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Sec. 1.1, footnote 2, printed p. 7",
+     "excerpt": "As is recalled in the proof of lemma 3.13, the assumptions of theorem 1.6 are enough to deduce theorem 1.4; see also the discussion after [116, Theorem 1.4].",
+     "match": "Records that Thm. 1.6's hypotheses also give Kato's side, which is what allows the two divisibilities to be combined."
+    },
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Thm. 4.51",
+     "excerpt": "Theorem 4.51. Let f in S_k(Gamma_0(N)) be a normalized eigencuspform of weight k >= 2 satisfying the following hypotheses. 1. The G_{Q_p}-representation rho_f|G_{Q_p} is crystalline (equivalently p not dividing N) and short. 2. The local residual representation rho-bar_f|G_{Q_p} is absolutely irreducible. 3. There exists ell||N such that dim_F rho-bar^{I_ell} = 1 and dim_F rho-bar^{G_{Q_ell}} = 0. Then conjecture 1.5 holds for M(f).",
+     "match": "Gives the crystalline equality theorem with its distinct hypothesis set."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularIwasawaMainConjectures:L2/residual-cohomological-main-conjecture",
+   "parentStageId": "ModularIwasawaMainConjectures:L2",
+   "title": "The residual-hypothesis cohomological main conjecture (FW Theorem 1.7)",
+   "kind": "theorem",
+   "statement": "THEOREM 1.7: let p > 2 be odd, F/F_p a finite extension, and rho-bar : G_Q -> GL_2(F) an ABSOLUTELY IRREDUCIBLE AND ODD Galois representation. Assume (1) there is NO character chi-bar : G_{Q_p} -> F^x with (rho-bar|G_{Q_p})^{ss} equal to chi-bar + chi_cyc chi-bar; and (2) there exists ell not equal to p such that rho-bar|G_{Q_ell} is a RAMIFIED extension 0 -> mu chi_cyc^{1-k/2} -> rho-bar|G_{Q_ell} -> mu chi_cyc^{-k/2} -> 0, where mu : G_{Q_ell} -> {+-1} is the NONTRIVIAL UNRAMIFIED QUADRATIC character. Let f in S_k(Gamma_0(N)) be a normalised eigencuspform of weight k >= 2 with rho-bar_f isomorphic to rho-bar. If ell EXACTLY DIVIDES N, then Conjecture 1.5 holds for M(f). The authors highlight three features. First, all hypotheses are on rho-bar_f alone, so the conclusion may be restated as the main conjecture holding for every eigencuspform of level Gamma_0 which is a point of a suitably defined universal deformation ring. Second, the theorem imposes very mild hypotheses on rho-bar_f|G_{Q_p} and NONE on rho_f|G_{Q_p}: arbitrary bad reduction at p is allowed, equivalently pi(f)_p may be SUPERCUSPIDAL. In a fixed deformation space, the modular points that are ordinary or crystalline of low weight at p form a set of POSITIVE CODIMENSION while all modular points are Zariski-dense, so earlier results did not apply to almost all modular points. Third, NO assumption is made on the mu-invariant of f, in contrast with earlier results of the same shape.",
+   "hypotheses": [
+    "p > 2; rho-bar is absolutely irreducible AND ODD",
+    "hypothesis (1) excludes exactly the residual local shape chi-bar + chi_cyc chi-bar at p; this is a genuine restriction and is the only local condition at p",
+    "hypothesis (2) requires a RAMIFIED extension at some ell not p, with the specific unramified quadratic twist mu and the specific half-weight twists chi_cyc^{1-k/2} and chi_cyc^{-k/2}. The half-weight twists are legitimate because f has trivial nebentypus and hence even weight",
+    "the auxiliary prime must satisfy ell EXACTLY dividing N for the given f, not merely ell dividing N",
+    "the conclusion is the FULL Conjecture 1.5, i.e. the equality, for that f",
+    "the absence of a mu-invariant hypothesis is a stated feature, not an omission; the authors record that the vanishing is expected in this setting but has resisted proof"
+   ],
+   "proofSteps": [
+    "The proof occupies the body of the paper and was NOT read here. The structure indicated in the introduction is: prove the universal-family statement (Thm. 1.8) over a three-variable regular ring and then specialise.",
+    "The authors note that if the generalised Iwasawa Main Conjecture is true then Conjecture 1.5 holds except possibly on a closed subset of positive codimension, so Thm. 1.8 implies Thm. 1.7 for most modular points; Thm. 1.7 as stated covers all of them."
+   ],
+   "acceptance": [
+    "Check hypothesis (2) in a concrete example, including the ramifiedness of the extension and the nontriviality of mu; a split extension or a trivial mu is not covered.",
+    "Check the half-weight twists chi_cyc^{1-k/2} and chi_cyc^{-k/2} and the translation to a different representation normalisation; the stage text requires that translation to be proved.",
+    "Check that the theorem does NOT assert a globally bounded scalar p-adic L-function at a supercuspidal or infinite-slope point: it is a statement about characteristic ideals of cohomology, and the analytic object there is the zeta element, not a bounded measure.",
+    "Check that the local residual exclusion at p and the auxiliary ramified prime are retained; they are genuine restrictions."
+   ],
+   "sources": [
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Sec. 1.1.2, Thm. 1.7, printed p. 7",
+     "excerpt": "Theorem 1.7. Let p > 2 be an odd prime and let F/F_p be a finite extension. Let rho-bar : G_Q -> GL_2(F) be an absolutely irreducible and odd Galois representation. Assume that the following assumptions on rho-bar hold. 1. There is no character chi-bar : G_{Q_p} -> F^x such that the semisimplification of rho-bar|G_{Q_p} is equal to chi-bar + chi_cyc chi-bar. 2. There exists ell not dividing p such that rho-bar|G_{Q_ell} is a ramified extension 0 -> mu chi_cyc^{1-k/2} -> rho-bar|G_{Q_ell} -> mu chi_cyc^{-k/2} -> 0 where mu : G_{Q_ell} -> {+-1} is the non-trivial unramified quadratic character. Let f in S_k(Gamma_0(N)) be a normalized eigencuspform of weight k >= 2 such that rho-bar_f is isomorphic to rho-bar. If ell||N, then the Iwasawa Main Conjecture (conjecture 1.5) holds for M(f).",
+     "match": "Gives the theorem with both residual hypotheses and the exact-divisibility condition on ell."
+    },
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Sec. 1.1.2, after Thm. 1.7, printed pp. 7-8",
+     "excerpt": "Second, theorem 1.7 requires very mild hypotheses on rho-bar_f|G_{Q_p} and none on rho_f|G_{Q_p}. This means that we may allow arbitrary bad reduction of M(f) at p or, equivalently but from an automorphic point of view, that pi(f)_p is allowed to be supercuspidal. ... the set of modular points of Spec R_Sigma(rho-bar)[1/p] which are ordinary or crystalline with low weight at p has positive codimension in the deformation space Spec R_Sigma(rho-bar)[1/p] whereas the set of all modular points is Zariski-dense.",
+     "match": "Records the reduction-type generality and the codimension statement, as in the node statement."
+    },
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Sec. 1.1.2, after Thm. 1.7, printed p. 8",
+     "excerpt": "Finally, we do not make any assumption on the mu-invariant of f. This is in contrast to [36, 92] which contains results similar to theorem 1.7 under the hypothesis that the mu-invariant of f vanishes, an assumption that is expected to always hold in our setting but which at the moment invariably resisted proof.",
+     "match": "Records the absence of any mu-invariant hypothesis and the status of the expected vanishing."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularIwasawaMainConjectures:L3/ordinary-elliptic-curve-main-conjecture-rational-and-integral",
+   "parentStageId": "ModularIwasawaMainConjectures:L3",
+   "title": "Mazur's cyclotomic main conjecture for ordinary elliptic curves, rational and integral (BCS Theorem 1.1.2)",
+   "kind": "theorem",
+   "statement": "Let E/Q be an elliptic curve, p a prime of good ORDINARY reduction, Q_infinity the cyclotomic Z_p-extension, Gamma = Gal(Q_infinity/Q), Lambda = Z_p[[Gamma]], X_ord(E/Q_infinity) the Pontryagin dual of Sel_{p^infinity}(E/Q_infinity), and L_p(E/Q) the Mazur-Swinnerton-Dyer p-adic L-function. CONJECTURE 1.1.1 (Mazur): X_ord(E/Q_infinity) is Lambda-torsion with ch_Lambda(X_ord(E/Q_infinity)) = (L_p(E/Q)) as ideals of Lambda -- which implicitly includes the integrality L_p(E/Q) in Lambda, best understood under (irrQ): E[p] is an irreducible G_Q-module. THEOREM 1.1.2: (a) if p > 3 satisfies (irrQ) then X_ord(E/Q_infinity) is Lambda-torsion with ch_Lambda(X_ord(E/Q_infinity)) = (L_p(E/Q)) IN Lambda tensor Q_p; (b) if in addition (im) holds -- there exists sigma in G_{Q(mu_{p^infinity})} such that T/(sigma - 1)T is isomorphic to Z_p -- then the equality holds IN Lambda, and hence Conjecture 1.1.1 holds. Remark 1.1.3: (i) for non-CM curves (im) holds for all sufficiently large p by Serre's open image theorem, and p >= 37 is expected to suffice; (ii) the only prior result without the hypothesis (mult) is Wan's, which is CONDITIONAL on a p-integral comparison of automorphic periods that remains open, whereas the present proof relies on a main result of Wan's paper but SIDESTEPS that period comparison; (iii) under (irrQ) the essential case excluded by Thm. 1.1.2 is that of (residually) DIHEDRAL primes p.",
+   "hypotheses": [
+    "p > 3 and (irrQ): E[p] irreducible as a G_Q-module. Irreducibility is NOT the same as residual surjectivity, and the displayed rank-one quotient condition (im) is a separate assumption",
+    "part (a) gives the equality only in Lambda tensor Q_p; part (b) upgrades it to Lambda, and ONLY under (im)",
+    "(mult) -- the existence of a prime q exactly dividing N at which E[p] is ramified -- is the hypothesis of Skinner-Urban's theorem and is REMOVED here; that removal is the point of the paper",
+    "the excluded case under (irrQ) is that of residually dihedral p; the theorem is not unconditional",
+    "the proof relies on a main result of Wan's paper, which itself uses Eisenstein congruences on GU(2,2) over CM fields; what the present proof avoids is Wan's unproved period comparison, not Wan's theorem"
+   ],
+   "proofSteps": [
+    "Kato's Euler system gives the Lambda-torsionness of X_ord(E/Q_infinity) and the inclusion p^c L_p(E/Q) in ch_Lambda(X_ord(E/Q_infinity)) for some c >= 0, with c = 0 when T has large image.",
+    "Skinner-Urban proved the converse divisibility, and hence Conjecture 1.1.1, under the additional hypothesis (mult), by Eisenstein congruences on GU(2,2) over imaginary quadratic fields.",
+    "The present theorem removes (mult) by a base-change argument to an imaginary quadratic field, using a main result of Wan's paper while sidestepping its period comparison; the details are in Secs. 4-5 and were NOT read here."
+   ],
+   "acceptance": [
+    "Check the rational/integral distinction carefully: (a) is over Lambda tensor Q_p and (b) over Lambda. Reporting (a) as the integral main conjecture would be an error.",
+    "Check that (irrQ) and (im) are different conditions and that neither is residual surjectivity; the stage text is explicit on this.",
+    "Check that the dihedral case is excluded and that (im) is only known for large p by Serre's theorem.",
+    "Check the dependence on Wan's result and on the modularity of E; the stage text asks that modularity be consumed as an actual theorem from its owning roadmap rather than silently assumed."
+   ],
+   "sources": [
+    {
+     "sourceId": "burungale-castella-skinner-base-change-imc",
+     "locator": "Sec. 1.1, Conjecture 1.1.1 and the surrounding text, printed pp. 1-2",
+     "excerpt": "Conjecture 1.1.1 (Mazur's Main Conjecture). The Lambda-module X_ord(E/Q_infinity) is torsion, with ch_Lambda(X_ord(E/Q_infinity)) = (L_p(E/Q)) as ideals in Lambda. ... Note that implicit in Conjecture 1.1.1 is the integrality statement L_p(E/Q) in Lambda; this is most well-understood under the assumption that p is odd and E[p] is an irreducible G_Q-module (irrQ).",
+     "match": "Gives the conjecture, the implicit integrality and the hypothesis (irrQ)."
+    },
+    {
+     "sourceId": "burungale-castella-skinner-base-change-imc",
+     "locator": "Sec. 1.1, printed p. 2",
+     "excerpt": "In [Kat04], Kato proved the Lambda-torsionness of X_ord(E/Q_infinity) and the inclusion p^c . L_p(E/Q) in ch_Lambda(X_ord(E/Q_infinity)) for some c >= 0, with c = 0 when T has large image. ... Assuming further that there exists a prime q||N such that E[p] is ramified at q, (mult) the converse divisibility, and hence Conjecture 1.1.1 was proved by Skinner-Urban [SU14]. Their work employs Eisenstein congruences on the unitary group GU(2, 2) over imaginary quadratic fields. Our main result towards Conjecture 1.1.1 removes the hypothesis (mult)",
+     "match": "Records Kato's contribution with its p^c factor, the (mult) hypothesis of Skinner-Urban, and the point of the present theorem."
+    },
+    {
+     "sourceId": "burungale-castella-skinner-base-change-imc",
+     "locator": "Sec. 1.1, Thm. 1.1.2, printed p. 2",
+     "excerpt": "Theorem 1.1.2. Let E be an elliptic curve defined over Q and p a prime of good ordinary reduction for E. (a) If p > 3 satisfies (irrQ), then X_ord(E/Q_infinity) is Lambda-torsion, with ch_Lambda(X_ord(E/Q_infinity)) = (L_p(E/Q)) in Lambda tensor Q_p. (b) If in addition there exists an element sigma in G_{Q(mu_{p^infinity})} such that T/(sigma - 1)T is isomorphic to Z_p, (im) then the equality holds in Lambda, and hence Conjecture 1.1.1 holds.",
+     "match": "Gives both parts with the exact rational-versus-integral distinction and the condition (im)."
+    },
+    {
+     "sourceId": "burungale-castella-skinner-base-change-imc",
+     "locator": "Sec. 1.1, Remark 1.1.3, printed p. 2",
+     "excerpt": "(i) For non-CM curves the condition (im) holds for all sufficiently large primes p by Serre's open image theorem [Ser72]. In fact, it is expected that p >= 37 suffices. (ii) The only prior result towards Conjecture 1.1.1 without assuming the hypothesis (mult) is due to Wan [Wan15] ... However, it is conditional on a p-integral comparison of certain automorphic periods, which still remains open. Our proof of Theorem 1.1.2 relies on a main result of [Wan15] but sidesteps the period comparison. (iii) Under the condition (irrQ), the essential case excluded by Theorem 1.1.2 is that of (residually) dihedral primes p.",
+     "match": "Gives all three remarks, including the excluded dihedral case and the precise relationship to Wan's conditional result."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularIwasawaMainConjectures:L4/universal-family-main-conjecture-over-a-regular-three-variable-ring",
+   "parentStageId": "ModularIwasawaMainConjectures:L4",
+   "title": "The universal-family main conjecture (FW Theorem 1.8) and the scope of its trivialisation statement",
+   "kind": "theorem",
+   "statement": "THEOREM 1.8: let rho-bar : G_Q -> GL_2(F) be a residual Galois representation satisfying the hypotheses of Thm. 1.7. For Sigma a finite set of primes, let T_Sigma be the universal deformation of rho-bar unramified outside Sigma, viewed as a FREE MODULE OF FINITE RANK over the POWER-SERIES RING Lambda isomorphic to O[[X_1, X_2, X_3]]. Let z_Sigma : T_Sigma(-1)^+ -> H^1_et(Z[1/Sigma], T_Sigma) be the zeta morphism of their Thm. 3.6. Then z_Sigma induces a canonical isomorphism triv_{z_Sigma} : Delta_Sigma(T_Sigma) -> Lambda; equivalently, Fukaya-Kato Conjecture 3.2.2 is true for the triple (Spec Z[1/Sigma], Lambda, T_Sigma). The authors record two remarks: (a) if the generalised Iwasawa Main Conjecture is true then Conjecture 1.5 is also true except possibly for modular points in a closed subset of positive codimension, so Thm. 1.8 implies Thm. 1.7 for MOST modular points; (b) when the deformation problem for rho-bar is UNOBSTRUCTED the universal deformation ring is a power-series ring, and then Thm. 1.8 is the most general statement of the Iwasawa Main Conjecture possible.",
+   "hypotheses": [
+    "the coefficient ring in the statement is the REGULAR ring Lambda isomorphic to O[[X_1,X_2,X_3]], and T_Sigma is free of finite rank over it; the trivialisation is asserted OVER THAT RING",
+    "the statement is NOT that the zeta morphism generates the fundamental line over an arbitrary, possibly singular, deformation ring; the identification of the universal deformation ring with a power-series ring holds when the deformation problem is unobstructed, and the authors say so explicitly",
+    "the hypotheses on rho-bar are exactly those of Thm. 1.7, i.e. p > 2, absolute irreducibility and oddness, the local exclusion at p, and the ramified auxiliary prime ell",
+    "Sigma is a finite set of primes and the cohomology is over Z[1/Sigma]; a different Sigma changes both the deformation problem and the cohomology",
+    "remark (a) is a conditional statement: it assumes the GENERALISED main conjecture and concludes only outside a positive-codimension closed subset"
+   ],
+   "proofSteps": [
+    "The zeta morphism z_Sigma is constructed in the authors' Thm. 3.6 (not read here).",
+    "The trivialisation statement is then the Fukaya-Kato Conjecture 3.2.2 for the triple, which the authors prove in the body of the paper (not read here).",
+    "Specialisations of Thm. 1.8 to individual modular points give Thm. 1.7; the authors note the specialisation is complete only outside a positive-codimension subset if one argues through the generalised conjecture, which is why Thm. 1.7 is stated separately."
+   ],
+   "acceptance": [
+    "Check that the trivialisation is over the regular three-variable ring; do not restate it over a general deformation ring.",
+    "Check that derived base change to a specialisation records the Euler and local-condition corrections and any Tor terms; the stage text warns explicitly against assuming every specialisation preserves a characteristic ideal without them.",
+    "Check the two remarks: (a) is conditional on the generalised conjecture; (b) identifies when the universal deformation ring is itself a power-series ring.",
+    "Check that the signed comparisons the stage also asks for (Lei-Loeffler-Zerbes) are a DIFFERENT source with a different hypothesis set; nothing in Thm. 1.8 supplies them."
+   ],
+   "sources": [
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Sec. 1.1.2, Thm. 1.8, printed p. 8",
+     "excerpt": "Theorem 1.8 ([66] Conjecture 3.2.2 for universal p-adic families of modular forms). Let rho-bar : G_Q -> GL_2(F) be a residual Galois representation which satisfies the hypotheses of theorem 1.7. For Sigma a finite set of primes, let T_Sigma be the universal deformation of rho-bar unramified outside Sigma. We view T_Sigma as a free module of finite rank over the power-series ring Lambda isomorphic to O[[X_1, X_2, X_3]]. Let z_Sigma : T_Sigma(-1)^+ -> H^1_et(Z[1/Sigma], T_Sigma) be the zeta morphism of theorem 3.6 below. Then z_Sigma induces an isomorphism triv_{z_Sigma} : Delta_Sigma(T_Sigma) -> Lambda (canonically). Equivalently, [66, Conjecture 3.2.2] is true for the triple (Spec Z[1/Sigma], Lambda, T_Sigma).",
+     "match": "Gives the theorem with the regular three-variable coefficient ring and the exact trivialisation statement."
+    },
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Sec. 1.1.2, after Thm. 1.8, printed p. 8",
+     "excerpt": "First, if the generalized Iwasawa Main Conjecture is true, then conjecture 1.5 is also true except possibly for modular points in a closed subset of positive codimension. In particular, theorem 1.8 implies theorem 1.7 for most modular points. Second, when the deformation problem for rho-bar is unobstructed, then the universal deformation ring of rho-bar is a power-series ring and theorem 1.8 is the most general statement of the Iwasawa Main Conjecture possible.",
+     "match": "Gives both remarks, including the unobstructedness clause that limits when the universal deformation ring is a power-series ring."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "ModularIwasawaMainConjectures:L0/cohomological-formulation-and-its-ordinary-comparison",
+   "target": "ModularIwasawaMainConjectures:L1/skinner-urban-divisibility-as-recorded-by-fouquet-wan",
+   "reason": "Theorem 1.6's conclusion is a divisibility between exactly the two characteristic ideals appearing in Conjecture 1.5, and z(f)_Iw is the element of Thm. 1.4 constructed at L0. The theorem is therefore a statement about the L0 objects and is meaningless without them.",
+   "sources": [
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Sec. 1.1, Conjecture 1.5 and Thm. 1.6, printed pp. 6-7"
+    }
+   ]
+  },
+  {
+   "source": "ModularIwasawaMainConjectures:L1/skinner-urban-divisibility-as-recorded-by-fouquet-wan",
+   "target": "ModularIwasawaMainConjectures:L2/residual-cohomological-main-conjecture",
+   "reason": "Theorem 1.7 concludes the full Conjecture 1.5, i.e. the equality, which requires both divisibilities. Fouquet-Wan's footnote 2 records that the assumptions of Thm. 1.6 already suffice to deduce Thm. 1.4, so the Kato side and the Eisenstein side are combined under residual hypotheses. The edge records that L2's equality subsumes L1's divisibility rather than being independent of it.",
+   "sources": [
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Sec. 1.1, Thm. 1.6 with footnote 2, and Sec. 1.1.2, Thm. 1.7, printed pp. 6-7"
+    }
+   ]
+  },
+  {
+   "source": "ModularIwasawaMainConjectures:L2/residual-cohomological-main-conjecture",
+   "target": "ModularIwasawaMainConjectures:L4/universal-family-main-conjecture-over-a-regular-three-variable-ring",
+   "reason": "Theorem 1.8 is stated for residual representations satisfying THE HYPOTHESES OF THEOREM 1.7; the two residual conditions (the local exclusion at p and the ramified auxiliary prime) are literally imported. The authors also record the converse direction: Thm. 1.8 implies Thm. 1.7 for most modular points, conditionally on the generalised main conjecture.",
+   "sources": [
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Sec. 1.1.2, Thm. 1.8 and the following remark, printed p. 8"
+    }
+   ]
+  },
+  {
+   "source": "ModularIwasawaMainConjectures:L0/cohomological-formulation-and-its-ordinary-comparison",
+   "target": "ModularIwasawaMainConjectures:L3/ordinary-elliptic-curve-main-conjecture-rational-and-integral",
+   "reason": "Burungale-Castella-Skinner state Mazur's conjecture in the ORDINARY SELMER formulation, ch_Lambda(X_ord(E/Q_infinity)) = (L_p(E/Q)), whereas Fouquet-Wan state the COHOMOLOGICAL one. Lemma 4.50 of Fouquet-Wan is the Poitou-Tate equivalence between the two, so the L0 comparison is what licenses treating the two theorems as statements about the same object. The edge records that the comparison is a proved equivalence, not a change of notation.",
+   "sources": [
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Lemma 4.50 with its proof"
+    },
+    {
+     "sourceId": "burungale-castella-skinner-base-change-imc",
+     "locator": "Sec. 1.1, Conjecture 1.1.1, printed p. 1"
+    }
+   ]
+  },
+  {
+   "source": "KatoEulerSystems:L4",
+   "target": "ModularIwasawaMainConjectures:L0/cohomological-formulation-and-its-ordinary-comparison",
+   "reason": "The output supplied is Kato's divisibility, char H^2_et(Z[1/p], T tensor Lambda_Iw) divides char (H^1_et(Z[1/p], T tensor Lambda_Iw)/Lambda_Iw . z(f)_Iw), which is exactly Fouquet-Wan Thm. 1.4(2) and, in Kato's own numbering, Thm. 12.5(3),(4) together with Thm. 17.4. Fouquet-Wan describe its proof precisely as Kato's: the K_2 elements z_{M,N} built from Siegel units, the reciprocity law computing their dual exponentials, and the Euler-system method. The consumer uses it as ONE of the two divisibilities whose combination is Conjecture 1.5. This edge already exists at stage level in data/atlas.json (KatoEulerSystems:L4 lists ModularIwasawaMainConjectures:L0 among its consumers); it is recorded here with the exact output and locators.",
+   "sources": [
+    {
+     "sourceId": "fouquet-wan-universal-imc",
+     "locator": "Sec. 1.1, Thm. 1.4(2) and the paragraph after Conjecture 1.5, printed pp. 5-6"
+    },
+    {
+     "sourceId": "burungale-castella-skinner-base-change-imc",
+     "locator": "Sec. 1.1, printed p. 2 ('In [Kat04], Kato proved the Lambda-torsionness of X_ord(E/Q_infinity) and the inclusion p^c . L_p(E/Q) in ch_Lambda(X_ord(E/Q_infinity)) for some c >= 0, with c = 0 when T has large image.')"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "ModularIwasawaMainConjectures:L0",
+   "status": "partial",
+   "remaining": [
+    "The construction of the fundamental line Delta(M(f))_Iw, of the zeta element z(f)_Iw and of the zeta morphism (Fouquet-Wan Thm. 3.6) was NOT read; only Thm. 1.4's statement and Conjecture 1.5 were inspected.",
+    "The definition of the ordinary Greenberg Selmer group with the saturated local submodule, and the proof that its dual X is finitely generated and torsion under the relevant hypotheses, were not inspected. Fouquet-Wan's Sec. 4.3 (the v-dual Selmer group X_{v-dual}(f)) was seen only through Lemma 4.50.",
+    "The stage text requires the SIGNED local conditions for crystalline non-ordinary representations, defined as orthogonal complements of kernels of integral Coleman maps. Nothing on this was read; the natural source is Lei-Loeffler-Zerbes, which is present in the library as KI_LLZ_WachModules.pdf but was NOT read.",
+    "The proof of Lemma 4.50 refers to Kobayashi's Theorem 7.4; that reference was not read.",
+    "The canonical-integral-period and primitive/imprimitive conventions asked for by the stage text were not established."
+   ]
+  },
+  {
+   "stageId": "ModularIwasawaMainConjectures:L1",
+   "status": "partial",
+   "remaining": [
+    "Skinner-Urban's own paper was NOT read. The library contains KI_SkinnerUrban_IMC.pdf (the author manuscript, sha256 f9faa40a...), which was text-extracted for this job (13326 lines) but not read; the ATLAS TEXT ITSELF WARNS that the manuscript has different theorem numbering and a differently packaged hypothesis set, and that its 'up to a power of p' version must not be substituted for the integral theorem. This packet therefore records Thm. 1.6 as Fouquet-Wan state it, citing [117] Theorem 3.19, and does NOT identify it with any statement of the manuscript.",
+    "Wan's paper lifting the k congruent to 2 mod p - 1 restriction was not read.",
+    "Fouquet-Wan Sec. 4.8, which is the self-contained route bypassing the canonical-Gross period comparison, was NOT read; only the announcement of it in the introduction was.",
+    "The integral-period comparison between the cohomological and the ordinary Selmer/p-adic-L formulations, which the stage text requires before stating the second form, was not established."
+   ]
+  },
+  {
+   "stageId": "ModularIwasawaMainConjectures:L2",
+   "status": "partial",
+   "remaining": [
+    "The proof of Fouquet-Wan Thm. 1.7 occupies the body of the paper (Secs. 2-4) and was NOT read.",
+    "The translation between Fouquet-Wan's representation convention (with the half-weight twists chi_cyc^{1-k/2}, chi_cyc^{-k/2}) and the convention of the atlas's representation owner was not carried out; the stage text explicitly asks for that translation to be proved.",
+    "The derivation of the ordinary and signed consequences via L0 was not carried out.",
+    "The stage text warns against asserting a globally bounded scalar L-function at a supercuspidal or infinite-slope point; nothing in the sections read makes such an assertion, but the positive statement about what the analytic side IS at such a point was not established either."
+   ]
+  },
+  {
+   "stageId": "ModularIwasawaMainConjectures:L3",
+   "status": "partial",
+   "remaining": [
+    "Burungale-Castella-Skinner Secs. 2-5 were NOT read; only the introduction (Secs. 1.1 and the opening of 1.2). The base-change argument that removes (mult) is entirely unread.",
+    "Wan's main result, on which the proof relies, was not read; R02_KI_WanNonordinary.pdf and R02_KI_Wan2015.pdf are present in the library but neither was inspected.",
+    "The comparison of canonical periods and lattices between the analytic L-function of the atlas's p-adic L-function owner and the L_p(E/Q) of Mazur-Swinnerton-Dyer was not established.",
+    "Modularity of E is used implicitly; the stage text asks that it be consumed as an actual theorem from its owning roadmap or that the comparison be stated for a specified modular parametrisation. Neither was done here.",
+    "Thms. 1.2.2 and 1.2.4 (the anticyclotomic statements) were located but read only as statements."
+   ]
+  },
+  {
+   "stageId": "ModularIwasawaMainConjectures:L4",
+   "status": "partial",
+   "remaining": [
+    "Fouquet-Wan Sec. 3.4 (the precise meaning of the objects in Thm. 1.8), Thm. 3.6 (the zeta morphism) and the proof of Thm. 1.8 were NOT read.",
+    "The derived base change to specialisations, with its Euler and local-condition corrections and Tor terms, was not inspected.",
+    "The ENTIRE signed half of this stage is unread: Lei-Loeffler-Zerbes' signed main conjecture, its Thm. 5.13 and the bases it constructs, and the comparison with Pollack's plus/minus convention. KI_LLZ_WachModules.pdf and KI_LLZ_RankinSelberg.pdf are present in the library and were NOT read.",
+    "The intersection of the hypothesis sets of Thm. 1.7 and of the signed theory, on which the stage text says the two may be combined, was not determined."
+   ]
+  },
+  {
+   "stageId": "ModularIwasawaMainConjectures:L5",
+   "status": "not_read",
+   "remaining": [
+    "Nothing on the local Euler-factor change formulas, invariance under coefficient extension, or the relation between the mu-invariants of the two sides was read.",
+    "No worked example was constructed. The stage text asks for ordinary weight-two, higher-weight and crystalline non-ordinary examples with EXPLICIT ramification calculations verifying the hypotheses; this packet verified no hypothesis on any concrete form.",
+    "The Greenberg and Coates-Perrin-Riou conjectural generalisations, to be stated from the Rodrigues Jacinto-Williams notes, were not read (that source IS present and was read for a different roadmap in this same job, but Secs. 14-15 were not inspected)."
+   ]
+  },
+  {
+   "stageId": "ModularIwasawaMainConjectures:L6",
+   "status": "not_read",
+   "remaining": [
+    "This stage is an interface/ownership table rather than a mathematical target, and its content was read from data/atlas.json but no source work was done on it.",
+    "Of the branches it lists, this EXT-15 job has read source material for only one: the ordinary anticyclotomic Heegner branch, whose proof owner it names as HeegnerPointEulerSystems:HE.8b. NOTE that the EXT-15 HeegnerPointEulerSystems packet reports that HE.8b currently carries a description identical to HE.8 in data/atlas.json; the integrator should resolve that before this table's pointer can be followed.",
+    "BCS Thms. 1.2.2 and 1.2.4 were located in the source but read only as statements; BCGS Thm. 1.2.13, CGS Thms. A/C, Keller-Yin Thm. 3.0.8 and JSW Thms. 6.1.4-6.1.6 and 7.2.1(iii) were NOT read. All of BSD_BCGS.pdf, BSD_CGS.pdf, BSD_KellerYin.pdf and BSD_JSW.pdf are present and text-extracted in the library.",
+    "The stage's own claim -- that it proves only map-level convention and formulation comparisons and does NOT claim L1-L4 imply the new branches -- is consistent with everything found here."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Skinner-Urban's own paper was not read, and the atlas warns its manuscript version differs",
+   "neededBy": [
+    "ModularIwasawaMainConjectures:L1/skinner-urban-divisibility-as-recorded-by-fouquet-wan"
+   ],
+   "detail": "Verified: Fouquet-Wan Thm. 1.6 as stated, with its three hypotheses, its attribution to [117] Theorem 3.19, the note that the weight restriction k congruent to 2 mod p - 1 was lifted elsewhere, and the note that the deduction needs a canonical-versus-Gross period comparison that may not exist in the literature in sufficient generality. NOT verified: any statement of Skinner-Urban's paper itself. The library contains KI_SkinnerUrban_IMC.pdf (id SkinnerUrban_IMC, sha256 f9faa40aa5e30eba705da88e3d68c8aa43069b5be01c1cc6ece212dd57879748), described in the catalogue as the AUTHOR MANUSCRIPT; the atlas stage text warns that this manuscript has different theorem numbering and a differently packaged hypothesis set, and that its 'up to a power of p' version must not be substituted for the integral theorem. This packet therefore deliberately records only Fouquet-Wan's rendering and makes NO identification between Thm. 1.6 and any numbered statement of the manuscript. Next source action: read the manuscript's own main theorem and record the correspondence explicitly, or acquire the published Ann. of Math. 2014 version whose numbering Fouquet-Wan cite."
+  },
+  {
+   "title": "Fouquet-Wan Sec. 4.8 -- the self-contained route avoiding the period comparison -- is unread",
+   "neededBy": [
+    "ModularIwasawaMainConjectures:L1/skinner-urban-divisibility-as-recorded-by-fouquet-wan"
+   ],
+   "detail": "Verified: the authors' statement that deducing Thm. 1.6 from the cited source would require a canonical-versus-Gross period comparison which 'might not exist in the relevant literature in a satisfying generality for our purpose', and that 'indications on how to reprove theorem 1.6 in a way that bypasses this issue are given in section 4.8'. NOT verified: the content of Sec. 4.8. The atlas stage text names exactly this section as supplying the opposite divisibility with a period refinement, so it is load-bearing for the equality. The source is present and extracted (7759 lines). Next source action: read Fouquet-Wan Sec. 4.8 in full."
+  },
+  {
+   "title": "The signed main conjecture and its comparison with Pollack's convention are entirely unread",
+   "neededBy": [
+    "ModularIwasawaMainConjectures:L0/cohomological-formulation-and-its-ordinary-comparison",
+    "ModularIwasawaMainConjectures:L4/universal-family-main-conjecture-over-a-regular-three-variable-ring"
+   ],
+   "detail": "Nothing about signed local conditions, integral Coleman maps, Lei-Loeffler-Zerbes Thm. 5.13 or the pseudo-null correction has been verified. The stage texts require: at L0, that signed local conditions be defined as orthogonal complements of kernels of the CHOSEN integral Coleman maps; at L4, that the image-of-Coleman-map term be retained first and only then removed using Thm. 5.13 for the bases it constructs, and that the resulting basis-adjusted statement NOT be identified with Pollack's plus/minus convention without a separate proof. The sources are present: KI_LLZ_WachModules.pdf (id LLZ_WachModules) and KI_LLZ_RankinSelberg.pdf (id LLZ_RankinSelberg). Next source action: read Lei-Loeffler-Zerbes, 'Wach modules and Iwasawa theory for modular forms', Sec. 5, in particular Thm. 5.13."
+  },
+  {
+   "title": "The base-change argument of Burungale-Castella-Skinner and the Wan input it uses are unread",
+   "neededBy": [
+    "ModularIwasawaMainConjectures:L3/ordinary-elliptic-curve-main-conjecture-rational-and-integral"
+   ],
+   "detail": "Verified: Conjecture 1.1.1, the hypotheses (irrQ), (mult), (im), (disc), (Heeg), (spl), the exact rational-versus-integral split of Thm. 1.1.2(a),(b), and Remark 1.1.3(i)-(iii) including the excluded dihedral case and the precise relationship to Wan's conditional theorem. NOT verified: the proof, which occupies Secs. 2-5 (base change to an imaginary quadratic field and the anticyclotomic input), nor Wan's main result on which it relies, nor how exactly the period comparison is sidestepped. The BCS extraction obtained for this job is only 815 lines, which corresponds to the introduction and section headings; the remainder of the paper should be re-extracted or read from the PDF. Next source action: re-extract KI_BCS_BaseChangeIMC_v2.pdf and read Secs. 4-5, then read Wan's paper (R02_KI_Wan2015.pdf or R02_KI_WanNonordinary.pdf, both present)."
+  },
+  {
+   "title": "No concrete example has had its hypotheses verified",
+   "neededBy": [
+    "ModularIwasawaMainConjectures:L5"
+   ],
+   "detail": "The L5 stage text asks for ordinary weight-two, higher-weight and crystalline non-ordinary examples satisfying the stated hypotheses, with the ramification verified explicitly rather than a familiar form merely being named. NOTHING of this kind was done in this packet: no form, no curve and no prime has had hypothesis (2) of Fouquet-Wan Thm. 1.6 or Thm. 1.7, or condition (im) of Burungale-Castella-Skinner Thm. 1.1.2, checked. This is recorded so that the coverage entry for L5 is not mistaken for a partial reading. Next action: pick one curve of conductor exactly divisible by a prime ell with the required residual ramification, and one higher-weight form, and carry out the local computations."
+  },
+  {
+   "title": "L6's branch table cannot be followed until the HE.8/HE.8b duplication is resolved",
+   "neededBy": [
+    "ModularIwasawaMainConjectures:L6"
+   ],
+   "detail": "The L6 stage text routes the ordinary anticyclotomic Heegner/BDP branch to HeegnerPointEulerSystems:HE.8b as its canonical proof owner. The EXT-15 HeegnerPointEulerSystems packet written in this same job reports that, in data/atlas.json, HE.8b currently carries a description BYTE-IDENTICAL to that of HE.8 (both headed '## HE.8. Anticyclotomic families, nonvanishing and divisibility defects'), so there is no distinct stated scope for HE.8b to own. No atlas file has been edited by this worker. Next action for the integrator: give HE.8b its intended distinct scope, or redirect the L6 table to HE.8. Separately, the branch theorems named in the table (BCS Thms. 1.2.2/1.2.4, BCGS Thm. 1.2.13(ii)/(iii), CGS Thms. A/C, Keller-Yin Thm. 3.0.8, JSW Thms. 6.1.4-6.1.6 and 7.2.1(iii)) were NOT read here, although all the corresponding PDFs are present and text-extracted in the supplied library."
+  }
+ ]
+}

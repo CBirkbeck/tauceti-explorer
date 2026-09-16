@@ -19,7 +19,8 @@
     "Chapter II, Sec. 10, p. 189 (opening paragraph only: the attribution of Thm. 9.5 to the generalized explicit reciprocity law of [KK3])",
     "Chapter III, Sec. 12 'The main conjecture, I', pp. 219-224 (12.1-12.10)",
     "Chapter III, Sec. 13 'The method of Euler systems', pp. 224-227 (13.1-13.7)",
-    "Chapter IV, Sec. 17 'The main conjecture, II', pp. 272-274 (17.1-17.5)"
+    "Chapter IV, Sec. 17 'The main conjecture, II', pp. 272-274 (17.1-17.5)",
+    "Read during the independent review from page renderings, because the Numdam text layer garbles the displays: printed p. 124 (1.9, the q-expansion and its exponent w; 1.10, the proofs of Prop. 1.3(1)(2)), p. 125 (2.1, the definition of Y(M,N) as a quotient of Y(L)), p. 126 (Props. 2.3 and 2.4 with the exact Euler-factor operators), p. 221 (Thms. 12.4 and 12.5(1)(2) with the interpolation constant) and p. 225 (13.1.1, Examples 13.2 and 13.3 with the Euler polynomial P_ell)"
    ]
   },
   {
@@ -101,7 +102,7 @@
    ],
    "acceptance": [
     "Verify that Q(zeta_N) sits in the constant field of Y(N) and that the complex embedding used later is the one determined by the points nu(tau) for tau in the upper half plane, with zeta_N = exp(2*pi*i/N) (Kato 1.8).",
-    "Verify on q-expansions (1.9) that g_{a/N,b/N} has the stated leading exponent i_0 = 1/12 - a/(2N) + a^2/(2N^2) and hence is not a root of unity for (a,b) not (0,0).",
+    "Verify on q-expansions (1.9) that the pullback of g_{a/N,b/N} is q^w times the two displayed infinite products, and hence is not a root of unity for (a,b) not (0,0). Kato PRINTS the exponent as w = 1/12 - a/2N + (1/2)(a/N^2) (checked on a rendering of p. 124, not merely in the text layer). Read literally that is a/N^2; the Bernoulli-consistent reading is (1/2)(a/N)^2 = a^2/(2N^2), which is what makes w = B_2(a/N)/2. This packet records the printed form and flags the ambiguity rather than silently choosing; a consumer that needs the exponent must resolve it against [KL] (Kubert-Lang) or against a clean edition.",
     "Verify that the descent to the algebraic curve is the pullback of c-theta_E and not an analytically defined function: the algebraic definition comes first, and 1.9 identifies the analytic pullback."
    ],
    "sources": [
@@ -122,6 +123,12 @@
      "locator": "Chapter I, 1.1, printed p. 121",
      "excerpt": "Y(N) is a smooth irreducible affme curve. The total constant field of Y(N) (the field of all algebraic numbers in the affine ring 0(Y(N)) is not Q, but is generated over O bv a primitive N-th root of 1.",
      "match": "Supports the hypothesis that the base is a smooth affine curve over Q whose constant field is Q(zeta_N); this matters for the Hochschild-Serre step used later in Sec. 8.4."
+    },
+    {
+     "sourceId": "kato-2004-asterisque-295",
+     "locator": "Chapter I, 1.9, printed p. 124 (read from a page rendering)",
+     "excerpt": "From 1.3 (3), we can deduce that the pull back of g_{a/N,b/N} on H for a, b in Z, 0 <= a < N, (a mod N, b mod N) not= (0,0) is equal to q^w . prod_{n >= 0}(1 - q^n q^{a/N} zeta_N^b) . prod_{n > 0}(1 - q^n q^{-a/N} zeta_N^{-b}) where w = 1/12 - a/2N + (1/2)(a/N^2). Here q^alpha for alpha in Q means e^{2 pi i alpha tau}.",
+     "match": "Gives the q-expansion and the exponent exactly as printed, including the ambiguous (1/2)(a/N^2); added in review, where the page was rendered because the text layer is unreadable at this display."
     }
    ],
    "implementationStatus": "unchecked"
@@ -210,7 +217,7 @@
    "parentStageId": "KatoEulerSystems:L1",
    "title": "The Beilinson zeta element in K_2(Y(M,N))",
    "kind": "construction",
-   "statement": "For M, N >= 2 with M + N >= 5, let Y(M,N) be the quotient of Y(L) (for any L >= 3 divisible by M and N) by the subgroup of GL_2(Z/L) of matrices congruent to (1 0; 0 1) modulo the relevant entries; for M + N >= 5 it represents triples (E,e_1,e_2) with M*e_1 = N*e_2 = 0 and Z/M x Z/N -> E, (a,b) -> a*e_1 + b*e_2, injective. For integers c, d with (c,6M) = 1 and (d,6N) = 1, the Beilinson (zeta) element is the Steinberg symbol c,d-z_{M,N} = {c-g_{1/M,0}, d-g_{0,1/N}} in K_2(Y(M,N)). Its rationalised form is z_{M,N} = {g_{1/M,0}, g_{0,1/N}} in K_2(Y(M,N)) tensor Q, and c,d-z_{M,N} = (c^2 - <c,1>^*)(d^2 - <1,d>^*) z_{M,N} in K_2(Y(M,N)) tensor Q, where <a,b>^* is the pullback by the diamond action (E,e_1,e_2) -> (E,a*e_1,b*e_2).",
+   "statement": "For M, N >= 2 with M + N >= 5, let Y(M,N) be the quotient of Y(L), for any L >= 3 with M | L and N | L, by the subgroup G of GL_2(Z/L) of matrices (a b; c d) with a = 1 mod M, b = 0 mod M, c = 0 mod N and d = 1 mod N (the definition is independent of L, Y(N,N) = Y(N) for N >= 3, and X(M,N) denotes the smooth compactification); for M + N >= 5 it represents triples (E,e_1,e_2) with M*e_1 = N*e_2 = 0 and Z/M x Z/N -> E, (a,b) -> a*e_1 + b*e_2, injective. For integers c, d with (c,6M) = 1 and (d,6N) = 1, the Beilinson (zeta) element is the Steinberg symbol c,d-z_{M,N} = {c-g_{1/M,0}, d-g_{0,1/N}} in K_2(Y(M,N)). Its rationalised form is z_{M,N} = {g_{1/M,0}, g_{0,1/N}} in K_2(Y(M,N)) tensor Q, and c,d-z_{M,N} = (c^2 - <c,1>^*)(d^2 - <1,d>^*) z_{M,N} in K_2(Y(M,N)) tensor Q, where <a,b>^* is the pullback by the diamond action (E,e_1,e_2) -> (E,a*e_1,b*e_2).",
    "hypotheses": [
     "M, N >= 2 and M + N >= 5 (assumed throughout Sec. 2 except in 2.8); the moduli interpretation fails below this bound",
     "(c,6M) = 1 and (d,6N) = 1: two separate auxiliary integers, one for each factor of the symbol, with coprimality to the respective level",
@@ -245,6 +252,12 @@
      "locator": "Chapter I, 2.1, printed p. 126",
      "excerpt": "In the rest of this section, except in 2.8, we always assume M , N >= 2, M + N >= 5.",
      "match": "Confirms that the standing hypotheses of Sec. 2 are M,N >= 2 and M+N >= 5."
+    },
+    {
+     "sourceId": "kato-2004-asterisque-295",
+     "locator": "Chapter I, 2.1, printed p. 125 (read from a page rendering)",
+     "excerpt": "G = {(a b ; c d) in GL2(Z/L) ; a = 1 mod M, b = 0 mod M, c = 0 mod N, d = 1 mod N}. Then Y(M,N) is independent of the choice of L. We have Y(N,N) = Y(N) if N >= 3. Let X(M,N) be the smooth compactification of Y(M,N).",
+     "match": "Gives the explicit congruence subgroup defining Y(M,N), which the node had paraphrased loosely; added in review."
     }
    ],
    "implementationStatus": "unchecked"
@@ -254,10 +267,10 @@
    "parentStageId": "KatoEulerSystems:L1",
    "title": "Projection formula for K_2-norms and the level-change norm relation",
    "kind": "theorem",
-   "statement": "Let M | M', N | N' with M', N' >= 2, and assume prime(M) = prime(M') and prime(N) = prime(N'). Then the norm homomorphism K_2(Y(M',N')) -> K_2(Y(M,N)) sends c,d-z_{M',N'} to c,d-z_{M,N} for all c, d with (c,6M') = 1 and (d,6N') = 1; after tensoring with Q it sends z_{M',N'} to z_{M,N}. The proof rests on the projection formula for the K_2-norm along a finite locally free morphism f: U -> V, namely f_*({u, f^*v}) = {f_*u, v} for u in O(U)^x and v in O(V)^x.",
+   "statement": "Let M | M', N | N' with M', N' >= 2, and assume prime(M) = prime(M') and prime(N) = prime(N'). Then the norm homomorphism K_2(Y(M',N')) -> K_2(Y(M,N)) sends c,d-z_{M',N'} to c,d-z_{M,N} for all c, d with (c,6M) = 1 and (d,6N) = 1 -- the coprimality is imposed at the LOWER level as printed, which under prime(M) = prime(M') and prime(N) = prime(N') is the same condition as at the higher level; after tensoring with Q it sends z_{M',N'} to z_{M,N}. The proof rests on the projection formula for the K_2-norm along a finite locally free morphism f: U -> V, namely f_*({u, f^*v}) = {f_*u, v} for u in O(U)^x and v in O(V)^x.",
    "hypotheses": [
     "prime(M) = prime(M') and prime(N) = prime(N') -- equality of the sets of prime divisors, not merely divisibility; this is used to choose coset representatives of the shape (1 + M*u, M*v; 0, 1)",
-    "M', N' >= 2, and the coprimality hypotheses on c, d are imposed at the higher level M', N'",
+    "M', N' >= 2; the coprimality hypotheses are printed as (c,6M) = 1 and (d,6N) = 1, at the lower level, and are equivalent to the same conditions at M', N' precisely because the prime sets agree",
     "the norm is the K_2 transfer along the finite locally free covering Y(M',N') -> Y(M,N)"
    ],
    "proofSteps": [
@@ -299,7 +312,7 @@
    "parentStageId": "KatoEulerSystems:L1",
    "title": "Auxiliary-prime norm relation with the dual-Hecke Euler factor",
    "kind": "theorem",
-   "statement": "Let ell be a prime not dividing M, and let c, d be integers with (c,6*M*ell) = 1 and (d,6*N*ell) = 1. Then the norm homomorphism K_2(Y(M*ell,N*ell)) -> K_2(Y(M,N)) sends c,d-z_{M*ell,N*ell} to the value on c,d-z_{M,N} of the ell-Euler factor of the operator-valued zeta function Z_{M,N}(s) of 2.5: a three-term operator 1 - T'(ell)<1/ell,1>^* + <1/ell,1/ell>^* (times the stated power of ell) when ell does not divide N, and the two-term operator 1 - T'(ell)<1/ell,1>^* when ell divides N. The same holds for z_{M,N} after tensoring with Q. Here T'(ell) is the dual Hecke operator of 2.9 and <a,b>^* the diamond pullback.",
+   "statement": "Let ell be a prime not dividing M, and let c, d be integers with (c,6*M*ell) = 1 and (d,6*N*ell) = 1. Then the norm homomorphism K_2(Y(M*ell,N*ell)) -> K_2(Y(M,N)) sends c,d-z_{M*ell,N*ell} to the value on c,d-z_{M,N} of the ell-Euler factor of the operator-valued zeta function Z_{M,N}(s) of 2.5: the three-term operator (1 - T'(ell)<1/ell,1>^* + <1/ell,1/ell>^* . ell) when ell does not divide N, and the two-term operator (1 - T'(ell)<1/ell,1>^*) when ell divides N. The factor multiplying the quadratic term is exactly ell (read from a rendering of printed p. 126, the text layer having dropped it); it is the value at s = 0 of the term ell^{1-2s} in the Euler factor of Z_{M,N}(s) recorded in 2.5. The same holds for z_{M,N} after tensoring with Q. Here T'(ell) is the dual Hecke operator of 2.9 and <a,b>^* the diamond pullback.",
    "hypotheses": [
     "ell is a prime not dividing M; ell is allowed to divide N, and the two cases give genuinely different Euler factors (three-term versus two-term)",
     "(c, 6*M*ell) = 1 and (d, 6*N*ell) = 1: the auxiliary integers must be coprime to ell as well",
@@ -314,16 +327,16 @@
    ],
    "acceptance": [
     "Check that the ell-divides-N branch really loses the quadratic term, and that the resulting two-term factor is the one appearing in Z_{M,N}(s) for ell | N.",
-    "Check the exact power of ell appearing in the quadratic term against 2.5 and against the p-adic analogue in Thm. 9.5, where the corresponding power is p^{k-1-2r}.",
+    "Check the power of ell in the quadratic term: it is ell^1 here, ell^{1-2s} in Z_{M,N}(s) at 2.5, and p^{k-1-2r} in the p-adic analogue of Thm. 9.5 and Prop. 8.7(2). The three are consistent only after the moment map's twist (Lemma 8.8) is applied, which is the content of the link from the equivariance node.",
     "Check that T'(ell) is the dual Hecke operator of 2.9 and not T(ell): the norm relation is stated with the dual operator throughout, and the Euler system convention in Chapter III depends on this choice.",
     "Verify the three-step factorisation is a factorisation of the covering map and not of the moduli functor only."
    ],
    "sources": [
     {
      "sourceId": "kato-2004-asterisque-295",
-     "locator": "Chapter I, Prop. 2.4, printed p. 126",
-     "excerpt": "Let ell be a prime number which does not divide M. Let c, d be integers such that (c, 6M ell) = 1 and (d,6N ell) = 1. Then the norm homomorphism K2 (Y(M ell,N ell)) -> K2 (Y(M,N)) sends c,dZM ell,N ell to 1 - T'(ell)(...)* + (...)* . c,dZM,N in the case ell does not divide N. and to 1 - T'(ell)(...)* . c,dZM,N in the case ell divides N. Here T'(ell) is the \"dual Hecke operator\" explained in 2.9 below.",
-     "match": "Gives the two branches, their two-term versus three-term shape, the use of the dual Hecke operator, and the exact coprimality hypotheses. The OCR of this page loses the exponents of ell inside the operators; the node statement therefore refers those exponents to 2.5, which prints the Euler factor of Z_{M,N}(s) explicitly."
+     "locator": "Chapter I, Prop. 2.4, printed p. 126 (transcribed from a page rendering)",
+     "excerpt": "Let ell be a prime number which does not divide M. Let c, d be integers such that (c, 6M ell) = 1 and (d, 6N ell) = 1. Then the norm homomorphism K2(Y(M ell, N ell)) -> K2(Y(M,N)) sends c,d z_{M ell, N ell} to (1 - T'(ell)( 1/ell 0 ; 0 1 )^* + ( 1/ell 0 ; 0 1/ell )^* . ell) . c,d z_{M,N} in the case ell does not divide N, and to (1 - T'(ell)( 1/ell 0 ; 0 1 )^*) . c,d z_{M,N} in the case ell divides N. Here T'(ell) is the 'dual Hecke operator' explained in 2.9 below. The similar statement holds for z_{M ell,N ell} and z_{M,N} (after tensor Q).",
+     "match": "Gives the two branches with their exact operators, including the factor ell in the quadratic term that the text layer drops, and the exact coprimality hypotheses. Transcribed in review from a rendering of p. 126."
     },
     {
      "sourceId": "kato-2004-asterisque-295",
@@ -517,22 +530,23 @@
    "parentStageId": "KatoEulerSystems:L2",
    "title": "The modular Euler-system datum (T, F_lambda, Sigma) and its Euler polynomials",
    "kind": "construction",
-   "statement": "Fix a normalised newform f of weight k and level N, a place lambda of F = Q(a_n : n >= 1) over p, an integer r, and set T = V_{O_lambda}(f)(k-r). Fix 1 <= j <= k-1, nonzero integers c, d and a symbol xi that is either a(A) (with (c,6pA) = 1, (d,6pN) = 1) or an element of SL_2(Z) (with (c*d,6pN) = 1). Put Sigma = prime(c*d*p*A*N) resp. prime(c*d*p*N), and S = {m >= 1 : prime(m) intersect Sigma = {p}}. For m in S, let z_m = c,d-z^{(p)}_m(f,r,j,xi,prime(m*A)) resp. c,d-z^{(p)}_m(f,r,j,xi,prime(m*N)) in H^1(Z[zeta_m,1/p],T). Then (z_m)_{m in S} is an Euler system for (T,F_lambda,Sigma) in the sense of 13.1: for m | m' in S the corestriction from Q(zeta_{m'}) to Q(zeta_m) sends z_{m'} to the product over primes ell dividing m' but not m of P_ell(ell^{-1} sigma_ell^{-1}) applied to z_m, where P_ell(t) = det_{O_L}(1 - Fr_ell^{-1} t : T) and sigma_ell is the arithmetic Frobenius in Gal(Q(zeta_m)/Q).",
+   "statement": "Fix a normalised newform f of weight k and level N, a place lambda of F = Q(a_n : n >= 1) over p, an integer r, and set T = V_{O_lambda}(f)(k-r). Fix 1 <= j <= k-1, nonzero integers c, d and a symbol xi that is either a(A) (with (c,6pA) = 1, (d,6pN) = 1) or an element of SL_2(Z) (with (c*d,6pN) = 1). Put Sigma = prime(c*d*p*A*N) resp. prime(c*d*p*N), and S = {m >= 1 : prime(m) intersect Sigma = {p}}. For m in S, let z_m = c,d-z^{(p)}_m(f,r,j,xi,prime(m*A)) resp. c,d-z^{(p)}_m(f,r,j,xi,prime(m*N)) in H^1(Z[zeta_m,1/p],T). Then (z_m)_{m in S} is an Euler system for (T,F_lambda,Sigma) in the sense of 13.1: for m | m' in S the corestriction from Q(zeta_{m'}) to Q(zeta_m) sends z_{m'} to the product over primes ell dividing m' but not m of P_ell(ell^{-1} sigma_ell^{-1}) applied to z_m, where sigma_ell is the arithmetic Frobenius in Gal(Q(zeta_m)/Q) and P_ell is the Euler polynomial of the datum. NOTE A SOURCE-INTERNAL DISCREPANCY: 13.1 defines P_ell(t) = det_{O_L}(1 - Fr_ell^{-1} t : T), whereas Example 13.3 computes with P_ell(t) = det_{O_L}(1 - Fr_ell . t ; T); both were read from the printed page. For T = V_{O_lambda}(f)(k-r) the printed computation gives P_ell(t) = 1 - abar_ell ell^{1-r} t + epsbar(ell) ell^{k+1-2r} t^2 and P_ell(ell^{-1} sigma_ell^{-1}) = 1 - abar_ell ell^{-r} sigma_ell^{-1} + epsbar(ell) ell^{k-1-2r} sigma_ell^{-2}, the bars denoting the complex conjugates.",
    "hypotheses": [
     "for ell not dividing N*p, det(1 - Fr_ell^{-1} t : V_{F_lambda}(f)) = 1 - a_ell t + epsilon(ell) ell^{k-1} t^2, and P_ell for the twisted lattice T = V_{O_lambda}(f)(k-r) is the corresponding twisted polynomial",
     "the norm relation is a corestriction relation, and the Euler factor is evaluated at ell^{-1} sigma_ell^{-1} with sigma_ell the ARITHMETIC Frobenius -- this is the Tate-dual convention and must not be replaced by the geometric Frobenius",
-    "S is the set of m whose prime divisors meet Sigma only in p; in particular every m in S is divisible by p or prime to Sigma",
+    "the index set (Kato writes Xi, this node writes S) is {m >= 1 : prime(m) intersect Sigma = {p}}; since the intersection must EQUAL {p}, every m in it is divisible by p, and apart from p its prime divisors avoid Sigma. Kato makes this explicit in Example 13.2, where Sigma = {p} and he glosses 'for m in Xi (that is, for any m >= 1 such that p | m)'",
     "the datum depends on the auxiliary data (c,d,j,xi), which are fixed once and for all; different choices give different Euler systems"
    ],
    "proofSteps": [
     "Prop. 8.12 (the analogue of Prop. 8.7(2) at the level of the elements (8.1.3)) supplies the corestriction relation with the two-term/three-term operator.",
-    "Compare that operator with P_ell(ell^{-1} sigma_ell^{-1}): Kato computes P_ell(t) = 1 - a_ell ell^{?-r} t + epsilon(ell) ell^{k+1-2r} t^2 for the twisted lattice and checks the two expressions agree.",
+    "Compare that operator with P_ell(ell^{-1} sigma_ell^{-1}). The printed computation (p. 225) starts from det_{O_L}(1 - Fr_ell^{-1} . t ; V_{F_lambda}(f)) = 1 - a_ell t + epsilon(ell) ell^{k-1} t^2, notes that this polynomial factors as (1 - alpha t)(1 - beta t) with |alpha| = |beta| = ell^{(k-1)/2}, and obtains for the twisted lattice P_ell(t) = 1 - abar_ell ell^{1-r} t + epsbar(ell) ell^{k+1-2r} t^2, hence P_ell(ell^{-1} sigma_ell^{-1}) = 1 - abar_ell ell^{-r} sigma_ell^{-1} + epsbar(ell) ell^{k-1-2r} sigma_ell^{-2}.",
     "Conclude that (z_m)_m satisfies (13.1.1), i.e. is an Euler system for (T,F_lambda,Sigma)."
    ],
    "acceptance": [
     "Check that the arithmetic-Frobenius convention here matches the convention of the generic Euler-system theory that will consume the datum; a geometric-Frobenius convention changes P_ell(t) to its reciprocal-twisted form.",
     "Check the Euler factor at ell | N (where a_ell is not a full Hecke eigenvalue) and confirm which primes are placed in Sigma.",
-    "Check that the assignment is a system on the whole of S and not merely on the p-power part: the auxiliary-prime relation is what the descent machinery consumes."
+    "Check that the assignment is a system on the whole of S and not merely on the p-power part: the auxiliary-prime relation is what the descent machinery consumes.",
+    "Check which Frobenius convention a consumer needs: 13.1 defines P_ell with Fr_ell^{-1} and 13.3 computes with Fr_ell. The two differ, and the discrepancy is in the source, not in this packet; a formalisation must fix one convention and re-derive the other."
    ],
    "sources": [
     {
@@ -552,6 +566,12 @@
      "locator": "Chapter III, Example 13.3, printed p. 225",
      "excerpt": "In fact, for a prime number ell which does not divide Np, we have det_{OL}(1 - Fr_ell^{-1} t : V_{F_lambda}(f)) = 1 - a_ell t + epsilon(ell) ell^{k-1} t^2 ... Hence (zm)m is an Euler System for (T,F_lambda,Sigma) by Prop. 8.12.",
      "match": "Gives the Euler polynomial for the untwisted representation and names Prop. 8.12 as the proof input, as recorded in the proofSteps."
+    },
+    {
+     "sourceId": "kato-2004-asterisque-295",
+     "locator": "Chapter III, Example 13.3 (the Euler polynomial), printed p. 225 (transcribed from a page rendering)",
+     "excerpt": "In fact, for a prime number ell which does not divide Np, we have det_{O_L}(1 - Fr_ell^{-1} . t ; V_{F_lambda}(f)) = 1 - a_ell t + epsilon(ell) ell^{k-1} t^2, and this polynomial has the form (1 - alpha t)(1 - beta t), alpha, beta in C, |alpha| = |beta| = ell^{(k-1)/2}. Hence P_ell(t) = det_{O_L}(1 - Fr_ell . t ; T) = 1 - abar_ell ell^{1-r} t + epsbar(ell) ell^{k+1-2r} t^2, P_ell(ell^{-1} sigma_ell^{-1}) = 1 - abar_ell ell^{-r} sigma_ell^{-1} + epsbar(ell) ell^{k-1-2r} sigma_ell^{-2}.",
+     "match": "Supplies the Euler polynomial that the node previously recorded with an illegible exponent, and exhibits the discrepancy with 13.1's definition (Fr_ell^{-1} there, Fr_ell here). Transcribed in review from a rendering of p. 225."
     }
    ],
    "implementationStatus": "unchecked"
@@ -702,11 +722,11 @@
    "parentStageId": "KatoEulerSystems:L3",
    "title": "The canonical zeta class z_gamma^{(p)} and its interpolation of L(f,chi,r)",
    "kind": "theorem",
-   "statement": "There is a unique F_lambda-linear map V_{F_lambda}(f) -> H^1(V_{F_lambda}(f)), gamma -> z_gamma^{(p)}, with the following property: for 1 <= r <= k-1, n >= 0 and gamma in V_{F_lambda}(f), the image of z_gamma^{(p)} under the composite (restrict to Q(zeta_{p^n}) tensor Q_p; multiply by (zeta_{p^n})_n^{(-r)}; apply exp^*) lies in S(f) tensor_Q Q(zeta_{p^n}); and for any finite-order character chi of G_n the twisted period map x tensor y -> sum over sigma in G_n of chi(sigma) sigma(y) per_f(x)^{pm}, with pm = (-1)^{k-r-1} chi(-1), sends that image to an explicit multiple, involving (2*pi*i)^{k-r-1} and the p-imprimitive complex L-value L_{{p}}(f,chi,r), of gamma^{pm}. Moreover the Lambda tensor Q-submodule Z(f) generated by the z_gamma^{(p)} has H^1(V_{F_lambda}(f))/Z(f) a torsion Lambda tensor Q-module, and z_{t(gamma)}^{(p)} = -sigma_{-1} z_gamma^{(p)} for t the action of complex conjugation.",
+   "statement": "There is a unique F_lambda-linear map V_{F_lambda}(f) -> H^1(V_{F_lambda}(f)), gamma -> z_gamma^{(p)}, with the following property: for 1 <= r <= k-1, n >= 0 and gamma in V_F(f) (the F-rational subspace, not all of V_{F_lambda}(f)), the image of z_gamma^{(p)} under the composite (restrict to Q(zeta_{p^n}) tensor Q_p; multiply by (zeta_{p^n})_n^{(-r)}; apply exp^*) lies in S(f) tensor_Q Q(zeta_{p^n}); and for any character chi : G_n -> C^x the twisted period map S(f) tensor_Q Q(zeta_{p^n}) -> V_C(f)^{pm}, x tensor y -> sum over sigma in G_n of chi(sigma) sigma(y) per_f(x)^{pm}, with pm = (-1)^{k-r-1} chi(-1), sends that image to (2 pi i)^{k-r-1} . L_{{p}}(f^*, chi, r) . gamma^{pm}. The L-function is that of the DUAL form f^*, not of f; this was transcribed from a rendering of printed p. 221 because the text layer drops the display. Moreover the Lambda tensor Q-submodule Z(f) generated by the z_gamma^{(p)} has H^1(V_{F_lambda}(f))/Z(f) a torsion Lambda tensor Q-module, and z_{t(gamma)}^{(p)} = -sigma_{-1} z_gamma^{(p)} for t the action of complex conjugation.",
    "hypotheses": [
     "1 <= r <= k-1: the interpolation is over the critical strip only",
     "the sign decomposition is pm = (-1)^{k-r-1} chi(-1), so the parity of the period per_f(x)^{pm} is determined jointly by r, k and the parity of chi",
-    "the L-value is L_{{p}}, the L-function with the Euler factor at p removed; the interpolation does not see the p-Euler factor",
+    "the L-value is L_{{p}}(f^*, chi, r): the L-function OF THE DUAL FORM f^*, with the Euler factor at p removed. Both features matter -- a consumer that writes L(f,chi,r) has the wrong form, and one that writes the complete L-function has the wrong Euler factor",
     "the map gamma -> z_gamma^{(p)} is F_lambda-linear on the two-dimensional V_{F_lambda}(f), so Z(f) is generated by the images of a basis",
     "the torsion statement for H^1/Z(f) is over Lambda tensor Q, not over Lambda"
    ],
@@ -716,7 +736,7 @@
     "The torsion statement H^1/Z(f) torsion over Lambda tensor Q uses Thm. 12.4(2) (H^1(V_{F_lambda}(f)) free of rank 1 over Lambda tensor Q) together with nonvanishing of Z(f) at every height-0 prime (Prop. 13.7)."
    ],
    "acceptance": [
-    "Check the exact constant in the interpolation formula against the printed statement of Thm. 12.5(1) on p. 221; the OCR of the displayed formula is incomplete and the constant has not been transcribed here.",
+    "Check the transcribed constant (2 pi i)^{k-r-1} L_{{p}}(f^*, chi, r) gamma^{pm} against a clean edition, and check the definition of per_f (Kato's table of special notation), which this packet has NOT read: per_f is what fixes the period normalisation and hence the dictionary demanded by the L3 stage text.",
     "Check the sign rule pm = (-1)^{k-r-1} chi(-1) against the parity of the periods per_f^{pm} and against the relation z_{t(gamma)} = -sigma_{-1} z_gamma.",
     "Check that the L-value is the p-imprimitive one and that this is the source of the Euler factor at p appearing in Thm. 9.5's third case.",
     "Check that Z(f) is a Lambda tensor Q-module and that its integral counterpart Z(f,T) requires the separate statement Thm. 12.5(4)."
@@ -724,9 +744,9 @@
    "sources": [
     {
      "sourceId": "kato-2004-asterisque-295",
-     "locator": "Chapter III, Thm. 12.5(1), printed p. 221",
-     "excerpt": "There exists a unique F_lambda-linear map V_{F_lambda}(f) -> H1(V_{F_lambda}(f)) ; gamma -> z_gamma^{(p)} having the following property : Let r in Z, 1 <= r <= k - 1, let n >= 0, and let gamma in V_{F_lambda}(f). Then the image of z_gamma^{(p)} under the composite map ... exp* ... belongs to S(f) tensor_Q Q(zeta_{p^n}), and the map S(f) tensor_Q Q(zeta_{p^n}) -> Vk(f)^{pm}; x tensor y -> sum_{sigma in Gn} chi(sigma) sigma(y) per_f(x)^{pm}, where chi is any character and pm = (-1)^{k-r-1} chi(-1), sends the image of ... to ... (2 pi i)^{k-r-1} L_{(p)}(f,chi,r) ...",
-     "match": "Gives uniqueness, F_lambda-linearity, the critical range, the sign rule and the appearance of the p-imprimitive L-value; the displayed constant is only partially legible in the digitisation, which is why the node records it as an acceptance check rather than asserting it."
+     "locator": "Chapter III, Thm. 12.5(1), printed p. 221 (transcribed from a page rendering)",
+     "excerpt": "There exists a unique F_lambda-linear map V_{F_lambda}(f) -> H1(V_{F_lambda}(f)) ; gamma -> z_gamma^{(p)} having the following property : Let r in Z, 1 <= r <= k - 1, let n >= 0, and let gamma in V_F(f). Then the image of z_gamma^{(p)} under the composite map H1(V_{F_lambda}(f)) = H1(V_{F_lambda}(f)(k-r)) -> H1(Q_p(zeta_{p^n}), V_{F_lambda}(f)(k-r)) --exp*--> S(f) tensor_F F_lambda tensor_Q Q(zeta_{p^n}) (the first isomorphism is the product with (zeta_{p^n})^{tensor(k-r)}_{n>=1}) belongs to S(f) tensor_Q Q(zeta_{p^n}), and the map S(f) tensor_Q Q(zeta_{p^n}) -> V_C(f)^{pm} ; x tensor y -> sum_{sigma in G_n} chi(sigma) sigma(y) per_f(x)^{pm}, where chi is any character G_n -> C^x and pm = (-1)^{k-r-1} chi(-1), sends the image of z_gamma^{(p)} to (2 pi i)^{k-r-1} . L_{{p}}(f^*, chi, r) . gamma^{pm}. We have z_{iota(gamma)}^{(p)} = -sigma_{-1}(z_gamma^{(p)}) where iota : V_{F_lambda}(f) -> V_{F_lambda}(f) is the action of the complex conjugation.",
+     "match": "Gives the whole of Thm. 12.5(1) including the constant and the DUAL form f^*, transcribed in review from a rendering of p. 221; the node previously recorded the L-value as that of f and left the constant untranscribed."
     },
     {
      "sourceId": "kato-2004-asterisque-295",
@@ -804,7 +824,8 @@
     "Kato does not prove Thm. 13.4; he states it as a consequence of the Euler-system machinery of Perrin-Riou [Pe4], Rubin [Ru4] and his own [KK4]. The proof is therefore an import.",
     "In Rubin's monograph the corresponding statement is Thm. II.3.3: for an Euler system c for (T,K_infinity) with T satisfying Hyp(K_infinity,T) and Hyp(K_infinity/K), char(X_infinity) divides ind_Lambda(c), where X_infinity = Hom_O(S_{Sigma_p}(K_infinity,W^*),D) and ind_Lambda(c) = {phi(c_{K,infinity}) : phi in Hom_Lambda(H^1_infinity(K,T),Lambda)}.",
     "Rubin's Hyp(K_infinity,T) requires a tau in G_{K_infinity} acting trivially on mu_{p^infinity}, on (O_K^x)^{1/p^infinity} and on K(1), with T/(tau-1)T free of rank one over O, plus irreducibility of T tensor k as a k[G_{K_infinity}]-module. Kato's (iv)+(v) are phrased with irreducibility over Gal(Qbar/Q) and a rank condition over L, so the two hypothesis packages are related but not literally identical.",
-    "Kato records that in the situation of Example 13.3 hypotheses (ii), (iii), (iv) hold, citing Deligne for (iii) (the Weil bound for the Hecke eigenvalues) and Ribet for (iv) (irreducibility of the modular representation)."
+    "Kato records that in the situation of Example 13.3 hypotheses (ii), (iii), (iv) hold, citing Deligne for (iii) (the Weil bound for the Hecke eigenvalues) and Ribet for (iv) (irreducibility of the modular representation).",
+    "Rubin's second hypothesis Hyp(K_infinity/K) is a weak technical assumption which the draft says is 'satisfied if K = Q' (p. 27); since Kato works over K = Q it is automatic, so the whole of the hypothesis mismatch with Kato's (i)-(v) lies in Hyp(K_infinity,T) and in the identification of the bounded objects."
    ],
    "acceptance": [
     "Check the translation between Kato's H^2(T)_0 and Rubin's X_infinity: both are dual Selmer objects with no condition at p, but the identification requires Poitou-Tate and the relation between H^2(T) and the dual of S_{Sigma_p}(K_infinity,W^*).",
@@ -842,6 +863,12 @@
      "locator": "Chapter II, Hyp(K_infinity,T), printed p. 27",
      "excerpt": "Hypotheses Hyp(K_infinity, T). (i) There is a tau in G_{K_infinity} such that tau acts trivially on mu_{p^infinity}, on (O_K^x)^{1/p^infinity}, and on K(1), T/(tau - 1)T is free of rank one over O. (ii) T tensor k is an irreducible k[G_{K_infinity}]-module.",
      "match": "Gives Rubin's hypothesis package verbatim, showing that the irreducibility is required over G_{K_infinity} whereas Kato's (iv) is stated over Gal(Qbar/Q)."
+    },
+    {
+     "sourceId": "rubin-euler-systems-draft",
+     "locator": "Chapter II, Hyp(K_infinity/K) and Def. 3.1, printed p. 27",
+     "excerpt": "Hypothesis Hyp(K_infinity/K). If rank_{Zp}(Gamma) = 1 and G_{K_infinity} acts either trivially or by the cyclotomic character on V, then either K is a totally real field and Leopoldt's conjecture holds for K ..., or K is an imaginary quadratic field. [Preceded by:] We will need the following weak assumption to rule out some very special bad cases. In particular it is satisfied if K = Q. ... X_infinity = Hom_O(S_{Sigma_p}(K_infinity, W^*), D), H^1_infinity(K,T) = lim H^1(F,T), ind_Lambda(c) = {phi(c_{K,infinity}) : phi in Hom_Lambda(H^1_infinity(K,T), Lambda)}.",
+     "match": "Shows that Rubin's second hypothesis is automatic over Q, and gives the definitions of X_infinity and ind_Lambda(c) that the comparison with Kato's H^2(T)_0 and J must go through; added in review."
     }
    ],
    "implementationStatus": "unchecked"
@@ -914,7 +941,7 @@
    "proofSteps": [
     "Instantiate Thm. 13.4 with the Euler system datum of Example 13.3 (node .../euler-system-datum-for-the-modular-lattice).",
     "Verify hypothesis (i) by Prop. 13.7, and hypotheses (ii), (iii), (iv) as recorded by Kato (Deligne for the Weil bound, Ribet for irreducibility).",
-    "Verify hypothesis (v) by the large-image results of 12.8 in the non-CM case; in the CM case (v) fails and the argument is replaced by the separate treatment of Sec. 15.",
+    "Hypothesis (v) is NOT verified in the sections read. Kato states that (ii), (iii) and (iv) hold in the situation of 13.3 and that (v) fails in the CM case, but he nowhere says, in Sec. 12-13, how (v) is obtained for a form without CM. The large-image statements (12.8.1) and (12.8.2) make it plausible -- an image containing an open subgroup of SL_2(Z_p) certainly contains an element with a one-dimensional fixed space -- but that deduction is this packet's, not the source's, and is recorded as a gap.",
     "Convert the bound on H^2(T)_0 = Ker(H^2(T) -> H^2_loc(T)) into a bound on H^2(T) by adding the local term, whose structure is computed in 12.2 by local Tate duality: H^2_loc(T) = Hom(H^0(Q_p(zeta_{p^infinity}), Hom_{Z_p}(T,Q/Z)), Q/Z)(-1).",
     "Pass from Z to Z(f,T) using Thm. 12.6 (finite index) for the integral statement."
    ],
@@ -922,7 +949,8 @@
     "Check that the divisibility obtained is stated at each height-one prime separately and is not upgraded to an equality anywhere in Sec. 12-13.",
     "Check the exceptional configuration (12.5.1) explicitly in a weight-2 multiplicative-reduction example; a statement without the local term is not the source statement.",
     "Check that (12.5.2) is a hypothesis on the image of the restricted Galois representation, and that the conclusion Z(f,T) contained in H^1(T) is part of (b), not an input.",
-    "Check the comparison with the classical case recorded in 12.9: for T = Z_p(1), H^1 and H^2 of Z[zeta_{p^n},1/p] are the p-completed units and the class group, and the corresponding equality is the Mazur-Wiles theorem."
+    "Check the comparison with the classical case recorded in 12.9: for T = Z_p(1), H^1 and H^2 of Z[zeta_{p^n},1/p] are the p-completed units and the class group, and the corresponding equality is the Mazur-Wiles theorem.",
+    "Check where hypothesis (v) of Thm. 13.4 is actually established for non-CM f; the sections read state only that it FAILS in the CM case. Until that is located, the divisibility should be quoted with '(v) as verified elsewhere' rather than as fully sourced here."
    ],
    "sources": [
     {
@@ -1273,7 +1301,7 @@
    "neededBy": [
     "KatoEulerSystems:L3/generalised-explicit-reciprocity-law-for-zeta-elements"
    ],
-   "detail": "Kato Sec. 10 opens by stating that Thm. 9.5 is DEDUCED from a generalised explicit reciprocity law proved in [KK3] (K. Kato, 'Generalized explicit reciprocity laws', Adv. Stud. Contemp. Math. 1 (1999), 57-126), together with the compatibility (10.9.5) proved in his Sec. 11. Verified: the statement of Thm. 9.5 with all its hypotheses, and that it is an import. Not verified: the statement or proof of the [KK3] reciprocity law, the theory of B_dR over non-perfect residue fields used to formulate it, and the compatibility (10.9.5). Next source action: locate [KK3]; it is not present in the supplied library (a search of CATALOGUE.json for 'Generalized explicit reciprocity' and for Kato entries returned only the Asterisque 295 paper, the log-structures paper and the Hyodo-Kato paper). Failing that, read Kato Sec. 10-11 in full, which reduce Thm. 9.5 to a statement of [KK3] that can at least be recorded precisely."
+   "detail": "Kato Sec. 10 opens by stating that Thm. 9.5 is DEDUCED from a generalised explicit reciprocity law proved in [KK3] (K. Kato, 'Generalized explicit reciprocity laws', Adv. Stud. Contemp. Math. 1 (1999), 57-126), together with the compatibility (10.9.5) proved in his Sec. 11. Verified: the statement of Thm. 9.5 with all its hypotheses, and that it is an import. Not verified: the statement or proof of the [KK3] reciprocity law, the theory of B_dR over non-perfect residue fields used to formulate it, and the compatibility (10.9.5). Next source action: locate [KK3]. It is not present in the supplied library: CATALOGUE.json contains no record whose title matches 'Generalized explicit reciprocity laws'. The catalogue claim in this gap was CORRECTED IN REVIEW, however: besides the Asterisque 295 paper, the log-structures paper and the Hyodo-Kato paper, the catalogue does hold two neighbouring records that a reader will want to know about -- KLZ_RankinEisenstein, Kings-Loeffler-Zerbes, 'Rankin-Eisenstein classes and explicit reciprocity laws' (references/papers/KI_KLZ_RankinEisenstein.pdf, sha256 2530d973..., downloaded but with NO text extraction), and HuberKings_PadicBorel, 'A p-adic analogue of the Borel regulator and the Bloch-Kato exponential map' (downloaded, also unextracted). Neither is [KK3], but the KLZ paper proves explicit reciprocity laws of the same family and is the natural substitute source if [KK3] cannot be obtained. Failing that, read Kato Sec. 10-11 in full, which reduce Thm. 9.5 to a statement of [KK3] that can at least be recorded precisely."
   },
   {
    "title": "Kato Thm. 13.4 versus Rubin Thm. II.3.3: the hypothesis packages are not literally the same",
@@ -1281,7 +1309,7 @@
     "KatoEulerSystems:L4/imported-euler-system-bound-over-the-cyclotomic-iwasawa-algebra",
     "EulerSystemsAndKolyvaginSystems:ES.8"
    ],
-   "detail": "Verified by reading both statements: Kato 13.4 assumes (iv) 'T tensor L is irreducible as a representation of Gal(Qbar/Q) over L' together with (v) 'there is sigma in Gal(Qbar/Q(zeta_{p^infinity})) with dim_L Ker(1-sigma; T tensor L) = 1', and concludes a length bound on H^2(T)_0 = Ker(H^2(T) -> H^2_loc(T)) by the ideal J. Rubin Thm. II.3.3 (draft p. 28) assumes Hyp(K_infinity,T), whose irreducibility clause is over G_{K_infinity} = Gal(Qbar/Q(zeta_{p^infinity})) and whose tau-clause requires T/(tau-1)T FREE OF RANK ONE OVER O (an integral condition), plus Hyp(K_infinity/K); it concludes char(X_infinity) divides ind_Lambda(c) with X_infinity = Hom_O(S_{Sigma_p}(K_infinity,W^*),D). Not verified: (a) that Kato's (iii)+(iv) imply irreducibility over G_{K_infinity}; (b) that Kato's H^2(T)_0 and Rubin's X_infinity agree (this should be a Poitou-Tate computation but was not carried out); (c) that ind_Lambda(c) and Kato's J coincide. Next source action: read Rubin Chapter VII Sec. 1 ('Outline') and Sec. 4 ('Proof of Theorem II.3.2'), and Rubin Chapter I Sec. 7 (global duality), both present in the supplied draft; then read Perrin-Riou [Pe4] for Kato's exact formulation."
+   "detail": "Verified by reading both statements: Kato 13.4 assumes (iv) 'T tensor L is irreducible as a representation of Gal(Qbar/Q) over L' together with (v) 'there is sigma in Gal(Qbar/Q(zeta_{p^infinity})) with dim_L Ker(1-sigma; T tensor L) = 1', and concludes a length bound on H^2(T)_0 = Ker(H^2(T) -> H^2_loc(T)) by the ideal J. Rubin Thm. II.3.3 (draft p. 28) assumes Hyp(K_infinity,T), whose irreducibility clause is over G_{K_infinity} = Gal(Qbar/Q(zeta_{p^infinity})) and whose tau-clause requires T/(tau-1)T FREE OF RANK ONE OVER O (an integral condition), plus Hyp(K_infinity/K) -- which is automatic here, since Rubin states it 'is satisfied if K = Q' and Kato works over Q, so this half of the mismatch is harmless; it concludes char(X_infinity) divides ind_Lambda(c) with X_infinity = Hom_O(S_{Sigma_p}(K_infinity,W^*),D). Not verified: (a) that Kato's (iii)+(iv) imply irreducibility over G_{K_infinity}; (b) that Kato's H^2(T)_0 and Rubin's X_infinity agree (this should be a Poitou-Tate computation but was not carried out); (c) that ind_Lambda(c) and Kato's J coincide. Next source action: read Rubin Chapter VII Sec. 1 ('Outline') and Sec. 4 ('Proof of Theorem II.3.2'), and Rubin Chapter I Sec. 7 (global duality), both present in the supplied draft; then read Perrin-Riou [Pe4] for Kato's exact formulation."
   },
   {
    "title": "The archimedean zeta-value input (Kato Sec. 4-7, Thm. 2.6 and Thm. 6.6) is unread",
@@ -1293,11 +1321,11 @@
    "detail": "Verified: the statements of Thm. 2.6 (Beilinson regulator formula, hypothesis prime(M) in prime(N)) and the role of Thm. 6.6 in the proof of Prop. 13.7. Not verified: the construction of the zeta elements in the spaces of modular forms (Sec. 4), the elements on X_1(N) tensor Q(zeta_m) (Sec. 5), the projection to eigen cusp forms (Sec. 6), Thm. 6.6 itself, and Kato's proof of Thm. 2.6 in Sec. 7. Without these the identification of exp^* of the p-adic class with a complex L-value is only half-sourced: the p-adic half (Thm. 9.7) has been read, the archimedean half has not. Next source action: read Kato Sec. 4 (4.1-4.5 and Prop. 4.4, which is the stated input to Thm. 9.6), Sec. 6.6, and Sec. 7.17 in the same digitisation."
   },
   {
-   "title": "The constant in Kato Thm. 12.5(1) is not legible in the available digitisation",
+   "title": "Thm. 12.5(1): the constant is now transcribed, but per_f and the dual form f^* are not sourced",
    "neededBy": [
     "KatoEulerSystems:L3/zeta-class-interpolation-of-complex-L-values"
    ],
-   "detail": "Verified: the shape of the interpolation formula (the twisted period map, the sign rule pm = (-1)^{k-r-1} chi(-1), the appearance of (2 pi i)^{k-r-1} and of the p-imprimitive L-value L_{{p}}(f,chi,r)), and the relation z_{t(gamma)} = -sigma_{-1} z_gamma. Not verified: the exact numerical constant and the exact normalisation of per_f, because the Numdam OCR of printed p. 221 drops part of the display. Next source action: consult a clean copy of Asterisque 295 p. 221 (or Kato's own list of special notation on p. 284, which defines per_f) and transcribe the display; this constant is what fixes the normalisation dictionary demanded by the L3 stage text."
+   "detail": "CORRECTED IN REVIEW. The display is illegible in the Numdam TEXT LAYER but perfectly legible in the PDF itself: a rendering of printed p. 221 gives the interpolation value as (2 pi i)^{k-r-1} . L_{{p}}(f^*, chi, r) . gamma^{pm}, with the twisted period map landing in V_C(f)^{pm}, the sign rule pm = (-1)^{k-r-1} chi(-1), and gamma taken in V_F(f). That correction matters twice over: the L-function is that of the DUAL form f^*, which this packet had recorded as f, and the constant is no longer an untranscribed acceptance item. What remains NOT verified: the definition of per_f (Kato's table of special notation) and the definition of f^* and of V_C(f)^{pm}, none of which was read; these are what fix the period normalisation the L3 stage text demands. Next source action: read Kato's notation table and 6.3 (the definition of S(f) and per_f) in the same digitisation, rendering the pages rather than relying on the text layer."
   },
   {
    "title": "Sections 14-16 (finiteness, CM case, construction of the p-adic zeta function) are unread",
@@ -1313,6 +1341,132 @@
     "KatoEulerSystems:L0/theta-function-c-normalised"
    ],
    "detail": "Implementation status for every node in this packet is 'unchecked' and no Lean library was searched for this packet. The instruction permits noting candidate primitives from a local mathlib/TauCeti checkout; that search was not performed here, so the correct record is UNCHECKED rather than 'absent'. Next action if wanted: grep the TauCeti and mathlib checkouts for 'Siegel', 'thetaFunction', 'ModularCurve', 'K2' and 'EulerSystem' and record hits as candidates only."
+  },
+  {
+   "title": "Hypothesis (v) of Kato Thm. 13.4 is never verified for non-CM forms in the sections read",
+   "neededBy": [
+    "KatoEulerSystems:L4/cohomological-divisibility-one-direction",
+    "KatoEulerSystems:L4/imported-euler-system-bound-over-the-cyclotomic-iwasawa-algebra"
+   ],
+   "detail": "Found in review. Kato's Thm. 13.4 has five hypotheses. Immediately after stating it he records that '(ii), (iii), (iv) in Thm. 13.4 are satisfied' in the situation of 13.3, citing Deligne and Ribet, and that '(v) is not satisfied in the CM case'. He does NOT, in Sec. 12 or Sec. 13, say where (v) is verified when f has no CM. Verified: the text of the passage and of Remark 12.8's two large-image statements (12.8.1) for almost all lambda and (12.8.2) for all lambda with an open subgroup of SL_2(Z_p). NOT verified: that (12.8.1) or (12.8.2) yields an element sigma of Gal(Qbar/Q(zeta_{p^infinity})) with dim_L Ker(1 - sigma) = 1. The implication is believable but it is an inference, and the packet previously recorded it as if Kato had made it. Next source action: read Kato Sec. 14.7 (which the text cross-references for the lattice argument) and Sec. 15, and check whether (v) is discharged there or is meant to follow from (12.8.2)."
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
+  "date": "2026-09-16",
+  "notes": "Independent review of all 22 nodes, 15 links, 5 coverage records and 6 gaps against the two sources. Both are in the supplied library and their SHA-256 values match the packet (Kato 3c6e14b1..., Rubin draft de47655d...); nothing was fetched from the network for this packet. Read for the review: Kato Sec. 1 and Sec. 2 (including the proofs 2.11-2.13), Sec. 8, Sec. 9, Sec. 12 (including 12.1-12.2, Remark 12.8 and Conjecture 12.10), Sec. 13 and Sec. 17, plus Rubin Chapter II Sec. 3 (Hyp(K_infinity,T), Hyp(K_infinity/K), Def. 3.1, Thms. 3.2-3.4). Because the Numdam text layer garbles displayed formulas, printed pp. 124, 125, 126, 221 and 225 were rendered and read as images; that is where three of the corrections come from. Verdicts: 14 verified, 8 corrected, 0 unverifiable. The corrections of substance are three. (i) Thm. 12.5(1) interpolates L_{{p}}(f^*, chi, r), the L-function of the DUAL form, and the packet had f; the constant (2 pi i)^{k-r-1} ... gamma^{pm}, which the packet had left untranscribed as 'not legible', is legible in the PDF and is now recorded. (ii) The Euler polynomial in Example 13.3 was recorded with a literal '?' in an exponent; it is P_ell(t) = 1 - abar_ell ell^{1-r} t + epsbar(ell) ell^{k+1-2r} t^2, and reading it also exposed a source-internal discrepancy (13.1 defines P_ell with Fr_ell^{-1}, 13.3 computes with Fr_ell) which is now flagged. (iii) A proof step claimed that hypothesis (v) of Thm. 13.4 is verified by the large-image results of 12.8; Kato says only that (ii)-(iv) hold and that (v) fails for CM forms, so the inference is the packet's and is now recorded as such, with a new gap. Smaller ones: the power of ell in Prop. 2.4's quadratic term is exactly ell (previously deferred to 2.5); the index set Xi of 13.1 forces p | m, where the packet allowed m prime to Sigma; Y(M,N)'s defining congruence subgroup was paraphrased and is now explicit; Prop. 2.3's coprimality is printed at the lower level; and the q-expansion exponent of 1.9 is printed ambiguously as (1/2)(a/N^2), which the packet had silently read as a^2/(2N^2). All 15 links were checked. The 14 internal links run prerequisite to consumer, both endpoints exist, and each cited locator does use the source node's output. The one cross-roadmap link, EulerSystemsAndKolyvaginSystems:ES.8 -> L4/imported-euler-system-bound, is endorsed: Kato states plainly that Thm. 13.4 is imported from Perrin-Riou, Rubin and [KK4], and the ES.8 stage text names this adapter explicitly ('Kato classes plus explicit reciprocity produce a modular divisibility'), so the supplier's scope covers the consumer's need rather than merely sharing vocabulary. Note for the orchestrator: data/atlas.json does NOT carry the corresponding stage edge -- KatoEulerSystems:L4 requires EulerSystemsCyclotomicMainConjecture:L2, KatoEulerSystems:L3 and SelmerIwasawaCohomology:L3, but not ES.8. Two gap claims were inaccurate and are corrected: the catalogue does hold the Kings-Loeffler-Zerbes 'Rankin-Eisenstein classes and explicit reciprocity laws' and the Huber-Kings paper (both downloaded, neither extracted), though [KK3] itself is genuinely absent; and Rubin's Hyp(K_infinity/K) is automatic over Q, so that part of the Kato/Rubin hypothesis mismatch is harmless. Coverage records name the five real stages of this roadmap and each lists specific remaining work; the unread Secs. 4-7, 10, 11, 14, 15, 16 are recorded as gaps rather than disguised as inputs. Implementation status stays unchecked throughout and the packet status stays partial.",
+  "checked": [
+   {
+    "nodeId": "KatoEulerSystems:L0/theta-function-c-normalised",
+    "verdict": "verified",
+    "note": "Prop. 1.3(1) and the whole of 1.10 were read, the latter from a page rendering. Uniqueness via u^{a^2-1} = 1 with a = 2, 3; existence via Abel's theorem and the rescaling g = u_2^{-3} u_3 f; the divisor condition as Cartier divisors; the norm-invariance; Remark 1.5 on the non-existence of a c-free theta. All match, including the proof of 1.3(2) by 'same divisor, u^4 = u and u^9 = u'."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L0/siegel-units-and-c-independent-rationalisation",
+    "verdict": "corrected",
+    "note": "1.4 and 1.1 verified verbatim, including the congruence c = 1 mod N and the rationalisation by 1/(c^2-1). Correction: an acceptance item asserted the q-expansion exponent as i_0 = 1/12 - a/(2N) + a^2/(2N^2). Kato writes w, and prints w = 1/12 - a/2N + (1/2)(a/N^2) (rendering of p. 124). The packet's value is the Bernoulli-consistent reading of an ambiguous display, but it is a reading; the node now records the printed form, names the ambiguity and adds the source entry."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L0/siegel-unit-galois-action-and-distribution",
+    "verdict": "verified",
+    "note": "Lemma 1.7(1)(2) and the determinant twist of 1.6 match verbatim, as does the one-line proof note '1.7 (1) is proved easily. 1.7 (2) is deduced from N_a(c-theta_E) = c-theta_E'. The a^2-factor count and the coprimality of c to a are as stated."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L0/siegel-unit-degeneracy-product-formula",
+    "verdict": "verified",
+    "note": "Lemma 2.12 verbatim, including c prime to 6A, the one-sided index set over beta' with A beta' = beta, the reading as an identity of functions on the upper half plane, and the proof route through the analytic presentation 1.3(3)."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L1/beilinson-element-in-K2-of-Y-M-N",
+    "verdict": "corrected",
+    "note": "2.2 and the standing hypotheses M, N >= 2, M + N >= 5 verified, as is the relation c,d-z = (c^2 - <c,1>^*)(d^2 - <1,d>^*) z. Correction: the definition of Y(M,N) was paraphrased as a quotient by 'matrices congruent to the identity modulo the relevant entries'. Kato's 2.1 gives the explicit subgroup a = 1, b = 0 mod M, c = 0, d = 1 mod N, with Y(N,N) = Y(N) for N >= 3; substituted, with a new source entry."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L1/K2-norm-projection-formula-and-level-norm-relation",
+    "verdict": "corrected",
+    "note": "Prop. 2.3 and its proof in 2.11 verified line by line, including the projection formula, the reduction to the one-sided cases, and the coset representatives (1 + Mu, Mv; 0, 1) whose existence uses prime(M') = prime(M). Correction: the coprimality conditions were recorded at the higher level M', N'; the source prints (c,6M) = 1 and (d,6N) = 1. Equivalent here, but now recorded as printed with the equivalence stated."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L1/euler-factor-norm-relation-at-auxiliary-primes",
+    "verdict": "corrected",
+    "note": "Prop. 2.4, the Euler product of 2.5 and the three-step factorisation of 2.13 verified, including Steps 1-3 and the statement of (2.13.1), (2.13.2). Correction: the node deferred the power of ell in the quadratic term to 2.5 because the text layer drops it. A rendering of p. 126 shows the operator is (1 - T'(ell)<1/ell,1>^* + <1/ell,1/ell>^* . ell); the exact factor is now recorded in the statement, the excerpt and the acceptance item."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L1/etale-chern-moment-map-into-modular-local-system",
+    "verdict": "verified",
+    "note": "8.4 verified in full: the five arrows, the Chern character on symbols as h(f) cup h(g), the moment monomial e_1^{(r'-1)} e_2^{(k-r'-1)} zeta^{(-r)}, the Poincare duality isomorphisms (8.4.1)-(8.4.2) giving the twist (2-k), the trace map, and the Hochschild-Serre edge map with its affine-curve vanishing."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L1/hecke-and-diamond-equivariance-of-the-moment-map",
+    "verdict": "verified",
+    "note": "Lemma 8.8(1)(2) verbatim, with the scalars n^{r-1} and a^{r'-1} b^{k-r'-1} (ab)^{-r}, the coprimality conditions, and Kato's own remark that the lemma 'is proved easily'."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L2/integrality-of-the-cyclotomic-limit-in-S-integral-cohomology",
+    "verdict": "verified",
+    "note": "Lemma 8.5(1)(2) and its proof verified, including the localisation sequence, the unramified description of H^1(O_v,T), the local-duality identification of the cokernel and the final reduction to the vanishing of the p-cohomological dimension of the union of F_v(zeta_{p^n}); and 8.6's factorisation through Y(M,N) tensor Q(zeta_{p^n})."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L2/p-adic-zeta-elements-and-their-norm-relations",
+    "verdict": "verified",
+    "note": "(8.1.1) with all its numerical hypotheses and Prop. 8.7(1)(2) verified verbatim, including the prime-set condition stated after adjoining p and the exponent ell^{k-1-2r} in the quadratic term, together with Kato's statement that 8.7 is deduced from 2.3, 2.4 via Lemma 8.8."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L2/euler-system-datum-for-the-modular-lattice",
+    "verdict": "corrected",
+    "note": "13.1, (13.1.1) and Example 13.3 verified from a rendering of p. 225. Three corrections. (i) The proof step contained a literal '?' in the exponent; the printed Euler polynomial is P_ell(t) = 1 - abar_ell ell^{1-r} t + epsbar(ell) ell^{k+1-2r} t^2, with P_ell(ell^{-1} sigma_ell^{-1}) = 1 - abar_ell ell^{-r} sigma_ell^{-1} + epsbar(ell) ell^{k-1-2r} sigma_ell^{-2}. (ii) A source-internal discrepancy is now flagged: 13.1 defines P_ell with Fr_ell^{-1}, Example 13.3 computes with Fr_ell. (iii) The index set was described as allowing m prime to Sigma; since prime(m) intersect Sigma must EQUAL {p}, every m is divisible by p, as Kato's gloss in Example 13.2 confirms."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L2/integral-zeta-submodule-and-finite-index",
+    "verdict": "verified",
+    "note": "Thm. 12.6 verified verbatim, including both generating families with their parameter ranges and the extra congruence c = d = 1 mod N in family (2), the inclusion Z in Z(f,T) and the finiteness (not triviality) of the index; and 8.1's explanation of the two families' different roles."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L3/dual-exponential-map-on-the-modular-local-system",
+    "verdict": "verified",
+    "note": "9.3, (9.2.2) and 9.4 verified verbatim: the construction of exp^* through multiplication by log(chi_cyclo), the Hodge filtration of V_{k,Qp}(Y) with D^i_dR = M_k(X) tensor Q_p for 1 <= i <= k-1, and the Tate-twist shift giving (9.4.1)."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L3/generalised-explicit-reciprocity-law-for-zeta-elements",
+    "verdict": "verified",
+    "note": "Thm. 9.5 verified verbatim including the exceptional hypothesis M >= 2 when (r,r') = (k-2,k-1), the requirement that one of r, r' be k-1, prime(M) in prime(N), and all three p-Euler-factor cases with p^{k-1-2r}; Thm. 9.7 and the Sec. 10 opening (the [KK3] import and the non-perfect residue field) also match."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L3/zeta-class-interpolation-of-complex-L-values",
+    "verdict": "corrected",
+    "note": "Thm. 12.5(1)(2) and 12.4(2) verified. Two corrections, both from a rendering of p. 221, where the text layer drops the display: the interpolated L-value is L_{{p}}(f^*, chi, r), the L-function of the DUAL form, which the node recorded as f; and the interpolation property is stated for gamma in V_F(f), not for all of V_{F_lambda}(f). The constant (2 pi i)^{k-r-1} ... gamma^{pm} is now transcribed in the statement and the excerpt, and the corresponding gap was rewritten."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L3/beilinson-regulator-and-the-archimedean-zeta-value",
+    "verdict": "verified",
+    "note": "Thm. 2.6's hypothesis prime(M) in prime(N), its attribution to Beilinson with Kato's own proof deferred to Sec. 7, the construction of delta_{M,N} in 2.7 as the Poincare dual of the class of a path between cusps, and the analytic properties of Z_{M,N}(s) in 2.5 including Z_{M,N}(0) = 0, all match. The node correctly declines to transcribe the displayed formula of 2.6."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L4/imported-euler-system-bound-over-the-cyclotomic-iwasawa-algebra",
+    "verdict": "corrected",
+    "note": "Thm. 13.4's five hypotheses and three conclusions verified verbatim, as are Rubin's Thm. II.3.3, Hyp(K_infinity,T) and Def. 3.1 (X_infinity and ind_Lambda(c)) in the draft. Extended in review: Rubin's second hypothesis Hyp(K_infinity/K) is automatic over Q ('In particular it is satisfied if K = Q'), so the hypothesis mismatch with Kato is confined to Hyp(K_infinity,T) and to the identification of the bounded objects. A source entry and a proof step were added."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L4/nonvanishing-of-the-zeta-submodule-at-height-zero",
+    "verdict": "verified",
+    "note": "Prop. 13.7 with its proof, Thm. 13.5(1)(2) with Rohrlich's even-weight hypothesis, and Thm. 13.6 (Ash-Stevens) all match verbatim, including the conditions c^2 not= 1, d^2 not= 1 and the factorisation of (13.7.1) through H^1/p H^1."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L4/cohomological-divisibility-one-direction",
+    "verdict": "corrected",
+    "note": "Thm. 12.5(3)(4), the exceptional configuration (12.5.1) with its local length 1, the large-image condition (12.5.2), Conjecture 12.10 and the classical comparison 12.9 all verified verbatim, as is the local Tate duality description of H^2_loc in 12.2. Correction: a proof step said hypothesis (v) of Thm. 13.4 is verified 'by the large-image results of 12.8'. Kato does not say that anywhere in Secs. 12-13; he says only that (ii), (iii), (iv) hold and that (v) fails for CM forms. The step now records the inference as the packet's own, and a new gap was added."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L4/ordinary-selmer-divisibility",
+    "verdict": "verified",
+    "note": "Prop. 17.1's three equivalent conditions, Prop. 17.2's independence of r, the definitions in 17.3, Thm. 17.4(1)(2)(3) and the goodness condition of 17.5 with its weight-two Neron-differential interpretation all match verbatim."
+   },
+   {
+    "nodeId": "KatoEulerSystems:L4/cm-exclusion-and-the-separate-treatment",
+    "verdict": "verified",
+    "note": "The definition of CM in Remark 12.8, the two large-image statements (12.8.1) ('almost all lambda', contains SL_2(Z_p)) and (12.8.2) ('any lambda', open subgroup), the lattice-independence remark, and the deferral of the CM case to Sec. 15 all match verbatim."
+   }
+  ]
+ }
 }

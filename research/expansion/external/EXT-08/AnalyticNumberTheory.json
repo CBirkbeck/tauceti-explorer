@@ -1,0 +1,577 @@
+{
+  "roadmapId": "AnalyticNumberTheory",
+  "status": "partial",
+  "summary": "Source decomposition of AN.4 from Tate's 1950 thesis (the admissible class Z, the Riemann-Roch/Lemma A mechanism, Main Theorem 4.4.1 with its two simple poles and the explicit class-number residue constant, the local functional equation with explicit archimedean gamma factors and p-adic root numbers, and the comparison identifying the adelic zeta integral with Hecke's L-function) together with Kedlaya's Chapter 22 for the distinction between Artin's induction theorem plus the provable continuation near Re(s) = 1 and the unproved Artin holomorphy conjecture. AN.1, AN.2 and AN.3 each receive one node decomposed from Kedlaya's notes: the completed zeta functional equation via theta inversion, the classical zero-free region with its full proof, and von Mangoldt's explicit formula with its truncation remainder and the resulting unconditional PNT error term. AN.0 and AN.5-AN.9 are not read. One scope problem in the existing atlas is recorded: the edge FF.1 -> AN.1 does not cover the composite-modulus Gauss sums that the Dirichlet L-function functional equation actually uses.",
+  "sources": [
+    {
+      "id": "tate-thesis-1950",
+      "title": "Fourier Analysis in Number Fields and Hecke's Zeta-Functions (Ph.D. thesis, Princeton University)",
+      "authors": "John T. Tate, Jr.",
+      "edition": "1950 Princeton thesis, typescript scan held in the supplied library; public copy at the URL below",
+      "url": "https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf",
+      "sha256": "0c40f263e8ab7924d1f0a8c7e40d81d464aec6620b8ec14101f21f7b07e6f0c8",
+      "readSections": [
+        "Table of contents and Chapter 1.1-1.2 (Relevant history; This thesis), scan pp. 2-5",
+        "Section 2.4 'The Local zeta-function; Functional Equation': Lemma 2.4.1, statement and end of proof of Theorem 2.4.1, Lemma 2.4.3, Corollary 2.4.1, thesis pp. (2.10)-(2.12) = scan pp. 17-19",
+        "Section 2.5 'Computation of rho(c) by Special zeta-functions': k real (explicit gamma factors and rho), k complex (characters c_n), thesis p. (2.14) = scan p. 21",
+        "Section 2.5, k p-adic: explicit rho in the unramified and ramified cases with conductor f and root number rho_0(c), thesis p. (2.19) = scan p. 26",
+        "Section 4.4 'The zeta-Functions; Functional Equation': conditions Z1-Z3, Definition 4.4.1, Main Theorem 4.4.1 with the residue constant kappa, Lemma A, Lemma B and the end of the proof, thesis pp. (4.15)-(4.18) = scan pp. 49-52",
+        "Section 4.5 'Comparison with the Classical Theory': equivalence classes of quasi-characters and characters unramified outside S, thesis p. (4.19) = scan p. 53; the Euler-product computation and the classical Hecke zeta-function, thesis p. (4.23) = scan p. 57; the global functional equation for zeta(s,chi), thesis p. (4.24) = scan p. 58; identification with Hecke's characters, thesis p. (4.25) = scan p. 59"
+      ]
+    },
+    {
+      "id": "kedlaya-ant-2025",
+      "title": "Notes on analytic number theory",
+      "authors": "Kiran S. Kedlaya",
+      "edition": "PreTeXt PDF, last modified 21 December 2025, 154 pp., CC BY-SA 4.0; a revised version of the author's MIT 18.785 lecture notes (spring 2007)",
+      "url": "https://kskedlaya.org/papers/ant-ptx.pdf",
+      "sha256": "7a934fce8272cedd36ad609f79bbe79af0056320bb1e0bc690c87af990f305be",
+      "readSections": [
+        "Front matter 'About this document' and 'Introduction to the course', printed pp. v-viii",
+        "Table of contents, printed pp. ix-xii (chapter inventory)",
+        "Section 5.1 'The functional equation for zeta' including (5.1.2)-(5.1.5), Definition 5.1, Remark 5.2, printed pp. 33-35",
+        "Section 5.2 'The theta function and the Fourier transform': Definition 5.3, Lemma 5.5, Theorem 5.6 (Poisson summation) and Corollary 5.7, printed pp. 35-36",
+        "Section 6.1-6.2 'Functional equations for Dirichlet L-functions': (6.1.3), (6.1.4), the Gauss sum tau(chi) = N c_{chi,1}, the odd-character case and (6.2.2), printed pp. 39-41",
+        "Section 7.1-7.2: Theorem 7.2 (von Mangoldt's formula) with remainder R(x,T), Definition 7.3, Remark 7.4, (7.2.1)-(7.2.2), Theorems 7.5, 7.6, 7.7, printed pp. 43-45",
+        "Section 8.3 'A zero-free region for zeta': Theorem 8.8 with full proof, (8.3.1)-(8.3.6), printed pp. 50-51",
+        "Chapter 22 'Artin L-functions and the Chebotaryov density theorem' in full: 22.1-22.6, Lemma 22.1, Conjecture 22.2, Theorem 22.3, Theorem 22.4, Theorem 22.5, printed pp. 127-130"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AnalyticNumberTheory:AN.1/completed-zeta-functional-equation-via-theta",
+      "parentStageId": "AnalyticNumberTheory:AN.1",
+      "title": "Continuation of zeta and the functional equation xi(s) = xi(1-s) from the theta inversion formula",
+      "kind": "theorem",
+      "statement": "For Re(s) > 1 one has pi^{-s/2} Gamma(s/2) zeta(s) = integral_0^infty x^{s/2-1} omega(x) dx with omega(x) = sum_{n>=1} exp(-n^2 pi x), and splitting at x = 1 and using theta(x^{-1}) = x^{1/2} theta(x) gives pi^{-s/2} Gamma(s/2) zeta(s) = -1/(s(1-s)) + integral_1^infty (x^{s/2-1} + x^{(1-s)/2-1}) omega(x) dx. The right-hand side is meromorphic on all of C and invariant under s -> 1-s, so zeta extends meromorphically to C, xi(s) := (1/2) s(s-1) pi^{-s/2} Gamma(s/2) zeta(s) is entire and satisfies xi(1-s) = xi(s), equivalently zeta(1-s) = pi^{1/2-s} Gamma(s/2)/Gamma((1-s)/2) zeta(s). The zeros of zeta with Re(s) <= 0 are exactly the poles of Gamma(s/2) other than s = 0, i.e. the negative even integers (trivial zeros).",
+      "hypotheses": [
+        "The interchange of sum and integral producing (5.1.2)-(5.1.3) is justified only for Re(s) > 1, by absolute convergence",
+        "The entirety of the right-hand side uses omega(x) = O(e^{-pi x}) as x -> +infty",
+        "The identification of the trivial zeros uses zeta(s) != 0 for Re(s) >= 1 (Kedlaya Theorem 1.5, Hadamard and de la Vallee-Poussin), which is a separate input",
+        "theta(x^{-1}) = x^{1/2} theta(x) holds for x > 0 and is deduced from Poisson summation for Schwartz functions (Theorem 5.6), applied to f(s) = e^{-pi x s^2} whose Fourier transform is x^{-1/2} e^{-pi s^2 / x}"
+      ],
+      "proofSteps": [
+        "Substituting t = pi n^2 x in Gamma gives (5.1.2) pi^{-s/2} Gamma(s/2) n^{-s} = integral_0^infty x^{s/2-1} e^{-n^2 pi x} dx for Re(s) > 0; summing over n for Re(s) > 1 gives the Mellin representation.",
+        "The theta inversion (5.1.3) gives omega(x^{-1}) = -1/2 + (1/2) x^{1/2} + x^{1/2} omega(x); substituting into the integral from 0 to 1 yields the two elementary poles 1/s and 1/(s-1) combined as -1/(s(1-s)).",
+        "Kedlaya proves (5.1.3) as Corollary 5.7 from Theorem 5.6 (Poisson summation for Schwartz f: sum_n f(n) = sum_n fhat(n)), with Lemma 5.5 supplying the needed decay of f and fhat.",
+        "Invariance of the right-hand side of (5.1.4) under s -> 1-s is immediate from its shape, and the poles at s = 0 and s = 1 are cancelled by the factor s(s-1) in xi."
+      ],
+      "acceptance": [
+        "Check the two poles: zeta has a simple pole at s = 1 with residue 1, and pi^{-s/2}Gamma(s/2)zeta(s) has poles exactly at s = 0 and s = 1.",
+        "Check the trivial zeros come from Gamma(s/2), with s = 0 excluded by the factor s in xi.",
+        "Check that the derivation of (5.1.4) is only valid a priori for Re(s) > 1 and that the extension to Re(s) > 0 and then to C is by the analyticity of the integral, not by re-deriving the series."
+      ],
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "Section 5.1, equations (5.1.2)-(5.1.5) and Remark 5.2, printed pp. 33-35",
+          "excerpt": "Hence for Re(s) > 1, pi^{-s/2} Gamma(s/2) zeta(s) = -1/(s(1-s)) + integral_1^infty (x^{s/2-1} + x^{(1-s)/2-1}) omega(x) dx. (5.1.4) ... One often writes this by defining xi(s) = (1/2) s(s-1) pi^{-s/2} Gamma(s/2) zeta(s), and then the functional equation is xi(1-s) = xi(s).",
+          "match": "Exactly the continuation formula, the definition of the completed function and the functional equation asserted in the node."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.1/dirichlet-L-functional-equation-with-gauss-sum-and-parity",
+      "parentStageId": "AnalyticNumberTheory:AN.1",
+      "title": "Functional equation for L(s,chi) with conductor, Gauss sum and parity, for primitive chi",
+      "kind": "theorem",
+      "statement": "Let chi be a primitive Dirichlet character of level N. If chi(-1) = 1 (even), then with theta(x,chi) = sum_{n in Z} chi(n) exp(-n^2 pi x / N) one has pi^{-(1-s)/2} N^{(1-s)/2} Gamma((1-s)/2) L(1-s, chi-bar) = N^{1/2} c_{chi,1} pi^{-s} N^{s/2} Gamma(s/2) L(s,chi), where c_{chi,1} = tau(chi)/N and tau(chi) = sum_{l=1}^{N} chi(l) e^{2 pi i l / N}. If chi(-1) = -1 (odd), theta(x,chi) vanishes identically and one uses theta_1(x,chi) = sum_n n chi(n) exp(-n^2 pi x/N) instead, obtaining pi^{-(2-s)/2} N^{(2-s)/2} Gamma((2-s)/2) L(1-s, chi-bar) = -i tau(chi) N^{-1/2} pi^{-(1+s)/2} N^{(1+s)/2} Gamma((1+s)/2) L(s,chi). In both cases the functional equation relates two different L-functions unless chi = chi-bar.",
+      "hypotheses": [
+        "chi PRIMITIVE of level N; primitivity is exactly what is needed for the uniform Fourier-coefficient identity c_{chi,m} = chi-bar(m) c_{chi,1} at m not coprime to N",
+        "N is an arbitrary modulus, in general composite; the Gauss sum tau(chi) is a sum over Z/N, not over the multiplicative group of a finite field",
+        "The even case uses theta(x,chi), the odd case theta_1(x,chi) and a different gamma factor and the extra factor -i; the two cases are not interchangeable",
+        "c_{chi,1} c_{chi-bar,1} = N^{-1} (equivalently |tau(chi)| = N^{1/2} for primitive chi) is quoted by Kedlaya as an exercise, not proved in the text read"
+      ],
+      "proofSteps": [
+        "For m coprime to N, c_{chi,m} = (1/N) sum_l chi(l) e^{-2 pi i l m/N} = chi-bar(m) c_{chi,1} by the substitution l -> lm; for m not coprime to N the same identity (6.1.3) needs primitivity and is left to the exercises.",
+        "This gives the theta transformation theta(x,chi) = (N/x)^{1/2} c_{chi,1} theta(x^{-1}, chi-bar).",
+        "Splitting the Mellin integral (6.1.1) at x = 1 and substituting x -> x^{-1} in one term gives the paired representation; using c_{chi,1} c_{chi-bar,1} = N^{-1} produces (6.1.4).",
+        "For odd chi the same scheme with theta_1 and the inversion formula (6.2.1) gives (6.2.2), with the shift of the gamma argument by 1 and the factor -i."
+      ],
+      "acceptance": [
+        "Imprimitive test: for chi imprimitive induced by chi' of level N' | N, L(s,chi) differs from L(s,chi') by the finite Euler product over p | N, p not dividing N'; the functional equation above is stated only for primitive chi, so a consumer must record which Euler factors are missing.",
+        "Parity test: for chi odd the even-case formula is vacuous because theta(x,chi) = 0 identically; check that an implementation branches on chi(-1).",
+        "Conductor test: the powers N^{(1-s)/2}, N^{s/2} must be carried; dropping them breaks the equation.",
+        "Root-number test: |tau(chi)| = N^{1/2} for primitive chi; check this separately, since the text read leaves it as an exercise."
+      ],
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "Sections 6.1-6.2, (6.1.3), (6.1.4), the definition of tau(chi), and (6.2.2), printed pp. 39-41",
+          "excerpt": "For m not coprime to N, we must assume chi is primitive, and then again c_{chi,m} = chi-bar(m) c_{chi,1} (6.1.3) but this is not so obvious; see exercises. ... tau(chi) = N c_{chi,1} = sum_{l=1}^{N} chi(l) e^{2 pi i l / N} ... pi^{-(2-s)/2} N^{(2-s)/2} Gamma((2-s)/2) L(1-s,chi-bar) = -i tau(chi) N^{-1/2} pi^{-(1+s)/2} N^{(1+s)/2} Gamma((1+s)/2) L(s,chi). (6.2.2)",
+          "match": "Gives the primitivity hypothesis, the Gauss sum with its modulus-N definition, and both the even and odd functional equations with their distinct gamma factors and the factor -i."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.2/classical-zero-free-region",
+      "parentStageId": "AnalyticNumberTheory:AN.2",
+      "title": "The classical zero-free region Re(s) >= 1 - c/log Im(s) for zeta",
+      "kind": "theorem",
+      "statement": "There exists c > 0 such that zeta has no zero in {s : Re(s) >= 1 - c/log Im(s), Im(s) >= 1}.",
+      "hypotheses": [
+        "Uses the Hadamard product representation of xi ((8.2.5) in the source), obtained from Lemma 8.3 (xi has order <= 1) and Theorem 8.7 (Hadamard factorization for entire functions of order <= 1)",
+        "The estimate (8.3.4) is valid for 1 <= Re(s) <= 2 and |Im(s)| >= 1, where the Gamma and constant terms are dominated by a constant times log|Im(s)|",
+        "Positivity of Re(1/(s-rho)) and Re(1/rho) for the discarded terms uses Re(rho) > 0 and Re(s - rho) > 0, i.e. it uses that all nontrivial zeros lie in the critical strip",
+        "The constant c is ineffective in the form stated here only to the extent that the implied constants are unspecified; the argument itself is explicit"
+      ],
+      "proofSteps": [
+        "From 3 + 4 cos(theta) + cos(2 theta) >= 0 and the Dirichlet-series expansion of -Re(zeta'/zeta), obtain (8.3.1): -3 Re(zeta'(sigma)/zeta(sigma)) - 4 Re(zeta'(sigma+it)/zeta(sigma+it)) - Re(zeta'(sigma+2it)/zeta(sigma+2it)) >= 0 for sigma > 1 and t real.",
+        "Bound the sigma term by the simple pole at s = 1: -zeta'(sigma)/zeta(sigma) < 1/(sigma-1) + O(1) ((8.3.2)).",
+        "Bound the sigma + 2it term using the logarithmic derivative of the Hadamard product (8.3.3) and discarding the positive sum over zeros: -Re(zeta'(s)/zeta(s)) < O(log|Im(s)|) ((8.3.5)).",
+        "Bound the sigma + it term by keeping only the summand of the zero rho = beta + it: -Re(zeta'(s)/zeta(s)) < O(log|t|) - 1/(sigma - beta) ((8.3.6)).",
+        "Combining gives 4/(sigma - beta) < 3/(sigma-1) + O(log|t|); choosing sigma = 1 + c'/log|t| yields beta < 1 - c/log|t|."
+      ],
+      "acceptance": [
+        "Boundary test: the argument also reproves nonvanishing on Re(s) = 1, since a zero at 1 + it would force the left side of the 3-4-1 inequality to tend to -infinity as sigma -> 1+ (using 4 > 3 and that zeta(sigma + 2it) does not diverge).",
+        "Check that the region excludes Im(s) < 1; the statement as proved says nothing near the real axis, where the separate Remark 7.4 numerical argument is used.",
+        "Check that discarding the sum over zeros is only legitimate in one direction (it gives an upper bound for -Re(zeta'/zeta))."
+      ],
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "Theorem 8.8 and its proof, (8.3.1)-(8.3.6), printed pp. 50-51",
+          "excerpt": "Theorem 8.8 There exists a constant c > 0 such that there is no zero of zeta in the region {s in C : Re(s) >= 1 - c/log Im(s), Im(s) >= 1}. ... Combining (8.3.1) with (8.3.2), (8.3.5) (taking s = sigma + 2it), and (8.3.6) (taking s = sigma + it), we obtain 4/(sigma - beta) < 3/(sigma - 1) + * log|t|. For sigma = 1 + */(log|t|), this yields beta < 1 - */log|t| as desired.",
+          "match": "Statement and complete proof as summarized in the node's steps, with the exact combination of the three bounds."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.3/von-mangoldt-explicit-formula-and-pnt-error",
+      "parentStageId": "AnalyticNumberTheory:AN.3",
+      "title": "von Mangoldt's explicit formula with truncation remainder, and the resulting PNT error term",
+      "kind": "theorem",
+      "statement": "For x >= 2 and T > 0, psi(x) - x = - sum_{rho : |Im(rho)| < T} x^rho/rho - zeta'(0)/zeta(0) - (1/2) log(1 - x^{-2}) + R(x,T) with R(x,T) = O( x log^2(xT)/T + (log x) min(1, x/(T <x>)) ), where rho runs over the zeros of zeta in the critical strip Re(s) in [0,1] and <x> denotes the distance from x to the nearest prime power other than possibly x itself. Combining this with a zero-free region Re(rho) < 1 - f(|Im rho|) and a zero count N(T) = O(T log T) gives |psi(x) - x| = O(x exp(-c sqrt(log x))) for some c > 0.",
+      "hypotheses": [
+        "x >= 2 and T > 0; the remainder degrades as x approaches a prime power, which is what the min(1, x/(T<x>)) factor records",
+        "The term -(1/2) log(1 - x^{-2}) is exactly -sum over the TRIVIAL zeros of x^rho/rho, so the trivial zeros are not omitted but summed in closed form",
+        "The final error bound uses the zero-free region of Theorem 7.5/8.8 (f(T) = c/log T) and Hadamard's count N(T) = O(T log T) (Theorem 7.6)",
+        "Kedlaya defers the proof of the explicit formula to his Theorem 9.9, of the zero-free region to Theorem 8.8, and of the zero count to Remark 8.6"
+      ],
+      "proofSteps": [
+        "Given a zero-free region beta < 1 - f(|gamma|), bound |x^rho| = x^beta < x^{1 - f(T)} for |gamma| < T, giving (7.2.1) |sum_{|gamma|<T} x^rho/rho| <= x^{1-f(T)} sum_{|gamma|<T} 1/gamma.",
+        "Convert the sum over zeros into a Stieltjes integral against the counting function: (7.2.2) sum_{0<|gamma|<T} 1/gamma = N(T)/T + integral_0^T t^{-2} N(t) dt.",
+        "With N(T) = O(T log T) this gives sum_{|gamma|<T} 1/gamma = O(log^2 T), hence sum x^rho/rho = O(x^{1-f(T)} log^2 T).",
+        "Substituting into the explicit formula gives |psi(x) - x| = O( x log^2(xT)/T + x (log^2 T) exp(-c (log x)/(log T)) ); balancing the two terms with T = exp(sqrt(log x)) gives the stated bound."
+      ],
+      "acceptance": [
+        "Check that the contour-shift bookkeeping is complete: the pole of zeta at s = 1 gives the main term x, the trivial zeros give -(1/2)log(1-x^{-2}), and the value zeta'(0)/zeta(0) is a constant term; none of these may be dropped.",
+        "Check that no GRH-type hypothesis is used: the result is unconditional, but the constant c is inherited from an unspecified constant in the zero-free region.",
+        "Check the T -> infinity limit: for fixed x, R(x,T) = o(1), giving the unrestricted (conditionally convergent) explicit formula; the source explicitly warns that this form is less useful.",
+        "Prime-power test: at x equal to a prime power the remainder's <x> factor must be interpreted with the 'other than possibly x itself' convention."
+      ],
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "Theorem 7.2 with its remainder, Definition 7.3, (7.2.1)-(7.2.2), Theorems 7.5-7.7, printed pp. 43-45",
+          "excerpt": "Theorem 7.2 von Mangoldt's formula. For x >= 2 and T > 0, psi(x) - x = - sum_{rho:|Im(rho)|<T} x^rho/rho - zeta'(0)/zeta(0) - (1/2) log(1 - x^{-2}) + R(x,T) ... R(x,T) = O( x log^2(xT)/T + (log x) min(1, x/(T<x>)) ). ... Theorem 7.7 Error bound in the prime number theorem. For some c > 0, |psi(x) - x| = O(x exp(-c sqrt(log x))).",
+          "match": "Gives the explicit formula with its exact truncation remainder and the derived unconditional error bound, together with the two inputs (zero-free region and zero count) used in the derivation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.4/adelic-zeta-integral-and-admissible-class",
+      "parentStageId": "AnalyticNumberTheory:AN.4",
+      "title": "The class Z of admissible functions on the adeles and the zeta integral zeta(f,c)",
+      "kind": "definition",
+      "statement": "Let k be a number field, V its ring of valuation vectors (adeles) and I its idele group. Let Z be the class of complex-valued functions f on V satisfying: (Z1) f and f-hat are continuous and in L_1(V); (Z2) for every idele u and vector y, both sum_{xi in k} f(u(y+xi)) and sum_{xi in k} f-hat(u(y+xi)) converge, uniformly in the pair (u,y) for y in V and u in any fixed compact subset of I; (Z3) f(u)|u|^sigma and f-hat(u)|u|^sigma are in L_1(I) for sigma > 1. For f in Z and a quasi-character c of the idele class group of exponent greater than 1, define zeta(f,c) = integral_I f(u) c(u) d*u.",
+      "hypotheses": [
+        "Quasi-characters are taken trivial on k^* (i.e. they are idele class quasi-characters); the exponent of c is the real number sigma with |c(u)| = |u|^sigma",
+        "(Z2) is precisely the hypothesis that makes the Riemann-Roch/Poisson step legitimate, and (Z3) is what makes the defining integral converge for exponent > 1",
+        "The topology on I is the idele topology, which is strictly stronger than the subspace topology from V; the source flags this explicitly"
+      ],
+      "proofSteps": [
+        "Tate defines Z by the three conditions Z1-Z3 (thesis p. (4.15)) and observes that Z1 and Z2 are exactly what is needed for the Riemann-Roch theorem to apply to functions of Z, while Z2 in addition permits the definition of zeta-functions.",
+        "Definition 4.4.1 then attaches zeta(f,c) to each f in Z, defined for all quasi-characters of exponent greater than 1.",
+        "The parametrization of an equivalence class of quasi-characters as c(u) = c_0(u)|u|^s with s uniquely determined makes each class a Riemann surface, exactly as in the local theory of section 2.4."
+      ],
+      "acceptance": [
+        "Check that a function in Z is not merely Schwartz-Bruhat by fiat: Z1-Z3 are conditions on f AND on f-hat, and the verification for the specific f built in section 4.5 occupies a separate argument (thesis p. (4.24)).",
+        "Check the exponent convention: 'exponent greater than 1' corresponds to Re(s) > 1 when c(u) = |u|^s.",
+        "Check that quasi-characters are required to be trivial on k^*, so that they descend to the idele class group."
+      ],
+      "sources": [
+        {
+          "sourceId": "tate-thesis-1950",
+          "locator": "Conditions Z1-Z3 and Definition 4.4.1, thesis p. (4.15) = scan p. 49",
+          "excerpt": "We let Z denote the class of all functions f(y) satisfying the three conditions: Z1) f(y) and f-hat(y) are continuous, in L_1(V) ... Z2) sum_{xi in k} f(u(y+xi)) and sum_{xi in k} f-hat(u(y+xi)) are both convergent for each idele u and vector y, the convergence being uniform in the pair (u,y) for y ranging over V and u ranging over any fixed compact subset of I. Z3) f(u)|u|^sigma and f-hat(u)|u|^sigma in L_1(I) for sigma > 1. ... Definition 4.4.1: We associate with each f in Z a function zeta(f,c) of quasi-characters, defined for all quasi-characters c of exponent greater than 1 by zeta(f,c) = integral f(u) c(u) d*u.",
+          "match": "Verbatim the three admissibility conditions and the definition of the global zeta integral used throughout the rest of the packet."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.4/riemann-roch-and-lemma-A",
+      "parentStageId": "AnalyticNumberTheory:AN.4",
+      "title": "Adelic Poisson summation (Riemann-Roch) and the t -> 1/t functional equation for the truncated integral",
+      "kind": "lemma",
+      "statement": "(Riemann-Roch, Theorem 4.2.1) For f satisfying the stated hypotheses, sum_{xi in k} f(xi t b) = (1/|t b|) sum_{xi in k} f-hat(xi/(t b)). (Lemma A) For all quasi-characters c, zeta_t(f,c) + f(0) integral_E c(t b) d*b = zeta_{1/t}(f-hat, c-hat) + f-hat(0) integral_E c-hat((1/t) b) d*b, where zeta_t(f,c) = integral_J f(tb) c(tb) d*b, E is a fundamental domain for J mod k^*, and c-hat(u) = |u| c^{-1}(u). (Lemma B) integral_E c(tb) d*b equals kappa t^s if c(u) = |u|^s, and 0 if c is non-trivial on J.",
+      "hypotheses": [
+        "k^* is discrete and cocompact of covolume 1 in the norm-one idele group J (the product formula |alpha| = 1 for alpha in k^*, Theorem 4.3.1 of the thesis)",
+        "The decomposition I = T x J with a chosen splitting T, and the normalization d*u = d*b dt/t, are fixed before the computation",
+        "Lemma A's proof uses hypothesis Z2 to interchange the sum over k^* with the integral over the relatively compact set E",
+        "Lemma B's dichotomy is the statement that the integral over J mod k^* of a character of that group is the total measure kappa or 0 according as the character is trivial or not"
+      ],
+      "proofSteps": [
+        "Write zeta_t(f,c) + f(0) integral_E c(tb) d*b as a sum over alpha in k^* of integrals over alpha E, using that J is the disjoint union of the alpha E.",
+        "Change variables using d*(alpha b) = d*b and c(alpha t b) = c(t b) (c is trivial on k^*), turning the expression into integral_E [ sum_{xi in k} f(xi t b) ] c(tb) d*b.",
+        "Apply Riemann-Roch (Theorem 4.2.1) to replace sum_{xi in k} f(xi t b) by (1/|tb|) sum_{xi in k} f-hat(xi/(tb)).",
+        "Substitute b -> 1/b (with d*b invariant) to recognize the result as zeta_{1/t}(f-hat, c-hat) + f-hat(0) integral_E c-hat((1/t) b) d*b; reversing the steps completes the proof.",
+        "Lemma B: integral_E c(tb) d*b = c(t) integral_E c(b) d*b, and the latter is the integral over J mod k^* of the character represented by c, hence kappa (the measure of E) or 0; in the trivial case c(t) = |t|^s = t^s."
+      ],
+      "acceptance": [
+        "Check the interchange in step 1 is justified only under Z2, and only for b in the relatively compact E.",
+        "Check the two extra terms f(0) and f-hat(0): they are exactly the boundary contributions that become the two simple poles of the continued zeta-function.",
+        "Check that Lemma B's constant kappa is the measure of the multiplicative fundamental domain, and is the same constant as in the residue formula of the main theorem."
+      ],
+      "sources": [
+        {
+          "sourceId": "tate-thesis-1950",
+          "locator": "Lemma A and Lemma B with proofs, thesis pp. (4.16)-(4.17) = scan pp. 50-51",
+          "excerpt": "Lemma A: For all quasi-characters we have zeta_t(f,c) + f(0) integral_E c(tb) d*b = zeta_{1/t}(f-hat, c-hat) + f-hat(0) integral_E c-hat((1/t)b) d*b. ... (Riemann-Roch theorem 4.2.1) ... Lemma B: integral_E c(tb) d*b = kappa t^s if c(u) = |u|^s, 0 if c(u) is non-trivial on J.",
+          "match": "Gives both lemmas with the exact role of Riemann-Roch (Theorem 4.2.1) inside the proof of Lemma A, as recorded in the proof steps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.4/global-functional-equation-and-class-number-residue",
+      "parentStageId": "AnalyticNumberTheory:AN.4",
+      "title": "Main Theorem 4.4.1: continuation, simple poles with residues -kappa f(0) and +kappa f-hat(0), and zeta(f,c) = zeta(f-hat, c-hat)",
+      "kind": "theorem",
+      "statement": "Every zeta-function zeta(f,c) extends by analytic continuation to the domain of all quasi-characters. The extended function is single-valued and regular except at c(u) = 1 and c(u) = |u|, where it has simple poles with residues -kappa f(0) and +kappa f-hat(0) respectively, where kappa = 2^{r_1} (2 pi)^{r_2} h R / (w sqrt(|d|)) is the volume of the multiplicative fundamental domain. It satisfies the functional equation zeta(f,c) = zeta(f-hat, c-hat) with c-hat(u) = |u| c^{-1}(u).",
+      "hypotheses": [
+        "f in Z; c an idele class quasi-character (trivial on k^*)",
+        "r_1, r_2 are the numbers of real and complex places, h the class number, R the regulator, w the number of roots of unity and d the discriminant of k; this is the analytic class number formula constant",
+        "The double-bracket terms in the continuation formula occur ONLY when c is trivial on J, in which case one writes c(u) = |u|^s and needs Re(s) > 1 for the auxiliary integrals to converge",
+        "The integrals from 1 to infinity converge for all c because they are over the region |u| >= 1"
+      ],
+      "proofSteps": [
+        "For c of exponent > 1 write zeta(f,c) = integral_0^infty zeta_t(f,c) dt/t and split at t = 1.",
+        "The integral from 1 to infinity converges for all c: it equals the integral of f(u)c(u)d*u over the half of I where |u| >= 1, which converges the better the smaller the exponent of c, and converges for exponent > 1, hence for all c.",
+        "Use Lemma A and Lemma B to transform the integral from 0 to 1 into an integral from 1 to infinity of zeta_t(f-hat, c-hat), producing the correction terms { kappa f-hat(0)/(s-1) - kappa f(0)/s } when c is trivial on J.",
+        "The resulting expression zeta(f,c) = integral_1^infty zeta_t(f,c) dt/t + integral_1^infty zeta_t(f-hat,c-hat) dt/t + { kappa f-hat(0)/(s-1) - kappa f(0)/s } is analytic in c, giving the continuation and exhibiting the poles and residues.",
+        "For c(u) = |u|^s one has c-hat(u) = |u|^{1-s}, so the whole expression is unchanged under (f,c) -> (f-hat, c-hat); hence the functional equation."
+      ],
+      "acceptance": [
+        "Residue check: at c = 1 (s = 0) the residue is -kappa f(0); at c = |u| (s = 1) it is +kappa f-hat(0). An implementation that reports only one pole is wrong.",
+        "Constant check: kappa = 2^{r_1}(2 pi)^{r_2} h R/(w sqrt|d|) is the classical analytic class-number constant; check it against the Dedekind zeta residue after the section 4.5 comparison.",
+        "Check that the double-bracket terms are present only for c trivial on J; for a ramified class of quasi-characters the continued function is entire.",
+        "Check that c-hat(u) = |u| c^{-1}(u) matches the local definition used in section 2.4."
+      ],
+      "sources": [
+        {
+          "sourceId": "tate-thesis-1950",
+          "locator": "Main Theorem 4.4.1 and the end of its proof, thesis pp. (4.15)-(4.18) = scan pp. 50, 52",
+          "excerpt": "Main Theorem 4.4.1: (Analytic Continuation and Functional Equation of the zeta-Functions). By analytic continuation we may extend the definition of any zeta-function zeta(f,c) to the domain of all quasi-characters. The extended function is single valued and regular, except at c(u) = 1 and c(u) = |u| where it has simple poles with residues -kappa f(0) and +kappa f-hat(0), respectively (kappa = 2^{r_1}(2 pi)^{r_2} h R/(w sqrt|d|) = volume of the multiplicative fundamental domain). zeta(f,c) satisfies the functional equation zeta(f,c) = zeta(f-hat, c-hat), where c-hat(u) = |u| c^{-1}(u) as in the local theory.",
+          "match": "Verbatim statement including the explicit residue constant that is the analytic class-number formula constant required by AN.4's acceptance condition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.4/local-functional-equation-gamma-factors-and-root-numbers",
+      "parentStageId": "AnalyticNumberTheory:AN.4",
+      "title": "Local functional equation zeta(f,c) = rho(c) zeta(f-hat, c-hat), with explicit archimedean gamma factors and p-adic root numbers",
+      "kind": "theorem",
+      "statement": "For a local field k there is a factor rho(c), depending only on the quasi-character c and not on f, with zeta(f,c) = rho(c) zeta(f-hat, c-hat) for all admissible f, valid in the strip 0 < exponent(c) < 1 where both sides are defined. One has rho(c-hat) = c(-1)/rho(c) and rho(c-bar) = c(-1) conj(rho(c)) (Lemma 2.4.3), hence |rho(c)| = 1 when the exponent of c is 1/2 (Corollary 2.4.1). Explicitly: for k = R, zeta(f, |.|^s) = pi^{-s/2} Gamma(s/2) and zeta(f_pm, pm|.|^s) = pi^{-(s+1)/2} Gamma((s+1)/2), giving rho(|.|^s) = 2^{1-s} pi^{-s} cos(s pi/2) Gamma(s) and rho(pm|.|^s) = -i 2^{1-s} pi^{-s} sin(s pi/2) Gamma(s); for k = C the classes are represented by c_n(r e^{i theta}) = e^{i n theta}; for k p-adic, rho(|.|^s) = N(d)^{s-1/2} (1 - N(p)^{s-1})/(1 - N(p)^{-s}) with d the different, and for c ramified of conductor f with c(pi) = 1, rho(c|.|^s) = N(d f)^{s-1/2} rho_0(c) where rho_0(c) = N(f)^{-1/2} sum_{epsilon} c(epsilon) e^{2 pi i Lambda(epsilon / pi^{ord(d f)})} is a root number of absolute value 1, the sum being over representatives of the cosets of 1 + f in the units.",
+      "hypotheses": [
+        "The factor rho depends only on the equivalence class of c, i.e. on c_0 and s; the independence of f is the content of the local main theorem",
+        "|rho(c)| = 1 holds exactly on the line exponent(c) = 1/2, and is deduced from the two identities of Lemma 2.4.3, not assumed",
+        "In the p-adic ramified formula the normalization is c(pi) = 1 for the chosen uniformizer, and the argument of the additive character involves the different d as well as the conductor f",
+        "The archimedean measures are the ones fixed in section 2.2 (for k = C, |alpha| = r^2 is the SQUARE of the ordinary absolute value and d(xi) is twice ordinary Lebesgue measure)"
+      ],
+      "proofSteps": [
+        "Tate obtains the functional equation from the identity zeta(f,c) zeta(f-hat_C, c-hat) = zeta(f-hat, c-hat) zeta(f_C, c) for an auxiliary f_C in the overlapping strip, which shows the ratio zeta(f,c)/zeta(f-hat, c-hat) is independent of f.",
+        "Lemma 2.4.3 (1): zeta(f,c) = rho(c) zeta(f-hat, c-hat) = rho(c) rho(c-hat) zeta(f-hat-hat, c-hat-hat) = c(-1) zeta(f,c) using f-hat-hat(alpha) = f(-alpha) and c-hat-hat = c; hence rho(c) rho(c-hat) = c(-1).",
+        "Lemma 2.4.3 (2) is the corresponding computation with complex conjugates.",
+        "Corollary 2.4.1: on exponent 1/2 one has c-bar = c-hat, so equating the two expressions for rho gives rho(c) conj(rho(c)) = 1.",
+        "Section 2.5 computes rho on each equivalence class by evaluating zeta(f_C, c) for an explicitly chosen f_C: Gaussians in the archimedean cases, and in the p-adic ramified case the characteristic function of a suitable coset, whose Fourier transform is N(d)^{-1/2} N(p)^n times the characteristic function of 1 + p^n."
+      ],
+      "acceptance": [
+        "Gamma-factor check: the even real class gives pi^{-s/2}Gamma(s/2) and the odd real class pi^{-(s+1)/2}Gamma((s+1)/2); these must match the archimedean factors used in the classical completed L-function of AN.1.",
+        "Root-number check: |rho_0(c)| = 1 is proved from Corollary 2.4.1; independently, rho_0(c) is a normalized Gauss sum of the residue-field character, so its modulus can be cross-checked against the finite-field Gauss sum modulus q^{1/2} (see the note in this packet's gaps: the two facts are proved by different routes and neither is imported here).",
+        "Different/conductor check: the exponent of N(d f) is s - 1/2, so dropping either the different or the conductor changes the functional equation.",
+        "Complex-case check: the normalization |alpha| = r^2 must be carried, or the complex gamma factor comes out wrong."
+      ],
+      "sources": [
+        {
+          "sourceId": "tate-thesis-1950",
+          "locator": "Lemma 2.4.3 and Corollary 2.4.1, thesis p. (2.12) = scan p. 19",
+          "excerpt": "therefore zeta(f,c) = rho(c) zeta(f-hat, c-hat), if c is any quasi-character in the domain of 0 < exponent c < 1 where zeta(f,c) and zeta(f-hat, c-hat) are originally both defined ... Lemma 2.4.3: 1.) rho(c-hat) = c(-1)/rho(c). 2.) rho(c-bar) = c(-1) conj(rho(c)). ... Corollary 2.4.1: |rho(c)| = 1 for c of exponent 1/2.",
+          "match": "Gives the local functional equation with its domain of validity and the two formal identities that yield the unit modulus of the root number on the critical line."
+        },
+        {
+          "sourceId": "tate-thesis-1950",
+          "locator": "Section 2.5, explicit expressions for rho, k real, thesis p. (2.14) = scan p. 21",
+          "excerpt": "rho(|.|^s) = pi^{-s/2}Gamma(s/2) / (pi^{-(1-s)/2}Gamma((1-s)/2)) = 2^{1-s} pi^{-s} cos(s pi/2) Gamma(s); rho(pm|.|^s) = -i pi^{-(s+1)/2}Gamma((s+1)/2) / (pi^{-((1-s)+1)/2}Gamma(((1-s)+1)/2)) = -i 2^{1-s} pi^{-s} sin(s pi/2) Gamma(s)",
+          "match": "The explicit real-place gamma factors and rho, including the factor -i distinguishing the odd class."
+        },
+        {
+          "sourceId": "tate-thesis-1950",
+          "locator": "Section 2.5, explicit expressions for rho, k p-adic, thesis p. (2.19) = scan p. 26",
+          "excerpt": "rho(|.|^s) = N(d)^{s-1/2} (1 - N(p)^{s-1})/(1 - N(p)^{-s}). rho(c|.|^s) = N(d f)^{s-1/2} rho_0(c), if c is a ramified character with conductor f, such that c(pi) = 1. rho_0(c) = N(f)^{-1/2} sum_epsilon c(epsilon) e^{2 pi i Lambda(epsilon/pi^{ord d f})} is a so-called root number and has absolute value 1.",
+          "match": "The unramified and ramified p-adic local factors with the different and conductor appearing exactly as stated in the node."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison",
+      "parentStageId": "AnalyticNumberTheory:AN.4",
+      "title": "Identification of the adelic zeta-function with Hecke's L-function, and the global functional equation for zeta(s,chi)",
+      "kind": "comparison",
+      "statement": "Fix a finite set S of places containing all archimedean ones, and let c = prod_p c_p be an idele class character unramified outside S, written for p in S as c_p(u_p) = c_p-tilde(u_p-tilde) |u_p|_p^{i t_p}. For p not in S the local zeta-function of the standard f_p is zeta_p(f_p, c_p |.|^s) = N(d_p)^{-1/2}/(1 - chi(p) N(p)^{-s}), where chi is the associated ideal character. Defining the classical Hecke zeta-function zeta(s,chi) = prod_{p not in S} (1 - chi(p) N(p)^{-s})^{-1} for Re(s) > 1, one has zeta(f, c|.|^s) = prod_{p in S} zeta_p(f_p, c_p|.|^s) . prod_{p not in S} N(d_p)^{-1/2} . zeta(s,chi), equivalently zeta(s,chi) = sum over integral ideals a prime to S of chi(a) N(a)^{-s}. Combining with the global and local functional equations gives zeta(1-s, chi^{-1}) = prod_{p in S} rho_p(c_p-tilde |.|^{s + i t_p}) . prod_{p not in S} chi(d_p)^{-1} N(d_p)^{s - 1/2} . zeta(s,chi). These ideal characters chi are exactly Hecke's characters and this is the functional equation Hecke proved.",
+      "hypotheses": [
+        "S finite containing all archimedean places; c unramified outside S, equivalently c = prod c_p with c_p unramified for p not in S and prod_p c_p(alpha) = 1 for alpha in k^*",
+        "The Euler product for zeta(s,chi) runs only over p NOT in S: the Euler factors at the ramified places are not included in zeta(s,chi) and appear instead as the local factors zeta_p for p in S",
+        "The product decomposition zeta(f,c) = prod_p zeta_p(f_p, c_p) requires Theorem 3.3.1 on restricted direct products and holds for quasi-characters of exponent greater than 1",
+        "The factors N(d_p)^{-1/2} come from the different and are part of the normalization, not a cosmetic constant"
+      ],
+      "proofSteps": [
+        "For p not in S the local integral is a geometric series: zeta_p(f_p, c_p|.|^s) = sum_{v >= 0} chi(p^v) N(p)^{-vs} N(d_p)^{-1/2} = N(d_p)^{-1/2}/(1 - chi(p)N(p)^{-s}), because c_p(u_p) = chi(p^{ord_p u_p}).",
+        "Multiplying over all p and using Theorem 3.3.1 gives the displayed factorization of zeta(f, c|.|^s).",
+        "Tate notes the alternative route: expanding I into cosets of I_S and integrating over each coset directly gives the additive expression zeta(s,chi) = sum over integral ideals prime to S of chi(a)/N(a)^s.",
+        "Treating f-hat in the same way gives zeta(f-hat, c-hat |.|^s-hat) = prod_{p in S} zeta_p(f-hat_p, ...) . prod_{p not in S} chi(d_p) N(d_p)^{-s} . zeta(1-s, chi^{-1}) for Re(s) < 0.",
+        "Equating the two expressions via the global functional equation zeta(f,c) = zeta(f-hat, c-hat) and dividing by the local factors, each of which satisfies its own local functional equation with factor rho_p, yields the displayed functional equation for zeta(s,chi)."
+      ],
+      "acceptance": [
+        "Ramified Euler factor check: zeta(s,chi) as defined omits the primes in S. A consumer that claims a completed L-function must reinstate those factors via the local zeta_p, and must record which they are.",
+        "Different check: the factors N(d_p)^{-1/2} on the left and chi(d_p)^{-1}N(d_p)^{s-1/2} on the right must be tracked; for k = Q the different is trivial and they disappear, which is why the classical statement looks simpler.",
+        "Chebotarev/Frobenius convention check: chi(p) is the value of the ideal character at the prime p, matching c_p(u_p) = chi(p^{ord_p u_p}); an inverse convention flips the functional equation.",
+        "Test k = Q, S = {infinity}: zeta(s,chi) becomes the Riemann zeta function and the functional equation reduces to the classical one with the archimedean rho computed in section 2.5."
+      ],
+      "sources": [
+        {
+          "sourceId": "tate-thesis-1950",
+          "locator": "Section 4.5, Euler-product computation and definition of zeta(s,chi), thesis p. (4.23) = scan p. 57",
+          "excerpt": "zeta_p(f_p, c_p|.|^s) = integral c_p(u_p)|u_p|^s d*u_p = sum_{v=0}^infty chi(p^v) N(p)^{-vs} . N(d_p)^{-1/2} = N(d_p)^{-1/2}/(1 - chi(p)N(p)^{-s}) ... If therefore we introduce the classical zeta-function zeta(s,chi), defined for Re(s) > 1 by the Euler product zeta(s,chi) = prod_{p not in S} 1/(1 - chi(p)N(p)^{-s}), we can write zeta(f, c|.|^s) = prod_{p in S} zeta_p(f_p, c_p|.|^s) . prod_{p not in S} N(d_p)^{-1/2} . zeta(s,chi).",
+          "match": "Gives the local computation, the definition of the classical Hecke zeta-function with its restricted Euler product, and the exact comparison constant."
+        },
+        {
+          "sourceId": "tate-thesis-1950",
+          "locator": "Section 4.5, global functional equation for zeta(s,chi) and identification with Hecke's characters, thesis pp. (4.24)-(4.25) = scan pp. 58-59",
+          "excerpt": "Our functional equations zeta(f-hat, c-hat) = zeta(f,c) and zeta_p(f_p,c_p) = rho_p(c_p) zeta_p(f-hat_p, c-hat_p) yield for zeta(s,chi) the functional equation zeta(1-s, chi^{-1}) = prod_{p in S} rho_p(c_p-tilde|.|^{s+i t_p}) . prod_{p not in S} chi(d_p)^{-1} N(d_p)^{s-1/2} . zeta(s,chi). ... These ideal characters chi, which we have constructed out of idele characters, are exactly the characters which Hecke introduced in order to define his 'new type of zeta-function'.",
+          "match": "The global functional equation in the classical variables together with Tate's own identification of the resulting objects with Hecke's L-functions."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy",
+      "parentStageId": "AnalyticNumberTheory:AN.4",
+      "title": "Artin L-functions: meromorphic continuation by induction and the m-th root trick, versus the unproved holomorphy conjecture",
+      "kind": "theorem",
+      "statement": "Let K/Q be finite Galois with G = Gal(K/Q) and rho : G -> GL_n(C) with character chi. The incomplete Artin L-function is L(rho,s) = prod_p det(1 - rho(Frob_p) p^{-s})^{-1}, the product taken over unramified p only. Then (Artin's induction theorem) every character of G is a Q-linear combination of characters induced from cyclic subgroups; and (the provable weakening of Artin's conjecture) for every rho, L(rho,s) extends to a meromorphic function on a neighbourhood of Re(s) >= 1, is non-vanishing on Re(s) = 1 for s != 1, and has at s = 1 a pole of order equal to the multiplicity of the trivial representation in rho. Consequently (Chebotarev) for any conjugacy class C of G the set of primes p with Frob_p in C has natural density #C/#G. Artin's conjecture, that L(rho,s) is meromorphic on all of C with no poles away from s = 1 and with pole order at s = 1 equal to that multiplicity, remains a conjecture.",
+      "hypotheses": [
+        "K/Q finite Galois; Frob_p is defined up to conjugacy only for unramified p (Lemma 22.1), which is why the product is taken over unramified p",
+        "The Euler product converges absolutely for Re(s) > 1, uniformly on Re(s) >= 1 + epsilon, and does not vanish there",
+        "The abelian base case of the continuation theorem requires class field theory: one must write the one-dimensional sigma of an abelian subgroup H as a ray class character; the source defers this to its reference [14]",
+        "The passage from rho^{oplus m} to rho uses that L(rho,s)^m is holomorphic and non-vanishing in a neighbourhood of Re(s) >= 1 after removing trivial subrepresentations, so an m-th root can be chosen there; this argument gives NOTHING outside that neighbourhood, which is exactly why it does not prove Artin's conjecture",
+        "The Euler factors at ramified primes are omitted here; the source states that the correct definition uses the determinant of rho on the inertia invariants but does not carry it out"
+      ],
+      "proofSteps": [
+        "Theorem 22.3 (Artin): by orthogonality of characters it suffices, for each conjugacy class, to construct a linear combination of induced characters non-vanishing only on that class; take g in the class generating a cyclic H, take a combination of one-dimensional characters of H supported at g, and induce.",
+        "Theorem 22.4 (sketch in the source): prove the claim first for rho = Ind_H^G sigma with H abelian and sigma one-dimensional, using class field theory; by Theorem 22.3 deduce the claim for rho^{oplus m} for a suitable m; then take the m-th root on a neighbourhood of Re(s) = 1 after reducing to rho with no trivial subrepresentation.",
+        "Theorem 22.5 (Chebotarev): imitate the proof of Dirichlet's theorem, using the pole orders at s = 1 of the L(rho,s) as rho runs over irreducible characters of G, together with the orthogonality relations, to extract the density #C/#G.",
+        "The source records that the induction argument gives only meromorphy in a neighbourhood of Re(s) >= 1; full meromorphy on C with the asserted pole structure is Conjecture 22.2, known for rho trivial, for dim rho = 1 (Kronecker-Weber plus Dirichlet L-functions), for rho induced from a one-dimensional representation, and for odd two-dimensional rho with solvable image (Langlands-Tunnell) or with image A_5 (via Serre's conjecture)."
+      ],
+      "acceptance": [
+        "Scope check: the theorem actually proved is meromorphy NEAR the line Re(s) = 1, not on all of C; a consumer that uses holomorphic continuation of an Artin L-function to the whole plane is using a conjecture.",
+        "Ramified-factor check: the L-function as defined here omits the ramified Euler factors, so any comparison with a Hecke L-function via class field theory must reinstate them (inertia invariants).",
+        "Rationality check: Theorem 22.3 gives a Q-linear, not Z-linear, combination; this is why one passes to rho^{oplus m} and needs the m-th root step.",
+        "Density check: Chebotarev with C = {1} recovers the density 1/#G of totally split primes; with G abelian it recovers Dirichlet's theorem."
+      ],
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "Chapter 22, Conjecture 22.2, Theorem 22.3, Theorem 22.4 with sketch of proof, Theorem 22.5, printed pp. 128-129",
+          "excerpt": "Theorem 22.3 Artin. Every character of G is a Q-linear combination of characters of induced representations from cyclic subgroups. ... Theorem 22.4 For any rho, the L-function L(rho,s) extends to a meromorphic function on a neighborhood of Re(s) >= 1. ... Proof. (Sketch of proof) One first proves the claim for rho = Ind_H^G sigma for any abelian subgroup H of G and any one-dimensional representation sigma: H -> GL_1(C). This requires class field theory in general, because one has to first write sigma as a ray class character. See [14]. ... Theorem 22.5 Chebotaryov. For any conjugacy class C of G, the set of primes p for which Frob_p in C has natural density #C/#G.",
+          "match": "Gives the induction theorem, the precise (weakened) continuation statement with its class-field-theory dependence flagged as a sketch, and the Chebotarev conclusion, matching the AN.4 requirement to distinguish continuation by induction from Artin holomorphy."
+        },
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "Section 22.2, definition of the incomplete Artin L-function, printed p. 128",
+          "excerpt": "L(rho,s) = prod_p det(1 - rho(Frob_p) p^{-s})^{-1}, where we only allow p to run over unramified primes ... (There is a correct way to put in the ramified primes: you only look at the determinant of the action of rho on the invariants under an inertia group corresponding to p.)",
+          "match": "Records exactly which Euler factors are present and that the ramified ones are deferred, which is the AN.4 acceptance item on ramified Euler factors."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "AnalyticNumberTheory:AN.4/riemann-roch-and-lemma-A",
+      "target": "AnalyticNumberTheory:AN.4/global-functional-equation-and-class-number-residue",
+      "reason": "Lemma A is the t -> 1/t symmetry that converts the divergent part of the zeta integral (0 < t < 1) into a convergent one; Lemma B supplies the two boundary terms kappa f-hat(0)/(s-1) and -kappa f(0)/s which are exactly the residues asserted in Main Theorem 4.4.1. Without Lemma A there is no continuation and without Lemma B there are no poles.",
+      "sources": [
+        {
+          "sourceId": "tate-thesis-1950",
+          "locator": "Proof of Main Theorem 4.4.1, thesis pp. (4.17)-(4.18) = scan pp. 51-52"
+        }
+      ]
+    },
+    {
+      "source": "AnalyticNumberTheory:AN.4/local-functional-equation-gamma-factors-and-root-numbers",
+      "target": "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison",
+      "reason": "The classical functional equation for zeta(s,chi) is obtained by dividing the global identity zeta(f,c) = zeta(f-hat,c-hat) by the local factors at p in S, each of which is replaced using its own local functional equation with factor rho_p. The explicit archimedean gamma factors and the p-adic root numbers computed in section 2.5 are precisely the constants appearing in the displayed classical functional equation.",
+      "sources": [
+        {
+          "sourceId": "tate-thesis-1950",
+          "locator": "Section 4.5, thesis p. (4.24) = scan p. 58, referring back to section 2.5"
+        }
+      ]
+    },
+    {
+      "source": "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison",
+      "target": "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy",
+      "reason": "The only unconditionally proved continuation of an Artin L-function beyond the abelian case runs through induction from one-dimensional characters of abelian subgroups, i.e. through Hecke/ray class L-functions. The Hecke L-function continuation and functional equation supplied by the Tate node is exactly the input consumed in the first step of Theorem 22.4's proof; the source flags that step as requiring class field theory and defers it, so this edge records a consumption relation whose middle term (the class-field-theory identification of sigma with a ray class character) is an open boundary in this packet.",
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "Theorem 22.4, sketch of proof, printed p. 129"
+        },
+        {
+          "sourceId": "tate-thesis-1950",
+          "locator": "Section 4.5, thesis pp. (4.23)-(4.25) = scan pp. 57-59"
+        }
+      ]
+    },
+    {
+      "source": "AnalyticNumberTheory:AN.2/classical-zero-free-region",
+      "target": "AnalyticNumberTheory:AN.3/von-mangoldt-explicit-formula-and-pnt-error",
+      "reason": "The error bound |psi(x)-x| = O(x exp(-c sqrt(log x))) is obtained by inserting the zero-free region beta < 1 - c/log|gamma| as the function f(T) in (7.2.1) and then balancing against the truncation remainder with T = exp(sqrt(log x)). The exponent sqrt(log x) is a direct consequence of the shape c/log T of this particular zero-free region; a different region gives a different exponent.",
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "Proof of Theorem 7.7, printed p. 45, using Theorem 7.5 = Theorem 8.8"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "AnalyticNumberTheory:AN.0",
+      "status": "not_read",
+      "remaining": [
+        "Kedlaya Chapters 1-2 (Dirichlet series, arithmetic functions, partial summation) and the Perron/truncation material named in the stage's source route were located in the table of contents but not read. The stage's source route says 'KED-ANT Chapters 1-2 and 9 for Perron/truncation'; Chapter 9 of the acquired version is the chapter whose Theorem 9.9 proves von Mangoldt's formula, and was not read."
+      ]
+    },
+    {
+      "stageId": "AnalyticNumberTheory:AN.1",
+      "status": "partial",
+      "remaining": [
+        "Poisson summation (Theorem 5.6) and the theta inversion (Corollary 5.7) were read as statements with their hypotheses; the proof of Lemma 5.5 is left as an exercise in the source.",
+        "|tau(chi)| = N^{1/2} and the identity c_{chi,1} c_{chi-bar,1} = N^{-1} are left as exercises in Kedlaya Chapter 6 and were not proved from any source read.",
+        "Nonvanishing of L(1,chi) for non-trivial chi (Kedlaya Chapter 4, Theorem 4.11) not read.",
+        "The imprimitive-to-primitive comparison (which Euler factors are missing) is stated in Kedlaya section 3 (printed p. 20, line referenced as 'if chi is imprimitive corresponding to the character chi' of level N'') but was not read in detail."
+      ]
+    },
+    {
+      "stageId": "AnalyticNumberTheory:AN.2",
+      "status": "partial",
+      "remaining": [
+        "The Hadamard product input (8.2.5) and Lemma 8.3 (order of xi) and Theorem 8.7 (Hadamard factorization) were used but not read.",
+        "The zero-free region for Dirichlet L-functions, the Siegel zero and the ineffectivity of PNT in arithmetic progressions (Kedlaya Chapter 10, including Lemma 10.3 on primitive characters) were not read; AN.2's acceptance explicitly asks that exceptional zeros be labelled.",
+        "PNT itself (Kedlaya Chapter 1, Theorem 1.5 and the Newman-Zagier Tauberian Theorem 1.8) not read."
+      ]
+    },
+    {
+      "stageId": "AnalyticNumberTheory:AN.3",
+      "status": "partial",
+      "remaining": [
+        "The proof of von Mangoldt's formula (deferred by the source to its Theorem 9.9) was not read; only the statement with its remainder.",
+        "Hadamard's zero count N(T) = O(T log T) (deferred to Remark 8.6) not read.",
+        "Zero-density estimates and mean-value theorems have no source read; the stage's own source route already says 'separate primary zero-density and mean-value sources required'."
+      ]
+    },
+    {
+      "stageId": "AnalyticNumberTheory:AN.4",
+      "status": "partial",
+      "remaining": [
+        "Tate Chapter 3 (abstract restricted direct product), in particular Theorem 3.3.1, which justifies the factorization of the global zeta integral into local ones, was not read.",
+        "Tate section 4.1-4.3 (additive theory, self-duality of V, the product formula, the structure of J mod k^*, and the computation of kappa) was read only in outline; the derivation of kappa = 2^{r_1}(2 pi)^{r_2} h R/(w sqrt|d|) as the volume of the multiplicative fundamental domain was not followed line by line.",
+        "Tate Theorem 4.2.1 (Riemann-Roch) and Lemmas 4.2.1-4.2.4 (Poisson formula) were used via Lemma A but their proofs were not read.",
+        "The class-field-theory input to Theorem 22.4 (writing a one-dimensional character of an abelian subgroup as a ray class character) is deferred by Kedlaya to his reference [14] and was not read.",
+        "The analytic class number formula as a statement about the residue of the Dedekind zeta function (as opposed to the residue of the adelic zeta integral) was not separately verified."
+      ]
+    },
+    {
+      "stageId": "AnalyticNumberTheory:AN.5",
+      "status": "not_read",
+      "remaining": [
+        "Mean values, Halasz-type theorems, pretentious distance, smooth numbers, moments: no source read. The stage's own source route already records that KED-ANT alone is insufficient."
+      ]
+    },
+    {
+      "stageId": "AnalyticNumberTheory:AN.6",
+      "status": "not_read",
+      "remaining": [
+        "Export contracts depend on AN.0-AN.5; only the AN.2 -> AN.3 contract (zero-free region to error term) was decomposed."
+      ]
+    },
+    {
+      "stageId": "AnalyticNumberTheory:AN.7",
+      "status": "not_read",
+      "remaining": [
+        "Hurwitz and Lerch zeta functions: no source read; the stage itself already flags this as a new primary-source acquisition task."
+      ]
+    },
+    {
+      "stageId": "AnalyticNumberTheory:AN.8",
+      "status": "not_read",
+      "remaining": [
+        "Prehomogeneous vector space zeta functions and multiple Dirichlet series: no source read. Tate's thesis is the one-dimensional prototype only. Note that ArithmeticStatistics:ST.1 also consumes orbit-counting for prehomogeneous spaces; see the EXT-08 ArithmeticStatistics packet."
+      ]
+    },
+    {
+      "stageId": "AnalyticNumberTheory:AN.9",
+      "status": "not_read",
+      "remaining": [
+        "Selberg/spectral zeta functions and Bost-Connes systems: no source read."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Atlas edge FiniteFieldsAndCharacterSums:FF.1 -> AnalyticNumberTheory:AN.1 is under-scoped for composite moduli",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.1/dirichlet-L-functional-equation-with-gauss-sum-and-parity"
+      ],
+      "detail": "AN.1 requires FF.1 in the current atlas. What AN.1 actually needs (Kedlaya section 6.1, printed p. 40) is the Gauss sum tau(chi) = sum_{l=1}^{N} chi(l) e^{2 pi i l/N} of a PRIMITIVE Dirichlet character of an arbitrary level N, together with the identity c_{chi,m} = chi-bar(m) c_{chi,1} for all m (valid at m not coprime to N only for primitive chi) and |tau(chi)| = N^{1/2}. FF.1's stated scope (checked in data/atlas.json) is 'additive and multiplicative characters, orthogonality, Gauss and Jacobi sums' of a FINITE FIELD, built on FF.0 which constructs finite fields; for composite N the group (Z/N)^* is not the unit group of a finite field and Z/N is not a field. The finite-ring material is FF.4's declared scope ('Galois rings, additive polynomials ...'), but FF.4 sits after FF.2 and FF.3 in the FF chain, so routing AN.1 through FF.4 would introduce a long and probably unintended dependency. Recommendation (raised in HANDOFF.md, not applied here): either widen FF.1 to characters of finite abelian groups / Z/N with its own Gauss sums, or give AN.1 its own Dirichlet-character node. Nothing in this packet assumes either resolution."
+    },
+    {
+      "title": "Restricted direct product theorem (Tate Theorem 3.3.1) consumed but not read",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison"
+      ],
+      "detail": "Verified: the factorization zeta(f,c) = prod_p zeta_p(f_p,c_p) is asserted at thesis p. (4.23) for quasi-characters of exponent greater than 1, and Tate explicitly names Theorem 3.3.1 as the tool (and notes that one could avoid it by breaking I into cosets of I_S). Not verified: Chapter 3 itself (Lemmas 3.1.1-3.3.3 and Theorem 3.3.1) was not read, so the exact measure-theoretic hypotheses on the local components f_p are not recorded here. Next source action: read Tate Chapter 3, scan pp. 30-36."
+    },
+    {
+      "title": "Class field theory input to the Artin L-function continuation",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy"
+      ],
+      "detail": "Verified: Kedlaya's Theorem 22.4 is presented as a sketch whose first step (the case rho = Ind_H^G sigma with H abelian and sigma one-dimensional) 'requires class field theory in general, because one has to first write sigma as a ray class character', with a reference to his [14]. Not verified: that identification. It is the bridge between the Hecke L-functions constructed from Tate's thesis and the Artin L-functions, so the induction route is NOT closed by this packet. Next source action: read the class field theory statement (Artin reciprocity for ray class groups) in Kedlaya's own class field theory notes, https://kskedlaya.org/papers/cft-ptx.pdf, and check whether ClassFieldTheory stages in the atlas already own it."
+    },
+    {
+      "title": "Root number rho_0(c) versus the finite-field Gauss sum modulus: relation noted, dependency NOT claimed",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/local-functional-equation-gamma-factors-and-root-numbers"
+      ],
+      "detail": "Tate's ramified local factor contains rho_0(c) = N(f)^{-1/2} sum_epsilon c(epsilon) e^{2 pi i Lambda(epsilon/pi^{ord(d f)})}, which is literally a normalized Gauss sum of a character of the residue field when the conductor exponent is 1. The EXT-08 FiniteFieldsAndCharacterSums packet decomposes |tau(chi,psi)| = q^{1/2} (SGA 4 1/2 [Sommes trig.] Remarque 4.4). These are the same numerical fact in the tame case, but Tate proves |rho_0(c)| = 1 from Corollary 2.4.1, i.e. from the local functional-equation formalism, NOT from a Gauss-sum computation, and his formula covers arbitrary conductor exponent. No prerequisite edge FF.1 -> AN.4 is therefore proposed: this is a cross-check, not a dependency. Recorded here so that a later reviewer does not add the edge on the strength of shared vocabulary."
+    },
+    {
+      "title": "Tate's residue constant versus the analytic class number formula",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/global-functional-equation-and-class-number-residue"
+      ],
+      "detail": "Verified: Main Theorem 4.4.1 states the residues as -kappa f(0) and +kappa f-hat(0) with kappa = 2^{r_1}(2 pi)^{r_2} h R/(w sqrt|d|), described as the volume of the multiplicative fundamental domain. Not verified: the computation of that volume (Tate sections 4.1-4.3), nor the derivation of the classical statement 'the Dedekind zeta function of k has a simple pole at s = 1 with residue 2^{r_1}(2 pi)^{r_2} h R/(w sqrt|d|)' from it, which requires choosing the specific f of section 4.5 and dividing out the local factors. Next source action: read Tate section 4.3 (scan pp. 44-48) and complete the specialization."
+    }
+  ]
+}

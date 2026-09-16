@@ -1,0 +1,658 @@
+{
+ "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+ "status": "partial",
+ "summary": "NO SOURCE FOR THIS ROADMAP EXISTS IN THE SUPPLIED LIBRARY. This job therefore downloaded four papers from arXiv on 2026-09-16, using the URLs printed in the roadmap's own source-label dictionary (content/campaign/NoncommutativeAndEquivariantIwasawa/README.md lines 129-134), recorded their sha256 hashes, and kept them in a scratch directory outside the repository: CFKSV arXiv:math/0404297, Kakde arXiv:1008.0142v3, Ritter-Weiss arXiv:1004.2578 (downloaded, NOT read) and Burns-Venjakob arXiv:math/0511672. CFKSV Sec. 2 was read IN FULL WITH ALL PROOFS, which is why NE.1 is the only stage marked source_decomposed: the canonical Ore set S, the four equivalent characterizations at a pro-p level, the two-sided Ore property, the non-zero-divisor property, and Schneider's characterization of S as the elements regular modulo the preimage of the prime radical. The central Z_p subgroup Pi of G/J and the finite-dimensional algebra V(G/J) over the commutative field R(Pi) are the machinery that makes all four characterizations equivalent, and they are recorded rather than packaged. Three findings. (1) CFKSV's whole framework rests on TWO standing hypotheses - G has a closed normal H with G/H isomorphic to Z_p, and (for the K-theory) G has no element of order p - and the paper says explicitly that the forthcoming Fukaya-Kato work removes both. (2) Kakde's uniqueness holds in K_1', NOT in K_1, and he warns that in CFKSV, Fukaya-Kato, Burns-Flach, Huber-Kings and Ritter-Weiss the zeta function is conjectured in K_1 'and hence uniqueness may not hold'; the bridge is Burns's computation SK_1(Lambda(G)_S) = Ker(partial) intersect the intersection of the kernels of all Artin evaluations, which is exactly the SK_1 ambiguity the NE.3 stage asks to exhibit. (3) The BOUNDARY-MAP SIGN CONVENTIONS OF THE TWO SOURCES DISAGREE: CFKSV write partial_G(xi_M) = +[M] for a module; Kakde writes partial(zeta) = -[C] for a complex. NE.2 requires the sign fixed, so this must be resolved before transport. Fukaya-Kato's original formulation, Burns's SK_1 paper, and the 2025/2026 Ritter-Weiss and abelian sources could not be obtained. NE.4 is not_read; every other stage is partial except NE.1.",
+ "sources": [
+  {
+   "id": "cfksv-gl2-main-conjecture",
+   "title": "The GL_2 main conjecture for elliptic curves without complex multiplication",
+   "authors": "John Coates; Takako Fukaya; Kazuya Kato; Ramdorai Sujatha; Otmar Venjakob",
+   "edition": "arXiv:math/0404297v1, 16 April 2004 (published Publ. Math. IHES 101 (2005) 163-208). DOWNLOADED BY THIS JOB on 2026-09-16 from arXiv because no copy is present in the supplied library; 39 pages",
+   "url": "https://arxiv.org/abs/math/0404297",
+   "sha256": "a46184ea4221c87e134c0955d0d539e4246e8fcebe0e42321623f5732d3c8a71",
+   "readSections": [
+    "Sec. 1 Introduction, printed pp. 1-2: the definition of a characteristic element in the commutative case, the statement that the paper's techniques were inspired by Venjakob's Habilitation, and the note that the forthcoming Fukaya-Kato paper removes both standing hypotheses (no element of order p; a quotient isomorphic to Z_p)",
+    "Sec. 2 'The canonical Ore set', printed pp. 2-6 in full: the definition of Lambda(G) and Omega(G), the standing hypothesis (2), the definition of S, Lemmas 2.1 and 2.2 with proofs, Proposition 2.3 with proof, Theorem 2.4 with proof, and Schneider's Lemma 2.5 and Proposition 2.6 with proofs",
+    "Sec. 3 'Akashi series and Euler characteristics', printed pp. 6-16: the definition of S^*, the category M_H(G), Lemmas 3.1-3.3 with the proof of 3.3, the localization sequence (24), Proposition 3.4 with Lemma 3.5 and their proofs, the definition of a characteristic element (33), the Akashi series (37)-(40), Theorem 3.6, and Theorem 3.8 with Lemma 3.9",
+    "Sec. 4, printed pp. 21-29: Theorem 4.4 (surjectivity of Lambda(G)_S^x -> K_1(Lambda(G)_S) and of Lambda(G)_{S^*}^x -> K_1(Lambda(G)_{S^*})) with Lemma 4.5, and Conjecture 4.8 with Lemma 4.9 and its proof",
+    "Sec. 5 'The main conjecture', printed pp. 29-36: the setting F_infinity = Q(E_{p^infinity}), the hypotheses on p, Conjecture 5.1, Conjecture 5.2 (Mazur), Conjecture 5.7 with the interpolation formula (107), Conjecture 5.8, and Corollaries 5.9 and 5.10"
+   ]
+  },
+  {
+   "id": "kakde-main-conjecture-totally-real",
+   "title": "The main conjecture of Iwasawa theory for totally real fields",
+   "authors": "Mahesh Kakde",
+   "edition": "arXiv:1008.0142v3, 19 May 2011. DOWNLOADED BY THIS JOB on 2026-09-16 from arXiv; 92 pages",
+   "url": "https://arxiv.org/abs/1008.0142v3",
+   "sha256": "5a05da0d58f2717422fb401510d9cad4aeeac707313929a796870b92e27ea45c",
+   "readSections": [
+    "Abstract and table of contents, printed pp. 1-2",
+    "Sec. 2.1 'The set up', printed pp. 4-5: Definition 1 (admissible p-adic Lie extension) and the notation G, H, Gamma, Sigma",
+    "Sec. 2.3, printed pp. 10-11: the Assumption mu = 0 with the preceding lemma, Remark 10, and the reason a COMPLEX (rather than the module X) is used when G has elements of order p",
+    "Sec. 2.5 'The Statement', printed p. 13: the localization sequence for K_1', Theorem 11 (Main Conjecture) with its uniqueness assertion and interpolation property, and Remarks 12, 13, 14 including the SK_1 characterization proved by Burns",
+    "Sec. 2.5, printed pp. 13-14: the two worked examples (F = Q(mu_p)^+ with Ferrero-Washington, and Ramakrishna's SL_2(Z_7) representations)"
+   ]
+  },
+  {
+   "id": "burns-venjakob-leading-terms",
+   "title": "On the leading terms of Zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory",
+   "authors": "David Burns; Otmar Venjakob",
+   "edition": "arXiv:math/0511672v2, 20 January 2006 (published in the Documenta Mathematica Coates volume). DOWNLOADED BY THIS JOB on 2026-09-16 from arXiv; 38 pages",
+   "url": "https://arxiv.org/abs/math/0511672",
+   "sha256": "4b33fb11251340c88a8f8a590d9f9296a413aadf4fae98968ea7191a14c857bc",
+   "readSections": [
+    "Abstract and Sec. 1 Introduction, printed pp. 1-3 in full: the summary of the CFKSV and Fukaya-Kato formulations and their differing hypotheses, the observation that both sides of the Fukaya-Kato interpolation formula vanish when the Selmer module of M(rho^*) has positive rank, the introduction of leading terms via Bockstein homomorphisms, the two applications (the p-adic Stark conjecture at s = 1, and an interpolation formula involving the Neron-Tate pairing and Nekovar's p-adic height pairing), and the section-by-section plan",
+    "Sec. 2.1 'Determinant functors', printed p. 3: the categories B(R), C(R), P(R), C^p(R), D^p(R), the shift convention with its sign, and the existence of a Picard category C_R with a determinant functor d_R on quasi-isomorphisms of C^p(R)"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.0/completed-group-rings-and-the-standing-group-hypotheses",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.0",
+   "title": "Lambda(G) and Omega(G) as inverse limits, and the two standing hypotheses on G",
+   "kind": "definition",
+   "statement": "For G a compact p-adic Lie group set Lambda(G) = inverse limit over open normal subgroups U of Z_p[G/U] and Omega(G) = inverse limit over U of F_p[G/U]. Both are left and right Noetherian. If Lambda(G) has no zero divisors (for example if G is pro-p with no element of order p) one writes Q(G) for the skew field of fractions. THE WHOLE CFKSV FRAMEWORK ASSUMES a closed normal subgroup H of G with Gamma = G/H isomorphic to Z_p. For an open subgroup H' of H, Lambda(H) is FREE of rank [H : H'] over Lambda(H') on either side, so finite generation over Lambda(H) and over Lambda(H') are equivalent. For J an open normal (in G) pro-p subgroup of H, Lambda(J) is a LOCAL ring whose maximal ideal is the kernel of the augmentation Lambda(J) -> F_p, so Nakayama's lemma is available.",
+   "hypotheses": [
+    "G is a compact p-adic Lie group; Lambda(G) and Omega(G) are Noetherian on both sides (CFKSV state this as well known and do not prove it)",
+    "The absence of zero divisors is asserted only under a hypothesis such as 'G pro-p with no element of order p'; it is NOT a consequence of compactness",
+    "The existence of H with G/H isomorphic to Z_p is a STANDING HYPOTHESIS (2) of the paper, not a derived fact. CFKSV note that the forthcoming Fukaya-Kato work removes both this and the no-p-torsion hypothesis",
+    "Freeness of Lambda(H) over Lambda(H') needs H' OPEN in H",
+    "Locality of Lambda(J) needs J PRO-p; for a general open J the ring is not local",
+    "Given a pro-p open J one can always find J' open in J and NORMAL IN G, because the set of G-conjugates of J is finite"
+   ],
+   "proofSteps": [
+    "Define the two inverse limits and record the Noetherian property.",
+    "Record the freeness of Lambda(H) over Lambda(H') for H' open in H and the resulting equivalence of finite-generation conditions.",
+    "Record that for J pro-p, Lambda(J) is local with maximal ideal ker(Lambda(J) -> F_p), which is the form in which Nakayama is applied throughout Sec. 2.",
+    "Record the normalization trick producing a G-normal pro-p open subgroup of H."
+   ],
+   "acceptance": [
+    "Recover O[[T]] for G = Z_p and identify the topological generator with 1+T",
+    "Compute Lambda(G/J) and Omega(G/J) for a concrete nonabelian finite quotient",
+    "Check that absence of p-torsion, torsion-freeness and pro-p are three different conditions: exhibit a group with p-torsion where the skew-field-of-fractions statement fails"
+   ],
+   "sources": [
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 2, printed p. 2",
+     "excerpt": "It is well known that Lambda(G) and Omega(G) are left and right Noetherian. Moreover, if Lambda(G) has no zero divisors (e.g. if G is pro-p and has no element of order p), we shall always write Q(G) for the skew field of fractions of Lambda(G).",
+     "match": "Fixes the ring-theoretic facts the stage asks to prove, and shows that CFKSV quote Noetherianity rather than proving it (the stage's 'select primary Lazard/Venjakob results' instruction refers to exactly this)."
+    },
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 2, printed p. 2",
+     "excerpt": "We assume throughout this paper that G has a closed normal subgroup H such that Gamma = G/H is isomorphic to Z_p.",
+     "match": "The standing hypothesis under which every subsequent theorem of the paper is proved; it must travel with all of them."
+    },
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 2, printed p. 2",
+     "excerpt": "For such a pro-p J, Lambda(J) is a local ring, whose maximal ideal is the kernel of the augmentation map from Lambda(J) to F_p, and we can then use Nakayama's lemma for Lambda(J)-modules ... For J as above, let us note that we can always find an open subgroup J' of J which is normal in G because the set of G conjugates of such a J is finite.",
+     "match": "The two technical facts that make the Sec. 2 arguments work; the stage's requirement to separate pro-p from torsion-freeness is exactly this distinction."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.1/canonical-ore-set-and-its-characterizations",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.1",
+   "title": "The canonical set S and the four equivalent descriptions at a pro-p level",
+   "kind": "theorem",
+   "statement": "Define S to be the set of f in Lambda(G) such that Lambda(G)/Lambda(G)f is a FINITELY GENERATED Lambda(H)-module. Let J be any pro-p open subgroup of H normal in G, with phi_J : Lambda(G) -> Lambda(G/J) and psi_J : Lambda(G) -> Omega(G/J) the natural surjections. Then S equals each of: (i) the f with Lambda(G/J)/Lambda(G/J)phi_J(f) finitely generated over Z_p; (ii) the f with Omega(G/J)/Omega(G/J)psi_J(f) finite; (iii) the f with right multiplication by psi_J(f) on Omega(G/J) injective; and, by the right-handed Lemma 2.2, the corresponding four conditions for right modules, in particular (iv) the f with LEFT multiplication by psi_J(f) on Omega(G/J) injective. Moreover a finitely generated Lambda(G)-module (left or right) is finitely generated over Lambda(H) IF AND ONLY IF it is S-torsion.",
+   "hypotheses": [
+    "J must be PRO-p, OPEN in H and NORMAL in G",
+    "The equivalence (ii) <=> (iii) uses the existence of a subgroup Pi of G/J isomorphic to Z_p and CENTRAL in G/J, obtained by writing G/J as a semidirect product of the finite H/J with a lift of Gamma and taking an open subgroup of that lift acting trivially by conjugation",
+    "It uses that Omega(Pi) is isomorphic to F_p[[T]], so its quotient field R(Pi) is COMMUTATIVE and lies in the centre of the finite-dimensional algebra V(G/J) = R(Pi) tensor_{Omega(Pi)} Omega(G/J); linear algebra over a commutative field then converts injectivity into surjectivity",
+    "It also uses that Omega(G/J) has no finite Omega(G/J)-submodule",
+    "The left/right symmetry of Lemma 2.2 follows because multiplication in V(G/J) is R(Pi)-linear and V(G/J) is finite dimensional over R(Pi), so a one-sided inverse is two-sided"
+   ],
+   "proofSteps": [
+    "Replace H by J in the definition of S, using the freeness of Lambda(H) over Lambda(J).",
+    "For f in Lambda(G) and M = Lambda(G)/Lambda(G)f, compute M_J = Lambda(G/J)/Lambda(G/J)phi_J(f) and M/m_J M = Omega(G/J)/Omega(G/J)psi_J(f); Nakayama gives (i) and (ii).",
+    "Construct the central Pi and the algebra V(G/J); use that Omega(Pi) is a DVR with residue field F_p, so a finitely generated Omega(Pi)-module is torsion iff finite, to get (iii).",
+    "Lemma 2.2(iv): S consists of the f for which alpha_J(f) has a left inverse in V(G/J); by R(Pi)-linearity and finite dimensionality, z alpha_J(f) = 1 iff alpha_J(f) z = 1.",
+    "Proposition 2.3: if M is S-torsion pick generators x_i and f_i in S with f_i x_i = 0, giving a surjection from a finite sum of Lambda(G)/Lambda(G)f_i onto M, each of which is finitely generated over Lambda(H); conversely a finitely generated Lambda(H)-module is S-torsion."
+   ],
+   "acceptance": [
+    "Check the cyclic quotient example G = Z_p (so H = 1) and verify S is the set of nonzero elements of Z_p[[T]]",
+    "Check a source-admitted nonabelian case such as G an open subgroup of GL_2(Z_p) with H = G(F_infinity/Q^cyc)",
+    "Verify that S is NOT the set of all nonzero elements when H is nontrivial, by exhibiting a nonzero f outside S"
+   ],
+   "sources": [
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 2, Definition, printed p. 2",
+     "excerpt": "Let S be the set of all f in Lambda(G) such that Lambda(G)/Lambda(G)f is a finitely generated Lambda(H)-module.",
+     "match": "The definition of the denominator set, which the stage insists is part of the theorem and not a copy of the commutative construction."
+    },
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 2, proof of Lemma 2.1, printed pp. 2-3",
+     "excerpt": "To prove (iii), we use the important fact that we can always find a subgroup Pi of G/J satisfying Pi isomorphic to Z_p, Pi is in the centre of G/J.",
+     "match": "The construction of the central Z_p that makes the finite-dimensional-algebra argument possible; this is the intermediate machinery the stage asks to expose."
+    },
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 2, Proposition 2.3, printed p. 3",
+     "excerpt": "Let M be a finitely generated left or right Lambda(G)-module. Then M is finitely generated over Lambda(H) if and only if M is S-torsion.",
+     "match": "The torsion-category criterion the stage asks to compare with finiteness over Lambda(H)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.1/ore-property-non-zero-divisors-and-the-nilradical-characterization",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.1",
+   "title": "S is a two-sided Ore set of non-zero divisors, equal to the elements regular modulo a canonical nilpotent-defined ideal",
+   "kind": "theorem",
+   "statement": "The set S is multiplicatively closed and is a LEFT AND RIGHT Ore set in Lambda(G), and its elements are NON-ZERO DIVISORS in Lambda(G). Moreover, setting N to be the preimage in Lambda(G) of the prime radical N(Omega(G/J)) for any pro-p open G-normal J in H (independent of the choice by Lemma 2.5), S is exactly the set of elements of Lambda(G) that are REGULAR MODULO N. Since p is not in S, one also forms S^* = union over n >= 0 of p^n S, again a two-sided Ore set of non-zero divisors, with Lambda(G)_{S^*} = Lambda(G)_S[1/p]. M_H(G) denotes the category of finitely generated S^*-torsion Lambda(G)-modules; M is S^*-torsion iff M/M(p) is finitely generated over Lambda(H).",
+   "hypotheses": [
+    "Multiplicative closure uses the exact sequence 0 -> Lambda(G)s_2/Lambda(G)s_1 s_2 -> Lambda(G)/Lambda(G)s_1 s_2 -> Lambda(G)/Lambda(G)s_2 -> 0 and finite generation of the two outer terms over Lambda(H)",
+    "The Ore condition itself follows from Proposition 2.3 applied to Lambda(G)/Lambda(G)f and Lambda(G)/f Lambda(G)",
+    "The non-zero-divisor property is proved at each finite level: it suffices that phi_J(f) is not a zero divisor in Lambda(G/J), which follows because its image in W(G/J) = Q(Pi) tensor_{Lambda(Pi)} Lambda(G/J) has a two-sided inverse",
+    "Lemma 2.5 (due to P. Schneider) needs that Delta = J'/J is a FINITE NORMAL p-SUBGROUP of G/J, and the argument that Delta acts trivially on any simple V(G/J)-module because E^Delta is nonzero (p-group acting on a characteristic-p vector space) and is a submodule",
+    "p is CENTRAL in Lambda(G), which is what makes S^* an Ore set"
+   ],
+   "proofSteps": [
+    "Multiplicative closure from the displayed exact sequence.",
+    "Ore condition from Proposition 2.3: for f in S and x in Lambda(G) there are s, s' in S with sx in Lambda(G)f and xs' in f Lambda(G).",
+    "Non-zero divisors: pass to Lambda(G/J), form W(G/J), and use Lemma 2.1(i) with Lemma 2.2(ii) to invert the image of phi_J(f) on both sides.",
+    "Lemma 2.5: the kernel of Omega(G/J) -> Omega(G/J') is generated as a left ideal by the delta - 1 for delta in Delta; reduce to showing this lies in the prime radical, i.e. that Delta acts trivially on every simple V(G/J)-module, which holds because E^Delta is a nonzero submodule.",
+    "Proposition 2.6: f is regular mod N iff psi_J(f) becomes a unit in V(G/J)/N(V(G/J)); units modulo nilpotent ideals are units; combine with Lemmas 2.1(iii) and 2.2(iii)."
+   ],
+   "acceptance": [
+    "Check that S^* is needed because p is not in S, and that Lambda(G)_{S^*} = Lambda(G)_S[1/p]",
+    "Check that M_H(G) reduces to finitely generated torsion modules when H = 1 and G = Gamma",
+    "Verify the nilradical characterization on a concrete G/J with a nontrivial finite normal p-subgroup"
+   ],
+   "sources": [
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 2, Theorem 2.4, printed p. 4",
+     "excerpt": "The set S is multiplicatively closed, and is a left and right Ore set in Lambda(G). The elements of S are non-zero divisors in Lambda(G).",
+     "match": "The Ore theorem the stage requires, with both sides and the regularity asserted together."
+    },
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 2, Proposition 2.6 with proof, printed p. 6",
+     "excerpt": "The set S is equal to the set of all elements in Lambda(G) which are regular modulo N. ... But units modulo nilpotent ideals are units. Hence f is regular modulo N if and only if Psi_J(f) is a non-zero divisor in Omega(G/J).",
+     "match": "Schneider's alternative characterization, which the stage's 'p-saturated variant exactly as in the selected theorem' clause can be matched against."
+    },
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 3, printed p. 7",
+     "excerpt": "As p lies in the centre of Lambda(G), S^* is again a multiplicatively closed left and right Ore set in Lambda(G), all of whose elements are non-zero divisors.",
+     "match": "The reason S^* is legitimate; the centrality of p is the whole content and must not be assumed for other elements."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence-surjectivity-and-characteristic-elements",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
+   "title": "The boundary map K_1(Lambda(G)_{S^*}) -> K_0(M_H(G)) is surjective, and characteristic elements are its preimages",
+   "kind": "construction",
+   "statement": "The localization sequence of K-theory gives an exact sequence ... -> K_1(Lambda(G)) -> K_1(Lambda(G)_{S^*}) -> K_0(M_H(G)) -> K_0(Lambda(G)) -> K_0(Lambda(G)_{S^*}) -> 0, where the boundary map is denoted partial_G. IF G HAS NO ELEMENT OF ORDER p then partial_G is SURJECTIVE, and one DEFINES a characteristic element of M in M_H(G) to be any xi_M in K_1(Lambda(G)_{S^*}) with partial_G(xi_M) = [M]. The ambiguity in xi_M is exactly the image of K_1(Lambda(G)), by exactness. Moreover, still assuming no element of order p, the natural maps Lambda(G)_S^x -> K_1(Lambda(G)_S) and Lambda(G)_{S^*}^x -> K_1(Lambda(G)_{S^*}) are both SURJECTIVE.",
+   "hypotheses": [
+    "Surjectivity of partial_G requires G to have NO ELEMENT OF ORDER p; the stage's warning that a characteristic element may require a vanishing obstruction before a lift exists is exactly the failure of this hypothesis",
+    "The proof of surjectivity goes through Lemma 3.5: for P a pro-p open normal subgroup of G, K_0(Lambda(G)) -> K_0(Z_p[G/P]) is INJECTIVE. Its proof uses that Lambda(G) is a free Lambda(P)-module of finite rank and Nakayama for the pro-p P",
+    "The first half of Theorem 4.4 uses that Lambda(G)_S is SEMI-LOCAL (Proposition 4.2); Lambda(G)_{S^*} is in general NOT semi-local, and CFKSV exhibit this explicitly for G = Z_p^2, where Lambda(G)_{S^*} has infinitely many prime ideals",
+    "Characteristic elements are NOT unique: the definition is a preimage under partial_G"
+   ],
+   "proofSteps": [
+    "Record the localization sequence (24) for the Ore set S^*.",
+    "Lemma 3.5: lift an isomorphism M/IM + Z_p[Delta]^r -> Z_p[Delta]^r along the projective M to a Lambda(G)-map beta; Nakayama on the pro-p P kills the cokernel, and the P-homology of the resulting short exact sequence kills the kernel because Lambda(G) is Lambda(P)-free.",
+    "Proposition 3.4: combine Lemma 3.5 with the injectivity of the two maps lambda_1, lambda_2 into the representation-theoretic target, then use exactness of (24) to conclude that the class of M in K_0(Lambda(G)) vanishes, hence partial_G is surjective.",
+    "Define xi_M by partial_G(xi_M) = [M] and read the ambiguity off the exact sequence.",
+    "Theorem 4.4: semi-locality of Lambda(G)_S gives the first surjectivity; the second needs Lemma 4.5 (K_0(Omega(G)) is generated by classes [P/pP] for P a direct summand of Lambda(G))."
+   ],
+   "acceptance": [
+    "For G = Gamma = Z_p and M = Lambda/(f) recover f up to a unit as a characteristic element",
+    "Check the behaviour on a short exact sequence and on a mapping cone, not just on orders",
+    "Check that Lambda(G)_{S^*} is not semi-local for G = Z_p^2 as CFKSV show, so the K_1 surjectivity there is a genuine theorem"
+   ],
+   "sources": [
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 3, Proposition 3.4 and the following Definition, printed pp. 9, 11",
+     "excerpt": "Assume that G has no element of order p. Then partial_G is surjective. ... Definition. For each M in M_H(G), a characteristic element of M is any xi_M in K_1(Lambda(G)_{S^*}) such that partial_G(xi_M) = [M].",
+     "match": "The surjectivity with its hypothesis and the definition of a characteristic element as a non-unique preimage, exactly as the stage requires."
+    },
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 4, Theorem 4.4, printed p. 21",
+     "excerpt": "Assume that G has no element of order p. Then the natural maps Lambda(G)_S^x -> K_1(Lambda(G)_S) and Lambda(G)_{S^*}^x -> K_1(Lambda(G)_{S^*}) are both surjective.",
+     "match": "Lets one represent K_1-classes by actual units; the stage's 'represent classes of perfect torsion complexes' step depends on it."
+    },
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 4, printed p. 21",
+     "excerpt": "Thus R_{S^*} = R_S[1/p] is a ring of dimension 1. But R_{S^*} has infinitely many prime ideals, and is certainly not semi-local.",
+     "match": "The explicit counterexample showing that the semi-local shortcut is unavailable for S^*, so the second half of Theorem 4.4 needs its own proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.3/evaluation-at-representations-akashi-series-and-euler-characteristics",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.3",
+   "title": "The homomorphism Phi_rho, evaluation of a characteristic element at a representation, and its Euler-characteristic interpolation",
+   "kind": "theorem",
+   "statement": "For a continuous rho : G -> GL_n(O) define a continuous homomorphism G -> (M_n(O) tensor_{Z_p} Lambda(Gamma))^x by sigma -> rho(sigma) tensor sigma-bar, where sigma-bar is the image of sigma in Gamma; this extends to Phi_rho : Lambda(G) -> M_n(Lambda_O(Gamma)) and further to a RING HOMOMORPHISM Phi_rho : Lambda(G)_{S^*} -> M_n(Q_O(Gamma)), because Phi_rho(s) has nonzero determinant for every s in S^*. Evaluation xi(rho) is obtained by composing with the augmentation. THEOREM 3.6: if G has no element of order p, M is in M_H(G) and xi_M is a characteristic element, then for every continuous rho with chi(G, tw_{rho-hat}(M)) finite one has xi_M(rho) not 0 and not infinity, and chi(G, tw_{rho-hat}(M)) = |xi_M(rho)|_p^{-m_rho} with m_rho = [L : Q_p]. THEOREM 3.8: if in addition H_i(H',M) = 0 for all i >= 1 and all open H' normal in G, then xi_M(rho) is not infinity for EVERY ARTIN rho, and xi_M(rho) is nonzero iff chi(G, tw_{rho-hat}(M)) is finite.",
+   "hypotheses": [
+    "rho-hat is the CONTRAGREDIENT, rho-hat(g) = rho(g^{-1})^t; the twist in Theorem 3.6 is by rho-hat, not rho",
+    "m_rho = [L : Q_p] where L is the fraction field of O; the exponent in the Euler-characteristic formula is -m_rho, not -1",
+    "Theorem 3.8's extra hypothesis (51) (vanishing of H_i(H',M) for i >= 1 and all G-normal open H' of H) is a genuine restriction and is what buys finiteness of the evaluation at all Artin representations",
+    "The proof of Lemma 3.3 uses that GL_n(k) is FINITE for the residue field k of O, to find a pro-p G-normal J inside the kernel of the reduced representation",
+    "The Akashi series Ak(M) = product of f_{i,M}^{(-1)^i} over i, with f_{i,M} a characteristic power series of H_i(H,M) over Lambda(Gamma), is well defined only modulo units and only because Lemma 3.1 makes the H_i(H,M) finitely generated torsion Lambda(Gamma)-modules, vanishing for i >= d when G has no p-torsion"
+   ],
+   "proofSteps": [
+    "Construct Phi_rho from sigma -> rho(sigma) tensor sigma-bar and extend by continuity.",
+    "Lemma 3.3: to invert Phi_rho(s) it suffices that its reduction modulo the maximal ideal has nonzero determinant; factor through Omega(G/J) for a pro-p G-normal J inside ker(rho-tilde), choose a central Pi in ker of the induced map to GL_n(k), and use that psi_J(s) is a unit in R(Pi) tensor Omega(G/J) by Sec. 2.",
+    "Define Ak(M) and Ak_O(M) and record the norm relation N(Ak_O(M)) = Ak(M) coming from Bourbaki Chap. VII Sec. 4.8 Prop. 18.",
+    "Theorem 3.6: build the map Delta_rho([M]) = Ak_O(tw_{rho-hat}(M)) on K_0(M_H(G)) and prove the commutativity of the diagram (Lemma 3.7) relating partial_G, Delta_rho and partial_Gamma; then compute the Euler characteristic as the valuation of the evaluation.",
+    "Theorem 3.8: Lemma 3.9 shows that for M satisfying (51) and rho Artin, the relevant quantity lies in Lambda_O(Gamma) rather than only in its fraction field."
+   ],
+   "acceptance": [
+    "Evaluate a known unit and its induced representation, keeping the determinant, contragredient and Frobenius conventions straight",
+    "Check that the exponent m_rho = [L : Q_p] is needed by taking O ramified over Z_p",
+    "Exhibit where an SK_1 ambiguity survives characterwise equality (see the NE.6 node: Kakde's Remark 12 gives the exact characterization)"
+   ],
+   "sources": [
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 3, Lemma 3.3 with proof, printed pp. 8-9",
+     "excerpt": "The map (15) extends to a ring homomorphism, which we also denote by Phi_rho, Phi_rho : Lambda(G)_{S^*} -> M_n(Q_O(Gamma)). Proof. We must show that, for all s in S^*, Phi_rho(s) is invertible in M_n(Q_O(Gamma)), or equivalently that Phi_rho(s) has non-zero determinant.",
+     "match": "The construction of the evaluation map, with the exact reason it extends to the localization; this is the 'where the localized map exists' clause of the stage."
+    },
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 3, Theorem 3.6, printed p. 12",
+     "excerpt": "Take M in M_H(G), and let xi_M be a characteristic element of M. Then, for every continuous homomorphism rho : G -> GL_n(O) such that chi(G, tw_{rho-hat}(M)) is finite, we have xi_M(rho) not 0, not infinity, and chi(G, tw_{rho-hat}(M)) = |xi_M(rho)|_p^{-m_rho}, where m_rho = [L : Q_p], and L is the quotient field of O.",
+     "match": "The interpolation of Euler characteristics by evaluations, with the contragredient twist and the exponent m_rho both explicit."
+    },
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 3, Theorem 3.8, printed p. 15",
+     "excerpt": "Let M be a module in M_H(G), which, in addition, satisfies H_i(H',M) = 0 for all i >= 1, and for all open subgroups H' of H, which are normal in G. Let xi_M denote a characteristic element of M. Then xi_M(rho) is not infinity for every Artin representation rho of G.",
+     "match": "The stronger statement with its extra hypothesis (51), which the stage wants kept separate from Theorem 3.6."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.5/cfksv-interpolation-contract-and-main-conjecture",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.5",
+   "title": "The conjectural p-adic L-function in K_1(Lambda(G)_{S^*}) with its Artin interpolation, and the main conjecture",
+   "kind": "application",
+   "statement": "Let E/Q be an elliptic curve, F_infinity = Q(E_{p^infinity}), G = Gal(F_infinity/Q), H = Gal(F_infinity/Q^cyc), Gamma = Gal(Q^cyc/Q), and assume p >= 5 and E has GOOD ORDINARY reduction at p (so that G, a closed subgroup of GL_2(Z_p), has no element of order p). CONJECTURE 5.1: the dual Selmer group X(E/F_infinity) belongs to M_H(G). CONJECTURE 5.7: there exists L_E in K_1(Lambda(G)_{S^*}) such that for all Artin representations rho of G, L_E(rho) is not infinity and L_E(rho) = L_R(E,rho,1)/(Omega_+(E)^{d_+(rho)} Omega_-(E)^{d_-(rho)}) . e_p(rho) . P_p(rho-hat,u^{-1})/P_p(rho,w^{-1}) . u^{-f_rho}, where e_p(rho) is the local epsilon factor at p. CONJECTURE 5.8 (main conjecture): granted Conjecture 5.7 and Conjecture 5.1, L_E is a CHARACTERISTIC ELEMENT of X(E/F_infinity).",
+   "hypotheses": [
+    "p >= 5 and good ORDINARY reduction; p >= 5 is what guarantees G has no element of order p, since G embeds in GL_2(Z_p)",
+    "Conjecture 5.1 (the S^*-torsion property of the dual Selmer group) is a HYPOTHESIS of Conjecture 5.8, not a consequence",
+    "Conjecture 5.7 (existence of L_E with the interpolation) is SEPARATE from Conjecture 5.8 (that L_E is a characteristic element). CFKSV state 5.8 as conditional on 5.7",
+    "The interpolation formula carries: a period ratio with the two archimedean periods raised to the multiplicities d_+(rho), d_-(rho); the local epsilon factor e_p(rho) at p; a ratio of local Euler factors at p evaluated at u^{-1} and w^{-1} with the CONTRAGREDIENT rho-hat in the numerator; and a power u^{-f_rho}. None of these may be dropped",
+    "When E has CM, Conjecture 5.7 is TRUE and follows from the two-variable p-adic L-function of Manin-Vishik, Katz and Yager; for non-CM E the only evidence is fragmentary numerical data",
+    "A characteristic element is not unique, so 'L_E is a characteristic element' does not by itself pin down L_E; CFKSV note that Case 1 of their Conjecture 4.8 would put both L_E and xi_E in the image of Lambda(G)[1/p]^x intersect Lambda(G)_{S^*}, but they cannot prove it"
+   ],
+   "proofSteps": [
+    "Record Conjecture 5.1 and its relation to Mazur's older Conjecture 5.2.",
+    "Record Conjecture 5.7 with the full interpolation formula (107).",
+    "Record Conjecture 5.8 and its two corollaries 5.9 and 5.10.",
+    "Record the CM case where Conjecture 5.7 is a theorem, and the honest statement about the evidence in the non-CM case."
+   ],
+   "acceptance": [
+    "Check the abelian specialization: for G = Gamma the category M_H(G) is the finitely generated torsion modules and a characteristic element is the usual characteristic power series",
+    "Check Corollary 5.9: chi(G, tw_rho(X(E/F_infinity))) is finite iff L(E,rho-hat,1) is nonzero",
+    "Check that Conjecture 5.7 is a theorem in the CM case via Katz's two-variable p-adic L-function"
+   ],
+   "sources": [
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 5, Conjecture 5.7, printed p. 34",
+     "excerpt": "Assume that p >= 5 and that E has good ordinary reduction at p. Then there exists L_E in K_1(Lambda(G)_{S^*}) such that, for all Artin representations rho of G, we have L_E(rho) not infinity, and L_E(rho) = L_R(E,rho,1)/(Omega_+(E)^{d_+(rho)} Omega_-(E)^{d_-(rho)}) . e_p(rho) . P_p(rho-hat, u^{-1})/P_p(rho, w^{-1}) . u^{-f_rho}; here e_p(rho) denotes the local epsilon-factors at p attached to rho.",
+     "match": "The interpolation contract the stage asks to formulate, with the periods, local factors and epsilon factors all printed; the stage's 'periods, local factors and exceptional-zero behavior' are exactly these."
+    },
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 5, Conjecture 5.8, printed p. 34",
+     "excerpt": "Assume that p >= 5, E has good ordinary reduction at p, and X(E/F_infinity) belongs to M_H(G). Granted Conjecture 5.7, the p-adic L-function L_E in K_1(Lambda(G)_{S^*}) is a characteristic element of X(E/F_infinity).",
+     "match": "The main conjecture as a separate statement conditional on both the torsion conjecture and the existence conjecture; the stage's 'existence and uniqueness are separate propositions' is the source's own structure."
+    },
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 5, printed p. 34",
+     "excerpt": "We remark that, when E admits complex multiplication, Conjecture 5.7 is true, and can be deduced from the existence of the two variable p-adic L-function of Manin-Vishik, Katz, and Yager attached to E at the ordinary prime p. When E does not admit complex multiplication, the only evidence we have at present to support Conjecture 5.7 is some interesting but still fragmentary numerical data",
+     "match": "The honest status of the existence conjecture, which the stage's 'a conjectural interpolation object cannot discharge a downstream theorem' warns about."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/kakde-main-conjecture-for-totally-real-fields",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "title": "Kakde's theorem: existence and uniqueness of the p-adic zeta function in K_1' for admissible totally real extensions, under mu = 0",
+   "kind": "theorem",
+   "statement": "DEFINITION 1. An ADMISSIBLE p-adic Lie extension F_infinity of a totally real F is a Galois extension with (i) F_infinity/F unramified outside a finite set of primes of F, (ii) F_infinity TOTALLY REAL, (iii) G = Gal(F_infinity/F) a p-adic Lie group, and (iv) F_infinity containing F^cyc. THEOREM 11 (Main Conjecture). Let F_infinity/F be an admissible p-adic Lie extension satisfying the hypothesis mu = 0. Then there is a UNIQUE zeta(F_infinity/F) in K_1'(Lambda(G)_S) such that partial(zeta(F_infinity/F)) = -[C(F_infinity/F)] and, for any Artin character rho of G and any positive integer r divisible by [F_infinity(mu_p) : F_infinity], zeta(F_infinity/F)(rho kappa_F^r) = L_Sigma(rho, 1-r).",
+   "hypotheses": [
+    "p is ODD (stated in the abstract)",
+    "F_infinity must be TOTALLY REAL and must contain the cyclotomic Z_p-extension F^cyc",
+    "The hypothesis mu = 0 is Iwasawa's conjecture on the vanishing of the cyclotomic mu-invariant for a certain CM extension of the base; it is ASSUMED, not proved",
+    "UNIQUENESS holds in K_1'(Lambda(G)_S), NOT in K_1(Lambda(G)_S). Kakde warns explicitly that in CFKSV, Fukaya-Kato, Burns-Flach, Huber-Kings and Ritter-Weiss the zeta function is conjectured to live in K_1, 'and hence uniqueness may not hold'. The two versions are equivalent because SK_1(Lambda(G)_S) = Ker(partial) intersect (intersection over Artin rho of Ker(phi' composed with Phi'_rho)), as proved by Burns",
+    "The interpolation is at rho kappa_F^r with r POSITIVE and DIVISIBLE BY [F_infinity(mu_p) : F_infinity]; not at arbitrary characters",
+    "L_Sigma is the Sigma-truncated Artin L-function; the validity of the main conjecture is independent of Sigma as long as Sigma contains all primes ramifying in F_infinity",
+    "A COMPLEX C(F_infinity/F) is used rather than the module X = Gal(M_infinity/F_infinity), because when G has elements of order p the module X need not have a finite projective resolution"
+   ],
+   "proofSteps": [
+    "Record Definition 1 and the mu = 0 assumption with the lemma that reduces it to finite generation of Gal(M_{K_infinity}/K_infinity) over Z_p.",
+    "Record the localization sequence for K_1' and Theorem 11.",
+    "Record the SK_1 characterization of Remark 12, which is what makes uniqueness in K_1' meaningful and shows precisely where characterwise equality is insufficient in K_1.",
+    "Record the two worked examples: F = Q(mu_p)^+ with F_infinity the maximal abelian p-extension of F^cyc unramified outside p, where mu = 0 is Ferrero-Washington's theorem so the result is UNCONDITIONAL; and Ramakrishna's SL_2(Z_7)-representations.",
+    "The proof (Sections 4-7: reduction to dimension one, to Q_p-elementary and then p-elementary extensions, the integral logarithm, the congruences and the arithmetic side) was NOT read."
+   ],
+   "acceptance": [
+    "Build the coverage table the stage asks for: compare Kakde's statement, its uniqueness assertion (K_1' with the SK_1 characterization), its p = 2 status (excluded: p is odd) and its mu assumption, against CFKSV Conjecture 5.8 (no uniqueness asserted, p >= 5, elliptic-curve setting) and Ritter-Weiss",
+    "Check the unconditional example F = Q(mu_p)^+ where Ferrero-Washington supplies mu = 0",
+    "Check that the abelian case recovers the classical main conjecture of Mazur-Wiles and Wiles"
+   ],
+   "sources": [
+    {
+     "sourceId": "kakde-main-conjecture-totally-real",
+     "locator": "Sec. 2.1, Definition 1, printed pp. 4-5",
+     "excerpt": "An admissible p-adic Lie extension F_infinity of F is a Galois extension F_infinity of F such that (i) F_infinity/F is unramified outside a finite set of primes of F, (ii) F_infinity is totally real, (iii) G := Gal(F_infinity/F) is a p-adic Lie group, and (iv) F_infinity contains F^cyc.",
+     "match": "The admissibility hypothesis the stage insists must be recorded per theorem."
+    },
+    {
+     "sourceId": "kakde-main-conjecture-totally-real",
+     "locator": "Sec. 2.5, Theorem 11, printed p. 13",
+     "excerpt": "Let F_infinity/F be an admissible p-adic Lie extension satisfying the hypothesis mu = 0. Then there is a unique zeta(F_infinity/F) in K_1'(Lambda(G)_S) such that partial(zeta(F_infinity/F)) = -[C(F_infinity/F)] and for any Artin character rho of G and any positive integer r divisible by [F_infinity(mu_p) : F_infinity], zeta(F_infinity/F)(rho kappa_F^r) = L_Sigma(rho, 1-r).",
+     "match": "The main theorem with its uniqueness in K_1' and the exact divisibility condition on r in the interpolation."
+    },
+    {
+     "sourceId": "kakde-main-conjecture-totally-real",
+     "locator": "Sec. 2.5, Remark 12, printed p. 13",
+     "excerpt": "We must warn that in all above sources the p-adic zeta function is conjectured to live in K_1 as opposed to K_1' and hence uniqueness may not hold. However, the two versions are equivalent because SK_1(Lambda(G)_S) = Ker(partial) intersect (intersection over rho of Ker(phi' composed with Phi'_rho)), where rho runs through all Artin representations of G, as proven by Burns [2].",
+     "match": "THE precise statement the NE.3 stage asks for ('Show explicitly where an SK_1 ambiguity survives characterwise equality'): SK_1 is exactly the intersection of the kernel of the boundary map with the kernels of all Artin evaluations."
+    },
+    {
+     "sourceId": "kakde-main-conjecture-totally-real",
+     "locator": "Sec. 2.3, printed p. 10",
+     "excerpt": "The above lemma shows that X is a S-torsion module, however, if G has elements of order p, then X may not have a finite resolution by finitely generated projective Lambda(G)-modules. In our approach to the proof of the main conjecture it is necessary to consider G having elements of order p. So we consider a complex of Lambda(G)-modules which is closely related to X, and is quasi-isomorphic to a bounded complex of finitely generated projective",
+     "match": "Explains why the arithmetic side of NE.4 must be a COMPLEX and not a module, and why Kakde can allow p-torsion in G where CFKSV cannot."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/leading-terms-via-bockstein-homomorphisms",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "title": "Leading terms at a representation for elements of localized K_1-groups, and why they are needed",
+   "kind": "construction",
+   "statement": "In the Fukaya-Kato formalism of localized K_1-groups, the p-adic L-function attached to a motive M satisfies an interpolation formula relating, at each continuous finite-dimensional p-adic representation rho of Gal(F_infinity/F), the 'value at rho' to the value at the central critical point of the complex L-function of the rho^*-twist M(rho^*). BUT IF THE SELMER MODULE OF M(rho^*) HAS STRICTLY POSITIVE RANK, BOTH SIDES OF THAT FORMULA VANISH. Burns-Venjakob therefore introduce the notion of 'the leading term at rho' for elements of suitable localized K_1-groups, defined in terms of BOCKSTEIN HOMOMORPHISMS, and prove interpolation formulas for the leading terms of global Zeta isomorphisms attached to certain Tate motives and of the p-adic L-functions attached to certain critical motives. The second of these involves the leading term at the central critical point of the complex L-function, the Neron-Tate pairing and Nekovar's p-adic height pairing.",
+   "hypotheses": [
+    "The formalism is that of Fukaya-Kato's localized K_1-groups together with Nekovar's Selmer complexes and the CONJECTURAL existence of certain canonical p-adic L-functions; so the leading-term statements are conditional on that existence",
+    "The vanishing of both sides in positive rank is not hypothetical: Burns-Venjakob cite a result of Mazur-Rubin, itself equivalent to a special case of Nekovar's Theorem 10.7.17, to the effect that positive rank 'should often be the case'",
+    "The CFKSV formulation and the Fukaya-Kato formulation have DIFFERENT hypotheses: CFKSV require Gal(F_infinity/F) to have no nontrivial p-torsion, to contain F^cyc, and the elliptic curve to have good reduction above p with a torsion Selmer group; Fukaya-Kato require only a critical motive with good ordinary reduction above p over an arbitrary compact p-adic Lie extension",
+    "The applications are in the setting F^cyc contained in F_infinity",
+    "The first application reinterprets the p-adic Stark conjecture at s = 1 (Serre's formulation as interpreted by Tate) as an interpolation formula for leading terms of global Zeta isomorphisms of Tate motives, using Brauer induction together with Deligne-Ribet and Cassou-Nogues"
+   ],
+   "proofSteps": [
+    "Record the determinant-functor preliminaries: for any ring R there is a Picard category C_R and a determinant functor d_R on quasi-isomorphisms of C^p(R), with the shift convention C[r]^i = C^{i+r} and d^i_{C[r]} = (-1)^r d^{i+r}_C.",
+    "Record the definition of leading terms via Bockstein homomorphisms (Sec. 3), which Burns-Venjakob relate to 'partial derivation in the cyclotomic direction' and use to extend results on generalized Euler-Poincare characteristics.",
+    "Record the two interpolation theorems (Sections 5 and 6) as statements; their proofs were NOT read in this pass.",
+    "Record the announced sequel: the approach is to be applied to the algebraic p-adic L-functions of Burns, to show that the CFKSV main conjecture implies the equivariant Tamagawa number conjecture for h^1(E)(1) at each finite subextension, a partial converse to Fukaya-Kato's specialization theorem."
+   ],
+   "acceptance": [
+    "Recover a nonvanishing scalar specialization from the ordinary interpolation formula and check it agrees with the leading term when the rank is zero",
+    "Exhibit one sourced vanishing case with its Bockstein determinant",
+    "Check the shift sign convention for determinants, which controls the sign of every leading-term identity"
+   ],
+   "sources": [
+    {
+     "sourceId": "burns-venjakob-leading-terms",
+     "locator": "Sec. 1, printed p. 2",
+     "excerpt": "However, if the Selmer module of M(rho^*) has strictly positive rank (and by a recent result of Mazur and Rubin [19], which is itself equivalent to a special case of an earlier result of Nekovar [22, Th. 10.7.17], this should often be the case), then both sides of the Fukaya-Kato interpolation formula are equal to zero.",
+     "match": "The exact reason leading terms are needed; the stage's 'when evaluations vanish' is this sentence."
+    },
+    {
+     "sourceId": "burns-venjakob-leading-terms",
+     "locator": "Sec. 1, printed p. 2",
+     "excerpt": "To this end we shall introduce a notion of 'the leading term at rho' for elements of suitable localized K_1-groups. This notion is defined in terms of the Bockstein homomorphisms that have already played significant roles ... and have been systematically incorporated into Nekovar's theory of Selmer complexes [22].",
+     "match": "Identifies the Bockstein construction as the definition, and its provenance in Nekovar's Selmer complexes (the same book decomposed in this job's SelmerIwasawaCohomology packet)."
+    },
+    {
+     "sourceId": "burns-venjakob-leading-terms",
+     "locator": "Sec. 1, printed p. 2",
+     "excerpt": "We then also prove an interpolation formula for the leading terms of the Fukaya-Kato p-adic L-functions which involves the leading term at the central critical point of the associated complex L-function, the Neron-Tate pairing and Nekovar's p-adic height pairing.",
+     "match": "The shape of the leading-term formula, naming the two height pairings that appear; the stage's 'Bockstein/regulator data' is exactly this."
+    },
+    {
+     "sourceId": "burns-venjakob-leading-terms",
+     "locator": "Sec. 1, printed p. 1",
+     "excerpt": "if F_infinity is any Galois extension of a number field F which contains the cyclotomic Z_p-extension F_cyc of F and is such that Gal(F_infinity/F) is a compact p-adic Lie group with no non-trivial p-torsion, then Coates et al formulated a Gal(F_infinity/F)-equivariant main conjecture for any elliptic curve which is defined over F, has good reduction at all places above p and whose Selmer group (over F_infinity) satisfies a certain natural torsion condition.",
+     "match": "A third-party restatement of the CFKSV hypotheses, useful as a cross-check that the standing hypotheses recorded in NE.0 and NE.5 are complete."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "NoncommutativeAndEquivariantIwasawa:NE.0/completed-group-rings-and-the-standing-group-hypotheses",
+   "target": "NoncommutativeAndEquivariantIwasawa:NE.1/canonical-ore-set-and-its-characterizations",
+   "reason": "Every step of CFKSV Lemma 2.1 uses two facts established in the NE.0 node: that Lambda(H) is free of finite rank over Lambda(J) for J open in H (so that H may be replaced by J in the definition of S), and that Lambda(J) is local for J pro-p (so that Nakayama applies to M_J and M/m_J M). The hypothesis G/H isomorphic to Z_p is what produces the central Pi.",
+   "sources": [
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Sec. 2, printed p. 2, used in the proof of Lemma 2.1, printed pp. 2-3"
+    }
+   ]
+  },
+  {
+   "source": "NoncommutativeAndEquivariantIwasawa:NE.1/ore-property-non-zero-divisors-and-the-nilradical-characterization",
+   "target": "NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence-surjectivity-and-characteristic-elements",
+   "reason": "The localization sequence (24) exists only because S^* is a two-sided Ore set of non-zero divisors, which is Theorem 2.4 extended to S^* by the centrality of p. The category M_H(G) whose K_0 appears in the sequence is defined as the S^*-torsion finitely generated modules, i.e. by Proposition 2.3 as those finitely generated over Lambda(H) modulo p-torsion.",
+   "sources": [
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Thm. 2.4 (p. 4) and the definition of S^* (p. 7) feeding the sequence (24) (p. 9)"
+    }
+   ]
+  },
+  {
+   "source": "NoncommutativeAndEquivariantIwasawa:NE.1/canonical-ore-set-and-its-characterizations",
+   "target": "NoncommutativeAndEquivariantIwasawa:NE.3/evaluation-at-representations-akashi-series-and-euler-characteristics",
+   "reason": "The proof that Phi_rho extends to the localization (Lemma 3.3) ends by invoking the Sec. 2 result that psi_J(s) is a unit in R(Pi) tensor_{Omega(Pi)} Omega(G/J) for s in S. Without the characterization of S by invertibility in that finite-dimensional algebra there is no reason for Phi_rho(s) to have nonzero determinant.",
+   "sources": [
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "proof of Lemma 3.3, printed p. 9, citing Sec. 2"
+    }
+   ]
+  },
+  {
+   "source": "NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence-surjectivity-and-characteristic-elements",
+   "target": "NoncommutativeAndEquivariantIwasawa:NE.5/cfksv-interpolation-contract-and-main-conjecture",
+   "reason": "Conjecture 5.8 says that L_E IS a characteristic element of X(E/F_infinity), i.e. that partial_G(L_E) = [X(E/F_infinity)]. That statement is only meaningful once partial_G is known to be surjective (so characteristic elements exist) and once its ambiguity is identified with the image of K_1(Lambda(G)); both are outputs of the NE.2 node, and both carry the hypothesis that G has no element of order p, which p >= 5 supplies here.",
+   "sources": [
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Prop. 3.4 and the Definition (pp. 9, 11) used in Conj. 5.8 (p. 34)"
+    }
+   ]
+  },
+  {
+   "source": "NoncommutativeAndEquivariantIwasawa:NE.3/evaluation-at-representations-akashi-series-and-euler-characteristics",
+   "target": "NoncommutativeAndEquivariantIwasawa:NE.6/kakde-main-conjecture-for-totally-real-fields",
+   "reason": "Kakde's uniqueness assertion is a statement about evaluations: SK_1(Lambda(G)_S) is exactly the intersection of Ker(partial) with the kernels of all the Artin evaluations phi' composed with Phi'_rho. The maps Phi'_rho are the localized evaluation homomorphisms constructed in the NE.3 node, so the uniqueness in K_1' is a direct consequence of the evaluation formalism plus Burns's computation of SK_1.",
+   "sources": [
+    {
+     "sourceId": "kakde-main-conjecture-totally-real",
+     "locator": "Remark 12, printed p. 13"
+    },
+    {
+     "sourceId": "cfksv-gl2-main-conjecture",
+     "locator": "Lemma 3.3, printed p. 9"
+    }
+   ]
+  },
+  {
+   "source": "NoncommutativeAndEquivariantIwasawa:NE.5/cfksv-interpolation-contract-and-main-conjecture",
+   "target": "NoncommutativeAndEquivariantIwasawa:NE.7/leading-terms-via-bockstein-homomorphisms",
+   "reason": "Burns-Venjakob's motivation is precisely that the CFKSV/Fukaya-Kato interpolation formula degenerates to 0 = 0 whenever the Selmer module of the twist has positive rank; their leading-term formalism is built to replace it in that case. The dependency is on the interpolation contract of NE.5 and on the observation about its failure mode, not on shared vocabulary.",
+   "sources": [
+    {
+     "sourceId": "burns-venjakob-leading-terms",
+     "locator": "Sec. 1, printed pp. 1-2"
+    }
+   ]
+  },
+  {
+   "source": "SelmerIwasawaCohomology:L2/selmer-complex-as-a-mapping-fibre-with-greenberg-local-conditions",
+   "target": "NoncommutativeAndEquivariantIwasawa:NE.7/leading-terms-via-bockstein-homomorphisms",
+   "reason": "Burns-Venjakob state that the Bockstein homomorphisms defining leading terms 'have been systematically incorporated into Nekovar's theory of Selmer complexes [22]', and the Fukaya-Kato formalism they extend 'uses a notion of localized K_1-groups together with Nekovar's theory of Selmer complexes'. The Selmer complex construction decomposed in this job's SelmerIwasawaCohomology packet (Nekovar Sec. 0.8) is therefore a genuine input, and the Bockstein maps are those of Nekovar's Ch. 11 which this job did NOT read. PROPOSED, not asserted: the scope match between SelmerIwasawaCohomology:L2 and what Burns-Venjakob need was not verified beyond these two sentences.",
+   "sources": [
+    {
+     "sourceId": "burns-venjakob-leading-terms",
+     "locator": "Sec. 1, printed pp. 1-2"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "NoncommutativeAndEquivariantIwasawa:NE.0",
+   "status": "partial",
+   "remaining": [
+    "CFKSV Sec. 2's opening (Lambda(G), Omega(G), the standing hypotheses, freeness over Lambda(J), locality for pro-p J) was read; Noetherianity is QUOTED by CFKSV as well known and was not traced to Lazard or Venjakob",
+    "Restriction, induction and augmentation, and the universal property for continuous actions, were not read in any source; they are covered in this job's PadicMeasuresIwasawaAlgebras packet only for the ABELIAN case and only for R = O_L",
+    "Module-finiteness facts 'for an admitted normal subgroup H with G/H isomorphic to Z_p' are covered by Proposition 2.3, which is recorded under NE.1",
+    "Finite global dimension and the homological claims for groups WITHOUT p-torsion were not sourced; the stage explicitly forbids asserting them for groups WITH p-torsion, and CFKSV's Lemma 3.1 (H_i(H,M) = 0 for i >= d) is stated only under the no-p-torsion hypothesis"
+   ]
+  },
+  {
+   "stageId": "NoncommutativeAndEquivariantIwasawa:NE.1",
+   "status": "source_decomposed",
+   "remaining": [
+    "CFKSV Sec. 2 was read IN FULL with all proofs: the definition of S, Lemmas 2.1 and 2.2, Proposition 2.3, Theorem 2.4, and Schneider's Lemma 2.5 and Proposition 2.6. The corresponding torsion category M_H(G) and the S^* variant were read in Sec. 3",
+    "NOT covered: the 'perfect-complex category' half of the stage. CFKSV work with modules; the complex formulation is Fukaya-Kato's and Kakde's, and the Fukaya-Kato paper was not obtained",
+    "NOT covered: the universal localization property as an abstract statement; CFKSV verify the Ore conditions and use the resulting calculus of fractions without stating a universal property"
+   ]
+  },
+  {
+   "stageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
+   "status": "partial",
+   "remaining": [
+    "The localization sequence of K-theory itself is QUOTED by CFKSV from Swan/Weibel ([28] in their numbering) and was not read; the stage assigns it to GeneralAlgebraicKTheory K.5-K.6 (EXT-01)",
+    "Proposition 3.4's proof was read only in outline (Lemma 3.5 in full, the representation-theoretic injectivity of lambda_2 quoted from Serre Chap. 16)",
+    "Theorem 4.4's second half (Lemmas 4.5-4.7 and the argument via K_0(Omega(G))) was not read in full",
+    "The sign convention on the boundary map is not fixed in CFKSV; Kakde writes partial(zeta) = -[C], with a MINUS sign, while CFKSV write partial_G(xi_M) = +[M]. The stage requires the sign convention to be fixed and this discrepancy must be resolved before the two are combined",
+    "Representing classes of perfect torsion COMPLEXES (rather than modules) was not covered"
+   ]
+  },
+  {
+   "stageId": "NoncommutativeAndEquivariantIwasawa:NE.3",
+   "status": "partial",
+   "remaining": [
+    "CFKSV Lemma 3.3, Theorem 3.6 and Theorem 3.8 were read as statements with Lemma 3.3's proof; the proofs of Theorems 3.6 and 3.8 (via Lemma 3.7's commutative diagram and Lemma 3.9) were NOT read",
+    "Reduced norms and the semisimple total quotient algebra were not read in any source; CFKSV use determinants of Phi_rho instead, and the reduced-norm formulation is Ritter-Weiss's",
+    "The SK_1 statement is recorded from Kakde's Remark 12, which attributes it to Burns [2] = D. Burns, On main conjectures in non-commutative Iwasawa theory and related conjectures; that paper was NOT obtained",
+    "AE-RW (Ritter-Weiss, arXiv:1004.2578) was DOWNLOADED by this job but NOT read; AE-RW2026 (arXiv:2608.22601) was neither downloaded nor read, and the stage explicitly flags it as a separate recent-source audit"
+   ]
+  },
+  {
+   "stageId": "NoncommutativeAndEquivariantIwasawa:NE.4",
+   "status": "not_read",
+   "remaining": [
+    "No source was read for this stage. Kakde Sec. 2.3 (printed pp. 9-11) contains the complex C(F_infinity/F) and its perfectness, and was read only far enough to record WHY a complex is needed when G has p-torsion",
+    "Compactly supported and Iwasawa Galois complexes with G-action, local conditions, derived induction and restriction, perfectness and S-torsion under ramification hypotheses, archimedean terms and duality were not read",
+    "The stage's warning that ordinary compact-support conventions can lose real two-primary terms, and that p = 2 needs an independently proved compatible complex, was not checked against any source"
+   ]
+  },
+  {
+   "stageId": "NoncommutativeAndEquivariantIwasawa:NE.5",
+   "status": "partial",
+   "remaining": [
+    "CFKSV Sec. 5 was read: Conjectures 5.1, 5.2, 5.7, 5.8 and Corollaries 5.9, 5.10. The numerical evidence subsection (X_1(11), p = 5) was not read in detail",
+    "FUKAYA-KATO'S ORIGINAL FORMULATION WAS NOT OBTAINED. The stage names it explicitly ('acquire Fukaya-Kato original formulation'). T. Fukaya and K. Kato, A formulation of conjectures on p-adic zeta functions in non-commutative Iwasawa theory, AMS Transl. 219 (2006), is not on arXiv and was not found in the supplied library",
+    "Norm, restriction and abelianization maps and their agreement with commutative determinant formulas were not read",
+    "The abelian specialization recovering the actual normalized p-adic L-function was not verified; the stage requires it as acceptance"
+   ]
+  },
+  {
+   "stageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "status": "partial",
+   "remaining": [
+    "Only Kakde's Sections 2.1, 2.3 and 2.5 were read. The proof occupies Sections 4-7 (printed pp. 17-92): the reduction to dimension one, to Q_p-elementary and then p-elementary extensions, the additive theorem, the logarithm and integral logarithm for Iwasawa algebras, the relation between theta and beta, and the whole arithmetic side (basic congruences, L-values, approximation to p-adic zeta functions). NONE of it was read",
+    "AE-RW (Ritter-Weiss, arXiv:1004.2578) was downloaded but not read; the stage requires a source-by-source coverage table comparing Kakde and Ritter-Weiss on statement, uniqueness, p = 2 status and mu assumptions",
+    "AE-ABELIAN2025 (Springer, Res. Math. Sci. 2025) was not obtained; the stage warns that unconditional abelian results do not remove hypotheses from arbitrary nonabelian extensions",
+    "No function-field route was investigated"
+   ]
+  },
+  {
+   "stageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "status": "partial",
+   "remaining": [
+    "Only Burns-Venjakob's abstract, introduction and the opening of Sec. 2.1 were read. Sections 3 (the descent formalism and the definition of leading terms), 4 (global Zeta isomorphisms), 5 (the Tate-motive interpolation) and 6 (the critical-motive interpolation) were NOT read",
+    "The precise semisimplicity and finiteness hypotheses of the descent identities, which the stage says are pending, remain pending",
+    "Noncommutative Fitting invariants with their actual orders and denominator ideals were not addressed; no source was chosen for them",
+    "Nekovar's p-adic height pairing and the Bockstein maps are in Nekovar's Asterisque 310 Chapters 11 and 0.16, which this job did not read (see the SelmerIwasawaCohomology packet)"
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "No copy of CFKSV, Kakde, Ritter-Weiss or Burns-Venjakob exists in the supplied library",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.0",
+    "NoncommutativeAndEquivariantIwasawa:NE.1",
+    "NoncommutativeAndEquivariantIwasawa:NE.2",
+    "NoncommutativeAndEquivariantIwasawa:NE.3",
+    "NoncommutativeAndEquivariantIwasawa:NE.5",
+    "NoncommutativeAndEquivariantIwasawa:NE.6",
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "detail": "A keyword scan of CATALOGUE.json for Coates, Fukaya, Venjakob, Sujatha, Kakde, Ritter and Weiss returns nothing relevant; the only Coates record is CoatesSujatha_CyclotomicZeta (Cyclotomic Fields and Zeta Values), catalogued with NO file. This job therefore DOWNLOADED four papers from arXiv on 2026-09-16, using the URLs printed in the roadmap's own source-label dictionary (content/campaign/NoncommutativeAndEquivariantIwasawa/README.md, lines 129-134): arXiv:math/0404297 (CFKSV, sha256 a46184ea4221c87e134c0955d0d539e4246e8fcebe0e42321623f5732d3c8a71), arXiv:1008.0142v3 (Kakde, sha256 5a05da0d58f2717422fb401510d9cad4aeeac707313929a796870b92e27ea45c), arXiv:1004.2578 (Ritter-Weiss, sha256 48811a99c75f3b826f2315cc914563ffab1dd98381fd0af141816e05b99f2dee), arXiv:math/0511672 (Burns-Venjakob, sha256 4b33fb11251340c88a8f8a590d9f9296a413aadf4fae98968ea7191a14c857bc). The files live in this job's scratch directory only and were NOT copied into the repository. Ritter-Weiss was downloaded but NOT READ. Next source action: add these four to the campaign's reference register."
+  },
+  {
+   "title": "Fukaya-Kato's original formulation could not be obtained",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.4",
+    "NoncommutativeAndEquivariantIwasawa:NE.5",
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "detail": "T. Fukaya and K. Kato, A formulation of conjectures on p-adic zeta functions in non-commutative Iwasawa theory, Proc. St. Petersburg Math. Soc. XII, AMS Transl. Ser. 2, 219 (2006), 1-85, is the source of the localized K_1-groups, the global Zeta isomorphisms and the non-commutative Tamagawa number conjecture that Burns-Venjakob extend and that Kakde's complex formulation follows. It is NOT on arXiv and was not located as an authorized public copy. VERIFIED: its role and its differing hypotheses, as described by CFKSV ('a forthcoming paper by two of us ... does not need either of the two basic hypotheses made in the present paper') and by Burns-Venjakob Sec. 1. NOT VERIFIED: any of its statements. Next source action: obtain the AMS Translations volume, or Venjakob's survey (Burns-Venjakob reference [37]) as an interim substitute, recording that it is a survey."
+  },
+  {
+   "title": "Sign convention on the localization boundary map is inconsistent between the two sources read",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2",
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "detail": "CFKSV define a characteristic element by partial_G(xi_M) = [M] (Sec. 3, printed p. 11). Kakde's Theorem 11 asserts partial(zeta(F_infinity/F)) = -[C(F_infinity/F)] with a MINUS sign (Sec. 2.5, printed p. 13). The two are also about different objects (a module versus a complex) and different Ore sets (S^* versus S). VERIFIED: both printed statements. NOT VERIFIED: the dictionary between them. The stage NE.2 explicitly requires 'the sign convention fixed', so this must be resolved before any statement is transported between the two frameworks. Next source action: read Kakde Sec. 2.2-2.3 for his K-theory conventions and compare with CFKSV Sec. 3."
+  },
+  {
+   "title": "Burns's computation of SK_1 is the load-bearing input for uniqueness and was not obtained",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3",
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "detail": "Kakde's Remark 12 states SK_1(Lambda(G)_S) = Ker(partial) intersect (intersection over Artin rho of Ker(phi' composed with Phi'_rho)), attributing it to 'Burns [2]' = D. Burns, On main conjectures in non-commutative Iwasawa theory and related conjectures. That paper was not located. This single statement is what converts Kakde's uniqueness in K_1' into a statement about K_1, and it is precisely the content the NE.3 stage asks for ('Equality of all scalar evaluations is not automatically equality in K1'). VERIFIED: the statement as printed by Kakde. NOT VERIFIED: its proof. Next source action: obtain Burns's paper (J. reine angew. Math. 698 (2015))."
+  },
+  {
+   "title": "Ritter-Weiss and the 2025/2026 sources were not read",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3",
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "detail": "AE-RW (Ritter-Weiss, On the main conjecture of equivariant Iwasawa theory, arXiv:1004.2578) was downloaded to scratch but NOT read. AE-RW2026 (arXiv:2608.22601, On uniqueness in equivariant Iwasawa theory) and AE-ABELIAN2025 (Res. Math. Sci. 2025, an unconditional equivariant main conjecture) were neither downloaded nor read; the roadmap's own dictionary records that only their abstracts have been checked. The stage requires a coverage table comparing statement, uniqueness, p = 2 status and mu assumptions source by source, and explicitly says the newest Ritter-Weiss version must be read before any strengthened claim. Next source action: read Ritter-Weiss arXiv:1004.2578 (already in scratch), then obtain the two 2025/2026 papers."
+  },
+  {
+   "title": "No source read covers the equivariant arithmetic complexes of NE.4",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.4"
+   ],
+   "detail": "CFKSV work with the dual Selmer MODULE X(E/F_infinity), not with a complex; Kakde introduces the complex C(F_infinity/F) in Sec. 2.3 but that section was read only for the sentence explaining why a complex is needed. Burns-Venjakob use Fukaya-Kato's localized K_1 and Nekovar's Selmer complexes, neither of which was read here. VERIFIED: that a complex is required once G has elements of order p. NOT VERIFIED: any construction, perfectness statement, local-condition specification, archimedean bookkeeping or duality. Next source action: read Kakde Sections 2.2-2.4 and Nekovar Asterisque 310 Ch. 6 and Ch. 8 (the latter is in the supplied library)."
+  }
+ ]
+}

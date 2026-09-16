@@ -1,0 +1,1447 @@
+{
+  "roadmapId": "EnhancedDerivedSheaves",
+  "status": "partial",
+  "summary": "Source-based expansion of the enhanced derived-category layer. E0: stable ∞-categories, suspension, exact functors and the triangulated homotopy category (HA §§1.1.1–1.1.4) and the dg nerve with its Dold–Kan comparison (HA §1.3.1). E1: the injective model structure and the derived ∞-category of a Grothendieck abelian category (HA §1.3.5) and functorial K-injective and K-flat resolutions for sheaves of modules (Stacks Project chapters 13, 19, 21). E2: replete topoi, left completion, Postnikov convergence criteria and hypercover descent (Bhatt–Scholze §§3.1–3.3). E3: relative left Kan extensions with existence, uniqueness and adjunction (HTT §4.3.2), fibre-slice cofinality (HTT Lemma 4.3.3.9), enhanced derived categories of ringed topoi (Liu–Zheng arXiv v2 §2 = v4 §§3.1–3.2), partial adjoints, and the adjoint functor theorem statements as used in Scholze's ECD §§17, 22–23, 26. E4: derived I-completion of sheaves and reconstruction from the coefficients R/mⁿ (Bhatt–Scholze §§3.4–3.5), applying the generic completion owned by DerivedDeRhamCohomology DD.1. E5 sub-stages: ∞-operads and symmetric monoidal ∞-categories (HA §§2.0–2.1), idempotent completion (HTT §5.1.4), Ind-completion (HTT §5.3.5, HA 1.1.3.6, 4.8.1.14), sifted colimits and P_Σ (HTT §5.5.8) and animated rings (Bhatt–Lurie, Appendix A). Recorded ordering problems: Kan-extension uniqueness is used by E0 and E5:abstract before E3, and several coherence steps in ECD are asserted without proof.",
+  "sources": [
+    {
+      "id": "Lurie-HTT",
+      "title": "Higher Topos Theory",
+      "authors": "Jacob Lurie",
+      "edition": "Annals of Mathematics Studies 170, Princeton University Press 2009; author's PDF with running heads dated April 9, 2017. Printed page = PDF page − 18 in the main text; printed pages are cited.",
+      "url": "https://www.math.ias.edu/~lurie/papers/HTT.pdf",
+      "sha256": "58855f3a0ad6d9c470ded74a38938b9468927592e9ae1209bab6a068e67ede6e",
+      "readSections": [
+        "§4.3.1 Relative colimits: Definition 4.3.1.1, Examples 4.3.1.3–4.3.1.4, Propositions 4.3.1.5–4.3.1.7, 4.3.1.10, Corollary 4.3.1.11, Lemma 4.3.1.13, Proposition 4.3.1.14 (statements; parts used by §4.3.2), pp. 261–269",
+        "§4.3.2 Kan extensions along inclusions: 4.3.2.1–4.3.2.18 with all written proofs, pp. 271–285",
+        "§4.3.3: Lemma 4.3.3.9 with proof and Proposition 4.3.3.10 (statement), pp. 289–291",
+        "Statements of imported results: Proposition 1.2.9.3, Corollary 2.3.2.4, Proposition 2.4.3.2, Proposition 4.1.1.3, Propositions 4.1.2.8 and 4.1.2.15, Definition 4.2.2.1 and Proposition 4.2.2.4, Definition 5.2.2.7 and Proposition 5.2.2.8, Proposition A.2.3.1; Corollary 5.5.2.9 and Propositions 5.5.3.12–5.5.3.13 (statements only)",
+        "§5.1.4: Definition 5.1.4.1, Propositions 5.1.4.2 and 5.1.4.9 with proofs, pp. 321–324; §5.3.5: Definition 5.3.5.1, Propositions 5.3.5.3–5.3.5.5, 5.3.5.10–5.3.5.12, pp. 403–408; Lemma 5.4.2.4, pp. 424–425; Proposition 5.5.1.9 (proof partly), p. 461",
+        "§5.5.8: Definitions 5.5.8.1, 5.5.8.8, Lemmas 5.5.8.4, 5.5.8.14, Propositions 5.5.8.6–5.5.8.7, 5.5.8.10, 5.5.8.15, Corollary 5.5.8.17, pp. 506–512"
+      ]
+    },
+    {
+      "id": "Lurie-HA",
+      "title": "Higher Algebra",
+      "authors": "Jacob Lurie",
+      "edition": "Author's PDF dated September 18, 2017.",
+      "url": "https://www.math.ias.edu/~lurie/papers/HA.pdf",
+      "sha256": "112b145a95a62daefb8275851cac9ab6430004cfc8f751a33a8d981fd7ad68c3",
+      "readSections": [
+        "§1.1.1 Stability: Definitions 1.1.1.1–1.1.1.9, Remarks 1.1.1.2, 1.1.1.7–1.1.1.8, suspension and loops, pp. 17–24",
+        "§1.1.2: Lemmas 1.1.2.9–1.1.2.10, Definition 1.1.2.11, Lemma 1.1.2.13, Theorem 1.1.2.14, Remark 1.1.2.15, pp. 20–30; §1.1.3: Lemma 1.1.3.3, Propositions 1.1.3.4, 1.1.3.6, Corollary 1.1.3.7, pp. 30–33; §1.1.4: Proposition 1.1.4.1 and statements 1.1.4.2–1.1.4.6, pp. 33–36",
+        "§1.3.1 dg nerve: Definition 1.3.1.1 through Proposition 1.3.1.20, pp. 78–87; Proposition 1.3.2.10 with proof, pp. 89–92",
+        "§1.3.5: Definition 1.3.5.1 through Proposition 1.3.5.24, pp. 121–130",
+        "Proposition 1.4.4.1 and Corollary 1.4.4.2, pp. 154–155",
+        "§§2.0–2.1: Notation 2.0.0.2, Definition 2.0.0.7, Definitions 2.1.1.8, 2.1.1.10, 2.1.2.1, 2.1.2.7, Proposition 2.1.2.12, Examples 2.1.2.18–2.1.2.21, Definitions 2.1.3.1, 2.1.3.7, Remark 2.1.3.8, pp. 165–185; Proposition 3.2.4.7 and Corollary 3.2.4.8, pp. 371–372; Corollary 4.8.1.14, pp. 711–712"
+      ]
+    },
+    {
+      "id": "Scholze-ECD",
+      "title": "Étale cohomology of diamonds",
+      "authors": "Peter Scholze",
+      "edition": "Author's version with title-page date April 14, 2026; PDF page = printed page.",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf",
+      "sha256": "4ce3d1232a6e9e186d1a36da5cc659616569ac8dd2bb263510247c07995a26c1",
+      "readSections": [
+        "§17: Lemma 17.1, Corollary 17.2, the pullback construction, Proposition 17.3, Lemma 17.5, Proposition 17.6, Lemmas 17.7–17.8, pp. 96–100",
+        "§22: Definitions 22.2, 22.4, statements 22.8–22.12, Definition 22.13, Propositions 22.14–22.15, the construction over Δ, Lemmas 22.16–22.17, Definition 22.18, Propositions 22.19–22.23, pp. 128–139",
+        "§23: Theorem 23.1, Remark 23.2, Proposition 23.3, pp. 140–141",
+        "§26: standing assumptions, Definition 26.1, Proposition 26.2 with proof, Remark 26.3, pp. 161–162"
+      ]
+    },
+    {
+      "id": "LiuZheng-v4",
+      "title": "Enhanced six operations and base change theorem for higher Artin stacks",
+      "authors": "Yifeng Liu and Weizhe Zheng",
+      "edition": "arXiv:1211.5948v4 (17 December 2024; dated December 18, 2024), the library copy.",
+      "url": "https://arxiv.org/pdf/1211.5948v4",
+      "sha256": "ceac019a2be786cd2168ac2ea5e88e97136c0c1e7780684967d6cd09fd1a0e0d",
+      "readSections": [
+        "§2 More preliminaries on ∞-categories: Lemmas 2.1.1–2.1.4, Definition 2.2.1, Remark 2.2.2, Lemma 2.2.3, Proposition 2.2.4 with proof, Remark 2.2.5, §2.3 through Remark 2.3.6, pp. 76–83",
+        "§3.1 flat model structure (3.1.1–3.1.4) and §3.2 enhanced operations for ringed topoi (Definition 3.2.1, (3.1)–(3.4), Lemma 3.2.2, Remark 3.2.4, Definition 3.2.5, Lemmas 3.2.8–3.2.9, Remark 3.2.10), pp. 84–88",
+        "§7.1 Definition 7.1.1 and its construction, pp. 148–149"
+      ]
+    },
+    {
+      "id": "LiuZheng-v2",
+      "title": "Enhanced six operations and base change theorem for Artin stacks",
+      "authors": "Yifeng Liu and Weizhe Zheng",
+      "edition": "arXiv:1211.5948v2 (7 April 2014), the version cited by Scholze's ECD as [LZ14]. Public arXiv copy downloaded to the worker's scratch area (not stored in this repository).",
+      "url": "https://arxiv.org/pdf/1211.5948v2",
+      "sha256": "7f4b977e9b14bc0fe32df16d25331151526b5e46a5f380e2f5a535a4fa44e338",
+      "readSections": [
+        "Contents and §2 Enhanced operations for ringed topoi (2.1 flat model structure, 2.2 enhanced operations), pp. 21–25, compared with v4 §§3.1–3.2"
+      ]
+    },
+    {
+      "id": "BhattScholze-ProEtale",
+      "title": "The pro-étale topology for schemes",
+      "authors": "Bhargav Bhatt and Peter Scholze",
+      "edition": "arXiv:1309.1198v2 (17 December 2014), library copy; the PDF carries only its own page numbers, not the Astérisque 369 pagination.",
+      "url": "https://arxiv.org/pdf/1309.1198v2",
+      "sha256": "ae0960a28f0f25300211569cd350def057d6c0f781f635694182868e766d3c84",
+      "readSections": [
+        "§3.1–3.2: Definition 3.1.1 through Proposition 3.2.3, pp. 16–18",
+        "§3.3: Definition 3.3.1 through Proposition 3.3.7, pp. 18–20",
+        "§3.4: Definition 3.4.1 through Lemma 3.4.14, pp. 20–24",
+        "§3.5: Proposition 3.5.1 through Lemma 3.5.7, pp. 24–26"
+      ]
+    },
+    {
+      "id": "StacksProject-book-2026",
+      "title": "The Stacks Project (book.pdf)",
+      "authors": "The Stacks Project Authors",
+      "edition": "book.pdf with PDF CreationDate 30 January 2026 (7641 pages); PDF page = printed page; results cited by number and stable tag.",
+      "url": "https://stacks.math.columbia.edu/download/book.pdf",
+      "sha256": "e44ecf82641aa70fc690a8dc2a7f7e7bc570c6a2b16e53245580a59dceef7712",
+      "readSections": [
+        "Chapter 13 Derived Categories: Lemma 13.30.3, §13.31 K-injective complexes (Definition 13.31.1, Lemmas 13.31.2–13.31.9), Lemma 13.34.6 and the warning on p. 1089, pp. 1086–1089",
+        "Chapter 19 Injectives: Definition 19.10.1, Proposition 19.11.5, Theorem 19.11.7, Lemma 19.12.3, Theorem 19.12.6, Remark 19.13.3, pp. 1771–1777",
+        "Chapter 21 Cohomology on Sites: Tag 07A5; §21.17 K-flat complexes (Definition 21.17.2, Lemmas 21.17.8, 21.17.11, Definition 21.17.13); Lemmas 21.18.2, 21.18.7, 21.19.1, 21.20.1, 21.20.10, 21.34.8, 21.35.2; opening of §21.24, pp. 1952–1975"
+      ]
+    },
+    {
+      "id": "BhattLurie-APC",
+      "title": "Absolute prismatic cohomology",
+      "authors": "Bhargav Bhatt and Jacob Lurie",
+      "edition": "arXiv:2201.06120, library copy; printed page = PDF page.",
+      "url": "https://arxiv.org/pdf/2201.06120",
+      "sha256": "0b1beeb20c29424ed8e330c14a66b36c0edcc84255edf5caa0ff9e235139a269",
+      "readSections": [
+        "Example 1.7.4 and Remark 1.7.5, pp. 12–13",
+        "Appendix A: Definition A.1, Example A.2, Remark A.4, Proposition A.5, Remark A.7, from p. 224"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EnhancedDerivedSheaves:E3/relative-left-kan-extension-along-full-inclusion",
+      "parentStageId": "EnhancedDerivedSheaves:E3",
+      "title": "Relative left Kan extensions along a full subcategory (pointwise definition and invariance)",
+      "kind": "definition",
+      "statement": "Let C⁰ ⊆ C be a full subcategory of an ∞-category, p: D → D′ an inner fibration and F: C → D a functor lying over a given C → D′, with F₀ = F|C⁰. Put C⁰_{/C} = C_{/C} ×_C C⁰. A diagram q̄: K^▷ → D is a p-colimit of q = q̄|K if D_{q̄/} → D_{q/} ×_{D′_{pq/}} D′_{pq̄/} is a trivial fibration. F is a p-left Kan extension of F₀ at C ∈ C if the induced diagram (C⁰_{/C})^▷ → D exhibits F(C) as a p-colimit, and a p-left Kan extension if this holds at every C; for D′ = Δ⁰ this is the absolute pointwise left Kan extension. The condition holds automatically at objects of C⁰, and is invariant under equivalences C ≃ C′ of objects, under equivalences F ≃ F′ of functors and under replacing the whole square by a categorically equivalent one.",
+      "hypotheses": [
+        "C⁰ ⊆ C full. An inner fibration p suffices for the definition and for Lemmas 4.3.2.5–4.3.2.6; existence, transitivity, uniqueness and adjunction statements require p to be a categorical fibration.",
+        "Over a point a p-colimit is an ordinary colimit (an initial object of the undercategory); an edge is a p-colimit of its source iff it is p-coCartesian (Example 4.3.1.4)."
+      ],
+      "proofSteps": [
+        "Remark 4.3.2.3: for C ∈ C⁰, id_C is final in C⁰_{/C}, so {id_C} → C⁰_{/C} is cofinal and the condition reduces to a trivial one (cofinality of a final object and Example 4.3.1.4 are used without citation).",
+        "Example 4.3.2.4: for C = K^▷ and C⁰ = K, p-left Kan extensions are exactly p-colimit diagrams (definition and Remark 4.3.2.3).",
+        "Lemma 4.3.2.5: for an equivalence f: C → C′ the maps C⁰_{/C} ← C⁰_{/f} → C⁰_{/C′} are trivial fibrations, hence cofinal; conclude with Propositions 4.3.1.5 and 4.3.1.7.",
+        "Lemma 4.3.2.6: invariance under equivalent functors by Proposition 4.3.1.5, and under a ladder of categorical equivalences by Proposition 4.3.1.6 applied pointwise, Proposition 1.2.9.3 for slices and essential surjectivity."
+      ],
+      "acceptance": [
+        "ECD Definition 22.13: Rf_! is the left Kan extension from the full subcategory of objects j_{V!}j_V^*A (V quasicompact over the target), with pointwise formula Rf_!A = colim_V R(f|_V)_!(j_V^*A).",
+        "C = K^▷ with C⁰ = K recovers colimit diagrams (Example 4.3.2.4).",
+        "The pointwise colimit is indexed by the slice C⁰_{/C}; any other index category needs a cofinality proof."
+      ],
+      "sources": [
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "Notation 4.3.2.1, Definition 4.3.2.2, Remark 4.3.2.3, Example 4.3.2.4, Lemmas 4.3.2.5–4.3.2.6, pp. 271–274; Definition 4.3.1.1, p. 261",
+          "excerpt": "We will say that F is a p-left Kan extension of F0 at C ∈ C if the induced",
+          "match": "Definition 4.3.2.2, the pointwise relative left Kan extension condition (the extraction prints F₀ and C⁰ as F0, C0)."
+        },
+        {
+          "sourceId": "Scholze-ECD",
+          "locator": "Paragraph before Definition 22.13 and Definition 22.13, p. 135",
+          "excerpt": "Specifically, we will use the theory of left Kan extensions",
+          "match": "ECD's use of HTT §4.3.2 for compactly supported pushforward along non-quasicompact maps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E3/existence-of-relative-left-kan-extensions",
+      "parentStageId": "EnhancedDerivedSheaves:E3",
+      "title": "Existence of relative left Kan extensions: pointwise criterion and the coCartesian case",
+      "kind": "theorem",
+      "statement": "Let C⁰ ⊆ C be full, p: D → D′ a categorical fibration, G: C → D′ and F₀: C⁰ → D over G|C⁰. (Lemma 4.3.2.13) A p-left Kan extension F of F₀ over G exists iff for every C ∈ C the diagram C⁰_{/C} → D admits a p-colimit compatible with (C⁰_{/C})^▷ → C → D′. (Lemma 4.3.2.7) If F is a p-left Kan extension of F₀, then D_{F/} → D′_{pF/} ×_{D′_{pF₀/}} D_{F₀/} is a trivial fibration, identifying p-colimits of F and of F₀. (Proposition 4.3.2.8) For full C⁰ ⊆ C¹ ⊆ C with F|C¹ a p-left Kan extension of F|C⁰, F is a p-left Kan extension of F|C¹ iff it is one of F|C⁰. (Corollary 4.3.2.14) If p: D → E is a coCartesian fibration whose fibres admit small colimits preserved by the transition functors, and C is small, then every F₀ admits a left Kan extension relative to p.",
+      "hypotheses": [
+        "p a categorical fibration (used in the degenerate-simplex steps); C⁰ ⊆ C full; the relative colimits lie over the given base functor G.",
+        "Corollary 4.3.2.14 additionally needs C small, small colimits in the fibres, colimit-preserving transition functors and p genuinely coCartesian; Lemma 4.3.2.13 has no size hypothesis.",
+        "Fibrewise colimits become relative colimits by Proposition 4.3.1.10 (locally coCartesian fibrations) and Corollary 4.3.1.11 (coCartesian fibrations)."
+      ],
+      "proofSteps": [
+        "Lemma 4.3.2.7: filter C by adding the simplices σ with σ(0) ∉ C⁰ in order of dimension; at limit stages use inverse limits of trivial fibrations; for nondegenerate σ reduce to lifting ∂Δ^{n+m+1} ⊆ Δ^{n+m+1} against D_{g₀/} → D′_{pg₀/}, whose initial vertex is p-initial by the Kan extension hypothesis; for degenerate σ prove the inclusion of filtration stages is a categorical equivalence by writing a subcomplex of C⁰_{/σ} as a colimit over an index category with a final object (no labels cited).",
+        "Lemma 4.3.2.13, (2) ⇒ (1): construct F along the same filtration: on objects choose the given p-colimits; over nondegenerate simplices of positive dimension extend using that these are p-colimits; over degenerate simplices use that p is a categorical fibration together with Lemma 4.3.2.7.",
+        "Proposition 4.3.2.8: pointwise, Lemma 4.3.2.7 reduces to F¹_C being a left Kan extension of F⁰_C, and C⁰_{/f} → C⁰_{/C′} is a trivial fibration, hence cofinal, so Proposition 4.3.1.7 applies; Proposition 4.3.2.9 treats products C × C′ by cofinality of a final object.",
+        "Corollary 4.3.2.14 'follows easily' from Lemma 4.3.2.13 and Corollary 4.3.1.11, which extends a diagram over K^▷ → S to a p-colimit when p is coCartesian with fibrewise colimits preserved by the transition functors."
+      ],
+      "acceptance": [
+        "ECD (construction before Lemma 22.16) applies Corollary 4.3.2.14 to the coCartesian fibration over Δ of prop-supported étale categories without addressing smallness; a consumer must supply the size bound or use Lemma 4.3.2.13 with fibrewise colimits.",
+        "Check that the Δ-indexed diagram of étale categories has fibrewise small colimits preserved by pullback before applying the corollary.",
+        "Existence (this node) and uniqueness/adjunction (next node) are separate statements with separate hypotheses."
+      ],
+      "sources": [
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "Lemma 4.3.2.7, Propositions 4.3.2.8–4.3.2.9, Lemma 4.3.2.13, pp. 274–283; Proposition 4.3.1.10 and Corollary 4.3.1.11, pp. 265–267",
+          "excerpt": "where p is a categorical fibration and the left vertical arrow is the inclusion of a full subcategory.",
+          "match": "Hypotheses of Lemma 4.3.2.13, the size-free existence criterion."
+        },
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "Corollary 4.3.2.14, pp. 283–284",
+          "excerpt": "Let C be a small ∞-category and C0 ⊆ C a full subcategory.",
+          "match": "Smallness hypothesis of the coCartesian existence corollary."
+        },
+        {
+          "sourceId": "Scholze-ECD",
+          "locator": "Construction of Rf⁰_{•!} over Δ, p. 136",
+          "excerpt": "which exists by [Lur09, Corollary 4.3.2.14]",
+          "match": "ECD's appeal to the corollary for the relative Kan extension over Δ."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E3/left-kan-extension-uniqueness-and-adjunction",
+      "parentStageId": "EnhancedDerivedSheaves:E3",
+      "title": "Uniqueness of left Kan extensions as a trivial fibration and the adjunction i_! ⊣ i^*",
+      "kind": "theorem",
+      "statement": "Let C⁰ ⊆ C be full and p: D → D′ a categorical fibration. Let K ⊆ Map_{D′}(C, D) be spanned by the p-left Kan extensions and K⁰ ⊆ Map_{D′}(C⁰, D) by those F₀ for which every C⁰_{/C} → D has a p-colimit over the given map. Then restriction K → K⁰ is a trivial fibration (Proposition 4.3.2.15). If every F₀ admits a p-left Kan extension, then i^*: Map_{D′}(C, D) → Map_{D′}(C⁰, D) has a section i_! whose essential image is exactly the p-left Kan extensions, the sections forming a contractible space (Corollary 4.3.2.16), and i_! is left adjoint to i^* (Proposition 4.3.2.17).",
+      "hypotheses": [
+        "The adjunction statements need a p-left Kan extension for every F₀; all functor categories are taken over the fixed base D′.",
+        "Proposition 4.3.2.15 and Corollary 4.3.2.16 have no separately written proofs in HTT."
+      ],
+      "proofSteps": [
+        "Lemma 4.3.2.10: for m ≥ 0 and n ≥ 1, a map defined on (∂Δ^m × Δⁿ) ∐ (Δ^m × ∂Δⁿ) whose initial vertex is p-initial extends over Δ^m × Δⁿ, adjoining nondegenerate simplices one at a time.",
+        "Lemma 4.3.2.11: relative undercategories X^{q_S/} → Y^{pq_S/} of an inner fibration are inner fibrations (pushout-products with inner anodyne maps, Corollary 2.3.2.4).",
+        "Lemma 4.3.2.12: lift ∂Δⁿ → Fun_{D′}(C, D) over Δⁿ → Fun_{D′}(C⁰, D) (n > 0) when the initial vertex is a p-left Kan extension, using the filtration of Lemma 4.3.2.7, Proposition A.2.3.1, the Cartesian fibrations of Proposition 4.2.2.4, Lemma 4.3.2.11, Proposition 4.3.1.14 and Lemma 4.3.2.10.",
+        "Proposition 4.3.2.15 is introduced as the combination of Lemmas 4.3.2.12 and 4.3.2.13 (surjectivity on vertices from 4.3.2.13, lifting against ∂Δⁿ ⊆ Δⁿ from 4.3.2.12).",
+        "Proposition 4.3.2.17: take the identity as unit (i^* i_! = id); by Proposition 5.2.2.8 it suffices that a composite of mapping spaces is an isomorphism in the homotopy category of spaces, and it is represented by a restriction map that is a trivial fibration by Lemma 4.3.2.12."
+      ],
+      "acceptance": [
+        "ECD Propositions 22.21 and 22.23 identify functors through their restrictions to the prop-supported subcategory and recover them 'by left Kan extension'; the uniqueness used is Proposition 4.3.2.15/Corollary 4.3.2.16, which ECD does not cite.",
+        "Two left Kan extensions of the same F₀ are connected by a contractible space of equivalences restricting to the identity."
+      ],
+      "sources": [
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "Lemmas 4.3.2.10–4.3.2.12 and Proposition 4.3.2.15, pp. 278–284",
+          "excerpt": "Then the restriction functor K → K0 is a trivial fibration of simplicial sets.",
+          "match": "Proposition 4.3.2.15."
+        },
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "Corollary 4.3.2.16 and Proposition 4.3.2.17, pp. 284–285",
+          "excerpt": "admits a section i! whose essential image consists of precisely those functors F which are p-left Kan extensions",
+          "match": "Corollary 4.3.2.16, the functor i_!."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E3/fibrewise-kan-extensions-and-fibre-slice-cofinality",
+      "parentStageId": "EnhancedDerivedSheaves:E3",
+      "title": "Fibrewise left Kan extensions over coCartesian fibrations and fibre-slice cofinality",
+      "kind": "lemma",
+      "statement": "(HTT Lemma 4.3.3.9) Let p: C → E and q: C⁰ → E be coCartesian fibrations, i: C⁰ ⊆ C a full subcategory carrying q-coCartesian morphisms to p-coCartesian morphisms, and F: C → D. Then F is a left Kan extension of F|C⁰ iff for each E ∈ E the fibre restriction F_E: C_E → D is a left Kan extension of F_E|C⁰_E. The proof shows that for C over E the inclusion of the fibre slice (C⁰_E)_{/C} ⊆ C⁰_{/C} is right anodyne, hence cofinal, so the pointwise colimits may be computed on the fibre. HTT proves this only for absolute Kan extensions and explicitly does not develop the relative theory. ECD Lemma 22.16 uses the same pattern for its relative Kan extension over Δ, asserting the cofinality without an HTT label, and ECD Lemma 22.17 derives preservation of coCartesian edges from Lemma 22.16 and base change (Proposition 22.15); no general HTT criterion for preservation of coCartesian edges was found.",
+      "hypotheses": [
+        "p and q coCartesian fibrations and i preserving coCartesian morphisms; absolute Kan extensions only in HTT 4.3.3.9 (Proposition 4.3.3.10, a version for a general δ over S preserving coCartesian edges, was read as a statement only).",
+        "The relative version over a base D′ needed by ECD §22 is not written in HTT and must be proved from §4.3.2 and this cofinality argument."
+      ],
+      "proofSteps": [
+        "For C ∈ C over E = p(C), compare the pointwise diagram with its restriction to the fibre slice (C⁰_E)_{/C} (proof of HTT Lemma 4.3.3.9).",
+        "C_{/q} → D_{/pq} is a coCartesian fibration with coCartesian edges detected in C (Proposition 2.4.3.2); coCartesian fibrations are smooth (Proposition 4.1.2.15); smooth maps pull back right anodyne maps to right anodyne maps (Proposition 4.1.2.8(1)); {id_E} → E_{/E} is right anodyne (unlabelled).",
+        "Hence the fibre-slice inclusion is right anodyne, hence cofinal (Proposition 4.1.1.3(4)), and colimit diagrams transfer along it (Proposition 4.3.1.7).",
+        "ECD Lemma 22.16: fibrewise the Kan extension is Rf_{i!}; the index category is filtered and HTT 4.3.1.7 permits passing to a cofinal subcategory. ECD Lemma 22.17: preservation of coCartesian edges from Lemma 22.16 and Proposition 22.15."
+      ],
+      "acceptance": [
+        "On a Δ-indexed hypercover diagram, the fibre of the relative Kan extension equals fibrewise compactly supported pushforward (ECD 22.16).",
+        "A transformation over Δ¹ that is fibrewise a Kan extension preserves coCartesian edges only after the base-change comparison is proved (ECD 22.17).",
+        "Neither the fibre-slice cofinality nor the coCartesian-edge criterion should be cited to HTT §4.3.2."
+      ],
+      "sources": [
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "§4.3.3, Lemma 4.3.3.9 with proof and Proposition 4.3.3.10, pp. 289–291; statements of Propositions 2.4.3.2, 4.1.1.3, 4.1.2.8, 4.1.2.15",
+          "excerpt": "It is straightforward to set up a relative theory as in",
+          "match": "HTT §4.3.3 declines to develop the relative Kan extension theory that the fibrewise argument over a base needs."
+        },
+        {
+          "sourceId": "Scholze-ECD",
+          "locator": "Lemmas 22.16–22.17, p. 137",
+          "excerpt": "Moreover, the index category is filtered.",
+          "match": "Proof of ECD Lemma 22.16, where the fibre-slice cofinality is used."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E3/enhanced-derived-categories-of-ringed-topoi",
+      "parentStageId": "EnhancedDerivedSheaves:E3",
+      "title": "Enhanced derived categories for diagrams of ringed topoi with enough points (Liu–Zheng)",
+      "kind": "construction",
+      "statement": "Let RingedPTopos be the (2,1)-category of ringed topoi, in a fixed universe, with enough points. For such (X, O_X) there is a combinatorial model structure on Ch(Mod(X, O_X)) whose cofibrations are the monomorphisms with dg-flat cokernel, fibrations the epimorphisms with dg-cotorsion kernel and weak equivalences the quasi-isomorphisms; it is monoidal and (f^*, f_*) is a Quillen adjunction. Liu–Zheng construct a lax Cartesian structure T: N(RingedPTopos^op)^⨿ → Cat_∞ and T^⊗: N(RingedPTopos^op) → CAlg(Cat_∞)^L_{pr,st,cl}, sending (X, O_X) to its derived ∞-category D(X), presentable, stable and closed symmetric monoidal, a morphism to the symmetric monoidal left adjoint f^*, and small coproducts to products. Precomposing with the nerve of a diagram of ringed topoi gives the coherent diagram of derived ∞-categories and pullbacks used by ECD §22; for ringed diagrams (X, (Ξ, Λ)) one gets D(X, (Ξ, Λ)), and for constant rings D(X, (Ξ, Λ_Ξ)) ≃ Fun(N(Ξ^op), D(X, Λ)). Localization squares are left adjointable (Beck–Chevalley for j_!), and for perfect π the f^*/π^* square is right adjointable. ECD cites this as '[LZ14, Section 2]', which is §2 of arXiv v2 and §§3.1–3.2 of v4.",
+      "hypotheses": [
+        "Ringed topoi with enough points, needed for the flat model structure (v4 Lemma 3.1.3, after Gillespie). ECD applies the construction to v-sites Y_{v,κ}; enough points for these sites was not found in the parts of ECD read.",
+        "Universe conventions U ∈ V. The identification with the derived ∞-category uses HA Remark 1.3.4.16 and Propositions 1.3.5.9, 1.3.5.15, 1.3.5.21(1), supplied by stage E1; the symmetric monoidal refinement uses HA §§2.0–2.4, supplied by stage E5:abstract."
+      ],
+      "proofSteps": [
+        "v4 Lemma 3.1.2: pullback preserves flat and dg-flat complexes and pushforward preserves cotorsion complexes (Ext¹ adjunction).",
+        "v4 Lemma 3.1.3: existence of the flat model structure from Gillespie's criteria with the cardinality Lemmas 3.1.5–3.1.7; Remark 3.1.4 gives a Quillen equivalence with the injective model structure of HA Proposition 1.3.5.3.",
+        "Construction (3.1)–(3.2): a pseudofunctor into marked categories (Ch(Mod)_{dg-flat}, quasi-isomorphisms) sending {K_i} ↦ ⊗_{α(i)=j} f_i^*K_i, composed with a fixed fibrant replacement and nerves. Lemma 3.2.2: (1) lax Cartesian, 'clear from the construction'; (2) values in CAlg(Cat_∞)^L_{pr,st,cl} via HA 1.3.4.16, 1.3.5.15, 1.3.5.9, 1.3.5.21(1) and Lemma 2.1.3; (3) coproducts to products via Remark 2.3.3.",
+        "Lemmas 3.2.8–3.2.9: adjointability of the pullback squares (j_! exact; j′^* preserves injective-fibrant objects); Remark 3.2.10: constant-coefficient diagrams via HA Proposition 1.3.4.25."
+      ],
+      "acceptance": [
+        "Modules on a point and on a finite discrete space recover D(Λ) and finite products of D(Λ).",
+        "A Čech nerve Δ → RingedPTopos^op gives a cosimplicial diagram of derived ∞-categories whose cartesian sections are compared with descent in ECD Proposition 17.3 (stage E2).",
+        "Record both labels: ECD cites v2 §2; in the library's v4 the material is §§3.1–3.2, and v4 §2 is different."
+      ],
+      "sources": [
+        {
+          "sourceId": "LiuZheng-v4",
+          "locator": "§3.1 Lemmas 3.1.2–3.1.3, Remark 3.1.4; §3.2 Definition 3.2.1, (3.1)–(3.4), Lemma 3.2.2, Lemmas 3.2.8–3.2.9, Remark 3.2.10, pp. 84–88",
+          "excerpt": "Assume that X has enough points. Then there exists a combinatorial model structure on",
+          "match": "Lemma 3.1.3, the flat model structure underlying the construction, with its enough-points hypothesis."
+        },
+        {
+          "sourceId": "LiuZheng-v2",
+          "locator": "Contents and §2, pp. 21–25",
+          "excerpt": "Enhanced operations for ringed topoi",
+          "match": "Title of the v2 section cited by ECD as [LZ14, Section 2]."
+        },
+        {
+          "sourceId": "Scholze-ECD",
+          "locator": "Construction before Lemma 22.16, p. 136",
+          "excerpt": "for a construction even as presentable symmetric monoidal",
+          "match": "ECD's citation of Liu–Zheng for the coherent pullback diagram of coefficient categories."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E3/partial-adjoints-of-coherent-diagrams",
+      "parentStageId": "EnhancedDerivedSheaves:E3",
+      "title": "Adjointable squares and partial adjoints of coherent diagrams (Liu–Zheng Proposition 2.2.4)",
+      "kind": "construction",
+      "statement": "A commuting square of functors of ∞-categories whose vertical functors have left adjoints is left adjointable if the mate transformation is an equivalence (v4 Definition 2.2.1, Remark 2.2.2, citing HTT 7.3.1.2 and HA 4.7.4.13). Proposition 2.2.4 (partial adjoint): for data (I, J, R, f), with f a multisimplicial diagram in Cat_∞ whose edges in the J-directions admit left adjoints and whose mixed squares (a direction outside J against one in J) are left adjointable, there is a diagram f_J that agrees with f away from J, takes the left adjoints of J-edges and of J-squares, and is compatible with maps of such data. Remark 2.2.5 records the dual version, universe enlargement, a universal version and (Pr^R)^op ≃ Pr^L.",
+      "hypotheses": [
+        "Left adjointability of every mixed square; a fixed fibrant replacement functor; small diagrams in Cat_∞ of a fixed universe.",
+        "Used by Liu–Zheng for schemes (v4 §3.4); ECD does not cite it, but stage E3's mates, Beck–Chevalley transformations and pasting coherence are of this type."
+      ],
+      "proofSteps": [
+        "For each simplex σ, straighten and unstraighten, using HTT 5.2.2.5 (a Cartesian fibration whose transition functors admit left adjoints is also coCartesian).",
+        "Hypothesis (2) of Proposition 2.2.4 makes the construction functorial in the J-directions for fixed σ.",
+        "Because straightening does not commute with pullback, the choices over faces are compared by maps shown to be weak equivalences by Lemma 2.2.3 (a square of right Quillen functors) and glued using weak contractibility of the index category N(σ).",
+        "Corollary 1.2.9 supplies the relevant component of sections, and a marked anodyne map fixes the restriction."
+      ],
+      "acceptance": [
+        "Base change for j_! ⊣ j^* (Liu–Zheng v4 Lemma 3.2.9) is the basic left adjointable square.",
+        "Identity and composition coherence of mates should be tested on a Δ¹ × Δ¹ diagram before pasting."
+      ],
+      "sources": [
+        {
+          "sourceId": "LiuZheng-v4",
+          "locator": "Definition 2.2.1, Remark 2.2.2, Lemma 2.2.3, Proposition 2.2.4 with proof, Remark 2.2.5, pp. 77–81",
+          "excerpt": "The construction of Gσ is not functorial in σ because the straightening functors do not commute with pullbacks",
+          "match": "The coherence problem the proof of Proposition 2.2.4 resolves."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-colimit-criteria",
+      "parentStageId": "EnhancedDerivedSheaves:E3",
+      "title": "Presentable adjoint functor theorem, coproduct criterion and limits of presentable ∞-categories (statements)",
+      "kind": "theorem",
+      "statement": "(HTT Corollary 5.5.2.9, statement) A functor between presentable ∞-categories has a right adjoint iff it preserves small colimits. (HA Proposition 1.4.4.1(2)) An exact functor between stable ∞-categories admitting small colimits preserves small colimits iff it preserves small coproducts. (HTT Proposition 5.5.3.13) Pr^L admits small limits and the inclusion into large ∞-categories preserves them; HTT Proposition 5.5.3.12 covers the pullback case. ECD uses these for the coreflection onto D_ét (Corollary 17.2), for Rf_* (Lemma 17.5), for colimit preservation of Rf_! (Propositions 22.14, 22.20), for Rf^! (Theorem 23.1) and for the inverse-limit description in Proposition 26.2.",
+      "hypotheses": [
+        "Presentability of source and target. HA 1.4.4.1(2) needs exactness; ECD 22.14 and 22.20 apply it to Rf_! without stating that Rf_! is exact.",
+        "For large sites ECD works at cutoffs κ (Lemma 17.1, Corollary 17.2) and asserts that the right adjoints at different cutoffs are compatible."
+      ],
+      "proofSteps": [
+        "Proofs not read in this pass. As recorded by the reader, HTT 5.5.2.9 uses 5.5.2.7, 5.2.4.2, 5.2.3.5 and 5.4.7.7; HA 1.4.4.1 uses HTT 4.4.3.2; HTT 5.5.3.12 uses 5.4.6.6, 5.4.5.2 and 5.4.5.5; HTT 5.5.3.13 reduces to pullbacks and products via the proof of 4.4.2.6.",
+        "In ECD Theorem 23.1 the right adjoint Rf^! is produced from Proposition 22.20 (colimit preservation) and the adjoint functor theorem; no right adjoint is assumed as data."
+      ],
+      "acceptance": [
+        "The inclusion D_ét ⊆ D(Y_{v,κ}, Λ) preserves colimits and therefore has a right adjoint: a coreflection, not left completion (stage text).",
+        "Exactness must be verified before the coproduct criterion is applied."
+      ],
+      "sources": [
+        {
+          "sourceId": "Lurie-HA",
+          "locator": "Proposition 1.4.4.1(2)",
+          "excerpt": "Then F preserves small colimits if and only if F preserves small coproducts.",
+          "match": "The coproduct criterion used by ECD 22.14 and 22.20."
+        },
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "Proposition 5.5.3.13",
+          "excerpt": "The ∞-category PrL admits all small limits",
+          "match": "Limits of presentable ∞-categories, used by ECD 26.2."
+        },
+        {
+          "sourceId": "Scholze-ECD",
+          "locator": "Theorem 23.1 and proof, p. 140",
+          "excerpt": "This follows from Lurie’s ∞-categorical adjoint functor theorem",
+          "match": "ECD's construction of Rf^! from the adjoint functor theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E0/stable-infinity-categories-and-triangulated-homotopy-category",
+      "parentStageId": "EnhancedDerivedSheaves:E0",
+      "title": "Stable ∞-categories, suspension, exact functors and the triangulated homotopy category",
+      "kind": "theorem",
+      "statement": "An ∞-category C is stable if it has a zero object, every morphism admits a fibre and a cofibre, and a triangle is a fibre sequence iff it is a cofibre sequence (HA Definition 1.1.1.9). For stable C the functors Σ and Ω, defined through pushout and pullback squares with zero corners, are mutually inverse equivalences. If C is pointed, admits cofibres and Σ is an equivalence, then hC is additive (Lemma 1.1.2.9) and the shift [1] with the distinguished triangles of Definition 1.1.2.11 makes hC triangulated (Theorem 1.1.2.14); these hypotheses are equivalent to stability (Remark 1.1.2.15). A pointed C is stable iff it has finite limits and colimits and pushout squares coincide with pullback squares (Proposition 1.1.3.4). A functor between stable ∞-categories is left exact iff right exact iff exact (Proposition 1.1.4.1).",
+      "hypotheses": [
+        "Transposing a square changes the classified map by a sign (Lemma 1.1.2.10), and the third map in Lemma 1.1.2.13 is −h′; the comparison of these signs with the cochain-complex cone convention is not in the parts read.",
+        "The functor cofib and axioms TR1 and TR4 use uniqueness of Kan extensions (HTT Proposition 4.3.2.15), which the atlas places in stage E3 although E3 requires E0 (see gap)."
+      ],
+      "proofSteps": [
+        "Remark 1.1.1.7: the forgetful map from cofibre sequences to Fun(Δ¹, C) is a Kan fibration with empty or contractible fibres (HTT 4.3.2.15 twice), giving a section cofib, which preserves colimits as a left adjoint (Remark 1.1.1.8, HTT 5.2.3.5).",
+        "Lemma 1.1.2.9: π₀Map(Σ²X, Y) ≅ π₂Map(X, Y) gives a functorial abelian group enrichment; coproducts are cofibres of zero maps X[−1] → Y computed in Fun(Δ¹, C) (HTT 5.1.2.2) and preserved by cofib.",
+        "Lemma 1.1.2.10: the space of squares classifying θ is a loop space and transposition reverses loops, so the transposed square classifies −θ.",
+        "Theorem 1.1.2.14: TR1 from the trivial fibration of HTT 4.3.2.15; TR2 by extending with a pushout and applying Lemma 1.1.2.13 (converse by shifting); TR3 by lifting; TR4 from a grid of pushouts that already commutes in C. The proof applies Lemma 1.1.2.13, which is stated for stable C.",
+        "Proposition 1.1.4.1: an exact functor preserves coequalizers (proof of 1.1.3.4) and finite coproducts (proof of 1.1.2.9), hence finite colimits (proof of HTT 4.4.3.2); dually for limits. Since the proofs of 1.1.3.4 and 1.1.4.1 refer to each other, an implementation should prove 1.1.3.4(1), then 1.1.4.1, then 1.1.3.4(2) (reader's ordering note)."
+      ],
+      "acceptance": [
+        "Compare the shift and cone signs of Definition 1.1.2.11 with the existing triangulated structure on the homotopy category of cochain complexes before identifying them (stage text).",
+        "N_dg(Ch(A)) for an additive category A is stable with Σ the shift (HA Proposition 1.3.2.10).",
+        "Exactness is tested on fibre sequences; preservation of all finite limits and colimits then follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "Lurie-HA",
+          "locator": "Definitions 1.1.1.1, 1.1.1.4–1.1.1.9, Lemmas 1.1.2.9–1.1.2.10, Definition 1.1.2.11, Lemma 1.1.2.13, Theorem 1.1.2.14, Proposition 1.1.3.4, Proposition 1.1.4.1, pp. 17–36",
+          "excerpt": "the class of distinguished triangles of Definition 1.1.2.11 endow hC with the structure of a triangulated category",
+          "match": "Theorem 1.1.2.14."
+        },
+        {
+          "sourceId": "Lurie-HA",
+          "locator": "Proof of Lemma 1.1.2.9, p. 24",
+          "excerpt": "which can be constructed as the cofiber of the zero map from X[−1] to Y",
+          "match": "Coproducts in the homotopy category."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E0/dg-nerve-and-dold-kan-comparison",
+      "parentStageId": "EnhancedDerivedSheaves:E0",
+      "title": "The differential graded nerve, its homotopy category and the Dold–Kan comparison",
+      "kind": "construction",
+      "statement": "For a dg category C over a commutative ring k (HA Definition 1.3.1.1), the dg nerve N_dg(C) has as n-simplices families of objects X₀, …, X_n and elements f_I ∈ Map(X_{min I}, X_{max I}) of degree determined by |I|, subject to the differential identity (1.1), with faces and degeneracies given by restriction, identities or zero (Construction 1.3.1.6). N_dg(C) is an ∞-category (Proposition 1.3.1.10); its homotopy category is canonically hC, where Hom_hC = H₀Map (Remark 1.3.1.11); and its mapping spaces are Hom^R(X, Y) ≅ DK(τ_{≥0}Map(X, Y)) (Remark 1.3.1.12). Truncating mapping complexes and applying Dold–Kan with the Alexander–Whitney map gives a fibrant simplicial category C_Δ and a map θ: N(C_Δ) → N_dg(C) that is an equivalence of ∞-categories (Constructions 1.3.1.13, 1.3.1.16, Proposition 1.3.1.17). For an additive category A, N_dg(Ch(A)) is stable with Σ the shift (Proposition 1.3.2.10).",
+      "hypotheses": [
+        "HA grades complexes homologically; the reader notes that the degree bookkeeping in the proof of Proposition 1.3.1.10 is shifted by one relative to Construction 1.3.1.6, so degrees must be fixed against the construction.",
+        "Hom^R is the right mapping space of HTT §1.2.2; the comparison uses HTT 2.2.2.7, 2.2.2.9 and 2.2.2.13 (statements only)."
+      ],
+      "proofSteps": [
+        "Proposition 1.3.1.10: an inner horn determines all f_I except f_{[n]} and f_{[n]∖j}; put f_{[n]} = 0 and solve the differential identity for f_{[n]∖j} explicitly (no results cited).",
+        "Remark 1.3.1.11: hC → hN_dg(C) is bijective on objects and surjective on morphisms (Remark 1.3.1.9), and Example 1.3.1.8 identifies the relation on morphisms with homology.",
+        "Remark 1.3.1.12: simplices of Hom^R are chain maps N_*(ZΔⁿ) → Map(X, Y) after a sign change, identified with the Dold–Kan construction by Lemma 1.2.3.12.",
+        "Proposition 1.3.1.17: θ is bijective on vertices, so it suffices to prove full faithfulness; HTT 2.2.2.13 and Remark 1.3.1.12 describe both mapping spaces, HTT 2.2.2.7 gives ψ_Z with φ ∘ ψ_Z an isomorphism, and ψ_Z is a homotopy equivalence for Kan Z (HTT 2.2.2.9). The construction of θ (1.3.1.16) is called a straightforward calculation and is not shown."
+      ],
+      "acceptance": [
+        "The dg nerve of complexes is not the ordinary nerve of their homotopy category (stage text): for complexes M, N, π_n Hom^R(M, N) ≅ H_n(Map(M, N)) for n ≥ 0.",
+        "Compare hN_dg(Ch(A)) with the existing homotopy category of complexes, including composition, before identifying the two."
+      ],
+      "sources": [
+        {
+          "sourceId": "Lurie-HA",
+          "locator": "Definition 1.3.1.1, Construction 1.3.1.6, Proposition 1.3.1.10, Remarks 1.3.1.11–1.3.1.12, Constructions 1.3.1.13 and 1.3.1.16, Proposition 1.3.1.17, pp. 78–86; Proposition 1.3.2.10, pp. 89–91",
+          "excerpt": "which we call the differential graded nerve of C",
+          "match": "Construction 1.3.1.6."
+        },
+        {
+          "sourceId": "Lurie-HA",
+          "locator": "Proof of Proposition 1.3.1.17, p. 85",
+          "excerpt": "it will suffice to show that θ is fully faithful",
+          "match": "Reduction step of the Dold–Kan comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E1/derived-infinity-category-of-grothendieck-abelian-category",
+      "parentStageId": "EnhancedDerivedSheaves:E1",
+      "title": "The injective model structure and the derived ∞-category D(A) of a Grothendieck abelian category",
+      "kind": "construction",
+      "statement": "Let A be a Grothendieck abelian category, i.e. presentable with monomorphisms closed under small filtered colimits (HA Definition 1.3.5.1). Ch(A) has a left proper combinatorial model structure whose cofibrations are the degreewise monomorphisms and weak equivalences the quasi-isomorphisms (Proposition 1.3.5.3); it is not a simplicial model category (Warning 1.3.5.4). Fibrant complexes have injective terms, and complexes of injectives that vanish in sufficiently large homological degrees are fibrant (Proposition 1.3.5.6). D(A) is the dg nerve of the fibrant complexes (Definition 1.3.5.8). It is stable (Proposition 1.3.5.9), a localization of N_dg(Ch(A)) (Proposition 1.3.5.13), equivalent to the underlying ∞-category N(Ch(A))[W⁻¹] (Proposition 1.3.5.15), and presentable with an accessible right complete t-structure compatible with filtered colimits whose heart is A (Propositions 1.3.5.18, 1.3.5.21). D(A) is generally not left complete (Warning 1.3.5.22).",
+      "hypotheses": [
+        "A Grothendieck in HA's sense; its equivalence with the Stacks definition (AB5 with a generator, Definition 19.10.1) is not stated in either source read.",
+        "HA does not state an identification of hD(A) with the classical unbounded derived category, nor treat derived tensor products, sheaves of modules or pullback and pushforward; these come from the Stacks results of the next node."
+      ],
+      "proofSteps": [
+        "Proposition 1.3.5.3: a generator gives small sets of subobjects; the maps E(u, n) → E(id, n) generate the cofibrations by transfinite induction (HTT A.1.2.2); apply HTT A.2.6.15 with weak equivalences a perfect class (HTT A.2.6.14) stable under pushout by the five lemma.",
+        "Proposition 1.3.5.6: E(X, n) → E(Y, n) is a trivial cofibration, which forces injective terms; the converse for bounded complexes of injectives is a downward induction with the snake lemma.",
+        "Proposition 1.3.5.9: stability via Proposition 1.3.2.10, closure under shifts, and cones of maps between fibrant objects being fibrant.",
+        "Lemmas 1.3.5.11–1.3.5.12 and Proposition 1.3.5.14: Map(M, Q) is acyclic for acyclic M and fibrant Q; trivial cofibrations induce quasi-isomorphisms on Map(−, Q); quasi-isomorphisms between fibrant complexes are chain homotopy equivalences.",
+        "Proposition 1.3.5.15 uses 1.3.5.14, Proposition 1.3.4.5 and Remark 1.3.4.16 and does not follow formally from Theorem 1.3.4.20; Proposition 1.3.5.21 uses 1.3.5.15, 1.3.4.22, 1.3.5.18, 1.3.4.24–1.3.4.25 and HTT 5.4.6.6."
+      ],
+      "acceptance": [
+        "Modules on a point: A = Mod_Λ gives D(Λ) with π₀Map(M, N[n]) ≅ Ext^n(M, N) for modules M, N.",
+        "By Lemma 1.3.5.11 every fibrant complex is K-injective in the Stacks sense (reader's inference, not stated in HA); the converse was not found.",
+        "Do not assume D(A) is left complete (Warning 1.3.5.22); left completeness is stage E2."
+      ],
+      "sources": [
+        {
+          "sourceId": "Lurie-HA",
+          "locator": "Definition 1.3.5.1, Propositions 1.3.5.3, 1.3.5.6, Definition 1.3.5.8, Propositions 1.3.5.9, 1.3.5.13–1.3.5.15, 1.3.5.18, 1.3.5.21, Warnings 1.3.5.4 and 1.3.5.22, pp. 121–130",
+          "excerpt": "D(A) is a stable subcategory of Ndg (Ch(A))",
+          "match": "Proof of Proposition 1.3.5.9."
+        },
+        {
+          "sourceId": "Lurie-HA",
+          "locator": "Warning 1.3.5.22, p. 129",
+          "excerpt": "The stable ∞-category D(A) is generally not left complete.",
+          "match": "Left completeness is not automatic."
+        },
+        {
+          "sourceId": "Lurie-HA",
+          "locator": "Proposition 1.3.5.15, p. 127",
+          "excerpt": "This does not follow formally from Theorem 1.3.4.20, because Ch(A) is not a simplicial model category",
+          "match": "The comparison with the underlying ∞-category needs its own proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E1/k-injective-and-k-flat-resolutions-for-sheaves-of-modules",
+      "parentStageId": "EnhancedDerivedSheaves:E1",
+      "title": "Functorial K-injective resolutions in Grothendieck abelian categories and K-flat resolutions of sheaves of modules",
+      "kind": "theorem",
+      "statement": "(Stacks Theorem 19.12.6) In a Grothendieck abelian category (AB5 with a generator) every complex M has a functorial quasi-isomorphism M → I, injective in each degree, with I K-injective and termwise injective. A complex I is K-injective if Hom_K(M, I) = 0 for all acyclic M (Definition 13.31.1); equivalently Hom_K(−, I) inverts quasi-isomorphisms, and then Hom_K(N, I) = Hom_D(N, I) (Lemma 13.31.2). Bounded below complexes of injectives are K-injective (Lemma 13.31.4), and when K-injective resolutions exist, right derived functors exist on unbounded derived categories and are computed on K-injectives (Lemma 13.31.7). For a ringed site, Mod(O) is Grothendieck (Tag 07A5), so RΓ and Rf_* exist on unbounded complexes. Bounded above complexes of flat modules are K-flat (Definition 21.17.2, Lemma 21.17.8); every complex receives a termwise surjective quasi-isomorphism from a K-flat complex with flat terms (Lemma 21.17.11, existence only), which defines − ⊗^L F independently of choices (Definition 21.17.13). Lf^* is computed on K-flat complexes with flat terms (Lemma 21.18.2), Lf^* ⊣ Rf_* on unbounded derived categories (Lemma 21.19.1), and f_* preserves K-injectives when f is flat (Lemma 21.20.10).",
+      "hypotheses": [
+        "Grothendieck abelian (AB5 plus generator) for K-injective resolutions; pullback preserves arbitrary K-flat complexes only when the site has enough points (Lemma 21.18.7).",
+        "No statement that K-injectives fail to be preserved by tensor products or flat pullback was found in the Stacks Project; the stage's warning is a design constraint rather than a cited result."
+      ],
+      "proofSteps": [
+        "Theorem 19.11.7: functorial injective embeddings by transfinite pushouts, using the generator form of Baer's criterion (Lemma 19.11.6) and smallness (Proposition 19.11.5).",
+        "Lemma 19.12.3: a termwise injective I with Hom_K(M, I) = 0 for all bounded above acyclic M of cardinality at most κ is K-injective, by a transfinite filtration of an arbitrary acyclic complex and Homology Lemma 12.31.8.",
+        "Theorem 19.12.6: choose a set of small acyclic complexes (19.11.4), iterate T_{α+1} = N(M(T_α)) (Lemmas 19.12.4–19.12.5) with colimits taken using AB5 up to an ordinal of cofinality larger than max(κ, |U|), and verify Lemma 19.12.3 using 19.11.5–19.11.6.",
+        "Lemma 21.17.11 follows from Lemma 21.17.10 (itself using Modules on Sites 18.28.8 and Derived Categories 13.29.1), Modules on Sites 18.28.7 and Lemmas 21.17.8–21.17.9; Lemma 21.19.1 follows formally from existence of both derived functors and Lemma 13.30.3."
+      ],
+      "acceptance": [
+        "Compare the K-flat tensor product with K-injective pushforward without assuming either replacement serves both roles (stage acceptance).",
+        "Limits of bounded below resolutions of truncations may fail to resolve K: the Stacks text warns 'this may not work', and Lemma 13.34.6 needs K ≅ R lim τ_{≥−n}K.",
+        "Size: morphisms in D(A) form sets for Grothendieck A by Theorem 19.12.6 and Lemma 13.31.2 (Remark 19.13.3)."
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Definition 19.10.1 (079B), Proposition 19.11.5 (079F), Theorem 19.11.7 (079H), Lemma 19.12.3 (079L), Theorem 19.12.6 (079P), pp. 1771–1777",
+          "excerpt": "The transition maps of the system are injective quasi-isomorphisms.",
+          "match": "Proof of Theorem 19.12.6."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Definition 21.17.2 (06YN), Lemmas 21.17.8 (06YQ), 21.17.11 (06YS), Definition 21.17.13 (06YU), Lemmas 21.18.2 (06YY), 21.19.1 (07A6), 21.20.10 (093Y), pp. 1952–1966",
+          "excerpt": "A bounded above complex of flat O-modules is K-flat.",
+          "match": "Lemma 21.17.8."
+        },
+        {
+          "sourceId": "StacksProject-book-2026",
+          "locator": "Definition 13.31.1 (070H), Lemmas 13.31.2 (070I), 13.31.4 (070J), 13.31.7 (070K), 13.34.6 (070M), pp. 1087–1089",
+          "excerpt": "Actually, this may not work! See Lemma 13.34.6 for an explanation.",
+          "match": "Warning about limits of resolutions of truncations."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E2/replete-topoi-and-exactness-of-countable-limits",
+      "parentStageId": "EnhancedDerivedSheaves:E2",
+      "title": "Replete topoi: exactness of countable products and of limits of towers of surjections",
+      "kind": "theorem",
+      "statement": "A topos X is replete if surjections are closed under sequential limits: for every tower F_{n+1} → F_n of surjections, lim F → F_n is surjective (Bhatt–Scholze Definition 3.1.1). Slices of replete topoi are replete, and repleteness can be checked after a surjection X → 1 (Lemmas 3.1.2–3.1.3). Sets, presheaf topoi and the fpqc topos are replete, while Shv(Spec k_ét) is replete iff k̄/k is finite (Examples 3.1.4, 3.1.5, 3.1.7). In a replete topos, a map of towers whose relative maps are surjective has surjective limit map (Lemma 3.1.8); countable products are exact (Proposition 3.1.9); for a tower of abelian sheaves with surjective transitions lim ≃ R lim (Proposition 3.1.10); and N^op-indexed limits have cohomological dimension 1 (Proposition 3.1.11). Locally weakly contractible topoi are replete (Proposition 3.2.3(1)).",
+      "hypotheses": [
+        "Repleteness is a sequential condition; the cofiltered analogue leads to an empty theory (Remark 3.1.6).",
+        "The Zariski, étale, Nisnevich, smooth and fppf topoi of most schemes are not replete (discussion after Remark 3.1.6), so generic lemmas must not assume repleteness."
+      ],
+      "proofSteps": [
+        "Lemma 3.1.8: set X₀ = X ×_{G₀} F₀ and X_{n+1} = X_n ×_{F_n ×_{G_n} G_{n+1}} F_{n+1}, a tower of surjections; lim X_n → X is surjective by repleteness, which gives the lift.",
+        "Proposition 3.1.9: write ∏ f_n as lim_n ∏_{i<n} f_i and apply Lemma 3.1.8.",
+        "Proposition 3.1.10: by 3.1.9 there is a triangle R lim F → ∏ F_n → ∏ F_n with second map t − id; the partial-product maps satisfy the hypotheses of Lemma 3.1.8, so t − id is surjective.",
+        "Proposition 3.1.11: combine the triangle, Proposition 3.1.9 and long exact sequences to get R lim F_n ∈ D^{[0,1]}.",
+        "Proposition 3.2.3(1): surjectivity can be tested on weakly contractible objects, over which surjections have sections."
+      ],
+      "acceptance": [
+        "Example 3.1.5: if the separable closure of k is infinite over k, an infinite tower of finite separable extensions gives surjections with empty limit.",
+        "Postnikov convergence in the hypercomplete ∞-topos of a replete topos is left open (Question 3.1.12); do not assume it.",
+        "The v-sites and quasi-pro-étale sites of diamonds must be shown replete in DiamondEtaleCohomology:C0, not assumed."
+      ],
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "§3.1, Definition 3.1.1 through Question 3.1.12, pp. 16–17; §3.2, Definition 3.2.1 and Proposition 3.2.3, pp. 17–18",
+          "excerpt": "surjections in X are closed under sequential limits",
+          "match": "Definition 3.1.1."
+        },
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "Proposition 3.1.9, p. 17",
+          "excerpt": "Countable products are exact in a replete topos.",
+          "match": "Proposition 3.1.9."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E2/left-completion-and-postnikov-convergence",
+      "parentStageId": "EnhancedDerivedSheaves:E2",
+      "title": "Left completion, left completeness of replete topoi and the cohomological-dimension criterion",
+      "kind": "theorem",
+      "statement": "For any topos X, the left completion D̂(X) ⊂ D(X^N) consists of systems {K_n} with K_n ∈ D^{≥−n} and τ^{≥−n}K_{n+1} ≃ K_n, and D(X) is left-complete if τ: K ↦ {τ^{≥−n}K} is an equivalence (Definition 3.3.1). R lim: D̂(X) → D(X) is right adjoint to τ, so if D(X) is left-complete then K ≃ R lim τ^{≥−n}K (Lemma 3.3.2). If X is replete, D(X) is left-complete (Proposition 3.3.3). Left completeness fails for the topos of finite ∏Z_p-sets (Example 3.3.4), and the argument applies to Spec(k)_ét when classes α_n of unbounded orders exist (Remark 3.3.5). For any topos, if Γ(U, −) is exact then RΓ(U, K) ≃ R lim RΓ(U, τ^{≥−n}K) (Proposition 3.3.7(1)); if the cohomology sheaves have cohomological dimension at most d locally on X, D(X) is left-complete (Proposition 3.3.7(2), proved only by citing Stacks Tag 0719).",
+      "hypotheses": [
+        "Definition 3.3.1, Lemma 3.3.2 and Proposition 3.3.7(1) hold in any topos; Proposition 3.3.3 needs repleteness.",
+        "Proposition 3.3.7(2) as printed mixes a hypothesis on one K with a conclusion for all of D(X) and does not define 'locally'; later uses in Bhatt–Scholze assume uniform bounds (condition (A) on p. 40; p. 48)."
+      ],
+      "proofSteps": [
+        "Lemma 3.3.2: RHom(K, R lim L_n) ≃ R lim RHom(τ^{≥−n}K, L_n), called formal; the equalizer sequence for Hom in Ab(X^N) becomes a triangle for K-injective targets ('one can check'); on D̂, RHom(F_{n+1}, G_n) = RHom(F_n, G_n).",
+        "Proposition 3.3.3, full faithfulness: by 3.3.2 it suffices that K ≃ R lim τ^{≥−n}K; ∏ τ^{≥−n}I is the derived product (3.1.9) and t − id is surjective in each degree as in 3.1.10.",
+        "Proposition 3.3.3, essential surjectivity: K-injective systems {I_n} have degreewise surjective transitions (asserted); H^i commutes with ∏ (3.1.9) and H^i(t − id) is split surjective with the expected kernel.",
+        "Example 3.3.4: for K = ⊕ Z/pⁿ[n], H⁰p^*K = 0, while H⁰p^*K̂ contains a nonzero class built from classes α_n ∈ Hⁿ(Z_pⁿ, Z/pⁿ) of exact order pⁿ via a transfer argument, so K → K̂ has no section."
+      ],
+      "acceptance": [
+        "A countable Postnikov tower in a replete topos satisfies K ≃ R lim τ^{≥−n}K (stage acceptance).",
+        "The text on p. 18 refers to 'Example 3.3.5' for the failure of left completeness; the example is 3.3.4 (3.3.5 is a remark).",
+        "Do not assume unbounded derived categories of arbitrary sheaf categories are left-complete; exhibit repleteness or a uniform cohomological-dimension bound in each application (stage text)."
+      ],
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "Definition 3.3.1, Lemma 3.3.2, Proposition 3.3.3, Example 3.3.4, Remark 3.3.5, Proposition 3.3.7, pp. 18–20",
+          "excerpt": "If X is a replete topos, then D(X) is left-complete.",
+          "match": "Proposition 3.3.3."
+        },
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "Example 3.3.4, p. 19",
+          "excerpt": "We will show that D(X) is not left-complete.",
+          "match": "The non-replete counterexample."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E2/hypercover-descent-in-replete-topoi",
+      "parentStageId": "EnhancedDerivedSheaves:E2",
+      "title": "Cohomological descent along hypercovers: bounded-below and unbounded cases",
+      "kind": "theorem",
+      "statement": "Let f: X• → X be a hypercover in a replete topos X, with D(Y) = D(Ab(X/Y)). Then id ≃ f_*f^* on D(X), f_!f^* ≃ id, and f^*: D(X) → D_cart(X•) is an equivalence onto the cartesian objects (Bhatt–Scholze Proposition 3.3.6). The bounded-below parts of the first and third statements do not use repleteness; the unbounded case uses repleteness of X and of every X_n.",
+      "hypotheses": [
+        "Hypercovers are not defined in §3; the D^+_cart case is called well known without a citation; f_! exists by the adjoint functor theorem.",
+        "Stated for abelian sheaves; Bhatt–Scholze Lemma 3.4.9 uses a descent equivalence for R-modules that is not separately stated."
+      ],
+      "proofSteps": [
+        "Homotopy limits and colimits in D(X•) are computed termwise, and restrictions have adjoints on both sides.",
+        "For K ∈ Ab(X) the unit K → f_*f^*K is an equivalence by the hypercover condition; for D^+ pass to filtered colimits (no repleteness); for unbounded K write K ≃ R lim τ^{≥−n}K using left completeness of the replete X and of each X_n (Proposition 3.3.3, Lemma 3.3.2 and Lemma 3.1.2, used without labels).",
+        "f_!f^* ≃ id follows by adjunction.",
+        "f^* is fully faithful by the first statement; essential surjectivity on D^+_cart is the well-known bounded case, and unbounded cartesian objects have cartesian truncations with D(X) closed under homotopy limits."
+      ],
+      "acceptance": [
+        "Test a Čech nerve of a cover and two successive refinements (stage acceptance).",
+        "ECD Proposition 17.3 cites Stacks Tag 0DC7 and this proposition on homotopy categories and then asserts the ∞-categorical statement; the promotion is a separate obligation (E3 gap)."
+      ],
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "Proposition 3.3.6 with proof, p. 20",
+          "excerpt": "Let f : X• → X be a hypercover in a replete topos X.",
+          "match": "Proposition 3.3.6."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E4/derived-completion-of-sheaves-in-replete-topoi",
+      "parentStageId": "EnhancedDerivedSheaves:E4",
+      "title": "Derived I-completion for sheaves of rings in a replete topos",
+      "kind": "construction",
+      "statement": "Let X be a replete topos, R a sheaf of rings and I ⊂ R a locally finitely generated ideal; for a local section x put T(K, x) = R lim(⋯ → K → K) with transition maps multiplication by x. K ∈ D(X, R) is derived I-complete if T(K|_U, x) = 0 for all local sections x of I (Definition 3.4.1). Completeness can be tested on local generators and is equivalent to K ≃ R lim(K → K) along multiplication by xⁿ, and to K|_U ≃ R lim(K ⊗^L_{Z[x]} Z[x]/(x₁ⁿ, …, x_rⁿ)) (Lemma 3.4.12). K is derived complete iff each H^i(K) is (Proposition 3.4.4). The inclusion D_comp(X, R) ⊆ D(X, R) has a left adjoint K ↦ K̂ (Lemma 3.4.9), giving the completed tensor product K ⊗̂ L = (K ⊗^L L)^ and RHom_R(K, L) complete for complete L (Definition 3.4.10, Lemma 3.4.11). Classically complete modules are derived complete (Lemma 3.4.13); a module is classically complete iff it is I-adically separated and derived complete (Proposition 3.4.2); derived complete modules form a Serre subcategory (Lemma 3.4.14).",
+      "hypotheses": [
+        "Repleteness is used in 3.4.2 (Milnor sequence), 3.4.4 (left completeness), 3.4.13–3.4.14 (lim = R lim and cohomological dimension of R lim) and, through descent, in 3.4.9.",
+        "The generic module-level derived completion is owned by DerivedDeRhamCohomology:DD.1; this node is its sheaf-level application in a replete topos, as E4's stage text requires."
+      ],
+      "proofSteps": [
+        "Lemma 3.4.7: T(K, x) = 0 iff RHom_R(M, K) = 0 for all M ∈ D(X, R[1/x]), using without citation that the objects j_!(R[1/x]|_U) generate; Lemma 3.4.8: T(K, x) comes from D(X, R[1/x]), using a K-injective representative.",
+        "Lemma 3.4.9: with global generators set F_{i+1}K = cone(T(F_iK, x_{i+1}) → F_iK) ≃ R lim(F_iK ⊗^L Z[x]/(xⁿ)); induction with 3.4.7–3.4.8 shows K → F_rK is the left adjoint; in general pass to a hypercover and use cohomological descent.",
+        "Lemma 3.4.12: (1) ⇔ (2) via transition maps; (3) ⇒ (2) by writing x = Σ a_ix_i and using Lemmas 3.4.7 and 3.4.6 (Mayer–Vietoris for R[1/(x+y)]); (4) ⇒ (3) by nilpotence; (3) ⇒ (4) with the functors F_i and perfectness of Z[x]/(xⁿ).",
+        "Proposition 3.4.4: truncations of complete objects are complete, τ^{≤m}K ≃ R lim τ^{≥−n}τ^{≤m}K by left completeness, and T(K, x) ∈ D^{≥m+1} for all m; the converse uses truncation triangles and the amplitude of T.",
+        "Proposition 3.4.2: reduce to global generators, write M ≃ R lim(M ⊗^L Z[x]/(xⁿ)), and use the Milnor sequence with separatedness."
+      ],
+      "acceptance": [
+        "Derived ℓ-completion of the constant sheaf Q_ℓ vanishes, while Z_ℓ is both derived and classically complete (stage acceptance: derived ℓ-completion).",
+        "Classically complete modules need not form an abelian category (asserted on p. 23 without proof); use derived completeness in abelian arguments.",
+        "Do not identify completion with R lim(K ⊗^L R/Iⁿ) for general ideals without the hypotheses of §3.5."
+      ],
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "§3.4, Definition 3.4.1 through Lemma 3.4.14, pp. 20–24",
+          "excerpt": "is derived I-complete if and only if each H i (K) is so.",
+          "match": "Proposition 3.4.4."
+        },
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "Proof of Proposition 3.4.2, p. 24",
+          "excerpt": "Milnor exact sequence (which exists by repleteness)",
+          "match": "Use of repleteness when comparing classical and derived completeness."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E4/reconstruction-from-finite-level-coefficients",
+      "parentStageId": "EnhancedDerivedSheaves:E4",
+      "title": "Noetherian derived completion and reconstruction from the coefficients R/mⁿ",
+      "kind": "theorem",
+      "statement": "Let X be replete, R a noetherian ring and m ⊂ R an ideal, viewed as constant sheaves. K ∈ D(X, R) is derived m-complete iff K ≃ R lim(K ⊗^L R/mⁿ), and this limit is always complete and computes the completion (Proposition 3.5.1). Let C = Fun(N^op, X) with R• = {R/mⁿ} and D_comp(C, R•) the systems with K_n ⊗^L R/m^{n−1} ≃ K_{n−1} (Definition 3.5.3), and π: (C, R•) → (X, R̂) with π_* = R lim. Then π^* is fully faithful on D_comp; π_* is fully faithful on D^−_comp; D^−_comp(X, R̂) ≃ D^−_comp(C, R•); and if m is regular, the last two statements extend to unbounded complexes (Lemma 3.5.7). ECD Proposition 26.2 uses Lemma 3.5.7 to identify D_ét(Y, Λ) with lim_n D_ét(Y, Λ/Iⁿ) when I is generated by a regular sequence.",
+      "hypotheses": [
+        "R noetherian and X replete throughout §3.5; the unbounded statements need m regular. ECD asserts that the noetherian hypothesis is unnecessary when I is generated by a regular sequence; this is not proved in the text.",
+        "Lemma 3.5.7 concerns derived categories of the projective-system topos; identifying D_comp(C, R•) with the ∞-categorical limit of the D(X, R/mⁿ) is a separate step, uncited in ECD 26.2."
+      ],
+      "proofSteps": [
+        "Proposition 3.5.1: map P = Z[x₁, …, x_r] → R and apply Lemma 3.4.12; {P/Jⁿ ⊗^L_P R} → {R/mⁿ} is a strict pro-isomorphism by Tor-independence and the Artin–Rees lemma; completion as in Lemma 3.4.9.",
+        "Lemma 3.5.4: for {K_n} ∈ D^−(C, R•), {K_n ⊗^L_R R/m} ≃ {K_n ⊗^L_{R/mⁿ} R/m} as pro-objects (change of rings, Artin–Rees, a bounded Tor spectral sequence); R lim agrees by repleteness; for regular m, R/(fⁿ) is perfect, giving the unbounded case.",
+        "Lemma 3.5.5: (R lim K_n) ⊗^L R/m^k ≃ K_k for {K_n} ∈ D^−_comp, by reduction to k = 1, perfect approximations P_i → R/m with cone in D^{≤−i}, the bound R lim K_n ∈ D^{≤1} by repleteness, and Lemma 3.5.4.",
+        "Lemma 3.5.7: π^*K = {K ⊗^L R/mⁿ} and π_* = R lim preserve completeness; full faithfulness of π^* by Proposition 3.5.1; the remaining statements by Lemma 3.5.5, and the unbounded case from the regular case of 3.5.4–3.5.5."
+      ],
+      "acceptance": [
+        "Principal test: R = Z_ℓ, m = (ℓ): complete objects over Z_ℓ correspond to systems over Z/ℓⁿ with K_n ⊗^L Z/ℓ^{n−1} ≃ K_{n−1}, for unbounded complexes since ℓ is regular.",
+        "Do not infer that every power Iⁿ is generated by a regular sequence (stage text); Lemma 3.5.4 uses perfectness of R/(fⁿ) for a regular element f."
+      ],
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "§3.5, Proposition 3.5.1, Definitions 3.5.2–3.5.3, Lemmas 3.5.4–3.5.7, pp. 24–26",
+          "excerpt": "If m is regular, then (3) and (4) extend to the unbounded case.",
+          "match": "Lemma 3.5.7(5)."
+        },
+        {
+          "sourceId": "Scholze-ECD",
+          "locator": "Proof of Proposition 26.2, p. 161",
+          "excerpt": "the hypothesis that Λ is noetherian is not necessary",
+          "match": "ECD's unproved removal of the noetherian hypothesis when applying Lemma 3.5.7."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E5:abstract/infinity-operads-and-symmetric-monoidal-infinity-categories",
+      "parentStageId": "EnhancedDerivedSheaves:E5:abstract",
+      "title": "∞-operads, symmetric monoidal ∞-categories, commutative algebras and monoidal functors",
+      "kind": "definition",
+      "statement": "Fin_* has objects ⟨n⟩ = {*, 1, …, n} and base-point-preserving maps; a map is inert if each preimage of a non-base point has exactly one element, and active if the preimage of the base point is the base point (HA Notation 2.0.0.2, Definitions 2.1.1.8, 2.1.2.1). An ∞-operad is a functor p: O^⊗ → N(Fin_*) of ∞-categories such that inert morphisms have p-coCartesian lifts, mapping spaces over a map f decompose as the product over the ρ^i ∘ f (Segal condition), and any objects C₁, …, C_n over ⟨1⟩ receive coCartesian maps over the ρ^i from an object over ⟨n⟩ (Definition 2.1.1.10). A symmetric monoidal ∞-category is a coCartesian fibration C^⊗ → N(Fin_*) whose functors ρ^i_! induce C^⊗_⟨n⟩ ≃ (C^⊗_⟨1⟩)^n (Definition 2.0.0.7). Maps of ∞-operads preserve inert morphisms (Definition 2.1.2.7); CAlg(C) consists of the ∞-operad maps from N(Fin_*) to C^⊗ over N(Fin_*) (Definition 2.1.3.1); symmetric monoidal functors are ∞-operad maps preserving coCartesian morphisms (Definition 2.1.3.7). For an ∞-operad O^⊗ and a coCartesian fibration C^⊗ → O^⊗, C^⊗ is an ∞-operad iff the inert maps give C^⊗_T ≃ ∏ C^⊗_{T_i} (Proposition 2.1.2.12). The symmetric monoidal structure on CAlg(C) is coCartesian, so CAlg(C) has finite coproducts (Proposition 3.2.4.7, Corollary 3.2.4.8).",
+      "hypotheses": [
+        "Lax symmetric monoidal functors are the ∞-operad maps; they have no separate label (unlabelled paragraph on p. 185).",
+        "The nerve of an ordinary symmetric monoidal category is a symmetric monoidal ∞-category whose commutative algebras are the classical ones (Examples 2.1.2.21, 2.1.3.3), stated without written proofs."
+      ],
+      "proofSteps": [
+        "Proposition 2.1.2.12, (a) ⇒ (b): p preserves inert morphisms (HTT 2.4.1.3), and the fibres of C^⊗_⟨n⟩ → O^⊗_⟨n⟩ and Cⁿ → Oⁿ are compared by HTT Corollary 3.3.1.4.",
+        "(b) ⇒ (a): condition (1) by lifting O^⊗-inert maps p-coCartesianly (HTT 2.4.1.3); condition (2) from homotopy fibres of mapping spaces (HTT 2.4.4.2) and (b); condition (3) from (b) and HTT 2.4.1.3.",
+        "Remark 2.1.3.8: a symmetric monoidal functor is an equivalence iff its underlying functor is, via HTT Corollary 2.4.4.4.",
+        "Proposition 3.2.4.7: verify criterion (3) of Proposition 2.4.3.19; the unit is initial (Corollary 3.2.1.9), and codiagonals A ⊗ A → A come from CAlg(C) → CAlg(CAlg(C)); their axioms are only called readily verified."
+      ],
+      "acceptance": [
+        "Test: (Mod_Λ, ⊗) as the nerve of an ordinary symmetric monoidal category, with CAlg the commutative Λ-algebras (Example 2.1.3.3).",
+        "Strictly commutative dg algebras are not a general replacement for E∞-algebras in positive characteristic (E5 stage text)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Lurie-HA",
+          "locator": "Notation 2.0.0.2, Definition 2.0.0.7, Definitions 2.1.1.8, 2.1.1.10, 2.1.2.1, 2.1.2.7, Proposition 2.1.2.12, Definitions 2.1.3.1 and 2.1.3.7, pp. 165–185; Proposition 3.2.4.7, pp. 371–372",
+          "excerpt": "A symmetric monoidal ∞-category is a coCartesian fibration of simplicial sets",
+          "match": "Definition 2.0.0.7."
+        },
+        {
+          "sourceId": "Lurie-HA",
+          "locator": "Definition 2.1.1.10, p. 174",
+          "excerpt": "An ∞-operad is a functor p : O⊗ → N(Fin∗ ) between ∞-categories which",
+          "match": "Definition 2.1.1.10."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E5:abstract/idempotent-completion-and-stability",
+      "parentStageId": "EnhancedDerivedSheaves:E5:abstract",
+      "title": "Idempotent completion, its universal property and stability of the completion",
+      "kind": "theorem",
+      "statement": "A functor f: C → D exhibits D as an idempotent completion of C if D is idempotent complete, f is fully faithful and every object of D is a retract of some f(C) (HTT Definition 5.1.4.1). Every ∞-category has an idempotent completion (Proposition 5.1.4.2). If f exhibits D as the idempotent completion of C and E is idempotent complete, composition with f gives an equivalence Fun(D, E) ≃ Fun(C, E) (Proposition 5.1.4.9). If C is stable, its idempotent completion is stable (HA Corollary 1.1.3.7).",
+      "hypotheses": [
+        "Idempotent complete means that diagrams indexed by Idem have colimits (HTT §4.4.5, Corollary 4.4.5.15); no separate labelled ∞-categorical definition was located.",
+        "The universal property uses HTT Proposition 4.3.2.15 (Kan extensions, stage E3) and the stability statement uses HTT Lemma 5.4.2.4 on Ind-objects (stage E5:presentability); the atlas places both after E5:abstract (see gap)."
+      ],
+      "proofSteps": [
+        "Proposition 5.1.4.2: for small C take C′ ⊆ P(C) to be the retracts of representables; P(C) is idempotent complete (Corollary 4.4.5.15), C′ is closed under retracts, and the Yoneda embedding is fully faithful (Proposition 5.1.3.1).",
+        "Proposition 5.1.4.9: reduce to a full inclusion; every functor D → E is a left Kan extension of its restriction (Lemma 5.1.4.7, from Lemmas 5.1.4.3–5.1.4.6 and Theorem 4.1.3.1); extensions exist (Lemma 5.1.4.8, via P(D) and Proposition A.2.3.1); Proposition 4.3.2.15 makes f^* a trivial fibration.",
+        "HA Corollary 1.1.3.7: by HTT Lemma 5.4.2.4 the completion is a full subcategory of Ind(C) closed under shifts and finite colimits, hence stable (one-sentence proof)."
+      ],
+      "acceptance": [
+        "Test: the idempotent completion of the stable ∞-category of bounded complexes of finite free Λ-modules is the ∞-category of perfect complexes."
+      ],
+      "sources": [
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "Definition 5.1.4.1, Propositions 5.1.4.2 and 5.1.4.9 with proofs, pp. 321–324",
+          "excerpt": "exhibits D as an idempotent completion of C if D is idempotent complete, f is fully faithful",
+          "match": "Definition 5.1.4.1."
+        },
+        {
+          "sourceId": "Lurie-HA",
+          "locator": "Corollary 1.1.3.7, p. 33",
+          "excerpt": "Then the idempotent completion of C is also stable.",
+          "match": "Corollary 1.1.3.7."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E5:presentability/ind-completion-compact-objects-and-extension",
+      "parentStageId": "EnhancedDerivedSheaves:E5:presentability",
+      "title": "Ind-completion: universal property, compact objects, stability and monoidal structure",
+      "kind": "theorem",
+      "statement": "For C small and κ regular, Ind_κ(C) ⊆ P(C) consists of the presheaves classifying right fibrations with κ-filtered total space (HTT Definition 5.3.5.1); it is closed under κ-filtered colimits and consists of κ-filtered colimits of representables (Proposition 5.3.5.3, Corollary 5.3.5.4), and representables are κ-compact (Proposition 5.3.5.5). If D has small κ-filtered colimits, restriction along the Yoneda embedding j is an equivalence from κ-continuous functors Ind_κ(C) → D to Fun(C, D) (Proposition 5.3.5.10). A κ-continuous F with f = F ∘ j is fully faithful if f is fully faithful with κ-compact values, and is an equivalence iff moreover f generates D under κ-filtered colimits (Proposition 5.3.5.11). The κ-compact objects of Ind_κ(C) form an idempotent completion of C (Lemma 5.4.2.4). If C is small and stable, Ind_κ(C) is stable (HA Proposition 1.1.3.6); a stable C is presentable iff it has small coproducts, hC is locally small and there is a κ-compact generator (HA Corollary 1.4.4.2). A small symmetric monoidal C gives Ind(C) a symmetric monoidal structure for which j is symmetric monoidal and ⊗ preserves filtered colimits in each variable (HA Corollary 4.8.1.14).",
+      "hypotheses": [
+        "C small, κ regular, D with κ-filtered colimits for the universal property.",
+        "No single source statement extending exact functors on C to colimit-preserving functors on Ind(C) was located; it must be assembled from HTT 5.3.5.10, 5.5.1.9, 5.4.2.4 and HA 1.1.4.1 (reader's inference)."
+      ],
+      "proofSteps": [
+        "Proposition 5.3.5.10: embed D into D′ with all colimits (Lemmas 5.3.5.7–5.3.5.8), take the colimit-preserving left Kan extension P(C) → D′ (Lemma 5.1.5.5) and restrict along Corollary 5.3.5.4; such extensions are exactly the κ-continuous functors, and Corollary 4.3.2.16 finishes.",
+        "Proposition 5.3.5.11: the pairs for which the comparison η_{C,D} is an equivalence are closed under κ-filtered colimits in each variable (Propositions 5.3.5.5, 5.1.3.2) and contain representables; part (2) uses Propositions 5.1.3.1, 5.3.5.5 and Corollary 5.3.5.4.",
+        "Lemma 5.4.2.4: Ind_κ(C) is idempotent complete (Remark 5.3.1.10), j is fully faithful (Proposition 5.1.3.1), and κ-compact objects are retracts of objects j(C) (Lemma 5.1.5.3, Proposition 3.3.4.5).",
+        "HA Proposition 1.1.3.6: j preserves finite limits and colimits (HTT 5.1.3.2, 5.3.5.14); cofibres exist since morphisms are κ-filtered colimits of morphisms from C (HTT 5.3.5.15); fibres exist since filtered colimits in P(C) are left exact (HTT Example 7.3.4.7); fibre and cofibre sequences agree after passing to filtered colimits."
+      ],
+      "acceptance": [
+        "Test: Ind of perfect Λ-modules is D(Λ), whose compact objects are the perfect complexes.",
+        "Tensor/Ind and module/base-change compatibilities are claimed only under compact generation; coherent finite and profinite group actions and homotopy fixed points are not covered by the sources read (stage text).",
+        "Check the universal-property clause of HA Corollary 4.8.1.14 against the PDF, since a superscript may be lost in the text extraction."
+      ],
+      "sources": [
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "Definition 5.3.5.1, Propositions 5.3.5.3–5.3.5.5, 5.3.5.10–5.3.5.11 with proofs, pp. 403–408; Lemma 5.4.2.4, pp. 424–425; Proposition 5.5.1.9, p. 461",
+          "excerpt": "Suppose that C is small and that D admits small κ-filtered colimits.",
+          "match": "Hypotheses of Proposition 5.3.5.10."
+        },
+        {
+          "sourceId": "Lurie-HA",
+          "locator": "Proposition 1.1.3.6, pp. 32–33",
+          "excerpt": "Then the ∞-category Indκ (C) is stable.",
+          "match": "Proposition 1.1.3.6."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E5:animation/sifted-colimits-and-p-sigma",
+      "parentStageId": "EnhancedDerivedSheaves:E5:animation",
+      "title": "Sifted colimits, P_Σ(C) and extension of functors along sifted colimits",
+      "kind": "theorem",
+      "statement": "A simplicial set K is sifted if it is nonempty and the diagonal K → K × K is cofinal (HTT Definition 5.5.8.1); filtered simplicial sets are sifted and N(Δ)^op is sifted (Example 5.5.8.3, Lemma 5.5.8.4). For C small with finite coproducts, P_Σ(C) ⊆ P(C) is spanned by the presheaves preserving finite products (Definition 5.5.8.8); it is an accessible localization of P(C) closed under sifted colimits and compactly generated, and contains the representables (Proposition 5.5.8.10); X ∈ P_Σ(C) iff X is the colimit in P(C) of a simplicial object in Ind(C) (Lemma 5.5.8.14). If D has filtered colimits and geometric realizations, restriction gives an equivalence from sifted-colimit-preserving functors P_Σ(C) → D to Fun(C, D); such functors preserve sifted colimits; and if D has finite coproducts, g preserves small colimits iff g ∘ j preserves finite coproducts (Proposition 5.5.8.15). A functor out of an ∞-category with small colimits preserves sifted colimits iff it preserves filtered colimits and geometric realizations (Corollary 5.5.8.17).",
+      "hypotheses": [
+        "C small with finite coproducts; D with filtered colimits and geometric realizations.",
+        "Siftedness of a nerve is stronger than ordinary siftedness of a category (Warning 5.5.8.2)."
+      ],
+      "proofSteps": [
+        "Lemma 5.5.8.4: N(Δ)^op is nonempty; by Theorem 4.1.3.1 it suffices that Δ_{/[m]} ×_Δ Δ_{/[n]} is weakly contractible; its subcategory of monomorphisms has an inclusion with a left adjoint, and its nerve is the barycentric subdivision of Δ^m × Δⁿ.",
+        "Proposition 5.5.8.10 uses Lemmas 5.5.4.17–5.5.4.19, Lemma 5.5.8.11 with Remark 5.5.8.12 and Proposition 5.3.5.12.",
+        "Proposition 5.5.8.15(1): P_Σ(C) is the smallest full subcategory containing the representables and closed under filtered colimits and geometric realizations (5.5.8.14, 5.5.8.10); Remark 5.3.5.9, a proof-pattern remark, and Proposition 4.3.2.15 give the equivalence.",
+        "Part (2) reduces to D = S^op and applies Remark 5.3.5.9 to sifted colimits; part (3) uses the embedding of Lemma 5.3.5.7, the extension of Lemma 5.1.5.5, a closure argument and the factorization through the localization."
+      ],
+      "acceptance": [
+        "Test: a functor on finitely generated polynomial rings extends to simplicial commutative rings by geometric realization of simplicial polynomial resolutions (5.5.8.14–5.5.8.15)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "Definition 5.5.8.1, Lemma 5.5.8.4, Definition 5.5.8.8, Proposition 5.5.8.10, Lemma 5.5.8.14, Proposition 5.5.8.15, Corollary 5.5.8.17, pp. 506–512",
+          "excerpt": "Any functor g ∈ FunΣ (PΣ (C), D) preserves sifted colimits.",
+          "match": "Proposition 5.5.8.15(2)."
+        },
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "Lemma 5.5.8.4, p. 506",
+          "excerpt": "The simplicial set N(∆)op is sifted.",
+          "match": "Lemma 5.5.8.4."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EnhancedDerivedSheaves:E5:animation/animated-commutative-rings",
+      "parentStageId": "EnhancedDerivedSheaves:E5:animation",
+      "title": "Animated commutative rings as finite-product-preserving functors on polynomial algebras",
+      "kind": "definition",
+      "statement": "For a commutative ring k let Poly_k be the category of polynomial k-algebras k[x₁, …, x_n]. An animated commutative k-algebra is a functor Poly_k^op → S that carries tensor products of polynomial algebras to products of spaces; these form CAlg^an_k ⊆ Fun(Poly_k^op, S), and for k = Z they are the animated commutative rings (Bhatt–Lurie, Absolute prismatic cohomology, Definition A.1). Ordinary commutative k-algebras embed fully faithfully as the discrete objects (Example A.2), and simplicial commutative k-algebras form a simplicial model category whose underlying ∞-category is CAlg^an_k (Remark A.4, citing HTT Corollary 5.5.9.3). For C with small sifted colimits, every F: Poly_k → C has an extension LF uniquely determined by commuting with sifted colimits (Proposition A.5, proved by reference to HTT Proposition 5.5.8.15), and LF preserves all small colimits iff F preserves finite coproducts (Remark A.7).",
+      "hypotheses": [
+        "Definition A.1 is HTT Definition 5.5.8.8 for C = Poly_k, whose coproduct is the tensor product (reader's observation, not stated by Bhatt–Lurie); Poly_k is only essentially small.",
+        "Česnavičius–Scholze (Purity for flat cohomology, §5.1) and Lurie's Spectral Algebraic Geometry (§25.1) are not in the library; the definition is taken from Bhatt–Lurie's appendix."
+      ],
+      "proofSteps": [
+        "Proposition A.5: 'See Proposition 5.5.8.15' of HTT, applied to C = Poly_k.",
+        "Remark A.4: the comparison with simplicial commutative rings is cited to HTT Corollary 5.5.9.3 (not read).",
+        "Remark A.7: the criterion for preserving all small colimits follows from HTT Corollary 5.5.8.17 and Proposition 5.5.8.15(3)."
+      ],
+      "acceptance": [
+        "Tests from the stage: a polynomial algebra, a regular quotient and a nonregular quotient as animated rings, feeding the cotangent complex constructed by DerivedDeRhamCohomology:DD.0.",
+        "Derived tensor products R ⊗^L F_p are coproducts of animated commutative rings (Bhatt–Lurie Remark 1.7.5); no further tensor-pushout results were read."
+      ],
+      "sources": [
+        {
+          "sourceId": "BhattLurie-APC",
+          "locator": "Appendix A, Definition A.1, Example A.2, Remark A.4, Proposition A.5, Remark A.7, from p. 224; Example 1.7.4 and Remark 1.7.5, pp. 12–13",
+          "excerpt": "which preserves finite products (that is, it carries tensor products of polynomial algebras to products",
+          "match": "Definition A.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "EnhancedDerivedSheaves:E3/relative-left-kan-extension-along-full-inclusion",
+      "target": "EnhancedDerivedSheaves:E3/existence-of-relative-left-kan-extensions",
+      "reason": "The existence criterion and the colimit comparison are statements about the pointwise p-left Kan extension condition and use the invariance lemmas.",
+      "sources": [
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "Lemmas 4.3.2.7 and 4.3.2.13, pp. 274–283"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E3/existence-of-relative-left-kan-extensions",
+      "target": "EnhancedDerivedSheaves:E3/left-kan-extension-uniqueness-and-adjunction",
+      "reason": "Proposition 4.3.2.15 combines Lemma 4.3.2.13 with Lemma 4.3.2.12, whose proof reuses the filtration of Lemma 4.3.2.7.",
+      "sources": [
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "Lemma 4.3.2.12 and Proposition 4.3.2.15, pp. 279–284"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E3/relative-left-kan-extension-along-full-inclusion",
+      "target": "EnhancedDerivedSheaves:E3/fibrewise-kan-extensions-and-fibre-slice-cofinality",
+      "reason": "Lemma 4.3.3.9 compares the pointwise Kan extension condition over C⁰_{/C} with the fibrewise condition by a cofinality argument.",
+      "sources": [
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "Lemma 4.3.3.9 proof, pp. 289–290"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E0",
+      "target": "EnhancedDerivedSheaves:E3/existence-of-relative-left-kan-extensions",
+      "reason": "The existence and lifting proofs use categorical fibrations, relative joins and Cartesian fibrations of relative undercategories (HTT Definition 4.2.2.1, Propositions 4.2.2.4, 2.4.3.2), which E0's coCartesian-fibration layer supplies.",
+      "sources": [
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "Proofs of Lemmas 4.3.2.12–4.3.2.13, pp. 279–283"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E3/existence-of-relative-left-kan-extensions",
+      "target": "DiamondSixOperations:S2",
+      "reason": "S2 defines non-quasicompact Rf_! by left Kan extension (ECD 22.13) and the relative Kan extension over a hypercover diagram (construction before 22.16); this node supplies the existence criterion and its size hypothesis.",
+      "sources": [
+        {
+          "sourceId": "Scholze-ECD",
+          "locator": "Definition 22.13 and construction over Δ, pp. 135–136"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E3/left-kan-extension-uniqueness-and-adjunction",
+      "target": "DiamondSixOperations:S2",
+      "reason": "S2's composition law and projection formula (ECD 22.21, 22.23) recover functors from their restriction to prop-supported objects, which needs uniqueness of Kan extensions.",
+      "sources": [
+        {
+          "sourceId": "Scholze-ECD",
+          "locator": "Propositions 22.21 and 22.23, pp. 138–139"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E3/fibrewise-kan-extensions-and-fibre-slice-cofinality",
+      "target": "DiamondSixOperations:S2",
+      "reason": "S2 proves ECD 22.16 (fibrewise identification) and 22.17 (preservation of coCartesian edges) by the fibre-slice cofinality recorded here.",
+      "sources": [
+        {
+          "sourceId": "Scholze-ECD",
+          "locator": "Lemmas 22.16–22.17, p. 137"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E3/enhanced-derived-categories-of-ringed-topoi",
+      "target": "DiamondSixOperations:S2",
+      "reason": "S2 needs the coherent Δ-indexed diagram of coefficient categories with pullbacks along a hypercover, which ECD takes from Liu–Zheng.",
+      "sources": [
+        {
+          "sourceId": "Scholze-ECD",
+          "locator": "Construction before Lemma 22.16, p. 136"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-colimit-criteria",
+      "target": "DiamondSixOperations:S3",
+      "reason": "S3 constructs Rf^! as the right adjoint of the colimit-preserving Rf_! (ECD Theorem 23.1).",
+      "sources": [
+        {
+          "sourceId": "Scholze-ECD",
+          "locator": "Theorem 23.1, p. 140"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-colimit-criteria",
+      "target": "DiamondEtaleCohomology:C2",
+      "reason": "C2 constructs the right adjoint to D_ét ⊆ D(Y_v, Λ) at cutoffs (ECD Corollary 17.2) from colimit preservation and the adjoint functor theorem.",
+      "sources": [
+        {
+          "sourceId": "Scholze-ECD",
+          "locator": "Lemma 17.1 and Corollary 17.2, pp. 96–97"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E3/partial-adjoints-of-coherent-diagrams",
+      "target": "DiamondSixOperations:S3",
+      "reason": "S3 constructs units, counits, mates and base-change transformations of the six operations; coherent adjoint diagrams and adjointable squares are the construction supplied here.",
+      "sources": [
+        {
+          "sourceId": "LiuZheng-v4",
+          "locator": "Definition 2.2.1 and Proposition 2.2.4, pp. 77–81"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E0/stable-infinity-categories-and-triangulated-homotopy-category",
+      "target": "EnhancedDerivedSheaves:E1/derived-infinity-category-of-grothendieck-abelian-category",
+      "reason": "Stability of D(A) (HA Proposition 1.3.5.9) is proved with the stable-category definitions and Proposition 1.3.2.10.",
+      "sources": [
+        {
+          "sourceId": "Lurie-HA",
+          "locator": "Proposition 1.3.5.9, p. 125"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E0/dg-nerve-and-dold-kan-comparison",
+      "target": "EnhancedDerivedSheaves:E1/derived-infinity-category-of-grothendieck-abelian-category",
+      "reason": "D(A) is defined as the dg nerve of the fibrant complexes (Definition 1.3.5.8), and its stability uses Proposition 1.3.2.10, whose proof uses the Dold–Kan comparison Proposition 1.3.1.17.",
+      "sources": [
+        {
+          "sourceId": "Lurie-HA",
+          "locator": "Definition 1.3.5.8, p. 125; Proposition 1.3.2.10 proof, p. 91"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1/derived-infinity-category-of-grothendieck-abelian-category",
+      "target": "EnhancedDerivedSheaves:E3/enhanced-derived-categories-of-ringed-topoi",
+      "reason": "Liu–Zheng Lemma 3.2.2(2) identifies each value of T^⊗ with the derived ∞-category of a Grothendieck abelian category and uses HA Propositions 1.3.5.9, 1.3.5.15 and 1.3.5.21.",
+      "sources": [
+        {
+          "sourceId": "LiuZheng-v4",
+          "locator": "Lemma 3.2.2 proof, pp. 86–87"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E5:abstract/infinity-operads-and-symmetric-monoidal-infinity-categories",
+      "target": "EnhancedDerivedSheaves:E3/enhanced-derived-categories-of-ringed-topoi",
+      "reason": "Only the symmetric monoidal refinement T^⊗ with values in CAlg(Cat_∞)^L_{pr,st,cl} uses symmetric monoidal ∞-categories and commutative algebra objects.",
+      "sources": [
+        {
+          "sourceId": "LiuZheng-v4",
+          "locator": "§2.3 and (3.1)–(3.2), pp. 82–86"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1/k-injective-and-k-flat-resolutions-for-sheaves-of-modules",
+      "target": "EnhancedDerivedSheaves:E2/left-completion-and-postnikov-convergence",
+      "reason": "Bhatt–Scholze Lemma 3.3.2 and Proposition 3.3.3 use K-injective resolutions in Ab(X) and Ab(X^N) without citation; the Stacks theorem supplies them for Grothendieck abelian categories.",
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "Proofs of Lemma 3.3.2 and Proposition 3.3.3, pp. 18–19"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E2/replete-topoi-and-exactness-of-countable-limits",
+      "target": "EnhancedDerivedSheaves:E2/left-completion-and-postnikov-convergence",
+      "reason": "Proposition 3.3.3 uses exactness of countable products (3.1.9) and the surjectivity argument of 3.1.10.",
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "Proof of Proposition 3.3.3, p. 19"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E2/left-completion-and-postnikov-convergence",
+      "target": "EnhancedDerivedSheaves:E2/hypercover-descent-in-replete-topoi",
+      "reason": "The unbounded case of Proposition 3.3.6 writes K ≃ R lim τ^{≥−n}K using left completeness of X and of each X_n.",
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "Proof of Proposition 3.3.6, p. 20"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E2/replete-topoi-and-exactness-of-countable-limits",
+      "target": "EnhancedDerivedSheaves:E2/hypercover-descent-in-replete-topoi",
+      "reason": "The unbounded case needs each term X_n replete, which follows from repleteness of slices (Lemma 3.1.2).",
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "Lemma 3.1.2 and proof of Proposition 3.3.6, pp. 16, 20"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E2/left-completion-and-postnikov-convergence",
+      "target": "EnhancedDerivedSheaves:E4/derived-completion-of-sheaves-in-replete-topoi",
+      "reason": "Proposition 3.4.4 uses that D(X) is left-complete because X is replete.",
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "Proof of Proposition 3.4.4, p. 23"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E2/replete-topoi-and-exactness-of-countable-limits",
+      "target": "EnhancedDerivedSheaves:E4/derived-completion-of-sheaves-in-replete-topoi",
+      "reason": "Proposition 3.4.2 and Lemmas 3.4.13–3.4.14 use lim = R lim for towers of surjections and the cohomological dimension of R lim (3.1.10–3.1.11).",
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "Proofs of Lemmas 3.4.13–3.4.14 and Proposition 3.4.2, pp. 23–24"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E2/hypercover-descent-in-replete-topoi",
+      "target": "EnhancedDerivedSheaves:E4/derived-completion-of-sheaves-in-replete-topoi",
+      "reason": "Lemma 3.4.9 constructs the completion where global generators exist and descends along a hypercover.",
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "Proof of Lemma 3.4.9, pp. 21–22"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E4/derived-completion-of-sheaves-in-replete-topoi",
+      "target": "EnhancedDerivedSheaves:E4/reconstruction-from-finite-level-coefficients",
+      "reason": "Proposition 3.5.1 reduces to Lemma 3.4.12 and the construction of Lemma 3.4.9.",
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "Proof of Proposition 3.5.1, p. 24"
+        }
+      ]
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.1",
+      "target": "EnhancedDerivedSheaves:E4/derived-completion-of-sheaves-in-replete-topoi",
+      "reason": "DD.1 owns the generic module-level derived completion (Koszul model, generator independence, conservativity of reduction); this node applies it to sheaves in a replete topos rather than constructing a second completion functor.",
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "§3.4, pp. 20–24"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E4/reconstruction-from-finite-level-coefficients",
+      "target": "AdicCoefficientsAndComparisons:L0",
+      "reason": "L0 proves ECD Proposition 26.2 at the enhanced level; its proof uses Bhatt–Scholze Lemma 3.5.7, whose noetherian and regular-ideal hypotheses are recorded here.",
+      "sources": [
+        {
+          "sourceId": "Scholze-ECD",
+          "locator": "Proof of Proposition 26.2, p. 161"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E2/replete-topoi-and-exactness-of-countable-limits",
+      "target": "DiamondEtaleCohomology:C0",
+      "reason": "C0 verifies repleteness for the actual v-sites and quasi-pro-étale sites by countable lifting towers; the definition and its consequences are supplied here.",
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "§3.1, pp. 16–17"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E2/left-completion-and-postnikov-convergence",
+      "target": "DiamondEtaleCohomology:C0",
+      "reason": "C0 derives left completeness of those sites from repleteness (Proposition 3.3.3) instead of assuming it.",
+      "sources": [
+        {
+          "sourceId": "BhattScholze-ProEtale",
+          "locator": "Proposition 3.3.3, p. 19"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E2/hypercover-descent-in-replete-topoi",
+      "target": "DiamondEtaleCohomology:C2",
+      "reason": "C2 proves enhanced hyperdescent (ECD Proposition 17.3), whose proof cites Bhatt–Scholze Proposition 3.3.6.",
+      "sources": [
+        {
+          "sourceId": "Scholze-ECD",
+          "locator": "Proposition 17.3, p. 97"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E3/left-kan-extension-uniqueness-and-adjunction",
+      "target": "EnhancedDerivedSheaves:E5:presentability/ind-completion-compact-objects-and-extension",
+      "reason": "Proposition 5.3.5.10 concludes with Corollary 4.3.2.16.",
+      "sources": [
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "Proof of Proposition 5.3.5.10, p. 406"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E3/left-kan-extension-uniqueness-and-adjunction",
+      "target": "EnhancedDerivedSheaves:E5:animation/sifted-colimits-and-p-sigma",
+      "reason": "Proposition 5.5.8.15(1) uses Proposition 4.3.2.15.",
+      "sources": [
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "Proof of Proposition 5.5.8.15, pp. 510–511"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E5:animation/sifted-colimits-and-p-sigma",
+      "target": "EnhancedDerivedSheaves:E5:animation/animated-commutative-rings",
+      "reason": "Bhatt–Lurie Proposition A.5 is proved by reference to HTT Proposition 5.5.8.15, and Definition A.1 is the case C = Poly_k of Definition 5.5.8.8.",
+      "sources": [
+        {
+          "sourceId": "BhattLurie-APC",
+          "locator": "Definition A.1 and Proposition A.5, p. 224"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E5:animation/animated-commutative-rings",
+      "target": "DerivedDeRhamCohomology:DD.0",
+      "reason": "DD.0 constructs the cotangent complex from simplicial polynomial resolutions and extends functors from polynomial algebras by sifted colimits, which needs animated rings and the extension LF.",
+      "sources": [
+        {
+          "sourceId": "BhattLurie-APC",
+          "locator": "Proposition A.5 and Remark A.7, p. 224"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E5:abstract/idempotent-completion-and-stability",
+      "target": "EnhancedDerivedSheaves:E5:presentability/ind-completion-compact-objects-and-extension",
+      "reason": "Lemma 5.4.2.4 identifies the compact objects of Ind_κ(C) with the idempotent completion of C in the sense of Definition 5.1.4.1.",
+      "sources": [
+        {
+          "sourceId": "Lurie-HTT",
+          "locator": "Lemma 5.4.2.4, pp. 424–425"
+        }
+      ]
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E0/stable-infinity-categories-and-triangulated-homotopy-category",
+      "target": "EnhancedDerivedSheaves:E5:abstract/idempotent-completion-and-stability",
+      "reason": "HA Corollary 1.1.3.7 is a statement about stable ∞-categories and closure under shifts and finite colimits.",
+      "sources": [
+        {
+          "sourceId": "Lurie-HA",
+          "locator": "Corollary 1.1.3.7, p. 33"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "EnhancedDerivedSheaves:E0",
+      "status": "partial",
+      "remaining": [
+        "coCartesian fibrations, straightening/unstraightening and coCartesian sections over Δ and products with intervals (HTT §§2.4, 3.2) not read.",
+        "Equivalences, slices, limits and colimits with mapping-space universal properties beyond the cited statements; the shift and cone sign comparison with the cochain-complex convention.",
+        "Dold–Kan and simplicial-group inputs (HA §1.2.3, HTT §2.2.2) used in Proposition 1.3.1.17 read as statements only."
+      ]
+    },
+    {
+      "stageId": "EnhancedDerivedSheaves:E1",
+      "status": "partial",
+      "remaining": [
+        "An explicit identification of hD(A) with the ordinary unbounded derived category (not stated in HA; to be assembled from HA 1.3.5.14–1.3.5.15 and Stacks 13.31.2).",
+        "Functorial K-flat replacement (Stacks gives existence only), enhanced Lf^* ⊣ Rf_*, symmetric monoidal coherence, derived internal Hom and change of coefficients at the enhanced level.",
+        "HA §1.3.4 localization results (1.3.4.5, 1.3.4.16, 1.3.4.20–1.3.4.25) read as statements only."
+      ]
+    },
+    {
+      "stageId": "EnhancedDerivedSheaves:E2",
+      "status": "partial",
+      "remaining": [
+        "Simplicial sites, cartesian complexes, totalizations; independence of the hypercover and refinement compatibility.",
+        "Definition of hypercovers and the bounded-below descent case (called well known in Bhatt–Scholze); a site version of the cohomological-dimension criterion of Stacks Tag 0719.",
+        "Postnikov convergence in the hypercomplete ∞-topos (Bhatt–Scholze Question 3.1.12)."
+      ]
+    },
+    {
+      "stageId": "EnhancedDerivedSheaves:E3",
+      "status": "partial",
+      "remaining": [
+        "Accessible localizations and reflective/coreflective subcategories (HTT §5.2.7, §5.5.4) and the proofs of HTT 5.5.2.9, 5.5.3.12–5.5.3.13 and HA 1.4.4.1.",
+        "A relative version of HTT Lemma 4.3.3.9 over a base and a criterion for preservation of coCartesian edges (not in HTT).",
+        "Cutoff compatibility of adjoints for large sites (ECD 17.1–17.2) and the pasting/identity/composition coherence of mates."
+      ]
+    },
+    {
+      "stageId": "EnhancedDerivedSheaves:E4",
+      "status": "partial",
+      "remaining": [
+        "Enhanced inverse limit of the ∞-categories with coefficients Λ/Iⁿ and its identification with complete objects over the projective-system topos (uncited in ECD 26.2).",
+        "Removal of the noetherian hypothesis for regular-sequence ideals (asserted in ECD 26.2); compatibility of reduction and finite-level coefficient change with the eligible operations (ECD Remark 26.3)."
+      ]
+    },
+    {
+      "stageId": "EnhancedDerivedSheaves:E5",
+      "status": "partial",
+      "remaining": [
+        "Parent stage: see E5:abstract, E5:presentability and E5:animation; E5:cotangent-export and E5:spectra-comparison are not read."
+      ]
+    },
+    {
+      "stageId": "EnhancedDerivedSheaves:E5:abstract",
+      "status": "partial",
+      "remaining": [
+        "Modules over algebras, operadic algebras beyond the definitions, universal properties of lax monoidal functors; HA §§2.2–2.4 (cartesian structures) seen only as cited labels.",
+        "A labelled ∞-categorical definition of idempotent completeness; the interplay of exact functors with the Karoubi envelope."
+      ]
+    },
+    {
+      "stageId": "EnhancedDerivedSheaves:E5:presentability",
+      "status": "partial",
+      "remaining": [
+        "Coherent finite and profinite group actions, homotopy fixed points and equivariant functor categories (not read).",
+        "Module and base-change compatibilities under compact generation; proofs of HA Proposition 4.8.1.10 and HTT Theorem 5.5.1.1."
+      ]
+    },
+    {
+      "stageId": "EnhancedDerivedSheaves:E5:animation",
+      "status": "partial",
+      "remaining": [
+        "HTT Corollary 5.5.9.3 (model of simplicial commutative rings) and Lemma 5.5.8.13; tensor pushouts of animated rings.",
+        "Česnavičius–Scholze §5.1 and Lurie, Spectral Algebraic Geometry §25.1 are not in the library."
+      ]
+    },
+    {
+      "stageId": "EnhancedDerivedSheaves:E5:cotangent-export",
+      "status": "not_read",
+      "remaining": [
+        "Re-export stage: the cotangent complex is constructed by DerivedDeRhamCohomology:DD.0; no source read here."
+      ]
+    },
+    {
+      "stageId": "EnhancedDerivedSheaves:E5:spectra-comparison",
+      "status": "not_read",
+      "remaining": [
+        "Late comparison after StableHomotopyKTheory H.5; no concrete spectrum source is available (see the StableHomotopyKTheory packet gap)."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Relative fibrewise Kan extensions and preservation of coCartesian edges are not in HTT",
+      "neededBy": [
+        "EnhancedDerivedSheaves:E3/fibrewise-kan-extensions-and-fibre-slice-cofinality",
+        "EnhancedDerivedSheaves:E3"
+      ],
+      "detail": "The stage text attributes to HTT §4.3.2 'the cofinality result used when restricting from a total diagram to a fibre' and 'the criterion that a fibrewise transformation preserves coCartesian edges'. Neither is a labelled result there: the cofinality is proved inside HTT Lemma 4.3.3.9 for absolute Kan extensions only (HTT §4.3.3 does not develop the relative theory), and ECD Lemma 22.17 derives preservation of coCartesian edges from its own Lemma 22.16 and Proposition 22.15. A relative version must be proved from §4.3.2 (candidate route: Lemma 4.3.2.13 with Propositions 4.3.1.7, 4.3.1.10 and the smoothness argument of 4.3.3.9). Next action: check Kerodon or Lurie's later accounts for a relative statement; otherwise record the proof obligation explicitly."
+    },
+    {
+      "title": "Size hypothesis in ECD's use of HTT Corollary 4.3.2.14",
+      "neededBy": [
+        "EnhancedDerivedSheaves:E3/existence-of-relative-left-kan-extensions"
+      ],
+      "detail": "Corollary 4.3.2.14 needs a small source ∞-category; ECD applies it to the prop-supported étale categories over Δ without discussing smallness. Lemma 4.3.2.13 needs no size bound but requires pointwise relative colimits. Next action: decide whether to work at a cutoff κ (as in ECD 17.1) or to use Lemma 4.3.2.13 with fibrewise colimits and Proposition 4.3.1.10."
+    },
+    {
+      "title": "Enough points for the v-sites used with the Liu–Zheng construction",
+      "neededBy": [
+        "EnhancedDerivedSheaves:E3/enhanced-derived-categories-of-ringed-topoi"
+      ],
+      "detail": "Liu–Zheng's flat model structure and the functor T^⊗ are built on ringed topoi with enough points. In the parts of ECD read, enough points is established for Y_ét of a locally spatial diamond (Proposition 14.3) but was not found for Y_{v,κ}. Either establish it or use the injective model (HA §1.3.5) for pullback coherence where flatness is not needed. Next action: search ECD §§8–14 for points of the v-site and read Liu–Zheng v4 Remark 3.1.4."
+    },
+    {
+      "title": "Proofs of the presentable adjoint functor theorem and of limits in Pr^L",
+      "neededBy": [
+        "EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-colimit-criteria"
+      ],
+      "detail": "Only statements of HTT Corollary 5.5.2.9, Propositions 5.5.3.12–5.5.3.13 and HA Proposition 1.4.4.1 were read. Liu–Zheng v4 Lemma 2.1.3 cites 'HA Lemma 1.2.4.14' for the fact that a functor is exact iff its homotopy functor is triangulated; in the 2017 HA that label is a different statement, and the correct label was not found. Next action: read HTT §5.5.2 (5.5.2.2–5.5.2.9), §5.5.3 and HA §1.4.4 with proofs."
+    },
+    {
+      "title": "Coherence steps asserted without proof in ECD §§17, 22 and 26",
+      "neededBy": [
+        "EnhancedDerivedSheaves:E3/enhanced-derived-categories-of-ringed-topoi",
+        "EnhancedDerivedSheaves:E3"
+      ],
+      "detail": "ECD asserts without proof: independence of choices of the pullback f_v^* (the choices form a cofiltered category) and composition coherence; the passage from an equivalence on homotopy categories (Stacks Tag 0DC7, Bhatt–Scholze 3.3.6) to one of stable ∞-categories in Proposition 17.3; independence of the hypercover in Definition 22.18; the Δ × Δ¹ diagram in Proposition 22.19; and, in Proposition 26.2, the identification of complete objects over the projective-system topos with the ∞-categorical limit lim_n D(Y_v, Λ/Iⁿ) and the removal of the noetherian hypothesis from Bhatt–Scholze Lemma 3.5.7. These are proof obligations for E3/E4 and for DiamondSixOperations:S2 and AdicCoefficientsAndComparisons:L0."
+    },
+    {
+      "title": "Kan-extension uniqueness and Ind-objects are used before the stages that own them",
+      "neededBy": [
+        "EnhancedDerivedSheaves:E0/stable-infinity-categories-and-triangulated-homotopy-category",
+        "EnhancedDerivedSheaves:E5:abstract/idempotent-completion-and-stability",
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E5:abstract"
+      ],
+      "detail": "HA Remark 1.1.1.7 and Theorem 1.1.2.14 (stage E0) and HTT Proposition 5.1.4.9 (stage E5:abstract) use HTT Proposition 4.3.2.15, and HA Corollary 1.1.3.7 (E5:abstract) uses HTT Lemma 5.4.2.4 on Ind-objects. The atlas places the Kan-extension theorem in E3, which requires E0, and Ind-completion in E5:presentability, which requires E5:abstract. No node-level links were added in those directions because they would create stage cycles. Recommendation: move the HTT §4.3.2 existence and uniqueness nodes to E0 (or a new sub-stage before E0's stable API) and place stability of idempotent completions after Ind-completion."
+    },
+    {
+      "title": "Homotopy category of D(A) versus the ordinary derived category, and functorial K-flat replacement",
+      "neededBy": [
+        "EnhancedDerivedSheaves:E1/derived-infinity-category-of-grothendieck-abelian-category",
+        "EnhancedDerivedSheaves:E1/k-injective-and-k-flat-resolutions-for-sheaves-of-modules"
+      ],
+      "detail": "HA does not state that hD(A) is the ordinary unbounded derived category; the Stacks Project proves existence but not functoriality of K-flat resolutions; neither source gives an ∞-categorical Lf^* ⊣ Rf_*. Next action: assemble the comparison from HA Propositions 1.3.5.14–1.3.5.15 and Stacks Lemma 13.31.2, and read Liu–Zheng v4 Remark 3.1.4 for the flat/injective Quillen equivalence (which needs enough points)."
+    },
+    {
+      "title": "Hypercovers and bounded-below descent are imported in Bhatt–Scholze §3.3",
+      "neededBy": [
+        "EnhancedDerivedSheaves:E2/hypercover-descent-in-replete-topoi"
+      ],
+      "detail": "Bhatt–Scholze do not define hypercovers or prove the D^+_cart case of Proposition 3.3.6. ECD cites Stacks Tag 0DC7 (Lemma 85.23.3 in the 2026 book) for the same statement on homotopy categories. Next action: read Stacks §§85.12, 85.18 and 85.23 (Lemmas 85.18.1, 85.18.4, 85.12.6)."
+    },
+    {
+      "title": "Cohomological-dimension criterion for left completeness on sites",
+      "neededBy": [
+        "EnhancedDerivedSheaves:E2/left-completion-and-postnikov-convergence"
+      ],
+      "detail": "Bhatt–Scholze Proposition 3.3.7(2) is proved only by citing Stacks Tag 0719, which the reader found (by an online check, not verified against the local copy) to be stated for ringed spaces. A site or topos version with uniform bounds is needed by stage E2's promotion from bounded to unbounded results. Next action: read Tag 0719 and Cohomology on Sites §21.24 in the local Stacks copy."
+    },
+    {
+      "title": "Candidate library primitives found by grep (unchecked)",
+      "neededBy": [
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E1",
+        "EnhancedDerivedSheaves:E3",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "EnhancedDerivedSheaves:E5:animation"
+      ],
+      "detail": "Grep of the pinned Mathlib (commit 30a58f79…) and TauCeti found only ordinary 1-categorical or model-level candidates, none compared with the source statements: Mathlib/AlgebraicTopology/Quasicategory/Basic.lean and Quasicategory/InnerFibration.lean (quasicategories, inner fibrations); Mathlib/CategoryTheory/FiberedCategory/Cocartesian.lean; Mathlib/CategoryTheory/Functor/KanExtension/Pointwise.lean (pointwise Kan extensions of ordinary functors); Mathlib/CategoryTheory/Presentable/LocallyPresentable.lean; Mathlib/CategoryTheory/Limits/Indization/Category.lean (Ind); Mathlib/CategoryTheory/Limits/Sifted.lean (IsSifted, the ordinary notion, weaker than siftedness of a nerve by HTT Warning 5.5.8.2); Mathlib/CategoryTheory/Idempotents/Karoubi.lean; Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean (SymmetricCategory) with LaxMonoidal and CommMon; Mathlib/Algebra/Homology/HomotopyCategory/KInjective.lean and DerivedCategory/KInjective.lean; Mathlib/Algebra/Category/ModuleCat/Sheaf.lean (SheafOfModules); Mathlib/CategoryTheory/Abelian/GrothendieckCategory/Basic.lean (IsGrothendieckAbelian); TauCeti symmetric monoidal instances for comodules and the Koszul braiding. No dg nerve, left completion or Postnikov, animated or simplicial commutative ring, ∞-categorical straightening, IsSifted instance for SimplexCategoryᵒᵖ, pretriangulated Karoubi or monoidal Ind declarations were found."
+    }
+  ]
+}

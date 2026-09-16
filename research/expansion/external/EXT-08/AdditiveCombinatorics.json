@@ -1,0 +1,523 @@
+{
+  "roadmapId": "AdditiveCombinatorics",
+  "status": "partial",
+  "summary": "Source decomposition of the Green-Tao transference argument from arXiv:math/0404188v6: the Gowers inner product and U^d norms, Lemma 5.2 (pseudorandom measures are U^d-close to 1), the generalised von Neumann theorem relative to a pseudorandom majorant, the linear forms and correlation conditions with their exact parameters, the relative Szemeredi theorem (Theorem 3.5) and its complete deduction from the generalised Koopman-von Neumann structure theorem, the W-trick and the Goldston-Yildirim truncated divisor-sum majorant, and the endgame producing prime progressions. Two structural findings about the existing atlas are recorded: the Green-Tao route consumes neither AC.0 nor AC.1, and the existing SV.3 -> AC.4 edge (Bombieri-Vinogradov) does not match what the source actually uses. The largest unproved input, Szemeredi's theorem itself, is assumed by the source and is recorded as a gap rather than presented as an input package. AC.0, AC.1 and AC.5 are not read; the Gowers-norm inverse theorem named by AC.3's own source route was not acquired.",
+  "sources": [
+    {
+      "id": "green-tao-2008",
+      "title": "The primes contain arbitrarily long arithmetic progressions",
+      "authors": "Ben Green and Terence Tao",
+      "edition": "arXiv:math/0404188v6, 23 September 2007 (56 pp.); the version corresponding to Annals of Mathematics 167 (2008), 481-547",
+      "url": "https://arxiv.org/abs/math/0404188",
+      "sha256": "d03dd6156165fc92e488b3fec35a574c8f7c9df55125cec0f3eebdf95d7256e1",
+      "readSections": [
+        "Abstract and section 1 (Introduction), Theorems 1.1 and 1.2, printed pp. 1-2",
+        "Section 2: Proposition 2.1 (Szemeredi), Conjecture 2.2, Proposition 2.3 (functional Szemeredi) and the Varnavides remark, the definition (2.4) of a measure, printed pp. 3-5",
+        "Section 3: Definition 3.1 (linear forms condition) with examples (3.1)-(3.4), Definition 3.2 (correlation condition) with (3.5)-(3.6), Definition 3.3 (k-pseudorandom), Lemma 3.4 with proof, Theorem 3.5 with (3.7)-(3.9), printed pp. 7-10",
+        "Section 5: Definition 5.1 (Gowers inner product), positivity (5.2)-(5.3), the norm (5.4), Lemma 5.2 with proof, Proposition 5.3 (generalised von Neumann) with hypothesis (5.11) and the opening of its proof, printed pp. 11-14",
+        "Section 8: Proposition 8.1 (generalised Koopman-von Neumann structure theorem) with (8.1)-(8.3), and the complete deduction of Theorem 3.5 from it, printed pp. 28-30",
+        "Section 9: the W-trick and the definition of the modified von Mangoldt function, Proposition 9.1, the deduction of Theorem 1.1 from Propositions 9.1 and 3.5, Definition 9.2 (Goldston-Yildirim truncated divisor sum), Definition 9.3, Lemma 9.4 with proof, Propositions 9.5, 9.6, Lemma 9.7, statements of Propositions 9.8 and 9.10, printed pp. 35-40 and 43",
+        "Appendix A: Lemma A.1 (classical zero-free region) with its citation to Titchmarsh Chapter 3, printed p. 51"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AdditiveCombinatorics:AC.2/szemeredi-set-form-and-functional-form",
+      "parentStageId": "AdditiveCombinatorics:AC.2",
+      "title": "Szemeredi's theorem: set form, functional form, and the correspondence between them",
+      "kind": "theorem",
+      "statement": "(Set form, Proposition 2.1) For every real delta > 0 and integer k >= 3 there is a minimal N_0(delta,k) < infinity such that whenever N >= N_0(delta,k) and A is a subset of Z_N := Z/NZ of cardinality at least delta N, A contains an arithmetic progression of length k. (Functional form, Proposition 2.3) For fixed 0 < delta <= 1 and k >= 1, if f : Z_N -> R_{>=0} satisfies 0 <= f(x) <= nu_const(x) = 1 for all x and E(f(x) | x in Z_N) >= delta, then E(f(x) f(x+r) ... f(x+(k-1)r) | x, r in Z_N) >= c(k,delta) - o_{k,delta}(1) for a constant c(k,delta) > 0 independent of f and N. The two forms differ in passing from sets to functions and in asserting the existence of >> N^2 progressions rather than one.",
+      "hypotheses": [
+        "N is a positive integer; throughout the source N is additionally assumed prime for the ambient group Z_N to admit division by 2,...,k and arbitrary linear changes of variable",
+        "The functional form is stated with the density lower bound E(f) >= delta and the pointwise upper bound f <= 1; it is NOT a statement about indicator functions only",
+        "c(k,delta) does not depend on f or N; the source records the explicit bound c(k,delta) >= exp(-exp(delta^{-c_k})) obtainable by combining Varnavides' argument with Gowers' quantitative Szemeredi",
+        "IMPORT STATUS: Green-Tao do not prove Szemeredi's theorem. They write explicitly that they must assume it, and their paper is self-contained apart from that assumption."
+      ],
+      "proofSteps": [
+        "Proposition 2.1 is quoted from Szemeredi's papers [37,38]; the source lists Gowers' bound N_0(delta,k) <= 2^{2^{delta^{-c_k}}} and Rankin's lower bound but proves neither.",
+        "The passage from Proposition 2.1 to Proposition 2.3 is attributed in the source to Varnavides: the set form gives one progression, and a combinatorial averaging argument over subprogressions upgrades this to a positive proportion of progressions. The source calls this 'combinatorial trickery (of a less trivial nature this time)' and cites a direct proof in [40].",
+        "Passing from sets to functions is described as easy, 'for instance by probabilistic arguments'.",
+        "No proof of either proposition is given in the source read."
+      ],
+      "acceptance": [
+        "Check the quantifier structure: N_0 depends on both delta and k, and no effective bound is used anywhere in the Green-Tao argument.",
+        "Check the finite-to-positive-proportion step (Varnavides) separately from the existence statement; AC.2's acceptance condition requires exactly this correspondence to be proved, and it is NOT proved in the source read.",
+        "Degenerate check: in the functional form, the r = 0 term contributes E(f^k) which is not o(1) in general; any deduction of a genuine progression must discard r = 0 explicitly (Green-Tao do this in their section 9 endgame)."
+      ],
+      "sources": [
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Proposition 2.1 and Proposition 2.3 with the surrounding discussion, printed pp. 3-5",
+          "excerpt": "Proposition 2.3 (Szemeredi's theorem, again). Write nu_const : Z_N -> R+ for the constant function nu_const == 1. Let 0 < delta <= 1 and k >= 1 be fixed. ... Then we have E(f(x)f(x+r)...f(x+(k-1)r)|x,r in Z_N) >= c(k,delta) - o_{k,delta}(1) for some constant c(k,delta) > 0 which does not depend on f or N. ... such a statement can be deduced from Proposition 2.1 with some combinatorial trickery (of a less trivial nature this time - the argument was first worked out by Varnavides [43]).",
+          "match": "Gives both forms with their exact hypotheses and the attribution of the correspondence to Varnavides, which is the correspondence AC.2's acceptance condition asks to be proved."
+        },
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Section 2, paragraph after Conjecture 2.2, printed p. 4",
+          "excerpt": "In one sentence, our argument can be described instead as a transference principle which allows us to deduce Theorems 1.1 and 1.2 from Szemeredi's theorem, regardless of what bound we know for N_0(delta,k) ... Thus, in this paper, we must assume Szemeredi's theorem. However with this one (rather large!) caveat our paper is self-contained.",
+          "match": "Establishes that Szemeredi's theorem is an assumed input of this source, so AC.2 cannot be closed from this source alone."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdditiveCombinatorics:AC.3/gowers-inner-product-and-uniformity-norm",
+      "parentStageId": "AdditiveCombinatorics:AC.3",
+      "title": "Gowers inner product, its positivity, and the U^d norms on Z_N",
+      "kind": "definition",
+      "statement": "For d >= 0 and a {0,1}^d-tuple (f_omega) of functions in L^infinity(Z_N), the d-dimensional Gowers inner product is <(f_omega)>_{U^d} := E( prod_{omega in {0,1}^d} f_omega(x + omega . h) | x in Z_N, h in Z_N^d ). If f_omega does not depend on the last digit omega_d, the inner product can be rewritten as an average over h' in Z_N^{d-1} of the square of an inner average, hence is non-negative; in particular <(f)>_{U^d} >= 0 for d >= 1, and one defines ||f||_{U^d} := <(f)>_{U^d}^{1/2^d}. One has ||f||_{U^1} = |E(f)|, so U^1 is only a seminorm.",
+      "hypotheses": [
+        "The ambient group is Z_N with N prime; the averages are over x in Z_N and h in Z_N^d with normalized counting measure",
+        "f_omega in L^infinity(Z_N) and real-valued in the source's usage",
+        "Positivity (5.3) is proved only for d >= 1; the d = 0 case is trivial",
+        "In the application d = k - 1 where k is the progression length"
+      ],
+      "proofSteps": [
+        "Definition 5.1 introduces the configuration {x + omega.h : omega in {0,1}^d}, called a cube of dimension d, and the inner product (5.1).",
+        "If f_omega is independent of omega_d, split omega = (omega', omega_d) and h = (h', h_d) and average first over x and h_d; (5.2) exhibits the result as E over h' of a square, giving positivity.",
+        "Setting all f_omega = f gives (5.3) and hence the definition (5.4) of the norm.",
+        "The d = 1 case gives ||f||_{U^1} = |E(f)|, which can vanish for f non-zero."
+      ],
+      "acceptance": [
+        "Check d = 2: <f_{00},f_{10},f_{01},f_{11}>_{U^2} = E(f_{00}(x) f_{10}(x+h_1) f_{01}(x+h_2) f_{11}(x+h_1+h_2)), the standard four-point average.",
+        "Check that U^1 is only a seminorm; a formalization that declares U^d a norm for all d >= 1 is wrong at d = 1.",
+        "Check the monotonicity ||f||_{U^{d-1}} <= ||f||_{U^d} (the source's (5.7), used but not re-derived here)."
+      ],
+      "sources": [
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Definition 5.1, (5.1)-(5.4), printed pp. 11-12",
+          "excerpt": "we define the d-dimensional Gowers inner product <(f_omega)_{omega in {0,1}^d}>_{U^d} by the formula <(f_omega)>_{U^d} := E( prod_{omega in {0,1}^d} f_omega(x + omega . h) | x in Z_N, h in Z_N^d ). ... ||f||_{U^d} := <(f)_{omega in {0,1}^d}>_{U^d}^{1/2^d} ... from (5.4) that ||f||_{U^1} = |E(f)| and thus ||f||_{U^1} may vanish without f itself vanishing.",
+          "match": "Verbatim definition of the inner product and the norm, with the explicit warning about U^1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdditiveCombinatorics:AC.4/pseudorandom-measures-are-U-d-close-to-one",
+      "parentStageId": "AdditiveCombinatorics:AC.4",
+      "title": "Lemma 5.2: a k-pseudorandom measure is o(1)-close to the constant measure in every U^d, d <= k-1",
+      "kind": "lemma",
+      "statement": "If nu : Z_N -> R_{>=0} is k-pseudorandom, then ||nu - nu_const||_{U^d} = ||nu - 1||_{U^d} = o(1) for all 1 <= d <= k-1.",
+      "hypotheses": [
+        "nu k-pseudorandom in the sense of Definition 3.3, i.e. it satisfies the (k 2^{k-1}, 3k-4, k)-linear forms condition and the 2^{k-1}-correlation condition",
+        "Only the linear forms condition is used, and only with parameters (2^{k-1}, k, 1)",
+        "The reduction to d = k-1 uses the monotonicity (5.7) of the U^d norms",
+        "PLACEMENT NOTE: this statement is about a k-pseudorandom measure nu, which is AC.4's object ('construct pseudorandom majorants, dense-model and relative counting theorems'), so it is parented at AC.4. The Gowers-norm definitions it uses stay at AC.3, matching the atlas edge AC.3 -> AC.4. Parenting it at AC.3 would make AC.4 a prerequisite of AC.3 and reverse that edge."
+      ],
+      "proofSteps": [
+        "Reduce to d = k-1 by (5.7); raising to the power 2^{k-1}, it suffices to show E( prod_{omega in {0,1}^{k-1}} (nu(x + omega.h) - 1) ) = o(1).",
+        "Expand the product as a signed sum over subsets A of {0,1}^{k-1} of E( prod_{omega in A} nu(x + omega.h) ) with sign (-1)^{|A|}.",
+        "Each such expectation is of the form E(nu(psi_1(x)) ... nu(psi_{|A|}(x))) with x = (x,h_1,...,h_{k-1}) in Z_N^k and the psi_i an ordering of the forms x + omega.h for omega in A; no two of these forms are rational multiples of each other, so the (2^{k-1}, k, 1)-linear forms condition applies and each expectation is 1 + o(1).",
+        "The signed sum of the constants 1 vanishes by the binomial theorem, sum_{A} (-1)^{|A|} = (1-1)^{2^{k-1}} = 0, leaving o(1)."
+      ],
+      "acceptance": [
+        "Check the parameter bookkeeping: the number of forms is at most 2^{k-1}, the number of variables is k, and the coefficients are 0/1, so (2^{k-1}, k, 1) suffices and is implied by k-pseudorandomness.",
+        "Check the non-proportionality hypothesis: the forms x + omega.h for distinct omega are pairwise non-proportional as tuples of coefficients; this must be verified, not assumed.",
+        "Counterexample check: the source warns that the linear forms condition is strictly stronger than smallness of ||nu-1||_{U^d}, so this lemma is not reversible."
+      ],
+      "sources": [
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Lemma 5.2 with proof, printed pp. 13-14",
+          "excerpt": "Lemma 5.2. Suppose that nu is k-pseudorandom (as defined in Definition 3.3). Then we have ||nu - nu_const||_{U^d} = ||nu - 1||_{U^d} = o(1) (5.8) for all 1 <= d <= k-1. ... Thus we may invoke the (2^{k-1}, k, 1)-linear forms condition, which is a consequence of the fact that nu is k-pseudorandom, to conclude that the expression (5.10) is 1 + o(1).",
+          "match": "The statement with its range of d and the exact linear-forms parameters used in the proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdditiveCombinatorics:AC.4/generalised-von-neumann-relative-to-a-pseudorandom-measure",
+      "parentStageId": "AdditiveCombinatorics:AC.4",
+      "title": "Proposition 5.3: U^{k-1} control of the weighted progression count under a pseudorandom majorant",
+      "kind": "theorem",
+      "statement": "Let nu be k-pseudorandom and let f_0,...,f_{k-1} in L^1(Z_N) satisfy |f_j(x)| <= nu(x) + 1 for all x and all j. Let c_0,...,c_{k-1} be a permutation of some k consecutive elements of {-k+1,...,-1,0,1,...,k-1}. Then E( prod_{j=0}^{k-1} f_j(x + c_j r) | x, r in Z_N ) = O( inf_{0<=j<=k-1} ||f_j||_{U^{k-1}} ) + o(1).",
+      "hypotheses": [
+        "nu k-pseudorandom (Definition 3.3): both the (k 2^{k-1}, 3k-4, k)-linear forms condition and the 2^{k-1}-correlation condition are used",
+        "The pointwise bound is by nu + 1, NOT by nu; the source explains that this is needed because the functions to which it is applied have the shape f - E(f|B) with E(nu|B) essentially bounded by 1",
+        "The c_j must be a permutation of k CONSECUTIVE integers within {-k+1,...,k-1}; in practice c_j = j",
+        "The implied constant in O(.) and the rate in o(1) depend on k and on the decay rates in the pseudorandomness conditions",
+        "PLACEMENT NOTE: this statement is about a k-pseudorandom measure nu, which is AC.4's object ('construct pseudorandom majorants, dense-model and relative counting theorems'), so it is parented at AC.4. The Gowers-norm definitions it uses stay at AC.3, matching the atlas edge AC.3 -> AC.4. Parenting it at AC.3 would make AC.4 a prerequisite of AC.3 and reverse that edge."
+      ],
+      "proofSteps": [
+        "Normalize by replacing nu with (nu+1)/2 and dividing the f_j by 2; Lemma 3.4 guarantees that (nu+1)/2 is again k-pseudorandom, so one may assume |f_j| <= nu.",
+        "The remainder of the proof is a sequence of Cauchy-Schwarz steps (Lemma 5.4) against the measure nu, controlled by the linear forms condition, together with Lemma 5.5 ('nu covers its own cubes uniformly'); the source describes the technique as inspired by Cauchy-Schwarz arguments relative to pseudorandom hypergraphs.",
+        "For nu = nu_const the statement is the classical generalised von Neumann theorem; the novelty is the extension to a pseudorandom majorant.",
+        "PROOF-READING BOUNDARY: for this packet the statement, its hypotheses and the normalization step were read; the full chain of Cauchy-Schwarz estimates (printed pp. 14-22, Lemmas 5.4 and 5.5) was not."
+      ],
+      "acceptance": [
+        "Check the bound nu + 1 rather than nu; a formalization that assumes |f_j| <= nu cannot be applied to f - E(f|B) at the point where the source applies it.",
+        "Check the consecutive-integers hypothesis on the c_j; arbitrary distinct c_j are not covered by this statement.",
+        "Sanity check with nu = 1: the conclusion reduces to the standard bound of a k-term progression average by the U^{k-1} norm.",
+        "Check that the conclusion is an upper bound on the average, so it is useful only when one f_j is Gowers-uniform."
+      ],
+      "sources": [
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Proposition 5.3 with hypothesis (5.11) and the opening of its proof, printed p. 14",
+          "excerpt": "Proposition 5.3 (Generalised von Neumann). Suppose that nu is k-pseudorandom. Let f_0,...,f_{k-1} in L^1(Z_N) be functions which are pointwise bounded by nu + nu_const, or in other words |f_j(x)| <= nu(x) + 1 for all x in Z_N, 0 <= j <= k-1. (5.11) Let c_0,...,c_{k-1} be a permutation of some k consecutive elements of {-k+1,...,-1,0,1,...,k-1} ... Then E( prod_{j=0}^{k-1} f_j(x + c_j r) | x, r in Z_N ) = O( inf_{0<=j<=k-1} ||f_j||_{U^{k-1}} ) + o(1).",
+          "match": "Verbatim statement including the nu + 1 majorant hypothesis and the restriction on the coefficients c_j."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdditiveCombinatorics:AC.4/linear-forms-correlation-and-pseudorandomness",
+      "parentStageId": "AdditiveCombinatorics:AC.4",
+      "title": "The linear forms condition, the correlation condition, and k-pseudorandomness, with exact parameters",
+      "kind": "definition",
+      "statement": "A measure on Z_N is a function nu : Z_N -> R_{>=0} with E(nu) = 1 + o(1). nu satisfies the (m_0,t_0,L_0)-LINEAR FORMS CONDITION if for all m <= m_0, t <= t_0, all rational L_{ij} with numerator and denominator at most L_0 in absolute value, and all b_i in Z_N, the forms psi_i(x) = sum_j L_{ij} x_j + b_i with the t-tuples (L_{ij})_j non-zero and pairwise non-proportional satisfy E( nu(psi_1(x)) ... nu(psi_m(x)) | x in Z_N^t ) = 1 + o_{L_0,m_0,t_0}(1), with the decay uniform in b_1,...,b_m. nu satisfies the m_0-CORRELATION CONDITION if for every 1 < m <= m_0 there is a weight tau = tau_m : Z_N -> R_{>=0} with E(tau^q) = O_{m,q}(1) for all 1 <= q < infinity and E( nu(x+h_1) ... nu(x+h_m) | x in Z_N ) <= sum_{1<=i<j<=m} tau(h_i - h_j) for all h_1,...,h_m in Z_N, not necessarily distinct. nu is k-PSEUDORANDOM if it satisfies the (k 2^{k-1}, 3k-4, k)-linear forms condition and the 2^{k-1}-correlation condition.",
+      "hypotheses": [
+        "N is prime and larger than L_0, so that the rational coefficients L_{ij} make sense in Z_N",
+        "In the linear forms condition, the tuples (L_{ij})_j must be non-zero and no two may be rational multiples of one another; the constants b_i are arbitrary and the error is uniform in them",
+        "In the correlation condition the h_i are NOT assumed distinct, and tau is only required to have finite moments of every order, not to be bounded; the source explains that an L^infinity bound on tau would be false for the intended prime application",
+        "The m = 1 case of the linear forms condition recovers the measure condition E(nu) = 1 + o(1)"
+      ],
+      "proofSteps": [
+        "Definition 3.1 states the linear forms condition and gives the instances (3.2), (3.3), (3.4) used later, with their parameter triples (4,3,1), (3,2,1) and (12,5,2).",
+        "Definition 3.2 states the correlation condition and explains why 1 + o(1) cannot be used on the right-hand side: the number of p <= N with p - h also prime is not bounded by a constant times N/log^2 N when h has many prime factors.",
+        "Definition 3.3 fixes the parameters for k-pseudorandomness; the source notes that the exact values are unimportant provided they depend only on k.",
+        "Lemma 3.4 shows the class is star-shaped about nu_const: if nu is k-pseudorandom so is (nu+1)/2, by expanding the linear forms condition into 2^m terms each of which is 1 + o(1)."
+      ],
+      "acceptance": [
+        "Check that nu_const == 1 is k-pseudorandom for every k.",
+        "Check (3.2) against Lemma 5.2: the (4,3,1)-instance is exactly what gives ||nu - 1||_{U^2} = o(1).",
+        "Check the correlation condition on the diagonal h_1 = ... = h_m, where the left-hand side is E(nu^m) and the right-hand side is m(m-1)/2 . tau(0); this is where boundedness of tau would be too strong.",
+        "Check Lemma 3.4 including the remark that (1-theta)nu + theta nu_const is k-pseudorandom for 0 <= theta <= 1."
+      ],
+      "sources": [
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Definitions 3.1, 3.2, 3.3 and Lemma 3.4, printed pp. 7-9",
+          "excerpt": "Definition 3.3 (Pseudorandom measures). Let nu : Z_N -> R+ be a measure. We say that nu is k-pseudorandom if it satisfies the (k . 2^{k-1}, 3k-4, k)-linear forms condition and also the 2^{k-1}-correlation condition. ... Definition 3.2 ... there exists a weight function tau = tau_m : Z_N -> R+ which obeys the moment conditions E(tau^q) = O_{m,q}(1) (3.5) for all 1 <= q < infinity and such that E(nu(x+h_1)...nu(x+h_m) | x in Z_N) <= sum_{1<=i<j<=m} tau(h_i - h_j) (3.6) for all h_1,...,h_m in Z_N (not necessarily distinct).",
+          "match": "Verbatim parameter values and the exact form of both conditions, including the 'not necessarily distinct' clause and the moment-only requirement on tau."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdditiveCombinatorics:AC.4/relative-szemeredi-theorem",
+      "parentStageId": "AdditiveCombinatorics:AC.4",
+      "title": "Theorem 3.5: Szemeredi's theorem relative to a pseudorandom measure",
+      "kind": "theorem",
+      "statement": "Let k >= 3 and 0 < delta <= 1 be fixed and let nu : Z_N -> R_{>=0} be k-pseudorandom. If f : Z_N -> R_{>=0} satisfies 0 <= f(x) <= nu(x) for all x in Z_N and E(f) >= delta, then E( f(x) f(x+r) ... f(x+(k-1)r) | x, r in Z_N ) >= c(k,delta) - o_{k,delta}(1), where c(k,delta) is the SAME constant as in the functional form of Szemeredi's theorem (Proposition 2.3). The o(1) decay rate is significantly slower than in Proposition 2.3 and depends on the decay rates in the linear forms and correlation conditions.",
+      "hypotheses": [
+        "nu k-pseudorandom; f non-negative and bounded pointwise by nu; E(f) >= delta",
+        "The conclusion is a lower bound with the SAME constant c(k,delta) as in the dense case: no loss in the main term, only in the error term",
+        "The source notes the statement is trivial when N = O_{k,delta}(1), so one is free to assume N large",
+        "The proof uses no Fourier analysis, no additive combinatorics and no number theory; it is a blend of quantitative ergodic theory with combinatorial estimates related to Gowers uniformity and sparse hypergraph regularity"
+      ],
+      "proofSteps": [
+        "Apply the structure theorem (Proposition 8.1) to f with a small parameter epsilon, obtaining a sigma-algebra B and an exceptional set Omega in B with E(nu 1_Omega) = o_epsilon(1), ||(1-1_Omega) E(nu-1|B)||_infinity = o_epsilon(1) and ||(1-1_Omega)(f - E(f|B))||_{U^{k-1}} <= epsilon^{1/2^k}.",
+        "Set f_U := (1-1_Omega)(f - E(f|B)) and f_{U-perp} := (1-1_Omega) E(f|B). Then E(f_{U-perp}) = E((1-1_Omega) f) >= E(f) - E(nu 1_Omega) >= delta - o_epsilon(1), and f_{U-perp} is non-negative and bounded above by 1 + o_epsilon(1).",
+        "Apply the DENSE functional Szemeredi theorem (Proposition 2.3) to f_{U-perp}, obtaining the progression count >= c(k,delta) - o_epsilon(1) - o_{k,delta}(1).",
+        "Apply the generalised von Neumann theorem (Proposition 5.3) to every mixed term in which at least one factor is f_U; since (1-1_Omega) f <= nu and f_{U-perp} <= 1 + o_epsilon(1), f_U is pointwise bounded by nu + 1 + o_epsilon(1), so each mixed term is O(epsilon^{1/2^k}) + o_epsilon(1).",
+        "Add the two estimates for f-tilde := f_U + f_{U-perp} = (1-1_Omega) f, and use 0 <= (1-1_Omega) f <= f to transfer the lower bound to f; then let epsilon -> 0 with N large."
+      ],
+      "acceptance": [
+        "Check that the same c(k,delta) appears on both sides: the transference loses nothing in the main term, which is the whole point.",
+        "Check the two error sources separately: o_epsilon(1) from the structure theorem and o_{k,delta}(1) from dense Szemeredi; the order of limits (first N -> infinity, then epsilon -> 0) matters.",
+        "Degenerate check: taking nu = nu_const recovers Proposition 2.3.",
+        "Check that f <= nu (not f <= nu + 1) is the hypothesis here, while Proposition 5.3 is applied with the weaker bound nu + 1 + o(1); the bookkeeping between the two is where the exceptional set Omega is used."
+      ],
+      "sources": [
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Theorem 3.5 and its complete deduction from Proposition 8.1, printed pp. 9-10 and 29",
+          "excerpt": "Theorem 3.5 (Szemeredi's theorem relative to a pseudorandom measure). Let k >= 3 and 0 < delta <= 1 be fixed parameters. Suppose that nu : Z_N -> R+ is k-pseudorandom. Let f : Z_N -> R+ be any non-negative function obeying the bound 0 <= f(x) <= nu(x) for all x in Z_N (3.7) and E(f) >= delta. (3.8) Then we have E(f(x)f(x+r)...f(x+(k-1)r)|x,r in Z_N) >= c(k,delta) - o_{k,delta}(1) (3.9) where c(k,delta) > 0 is the same constant which appears in Proposition 2.3.",
+          "match": "Verbatim statement with both hypotheses and the explicit identification of the constant with the dense case; the deduction quoted in the proof steps is on printed p. 29."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdditiveCombinatorics:AC.4/koopman-von-neumann-structure-theorem",
+      "parentStageId": "AdditiveCombinatorics:AC.4",
+      "title": "Proposition 8.1: decomposition of a nu-bounded function into a Gowers-uniform and a bounded anti-uniform part, outside a small exceptional set",
+      "kind": "theorem",
+      "statement": "Let nu be a k-pseudorandom measure, f in L^1(Z_N) with 0 <= f <= nu, let 0 < epsilon << 1 and N > N_0(epsilon). Then there exist a sigma-algebra B on Z_N and a set Omega in B such that (smallness) E(nu 1_Omega) = o_epsilon(1); (uniform distribution of nu outside Omega) ||(1 - 1_Omega) E(nu - 1 | B)||_{L^infinity} = o_epsilon(1); and (Gowers uniformity) ||(1 - 1_Omega)(f - E(f|B))||_{U^{k-1}} <= epsilon^{1/2^k}.",
+      "hypotheses": [
+        "nu k-pseudorandom; 0 <= f <= nu pointwise; epsilon small and N large depending on epsilon",
+        "B is a sigma-algebra in the finitary sense of Definition 7.1 (a collection of subsets of Z_N closed under the Boolean operations), NOT a measure-theoretic sigma-algebra on an infinite space",
+        "The exceptional set Omega is B-measurable, which is what makes 1 - 1_Omega commute with conditional expectation in the application",
+        "The bound epsilon^{1/2^k} is the one used to balance against the O(.) in the generalised von Neumann theorem"
+      ],
+      "proofSteps": [
+        "Initialize B as the trivial sigma-algebra {empty set, Z_N}.",
+        "If f - E(f|B) is already Gowers uniform in the sense of (8.3), stop.",
+        "Otherwise use the machinery of dual functions of section 6 to produce a Gowers anti-uniform function D F_1 correlating non-trivially with f, and adjoin the level sets of D F_1 to B; the correlation forces the L^2 norm of E(f|B) to increase by a non-trivial amount, while pseudorandomness controls the damage.",
+        "Iterate (Proposition 8.2, the iterative step); the L^2 increment bounds the number of iterations, giving termination with the stated epsilon-dependence.",
+        "PROOF-READING BOUNDARY: for this packet the statement, the termination strategy and the way the conclusion is consumed were read; sections 6 and 7 (dual functions, Lemma 6.1, Propositions 6.2, 7.2, 7.3) and Proposition 8.2 were not read."
+      ],
+      "acceptance": [
+        "Check that Omega is B-measurable: the deduction of Theorem 3.5 uses E((1-1_Omega) f) = E(f_{U-perp}) and the measurability is what makes this identity hold.",
+        "Check the analogy limits: for k = 3 the source likens B to the Kronecker factor, but the statement is finitary and quantitative and must not be replaced by an infinitary ergodic statement.",
+        "Check the role of nu in (8.2): the conclusion is that nu is uniformly distributed relative to B outside Omega, which is what allows E(f|B) to be treated as bounded by 1 + o(1)."
+      ],
+      "sources": [
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Proposition 8.1 with (8.1)-(8.3) and the following remarks, printed pp. 28-29",
+          "excerpt": "Proposition 8.1 (Generalised Koopman-von Neumann structure theorem). Let nu be a k-pseudorandom measure, and let f in L^1(Z_N) be a non-negative function satisfying 0 <= f(x) <= nu(x) for all x in Z_N. Let 0 < epsilon << 1 be a small parameter, and assume N > N_0(epsilon) is sufficiently large. Then there exists a sigma-algebra B and an exceptional set Omega in B such that ... E(nu 1_Omega) = o_epsilon(1); ... ||(1-1_Omega) E(nu-1|B)||_{L^infinity} = o_epsilon(1) ... ||(1-1_Omega)(f - E(f|B))||_{U^{k-1}} <= epsilon^{1/2^k}.",
+          "match": "Verbatim statement of the three conclusions with their hypotheses, which are exactly what the deduction of Theorem 3.5 consumes."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdditiveCombinatorics:AC.4/w-trick-and-goldston-yildirim-majorant",
+      "parentStageId": "AdditiveCombinatorics:AC.4",
+      "title": "The W-trick, the truncated divisor sum majorant, and the verification of pseudorandomness",
+      "kind": "construction",
+      "statement": "Let w(N) -> infinity slowly (w(N) << log log N suffices) and W := prod_{p <= w(N)} p. Define the modified von Mangoldt function Lambda-tilde(n) := (phi(W)/W) log(W n + 1) if W n + 1 is prime, and 0 otherwise. Let Lambda_R(n) := sum_{d | n, d <= R} mu(d) log(R/d), set R := N^{k^{-1} 2^{-k-4}} and epsilon_k := 1/(2^k (k+4)!), and define nu(n) := (phi(W)/W) Lambda_R(W n + 1)^2 / log R for epsilon_k N <= n <= 2 epsilon_k N, and nu(n) := 1 otherwise. Then (Lemma 9.4) nu >= 0 and nu(n) >= k^{-1} 2^{-k-5} Lambda-tilde(n) on epsilon_k N <= n <= 2 epsilon_k N; (Lemma 9.7) E(nu) = 1 + o(1); (Proposition 9.8) nu satisfies the (k 2^{k-1}, 3k-4, k)-linear forms condition; (Proposition 9.10) nu satisfies the 2^{k-1}-correlation condition. Hence (Proposition 9.1) nu is a k-pseudorandom majorant of the modified primes.",
+      "hypotheses": [
+        "N is a sufficiently large PRIME; w(N) tends to infinity sufficiently slowly (the source notes that in the end w may be taken to be a constant depending only on k)",
+        "The W-trick replaces the primes by the modified primes {n : W n + 1 is prime}, at the cost of a factor polynomial in W in the count; any residue b coprime to W would do in place of 1",
+        "The range epsilon_k N <= n <= 2 epsilon_k N and the choice epsilon_k < 1/k are what make Z_N-progressions lift to genuine integer progressions (wraparound control)",
+        "The verification of the linear forms condition rests on Proposition 9.5 (a generalisation of Goldston-Yildirim [17, Proposition 2]) whose hypotheses are: integer coefficients |L_{ij}| <= sqrt(w(N))/2, non-zero pairwise non-proportional coefficient tuples, and a product of t intervals each of length at least R^{10m}",
+        "The correlation condition rests on Proposition 9.6, which produces the extra factor prod_{p | Delta} (1 + O_m(p^{-1/2})) with Delta = prod_{i<j} |h_i - h_j|, and this is exactly why the weight tau of Definition 3.2 cannot be bounded"
+      ],
+      "proofSteps": [
+        "Lemma 9.4: if W n + 1 is prime and larger than R, the divisor sum has the single term d = 1, so Lambda_R(W n + 1) = log R and nu(n) = (phi(W)/W) log R >= k^{-1} 2^{-k-5} Lambda-tilde(n).",
+        "Lemma 9.7: apply Proposition 9.5 with m = t = 1, psi_1(x_1) = x_1 and B = [epsilon_k N, 2 epsilon_k N] to get E(nu) = 1 + o(1).",
+        "Proposition 9.8: given forms as in Definition 3.1 with m <= k 2^{k-1}, t <= 3k-4 and rational coefficients of height at most k, clear denominators (bounded by (k+1)!) and apply Proposition 9.5 on a partition of Z_N into intervals of length at least R^{10m}, using that w(N) grows.",
+        "Proposition 9.10: take the weight function tau produced by Lemma 9.9, whose moments are bounded, and apply Proposition 9.6 to bound the correlation average by sum_{i<j} tau(h_i - h_j).",
+        "PROOF-READING BOUNDARY: Propositions 9.5 and 9.6 are proved in section 10 and Appendix A via a contour integral involving the Riemann zeta function; those proofs (printed pp. 43-56) were not read for this packet, nor was Lemma 9.9."
+      ],
+      "acceptance": [
+        "Majorant check: nu(n) >= k^{-1} 2^{-k-5} Lambda-tilde(n) only on the window epsilon_k N <= n <= 2 epsilon_k N; outside it nu is set to 1 and majorizes nothing.",
+        "Sparsity check: the primes themselves have density about 1/log N in [1,N] and therefore do NOT satisfy a positive-density hypothesis; the whole construction exists to supply a majorant of positive RELATIVE density. This is AC.4's stated acceptance condition.",
+        "Local-obstruction check: without the W-trick the almost primes are not pseudorandom, because of correlations at small primes; test that nu fails the linear forms condition when W = 1.",
+        "Parameter check: R = N^{k^{-1} 2^{-k-4}} and epsilon_k = 1/(2^k (k+4)!) must both be carried; the constraint length >= R^{10m} in Proposition 9.5 is what forces R to be a small power of N."
+      ],
+      "sources": [
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "The W-trick and Definition of Lambda-tilde, printed pp. 35-36",
+          "excerpt": "Let w = w(N) be any function tending slowly to infinity with N, so that 1/w(N) = o(1), and let W = prod_{p <= w(N)} p be the product of the primes up to w(N). Define the modified von Mangoldt function Lambda-tilde : Z+ -> R+ by Lambda-tilde(n) := (phi(W)/W) log(W n + 1) when W n + 1 is prime, 0 otherwise.",
+          "match": "Exact definition of the W-trick and of the modified von Mangoldt function used as the object to be majorized."
+        },
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Definition 9.2, Definition 9.3, Lemma 9.4, Propositions 9.5, 9.6, 9.8, 9.10, printed pp. 37-40 and 43",
+          "excerpt": "Definition 9.3. Let R := N^{k^{-1} 2^{-k-4}}, and let epsilon_k := 1/2^k (k+4)!. We define the function nu : Z_N -> R+ by nu(n) := (phi(W)/W) Lambda_R(W n+1)^2 / log R when epsilon_k N <= n <= 2 epsilon_k N, 1 otherwise ... Proposition 9.8. The function nu satisfies the (k . 2^{k-1}, 3k-4, k)-linear forms condition. ... Proposition 9.10. The measure nu satisfies the 2^{k-1}-correlation condition.",
+          "match": "The explicit majorant with all its parameters and the two propositions asserting exactly the two halves of k-pseudorandomness."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdditiveCombinatorics:AC.4/prime-progressions-endgame",
+      "parentStageId": "AdditiveCombinatorics:AC.4",
+      "title": "Deduction of Theorem 1.1 from the pseudorandom majorant and the relative Szemeredi theorem",
+      "kind": "application",
+      "statement": "Define f in L^1(Z_N) by f(n) := k^{-1} 2^{-k-5} Lambda-tilde(n) for epsilon_k N <= n <= 2 epsilon_k N and f(n) := 0 otherwise. Then E(f) = k^{-1} 2^{-k-5} epsilon_k (1 + o(1)) by Dirichlet's theorem on primes in arithmetic progressions; f <= nu by Lemma 9.4; so Theorem 3.5 applies with delta = k^{-1} 2^{-k-5} epsilon_k and gives E(f(x) f(x+r) ... f(x+(k-1)r)) >= c(k, k^{-1}2^{-k-5} epsilon_k) - o(1). The degenerate term r = 0 contributes at most O(N^{-1} log^k N) = o(1) and is discarded; since epsilon_k < 1/k every remaining progression in Z_N lifts to a genuine progression of integers. Hence the primes contain arithmetic progressions of length k for every k (Theorem 1.1), and the same argument applied to a subset of positive relative upper density gives Theorem 1.2.",
+      "hypotheses": [
+        "N a large prime",
+        "Dirichlet's theorem on primes in arithmetic progressions is used to get sum_{n <= N} Lambda-tilde(n) = N(1+o(1)); the source notes in a footnote that one could avoid Dirichlet L-function theory by replacing n == 1 mod W with n == b mod W for a suitable b chosen by pigeonhole",
+        "epsilon_k < 1/k is what rules out wraparound, so that a k-term progression in Z_N with all terms in [epsilon_k N, 2 epsilon_k N] is a progression of integers",
+        "The r = 0 contribution must be discarded explicitly; it is O(N^{-1} log^k N)",
+        "The source obtains only the lower bound (gamma(k) + o(1)) N^2 / log^k N for the number of progressions, far from the Hardy-Littlewood asymptotic C_k N^2/log^k N"
+      ],
+      "proofSteps": [
+        "Compute E(f) using Dirichlet's theorem, giving a positive density delta depending only on k.",
+        "Verify 0 <= f <= nu from Lemma 9.4.",
+        "Apply Theorem 3.5 with this f and nu (which is k-pseudorandom by Proposition 9.1).",
+        "Discard r = 0 and lift from Z_N to Z using epsilon_k < 1/k.",
+        "Conclude Theorem 1.1; Theorem 1.2 (Szemeredi in the primes, for A of positive relative upper density in the primes) follows by the same route applied to the corresponding f."
+      ],
+      "acceptance": [
+        "Check the asymptotic claim carefully: the theorem proves infinitely many k-term progressions and a lower bound of order N^2/log^k N with a small constant gamma(k), NOT the Hardy-Littlewood asymptotic. A consumer must not cite this source for the asymptotic count.",
+        "Check the wraparound argument explicitly; it is the only place where the constant epsilon_k is used.",
+        "Check the discarded r = 0 term.",
+        "Check that Theorem 1.2 needs positive relative UPPER density, i.e. limsup_{N} pi(N)^{-1} |A cap [1,N]| > 0."
+      ],
+      "sources": [
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Proof of Theorem 1.1 assuming Proposition 9.1, printed p. 36",
+          "excerpt": "Observe that the degenerate case r = 0 can only contribute at most O((1/N) log^k N) = o(1) to the left-hand side and can thus be discarded. Furthermore, every progression counted by the expression on the left is not just a progression in Z_N, but a genuine arithmetic progression of integers since epsilon_k < 1/k.",
+          "match": "The two bookkeeping steps (degenerate r and wraparound) that convert the Z_N statement into a statement about integers."
+        },
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Section 1, statement of Theorems 1.1 and 1.2 and the remark on the count, printed pp. 1-2",
+          "excerpt": "we do not come close to establishing this conjecture here, obtaining instead a lower bound (gamma(k) + o(1)) N^2 / log^k N for some very small gamma(k) > 0 ... Theorem 1.2 (Szemeredi's theorem in the primes). Let A be any subset of the prime numbers of positive relative upper density, thus limsup_{N->infinity} pi(N)^{-1} |A cap [1,N]| > 0 ... Then A contains infinitely many arithmetic progressions of length k for all k.",
+          "match": "Fixes exactly what is and is not proved about the counting function, and the density hypothesis in Theorem 1.2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "AdditiveCombinatorics:AC.3/gowers-inner-product-and-uniformity-norm",
+      "target": "AdditiveCombinatorics:AC.4/generalised-von-neumann-relative-to-a-pseudorandom-measure",
+      "reason": "The conclusion of the generalised von Neumann theorem is an upper bound by inf_j ||f_j||_{U^{k-1}}, so the U^{k-1} norm and its positivity (which is what makes ||.||_{U^{k-1}} a norm at all for k >= 3) are the literal content of the bound. Definition 5.1 and the positivity property (5.3) are therefore consumed by the estimate.",
+      "sources": [
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Definition 5.1 and (5.3), printed pp. 11-12; Proposition 5.3, printed p. 14"
+        }
+      ]
+    },
+    {
+      "source": "AdditiveCombinatorics:AC.4/linear-forms-correlation-and-pseudorandomness",
+      "target": "AdditiveCombinatorics:AC.4/pseudorandom-measures-are-U-d-close-to-one",
+      "reason": "Lemma 5.2 uses only the (2^{k-1}, k, 1) instance of the linear forms condition, which is implied by the (k 2^{k-1}, 3k-4, k) condition in Definition 3.3. The pseudorandomness definition is therefore the literal input of the U^d closeness estimate, with the instance made explicit.",
+      "sources": [
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Proof of Lemma 5.2, printed p. 14"
+        }
+      ]
+    },
+    {
+      "source": "AdditiveCombinatorics:AC.4/generalised-von-neumann-relative-to-a-pseudorandom-measure",
+      "target": "AdditiveCombinatorics:AC.4/relative-szemeredi-theorem",
+      "reason": "In the deduction of Theorem 3.5 from Proposition 8.1, every term in the expansion of the progression average containing at least one factor f_U is bounded by Proposition 5.3 applied with the majorant nu + 1 + o_epsilon(1). Without this bound the mixed terms are uncontrolled and the transference fails.",
+      "sources": [
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Proof of Theorem 3.5 assuming Proposition 8.1, printed p. 29"
+        }
+      ]
+    },
+    {
+      "source": "AdditiveCombinatorics:AC.4/koopman-von-neumann-structure-theorem",
+      "target": "AdditiveCombinatorics:AC.4/relative-szemeredi-theorem",
+      "reason": "Proposition 8.1 supplies the sigma-algebra B and the exceptional set Omega; conclusion (8.1) gives E(f_{U-perp}) >= delta - o(1), conclusion (8.2) gives the pointwise bound f_{U-perp} <= 1 + o(1) needed to apply dense Szemeredi, and conclusion (8.3) gives the U^{k-1} smallness needed to apply the generalised von Neumann theorem. All three conclusions are consumed in the proof of Theorem 3.5.",
+      "sources": [
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Proof of Theorem 3.5 assuming Proposition 8.1, printed p. 29"
+        }
+      ]
+    },
+    {
+      "source": "AdditiveCombinatorics:AC.2/szemeredi-set-form-and-functional-form",
+      "target": "AdditiveCombinatorics:AC.4/relative-szemeredi-theorem",
+      "reason": "The dense functional form (Proposition 2.3) is applied verbatim to the bounded anti-uniform part f_{U-perp} inside the proof of Theorem 3.5, and the constant c(k,delta) in Theorem 3.5's conclusion IS the constant produced there. This is the single place where Szemeredi's theorem enters the Green-Tao argument.",
+      "sources": [
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Proof of Theorem 3.5 assuming Proposition 8.1, printed p. 29: 'We may thus apply Proposition 2.3 to obtain ...'"
+        }
+      ]
+    },
+    {
+      "source": "AdditiveCombinatorics:AC.4/w-trick-and-goldston-yildirim-majorant",
+      "target": "AdditiveCombinatorics:AC.4/prime-progressions-endgame",
+      "reason": "The endgame needs exactly two outputs of the construction: the majorization nu >= k^{-1}2^{-k-5} Lambda-tilde on the window (Lemma 9.4) and the k-pseudorandomness of nu (Propositions 9.8 and 9.10). These are the hypotheses (3.7) and 'nu k-pseudorandom' of Theorem 3.5.",
+      "sources": [
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Proposition 9.1 and the proof of Theorem 1.1 assuming it, printed p. 36"
+        }
+      ]
+    },
+    {
+      "source": "AnalyticNumberTheory:AN.2/classical-zero-free-region",
+      "target": "AdditiveCombinatorics:AC.4/w-trick-and-goldston-yildirim-majorant",
+      "reason": "The Goldston-Yildirim asymptotics (Propositions 9.5 and 9.6) that establish the linear forms and correlation conditions are proved in section 10 and Appendix A by shifting a contour of an integral involving 1/zeta, and the contour shift is licensed by Lemma A.1, the classical zero-free region Re(s) >= 1 - beta/log(|Im s| + 2) together with the bounds zeta(s) - 1/(s-1) = O(log(|Im s|+2)) and 1/zeta(s) = O(log(|Im s|+2)) on that region. Green-Tao do not prove Lemma A.1; they cite Titchmarsh Chapter 3. The EXT-08 AnalyticNumberTheory packet decomposes exactly this zero-free region from Kedlaya's Theorem 8.8 for Im(s) >= 1. PARTIAL SUPPLY: the growth bounds on zeta and 1/zeta and the range |Im s| < 1 are NOT supplied by that node and remain open (see this packet's gaps).",
+      "sources": [
+        {
+          "sourceId": "green-tao-2008",
+          "locator": "Lemma A.1 and its use at printed pp. 51, 52, 55 ('We observe from Lemma A.1 that we have enough decay of the integrand ...')"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "AdditiveCombinatorics:AC.0",
+      "status": "not_read",
+      "remaining": [
+        "Sumsets, additive energy, convolution, Plunnecke-Ruzsa inequalities: no source read. Green-Tao does not contain this material and states so explicitly (see this packet's gaps). The named alternative source TAO-VU (Tao-Vu, Additive Combinatorics, CUP) was not acquired; no authorized public copy was located."
+      ]
+    },
+    {
+      "stageId": "AdditiveCombinatorics:AC.1",
+      "status": "not_read",
+      "remaining": [
+        "Balog-Szemeredi-Gowers, Freiman-type inverse theorems, Bohr sets, density increments: no source read. Green-Tao does not use any of these."
+      ]
+    },
+    {
+      "stageId": "AdditiveCombinatorics:AC.2",
+      "status": "partial",
+      "remaining": [
+        "Szemeredi's theorem itself is ASSUMED in the source read; no complete proof route (combinatorial, ergodic or Fourier-analytic) was read. AC.2 explicitly asks for 'one selected complete proof route' and this packet does not supply one.",
+        "The Varnavides correspondence between the set form and the positive-proportion functional form is cited to [43] and [40] and was not read.",
+        "Arithmetic removal lemmas: no source read."
+      ]
+    },
+    {
+      "stageId": "AdditiveCombinatorics:AC.3",
+      "status": "partial",
+      "remaining": [
+        "The two statements about pseudorandom measures that Chapter 5 of the source proves (Lemma 5.2 and Proposition 5.3) are recorded in this packet under AC.4, because they are statements about a pseudorandom majorant; AC.3 itself receives only the Gowers inner product and norm.",
+        "The inverse theorem for the Gowers U^{s+1} norm and nilsequences (the stage's own named source route: Green-Tao-Ziegler arXiv:1009.3998 plus the April 2024 erratum) was NOT acquired or read. The Gowers norms and the generalised von Neumann estimate decomposed here are the direct part, not the inverse part.",
+        "Lemmas 5.4 and 5.5 and the full Cauchy-Schwarz chain in the proof of Proposition 5.3 (printed pp. 14-22) not read.",
+        "The monotonicity (5.7) of the U^d norms, used in Lemma 5.2, was not read.",
+        "Nilmanifold and nilsequence complexity: no source read."
+      ]
+    },
+    {
+      "stageId": "AdditiveCombinatorics:AC.4",
+      "status": "partial",
+      "remaining": [
+        "Sections 6 and 7 of the source (dual functions, Lemma 6.1, Propositions 6.2, 6.3, 7.2, 7.3) and Proposition 8.2 (the iterative step) were not read; these are the actual construction of the sigma-algebra B in Proposition 8.1.",
+        "Section 10 and Appendix A (the contour-integral proofs of Propositions 9.5 and 9.6, Lemmas 10.1-10.6, 9.9) were not read.",
+        "Lemma 9.9 (construction of the weight function tau with bounded moments) not read."
+      ]
+    },
+    {
+      "stageId": "AdditiveCombinatorics:AC.5",
+      "status": "not_read",
+      "remaining": [
+        "Linear equations in primes and Mobius-nilsequence orthogonality: no source read. The stage itself already records that Green-Tao 2008 alone is insufficient and names the two further Green-Tao papers required."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "The atlas chain AC.0 -> AC.1 -> AC.2 -> AC.3 -> AC.4 encodes prerequisites that the Green-Tao proof does not consume",
+      "neededBy": [
+        "AdditiveCombinatorics:AC.4/relative-szemeredi-theorem"
+      ],
+      "detail": "Verified from the source: Green-Tao state that the proof of Theorem 3.5 'requires no Fourier analysis, additive combinatorics, or number theory; the argument is instead a blend of quantitative ergodic theory arguments with some combinatorial estimates related to Gowers uniformity and sparse hypergraph regularity' (printed p. 10), and separately that 'in this paper, we must assume Szemeredi's theorem. However with this one (rather large!) caveat our paper is self-contained' (printed p. 4). Reading sections 3, 5, 8 and 9 confirms that no sumset, energy, Plunnecke-Ruzsa, Balog-Szemeredi-Gowers, Freiman or Bohr-set result is used. Consequence for the atlas: along the selected GREEN-TAO route, AC.4 depends on AC.2 (Szemeredi, functional form) and on the Gowers-norm part of AC.3, but NOT on AC.0 or AC.1. The current linear chain makes AC.4 wait on Plunnecke-Ruzsa and Balog-Szemeredi-Gowers, which the source does not need. This packet does NOT delete the existing edges (AC.0 and AC.1 remain legitimate stages with their own content, and a Fourier-analytic route to Roth would use them); it records the mismatch so that a reviewer can decide whether to keep AC.0/AC.1 as prerequisites of AC.2 only, or to re-route. Next action: check whether any other roadmap consumes AC.0/AC.1 for its own reasons before changing anything."
+    },
+    {
+      "title": "The atlas edge SieveMethodsAndPrimePatterns:SV.3 -> AdditiveCombinatorics:AC.4 does not match what the source consumes",
+      "neededBy": [
+        "AdditiveCombinatorics:AC.4/w-trick-and-goldston-yildirim-majorant"
+      ],
+      "detail": "SV.3's description in data/atlas.json is 'Average distribution of primes ... Derive Bombieri-Vinogradov from the selected large-sieve/zero-density route, with its quantifiers in A, B, x and Q'. The Green-Tao construction of the pseudorandom majorant does NOT use Bombieri-Vinogradov anywhere in the sections read. What it uses from analytic number theory is: (i) the Goldston-Yildirim asymptotics for truncated divisor sums (Propositions 9.5 and 9.6, proved in section 10 and Appendix A from a contour integral), (ii) the classical zero-free region for zeta (Lemma A.1, cited to Titchmarsh), (iii) Dirichlet's theorem on primes in arithmetic progressions (used once, for E(f), and avoidable by a pigeonhole choice of residue per footnote 21), and (iv) the prime number theorem (footnote 2). Recommendation (not applied): either re-point AC.4's sieve dependency at a stage owning the Goldston-Yildirim divisor-sum asymptotics, or widen SV.3. Raised in HANDOFF.md as a shared-supplier request."
+    },
+    {
+      "title": "Classical zero-free region: only partially supplied by the decomposed AN.2 node",
+      "neededBy": [
+        "AdditiveCombinatorics:AC.4/w-trick-and-goldston-yildirim-majorant"
+      ],
+      "detail": "Verified: Green-Tao Lemma A.1 (printed p. 51) asserts, for the region Z = {s : 10 >= Re s >= 1 - beta/log(|Im s|+2)} with beta small, that zeta is non-zero and meromorphic on Z with a simple pole at 1 and no other singularity, AND that zeta(s) - 1/(s-1) = O(log(|Im s|+2)) and 1/zeta(s) = O(log(|Im s|+2)) on Z. Their proof is 'See Titchmarsh [41, Chapter 3]', which was not obtained. The EXT-08 AnalyticNumberTheory packet decomposes the zero-free region Re(s) >= 1 - c/log Im(s) for Im(s) >= 1 from Kedlaya's Theorem 8.8 with a complete proof, but neither the growth bounds nor the small-|Im s| part. Next source action: obtain Titchmarsh, The Theory of the Riemann Zeta-function, Chapter 3, or derive the growth bounds from the Hadamard product representation used in Kedlaya's section 8.2."
+    },
+    {
+      "title": "Szemeredi's theorem has no read proof anywhere in EXT-08",
+      "neededBy": [
+        "AdditiveCombinatorics:AC.2/szemeredi-set-form-and-functional-form",
+        "AdditiveCombinatorics:AC.4/relative-szemeredi-theorem"
+      ],
+      "detail": "Verified: Proposition 2.1 and Proposition 2.3 are quoted with references [37,38] (Szemeredi), [43] (Varnavides) and [40], and the source explicitly assumes them. Not verified: any proof. This is the single largest unproved input of the whole AdditiveCombinatorics roadmap, and it is inherited by AC.4 with the SAME constant c(k,delta). Next source action: choose and acquire one complete route -- Szemeredi's combinatorial proof, Furstenberg's ergodic proof (multiple recurrence), or Gowers' quantitative proof -- and decompose it under AC.2; note that the ergodic route additionally requires the Furstenberg correspondence principle, which AC.2's text already asks to be owned as a prerequisite."
+    },
+    {
+      "title": "Interior of the Green-Tao argument not read: dual functions and the iterative construction of B",
+      "neededBy": [
+        "AdditiveCombinatorics:AC.4/koopman-von-neumann-structure-theorem",
+        "AdditiveCombinatorics:AC.4/generalised-von-neumann-relative-to-a-pseudorandom-measure"
+      ],
+      "detail": "Verified: the statements of Propositions 5.3 and 8.1, their hypotheses, and exactly how their conclusions are consumed in the proof of Theorem 3.5. Not verified: sections 6 and 7 (Lemma 6.1 'lack of Gowers uniformity implies correlation', Proposition 6.2 on uniform distribution with respect to basic Gowers anti-uniform functions, Lemma 6.3 on polynomials in dual functions, Definition 7.1 of a finitary sigma-algebra, Propositions 7.2 and 7.3), Proposition 8.2 (iterative step), and Lemmas 5.4 and 5.5. Next source action: read printed pp. 14-33 of the same source; no new acquisition is needed."
+    }
+  ]
+}

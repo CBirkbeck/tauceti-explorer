@@ -1,0 +1,392 @@
+{
+  "roadmapId": "ExponentialSumsAndCircleMethod",
+  "status": "partial",
+  "summary": "Source decomposition of ES.1's orthogonality identity and of ES.2's mean-value theorem along the decoupling route, from Bourgain-Demeter-Guth arXiv:1512.01565v3: the analytic representation of J_{s,n}(N), the main conjecture in Vinogradov's mean value theorem with both terms and its actual degree scope (n >= 2, not only n >= 4), the sharp l^2 decoupling inequality for the moment curve at the critical exponent n(n+1) with its exact ball radius and weight, the discrete restriction estimate and the well-separated-reals generalization that converts decoupling into the solution count, the ball inflation inequality and the multilinear Kakeya hierarchy it rests on, and the epsilon-removal argument above the critical exponent. The interior of the decoupling proof (the induction on scales and the iteration scheme, printed pp. 10-38) was not read and is recorded as an explicit boundary, as are the quoted Kakeya/Brascamp-Lieb inputs and Wooley's two arc estimates. ES.0 is linked to the finite-field producer FF.2 decomposed elsewhere in EXT-08 but otherwise has no acquired source; ES.3, ES.4 and ES.5 are not read.",
+  "sources": [
+    {
+      "id": "bourgain-demeter-guth-2016",
+      "title": "Proof of the main conjecture in Vinogradov's Mean Value Theorem for degrees higher than three",
+      "authors": "Jean Bourgain, Ciprian Demeter and Larry Guth",
+      "edition": "arXiv:1512.01565v3, 1 April 2016 (39 pp.); corresponds to Annals of Mathematics 184 (2016), 633-682",
+      "url": "https://arxiv.org/abs/1512.01565",
+      "sha256": "5a6b7f66580d3f7db123f4e715aed5ef373cb0c96ee28b226be823cb68759abe",
+      "readSections": [
+        "Section 1 (Introduction): the definition of J_{s,n}(N) and its analytic representation, Theorem 1.1, the remark on n = 2 and n = 3, the definitions of the weighted norms, the weight w_B, the curve Gamma_n and the extension operator E_J, Theorem 1.2, printed pp. 1-2",
+        "Section 2 (Notation) and Section 3 (Overview of the method): the three ingredients (multilinear Kakeya hierarchy, induction on scales, iteration scheme), printed pp. 3-4",
+        "Section 4 (From decouplings to exponential sums): Theorem 4.1 with proof, the definition of J_{s,n}(S_X) for well separated reals, Corollary 4.2 with proof, printed pp. 4-5",
+        "Section 5 (The epsilon removal argument): the major arcs M(q,a) with L = N^{1/(2n)}, the imported estimates (5) and (6), the minor-arc interpolation and the conclusion (7), printed pp. 5-6",
+        "Section 6: Theorem 6.1 (Bennett-Carbery-Christ-Tao Brascamp-Lieb criterion) with the transversality condition (8), Theorem 6.5 (multilinear Kakeya for plates) with its proof reference, Theorem 6.6 (ball inflation, inequality (11)) with the opening of its proof, printed pp. 6-10",
+        "References list, printed p. 39"
+      ]
+    },
+    {
+      "id": "sga4half-sommes-trig",
+      "title": "Cohomologie etale (SGA 4 1/2), expose 'Applications de la formule des traces aux sommes trigonometriques'",
+      "authors": "Pierre Deligne",
+      "edition": "Springer Lecture Notes in Mathematics 569 (1977); IAS scan",
+      "url": "https://publications.ias.edu/sites/default/files/Number32.pdf",
+      "sha256": "fb2939521f4c0ea0cdd55a90bec2e618e32fb433c78b194e705c6d989f4e42a6",
+      "readSections": [
+        "[Sommes trig.] Proposition 3.8 and Lemme 3.9, expose pp. 26-28 (volume pp. 193-195) -- read in full for the EXT-08 FiniteFieldsAndCharacterSums packet and reused here only to state the supplier relation into ES.0"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.1/analytic-representation-of-the-vinogradov-mean-value",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.1",
+      "title": "Orthogonality identity: the Vinogradov solution count as a torus integral of an exponential sum",
+      "kind": "lemma",
+      "statement": "For integers s >= 1 and n, N >= 2 let J_{s,n}(N) be the number of integral solutions of the simultaneous system X_1^i + ... + X_s^i = X_{s+1}^i + ... + X_{2s}^i for 1 <= i <= n with 1 <= X_1,...,X_{2s} <= N. Then J_{s,n}(N) = integral over [0,1]^n of | sum_{j=1}^{N} e(x_1 j + x_2 j^2 + ... + x_n j^n) |^{2s} dx_1...dx_n, where e(z) = e^{2 pi i z}.",
+      "hypotheses": [
+        "The system is the FULL translation-invariant system of n equations, one for each power 1 <= i <= n; dropping any equation changes the count",
+        "The 2s variables range over the integers in [1,N]; the identity is exact, with no error term",
+        "The integral is over the n-torus [0,1]^n with Lebesgue measure; the exponent is 2s, an even integer, so the integrand is |F|^{2s} and is non-negative"
+      ],
+      "proofSteps": [
+        "Expand |sum_j e(x . (j, j^2, ..., j^n))|^{2s} as a sum over 2s-tuples (X_1,...,X_{2s}) of e( sum_i x_i (X_1^i + ... + X_s^i - X_{s+1}^i - ... - X_{2s}^i) ).",
+        "Integrate term by term over [0,1]^n; by orthogonality of the characters x -> e(x . m) on the torus, the integral of each term is 1 if all n of the differences Z_i = X_1^i + ... + X_s^i - (X_{s+1}^i + ... + X_{2s}^i) vanish and 0 otherwise.",
+        "The surviving terms are exactly the solutions counted by J_{s,n}(N)."
+      ],
+      "acceptance": [
+        "Small-case check: n = 1, s = 1, N = 2 gives J = #{(X_1,X_2) : X_1 = X_2} = 2, matching the integral of |e(x)+e(2x)|^2 over [0,1].",
+        "Check that the diagonal solutions X_{s+i} = X_{sigma(i)} always contribute, giving the lower bound J_{s,n}(N) >> N^s which is the first term of the conjectured upper bound.",
+        "Check that the count with only the first n-1 equations is strictly larger, so the identity is sensitive to the exact system."
+      ],
+      "sources": [
+        {
+          "sourceId": "bourgain-demeter-guth-2016",
+          "locator": "Section 1, definition of J_{s,n}(N) and its analytic representation, printed p. 1",
+          "excerpt": "For each integers s >= 1 and n, N >= 2 denote by J_{s,n}(N) the number of integral solutions for the following system X_1^i + ... + X_s^i = X_{s+1}^i + ... + X_{2s}^i, 1 <= i <= n, with 1 <= X_1,...,X_{2s} <= N. The number J_{s,n}(N) has the following analytic representation J_{s,n}(N) = integral_{[0,1]^n} | sum_{j=1}^N e(x_1 j + x_2 j^2 + ... + x_n j^n) |^{2s} dx_1 ... dx_n.",
+          "match": "Verbatim the counting system and the orthogonality identity asserted in the node."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.2/vinogradov-main-conjecture-all-degrees",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.2",
+      "title": "Theorem 1.1: the main conjecture in Vinogradov's mean value theorem, with both terms and the epsilon loss",
+      "kind": "theorem",
+      "statement": "For each s >= 1 and n, N >= 2, J_{s,n}(N) <~ N^{s + epsilon} + N^{2s - n(n+1)/2 + epsilon}, the implied constant depending on n, s and epsilon. The bound is sharp apart from the N^epsilon loss. The statement is proved here for all n >= 2; the case n = 2 follows from elementary divisor-function estimates and the case n = 3 was proved earlier by Wooley by efficient congruencing.",
+      "hypotheses": [
+        "s >= 1 an integer, n >= 2, N >= 2; the implied constant is allowed to depend on n, s and epsilon but not on N",
+        "Two terms are asserted; neither dominates for all s. The crossover is at 2s = n(n+1), where both exponents equal s",
+        "The epsilon loss is genuinely present in this statement; it is removable only for 2s = p > n(n+1) (see the separate epsilon-removal node)",
+        "The lower bound J_{s,n}(N) >> N^s + N^{2s - n(n+1)/2} is classical (diagonal solutions and the volume heuristic) and is what makes the theorem sharp; it is asserted, not proved, in the source ('Apart from the N^epsilon loss, this bound has been known to be sharp')"
+      ],
+      "proofSteps": [
+        "Reduce to the decoupling inequality Theorem 1.2 for the moment curve Gamma_n, via the discrete restriction estimate Theorem 4.1 and the Schwartz-majorant argument of Corollary 4.2 (see the corresponding nodes).",
+        "Theorem 1.2 itself is proved by the three-ingredient scheme described in section 3: multilinear Kakeya-type theorems (Theorem 6.5), the Bourgain-Guth induction on scales relating linear and multilinear decoupling, and an iteration producing the multi-scale inequality of Theorem 8.3.",
+        "PROOF-READING BOUNDARY: sections 6 (after Theorem 6.6), 7, 8 and 9 of the source, which contain the actual induction and iteration, were not read for this packet."
+      ],
+      "acceptance": [
+        "Degree scope: the title of the source says 'for degrees higher than three', but the theorem as stated covers n >= 2. A consumer must not conclude that low degrees are unproved here: the source says the case n = 2 follows easily from elementary divisor-function estimates and attributes n = 3 to Wooley. ES.2's acceptance condition on low degrees is satisfied by this reading, provided the n = 2 and n = 3 attributions are carried.",
+        "Both terms must be stated: a formalization that records only N^{2s - n(n+1)/2 + epsilon} is false for small s.",
+        "Check the crossover 2s = n(n+1) numerically for n = 2 (s = 3) and n = 3 (s = 6).",
+        "Check that the epsilon is uniform in N but the constant is not uniform in epsilon."
+      ],
+      "sources": [
+        {
+          "sourceId": "bourgain-demeter-guth-2016",
+          "locator": "Theorem 1.1 and the surrounding remarks, printed p. 1",
+          "excerpt": "Theorem 1.1. For each s >= 1 and n, N >= 2 we have the upper bound J_{s,n}(N) . N^{s+epsilon} + N^{2s - n(n+1)/2 + epsilon}. In spite of its name, this result was in fact a conjecture until fairly recently, for n >= 3. The case n = 3 was solved by Wooley in [18] ... The case n = 2 follows easily from elementary estimates for the divisor function. ... The N^epsilon loss in Theorem 1.1 can be removed for p > n(n+1), see (7) below.",
+          "match": "Verbatim statement with both terms, the attribution of the low-degree cases, and the precise range in which the epsilon loss can be removed."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.2/l2-decoupling-for-the-moment-curve",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.2",
+      "title": "Theorem 1.2: the sharp l^2 decoupling inequality for the moment curve at the critical exponent n(n+1)",
+      "kind": "theorem",
+      "statement": "Let Gamma = {Phi(t) = (t, t^2, ..., t^n) : 0 <= t <= 1} and for g : [0,1] -> C and an interval J in [0,1] let E_J g(x) = integral_J g(t) e(t x_1 + t^2 x_2 + ... + t^n x_n) dt. Let n >= 2 and 0 < delta <= 1. Then for each ball B in R^n of radius delta^{-n} and each g, ||E_{[0,1]} g||_{L^{n(n+1)}(w_B)} <~_epsilon delta^{-epsilon} ( sum_{J subset [0,1], |J| = delta} ||E_J g||^2_{L^{n(n+1)}(w_B)} )^{1/2}, where w_B(x) = (1 + |x - c_B|/R)^{-100n} for B = B(c_B, R). The implicit constant is independent of delta, B and g.",
+      "hypotheses": [
+        "The ball radius is exactly delta^{-n}, matching the curvature scale of the moment curve at resolution delta; a smaller ball does not suffice",
+        "The Lebesgue exponent is exactly the critical n(n+1); the inequality is stated at that exponent only, and other exponents are obtained by Holder and the trivial L^infinity bound",
+        "The weight w_B is a polynomial (not exponential) mollification of the indicator of B with exponent 100n; it is what makes the localized norms additive over a finitely overlapping cover (inequality (3))",
+        "delta^{-1} is assumed to be an integer and J ranges over the intervals [j delta, (j+1) delta] for 0 <= j <= delta^{-1} - 1",
+        "The right-hand side is an l^2 sum over the delta-intervals: this is an l^2 decoupling, not an l^p one"
+      ],
+      "proofSteps": [
+        "Section 3 of the source lists the three ingredients: (i) multilinear Kakeya-type theorems for families of plates (Theorem 6.5), which become available after passing to a multilinear version of the decoupling inequality; (ii) the Bourgain-Guth induction on scales [12], which shows the linear decoupling is essentially equivalent to its multilinear version and permits a bootstrap driving the decoupling constants to their conjectured values; (iii) an iteration scheme producing the multi-scale inequality of Theorem 8.3, combining L^2 decoupling, lower dimensional decoupling and ball inflation.",
+        "The key new inequality is the ball inflation of Theorem 6.6 (see the corresponding node), which enlarges the spatial ball at fixed intervals, enabling a subsequent decoupling into smaller intervals.",
+        "PROOF-READING BOUNDARY: only sections 1-6 (through Theorem 6.6) were read; sections 7-9 containing the bootstrap and the iteration were not."
+      ],
+      "acceptance": [
+        "Scale check: for a ball of radius delta^{-n} the curve piece Gamma_J over an interval J of length delta is contained in a delta x delta^2 x ... x delta^n box, which is the dual geometry making the exponent n(n+1) critical.",
+        "Exponent check: the inequality FAILS at exponents above n(n+1) with the same delta^{-epsilon} loss; the source only claims n(n+1).",
+        "Weight check: replacing w_B by the sharp indicator 1_B breaks the cover inequality (3) used in the proof of Theorem 4.1.",
+        "l^2 versus l^p check: the right-hand side is an l^2 aggregation; an l^p version with p = n(n+1) would be a different (stronger for p > 2) statement."
+      ],
+      "sources": [
+        {
+          "sourceId": "bourgain-demeter-guth-2016",
+          "locator": "Theorem 1.2 with the preceding definitions of Gamma, E_J and w_B, printed p. 2",
+          "excerpt": "Theorem 1.2. Let n >= 2 and 0 < delta <= 1. For each ball B subset R^n with radius delta^{-n} and each g : [0,1] -> C we have ||E_{[0,1]} g||_{L^{n(n+1)}(w_B)} . delta^{-epsilon} ( sum_{J subset [0,1], |J| = delta} ||E_J g||^2_{L^{n(n+1)}(w_B)} )^{1/2}. The implicit constant is independent of delta, B, g.",
+          "match": "Verbatim statement with the radius delta^{-n}, the critical exponent n(n+1), the weight and the l^2 aggregation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.2/discrete-restriction-and-well-separated-generalization",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.2",
+      "title": "Theorem 4.1 and Corollary 4.2: from decoupling to a discrete restriction estimate and to arbitrary well separated reals",
+      "kind": "theorem",
+      "statement": "(Theorem 4.1) For 1 <= i <= N let t_i be a point in ((i-1)/N, i/N]. Then for each R >~ N^n, each ball B_R in R^n, each a_i in C and each p >= 2, ( |B_R|^{-1} integral | sum_i a_i e(x_1 t_i + ... + x_n t_i^n) |^p w_{B_R} )^{1/p} <~ ( N^{epsilon} + N^{(1/2)(1 - n(n+1)/p) + epsilon} ) ||a||_{l^2({1,...,N})}, uniformly in N, R and a. (Corollary 4.2) For each i let X_i be a real with i-1 < X_i <= i, put S_X = {X_1,...,X_N}, and let J_{s,n}(S_X) count the tuples in S_X satisfying the system of INEQUALITIES |X_1^i + ... + X_s^i - (X_{s+1}^i + ... + X_{2s}^i)| <= N^{i-n} for 1 <= i <= n. Then J_{s,n}(S_X) <~ N^{s+epsilon} + N^{2s - n(n+1)/2 + epsilon}, uniformly in S_X. Theorem 1.1 is the special case X_i = i.",
+      "hypotheses": [
+        "The points t_i are only assumed to lie one per interval ((i-1)/N, i/N]: they need not be the rationals i/N, and in Corollary 4.2 the X_i need not be integers",
+        "R >~ N^n is required so that B_R can be covered by balls of radius N^n, which is the radius at which Theorem 1.2 applies with delta = 1/N",
+        "In Corollary 4.2 the exact equalities of Theorem 1.1 are relaxed to the inequalities |Z_i| <= N^{i-n}; for integer X_i and i = n this forces Z_n = 0, and the smaller thresholds for i < n are what recover the exact system",
+        "phi is a fixed positive Schwartz function with non-negative Fourier transform satisfying phi-hat(xi) >= 1 for |xi| <~ 1; such a phi exists and is fixed once and for all"
+      ],
+      "proofSteps": [
+        "Theorem 4.1: by Holder and the trivial L^infinity bound it suffices to treat p = n(n+1). Cover B_R by a finitely overlapping family of balls of radius N^n, use the elementary weight-summation inequality (3) sum_{B_{N^n}} w_{B_{N^n}} <~ w_{B_R}, apply Theorem 1.2 on each such ball with delta = 1/N, and sum.",
+        "Apply the resulting inequality to g = (2 tau)^{-1} sum_i a_i 1_{(t_i - tau, t_i + tau)} and let tau -> 0, which turns E_{[0,1]} g into the discrete exponential sum.",
+        "Corollary 4.2: with a_i = 1 and Schwartz decay, (2) gives the moment bound (4) for the phi_{N^n}-weighted 2s-th moment. Apply it with t_i = X_i/N and rescale by phi_{N,1}(x) = phi(x_1/N^{n-1}, x_2/N^{n-2}, ..., x_n).",
+        "Expanding the 2s-th power and integrating, each 2s-tuple contributes N^{n(n+1)/2} times integral phi_{N,1}(x) e(x_1 Z_1 + ... + x_n Z_n) dx = N^{n^2} phi-hat(N^{n-1} Z_1, N^{n-2} Z_2, ..., Z_n), which is non-negative and is at least N^{n^2} whenever |Z_i| <~ N^{i-n}, i.e. for each of the J_{s,n}(S_X) solutions. Comparing with (4) gives the bound."
+      ],
+      "acceptance": [
+        "Check that Corollary 4.2 counts solutions of INEQUALITIES, not equations, and that the thresholds N^{i-n} depend on i; this is the precise sense in which integers can be replaced by well separated reals.",
+        "Check the specialization X_i = i recovers Theorem 1.1, using that for integers the inequality |Z_i| <= N^{i-n} < 1 forces Z_i = 0 only when i < n; the i = n case gives |Z_n| <= 1, so the reduction needs the joint system.",
+        "Check the positivity of phi-hat: the argument needs every term in the expansion to be non-negative so that the J_{s,n}(S_X) good terms can be isolated from below.",
+        "Check the requirement R >~ N^n in Theorem 4.1; a smaller R invalidates the covering step."
+      ],
+      "sources": [
+        {
+          "sourceId": "bourgain-demeter-guth-2016",
+          "locator": "Theorem 4.1 with proof and Corollary 4.2 with proof, printed pp. 4-5",
+          "excerpt": "Corollary 4.2. For each integer s >= 1 and each S_X as above we have that J_{s,n}(S_X) . N^{s+epsilon} + N^{2s - n(n+1)/2 + epsilon}, where the implicit constant does not depend on S_X. ... Recall that this is always positive, and in fact greater than N^{n^2} at least J_{s,n}(S_X) times. It now suffices to use (4).",
+          "match": "Gives both statements and the Schwartz-majorant positivity argument summarized in the proof steps, including the inequality system with thresholds N^{i-n}."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.2/ball-inflation-and-multilinear-kakeya",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.2",
+      "title": "Theorem 6.6 (ball inflation) and the multilinear Kakeya hierarchy it rests on",
+      "kind": "theorem",
+      "statement": "(Theorem 6.1, Bennett-Carbery-Christ-Tao) For k-dimensional subspaces V_j of R^n with orthogonal projections pi_j, the Brascamp-Lieb type constant sup over g_j in L^2(V_j) of || (prod_{j=1}^{m} |g_j o pi_j|)^{1/m} ||_{L^{2n/k}(R^n)} / (prod_j ||g_j||_{L^2(V_j)})^{1/m} is finite if and only if dim(V) <= (n/(km)) sum_{j=1}^m dim(pi_j(V)) for every linear subspace V of R^n. (Theorem 6.5) For M^n families P_j of plates in R^n, each plate P in P_j having k axes of length R^{1/2} spanning V_k(t_P) for some t_P in I_j and the other n-k axes of length R, all contained in a ball of radius 4R, one has the multilinear Kakeya inequality (10) with the loss R^{epsilon}. (Theorem 6.6, ball inflation) Fix 1 <= k <= n-1 and p >= 2n; let B be a ball of radius rho^{-(k+1)} and let B be a finitely overlapping cover of B by balls Delta of radius rho^{-k}. Then inequality (11) holds: the average over Delta in B of the (p/M_n)-th power of the l^2 aggregate of ||E_{J_i} g||_{L^{pk/n}_#(w_Delta)} is bounded, up to rho^{-epsilon}, by the same expression computed on the single larger ball B.",
+      "hypotheses": [
+        "Theorem 6.1 is an if-and-only-if: the transversality condition (8) is necessary as well as sufficient for finiteness of the Brascamp-Lieb constant",
+        "In Theorem 6.5 the plates have a prescribed anisotropic shape (k axes of length R^{1/2} spanning the tangent space V_k(t_P), the remaining n-k of length R) and the functions F_j must be of the form sum_P c_P 1_P; the constant depends on epsilon and K but not on R, c_P or P_j",
+        "Theorem 6.6 requires p >= 2n and 1 <= k <= n-1, a ball radius exactly rho^{-(k+1)} and a cover by balls of radius rho^{-k}; the intervals J_i are unchanged from left to right, so (11) is NOT itself a decoupling inequality",
+        "rho < 1/K where K is the transversality parameter of the multilinear setup"
+      ],
+      "proofSteps": [
+        "Theorem 6.1 is quoted from [2] (Bennett, Carbery, Christ, Tao, Math. Res. Lett. 17 (2010)); no proof is given in the source.",
+        "Theorem 6.5 is deduced from the Kakeya hierarchy; the source notes that a short proof of the case k = n-1 is in [15] (Guth, Math. Proc. Cambridge Philos. Soc. 158 (2015)) and that it extends easily to the other values of k, and refers to [8] for further discussion. No proof is written out.",
+        "Theorem 6.6's proof begins by reducing, at the cost of logarithmic losses in rho, to families of intervals J_i for which the norms ||E_{J_i} g||_{L^{pk/n}_#(w_B)} have comparable size, dealing with the small ones by the triangle inequality.",
+        "The role of (11) in the whole argument is stated in section 3: it is the key new inequality, the 'ball inflation', which enlarges the spatial ball and thereby permits a subsequent decoupling into smaller intervals, each scale corresponding to a particular member of the hierarchy of Theorem 6.5.",
+        "PROOF-READING BOUNDARY: the remainder of the proof of Theorem 6.6, and Theorems 6.2-6.4, were not read."
+      ],
+      "acceptance": [
+        "Transversality check: verify condition (8) in the concrete configuration used, i.e. for the tangent spaces V_k(t) of the moment curve at K-separated parameters; the k = 1 case is the classical multilinear Kakeya of Bennett-Carbery-Tao.",
+        "Radius bookkeeping: in (11) the radii rho^{-k} and rho^{-(k+1)} differ by one power of rho; check that the exponent matches the dimension k of the subspaces used.",
+        "Check that (11) leaves the intervals J_i fixed; a reader who mistakes it for a decoupling inequality will misattribute the gain.",
+        "Imported-result check: Theorems 6.1 and 6.5 are quoted from [2] and [15] and are not proved here."
+      ],
+      "sources": [
+        {
+          "sourceId": "bourgain-demeter-guth-2016",
+          "locator": "Theorem 6.1 with condition (8), Theorem 6.5 with (10), Theorem 6.6 with (11), printed pp. 6-10",
+          "excerpt": "Theorem 6.6. Fix 1 <= k <= n-1 and p >= 2n. Let B be an arbitrary ball in R^n with radius rho^{-(k+1)}, and let B be a finitely overlapping cover of B with balls Delta of radius rho^{-k}. ... Note that (11) is not a decoupling inequality, as the intervals J_i remain unchanged from left to right. However, the ball on the right is larger, which will allow for subsequent decouplings into smaller intervals.",
+          "match": "Gives the exact hypotheses of the ball inflation inequality and the source's own explanation of its role, plus the two imported Kakeya/Brascamp-Lieb inputs."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.2/epsilon-removal-above-the-critical-exponent",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.2",
+      "title": "Section 5: removal of the N^epsilon loss for p > n(n+1) via a major/minor arc split",
+      "kind": "theorem",
+      "statement": "Let F(x;N) = sum_{j=1}^{N} e(x_1 j + x_2 j^2 + ... + x_n j^n), let L = N^{1/(2n)}, and for 1 <= q <= L and 1 <= a_j <= q with gcd(q, a_1,...,a_n) = 1 define the major arc M(q,a) = {x in [0,1)^n : |x_j - a_j/q| <= L N^{-j}, 1 <= j <= n}; let M be their union and m = [0,1)^n \\ M. Assume the two estimates (5) sup_{x in m} |F(x;N)| <~ N^{beta} for some beta < 1 and (6) integral_M |F(x;N)|^p dx <~ N^{p - n(n+1)/2} for p > n(n+1). Then for every fixed p > n(n+1), integral_{[0,1]^n} |F(x;N)|^p dx <~ N^{p - n(n+1)/2}, with NO epsilon loss.",
+      "hypotheses": [
+        "p > n(n+1) strictly; at p = n(n+1) the argument does not apply and the epsilon loss remains",
+        "L = N^{1/(2n)} fixes the width of the major arcs; a different L changes both (5) and (6)",
+        "The coprimality is joint: gcd(q, a_1, ..., a_n) = 1, not gcd(q,a_j) = 1 for each j",
+        "IMPORT STATUS: both (5) and (6) are quoted from Section 7 of Wooley, 'Discrete Fourier restriction via efficient congruencing: basic principles', arXiv:1508.05329 ((6) is his Lemma 7.1); neither is proved in the source read"
+      ],
+      "proofSteps": [
+        "On the minor arcs, interpolate: integral_m |F|^p <= (sup_m |F|)^{p - n(n+1)} integral_m |F|^{n(n+1)} <~ N^{beta(p - n(n+1))} . N^{n(n+1) - n(n+1)/2 + epsilon}, using (5) for the sup and Theorem 1.1 with 2s = n(n+1) for the remaining integral.",
+        "Since beta < 1 is fixed and p > n(n+1) is fixed, the factor N^{beta(p-n(n+1))} is smaller than N^{p - n(n+1)} by a fixed positive power, which absorbs the N^{epsilon} for epsilon small enough; hence integral_m |F|^p <~ N^{p - n(n+1)/2}.",
+        "Add the major-arc bound (6) to obtain (7)."
+      ],
+      "acceptance": [
+        "Check the absorption step explicitly: it needs (1 - beta)(p - n(n+1)) > epsilon, so epsilon must be chosen after p and beta. This is exactly why the removal fails at p = n(n+1).",
+        "Check that the major arcs are disjoint for L = N^{1/(2n)} (this is part of ES.1's 'disjointness/overlap control' and is not verified in the source read).",
+        "Check the exponent p - n(n+1)/2 against the heuristic: the major arcs contribute the singular series times the singular integral, of order N^{p - n(n+1)/2}.",
+        "Check that this node's conclusion is about the exact moment integral, i.e. about J_{s,n}(N) with 2s = p, so p must be an even integer for the count interpretation."
+      ],
+      "sources": [
+        {
+          "sourceId": "bourgain-demeter-guth-2016",
+          "locator": "Section 5 (The epsilon removal argument), (5), (6), (7), printed pp. 5-6",
+          "excerpt": "Write L = N^{1/(2n)}. For 1 <= q <= L, 1 <= a_j <= q (1 <= j <= n) with (q, a_1, ..., a_n) = 1, define the major arc M(q,a) = {x in [0,1)^n : |x_j - a_j/q| <= L N^{-j} (1 <= j <= n)}. ... We recall the following two estimates from Section 7 in [22] (5) sup_{x in m} |F(x;N)| . N^{beta}, for some beta < 1 and (Lemma 7.1) (6) integral_M |F(x;N)|^p dx . N^{p - n(n+1)/2}, for p > n(n+1).",
+          "match": "Gives the arc definitions, the two imported estimates with their exact source location, and the range p > n(n+1) in which the epsilon is removed."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "ExponentialSumsAndCircleMethod:ES.1/analytic-representation-of-the-vinogradov-mean-value",
+      "target": "ExponentialSumsAndCircleMethod:ES.2/vinogradov-main-conjecture-all-degrees",
+      "reason": "Theorem 1.1 is stated as a bound on the SOLUTION COUNT J_{s,n}(N); the entire harmonic-analytic proof bounds instead the torus integral of |F(x;N)|^{2s}. The orthogonality identity is the only step converting one into the other, and it is also what makes the epsilon-removal argument of section 5 a statement about J.",
+      "sources": [
+        {
+          "sourceId": "bourgain-demeter-guth-2016",
+          "locator": "Section 1, analytic representation of J_{s,n}(N), printed p. 1"
+        }
+      ]
+    },
+    {
+      "source": "ExponentialSumsAndCircleMethod:ES.2/l2-decoupling-for-the-moment-curve",
+      "target": "ExponentialSumsAndCircleMethod:ES.2/discrete-restriction-and-well-separated-generalization",
+      "reason": "The proof of Theorem 4.1 applies Theorem 1.2 with delta = 1/N on every ball of radius N^n in a finitely overlapping cover of B_R, then sums using the weight inequality (3). The critical exponent n(n+1) of Theorem 1.2 is exactly the exponent at which Theorem 4.1 is first proved, all other p following by Holder.",
+      "sources": [
+        {
+          "sourceId": "bourgain-demeter-guth-2016",
+          "locator": "Proof of Theorem 4.1, printed p. 4"
+        }
+      ]
+    },
+    {
+      "source": "ExponentialSumsAndCircleMethod:ES.2/discrete-restriction-and-well-separated-generalization",
+      "target": "ExponentialSumsAndCircleMethod:ES.2/vinogradov-main-conjecture-all-degrees",
+      "reason": "Theorem 1.1 is the special case X_i = i of Corollary 4.2; the source states that Theorem 1.1 follows from Theorem 1.2 and explains the connection in section 4. The corollary supplies the exact two-term bound with the same exponents.",
+      "sources": [
+        {
+          "sourceId": "bourgain-demeter-guth-2016",
+          "locator": "Corollary 4.2 and the sentence 'Theorem 1.1 will follow from the following general result. The connection is explained in Section 4', printed pp. 2 and 5"
+        }
+      ]
+    },
+    {
+      "source": "ExponentialSumsAndCircleMethod:ES.2/ball-inflation-and-multilinear-kakeya",
+      "target": "ExponentialSumsAndCircleMethod:ES.2/l2-decoupling-for-the-moment-curve",
+      "reason": "Section 3 of the source identifies inequality (11) of Theorem 6.6 as the key new inequality of the paper, obtained from the multilinear Kakeya hierarchy of Theorem 6.5, and as the mechanism that enlarges the spatial ball so that subsequent decouplings into smaller intervals become possible; it is the engine of the iteration that yields Theorem 1.2.",
+      "sources": [
+        {
+          "sourceId": "bourgain-demeter-guth-2016",
+          "locator": "Section 3 (Overview of the method) and the paragraph introducing Theorem 6.6, printed pp. 3-4 and 9"
+        }
+      ]
+    },
+    {
+      "source": "ExponentialSumsAndCircleMethod:ES.2/vinogradov-main-conjecture-all-degrees",
+      "target": "ExponentialSumsAndCircleMethod:ES.2/epsilon-removal-above-the-critical-exponent",
+      "reason": "The minor-arc interpolation in section 5 uses Theorem 1.1 at the critical exponent 2s = n(n+1) to bound integral_m |F|^{n(n+1)}; without that input the interpolation has nothing to interpolate against. Note the direction: the sharp (epsilon-free) statement CONSUMES the epsilon-lossy one, not the other way round.",
+      "sources": [
+        {
+          "sourceId": "bourgain-demeter-guth-2016",
+          "locator": "Section 5, the displayed minor-arc chain, printed p. 6"
+        }
+      ]
+    },
+    {
+      "source": "FiniteFieldsAndCharacterSums:FF.2/multivariable-polynomial-exponential-sum-bound",
+      "target": "ExponentialSumsAndCircleMethod:ES.0",
+      "reason": "ES.0 asks for completion of sums and explicit degree bounds connected to finite-field character-sum producers. Deligne's Proposition 3.8 supplies the exact constant and exponent for a complete n-variable polynomial exponential sum over F_q, |sum psi(P(x))| <= (d-1) q^{n-1/2}, together with the exclusion P not of the form Q^p - Q + const that any completion-of-sums argument must carry. This records, at node level, the existing atlas edge FF.2 -> ES.0; the same edge is recorded in the EXT-08 FiniteFieldsAndCharacterSums packet.",
+      "sources": [
+        {
+          "sourceId": "sga4half-sommes-trig",
+          "locator": "[Sommes trig.] Proposition 3.8, expose p. 26 (volume p. 193)"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "status": "not_read",
+      "remaining": [
+        "Weyl differencing, van der Corput, stationary phase and completion of sums: no source read. The named source VAUGHAN (The Hardy-Littlewood Method, CUP) was not acquired and no authorized public copy was located. The only ES.0-relevant material decomposed anywhere in EXT-08 is the finite-field input FF.2 (Deligne's Proposition 3.8), recorded as a link here.",
+        "Kedlaya's notes were acquired but contain no Weyl-differencing chapter; they are organized around zeta/L-functions and sieves."
+      ]
+    },
+    {
+      "stageId": "ExponentialSumsAndCircleMethod:ES.1",
+      "status": "partial",
+      "remaining": [
+        "The orthogonality identity for the Vinogradov system is decomposed. Not read: disjointness/overlap control of the major arcs M(q,a) for L = N^{1/(2n)} (used in the epsilon-removal node but not proved in the source read), smoothed and weighted variants of the counting identity, and the general major/minor arc apparatus of the circle method, which needs VAUGHAN."
+      ]
+    },
+    {
+      "stageId": "ExponentialSumsAndCircleMethod:ES.2",
+      "status": "partial",
+      "remaining": [
+        "Sections 6 (after Theorem 6.6), 7, 8 and 9 of the source -- the multilinear-to-linear induction on scales, the iteration scheme, Theorem 8.3, and the Appendix -- were NOT read. These contain the actual proof of Theorem 1.2.",
+        "Theorem 6.1 is quoted from Bennett-Carbery-Christ-Tao [2] and Theorem 6.5 from Guth [15]; neither was read.",
+        "The two estimates (5) and (6) used for epsilon removal are quoted from Wooley arXiv:1508.05329 section 7; not read.",
+        "The efficient-congruencing route (Wooley) named as an alternative in ES.2's own text was not read at all; only the decoupling route.",
+        "The classical lower bound J_{s,n}(N) >> N^s + N^{2s - n(n+1)/2}, which makes the theorem sharp, is asserted in the source without proof and was not verified."
+      ]
+    },
+    {
+      "stageId": "ExponentialSumsAndCircleMethod:ES.3",
+      "status": "not_read",
+      "remaining": [
+        "Singular integrals, p-adic local densities, absolute convergence, factorization and positivity: no source read. Note that the major-arc estimate (6) used in the epsilon-removal node is an L^p bound imported from Wooley, NOT a singular-series computation, so nothing in this packet supplies ES.3."
+      ]
+    },
+    {
+      "stageId": "ExponentialSumsAndCircleMethod:ES.4",
+      "status": "not_read",
+      "remaining": [
+        "Waring-type theorems, sums of primes, forms in many variables: no source read. ES.4's own text already warns that the unweighted Vinogradov mean value theorem does not supply the prime-weighted bounds; nothing in this packet changes that."
+      ]
+    },
+    {
+      "stageId": "ExponentialSumsAndCircleMethod:ES.5",
+      "status": "not_read",
+      "remaining": [
+        "Determinant method and geometric point counting: no source read."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "The proof of the decoupling theorem itself was not read",
+      "neededBy": [
+        "ExponentialSumsAndCircleMethod:ES.2/l2-decoupling-for-the-moment-curve",
+        "ExponentialSumsAndCircleMethod:ES.2/vinogradov-main-conjecture-all-degrees"
+      ],
+      "detail": "Verified: the statement of Theorem 1.2 with all its parameters, the three-ingredient overview of section 3, the statement of the ball inflation Theorem 6.6 and the opening of its proof, and the complete chain from Theorem 1.2 to Theorem 1.1 through Theorem 4.1 and Corollary 4.2. Not verified: sections 6 (from Theorem 6.2 on), 7, 8 and 9, which contain the multilinear-to-linear induction on scales, the lower dimensional decoupling, the iteration scheme and Theorem 8.3. Next source action: read printed pp. 10-38 of the same file; no new acquisition is needed."
+    },
+    {
+      "title": "Multilinear Kakeya and Brascamp-Lieb inputs are quoted, not proved",
+      "neededBy": [
+        "ExponentialSumsAndCircleMethod:ES.2/ball-inflation-and-multilinear-kakeya"
+      ],
+      "detail": "Verified: Theorem 6.1 is quoted as the finiteness criterion of Bennett-Carbery-Christ-Tao, Math. Res. Lett. 17 (2010), no. 4, 647-666, with the transversality condition (8) stated as an if-and-only-if; Theorem 6.5 is asserted with the remark that a short proof of the k = n-1 case is in Guth, Math. Proc. Cambridge Philos. Soc. 158 (2015), no. 1, 147-153, extending easily to other k. Not verified: either proof. The landmark multilinear restriction/Kakeya theorem of Bennett-Carbery-Tao, Acta Math. 196 (2006), is also cited. Next source action: acquire Guth's short proof (arXiv) first, since it is the one the source claims suffices, then BCCT if the general k is needed."
+    },
+    {
+      "title": "Epsilon-removal inputs (5) and (6) are imported from Wooley and unread",
+      "neededBy": [
+        "ExponentialSumsAndCircleMethod:ES.2/epsilon-removal-above-the-critical-exponent"
+      ],
+      "detail": "Verified: the exact statements of (5) (minor-arc sup bound N^beta with beta < 1) and (6) (major-arc L^p bound for p > n(n+1), Wooley's Lemma 7.1), the definition of the arcs with L = N^{1/(2n)}, and the interpolation that combines them with Theorem 1.1. Not verified: Wooley, 'Discrete Fourier restriction via efficient congruencing: basic principles', arXiv:1508.05329, section 7. Next source action: download arXiv:1508.05329 and read section 7; this would also give an independent route to ES.2 via efficient congruencing."
+    },
+    {
+      "title": "ES.0 has no acquired source",
+      "neededBy": [
+        "ExponentialSumsAndCircleMethod:ES.0",
+        "ExponentialSumsAndCircleMethod:ES.1"
+      ],
+      "detail": "Verified: the FF.2 finite-field input (Deligne's Proposition 3.8) and its constant; this is the only ES.0-relevant item decomposed in EXT-08. Not verified: Weyl differencing, van der Corput, stationary phase, completion of sums -- the core of ES.0. The stage's named source VAUGHAN, 'The Hardy-Littlewood Method' (CUP, doi 10.1017/CBO9780511470929), is a copyrighted monograph and no authorized public copy was found. Next source action: either obtain institutional access to Vaughan, or substitute a public complete treatment (for instance Iwaniec-Kowalski, 'Analytic Number Theory', chapter 8, also copyrighted; or Wooley's public survey arXiv notes) and record the substitution explicitly."
+    },
+    {
+      "title": "Degree scope of the decoupling source versus ES.2's acceptance condition",
+      "neededBy": [
+        "ExponentialSumsAndCircleMethod:ES.2/vinogradov-main-conjecture-all-degrees"
+      ],
+      "detail": "ES.2's acceptance condition says 'do not cite a degree-greater-than-three source for unproved low-degree cases'. Checked against the source: Theorem 1.1 is stated and proved for all n >= 2 and s >= 1; the phrase 'for degrees higher than three' in the title refers to what was NEW, not to the scope of the theorem. The source adds that the n = 2 case 'follows easily from elementary estimates for the divisor function' (not proved there) and attributes n = 3 to Wooley [18]. So the acceptance condition is satisfiable from this source for n >= 4 directly and for n = 2, 3 only by carrying the two attributions. Recorded so that a consumer does not either over- or under-claim the degree range."
+    }
+  ]
+}
