@@ -1303,5 +1303,108 @@
     ]
    }
   ]
+ },
+ {
+  "roadmapId": "PeriodsAndSpecialValues",
+  "primaryMsc": "11G",
+  "secondaryMsc": [
+   "11M",
+   "19A",
+   "14F"
+  ],
+  "cluster": "iwasawa-theory-and-special-values",
+  "distance": 10,
+  "distanceRationale": "Mathlib has Euler's values ζ(2k), ζ at negative integers and Dirichlet L-functions, and Tau Ceti has L-series of modular forms and pure Hodge structures. There are no motives or realizations, no comparison periods, Nori period torsor or relative de Rham cohomology with Gauss–Manin connection, no higher K-theory regulators or fundamental lines, and no multiple zeta values. The roadmap assembles Deligne, Beilinson/Bloch–Kato and equivariant Tamagawa formulations with Brown's mixed Tate theorem and mirror-symmetry Frobenius computations. It sits on fourteen prerequisite roadmaps, many at the research frontier.",
+  "mathlibEvidence": [
+   "mathlib:riemannZeta_two_mul_nat (Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean) — ζ(2k) as a rational multiple of π^{2k}, the Tate-motive critical values",
+   "mathlib:DirichletCharacter.LFunction (Mathlib/NumberTheory/LSeries/DirichletContinuation.lean)",
+   "tauceti:ModularForm.LSeries_qExpansion_coeff_eq (TauCeti/NumberTheory/ModularForms/LFunction.lean) — L-series of modular forms, without critical-value algebraicity",
+   "tauceti:TauCeti.Hodge.HodgeStructure (TauCeti/Geometry/Hodge/Structure.lean) — pure Hodge structures only",
+   "absent: motives and their realizations, period matrices and Nori's period torsor, Gauss–Manin/Picard–Fuchs, Beilinson regulators and fundamental lines, ETNC, multiple zeta values (no declarations matching Motive, PeriodMatrix, GaussManin, PicardFuchs, MultipleZeta)"
+  ],
+  "references": [
+   {
+    "title": "Valeurs de fonctions L et périodes d'intégrales",
+    "authors": "Deligne, Pierre",
+    "zbmath": 3702777,
+    "msc": [
+     "11F67",
+     "11M06",
+     "11G40",
+     "14A20",
+     "14G10"
+    ]
+   },
+   {
+    "title": "On the relation between Nori motives and Kontsevich periods (arXiv:1105.0865)",
+    "authors": "Huber, Annette; Müller-Stach, Stefan",
+    "zbmath": 900128878,
+    "msc": [
+     "arXiv:math.AG",
+     "arXiv:math.KT",
+     "arXiv:math.NT"
+    ]
+   },
+   {
+    "title": "Tamagawa numbers for motives with (non-commutative) coefficients",
+    "authors": "Burns, D.; Flach, M.",
+    "zbmath": 1716189,
+    "msc": [
+     "11R65",
+     "11G40",
+     "19A31",
+     "19B28"
+    ]
+   },
+   {
+    "title": "On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory",
+    "authors": "Burns, David; Venjakob, Otmar",
+    "zbmath": 5165897,
+    "msc": [
+     "11G40",
+     "11R65",
+     "19A31",
+     "19B28"
+    ]
+   },
+   {
+    "title": "Mixed Tate motives over ℤ",
+    "authors": "Brown, Francis",
+    "zbmath": 6025005,
+    "msc": [
+     "19E15",
+     "11M32",
+     "14F42",
+     "11G09",
+     "14G10"
+    ]
+   },
+   {
+    "title": "Derivation and double shuffle relations for multiple zeta values",
+    "authors": "Ihara, Kentaro; Kaneko, Masanobu; Zagier, Don",
+    "zbmath": 5033724,
+    "msc": [
+     "11M32"
+    ]
+   },
+   {
+    "title": "Mirror maps, modular relations and hypergeometric series I (arXiv:hep-th/9507151)",
+    "authors": "Lian, Bong H.; Yau, Shing-Tung",
+    "zbmath": null,
+    "msc": [
+     "arXiv:hep-th"
+    ]
+   },
+   {
+    "title": "Frobenius map for quintic threefolds",
+    "authors": "Shapiro, I.",
+    "zbmath": 5586934,
+    "msc": [
+     "14J33",
+     "14J32",
+     "14J20"
+    ]
+   }
+  ]
  }
 ]
