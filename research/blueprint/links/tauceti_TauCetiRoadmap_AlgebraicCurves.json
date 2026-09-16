@@ -1,0 +1,2078 @@
+{
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "protocol": "links-v1",
+  "status": "complete",
+  "summary": "Complete catalogue-wide screen of tauceti:TauCetiRoadmap/AlgebraicCurves (13 layers, read in full) against all 211 other atlas roadmaps and the new roadmap MordellLawrenceVenkatesh. Each partner was screened by summary, stage titles and a keyword search of stage descriptions and documents. Every candidate stage pair was decided by reading both descriptions in full. Result: 50 links and 11 overlaps; 17 roadmaps have links or overlaps and 195 have none. Outgoing links (44; 4 inferred, the rest explicit) supply function-field places, divisors, L(D), genus, Riemann–Roch consequences, extension ramification, the different and Hurwitz, constant-field extension and ramification groups, Kähler/Weil differentials and the curve/function-field dictionary. Their consumers are BelyiMaps Layers 9–12 (18 links), EllipticCurves Layer 0 (4), ModularCurves Layer 10 (4), SchemeAndStackFoundations SF.3 (3), K2SymbolsBrauer T.4 (3), FiniteFieldsAndCharacterSums FF.4 (3), FunctionFieldArithmetic FA.2/FA.5 (2, inferred), MordellLawrenceVenkatesh LV.7 (2), and one each for EllipticKTheory E.1, WeilConjectures WC.5, ColemanIntegration L1, ArithmeticGaloisRepresentations R01.6 and EllipticCurveModularity R29.6. Incoming links (6, all explicit): EllipticCurves Layer 0 → Layer 10 (toClass_surjective); EllipticCurves Layer 1 → Layers 9 and 12 (invariant differential, isogeny type); JacobianChallenge Layers A and B → Layer 12 (comparison contract); LocalFieldsRamification Layer 3 → Layer 8 (upper numbering, Herbrand, Hasse–Arf). Overlaps: nine rescope and two keep. The rescope overlaps are EllipticCurves Layers 0 and 1 (the Weierstrass dictionary; dim Ω = 1), FunctionFieldArithmetic FA.0/FA.1/FA.3 (duplicates Layers 0–12 over finite fields), JacobianChallenge Layer A (Weil divisors), EllipticKTheory E.1 with ModularCurves 2A (Weierstrass isogeny–scheme comparison), LocalFieldsRamification Layer 3 (local different theory) and NumberFieldArithmetic Layers 5–6 (global-to-local transport of the different). Riemann–Roch against JacobianChallenge Layer B and ModularForms 10B is kept. Supplier gaps found: BelyiMaps 10.6/12.4 expect Layer 8 to supply fully faithful base change along ℚ̄ ⊂ ℂ; ColemanIntegration expects de Rham complexes; SchemeKTheoryOperations KU-geometry cites nonexistent AlgebraicCurves vector bundles.",
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+      "target": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+      "reason": "AlgebraicCurves Layer 0 supplies the general normalized places of a function field, with ord_P, residue field F_P and deg P = finrank k F_P. EllipticCurves Layer 0 needs exactly this interface for W.FunctionField (ord_v, uniformisers, residue fields, residue-finrank degree) and leaves its implementation to the upstream coordination. AlgebraicCurves names itself that coordination point: its contract table lists the EllipticCurves Layer-0 place/divisor interface as the consumer of Layers 0–5.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+          "quote": "**Places.** The `Place k F` structure as pinned (normalized valuation, trivial on `k`)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+          "quote": "the merged [EllipticCurves](../EllipticCurves/README.md) roadmap's Layer-0 place/divisor interface instantiates the general theory here"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+          "quote": "The implementation (maximal ideals, valuation subrings, …) is left to the upstream coordination; the interface here is what the later layers consume."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+      "target": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+      "reason": "AlgebraicCurves Layer 3 supplies the Finsupp divisor group with its residue-degree-weighted degree, the principal-divisor hom and the product formula deg (div f) = 0. EllipticCurves Layer 0 uses the divisor group on places, deg, and div f with deg (div f) = 0 for its class-group anchor and for the Weil-pairing divisor calculus of its Layer 2. AlgebraicCurves names this interface in its contract table.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+          "quote": "**The product formula.** `deg (div f) = 0`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+          "quote": "`Divisor k F` as pinned (Def. 1.4.1); degree hom"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+          "quote": "The divisor group on places; `deg`; `div f` for `f ≠ 0` with `deg (div f) = 0`"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+      "target": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+      "reason": "AlgebraicCurves Layer 6 supplies places lying over places, the indices e(P′∣P) and f(P′∣P), and the fundamental identity ∑ e·f = [F′ : F] (Stichtenoth 3.1.11). EllipticCurves Layer 0's inducedPlace carries e and f and the same identity, which it uses to count fibres of isogenies. The AlgebraicCurves Coordination section names this milestone.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+          "quote": "**The fundamental identity** `∑_{P′ ∣ P} e(P′∣P) · f(P′∣P) = [F′ : F]` (Thm. 3.1.11 — no perfectness consumed)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+          "quote": "the fundamental identity it cites as Stichtenoth 3.1.11 (Layer 6)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+          "quote": "and the **fundamental identity** `Σ_{w ∣ v} e_w · f_w = [F₁ : F₂]` (Stichtenoth III.1.11)"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
+      "target": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+      "reason": "AlgebraicCurves Layer 2 supplies the Dedekind bridge: places finite on an affine model R_x correspond bijectively to its height-one primes, with matching residue fields and degrees. EllipticCurves Layer 0 reads the affine places of W.FunctionField as the maximal ideals of the Dedekind coordinate ring. The AlgebraicCurves document names the elliptic Dedekind instance, obtained via Layer 2, as one that EllipticCurves also wants.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
+          "quote": "Package the resulting bijection `{P : Place k F | ord_P x ≥ 0} ≃ HeightOneSpectrum R_x` together with the induced residue-field equivalence"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
+          "quote": "hence **`IsDedekindDomain` via Layer 2** (the instance the pin lacks and the EllipticCurves roadmap also wants)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+          "quote": "The affine places are the maximal ideals of the coordinate ring (for elliptic `W` a Dedekind domain — itself a worthwhile lemma)"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
+      "reason": "EllipticCurves Layer 0 supplies the class-group anchor toClass_surjective, so that Mathlib's Point.toClass is onto the ideal class group of the coordinate ring. AlgebraicCurves Layer 10's compatibility milestone (iv) uses it, together with Cl⁰(W.FunctionField) ≅ ClassGroup W.CoordinateRing, to close the triangle E(k) ≅ Cl⁰ without re-proving the group law.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+          "quote": "the **surjectivity milestone** (stated in `Suggested.lean`, `toClass_surjective`) makes the point group *the whole* ideal class group"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
+          "quote": "which, with Mathlib's `Point.toClass` (injective) and the EllipticCurves roadmap's seeded `toClass_surjective`, closes the triangle `E(k) ≅ Cl⁰`"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+      "reason": "EllipticCurves Layer 1 constructs the invariant differential ω = dx/(2y + a₁x + a₃) in Mathlib's Ω[W.FunctionField⁄K]. AlgebraicCurves Layer 9's EllipticCurves compatibility milestone takes that element and proves that its Weil-differential divisor is 0, so that the canonical class of a genus-1 function field is trivial.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+          "quote": "**The invariant differential.** `ω = dx / (2y + a₁x + a₃)` as an element of Mathlib's `Ω[W.FunctionField⁄K]`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+          "quote": "the invariant differential of the merged [EllipticCurves](../EllipticCurves/README.md) roadmap lives in `Ω[W.FunctionField⁄k]`; under the comparison, its Weil-differential divisor is `0`"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "reason": "EllipticCurves Layer 1 defines the isogeny type: coordinate-ring pullbacks with MapsInfinity, whose degree and separability come from the induced function-field extension. The acceptance instance of AlgebraicCurves Layer 12C specializes the curve/function-field anti-equivalence to W.FunctionField and derives the correspondence between these isogenies and scheme morphisms.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+          "quote": "**The isogeny type** (stated verbatim in `Suggested.lean`, with `Isogeny.degree` defined outright;"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+          "quote": "specialized to `W.FunctionField`, the anti-equivalence induces its isogeny-to-scheme-morphism correspondence"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "reason": "JacobianChallenge Layer A supplies invertible sheaves, Weil and Cartier divisors on a curve, principal divisors, Cl(X) ≅ Pic X and the degree. AlgebraicCurves 12E names JacobianChallenge Layers A–B as prerequisites, in particular the sheaf 𝒪_X(D). 12D's comparison of Weil divisors on X_F with Divisor k F is also stated in these terms.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+          "quote": "**Divisors on a curve:** Weil divisors `⊕_x ℤ` and Cartier divisors; the dictionaries `Cartier ≃ line bundles` and (smooth curve) `Weil ≃ Cartier`; principal divisors; `Cl(X) ≅ Pic X`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+          "quote": "the merged [JacobianChallenge](../JacobianChallenge/README.md) roadmap's Layers A–B (its sheaf `𝒪_X(D)`, coherent cohomology over `k`, `χ`-form Riemann–Roch, Serre duality)"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "reason": "JacobianChallenge Layer B supplies coherent cohomology over k, the cohomological genus g = dim H¹(X, 𝒪_X), χ-form Riemann–Roch and Serre duality with the dualizing sheaf, deg ω = 2g − 2. AlgebraicCurves 12E's comparison contract matches them with L(D), with the function-field genus and with the canonical class.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+          "quote": "**Genus** `g := dim_k H¹(X, 𝒪_X)`; **Riemann–Roch** `χ(L) = deg L + 1 − g`; **Serre duality** with the **relative dualizing sheaf** `ω_{X/k}`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+          "quote": "(ii) the cohomological genus `dim H¹(X, 𝒪_X)` equals this roadmap's `genus k F`"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+      "reason": "Belyi 9.1 defines an algebraic Belyi pair as a function field in the AlgebraicCurves sense: IsFunctionField with exact constants IsIntegrallyClosedIn. Belyi 9.4 maps points of a compact Riemann surface to AlgebraicCurves Layer 0 places and proves exact constants ℂ. Both are Layer 0 objects. The AlgebraicCurves contract table names BelyiMaps as a consumer.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+          "quote": "**The predicate.** `IsFunctionField k F` as pinned (intrinsic; Stichtenoth Def. 1.1.1"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+          "quote": "`IsIntegrallyClosedIn k F` as pinned, with the `∀`-algebraic and `algebraicClosure k F = ⊥` equivalences as milestones"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+          "quote": "an **algebraic Belyi pair** is a function field `F/k` in AlgebraicCurves' sense — `IsFunctionField k F` with exact constants `IsIntegrallyClosedIn k F`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+          "quote": "*Prerequisites:* AlgebraicCurves Layers 0, 1, 6, 12;"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-1-the-rational-function-field",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+      "reason": "AlgebraicCurves Layer 1 classifies the places of k(x): one for each monic irreducible, plus the place at infinity. Belyi 9.1 takes its three marked places t = 0, t = 1, t = ∞ to be exactly these Layer 1 places.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-1-the-rational-function-field",
+          "quote": "`Place k (RatFunc k) ≃ {monic irreducibles} ⊕ {∞}`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+          "quote": "The three marked places are AlgebraicCurves Layer 1's places of the rational function field"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+      "reason": "AlgebraicCurves Layer 3 supplies L(D), ℓ(D), the genus (Stichtenoth's supremum definition) and Riemann's theorem with equality in large degree. Belyi 9.5 identifies the analytic and algebraic genera by showing that the two L(D) spaces coincide and reading g off the large-degree regime. It lists AlgebraicCurves Layer 3 as a prerequisite.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+          "quote": "**the genus** `genus k F` as pinned (Def. 1.4.15"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+          "quote": "**Riemann's theorem** (Thm. 1.4.17): `ℓ(D) ≥ deg D + 1 − g` for all `D`, with equality for `deg D ≥ c`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+          "quote": "the two `L(D)` spaces are literally the same subspace of `M(X)` under 9.4, so the two Riemann–Roch theorems compute the same function `ℓ`, and both read `g` off its large-degree regime"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+          "quote": "*Prerequisites:* Layers 9.1–9.4; AlgebraicCurves Layers 3, 5, 12; ModularForms Layer 10B."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+      "reason": "AlgebraicCurves Layer 5 supplies the deg ≥ 2g − 1 regime ℓ(D) = deg D + 1 − g, the large-degree behaviour that Belyi 9.5 uses to compare the analytic and algebraic Riemann–Roch functions. Belyi 9.5 lists AlgebraicCurves Layer 5 as a prerequisite.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+          "quote": "**The `deg > 2g − 2` regime**: `deg D ≥ 2g − 1 ⟹ ℓ(D) = deg D + 1 − g`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+          "quote": "*Prerequisites:* Layers 9.1–9.4; AlgebraicCurves Layers 3, 5, 12; ModularForms Layer 10B."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+      "reason": "AlgebraicCurves Layer 6 supplies e(P′∣P), f(P′∣P) and the fundamental identity. Belyi 9.1 builds the local data {(e, f)} at the marked places and the weighted ramification partition from them. Belyi 9.4 and 9.6 match analytic fibre counts with ∑ e·f = n.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+          "quote": "**The fundamental identity** `∑_{P′ ∣ P} e(P′∣P) · f(P′∣P) = [F′ : F]`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+          "quote": "(AlgebraicCurves Layer 6), subject to the fundamental identity `Σ e·f = n`"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+      "reason": "AlgebraicCurves Layer 8 supplies constant-field extension F·k″ for algebraic k″/k, with the constant field identified. Belyi 9.1 uses it for base change of algebraic Belyi pairs and repeats Layer 8's caveat that constants must be re-checked after base change.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+          "quote": "**Constant-field extensions.** `F″ := F·k″` for algebraic `k″/k` (inside a fixed closure): `k″` is exactly the constant field of `F″`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+          "quote": "base change along `k ↪ k′` (AlgebraicCurves Layer 8's constant-field extension), with the caveat recorded there that constants must be re-checked after base change"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+      "reason": "AlgebraicCurves Layer 12 supplies the regular projective model and the anti-equivalence between function fields and curves. Belyi 9.1 proves the morphism-of-curves form of a Belyi pair equivalent through it. Belyi 9.5 compares the analytic pair with the Layer 12 regular projective model of M(X).",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+          "quote": "These milestones produce the single **anti-equivalence**, not just an object-level correspondence."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+          "quote": "is **equivalent**, through AlgebraicCurves Layer 12's anti-equivalence, and is proved equivalent rather than offered as a second definition"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+      "reason": "Belyi 10.4 starts from a function field F/ℚ̄ in the sense of AlgebraicCurves Layer 0, IsFunctionField with exact constants, and lists AlgebraicCurves Layer 0 as a prerequisite.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+          "quote": "**The predicate.** `IsFunctionField k F` as pinned (intrinsic; Stichtenoth Def. 1.1.1"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+          "quote": "For a function field `F/ℚ̄` (AlgebraicCurves' sense)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+          "quote": "*Prerequisites:* Layers 9.1, 10.1–10.3; AlgebraicCurves Layers 0, 6."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+      "reason": "Belyi 10.7 uses the Riemann–Roch space L(m·P) and the genus g: Riemann's inequality for (g + 1)·[P] gives a nonconstant function whose only pole is P, and minimality gives L(m·P) = ℂ ⊕ ℂ·z. The Belyi supplier table names the declarations AlgebraicCurves.riemannRochSpace and AlgebraicCurves.genus, which AlgebraicCurves builds in Layer 3; the table files them under Layer 5.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+          "quote": "**Riemann–Roch spaces.** `L(D)` as pinned (Def. 1.4.4, Rem. 1.4.5)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+          "quote": "**Riemann's theorem** (Thm. 1.4.17): `ℓ(D) ≥ deg D + 1 − g` for all `D`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+          "quote": "`{x ∈ F | ord_P x ≥ −m and ord_{P'} x ≥ 0 for P' ≠ P} = ℂ ⊕ ℂ·z`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+          "quote": "exact declarations: `AlgebraicCurves.riemannRochSpace`, `AlgebraicCurves.genus`"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+      "reason": "Belyi 10.7 uses Riemann–Roch consequences on (g + 1)·[P] to get z ∈ F ∖ ℂ whose only pole is P, and cites AlgebraicCurves Layer 5. Layer 5 supplies these large-degree consequences, including functions with pole divisor exactly n·P (Prop. 1.6.6).",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+          "quote": "every `P` and `n ≥ 2g` admit `x` with `(x)_∞ = nP` (Prop. 1.6.6)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+          "quote": "Riemann–Roch on the divisor `(g + 1)·[P]` (AlgebraicCurves Layer 5) gives `z ∈ F ∖ ℂ` whose only pole is `P`"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+      "reason": "AlgebraicCurves Layer 6 supplies e and f and their multiplicativity in towers. Belyi 10.1 uses them for branch values of composites (e_{g∘f} = e_g · e_f). Belyi 10.4 and 10.7 use the extension theory of F/ℚ̄(t₀) and F/ℂ(t).",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+          "quote": "`f < ∞` ⟺ `[F′ : F] < ∞` and multiplicativity in towers (Prop. 3.1.6)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+          "quote": "*Prerequisites:* Layer 9.1; AlgebraicCurves Layer 6 (ramification in towers)"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+      "reason": "Belyi 10.4 needs F/ℚ̄(t₀) to have a finite branch set S. The finiteness of the ramified places is the AlgebraicCurves Layer 7 output: Diff(F′/F) has finite support, and P′ is ramified exactly when P′ ∈ supp Diff. Belyi cites Layer 6 at this point, but Layer 6 states no finiteness of the ramification locus.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+          "quote": "finite support via `dvd_differentIdeal_iff`/`Algebra.IsUnramifiedAt` finiteness"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+          "quote": "ramified ⟺ `P′ ∈ supp Diff`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+          "quote": "so that `F/ℚ̄(t₀)` is finite separable with a finite branch set `S ⊂ ℙ¹(ℚ̄)`"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+      "reason": "AlgebraicCurves Layer 8's constant-field extension along algebraic k″/k supplies the base change from the number-field model of 10.7 to ℚ̄. Belyi 10.6 also cites Layer 8 for full faithfulness of base change along ℚ̄ ⊂ ℂ. That extension is not algebraic, and Layer 8 does not state this result; the handoff records it as a gap in the supplier.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+          "quote": "**Constant-field extensions.** `F″ := F·k″` for algebraic `k″/k`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+          "quote": "AlgebraicCurves Layer 8 makes the base change fully faithful in characteristic zero"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
+      "reason": "Belyi 11.1 requires Galois conjugation of pairs to preserve the genus, which is the AlgebraicCurves genus (Layer 3). The Belyi supplier table names AlgebraicCurves.genus for Layer 11.4 and files it under Layer 5.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+          "quote": "**the genus** `genus k F` as pinned (Def. 1.4.15"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
+          "quote": "preservation of degree, of genus, and of the three ramification partitions"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
+      "reason": "Belyi 11.4 descends a pair from a finite Galois level L(t) to k(t). It must show that the descended field has exact constants k, using linear disjointness of k(t) and L. AlgebraicCurves Layer 8 supplies the constant-field-extension bookkeeping and the absolute-irreducibility criterion for exact constants. Belyi 11.4 lists AlgebraicCurves Layer 8 as a prerequisite.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+          "quote": "the absolute-irreducibility criterion for exactness of constants (Prop. 3.6.6, Cor. 3.6.8"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
+          "quote": "the exact constants of the descended field are `k` and not a larger field"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
+          "quote": "*Prerequisites:* Layers 9.1, 10.7, 11.1; AlgebraicCurves Layer 8;"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+      "reason": "Belyi 12.5 defines π₁ᵍᵉᵒ through extensions of ℚ̄(t) unramified outside the marked places, using AlgebraicCurves ramification. Belyi 12.9 uses transitivity of the Galois action on the places over a place. AlgebraicCurves Layer 6 supplies both, including Thm. 3.7.1.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+          "quote": "the Galois action on `{P′ ∣ P}` is transitive (Thm. 3.7.1)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+          "quote": "by transitivity of the Galois action on the places above a place"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+          "quote": "*Prerequisites:* Layers 6.3, 12.4; AlgebraicCurves Layer 6; Mathlib infinite Galois theory"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+      "reason": "Belyi 12.9 works with tame ramification at the marked places, where in characteristic zero every ramified place is tame. AlgebraicCurves Layer 7 supplies the tame/wild vocabulary and Dedekind's different theorem, and Belyi 12.9 lists AlgebraicCurves Layer 7 as a prerequisite.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+          "quote": "**(b)** equality ⟺ `char k ∤ e(P′∣P)` (tame)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+          "quote": "*Prerequisites:* Layers 7.1, 8.7, 12.5, 12.6, 12.7; AlgebraicCurves Layers 6, 7;"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+      "reason": "AlgebraicCurves Layer 8 supplies two results Belyi Layer 12 relies on. First, being unramified is preserved under composita and Galois closures (Cor. 3.9.3). Belyi 12.5 needs this for the compositum Ω of extensions unramified outside the marked places. Second, the inertia and ramification-group structure, with G₁ = 1 in characteristic 0, gives Belyi 12.9's cyclic inertia of order e. Belyi 12.4 also cites Layer 8 for full faithfulness of base change along ℚ̄ ⊂ ℂ, which Layer 8 (algebraic k″/k only) does not state; the handoff records this gap.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+          "quote": "unramified-in-both ⟹ unramified in the compositum and in the Galois closure (Cor. 3.9.3)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+          "quote": "char-0 ⟹ `G₁ = 1` (Prop. 3.8.5)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+          "quote": "let `Ω` be the compositum of all finite subextensions unramified outside the three marked places"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+          "quote": "fully faithful by AlgebraicCurves Layer 8 (constant-field extension in characteristic zero)"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "reason": "ModularCurves Layer 10, item 3, computes the wild break of X₁(N) → X₀(N) using the global different and Riemann–Hurwitz. It names AlgebraicCurves Layer 7 as the owner of the different divisor, Dedekind's different theorem and the Hurwitz genus formula.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+          "quote": "**The Hurwitz genus formula** (Thm. 3.4.13 — no perfectness consumed)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "owns the different divisor, Dedekind's different theorem, and the Hurwitz genus formula (its Layer 7)"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "reason": "ModularCurves Layer 10, item 3, uses the local formula v(𝔡) = ∑_{i≥0}(|G_i| − 1). It names AlgebraicCurves Layer 8, which supplies the lower-numbering ramification groups and Hilbert's different formula.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+          "quote": "**Hilbert's different formula `d(P′∣P) = ∑_{i≥0} (|G_i| − 1)`** (Thm. 3.8.7 — no perfectness consumed)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "with **Hilbert's different formula** `d(P′∣P) = Σ_{i≥0}(|G_i| − 1)` (its Layer 8, which also pins the scope wall: lower numbering only)"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "reason": "ModularCurves Layer 10, item 3, compares Kähler differentials with the global different. It names the Kähler-differential comparison of AlgebraicCurves Layer 9, which proves Δ_F ≅ Ω_F and (dx) = −2(x)_∞ + Diff(F/k(x)).",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+          "quote": "**`μ : Δ_F ≅ Ω_F` (differentials ≅ Weil differentials), `z dx ↦ z·δ(x)`**"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "and the Kähler-differential comparison (its Layer 9)"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "reason": "ModularCurves Layer 10 applies the function-field different and Riemann–Hurwitz package to the smooth proper fibres of X₁(N) → X₀(N), one connected component at a time. It transports them through the AlgebraicCurves Layer 12 dictionary: closed points = places, and Weil divisors on X_F ≅ Divisor k F.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+          "quote": "under 12A/12B's point–place dictionary, **Weil divisors on `X_F` ≅ `Divisor k F`**"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "its Layer 12 dictionary carries those function-field statements to the smooth proper fibres used here, one connected component at a time"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+      "target": "FunctionFieldArithmetic:FA.2",
+      "reason": "FunctionFieldArithmetic FA.2 builds the adele ring as a restricted product of completions at places and their valuation rings. AlgebraicCurves Layer 5's completion comparison supplies the completion at every place of a function field (valuation, valuation ring, maximal ideal, residue field, uniformizer) and the dense map from repartitions to the completed adeles. Neither text names the other.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+          "quote": "for every place, construct the completion of the fraction field from the DVR filtration and prove the valuation, valuation ring, maximal ideal, residue field, and chosen-uniformizer compatibility"
+        },
+        {
+          "stageId": "FunctionFieldArithmetic:FA.2",
+          "quote": "Build the restricted product from local completions and their valuation rings"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+      "target": "FunctionFieldArithmetic:FA.5",
+      "reason": "FunctionFieldArithmetic FA.5 proves rationality of the zeta function of a curve over F_q by the Riemann–Roch route. That route needs finiteness of effective divisors of bounded degree, a finite class number, and ℓ(D) = deg D + 1 − g for deg D ≥ 2g − 1. AlgebraicCurves Layer 5 proves exactly these, as the zeta-free inputs for a curves-over-finite-fields consumer. Neither text names the other.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+          "quote": "the inputs a future CurvesOverFiniteFields roadmap consumes, proved here because they are pure Riemann–Roch"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+          "quote": "**finitely many effective divisors of bounded degree**"
+        },
+        {
+          "stageId": "FunctionFieldArithmetic:FA.5",
+          "quote": "prove the Riemann--Roch rationality route"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+      "target": "SchemeAndStackFoundations:SF.3",
+      "reason": "SF.3 integrates AlgebraicCurves for divisors and genus on curves. AlgebraicCurves Layer 3 supplies the divisor group, degree and the genus.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+          "quote": "`Divisor k F` as pinned (Def. 1.4.1); degree hom"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+          "quote": "**the genus** `genus k F` as pinned (Def. 1.4.15"
+        },
+        {
+          "stageId": "SchemeAndStackFoundations:SF.3",
+          "quote": "Integrate AlgebraicCurves and JacobianChallenge: divisors, line bundles, Riemann-Roch, Serre duality, genus, Picard schemes and Jacobians."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
+      "target": "SchemeAndStackFoundations:SF.3",
+      "reason": "SF.3 integrates AlgebraicCurves for Riemann–Roch. AlgebraicCurves Layer 4 proves ℓ(D) = deg D + 1 − g + ℓ(W − D).",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
+          "quote": "**The Riemann–Roch theorem** (Thm. 1.5.15; hypotheses: none beyond `k` exact"
+        },
+        {
+          "stageId": "SchemeAndStackFoundations:SF.3",
+          "quote": "Integrate AlgebraicCurves and JacobianChallenge: divisors, line bundles, Riemann-Roch, Serre duality, genus, Picard schemes and Jacobians."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "SchemeAndStackFoundations:SF.3",
+      "reason": "SF.3 must integrate AlgebraicCurves with JacobianChallenge. The interface between the two is AlgebraicCurves 12E's comparison contract: H⁰(X, 𝒪_X(D)) ≅ L(D), cohomological genus = function-field genus, and dualizing sheaf = canonical class.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+          "quote": "this sublayer is exactly the **comparison contract**"
+        },
+        {
+          "stageId": "SchemeAndStackFoundations:SF.3",
+          "quote": "Integrate AlgebraicCurves and JacobianChallenge"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "EllipticKTheory:E.1",
+      "reason": "EllipticKTheory E.1 builds the smooth projective scheme of an elliptic Weierstrass equation, identifies its function field, and compares function-field isogenies with scheme morphisms. It names AlgebraicCurves as owner of the regular-projective-curve/function-field dictionary (Layer 12) and itself as supplier of the elliptic specialisation.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+          "quote": "These milestones produce the single **anti-equivalence**, not just an object-level correspondence."
+        },
+        {
+          "stageId": "EllipticKTheory:E.1",
+          "quote": "AlgebraicCurves remains the owner of general places, divisors and the regular-projective-curve/function-field dictionary. E supplies the elliptic scheme specialisation"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "WeilConjectures:WC.5",
+      "reason": "WC.5 identifies b₁ = 2g for a smooth projective geometrically connected curve over F_q. The WeilConjectures supplier table names AlgebraicCurves for curve genus. AlgebraicCurves defines the genus in Layer 3; 12E(ii) identifies it with the cohomological genus dim H¹(X, 𝒪_X) of the curve. This stage-level link refines the recorded pseudo-stage edge UPSTREAM:AlgebraicCurves → WC.5.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+          "quote": "(ii) the cohomological genus `dim H¹(X, 𝒪_X)` equals this roadmap's `genus k F`"
+        },
+        {
+          "stageId": "WeilConjectures:WC.5",
+          "quote": "In dimension one identify b_1=2g using the actual curve/Jacobian cohomology supplier"
+        },
+        {
+          "stageId": "WeilConjectures:WC.5",
+          "quote": "| Existing AlgebraicCurves, JacobianChallenge and EllipticCurves | Curve genus, Jacobians and the independent elliptic Hasse-bound interface |"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+      "target": "K2SymbolsBrauer:T.4",
+      "reason": "K2SymbolsBrauer T.4 compares its divisor valuation with the AlgebraicCurves valuation, which is the normalized place ord_P of Layer 0. It needs only finitely many nontrivial factors in Weil reciprocity, which follows from Layer 0's finiteness of zeros and poles.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+          "quote": "`ord_P` with the mult/additive translation lemma"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+          "quote": "whence the finiteness of zeros and poles (Cor. 1.3.4) consumed by Layer 3"
+        },
+        {
+          "stageId": "K2SymbolsBrauer:T.4",
+          "quote": "Prove that only finitely many factors differ from 1. Compare the divisor valuation with the valuation already used in AlgebraicCurves."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "K2SymbolsBrauer:T.4",
+      "reason": "T.4 proves Weil reciprocity over the closed points x ∈ X^{(1)} of a proper regular curve. It asks that the divisor valuation at these points be compared with the AlgebraicCurves valuation. AlgebraicCurves 12A supplies ord_x at regular closed points via the DVR stalk, and the passage from closed points to places with matching residue fields.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+          "quote": "`ord_x : k(X)ˣ → ℤ` at a regular closed point via the DVR stalk"
+        },
+        {
+          "stageId": "K2SymbolsBrauer:T.4",
+          "quote": "For a proper regular curve prove Weil reciprocity in the form"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-1-the-rational-function-field",
+      "target": "K2SymbolsBrauer:T.4",
+      "reason": "T.4's Bass–Tate sequence for F(t) and its projective-line reciprocity formula need all the places of F(t): the places of the monic irreducible polynomials together with the place at infinity. AlgebraicCurves Layer 1 classifies exactly this set.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-1-the-rational-function-field",
+          "quote": "`Place k (RatFunc k) ≃ {monic irreducibles} ⊕ {∞}`"
+        },
+        {
+          "stageId": "K2SymbolsBrauer:T.4",
+          "quote": "Include the valuation at infinity; polynomial primes alone do not give the projective-line reciprocity formula."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+      "target": "ColemanIntegration:L1",
+      "reason": "ColemanIntegration names AlgebraicCurves as its supplier of algebraic differentials on curves, which its L1 uses to build the de Rham cohomology for integration. AlgebraicCurves Layer 9 supplies the Kähler differentials of a function field (dim_F Ω[F⁄k] = 1, basis dx), local expansions and residues. It supplies no de Rham complex or de Rham cohomology; the handoff records that part as a gap.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+          "quote": "**`Ω[F⁄k]` is one-dimensional.**"
+        },
+        {
+          "stageId": "ColemanIntegration:L1",
+          "quote": "AlgebraicCurves for algebraic differentials and de Rham complexes"
+        },
+        {
+          "stageId": "ColemanIntegration:L1",
+          "quote": "finite-dimensional rigid/de Rham cohomology in the degree used for integration"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+      "target": "FiniteFieldsAndCharacterSums:FF.4",
+      "reason": "FF.4 connects evaluation codes with AlgebraicCurves. An evaluation code evaluates L(G) at rational places. Its dimension bound ℓ(G) ≥ deg G + 1 − g is Riemann's theorem. AlgebraicCurves Layer 3 supplies both.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+          "quote": "**Riemann–Roch spaces.** `L(D)` as pinned (Def. 1.4.4, Rem. 1.4.5)"
+        },
+        {
+          "stageId": "FiniteFieldsAndCharacterSums:FF.4",
+          "quote": "connect evaluation/residue codes to existing AlgebraicCodingTheory and AlgebraicCurves"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
+      "target": "FiniteFieldsAndCharacterSums:FF.4",
+      "reason": "FF.4's residue codes are built from the Weil differential spaces Ω_F(G − D) of AlgebraicCurves Layer 4, whose dimension i(A) comes from the same layer.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
+          "quote": "**Weil differentials.** `Ω_F` as pinned (Def. 1.5.6); `dim_k Ω_F(A) = i(A)`"
+        },
+        {
+          "stageId": "FiniteFieldsAndCharacterSums:FF.4",
+          "quote": "connect evaluation/residue codes to existing AlgebraicCodingTheory and AlgebraicCurves"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+      "target": "FiniteFieldsAndCharacterSums:FF.4",
+      "reason": "The coordinates of FF.4's residue codes are the local components ω_P(1) of AlgebraicCurves Layer 5. The exact code dimension when 2g − 2 < deg G uses Layer 5's deg ≥ 2g − 1 regime.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+          "quote": "`ι_P` and `ω_P(x) := ω(ι_P x)` (Def. 1.7.1)"
+        },
+        {
+          "stageId": "FiniteFieldsAndCharacterSums:FF.4",
+          "quote": "connect evaluation/residue codes to existing AlgebraicCodingTheory and AlgebraicCurves"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "ArithmeticGaloisRepresentations:R01.6",
+      "reason": "ArithmeticGaloisRepresentations names AlgebraicCurves, with ModularCurves, as owner of the scheme comparison for elliptic curves. R01.6 must prove that Tate modules are compatible with scheme isogenies. AlgebraicCurves 12C supplies the anti-equivalence and, for W.FunctionField, the correspondence between isogenies and scheme morphisms.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+          "quote": "specialized to `W.FunctionField`, the anti-equivalence induces its isogeny-to-scheme-morphism correspondence"
+        },
+        {
+          "stageId": "ArithmeticGaloisRepresentations:R01.6",
+          "quote": "the scheme comparison is owned by ModularCurves #81 and AlgebraicCurves"
+        },
+        {
+          "stageId": "ArithmeticGaloisRepresentations:R01.6",
+          "quote": "Prove compatibility with scheme isogenies."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "EllipticCurveModularity:R29.6",
+      "reason": "EllipticCurveModularity takes its scheme comparison from ModularCurves and AlgebraicCurves. R29.6 states the final theorem for the existing Weierstrass elliptic-curve type, with a nonconstant ℚ-morphism X₀(N_E) → E. Moving between that type and scheme morphisms uses the AlgebraicCurves Layer 12 anti-equivalence and its isogeny-to-scheme-morphism instance.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+          "quote": "specialized to `W.FunctionField`, the anti-equivalence induces its isogeny-to-scheme-morphism correspondence"
+        },
+        {
+          "stageId": "EllipticCurveModularity:R29.6",
+          "quote": "The scheme comparison comes from #81/AlgebraicCurves."
+        },
+        {
+          "stageId": "EllipticCurveModularity:R29.6",
+          "quote": "State the unconditional theorem on the existing elliptic-curve type"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+      "target": "MordellLawrenceVenkatesh:LV.7",
+      "reason": "MordellLawrenceVenkatesh LV.7 names AlgebraicCurves Layer 3 as an input: curves and genus for the genus ≥ 2 base Y and the relative dimension d_q = (q − 1)(g − ½) of the Kodaira–Parshin family. Neither this link nor the next is recorded in atlas stage edges.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+          "quote": "**the genus** `genus k F` as pinned (Def. 1.4.15"
+        },
+        {
+          "stageId": "MordellLawrenceVenkatesh:LV.7",
+          "quote": "curves and genus (`AlgebraicCurves` Layers 3 and 12, `SchemeAndStackFoundations` SF.3)"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "MordellLawrenceVenkatesh:LV.7",
+      "reason": "LV.7 names AlgebraicCurves Layer 12 as an input. It algebraizes the analytic G-covers by Riemann existence and normalization, and needs the curve/function-field dictionary and the normalization of ℙ¹ in a function field (12B–12C).",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+          "quote": "**12B — normalize `ℙ¹_k` in `F`.**"
+        },
+        {
+          "stageId": "MordellLawrenceVenkatesh:LV.7",
+          "quote": "algebraization by Riemann existence and normalization"
+        },
+        {
+          "stageId": "MordellLawrenceVenkatesh:LV.7",
+          "quote": "curves and genus (`AlgebraicCurves` Layers 3 and 12, `SchemeAndStackFoundations` SF.3)"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+      "reason": "LocalFieldsRamification Layer 3 supplies upper numbering, Herbrand functions and Hasse–Arf for local fields. The AlgebraicCurves contract table and its Layer 8 name this layer as their supplier for the finite-residue-field specialization of Layer 8's ramification groups at completions.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+          "quote": "**Hasse–Arf.** For a finite abelian Galois extension `L/K`, the jumps of the upper-numbering filtration are integers."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+          "quote": "the sibling roadmap supplies upper numbering, Herbrand, and Hasse–Arf only when the completed residue field is finite"
+        }
+      ]
+    }
+  ],
+  "overlaps": [
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors"
+      ],
+      "detail": "Both stages develop the elliptic function-field dictionary for Weierstrass curves. It has three parts: (a) the coordinate ring of an elliptic W is integrally closed and Dedekind, the integral closure of k[x] (AlgebraicCurves 10.ii; EllipticCurves Layer 0's Dedekind lemma, with Layer 1's isIntegrallyClosed_coordinateRing); (b) W.toAffine.Point ≃ degree-1 places, O ↦ infinity place (AlgebraicCurves 10.iii; EllipticCurves Layer 0's point–place dictionary); (c) the class-group/principal-divisor identification (AlgebraicCurves 10.iv with Prop. 6.1.6–6.1.7; EllipticCurves Layer 0's class-group anchor and principal-divisor characterisation). AlgebraicCurves says it supplies (ii) and (iii) to EllipticCurves; EllipticCurves builds them in its foundation layer, on which every later EllipticCurves layer depends. AlgebraicCurves Layer 10 depends on Layers 7 and 9.",
+      "recommendation": "rescope",
+      "proposal": "Make EllipticCurves Layer 0 the single owner of the Weierstrass-specific dictionary (a)–(c), built on AlgebraicCurves Layers 0, 2 and 3 (recorded links). AlgebraicCurves Layer 10 keeps the intrinsic genus-1 theory: Def. 6.1.1, normal forms, the group law of Prop. 6.1.6–6.1.7 for any elliptic function field, and genus 1 of W.FunctionField (10.i). It states (ii)–(iv) as citations of EllipticCurves Layer 0 instead of second proofs, so the early EllipticCurves foundation no longer waits on a late AlgebraicCurves layer."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
+      ],
+      "detail": "Both prove that the Kähler differentials of a function field are one-dimensional. AlgebraicCurves Layer 9 proves dim_F Ω[F⁄k] = 1 with basis dx for any separating x, using Layers 0–3 only. EllipticCurves Layer 1 proves Ω[F⁄K] is 1-dimensional over F with basis ω = dx/(2y + a₁x + a₃) for W.FunctionField. Neither link direction fits at stage level: AlgebraicCurves Layer 9's EllipticCurves compatibility milestone already consumes EllipticCurves Layer 1's invariant differential (recorded link), so a link back would make a cycle.",
+      "recommendation": "rescope",
+      "proposal": "Split AlgebraicCurves Layer 9's first subsection (dim_F Ω[F⁄k] = 1 with basis dx; Layers 0–3 only) into its own stage. EllipticCurves Layer 1 derives 'Ω[F⁄K] has basis ω' from it as the instance at the separating element x, since ω = dx/(2y + a₁x + a₃) with nonzero denominator. The comparison theorem and the compatibility milestone stay in Layer 9 after Layer 7, still consuming the invariant differential."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality"
+      ],
+      "detail": "Both prove Riemann–Roch for curves over a field, by different routes. AlgebraicCurves Layer 4 uses repartitions and Weil differentials on the function field: ℓ(D) = deg D + 1 − g + ℓ(W − D), canonical class, deg W = 2g − 2. JacobianChallenge Layer B uses coherent cohomology: χ(L) = deg L + 1 − g with g = dim H¹(X, 𝒪_X), and Serre duality with deg ω = 2g − 2. Both define a genus and a canonical/dualizing object.",
+      "recommendation": "keep",
+      "proposal": "Keep both routes. The function-field route works over arbitrary k with no cohomology, and the Jacobian construction needs the sheaf-theoretic route. AlgebraicCurves 12E is the reconciliation: H⁰ = L(D), dim H¹(X, 𝒪_X) = genus k F, dualizing sheaf = canonical class. Neither roadmap should prove the other's Riemann–Roch."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree"
+      ],
+      "detail": "Both define Weil divisors and their degree on a regular proper curve over k. AlgebraicCurves 12A–12D define the closed-point degree and Weil divisors on the regular model X_F, and prove principal divisors, linear equivalence and Pic-style class groups agree with Cl(F). JacobianChallenge Layer A defines Weil divisors ⊕_x ℤ, principal divisors, Cl(X) ≅ Pic X and deg = Σ_x [κ(x):k]·ord_x. The carrier also differs: AlgebraicCurves 12A takes 'curve over k' to mean an integral proper 1-dimensional scheme; JacobianChallenge works with smooth proper geometrically connected curves. AlgebraicCurves assigns the scheme-side divisor namespace to Mathlib, not to itself.",
+      "recommendation": "rescope",
+      "proposal": "AlgebraicCurves 12D should take its Weil divisor group, degree and Cl(X) ≅ Pic X from JacobianChallenge Layer A, or from Mathlib's AlgebraicCycle when the pin reaches it. It then proves only Weil divisors on X_F ≅ Divisor k F, with degrees and principal divisors matched. The 'curve over k' of 12A should be named as the regular (not necessarily smooth) carrier and related to JacobianChallenge's smooth proper geometrically connected curve by one lemma."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
+        "tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology"
+      ],
+      "detail": "Both prove the Riemann–Roch chain for curves: ℓ(D) − ℓ(K − D) = deg D + 1 − g, deg K = 2g − 2, the dimension of regular differentials is g, and residue-theorem lemmas. AlgebraicCurves does it for function fields over arbitrary k (Layers 4–5, with residues in Layer 9). ModularForms Layer 10B does it for compact Riemann surfaces by Čech cohomology and Forster's residue duality. AlgebraicCurves records that ModularForms consumes nothing from it, and ModularForms 10C disclaims the analytic/algebraic comparison.",
+      "recommendation": "keep",
+      "proposal": "Keep both. The carriers differ (compact Riemann surfaces vs function fields over arbitrary fields), and GAGA is outside every current roadmap. The only comparison needed so far is at Belyi generality, owned by BelyiMaps 9.5, which consumes both (recorded links from AlgebraicCurves Layers 3, 5, 12)."
+    },
+    {
+      "stages": [
+        "FunctionFieldArithmetic:FA.0",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+      ],
+      "detail": "FunctionFieldArithmetic FA.0 builds, for curves over a perfect field and then over F_q, the normalization of a projective model, the contravariant correspondence between one-variable function fields and smooth projective curves, closed points = discrete valuations trivial on constants, and finiteness of the exact constant field. AlgebraicCurves Layer 12 (12A–12C: normalize ℙ¹_k in F, closed points = places, anti-equivalence) and Layer 0 (constant field k̃ finite, F/k̃ exact) build the same objects over an arbitrary field. AlgebraicCurves names a future curves-over-finite-fields roadmap as its consumer, a role FunctionFieldArithmetic fills.",
+      "recommendation": "rescope",
+      "proposal": "Rescope FA.0 to consume AlgebraicCurves Layer 12's anti-equivalence and point–place dictionary and Layer 0's constant-field results, specialized to finite perfect k. FA.0 keeps only the F_q-specific statements: geometric connectedness from exact constants, and the F_q(t)/F_{q^m}(t) acceptance examples."
+    },
+    {
+      "stages": [
+        "FunctionFieldArithmetic:FA.1",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison"
+      ],
+      "detail": "FunctionFieldArithmetic FA.1 builds effective divisors, residue-degree-weighted degree, the product formula for principal divisors, L(D), canonical divisors, residue maps and finiteness of Pic⁰(F_q), and moves curve Riemann–Roch (from SF.3) to function-field linear algebra. AlgebraicCurves proves the same over arbitrary k: Layer 3 (divisors, degree, product formula, L(D), genus), Layer 4 (canonical class, Riemann–Roch), Layer 5 (Finite Cl⁰(F) over finite k, local components, abstract residue theorem) and Layer 9 (residues, residue theorem). FA.2's global residue pairing is Layer 5's decomposition ω = ∑_P ω_P.",
+      "recommendation": "rescope",
+      "proposal": "Rescope FA.1 to consume AlgebraicCurves Layers 3–5 and 9 instead of transporting scheme Riemann–Roch. Layer 5's finite-constant-field subsection, including the class number h_F, was written for this consumer. FA.1 keeps the arithmetic-specific content: the distinction between rational divisor classes and rational points, certified bases of L(D), and the no-rational-point acceptance test."
+    },
+    {
+      "stages": [
+        "FunctionFieldArithmetic:FA.3",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves"
+      ],
+      "detail": "FunctionFieldArithmetic FA.3 builds, for finite separable extensions of global function fields, integral closures, decomposition and inertia groups, different and discriminant, lower and upper ramification filtrations, Riemann–Hurwitz with the wild different, Artin–Schreier covers and the separate treatment of purely inseparable extensions. AlgebraicCurves builds the same over arbitrary constant fields: Layer 6 (integral closures, e, f, Galois action), Layer 7 (different, Dedekind's theorem, Hurwitz), Layer 8 (decomposition/inertia/lower ramification groups, Hilbert's formula, inseparable steps) and Layer 10 (Kummer and Artin–Schreier covers with d = (p − 1)(m_P + 1)).",
+      "recommendation": "rescope",
+      "proposal": "Rescope FA.3 to consume AlgebraicCurves Layers 6–8 and 10's cover calculus, specialized to finite constant fields. It keeps the discriminant, the upper numbering (from LocalFieldsRamification for the finite residue fields of global function fields) and the Witt-vector description of cyclic p-power extensions, which AlgebraicCurves does not build."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "EllipticKTheory:E.1",
+        "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree"
+      ],
+      "detail": "Three stages develop the comparison of equation-level Weierstrass objects with schemes. AlgebraicCurves 12C obtains, as an acceptance instance of its anti-equivalence, the correspondence between W.FunctionField isogenies and scheme morphisms. EllipticKTheory E.1 rebuilds, over a field, the smooth projective scheme of a Weierstrass equation, identifies its function field, and constructs the same isogeny/scheme-morphism comparison. It claims the elliptic specialisation for itself. ModularCurves 2A proves K(projModel W) ≃ W.toAffine.FunctionField over any base, but only for [N]. It assigns the broad isogeny comparison to AlgebraicCurves, as do ArithmeticGaloisRepresentations and EllipticCurveModularity.",
+      "recommendation": "rescope",
+      "proposal": "Keep the general anti-equivalence in AlgebraicCurves 12C. Promote the Weierstrass isogeny ↔ scheme-morphism correspondence there from acceptance instance to a named milestone. It should consume ModularCurves 1A/2A's projective model and K(projModel W) ≃ W.toAffine.FunctionField, a compatibility lemma rather than a second construction. EllipticKTheory E.1 then imports ModularCurves 1A/1B/2A for the scheme model and AlgebraicCurves 12C for the comparison, keeping only what neither supplier states: the zero morphism, and the degree, kernel, divisor-pullback and invariant-differential identifications used by its K-theory."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration"
+      ],
+      "detail": "Both prove the local theory of the different and the lower ramification filtration. LocalFieldsRamification Layer 3 proves, for local fields: d(L/K) = e − 1 iff L/K is tame, Hilbert's formula d = ∑_{i≥0}(|G_i| − 1) for Galois L/K, and the embeddings G₀/G₁ ↪ residue units (cyclic, prime to p) and G_i/G_{i+1} ↪ residue field (elementary abelian p). AlgebraicCurves Layer 7 builds the exact tame value d = e − 1 by a complete local route for complete DVRs with separable residue extension and arbitrary residue field. Layer 8 proves the same structure of G_i and Hilbert's different formula, plus the completion bridge at arbitrary residue fields. AlgebraicCurves takes only upper numbering, Herbrand and Hasse–Arf from LocalFieldsRamification (recorded link), and only for finite residue fields.",
+      "recommendation": "rescope",
+      "proposal": "State LocalFieldsRamification Layer 3's different and lower-numbering theorems (tame equality criterion, Hilbert's formula, structure of G_i/G_{i+1}) for complete discretely valued fields with separable residue extension, which is the generality of their proofs in Serre, Local Fields III–IV. Derive the local-field forms as corollaries. AlgebraicCurves Layers 7–8 then consume these at completions of places and keep only the function-field statements (Diff(F′/F), function-field-level G_i, Hurwitz) and the completion bridge."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+        "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+        "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences"
+      ],
+      "detail": "Both carry local ramification data to a global Dedekind extension. NumberFieldArithmetic 5.9 proves the different localizes to completions. Its 6.2 identifies the global ideal-theoretic ramification groups with the local lower filtration, and 6.3–6.4 carry Hilbert's formula and the tame and wild exponents across, restricted to number fields. NumberFieldArithmetic records that a Dedekind-generic transport is missing. For affine models of function fields, AlgebraicCurves Layer 7 proves that localization preserves the trace dual and the different and that completion preserves the different exponent. Layer 8 proves the completion bridge G_i = local G_i.",
+      "recommendation": "rescope",
+      "proposal": "Prove the transport once, for a finite separable extension of Dedekind domains with fraction fields (AKLB) and a prime with separable residue extension: the different commutes with completion, and the global ramification groups match the local filtration under the decomposition map. NumberFieldArithmetic 5.9/6.2 then specialize it to number fields, and AlgebraicCurves Layers 7–8 to the affine models R_x of a function field."
+    }
+  ],
+  "examined": [
+    {
+      "roadmapId": "AInfCohomology",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "AbelianSchemesAndArithmeticModuli",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used. Keyword hits checked: abelian schemes; curve Jacobians come from JacobianChallenge."
+    },
+    {
+      "roadmapId": "AdditiveCombinatorics",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "AdelicAlgebraicGroups",
+      "result": "none",
+      "note": "Screened. Number-field adeles; defers the function-field extension to FunctionFieldArithmetic."
+    },
+    {
+      "roadmapId": "AdicCoefficientsAndComparisons",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "AdicEtaleGeometry",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "AdicSpacesPartII",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "AlgebraicModularFormsAndSerreWeights",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+      "result": "none",
+      "note": "Screened. Hilbert/Quot, algebraic spaces and stacks; curve Picard schemes come from JacobianChallenge."
+    },
+    {
+      "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+      "result": "none",
+      "note": "Screened all stages. Path torsors, Selmer varieties, Jacobians via SF.3 and ColemanIntegration; no AlgebraicCurves output."
+    },
+    {
+      "roadmapId": "AnalyticNumberTheory",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used. Keyword hits checked: \"Hurwitz\" refers to the Hurwitz zeta function."
+    },
+    {
+      "roadmapId": "ArakelovGeometryAndAbelianHeights",
+      "result": "none",
+      "note": "Screened. \"Arithmetic curves\" there means Spec O_K; hermitian bundles."
+    },
+    {
+      "roadmapId": "ArithmeticDynamics",
+      "result": "none",
+      "note": "Screened. Polarized dynamics; function-field isotriviality is out of scope."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisDuality",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisRepresentations",
+      "result": "links",
+      "note": "Read ownership and R01.1–R01.6. The document names AlgebraicCurves for the scheme comparison. Link: AlgebraicCurves Layer 12 → R01.6 (compatibility with scheme isogenies). Other stages: none."
+    },
+    {
+      "roadmapId": "ArithmeticKTheory",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ArithmeticLocallySymmetricSpaces",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ArithmeticQuantumTopology",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ArithmeticStatistics",
+      "result": "none",
+      "note": "Screened. Counting genus-one models; function-field analogues only as future moments."
+    },
+    {
+      "roadmapId": "AutomorphicBundles",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "AutomorphicCongruences",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "AutomorphicFormsOnReductiveGroups",
+      "result": "none",
+      "note": "Screened. Number fields only; no separate function-field foundation."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentations",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "AutomorphicPadicLFunctions",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "AutomorphicSpectralTheory",
+      "result": "none",
+      "note": "Screened. Number fields; no function-field trace formula."
+    },
+    {
+      "roadmapId": "BorelRegulators",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "BunGAndNewtonStrata",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ClassicalAdicEtaleCohomology",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ClassicalArithmeticCompletion",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ClassicalSerreModularity",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "CohomologyComparisons",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ColemanIntegration",
+      "result": "links",
+      "note": "Read all stages. The document names AlgebraicCurves \"for algebraic differentials and de Rham complexes\". Link: AlgebraicCurves Layer 9 → L1. Gap: AlgebraicCurves supplies function-field Kähler differentials and residues but no de Rham complex or cohomology."
+    },
+    {
+      "roadmapId": "ColemanPowerSeries",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "CompletedCohomologyPartII",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ComplexComparisonPartII",
+      "result": "none",
+      "note": "Read all stages. C4 builds smooth projective completions of affine complex curves \"by projective closure and normalization (R09.3 and the existing curve normalization theory)\" without naming a supplier. AlgebraicCurves 12B–12C does not state the open embedding of an affine curve into its regular model, so no link is recorded."
+    },
+    {
+      "roadmapId": "ComplexMultiplicationAndExplicitReciprocity",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ComputationalNumberTheory",
+      "result": "none",
+      "note": "Screened. CN.3 computes curves through existing owners without naming AlgebraicCurves."
+    },
+    {
+      "roadmapId": "CrystallineCohomology",
+      "result": "none",
+      "note": "Screened. PD-crystalline cohomology; curves appear only as examples."
+    },
+    {
+      "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "DeligneWeightsAndPurity",
+      "result": "none",
+      "note": "Read DWP.1 and screened the rest. The curve/Jacobian Weil estimate uses JacobianChallenge and AbelianSchemes, not AlgebraicCurves."
+    },
+    {
+      "roadmapId": "DerivedDeRhamCohomology",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "DiamondEtaleCohomology",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "DiamondSixOperations",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "DiamondsAndVStacks",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "DiophantineApproximationAndTranscendence",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "DirichletPadicLFunctions",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "DrinfeldModulesAndTModules",
+      "result": "none",
+      "note": "Read DM.0–DM.7 descriptions. A = functions regular away from ∞ on an F_q-curve; its curve and place inputs come from FunctionFieldArithmetic FA.1/FA.2, not AlgebraicCurves."
+    },
+    {
+      "roadmapId": "EffectiveDiophantineMethods",
+      "result": "none",
+      "note": "Screened all stages. Chabauty–Coleman via ColemanIntegration; the implicit dimension g of regular differentials is not stated as an input."
+    },
+    {
+      "roadmapId": "EllipticCurveModularity",
+      "result": "links",
+      "note": "Read all stages. The document names \"#81/AlgebraicCurves\" for the scheme comparison. Link: AlgebraicCurves Layer 12 → R29.6 (final theorem on the existing Weierstrass type with a morphism X₀(N_E) → E)."
+    },
+    {
+      "roadmapId": "EllipticKTheory",
+      "result": "links",
+      "note": "Read all stages. E.1 names AlgebraicCurves as owner of places, divisors and the curve/function-field dictionary. Link: AlgebraicCurves Layer 12 → E.1. Overlap, rescope: AlgebraicCurves 12C/E.1/ModularCurves 2A, the Weierstrass comparison between isogenies and scheme morphisms. E.7 constructs torsion-divisor functions \"with Riemann–Roch\", but its supplier is ambiguous: E.2's Pic⁰(E) ≃ E(F), EllipticCurves Layer 0 or AlgebraicCurves Layer 10. No link recorded."
+    },
+    {
+      "roadmapId": "EllipticRegulators",
+      "result": "none",
+      "note": "Screened all stages. Divisor calculus on elliptic curves via EllipticKTheory E.7; the compact-Riemann-surface supplier is analytic. No AlgebraicCurves output."
+    },
+    {
+      "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+      "result": "none",
+      "note": "Screened. ET.2b uses a smooth proper curve over F_q (Hitchin fibration) with no AlgebraicCurves output named."
+    },
+    {
+      "roadmapId": "EnhancedDerivedSheaves",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "EtaleDualityAndPerverseSheaves",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used. Keyword hits checked: Jacobians and cycle classes are scheme-cohomological."
+    },
+    {
+      "roadmapId": "EulerSystemsAndKolyvaginSystems",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ExcursionOperatorsAndSpectralAction",
+      "result": "none",
+      "note": "Screened; ES7:function-field-automorphic uses places and adeles of a curve over F_q, supplied by FunctionFieldArithmetic FA.6/FA.7. It does not name AlgebraicCurves."
+    },
+    {
+      "roadmapId": "ExponentialSumsAndCircleMethod",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "FarguesFontaineDiamonds",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "FiniteFieldsAndCharacterSums",
+      "result": "links",
+      "note": "Read all stages. FF.4 names AlgebraicCurves for evaluation and residue codes. Links: AlgebraicCurves Layers 3, 4 and 5 → FF.4. FF.2 imports Weil bounds from WeilConjectures and DeligneWeightsAndPurity, not AlgebraicCurves."
+    },
+    {
+      "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "FoundationsAndLibraryIntegration",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used. Keyword hits checked: LI.4 integrates number-field and elliptic suppliers, not AlgebraicCurves, although atlas.external names it the integration owner of UPSTREAM:AlgebraicCurves."
+    },
+    {
+      "roadmapId": "FunctionFieldArithmetic",
+      "result": "links",
+      "note": "Read all eight stages. Neither text names the other; FunctionFieldArithmetic is in substance the curves-over-finite-fields consumer that AlgebraicCurves anticipates. Inferred links: AlgebraicCurves Layer 5 → FA.2 (completions at places), Layer 5 → FA.5 (zeta-free inputs to the Riemann–Roch rationality route). Overlaps, rescope: FA.0/AlgebraicCurves Layers 0, 12; FA.1/AlgebraicCurves Layers 3, 4, 5, 9; FA.3/AlgebraicCurves Layers 6, 7, 8, 10. FA.4 (class field theory) and FA.6 (automorphic) have no AlgebraicCurves content."
+    },
+    {
+      "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "GL2ModularityLifting",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "GeneralAlgebraicKTheory",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "GeneralizedHeegnerCycles",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "GeometricSatakeAndFusion",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used. Keyword hits checked: divisors here are relative Cartier divisors in Beilinson–Drinfeld Grassmannians."
+    },
+    {
+      "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used. Keyword hits checked: \"genus\" means genus of lattices."
+    },
+    {
+      "roadmapId": "GlobalGaloisDeformations",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+      "result": "none",
+      "note": "Read the summary and all stage titles; screened the descriptions. G-bundles and shtukas on a curve over F_q, adelic; no AlgebraicCurves output used."
+    },
+    {
+      "roadmapId": "GrossZagierAndArithmeticHeights",
+      "result": "none",
+      "note": "Screened. Heights on Shimura curves and Jacobians; no AlgebraicCurves output."
+    },
+    {
+      "roadmapId": "HabiroCohomologyFoundations",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "HabiroCyclotomicCompletions",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "HabiroNahmSeries",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "HabiroNumberFields",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "HabiroRings",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "HeckeStacksAndLocalShtukas",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "HeegnerPointEulerSystems",
+      "result": "none",
+      "note": "Screened. Heegner points on modular curves and Jacobians; no AlgebraicCurves output."
+    },
+    {
+      "roadmapId": "HeightsRationalPointsAndObstructions",
+      "result": "none",
+      "note": "Screened all stages. RP.4's Parshin covering controls ramification of auxiliary curves without naming a supplier; curves come through SF.3. No link."
+    },
+    {
+      "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+      "result": "none",
+      "note": "Screened all stages. Milnor K residues and higher local fields; no function-field curve theory."
+    },
+    {
+      "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+      "result": "none",
+      "note": "Screened. Shimura data and integral models; no function-field genus or divisor input."
+    },
+    {
+      "roadmapId": "HodgeTateAndCanonicalSubgroups",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "IgusaVarietiesAndTorsionConcentration",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "IntegralIwasawaTheory",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+      "result": "none",
+      "note": "Read all stages. Étale π₁, Riemann existence (ComplexComparisonPartII) and Hurwitz spaces; three-point covers are consumed from BelyiMaps. No AlgebraicCurves output."
+    },
+    {
+      "roadmapId": "K2SymbolsBrauer",
+      "result": "links",
+      "note": "Read T.1–T.5; screened the rest. T.4 names AlgebraicCurves. Links: AlgebraicCurves Layers 0 and 12 → T.4 (explicit), Layer 1 → T.4 (inferred: the places of F(t) including infinity)."
+    },
+    {
+      "roadmapId": "K3BlochGroups",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "KTheoryFiniteLocalFields",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "KTheoryLowDegrees",
+      "result": "none",
+      "note": "Screened. Z.5 covers K₀ and Pic of regular curves at scheme level; no AlgebraicCurves output."
+    },
+    {
+      "roadmapId": "KatoEulerSystems",
+      "result": "none",
+      "note": "Screened. Modular units and Euler systems; no AlgebraicCurves output."
+    },
+    {
+      "roadmapId": "LanglandsParameterStacks",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "LefschetzPencilsAndVanishingCycles",
+      "result": "none",
+      "note": "Screened. LPV.7 covers semistable curves over henselian traits (nearby cycles, dual graphs); no function-field theory."
+    },
+    {
+      "roadmapId": "LocalGaloisDeformationRings",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "LocallyAnalyticDistributions",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "LogicAndDefinabilityInNumberTheory",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "MetaplecticAutomorphicForms",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used. Keyword hits checked: \"genus\" refers to quadratic-form genera and theta kernels."
+    },
+    {
+      "roadmapId": "ModularCurvesPartII",
+      "result": "none",
+      "note": "Screened. Generalized elliptic curves and the algebraic/analytic modular-curve comparison; no AlgebraicCurves output."
+    },
+    {
+      "roadmapId": "ModularIwasawaMainConjectures",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ModularSymbolsPadicLFunctions",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ModularityAndLanglandsExtensions",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "MotivesAndAlgebraicCycles",
+      "result": "none",
+      "note": "Screened. Cycle correspondences and motives of curves; no function-field divisor or Riemann–Roch use."
+    },
+    {
+      "roadmapId": "MotivicEtaleKTheory",
+      "result": "none",
+      "note": "Screened. Cycle complexes and norm residue; no AlgebraicCurves output."
+    },
+    {
+      "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+      "result": "none",
+      "note": "Screened. Néron models and Picard schemes of semistable curves; ownership lies with JacobianChallenge and StableReduction."
+    },
+    {
+      "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+      "result": "none",
+      "note": "Screened. A function-field route is excluded unless separately sourced."
+    },
+    {
+      "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "OverconvergentAutomorphicForms",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "PELModuli",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+      "result": "none",
+      "note": "Screened. Rigid cohomology; no function-field input."
+    },
+    {
+      "roadmapId": "PadicFamilies",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "PadicHodgeRegulators",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "PadicHodgeTheory",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "PadicLocalLanglandsForGL2Qp",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "PadicMeasuresIwasawaAlgebras",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used. Keyword hits checked: \"divisor\" refers to power-series/Weierstrass preparation."
+    },
+    {
+      "roadmapId": "PerfectoidQuotients",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "PerfectoidShimuraVarieties",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "PerfectoidSpaces",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "PeriodsAndSpecialValues",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "Polylogarithms",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "PotentialAutomorphyInfrastructure",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "PotentialModularityAndCompatibleSystems",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "PrismaticCohomology",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ProbabilisticAndMetricNumberTheory",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "QSeriesPartitionsAndMockModularForms",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "RankZeroOneBSD",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ReductiveGroupsPartII",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "RefinedTraceMethods",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "RelativeFarguesFontaine",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used. Keyword hits checked: divisors here are Cartier divisors of untilts on the Fargues–Fontaine curve."
+    },
+    {
+      "roadmapId": "SchemeAndStackFoundations",
+      "result": "links",
+      "note": "Read all stages. SF.3 names AlgebraicCurves (\"Integrate AlgebraicCurves and JacobianChallenge\"). Links: AlgebraicCurves Layers 3, 4 and 12 → SF.3. SF.5 (surface Riemann–Roch, intersection theory) has no AlgebraicCurves input."
+    },
+    {
+      "roadmapId": "SchemeKTheoryOperations",
+      "result": "none",
+      "note": "Read S.7 and the KU checkpoints. S.7's \"scheme divisor and cycle constructions shared with AlgebraicCurves/JacobianChallenge\" concern general regular schemes and Chow groups, which AlgebraicCurves does not supply. KU-geometry requires UPSTREAM:AlgebraicCurves-vector-bundles, but AlgebraicCurves has no vector bundles: the pointer has no supplier (handoff)."
+    },
+    {
+      "roadmapId": "SelmerIwasawaCohomology",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "SerreWeightAndLevelOptimisation",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ShimuraCompactifications",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ShimuraData",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "ShimuraVarieties",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "SieveMethodsAndPrimePatterns",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "SmoothRepresentationsOfLocalGroups",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "SpecialValuesBirchTate",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "StableHomotopyKTheory",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "TorsionCohomologyInfrastructure",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "TropicalAndBerkovichArithmetic",
+      "result": "none",
+      "note": "Screened all stages. Skeletons and metric-graph divisors (Baker–Norine) over SF.3/SF.4 curves. AlgebraicCurves calls graph Riemann–Roch adjacent with no overlap."
+    },
+    {
+      "roadmapId": "VStackSheavesAndLisseCategories",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "VectorBundlesAndIsocrystals",
+      "result": "none",
+      "note": "Read all stages. Bundles on the Fargues–Fontaine curve, which is not a curve over a field in the AlgebraicCurves sense. The declared roadmap-level edge AlgebraicCurves → VectorBundlesAndIsocrystals has no stage-level support."
+    },
+    {
+      "roadmapId": "WeightsInEtaleCohomology",
+      "result": "none",
+      "note": "Screened (summary, stage titles, keyword search over descriptions and document); no AlgebraicCurves object is supplied or used."
+    },
+    {
+      "roadmapId": "WeilConjectures",
+      "result": "links",
+      "note": "Read all stages and the supplier table. WC.5 requires UPSTREAM:AlgebraicCurves for curve genus. Link: AlgebraicCurves Layer 12 → WC.5, which refines the recorded pseudo-stage edge. The zeta and rationality stages use scheme cohomology, not AlgebraicCurves."
+    },
+    {
+      "roadmapId": "tauceti:Completed/ContourIntegration",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Complex-analytic residue theorem on contours; not the function-field residue theorem."
+    },
+    {
+      "roadmapId": "tauceti:Completed/EffectiveBounds",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Number-field geometry of numbers and class-number bounds."
+    },
+    {
+      "roadmapId": "tauceti:Completed/IntegralLattices",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Integral lattices and discriminant forms."
+    },
+    {
+      "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Weighted L² bases; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Huber adic spaces and the adic Fargues–Fontaine curve; no algebraic-curve theory."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Hamming, Golay and Construction A codes and lattices; no algebraic-geometry codes, so FF.4 links go to AlgebraicCurves, not here."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. CW complexes, van Kampen and homology; no curve function fields."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Toric varieties from fans; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Number-field Dirichlet series and Tauberian methods."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+      "result": "links",
+      "note": "Read the boundaries, pinned conventions, supplier table and Layers 9–12 in full; screened the other layers. Each text names the other. Links: AlgebraicCurves Layers 0, 1, 3, 5, 6, 8 and 12 → Layer 9; 0, 3, 5, 6, 7 (inferred), 8 → Layer 10; 3, 8 → Layer 11; 6, 7, 8 → Layer 12. Layers 0–8, 13 and 14 use no AlgebraicCurves output; 13.5 says so for faithfulness. Gaps: 10.6 and 12.4 attribute full faithfulness of base change along ℚ̄ ⊂ ℂ to AlgebraicCurves Layer 8, which treats algebraic constant extensions only. The supplier table files riemannRochSpace and genus under Layer 5, but AlgebraicCurves builds them in Layer 3."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Finite simple groups; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Chebotarev density for number fields; no function fields."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Excludes global class field theory for function fields; number fields only."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. \"genus\" is Seifert/Heegaard genus; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Riemann mapping theorem; \"Hurwitz\" is Hurwitz's theorem on uniform limits; supplies local degree to BelyiMaps only."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. DG and A∞ algebra; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Graphons; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "result": "links",
+      "note": "Read the whole document (Layers 0–8, conventions, ordering). AlgebraicCurves names EllipticCurves; EllipticCurves never names AlgebraicCurves. Links: AlgebraicCurves Layers 0, 2, 3 and 6 → Layer 0 (places, Dedekind bridge, divisors, fundamental identity); Layer 0 → AlgebraicCurves Layer 10 (toClass_surjective); Layer 1 → AlgebraicCurves Layers 9 and 12 (invariant differential, isogeny type). Overlaps, rescope: AlgebraicCurves Layer 10/Layer 0 (the Weierstrass point–place and class-group dictionary); AlgebraicCurves Layer 9/Layer 1 (dim Ω = 1). No link from Layers 0.5 or 2–8. Layer 0.5 base change over arbitrary K does not match AlgebraicCurves Layer 8, which needs perfect k and algebraic extensions. The moving lemma and Weil reciprocity needed for the Layer 2 pairing are not stated by AlgebraicCurves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Probability; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+      "result": "none",
+      "note": "Read all stages. Analytic Riemann surfaces with topological Riemann–Hurwitz via CW Euler characteristic (Layer 5). It records that AlgebraicCurves owns algebraic curves and proves no GAGA. It builds different objects by a different proof, so no overlap is recorded."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Topological genus of surfaces and knots; no algebraic curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Places, adeles and strong approximation for number fields only; parallel vocabulary, different objects."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Excludes forms over global function fields."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Grothendieck groups and Euler forms; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Riemann–Roch with boundary for Cauchy–Riemann operators; unrelated to curve Riemann–Roch."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Transcendental Hodge structures; the weight-1 curve realization is not built from function fields."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Riemannian geometry; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+      "result": "links",
+      "note": "Read the whole document. Links: Layer A → AlgebraicCurves Layer 12 and Layer B → AlgebraicCurves Layer 12; 12E names Layers A–B. Overlaps: AlgebraicCurves Layer 4/Layer B, two Riemann–Roch routes (keep); AlgebraicCurves 12D/Layer A, Weil divisors on the regular model (rescope). AlgebraicCurves claims that Layer E's acceptance dim Jac = g consumes its genus. That link is not recorded: JacobianChallenge defines g := dim H¹(X, 𝒪_X) itself (Layer B)."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+      "result": "links",
+      "note": "Read Layers 0–4 (focused on Layer 3). AlgebraicCurves names this roadmap as supplier. Link: Layer 3 → AlgebraicCurves Layer 8 (upper numbering, Herbrand and Hasse–Arf for finite residue fields). Overlap, rescope: AlgebraicCurves Layers 7–8/Layer 3 (tame different, Hilbert formula, structure of G_i at complete-DVR level)."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+      "result": "links",
+      "note": "Read Scope, Layer 2A, Layer 10 and the Mazur interface. ModularCurves names AlgebraicCurves. Links: AlgebraicCurves Layers 7, 8, 9 and 12 → Layer 10 (different, Hilbert formula, Kähler comparison, dictionary for the X₁(N) → X₀(N) wild break). Layer 2A is listed in the E.1 overlap (Weierstrass function-field identification). Its remark that the broad isogeny comparison belongs to AlgebraicCurves states a boundary, not a use. Riemann–Roch and Serre duality come from JacobianChallenge. The ModularCurves link-job handoff records the same four links; its packet is absent from research/blueprint/links at this revision, so deduplicate when it is merged."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+      "result": "overlap",
+      "note": "Read Layer 10 (10A–10C) in full; screened the rest. AlgebraicCurves states there is no interface. Overlap, keep: AlgebraicCurves Layer 4/10B, analytic and function-field Riemann–Roch. No link: the genus of X(Γ) and the dimension formulas are analytic."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. \"genus theory\" of quadratic fields; unrelated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+      "result": "overlap",
+      "note": "Read Boundaries and Layers 3–6. Overlap, rescope: AlgebraicCurves Layers 7–8/Layers 5–6 (moving local ramification to a global Dedekind extension: localization of the different, global ramification groups against the local filtration, tame exponent). NumberFieldArithmetic confines this to number fields and notes the missing generic transport. No link: settings differ (number fields vs function fields)."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Operator semigroups; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. \"Jacobian\" means Jacobian determinant; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. PDE; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Supplies cycle types to BelyiMaps; no AlgebraicCurves object used."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Profinite group cohomology; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Supplies profinite groups to BelyiMaps; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Excludes function-field methods (Pfister and Milnor conjecture routes); no places of k(t) used."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Reductive group schemes; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Index page of representation-theory roadmaps; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Representation theory; screened, no curves or function fields."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Representation theory; screened, no curves or function fields."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Representation theory; screened, no curves or function fields."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Representation theory; screened, no curves or function fields."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Representation theory; screened, no curves or function fields."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Representation theory; screened, no curves or function fields."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Representation theory; screened, no curves or function fields."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Representation theory; screened, no curves or function fields."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Representation theory; screened, no curves or function fields."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Representation theory; screened, no curves or function fields."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Representation theory; screened, no curves or function fields."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Representation theory; screened, no curves or function fields."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. \"curved\" means curved DG algebras; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+      "result": "none",
+      "note": "Read Layers 0–6 and the supplier contracts. Scheme-level families of curves over DVRs; foundations come from JacobianChallenge (J-A..J-E), genus = dim H¹. It uses no function-field place, divisor or Riemann–Roch output of AlgebraicCurves, and its regular proper models over a DVR differ from 12B."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Probability distributions; no curves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Topological covering spaces; supplies BelyiMaps, not AlgebraicCurves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Zigzag and preprojective algebras; no curves."
+    },
+    {
+      "roadmapId": "MordellLawrenceVenkatesh",
+      "result": "links",
+      "note": "New roadmap in research/blueprint/roadmaps. Read the readme and every stage. LV.7 requires AlgebraicCurves Layers 3 and 12. Links: AlgebraicCurves Layers 3 and 12 → LV.7; neither is in stageEdges. LV.7's relative dimension d_q = (q − 1)(g − ½) implicitly needs Riemann–Hurwitz, which LV.7 does not list as an input. No link recorded for that. LV.6 and LV.10 use the genus only as a hypothesis."
+    }
+  ]
+}

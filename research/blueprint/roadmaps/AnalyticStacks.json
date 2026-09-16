@@ -1,0 +1,150 @@
+{
+ "id": "AnalyticStacks",
+ "title": "Six-functor formalisms and analytic stacks",
+ "group": "foundations",
+ "summary": "Abstract three- and six-functor formalisms on correspondence categories, with Mann's construction principle, the 2-category of kernels, suave and prim maps, cohomological smoothness, properness and étaleness, and extension to stacks. Also the classical topological, quasi-coherent and D-module formalisms, and the solid quasi-coherent formalism on discrete adic spaces. On top of these: Clausen–Scholze analytic stacks with the !-topology, algebraic and Betti stacks, solid smooth and étale maps with Serre duality, Tate and Gelfand stacks, and normed analytic rings with overconvergent discs and analytic affine lines. These foundations carry ring-stack transmutation and the analytic Habiro stack.",
+ "readme": "# Six-functor formalisms and analytic stacks\n\n## Purpose\n\nThis roadmap builds the six-functor formalisms and the Clausen–Scholze theory of analytic stacks used by\nring-stack transmutation and by the analytic Habiro stack. It contains:\n\n- the abstract theory of three- and six-functor formalisms on correspondences, with Mann's construction\n  principle, kernels, suave and prim objects, cohomological smoothness, properness and étaleness, and extension\n  to stacks (Scholze, *Six-Functor Formalisms*, arXiv:2510.26269v2, Lectures II–VI with appendices;\n  Heyer–Mann, arXiv:2410.13038v1, §§2–4);\n- the classical examples of Scholze's Lectures VII–VIII: sheaves on locally compact Hausdorff spaces, and\n  quasi-coherent sheaves and D-modules through de Rham stacks in characteristic zero;\n- analytic stacks with their quasi-coherent six-functor formalism, algebraic stacks and Betti stacks\n  (Rodríguez Camargo, *Notes on solid geometry*, arXiv:2603.03012v1, §6);\n- the solid quasi-coherent six-functor formalism on derived schemes and discrete adic spaces (Lecture IX);\n- analytic geometry over solid Huber rings and normed bases: solid smooth and étale maps and their\n  cohomological smoothness with Serre duality (RC §7); Tate stacks, Gelfand stacks and derived Berkovich spaces\n  (RC, arXiv:2401.07738v1, §3; ABLRS, arXiv:2510.15196v2, §§4.2–4.3); normed analytic rings, overconvergent\n  discs and analytic affine lines (Scholze's course *V5A4 – Habiro cohomology*, Lecture 7).\n\n## Scope\n\nThe six-functor formalism is developed on $\\infty$-categories with a class $E$ of exceptional morphisms, as in\nScholze's Lecture II. Its targets are the stated theorems of the sources listed under the layers. Classical\nVerdier duality on locally compact Hausdorff spaces is included, since the Betti stacks of `RingStacksAndTransmutation`\nand the norms of `AnalyticHabiroStack` use it. The D-module formalism is included in the form of Scholze's\nappendix to Lecture VIII: $\\mathrm{Dmod}(X)=D_{qc}(X_{\\mathrm{dR}})$ for separated schemes of finite type over a field of\ncharacteristic zero.\n\n## Conventions\n\n- A *geometric setup* is a pair $(\\mathcal C,E)$ (RC Definition 6.1.1). $\\mathrm{Corr}(\\mathcal C,E)$ is Scholze's\n  correspondence category (Definition 2.3). A *3-functor formalism* is a lax symmetric monoidal functor\n  $D:\\mathrm{Corr}(\\mathcal C,E)\\to\\mathrm{Cat}_\\infty$ (Definition 2.4). A *6-functor formalism* is one in which\n  $-\\otimes A$, $f^*$ and $f_!$ have right adjoints (Definition 2.5).\n- *Suave* and *prim* are used as in Scholze Definition 6.1 and Heyer–Mann §4.4; the older terms\n  \"cohomologically smooth/proper object\" are not used.\n- Analytic stacks are the sheaves of RC Definition 6.3.16 on affinoid analytic stacks $\\operatorname{AnSpec}\\mathcal A$ for\n  the $!$-topology (RC Definition 6.3.9), in the light condensed setting of `SolidAnalyticRings`.\n  $D(X)=D_{qc}(X)$ denotes the quasi-coherent formalism.\n- Betti stacks: $X\\mapsto X^{\\mathrm{Betti}}$ from light condensed anima (RC §6.5). In particular $[0,\\infty)^{\\mathrm{Betti}}$ and\n  $[0,\\infty]^{\\mathrm{Betti}}$, with their multiplicative monoid structures.\n- Norms are nonarchimedean and multiplicative. A normed analytic ring is an analytic ring $\\mathcal A$ with a norm on\n  its affine line $\\mathbb A^1_{\\mathcal A}$ in the sense of AS.4.\n\n## Sources\n\nScholze, *Six-Functor Formalisms*, Lectures II–X with appendices (Lecture X is used only through Remark 10.7 and\nthe examples cited by `RingStacksAndTransmutation`). Heyer–Mann §§2–4 and Appendices A–D. Rodríguez Camargo,\n*Notes on solid geometry*, §§6–7. Rodríguez Camargo, *The analytic de Rham stack in rigid geometry*, §3. ABLRS\n§§4.1–4.3. W. J. G. Ong's notes of Scholze's course *V5A4 – Habiro cohomology* (Bonn, summer 2025),\nLecture 7.\n\n## Layers\n\n- **AS.0** Abstract six-functor formalisms: correspondences, construction, kernels, suave and prim maps, stacks.\n- **AS.1** Topological and coherent formalisms, D-modules and algebraic de Rham stacks.\n- **AS.2** Affinoid analytic stacks, the $!$-topology and analytic stacks.\n- **AS.3** Algebraic stacks, Betti stacks, and solid quasi-coherent sheaves on derived schemes and discrete adic\n  spaces.\n- **AS.4** Analytic geometry over solid Huber rings and normed bases.\n\n## Boundaries\n\n- `EnhancedDerivedSheaves` supplies the ∞-categorical background: E0, E3, E5:abstract, E5:presentability,\n  E5:animation.\n- `SolidAnalyticRings` supplies condensed, solid and analytic rings and their idempotent algebras.\n- `SchemeAndStackFoundations` SF.1 supplies classical descent and algebraic stacks.\n- `DiamondSixOperations`, `EtaleDualityAndPerverseSheaves` and `AdicCoefficientsAndComparisons` build étale six\n  operations for diamonds and schemes by the ECD/Liu–Zheng route. They are not rebuilt here. Their abstract\n  statements are instances of AS.0 once they import it.\n- `RingStacksAndTransmutation` owns ring stacks, transmutation, Scholze's Theorem 10.6 and the de Rham ring\n  stacks.\n- `TropicalAndBerkovichArithmetic` owns classical Berkovich spaces.\n\n## Non-goals\n\nLiquid and gaseous analytic geometry, complex-analytic stacks, the Riemann–Hilbert statement of Scholze\nExample 10.9 for $K=\\mathbb C$, the motivic Lectures XI–XII, and the $(\\infty,2)$-categorical universality theorems of\nAoki are not part of this roadmap.",
+ "prerequisites": [
+  "DerivedDeRhamCohomology",
+  "EnhancedDerivedSheaves",
+  "SchemeAndStackFoundations",
+  "SolidAnalyticRings"
+ ],
+ "stages": [
+  {
+   "key": "AS.0",
+   "title": "Abstract six-functor formalisms",
+   "description": "Abstract six-functor formalisms (Scholze, *Six-Functor Formalisms*, Lectures II–VI and their appendices;\nHeyer–Mann §§2–4 and Appendices A–D; RC §§6.1–6.2).\n\n**Targets.**\n- *Correspondences.* Geometric setups (RC Definition 6.1.1). $\\mathrm{Corr}(\\mathcal C,E)$ with its cartesian symmetric\n  monoidal structure (Scholze Definition 2.3; Heyer–Mann §2, including self-enrichment and the 2-categorical\n  enhancement). 3-functor formalisms (Definition 2.4; RC Definition 6.1.4). 6-functor formalisms\n  (Definition 2.5). The encoded operations $\\otimes$, $f^*$, $f_!$ and their adjoints, and the projection and\n  base-change formulas they satisfy. The symmetric monoidal ∞-category background of Lecture III, as far as it\n  goes beyond E5:abstract.\n- *Construction principle* (Scholze Theorem 4.6, after Mann and Liu–Zheng; Heyer–Mann §3.3). Given\n  $D_0:\\mathcal C^{op}\\to\\mathrm{CAlg}(\\mathrm{Pr}^L)$ and a decomposition $E=I\\circ P$ satisfying the stated conditions,\n  there is a canonical extension to $\\mathrm{Corr}(\\mathcal C,E)$ in which $f_!$ is left adjoint to $f^*$ for $f\\in I$ and\n  right adjoint to $f^*$ for $f\\in P$. Extension of formalisms (Heyer–Mann §3.4).\n- *Kernels.* The 2-category of kernels $\\mathrm{LZ}_D$ and its presentable $(\\infty,2)$-categorical version (appendix\n  to Lecture V; Heyer–Mann §4.1–4.3, Appendix D). Suave and prim objects (Scholze Definition 6.1; RC\n  Definitions 6.2.1, 6.2.5, Proposition 6.2.6; Heyer–Mann §4.4). Suave and prim maps (RC Definition 6.2.7,\n  Proposition 6.2.8; Heyer–Mann §4.5).\n- *Duality.* Cohomologically smooth maps (Scholze Definition 5.1) and the criterion of Theorem 5.5 through a\n  trace map. Cohomologically proper (Definition 6.10) and cohomologically étale (Definition 6.12) maps.\n  Proposition 6.13: a natural map $f^!\\to f^*$ for $f$ with cohomologically étale diagonal, which is an\n  isomorphism exactly for cohomologically étale $f$. Proposition 6.19: conservativity of $f^*$ for suave $f$ via\n  $\\mathrm{colim}_{\\Delta^{op}}f_{n!}f_n^!1\\simeq1$. The remaining statements of Lecture VI (Propositions 6.5–6.20).\n  Uniqueness of $f_!$, and suave and prim descent (appendices to Lecture VI; Heyer–Mann §§4.6–4.7).\n- *Passage to stacks* (appendix to Lecture V; RC §6.2). $D$-covers (Scholze Definition 5.13); universal\n  $!$-descent and $*$-descent (RC Definition 6.1.6); sheafy formalisms (RC Definition 6.2.9). Extension to\n  sheaves on the $D$-topology with a class $E'$ of $!$-able maps that is local on source and target and tame\n  (Scholze Theorem 5.19; RC Theorem 6.2.11 = Heyer–Mann Theorem 3.4.11). Truncated maps, open and closed maps\n  (RC Definitions 6.2.14, 6.2.16) and their compatibilities (RC Proposition 6.2.17).\n\n**Inputs.** From `EnhancedDerivedSheaves`: E0 (the concrete enhancement and higher-categorical operations), E3\n(Kan extensions, adjoint functor theorem, Beck–Chevalley and pasting), E5:abstract (symmetric monoidal\n∞-categories, operads, modules) and E5:presentability (presentable and Ind-categories).\n\n**Acceptance.** For $\\mathcal C$ finite sets with all maps in $E$ and $D(X)=\\mathrm{Fun}(X,D(\\mathbb Z))$: $f_!=f_*$, every map is\ncohomologically proper and étale, and suave/prim duality recovers ordinary duality. The identity and composition\nlaws for kernels are checked on a two-step composite. Theorem 5.5 is applied to $\\mathbb R\\to*$ in the\ntopological formalism of AS.1.",
+   "requires": [
+    "EnhancedDerivedSheaves:E0",
+    "EnhancedDerivedSheaves:E3",
+    "EnhancedDerivedSheaves:E5:abstract",
+    "EnhancedDerivedSheaves:E5:presentability"
+   ]
+  },
+  {
+   "key": "AS.1",
+   "title": "Topological and coherent formalisms, D-modules and algebraic de Rham stacks",
+   "description": "Topological and coherent formalisms, D-modules and algebraic de Rham stacks (Scholze, *Six-Functor Formalisms*,\nLectures VII–VIII and their appendices; Heyer–Mann §3.5 and §4.8).\n\n**Targets.**\n- *Locally compact Hausdorff spaces* (Lecture VII). The comparison of $D(\\mathrm{Ab}(X))$, $\\mathrm{Shv}(X,D(\\mathbb Z))$,\n  hypersheaves and left completions (Proposition 7.1, Remark 7.2). The six-functor formalism\n  $X\\mapsto\\mathrm{Shv}(X,D(\\mathbb Z))$ with $E$ all maps (Theorem 7.4) and its descent and base-change statements\n  (Theorem 7.6 and the rest of the lecture). Poincaré–Verdier duality for topological manifolds, and étale sheaves\n  (appendix to Lecture VII). The six functors on condensed anima with $\\mathbb Z$-coefficients of Heyer–Mann §4.8, which\n  RC §6.5 uses for Betti stacks.\n- *Quasi-coherent formalism* (Lecture VIII). Derived schemes modelled on animated rings (§8.1).\n  Grothendieck–Serre duality for proper smooth maps (Theorem 8.1). The formalism $X\\mapsto D_{qc}(X)$ on derived\n  schemes in which all maps lie in $P$, extended to stacks by Theorem 5.19. The statement of Theorem 8.10; its\n  proof is Theorem 9.18 in AS.3.\n- *D-modules and de Rham stacks* (appendix to Lecture VIII). For a field $k$ of characteristic zero and separated\n  schemes of finite type over $k$: $\\mathrm{Crys}(X)=\\lim_{\\operatorname{Spec}(R_{\\mathrm{red}})\\to X}D(R)$; Theorem 8.24; the de Rham\n  stack $X_{\\mathrm{dR}}$ with $D_{qc}(X_{\\mathrm{dR}})=\\mathrm{Crys}(X)$; Theorem 8.27, that for $f_{\\mathrm{dR}}$ étale maps are\n  cohomologically proper and proper maps are cohomologically smooth; formal completions and\n  Propositions 8.28–8.33.\n\n**Inputs.** AS.0. From `SolidAnalyticRings` SA.0: light condensed anima. From `EnhancedDerivedSheaves`: E1\n(derived sheaves on sites) and E5:animation (animated rings). From `SchemeAndStackFoundations` SF.1: descent and\nstacks. From `DerivedDeRhamCohomology` DD.2: de Rham complexes, used to compare $D_{qc}(X_{\\mathrm{dR}})$ cohomology with\nde Rham cohomology.\n\n**Acceptance.** $\\mathbb R^n\\to*$ is cohomologically smooth with dualizing object $\\mathbb Z[n]$. For $X=\\mathbb A^1_k$,\n$\\Gamma(X_{\\mathrm{dR}},\\mathcal O)$ is the de Rham cohomology of $\\mathbb A^1_k$. An open immersion $j$ has $j_{\\mathrm{dR}}$\ncohomologically proper, as Theorem 8.27 predicts.",
+   "requires": [
+    "AnalyticStacks:AS.0",
+    "SolidAnalyticRings:SA.0",
+    "EnhancedDerivedSheaves:E1",
+    "EnhancedDerivedSheaves:E5:animation",
+    "SchemeAndStackFoundations:SF.1",
+    "DerivedDeRhamCohomology:DD.2"
+   ]
+  },
+  {
+   "key": "AS.2",
+   "title": "Affinoid analytic stacks, the !-topology and analytic stacks",
+   "description": "Affinoid analytic stacks, the $!$-topology and analytic stacks (Scholze, *Six-Functor Formalisms*,\nDefinition 9.16 and its application of Theorem 5.19; RC §6.3).\n\n**Targets.**\n- *Affinoid analytic stacks.* $\\operatorname{AnSpec}\\mathcal A$ for analytic rings, i.e. the opposite of the category of\n  analytic rings. The classes of Scholze Definition 9.16 and RC Definition 6.3.2: $I$, open immersions ($j^*$ has a\n  fully faithful $D(\\mathcal A)$-linear left adjoint); $P$, proper maps (induced analytic structure); $E$, $!$-able maps\n  ($\\mathcal B^\\triangleright\\otimes_{\\mathcal A^\\triangleright}\\mathcal A\\to\\mathcal B$ lies in $I$). The factorisation\n  $\\mathbb Z_\\square\\to(\\mathbb Z[T],\\mathbb Z)_\\square\\to\\mathbb Z[T]_\\square$. The quasi-coherent six-functor formalism on affinoid\n  analytic stacks, obtained from AS.0's construction principle (RC Corollary 6.3.4). The fully faithful embedding\n  of Lemma 6.3.6. The categorical Künneth formula and the descent characterisation of Proposition 6.3.7.\n- *The $!$-topology.* $D$-covers and the $!$-topology (Definition 6.3.9). Hypothesis 6.3.11. $!$-equivalences\n  (Definition 6.3.13, Lemma 6.3.14). The category $\\widetilde{\\mathrm{Shv}}(\\mathcal C)$ of sheaves inverting\n  $!$-equivalences (Definition 6.3.16, Remark 6.3.17, Proposition 6.3.18). Analytic stacks over a base $S$\n  (Definition 6.3.23), with the formalism $X\\mapsto D(X)$ extended by Scholze Theorem 5.19. The variant of\n  Scholze's footnote 19 (inverting countable $\\infty$-connective $!$-hypercovers) as used by RC.\n- *Geometry of analytic stacks.* Open and closed immersions and $!$-able, cohomologically smooth, proper and étale\n  maps of analytic stacks, with their stability properties. Group objects, quotient stacks $X/G$, classifying\n  stacks $*/G$ and pullback along $*\\to*/G$. 0-truncated analytic stacks. Fibre products and finite limits.\n  Excision: for a closed immersion $i$ with open complement $j$, the fibre sequence $j_!j^*\\to\\mathrm{id}\\to i_*i^*$.\n\n**Inputs.** AS.0. From `SolidAnalyticRings` SA.2: analytic rings, completions, idempotent algebras and smashing\nspectra.\n\n**Acceptance.** $\\mathbb Z_\\square\\to\\mathbb Z[T]_\\square$ is $!$-able. $\\mathbb Z_p\\otimes^{L}_{\\square}\\mathbb Z_p\\simeq\\mathbb Z_p$, so\n$\\operatorname{AnSpec}\\mathbb Z_p\\to\\operatorname{AnSpec}\\mathbb Z_\\square$ is a closed immersion. A finite family of rational\nlocalisations covering $\\operatorname{Spa}(A,A^+)$ is a $D$-cover (Scholze's argument after Definition 9.16, using\nProposition 6.19).",
+   "requires": [
+    "AnalyticStacks:AS.0",
+    "SolidAnalyticRings:SA.2"
+   ]
+  },
+  {
+   "key": "AS.3",
+   "title": "Algebraic stacks, Betti stacks and solid quasi-coherent sheaves on schemes and discrete adic spaces",
+   "description": "Algebraic stacks, Betti stacks, and solid quasi-coherent sheaves on derived schemes and discrete adic spaces\n(RC §§5.4, 6.4–6.5; Scholze, *Six-Functor Formalisms*, Lecture IX, Theorems 9.7–9.18).\n\n**Targets.**\n- *Algebraic stacks* (RC §6.4). $\\omega_1$-fpqc covers (Definition 6.4.4) and descendability of $\\omega_1$-compact\n  faithfully flat maps (Lemma 6.4.3). Hypercovers are $!$-equivalences (Proposition 6.4.5). The functors from fpqc\n  sheaves to analytic stacks (Corollary 6.4.6), with RC §5.4's embedding of schemes. Qcqs morphisms of schemes are\n  $!$-able and prim with trivial dualizing sheaf (Proposition 6.4.7). Derived schemes as analytic stacks\n  (Proposition 6.4.9). Formal completions (Definition 6.4.10, Example 6.4.11, Proposition 6.4.12).\n- *Betti stacks* (RC §6.5). The Betti realisation $(-)^{\\mathrm{Betti}}$ from light condensed anima to analytic stacks,\n  through $\\omega_1$-fpqc sheaves. Its six-functor formalism is the base change of the condensed-anima formalism\n  of AS.1 along $D(\\mathbb Z)\\to D(\\mathbb Z_{\\mathrm{cond}})$. The examples $\\mathbb R^{\\mathrm{Betti}}$, $\\mathbb C^{\\mathrm{Betti}}$,\n  $[0,\\infty)^{\\mathrm{Betti}}$ and $[0,\\infty]^{\\mathrm{Betti}}$, with the monoid structures induced by multiplication and the closed\n  and open substacks given by closed and open subsets.\n- *Solid quasi-coherent sheaves* (Scholze Lecture IX). Theorem 9.7: the formalism $X\\mapsto D_\\square(X)$ on derived\n  schemes almost of finite type over $\\mathbb Z$, with $P$ proper maps, $I$ open immersions and $E$ separated maps.\n  Derived discrete adic spaces (Definition 9.12). $X^{\\mathrm{ad}}$, $X^{\\mathrm{ad}/k}$ and Proposition 9.13 with Remark 9.14\n  (valuative criteria). Theorem 9.15: descent on $\\operatorname{Spa}(A,A^+)$, and the six-functor formalism on discrete adic\n  spaces pulled back from analytic stacks through the $D$-covers of AS.2.\n- *Smoothness and finiteness.* Theorem 9.17: for a smooth map $f:X\\to Y$ of derived schemes, $f$ is\n  cohomologically smooth in $D_\\square$ with dualizing complex $\\Omega^d_{X/Y}[d]$; maps of finite Tor-dimension are\n  suave; for local complete intersections $f^!1$ is invertible and isomorphic to $\\det(L_{X/Y})$. The key\n  computation: for $\\mathbb A^1_{\\mathbb Z}\\to\\operatorname{Spec}\\mathbb Z$,\n  $f_!1=\\mathrm{fib}(\\mathbb Z[T]\\to\\mathbb Z((T^{-1})))=T^{-1}\\mathbb Z[[T^{-1}]][-1]$, with trace given by the coefficient of $T^{-1}$.\n  Theorem 9.18, which proves Theorem 8.10: for proper $f$, $f_*$ preserves pseudocoherent and coherent objects,\n  and perfect ones under finite Tor-dimension.\n\n**Inputs.** AS.1, AS.2. From `SolidAnalyticRings` SA.3: $R_\\square$, $(A,A^+)_\\square$ and descent over rational covers.\nFrom `SchemeAndStackFoundations` SF.1: classical descent and algebraic stacks.\n\n**Acceptance.** For $X$ profinite, $X^{\\mathrm{Betti}}=\\operatorname{Spec}C(X,\\mathbb Z)$. The excision sequence $j_!1\\to1\\to i_*1$ holds\nfor $\\{0\\}\\subset[0,\\infty)^{\\mathrm{Betti}}$. The formal completion of $\\mathbb A^1$ at $0$ is\n$\\mathrm{colim}_k\\operatorname{Spec}\\mathbb Z[T]/T^k$. Serre duality for $\\mathbb P^1_{\\mathbb Z}\\to\\operatorname{Spec}\\mathbb Z$ follows from\nTheorem 9.17. The dualizing complex of $\\mathbb A^1_{\\mathbb Z}$ is $\\mathbb Z[T][1]$, matching RC Proposition 7.1.11.",
+   "requires": [
+    "AnalyticStacks:AS.1",
+    "AnalyticStacks:AS.2",
+    "SolidAnalyticRings:SA.3",
+    "SchemeAndStackFoundations:SF.1"
+   ]
+  },
+  {
+   "key": "AS.4",
+   "title": "Analytic geometry over solid Huber rings and normed bases",
+   "description": "Analytic geometry over solid Huber rings and normed bases (RC §7; RC, *The analytic de Rham stack in rigid\ngeometry*, §3; ABLRS §§4.1–4.3; V5A4 Lecture 7).\n\n**Targets.**\n- *Solid Huber stacks* (RC §7.3). The site of analytic spectra of solid Huber rings and its topology\n  (Definitions 7.3.1–7.3.2). Rational covers are covers in the analytic topology (compare RC Theorem 5.6.8).\n- *Cotangent complex and finiteness* (RC §§7.4–7.5). The cotangent complex of a map of analytic rings\n  (Definition 7.4.1, Proposition 7.4.7). Solid finite type and finite presentation (Definitions 7.5.1, 7.5.4).\n- *Solid smooth and étale maps* (RC §7.6). Solid smooth and solid étale maps (Definition 7.6.1, Remark 7.6.2).\n  Solid standard smooth maps (Definition 7.6.3). Proposition 7.6.5. Theorem 7.6.7: locally solid smooth equals\n  locally standard smooth.\n- *Serre duality* (RC §7.7). $\\mathbb Z_\\square\\to\\mathbb Z[T]_\\square$ is cohomologically smooth with dualizing sheaf\n  $\\mathbb Z[T][1]$ (Proposition 7.1.11). Theorem 7.7.1: locally solid smooth maps are cohomologically smooth, with\n  dualizing sheaf locally a line bundle in degree $\\dim f$; locally solid étale maps are cohomologically étale.\n  Proposition 7.7.2 (universal vector bundles). Pairs and the deformation to the normal cone\n  (Definitions 7.7.4–7.7.5, Proposition 7.7.12). Theorem 7.7.21: $f^!1\\cong\\det(L_{B/A})[\\dim f]$.\n- *Tate and Gelfand stacks.* Derived Tate adic spaces and Tate stacks (RC 2401.07738 §2.7, §§3.2–3.7, including\n  formally overconvergent étale and smooth maps). Gelfand stacks (ABLRS Definitions 4.2.1, 4.2.6, 4.2.12,\n  4.2.14). Derived Berkovich spaces (ABLRS Definition 4.3.1, Proposition 4.3.3, Definitions 4.3.4, 4.3.6).\n- *Normed analytic rings* (V5A4 Remark 7.1, Example 7.2; Aoki Definition 4.31). A norm on an analytic ring\n  $\\mathcal A$ is a map of analytic stacks $|T|:\\mathbb A^1_{\\mathcal A}\\to[0,\\infty]^{\\mathrm{Betti}}$, multiplicative for the monoid\n  structures, such that $\\mathbb A^{1,\\mathrm{an}}_{\\mathcal A}:=|T|^{-1}[0,\\infty)$ is a sub-ring object and the restriction of $|T|$\n  to it is an absolute value in the sense of Aoki Definition 4.31. That is: $N(0)=0$; the triangle inequality\n  $N(N^{-1}[0,r]+N^{-1}[0,s])\\subseteq[0,r+s]$; $N^{-1}\\{0\\}=\\{0\\}$; $N^{-1}(0,\\infty)=(\\mathbb A^{1,\\mathrm{an}}_{\\mathcal A})^\\times$.\n  The norm is moreover nonarchimedean, $N(N^{-1}[0,r]+N^{-1}[0,s])\\subseteq[0,\\max(r,s)]$ (V5A4 Lecture 7: \"the\n  usual axioms of a non-Archimedean norm\"). For an $\\mathcal A$-algebra $\\mathcal B$ and $f\\in\\mathcal B$ there is an induced\n  $|f|:\\operatorname{AnSpec}\\mathcal B\\to[0,\\infty]^{\\mathrm{Betti}}$ (V5A4 Example 7.2).\n- *Discs and analytic lines over $\\mathbb Z((u))_\\square$* (V5A4 Example 7.3, Definitions 7.5–7.6, Remark 7.7).\n  $\\mathbb Z((u))_\\square$ with $|u|=c$ is a normed analytic ring. The overconvergent disc\n  $D_0(r)^\\dagger=\\operatorname{AnSpec}(\\mathbb Z((u))\\langle T\\rangle^\\dagger_r)_\\square$ is the preimage of $[0,r]$, a subspace of\n  $\\mathbb A^1$ cut out by an idempotent algebra. The analytic affine line\n  $\\mathbb A^{1,\\mathrm{an}}=\\bigcup_{r<\\infty}D_0(r)^\\dagger$ is the preimage of $[0,\\infty)$, and\n  $\\mathbb G_m^{\\mathrm{an}}=\\mathbb A^{1,\\mathrm{an}}\\cap\\mathbb G_m$. Also: annuli; the overconvergent neighbourhood\n  $Z^\\dagger=\\bigcap_{U\\supseteq Z}U$ of a closed subset $Z$ (for example $\\mathbb G_a^\\dagger$ and\n  $(\\mu_m\\subset\\mathbb G_m^{\\mathrm{an}})^\\dagger$); base change of all of these to normed analytic rings over\n  $\\mathbb Z((u))_\\square$.\n\n**Inputs.** AS.3. From `SolidAnalyticRings` SA.4: solid Huber rings, bounded and Gelfand rings, and the normed\nbase and disc algebras.\n\n**Acceptance.** $D_0(r)^\\dagger=\\bigcap_{r'>r}D_0(r')^\\dagger$. Global functions on $\\mathbb A^{1,\\mathrm{an}}$ over\n$\\mathbb Z((u))_\\square$ are the entire functions (V5A4 Definition 7.6), a strictly larger ring than $\\mathbb Z((u))[T]$\n(V5A4 Remark 7.7). Over $\\mathbb Q_p$, the closed unit disc is cohomologically smooth by Theorem 7.7.1, and its solid\nand Tate-stack descriptions agree.",
+   "requires": [
+    "AnalyticStacks:AS.3",
+    "SolidAnalyticRings:SA.4"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "scholze-six-functor",
+   "title": "Six-Functor Formalisms",
+   "authors": "Peter Scholze",
+   "edition": "arXiv:2510.26269v2 (22 January 2026)",
+   "url": "https://arxiv.org/abs/2510.26269v2",
+   "readSections": [
+    "Lectures II–VI with appendices (pp. 11–55)",
+    "Lecture VII with appendix (pp. 56–67)",
+    "Lecture VIII with appendix (pp. 68–83)",
+    "Lecture IX (pp. 84–92)",
+    "Lecture X, Remark 10.7 (p. 96)"
+   ]
+  },
+  {
+   "id": "heyer-mann",
+   "title": "6-Functor Formalisms and Smooth Representations",
+   "authors": "Claudius Heyer; Lucas Mann",
+   "edition": "arXiv:2410.13038v1 (16 October 2024)",
+   "url": "https://arxiv.org/abs/2410.13038v1",
+   "readSections": [
+    "§2 (correspondences)",
+    "§3 (6-functor formalisms: construction, extension, examples)",
+    "§4 (category of kernels: descent, suave and prim objects and maps, étale and proper maps, exceptional descent, examples)",
+    "Appendices A–D"
+   ]
+  },
+  {
+   "id": "rc-solid-geometry",
+   "title": "Notes on solid geometry",
+   "authors": "Juan Esteban Rodríguez Camargo",
+   "edition": "arXiv:2603.03012v1 (3 March 2026)",
+   "url": "https://arxiv.org/abs/2603.03012v1",
+   "readSections": [
+    "§6.1–§6.5 (pp. 72–97)",
+    "§7.3–§7.7 (pp. 106–128)"
+   ]
+  },
+  {
+   "id": "rc-analytic-de-rham",
+   "title": "The analytic de Rham stack in rigid geometry",
+   "authors": "Juan Esteban Rodríguez Camargo",
+   "edition": "arXiv:2401.07738v1 (15 January 2024)",
+   "url": "https://arxiv.org/abs/2401.07738v1",
+   "readSections": [
+    "§2.7 (derived Tate adic spaces)",
+    "§3.1–§3.7 (Tate stacks, finite presentation, cotangent complex, solid étale and smooth maps, derived rigid geometry, formally overconvergent maps)"
+   ]
+  },
+  {
+   "id": "ablrs-ff-de-rham",
+   "title": "Analytic de Rham stacks of Fargues-Fontaine curves",
+   "authors": "Johannes Anschütz; Guido Bosco; Arthur-César Le Bras; Juan Esteban Rodríguez Camargo; Peter Scholze",
+   "edition": "arXiv:2510.15196v2 (3 March 2026)",
+   "url": "https://arxiv.org/abs/2510.15196v2",
+   "readSections": [
+    "§4.1–§4.3 (light arc-stacks, Gelfand stacks, derived Berkovich spaces)"
+   ]
+  },
+  {
+   "id": "aoki-normed-ring-stacks",
+   "title": "Berkovich 2-motives and normed ring stacks",
+   "authors": "Ko Aoki",
+   "edition": "arXiv:2603.01877v1 (2 March 2026)",
+   "url": "https://arxiv.org/abs/2603.01877v1",
+   "readSections": [
+    "§4.4 (Definition 4.31, Remarks 4.32–4.33)"
+   ]
+  },
+  {
+   "id": "ong-v5a4",
+   "title": "Habiro Cohomology (notes of P. Scholze's course V5A4, Bonn, summer semester 2025)",
+   "authors": "Wern Juin Gabriel Ong (notes of lectures by Peter Scholze)",
+   "edition": "notes covering the lectures of 11 April to 11 July 2025, 50 pp.; not publicly posted, cited by title, author, course and date; the URL is the MPIM archive of the lecture recordings named in the notes",
+   "url": "https://archive.mpim-bonn.mpg.de/id/eprint/5155/",
+   "readSections": [
+    "Lecture 7 (4 July 2025): Remark 7.1, Examples 7.2–7.3, Definitions 7.5–7.6, Remark 7.7"
+   ]
+  }
+ ],
+ "status": "draft"
+}

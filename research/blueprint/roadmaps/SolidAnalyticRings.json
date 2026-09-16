@@ -1,0 +1,157 @@
+{
+ "id": "SolidAnalyticRings",
+ "title": "Light condensed mathematics, solid abelian groups and analytic rings",
+ "group": "foundations",
+ "summary": "Light condensed sets and abelian groups; solid abelian groups and solid condensed spectra, with solidification and the solid tensor product; analytic rings with completion, colimits and localisation by idempotent algebras; smashing spectra; the solid analytic ring structures on finite-type and general discrete rings; discrete Huber pairs with descent over rational covers of their adic spectra; solid Huber rings, bounded rings, Gelfand rings and their Berkovich spectra; and the normed solid base Z((u)) with its overconvergent disc algebras. This is the algebraic foundation on which analytic stacks, ring-stack transmutation and the analytic Habiro ring are built.",
+ "readme": "# Light condensed mathematics, solid abelian groups and analytic rings\n\n## Purpose\n\nThis roadmap supplies the algebraic foundations of Clausen–Scholze analytic geometry on which analytic\nstacks, six-functor formalisms of solid quasi-coherent sheaves, ring-stack transmutation and the analytic\nHabiro ring are built. It starts from Mathlib's light condensed library and ends with:\n\n- analytic rings and their completions;\n- idempotent algebras and smashing spectra;\n- the solid analytic ring structures on finite-type and general discrete rings;\n- discrete Huber pairs and descent over their adic spectra;\n- solid Huber rings, bounded rings and Gelfand rings;\n- the normed solid base $\\mathbb Z((u))_\\square$ with its overconvergent function algebras.\n\nThe written account followed is J. E. Rodríguez Camargo, *Notes on solid geometry* (arXiv:2603.03012v1), which\nexpands the Clausen–Scholze lecture series *Analytic Stacks*.\n\n## Scope\n\nIn scope:\n\n- Rodríguez Camargo §§2–5 and §§7.1–7.2;\n- the solid condensed spectra of Wagner, *q-Hodge complexes over the Habiro ring*, B.6;\n- bounded rings, †-nilradicals, uniform completion, Gelfand rings, their Berkovich spectra and the Fredholm\n  property from Anschütz–Bosco–Le Bras–Rodríguez Camargo–Scholze (ABLRS, arXiv:2510.15196v2), §§2–3;\n- bounded affinoid rings and idempotent algebras from Rodríguez Camargo, *The analytic de Rham stack in rigid\n  geometry* (arXiv:2401.07738v1), §§2.4–2.7;\n- the explicit normed base of Scholze's course *V5A4 – Habiro cohomology*, Lecture 7: $\\mathbb Z((u))_\\square$ with\n  $|u|=c\\in(0,1)$, the overconvergent disc algebras $\\mathbb Z((u))\\langle T\\rangle^\\dagger_r$, and algebras obtained by\n  forcing prescribed sequences to be null sequences.\n\nSix-functor formalisms and analytic stacks belong to `AnalyticStacks`.\n\n## Conventions\n\n- *Condensed* means *light condensed* throughout. Sites are light profinite sets with finite jointly surjective\n  covers (Mathlib `LightProfinite`, `LightCondSet`, `LightCondMod`). The κ-condensed objects of Scholze's 2019\n  lecture notes appear only in comparisons of statements.\n- $P=\\mathbb Z[\\mathbb N\\cup\\{\\infty\\}]/(\\infty)$ is the free condensed abelian group on a null sequence, and\n  $\\mathrm{Null}(A)=\\mathrm{Hom}(P,A)$ (RC Definition 3.1.1). Shift is the endomorphism induced by $n\\mapsto n+1$.\n- An analytic ring is a pair $\\mathcal A=(\\mathcal A^\\triangleright,D(\\mathcal A))$ as in RC Definition 4.1.1: a condensed\n  animated ring together with its full subcategory of complete modules. $\\mathcal A$-modules are complete\n  modules. $\\operatorname{AnSpec}$ is only introduced in `AnalyticStacks`.\n- $R_\\square$ denotes the solid analytic ring structure on a discrete ring $R$ (RC Definition 5.4.7), and\n  $(R,R^+)_\\square$ that of a discrete Huber pair (RC Definition 5.5.4).\n- Idempotent algebras are unital maps $1\\to A$ with $A\\otimes A\\simeq A$ (RC Definition 5.1.1). The smashing\n  spectrum $\\mathrm{Sm}(\\mathcal C)$ is the opposite poset of idempotent algebras.\n- Norms are nonarchimedean. $\\mathbb Z((u))$ is normed by $|u|=c$ with $0<c<1$ fixed.\n\n## Sources\n\n- Rodríguez Camargo, *Notes on solid geometry*, §§2–5, 7.1–7.2.\n- Scholze, *Lectures on Condensed Mathematics*, Lectures I–VI, and *Lectures on Analytic Geometry*,\n  Lectures II and VII, for the κ-condensed originals.\n- Scholze, *Six-Functor Formalisms*, Lecture IX (Definition 9.4, Theorems 9.6–9.10).\n- Wagner, *q-Hodge complexes over the Habiro ring*, B.6–B.8.\n- ABLRS §§2–3; Rodríguez Camargo, *The analytic de Rham stack in rigid geometry*, §2.\n- W. J. G. Ong's notes of Scholze's course *V5A4 – Habiro cohomology* (Bonn, summer 2025), Lecture 7.\n\n## Layers\n\n- **SA.0** Light condensed sets and light condensed abelian groups.\n- **SA.1** Solid abelian groups and solid spectra.\n- **SA.2** Analytic rings, completions, idempotent algebras and smashing spectra.\n- **SA.3** Solid finite-type algebras, discrete Huber pairs and discrete adic spectra.\n- **SA.4** Solid Huber rings, bounded and Gelfand rings, and normed solid bases.\n\n## Boundaries\n\n- `EnhancedDerivedSheaves` supplies derived categories of sheaves (E1), adjoint functor theorems and\n  localisations (E3), symmetric monoidal ∞-categories (E5:abstract), Ind-completion (E5:presentability) and\n  animated rings (E5:animation). `StableHomotopyKTheory` H.5 supplies spectra.\n- `AnalyticStacks` owns six-functor formalisms, $\\operatorname{AnSpec}$, analytic stacks, Betti stacks,\n  cohomological smoothness of solid maps and normed analytic rings as maps to $[0,\\infty]^{\\mathrm{Betti}}$.\n- `TropicalAndBerkovichArithmetic` TB.0 owns the Berkovich spectrum of a Banach ring. The Tau Ceti\n  `AdicSpaces` roadmap owns Huber rings, valuation spectra and rational subsets.\n- `VStackSheavesAndLisseCategories` VS2 owns the κ-condensed solid formalism of Fargues–Scholze Chapter VII on\n  small v-stacks. This roadmap asserts no comparison between light and κ-condensed solid categories beyond the\n  explicit statements for free objects $\\mathbb Z_\\square[S]$.\n- `HabiroRings` HR.2 consumes the solid spectra of SA.1 for Wagner's Lemma B.8.\n\n## Non-goals\n\nLiquid and gaseous analytic ring structures on $\\mathbb R$ and $\\mathbb C$, and the archimedean theory, are not\nbuilt here. Neither are the ultrasolid structure $\\mathbb Q^{u}_\\square$ or the presentability of the ∞-category of\nanalytic rings: RC's footnote records that the latter is claimed but not proved in the literature, and the\nconstructions here do not use it.",
+ "prerequisites": [
+  "EnhancedDerivedSheaves",
+  "SchemeAndStackFoundations",
+  "StableHomotopyKTheory",
+  "TropicalAndBerkovichArithmetic",
+  "tauceti:TauCetiRoadmap/AdicSpaces"
+ ],
+ "stages": [
+  {
+   "key": "SA.0",
+   "title": "Light condensed sets and light condensed abelian groups",
+   "description": "Light condensed sets and light condensed abelian groups (RC §2; Scholze, *Lectures on Condensed Mathematics*,\nLectures I–III).\n\n**Targets.**\n- *Light profinite sets.* The equivalent characterisations: metrizable; countable cofiltered limit of finite\n  sets (RC Definition 2.1.3 with Proposition 2.1.2). Mathlib's `LightProfinite` and the sequence\n  $\\mathbb N\\cup\\{\\infty\\}$. For a light profinite $S$, $C(S,\\mathbb Z)$ is a free abelian group (RC Proposition 2.1.7).\n- *Light condensed sets.* Sheaves for finite jointly surjective families (RC Definition 2.2.1; Mathlib\n  `LightCondSet`). Condensation of topological spaces (Mathlib `topCatToLightCondSet`), fully faithful on\n  metrizably compactly generated spaces. Quasicompact and quasiseparated condensed sets, and the description of\n  quasiseparated condensed sets as injective ind-objects of light compact Hausdorff spaces (RC Definition 2.2.6\n  and the proposition following it). Light condensed objects of an ∞-category with countable limits (RC\n  Definition 4.0.1), in particular light condensed anima and light condensed spectra.\n- *Light condensed abelian groups* (RC Definition 2.3.1; Mathlib `LightCondAb`, `LightCondMod`). RC\n  Theorem 2.3.3: Grothendieck abelian with a closed symmetric monoidal structure; countable products exact\n  (countable AB4*) and countable AB6; sequential limits of surjections surjective; $\\mathbb Z[\\mathbb N\\cup\\{\\infty\\}]$\n  internally projective. RC Remark 2.3.4: there is no splitting at the level of light profinite sets.\n- *Derived category.* The unbounded derived ∞-category $D(\\mathrm{CondAb})$ with its t-structure, derived tensor\n  product and internal Hom, identified with light condensed objects of $D(\\mathbb Z)$. Also discrete objects, the\n  underlying-group functor $M\\mapsto M(*)$ and the free objects $\\mathbb Z[S]$.\n- *Cohomology.* $R\\Gamma(T,M)$ for discrete $M$ (RC Definition 2.3.6). For $S$ light profinite,\n  $H^0(S,M)=C(S,M)$ and $H^i(S,M)=0$ for $i>0$ (RC Proposition 2.3.7). For light compact Hausdorff $X$,\n  condensed cohomology agrees with sheaf cohomology (RC Proposition 2.3.8).\n\n**Inputs.** Mathlib: `LightProfinite`, `LightCondSet`, `LightCondMod`, `LightCondAb`, their free–forgetful\nadjunction, monoidal closed structure, `CountableAB4Star` and `IsGrothendieckAbelian` instances, the\nepimorphism criteria, and internal projectivity of the free object on $\\mathbb N\\cup\\{\\infty\\}$. From\n`EnhancedDerivedSheaves`: E1 for derived sheaf categories and presentability; E5:abstract and\nE5:presentability for symmetric monoidal stable ∞-categories.\n\n**Acceptance.** $\\mathbb R/\\mathbb R^\\delta$ is nonzero, with $(\\mathbb R/\\mathbb R^\\delta)(S)=C(S,\\mathbb R)/C^{lc}(S,\\mathbb R)$.\n$H^*(\\mathbb N\\cup\\{\\infty\\},\\mathbb Z)$ is concentrated in degree $0$. The map\n$(2\\mathbb N\\cup\\{\\infty\\})\\sqcup(2\\mathbb N+1\\cup\\{\\infty\\})\\to\\mathbb N\\cup\\{\\infty\\}$ has no section, yet its image under\n$\\mathbb Z[-]$ splits internally.",
+   "requires": [
+    "EnhancedDerivedSheaves:E1",
+    "EnhancedDerivedSheaves:E5:abstract",
+    "EnhancedDerivedSheaves:E5:presentability"
+   ]
+  },
+  {
+   "key": "SA.1",
+   "title": "Solid abelian groups and solid spectra",
+   "description": "Solid abelian groups and solid spectra (RC §3; Scholze, *Lectures on Condensed Mathematics*, Lectures V–VI,\nand *Lectures on Analytic Geometry*, Lecture II; Wagner, *q-Hodge complexes over the Habiro ring*, B.6–B.8).\n\n**Targets.**\n- *Null sequences.* $P$, $\\mathrm{Null}(A)$ and summability (RC Definition 3.1.1, Example 3.1.2), and light\n  locally profinite sets (RC Definition 3.1.5).\n- *Solidity* (RC Definition 3.2.1). $A$ is solid if\n  $1-\\mathrm{Shift}^*:\\mathrm{Hom}(P,A)\\to\\mathrm{Hom}(P,A)$ is an isomorphism, and $C\\in D(\\mathrm{CondAb})$ is solid if the\n  same holds for $R\\mathrm{Hom}$. RC Theorem 2.3.3 shows $P$ is internally projective, which the definition uses\n  (Remark 3.2.2).\n- *Structure theorem* (RC Theorem 3.2.4 with Proposition 3.2.5). $\\mathrm{Solid}$ is a Grothendieck abelian\n  subcategory of $\\mathrm{CondAb}$ closed under limits, colimits and extensions. It contains $\\mathbb Z$ and has a\n  solidification left adjoint $(-)^\\square$, and a unique symmetric monoidal structure $\\otimes^\\square$ makes\n  $(-)^\\square$ symmetric monoidal. $\\mathbb R^\\square=0$. The derived statements hold for\n  $D(\\mathrm{CondAb})_\\square$.\n- *Free solid objects* (RC Theorem 3.3.1). For $S=\\lim S_n$, $\\mathbb Z[S]^{L\\square}\\simeq\\lim_n\\mathbb Z[S_n]$.\n  $\\prod_{\\mathbb N}\\mathbb Z$ is a compact projective generator of $\\mathrm{Solid}$,\n  $D(\\mathrm{Solid})\\simeq D(\\mathrm{CondAb})_\\square$, and $(-)^{L\\square}$ is the left derived functor of $(-)^\\square$.\n- *Finitely presented solid groups* (RC Theorem 3.4.2, Corollary 3.4.3).\n  $\\mathrm{Solid}=\\mathrm{Ind}(\\mathrm{Solid}^{\\mathrm{fp}})$. Every finitely presented object has a resolution\n  $0\\to\\prod_{\\mathbb N}\\mathbb Z\\to\\prod_{\\mathbb N}\\mathbb Z\\to M\\to0$. $\\prod_{\\mathbb N}\\mathbb Z$ is flat for $\\otimes^\\square$.\n- *Computations* (RC §3.5).\n  $\\prod_{\\mathbb N}\\mathbb Z\\otimes^\\square\\prod_{\\mathbb N}\\mathbb Z=\\prod_{\\mathbb N\\times\\mathbb N}\\mathbb Z$,\n  $\\mathbb Z[[T]]\\otimes^\\square\\mathbb Z[[S]]=\\mathbb Z[[T,S]]$, and the solid tensor products of $\\mathbb Z_p$ and $\\mathbb Q_p$.\n- *Solid condensed spectra* (Wagner B.6). $\\mathrm{Null}=\\mathrm{cofib}(\\mathbb S[\\{\\infty\\}]\\to\\mathbb S[\\mathbb N\\cup\\{\\infty\\}])$\n  with shift $\\sigma$. $M$ is solid if $1-\\sigma^*$ is an equivalence on $\\mathrm{Hom}(\\mathrm{Null},M)$. This defines\n  $\\mathrm{Sp}_\\blacksquare\\subseteq\\mathrm{Cond}(\\mathrm{Sp})$ with solidification and the solid tensor product, and\n  $\\prod_{\\mathbb N}\\mathbb S\\otimes^\\blacksquare\\prod_{\\mathbb N}\\mathbb S\\simeq\\prod_{\\mathbb N\\times\\mathbb N}\\mathbb S$. The\n  $p$-complete statement used by Wagner Lemma B.8: the solid tensor product preserves bounded below $p$-complete\n  objects.\n\n**Inputs.** SA.0. From `StableHomotopyKTheory` H.5:spectra: spectra and $\\mathbb S$.\n\n**Acceptance.** $\\mathbb Z_p$, $\\prod_{\\mathbb N}\\mathbb Z$ and every discrete group are solid. $\\mathbb R$ is not solid\nand $\\mathbb R^\\square=0$. $\\mathrm{Null}(\\mathbb Z_p)$ is the group of sequences tending to $0$. Mathlib's κ-condensed\n`CondensedMod.IsSolid`, whose documentation restricts its correctness to $\\mathbb Z$-coefficients, is compared with\nthis notion on the free objects $\\mathbb Z[S]$ only.",
+   "requires": [
+    "SolidAnalyticRings:SA.0",
+    "StableHomotopyKTheory:H.5:spectra"
+   ]
+  },
+  {
+   "key": "SA.2",
+   "title": "Analytic rings, completions, idempotent algebras and smashing spectra",
+   "description": "Analytic rings, completions, idempotent algebras and smashing spectra (RC §4 and §5.1; Scholze,\n*Six-Functor Formalisms*, Lecture IX, Definition 9.4).\n\n**Targets.**\n- *Analytic rings* (RC Definition 4.1.1, Remark 4.1.2). An uncompleted analytic ring is a condensed animated\n  ring $\\mathcal A^\\triangleright$ with a full subcategory $D(\\mathcal A)\\subseteq D(\\mathcal A^\\triangleright)$ that is closed under\n  limits and colimits, is $D(\\mathrm{CondAb})$-linear, and whose left adjoint preserves connectivity. Analytic rings\n  are those with $\\mathcal A^\\triangleright$ complete. Compare with Scholze Definition 9.4.\n- *Completion and colimits* (RC Theorem 4.1.13). The completion functor, left adjoint to the inclusion into\n  uncompleted analytic rings. Small colimits of analytic rings. Tensor products\n  $D(\\mathcal B)\\otimes_{D(\\mathcal A)}D(\\mathcal C)=D(\\mathcal B\\otimes_{\\mathcal A}\\mathcal C)$.\n- *Animation* (RC §4.2, Definitions 4.2.1, 4.2.3). Analytic animated rings obtained from compactly projectively\n  generated 1-categories and symmetric functors.\n- *Frobenius* (RC Theorem 4.3.2). $\\varphi:\\mathcal A\\to\\mathcal A/p$ is a map of analytic rings.\n- *Invariance* (RC Theorem 4.4.1). Analytic ring structures on $\\mathcal A^\\triangleright$ correspond to suitable abelian\n  subcategories of the heart.\n- *Morphisms* (RC §4.5). The criterion for a map of condensed rings to underlie a map of analytic rings\n  (RC Proposition 4.5.1).\n- *Killing algebras* (RC §4.6). Localisation of an analytic ring by killing a compact or idempotent algebra,\n  with the induced analytic ring structure.\n- *Idempotent algebras and smashing spectra* (RC §5.1). Idempotent algebras in a presentably symmetric monoidal\n  stable ∞-category (Definition 5.1.1). The locale $\\mathrm{Sm}(\\mathcal C)$, with intersections, inclusions and unions\n  of closed subsets computed by $\\otimes$, absorption and fibre products (Proposition 5.1.2). Open and closed\n  immersions in $\\mathrm{Affine}(\\mathrm{Pr}^L_{st})$ (Definition 5.1.3, Proposition 5.1.4). The Grothendieck topology\n  of open localisations with descent for $\\mathrm{CAlg}(\\mathrm{Pr}^L_{st})$ (Theorem 5.1.6) and its closed-cover variant\n  (Remark 5.1.7). Distributive lattices and Stone duality for spectral spaces (Definitions 5.1.8, 5.1.11,\n  Theorem 5.1.13, Example 5.1.15).\n\n**Inputs.** SA.1. From `EnhancedDerivedSheaves`: E3 (adjoint functor theorem, accessible localisations),\nE5:presentability (presentable categories, Ind-completion) and E5:animation (animated rings).\n\n**Acceptance.** $\\mathbb Z_\\square$ (solid abelian groups) is an analytic ring. Every condensed animated ring with all\nits condensed modules is an analytic ring (the trivial structure). $\\mathbb Z_\\square\\otimes_{\\mathbb Z}\\mathbb Z_\\square\\simeq\\mathbb Z_\\square$\nas analytic rings. The idempotent algebras $\\mathbb Z[1/p]$ and $\\mathbb Z_p$ of $D(\\mathbb Z_\\square)$ satisfy\n$\\mathbb Z[1/p]\\otimes^\\square\\mathbb Z_p\\simeq\\mathbb Q_p$.",
+   "requires": [
+    "SolidAnalyticRings:SA.1",
+    "EnhancedDerivedSheaves:E3",
+    "EnhancedDerivedSheaves:E5:presentability",
+    "EnhancedDerivedSheaves:E5:animation"
+   ]
+  },
+  {
+   "key": "SA.3",
+   "title": "Solid finite-type algebras, discrete Huber pairs and discrete adic spectra",
+   "description": "Solid finite-type algebras, discrete Huber pairs and discrete adic spectra (RC §§5.2–5.6; Scholze,\n*Six-Functor Formalisms*, Theorems 9.6–9.10, 9.15, first part).\n\n**Targets.**\n- *$\\mathbb Z[T]_\\square$* (RC §5.2). $T$-solid modules (Definition 5.2.1). $D(\\mathbb Z[T]_\\square)$ as a localisation of\n  $D((\\mathbb Z[T],\\mathbb Z)_\\square)$ (Proposition 5.2.2). $\\mathbb Z[T]_\\square$ is an analytic ring with\n  $\\mathbb Z[T]_\\square[S]=\\lim_n\\mathbb Z[T][S_n]$ (Theorem 5.2.3).\n- *Finite-type algebras* (RC §5.3). $r$-solid modules (Definition 5.3.1). Theorem 5.3.2: for $R$ of finite type\n  over $\\mathbb Z$, $R_\\square[S]=\\lim_nR[S_n]$, $D(R_\\square)$ is the derived category of its heart, and\n  $\\prod_{\\mathbb N}R$ is flat. Propositions 5.3.3, 5.3.7 and 5.3.12 (complete modules for finitely generated\n  ideals). Scholze Theorem 9.6 for almost finitely presented animated $\\mathbb Z$-algebras.\n- *Schemes* (RC §5.4). The fully faithful embedding $R\\mapsto R^{\\mathrm{cond}}$ of rings as analytic rings with the\n  trivial structure (Proposition 5.4.1) and Zariski covers (Propositions 5.4.3, 5.4.6). $R_\\square$ for arbitrary rings as a colimit over finite-type subalgebras (Definition 5.4.7, Remark 5.4.8).\n  $(-)_\\square:\\mathrm{Ring}\\to\\mathrm{AnRing}$ is fully faithful and colimit-preserving (Proposition 5.4.11).\n  Principal opens (Proposition 5.4.15). Zariski covers of $\\operatorname{Spec}R$ give open covers of\n  $\\mathrm{Sm}(D(R_\\square))$ (Theorem 5.4.16).\n- *Discrete Huber pairs* (RC §5.5). Animated discrete Huber pairs (Definition 5.5.1) and their compact\n  generators (Lemma 5.5.2). The pre-analytic and analytic structures $(A,S)_\\square$ (Definition 5.5.4), which\n  depend only on the integral closure (Scholze Theorem 9.8). The functor\n  $(R,R^+)\\mapsto(R,R^+)_\\square$ is fully faithful and colimit-preserving (RC Proposition 5.5.6; Scholze\n  Theorem 9.10), with the warning of Scholze 9.11 on free modules outside finite type.\n- *Discrete adic spectra* (RC §5.6). $\\operatorname{Spa}(R,R^+)$ for discrete Huber pairs (Definition 5.6.1) and the\n  bijection of Proposition 5.6.3. Rational localisations are idempotent algebras (Proposition 5.6.4).\n  Structure presheaves (Definition 5.6.5, Proposition 5.6.6). Theorem 5.6.8:\n  $U\\mapsto D((\\mathcal O_X(U),\\mathcal O_X(U)^+)_\\square)$ is a sheaf on finite disjoint unions of rational subsets,\n  with values in presentably symmetric monoidal stable ∞-categories; this is the descent part of Scholze\n  Theorem 9.15. The modified adic spectrum $\\operatorname{Spa}(R,R^+)^{\\mathrm{mod}}$ and its spectrality (Definition 5.6.9,\n  Lemma 5.6.10).\n\n**Inputs.** SA.2. From `SchemeAndStackFoundations` SF.0: schemes and Zariski covers. From Tau Ceti\n`AdicSpaces` Layers 1–2: valuation spectra, $\\operatorname{Spa}$ and rational subsets, applied to discrete Huber rings.\n\n**Acceptance.** $\\mathbb Z[T]_\\square[*]=\\mathbb Z[T]$ and $\\mathbb Z[T]_\\square[\\mathbb N\\cup\\{\\infty\\}]$ are computed. The\npairs $(\\mathbb Z[T],\\mathbb Z)$ and $(\\mathbb Z[T],\\mathbb Z[T])$ give different analytic rings: a complete\n$(\\mathbb Z[T],\\mathbb Z)_\\square$-module $M$ is $T$-solid exactly when $R\\mathrm{Hom}(\\mathbb Z((T^{-1})),M)=0$ (proof of\nProposition 5.2.2). The rational cover of $\\operatorname{Spa}(\\mathbb Z[T],\\mathbb Z[T])$ by\n$\\{|T|\\le1\\}$ and $\\{|T|\\ge1\\}$ satisfies descent.",
+   "requires": [
+    "SolidAnalyticRings:SA.2",
+    "SchemeAndStackFoundations:SF.0",
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets"
+   ]
+  },
+  {
+   "key": "SA.4",
+   "title": "Solid Huber rings, bounded and Gelfand rings, and normed solid bases",
+   "description": "Solid Huber rings, bounded and Gelfand rings, and normed solid bases (RC §§7.1–7.2; RC, *The analytic de Rham\nstack in rigid geometry*, §§2.4–2.7; ABLRS §§2–3; V5A4 Lecture 7).\n\n**Targets.**\n- *Solid Huber rings* (RC §7.1). Solid pre-analytic Huber pairs and $(\\mathcal A^\\triangleright,S)_\\square$\n  (Definition 7.1.1). Examples 7.1.4 relating discrete Huber pairs. The right adjoint of\n  Proposition 7.1.5. The anima of topologically nilpotent elements (Definition 7.1.6, Remark 7.1.8). Solid Tate\n  algebras $\\mathcal A[T_1,\\dots,T_n]_\\square$ (Definition 7.1.9, Example 7.1.10).\n- *Rational localisations and the solid spectrum* (RC §7.2). Standard rational localisations\n  (Definition 7.2.1). The solid spectrum $\\operatorname{Spec}^\\square(\\mathcal A)$, obtained by Stone duality from the lattice\n  generated by rational localisations (Definition 7.2.7), and its properties (Proposition 7.2.12).\n- *Bounded rings* (RC 2401.07738 §§2.4–2.6; ABLRS §2). Idempotent algebras of rigid geometry; the condensed\n  nilradical; bounded affinoid rings. For a bounded $\\mathbb Q_p$-algebra $A$: the subring $A^{\\le1}$ and the rings\n  $\\mathbb Q_{p,\\square}\\langle\\mathbb N[S]\\rangle_{\\le r}$ (ABLRS Definitions 2.2.3, 2.2.7, 2.2.8); †-reduction and the\n  pullback square of Proposition 2.2.20 (Definition 2.2.19); uniform completion $A^u$ (Definition 2.3.1,\n  Proposition 2.3.6). RC 2401.07738 Proposition 2.6.16(3) is replaced by the ABLRS treatment (ABLRS footnote to\n  Remark 2.3.5).\n- *Gelfand rings* (ABLRS §3). Gelfand $\\mathbb Q_p$-algebras (Definition 3.1.1), stable under colimits\n  (Proposition 3.1.4). The Berkovich spectrum $\\mathcal M(A)$ via $A^u$ (Definition 3.1.5) and its closed subsets\n  (Proposition 3.1.9). Residue fields (Definition 3.1.15). The functor to sheaves on $\\mathcal M(A)$\n  (Proposition 3.1.16) and the map to the Berkovich spectrum (§3.2: Proposition 3.2.5, Definition 3.2.8,\n  Propositions 3.2.10–3.2.11). The Fredholm property (Definition 3.3.1, Proposition 3.3.5).\n- *The normed base $\\mathbb Z((u))_\\square$* (V5A4 Example 7.3, Definitions 7.4–7.6).\n  - The solid analytic ring $\\mathbb Z((u))_\\square$ with $|u|=c$.\n  - The overconvergent disc algebras\n    $\\mathbb Z((u))\\langle T\\rangle^\\dagger_r=\\{\\sum a_nT^n:\\exists r'>r,\\ |a_n|r'^n\\to0\\}$ with their solid structure. The\n    map $\\mathbb Z((u))_\\square[T]\\to(\\mathbb Z((u))\\langle T\\rangle^\\dagger_r)_\\square$ is an idempotent algebra.\n  - The algebra of entire functions $\\{\\sum a_nT^n:\\forall r,\\ |a_n|r^n\\to0\\}$ as the limit of the disc algebras.\n  - For an analytic ring $\\mathcal A$ over $\\mathbb Z((u))_\\square$ and a sequence $(a_n)$ in $\\mathcal A^\\triangleright(*)$: the\n    universal $\\mathcal A$-algebra in which $(a_n)$ is a null sequence, and the colimit over $k$ of those in which\n    $(a_n/u^{kn})$ is a null sequence (the construction of V5A4 Remark 7.13, modelled on ABLRS\n    Definition 2.2.3).\n\n**Inputs.** SA.3. From `TropicalAndBerkovichArithmetic` TB.0: Berkovich spectra of Banach rings. From Tau\nCeti `AdicSpaces` Layer 0: Huber rings, rings of definition and Tate algebras.\n\n**Acceptance.** $\\mathbb Q_p$ and the Tate algebra $\\mathbb Q_p\\langle T\\rangle$ are Gelfand rings. In $\\mathbb Z((u))_\\square$ every nonzero\ninteger has norm $1$, so $\\mathbb Z((u))$ is not a bounded $\\mathbb Q_p$-algebra and the $\\mathbb Z((u))$-theory is built separately. The disc algebras\nsatisfy $\\mathbb Z((u))\\langle T\\rangle^\\dagger_r\\otimes_{\\mathbb Z((u))_\\square[T]}\\mathbb Z((u))\\langle T\\rangle^\\dagger_{r}\\simeq\n\\mathbb Z((u))\\langle T\\rangle^\\dagger_r$. The sequence $(T^k/u^{k-1})_k$ is a null sequence exactly on the disc of\nradius $c$ (V5A4 Example 7.3). The analytic ring obtained by forcing $((q;q)_n)_n$ to decay rapidly receives a\nmap from $\\mathbb Z[q]$ that factors through the $(q;q)_n$-adic completion (compare V5A4 Lemma 7.10).",
+   "requires": [
+    "SolidAnalyticRings:SA.3",
+    "TropicalAndBerkovichArithmetic:TB.0",
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "rc-solid-geometry",
+   "title": "Notes on solid geometry",
+   "authors": "Juan Esteban Rodríguez Camargo",
+   "edition": "arXiv:2603.03012v1 (3 March 2026)",
+   "url": "https://arxiv.org/abs/2603.03012v1",
+   "readSections": [
+    "§2 (pp. 7–14)",
+    "§3 (pp. 14–27)",
+    "§4 (pp. 27–45)",
+    "§5 (pp. 45–71)",
+    "§7.1–§7.2 (pp. 98–106)"
+   ]
+  },
+  {
+   "id": "scholze-condensed",
+   "title": "Lectures on Condensed Mathematics",
+   "authors": "Peter Scholze (with Dustin Clausen)",
+   "edition": "lecture notes, 2019",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/Condensed.pdf",
+   "readSections": [
+    "Lectures I–III and V–VI (κ-condensed originals of the light statements)"
+   ]
+  },
+  {
+   "id": "scholze-analytic",
+   "title": "Lectures on Analytic Geometry",
+   "authors": "Peter Scholze (with Dustin Clausen)",
+   "edition": "lecture notes, 2019-2020",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/Analytic.pdf",
+   "readSections": [
+    "Lecture II (solid modules)",
+    "Lecture VII (analytic rings)"
+   ]
+  },
+  {
+   "id": "scholze-six-functor",
+   "title": "Six-Functor Formalisms",
+   "authors": "Peter Scholze",
+   "edition": "arXiv:2510.26269v2 (22 January 2026)",
+   "url": "https://arxiv.org/abs/2510.26269v2",
+   "readSections": [
+    "Lecture IX (pp. 84–92): Definition 9.4, Theorems 9.6, 9.8, 9.10, Warning 9.11, Theorem 9.15"
+   ]
+  },
+  {
+   "id": "wagner-qhodge",
+   "title": "q-Hodge complexes over the Habiro ring",
+   "authors": "Ferdinand Wagner",
+   "edition": "arXiv:2510.04782v2 (8 October 2025)",
+   "url": "https://arxiv.org/abs/2510.04782v2",
+   "readSections": [
+    "Appendix B (pp. 77–80): B.1–B.8"
+   ]
+  },
+  {
+   "id": "ablrs-ff-de-rham",
+   "title": "Analytic de Rham stacks of Fargues-Fontaine curves",
+   "authors": "Johannes Anschütz; Guido Bosco; Arthur-César Le Bras; Juan Esteban Rodríguez Camargo; Peter Scholze",
+   "edition": "arXiv:2510.15196v2 (3 March 2026)",
+   "url": "https://arxiv.org/abs/2510.15196v2",
+   "readSections": [
+    "§2 (bounded rings)",
+    "§3 (Gelfand rings and their Berkovich spectrum)",
+    "Appendix A (solid functional analysis)"
+   ]
+  },
+  {
+   "id": "rc-analytic-de-rham",
+   "title": "The analytic de Rham stack in rigid geometry",
+   "authors": "Juan Esteban Rodríguez Camargo",
+   "edition": "arXiv:2401.07738v1 (15 January 2024)",
+   "url": "https://arxiv.org/abs/2401.07738v1",
+   "readSections": [
+    "§2.4–§2.7 (idempotent algebras, condensed nilradical, bounded affinoid rings, adic spectrum)"
+   ]
+  },
+  {
+   "id": "ong-v5a4",
+   "title": "Habiro Cohomology (notes of P. Scholze's course V5A4, Bonn, summer semester 2025)",
+   "authors": "Wern Juin Gabriel Ong (notes of lectures by Peter Scholze)",
+   "edition": "notes covering the lectures of 11 April to 11 July 2025, 50 pp.; not publicly posted, cited by title, author, course and date; the URL is the MPIM archive of the lecture recordings named in the notes",
+   "url": "https://archive.mpim-bonn.mpg.de/id/eprint/5155/",
+   "readSections": [
+    "Lecture 7 (4 July 2025): Examples 7.2–7.3, Definitions 7.4–7.6, Remark 7.13"
+   ]
+  }
+ ],
+ "status": "draft"
+}

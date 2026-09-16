@@ -73,12 +73,15 @@
    "after": [],
    "timeout": 36000,
    "prompt": "research/blueprint/prompts/PLAN-HABIRO.md",
-   "state": "running",
+   "state": "done",
    "account": "claude",
    "lane": 1,
    "attempts": 2,
    "startedAt": "2026-09-16T11:14:07Z",
-   "note": "moved to the swarm server after a session limit on the Mac; scratch notes copied"
+   "note": "",
+   "finishedAt": "2026-09-16T12:41:14Z",
+   "seconds": 5224,
+   "result": {}
   },
   {
    "id": "REV-PLAN-HABIRO",
@@ -95,7 +98,11 @@
    "avoidAccountOf": "PLAN-HABIRO",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-PLAN-HABIRO.md",
-   "state": "pending"
+   "state": "running",
+   "account": "claude6",
+   "lane": 1,
+   "startedAt": "2026-09-16T12:50:37Z",
+   "attempts": 1
   },
   {
    "id": "CLASSIFY-01",
@@ -377,12 +384,15 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/CLASSIFY-05.md",
-   "state": "running",
+   "state": "done",
    "account": "claude6",
    "lane": 2,
    "attempts": 1,
    "startedAt": "2026-09-16T11:55:01Z",
-   "note": "released after a usage limit on claude6/2 at 2026-09-16T11:14:12Z"
+   "note": "",
+   "finishedAt": "2026-09-16T12:34:20Z",
+   "seconds": 2355,
+   "result": {}
   },
   {
    "id": "CLASSIFY-06",
@@ -428,12 +438,15 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/CLASSIFY-06.md",
-   "state": "running",
+   "state": "done",
    "account": "claude6",
    "lane": 1,
    "attempts": 1,
    "startedAt": "2026-09-16T11:55:01Z",
-   "note": "released on GitHub issue #9"
+   "note": "",
+   "finishedAt": "2026-09-16T12:50:33Z",
+   "seconds": 3329,
+   "result": {}
   },
   {
    "id": "DESIGN-LV",
@@ -527,11 +540,15 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
-   "state": "running",
+   "state": "done",
    "account": "claude2",
    "lane": 2,
    "startedAt": "2026-09-16T11:59:40Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-16T12:33:35Z",
+   "seconds": 2031,
+   "result": {},
+   "note": ""
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_ModularCurves",
@@ -598,8 +615,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_EllipticCurves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #14"
+   "state": "pending",
+   "note": "released on GitHub issue #14"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
@@ -632,8 +649,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_AdicSpaces.md",
-   "state": "pending",
-   "note": "released on GitHub issue #15"
+   "state": "running",
+   "note": "released on GitHub issue #15",
+   "account": "claude2",
+   "lane": 2,
+   "startedAt": "2026-09-16T12:33:38Z",
+   "attempts": 1
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_AdicSpaces",
@@ -666,11 +687,15 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
-   "state": "running",
+   "state": "done",
    "account": "claude2",
    "lane": 1,
    "startedAt": "2026-09-16T12:04:51Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-16T12:36:15Z",
+   "seconds": 1881,
+   "result": {},
+   "note": ""
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
@@ -737,8 +762,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md",
-   "state": "pending",
-   "note": "released on GitHub issue #18"
+   "state": "running",
+   "note": "released on GitHub issue #18",
+   "account": "claude6",
+   "lane": 2,
+   "startedAt": "2026-09-16T12:34:23Z",
+   "attempts": 1
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
@@ -771,7 +800,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification.md",
-   "state": "pending"
+   "state": "running",
+   "account": "claude2",
+   "lane": 1,
+   "startedAt": "2026-09-16T12:36:19Z",
+   "attempts": 1
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification",
@@ -804,7 +837,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_ClassFieldTheory.md",
-   "state": "pending"
+   "state": "running",
+   "account": "claude",
+   "lane": 1,
+   "startedAt": "2026-09-16T12:41:16Z",
+   "attempts": 1
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory",
@@ -871,7 +908,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_JacobianChallenge.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #22"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_JacobianChallenge",
@@ -904,7 +942,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #23"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries",
@@ -937,7 +976,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_HodgeStructures.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #24"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_HodgeStructures",
@@ -1036,7 +1076,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_GlobalQuadraticForms.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #27"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_GlobalQuadraticForms",
@@ -1665,7 +1706,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_Exchangeability.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #46"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_Exchangeability",
@@ -1830,7 +1872,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #51"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
@@ -2061,7 +2104,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #58"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
@@ -2094,7 +2138,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_CompactGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #59"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_CompactGroups",
@@ -2127,7 +2172,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_InductionRestriction.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #60"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_InductionRestriction",
@@ -2160,7 +2206,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #61"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
@@ -2295,8 +2342,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #65"
+   "state": "done",
+   "note": "deliverables arrived from the external worker on issue #65",
+   "finishedAt": "2026-09-16T12:35:17Z"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
@@ -2329,8 +2377,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #66"
+   "state": "done",
+   "note": "deliverables arrived from the external worker on issue #66",
+   "finishedAt": "2026-09-16T12:35:18Z"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
@@ -2398,8 +2447,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
-   "state": "pending",
-   "note": "released on GitHub issue #68"
+   "state": "external",
+   "note": "claimed on GitHub issue #68"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
@@ -2432,8 +2481,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_StandardDistributions.md",
-   "state": "pending",
-   "note": "released on GitHub issue #69"
+   "state": "external",
+   "note": "claimed on GitHub issue #69"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_StandardDistributions",
@@ -2466,8 +2515,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_UniversalCovers.md",
-   "state": "pending",
-   "note": "released on GitHub issue #70"
+   "state": "external",
+   "note": "claimed on GitHub issue #70"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_UniversalCovers",
