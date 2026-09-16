@@ -150,11 +150,11 @@
    "lane": 2,
    "attempts": 2,
    "startedAt": "2026-09-16T11:14:07Z",
-   "note": "",
-   "promptPreface": "CONTINUATION: an earlier attempt saved research/blueprint/classify/CLASSIFY-01.result.json. Keep its entries (check them briefly) and classify only the roadmaps it lacks, then rewrite the whole file.\n\n",
    "finishedAt": "2026-09-16T11:37:23Z",
    "seconds": 1393,
-   "result": {}
+   "result": {},
+   "note": "",
+   "promptPreface": "CONTINUATION: an earlier attempt saved research/blueprint/classify/CLASSIFY-01.result.json. Keep its entries (check them briefly) and classify only the roadmaps it lacks, then rewrite the whole file.\n\n"
   },
   {
    "id": "CLASSIFY-02",
@@ -209,8 +209,8 @@
    "lane": 2,
    "attempts": 1,
    "startedAt": "2026-09-16T10:51:54Z",
-   "note": "deliverables arrived from the external worker on issue #4",
-   "finishedAt": "2026-09-16T11:34:23Z"
+   "finishedAt": "2026-09-16T11:34:23Z",
+   "note": "deliverables arrived from the external worker on issue #4"
   },
   {
    "id": "CLASSIFY-03",
@@ -371,11 +371,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/CLASSIFY-05.md",
-   "state": "pending",
-   "account": null,
+   "state": "running",
+   "account": "claude6",
    "lane": 2,
-   "attempts": 0,
-   "startedAt": "2026-09-16T11:14:07Z",
+   "attempts": 1,
+   "startedAt": "2026-09-16T11:55:01Z",
    "note": "released after a usage limit on claude6/2 at 2026-09-16T11:14:12Z"
   },
   {
@@ -422,12 +422,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/CLASSIFY-06.md",
-   "state": "external",
-   "account": null,
-   "lane": 2,
-   "startedAt": "2026-09-16T11:14:07Z",
-   "attempts": 0,
-   "note": "claimed on GitHub issue #9"
+   "state": "running",
+   "account": "claude6",
+   "lane": 1,
+   "attempts": 1,
+   "startedAt": "2026-09-16T11:55:01Z",
+   "note": "released on GitHub issue #9"
   },
   {
    "id": "DESIGN-LV",
@@ -448,8 +448,8 @@
    "state": "running",
    "account": "claude",
    "lane": 2,
-   "startedAt": "2026-09-16T11:14:07Z",
-   "attempts": 1
+   "attempts": 1,
+   "startedAt": "2026-09-16T11:14:07Z"
   },
   {
    "id": "REV-DESIGN-LV",
@@ -2416,8 +2416,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_StandardDistributions.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #69"
+   "state": "pending",
+   "note": "released on GitHub issue #69"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_StandardDistributions",
@@ -2450,8 +2450,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_UniversalCovers.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #70"
+   "state": "pending",
+   "note": "released on GitHub issue #70"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_UniversalCovers",

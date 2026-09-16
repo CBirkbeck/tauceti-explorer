@@ -3076,5 +3076,651 @@
     ]
    }
   ]
+ },
+ {
+  "roadmapId": "ModularCurvesPartII",
+  "primaryMsc": "11G",
+  "secondaryMsc": [
+   "14H",
+   "14D",
+   "11F"
+  ],
+  "cluster": "arithmetic-geometry",
+  "distance": 8,
+  "distanceRationale": "TauCeti's analytic layer (Γ₀/Γ₁ Hecke operators, newforms, Petersson products) and Mathlib's Weierstrass ℘-function exist, but the baseline has no modular curve as a scheme, since PR81's Katz–Mazur affine curves are not merged. The targets need complex uniformisation with analytification and GAGA, Deligne–Rapoport/Conrad generalized elliptic curves on algebraic stacks with coarse spaces, Tate curves and regular models of bad fibres, Jacobians as abelian varieties, étale H¹ with Ihara's lemma and the modular quotients A_f, which is several layers of established research-level arithmetic geometry.",
+  "mathlibEvidence": [
+   "mathlib: PeriodPair.weierstrassP and PeriodPair.derivWeierstrassP_sq (℘ of a lattice and its differential equation; no uniformisation E(ℂ) ≅ ℂ/Λ)",
+   "tauceti: HeckeRing.GL2.heckeSlashGamma1CuspFormEnd and HeckeRing.GL2.finrank_cuspFormsNewEigenspace_eq_one (analytic Hecke action on Γ₁(N) cusp forms; multiplicity one for newforms)",
+   "mathlib: CongruenceSubgroup.Gamma1 and ModularGroup.fd (congruence subgroups and the fundamental domain; no quotient curve Y₁(N) or its compactification)",
+   "tauceti: TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.classGroupAddEquivPicZeroProdInt and TauCeti.AlgebraicGeometry.AbelianVariety (Pic⁰ of a curve as a group; abelian varieties over a field, no Jacobian variety or J₀(N))",
+   "absent: no Katz–Mazur modular curve, generalized elliptic curve, algebraic stack or coarse space, Tate curve, analytification/GAGA, étale cohomology of curves, Eichler–Shimura relation or modular abelian variety declarations"
+  ],
+  "references": [
+   {
+    "title": "Arithmetic moduli of elliptic curves",
+    "authors": "Katz, Nicholas M.; Mazur, Barry",
+    "zbmath": 3920653,
+    "msc": [
+     "14H10",
+     "14-02",
+     "14D22",
+     "14H52",
+     "14D20",
+     "11F03",
+     "14H45"
+    ]
+   },
+   {
+    "title": "Les schémas de modules de courbes elliptiques",
+    "authors": "Deligne, Pierre; Rapoport, M.",
+    "zbmath": 3440554,
+    "msc": [
+     "14D20",
+     "18F99",
+     "14G99",
+     "14H10"
+    ]
+   },
+   {
+    "title": "Arithmetic moduli of generalized elliptic curves",
+    "authors": "Conrad, Brian",
+    "zbmath": 5233244,
+    "msc": [
+     "14G22",
+     "14H52",
+     "11G05",
+     "11G18",
+     "14H10",
+     "14A20",
+     "11F11",
+     "11F25"
+    ]
+   },
+   {
+    "title": "A modular description of X₀(n)",
+    "authors": "Česnavičius, Kęstutis",
+    "zbmath": 6818944,
+    "msc": [
+     "14D23",
+     "11G18",
+     "14D22",
+     "14G35"
+    ]
+   },
+   {
+    "title": "Formes modulaires et représentations ℓ-adiques",
+    "authors": "Deligne, Pierre",
+    "zbmath": 3328792,
+    "msc": [
+     "11F70"
+    ]
+   },
+   {
+    "title": "Introduction to the arithmetic theory of automorphic functions",
+    "authors": "Shimura, Goro",
+    "zbmath": 3349944,
+    "msc": [
+     "11-02",
+     "11G15",
+     "11G05",
+     "11Fxx"
+    ]
+   },
+   {
+    "title": "On modular representations of Gal(Q̄/Q) arising from modular forms",
+    "authors": "Ribet, K. A.",
+    "zbmath": 5244,
+    "msc": [
+     "11F80",
+     "11G18",
+     "11G05",
+     "11S37",
+     "14G35"
+    ]
+   },
+   {
+    "title": "Géométrie algébrique et géométrie analytique",
+    "authors": "Serre, Jean-Pierre",
+    "zbmath": 3125545,
+    "msc": [
+     "14-02",
+     "32-02"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "ModularIwasawaMainConjectures",
+  "primaryMsc": "11R",
+  "secondaryMsc": [
+   "11F",
+   "11G",
+   "11S"
+  ],
+  "cluster": "iwasawa-theory-and-special-values",
+  "distance": 10,
+  "distanceRationale": "The endpoints are Fouquet–Wan's universal-family and cohomological main conjectures (2021–2024 preprint), the 2025 Burungale–Castella–Skinner ordinary theorem and the Lei–Loeffler–Zerbes signed comparisons, which is current research. They rest on Λ-module structure theory with characteristic ideals, Greenberg and signed Selmer complexes with determinants, Kato's zeta elements and Euler-system bounds, Skinner–Urban and Fouquet–Wan unitary Eisenstein congruences, Hida families and Wach-module Coleman maps, while the library has only power-series Weierstrass division, continuous cohomology and descent Selmer groups of elliptic curves.",
+  "mathlibEvidence": [
+   "mathlib: PowerSeries.IsWeierstrassDivision (Weierstrass division in power series rings; no structure theorem or characteristic ideals for Λ-modules)",
+   "tauceti: TauCeti.ContCohomology.pairingLeft (continuous group cohomology with cup products; no Iwasawa cohomology, Poitou–Tate sequence or Selmer complexes)",
+   "tauceti: WeierstrassCurve.Affine.selmerGroup₂ and WeierstrassCurve.Affine.finite_selmerGroupA (descent Selmer groups of elliptic curves; no p^∞, Greenberg or signed Selmer groups)",
+   "mathlib: BDeRhamPlus and WittVector.fontaineTheta (B_dR⁺ only; no crystalline period rings, Wach modules or Coleman maps)",
+   "absent: no characteristic ideal, pseudo-null module, Fitting ideal, p-adic L-function of a modular form, Kato zeta element or Euler-system declarations"
+  ],
+  "references": [
+   {
+    "title": "The Iwasawa main conjecture for universal families of modular motives",
+    "authors": "Fouquet, Olivier; Wan, Xin",
+    "zbmath": 900514661,
+    "msc": [],
+    "arxiv": "2107.13726",
+    "arxivCategories": [
+     "math.NT"
+    ]
+   },
+   {
+    "title": "The Iwasawa main conjectures for GL₂",
+    "authors": "Skinner, Christopher; Urban, Eric",
+    "zbmath": 6261655,
+    "msc": [
+     "11R23",
+     "11F85",
+     "11G05",
+     "11F80",
+     "11F33"
+    ]
+   },
+   {
+    "title": "Base change and Iwasawa main conjectures for GL₂",
+    "authors": "Burungale, Ashay; Castella, Francesc; Skinner, Christopher",
+    "zbmath": 8103160,
+    "msc": [
+     "11R23",
+     "11G05",
+     "11G40",
+     "11F33"
+    ],
+    "arxiv": "2405.00270"
+   },
+   {
+    "title": "Wach modules and Iwasawa theory for modular forms",
+    "authors": "Lei, Antonio; Loeffler, David; Zerbes, Sarah Livia",
+    "zbmath": 5878707,
+    "msc": [
+     "11R23",
+     "11F80",
+     "11S31"
+    ]
+   },
+   {
+    "title": "p-adic Hodge theory and values of zeta functions of modular forms",
+    "authors": "Kato, Kazuya",
+    "zbmath": 2123616,
+    "msc": [
+     "11F85",
+     "11F67",
+     "11G40",
+     "11R33",
+     "11S80",
+     "14G10",
+     "14G35"
+    ]
+   },
+   {
+    "title": "An introduction to p-adic L-functions",
+    "authors": "Rodrigues Jacinto, Joaquín; Williams, Chris",
+    "zbmath": 8030000,
+    "msc": [
+     "11F33",
+     "11F67",
+     "11R23"
+    ]
+   },
+   {
+    "title": "Iwasawa theory for p-adic representations",
+    "authors": "Greenberg, Ralph",
+    "zbmath": 16335,
+    "msc": [
+     "11R23",
+     "11S25",
+     "11S40"
+    ]
+   },
+   {
+    "title": "Euler systems",
+    "authors": "Rubin, Karl",
+    "zbmath": 1438384,
+    "msc": [
+     "11-02",
+     "11R34",
+     "11R23",
+     "11R18",
+     "11G05"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "ModularSymbolsPadicLFunctions",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "11S",
+   "11R",
+   "11G"
+  ],
+  "cluster": "iwasawa-theory-and-special-values",
+  "distance": 7,
+  "distanceRationale": "Cusp-form L-functions with the Mellin formula (Mathlib), Γ₀/Γ₁ Hecke operators with nebentypus and newforms (TauCeti) and the bounded Amice transform are available. Missing are modular and Manin symbols at arbitrary level with Eichler–Shimura period maps, integral period lattices and twisted critical values (one graduate layer), plus locally analytic distributions with Stevens' small-slope control theorem and, for the critical-slope targets, the Pollack–Stevens theta sequence and Bellaïche's eigencurve local algebra, which rest on the unbuilt eigencurve.",
+  "mathlibEvidence": [
+   "mathlib: CuspForm.Λ_eq_mellin and CuspForm.hasSum_L (completed L-function of a cusp form as a Mellin transform; no twisted values L(f,χ,j+1) or periods Ω_f^±)",
+   "tauceti: HeckeRing.GL2.heckeSlashGamma0CuspFormEnd and HeckeRing.GL2.Newform.eq_of_forall_notMem_qExpansion_coeff_eq (Hecke operators on Γ₀(N) cusp forms; strong multiplicity one for newforms)",
+   "mathlib: AbstractMeasure.amiceTransformEquiv and PadicInt.mahlerSeries (bounded p-adic measures and the Mahler basis; no locally analytic distributions)",
+   "mathlib: groupCohomology (group cohomology of representations; no parabolic cohomology of congruence subgroups or Eichler–Shimura isomorphism)",
+   "absent: no modular symbol, Manin symbol, overconvergent modular symbol, control theorem, p-stabilization or p-adic L-function of a modular form declarations"
+  ],
+  "references": [
+   {
+    "title": "An introduction to p-adic L-functions",
+    "authors": "Rodrigues Jacinto, Joaquín; Williams, Chris",
+    "zbmath": 8030000,
+    "msc": [
+     "11F33",
+     "11F67",
+     "11R23"
+    ]
+   },
+   {
+    "title": "Overconvergent modular symbols and p-adic L-functions",
+    "authors": "Pollack, Robert; Stevens, Glenn",
+    "zbmath": 5877526,
+    "msc": [
+     "11F85",
+     "11F67",
+     "11S40"
+    ]
+   },
+   {
+    "title": "Critical slope p-adic L-functions",
+    "authors": "Pollack, Robert; Stevens, Glenn",
+    "zbmath": 6160939,
+    "msc": [
+     "11F67",
+     "11F85",
+     "11R23"
+    ]
+   },
+   {
+    "title": "Critical p-adic L-functions",
+    "authors": "Bellaïche, Joël",
+    "zbmath": 6065252,
+    "msc": [
+     "11F67",
+     "11F85",
+     "11F66",
+     "11F03"
+    ]
+   },
+   {
+    "title": "On p-adic analogues of the conjectures of Birch and Swinnerton-Dyer",
+    "authors": "Mazur, B.; Tate, J.; Teitelbaum, J.",
+    "zbmath": 4146123,
+    "msc": [
+     "14G20",
+     "11G40",
+     "11G07",
+     "14H25",
+     "14G10",
+     "14G05"
+    ]
+   },
+   {
+    "title": "Periods of parabolic forms and p-adic Hecke series",
+    "authors": "Manin, Yu. I.",
+    "zbmath": 3458792,
+    "msc": [
+     "14G10",
+     "11S40",
+     "11R42",
+     "11F33"
+    ]
+   },
+   {
+    "title": "Introduction to the arithmetic theory of automorphic functions",
+    "authors": "Shimura, Goro",
+    "zbmath": 3349944,
+    "msc": [
+     "11-02",
+     "11G15",
+     "11G05",
+     "11Fxx"
+    ]
+   },
+   {
+    "title": "Distributions p-adiques associées aux séries de Hecke",
+    "authors": "Amice, Yvette; Vélu, Jacques",
+    "zbmath": 3518940,
+    "msc": [
+     "11F85",
+     "30G06",
+     "11S80"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "ModularityAndLanglandsExtensions",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "22E",
+   "11R"
+  ],
+  "cluster": "galois-representations-and-langlands",
+  "distance": 10,
+  "distanceRationale": "The endpoints are Newton–Thorne symmetric-power functoriality (2021, Hilbert case 2026), the Arthur/Mok/Kaletha–Mínguez–Shin–White endoscopic classifications with their conditional inputs, and potential automorphy, all at the research frontier. They rest on automorphic representations of GL_n and classical groups, the stabilized twisted trace formula and fundamental lemma, Galois representations of automorphic forms with modularity lifting, and Rankin–Selberg and symmetric-power L-functions, while the library has only classical newforms, Dirichlet L-function nonvanishing, Frobenius prime sets and adeles.",
+  "mathlibEvidence": [
+   "tauceti: HeckeRing.GL2.Newform and HeckeRing.GL2.Newform.eq_of_forall_notMem_qExpansion_coeff_eq (classical newforms with strong multiplicity one; no automorphic representations)",
+   "mathlib: DirichletCharacter.LFunction_ne_zero_of_one_le_re (nonvanishing of Dirichlet L-functions on Re s ≥ 1; no Rankin–Selberg or symmetric-power L-functions)",
+   "tauceti: NumberField.Chebotarev.frobeniusPrimeSet (Frobenius prime sets in finite Galois extensions; no Artin representations or Artin L-functions)",
+   "mathlib: NumberField.AdeleRing and tauceti: TauCeti.GeneralLinear.diagonalRootDatum (adeles; root data of GL_n; no automorphic forms on GL_n(𝔸), Weil groups or L-groups)",
+   "absent: no automorphic representation, Galois representation attached to a modular form, trace formula, endoscopic transfer, Arthur packet, base change, symmetric-power lift or Sato–Tate equidistribution declarations"
+  ],
+  "references": [
+   {
+    "title": "Symmetric power functoriality for holomorphic modular forms",
+    "authors": "Newton, James; Thorne, Jack A.",
+    "zbmath": 7458825,
+    "msc": [
+     "11F80",
+     "11F70"
+    ],
+    "arxiv": "1912.11261"
+   },
+   {
+    "title": "Symmetric power functoriality for holomorphic modular forms. II",
+    "authors": "Newton, James; Thorne, Jack A.",
+    "zbmath": 7458826,
+    "msc": [
+     "11F80",
+     "11F70",
+     "11F67"
+    ],
+    "arxiv": "2009.07180"
+   },
+   {
+    "title": "Symmetric power functoriality for Hilbert modular forms",
+    "authors": "Newton, James; Thorne, Jack",
+    "zbmath": 8211278,
+    "msc": [
+     "11F41",
+     "11F80"
+    ],
+    "arxiv": "2212.03595"
+   },
+   {
+    "title": "The endoscopic classification of representations. Orthogonal and symplectic groups",
+    "authors": "Arthur, James",
+    "zbmath": 6231010,
+    "msc": [
+     "22E50",
+     "22E55",
+     "11F66",
+     "11F37",
+     "11F70",
+     "58C40"
+    ]
+   },
+   {
+    "title": "Endoscopic classification of representations of quasi-split unitary groups",
+    "authors": "Mok, Chung Pang",
+    "zbmath": 6431282,
+    "msc": [
+     "22E55",
+     "22E50"
+    ]
+   },
+   {
+    "title": "Endoscopic classification of representations: inner forms of unitary groups",
+    "authors": "Kaletha, Tasho; Mínguez, Alberto; Shin, Sug Woo; White, Paul-James",
+    "zbmath": 900186932,
+    "msc": [],
+    "arxiv": "1409.3731",
+    "arxivCategories": [
+     "math.NT",
+     "math.RT"
+    ]
+   },
+   {
+    "title": "Formes modulaires de poids 1",
+    "authors": "Deligne, Pierre; Serre, Jean-Pierre",
+    "zbmath": 3501600,
+    "msc": [
+     "11F12",
+     "11R37",
+     "11R42"
+    ]
+   },
+   {
+    "title": "Simple algebras, base change, and the advanced theory of the trace formula",
+    "authors": "Arthur, James; Clozel, Laurent",
+    "zbmath": 43741,
+    "msc": [
+     "11F70",
+     "11-02",
+     "11R39",
+     "22E55",
+     "12-02",
+     "22-02",
+     "11R32"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "MotivesAndAlgebraicCycles",
+  "primaryMsc": "14C",
+  "secondaryMsc": [
+   "14F",
+   "18M",
+   "18G"
+  ],
+  "cluster": "k-theory-and-motives",
+  "distance": 8,
+  "distanceRationale": "Mathlib has algebraic cycles with pushforward and Karoubi envelopes, and TauCeti has Weil divisors as cycles and Tannakian reconstruction for affine group schemes, but there are no Chow groups, rational equivalence or refined intersection products. Chow and numerical motives with Jannsen's semisimplicity need intersection theory and a Weil cohomology with cycle classes (itself étale or de Rham cohomology with comparisons), and Voevodsky's geometric motives, Nori diagram categories and motivic Galois groups are further research-level layers; the cycle conjectures are only to be stated.",
+  "mathlibEvidence": [
+   "mathlib: AlgebraicGeometry.AlgebraicCycle and AlgebraicGeometry.AlgebraicCycle.map (cycles on a scheme with pushforward; no rational equivalence or Chow groups)",
+   "tauceti: TauCeti.AlgebraicGeometry.SchemeWeilDivisor.toAlgebraicCycle (Weil divisors as codimension-one cycles; no intersection products or correspondences)",
+   "mathlib: CategoryTheory.Idempotents.Karoubi (idempotent completion, as needed for the pseudo-abelian envelope of correspondences)",
+   "tauceti: TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor and TauCeti.FGPointRepresentationCat.instRigidCategory (Tannakian reconstruction of an affine group scheme from its rigid representation category; no recognition theorem for abstract neutral Tannakian categories)",
+   "absent: no Chow group, refined intersection product, Weil cohomology or cycle class map, Chow/numerical motive category, sheaves with transfers, Voevodsky or Nori motives, or motivic Galois group declarations"
+  ],
+  "references": [
+   {
+    "title": "The Stacks Project (Chow homology, intersection theory and Weil cohomology theories chapters)",
+    "authors": "The Stacks Project Authors",
+    "zbmath": null,
+    "msc": [],
+    "note": "online reference; the Stacks Project itself is not indexed in zbMATH"
+   },
+   {
+    "title": "Motives, numerical equivalence, and semi-simplicity",
+    "authors": "Jannsen, Uwe",
+    "zbmath": 39398,
+    "msc": [
+     "14A20"
+    ]
+   },
+   {
+    "title": "On the relation between Nori motives and Kontsevich periods",
+    "authors": "Huber, Annette; Müller-Stach, Stefan",
+    "zbmath": 900128878,
+    "msc": [],
+    "arxiv": "1105.0865",
+    "arxivCategories": [
+     "math.AG",
+     "math.KT",
+     "math.NT"
+    ]
+   },
+   {
+    "title": "Triangulated categories of motives over a field",
+    "authors": "Voevodsky, Vladimir",
+    "zbmath": 1526538,
+    "msc": [
+     "14F42",
+     "14F43",
+     "18E30"
+    ]
+   },
+   {
+    "title": "Tannakian categories",
+    "authors": "Deligne, Pierre; Milne, J. S.",
+    "zbmath": 3749168,
+    "msc": [
+     "14A20",
+     "14C30",
+     "14L15",
+     "18F99"
+    ]
+   },
+   {
+    "title": "Intersection theory",
+    "authors": "Fulton, William",
+    "zbmath": 3859276,
+    "msc": [
+     "14C17",
+     "14-02",
+     "14F99"
+    ]
+   },
+   {
+    "title": "Correspondences, motifs and monoidal transformations",
+    "authors": "Manin, Yu. I.",
+    "zbmath": 3317599,
+    "msc": [
+     "14-XX"
+    ]
+   },
+   {
+    "title": "Algebraic cycles and the Weil conjectures",
+    "authors": "Kleiman, S. L.",
+    "zbmath": 3315839,
+    "msc": [
+     "14-XX"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "MotivicEtaleKTheory",
+  "primaryMsc": "19E",
+  "secondaryMsc": [
+   "14F",
+   "19F",
+   "14C"
+  ],
+  "cluster": "k-theory-and-motives",
+  "distance": 9,
+  "distanceRationale": "Hilbert 90 and low-degree group cohomology, continuous Galois cohomology with Kummer classes, Brauer groups of fields, étale sites and K₀ exist, but there is no higher algebraic K-theory, Milnor K-theory, étale cohomology of schemes or motivic cohomology. The targets (Tate's K₂ theorem, Bloch's higher Chow groups with the moving lemma, the Rost–Voevodsky norm-residue theorem with sheaves with transfers, motivic Steenrod operations and norm varieties, the Friedlander–Suslin/Levine motivic spectral sequence and Quillen–Lichtenbaum via étale descent) are established theorems, but they rest on many research-level theories not yet built.",
+  "mathlibEvidence": [
+   "mathlib: groupCohomology.Hilbert90.aux and groupCohomology.H2 (Hilbert 90 and low-degree group cohomology; no Galois symbol or norm-residue map)",
+   "tauceti: TauCeti.kummerMap_eq_kummerCocycleClass and TauCeti.ContCohomology.pairingLeft (weight-one Kummer classes in continuous Galois H¹; cup products)",
+   "tauceti: TauCeti.BrauerGroup.baseChange and TauCeti.AbelianK0 (Brauer groups of fields; only K₀ of abelian categories)",
+   "mathlib: AlgebraicGeometry.Scheme.etaleTopology and DerivedCategory (étale topology on schemes, derived categories; no étale cohomology groups, Nisnevich topology or A¹-localization)",
+   "absent: no higher algebraic K-theory or K-theory spectrum, Milnor K-group, higher Chow group or cycle complex, sheaves with transfers, motivic cohomology operation, norm variety, étale K-theory or motivic spectral sequence declarations"
+  ],
+  "references": [
+   {
+    "title": "The K-book. An introduction to algebraic K-theory",
+    "authors": "Weibel, Charles A.",
+    "zbmath": 6123945,
+    "msc": [
+     "19-00",
+     "19-01",
+     "19Axx",
+     "19Bxx",
+     "19Cxx",
+     "19Dxx",
+     "19Fxx",
+     "19L64",
+     "19E08",
+     "19F27",
+     "19M05"
+    ]
+   },
+   {
+    "title": "Relations between K₂ and Galois cohomology",
+    "authors": "Tate, John",
+    "zbmath": 3559703,
+    "msc": [
+     "11R70",
+     "11R34",
+     "12G05",
+     "19F15"
+    ]
+   },
+   {
+    "title": "On motivic cohomology with Z/l-coefficients",
+    "authors": "Voevodsky, Vladimir",
+    "zbmath": 5960705,
+    "msc": [
+     "14F42"
+    ]
+   },
+   {
+    "title": "The spectral sequence relating algebraic K-theory to motivic cohomology",
+    "authors": "Friedlander, Eric M.; Suslin, Andrei",
+    "zbmath": 1901047,
+    "msc": [
+     "14F42",
+     "14C25",
+     "19E15",
+     "19E08"
+    ]
+   },
+   {
+    "title": "The homotopy coniveau tower",
+    "authors": "Levine, Marc",
+    "zbmath": 5254787,
+    "msc": [
+     "14C25",
+     "14F42",
+     "19E08",
+     "19E15",
+     "55P42"
+    ]
+   },
+   {
+    "title": "Two-primary algebraic K-theory of rings of integers in number fields (with an appendix by M. Kolster)",
+    "authors": "Rognes, J.; Weibel, C.",
+    "zbmath": 1355956,
+    "msc": [
+     "19D50",
+     "11R70",
+     "11S70",
+     "14F20",
+     "19F27",
+     "14F42"
+    ]
+   },
+   {
+    "title": "The motivic spectral sequence (Handbook of K-theory, I.2)",
+    "authors": "Grayson, Daniel R.",
+    "zbmath": 2247514,
+    "msc": [
+     "19E15",
+     "14F42",
+     "18G40"
+    ]
+   },
+   {
+    "title": "Algebraic K-theory, algebraic cycles and arithmetic geometry (Handbook of K-theory, II.4)",
+    "authors": "Kahn, Bruno",
+    "zbmath": 2247521,
+    "msc": [
+     "19E15",
+     "14C25"
+    ]
+   }
+  ]
  }
 ]
