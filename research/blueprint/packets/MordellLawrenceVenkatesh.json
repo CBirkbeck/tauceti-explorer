@@ -30,6 +30,13 @@
     "checked": "statement read at the pinned commit"
    },
    {
+    "ref": "mathlib:AlgebraicGeometry.IsIntegral",
+    "kind": "class",
+    "module": "Mathlib/AlgebraicGeometry/Properties.lean",
+    "provides": "Integral schemes: nonempty with all rings of sections over nonempty opens integral domains.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
     "ref": "mathlib:AlgebraicGeometry.IsProper",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
@@ -100,6 +107,13 @@
     "checked": "statement read at the pinned commit"
    },
    {
+    "ref": "mathlib:HasFPowerSeriesAt.apply_eq_zero",
+    "kind": "theorem",
+    "module": "Mathlib/Analysis/Analytic/Uniqueness.lean",
+    "provides": "If a formal multilinear series represents the zero function near x (over any nontrivially normed field), all its homogeneous terms p n (fun _ ↦ y) vanish.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
     "ref": "mathlib:HasFPowerSeriesOnBall",
     "kind": "structure",
     "module": "Mathlib/Analysis/Analytic/Basic.lean",
@@ -128,10 +142,31 @@
     "checked": "statement read at the pinned commit"
    },
    {
+    "ref": "mathlib:IrreducibleSpace",
+    "kind": "class",
+    "module": "Mathlib/Topology/Irreducible.lean",
+    "provides": "A nonempty topological space that is not the union of two proper closed subsets.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
     "ref": "mathlib:IsArithFrobAt",
     "kind": "abbrev",
     "module": "Mathlib/RingTheory/Frobenius.lean",
     "provides": "σ is an arithmetic Frobenius at Q: σ(x) ≡ x^q mod Q with q the residue cardinality of the base.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:IsCoveringMap.existsUnique_continuousMap_lifts",
+    "kind": "theorem",
+    "module": "Mathlib/Topology/Homotopy/Lifting.lean",
+    "provides": "Unique lifting of maps from simply connected locally path-connected spaces through a covering map.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:IsCoveringMap.monodromyPerm",
+    "kind": "def",
+    "module": "Mathlib/Topology/Homotopy/Lifting.lean",
+    "provides": "The monodromy action of the fundamental group on the fibre of a covering map.",
     "checked": "statement read at the pinned commit"
    },
    {
@@ -163,10 +198,31 @@
     "checked": "statement read at the pinned commit (via the baseline search report)"
    },
    {
+    "ref": "mathlib:LinearMap.BilinForm.IsAlt",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/BilinearForm/Properties.lean",
+    "provides": "A bilinear form is alternating: B x x = 0 for all x.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:LinearMap.BilinForm.Nondegenerate",
+    "kind": "abbrev",
+    "module": "Mathlib/LinearAlgebra/BilinearForm/Properties.lean",
+    "provides": "A bilinear form is nondegenerate (separating in each variable).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
     "ref": "mathlib:LinearMap.BilinForm.finrank_orthogonal",
     "kind": "lemma",
     "module": "Mathlib/LinearAlgebra/BilinearForm/Orthogonal.lean",
     "provides": "For a nondegenerate bilinear form, dim W^⊥ = dim V − dim W.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:LinearMap.BilinForm.orthogonal",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/BilinearForm/Orthogonal.lean",
+    "provides": "The orthogonal complement of a submodule with respect to a bilinear form.",
     "checked": "statement read at the pinned commit"
    },
    {
@@ -184,10 +240,52 @@
     "checked": "statement read at the pinned commit"
    },
    {
+    "ref": "mathlib:Module.Flat.ker_lTensor_eq",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Flat/Equalizer.lean",
+    "provides": "For flat M, the kernel of the base change of a linear map f is the base change of ker f.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Module.Grassmannian",
+    "kind": "structure",
+    "module": "Mathlib/RingTheory/Grassmannian.lean",
+    "provides": "G(k, M; R): submodules N of an R-module M with M ⧸ N finite projective of constant rank k (EGA quotient convention).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Module.Grassmannian.functor",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Grassmannian.lean",
+    "provides": "The Grassmannian functor A ↦ G(k, A ⊗[R] M; A) on commutative R-algebras, with base change of submodules.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
     "ref": "mathlib:Module.finrank_baseChange",
     "kind": "theorem",
     "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
     "provides": "finrank R (R ⊗[S] M') = finrank S M' (dimension is invariant under base change).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:MvPolynomial.funext",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/MvPolynomial/Funext.lean",
+    "provides": "Over an infinite integral domain, multivariate polynomials with the same evaluations at all points are equal.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:MvPolynomial.vanishingIdeal",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Nullstellensatz.lean",
+    "provides": "The ideal of polynomials vanishing on a set of points.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:MvPolynomial.zeroLocus",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Nullstellensatz.lean",
+    "provides": "The common zero set of an ideal of polynomials.",
     "checked": "statement read at the pinned commit"
    },
    {
@@ -202,6 +300,13 @@
     "kind": "def",
     "module": "Mathlib/RingTheory/MvPowerSeries/Restricted.lean",
     "provides": "A multivariate power series over a normed ring is c-restricted if ‖coeff t‖·∏ c_i^{t_i} → 0 cofinitely.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:MvPowerSeries.IsRestricted.subring",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/MvPowerSeries/Restricted.lean",
+    "provides": "Over an ultrametric normed ring, the c-restricted multivariate power series form a subring.",
     "checked": "statement read at the pinned commit"
    },
    {
@@ -251,6 +356,13 @@
     "kind": "theorem",
     "module": "Mathlib/Topology/Algebra/Polynomial.lean",
     "provides": "For a monic polynomial split over a normed field with all roots of norm ≤ B, ‖coeff i‖ ≤ B^(d−i)·C(d, i).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:PowerSeries.IsRestricted",
+    "kind": "abbrev",
+    "module": "Mathlib/RingTheory/PowerSeries/Restricted.lean",
+    "provides": "The one-variable restricted power series predicate.",
     "checked": "statement read at the pinned commit"
    },
    {
@@ -329,6 +441,13 @@
     "module": "TauCeti/Algebra/AlgebraicGroup/Symplectic/Connected.lean",
     "provides": "The symplectic group scheme Sp_{2m} is geometrically connected over every field.",
     "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "tauceti:TauCeti.UniversalCover",
+    "kind": "structure",
+    "module": "TauCeti/AlgebraicTopology/UniversalCover/Basic.lean",
+    "provides": "The universal cover of a pointed space as homotopy classes of paths from the base point.",
+    "checked": "statement read at the pinned commit (via the baseline search report)"
    },
    {
     "ref": "tauceti:TauCeti.nonempty_linearEquiv_of_finrank_linearMap_eq",
@@ -435,6 +554,18 @@
    "readSections": [
     "§3 Lemma 4 (p. 357)",
     "§5 Satz 5 and its proof (pp. 362–363)"
+   ]
+  },
+  {
+   "id": "conrad-strassmann",
+   "title": "Strassmann's theorem and an application",
+   "authors": "Keith Conrad",
+   "edition": "Expository note (version posted on the author's web page, accessed 2026-09-16)",
+   "url": "https://kconrad.math.uconn.edu/blurbs/gradnumthy/strassmannapplication.pdf",
+   "sha256": "dc8941f405710c59aaebeb6b6b7868c33c44dfd37079fbd02352adf8639920e8",
+   "readSections": [
+    "§2 Theorem 2.1 and Corollary 2.2 (p. 2)",
+    "§4 Theorem 4.1 (Strassmann) and its proof (pp. 4–5)"
    ]
   },
   {
@@ -3049,6 +3180,1255 @@
     "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
    },
    "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius — LocalFieldsRamification Layer 2 (unramified extensions and Frobenius)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.3/lagrangian-symplectic-basis",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.3",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ],
+   "title": "Lagrangian subspaces, adapted symplectic bases and transversal charts",
+   "kind": "lemma",
+   "statement": "Let k be a field and (V, ω) a 2d-dimensional k-vector space with a nondegenerate alternating bilinear form. (a) Every isotropic subspace has dimension ≤ d, and an isotropic subspace L is Lagrangian (L = L^⊥) if and only if dim L = d. (b) Every Lagrangian L has a Lagrangian complement L', and every basis e_1, …, e_d of L extends to a symplectic basis (e_i, f_i) (ω(e_i, f_j) = δ_ij, ω(e_i, e_j) = ω(f_i, f_j) = 0) with f_i ∈ L'. (c) Sp(V, ω)(k) acts transitively on the set of Lagrangian subspaces of V. (d) For Lagrangians L, L' with V = L ⊕ L', the Lagrangians transverse to L' are exactly the graphs {x + Sx : x ∈ L} of the linear maps S : L → L' with ω(x, Sy) = ω(y, Sx) for all x, y ∈ L; in a symplectic basis adapted to (L, L') these are the symmetric d × d matrices. (e) (Arnold) For a symplectic basis (e_i, f_i) and I ⊆ {1, …, d}, put Λ_I = span(e_i : i ∈ I; f_j : j ∉ I); every Lagrangian L is transverse to Λ_I for some I.",
+   "hypotheses": [
+    "k a field (no condition on the characteristic)",
+    "ω alternating and nondegenerate",
+    "dim_k V = 2d"
+   ],
+   "proofSteps": [
+    "(a) dim L + dim L^⊥ = 2d for nondegenerate ω, and L ⊆ L^⊥ for isotropic L.",
+    "(b) The map V → L^*, u ↦ ω(u, ·)|_L, is surjective with kernel L^⊥ = L; for any complement W of L it restricts to an isomorphism W ≅ L^*. Let g_i ∈ W be dual to e_i, i.e. ω(g_i, e_j) = −δ_ij. Put f_i = g_i + Σ_{j<i} a_ij e_j with a_ij = −ω(g_i, g_j); for j < i one computes ω(f_i, f_j) = ω(g_i, g_j) + a_ij = 0 (a triangular correction that needs no division by 2), and ω(e_i, f_j) = δ_ij, so (e_i, f_i) is a symplectic basis and L' = span(f_i) is a Lagrangian complement of L.",
+    "(c) Given Lagrangians L_1, L_2, choose symplectic bases adapted to each by (b); the linear map sending one basis to the other is symplectic and maps L_1 to L_2.",
+    "(d) A complement of L' is the graph of a unique linear S : L → L'. Since ω vanishes on L × L and on L' × L', ω(x + Sx, y + Sy) = ω(x, Sy) + ω(Sx, y), which vanishes for all x, y exactly when ω(x, Sy) = ω(y, Sx); a d-dimensional isotropic graph is Lagrangian by (a).",
+    "(e) Let K = L ∩ span(e_1, …, e_d). Choose I such that (e_i)_{i∈I} is a basis of a complement of K in span(e) (exchange lemma). If u = Σ_{i∈I} a_i e_i + Σ_{j∉I} b_j f_j lies in L, pairing with κ ∈ K ⊆ L gives Σ_{j∉I} b_j κ_j = 0, where κ_j is the e_j-coordinate of κ; the projection of K onto span(e_j : j ∉ I) is bijective, so b = 0; then u ∈ K ∩ span(e_I) = 0."
+   ],
+   "acceptance": [
+    "d = 1: every line of (k², det) is Lagrangian and SL₂(k) = Sp₂(k) acts transitively on ℙ¹(k).",
+    "In k⁴ with basis (e₁, e₂, f₁, f₂): span(e₁, f₂) is Lagrangian, span(e₁, f₁) is not; the graph of the symmetric matrix [[1, 2], [2, 3]] over span(e) is Lagrangian and the graph of [[0, 1], [0, 0]] is not.",
+    "(e) for L = span(f₁, e₂) and the basis above: L is transverse to Λ_{{1}} = span(e₁, f₂)."
+   ],
+   "prerequisites": [
+    "mathlib:LinearMap.BilinForm.IsAlt",
+    "mathlib:LinearMap.BilinForm.Nondegenerate",
+    "mathlib:LinearMap.BilinForm.orthogonal",
+    "mathlib:LinearMap.BilinForm.finrank_orthogonal",
+    "tauceti:TauCeti.BilinForm.isometryGroup"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, Lemma 6.4, p. 33",
+     "excerpt": "write LGr(V, ω) for the Grassmannian of Lagrangian subspaces.",
+     "match": "LV use Lagrangian Grassmannians and standard symplectic bases (proof of Lemma 6.4) without proof; the node supplies the linear algebra."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PeriodVariety/LagrangianLinearAlgebra",
+    "namespace": "TauCeti.LawrenceVenkatesh.Lagrangian"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.3/lagrangian-grassmannian",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.3",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ],
+   "title": "The Lagrangian Grassmannian",
+   "kind": "definition",
+   "statement": "Let k be a field and (V, ω) as in the previous node. LGr(V, ω) is the functor on commutative k-algebras A ↦ {W ∈ G(d, A ⊗ V; A) : ω_A(W, W) = 0}, where G(d, A ⊗ V; A) is Mathlib's Grassmannian of submodules with locally free quotient of rank d (for W isotropic of corank d this is the same as W being a rank-d direct summand); it is represented by a closed subscheme of the Grassmannian scheme Gr(V, d). Its k'-points for a field k' ⊇ k are the Lagrangian subspaces of V ⊗ k'. It carries the action of Sp(V, ω), the open charts U_{L'} (Lagrangians transverse to a fixed Lagrangian L'), each isomorphic to the affine space of symmetric maps L → L' ≅ L^*, and the Plücker embedding into ℙ(∧^d V) restricted from Gr(V, d).",
+   "hypotheses": [
+    "k a field",
+    "(V, ω) symplectic of dimension 2d"
+   ],
+   "proofSteps": [
+    "Define the subfunctor of Mathlib's Grassmannian functor by the isotropy condition; it is compatible with base change because ω_A is.",
+    "Representability: on the Grassmannian scheme the isotropy condition is the vanishing of the section of (∧²𝒲)^∨ induced by ω on the tautological subbundle 𝒲, a closed condition (R09.1).",
+    "Charts: U_{L'} is the intersection with the open Schubert chart of subspaces transverse to L'; by (d) of the linear-algebra node, over every A its points are the graphs of symmetric A-linear maps, so U_{L'} ≅ 𝔸^{d(d+1)/2}."
+   ],
+   "acceptance": [
+    "d = 1: LGr(V) = ℙ(V) = ℙ¹.",
+    "d = 2: LGr(V) is the hyperplane section of the Plücker quadric Gr(2, 4) ⊆ ℙ⁵ given by the class of ω, a smooth quadric threefold."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-symplectic-basis",
+    "mathlib:Module.Grassmannian",
+    "mathlib:Module.Grassmannian.functor",
+    "AlgebraicModuliForArithmeticGeometry:R09.1"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, Lemma 6.4, p. 33",
+     "excerpt": "write LGr(V, ω) for the Grassmannian of Lagrangian subspaces.",
+     "match": "The object."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, proof of Lemma 6.4, p. 33",
+     "excerpt": "Consider the product Gr(V ) × LGr(V, ω)r parametrizing tuples (W, F1 , F2 , . . . , Fr ) such that each Fi is Lagrangian.",
+     "match": "LV use LGr as a closed subvariety of a Grassmannian."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "LagrangianGrassmannian",
+     "role": "constructor",
+     "statement": "LGr(V, ω) as a closed subscheme of Gr(V, d) representing the isotropic-submodule subfunctor."
+    },
+    {
+     "name": "LagrangianGrassmannian.functor",
+     "role": "data",
+     "statement": "The subfunctor A ↦ {W ∈ G(d, A ⊗ V; A) : ω_A(W, W) = 0} of Module.Grassmannian.functor."
+    },
+    {
+     "name": "LagrangianGrassmannian.mem_points_iff",
+     "role": "characterisation",
+     "statement": "For a field k' ⊇ k, the k'-points are the Lagrangian subspaces of V ⊗ k'."
+    },
+    {
+     "name": "LagrangianGrassmannian.chart",
+     "role": "data",
+     "statement": "For a Lagrangian L' with complement L, the open subscheme U_{L'} ≅ 𝔸(Sym(L → L')) of Lagrangians transverse to L'."
+    },
+    {
+     "name": "LagrangianGrassmannian.chart_cover",
+     "role": "other",
+     "statement": "For a symplectic basis, the 2^d charts U_{Λ_I} cover LGr(V, ω)."
+    },
+    {
+     "name": "LagrangianGrassmannian.plucker",
+     "role": "data",
+     "statement": "The closed immersion LGr(V, ω) → ℙ(∧^d V) restricted from the Plücker embedding."
+    },
+    {
+     "name": "LagrangianGrassmannian.action",
+     "role": "data",
+     "statement": "The action of Sp(V, ω) on LGr(V, ω) induced by g ↦ (W ↦ gW)."
+    },
+    {
+     "name": "LagrangianGrassmannian.baseChange",
+     "role": "functoriality",
+     "statement": "LGr(V, ω) ⊗ k' = LGr(V ⊗ k', ω ⊗ k') for a field extension k'/k."
+    },
+    {
+     "name": "LagrangianGrassmannian.dimOne",
+     "role": "example",
+     "statement": "For d = 1, LGr(V, ω) = ℙ(V)."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PeriodVariety/LagrangianGrassmannian",
+    "namespace": "TauCeti.LawrenceVenkatesh.Lagrangian"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.3/lagrangian-grassmannian-geometry",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.3",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ],
+   "title": "The Lagrangian Grassmannian is smooth, projective and geometrically irreducible of dimension d(d+1)/2",
+   "kind": "lemma",
+   "statement": "In the setting of the previous node, LGr(V, ω) is smooth and projective over k, geometrically irreducible, of dimension d(d+1)/2, and Sp(V, ω)(k̄) acts transitively on LGr(V, ω)(k̄). Consequently every Zariski-closed subset of LGr(V, ω)_{k'} (k' ⊇ k a field) other than the whole space has dimension < d(d+1)/2, and a set of k'-points is Zariski dense if and only if no nonzero homogeneous polynomial in the Plücker coordinates that is nonzero on LGr vanishes on it.",
+   "hypotheses": [
+    "k a field",
+    "(V, ω) symplectic of dimension 2d"
+   ],
+   "proofSteps": [
+    "Projective: closed in the projective Grassmannian.",
+    "Smooth of dimension d(d+1)/2: by (e) of the linear-algebra node the charts U_{Λ_I} cover, and each is an affine space of that dimension.",
+    "Geometrically irreducible: over k̄, any two charts U_{Λ_I}, U_{Λ_J} meet, since the Lagrangians transverse to Λ_J form a nonempty open subset of the irreducible U_{Λ_I} ≅ 𝔸^{d(d+1)/2} (nonempty by (b)); a scheme covered by irreducible open subsets that pairwise meet is irreducible.",
+    "Transitivity is (c) of the linear-algebra node over k̄.",
+    "The dimension statements are dimension theory for integral varieties (a proper closed subset of an integral variety has smaller dimension)."
+   ],
+   "acceptance": [
+    "d = 1: ℙ¹, dimension 1.",
+    "d = 2: dimension 3.",
+    "d = 3: dimension 6, while Gr(3, 6) has dimension 9."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-grassmannian",
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-symplectic-basis",
+    "SchemeAndStackFoundations:SF.0",
+    "mathlib:AlgebraicGeometry.IsIntegral",
+    "mathlib:IrreducibleSpace"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, proof of Lemma 6.2, p. 31",
+     "excerpt": "Since dimKv Hy00 ,w0 = [K(y 0 )w : Kv ] · d(d+1) 2 ⩾ 4d(d + 1) > 4d2 , Lemma 3.3 completes the proof of Lemma 6.2.",
+     "match": "The dimension d(d+1)/2 per factor, used by LV."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PeriodVariety/LagrangianGrassmannian",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.3/lagrangian-period-variety",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.3",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ],
+   "title": "The Lagrangian period variety of a symplectic module over a finite étale algebra",
+   "kind": "definition",
+   "statement": "Let k be a field, E a finite étale k-algebra, V a free E-module of rank 2d and ω : V × V → E an E-bilinear, alternating, perfect pairing. Put ω_tr := tr_{E/k} ∘ ω, a nondegenerate alternating k-bilinear form on the k-space V of dimension 2d[E:k]. The period variety LGr_E(V, ω) is the closed subscheme of LGr(V, ω_tr) whose A-points are the Lagrangian W ⊆ A ⊗_k V that are E ⊗_k A-submodules. Equivalently, its A-points are the E ⊗ A-submodules W with (A ⊗ V)/W locally free of rank d[E:k] over A and ω_A(W, W) = 0. Its points over a field k' ⊇ k are the free (E ⊗ k')-submodules of rank d of V ⊗ k' that are isotropic for ω; it is LV's Res^E_k LGr(V, ω).",
+   "hypotheses": [
+    "E finite étale over k",
+    "V free of rank 2d over E",
+    "ω E-bilinear, alternating, perfect"
+   ],
+   "proofSteps": [
+    "ω_tr is nondegenerate because the trace form of an étale algebra is nondegenerate and ω is perfect.",
+    "For an E-stable W, ω(W, W) = 0 if and only if tr(e·ω(x, y)) = ω_tr(ex, y) = 0 for all e, x, y, i.e. if and only if ω_tr(W, W) = 0.",
+    "E-stability is a closed condition on the Grassmannian (stability of the tautological subbundle under the finitely many endomorphisms given by a k-basis of E; R09.1), so LGr_E(V, ω) is a closed subscheme of LGr(V, ω_tr).",
+    "Over a field, an E-stable isotropic W splits along the idempotents of E ⊗ k' into ω-isotropic pieces of rank ≤ d; the total dimension d[E:k] forces rank exactly d in each factor, giving the description of the points."
+   ],
+   "acceptance": [
+    "E = k: LGr_E(V, ω) = LGr(V, ω).",
+    "E = k × k, d = 1: ℙ¹ × ℙ¹.",
+    "E = ℚ(√2), k = ℚ, d = 1: the points over ℚ are the lines of ℚ(√2)², i.e. ℙ¹(ℚ(√2)), and the variety becomes ℙ¹ × ℙ¹ over ℚ(√2)."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-grassmannian",
+    "MordellLawrenceVenkatesh:LV.0/galois-tensor-splitting",
+    "mathlib:AlgebraicGeometry.Etale",
+    "AlgebraicModuliForArithmeticGeometry:R09.1"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, proof of Proposition 5.3, p. 29",
+     "excerpt": "Here ResK0,v v denotes Weil restriction of scalars, Gr(Vv , g) classifies free Ev -submodules of rank g inside Vv , and LGr classifies free rank-g submodules on which the symplectic pairing is trivial.",
+     "match": "LV define H_v as a Weil restriction; the node defines the same variety as a closed subscheme of a Grassmannian of k-subspaces, which avoids Weil restriction."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, proof of Proposition 5.3, p. 29",
+     "excerpt": "each of these Lagrangian subspaces are actually E0,v -stable, so that the period mapping actually takes values inside Hv .",
+     "match": "The E-stable Lagrangians of the trace form."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "periodVariety",
+     "role": "constructor",
+     "statement": "LGr_E(V, ω) as a closed subscheme of LGr(V, tr ∘ ω)."
+    },
+    {
+     "name": "periodVariety.mem_iff",
+     "role": "characterisation",
+     "statement": "W ∈ LGr_E(V, ω)(A) ↔ W is an E ⊗ A-submodule, (A ⊗ V)/W locally free of rank d[E:k], and ω_A(W, W) = 0."
+    },
+    {
+     "name": "periodVariety.mem_points_iff_free",
+     "role": "characterisation",
+     "statement": "Over a field k' ⊇ k the points are the free rank-d (E ⊗ k')-submodules isotropic for ω."
+    },
+    {
+     "name": "periodVariety.traceForm",
+     "role": "data",
+     "statement": "ω_tr = tr_{E/k} ∘ ω, nondegenerate and alternating."
+    },
+    {
+     "name": "periodVariety.baseChange",
+     "role": "functoriality",
+     "statement": "LGr_E(V, ω) ⊗ k' = LGr_{E⊗k'}(V ⊗ k', ω ⊗ k')."
+    },
+    {
+     "name": "periodVariety.prodEquiv",
+     "role": "equivalence",
+     "statement": "For E = E₁ × E₂ (so V = V₁ × V₂), LGr_E(V, ω) ≅ LGr_{E₁}(V₁, ω₁) × LGr_{E₂}(V₂, ω₂), the projections sending W to e_i W."
+    },
+    {
+     "name": "periodVariety.semilinearAction",
+     "role": "data",
+     "statement": "The group of k-linear automorphisms g of V for which some s ∈ Aut_k(E) satisfies g(ex) = s(e)g(x) and ω(gx, gy) = s(ω(x, y)) acts on LGr_E(V, ω); it contains the E-linear symplectic group Sp_E(V, ω)."
+    },
+    {
+     "name": "periodVariety.plucker",
+     "role": "data",
+     "statement": "The Plücker embedding LGr_E(V, ω) → ℙ(∧^{d[E:k]} V) restricted from LGr(V, ω_tr)."
+    },
+    {
+     "name": "periodVariety.stableGrassmannian",
+     "role": "data",
+     "statement": "The closed subscheme Gr_E(V, d) ⊆ Gr(V, d[E:k]) of E-stable subspaces (LV's Res^E_k Gr), containing LGr_E(V, ω) as a closed subscheme; the group of E-linear automorphisms of V acts on it."
+    },
+    {
+     "name": "periodVariety.dimOne",
+     "role": "example",
+     "statement": "For d = 1 every E-line is isotropic and LGr_E(V, ω) is the variety of free rank-one E-submodules (LV §4.3)."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PeriodVariety/Basic",
+    "namespace": "TauCeti.LawrenceVenkatesh.PeriodVariety"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.3/lagrangian-period-variety-splitting",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.3",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ],
+   "title": "Geometry of the period variety",
+   "kind": "lemma",
+   "statement": "Let k, E, V, ω be as in the previous node and let k' ⊇ k be a field over which E splits, Σ = Hom_k(E, k'). Then E ⊗ k' = k'^Σ, V ⊗ k' = ⊕_{τ∈Σ} V_τ with each (V_τ, ω_τ) a 2d-dimensional symplectic k'-space, and LGr_E(V, ω) ⊗ k' ≅ ∏_{τ∈Σ} LGr(V_τ, ω_τ). Consequently LGr_E(V, ω) is smooth, projective and geometrically irreducible of dimension [E:k]·d(d+1)/2; Sp_E(V, ω)(k̄) = ∏_τ Sp(V_τ, ω_τ)(k̄) acts transitively on its k̄-points; and for a decomposition E = E₁ × E₂ the projection LGr_E(V, ω) → LGr_{E₁}(V₁, ω₁) is surjective (with a section through any point) and maps Zariski-dense sets of points to Zariski-dense sets. For d = 1, LGr_E(V, ω) ⊗ k' ≅ ∏_τ ℙ(V_τ) ≅ (ℙ¹)^Σ.",
+   "hypotheses": [
+    "E finite étale over k",
+    "k' splits E"
+   ],
+   "proofSteps": [
+    "The splitting of E ⊗ k' and of V ⊗ k' by idempotents is the Galois splitting lemma of LV.0; ω ⊗ k' is diagonal because it is E-bilinear.",
+    "An E ⊗ k'-stable isotropic W of the right rank is ⊕_τ W_τ with W_τ Lagrangian in V_τ, which gives the product decomposition functorially in k'-algebras.",
+    "Smoothness, projectivity, dimension and geometric irreducibility follow from the corresponding statements for each factor (products of smooth projective geometrically irreducible varieties) and descend along k'/k.",
+    "Transitivity is factorwise transitivity.",
+    "Surjectivity of the projection and density: the projection is a product projection over k'; for a continuous surjection the image of a dense set is dense."
+   ],
+   "acceptance": [
+    "E = ℚ(ζ₈), k = ℚ, d = 1: dimension 4 = [E:ℚ].",
+    "The S-unit case of LV §4.3: E = K_v(t₀^{1/m}) of degree m ≥ 8 over K_v, d = 1, so dim H_v = m ≥ 8.",
+    "The case of LV Lemma 6.2: E₁ = K(y')_w of degree ≥ 8 over K_v gives a factor of dimension ≥ 4d(d+1)."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-period-variety",
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-grassmannian-geometry",
+    "MordellLawrenceVenkatesh:LV.0/galois-tensor-splitting",
+    "SchemeAndStackFoundations:SF.0"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, p. 30",
+     "excerpt": "Also, (6.2) induces the splitting of the variety Hv as a product",
+     "match": "The product decomposition of H_v."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§4.3, p. 23",
+     "excerpt": "The pertinent flag variety H ≃ Gr(V, m) is the variety of m-dimensional subspaces in V ; the splitting (4.7) induces a",
+     "match": "The d = 1 case over ℂ used for the S-unit theorem."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PeriodVariety/Basic",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.3/algebraic-monodromy-group",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.3",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ],
+   "title": "The algebraic monodromy group of an abelian-by-finite family and full monodromy (LV (3.5), (5.1))",
+   "kind": "definition",
+   "statement": "Let X →f Y' →π Y be an abelian-by-finite family of relative dimension d over a smooth connected complex variety Y, and y₀ ∈ Y(ℂ). The Betti local system 𝕍 := R¹(π∘f)_*ℚ on Y(ℂ) has fibre V_B = H¹_B(X_{y₀}(ℂ), ℚ) = ⊕_{y' ∈ π^{-1}(y₀)} H¹_B(X_{y'}(ℂ), ℚ), and parallel transport defines μ : π₁(Y(ℂ), y₀) → GL(V_B), normalized so that μ(δ) is transport backwards along the loop δ. The algebraic monodromy group Γ ⊆ GL(V_B ⊗ ℂ) is the Zariski closure of μ(π₁(Y(ℂ), y₀)). Each μ(δ) permutes the summands H¹_B(X_{y'}) according to the monodromy of the covering π and preserves the total polarization form Σ_{y'} ω_{y'}. The family has full monodromy if Γ ⊇ ∏_{y' ∈ π^{-1}(y₀)} Sp(H¹_B(X_{y'}(ℂ), ℂ), ω_{y'}). For a family over a K-variety and ι : K → ℂ, these notions refer to the base change along ι, and the de Rham–Betti comparison identifies V_B ⊗ ℂ with V_ℂ = ℋ_{y₀} ⊗_ι ℂ, the summands with the factors of E₀ ⊗_ι ℂ = ℂ^{π^{-1}(y₀)}, and ω_{y'} with the components of ω₀.",
+   "hypotheses": [
+    "Y smooth connected over ℂ (or over K with ι)",
+    "y₀ ∈ Y(ℂ)"
+   ],
+   "proofSteps": [
+    "The local system and its monodromy come from the proper smooth morphism π∘f (Ehresmann) and the covering π.",
+    "Zariski closure of the abstract subgroup μ(π₁) in the algebraic group GL(V_B ⊗ ℂ) (ReductiveGroups Layer 3); it is contained in the closed subgroup of elements normalizing the subalgebra ℂ^{π^{-1}(y₀)} of End(V_B ⊗ ℂ) and preserving Σω_{y'}, because μ(π₁) is.",
+    "Full monodromy is a property of the pair (Γ, decomposition); it does not depend on y₀, since transport along a path conjugates the data."
+   ],
+   "acceptance": [
+    "The Legendre family over ℙ¹ ∖ {0, 1, ∞}: μ(π₁) is the principal congruence subgroup Γ(2) ⊆ SL₂(ℤ) up to the chosen basis, which is Zariski dense in SL₂ = Sp₂, so the family has full monodromy.",
+    "A constant family A × Y has Γ = 1 and does not have full monodromy (for d ≥ 1)."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.2/abelian-by-finite-family",
+    "MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-complex",
+    "AbelianSchemesAndArithmeticModuli:A5",
+    "ComplexComparisonPartII:C5",
+    "FoundationsAndLibraryIntegration:LI.4",
+    "tauceti:TauCeti.LocalCoefficientSystem.monodromyRepresentation",
+    "mathlib:IsCoveringMap.monodromyPerm"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.2, (3.5), p. 16",
+     "excerpt": "In particular, monodromy defines a representation µ : π1 (YC (C), y0 ) −→ GL(VC ),",
+     "match": "The monodromy representation and its Zariski closure Γ."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§5, (5.1), p. 25",
+     "excerpt": "We say that the family has full monodromy if the Zariski closure of π1 (Y, y0 ), in its action on the right-hand side, contains the product of symplectic groups:",
+     "match": "Definition of full monodromy."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "monodromyRep",
+     "role": "constructor",
+     "statement": "μ : π₁(Y(ℂ), y₀) →* GL(V_B), transport backwards along loops."
+    },
+    {
+     "name": "algebraicMonodromyGroup",
+     "role": "constructor",
+     "statement": "Γ, the Zariski closure of the image of μ in GL(V_B ⊗ ℂ)."
+    },
+    {
+     "name": "HasFullMonodromy",
+     "role": "constructor",
+     "statement": "The predicate Γ ⊇ ∏_{y'} Sp(H¹_B(X_{y'}), ω_{y'})."
+    },
+    {
+     "name": "algebraicMonodromyGroup_le_normalizer",
+     "role": "relation",
+     "statement": "Γ normalizes ℂ^{π^{-1}(y₀)} ⊆ End(V_B ⊗ ℂ) and preserves Σ_{y'} ω_{y'}; hence Γ acts on H_ℂ = LGr_{E₀⊗ℂ}(V_ℂ)."
+    },
+    {
+     "name": "hasFullMonodromy_iff_basepoint",
+     "role": "characterisation",
+     "statement": "Full monodromy does not depend on y₀ ∈ Y(ℂ)."
+    },
+    {
+     "name": "algebraicMonodromyGroup_deRham",
+     "role": "compatibility",
+     "statement": "Under the de Rham–Betti comparison V_B ⊗ ℂ ≅ V_ℂ the summands correspond to the factors of E₀ ⊗_ι ℂ and ω_{y'} to the components of ω₀."
+    },
+    {
+     "name": "HasFullMonodromy.orbit_eq",
+     "role": "other",
+     "statement": "If the family has full monodromy then Γ·h = H_ℂ(ℂ) for every h ∈ H_ℂ(ℂ) (transitivity on the period variety)."
+    },
+    {
+     "name": "hasFullMonodromy_legendre",
+     "role": "example",
+     "statement": "The Legendre family has full monodromy; a constant family does not."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PeriodMap/Monodromy",
+    "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components — ReductiveGroups Layer 3 (closed subgroups, identity components); tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence — UniversalCovers Stage 2 (lifting criterion and Galois correspondence of covers)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.3/padic-period-map",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.3",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ],
+   "title": "The p-adic period map on a residue disk",
+   "kind": "construction",
+   "statement": "Setting P: K is a number field with an embedding ι : K → ℂ; 𝒳 → 𝒴' → 𝒴 is a good model over 𝒪 = 𝒪_S of an abelian-by-finite family X → Y' → Y of relative dimension d, with π : Y' → Y finite étale of degree n and Y smooth and geometrically connected of dimension m over K; v ∉ S is a finite place with K_v/ℚ_p unramified and p > 2; y₀ ∈ 𝒴(𝒪); E₀ := E_{y₀}; V := ℋ_{y₀} = H¹_dR(X_{y₀}/K), a free E₀-module of rank 2d with the polarization pairing ω₀; H := LGr_{E₀}(V, ω₀); h₀ := F¹V ∈ H(K); V_v, H_v and V_ℂ, H_ℂ are the base changes along K → K_v and ι; Ω_v := Ω_v(y₀) with coordinates z : Ω_v ≅ (p𝒪_v)^m. The p-adic period map is Φ_v : Ω_v → H(K_v), Φ_v(y) := T_v(y)^{-1}(F¹ℋ_y ⊗ K_v), where T_v(y) is the Gauss–Manin transport of LV.2. It satisfies Φ_v(y₀) = h₀ and, for every y ∈ Ω_v, T_v(y) is an isomorphism of E-semilinear filtered φ-modules (ℋ_{y₀} ⊗ K_v, φ_{y₀}, Φ_v(y)) ≅ (ℋ_y ⊗ K_v, φ_y, F¹ℋ_y ⊗ K_v), semilinear over the transport isomorphism E₀ ⊗ K_v ≅ E_y ⊗ K_v.",
+   "hypotheses": [
+    "Setting P"
+   ],
+   "proofSteps": [
+    "T_v(y) is semilinear over the ring isomorphism E₀ ⊗ K_v ≅ E_y ⊗ K_v and carries ω₀ to ω_y up to that isomorphism, so the preimage of the E_y-stable Lagrangian F¹ℋ_y ⊗ K_v is an (E₀ ⊗ K_v)-stable Lagrangian of the right rank, i.e. a K_v-point of H.",
+    "T_v(y₀) = id gives Φ_v(y₀) = h₀.",
+    "The compatibility with Frobenius is part (b) of the crystalline Frobenius node of LV.2; the filtration statement is the definition of Φ_v."
+   ],
+   "acceptance": [
+    "For a constant family A × 𝒴, Φ_v is constant with value h₀.",
+    "For the Legendre family, Φ_v(λ) is the line of V_v transported back from F¹ = ⟨dx/y⟩ at λ, and Φ_v is not constant on any residue disk."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-padic",
+    "MordellLawrenceVenkatesh:LV.2/crystalline-frobenius-on-fibres",
+    "MordellLawrenceVenkatesh:LV.2/de-rham-bundle",
+    "MordellLawrenceVenkatesh:LV.2/residue-disk",
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-period-variety"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.4, p. 18",
+     "excerpt": "This gives rise to a Kv -analytic function Φv : Ωv −→ H(Kv ), where Ωv = {y ∈ Y(Ov ) : y ≡ y0 modulo v}.",
+     "match": "The p-adic period map."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, proof of Proposition 5.3, p. 29",
+     "excerpt": "each of these Lagrangian subspaces are actually E0,v -stable, so that the period mapping actually takes values inside Hv .",
+     "match": "The period map lands in the period variety of E₀-stable Lagrangians."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "padicPeriodMap",
+     "role": "constructor",
+     "statement": "Φ_v : Ω_v → H(K_v), y ↦ T_v(y)⁻¹(F¹ℋ_y ⊗ K_v)."
+    },
+    {
+     "name": "padicPeriodMap_base",
+     "role": "simp",
+     "statement": "Φ_v(y₀) = h₀."
+    },
+    {
+     "name": "padicPeriodMap_mem",
+     "role": "other",
+     "statement": "Φ_v(y) is an (E₀ ⊗ K_v)-stable Lagrangian subspace of V_v."
+    },
+    {
+     "name": "padicPeriodMap_transport",
+     "role": "compatibility",
+     "statement": "T_v(y) : (V_v, φ_{y₀}, Φ_v(y)) ≅ (ℋ_y ⊗ K_v, φ_y, F¹) as filtered φ-modules, semilinear over E₀ ⊗ K_v ≅ E_y ⊗ K_v."
+    },
+    {
+     "name": "padicPeriodMap_rebase",
+     "role": "relation",
+     "statement": "For y₁ ∈ Ω_v, the period map based at y₁ is T_v(y₁)⁻¹ ∘ Φ_v, i.e. Φ_v^{y₁} = T_v(y₁) · Φ_v under the identification of the disks."
+    },
+    {
+     "name": "padicPeriodMap_constant",
+     "role": "example",
+     "statement": "A constant family has constant period map."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PeriodMap/Padic",
+    "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.3/complex-period-map",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.3",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ],
+   "title": "The complex period map and its equivariant continuation to the universal cover",
+   "kind": "construction",
+   "statement": "Setting P: K is a number field with an embedding ι : K → ℂ; 𝒳 → 𝒴' → 𝒴 is a good model over 𝒪 = 𝒪_S of an abelian-by-finite family X → Y' → Y of relative dimension d, with π : Y' → Y finite étale of degree n and Y smooth and geometrically connected of dimension m over K; v ∉ S is a finite place with K_v/ℚ_p unramified and p > 2; y₀ ∈ 𝒴(𝒪); E₀ := E_{y₀}; V := ℋ_{y₀} = H¹_dR(X_{y₀}/K), a free E₀-module of rank 2d with the polarization pairing ω₀; H := LGr_{E₀}(V, ω₀); h₀ := F¹V ∈ H(K); V_v, H_v and V_ℂ, H_ℂ are the base changes along K → K_v and ι; Ω_v := Ω_v(y₀) with coordinates z : Ω_v ≅ (p𝒪_v)^m. Let Ω_ℂ ⊆ Y(ℂ) be a connected, simply connected open neighbourhood of y₀ (for Y = Y_ι^an). The complex period map is Φ_ℂ : Ω_ℂ → H_ℂ(ℂ), Φ_ℂ(y) := T_ℂ(y)^{-1}(F¹ℋ_y ⊗ ℂ). Let q : Ỹ → Y(ℂ) be the universal cover with base point ỹ₀ over y₀. The map Φ̃ : Ỹ → H_ℂ(ℂ), [γ] ↦ T_γ^{-1}(F¹ℋ_{γ(1)} ⊗ ℂ) (T_γ the parallel transport along the path γ from y₀), is holomorphic, satisfies Φ̃(ỹ₀) = h₀, agrees with Φ_ℂ ∘ q on the sheet over Ω_ℂ through ỹ₀, and is equivariant: Φ̃(δ·x) = μ(δ)·Φ̃(x) for δ ∈ π₁(Y(ℂ), y₀) acting by deck transformations.",
+   "hypotheses": [
+    "Setting P",
+    "Ω_ℂ connected and simply connected"
+   ],
+   "proofSteps": [
+    "On Ω_ℂ the transport T_ℂ(y) is defined (LV.2) and is semilinear over E₀ ⊗ ℂ ≅ E_y ⊗ ℂ and symplectic, so Φ_ℂ lands in H_ℂ, as in the p-adic case.",
+    "Parallel transport in the local system R¹(π∘f)_*ℂ depends only on the homotopy class of γ, which defines Φ̃ on the universal cover (Tau Ceti's universal cover as homotopy classes of paths from the base point).",
+    "Holomorphy: locally Φ̃ is Φ_ℂ based at another point composed with a constant transport; Φ_ℂ is given near y₀ by convergent power series (next node) and the Hodge bundle is a holomorphic subbundle.",
+    "Equivariance: T_{δ·γ} = T_γ ∘ T_δ for the concatenation δ·γ (first δ, then γ), so Φ̃(δ·x) = T_δ^{-1}(Φ̃(x)) = μ(δ)·Φ̃(x)."
+   ],
+   "acceptance": [
+    "For a constant family Φ̃ is constant.",
+    "For the Legendre family and d = 1, Φ̃ is the map from the upper half-plane cover of ℙ¹ ∖ {0, 1, ∞} to ℙ¹ given by the ratio of the periods of dx/y, equivariant for Γ(2)."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-complex",
+    "MordellLawrenceVenkatesh:LV.3/algebraic-monodromy-group",
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-period-variety",
+    "FoundationsAndLibraryIntegration:LI.4",
+    "ComplexComparisonPartII:C0",
+    "tauceti:TauCeti.UniversalCover",
+    "mathlib:IsCoveringMap.existsUnique_continuousMap_lifts"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.4, p. 18",
+     "excerpt": "Indeed, ΦC extends to a map from the universal cover of YCan to HC (C) and this map is equivariant for the monodromy action of π1 (YCan , y0 ) on HC (C).",
+     "match": "The continuation and its equivariance."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "complexPeriodMap",
+     "role": "constructor",
+     "statement": "Φ_ℂ : Ω_ℂ → H_ℂ(ℂ)."
+    },
+    {
+     "name": "complexPeriodMap.lift",
+     "role": "constructor",
+     "statement": "Φ̃ : Ỹ → H_ℂ(ℂ) on the universal cover."
+    },
+    {
+     "name": "complexPeriodMap.lift_base",
+     "role": "simp",
+     "statement": "Φ̃(ỹ₀) = h₀."
+    },
+    {
+     "name": "complexPeriodMap.lift_equivariant",
+     "role": "relation",
+     "statement": "Φ̃(δ·x) = μ(δ)·Φ̃(x)."
+    },
+    {
+     "name": "complexPeriodMap.lift_holomorphic",
+     "role": "other",
+     "statement": "Φ̃ is holomorphic in Plücker charts."
+    },
+    {
+     "name": "complexPeriodMap.lift_eq",
+     "role": "compatibility",
+     "statement": "Φ̃ = Φ_ℂ ∘ q on the sheet over Ω_ℂ containing ỹ₀."
+    },
+    {
+     "name": "complexPeriodMap.mem",
+     "role": "other",
+     "statement": "Φ̃ takes values in H_ℂ(ℂ), the (E₀ ⊗ ℂ)-stable Lagrangians."
+    },
+    {
+     "name": "complexPeriodMap.legendre",
+     "role": "example",
+     "statement": "The Legendre period map on the upper half-plane."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PeriodMap/Complex",
+    "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence — UniversalCovers Stage 2 (lifting criterion and Galois correspondence of covers)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.3/period-maps-common-series",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.3",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ],
+   "title": "The complex and p-adic period maps are given by one tuple of power series over K",
+   "kind": "lemma",
+   "statement": "Setting P: K is a number field with an embedding ι : K → ℂ; 𝒳 → 𝒴' → 𝒴 is a good model over 𝒪 = 𝒪_S of an abelian-by-finite family X → Y' → Y of relative dimension d, with π : Y' → Y finite étale of degree n and Y smooth and geometrically connected of dimension m over K; v ∉ S is a finite place with K_v/ℚ_p unramified and p > 2; y₀ ∈ 𝒴(𝒪); E₀ := E_{y₀}; V := ℋ_{y₀} = H¹_dR(X_{y₀}/K), a free E₀-module of rank 2d with the polarization pairing ω₀; H := LGr_{E₀}(V, ω₀); h₀ := F¹V ∈ H(K); V_v, H_v and V_ℂ, H_ℂ are the base changes along K → K_v and ι; Ω_v := Ω_v(y₀) with coordinates z : Ω_v ≅ (p𝒪_v)^m. Let r = 2dn and choose parameters z = (z_1, …, z_m) at the reduction of y₀ as in LV.2 and a frame v_1, …, v_r of ℋ near it with v_1, …, v_{dn} a frame of F¹ℋ. Index Plücker coordinates of Gr(V, dn) by the dn-element subsets I of {1, …, r}, and let B_I ∈ K[[z]] be the I-th maximal minor of the r × dn matrix formed by the first dn columns of Φ^{-1}, where Φ ∈ GL_r(K[[z]]) is the formal horizontal frame of LV.2. Then: (a) α!·B_{I,α} ∈ 𝒪_(v) for every multi-index α; (b) x ↦ B_I(px) is a restricted power series over 𝒪_v and B_{I₀}(px) ≡ 1 mod p for I₀ = {1, …, dn}; (c) for y ∈ Ω_v, Φ_v(y) has Plücker coordinates (B_I(z(y)))_I; (d) there is ρ > 0 such that the series ι(B_I) converge on U_ℂ = {|z_i| < ρ}, z is a biholomorphism from a neighbourhood of y₀ in Y(ℂ) onto a domain containing U_ℂ, and Φ_ℂ(y) has Plücker coordinates (ι(B_I)(z(y)))_I for z(y) ∈ U_ℂ; (e) B_I(0) = δ_{I,I₀}, the Plücker coordinates of h₀.",
+   "hypotheses": [
+    "Setting P",
+    "frame adapted to F¹ near the reduction of y₀"
+   ],
+   "proofSteps": [
+    "In the frame (v_i), T_v(y) has matrix Φ(z(y)) (LV.2), and F¹ℋ_y is spanned by v_1(y), …, v_{dn}(y); hence T_v(y)^{-1}(F¹ℋ_y) is the column span of the first dn columns of Φ(z(y))^{-1}, whose Plücker coordinates are the maximal minors.",
+    "Φ^{-1} satisfies ∂_k Ψ = Ψ A_k and has α!-integral coefficients (LV.2); series with α!-integral coefficients form a ring, because (fg)_γ γ! = Σ_{α ≤ γ} binom(γ, α)(f_α α!)(g_{γ−α}(γ−α)!), so the minors B_I are α!-integral.",
+    "Restrictedness and the congruence follow as in LV.2 from Legendre's bound v_p(α!) ≤ |α|/(p−1) with p > 2; the congruence Φ^{-1}(px) ≡ 1 mod p gives B_{I₀}(px) ≡ 1, so the coordinates have no common zero on the disk.",
+    "Complex side: the complex transport has matrix ι(Φ)(z(y)) near y₀ (LV.2), and algebraic parameters at y₀ are holomorphic coordinates whose Taylor expansions are the images of the algebraic ones (ComplexComparisonPartII C0), so the same minors give Φ_ℂ."
+   ],
+   "acceptance": [
+    "Constant family: B_I = δ_{I,I₀} identically.",
+    "Legendre family near λ₀ (n = d = 1, r = 2): (B_{{1}}, B_{{2}}) is the first column of Φ^{-1}, whose entries satisfy the Picard–Fuchs system of the frame (dx/y, x dx/y)."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.3/padic-period-map",
+    "MordellLawrenceVenkatesh:LV.3/complex-period-map",
+    "MordellLawrenceVenkatesh:LV.2/formal-horizontal-sections",
+    "MordellLawrenceVenkatesh:LV.2/horizontal-sections-padic-convergence",
+    "MordellLawrenceVenkatesh:LV.2/horizontal-sections-complex-convergence",
+    "MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-padic",
+    "MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-complex",
+    "ComplexComparisonPartII:C0",
+    "mathlib:Nat.factorization_factorial_le_div_pred",
+    "mathlib:MvPowerSeries.IsRestricted",
+    "mathlib:MvPowerSeries"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.3, p. 16",
+     "excerpt": "However, as we now discuss, both identifications can be described as the evaluation of a single power series with K coefficients, which is convergent both for the Kv and C topology.",
+     "match": "The common power series."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§1.2, p. 4",
+     "excerpt": "the intersection points between the image of (1.3) and a Z(φ)-orbit amount to zeroes of a nonvanishing Kv -analytic function in a residue disc, and are therefore finite.",
+     "match": "How the series are used."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PeriodMap/CommonSeries",
+    "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.3/complex-period-closure-contains-orbit",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.3",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ],
+   "title": "The Zariski closure of the complex period image contains the monodromy orbit (LV Lemma 3.1)",
+   "kind": "lemma",
+   "statement": "Setting P: K is a number field with an embedding ι : K → ℂ; 𝒳 → 𝒴' → 𝒴 is a good model over 𝒪 = 𝒪_S of an abelian-by-finite family X → Y' → Y of relative dimension d, with π : Y' → Y finite étale of degree n and Y smooth and geometrically connected of dimension m over K; v ∉ S is a finite place with K_v/ℚ_p unramified and p > 2; y₀ ∈ 𝒴(𝒪); E₀ := E_{y₀}; V := ℋ_{y₀} = H¹_dR(X_{y₀}/K), a free E₀-module of rank 2d with the polarization pairing ω₀; H := LGr_{E₀}(V, ω₀); h₀ := F¹V ∈ H(K); V_v, H_v and V_ℂ, H_ℂ are the base changes along K → K_v and ι; Ω_v := Ω_v(y₀) with coordinates z : Ω_v ≅ (p𝒪_v)^m. Assume Y(ℂ) is connected, and let U ⊆ Ω_ℂ be a nonempty open subset. Then Γ·h₀ ⊆ Z for every Zariski-closed subset Z ⊆ H_ℂ containing Φ_ℂ(U); that is, Γ·h₀ is contained in the Zariski closure of Φ_ℂ(U). If the family has full monodromy, Φ_ℂ(U) is Zariski dense in H_ℂ.",
+   "hypotheses": [
+    "Setting P",
+    "Y(ℂ) connected",
+    "U ⊆ Ω_ℂ open, nonempty"
+   ],
+   "proofSteps": [
+    "Let Z be defined by homogeneous Plücker polynomials Q_1, …, Q_s. In a local holomorphic frame of the pulled-back Hodge bundle, Q_i ∘ Φ̃ is a holomorphic function up to a nowhere vanishing factor; it vanishes on the nonempty open set q^{-1}(U) ∩ (sheet), hence on the connected manifold Ỹ by the identity theorem. So Φ̃(Ỹ) ⊆ Z.",
+    "By equivariance, μ(δ)·h₀ = Φ̃(δ·ỹ₀) ∈ Z for all δ ∈ π₁.",
+    "The transporter {g ∈ GL(V_ℂ) : g·h₀ ∈ Z} is Zariski closed and contains μ(π₁), hence contains Γ.",
+    "Under full monodromy Γ·h₀ = H_ℂ(ℂ) (transitivity on the period variety), so every closed Z ⊇ Φ_ℂ(U) is all of H_ℂ."
+   ],
+   "acceptance": [
+    "Constant family: Γ·h₀ = {h₀} = Φ_ℂ(U).",
+    "Legendre family: the closure of Φ_ℂ(U) is ℙ¹."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.3/complex-period-map",
+    "MordellLawrenceVenkatesh:LV.3/algebraic-monodromy-group",
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-period-variety-splitting",
+    "FoundationsAndLibraryIntegration:LI.4",
+    "ComplexComparisonPartII:C4",
+    "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.4, Lemma 3.1, p. 18",
+     "excerpt": "Suppose given a family X → Y , and take notation as above; in particular, Γ is the Zariski closure of monodromy, and hι0 = ΦC (y0 ). Then we have the containment",
+     "match": "Statement of Lemma 3.1."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.4, proof of Lemma 3.1, p. 18",
+     "excerpt": "The preimage Φ−1C Z of any algebraic subvariety Z ⊂ HC , with Z ⊃ ΦC (ΩC ), is",
+     "match": "The proof, reproduced in the proof steps."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PeriodMap/Complex",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components — ReductiveGroups Layer 3 (closed subgroups, identity components)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.3/convergent-series-vanishing",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.3",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ],
+   "title": "A power series vanishing on an open polydisk is zero",
+   "kind": "lemma",
+   "statement": "Let F be ℂ or a complete nonarchimedean valued field of characteristic zero, and let f ∈ F[[z_1, …, z_m]] converge absolutely on U = {z ∈ F^m : |z_i| < ε} for some ε > 0. If f(z) = 0 for all z ∈ U, then f = 0.",
+   "hypotheses": [
+    "F = ℂ or complete nonarchimedean of characteristic 0",
+    "absolute convergence on U"
+   ],
+   "proofSteps": [
+    "The series defines an analytic function on U whose formal multilinear series at 0 has homogeneous terms f_n (the degree-n parts of f).",
+    "Since the function vanishes near 0, every homogeneous term vanishes at every point: f_n(y) = 0 for all y ∈ F^m (HasFPowerSeriesAt.apply_eq_zero, valid over any nontrivially normed field).",
+    "F is infinite, so a polynomial vanishing on F^m is zero (MvPolynomial.funext); hence f_n = 0 for all n."
+   ],
+   "acceptance": [
+    "Σ z^k/k! over ℚ_p converges on |z| < p^{−1/(p−1)} and is nonzero there.",
+    "z₁z₂ vanishes on the coordinate axes, which contain no open polydisk."
+   ],
+   "prerequisites": [
+    "mathlib:HasFPowerSeriesAt.apply_eq_zero",
+    "mathlib:MvPolynomial.funext",
+    "mathlib:HasFPowerSeriesOnBall",
+    "mathlib:MvPowerSeries"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.4, proof of Lemma 3.2, p. 19",
+     "excerpt": "But if Qv vanishes on B v (Uv ) then Qv (B0 , . . . , BN ) ≡ 0 in Kv [[z1 , . . . , zm ]].",
+     "match": "The step of LV's proof that this node justifies."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PeriodMap/Zariski",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.3/power-series-zariski-closure",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.3",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ],
+   "title": "Complex and v-adic Zariski closures of a power-series map descend to one K-subscheme (LV Lemma 3.2)",
+   "kind": "lemma",
+   "statement": "Let K be a number field with an embedding ι : K → ℂ and a finite place v, and let B_0, …, B_N ∈ K[[z_1, …, z_m]] be such that the series B_i converge absolutely without common zero on U_v = {|z_i|_v < ε_v} ⊆ K_v^m, and the series ι(B_i) converge absolutely without common zero on U_ℂ = {|z_i| < ε_ℂ} ⊆ ℂ^m (ε_v, ε_ℂ > 0). Let I ⊆ K[x_0, …, x_N] be the ideal generated by the homogeneous Q with Q(B_0, …, B_N) = 0 in K[[z]], and Z ⊆ ℙ^N_K the closed subscheme it defines. Then I is a homogeneous prime ideal, Z is integral, and Z ⊗ K_v (respectively Z ⊗_ι ℂ) is the Zariski closure of B^v(U_v) ⊆ ℙ^N(K_v) (respectively of B^ℂ(U_ℂ) ⊆ ℙ^N(ℂ)); in particular these closures are integral and have the same dimension.",
+   "hypotheses": [
+    "absolute convergence without common zeros on U_v and U_ℂ"
+   ],
+   "proofSteps": [
+    "A homogeneous Q_v ∈ K_v[x] of degree e vanishes on B^v(U_v) if and only if Q_v(B) vanishes on U_v, if and only if Q_v(B) = 0 in K_v[[z]] (previous node).",
+    "The coefficients of Q_v(B) are K-linear forms in the coefficients of Q_v; the solutions of this system in the finite-dimensional space of degree-e forms are cut out by finitely many of the equations, and the solution space of a finite K-linear system commutes with the flat base change K → K_v. So the vanishing ideal of B^v(U_v) is I ⊗ K_v; likewise over ℂ.",
+    "Primality: K[[z]] and K_v[[z]] are domains, so if a product of homogeneous forms kills B one factor does; the same argument shows I ⊗ K_v and I ⊗_ι ℂ are prime.",
+    "Dimensions of a closed subscheme and of its base change agree."
+   ],
+   "acceptance": [
+    "B = (1, z, z²): Z is the conic x₀x₂ = x₁².",
+    "B = (1, Σ z^k/k!) with ε_v = |p|^{1/(p−1)}: Z = ℙ¹, since the image is infinite."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.3/convergent-series-vanishing",
+    "mathlib:Module.Flat.ker_lTensor_eq",
+    "mathlib:MvPolynomial.vanishingIdeal",
+    "mathlib:MvPolynomial.zeroLocus",
+    "AlgebraicModuliForArithmeticGeometry:R09.1"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.4, Lemma 3.2, p. 18",
+     "excerpt": "Suppose given power series B0 , . . . , BN ∈ K[[z1 , . . . , zm ]] such that all Bi are absolutely convergent, with no common zero, both in the v-adic and complex disks",
+     "match": "Statement of Lemma 3.2 (LV use one radius for both disks; the proof does not need that)."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.4, proof of Lemma 3.2, p. 19",
+     "excerpt": "We take I the ideal of Z to be that generated by all homogeneous polynomials Q ∈ K[x0 , . . . , xN ] such that Q(B0 , . . . , BN ) is identically zero.",
+     "match": "The ideal."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.4, proof of Lemma 3.2, p. 19",
+     "excerpt": "Any Kv -solution of such a linear system is, of course, a Kv -linear combination of K-solutions.",
+     "match": "The base-change step."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PeriodMap/Zariski",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.3/padic-period-image-dense",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.3",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ],
+   "title": "Zariski closure of the p-adic period image (LV Lemma 3.3) and density under full monodromy",
+   "kind": "theorem",
+   "statement": "Setting P: K is a number field with an embedding ι : K → ℂ; 𝒳 → 𝒴' → 𝒴 is a good model over 𝒪 = 𝒪_S of an abelian-by-finite family X → Y' → Y of relative dimension d, with π : Y' → Y finite étale of degree n and Y smooth and geometrically connected of dimension m over K; v ∉ S is a finite place with K_v/ℚ_p unramified and p > 2; y₀ ∈ 𝒴(𝒪); E₀ := E_{y₀}; V := ℋ_{y₀} = H¹_dR(X_{y₀}/K), a free E₀-module of rank 2d with the polarization pairing ω₀; H := LGr_{E₀}(V, ω₀); h₀ := F¹V ∈ H(K); V_v, H_v and V_ℂ, H_ℂ are the base changes along K → K_v and ι; Ω_v := Ω_v(y₀) with coordinates z : Ω_v ≅ (p𝒪_v)^m. Assume Y(ℂ) is connected. There is an integral closed K-subscheme Z ⊆ H such that Z ⊗ K_v is the Zariski closure of Φ_v(Ω_v) in H_v and Z ⊗_ι ℂ is the Zariski closure of Φ_ℂ(U_ℂ) for a polydisk U_ℂ around y₀ as in the common-series node; Z ⊗_ι ℂ ⊇ Γ·h₀. In particular dim_{K_v} of the closure of Φ_v(Ω_v) is at least the dimension of the Zariski closure of Γ·h₀. If the family has full monodromy then Z = H: Φ_v(Ω_v) is Zariski dense in H_v, and its image under every factor projection of H_v (along a decomposition of E₀ ⊗ K_v into a product of K_v-algebras) is Zariski dense in that factor.",
+   "hypotheses": [
+    "Setting P",
+    "Y(ℂ) connected"
+   ],
+   "proofSteps": [
+    "Apply LV Lemma 3.2 to the Plücker series B_I of the common-series node with U_v = {|z_i|_v < 1} = (p𝒪_v)^m (v unramified) and U_ℂ; Z is the resulting integral K-subscheme of the Plücker space.",
+    "Z ⊆ H: the ideal of H is contained in I ⊗ K_v ∩ K[x] = I, because Φ_v takes values in H.",
+    "LV Lemma 3.1 with U = z^{-1}(U_ℂ) gives Γ·h₀ ⊆ Z ⊗ ℂ; dimensions agree after base change.",
+    "Full monodromy: Γ·h₀ = H_ℂ(ℂ), so Z ⊗ ℂ = H ⊗ ℂ, hence Z = H (a closed subscheme is determined by its base change along a field extension); the factor statement follows from the splitting lemma."
+   ],
+   "acceptance": [
+    "Legendre family: Z = H = ℙ¹ and Φ_v is nonconstant on every residue disk.",
+    "Constant family: Z = {h₀}."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.3/power-series-zariski-closure",
+    "MordellLawrenceVenkatesh:LV.3/period-maps-common-series",
+    "MordellLawrenceVenkatesh:LV.3/complex-period-closure-contains-orbit",
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-period-variety-splitting",
+    "MordellLawrenceVenkatesh:LV.3/algebraic-monodromy-group"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.4, Lemma 3.3, p. 19",
+     "excerpt": "The dimension of the Zariski closure (in the Kv -variety HKv ) of Φv (Ωv ) is at least the (complex) dimension of Γ · hι0 .",
+     "match": "Statement of Lemma 3.3."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, proof of Proposition 5.3, p. 29",
+     "excerpt": "Lemma 3.3, and the assumption of full monodromy, imply that Φv (Ωv ) is Zariski- dense in Hv .",
+     "match": "The density statement used in §6."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PeriodMap/Zariski",
+    "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.3/strassmann",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.3",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ],
+   "title": "Strassmann's theorem",
+   "kind": "theorem",
+   "statement": "Let F be a complete nonarchimedean valued field with valuation ring 𝒪_F, and f = Σ_{n≥0} a_n x^n ∈ F[[x]] with a_n → 0 and not all a_n zero. Let N(f) be the largest n with |a_n| = max_k |a_k|. Then f has at most N(f) zeros in 𝒪_F. In particular a nonzero restricted power series over 𝒪_F has finitely many zeros in 𝒪_F.",
+   "hypotheses": [
+    "F complete nonarchimedean",
+    "a_n → 0, f ≠ 0"
+   ],
+   "proofSteps": [
+    "Induction on N = N(f). If N = 0 then |a_0| > |a_n| for n ≥ 1, so |f(x)| = |a_0| ≠ 0 for |x| ≤ 1.",
+    "If f(α) = 0 with α ∈ 𝒪_F, then f(x) = f(x) − f(α) = (x − α)g(x) with g = Σ_j b_j x^j, b_j = Σ_{n>j} a_n α^{n−1−j}. Then b_j → 0, |b_j| ≤ |a_N| for all j, |b_{N−1}| = |a_N| and |b_j| < |a_N| for j ≥ N; so N(g) = N − 1.",
+    "Every zero of f in 𝒪_F other than α is a zero of g, so f has at most 1 + (N − 1) zeros."
+   ],
+   "acceptance": [
+    "Over ℚ_p, f = 1 + pX + X² + pX⁵ has N(f) = 2; it has no zeros in ℤ₂ or ℤ₃ and two zeros in ℤ₅ (Conrad, Example 4.2).",
+    "X^n − p has N = n and no zeros in ℤ_p for n ≥ 2."
+   ],
+   "prerequisites": [
+    "mathlib:PowerSeries.IsRestricted"
+   ],
+   "sources": [
+    {
+     "sourceId": "conrad-strassmann",
+     "locator": "§4, Theorem 4.1, p. 4",
+     "excerpt": "an 's are not all zero then the number of solutions to f (x) = 0 in Zp is at most N (f ).",
+     "match": "Strassmann's theorem over ℚ_p; the proof applies verbatim over any complete nonarchimedean field."
+    },
+    {
+     "sourceId": "conrad-strassmann",
+     "locator": "§4, p. 4",
+     "excerpt": "The largest index for a coefficient of maximal absolute value is denoted N (f ).",
+     "match": "Definition of N(f)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Analysis/Strassmann",
+    "namespace": "TauCeti.PowerSeries"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.3/padic-period-preimage-finite",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.3",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ],
+   "title": "On a curve, the p-adic period map meets a closed subset not containing its image in finitely many points",
+   "kind": "theorem",
+   "statement": "Setting P: K is a number field with an embedding ι : K → ℂ; 𝒳 → 𝒴' → 𝒴 is a good model over 𝒪 = 𝒪_S of an abelian-by-finite family X → Y' → Y of relative dimension d, with π : Y' → Y finite étale of degree n and Y smooth and geometrically connected of dimension m over K; v ∉ S is a finite place with K_v/ℚ_p unramified and p > 2; y₀ ∈ 𝒴(𝒪); E₀ := E_{y₀}; V := ℋ_{y₀} = H¹_dR(X_{y₀}/K), a free E₀-module of rank 2d with the polarization pairing ω₀; H := LGr_{E₀}(V, ω₀); h₀ := F¹V ∈ H(K); V_v, H_v and V_ℂ, H_ℂ are the base changes along K → K_v and ι; Ω_v := Ω_v(y₀) with coordinates z : Ω_v ≅ (p𝒪_v)^m. Assume m = 1 (Y is a curve). (a) For every Zariski-closed subset Z' ⊆ H_v with Φ_v(Ω_v) ⊄ Z'(K_v), the set {y ∈ Ω_v : Φ_v(y) ∈ Z'(K_v)} is finite. (b) Assume moreover that Y(ℂ) is connected, and let Z_v be the Zariski closure of Φ_v(Ω_v). If Z' ⊆ H_v is closed with dim Z' < dim Z_v, then Φ_v(Ω_v) ⊄ Z', so (a) applies; under full monodromy Z_v = H_v. (c) For a decomposition E₀ ⊗ K_v = E₁ × E' with factor projection pr₁ : H_v → H₁ = LGr_{E₁}(V₁, ω₁), let Z₁ be the Zariski closure of pr₁Φ_v(Ω_v); if B₁ ⊆ H₁ is closed with dim B₁ < dim Z₁, then {y ∈ Ω_v : pr₁Φ_v(y) ∈ B₁(K_v)} is finite; under full monodromy Z₁ = H₁.",
+   "hypotheses": [
+    "Setting P with m = 1"
+   ],
+   "proofSteps": [
+    "(a) Choose y₁ with Φ_v(y₁) ∉ Z'. Closed subsets of projective space are cut out by homogeneous forms, so some homogeneous Q with coefficients in 𝒪_v vanishes on Z' and not at Φ_v(y₁).",
+    "g(x) := Q(B(px)) is a restricted power series over 𝒪_v in one variable (restricted series form a subring), and g(x₁) ≠ 0 for x₁ = z(y₁)/p, so g ≠ 0.",
+    "y ↦ z(y)/p is a bijection Ω_v ≅ 𝒪_v and Φ_v(y) ∈ Z' forces g(z(y)/p) = 0; Strassmann's theorem bounds the number of zeros.",
+    "(b) If Φ_v(Ω_v) ⊆ Z' then Z_v ⊆ Z' and dim Z_v ≤ dim Z'. The full-monodromy statement is LV Lemma 3.3 with density.",
+    "(c) Apply (a) to Z' = pr₁^{-1}(B₁): if Φ_v(Ω_v) ⊆ pr₁^{-1}(B₁), then pr₁Φ_v(Ω_v) ⊆ B₁ and Z₁ ⊆ B₁, contradicting dim B₁ < dim Z₁. Under full monodromy the projection of a dense set is dense (splitting lemma)."
+   ],
+   "acceptance": [
+    "Legendre family, Z' = {a point}: only finitely many λ in a residue disk have Φ_v(λ) equal to a given line.",
+    "The hypothesis m = 1 is needed: for m ≥ 2 the preimage of a proper closed subset is in general an analytic subset of positive dimension."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.3/padic-period-image-dense",
+    "MordellLawrenceVenkatesh:LV.3/strassmann",
+    "MordellLawrenceVenkatesh:LV.3/period-maps-common-series",
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-period-variety-splitting",
+    "mathlib:MvPowerSeries.IsRestricted.subring",
+    "mathlib:MvPowerSeries.IsRestricted"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.4, after Lemma 3.3, p. 19",
+     "excerpt": "is contained in a proper Kv -analytic subset of Ωv , by which we mean a subset cut out by v-adic power series converging absolutely on Ωv .",
+     "match": "LV's analytic-subset formulation; for curves the node makes finiteness explicit."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§1.2, p. 4",
+     "excerpt": "the intersection points between the image of (1.3) and a Z(φ)-orbit amount to zeroes of a nonvanishing Kv -analytic function in a residue disc, and are therefore finite.",
+     "match": "The finiteness mechanism."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PeriodMap/Finiteness",
+    "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.4/fibre-representation-crystalline",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.4",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.4"
+   ],
+   "title": "The fibre representations are crystalline with the de Rham cohomology of the fibre as filtered φ-module",
+   "kind": "comparison",
+   "statement": "Setting P: K is a number field with an embedding ι : K → ℂ; 𝒳 → 𝒴' → 𝒴 is a good model over 𝒪 = 𝒪_S of an abelian-by-finite family X → Y' → Y of relative dimension d, with π : Y' → Y finite étale of degree n and Y smooth and geometrically connected of dimension m over K; v ∉ S is a finite place with K_v/ℚ_p unramified and p > 2; y₀ ∈ 𝒴(𝒪); E₀ := E_{y₀}; V := ℋ_{y₀} = H¹_dR(X_{y₀}/K), a free E₀-module of rank 2d with the polarization pairing ω₀; H := LGr_{E₀}(V, ω₀); h₀ := F¹V ∈ H(K); V_v, H_v and V_ℂ, H_ℂ are the base changes along K → K_v and ι; Ω_v := Ω_v(y₀) with coordinates z : Ω_v ≅ (p𝒪_v)^m. For y ∈ 𝒴(𝒪) ∩ Ω_v and a closed point y' of π^{-1}(y) with residue field K(y'), X_{y'} is an abelian variety over K(y') with good reduction at the places not above S, and ρ_{y'} := H¹_et(X_{y'} ×_{K(y')} K̄, ℚ_p) is a representation of G_{K(y')}; for a place w of K(y') above v, K(y')_w is unramified over K_v, and ρ_{y',w} is the restriction of ρ_{y'} to G_{K(y')_w}. Then ρ_{y',w} is crystalline, and there is an isomorphism of filtered φ-modules over L := K(y')_w, D_cris(ρ_{y',w}) ≅ (H¹_dR(X_{y'} ⊗ L / L), φ_{y',w}, F¹), where D_cris(V) = (V ⊗_{ℚ_p} B_cris)^{G_L} is the covariant functor, φ_{y',w} is the crystalline Frobenius of the good-reduction model 𝒳_{y'} ⊗ 𝒪_L transported through the Berthelot–Ogus isomorphism (the (y', w)-factor of φ_y from LV.2), and F¹ is the Hodge filtration (jumps 0 and 1). The isomorphism is functorial in the abelian scheme and compatible with the polarization pairings.",
+   "hypotheses": [
+    "Setting P",
+    "y ∈ 𝒴(𝒪) ∩ Ω_v",
+    "w | v a place of K(y')"
+   ],
+   "proofSteps": [
+    "The fibre of the good model over the 𝒪_L-point induced by y' is an abelian scheme 𝒳_{y'} ⊗ 𝒪_L over 𝒪_L = W(k_w) with generic fibre X_{y'} ⊗ L (LV.2).",
+    "The crystalline comparison for its p-adic completion (CohomologyComparisons CP.2, node crystalline-comparison-over-discretely-valued-base) gives a G_L-equivariant B_cris-linear isomorphism H¹_et ⊗ B_cris ≅ H¹_cris(𝒳_{k_w}/W(k_w)) ⊗ B_cris compatible with Frobenius and filtrations; the étale cohomology of the rigid generic fibre is that of the algebraic variety X_{y'} ⊗ L, and restricting ρ_{y'} to G_L computes H¹_et((X_{y'} ⊗ L)_{L̄}, ℚ_p).",
+    "Taking G_L-invariants with B_cris^{G_L} = W(k_w)[1/p] = L gives D_cris(ρ_{y',w}) ≅ H¹_cris(𝒳_{k_w}/W(k_w))[1/p] with its Frobenius, and dim_L D_cris = 2d, so ρ_{y',w} is crystalline.",
+    "Because L is unramified, D_cris(ρ)_L = D_dR(ρ) as filtered spaces (Brinon–Conrad Proposition 9.1.9), and the comparison identifies D_dR(ρ_{y',w}) with H¹_dR(X_{y'} ⊗ L/L) and its Hodge filtration; under this identification the crystalline Frobenius is the Berthelot–Ogus transport of LV.2 (requested compatibility, PadicHodgeTheory R06.5)."
+   ],
+   "acceptance": [
+    "A good-reduction elliptic curve E over ℚ_p: D_cris(H¹_et(E_{ℚ̄_p}, ℚ_p)) = H¹_dR(E/ℚ_p) with φ of characteristic polynomial X² − a_pX + p and F¹ = H⁰(E, Ω¹), a line.",
+    "For the Tate twist ℚ_p(−1) = H²_et(ℙ¹): D_cris is one-dimensional with φ = p and the filtration jump in degree 1."
+   ],
+   "prerequisites": [
+    "CohomologyComparisons:CP.2/crystalline-comparison-over-discretely-valued-base",
+    "PadicHodgeTheory:R06.2",
+    "PadicHodgeTheory:R06.5",
+    "PadicHodgeTheory:R06.6",
+    "CrystallineCohomology:CR.2",
+    "SchemeAndStackFoundations:SF.2",
+    "MordellLawrenceVenkatesh:LV.2/good-model",
+    "MordellLawrenceVenkatesh:LV.2/crystalline-frobenius-on-fibres",
+    "MordellLawrenceVenkatesh:LV.1/abelian-variety-cohomology-properties",
+    "FoundationsAndLibraryIntegration:LI.4"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.5, p. 19",
+     "excerpt": "For each y ∈ U the representation ρy (see (3.2)) is crystalline upon restriction to Kv , because of the existence of the model Xy for Xy .",
+     "match": "Crystallinity of the fibre representations."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.5, p. 19",
+     "excerpt": "By the crystalline comparison theorem of Faltings [16], the embedding (3.12) carries",
+     "match": "LV continue: ρ_y is carried to the triple (H^q_dR(X_y/K_v), φ_v, Hodge filtration)."
+    },
+    {
+     "sourceId": "brinon-conrad",
+     "locator": "§9.1, Proposition 9.1.9, p. 133",
+     "excerpt": "If V ∈ Repcris Qp (GK ) then the natural map jV : K ⊗K0 Dcris (V ) → DdR (V ) in FilK is an isomorphism. In particular, crystalline representations are de Rham.",
+     "match": "The filtration on D_cris over an unramified field is that of D_dR."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Crystalline/FibreComparison",
+    "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius — LocalFieldsRamification Layer 2 (unramified extensions and Frobenius)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.4/fibre-filtered-phi-transport",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.4",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.4"
+   ],
+   "title": "The filtered φ-module of a fibre read off from the period map (LV (6.6)–(6.7))",
+   "kind": "lemma",
+   "statement": "Setting P: K is a number field with an embedding ι : K → ℂ; 𝒳 → 𝒴' → 𝒴 is a good model over 𝒪 = 𝒪_S of an abelian-by-finite family X → Y' → Y of relative dimension d, with π : Y' → Y finite étale of degree n and Y smooth and geometrically connected of dimension m over K; v ∉ S is a finite place with K_v/ℚ_p unramified and p > 2; y₀ ∈ 𝒴(𝒪); E₀ := E_{y₀}; V := ℋ_{y₀} = H¹_dR(X_{y₀}/K), a free E₀-module of rank 2d with the polarization pairing ω₀; H := LGr_{E₀}(V, ω₀); h₀ := F¹V ∈ H(K); V_v, H_v and V_ℂ, H_ℂ are the base changes along K → K_v and ι; Ω_v := Ω_v(y₀) with coordinates z : Ω_v ≅ (p𝒪_v)^m. For y ∈ 𝒴(𝒪) ∩ Ω_v and a closed point y' of π^{-1}(y) with residue field K(y'), X_{y'} is an abelian variety over K(y') with good reduction at the places not above S, and ρ_{y'} := H¹_et(X_{y'} ×_{K(y')} K̄, ℚ_p) is a representation of G_{K(y')}; for a place w of K(y') above v, K(y')_w is unramified over K_v, and ρ_{y',w} is the restriction of ρ_{y'} to G_{K(y')_w}. Let (y₀', w₀) be the pair over (y₀, v) corresponding to (y', w) under the transport bijection of LV.2, τ : K(y')_w ≅ K(y₀')_{w₀} =: L₀ the transported field isomorphism, V₀ the (y₀', w₀)-factor of V_v = ℋ_{y₀} ⊗ K_v with the restriction φ₀ of φ_{y₀} (σ_{L₀}-semilinear), and pr₀ : H_v → H₀ := LGr_{L₀}(V₀, ω₀) the factor projection. Then pr₀Φ_v(y) = T_v(y)^{-1}(F¹H¹_dR(X_{y'} ⊗ K(y')_w)) (LV (6.7)), and D_cris(ρ_{y',w}) transported along τ is isomorphic in MF^φ_{L₀} to (V₀, φ₀, pr₀Φ_v(y)).",
+   "hypotheses": [
+    "Setting P",
+    "y ∈ 𝒴(𝒪) ∩ Ω_v"
+   ],
+   "proofSteps": [
+    "The transport T_v(y) is semilinear over the ring isomorphism E₀ ⊗ K_v ≅ E_y ⊗ K_v, which is the product of the field isomorphisms of the corresponding factors; hence it maps the factor V₀ τ^{-1}-semilinearly onto the factor H¹_dR(X_{y'} ⊗ K(y')_w) of ℋ_y ⊗ K_v and commutes with the factor projections of the period varieties.",
+    "Φ_v(y) = T_v(y)^{-1}(F¹ℋ_y ⊗ K_v) and F¹ is the product of the factorwise Hodge filtrations, which gives (6.7).",
+    "T_v(y) commutes with Frobenius (LV.2), and τ commutes with the absolute Frobenii because both fields are unramified over ℚ_p; so T_v(y) restricted to V₀ is an isomorphism of filtered φ-modules from (V₀, φ₀, pr₀Φ_v(y)) to the τ-transport of (H¹_dR(X_{y'} ⊗ K(y')_w), φ_{y',w}, F¹).",
+    "Compose with the fibre comparison of the previous node."
+   ],
+   "acceptance": [
+    "π = id: y' = y, E₀ = K, and the lemma says that T_v(y) is an isomorphism (V_v, φ_{y₀}, Φ_v(y)) ≅ D_cris(ρ_y|G_{K_v}) (LV §3.5).",
+    "The Legendre variant family of LV §4.2 with v inert in K(t₀^{1/m}): one factor, L₀ = K_v(t₀^{1/m}) of degree m over K_v."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.4/fibre-representation-crystalline",
+    "MordellLawrenceVenkatesh:LV.3/padic-period-map",
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-period-variety",
+    "MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-padic",
+    "MordellLawrenceVenkatesh:LV.2/crystalline-frobenius-on-fibres",
+    "PadicHodgeTheory:R06.2"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, (6.7), p. 30",
+     "excerpt": "where we identify F 1 HdR1 (Xy0 ,w ) with a Lagrangian in the K(y00 )w0 -vector space Vy00 ,w0 using the Gauss–Manin connection (6.6).",
+     "match": "The projection formula (6.7)."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, proof of Lemma 6.2, p. 31",
+     "excerpt": "Under the correspondence of p-adic Hodge theory, ρy0 ,w corresponds to the K(y 0 )w -vector space HdR1 (Xy0 /K(y 0 )w ), together with its natural semilinear Frobe- nius operator φ,",
+     "match": "The fibre filtered φ-module used in Lemma 6.2."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.5, p. 19",
+     "excerpt": "where the objects of FL are triples (W, φ, F ) of a Kv -vector space W , a Frobenius- semilinear automorphism φ : W → W , and a descending filtration F of W .",
+     "match": "The category of filtered φ-modules."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Crystalline/FibreComparison",
+    "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.4/filtered-phi-orbit",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.4",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.4"
+   ],
+   "title": "Filtrations with isomorphic filtered φ-modules form a Frobenius-centralizer orbit of bounded dimension",
+   "kind": "lemma",
+   "statement": "Let K_v/ℚ_p be finite unramified of degree f_v, L ⊇ K_v finite unramified, W a finite-dimensional L-vector space with a σ_L-semilinear bijection φ, and F, F' L-subspaces of W of the same dimension k, viewed as two-step filtrations W ⊇ F ⊇ 0. (a) (W, φ, F) ≅ (W, φ, F') in MF^φ_L if and only if F' = gF for some g ∈ Z(φ)^×. (b) Let A = Z(φ^{f_v}), a K_v-subalgebra of End_L(W) with dim_{K_v} A ≤ (dim_L W)², and G its K_v-group of units, which acts on the K_v-variety Gr_L(W, k) of L-stable subspaces. Then Z(φ)^× ⊆ G(K_v), so every F' as in (a) lies in G(K_v)·F, and the Zariski closure of G(K_v)·F in Gr_L(W, k) has dimension ≤ dim_{K_v} A. (c) Consequently, for filtrations F_1, …, F_s, the set of F' with (W, φ, F') isomorphic to one of the (W, φ, F_i) is contained in a closed subset of Gr_L(W, k) of dimension ≤ dim_{K_v} A.",
+   "hypotheses": [
+    "K_v ⊆ L finite unramified over ℚ_p",
+    "φ σ_L-semilinear bijective"
+   ],
+   "proofSteps": [
+    "(a) An isomorphism (W, φ, F) → (W, φ, F') is an L-linear bijection g commuting with φ and carrying F onto F'.",
+    "(b) Z(φ) ⊆ Z(φ^{f_v}) and the dimension bound are LV Lemma 2.1 in the form of the LV.0 node for unramified extensions; elements of A are L-linear, so G acts on the L-stable Grassmannian; the Zariski closure of an orbit of a K_v-group has dimension at most the dimension of the group (orbit morphism, ReductiveGroups Layer 3).",
+    "(c) A finite union of closed sets of dimension ≤ dim A."
+   ],
+   "acceptance": [
+    "K_v = ℚ_p, E/ℚ_p a good-reduction elliptic curve: φ is ℚ_p-linear with characteristic polynomial X² − a_pX + p, which has distinct roots, so dim Z(φ) = 2 while dim Gr(W, 1) = 1; the orbit of F¹ is open in ℙ¹ (LV §1.3: the Legendre family has locally constant local Galois representations).",
+    "K_v = ℚ_{p²} and E/ℚ_p supersingular with a_p = 0: φ² = −p is scalar and dim_{K_v} Z(φ²) = 4; if E is ordinary, φ² has distinct eigenvalues and dim_{K_v} Z(φ²) = 2."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.0/semilinear-centralizer",
+    "MordellLawrenceVenkatesh:LV.0/semilinear-centralizer-unramified",
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-period-variety",
+    "PadicHodgeTheory:R06.2",
+    "FoundationsAndLibraryIntegration:LI.4",
+    "SchemeAndStackFoundations:SF.0"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.5, proof of Proposition 3.4, pp. 19–20",
+     "excerpt": "Now certainly Z(φv ) ⊂ Z(φv v p ), and the right-hand side is now the Kv -points of a Kv -algebraic subgroup of GLKv (Vv ).",
+     "match": "The passage from Z(φ) to the algebraic group of units of Z(φ^{f_v})."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, proof of Lemma 6.2, p. 31",
+     "excerpt": "Belonging to a fixed isomorphism class means that the projection of Φv (y) to Hy00 ,w0 lies inside a single orbit for the action of the Frobenius centralizer Z(φv ) on Gy00 ,w0 ,",
+     "match": "The orbit statement (a)."
+    },
+    {
+     "sourceId": "brinon-conrad",
+     "locator": "§7.3, Definition 7.3.4, p. 98",
+     "excerpt": "A morphism D ′ → D between two filtered φ-modules is a K0 -linear map D ′ → D that is compatible with both φD′ : D ′ → D ′ and φD : D → D",
+     "match": "Morphisms of filtered φ-modules."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Crystalline/FrobeniusOrbit",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components — ReductiveGroups Layer 3 (closed subgroups, identity components)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.4/finiteness-criterion",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.4",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.4"
+   ],
+   "title": "Finiteness criterion on a residue disk of a curve",
+   "kind": "theorem",
+   "statement": "Setting P: K is a number field with an embedding ι : K → ℂ; 𝒳 → 𝒴' → 𝒴 is a good model over 𝒪 = 𝒪_S of an abelian-by-finite family X → Y' → Y of relative dimension d, with π : Y' → Y finite étale of degree n and Y smooth and geometrically connected of dimension m over K; v ∉ S is a finite place with K_v/ℚ_p unramified and p > 2; y₀ ∈ 𝒴(𝒪); E₀ := E_{y₀}; V := ℋ_{y₀} = H¹_dR(X_{y₀}/K), a free E₀-module of rank 2d with the polarization pairing ω₀; H := LGr_{E₀}(V, ω₀); h₀ := F¹V ∈ H(K); V_v, H_v and V_ℂ, H_ℂ are the base changes along K → K_v and ι; Ω_v := Ω_v(y₀) with coordinates z : Ω_v ≅ (p𝒪_v)^m. For y ∈ 𝒴(𝒪) ∩ Ω_v and a closed point y' of π^{-1}(y) with residue field K(y'), X_{y'} is an abelian variety over K(y') with good reduction at the places not above S, and ρ_{y'} := H¹_et(X_{y'} ×_{K(y')} K̄, ℚ_p) is a representation of G_{K(y')}; for a place w of K(y') above v, K(y')_w is unramified over K_v, and ρ_{y',w} is the restriction of ρ_{y'} to G_{K(y')_w}. Assume m = 1. Fix (y₀', w₀) over (y₀, v), put L₀ := K(y₀')_{w₀}, let V₀, φ₀, H₀ and pr₀ be as in the transport lemma, Z₀ the Zariski closure of pr₀Φ_v(Ω_v) in H₀, and c := dim_{K_v} Z(φ₀^{f_v}) (so c ≤ 4d²). Let 𝒮 ⊆ 𝒴(𝒪) ∩ Ω_v be a set such that, for y ∈ 𝒮 and (y', w) the pair corresponding to (y₀', w₀), the pairs (K(y')_w, ρ_{y',w}) lie in finitely many isomorphism classes (an isomorphism of pairs is a field isomorphism with a compatible isomorphism of representations). If c < dim Z₀, then 𝒮 is finite. If Y(ℂ) is connected and the family has full monodromy, then dim Z₀ = [L₀ : K_v]·d(d+1)/2, so the hypothesis c < dim Z₀ holds whenever [L₀ : K_v] ≥ 8.",
+   "hypotheses": [
+    "Setting P with m = 1",
+    "finitely many isomorphism classes of pairs along 𝒮",
+    "c < dim Z₀"
+   ],
+   "proofSteps": [
+    "Transport of structure: an isomorphism of pairs (α, ρ₁ ≅ ρ₂) induces D_cris(ρ₂) ≅ α_*D_cris(ρ₁). After transport to L₀ by the field isomorphisms τ of the transport lemma, two points of 𝒮 in the same class of pairs give filtered φ-modules over L₀ that differ by transport along an element of Aut(L₀/ℚ_p), a group of order [L₀ : ℚ_p]. So the modules (V₀, φ₀, pr₀Φ_v(y)), y ∈ 𝒮, lie in finitely many isomorphism classes of MF^φ_{L₀}.",
+    "By the orbit lemma there are F_1, …, F_s with pr₀Φ_v(y) ∈ ⋃ G(K_v)·F_i for all y ∈ 𝒮, and B₀ := H₀ ∩ ⋃ closure(G(K_v)·F_i) is closed of dimension ≤ c < dim Z₀.",
+    "By the finite-preimage theorem of LV.3 (part (c)), {y ∈ Ω_v : pr₀Φ_v(y) ∈ B₀} is finite, and it contains 𝒮.",
+    "Under full monodromy Z₀ = H₀, which has dimension [L₀ : K_v]·d(d+1)/2 by the splitting lemma; for [L₀ : K_v] ≥ 8 this is ≥ 4d(d+1) > 4d² ≥ c."
+   ],
+   "acceptance": [
+    "The variant Legendre family of LV §4 (d = 1, L₀ of degree m ≥ 8): c ≤ 4 < m = dim Z₀.",
+    "d = 1 and L₀ = K_v (the Legendre family itself): c = 2 > 1 = dim Z₀, and the criterion does not apply (LV §1.3)."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.4/fibre-filtered-phi-transport",
+    "MordellLawrenceVenkatesh:LV.4/filtered-phi-orbit",
+    "MordellLawrenceVenkatesh:LV.3/padic-period-preimage-finite",
+    "MordellLawrenceVenkatesh:LV.3/padic-period-image-dense",
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-period-variety-splitting",
+    "MordellLawrenceVenkatesh:LV.0/semilinear-centralizer-unramified",
+    "MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-padic"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.5, proof of Proposition 3.4, p. 20",
+     "excerpt": "By our previous discussion the triple (Vv , φv , Φv (y)) also belongs to a finite set of isomorphism classes (now in the category FL).",
+     "match": "From finitely many Galois representations to finitely many filtered φ-modules."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, proof of Lemma 6.2, p. 31",
+     "excerpt": "Belonging to a fixed isomorphism class means that the projection of Φv (y) to Hy00 ,w0 lies inside a single orbit for the action of the Frobenius centralizer Z(φv ) on Gy00 ,w0 ,",
+     "match": "The factorwise version used in §6."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, proof of Lemma 6.2, p. 31",
+     "excerpt": "Since dimKv Hy00 ,w0 = [K(y 0 )w : Kv ] · d(d+1) 2 ⩾ 4d(d + 1) > 4d2 , Lemma 3.3 completes the proof of Lemma 6.2.",
+     "match": "The dimension count."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Crystalline/Finiteness",
+    "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.4/proposition-3-4",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.4",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.4"
+   ],
+   "title": "Fibres with good reduction and semisimple Galois representation (LV Proposition 3.4, for curves)",
+   "kind": "theorem",
+   "statement": "Setting P: K is a number field with an embedding ι : K → ℂ; 𝒳 → 𝒴' → 𝒴 is a good model over 𝒪 = 𝒪_S of an abelian-by-finite family X → Y' → Y of relative dimension d, with π : Y' → Y finite étale of degree n and Y smooth and geometrically connected of dimension m over K; v ∉ S is a finite place with K_v/ℚ_p unramified and p > 2; y₀ ∈ 𝒴(𝒪); E₀ := E_{y₀}; V := ℋ_{y₀} = H¹_dR(X_{y₀}/K), a free E₀-module of rank 2d with the polarization pairing ω₀; H := LGr_{E₀}(V, ω₀); h₀ := F¹V ∈ H(K); V_v, H_v and V_ℂ, H_ℂ are the base changes along K → K_v and ι; Ω_v := Ω_v(y₀) with coordinates z : Ω_v ≅ (p𝒪_v)^m. Assume n = 1 (π = id, so X → Y is a polarized abelian scheme, E₀ = K and H = LGr(V, ω₀)), m = 1 and Y(ℂ) connected, and write ρ_y = H¹_et(X_y ×_K K̄, ℚ_p). If dim_{K_v} Z(φ_{y₀}^{f_v}) < dim_ℂ(Γ·h₀) (LV (3.13)), then the set {y ∈ 𝒴(𝒪) : y ≡ y₀ mod v, ρ_y semisimple} is finite.",
+   "hypotheses": [
+    "Setting P with n = 1 and m = 1",
+    "Y(ℂ) connected",
+    "LV (3.13)"
+   ],
+   "proofSteps": [
+    "For y ∈ 𝒴(𝒪), X_y has good reduction outside S, so ρ_y has dimension 2d, is unramified outside T := S ∪ {places above p} and pure of weight 1 with integral Frobenius polynomials outside T (LV.1).",
+    "Faltings's finiteness lemma (LV.1) leaves finitely many isomorphism classes of semisimple ρ_y, hence finitely many classes of pairs (K_v, ρ_y|G_{K_v}).",
+    "With (y₀', w₀) = (y₀, v), Z₀ is the closure Z_v of Φ_v(Ω_v), and dim Z_v ≥ dim(Γ·h₀) by LV Lemma 3.3; so c < dim Z₀ and the finiteness criterion applies."
+   ],
+   "acceptance": [
+    "The Legendre family over K with K_v = ℚ_p: dim Z(φ) = 2 > 1 = dim(Γ·h₀) = dim ℙ¹, so (3.13) fails; this is why LV pass to abelian-by-finite families.",
+    "Full monodromy and d(d+1)/2 > 4d² never happens, so for π = id the criterion needs small Frobenius centralizers, which LV avoid for curves."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.4/finiteness-criterion",
+    "MordellLawrenceVenkatesh:LV.1/faltings-finiteness",
+    "MordellLawrenceVenkatesh:LV.1/abelian-variety-cohomology-properties",
+    "MordellLawrenceVenkatesh:LV.3/padic-period-image-dense",
+    "NeronModelsAndSemistableAbelianVarieties:R11.5"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.5, Proposition 3.4, pp. 19–20",
+     "excerpt": "is contained in a proper Kv -analytic subvariety of the residue disk of Y (Kv ) at y0 .",
+     "match": "LV's conclusion; for a curve the proper analytic subvariety is finite."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.5, proof of Proposition 3.4, p. 20",
+     "excerpt": "For any y as in (3.14) the Galois representation ρy belongs to a finite set of iso- morphism classes (Lemma 2.3).",
+     "match": "The use of Faltings's lemma."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§1.3, p. 4",
+     "excerpt": "Unfortunately (*) fails: for t ∈ Zp , if we write ρt for the representation of the Galois group GQp on the (rational) Tate module of Xt , then ρt belongs to only finitely many isomorphism classes so long as the reduction t̄ ∈ Fp is not equal to 0 or 1.",
+     "match": "The Legendre acceptance example."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Crystalline/Finiteness",
+    "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
+   }
   }
  ],
  "requests": [
@@ -3060,7 +4440,8 @@
     "MordellLawrenceVenkatesh:LV.0/transvection-pair-closure",
     "MordellLawrenceVenkatesh:LV.0/transvection-graph-closure",
     "MordellLawrenceVenkatesh:LV.0/symplectic-pair-lemma",
-    "MordellLawrenceVenkatesh:LV.0/symplectic-goursat"
+    "MordellLawrenceVenkatesh:LV.0/symplectic-goursat",
+    "MordellLawrenceVenkatesh:LV.3/algebraic-monodromy-group"
    ]
   },
   {
@@ -3162,7 +4543,8 @@
    "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.5",
    "need": "Néron–Ogg–Shafarevich: an abelian variety over a number field with good reduction at u has V_p unramified at u for every p different from the residue characteristic of u.",
    "neededBy": [
-    "MordellLawrenceVenkatesh:LV.1/abelian-variety-cohomology-properties"
+    "MordellLawrenceVenkatesh:LV.1/abelian-variety-cohomology-properties",
+    "MordellLawrenceVenkatesh:LV.4/proposition-3-4"
    ]
   },
   {
@@ -3176,7 +4558,8 @@
    "supplier": "PadicHodgeTheory:R06.6",
    "need": "For an abelian variety A over a finite extension F/ℚ_p with good reduction, V_p(A) and H¹_et(A_{F̄}, ℚ_p) are crystalline G_F-representations.",
    "neededBy": [
-    "MordellLawrenceVenkatesh:LV.1/abelian-variety-cohomology-properties"
+    "MordellLawrenceVenkatesh:LV.1/abelian-variety-cohomology-properties",
+    "MordellLawrenceVenkatesh:LV.4/fibre-representation-crystalline"
    ]
   },
   {
@@ -3221,14 +4604,16 @@
    "supplier": "AbelianSchemesAndArithmeticModuli:A5",
    "need": "For an abelian scheme over a smooth complex variety T, the degree-one de Rham–Betti comparison H¹_dR(A/T)^an ≅ R¹f_*ℂ ⊗ 𝒪^an identifies ∇ with the connection whose horizontal sections are R¹f_*ℂ, and R¹f_*ℤ is a local system (Ehresmann).",
    "neededBy": [
-    "MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-complex"
+    "MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-complex",
+    "MordellLawrenceVenkatesh:LV.3/algebraic-monodromy-group"
    ]
   },
   {
    "supplier": "ComplexComparisonPartII:C5",
    "need": "For a smooth proper morphism of complex algebraic varieties, the analytic Gauss–Manin connection on the relative algebraic de Rham cohomology has the Betti local system R^q f_*ℂ as sheaf of horizontal sections (relative Gauss–Manin compatibility of the algebraic de Rham–Betti comparison).",
    "neededBy": [
-    "MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-complex"
+    "MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-complex",
+    "MordellLawrenceVenkatesh:LV.3/algebraic-monodromy-group"
    ]
   },
   {
@@ -3242,7 +4627,8 @@
    "supplier": "CrystallineCohomology:CR.2",
    "need": "For a smooth proper lift 𝔛 over W(k) of a smooth proper k-scheme X₀: the natural isomorphism H^q_cris(X₀/W(k)) ≅ H^q_dR(𝔛/W(k)) (Berthelot–Ogus Corollary 7.4) and its naturality in the lift.",
    "neededBy": [
-    "MordellLawrenceVenkatesh:LV.2/crystalline-frobenius-on-fibres"
+    "MordellLawrenceVenkatesh:LV.2/crystalline-frobenius-on-fibres",
+    "MordellLawrenceVenkatesh:LV.4/fibre-representation-crystalline"
    ]
   },
   {
@@ -3272,7 +4658,81 @@
    "need": "For K_v/ℚ_p unramified, 𝒪_v = W(k_v), |p|_v = p^{-1}, and every finite unramified extension of K_v is cyclic with the arithmetic Frobenius as generator.",
    "neededBy": [
     "MordellLawrenceVenkatesh:LV.2/residue-disk",
-    "MordellLawrenceVenkatesh:LV.2/crystalline-frobenius-on-fibres"
+    "MordellLawrenceVenkatesh:LV.2/crystalline-frobenius-on-fibres",
+    "MordellLawrenceVenkatesh:LV.4/fibre-representation-crystalline"
+   ]
+  },
+  {
+   "supplier": "AlgebraicModuliForArithmeticGeometry:R09.1",
+   "need": "For a finite-dimensional vector space V over a field F: a smooth projective F-scheme representing Mathlib's Module.Grassmannian.functor, with its Plücker closed immersion, standard affine charts and base change along field extensions; closed subschemes of Grassmannians cut out by (i) stability of the tautological subbundle under finitely many given endomorphisms of V and (ii) vanishing of a given bilinear form on the tautological subbundle; closed subschemes of ℙ^N_F defined by homogeneous ideals, the Zariski closure of a set of points, and compatibility of both with base change along field extensions.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-grassmannian",
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-period-variety",
+    "MordellLawrenceVenkatesh:LV.3/power-series-zariski-closure"
+   ]
+  },
+  {
+   "supplier": "SchemeAndStackFoundations:SF.0",
+   "need": "Dimension theory of schemes of finite type over a field: dimension of an integral scheme equals the transcendence degree of its function field; a scheme with a dense open subscheme isomorphic to 𝔸^n has dimension n; a proper closed subset of an irreducible scheme has smaller dimension; the Zariski closure of the image of a morphism X → Y has dimension ≤ dim X; dimension and (geometric) irreducibility of products and of base changes along field extensions; a scheme covered by irreducible open subschemes that pairwise meet is irreducible.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-grassmannian-geometry",
+    "MordellLawrenceVenkatesh:LV.3/lagrangian-period-variety-splitting",
+    "MordellLawrenceVenkatesh:LV.4/filtered-phi-orbit"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+   "need": "For an affine algebraic group G over a field acting on a scheme P of finite type and a point h ∈ P(k): the orbit morphism G → P, g ↦ g·h; for a closed subscheme Z ⊆ P the transporter {g ∈ G : g·h ∈ Z} is a closed subscheme of G; the Zariski closure of the orbit G(k)·h has dimension ≤ dim G.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.3/complex-period-closure-contains-orbit",
+    "MordellLawrenceVenkatesh:LV.3/algebraic-monodromy-group",
+    "MordellLawrenceVenkatesh:LV.4/filtered-phi-orbit"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+   "need": "For a connected complex manifold (more generally a connected, locally path-connected, semilocally simply connected space) X with base point x₀: the universal cover as homotopy classes of paths from x₀ with the deck action of π₁(X, x₀) by precomposition; the pullback of a local system to the universal cover is constant, and parallel transport along homotopic paths agrees, so that transport defines the monodromy representation compatibly with deck transformations.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.3/complex-period-map",
+    "MordellLawrenceVenkatesh:LV.3/algebraic-monodromy-group"
+   ]
+  },
+  {
+   "supplier": "ComplexComparisonPartII:C0",
+   "need": "For a smooth complex variety Y and y ∈ Y(ℂ): the completion of the algebraic local ring 𝒪_{Y,y} is identified with the completion of the analytic local ring 𝒪^an_{Y,y}; algebraic local parameters at y are holomorphic coordinates near y, and the image in ℂ[[z]] of a regular function is the Taylor series of the corresponding holomorphic function, which converges near y.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.3/complex-period-map",
+    "MordellLawrenceVenkatesh:LV.3/period-maps-common-series"
+   ]
+  },
+  {
+   "supplier": "ComplexComparisonPartII:C4",
+   "need": "For a smooth geometrically connected curve Y over a subfield of ℂ, projective or the complement of finitely many points in a projective one, Y(ℂ) with the analytic topology is connected.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.3/complex-period-closure-contains-orbit"
+   ]
+  },
+  {
+   "supplier": "PadicHodgeTheory:R06.5",
+   "need": "For a proper smooth scheme 𝔛 over W(k) (k perfect) with generic fibre X over K = W(k)[1/p]: H^i_et(X_K̄, ℚ_p) is crystalline and D_cris(H^i_et(X_K̄, ℚ_p)) ≅ (H^i_dR(X/K), φ, Hodge filtration) in MF^φ_K, where φ is the crystalline Frobenius of 𝔛_k transported by the Berthelot–Ogus isomorphism H^i_cris(𝔛_k/W(k))[1/p] ≅ H^i_dR(X/K); the isomorphism is functorial in 𝔛, compatible with cup products, and uses the identification of the étale cohomology of the rigid generic fibre of the completion with that of X (the case i = 1 for abelian schemes suffices).",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.4/fibre-representation-crystalline"
+   ]
+  },
+  {
+   "supplier": "PadicHodgeTheory:R06.2",
+   "need": "For an unramified p-adic field K: the category MF^φ_K of filtered φ-modules (σ-semilinear bijective φ, exhaustive separated decreasing filtration; morphisms K-linear, φ-equivariant and filtration-preserving; isomorphisms carry filtrations onto filtrations); the covariant functor D_cris = (− ⊗ B_cris)^{G_K} from crystalline representations to MF^φ_K; its compatibility with transport of structure along a field isomorphism K ≅ K' (pairs (K, V) and (K', V')).",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.4/fibre-representation-crystalline",
+    "MordellLawrenceVenkatesh:LV.4/fibre-filtered-phi-transport",
+    "MordellLawrenceVenkatesh:LV.4/filtered-phi-orbit"
+   ]
+  },
+  {
+   "supplier": "SchemeAndStackFoundations:SF.2",
+   "need": "For a proper variety X over a field K, a field extension L/K and compatible separable closures K̄ ⊆ L̄: the base-change map H^i_et(X_K̄, ℚ_p) → H^i_et(X_L̄, ℚ_p) is a G_L-equivariant isomorphism (G_L acting on the source through G_L → G_K).",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.4/fibre-representation-crystalline"
    ]
   },
   {
@@ -3281,7 +4741,8 @@
    "neededBy": [
     "MordellLawrenceVenkatesh:LV.0/semilinear-centralizer-unramified",
     "MordellLawrenceVenkatesh:LV.2/residue-disk",
-    "MordellLawrenceVenkatesh:LV.2/crystalline-frobenius-on-fibres"
+    "MordellLawrenceVenkatesh:LV.2/crystalline-frobenius-on-fibres",
+    "MordellLawrenceVenkatesh:LV.4/fibre-representation-crystalline"
    ]
   },
   {
@@ -3292,7 +4753,10 @@
     "MordellLawrenceVenkatesh:LV.0/transvection-pair-closure",
     "MordellLawrenceVenkatesh:LV.0/transvection-graph-closure",
     "MordellLawrenceVenkatesh:LV.0/symplectic-pair-lemma",
-    "MordellLawrenceVenkatesh:LV.0/symplectic-goursat"
+    "MordellLawrenceVenkatesh:LV.0/symplectic-goursat",
+    "MordellLawrenceVenkatesh:LV.3/algebraic-monodromy-group",
+    "MordellLawrenceVenkatesh:LV.3/complex-period-closure-contains-orbit",
+    "MordellLawrenceVenkatesh:LV.4/filtered-phi-orbit"
    ]
   },
   {
@@ -3338,6 +4802,14 @@
    "neededBy": [
     "MordellLawrenceVenkatesh:LV.1/pure-character-conjugation-relation"
    ]
+  },
+  {
+   "supplier": "FoundationsAndLibraryIntegration:LI.4",
+   "need": "Integrate UniversalCovers Stage 2 (lifting criterion and Galois correspondence of covers) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence below are available to consumers.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.3/algebraic-monodromy-group",
+    "MordellLawrenceVenkatesh:LV.3/complex-period-map"
+   ]
   }
  ],
  "coverage": [
@@ -3358,17 +4830,13 @@
   },
   {
    "stageId": "MordellLawrenceVenkatesh:LV.3",
-   "status": "not_read",
-   "remaining": [
-    "No nodes written yet for this layer."
-   ]
+   "status": "source_decomposed",
+   "remaining": []
   },
   {
    "stageId": "MordellLawrenceVenkatesh:LV.4",
-   "status": "not_read",
-   "remaining": [
-    "No nodes written yet for this layer."
-   ]
+   "status": "source_decomposed",
+   "remaining": []
   },
   {
    "stageId": "MordellLawrenceVenkatesh:LV.5",

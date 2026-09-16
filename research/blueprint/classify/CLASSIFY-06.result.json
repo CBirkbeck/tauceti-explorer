@@ -176,6 +176,231 @@
     ]
   },
   {
+    "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+    "primaryMsc": "14H",
+    "secondaryMsc": [
+      "14D",
+      "14G",
+      "14L"
+    ],
+    "cluster": "arithmetic-geometry",
+    "distance": 8,
+    "distanceRationale": "The library has scheme morphism properties, locally constant flat rank, relative normalization and the Hopf-algebra/affine-group-scheme correspondence (Mathlib). Tau Ceti adds Cartier duality for finite locally free commutative affine group schemes and the equation-level isogeny theory over a field, including deg [N] = N². Nothing yet exists on elliptic curves as group schemes over an arbitrary base: no projective Weierstrass scheme model, relative Picard/Poincaré duality, scheme-theoretic Weil pairing, Drinfeld level structures, Katz–Mazur moduli formalism, fppf quotients, deformation theory, p-divisible groups, Serre–Tate theory, regularity theorems or coarse moduli. The roadmap also presupposes the missing coherent-cohomology-and-base-change stack of the Jacobian roadmap, so the Katz–Mazur targets sit on many research-level layers still to be built.",
+    "mathlibEvidence": [
+      "tauceti:FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality (TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean) — Layer 0B Cartier duality over an affine base",
+      "tauceti:TauCeti.Isogeny.degree_mulByIntIsogeny (TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Degree.lean) — equation-level degree of [N] over a field, the supplier input of Layer 2A",
+      "mathlib:AlgebraicGeometry.Scheme.Hom.finrank and AlgebraicGeometry.Scheme.Hom.isLocallyConstant_finrank (Mathlib/AlgebraicGeometry/Morphisms/FlatRank.lean); AlgebraicGeometry.hopfSpec (Mathlib/AlgebraicGeometry/Group/Affine.lean)",
+      "mathlib:AlgebraicGeometry.Scheme.Hom.normalization (Mathlib/AlgebraicGeometry/Normalization.lean) — relative normalization carrier for Layer 10; WeierstrassCurve.Projective gives projective coordinates only, not a scheme model",
+      "absent: EllipticCurveGeom over a base scheme, relative Picard functor/Poincaré bundle, scheme-theoretic Weil pairing, Drinfeld level structures, moduli problems over Ell, KM 4.7.0, p-divisible groups, Serre–Tate theory, coarse j-line, compactified X_H and cusps (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "Arithmetic moduli of elliptic curves",
+        "authors": "Katz, Nicholas M.; Mazur, Barry",
+        "zbmath": 3920653,
+        "msc": [
+          "14H10",
+          "14-02",
+          "14D22",
+          "14H52",
+          "14D20",
+          "11F03",
+          "14H45"
+        ]
+      },
+      {
+        "title": "Modular curves (graduate lecture notes)",
+        "authors": "Loeffler, David",
+        "zbmath": null,
+        "msc": [],
+        "note": "lecture notes; not indexed in zbMATH"
+      },
+      {
+        "title": "Les schémas de modules de courbes elliptiques (Moduli schemes of elliptic curves)",
+        "authors": "Deligne, Pierre; Rapoport, M.",
+        "zbmath": 3440554,
+        "msc": [
+          "14D20",
+          "18F99",
+          "14G99",
+          "14H10"
+        ]
+      },
+      {
+        "title": "Schémas en groupes. I: Propriétés générales des schémas en groupes (SGA 3, Exposés I–VIIb)",
+        "authors": "Demazure, Michel; Grothendieck, Alexander (eds.)",
+        "zbmath": 3330563,
+        "msc": [
+          "00B60",
+          "14L15"
+        ]
+      },
+      {
+        "title": "Elliptic modules",
+        "authors": "Drinfel'd, V. G.",
+        "zbmath": 3501687,
+        "msc": [
+          "11G09",
+          "14G25",
+          "11R42",
+          "14K10",
+          "14K15",
+          "20G35",
+          "22E55"
+        ]
+      },
+      {
+        "title": "Modular curves and the Eisenstein ideal",
+        "authors": "Mazur, B.",
+        "zbmath": 3611460,
+        "msc": [
+          "14G35",
+          "11G18",
+          "14G05",
+          "14H45",
+          "14H52",
+          "14H40",
+          "11F06"
+        ]
+      },
+      {
+        "title": "Serre-Tate local moduli",
+        "authors": "Katz, N.",
+        "zbmath": 3749171,
+        "msc": [
+          "14D15",
+          "14L05",
+          "14D22",
+          "14D20"
+        ]
+      },
+      {
+        "title": "Fibre systems of Jacobian varieties. III: Fibre systems of elliptic curves",
+        "authors": "Igusa, J.",
+        "zbmath": 3188130,
+        "msc": [],
+        "note": "zbMATH assigns no MSC code to this 1959 record"
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+    "primaryMsc": "11F",
+    "secondaryMsc": [
+      "11G",
+      "30F"
+    ],
+    "cluster": "modular-and-automorphic-forms",
+    "distance": 4,
+    "distanceRationale": "Mathlib supplies modular and cusp forms, q-expansions and the level-one dimension formula. Tau Ceti already covers much of Layers 0–7: diamond operators and the nebentypus decomposition, the GL₂ Hecke ring and Hecke operators with U_p = T_p, Petersson adjoints and the old/new complement, newforms with the Main Lemma and strong multiplicity one, normalized Atkin–Lehner and Fricke operators, valence formulas and the finite-index Sturm bound, and entire continuation of cusp-form L-series. Still missing are Eisenstein series with character, the newform Euler product and functional equation, the modular-symbol integral Hecke algebra (coefficient field is a number field), Galois stability and LMFDB invariants, analytic Riemann–Roch on X(Γ) with the general dimension formulas, and the Eichler–Selberg trace formula. That is more than one layer of graduate theory, though none of it is research-level.",
+    "mathlibEvidence": [
+      "mathlib:CuspForm and ModularForm.dimension_level_one (Mathlib/NumberTheory/ModularForms/Basic.lean, LevelOne/DimensionFormula.lean) — analytic foundations and level-one dimensions only",
+      "tauceti:modFormCharSpace and isInternal_modFormCharSpace (TauCeti/NumberTheory/ModularForms/DiamondOperators.lean, CharacterDecomp.lean) — Layer 0 nebentypus spaces; HeckeRing.GL2.heckeT_prime_pow_recurrence (TauCeti/NumberTheory/HeckeRing/GL2/Recurrence.lean) — Layer 2",
+      "tauceti:TauCeti.isCompl_cuspFormsOld_cuspFormsNew and TauCeti.mem_cuspFormsOld_of_forall_coprime_qExpansion_coeff_eq_zero (TauCeti/NumberTheory/ModularForms/Newforms/Basic.lean, MainLemma.lean) — old/new decomposition and the Main Lemma",
+      "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_qExpansion_coeff_eq (TauCeti/NumberTheory/ModularForms/Newforms/StrongMultiplicityOne.lean); TauCeti.ModularForm.sturm_bound_finiteIndex (SturmBound.lean); CuspForm.hasEntireExtension_qExpansion_coeff (LFunction.lean)",
+      "absent: Euler product and functional equation for newforms, Eisenstein series with character, modular symbols / integral Hecke algebra / CoefficientField, Galois-conjugate newforms, general-level dimension formulas and Riemann–Roch on X(Γ), Hurwitz class numbers and the Eichler–Selberg trace formula (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "A first course in modular forms",
+        "authors": "Diamond, Fred; Shurman, Jerry",
+        "zbmath": 2134201,
+        "msc": [
+          "11F11",
+          "11-01",
+          "11F25",
+          "11F80",
+          "11G18",
+          "11G40",
+          "11D41"
+        ]
+      },
+      {
+        "title": "Modular forms (English translation)",
+        "authors": "Miyake, Toshitsune",
+        "zbmath": 195101,
+        "msc": [
+          "11Fxx",
+          "11-01",
+          "11-02",
+          "11F11",
+          "11F12",
+          "11F20",
+          "11F06",
+          "11F27",
+          "11F30",
+          "11F66"
+        ]
+      },
+      {
+        "title": "Introduction to the arithmetic theory of automorphic functions",
+        "authors": "Shimura, Goro",
+        "zbmath": 3349944,
+        "msc": [
+          "11-02",
+          "11G15",
+          "11G05",
+          "11Fxx"
+        ]
+      },
+      {
+        "title": "Hecke operators on Γ₀(m)",
+        "authors": "Atkin, A. O. L.; Lehner, J.",
+        "zbmath": 3283550,
+        "msc": [
+          "11F25",
+          "11F12"
+        ]
+      },
+      {
+        "title": "Twists of newforms and pseudo-eigenvalues of W-operators",
+        "authors": "Atkin, A. O. L.; Li, W.-C. W.",
+        "zbmath": 3575672,
+        "msc": [
+          "11F11"
+        ]
+      },
+      {
+        "title": "Introduction to modular forms (with appendices by D. B. Zagier and W. Feit)",
+        "authors": "Lang, Serge",
+        "zbmath": 3536194,
+        "msc": [
+          "11F12",
+          "11-02",
+          "11S40",
+          "11R34",
+          "11R32",
+          "14G20",
+          "14G25",
+          "14-02",
+          "14H10"
+        ],
+        "note": "cited for Zagier's appendix 'The Eichler–Selberg trace formula on SL₂(ℤ)'; its correction is zbMATH 3578918 (LNM 627, MSC 11F12)"
+      },
+      {
+        "title": "An elementary proof of the Eichler-Selberg trace formula",
+        "authors": "Popa, Alexandru A.; Zagier, Don",
+        "zbmath": 7201149,
+        "msc": [
+          "11F72",
+          "11F11",
+          "11F67",
+          "11F25"
+        ],
+        "note": "published version of arXiv:1711.00327 (arXiv title 'A simple proof of the Eichler-Selberg trace formula', category math.NT); the zbMATH record links that arXiv id"
+      },
+      {
+        "title": "On the congruence of modular forms",
+        "authors": "Sturm, Jacob",
+        "zbmath": 3995784,
+        "msc": [
+          "11F33",
+          "11F11"
+        ]
+      }
+    ]
+  },
+  {
     "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
     "primaryMsc": "11R",
     "secondaryMsc": [
@@ -239,6 +464,124 @@
         "zbmath": 3099584,
         "msc": [],
         "note": "J. Fac. Sci. Univ. Tokyo, Sect. I 4 (1943); zbMATH assigns no MSC code to this record"
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+    "primaryMsc": "11R",
+    "secondaryMsc": [
+      "11S",
+      "11Y"
+    ],
+    "cluster": "algebraic-number-theory",
+    "distance": 2,
+    "distanceRationale": "Mathlib's number-field library is strong, and Tau Ceti already has most of Layers 1–4. That includes the Artin symbol with its restriction and tower formulas, the ideal-theoretic Artin map, the double-coset bijection for non-Galois splitting, the relative Kummer–Dedekind theorem, the power-basis index formula, the relative discriminant ideal with tower law and ramified support, Stickelberger's congruence, monogenicity, and the completion algebra map with local-field instances. Still to build are Dedekind's cycle-type theorem and criterion, the semilocal completion dictionary (norm/trace, decomposition group as local Galois group, completed integer rings, localization of the different), the global higher-ramification exponent formulas (which need the local ramification roadmap), unit certificates and label semantics. This is less than a full layer of standard graduate theory.",
+    "mathlibEvidence": [
+      "mathlib:AlgHom.IsArithFrobAt (Mathlib/RingTheory/Frobenius.lean) — arithmetic-Frobenius API, instantiated for number fields by Tau Ceti",
+      "tauceti:NumberField.artinSymbol_map_restrictNormalHom and TauCeti.NumberFieldArithmetic.artinHomAway (TauCeti/NumberTheory/NumberField/ArtinSymbol.lean, Ideal/ArtinMap.lean) — Layer 2",
+      "tauceti:Ideal.doubleCosetQuotientEquivPrimesOver and TauCeti.KummerDedekind.primesOverEquivNormalizedFactorsMinPolyMk (TauCeti/NumberTheory/RamificationInertia/DoubleCoset/Basic.lean, TauCeti/RingTheory/DedekindDomain/KummerDedekind.lean) — Layers 1.4 and 3.6",
+      "tauceti:TauCeti.NumberField.IntegralPrimitiveElement.discr_minpoly_eq_index_sq_mul_discr, TauCeti.NumberField.relDiscr_tower, TauCeti.NumberField.discr_emod_four_eq_zero_or_one (TauCeti/NumberTheory/NumberField/Index/Discriminant.lean, Discriminant/) — Layers 3–4",
+      "tauceti:IsDedekindDomain.HeightOneSpectrum.completionAlgHom and isNonarchimedeanLocalField_adicCompletion (TauCeti/NumberTheory/NumberField/LocalGlobal/Completion.lean, TauCeti/RingTheory/DedekindDomain/AdicValuation/ValuativeRel.lean); absent: Dedekind's cycle-type theorem, semilocalEquiv, decompositionHom to local Galois groups, global ramificationGroup comparison, unit certificates, LMFDB label predicate (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "Algebraic number theory. Transl. from the German by Norbert Schappacher",
+        "authors": "Neukirch, Jürgen",
+        "zbmath": 1313469,
+        "msc": [
+          "11Rxx",
+          "11Sxx",
+          "11-02",
+          "11-01"
+        ]
+      },
+      {
+        "title": "Local fields. Translated from the French by Marvin Jay Greenberg",
+        "authors": "Serre, Jean-Pierre",
+        "zbmath": 3657912,
+        "msc": [
+          "11Sxx",
+          "11-01",
+          "11-02",
+          "14Gxx"
+        ]
+      },
+      {
+        "title": "Algebraic number theory (2nd ed.)",
+        "authors": "Lang, Serge",
+        "zbmath": 611919,
+        "msc": [
+          "11-02",
+          "11-01",
+          "11Rxx",
+          "11Sxx"
+        ]
+      },
+      {
+        "title": "Algebraic number fields (2nd ed.)",
+        "authors": "Janusz, Gerald J.",
+        "zbmath": 843465,
+        "msc": [
+          "11-01",
+          "11R37",
+          "11R29",
+          "11R04",
+          "11R11",
+          "11R42"
+        ]
+      },
+      {
+        "title": "Number fields (2nd ed.)",
+        "authors": "Marcus, Daniel A.",
+        "zbmath": 6875542,
+        "msc": [
+          "11-01",
+          "11Rxx",
+          "11R04",
+          "11R27",
+          "11R29",
+          "11R37",
+          "11R44"
+        ]
+      },
+      {
+        "title": "A course in computational algebraic number theory",
+        "authors": "Cohen, Henri",
+        "zbmath": 435565,
+        "msc": [
+          "11Y40",
+          "11-02",
+          "11Y16",
+          "11Y05",
+          "11Y11",
+          "11Rxx"
+        ]
+      },
+      {
+        "title": "Elementary and analytic theory of algebraic numbers (3rd ed.)",
+        "authors": "Narkiewicz, Władysław",
+        "zbmath": 2107000,
+        "msc": [
+          "11Rxx",
+          "11-01",
+          "11-02"
+        ]
+      },
+      {
+        "title": "Introduction to cyclotomic fields",
+        "authors": "Washington, Lawrence C.",
+        "zbmath": 3760283,
+        "msc": [
+          "11R18",
+          "11-02",
+          "11-01",
+          "11R23",
+          "11R37",
+          "11R42",
+          "11R27",
+          "11R29"
+        ]
       }
     ]
   },
@@ -317,6 +660,817 @@
           "22A20",
           "43A35",
           "43A05"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+    "primaryMsc": "49Q",
+    "secondaryMsc": [
+      "35J",
+      "90C",
+      "53C"
+    ],
+    "cluster": "analysis",
+    "distance": 7,
+    "distanceRationale": "Tau Ceti has built most of the common spine (Layers 0–3) on Mathlib's probability measures, kernels, Prokhorov and KL divergence. That covers couplings, gluing and multi-marginal plans, extended transport cost with compactness, existence and stability, finite and compact/lower-semicontinuous Kantorovich duality, c-transforms and cyclical monotonicity, the Wasserstein distance and space with completeness, quantile couplings and weak convergence, and basic Monge costs. Almost all named summits are still absent: Brenier/McCann (no extended convex conjugate API), Aleksandrov/Caffarelli/MTW/partial Monge–Ampère regularity, Lisini superposition and Benamou–Brenier, AGS gradient flows and JKO, barycenters, entropic transport and Sinkhorn, CD/RCD synthetic curvature, and Gromov–Wasserstein. Several of these are research-level and also wait on unbuilt PDE and Riemannian roadmaps.",
+    "mathlibEvidence": [
+      "tauceti:TauCeti.exists_isOptimalCoupling (TauCeti/MeasureTheory/OptimalTransport/Existence.lean) — attainment for lower-semicontinuous costs on Polish spaces",
+      "tauceti:TauCeti.transportCost_eq_sSup_ofReal_kantorovichDualValue_continuous_of_lowerSemicontinuous and TauCeti.isCyclicallyMonotone_iff_exists_isCConcave (Duality/LowerSemicontinuous.lean, CTransform/CyclicalMonotonicity.lean) — Kantorovich duality and Rockafellar-type c-concavity",
+      "tauceti:TauCeti.wassersteinEDist, TauCeti.WassersteinSpace and TauCeti.WassersteinSpace.instCompleteSpace (TauCeti/MeasureTheory/OptimalTransport/Wasserstein/) — Layer 3 metric package",
+      "mathlib:InformationTheory.klDiv and MeasureTheory.levyProkhorovEDist (Mathlib/InformationTheory/KullbackLeibler/Basic.lean, Mathlib/MeasureTheory/Measure/LevyProkhorovMetric.lean) — entropy and weak-convergence substrate",
+      "absent: Legendre–Fenchel conjugate/Brenier and McCann maps, Monge–Ampère measures and Caffarelli/MTW regularity, continuity equation and Benamou–Brenier, EVI/JKO gradient flows, Wasserstein barycenters, Sinkhorn/Schrödinger bridges, CD/RCD conditions, Gromov–Wasserstein (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "Optimal transport. Old and new",
+        "authors": "Villani, Cédric",
+        "zbmath": 5306371,
+        "msc": [
+          "53-02",
+          "49-02",
+          "90-02",
+          "93-02"
+        ]
+      },
+      {
+        "title": "Topics in optimal transportation",
+        "authors": "Villani, Cédric",
+        "zbmath": 1909499,
+        "msc": [
+          "90-02",
+          "28D05",
+          "35B65",
+          "35J60",
+          "49N90",
+          "49Q20",
+          "90B20"
+        ]
+      },
+      {
+        "title": "Optimal transport for applied mathematicians. Calculus of variations, PDEs, and modeling",
+        "authors": "Santambrogio, Filippo",
+        "zbmath": 6457100,
+        "msc": [
+          "49-02",
+          "90-02",
+          "49N90",
+          "90B06",
+          "90C90"
+        ]
+      },
+      {
+        "title": "Gradient flows in metric spaces and in the space of probability measures (2nd ed.)",
+        "authors": "Ambrosio, Luigi; Gigli, Nicola; Savaré, Giuseppe",
+        "zbmath": 5233008,
+        "msc": [
+          "35-02",
+          "49-02",
+          "49J40",
+          "28A33",
+          "35K55",
+          "47H05",
+          "65M15"
+        ]
+      },
+      {
+        "title": "The Monge-Ampère equation and its link to optimal transportation",
+        "authors": "De Philippis, Guido; Figalli, Alessio",
+        "zbmath": 6377770,
+        "msc": [
+          "35-02",
+          "35B65",
+          "35J60",
+          "35J96"
+        ]
+      },
+      {
+        "title": "Computational optimal transport. With applications to data sciences",
+        "authors": "Peyré, Gabriel; Cuturi, Marco",
+        "zbmath": 7039357,
+        "msc": [
+          "68-02",
+          "49Q22",
+          "68T05",
+          "68T09",
+          "90C90"
+        ]
+      },
+      {
+        "title": "Barycenters in the Wasserstein space",
+        "authors": "Agueh, Martial; Carlier, Guillaume",
+        "zbmath": 5956494,
+        "msc": [
+          "49Q20",
+          "49J40",
+          "49K21",
+          "49K30",
+          "49N15"
+        ]
+      },
+      {
+        "title": "Gromov-Wasserstein distances and the metric approach to object matching",
+        "authors": "Mémoli, Facundo",
+        "zbmath": 5977706,
+        "msc": [
+          "68U05",
+          "68T10",
+          "53C23",
+          "60D05"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+    "primaryMsc": "35J",
+    "secondaryMsc": [
+      "35B",
+      "46E",
+      "42B"
+    ],
+    "cluster": "pde",
+    "distance": 4,
+    "distanceRationale": "Mathlib provides distributions, Bessel-potential Sobolev spaces, Gagliardo–Nirenberg–Sobolev and Lax–Milgram. Tau Ceti has built much of Lanes A and D: weak derivatives and W^{k,p} and W^{1,p}_0 spaces, Poincaré on bounded slabs and balls, Rellich–Kondrachov compactness, complete Hölder spaces, uniform ellipticity with Gårding's inequality, weak Dirichlet existence and uniqueness, the Fredholm alternative and Dirichlet eigenvalues. It also has the Hardy–Littlewood maximal function and the Newtonian kernel. Missing are the trace operator and Morrey embedding, Marcinkiewicz/Riesz–Thorin interpolation, Calderón–Zygmund and BMO, maximum principles and the Hopf lemma for general operators, Perron's method, H²/Schauder/De Giorgi–Nash–Moser regularity, and the parabolic Galerkin and heat-semigroup lane. That is a couple of layers of standard graduate PDE theory.",
+    "mathlibEvidence": [
+      "mathlib:IsCoercive.continuousLinearEquivOfBilin and MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_eq (Mathlib/Analysis/InnerProductSpace/LaxMilgram.lean, Mathlib/Analysis/FunctionalSpaces/SobolevInequality.lean) — Lax–Milgram and the subcritical Sobolev inequality",
+      "tauceti:TauCeti.PDE.existsUnique_isWeakSolutionDirichlet and TauCeti.PDE.UniformlyEllipticOn.garding_energyFormH1_self (TauCeti/Analysis/PDE/DirichletProblem.lean, EnergyForm/Sobolev.lean) — Lane D existence via Gårding and Lax–Milgram",
+      "tauceti:TauCeti.PDE.fredholmAlternative_isWeakSolutionDirichletMassShift (TauCeti/Analysis/PDE/FredholmAlternative.lean) and TauCeti.W1p0.isCompactOperator_valueL (TauCeti/Analysis/Sobolev/RellichKondrachov.lean) — Fredholm alternative and Rellich",
+      "tauceti:TauCeti.W1p.norm_value_le_mul_norm_gradient_of_subset_ball (Sobolev/Poincare/W1p0.lean), TauCeti.HolderSpace.instCompleteSpace (Analysis/Holder/Normed.lean), TauCeti.eLpNorm_maximalFunction_le (MeasureTheory/Integral/MaximalFunction.lean)",
+      "absent: Sobolev trace operator, Morrey embedding, Marcinkiewicz/Riesz–Thorin interpolation, Calderón–Zygmund operators and BMO, Hopf lemma and maximum principles for general L, Perron's method, Schauder and De Giorgi–Nash–Moser estimates, Galerkin parabolic existence, heat semigroup (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "Partial differential equations (2nd ed.)",
+        "authors": "Evans, Lawrence C.",
+        "zbmath": 5681750,
+        "msc": [
+          "35-01",
+          "49-01"
+        ]
+      },
+      {
+        "title": "Elliptic partial differential equations of second order (2nd ed.)",
+        "authors": "Gilbarg, David; Trudinger, Neil S.",
+        "zbmath": 3895476,
+        "msc": [
+          "35-02",
+          "35J15",
+          "35J60",
+          "35B50",
+          "35J25",
+          "35J65",
+          "46E35",
+          "35B65",
+          "35B45"
+        ]
+      },
+      {
+        "title": "Classical Fourier analysis (3rd ed.)",
+        "authors": "Grafakos, Loukas",
+        "zbmath": 6313565,
+        "msc": [
+          "42-01",
+          "42B10",
+          "42B15",
+          "42B05",
+          "42B25",
+          "42B20"
+        ]
+      },
+      {
+        "title": "Modern Fourier analysis (3rd ed.)",
+        "authors": "Grafakos, Loukas",
+        "zbmath": 6313566,
+        "msc": [
+          "42-01",
+          "42B35",
+          "42B30",
+          "42B20",
+          "42B25",
+          "46E35"
+        ]
+      },
+      {
+        "title": "Singular integrals and differentiability properties of functions",
+        "authors": "Stein, Elias M.",
+        "zbmath": 3329342,
+        "msc": [
+          "42B25",
+          "47G10",
+          "46E30",
+          "42-02",
+          "47-02",
+          "45P05"
+        ]
+      },
+      {
+        "title": "Nonlinear dispersive equations. Local and global analysis",
+        "authors": "Tao, Terence",
+        "zbmath": 5035890,
+        "msc": [
+          "35-02",
+          "35Q53",
+          "35Q55",
+          "35L15"
+        ]
+      },
+      {
+        "title": "An analytic approach to SPDEs",
+        "authors": "Krylov, N. V.",
+        "zbmath": 1302005,
+        "msc": [
+          "60H15"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+    "primaryMsc": "12F",
+    "secondaryMsc": [
+      "20B",
+      "11R"
+    ],
+    "cluster": "algebraic-number-theory",
+    "distance": 2,
+    "distanceRationale": "Mathlib has Polynomial.Gal with its faithful root action and Chambert-Loir's block and primitivity library. Tau Ceti already has much of Layers 0–4: the orbit/irreducible-factor dictionary and transitivity-iff-irreducible, stabilizers as relative Galois groups, the block–intermediate-field order isomorphism and 2-transitivity criterion, the discriminant test for containment in Aₙ, the universal resolvent with its symmetric-polynomial specialization, general wreath products, and the n ≤ 5 reference subgroups with the nTj label predicate. What remains is classical: the classification of transitive subgroups of degree ≤ 5, the quartic and quintic resolvent decision tables and quintic certificates, Jordan's p-cycle theorem, the imported Dedekind factorization theorem (whose supplier is not yet built), and the three-prime realization of Sₙ.",
+    "mathlibEvidence": [
+      "mathlib:Polynomial.Gal.galActionHom_injective (Mathlib/FieldTheory/PolynomialGaloisGroup.lean) and MulAction.IsBlock (Mathlib/GroupTheory/GroupAction/Blocks.lean) — Galois group and block substrate",
+      "tauceti:TauCeti.isPretransitive_iff_irreducible and TauCeti.rootBlockIntermediateFieldOrderIso (TauCeti/FieldTheory/GaloisGroups/Orbits.lean, Blocks.lean) — Layers 0 and 2",
+      "tauceti:Polynomial.Monic.isSquare_discr_iff_range_le_alternatingGroup (TauCeti/FieldTheory/GaloisGroups/Discriminant/Basic.lean) — Layer 3 discriminant test",
+      "tauceti:MvPolynomial.galResolvent (TauCeti/FieldTheory/GaloisGroups/Resolvent/Specialization.lean); TauCeti.referenceSubgroup, TauCeti.TransitiveGroupLabel, TauCeti.WreathProduct (TauCeti/GroupTheory/Perm/) — resolvent carrier, labels and wreath products",
+      "absent: classification of transitive subgroups of Sₙ for n ≤ 5, HasGaloisLabel, resolventCubic/resolventSextic decision tables, QuinticCertificate, Jordan's p-cycle theorem, exists_gal_fullCycleType_eq_factorizationType, HasFullSymmetricGaloisGroup realization (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "Solving solvable quintics",
+        "authors": "Dummit, D. S.",
+        "zbmath": 4204494,
+        "msc": [
+          "12F10"
+        ]
+      },
+      {
+        "title": "An elementary test for the Galois group of a quartic polynomial",
+        "authors": "Kappe, Luise-Charlotte; Warren, Bette",
+        "zbmath": 4150324,
+        "msc": [
+          "11R32",
+          "11R09"
+        ],
+        "note": "zbMATH Open redacts this record's title and authors for licensing reasons; identified as the unique hit for the title and author query (Zbl 0702.11075, 1989)"
+      },
+      {
+        "title": "Galois groups of cubics and quartics (not in characteristic 2)",
+        "authors": "Conrad, Keith",
+        "zbmath": null,
+        "msc": [],
+        "note": "online expository notes; not indexed in zbMATH"
+      },
+      {
+        "title": "Permutation groups",
+        "authors": "Dixon, John D.; Mortimer, Brian",
+        "zbmath": 894528,
+        "msc": [
+          "20Bxx",
+          "20-01",
+          "20B05",
+          "20B07",
+          "20B10",
+          "20B15",
+          "20B20",
+          "20B22",
+          "20B27",
+          "20B30",
+          "20B35"
+        ]
+      },
+      {
+        "title": "Finite permutation groups",
+        "authors": "Wielandt, Helmut",
+        "zbmath": 3223737,
+        "msc": [],
+        "note": "zbMATH assigns no MSC code to this 1964 record"
+      },
+      {
+        "title": "The transitive groups of degree up to eleven",
+        "authors": "Butler, Gregory; McKay, John",
+        "zbmath": 3819988,
+        "msc": [
+          "20B20",
+          "20-04",
+          "20B05",
+          "20B35"
+        ],
+        "note": "zbMATH Open redacts this record's title and authors for licensing reasons; identified as the unique hit for the title and author query (Zbl 0518.20003, 1983)"
+      },
+      {
+        "title": "Algebra. Volume I (transl. from the 7th German ed.)",
+        "authors": "Van der Waerden, B. L.",
+        "zbmath": 48827,
+        "msc": [
+          "12-01",
+          "20-01"
+        ]
+      },
+      {
+        "title": "Topics in Galois theory. Notes written by Henri Darmon (2nd ed.)",
+        "authors": "Serre, Jean-Pierre",
+        "zbmath": 5219694,
+        "msc": [
+          "12-01",
+          "11-01",
+          "12F12",
+          "11R32",
+          "12E25",
+          "11N35",
+          "20D08",
+          "20D06",
+          "20F29"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+    "primaryMsc": "20J",
+    "secondaryMsc": [
+      "12G",
+      "20E",
+      "11R"
+    ],
+    "cluster": "homological-algebra-and-categories",
+    "distance": 3,
+    "distanceRationale": "Mathlib supplies discrete group cohomology, finite-level Hilbert 90 and the canonical continuousCohomology carrier. Tau Ceti has built much of the explicit low-degree layer: H⁰, H¹, H² with comparison to discrete groupCohomology (and to the canonical carrier in degree 0), finite-quotient colimits in degrees 0 and 1, the low-degree long exact sequence with δ-naturality, corestriction to degree 2, Shapiro in degrees 0–1, the six low-degree cups with the projection formula, and Kummer cocycles. Still missing are the degree-1/2 comparisons with the canonical carrier, the five-term sequence with transgression, profinite Hilbert 90 and the Kummer isomorphism, the all-degree theory (colimit, long exact sequence, Shapiro, corestriction), cohomological dimension, the graded cup product and the Evens norm. That is about one further layer of standard graduate Galois cohomology.",
+    "mathlibEvidence": [
+      "mathlib:continuousCohomology (Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean) — canonical carrier, computed only in degree 0 upstream",
+      "tauceti:TauCeti.ContCohomology.explicitH2IsoGroupCohomology and TauCeti.ContCohomology.explicitH0IsoContinuousCohomology (TauCeti/RepresentationTheory/Homological/ContCohomology/GroupCohomologyIso.lean, ContinuousCohomologyIso.lean) — Layer 3 comparisons",
+      "tauceti:TauCeti.ContCohomology.explicitFiniteQuotientColimit1 and TauCeti.ContCohomology.DiscreteShortExact.explicitLongExact_H2B (ContCohomology/FiniteQuotient/Colimit.lean, LongExact.lean) — Layers 4–5 in low degree",
+      "tauceti:TauCeti.ContCohomology.explicitCor2, explicitShapiro1, explicitCup_projection11 (ContCohomology/Corestriction.lean, Shapiro.lean, ProjectionFormula.lean); TauCeti.kummerMap (TauCeti/FieldTheory/GaloisCohomology/Kummer.lean)",
+      "absent: explicitH1IsoContinuousCohomology/explicitH2IsoContinuousCohomology, transgression and five-term sequence, profinite hilbert90 and kummerIso, all-degree corestriction/shapiroIso, cd_p/scd_p, graded cup, evensNorm (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "Cohomology of number fields (2nd ed.)",
+        "authors": "Neukirch, Jürgen; Schmidt, Alexander; Wingberg, Kay",
+        "zbmath": 5162349,
+        "msc": [
+          "11-02",
+          "11R34",
+          "11R23",
+          "11S25",
+          "18G10",
+          "18G20",
+          "20J05",
+          "11R37"
+        ]
+      },
+      {
+        "title": "Profinite groups (2nd ed.)",
+        "authors": "Ribes, Luis; Zalesskii, Pavel",
+        "zbmath": 5662352,
+        "msc": [
+          "20E18",
+          "20-02",
+          "20J05",
+          "12G05",
+          "20E06",
+          "20E05",
+          "20E07",
+          "20F05"
+        ]
+      },
+      {
+        "title": "Galois cohomology. Transl. from the French by Patrick Ion",
+        "authors": "Serre, Jean-Pierre",
+        "zbmath": 1047205,
+        "msc": [
+          "12G05",
+          "12-02",
+          "11-02",
+          "11R34",
+          "11S25"
+        ]
+      },
+      {
+        "title": "A generalization of the transfer map in the cohomology of groups",
+        "authors": "Evens, L.",
+        "zbmath": 3197165,
+        "msc": [],
+        "note": "zbMATH assigns no MSC code to this 1963 record"
+      },
+      {
+        "title": "The Evens-Kahn formula for the total Stiefel-Whitney class",
+        "authors": "Kozlowski, Andrzej",
+        "zbmath": 3812538,
+        "msc": [
+          "57R20",
+          "55R50",
+          "55R12",
+          "55R25",
+          "55N99"
+        ]
+      },
+      {
+        "title": "Galois theory of p-extensions. Transl. from the German by F. Lemmermeyer",
+        "authors": "Koch, Helmut",
+        "zbmath": 1798938,
+        "msc": [
+          "11-02",
+          "11R34",
+          "11R32"
+        ]
+      },
+      {
+        "title": "Arithmetic duality theorems (2nd ed.)",
+        "authors": "Milne, J. S.",
+        "zbmath": 5081843,
+        "msc": [
+          "14-02",
+          "14G20",
+          "14G25",
+          "11R34",
+          "14F45",
+          "14F20"
+        ]
+      },
+      {
+        "title": "Cohomology of groups",
+        "authors": "Brown, Kenneth S.",
+        "zbmath": 3935317,
+        "msc": [
+          "20J05",
+          "20-02",
+          "18-02",
+          "55-02",
+          "20J06"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+    "primaryMsc": "20E",
+    "secondaryMsc": [
+      "20J",
+      "11S",
+      "12G"
+    ],
+    "cluster": "group-theory",
+    "distance": 5,
+    "distanceRationale": "Mathlib has ProfiniteGrp with limits and completions, finite Sylow theory and Frattini subgroups. Tau Ceti has built most of Layers 0–3: supernatural order and index with Lagrange, profinite Sylow existence, containment and conjugacy, the maximal pro-p quotient with its universal property, the pro-p Frattini subgroup with Burnside, topological finite generation and the Hopfian property. Still missing are free profinite and free pro-p groups with their universal properties, presentations with extensions, embedding problems and the H¹/H² rank interpretations, Golod–Shafarevich, cohomological dimension of pro-p groups including Serre's freeness theorem, Demushkin groups with duality and orientation, the central-tower comparison method, and Labute's classification. These form several layers of advanced graduate-to-research theory that also depend on unfinished continuous-cohomology infrastructure.",
+    "mathlibEvidence": [
+      "mathlib:ProfiniteGrp (Mathlib/Topology/Algebra/Category/ProfiniteGrp/Basic.lean) — the bundled profinite-group category, limits and completion",
+      "tauceti:TauCeti.Supernatural and Subgroup.profiniteOrder_eq_mul_profiniteIndex (TauCeti/NumberTheory/Supernatural.lean, TauCeti/Topology/Algebra/Group/Profinite/Lagrange.lean) — Layer 1",
+      "tauceti:TauCeti.exists_isProPSylow and TauCeti.IsProPSylow (TauCeti/Topology/Algebra/Group/Profinite/Sylow/) — Layer 2 existence, containment, conjugacy",
+      "tauceti:TauCeti.maximalProPQuotient.lift_unique, TauCeti.proPFrattini, TauCeti.IsTopologicallyFinitelyGenerated.bijective_of_surjective (Profinite/MaximalProP.lean, ProP/Frattini.lean, Hopfian.lean) — Layer 3",
+      "absent: freeProfiniteGroup, freeProP, presentedProP, FiniteEmbeddingProblem, topologicalGeneratorRank, Golod–Shafarevich, pro-p cohomological dimension and Serre's freeness theorem, IsDemushkin and the Labute classification (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "Profinite groups (2nd ed.)",
+        "authors": "Ribes, Luis; Zalesskii, Pavel",
+        "zbmath": 5662352,
+        "msc": [
+          "20E18",
+          "20-02",
+          "20J05",
+          "12G05",
+          "20E06",
+          "20E05",
+          "20E07",
+          "20F05"
+        ]
+      },
+      {
+        "title": "Galois cohomology. Transl. from the French by Patrick Ion",
+        "authors": "Serre, Jean-Pierre",
+        "zbmath": 1047205,
+        "msc": [
+          "12G05",
+          "12-02",
+          "11-02",
+          "11R34",
+          "11S25"
+        ]
+      },
+      {
+        "title": "Cohomology of number fields (2nd ed.)",
+        "authors": "Neukirch, Jürgen; Schmidt, Alexander; Wingberg, Kay",
+        "zbmath": 5162349,
+        "msc": [
+          "11-02",
+          "11R34",
+          "11R23",
+          "11S25",
+          "18G10",
+          "18G20",
+          "20J05",
+          "11R37"
+        ]
+      },
+      {
+        "title": "Classification of Demushkin groups",
+        "authors": "Labute, John P.",
+        "zbmath": 3245524,
+        "msc": [],
+        "note": "Can. J. Math. 19 (1967); zbMATH assigns no MSC code to this record"
+      },
+      {
+        "title": "Structure de certains pro-p-groupes",
+        "authors": "Serre, Jean-Pierre",
+        "zbmath": 3195478,
+        "msc": [
+          "11S15",
+          "11S25"
+        ]
+      },
+      {
+        "title": "The group of a maximal p-extension of a local field",
+        "authors": "Demushkin, S. P.",
+        "zbmath": 3162976,
+        "msc": [
+          "11S15"
+        ],
+        "note": "Izv. Akad. Nauk SSSR 25 (1961); zbMATH lists the title in German translation"
+      },
+      {
+        "title": "Galois theory of p-extensions. Transl. from the German by F. Lemmermeyer",
+        "authors": "Koch, Helmut",
+        "zbmath": 1798938,
+        "msc": [
+          "11-02",
+          "11R34",
+          "11R32"
+        ]
+      },
+      {
+        "title": "Profinite completions and isomorphic finite quotients",
+        "authors": "Dixon, John D.; Formanek, Edward W.; Poland, John C.; Ribes, Luis",
+        "zbmath": 3749255,
+        "msc": [
+          "20E18",
+          "20E25",
+          "20E07"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+    "primaryMsc": "11E",
+    "secondaryMsc": [
+      "16K",
+      "12G",
+      "11S"
+    ],
+    "cluster": "algebraic-number-theory",
+    "distance": 5,
+    "distanceRationale": "Mathlib supplies quadratic forms, diagonalization, quaternion algebras and the Brauer group carrier. Tau Ceti has built Layers 0–1 and part of 2–3: the RegularFormClass carrier with discriminants, chain equivalence of diagonal forms, Witt decomposition, cancellation and extension, hyperbolic planes, Cartan–Dieudonné, the quaternion norm form with split and Steinberg relations, and a nontrivial quaternion Brauer class. Missing are the Witt ring with its fundamental ideal and Pfister forms, the four-fold splitting criterion, the Hasse and Clifford invariants, the quadratic defect and local Hilbert symbol, the local classification by (dim, d, s), the crossed-product comparison Br(K)[2] ≅ H²(G_K, μ₂) with the cup–norm theorem, Stiefel–Whitney classes, and the Scharlau transfer with Kahn's relative formula. These layers sit on the unfinished local-field, continuous-cohomology and class-field-theory suppliers, and Kahn's formula is research-level.",
+    "mathlibEvidence": [
+      "mathlib:QuadraticForm.equivalent_weightedSumSquares, QuaternionAlgebra and BrauerGroup (Mathlib/LinearAlgebra/QuadraticForm/IsometryEquiv.lean, Mathlib/Algebra/Quaternion.lean, Mathlib/Algebra/BrauerGroup/Defs.lean)",
+      "tauceti:TauCeti.RegularFormClass and TauCeti.diagonalChain_iff_equivalent (TauCeti/LinearAlgebra/QuadraticForm/RegularFormClass/Basic.lean, Diagonal/WittChain.lean) — carrier and Witt chain equivalence",
+      "tauceti:TauCeti.RegularFormClass.wittDecomposition and TauCeti.isLeftCancelAdd_regularFormClass (TauCeti/LinearAlgebra/QuadraticForm/Witt/Decomposition.lean, Witt/Cancellation.lean) — Layer 1",
+      "tauceti:QuaternionAlgebra.normForm (TauCeti/Algebra/Quaternion/NormForm.lean) and TauCeti.Quaternion.nontrivial_brauerGroup (TauCeti/Algebra/BrauerGroup/Quaternion.lean); TauCeti.SquareClassGroup (TauCeti/FieldTheory/SquareClassGroup/Basic.lean)",
+      "absent: Witt ring and fundamental ideal, Pfister forms, hasseInvariant/cliffordInvariant, quadratic defect, hilbertSymbol and localHasse, local classification, Br ≅ H² crossed-product comparison, Stiefel–Whitney classes, Scharlau transfer (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "Introduction to quadratic forms over fields",
+        "authors": "Lam, T. Y.",
+        "zbmath": 2132158,
+        "msc": [
+          "11Exx",
+          "11-02",
+          "12D15",
+          "15A63",
+          "15A66",
+          "16K20",
+          "16K50",
+          "16W50"
+        ]
+      },
+      {
+        "title": "A course in arithmetic",
+        "authors": "Serre, Jean-Pierre",
+        "zbmath": 3404329,
+        "msc": [
+          "12-01"
+        ]
+      },
+      {
+        "title": "Introduction to quadratic forms",
+        "authors": "O'Meara, O. T.",
+        "zbmath": 3174540,
+        "msc": [
+          "11Exx",
+          "11-01"
+        ]
+      },
+      {
+        "title": "Classes de Stiefel-Whitney de formes quadratiques et de représentations galoisiennes réelles",
+        "authors": "Kahn, Bruno",
+        "zbmath": 3887815,
+        "msc": [
+          "12F10",
+          "11E04",
+          "57R20",
+          "18F25",
+          "20J06"
+        ]
+      },
+      {
+        "title": "Central simple algebras and Galois cohomology (2nd ed.)",
+        "authors": "Gille, Philippe; Szamuely, Tamás",
+        "zbmath": 6732223,
+        "msc": [
+          "19-02",
+          "12-02",
+          "16-02",
+          "12G05",
+          "16K20",
+          "14F22",
+          "19C30"
+        ]
+      },
+      {
+        "title": "Quadratic and Hermitian forms",
+        "authors": "Scharlau, Winfried",
+        "zbmath": 3935120,
+        "msc": [
+          "11Exx",
+          "11-01",
+          "11-02",
+          "12-01",
+          "12-02",
+          "11E04",
+          "11E08",
+          "11E10",
+          "11E12",
+          "11E16",
+          "11E39",
+          "11E57",
+          "11E88",
+          "12D15",
+          "12E15",
+          "15A63",
+          "15A66",
+          "16H05",
+          "16W10",
+          "18F25"
+        ]
+      },
+      {
+        "title": "The algebraic and geometric theory of quadratic forms",
+        "authors": "Elman, Richard; Karpenko, Nikita; Merkurjev, Alexander",
+        "zbmath": 5306550,
+        "msc": [
+          "11E81",
+          "11-02",
+          "11E08",
+          "11E04",
+          "19D45",
+          "14C15",
+          "14F43",
+          "14C35",
+          "14F42",
+          "11R34"
+        ]
+      },
+      {
+        "title": "Algebraic K-theory and quadratic forms. With an appendix by J. Tate",
+        "authors": "Milnor, John W.",
+        "zbmath": 3318401,
+        "msc": [
+          "19G12",
+          "11E70",
+          "19C30",
+          "14C35"
+        ]
+      }
+    ]
+  },
+  {
+    "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "primaryMsc": "14L",
+    "secondaryMsc": [
+      "20G",
+      "16T",
+      "17B"
+    ],
+    "cluster": "lie-theory-and-representations",
+    "distance": 5,
+    "distanceRationale": "Mathlib supplies Hopf algebras, group objects, abstract root data and Coxeter groups. Tau Ceti has built most of Layers 0–6 over a field: the Hopf/affine-group-scheme dictionary and functor of points, comodules with Tannakian reconstruction, Hopf ideals, fppf quotients and components, tangent spaces, Jordan decomposition, multiplicative-type groups and tori, unipotent and solvable radicals with Lie–Kolchin, and the reductive and semisimple predicates. It also has pieces of Layer 7: existence of geometric Borel subgroups, dynamic parabolics and Levi decompositions, GLₙ root data, torus-level special isogenies. Still missing are conjugacy of Borel subgroups and maximal tori, the root datum and Bruhat decomposition of a general reductive group, the isomorphism and existence (classification) theorems, and the explicitly constructed pinned Chevalley–Demazure group schemes over ℤ with root subgroups and the G₂/F₄ special isogenies. These are several deep layers of SGA 3–level theory.",
+    "mathlibEvidence": [
+      "mathlib:HopfAlgebra and RootDatum (Mathlib/RingTheory/HopfAlgebra/Basic.lean, Mathlib/LinearAlgebra/RootSystem/Defs.lean) — Hopf-algebra and abstract root-datum substrate",
+      "tauceti:TauCeti.Tannaka.reconstructedPoint (TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Reconstruction.lean) and TauCeti.Comodule.exists_basis_coefficientMatrix_isUpperTriangular_of_geometricallyUnipotent_derived (Solvable/LieKolchin.lean) — Layers 1 and 5",
+      "tauceti:TauCeti.FiniteTypeCommHopfAlgCat.unipotentRadical (TauCeti/Algebra/AlgebraicGroup/Unipotent/Radical/Construction.lean) and TauCeti.reductiveCommHopfAlgProperty (Reductive/Basic.lean) — Layers 5–6",
+      "tauceti:TauCeti.HopfIdeal.exists_geometricBorel (Borel/Existence.lean), TauCeti.Cocharacter.parabolicFunctor (Dynamic/Functor.lean), TauCeti.DynkinType.g2SpecialTorusEnd (SplitTorus/RootDatum/SpecialIsogeny.lean) — partial Layer 7 and torus-level Layer 9 data",
+      "absent: conjugacy of Borel subgroups and maximal tori, root datum of a general split reductive group, Bruhat decomposition for G, isomorphism/existence theorems, Chevalley–Demazure group schemes over ℤ with root subgroup maps (no matching declarations)"
+    ],
+    "references": [
+      {
+        "title": "Algebraic groups. The theory of group schemes of finite type over a field",
+        "authors": "Milne, J. S.",
+        "zbmath": 6713849,
+        "msc": [
+          "14-02",
+          "14L15",
+          "14L10",
+          "14L17",
+          "14L30",
+          "16T05",
+          "17B45"
+        ]
+      },
+      {
+        "title": "Introduction to affine group schemes",
+        "authors": "Waterhouse, William C.",
+        "zbmath": 3689557,
+        "msc": [
+          "14L15",
+          "14L17",
+          "16U70",
+          "20G15",
+          "14-02"
+        ]
+      },
+      {
+        "title": "Linear algebraic groups (2nd ed.)",
+        "authors": "Borel, Armand",
+        "zbmath": 50185,
+        "msc": [
+          "20G15",
+          "20-02",
+          "22E46"
+        ]
+      },
+      {
+        "title": "Linear algebraic groups (2nd ed.)",
+        "authors": "Springer, T. A.",
+        "zbmath": 1219612,
+        "msc": [
+          "20G15",
+          "14L10",
+          "20-02",
+          "20Gxx",
+          "14L17",
+          "17B45",
+          "14-02",
+          "14L35",
+          "17-02",
+          "14Lxx"
+        ]
+      },
+      {
+        "title": "Representations of algebraic groups (2nd ed.)",
+        "authors": "Jantzen, Jens Carsten",
+        "zbmath": 2019767,
+        "msc": [
+          "20G05",
+          "20G10",
+          "20-01",
+          "14L15",
+          "17B10",
+          "14L17",
+          "20G15"
+        ]
+      },
+      {
+        "title": "Reductive group schemes",
+        "authors": "Conrad, Brian",
+        "zbmath": 6479627,
+        "msc": [
+          "14L15",
+          "14A20"
+        ]
+      },
+      {
+        "title": "Schémas en groupes. III: Structure des schémas en groupes réductifs (SGA 3, Exposés XIX–XXVI)",
+        "authors": "Demazure, Michel; Grothendieck, Alexander (eds.)",
+        "zbmath": 3337379,
+        "msc": [
+          "14-06",
+          "00B60",
+          "14L15"
+        ]
+      },
+      {
+        "title": "Pseudo-reductive groups",
+        "authors": "Conrad, Brian; Gabber, Ofer; Prasad, Gopal",
+        "zbmath": 5776176,
+        "msc": [
+          "20G15",
+          "20G07",
+          "20-02",
+          "14-02",
+          "14L40",
+          "14L17",
+          "20G25",
+          "20G30",
+          "11R58"
         ]
       }
     ]
