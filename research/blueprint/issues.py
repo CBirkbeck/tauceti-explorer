@@ -261,6 +261,8 @@ def deliverables_complete(job):
             covered = {entry.get("roadmapId") for entry in result}
             return (set(job.get("roadmapIds") or []) <= covered
                     and not any(entry.get("assessmentStatus") == "partial" for entry in result))
+        if job["kind"] == "link":
+            return json.loads(paths[0].read_text()).get("status") == "complete"
         if job["kind"] == "naming":
             wanted = {entry["id"] for entry in json.loads((REPO / "research" / "expansion" / "naming" / f"{job['id']}.json").read_text())}
             return wanted <= {entry.get("id") for entry in json.loads(paths[0].read_text())}
