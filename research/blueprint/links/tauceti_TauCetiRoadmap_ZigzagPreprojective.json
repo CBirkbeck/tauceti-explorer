@@ -1,0 +1,359 @@
+{
+  "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+  "protocol": "links-v1",
+  "summary": "Connect the strict graph-algebra, graded Euler, relative Koszul, DG completion and braid-transfer stages to their actual suppliers. The links are mathematical planning contracts, not implementation certificates. Keep small-graph exceptions, opposite conventions, finite support, characteristic restrictions and ordinary/completed constructions explicit. The accompanying handoff records source locators, recursive interfaces, survey limits and unresolved repairs.",
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-0-quivers-and-the-path-algebra",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-0-affine-simply-laced-diagrams-doubled-graphs-relation-quotients-and-grading-descent",
+      "reason": "Reuse the finite-vertex path algebra, its orthogonal vertex idempotents and later-factor-first product before forming doubled-graph homogeneous quotients. Acyclicity is not required for this algebra: doubled graphs have oriented two-cycles. Zigzag owns the homogeneous relation ideal and grading descent. Do not consume the supplier's overstrong claim that arrows alone generate the algebra; include vertex idempotents (handoff R-PATH).",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-0-quivers-and-the-path-algebra",
+          "quote": "product concatenating composable paths in the \"later factor first\" order,"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-0-affine-simply-laced-diagrams-doubled-graphs-relation-quotients-and-grading-descent",
+          "quote": "Prove all source/target corner identities using Tau Ceti's multiplication convention."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-0-affine-simply-laced-diagrams-doubled-graphs-relation-quotients-and-grading-descent",
+      "reason": "The affine-node deletion comparison needs the finite ADE Cartan matrix with a fixed Bourbaki numbering, not merely an existential root system. Consume the numbered finite-type data (and Layer 5 type validity), then construct affine diagrams, marks and deletion relabellings in Zigzag. This is not an import of general affine/Kac--Moody theory; multiplicity-two affine A1 remains outside the finite-simple-graph input.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+          "quote": "**Pin the node numbering.** `DynkinType.cartanMatrix` is indexed by the Bourbaki labels,"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-0-affine-simply-laced-diagrams-doubled-graphs-relation-quotients-and-grading-descent",
+          "quote": "with an explicit relabelling matching the Bourbaki numbering"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-2-bases-dimensions-centers-and-symmetric-frobenius-traces",
+      "reason": "After Zigzag proves its finite-dimensional basis and nondegenerate symmetric trace pairing, package that trace using the generic Frobenius functional and left/right self-injectivity theorem. The generic theorem must not depend on this particular example. Transport the dual-module convention explicitly rather than conflating algebraic Frobenius with Frobenius exact categories.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+          "quote": "Prove that a Frobenius algebra is left and right self-injective."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-2-bases-dimensions-centers-and-symmetric-frobenius-traces",
+          "quote": "Frobenius and self-injective algebra structures."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-1-representations-of-a-quiver-as-kq-modules",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms",
+      "reason": "The unbound-quiver/left-module equivalence supplies the idempotent decomposition and projective convention needed for the target's comparison. Before applying it to Zigzag, restrict to representations annihilating the relation ideal and compare them with modules over the quotient. That restriction and its projective/graded compatibility are still an explicit bridge obligation, not supplied by the unbound equivalence alone (R-BOUND).",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-1-representations-of-a-quiver-as-kq-modules",
+          "quote": "the `k`-linear equivalence identifying a representation with a **left** `kQ`-module."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms",
+          "quote": "projective representation under the bound-quiver/module equivalence."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms",
+      "reason": "Use the graded Cartan map and projective/simple bases for the finite-dimensional split algebra already constructed in Zigzag Layers 1--2. Establish graded projective covers, left-module indexing and multiplicity/Hom comparison before interpreting (1+q^2)I+qA. No Cartan invertibility or finite-global-dimension conclusion follows for a self-injective zigzag algebra; compare the supplier and quiver transpose conventions explicitly.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+          "quote": "**The graded Cartan map.** For a graded finite-dimensional algebra with graded simples and"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms",
+          "quote": "Interpret this matrix through the graded Grothendieck group from the sibling roadmap."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-6-laurent-coefficients-q-euler-forms-and-specialization",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms",
+      "reason": "Use the Laurent shift-module and sesquilinear q-Euler API only with cohomological finite support and finite internal support for every surviving degree. The convention is [M{1}]=q[M], q-antilinearity in the first variable. The formal power-series inverse used in Koszul calculations is a different object. Forgetting grading also requires actual graded/ungraded Ext comparison isomorphisms; setting q=1 alone does not supply them.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-6-laurent-coefficients-q-euler-forms-and-specialization",
+          "quote": "Define graded Ext admissibility with both cohomological finite support and finite Laurent support in every surviving degree."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms",
+          "quote": "Define an Ext `q`-Euler value only for pairs satisfying the sibling roadmap's finite cohomological and Laurent support predicates."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-5-quadratic-and-koszul-duality",
+      "reason": "Reuse the definition of a linear graded projective resolution so classical zigzag Koszulity and the DG relative-Koszul supplier have one vocabulary. Zigzag must construct its complexes and prove exactness, including the restrictions to quadratic cases; it must not infer Koszulity merely from inverse Hilbert/Cartan series. The supplier's claimed numerical equivalence is deliberately not imported (R-KOSZUL).",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
+          "quote": "the `i`th term is generated in internal degree `i`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-5-quadratic-and-koszul-duality",
+          "quote": "The proof includes the Koszul complexes, exactness, Hilbert-series identities, and handedness of left and right quadratic duals."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/DGAInfinity#layer-11-relative-quadratic-and-derived-koszul-duality",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-5-quadratic-and-koszul-duality",
+      "reason": "Instantiate relative quadratic duality at S=k^I and the finite arrow bimodule, with the chosen evaluation and opposite convention. The target owns the relation-annihilator computation, the signless dual and the bipartite rescaling to the signed preprojective algebra. A1/A2 exceptional definitions and nonbipartite/characteristic-two cases cannot be erased by the generic duality.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-11-relative-quadratic-and-derived-koszul-duality",
+          "quote": "Over a field with `S=k^I`, compute the idempotent components and recover reversed quiver arrows."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-5-quadratic-and-koszul-duality",
+          "quote": "left and right quadratic duals.  A matrix inverse alone is not used as a definition of duality."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/DGAInfinity#layer-9-smoothness-properness-serre-and-calabi--yau-structures-and-completions",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-6-2-dimensional-ginzburg-dg-algebras-and-calabi--yau-completion",
+      "reason": "Consume the derived tensor algebra of the inverse-dualizing bimodule and the homologically smooth CY-completion API as the right-hand side of the explicit Pi2/Gamma3 comparisons. Zigzag must supply the potential-dependent Hochschild class, its signs and degrees. A canonical CY refinement needing a negative-cyclic lift must retain that hypothesis. Keep Pi2 loops of cohomological degree -1, Gamma3 loops of degree -2 and length-completed versions distinct.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-9-smoothness-properness-serre-and-calabi--yau-structures-and-completions",
+          "quote": "These completions are the objects the zigzag/Ginzburg roadmap identifies with its explicit `Π₂(Q)` and `Γ₃(Q,W)`;"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-6-2-dimensional-ginzburg-dg-algebras-and-calabi--yau-completion",
+          "quote": "taking the completion itself from the sibling roadmap's Layer 9 rather than constructing a local copy"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/DGAInfinity#layer-3-minimal-models-and-homological-transfer",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-7-derived-koszul-duality-hochschild-classes-and-a-deformation-theory",
+      "reason": "Use transfer along an actual contraction with normalized side conditions (or the supplier's normalization theorem) to produce a minimal strictly unital A-infinity structure. Regrading and compatible semisimple-base/unit splittings must be supplied. The target still proves that the relevant higher operation is nontrivial up to the prescribed equivalence; a nonzero chosen operation alone is not such a proof.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-3-minimal-models-and-homological-transfer",
+          "quote": "Construct transferred operations as finite sums over planar rooted trees,"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-7-derived-koszul-duality-hochschild-classes-and-a-deformation-theory",
+          "quote": "and transfer along a specified contraction to obtain a nontrivial minimal `A∞` deformation of `Z(Γ)`."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-7-derived-koszul-duality-hochschild-classes-and-a-deformation-theory",
+      "reason": "Consume normalized, arity-complete Hochschild cochains, higher-operation obstruction classes and the sufficient intrinsic-formality machinery. For bad characteristics use coderivations/braces rather than exponential gauge over a Q-algebra. The supplier's HH^{n,2-n} criterion and the target's positive-Adams-degree HH^{2,q} criterion require an explicit translation; this edge does not certify that missing comparison (R-HH).",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality",
+          "quote": "retain both Hochschild arity and internal degree."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-7-derived-koszul-duality-hochschild-classes-and-a-deformation-theory",
+          "quote": "Instantiate the sibling roadmap's definitions of a strictly unital minimal `A∞` deformation"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/DGAInfinity#layer-11-relative-quadratic-and-derived-koszul-duality",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-7-derived-koszul-duality-hochschild-classes-and-a-deformation-theory",
+      "reason": "Use the augmented derived Koszul dual RHom_A(S,S), retaining its DG or transferred higher structure. After regrading arrows to (1,-1), verify split augmentation, dualizability, Adams local finiteness, conilpotence and the exact completeness hypotheses inherited from DGAInfinity Layer 4. Only then may the target compare double duals, bar models and its Ginzburg algebra; an ordinary algebra is not silently replaced by its completion.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-11-relative-quadratic-and-derived-koszul-duality",
+          "quote": "Define the derived Koszul dual of an augmented DG/`A∞` algebra as `E(A)=RHom_A(S,S)`,"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-7-derived-koszul-duality-hochschild-classes-and-a-deformation-theory",
+          "quote": "Regrade each zigzag arrow from path degree `1` to bidegree `(1,-1)` before invoking the sibling"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/DGAInfinity#layer-6-quasi-equivalence-derived-morita-theory-and-compact-generators",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-8-braid-complexes-and-spherical-twist-comparisons",
+      "reason": "Use composition by derived tensor and an actual invertible Morita bimodule, including its inverse and coherence, to transport the already constructed braid action. Preserve graded/opposite conventions and distinguish this transport theorem from constructing a McKay equivalence. No faithfulness or sphericality follows from Morita terminology or a K0 calculation alone.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-6-quasi-equivalence-derived-morita-theory-and-compact-generators",
+          "quote": "Build the Morita bicategory whose 1-morphisms are suitable bimodules and composition is derived tensor."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-8-braid-complexes-and-spherical-twist-comparisons",
+          "quote": "Prove natural transfer of the action through a **supplied** Morita or derived equivalence,"
+        }
+      ]
+    }
+  ],
+  "overlaps": [
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+        "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-0-affine-simply-laced-diagrams-doubled-graphs-relation-quotients-and-grading-descent"
+      ],
+      "detail": "Both discuss bound path-algebra quotients, but the finite-dimensional/admissible-ideal theorem does not cover every homogeneous ideal or infinite-dimensional preprojective algebra.",
+      "recommendation": "rescope",
+      "proposal": "Keep finite-dimensional structure, admissible presentations and projective-cover theory with QuiverRepresentations. Give the homogeneous quotient/grading and arbitrary-relation module restriction a reusable interface in Zigzag Layer 0, coordinated with the quiver owner; prove the restriction square rather than importing a narrower theorem unchanged (R-BOUND)."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+        "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms"
+      ],
+      "detail": "The same projective/simple Cartan data are expressed with different matrix indexing. Symmetry of the zigzag matrix can conceal an unproved transpose conversion.",
+      "recommendation": "keep",
+      "proposal": "Quiver owns algebraic projective covers and multiplicities; GrothendieckEulerForms owns the Cartan map with column j equal to [P_j]; Zigzag owns the explicit graded matrix. Supply entrywise transpose and graded-shift comparisons, tested on a nonsymmetric quiver as well as the symmetric zigzag example (R-CARTAN)."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+        "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-0-affine-simply-laced-diagrams-doubled-graphs-relation-quotients-and-grading-descent"
+      ],
+      "detail": "Finite and affine ADE diagrams share numbered finite Cartan data, but positive-definite finite classification is not affine classification.",
+      "recommendation": "keep",
+      "proposal": "Keep valid finite Dynkin types, finite Cartan matrices and Bourbaki numbering with RootSystems. Zigzag owns only its simply-laced affine extensions, marks and deletion comparison. Do not add affine A1 as a simple graph or import general Kac--Moody theory."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/DGAInfinity#layer-11-relative-quadratic-and-derived-koszul-duality",
+        "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-5-quadratic-and-koszul-duality"
+      ],
+      "detail": "Both state Koszul and quadratic-duality results; the general relative theorem and graph-specific relation computation have different ownership.",
+      "recommendation": "keep",
+      "proposal": "DGAInfinity owns dualizable semisimple-base quadratic/derived duality and the opposite bridge; GrothendieckEulerForms supplies linear resolutions. Zigzag proves signless relations, bipartite sign changes, exactness and graph/characteristic exceptions. Never replace those proofs by a matrix inverse."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities",
+        "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-2-bases-dimensions-centers-and-symmetric-frobenius-traces"
+      ],
+      "detail": "Zigzag gives symmetric Frobenius examples which can enter the general stable-module construction; it does not supply the generic triangulation theorem.",
+      "recommendation": "keep",
+      "proposal": "StablePeriodicCurved owns finite self-injective stable-module categories and their comparison theorems. Instantiate that construction on the proved Zigzag examples only in a separate application step. Do not reverse the generic Stable Layer 0 -> Zigzag Layer 2 edge. Finite-Dynkin CY consequences need their own source-qualified application node (R-STABLE)."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality",
+        "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-7-derived-koszul-duality-hochschild-classes-and-a-deformation-theory"
+      ],
+      "detail": "Both discuss intrinsic formality, but one uses Hochschild arity/internal indices HH^{n,2-n}, while the target states a positive-degree HH^{2,q} condition after derived Koszul comparison.",
+      "recommendation": "rescope",
+      "proposal": "Keep the general normalized obstruction machinery with DGAInfinity. Require a named regrading, totalization and Hochschild-comparison lemma in Zigzag before the finite-tree criterion; state characteristic and completion hypotheses at each conversion (R-HH)."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/DGAInfinity#layer-9-smoothness-properness-serre-and-calabi--yau-structures-and-completions",
+        "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-6-2-dimensional-ginzburg-dg-algebras-and-calabi--yau-completion"
+      ],
+      "detail": "Both mention Calabi--Yau completions and structures. Constructing the abstract completion, identifying a presented DG algebra, and obtaining a Serre statement are distinct steps.",
+      "recommendation": "keep",
+      "proposal": "DGAInfinity owns the abstract smooth/left and proper/right predicates and completions. Zigzag owns explicit Pi2/Gamma3 and potential-class comparisons. Require negative-cyclic lifts and properness/duality separately whenever a stronger conclusion uses them; do not identify ordinary and completed tensor algebras."
+    }
+  ],
+  "examined": [
+    {"roadmapId":"tauceti:Completed/ContourIntegration","result":"none","note":"Atlas summary and stage-title screen only. Complex residues and contour geometry; unrelated."},
+    {"roadmapId":"tauceti:Completed/EffectiveBounds","result":"none","note":"Atlas summary and stage-title screen only. Arithmetic geometry-of-numbers bounds, not graph-algebra dimensions."},
+    {"roadmapId":"tauceti:Completed/IntegralLattices","result":"none","note":"Atlas summary and stage-title screen only. ADE lattice/discriminant forms: shared numerical data alone do not provide a target algebra or Euler comparison."},
+    {"roadmapId":"tauceti:Completed/OrthogonalL2Bases","result":"none","note":"Atlas summary and stage-title screen only. Hilbert-space orthogonal bases, not finite algebra path bases."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/AdicSpaces","result":"none","note":"Atlas summary and stage-title screen only. Huber rings, rational localization and adic geometry: no direct tensor-length/Adams completion supplier."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCodingTheory","result":"none","note":"Atlas summary and stage-title screen only. Codes, Construction A and discriminant gluing: no quiver-algebra or Cartan/Euler contract."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCurves","result":"none","note":"Atlas summary and stage-title screen only. Function fields, divisors and Riemann--Roch: no direct graph-algebra contract."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicTopology","result":"none","note":"Atlas summary and stage-title screen only. Map-level homology, CW theory and duality: graph H1 would need a separate combinatorial/topological realization comparison; no direct edge inferred."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/AnalyticToricGeometry","result":"none","note":"Atlas summary and stage-title screen only. Fans and analytic/algebraic toric gluing, not quiver or McKay equivalences."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries","result":"none","note":"Atlas summary and stage-title screen only. Analytic Euler products are not Ext-Euler pairings."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/BelyiMaps","result":"none","note":"Atlas summary and stage-title screen only. Ribbon graphs and covers do not themselves supply doubled-quiver algebras or braid functors."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/CFSGStatement","result":"none","note":"Atlas summary and stage-title screen only. Finite-group carrier construction; no graph-algebra dependency inferred from shared Dynkin names."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/Chebotarev","result":"none","note":"Atlas summary and stage-title screen only. Prime densities and arithmetic Frobenius, not Frobenius algebra traces."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ClassFieldTheory","result":"none","note":"Atlas summary and stage-title screen only. Class formations and arithmetic reciprocity, not Frobenius algebras."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer","result":"none","note":"Atlas summary and stage-title screen only. Bigraded chain calculations are a nearby interface candidate, not a verified DG algebra/Adams supplier; no edge without a degree/structure comparison."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ConformalMapping","result":"none","note":"Atlas summary and stage-title screen only. Complex uniformization and boundary analysis; no direct algebra contract."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/DGAInfinity","result":"links","note":"Conventions, Layers 0--11, ordering and relevant examples read. Six supplier links; quadratic and CY ownership boundaries; R-HH remains explicit."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/DenseGraphLimits","result":"none","note":"Atlas summary and stage-title screen only. Uses finite simple graphs for densities and graphons, not their path algebras."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/EllipticCurves","result":"none","note":"Atlas summary and stage-title screen only. Arithmetic of curves and isogenies, not algebra-module Koszul duality."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/Exchangeability","result":"none","note":"Atlas summary and stage-title screen only. Probability kernels and invariant laws; unrelated."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/FuchsianOrbifolds","result":"none","note":"Atlas summary and stage-title screen only. Orbifold surfaces and PSL2 actions; no braid action on derived modules supplied."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/GeometricTopology","result":"none","note":"Atlas summary and stage-title screen only. Manifold/knot/surgery statement infrastructure; not algebraic twist equivalences."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/GlobalNumberFields","result":"none","note":"Atlas summary and stage-title screen only. Adeles, orders and ray classes; no direct supplier for the target."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms","result":"none","note":"Atlas summary and stage-title screen only. Hasse--Minkowski local-global classification and Witt invariants, not quadratic algebra Koszul duality."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/GrothendieckEulerForms","result":"links","note":"Conventions and Layers 0--7 read. Three supplier links. Finite support, Cartan indexing and linearity/series boundaries checked recursively."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/HeegaardFloer","result":"none","note":"Atlas summary and stage-title screen only. Analytic Floer tower; no algebraic/symplectic equivalence in this target is supplied by its summary."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/HodgeStructures","result":"none","note":"Atlas summary and stage-title screen only. Hodge-theoretic bigrading is not the target cohomological/Adams grading."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/HopfRinow","result":"none","note":"Atlas summary and stage-title screen only. Koszul connection formula is not Koszul duality."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/JacobianChallenge","result":"none","note":"Atlas summary and stage-title screen only. Picard and abelian variety geometry; no categorical McKay supplier."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/LocalFieldsRamification","result":"none","note":"Atlas summary and stage-title screen only. Valuation and ramification filtrations are not the required tensor-length filtration."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ModularCurves","result":"none","note":"Atlas summary and stage-title screen only. Katz--Mazur elliptic moduli; not graph-algebra constructions."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ModularForms","result":"none","note":"Atlas summary and stage-title screen only. Hecke theory and analytic q-expansions are not the internal Laurent shift variable."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/Multiquadratic","result":"none","note":"Atlas summary and stage-title screen only. Genus theory and square classes; no direct graph gauge-classification contract."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/NumberFieldArithmetic","result":"none","note":"Atlas summary and stage-title screen only. Arithmetic Frobenius and discriminants are unrelated to Frobenius trace functionals."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/OneParameterSemigroups","result":"none","note":"Atlas summary and stage-title screen only. Analytic operator semigroups and generators, unrelated to path-algebra presentations."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/OptimalTransport","result":"none","note":"Atlas summary and stage-title screen only. Measure couplings and gradient flows; unrelated."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/PDE","result":"none","note":"Atlas summary and stage-title screen only. Analytic differential equations; no DG algebra dependency."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups","result":"none","note":"Atlas summary and stage-title screen only. Permutation/Galois classification, not graph-algebra presentation."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteCohomology","result":"none","note":"Atlas summary and stage-title screen only. Continuous group cohomology is not graph H1 or Hochschild cohomology without comparison."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteProPGroups","result":"none","note":"Atlas summary and stage-title screen only. Completed group algebras and pro-p presentations; no replacement for the augmented tensor/bar completion."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants","result":"none","note":"Atlas summary and stage-title screen only. Witt and Brauer invariants; not quadratic algebra Koszul duality."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ReductiveGroups","result":"none","note":"Atlas summary and stage-title screen only. Root data and algebraic group schemes: the finite diagram supplier is RootSystems, not the entire reductive-group construction."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory","result":"none","note":"Full aggregate README read. Used its ownership map; not an endpoint because the aggregate has no stages."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa","result":"none","note":"Atlas summary and stage-title screen only. PBW truncations and faithful Lie representations; Hochschild here is an author, not the target Hochschild obstruction contract."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory","result":"none","note":"Atlas summary and stage-title screen only. Finite-group characters and class algebras; a McKay tensor-multiplicity consumer would need its own explicit node."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups","result":"none","note":"Atlas summary and stage-title screen only. Highest weights and tensor powers, not graph-algebra modules."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups","result":"none","note":"Aggregate README summary read: Peter--Weyl/Haar theory, no direct graph-algebra contract."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction","result":"none","note":"Atlas summary and stage-title screen only. Group induction and Schur multipliers; not restriction along a path-algebra quotient."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups","result":"none","note":"Atlas summary and stage-title screen only. Lie integration and structure, not DG Morita equivalences."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight","result":"none","note":"Atlas summary and stage-title screen only. Finite-type highest weights; no affine/quiver categorification inferred."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations","result":"links","note":"Conventions and Layers 0--6 read. Two supplier links; bound quotient and Cartan overlap; R-PATH/R-BOUND repairs not concealed."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems","result":"links","note":"Conventions and Layers 1--6 read, with full candidate Layers 5--6. Numbered finite-type supplier; affine construction remains target-owned."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl","result":"none","note":"Atlas summary and stage-title screen only. Specht/Brauer tensor algebras have no specified comparison with Zigzag."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras","result":"none","note":"Atlas summary and stage-title screen only. Generic semisimple/module foundations underlie Quiver and relative duality. Reuse through those contracts rather than a redundant target edge."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations","result":"none","note":"Atlas summary and stage-title screen only. Clifford gradings and spinors are not the target relative quadratic presentation."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/StablePeriodicCurved","result":"links","note":"Conventions, distinctions and full Layers 0--2 read. Generic Frobenius supplier and stable-example overlap; later curved layers not claimed fully audited."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/StableReduction","result":"none","note":"Atlas summary and stage-title screen only. Curve stability and dual graphs, not Frobenius stable-module categories."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/StandardDistributions","result":"none","note":"Atlas summary and stage-title screen only. Probability distributions and Gram matrices; unrelated."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/UniversalCovers","result":"none","note":"Atlas summary and stage-title screen only. Covering-space and deck-group theory; no path-algebra module equivalence follows."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ZigzagPreprojective","result":"links","note":"Full target README and all nine layer descriptions read. Input/output worksheet and exceptions retained in handoff."},
+    {"roadmapId":"DeformationAndDerivedPatchingAlgebra","result":"none","note":"Read P7-P9 and R03.1-R03.6 in the foundations stage extract. These concern commutative complete local coefficient rings, patching, support and derived completion, not the relative noncommutative Koszul duality or Hochschild higher-operation obstruction interfaces consumed here. No direct edge justified."},
+    {"roadmapId":"EnhancedDerivedSheaves","result":"none","note":"Read E0-E3 and the E4 completion-ownership paragraph in the foundations extract. DG nerves, derived sheaves, presentability and commutative ideal completion are not prerequisites merely because Zigzag uses DG algebras. Its actual module and Morita supplier is DGAInfinity. No direct edge justified."},
+    {"roadmapId":"RefinedTraceMethods","result":"none","note":"Read the roadmap summary and full RT.1-RT.3b stage records. Algebraic Hochschild chains, mixed/cyclic complexes and cyclotomic traces are not the bigraded Hochschild cochain obstruction theorem in Zigzag Layer 7. A negative-cyclic interface may be relevant to DGAInfinity Layer 9, but that supplier-to-supplier question is outside this link packet; no direct Zigzag prerequisite is asserted."},
+    {"roadmapId":"StableHomotopyKTheory","result":"none","note":"Read the atlas summary and stage list. Spectra, plus/group-completion constructions and homotopy foundations for higher K-theory do not supply an identified input to the strict graph-algebra or DG module stages. No direct link inferred from the word stable."},
+    {"roadmapId":"SmoothRepresentationsOfLocalGroups","result":"none","note":"Read atlas summary and stage list. Locally profinite/reductive local-group representations are not the finite bound-quiver module category used here."},
+    {"roadmapId":"SpecialValuesBirchTate","result":"none","note":"Read atlas summary and stage list. Arithmetic higher K-theory and special values are not the graded K0/Cartan interface used here."},
+    {"roadmapId":"TorsionCohomologyInfrastructure","result":"none","note":"Read atlas summary and stage list. Almost/nilpotent errors in arithmetic cohomology are not zigzag relation ideals or Hochschild deformation theory."},
+    {"roadmapId":"TropicalAndBerkovichArithmetic","result":"none","note":"Read atlas summary and stage list. Analytic skeletons and tropical curves do not supply the doubled finite-graph path algebra; shared graph vocabulary is insufficient."},
+    {"roadmapId":"VStackSheavesAndLisseCategories","result":"none","note":"Read atlas summary and stage list. Enhanced lisse/solid categories and v-stack sheaves do not provide a named direct input to the Zigzag stages."},
+    {"roadmapId":"VectorBundlesAndIsocrystals","result":"none","note":"Read atlas summary and stage list. Relative Fargues-Fontaine bundles/isocrystals are unrelated to the specified graph-algebra construction interfaces."},
+    {"roadmapId":"WeightsInEtaleCohomology","result":"none","note":"Read atlas summary and stage list. Etale weights and realization comparisons are not the internal/Adams gradings or ordinary-algebra Hochschild theory used here."},
+    {"roadmapId":"WeilConjectures","result":"none","note":"Read atlas summary and stage list. Finite-field cohomological point-counting does not provide an identified input to the Zigzag stages."},
+    {"roadmapId":"ShimuraVarieties","result":"none","note":"Read atlas summary and stage list. Canonical models and arithmetic Hecke towers do not supply a named graph-algebra or DG duality interface."},
+    {"roadmapId":"SieveMethodsAndPrimePatterns","result":"none","note":"Read atlas summary and stage list. Sieve estimates and prime patterns have no identified stage-level supplier or consumer match."},
+    {"roadmapId":"SmallRamificationAndAbelianVarietyBaseCases","result":"none","note":"Read atlas summary and stage list. Arithmetic small-ramification and abelian-variety base cases have no identified direct match."}
+  ]
+}
