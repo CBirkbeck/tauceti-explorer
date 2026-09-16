@@ -37,8 +37,12 @@
       "title": "Additive combinatorics, higher Fourier analysis and primes",
       "group": "classical",
       "stageCount": 6,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-08/AdditiveCombinatorics.json",
+      "draftNodes": 9,
+      "draftLinks": 7,
+      "assignment": "EXT-08",
+      "reviewNote": "Draft written by the EXT-08 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-08/HANDOFF.md."
     },
     {
       "id": "AdelicAlgebraicGroups",
@@ -89,8 +93,12 @@
       "title": "Algebraic modular forms, reduction and Serre weights",
       "group": "modular",
       "stageCount": 6,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-10/AlgebraicModularFormsAndSerreWeights.json",
+      "draftNodes": 24,
+      "draftLinks": 17,
+      "assignment": "EXT-10",
+      "reviewNote": "Draft written by the EXT-10 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-10/HANDOFF.md."
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry",
@@ -113,8 +121,12 @@
       "title": "Analytic number theory, zeta functions and prime distribution",
       "group": "classical",
       "stageCount": 10,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-08/AnalyticNumberTheory.json",
+      "draftNodes": 10,
+      "draftLinks": 4,
+      "assignment": "EXT-08",
+      "reviewNote": "Draft written by the EXT-08 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-08/HANDOFF.md."
     },
     {
       "id": "ArakelovGeometryAndAbelianHeights",
@@ -145,8 +157,12 @@
       "title": "Arithmetic Galois representations and conductors",
       "group": "modular",
       "stageCount": 7,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-10/ArithmeticGaloisRepresentations.json",
+      "draftNodes": 9,
+      "draftLinks": 6,
+      "assignment": "EXT-10",
+      "reviewNote": "Draft written by the EXT-10 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-10/HANDOFF.md."
     },
     {
       "id": "ArithmeticKTheory",
@@ -177,8 +193,12 @@
       "title": "Arithmetic statistics, counting fields and Selmer distributions",
       "group": "classical",
       "stageCount": 6,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-08/ArithmeticStatistics.json",
+      "draftNodes": 8,
+      "draftLinks": 6,
+      "assignment": "EXT-08",
+      "reviewNote": "Draft written by the EXT-08 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-08/HANDOFF.md."
     },
     {
       "id": "AutomorphicBundles",
@@ -209,8 +229,12 @@
       "title": "Galois representations attached to modular and Hilbert modular forms",
       "group": "modular",
       "stageCount": 6,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-10/AutomorphicGaloisRepresentations.json",
+      "draftNodes": 8,
+      "draftLinks": 7,
+      "assignment": "EXT-10",
+      "reviewNote": "Draft written by the EXT-10 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-10/HANDOFF.md."
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII",
@@ -277,16 +301,24 @@
       "title": "Classical arithmetic, sequences, polynomials and reciprocity",
       "group": "classical",
       "stageCount": 8,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-08/ClassicalArithmeticCompletion.json",
+      "draftNodes": 3,
+      "draftLinks": 1,
+      "assignment": "EXT-08",
+      "reviewNote": "Draft written by the EXT-08 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-08/HANDOFF.md."
     },
     {
       "id": "ClassicalSerreModularity",
       "title": "Classical Serre Modularity",
       "group": "modular",
       "stageCount": 18,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-10/ClassicalSerreModularity.json",
+      "draftNodes": 21,
+      "draftLinks": 16,
+      "assignment": "EXT-10",
+      "reviewNote": "Draft written by the EXT-10 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-10/HANDOFF.md."
     },
     {
       "id": "CohomologyComparisons",
@@ -321,16 +353,24 @@
       "title": "Completed cohomology and p-adic local–global compatibility over Q",
       "group": "modular",
       "stageCount": 6,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-10/CompletedCohomologyAndLocalGlobalCompatibility.json",
+      "draftNodes": 5,
+      "draftLinks": 6,
+      "assignment": "EXT-10",
+      "reviewNote": "Draft written by the EXT-10 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-10/HANDOFF.md."
     },
     {
       "id": "CompletedCohomologyPartII",
       "title": "Completed cohomology, homology and arithmetic towers — Part II",
       "group": "modular",
       "stageCount": 9,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-10/CompletedCohomologyPartII.json",
+      "draftNodes": 8,
+      "draftLinks": 7,
+      "assignment": "EXT-10",
+      "reviewNote": "Draft written by the EXT-10 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-10/HANDOFF.md."
     },
     {
       "id": "ComplexComparisonPartII",
@@ -353,8 +393,12 @@
       "title": "Certified computational number theory and arithmetic data",
       "group": "classical",
       "stageCount": 6,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-08/ComputationalNumberTheory.json",
+      "draftNodes": 4,
+      "draftLinks": 3,
+      "assignment": "EXT-08",
+      "reviewNote": "Draft written by the EXT-08 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-08/HANDOFF.md."
     },
     {
       "id": "CrystallineCohomology",
@@ -379,8 +423,17 @@
       "title": "Commutative algebra for deformation theory and patching",
       "group": "foundations",
       "stageCount": 9,
-      "state": "pending",
-      "packet": null
+      "state": "draft_reviewed",
+      "packet": "research/expansion/external/EXT-01/DeformationAndDerivedPatchingAlgebra.json",
+      "draftNodes": 18,
+      "draftLinks": 30,
+      "assignment": "EXT-01",
+      "reviewNote": "Independent review by independent-review-REVIEW-EXT-01-EXT-15: accepted. Not promoted yet.",
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
+        "date": "2026-09-16"
+      }
     },
     {
       "id": "DeligneWeightsAndPurity",
@@ -441,8 +494,12 @@
       "title": "Diophantine approximation and transcendence",
       "group": "classical",
       "stageCount": 6,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-08/DiophantineApproximationAndTranscendence.json",
+      "draftNodes": 7,
+      "draftLinks": 4,
+      "assignment": "EXT-08",
+      "reviewNote": "Draft written by the EXT-08 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-08/HANDOFF.md."
     },
     {
       "id": "DirichletPadicLFunctions",
@@ -473,8 +530,12 @@
       "title": "Modularity and modular parametrisations of elliptic curves over Q",
       "group": "modular",
       "stageCount": 6,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-10/EllipticCurveModularity.json",
+      "draftNodes": 6,
+      "draftLinks": 7,
+      "assignment": "EXT-10",
+      "reviewNote": "Draft written by the EXT-10 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-10/HANDOFF.md."
     },
     {
       "id": "EllipticKTheory",
@@ -505,8 +566,12 @@
       "title": "Enhanced derived categories of sheaves",
       "group": "foundations",
       "stageCount": 11,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-01/EnhancedDerivedSheaves.json",
+      "draftNodes": 21,
+      "draftLinks": 34,
+      "assignment": "EXT-01",
+      "reviewNote": "Draft written by the EXT-01 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-01/HANDOFF.md."
     },
     {
       "id": "EtaleDualityAndPerverseSheaves",
@@ -533,12 +598,17 @@
       "title": "Euler systems and the unconditional cyclotomic main conjecture",
       "group": "iwasawa",
       "stageCount": 5,
-      "state": "draft_needs_review",
+      "state": "draft_reviewed",
       "packet": "research/expansion/external/EXT-15/EulerSystemsCyclotomicMainConjecture.json",
       "draftNodes": 16,
       "draftLinks": 16,
       "assignment": "EXT-15",
-      "reviewNote": "Draft written by the EXT-15 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-15/HANDOFF.md."
+      "reviewNote": "Independent review by independent-review-REVIEW-EXT-01-EXT-15: accepted. Not promoted yet.",
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
+        "date": "2026-09-15"
+      }
     },
     {
       "id": "ExcursionOperatorsAndSpectralAction",
@@ -553,16 +623,24 @@
       "title": "Exponential sums, decoupling and the circle method",
       "group": "classical",
       "stageCount": 6,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-08/ExponentialSumsAndCircleMethod.json",
+      "draftNodes": 6,
+      "draftLinks": 6,
+      "assignment": "EXT-08",
+      "reviewNote": "Draft written by the EXT-08 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-08/HANDOFF.md."
     },
     {
       "id": "FaltingsFinitenessAndIsogenyTheorems",
       "title": "Faltings finiteness, semisimplicity and isogeny theorems",
       "group": "diophantine",
       "stageCount": 6,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-07/FaltingsFinitenessAndIsogenyTheorems.json",
+      "draftNodes": 32,
+      "draftLinks": 40,
+      "assignment": "EXT-07",
+      "reviewNote": "Draft written by the EXT-07 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-07/HANDOFF.md."
     },
     {
       "id": "FarguesFontaineDiamonds",
@@ -577,8 +655,12 @@
       "title": "Finite fields, character sums, finite rings and coding interfaces",
       "group": "classical",
       "stageCount": 6,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-08/FiniteFieldsAndCharacterSums.json",
+      "draftNodes": 13,
+      "draftLinks": 7,
+      "assignment": "EXT-08",
+      "reviewNote": "Draft written by the EXT-08 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-08/HANDOFF.md."
     },
     {
       "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
@@ -593,8 +675,12 @@
       "title": "Foundations, existing libraries, and proof integrity",
       "group": "foundations",
       "stageCount": 6,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-01/FoundationsAndLibraryIntegration.json",
+      "draftNodes": 5,
+      "draftLinks": 0,
+      "assignment": "EXT-01",
+      "reviewNote": "Draft written by the EXT-01 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-01/HANDOFF.md."
     },
     {
       "id": "FunctionFieldArithmetic",
@@ -625,20 +711,34 @@
       "title": "General algebraic K-theory",
       "group": "foundations",
       "stageCount": 15,
-      "state": "draft_needs_review",
+      "state": "draft_reviewed",
       "packet": "research/expansion/external/EXT-01/GeneralAlgebraicKTheory.json",
       "draftNodes": 24,
       "draftLinks": 55,
       "assignment": "EXT-01",
-      "reviewNote": "Draft written by the EXT-01 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-01/HANDOFF.md."
+      "reviewNote": "Independent review by independent-review-REVIEW-EXT-01-EXT-15: accepted. Not promoted yet.",
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
+        "date": "2026-09-15"
+      }
     },
     {
       "id": "GeneralizedHeegnerCycles",
       "title": "Generalized Heegner cycles and their Iwasawa variation",
       "group": "iwasawa",
       "stageCount": 9,
-      "state": "pending",
-      "packet": null
+      "state": "draft_reviewed",
+      "packet": "research/expansion/external/EXT-15/GeneralizedHeegnerCycles.json",
+      "draftNodes": 6,
+      "draftLinks": 6,
+      "assignment": "EXT-15",
+      "reviewNote": "Independent review by independent-review-REVIEW-EXT-01-EXT-15: accepted. Not promoted yet.",
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
+        "date": "2026-09-16"
+      }
     },
     {
       "id": "GeometricSatakeAndFusion",
@@ -681,12 +781,17 @@
       "title": "Gross–Zagier formulas and arithmetic heights",
       "group": "iwasawa",
       "stageCount": 10,
-      "state": "draft_needs_review",
+      "state": "draft_reviewed",
       "packet": "research/expansion/external/EXT-15/GrossZagierAndArithmeticHeights.json",
       "draftNodes": 9,
       "draftLinks": 12,
       "assignment": "EXT-15",
-      "reviewNote": "Draft written by the EXT-15 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-15/HANDOFF.md."
+      "reviewNote": "Independent review by independent-review-REVIEW-EXT-01-EXT-15: accepted. Not promoted yet.",
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
+        "date": "2026-09-16"
+      }
     },
     {
       "id": "HabiroCohomologyFoundations",
@@ -745,8 +850,17 @@
       "title": "Heegner-point Euler systems and arithmetic descent",
       "group": "iwasawa",
       "stageCount": 12,
-      "state": "pending",
-      "packet": null
+      "state": "draft_reviewed",
+      "packet": "research/expansion/external/EXT-15/HeegnerPointEulerSystems.json",
+      "draftNodes": 8,
+      "draftLinks": 8,
+      "assignment": "EXT-15",
+      "reviewNote": "Independent review by independent-review-REVIEW-EXT-01-EXT-15: accepted. Not promoted yet.",
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
+        "date": "2026-09-16"
+      }
     },
     {
       "id": "HeightsRationalPointsAndObstructions",
@@ -801,8 +915,12 @@
       "title": "Arithmetic Iwasawa theory and the main conjecture",
       "group": "iwasawa",
       "stageCount": 20,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-15/IntegralIwasawaTheory.json",
+      "draftNodes": 7,
+      "draftLinks": 6,
+      "assignment": "EXT-15",
+      "reviewNote": "Draft written by the EXT-15 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-15/HANDOFF.md."
     },
     {
       "id": "InverseGaloisAndArithmeticFundamentalGroups",
@@ -849,12 +967,17 @@
       "title": "Kato classes and explicit reciprocity for modular forms",
       "group": "iwasawa",
       "stageCount": 5,
-      "state": "draft_needs_review",
+      "state": "draft_reviewed",
       "packet": "research/expansion/external/EXT-15/KatoEulerSystems.json",
       "draftNodes": 22,
       "draftLinks": 15,
       "assignment": "EXT-15",
-      "reviewNote": "Draft written by the EXT-15 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-15/HANDOFF.md."
+      "reviewNote": "Independent review by independent-review-REVIEW-EXT-01-EXT-15: accepted. Not promoted yet.",
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
+        "date": "2026-09-16"
+      }
     },
     {
       "id": "LanglandsParameterStacks",
@@ -935,16 +1058,24 @@
       "title": "Main conjectures for modular forms and their families",
       "group": "iwasawa",
       "stageCount": 7,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-15/ModularIwasawaMainConjectures.json",
+      "draftNodes": 5,
+      "draftLinks": 5,
+      "assignment": "EXT-15",
+      "reviewNote": "Draft written by the EXT-15 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-15/HANDOFF.md."
     },
     {
       "id": "ModularSymbolsPadicLFunctions",
       "title": "Modular symbols and analytic p-adic L-functions of modular forms",
       "group": "iwasawa",
       "stageCount": 5,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-16/ModularSymbolsPadicLFunctions.json",
+      "draftNodes": 7,
+      "draftLinks": 4,
+      "assignment": "EXT-16",
+      "reviewNote": "Draft written by the EXT-16 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-16/HANDOFF.md."
     },
     {
       "id": "ModularityAndLanglandsExtensions",
@@ -983,8 +1114,12 @@
       "title": "Noncommutative and equivariant Iwasawa theory",
       "group": "iwasawa",
       "stageCount": 8,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-16/NoncommutativeAndEquivariantIwasawa.json",
+      "draftNodes": 8,
+      "draftLinks": 7,
+      "assignment": "EXT-16",
+      "reviewNote": "Draft written by the EXT-16 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-16/HANDOFF.md."
     },
     {
       "id": "OrdinaryAutomorphicFormsAndModularityLifting",
@@ -1015,12 +1150,17 @@
       "title": "P-adic differential equations, rigid cohomology and p-adic weights",
       "group": "cohomology",
       "stageCount": 8,
-      "state": "draft_needs_review",
+      "state": "draft_reviewed",
       "packet": "research/expansion/external/EXT-03/PadicDifferentialEquationsAndRigidCohomology.json",
       "draftNodes": 2,
       "draftLinks": 2,
       "assignment": "EXT-03",
-      "reviewNote": "Draft written by the EXT-03 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-03/HANDOFF.md."
+      "reviewNote": "Independent review by independent-review-REVIEW-EXT-03: accepted. Not promoted yet.",
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-REVIEW-EXT-03",
+        "date": "2026-09-15"
+      }
     },
     {
       "id": "PadicFamilies",
@@ -1053,12 +1193,17 @@
       "title": "P-adic Hodge theory and geometric comparison",
       "group": "cohomology",
       "stageCount": 10,
-      "state": "draft_needs_review",
+      "state": "draft_reviewed",
       "packet": "research/expansion/external/EXT-03/PadicHodgeTheory.json",
       "draftNodes": 10,
       "draftLinks": 21,
       "assignment": "EXT-03",
-      "reviewNote": "Draft written by the EXT-03 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-03/HANDOFF.md."
+      "reviewNote": "Independent review by independent-review-REVIEW-EXT-03: accepted. Not promoted yet.",
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-REVIEW-EXT-03",
+        "date": "2026-09-15"
+      }
     },
     {
       "id": "PadicLocalLanglandsForGL2Qp",
@@ -1073,20 +1218,29 @@
       "title": "P-adic measures, completed group algebras, and characteristic ideals",
       "group": "iwasawa",
       "stageCount": 8,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-16/PadicMeasuresIwasawaAlgebras.json",
+      "draftNodes": 25,
+      "draftLinks": 8,
+      "assignment": "EXT-16",
+      "reviewNote": "Draft written by the EXT-16 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-16/HANDOFF.md."
     },
     {
       "id": "PerfectoidQuotients",
       "title": "Perfectoid quotients and their prismatic prerequisites",
       "group": "cohomology",
       "stageCount": 7,
-      "state": "draft_needs_review",
+      "state": "draft_reviewed",
       "packet": "research/expansion/external/EXT-03/PerfectoidQuotients.json",
       "draftNodes": 12,
       "draftLinks": 24,
       "assignment": "EXT-03",
-      "reviewNote": "Draft written by the EXT-03 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-03/HANDOFF.md."
+      "reviewNote": "Independent review by independent-review-REVIEW-EXT-03: accepted. Not promoted yet.",
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-REVIEW-EXT-03",
+        "date": "2026-09-15"
+      }
     },
     {
       "id": "PerfectoidShimuraVarieties",
@@ -1101,12 +1255,17 @@
       "title": "Perfectoid rings and spaces",
       "group": "cohomology",
       "stageCount": 10,
-      "state": "draft_needs_review",
+      "state": "draft_reviewed",
       "packet": "research/expansion/external/EXT-03/PerfectoidSpaces.json",
       "draftNodes": 33,
       "draftLinks": 47,
       "assignment": "EXT-03",
-      "reviewNote": "Draft written by the EXT-03 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-03/HANDOFF.md."
+      "reviewNote": "Independent review by independent-review-REVIEW-EXT-03: accepted. Not promoted yet.",
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-REVIEW-EXT-03",
+        "date": "2026-09-16"
+      }
     },
     {
       "id": "PeriodsAndSpecialValues",
@@ -1121,8 +1280,12 @@
       "title": "(φ,Γ)-modules, Herr complexes and local Iwasawa cohomology",
       "group": "iwasawa",
       "stageCount": 8,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-16/PhiGammaModulesAndIwasawaCohomology.json",
+      "draftNodes": 22,
+      "draftLinks": 7,
+      "assignment": "EXT-16",
+      "reviewNote": "Draft written by the EXT-16 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-16/HANDOFF.md."
     },
     {
       "id": "Polylogarithms",
@@ -1187,8 +1350,12 @@
       "title": "Rank-zero and rank-one Birch–Swinnerton-Dyer theory",
       "group": "iwasawa",
       "stageCount": 12,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-16/RankZeroOneBSD.json",
+      "draftNodes": 10,
+      "draftLinks": 7,
+      "assignment": "EXT-16",
+      "reviewNote": "Draft written by the EXT-16 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-16/HANDOFF.md."
     },
     {
       "id": "ReductiveGroupsPartII",
@@ -1223,8 +1390,12 @@
       "title": "Scheme, stack, cohomology and intersection foundations",
       "group": "foundations",
       "stageCount": 7,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-01/SchemeAndStackFoundations.json",
+      "draftNodes": 17,
+      "draftLinks": 10,
+      "assignment": "EXT-01",
+      "reviewNote": "Draft written by the EXT-01 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-01/HANDOFF.md."
     },
     {
       "id": "SchemeKTheoryOperations",
@@ -1239,8 +1410,12 @@
       "title": "Selmer groups, continuous integral cohomology, and Iwasawa cohomology",
       "group": "iwasawa",
       "stageCount": 5,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": "research/expansion/external/EXT-16/SelmerIwasawaCohomology.json",
+      "draftNodes": 12,
+      "draftLinks": 5,
+      "assignment": "EXT-16",
+      "reviewNote": "Draft written by the EXT-16 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-16/HANDOFF.md."
     },
     {
       "id": "SerreWeightAndLevelOptimisation",
@@ -1311,12 +1486,17 @@
       "title": "Homotopy foundations for algebraic K-theory",
       "group": "foundations",
       "stageCount": 12,
-      "state": "draft_needs_review",
+      "state": "draft_reviewed",
       "packet": "research/expansion/external/EXT-01/StableHomotopyKTheory.json",
       "draftNodes": 25,
       "draftLinks": 28,
       "assignment": "EXT-01",
-      "reviewNote": "Draft written by the EXT-01 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-01/HANDOFF.md."
+      "reviewNote": "Independent review by independent-review-REVIEW-EXT-01-EXT-15: accepted. Not promoted yet.",
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
+        "date": "2026-09-15"
+      }
     },
     {
       "id": "TorsionCohomologyInfrastructure",
@@ -1331,12 +1511,17 @@
       "title": "Berkovich spaces, tropical curves and nonarchimedean arithmetic",
       "group": "cohomology",
       "stageCount": 8,
-      "state": "draft_needs_review",
+      "state": "draft_reviewed",
       "packet": "research/expansion/external/EXT-03/TropicalAndBerkovichArithmetic.json",
       "draftNodes": 4,
       "draftLinks": 3,
       "assignment": "EXT-03",
-      "reviewNote": "Draft written by the EXT-03 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-03/HANDOFF.md."
+      "reviewNote": "Independent review by independent-review-REVIEW-EXT-03: accepted. Not promoted yet.",
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-REVIEW-EXT-03",
+        "date": "2026-09-16"
+      }
     },
     {
       "id": "VStackSheavesAndLisseCategories",
@@ -1367,24 +1552,34 @@
       "title": "Weights and purity in étale cohomology",
       "group": "cohomology",
       "stageCount": 6,
-      "state": "draft_needs_review",
+      "state": "draft_reviewed",
       "packet": "research/expansion/external/EXT-03/WeightsInEtaleCohomology.json",
       "draftNodes": 5,
       "draftLinks": 10,
       "assignment": "EXT-03",
-      "reviewNote": "Draft written by the EXT-03 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-03/HANDOFF.md."
+      "reviewNote": "Independent review by independent-review-REVIEW-EXT-03: accepted. Not promoted yet.",
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-REVIEW-EXT-03",
+        "date": "2026-09-16"
+      }
     },
     {
       "id": "WeilConjectures",
       "title": "Weil conjectures and cohomological zeta functions",
       "group": "cohomology",
       "stageCount": 10,
-      "state": "draft_needs_review",
+      "state": "draft_reviewed",
       "packet": "research/expansion/external/EXT-03/WeilConjectures.json",
       "draftNodes": 6,
       "draftLinks": 8,
       "assignment": "EXT-03",
-      "reviewNote": "Draft written by the EXT-03 worker on 15 September 2026; not independently reviewed; not promoted. See research/expansion/external/EXT-03/HANDOFF.md."
+      "reviewNote": "Independent review by independent-review-REVIEW-EXT-03: accepted. Not promoted yet.",
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-REVIEW-EXT-03",
+        "date": "2026-09-16"
+      }
     },
     {
       "id": "tauceti:Completed/EffectiveBounds",
