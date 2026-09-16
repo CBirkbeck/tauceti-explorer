@@ -1,0 +1,1092 @@
+[
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-0-transport-plans-maps-kernels-and-gluing",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "in_progress",
+  "quote": "**Layer 0** — done, all five items. The acceptance check that gluing transportation matrices agrees with the measure construction is not established here.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Nearly complete: all five items are done; only the acceptance check that gluing transportation matrices agrees with the measure construction is missing. At a glance (line 11) calls Layer 0 (plans, maps, kernels, gluing) done, and The frontier (line 39) lists the Layer 0 acceptance check among the small gaps."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-1-transport-cost-compactness-existence-and-stability",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "in_progress",
+  "quote": "**Layer 1** — items 1, 2, 3, 5, 6 done. Item 4 is done for `ℝ≥0∞` costs but lacks the lower-semicontinuity lemma for costs bounded below by integrable marginal terms. The acceptance checks (`2 × 2` enumeration, uncrossing on ordered supports, barrier costs) are untouched.",
+  "lineStart": 30,
+  "lineEnd": 30,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Nearly complete: items 1, 2, 3, 5, 6 are done; only item 4's lower-semicontinuity lemma for costs bounded below by integrable marginal terms and the acceptance checks are missing. At a glance (line 11) calls Layer 1 (transport cost, compactness, existence, stability) done; The frontier (line 39) calls the remaining pieces small, self-contained gaps."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-2-kantorovich-duality-transforms-and-optimality-certificates",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "in_progress",
+  "quote": "**Layer 2** — items 1, 2, 3, 8 done. Item 4 partial: compact continuous and compact lower-semicontinuous duality done; the Polish theorem for `c ≥ a ⊕ b` and dual attainment untouched. Item 6 partial: finite multi-marginal weak duality and complementary slackness, no attainment. Item 7 partial: `c`-cyclical monotonicity is defined, certified plans concentrate on such sets, and optimal finite plans have cyclically monotone support; the Polish Schachermayer–Teichmann equivalence and the strong-monotonicity representation are untouched. Item 5 untouched.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Items 1, 2, 3, 8 done; items 4, 6, 7 partial; item 5 (Borel-cost regimes) untouched. At a glance (line 11) adds that Layer 2 has weak duality, the c-transform calculus, finite and compact strong duality and optimality certificates, while its Polish duality, dual attainment and Borel-cost regimes have not begun."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-3-wasserstein-distances-and-topology",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 3 is the named start of the range 'Layers 3–16'; the clause's 'no Wasserstein distance' matches this layer. At a glance (line 11) says nothing 'from Layer 3 (Wasserstein distances) onward' has begun."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-4-the-monge-problem-and-abstract-transport-maps",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 4 falls within the range 'Layers 3–16' and is not named individually. At a glance (line 11) says nothing 'from Layer 3 (Wasserstein distances) onward' has begun. The clause's 'no ... Monge theory' matches this layer's topic."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-5-convex-analysis-brenier-and-polar-factorization",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 5 falls within the range 'Layers 3–16' and is not named individually. At a glance (line 11) says nothing 'from Layer 3 (Wasserstein distances) onward' has begun."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-6-monge--ampère-measures-equations-and-regularity",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 6 falls within the range 'Layers 3–16' and is not named individually. At a glance (line 11) says nothing 'from Layer 3 (Wasserstein distances) onward' has begun."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#6a-aleksandrov-weak-theory",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Inherited from parent: Layer 6 falls within 'Layers 3–16 — untouched', a statement about the whole layer; the sub-stage itself is not named in the report."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#6b-the-transport-equation",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Inherited from parent: Layer 6 falls within 'Layers 3–16 — untouched', a statement about the whole layer; the sub-stage itself is not named in the report."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#6c-quadratic-caffarelli-theory",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Inherited from parent: Layer 6 falls within 'Layers 3–16 — untouched', a statement about the whole layer; the sub-stage itself is not named in the report."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#6d-general-costs-ma--trudinger--wang-mtw-and-partial-regularity",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Inherited from parent: Layer 6 falls within 'Layers 3–16 — untouched', a statement about the whole layer; the sub-stage itself is not named in the report."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-7-riemannian-brenier--mccann-transport",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 7 falls within the range 'Layers 3–16' and is not named individually. At a glance (line 11) says nothing 'from Layer 3 (Wasserstein distances) onward' has begun."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-8-metric-curves-dynamic-plans-and-benamou--brenier",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 8 falls within the range 'Layers 3–16' and is not named individually. At a glance (line 11) says nothing 'from Layer 3 (Wasserstein distances) onward' has begun. The clause's 'no ... dynamics' matches this layer's topic."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-9-displacement-geometry-and-convexity",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 9 falls within the range 'Layers 3–16' and is not named individually. At a glance (line 11) says nothing 'from Layer 3 (Wasserstein distances) onward' has begun."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-10-abstract-metric-gradient-flows",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 10 falls within the range 'Layers 3–16' and is not named individually. At a glance (line 11) says nothing 'from Layer 3 (Wasserstein distances) onward' has begun. The clause's 'no ... gradient flows' matches this layer's topic."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-11-entropy-wasserstein-differential-calculus-jko-and-pde-flows",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 11 falls within the range 'Layers 3–16' and is not named individually. At a glance (line 11) says nothing 'from Layer 3 (Wasserstein distances) onward' has begun. The clause's 'no ... entropy' matches this layer's topic."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-12-fréchet-and-wasserstein-barycenters",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 12 falls within the range 'Layers 3–16' and is not named individually. At a glance (line 11) says nothing 'from Layer 3 (Wasserstein distances) onward' has begun. The clause's 'no ... barycenters' matches this layer's topic."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-13-entropic-transport-sinkhorn-and-schrödinger-bridges",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 13 falls within the range 'Layers 3–16' and is not named individually. At a glance (line 11) says nothing 'from Layer 3 (Wasserstein distances) onward' has begun."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#13a-static-entropic-transport",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Inherited from parent: Layer 13 falls within 'Layers 3–16 — untouched', a statement about the whole layer; the sub-stage itself is not named in the report."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#13b-iterative-proportional-fitting-and-finite-sinkhorn",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Inherited from parent: Layer 13 falls within 'Layers 3–16 — untouched', a statement about the whole layer; the sub-stage itself is not named in the report."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#13c-dynamic-schrödinger-theory",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Inherited from parent: Layer 13 falls within 'Layers 3–16 — untouched', a statement about the whole layer; the sub-stage itself is not named in the report."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-14-synthetic-curvature-nonsmooth-heat-flow-and-optimal-maps",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 14 falls within the range 'Layers 3–16' and is not named individually. At a glance (line 11) says nothing 'from Layer 3 (Wasserstein distances) onward' has begun."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-15-measured-kernels-and-gromov--wasserstein",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 15 falls within the range 'Layers 3–16' and is not named individually. At a glance (line 11) says nothing 'from Layer 3 (Wasserstein distances) onward' has begun. The clause's 'no ... Gromov–Wasserstein' matches this layer's topic."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-16-public-api-extraction-and-end-to-end-examples",
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "status": "not_started",
+  "quote": "**Layers 3–16** — untouched: no Wasserstein distance, Monge theory, dynamics, gradient flows, entropy, barycenters, or Gromov–Wasserstein.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 16 is the named end of the range 'Layers 3–16'. At a glance (line 11) says nothing 'from Layer 3 (Wasserstein distances) onward' has begun."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "status": "in_progress",
+  "quote": "Layer 0 has diamonds, character spaces, parity, and their decomposition, but not Eisenstein series with character",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "37aec57229a4a5828884027165b25804aac01ac8",
+  "note": "Landed: diamonds, character spaces, parity and their decomposition; missing: Eisenstein series with character. At a glance does not mention Layer 0."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ModularForms#layer-1-the-valence-formula-general-level",
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "status": "complete",
+  "quote": "Layer 1 is done.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "37aec57229a4a5828884027165b25804aac01ac8",
+  "note": "Named explicitly. At a glance (line 11): 'The general-level valence formula of Layer 1 is complete.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "status": "in_progress",
+  "quote": "Layer 2 has the abstract and `Γ₀(N)` Hecke rings, uniform classical `T_n`, coefficient recurrences, the full ring multiplication table, and the character-space action, with the prime and scalar generators identified; the remaining composite identification, general-rank presentation, and local–global hand-off are not established.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "37aec57229a4a5828884027165b25804aac01ac8",
+  "note": "Landed: abstract and Γ₀(N) Hecke rings, classical T_n, the full ring multiplication table and the character-space action; missing: composite identification, general-rank presentation and the local–global hand-off. At a glance (line 11) says the Hecke, Petersson, newform and Atkin–Lehner layers have substantial working infrastructure but their main adjoint, decomposition, multiplicity-one and sign theorems remain partial."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms",
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "status": "in_progress",
+  "quote": "Layer 3 has the Petersson pairing, character orthogonality, and old/new complements, but no Hecke adjoints, normality, simultaneous diagonalization, exact conductor-indexed oldspace, or bad-prime newspace stability.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "37aec57229a4a5828884027165b25804aac01ac8",
+  "note": "Landed: Petersson pairing, character orthogonality, old/new complements; missing: Hecke adjoints, normality, simultaneous diagonalization, exact conductor-indexed oldspace, bad-prime newspace stability. At a glance (line 11) says the Hecke, Petersson, newform and Atkin–Lehner layers have substantial working infrastructure but their main adjoint, decomposition, multiplicity-one and sign theorems remain partial."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "status": "in_progress",
+  "quote": "Layers 4–5 now have good eigenforms, newforms, eigenvalue recurrences, finite-exception eigenvalue extension, descent, and the squarefree decomposition, but not the Main Lemma, conductor decomposition, full eigenforms, or either form of strong multiplicity one.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "37aec57229a4a5828884027165b25804aac01ac8",
+  "note": "Grouped statement 'Layers 4–5'; Layer 4 is named as the start of the pair. The report does not split the landed material (good eigenforms, newforms, eigenvalue recurrences, descent, squarefree decomposition) between Layers 4 and 5; missing: the Main Lemma, conductor decomposition, full eigenforms. At a glance (line 11) says the Hecke, Petersson, newform and Atkin–Lehner layers have substantial working infrastructure but their main adjoint, decomposition, multiplicity-one and sign theorems remain partial."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "status": "in_progress",
+  "quote": "Layers 4–5 now have good eigenforms, newforms, eigenvalue recurrences, finite-exception eigenvalue extension, descent, and the squarefree decomposition, but not the Main Lemma, conductor decomposition, full eigenforms, or either form of strong multiplicity one.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "37aec57229a4a5828884027165b25804aac01ac8",
+  "note": "Grouped statement 'Layers 4–5'; Layer 5 is named as the end of the pair and the landed material is attributed to both layers jointly, not split between them. The layer's headline result is listed as missing ('either form of strong multiplicity one'); At a glance (line 11) says the multiplicity-one theorems 'remain partial'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ModularForms#layer-6-atkinlehner-and-fricke-operators",
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "status": "in_progress",
+  "quote": "Layer 6 has normalized Fricke theory and raw exact-divisor Atkin–Lehner operators, not general normalization or newform signs.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "37aec57229a4a5828884027165b25804aac01ac8",
+  "note": "Landed: normalized Fricke theory and raw exact-divisor Atkin–Lehner operators; missing: general normalization and newform signs. At a glance (line 11) says the Hecke, Petersson, newform and Atkin–Lehner layers have substantial working infrastructure but their main adjoint, decomposition, multiplicity-one and sign theorems remain partial."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "status": "in_progress",
+  "quote": "Layer 7 has analytic continuation and existing abscissa bounds, but not the Euler product or one-form signed functional equation.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "37aec57229a4a5828884027165b25804aac01ac8",
+  "note": "Landed: analytic continuation and existing abscissa bounds; missing: the Euler product and the one-form signed functional equation. At a glance does not mention Layer 7."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "status": "not_started",
+  "quote": "Layers 8, 8G, 9, and 11 are untouched",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "37aec57229a4a5828884027165b25804aac01ac8",
+  "note": "Named explicitly in the list 'Layers 8, 8G, 9, and 11'. At a glance (line 11) says the coefficient-field summit has not begun."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "status": "not_started",
+  "quote": "Layers 8, 8G, 9, and 11 are untouched",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "37aec57229a4a5828884027165b25804aac01ac8",
+  "note": "Named explicitly in the list 'Layers 8, 8G, 9, and 11'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ModularForms#layer-9-the-lmfdb-invariant-layer",
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "status": "not_started",
+  "quote": "Layers 8, 8G, 9, and 11 are untouched",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "37aec57229a4a5828884027165b25804aac01ac8",
+  "note": "Named explicitly in the list 'Layers 8, 8G, 9, and 11'. At a glance (line 11) says the LMFDB summit has not begun."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas",
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "status": "in_progress",
+  "quote": "Layer 10 has only its Sturm-bound preliminaries, not the modular curve or exact dimension formulas.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "37aec57229a4a5828884027165b25804aac01ac8",
+  "note": "Only Sturm-bound preliminaries have landed; the modular curve and exact dimension formulas are missing. At a glance (line 11) says the modular-curve dimension-formula summit has not begun."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve",
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "status": "not_started",
+  "quote": "Layer 10 has only its Sturm-bound preliminaries, not the modular curve or exact dimension formulas.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "37aec57229a4a5828884027165b25804aac01ac8",
+  "note": "Not inherited: the Layer 10 sentence is mixed (the layer has preliminaries, named topics are missing), so the parent's in_progress verdict does not pass to its sub-stages; the Sturm-bound preliminaries are attributed to Layer 10 as a whole, not to any sub-stage. The report names this sub-stage's topic as missing ('not the modular curve'). At a glance (line 11) says the modular-curve dimension-formula summit has not begun."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology",
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "status": "unknown",
+  "quote": "Layer 10 has only its Sturm-bound preliminaries, not the modular curve or exact dimension formulas.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "37aec57229a4a5828884027165b25804aac01ac8",
+  "note": "Not inherited: the Layer 10 sentence is mixed (the layer has preliminaries, named topics are missing), so the parent's in_progress verdict does not pass to its sub-stages; the Sturm-bound preliminaries are attributed to Layer 10 as a whole, not to any sub-stage. The report never mentions compact-Riemann-surface cohomology; 'only its Sturm-bound preliminaries' implies it is absent but does not say so."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas",
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "status": "not_started",
+  "quote": "Layer 10 has only its Sturm-bound preliminaries, not the modular curve or exact dimension formulas.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "37aec57229a4a5828884027165b25804aac01ac8",
+  "note": "Not inherited: the Layer 10 sentence is mixed (the layer has preliminaries, named topics are missing), so the parent's in_progress verdict does not pass to its sub-stages; the Sturm-bound preliminaries are attributed to Layer 10 as a whole, not to any sub-stage. The report names this sub-stage's goal as missing ('not ... exact dimension formulas'), and At a glance (line 11) says the modular-curve dimension-formula summit has not begun; section spaces are not mentioned."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one",
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "status": "not_started",
+  "quote": "Layers 8, 8G, 9, and 11 are untouched",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "37aec57229a4a5828884027165b25804aac01ac8",
+  "note": "Named explicitly in the list 'Layers 8, 8G, 9, and 11'. At a glance (line 11) says the trace-formula summit has not begun."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "status": "in_progress",
+  "quote": "**Layers 0, 1, 3** — done; only the corollary that there are infinitely many places is not visible. On `k(x)`, `−2·P_∞` is a Riemann–Roch divisor with `g₀ = 0` ([`TauCeti.Divisor.isRiemannRochDivisor_neg_two_zsmul_ofPoint_infty`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/FieldTheory/FunctionField/RiemannRoch/Uniqueness.html#TauCeti.Divisor.isRiemannRochDivisor_neg_two_zsmul_ofPoint_infty)); the `ℓ(n·P_∞) = n + 1` computation is not visible by name.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in the list 'Layers 0, 1, 3'. Nearly complete: the report calls the group done and lists only hedged gaps, the corollary that there are infinitely many places ('not visible') and the ℓ(n·P_∞) = n + 1 computation on k(x) ('not visible by name'); it does not say which of Layers 0, 1, 3 each gap belongs to, so the joint 'done except' statement is applied to each. At a glance (line 11): 'Layers 0, 1 and 3 are done, through Riemann's theorem and the genus'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-1-the-rational-function-field",
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "status": "in_progress",
+  "quote": "**Layers 0, 1, 3** — done; only the corollary that there are infinitely many places is not visible. On `k(x)`, `−2·P_∞` is a Riemann–Roch divisor with `g₀ = 0` ([`TauCeti.Divisor.isRiemannRochDivisor_neg_two_zsmul_ofPoint_infty`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/FieldTheory/FunctionField/RiemannRoch/Uniqueness.html#TauCeti.Divisor.isRiemannRochDivisor_neg_two_zsmul_ofPoint_infty)); the `ℓ(n·P_∞) = n + 1` computation is not visible by name.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in the list 'Layers 0, 1, 3'. Nearly complete: the report calls the group done and lists only hedged gaps, the corollary that there are infinitely many places ('not visible') and the ℓ(n·P_∞) = n + 1 computation on k(x) ('not visible by name'); it does not say which of Layers 0, 1, 3 each gap belongs to, so the joint 'done except' statement is applied to each. At a glance (line 11): 'Layers 0, 1 and 3 are done, through Riemann's theorem and the genus'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "status": "in_progress",
+  "quote": "**Layer 2** — partial: places ↔ height one primes, the finite chart and its complement, and holomorphy rings (integrally closed ⟺ holomorphy ring, PID for finite `S`) are done; finite normalization and two-chart compatibility are untouched, so every model is a hypothesis.",
+  "lineStart": 30,
+  "lineEnd": 30,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Partial: places ↔ height one primes, the finite chart and holomorphy rings are done; finite normalization and two-chart compatibility are untouched. At a glance (line 11): 'Layer 2's dictionary is done for a given Dedekind model.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "status": "in_progress",
+  "quote": "**Layers 0, 1, 3** — done; only the corollary that there are infinitely many places is not visible. On `k(x)`, `−2·P_∞` is a Riemann–Roch divisor with `g₀ = 0` ([`TauCeti.Divisor.isRiemannRochDivisor_neg_two_zsmul_ofPoint_infty`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/FieldTheory/FunctionField/RiemannRoch/Uniqueness.html#TauCeti.Divisor.isRiemannRochDivisor_neg_two_zsmul_ofPoint_infty)); the `ℓ(n·P_∞) = n + 1` computation is not visible by name.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in the list 'Layers 0, 1, 3'. Nearly complete: the report calls the group done and lists only hedged gaps, the corollary that there are infinitely many places ('not visible') and the ℓ(n·P_∞) = n + 1 computation on k(x) ('not visible by name'); it does not say which of Layers 0, 1, 3 each gap belongs to, so the joint 'done except' statement is applied to each. At a glance (line 11): 'Layers 0, 1 and 3 are done, through Riemann's theorem and the genus'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "status": "in_progress",
+  "quote": "**Layer 4** — partial: repartitions, the quotient engine, `i(D)` and `g` as dimensions, Weil differentials with `F`-action, uniqueness of the Riemann–Roch data; untouched: `(ω)`, the canonical class, duality, Riemann–Roch.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Partial: repartitions, i(D) and g as dimensions, Weil differentials; untouched: (ω), the canonical class, duality, Riemann–Roch. At a glance (line 11): Layer 4 'reaches dim_F Ω_F = 1 but not the canonical divisor, duality, or Riemann–Roch'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "status": "in_progress",
+  "quote": "**Layer 5** — partial: strong approximation, local components with the abstract residue theorem ([`TauCeti.finsum_repartitionDualComponent_eq_zero`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/FieldTheory/FunctionField/Differential/LocalComponent.html#TauCeti.finsum_repartitionDualComponent_eq_zero)), and the zeta-free class number (`Finite Cl⁰(F)`) are done; the `deg ≥ 2g − 1` regime, genus 0, Weierstrass gaps, Clifford, `η` on `k(x)`, completions and the transfer to `ClassGroup R_x` are not.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Partial: strong approximation, local components with the abstract residue theorem and finiteness of Cl⁰(F) are done; the deg ≥ 2g − 1 regime, genus 0, Weierstrass gaps, Clifford and the completion transfer are not. At a glance (line 11) lists Layer 5 among 'Layers 5, 7 and 9 are partial'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "status": "in_progress",
+  "quote": "**Layer 6** — done except the fundamental identity for inseparable `F′/F` at places over infinity, the geometric degree, and the constant-field identification; extensions of places exist only when both `F′/F` and `k′/k` are integral.",
+  "lineStart": 33,
+  "lineEnd": 33,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Nearly complete: done except the fundamental identity for inseparable F′/F at places over infinity, the geometric degree and the constant-field identification. At a glance (line 11): 'Layer 6 is nearly complete'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "status": "in_progress",
+  "quote": "**Layer 7** — partial: the different exponent via the local model `𝒪′_P`, `d ≥ e − 1` and `d = 0 ⟺` unramified; the different divisor, the tame equality, the cotrace and Hurwitz are untouched.",
+  "lineStart": 34,
+  "lineEnd": 34,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Partial: the different exponent via the local model, d ≥ e − 1 and d = 0 ⟺ unramified; the different divisor, tame equality, cotrace and Hurwitz are untouched. At a glance (line 11) lists Layer 7 among 'Layers 5, 7 and 9 are partial'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "status": "not_started",
+  "quote": "**Layers 8, 10, 11, 12** — untouched.",
+  "lineStart": 36,
+  "lineEnd": 36,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in the list 'Layers 8, 10, 11, 12'. At a glance (line 11): 'Layers 8 and 10–12 have not begun.' The frontier (line 44) repeats 'Layers 8, 10, 12 — untouched'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "status": "in_progress",
+  "quote": "**Layer 9** — first subsection done, `dim_F Ω[F⁄k] = 1` with basis `dx` ([`TauCeti.finrank_kaehlerDifferential_eq_one_of_separating`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/FieldTheory/FunctionField/Differential/Kaehler.html#TauCeti.finrank_kaehlerDifferential_eq_one_of_separating)); residues and the Weil comparison untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "First subsection done (dim_F Ω[F⁄k] = 1 with basis dx); residues and the Weil comparison untouched. At a glance (line 11) lists Layer 9 among 'Layers 5, 7 and 9 are partial'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "status": "not_started",
+  "quote": "**Layers 8, 10, 11, 12** — untouched.",
+  "lineStart": 36,
+  "lineEnd": 36,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in the list 'Layers 8, 10, 11, 12'. At a glance (line 11): 'Layers 8 and 10–12 have not begun.' The frontier (line 44) repeats 'Layers 8, 10, 12 — untouched'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-11-automorphisms-and-the-hurwitz-bound",
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "status": "not_started",
+  "quote": "**Layers 8, 10, 11, 12** — untouched.",
+  "lineStart": 36,
+  "lineEnd": 36,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in the list 'Layers 8, 10, 11, 12'. At a glance (line 11): 'Layers 8 and 10–12 have not begun.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "status": "not_started",
+  "quote": "**Layers 8, 10, 11, 12** — untouched.",
+  "lineStart": 36,
+  "lineEnd": 36,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in the list 'Layers 8, 10, 11, 12'. At a glance (line 11): 'Layers 8 and 10–12 have not begun.' The frontier (line 44) repeats 'Layers 8, 10, 12 — untouched' and adds that Layer 12's contracts could be drafted now."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula",
+  "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+  "status": "in_progress",
+  "quote": "Layer 0 (places, completions, product formula): partial. The infinite-place normalized absolute value and its real and complex formulas are done. Untouched: the identification of `w.Completion` with `ℝ` or `ℂ`, the finite-place normalized absolute value and its agreement with the valuation, finiteness of the places where `|x|_v ≠ 1`, the product formula, and functoriality under extensions.",
+  "lineStart": 24,
+  "lineEnd": 24,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Partial: the infinite-place normalized absolute value and its real and complex formulas are done; the finite-place absolute value, finiteness of support, the product formula and functoriality are untouched. At a glance (line 11): 'Layer 0 has a normalized absolute value on each infinite completion'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences",
+  "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+  "status": "in_progress",
+  "quote": "Layer 1 (weak approximation): partial. The primary mixed-completion theorem is done. Untouched: the `Kˣ` corollaries with simultaneous finite targets and real signs, the total sign homomorphism, and its surjectivity on `Kˣ`.",
+  "lineStart": 25,
+  "lineEnd": 25,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Partial: the primary mixed-completion weak approximation theorem is done; the Kˣ corollaries, the total sign homomorphism and its surjectivity are untouched. At a glance (line 11): 'Its Layer 1 headline theorem, mixed-place weak approximation, is done'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+  "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+  "status": "not_started",
+  "quote": "Layers 2 through 11 (moduli and ray class groups; geometry of numbers and ray-class counting; finite adeles; full adeles; strong approximation and ideles; congruence subgroups; extensions and base change; Hecke and ray class characters; infinity types and cyclotomic arithmetic; orders and Picard groups): untouched.",
+  "lineStart": 26,
+  "lineEnd": 26,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 2 is the named start of the range 'Layers 2 through 11' (topic 'moduli and ray class groups'). At a glance (line 11): 'Everything else, from the finite side of Layer 0 through moduli, ray class groups, ideal counting, adeles, ideles, Hecke characters, infinity types, cyclotomic arithmetic, and orders, has not been started.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting",
+  "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+  "status": "not_started",
+  "quote": "Layers 2 through 11 (moduli and ray class groups; geometry of numbers and ray-class counting; finite adeles; full adeles; strong approximation and ideles; congruence subgroups; extensions and base change; Hecke and ray class characters; infinity types and cyclotomic arithmetic; orders and Picard groups): untouched.",
+  "lineStart": 26,
+  "lineEnd": 26,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Falls within the range 'Layers 2 through 11'; not named by number, but its topic appears in the range's parenthetical list ('geometry of numbers and ray-class counting'). At a glance (line 11): 'Everything else, from the finite side of Layer 0 through moduli, ray class groups, ideal counting, adeles, ideles, Hecke characters, infinity types, cyclotomic arithmetic, and orders, has not been started.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles",
+  "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+  "status": "not_started",
+  "quote": "Layers 2 through 11 (moduli and ray class groups; geometry of numbers and ray-class counting; finite adeles; full adeles; strong approximation and ideles; congruence subgroups; extensions and base change; Hecke and ray class characters; infinity types and cyclotomic arithmetic; orders and Picard groups): untouched.",
+  "lineStart": 26,
+  "lineEnd": 26,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Falls within the range 'Layers 2 through 11'; not named by number, but its topic appears in the range's parenthetical list ('finite adeles'). At a glance (line 11): 'Everything else, from the finite side of Layer 0 through moduli, ray class groups, ideal counting, adeles, ideles, Hecke characters, infinity types, cyclotomic arithmetic, and orders, has not been started.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-5-full-adeles-and-the-additive-quotient",
+  "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+  "status": "not_started",
+  "quote": "Layers 2 through 11 (moduli and ray class groups; geometry of numbers and ray-class counting; finite adeles; full adeles; strong approximation and ideles; congruence subgroups; extensions and base change; Hecke and ray class characters; infinity types and cyclotomic arithmetic; orders and Picard groups): untouched.",
+  "lineStart": 26,
+  "lineEnd": 26,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Falls within the range 'Layers 2 through 11'; not named by number, but its topic appears in the range's parenthetical list ('full adeles'). At a glance (line 11): 'Everything else, from the finite side of Layer 0 through moduli, ray class groups, ideal counting, adeles, ideles, Hecke characters, infinity types, cyclotomic arithmetic, and orders, has not been started.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+  "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+  "status": "not_started",
+  "quote": "Layers 2 through 11 (moduli and ray class groups; geometry of numbers and ray-class counting; finite adeles; full adeles; strong approximation and ideles; congruence subgroups; extensions and base change; Hecke and ray class characters; infinity types and cyclotomic arithmetic; orders and Picard groups): untouched.",
+  "lineStart": 26,
+  "lineEnd": 26,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Falls within the range 'Layers 2 through 11'; not named by number, but its topic appears in the range's parenthetical list ('strong approximation and ideles'). At a glance (line 11): 'Everything else, from the finite side of Layer 0 through moduli, ray class groups, ideal counting, adeles, ideles, Hecke characters, infinity types, cyclotomic arithmetic, and orders, has not been started.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-7-congruence-subgroups-and-the-ray-class-dictionary",
+  "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+  "status": "not_started",
+  "quote": "Layers 2 through 11 (moduli and ray class groups; geometry of numbers and ray-class counting; finite adeles; full adeles; strong approximation and ideles; congruence subgroups; extensions and base change; Hecke and ray class characters; infinity types and cyclotomic arithmetic; orders and Picard groups): untouched.",
+  "lineStart": 26,
+  "lineEnd": 26,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Falls within the range 'Layers 2 through 11'; not named by number, but its topic appears in the range's parenthetical list ('congruence subgroups'). At a glance (line 11): 'Everything else, from the finite side of Layer 0 through moduli, ray class groups, ideal counting, adeles, ideles, Hecke characters, infinity types, cyclotomic arithmetic, and orders, has not been started.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles",
+  "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+  "status": "not_started",
+  "quote": "Layers 2 through 11 (moduli and ray class groups; geometry of numbers and ray-class counting; finite adeles; full adeles; strong approximation and ideles; congruence subgroups; extensions and base change; Hecke and ray class characters; infinity types and cyclotomic arithmetic; orders and Picard groups): untouched.",
+  "lineStart": 26,
+  "lineEnd": 26,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Falls within the range 'Layers 2 through 11'; not named by number, but its topic appears in the range's parenthetical list ('extensions and base change'). At a glance (line 11): 'Everything else, from the finite side of Layer 0 through moduli, ray class groups, ideal counting, adeles, ideles, Hecke characters, infinity types, cyclotomic arithmetic, and orders, has not been started.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+  "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+  "status": "not_started",
+  "quote": "Layers 2 through 11 (moduli and ray class groups; geometry of numbers and ray-class counting; finite adeles; full adeles; strong approximation and ideles; congruence subgroups; extensions and base change; Hecke and ray class characters; infinity types and cyclotomic arithmetic; orders and Picard groups): untouched.",
+  "lineStart": 26,
+  "lineEnd": 26,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Falls within the range 'Layers 2 through 11'; not named by number, but its topic appears in the range's parenthetical list ('Hecke and ray class characters'). At a glance (line 11): 'Everything else, from the finite side of Layer 0 through moduli, ray class groups, ideal counting, adeles, ideles, Hecke characters, infinity types, cyclotomic arithmetic, and orders, has not been started.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+  "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+  "status": "not_started",
+  "quote": "Layers 2 through 11 (moduli and ray class groups; geometry of numbers and ray-class counting; finite adeles; full adeles; strong approximation and ideles; congruence subgroups; extensions and base change; Hecke and ray class characters; infinity types and cyclotomic arithmetic; orders and Picard groups): untouched.",
+  "lineStart": 26,
+  "lineEnd": 26,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Falls within the range 'Layers 2 through 11'; not named by number, but its topic appears in the range's parenthetical list ('infinity types and cyclotomic arithmetic'). At a glance (line 11): 'Everything else, from the finite side of Layer 0 through moduli, ray class groups, ideal counting, adeles, ideles, Hecke characters, infinity types, cyclotomic arithmetic, and orders, has not been started.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups",
+  "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+  "status": "not_started",
+  "quote": "Layers 2 through 11 (moduli and ray class groups; geometry of numbers and ray-class counting; finite adeles; full adeles; strong approximation and ideles; congruence subgroups; extensions and base change; Hecke and ray class characters; infinity types and cyclotomic arithmetic; orders and Picard groups): untouched.",
+  "lineStart": 26,
+  "lineEnd": 26,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 11 is the named end of the range 'Layers 2 through 11' (topic 'orders and Picard groups'). At a glance (line 11): 'Everything else, from the finite side of Layer 0 through moduli, ray class groups, ideal counting, adeles, ideles, Hecke characters, infinity types, cyclotomic arithmetic, and orders, has not been started.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group",
+  "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+  "status": "in_progress",
+  "quote": "**Layer 1: partial.** Boundary-as-manifold done for the half-space model; collars only local (a product collar chart and smooth local collar at each boundary point), no global `∂M × [0,1)`; PL pregroupoid and groupoid done with `PLGroupoid ≤ continuousGroupoid`. Gluing, handles, tubular neighbourhoods, connected sum untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Partial: boundary-as-manifold, local collars and the PL groupoid are done; a global collar, gluing, handles, tubular neighbourhoods and connected sum are untouched. At a glance (line 11): 'layers 1 through 5 each have real foundations but none has reached its first geometric construction', naming gluing among the missing constructions."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GeometricTopology#layer-2-locally-flat-embeddings-in-general-dimension",
+  "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+  "status": "in_progress",
+  "quote": "**Layer 2: partial.** `IsLocallyFlat` with restriction, homeomorphism invariance, products, and composition under an explicit compatibility hypothesis; smooth implies locally flat (boundaryless only); local bicollaring. Global bicollaring, PL implies locally flat, the Annulus Conjecture untouched.",
+  "lineStart": 30,
+  "lineEnd": 30,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Partial: IsLocallyFlat with its basic API, smooth implies locally flat (boundaryless) and local bicollaring; global bicollaring, PL implies locally flat and the Annulus Conjecture are untouched. At a glance (line 11): 'layers 1 through 5 each have real foundations but none has reached its first geometric construction'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GeometricTopology#layer-3-diffeomorphism-groups-with-the-c-topology",
+  "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+  "status": "in_progress",
+  "quote": "**Layer 3: partial.** Group, relative groups, diffeotopies, the `O(n+1)` inclusion. No `C^∞` topology, no smooth-families map; Smale not stateable.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Partial: the group, relative groups, diffeotopies and the O(n+1) inclusion; no C^∞ topology or smooth-families map. At a glance (line 11): 'layers 1 through 5 each have real foundations but none has reached its first geometric construction', naming a topology on the diffeomorphism group among the missing constructions."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GeometricTopology#layer-4-knot-theory-done-properly-owned-here",
+  "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+  "status": "in_progress",
+  "quote": "**Layer 4: partial.** Braid groups, unreduced and reduced Burau, Temperley–Lieb with the Jones representation, Markov equivalence with component count, Alexander from a Seifert matrix, a smooth circle presentation (no framing). No diagrams, Reidemeister or Markov theorems, Seifert matrix of a knot, Jones polynomial, slice-ness.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Partial: braid groups, Burau, Temperley–Lieb/Jones representation, Markov equivalence, Alexander from a Seifert matrix; no diagrams, Reidemeister or Markov theorems, Jones polynomial or slice-ness. At a glance (line 11): 'layers 1 through 5 each have real foundations but none has reached its first geometric construction', naming a knot diagram among the missing constructions."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GeometricTopology#layer-5-dehn-surgery",
+  "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+  "status": "in_progress",
+  "quote": "**Layer 5: partial.** Slopes and the framed bijection with `ℚ ∪ {∞}`; no complement, filling, or unknot identities.",
+  "lineStart": 33,
+  "lineEnd": 33,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Partial: slopes and the framed bijection with ℚ ∪ {∞}; no complement, filling or unknot identities. At a glance (line 11): 'layers 1 through 5 each have real foundations but none has reached its first geometric construction', naming a Dehn filling among the missing constructions."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GeometricTopology#layer-6-knot-concordance-and-4d-cobordism-owned-here",
+  "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+  "status": "not_started",
+  "quote": "**Layers 6 to 10: untouched.**",
+  "lineStart": 34,
+  "lineEnd": 34,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 6 is the named start of the range 'Layers 6 to 10'. At a glance (line 11): 'layers 6 through 10 have not begun.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume",
+  "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+  "status": "not_started",
+  "quote": "**Layers 6 to 10: untouched.**",
+  "lineStart": 34,
+  "lineEnd": 34,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Falls within the range 'Layers 6 to 10'; not named individually. At a glance (line 11): 'layers 6 through 10 have not begun.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GeometricTopology#layer-8-thurston-geometries-and-the-jsj--geometric-decomposition",
+  "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+  "status": "not_started",
+  "quote": "**Layers 6 to 10: untouched.**",
+  "lineStart": 34,
+  "lineEnd": 34,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Falls within the range 'Layers 6 to 10'; not named individually. At a glance (line 11): 'layers 6 through 10 have not begun.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GeometricTopology#layer-9-heegaard-splittings-and-heegaard-genus",
+  "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+  "status": "not_started",
+  "quote": "**Layers 6 to 10: untouched.**",
+  "lineStart": 34,
+  "lineEnd": 34,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Falls within the range 'Layers 6 to 10'; not named individually. At a glance (line 11): 'layers 6 through 10 have not begun.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GeometricTopology#layer-10-foliations-and-their-euler-class",
+  "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+  "status": "not_started",
+  "quote": "**Layers 6 to 10: untouched.**",
+  "lineStart": 34,
+  "lineEnd": 34,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Layer 10 is the named end of the range 'Layers 6 to 10'. At a glance (line 11): 'layers 6 through 10 have not begun.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GeometricTopology#layer-11-triangulations-pl-structures-and-collapse",
+  "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+  "status": "in_progress",
+  "quote": "**Layer 11: partial, furthest along.** Realization, links, joins and cones, barycentric and stellar subdivision, combinatorial manifolds, `IsTriangulable`, collapse, the ordered cylinder. Not done: reconciliation with layer 1's PL groupoid, Manolescu, Zeeman.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Partial, 'furthest along': realization, subdivision, combinatorial manifolds, IsTriangulable, collapse and the ordered cylinder are done; reconciliation with layer 1's PL groupoid, Manolescu and Zeeman are not. At a glance (line 11): the simplicial layer (layer 11) 'is substantially built short of its two theorems'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Exchangeability#layer-0-sequence-laws-finite-marginals-and-symmetry-notions",
+  "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+  "status": "complete",
+  "quote": "Layers 0–2 and 4 were already complete",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "5b603c69ce30e44bc3ef9dee0cb3f95c2e0f67bb",
+  "note": "Layer 0 is the named start of the range 'Layers 0–2'. At a glance (line 11): 'The de Finetti–Ryll-Nardzewski summit and Layers 0–7 are complete'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Exchangeability#layer-1-product-kernels-and-mixtures",
+  "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+  "status": "complete",
+  "quote": "Layers 0–2 and 4 were already complete",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "5b603c69ce30e44bc3ef9dee0cb3f95c2e0f67bb",
+  "note": "Falls within the range 'Layers 0–2'; not named individually. At a glance (line 11): 'The de Finetti–Ryll-Nardzewski summit and Layers 0–7 are complete'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Exchangeability#layer-2-process-tails-and-path-space-dynamics",
+  "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+  "status": "complete",
+  "quote": "Layers 0–2 and 4 were already complete",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "5b603c69ce30e44bc3ef9dee0cb3f95c2e0f67bb",
+  "note": "Layer 2 is the named end of the range 'Layers 0–2'. At a glance (line 11): 'The de Finetti–Ryll-Nardzewski summit and Layers 0–7 are complete'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Exchangeability#layer-3-l²-averaging-library-and-the-standard-borel-de-finetti-route",
+  "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+  "status": "complete",
+  "quote": "Layers 3 and 5 are now complete through their L² and Koopman endpoint theorems",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "5b603c69ce30e44bc3ef9dee0cb3f95c2e0f67bb",
+  "note": "Named explicitly ('Layers 3 and 5'). At a glance (line 11): 'The de Finetti–Ryll-Nardzewski summit and Layers 0–7 are complete'. The named results (line 17) include de Finetti via L² averaging."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Exchangeability#layer-4-reverse-martingales-and-conditional-expectation-limits",
+  "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+  "status": "complete",
+  "quote": "Layers 0–2 and 4 were already complete",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "5b603c69ce30e44bc3ef9dee0cb3f95c2e0f67bb",
+  "note": "Named explicitly ('Layers 0–2 and 4'). At a glance (line 11): 'The de Finetti–Ryll-Nardzewski summit and Layers 0–7 are complete'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Exchangeability#layer-5-koopman-operators-and-invariant-σ-algebras",
+  "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+  "status": "complete",
+  "quote": "Layers 3 and 5 are now complete through their L² and Koopman endpoint theorems",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "5b603c69ce30e44bc3ef9dee0cb3f95c2e0f67bb",
+  "note": "Named explicitly ('Layers 3 and 5'). At a glance (line 11): 'The de Finetti–Ryll-Nardzewski summit and Layers 0–7 are complete'. The named results (line 17) include de Finetti via Koopman operators."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Exchangeability#layer-6-directing-measures-and-de-finetti-representation",
+  "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+  "status": "complete",
+  "quote": "Layers 6–7 now include weak empirical convergence and all specified zero-one, ergodic, extreme and public interfaces.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "5b603c69ce30e44bc3ef9dee0cb3f95c2e0f67bb",
+  "note": "Layer 6 is the named start of the range 'Layers 6–7'. The coverage clause lists what the layers now include ('all specified zero-one, ergodic, extreme and public interfaces') without the word 'complete'; the verdict comes from At a glance (line 11): 'The de Finetti–Ryll-Nardzewski summit and Layers 0–7 are complete'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Exchangeability#layer-7-public-api-and-examples",
+  "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+  "status": "complete",
+  "quote": "Layers 6–7 now include weak empirical convergence and all specified zero-one, ergodic, extreme and public interfaces.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "5b603c69ce30e44bc3ef9dee0cb3f95c2e0f67bb",
+  "note": "Layer 7 is the named end of the range 'Layers 6–7'. The coverage clause lists what the layers now include ('all specified zero-one, ergodic, extreme and public interfaces') without the word 'complete'; the verdict comes from At a glance (line 11): 'The de Finetti–Ryll-Nardzewski summit and Layers 0–7 are complete'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Exchangeability#layer-8-generalized-exchangeability-and-representation-theorems",
+  "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+  "status": "in_progress",
+  "quote": "In Layer 8, the countable-index extension, finite de Finetti sampling bounds, and affine classification of exchangeable laws are done. Markov exchangeability is partial: recurrence, excursions, successor arrays and the row-exchangeable-to-mixture bridge exist, but the hard recurrent Markov-exchangeable-to-mixture implication is absent. Arrays are partial: the symmetry and dissociation notions, block and row reductions, row-wise de Finetti, and the forward Aldous–Hoover constructions exist, but no converse representation theorem is declared.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "5b603c69ce30e44bc3ef9dee0cb3f95c2e0f67bb",
+  "note": "Countable-index extension, finite de Finetti sampling bounds and affine classification are done; the Markov-exchangeability and array lanes are partial (no recurrent Markov-exchangeable-to-mixture implication, no converse Aldous–Hoover representation). At a glance (line 11): 'Layer 8 is partial: finite de Finetti and the law-level correspondence are established, while the Markov and array representation converses remain open'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+  "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+  "status": "complete",
+  "quote": "**Layer 0** — done: kernel–cokernel pairs, exact structures, duality, conflation-exact functors with the Mathlib comparison ([`TauCeti.ExactStructure.isConflationExact_abelian_iff`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/CategoryTheory/Exact/Functor.html#TauCeti.ExactStructure.isConflationExact_abelian_iff)), the three fundamental constructions, biproducts, bicartesian squares, transport and Noether isomorphisms.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "The coverage entry says 'done' with no gap listed. At a glance (line 11): 'The categorical spine is in place: exact structures, the presentation engine, ...'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-1-the-small-presentation-and-universal-additive-invariants",
+  "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+  "status": "in_progress",
+  "quote": "**Layer 1** — done except product categories; biadditive invariants descend ([`TauCeti.ExactK0.BiadditiveInvariant.bilift`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/CategoryTheory/GrothendieckGroup/Exact.html#TauCeti.ExactK0.BiadditiveInvariant.bilift)); choice independence appears only as equivalence invariance.",
+  "lineStart": 30,
+  "lineEnd": 30,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Nearly complete: 'done except product categories'; biadditive invariants descend, and choice independence appears only as equivalence invariance. At a glance (line 11) counts the presentation engine as part of the categorical spine that is in place."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+  "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+  "status": "in_progress",
+  "quote": "**Layer 2** — split (with group completion), exact, abelian (as exact K₀ of the canonical structure) and triangulated K₀ (with `[X⟦n⟧] = (-1)ⁿ[X]`) done; graded ℤ-actions, shift-compatible universal properties and forgetting the grading done. Bounded-complex comparisons untouched.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Split, exact, abelian and triangulated K₀ with graded ℤ-actions are done; bounded-complex comparisons are untouched. At a glance (line 11) says the four Grothendieck groups are in place but names the bounded-complex comparisons among what is 'genuinely partial'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
+  "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+  "status": "in_progress",
+  "quote": "**Layer 3** — finite resolutions, the object-property presentation, Euler class and resolution theorem done for projective resolutions. Untouched: general resolving subcategories, comparison maps up to homotopy, graded and linear resolutions.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Finite resolutions and the resolution theorem are done for projective resolutions; general resolving subcategories, comparison maps up to homotopy and graded/linear resolutions are untouched. At a glance (line 11) counts the projective resolution theorem as in place and general resolving subcategories as 'genuinely partial'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+  "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+  "status": "not_started",
+  "quote": "**Layer 4** — untouched.",
+  "lineStart": 33,
+  "lineEnd": 33,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly. At a glance (line 11): 'Layer 4 and every worked example have not begun'; The frontier (line 43): 'Layer 4, the Cartan map — nothing exists'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+  "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+  "status": "in_progress",
+  "quote": "**Layer 5** — Euler–Poincaré (not yet tied to Mathlib's `eulerChar`), Ext-finite pairs, the Ext-Euler value, descent, projective evaluation ([`TauCeti.extEuler_projective`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/Algebra/Homology/EulerCharacteristic/ExtEuler/Basic.html#TauCeti.extEuler_projective)) and the resolution formula ([`TauCeti.ExactStructure.FiniteResolution.extEuler_eq_homEuler`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/Algebra/Homology/EulerCharacteristic/ExtEuler/Resolution.html#TauCeti.ExactStructure.FiniteResolution.extEuler_eq_homEuler)) done; bigraded Ext, χ_q and its descent to ordinary exact K₀ done; naturality under functors and both quiver comparisons untouched.",
+  "lineStart": 34,
+  "lineEnd": 34,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Euler–Poincaré (not yet tied to Mathlib's eulerChar), the Ext-Euler value, its descent, bigraded Ext and χ_q are done; naturality under functors and both quiver comparisons are untouched. At a glance (line 11) counts Euler–Poincaré and the Ext-Euler pairing as in place. The frontier (line 42) adds that the dual-numbers rejection test, which the README makes a precondition for accepting Ext-Euler descent, is still missing although descent has landed."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-6-laurent-coefficients-q-euler-forms-and-specialization",
+  "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+  "status": "in_progress",
+  "quote": "**Layer 6** — Laurent module structure with universal property, evaluation at units, finite Laurent support and target-shift graded dimension with reindexing done; sesquilinear χ_q, matrices, specialisation and the comparison after forgetting the grading untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Laurent module structure, evaluation at units, finite Laurent support and target-shift graded dimension are done; sesquilinear χ_q, matrices, specialisation and the forgetful comparison are untouched. At a glance (line 11): the graded Euler form is 'defined, but neither sesquilinear nor descended to the Laurent K₀'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-7-left-and-right-numerical-grothendieck-groups",
+  "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+  "status": "in_progress",
+  "quote": "**Layer 7** — radicals, numerical quotients, functoriality and the Ext-Euler specialisation done, the pairing nondegenerate on both quotients ([`TauCeti.extEulerNumericalPairing_nondegenerate`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/Algebra/Homology/EulerCharacteristic/ExtEuler/Numerical.html#TauCeti.extEulerNumericalPairing_nondegenerate)); Laurent bar-stable analogues untouched.",
+  "lineStart": 36,
+  "lineEnd": 36,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Radicals, numerical quotients, functoriality, the Ext-Euler specialisation and nondegeneracy on both quotients are done; only the Laurent bar-stable analogues are listed as untouched. At a glance (line 11) counts numerical quotients as part of the spine in place."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l0--the-local-mapping-engine",
+  "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+  "status": "complete",
+  "quote": "L0–L4 remain done: the local-mapping results, Montel and Vitali, Schwarz–Pick and Poincaré geometry, the Riemann mapping theorem, and reflection, removability and monodromy are all established.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "ae69ef93ae1b853b89b7e0966d5895c901e370f2",
+  "note": "L0 is the named start of the range 'L0–L4'; the clause lists 'the local-mapping results' as established. At a glance (line 11): 'The Riemann mapping summit and layers L0–L5 are complete'. The frontier (line 45) adds that the called-for Mathlib reconciliation (replacing duplicated L0–L3 proofs if Mathlib's version lands) is not established; the report does not present this as unfinished milestone work and still calls L0–L4 done."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l1--normal-families--montel-the-analytic-theorem-not-montelspace",
+  "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+  "status": "complete",
+  "quote": "L0–L4 remain done: the local-mapping results, Montel and Vitali, Schwarz–Pick and Poincaré geometry, the Riemann mapping theorem, and reflection, removability and monodromy are all established.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "ae69ef93ae1b853b89b7e0966d5895c901e370f2",
+  "note": "Falls within the range 'L0–L4'; not named by number, but the clause lists 'Montel and Vitali' as established. At a glance (line 11): 'The Riemann mapping summit and layers L0–L5 are complete'. The frontier (line 45) adds that the called-for Mathlib reconciliation (replacing duplicated L0–L3 proofs if Mathlib's version lands) is not established; the report does not present this as unfinished milestone work and still calls L0–L4 done."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l2--schwarz-lemma-extensions",
+  "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+  "status": "complete",
+  "quote": "L0–L4 remain done: the local-mapping results, Montel and Vitali, Schwarz–Pick and Poincaré geometry, the Riemann mapping theorem, and reflection, removability and monodromy are all established.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "ae69ef93ae1b853b89b7e0966d5895c901e370f2",
+  "note": "Falls within the range 'L0–L4'; not named by number, but the clause lists 'Schwarz–Pick and Poincaré geometry' as established. At a glance (line 11): 'The Riemann mapping summit and layers L0–L5 are complete'. The frontier (line 45) adds that the called-for Mathlib reconciliation (replacing duplicated L0–L3 proofs if Mathlib's version lands) is not established; the report does not present this as unfinished milestone work and still calls L0–L4 done."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l3--the-riemann-mapping-theorem-summit",
+  "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+  "status": "complete",
+  "quote": "L0–L4 remain done: the local-mapping results, Montel and Vitali, Schwarz–Pick and Poincaré geometry, the Riemann mapping theorem, and reflection, removability and monodromy are all established.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "ae69ef93ae1b853b89b7e0966d5895c901e370f2",
+  "note": "Falls within the range 'L0–L4'; not named by number, but the clause lists 'the Riemann mapping theorem' as established. At a glance (line 11): 'The Riemann mapping summit and layers L0–L5 are complete'. The frontier (line 45) adds that the called-for Mathlib reconciliation (replacing duplicated L0–L3 proofs if Mathlib's version lands) is not established; the report does not present this as unfinished milestone work and still calls L0–L4 done."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l4--analytic-continuation--the-reflection-principle",
+  "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+  "status": "complete",
+  "quote": "L0–L4 remain done: the local-mapping results, Montel and Vitali, Schwarz–Pick and Poincaré geometry, the Riemann mapping theorem, and reflection, removability and monodromy are all established.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "ae69ef93ae1b853b89b7e0966d5895c901e370f2",
+  "note": "L4 is the named end of the range 'L0–L4'; the clause lists 'reflection, removability and monodromy' as established. At a glance (line 11): 'The Riemann mapping summit and layers L0–L5 are complete'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l5--carathéodory-boundary-correspondence",
+  "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+  "status": "complete",
+  "quote": "L5 is now done at its stated Jordan-domain generality, in both directions and with a homeomorphism of closures; the heavier prime-ends theory was explicitly deferred.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "ae69ef93ae1b853b89b7e0966d5895c901e370f2",
+  "note": "Named explicitly: done at the milestone's stated Jordan-domain generality. Prime ends were explicitly deferred; The frontier (line 43) calls them 'a follow-on target, not unfinished L5 work'. At a glance (line 11): 'The Riemann mapping summit and layers L0–L5 are complete'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l6--schwarzchristoffel",
+  "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+  "status": "in_progress",
+  "quote": "L6 is partial: local conformality, finite prevertex limits under the exponent condition, canonical boundary values, straight injective boundary edges, angle changes and leading asymptotics are present, while global polygon mapping is not established.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "ae69ef93ae1b853b89b7e0966d5895c901e370f2",
+  "note": "Integrand, primitive, boundary values, straight injective edges and asymptotics are present; global polygon mapping is not established. At a glance (line 11): 'L6 is genuinely partial ... no theorem yet identifies a global map onto a prescribed polygon'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HopfRinow#layer-0-the-reconciled-riemannian-distance",
+  "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+  "status": "in_progress",
+  "quote": "**Layer 0**: done except two items. The constant-speed reparametrization of a regular `C¹` curve is absent, and lower semicontinuity landed only as a total-variation bound on the limit curve, not in the `pathELength` form.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Nearly complete: 'done except two items', namely the constant-speed reparametrization of a regular C¹ curve and lower semicontinuity in the pathELength form. At a glance (line 11): Layer 0 'is done up to two loose ends'; The frontier (line 41) calls them self-contained."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HopfRinow#layer-1-the-geodesic-equation-the-flow-and-the-exponential-map",
+  "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+  "status": "in_progress",
+  "quote": "**Layer 1**: the Levi-Civita connection (existence, uniqueness, regularity, Christoffel smoothness), the along-curve derivative, `IsGeodesicCurveOn` with initial data and the chart equation, constant speed, the manifold inverse function theorem, and the finite-endpoint extension criterion are done. Restriction and affine reparametrization of geodesics are done. The geodesic spray is partial: only the Christoffel transformation law under a change of tangent trivialization exists. Local existence and uniqueness of geodesics, smooth dependence and the local flow, the maximal interval `J(p,v)`, the exponential map and its domain, the derivative at zero, and `(a_p) ↔ (d_p)` are untouched.",
+  "lineStart": 30,
+  "lineEnd": 30,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "The Levi-Civita connection, along-curve derivative, geodesic predicate, constant speed, inverse function theorem and extension criterion are done; the geodesic spray is partial; local existence and uniqueness, the local flow, J(p,v) and the exponential map are untouched. At a glance (line 11): 'the connection half of Layer 1 is done' but 'The geodesic spray, its flow, and the exponential map are not built'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HopfRinow#layer-2-normal-neighbourhoods-the-gauss-lemma-and-minimizing-geodesics",
+  "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+  "status": "not_started",
+  "quote": "**Layer 2** and **Layer 3**: untouched.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly ('Layer 2 and Layer 3'). At a glance (line 11): 'Layers 2 and 3 have not begun'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HopfRinow#layer-3-the-hopfrinow-equivalence",
+  "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+  "status": "not_started",
+  "quote": "**Layer 2** and **Layer 3**: untouched.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly ('Layer 2 and Layer 3'). At a glance (line 11): 'Layers 2 and 3 have not begun'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HopfRinow#layer-4-corollaries-and-downstream-theory",
+  "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+  "status": "in_progress",
+  "quote": "**Layer 4**: the length-space and geodesic-space API is done, including that geodesic spaces are length spaces and that real normed torsors are geodesic spaces. Compact implies geodesically complete has only a general-vector-field forerunner (a `C¹` field on a compact boundaryless manifold is complete); the Riemannian geodesic-space instance and isometry transport are untouched.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "The length-space and geodesic-space API is done; compact-implies-geodesically-complete has only a general-vector-field forerunner, and the Riemannian geodesic-space instance and isometry transport are untouched. At a glance (line 11): 'Layer 4's length-space and geodesic-space API exists, but its Riemannian instance waits on Layer 3'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Multiquadratic#layer-0-the-multiquadratic-field",
+  "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+  "status": "complete",
+  "quote": "Layers 0 and 1 are done at the roadmap's stated precision: degree, explicit elementary-abelian Galois group, the general subfield lattice, Frobenius and complete splitting away from ramification, and ramification controlled by the fundamental discriminant, including at `2`.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "0ee6c02965225fade09d17692899c65b89c3c61b",
+  "note": "Named explicitly ('Layers 0 and 1'), done 'at the roadmap's stated precision'. At a glance (line 11): 'The multiquadratic, splitting, and field-theoretic genus-field layers are established'. The coverage paragraph's last sentence says the requested ℚ(√2,√3) and Erdős CM-field worked examples are 'not established by the supplied declarations' but assigns them to no layer, so they do not change this verdict."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Multiquadratic#layer-1-the-prime-splitting-law",
+  "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+  "status": "complete",
+  "quote": "Layers 0 and 1 are done at the roadmap's stated precision: degree, explicit elementary-abelian Galois group, the general subfield lattice, Frobenius and complete splitting away from ramification, and ramification controlled by the fundamental discriminant, including at `2`.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "0ee6c02965225fade09d17692899c65b89c3c61b",
+  "note": "Named explicitly ('Layers 0 and 1'), done 'at the roadmap's stated precision'. At a glance (line 11): 'The multiquadratic, splitting, and field-theoretic genus-field layers are established'. The coverage paragraph's last sentence says the requested ℚ(√2,√3) and Erdős CM-field worked examples are 'not established by the supplied declarations' but assigns them to no layer, so they do not change this verdict."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group",
+  "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+  "status": "in_progress",
+  "quote": "Layer 2 is partial: `Cl/Cl²`, the exact unit-square index, narrow class groups, ambiguous-ideal descent, and the ordinary and narrow upper bounds exist, but no full ambiguous class number formula is stated.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "0ee6c02965225fade09d17692899c65b89c3c61b",
+  "note": "Partial: Cl/Cl², the unit-square index, narrow class groups, ambiguous-ideal descent and the ordinary and narrow upper bounds exist; no full ambiguous class number formula. The frontier (line 43) lists the ambiguous class number formula 'requested in Layer 2'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Multiquadratic#layer-3-the-genus-field-and-the-2-rank-theorem-the-summit",
+  "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+  "status": "in_progress",
+  "quote": "Layer 3 identifies both the imaginary genus field and the general narrow genus field and proves `2-rank = t - 1` for imaginary quadratic fields; it does not yet prove the Galois-group/class-group isomorphism or the real narrow equality.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "0ee6c02965225fade09d17692899c65b89c3c61b",
+  "note": "The imaginary and general narrow genus fields and the imaginary quadratic 2-rank formula are proved; the Galois-group/class-group isomorphism and the real narrow equality are not. At a glance (line 11) calls 'the imaginary quadratic 2-rank summit' complete, a part of the layer, and says 'The class-group comparison is still partial—the real narrow formula and an actual Gal(K_gen/K) ≅ Cl(K)/Cl(K)² are absent'."
+ }
+]

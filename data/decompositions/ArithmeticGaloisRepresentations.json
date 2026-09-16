@@ -1,0 +1,720 @@
+{
+  "roadmapId": "ArithmeticGaloisRepresentations",
+  "status": "partial",
+  "summary": "Source decomposition of the arithmetic Galois-representation API, from six primary sources: Deligne's Antwerp paper for Grothendieck's monodromy theorem and the definition of a Weil-Deligne representation with its dependence on a chosen geometric Frobenius; Serre's Duke paper for the Artin conductor with its wild part and for tame inertia and the level of a character; Khare-Wintenberger and Dieulefait-Pacetti for Dickson's classification, its characteristic-2 refinement, the bad-dihedral definition and the niveau analysis; Allen-Calegari-Caraiani-Gee-Helm-Le Hung-Newton-Scholze-Taylor-Thorne for the enormity condition and its coefficient-extension invariance, which this reading confirms verbatim against the atlas stage text; Chenevier and Deligne-Serre for recognition by characteristic polynomials and coefficient descent; and Faltings for Tate modules, semisimplicity and the isogeny criterion. One boundary is recorded sharply: the displayed identity defining a Weil-Deligne representation did not survive text extraction, so the arithmetic-versus-geometric Frobenius normalisation that the stage text asserts is NOT established by this reading.",
+  "sources": [
+    {
+      "id": "deligne73-constantes",
+      "title": "Les constantes des equations fonctionnelles des fonctions L",
+      "authors": "Pierre Deligne",
+      "edition": "Modular Functions of One Variable II, Antwerp 1972, Lecture Notes in Math. 349 (1973), 501-597, as the IAS typescript scan (publications.ias.edu Number20.pdf, 97 pages); the scan's bibliography page (p. 597) carries a later added note citing Laumon (1984) and Tate (1977), so it is not a pristine 1973 printing. Its text layer turns '=' into bullets and loses displayed formulas; the reviewer read all displays cited below on page images rendered from the library PDF, where they are legible. The typescript's running marks 'Del-nn' coincide with the PDF page numbers and with printed pages 500+nn",
+      "url": "https://publications.ias.edu/sites/default/files/Number20.pdf",
+      "sha256": "b03f483c4eeca79b75e34b88f41406fe4c9e16ba621480ce859697c93e8d5844",
+      "readSections": [
+        "2.2.1-2.2.4 (notation: v' : Gal(Kbar/K) -> Gal(kbar/k), the arithmetic Frobenius phi: x -> x^q generating W(kbar/k) = Z, the geometric Frobenius F = phi^{-1}, the Weil group), Del-20 to Del-22, printed pp. 520-522 - read by the reviewer",
+        "8.1 and Theoreme 8.2 (Grothendieck's monodromy theorem) with its displayed formulas, Del-66, printed p. 566 (the drafter's locator 'Del-58' was wrong)",
+        "8.3.1-8.3.7 (the algebraic-group description), Del-66 to Del-68, printed pp. 566-568 - read by the reviewer",
+        "Definition 8.4.1 with the displayed relation (8.4.1.1), Del-68, printed p. 568",
+        "8.4.2 and Lemme 8.4.3 with its proof, Del-69, printed p. 569",
+        "Bibliography, Del-96 to Del-97 ([13] = Serre-Tate, Good reduction of abelian varieties) - read by the reviewer"
+      ]
+    },
+    {
+      "id": "serre87-duke",
+      "title": "Sur les representations modulaires de degre 2 de Gal(Qbar/Q)",
+      "authors": "Jean-Pierre Serre",
+      "edition": "Duke Math. J. 54 (1987), 179-230; read from the library PDF text layer; locators give printed journal pages",
+      "url": "https://www.college-de-france.fr/media/jean-pierre-serre/UPL5835292064138487263_Serre_Repr.modulaires_Galois.pdf",
+      "sha256": "8048919db24dcb972435aaaa2a74d1168d0fe533af3aa26c6c809b12ddaee038",
+      "readSections": [
+        "1.2 (Artin conductor: (1.2.1), (1.2.2), (1.2.3) and consequences (a),(b),(c)), pp. 180-181",
+        "1.3 (determinant, parity), pp. 181-182",
+        "2.1 (tame inertia, level of a character, Proposition 1 with proof), pp. 182-183",
+        "2.9 Proposition 5 (p-division points of a semistable elliptic curve), pp. 191-192",
+        "3.3 (the bracketed (b) versus (b') argument), p. 198",
+        "Reviewer (REVIEW-EXT-10-EXT-07): 1.1-1.2 (p. 180-181) and 3.3 (p. 198) on page images"
+      ]
+    },
+    {
+      "id": "kw-serre-modularity-I",
+      "title": "Serre's modularity conjecture (I)",
+      "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+      "edition": "Author's preprint (results.pdf) of the paper published as Invent. Math. 178 (2009), 485-504; locators give the preprint's running page numbers",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
+      "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82",
+      "readSections": [
+        "1.5 Notation (tame and fundamental characters omega_p and omega_{p,2}), p. 4",
+        "6 Some utilitarian lemmas: the statement of Dickson's theorem, Lemma 6.1 with proof, Lemma 6.2 with proof, Lemma 6.3 with proof, pp. 10-12",
+        "Reviewer (REVIEW-EXT-10-EXT-07): 1.4-1.5 (p. 4), 5 remarks and 6 (pp. 10-12), bibliography entries [20] Huppert, [34] Rohrlich-Tunnell, [38] Serre, [42] Wiese"
+      ]
+    },
+    {
+      "id": "dieulefait-pacetti",
+      "title": "A simplified proof of Serre's conjecture",
+      "authors": "Luis Victor Dieulefait and Ariel Martin Pacetti",
+      "edition": "arXiv:2108.07577v2, 3 May 2022; locators give that version's page numbers",
+      "url": "https://arxiv.org/pdf/2108.07577",
+      "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6",
+      "readSections": [
+        "1.5 Definition 1.12 (bad dihedral), Lemma 1.13 with proof, Lemma 1.14 with proof, Remark 5, Lemma 1.15, pp. 7-10",
+        "Section 3 (the solvable dyadic classification), p. 15",
+        "Reviewer (REVIEW-EXT-10-EXT-07): Remark 4 (p. 7), Definition 1.12-Lemma 1.15 (pp. 7-10), section 3 (p. 15), bibliography entries [RT97], [Rib97], [Kha06]"
+      ]
+    },
+    {
+      "id": "accplus-cm-potential-automorphy",
+      "title": "Potential automorphy over CM fields",
+      "authors": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne",
+      "edition": "Annals of Mathematics 197 (2023), 897-1113; read from the supplied extracted text references/text/accplus-potential-automorphy.txt. Locators give printed Annals pages where the running header shows them",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf",
+      "sha256": "c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02",
+      "readSections": [
+        "6.2.28-6.2.31: Definition 6.2.29 (enormous), Lemma 6.2.30 with full proof, Remark 6.2.31, and the definition of a Taylor-Wiles datum that follows, printed pp. 1044-1045",
+        "The places where enormity of the image of rho restricted to G_{F(zeta_p)} is hypothesised (statements only)"
+      ]
+    },
+    {
+      "id": "chenevier-determinants",
+      "title": "The p-adic analytic space of pseudocharacters of a profinite group and pseudorepresentations over arbitrary rings",
+      "authors": "Gaetan Chenevier",
+      "edition": "arXiv:0809.0415v2, 18 July 2013; read from references/text/chenevier-determinants.txt",
+      "url": "https://arxiv.org/pdf/0809.0415",
+      "sha256": "f3c0e0d86e803301c617d3023d425752e30da46673ed5af932647eb284286953",
+      "readSections": [
+        "Abstract and the statements of Theorems A and B in the introduction; the note on the gap in Rouquier's Lemma 4.1 when d! is required to be invertible",
+        "Reviewer (REVIEW-EXT-10-EXT-07): abstract, introduction pp. 1-4 including footnote 5 on Rouquier and the statements of Theorems A and B"
+      ]
+    },
+    {
+      "id": "deligne-serre74",
+      "title": "Formes modulaires de poids 1",
+      "authors": "Pierre Deligne and Jean-Pierre Serre",
+      "edition": "Ann. Sci. Ecole Norm. Sup. (4) 7 (1974), 507-530; locators give printed journal pages",
+      "url": "https://www.numdam.org/article/ASENS_1974_4_7_4_507_0.pdf",
+      "sha256": "65b390f6d33e827e30c6c66bbc15421eca51db3180bdf5996dcee19047be97fc",
+      "readSections": [
+        "6.12-6.13 (Cebotarev and realizability over the field of characteristic polynomials), printed p. 523"
+      ]
+    },
+    {
+      "id": "faltings83",
+      "title": "Endlichkeitssaetze fuer abelsche Varietaeten ueber Zahlkoerpern",
+      "authors": "Gerd Faltings",
+      "edition": "Invent. Math. 73 (1983), 349-366; the file read is references/papers/ADD_FALTINGS83.pdf; locators give printed journal pages",
+      "url": "https://math.uchicago.edu/~drinfeld/Deligne%27s_conjecture_Manin_conf/Faltings_argument/Faltings.pdf",
+      "sha256": "0b7fb3e505d5d63e3e6c5913daf15bd843488e59f80f8d5176b154ac8faa3fc2",
+      "readSections": [
+        "1 Einleitung (statements a), b), c)), p. 349",
+        "Satz 3, Satz 4, Korollar 1, Korollar 2, Korollar 3, pp. 360-362",
+        "Reviewer (REVIEW-EXT-10-EXT-07): statements of Satz 5 (p. 362) and Satz 6 (Shafarevich-Vermutung, p. 363) and the opening of the proof of Satz 6"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "title": "Grothendieck's monodromy theorem and the passage from a lambda-adic representation to a Weil-Deligne representation",
+      "kind": "construction",
+      "statement": "Let K be a non-archimedean local field with residue field k of cardinality q, l a prime different from the residue characteristic p, E_lambda a finite extension of Q_l, and (V, rho) a lambda-adic representation of W(Kbar/K), i.e. a continuous representation on a finite-dimensional E_lambda-vector space. Grothendieck's theorem (the source's 8.2, whose proof the source refers to [13] = Serre-Tate, Good reduction of abelian varieties): there exists a nilpotent N in End(V)(-1) such that for sigma in a subgroup of FINITE INDEX of the inertia group I one has rho(sigma) = exp(N.t_l(sigma)); this N is unique, hence Galois-invariant, and for w in W(Kbar/K) it satisfies rho(w) N rho(w)^{-1} = q^{v'(w)} N. Here (2.2.2-2.2.4) v' : Gal(Kbar/K) -> Gal(kbar/k) is the reduction map, W(kbar/k) = Z is generated by the arithmetic Frobenius phi: x -> x^q, W(Kbar/K) consists of the sigma with v'(sigma) an integral power of phi, and the geometric Frobenius is F = phi^{-1}; so v'(w) is read as the integer n with v'(w) = phi^n. Consequently rho(Phi) N rho(Phi)^{-1} = q N for an arithmetic Frobenius lift Phi (v'(Phi) = 1) and rho(F) N rho(F)^{-1} = q^{-1} N for a geometric Frobenius F. Definition 8.4.1: for E a field of characteristic 0, a representation of 'W(Kbar/K) over E is a pair (rho', N) of a finite-dimensional representation rho': W(Kbar/K) -> GL(V) over E and a nilpotent endomorphism N of V with (8.4.1.1) rho'(w) N rho'(w)^{-1} = q^{v'(w)} N. Construction 8.4.2 attaches such a pair to a lambda-adic (V, rho) after CHOOSING a geometric Frobenius F in W(Kbar/K) and an isomorphism T: Q_l(1) -> Q_l: rho'(F^n sigma) = rho(F^n sigma) exp(-t_l(sigma) N) for sigma in I, and N' in End(V) corresponds to N via T. Lemme 8.4.3 shows the isomorphism class of (rho', N') depends only on rho and not on the choices of F and T.",
+      "hypotheses": [
+        "lambda must have residue characteristic different from that of K; this is the l different from p hypothesis of the stage",
+        "the nilpotent N of Theorem 8.2 lies in End(V)(-1), i.e. it is Tate-twisted; the untwisted N' of 8.4.2 depends on the choice of T, and changing T to aT replaces N' by aN'",
+        "quasi-unipotence is only on a subgroup of FINITE INDEX of inertia; rho itself need not be unipotent on all of I",
+        "the construction 8.4.2 depends on choosing a GEOMETRIC Frobenius F and a trivialization T of Z_l(1); Lemme 8.4.3 removes the dependence only up to isomorphism",
+        "the source's proof of Lemme 8.4.3 changes F to F.rho (rho in I), giving an isomorphic pair via conjugation by A = exp((1-q^{-1})^{-1} t_l(rho)), and T to aT, and shows (rho', N') is isomorphic to (rho', aN') for every a (printed 'a in E', meaning a nonzero) by decomposing V into generalized eigenspaces V^alpha of F^n, with N V^alpha contained in V^{q^{-n} alpha}"
+      ],
+      "proofSteps": [
+        "The source states 8.2 as Grothendieck's theorem and refers to [13] = Serre-Tate, Good reduction of abelian varieties, Ann. of Math. 88 (1968), for the proof, which was NOT read here.",
+        "The exponent convention is fixed by the notation of 2.2.2-2.2.4: v' is reduction to Gal(kbar/k), whose Weil subgroup W(kbar/k) = Z is generated by the ARITHMETIC Frobenius phi, and F = phi^{-1} is the geometric Frobenius; so the displayed relation reads rho(Phi) N rho(Phi)^{-1} = q N for arithmetic Phi. This agrees with the stage text 'With arithmetic Frobenius the relation is r(F)Nr(F)^{-1}=qN'.",
+        "It then gives two descriptions of lambda-adic representations independent of the topology of E_lambda: 8.3 (through the group scheme W^l(Kbar/K), with 8.3.5 using the same twisted action w x w^{-1} = q^{v'(w)} x) and 8.4 (more elementary), remarking that 8.4 suffices for its purposes.",
+        "8.4.2 produces (rho', N') from (V, rho), and Lemme 8.4.3 proves independence of the choices of F and T up to isomorphism; 8.3.7 follows."
+      ],
+      "acceptance": [
+        "Check the conjugation relation against a chosen normalization by computing it for a Tate curve, where N is nonzero and the Frobenius eigenvalues differ by q",
+        "Check that the Frobenius semisimplification, the semisimplification and the full object are three different things by exhibiting a representation where they differ"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne73-constantes",
+          "locator": "Theoreme 8.2, Del-66, printed p. 566",
+          "excerpt": "Soit (V,rho) une representation lambda-adique de W(Kbar/K). Il existe N in End(V)(-1), nilpotent, tel que pour sigma dans un sous-groupe d'indice fini de I, on ait rho(sigma) = exp(N.t_l(sigma))",
+          "match": "The literal statement of quasi-unipotence, including 'sous-groupe d'indice fini de I' and the Tate twist End(V)(-1). Displayed formula read on the page image; locator corrected from Del-58 by the reviewer."
+        },
+        {
+          "sourceId": "deligne73-constantes",
+          "locator": "Theoreme 8.2, displayed relation, Del-66, printed p. 566",
+          "excerpt": "Ce N in End(V)(-1) est unique, donc invariant par Galois : pour w in W(Kbar/K), on a rho(w) N rho(w)^{-1} = q^{v'(w)}.N",
+          "match": "The conjugation relation, read on the page image (the text layer garbles the exponent as 'V(w)'); v' is defined in 2.2.2."
+        },
+        {
+          "sourceId": "deligne73-constantes",
+          "locator": "2.2.2-2.2.3, Del-21 to Del-22, printed pp. 521-522",
+          "excerpt": "On note W(kbar/k) le sous-groupe de Gal(kbar/k) engendre par phi : x -> x^q. On a canoniquement W(kbar/k) = Z (engendre par phi). Le Frobenius geometrique F in W(kbar/k) est par definition phi^{-1}.",
+          "match": "Fixes the sign: v'(w) counts powers of the arithmetic Frobenius phi, so q^{v'(F)} = q^{-1} for a geometric Frobenius F. Added by the reviewer."
+        },
+        {
+          "sourceId": "deligne73-constantes",
+          "locator": "Definition 8.4.1, Del-68, printed p. 568",
+          "excerpt": "(b) un endomorphisme nilpotent N de V, tel que (8.4.1.1) rho'(w) N rho'(w)^{-1} = q^{v'(w)} N",
+          "match": "The defining relation of a Weil-Deligne representation, legible on the page image although lost in the text layer. Added by the reviewer."
+        },
+        {
+          "sourceId": "deligne73-constantes",
+          "locator": "8.4.2 and Lemme 8.4.3, Del-69, printed p. 569",
+          "excerpt": "Choisissons un Frobenius geometrique F in W(Kbar/K) et un isomorphisme T : Q_l(1) -> Q_l. ... Lemme 8.4.3. La classe d'isomorphie de (rho',N') ne depend que de rho, non des choix de F et T.",
+          "match": "The source works with a GEOMETRIC Frobenius, and the independence is only of the isomorphism class. Locator corrected from Del-59 by the reviewer."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/tame-inertia-and-fundamental-characters",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "title": "Tame inertia, the level of a character, and the fundamental characters of levels one and two",
+      "kind": "definition",
+      "statement": "Let G_p = Gal(Qbar_p/Q_p), I its inertia subgroup, I_p the wild inertia (the largest pro-p subgroup of I), and I_t = I/I_p the tame quotient, which is identified with the inverse limit of the F_{p^n}^*. A character of I_t is said to be of level n if it factors through F_{p^n}^* and through no F_{p^m}^* for m a proper divisor of n. The two fundamental characters psi, psi' of level 2 are the characters I_t -> F_{p^2}^* -> F_p-bar^* corresponding to the two embeddings of F_{p^2} into F_p-bar; the fundamental character of level 1 is the mod p cyclotomic character chi, and psi psi' = chi. For a 2-dimensional continuous rho_p: G_p -> GL(V) over F_p-bar, I_p acts trivially on the semisimplification V^{ss}, so I_t acts diagonalizably on V^{ss} through two characters phi, phi'; these are of level 1 or of level 2, and in the level-2 case phi' = phi^p and phi = phi'^p. A separate source fixes notation for the lifts: omega_p denotes the Teichmuller lift of the mod p cyclotomic character, and omega_{p,2} a fundamental character of level 2 valued in F_{p^2}^*, with the same symbol used for its Teichmuller lift and for all its l-adic incarnations.",
+      "hypotheses": [
+        "the identification of I_t with the inverse limit of the F_{p^n}^* and the triviality of I_p on a semisimple F_p-bar-representation are both quoted from an external source in the text read",
+        "'level' is a property of a character of I_t, not of a representation of G_p",
+        "the dichotomy level 1 versus level 2 is specific to dimension 2; the argument uses that conjugation by a Frobenius lift acts on I_t by u -> u^p and hence permutes {phi, phi'}",
+        "the Teichmuller lifts and their l-adic incarnations for arbitrary l are denoted by the same symbols in the second source; the ambiguity is deliberate and must be tracked"
+      ],
+      "proofSteps": [
+        "The dichotomy and its proof are the source's Proposition 1: with s lifting Frobenius, s u s^{-1} = u^p mod I_p for u in I, so the pair {phi, phi'} is stable under p-th power; either both are fixed (level 1) or they are swapped (level 2).",
+        "In the level-2 case V is irreducible, since a stable line would give a character of I_t extendable to G_p, hence of level 1."
+      ],
+      "acceptance": [
+        "Check that the product of the two level-2 fundamental characters is the mod p cyclotomic character",
+        "Check on an explicit supersingular elliptic curve that the tame characters are the two level-2 fundamental characters"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre87-duke",
+          "locator": "2.1, printed p. 183",
+          "excerpt": "Nous noterons I le groupe d'inertie de Gp , et Ip le plus grand prop-sous-groupe de I (groupe d'inertie sauvage) . Le quotient It = I/Ip est le groupe d'inertie modérée de G ; il s'identifie à lira . Fpn, cf. [41], prop . 2 . Un caractère de It sera dit de niveau n s'il se factorise par Fpn, et ne se factorise par aucun F), où m est un diviseur strict de n .",
+          "match": "The definition of level and the identification of the tame quotient, quoted from an external reference which was not read here."
+        },
+        {
+          "sourceId": "kw-serre-modularity-I",
+          "locator": "1.5 Notation, p. 4 of the preprint",
+          "excerpt": "We also denote by ωp,2 a fundamental character of level 2 (valued in F∗p2 ) of Ip : it factors through the unique quotient of Ip that is isomorphic to F∗p2 . We denote by the same symbol its Teichmüller lift, and also all its `-adic incarnations ι` ι−1 p (ωp,2 ) .",
+          "match": "The deliberate notational overloading of omega_{p,2} across residual, Teichmuller and l-adic settings, which any formalisation must keep distinct."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/artin-conductor-with-its-wild-part",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "title": "The Artin conductor exponent, its wild part, and the prime-to-p conductor N(rho-bar)",
+      "kind": "definition",
+      "statement": "Let l be a prime different from p and choose an extension of the l-adic valuation to Qbar; let G_0 superset G_1 superset ... be the corresponding ramification groups of the finite image G of rho, and V^i the subspace fixed by G_i. Define n(l, rho) = sum over i >= 0 of (1/[G_0 : G_i]) dim(V/V^i). Equivalently n(l, rho) = dim V/V^{G_0} + b(V), where b(V) is the 'wild invariant' of the G_0-module V. Consequences: (a) n(l, rho) is a nonnegative integer; (b) n(l, rho) = 0 if and only if G_0 = 1, i.e. rho is unramified at l; (c) n(l, rho) = dim V/V^{G_0} if and only if G_1 = 1, i.e. rho is tamely ramified at l. The prime-to-p conductor is N = product over l different from p of l^{n(l, rho)}; it is prime to p by construction.",
+      "hypotheses": [
+        "the definition uses the ramification filtration in LOWER numbering of the finite quotient through which rho factors at l, and the sum is over i >= 0 including the wild part",
+        "integrality of n(l, rho) is a theorem (it is the content of (a)), not evident from the formula",
+        "the definition is the characteristic-zero one, applied to a residual representation; the source says so explicitly and restricts the product to places prime to p",
+        "the equivalence n(l, rho) = dim V/V^{G_0} characterises tameness; the wild term b(V) is not omitted at l = 2 or 3"
+      ],
+      "proofSteps": [
+        "The source defines n(l, rho) by the displayed sum (1.2.1), rewrites it as (1.2.2) with the wild invariant b(V) citing an external reference, and then reads off (a), (b), (c).",
+        "The product (1.2.3) over l different from p defines N."
+      ],
+      "acceptance": [
+        "Check integrality of n(l, rho) on a wildly ramified example at l = 2",
+        "Check that reduction of an l-adic representation does not increase n(l, -) at l different from p, which the stage requires but which is not proved in the source read here"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre87-duke",
+          "locator": "1.2, (1.2.1)-(1.2.3) and consequences, printed pp. 180-181",
+          "excerpt": "On peut récrire (1 .2 .1) sous la forme : (1 .2 .2) n(l, p) = dimV/Ijo + b(V), où b(V) est \"l'invariant sauvage\" du G o-module V, cf . [39], §19 .3 .",
+          "match": "The decomposition of the conductor exponent into tame and wild parts, with the wild invariant cited to an external source not read here."
+        },
+        {
+          "sourceId": "serre87-duke",
+          "locator": "1.2, printed p. 180",
+          "excerpt": "L'entier N est simplement le conducteur d 'Artin de p, défini comme en caractéristique 0 (cf . [1], [38]), à cela près que l'on se restreint aux places premières à p .",
+          "match": "The definition is the characteristic-zero Artin conductor restricted to places prime to p; the residual setting is not given a separate definition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "title": "The classification of finite irreducible subgroups of GL_2, its p = 2 refinement, and the dihedral consequences",
+      "kind": "lemma",
+      "statement": "Dickson: for any prime p, a finite subgroup of GL_2(F_p-bar) acting irreducibly on the plane has projective image isomorphic to a dihedral group, A_4, S_4, A_5, PSL_2(F_0) or PGL_2(F_0) for F_0 a finite subfield of F_p-bar; PSL_2(F_0) is simple nonabelian as soon as |F_0| >= 4. Refinement at p = 2: a finite SOLVABLE subgroup of GL_2(F_2-bar) acting irreducibly has DIHEDRAL projective image; S_4 is excluded because an element of GL_2(F_2-bar) of 2-power order has order 1 or 2, and A_4 is excluded because its normal subgroup of order 4 would force the group into the upper triangular matrices, contradicting irreducibility. A second source records the same statement with the additional gloss that the A_4 case 'corresponds to a Borel subgroup over F_4'. Consequence used in the proof of KW I Lemma 6.3(i): if the image of a residual representation is solvable and contains elements whose projective order is a power of a prime t > 5, then the projective image is dihedral. Dickson's theorem is cited by KW I to [20] = Huppert, Endliche Gruppen I, II.8.27.",
+      "hypotheses": [
+        "the refinement is over F_2-bar and uses characteristic 2 twice (2-power order elements have order 1 or 2; Sylow 2-subgroups of GL_2(F) are unipotent); that it fails over F_p-bar for odd p is not stated in either source (see the acceptance check)",
+        "Dickson's classification is quoted from an external reference and not proved in either source read",
+        "the simplicity of PSL_2(F_0) requires |F_0| >= 4"
+      ],
+      "proofSteps": [
+        "The dyadic refinement is proved in the source in four lines, as recorded in the statement.",
+        "Dieulefait-Pacetti section 3 uses it to reduce the solvable dyadic case to the dihedral case, citing [RT97] = Rohrlich-Tunnell for that case; KW I proves modularity of dihedral S-type representations separately in Lemma 6.2(i), for p = 2 by the method of Serre [38], Prop. 10 (the 'trick of Serre' of Rohrlich-Tunnell [34], or Wiese [42], Lemma 2), with the weight statement from Wiese [42], Thm 1."
+      ],
+      "acceptance": [
+        "Check the exclusion of A_4 by exhibiting the normal subgroup of order 4 inside a Sylow 2-subgroup of GL_2(F_2-bar) and verifying it is unipotent",
+        "Check that over F_3-bar a solvable irreducible subgroup with projective image A_4 does exist, so the refinement is genuinely characteristic-2"
+      ],
+      "sources": [
+        {
+          "sourceId": "kw-serre-modularity-I",
+          "locator": "Lemma 6.1 with proof, pp. 10-11 of the preprint",
+          "excerpt": "The possibility of S4 can be ruled out as any element in GL2 (F2 ) of order a power of 2 is forced to be of order 1 or 2. The possibility of A4 can be ruled out by using the facts that A4 has a normal subgroup of order 4, and that a Sylow 2-subgroup of GL2 (F) for F a finite field of characteristic 2 is given by the unipotent matrices.",
+          "match": "The full proof of the dyadic refinement, in four lines, with both exclusions."
+        },
+        {
+          "sourceId": "dieulefait-pacetti",
+          "locator": "Section 3, p. 15 of the arXiv version",
+          "excerpt": "Recall that all solvable subgroups of PGL2 (F2 ) in the irreducible case have dihedral projective image (the S4 case does not occur, while the A4 case corresponds to a Borel subgroup over F4 see [KW09b, Lemma 6.1]).",
+          "match": "An independent restatement with the extra gloss on the A_4 case."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representations-and-the-oddness-criterion",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "title": "Bad dihedral representations, the equivalence of the two irreducibility hypotheses, and the weights they force",
+      "kind": "lemma",
+      "statement": "Definition: a residual representation rho-bar: Gal_Q -> GL_2(F_p-bar) which is irreducible but becomes reducible on restriction to Gal_{Q(sqrt(p*))}, where p* = (-1)^{(p-1)/2} p, is called BAD DIHEDRAL. Lemma: for p odd and rho-bar odd and continuous, rho-bar restricted to Gal_{Q(sqrt(p*))} is irreducible if and only if rho-bar restricted to Gal_{Q(zeta_p)} is irreducible - so Wiles's condition and the Q(zeta_p) condition used in the lifting theorems agree. Lemma (weights of a bad dihedral representation): for p odd and rho-bar odd, continuous and bad dihedral, either p = 2 k(rho-bar) - 3 (the niveau-2 case) or p = 2 k(rho-bar) - 1 (the niveau-1 case), assuming as usual that after twisting all Serre weights lie in [2, p+1]. Remark: over Q a representation with Serre level 1 cannot be bad dihedral in the niveau-2 case, so at level 1 only p = 2k(rho-bar)-1 occurs, and then k(rho-bar) is even, so a bad dihedral representation of Serre level 1 can only occur when p is congruent to 3 mod 4. Separately (Serre 1987, 3.3): for rho: G_Q -> GL_2(F_p) with values in GL_2(F_p), det rho = chi and p different from 2, irreducibility over F_p implies ABSOLUTE irreducibility, because det rho odd makes the eigenvalues of rho(c) equal to +1 and -1, which are distinct when p is odd, so a decomposition over F_p-bar into a direct sum of two lines could only be the eigenvector decomposition of rho(c) and hence rational over F_p. As printed the argument treats only a decomposition into a direct sum; the case of a reducible but indecomposable rho over F_p-bar (unique stable line, hence Galois-stable and rational) is not addressed in the passage.",
+      "hypotheses": [
+        "the definition of bad dihedral uses the specific quadratic field Q(sqrt(p*)), p* = (-1)^{(p-1)/2} p (that it is the quadratic subfield of Q(zeta_p) is standard and not stated in the source)",
+        "the weight lemma assumes the normalisation 2 <= k(rho-bar) <= p+1, obtained after twisting",
+        "the niveau-2 exclusion at level 1 is attributed to a lemma of Wintenberger in the level-one paper, an external input not read here",
+        "the oddness-to-absolute-irreducibility argument needs p different from 2 (at p = 2 the eigenvalues of rho(c) coincide) and rho with values in GL_2(F_p); the source applies it under det rho = chi"
+      ],
+      "proofSteps": [
+        "Lemma 1.13 (p odd, rho-bar odd): (2) => (1) is clear. Conversely, if rho-bar restricted to G_{Q(zeta_p)} is reducible the image of rho-bar is solvable, so it lies in a Borel subgroup (rho-bar reducible), or in the normalizer N of a split Cartan subgroup T, or has projective image A_4 or S_4 (A_5 is excluded by solvability). In the Cartan case the image H of G_{Q(zeta_p)} is an abelian normal subgroup (it has no elements of order p), hence inside T, and the image of G_{Q(sqrt(p*))} is generated by H and rho-bar(sigma^2), also inside T, so it is reducible. The exceptional cases are excluded for p > 3 (p = 3 is trivial since Q(sqrt(-3)) = Q(zeta_3)) by the absence of a suitable normal abelian subgroup with abelian quotient in S_4, and of a faithful reducible projective representation of the Klein group in A_4.",
+        "Lemma 1.14 follows the lines of Ribet [Rib97], Prop. 2.2: irreducible image with dihedral projective image and p >= 3 give no elements of order p, so all matrices are semisimple and the image of I_p is cyclic. The projective image of I_p has order at most 2: otherwise the rotation subgroup C_m of the dihedral projective image, being the unique index-2 cyclic subgroup, would have fixed field both Q(sqrt(p*)) (bad dihedral) and an unramified quadratic extension of Q, a contradiction.",
+        "Niveau 1: the inertia image is diag(chi^{k-1}, 1) with k <= p, of order at most 2, so 2k-2 = p-1 or k = p; k = p gives trivial inertia, which is not bad dihedral; hence p = 2k-1. Niveau 2: the inertia image is psi^{k-1} + psi'^{k-1}, whose projective order is the order of psi^{(k-1)(p-1)}, the (k-1)-st power of a character of order p+1; this is at most 2 exactly when (p+1)/2 divides k-1, and k <= p forces p = 2k-3.",
+        "The second source records that the earlier statement of this lemma (KW I Lemma 6.2(ii)) 'lacks some details' and that this is why the replacement proof is given."
+      ],
+      "acceptance": [
+        "Check both niveau cases on explicit representations, confirming p = 2k-3 and p = 2k-1 respectively",
+        "Check that at p = 2 the oddness argument fails by exhibiting an F_2-irreducible representation that becomes reducible over F_4"
+      ],
+      "sources": [
+        {
+          "sourceId": "dieulefait-pacetti",
+          "locator": "Definition 1.12 and Lemma 1.13, pp. 7-8 of the arXiv version",
+          "excerpt": "A residual representation ρ̄ : GalQ → GL2 (Fp ) which is irreducible but becomes reducible while restricted to GalQ(√p⋆ ) is called bad dihedral.",
+          "match": "The precise source definition the roadmap asks for."
+        },
+        {
+          "sourceId": "dieulefait-pacetti",
+          "locator": "Lemma 1.14 with proof, pp. 8-9 of the arXiv version",
+          "excerpt": "Then either p = 2k(ρ̄) − 3 (niveau 2 case) or p = 2k(ρ̄) − 1 (niveau 1 case). ... This is Lemma 6.2 (ii) of [KW09b]. The proof lacks some details, hence the difference between the niveau 1 and the niveau 2 case is hard to see (which justifies the present proof)",
+          "match": "The sharpened statement distinguishing the two niveaux, together with the source's own note that the earlier proof was incomplete."
+        },
+        {
+          "sourceId": "serre87-duke",
+          "locator": "3.3, bracketed remark, printed p. 198",
+          "excerpt": "[Lorsque p != 2, on peut remplacer (b) par la condition suivante, en apparence plus faible: (b') rho est irreductible (sur F_p). En effet, (a) entraine que det rho est impair, donc que les valeurs propres de rho(c) sont +1 et -1; du fait que p != 2, ces valeurs propres sont distinctes.",
+          "match": "The oddness argument upgrading irreducibility over F_p to absolute irreducibility, for rho valued in GL_2(F_p) with (a) det rho = chi; transcribed from the page image (the text layer drops the inequality sign)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "title": "Chebotarev recognition, realizability over the field of characteristic polynomials, and the determinant formalism",
+      "kind": "theorem",
+      "statement": "Recognition (as used in the sources read, not stated there as a separate theorem): two continuous SEMISIMPLE representations of G_Q with the same trace and determinant of Frobenius on a set of primes of density 1 are isomorphic - Dieulefait-Pacetti Remark 4 invokes Brauer-Nesbitt for this, and Deligne-Serre 6.12 uses Cebotarev to see that every element of a finite image is a Frobenius. Coefficient descent (Deligne-Serre Lemme 6.13): if phi: Phi -> GL_n(k') is a semisimple representation over a FINITE field k' and k is a subfield containing the coefficients of det(1 - phi(s)T) for all s, then phi is realizable over k; the proof uses that the Brauer group of a finite field is trivial, so there is no Schur index, and that phi and its Galois conjugates have the same characteristic polynomials and are semisimple, hence isomorphic ([3] = Curtis-Reiner, th. 30.16). Determinant formalism (Chenevier): determinants extend pseudocharacters to an arbitrary base ring; Theorem A: over an algebraically closed field k a determinant D of dimension d comes from a unique semisimple rho with det(1 + t rho(g)) = D(1 + tg); Theorem B: over a henselian local ring A with algebraically closed residue field, if the residual semisimple representation attached to D tensor k is irreducible, there is a unique rho~: G -> GL_d(A) with det(1 + t rho~(g)) = D(1 + tg). Chenevier warns (footnote 5) that although Rouquier does not require d! to be invertible, the proof of Rouquier's Lemma 4.1, hence of his Theorem 4.2, has a gap without that assumption.",
+      "hypotheses": [
+        "recognition requires SEMISIMPLE representations; without semisimplification the characteristic polynomials do not determine the isomorphism class",
+        "the stage text requires characteristic polynomials rather than traces in small characteristic; the sources read phrase descent through characteristic polynomials (Lemme 6.13) and recognition through trace and determinant (Remark 4), but do not themselves state that traces are insufficient",
+        "the descent statement requires k' FINITE; over an infinite field the Brauer group need not vanish and a Schur index can obstruct",
+        "Chenevier Theorem B requires an algebraically closed residue field, which a localized Hecke algebra does not have; the bridge is not supplied by the sources read"
+      ],
+      "proofSteps": [
+        "Cebotarev gives density-1 Frobenius classes; semisimplicity plus equality of characteristic polynomials gives isomorphism (Brauer-Nesbitt, as invoked in Dieulefait-Pacetti Remark 4; Curtis-Reiner 30.16 as cited by Deligne-Serre). Neither Cebotarev nor Brauer-Nesbitt is proved in the sources read.",
+        "The finite-field descent is the source's Lemme 6.13.",
+        "Chenevier's Theorems A and B supply the general determinant-to-representation machinery."
+      ],
+      "acceptance": [
+        "Check that a semisimple representation over F_4 with F_2-rational characteristic polynomials descends to GL_n(F_2)",
+        "Check that trace-only data is insufficient at p = 2 by exhibiting two non-isomorphic semisimple representations with equal traces"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-serre74",
+          "locator": "Lemme 6.13 with proof, printed p. 523",
+          "excerpt": "Pour que (p soit réalisable sur k, il suffit de vérifier que (p est isomorphe à o- ((p) quel que soit le /;-automorphisme a de k ' ': cela provient de ce que le groupe de Brauer d'un corps fini est trivial, et qu'il n'y a donc pas « d'indice de Schur » à considérer.",
+          "match": "The descent argument with its exact reason - triviality of the Brauer group of a finite field."
+        },
+        {
+          "sourceId": "chenevier-determinants",
+          "locator": "Theorem A and Theorem B, introduction",
+          "excerpt": "Our main tool is a theory of determinants extending the one of pseudocharacters but which works over an arbitrary base ring",
+          "match": "The formalism the stage requires to be consumed from IntegralHeckeAndGaloisDeterminants."
+        },
+        {
+          "sourceId": "chenevier-determinants",
+          "locator": "Introduction, footnote on Rouquier",
+          "excerpt": "although Rouquier does not require d! to be invertible in A in [Rou], there is a gap in the proof of his Lemma 4.1, hence of his Theorem 4.2, without this assumption.",
+          "match": "The gap is in the case where d! is NOT invertible; the drafter's paraphrase 'where d! is required to be invertible' inverted this and was corrected by the reviewer."
+        },
+        {
+          "sourceId": "dieulefait-pacetti",
+          "locator": "Remark 4, p. 7 of the arXiv version",
+          "excerpt": "the representations rho_p and rho_{f,p} have the same trace and determinant at the Frobenius element Frob_l, for all prime numbers l belonging to a density one set of primes (actually all primes but finitely many), so by the Brauer-Nesbitt theorem, they are indeed isomorphic.",
+          "match": "A read passage in which recognition by Frobenius data is invoked. Added by the reviewer."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.6/tate-modules-isogenies-and-the-tate-conjecture-over-number-fields",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.6",
+      "title": "Tate modules of abelian varieties: semisimplicity, the Tate conjecture, and the isogeny criterion",
+      "kind": "theorem",
+      "statement": "Let K be a finite extension of Q, A an abelian variety over K, pi = Gal(Kbar/K), l a prime, T_l(A) = inverse limit of A[l^n](Kbar). Then: (a) the representation of pi on T_l(A) tensor Q_l is SEMISIMPLE (Satz 3); (b) the map End_K(A) tensor Z_l -> End_pi(T_l(A)) is an isomorphism (Satz 4); (c) for a finite set S of places of K and d > 0, there are only finitely many isomorphism classes of d-fold polarized abelian varieties over K with good reduction outside S (introduction, c); Satz 6, p. 363, states it for abelian varieties of given dimension, after Satz 5, p. 362, gives finiteness of isogeny classes of given dimension with good reduction outside S). Korollar 1: Hom_K(A_1, A_2) tensor Z_l -> Hom_pi(T_l(A_1), T_l(A_2)) is an isomorphism. Korollar 2: for abelian varieties A_1, A_2 over K the following are equivalent: (i) A_1 and A_2 are isogenous; (ii) T_l(A_1) tensor Q_l and T_l(A_2) tensor Q_l are isomorphic as pi-modules; (iii) L_v(s, A_1) = L_v(s, A_2) for almost all places v; (iv) for all v. The L-series is defined as the product over almost all places of 1/det(1 - (Nv)^{-s} F_v | T_l(A)), and the local L-factors are independent of l. Korollar 3: for A over K and d > 0 there are only finitely many isomorphism classes of d-fold polarized B over K with T_l(A) isomorphic to T_l(B) for all l. Placement note (reviewer): these are Faltings' theorems, whose proofs are the obligations of FaltingsFinitenessAndIsogenyTheorems:R28.4 (semisimplicity, Hom comparison, isogeny criterion), R28.5 (Shafarevich) and R28.6 (exports); R28.4 requires ArithmeticGaloisRepresentations:R01.6, so these statements must not be treated as outputs of R01.6.",
+      "hypotheses": [
+        "K must be a NUMBER FIELD; the source's whole method is the transfer of Zarhin's function-field arguments to the number-field case through Arakelov theory",
+        "the equivalence (ii) iff (iii) uses Satz 3 (semisimplicity) together with Cebotarev, as the proof of Korollar 2 says",
+        "Korollar 3's proof needs, after enlarging K: semistable reduction for all the B, principal polarization, and a uniform bound N on the largest l-power in the degree of an isogeny A -> B",
+        "the L-series is introduced as 'bekanntlich definiert' and the independence of the local L-factors from l is stated without proof in the passage read"
+      ],
+      "proofSteps": [
+        "The source proves Shafarevich first for isogeny classes, using heights of abelian varieties and the finiteness Satz 1 for pairs with bounded height.",
+        "Korollar 1 is Satz 4 applied to A_1 x A_2; Korollar 2 assembles Satz 3 and Satz 4 with Cebotarev; Korollar 3 uses a height bound extracted from the remark after Lemma 5 and then Satz 1."
+      ],
+      "acceptance": [
+        "Check the Weil pairing determinant det T_l(E) = chi_l for an elliptic curve, and oddness over Q",
+        "Check the good-reduction Frobenius polynomial 1 - a_v T + (Nv) T^2 against the local L-factor used in Korollar 2"
+      ],
+      "sources": [
+        {
+          "sourceId": "faltings83",
+          "locator": "1 Einleitung, printed p. 349",
+          "excerpt": "a) Die Darstellung yon n auf Tt(A)| ist halbeinfach. b) Die Abbildung End K(A) | -, gnd~ (Tl(A)) ist ein Isomorphismus.",
+          "match": "The two Tate-conjecture statements, semisimplicity and the endomorphism isomorphism, over a number field."
+        },
+        {
+          "sourceId": "faltings83",
+          "locator": "Korollar 2 with its proof, printed pp. 361-362",
+          "excerpt": "Beweis. Die Aquivalenz yon i) und ii) folgt aus Satz4, die yon ii) und iii) aus Satz 3 ( + 0ebotarev), und aus ii) folgt iv) folgt iii) ist trivial.",
+          "match": "The exact logical dependence of the isogeny criterion on semisimplicity and Cebotarev."
+        },
+        {
+          "sourceId": "faltings83",
+          "locator": "Satz 6, printed p. 363",
+          "excerpt": "Satz 6 (Shafarevich-Vermutung). Sei S eine endliche Menge von Stellen von K, d > 0. Dann gibt es nur endlich viele Isomorphie-Klassen d-fach polarisierter abelscher Varietaeten ueber K von vorgegebener Dimension, welche ausserhalb S gute Reduktion haben.",
+          "match": "The body statement of the Shafarevich finiteness, with the fixed-dimension hypothesis that the introduction omits. Added by the reviewer."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:G7/enormous-image-and-its-coefficient-extension-invariance",
+      "parentStageId": "ArithmeticGaloisRepresentations:G7",
+      "title": "The 'enormous' condition for Taylor-Wiles data, its failure when p divides n, and its invariance under coefficient extension",
+      "kind": "definition",
+      "statement": "Let k be an algebraic extension of F_p and ad^0 the space of trace-zero matrices in M_{n x n}(k) with the adjoint GL_n(k)-action. An ABSOLUTELY IRREDUCIBLE subgroup H of GL_n(k) is called enormous over k if: (1) H has no nontrivial quotient of p-power order; (2) H^0(H, ad^0) = H^1(H, ad^0) = 0; (3) for any simple k[H]-submodule W of ad^0 there is a REGULAR SEMISIMPLE h in H with W^h nonzero. The condition depends only on the image of H in PGL_n(k). If p divides n then NO subgroup of GL_n(k) is enormous, because ad^0 then contains the scalar matrices. Lemma 6.2.30: for an algebraic extension k'/k and H contained in GL_n(k), H is enormous over k if and only if it is enormous over k'. The definition is essentially equivalent to the one in the literature cited as [KT17, Def. 4.10] provided k is large enough to contain all eigenvalues of the elements of H.",
+      "hypotheses": [
+        "H must be absolutely irreducible as part of the definition, not merely irreducible",
+        "condition (3) requires h to be REGULAR SEMISIMPLE; dropping regularity changes the condition",
+        "the condition is vacuous - unsatisfiable - when p divides n; the source says so explicitly",
+        "the equivalence with [KT17, Def. 4.10] holds only under the extra hypothesis that k contains all eigenvalues of elements of H",
+        "in the applications the group is the image of rho restricted to G_{F(zeta_p)}, not the image of rho itself"
+      ],
+      "proofSteps": [
+        "Lemma 6.2.30's proof: only condition (3) needs attention, and it is equivalent to the statement that for ALL nonzero k[H]-submodules W of ad^0 there is a regular semisimple h with W^h nonzero. In that form enormity over k' clearly implies enormity over k.",
+        "Conversely, the property V^h = 0 is closed under direct sums and quotients (because V^h is nonzero if and only if V_h is nonzero). For V inside ad^0 tensor k', sigma h v = h sigma v for sigma in Gal(k'/k) since H is inside GL_n(k), so V^h is nonzero if and only if (sigma V)^h is nonzero. Hence if W' is a simple k'[H]-submodule with no h-invariants, the same holds for all sigma W' and for the submodule generated by their sum; that submodule is stable under H and Gal(k'/k), so by descent it has the form W tensor k'. Applying condition (3) to a k[H]-simple submodule of W gives W^h nonzero for some regular semisimple h, and hence the same for W'."
+      ],
+      "acceptance": [
+        "Check that for n = p no subgroup is enormous, by exhibiting the scalars inside ad^0",
+        "Check condition (2) for an explicit H = SL_2(F_p) with p >= 5 and confirm it fails for small p"
+      ],
+      "sources": [
+        {
+          "sourceId": "accplus-cm-potential-automorphy",
+          "locator": "Definition 6.2.29, printed p. 1044",
+          "excerpt": "An absolutely irreducible subgroup H ⊆ GLn (k) is called enormous over k if it satisfies the following: (1) H has no nontrivial p-power order quotient. (2) H 0 (H, ad0 ) = H 1 (H, ad0 ) = 0. (3) For any simple k[H]-submodule W ⊆ ad0 , there is a regular semisimple h ∈ H such that W h 6= 0.",
+          "match": "The definition verbatim, confirming the atlas stage text word for word."
+        },
+        {
+          "sourceId": "accplus-cm-potential-automorphy",
+          "locator": "Note after Definition 6.2.29, printed p. 1044",
+          "excerpt": "If p divides n, then no subgroup of GLn (k) is enormous (because ad0 contains the scalar matrices).",
+          "match": "The impossibility when p divides n, which the atlas stage text also records and which this reading confirms."
+        },
+        {
+          "sourceId": "accplus-cm-potential-automorphy",
+          "locator": "Lemma 6.2.30 with proof, printed p. 1044",
+          "excerpt": "Let k 0 /k be an algebraic extension, and let H ⊂ GLn (k) be a subgroup. Then H is enormous over k if and only if it is enormous over k 0 .",
+          "match": "The coefficient-extension invariance the stage requires."
+        },
+        {
+          "sourceId": "accplus-cm-potential-automorphy",
+          "locator": "Remark 6.2.31, printed p. 1045",
+          "excerpt": "Assuming that k is sufficiently large to contain all eigenvalues of the elements of H, it can be checked that Definition 6.2.29 is equivalent to [KT17, Def. 4.10].",
+          "match": "The equivalence with the adequacy-style definition in the literature is CONDITIONAL on k containing all eigenvalues; the stage's warning that enormity 'is not merely a synonym for adequacy' is confirmed."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.1/continuity-descent-and-lattice-independence",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.1",
+      "title": "Continuity, descent of the coefficient field, and lattice independence of the residual semisimplification",
+      "kind": "construction",
+      "statement": "Stage content recorded here (the general statements are NOT proved in the passages read): for a continuous representation rho: G -> GL_n(K_lambda) with G compact and K_lambda a local field, compactness of rho(G) gives a stable lattice, so rho may be conjugated into GL_n(O_lambda); reduction modulo the maximal ideal then gives a residual representation whose SEMISIMPLIFICATION is independent of the chosen lattice, by the Brauer-Nesbitt theorem in characteristic p; a continuous representation into GL_2(F_p-bar) with the discrete topology has finite image and hence descends to a finite coefficient field. What the sources read actually contain: Serre 1987, 1.1, notes that the image of a continuous rho: G_Q -> GL(V), V of dimension 2 over F_p-bar, is a finite group isomorphic to a subgroup of GL_2(F_q) for a suitable power q of p (and that one can take F_q generated by the traces if p != 2 or rho is irreducible); Deligne-Serre 6.12 passes from rho_lambda over K_lambda to the residual representation by 'quitte a remplacer rho_lambda par une representation isomorphe, on peut supposer que rho_lambda(G) est contenu dans GL_2(O-hat_lambda)', reduces mod lambda, takes the semisimplification and descends it to the field generated by the coefficients of its characteristic polynomials (Lemme 6.13).",
+      "hypotheses": [
+        "compactness of the image is what produces the lattice; Deligne-Serre 6.12 asserts the conjugation into GL_2(O-hat_lambda) without argument",
+        "independence of the lattice holds only after semisimplification; the reduction itself depends on the lattice",
+        "the descent to a finite field uses that the target is discrete, so continuity forces finite image",
+        "the Brauer-Nesbitt theorem in characteristic p is used but was NOT read in a source in this pass"
+      ],
+      "proofSteps": [
+        "Deligne-Serre 6.12 conjugates rho_lambda into GL_2 of the ring of integers of the completion (asserted, 'quitte a remplacer ... on peut supposer'), reduces mod lambda, and takes the semisimplification; neither the existence of a stable lattice nor lattice independence of the semisimplification is argued there.",
+        "It then observes via Cebotarev that every element of the image is a Frobenius, so the characteristic polynomials have coefficients in the field k_f generated by the eigenvalues, and applies the descent lemma."
+      ],
+      "acceptance": [
+        "Check that two non-isomorphic lattices can give non-isomorphic reductions with isomorphic semisimplifications",
+        "Check that a continuous representation into GL_2(F_p-bar) with the discrete topology has finite image"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-serre74",
+          "locator": "6.12, printed p. 523",
+          "excerpt": "Quitte à remplacer p^ par une repré-sentation isomorphe, on peut supposer que p^ (G) est contenu dans GL^CÔ^), où Ô^ est l'anneau des entiers de K^ (i. e. le complété de 0^). Par réduction mod \\ on déduit de p^ une représentation p, : G-^GL,(^). Soit (p la semi-simplifiée de p^;",
+          "match": "The literal lattice-then-reduce-then-semisimplify construction, in the only source read here that carries it out."
+        },
+        {
+          "sourceId": "serre87-duke",
+          "locator": "1.1, printed p. 180",
+          "excerpt": "L'image de rho est un groupe fini, note G ; par definition, ce groupe est isomorphe a un sous-groupe de GL_2(F_q), ou q est une puissance convenable de p. (Si p != 2, ou si rho est irreductible, on peut prendre pour F_q le corps engendre par les traces des elements de G.)",
+          "match": "The finite image and finite coefficient field of a residual representation, with the trace-field refinement and its p != 2 / irreducible hypothesis. Added by the reviewer; read on the page image."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor",
+      "target": "ArithmeticGaloisRepresentations:R01.3",
+      "reason": "Re-targeted by the reviewer from the node artin-conductor-with-its-wild-part to the stage R01.3. The stage description requires the conductor of an l-adic representation to include the monodromy term ('For an l-adic representation include the monodromy term'), which presupposes the monodromy operator N produced by Grothendieck's theorem and the Weil-Deligne pair of Definition 8.4.1. The node artin-conductor-with-its-wild-part (Serre 1987, 1.2) treats only representations with finite image and does not use N, so the edge is to the stage; the monodromy term itself remains a gap. The stage edge R01.2 -> R01.3 is already in the atlas.",
+      "sources": [
+        {
+          "sourceId": "deligne73-constantes",
+          "locator": "Theoreme 8.2 (Del-66, p. 566) and Definition 8.4.1 (Del-68, p. 568)"
+        }
+      ]
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement",
+      "target": "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representations-and-the-oddness-criterion",
+      "reason": "Corrected by the reviewer. The place where the Dickson-type classification is consumed is the proof of Lemma 1.13 (p. 8): a representation whose restriction to G_{Q(zeta_p)} is reducible has solvable image, which then lies in a Borel subgroup, in the normalizer of a split Cartan subgroup, or has projective image A_4 or S_4 (A_5 being excluded by solvability) - the solvable part of the classification node. The proof of Lemma 1.14 only asserts that the projective image is dihedral. The dyadic refinement is not used: both lemmas assume p odd.",
+      "sources": [
+        {
+          "sourceId": "dieulefait-pacetti",
+          "locator": "Proof of Lemma 1.13, p. 8 of the arXiv version"
+        }
+      ]
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.1/continuity-descent-and-lattice-independence",
+      "target": "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent",
+      "reason": "Recognition is stated for semisimple representations after putting both into a common coefficient field; the reduction-then-semisimplification operation and its independence of the chosen lattice (Brauer-Nesbitt) are what make 'the residual representation' a well-defined object to recognise. This edge records the internal dependency; the Brauer-Nesbitt statement itself was NOT read in a source in this pass and is recorded as a gap. Reviewer check: in Deligne-Serre 6.12 the descent Lemme 6.13 is applied to phi, the semisimplification of the reduction of rho_lambda, so the recognition/descent node does consume the reduction-then-semisimplify output.",
+      "sources": [
+        {
+          "sourceId": "deligne-serre74",
+          "locator": "6.12, printed p. 523: the semisimplification of the reduction of rho_lambda is taken before Cebotarev is applied"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ArithmeticGaloisRepresentations:G7",
+      "status": "partial",
+      "remaining": [
+        "Only the enormity definition and its coefficient-extension invariance were read. Exterior and symmetric powers, tensor induction, restriction of scalars, polarizations r^c = r^dual tensor mu with their symmetry sign and determinant constraints, oddness at each real place for polarized dimension n, and the adjoint/trace-zero decomposition when p divides n were NOT read. Next source action: read ACC+ sections 2 (polarized representations) and 6.2 in full, and the Taylor-Wiles datum construction that follows Definition 6.2.29.",
+        "Adequacy in the sense of Thorne, and its relation to enormity beyond Remark 6.2.31, was not read."
+      ]
+    },
+    {
+      "stageId": "ArithmeticGaloisRepresentations:R01.1",
+      "status": "partial",
+      "remaining": [
+        "The Brauer-Nesbitt theorem in characteristic p, on which lattice independence of the residual semisimplification rests, was not read in any source.",
+        "Finite projective coefficient modules in arbitrary rank, and the finite-free local-ring specializations, were not read; the sources inspected work with field or DVR coefficients in rank 2.",
+        "Relating finite Galois factorisation to continuity for finite coefficients was not read."
+      ]
+    },
+    {
+      "stageId": "ArithmeticGaloisRepresentations:R01.2",
+      "status": "partial",
+      "remaining": [
+        "Grothendieck's monodromy theorem is quoted in the source read and proved in its reference [13] = Serre-Tate, Good reduction of abelian varieties (not in the supplied library), which was not read. The normalisation of the conjugation relation IS established by the reviewer's reading of the page images: (8.4.1.1) reads rho'(w) N rho'(w)^{-1} = q^{v'(w)} N with v'(phi) = 1 for the arithmetic Frobenius phi (2.2.3).",
+        "The independence of the tame character t_lambda, and the distinction between the full object, its semisimplification and its Frobenius semisimplification, were read only as statements in the Hilbert-modular sources.",
+        "The construction 8.3 (the more intrinsic algebraic-group description) was located but not read.",
+        "Invariance of restriction under changing the chosen place or embedding into a local separable closure was not read."
+      ]
+    },
+    {
+      "stageId": "ArithmeticGaloisRepresentations:R01.3",
+      "status": "partial",
+      "remaining": [
+        "The integrality of n(l, rho) and the induction and twist formulas for conductors were not read; the source states integrality as a consequence without proof and cites external references for the wild invariant.",
+        "The monodromy term in the conductor of an l-adic representation was not read in any source.",
+        "The statement that reduction cannot increase the conductor at l different from p was not read.",
+        "The comparison with the conductor of an elliptic curve is only available here through Serre's Lemme 5 in the EllipticCurveModularity packet, which quotes it rather than proving it."
+      ]
+    },
+    {
+      "stageId": "ArithmeticGaloisRepresentations:R01.4",
+      "status": "partial",
+      "remaining": [
+        "Dickson's classification itself is quoted in both sources and was not read in its own reference.",
+        "Behaviour of residual images under restriction to cyclotomic fields is covered only in rank two through the bad-dihedral equivalence.",
+        "The exceptional images A_4, S_4, A_5 and their normal subgroups were not decomposed beyond what the dyadic refinement needs.",
+        "Serre 1987, 3.3 proves that irreducibility over F_p implies absolute irreducibility only for a decomposition into a direct sum; the reducible indecomposable case is not addressed in the passage read."
+      ]
+    },
+    {
+      "stageId": "ArithmeticGaloisRepresentations:R01.5",
+      "status": "partial",
+      "remaining": [
+        "Chenevier's Theorems 2.12, 2.16 and 2.22 were not read; only the introduction's Theorems A and B.",
+        "The coefficient-descent obstruction in the general case - where a trace-and-determinant system is defined over a subfield - was not read beyond the finite-field case of Lemme 6.13.",
+        "Cebotarev density itself was not read in a source."
+      ]
+    },
+    {
+      "stageId": "ArithmeticGaloisRepresentations:R01.6",
+      "status": "partial",
+      "remaining": [
+        "Faltings' Satz 5 and Satz 6 were read by the reviewer as statements only (pp. 362-363); their proofs and Satz 1 (finiteness for bounded height) were not read. Placement: the Faltings theorems recorded in node tate-modules-isogenies-and-the-tate-conjecture-over-number-fields are FaltingsFinitenessAndIsogenyTheorems:R28.4-R28.6 obligations, downstream of R01.6.",
+        "The Weil pairing determinant, oddness over Q and the good-reduction Frobenius polynomial for elliptic curves were not read in a source in this pass.",
+        "Compatibility with scheme isogenies at the level of the Tate module construction was not read."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "The Weil-Deligne normalisation: settled on the page images (reviewer)",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor",
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "detail": "Reviewer resolution (REVIEW-EXT-10-EXT-07). The drafter could not read (8.4.1.1) in the text layer. On page images rendered from the library PDF the displays are legible: Theoreme 8.2 (Del-66, p. 566) gives rho(w) N rho(w)^{-1} = q^{v'(w)}.N and Definition 8.4.1 (Del-68, p. 568) gives (8.4.1.1) rho'(w) N rho'(w)^{-1} = q^{v'(w)} N. By 2.2.2-2.2.4 (Del-21/22) v' is reduction to Gal(kbar/k), W(kbar/k) = Z is generated by the arithmetic Frobenius phi: x -> x^q, and the geometric Frobenius is F = phi^{-1}. Hence rho(Phi) N rho(Phi)^{-1} = q N for an arithmetic Frobenius lift Phi and q^{-1} N for a geometric one, which is the stage text's assertion. The drafter's locators Del-58/Del-59 were wrong (the running marks coincide with PDF pages; 8.2 is Del-66). Remaining boundary: v'(w) is used as an integer via W(kbar/k) = Z without a displayed identification, and Grothendieck's theorem itself is proved only in [13] = Serre-Tate (not in the library). EXT-10 HANDOFF correction 13 is thereby resolved."
+    },
+    {
+      "title": "The conductor of an l-adic representation with nontrivial monodromy was not read",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.3",
+        "ArithmeticGaloisRepresentations:R01.3/artin-conductor-with-its-wild-part"
+      ],
+      "detail": "Verified: the Artin conductor exponent for a representation with finite image, its tame/wild decomposition, and the criteria for unramifiedness and tameness. NOT verified: the conductor of a Weil-Deligne representation, which adds dim V^I - dim (Ker N)^I, and the comparison with the conductor of an elliptic curve. Serre's Lemme 5 (read in the EllipticCurveModularity packet) quotes the latter from SGA 7, Ogg and Serre-Tate. Next source action: read Deligne 1973 section 8.12 (or Tate's Corvallis section 4.1) for the conductor of a Weil-Deligne representation; SGA 7 I IS in the supplied library as references/papers/R02_SGA7I.pdf with extracted text."
+    },
+    {
+      "title": "Brauer-Nesbitt in characteristic p is used but unread",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.1/continuity-descent-and-lattice-independence"
+      ],
+      "detail": "Verified: the lattice-reduce-semisimplify construction as carried out in the source, and the fact that the semisimplification is what is then recognised by characteristic polynomials. NOT verified: the Brauer-Nesbitt theorem itself (that two semisimple representations over a field with the same characteristic polynomials are isomorphic, in any characteristic). The sources read cite Curtis-Reiner Theorem 30.16 for it; that book is not in the supplied library (checked CATALOGUE.json). Next source action: obtain Curtis-Reiner, Representation Theory of Finite Groups and Associative Algebras, Theorem 30.16, or use the mathlib/Tau Ceti library - unchecked whether a Brauer-Nesbitt statement exists there."
+    },
+    {
+      "title": "Serre's Proprietes galoisiennes paper, the source of the tame-character facts, is absent from the library",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.2/tame-inertia-and-fundamental-characters",
+        "ArithmeticGaloisRepresentations:R01.2",
+        "ArithmeticGaloisRepresentations:R01.6"
+      ],
+      "detail": "Verified: Serre 1987 cites [41] = Serre, 'Proprietes galoisiennes des points d'ordre fini des courbes elliptiques', Invent. Math. 15 (1972), for propositions 2 and 4 (the identification of I_t with the inverse limit of the F_{p^n}^* and the triviality of I_p on a semisimple representation), and for the Tate curve theory used in his Proposition 5. NOT verified: any of those statements. Searched the supplied library: CATALOGUE.json, papers/ and text/ contain no record matching that title or 'points d'ordre fini' (grep returned nothing). Next source action: obtain Invent. Math. 15 (1972), 259-331, and read sections 1.7 (fundamental characters), 1.11-1.12 (good and multiplicative reduction, Tate curve) and Propositions 2 and 4."
+    },
+    {
+      "title": "The dimension-general G7 API is almost entirely unread",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:G7"
+      ],
+      "detail": "Verified: Definition 6.2.29, Lemma 6.2.30 with its full proof, Remark 6.2.31, and the note that no subgroup is enormous when p divides n - all matching the atlas stage text verbatim. NOT verified: polarizations r^c = r^dual tensor mu with their pairing, multiplier, symmetry sign and determinant constraints; the sign-at-each-real-place formulation of oddness in dimension n; tensor induction and restriction of scalars; and the adjoint/trace-zero corrections when p divides n. Next source action: read ACC+ sections 2.1 (polarized representations) and 6.2.1-6.2.27, all present in references/text/accplus-potential-automorphy.txt."
+    },
+    {
+      "title": "Placement of the Faltings theorems recorded under R01.6",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.6/tate-modules-isogenies-and-the-tate-conjecture-over-number-fields",
+        "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+        "FaltingsFinitenessAndIsogenyTheorems:R28.6",
+        "EllipticCurveModularity:R29.1"
+      ],
+      "detail": "Verified: the node transcribes Faltings 1983, Saetze 3-4, Korollare 1-3, the introduction's c), and (reviewer) Saetze 5-6, correctly. Problem: in the atlas R01.6 ('Tate modules of elliptic curves and abelian varieties') is a prerequisite of FaltingsFinitenessAndIsogenyTheorems:R28.4, and R28.4-R28.6 are the stages that prove and export these theorems; R29.1 requires R28.6 for exactly the finiteness it uses. The drafter's link R01.6-node -> EllipticCurveModularity:R29.1 therefore asserted, from R01.6, a supply that belongs to R28.6, and was removed by the reviewer. Note also that the R29.1 use (finitely many Q-isomorphism classes in a Q-isogeny class) is Satz 6 with d = 1 and dimension 1, applied to the common set of bad primes of isogenous curves - a fact not in the passages read. Orchestrator decision: move the node to the Faltings roadmap packet (EXT-07 has a Faltings packet) or reduce it to R01.6's own Tate-module API."
+    },
+    {
+      "title": "Links removed for asserting uses the sources do not make",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.3",
+        "ArithmeticGaloisRepresentations:G7"
+      ],
+      "detail": "Reviewer record. (1) tame-inertia-and-fundamental-characters -> artin-conductor-with-its-wild-part: Serre 1.2 defines tameness at l != p by G_1 = 1 and the wild invariant b(V); it does not use the fundamental characters or the identification of I_t at p. Shared vocabulary only. (2) bad-dihedral-representations-and-the-oddness-criterion -> G7/enormous-image: the drafter marked it 'requested' and unverified; ACC+ Definition 6.2.29 and Lemma 6.2.30 do not use Dieulefait-Pacetti Lemma 1.13, which concerns n = 2 over Q. The stage edge R01.4 -> G7 remains in the atlas; whether R01.4 supplies a rank-two verification of conditions (1)-(3) of Definition 6.2.29 is unexamined."
+    },
+    {
+      "title": "Serre's irreducible-implies-absolutely-irreducible argument covers only decomposable representations",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representations-and-the-oddness-criterion"
+      ],
+      "detail": "Verified on the page image of Serre 1987, p. 198: for rho valued in GL_2(F_p), det rho = chi and p != 2, the bracketed argument shows that a decomposition of rho over F_p-bar into a direct sum of two lines must be the eigenspace decomposition of rho(c), hence rational over F_p. Not in the passage: the case where rho is reducible but indecomposable over F_p-bar (then its unique invariant line is Galois-stable and so defined over F_p). The stage R01.4 asks for this implication in general; a complete argument must be supplied or sourced."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REVIEW-EXT-10-EXT-07",
+    "date": "2026-09-16",
+    "notes": "All 9 nodes and 6 links checked against the library copies (all eight SHA-256 hashes re-verified). Deligne's LNM 349 typescript was read on page images, where the displayed formulas that the text layer loses are legible. Verdicts: 3 verified, 6 corrected, 0 unverifiable. Main findings: the Weil-Deligne relation reads rho'(w) N rho'(w)^{-1} = q^{v'(w)} N with v' counting powers of the ARITHMETIC Frobenius (Deligne 2.2.3), which settles the stage's normalisation and resolves the drafter's open gap (HANDOFF correction 13); Deligne locators were off by eight pages; Chenevier's Rouquier warning was inverted (the gap is when d! is not invertible); the Faltings theorems stated under R01.6 belong to FaltingsFinitenessAndIsogenyTheorems R28.4-R28.6, which require R01.6. Links: 2 kept (both with corrected reasons or locators), 1 re-targeted to stage R01.3, 3 removed (tame inertia -> Artin conductor: shared vocabulary; bad dihedral -> enormity: requested and unused; Faltings node -> R29.1: supply belongs to R28.6). Gaps 5 -> 8. All parentStageIds and coverage ids exist and belong to the roadmap; no stage cycle. Packet status stays partial.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor",
+        "verdict": "corrected",
+        "note": "Displays read on page images: 8.2 is on Del-66 (p. 566), 8.4.1 on Del-68, 8.4.2-8.4.3 on Del-69 (drafter's Del-58/59 wrong). The relation q^{v'(w)} with v' reduction to W(kbar/k) = Z generated by the arithmetic Frobenius (2.2.2-2.2.4, read) settles r(Phi)Nr(Phi)^{-1} = qN for arithmetic Phi, resolving the drafter's gap; [13] identified as Serre-Tate; N' vs N and the proof of 8.4.3 corrected."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/tame-inertia-and-fundamental-characters",
+        "verdict": "verified",
+        "note": "Serre 2.1-2.2 (p. 183) and KW I 1.5 (p. 4) match the statement, including Proposition 1 with proof and the notational overloading of omega_{p,2}."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/artin-conductor-with-its-wild-part",
+        "verdict": "verified",
+        "note": "Serre 1.2, (1.2.1)-(1.2.3) and (a)-(c) (pp. 180-181) match on the page image."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement",
+        "verdict": "corrected",
+        "note": "KW I 6 (pp. 10-11) and Dieulefait-Pacetti 3 (p. 15) match; the claim that both sources hand the dihedral case to Rohrlich-Tunnell was inaccurate for KW I (Lemma 6.2(i) cites Serre's Prop. 10 method, [34], [42]); 'fails for odd p' is not in either source; the 't > 5' consequence is tied to Lemma 6.3."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representations-and-the-oddness-criterion",
+        "verdict": "corrected",
+        "note": "Definition 1.12, Lemmas 1.13-1.14 and Remark 5 match. The proof steps omitted the normalizer-of-Cartan case of Lemma 1.13, the order-at-most-2 argument and the niveau-1 case of Lemma 1.14; added. Serre 3.3 needs rho valued in GL_2(F_p) with det rho = chi and handles only direct-sum decompositions (gap)."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent",
+        "verdict": "corrected",
+        "note": "Chenevier's footnote says Rouquier's Lemma 4.1 has a gap when d! is NOT invertible; the node had it reversed. Theorems A and B match (B includes uniqueness). Recognition is not stated as a theorem in the sources read; now sourced to DS 6.12 and DP Remark 4 (Brauer-Nesbitt). The traces-insufficient claim is the stage's, not the sources'."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/tate-modules-isogenies-and-the-tate-conjecture-over-number-fields",
+        "verdict": "corrected",
+        "note": "Satze 3-4 and Korollare 1-3 (pp. 360-362) match. Satz 6 read by the reviewer: it adds 'of given dimension'. Placement note added: these theorems are FaltingsFinitenessAndIsogenyTheorems:R28.4-R28.6 obligations downstream of R01.6; the outgoing link to R29.1 was removed."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/enormous-image-and-its-coefficient-extension-invariance",
+        "verdict": "verified",
+        "note": "Definition 6.2.29, the p | n note, Lemma 6.2.30 with its full proof and Remark 6.2.31 (Annals pp. 1044-1045) match verbatim; the enormity hypothesis on the image of rho-bar restricted to G_{F(zeta_p)} confirmed in Theorems 6.1.1-6.1.2."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/continuity-descent-and-lattice-independence",
+        "verdict": "corrected",
+        "note": "DS 6.12 matches but only asserts the conjugation into GL_2(O-hat_lambda); the general lattice existence, Brauer-Nesbitt lattice independence and discrete-target descent are stage content not proved in the passages read, now marked as such. Serre 1.1 (finite image in GL_2(F_q)) added as a source."
+      }
+    ]
+  }
+}

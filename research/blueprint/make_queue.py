@@ -172,6 +172,9 @@ Tasks:
 RULES: edit only the listed part packets, {README}, the handoff note and scratch files. Do not run git. No Lean code. No private paths in the repository. Do not change a review verdict. If you change a reviewed node's mathematics, say so in the handoff note, so that the orchestrator can schedule a re-review.
 Finish with a summary under 200 words."""
 
+HABIRO_FAMILY = {"HabiroNumberFields", "HabiroRings", "HabiroCyclotomicCompletions", "HabiroNahmSeries",
+                 "HabiroCohomologyFoundations", "ArithmeticQuantumTopology"}
+
 LINK_PRIORITY = ["tauceti:TauCetiRoadmap/ModularCurves", "tauceti:TauCetiRoadmap/ModularForms", "tauceti:TauCetiRoadmap/EllipticCurves",
                  "tauceti:TauCetiRoadmap/AdicSpaces", "tauceti:TauCetiRoadmap/AlgebraicCurves", "tauceti:TauCetiRoadmap/GlobalNumberFields",
                  "tauceti:TauCetiRoadmap/NumberFieldArithmetic", "tauceti:TauCetiRoadmap/LocalFieldsRamification",
@@ -181,6 +184,90 @@ LINK_PRIORITY = ["tauceti:TauCetiRoadmap/ModularCurves", "tauceti:TauCetiRoadmap
                  "tauceti:TauCetiRoadmap/GlobalQuadraticForms", "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
                  "tauceti:TauCetiRoadmap/StableReduction", "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
                  "tauceti:TauCetiRoadmap/ReductiveGroups", "tauceti:TauCetiRoadmap/BelyiMaps", "tauceti:TauCetiRoadmap/FuchsianOrbifolds"]
+
+CLASSIFY_CLUSTERS = ["foundations", "commutative-algebra", "homological-algebra-and-categories", "group-theory",
+    "lie-theory-and-representations", "algebraic-number-theory", "analytic-number-theory", "elementary-and-computational-number-theory",
+    "algebraic-geometry", "arithmetic-geometry", "p-adic-geometry", "etale-and-motivic-cohomology", "k-theory-and-motives",
+    "modular-and-automorphic-forms", "galois-representations-and-langlands", "geometric-langlands", "iwasawa-theory-and-special-values",
+    "function-fields", "analysis", "pde", "probability", "topology", "differential-geometry", "combinatorics"]
+
+CLASSIFY_TEMPLATE = """You are a mathematician classifying roadmaps for the Tau Ceti Atlas. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it). Save as you go.
+
+JOB: classify each roadmap listed in research/blueprint/classify/{JOB}.json (roadmap ids and titles). Write the result to {OUTPUT}.
+
+For each roadmap:
+1. Read its document and summary (data/atlas.json roadmaps[]: readme, summary; new roadmaps in research/blueprint/roadmaps/). Identify its principal references: the works it follows or cites for its main results, at most eight.
+2. Look up each reference in zbMATH Open, which has a public JSON API. For example:
+   curl -s 'https://api.zbmath.org/v1/document/_search?search_string=ti%3A%22<url-encoded title words>%22&page=0&results_per_page=3'
+   Add au:<surname> when a title is ambiguous. Record the zbMATH document id and the MSC 2020 codes of the matching work, and check that title and authors match. For a work known only on arXiv, use http://export.arxiv.org/api/query?id_list=<id> to get its categories. Make at most one request per second.
+3. Assign the following:
+   - a primary MSC 2020 code at the three-character level (for example 11G, 14F, 11F) and up to three secondary codes, weighted by how central each reference is to the roadmap;
+   - a cluster from this list: {CLUSTERS}. If none fits, propose a new cluster name and justify it.
+4. Estimate the distance from Mathlib as an integer from 0 to 10:
+   - 0: the roadmap's objects and main theorems are essentially in Mathlib or Tau Ceti already;
+   - 3: about one layer of standard graduate theory is missing;
+   - 6: several layers of research-level theory must be built first;
+   - 10: the targets are at the current research frontier and rest on many theories not yet built.
+   Check the library's coverage of the roadmap's basic objects by searching {BASELINE}/declarations.tsv (grep -i -P) and opening files where needed. Cite two to five relevant declarations you found, or state what is absent. Justify the score in one or two sentences.
+
+OUTPUT: a JSON array with one object per roadmap, each roadmap exactly once:
+{{"roadmapId", "primaryMsc", "secondaryMsc": [...], "cluster", "distance", "distanceRationale", "mathlibEvidence": [...], "references": [{{"title", "authors", "zbmath", "msc": [...]}}]}}
+Validate the file with python3 -c 'import json;json.load(open("{OUTPUT}"))', and rewrite the whole file after every five roadmaps.
+RULES: edit only {OUTPUT} and your scratch files. Do not run git. No private paths in the repository.
+Finish with the distribution of clusters and distances, and any roadmap that fits no cluster."""
+
+PLAN_HABIRO_TEMPLATE = HEADER + """
+JOB: plan, very carefully, the roadmaps for the Habiro ring of a number field and for Habiro cohomology. Planning comes before any blueprint work; your plan decides the structure that later jobs will fill in.
+
+PRIMARY SOURCES (read them in full; do not copy them into the repository):
+- S. Garoufalidis, P. Scholze, C. Wheeler, D. Zagier, "The Habiro ring of a number field", arXiv:2412.04241. Fetch the PDF and, if available, the TeX source (https://arxiv.org/e-print/2412.04241) into your scratch directory, and record provenance.
+- W. J. G. Ong, notes of P. Scholze's Bonn course "V5A2 – The Habiro ring of a number field" (winter 2024/25): {DOWNLOADS}/Habiro_Rings_Notes-3.pdf. This is the latest and longest version; Habiro_Rings_Notes.pdf, -1 and -2 in the same folder are earlier, shorter versions. Check whether they contain anything the latest version dropped.
+- W. J. G. Ong, notes of P. Scholze's Bonn course "V5A4 – Habiro cohomology" (summer 2025): {DOWNLOADS}/Habiro_Cohomology_Notes.pdf.
+- Extract the text with pdftotext -layout into your scratch directory and read page images (pdftoppm) wherever formulas are garbled. Follow the notes' own references (for example Wagner's work on q-Witt vectors and q-Hodge complexes, Scholze's "Canonical q-deformations in arithmetic geometry", Bhatt–Scholze prisms, Bhatt–Lurie and Drinfeld on prismatization and ring stacks, Clausen–Scholze on condensed and analytic mathematics) and fetch the public versions you need.
+
+THE ATLAS AS IT IS
+- The existing Habiro-related roadmaps in data/atlas.json: HabiroNumberFields, HabiroRings, HabiroCyclotomicCompletions, HabiroNahmSeries, HabiroCohomologyFoundations and ArithmeticQuantumTopology. Read their documents and stages in full.
+- Their neighbours: K3BlochGroups, Polylogarithms, BorelRegulators, PrismaticCohomology, DerivedDeRhamCohomology, AInfCohomology, CrystallineCohomology, RefinedTraceMethods and tauceti:TauCetiRoadmap/ProfiniteCohomology. Search for any others that mention q-series, q-de Rham, Witt vectors, condensed or analytic rings, or stacks.
+- The pinned library: {BASELINE}/declarations.tsv, TauCeti/ and mathlib/Mathlib/. Inventory precisely what exists for each of the following, citing declarations you have read:
+  - cyclotomic polynomials, completions and adic completions, power series, Witt vectors and δ-rings, and q-analogues;
+  - Mathlib's Condensed library: condensed sets and modules, light condensed objects, and anything solid or analytic;
+  - stacks, and any prismatic material in Tau Ceti.
+
+DELIVERABLES
+1. research/blueprint/plans/HABIRO.md, a plan in precise mathematical language, covering:
+   (a) the target theorems of the paper and of each set of notes, with their exact statements and locators;
+   (b) the full dependency chain from the pinned library to those targets, layer by layer, naming every object that must be defined (for example ring stacks, the relevant analytic or condensed structures, q-de Rham and q-Hodge complexes, q-Witt vectors, Habiro-complete modules, and the Bloch-group and K_3 inputs) and saying where each is proved in the sources;
+   (c) the proposed set of roadmaps, each with a boundary stated in a few sentences, its layers, and its suppliers and consumers. This includes any foundations roadmaps that are needed and missing, for example ring stacks or transmutation, and condensed or analytic foundations beyond Mathlib;
+   (d) for each of the six existing roadmaps, whether to keep, rescope, merge or retire it, and exactly which of its stages move where;
+   (e) the order in which the roadmaps should be blueprinted;
+   (f) open mathematical questions and places where the notes and the paper differ;
+   (g) decisions the user should confirm.
+2. For each new roadmap in the plan, a roadmap definition research/blueprint/roadmaps/<Id>.json (schema in PROTOCOL.md section 7). Each needs precise stage descriptions in the upstream style, and the stage requires/prerequisites must match the plan. Do not write blueprint packets.
+3. A handoff note at research/blueprint/handoff/{JOB}.md.
+
+RULES: edit only the plan, the new roadmap definitions, the handoff note and scratch files. Do not run git. No Lean code. No private absolute paths, PDFs or extracted text in the repository: refer to the notes by title, author, course and date. Take your time. Correctness and completeness of the structure matter more than speed.
+Finish with a summary under 300 words: the proposed roadmaps and their order, what happens to the existing six, and the decisions for the user."""
+
+PLAN_REVIEW_TEMPLATE = """You are an independent reviewer for the Tau Ceti Atlas. You did not write the plan you review. You run unattended as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB}.
+
+READ FIRST: research/blueprint/PROTOCOL.md and research/blueprint/UPSTREAM_GUIDE.md.
+REVIEW: research/blueprint/plans/HABIRO.md and every roadmap definition in research/blueprint/roadmaps/ that the plan proposes.
+The sources are the same as the planner's:
+- arXiv:2412.04241, fetched into your scratch directory;
+- {DOWNLOADS}/Habiro_Rings_Notes-3.pdf;
+- {DOWNLOADS}/Habiro_Cohomology_Notes.pdf;
+- the atlas;
+- the baseline {BASELINE}.
+Check the following, and correct the plan and the definitions in place where the fix is clear:
+- target statements and locators;
+- that the dependency chain has no gaps, in particular that ring stacks, condensed or analytic inputs, q-de Rham and q-Hodge complexes, q-Witt vectors, and the Bloch-group and K_3 inputs each have a home;
+- that roadmap boundaries neither overlap nor leave holes;
+- that the treatment of the six existing roadmaps is sound;
+- that the baseline inventory is accurate, by reading the cited Lean files;
+- that the ordering is sound.
+Record every change in research/blueprint/reviews/{JOB}.md, with a verdict of accepted or needs_changes and the questions for the user.
+RULES: edit only the plan, the proposed roadmap definitions, your report and scratch files. Do not run git. No private paths in the repository.
+Finish with a summary under 250 words."""
 
 LV_BRIEF = """Topic: the Mordell conjecture (Faltings's theorem) as proved by Brian Lawrence and Akshay Venkatesh, "Diophantine problems and p-adic period mappings", Invent. Math. 221 (2020), 893–999, arXiv:1807.02721 (fetch the arXiv version; record provenance). The final target: a smooth projective geometrically connected curve of genus at least 2 over a number field has finitely many rational points. Follow the paper's own route and its intermediate results: the S-unit equation as the first worked instance of the method; the Kodaira–Parshin family attached to the curve; Gauss–Manin connections, the complex and p-adic period maps on residue disks and their analytic properties; crystalline comparison and the Frobenius-semilinear structure on de Rham cohomology of the fibres; semisimplicity of the relevant Galois representations and Faltings's finiteness lemma for representations of bounded dimension, restricted ramification and fixed weights; the monodromy / Zariski-density input for the period map and the dimension estimate on Frobenius-centralizer orbits that makes the counting work; and the final assembly. Identify every place where the paper cites an outside result, and decide for each whether an existing roadmap supplies it (candidates include PadicHodgeTheory, CrystallineCohomology, CohomologyComparisons, DeligneWeightsAndPurity, FaltingsFinitenessAndIsogenyTheorems, HeightsRationalPointsAndObstructions, tauceti:TauCetiRoadmap/HodgeStructures, tauceti:TauCetiRoadmap/Chebotarev, tauceti:TauCetiRoadmap/AlgebraicCurves, AlgebraicModuliForArithmeticGeometry, LefschetzPencilsAndVanishingCycles, PadicDifferentialEquationsAndRigidCohomology) or must be a layer of this roadmap. Lawrence–Venkatesh is an alternative to Faltings's height-based proof; do not route through FaltingsFinitenessAndIsogenyTheorems' Mordell corollary."""
 
@@ -377,6 +464,28 @@ def main():
         add({"id": f"STATUS-0{n}", "kind": "status", "priority": 0, "order": n,
              "prompt": f"research/expansion/prompts/STATUS-0{n}.md",
              "outputs": [f"research/expansion/status/STATUS-0{n}.result.json"], "after": []})
+    # Priority 0: the Habiro plan, which decides the structure of the Habiro roadmaps.
+    downloads = str(Path(args.library).parents[2]) if len(Path(args.library).parents) > 2 else args.library
+    text = PLAN_HABIRO_TEMPLATE.format(**fill, JOB="PLAN-HABIRO", DOWNLOADS=downloads)
+    add({"id": "PLAN-HABIRO", "kind": "plan", "priority": 0, "order": 0, "roadmapIds": [],
+         "outputs": ["research/blueprint/plans/HABIRO.md"], "after": [], "timeout": 10 * 3600}, text)
+    text = PLAN_REVIEW_TEMPLATE.format(**fill, JOB="REV-PLAN-HABIRO", DOWNLOADS=downloads)
+    add({"id": "REV-PLAN-HABIRO", "kind": "review", "priority": 0, "order": 1, "roadmapIds": [],
+         "outputs": ["research/blueprint/reviews/REV-PLAN-HABIRO.md"], "after": ["PLAN-HABIRO"], "avoidAccountOf": "PLAN-HABIRO",
+         "timeout": 8 * 3600}, text)
+    # Priority 0: subject classification and distance from Mathlib, for the layout.
+    classify_ids = sorted(roadmaps)
+    size = 36
+    (BP / "classify").mkdir(exist_ok=True)
+    for n in range(0, len(classify_ids), size):
+        job_id = f"CLASSIFY-{n // size + 1:02d}"
+        chunk = [{"roadmapId": rid, "title": roadmaps[rid]["title"]} for rid in classify_ids[n:n + size]]
+        if not args.dry_run:
+            (BP / "classify" / f"{job_id}.json").write_text(json.dumps(chunk, indent=1, ensure_ascii=False) + "\n")
+        output = f"research/blueprint/classify/{job_id}.result.json"
+        text = CLASSIFY_TEMPLATE.format(**fill, JOB=job_id, OUTPUT=output, CLUSTERS=", ".join(CLASSIFY_CLUSTERS))
+        add({"id": job_id, "kind": "classify", "priority": 0, "order": 10 + n // size, "roadmapIds": [c["roadmapId"] for c in chunk],
+             "outputs": [output], "after": []}, text)
     # Priority 1: the two new roadmaps and the Zagier suppliers.
     for job_id, rid, group, brief in (("DESIGN-LV", "MordellLawrenceVenkatesh", "diophantine", LV_BRIEF),
                                       ("DESIGN-ZAGIER", "ZagierConjecturePolylogarithms", "motivic", ZAGIER_BRIEF)):
@@ -436,6 +545,8 @@ def main():
             rid = job["roadmapIds"][0]
             hard = {j for s in suppliers[rid] if not s.startswith("tauceti:") for j in bp_jobs_of.get(s, []) if j in ids}
             job["after"] = sorted(hard | set(link_jobs))
+            if rid in HABIRO_FAMILY:
+                job["after"] = sorted(set(job["after"]) | {"REV-PLAN-HABIRO"})
     # Assembly of multi-part roadmaps, after every part is reviewed.
     for rid, parts in parts_of.items():
         if len(parts) < 2:
@@ -454,6 +565,9 @@ def main():
              "outputs": [f"research/expansion/naming/NAME-{n:02d}.result.json"], "after": []})
 
     queue_path = BP / "queue.json"
+    import fcntl
+    lock = open(BP / ".queue.lock", "a+")
+    fcntl.flock(lock, fcntl.LOCK_EX)
     old = json.loads(queue_path.read_text())["jobs"] if queue_path.exists() else []
     previous = {j["id"]: j for j in old}
     merged = []
@@ -482,8 +596,12 @@ def main():
         (REPO / path).write_text(text, encoding="utf-8")
     reserved = {k: {"job": v[0], "statement": v[1]} for k, v in RESERVED.items()}
     (BP / "reserved-ids.json").write_text(json.dumps(reserved, indent=1, ensure_ascii=False) + "\n")
-    queue_path.write_text(json.dumps({"purpose": "Blueprint swarm queue; see research/blueprint/PROTOCOL.md. Lanes (research/blueprint/lane.py) claim jobs under a file lock.",
+    tmp = queue_path.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps({"purpose": "Blueprint swarm queue; see research/blueprint/PROTOCOL.md. Lanes (research/blueprint/lane.py) claim jobs under a file lock.",
                                       "jobs": merged}, indent=1, ensure_ascii=False) + "\n")
+    import os
+    os.replace(tmp, queue_path)
+    fcntl.flock(lock, fcntl.LOCK_UN)
     print("queue written:", len(merged), "jobs;", len(prompts), "prompts")
 
 

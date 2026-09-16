@@ -1,0 +1,130 @@
+[
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+  "title": "The Jacobian challenge (Christian Merten's AG version)"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+  "title": "Local fields and ramification"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+  "title": "Modular curves, following Katz–Mazur"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "title": "Modular forms — Hecke theory, newforms, and L-functions"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+  "title": "Multiquadratic fields and genus theory"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+  "title": "Number fields, ramification, Frobenius, and the LMFDB invariants"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+  "title": "One-parameter semigroups, completely monotone and positive-definite functions, and Bochner-type representations"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "title": "Optimal transport and Wasserstein geometry"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+  "title": "Partial differential equations"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+  "title": "Galois groups of polynomials"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+  "title": "Continuous cohomology of profinite groups"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+  "title": "Profinite and pro-p groups"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+  "title": "Quadratic forms and cohomological invariants"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+  "title": "Reductive algebraic groups"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory",
+  "title": "Representation theory"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+  "title": "The Ado–Iwasawa theorem and faithful finite-dimensional Lie representations"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+  "title": "Character theory of finite groups, and computing character tables"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+  "title": "Finite-dimensional representations of the classical groups"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+  "title": "Representations of compact groups and the Peter-Weyl theorem"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+  "title": "Induction, restriction, and Mackey theory for finite groups"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+  "title": "Lie groups and the Lie algebra correspondence"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+  "title": "Representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+  "title": "Quiver representations, path algebras, and Gabriel's theorem"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+  "title": "Root systems, Weyl groups, and the Cartan-Killing classification"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+  "title": "Representations of the symmetric group, Specht modules, and Schur-Weyl duality"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+  "title": "Semisimple algebras, Artin-Wedderburn, and the structure of their modules"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+  "title": "Clifford algebras, the Pin and Spin groups, and spin representations"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+  "title": "Stable, periodic, and curved homological algebra"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+  "title": "Stable reduction of curves and stable maps"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+  "title": "Standard probability distributions and their elementary theory"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+  "title": "Universal covers"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+  "title": "Zigzag, preprojective, and Ginzburg algebras"
+ }
+]

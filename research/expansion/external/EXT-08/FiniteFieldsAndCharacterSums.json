@@ -18,7 +18,8 @@
         "[Sommes trig.] 1.23.1-1.26 (appendix on the non-commutative Lang torsor), expose pp. 15-16 (volume pp. 182-183)",
         "[Sommes trig.] 2.1*, 2.2, 2.3, 2.3* (Dictionnaire; integrality from SGA 7 XXI 5.2.2 and 5.4), expose pp. 16-17 (volume pp. 183-184)",
         "[Sommes trig.] 3.1-3.9 Sommes a une variable, including (3.2.1), 3.3, 3.4, 3.5 and Exemple 3.5 with (3.5.1)-(3.5.5), 3.6, Exemple 3.7, Proposition 3.8 and Lemme 3.9, expose pp. 22-28 (volume pp. 189-195)",
-        "[Sommes trig.] 4.1-4.6 Sommes de Gauss et sommes de Jacobi: (4.1.1), Propositions 4.2 and 4.3, Remarque 4.4, 4.5 with (4.5.1)-(4.5.3), 4.6, expose pp. 29-32 (volume pp. 196-199)"
+        "[Sommes trig.] 4.1-4.6 Sommes de Gauss et sommes de Jacobi: (4.1.1), Propositions 4.2 and 4.3, Remarque 4.4, 4.5 with (4.5.1)-(4.5.3), 4.6, expose pp. 29-32 (volume pp. 196-199)",
+        "REVIEW-EXT-08-EXT-16 (2026-09-16): the supplied library copy papers/Weil_SGA4Half.pdf has SHA-256 fb2939521f4c0ea0cdd55a90bec2e618e32fb433c78b194e705c6d989f4e42a6, matching this entry; page mapping confirmed (expose p. n = volume p. n+167 = PDF p. n+206; the volume number is at the foot). Re-read from the library extraction: 0.1-1.10, 1.18-1.20, 3.1-3.9 and 4.1-4.8 opening. Page renders were checked for volume pp. 172 (1.5.1), 190 (Exemple 3.5 printed text) and 198 (announcement of 4.12)."
       ]
     },
     {
@@ -34,7 +35,8 @@
         "19.3 'The subfield structure and uniqueness of finite fields' (Theorems 19.13, 19.14), printed pp. 515-516",
         "19.4 'Conjugates, norms and traces' (Theorems 19.15-19.18, Example 19.1), printed pp. 516-520",
         "Exercises 19.12-19.14 (normal bases), printed p. 521",
-        "Table of contents, printed pp. v-ix (chapter/section inventory for 12, 19, 20, 21)"
+        "Table of contents, printed pp. v-ix (chapter/section inventory for 12, 19, 20, 21)",
+        "REVIEW-EXT-08-EXT-16 (fetched 2026-09-16 from https://shoup.net/ntb/ntb-v2.pdf; SHA-256 matches): re-read Chapter 19 in full, printed pp. 509-521."
       ]
     },
     {
@@ -45,7 +47,8 @@
       "url": "https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf",
       "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71",
       "readSections": [
-        "Locator check only: title page and running heads confirmed against the local copy; no proof of this paper was read for this packet"
+        "Locator check only: title page and running heads confirmed against the local copy; no proof of this paper was read for this packet",
+        "REVIEW-EXT-08-EXT-16 (2026-09-16): a fresh Numdam download and the library copy papers/SS_WeilII.pdf both have SHA-256 b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71, matching this entry. No node or link of this packet cites this source."
       ]
     }
   ],
@@ -66,7 +69,7 @@
         "Step 2 (divisibility criteria): Thm 19.2 (X^k-1 | X^l-1 in F[X] iff k|l, by division with remainder l = kq+r), Thm 19.3 (a^k-1 | a^l-1 iff k|l for integers a >= 2), and their combination Thm 19.4 (X^{a^k}-X | X^{a^l}-X iff k|l) (Shoup pp. 509-510).",
         "Step 3 (Frobenius criterion): for f monic irreducible of degree k set E := F[X]/(f) = F[xi]. Then f | X^{q^l}-X iff sigma^l(xi) = xi iff sigma^l = id_E iff k | l, using Thm 19.9 (sigma^i = sigma^j iff i == j mod deg) and Thm 16.7 (an F-algebra map is determined on F[xi] by its value at xi) (Shoup p. 513).",
         "Step 4: combining Steps 1-3 gives Thm 19.10; equating degrees gives q^l = sum_{k|l} k Pi_F(k) (Thm 19.11, Shoup p. 514).",
-        "Step 5 (existence): from the census identity Pi_F(l) > 0; the construction of the extension is then F[X]/(f) for f monic irreducible of degree l, and conversely every degree-l extension E has E = F[gamma] for gamma a generator of the cyclic group E^* (Shoup Thm 7.29 for cyclicity), hence E is F-algebra isomorphic to F[X]/(phi) with phi the minimal polynomial of gamma (Shoup p. 511)."
+        "Step 5 (existence): the source deduces Pi_F(l) > 0 from Theorem 19.11 ('it is easy to deduce'), and proves it quantitatively as Theorem 19.12: q^l/(2l) <= Pi_F(l) <= q^l/l and Pi_F(l) = q^l/l + O(q^{l/2}/l) (printed p. 514). The extension is then F[X]/(f) for f monic irreducible of degree l. Conversely every degree-l extension E has E = F[gamma] for gamma a generator of the cyclic group E^* (Shoup Thm 7.29), so E is F-algebra isomorphic to F[X]/(phi) with phi the minimal polynomial of gamma (printed p. 511)."
       ],
       "acceptance": [
         "Check l = 1: X^q - X = prod_{a in F}(X - a) (Shoup Thm 19.6) recovers P_1 and Pi_F(1) = q.",
@@ -106,8 +109,8 @@
         "Thm 19.9: sigma^i = sigma^j iff sigma^{i-j} = id iff prod_{alpha in E}(X-alpha) | X^{q^{i-j}} - X iff X^{q^l} - X | X^{q^{i-j}} - X (Thm 19.6 applied to E) iff l | (i-j) (Thm 19.4) (Shoup pp. 512-513)."
       ],
       "acceptance": [
-        "Absolute vs relative exponent: for F = F_p and E = F_{p^w}, the relative Frobenius over F_q = F_{p^w} is the p^w-power map, and its order over F is l = (E:F); check that both exponents are recorded separately in any implementation.",
-        "Test alpha in E with sigma(alpha) = alpha but alpha not in the prime field: impossible by Thm 19.8; this distinguishes the fixed field of sigma from the fixed field of tau."
+        "Absolute vs relative exponent: for |F| = q = p^w and E of degree l over F, the relative Frobenius sigma is the q-power map and has exact order l on E (Thm 19.9), while the absolute Frobenius tau is the p-power map, with sigma = tau^w (Thm 19.7), and has order wl on E. Record both exponents separately. [Corrected in review: the draft's example ('for F = F_p and E = F_{p^w}, the relative Frobenius over F_q = F_{p^w} is the p^w-power map, and its order over F is l') mixed the base fields and was self-inconsistent.]",
+        "Fixed-field test: sigma(alpha) = alpha iff alpha is in F (Thm 19.8), whereas tau(alpha) = alpha iff alpha is in the prime field Z_p. When F != Z_p, any alpha in F outside Z_p is fixed by sigma but not by tau; this distinguishes the two fixed fields. [Corrected in review: the draft said an element fixed by sigma but outside the prime field is 'impossible by Thm 19.8', which holds only when F is the prime field.]"
       ],
       "sources": [
         {
@@ -298,7 +301,7 @@
       "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
       "title": "Gauss sums over an etale F_q-algebra and the sign e(k); Hasse-Davenport as a twisted form",
       "kind": "definition",
-      "statement": "Let k be an etale algebra over F_q of degree N, a product of fields k_i of degrees N_i, and set e(k) = (-1)^{sum_i (N_i + 1)}, the signature of the permutation of S = Hom_{F_q}(k, F-bar) induced by Frobenius. For psi : F_q -> E_lambda^* non-trivial and chi : k^* -> E_lambda^*, define tau_{F_q}(chi,psi) = (-1)^N sum_{x in k^*} psi(Tr_{k/F_q}(x)) chi^{-1}(x). Then tau_{F_q}(chi,psi) = e(k) prod_i tau(chi_i, psi o Tr_{k_i/F_q}), and the Hasse-Davenport identity is the twisted form of the special case k = F_{q^N}, chi a character of F_{q^N}^*: tau_{F_q}(chi o N_{k/F_q}, psi) = tau(chi,psi)^N.",
+      "statement": "Let k be an etale algebra over F_q of degree N, a product of fields k_i of degrees N_i, and set e(k) = (-1)^{sum_i (N_i + 1)}, the signature of the permutation of S = Hom_{F_q}(k, F-bar) induced by Frobenius. For psi : F_q -> E_lambda^* non-trivial and chi : k^* -> E_lambda^*, define tau_{F_q}(chi,psi) = (-1)^N sum_{x in k^*} psi(Tr_{k/F_q}(x)) chi^{-1}(x). Then tau_{F_q}(chi,psi) = e(k) prod_i tau(chi_i, psi o Tr_{k_i/F_q}), and the source will interpret the Hasse-Davenport identity (in 4.12) as a twisted form of the following special case of (4.5.3): for the SPLIT algebra k = F_q^N (N copies of F_q, so e(k) = 1) and chi a character of F_q^*, tau_{F_q}(chi o N_{k/F_q}, psi) = tau(chi,psi)^N. The field F_{q^N} is a twisted form of the split algebra F_q^N. [Corrected in review from a page render of volume p. 198: the draft stated the special case for the field k = F_{q^N} with chi a character of F_{q^N}^*, for which chi o N_{k/F_q} is not even defined.]",
       "hypotheses": [
         "k etale over F_q of degree N; the decomposition into fields k_i is the one used to define e(k), so the sign depends on the decomposition type, not only on N",
         "psi non-trivial on F_q; chi is a character of the unit group k^*, with coordinates chi_i",
@@ -307,7 +310,7 @@
       "proofSteps": [
         "4.5 defines e(k) as the signature of the Frobenius permutation of the N geometric points of Spec k, equal to (-1)^{sum (N_i+1)}.",
         "Definition (4.5.2) inserts the factor (-1)^N so that (4.5.3) holds with e(k) as stated.",
-        "The source announces (Sommes trig. 4.5, end) that the Hasse-Davenport relation will be interpreted in 4.12 as a twisted form (cf. 1.12) of the special case tau_{F_q}(chi o N_{k/F_q}, psi) = tau(chi,psi)^N for k = F_{q^N}."
+        "The source announces (Sommes trig. 4.5, end, volume p. 198) that the Hasse-Davenport relation will be interpreted in 4.12 as a twisted form (cf. 1.12) of the special case k = F_q^N (split), chi a character of F_q^*: tau_{F_q}(chi o N_{k/F_q}, psi) = tau(chi,psi)^N, which follows at once from (4.5.3) because chi o N has all coordinates equal to chi and e(k) = 1."
       ],
       "acceptance": [
         "Check the sign: for k = F_q^N (split etale algebra, all N_i = 1) one gets e(k) = (-1)^{2N} = 1, while for k = F_{q^N} a field one gets e(k) = (-1)^{N+1}.",
@@ -317,8 +320,8 @@
         {
           "sourceId": "sga4half-sommes-trig",
           "locator": "[Sommes trig.] 4.5, (4.5.1)-(4.5.3) and the announcement of 4.12, expose pp. 30-31 (volume pp. 197-198)",
-          "excerpt": "e(k) = (-1)^{sum(N_i+1)} ... C'est la signature de la permutation de S = Hom_{F_q}(k, F-bar) induite par la substitution de Frobenius ... nous interpreterons l'identite de Hasse-Davenport comme une forme tordue (cf. 1.12) du cas particulier suivant de (4.5.3) : pour k = F_{q^N}, et chi un caractere de F_{q^N}^*, on a tau_{F_q}(chi o N_{k/F_q}, psi) = tau(chi,psi)^N",
-          "match": "Gives the definition of the sign e(k), the normalized Gauss sum over an etale algebra, and the precise form of the Hasse-Davenport statement to be proved in 4.12 (not read here)."
+          "excerpt": "e(k) = (-1)^{sum(N_i+1)} ... C'est la signature de la permutation de S = Hom_{F_q}(k, F-bar) induite par la substitution de Frobenius ... nous interpreterons l'identite de Hasse-Davenport comme une forme tordue (cf. 1.12) du cas particulier suivant de (4.5.3) : pour k = F_q^N, et chi un caractere de F_q^*, on a tau_{F_q}(chi o N_{k/F_q}, psi) = tau(chi,psi)^N",
+          "match": "Gives the definition of the sign e(k), the normalized Gauss sum over an etale algebra, and the split special case whose twisted form is Hasse-Davenport (proved in 4.12, not read). [Excerpt corrected in review: the draft had 'k = F_{q^N}' and 'F_{q^N}^*'.]"
         }
       ],
       "implementationStatus": "unchecked"
@@ -364,7 +367,7 @@
       "hypotheses": [
         "X_0 projective smooth absolutely irreducible of genus g over F_q; f rational, not identically infinity, and NOT of the form g^p - g + constant",
         "psi non-trivial; the l-adic realization replaces psi by psi_0 o Tr_{F_q/F_p} with psi_0 : F_p -> E_lambda^*, so the coefficients are E_lambda and l != p",
-        "j : U_0 -> X_0 is the inclusion of the open set where f is regular (in the normalized sense v*_x(f) = 0)",
+        "j : U_0 -> X_0 is the inclusion of the open set where f is regular ('l'ouvert ou f != infinity'). At points with v_x(f) > 0 but v*_x(f) = 0, j_* L(psi f) is still lisse, because L(psi f) = L(psi(f + g^p - g)) near x (1.3). [Corrected in review: the draft defined U_0 by the normalized condition v*_x(f) = 0.]",
         "The dimension formula requires the Swan conductor computation Sw_x(L(psi f)) = v*_x(f), imported from Serre 1961",
         "The absolute-value statement is for all complex conjugates of the eigenvalues, not for one chosen embedding"
       ],
@@ -425,7 +428,7 @@
       "acceptance": [
         "Check the dimension arithmetic 2g - 2 + sum = -2 + (1+1) + (1+1) = 2 for the Kloosterman sheaf on P^1.",
         "Check |Kl(a; q^n)| <= 2 q^{n/2} follows from alpha beta = q together with |alpha| = |beta| = q^{1/2}.",
-        "Check that for p = 2 the hypothesis f(sigma x) = -f(x) is vacuous (-f = f) and the parity conclusion must be re-derived."
+        "Check p = 2 separately: there -f = f, so the hypothesis reads f o sigma = f (satisfied for instance by sigma = id) rather than being vacuous. The source does not treat p = 2 separately, so the alternating-form argument should be re-checked in that case. [Corrected in review: the draft called the hypothesis vacuous for p = 2.]"
       ],
       "sources": [
         {
@@ -452,7 +455,7 @@
         "Lemme 3.9 is proved by induction on r: if some rational hyperplane is not contained in the hypersurface, apply the inductive hypothesis to the trace of the hypersurface on it; otherwise d is at least the number of rational hyperplanes, which is at least q+1.",
         "Case 1 (p does not divide d): apply Lemme 3.9 to the leading form P_d to find, after a linear change of variables, P_d(1,0,...,0) != 0, i.e. the coefficient of X_1^d is non-zero. A one-variable polynomial of degree d with non-zero leading coefficient and p not dividing d is never of the form Q^p - Q + const, so the one-variable bound (3.5.2) on P^1 gives |sum_{x_1} psi(S(x_1))| <= (d-1) q^{1/2} for each fixed (x_2,...,x_n); summing over the q^{n-1} fibres gives (d-1) q^{n-1/2}.",
         "Case 2 (p divides d, d > 0): if P_d is a p-th power, replace P by P - (P_d - P_d^{1/p}), which does not change the sum and lowers the degree; induct on d. Otherwise the differential of P_d is not identically zero; by Lemme 3.9 arrange after a linear change that it is non-zero at (1,0,...,0), i.e. writing P_d = sum_i X_1^{d-i} S_i(X_2,...,X_n) the linear form S_1 is not identically zero. Normalize S_0 to zero by subtracting an Artin-Schreier term. Let -lambda be the coefficient of X_1^{d-1} in P. For fixed x_2,...,x_n with S_1(x_2,...,x_n) != lambda, the polynomial in X_1 has degree d-1 in its leading behaviour, and the one-variable bound gives |sum_{x_1} psi(P(x_1,x_2,...,x_n))| <= (d-2) q^{1/2}.",
-        "Summation: the exceptional locus S_1 = lambda carries at most q^{n-1} tuples estimated trivially by q, and the remaining q^{n-1} - q^{n-2} tuples by (d-2) q^{1/2}; the total is < (d-2) q^{n-1/2} + q^{n-1} < (d-1) q^{n-1/2}."
+        "Summation (expose p. 28): the exceptional set {S_1(x_2,...,x_n) = lambda} is a hyperplane in F_q^{n-1} with q^{n-2} points. Each of these has inner sum trivially bounded by q, contributing at most q^{n-1}. The remaining q^{n-1} - q^{n-2} points have inner sum at most (d-2) q^{1/2}. The total is < q^{n-1} + (q^{n-1} - q^{n-2})(d-2) q^{1/2} < (d-2) q^{n-1/2} + q^{n-1} < (d-1) q^{n-1/2}. [Corrected in review: the draft said the exceptional locus 'carries at most q^{n-1} tuples estimated trivially by q', which would give q^n.]"
       ],
       "acceptance": [
         "Degenerate test: P = Q^p - Q gives sum = q^n, violating the conclusion; the exclusion hypothesis is necessary.",
@@ -505,8 +508,8 @@
   "links": [
     {
       "source": "FiniteFieldsAndCharacterSums:FF.0/norm-and-trace-surjectivity",
-      "target": "FiniteFieldsAndCharacterSums:FF.1/lang-torsor-character-sheaves",
-      "reason": "The additive characters used to build Artin-Schreier sheaves over an extension are psi_0 o Tr_{k/F_q}; FF.1 needs Tr_{E/F} to be F-linear and surjective onto F (Shoup Thm 19.18) so that psi_0 o Tr is non-trivial whenever psi_0 is, which is the non-triviality hypothesis of Proposition 4.3. Multiplicative characters chi o N likewise use surjectivity of N onto F^* (Thm 19.17) for the base-change formula (1.7.7).",
+      "target": "FiniteFieldsAndCharacterSums:FF.1/etale-algebra-gauss-sums-and-hasse-davenport-shape",
+      "reason": "(4.5.2)-(4.5.3) express Gauss sums over an etale algebra through the characters psi o Tr_{k/F_q} and psi o Tr_{k_i/F_q}, and each factor tau(chi_i, psi o Tr_{k_i/F_q}) is a Gauss sum in the sense of 4.1, which requires a NON-TRIVIAL additive character. Surjectivity of Tr_{k_i/F_q} onto F_q (Shoup Thm 19.18) guarantees that psi o Tr is non-trivial whenever psi is; the norm N_{k/F_q} also enters the split special case chi o N. [Re-pointed and corrected in review: the draft's target was the Lang-torsor node, and it claimed that (1.7.7) uses surjectivity of the norm; (1.7.7) comes from the torsor identity N L(q^n) = L(q) (1.6.2) and uses no surjectivity.]",
       "sources": [
         {
           "sourceId": "shoup-ntb-v2",
@@ -514,7 +517,7 @@
         },
         {
           "sourceId": "sga4half-sommes-trig",
-          "locator": "[Sommes trig.] (1.7.7) and 4.5 (4.5.2), expose pp. 6 and 30 (volume pp. 173, 197)"
+          "locator": "[Sommes trig.] 4.1 (psi non-trivial) and 4.5 (4.5.2)-(4.5.3), expose pp. 29-30 (volume pp. 196-197)"
         }
       ]
     },
@@ -565,7 +568,7 @@
     {
       "source": "WeilConjectures:WC.3",
       "target": "FiniteFieldsAndCharacterSums:FF.2/one-variable-artin-schreier-weil-bound",
-      "reason": "The bound (3.5.2) is an estimate on a complex-valued sum obtained from an E_lambda-valued trace, so it needs the absolute values of ALL complex conjugates of the eigenvalues, and independence of l. WC.3's stated output is exactly the all-conjugates absolute-value characterization together with l-independence; a statement for one chosen embedding E_lambda -> C would not suffice. This records the scope match for the edge already present in the atlas (FF.2 requires WC.3), at node level.",
+      "reason": "The bound (3.5.2) is an estimate on a complex-valued sum obtained from an E_lambda-valued trace, so it needs the absolute values of ALL complex conjugates of the eigenvalues, and independence of l. WC.3's stated output is exactly the all-conjugates absolute-value characterization together with l-independence; a statement for one chosen embedding E_lambda -> C would not suffice. This records the scope match for the edge already present in the atlas (FF.2 requires WC.3), at node level. [Annotated in review: PARTIAL SUPPLY. WC.3's atlas scope is the all-conjugates Riemann hypothesis and l-independence for the integral factors of the zeta function of a VARIETY, i.e. constant coefficients (from DWP.4). The consumer needs the corresponding statement for H^1(X-bar, j_* L(psi f)), and Deligne's 3.4 attributes it to Weil for sheaves that become trivial on a finite covering. Obtaining it from WC.3 needs a transfer step, not in WC.3's scope and not read here: realize H^1(X-bar, j_* L(psi f)) as the psi-isotypic part of H^1 of the Artin-Schreier covering curve. See the gap on the weight input.]",
       "sources": [
         {
           "sourceId": "sga4half-sommes-trig",
@@ -581,6 +584,105 @@
         {
           "sourceId": "sga4half-sommes-trig",
           "locator": "[Sommes trig.] Proposition 3.8, expose p. 26 (volume p. 193)"
+        }
+      ]
+    },
+    {
+      "source": "FiniteFieldsAndCharacterSums:FF.0/frobenius-automorphism-and-exact-order",
+      "target": "FiniteFieldsAndCharacterSums:FF.0/irreducible-polynomial-census-and-existence",
+      "reason": "Added in review REVIEW-EXT-08-EXT-16: the proof of Theorem 19.10 shows f | X^{q^l} - X iff sigma^l(xi) = xi iff sigma^l = id on E = F[X]/(f) iff k | l, using the Frobenius as an F-algebra homomorphism (Thm 19.7) and its exact order (Thm 19.9).",
+      "sources": [
+        {
+          "sourceId": "shoup-ntb-v2",
+          "locator": "Proof of Theorem 19.10, printed p. 513"
+        }
+      ]
+    },
+    {
+      "source": "FiniteFieldsAndCharacterSums:FF.0/irreducible-polynomial-census-and-existence",
+      "target": "FiniteFieldsAndCharacterSums:FF.0/subfield-lattice-and-uniqueness-up-to-F-isomorphism",
+      "reason": "Added in review REVIEW-EXT-08-EXT-16: the proof of Theorem 19.14 uses Theorem 19.10: the minimal polynomial phi of a generator of E' divides X^{q^l} - X, which splits over E (Theorem 19.6 applied to E), so phi has a root in E.",
+      "sources": [
+        {
+          "sourceId": "shoup-ntb-v2",
+          "locator": "Proof of Theorem 19.14, printed pp. 515-516"
+        }
+      ]
+    },
+    {
+      "source": "FiniteFieldsAndCharacterSums:FF.0/frobenius-automorphism-and-exact-order",
+      "target": "FiniteFieldsAndCharacterSums:FF.0/norm-and-trace-surjectivity",
+      "reason": "Added in review REVIEW-EXT-08-EXT-16: conjugates, the characteristic polynomial, norm and trace are defined through the powers sigma^i of the Frobenius, and their F-valuedness is proved by sigma-invariance using Theorem 19.8.",
+      "sources": [
+        {
+          "sourceId": "shoup-ntb-v2",
+          "locator": "Section 19.4 and Theorem 19.15 with its derivation, printed pp. 516-518"
+        }
+      ]
+    },
+    {
+      "source": "FiniteFieldsAndCharacterSums:FF.1/lang-torsor-character-sheaves",
+      "target": "FiniteFieldsAndCharacterSums:FF.1/gauss-sum-cohomological-realization",
+      "reason": "Added in review REVIEW-EXT-08-EXT-16: -tau(chi,psi) is read as a character sum over the rational points of G_m, and 'd'apres le paragraphe 1' (Scholie 1.9 for L(psi chi^{-1}) on G_m) it equals Tr(F^*, H_c^*(G_m, L(psi chi^{-1}))); the identification L(chi^{-1}) = chi(K_{q-1}) uses the Lang torsor of G_m.",
+      "sources": [
+        {
+          "sourceId": "sga4half-sommes-trig",
+          "locator": "[Sommes trig.] 4.1 and the proof of Proposition 4.2, expose p. 29 (volume p. 196)"
+        }
+      ]
+    },
+    {
+      "source": "FiniteFieldsAndCharacterSums:FF.1/gauss-sum-cohomological-realization",
+      "target": "FiniteFieldsAndCharacterSums:FF.1/gauss-sum-absolute-value-by-duality",
+      "reason": "Added in review REVIEW-EXT-08-EXT-16: Remarque 4.4 combines 4.2 (iii) (H_c^1 -> H^1 an isomorphism for chi non-trivial) with Poincare duality, and uses 4.2 (i)-(ii) (one-dimensional H_c^1 with Frobenius eigenvalue tau(chi,psi)) to get tau(chi,psi) tau(chi^{-1},psi^{-1}) = q.",
+      "sources": [
+        {
+          "sourceId": "sga4half-sommes-trig",
+          "locator": "[Sommes trig.] Remarque 4.4, expose p. 30 (volume p. 197)"
+        }
+      ]
+    },
+    {
+      "source": "FiniteFieldsAndCharacterSums:FF.1/gauss-sum-cohomological-realization",
+      "target": "FiniteFieldsAndCharacterSums:FF.1/etale-algebra-gauss-sums-and-hasse-davenport-shape",
+      "reason": "Added in review REVIEW-EXT-08-EXT-16: (4.5.3) expresses the etale-algebra Gauss sum as e(k) times a product of the Gauss sums tau(chi_i, psi o Tr_{k_i/F_q}) of definition (4.1.1), so the normalization, including the sign, is inherited from 4.1.",
+      "sources": [
+        {
+          "sourceId": "sga4half-sommes-trig",
+          "locator": "[Sommes trig.] (4.1.1) and (4.5.2)-(4.5.3), expose pp. 29-30 (volume pp. 196-197)"
+        }
+      ]
+    },
+    {
+      "source": "FiniteFieldsAndCharacterSums:FF.2/modified-pole-order-and-artin-schreier-normalization",
+      "target": "FiniteFieldsAndCharacterSums:FF.2/one-variable-artin-schreier-weil-bound",
+      "reason": "Added in review REVIEW-EXT-08-EXT-16: the bound (3.5.2) is a statement about the normalized sum S_f of (3.5.1), with the conductor constants v*_x(f) and the invariance S_f = S_{f+g^p-g} defined in Exemple 3.5 a), b).",
+      "sources": [
+        {
+          "sourceId": "sga4half-sommes-trig",
+          "locator": "[Sommes trig.] Exemple 3.5, expose pp. 23-24 (volume pp. 190-191)"
+        }
+      ]
+    },
+    {
+      "source": "FiniteFieldsAndCharacterSums:FF.2/one-variable-artin-schreier-weil-bound",
+      "target": "FiniteFieldsAndCharacterSums:FF.2/kloosterman-rank-two-and-eigenvalue-pairing",
+      "reason": "Added in review REVIEW-EXT-08-EXT-16: 3.6 works with the same sheaves F_0 = j_* L(psi f) and the vanishing of H^i for i != 1 established in 3.5, and Exemple 3.7 computes dim H^1 = -2 + 2 + 2 from the dimension formula of 3.5 and gets the Kloosterman identity from (3.5.5).",
+      "sources": [
+        {
+          "sourceId": "sga4half-sommes-trig",
+          "locator": "[Sommes trig.] 3.6 and Exemple 3.7, expose pp. 25-26 (volume pp. 192-193)"
+        }
+      ]
+    },
+    {
+      "source": "FiniteFieldsAndCharacterSums:FF.2/one-variable-artin-schreier-weil-bound",
+      "target": "FiniteFieldsAndCharacterSums:FF.2/multivariable-polynomial-exponential-sum-bound",
+      "reason": "Added in review REVIEW-EXT-08-EXT-16: in both cases of the proof of Proposition 3.8 the partial sums over x_1 are bounded by 'l'estimation 3.5.2' for one-variable polynomials on P^1 (constant d-1, respectively d-2).",
+      "sources": [
+        {
+          "sourceId": "sga4half-sommes-trig",
+          "locator": "[Sommes trig.] proof of Proposition 3.8, cases 1 and 2, expose pp. 26-28 (volume pp. 193-195)"
         }
       ]
     }
@@ -622,7 +724,8 @@
       "status": "not_read",
       "remaining": [
         "Shoup Chapter 20 (irreducibility tests 20.1, square-free decomposition 20.3, Cantor-Zassenhaus 20.4, Berlekamp 20.5, deterministic algorithms 20.6, printed pp. 522-546) located in the table of contents but not read.",
-        "Point counting (Schoof/SEA) has no candidate source in the supplied library or among the copies obtained; needs a separate acquisition."
+        "Point counting (Schoof/SEA) has no candidate source in the supplied library or among the copies obtained; needs a separate acquisition.",
+        "Review note (REVIEW-EXT-08-EXT-16): the EXT-08 ComputationalNumberTheory packet decomposes Shoup Chapter 20 (Theorems 20.3-20.10) under ComputationalNumberTheory:CN.1, although finite-field polynomial factorization is FF.3's declared atlas scope. A placement decision is recorded as a gap in that packet; avoid a duplicate decomposition."
       ]
     },
     {
@@ -671,7 +774,7 @@
       "neededBy": [
         "FiniteFieldsAndCharacterSums:FF.2/one-variable-artin-schreier-weil-bound"
       ],
-      "detail": "Verified: Sommes trig. 3.3 states Poincare duality in the form 'H^i(X-bar, j_* F) and H^{2-i}(X-bar, j_*(F^dual(1)))^dual are dual' citing [Dualite] 1.3, and 1.19/1.19.1 give the criterion (no local monodromy invariants) under which H_c^* -> H^* is an isomorphism. Not verified: the general identification of H^1(X-bar, j_* F) with the image of H^1_c(U,F) -> H^1(U,F) for an arbitrary lisse F on a curve, which is what would let DWP.7's purity statement be applied directly. Next source action: read [Dualite] 1.3 (volume pp. 154-167) and the corresponding part of DWP.7's source, Weil II 3.3.1-3.3.11."
+      "detail": "Verified: Sommes trig. 3.3 states Poincare duality in the form 'H^i(X-bar, j_* F) and H^{2-i}(X-bar, j_*(F^dual(1)))^dual are dual' citing [Dualite] 1.3, and 1.19/1.19.1 give the criterion (no local monodromy invariants) under which H_c^* -> H^* is an isomorphism. Not verified: the general identification of H^1(X-bar, j_* F) with the image of H^1_c(U,F) -> H^1(U,F) for an arbitrary lisse F on a curve, which is what would let DWP.7's purity statement be applied directly. Next source action: read [Dualite] 1.3 (volume pp. 154-167) and the corresponding part of DWP.7's source, Weil II 3.3.1-3.3.11. Review note (REVIEW-EXT-08-EXT-16): the WC.3 link is now annotated as partial supply as well. WC.3's scope is constant-coefficient zeta functions, so using it for j_* L(psi f) additionally needs the Artin-Schreier covering transfer."
     },
     {
       "title": "Multiplicative degeneracy (perfect powers) not located in the sections read",
@@ -687,5 +790,78 @@
       ],
       "detail": "The printed text of the 1977 Springer LNM 569 scan reads 'on a psi(a^p - a) = 0' and 'Cette somme est nulle pour f de la forme g^p-g' (verified by rendering volume p. 190 of the scanned PDF as an image and reading it directly, not only from the OCR text layer). Since psi is a character with values in the group of p-th roots of unity and Tr_{F_q/F_p}(a^p - a) = 0, the correct value is psi(a^p - a) = 1; this is also what the argument requires, because the invariance S_f = S_{f+g^p-g} asserted on the next page holds if and only if psi kills the image of the Artin-Schreier operator. This packet uses only the invariance statement and the exclusion hypothesis, and does not rely on either printed sentence. The second sentence ('cette somme est nulle') could not be reconciled with the definition of S'_f on the same page and is recorded here rather than silently reinterpreted."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REVIEW-EXT-08-EXT-16",
+    "date": "2026-09-16",
+    "notes": "All 13 nodes and 7 draft links were checked. The SGA 4 1/2 library copy matches the recorded SHA-256 (fb293952...); it was read from the extraction, with page renders at volume pp. 172, 190 and 198. Shoup Chapter 19 was re-fetched (hash matches), and the Weil II hash matches the library copy. Corrections: (1) the Hasse-Davenport special case in (4.5.3) is for the SPLIT algebra k = F_q^N with chi a character of F_q^*, not for the field F_{q^N} (render of volume p. 198); the draft's version does not typecheck; (2) two Frobenius acceptance items were wrong: the fixed-field test contradicts Theorem 19.8 when F is not the prime field, and the absolute/relative exponent example was self-inconsistent; (3) the Proposition 3.8 summation miscounted the exceptional hyperplane (q^{n-2} points, not q^{n-1}); (4) U_0 in Exemple 3.5 is where f is regular, not where v*_x(f) = 0; (5) the p = 2 remark on 3.6 called a non-vacuous hypothesis vacuous. The FF.0 -> FF.1 link was re-pointed to the etale-algebra Gauss sums, where trace surjectivity is actually needed, and its unsupported claim that (1.7.7) uses norm surjectivity was removed. The WC.3 -> FF.2 link is now annotated as partial supply, because WC.3's atlas scope is constant-coefficient zeta functions. The DWP.7 link's scope claim matches DWP.7's atlas text ('for smooth X and lisse pure F the image of H^i_c -> H^i is pure of weight w+i'), with the residual step already a gap. Nine verified internal links were added (Frobenius -> census; census -> uniqueness; Frobenius -> norm/trace; Lang torsor -> Gauss sums; Gauss sums -> modulus; Gauss sums -> etale algebra; modified pole order -> one-variable bound; one-variable bound -> Kloosterman; one-variable bound -> Proposition 3.8). The printed misstatement in Exemple 3.5 recorded by the draft (psi(a^p - a) = 0, 'Cette somme est nulle') was confirmed from the render. A cross-packet placement note on Shoup Chapter 20 (FF.3 vs CN.1) was added. All parentStageIds and coverage ids exist. Packet status stays partial.",
+    "checked": [
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.0/irreducible-polynomial-census-and-existence",
+        "verdict": "verified",
+        "note": "Theorems 19.1-19.4, 19.6, 19.9-19.11 and the existence discussion match printed pp. 509-514. Added Theorem 19.12 as the source's quantitative positivity statement."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.0/frobenius-automorphism-and-exact-order",
+        "verdict": "corrected",
+        "note": "Theorems 19.7-19.9 and proofs match pp. 512-513. The fixed-field test ('impossible by Thm 19.8') was false when F != Z_p, and the absolute/relative exponent example was self-inconsistent; both rewritten."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.0/subfield-lattice-and-uniqueness-up-to-F-isomorphism",
+        "verdict": "verified",
+        "note": "Theorems 19.13 and 19.14 with proofs match pp. 515-516."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.0/norm-and-trace-surjectivity",
+        "verdict": "verified",
+        "note": "Theorems 19.15-19.18, the characteristic polynomial chi = phi^{l/k} and both surjectivity proofs match pp. 516-519."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.1/lang-torsor-character-sheaves",
+        "verdict": "verified",
+        "note": "1.2-1.6, Definition 1.7 with (1.7.1)-(1.7.7), Scholie 1.9 and Remarque 1.9.4 match expose pp. 2-7. (1.5.1) F* = g -> g gamma^{-1} was checked on the render of volume p. 172."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.1/gauss-sum-cohomological-realization",
+        "verdict": "verified",
+        "note": "(4.1.1), Propositions 4.2 and 4.3 with proof (1.18 b)c), Exemple 1.19.1, Swan conductors 0 and 1, chi_c = -1) match expose pp. 29-30."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.1/gauss-sum-absolute-value-by-duality",
+        "verdict": "verified",
+        "note": "Remarque 4.4 matches expose p. 30, including the non-trivial chi and E_lambda(-1)."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.1/etale-algebra-gauss-sums-and-hasse-davenport-shape",
+        "verdict": "corrected",
+        "note": "(4.5.1)-(4.5.3) match. The special case announced for 4.12 is k = F_q^N (split) with chi a character of F_q^* (render of volume p. 198); the draft's statement and excerpt had the field F_{q^N}, which does not typecheck."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/modified-pole-order-and-artin-schreier-normalization",
+        "verdict": "verified",
+        "note": "Exemple 3.5 a), b), (3.5.1) and the invariance match volume pp. 190-191. The printed misstatement psi(a^p - a) = 0 was confirmed on the render."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/one-variable-artin-schreier-weil-bound",
+        "verdict": "corrected",
+        "note": "(3.5.2)-(3.5.5), the non-constancy argument, (3.5.4) with Serre's citation, 3.2.1 and 3.4 match volume pp. 189-192. Corrected the definition of U_0 (f regular, not v* = 0)."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/kloosterman-rank-two-and-eigenvalue-pairing",
+        "verdict": "corrected",
+        "note": "3.6 a)-c), the parity and pairing conclusions and Exemple 3.7 with the Carlitz attribution match volume pp. 192-193. The p = 2 acceptance item wrongly called the hypothesis vacuous."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/multivariable-polynomial-exponential-sum-bound",
+        "verdict": "corrected",
+        "note": "Proposition 3.8, Lemme 3.9 and both cases match volume pp. 193-195. The final summation step miscounted the exceptional hyperplane (q^{n-2} points, not q^{n-1}); corrected with the source's exact chain."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.1/euler-poincare-with-swan-conductors",
+        "verdict": "verified",
+        "note": "(3.2.1) with its hypotheses and the citation Seminaire Bourbaki 286 match volume p. 189. The import status and placement note are appropriate."
+      }
+    ]
+  }
 }

@@ -1,0 +1,469 @@
+{
+  "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+  "status": "partial",
+  "summary": "Source decomposition of the statements of the GL_2/Q p-adic local-global compatibility chain, read from the introduction of Emerton's paper: the conjecture itself with its precise local factors and its one likely-false case; Theorem 1.2.1 with its two distinct residual hypotheses and the difference between its embedding and isomorphism cases; the promodularity input and the Fontaine-Mazur and Kisin consequences; the mod p multiplicity theorem and its recovery of Serre's weight and level, answering Serre's own question 3.4(2); and an audit of which of these results carry a Serre-conjecture dependence, which is what the roadmap's R31.6 asks for. The dominant boundary is that only the introduction was read: no proof in this source was inspected, and the p-adic local Langlands correspondence on which everything rests is an unread import that is not in the supplied library. R31.5 is marked not_read.",
+  "sources": [
+    {
+      "id": "emerton-local-global-gl2Q",
+      "title": "Local-global compatibility in the p-adic Langlands programme for GL_2/Q",
+      "authors": "Matthew Emerton",
+      "edition": "Draft dated 23 March 2011 (the author's file lg.pdf); read via the PDF text layer. Locators give the draft's own section and result numbers and, where the running header shows them, its page numbers",
+      "url": "https://math.uchicago.edu/~emerton/pdffiles/lg.pdf",
+      "sha256": "bf4f8556ef04be02daed0b1dba35c91ce4a7b2f4cbbf28d0d8351b1fc369eb13",
+      "readSections": [
+        "Contents, pp. 1-2",
+        "1.1 The local-global compatibility conjecture: Conjecture 1.1.1 with the explanation of each factor, and Remark 1.1.2, p. 2",
+        "1.2 Statement of results: the definition of promodular, Theorem 1.2.1 with parts (1) and (2), Corollary 1.2.2, Theorem 1.2.3, Theorem 1.2.4, Remark 1.2.5, Theorem 1.2.6, Remarks 1.2.7 through 1.2.10, pp. 3-6",
+        "1.3 The organization of the paper (partially), p. 7",
+        "Reviewer (REVIEW-EXT-10-EXT-07): 1.1-1.3 (pp. 2-8) re-read, Theorem 1.2.1 checked on the page image of p. 3 for residual versus p-adic hypotheses, and 5.1 (pp. 44-45: the definitions of H^1(K^p)_A, the isomorphisms (5.1.1)-(5.1.2), H-hat^1(K^p)_O, H-hat^1_E and H-hat^1_A as a colimit over tame levels)"
+      ]
+    },
+    {
+      "id": "calegari-emerton-survey",
+      "title": "Completed cohomology - a survey",
+      "authors": "Frank Calegari and Matthew Emerton",
+      "edition": "Survey article (survey.pdf); read from references/text/R02_SS_CompletedCohomologySurvey.txt",
+      "url": "https://math.uchicago.edu/~emerton/pdffiles/survey.pdf",
+      "sha256": "926a5de427c4355da43daf00616fc81e366a52b34f53bb256d24309d2f7d0e08",
+      "readSections": [
+        "1.1 Definitions and Theorem 1.1 (used here only to identify the object H-hat^1 that the local-global conjecture is about), pp. 2-4",
+        "Reviewer (REVIEW-EXT-10-EXT-07): 1.1 pp. 2-4 including Theorem 1.1, Remark 1.3, the definitions of H-hat and T_p H and the exact sequence (1.1)"
+      ]
+    },
+    {
+      "id": "serre87-duke",
+      "title": "Sur les representations modulaires de degre 2 de Gal(Qbar/Q)",
+      "authors": "Jean-Pierre Serre",
+      "edition": "Duke Math. J. 54 (1987), 179-230; used here only for the question 3.4(2) that the mod p multiplicity theorem answers",
+      "url": "https://www.college-de-france.fr/media/jean-pierre-serre/UPL5835292064138487263_Serre_Repr.modulaires_Galois.pdf",
+      "sha256": "8048919db24dcb972435aaaa2a74d1168d0fe533af3aa26c6c809b12ddaee038",
+      "readSections": [
+        "3.4 Questions, question (2), printed p. 199"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "CompletedCohomologyAndLocalGlobalCompatibility:R31.1/the-object-the-conjecture-is-about",
+      "parentStageId": "CompletedCohomologyAndLocalGlobalCompatibility:R31.1",
+      "title": "The completed cohomology of the modular tower and the shape of the local-global conjecture",
+      "kind": "definition",
+      "statement": "Conjecture 1.1.1 of the source: if V is an odd irreducible continuous two-dimensional representation of G_Q over a finite extension E of Q_p, unramified outside a finite set of primes, then the GL_2(A_f)-representation Hom_{E[G_Q]}(V, H-hat^1_E) decomposes as a restricted tensor product B(V|G_{Q_p}) tensor (restricted tensor product over l different from p of pi_l(V)). Here H-hat^1_E is the p-adically completed cohomology of the TOWER OF MODULAR CURVES (defined in the source's 5.1 as the colimit over tame levels K^p of E tensor H-hat^1(K^p)_O, where H-hat^1(K^p)_O is the varpi-adic completion of H^1(K^p)_O = colim over K_p of H^1_et(Y(K_pK^p), O), and (5.1.1)-(5.1.2) identify H-hat^1(K^p)_O / varpi^s with H^1(K^p)_{O/varpi^s}); B(V|G_{Q_p}) is the admissible unitary Banach space representation of GL_2(Q_p) attached to V|G_{Q_p} by the p-adic local Langlands correspondence; and for l different from p, pi_l(V) is the admissible smooth representation of GL_2(Q_l) attached to V|G_{Q_l} by a MODIFIED version of the classical local Langlands correspondence - it coincides with the classical one in the Tate normalization except in those cases where the classical representation is not generic, i.e. not infinite-dimensional. Remark 1.1.2: the conjecture is likely FALSE as stated in one particular case, namely when V|G_{Q_p} is a twist of an extension of the cyclotomic character by the trivial character.",
+      "hypotheses": [
+        "V must be odd, irreducible, continuous, two-dimensional over E, and unramified outside a finite set of primes",
+        "H-hat^1_E is the completed cohomology of the modular tower, as constructed in the completed-cohomology roadmap; the conjecture is about the E-coefficient object, not the integral unit ball",
+        "the local factor at l different from p is NOT the classical local Langlands representation in general: the modification matters exactly when the classical representation is finite-dimensional",
+        "the source itself flags a counterexample case to its own conjecture, so the conjecture is not an available input in that case"
+      ],
+      "proofSteps": [
+        "The source states the conjecture and identifies each of its three ingredients with a pointer to the section where it is made precise.",
+        "It records that at the time the conjecture was first made the p-adic local Langlands correspondence was conjectural, and that it now exists by work of Colmez and Kisin, and that the paper relies heavily on Kisin's deformation-theoretic formulation both to give the conjecture a precise sense and as a tool."
+      ],
+      "acceptance": [
+        "Check that the restricted tensor product is taken with respect to the correct compact open subgroups, so that the object is an admissible representation of GL_2(A_f)",
+        "Check the modification of pi_l(V) in a case where the classical local Langlands representation is one-dimensional, confirming it is not the classical one"
+      ],
+      "sources": [
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "Conjecture 1.1.1 and the paragraph following it, p. 2",
+          "excerpt": "It coincides with the representation attached to V |GQ` by the classical local Langlands correspondence with respect to the Tate normalization, except in those cases in which the latter representation is not generic (i.e. not infinite-dimensional).",
+          "match": "The precise normalisation of the local factor away from p, which the stage requires rather than 'classical local Langlands' unqualified."
+        },
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "Remark 1.1.2, p. 2",
+          "excerpt": "In fact, Conjecture 1.1.1 is likely false as stated in one particular case — namely, when the local Galois representation V |GQp is a twist of an extension of the cyclotomic character by the trivial character",
+          "match": "The source's own exclusion, which must be carried: the conjecture is not available in that local case."
+        },
+        {
+          "sourceId": "calegari-emerton-survey",
+          "locator": "1.1 Definitions, pp. 2-4",
+          "excerpt": "Ĥ • := the p-adic completion of lim −→ H • (Xr , Zp )",
+          "match": "Calegari-Emerton define, for a fixed tower, H-hat as the p-adic completion of the direct limit and H-tilde as lim_s lim_r H(X_r, Z/p^s), with 0 -> H-hat -> H-tilde -> T_p H^{+1} -> 0 (1.1). Reviewer correction: for the modular tower in degree 1, Emerton's (5.1.1) identifies H^1(K^p)_O/varpi^s with H^1(K^p)_{O/varpi^s}, so at each tame level his H-hat^1(K^p)_O is also lim_s H^1(K^p)_{O/varpi^s} and the Tate-module term does not separate the two objects there; Emerton's H-hat^1_E additionally takes a colimit over tame levels, which neither survey object includes."
+        },
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "5.1, pp. 44-45",
+          "excerpt": "to denote the varpi-adic completion of H^1(K^p)_O. ... We write H-hat^1(K^p)_E := E tensor_O H-hat^1(K^p)_O. This is an E-Banach space, having H-hat^1(K^p)_O as unit ball",
+          "match": "The source's own definition of the object in Conjecture 1.1.1, with the colimit over tame levels taken afterwards. Added by the reviewer."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CompletedCohomologyAndLocalGlobalCompatibility:R31.4/the-main-local-global-theorem-with-its-two-residual-hypotheses",
+      "parentStageId": "CompletedCohomologyAndLocalGlobalCompatibility:R31.4",
+      "title": "Theorem 1.2.1: local-global compatibility for promodular V, with the embedding and isomorphism cases",
+      "kind": "theorem",
+      "statement": "Let V be a continuous, irreducible, PROMODULAR two-dimensional representation of G_Q over E, unramified outside a finite set of primes, with residual representation V-bar. Assume (a) V-bar is absolutely irreducible (the section opens: V is promodular if it is isomorphic to the Galois representation attached to a cuspidal p-adic modular eigenform of some, possibly non-integral, weight, or equivalently its pseudo-representation lies in the Zariski closure of those attached to classical cuspforms), and (b) V-bar|G_{Q_p} is not isomorphic to chi tensor (upper triangular with diagonal 1, eps) for any k-valued character chi of G_{Q_p}, where eps is the mod p cyclotomic character and the off-diagonal entry may or may not be zero. Then: (1) for some finite set Sigma of primes containing the primes at which V is ramified (page image: V, not V-bar) together with p, there is a NONZERO GL_2(Q_p) x GL_2(A_f^Sigma)-equivariant map B(V|G_{Q_p}) tensor (restricted tensor product over l outside Sigma of pi_l(V)) -> Hom_{E[G_Q]}(V, H-hat^1_E); and if moreover V|G_{Q_p} is neither the direct sum of two characters nor an extension of a character by itself, any such map is an EMBEDDING. (2) If V-bar is p-DISTINGUISHED, i.e. V-bar|G_{Q_p} is not isomorphic to chi tensor (upper triangular with diagonal 1, 1) for any k-valued chi, then there is a GL_2(A_f)-equivariant ISOMORPHISM B(V|G_{Q_p}) tensor (restricted tensor product over all l different from p of pi_l(V)) -> Hom_{E[G_Q]}(V, H-hat^1_E). In the situation of part 2 the source proves a stronger result describing not only the multiplicity spaces but the structure of the summand of H-hat^1_E itself, and even of its unit ball H-hat^1_O, obtained by localizing at V-bar (its Theorem 6.2.13).",
+      "hypotheses": [
+        "V must be PROMODULAR - isomorphic to the Galois representation attached to a cuspidal p-adic modular eigenform of some possibly non-integral weight, equivalently its pseudo-representation lies in the Zariski closure of those attached to classical cuspforms",
+        "the two residual hypotheses (a) and (b) are distinct, and part (2) needs the strictly stronger p-distinguished hypothesis",
+        "part (1)'s embedding assertion has its OWN extra hypothesis on V (not on V-bar): V|G_{Q_p} neither a direct sum of two characters nor a self-extension",
+        "part (1)'s map is equivariant only for GL_2(Q_p) x GL_2(A_f^Sigma), with Sigma a finite set that the theorem does not specify; only part (2) gives full GL_2(A_f)-equivariance",
+        "the stronger structural result is about the localization at V-bar of H-hat^1_E and of its unit ball, and uses the local Langlands correspondence IN FAMILIES"
+      ],
+      "proofSteps": [
+        "The source states Theorem 1.2.1 and says it is proved in its Subsection 6.2; that proof was NOT read here.",
+        "The proof is said to use the p-adic local Langlands correspondence of Colmez and Kisin, in Kisin's deformation-theoretic formulation, together with the local Langlands correspondence in families."
+      ],
+      "acceptance": [
+        "Check that part (1) alone does not give the Banach-space compatibility the downstream lifting argument needs, since it is only a map, equivariant for a restricted group, and is an embedding only under an extra hypothesis",
+        "Check the p-distinguished hypothesis on an explicit residual representation with scalar semisimplification at p, confirming that part (2) is unavailable there"
+      ],
+      "sources": [
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "Theorem 1.2.1, pp. 3-4",
+          "excerpt": "If, furthermore, V |GQp is neither the direct sum of two characters, nor an extension of a character by itself, then any such map is an embedding.",
+          "match": "The extra hypothesis under which part (1)'s map is injective; without it only nonvanishing is asserted."
+        },
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "Theorem 1.2.1(2), p. 4",
+          "excerpt": "If V is p-distinguished, i.e. V |GQp 6∼ χ ⊗ 1 ∗ 0 1 for any k-valued character χ of GQp (where ∗ may or may not be zero), then there is a GL2 (Af )- equivariant isomorphism",
+          "match": "The p-distinguished hypothesis stated verbatim, and the fact that full GL_2(A_f)-equivariance and isomorphism come only with it."
+        },
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "After Theorem 1.2.1, p. 4",
+          "excerpt": "we prove a stronger result, which describes not only the multiplicity spaces HomE[GQ ] (V, H b 1 ) for those V lifting V , E but the structure of the summand of H b 1 itself (and even its unit ball H b 1 ) obtained E O by localizing at V .",
+          "match": "The stage's requirement that the theorem include 'the multiplicity module ... and the exact subspace or localised module involved' is matched by this stronger statement, which is what R32 consumes."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CompletedCohomologyAndLocalGlobalCompatibility:R31.6/promodularity-and-the-consequences-for-classical-and-overconvergent-forms",
+      "parentStageId": "CompletedCohomologyAndLocalGlobalCompatibility:R31.6",
+      "title": "Promodularity, and the Fontaine-Mazur and Kisin consequences of the local-global theorem",
+      "kind": "comparison",
+      "statement": "Corollary 1.2.2: with V promodular and the same hypotheses (a), (b) as in Theorem 1.2.1: (1) if V|G_{Q_p} is TRIANGULINE then V is a twist of the Galois representation attached to an overconvergent p-adic cuspidal eigenform of finite slope; (2) if V|G_{Q_p} is DE RHAM with distinct Hodge-Tate weights, and V|G_{Q_p} is not the direct sum of two characters with isomorphic reductions mod the uniformizer, then V is a twist of the Galois representation attached to a CLASSICAL cuspidal eigenform of weight k >= 2. Theorem 1.2.3 (attributed to Bockle, Diamond-Flach-Guo, Khare-Wintenberger, Kisin): if V is continuous irreducible odd two-dimensional over E, unramified outside a finite Sigma, and (a) p > 2, (b) V-bar|G_{Q(zeta_p)} is absolutely irreducible, (c) V-bar|G_{Q_p} is not isomorphic to chi tensor (1, *; 0, 1) or chi tensor (1, *; 0, eps) for any k-valued chi, then V is promodular, of tame level divisible only by the primes in Sigma minus {p}. Combining, Theorem 1.2.4 removes the promodularity hypothesis under (a), (b), (c) and yields the Kisin conjecture in the trianguline case and the Fontaine-Mazur conjecture in the de Rham case.",
+      "hypotheses": [
+        "the passage from promodular to unconditional needs p > 2 and the two residual hypotheses of Theorem 1.2.3; the source flags that Kisin's parallel result replaces hypothesis (c) by a different local condition (V-bar|G_{Q_p} not chi tensor (eps, *; 0, 1))",
+        "Corollary 1.2.2(2) has an extra hypothesis absent from Theorem 1.2.4(2), namely that V|G_{Q_p} is not a sum of two characters with isomorphic reductions; the source does not say how Theorem 1.2.4 dispenses with it (reviewer observation: such a V has V-bar|G_{Q_p} a twist of the trivial 2-dimensional representation, which hypothesis (c) of Theorem 1.2.3 excludes)",
+        "the source attributes its use of Colmez's non-vanishing result for locally algebraic vectors as essential to Corollary 1.2.2, and records that this was a conjectural property of the correspondence at the time the conjecture was formulated",
+        "the conclusion is only up to twist",
+        "Stage assignment note: this node was first drafted under R31.2, but its content - Corollary 1.2.2 and Theorems 1.2.3, 1.2.4 - is deduced FROM the main theorem of R31.4, whereas the atlas orders R31.2 before R31.3 before R31.4. Placing it under R31.2 would have created a directed cycle R31.2 -> R31.3 -> R31.4 -> R31.2 in the stage graph. It is placed under R31.6 instead, where the globalisation audit lives and where Theorem 1.2.3 (the promodularity input) belongs."
+      ],
+      "proofSteps": [
+        "Corollary 1.2.2 is deduced from Theorem 1.2.1 together with Colmez's theorem on non-vanishing of locally algebraic vectors; the source says it is proved in detail as its Theorems 7.1.1 and 7.2.1, which were NOT read here.",
+        "Theorem 1.2.3 is 'a consequence of the results and methods of the papers [4, 31, 53, 54, 55, 60]' (attributed to Bockle, Diamond-Flach-Guo, Khare-Wintenberger, Kisin), proved in the source's Subsection 7.3, also not read.",
+        "Theorem 1.2.4 is the combination."
+      ],
+      "acceptance": [
+        "Check the exact form of hypothesis (c) against Kisin's alternative, since the two exclude different local shapes",
+        "Check that the conclusion 'a twist of the representation attached to a classical eigenform of weight k >= 2' matches the roadmap's convention for the Galois representation of a newform"
+      ],
+      "sources": [
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "Corollary 1.2.2, p. 4",
+          "excerpt": "(2) If V |GQp is de Rham with distinct Hodge–Tate weights, and if V |GQp is not the direct sum of two characters that have isomorphic reductions modulo $, then V is a twist of the Galois representation attached to a classical cuspidal eigenform of weight k ≥ 2.",
+          "match": "The de Rham consequence with its extra local hypothesis, which Theorem 1.2.4 later removes at the cost of the stronger residual hypotheses."
+        },
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "Theorem 1.2.3, p. 5",
+          "excerpt": "Then V is promodular, of tame level divisible only by the primes in Σ \\ {p}.",
+          "match": "The promodularity input, with the tame level control that R31.2 needs in order to compare with finite-level newform theory."
+        },
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "Remark 1.2.5, p. 5",
+          "excerpt": "In Kisin’s result, hypothesis (c) is replaced by the condition that V |GQp 6∼ χ ⊗ ε ∗ 0 1 for any k-valued character χ of GQp",
+          "match": "Two results with genuinely different hypotheses; a decomposition must not merge them."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CompletedCohomologyAndLocalGlobalCompatibility:R31.3/mod-p-multiplicity-and-serre-s-adelic-reformulation",
+      "parentStageId": "CompletedCohomologyAndLocalGlobalCompatibility:R31.3",
+      "title": "Theorem 1.2.6: the mod p local-global isomorphism, and what it answers",
+      "kind": "theorem",
+      "statement": "Let H^1_k denote the inductive limit over all levels N of the etale cohomology with k-coefficients of the full geometrically disconnected modular curve of level N, a representation of G_Q x GL_2(A_f). Theorem 1.2.6, which the source derives as a corollary of the strong form Theorem 6.2.13 of its local-global result: let rho-bar: G_Q -> GL_2(k) be absolutely irreducible and MODULAR (or equivalently, odd, by the now-proved Serre conjecture), suppose p > 2 and that rho-bar|G_{Q_p} is not equivalent to chi tensor (1, *; 0, 1) or chi tensor (1, *; 0, eps) for any k-valued chi. Then there is a k-linear GL_2(A_f)-equivariant isomorphism pi tensor (restricted tensor product over l different from p of pi(rho-bar|G_{Q_l})) -> Hom_{k[G_Q]}(rho-bar, H^1_k), where pi is attached to rho-bar|G_{Q_p} by the mod p local Langlands correspondence and pi(rho-bar|G_{Q_l}) by the mod p local Langlands correspondence for GL_2(Q_l) in families. Remark 1.2.7: the same is EXPECTED but not proved at p = 2, because of imperfect understanding of the mod 2 and 2-adic local Langlands correspondence for GL_2(Q_l), l different from 2. Remark 1.2.8: the theorem generalizes classical mod p multiplicity one results of Mazur, Ribet, Wiles and others, and recovers them by taking invariants under a suitable compact open subgroup - while noting that some of those results are among the tools used in its proof, though only the more straightforward ones, and NOT the existence of companion forms. Remark 1.2.10: the theorem gives a positive answer, for the rho-bar to which it applies, to Serre's question 3.4(2) of whether his conjecture admits a reformulation in terms of the mod p representation theory of the adelic GL_2; from the representation-theoretic statement one recovers the minimal weight (from the socle of pi as a GL_2(Z_p)-representation) and the minimal prime-to-p level (as the conductor of the tensor product away from p).",
+      "hypotheses": [
+        "p > 2 is required; the p = 2 case is expected but not proved, and the obstruction is the local Langlands correspondence at l different from 2, not at 2",
+        "the two excluded local shapes at p are the same as in Theorem 1.2.3(c); Remark 1.2.9 records that the first is conjectured to be removable for p > 3 while the second is more problematic because the correct definition of pi is unclear there",
+        "the hypothesis 'modular (or equivalently, odd)' USES the full Serre conjecture; this is a globalisation dependence that R31.6 is explicitly asked to audit",
+        "the proof uses the more straightforward classical mod p multiplicity one results as tools, but not the existence of companion forms nor [86, Thm 2.1(ii)] in the case where Delta(p) is trivial mod m; the source adds that Theorem 1.2.6 gives a new proof of those results for the rho-bar to which it applies",
+        "Placement note (reviewer): the source says Theorem 1.2.6 is a corollary of Theorem 6.2.13 (the strong form of the p-adic local-global compatibility, R31.4 material), whereas this node sits under R31.3, which the atlas orders before R31.4; no link from R31.4 to this node was drafted, and one would close the stage cycle R31.3 -> R31.4 -> R31.3"
+      ],
+      "proofSteps": [
+        "The source states the theorem and locates its proof in Section 6; that proof was not read here.",
+        "Remark 1.2.8 explains both the recovery of the classical results and the partial use of them as tools."
+      ],
+      "acceptance": [
+        "Check the recovery of classical mod p multiplicity one by taking invariants under a compact open subgroup, in the Gamma_1(N) case with N prime to p",
+        "Check that the weight read off from the socle of pi agrees with Serre's k(rho-bar) from the local recipe"
+      ],
+      "sources": [
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "Theorem 1.2.6, p. 5",
+          "excerpt": "Let ρ : GQ → GL2 (k) be absolutely irreducible and modular (or equivalently, odd [53, 54, 55, 60]).",
+          "match": "The hypothesis is stated as 'modular', with the equivalence to 'odd' supplied by the proved Serre conjecture. Any independent proof of Serre that cites this theorem must check that the equivalence is not used - this is the audit R31.6 requires."
+        },
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "Remark 1.2.7, p. 6",
+          "excerpt": "I expect the same result to hold when p = 2, but our imperfect understanding of the mod 2 and 2-adic local Langlands correspondence for GL2 (Q` ) (` 6= 2) leads to a less definitive result in this case",
+          "match": "The p = 2 case is open in this source, with the reason located at the places away from 2."
+        },
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "Remark 1.2.10, p. 6",
+          "excerpt": "The preceding theorem gives a positive answer to Serre’s question (for those ρ to which it applies). Indeed, from this representation-theoretic statement one can determine the minimal weight of ρ (which is determined by the socle of π as a GL2 (Zp )-representation ... ) as well as the minimal prime-to-p-level of ρ",
+          "match": "The theorem recovers Serre's weight and level from the representation-theoretic statement; this is what links it back to the Serre-weight roadmap."
+        },
+        {
+          "sourceId": "serre87-duke",
+          "locator": "3.4 Questions, question (2), printed p. 199",
+          "excerpt": "Peut-on reformuler ces conjectures dans le cadre d'une théorie des représentations (mod p) des groupes adéliques? Autrement dit, existe-t-il une \"philosophie de Langlands modulo p\", comme le demandent Ash et Stevens dans [2]?",
+          "match": "Serre's question, verbatim, which the mod p multiplicity theorem answers for the representations to which it applies."
+        },
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "1.2, before Theorem 1.2.6, p. 5",
+          "excerpt": "Our local-global compatibility result (in the strong form provided by Theorem 6.2.13) has as a corollary the following theorem, which describes the multiplicities with which a mod p Galois representation can appear in the mod p etale cohomology of a modular curve of arbitrary level.",
+          "match": "Theorem 1.2.6 depends on Theorem 6.2.13, which is not read. Added by the reviewer."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CompletedCohomologyAndLocalGlobalCompatibility:R31.6/globalisation-dependence-audit",
+      "parentStageId": "CompletedCohomologyAndLocalGlobalCompatibility:R31.6",
+      "title": "What in this chain depends on the full Serre conjecture, and what does not",
+      "kind": "application",
+      "statement": "Audit of the globalisation inputs of the source's results, as the source itself states them: (i) Theorem 1.2.3, which supplies promodularity, is attributed to Bockle, Diamond-Flach-Guo, Khare-Wintenberger and Kisin - i.e. it uses the Serre conjecture machinery, and in particular Khare-Wintenberger. (ii) Theorem 1.2.6's hypothesis is 'absolutely irreducible and modular (or equivalently, odd)', where the equivalence is exactly the Serre conjecture. (iii) Theorem 1.2.1 and Corollary 1.2.2, by contrast, are stated for PROMODULAR V and do not themselves invoke Serre; the Serre-dependence enters only when promodularity is supplied by Theorem 1.2.3. (iv) Theorem 1.2.4 is the combination and therefore inherits (i). Consequence for any argument that claims to reprove Serre's conjecture using these results: it may use Theorem 1.2.1 and Corollary 1.2.2 with an independently established promodularity, but may NOT use Theorem 1.2.3 or the 'equivalently, odd' form of Theorem 1.2.6 without circularity.",
+      "hypotheses": [
+        "this audit records what the SOURCE states about its own inputs; it is not a claim that the dependences are unavoidable",
+        "the audit covers only the four numbered results read in the introduction; the body of the paper was not read and may contain further globalisation inputs",
+        "promodularity is defined without reference to Serre's conjecture, so it is a hypothesis that can in principle be verified independently"
+      ],
+      "proofSteps": [
+        "Read off from the statements and attributions in the source's Subsection 1.2.",
+        "The distinction between 'promodular' as a hypothesis and 'odd' as a hypothesis is what separates the Serre-free results from the Serre-dependent ones."
+      ],
+      "acceptance": [
+        "For each branch of a downstream modularity-lifting argument, check which of Theorems 1.2.1, 1.2.3, 1.2.4, 1.2.6 it uses and whether promodularity is supplied independently",
+        "Check the p = 2 and p = 3 branches separately, since Theorem 1.2.3 and Theorem 1.2.6 both require p > 2"
+      ],
+      "sources": [
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "Theorem 1.2.3, p. 5",
+          "excerpt": "1.2.3. Theorem (Böckle, Diamond–Flach–Guo, Khare–Wintenberger, Kisin).",
+          "match": "The attribution shows that the promodularity input rests on the Serre-conjecture literature, which is the dependence R31.6 asks to locate."
+        },
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "1.2, before Theorem 1.2.1, p. 3",
+          "excerpt": "We work in the context of promodular Galois representations.",
+          "match": "Theorem 1.2.1 and Corollary 1.2.2 are stated under a hypothesis that does not itself reference Serre's conjecture."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "CompletedCohomologyAndLocalGlobalCompatibility:R31.1/the-object-the-conjecture-is-about",
+      "target": "CompletedCohomologyAndLocalGlobalCompatibility:R31.4/the-main-local-global-theorem-with-its-two-residual-hypotheses",
+      "reason": "Theorem 1.2.1 is the partial proof of Conjecture 1.1.1; its conclusions are maps into and isomorphisms onto the very object Hom_{E[G_Q]}(V, H-hat^1_E) that the conjecture describes, with the same local factors B(V|G_{Q_p}) and pi_l(V). The exclusion recorded in Remark 1.1.2 must be carried through.",
+      "sources": [
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "Conjecture 1.1.1 and Theorem 1.2.1, pp. 2-4"
+        }
+      ]
+    },
+    {
+      "source": "CompletedCohomologyAndLocalGlobalCompatibility:R31.4/the-main-local-global-theorem-with-its-two-residual-hypotheses",
+      "target": "CompletedCohomologyAndLocalGlobalCompatibility:R31.6/promodularity-and-the-consequences-for-classical-and-overconvergent-forms",
+      "reason": "Corollary 1.2.2 is deduced from Theorem 1.2.1 together with Colmez's non-vanishing result for locally algebraic vectors; the source says so explicitly ('As explained in [38], Theorem 1.2.1 has the following corollary'). The output supplied is the isomorphism (or embedding) of part (1)/(2), whose locally algebraic vectors are then identified with classical or overconvergent forms.",
+      "sources": [
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "The paragraph introducing Corollary 1.2.2, p. 4"
+        }
+      ]
+    },
+    {
+      "source": "CompletedCohomologyAndLocalGlobalCompatibility:R31.6/promodularity-and-the-consequences-for-classical-and-overconvergent-forms",
+      "target": "CompletedCohomologyAndLocalGlobalCompatibility:R31.6/globalisation-dependence-audit",
+      "reason": "The audit's content is precisely which of these statements carries a Serre-conjecture dependence; Theorem 1.2.3, which is what upgrades the promodular statements to unconditional ones, is the carrier.",
+      "sources": [
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "Theorems 1.2.3 and 1.2.4, p. 5"
+        }
+      ]
+    },
+    {
+      "source": "CompletedCohomologyAndLocalGlobalCompatibility:R31.3/mod-p-multiplicity-and-serre-s-adelic-reformulation",
+      "target": "CompletedCohomologyAndLocalGlobalCompatibility:R31.6/globalisation-dependence-audit",
+      "reason": "Theorem 1.2.6's hypothesis is stated as 'modular (or equivalently, odd)', with the equivalence citing the Serre-conjecture papers; that is one of the two places where the chain becomes Serre-dependent.",
+      "sources": [
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "Theorem 1.2.6, p. 5"
+        }
+      ]
+    },
+    {
+      "source": "CompletedCohomologyPartII:CC.2",
+      "target": "CompletedCohomologyAndLocalGlobalCompatibility:R31.1/the-object-the-conjecture-is-about",
+      "reason": "Corrected by the reviewer. CC.2 ('Completion, derived inverse limits and topology') constructs the inverse limits in s, compares the completed module with its finite-coefficient reductions under control hypotheses, and builds the unitary Banach module after inverting p - which is what Emerton's 5.1 uses: H-hat^1(K^p)_O is the varpi-adic completion of H^1(K^p)_O, identified with lim_s H^1(K^p)_{O/varpi^s} by (5.1.1)-(5.1.2), and H-hat^1(K^p)_E is the Banach space with that unit ball. The drafter's claim that H-hat^1 here differs from completed cohomology H-tilde^1 by the Tate-module term of Calegari-Emerton (1.1) was not supported: (5.1.1) makes the two agree at each tame level for the modular tower in degree 1. The colimit over tame levels in H-hat^1_E is an additional step not covered by the survey's fixed-tower objects.",
+      "sources": [
+        {
+          "sourceId": "emerton-local-global-gl2Q",
+          "locator": "5.1, (5.1.1)-(5.1.2), pp. 44-45; Conjecture 1.1.1, p. 2"
+        },
+        {
+          "sourceId": "calegari-emerton-survey",
+          "locator": "1.1, definitions of H-tilde, H-hat and (1.1), pp. 2-4"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "CompletedCohomologyAndLocalGlobalCompatibility:R31.1",
+      "status": "partial",
+      "remaining": [
+        "The specialization of the generic completed-cohomology machinery to modular and Shimura curves, the identification of the tower and transfer maps with the modular-curve roadmap, and the verification of the finite-cell and local-group hypotheses were not read; the source assumes the construction and cites it.",
+        "The GL_2 boundary and non-Eisenstein results that the stage asks to be proved here were not read.",
+        "Subsection 5.1 of the source was read by the reviewer (definitions only); the isomorphism (5.1.1) is asserted there with a reference to [36], and the admissibility of H-hat^1(K^p)_O is referred to [36] without proof."
+      ]
+    },
+    {
+      "stageId": "CompletedCohomologyAndLocalGlobalCompatibility:R31.2",
+      "status": "not_read",
+      "remaining": [
+        "No node is assigned to this stage. Its content - relating classical finite-level cohomology with algebraic coefficients to the locally algebraic vectors of completed cohomology - is Section 7.4 of the source, of which only the table-of-contents entry was read. The promodularity and Fontaine-Mazur material first drafted here was reassigned to R31.6, because in the source it is deduced from the main theorem of R31.4 and keeping it under R31.2 would have created a directed cycle R31.2 -> R31.3 -> R31.4 -> R31.2. Next source action: read the source's Section 7.4 and its Section 5.1 (completed cohomology of the modular tower)."
+      ]
+    },
+    {
+      "stageId": "CompletedCohomologyAndLocalGlobalCompatibility:R31.3",
+      "status": "partial",
+      "remaining": [
+        "The mod p local Langlands correspondence (the source's Theorem 3.3.2) and the local Langlands correspondence in families (its Theorem 4.3.1) were not read.",
+        "The construction of the completed Hecke algebra and its Galois determinant, and the map from the deformation ring, were not read; the source's Sections 5 and 6 were not opened.",
+        "Colmez's functor and its deformation-theoretic reformulation by Kisin, on which everything rests, were not read.",
+        "Theorem 1.2.6 is derived in the source from Theorem 6.2.13 (the strong local-global compatibility), which is R31.4-type material; its placement under R31.3 conflicts with the atlas order R31.3 -> R31.4."
+      ]
+    },
+    {
+      "stageId": "CompletedCohomologyAndLocalGlobalCompatibility:R31.4",
+      "status": "partial",
+      "remaining": [
+        "The proof of Theorem 1.2.1 (the source's Subsection 6.2) and the stronger structural Theorem 6.2.13 were not read; only the statements in the introduction were.",
+        "Remark 6.1.21 (the p = 2 situation) and Remark 6.1.23 (the excluded local case) were located in the introduction's forward references but not read.",
+        "The central character and completions that the stage names were not read."
+      ]
+    },
+    {
+      "stageId": "CompletedCohomologyAndLocalGlobalCompatibility:R31.5",
+      "status": "not_read",
+      "remaining": [
+        "No node written. The patched completed module, its finite generation, projectivity, support and multiplicity assertions, and the transfer of the local block results were not read. The source's stronger Theorem 6.2.13 is the natural place to start. Next source action: read the source's Section 6.2 in full, and Paskunas's work on the Breuil-Mezard conjecture (references/papers/ADD_PASKUNAS15.pdf, in the library) for the local block structure."
+      ]
+    },
+    {
+      "stageId": "CompletedCohomologyAndLocalGlobalCompatibility:R31.6",
+      "status": "partial",
+      "remaining": [
+        "The audit here covers only the four results stated in the source's introduction. The body of the paper, and in particular whatever globalisation is used inside the proofs of Theorems 1.2.1 and 1.2.6, was not read.",
+        "The p = 2 and p = 3 branches that the stage names were not traced; the source's results require p > 2 throughout, and Remark 1.2.7 leaves p = 2 open.",
+        "The promodularity/Fontaine-Mazur node is placed here rather than under R31.2 for the ordering reason recorded in that node; a reviewer may prefer a different assignment, but not one that reverses the atlas chain R31.2 -> R31.3 -> R31.4."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Only the introduction of the source was read",
+      "neededBy": [
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.4/the-main-local-global-theorem-with-its-two-residual-hypotheses",
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.3/mod-p-multiplicity-and-serre-s-adelic-reformulation",
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.5"
+      ],
+      "detail": "Verified: Conjecture 1.1.1 with Remark 1.1.2, the definition of promodular, Theorems 1.2.1, 1.2.3, 1.2.4, 1.2.6, Corollary 1.2.2 and Remarks 1.2.5 through 1.2.10, all read literally from the source's Subsections 1.1-1.2. NOT verified: any proof. The source is a 96-page draft plus three appendices; its Sections 3 (mod p and p-adic local Langlands, including Colmez's functor), 4 (local Langlands at l different from p, including the correspondence in families), 5 (completed cohomology of the modular tower) and 6 (the local-global theorem and the structure of H-hat^1) were not opened. The file IS in the supplied library (references/papers/ADD_EMERTON11.pdf) with a usable text layer, so this is a reading gap. Next source action: read Section 6.1 (the refined Conjecture 6.1.6 and Remarks 6.1.21, 6.1.23) and Section 6.2 (Theorem 6.2.13 and the proof of Theorem 1.2.1)."
+    },
+    {
+      "title": "The p-adic local Langlands correspondence is an unread input to everything here",
+      "neededBy": [
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.1/the-object-the-conjecture-is-about",
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.4/the-main-local-global-theorem-with-its-two-residual-hypotheses"
+      ],
+      "detail": "Verified: the source's statement that the correspondence 'has now been constructed by Colmez and Kisin' and that it relies heavily on Kisin's deformation-theoretic formulation both to give the conjecture a precise sense and as a tool, and that it relies crucially on Colmez's result on the non-vanishing of locally algebraic vectors. NOT verified: any of those results. Colmez's and Kisin's papers are not in the supplied library under those titles (checked CATALOGUE.json; the Kisin items present are SS_KisinFlat, SS_KisinSemistable, SS_Kisin2 and SS_KisinFM, none of which is the p-adic local Langlands construction). Paskunas's two papers ARE in the library (ADD_PASKUNAS15, ADD_PASKUNAS16) and are cited by other sources in this job for removing hypotheses from the correspondence. Next source action: read ADD_PASKUNAS15 for the Breuil-Mezard/block structure and locate Colmez's Asterisque 330 paper; cross-check against PadicLocalLanglandsForGL2Qp R30 in data/atlas.json (owned by EXT-12), which is the stage that should own these inputs."
+    },
+    {
+      "title": "The stage's demand that R31.4 give more than an isomorphism of locally algebraic vectors is met only by an unread theorem",
+      "neededBy": [
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.4",
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.5"
+      ],
+      "detail": "Verified: the source's own statement that in the situation of Theorem 1.2.1(2) it proves a stronger result describing the summand of H-hat^1_E and even its unit ball H-hat^1_O obtained by localizing at V-bar, and that this is its Theorem 6.2.13. NOT verified: that theorem's statement or proof. The stage text says 'An isomorphism of locally algebraic vectors alone is not the full Banach-space compatibility theorem used in R32', which this reading confirms as a real distinction but does not resolve. Next source action: read the source's Theorem 6.2.13 and record its exact hypotheses, the module it describes and the sense in which the unit ball is determined."
+    },
+    {
+      "title": "Serre-conjecture dependence in the globalisation inputs",
+      "neededBy": [
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.6/globalisation-dependence-audit"
+      ],
+      "detail": "Verified: Theorem 1.2.3's attribution to Bockle, Diamond-Flach-Guo, Khare-Wintenberger and Kisin, and Theorem 1.2.6's hypothesis 'absolutely irreducible and modular (or equivalently, odd)' with a citation to the same four references. NOT verified: whether the PROOFS of Theorems 1.2.1 and 1.2.6 use Serre's conjecture anywhere beyond these stated hypotheses. Until the body of the paper is read, any downstream claim that an argument using these results is independent of Serre's conjecture is unsupported. Next source action: read the source's Sections 6 and 7.3 and record every globalisation step."
+    },
+    {
+      "title": "Serre's weight and level admit two definitions that were not compared",
+      "neededBy": [
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.3/mod-p-multiplicity-and-serre-s-adelic-reformulation",
+        "AlgebraicModularFormsAndSerreWeights:R15.6"
+      ],
+      "detail": "Verified: the source's Remark 1.2.10, which states that from its mod p local-global isomorphism one recovers Serre's minimal weight (as the socle of pi as a GL_2(Z_p)-representation) and minimal prime-to-p level (as the conductor of the tensor product away from p). NOT verified: that these agree with the invariants k(rho-bar) and N(rho-bar) defined by the local Galois recipe, which this job decomposed in its AlgebraicModularFormsAndSerreWeights packet. A dependency edge from this node to R15.6 was DRAFTED and then REMOVED: the atlas already has R15.6 -> AutomorphicGaloisRepresentations:R19.6 -> R31.3, so such an edge would close a directed cycle. The relationship is a COMPARISON to be checked, not a prerequisite. Next source action: read the source's Lemma 3.5.5 and Section 3.5 (Weights), compare the socle description with Serre's 2.2-2.4 recipe case by case, and record the comparison as an acceptance test on R15.4 rather than as an edge."
+    },
+    {
+      "title": "H-hat^1 versus completed cohomology, and the colimit over tame levels",
+      "neededBy": [
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.1/the-object-the-conjecture-is-about",
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.1"
+      ],
+      "detail": "Verified (reviewer): Emerton 5.1 defines H-hat^1(K^p)_O as the varpi-adic completion of the colimit over K_p of H^1_et(Y(K_pK^p), O), states (5.1.1) H^1(K^p)_O/varpi^s = H^1(K^p)_{O/varpi^s}, and sets H-hat^1_E := colim over K^p of E tensor H-hat^1(K^p)_O with the inductive-limit topology; Calegari-Emerton (1.1) relates their H-hat and H-tilde by a Tate-module term for a fixed tower. The drafter's statement that the conjecture's object differs from H-tilde^1 by that term is not supported for the modular tower in degree 1, where (5.1.1) identifies them at each tame level. Not verified: the proof of (5.1.1) (referred to [36]) and of the admissibility of H-hat^1(K^p)_O. Next source action: read Emerton [36] (On the interpolation of systems of eigenvalues attached to automorphic Hecke eigenforms) or Calegari-Emerton Theorem 1.1's proof source, and make CC.2's comparison statement cover the colimit over tame levels."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REVIEW-EXT-10-EXT-07",
+    "date": "2026-09-16",
+    "notes": "All 5 nodes and 5 links checked against the library copies (three SHA-256 hashes re-verified). The reviewer re-read Emerton's 1.1-1.3, checked Theorem 1.2.1 on the page image, and read his 5.1 and the Calegari-Emerton survey 1.1. Verdicts: 1 verified, 4 corrected, 0 unverifiable. Main corrections: Sigma in Theorem 1.2.1(1) contains the primes where V (not V-bar) ramifies; the claim that the conjecture's H-hat^1 differs from completed cohomology by a Tate-module term is unsupported for the modular tower, since Emerton's (5.1.1) identifies them at each tame level (link from CompletedCohomologyPartII:CC.2 kept with a corrected reason; supplier scope adequate); Theorem 1.2.6 is a corollary of the unread Theorem 6.2.13, which conflicts with its R31.3 placement; the hypothesis (c) deduction marked as a reviewer observation. Links: 4 verified, 1 corrected (CC.2 reason). Gaps 5 -> 6. All parentStageIds and coverage ids exist and belong to the roadmap; no stage cycle. Packet status stays partial.",
+    "checked": [
+      {
+        "nodeId": "CompletedCohomologyAndLocalGlobalCompatibility:R31.1/the-object-the-conjecture-is-about",
+        "verdict": "corrected",
+        "note": "Conjecture 1.1.1, the local factors and Remark 1.1.2 (p. 2) match. The survey match text claimed the conjecture's H-hat^1 differs from H-tilde^1 by a Tate-module term; Emerton's 5.1 (read) identifies them at each tame level via (5.1.1) and adds a colimit over tame levels. Definition added."
+      },
+      {
+        "nodeId": "CompletedCohomologyAndLocalGlobalCompatibility:R31.4/the-main-local-global-theorem-with-its-two-residual-hypotheses",
+        "verdict": "corrected",
+        "note": "Theorem 1.2.1 on the page image: the finite set Sigma contains the primes at which V (not V-bar) is ramified; everything else - the two residual hypotheses, the embedding clause on V|G_{Q_p}, the p-distinguished isomorphism and the Theorem 6.2.13 remark - matches."
+      },
+      {
+        "nodeId": "CompletedCohomologyAndLocalGlobalCompatibility:R31.6/promodularity-and-the-consequences-for-classical-and-overconvergent-forms",
+        "verdict": "corrected",
+        "note": "Corollary 1.2.2, Theorems 1.2.3-1.2.4 and Remark 1.2.5 (pp. 4-5) match; the claim that hypothesis (c) removes Corollary 1.2.2(2)'s extra condition is a correct deduction but not stated in the source, now marked as such."
+      },
+      {
+        "nodeId": "CompletedCohomologyAndLocalGlobalCompatibility:R31.3/mod-p-multiplicity-and-serre-s-adelic-reformulation",
+        "verdict": "corrected",
+        "note": "Theorem 1.2.6 and Remarks 1.2.7-1.2.10 (pp. 5-6) match. Added: the source derives it from Theorem 6.2.13 (R31.4 material, so the R31.3 placement conflicts with the atlas order); the 'not circular only because' gloss replaced by the source's own wording, including the [86, Thm 2.1(ii)] exclusion."
+      },
+      {
+        "nodeId": "CompletedCohomologyAndLocalGlobalCompatibility:R31.6/globalisation-dependence-audit",
+        "verdict": "verified",
+        "note": "The four attributions and hypotheses on which the audit rests (Theorem 1.2.3 attribution; Theorem 1.2.6 'modular (or equivalently, odd)' with the Serre-conjecture citations; Theorem 1.2.1 and Corollary 1.2.2 stated for promodular V) match pp. 3-6, and the node already states that the body of the paper was not read."
+      }
+    ]
+  }
+}

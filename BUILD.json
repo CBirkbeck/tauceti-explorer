@@ -1,13 +1,20 @@
 {
   "roadmaps": 212,
-  "stages": 2450,
+  "stages": 2614,
   "originalStages": 1968,
-  "sourceRefinements": 482,
+  "sourceRefinements": 646,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
       "status": "partial",
       "nodes": 7,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "AdditiveCombinatorics",
+      "status": "partial",
+      "nodes": 9,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -33,9 +40,72 @@
       "deferredLinks": 0
     },
     {
+      "roadmap": "AlgebraicModularFormsAndSerreWeights",
+      "status": "partial",
+      "nodes": 24,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "AnalyticNumberTheory",
+      "status": "partial",
+      "nodes": 10,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "ArithmeticGaloisRepresentations",
+      "status": "partial",
+      "nodes": 9,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "ArithmeticStatistics",
+      "status": "partial",
+      "nodes": 8,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "AutomorphicBundles",
+      "status": "partial",
+      "nodes": 3,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "AutomorphicGaloisRepresentations",
+      "status": "partial",
+      "nodes": 8,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "AutomorphicGaloisRepresentationsPartII",
+      "status": "partial",
+      "nodes": 7,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
       "roadmap": "ClassicalAdicEtaleCohomology",
       "status": "partial",
       "nodes": 18,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "ClassicalArithmeticCompletion",
+      "status": "partial",
+      "nodes": 3,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "ClassicalSerreModularity",
+      "status": "partial",
+      "nodes": 21,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -45,6 +115,27 @@
       "nodes": 20,
       "review": "accepted",
       "deferredLinks": 0
+    },
+    {
+      "roadmap": "CompletedCohomologyAndLocalGlobalCompatibility",
+      "status": "partial",
+      "nodes": 5,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "CompletedCohomologyPartII",
+      "status": "partial",
+      "nodes": 8,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "ComputationalNumberTheory",
+      "status": "partial",
+      "nodes": 4,
+      "review": "accepted",
+      "deferredLinks": 1
     },
     {
       "roadmap": "CrystallineCohomology",
@@ -75,6 +166,20 @@
       "deferredLinks": 0
     },
     {
+      "roadmap": "DiophantineApproximationAndTranscendence",
+      "status": "partial",
+      "nodes": 7,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "EllipticCurveModularity",
+      "status": "partial",
+      "nodes": 6,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
       "roadmap": "EtaleDualityAndPerverseSheaves",
       "status": "partial",
       "nodes": 2,
@@ -85,6 +190,13 @@
       "roadmap": "EulerSystemsCyclotomicMainConjecture",
       "status": "partial",
       "nodes": 16,
+      "review": "accepted",
+      "deferredLinks": 0
+    },
+    {
+      "roadmap": "FaltingsFinitenessAndIsogenyTheorems",
+      "status": "partial",
+      "nodes": 32,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -259,32 +371,32 @@
   "editedRoadmapSummaries": 182,
   "curatedStagePresentations": 333,
   "administrativeStages": 66,
-  "mathematicalStars": 2384,
+  "mathematicalStars": 2548,
   "plainTextPlanetLabels": 402,
   "hiddenPlanets": 610,
-  "mappedStageStatuses": 33,
+  "mappedStageStatuses": 350,
   "bibliographicSources": 46,
-  "roadmapEdges": 1051,
-  "stageEdges": 4147,
+  "roadmapEdges": 1054,
+  "stageEdges": 4293,
   "sourceDocuments": 296,
-  "htmlBytes": 22312203,
-  "htmlSha256": "31f0831a908336c931868be4932c3080e1eb308fd11200bfd9fdc330cd0c53f0",
+  "htmlBytes": 25582325,
+  "htmlSha256": "0b091b158299d41087ac537e1a5209692515f6b4613b5f48d71e2aed98dc5cea",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
     "src/shell.html": "04d3e3955472383faaf1138feb549104c0aa5688b047d9dac05d4af492bfff4d",
-    "src/style.css": "a96c62a59f28b24643bdc408dcd48298dacd746ac99a89cc37eff1ce77b10f6c",
+    "src/style.css": "19493272422254d089df0b90294d744bd4cbc73012931712546d256c34e8a65e",
     "vendor/d3.v5.15.0.min.js": "9b442622c05770e322113466a53dea836210fe2d2a6b3240da68821f33a64b56",
     "vendor/katex.v0.16.28.min.js": "5e4f3b03c66a3360fe5c070da797900dd74437f58f23957443f4cbd26149f74e",
     "src/markdown.js": "506d454a15eb4447dccea27d2a7d24555c8b190489bb1a79c1b72d79b74ddcc5",
-    "src/universe.js": "b2c067062ca09c4e49beb3992daf40910196c02eb5443f0d269fe97619cb251e",
-    "src/graph.js": "e9c56f9eb49e96c3d05256eff4501ed252ac6be158e023b442ee61d00b27527a",
+    "src/universe.js": "7180fe05b5e675a8f3b1bf28d1e4b0792528c1fe9b62c03734e8d01349316322",
+    "src/graph.js": "6446b10a6ac1b91e7c757815adae4fb94c9c560e45e04b387d7845d58c06d96c",
     "src/camera.js": "a3a15b51c943a8dcee0e2d7a922700c11ce4c6f1de545ddc5da8fdfd2150a460",
     "src/progress.js": "702f60dc5d360cd9b8432e91a5697ad4be3636a34e0b81aa2996fc51ecd20a9b",
     "src/landmarks.js": "0785c99a8e93d71eeb7bfb8a17da1fa07da8d45f0502e5098ef26b853f06d47a",
     "src/presentation.js": "b5d24d0492940f53fcc64759e37fe3eabcb5fd66331f6c361d53383730e0bf05",
     "src/references.js": "9b640060068c4a9c73928fee162489e15f1d03c962650e95df9a317f55f8ce55",
-    "src/app.js": "434e85dcbba9b0385c012eafaad584117c81219833c3972bfbd5be0759feec11",
+    "src/app.js": "32a3ffff45d1ef04aaa4f48a1a36749b070b9b8a3f16e19b5552bc535c775916",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
     "data/regions.json": "227b63c481009abac6c19436032dce0d1e225838744d8d6262baed3eb3fd6a7d",
@@ -293,23 +405,40 @@
     "data/landmark-labels.json": "81c0de5cd238f446e8c64ff960859e61d47a84d73f94f04001c7ecfb4699c3d3",
     "data/landmark-hidden.json": "67a4da71fa98d4736a2355059c03056df4575572674a3eae0f2a6d72e07b85c5",
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
+    "data/roadmap-classification.json": "27ef4bc859e5e2f19adea3aec362b67c7675770d76bb32856f8f81c9e3bfaca2",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
     "vendor/D3-LICENSE.txt": "7a3cb0e5055874e67db9aa2d5fe26de23204fa994ffbad198901ffe9c812a717",
     "vendor/KaTeX-LICENSE.txt": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3",
     "data/decompositions/AInfCohomology.json": "21ac63c193596a1fa7b0fa79f7dbdd75f7e1544a23cf7de1ae08246f148811b2",
+    "data/decompositions/AdditiveCombinatorics.json": "37ddd4b6208cc3c6e97f9f70566d2b7446ddc38acc12fac1a6e98a767683eb5c",
     "data/decompositions/AdicCoefficientsAndComparisons.json": "f4b95bf28315e01737def5a89db6f9541e1f23972fd84951f1c6ff2d9674de65",
     "data/decompositions/AdicEtaleGeometry.json": "e23184339956d47522d3d9d45092aef1faeb51faf15f3782dc2f92a136cb2d63",
     "data/decompositions/AdicSpacesPartII.json": "d4909cc2642583c2b1d6e982d9fdd72ca072889390f149b5b5e1e252438fea53",
+    "data/decompositions/AlgebraicModularFormsAndSerreWeights.json": "b592728f78ef17182f3f5e9a0f221b001ab6292ea8a85b17baa6f53c9ca9821c",
+    "data/decompositions/AnalyticNumberTheory.json": "af74ba06bcdb1fb5e967c0bca854e7238d5704092d7a13126f0f90c16bb2be68",
+    "data/decompositions/ArithmeticGaloisRepresentations.json": "55cc6872ac18b85ca0234bef6957122ef30f6ad26da39f046445bb930c23e6af",
+    "data/decompositions/ArithmeticStatistics.json": "884de918d9e592aa2d6b46c6b699f4a919e1473b865030ec317737a980960056",
+    "data/decompositions/AutomorphicBundles.json": "5306aad1739221d45528697301723fe6e5a3a6af8056e52d665f9b7953e54ab0",
+    "data/decompositions/AutomorphicGaloisRepresentations.json": "8c9b19b1bed6447c5ef3bf9365fe67d2cf8ae3f0ea8757cf603456f1fc277699",
+    "data/decompositions/AutomorphicGaloisRepresentationsPartII.json": "c1da7f88f7490461cfec96d369e50080edf2d704f25ff0cdcc8fb291988cfa3d",
     "data/decompositions/ClassicalAdicEtaleCohomology.json": "6a1f973b066c48f8d43a62d7bf5295291a0e6ce1461cde9cb0b70e0e7d554a46",
+    "data/decompositions/ClassicalArithmeticCompletion.json": "0297755b7a0669e519e91da904b037467c75749c93e3d5a8cefe82ed53454cb2",
+    "data/decompositions/ClassicalSerreModularity.json": "53c3f399ec1077dde93486dbf91f7ee9bf2b17dc28c874268c377433d6383131",
     "data/decompositions/CohomologyComparisons.json": "faf6fbd2a1d4f28b38a4cfe0243234a8ec602c827a1e0219d6a999fd20a35381",
+    "data/decompositions/CompletedCohomologyAndLocalGlobalCompatibility.json": "e182a02eecbec8beb60b1cef1432dfe94ac834f631a25e9d2b9c66eecf429069",
+    "data/decompositions/CompletedCohomologyPartII.json": "68ab502973106d49a140412dd61a0fc4f473013ce85a827a7256c33c066e646a",
+    "data/decompositions/ComputationalNumberTheory.json": "168b1dbc59005c745232bb926c1b9edaaf9d13f575a6d7a7e81fcab4fd3a7e60",
     "data/decompositions/CrystallineCohomology.json": "23aa8927522d17f709b0709fac64d5f1409f8c4b66dd10d8a9d0545e2684e23e",
     "data/decompositions/DeformationAndDerivedPatchingAlgebra.json": "321c5e0b0f72aaadbba1c1180cfe7d41fb32bdef7093c3252e16c886ceb01628",
     "data/decompositions/DeligneWeightsAndPurity.json": "bb613c02849e17e4fcb2ed389f6f9716b1b21670581315e11df12d506fc6b150",
     "data/decompositions/DerivedDeRhamCohomology.json": "9cc64b5f4b77e06a2a5d05dc3e201f041c3a1ffb39ea73ba0223baa6c6082078",
+    "data/decompositions/DiophantineApproximationAndTranscendence.json": "0858eaee5519896b08c54f9a6f5001d73fec9a6f9b637fa68c2f8858c92abda2",
+    "data/decompositions/EllipticCurveModularity.json": "2e1081b9dc340a2021e1847a90ee8481ccd8ee5322ac9fbf6195ca8dff198738",
     "data/decompositions/EtaleDualityAndPerverseSheaves.json": "07b31c0db29629811c1c62d5ac1b27827eca762b4b1686c83976e5a7151edb06",
     "data/decompositions/EulerSystemsCyclotomicMainConjecture.json": "16261f019175c15002a14fd78a42e9ee7418379098fe2cb18f572b490f661917",
+    "data/decompositions/FaltingsFinitenessAndIsogenyTheorems.json": "fbc9c9750c94be25bca07dd87a5899e8d099a2e392e0326b35d2ed0fa09a8357",
     "data/decompositions/GeneralAlgebraicKTheory.json": "6f4955f3b16cd3c8ec496094097e69e87866bf38d8bf7d0a3b65e188149efada",
     "data/decompositions/GeneralizedHeegnerCycles.json": "d7ba42b6a0b8a44525d0fe855956d2d415e080bb08bdd346c429d25930b2ec9c",
     "data/decompositions/GeometricSatakeAndFusion.json": "b45717ae98fff067fe84b8389bbb951be2d2f0cf86ca5ea92c73545373696652",

@@ -1,0 +1,146 @@
+[
+ {
+  "roadmapId": "CompletedCohomologyPartII",
+  "title": "Completed cohomology, homology and arithmetic towers — Part II"
+ },
+ {
+  "roadmapId": "ComplexComparisonPartII",
+  "title": "Complex Comparison PartII"
+ },
+ {
+  "roadmapId": "ComplexMultiplicationAndExplicitReciprocity",
+  "title": "Complex multiplication and explicit reciprocity"
+ },
+ {
+  "roadmapId": "ComputationalNumberTheory",
+  "title": "Certified computational number theory and arithmetic data"
+ },
+ {
+  "roadmapId": "CrystallineCohomology",
+  "title": "Crystalline cohomology, de Rham–Witt and logarithmic foundations"
+ },
+ {
+  "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+  "title": "Commutative algebra for deformation theory and patching"
+ },
+ {
+  "roadmapId": "DeligneWeightsAndPurity",
+  "title": "Deligne weights, purity and the Weil bounds"
+ },
+ {
+  "roadmapId": "DerivedDeRhamCohomology",
+  "title": "Derived de Rham cohomology and its algebraic foundations"
+ },
+ {
+  "roadmapId": "DiamondEtaleCohomology",
+  "title": "Étale cohomology of diamonds and its four operations"
+ },
+ {
+  "roadmapId": "DiamondSixOperations",
+  "title": "Six operations, cohomological smoothness and biduality"
+ },
+ {
+  "roadmapId": "DiamondsAndVStacks",
+  "title": "Pro-étale descent, diamonds and small v-stacks"
+ },
+ {
+  "roadmapId": "DiophantineApproximationAndTranscendence",
+  "title": "Diophantine approximation and transcendence"
+ },
+ {
+  "roadmapId": "DirichletPadicLFunctions",
+  "title": "Dirichlet p-adic L-functions, special values, and Eisenstein measures"
+ },
+ {
+  "roadmapId": "DrinfeldModulesAndTModules",
+  "title": "Drinfeld modules, t-motives and characteristic-p special values"
+ },
+ {
+  "roadmapId": "EffectiveDiophantineMethods",
+  "title": "Effective Diophantine methods and certified rational points"
+ },
+ {
+  "roadmapId": "EllipticCurveModularity",
+  "title": "Modularity and modular parametrisations of elliptic curves over Q"
+ },
+ {
+  "roadmapId": "EllipticKTheory",
+  "title": "K-theory of curves and elliptic curves"
+ },
+ {
+  "roadmapId": "EllipticRegulators",
+  "title": "Elliptic regulators, explicit K₂ classes and L-values"
+ },
+ {
+  "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+  "title": "Endoscopic transfer and unitary trace comparison"
+ },
+ {
+  "roadmapId": "EnhancedDerivedSheaves",
+  "title": "Enhanced derived categories of sheaves"
+ },
+ {
+  "roadmapId": "EtaleDualityAndPerverseSheaves",
+  "title": "Étale duality, cycle classes and perverse sheaves"
+ },
+ {
+  "roadmapId": "EulerSystemsAndKolyvaginSystems",
+  "title": "Euler systems, Kolyvagin systems and higher-rank descent"
+ },
+ {
+  "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+  "title": "Euler systems and the unconditional cyclotomic main conjecture"
+ },
+ {
+  "roadmapId": "ExcursionOperatorsAndSpectralAction",
+  "title": "Excursion operators and the spectral action"
+ },
+ {
+  "roadmapId": "ExponentialSumsAndCircleMethod",
+  "title": "Exponential sums, decoupling and the circle method"
+ },
+ {
+  "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+  "title": "Faltings finiteness, semisimplicity and isogeny theorems"
+ },
+ {
+  "roadmapId": "FarguesFontaineDiamonds",
+  "title": "The existing Fargues–Fontaine curve as a diamond"
+ },
+ {
+  "roadmapId": "FiniteFieldsAndCharacterSums",
+  "title": "Finite fields, character sums, finite rings and coding interfaces"
+ },
+ {
+  "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+  "title": "Finite flat group schemes and integral p-adic Hodge theory"
+ },
+ {
+  "roadmapId": "FoundationsAndLibraryIntegration",
+  "title": "Foundations, existing libraries, and proof integrity"
+ },
+ {
+  "roadmapId": "FunctionFieldArithmetic",
+  "title": "Global function fields, reciprocity and automorphic foundations"
+ },
+ {
+  "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+  "title": "GL₂ Automorphic Representations And Transfer"
+ },
+ {
+  "roadmapId": "GL2ModularityLifting",
+  "title": "GL₂ Modularity Lifting"
+ },
+ {
+  "roadmapId": "GeneralAlgebraicKTheory",
+  "title": "General algebraic K-theory"
+ },
+ {
+  "roadmapId": "GeneralizedHeegnerCycles",
+  "title": "Generalized Heegner cycles and their Iwasawa variation"
+ },
+ {
+  "roadmapId": "GeometricSatakeAndFusion",
+  "title": "Geometric Satake over the Fargues–Fontaine curve"
+ }
+]

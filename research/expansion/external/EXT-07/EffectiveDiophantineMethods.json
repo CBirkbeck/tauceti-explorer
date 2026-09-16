@@ -1,0 +1,1379 @@
+{
+ "roadmapId": "EffectiveDiophantineMethods",
+ "status": "partial",
+ "summary": "Source decomposition of the certified-solution toolchain from four primary works not in the supplied library, fetched as authorized public copies: Tzanakis-de Weger, On the practical solution of the Thue equation (J. Number Theory 1989); McCallum-Poonen, The method of Chabauty and Coleman (2012, author copy); Bruin-Stoll, The Mordell-Weil sieve (arXiv 0906.1934v2); and Balakrishnan-Dogra-Muller-Tuitman-Vonk, Quadratic Chabauty for modular curves (arXiv 2101.01862v4). ED.1/ED.2 follow the Thue method: large solutions approximate a real root (Lemma 1.1), the unit equation gives a small linear form in logarithms (Lemma 1.2), an explicit Baker-type lower bound gives a huge bound (Lemmas 2.1-2.4), and LLL reduction (Propositions 3.1-3.2) brings it down. This yields the four-class exhaustiveness certificate. ED.4 covers the p-adic logarithm, Lemma 4.2, Chabauty's theorem (proof omitted in the source), residue-class integrals, the Newton-polygon Lemma 5.1, Coleman's bound (Theorem 5.3) and its bad-reduction version (Theorem A.5). ED.5 covers the sieve set A(S, N), its soundness, staged computation, coset separation by canonical height, the genus-2 Kummer test, and the Chabauty-plus-sieve procedure, whose termination is conjectural. ED.6 covers the quadratic Chabauty hypotheses (r = g, log isomorphism, rk NS >= 2), Betts-Dogra local heights, Algorithm 3.12 with its FAIL conditions, and the precision bounds; ED.0 gets the certified p-adic root-isolation Lemma 4.7. ED.3 is represented only by the saturation index test. All stages remain partial: LLL, de Weger's thesis, Waldschmidt's constants, descent/rank algorithms, Coleman 1985, Stoll's papers and the quadratic Chabauty foundations (BD18, BDM+19, BD19) are imports that were not read.",
+ "sources": [
+  {
+   "id": "mccallum-poonen-method-of-chabauty-coleman",
+   "title": "The method of Chabauty and Coleman",
+   "authors": "William McCallum and Bjorn Poonen",
+   "edition": "Published in Explicit methods in number theory; rational points and diophantine equations, Panoramas et Syntheses 36, Societe Mathematique de France, 2012, pp. 99-117 (as stated in the copy). Copy inspected: author copy dated June 14, 2010, 17 pages, from the second author's web page (authorized public copy, not in the supplied library); page numbers are those of the author copy.",
+   "url": "https://math.mit.edu/~poonen/papers/chabauty.pdf",
+   "sha256": "fb8d1a580def6365ebb979fd64e31d7f00d555399502b76035718112f21ab55a",
+   "readSections": [
+    "Sections 1-9 in full (pp. 1-13): Jacobian embedding, p-adic logarithm, Lemma 4.2, Theorem 4.4, Sections 5.1-5.5 (Lemma 5.1, Theorem 5.3 with proofs, Remarks 5.2, 5.4-5.6), Flynn's method and Remarks 6.1-6.2, effectiveness (Section 7), Examples 8.1-8.4, elliptic Chabauty",
+    "Appendix A (Proposition A.1, Lemmas A.3-A.4, Theorem A.5 with proofs), pp. 13-15",
+    "References, pp. 15-17"
+   ]
+  },
+  {
+   "id": "bruin-stoll-mordell-weil-sieve",
+   "title": "The Mordell-Weil sieve: proving non-existence of rational points on curves",
+   "authors": "Nils Bruin and Michael Stoll",
+   "edition": "arXiv:0906.1934v2 [math.NT], 30 Nov 2009 (dated November 11, 2009), 47 pages; published in LMS J. Comput. Math. 13 (2010), 272-306 per the arXiv record (not checked against the journal). Not in the supplied library; fetched 2026-09-16 from arXiv. Page numbers are those of the arXiv copy.",
+   "url": "https://arxiv.org/abs/0906.1934",
+   "sha256": "33f88cbd7b031914e9c73797eb6ffe1485d38122667a88cd9a5f88d842cd43dd",
+   "readSections": [
+    "Section 1 Introduction, pp. 1-3",
+    "Section 2 The idea, pp. 3-4",
+    "Section 3 Algorithms (3.1 choice of S, 3.2 choice of N with Definition 3.1, Problem 3.2, FindQSequence; 3.3 computation of A(N Gamma) with PrepareLift and Lift), pp. 4-12",
+    "Section 4 Applications (4.1 non-existence, 4.2 finding points with Lemma 4.1, 4.3 integral points, 4.4 combination with Chabauty, Conjecture 4.2, Lemma 4.3 with proof, Conjecture 4.4), pp. 12-21"
+   ]
+  },
+  {
+   "id": "tzanakis-de-weger-practical-thue",
+   "title": "On the practical solution of the Thue equation",
+   "authors": "N. Tzanakis and B. M. M. de Weger",
+   "edition": "Journal of Number Theory 31 (1989), 99-132. Copy inspected: scan of the published article (34 pages, printed pp. 99-132) from the University of Twente research repository (authorized institutional copy, not in the supplied library). The OCR layer garbles formulas, so every constant and inequality used was read on page images.",
+   "url": "https://ris.utwente.nl/ws/files/6560439/Tzanakis89on.pdf",
+   "sha256": "2eff85fb82ca8773b344a6d6c709e496f38f1ed3d64f8b9caf9dd22905b2c7b3",
+   "readSections": [
+    "Section I Introduction, pp. 99-102",
+    "Section II.1 From the Thue equation to a linear form in logarithms (Lemmas 1.1-1.2 with proofs, the unit equation (1.3)-(1.4)), pp. 102-107",
+    "Section II.2 Upper bounds (Lemmas 2.1-2.4 with proofs), pp. 107-111",
+    "Section II.3 Reducing the upper bound (cases (i)-(iii), Propositions 3.1-3.2 with proofs), pp. 111-116"
+   ]
+  },
+  {
+   "id": "bdmtv-quadratic-chabauty-modular-curves",
+   "title": "Quadratic Chabauty for modular curves: algorithms and examples",
+   "authors": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk",
+   "edition": "arXiv:2101.01862v4 [math.NT], 7 Mar 2023, 39 pages. Not in the supplied library; fetched 2026-09-16 from arXiv. Page numbers are those of the arXiv copy.",
+   "url": "https://arxiv.org/abs/2101.01862",
+   "sha256": "738f0ec0cd588e20a569bc029fe2bb9611abc5d16fee7d36f9e966357c25f61d",
+   "readSections": [
+    "Section 1 Introduction (Theorems 1.1-1.3, Remark 1.4), pp. 1-3",
+    "Section 2 Quadratic Chabauty: theory (2.1-2.3), pp. 3-6",
+    "Section 3 opening, Remark 3.1, 3.1 local heights away from p (Theorem 3.2 statement), 3.2 local heights at p (opening), 3.4 Mordell-Weil sieving, 3.5 implementation (Definition 3.9, Assumption 3.10, Algorithm 3.12, Remarks 3.11-3.16, 3.5.1 opening), pp. 6-15",
+    "Section 4 opening and 4.4 (Lemma 4.5, Proposition 4.6, Lemma 4.7 with proof, Remark 4.8), pp. 16 and 24-25"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "EffectiveDiophantineMethods:ED.0/certified-p-adic-root-isolation-from-truncated-power-series",
+   "parentStageId": "EffectiveDiophantineMethods:ED.0",
+   "title": "Certified determination of the roots of a p-adic power series in a disc from finitely many truncated coefficients (BDMTV Lemma 4.7)",
+   "kind": "lemma",
+   "statement": "Let F(x) = sum_{i>=0} F_i x^i in Q_p[[x]], and suppose there are integers k, m, n with min{ord_p(F_i) + i : i >= 0} = k and max{i >= 0 : ord_p(F_i) + i = n} < m. Suppose moreover that F has at most d roots in the closed disc {ord_p(x) >= 1}. Then the roots of F in that disc can be determined, with multiplicity, to precision (n - k)/d by computing F_0, ..., F_{m-1} modulo p^n.",
+   "hypotheses": [
+    "F in Q_p[[x]] with the two integer conditions on ord_p(F_i) + i",
+    "an a priori bound d on the number of roots in {ord_p(x) >= 1} (e.g. from a Newton-polygon or Chabauty-type count)"
+   ],
+   "proofSteps": [
+    "F(px) lies in p^k Z_p[[x]] but not in p^{k+1} Z_p[[x]], so G(x) = p^{-k} F(px) lies in Z_p[[x]] minus pZ_p[[x]].",
+    "For every alpha in Z_p the positive slopes of the Newton polygon of G(x + alpha) are determined by the first m coefficients (by the hypothesis on n and m).",
+    "If G is congruent modulo p^{n-k} to a polynomial H in Z_p[x] with a root alpha of multiplicity e, the first e coefficients of G(x + alpha) have valuation at least n - k. Since G(x + alpha) has degree <= m mod p^{n-k} and a coefficient of valuation zero, its Newton polygon has a segment of slope >= (n-k)/d of length at least e.",
+    "Remark 4.8: in practice d = 1 after recentering and rescaling, so precision loss comes from k."
+   ],
+   "acceptance": [
+    "This is a disc certificate in the sense of ED.0: the output is an explicit p-adic precision (n-k)/d, and numerical agreement of approximate roots is not used.",
+    "Check on F(x) = x(x - p) (roots 0 and p in the disc): with truncation at m = 3 the lemma should separate them only when (n - k)/d exceeds 1."
+   ],
+   "sources": [
+    {
+     "sourceId": "bdmtv-quadratic-chabauty-modular-curves",
+     "locator": "Section 4.4, Lemma 4.7 with proof and Remark 4.8, p. 25 of the arXiv copy",
+     "excerpt": "Lemma 4.7. Suppose F(x) = sum_{i>=0} F_i x^i in Q_p[[x]] is such that there are integers k, m, n satisfying min{ord_p(F_i) + i : i >= 0} = k and max{i >= 0 : ord_p(F_i) + i = n} < m, and furthermore that F has at most d roots in the closed disk {ord_p(x) >= 1}. Then the roots of F in the ball {ord_p(x) >= 1} can be determined, with multiplicity, to precision (n - k)/d, by computing F_0, ..., F_{m-1} modulo p^n.",
+     "match": "Literal statement from the text layer of p. 25 (arXiv v4)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.1/lll-lower-bound-for-nonzero-vectors-of-a-reduced-basis-lattice",
+   "parentStageId": "EffectiveDiophantineMethods:ED.1",
+   "title": "For an LLL-reduced basis b_1, ..., b_q of a lattice Gamma, every nonzero x in Gamma has |x| >= 2^{-(q-1)/2} |b_1|",
+   "kind": "lemma",
+   "statement": "Let Gamma be a lattice in R^q (here in Z^q) with an LLL-reduced basis b_1, ..., b_q. Then every nonzero x in Gamma satisfies |x| >= 2^{-(q-1)/2} |b_1|.",
+   "hypotheses": [
+    "b_1, ..., b_q an LLL-reduced basis (Lenstra-Lenstra-Lovasz 1982)",
+    "Tzanakis-de Weger use the \"integral version\" of LLL of de Weger [31, Sect. 3], with exact integer arithmetic and exact divisions"
+   ],
+   "proofSteps": [
+    "Imported: Tzanakis-de Weger cite Proposition (1.11) of Lenstra-Lenstra-Lovasz [16] without proof. The LLL paper was not read here."
+   ],
+   "acceptance": [
+    "Local library check: whether Mathlib or TauCeti contains LLL reduction with this bound is unchecked. The atlas supplier for LLL is GeometryOfNumbersAndQuadraticArithmetic GN.5."
+   ],
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Section II.3, case (i), inequality (3.2), p. 112",
+     "excerpt": "Find a reduced basis b_1, ..., b_q of Gamma. Then, by Proposition (1.11) of [16], we have for every x in Gamma, x != 0, |x| >= 2^{-(q-1)/2} . |b_1| =: l_0.",
+     "match": "Literal passage from p. 112 (read on the page image of p. 113 for the use of l_0); the proposition itself is imported from LLL [16]."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.1/homogeneous-lattice-reduction-of-a-huge-exponent-bound",
+   "parentStageId": "EffectiveDiophantineMethods:ED.1",
+   "title": "Tzanakis-de Weger Proposition 3.1: an LLL reduction replaces an exponent bound K_3 for |Lambda_0| < K_1 exp(-K_2 A) by a bound of size log K_3",
+   "kind": "theorem",
+   "statement": "Let mu_1, ..., mu_q be real numbers, linearly independent over Q (q >= 2), Lambda = a_1 mu_1 + ... + a_q mu_q with (a_1, ..., a_q) in Z^q (the homogeneous case delta = 0), A = max |a_i|, and K_1, K_2, K_3 > 0. Consider the solutions of (3.1): |Lambda| < K_1 exp(-K_2 A) and A <= K_3. Choose c_0 somewhat larger than K_3^q and let Gamma be the lattice spanned by the columns of the q x q matrix with identity in the first q-1 rows and last row ([c_0 mu_1], ..., [c_0 mu_q]) ([.] = nearest integer). Let b_1, ..., b_q be an LLL-reduced basis. If |b_1| > sqrt((q^2 + q - 1) 2^{q-1}) K_3, then every solution of (3.1) satisfies A < (1/K_2) (log(c_0 K_1) - log(sqrt(2^{-(q-1)} |b_1|^2 - (q-1) K_3^2) - q K_3)).",
+   "hypotheses": [
+    "mu_i real and Q-linearly independent (case (i)); homogeneous form delta = 0",
+    "K_1, K_2 small and K_3 very large known constants (in the Thue application from Lemmas 2.2 and 2.4)",
+    "c_0 chosen with c_0 of size K_3^q so that the hypothesis on |b_1| holds in practice"
+   ],
+   "proofSteps": [
+    "For a solution, the lattice point A . (a_1, ..., a_q)^T = (a_1, ..., a_{q-1}, lambda_0) with lambda_0 = sum a_i [c_0 mu_i] satisfies |lambda_0 - c_0 Lambda| <= q A < q K_3, so |lambda_0| < c_0 |Lambda| + q K_3 (3.3).",
+    "By the LLL lower bound (3.2), a_1^2 + ... + a_{q-1}^2 + lambda_0^2 >= l_0^2, hence (q-1) K_3^2 + lambda_0^2 >= l_0^2.",
+    "Combining gives c_0 |Lambda| + q K_3 >= sqrt(l_0^2 - (q-1) K_3^2), i.e. c_0 |Lambda| > sigma_3 K_3 in the notation of the source; with |Lambda| < K_1 exp(-K_2 A) this yields the logarithmic bound on A.",
+    "Heuristic justification that |b_1| is of size K_3 (so the hypothesis usually holds): the basis is almost orthogonal and the lattice has covolume |c_0 mu_q| of size K_3^q. This is a heuristic, not a proof; if the hypothesis fails, change c_0."
+   ],
+   "acceptance": [
+    "The reduction can be iterated with the new bound in place of K_3.",
+    "Failure mode: if the mu_i are Q-dependent, b_1 is very short and the hypothesis fails; use case (iii) (reduce to an independent subset with an integer relation).",
+    "Certificate content for ED.1: the lattice basis, the reduced basis b_1, the check of the |b_1| inequality in exact arithmetic, and the resulting bound."
+   ],
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Section II.3, case (i) with the derivation (3.2)-(3.3) and Proposition 3.1, pp. 112-114",
+     "excerpt": "PROPOSITION 3.1. If |b_1| > sqrt((q^2 + q - 1) . 2^{q-1}) . K_3, then every solution of (3.1), in the case delta = 0, satisfies A < (1/K_2) . (log(c_0 . K_1) - log(sqrt(2^{-(q-1)} . |b_1|^2 - (q-1) . K_3^2) - q . K_3)).",
+     "match": "Literal statement read on the page image of p. 114; the proof is the derivation on p. 113, read on its page image."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.1/inhomogeneous-lattice-reduction-via-closest-vector-distance",
+   "parentStageId": "EffectiveDiophantineMethods:ED.1",
+   "title": "Tzanakis-de Weger Proposition 3.2: in the inhomogeneous case delta != 0, the distance from (0, ..., 0, -[c_0 delta]) to the lattice gives A < (1/K_2) log(c_0 K_1/(q K_3))",
+   "kind": "theorem",
+   "statement": "Let Lambda = delta + a_1 mu_1 + ... + a_q mu_q with delta != 0 and Gamma, c_0, b_1, ..., b_q as in the homogeneous case, B the matrix of the reduced basis. Let x = (0, ..., 0, -[c_0 delta])^T in Z^q with coordinates s_1, ..., s_q with respect to b_1, ..., b_q (s = B^{-1} x), and i* = max{i : 1 <= i <= q, s_i not in Z}. If 2^{-(q-1)/2} ||s_{i*}|| |b_1| > sqrt(4q^2 + 3q - 3/4) K_3 (||.|| the distance to the nearest integer), then every solution of (3.1) with delta != 0 satisfies A < (1/K_2) log(c_0 K_1/(q K_3)).",
+   "hypotheses": [
+    "mu_i Q-linearly independent, delta != 0",
+    "the change-of-basis matrix U with B = A_matrix U and its inverse computed exactly by the integral LLL",
+    "imports: de Weger, Algorithms for Diophantine equations [32], Lemma 3.5 (l(x, Gamma) >= 2^{-(q-1)/2} ||s_{i*}|| |b_1|) and the argument of its Lemma 3.7"
+   ],
+   "proofSteps": [
+    "Imported: by Lemma 3.5 of de Weger [32], the minimal distance l(x, Gamma) of x to Gamma satisfies l(x, Gamma) >= 2^{-(q-1)/2} ||s_{i*}|| |b_1| (not read here).",
+    "By hypothesis l(x, Gamma) > sqrt(4q^2 + 3q - 3/4) K_3. Arguing \"similarly as in Lemma 3.7 of [32]\" (not read here), if l(x, Gamma) > sqrt(4q^2 + 3q - 3/4) X_0 then |Lambda| > K_1 exp(-K_2 A) has no solution with (1/K_2) log(c_0 K_1/(q X_0)) <= A <= X_0. Taking X_0 = K_3 gives the bound.",
+    "If ||s_{i*}|| is too small, try another c_0 or use Lemma 3.6 of [32] instead of Lemma 3.5."
+   ],
+   "acceptance": [
+    "This is the \"closest-vector certificate\" demanded by ED.1: the exported data are x, the coordinates s, i*, ||s_{i*}||, |b_1| and the inequality check.",
+    "The two imported de Weger lemmas must be read (CWI Tract 65, 1989) before this node can be treated as proved."
+   ],
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Section II.3, case (ii) and Proposition 3.2 with proof, pp. 114-115",
+     "excerpt": "PROPOSITION 3.2. Let i* = max(i : 1 <= i <= q and s_i not in Z). If 2^{-(q-1)/2} . ||s_{i*}|| . |b_1| > sqrt(4 . q^2 + 3 . q - 3/4) . K_3, then every solution of (3.1), in the case delta != 0, satisfies A < (1/K_2) . log(c_0 . K_1/(q . K_3)).",
+     "match": "Literal statement read on the page image of p. 114."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.2/large-thue-solutions-approximate-a-real-root",
+   "parentStageId": "EffectiveDiophantineMethods:ED.2",
+   "title": "Tzanakis-de Weger Lemma 1.1: for |Y| > Y_0 (resp. > Y_1), beta = X - xi Y is tiny at one real embedding (resp. X/Y is a continued-fraction convergent)",
+   "kind": "lemma",
+   "statement": "Let F(X, Y) = sum f_i X^{n-i} Y^i in Z[X, Y] be an irreducible binary form of degree n >= 3, m a nonzero integer, g(x) = F(x, 1) with s >= 1 real roots xi^(1), ..., xi^(s) and t pairs of complex roots, and K = Q(xi). For a solution of F(X, Y) = m put beta = X - xi Y in K. With Y_0 = [(2^{n-1}|m| / (min_{1<=i<=t} |g'(xi^(s+i))| . min_{1<=i<=t} |Im xi^(s+i)|))^{1/n}] if t >= 1 and Y_0 = 1 if t = 0, C_1 = 2^{n-1}|m|/min_{1<=i<=s}|g'(xi^(i))|, C_2 = (1/2) min_{1<=i<j<=n} |xi^(i) - xi^(j)|, and Y_1 = max(Y_0, [(4 C_1)^{1/(n-2)}]): (i) if |Y| > Y_0 there is i_0 in {1, ..., s} with |beta^(i_0)| <= C_1 |Y|^{-(n-1)} and |beta^(i)| >= C_2 |Y| for i != i_0; (ii) if |Y| > Y_1 then X/Y is a convergent of the continued fraction expansion of xi^(i_0).",
+   "hypotheses": [
+    "F irreducible over Q of degree n >= 3 with at least one real root (otherwise small bounds are trivial)",
+    "m != 0"
+   ],
+   "proofSteps": [
+    "Choose i_0 minimizing |beta^(i)|. For all i, |Y| |xi^(i) - xi^(i_0)| = |beta^(i) - beta^(i_0)| <= 2|beta^(i)|, so |beta^(i)| >= C_2 |Y|.",
+    "From |m| = |f_0| prod |beta^(i)| and |beta^(i)| >= (1/2)|Y||xi^(i) - xi^(i_0)| one gets |beta^(i_0)| <= 2^{n-1}|m| /(|g'(xi^(i_0))| |Y|^{n-1}).",
+    "If i_0 > s (a nonreal root), |beta^(i_0)| >= |Im xi^(i_0)| |Y|, which is impossible for |Y| > Y_0; so i_0 is real, giving (i).",
+    "If |Y| > Y_1 then |X/Y - xi^(i_0)| < 1/(2|Y|^2), and Legendre's criterion (Hardy-Wright Theorem 184) gives (ii)."
+   ],
+   "acceptance": [
+    "This fixes the \"small solutions\" class Y_1 < |Y| <= Y_2 as convergents, which are finitely many below any bound and can be enumerated with a certificate.",
+    "Check on x^3 - 2y^3 = 1 that the solution (1, 0) and (-1, -1) are handled by the \"very small\" class |Y| <= Y_1."
+   ],
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Section II.1, Lemma 1.1 with proof, pp. 103-104",
+     "excerpt": "LEMMA 1.1. Let X, Y in Z satisfy (1.1). Put beta = X - xi . Y in K [...] (i) If |Y| > Y_0 then there exists an i_0 in {1, ..., s} such that |beta^(i_0)| <= C_1 . |Y|^{-(n-1)}, |beta^(i)| >= C_2 . |Y| for i in {1, ..., n}, i != i_0. (ii) If |Y| > Y_1 then X/Y is a convergent from the continued fraction expansion of xi^(i_0).",
+     "match": "Literal statement read on the page image of p. 103 (constants Y_0, C_1, C_2, Y_1 as displayed there)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.2/thue-equation-to-unit-equation-and-small-linear-form-in-logarithms",
+   "parentStageId": "EffectiveDiophantineMethods:ED.2",
+   "title": "Tzanakis-de Weger Lemma 1.2 and (1.3)-(1.4): a large Thue solution gives a linear form Lambda in logarithms of units with |Lambda| < 1.39 C_1 C_3/C_2 |Y|^{-n}",
+   "kind": "lemma",
+   "statement": "In the setting of Lemma 1.1 with i_0 real, choose j, k with i_0, j, k pairwise distinct and either j, k in {1, ..., s} (real case) or j + t = k (complex case). Put Lambda = log|((xi^(i_0) - xi^(j))/(xi^(i_0) - xi^(k))) (beta^(k)/beta^(j))| in the real case and Lambda = (1/i) Log(...) in the complex case (so Lambda is real and |Lambda| <= pi). With C_3 = max_{i_1,i_2,i_3 distinct} |(xi^(i_1) - xi^(i_2))/(xi^(i_1) - xi^(i_3))| and Y_1* = max(Y_1, [(2 C_1 C_3/C_2)^{1/n}]), Lemma 1.2: if |Y| > Y_1* then |Lambda| < (1.39 C_1 C_3/C_2) |Y|^{-n}. Writing beta = mu epsilon_1^{a_1} ... epsilon_r^{a_r} with epsilon_i fundamental units of an order R of K (r = s + t - 1) and mu from a finite complete set M of nonassociated elements of norm m/f_0, Lambda becomes the linear form (1.3) Lambda = log|((xi^(i_0)-xi^(j))/(xi^(i_0)-xi^(k))) (mu^(k)/mu^(j))| + sum a_i log|epsilon_i^(k)/epsilon_i^(j)| in the real case, or (1.4) with arguments and an extra term a_0 . 2 pi in the complex case.",
+   "hypotheses": [
+    "F irreducible of degree n >= 3 with s >= 1 real roots",
+    "a system of fundamental units epsilon_1, ..., epsilon_r of an order R of K is known",
+    "a complete set of nonassociated mu with f_0 N(mu) = m is known (the source does not treat these computations)"
+   ],
+   "proofSteps": [
+    "Eliminating X and Y from beta^(i) = X - Y xi^(i) for i = i_0, j, k gives the unit relation (1.2), whose right-hand side is at most C_1 C_3/C_2 |Y|^{-n} by Lemma 1.1, so |e^Lambda - 1| < C_1 C_3/C_2 |Y|^{-n} < 1/2.",
+    "Real case: |e^Lambda - 1| < 1/2 implies |Lambda| <= 2 log 2 |e^Lambda - 1| <= 1.39 |e^Lambda - 1|. Complex case: |e^{i Lambda} - 1| = 2|sin(Lambda/2)| < 1/2 gives |Lambda| <= (1/2)/sin(1/4) |sin(Lambda/2)| <= 1.02 |e^{i Lambda} - 1|.",
+    "The fundamental units and the finite set M reduce (1.1) to finitely many unit equations beta = mu epsilon^a; substituting gives (1.3)/(1.4) with integer unknowns a_i."
+   ],
+   "acceptance": [
+    "Nonvanishing: beta^(i_0) != 0 and (1.2) imply Lambda != 0 (used in Lemma 2.4 before applying the logarithmic-form lower bound)."
+   ],
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Section II.1, Lemma 1.2 with proof and the reduction to the unit equation (1.3)-(1.4), pp. 105-107",
+     "excerpt": "LEMMA 1.2. Put C_3 = max_{i_1 != i_2 != i_3 != i_1} |(xi^(i_1) - xi^(i_2))/(xi^(i_1) - xi^(i_3))|, Y_1* = max(Y_1, [(2 . C_1 . C_3/C_2)^{1/n}]). If |Y| > Y_1* then |Lambda| < (1.39 . C_1 . C_3/C_2) . |Y|^{-n}.",
+     "match": "Literal statement read on the page image of p. 105; the fundamental-unit reduction and (1.3)-(1.4) were read on the page images of pp. 106-107."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.2/exponent-bound-and-exponential-decay-of-the-linear-form",
+   "parentStageId": "EffectiveDiophantineMethods:ED.2",
+   "title": "Tzanakis-de Weger Lemmas 2.1-2.2: A = max|a_i| <= C_5 log(C_4 |Y|), hence |Lambda| < C_6 exp(-(n/C_5) A) for |Y| > Y_2'",
+   "kind": "lemma",
+   "statement": "Let A = max_{1<=i<=r} |a_i|. Lemma 2.1: for I = {h_1, ..., h_r} in {1, ..., n} put U_I = (log|epsilon_i^(h_l)|)_{i,l}, N[U_I^{-1}] = max_i sum_l |u_il| for U_I^{-1} = (u_il), mu_- = min_{mu in M, i} |mu^(i)|, mu_+ = max_{mu in M, i} |mu^(i)|, C_4 = (1/2 + max_{i_1<i_2} |xi^(i_1) - xi^(i_2)|)/mu_- and C_5 = min((n-1) min_I N[U_I^{-1}], max_I N[U_I^{-1}]). If |Y| > Y_1 then A <= C_5 log(C_4 |Y|). Lemma 2.2: with C_6 = 1.39 C_1 C_3 C_4^n/C_2 and Y_2' = max(Y_1*, 2|m|^{1/n}, mu_+/C_2), if |Y| > Y_2' then |Lambda| < C_6 exp(-(n/C_5) A).",
+   "hypotheses": [
+    "as in Lemmas 1.1-1.2, with fundamental units and the finite set M fixed"
+   ],
+   "proofSteps": [
+    "From beta = mu epsilon^a, the vector (log|beta^(h)/mu^(h)|)_h equals U_I^T a (2.1), so A <= N[U_I^{-1}] max_h |log|beta^(h)/mu^(h)||.",
+    "Using the end of the proof of Lemma 1.1, |beta^(h)|/|mu^(h)| < C_4 |Y| for all h, and C_4 |Y| > 1 (2.2).",
+    "For i with |beta^(i)/mu^(i)| < 1, the product formula prod_h |beta^(h)/mu^(h)| = 1 gives |log|beta^(i)/mu^(i)|| < (n-1) log(C_4|Y|) (2.3); this gives A <= (n-1) min_I N[U_I^{-1}] log(C_4|Y|).",
+    "Choosing I with i_0 not in I, Lemma 1.1 gives |beta^(h)/mu^(h)| > C_2 |Y|/mu_+ > 1 for h in I, so A <= max_I N[U_I^{-1}] log(C_4|Y|).",
+    "Lemma 2.2 substitutes |Y| >= exp(A/C_5)/C_4 into Lemma 1.2."
+   ],
+   "acceptance": [
+    "Check that C_5 uses the minimum of the two estimates, which the proof establishes separately."
+   ],
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Section II.2, Lemmas 2.1-2.2 with proof, pp. 107-110",
+     "excerpt": "LEMMA 2.1. Put I = {h_1, ..., h_r} in {1, ..., n}, and U_I = (log|epsilon_i^(h_l)|)_{1<=i<=r, 1<=l<=r} [...] Then, for |Y| > Y_1, we have A <= C_5 . log(C_4 . |Y|).",
+     "match": "Statement assembled from the page images of pp. 107-108 (definitions of U_I, N[U_I^{-1}], mu_-, mu_+, C_4, C_5 on p. 107); Lemma 2.2 read on the page images of pp. 109-110."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.2/initial-exponent-bound-from-a-logarithmic-form-lower-bound",
+   "parentStageId": "EffectiveDiophantineMethods:ED.2",
+   "title": "Tzanakis-de Weger Lemmas 2.3-2.4: combining Waldschmidt's lower bound |Lambda| > exp(-C_7(log A + C_8)) with Lemma 2.2 gives A < C_9 for |Y| > Y_2'",
+   "kind": "theorem",
+   "statement": "Lemma 2.3 (Waldschmidt [30], imported): if Lambda != 0 then |Lambda| > exp(-C_7 (log A + C_8)) in the real case; in the complex case the same holds with A replaced by A' = max_{0<=i<=r} |a_i|, and since |a_0| < 1/2 + (1/2) r A + 0.51/(2 pi) r A for A >= 2 one may use A with C_8' = C_8 + log r (C_8' = C_8 in the real case). Lemma 2.4: with C_9 = (2 C_5/n)(log C_6 + C_7 C_8' + C_7 log(C_5 C_7/n)), if |Y| > Y_2' then A < C_9.",
+   "hypotheses": [
+    "Lambda != 0 (proved in the source from beta^(i_0) != 0 and (1.2))",
+    "explicit constants C_7, C_8 of Waldschmidt's theorem as computed in Appendix II of the source (not read here)",
+    "imported elementary lemma: Petho-de Weger [20] Lemma 2.3 turning A <= (C_5/n)(log C_6 + C_7 C_8' + C_7 log A) into A < C_9"
+   ],
+   "proofSteps": [
+    "|e^Lambda - 1| < 1/2 (real) or |e^{i Lambda} - 1| < 1/2 (complex) and beta^(i_0) != 0 give Lambda != 0 via (1.2).",
+    "Lemmas 2.2 and 2.3 give exp(-C_7(log A + C_8')) < |Lambda| < C_6 exp(-(n/C_5) A), i.e. A < (C_5/n)(log C_6 + C_7 C_8' + C_7 log A).",
+    "Petho-de Weger [20], Lemma 2.3 (imported, not read) converts this into A < C_9.",
+    "Remark after Lemma 2.4: the bound is theoretically sufficient but of size 10^{40} in the quartic example; the reduction of ED.1 brings it down to the logarithm of its size, and can be iterated."
+   ],
+   "acceptance": [
+    "Theorem row for ED.2: every solution (X, Y) of F(X, Y) = m lies in one of four classes, |Y| <= Y_1 (enumeration), Y_1 < |Y| <= Y_2 (continued fraction convergents), Y_2 < |Y| <= Y_3 (excluded by lattice reduction) and |Y| > Y_3 (excluded by the logarithmic-form bound). Each class needs its own certificate.",
+    "The explicit constants C_7, C_8 depend on the version of Baker's theorem used; Tzanakis-de Weger use Waldschmidt 1980, not Matveev. Citing the name supplies no constant."
+   ],
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Section II.2, Lemmas 2.3-2.4 with proof and the Remark, pp. 110-111",
+     "excerpt": "LEMMA 2.4. Put C_9 = (2 . C_5/n) . (log C_6 + C_7 . C_8' + C_7 . log(C_5 . C_7/n)). If |Y| > Y_2', then A < C_9. Proof. [...] The result now follows from Petho and de Weger [20] (Lemma 2.3).",
+     "match": "Literal statement and last line of the proof, read on the page image of p. 110; Lemma 2.3 (Waldschmidt) on the same page."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.2/four-class-certificate-for-all-solutions-of-a-thue-equation",
+   "parentStageId": "EffectiveDiophantineMethods:ED.2",
+   "title": "Tzanakis-de Weger method: every solution of F(X, Y) = m lies in one of four explicitly bounded classes, each closed by its own certificate",
+   "kind": "theorem",
+   "statement": "Let F be an irreducible binary form of degree n >= 3 with at least one real root of F(x, 1), and m != 0. There are explicit reals Y_1 < Y_2 < Y_3 such that the solutions of F(X, Y) = m split into four classes: (I) very small solutions |Y| <= Y_1, found by enumeration; (II) small solutions Y_1 < |Y| <= Y_2, found among the continued fraction convergents of the real roots xi^(i) (Lemma 1.1(ii)); (III) large solutions Y_2 < |Y| <= Y_3, shown not to exist by lattice reduction; (IV) very large solutions |Y| > Y_3, shown not to exist by the theory of linear forms in logarithms. Y_1 comes from Lemma 1.1, Y_3 from the logarithmic-form bound (Lemma 2.4), and Y_2 from the reduced bound of Section II.3.",
+   "hypotheses": [
+    "F irreducible of degree >= 3 with a real root; m != 0",
+    "fundamental units and a complete set M of nonassociated mu of norm m/f_0 are known",
+    "the reduction hypotheses of Propositions 3.1/3.2 hold for some choice of c_0, or case (iii) is applied"
+   ],
+   "proofSteps": [
+    "Class (IV): Lemma 2.4 gives A < C_9 for |Y| > Y_2'; with A <= C_5 log(C_4|Y|) and Lemma 2.1 this yields an explicit Y_3 (the source notes this \"can be derived easily\" and does not write it out).",
+    "Class (III): apply Proposition 3.1 (delta = 0) or 3.2 (delta != 0), possibly iterated, with K_1 = C_6, K_2 = n/C_5 and K_3 = C_9, to reduce the bound on A, and translate back to a bound Y_2 on |Y|.",
+    "Class (II): for Y_1 < |Y| <= Y_2, X/Y is a convergent of the continued fraction of a real root (Lemma 1.1(ii)), so finitely many candidates are checked.",
+    "Class (I): enumerate |Y| <= Y_1."
+   ],
+   "acceptance": [
+    "Acceptance for ED.2: the certificate lists Y_1, Y_2, Y_3, the constants C_1..C_9 with the logarithmic-form theorem used, the reduced lattice data of each reduction step, the convergents checked and the enumerated range. Only then is it proved that every solution lies in the enumerated set.",
+    "Worked test from the source: Section III solves the elliptic curve arising from Mohanty's problem via two quartic Thue equations over a totally real quartic field (not decomposed here).",
+    "S-unit and Thue-Mahler instances need the p-adic analogue (Tzanakis-de Weger, How to explicitly solve a Thue-Mahler equation, reference [29]), which was not read."
+   ],
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Section II.1, definition of the classes (I)-(IV), p. 103; Remark after Lemma 2.4, p. 111; Section II.3, p. 111",
+     "excerpt": "(I) the \"very small\" solutions, with |Y| <= Y_1. They will be found by enumeration of all possibilities. (II) the \"small\" solutions, with Y_1 < |Y| <= Y_2. They will be found by evaluating the continued fraction expansions of the real xi^(i)'s. (III) the \"large\" solutions, with Y_2 < |Y| <= Y_3. They will be proved not to exist by a computational diophantine approximation technique. (IV) the \"very large\" solutions, with |Y| > Y_3. They will be proved not to exist by the theory of linear forms in logarithms.",
+     "match": "Literal passage read on the page image of p. 103."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.3/finite-index-subgroup-certificate-with-index-prime-to-the-sieve-primes",
+   "parentStageId": "EffectiveDiophantineMethods:ED.3",
+   "title": "A finite-index subgroup G of J(Q) whose index is prime to the relevant primes can replace J(Q) in Chabauty and sieve computations; the index is certified prime to l by reduction maps",
+   "kind": "lemma",
+   "statement": "Let X/Q be a curve of genus g >= 2 with Jacobian J. (1) (McCallum-Poonen Remark 6.1) For Chabauty-type arguments at p it suffices to know explicit generators of a finite-index subgroup G of J(Q) with the same p-adic closure in J(Q_p). Any G of index prime to p . #J(F_p) has this property. (2) If G is known to have finite index, one can usually verify that the index is not divisible by a given prime l by finding a homomorphism J(Q) -> B to a finite abelian group B killed by l such that the induced map G/lG -> B is injective. In practice B is a product of J(F_q)/lJ(F_q) over a few primes q of good reduction. (3) (Bruin-Stoll) For the Mordell-Weil sieve it suffices to know generators of a finite-index subgroup whose index is coprime to a certain set of primes (in the Chabauty combination, coprime to N), and this can be checked with local information only.",
+   "hypotheses": [
+    "G subset of J(Q) of finite index (finiteness itself requires knowing rank J(Q), e.g. from a descent)",
+    "for (2): primes q of good reduction with J(Q) -> J(F_q)/l J(F_q) computable on G"
+   ],
+   "proofSteps": [
+    "Source status: stated as remarks with a one-sentence justification; no proof is written in either source.",
+    "Unwritten justification of (2): if l divided (J(Q) : G), some element of J(Q) outside G would have its l-th multiple in G, making G/lG -> J(Q)/lJ(Q) non-injective; since G/lG -> B factors through J(Q)/lJ(Q), injectivity of G/lG -> B excludes this. This deduction is not written in McCallum-Poonen and should be checked, including the role of torsion."
+   ],
+   "acceptance": [
+    "Worked check: on a rank-1 genus-2 Jacobian, verify that a known point P of infinite order plus torsion has index prime to N by the reduction test before running the sieve (Bruin-Stoll 4.4).",
+    "Acceptance for ED.3: this is only the saturation part. The rank certification (descent upper bound plus independent points) and the saturation at all primes up to a height-derived bound are not covered by the sources read."
+   ],
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Remark 6.1, p. 8 of the author copy",
+     "excerpt": "For this method we do not need full knowledge of J(Q). It would suffice to have explicit generators of a finite-index subgroup G of J(Q) having the same closure in J(Q_p). Any G of index prime to p . #J(F_p) has this property.",
+     "match": "Literal passage, p. 8 of the author copy; the injectivity test on G/lG is the next sentence."
+    },
+    {
+     "sourceId": "bruin-stoll-mordell-weil-sieve",
+     "locator": "Section 1, p. 2, and Section 4.4, p. 17 of the arXiv copy",
+     "excerpt": "It is sufficient to know generators of a finite-index subgroup such that the index is coprime to a certain set of primes. This can be checked again by using only local information.",
+     "match": "Literal passage, p. 2 of the arXiv copy; in 4.4 the index of Z . P + J(Q)_tors must be prime to N."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.4/p-adic-abelian-logarithm-and-integration-pairing-on-the-jacobian",
+   "parentStageId": "EffectiveDiophantineMethods:ED.4",
+   "title": "The abelian integral eta_J(Q) = int_0^Q omega_J on J(Q_p), the pairing J(Q_p) x H^0(J_{Q_p}, Omega^1) -> Q_p, and log : J(Q_p) -> T as a local diffeomorphism",
+   "kind": "construction",
+   "statement": "Let J be the Jacobian of a curve X/Q of genus g >= 2 with an embedding iota : X -> J, P -> [P - O], for a known O in X(Q). For omega_J in H^0(J_{Q_p}, Omega^1) (a g-dimensional Q_p-space) there is a unique map eta_J : J(Q_p) -> Q_p, Q -> int_0^Q omega_J, such that (a) eta_J is a homomorphism, and (b) on some open subgroup U of J(Q_p) it is computed by expanding omega_J in local coordinates, integrating formally and evaluating. One may take U = J^1(Q_p), the kernel of reduction J(Q_p) -> J(F_p), with J(F_p) the F_p-points of the special fibre of the Neron model in general. This gives a bilinear pairing J(Q_p) x H^0(J_{Q_p}, Omega^1) -> Q_p and a homomorphism log : J(Q_p) -> T, T the dual of H^0(J_{Q_p}, Omega^1), whose derivative at 0 is the identity, so log is a local diffeomorphism.",
+   "hypotheses": [
+    "X smooth projective geometrically integral of genus g >= 2 over Q with a known rational point O (or a rational divisor of positive degree d, Remark 2.1)",
+    "for bad reduction: the Neron model of J over Z_p and its formal group"
+   ],
+   "proofSteps": [
+    "Existence and uniqueness of eta_J use translation invariance of omega_J; the facts are quoted from Bourbaki, Lie groups III Section 7.6.",
+    "Remark 4.1: the Neron model of J is smooth over Z_p; completing along the zero section gives a smooth formal group whose points are J^1(Q_p), and Bourbaki III Section 7.6 Prop. 14(ii) gives convergence of the antiderivative there.",
+    "The derivative of log at 0 is the identity T -> T."
+   ],
+   "acceptance": [
+    "Check on an elliptic curve with good reduction that log restricted to E^1(Q_p) is the formal logarithm."
+   ],
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Section 4.1 and Remark 4.1, pp. 3-4 of the author copy",
+     "excerpt": "Using the translation-invariance of omega_J, one can show that it has an \"antiderivative\" eta_J : J(Q_p) -> Q_p, Q -> int_0^Q omega_J characterized uniquely by the following two properties: It is a homomorphism. There is an open subgroup U of J(Q_p) such that if Q in U, then int_0^Q omega_J can be computed by expanding omega_J in power series in local coordinates",
+     "match": "Literal passage, pp. 3-4 of the author copy."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.4/p-adic-closure-of-mordell-weil-has-dimension-at-most-rank",
+   "parentStageId": "EffectiveDiophantineMethods:ED.4",
+   "title": "McCallum-Poonen Lemma 4.2: r' = dim of the p-adic closure of J(Q) is at most r = rank J(Q)",
+   "kind": "lemma",
+   "statement": "Let Jbar(Q) be the closure of J(Q) in J(Q_p) (an analytic subgroup), r' = dim Jbar(Q) and r = rank J(Q). Then r' <= r. More precisely r' = rank_{Z_p}(Z_p log J(Q)) <= rank_Z log J(Q) <= rank_Z J(Q) = r, where the second inequality is an equality because log has finite kernel; the first can be strict, and r' <= g always.",
+   "hypotheses": [
+    "X/Q of genus g >= 2 with Jacobian J; p a prime"
+   ],
+   "proofSteps": [
+    "r' = dim Jbar(Q) = dim log(Jbar(Q)) since log is a local diffeomorphism.",
+    "log is continuous and Jbar(Q) is compact, so log(Jbar(Q)) is the closure of log J(Q).",
+    "The closure of a subgroup of Q_p^g is its Z_p-span, giving (3)."
+   ],
+   "acceptance": [
+    "Remark 4.3: r > g is possible while r' <= g, so r' < r can occur; check the inequality chain on a rank-2 genus-2 example."
+   ],
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Section 4.2, Lemma 4.2 with proof and Remark 4.3, pp. 4-5 of the author copy",
+     "excerpt": "Lemma 4.2. Define r' := dim Jbar(Q) and r := rank J(Q). Then r' <= r.",
+     "match": "Literal statement, p. 4 of the author copy."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.4/chabauty-finiteness-when-closure-dimension-is-less-than-genus",
+   "parentStageId": "EffectiveDiophantineMethods:ED.4",
+   "title": "Chabauty's theorem (McCallum-Poonen Theorem 4.4): if r' < g then X(Q_p) intersected with the closure of J(Q) is finite",
+   "kind": "theorem",
+   "statement": "Let X be a curve of genus g >= 2 over Q with Jacobian J, p a prime, and r, r' as in Lemma 4.2. If r' < g (automatic if r < g), then X(Q_p) intersected with Jbar(Q) is finite, hence X(Q) is finite.",
+   "hypotheses": [
+    "X/Q of genus g >= 2 with a rational point for the embedding",
+    "r' < g"
+   ],
+   "proofSteps": [
+    "Source status: McCallum-Poonen omit the proof (\"We omit the proof of Theorem 4.4, but we will soon prove a refined version, Theorem 5.3\") and note that without the extra hypotheses of 5.3 one can still prove finiteness. Chabauty's note (C. R. Acad. Sci. 212, 1941) was not read.",
+    "Proof route available in the source for good reduction at p: Theorem 5.3 gives an explicit finite bound, hence finiteness; the general finiteness proof without a good-reduction prime is not written out."
+   ],
+   "acceptance": [
+    "Do not export Theorem 4.4 as proved in general from this source; export the good-reduction consequence of Theorem 5.3, or Theorem A.5 for bad reduction."
+   ],
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Section 4.3, Theorem 4.4 and Remarks 4.5-4.7, p. 5 of the author copy",
+     "excerpt": "Theorem 4.4 ([Cha41]). Let X be a curve of genus g >= 2 over Q. Let J be the Jacobian of X. Let p be a prime, and let r and r' be as in Lemma 4.2. Suppose r' < g (by Lemma 4.2 this is automatic if r < g). Then X(Q_p) intersected with Jbar(Q) is finite (and hence so is X(Q)).",
+     "match": "Literal statement, p. 5 of the author copy."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.4/coleman-integrals-on-residue-classes-of-a-good-reduction-curve",
+   "parentStageId": "EffectiveDiophantineMethods:ED.4",
+   "title": "Integrals on X via the Jacobian, their vanishing on torsion and rational classes, and power-series expansion on residue classes (McCallum-Poonen 5.1-5.2, 5.4)",
+   "kind": "construction",
+   "statement": "Assume X has good reduction at p (generic fibre of a smooth proper curve over Z_p). Restriction H^0(J_{Q_p}, Omega^1) -> H^0(X_{Q_p}, Omega^1) is an isomorphism; for omega_J restricting to omega set int_Q^{Q'} omega := int_0^{[Q' - Q]} omega_J. Properties: (i) if sum (Q'_i - Q_i) is a principal divisor, or [sum (Q'_i - Q_i)] is torsion in J(Q_p), then sum int_{Q_i}^{Q'_i} omega = 0; (ii) if Q, Q' have the same reduction in X(F_p), int_Q^{Q'} omega is computed by expanding in a local parameter t. For a residue class over Qtilde in X(F_p) and t reducing to a uniformizer at Qtilde: (1) t maps the residue class bijectively to pZ_p; (2) if omega is normalized to reduce to omega-tilde != 0, then omega = w(t)dt with w in Z_p[[t]] nonzero mod p; (3) eta = int_O omega is represented on the class by I(t) in Q_p[[t]] with I' = w. If r' < g, a nonzero functional lambda : T -> Q_p vanishing on log J(Q) gives omega_J with eta_J = lambda o log vanishing on J(Q), hence (iii): if [sum (Q'_i - Q_i)] is in J(Q), then sum int omega = 0.",
+   "hypotheses": [
+    "p a prime of good reduction for X",
+    "O in X(Q) as base point",
+    "for (iii): r' < g"
+   ],
+   "proofSteps": [
+    "The restriction isomorphism is quoted from Milne, Jacobian varieties, Prop. 2.2 (not read).",
+    "Properties (i)-(ii) follow from the corresponding properties of eta_J (homomorphism, kills torsion; local expansion on U).",
+    "Facts (1)-(3) on residue classes are stated with \"one can show\" (Hensel-type arguments); no proof is written in the source.",
+    "Section 5.4: log J(Q) is a Z_p-module of rank r' in T = Q_p^g; if r' < g a nonzero lambda vanishing on it exists, and eta_J = lambda o log."
+   ],
+   "acceptance": [
+    "Coleman's theory of p-adic integration is needed only to set constants of integration across residue classes (Remark 8.3(2)). Alternatives are torsion points in residue classes of J (8.3(1)) or explicit divisors representing points of J(Q) (8.3(3), due to Wetherell)."
+   ],
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Sections 5.1, 5.2 and 5.4, pp. 5-7 of the author copy; Remark 8.3, p. 12",
+     "excerpt": "Then one can show that (1) The function t maps the residue class bijectively to pZ_p. [...] (2) If we assume omega is normalized by an element of Q_p^* so that it reduces to a nonzero omega-tilde in H^0(X_{F_p}, Omega^1), then omega on the residue class can be expressed as w(t)dt for some power series w(t) in Z_p[[t]] such that w(t) mod p is nonzero. (3) The function eta on the residue class is represented by a series I(t) in Q_p[[t]] (usually no longer in Z_p[[t]]) whose derivative is w(t).",
+     "match": "Literal passage, p. 6 of the author copy."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.4/newton-polygon-zero-bound-for-integrals-in-a-residue-disc",
+   "parentStageId": "EffectiveDiophantineMethods:ED.4",
+   "title": "McCallum-Poonen Lemma 5.1: if f'(t) in Z_p[[t]] has m = ord_{t=0}(f' mod p) < p - 2, then f has at most m + 1 zeros in pZ_p",
+   "kind": "lemma",
+   "statement": "Let f(t) in Q_p[[t]] with f'(t) in Z_p[[t]], and m = ord_{t=0}(f'(t) mod p). If m < p - 2, then f has at most m + 1 zeros in pZ_p. Remark 5.2 (variants stated without proof): Coleman gives an estimate without conditions on p and over any p-adic field; if moreover the coefficient of t^{p-1} in f'(t) is in pZ_p, then m < 2p - 2 suffices.",
+   "hypotheses": [
+    "f'(t) in Z_p[[t]]",
+    "m < p - 2"
+   ],
+   "proofSteps": [
+    "Write f = sum a_i t^i. The hypotheses give v(a_{m+1}) = 0 and v(a_i) >= -v_p(i) > m + 1 - i for i > m + 1.",
+    "So the Newton polygon of f has no slopes <= -1 to the right of (m+1, 0), and Newton polygon theory (Koblitz, p-adic numbers, IV.4) gives at most m + 1 zeros in pZ_p."
+   ],
+   "acceptance": [
+    "Check the inequality -v_p(i) > m + 1 - i for i > m + 1 when m < p - 2 (it fails for large m relative to p, which is why the hypothesis is needed).",
+    "Example 8.2 uses the Remark 5.2 variant at p = 3 with m = 1."
+   ],
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Section 5.3, Lemma 5.1 with proof and Remark 5.2, p. 6 of the author copy",
+     "excerpt": "Lemma 5.1. Suppose that f(t) in Q_p[[t]] is such that f'(t) in Z_p[[t]]. Let m = ord_{t=0}(f'(t) mod p). If m < p - 2, then f has at most m + 1 zeros in pZ_p.",
+     "match": "Literal statement, p. 6 of the author copy."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.4/coleman-bound-on-rational-points-at-a-good-prime",
+   "parentStageId": "EffectiveDiophantineMethods:ED.4",
+   "title": "Coleman's theorem (McCallum-Poonen Theorem 5.3): residue-class bounds m + 1 and, for p > 2g, #X(Q) <= #X(F_p) + 2g - 2",
+   "kind": "theorem",
+   "statement": "Let X/Q have genus g >= 2 with Jacobian J, p a prime of good reduction, and r' < g. (a) Let omega != 0 in H^0(X_{Q_p}, Omega^1) satisfy (i)-(iii), scaled to reduce to omega-tilde != 0 in H^0(X_{F_p}, Omega^1). For Qtilde in X(F_p) with m = ord_Qtilde(omega-tilde) < p - 2, at most m + 1 points of X(Q) reduce to Qtilde. (b) If p > 2g, then #X(Q) <= #X(F_p) + (2g - 2).",
+   "hypotheses": [
+    "p of good reduction for X",
+    "r' < g (e.g. certified rank r < g)",
+    "omega with properties (i)-(iii), in particular annihilating J(Q)"
+   ],
+   "proofSteps": [
+    "(a) If some Q in X(Q) reduces to Qtilde, then by (iii) int_Q^{Q'} omega = 0 for every Q' in X(Q) in the class; as a function of Q' this is a power series I(t) with I' = w, and Lemma 5.1 gives at most m + 1 zeros.",
+    "(b) By Riemann-Roch, omega-tilde has 2g - 2 zeros in total, so sum_{Qtilde} m_Qtilde <= 2g - 2 and each m_Qtilde <= 2g - 2 < p - 2. Summing (a) gives #X(Q) <= #X(F_p) + 2g - 2.",
+    "Remarks 5.4-5.5 (stated, not proved): an explicit but weaker bound exists for p <= 2g and over number fields ([Col85b] Theorem 4); if r' < g - 1 and p > 2g, #X(Q) <= #X(F_p) + 2r' (Stoll 2006, Cor. 6.7)."
+   ],
+   "acceptance": [
+    "Example 8.1: y^2 = x(x-1)(x-2)(x-5)(x-6), p = 7, rank 1 (descent of Gordon-Grant), #X(F_7) = 8 gives #X(Q) <= 10, and 10 points are listed. Reproduce all residue classes.",
+    "Example 8.2: y^2 = x^6 + 8x^5 + 22x^4 + 22x^3 + 5x^2 + 6x + 1 at p = 3 with the Remark 5.2 variant gives #X(Q) <= 6 = #{inf+, inf-, (0, +-1), (-3, +-1)}.",
+    "Acceptance for ED.4: completeness requires every residue class of X(F_p) to be treated, with the bound achieved by known points or the class excluded; finding the known zeros alone is not a proof."
+   ],
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Section 5.5, Theorem 5.3 with proof and Remarks 5.4-5.6, p. 7; Examples 8.1-8.2, pp. 9-10 of the author copy",
+     "excerpt": "Theorem 5.3 ([Col85b]). Let X, J, p, r' be as in Theorem 4.4. Suppose also that p is a prime of good reduction for X. (a) [...] If m < p - 2, then the number of points in X(Q) reducing to Qtilde is at most m + 1. (b) If p > 2g, then #X(Q) <= #X(F_p) + (2g - 2).",
+     "match": "Literal statement, p. 7 of the author copy (part (a)'s set-up abbreviated as [...])."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.4/coleman-bound-at-a-prime-of-bad-reduction-via-minimal-regular-model",
+   "parentStageId": "EffectiveDiophantineMethods:ED.4",
+   "title": "McCallum-Poonen Theorem A.5: the Coleman bound with X(F_p) replaced by the smooth locus of the special fibre of the minimal regular model",
+   "kind": "theorem",
+   "statement": "Let X, p, r' be as in Theorem 4.4 (p not necessarily of good reduction), Xcal the minimal regular model of X_{Q_p} over Z_p and Xcal_s its special fibre. (1) Let omega != 0 satisfy (i)-(iii), C a component of multiplicity 1 of Xcal_s, C^smooth = C intersected with Xcal^smooth, omega scaled by a power of p to reduce to omega-tilde != 0 on C^smooth, Qtilde in C^smooth(F_p) and m = ord_Qtilde omega-tilde. If m < p - 2, at most m + 1 points of X(Q) reduce to Qtilde. (2) If p > 2g, then #X(Q) <= #Xcal_s^smooth(F_p) + (2g - 2).",
+   "hypotheses": [
+    "r' < g",
+    "Xcal the minimal proper regular model over Z_p; residue classes are fibres of X(Q_p) = Xcal^smooth(Z_p) -> Xcal_s^smooth(F_p)",
+    "imports from Liu, Algebraic geometry and arithmetic curves: canonical sheaf of lci morphisms (6.4.7, 6.4.9), intersection theory (8.3.4-8.3.5, 9.1.2, 9.1.21, 9.1.34-9.1.35)"
+   ],
+   "proofSteps": [
+    "Proposition A.1 (Liu 6.4.7, 6.4.9): omega_{X/Y} = Lambda^r Omega^1 for smooth maps, and base change. So w in H^0(X, Omega^1) is a meromorphic section of omega_{Xcal/R} with canonical divisor K = H + V (horizontal + vertical).",
+    "For a multiplicity-1 component C, rescale w by a power of pi to get w_C with C not in its divisor K_C. Then w_C restricts to a nonzero w-tilde_C on C^smooth with n_C zeros.",
+    "Lemma A.3: n_C <= H.C, since (H.C)_P = ord_P(w-tilde_C) on C^smooth(F) and H is effective.",
+    "Lemma A.4: sum_{C mult. 1} n_C <= sum_D m_D (H.D) = H.Xcal_s = K.Xcal_s = 2g - 2, using V.Xcal_s = 0 and adjunction (Liu 9.1.21, 9.1.35).",
+    "Theorem A.5: (1) residue classes over smooth points expand as in 5.2 and the proof of 5.3 applies; (2) sum over multiplicity-1 components with Lemma A.4."
+   ],
+   "acceptance": [
+    "Check on a curve with a node in the special fibre that residue classes over singular points are excluded because rational points reduce to smooth points of multiplicity-1 components.",
+    "Question A.7 (open in the source): whether 2g - 2 can be improved to 2r' in the bad reduction case."
+   ],
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Appendix A, Proposition A.1, Lemmas A.3-A.4 and Theorem A.5 with proofs, pp. 13-15 of the author copy",
+     "excerpt": "Theorem A.5. Let X, p, r' be as in Theorem 4.4, let Xcal over Z_p be a minimal regular model for X_{Q_p}, and let Xcal_s over F_p be its special fiber. [...] (2) If p > 2g, then #X(Q) <= #Xcal_s^smooth(F_p) + (2g - 2).",
+     "match": "Literal statement, p. 15 of the author copy."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.5/mordell-weil-sieve-set-and-its-soundness",
+   "parentStageId": "EffectiveDiophantineMethods:ED.5",
+   "title": "The sieve set A(S, N) in J(Q)/NJ(Q) and its soundness: every rational point maps into A(S, N), so A(S, N) = empty proves C(Q) = empty",
+   "kind": "theorem",
+   "statement": "Let C/Q be smooth projective of genus g >= 2 with Jacobian J, iota : C -> J defined over Q (a known rational divisor class of degree 1), and known generators of J(Q). For a finite set S of primes of good reduction and N >= 1, let beta_{N,p} : C(F_p) -> J(F_p)/NJ(F_p) be iota followed by the quotient, alpha : J(Q)/NJ(Q) -> prod_{p in S} J(F_p)/NJ(F_p) the reduction map, and A(S, N) = {a in J(Q)/NJ(Q) : alpha(a) in im(beta_{N,p}) for all p in S}. The diagram with C(Q) -> J(Q)/NJ(Q) on top and prod C(F_p) -> prod J(F_p)/NJ(F_p) at the bottom commutes, so the image of C(Q) lies in A(S, N). In particular A(S, N) = empty implies C(Q) = empty. More generally, with finitely many surjections phi_i : Gamma -> G_i onto finite abelian groups and subsets X_i, and L of finite index in Gamma, A(L) = {gamma in Gamma/L : phi_{L,i}(gamma) in X_{L,i} for all i}; A(N Gamma) is A(S, N) when Gamma = J(Q), G_p = phi_p(J(Q)) inside J(F_p) and X_p = iota(C(F_p)) intersected with G_p.",
+   "hypotheses": [
+    "C/Q smooth projective of genus >= 2 with a known embedding iota defined over Q",
+    "known generators of J(Q), or of a finite-index subgroup whose index is coprime to N",
+    "S a finite set of primes of good reduction (bad and deep information need Sections 5-6, not read)"
+   ],
+   "proofSteps": [
+    "Commutativity of the diagram is the compatibility of reduction with iota (Section 2).",
+    "If C(Q) = empty is expected, the images of alpha and beta should be disjoint for S and N large enough (Poonen's heuristic and the Main Conjecture of Stoll [St5]). This affects termination only, not soundness.",
+    "Section 3.3 closing paragraph: \"If we find that A(N_k Gamma) = empty for some k <= m, then we stop. In the context of our application, this means that we have proved that C(Q) = empty as well.\""
+   ],
+   "acceptance": [
+    "The sieve is sound only for the actual group generated by the input points. If they generate a finite-index subgroup, its index must be coprime to N (ED.3 certificate).",
+    "Acceptance for ED.5: the certificate records S, N, the groups G_p, the images X_p, the generators and index assumption, and the final set A(S, N). A sieve that has not reached an empty (or fully explained) A(S, N) is an open computation."
+   ],
+   "sources": [
+    {
+     "sourceId": "bruin-stoll-mordell-weil-sieve",
+     "locator": "Section 2 (the diagrams) and Section 3 opening (definition of A(S, N)), pp. 3-5; Definition 3.1, p. 8; end of Section 3.3, p. 12 of the arXiv copy",
+     "excerpt": "For a given set S and parameter N, denote by A(S, N) in J(Q)/NJ(Q) the subset of elements mapping into the image of C(F_p) in J(F_p)/NJ(F_p) for all p in S, in symbols: A(S, N) = {a in J(Q)/NJ(Q) : alpha(a) in im(beta_{N,p}) for all p in S}",
+     "match": "Literal definition, pp. 4-5 of the arXiv copy."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.5/staged-computation-of-the-sieve-set-through-prime-power-steps",
+   "parentStageId": "EffectiveDiophantineMethods:ED.5",
+   "title": "Bruin-Stoll Section 3.2-3.3: choose N = q_1...q_m by best-first search on expected sizes and compute A(N_k Gamma) by lifting through intermediate subgroups L_j",
+   "kind": "construction",
+   "statement": "Given Gamma (finitely generated abelian of rank r) and triples (G_i, phi_i, X_i), the expected size of A(L) is n(L) = #(Gamma/L) prod_i #X_{L,i}/#G_{L,i}. Problem 3.2: find N with A(N Gamma) likely empty and computable, and compute it. FindQSequence does a best-first search over sequences of primes q_k with N dividing a bound M (typically M = N_{l-r-1-j} for the invariant factors of prod J(F_p)), such that n((prod q_k)Gamma) < epsilon_1 and max_k n(N_k Gamma) is minimal. Lift(k) computes A(N_k Gamma) from A(N_{k-1} Gamma) through a chain N_{k-1}Gamma = L_0 > L_1 > ... > L_t = N_k Gamma chosen by PrepareLift. Only the indices i with v_{q_k}(e_i) >= v_{q_k}(N_k) (e_i the exponent of G_i) can give new information. At each step an element survives iff phi_{L_j,i}(a' + l) is in X_{L_j,i} for all relevant i.",
+   "hypotheses": [
+    "Gamma, G_i finite, phi_i surjective, X_i subsets given explicitly (products of cyclic groups, images of generators, enumerated subsets)"
+   ],
+   "proofSteps": [
+    "The correctness of the staged computation is set-theoretic: A(L_j) is exactly the set of lifts of elements of A(L_{j-1}) satisfying the conditions for the indices I_j that change at step j. Elements for i not in I_j satisfy the condition automatically because phi_i(L_j) = phi_i(L_{j-1}). This is stated in the construction of PrepareLift and not isolated as a lemma in the source.",
+    "Complexity estimate: sum_j #A(L_{j-1}) (L_{j-1} : L_j), usually about #A(N_{k-1}Gamma) q_k (heuristic, Section 3.3).",
+    "The choice of S (Section 3.1) uses primes with B-smooth #J(F_p) and Pohlig-Hellman discrete logarithms; it affects efficiency, not soundness."
+   ],
+   "acceptance": [
+    "Check that replacing G_p by the image of J(Q) (not all of J(F_p)) is essential for the expected-size heuristic, as the source warns."
+   ],
+   "sources": [
+    {
+     "sourceId": "bruin-stoll-mordell-weil-sieve",
+     "locator": "Sections 3.1-3.3 (Definition 3.1, Problem 3.2, FindQSequence, PrepareLift, Lift), pp. 6-12 of the arXiv copy",
+     "excerpt": "Definition 3.1. Let L in Gamma be a subgroup of finite index. We set G_{L,i} = G_i/phi_i(L), write X_{L,i} for the image of X_i in G_{L,i}, and denote by phi_{L,i} the induced homomorphism Gamma/L -> G_{L,i}. We define A(L) = {gamma in Gamma/L : phi_{L,i}(gamma) in X_{L,i} for all i in I}",
+     "match": "Literal definition, p. 8 of the arXiv copy."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.5/canonical-height-separation-of-cosets-of-N-J-Q",
+   "parentStageId": "EffectiveDiophantineMethods:ED.5",
+   "title": "Bruin-Stoll Section 4.2: if N is divisible by the torsion exponent and N^2 > 4H'/m, each coset of NJ(Q) contains at most one point of canonical height <= H'",
+   "kind": "lemma",
+   "statement": "Let m be the minimal canonical height of a non-torsion point of J(Q), H' > 0, and N divisible by the exponent of J(Q)_tors with N^2 > 4H'/m. If Q, Q' in J(Q) satisfy Q - Q' in NJ(Q) and hhat(Q), hhat(Q') <= H', then Q = Q'.",
+   "hypotheses": [
+    "canonical height hhat on J(Q) and its minimum m on non-torsion points are known (for genus 2 from Stoll's algorithms [St1, St3], not read)"
+   ],
+   "proofSteps": [
+    "Source status: stated as a consequence (\"These conditions imply\") without a written proof.",
+    "Unwritten deduction: if Q != Q', then Q - Q' = N R with R in J(Q). If R is torsion, NR = 0 because N kills J(Q)_tors, a contradiction. Otherwise hhat(Q - Q') = N^2 hhat(R) >= N^2 m > 4H'. But hhat(Q - Q') <= 2hhat(Q) + 2hhat(Q') <= 4H' by the parallelogram law, a contradiction."
+   ],
+   "acceptance": [
+    "Used to turn A(S, N) into a list of at most one candidate point per coset when searching up to a height bound."
+   ],
+   "sources": [
+    {
+     "sourceId": "bruin-stoll-mordell-weil-sieve",
+     "locator": "Section 4.2, p. 13 of the arXiv copy",
+     "excerpt": "For the purposes of this application, we require N to be divisible by the exponent of the torsion group J(Q)_tors and to be such that N^2 > 4H'/m, where m is the minimal canonical height of a non-torsion point in J(Q). These conditions imply that if Q, Q' in J(Q) are such that Q - Q' in NJ(Q) and hhat(Q), hhat(Q') <= H', then Q = Q'.",
+     "match": "Literal passage, p. 13 of the arXiv copy."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.5/kummer-surface-test-for-small-points-on-a-genus-two-jacobian",
+   "parentStageId": "EffectiveDiophantineMethods:ED.5",
+   "title": "Bruin-Stoll Lemma 4.1: a point of J(Q) of canonical height <= H' lying on iota(C(F_{p_j})) for enough primes lies on iota(C(Q))",
+   "kind": "lemma",
+   "statement": "Let C be a genus-2 curve, P_0 in C(Q) with x(P_0) = (a : b) coprime integers, iota(P) = [P - P_0], and gamma a bound for h - hhat on J(Q). Let p_1, ..., p_m be primes of good reduction with p_1...p_m > e^{H' + gamma} max{|a|, |b|}^2, such that P_0 and its hyperelliptic conjugate are distinct mod some p_{j_0} if distinct in C(Q). If Q in J(Q) has hhat(Q) <= H' and Q mod p_j lies in iota(C(F_{p_j})) for all j, then Q is in iota(C(Q)).",
+   "hypotheses": [
+    "C of genus 2 with a rational point P_0",
+    "naive height h on the Kummer surface and a bound gamma for h - hhat (Stoll [St1, St3])"
+   ],
+   "proofSteps": [
+    "Let (k_1 : k_2 : k_3 : k_4) be the image of Q on the Kummer surface with coprime integers. If Q mod p_j is on the image of the curve, p_j divides k_1 b^2 - k_2 ab + k_3 a^2.",
+    "This integer has absolute value at most e^{H' + gamma} max{|a|, |b|}^2, so divisibility by all p_j forces it to vanish, giving Q = [P - P_0] or [P - Pbar_0] for some P in C(Q); the two cases are separated mod p_{j_0}."
+   ],
+   "acceptance": [
+    "Check the Kummer coordinate relation k_1 b^2 - k_2 ab + k_3 a^2 = 0 on a known point [P - P_0]."
+   ],
+   "sources": [
+    {
+     "sourceId": "bruin-stoll-mordell-weil-sieve",
+     "locator": "Section 4.2, Lemma 4.1 with proof, p. 14 of the arXiv copy",
+     "excerpt": "Lemma 4.1. Let P_0 in C(Q) and write x(P_0) = (a : b) with coprime integers a, b. Let p_1, p_2, ..., p_m be primes of good reduction such that p_1 p_2 ... p_m > e^{H'+gamma} max{|a|, |b|}^2",
+     "match": "Literal beginning of the statement, p. 14 of the arXiv copy."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.5/chabauty-plus-sieve-determination-of-rational-points",
+   "parentStageId": "EffectiveDiophantineMethods:ED.5",
+   "title": "Bruin-Stoll Section 4.4: if omega_p annihilating J(Q) has nonvanishing reduction on C(F_p) and exp J(F_p) divides N, then C(Q) injects into J(Q)/NJ(Q) and the sieve decides each coset (termination conjectural)",
+   "kind": "theorem",
+   "statement": "Let C/Q have genus g >= 2 with Mordell-Weil rank r < g, p >= 3 a prime of good reduction and omega_p in Omega(C_{Q_p}) nonzero, annihilating J(Q), with reduction omega-bar_p not vanishing at any point of C(F_p). (a) Each residue class mod p contains at most one rational point (cited to [St4, Section 6]). (b) If the exponent of J(F_p) divides N, rational points mapping into the same coset of NJ(Q) reduce to the same point of C(F_p). By (a) each coset of NJ(Q) contains the image of at most one rational point. (c) Procedure: find such p; choose S and N with exp J(F_p) dividing N; compute A(S, N); for each a in A(S, N) take the point of smallest canonical height in the coset and check whether it comes from C(Q); otherwise enlarge S or N and recompute on the unresolved elements. If the procedure terminates it returns exactly C(Q).",
+   "hypotheses": [
+    "r < g, generators (or a finite-index subgroup of index prime to N) of J(Q)",
+    "p >= 3 of good reduction with omega-bar_p nonvanishing on C(F_p)",
+    "a known base point for iota"
+   ],
+   "proofSteps": [
+    "(a) is imported from Stoll, Independence of rational points on twists of a given curve [St4], Section 6, which was not read. McCallum-Poonen Theorem 5.3(a) gives the same conclusion when m = ord omega-bar_p = 0 < p - 2, i.e. p >= 3.",
+    "(b) Reduction mod p factors through J(Q)/NJ(Q) -> J(F_p)/NJ(F_p) = J(F_p) when exp J(F_p) divides N, and iota mod p is injective on C(F_p) for genus >= 1.",
+    "Termination is conditional: Steps 4-5 terminate if the Main Conjecture of Stoll [St5] holds for C, and Step 1 succeeds under Conjecture 4.2 (infinitely many good p with nonvanishing omega-bar_p for simple J with r < g). Lemma 4.3 supports Conjecture 4.2 heuristically: a random nonzero regular differential on a genus-g curve over F_p misses C(F_p) with probability at least 1/3 + O(g p^{-1/2})."
+   ],
+   "acceptance": [
+    "Correctness (the output equals C(Q) when the procedure terminates) must be separated from termination, which is conjectural (Conjecture 4.2, Stoll's Main Conjecture).",
+    "Conjecture 4.4 (deep information) is stated to follow from Matev's p-adic analytic subgroup theorem when the rank is 1; record it as reported, not verified."
+   ],
+   "sources": [
+    {
+     "sourceId": "bruin-stoll-mordell-weil-sieve",
+     "locator": "Section 4.4 (procedure steps 1-5, Conjecture 4.2, Lemma 4.3, Conjecture 4.4), pp. 16-21 of the arXiv copy",
+     "excerpt": "On the other hand, if N is divisible by the exponent of J(F_p), then the rational points on C mapping via iota into a given coset of NJ(Q) in J(Q) will all reduce mod p to the same point in C(F_p). So if omega-bar_p does not vanish at any point in C(F_p), then we know that each coset of NJ(Q) can contain the image under iota of at most one point in C(Q).",
+     "match": "Literal passage, p. 16 of the arXiv copy."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.6/quadratic-chabauty-set-for-rank-equal-genus-with-picard-rank-at-least-two",
+   "parentStageId": "EffectiveDiophantineMethods:ED.6",
+   "title": "Quadratic Chabauty (BDMTV Section 2): for r = g, log iso and rk NS(J) >= 2, X(Q) lies in the finite set {x in X(Q_p) : h(x) - h_p(x) in Upsilon}",
+   "kind": "theorem",
+   "statement": "Let X/Q be smooth projective of genus g >= 2 with Jacobian J of rank r = g, with log : J(Q) (x) Q_p -> H^0(X_{Q_p}, Omega^1)^vee an isomorphism (2.1), X(Q) non-empty with base point b, and rk_Z NS(J) >= 2. A nontrivial Z in Ker(NS(J) -> NS(X) = Z) determines a quotient U_Z of the Q_p-pro-unipotent fundamental group and mixed extensions A(x) = A_Z(b, x) of Galois representations with graded pieces Q_p(1), V = H_1^et, Q_p. Nekovar's p-adic height gives h : X(Q) -> Q_p, bilinear in ([alpha], [beta]) and a sum of local heights h_v. For v != p, h_v has finite image Upsilon_v (Kim-Tamagawa). For v = p, h_p is locally analytic and computed from the filtered phi-module M(x). With Upsilon = {sum_v epsilon_v : epsilon_v in Upsilon_v}, h(x) - h_p(x) is in Upsilon for x in X(Q) (2.3). The extension of h to X(Q_p) via (2.4) makes rho = h - h_p : X(Q_p) -> Q_p a quadratic Chabauty function, Zariski dense on every residue disc, so the set {x in X(Q_p) : rho(x) in Upsilon} is finite and contains X(Q) and the Chabauty-Kim set X(Q_p)_2.",
+   "hypotheses": [
+    "X/Q smooth projective, genus g >= 2, rank J(Q) = g (certified separately)",
+    "log J(Q) (x) Q_p -> H^0(X_{Q_p}, Omega^1)^vee is an isomorphism (2.1)",
+    "rk NS(J) >= 2, X(Q) nonempty",
+    "p a prime of good reduction (for the algorithm, Assumption 3.10)",
+    "imports: Balakrishnan-Dogra [BD18] (Lemma 3.2, Section 5.1, Prop. 5.5), [BDM+19] Sections 3-5, Nekovar [Nek93] Section 2, Kim-Tamagawa [KT08] Cor. 0.2, Betts-Dogra [BD19]"
+   ],
+   "proofSteps": [
+    "Source status: Section 2 is an overview; \"we refer the reader to [BD18, BDM+19] for more precise details and proofs\". None of the imported proofs was read.",
+    "Finiteness: rho is Zariski dense on each residue disc and Upsilon is finite, so each disc contains finitely many solutions (2.5).",
+    "Containment of X(Q_p)_2: [BD18, Prop. 5.5]."
+   ],
+   "acceptance": [
+    "This node is the ED.6 consumer of AnabelianGeometryAndNonabelianChabauty NC.5, which owns the depth-two quotient and height equations; the ED.6 obligation is the algorithmic and precision layer.",
+    "Remark 3.14 failure mode: if log is not an isomorphism despite r = g, increasing precision may not help. For X_0^+(N) weak BSD implies the isomorphism; in general this is a conjecture of Waldschmidt."
+   ],
+   "sources": [
+    {
+     "sourceId": "bdmtv-quadratic-chabauty-modular-curves",
+     "locator": "Section 2.1-2.3, pp. 4-6 of the arXiv copy",
+     "excerpt": "Consider a smooth projective curve X_Q of genus g >= 2 whose Jacobian J has rank r = g. We also assume that the abelian logarithm induces an isomorphism (2.1) log : J(Q) (x) Q_p -> H^0(X_{Q_p}, Omega^1)^vee and that X(Q) is non-empty, so we may choose a base point b in X(Q). Suppose that the Neron-Severi rank rk_Z NS(J) is at least 2",
+     "match": "Literal passage, p. 4 of the arXiv copy."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.6/local-heights-away-from-p-via-reduction-graph-laplacian",
+   "parentStageId": "EffectiveDiophantineMethods:ED.6",
+   "title": "BDMTV Theorem 3.2 (Betts-Dogra): h_l = c . j_Gamma o red with j_Gamma the unique piecewise polynomial function with j_Gamma(red(b)) = 0 and Laplacian mu_F",
+   "kind": "theorem",
+   "statement": "Let l != p, K/Q_l finite with a regular semistable model of X over O_K, Gamma the dual graph (a rationally metrised graph, edges of length i(e)/r), red : X(Q_l) -> V(Gamma), and F in End(J) (x) Q_p with class in Ker(NS(J) -> NS(X)). The local height h_l equals c . j_Gamma o red for a constant c. Here j_Gamma : Gamma_Q -> Q_p is the unique piecewise polynomial function with j_Gamma(red(b)) = 0 and Laplacian mu_F = sum_{e in E(Gamma)} (1/l(e)) e^*F(pi(e)) . e + (1/2) sum_{w in V(Gamma)} Tr(F|V_p(X_w)) . w, with pi the orthogonal projection Q E(Gamma) -> H_1(Gamma, Q) and V_p(X_w) the rational Tate module of the Jacobian of the component X_w.",
+   "hypotheses": [
+    "l != p",
+    "a regular semistable model over a finite extension K/Q_l is known",
+    "import: Betts-Dogra [BD19] Theorem 1.1.2, Lemma 12.1.1, Corollary 12.1.3 (not read)"
+   ],
+   "proofSteps": [
+    "Imported from [BD19]. BDMTV give no algorithm for the action of F on H_1(Gamma) (deferred to forthcoming work).",
+    "The weight filtration of V_p(X) (grW_0 = H_1(Gamma), grW_1 = direct sum of V_p(X_w), grW_2 = H_1(Gamma)^* (1), cited to SGA 7 12.3.7) is used to define Tr(F|V_p(X_w))."
+   ],
+   "acceptance": [
+    "Example 3.3 (C188, y^2 = x^5 - x^4 + x^3 + x^2 - 2x + 1 at l = 2): Gamma is a segment with two edges of length 1/3 and trivial homology, so j_Gamma is affine linear. Reproduce this before trusting general computations.",
+    "Remark 3.16: when the relation between the stable model and the working model is unknown (X_ns^+(17) at 17), the source instead uses inertia information to find a subspace of line bundles with vanishing local heights."
+   ],
+   "sources": [
+    {
+     "sourceId": "bdmtv-quadratic-chabauty-modular-curves",
+     "locator": "Section 3.1, Theorem 3.2 and Example 3.3, pp. 6-9 of the arXiv copy",
+     "excerpt": "Theorem 3.2 ([BD19, Theorem 1.1.2, Lemma 12.1.1, and Corollary 12.1.3]). Let Gamma be the dual graph of X corresponding to a regular semi-stable model of X over O_K, where K/Q_l is a finite extension. Let red : X(Q_l) -> V(Gamma) be the reduction map. [...] The morphism j_Gamma is the unique piecewise polynomial function j_Gamma : Gamma_Q -> Q_p satisfying j_Gamma(red(b)) = 0 and nabla^2(j_Gamma) = mu_F",
+     "match": "Literal statement, pp. 7-8 of the arXiv copy."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.6/quadratic-chabauty-algorithm-for-modular-curves-with-failure-conditions",
+   "parentStageId": "EffectiveDiophantineMethods:ED.6",
+   "title": "BDMTV Algorithm 3.12: inputs, steps and FAIL conditions for computing a p-adic approximation of a finite set containing X(Q_p)_2",
+   "kind": "construction",
+   "statement": "Input: a modular curve X/Q with r = g and rk NS(J) > 1 such that the image of J(Q) in H^0(X_{Q_p}, Omega^1)^vee has rank g; a covering of X by affine opens birational to plane curves Q(x, y) = 0 monic in y with p-integral coefficients satisfying Assumption 3.10 (so X has good reduction at p, Remark 3.11); a prime p of good reduction such that the Hecke operator T_p generates End^0(J); local height functions X(Q_l) -> Ker(NS(J) -> NS(X))^*_{Q_p} for all l not of potentially good reduction (Theorem 3.2); a starting precision n; a height bound B. Output: an approximation to precision n' <= n of a finite set containing X(Q_p)_2, or FAIL. Steps: (1) find known points of height <= B; (2) an integral symplectic basis of H^1_dR (or FAIL); (3) Frobenius on H^1_dR by Tuitman's algorithm and T_p via Eichler-Shimura; (4) an End(J)-equivariant splitting of the Hodge filtration; (5) matrices of a basis Z_1, ..., Z_{rk NS - 1} of Ker(NS(J) -> NS(X)); (6) for each Z_i compute lambda_Fil, lambda_phi, solve for the global height pairing from known rational points or Coleman-Gross heights on r independent points (else FAIL), find the zeros of the quadratic Chabauty function(s) (FAIL on precision loss), and FAIL if a non-simple solution corresponds to a known rational point; (7) return the common solutions.",
+   "hypotheses": [
+    "r = g certified a priori (Remark 3.13: for modular curves via Gross-Zagier-Kolyvagin-Logachev and analytic rank one; for hyperelliptic curves possibly by 2-descent)",
+    "Assumption 3.10 on the plane models at p",
+    "T_p generates End^0(J)",
+    "local heights at bad primes supplied externally (Remark 3.16)"
+   ],
+   "proofSteps": [
+    "The steps and FAIL conditions are those of Algorithm 3.12; Steps (6a)(i)-(ii) follow [BDM+19] Sections 4-5 and are imported.",
+    "Remark 3.15: for p ordinary, the unit root splitting is computed as the span of (phi^*)^n eta_{g+1}, ..., (phi^*)^n eta_{2g} mod p^n.",
+    "Section 3.4 and Remark 3.8: the returned finite set is compared with X(Q) by the Mordell-Weil sieve (used for the genus-2 examples) or shown to equal X(Q)_known. A finite set of p-adic candidates is not by itself X(Q).",
+    "Section 4.4: Proposition 4.6 bounds ord_p(rho_i) >= -2 floor(log_p i) + c_1 + min{c_2, c_3} for i >= i_0, and Lemma 4.7 converts this into provable root precision."
+   ],
+   "acceptance": [
+    "Worked examples in the source (not decomposed): X_S4(13), X_0^+(N) of genus 2-3 for prime N, genus-2 curves in Mazur's Program B, C188 and another curve with nontrivial local heights, and X_ns^+(17) of genus 6.",
+    "Acceptance for ED.6: each run records the verified rank, the NS-rank condition, the log isomorphism, all local heights, the precision reached, the FAIL status, and the final comparison with global points."
+   ],
+   "sources": [
+    {
+     "sourceId": "bdmtv-quadratic-chabauty-modular-curves",
+     "locator": "Section 3.5, Definition 3.9, Assumption 3.10, Algorithm 3.12, Remarks 3.11-3.15, pp. 13-15 of the arXiv copy",
+     "excerpt": "Algorithm 3.12 (Quadratic Chabauty for modular curves). Input: A modular curve X/Q with Mordell-Weil rank r = g and rk_Z NS(J) > 1, and for which the image of J(Q) in H^0(X_{Q_p}, Omega^1)^vee has rank g. [...] Output: An approximation to a finite set containing the set of points X(Q_p)_2, computed to precision n' <= n or FAIL.",
+     "match": "Literal passage, p. 14 of the arXiv copy."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EffectiveDiophantineMethods:ED.6/coefficient-valuation-bound-for-the-quadratic-chabauty-function",
+   "parentStageId": "EffectiveDiophantineMethods:ED.6",
+   "title": "BDMTV Proposition 4.6: on a residue disc, the expansion of rho = h - h_p satisfies ord_p(rho_i) >= -2 floor(log_p i) + c_1 + min{c_2, c_3} for i >= i_0",
+   "kind": "lemma",
+   "statement": "Let D be a residue disc in X(Q_p) intersected with ]U[, t a local parameter, and rho(t) = sum rho_i t^i the expansion of rho = h - h_p on D. With c_1 = ord_p(lambda_phi(x_1)), c_2 = min{0, v_spl, ord_p(beta_Fil), v_spl + ord_p(beta_Fil)}, c_3 = min_i ord_p(d_i) (the coefficients of the global height solve) and i_0 as defined in Section 4.4, for i >= i_0 one has ord_p(rho_i) >= -2 floor(log_p i) + c_1 + min{c_2, c_3}. Lemma 4.5: ord_p(h_i) >= min{ord_p(gamma_Fil), phi(i) + c_2} for the expansion of h_p.",
+   "hypotheses": [
+    "the quantities c_1, c_2, c_3, v_spl, phi(i) and i_0 of Section 4 (which depend on Sections 4.1-4.3, not read in detail)"
+   ],
+   "proofSteps": [
+    "Lemma 4.5 follows from (3.2), which expresses h_p through lambda_Fil and lambda_phi, and from the coefficient bounds phi(i) + c_1 for lambda_phi.",
+    "For i >= i_0, phi(i) = -2 floor(log_p i) + c_1, which gives Proposition 4.6."
+   ],
+   "acceptance": [
+    "Combine with Lemma 4.7 (ED.0 node) to certify the roots of rho to precision (n - k)/d.",
+    "Sections 4.1-4.3 (Hodge filtration, Frobenius splitting, global heights: Proposition 4.1, Lemmas 4.2-4.4) were not read; record their precision bounds as unverified inputs."
+   ],
+   "sources": [
+    {
+     "sourceId": "bdmtv-quadratic-chabauty-modular-curves",
+     "locator": "Section 4.4, Lemma 4.5 and Proposition 4.6, pp. 24-25 of the arXiv copy",
+     "excerpt": "Proposition 4.6. Let rho(t) = sum_{i>=0} rho_i t^i be the expansion of the quadratic Chabauty function rho = h - h_p on D. If i >= i_0, then we have ord_p(rho_i) >= -2 floor(log_p(i)) + c_1 + min{c_2, c_3}.",
+     "match": "Literal statement, p. 25 of the arXiv copy."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "EffectiveDiophantineMethods:ED.1/lll-lower-bound-for-nonzero-vectors-of-a-reduced-basis-lattice",
+   "target": "EffectiveDiophantineMethods:ED.1/homogeneous-lattice-reduction-of-a-huge-exponent-bound",
+   "reason": "The proof of Proposition 3.1 uses the lower bound (3.2) for the lattice point built from a solution.",
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Section II.3, (3.2)-(3.3), pp. 112-113"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.1/lll-lower-bound-for-nonzero-vectors-of-a-reduced-basis-lattice",
+   "target": "EffectiveDiophantineMethods:ED.1/inhomogeneous-lattice-reduction-via-closest-vector-distance",
+   "reason": "The inhomogeneous case uses the same reduced basis, and the imported distance bound of de Weger Lemma 3.5 is of the same LLL type.",
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Section II.3, case (ii), p. 114"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.2/large-thue-solutions-approximate-a-real-root",
+   "target": "EffectiveDiophantineMethods:ED.2/thue-equation-to-unit-equation-and-small-linear-form-in-logarithms",
+   "reason": "Lemma 1.2 bounds the right-hand side of (1.2) using |beta^(i_0)| <= C_1|Y|^{-(n-1)} and |beta^(i)| >= C_2|Y| from Lemma 1.1.",
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Proof of Lemma 1.2, pp. 105-106"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.2/thue-equation-to-unit-equation-and-small-linear-form-in-logarithms",
+   "target": "EffectiveDiophantineMethods:ED.2/exponent-bound-and-exponential-decay-of-the-linear-form",
+   "reason": "Lemma 2.2 is Lemma 1.2 combined with the exponent bound of Lemma 2.1, which uses the unit decomposition beta = mu epsilon^a.",
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Lemmas 2.1-2.2, pp. 107-110"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.2/large-thue-solutions-approximate-a-real-root",
+   "target": "EffectiveDiophantineMethods:ED.2/exponent-bound-and-exponential-decay-of-the-linear-form",
+   "reason": "The proof of Lemma 2.1 uses the end of the proof of Lemma 1.1 and part (i) of Lemma 1.1.",
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Proof of Lemma 2.1, pp. 108-109"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.2/exponent-bound-and-exponential-decay-of-the-linear-form",
+   "target": "EffectiveDiophantineMethods:ED.2/initial-exponent-bound-from-a-logarithmic-form-lower-bound",
+   "reason": "Lemma 2.4 combines the upper bound of Lemma 2.2 with the lower bound of Lemma 2.3.",
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Proof of Lemma 2.4, p. 110"
+    }
+   ]
+  },
+  {
+   "source": "DiophantineApproximationAndTranscendence:DT.3",
+   "target": "EffectiveDiophantineMethods:ED.2/initial-exponent-bound-from-a-logarithmic-form-lower-bound",
+   "reason": "DT.3 is the atlas owner of \"Baker-type explicit lower bounds\" with \"the exact degree/height/prime dependence of a bound recorded\". Lemma 2.3 of Tzanakis-de Weger imports exactly such an explicit lower bound for a nonzero real linear form in logarithms, with the complex-case adaptation. Scope caveat: the source uses Waldschmidt 1980 with constants from its Appendix II, while the EXT-08 decomposition of DT.3 records Baker and Matveev. The constants must be recomputed for whichever theorem DT.3 exports.",
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Lemma 2.3 and Appendix II reference, p. 110"
+    }
+   ]
+  },
+  {
+   "source": "GeometryOfNumbersAndQuadraticArithmetic:GN.5",
+   "target": "EffectiveDiophantineMethods:ED.1/lll-lower-bound-for-nonzero-vectors-of-a-reduced-basis-lattice",
+   "reason": "GN.5 \"supplies LLL-style reduction ... with exact change-of-basis certificates\" and requires \"its proven approximation factor\". The LLL property |x| >= 2^{-(q-1)/2}|b_1| (LLL Proposition 1.11) and the exact integral version of the algorithm are what Tzanakis-de Weger consume.",
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Section II.3, (3.2) and the integral version of L^3, pp. 111-112"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.2/initial-exponent-bound-from-a-logarithmic-form-lower-bound",
+   "target": "EffectiveDiophantineMethods:ED.2/four-class-certificate-for-all-solutions-of-a-thue-equation",
+   "reason": "Class (IV) is excluded by the bound A < C_9 of Lemma 2.4, which also supplies K_3 for class (III).",
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Lemma 2.4 and Remark, pp. 110-111"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.2/large-thue-solutions-approximate-a-real-root",
+   "target": "EffectiveDiophantineMethods:ED.2/four-class-certificate-for-all-solutions-of-a-thue-equation",
+   "reason": "Classes (I)-(II) are delimited by Y_1 and handled by the convergent criterion of Lemma 1.1(ii).",
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Lemma 1.1 and the class definitions, p. 103"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.2/exponent-bound-and-exponential-decay-of-the-linear-form",
+   "target": "EffectiveDiophantineMethods:ED.2/four-class-certificate-for-all-solutions-of-a-thue-equation",
+   "reason": "The inequality |Lambda| < C_6 exp(-(n/C_5)A) of Lemma 2.2 is the form (3.1) with K_1 = C_6 and K_2 = n/C_5 that the reduction step needs.",
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Section II.3, first paragraph, p. 111"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.1/homogeneous-lattice-reduction-of-a-huge-exponent-bound",
+   "target": "EffectiveDiophantineMethods:ED.2/four-class-certificate-for-all-solutions-of-a-thue-equation",
+   "reason": "Class (III) is excluded by applying Proposition 3.1 (and iterating it) to the bound K_3 = C_9.",
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Section II.3, Proposition 3.1, p. 114"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.1/inhomogeneous-lattice-reduction-via-closest-vector-distance",
+   "target": "EffectiveDiophantineMethods:ED.2/four-class-certificate-for-all-solutions-of-a-thue-equation",
+   "reason": "In the inhomogeneous case (delta != 0, the typical Thue case (1.3)), class (III) is excluded by Proposition 3.2.",
+   "sources": [
+    {
+     "sourceId": "tzanakis-de-weger-practical-thue",
+     "locator": "Section II.3, Proposition 3.2, p. 114"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.4/p-adic-abelian-logarithm-and-integration-pairing-on-the-jacobian",
+   "target": "EffectiveDiophantineMethods:ED.4/p-adic-closure-of-mordell-weil-has-dimension-at-most-rank",
+   "reason": "The proof of Lemma 4.2 uses that log is a local diffeomorphism and continuous.",
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Proof of Lemma 4.2, pp. 4-5"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.4/p-adic-closure-of-mordell-weil-has-dimension-at-most-rank",
+   "target": "EffectiveDiophantineMethods:ED.4/chabauty-finiteness-when-closure-dimension-is-less-than-genus",
+   "reason": "Theorem 4.4 is stated for r' as in Lemma 4.2 and uses r' <= r to cover the case r < g.",
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Theorem 4.4, p. 5"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.4/p-adic-abelian-logarithm-and-integration-pairing-on-the-jacobian",
+   "target": "EffectiveDiophantineMethods:ED.4/coleman-integrals-on-residue-classes-of-a-good-reduction-curve",
+   "reason": "Integrals on X are defined as int_0^{[Q'-Q]} omega_J, and the annihilating form comes from lambda o log.",
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Sections 5.1 and 5.4, pp. 5-7"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.4/p-adic-closure-of-mordell-weil-has-dimension-at-most-rank",
+   "target": "EffectiveDiophantineMethods:ED.4/coleman-integrals-on-residue-classes-of-a-good-reduction-curve",
+   "reason": "The proof of Lemma 4.2 shows log J(Q) is a Z_p-module of rank r', which is what makes a vanishing functional exist when r' < g.",
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Section 5.4, p. 6"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.4/coleman-integrals-on-residue-classes-of-a-good-reduction-curve",
+   "target": "EffectiveDiophantineMethods:ED.4/coleman-bound-on-rational-points-at-a-good-prime",
+   "reason": "Part (a) applies property (iii) and the residue-class expansion I(t) with I' = w.",
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Proof of Theorem 5.3(a), p. 7"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.4/newton-polygon-zero-bound-for-integrals-in-a-residue-disc",
+   "target": "EffectiveDiophantineMethods:ED.4/coleman-bound-on-rational-points-at-a-good-prime",
+   "reason": "Lemma 5.1 applied to I(t) bounds the zeros in a residue class by m + 1.",
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Proof of Theorem 5.3(a), p. 7"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.4/coleman-bound-on-rational-points-at-a-good-prime",
+   "target": "EffectiveDiophantineMethods:ED.4/coleman-bound-at-a-prime-of-bad-reduction-via-minimal-regular-model",
+   "reason": "Theorem A.5(1) reuses the proof of Theorem 5.3 on residue classes over smooth points.",
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Proof of Theorem A.5(1), p. 15"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.4/newton-polygon-zero-bound-for-integrals-in-a-residue-disc",
+   "target": "EffectiveDiophantineMethods:ED.4/coleman-bound-at-a-prime-of-bad-reduction-via-minimal-regular-model",
+   "reason": "The residue-class count in Theorem A.5(1) is Lemma 5.1 applied to the local expansion.",
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Proof of Theorem A.5(1), p. 15"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.3/finite-index-subgroup-certificate-with-index-prime-to-the-sieve-primes",
+   "target": "EffectiveDiophantineMethods:ED.4/coleman-integrals-on-residue-classes-of-a-good-reduction-curve",
+   "reason": "The annihilating differential needs only log of a finite-index subgroup with the same p-adic closure, and Remark 6.1 says index prime to p . #J(F_p) suffices; this is how ED.3's certificate enters ED.4.",
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Remark 6.1, p. 8"
+    }
+   ]
+  },
+  {
+   "source": "ColemanIntegration:L1",
+   "target": "EffectiveDiophantineMethods:ED.4/coleman-integrals-on-residue-classes-of-a-good-reduction-curve",
+   "reason": "L1 constructs Coleman functions and integration on curves with good reduction, with analytic continuation and the uniqueness principle. McCallum-Poonen define the integral through the Jacobian, which is enough for the proof of Theorem 5.3. To compute integrals between different residue classes, or to set constants of integration, they point to Coleman's theory (\"Coleman's theory of p-adic integration [Col85a] gives a method for setting the constant of integration directly in terms of calculations on X\"). That is L1's output.",
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Remark 8.3(2), p. 12 of the author copy"
+    }
+   ]
+  },
+  {
+   "source": "SchemeAndStackFoundations:SF.3",
+   "target": "EffectiveDiophantineMethods:ED.4/coleman-bound-on-rational-points-at-a-good-prime",
+   "reason": "SF.3 owns divisors, Riemann-Roch, genus and Jacobians. Theorem 5.3(b) uses Riemann-Roch on the reduction to count the 2g - 2 zeros of omega-tilde, and the construction uses the Albanese/Jacobian embedding X -> J.",
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Proof of Theorem 5.3(b), p. 7, and Section 2, p. 2 of the author copy"
+    }
+   ]
+  },
+  {
+   "source": "HeightsRationalPointsAndObstructions:RP.1",
+   "target": "EffectiveDiophantineMethods:ED.3/finite-index-subgroup-certificate-with-index-prime-to-the-sieve-primes",
+   "reason": "RP.1 owns Kummer maps, Selmer groups and the finite-generation argument. A finite-index subgroup G of J(Q) is meaningful only once rank J(Q) is known, and McCallum-Poonen assume it is computed by descent (\"There exists an algorithm that attempts to compute J(Q), based on descent\"). The index test then certifies saturation.",
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "Section 2, pp. 2-3, and Remark 6.1, p. 8 of the author copy"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.5/mordell-weil-sieve-set-and-its-soundness",
+   "target": "EffectiveDiophantineMethods:ED.5/staged-computation-of-the-sieve-set-through-prime-power-steps",
+   "reason": "The staged computation computes the set A(N Gamma) = A(S, N) defined in Section 3 and generalized in Definition 3.1.",
+   "sources": [
+    {
+     "sourceId": "bruin-stoll-mordell-weil-sieve",
+     "locator": "Sections 3.2-3.3, pp. 8-12"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.5/staged-computation-of-the-sieve-set-through-prime-power-steps",
+   "target": "EffectiveDiophantineMethods:ED.5/chabauty-plus-sieve-determination-of-rational-points",
+   "reason": "Step 3 of the Section 4.4 procedure computes A(S, N) \"as described in Section 3.3\".",
+   "sources": [
+    {
+     "sourceId": "bruin-stoll-mordell-weil-sieve",
+     "locator": "Section 4.4, step 3, p. 17"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.5/mordell-weil-sieve-set-and-its-soundness",
+   "target": "EffectiveDiophantineMethods:ED.5/chabauty-plus-sieve-determination-of-rational-points",
+   "reason": "Soundness of the sieve is what rules out cosets that contain no rational point.",
+   "sources": [
+    {
+     "sourceId": "bruin-stoll-mordell-weil-sieve",
+     "locator": "Section 4.4, p. 16"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.5/canonical-height-separation-of-cosets-of-N-J-Q",
+   "target": "EffectiveDiophantineMethods:ED.5/chabauty-plus-sieve-determination-of-rational-points",
+   "reason": "Step 4 takes \"the point of smallest canonical height in the coset\", which is well defined and unique up to the height bound by the separation criterion of Section 4.2.",
+   "sources": [
+    {
+     "sourceId": "bruin-stoll-mordell-weil-sieve",
+     "locator": "Section 4.4, step 4, p. 17; Section 4.2, p. 13"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.5/kummer-surface-test-for-small-points-on-a-genus-two-jacobian",
+   "target": "EffectiveDiophantineMethods:ED.5/chabauty-plus-sieve-determination-of-rational-points",
+   "reason": "Verifying that a small coset representative comes from a rational point uses the genus-2 Kummer test of Lemma 4.1.",
+   "sources": [
+    {
+     "sourceId": "bruin-stoll-mordell-weil-sieve",
+     "locator": "Section 4.2, p. 14, used in Section 4.4 step 4"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.4/coleman-bound-on-rational-points-at-a-good-prime",
+   "target": "EffectiveDiophantineMethods:ED.5/chabauty-plus-sieve-determination-of-rational-points",
+   "reason": "The claim that each residue class mod p with omega-bar_p nonvanishing contains at most one rational point is the case m = 0 of Coleman's bound (Theorem 5.3(a) with m + 1 = 1 and p >= 3). Bruin-Stoll cite [St4, Section 6] for the same conclusion.",
+   "sources": [
+    {
+     "sourceId": "mccallum-poonen-method-of-chabauty-coleman",
+     "locator": "McCallum-Poonen Theorem 5.3(a), p. 7; Bruin-Stoll Section 4.4, p. 16"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.3/finite-index-subgroup-certificate-with-index-prime-to-the-sieve-primes",
+   "target": "EffectiveDiophantineMethods:ED.5/mordell-weil-sieve-set-and-its-soundness",
+   "reason": "The sieve is sound for a finite-index subgroup only if its index is coprime to N, which is the ED.3 certificate.",
+   "sources": [
+    {
+     "sourceId": "bruin-stoll-mordell-weil-sieve",
+     "locator": "Section 1, p. 2, and Section 4.4, p. 17"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.6/quadratic-chabauty-set-for-rank-equal-genus-with-picard-rank-at-least-two",
+   "target": "EffectiveDiophantineMethods:ED.6/quadratic-chabauty-algorithm-for-modular-curves-with-failure-conditions",
+   "reason": "Algorithm 3.12 computes the finite set of Section 2.3, containing X(Q_p)_2.",
+   "sources": [
+    {
+     "sourceId": "bdmtv-quadratic-chabauty-modular-curves",
+     "locator": "Section 3.5, Algorithm 3.12, p. 14"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.6/local-heights-away-from-p-via-reduction-graph-laplacian",
+   "target": "EffectiveDiophantineMethods:ED.6/quadratic-chabauty-algorithm-for-modular-curves-with-failure-conditions",
+   "reason": "The input local height functions at primes not of potentially good reduction are \"computed using Theorem 3.2\".",
+   "sources": [
+    {
+     "sourceId": "bdmtv-quadratic-chabauty-modular-curves",
+     "locator": "Algorithm 3.12, input list, p. 14"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.6/coefficient-valuation-bound-for-the-quadratic-chabauty-function",
+   "target": "EffectiveDiophantineMethods:ED.6/quadratic-chabauty-algorithm-for-modular-curves-with-failure-conditions",
+   "reason": "Step (6c) (roots of rho, FAIL on precision loss) is made provable by the coefficient bounds of Section 4.4.",
+   "sources": [
+    {
+     "sourceId": "bdmtv-quadratic-chabauty-modular-curves",
+     "locator": "Section 4.4, pp. 24-25"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.0/certified-p-adic-root-isolation-from-truncated-power-series",
+   "target": "EffectiveDiophantineMethods:ED.6/quadratic-chabauty-algorithm-for-modular-curves-with-failure-conditions",
+   "reason": "\"Together with Proposition 4.6, the following result [Lemma 4.7] allows us to provably determine the roots of rho to any desired precision\" in Step (6c).",
+   "sources": [
+    {
+     "sourceId": "bdmtv-quadratic-chabauty-modular-curves",
+     "locator": "Section 4.4, p. 25"
+    }
+   ]
+  },
+  {
+   "source": "EffectiveDiophantineMethods:ED.5/mordell-weil-sieve-set-and-its-soundness",
+   "target": "EffectiveDiophantineMethods:ED.6/quadratic-chabauty-algorithm-for-modular-curves-with-failure-conditions",
+   "reason": "Section 3.4 uses the Mordell-Weil sieve (its commutative diagram with M = M'p) to show that residue discs or cosets of p^N J(Q) contain no rational point, comparing the p-adic output with X(Q).",
+   "sources": [
+    {
+     "sourceId": "bdmtv-quadratic-chabauty-modular-curves",
+     "locator": "Section 3.4, pp. 12-13"
+    }
+   ]
+  },
+  {
+   "source": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+   "target": "EffectiveDiophantineMethods:ED.6/quadratic-chabauty-set-for-rank-equal-genus-with-picard-rank-at-least-two",
+   "reason": "NC.5 owns \"the depth-two quotient and p-adic height equations, Neron-Severi contributions and all bad-place local terms\" and \"the precise rank-versus-genus/Picard-number criterion\". BDMTV Section 2 summarizes exactly this theory (from Balakrishnan-Dogra and BDM+19) and uses it as the input of Algorithm 3.12.",
+   "sources": [
+    {
+     "sourceId": "bdmtv-quadratic-chabauty-modular-curves",
+     "locator": "Section 2, pp. 3-6 of the arXiv copy"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "EffectiveDiophantineMethods:ED.0",
+   "status": "partial",
+   "remaining": [
+    "Certified real/complex isolation of algebraic numbers and interval logarithms (CN.0/CN.4 adapters): no source read.",
+    "Only BDMTV Lemma 4.7 (p-adic disc certificate) decomposed."
+   ]
+  },
+  {
+   "stageId": "EffectiveDiophantineMethods:ED.1",
+   "status": "partial",
+   "remaining": [
+    "LLL Proposition (1.11) and the integral LLL of de Weger [31] unread.",
+    "de Weger [32] Lemmas 3.5-3.7 (closest-vector distance) unread; case (iii) (dependent mu_i) only outlined."
+   ]
+  },
+  {
+   "stageId": "EffectiveDiophantineMethods:ED.2",
+   "status": "partial",
+   "remaining": [
+    "Waldschmidt constants (Tzanakis-de Weger Appendix II) and Petho-de Weger Lemma 2.3 unread.",
+    "Fundamental units and norm-equation solutions assumed, not treated.",
+    "S-unit and Thue-Mahler (p-adic) reduction (Tzanakis-de Weger 1992) unread.",
+    "Explicit derivation of Y_3 from A < C_9 not written in the source."
+   ]
+  },
+  {
+   "stageId": "EffectiveDiophantineMethods:ED.3",
+   "status": "partial",
+   "remaining": [
+    "Isogeny/Selmer descent algorithms and certified rank upper bounds: no source read.",
+    "Saturation at all primes up to a height bound, and independence of points: unread; only the index test (McCallum-Poonen Remark 6.1) decomposed.",
+    "Genus-one torsor example and elliptic rank computation required by the acceptance: not covered."
+   ]
+  },
+  {
+   "stageId": "EffectiveDiophantineMethods:ED.4",
+   "status": "partial",
+   "remaining": [
+    "Chabauty 1941 general finiteness proof (omitted in McCallum-Poonen).",
+    "Coleman 1985 (Effective Chabauty) for p <= 2g and number fields; Stoll 2006 2r' bound.",
+    "Residue-class facts (1)-(3) stated with \"one can show\"; Milne's restriction isomorphism; Bourbaki Lie groups III 7.6.",
+    "Flynn's method and elliptic Chabauty only read, not decomposed."
+   ]
+  },
+  {
+   "stageId": "EffectiveDiophantineMethods:ED.5",
+   "status": "partial",
+   "remaining": [
+    "Bruin-Stoll Sections 5-8 (bad/deep information, implementation, efficiency) unread.",
+    "Stoll [St4] Section 6 and the Main Conjecture [St5]; termination conditional on Conjecture 4.2.",
+    "Integral points on hyperelliptic curves via [BMSST] bounds and the Siksek second stage: not decomposed."
+   ]
+  },
+  {
+   "stageId": "EffectiveDiophantineMethods:ED.6",
+   "status": "partial",
+   "remaining": [
+    "Quadratic Chabauty foundations BD18, BDM+19 (Sections 3-5), BD19, KT08, Nekovar heights, Tuitman algorithms: unread imports (owner NC.5).",
+    "BDMTV Sections 4.1-4.3 precision bounds and Section 5 examples unread.",
+    "Complete worked Thue, S-unit, elliptic and higher-genus examples with proof-producing output: not produced."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "ED.0 certified exact-number presentations and isolating intervals are not source-decomposed; only a p-adic root-isolation lemma was read",
+   "neededBy": [
+    "EffectiveDiophantineMethods:ED.0",
+    "EffectiveDiophantineMethods:ED.0/certified-p-adic-root-isolation-from-truncated-power-series"
+   ],
+   "detail": "ED.0 asks for isolating intervals and discs, valuation adapters and rational error bounds on ComputationalNumberTheory CN.0 carriers. The only primary statement read is BDMTV Lemma 4.7, a disc certificate for roots of truncated p-adic power series. No source for real or complex root isolation of algebraic numbers, or for interval arithmetic on logarithms (CN.4), was read. The EXT-08 packet for ComputationalNumberTheory decomposes only CN.0 (machine model) and CN.1. Next action: select a primary source for certified real root isolation and interval evaluation of logarithms (e.g. the interval-arithmetic source registered for CN.4) and decompose it under CN.4, with ED.0 as the adapter."
+  },
+  {
+   "title": "LLL (Lenstra-Lenstra-Lovasz 1982) and de Weger's thesis (CWI Tract 65) are not read: the lattice lower bound, the closest-vector distance lemma and the integral LLL are imports",
+   "neededBy": [
+    "EffectiveDiophantineMethods:ED.1/lll-lower-bound-for-nonzero-vectors-of-a-reduced-basis-lattice",
+    "EffectiveDiophantineMethods:ED.1/inhomogeneous-lattice-reduction-via-closest-vector-distance",
+    "EffectiveDiophantineMethods:ED.1"
+   ],
+   "detail": "Tzanakis-de Weger take several results from other sources: |x| >= 2^{-(q-1)/2}|b_1| is Proposition (1.11) of LLL; the integral version of L^3 is de Weger [31, Sect. 3]; the distance bound l(x, Gamma) >= 2^{-(q-1)/2}||s_{i*}|| |b_1| is de Weger [32] Lemma 3.5, with Lemmas 3.6-3.7 for the variants. The dependent case (iii) was read only in outline. The CWI record of de Weger's thesis (https://ir.cwi.nl/pub/13190) was not fetched. Next source action: obtain de Weger, Algorithms for Diophantine equations (CWI Tract 65, 1989), Chapter 3, and LLL, Math. Ann. 261 (1982), (1.11) with proof; check GN.5's decomposition for these statements."
+  },
+  {
+   "title": "Explicit logarithmic-form constants and auxiliary inputs for ED.2 are unread: Waldschmidt 1980 (Appendix II), Petho-de Weger Lemma 2.3, fundamental units and norm-form solutions, Thue-Mahler p-adic analogue",
+   "neededBy": [
+    "EffectiveDiophantineMethods:ED.2/initial-exponent-bound-from-a-logarithmic-form-lower-bound",
+    "EffectiveDiophantineMethods:ED.2/four-class-certificate-for-all-solutions-of-a-thue-equation",
+    "EffectiveDiophantineMethods:ED.2/thue-equation-to-unit-equation-and-small-linear-form-in-logarithms"
+   ],
+   "detail": "The following ED.2 inputs were not read. The constants C_7, C_8 in Lemma 2.3 come from Waldschmidt's theorem as restated in Appendix II of Tzanakis-de Weger. Lemma 2.4 ends by citing Petho-de Weger [20] Lemma 2.3. The method assumes known fundamental units and a complete set of nonassociated elements of given norm (\"not discussed\" in the source; Appendix I treats totally real quartic fields via Billevic). S-unit and Thue-Mahler instances need the p-adic reduction of Tzanakis-de Weger, How to explicitly solve a Thue-Mahler equation (Compositio 84, 1992; EUDML record located, not read). The ED.2 acceptance also asks to register the Baker/Matveev source separately; the EXT-08 DiophantineApproximationAndTranscendence packet has a DT.3 node for Baker and Matveev. Next source action: read Appendix II and the Compositio 1992 paper, and decide whether ED.2 uses Waldschmidt 1980 or Matveev 2000 constants."
+  },
+  {
+   "title": "ED.3 descent algorithms, rank certification and saturation bounds are not in the sources read",
+   "neededBy": [
+    "EffectiveDiophantineMethods:ED.3",
+    "EffectiveDiophantineMethods:ED.3/finite-index-subgroup-certificate-with-index-prime-to-the-sieve-primes"
+   ],
+   "detail": "McCallum-Poonen assume J(Q) has been computed (\"There exists an algorithm that attempts to compute J(Q), based on descent ... This is not the concern of this article\"). Bruin-Stoll assume the rank and generators, citing Stoll's height algorithms [St1, St3] for genus 2. BDMTV assume r = g a priori (Remark 3.13: Gross-Zagier-Kolyvagin-Logachev for modular curves, 2-descent for hyperelliptic curves). So the isogeny/Selmer descent, the certified rank upper bound, independence of points and saturation at all primes up to a height-derived bound are all unread. The only decomposed item is the index test of McCallum-Poonen Remark 6.1, whose justification is a single sentence. Next source action: read Stoll, Implementing 2-descent for Jacobians of hyperelliptic curves (Acta Arith. 98, 2001) and a saturation reference (e.g. Siksek 1995 for elliptic curves), and check the RP.1 decomposition."
+  },
+  {
+   "title": "ED.4 imports: Chabauty 1941 (general finiteness proof), Coleman 1985 (Effective Chabauty, p <= 2g and number fields), Milne (restriction of differentials), residue-class facts, Stoll 2006 (the 2r' bound)",
+   "neededBy": [
+    "EffectiveDiophantineMethods:ED.4/chabauty-finiteness-when-closure-dimension-is-less-than-genus",
+    "EffectiveDiophantineMethods:ED.4/coleman-integrals-on-residue-classes-of-a-good-reduction-curve",
+    "EffectiveDiophantineMethods:ED.4/coleman-bound-on-rational-points-at-a-good-prime"
+   ],
+   "detail": "McCallum-Poonen leave several points to other sources. They omit the proof of Chabauty's Theorem 4.4. They state the residue-class properties (1)-(3) with \"one can show\". They quote the isomorphism H^0(J, Omega^1) -> H^0(X, Omega^1) from Milne, Jacobian varieties, Prop. 2.2. They refer to Coleman's Duke 1985 paper for bounds without the condition p > 2g, and to Stoll 2006 for #X(Q) <= #X(F_p) + 2r'. Their elementary facts on p-adic Lie groups come from Bourbaki, Lie groups III 7.6. None of these was read. Theorem A.5 imports intersection theory from Liu's book (6.4.7, 6.4.9, 9.1.2, 9.1.21, 9.1.34-9.1.35). Next action: read Coleman 1985 (Duke 52) for the general residue-disc bound and take the restriction isomorphism from the JacobianChallenge/SF.3 decomposition."
+  },
+  {
+   "title": "ED.5: Bruin-Stoll Sections 5-8 (bad and deep information for genus 2, implementation, efficiency), Stoll's Main Conjecture and [St4] Section 6 are unread; termination is conjectural",
+   "neededBy": [
+    "EffectiveDiophantineMethods:ED.5/chabauty-plus-sieve-determination-of-rational-points",
+    "EffectiveDiophantineMethods:ED.5/mordell-weil-sieve-set-and-its-soundness",
+    "EffectiveDiophantineMethods:ED.5"
+   ],
+   "detail": "Several ED.5 inputs were not read. Only good-reduction information was decomposed; Sections 5-6 on bad and deep information for genus 2 were located but not read. The one-point-per-residue-class claim is cited to Stoll, Independence of rational points on twists [St4] Section 6; it is linked here to McCallum-Poonen Theorem 5.3(a) with m = 0. Termination rests on Stoll's Main Conjecture ([St5], Finite descent obstructions) and Conjecture 4.2. The integral-point workflow (Section 4.3) uses bounds from [BMSST] (not read) and a second sieving stage due to Siksek. Next action: read Stoll 2006 Section 6 and Sections 5-6 of Bruin-Stoll if bad-prime information is needed; keep termination labelled conditional."
+  },
+  {
+   "title": "ED.6 quadratic Chabauty imports are unread: Balakrishnan-Dogra 2018, BDM+19, Betts-Dogra 2019, Kim-Tamagawa, Nekovar heights, Tuitman's algorithms, and BDMTV Sections 4.1-4.3 and 5",
+   "neededBy": [
+    "EffectiveDiophantineMethods:ED.6/quadratic-chabauty-set-for-rank-equal-genus-with-picard-rank-at-least-two",
+    "EffectiveDiophantineMethods:ED.6/local-heights-away-from-p-via-reduction-graph-laplacian",
+    "EffectiveDiophantineMethods:ED.6/quadratic-chabauty-algorithm-for-modular-curves-with-failure-conditions",
+    "EffectiveDiophantineMethods:ED.6/coefficient-valuation-bound-for-the-quadratic-chabauty-function"
+   ],
+   "detail": "BDMTV Section 2 is an overview and cites [BD18, BDM+19] for proofs. Theorem 3.2 is Betts-Dogra [BD19]; the finiteness of local heights away from p is Kim-Tamagawa [KT08] Cor. 0.2; the height pairing is Nekovar [Nek93]; Frobenius on rigid cohomology is Tuitman [Tui16, Tui17]. The precision analysis of Sections 4.1-4.3 (Proposition 4.1, Lemmas 4.2-4.4) and the worked examples of Section 5 were not read. The owner of the theory is AnabelianGeometryAndNonabelianChabauty NC.5 (EXT-06); its packet was not available. Next source action: read Balakrishnan-Dogra, Quadratic Chabauty and rational points I (Duke 2018), Sections 3-5 and Prop. 5.5, and BDMTV Sections 4.1-4.3."
+  }
+ ]
+}

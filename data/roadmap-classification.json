@@ -1,0 +1,854 @@
+{
+ "source": "provisional: area priors plus supplier depth, to be replaced by the evidence-based classification jobs (research/blueprint/classify/)",
+ "provisional": true,
+ "roadmaps": {
+  "AInfCohomology": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "AbelianSchemesAndArithmeticModuli": {
+   "distance": 6.4,
+   "cluster": null
+  },
+  "AdditiveCombinatorics": {
+   "distance": 6.2,
+   "cluster": null
+  },
+  "AdelicAlgebraicGroups": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "AdicCoefficientsAndComparisons": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "AdicEtaleGeometry": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "AdicSpacesPartII": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "AlgebraicModularFormsAndSerreWeights": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "AlgebraicModuliForArithmeticGeometry": {
+   "distance": 6.4,
+   "cluster": null
+  },
+  "AnabelianGeometryAndNonabelianChabauty": {
+   "distance": 7.3,
+   "cluster": null
+  },
+  "AnalyticNumberTheory": {
+   "distance": 5.3,
+   "cluster": null
+  },
+  "ArakelovGeometryAndAbelianHeights": {
+   "distance": 6.4,
+   "cluster": null
+  },
+  "ArithmeticDynamics": {
+   "distance": 7.3,
+   "cluster": null
+  },
+  "ArithmeticGaloisDuality": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "ArithmeticGaloisRepresentations": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "ArithmeticKTheory": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "ArithmeticLocallySymmetricSpaces": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "ArithmeticQuantumTopology": {
+   "distance": 8.3,
+   "cluster": null
+  },
+  "ArithmeticStatistics": {
+   "distance": 6.2,
+   "cluster": null
+  },
+  "AutomorphicBundles": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "AutomorphicCongruences": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "AutomorphicFormsOnReductiveGroups": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "AutomorphicGaloisRepresentations": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "AutomorphicGaloisRepresentationsPartII": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "AutomorphicLFunctionsAndLocalFactors": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "AutomorphicPadicLFunctions": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "AutomorphicSpectralTheory": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "BorelRegulators": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "BunGAndNewtonStrata": {
+   "distance": 8.9,
+   "cluster": null
+  },
+  "ClassicalAdicEtaleCohomology": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "ClassicalArithmeticCompletion": {
+   "distance": 5.3,
+   "cluster": null
+  },
+  "ClassicalSerreModularity": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "CohomologyComparisons": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "ColemanIntegration": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "ColemanPowerSeries": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "CompletedCohomologyAndLocalGlobalCompatibility": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "CompletedCohomologyPartII": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "ComplexComparisonPartII": {
+   "distance": 6.4,
+   "cluster": null
+  },
+  "ComplexMultiplicationAndExplicitReciprocity": {
+   "distance": 6.8,
+   "cluster": null
+  },
+  "ComputationalNumberTheory": {
+   "distance": 5.3,
+   "cluster": null
+  },
+  "CrystallineCohomology": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "DeformationAndDerivedPatchingAlgebra": {
+   "distance": 2.5,
+   "cluster": null
+  },
+  "DeligneWeightsAndPurity": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "DerivedDeRhamCohomology": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "DiamondEtaleCohomology": {
+   "distance": 8.9,
+   "cluster": null
+  },
+  "DiamondSixOperations": {
+   "distance": 8.9,
+   "cluster": null
+  },
+  "DiamondsAndVStacks": {
+   "distance": 8.9,
+   "cluster": null
+  },
+  "DiophantineApproximationAndTranscendence": {
+   "distance": 5.3,
+   "cluster": null
+  },
+  "DirichletPadicLFunctions": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "DrinfeldModulesAndTModules": {
+   "distance": 7.8,
+   "cluster": null
+  },
+  "EffectiveDiophantineMethods": {
+   "distance": 7.3,
+   "cluster": null
+  },
+  "EllipticCurveModularity": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "EllipticKTheory": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "EllipticRegulators": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "EndoscopicTransferAndUnitaryTraceComparison": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "EnhancedDerivedSheaves": {
+   "distance": 3.4,
+   "cluster": null
+  },
+  "EtaleDualityAndPerverseSheaves": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "EulerSystemsAndKolyvaginSystems": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "EulerSystemsCyclotomicMainConjecture": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "ExcursionOperatorsAndSpectralAction": {
+   "distance": 8.9,
+   "cluster": null
+  },
+  "ExponentialSumsAndCircleMethod": {
+   "distance": 6.2,
+   "cluster": null
+  },
+  "FaltingsFinitenessAndIsogenyTheorems": {
+   "distance": 6.4,
+   "cluster": null
+  },
+  "FarguesFontaineDiamonds": {
+   "distance": 8.9,
+   "cluster": null
+  },
+  "FiniteFieldsAndCharacterSums": {
+   "distance": 5.3,
+   "cluster": null
+  },
+  "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
+   "distance": 6.4,
+   "cluster": null
+  },
+  "FoundationsAndLibraryIntegration": {
+   "distance": 2.5,
+   "cluster": null
+  },
+  "FunctionFieldArithmetic": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "GL2AutomorphicRepresentationsAndTransfer": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "GL2ModularityLifting": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "GeneralAlgebraicKTheory": {
+   "distance": 3.4,
+   "cluster": null
+  },
+  "GeneralizedHeegnerCycles": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "GeometricSatakeAndFusion": {
+   "distance": 8.9,
+   "cluster": null
+  },
+  "GeometryOfNumbersAndQuadraticArithmetic": {
+   "distance": 5.3,
+   "cluster": null
+  },
+  "GlobalGaloisDeformations": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "GlobalShtukasAndFunctionFieldLanglands": {
+   "distance": 7.8,
+   "cluster": null
+  },
+  "GrossZagierAndArithmeticHeights": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "HabiroCohomologyFoundations": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "HabiroCyclotomicCompletions": {
+   "distance": 6.5,
+   "cluster": null
+  },
+  "HabiroNahmSeries": {
+   "distance": 7.8,
+   "cluster": null
+  },
+  "HabiroNumberFields": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "HabiroRings": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "HeckeStacksAndLocalShtukas": {
+   "distance": 8.9,
+   "cluster": null
+  },
+  "HeegnerPointEulerSystems": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "HeightsRationalPointsAndObstructions": {
+   "distance": 7.3,
+   "cluster": null
+  },
+  "HigherLocalFieldsAndHigherClassFieldTheory": {
+   "distance": 7.8,
+   "cluster": null
+  },
+  "HilbertModularVarietiesAndShimuraCurves": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "HodgeTateAndCanonicalSubgroups": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "IgusaVarietiesAndTorsionConcentration": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "IntegralHeckeAndGaloisDeterminants": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "IntegralIwasawaTheory": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "InverseGaloisAndArithmeticFundamentalGroups": {
+   "distance": 6.8,
+   "cluster": null
+  },
+  "K2SymbolsBrauer": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "K3BlochGroups": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "KTheoryFiniteLocalFields": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "KTheoryLowDegrees": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "KatoEulerSystems": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "LanglandsParameterStacks": {
+   "distance": 8.9,
+   "cluster": null
+  },
+  "LefschetzPencilsAndVanishingCycles": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "LocalGaloisDeformationRings": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "LocallyAnalyticDistributions": {
+   "distance": 7.5,
+   "cluster": null
+  },
+  "LogicAndDefinabilityInNumberTheory": {
+   "distance": 5.3,
+   "cluster": null
+  },
+  "MetaplecticAutomorphicForms": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "ModularCurvesPartII": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "ModularIwasawaMainConjectures": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "ModularSymbolsPadicLFunctions": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "ModularityAndLanglandsExtensions": {
+   "distance": 8.2,
+   "cluster": null
+  },
+  "MotivesAndAlgebraicCycles": {
+   "distance": 7.8,
+   "cluster": null
+  },
+  "MotivicEtaleKTheory": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "NeronModelsAndSemistableAbelianVarieties": {
+   "distance": 6.4,
+   "cluster": null
+  },
+  "NoncommutativeAndEquivariantIwasawa": {
+   "distance": 8.3,
+   "cluster": null
+  },
+  "OrdinaryAutomorphicFormsAndModularityLifting": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "OverconvergentAutomorphicForms": {
+   "distance": 7.3,
+   "cluster": null
+  },
+  "PELModuli": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "PadicDifferentialEquationsAndRigidCohomology": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "PadicFamilies": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "PadicHodgeRegulators": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "PadicHodgeTheory": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "PadicLocalLanglandsForGL2Qp": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "PadicMeasuresIwasawaAlgebras": {
+   "distance": 7.0,
+   "cluster": null
+  },
+  "PerfectoidQuotients": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "PerfectoidShimuraVarieties": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "PerfectoidSpaces": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "PeriodsAndSpecialValues": {
+   "distance": 8.8,
+   "cluster": null
+  },
+  "PhiGammaModulesAndIwasawaCohomology": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "Polylogarithms": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "PotentialAutomorphyInfrastructure": {
+   "distance": 7.3,
+   "cluster": null
+  },
+  "PotentialModularityAndCompatibleSystems": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "PrismaticCohomology": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "ProbabilisticAndMetricNumberTheory": {
+   "distance": 6.7,
+   "cluster": null
+  },
+  "QSeriesPartitionsAndMockModularForms": {
+   "distance": 6.7,
+   "cluster": null
+  },
+  "RankZeroOneBSD": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "ReductiveGroupsPartII": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "RefinedTraceMethods": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "RelativeFarguesFontaine": {
+   "distance": 8.9,
+   "cluster": null
+  },
+  "SchemeAndStackFoundations": {
+   "distance": 3.0,
+   "cluster": null
+  },
+  "SchemeKTheoryOperations": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "SelmerIwasawaCohomology": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "SerreWeightAndLevelOptimisation": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "ShimuraCompactifications": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "ShimuraData": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "ShimuraVarieties": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "SieveMethodsAndPrimePatterns": {
+   "distance": 5.8,
+   "cluster": null
+  },
+  "SmallRamificationAndAbelianVarietyBaseCases": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "SmoothRepresentationsOfLocalGroups": {
+   "distance": 7.9,
+   "cluster": null
+  },
+  "SpecialValuesBirchTate": {
+   "distance": 7.4,
+   "cluster": null
+  },
+  "StableHomotopyKTheory": {
+   "distance": 3.4,
+   "cluster": null
+  },
+  "TorsionCohomologyInfrastructure": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "TropicalAndBerkovichArithmetic": {
+   "distance": 7.3,
+   "cluster": null
+  },
+  "VStackSheavesAndLisseCategories": {
+   "distance": 8.9,
+   "cluster": null
+  },
+  "VectorBundlesAndIsocrystals": {
+   "distance": 8.9,
+   "cluster": null
+  },
+  "WeightsInEtaleCohomology": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "WeilConjectures": {
+   "distance": 6.9,
+   "cluster": null
+  },
+  "tauceti:Completed/ContourIntegration": {
+   "distance": 2.0,
+   "cluster": null
+  },
+  "tauceti:Completed/EffectiveBounds": {
+   "distance": 2.0,
+   "cluster": null
+  },
+  "tauceti:Completed/IntegralLattices": {
+   "distance": 2.0,
+   "cluster": null
+  },
+  "tauceti:Completed/OrthogonalL2Bases": {
+   "distance": 2.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/AdicSpaces": {
+   "distance": 5.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/AlgebraicCodingTheory": {
+   "distance": 2.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/AlgebraicCurves": {
+   "distance": 4.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/AlgebraicTopology": {
+   "distance": 2.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/AnalyticToricGeometry": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries": {
+   "distance": 2.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/BelyiMaps": {
+   "distance": 4.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/CFSGStatement": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/Chebotarev": {
+   "distance": 3.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/ClassFieldTheory": {
+   "distance": 4.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer": {
+   "distance": 2.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/ConformalMapping": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/DGAInfinity": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/DenseGraphLimits": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/EllipticCurves": {
+   "distance": 4.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/Exchangeability": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/FuchsianOrbifolds": {
+   "distance": 2.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/GeometricTopology": {
+   "distance": 2.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/GlobalNumberFields": {
+   "distance": 2.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/GlobalQuadraticForms": {
+   "distance": 2.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/GrothendieckEulerForms": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer": {
+   "distance": 6.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/HodgeStructures": {
+   "distance": 5.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/HopfRinow": {
+   "distance": 2.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/JacobianChallenge": {
+   "distance": 5.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/LocalFieldsRamification": {
+   "distance": 2.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/ModularCurves": {
+   "distance": 5.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/ModularForms": {
+   "distance": 4.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/Multiquadratic": {
+   "distance": 1.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/NumberFieldArithmetic": {
+   "distance": 2.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/OneParameterSemigroups": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/OptimalTransport": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/PDE": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/PolynomialGaloisGroups": {
+   "distance": 2.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/ProfiniteCohomology": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/ProfiniteProPGroups": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/QuadraticFormInvariants": {
+   "distance": 2.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/ReductiveGroups": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/StablePeriodicCurved": {
+   "distance": 1.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/StableReduction": {
+   "distance": 5.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/StandardDistributions": {
+   "distance": 1.0,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/UniversalCovers": {
+   "distance": 2.5,
+   "cluster": null
+  },
+  "tauceti:TauCetiRoadmap/ZigzagPreprojective": {
+   "distance": 1.5,
+   "cluster": null
+  }
+ }
+}

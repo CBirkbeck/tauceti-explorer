@@ -1,0 +1,1609 @@
+{
+ "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+ "status": "partial",
+ "summary": "This packet decomposes the arithmetic fundamental group and inverse Galois programme from five authorized public sources, none in the supplied library: SGA 1 (arXiv reprint of the SMF 2003 edition), Debes, Arithmetique des revetements de la droite (lecture notes, 2024 author copy), Neukirch-Schmidt-Wingberg, Cohomology of Number Fields (electronic edition 2.3, free for non-commercial use), Romagny-Wewers, Hurwitz spaces (Seminaires et Congres 13, author copy), and Debes, Hurwitz spaces and Inverse Galois Theory (arXiv 2601.06532v2). IG.0 covers Galois categories (SGA 1 V 4.1), fibre functors and exact functors, pi_1 of schemes and fields. IG.1 covers the fundamental exact sequence and its splitting, homotopy sequences for proper morphisms, specialization with prime-to-p control, tame pi_1 of punctured curves and pi_1(G_m) in characteristic 0 (the IG.0 acceptance check, placed after IG.1). IG.2 covers Hilbertian fields, the Hilbert-Dorge proof for Q, finite extensions and specialization of Galois extensions. IG.3 covers Riemann existence, the descent criterion with branch cycle conditions, rigidity with S_n and PSL_2(F_p), fields of moduli and real realizations. IG.4 covers embedding problems and Shafarevich's theorem via NSW 9.6. IG.5 covers Hurwitz spaces over Z, braid components, and the tame-only characteristic-p statements. IG.6 is a theorem-indexed register with the inverse Galois problem over Q open. All stages remain partial: Riemann existence and Hurwitz-space proofs, decomposition and inertia groups, the shrinking process, Belyi supplier checks and the worked certified examples are unread or absent.",
+ "sources": [
+  {
+   "id": "sga1-revetements-etales-et-groupe-fondamental",
+   "title": "Revetements etales et groupe fondamental (SGA 1)",
+   "authors": "A. Grothendieck (with two exposes by M. Raynaud)",
+   "edition": "Recomposed and annotated edition of Lecture Notes in Mathematics 224 (Springer 1971), Documents Mathematiques 3, SMF 2003; copy inspected: arXiv:math/0206203v2 (4 January 2004), 343 PDF pages, posted by the editors (not in the supplied library). Page numbers below are those of the recomposed edition, not the marginal 1971 page numbers.",
+   "url": "https://arxiv.org/abs/math/0206203",
+   "sha256": "8e64218d356456c534eebf996940f0f957e43b54f1a080241debe12cbaf60d3c",
+   "readSections": [
+    "Expose V, sections 4-9: axioms (G1)-(G6) and the steps a)-n) of the proof of Theoreme 4.1, Remarques 4.2; Definition 5.1, Propositions 5.2-5.6, 5.8, Corollaires 5.4, 5.7, 5.9, Remarques 5.10-5.11; Propositions 6.1, 6.4, 6.6, 6.9, 6.11, 6.13, Corollaires 6.2-6.3, 6.5, 6.7-6.8, 6.10, Remarque 6.12; section 7 (schemes); Propositions 8.1-8.2; section 9, pp. 98-118",
+    "Expose IX, section 6: Theoreme 6.1 with proof, Corollaire 6.2, Remarque 6.3, Corollaire 6.4, Theoreme 6.5 statement and start of proof, pp. 195-197",
+    "Expose X, sections 1-3: Definition 1.1, Proposition 1.2 (sketch), Theoreme 1.3, Corollaires 1.4, 1.7, 1.8, 1.9, Remarques 1.5, 1.10; Theoreme 2.1, Corollaires 2.2-2.4, Remarques 2.5, 2.7, 2.8, Theoreme 2.6, Theoreme 2.9 with Lemme 2.10 and Corollaire 2.11, Corollaire 2.12; the end of section 3 with Theoreme 3.8, Corollaires 3.9-3.10, Remarques 3.11, pp. 201-217",
+    "Expose XII, section 5: Theoreme 5.1 (Riemann existence) with proof, Corollaire 5.2, Proposition 5.3 statement, pp. 251-254",
+    "Expose XIII, section 2: Lemme 2.11 and Corollaire 2.12 with the proof of the characteristic 0 case and the start of the characteristic p case, pp. 290-291"
+   ]
+  },
+  {
+   "id": "debes-arithmetique-des-revetements-de-la-droite",
+   "title": "Arithmetique des revetements de la droite",
+   "authors": "Pierre Debes",
+   "edition": "Lecture notes (Notes de cours DEA/Master), chapters 1-10, work in progress (\"en chantier\"), PDF created 16 May 2024, 303 PDF pages; author copy from the author's publication page https://pro.univ-lille.fr/pierre-debes/publications (item V2, file V2-ArithRevDte-v2.pdf); not in the supplied library. Sections 7.4-7.7 are empty headings in this version. Page numbers are those printed in the notes.",
+   "url": "https://pro.univ-lille.fr/fileadmin/user_upload/pages_pros/pierre_debes/V2-ArithRevDte-v2.pdf",
+   "sha256": "7b07f882c9f7c9f7b5daa3b3a7ee7ecd5fed0484addd6b55fe93cc8fedc34374",
+   "readSections": [
+    "Table of contents and preface, pp. v-xi",
+    "Section 5.2 Hilbert irreducibility (Theoreme 5.2.1, Definition 5.2.2, Remarque 5.2.3, Theoreme 5.2.4, Proposition 5.2.5 with proof, Exemple 5.2.6, Lemme 5.2.7 with both proofs, Remarque 5.2.8, Theoreme 5.2.9 with Lemmes 5.2.11-5.2.13 and proofs, Remarque 5.2.10, Proposition 5.2.14 with proof, Remarque 5.2.15), pp. 135-144",
+    "Section 6.2.1 (definition of the k-fundamental group of P^1 minus t, Theoreme 6.2.1 with proof, Lemme 6.2.2 with proof), pp. 171-173",
+    "Section 6.5 Riemann existence (overview, Theoreme 6.5.1, Proposition 6.5.2 with proof, Theoreme 6.5.3 statement, Remarque 6.5.4), pp. 181-185",
+    "Sections 7.4-7.7 (empty headings), p. 210",
+    "Chapter 8, sections 8.1-8.4 (Theoremes 8.1.1-8.1.2, Remarque 8.1.3; Definition 8.2.1, Theoreme 8.2.2 with proof, Remarque 8.2.3, Theoreme 8.2.4, Remarque 8.2.5, examples 8.2.2.1-8.2.2.3, Lemme 8.2.6 with proof, Theoreme 8.2.7 with proof; Theoremes 8.3.1-8.3.3 with proofs; Propositions 8.4.1, 8.4.3, 8.4.4, Remarques 8.4.2, 8.4.5, Corollaire 8.4.6), pp. 211-229",
+    "Section 9.1 opening and section 9.2.1 (Theoreme 9.2.1 with addendum and proof in the separable case, Lemme 9.2.2 statement), pp. 232-244"
+   ]
+  },
+  {
+   "id": "nsw-cohomology-of-number-fields-2e",
+   "title": "Cohomology of Number Fields, second edition",
+   "authors": "Juergen Neukirch, Alexander Schmidt and Kay Wingberg",
+   "edition": "Grundlehren der mathematischen Wissenschaften 323, Springer; electronic edition version 2.3 (May 2020), 840 PDF pages, from the second author's page, which offers it \"free for non-commercial use\" (the catalogue record NSW_CohomologyNumberFields is \"book_requested\"; the file itself is not in the supplied library). Page numbers are those printed in the electronic edition.",
+   "url": "https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/",
+   "sha256": "abbb7cdefc9ecb3350286c3cba36fe36a90c103257ff8f64173e09a50afdcb91",
+   "readSections": [
+    "Chapter III, section 5 opening: Definitions 3.5.1-3.5.3 and Proposition 3.5.4 statement, pp. 189-190",
+    "Chapter IX, section 5 opening: introduction, Definition 9.5.1, Proposition 9.5.2 with the start of its proof, pp. 557-559",
+    "Chapter IX, section 6: Theorem 9.6.1 and the outline of the method, Proposition 9.6.2 statement (start), the statement lines of Propositions 9.6.3-9.6.4 and Lemma 9.6.5, Theorem 9.6.6, Theorem 9.6.7 with its first step and the fourth step and the characteristic-p case, Propositions 9.6.8-9.6.9, the proof of Theorem 9.6.1, Theorem 9.6.10 with proof, pp. 574-597. The proofs of Propositions 9.6.2-9.6.4, Lemma 9.6.5 and the second and third steps of Theorem 9.6.7 were not read."
+   ]
+  },
+  {
+   "id": "romagny-wewers-hurwitz-spaces",
+   "title": "Hurwitz spaces",
+   "authors": "Matthieu Romagny and Stefan Wewers",
+   "edition": "Seminaires et Congres 13, SMF 2006, pp. 313-341; copy inspected: author copy from the first author's page (29 PDF pages, published pagination); not in the supplied library.",
+   "url": "https://perso.univ-rennes1.fr/matthieu.romagny/articles/hurwitz_spaces.pdf",
+   "sha256": "caed858ea899e029b96e3b840e605ad6432cdd1100b93125ef39a0d8abde18a0",
+   "readSections": [
+    "Section 1 introduction (1.1-1.3) and acknowledgments, pp. 313-316",
+    "Section 2 (2.1-2.5, Theorem 2.1, Corollary 2.2), pp. 316-318",
+    "Section 3.1-3.2 (Theorem 3.1, Proposition 3.2 with proof, Remark 3.3), pp. 318-320",
+    "Section 4.1-4.2 (Definitions 4.1-4.2, Theorem 4.3 statement and discussion, Proposition 4.4), pp. 322-323; section 4.5 (Theorem 4.11, Corollary 4.12, first step of the proof), pp. 327-328"
+   ]
+  },
+  {
+   "id": "debes-2026-hurwitz-spaces-and-inverse-galois-theory",
+   "title": "Hurwitz spaces and Inverse Galois Theory",
+   "authors": "Pierre Debes",
+   "edition": "arXiv:2601.06532v2 [math.NT], dated April 14, 2026 (v1 submitted 10 January 2026), 27 pages; survey to appear in \"Low Dimensional Topology, Number Theory and Arithmetic Galois Theory\" (World Scientific) per the first page; not in the supplied library.",
+   "url": "https://arxiv.org/abs/2601.06532",
+   "sha256": "7f640bc6cf08a39c342d06f63f52de37c279b0f5eee6b49f63b83863b2a24a66",
+   "readSections": [
+    "Abstract, introduction and contents, pp. 1-3",
+    "Section 2.1-2.4 (Theorem 2.1 with comments on proof, Corollary 2.2, Remark 2.3, Theorem 2.4, Proposition 2.5, Conjecture 2.6), pp. 12-15"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/galois-category-axioms-and-the-main-theorem",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+   "title": "SGA 1 V Theoreme 4.1: a category with (G1)-(G3) and a fibre functor with (G4)-(G6) is equivalent to finite continuous pi-sets",
+   "kind": "theorem",
+   "statement": "Let C be a category and F a covariant functor from C to finite sets such that (G1) C has a final object and fibre products; (G2) C has finite sums and quotients by finite groups of automorphisms; (G3) every morphism factors as a strict epimorphism followed by a monomorphism that is an isomorphism onto a direct summand; (G4) F is left exact; (G5) F commutes with finite sums, sends strict epimorphisms to epimorphisms and commutes with quotients by finite groups; (G6) F reflects isomorphisms. Then F is pro-representable by a pro-object P = (P_i) of C with epimorphic transition maps, the Galois P_i are cofinal, Aut(P) = lim Aut(P_i) is profinite, and with pi the group opposite to Aut(P), F : C -> C(pi) and G(E) = P x^pi E are quasi-inverse equivalences, where C(pi) is the category of finite sets with continuous left pi-action. A category equivalent to some C(pi) is a Galois category, and a functor satisfying (G4)-(G6) is a fundamental (fibre) functor.",
+   "hypotheses": [
+    "Imported: strict pro-representability of a left exact functor on a category whose objects are artinian (Grothendieck, Technique de descente II, Seminaire Bourbaki 195, prop. 3.1), used in step c)",
+    "Remarques 4.2: (G2) and (G5) may be replaced by the stronger-looking finite colimits and right exactness, which follow from the theorem",
+    "Step m) is dismissed as \"Ane qui trotte\" (routine verification)"
+   ],
+   "proofSteps": [
+    "a) u is a monomorphism iff F(u) is (G1, G4, G6); b) every object is artinian.",
+    "c) F is strictly pro-representable: F(X) = lim Hom(P_i, X) with epimorphic transition maps (imported criterion).",
+    "d) The P_i are connected and not initial; e) morphisms from a nonempty object to a connected object are strict epimorphisms, and endomorphisms of connected objects are automorphisms.",
+    "f) Aut(P_i) acts transitively on F(P_i) iff simply transitively (Galois objects); g) every X is dominated by a Galois P_i, so Galois objects are cofinal.",
+    "h) Aut(P) = lim Aut(P_i) = lim F(P_i), a profinite group; pi (opposite group) acts continuously on F(X) = Hom(P, X).",
+    "i)-k) Construct G(E) = P x^pi E as P_i x^{pi_i} E for pi_i acting on E, using quotients by finite groups (G2, G5).",
+    "l)-n) The natural maps alpha : id -> FG and beta : GF -> id are isomorphisms."
+   ],
+   "acceptance": [
+    "Recover C(pi) itself: the canonical forgetful functor on finite continuous pi-sets satisfies (G1)-(G6), with pro-object the system of finite quotients of pi.",
+    "Check the import in step c) against a supplier proof (e.g. an elementary proof of the main theorem on Galois categories)."
+   ],
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose V, section 4, the axioms (G1)-(G6), steps a)-n), Theoreme 4.1 and Remarques 4.2, pp. 98-104",
+     "excerpt": "Alors les constructions canoniques precedentes definissent des equivalences de categories F : C -> C(pi) et G : C(pi) -> C quasi-inverses l'une de l'autre.",
+     "match": "Literal sentence from Theoreme 4.1, accents dropped."
+    },
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose V, Definition 5.1, p. 104",
+     "excerpt": "On appelle categorie galoisienne une categorie C equivalente a une categorie C(pi), ou pi est un groupe compact, limite projective de groupes finis",
+     "match": "Literal definition, accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/fibre-functors-are-isomorphic-and-exact-functors-are-continuous-homomorphisms",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+   "title": "SGA 1 V 5.3-5.7 and 6.1-6.13: connected objects, the fundamental groupoid, base-point change, and the dictionary between exact functors and continuous homomorphisms",
+   "kind": "theorem",
+   "statement": "Let C be a Galois category with fibre functor F and pi = Aut(F). (5.3-5.4) X is connected iff pi acts transitively on F(X), and a nonempty connected X is isomorphic to some P_i. (5.7) Any two fibre functors are isomorphic, so the fibre functors form a connected groupoid whose automorphism groups are isomorphic to pi, the isomorphism being determined up to inner automorphism; Isom(F, F') plays the role of path classes. (6.1-6.2) A functor H : C -> C' between Galois categories is exact iff F' o H is a fibre functor, and then H corresponds to a continuous homomorphism u : pi_{F'} -> pi_F. (6.4) For a pointed connected X with open stabilizer U, U contains u(pi_{F'}) iff H(X) has a pointed section. (6.9) u is surjective iff H preserves connected objects iff H is fully faithful; (6.10) u is an isomorphism iff H is an equivalence. (6.13) For connected S in C and a in F(S), C/S is Galois and pi of the fibre over a is the open stabilizer of a.",
+   "hypotheses": [
+    "Proposition 6.13 is stated with \"La demonstration est laissee au lecteur\"",
+    "Proposition 6.11 gives the criteria for Ker u contained in Im u' and the converse used for exact sequences of fundamental groups"
+   ],
+   "proofSteps": [
+    "5.3: reduce to C = C(pi), where connected objects are transitive pi-sets.",
+    "5.5-5.6: a pro-object Q defines a functor commuting with finite sums iff Q = pi/H for a closed subgroup H; it is fundamental iff H = 1.",
+    "5.7: any two fundamental pro-objects are isomorphic; Aut(F) = pi up to inner automorphism.",
+    "6.1: exactness of H is equivalent to F' o H being fundamental (5.6); the induced map of automorphism groups is continuous because finite pi_F-sets pull back to continuous pi_{F'}-sets.",
+    "6.4-6.13: translate properties of H into properties of u using pointed connected objects = open subgroups."
+   ],
+   "acceptance": [
+    "Base-point change: record the inner-automorphism ambiguity explicitly when comparing pi_1 at two geometric points.",
+    "Use 6.9 and 6.11 as the dictionary for the exact sequences of IG.1."
+   ],
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose V, Proposition 5.3, Corollaire 5.4, Propositions 5.5-5.6, Corollaire 5.7, pp. 105-107",
+     "excerpt": "Corollaire 5.7. Soit C une categorie galoisienne. Les pro-objets fondamentaux sont isomorphes, les foncteurs fondamentaux sont isomorphes.",
+     "match": "Literal statement, accents dropped."
+    },
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose V, Proposition 6.1, Corollaire 6.2, Propositions 6.4, 6.9, 6.11, 6.13, Corollaire 6.10, pp. 110-114",
+     "excerpt": "Proposition 6.9. Les conditions suivantes sont equivalentes : (i) L'homomorphisme u : pi_{F'} -> pi_F est surjectif. (ii) Pour tout objet connexe X de C, H(X) est connexe. (iii) Le foncteur H est pleinement fidele.",
+     "match": "Literal statement, accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-etale-covers-form-a-galois-category-and-pi1-of-a-scheme",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+   "title": "SGA 1 V section 7: for a connected locally noetherian scheme S and a geometric point a, finite etale covers with the geometric-fibre functor form a Galois category with group pi_1(S, a)",
+   "kind": "construction",
+   "statement": "Let S be a connected locally noetherian scheme and a : Spec(Omega) -> S a geometric point. The category C of finite etale covers of S with F(X) = geometric points of X over a satisfies (G1)-(G6). Hence there is a universal cover (pro-object) P at a and a profinite group pi_1(S, a) = Aut(F) with C equivalent to finite continuous pi_1(S, a)-sets. A cover is connected iff pi_1 acts transitively on its fibre. For another geometric point a' (possibly in another characteristic) the fibre functors are isomorphic, giving the groupoid of path classes pi_1(S; a, a'). A morphism f : S' -> S induces pi_1(f; a') : pi_1(S', a') -> pi_1(S, f(a')), and for a finite etale connected S' this is an isomorphism onto the open stabilizer of a'.",
+   "hypotheses": [
+    "(G1) from I 4.6, (G2) from V 3.4, (G3) and (G5) from V 3.5 and section 2, (G6) from V 3.7: these facts about etale covers (Exposes I and V sections 1-3) were not read",
+    "Principal covers with group G correspond to principal homogeneous objects in C (via criterion V 2.6(iii), not read)",
+    "Non-connected S: multi-Galois categories (section 9), sketched only"
+   ],
+   "proofSteps": [
+    "Verify (G1)-(G6) for finite etale covers using the cited results of Exposes I and V.",
+    "Apply Theoreme 4.1 to get P and pi_1(S, a), and 5.7 for independence of a.",
+    "Apply the dictionary of section 6 to the pullback functor f^*."
+   ],
+   "acceptance": [
+    "This is the construction required by IG.0: the profinite automorphism group of the geometric fibre functor on finite etale covers, with explicit base-point change.",
+    "Record the imported axiom verifications as supplier obligations of SchemeAndStackFoundations SF.2."
+   ],
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose V, section 7, pp. 115-117",
+     "excerpt": "Les proprietes (G 1) a (G 6) sont satisfaites",
+     "match": "Literal fragment; the construction of pi_1(S, a) and of path classes follows on the same pages (accents dropped)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/fundamental-group-of-a-field-and-of-a-normal-scheme",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+   "title": "SGA 1 V Propositions 8.1-8.2: pi_1(Spec k) is the absolute Galois group, and pi_1 of a normal connected scheme is Gal(K^s/K) modulo the subgroup fixing the unramified extensions",
+   "kind": "theorem",
+   "statement": "For a field k and an algebraically closed extension Omega defining a geometric point a of S = Spec k, with k^s the separable closure of k in Omega, there is a canonical isomorphism pi_1(S, a) = Gal(k^s/k). If S is a connected locally noetherian normal scheme with function field K and Omega an algebraically closed extension of K, then pi_1(Spec K) -> pi_1(S) is surjective, and its kernel corresponds, by Galois theory, to the compositum of the finite subextensions of K^s/K that are unramified over S.",
+   "hypotheses": [
+    "8.2 uses I 10.1 (a connected etale cover of a normal scheme is integral), not read"
+   ],
+   "proofSteps": [
+    "8.1: a finite etale cover of Spec k is Spec of a finite separable algebra; k-embeddings into Omega land in k^s; the Galois group of k^s/k acts on fibres, giving a homomorphism to pi_1 that is injective (an automorphism trivial on all finite separable subextensions is trivial) and surjective (transitivity on embeddings of a finite separable L).",
+    "8.2: surjectivity means pullbacks of connected etale covers to Spec K are connected (X integral); the kernel consists of automorphisms acting trivially on all finite subextensions unramified over S."
+   ],
+   "acceptance": [
+    "IG.0 acceptance: recover the absolute Galois group for Spec K.",
+    "Check the finite-field case: pi_1(Spec F_q) = Gal(F_qbar/F_q) is procyclic, topologically generated by Frobenius (used in IG.1)."
+   ],
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose V, Propositions 8.1 and 8.2 with proofs, pp. 117-118",
+     "excerpt": "Alors il existe un isomorphisme canonique de pi_1(S, a) sur le groupe de Galois topologique de kbar/k.",
+     "match": "Literal conclusion of Proposition 8.1 (kbar denoting the separable closure of k in Omega), accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/fundamental-group-of-the-punctured-line-over-an-algebraically-closed-field-of-characteristic-zero",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+   "title": "SGA 1 XIII Corollaire 2.12 in genus 0 with two points, via XII 5.2: pi_1 of G_m over an algebraically closed characteristic-zero field is Zhat",
+   "kind": "application",
+   "statement": "Let k be an algebraically closed field of characteristic 0 and U = P^1_k minus {0, infinity} = G_m. By SGA 1 XIII Corollaire 2.12 with g = 0 and n = 2, pi_1(U) = pi_1^t(U) is generated by two inertia generators sigma_1, sigma_2 with sigma_1 sigma_2 = 1, and in characteristic 0 (p' = all primes) it is the profinite group with this presentation, hence isomorphic to Zhat; each quotient Z/nZ corresponds to the Kummer cover t -> t^n. For k = C this is the profinite completion of pi_1^top(C^*) = Z by XII Corollaire 5.2.",
+   "hypotheses": [
+    "Corollaire 2.12 in characteristic 0 is proved by descending to a subfield of finite transcendence degree over Q, embedding into C, comparing via specialization isomorphisms of R^1 g_* (XIII 2.9, not read), and applying Riemann existence (XII 5.2)",
+    "XII Theoreme 5.1 (Riemann existence) imports resolution of singularities and Grauert-Remmert extension (XII 4.6)",
+    "The identification of the Z/nZ-covers with t -> t^n uses Kummer theory (XI section 6, not read) and is not stated in the sections read",
+    "Placement: this is the acceptance check of IG.0, but its only proof in the sources read uses XIII 2.12 (tame pi_1 of punctured curves, decomposed under IG.1) and Riemann existence (XII 5.2). It is therefore placed under IG.1; a link from IG.1 to IG.0 would reverse the atlas order IG.0 -> IG.1"
+   ],
+   "proofSteps": [
+    "Apply XIII Corollaire 2.12 with X = P^1, g = 0, n = 2: generators sigma_1, sigma_2, relation sigma_1 sigma_2 = 1.",
+    "In characteristic 0 all finite groups are prime to p, so pi_1(U) is the free profinite group on sigma_1 with no further relation, i.e. Zhat.",
+    "For k = C compare with XII 5.2: pi_1(U) is the profinite completion of pi_1^top(C^*) = Z."
+   ],
+   "acceptance": [
+    "IG.0 acceptance: the fundamental group of G_m over an algebraically closed characteristic-zero field.",
+    "State that the result fails in characteristic p for the affine line and G_m without the tame restriction (IX 6.3, X 1.10)."
+   ],
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose XIII, Corollaire 2.12 with the characteristic-0 part of the proof, pp. 290-291",
+     "excerpt": "Soit X une courbe propre et lisse connexe de genre g sur un corps separablement clos k de caracteristique p >= 0. Soit U l'ouvert obtenu en enlevant a X n points fermes distincts a_1, ..., a_n.",
+     "match": "Literal hypotheses of Corollaire 2.12, accents dropped; the node applies it with g = 0, n = 2 and p = 0."
+    },
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose XII, Corollaire 5.2, pp. 253-254",
+     "excerpt": "Alors pi_1(X, phi(x)) est canoniquement isomorphe au complete de pi_1(X^an, x), pour la topologie des sous-groupes d'indice fini.",
+     "match": "Literal conclusion, accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/fundamental-exact-sequence-over-a-field",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+   "title": "SGA 1 IX Theoreme 6.1 and Corollaires 6.2, 6.4: 1 -> pi_1(Xbar_0) -> pi_1(X) -> Gal(kbar/k) -> 1 for quasi-compact geometrically connected X, split by a rational point",
+   "kind": "theorem",
+   "statement": "Let S = Spec A with A artinian with residue field k, X an S-scheme with X_0 = X (x)_A k quasi-compact and geometrically connected over k, and Xbar_0 = X (x)_A kbar. Then e -> pi_1(Xbar_0, abar) -> pi_1(X, a) -> pi_1(S, b) -> e is exact, with pi_1(S, b) = Gal(kbar/k). Right exactness means (6.2) that an etale cover X' of X is of the form X x_S S' for S' etale over S iff its pullback to Xbar_0 is completely decomposed (for connected X': iff it has a section). If the geometric point is localized at a k-rational point (or one with radicial residue field), the sequence splits (6.4). The algebraic closure kbar cannot be replaced by an arbitrary algebraically closed extension in characteristic p (affine line, 6.3).",
+   "hypotheses": [
+    "Left to the reader in the proof: pi_1(Xbar_0) = lim pi_1(X_i) over finite Galois subextensions k_i (limit argument)",
+    "Uses IX 3.4 (full faithfulness of pullback of etale covers), IX 4.11 (radicial extensions) and V 6.13, not all read"
+   ],
+   "proofSteps": [
+    "Reduce to A = k (nilpotents do not change pi_1) and then to k perfect (radicial base change is an isomorphism, 4.11).",
+    "For finite Galois k_i/k with group pi_i, X_i = X (x)_k k_i is a connected principal cover of X with group pi_i (3.4), so V 6.13 gives e -> pi_1(X_i) -> pi_1(X) -> pi_i -> e.",
+    "Pass to the projective limit over i, using pi_1(Xbar_0) = lim pi_1(X_i).",
+    "6.4: a rational point gives a section S -> X and hence a splitting pi_1(S) -> pi_1(X)."
+   ],
+   "acceptance": [
+    "IG.1 acceptance: finite-field Frobenius, the quotient Gal(kbar/k) is procyclic generated by Frobenius when k = F_q (from V 8.1).",
+    "Check that the exact sequence is stated for geometrically connected quasi-compact X, the \"selected SGA range\"."
+   ],
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose IX, Theoreme 6.1 with proof, Corollaire 6.2, Remarque 6.3, Corollaire 6.4, pp. 195-196",
+     "excerpt": "Alors la suite d'homomorphismes canoniques e -> pi_1(Xbar_0, abar) -> pi_1(X, a) -> pi_1(S, b) -> e est exacte",
+     "match": "Literal fragment with notation transliterated, accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-sequence-for-the-punctured-projective-line-and-its-sections",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+   "title": "Debes Theoreme 6.2.1: 1 -> pi_1(P^1 - t)_{k^s} -> pi_1(P^1 - t)_k -> G_k -> 1 splits, with a section s_{t0} for each unramified rational point",
+   "kind": "theorem",
+   "statement": "Let k be a field and t = {t_1, ..., t_r} a Galois-stable set of points of P^1 (coordinates separable over k). Let Omega_t be the maximal separable extension of k^s(T) unramified above P^1 - t; then pi_1(P^1 - t)_{k^s} = Gal(Omega_t/k^s(T)) and pi_1(P^1 - t)_k = Gal(Omega_t/k(T)) fit into an exact sequence 1 -> pi_1(P^1 - t)_{k^s} -> pi_1(P^1 - t)_k -> G_k -> 1, which is split. For each unramified rational point t_0 in P^1(k) - t, the embedding Omega_t into k^s((T - t_0)) gives a section s_{t0}; in characteristic 0 a ramified rational point also gives a section via Puiseux series; if char k = p and P^1(k) is contained in t, then k = F_q and a lift of Frobenius gives a section. The section is well defined up to an element of pi_1(P^1 - t)_{k^s}.",
+   "hypotheses": [
+    "The fundamental groups here are Galois groups of maximal unramified extensions of function fields; their identification with SGA 1 etale fundamental groups is not stated in the section read",
+    "Lemme 6.2.2 (embedding of Omega_t into k^s((T - t_0))) uses Zorn's lemma and Lemme 1.4.2 (not read)",
+    "The characteristic-0 ramified case uses the Puiseux theorem (Theoreme 6.1.1, not read)"
+   ],
+   "proofSteps": [
+    "Lemme 6.2.2: order pairs (E, i_E) of unramified subextensions with embeddings into k^s((T - t_0)); a maximal element is all of Omega_t, since minimal polynomials of unramified elements split in k^s((T - t_0)).",
+    "Define s_{t0}(tau) = i^{-1} o tau-tilde o i, where tau-tilde acts on coefficients.",
+    "Finite field with every rational point in t: G_k is procyclic generated by Frobenius, and a lift gives the section."
+   ],
+   "acceptance": [
+    "IG.1 acceptance: finite-field Frobenius appears as the generator whose lift splits the sequence when all rational points are branch points.",
+    "This is the arithmetic sequence consumed by the descent criterion of IG.3."
+   ],
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Section 6.2.1, the exact sequence, Theoreme 6.2.1 with proof and Lemme 6.2.2, pp. 171-173",
+     "excerpt": "Theoreme 6.2.1. La suite exacte ci-dessus est scindee.",
+     "match": "Literal statement, accents dropped; the sections s_{t0} are described immediately after."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/homotopy-exact-sequence-for-proper-separable-morphisms-and-base-change-invariance",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+   "title": "SGA 1 X 1.3-1.10: pi_1(Xbar_y) -> pi_1(X) -> pi_1(Y) -> e for proper separable f with f_*O_X = O_Y, products, and invariance of pi_1 of proper schemes under algebraically closed extension",
+   "kind": "theorem",
+   "statement": "Let f : X -> Y be proper and separable (flat with geometrically reduced fibres) with Y locally noetherian and connected and f_*O_X = O_Y. For a geometric fibre Xbar_y, pi_1(Xbar_y, abar) -> pi_1(X, a) -> pi_1(Y, b) -> e is exact (1.4). For X proper connected and Y locally noetherian connected over an algebraically closed k, pi_1(X x_k Y) = pi_1(X) x pi_1(Y) (1.7), and for X proper connected over k and an algebraically closed extension k', pi_1(X (x)_k k') -> pi_1(X) is an isomorphism (1.8). Without properness these fail in characteristic p: the Artin-Schreier covers x^p - x = st of the affine line, parametrized by s, are etale and pairwise non-isomorphic (1.10).",
+   "hypotheses": [
+    "Proposition 1.2 (the Stein factorization of a proper separable morphism is etale) is sketched and referred to EGA III 7.8.10",
+    "The proof of 1.3 uses the first comparison theorem in formal geometry through 1.2"
+   ],
+   "proofSteps": [
+    "1.3: with Y' = Spec h_*O_{X'}, Y' is etale over Y (1.2), X' -> X x_Y Y' is etale between connected covers, and a section over Xbar_y forces degree 1.",
+    "1.4 is 1.3 translated by V 6.9, V 6.11 and IX 3.4.",
+    "1.7: apply 1.4 to the projection X x Y -> Y and compare with the split sequence for the product group.",
+    "1.8: surjectivity from connectedness; injectivity by spreading a cover out over a finitely generated k-algebra A and applying 1.7 at a rational point."
+   ],
+   "acceptance": [
+    "IG.1 acceptance: wild ramification survives outside the tame quotient; the Artin-Schreier family of 1.10 is the explicit witness.",
+    "Record properness as the hypothesis that makes pi_1 invariant under extension of algebraically closed fields."
+   ],
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose X, Definition 1.1, Proposition 1.2, Theoreme 1.3, Corollaires 1.4, 1.7, 1.8, 1.9, Remarques 1.5, 1.10, pp. 201-205",
+     "excerpt": "Il n'est pas difficile de voir que les revetements de X, parametres par la droite affine Y = Spec(k[s]), definis par les equations x^p - x = st, sont etales et deux a deux non isomorphes.",
+     "match": "Literal quotation from Remarque 1.10, accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/specialization-homomorphism-surjectivity-and-prime-to-p-isomorphism",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+   "title": "SGA 1 X 2.1-2.12 and 3.8-3.10: surjective specialization maps for proper separable families, isomorphism on prime-to-p quotients for proper smooth families, and pi_1 of curves",
+   "kind": "theorem",
+   "statement": "For Y the spectrum of a complete noetherian local ring and X proper over Y, pi_1(X_0) -> pi_1(X) is an isomorphism (2.1). For f : X -> Y proper with geometrically connected fibres, Y locally noetherian and y_0 in the closure of y_1, there is a specialization homomorphism pi_1(Xbar_1) -> pi_1(Xbar_0), defined up to inner automorphism, which is surjective if f is separable (2.3-2.4). If f is proper and smooth, every continuous homomorphism from pi_1(Xbar_1) to a finite group of order prime to p = char k(y_0) factors through pi_1(Xbar_0) (3.8); hence the specialization map is an isomorphism in characteristic 0 and induces an isomorphism of maximal prime-to-p quotients in characteristic p (3.9). For a proper smooth connected curve of genus g over an algebraically closed field, pi_1 has 2g topological generators with the surface relation, is the free profinite group on them with that relation in characteristic 0 (2.6), and its prime-to-p quotient has that presentation in characteristic p (3.10). The fundamental group of a proper connected scheme over an algebraically closed field is topologically finitely generated (2.9), so it has finitely many principal covers with a given finite group (2.12, Lang-Serre).",
+   "hypotheses": [
+    "2.1 is the formal existence theorem (EGA III, IX 1.10) in the language of fundamental groups: an import",
+    "2.6 and 3.10 are proved \"par voie transcendante\": comparison with the topological fundamental group of a compact orientable surface, whose derivation was \"explicitee dans un des exposes oraux qui n'ont pas ete rediges\"",
+    "3.8 uses purity (Zariski-Nagata, in the two-dimensional unequal characteristic case) and Abhyankar's lemma",
+    "Remarque 2.5: surjectivity fails without separability; Remarque 2.7: no purely algebraic proof of 2.6 is known (for g >= 2)"
+   ],
+   "proofSteps": [
+    "2.2: combine 2.1 with IX 6.1 to get e -> pi_1(Xbar_0) -> pi_1(X) -> pi_1(Y) -> e with injective left map.",
+    "Define specialization by path classes from a_1 to a_0 and the isomorphisms pi_1(X_0) = pi_1(X), pi_1(k) = pi_1(Y); surjectivity follows when the generic sequence 1.4 is also exact.",
+    "3.8: for G of order prime to p, extend the Kummer-adjusted cover over the normal models using purity and Abhyankar's lemma.",
+    "2.9: induction on dimension via Chow's lemma, normalization and Bertini/Zariski connectedness for hyperplane sections (2.10-2.11)."
+   ],
+   "acceptance": [
+    "IG.1: record the characteristic and prime-to-p restrictions for specialization maps of smooth proper families exactly as in 3.9.",
+    "Check the degenerating elliptic curve examples of 2.5 where specialization is not an isomorphism."
+   ],
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose X, Theoreme 2.1, Corollaires 2.2-2.4, Theoreme 2.6, Theoreme 2.9, Corollaire 2.12, pp. 206-211",
+     "excerpt": "Corollaire 2.4. Soient f : X -> Y un morphisme propre a fibres geometriquement connexes, avec Y localement noetherien, y_0 et y_1 deux points de Y tels que y_0 in {y_1}bar",
+     "match": "Literal beginning of Corollaire 2.4, accents dropped."
+    },
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose X, Theoreme 3.8, Corollaires 3.9-3.10, Remarques 3.11, p. 217",
+     "excerpt": "Si k(y_0) est de caracteristique nulle, alors l'homomorphisme de specialisation est un isomorphisme.",
+     "match": "Literal first sentence of Corollaire 3.9, accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/tame-fundamental-group-of-a-punctured-curve-with-inertia-generators",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+   "title": "SGA 1 XIII Lemme 2.11 and Corollaire 2.12: pi_1^t of a punctured curve is generated by 2g + n elements with inertia generators and one relation; its prime-to-p quotient is the pro-p' group with that presentation",
+   "kind": "theorem",
+   "statement": "Let X be a proper smooth connected curve of genus g over a separably closed field k of characteristic p >= 0 and U = X minus n distinct closed points a_1, ..., a_n. The tamely ramified fundamental group pi_1^t(U) can be generated by 2g + n elements x_i, y_i, sigma_j with sigma_j generating an inertia group at a_j and prod_i [x_i, y_i] prod_j sigma_j = 1. For every finite group G of order prime to p generated by elements satisfying this relation there is an etale cover of U with group G realizing them; equivalently, pi_1^{p'}(U) is the pro-p' group with these generators and this single relation. Specialization maps carry inertia subgroups of pi_1^t to inertia subgroups (2.11).",
+   "hypotheses": [
+    "The tame fundamental group pi_1^t (XIII 2.1.3) and the specialization maps for tame covers (1.10, 2.8-2.9) were not read",
+    "Proof in characteristic 0: descend to a field of finite transcendence degree over Q, embed in C, use specialization isomorphisms (2.9) and Riemann existence (XII 5.2); the topological presentation is cited to Seifert-Threlfall",
+    "Proof in characteristic p: lift X and the points to a complete DVR of characteristic 0 (III 7.4) and use injectivity/bijectivity of specialization on R^1 (2.8); only the start of this part was read",
+    "In characteristic p the full pi_1(U) is not described: wild ramification contributes a large non-finitely-generated part for affine curves (IX 6.3, X 1.10)"
+   ],
+   "proofSteps": [
+    "Characteristic 0: reduce to k = C and compute the profinite completion of the topological fundamental group of a punctured surface.",
+    "Characteristic p: lift (X, a_j) to characteristic 0 and specialize; bijectivity on prime-to-p finite coefficients gives the pro-p' presentation."
+   ],
+   "acceptance": [
+    "IG.1 acceptance: a punctured curve with explicit inertia generators; wild inertia is invisible in pi_1^t and in the prime-to-p quotient.",
+    "IG.5: this is the only form of Riemann existence available in characteristic p in the sources read; no unrestricted statement is exported."
+   ],
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose XIII, Lemme 2.11 and Corollaire 2.12 with the beginning of the proof, pp. 290-291",
+     "excerpt": "En d'autres termes, si p' designe l'ensemble des nombres premiers distincts de p, pi_1^{p'}(U) est le pro-p'-groupe engendre par les generateurs x_i, y_i, sigma_j lies par la seule relation (*).",
+     "match": "Literal final sentence of Corollaire 2.12, accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/hilbertian-fields-and-hilbertian-subsets",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+   "title": "Debes Definition 5.2.2: Hilbertian subsets H_{P_1..P_n} of k^r and Hilbertian fields; equivalence with the thin-set definition",
+   "kind": "definition",
+   "statement": "For a field k, integers r, s > 0 and polynomials P_1, ..., P_n in k(T_1, ..., T_r)[Y_1, ..., Y_s] irreducible over k(T), the Hilbertian subset H_{P_1..P_n} is the set of t in k^r such that each P_i(t, Y) is irreducible in k[Y]. The field k is Hilbertian if for every r > 0 the Hilbertian subsets of k^r are Zariski-dense (for r = 1: infinite). Equivalently (Remark 5.2.3, [Ser97], [Ser92]): k^r is not thin for every r > 0, thin sets being those contained in complements of Hilbertian subsets.",
+   "hypotheses": [
+    "Irreducibility over k(T) forces deg_Y P_i > 0",
+    "Algebraically closed fields and henselian fields are not Hilbertian (stated), with the exception noted in chapter 9 (Weissauer: k_0((X_1, ..., X_n)) is Hilbertian)",
+    "The equivalence with thin sets is stated, not proved, in the section read"
+   ],
+   "proofSteps": [
+    "Definition only; the reduction from general (r, s) to one parameter and one variable is in section 9.1 (not read beyond its opening)."
+   ],
+   "acceptance": [
+    "Check that Hilbertian means Zariski-dense, not merely nonempty, for r > 1.",
+    "Keep the one-variable form of Theoreme 5.2.1 separate from the general definition."
+   ],
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Section 5.2, Theoreme 5.2.1, the definition of Hilbertian subsets, Definition 5.2.2 and Remarque 5.2.3, pp. 135-136",
+     "excerpt": "Definition 5.2.2. Un corps k est dit hilbertien si pour tout r > 0, les parties hilbertiennes de k^r sont Zariski-denses.",
+     "match": "Literal definition, accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/hilbert-irreducibility-for-q-by-the-hilbert-dorge-method",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+   "title": "Debes Theoremes 5.2.4 and 5.2.9: Q is Hilbertian; the integers of a Hilbertian subset of Q have complement of size O(B^{1-delta}) in [1, B]",
+   "kind": "theorem",
+   "statement": "For every Hilbertian subset H of Q there is delta > 0 such that the number of integers in [1, B] not in H is O(B^{1-delta}); in particular Q is Hilbertian and every Hilbertian subset of Q contains infinitely many primes. The proof, given for one parameter and one variable, reduces irreducibility of specializations to the absence of rational roots of finitely many monic, absolutely irreducible polynomials Q_i(T, Y) with no root in Q(T) (Proposition 5.2.5, Lemma 5.2.7), and bounds integer points on the real branches of such curves by Puiseux expansions and a Rolle interpolation argument (Lemmas 5.2.11-5.2.13).",
+   "hypotheses": [
+    "Imported: the Puiseux theorem (Theoreme 6.1.1) and Corollaire 2.4.4 on primitive elements for unramified extensions (for convergence of Puiseux series, Lemma 5.2.12), neither read",
+    "The general case (several parameters and variables) follows from the reductions of section 9.1, not read beyond its opening; number fields and finitely generated extensions of Q are Hilbertian by Theoreme 9.2.1 and section 9.3",
+    "Lemma 5.2.7 has a characteristic-0 argument and a general argument through the field of constants (Proposition 5.3.2, not read)",
+    "Remark 5.2.10: the bound O(sqrt B) is possible ([Lan83], [Deb01]); the prime-number count uses the prime number theorem"
+   ],
+   "proofSteps": [
+    "Proposition 5.2.5: for an irreducible P, every nontrivial factorization of P(t_0, Y) comes from a subset I of the roots; a coefficient gamma of the corresponding factor lies outside k(T), and its minimal polynomial Q(T, Y) has a root at t_0; taking all I gives finitely many Q_i with V'_{Q_1..Q_N} contained in H_P up to a finite set.",
+    "Lemma 5.2.7: a separable irreducible but not absolutely irreducible Q has only finitely many k-rational zeros (they lie on the discriminant).",
+    "Lemma 5.2.11: the real branches of P(t, Y) = 0 for t large are given by convergent Puiseux series phi_i in (1/t)^{1/e} with real coefficients.",
+    "Lemma 5.2.13: for n + 1 integer points t_0 < ... < t_n on a branch with integer values, the n-th divided difference is a nonzero rational with denominator < (t_n - t_0)^{n(n+1)/2} but of size about t_0^{-mu}; so t_n - t_0 >= c t_0^alpha, and counting in intervals gives O(B^kappa) with kappa = 1/(1 + alpha).",
+    "Combine over the finitely many branches and polynomials."
+   ],
+   "acceptance": [
+    "IG.2 acceptance support: the worked reduction for P(T, Y) = Y^4 - T (Exemple 5.2.6) gives explicit polynomials Q_1 = Y^4 - T, Q_2 = Y^2 - T, Q_3 = Y^2 + T whose rational-root-free values certify irreducibility.",
+    "Keep the result ineffective in delta only where the Puiseux constants are not computed."
+   ],
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Section 5.2.2-5.2.3, Proposition 5.2.5 with proof, Exemple 5.2.6, Lemme 5.2.7, Theoreme 5.2.9, Lemmes 5.2.11-5.2.13 with proofs, pp. 136-143",
+     "excerpt": "Theoreme 5.2.9. Pour toute partie hilbertienne H de Q, il existe delta > 0 tel que le nombre d'entiers dans H^c intersect [1, B] est un O(B^{1-delta})",
+     "match": "Literal statement, accents dropped; \"En consequence, Q est un corps hilbertien\" follows."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/finite-extensions-of-hilbertian-fields-are-hilbertian",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+   "title": "Debes Theoreme 9.2.1: a finite extension of a Hilbertian field is Hilbertian (proved for separable extensions via norms of polynomials)",
+   "kind": "theorem",
+   "statement": "Let l/k be a finite extension. If k is Hilbertian then l is Hilbertian. For l/k separable and P in l[T, Y] - l[T] irreducible there is p in k[T, Y] - k[T] irreducible with H_p contained in H_P; hence every one-variable Hilbertian subset of l contains a Hilbertian subset of k up to a Zariski-closed set. In particular number fields are Hilbertian.",
+   "hypotheses": [
+    "The purely inseparable case is cited to Fried-Jarden, Field Arithmetic, Proposition 12.3.5 (not read)",
+    "Lemme 9.2.2 (a translate Y + c(T) making the conjugates P^sigma pairwise coprime) is stated; its proof was not read",
+    "The reduction from s variables to one variable is in section 9.1 (not read beyond the opening)"
+   ],
+   "proofSteps": [
+    "Take p(T, Y) = prod over sigma in Sigma of P^sigma(T, Y), with Sigma a set of coset representatives of G = Gal(lhat/k) modulo H = Gal(lhat/l).",
+    "p is G-invariant, hence in k[T, Y].",
+    "If p(t_0, Y) is irreducible over k then P(t_0, Y) is irreducible over l: a nontrivial factor Q of P(t_0, Y) gives the nontrivial factor prod Q^sigma of p(t_0, Y).",
+    "p is irreducible in k[T, Y]: first when the P^sigma are pairwise coprime (P divides a factor q and so do all conjugates), in general after the translation of Lemme 9.2.2."
+   ],
+   "acceptance": [
+    "Check that the statement exported to IG.2 is \"number fields are Hilbertian\", obtained from Theoreme 5.2.4 and 9.2.1."
+   ],
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Section 9.2.1, Theoreme 9.2.1 with addendum and proof in the separable case, Lemme 9.2.2, pp. 242-244",
+     "excerpt": "Theoreme 9.2.1. Soit l/k une extension finie. Alors, si k est hilbertien, alors l est hilbertien.",
+     "match": "Literal statement, accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/hilbert-specialization-of-a-galois-extension-of-k-t-with-full-group",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+   "title": "Debes Proposition 5.2.14 and Remarque 5.2.15: over a Hilbertian field, a Galois extension of k(T) with group G specializes to Galois extensions of k with group G for infinitely many t",
+   "kind": "theorem",
+   "statement": "Let k be a Hilbertian field and E_T/k(T) a Galois extension with group G, with primitive element y(T) integral over k[T] and monic minimal polynomial P(T, Y). For all t in the Hilbertian subset H_P outside a finite set (poles of the coefficients expressing the conjugates, zeros of the discriminant), the residue extension E_t = k(y(t)) is Galois over k with group isomorphic to G. The map s : Gal(E_t/k) -> Gal(E_T/k(T)) (extending tau to coefficients of the Hensel lifts in k((T - t))) is an isomorphism, and specialization of automorphisms r : Gal(E_T/k(T)) -> Gal(E_t/k) is a surjection with r o s = id. Hence a group realized over k(T) is realized over k.",
+   "hypotheses": [
+    "Uses Hensel's lemma for the simple roots (Theoreme 1.3.12 or Lemme 2.6.4) and Lemme 1.4.2 (extension of the specialization morphism), not read",
+    "The regular-cover specialization \"outside its branch locus\" is covered by excluding discriminant zeros; the geometric formulation through decomposition groups (section 2.6, theoremes 2.6.1-2.6.2) was not read"
+   ],
+   "proofSteps": [
+    "Write the roots of P as f_i(T, y(T)) with f_i in k(T)[Y].",
+    "For t in H_P outside the finitely many bad values, P(t, Y) is irreducible and splits as prod (Y - f_i(t, y(t))) with distinct roots, so E_t/k is Galois.",
+    "Identify E_T with k(T, y_1(T), ..., y_d(T)) inside k((T - t)) via Hensel lifts of the simple roots y_i(t), whose coefficients lie in E_t.",
+    "Extend tau in Gal(E_t/k) to coefficients; this preserves E_T and gives an injective homomorphism s; equality of orders ([E_t : k] = d = |G|) makes it an isomorphism."
+   ],
+   "acceptance": [
+    "IG.2 acceptance: produce infinitely many distinct specializations in a worked regular example with ramification and irreducibility certificates. The source gives the theorem, not the worked example (see gaps).",
+    "Keep the finite exceptional set explicit: poles of the f_i and zeros of the discriminant."
+   ],
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Section 5.2.4, Proposition 5.2.14 with proof and Remarque 5.2.15, pp. 143-144",
+     "excerpt": "Proposition 5.2.14. Soit k un corps hilbertien. Si un groupe fini G est groupe de Galois sur k(T), alors G est groupe de Galois sur k.",
+     "match": "Literal statement, accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/riemann-existence-theorem-for-covers-of-the-punctured-sphere",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+   "title": "Riemann existence: equivalences between finite extensions of C(T) unramified outside t, algebraic, analytic and topological covers, transitive representations of pi_1^top and permutation tuples with product one; Nielsen classes for G-covers",
+   "kind": "theorem",
+   "statement": "For t = {t_1, ..., t_r} in P^1(C) the following categories are equivalent: finite extensions of C(T) unramified outside t; finite algebraic covers of P^1 unramified outside t; analytic covers of P^1(C) unramified outside t; finite topological covers of P^1(C) - t; transitive representations of pi_1^top(P^1(C) - t) in symmetric groups; r-tuples of permutations with product 1 generating a transitive subgroup (Debes Theoreme 6.5.1). Branch-cycle classes correspond to inertia canonical invariants (Proposition 6.5.2). For a finite group G, isomorphism classes of G-covers of P^1_C with branch locus D correspond bijectively to inner Nielsen classes ni_r(G) = {(g_1, ..., g_r) : g_i != 1, <g_i> = G, g_1 ... g_r = 1}/G (Romagny-Wewers Theorem 3.1). For an algebraically closed field k of characteristic 0, a bouquet gives i : pi_1^top(P^1 - t, t_0) -> pi_1^alg(P^1 - t)_k inducing an isomorphism from the profinite completion and sending [gamma_i] to a distinguished generator of an inertia group above t_i (Debes Theoreme 6.5.3). In SGA 1 form: for X locally of finite type over C, X' -> X'^an is an equivalence of finite etale covers (XII Theoreme 5.1).",
+   "hypotheses": [
+    "Debes 6.5.1: the proof is deferred to chapter 7 (7.1-7.3, not read); 6.5.3 is stated with a reference to Serre, Topics in Galois Theory, and no proof",
+    "Romagny-Wewers Theorem 3.1: \"For a proof, see e.g. [Voel96]\"; the substantial part is algebraicity",
+    "SGA 1 XII 5.1: proved by reduction to normal, then regular X, and extension across a normal crossings boundary using resolution of singularities and XII 4.6 (Grauert-Remmert), which are imports",
+    "The generators g_i != 1 condition is part of the Nielsen class definition in Romagny-Wewers but not in Debes 6.5.1"
+   ],
+   "proofSteps": [
+    "Topological covers of P^1(C) - t correspond to transitive monodromy representations of pi_1^top = <gamma_1, ..., gamma_r | gamma_1 ... gamma_r = 1>.",
+    "Local extension over punctured discs (z -> z^{1/d}) completes to a branched analytic cover of compact Riemann surfaces.",
+    "The meromorphic function field of the compact Riemann surface is a finite extension of M(P^1) = C(T) (algebraization).",
+    "Functoriality gives equivalences; invariants (degree, automorphisms, inertia classes) correspond (6.5.2)."
+   ],
+   "acceptance": [
+    "IG.3 acceptance: compare a dessin/permutation triple up to simultaneous conjugacy with its cover; Nielsen classes are the invariant, and a passport (the multiset of classes) does not determine the class.",
+    "Check the characteristic-0 hypothesis of 6.5.3 before exporting it to arithmetic applications."
+   ],
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Section 6.5, Theoreme 6.5.1, Proposition 6.5.2, Theoreme 6.5.3, pp. 181-184",
+     "excerpt": "Theoreme 6.5.1 (Theoreme d'existence de Riemann) Etant donne t = {t_1, ..., t_r} contenu dans P^1(C), les categories suivantes sont equivalentes",
+     "match": "Literal opening of the statement, accents dropped."
+    },
+    {
+     "sourceId": "romagny-wewers-hurwitz-spaces",
+     "locator": "Section 3.1, Theorem 3.1, pp. 318-319",
+     "excerpt": "The correspondence f -> g induces a bijection H_{D,G,C} -> ni_r(G).",
+     "match": "Literal statement of Theorem 3.1, notation transliterated."
+    },
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose XII, Theoreme 5.1 with proof, pp. 251-253",
+     "excerpt": "Le foncteur Psi qui, a tout revetement etale fini X' de X, associe X'^an est une equivalence de la categorie des revetements etales finis de X dans la categorie des revetements etales finis de X^an.",
+     "match": "Literal statement, accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/descent-criterion-and-branch-cycle-conditions",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+   "title": "Debes Theoremes 8.1.1-8.1.2 and conditions (*), (**), (***): a cover over k^s(T) is defined over k iff its representation extends to pi_1(P^1 - t)_k; the Galois action on branch cycles is twisted by the cyclotomic character",
+   "kind": "theorem",
+   "statement": "Let E/F(T) be a (G-)extension unramified outside t, F/k Galois, with associated homomorphism phi : pi_1(P^1 - t)_F -> R (R = S_d or G). It is defined over k iff phi extends to pi_1(P^1 - t)_k (8.1.1). For F = k^s and a section s of 1 -> pi_1(P^1 - t)_{k^s} -> pi_1(P^1 - t)_k -> G_k -> 1, it is defined over k iff there is a homomorphism varphi : G_k -> R with phi(x^{s(tau)}) = varphi(tau) phi(x) varphi(tau)^{-1} for all tau and x (8.1.2). In characteristic 0, with a bouquet x_1, ..., x_r and g_i = phi(x_i): (*) the phi(x_i^{s(tau)}) generate G; (**) their product is 1; (***) phi(x_i^{s(tau)}) lies in C_j^{chi(tau)}, where t_j = t_i^tau, C_j is the inertia class at t_j and chi is the cyclotomic character modulo |G| (up to the normalizer for embedded classes). If varphi exists it takes values in N = Nor_R(G) and is determined modulo C = Cen_R(G) (8.1.3).",
+   "hypotheses": [
+    "Condition (***) is derived from Theoreme 6.5.3 and Corollaire 6.1.13 (the branch cycle lemma); Corollaire 6.1.13 was not read",
+    "Uses Theoreme 6.2.1 for the section s and the extensions/representations dictionary of section 6.2.2 (not read beyond its statement)"
+   ],
+   "proofSteps": [
+    "8.1.1: (G-)extensions over K correspond to homomorphisms of pi_1(P^1 - t)_K, and isomorphism classes to R-conjugacy; descent is extension of the homomorphism.",
+    "8.1.2: pi_1(P^1 - t)_k is the semidirect product of pi_1(P^1 - t)_{k^s} by G_k via s, so extensions of phi are compatible choices of varphi on G_k.",
+    "(*)-(***): the images of the conjugated bouquet again generate, have product 1, and represent the inertia classes twisted by the cyclotomic character."
+   ],
+   "acceptance": [
+    "State the characteristic-0 hypothesis of (*)-(***).",
+    "This is the field-of-moduli and descent condition required by IG.3."
+   ],
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Section 8.1, Theoremes 8.1.1-8.1.2, conditions (*)-(***), Remarque 8.1.3, pp. 211-214",
+     "excerpt": "Theoreme 8.1.2. Soient E/k^s(T) une (G-)extension non ramifiee en dehors de t et phi : pi_1(P^1 - t)_{k^s} -> R l'homomorphisme associe. La (G-)extension est definie sur k si et seulement si il existe un homomorphisme varphi : G_k -> R tel que, pour tout tau in G_k et tout x in pi_1(P^1 - t)_{k^s}, on ait phi(x^{s(tau)}) = varphi(tau) phi(x) varphi(tau)^{-1}",
+     "match": "Literal statement, notation transliterated, accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/rigidity-criterion-for-regular-realizations-over-q",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+   "title": "Debes Theoreme 8.2.2 (Belyi, Fried, Matzat, Shih, Thompson): trivial center, rational classes and a transitive action on the Nielsen set give a regular G-extension of Q(T) with prescribed branch points",
+   "kind": "theorem",
+   "statement": "Let G be a finite group with generators g_1, ..., g_r, g_1 ... g_r = 1, and conjugacy classes C_i of g_i. Let sni(C_1, ..., C_r) be the set of tuples (g'_1, ..., g'_r) generating G with product 1 and g'_i in C_i, with G acting by conjugation. If (H1) Z(G) = 1, (H2) the classes C_i are rational (g^a in C for all a prime to the order of g), and (H3) sni(C_1, ..., C_r) is nonempty and G acts transitively on it, then for every r-tuple t of points of P^1(Q) there is a regular Galois extension E/Q(T) with group G, branch points t and inertia canonical invariant (C_1, ..., C_r). Over Q^ab, (H2) is not needed (8.2.4); (H1) can be dropped using projectivity of G_{Q^ab} (8.2.5). (H2) is necessary when the t_i are rational (8.2.3).",
+   "hypotheses": [
+    "(H3) is the rigidity condition; it is usually verified for r <= 3 and can be checked from character tables (8.2.2.3)",
+    "The proof uses the descent criterion 8.1.2 and conditions (*)-(***), hence the branch cycle lemma and Riemann existence"
+   ],
+   "proofSteps": [
+    "Choose t_0 and a bouquet (gamma_1, ..., gamma_r) for P^1(C) - t, and phi : pi_1(P^1 - t)_{Qbar} -> G with phi(x_i) = g_i (Riemann existence).",
+    "For tau in G_Q, (*), (**), (***) and (H2) put (phi(x_1^tau), ..., phi(x_r^tau)) in sni(C_1, ..., C_r).",
+    "By (H3) there is varphi_tau with (phi(x_i^tau)) = varphi_tau (g_i) varphi_tau^{-1}.",
+    "By (H1) varphi_tau is unique, so tau -> varphi_tau is a homomorphism, and 8.1.2 gives descent to Q; regularity holds because the cover is defined over Qbar with group G."
+   ],
+   "acceptance": [
+    "IG.3 acceptance: one rigid realization (S_n or PSL_2(F_p), see the examples node) with the conjugacy classes, centralizers and rationality checked.",
+    "Check that rationality is verified before applying the criterion, as the roadmap requires."
+   ],
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Section 8.2.1, Definition 8.2.1, Theoreme 8.2.2 with proof, Remarque 8.2.3, Theoreme 8.2.4, Remarque 8.2.5, pp. 214-215",
+     "excerpt": "alors pour tout r-uplet t = {t_1, ..., t_r} de points dans P^1(Q), il existe une extension galoisienne reguliere E/Q(T) de groupe G, de points de branchement t_1, ..., t_r et d'invariant canonique de l'inertie le r-uplet (C_1, ..., C_r).",
+     "match": "Literal conclusion of Theoreme 8.2.2, accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/rigid-realizations-of-symmetric-groups-and-psl2",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+   "title": "Debes 8.2.2.1-8.2.2.3 and Lemme 8.2.6: rigid triples for S_n (n >= 3) and for PSL_2(F_p) when (2/p) = -1 or (3/p) = -1, and the Monster via character tables",
+   "kind": "application",
+   "statement": "S_n (n >= 3): the classes of n-cycles, (n-1)-cycles and transpositions with g_1 = (n ... 1), g_2 = (1 ... n-1), g_3 = (n n-1) form a rational rigid triple with trivial center, so S_n is a regular Galois group over Q(T). PSL_2(F_p), p odd: the triple (2A, pA, pB) satisfies (H3) if (2/p) = -1, and (3A, pA, pB) does if (3/p) = -1; since pA and pB are exchanged by non-square powers, one takes t_1 in P^1(Q) and t_2, t_3 conjugate over the quadratic field Q(sqrt D) fixed by the index-2 subgroup where the cyclotomic character is a square mod p, giving regular PSL_2(F_p)-extensions of Q(T) in these cases (results of Shih). The Monster admits a rigid rational triple verified via its character table and the classification.",
+   "hypotheses": [
+    "The PSL_2 argument refines Theoreme 8.2.2 for non-rational classes by choosing conjugate branch points",
+    "The Monster claim is stated without the character computation",
+    "The source notes that the analogous statement holds for (7/p) = -1 or (5/p) = -1 and that most other cases remain open (for these rigid triples)"
+   ],
+   "proofSteps": [
+    "S_n: conjugate g'_1 to g_1; adjust by a power of g_1 so that g'_2 fixes n; then g'_3 must be (n n-1), so the triple equals (g_1, g_2, g_3).",
+    "PSL_2: lift to SL_2(F_p) elements of orders 4, p, p with product +-1; eigenvectors of the unipotent lifts are independent; normalize to [[1,1],[0,1]] and [[1,0],[lambda,1]]; the trace condition for order 4 forces lambda = -2 (and -3 for the order-3 case), so the triple is unique up to conjugacy.",
+    "Descend using (***) with the index-2 subgroup of G_Q."
+   ],
+   "acceptance": [
+    "IG.3 acceptance: one rigid realization with explicit classes and verification of (H1)-(H3): S_n is fully verified in the source.",
+    "Recompute the PSL_2 trace argument for small p (e.g. p = 5, 7) before implementation."
+   ],
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Section 8.2.2, examples 8.2.2.1-8.2.2.3, Lemme 8.2.6 with proof, pp. 216-219",
+     "excerpt": "Les hypotheses et la conclusion du theoreme 8.2.2 sont vraies pour le groupe symetrique S_n si n >= 3.",
+     "match": "Literal conclusion of example 8.2.2.1, accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/field-of-moduli-and-the-descent-obstruction",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+   "title": "Debes Propositions 8.4.1-8.4.4, Remarque 8.4.5, Corollaire 8.4.6 and Romagny-Wewers Theorem 4.3, Proposition 4.4: the field of moduli, when it is a field of definition, and the obstruction in H^2(k_m, Z(G))",
+   "kind": "theorem",
+   "statement": "For a (G-)extension E/F(T) with F/k Galois, M(E) is the subgroup of tau in Gal(F/k) with E^tau isomorphic to E, and its fixed field is the field of moduli. It is a finite extension of k contained in every field of definition containing k (8.4.1), and M(E) is closed. Over F = k^s with t_0 in P^1(k) - t, the field of moduli is a field of definition iff the induced homomorphism G_k -> N/C lifts to G_k -> N, with N = Nor_R(G) and C = Cen_R(G) (8.4.4). This holds when C = 1 (in particular for G-covers of center-free G, and mere covers without automorphisms), for Galois extensions viewed as mere covers (Coombes-Harbater), for abelian G, and whenever G_k is projective (k finite, cd k <= 1). The field R_{t0}(E) fixed by the kernel is a field of definition of degree <= |N|/|C| (8.4.6). For tame G-covers over an algebraically closed field, the field of moduli is a finite separable extension of the branch-locus field (Romagny-Wewers Theorem 4.3; tameness is necessary). In general the obstruction for the field of moduli to be a field of definition lies in H^2(k_m, Z_G) (Romagny-Wewers, citing Debes-Douai 1997).",
+   "hypotheses": [
+    "Romagny-Wewers Theorem 4.3 is proved in their section 4.4, which was not read; the H^2 obstruction is cited to [DD97], not read",
+    "No explicit example of a cover whose field of moduli is not a field of definition appears in the sections read (the roadmap acceptance asks for one; see gaps)"
+   ],
+   "proofSteps": [
+    "8.4.1: a field of definition K has Gal(F/K) contained in M(E); the orbit map tau -> (phi(x_i^tau)) mod N shows [k_m : k] is finite.",
+    "8.4.3: tau in M(E) iff there is varphi_tau in N with phi(x^{s(tau)}) = varphi_tau phi(x) varphi_tau^{-1}; k_m is a field of definition iff the varphi_tau can be chosen to form a homomorphism.",
+    "8.4.4: the classes varphi_tau mod C form a homomorphism G_k -> N/C; lifting is possible if 1 -> C -> N -> N/C -> 1 splits (C = 1, abelian G, Galois mere covers via the regular representation) or G_k is projective."
+   ],
+   "acceptance": [
+    "IG.3 acceptance: an example where the field of moduli does not supply a model: not in the sources read (gap).",
+    "Record whether G-covers or mere covers are meant; the descent obstruction differs."
+   ],
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Section 8.4, Propositions 8.4.1, 8.4.3, 8.4.4, Remarques 8.4.2, 8.4.5, Corollaire 8.4.6, pp. 225-229",
+     "excerpt": "Ainsi le corps des modules est le plus petit corps de definition si c'est un corps de definition, mais ce n'est pas necessairement le cas en general.",
+     "match": "Literal sentence after Proposition 8.4.1, accents dropped."
+    },
+    {
+     "sourceId": "romagny-wewers-hurwitz-spaces",
+     "locator": "Section 4.2, Definitions 4.1-4.2, Theorem 4.3, Proposition 4.4, pp. 322-323",
+     "excerpt": "In general, the obstruction for k_m to be a field of definition is represented by an element of the Galois cohomology group H^2(k_m, Z_G), where Z_G denotes the center of G. See [DD97].",
+     "match": "Literal quotation, notation transliterated."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/regular-inverse-galois-over-r-and-abelian-groups-over-q",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+   "title": "Debes Theoremes 8.3.1-8.3.3 and 8.2.7: Hurwitz formulas for complex conjugation, every finite group is regular over R(T), real branch points force generation by involutions, and abelian groups are regular over k(T) in characteristic 0",
+   "kind": "theorem",
+   "statement": "(8.3.1, Hurwitz formulas) For t with r_1 real points and r_2 conjugate pairs, a bouquet can be chosen with (c x_1 ... x_i)^2 = 1 for i <= r_1 and x_{r+1-i} = c (x_{r_1+i})^{-1} c. (8.3.2) Every finite group G is the Galois group of a regular Galois extension of R(T). (8.3.3) G is the group of a regular Galois extension of R(T) with only real branch points iff G is generated by r elements of order <= 2. (8.2.7) For a field k of characteristic 0 and a finite set D in P^1(k), every finite abelian group is the Galois group of a regular Galois extension of k(T) unramified above D.",
+   "hypotheses": [
+    "8.3.1: the action of complex conjugation on algebraic pi_1 is identified with its topological action (statement (*) of 8.3.1) through Theoreme 6.5.3",
+    "8.2.7 reduces to k = Q and cyclic groups (the reduction to cyclic groups is stated as known), and uses Riemann existence with branch points zeta^{g_i^{-1}}"
+   ],
+   "proofSteps": [
+    "8.3.2: take only non-real branch points, g_1, ..., g_{r_2} generating G, and phi(x_i) = g_{r_2+1-i}^{-1} and g_{i-r_2}; the Hurwitz formulas give phi(x_i^c) = phi(x_i), so 8.1.2 holds with varphi trivial.",
+    "8.3.3: with real branch points, the elements g_0 g_1 ... g_i (g_0 = phi(c)) are involutions generating G.",
+    "8.2.7: for G = Z/nZ choose t_i = zeta^{g_i^{-1}} over the units g_i of Z/nZ, so that (t_i^{tau^{-1}}, chi(tau) g_i) permutes the pairs (t_i, g_i); descent with varphi = 1."
+   ],
+   "acceptance": [
+    "IG.4 acceptance support: cyclic realizations (regular over Q(T), hence over Q by Hilbert specialization).",
+    "Use 8.3.3 as the necessary condition for rigid realizations with real (e.g. rational) branch points."
+   ],
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Section 8.3, Theoremes 8.3.1-8.3.3 with proofs, pp. 220-225; section 8.2.3, Theoreme 8.2.7 with proof, pp. 219-220",
+     "excerpt": "Theoreme 8.3.3. Un groupe fini G est groupe de Galois d'une extension galoisienne reguliere de R(T) avec points de ramification reels si et seulement si G peut etre engendre par r elements d'ordre <= 2.",
+     "match": "Literal statement, accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/embedding-problems-and-proper-solutions",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4",
+   "title": "NSW Definition 3.5.1: embedding problems for profinite groups, solutions, proper solutions and their field-theoretic meaning",
+   "kind": "definition",
+   "statement": "An embedding problem E(G, phi, alpha) for a profinite group G is a diagram with exact sequence 1 -> N -> E -alpha-> Gbar -> 1 of profinite groups and a surjection phi : G -> Gbar. A solution is a homomorphism psi : G -> E with alpha o psi = phi; it is proper if psi is surjective. Solutions psi, psi' are equivalent if psi'(sigma) = a^{-1} psi(sigma) a for a fixed a in N. For G = Gal(ktilde/k) and Gbar = Gal(K/k), a proper solution gives a Galois extension L containing K with Gal(L/k) = E compatible with the projection; a non-proper solution gives only a Galois algebra with group E.",
+   "hypotheses": [
+    "Full classes of finite groups, pro-c-groups and maximal pro-c quotients (3.5.2-3.5.3) set the context",
+    "The solvability criterion via the 2-class of the extension (3.5.9) is used in 9.6.7 but was not read"
+   ],
+   "proofSteps": [
+    "Definition; the field-theoretic interpretation is given in the text following 3.5.1."
+   ],
+   "acceptance": [
+    "IG.4 acceptance: a weak (non-proper) solution with smaller image is not a realization of E.",
+    "Local constraints are local embedding problems at completions (IX section 5)."
+   ],
+   "sources": [
+    {
+     "sourceId": "nsw-cohomology-of-number-fields-2e",
+     "locator": "Chapter III, section 5, Definition 3.5.1 and the following paragraph, p. 189",
+     "excerpt": "(ii) A solution of the embedding problem E(G) is a homomorphism psi: G -> E such that alpha o psi = phi. A solution is called proper if psi is surjective.",
+     "match": "Literal definition, notation transliterated."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/split-embedding-problems-with-nilpotent-kernel-over-global-fields",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4",
+   "title": "NSW Theorems 9.6.6-9.6.7: every split embedding problem with finite nilpotent kernel over a global field has a proper solution, with Scholz-type local conditions, proved by induction with Shafarevich's shrinking process",
+   "kind": "theorem",
+   "statement": "Let K/k be a finite Galois extension of a global field with G = Gal(K/k) and phi : G_k -> G. Every split embedding problem 1 -> H -> H x| G -> G -> 1 with finite nilpotent kernel H has a proper solution (9.6.6). Sharper (9.6.7): for every prime p, all n and all filtration indices nu = (i, j), and any natural number e, the split embedding problem with kernel F(n)/F(n)(nu) (F(n) the free pro-p-G operator group of rank n, (nu) a refinement of the descending p-central series) has a proper solution N_nu^n/k, and if p != char k it can be chosen so that (i) all primes in Ram(K/k) union S_p union S_infinity split completely in N_nu^n/K, and (ii) primes ramified in N_nu^n/K split completely in K(mu_{p^e})/k with cyclic totally ramified local extensions.",
+   "hypotheses": [
+    "The refinement of the p-central series is Shafarevich's correction, needed for p = 2 (the original article [187] contains a mistake at 2)",
+    "Imported and not read: Propositions 9.6.2-9.6.4 (the shrinking process), Lemma 9.6.5, Theorem 9.3.2 (Grunwald-Wang type existence of cohomology classes with prescribed local components), Poitou-Tate duality, the criterion 3.5.9, 9.2.9 and cd_p G_k = 1 in characteristic p (6.1.4, 3.5.6)",
+    "The second and third induction steps (global solution from local solvability; shrinking to kill obstructions) were not read"
+   ],
+   "proofSteps": [
+    "Reduce 9.6.6 to kernels F(n)/F(n)(nu) with H a p-group (nilpotent groups are products of Sylow subgroups; every finite G-operator p-group is such a quotient).",
+    "Induct on nu with n arbitrary; the step nu -> nu + 1 is the central embedding problem with kernel E(n, nu) = F(n)(nu)/F(n)(nu+1).",
+    "Step 1: after replacing the level-n solution by one induced from a large level m via a G-invariant surjection psi : F(m) -> F(n), the local problems are solvable everywhere, using condition (i) at bad primes.",
+    "Steps 2-3: pass from local to global solvability (the obstruction is the image of the 2-class in H^2(k, E(n, nu))) and shrink to make the obstructions vanish.",
+    "Step 4: modify by a class x in H^1(k_S/k, E(n, nu)) with prescribed local components to restore properness and condition (ii).",
+    "Characteristic p = char k: proper solvability follows from cd_p G_k = 1 and the Frattini argument."
+   ],
+   "acceptance": [
+    "IG.4 acceptance: certify the inductive properness step (Step 4 and the choice of T' generating the new Galois group).",
+    "Record that the method does not realize prescribed local extensions (stated in the introduction of section 6)."
+   ],
+   "sources": [
+    {
+     "sourceId": "nsw-cohomology-of-number-fields-2e",
+     "locator": "Chapter IX, section 6, outline and Theorem 9.6.6, pp. 575-576, 583-584",
+     "excerpt": "The essential step in the proof of Safarevic's theorem (9.6.1) is the following (9.6.6) Theorem. Let K|k be a finite Galois extension of the global field k and let phi : G_k -> G(K|k) = G. Then every split embedding problem ... with finite nilpotent kernel H has a proper solution.",
+     "match": "Literal statement with the diagram elided (...) and diacritics dropped."
+    },
+    {
+     "sourceId": "nsw-cohomology-of-number-fields-2e",
+     "locator": "Chapter IX, section 6, Theorem 9.6.7, first and fourth steps, characteristic-p case, pp. 585-595",
+     "excerpt": "The new solution phi-tilde_{n,nu+1} = x phi_{n,nu+1} fulfills conditions (i) and (ii), hence step 4 and the proof in the case p != char(k) of theorem (9.6.7) are complete.",
+     "match": "Literal sentence, notation transliterated."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/shafarevich-theorem-solvable-groups-over-global-fields",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4",
+   "title": "NSW Theorem 9.6.1 (Shafarevich) and Theorem 9.6.10: every finite solvable group is a Galois group over any global field; solvable nilpotent-kernel embedding problems are properly solvable",
+   "kind": "theorem",
+   "statement": "Let k be a global field and G a finite solvable group. Then there is a Galois extension K/k with Gal(K/k) isomorphic to G (9.6.1). Moreover, every embedding problem over k with finite nilpotent kernel that has a solution has a proper solution (9.6.10).",
+   "hypotheses": [
+    "Group theory imported from Huppert: if N is normal and not contained in the Frattini subgroup Phi(G), N has a partial complement U != G with G = NU (9.6.8); for nontrivial solvable G, Phi(G) is a proper subgroup of the Fitting subgroup F(G) (9.6.9)",
+    "The realization is not regular over k(T) and does not prescribe local extensions",
+    "Exercise: finitely many primes can be made to split completely; over number fields K can be chosen tamely ramified (left as exercises)"
+   ],
+   "proofSteps": [
+    "Ore's argument: for G != 1 solvable, F(G) is not contained in Phi(G) (9.6.9), so it has a proper partial complement U (9.6.8), giving a surjection F(G) x| U -> G.",
+    "By induction on |G|, U is realized over k.",
+    "The split embedding problem with nilpotent kernel F(G) over the U-extension has a proper solution (9.6.6), realizing F(G) x| U, hence its quotient G.",
+    "9.6.10: given a solution psi, the split problem with kernel N over im(psi) has a proper solution by 9.6.6, which maps onto E."
+   ],
+   "acceptance": [
+    "IG.4 acceptance: cyclic realizations (e.g. via 8.2.7 and Hilbert specialization, or class field theory) and dihedral realizations as a two-step embedding problem with abelian kernel: the dihedral example is not in the sections read (gap).",
+    "IG.6 register: solvable groups over global fields, proved; regularity not claimed."
+   ],
+   "sources": [
+    {
+     "sourceId": "nsw-cohomology-of-number-fields-2e",
+     "locator": "Chapter IX, section 6, Theorem 9.6.1, Propositions 9.6.8-9.6.9, proof of Safarevic's theorem, Theorem 9.6.10 with proof, pp. 574, 595-597",
+     "excerpt": "(9.6.1) Theorem (SAFAREVIC). Let k be a global field and let G be a finite solvable group. Then there exists a Galois extension K|k with G(K|k) = G.",
+     "match": "Literal statement, diacritics dropped and the isomorphism sign written as =."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/hurwitz-space-of-tame-g-covers-as-a-coarse-moduli-scheme",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5",
+   "title": "Romagny-Wewers Theorem 2.1, Corollary 2.2, Theorem 4.11 and Debes 2026 Theorem 2.4: the Hurwitz space H_{r,G} of tame G-covers of P^1 with r branch points over Z, fine when Z(G) = 1, with good reduction and compactification away from |G|",
+   "kind": "theorem",
+   "statement": "For a finite group G and r >= 3 there is a scheme H = H_{r,G,Z}, smooth of finite type over Z, with a morphism of functors from isomorphism classes of tame G-covers of P^1_S with r branch points to Hom(S, H), universal among such morphisms and bijective for S the spectrum of an algebraically closed field (Theorem 2.1). If Z(G) = 1 it is a fine moduli space (Corollary 2.2), so for every field k its k-points are the regular tame G-extensions of k(t). The algebraic construction gives H of finite type over Z with an etale map pi : H -> U_{r,Z} to the configuration space, compatible with twisting by field automorphisms ([f^sigma] = [f]^sigma), so the field of moduli of f is the residue field of its point, and H (x) C = H_{r,G,C} (Theorem 4.11). Over Z[1/|G|] it is smooth with a normal compactification over the Harris-Mumford compactification of the configuration space, its reductions at p not dividing |G| are moduli spaces for G-covers in characteristic p (Debes 2026 Theorem 2.4, citing Wewers and Romagny-Wewers). Reduced Hurwitz spaces (quotients by PGL_2) are normal but not necessarily smooth over Z.",
+   "hypotheses": [
+    "Theorem 2.1 is cited to Wewers 1998; Romagny-Wewers prove the weaker Theorem 4.11 in section 4, whose proof relies on Riemann existence (for finiteness of M), Theorem 4.3 and tame deformation theory (Proposition 4.5)",
+    "The acknowledgments thank the referee for \"pointing out a gap in the proof of Proposition 4.10\"; whether the published text closes it was not checked",
+    "Debes 2026 Theorem 2.4 is a survey statement with references, no proof",
+    "For characteristic 0 and center-free G the first construction is Fried-Voelklein 1991"
+   ],
+   "proofSteps": [
+    "Analytic construction: H_{r,G,C} -> U_{r,C} is a covering projection whose fibre over D is ni_r(G) (Proposition 3.2).",
+    "Algebraic construction: normalize U_{r,Z} in the fields of moduli K_mu of representatives of the Aut(C/K_0)-orbits of G-covers over the generic branch divisor (finite by Riemann existence and Theorem 4.3), then glue charts using tame deformation theory (Propositions 4.5, 4.10, 4.13).",
+    "Corollary 2.2: objects without nontrivial automorphisms make a coarse moduli space fine; the automorphism group of a G-cover is Z(G)."
+   ],
+   "acceptance": [
+    "IG.5 acceptance: compare a characteristic-0 example with its tame reduction at p not dividing |G| (not worked in the sources read; see gaps).",
+    "Keep the coarse/fine distinction: rational points on H for Z(G) != 1 are fields of moduli, not fields of definition."
+   ],
+   "sources": [
+    {
+     "sourceId": "romagny-wewers-hurwitz-spaces",
+     "locator": "Section 2, Theorem 2.1, Corollary 2.2, 2.5, pp. 316-318",
+     "excerpt": "Theorem 2.1. There exists a scheme H = H_{r,G,Z}, smooth and of finite type over Z, together with a morphism of functors (from schemes to sets) H_{r,G}(S) -> Hom_Z(S, H), such that the following holds.",
+     "match": "Literal opening of Theorem 2.1, notation transliterated."
+    },
+    {
+     "sourceId": "romagny-wewers-hurwitz-spaces",
+     "locator": "Section 4.5, Theorem 4.11 and Corollary 4.12, p. 327",
+     "excerpt": "Therefore, the field of moduli of f is equal to the residue field of the point [f]_k.",
+     "match": "Literal sentence from Theorem 4.11(i)."
+    },
+    {
+     "sourceId": "debes-2026-hurwitz-spaces-and-inverse-galois-theory",
+     "locator": "Section 2.2, Theorem 2.4, p. 14",
+     "excerpt": "There exists a smooth scheme Hur_{r,G} of finite type over Z[1/|G|] and a normal compactification",
+     "match": "Literal opening of Theorem 2.4, notation transliterated."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/braid-action-on-nielsen-classes-and-components-of-hurwitz-space",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5",
+   "title": "Romagny-Wewers Proposition 3.2 and Remark 3.3: H_{r,G,C} -> U_{r,C} is a covering determined by the Hurwitz braid group action on Nielsen classes; components are braid orbits",
+   "kind": "theorem",
+   "statement": "The branch-locus map Psi_r : H_{r,G,C} -> U_{r,C} is a covering projection and H_{r,G,C} has a unique complex structure making Psi_r locally biholomorphic. As a covering it is determined by the action of pi_1(U_{r,C}) (the Hurwitz braid group) on the fibre ni_r(G); the connected components of H_{r,G,C} correspond to the braid orbits on ni_r(G). With Riemann existence this gives, for suitable r and G, components defined over Q: Debes 2026 Theorem 2.1 states that for every finite group G there are r and a component of Hur_{r,G} defined over Q with real points (resp. Q_p-points), whence (Corollary 2.2) every finite group is the group of a regular Galois extension of k(T) with a totally k-rational fibre for k = Q^tr or Q^tp.",
+   "hypotheses": [
+    "Proposition 3.2 is proved from the local deformation of covers over disk-like neighbourhoods of the branch points",
+    "The braid group presentation and the explicit action on Nielsen classes are cited to Fried-Voelklein 1991",
+    "Debes 2026 Theorem 2.1 and Corollary 2.2 are survey statements (proof comments only: Conway-Parker-Fried-Voelklein transitivity, patching, real covers, Moret-Bailly)"
+   ],
+   "proofSteps": [
+    "For f with branch locus D and disjoint discs C_i around the t_i, the sets H(f, C_i) of covers with branch points in the discs and the same monodromy (via pi_1(P^1 - D) = pi_1(P^1 - union C_i) = pi_1(P^1 - D')) form a basis of the topology.",
+    "Psi_r^{-1}(U(C_i)) is the disjoint union of the H(f, C_i), each mapping bijectively, so Psi_r is a covering.",
+    "Covering space theory identifies the covering with the braid action on the fibre ni_r(G)."
+   ],
+   "acceptance": [
+    "IG.5: descent and specialization to regular extensions go through rational points of components defined over the base field; center-free G makes points fields of definition.",
+    "IG.6 register: regular IGP over Q^tr and Q^tp (Dèbes-Fried, Dèbes), over ample fields (Pop), proved; over Q open."
+   ],
+   "sources": [
+    {
+     "sourceId": "romagny-wewers-hurwitz-spaces",
+     "locator": "Section 3.2, Proposition 3.2 with proof and Remark 3.3, pp. 319-320",
+     "excerpt": "So from a topological point of view, we have a rather explicit description of the Hurwitz space H_{r,G,C}. For instance, the connected components of H_{r,G,C} correspond to the orbits of the braid action on the set ni_r(G).",
+     "match": "Literal quotation from Remark 3.3, notation transliterated."
+    },
+    {
+     "sourceId": "debes-2026-hurwitz-spaces-and-inverse-galois-theory",
+     "locator": "Section 2.1, Theorem 2.1 with comments on proof, Corollary 2.2, Remark 2.3, pp. 12-13",
+     "excerpt": "Corollary 2.2 ([DF94], [Deb95]). With k = Q^tr or k = Q^tp, every finite group is the group of some Galois extension of k(T), regular over k, with some totally k-rational fiber.",
+     "match": "Literal statement, notation transliterated and accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/tame-covers-in-positive-characteristic-without-unrestricted-riemann-existence",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5",
+   "title": "SGA 1 XIII 2.12, X 3.10, X 1.10 and Romagny-Wewers Theorem 4.3: in characteristic p only the prime-to-p (tame) part of pi_1 of punctured curves is described, and tameness is necessary for finiteness of fields of moduli",
+   "kind": "comparison",
+   "statement": "Over an algebraically closed field of characteristic p, the prime-to-p quotient of pi_1 of a smooth proper curve of genus g minus n points is the pro-p' group with generators x_i, y_i, sigma_j and relation prod [x_i, y_i] prod sigma_j = 1, and every G of order prime to p generated by such elements is realized by a tame cover (XIII 2.12; X 3.10 for n = 0). The full pi_1 is not described: Artin-Schreier covers x^p - x = st of the affine line form a nonconstant family of etale covers (X 1.10) and the fundamental group of the affine line changes under algebraically closed field extension (IX 6.3). For tame G-covers the field of moduli is finite separable over the branch-locus field, and tameness is necessary for this (Romagny-Wewers Theorem 4.3, citing X 1.10). The Hurwitz space reductions modulo p not dividing |G| parametrize tame G-covers in characteristic p (Debes 2026 Theorem 2.4(c)).",
+   "hypotheses": [
+    "Wild patching and Abhyankar's conjecture (Raynaud, Harbater) are not in the sources read",
+    "The characteristic-p part of XIII 2.12 was read only up to the specialization step"
+   ],
+   "proofSteps": [
+    "XIII 2.12: lift to characteristic 0 and specialize (surjective on pi_1, bijective on prime-to-p finite coefficients).",
+    "X 1.10: the Artin-Schreier equations give pairwise non-isomorphic etale covers parametrized by the affine line, so no finiteness or constancy statement holds without properness or tameness."
+   ],
+   "acceptance": [
+    "IG.5 acceptance: no unrestricted Riemann existence theorem is exported in characteristic p; only the tame/prime-to-p statements above.",
+    "Compare a characteristic-0 G-cover with its reduction modulo p not dividing |G| through the Hurwitz space model of Theorem 2.4 (worked example missing)."
+   ],
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose XIII, Corollaire 2.12, p. 290; Expose X, Remarque 1.10 and Corollaire 3.10, pp. 205, 217",
+     "excerpt": "Pour tout groupe fini G d'ordre premier a p, engendre par des elements xbar_i, ybar_i, sigmabar_j satisfaisant a la relation (*), il existe un revetement etale de U, de groupe G",
+     "match": "Literal fragment of Corollaire 2.12, accents dropped."
+    },
+    {
+     "sourceId": "romagny-wewers-hurwitz-spaces",
+     "locator": "Section 4.2, Theorem 4.3 and the following remark, p. 323",
+     "excerpt": "Note that the tameness assumption in Theorem 4.3 is necessary, see [G+ 71], Remarque X.1.10.",
+     "match": "Literal quotation."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.6/register-of-realized-group-families-and-open-targets",
+   "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+   "title": "Theorem-indexed register: groups realized over Q(T), Q, R(T), Q^tr(T), Q^tp(T) and global fields in the sources read, with the inverse Galois problem over Q kept open",
+   "kind": "definition",
+   "statement": "Proved in the sources read: every finite abelian group is regular over k(T) for k of characteristic 0 (Debes 8.2.7); S_n (n >= 3) is regular over Q(T) by rigidity (8.2.2.1); PSL_2(F_p) is regular over Q(T) when (2/p) = -1 or (3/p) = -1 (8.2.2.2); every finite group is regular over R(T) (8.3.2); every finite group is regular over Q^tr(T) and Q^tp(T) (Debes 2026 Corollary 2.2, cited to Debes-Fried and Debes); every finite solvable group is a Galois group over every global field, not necessarily regularly (NSW 9.6.1). Over a Hilbertian field, regular realizations over k(T) specialize to realizations over k (Debes 5.2.14). Stated as known without proof: A_n, some groups PSL_n(F_q), 25 of the 26 sporadic groups over Q (Debes 5.2), the Monster over Q(T) (8.2.2.3), M_24 only via a Hurwitz space with r = 4 (Romagny-Wewers 1.2), regular IGP over ample fields (Pop). Open: the inverse Galois problem over Q for arbitrary finite groups, the regular inverse Galois problem over Q, realization of all finite simple groups over Q, and Fried's modular tower conjecture 2.6 for r > 4.",
+   "hypotheses": [
+    "Status statements are as reported in the sources (Debes notes 2024, Debes survey 2026, NSW 2020 electronic edition); later results were not checked",
+    "Generic polynomials (named in the roadmap as an open universality target) are not discussed in the sections read"
+   ],
+   "proofSteps": [
+    "Index each family by the theorem and hypotheses that realize it, and mark cited-only statements separately.",
+    "Keep the open targets as frontier statements with no consumers."
+   ],
+   "acceptance": [
+    "IG.6 acceptance: a theorem-indexed list of solved families; arbitrary finite groups over Q and generic-polynomial universality remain named open targets.",
+    "Explicit polynomials, field extensions and certified Galois-group isomorphisms are not produced (gap)."
+   ],
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Section 5.2 introduction, p. 135",
+     "excerpt": "On sait realiser sur Q le groupe alterne, certains groupes geometriques sur certains corps F_q, notamment sur les sous-corps premiers F_p et 25 des 26 groupes sporadiques.",
+     "match": "Literal quotation, accents dropped."
+    },
+    {
+     "sourceId": "debes-2026-hurwitz-spaces-and-inverse-galois-theory",
+     "locator": "Section 2.1, Corollary 2.2 and the sentence after it; Section 2.4, Conjecture 2.6, pp. 13, 15",
+     "excerpt": "These fields are the \"smallest\" fields of characteristic 0 over which the regular Inverse Galois Problem is known to hold.",
+     "match": "Literal quotation."
+    },
+    {
+     "sourceId": "nsw-cohomology-of-number-fields-2e",
+     "locator": "Chapter IX, Theorem 9.6.1, p. 574",
+     "excerpt": "Let k be a global field and let G be a finite solvable group. Then there exists a Galois extension K|k with G(K|k) = G.",
+     "match": "Literal statement, isomorphism sign written as =."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/galois-category-axioms-and-the-main-theorem",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/fibre-functors-are-isomorphic-and-exact-functors-are-continuous-homomorphisms",
+   "reason": "Sections 5-6 work in categories equivalent to C(pi) by Theoreme 4.1.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose V, sections 5-6, pp. 104-114"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/galois-category-axioms-and-the-main-theorem",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-etale-covers-form-a-galois-category-and-pi1-of-a-scheme",
+   "reason": "Section 7 verifies (G1)-(G6) for finite etale covers and applies Theoreme 4.1.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose V, section 7, p. 115"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/fibre-functors-are-isomorphic-and-exact-functors-are-continuous-homomorphisms",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-etale-covers-form-a-galois-category-and-pi1-of-a-scheme",
+   "reason": "Independence of the geometric point and functoriality of pi_1 use 5.7 and the dictionary of section 6.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose V, section 7, pp. 115-117"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-etale-covers-form-a-galois-category-and-pi1-of-a-scheme",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/fundamental-group-of-a-field-and-of-a-normal-scheme",
+   "reason": "Propositions 8.1-8.2 compute pi_1(S, a) of section 7 for fields and normal schemes.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose V, section 8, pp. 117-118"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-etale-covers-form-a-galois-category-and-pi1-of-a-scheme",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/fundamental-group-of-the-punctured-line-over-an-algebraically-closed-field-of-characteristic-zero",
+   "reason": "The computation is of pi_1 in the sense of V 7 (compared with the topological group by XII 5.2).",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose XII, Corollaire 5.2, p. 253"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/tame-fundamental-group-of-a-punctured-curve-with-inertia-generators",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/fundamental-group-of-the-punctured-line-over-an-algebraically-closed-field-of-characteristic-zero",
+   "reason": "The G_m computation is Corollaire XIII 2.12 with g = 0, n = 2 in characteristic 0.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose XIII, Corollaire 2.12, p. 290"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/fibre-functors-are-isomorphic-and-exact-functors-are-continuous-homomorphisms",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/fundamental-exact-sequence-over-a-field",
+   "reason": "The proof of IX 6.1 uses V 6.13 and the exactness criteria of V 6.9-6.11.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose IX, proof of Theoreme 6.1, pp. 195-196"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/fundamental-group-of-a-field-and-of-a-normal-scheme",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/fundamental-exact-sequence-over-a-field",
+   "reason": "The quotient pi_1(S, b) is identified with Gal(kbar/k) as in V 8.1.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose IX, Theoreme 6.1, p. 195"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/fundamental-group-of-a-field-and-of-a-normal-scheme",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-sequence-for-the-punctured-projective-line-and-its-sections",
+   "reason": "Debes defines the groups of P^1 - t as Galois groups of maximal unramified extensions of function fields, which is the normal-scheme description of V 8.2.",
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Section 6.2.1, pp. 171-172"
+    },
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose V, Proposition 8.2, p. 117"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/fundamental-exact-sequence-over-a-field",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/specialization-homomorphism-surjectivity-and-prime-to-p-isomorphism",
+   "reason": "Corollaire X 2.2 combines X 2.1 with the exact sequence IX 6.1.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose X, Corollaire 2.2, p. 206"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/homotopy-exact-sequence-for-proper-separable-morphisms-and-base-change-invariance",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/specialization-homomorphism-surjectivity-and-prime-to-p-isomorphism",
+   "reason": "Surjectivity of specialization (2.3) uses the exact sequence 1.4, and 2.4 uses 1.8 to change algebraically closed fields.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose X, Corollaires 2.3-2.4, p. 207"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/specialization-homomorphism-surjectivity-and-prime-to-p-isomorphism",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/tame-fundamental-group-of-a-punctured-curve-with-inertia-generators",
+   "reason": "Corollaire XIII 2.12 follows the pattern of X 2.6 and 3.10 (lift to characteristic 0 and specialize), for tame covers of open curves.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose XIII, proof of Corollaire 2.12, pp. 290-291"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/hilbertian-fields-and-hilbertian-subsets",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/hilbert-irreducibility-for-q-by-the-hilbert-dorge-method",
+   "reason": "Theoreme 5.2.9 is stated for Hilbertian subsets as defined in 5.2.2.",
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Section 5.2, pp. 136-140"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/hilbert-irreducibility-for-q-by-the-hilbert-dorge-method",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/finite-extensions-of-hilbertian-fields-are-hilbertian",
+   "reason": "Number fields are Hilbertian by combining Theoreme 5.2.4 for Q with Theoreme 9.2.1.",
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Theoreme 5.2.4, p. 136; Theoreme 9.2.1, p. 243"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/hilbertian-fields-and-hilbertian-subsets",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/hilbert-specialization-of-a-galois-extension-of-k-t-with-full-group",
+   "reason": "The specialization uses a value t in the Hilbertian subset H_P of the minimal polynomial.",
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "proof of Proposition 5.2.14, p. 143"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-sequence-for-the-punctured-projective-line-and-its-sections",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/hilbert-specialization-of-a-galois-extension-of-k-t-with-full-group",
+   "reason": "Specialization at an unramified t is the section s_t of Theoreme 6.2.1: the embedding of the extension into k((T - t)) by Hensel lifts used in the proof of 5.2.14.",
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Theoreme 6.2.1, p. 172; proof of Proposition 5.2.14, p. 144"
+    }
+   ]
+  },
+  {
+   "source": "SchemeAndStackFoundations:SF.2",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-etale-covers-form-a-galois-category-and-pi1-of-a-scheme",
+   "reason": "The verification of (G1)-(G6) uses the etale-morphism results of SGA 1 Exposes I and V 1-3; SF.2 owns the etale site. Existing atlas edge SF.2 -> IG.0.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose V, section 7, p. 115"
+    }
+   ]
+  },
+  {
+   "source": "FoundationsAndLibraryIntegration:LI.4",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/fundamental-group-of-a-field-and-of-a-normal-scheme",
+   "reason": "Proposition 8.1 identifies pi_1 with the absolute Galois group, using infinite Galois theory of fields from the number-field/Galois supplier. Existing atlas edge LI.4 -> IG.0.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose V, Proposition 8.1, p. 117"
+    }
+   ]
+  },
+  {
+   "source": "FoundationsAndLibraryIntegration:LI.4",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/hilbert-irreducibility-for-q-by-the-hilbert-dorge-method",
+   "reason": "The count of primes in Hilbertian subsets uses the prime number theorem and the Puiseux/Hensel algebra of field extensions. Existing atlas edge LI.4 -> IG.2.",
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Remarque 5.2.10, p. 140"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/fundamental-exact-sequence-over-a-field",
+   "target": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+   "reason": "NC.0 imports \"the finite-etale fibre functor and arithmetic exact sequence\"; IX 6.1 with the splitting 6.4 at rational points is that sequence. Existing atlas edge IG.1 -> NC.0.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose IX, Theoreme 6.1 and Corollaire 6.4, pp. 195-196"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-etale-covers-form-a-galois-category-and-pi1-of-a-scheme",
+   "target": "ArithmeticDynamics:DY.5",
+   "reason": "DY.5 uses the Galois action on finite levels of preimage trees, i.e. pi_1 of Spec K acting on finite etale fibres. Existing atlas edge IG.0 -> DY.5.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose V, section 7 and Proposition 8.1, pp. 115-117"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-sequence-for-the-punctured-projective-line-and-its-sections",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/descent-criterion-and-branch-cycle-conditions",
+   "reason": "Theoreme 8.1.2 uses the splitting of Theoreme 6.2.1 to write pi_1(P^1 - t)_k as a semidirect product.",
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "section 8.1.2, p. 212"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/riemann-existence-theorem-for-covers-of-the-punctured-sphere",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/descent-criterion-and-branch-cycle-conditions",
+   "reason": "Condition (***) is derived from Theoreme 6.5.3 (inertia generators) and the bouquet presentation.",
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "section 8.1.2, p. 213"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/descent-criterion-and-branch-cycle-conditions",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/rigidity-criterion-for-regular-realizations-over-q",
+   "reason": "The proof of Theoreme 8.2.2 verifies the condition of 8.1.2 using (*), (**), (***).",
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "proof of Theoreme 8.2.2, pp. 214-215"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/rigidity-criterion-for-regular-realizations-over-q",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/rigid-realizations-of-symmetric-groups-and-psl2",
+   "reason": "The examples verify (H1)-(H3) for S_n and a refined version for PSL_2(F_p).",
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "section 8.2.2, pp. 216-218"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/descent-criterion-and-branch-cycle-conditions",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/field-of-moduli-and-the-descent-obstruction",
+   "reason": "Propositions 8.4.3-8.4.4 prolong Theoreme 8.1.2 to the field of moduli.",
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "section 8.4, p. 226"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/descent-criterion-and-branch-cycle-conditions",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/regular-inverse-galois-over-r-and-abelian-groups-over-q",
+   "reason": "Theoremes 8.3.2 and 8.2.7 verify the descent condition of 8.1.2 with varphi trivial.",
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "proofs of Theoremes 8.3.2 and 8.2.7, pp. 219-224"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/regular-inverse-galois-over-r-and-abelian-groups-over-q",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/shafarevich-theorem-solvable-groups-over-global-fields",
+   "reason": "Cyclic groups are regular over Q(T) (8.2.7) and so over Q after Hilbert specialization; these are the base cases of the cyclic acceptance of IG.4. New stage edge IG.3 -> IG.4 (no cycle: IG.4 only feeds IG.6).",
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Theoreme 8.2.7, p. 219"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/hilbert-specialization-of-a-galois-extension-of-k-t-with-full-group",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/shafarevich-theorem-solvable-groups-over-global-fields",
+   "reason": "The IG.4 cyclic and dihedral realizations over Q may be obtained by specializing regular realizations over Q(T) (Proposition 5.2.14); Shafarevich's theorem itself does not use Hilbert irreducibility. Existing atlas edge IG.2 -> IG.4.",
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Proposition 5.2.14, p. 143"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/embedding-problems-and-proper-solutions",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/split-embedding-problems-with-nilpotent-kernel-over-global-fields",
+   "reason": "Theorems 9.6.6-9.6.7 are statements about proper solutions of embedding problems in the sense of 3.5.1.",
+   "sources": [
+    {
+     "sourceId": "nsw-cohomology-of-number-fields-2e",
+     "locator": "Theorem 9.6.6, p. 583"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/split-embedding-problems-with-nilpotent-kernel-over-global-fields",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/shafarevich-theorem-solvable-groups-over-global-fields",
+   "reason": "The proof of 9.6.1 applies 9.6.6 to the Fitting subgroup and its partial complement; 9.6.10 also uses 9.6.6.",
+   "sources": [
+    {
+     "sourceId": "nsw-cohomology-of-number-fields-2e",
+     "locator": "proof of Safarevic's theorem and Theorem 9.6.10, pp. 596-597"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/riemann-existence-theorem-for-covers-of-the-punctured-sphere",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/braid-action-on-nielsen-classes-and-components-of-hurwitz-space",
+   "reason": "The fibre of H_{r,G,C} over D is ni_r(G) by Theorem 3.1.",
+   "sources": [
+    {
+     "sourceId": "romagny-wewers-hurwitz-spaces",
+     "locator": "sections 3.1-3.2, pp. 318-320"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/braid-action-on-nielsen-classes-and-components-of-hurwitz-space",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/hurwitz-space-of-tame-g-covers-as-a-coarse-moduli-scheme",
+   "reason": "Part (iii) of Theorem 4.11 compares the scheme with the complex manifold of Proposition 3.2, and the algebraic construction uses Riemann existence for finiteness.",
+   "sources": [
+    {
+     "sourceId": "romagny-wewers-hurwitz-spaces",
+     "locator": "Theorem 4.11 and its proof, pp. 327-328"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/field-of-moduli-and-the-descent-obstruction",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/hurwitz-space-of-tame-g-covers-as-a-coarse-moduli-scheme",
+   "reason": "Theorem 4.11(i) identifies the field of moduli with the residue field of the moduli point, and Corollary 4.12 uses Proposition 4.4 (center-free descent).",
+   "sources": [
+    {
+     "sourceId": "romagny-wewers-hurwitz-spaces",
+     "locator": "Theorem 4.11 and Corollary 4.12, p. 327"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/tame-fundamental-group-of-a-punctured-curve-with-inertia-generators",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/tame-covers-in-positive-characteristic-without-unrestricted-riemann-existence",
+   "reason": "The positive-characteristic statement is the prime-to-p part of XIII 2.12.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose XIII, Corollaire 2.12, p. 290"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/homotopy-exact-sequence-for-proper-separable-morphisms-and-base-change-invariance",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/tame-covers-in-positive-characteristic-without-unrestricted-riemann-existence",
+   "reason": "The Artin-Schreier family of X 1.10 is the witness that tameness or properness is needed.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose X, Remarque 1.10, p. 205"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/riemann-existence-theorem-for-covers-of-the-punctured-sphere",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/tame-covers-in-positive-characteristic-without-unrestricted-riemann-existence",
+   "reason": "The comparison is with the characteristic-0 Riemann existence theorem.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose XII, Theoreme 5.1, p. 251"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/shafarevich-theorem-solvable-groups-over-global-fields",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.6/register-of-realized-group-families-and-open-targets",
+   "reason": "Solvable groups over global fields enter the register.",
+   "sources": [
+    {
+     "sourceId": "nsw-cohomology-of-number-fields-2e",
+     "locator": "Theorem 9.6.1, p. 574"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/braid-action-on-nielsen-classes-and-components-of-hurwitz-space",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.6/register-of-realized-group-families-and-open-targets",
+   "reason": "Regular realizations over Q^tr(T), Q^tp(T) and M_24 via Hurwitz spaces enter the register.",
+   "sources": [
+    {
+     "sourceId": "debes-2026-hurwitz-spaces-and-inverse-galois-theory",
+     "locator": "Corollary 2.2, p. 13"
+    },
+    {
+     "sourceId": "romagny-wewers-hurwitz-spaces",
+     "locator": "section 1.2, p. 315"
+    }
+   ]
+  },
+  {
+   "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/hurwitz-space-of-tame-g-covers-as-a-coarse-moduli-scheme",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.6/register-of-realized-group-families-and-open-targets",
+   "reason": "Rational points of Hurwitz spaces are the interface for regular realizations; Fried's modular tower conjecture is recorded as open.",
+   "sources": [
+    {
+     "sourceId": "debes-2026-hurwitz-spaces-and-inverse-galois-theory",
+     "locator": "Conjecture 2.6, p. 15"
+    }
+   ]
+  },
+  {
+   "source": "SchemeAndStackFoundations:SF.3",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/riemann-existence-theorem-for-covers-of-the-punctured-sphere",
+   "reason": "The equivalence passes through smooth projective curves over C and their function fields; SF.3 owns curves. Existing atlas edge SF.3 -> IG.3.",
+   "sources": [
+    {
+     "sourceId": "debes-arithmetique-des-revetements-de-la-droite",
+     "locator": "Theoreme 6.5.1, p. 182"
+    }
+   ]
+  },
+  {
+   "source": "ComplexComparisonPartII:C4",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/riemann-existence-theorem-for-covers-of-the-punctured-sphere",
+   "reason": "The algebraization step of Riemann existence (analytic covers of algebraic curves are algebraic; SGA 1 XII 5.1 via XII 4.6) is GAGA/Chow algebraization, owned by C4. Existing atlas edge C4 -> IG.3.",
+   "sources": [
+    {
+     "sourceId": "sga1-revetements-etales-et-groupe-fondamental",
+     "locator": "Expose XII, proof of Theoreme 5.1, pp. 251-253"
+    }
+   ]
+  },
+  {
+   "source": "AlgebraicModuliForArithmeticGeometry:R09.4",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/hurwitz-space-of-tame-g-covers-as-a-coarse-moduli-scheme",
+   "reason": "Coarse versus fine moduli, and the stack-theoretic Hurwitz space recommended for groups with center, need the algebraic stack theory of R09.4. Existing atlas edge R09.4 -> IG.5.",
+   "sources": [
+    {
+     "sourceId": "romagny-wewers-hurwitz-spaces",
+     "locator": "section 1.3, p. 315"
+    }
+   ]
+  },
+  {
+   "source": "FoundationsAndLibraryIntegration:LI.4",
+   "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/split-embedding-problems-with-nilpotent-kernel-over-global-fields",
+   "reason": "The proof uses Poitou-Tate duality, Grunwald-Wang-type existence (9.3.2), Chebotarev (9.1.3) and cd_p of global fields, from the imported class-field-theory and Galois-cohomology supplier. Existing atlas edge LI.4 -> IG.4.",
+   "sources": [
+    {
+     "sourceId": "nsw-cohomology-of-number-fields-2e",
+     "locator": "Theorem 9.6.7 proof, pp. 585-595"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+   "status": "partial",
+   "remaining": [
+    "Axiom verification (G1)-(G6) for finite etale covers (SGA 1 Exposes I and V 1-3) and the pro-representability criterion (Seminaire Bourbaki 195): unread imports.",
+    "Connected components and base-point change are covered by V 5.3-5.8 and V 7; the multi-Galois case (V 9) is only sketched in the source.",
+    "The G_m acceptance check is placed under IG.1 because its proof uses XIII 2.12 and Riemann existence."
+   ]
+  },
+  {
+   "stageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+   "status": "partial",
+   "remaining": [
+    "Decomposition and inertia subgroups and tame quotients (Debes 2.5-2.6; SGA 1 V 2 and XIII 2.1-2.10): not read.",
+    "Formal existence, Stein factorization, purity and Abhyankar's lemma behind X 2.1, 1.2 and 3.8: imports.",
+    "Transcendental curve presentations X 2.6/3.10 were never written up in SGA 1 (footnote 3 of X 2).",
+    "The identification of Debes's function-field fundamental groups with SGA 1 pi_1 is not stated in the sections read."
+   ]
+  },
+  {
+   "stageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+   "status": "partial",
+   "remaining": [
+    "Reductions to several parameters and variables (Debes 9.1), the purely inseparable case (Fried-Jarden 12.3.5), Lemme 9.2.2 proof, Puiseux theorem: unread.",
+    "Simultaneous avoidance and linear-disjointness variants: not read.",
+    "Worked regular example with infinitely many specializations and certificates: absent."
+   ]
+  },
+  {
+   "stageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+   "status": "partial",
+   "remaining": [
+    "Proof of Riemann existence (Debes chapter 7) and of Theoreme 6.5.3; the branch cycle lemma (Corollaire 6.1.13) and the extensions/representations dictionary 6.2.2: unread.",
+    "Example of a field of moduli that is not a field of definition: not found in the sources read.",
+    "BelyiMaps / BelyiAnalyticCovers / BelyiAlgebraicAndDescent supplier check (dessins versus permutation triples): not performed."
+   ]
+  },
+  {
+   "stageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4",
+   "status": "partial",
+   "remaining": [
+    "NSW Propositions 9.6.2-9.6.4, Lemma 9.6.5, steps 2-3 of Theorem 9.6.7, Theorem 9.3.2, section IX.5 (Scholz-Reichardt), Poitou-Tate duality: unread.",
+    "Dihedral realization example and explicit local prescriptions: absent (the method does not realize prescribed local extensions)."
+   ]
+  },
+  {
+   "stageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5",
+   "status": "partial",
+   "remaining": [
+    "Construction proofs (Wewers 1998, Fried-Voelklein 1991, Romagny-Wewers section 4.3-4.5) and the referee-noted gap in Romagny-Wewers Proposition 4.10: unread/unchecked.",
+    "Stack-theoretic Hurwitz spaces (R09.4) and compactification: not decomposed.",
+    "Wild covers (patching, Abhyankar conjecture): no source read; characteristic comparison example absent."
+   ]
+  },
+  {
+   "stageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+   "status": "partial",
+   "remaining": [
+    "Checked polynomials, field extensions, cover maps and Galois-group isomorphisms: not produced.",
+    "BelyiArithmeticActions (Galois action on dessins, faithfulness) and generic polynomials: not consulted.",
+    "Anabelian hand-off of path torsors: only SGA 1 V 7 paths; many register items are cited without proof."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "IG.0 axiom verifications and the pro-representability criterion are imports",
+   "neededBy": [
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.0/galois-category-axioms-and-the-main-theorem",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-etale-covers-form-a-galois-category-and-pi1-of-a-scheme"
+   ],
+   "detail": "Theoreme V 4.1 step c) imports strict pro-representability of left exact functors on artinian categories from Grothendieck, Technique de descente II (Seminaire Bourbaki 195, prop. 3.1). The verification of (G1)-(G6) for finite etale covers cites Expose I 4.6 and Expose V 3.4, 3.5 and 3.7, which were not read. Propositions V 6.13 and IX 6.1 leave steps to the reader. Candidate supplier: SchemeAndStackFoundations SF.2 (etale site). Next source action: read SGA 1 Expose V sections 1-3 and Expose I, or an elementary complete proof of the main theorem on Galois categories. Lenstra, Galois theory for schemes (Leiden notes, author copy) was downloaded but not read."
+  },
+  {
+   "title": "Ordering: the IG.0 acceptance computation of pi_1(G_m) needs IG.1 material and Riemann existence",
+   "neededBy": [
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.1/fundamental-group-of-the-punctured-line-over-an-algebraically-closed-field-of-characteristic-zero",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.0"
+   ],
+   "detail": "IG.0 asks to recover pi_1 of G_m over an algebraically closed field of characteristic 0. The only proof read, SGA 1 XIII Corollaire 2.12, uses three things: the tame fundamental group of punctured curves (IG.1 in this decomposition); specialization isomorphisms (XIII 2.9); and Riemann existence (XII 5.1-5.2, whose algebraization part is the ComplexComparisonPartII C4 supplier of IG.3). The node is therefore placed under IG.1, so the IG.0 acceptance check cannot be discharged inside IG.0 under the atlas order IG.0 -> IG.1. Kummer theory for the explicit covers t -> t^n (Expose XI section 6) was not read."
+  },
+  {
+   "title": "IG.1 constructions not read: decomposition and inertia subgroups, tame quotients, and the formal-geometry inputs of specialization",
+   "neededBy": [
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.1/specialization-homomorphism-surjectivity-and-prime-to-p-isomorphism",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.1/tame-fundamental-group-of-a-punctured-curve-with-inertia-generators"
+   ],
+   "detail": "Decomposition and inertia groups (Debes 2.5-2.6; SGA 1 V section 2) and the definition of the tame fundamental group pi_1^t (SGA 1 XIII 2.1-2.10) were not read. The specialization theory imports the formal existence theorem (X 2.1 via IX 1.10 and EGA III), the Stein factorization of proper separable morphisms (X 1.2, EGA III 7.8.10), and purity with Abhyankar's lemma (X 3.1-3.7). The curve presentations X 2.6 and 3.10 are transcendental, and their derivation was never written up in SGA 1. The finite-field Frobenius check is covered only by V 8.1 and Debes 6.2.1. Next source action: read Debes sections 2.5-2.6 and SGA 1 XIII sections 2.1-2.10."
+  },
+  {
+   "title": "IG.2: general Hilbertian reductions, simultaneous and linear-disjointness variants, and a worked certified example are missing",
+   "neededBy": [
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.2/hilbert-irreducibility-for-q-by-the-hilbert-dorge-method",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.2/hilbert-specialization-of-a-galois-extension-of-k-t-with-full-group",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.2/finite-extensions-of-hilbertian-fields-are-hilbertian"
+   ],
+   "detail": "The Hilbert-Dorge proof covers one parameter and one variable. The reductions to several parameters and variables (Debes 9.1) were read only at the opening. Several inputs are cited: the Puiseux theorem (6.1.1), Corollaire 2.4.4 (unramified primitive elements), the purely inseparable case of Theoreme 9.2.1 (Fried-Jarden 12.3.5), and Lemme 9.2.2 (proof not read). Simultaneous avoidance and linear-disjointness variants (for example Debes chapter 10 or Fried-Jarden chapter 16) were not read. The acceptance item \"infinitely many distinct specialized extensions in a worked regular example, with ramification and irreducibility certificates\" has no worked source example; Exemple 5.2.6 treats only irreducibility of Y^4 - T. Next source action: read Debes 9.1 and chapter 10, and build a certified example (e.g. the S_n rigid cover of 8.2.2.1 specialized at integers) from them."
+  },
+  {
+   "title": "IG.3: the Riemann existence proof, the branch cycle lemma, a field-of-moduli counterexample and the BelyiMaps supplier check are not covered",
+   "neededBy": [
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.3/riemann-existence-theorem-for-covers-of-the-punctured-sphere",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.3/descent-criterion-and-branch-cycle-conditions",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.3/field-of-moduli-and-the-descent-obstruction",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.3"
+   ],
+   "detail": "Several IG.3 ingredients were not read. Riemann existence is proved in Debes chapter 7 (7.1-7.3), and Debes 6.5.3 is stated without proof (cites Serre, Topics in Galois Theory). The branch cycle condition (***) rests on Corollaire 6.1.13 and the dictionary of section 6.2.2. The IG.3 acceptance asks for an example where the field of moduli is not a field of definition. None appears in the sections read: Debes 8.4 and Romagny-Wewers 4.2 give only criteria and the H^2(k_m, Z(G)) obstruction [DD97]. The Debes MSRI paper Descent theory for algebraic covers (author copy, file A38) uses Type 3 fonts without extractable text and was not read on page images. The roadmap asks IG.3 to consume BelyiMaps and its successors (dessins, permutation triples, Belyi's theorem) with a compiled-supplier check. The tauceti:TauCetiRoadmap/BelyiMaps stages were not consulted, so no link was added. Next source action: read Debes chapter 7 and Debes-Douai, Algebraic covers: field of moduli versus field of definition (Ann. Sci. ENS 1997), and match BelyiMaps stage statements."
+  },
+  {
+   "title": "IG.4: shrinking-process proofs, local-global steps, Scholz-Reichardt, and the cyclic and dihedral acceptance examples are unread",
+   "neededBy": [
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.4/split-embedding-problems-with-nilpotent-kernel-over-global-fields",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.4/shafarevich-theorem-solvable-groups-over-global-fields",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.4"
+   ],
+   "detail": "Several parts of the IG.4 proof chain were not read. In NSW: the proofs of Propositions 9.6.2-9.6.4 (shrinking), Lemma 9.6.5, the second and third steps of Theorem 9.6.7, and Theorem 9.3.2 (existence of cohomology classes with prescribed local components). Section IX.5 was read only at its opening, so the Scholz-Reichardt approach is missing, along with Poitou-Tate duality (chapter VIII) and criterion 3.5.9. The group theory 9.6.8-9.6.9 is cited to Huppert. The acceptance asks for cyclic and dihedral realizations and certification of the inductive properness step. Cyclic realizations follow from Debes 8.2.7 plus Hilbert specialization. No dihedral realization was read. Next source action: read NSW IX section 5 (Scholz-Reichardt) and the omitted steps of 9.6.7, and a dihedral embedding-problem example (e.g. via quadratic twists of a cyclic extension)."
+  },
+  {
+   "title": "IG.5: Hurwitz-space construction proofs, stack-theoretic versions, wild covers and the characteristic comparison example",
+   "neededBy": [
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/hurwitz-space-of-tame-g-covers-as-a-coarse-moduli-scheme",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/tame-covers-in-positive-characteristic-without-unrestricted-riemann-existence",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5"
+   ],
+   "detail": "Parts of IG.5 remain unread or cited only. Romagny-Wewers Theorem 2.1 is cited to Wewers 1998 (thesis), and the proofs in their section 4.3-4.5 (tame deformation theory, Propositions 4.5, 4.10, 4.13, Theorem 4.3) were not read. The acknowledgments mention a gap found by the referee in the proof of Proposition 4.10, and its resolution in the published text was not checked. Fried-Voelklein 1991 (braid action, Hurwitz spaces over Q) was not read, and Debes 2026 Theorem 2.4 is a survey statement. The algebraic-stack version (owner R09.4) and the Harris-Mumford compactification are not decomposed. Wild patching and Abhyankar's conjecture (Raynaud 1994, Harbater 1994) are absent. The acceptance example comparing a characteristic-0 cover with its tame reduction was not found. Next source action: read Wewers, Construction of Hurwitz spaces (thesis 1998), sections 3-4, and Romagny-Wewers section 4 in full."
+  },
+  {
+   "title": "IG.6: explicit polynomials and certified isomorphisms, Belyi arithmetic actions, generic polynomials and the anabelian hand-off are not decomposed",
+   "neededBy": [
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.6/register-of-realized-group-families-and-open-targets",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.6"
+   ],
+   "detail": "The register lists theorems, not certified explicit data. No source read gives checked polynomials, field extensions, cover maps and Galois-group isomorphisms. BelyiArithmeticActions (the Galois action on dessins and its faithfulness theorem) was not consulted. Generic polynomials (Jensen-Ledet-Yui) are not discussed in any source read. The hand-off of profinite fundamental groups and path torsors to AnabelianGeometryAndNonabelianChabauty rests only on SGA 1 V section 7 (paths between geometric points). Several statements are cited without proof: A_n, PSL_n(F_q), 25 sporadic groups over Q, the Monster, M_24, and Pop's ample fields. Next source action: read Malle-Matzat, Inverse Galois Theory (2nd ed.), chapters I-II and IV (not publicly available; request a library copy) and the BelyiMaps successor roadmaps."
+  }
+ ]
+}

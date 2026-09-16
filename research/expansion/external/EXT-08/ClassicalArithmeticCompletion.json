@@ -14,7 +14,8 @@
         "Theorem 2.6 (Chinese remainder theorem) with proof and its bijection restatement, printed pp. 22-24",
         "Section 2.8: Theorem 2.20 (half of Z_p^* are squares) and Theorem 2.21 (Euler's criterion) with proofs, printed pp. 37-38",
         "Section 12.1: Theorem 12.1 (the five properties of the Legendre symbol), Theorem 12.2 (Gauss's lemma) with proof, Theorem 12.3 with proof and the supplementary law at 2, Theorem 12.4 (quadratic reciprocity) with proof, printed pp. 342-346",
-        "Table of contents, printed pp. v-ix, used to locate Chapters 1, 2, 13, 14, 16, 17, 18 and sections 4.5, 7.5, 12.2-12.4"
+        "Table of contents, printed pp. v-ix, used to locate Chapters 1, 2, 13, 14, 16, 17, 18 and sections 4.5, 7.5, 12.2-12.4",
+        "REVIEW-EXT-08-EXT-16 (fetched 2026-09-16 from https://shoup.net/ntb/ntb-v2.pdf; SHA-256 8e1abc54f4510c3f274dfbed07ea602a6a439ee24b2c916e61abe829b402ec06 matches; 598 pp., PDF dated 17 June 2008; printed page = PDF page - 18): re-read Section 2.4 with Theorem 2.6, Example 2.6 and Exercises 2.14-2.18 (printed pp. 22-24), Theorems 2.18-2.21 with proofs (pp. 36-38), and Section 12.1 in full with Theorems 12.1-12.4, Examples 12.1-12.2 and Exercises 12.1-12.2 (pp. 342-346); table of contents checked."
       ]
     }
   ],
@@ -26,7 +27,7 @@
       "kind": "theorem",
       "statement": "Let {n_i}_{i=1}^{k} be a PAIRWISE relatively prime family of positive integers and a_1,...,a_k arbitrary integers. Then there is a in Z with a == a_i (mod n_i) for all i, and a' in Z is a solution of the same system if and only if a == a' (mod n) where n = prod_i n_i. Equivalently, with I_m := {0,...,m-1}, the map tau : I_n -> I_{n_1} x ... x I_{n_k}, a |-> (a mod n_1, ..., a mod n_k), is a bijection.",
       "hypotheses": [
-        "The family must be PAIRWISE relatively prime, not merely have gcd 1 as a family; for a non-coprime family the system is solvable only under compatibility conditions on the a_i (Shoup's Exercise 2.16 treats the general case)",
+        "The family must be PAIRWISE relatively prime, not merely have gcd 1 as a family. For non-coprime moduli the system is solvable only under compatibility conditions on the a_i; the source treats this only as Exercise 2.18, for TWO moduli: there is a with a == a_1 (mod n_1) and a == a_2 (mod n_2) iff a_1 == a_2 (mod gcd(n_1,n_2)). No uniqueness statement is given. [Corrected in review: the draft cited Exercise 2.16, which concerns linear congruences a_i z == b_i modulo pairwise coprime moduli.]",
         "The n_i are positive; the uniqueness is modulo the product n, not modulo any individual n_i",
         "The bijection form requires the target to be the product of the truncated interval sets I_{n_i}, matching the choice of representatives"
       ],
@@ -36,14 +37,14 @@
         "The bijection form follows from existence (surjectivity) and uniqueness (injectivity) together with |I_n| = prod |I_{n_i}|."
       ],
       "acceptance": [
-        "CA.0's acceptance condition asks that CRT be instantiated at non-coprime moduli with its compatibility hypothesis; the statement above does NOT cover that case and the source defers it to an exercise, so a consumer must not apply it to non-coprime moduli.",
+        "CA.0's acceptance condition asks that CRT be instantiated at non-coprime moduli with its compatibility hypothesis. The statement above does NOT cover that case, and the source has only the two-moduli existence criterion as Exercise 2.18 (printed p. 24), without proof, so a consumer must not apply the node to non-coprime moduli.",
         "Check the k = 1 and k = 0 degenerate cases (empty product n = 1).",
         "Check the worked table for n_1 = 3, n_2 = 5 in the source: as a runs over 0..14 the pairs (a mod 3, a mod 5) hit every pair exactly once."
       ],
       "sources": [
         {
           "sourceId": "shoup-ntb-v2",
-          "locator": "Theorem 2.6 and its restatement as a bijection, printed pp. 22-24",
+          "locator": "Theorem 2.6 with proof (printed p. 23), its restatement as a bijection and Example 2.6 (printed pp. 23-24), Exercise 2.18 (printed p. 24)",
           "excerpt": "Theorem 2.6 (Chinese remainder theorem). Let {n_i}_{i=1}^{k} be a pairwise relatively prime family of positive integers, and let a_1,...,a_k be arbitrary integers. Then there exists a solution a in Z to the system of congruences a == a_i (mod n_i) (i = 1,...,k). Moreover, any a' in Z is a solution to this system of congruences if and only if a == a' (mod n), where n := prod_{i=1}^{k} n_i.",
           "match": "Verbatim statement with the pairwise-coprimality hypothesis and the uniqueness modulo the product, plus the bijection restatement on p. 24."
         }
@@ -62,8 +63,8 @@
         "Theorem 2.20's proof uses that the squaring map on Z_p^* is exactly two-to-one, which needs p odd"
       ],
       "proofSteps": [
-        "Theorem 2.20: the squaring map sigma on Z_p^* is two-to-one (every image has exactly two preimages), so its image has half the size of Z_p^*.",
-        "Euler's criterion: with gamma = alpha^{(p-1)/2}, Euler's theorem gives gamma^2 = alpha^{p-1} = 1, and in Z_p only +-1 square to 1, so gamma = +-1; the two cases are separated by the order of alpha in the cyclic group Z_p^*.",
+        "Theorem 2.20: by Theorem 2.19 (gamma^2 = beta^2 iff gamma = +-beta), the squaring map sigma on Z_p^* is two-to-one (every image has exactly two preimages), so its image has half the size of Z_p^*.",
+        "Euler's criterion (printed p. 38). (i) With gamma = alpha^{(p-1)/2}, Euler's theorem (Theorem 2.13) gives gamma^2 = alpha^{p-1} = 1, and Theorem 2.18 (the only square roots of 1 mod p are +-1) gives gamma = +-1. (ii) If alpha = beta^2 then alpha^{(p-1)/2} = beta^{p-1} = 1. (iii) For a non-square alpha, the product eps of all elements of Z_p^* is computed twice: pairing kappa with alpha/kappa (never equal, since alpha is not a square) gives eps = alpha^{(p-1)/2}, and pairing kappa with kappa^{-1} (equal only for +-1) gives eps = -1. [Corrected in review: the draft said the cases are separated 'by the order of alpha in the cyclic group Z_p^*'; the source's proof uses this pairing (Wilson) argument and does not use cyclicity.]",
         "Gauss's lemma: let r_1,...,r_n be the alpha_j exceeding p/2 and s_1,...,s_k the rest. The r_i and s_j are distinct and non-zero, 0 < p - r_i < p/2, and no p - r_i equals an s_j (else ua == -va (mod p) with 1 <= u,v <= (p-1)/2, impossible). Hence s_1,...,s_k, p-r_1,...,p-r_n is a permutation of 1,...,(p-1)/2, and comparing the two products of ((p-1)/2)! gives the sign (-1)^n."
       ],
       "acceptance": [
@@ -98,9 +99,9 @@
         "Theorem 12.1(iv) and (v) are exactly the conclusions of Theorems 12.3 and 12.4, as the source notes."
       ],
       "acceptance": [
-        "CA.1's acceptance condition requires residue symbols at 2 and at infinite places to be recorded. The supplementary law at 2 is present here; the sign at the infinite place (the real place) corresponds to (-1|p) = (-1)^{(p-1)/2} and must be recorded as a separate statement.",
+        "CA.1's stage text asks that residue symbols at 2 and at infinite places be recorded. The supplementary law at 2 is present here. Shoup treats no residue symbol at an infinite place; the first supplementary law (-1|p) = (-1)^{(p-1)/2} (Theorem 12.1(i)) is recorded, but it is not by itself a statement about the real place, and the infinite-place symbol still needs a source. [Corrected in review: the draft identified the real-place sign with (-1|p) without a source.]",
         "Check the exclusion qx = py in the partition: it fails if p = q, which is why distinctness is required.",
-        "Numerical check: (3|5)(5|3) = (-1)^{1 . 1} = -1, and indeed 3 is a non-residue mod 5 while 5 == 2 is a non-residue mod 3, giving (-1)(-1) = 1 -- so verify the convention carefully on this example before trusting an implementation.",
+        "Numerical check: for p = 3, q = 5 the exponent is ((3-1)/2)((5-1)/2) = 1 . 2 = 2, so (3|5)(5|3) = +1; directly, 3 is a non-residue mod 5 (squares 1, 4) and 5 == 2 is a non-residue mod 3, giving (-1)(-1) = +1, in agreement. [Corrected in review: the draft computed the exponent as 1 . 1 and reported an apparent conflict.]",
         "Check (2|p) for p = 7 ((7^2-1)/8 = 6, so (2|7) = +1) against 3^2 = 2 mod 7."
       ],
       "sources": [
@@ -118,11 +119,11 @@
     {
       "source": "ClassicalArithmeticCompletion:CA.1/legendre-symbol-euler-criterion-and-gauss-lemma",
       "target": "ClassicalArithmeticCompletion:CA.1/quadratic-reciprocity-with-the-supplementary-law-at-two",
-      "reason": "Theorem 12.3's proof begins from the permutation identity established inside the proof of Gauss's lemma (Theorem 12.2) and ends by invoking Theorem 12.2 itself to convert the parity count into the Legendre symbol; Theorem 12.4 then applies Theorem 12.3 twice. Euler's criterion supplies Theorem 12.1(i)-(iii), without which the symbol is not multiplicative and the two applications cannot be combined.",
+      "reason": "Theorem 12.3's proof starts from the permutation identity established inside the proof of Gauss's lemma (Theorem 12.2), and ends by invoking Theorem 12.2 itself to convert the parity count into the Legendre symbol. Theorem 12.4 then applies Theorem 12.3 twice, once to q modulo p and once to p modulo q, and multiplies the two signs. Euler's criterion enters through the last step of the proof of Gauss's lemma, (a|p) == a^{(p-1)/2} (mod p). [Reason corrected in review: the draft claimed multiplicativity of the symbol is needed to combine the two applications; the product of the two +-1 values needs no multiplicativity.]",
       "sources": [
         {
           "sourceId": "shoup-ntb-v2",
-          "locator": "Proofs of Theorems 12.3 and 12.4, printed pp. 344-346"
+          "locator": "Proof of Theorem 12.2 (last line), printed p. 344; proofs of Theorems 12.3 and 12.4, printed pp. 344-346"
         }
       ]
     }
@@ -133,7 +134,7 @@
       "status": "partial",
       "remaining": [
         "Only the Chinese remainder theorem was decomposed. Not read: Shoup Chapter 1 (divisibility, ideals and gcds, consequences of unique factorization, printed pp. 1-14), sections 2.1-2.3 and 2.5-2.7 (equivalence relations, congruences, linear congruences, residue classes, Euler's phi function, Euler and Fermat), and section 2.9 (summations over divisors, which is where Moebius inversion and Dirichlet convolution live).",
-        "The non-coprime CRT with its compatibility hypothesis, explicitly required by CA.0's acceptance condition, is only an exercise (Exercise 2.16) in the source."
+        "The non-coprime CRT with its compatibility hypothesis, explicitly required by CA.0's acceptance condition, appears in the source only as Exercise 2.18 (two moduli, existence criterion a_1 == a_2 (mod gcd(n_1,n_2)), no proof). [Exercise number corrected in review from 2.16.]"
       ]
     },
     {
@@ -194,11 +195,11 @@
   ],
   "gaps": [
     {
-      "title": "CA.3 is a declared input of five stages and has no acquired source in EXT-08",
+      "title": "CA.3 is a declared input of six stages and has no acquired source in EXT-08",
       "neededBy": [
         "ClassicalArithmeticCompletion:CA.3"
       ],
-      "detail": "Checked in data/atlas.json: CA.3 is required by ArithmeticStatistics:ST.1, ClassicalArithmeticCompletion:CA.4 and CA.6, ComputationalNumberTheory:CN.0, FiniteFieldsAndCharacterSums:FF.0 and GeometryOfNumbersAndQuadraticArithmetic:GN.5. Of the material CA.3 promises, Shoup covers polynomial arithmetic, minimal polynomials, formal derivatives and Gaussian elimination (Chapters 13, 14, 16, 17), but NOT resultants, discriminants, Smith or Hermite normal forms, or rational canonical forms; and none of those chapters was read. Next source action: read Shoup Chapters 16-17 for the polynomial half, and select a separate source for normal forms (for example Cohen, 'A Course in Computational Algebraic Number Theory', Chapter 2, which is not freely available)."
+      "detail": "Checked in data/atlas.json: CA.3 is required by ArithmeticStatistics:ST.1, ClassicalArithmeticCompletion:CA.4 and CA.6, ComputationalNumberTheory:CN.0, FiniteFieldsAndCharacterSums:FF.0 and GeometryOfNumbersAndQuadraticArithmetic:GN.5. Of the material CA.3 promises, Shoup covers polynomial arithmetic, minimal polynomials, formal derivatives and Gaussian elimination (Chapters 13, 14, 16, 17), but NOT resultants, discriminants, Smith or Hermite normal forms, or rational canonical forms; and none of those chapters was read. Next source action: read Shoup Chapters 16-17 for the polynomial half, and select a separate source for normal forms (for example Cohen, 'A Course in Computational Algebraic Number Theory', Chapter 2, which is not freely available). [Count corrected in review: data/atlas.json lists six consumers of CA.3 (ST.1, CA.4, CA.6, CN.0, FF.0, GN.5), which is also the list given above.]"
     },
     {
       "title": "Gauss sums for composite moduli have no owner",
@@ -214,5 +215,28 @@
       ],
       "detail": "CA.1 asks for 'source-scoped higher reciprocity through class field theory' with normalizations agreeing with LI.4 and with finite-field characters. Nothing of the sort was read. The named source KED-CFT resolves to Kedlaya's class field theory notes at https://kskedlaya.org/papers/cft-ptx.pdf, which were located during this job but not downloaded or read. Next source action: acquire that file and read the Artin reciprocity statement together with its local normalizations; note that the EXT-08 AnalyticNumberTheory packet records the same file as the next action for the class-field-theory input to the Artin L-function continuation, so one reading serves both."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REVIEW-EXT-08-EXT-16",
+    "date": "2026-09-16",
+    "notes": "All 3 nodes and the 1 link were checked against Shoup, A Computational Introduction to Number Theory and Algebra, Version 2, re-fetched from shoup.net (SHA-256 8e1abc54... matches; printed page = PDF page - 18). Corrections: (1) the non-coprime CRT is Shoup's Exercise 2.18 (two moduli, existence only), not Exercise 2.16, which is about linear congruences with coprime moduli; node and coverage fixed. (2) The proof of Euler's criterion was misdescribed: Shoup separates residues from non-residues by a pairing (Wilson-type) computation of the product of all units, not by the order of alpha in the cyclic group, and cyclicity is not used there. (3) The reciprocity numerical check had an arithmetic error: the exponent for (p,q) = (3,5) is 2, not 1, and the example agrees with the law rather than conflicting with it. (4) The claim that the real-place residue symbol 'corresponds to' (-1|p) is unsourced; Shoup treats no infinite-place symbol. (5) The link reason wrongly said multiplicativity is needed to combine the two applications of Theorem 12.3; Euler's criterion instead enters at the end of Gauss's lemma. (6) The CA.3 consumer count in the gap title is six, not five. All locators re-checked. parentStageIds CA.0 and CA.1 exist and belong to ClassicalArithmeticCompletion; all eight coverage ids exist. Packet status stays partial.",
+    "checked": [
+      {
+        "nodeId": "ClassicalArithmeticCompletion:CA.0/chinese-remainder-theorem-with-its-bijection-form",
+        "verdict": "corrected",
+        "note": "Theorem 2.6, the idempotent proof, the bijection restatement and Example 2.6 match printed pp. 23-24. The non-coprime CRT reference was wrong (Exercise 2.18, two moduli, not Exercise 2.16)."
+      },
+      {
+        "nodeId": "ClassicalArithmeticCompletion:CA.1/legendre-symbol-euler-criterion-and-gauss-lemma",
+        "verdict": "corrected",
+        "note": "Theorems 2.20, 2.21, 12.1 and 12.2 match printed pp. 37-38 and 342-344, and the Gauss's lemma proof step is faithful. The Euler's criterion proof step misdescribed the argument (pairing proof, not the order in a cyclic group) and was rewritten."
+      },
+      {
+        "nodeId": "ClassicalArithmeticCompletion:CA.1/quadratic-reciprocity-with-the-supplementary-law-at-two",
+        "verdict": "corrected",
+        "note": "Theorems 12.3 and 12.4 with proofs match printed pp. 344-346, including (12.1)-(12.7) and the S_1/S_2 partition. The numerical check with a wrong exponent was corrected, and the unsourced infinite-place identification removed."
+      }
+    ]
+  }
 }

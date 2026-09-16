@@ -17,7 +17,8 @@
     "1.4-1.5 The arithmetic setting: the definition of X_r, the actions of G(Q_p), of the completed Hecke algebra T and of pi_0; Theorem 1.4, pp. 7-8",
     "Conjecture 1.5 (all eight parts) and Theorem 1.6, pp. 9-10",
     "The Borel-Serre boundary and the boundary long exact sequences, p. 8",
-    "Theorem 1.16 (mod p analogue, five parts), Lemma 1.17, Theorem 1.18, Remark 1.19, Propositions 1.20 and 1.21, pp. 12-15"
+    "Theorem 1.16 (mod p analogue, five parts), Lemma 1.17, Theorem 1.18, Remark 1.19, Propositions 1.20 and 1.21, pp. 12-15",
+    "Reviewer (REVIEW-EXT-10-EXT-07): pp. 2-15 re-read against the drafted nodes; Theorem 1.1 checked on the page image of p. 3; the bibliography (entries [1], [4], [6], [8], [12], [18])"
    ]
   },
   {
@@ -29,7 +30,19 @@
    "sha256": "ebac854f47381c19a987b43b59d2c05cad55c3186c4d8cde067a7be0d06cbd16",
    "readSections": [
     "4.2 Completed cohomology vs. p-adic automorphic forms: the definition of the compactly supported completed cohomology used there, the tame-level convention K^p contained in the level-N subgroup of G'(A_f^p) with N >= 3 prime to p, Theorem 4.2.1 with its compatibility diagram, Corollary 4.2.2 with proof, Corollary 4.2.3 with proof, printed pp. 1020-1024",
-    "Introduction, the paragraph describing Theorem 4.2.1 and Corollary 4.2.3, p. 950 area"
+    "Introduction, Theorems 1.0.5-1.0.7 and the paragraphs describing Theorem 4.2.1 and Corollary 4.2.3, printed pp. 949-950 (locator corrected by the reviewer)",
+    "Reviewer (REVIEW-EXT-10-EXT-07): 4 opening on completed cohomology, printed pp. 1017-1018; 4.2 in full including the proof of Theorem 4.2.1 (pp. 1021-1023), with p. 1024 checked on the page image; the bibliography entries [17], [41], [52], [54], [63]"
+   ]
+  },
+  {
+   "id": "emerton-local-global-gl2Q",
+   "title": "Local-global compatibility in the p-adic Langlands programme for GL_2/Q",
+   "authors": "Matthew Emerton",
+   "edition": "Draft dated 23 March 2011 (the author's file lg.pdf); read via the PDF text layer. Added by the reviewer only to check the consumer side of the CC.6 -> R31.2 link",
+   "url": "https://math.uchicago.edu/~emerton/pdffiles/lg.pdf",
+   "sha256": "bf4f8556ef04be02daed0b1dba35c91ce4a7b2f4cbbf28d0d8351b1fc369eb13",
+   "readSections": [
+    "Reviewer (REVIEW-EXT-10-EXT-07): 5.3.6-5.3.8 with proofs, pp. 50-51, and the passage containing (5.7.10), p. 65"
    ]
   }
  ],
@@ -41,14 +54,14 @@
    "kind": "definition",
    "statement": "Let G_0 be a profinite group with a countable basis of neighbourhoods of the identity consisting of normal open subgroups ... contained in G_r contained in ... contained in G_1 contained in G_0. Suppose given a tower of topological spaces ... -> X_r -> ... -> X_1 -> X_0, each with an action of G_0, such that (1) the maps X_{r+1} -> X_r are G_0-equivariant, and (2) G_r acts trivially on X_r and realizes X_r as a G_0/G_r-torsor over X_0 - in particular all the maps in the tower are FINITE COVERINGS. Two standing hypotheses are imposed from that point on: (a) each X_r is a manifold homotopic to a finite simplicial complex, which is what makes all four families of (co)homology groups finitely generated over the indicated coefficient ring and relates them by the appropriate duality; and (b) G_0 is a p-ADIC ANALYTIC group - the source says that without this 'it seems impossible to control the inverse limits involved in our constructions', and with it Lazard's theorem that Z_p[[G_0]] is noetherian plus Schneider-Teitelbaum's Banach-representation theory bring the limits under control. In the arithmetic application X_r = G(Q)\\G(A)/A_infinity^o K_infinity^o G_r K^{infinity,p}, and the resulting modules carry not only the G_0-action but actions of the whole p-adic group G(Q_p), of a completed Hecke algebra T built from spherical Hecke operators at primes l different from p where G and the tame level K^{infinity,p} are unramified, and of the component group pi_0 = (A_infinity K_infinity)/(A_infinity^o K_infinity^o).",
    "hypotheses": [
-    "the tower must consist of FINITE coverings with G_r acting trivially on X_r; without the torsor condition the Hochschild-Serre spectral sequences of Theorem 1.1(4) do not exist",
+    "the tower must consist of FINITE coverings with G_r acting trivially on X_r and realizing X_r as a G_0/G_r-torsor over X_0; the source imposes this as an axiom and does not say what fails without it (the drafted claim that the Hochschild-Serre spectral sequences of Theorem 1.1(4) would not exist is not in the source; removed by the reviewer)",
     "each X_r homotopic to a FINITE simplicial complex: this is what gives finite generation at each level",
     "G_0 p-adic analytic: the source states this is essential for controlling the inverse limits, via Lazard's noetherianity of Z_p[[G_0]]",
     "the extension of the G_0-action to all of G(Q_p) in the arithmetic setting is asserted by 'the usual argument about limits of (co)homology of arithmetic quotients in the adelic setting' and is not proved in the source"
    ],
    "proofSteps": [
     "The source lays out the axioms, then imposes the two standing hypotheses with explicit reasons.",
-    "It notes in a footnote that a companion paper gives a sheaf-theoretic description of the completed cohomology allowing a more flexible set-up, which it does not need."
+    "It notes in footnote 1 (p. 3) that a paper of R. Hill (the survey's [12], 'On Emerton's p-adic Banach spaces', preprint 2007) - not a companion paper of the authors - gives a sheaf-theoretic description of H-tilde^bullet and H-tilde_c^bullet allowing a more flexible set-up, which the survey does not need."
    ],
    "acceptance": [
     "Check that at levels with nontrivial stabilizers the torsor condition (2) fails for the naive quotient, so a stack/orbifold model is required as the stage text demands",
@@ -81,15 +94,15 @@
    "parentStageId": "CompletedCohomologyPartII:CC.2",
    "title": "The four completed (co)homology modules, and the exact sequence separating the completion from the Tate module",
    "kind": "construction",
-   "statement": "Having fixed p, define completed homology and cohomology by H-tilde_bullet = inverse limit over r of H_bullet(X_r, Z_p) and H-tilde^bullet = inverse limit over s of the direct limit over r of H^bullet(X_r, Z/p^s Z), with Borel-Moore and compactly supported variants H-tilde^BM_bullet = inverse limit over r of H^BM_bullet(X_r, Z_p) and H-tilde_c^bullet = inverse limit over s of the direct limit over r of H_c^bullet(X_r, Z/p^s Z). There are natural maps H-tilde_bullet -> H-tilde^BM_bullet and H-tilde_c^bullet -> H-tilde^bullet. Define also H-hat^bullet = the p-adic completion of the direct limit over r of H^bullet(X_r, Z_p), and T_p H^bullet = the p-adic Tate module of that direct limit. Then there is an exact sequence 0 -> H-hat^bullet -> H-tilde^bullet -> T_p H^{bullet+1} -> 0. The p-adic completion kills the p-divisible part of the direct limit, while the Tate module sees only the torsion subgroup of that divisible part. Since T_p H^{bullet+1} is p-torsion free and p-adically complete, dualizing gives 0 -> Hom(T_p H^{bullet+1}, Z_p) -> Hom(H-tilde^bullet, Z_p) -> Hom(H-hat^bullet, Z_p) -> 0, and by Theorem 1.1(3) the middle term is the p-torsion-free quotient of H-tilde_bullet.",
+   "statement": "Having fixed p, define completed homology and cohomology by H-tilde_bullet = inverse limit over r of H_bullet(X_r, Z_p) and H-tilde^bullet = inverse limit over s of the direct limit over r of H^bullet(X_r, Z/p^s Z), with Borel-Moore and compactly supported variants H-tilde^BM_bullet = inverse limit over r of H^BM_bullet(X_r, Z_p) and H-tilde_c^bullet = inverse limit over s of the direct limit over r of H_c^bullet(X_r, Z/p^s Z). There are natural maps H-tilde_bullet -> H-tilde^BM_bullet and H-tilde_c^bullet -> H-tilde^bullet. Define also H-hat^bullet = the p-adic completion of the direct limit over r of H^bullet(X_r, Z_p), and T_p H^bullet = the p-adic Tate module of that direct limit. Then there is an exact sequence 0 -> H-hat^bullet -> H-tilde^bullet -> T_p H^{bullet+1} -> 0 (1.1), stated in the source without proof. The p-adic completion kills the p-divisible part of the direct limit, while the Tate module sees only the torsion subgroup of that divisible part. Since T_p H^{bullet+1} is p-torsion free and p-adically complete, dualizing gives 0 -> Hom(T_p H^{bullet+1}, Z_p) -> Hom(H-tilde^bullet, Z_p) -> Hom(H-hat^bullet, Z_p) -> 0. The source then quotes Theorem 1.1(3) to identify the middle term with the p-torsion-free quotient of H-tilde_bullet; that consequence is recorded in the duality node (CC.3), because the atlas places Theorem 1.1(3) after CC.2. Remark 1.15: if the Z_p-cohomology of every X_r is p-torsion-free, or more generally of bounded exponent, the Tate-module term vanishes and H-hat^bullet -> H-tilde^bullet is an isomorphism.",
    "hypotheses": [
     "the order of the limits is not interchangeable: H-tilde^bullet is inverse limit over s of direct limit over r, and the two other objects H-hat and T_p H are obtained from the SAME direct limit by completion and by Tate module respectively",
-    "the exact sequence is a consequence of the definitions, not a formal commutation of completion with cohomology; the stage text's demand to 'exhibit the possible lim^1 term rather than commuting completion and cohomology formally' is the same point",
+    "the source states (1.1) without proof. Reviewer derivation: take the colimit over r of the finite-level universal-coefficient sequences 0 -> H^bullet(X_r, Z_p)/p^s -> H^bullet(X_r, Z/p^s Z) -> H^{bullet+1}(X_r, Z_p)[p^s] -> 0 (filtered colimits are exact), then the inverse limit over s; the lim^1 of the left-hand system vanishes because its transition maps are surjective. That lim^1 vanishing is where the stage's warning against formally commuting completion and cohomology is met",
     "the dual sequence uses that T_p H^{bullet+1} is p-torsion free AND p-adically complete"
    ],
    "proofSteps": [
     "The source gives the definitions and then the exact sequence (1.1) with the interpretation of its two outer terms.",
-    "Dualizing (1.1) over Z_p and quoting Theorem 1.1(3) identifies Hom(H-tilde^bullet, Z_p) with the p-torsion-free quotient of completed homology."
+    "Because T_p H^{bullet+1} is p-torsion-free and p-adically complete, the source takes the Z_p-dual of (1.1) (p. 5). Its further identification of Hom(H-tilde^bullet, Z_p) with the p-torsion-free quotient of H-tilde_bullet quotes Theorem 1.1(3) and is recorded in the duality node."
    ],
    "acceptance": [
     "Check on an example with p-divisible direct-limit cohomology that H-hat and H-tilde differ, so the sequence (1.1) is not split trivially",
@@ -107,6 +120,12 @@
      "locator": "Theorem 1.1(2), p. 3",
      "excerpt": "The spaces H̃ • and H̃c• are p-adically complete and their p-power torsion submodules have bounded exponent.",
      "match": "The completeness and bounded-exponent-torsion statements the stage requires."
+    },
+    {
+     "sourceId": "calegari-emerton-survey",
+     "locator": "Remark 1.15, pp. 11-12",
+     "excerpt": "The Tate module term in the exact sequence (1.1) would then vanish, and hence there would be an isomorphism Ĥ • −→ H̃ • .",
+     "match": "The case in which the two objects agree: Z_p-cohomology of each X_r p-torsion-free or of bounded exponent. Added by the reviewer."
     }
    ],
    "implementationStatus": "unchecked"
@@ -119,7 +138,7 @@
    "statement": "Theorem 1.1(1): the natural action of Z_p[[G_0]] on H-tilde_bullet and on H-tilde^BM_bullet makes each of them a FINITELY GENERATED LEFT module over Z_p[[G_0]]; moreover the canonical topology on each (obtained by writing it as a quotient of a finite direct sum of copies of Z_p[[G_0]]) coincides with the projective limit topology. Consequence stated in the source: each torsion submodule H-tilde_bullet[p^infinity] and H-tilde^BM_bullet[p^infinity] is finitely generated over Z_p[[G_0]] and hence of BOUNDED EXPONENT. Mod p analogue, Theorem 1.16(1): F_p[[G_0]] acts on H-tilde_{bullet, F_p} and H-tilde^BM_{bullet, F_p} making each a finitely generated left module, again with the canonical topology equal to the projective limit topology; and Theorem 1.16(2): H^bullet_{F_p} and H^bullet_{c, F_p} are ADMISSIBLE SMOOTH representations of G_0 over F_p.",
    "hypotheses": [
     "finite generation is over the completed group ring of the p-adic analytic group G_0, and rests on Lazard's noetherianity",
-    "finite generation is asserted for HOMOLOGY (and Borel-Moore homology); admissibility is the corresponding statement on the cohomology side after dualizing",
+    "finite generation is asserted for HOMOLOGY (and Borel-Moore homology); on the cohomology side the survey states admissibility only in the mod p Theorem 1.16(2) - Theorem 1.1 has no admissibility clause for H-tilde^bullet",
     "the source states that the PROOF of Theorem 1.1 'will appear in [6]' - the survey does not prove it",
     "finite generation is not freeness, projectivity or Cohen-Macaulayness; the source draws only the bounded-exponent consequence"
    ],
@@ -129,7 +148,7 @@
    ],
    "acceptance": [
     "Check the equality of the canonical and projective limit topologies on an explicit finitely generated module, and note that it fails for a non-finitely-generated one",
-    "Check that bounded exponent of the torsion follows from finite generation over a noetherian complete local ring"
+    "Check that bounded exponent of the torsion follows from finite generation over the left-noetherian ring Z_p[[G_0]]: p is central, so H-tilde_bullet[p^infinity] is a finitely generated submodule and is killed by one power of p. Z_p[[G_0]] is local only when G_0 is pro-p, so the argument must not use locality (reviewer correction of 'noetherian complete local ring')"
    ],
    "sources": [
     {
@@ -158,17 +177,19 @@
    "parentStageId": "CompletedCohomologyPartII:CC.3",
    "title": "Theorem 1.1(3) and Theorem 1.16(3),(5): the exact sequences and isomorphisms relating completed homology and cohomology",
    "kind": "theorem",
-   "statement": "Theorem 1.1(3): there are short exact sequences 0 -> Hom_cont(H-tilde_{bullet-1}, Q_p/Z_p) -> H-tilde^bullet -> Hom_cont(H-tilde_bullet, Z_p) -> 0, where 'cont' means continuous for the canonical topology on the source and the evident (discrete or p-adic) topology on the target, and 0 -> Hom(H-tilde^{bullet+1}[p^infinity], Q_p/Z_p) -> H-tilde_bullet -> Hom(H-tilde^bullet, Z_p) -> 0, together with similar sequences relating H-tilde^BM_bullet and H-tilde_c^bullet; these are compatible with the maps H-tilde_bullet -> H-tilde^BM_bullet and H-tilde_c^bullet -> H-tilde^bullet. In the mod p setting the corresponding statements are ISOMORPHISMS, Theorem 1.16(3): H^bullet_{F_p} = Hom_cont(H-tilde_{bullet, F_p}, F_p) and H-tilde_{bullet, F_p} = Hom(H^bullet_{F_p}, F_p), again compatible with the Borel-Moore and compactly supported variants; and Theorem 1.16(5) gives the universal-coefficient sequences 0 -> H-tilde_bullet/p H-tilde_bullet -> H-tilde_{bullet, F_p} -> H-tilde_{bullet-1}[p] -> 0 and 0 -> H-tilde^bullet/p H-tilde^bullet -> H^bullet_{F_p} -> H-tilde^{bullet+1}[p] -> 0.",
+   "statement": "Theorem 1.1(3): there are short exact sequences 0 -> Hom_cont(H-tilde_{bullet-1}, Q_p/Z_p) -> H-tilde^bullet -> Hom_cont(H-tilde_bullet, Z_p) -> 0 (as printed; see the reviewer note at the end: the first term must be read as Hom_cont(H-tilde_{bullet-1}[p^infinity], Q_p/Z_p)), where 'cont' means continuous for the canonical topology on the source and the evident (discrete or p-adic) topology on the target, and 0 -> Hom(H-tilde^{bullet+1}[p^infinity], Q_p/Z_p) -> H-tilde_bullet -> Hom(H-tilde^bullet, Z_p) -> 0, together with similar sequences relating H-tilde^BM_bullet and H-tilde_c^bullet; these are compatible with the maps H-tilde_bullet -> H-tilde^BM_bullet and H-tilde_c^bullet -> H-tilde^bullet. In the mod p setting the corresponding statements are ISOMORPHISMS, Theorem 1.16(3): H^bullet_{F_p} = Hom_cont(H-tilde_{bullet, F_p}, F_p) and H-tilde_{bullet, F_p} = Hom(H^bullet_{F_p}, F_p), again compatible with the Borel-Moore and compactly supported variants; and Theorem 1.16(5) gives the universal-coefficient sequences 0 -> H-tilde_bullet/p H-tilde_bullet -> H-tilde_{bullet, F_p} -> H-tilde_{bullet-1}[p] -> 0 and 0 -> H-tilde^bullet/p H-tilde^bullet -> H^bullet_{F_p} -> H-tilde^{bullet+1}[p] -> 0. Consequence recalled on p. 5 (moved here from the CC.2 node by the reviewer): Hom(H-tilde^{bullet+1}[p^infinity], Q_p/Z_p) is killed by a power of p (Theorem 1.1(2)) and Hom(H-tilde^bullet, Z_p) is p-torsion-free, so the second sequence identifies Hom(H-tilde^bullet, Z_p) with the p-torsion-free quotient H-tilde_bullet/H-tilde_bullet[p^infinity]; combined with the Z_p-dual of (1.1) this gives 0 -> Hom(T_p H^{bullet+1}, Z_p) -> H-tilde_bullet/H-tilde_bullet[p^infinity] -> Hom(H-hat^bullet, Z_p) -> 0. Reviewer note on the first sequence: as printed (checked on the page image of p. 3) it cannot hold. In the survey's own example of 1.4 (G_0 = Z_p, X_r = R/p^r Z) one has H-tilde_0 = Z_p and H-tilde^1 = 0, whereas Hom_cont(Z_p, Q_p/Z_p) = Q_p/Z_p is nonzero. The torsion submodule H-tilde_{bullet-1}[p^infinity] in the first term is what the finite-level universal coefficient theorem gives, matches the [p^infinity] in the second sequence, and is what Scholze's proof of his Corollary 4.2.3 needs: from the vanishing of H-tilde_c^{d+1} it concludes that H-tilde^BM_d is p-torsion-free, whereas the printed form would force H-tilde^BM_d = 0.",
    "hypotheses": [
-    "in characteristic zero duality is only an EXACT SEQUENCE with a torsion correction term, not an isomorphism; only mod p does it become an isomorphism",
+    "with Z_p coefficients duality is only an EXACT SEQUENCE with a torsion correction term, not an isomorphism; only mod p (Theorem 1.16(3)) does the source state isomorphisms",
     "the continuity condition is with respect to the canonical topology on the source; the source remarks that on the cohomology side no continuity condition is needed because the natural topology there is p-adic and all Z_p-linear maps are automatically p-adically continuous",
     "the correction terms shift the degree: Hom_cont(H-tilde_{bullet-1}, Q_p/Z_p) in one sequence and Hom(H-tilde^{bullet+1}[p^infinity], Q_p/Z_p) in the other",
     "the mod p isomorphisms are stated for the objects H^bullet_{F_p}, defined WITHOUT completion - the source notes 'in the case of cohomology, there is no completion at all'",
-    "Ordering note: the continuity condition in Theorem 1.1(3) refers to 'the canonical topology on the source', which is defined only by Theorem 1.1(1). Parts (1) and (3) are two clauses of ONE theorem in the source, proved together in a paper that is not in the supplied library, so neither is logically prior to the other in anything read here. A dependency edge from the finite-generation node to this one was drafted and removed because the atlas orders CC.3 before CC.5 and the edge would have closed a cycle CC.3 -> CC.5 -> CC.3."
+    "Ordering note: the continuity condition in Theorem 1.1(3) refers to 'the canonical topology on the source', which is defined only by Theorem 1.1(1). Parts (1) and (3) are two clauses of ONE theorem in the source, proved together in a paper that is not in the supplied library, so neither is logically prior to the other in anything read here. A dependency edge from the finite-generation node to this one was drafted and removed because the atlas orders CC.3 before CC.5 and the edge would have closed a cycle CC.3 -> CC.5 -> CC.3.",
+    "Theorem 1.16(3) repeats verbatim the parenthetical of Theorem 1.1(3) about p-adic topologies and 'this exact sequence', and Theorem 1.16(5) says 'similar isomorphisms' where it means the Borel-Moore and compactly supported short exact sequences; the reviewer reads both as copying slips without mathematical content"
    ],
    "proofSteps": [
     "The source states both parts; the proofs are deferred to the forthcoming paper.",
-    "Theorem 1.16(5) is the universal coefficient sequence, from which Proposition 1.20 (p-torsion-freeness transfers the codimension statement to the mod p one) is deduced together with Lemma 1.17."
+    "Theorem 1.16(5) is the universal coefficient sequence, from which Proposition 1.20 (p-torsion-freeness transfers the codimension statement to the mod p one) is deduced together with Lemma 1.17.",
+    "The p. 5 identification of Hom(H-tilde^bullet, Z_p) with the p-torsion-free quotient of H-tilde_bullet combines Theorem 1.1(2) and (3) with the Z_p-dual of (1.1)."
    ],
    "acceptance": [
     "Check the degree shifts in the two correction terms on an example with torsion in completed cohomology",
@@ -192,6 +213,12 @@
      "locator": "Remark 1.3, p. 4",
      "excerpt": "It is on the homology side that the algebraic aspects of the theory are most transparent, while the cohomology side is better adapted to comparison with the situation at finite levels.",
      "match": "The source's own explanation of why both objects are kept, which the stage's 'distinguish left modules from the opposite action arising by duality' presupposes."
+    },
+    {
+     "sourceId": "calegari-emerton-survey",
+     "locator": "1.4, the example of the tower of circles, p. 6",
+     "excerpt": "Clearly H̃0 = Zp , with trivial G0 -action, while H̃1 = 0 (the inverse limit of a sequence of copies of Zp under the multiplication by p map obviously vanishes). Similarly H̃ 0 = Zp , while H̃ 1 = 0.",
+     "match": "The source's own example, which is incompatible with the first sequence of Theorem 1.1(3) as printed. Added by the reviewer."
     }
    ],
    "implementationStatus": "unchecked"
@@ -203,17 +230,17 @@
    "kind": "theorem",
    "statement": "Theorem 1.1(4): for each r >= 0 there are Hochschild-Serre type spectral sequences E_2^{i,j} = H^i(G_r, H-tilde^j) => H^{i+j}(X_r, Z_p) and E_2^{i,j} = H^i(G_r, H-tilde_c^j) => H_c^{i+j}(X_r, Z_p), compatible with the map H-tilde_c^bullet -> H-tilde^bullet. Theorem 1.16(4) is the mod p analogue with H^bullet_{F_p} and F_p coefficients on the abutment. Remark 1.2: if M is any continuous G_0-module over Z_p, one may associate a family of local systems M_bullet on the tower, and there is an analogue of part (4) for the cohomology of the local system M_r. This is the descent statement that recovers finite-level cohomology from the completed object; it is a SPECTRAL SEQUENCE, so the degree-zero invariants recover only the edge term.",
    "hypotheses": [
-    "the spectral sequences are indexed by the level r and use continuous cohomology of the compact p-adic analytic group G_r",
-    "the abutment is the Z_p-cohomology of X_r, not of its Borel-Serre compactification; the boundary is a separate long exact sequence",
+    "the spectral sequences are indexed by the level r; the survey writes H^i(G_r, -) without naming the cohomology theory (continuous cohomology of the compact p-adic analytic group G_r is the evident reading, but it is not stated)",
+    "the abutments are the Z_p-cohomology and the compactly supported Z_p-cohomology of X_r; the boundary enters only through the separate long exact sequences (1.2)-(1.3). (Reviewer correction: the drafted contrast with the Borel-Serre compactification is not a distinction, because X_r -> X-bar_r is a homotopy equivalence; the relevant distinction is between H^bullet and H_c^bullet.)",
     "Remark 1.2's extension to arbitrary continuous coefficients M is stated without proof",
     "the source does not claim that H^0(G_r, H-tilde^j) recovers classical forms; only the spectral sequence is asserted"
    ],
    "proofSteps": [
     "The source states both parts of the theorem; the proofs are deferred to the forthcoming paper.",
-    "Later in the survey the spectral sequence of Theorem 1.1(4) is used to verify consequences of Conjecture 1.5 in low-dimensional cases."
+    "In the example of 1.4 (G_0 = Z_p acting on the tower of circles X_r = R/p^r Z) the survey checks that the spectral sequence recovers the cohomology of X_r (pp. 6-7). The mod p version, Theorem 1.16(4), is used with Theorem 1.18 in the proof of Proposition 1.21 (growth of mod p cohomology up the tower). Reviewer correction: the drafted claim that the survey uses Theorem 1.1(4) to verify consequences of Conjecture 1.5 in low-dimensional cases is not what the source does; Examples 1.11-1.14 use Theorem 1.4, the congruence subgroup property and the Poincaré duality spectral sequence."
    ],
    "acceptance": [
-    "Check in the modular-curve case (G = SL_2 over Q, q_0 = l_0 = 0 up to normalisation) that the spectral sequence degenerates and recovers H^1(X_r, Z_p)",
+    "Check in the case G = SL_2 over Q (Example 1.11: l_0 = 0, q_0 = 1; the drafted 'q_0 = l_0 = 0' was wrong) how the spectral sequence recovers H^1(X_r, Z_p). Reviewer computation: it cannot degenerate at E_2. For G_r uniform pro-p of dimension 3, E_2^{3,0} = H^3(G_r, H-tilde^0) = H^3(G_r, Z_p) is nonzero while H^3(X_r, Z_p) = 0, so a differential from the H-tilde^1 row must cancel it",
     "Check that the edge map is not surjective in general, so the stage's warning 'General completed cohomology does not canonically recover every classical form from degree-zero invariants' is source-correct"
    ],
    "sources": [
@@ -228,6 +255,12 @@
      "locator": "Remark 1.2, p. 4",
      "excerpt": "If M is any continuous G0 -module over Zp , then we may associate a family of local systems M• on the tower X• to M , and there is an analogue of part (4) of the theorem for the cohomology of the local system Mr .",
      "match": "The extension to algebraic coefficient systems that the stage requires, stated in the source without proof."
+    },
+    {
+     "sourceId": "calegari-emerton-survey",
+     "locator": "1.4, top of p. 7",
+     "excerpt": "and thus we do indeed recover the cohomology of the circle Xr from the completed cohomology via the Hochschild–Serre type spectral sequence.",
+     "match": "The only place in the survey where Theorem 1.1(4) itself is applied. Added by the reviewer."
     }
    ],
    "implementationStatus": "unchecked"
@@ -237,19 +270,20 @@
    "parentStageId": "CompletedCohomologyPartII:CC.5",
    "title": "Codimension over a noncommutative Iwasawa algebra, and Theorem 1.4: completed homology is torsion outside the middle degree",
    "kind": "theorem",
-   "statement": "For a finitely generated left Z_p[[G_0]]-module M set E^bullet(M) = Ext^bullet(M, Z_p[[G_0]]), computed via the left module structure on Z_p[[G_0]] and converted back to a left module structure by the canonical anti-involution g -> g^{-1}; these modules are unchanged (up to natural isomorphism and forgetting) on replacing G_0 by an open subgroup. The CODIMENSION of M is the least i with E^i(M) nonzero; the IWASAWA DIMENSION is 1 + dim G_0 - codim M. In the mod p setting E_{F_p}^bullet(M) = Ext^bullet(M, F_p[[G_0]]) and the short exact sequences 0 -> E^bullet(M) -> E_{F_p}^bullet(M) -> E^{bullet+1}(M) -> 0 show the F_p-codimension is one less than the codimension, so the Iwasawa dimension equals dim G_0 - codim_{F_p} M. Lemma 1.17: if M is finitely generated over Z_p[[G_0]] and p-TORSION FREE then codim M = codim_{F_p} M/pM. Theorem 1.4 (the main result of an earlier paper of the authors): if G is SEMI-SIMPLE then the modules H-tilde_n are TORSION Z_p[[G_0]]-modules, unless G(R) admits discrete series and n is the middle dimension (half the dimension of the X_r); in that case Hom(H-hat^n, Z_p), and hence H-tilde_n, has positive rank, while Hom(T_p H^{n+1}, Z_p) is torsion over Z_p[[G_0]]. Theorem 1.18: if M is finitely generated over F_p[[G_0]] with V = Hom_cont(M, F_p) the corresponding admissible smooth representation, and the Iwasawa dimension of M is d, then dim H^0(G_r, V) is asymptotic to lambda [G_0 : G_r]^{d/dim G_0} for some lambda > 0, while dim H^i(G_r, V) = O([G_0 : G_r]^{d/dim G_0}) for all i > 0.",
+   "statement": "For a finitely generated left Z_p[[G_0]]-module M set E^bullet(M) = Ext^bullet(M, Z_p[[G_0]]), computed via the left module structure on Z_p[[G_0]] and converted back to a left module structure by the canonical anti-involution g -> g^{-1}; these modules are unchanged (up to natural isomorphism and forgetting) on replacing G_0 by an open subgroup. The CODIMENSION of M is the least i with E^i(M) nonzero; the IWASAWA DIMENSION is 1 + dim G_0 - codim M. In the mod p setting, for a finitely generated left F_p[[G_0]]-module M, E_{F_p}^bullet(M) = Ext^bullet(M, F_p[[G_0]]) and, regarding M as a Z_p[[G_0]]-module and applying Ext^bullet(M, -) to 0 -> Z_p[[G_0]] -> Z_p[[G_0]] -> F_p[[G_0]] -> 0 (multiplication by p), the short exact sequences 0 -> E^bullet(M) -> E_{F_p}^bullet(M) -> E^{bullet+1}(M) -> 0 show the F_p-codimension is one less than the codimension, so the Iwasawa dimension equals dim G_0 - codim_{F_p} M. Lemma 1.17: if M is finitely generated over Z_p[[G_0]] and p-TORSION FREE then codim M = codim_{F_p} M/pM. Theorem 1.4 (the main result of an earlier paper of the authors): if G is SEMI-SIMPLE then the modules H-tilde_n are TORSION Z_p[[G_0]]-modules, unless G(R) admits discrete series and n is the middle dimension (half the dimension of the X_r); in that case Hom(H-hat^n, Z_p), and hence H-tilde_n, has positive rank, while Hom(T_p H^{n+1}, Z_p) is torsion over Z_p[[G_0]]. Theorem 1.18: if M is finitely generated over F_p[[G_0]] with V = Hom_cont(M, F_p) the corresponding admissible smooth representation, and the Iwasawa dimension of M is d, then dim H^0(G_r, V) is asymptotic to lambda [G_0 : G_r]^{d/dim G_0} for some lambda > 0, while dim H^i(G_r, V) = O([G_0 : G_r]^{d/dim G_0}) for all i > 0.",
    "hypotheses": [
     "codimension is defined only for FINITELY GENERATED modules over the completed group ring; it depends on G_0 only through an open subgroup",
     "Theorem 1.4 assumes G SEMI-SIMPLE and its statement changes exactly when G(R) admits discrete series and n is the middle dimension",
     "the source notes that the assertion about T_p H^{n+1} being torsion in the discrete-series middle dimension is not stated in the earlier paper but follows from its proof - an input that must be re-derived, not cited",
     "Lemma 1.17 requires p-torsion-freeness; without it the two codimensions can differ",
-    "Theorem 1.18's first statement is attributed to a reference and the second to the forthcoming paper"
+    "Theorem 1.18's first statement is attributed to a reference and the second to the forthcoming paper",
+    "Reviewer note on the ring over which E_{F_p} is computed: the short exact sequences on p. 14 hold with Ext over Z_p[[G_0]]. Check: for G_0 trivial and M = F_p, Ext^1_{Z_p}(F_p, F_p) = F_p but Ext^1_{F_p}(F_p, F_p) = 0. With Ext over F_p[[G_0]], Rees's lemma gives E^i_{F_p}(M) = E^{i+1}(M) instead. Both readings give codim_{F_p} M = codim M - 1, but the two must not be mixed"
    ],
    "proofSteps": [
     "The source defines E^bullet and codimension, notes the analogy with codimension of support of a coherent sheaf, and records the mod p comparison.",
-    "Lemma 1.17 is proved in three lines: computing E^i(M) from a projective resolution and using p-torsion-freeness gives E^bullet(M)/p E^bullet(M) = E_{F_p}^bullet(M/pM).",
+    "Lemma 1.17 is proved in three lines: computing E^i(M) from a projective resolution and using p-torsion-freeness, the source asserts E^bullet(M)/p E^bullet(M) = E_{F_p}^bullet(M/pM). Reviewer note: that isomorphism is too strong in general. Reducing Hom(P_bullet, Z_p[[G_0]]) modulo p gives only 0 -> E^i(M)/p -> E^i_{F_p}(M/pM) -> E^{i+1}(M)[p] -> 0; for G_0 = Z_p and M = (p, T) in Z_p[[T]] the degree-0 cokernel is F_p. The lemma itself holds exactly when E^c(M) is p-torsion-free for c = codim M. For G_0 = Z_p^k this follows from local duality, but it was not checked for noncommutative G_0 (recorded as a gap).",
     "Theorem 1.4 is quoted from the authors' earlier paper.",
-    "Proposition 1.20 combines Theorem 1.16(5) with Lemma 1.17: if H-tilde_{q_0} is p-torsion free then it has codimension l_0 if and only if H-tilde_{q_0, F_p} has F_p-codimension l_0."
+    "Proposition 1.20 combines Theorem 1.16(5) with Lemma 1.17: if H-tilde_{q_0} is p-torsion free then it has codimension l_0 if and only if H-tilde_{q_0, F_p} has F_p-codimension l_0. Proposition 1.21 (proof: Theorem 1.18 with Theorem 1.16(4)) turns the mod p codimension statements into growth rates of dim H^i(X_r, F_p)."
    ],
    "acceptance": [
     "Check the codimension bookkeeping codim_{F_p} = codim - 1 on an explicit finitely generated module",
@@ -282,17 +316,19 @@
    "parentStageId": "CompletedCohomologyPartII:CC.7",
    "title": "The Borel-Serre boundary tower and its long exact sequences",
    "kind": "construction",
-   "statement": "Each X_r embeds as an open subset of its Borel-Serre compactification X-bar_r; write dX_r = X-bar_r minus X_r for the boundary. As r varies the X-bar_r form a tower to which the completed (co)homology machinery applies, so one may define completed (co)homology spaces H-tilde_bullet(d) and H-tilde^bullet(d) of the boundary, and there are long exact sequences relating them to the interior and compactly supported objects. Scholze's Corollary 4.2.2, for the compactly supported completed cohomology of a Shimura variety of Hodge type with tame level K^p contained in the level-N subgroup for some N >= 3 prime to p: the group H-tilde^i_{c, K^p}(Z/p^n Z) (and a fortiori with Z_p coefficients) VANISHES for i > d, where d = dim_C X_K. Corollary 4.2.3: for i > d one has H-tilde^{BM}_i = 0 and H-tilde^{BM}_d is p-torsion free; for i < d the codimension of H-tilde_i over the Iwasawa algebra is at least d - i. If the X_K are compact this gives all of the Calegari-Emerton Conjecture 1.5 in that case, except with non-strict instead of strict inequalities on the codimensions (there l_0 = d and q_0 = 0).",
+   "statement": "Each X_r embeds as an open subset of its Borel-Serre compactification X-bar_r; write dX_r = X-bar_r minus X_r for the boundary. As r varies the X-bar_r form a tower to which the completed (co)homology machinery applies, so one may define completed (co)homology spaces H-tilde_bullet(boundary) and H-tilde^bullet(boundary), and there are long exact sequences (1.2) ... -> H-tilde_bullet(boundary) -> H-tilde_bullet -> H-tilde^BM_bullet -> H-tilde_{bullet-1}(boundary) -> ... and (1.3) ... -> H-tilde^{bullet-1}(boundary) -> H-tilde_c^bullet -> H-tilde^bullet -> H-tilde^bullet(boundary) -> ..., stated without proof. (Reviewer: the drafted '(d)' for the boundary is corrected to the source's boundary symbol; the source also describes the stratification of the boundary by proper parabolics P, a Mayer-Vietoris spectral sequence, and the induction formula (1.4) after a colimit over tame levels, at least for p odd - read, not decomposed.) Scholze's Corollary 4.2.2, for the compactly supported completed cohomology of a Shimura variety of Hodge type with tame level K^p contained in the level-N subgroup for some N >= 3 prime to p: the group H-tilde^i_{c, K^p}(Z/p^n Z) (and a fortiori with Z_p coefficients) VANISHES for i > d, where d = dim_C X_K. Corollary 4.2.3: for i > d one has H-tilde^{BM}_i = 0 and H-tilde^{BM}_d is p-torsion free; for i < d the codimension of H-tilde_i over the Iwasawa algebra is at least d - i. If the X_K are compact this gives all of the Calegari-Emerton Conjecture 1.5 in that case, except with non-strict instead of strict inequalities on the codimensions (Scholze prints 'here l_0 = d and q_0 = 0'). Reviewer correction: those values are swapped. With the survey's definitions l_0 = rank G_infinity - rank A_infinity K_infinity and q_0 = (d_R - l_0)/2, where d_R is the real dimension of X_r, only l_0 = 0 and q_0 = d (Scholze's d = dim_C) makes Corollary 4.2.3 match Conjecture 1.5 parts (1), (5) and (7); with l_0 = d and q_0 = 0, part (7) would say H-tilde_n = 0 for all n > 0. For G = Sp_2g the definitions give l_0 = 0 and q_0 = g(g+1)/2 = d directly. Scholze also points to the survey's Theorem 1.4 for the remaining part (2).",
    "hypotheses": [
     "the boundary construction needs the Borel-Serre compactification of each X_r and the compatibility of the compactifications along the tower",
     "Scholze's results are for Shimura varieties of HODGE type, with a fixed embedding into a Siegel datum, and with the tame level convention K^p contained in the level-N subgroup of G'(A_f^p) for some N >= 3 prime to p",
     "Corollary 4.2.3's comparison with Conjecture 1.5 holds with NON-STRICT inequalities and only when the X_K are compact",
-    "the proof of Corollary 4.2.2 is a statement about the cohomological dimension of a spectral space, and passes through the perfectoid/adic space at infinite level; it is not an argument about the archimedean tower"
+    "the proof of Corollary 4.2.2 is a statement about the cohomological dimension of a spectral space, and passes through the perfectoid/adic space at infinite level; it is not an argument about the archimedean tower",
+    "Placement note (reviewer): Corollaries 4.2.2 and 4.2.3 are vanishing and codimension theorems for Hodge-type Shimura varieties deduced from Theorem 4.2.1, which is recorded in the CC.8 node. The CC.7 stage text says such arithmetic vanishing is not a property of the abstract limit functor, the CC.8 text says vanishing remains a TC/IHG/IG/R31 theorem, and the atlas order CC.7 -> CC.8 rules out a link from Theorem 4.2.1 to this node. The corollaries are kept here verbatim pending the orchestrator's decision and are not CC.7 outputs",
+    "Corollary 4.2.3 also consumes Theorem 1.1(3) in its torsion-corrected form (duality node), the Poincaré duality spectral sequence E_2^{i,j} = E^i(H-tilde_j) => H-tilde^BM_{d_R-i-j} of the survey's 1.3 (stated there without proof, construction deferred to [6], not decomposed in any node) and Venjakob's codimension theory ([63] in Scholze, [18] in the survey; not read)"
    ],
    "proofSteps": [
     "The survey records the boundary tower and its long exact sequences.",
-    "Scholze's Corollary 4.2.2 reduces to n = 1 by long exact sequences, then to showing that H-tilde^i_{c,K^p}(F_p) tensor O_C/p is almost zero for i > d, then by his Theorem 4.2.1 to the vanishing of H^i(X^*_{K^p}, F) for i > d for ANY abelian sheaf F on the spectral space X^*_{K^p}; that follows because a cofiltered inverse limit of spectral spaces of cohomological dimension at most d again has cohomological dimension at most d, and each finite-level adic space has cohomological dimension at most d.",
-    "Corollary 4.2.3's first two assertions follow from Corollary 4.2.2 together with Theorem 1.1(iii) of the survey; the codimension bound is proved by a minimal-counterexample argument using the Poincare duality spectral sequence E_2^{jk} = E^j(H-tilde_k) => H-tilde^{BM}_{2d-j-k}."
+    "Scholze's Corollary 4.2.2 (statement printed p. 1023, proof pp. 1023-1024) reduces to n = 1 by long exact sequences, then to showing that H-tilde^i_{c,K^p}(F_p) tensor O_C/p is almost zero for i > d: for a nontrivial F_p-vector space V, V tensor O_C/p is flat over O_C/p and nonzero, so if it is killed by the maximal ideal of O_C it is 0. By Theorem 4.2.1 it suffices that H^i(X*_{K^p}, F) = 0 for i > d for EVERY abelian sheaf F on the spectral space X*_{K^p}. A cofiltered inverse limit of spectral spaces of cohomological dimension <= d along spectral maps again has cohomological dimension <= d (constructible sheaves come from a finite stage), and |X*_{K^p}| = lim |X*_{K_pK^p}|, so it is enough that each X*_{K_pK^p} has cohomological dimension <= d. For that Scholze cites de Jong-van der Put [41, Prop. 2.5.8], or writes the space as the inverse limit of the spaces underlying its formal models (each of dimension <= d) and uses Grothendieck's bound for noetherian spectral spaces; neither import was read.",
+    "Corollary 4.2.3's first two assertions follow from Corollary 4.2.2 together with Theorem 1.1(iii) of the survey (Scholze's [17] is the published version, London Math. Soc. Lecture Note Ser. 393, 2012; the library copy is the author's file). Reviewer: this step needs the torsion submodule in the first duality sequence (see the duality node). The codimension bound is proved by a minimal-counterexample argument using the Poincare duality spectral sequence E_2^{jk} = E^j(H-tilde_k) => H-tilde^{BM}_{2d-j-k}, Venjakob's results [63] (if X has codimension c then E^j(X) = 0 for j < c, E^c(X) has codimension exactly c, E^j(X) has codimension >= j for j > c) and the good behaviour of codimension in short exact sequences."
    ],
    "acceptance": [
     "Check that the vanishing in degrees i > d is genuinely a statement about the limit over levels at p, since at each finite level cohomology is nonzero up to 2d",
@@ -307,9 +343,9 @@
     },
     {
      "sourceId": "scholze-torsion",
-     "locator": "Corollary 4.2.2 with proof, printed pp. 1021-1022",
-     "excerpt": "The cohomology group H ‹ i p (Z/pn Z) (and a fortiori c,K ‹ i Hc,K p (Zp )) vanishes for i > d.",
-     "match": "The vanishing above the middle degree, for compactly supported completed cohomology of a Hodge-type Shimura variety."
+     "locator": "Corollary 4.2.2 with proof, printed pp. 1023-1024 (locator corrected by the reviewer from pp. 1021-1022)",
+     "excerpt": "The cohomology group H̃^i_{c,K^p}(Z/p^n Z) (and a fortiori H̃^i_{c,K^p}(Z_p)) vanishes for i > d.",
+     "match": "The vanishing above the middle degree, for compactly supported completed cohomology of a Hodge-type Shimura variety. (Excerpt re-typed by the reviewer from the page, since the text layer scrambles the accents and indices.)"
     },
     {
      "sourceId": "scholze-torsion",
@@ -325,16 +361,17 @@
    "parentStageId": "CompletedCohomologyPartII:CC.8",
    "title": "The convention of Scholze's section 4.2 and its comparison isomorphism",
    "kind": "comparison",
-   "statement": "In Scholze's section 4.2 the compactly supported completed cohomology used is H-tilde^i_{c,K^p}(Z/p^n Z) = direct limit over K_p of H^i_c(X_{K_p K^p}, Z/p^n Z), with (G, D) of Hodge type, a fixed embedding into (Sp_{2g}, D_{Sp_{2g}}), and the standing convention that the tame level K^p is contained in the level-N subgroup of G'(A_f^p) for some N >= 3 prime to p. Theorem 4.2.1: there is a natural isomorphism of almost-O_C-modules H-tilde^i_{c,K^p}(Z/p^n Z) tensor_{Z/p^n Z} O_C^a/p^n = H^i(X^*_{K^p}, I^{+a}_{X^*_{K^p}}/p^n), where the right-hand cohomology is computed on the topological space X^*_{K^p} and I_{X^*_{K^p}} is the ideal sheaf of the boundary with I^+ its intersection with O^+; moreover the isomorphism is compatible with the transition maps for K_1^p contained in K_2^p. This is the named comparison that identifies the abstract completed object with the perfectoid Shimura-tower model, and it is the convention (support and lattice) that the stage asks to compare against.",
+   "statement": "In Scholze's section 4.2 the compactly supported completed cohomology used is H-tilde^i_{c,K^p}(Z/p^n Z) = direct limit over K_p of H^i_c(X_{K_p K^p}, Z/p^n Z), with (G, D) of Hodge type, a fixed embedding into (Sp_{2g}, D_{Sp_{2g}}), and the standing convention that the tame level K^p is contained in the level-N subgroup of G'(A_f^p) for some N >= 3 prime to p. Theorem 4.2.1: there is a natural isomorphism of almost-O_C-modules H-tilde^i_{c,K^p}(Z/p^n Z) tensor_{Z/p^n Z} O_C^a/p^n = H^i(X^*_{K^p}, I^{+a}_{X^*_{K^p}}/p^n), where the right-hand cohomology is computed on the topological space X^*_{K^p} and I_{X^*_{K^p}} is the ideal sheaf of the boundary with I^+ its intersection with O^+; moreover, for K_1^p contained in K_2^p, the isomorphisms commute with the pullback maps and with the trace maps (two commutative diagrams). Scholze notes that the right-hand side is the cohomology of the sheaf of p-adic cusp forms modulo p^n of infinite level. This is the named comparison that identifies the abstract completed object with the perfectoid Shimura-tower model, and it is the convention (support and lattice) that the stage asks to compare against.",
    "hypotheses": [
     "only the COMPACTLY SUPPORTED completed cohomology is compared; the statement is not about H-tilde^bullet",
     "the comparison is an isomorphism of ALMOST O_C-modules, not of O_C-modules; the almost mathematics is not decoration",
-    "the tame level convention N >= 3 prime to p is imposed so that the finite levels are fine moduli problems",
+    "the tame level convention N >= 3 prime to p is imposed 'as usual'; the source gives no reason in 4.2, nor where the same convention is fixed in 3.1 and in Theorem 4.1.1, so the drafted fine-moduli motivation is a gloss, not a source statement (reviewer correction)",
     "(G, D) must be of Hodge type with a chosen Siegel embedding; the statement is not available for arbitrary locally symmetric spaces",
-    "the right-hand side is the cohomology of the ideal sheaf of the BOUNDARY intersected with O^+, i.e. it carries the compact-support condition geometrically"
+    "the right-hand side is the cohomology of the ideal sheaf of the BOUNDARY intersected with O^+, i.e. it carries the compact-support condition geometrically",
+    "Reviewer: the passage read does not compare Scholze's X_K (Shimura varieties for (G, D)) with the survey's X_r = G(Q)\\G(A)/A_infinity^o K_infinity^o G_r K^p, which quotients only by identity components (the survey's component group pi_0 then acts). Theorem 4.2.1 is also stated for fixed n, with no inverse limit over n. The support-and-lattice comparison the stage asks for still has to account for both points"
    ],
    "proofSteps": [
-    "The source states Theorem 4.2.1 with its compatibility diagram; its proof is in the surrounding sections and was NOT read here.",
+    "Proof (printed pp. 1021-1023, read by the reviewer; the drafted 'proof was NOT read' is corrected). Comparison theorems (complex/algebraic, algebraic/adic, singular/etale) give H_c^i(X_{K_pK^p}, Z/p^n) = H^i_et(X*_{K_pK^p}, j_! Z/p^n). The torsion comparison theorem [54, Th. 3.13] turns this, after tensoring with O_C^a/p^n, into etale cohomology of j_! O^{+a}/p^n. Passing to the colimit over K_p with [52, Cor. 7.18] moves it to X*_{K^p}. The exact sequence 0 -> j_! O^{+a}/p^n -> O^{+a}/p^n -> O_boundary^{+a}/p^n -> 0, the agreement of analytic and etale cohomology ([52, Props. 6.14, 7.13]) and vanishing on affinoids (with Lemma 2.2.2) give cohomology on the topological space. The boundary is strongly Zariski closed (Theorem 4.1.1(ii)), which identifies j_! O^{+a}/p^n with I^{+a}/p^n. The trace map comes from almost purity ([52, Th. 7.9(iii)] and [52, Def. 4.14]), and the trace diagram is checked etale-locally on split covers. None of the cited results was read, nor Theorem 4.1.1 (the perfectoid minimal compactification at infinite level).",
     "Corollaries 4.2.2 and 4.2.3 are then deduced as recorded in the CC.7 node."
    ],
    "acceptance": [
@@ -362,7 +399,7 @@
   {
    "source": "CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses",
    "target": "CompletedCohomologyPartII:CC.2/the-four-completed-modules-and-the-p-adic-completion-versus-tate-module-splitting",
-   "reason": "The four completed modules are defined as limits over the tower, so they presuppose the tower axioms; and the finiteness of each H_bullet(X_r, Z_p) - needed for the limits to be controlled and for the duality relating the four objects - is exactly the standing hypothesis that each X_r is homotopic to a finite simplicial complex.",
+   "reason": "The four completed modules and the sequence (1.1) are defined as limits over the tower, so they presuppose the tower axioms (G_0-equivariant maps, G_r acting trivially with X_r a G_0/G_r-torsor over X_0). Reviewer correction: the drafted claim that this node also needs the finite-simplicial-complex hypothesis is not supported. The definitions and (1.1) use no finiteness, and the duality that hypothesis feeds is Theorem 1.1(3), which is in the CC.3 node.",
    "sources": [
     {
      "sourceId": "calegari-emerton-survey",
@@ -395,33 +432,37 @@
   {
    "source": "CompletedCohomologyPartII:CC.3/duality-between-completed-homology-and-completed-cohomology",
    "target": "CompletedCohomologyPartII:CC.5/codimension-iwasawa-dimension-and-the-torsion-theorem",
-   "reason": "Proposition 1.20 - that a p-torsion-free H-tilde_{q_0} has codimension l_0 if and only if its mod p reduction has F_p-codimension l_0 - is deduced from Theorem 1.16(5), the universal-coefficient sequence, together with Lemma 1.17. The mod p duality of Theorem 1.16(3) is what converts codimension statements into growth statements at finite level through Theorem 1.18.",
+   "reason": "Proposition 1.20 - that a p-torsion-free H-tilde_{q_0} has codimension l_0 if and only if its mod p reduction has F_p-codimension l_0 - is deduced from Theorem 1.16(5), the universal-coefficient sequence, together with Lemma 1.17. Reviewer correction: the drafted second sentence attributed the passage to finite-level growth to Theorem 1.16(3). The printed proof of Proposition 1.21 cites Theorem 1.18 and Theorem 1.16(4); the mod p duality of Theorem 1.16(3) enters only implicitly, to identify Hom_cont(H-tilde_{i,F_p}, F_p) with H^i_{F_p} when Theorem 1.18 is applied.",
    "sources": [
     {
      "sourceId": "calegari-emerton-survey",
-     "locator": "Proposition 1.20 with proof, p. 15"
-    }
-   ]
-  },
-  {
-   "source": "CompletedCohomologyPartII:CC.7/boundary-long-exact-sequences-and-the-borel-serre-tower",
-   "target": "CompletedCohomologyPartII:CC.8/scholze-4-2-convention-and-the-perfectoid-comparison",
-   "reason": "Reversed from the naive reading: the geometric comparison of CC.8 (Scholze Theorem 4.2.1) is what PROVES the vanishing and codimension statements recorded in CC.7 for Hodge-type Shimura varieties. The edge is drawn from the boundary/vanishing node to the adapter node because the adapter is the stage that owns the named comparison isomorphism, and the boundary statements are stated in its terms; a decomposition should keep the geometric input in CC.8 and the abstract triangle in CC.7 and not merge them.",
-   "sources": [
-    {
-     "sourceId": "scholze-torsion",
-     "locator": "Theorem 4.2.1 and the proof of Corollary 4.2.2, printed pp. 1020-1022"
+     "locator": "Proposition 1.20 with proof, and Proposition 1.21 with proof, p. 15"
     }
    ]
   },
   {
    "source": "CompletedCohomologyPartII:CC.6/hochschild-serre-descent-to-finite-level",
    "target": "CompletedCohomologyAndLocalGlobalCompatibility:R31.2",
-   "reason": "The existing stage edge CC.6 -> R31.2 is justified at node level: the classical comparison at finite level is the edge term of the Hochschild-Serre spectral sequence of Theorem 1.1(4) together with its local-system version (Remark 1.2). The survey is explicit that this only produces a spectral sequence, so R31.2's identification of locally algebraic vectors with classical forms needs the additional local-global theorem that the stage text names; this edge supplies the spectral sequence, not that identification.",
+   "reason": "The atlas stage edge CC.6 -> R31.2 supplies descent from tower cohomology to fixed level: the Hochschild-Serre spectral sequence of Theorem 1.1(4) and its local-system version (Remark 1.2). Theorem 1.1(4) only gives a spectral sequence, so R31.2's identification of locally algebraic vectors with classical forms needs the additional local-global theorem named in the stage text. Reviewer annotation: the R31.2 source read for the CompletedCohomologyAndLocalGlobalCompatibility packet (Emerton, local-global compatibility for GL_2/Q) does not cite Theorem 1.1(4). In the proof of Lemma 5.3.8(2) (pp. 50-51) it uses the Hochschild-Serre spectral sequence of the finite Galois cover Y(K_f') -> Y(K_f) at a neat level with O/varpi^s coefficients, then passes to limits over K_p' and s; (5.7.10) (p. 65) uses the same argument. It refers the characteristic-zero comparison (Lemma 5.3.6) to his interpolation paper. The edge is supported as a descent input in the CC.6 sense (finite-level spectral sequences compatible with the limit), not as a use of Theorem 1.1(4) itself.",
    "sources": [
     {
      "sourceId": "calegari-emerton-survey",
      "locator": "Theorem 1.1(4) and Remark 1.2, p. 4"
+    },
+    {
+     "sourceId": "emerton-local-global-gl2Q",
+     "locator": "Lemmas 5.3.6 and 5.3.8 with proofs, pp. 50-51; (5.7.10), p. 65"
+    }
+   ]
+  },
+  {
+   "source": "CompletedCohomologyPartII:CC.2/the-four-completed-modules-and-the-p-adic-completion-versus-tate-module-splitting",
+   "target": "CompletedCohomologyPartII:CC.3/duality-between-completed-homology-and-completed-cohomology",
+   "reason": "Added by the reviewer. On p. 5 the survey takes the Z_p-dual of (1.1) and combines it with Theorem 1.1(3) to place Hom(T_p H^{bullet+1}, Z_p) and Hom(H-hat^bullet, Z_p) around the p-torsion-free quotient of H-tilde_bullet; the duality node records that consequence, which consumes (1.1). The stage edge CC.2 -> CC.3 is already in the atlas.",
+   "sources": [
+    {
+     "sourceId": "calegari-emerton-survey",
+     "locator": "1.1, after (1.1), p. 5"
     }
    ]
   }
@@ -465,7 +506,7 @@
    "stageId": "CompletedCohomologyPartII:CC.4",
    "status": "not_read",
    "remaining": [
-    "No node written. Cellular complexes on finite CW or Borel-Serre models, equivariant lifted cell complexes on a cofinal torsion-free tower, bounded complexes of finite free/projective O[[K_0]]-modules, and the recovery of finite-level complexes by DERIVED coinvariants were not read. The survey's finite-simplicial-complex hypothesis is the only trace of this. Next source action: read Calegari-Geraghty, 'Modularity lifting beyond the Taylor-Wiles method' (references/papers/calegari-geraghty.pdf, in the library with extracted text), section 2, where the perfect complex over the Iwasawa algebra is constructed."
+    "No node written. Cellular complexes on finite CW or Borel-Serre models, equivariant lifted cell complexes on a cofinal torsion-free tower, bounded complexes of finite free/projective O[[K_0]]-modules, and the recovery of finite-level complexes by DERIVED coinvariants were not read. The survey's finite-simplicial-complex hypothesis is the only trace of this. Next source action (corrected by the reviewer): Calegari-Geraghty section 2 is balanced modules and patching, and its 7.1 (Lemma 7.1) builds perfect complexes over O[Delta] for a finite abelian covering group Delta, not over an Iwasawa algebra. The closest model in the library is the proof of Theorems 2.1.5 and 2.1.12 of Emerton's interpolation paper (references/papers/R02_SS_EmertonInterpolation2006.pdf), which computes tower (co)homology from simplicial chain complexes on a triangulation lifted along the tower."
    ]
   },
   {
@@ -482,16 +523,18 @@
    "status": "partial",
    "remaining": [
     "Theorem 1.1(4) is quoted without proof; the continuous Hochschild-Serre machinery itself was not read.",
-    "The functoriality of the spectral sequence for Hecke maps, and the degree ranges of the classical comparison maps for algebraic coefficient systems, were not read."
+    "The functoriality of the spectral sequence for Hecke maps, and the degree ranges of the classical comparison maps for algebraic coefficient systems, were not read.",
+    "Emerton's interpolation paper (in the library), Theorem 2.1.5(ii), states a rational spectral sequence of this shape with the classical edge map, for X_0 homotopic to a finite simplicial complex; only the statement was seen, and its proof has not been read."
    ]
   },
   {
    "stageId": "CompletedCohomologyPartII:CC.7",
    "status": "partial",
    "remaining": [
-    "Scholze's Theorem 4.2.1, on which Corollaries 4.2.2 and 4.2.3 rest, was read only as a statement; its proof (the perfectoid Shimura variety, the Hodge-Tate period map and the almost-vanishing computations) was not read.",
+    "Scholze's Theorem 4.2.1 and its proof (pp. 1021-1023) were read by the reviewer; the imports were not: Theorem 4.1.1 (the perfectoid minimal compactification at infinite level), [52], [54], [41] and Venjakob [63]. Corollaries 4.2.2-4.2.3 are placed here provisionally; they consume Theorem 4.2.1 (CC.8), which the atlas order CC.7 -> CC.8 does not allow as a link.",
     "The abstract passage of the finite-level support triangle through the derived tower construction, its connecting morphisms, and the lim^1 and torsion errors were not read.",
-    "Completed interior cohomology as an image, and the localisation-compatible triangles, were not read."
+    "Completed interior cohomology as an image, and the localisation-compatible triangles, were not read.",
+    "The stratification of the Borel-Serre boundary by proper parabolics, the Mayer-Vietoris spectral sequence and the induction formula (1.4) (survey pp. 8-9, stated without proof, p odd) were read but not decomposed."
    ]
   },
   {
@@ -499,7 +542,8 @@
    "status": "partial",
    "remaining": [
     "Only the convention and the statement of Theorem 4.2.1 were read. The identification with the finite-level modular, Siegel, unitary and Hilbert tower models, the transport of Galois and tame Hecke actions with continuity, and localisation at a residual Hecke ideal were not read.",
-    "Scholze's sections 4.1 and 4.3, which surround Theorem 4.2.1, were not read."
+    "Scholze's sections 4.1 and 4.3, which surround Theorem 4.2.1, were not read.",
+    "The imports of the proof of Theorem 4.2.1 were not read: Theorem 4.1.1 and Lemma 2.2.2 of the same paper, [54, Th. 3.13] (Scholze, Perfectoid spaces: a survey; not in the library), and [52, Cor. 7.18, Props. 6.14 and 7.13, Th. 7.9(iii), Def. 4.14] (Scholze, Perfectoid spaces; the library has the arXiv version, whose numbering was not checked against the published one)."
    ]
   }
  ],
@@ -511,7 +555,7 @@
     "CompletedCohomologyPartII:CC.3/duality-between-completed-homology-and-completed-cohomology",
     "CompletedCohomologyPartII:CC.6/hochschild-serre-descent-to-finite-level"
    ],
-   "detail": "Verified: the full statements of Theorem 1.1 (four parts) and Theorem 1.16 (five parts), with their hypotheses and the consequences the survey draws. NOT verified: any of their proofs. The survey says twice that the proof 'will appear in [6]', i.e. in the systematic exposition Calegari-Emerton were preparing. Searched the supplied library: CATALOGUE.json has a record 'Calegari-Emerton, Completed cohomology of arithmetic groups' with status 'source_survey_lists_in_preparation_not_counted_acquired' and NO resolved file; so the proof source is genuinely absent. Next source action: the finite-generation statement in the form actually needed downstream is proved in Calegari-Geraghty, 'Modularity lifting beyond the Taylor-Wiles method', which IS in the library (references/papers/calegari-geraghty.pdf, extracted text at references/text/calegari-geraghty.txt); read its section 2 and record which parts of Theorem 1.1 it supplies and under what hypotheses. Also read Emerton's interpolation paper, in the library, for the construction of the smooth action."
+   "detail": "Verified: the full statements of Theorem 1.1 (four parts) and Theorem 1.16 (five parts), with their hypotheses and the consequences the survey draws. NOT verified: any of their proofs. The survey says twice that the proof 'will appear in [6]', i.e. in the systematic exposition Calegari-Emerton were preparing. Searched the supplied library: CATALOGUE.json has a record 'Calegari-Emerton, Completed cohomology of arithmetic groups' with status 'source_survey_lists_in_preparation_not_counted_acquired' and NO resolved file; so the proof source is genuinely absent. Reviewer correction to the next source action: Calegari-Geraghty (in the library) does not prove Theorem 1.1. Its section 2 is commutative algebra (balanced modules and patching), and its Lemma 7.1 builds perfect complexes over O[Delta] for a finite abelian covering group Delta from Mumford's lemma. The nearest source in the library is Emerton's interpolation paper, the survey's [8] (references/papers/R02_SS_EmertonInterpolation2006.pdf). For X_0 homotopic to a finite simplicial complex, its Theorems 2.1.5 and 2.1.12 prove admissibility of the rational Banach spaces in its (2.1.3) and a spectral sequence with the classical edge map. The reviewer saw only these statements. The integral and homological statements of Theorem 1.1 (finite generation of H-tilde_bullet, the canonical topology, bounded exponent) remain unsourced."
   },
   {
    "title": "Theorem 1.4 imports a statement the cited paper does not make",
@@ -521,12 +565,12 @@
    "detail": "Verified: the statement of Theorem 1.4 and the survey's parenthetical that 'The result about T_p H^{bullet+1} being torsion, even in the middle dimension in the discrete series case, is not stated there, but follows from the proof.' NOT verified: the cited paper's proof, from which that extra assertion must be extracted. The cited paper is the survey's reference [4] (Calegari-Emerton, Bounds for multiplicities of unitary representations of cohomological type in spaces of cusp forms), which is not in the supplied library under that title (checked CATALOGUE.json). Next source action: obtain that paper and extract the T_p H statement from its proof; until then it must not be used as an input."
   },
   {
-   "title": "Scholze Theorem 4.2.1 was read only as a statement",
+   "title": "Scholze Theorem 4.2.1: statement and proof read, imports not read",
    "neededBy": [
     "CompletedCohomologyPartII:CC.8/scholze-4-2-convention-and-the-perfectoid-comparison",
     "CompletedCohomologyPartII:CC.7/boundary-long-exact-sequences-and-the-borel-serre-tower"
    ],
-   "detail": "Verified: the statement of Theorem 4.2.1 with its almost-module qualifier and compatibility diagram, the tame-level convention, and the full proofs of Corollaries 4.2.2 and 4.2.3 as printed. NOT verified: the proof of Theorem 4.2.1, which rests on the perfectoid Shimura variety at infinite level, the Hodge-Tate period map and the almost-purity machinery of the earlier sections of the same paper. The paper IS in the library (references/papers/scholze-torsion.pdf with extracted text), so this is a reading gap, not an availability gap. Next source action: read sections 3 and 4.1 of that paper, and cross-check against PerfectoidShimuraVarieties in data/atlas.json (owned by EXT-12) before proposing a supplier edge."
+   "detail": "Verified (reviewer, printed pp. 1020-1024, p. 1024 on the page image): the statement of Theorem 4.2.1 with both commutative diagrams (pullback and trace), its proof on pp. 1021-1023, and the full proofs of Corollaries 4.2.2 and 4.2.3. The drafted description of the proof was inaccurate: it does not use the Hodge-Tate period map. NOT verified - imports named in these proofs: Theorem 4.1.1 (the perfectoid minimal compactification X*_{K^p} with strongly Zariski closed boundary) and Lemma 2.2.2 of the same paper; [54, Th. 3.13] (Scholze, Perfectoid spaces: a survey - not in CATALOGUE.json); [52, Cor. 7.18, Props. 6.14 and 7.13, Th. 7.9(iii), Def. 4.14] (Scholze, Perfectoid spaces - the library has arXiv 1111.4914, numbering not checked against the published version); the comparison theorems between complex, algebraic, adic, singular and etale cohomology; [41, Prop. 2.5.8] (de Jong-van der Put, Etale cohomology of rigid analytic spaces - not in CATALOGUE.json) or Grothendieck's dimension bound for noetherian spectral spaces; [63] (Venjakob, On the structure theory of the Iwasawa algebra of a p-adic Lie group - not in CATALOGUE.json). Next source action: read 4.1 of the same paper, and cross-check against PerfectoidShimuraVarieties in data/atlas.json before proposing a supplier edge."
   },
   {
    "title": "No source read constructs the chain-level model that CC.4 requires",
@@ -534,7 +578,7 @@
     "CompletedCohomologyPartII:CC.4",
     "CompletedCohomologyPartII:CC.1"
    ],
-   "detail": "Verified: nothing at chain level. The survey works entirely with (co)homology modules and only assumes each X_r is homotopic to a finite simplicial complex. NOT verified: bounded complexes of finite free or projective O[[K_0]]-modules, equivariant lifted cell complexes, or the recovery of finite-level complexes by derived coinvariants - all of which the stage text demands and warns against replacing by underived invariants. Next source action: read Calegari-Geraghty section 2 (in the library) and Scholze's section on the Borel-Serre model; both are present."
+   "detail": "Verified: nothing at chain level. The survey works entirely with (co)homology modules and only assumes each X_r is homotopic to a finite simplicial complex. NOT verified: bounded complexes of finite free or projective O[[K_0]]-modules, equivariant lifted cell complexes, or the recovery of finite-level complexes by derived coinvariants - all of which the stage text demands and warns against replacing by underived invariants. Next source action (corrected by the reviewer): Calegari-Geraghty section 2 is balanced modules and patching, and its 7.1 builds perfect complexes over O[Delta] for finite abelian Delta, which models only the finite-level step. The proofs of Theorems 2.1.5 and 2.1.12 of Emerton's interpolation paper (in the library) compute tower (co)homology from simplicial chain complexes lifted along the tower and are the closest model found. Scholze's paper uses the Borel-Serre compactification only in section 5 (not read) and gives no chain-level model over an Iwasawa algebra in the passages read."
   },
   {
    "title": "Conjecture 1.5 is a conjecture and must not be recorded as an input",
@@ -542,7 +586,7 @@
     "CompletedCohomologyPartII:CC.5",
     "CompletedCohomologyPartII:CC.7"
    ],
-   "detail": "Verified: Conjecture 1.5's eight parts as stated, Theorem 1.6's partial converse, and the partial results towards it - Theorem 1.4 (torsion outside the middle degree), Propositions 1.20 and 1.21 (reformulations), and Scholze's Corollary 4.2.3 (the compact Hodge-type case with non-strict inequalities). NOT established: the conjecture itself. The survey records that for G = GL_1 over a number field it is equivalent to Leopoldt's conjecture. Any downstream stage that wants concentration of completed cohomology in a single degree is asking for an open problem, not for an input; this packet records it as such."
+   "detail": "Verified: Conjecture 1.5's eight parts as stated, Theorem 1.6 (implications among the parts), and the partial results towards it - Theorem 1.4 (torsion outside the middle degree), Propositions 1.20 and 1.21 (reformulations), and Scholze's Corollary 4.2.3 (the compact Hodge-type case with non-strict inequalities). NOT established: the conjecture itself. The survey's Example 1.10 records that for G a torus the conjecture is equivalent to Leopoldt's conjecture (citing Hill [12, Cor. 5]). Reviewer: Scholze's parenthetical 'here l_0 = d and q_0 = 0' (p. 1024) swaps the survey's invariants - l_0 = 0 and q_0 = d is the reading under which Corollary 4.2.3 matches the conjecture; see the CC.7 node. Any downstream stage that wants concentration of completed cohomology in a single degree is asking for an open problem, not for an input; this packet records it as such."
   },
   {
    "title": "The atlas orders CC.3 before CC.5, but the source proves the corresponding statements together",
@@ -550,7 +594,80 @@
     "CompletedCohomologyPartII:CC.3",
     "CompletedCohomologyPartII:CC.5"
    ],
-   "detail": "Verified: Theorem 1.1 of the source has four parts - (1) finite generation over Z_p[[G_0]] with the identification of the canonical and projective-limit topologies, (2) p-adic completeness and bounded-exponent torsion, (3) the duality short exact sequences, (4) the Hochschild-Serre spectral sequences - stated as one theorem with a single deferred proof. Part (3)'s continuity condition presupposes the canonical topology of part (1). NOT verified: any separation of the parts into a proof order, because the proof is not in the supplied library. Consequence for the atlas: the edge CC.3 -> CC.5 (admissibility and finite generation depend on continuous duals) cannot be read off from this source, and the reverse reading is equally supported by the statement. This packet therefore asserts NO edge between them and records the question. Next source action: read Calegari-Geraghty section 2 (in the library), which proves a finite-generation statement in the form needed downstream, and determine whether it uses a duality input; that will settle the direction."
+   "detail": "Verified: Theorem 1.1 of the source has four parts - (1) finite generation over Z_p[[G_0]] with the identification of the canonical and projective-limit topologies, (2) p-adic completeness and bounded-exponent torsion, (3) the duality short exact sequences, (4) the Hochschild-Serre spectral sequences - stated as one theorem with a single deferred proof. Part (3)'s continuity condition presupposes the canonical topology of part (1). NOT verified: any separation of the parts into a proof order, because the proof is not in the supplied library. Consequence for the atlas: the edge CC.3 -> CC.5 (admissibility and finite generation depend on continuous duals) cannot be read off from this source, and the reverse reading is equally supported by the statement. This packet therefore asserts NO edge between them and records the question. Next source action (corrected by the reviewer): Calegari-Geraghty does not prove Theorem 1.1 (see the first gap). Read the proofs of Theorems 2.1.5 and 2.1.12 of Emerton's interpolation paper (in the library) and determine whether admissibility is derived through a duality or directly from the simplicial model; that bears on the direction."
+  },
+  {
+   "title": "Theorem 1.1(3): the first duality sequence as printed is false",
+   "neededBy": [
+    "CompletedCohomologyPartII:CC.3/duality-between-completed-homology-and-completed-cohomology",
+    "CompletedCohomologyPartII:CC.7/boundary-long-exact-sequences-and-the-borel-serre-tower"
+   ],
+   "detail": "Verified on the page image of p. 3: the survey prints 0 -> Hom_cont(H-tilde_{bullet-1}, Q_p/Z_p) -> H-tilde^bullet -> Hom_cont(H-tilde_bullet, Z_p) -> 0. Reviewer check: in the survey's own example of 1.4 (tower of circles, G_0 = Z_p) H-tilde_0 = Z_p and H-tilde^1 = 0 (p. 6), but Hom_cont(Z_p, Q_p/Z_p) = Q_p/Z_p is nonzero, so the printed sequence fails in degree 1. Several things point to Hom_cont(H-tilde_{bullet-1}[p^infinity], Q_p/Z_p) as the intended first term: the finite-level universal coefficient theorem, the [p^infinity] in the second sequence, and Scholze's use of '[17, Th. 1.1(iii)]' to conclude that H-tilde^BM_d is p-torsion-free (not zero). The packet uses that reading. NOT verified: the intended statement in a proof source, since the proof is deferred to the unavailable [6]. Scholze cites the published version (London Math. Soc. Lecture Note Ser. 393, 2012, pp. 239-257), which is not in the library and may correct the misprint. Next source action: obtain the published version, or derive the sequence from the simplicial model in 2.1 of Emerton's interpolation paper."
+  },
+  {
+   "title": "Scholze's Corollaries 4.2.2-4.2.3 are placed under CC.7 but consume the CC.8 comparison",
+   "neededBy": [
+    "CompletedCohomologyPartII:CC.7/boundary-long-exact-sequences-and-the-borel-serre-tower",
+    "CompletedCohomologyPartII:CC.8/scholze-4-2-convention-and-the-perfectoid-comparison",
+    "CompletedCohomologyPartII:CC.7",
+    "CompletedCohomologyPartII:CC.8"
+   ],
+   "detail": "Verified: Corollary 4.2.2 is deduced from Theorem 4.2.1 (the CC.8 node). Corollary 4.2.3 is deduced from Corollary 4.2.2, the survey's Theorem 1.1(iii), the Poincaré duality spectral sequence of the survey's 1.3 and Venjakob's codimension results. The drafted link from the CC.7 node to the CC.8 node ran against this dependency (its own reason said so) and was removed by the reviewer; reversing it would close the stage cycle CC.7 -> CC.8 -> CC.7. Both stage texts exclude the placement: CC.7 says arithmetic vanishing is not a property of the abstract limit functor, and CC.8 says vanishing remains a TC/IHG/IG/R31 theorem. Candidate home (orchestrator decision): TorsionCohomologyInfrastructure:TC.2, which requires CC.8 and exports cohomological-dimension and amplitude estimates. Once the corollaries are re-homed, draw links to them from the Theorem 4.2.1 node, the duality node and the codimension node."
+  },
+  {
+   "title": "Lemma 1.17's printed proof overstates an isomorphism",
+   "neededBy": [
+    "CompletedCohomologyPartII:CC.5/codimension-iwasawa-dimension-and-the-torsion-theorem"
+   ],
+   "detail": "Verified: Lemma 1.17 (p. 14) and its proof, which asserts E^bullet(M)/pE^bullet(M) = E^bullet_{F_p}(M/pM) for finitely generated p-torsion-free M. Reviewer check: reducing Hom(P_bullet, Z_p[[G_0]]) modulo p gives only 0 -> E^i(M)/p -> E^i_{F_p}(M/pM) -> E^{i+1}(M)[p] -> 0. For G_0 = Z_p and M = (p, T) in Z_p[[T]], the degree-0 cokernel is E^1(M)[p] = F_p. The lemma holds exactly when E^c(M) is p-torsion-free for c = codim M. For G_0 = Z_p^k this follows from local duality (the associated primes of Ext^c(M, Lambda) are associated primes of M, and none contains p), but it was not checked for noncommutative G_0. Proposition 1.20 rests on the lemma. A related point: the short exact sequences 0 -> E^bullet(M) -> E^bullet_{F_p}(M) -> E^{bullet+1}(M) -> 0 on p. 14 hold with Ext over Z_p[[G_0]], while with Ext over F_p[[G_0]] Rees's lemma gives E^i_{F_p}(M) = E^{i+1}(M); the codimension conclusion is the same. Next source action: Venjakob (the survey's [18]; not in CATALOGUE.json) for purity of E^c(M) over Auslander-regular Iwasawa algebras."
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REVIEW-EXT-10-EXT-07",
+  "date": "2026-09-16",
+  "notes": "All 8 nodes and 6 drafted links checked against the library copies of the Calegari-Emerton survey and Scholze's Annals paper (SHA-256 re-verified). Also checked: Emerton's local-global paper (consumer side of the R31.2 link), Calegari-Geraghty and Emerton's interpolation paper (both named in next source actions). Theorem 1.1 was checked on the page image of survey p. 3 and Corollary 4.2.3 on Scholze p. 1024. Verdicts: 0 verified, 8 corrected, 0 unverifiable. Main corrections: (1) the first duality sequence of Theorem 1.1(3) as printed contradicts the survey's own circle example; the torsion reading, which Scholze's Corollary 4.2.3 needs, is recorded as a gap. (2) Scholze's 'l_0 = d and q_0 = 0' is swapped. (3) The proof of Theorem 4.2.1 is on pp. 1021-1023 and does not use the Hodge-Tate period map; its imports are now named. (4) Corollaries 4.2.2-4.2.3 consume Theorem 4.2.1, so the drafted CC.7 -> CC.8 link ran backwards; it was removed and the placement recorded as an orchestrator question (candidate TC.2). (5) Lemma 1.17's printed proof asserts too strong an isomorphism (counterexample recorded). (6) SL_2 invariants and the degeneration claim corrected. (7) Calegari-Geraghty does not prove Theorem 1.1; next source actions re-pointed to Emerton's interpolation paper 2.1. Links: 2 verified (CC.0 -> finite generation; finite generation -> codimension), 3 corrected or annotated (CC.0 -> CC.2 reason; CC.3 -> codimension reason; CC.6 -> R31.2, whose consumer uses finite-level Hochschild-Serre for finite covers, not Theorem 1.1(4)), 1 removed (CC.7 -> CC.8), 1 added (CC.2 -> CC.3, atlas edge exists). Gaps 6 -> 9. Coverage names real stages; parentStageIds belong to the roadmap; no stage or node cycle. Packet status stays partial.",
+  "checked": [
+   {
+    "nodeId": "CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses",
+    "verdict": "corrected",
+    "note": "Axioms (1)-(2), the finite-simplicial-complex and p-adic-analytic hypotheses (pp. 2-3) and the arithmetic set-up of 1.5 (p. 7) match. Removed the unsourced claim that the Hochschild-Serre spectral sequences need the torsor condition; footnote 1 cites R. Hill's paper [12], not a companion paper."
+   },
+   {
+    "nodeId": "CompletedCohomologyPartII:CC.2/the-four-completed-modules-and-the-p-adic-completion-versus-tate-module-splitting",
+    "verdict": "corrected",
+    "note": "Definitions (p. 2), H-hat, T_p H, (1.1) and its dual (pp. 4-5) match. (1.1) is stated without proof: the 'consequence of the definitions' gloss is replaced by a reviewer derivation with the vanishing lim^1 made explicit. The Theorem 1.1(3) consequence moved to CC.3, and Remark 1.15 added."
+   },
+   {
+    "nodeId": "CompletedCohomologyPartII:CC.5/finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology",
+    "verdict": "corrected",
+    "note": "Theorem 1.1(1), the bounded-exponent consequence, Theorem 1.16(1)-(2) and 'proof will appear in [6]' (pp. 3, 12-13) match. Corrected: Theorem 1.1 has no admissibility clause for H-tilde^bullet; the bounded-exponent test needs only a noetherian ring with p central, and Z_p[[G_0]] is not local in general."
+   },
+   {
+    "nodeId": "CompletedCohomologyPartII:CC.3/duality-between-completed-homology-and-completed-cohomology",
+    "verdict": "corrected",
+    "note": "Theorem 1.1(3) and Theorem 1.16(3),(5) match the printed text (p. 3 checked on the image). The first sequence as printed contradicts the survey's own example of 1.4 (Hom_cont(Z_p, Q_p/Z_p) is nonzero while H-tilde^1 = 0); the torsion reading is recorded and a gap added. The p. 5 consequence was moved in from CC.2, and the copying slips in 1.16(3),(5) are noted."
+   },
+   {
+    "nodeId": "CompletedCohomologyPartII:CC.6/hochschild-serre-descent-to-finite-level",
+    "verdict": "corrected",
+    "note": "Theorem 1.1(4), Theorem 1.16(4) and Remark 1.2 match. Corrected: the Borel-Serre contrast (X_r -> X-bar_r is a homotopy equivalence); the claim that the survey uses Theorem 1.1(4) for Conjecture 1.5 cases (its only use is the 1.4 circle example, and 1.16(4) is used in Proposition 1.21); SL_2 has l_0 = 0 and q_0 = 1 (Example 1.11), and the spectral sequence cannot degenerate there."
+   },
+   {
+    "nodeId": "CompletedCohomologyPartII:CC.5/codimension-iwasawa-dimension-and-the-torsion-theorem",
+    "verdict": "corrected",
+    "note": "The definitions of E^bullet, codimension and Iwasawa dimension (p. 5), Theorem 1.4 (pp. 7-8), Lemma 1.17, Theorem 1.18 with attributions (p. 14) and Proposition 1.20 (p. 15) match. Added: the F_p-sequences are for F_p[[G_0]]-modules with Ext over Z_p[[G_0]]; Lemma 1.17's printed isomorphism is too strong (counterexample M = (p, T), degree 0), and the lemma needs E^codim(M) to be p-torsion-free (gap)."
+   },
+   {
+    "nodeId": "CompletedCohomologyPartII:CC.7/boundary-long-exact-sequences-and-the-borel-serre-tower",
+    "verdict": "corrected",
+    "note": "The survey boundary passage (p. 8) and Scholze's Corollaries 4.2.2-4.2.3 with proofs (pp. 1023-1024, p. 1024 on the image) match. Corrected: (1.2)-(1.3) written out; Corollary 4.2.2 is on pp. 1023-1024, not pp. 1021-1022; Scholze's 'l_0 = d and q_0 = 0' is swapped (it must be l_0 = 0, q_0 = d); proof imports named; the corollaries depend on Theorem 4.2.1 (CC.8), so their CC.7 placement is flagged."
+   },
+   {
+    "nodeId": "CompletedCohomologyPartII:CC.8/scholze-4-2-convention-and-the-perfectoid-comparison",
+    "verdict": "corrected",
+    "note": "The 4.2 convention (p. 1020) and Theorem 4.2.1 (p. 1021) match. Corrected: the proof (pp. 1021-1023) was read and is summarised with its imports - it does not use the Hodge-Tate period map; the N >= 3 'fine moduli' reason is not in the source; the compatibility is with both pullback and trace; noted that neither the survey's pi_0 quotient nor the limit over n is addressed."
+   }
+  ]
+ }
 }

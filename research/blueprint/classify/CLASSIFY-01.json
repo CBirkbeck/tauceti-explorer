@@ -1,0 +1,146 @@
+[
+ {
+  "roadmapId": "AInfCohomology",
+  "title": "Integral A_inf cohomology and Breuil–Kisin–Fargues structures"
+ },
+ {
+  "roadmapId": "AbelianSchemesAndArithmeticModuli",
+  "title": "Abelian Schemes And Arithmetic Moduli"
+ },
+ {
+  "roadmapId": "AdditiveCombinatorics",
+  "title": "Additive combinatorics, higher Fourier analysis and primes"
+ },
+ {
+  "roadmapId": "AdelicAlgebraicGroups",
+  "title": "Adelic algebraic groups and arithmetic quotients"
+ },
+ {
+  "roadmapId": "AdicCoefficientsAndComparisons",
+  "title": "Adic coefficients and comparison with schemes"
+ },
+ {
+  "roadmapId": "AdicEtaleGeometry",
+  "title": "Analytic adic geometry required for diamonds"
+ },
+ {
+  "roadmapId": "AdicSpacesPartII",
+  "title": "Adic Spaces PartII"
+ },
+ {
+  "roadmapId": "AlgebraicModularFormsAndSerreWeights",
+  "title": "Algebraic modular forms, reduction and Serre weights"
+ },
+ {
+  "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+  "title": "Algebraic moduli and representability for arithmetic geometry"
+ },
+ {
+  "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+  "title": "Anabelian geometry and nonabelian Chabauty"
+ },
+ {
+  "roadmapId": "AnalyticNumberTheory",
+  "title": "Analytic number theory, zeta functions and prime distribution"
+ },
+ {
+  "roadmapId": "ArakelovGeometryAndAbelianHeights",
+  "title": "Arakelov geometry and heights of abelian varieties"
+ },
+ {
+  "roadmapId": "ArithmeticDynamics",
+  "title": "Arithmetic dynamics"
+ },
+ {
+  "roadmapId": "ArithmeticGaloisDuality",
+  "title": "Global Galois duality and compact coefficients"
+ },
+ {
+  "roadmapId": "ArithmeticGaloisRepresentations",
+  "title": "Arithmetic Galois representations and conductors"
+ },
+ {
+  "roadmapId": "ArithmeticKTheory",
+  "title": "K-theory of number fields and S-integers"
+ },
+ {
+  "roadmapId": "ArithmeticLocallySymmetricSpaces",
+  "title": "Arithmetic locally symmetric spaces and their cohomology"
+ },
+ {
+  "roadmapId": "ArithmeticQuantumTopology",
+  "title": "Arithmetic quantum topology, Habiro invariants and regulators"
+ },
+ {
+  "roadmapId": "ArithmeticStatistics",
+  "title": "Arithmetic statistics, counting fields and Selmer distributions"
+ },
+ {
+  "roadmapId": "AutomorphicBundles",
+  "title": "Automorphic bundles and classical automorphic forms"
+ },
+ {
+  "roadmapId": "AutomorphicCongruences",
+  "title": "Automorphic congruences and reverse main-conjecture divisibilities"
+ },
+ {
+  "roadmapId": "AutomorphicFormsOnReductiveGroups",
+  "title": "Automorphic forms on reductive groups"
+ },
+ {
+  "roadmapId": "AutomorphicGaloisRepresentations",
+  "title": "Galois representations attached to modular and Hilbert modular forms"
+ },
+ {
+  "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+  "title": "Automorphic Galois Representations PartII"
+ },
+ {
+  "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+  "title": "Automorphic L-functions and local factors"
+ },
+ {
+  "roadmapId": "AutomorphicPadicLFunctions",
+  "title": "Ray-class distributions and general automorphic constructions"
+ },
+ {
+  "roadmapId": "AutomorphicSpectralTheory",
+  "title": "Automorphic spectral theory and trace distributions"
+ },
+ {
+  "roadmapId": "BorelRegulators",
+  "title": "Stable arithmetic cohomology and Borel regulators"
+ },
+ {
+  "roadmapId": "BunGAndNewtonStrata",
+  "title": "Reductive bundles, B(G) and Newton strata"
+ },
+ {
+  "roadmapId": "ClassicalAdicEtaleCohomology",
+  "title": "The classical analytic cohomology inputs to diamonds"
+ },
+ {
+  "roadmapId": "ClassicalArithmeticCompletion",
+  "title": "Classical arithmetic, sequences, polynomials and reciprocity"
+ },
+ {
+  "roadmapId": "ClassicalSerreModularity",
+  "title": "Classical Serre Modularity"
+ },
+ {
+  "roadmapId": "CohomologyComparisons",
+  "title": "Cohomology comparisons: integral diagrams and rational period realizations"
+ },
+ {
+  "roadmapId": "ColemanIntegration",
+  "title": "Coleman integration and noncritical Dirichlet L-values"
+ },
+ {
+  "roadmapId": "ColemanPowerSeries",
+  "title": "Coleman power series, local units, and cyclotomic-unit quotients"
+ },
+ {
+  "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+  "title": "Completed cohomology and p-adic local–global compatibility over Q"
+ }
+]

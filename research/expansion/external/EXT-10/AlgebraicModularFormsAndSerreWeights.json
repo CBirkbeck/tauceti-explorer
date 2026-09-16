@@ -19,7 +19,8 @@
     "1.11 (Hecke operators: Formula 1.11.1, Cor 1.11.2, Prop 1.11.3, Cor 1.11.4)",
     "1.12 (Thm 1.12.1, Cor 1.12.2 strong q-expansion principle)",
     "2.0 (Hasse invariant as a modular form and its q-expansion)",
-    "2.1 (Deligne's congruence A = E_{p-1} mod p and the p=2,3 liftings)"
+    "2.1 (Deligne's congruence A = E_{p-1} mod p and the p=2,3 liftings)",
+    "Reviewer (REVIEW-EXT-10-EXT-07): 1.4 (p. 81, Ka-13), 1.10 (pp. 88-89), 1.11.0 (pp. 89-91, definition of T_l and the level structures alpha_n', alpha_n''), bibliography item [7]; displayed formulas of 1.5-2.1 checked on page images rendered from the library PDF because the text layer drops inequality signs"
    ]
   },
   {
@@ -40,14 +41,15 @@
     "2.7-2.8 Propositions 3 and 4 (k <= p+1 and k=2 iff finite at p), pp. 188-190",
     "2.9 Proposition 5 (p-division points of a semistable elliptic curve), pp. 191-192",
     "3.1 (mod p cusp forms of type (N,k,epsilon), 3.1.3-3.1.10), pp. 192-195",
-    "3.2 (statements 3.2.1-3.2.6 of the conjecture and its remarks), pp. 195-198"
+    "3.2 (statements 3.2.1-3.2.6 of the conjecture and its remarks), pp. 195-198",
+    "Reviewer (REVIEW-EXT-10-EXT-07): all of pp. 180-197 re-read on page images rendered from the library PDF; bibliography pp. 228-230 ([35] = Raynaud, Bull. SMF 102 (1974))"
    ]
   },
   {
    "id": "edixhoven-weight",
    "title": "The weight in Serre's conjectures on modular forms",
    "authors": "Bas Edixhoven",
-   "edition": "Author's DVI file dated 24 December 1998 of the paper published as Invent. Math. 109 (1992), 563-594; the DVI carries an added end-of-introduction note on Coleman-Voloch that is not in the 1992 printing, so it is a later author version. Read with dvi2tty; locators give the DVI's own page numbers, not Invent. Math. pages. Mathematical symbols print as '#' in the conversion",
+   "edition": "Author's DVI file dated 24 December 1998 of the paper published as Invent. Math. 109 (1992), 563-594. The DVI carries, at the end of the introduction (p. 3), a note beginning 'After this article was written R.F. Coleman and J.F. Voloch have obtained new results'. Whether that note is absent from the 1992 printing was NOT checked: no printed copy is in the library (reviewer note). Drafter read it with dvi2tty (symbols print as '#'); the reviewer converted the same DVI with dvipdfmx and read the resulting text, which renders the mathematics. Locators give the DVI's own page numbers, not Invent. Math. pages",
    "url": "https://websites.math.leidenuniv.nl/edixhoven/public_html_rennes/publications/weight.dvi",
    "sha256": "ff106eeb48c679493807462505dc36597b10f6593be9ac38f14986ba8f5aabee",
    "readSections": [
@@ -55,7 +57,8 @@
     "2.4-2.9 (local representations attached to eigenforms: Thms 2.5, 2.6, 2.8, 2.9, Prop. 2.7), pp. 5-7",
     "3.1-3.4 (theta operator, filtration, theta-cycles, Prop. 3.3, Thm 3.4), pp. 7-9",
     "4.1-4.5 (Serre's invariants, Def. 4.3, Rem. 4.4, Thm 4.5 and the start of its proof), pp. 9-11",
-    "8.1-8.6 (finiteness at p: Prop. 8.2, Lemma 8.3, 8.4, Props 8.5 and 8.6), pp. 26-28"
+    "8.1-8.6 (finiteness at p: Prop. 8.2, Lemma 8.3, 8.4, Props 8.5 and 8.6), pp. 26-28",
+    "Reviewer (REVIEW-EXT-10-EXT-07): 2.1-2.9 (pp. 3-7), 7.1-7.5 (pp. 23-26, full proof of Thm 3.4 including Prop. 7.2, Prop. 7.3, Lemma 7.4 and the small-level cases), 8.1-8.6 (pp. 26-28, including the end of the proof of Prop. 8.2 on p. 27, which treats p = 2), references pp. 31-32"
    ]
   },
   {
@@ -69,7 +72,8 @@
     "6.6 (lambda-integrality and mod-lambda eigenvectors), p. 521",
     "Theoreme 6.7 and its proof 6.8-6.12, pp. 521-523",
     "Lemme 6.11 with proof and Variante, p. 522",
-    "Lemme 6.13 with proof, p. 523"
+    "Lemme 6.13 with proof, p. 523",
+    "Reviewer (REVIEW-EXT-10-EXT-07): Remarque 6.2-6.5 and 6.6-6.13 on page images (pp. 521-523); bibliography entries [3] (Curtis-Reiner) and [25] (Swinnerton-Dyer)"
    ]
   },
   {
@@ -84,7 +88,8 @@
     "Proposition 3.3.2 with proof, pp. 267-268",
     "Theorem 3.3.3 with proof and Remarks 3.3.4-3.3.5, p. 268",
     "Corollaries 3.3.6 and 3.3.7, pp. 268-269",
-    "Theorem 3.4.1, Remark 3.4.2, Theorem 3.4.3 with proof, Corollary 3.4.4 and Remarks 3.4.5-3.4.7, pp. 269-271"
+    "Theorem 3.4.1, Remark 3.4.2, Theorem 3.4.3 with proof, Corollary 3.4.4 and Remarks 3.4.5-3.4.7, pp. 269-271",
+    "Reviewer (REVIEW-EXT-10-EXT-07): Prop. 3.2.1 and 3.3 opening with Prop. 3.3.1 (p. 265), Prop. 3.3.2-Cor. 3.3.7 (pp. 267-268), 3.4 opening, Thm 3.4.1-Remark 3.4.7 (pp. 269-271) on page images; table of contents and list of numbered results (section 2 has only 2.1-2.3, numbered results 2.2.2, 2.2.3, 2.3.1)"
    ]
   }
  ],
@@ -94,8 +99,9 @@
    "parentStageId": "AlgebraicModularFormsAndSerreWeights:R15.1",
    "title": "The invertible sheaf omega on the compactified level-n moduli scheme, normalized at the Tate curve",
    "kind": "construction",
-   "statement": "For n >= 1 there is a unique invertible sheaf omega on the compactified modular scheme Mbar_n over Z[1/n] whose restriction to M_n is omega_{E/M_n} for the universal elliptic curve with level-n structure, and whose sections over the completion Z[1/n, zeta_n][[q]] at each cusp are exactly the Z[1/n, zeta_n][[q]]-multiples of the canonical differential of the Tate curve. The Kodaira-Spencer map extends to an isomorphism omega^{tensor 2} = Omega^1_{Mbar_n / Z[1/n]}(log(cusps)), and over Z[1/n, zeta_n][[q]] the square of the canonical differential of Tate(q^n) corresponds to n dq/q. A modular form of level n and weight k holomorphic at infinity over a Z[1/n]-algebra R_0, resp. with coefficients in a Z[1/n]-module K, is a global section of omega^{tensor k} on Mbar_n tensor R_0, resp. an element of H^0(Mbar_n, omega^{tensor k} tensor_{Z[1/n]} K).",
+   "statement": "For n >= 3 (the range in which Katz 1.4 has the level-n moduli problem represented by the smooth affine curve M_n over Z[1/n]; levels 1 and 2 are treated by descent in 1.8-1.10) there is a unique invertible sheaf omega on the compactified modular scheme Mbar_n over Z[1/n] whose restriction to M_n is omega_{E/M_n} for the universal elliptic curve with level-n structure, and whose sections over the completion Z[1/n, zeta_n][[q]] at each cusp are exactly the Z[1/n, zeta_n][[q]]-multiples of the canonical differential of the Tate curve. Katz asserts, citing his Appendix A1.3.17 and Deligne's Bourbaki expose 355 ([7]) rather than proving it in 1.5, that the Kodaira-Spencer map extends to an isomorphism omega^{tensor 2} = Omega^1_{Mbar_n / Z[1/n]}(log(cusps)), and over Z[1/n, zeta_n][[q]] the square of the canonical differential of Tate(q^n) corresponds to n dq/q. A modular form of level n and weight k holomorphic at infinity over a Z[1/n]-algebra R_0, resp. with coefficients in a Z[1/n]-module K, is a global section of omega^{tensor k} on Mbar_n tensor R_0, resp. an element of H^0(Mbar_n, omega^{tensor k} tensor_{Z[1/n]} K).",
    "hypotheses": [
+    "n >= 3: Katz 1.4 states representability of the level-n moduli problem only for n >= 3, and 1.10 says that modular schemes of level 1 and 2 do not exist as fine moduli schemes",
     "n invertible on the base: all schemes are over Z[1/n]",
     "the universal object is an elliptic curve with level-n structure on M_n, extended to the compactification Mbar_n by Tate curves at the cusps",
     "the cusp normalization is fixed by the Tate curve Tate(q^n) over Z[1/n, zeta_n][[q]] together with its canonical differential",
@@ -103,7 +109,7 @@
    ],
    "proofSteps": [
     "Katz 1.5 constructs omega by the stated two conditions (restriction to M_n, and prescribed sections at each cusp) and asserts uniqueness.",
-    "The Kodaira-Spencer isomorphism omega^{tensor 2} = Omega^1(log cusps) of A1.3.17 is extended across the cusps; Katz records the explicit q-form of the identification for Tate(q^n).",
+    "The extension of the Kodaira-Spencer isomorphism omega^{tensor 2} = Omega^1(log cusps) across the cusps is quoted with the references (cf. A1.3.17 and [7]), [7] = Deligne, Formes modulaires et representations l-adiques, Bourbaki expose 355; no proof is given in 1.5. Katz records the explicit q-form of the identification for Tate(q^n).",
     "Modular forms holomorphic at infinity are then defined as sections of omega^{tensor k}, with coefficients in an arbitrary Z[1/n]-module K by tensoring the sheaf."
    ],
    "acceptance": [
@@ -122,6 +128,12 @@
      "locator": "Chapter 1, 1.5, printed p. 83 (Ka-15)",
      "excerpt": "and, in fact, over Z[l/n~n][[q]] , the \"square\" of the canonical differential on Tate(q n) corresponds to n- dq q",
      "match": "Fixes the normalization constant n in the Kodaira-Spencer comparison, which the roadmap's normalization conventions require to be retained."
+    },
+    {
+     "sourceId": "katz73-padic-properties",
+     "locator": "1.4, printed p. 81 (Ka-13)",
+     "excerpt": "For each integer n >= 3, the functor \"isomorphism classes of elliptic curves with level n structure\" is representable",
+     "match": "The level hypothesis n >= 3 under which Mbar_n and omega exist (text layer prints the inequality as 'n _> 3'). Added by the reviewer."
     }
    ],
    "implementationStatus": "unchecked"
@@ -131,7 +143,7 @@
    "parentStageId": "AlgebraicModularFormsAndSerreWeights:R15.1",
    "title": "Level one and level two forms as invariants of a rigidifying cover, with the primes that must be inverted",
    "kind": "construction",
-   "statement": "For n = 1, 2 the module S(K, n, k) of weight-k forms holomorphic at infinity with coefficients in a Z[1/n]-module K is defined not as sections over a coarse space but by descent from the rigid levels: for n = 2 as the subgroup of H^0(Mbar_4, omega^{tensor k} tensor_{Z[1/4]} K) invariant under the matrices of GL_2(Z/4Z) that are congruent to 1 mod 2, and for n = 1 as the fibre product of the level-3 and level-4 modules over the level-12 module. Base change then holds in the form: S(Z[1/2], 2, k) tensor R_0 -> S(R_0, 2, k) is an isomorphism for every ring R_0 in which 2 is invertible and every k >= 1, and S(Z[1/6], 1, k) tensor R_0 -> S(R_0, 1, k) is an isomorphism for every ring R_0 in which 2 and 3 are invertible. These statements are false without inverting 2 and 3.",
+   "statement": "For n = 1, 2 the module S(K, n, k) of weight-k forms holomorphic at infinity with coefficients in a Z[1/n]-module K is defined not as sections over a coarse space but by descent from the rigid levels (Katz 1.9): for n = 2 as the subgroup of H^0(Mbar_4, omega^{tensor k} tensor_{Z[1/4]} K) invariant under the matrices of GL_2(Z/4Z) that are congruent to 1 mod 2, and for n = 1 as the fibre product of the level-3 and level-4 modules over the level-12 module. Base change then holds in the form: Thm 1.8.1, for every ring R_0 in which 2 is invertible and every k >= 1, the canonical map S(Z,2,k) tensor_Z R_0 -> S(R_0,2,k) is an isomorphism (printed with S(Z,2,k); since level-2 forms live over Z[1/2] this is read as S(Z[1/2],2,k)); Thm 1.8.2, for every ring R_0 in which 2 and 3 are invertible and every k >= 1, the canonical map S(Z,1,k) tensor_Z R_0 -> S(R_0,1,k) is an isomorphism, the proof passing through the intermediate isomorphism S(Z[1/6],1,k) tensor_{Z[1/6]} R_0 -> S(R_0,1,k). Remark 1.8.2.2 states that Theorem 1.8.2 (level one) becomes false when 2 and 3 are not excluded; the source makes no corresponding failure statement for level two.",
    "hypotheses": [
     "for level 2: 2 invertible in R_0; for level 1: 2 and 3 invertible in R_0",
     "the descent uses that the relevant rigidifying groups (order 16 for the mod-2 congruence subgroup of GL_2(Z/4Z), 96 for GL_2(Z/4Z), 48 for GL_2(Z/3Z)) have order invertible after inverting 2 and 3, so an averaging projector exists",
@@ -139,11 +151,11 @@
    ],
    "proofSteps": [
     "Katz Thm 1.8.1: level-two forms over R_0 containing 1/2 are exactly the level-four forms invariant under the mod-2 congruence subgroup of GL_2(Z/4Z); that group has order 16, a power of 2, so the averaging projector applies to the level-four base-change isomorphism of Thm 1.7.1.",
-    "Katz Thm 1.8.2: over a ring containing 1/6 the same projector argument reduces level one to GL_2(Z/4Z)- or GL_2(Z/3Z)-invariants; the passage from Z[1/6] down to Z uses the fibre-product description 1.8.2.1 of level-one forms and the fact that fibre products commute with flat base change.",
+    "Katz Thm 1.8.2: over a ring R_0 containing 1/6 the same projector argument (GL(2,Z/4Z) of order 96 = 32 x 3, GL(2,Z/3Z) of order 48 = 16 x 3) gives S(Z[1/6],1,k) tensor R_0 = S(R_0,1,k); the passage from Z[1/6] down to Z uses that for any ring R, S(R,1,k) is the fibre product of the diagram 1.8.2.1 (a level-3 form over R[1/3] and a level-4 form over R[1/2] inducing the same level-12 form over R[1/12]) and that this diagram and its fibre product commute with the flat extension Z -> Z[1/6].",
     "Katz Remark 1.8.2.2 exhibits the failure without inverting 2 and 3: over F_p the Hasse invariant is a nonzero level-one form of weight p-1 holomorphic at infinity, while over Z there are no nonzero level-one forms of weight 1 or 2 holomorphic at infinity; likewise A.Delta is a level-one cusp form of weight 13 over F_2 (resp. 14 over F_3) which is not the reduction of a form over Z."
    ],
    "acceptance": [
-    "Verify that the Hasse invariant in weight p-1 for p = 2, 3 is a counterexample to level-one base change from Z, so that no argument in the roadmap silently descends omega^{tensor k} to the coarse j-line at those primes",
+    "Verify that the Hasse invariant in weight p-1 for p = 2, 3 is a counterexample to level-one base change from Z (Remark 1.8.2.2), so that no argument in the roadmap silently descends omega^{tensor k} to the coarse j-line at those primes",
     "Verify that S(R_0, 2, k) = 0 for odd k when 2 is invertible in R_0"
    ],
    "sources": [
@@ -158,6 +170,12 @@
      "locator": "Remark 1.8.2.2, printed p. 86 (Ka-18)",
      "excerpt": "The above theorem becomes f~se when we do not exclude the primes 2 and 3. For over the finite field l~p , the Hasse invariant A i_ss a modular form of level one and weight p-I , holomorphic at ~ . But over ~- there are no non-zero modular forms over Z of level one, holomorphic at ~ , of weight either one or two.",
      "match": "Explicit failure of level-one base change at p = 2 and p = 3, which is the source basis for treating small levels by descent rather than on the coarse curve."
+    },
+    {
+     "sourceId": "katz73-padic-properties",
+     "locator": "Theorem 1.8.2 and its proof, printed pp. 86-87 (Ka-18/19)",
+     "excerpt": "Let R_o be any ring in which 2 and 3 are invertible. For every integer k >= 1, the canonical map S(Z,1,k) tensor_Z R_o --> S(R_o,1,k) is an isomorphism.",
+     "match": "Checked on the page image: the level-one theorem is stated over Z, not only over Z[1/6]. Added by the reviewer."
     }
    ],
    "implementationStatus": "unchecked"
@@ -175,7 +193,7 @@
    ],
    "proofSteps": [
     "Katz derives Cor. 1.6.2 from Thm 1.6.1 by applying the latter to the image of f in (K/L) tensor omega^{tensor k}, using the cohomology sequence attached to 0 -> L -> K -> K/L -> 0 and the sheaf sequence 1.6.2.1.",
-    "Theorem 1.6.1 itself is the vanishing statement over each geometric component; the hypothesis that each component carries a test cusp is what makes the component-wise argument valid.",
+    "Proof of Theorem 1.6.1 (pp. 84-85): replacing K by the ring of dual numbers D(K) = Z[1/n] + K reduces to K a Z[1/n]-algebra; commutation of quasi-coherent cohomology with inductive limits reduces to K finitely generated, then noetherian local; faithful flatness of completion reduces to K complete noetherian local, and Grothendieck's comparison theorem to K artin local. By Krull's intersection theorem f vanishes on an open neighbourhood of a test cusp on each connected component of Mbar_n tensor K tensor Z[1/n, zeta_n], hence on an open dense set. If f were nonzero it would be supported on a closed set Z containing no maximal point; at a maximal point z of Z every element of the maximal ideal is a zero-divisor, so z has depth zero, contradicting that Mbar_n tensor K, smooth over the artin ring K, is Cohen-Macaulay and only its maximal points have depth zero. Imported standard results: Grothendieck comparison (formal functions), Krull intersection theorem, depth of Cohen-Macaulay schemes.",
     "Cor. 1.9.1 transports the statement to levels 1 and 2 through the descent/fibre-product definitions 1.9.0.0 and 1.9.0.1."
    ],
    "acceptance": [
@@ -194,6 +212,12 @@
      "locator": "Corollary 1.9.1, printed p. 88 (Ka-20)",
      "excerpt": "Let n=l or 2, K a Z[1/n]-module, and L C K a Z[1/n] submodule. ... Suppose that at one of the cusps (for n=l , there is only one, j =~ , while for n=2 there are three, k = O,l,~ ), the q-coefficients of f all lie in L . Then f is a modular form with coefficients in L .",
      "match": "The level 1 and 2 form of the principle, where a single cusp suffices."
+    },
+    {
+     "sourceId": "katz73-padic-properties",
+     "locator": "Proof of Theorem 1.6.1, printed pp. 84-85 (Ka-16/17)",
+     "excerpt": "As Mn tensor K is smooth over an artin local ring K, it is Cohen-Macaulay, and hence only its maximal points have depth zero.",
+     "match": "The depth argument that completes the vanishing proof, now recorded in the proof steps. Added by the reviewer."
     }
    ],
    "implementationStatus": "unchecked"
@@ -203,16 +227,17 @@
    "parentStageId": "AlgebraicModularFormsAndSerreWeights:R15.2",
    "title": "Strong q-expansion principle: finitely many coefficients may be ignored, at the cost of a hypothesis on multiplication by p for (p-1) | k",
    "kind": "theorem",
-   "statement": "Let n, k >= 1 and let K be a Z[1/n]-module such that for every prime p with (p-1) | k multiplication by p is injective on K. If f is a modular form of level n and weight k holomorphic at infinity with coefficients in K and all its q-expansions are polynomials in q, then f = 0. Consequently (strong q-expansion principle), with a = product of the primes p such that (p-1) | k, K a Z[1/an]-module and L a Z[1/an]-submodule, if at each cusp all but finitely many q-expansion coefficients of f lie in L tensor Z[1/n, zeta_n], then f is a modular form with coefficients in L.",
+   "statement": "Let n, k >= 1 and let K be a Z[1/n]-module such that for every prime p with (p-1) | k multiplication by p is injective on K. If f is a modular form of level n and weight k holomorphic at infinity with coefficients in K and all its q-expansions are polynomials in q, then f = 0. Consequently (strong q-expansion principle), with a = product of the primes p such that (p-1) | k, K a Z[1/an]-module and L a Z[1/an]-submodule, if at each cusp all but finitely many q-expansion coefficients of f lie in L tensor Z[1/n, zeta_n], then f is a modular form with coefficients in L. The proof admits Result 1.12.0 (a special case of Swinnerton-Dyer's structure theorem, proved only later in Katz 4.4.1): if K is a field of characteristic p not dividing n, f has level n >= 1 and weight k >= 1, (p-1) does not divide k, and all q-expansions of f at the cusps of Mbar_n tensor K(zeta_n) are constants, then f = 0.",
    "hypotheses": [
     "the divisibility hypothesis is indexed by the weight: only the primes p with (p-1) | k are constrained, and for the corollary those primes are inverted",
     "the conclusion of Thm 1.12.1 concerns forms whose q-expansions at every cusp are polynomials, not merely bounded",
-    "the proof reduces to n >= 3 via the level 1 and 2 descriptions 1.9.0.0/1.9.1.1, then to artin local K, then to K a field"
+    "the proof reduces to n >= 3 via the level 1 and 2 descriptions 1.9.0.0/1.9.1.1, then to artin local K, then to K a field",
+    "Result 1.12.0 is admitted, not proved, in 1.12 (proof deferred to 4.4.1); as printed its hypothesis 'characteristic p, p-1 does not divide k' does not literally cover a field of characteristic 0, which the field case of the induction also needs (reviewer observation)"
    ],
    "proofSteps": [
     "Katz reduces to n >= 3, then replaces K by K[1/a] (legitimate because K -> K[1/a] is injective by hypothesis) and views f as a form of level a n.",
     "He then reduces to K artin local by a filtration argument and induces on the length, the base case being K a field.",
-    "Over a field one considers the finite-dimensional space of such forms, a basis, and the maximal degree N of their polynomial q-expansions, and derives a contradiction.",
+    "Over a field one takes a basis f_1, ..., f_r of the finite-dimensional space of such forms, lets N be the maximal degree of their polynomial q-expansions, chooses a prime l not dividing n with l > N, and uses stability of the space under T_l (1.11) to write T_l(F) = C.F for the column F = (f_i); comparing coefficients of q^i in (A_{il} + l^{k-1} A_{i/l}) = C A_i gives A_i = 0 for i >= 1 because il > N and il^2 > N, so every q-expansion is constant, and Result 1.12.0 gives f_i = 0. The artin-local case follows by induction on the nilpotence of the maximal ideal using the cohomology sequence 1.6.2.2.",
     "Cor. 1.12.2 follows by applying the theorem to the image of f in K/L."
    ],
    "acceptance": [
@@ -231,6 +256,12 @@
      "locator": "Corollary 1.12.2, printed p. 95 (Ka-27)",
      "excerpt": "(Strong q-expansion principle) Let n, k >= i , and let a = II p . Let K be a [i/an]-module of which L C K is a Z[i/an]-sub-module, and f a modular form of level n and weight k, holomorphic at ~ , such that at each cusp, all but finitely many of its q-expansion coefficients lie in L",
      "match": "Literal statement of the corollary with the ring Z[1/an] in which the primes p with (p-1)|k have been inverted."
+    },
+    {
+     "sourceId": "katz73-padic-properties",
+     "locator": "1.12, Result 1.12.0, printed p. 93 (Ka-25) and p. 94 (Ka-26)",
+     "excerpt": "In this section we will admit the following result, a special case of Swinnerton-Dyer's structure theorem (cf. [41], [43]), which will be proven later (cf. 4.4.1).",
+     "match": "The theorem depends on an admitted result whose proof lies outside the sections read. Added by the reviewer."
     }
    ],
    "implementationStatus": "unchecked"
@@ -238,23 +269,23 @@
   {
    "id": "AlgebraicModularFormsAndSerreWeights:R15.2/base-change-for-spaces-of-forms-and-the-weight-one-boundary",
    "parentStageId": "AlgebraicModularFormsAndSerreWeights:R15.2",
-   "title": "Base change for spaces of modular forms, and the unresolved weight-one case for n >= 13",
+   "title": "Base change for spaces of modular forms, and the unresolved weight-one case for n >= 12",
    "kind": "theorem",
-   "statement": "Let n >= 3 and suppose either k >= 2, or k = 1 and n <= 11. Then for any Z[1/n]-module K the canonical map K tensor H^0(Mbar_n, omega^{tensor k}) -> H^0(Mbar_n, K tensor omega^{tensor k}) is an isomorphism. The proof is by H^1(Mbar_n, omega^{tensor k}) = 0, which follows from Riemann-Roch once deg(omega^{tensor k}) > 2g-2 on each geometric component, using omega^{tensor 2} = Omega^1(log cusps) and the fact that each component of Mbar_n tensor Z[1/n, zeta_n] contains a cusp. For k = 1 and n = 12 the degree of omega equals 2g-2 and Katz records that he does not know whether formation of weight-one forms of level n > 12 commutes with base change.",
+   "statement": "Let n >= 3 and suppose either k >= 2, or k = 1 and n <= 11. Then for any Z[1/n]-module K the canonical map K tensor H^0(Mbar_n, omega^{tensor k}) -> H^0(Mbar_n, K tensor omega^{tensor k}) is an isomorphism. The proof is by H^1(Mbar_n, omega^{tensor k}) = 0, which follows from Riemann-Roch once deg(omega^{tensor k}) > 2g-2 on each geometric component, using omega^{tensor 2} = Omega^1(log cusps) and the fact that each component of Mbar_n tensor Z[1/n, zeta_n] contains a cusp. By the Remark after the theorem, for n >= 12 the sheaf omega has degree <= 2g-2 on each component, with equality only for n = 12, and Katz does not know whether formation of weight-one forms of level n >= 12 commutes with base change (the printed inequality is 'n >= 12', checked on the page image; the text layer reads 'n > 12').",
    "hypotheses": [
     "n >= 3, so that Mbar_n is a scheme and the universal curve exists",
-    "k >= 2, or k = 1 with 3 <= n <= 11",
+    "k >= 2, or k = 1 with 3 <= n <= 11; the weight-one case with n >= 12 (including n = 12) is not covered",
     "the vanishing argument needs each connected component of Mbar_n tensor Z[1/n, zeta_n] to contain at least one cusp"
    ],
    "proofSteps": [
     "Katz Thm 1.7.1 reduces base change to H^1(Mbar_n, omega^{tensor k}) = 0 by the standard cohomology and base-change theorems.",
     "For k >= 2 the isomorphism omega^{tensor 2} = Omega^1_{Z[1/n]}(log(cusps)) plus the presence of a cusp on each component gives deg(omega^{tensor k}) > 2g-2, hence the vanishing by Riemann-Roch.",
-    "For k = 1 and 3 <= n <= 11 an explicit degree computation gives the same inequality; at n = 12 equality holds and the argument stops.",
-    "Katz's Remark after Thm 1.7.1 states the open case n > 12, k = 1 explicitly."
+    "For k = 1 and 3 <= n <= 11 the source asserts that 'explicit calculation shows' deg(omega) > 2g-2 on each component (the calculation is not displayed); for n >= 12 the Remark gives deg(omega) <= 2g-2 with equality only at n = 12, and the argument stops.",
+    "Katz's Remark after Thm 1.7.1 states the open case: weight one and level n >= 12."
    ],
    "acceptance": [
-    "Check deg(omega) against 2g-2 on a component of Mbar_n for n = 11, 12, 13 and confirm where the strict inequality fails",
-    "Check that the finite freeness of the O_lambda-module of forms used by the Deligne-Serre lifting argument is obtained from this theorem only under its stated hypotheses"
+    "Check deg(omega) against 2g-2 on a component of Mbar_n for n = 11, 12, 13 and confirm that strict inequality holds for n = 11 and fails for n = 12 (equality) and n = 13 (strict reverse inequality)",
+    "Check, for every consumer that needs finite freeness of a module of forms, whether it actually uses this theorem; the Deligne-Serre application 6.10 works with classical forms on Gamma_0(N) with coefficients in O_lambda and does not cite it"
    ],
    "sources": [
     {
@@ -266,8 +297,8 @@
     {
      "sourceId": "katz73-padic-properties",
      "locator": "Remark following Theorem 1.7.1, printed p. 85 (Ka-17)",
-     "excerpt": "The author does not know whether or not the formation of modular forms of weight one and level n > 12 commutes with base change.",
-     "match": "Records the exact boundary of the base-change theorem in weight one, which the packet reports as a gap rather than an available input."
+     "excerpt": "The author does not know whether or not the formation of modular forms of weight one and level n >= 12 commutes with base change.",
+     "match": "Records the exact boundary of the base-change theorem in weight one. The page image shows 'n >= 12' (underlined inequality); the drafter's excerpt 'n > 12' was an artefact of the text layer and was corrected by the reviewer."
     }
    ],
    "implementationStatus": "unchecked"
@@ -277,34 +308,40 @@
    "parentStageId": "AlgebraicModularFormsAndSerreWeights:R15.2",
    "title": "Hecke operators defined over arbitrary coefficient modules by their q-expansion formula",
    "kind": "construction",
-   "statement": "Let f have q-expansion f(Tate(q^n), omega_can, alpha_n) = sum_i a_i(alpha_n) q^i. For a prime l not dividing n and invertible in R, T_l f has q-expansion coefficients b_i(alpha_n) = l^{k-1} a_{i/l}(l alpha_n) + a_{li}(alpha_n), with the convention a_{i/l} = 0 unless l | i. T_l preserves holomorphy at infinity, cuspidality and polynomiality of q-expansions. For n >= 2 and k >= 2 (or 3 <= n <= 11 and k >= 1), for any prime l not dividing n and any Z[1/n]-module K, there is a unique endomorphism of the space of weight-k level-n forms holomorphic at infinity with coefficients in K realizing this formula. For k >= 2, level one and any prime l, there is a unique such endomorphism on level-one forms with coefficients in any Z-module K.",
+   "statement": "For a prime l not dividing n and invertible in the base ring R, Katz defines (1.11.0.2) (T_l f)(E/R, omega, alpha_n) = l^{k-1} times the sum over the l+1 subgroups H of order l of f(E_{R'}/H, pi-check^*(omega), pi(alpha_n)), using the level structure pi(alpha_n) with pi o alpha_n = pi(alpha_n) o pi (and explicitly not the other natural choice alpha_n o pi-check = l.pi(alpha_n)). If f(Tate(q^n), omega_can, alpha_n) = sum_i a_i(alpha_n) q^i, then (Formula 1.11.1) T_l f has q-expansion coefficients b_i(alpha_n) = l^{k-1} a_{i/l}(alpha_n') + a_{li}(alpha_n''), with a_{i/l} = 0 unless l | i, where alpha_n' is the unique level-n structure on Tate(q^n) with phi_l^*(alpha_n') = pi_l(alpha_n) (phi_l: q -> q^l, pi_l the projection Tate(q^n) -> Tate(q^n)/mu_l = Tate(q^{nl})) and alpha_n'' = i_l^*(pi_0(alpha_n)) is obtained from pi_0(alpha_n) on Tate(q^{n/l}) by the extension of scalars q^{1/l} -> q. T_l preserves holomorphy at infinity, cuspidality and polynomiality of q-expansions. For n >= 2 and k >= 2 (or 3 <= n <= 11 and k >= 1), for any prime l not dividing n and any Z[1/n]-module K, there is a unique endomorphism of the space of weight-k level-n forms holomorphic at infinity with coefficients in K realizing this formula. For k >= 2, level one and any prime l, there is a unique such endomorphism on level-one forms with coefficients in any Z-module K.",
    "hypotheses": [
     "for Prop. 1.11.3: l prime with l not dividing n, and (n >= 2 with k >= 2) or (3 <= n <= 11 with k >= 1)",
     "for Cor. 1.11.4: level one, k >= 2, and K an arbitrary Z-module - in particular l may divide the residue characteristic of K",
     "existence over K is deduced from existence over Z[1/n] via base change, and descent of the operator from Z[1/n l] to Z[1/n] uses the q-expansion principle"
    ],
    "proofSteps": [
-    "Katz computes the effect of the l-isogenies of the Tate curve on level structures and on omega_can (1.11.0.3 and the subsequent display) and obtains Formula 1.11.1.",
+    "Katz computes the effect of the l-isogenies of the Tate curve on level structures and on omega_can (1.11.0.3 and 1.11.0.4: pi-check^*(omega_can) = omega_can on Tate(q^{nl}) for H = mu_l, and = l.omega_can for the subgroups H_i) and obtains Formula 1.11.1 with the modified level structures alpha_n' and alpha_n''.",
     "Cor. 1.11.2 reads off preservation of holomorphy, cuspidality and polynomial q-expansions from the formula.",
-    "Prop. 1.11.3: by the base-change theorem one reduces to K = Z[1/n]; T_l exists a priori over Z[1/nl], but its q-expansions have coefficients in Z[1/n, zeta_n], so 1.6.2 and 1.9.1 place T_l f in forms over Z[1/n].",
+    "Prop. 1.11.3: by the base-changing theorem (1.7.1 for n >= 3; for n = 2 the level-two theorem 1.8.1 is the one available) one reduces to K = Z[1/n]; T_l exists a priori over Z[1/nl], but its q-expansions have coefficients in Z[1/n, zeta_n], so 1.6.2 and 1.9.1 place T_l f in forms over Z[1/n].",
     "Cor. 1.11.4 handles level one by writing level-one forms as a fibre product over two coprime auxiliary levels n, m >= 3 both prime to l."
    ],
    "acceptance": [
-    "Check that l^{k-1} appears with the l-power twist of the level structure (a_{i/l}(l alpha_n)) and not as a bare scalar, so the nebentype enters correctly",
+    "Check that the term l^{k-1} a_{i/l} is evaluated at the modified level structure alpha_n' and the term a_{li} at alpha_n'', as in (1.11.1.2), and that with the other natural choice alpha_n o pi-check = l.pi(alpha_n) the formula would change by the action of l on level structures",
     "Check that the mod p reduction of T_l for l = p agrees with Serre's U_p on q-expansions, using k >= 2"
    ],
    "sources": [
     {
      "sourceId": "katz73-padic-properties",
      "locator": "Formula 1.11.1 (1.11.1.2), printed p. 92 (Ka-24)",
-     "excerpt": "bi(~~) = ~k-lai//~i) + a~i(~~) (with the convention that ai/I = O unless ~li).",
-     "match": "The literal q-expansion formula for T_l with the convention on a_{i/l}; OCR prints l as '~' and l^{k-1} as '~k-l'."
+     "excerpt": "b_i(alpha_n) = l^{k-1} a_{i/l}(alpha_n') + a_{li}(alpha_n'') (with the convention that a_{i/l} = 0 unless l|i).",
+     "match": "The literal q-expansion formula for T_l, transcribed from the page image (the text layer garbles the primes on alpha_n). The drafter's reading a_{i/l}(l alpha_n) + a_{li}(alpha_n) was corrected by the reviewer."
     },
     {
      "sourceId": "katz73-padic-properties",
      "locator": "Corollary 1.11.4, printed p. 93 (Ka-25)",
      "excerpt": "Let k > 2 . For any prime ~, and any Z-module K, there is a necessarily unique endomorphism of the space of modular forms of weight k and level one, holomorphic at ~ , whose effect on the q-expansion is that given by the formulas (1.11.1.O-2).",
      "match": "Integral Hecke operators on level-one forms with arbitrary Z-module coefficients, the form needed for reduction mod p; OCR prints 'k >= 2' as 'k > 2'."
+    },
+    {
+     "sourceId": "katz73-padic-properties",
+     "locator": "1.11.0.0-1.11.0.2, printed p. 90 (Ka-22)",
+     "excerpt": "There is another \"natural\" choice of level n structure on E_R'/H, namely alpha_n o pi-check = l.pi(alpha_n), which we will not use.",
+     "match": "Fixes which level structure enters the definition of T_l. Added by the reviewer."
     }
    ],
    "implementationStatus": "unchecked"
@@ -323,11 +360,11 @@
    "proofSteps": [
     "Katz 2.0 defines A(E, omega) by F_abs(eta) = A(E, omega) eta and computes A(E, k omega) = k^{1-p} A(E, omega) from p-linearity of F_abs, which is exactly the weight p-1 transformation law.",
     "He reinterprets F_abs as an R-linear map on the p-th tensor power, exhibiting A as a section of omega^{tensor (p-1)}.",
-    "Holomorphy at infinity and the value 1 at the Tate curve are proved twice: by extending Tate(q) to a plane curve over F_p[[q]] and reading off the matrix of F_abs, and by the invariant-derivation computation D(t) = 1+t, D^p = D, F_abs(omega_can) = omega_can."
+    "Holomorphy at infinity is proved twice: first by extending Tate(q) over F_p((q)) to a plane curve C over F_p[[q]] whose dualizing sheaf has omega_can as a basis, so A(Tate(q), omega_can) is the matrix of F_abs on H^1(C, O_C) and lies in F_p[[q]]; second by the invariant-derivation computation (H^1(E, O_E) is the tangent space, F_abs acts by the p-th iterate of an invariant derivation, D(t) = 1+t, D^p = D, hence F_abs^*(eta_can) = eta_can for the dual basis eta_can). Only the second computation gives the value A(Tate(q), omega_can) = 1."
    ],
    "acceptance": [
     "Verify A(Tate(q), omega_can) = 1 directly from the invariant derivation D dual to omega_can = dt/(1+t)",
-    "Verify that the vanishing locus of A is the supersingular locus, by checking A(E, omega) = 0 exactly when F_abs is zero on H^1(E, O_E)"
+    "Verify that the vanishing locus of A is the supersingular locus, by checking A(E, omega) = 0 exactly when F_abs is zero on H^1(E, O_E) (a standard characterization not stated in the passage 2.0 read here)"
    ],
    "sources": [
     {
@@ -339,8 +376,8 @@
     {
      "sourceId": "katz73-padic-properties",
      "locator": "2.0, printed pp. 97-98 (Ka-29/30)",
-     "excerpt": "hence DP = D , hence Fabs(~can) = ~can ' and A(Tate (q), ~can) = i .",
-     "match": "The normalization A(Tate(q), omega_can) = 1 at the cusp, which is what makes A congruent to 1 on q-expansions."
+     "excerpt": "hence D^p = D, hence F*_abs(eta_can) = eta_can, and A(Tate(q), omega_can) = 1.",
+     "match": "The normalization A(Tate(q), omega_can) = 1 at the cusp; the page image shows the Frobenius acting on the dual basis eta_can of H^1, not on omega_can. Corrected by the reviewer."
     }
    ],
    "implementationStatus": "unchecked"
@@ -350,11 +387,11 @@
    "parentStageId": "AlgebraicModularFormsAndSerreWeights:R15.3",
    "title": "A = E_{p-1} mod p for p >= 5, and the explicit level-n liftings of A required at p = 2, 3",
    "kind": "theorem",
-   "statement": "For p >= 5 the Eisenstein series E_{p-1} of level one and weight p-1 has p-integral q-expansion coefficients (the p-adic ordinal of 2(p-1)/B_{p-1} is 1) and reduces mod p to a level-one weight-(p-1) form with constant q-expansion 1; since two level-one forms of the same weight with the same q-expansion coincide, A = E_{p-1} mod p. For p = 2 and p = 3 no lifting of A to a level-one form holomorphic at infinity over a p-adic ring exists; instead, for p = 2 and odd n with 3 <= n <= 11, A lifts to a weight-1 level-n form holomorphic at infinity over Z[1/n], and for p = 3 and any n >= 3 with 3 not dividing n, A lifts to a weight-2 level-n form over Z[1/n], both by Theorem 1.7.1. Katz records that he does not know whether A lifts to level n for p = 2 and other n (even n = 13), and notes that E_4 provides a level-one lifting of A^4 when p = 2 and of A^2 when p = 3.",
+   "statement": "For even k >= 4 the Eisenstein series E_k = 1 - (2k/B_k) sum sigma_{k-1}(n) q^n is defined over Q by the q-expansion principle 1.9.1. For k = p-1 with p >= 5 the p-adic ordinal of -2(p-1)/B_{p-1} is 1, so E_{p-1} has q-expansion coefficients in Q intersect Z_p and reduces mod p to a level-one weight-(p-1) form over F_p with constant q-expansion 1; since A also has q-expansion 1 and the same weight, A = E_{p-1} mod p. For p = 2 and p = 3 it is not possible to lift A to a level-one form holomorphic at infinity over Q intersect Z_p. Instead, for p = 2 and 3 <= n <= 11 with n odd, A lifts to a weight-1 level-n form holomorphic at infinity over Z[1/n], and for p = 3 and any n >= 3 with 3 not dividing n, A lifts to a weight-2 level-n form over Z[1/n], both by Theorem 1.7.1 (the following sentence, choosing the lifting E_{p-1}, prints the p = 3 range as n >= 2, 3 not dividing n). By the Remark, for p = 2 a lifting of A to level n over Z[1/n] exists for n = 3, 5, 7, 9, 11 and hence for any n divisible by one of 3, 5, 7, 11; Katz does not know whether A lifts to level n for other n (even n = 13), and notes that E_4 = 1 + 240 sum sigma_3(n) q^n provides a level-one lifting to Z of A^4 when p = 2 and of A^2 when p = 3.",
    "hypotheses": [
     "p >= 5 for the level-one congruence A = E_{p-1} mod p; the argument needs E_{p-1} to be p-integral and to reduce to the constant 1",
     "the identification of two forms with equal q-expansion uses the level-one q-expansion principle, Cor. 1.9.1",
-    "the p = 2 lifting is restricted to odd n with 3 <= n <= 11, exactly the range in which Thm 1.7.1 gives weight-one base change; the p = 3 lifting is in weight 2, so only n >= 3 with 3 not dividing n is needed"
+    "the p = 2 lifting is produced by Thm 1.7.1 for odd n with 3 <= n <= 11 and then, by the Remark, for every n divisible by one of 3, 5, 7, 11; for other n it is open in the source. The p = 3 lifting is in weight 2, where Thm 1.7.1 applies for all n >= 3 with 3 not dividing n"
    ],
    "proofSteps": [
     "Katz 2.1 computes the q-expansion of E_k and its field of definition, then observes that for k = p-1 with p > 3 the p-adic ordinal of 2(p-1)/B_{p-1} is 1, so E_{p-1} has p-integral coefficients and reduces to the constant 1.",
@@ -362,7 +399,7 @@
     "For p = 2, 3 Katz states that A admits no level-one holomorphic lifting and produces the level-n liftings from Thm 1.7.1 in the indicated weight and level ranges, flagging explicitly that the case p = 2, n = 13 is unknown to him."
    ],
    "acceptance": [
-    "Check the von Staudt-Clausen computation of ord_p(2(p-1)/B_{p-1}) = -1 for p >= 5 so that (2(p-1)/B_{p-1}) has ordinal 1 in Katz's normalization and E_{p-1} is p-integral with constant term 1",
+    "Check the von Staudt-Clausen computation ord_p(B_{p-1}) = -1 for p >= 5, hence ord_p(2(p-1)/B_{p-1}) = 1, so that E_{p-1} is p-integral with constant term 1 and all other coefficients divisible by p",
     "Check that at p = 2 and p = 3 the roadmap's characteristic-p operations are stated with an explicitly chosen lifting E_{p-1} of level n, and never through a division by p-1 or by 6"
    ],
    "sources": [
@@ -375,14 +412,14 @@
     {
      "sourceId": "katz73-padic-properties",
      "locator": "2.1, printed pp. 98-99 (Ka-30/31)",
-     "excerpt": "For p = 2 and 3, it is not possible to lift A to a modular form of level one~ holomorphic at ~ ~ over Q A ~p However, for p = 2 and 3 < n < ii~ 2~ n we may lift A to a modular form of level n and weight i,",
-     "match": "The literal exceptional treatment at p = 2 and p = 3 with its level range, which the roadmap requires to be explicit."
+     "excerpt": "For p = 2 and 3, it is not possible to lift A to a modular form of level one, holomorphic at infinity, over Q intersect Z_p. However, for p = 2 and 3 <= n <= 11, 2 does not divide n, we may lift A to a modular form of level n and weight 1,",
+     "match": "The literal exceptional treatment at p = 2 and p = 3 with its level range, transcribed from the page image (the text layer drops the inequality signs)."
     },
     {
      "sourceId": "katz73-padic-properties",
      "locator": "Remark in 2.1, printed p. 99 (Ka-31)",
-     "excerpt": "But the author does not know whether A lifts to a form of level n for other n (even for n = 1 3 : ) .",
-     "match": "Records that the p = 2 lifting is only available in the stated level range, an open boundary rather than a general input."
+     "excerpt": "For p = 2, there exists a lifting of A to a modular form of level n over Z[1/n] for n = 3, 5, 7, 9, 11, and hence for any n divisible by one of 3, 5, 7, 11. But the author does not know whether A lifts to a form of level n for other n (even for n = 13!).",
+     "match": "The full Remark: the p = 2 lifting extends to every n divisible by 3, 5, 7 or 11, and is open only for the remaining n. Extended by the reviewer."
     }
    ],
    "implementationStatus": "unchecked"
@@ -396,12 +433,13 @@
    "hypotheses": [
     "forms are Katz mod p modular forms of level N with p not dividing N, in Edixhoven's sense of section 2.1 of the source",
     "the filtration statement w(theta f) = k + p + 1 needs both w(f) = k and p not dividing k",
-    "the identification of the kernel of the q-expansion map with the ideal (A-1) is imported from Katz's work on mod p modular forms, cited as [15], section 1"
+    "the identification of the kernel of the q-expansion map with the ideal (A-1) is imported from Katz's work on mod p modular forms, cited as [15], section 1",
+    "Edixhoven takes the Hasse invariant A from Katz-Mazur ([16], section 12.4) as the form of type (1, p-1) with q-expansion 1 at all cusps, and notes that forms of weights k and k' with the same q-expansion at a cusp have k = k' mod (p-1)"
    ],
    "proofSteps": [
     "Edixhoven 3.1 records the two equivalent descriptions of the filtration and reduces the equivalence to the description of the kernel of the q-expansion map as the ideal generated by A - 1.",
     "He states Katz's construction of theta as a derivation of the graded algebra raising degree by p+1 and acting as q d/dq on q-expansions at all cusps.",
-    "The relation T_l^*(theta f) = l theta(T_l^* f) is read off from the q-expansion formulas; setting l = p and using that T_p^* kills theta-images gives T_p^*(theta f) = 0.",
+    "The commutation relation T_l^*(theta f) = l theta(T_l^* f) is stated in 3.1, not proved there (the construction of theta is attributed to Katz [15]); taking l = p gives T_p^*(theta f) = p theta(T_p^* f) = 0 because p = 0 in F_p-bar. Edixhoven also notes that theta preserves cusp forms.",
     "The eigenvalue statement l a_l is the twist by the cyclotomic character, which is what makes rho_{theta f} = rho_f tensor chi."
    ],
    "acceptance": [
@@ -436,13 +474,13 @@
     "Prop. 3.3 requires f cuspidal, an eigenform of type (N, k, eps) with 1 <= k <= p+1 and with filtration equal to k, i.e. f not divisible by the Hasse invariant"
    ],
    "proofSteps": [
-    "Edixhoven 3.2 states the classification of theta-cycles and attributes a proof in the level-one case to [13], section 7.",
+    "Edixhoven 3.2 states the classification of theta-cycles as 'straightforward but surprising', without proof, and attributes a proof in the level-one case to [13] = Jochnowitz, The local components of the Hecke algebra mod l, section 7; he also notes that always w(theta^p f) = w(theta f).",
     "Prop. 3.3 deduces the case table from that classification, with the single exception a_p nonzero and k = p, where one must exclude w(theta f) = 3; Edixhoven argues that w(theta f) = 3 would force w(theta^{p-1} f) = p = w(f), hence f - theta^{p-1} f = V_p g for a nonzero g of weight 1, hence f a linear combination of A g and V_p g and w(theta f) = p+2, a contradiction.",
     "Note that w(theta^{p-1} f) = w(f) holds only when the q-expansion of f at some cusp has a_{p n} = 0 for all n, which the source records explicitly."
    ],
    "acceptance": [
     "Reproduce the p = 3 table entries (5,9), (6,2), (3,3) for a_3 = 0 and (5,9), (6,6), (5,9), (8,12) for a_3 nonzero on explicit eigenforms of level N prime to 3",
-    "Confirm that for p = 2 the table has the single-entry cycles (4), (2), (4), (6), so that no p > 3 formula is used at p = 2"
+    "Confirm the p = 2 table of Prop. 3.3: for a_2 = 0 the cycles are (4) for k = 1 and (2) for k = 2, and k = 3 does not occur; for a_2 nonzero they are (4), (4), (6) for k = 1, 2, 3; so no p > 3 formula is used at p = 2"
    ],
    "sources": [
     {
@@ -465,16 +503,17 @@
    "parentStageId": "AlgebraicModularFormsAndSerreWeights:R15.3",
    "title": "Every mod p eigensystem comes, up to a theta-twist, from weight at most p+1",
    "kind": "theorem",
-   "statement": "Let f be an eigenform of some type (N, k, eps). Then there exist integers i and k' with 0 <= i <= p-1 and k' <= p+1 and an eigenform g of type (N, k', eps) such that f and theta^i g have the same eigenvalues for all T_l^* with l different from p. Edixhoven's proof is modular-form theoretic and valid for arbitrary p: it uses the long exact cohomology sequence of 7.1.1 together with Prop. 7.2 (an element B in S(N, p+1) inducing isomorphisms) and Prop. 7.3, for N >= 5, and treats N = 1, 2, 3, 4 separately by taking G-invariants for an auxiliary level.",
+   "statement": "Let f be an eigenform of some type (N, k, eps). Then there exist integers i and k' with 0 <= i <= p-1 and k' <= p+1 and an eigenform g of type (N, k', eps) such that f and theta^i g have the same eigenvalues for all T_l^* with l different from p. Edixhoven's proof (section 7) is modular-form theoretic and stated for arbitrary p: for N >= 5 prime to p it combines the long exact cohomology sequence of multiplication by the Hasse invariant 7.1.1 on X_1(N)_{F_p-bar}, Prop. 7.2 (an element B of the space S(N, p+1) of forms on the supersingular points inducing Hecke-twisted isomorphisms S(N, k) -> S(N, k+p+1)) and Prop. 7.3 (Hecke compatibility of the boundary map S(N, k) -> M^0(N, p+1-k)^dual obtained from Serre duality and Kodaira-Spencer); N = 2, 3, 4 and N = 1 with p > 3 are treated by taking G-invariants on X(4) or X(3) for a group G of order prime to p; the remaining cases N = 1, p = 2 or 3 are referred to Serre [25], Theoreme 3 (Asterisque 24-25), which was not read.",
    "hypotheses": [
     "the conclusion controls the eigenvalues only away from p: the T_l^* for l different from p",
-    "the twisting exponent i is taken modulo p-1, matching the (p-1)-periodicity of the cyclotomic character",
-    "the cohomological proof is run at level N >= 5 and the small levels N = 1, 2, 3, 4 are obtained by descent from an auxiliary level via G-invariants"
+    "the source states the range 0 <= i <= p-1; since l^{p-1} = 1 in F_p for l different from p, only i mod (p-1) affects the eigenvalues away from p (reviewer remark, not in the source)",
+    "the cohomological proof is run at level N >= 5; N = 2, 3, 4, and N = 1 with p > 3, are obtained via G-invariants with p not dividing #G; N = 1 with p = 2 or 3 is an unread import from Serre [25], Theoreme 3"
    ],
    "proofSteps": [
     "Edixhoven Thm 3.4 states the result; the alternative, previously unpublished, argument uses the Jordan-Holder filtration of Sym^{k-2} F for the p-torsion F of the universal elliptic curve, with successive quotients Sym^i F tensor (det F)^{tensor j}, 0 <= i <= p-1, 0 <= j <= p-2, illustrated by the exact sequence 0 -> F -> Sym^p F -> Sym^{p-2} F tensor det F -> 0.",
-    "Edixhoven's own proof is given in section 7: Prop. 7.2 produces B in S(N, p+1) inducing the required isomorphisms, Prop. 7.3 identifies the composite map on S(N,k), and 7.5 assembles them with the long exact sequence of 7.1.1.",
-    "The first published proof for p >= 5 is attributed to Ash-Stevens, [1], Thms 3.4 and 3.5."
+    "Edixhoven's own proof is given in section 7: Prop. 7.2 produces B in S(N, p+1) with T_l^*(Bf) = l B T_l^*(f) (three constructions: Robert [23] Thm B, E_{p+1} mod p for p >= 5; the Kodaira-Spencer image of the simple zero of A; Katz [15]), Prop. 7.3 shows via Lemma 7.4 (compatibility of Kodaira-Spencer with isogenies) that the map Phi: S(N, k) -> M^0(N, k')^dual, k' = p+1-k, intertwines T_l^* with l^{k-1} T_l^{*dual}, and 7.5 assembles these with the long exact sequence of 7.1.1 and the fact that duality on finite-length F_p-bar[T_l]-modules preserves supports.",
+    "The first published proof for p >= 5 is attributed to Ash-Stevens, [1], Thms 3.4 and 3.5.",
+    "7.5, small levels: for N = 4 or 2 (so p odd) M(N, k) = H^0(X, omega^k)^G with X = X(4) and G a subgroup of SL_2(Z/4Z) of order prime to p; for N = 3 the same with X(3); for N = 1 and p > 3 with G = SL_2(Z/3Z) or SL_2(Z/4Z); G-invariants are exact and the exact sequence 7.5.1 is G-equivariant. For N = 1 and p = 2 or 3 the source refers to Serre [25], Theoreme 3."
    ],
    "acceptance": [
     "Check on an example of weight k > p+1 that the produced pair (i, k') satisfies rho_f = rho_g tensor chi^i",
@@ -492,6 +531,12 @@
      "locator": "7.5 Proof of Theorem 3.4, p. 25 of the DVI",
      "excerpt": "Theorem 3.4 is a consequence of the existence of the long exact cohomology sequence of 7.1.1 combined with Propositions 7.2 and 7.3, if N # 5. We are now left with the cases",
      "match": "Records that the proof is run for N >= 5 and that the small levels need a separate argument."
+    },
+    {
+     "sourceId": "edixhoven-weight",
+     "locator": "7.5, p. 26 of the DVI",
+     "excerpt": "Theorem 3.4 now follows by taking G-invariants, except for N = 1 and p = 2 or 3. For these remaining two cases we refer to [25], Theoreme 3.",
+     "match": "The level-one characteristic-2 and -3 cases rest on an unread import. Added by the reviewer."
     }
    ],
    "implementationStatus": "unchecked"
@@ -504,11 +549,11 @@
    "statement": "Let rho_p: G_p -> GL(V) = GL_2(F_p-bar) be continuous, G_p = Gal(Qbar_p/Q_p), I its inertia subgroup, I_p the wild inertia (the maximal pro-p subgroup of I) and I_t = I/I_p the tame quotient. On the semisimplification V^{ss} of V as a G_p-module, I_p acts trivially, so I_t acts and the action is diagonalizable, given by two characters phi, phi' of I_t. These characters are of level 1 or of level 2; if they are of level 2 then phi' = phi^p and phi = phi'^p. When phi, phi' are of level 2, V is irreducible.",
    "hypotheses": [
     "V is 2-dimensional over F_p-bar and rho_p is continuous, so its image is finite",
-    "I_p acts trivially on V^{ss}: this is the standard fact that a pro-p group acting on a semisimple F_p-bar-representation of a p-group quotient acts trivially, cited by Serre as [41], prop. 4",
+    "I_p acts trivially on V^{ss}: Serre cites [41], prop. 4 (Serre, Proprietes galoisiennes des points d'ordre fini des courbes elliptiques, Invent. Math. 15 (1972)) for this",
     "the identification I_t = inverse limit of F_{p^n}^* is cited as [41], prop. 2"
    ],
    "proofSteps": [
-    "Choose s in G_p lifting the Frobenius x -> x^p of G_p/I = Gal(F_p-bar/F_p). Serre checks that s u s^{-1} = u^p mod I_p for u in I, so conjugation by s acts on I_t by u -> u^p.",
+    "Choose s in G_p lifting the Frobenius x -> x^p of G_p/I = Gal(F_p-bar/F_p). Serre states ('on verifie facilement') that s u s^{-1} = u^p mod I_p for u in I, so conjugation by s acts on I_t by u -> u^p.",
     "Hence the set {phi, phi'} is stable under p-th power, giving the dichotomy: either phi^p = phi and phi'^p = phi' (both of level 1), or phi^p = phi', phi'^p = phi with phi different from phi' (both of level 2).",
     "In the level-2 case V is irreducible: a stable line would give a character of I_t extendable to G_p, hence of level 1."
    ],
@@ -537,7 +582,7 @@
    "parentStageId": "AlgebraicModularFormsAndSerreWeights:R15.4",
    "title": "Serre's weight in the two tame cases, with the normalizations and the (0,0) shift",
    "kind": "definition",
-   "statement": "Level-2 case (Serre 2.2): if phi, phi' are of level 2, write phi = psi^a psi'^b uniquely with 0 <= a, b <= p-1 using the two fundamental characters psi, psi' of level 2; then b is different from a (else phi would be chi^a, of level 1), and after permuting phi and phi' one may assume 0 <= a < b <= p-1; set k = 1 + pa + b. Level-1 tame case (Serre 2.3): if I acts semisimply on V through chi^a and chi^b, normalize 0 <= a, b <= p-2 and a <= b; set k = 1 + pa + b if (a,b) is not (0,0), and k = p if (a,b) = (0,0). The value k = p in the unramified case is a deliberate shift by p-1 away from the formula's value 1, chosen by Serre to avoid weight-one forms. Twisting: rho_p = chi^a tensor rho_p' has (a,b) replaced by (0, b-a) with weight k' = 1 + b - a, so k = k' + a(p+1).",
+   "statement": "Level-2 case (Serre 2.2): if phi, phi' are of level 2, write phi = psi^{a+pb} = psi^a psi'^b uniquely with 0 <= a, b <= p-1 using the two fundamental characters psi, psi' = psi^p of level 2; then b is different from a (else phi would be (psi psi')^a = chi^a, of level 1), phi' = psi^b psi'^a, and after permuting phi and phi' one may assume 0 <= a < b <= p-1; set k = 1 + pa + b. By Remark 2 of 2.2, for a = 0 one has (phi, phi') = (psi^b, psi'^b) with 1 <= b <= p-1 and k = 1 + b, so 2 <= k <= p; writing rho_p = chi^a tensor rho_p' the pair attached to rho_p' is (0, b-a) with k' = 1 + b - a, whence (2.2.5) k = k' + a(p+1). Level-1 tame case (Serre 2.3): if I acts semisimply on V through chi^a and chi^b, normalize 0 <= a, b <= p-2 and a <= b; set k = 1 + pa + b if (a,b) is not (0,0), and k = p if (a,b) = (0,0). The value k = p in the unramified case is a deliberate shift by p-1 away from the formula's value 1, chosen by Serre to avoid weight-one forms. In both cases the smallest possible value is k = 2 (Remarks 1).",
    "hypotheses": [
     "the level-2 normalization is 0 <= a < b <= p-1; the level-1 normalization is 0 <= a <= b <= p-2 - the two ranges differ and must not be conflated",
     "the level-1 case here assumes that the action of I on V is semisimple (I_p acts trivially), not merely that the tame characters of V^{ss} have level 1",
@@ -545,7 +590,7 @@
    ],
    "proofSteps": [
     "Serre 2.2: uniqueness of the exponents (a,b) with 0 <= a,b <= p-1 for a level-2 character of I_t; the relation phi' = phi^p forces (2.2.2), so the pair is determined up to swapping phi and phi'.",
-    "Serre 2.2 Remark 2: for a = 0 the formula reduces to k = 1 + b with 2 <= k <= p, and the general case is reduced to that one by twisting by chi^a, giving (2.2.5) k = k' + a(p+1).",
+    "Serre 2.2 Remark 2 (level-2 case): for a = 0 the formula reduces to k = 1 + b with 2 <= k <= p, and the general case is reduced to that one by twisting by chi^a, giving (2.2.5) k = k' + a(p+1). The source states this twisting formula in the level-2 case only.",
     "Serre 2.3: the exponents a, b are only determined mod (p-1); the normalization 0 <= a, b <= p-2 and a <= b fixes them, and the (0,0) case is assigned k = p rather than k = 1.",
     "Serre 2.3 Remark 3: twisting by successive powers of chi makes the resulting k run through a Tate theta-cycle."
    ],
@@ -574,7 +619,7 @@
    "parentStageId": "AlgebraicModularFormsAndSerreWeights:R15.4",
    "title": "The wildly ramified case: the peu ramifie / tres ramifie dichotomy and the weight it produces",
    "kind": "definition",
-   "statement": "Suppose I_p acts nontrivially on V. Then D = V^{I_p} is a line, stable under G_p, and G_p acts on V/D by a character theta_1 and on D by theta_2. Write theta_1 = chi^alpha eps_1, theta_2 = chi^beta eps_2 with eps_i unramified and normalize 0 <= alpha <= p-2 and 1 <= beta <= p-1 (the two exponents do NOT play symmetric roles). Put a = min(alpha, beta), b = max(alpha, beta). If beta is not alpha+1, set k = 1 + pa + b. If beta = alpha+1, then Gal(K_t/K_0) = (Z/pZ)^* with K_t = K_0(zeta_p), K/K_t is elementary abelian of exponent p and by Kummer theory K = K_t(x_1^{1/p}, ..., x_m^{1/p}) with x_i in K_0^*/K_0^{*p}; rho_p is called peu ramifie if v_p(x_i) = 0 mod p for all i (the x_i can be chosen to be units) and tres ramifie otherwise. In the peu ramifie case k = 1 + pa + b = 2 + a(p+1); in the tres ramifie case one adds p-1 (resp. 2 if p = 2), giving k = (a+1)(p+1) for p different from 2 and k = 4 for p = 2. Serre notes that the tres ramifie case forces eps_1 = eps_2 and then m = 1 or 2.",
+   "statement": "Suppose I_p acts nontrivially on V. Then D = V^{I_p} is a line, stable under G_p, and G_p acts on V/D by a character theta_1 and on D by theta_2. Write theta_1 = chi^alpha eps_1, theta_2 = chi^beta eps_2 with eps_i unramified and normalize 0 <= alpha <= p-2 and 1 <= beta <= p-1 (the two exponents do NOT play symmetric roles). Put a = min(alpha, beta), b = max(alpha, beta). If beta is not alpha+1, set k = 1 + pa + b. If beta = alpha+1, then Gal(K_t/K_0) = (Z/pZ)^* with K_t = K_0(zeta_p), K/K_t is elementary abelian of exponent p and by Kummer theory K = K_t(x_1^{1/p}, ..., x_m^{1/p}) with x_i in K_0^*/K_0^{*p}; rho_p is called peu ramifie if v_p(x_i) = 0 mod p for all i (the x_i can be chosen to be units) and tres ramifie otherwise. In the peu ramifie case (2.4.8) k = 1 + pa + b = 2 + alpha(p+1) (here a = alpha, b = alpha+1); in the tres ramifie case (2.4.9) one adds p-1 (resp. 2 if p = 2), giving k = (alpha+1)(p+1) for p different from 2 and k = 4 for p = 2. Serre's Remark (1) states that the tres ramifie case forces eps_1 = eps_2 and then m = 1 or 2; Edixhoven Prop. 8.5 gives m = 1 or 2 for p > 2 but m = 1, 2 or 3 for p = 2, so Serre's remark is incomplete at p = 2.",
    "hypotheses": [
     "I_p acts nontrivially; the line D = V^{I_p} being 1-dimensional and G_p-stable is what makes theta_1, theta_2 well defined",
     "the normalization 0 <= alpha <= p-2, 1 <= beta <= p-1 is asymmetric and is part of the definition",
@@ -583,10 +628,10 @@
    ],
    "proofSteps": [
     "Serre 2.4 constructs D, theta_1, theta_2 and normalizes the exponents (2.4.2)-(2.4.3).",
-    "In case beta = alpha+1 he identifies K_t = K_0(zeta_p), shows the conjugation action of Gal(K_t/K_0) = (Z/pZ)^* on Gal(K/K_t) is the tautological one, and applies Kummer theory to obtain the generators x_i (2.4.6).",
+    "In case beta = alpha+1 he identifies K_t = K_0(zeta_p) and asserts that the conjugation action of Gal(K_t/K_0) = (Z/pZ)^* on Gal(K/K_t) = rho_p(I_p) is the tautological one, then applies Kummer theory to obtain the generators x_i (2.4.6); neither step is argued in detail.",
     "Definition (2.4.7): peu ramifie means all v(x_i) are divisible by p.",
     "Formulas (2.4.8) and (2.4.9) give k in the two branches; Serre's Remark (1) derives eps_1 = eps_2 and m in {1,2} in the tres ramifie case from the conjugation action of G_p on rho_p(I_p); Remark (2) computes the conductors of the associated order-p characters in the two cases.",
-    "Edixhoven Prop. 8.5 confirms and sharpens Remark (1): if rho_p is tres ramifie then theta_1 = theta_2, all x_i can be chosen in Q_p^*, and m = 1 or 2 for p > 2 and m = 1, 2 or 3 for p = 2."
+    "Edixhoven Prop. 8.5 (stated without separate proof after the computation 8.4) confirms Serre's Remark (1) that eps_1 = eps_2 - the unramified parts of theta_1 and theta_2, not theta_1 and theta_2 themselves, which differ by chi when p is odd - adds that all x_i can be chosen in Q_p^*, and corrects the value of m at p = 2: m = 1 or 2 for p > 2 and m = 1, 2 or 3 for p = 2."
    ],
    "acceptance": [
     "Run two local extensions with the same semisimplified inertia but different extension class through the definition and check that they receive different weights, as the roadmap requires",
@@ -609,7 +654,7 @@
      "sourceId": "edixhoven-weight",
      "locator": "Proposition 8.5, p. 27 of the DVI",
      "excerpt": "(Compare [26 ], S2.4, Remarques.) If #p is \"tr`es ramifi'e\" then #1 = #2 , all xi in [26 ], (2.4.6) can be chosen in Q*p and the integer m in [26 ], (2.4.6), equals 1 or 2 if p > 2 and 1 or 2 or 3 if p = 2.",
-     "match": "Independent confirmation and sharpening of Serre's Remark (1), including the extra value m = 3 at p = 2."
+     "match": "Edixhoven's version of Serre's Remark (1): eps_1 = eps_2 for the unramified characters of (2.4.2), x_i in Q_p^*, and the extra value m = 3 at p = 2 that Serre's remark omits."
     }
    ],
    "implementationStatus": "unchecked"
@@ -660,10 +705,11 @@
    "hypotheses": [
     "Proposition 4 as proved is stated for rho_p valued in GL_2(F_p); the source says that for general coefficients one must work with Raynaud F-vector space schemes",
     "the implication (2.8.3) and (2.8.4) imply k = 2 uses Raynaud [35] cor. 3.4.4 to constrain the tame characters to psi^n psi'^{n'} with 0 <= n, n' <= 1, and Raynaud [35] prop. 3.3.2 for uniqueness of the finite flat prolongation",
-    "the converse implication (k = 2 implies finite at p) uses Raynaud [35] thm. 2.4.3 in the level-2 branch and a direct construction, based on the classification of extensions of Z/pZ by mu_p, in the level-1 branch",
-    "Serre carries out the argument only for p different from 2: the p = 2 case is asserted to be analogous but is not written out"
+    "the converse implication (k = 2 implies finite at p) is written without a restriction on p; its level-2 branch cites 'Raynaud [35], th. 2.4.3', a result number that does not exist in Raynaud 1974 (plausibly Theorem 3.4.3, see node raynaud-prolongation-input-and-the-e-equals-p-minus-one-obstruction), and its level-1 branch is only sketched as a direct construction over a finite etale extension R of Z_p followed by descent",
+    "Serre restricts to p different from 2 only in case (ii) {phi, phi'} = {1, chi} of the direction (2.8.3) + (2.8.4) => k = 2, saying the p = 2 case is 'un peu different, mais se traite de facon analogue' without writing it out"
    ],
    "proofSteps": [
+    "Proposition 3 is stated to follow immediately from the definitions of section 2 (no further proof is given).",
     "Serre reduces (2.8.3) plus finiteness to four possible pairs {phi, phi'} using Raynaud cor. 3.4.4 and the constraint phi phi' = chi, leaving the cases {psi, psi'} and {1, chi}.",
     "The case {psi, psi'} gives (2.8.1) directly.",
     "In the case {1, chi} one takes the unique finite flat prolongation J over Z_p (Raynaud prop. 3.3.2), which is reducible, and gets an exact sequence 0 -> A -> J -> B -> 0 of finite flat group schemes of order p with one of A, B etale and the other multiplicative; after a finite etale extension R of Z_p the sequence becomes 0 -> Z/pZ -> J -> mu_p -> 0 or 0 -> mu_p -> J -> Z/pZ -> 0.",
@@ -684,8 +730,8 @@
     {
      "sourceId": "serre87-duke",
      "locator": "Proof of Proposition 4, printed p. 190",
-     "excerpt": "Occupons-nous du cas (ii), en nous bornant, pour simplifier, au cas p 2 (le cas p = 2 est un peu different, mais se traite de facon analogue) .",
-     "match": "The source itself does not write out the p = 2 case of Proposition 4; this packet records that as an unresolved boundary rather than as an available input."
+     "excerpt": "Occupons-nous du cas (ii), en nous bornant, pour simplifier, au cas p != 2 (le cas p = 2 est un peu different, mais se traite de facon analogue).",
+     "match": "The source does not write out the p = 2 case of case (ii); this packet records that as an unresolved boundary rather than as an available input. The inequality sign, lost in the text layer, was restored from the page image by the reviewer."
     },
     {
      "sourceId": "serre87-duke",
@@ -701,22 +747,22 @@
    "parentStageId": "AlgebraicModularFormsAndSerreWeights:R15.4",
    "title": "For a residually reducible local representation with unramified diagonal twists, peu ramifie is equivalent to admitting a finite flat model",
    "kind": "comparison",
-   "statement": "Let F be a finite extension of F_p and rho_p: G_p -> GL_2(F) continuous and upper triangular with diagonal (chi theta_2, theta_1), theta_1 and theta_2 unramified F^*-valued characters of G_p. Let V_{Q_p} be the F-vector space scheme over Q_p attached to rho_p and D the integral closure of Z_p in the maximal unramified extension K of Q_p inside Qbar_p. Then the following are equivalent: rho_p is peu ramifie in Serre's sense (2.4.7); V_{Q_p} extends to a finite flat F-vector space scheme over D; over Z_p; extends to a finite flat group scheme over D; over Z_p. When these hold one says rho_p is finite. Moreover, in the peu ramifie case with p > 2, the Kummer classes [x_{i,j}] in D^*/D^{*p} satisfy [x_{i,j}] = (phi^*)^i [x_{0,j}] and their images y under D^*/D^{*p} = U/U^p = F_p-bar satisfy f(Frob_p)(y) = 0 for f the minimal polynomial of gamma = (theta_1 theta_2^{-1})(Frob_p); this equation has exactly p^s solutions in F_{p^n}, where s = [F_p(gamma):F_p] and n is the order of gamma.",
+   "statement": "Let F be a finite extension of F_p and rho_p: G_p -> GL_2(F) continuous of the form (8.1.1) rho_p = (chi eps_2, *; 0, eps_1) with eps_1 and eps_2 unramified F^*-valued characters of G_p (Edixhoven's notation; this packet earlier wrote theta_i for eps_i). Let V_{Q_p} be the F-vector space scheme over Q_p attached to rho_p and D the integral closure of Z_p in the maximal unramified extension K of Q_p inside Qbar_p. Then (Prop. 8.2, for every prime p including p = 2) the following are equivalent: rho_p is peu ramifie in Serre's sense (2.4.7); V_{Q_p} extends to a finite flat F-vector space scheme over D; over Z_p; extends to a finite flat group scheme over D; over Z_p. When these hold one says rho_p is finite. Moreover (8.4) the Frobenius-compatibility of the extension class forces, for the valuations alpha_{i,j} of the Kummer classes, either all alpha_{i,j} = 0 (peu ramifie) or lambda = 1 and eps = eps_1 eps_2^{-1} trivial; hence (Prop. 8.5) tres ramifie forces eps_1 = eps_2. In the peu ramifie case with p > 2 (Prop. 8.6), with lambda = (eps_1 eps_2^{-1})(Frob_p), s = [F_p(lambda):F_p], n the order of lambda and f the minimal polynomial of lambda, the Kummer classes satisfy [x_{i,j}] = (sigma^#)^i [x_{0,j}] and their images y under D^*/D^{*p} = U/U^p = F_p-bar satisfy f(Frob_p)(y) = 0, an equation all of whose p^s solutions lie in F_{p^n}; conversely any such data come from a peu ramifie rho_p.",
    "hypotheses": [
-    "rho_p is of the specific shape (8.1.1): upper triangular with the displayed diagonal characters chi theta_2 and theta_1, both theta_i unramified - this is Serre's case beta = alpha+1 after twisting to alpha = 0",
+    "rho_p is of the specific shape (8.1.1): upper triangular with diagonal characters chi eps_2 and eps_1, both eps_i unramified - Serre's case beta = alpha+1 after twisting to alpha = 0",
     "the equivalence of the five conditions holds for all p; the explicit description 8.6 assumes p > 2 because it uses D^*/D^{*p} = U/U^p",
-    "the proof of (4) implies (2),(3),(5) uses the maximal finite flat prolongation and its uniqueness, cited as [21], 2.2.3, and the uniqueness of the extension of the F-action and of the descent data from K to Q_p"
+    "the proof of (4) => (2),(3),(5) uses the maximal finite flat prolongation cited as [21], 2.2.3 (Raynaud 1974, Cor. 2.2.3, not read) and the unique extension of the F-action and of the Galois descent data to it; the proof of (1) <=> (2) uses, for p > 2, Raynaud [21], 3.3.3 (at most one finite flat prolongation when e < p-1) and, for p = 2, a separate functoriality argument"
    ],
    "proofSteps": [
-    "Edixhoven Prop. 8.2: the implications (3) => (2) => (4) and (3) => (5) => (4) are formal; given (4), the maximal finite flat prolongation V_D of V_K carries unique extensions of the F-action and of the Galois descent data, giving (2), (3), (5).",
+    "Edixhoven Prop. 8.2: the implications (3) => (2) => (4) and (3) => (5) => (4) are obvious; given (4), the maximal ([21], 2.2.3) finite flat extension V_D of V_K carries unique extensions of the F-action and of the descent data from K to Q_p, giving (2), (3), (5).",
     "Lemma 8.3 identifies extensions of the constant F-vector space scheme F_S by an F-vector space scheme W with torsors under the underlying additive group of W.",
-    "8.4 translates the extension into Kummer data [x_{i,j}] in K^*/K^{*p} and derives the equations 8.4.2 from phi^* V_{K,1} = V_{K,1}[theta_1 theta_2^{-1}].",
-    "Taking valuations gives 8.4.3, whence either all valuations vanish (peu ramifie) or gamma = 1 and chi is trivial; this is the dichotomy identifying peu ramifie with finiteness.",
-    "Prop. 8.6 then solves the equations explicitly for p > 2."
+    "End of 8.3 (the proof of (1) <=> (2)): V_K sits in 0 -> F^D_K -> V_K -> F_K -> 0 (8.3.1); after choosing an F_p-basis of F, Lemma 8.3, the Kummer sequence and Pic(K) = 0 classify such extensions by H^1_fppf(K, F^D) = direct sum of r copies of K^*/K^{*p}, and extensions of F_D by F^D_D by r copies of D^*/D^{*p}; so V_K extends to an extension of F_D by F^D_D iff all v(x_i) = 0 mod p, i.e. iff rho_p is peu ramifie. For p > 2 every extension V_D as in (2) is automatically such an extension by [21], 3.3.3; for p = 2 the functoriality of Ext and a nonzero morphism F_D -> F^D_D produce such an extension from any V_D as in (2).",
+    "8.4 is not part of the proof of 8.2: from sigma^* V_{K,1} = V_{K,1}[lambda_1 lambda_2^{-1}] (8.4.1) it derives the equations 8.4.2 on the Kummer classes [x_{i,j}]; taking valuations gives 8.4.3, whence either all alpha_{i,j} vanish (peu ramifie) or lambda = 1 and eps is trivial, which yields Prop. 8.5.",
+    "Prop. 8.6 then solves the equations 8.4.2 explicitly in the peu ramifie case for p > 2, using D^*/D^{*p} = U/U^p = F_p-bar."
    ],
    "acceptance": [
-    "Check that the count p^s of peu ramifie classes matches the dimension of the corresponding H^1_f in a small example, for instance F = F_p and gamma = 1",
-    "Check that the equivalence fails if theta_1 or theta_2 is allowed to be ramified, i.e. that the shape (8.1.1) is a genuine hypothesis"
+    "Check that the count p^s of peu ramifie classes in Prop. 8.6 matches the size of the corresponding space of unramified Kummer classes in a small example, for instance F = F_p and lambda = 1 (s = 1, p classes)",
+    "Check that shape (8.1.1) is used in the proof: the exact sequence 8.3.1 with sub F^D and quotient F requires the characters on the diagonal to be chi eps_2 and eps_1 with eps_i unramified"
    ],
    "sources": [
     {
@@ -729,7 +775,13 @@
      "sourceId": "edixhoven-weight",
      "locator": "8.4, equations 8.4.3, p. 27 of the DVI",
      "excerpt": "From this we conclude that either #i,j = 0 for all (i, j) (i.e., #p is \"peu ramifi'e\") or 1 + as-1 + . . .+ a0 = 0 (i.e., # = 1 and # is trivial).",
-     "match": "The valuation dichotomy that produces the equivalence, retained as the proof step above."
+     "match": "The valuation dichotomy of 8.4.3, which gives Prop. 8.5 (tres ramifie forces eps_1 = eps_2); the source writes 'lambda = 1 and eps is trivial', eps being the unramified character, not chi. The drafter's 'chi is trivial' and its use as the proof of 8.2 were corrected by the reviewer."
+    },
+    {
+     "sourceId": "edixhoven-weight",
+     "locator": "End of 8.3, p. 27 of the DVI",
+     "excerpt": "For p > 2 any extension of V_K to V_D as in (2) is automatically an extension of F_D by F^D_D (see [21], 3.3.3). If p = 2 and an extension V_D as in (2) exists, the functoriality of Ext and a non-zero morphism F_D -> F^D_D give an extension V_D of F_D by F^D_D. This completes the proof of Proposition 8.2.",
+     "match": "The actual location of the proof of (1) <=> (2), including the explicit p = 2 argument. Added by the reviewer."
     }
    ],
    "implementationStatus": "unchecked"
@@ -739,7 +791,7 @@
    "parentStageId": "AlgebraicModularFormsAndSerreWeights:R15.4",
    "title": "Edixhoven's k(rho_p), its exact difference from Serre's k_rho, and the minimality theorem",
    "kind": "comparison",
-   "statement": "Edixhoven defines k(rho_p) by the same case division as Serre except in the reducible tame case, where the normalization is 0 <= a <= b <= p-2 with k(rho_p) = 1 + pa + b including (a,b) = (0,0) (so k(rho_p) = 1 for rho_p unramified), and in the wild case, where the additional p-1 is added exactly when chi^{beta - alpha} = chi and rho_p tensor chi^{-alpha} is not finite at p. Remark 4.4: always k(rho) <= k_rho, and they differ in exactly two cases - (i) rho_p|I_p trivial with a = b = 0, where k(rho) = 1 and k_rho = p; (ii) p = 2, rho_p|I_p nontrivial, alpha = 0, beta = 1 and rho_p not finite at p, where k(rho) = 3 and k_rho = 4. Theorem 4.5: if rho is continuous irreducible odd and isomorphic to rho_g for some cusp form g of type (N, k, eps) with p not dividing N, then there is a cuspidal eigenform f of type (N, k_rho, eps) with the same T_l^* eigenvalues for l different from p and rho isomorphic to rho_f; if moreover rho is not exceptional (rho_p not an extension of an unramified character by itself), there is such an f of type (N, k(rho), eps), and no eigenform of level prime to p and weight less than k(rho) has associated representation rho.",
+   "statement": "Edixhoven defines k(rho_p) (Def. 4.3) by the same case division and the same normalizations as Serre, except in two places: in the tame level-1 case (rho_p|I_p trivial, rho_p|I = diag(chi^a, chi^b), 0 <= a <= b <= p-2, the same normalization as Serre's 2.3) he sets k(rho_p) = 1 + pa + b also for (a,b) = (0,0), so k(rho_p) = 1 for rho_p unramified; and in the wild case (0 <= alpha <= p-2, 1 <= beta <= p-1) the additional p-1 is added exactly when chi^{beta - alpha} = chi and rho_p tensor chi^{-alpha} is not finite at p (so at p = 2 the addition is 1, not Serre's 2). Remark 4.4: always k(rho) <= k_rho, and they differ in exactly two cases - (i) rho_p|I_p trivial with a = b = 0, where k(rho) = 1 and k_rho = p; (ii) p = 2, rho_p|I_p nontrivial, alpha = 0, beta = 1 and rho_p not finite at p, where k(rho) = 3 and k_rho = 4. Theorem 4.5 (whose proof is the obligation of SerreWeightAndLevelOptimisation:R20.3, 'Prove the Edixhoven/Serre weight theorem'; it is recorded here as the statement the local recipe is compared against): if rho is continuous irreducible odd and isomorphic to rho_g for some cusp form g of type (N, k, eps) with p not dividing N which is an eigenform for all T_l^*, then there is a cuspidal eigenform f of type (N, k_rho, eps) with the same T_l^* eigenvalues as g for l different from p and rho isomorphic to rho_f; if moreover rho is not exceptional (rho_p not an extension, split or not, of an unramified character by itself), there is an eigenform f of type (N, k(rho), eps) with the same eigenvalues for l different from p and rho isomorphic to rho_f, and no eigenform of level prime to p and weight less than k(rho) has associated representation rho.",
    "hypotheses": [
     "k(rho_p) is defined for a local representation and depends only on rho_p; the 'not finite at p' clause refers to the finiteness notion of section 8 of the source, i.e. existence of a finite flat model",
     "Thm 4.5 assumes rho already modular of some type (N, k, eps) with p not dividing N; it is a weight-optimisation statement, not an existence statement",
@@ -750,11 +802,13 @@
     "Edixhoven Def. 4.3 gives the case division; Remark 4.4 compares it with Serre's k_rho and isolates the two discrepancies.",
     "Proof of Thm 4.5: by Thm 3.4 there is alpha with rho tensor chi^{-alpha} isomorphic to rho_{f_1} for an eigenform f_1 of type (N, k_1, eps) with k_1 <= p+1 and w(f_1) = k_1; the local results Thms 2.5, 2.6, 2.8 and Prop. 2.7 then pin down k_1 and alpha in terms of rho|G_p.",
     "The desired f is obtained by untwisting: apply theta alpha times and divide by the Hasse invariant as often as possible.",
-    "The main complication is that k_1 is not unique: a companion form of weight p+1-k_1 may exist (Gross, Thm 2.9) or f_1 may be a multiple of the Hasse invariant (only for k_1 = p or p+1; the k_1 = p+1 case is Mazur's Thm 2.8, which is where 'finite at p' enters)."
+    "The main complication is that k_1 is not unique: a companion form of weight p+1-k_1 may exist (Gross, Thm 2.9) or f_1 may be a multiple of the Hasse invariant (only for k_1 = p or p+1; the k_1 = p+1 case is Mazur's Thm 2.8, which is where 'finite at p' enters).",
+    "Minimality: given g of type (M, k, eps') with p not dividing M, the existence part gives f of type (M, k(rho), eps') with the same eigenvalues away from p; if T_p^* f = 0 = T_p^* g the q-expansions differ by a constant and k(rho) = w(f) = w(g) <= k; if T_p^* g is nonzero then k <= p+1 by Gross [10], Proposition 4.12 (not read) and 'a case by case check' (not displayed) gives k(rho) <= k.",
+    "Existence in the tame level-1 case alpha = beta = 0 uses Gross's Thm 2.9 (companion forms) and the non-exceptional hypothesis; the added end-of-introduction note says that for p > 2 the Coleman-Voloch theorem removes the 'not exceptional' condition from all statements of Thm 4.5."
    ],
    "acceptance": [
     "Check the two discrepancy cases of Remark 4.4 explicitly: an unramified rho_p (k(rho) = 1, k_rho = p) and a p = 2 non-finite extension with alpha = 0, beta = 1 (k(rho) = 3, k_rho = 4)",
-    "Check that the recipe is invariant under enlarging the coefficient field and under isomorphism of rho_p, since every clause refers only to rho_p|I and to the finite flat model over Z_p"
+    "Check that the recipe is invariant under enlarging the coefficient field and under isomorphism of rho_p: every clause refers to rho_p|I, to rho_p|I_p, or to the finiteness at p of rho_p tensor chi^{-alpha}, which is a property of the G_p-representation"
    ],
    "sources": [
     {
@@ -820,17 +874,17 @@
    "parentStageId": "AlgebraicModularFormsAndSerreWeights:R15.5",
    "title": "Reduction of a mod-lambda eigensystem to a characteristic-zero eigenform: the Eisenstein weight shift and the application of the lifting lemma",
    "kind": "construction",
-   "statement": "Let K be a number field inside C, lambda a finite place with residue characteristic l, O_lambda the local ring, and f a modular form of type (k, eps) on Gamma_0(N) with coefficients in K, lambda-integral, not congruent to 0 mod lambda, and an eigenvector mod lambda of the T_p for p not dividing Nl with eigenvalues a_p-bar. Then: (i) one may assume k >= 2, because for n even and divisible by l-1 the Eisenstein series E_n on SL_2(Z) normalized to have constant term 1 has l-integral q-expansion and E_n = 1 mod l, so f E_n is congruent to f mod lambda and has weight k+n congruent to k mod (l-1); (ii) one may assume f is a genuine eigenvector of the T_p, by applying the eigenvalue lifting lemma to the T_p acting on the O_lambda-module M of modular forms of type (k, eps) on Gamma_0(N) with coefficients in O_lambda. The replacement f' has the same (k, eps) and its T_p eigenvalues reduce to the given a_p-bar.",
+   "statement": "Let K be a number field inside C, lambda a finite place with residue characteristic l, O_lambda the local ring, and f a modular form of type (k, eps) on Gamma_0(N) with k >= 1 and coefficients in K, lambda-integral, not congruent to 0 mod lambda, and an eigenvector mod lambda of the T_p for p not dividing Nl with eigenvalues a_p-bar. Then: (i) one may assume k >= 2, because for n even, n > 2 and divisible by l-1 the Eisenstein series E_n on SL_2(Z) normalized to have constant term 1 has l-integral q-expansion and E_n = 1 mod l, so f E_n is congruent to f mod lambda and has weight k+n congruent to k mod (l-1); (ii) one may assume f is a genuine eigenvector of the T_p, by applying the eigenvalue lifting lemma to the T_p acting on the O_lambda-module M of modular forms of type (k, eps) on Gamma_0(N) with coefficients in O_lambda. The replacement f' has the same (k, eps) and its T_p eigenvalues reduce to the given a_p-bar.",
    "hypotheses": [
-    "the Eisenstein trick requires n even, divisible by l-1, and l-integrality of E_n, which the source cites to Serre [25]",
+    "the Eisenstein trick requires n even, n > 2, divisible by l-1, and l-integrality of E_n with E_n = 1 mod l, which Deligne-Serre cite to [25] = Swinnerton-Dyer, On l-adic representations and congruences for coefficients of modular forms (not read)",
     "the equivalence of the theorem for f and for f' requires a_p-bar = a'_p-bar and eps(p) p^{k-1} = eps'(p) p^{k'-1} mod lambda' for all p not dividing Nl; the second holds as soon as eps = eps' and k = k' mod (l-1)",
-    "the application of the lifting lemma needs M to be free of finite type over O_lambda"
+    "the application of the lifting lemma needs M to be free of finite type over O_lambda; Deligne-Serre apply Lemme 6.11 to M without arguing this (it is not supplied by Katz Thm 1.7.1, whose level-n-invertible hypotheses are not those of Thm 6.7, where lambda may divide N)"
    ],
    "proofSteps": [
     "Deligne-Serre 6.8 records when the theorem for f is equivalent to the theorem for a replacement f'.",
     "6.9 multiplies by E_n with (l-1) | n to raise the weight above 1 without changing the mod-lambda eigensystem or the class of the weight mod l-1.",
     "6.10 applies Lemme 6.11 with M the O_lambda-module of forms of type (k, eps) on Gamma_0(N) and T the Hecke operators T_p, producing an honest eigenform whose eigenvalues reduce correctly.",
-    "6.12 then invokes the characteristic-zero construction (Thm 6.1) for the resulting eigenform and reduces the resulting lambda-adic representation, taking the semisimplification."
+    "6.12 assumes, by 6.9 and 6.10, k >= 2 and f an eigenvector of the T_p for p not dividing Nl, and also of T_l for l not dividing N since T_l commutes with the T_p; it invokes the characteristic-zero representation rho_lambda of Thm 6.1 (not read), conjugates it into GL_2 of the completed valuation ring, reduces mod lambda and takes the semisimplification."
    ],
    "acceptance": [
     "Check that the weight shift in (i) changes k only within its class mod l-1, so that the Serre weight recipe's determinant constraint is untouched",
@@ -857,18 +911,18 @@
    "parentStageId": "AlgebraicModularFormsAndSerreWeights:R15.4",
    "title": "The Raynaud inputs to the k = 2 criterion, and why they degenerate exactly at p = 2",
    "kind": "theorem",
-   "statement": "Let R be a strictly henselian discrete valuation ring of mixed characteristic with absolute ramification index e, fraction field K of characteristic zero, residue characteristic p. (Prolongation and uniqueness, Raynaud Prop. 3.3.2) Let G be a K-scheme in F-vector spaces of rank q admitting a finite flat prolongation. If e < p-1 then the prolongation is unique up to isomorphism and is an F-vector space scheme; if e = p-1 and G is simple then either the prolongation is unique or there are exactly two, one etale and one of multiplicative type, and in all cases they are F-vector space schemes. (Tame characters, Raynaud Thm 3.4.1 and Cor. 3.4.4) Galois acts on G(Kbar) through a character psi = product of psi_j^{n_j}; if G is a Jordan-Holder quotient of a K-group scheme killed by a power of p that admits a finite flat prolongation over R, then psi = product psi_j^{n_j} with 0 <= n_j <= e. (Full faithfulness, Cor. 3.3.6) If e < p-1, every morphism of generic fibres extends uniquely, the kernel and cokernel of the extension are flat over R, and Ext^1 of finite flat group schemes injects into Ext^1 of their generic fibres. Consequence for the Serre recipe: for R = Z_p^{nr} one has e = 1, so the constraint 0 <= n, n' <= 1 on the tame characters holds for every p, but the uniqueness statement 3.3.2.2 requires 1 < p-1, i.e. p >= 3; at p = 2 one is exactly in the case e = p-1 of 3.3.2.3 and uniqueness of the finite flat model may fail.",
+   "statement": "Let R be a discrete valuation ring of mixed characteristic with absolute ramification index e, fraction field K, residue characteristic p. (Prolongation and uniqueness, Raynaud Prop. 3.3.2) Let G be a K-scheme in F-vector spaces of rank q admitting a finite flat prolongation. (1) The maximal prolongation is characterized on equations of type (1) by v(delta_i) <= p-1 for all i and v(delta_i) < p-1 for some i. (2) If e < p-1 then the prolongation is unique up to isomorphism and is an F-vector space scheme. (3) If e = p-1, G is simple and R is henselian, then either the prolongation is unique or there are exactly two, one etale and one of multiplicative type, and in all cases they are F-vector space schemes. (Uniqueness for group schemes, Thm 3.3.3) If e < p-1, every finite commutative K-group scheme killed by a power of p has at most one finite flat prolongation over R. (Tame characters, Thm 3.4.1, Thm 3.4.3, Cor. 3.4.4, for R strictly henselian of mixed characteristic) Galois acts on an F-vector space scheme G(Kbar) of rank q by homotheties through a character psi = product psi_{i+j}^{v(delta)}; G prolongs to a finite flat group scheme over R if and only if psi = product psi_{i+j}^{n_j} with 0 <= n_j <= e for all j; and for a finite commutative K-group scheme killed by a power of p that prolongs, every Jordan-Holder quotient is an F-vector space scheme whose character has that form. By Remark 3.4.6 these results say nothing for e >= p-1, where every finite K-scheme in F-vector spaces prolongs. (Full faithfulness, Cor. 3.3.6) If e < p-1, every morphism of generic fibres of commutative finite flat R-group schemes killed by a power of p extends uniquely, the kernel and cokernel of the extension are flat over R, and Ext of finite flat group schemes injects into Ext of their generic fibres. Consequence for the Serre recipe: for R = Z_p^{nr} one has e = 1, so the constraint 0 <= n, n' <= 1 on the tame characters holds for every p (vacuously at p = 2), but the uniqueness statements 3.3.2(2) and 3.3.3 require 1 < p-1, i.e. p >= 3; at p = 2 one is exactly in the case e = p-1 of 3.3.2(3) and uniqueness of the finite flat model may fail.",
    "hypotheses": [
-    "R strictly henselian, mixed characteristic, K of characteristic zero - Raynaud's standing hypotheses in section 3",
-    "Prop. 3.3.2.2 needs e < p-1; Prop. 3.3.2.3 covers e = p-1 and additionally requires G simple and R henselian",
-    "Cor. 3.4.4 needs only that G admits a finite flat prolongation; the bound on the exponents is 0 <= n_j <= e, so it is informative only for e < p-1 (Raynaud's Remark 3.4.6 says so explicitly)",
+    "Standing hypotheses vary: 3.3 assumes R of unequal characteristics (Prop. 3.3.1); 3.4 assumes R strictly henselian of unequal characteristics (Thm 3.4.1, Thm 3.4.3); Prop. 3.2.1 and Cor. 3.3.7 assume R strictly henselian",
+    "Prop. 3.3.2(2) and Thm 3.3.3 need e < p-1; Prop. 3.3.2(3) covers e = p-1 and additionally requires G simple and R henselian",
+    "Cor. 3.4.4 needs only that the finite commutative p-power torsion G admits a finite flat prolongation (with R strictly henselian); the bound on the exponents is 0 <= n_j <= e, so it is informative only for e < p-1 (Remark 3.4.6)",
     "Cor. 3.3.6 needs e < p-1 and both group schemes commutative, finite, flat and killed by a power of p"
    ],
    "proofSteps": [
     "Raynaud's Prop. 3.3.2.1 characterizes the maximal prolongation by the conditions v(delta_i) <= p-1 for all i and v(delta_i) < p-1 for some i on the equations of type (1); 2 and 3 follow by comparing the maximal and minimal F-vector space prolongations.",
     "Thm 3.4.1 computes the Galois action on G(Kbar) as a homothety through psi = psi_0^{v(delta_0)} ... psi_{r-1}^{v(delta_{r-1})}; Thm 3.4.3 turns prolongability into the condition 0 <= n_j <= e using Prop. 3.3.2 to extend the F-structure to the prolongation.",
     "Cor. 3.4.4 combines 3.2.1 (existence of a Jordan-Holder filtration with F-vector space quotients) with 3.4.3.",
-    "Cor. 3.3.6 is deduced from Thm 3.3.3, itself a consequence of Prop. 3.3.2.2 via the devissage of Prop. 3.2.1."
+    "Thm 3.3.3 is proved by reducing, via Prop. 2.2.2 and the devissage Prop. 3.2.1, to showing that a morphism between two prolongations of an F-vector space scheme that is the identity on the generic fibre is an isomorphism, which is Prop. 3.3.2(2); Cor. 3.3.6 is stated after it without separate proof."
    ],
    "acceptance": [
     "Check that with e = 1 Cor. 3.4.4 yields exactly Serre's four possibilities 1, psi, psi', psi psi' = chi for the pair of tame characters of a finite-at-p representation",
@@ -897,7 +951,19 @@
      "sourceId": "serre87-duke",
      "locator": "Proof of Proposition 4, printed p. 190",
      "excerpt": "Ce cas est traite dans Raynaud [35], th . 2 .4 .3 .",
-     "match": "Serre's printed citation is to 'th. 2.4.3'. Raynaud's Bull. SMF 102 (1974) contains no result numbered 2.4.3 (its numbered results in section 2 are 2.2.2, 2.2.3, 2.3.1); the theorem that treats exactly this case - prolongability of the F-vector space scheme attached to a character psi - is Theorem 3.4.3, p. 270. Two independent text extractions of the Serre PDF give the same string, so this is not an artefact of one extraction."
+     "match": "Serre's printed citation is to 'th. 2.4.3' (confirmed on the page image of p. 190). Raynaud's Bull. SMF 102 (1974), which is Serre's [35], has no section 2.4: its section 2 consists of 2.1-2.3 and its numbered results there are 2.2.2, 2.2.3 and 2.3.1. The theorem that treats exactly this case - prolongability of the F-vector space scheme attached to a character psi - is Theorem 3.4.3, p. 270, which is therefore the plausible intended referent."
+    },
+    {
+     "sourceId": "raynaud74-type-p-p",
+     "locator": "Theorem 3.3.3 and Remarks 3.3.4-3.3.5, printed p. 268",
+     "excerpt": "Supposons R d'inegales caracteristiques et e < p-1. Alors tout K-schema en groupes fini, commutatif G, annule par une puissance de p, admet au plus un prolongement fini et plat sur R.",
+     "match": "The uniqueness theorem cited by Edixhoven as [21], 3.3.3 in the p > 2 step of Prop. 8.2. Added by the reviewer."
+    },
+    {
+     "sourceId": "raynaud74-type-p-p",
+     "locator": "Remark 3.4.6, printed p. 271",
+     "excerpt": "Faut-il souligner que le theoreme 3.4.1 et le corollaire 3.4.4 ne nous apprennent rien pour e >= p-1? Par contre, il resulte de 3.4.3 que si e >= p-1, tout K-schema en F-vectoriels fini, se prolonge en un R-schema en groupes fini.",
+     "match": "At p = 2 (e = 1 = p-1 over Z_2^{nr}) the exponent bound is vacuous and every F-vector space scheme prolongs over a strictly henselian R. Added by the reviewer."
     }
    ],
    "implementationStatus": "unchecked"
@@ -907,7 +973,7 @@
    "parentStageId": "AlgebraicModularFormsAndSerreWeights:R15.6",
    "title": "Residual modularity: mod p cusp forms of type (N, k, eps), the chosen place above p, and the field of coefficients",
    "kind": "definition",
-   "statement": "Fix N >= 1 prime to p, k >= 2 and a character eps: (Z/NZ)^* -> F_p-bar^* with eps(-1) = (-1)^k for p different from 2 and k even for p = 2. Embed Qbar in C and choose a place of Qbar above p, giving a reduction map from the ring of algebraic integers to F_p-bar; let eps_0 be the multiplicative (Teichmuller) lift of eps. A cusp form of type (N, k, eps) with coefficients in F_p-bar is a formal series f = sum_{n >= 1} a_n q^n that is the reduction of some classical cusp form F = sum A_n q^n of type (N, k, eps_0) with algebraic integer coefficients. The space S(N, k, eps) does not depend on the chosen p-adic place and has F_p-bar-dimension equal to the complex dimension of S(N, k, eps_0); it is stable under T_l (l not dividing pN) and U_l (l | pN), with U_p the reduction of T_p using k >= 2; a normalized eigenform is determined by its eigenvalues a_l through the usual Euler product. Edixhoven records that in [27] Serre replaced this definition by Katz's, which is a priori larger and allows weight 1.",
+   "statement": "Fix N >= 1 prime to p, k >= 2 and a character eps: (Z/NZ)^* -> F_p-bar^* with eps(-1) = (-1)^k for p different from 2 and k even for p = 2. Embed Qbar in C and choose a place of Qbar above p, giving a reduction map from the ring of algebraic integers to F_p-bar; let eps_0 be the multiplicative (Teichmuller) lift of eps. A cusp form of type (N, k, eps) with coefficients in F_p-bar is a formal series f = sum_{n >= 1} a_n q^n that is the reduction of some classical cusp form F = sum A_n q^n of type (N, k, eps_0) with algebraic integer coefficients. The space S(N, k, eps) does not depend on the chosen p-adic place and has F_p-bar-dimension equal to the complex dimension of S(N, k, eps_0); it is stable under T_l (l not dividing pN) and U_l (l | pN), with U_p the reduction of T_p using k >= 2; a normalized eigenform is determined by its eigenvalues a_l through the usual Euler product. Serre's Remark (6) notes that Katz's definition [23] leads to an a priori larger space, and his footnote 2 that with Katz's definition every form of weight k is also of weight k+p-1, whereas with the reduction definition adopted here this holds for p >= 5 but fails for p = 2 and 3; Edixhoven records that in [27] Serre replaced the reduction definition by Katz's, which makes it natural to allow weight 1.",
    "hypotheses": [
     "N prime to p and k >= 2 in this definition; the level-p case is not excluded mathematically but yields no genuinely new mod p forms, at the cost of raising the weight",
     "the parity condition eps(-1) = (-1)^k is imposed, and is automatic at p = 2 where instead k is required even",
@@ -944,6 +1010,12 @@
      "locator": "4.2 and the paragraph following it, pp. 9-10 of the DVI",
      "excerpt": "Later, in [27 ], Serre replaced this definition of modular form mod p by the definition that we are using in this article (i.e., Katz's definition). This change in definition makes it natural to allow forms of weight 1.",
      "match": "Records the change of definition that separates k_rho from k(rho) and licenses weight 1."
+    },
+    {
+     "sourceId": "serre87-duke",
+     "locator": "3.2, Remark (6) and footnote 2, printed p. 197",
+     "excerpt": "toute forme de poids k est aussi de poids k + p - 1. Avec la definition adoptee ici, cet enonce est vrai pour p >= 5, mais est faux pour p = 2 ou 3.",
+     "match": "A small-characteristic difference between the reduction definition and Katz's definition. Added by the reviewer."
     }
    ],
    "implementationStatus": "unchecked"
@@ -956,16 +1028,17 @@
    "statement": "Let phi: Phi -> GL_n(k') be a semisimple representation of a group Phi over a finite field k', and let k be a subfield of k' containing the coefficients of the polynomials det(1 - phi(s)T) for all s in Phi. Then phi is realizable over k, i.e. isomorphic to a representation Phi -> GL_n(k). The proof: it suffices that phi be isomorphic to sigma(phi) for every k-automorphism sigma of k', because the Brauer group of a finite field is trivial so there is no Schur index; and phi and sigma(phi) have the same characteristic polynomials and are semisimple, hence isomorphic by Curtis-Reiner Thm 30.16.",
    "hypotheses": [
     "k' finite and phi semisimple; both are used, semisimplicity through the character-determines-representation theorem and finiteness through the vanishing of the Brauer group",
-    "the hypothesis is on the coefficients of all characteristic polynomials, not merely on traces; in residual characteristic 2 traces alone are insufficient",
+    "the hypothesis is on the coefficients of all characteristic polynomials det(1 - phi(s)T), not merely on traces",
     "in Deligne-Serre's application the field k_f is generated by the eigenvalues a_p and the reductions of eps(p), and Cebotarev is used to see that every element of the image is a Frobenius"
    ],
    "proofSteps": [
     "Deligne-Serre 6.12 produces a semisimple mod-lambda representation phi whose characteristic polynomials have coefficients in k_f, by Cebotarev plus the definition of k_f.",
-    "Lemme 6.13 then descends the field of definition, via triviality of the Brauer group of a finite field and Curtis-Reiner Thm 30.16."
+    "Lemme 6.13 then descends the field of definition: it suffices that phi be isomorphic to sigma(phi) for every k-automorphism sigma of k', because the Brauer group of a finite field is trivial (no Schur index); phi and sigma(phi) are semisimple with the same characteristic polynomials, hence isomorphic by [3] = Curtis-Reiner, Representation theory of finite groups and associative algebras, th. 30.16 (not read)."
    ],
    "acceptance": [
     "Check that a semisimple representation over F_4 with F_2-rational characteristic polynomials is conjugate into GL_n(F_2)",
-    "Check that semisimplicity cannot be dropped, using a non-split extension whose characteristic polynomials are rational over a proper subfield"
+    "Check that semisimplicity cannot be dropped, using a non-split extension whose characteristic polynomials are rational over a proper subfield",
+    "Check that in characteristic 2 traces alone would not suffice for 2-dimensional representations, so that the hypothesis on full characteristic polynomials is needed (reviewer-suggested check; not a claim of the source)"
    ],
    "sources": [
     {
@@ -992,13 +1065,13 @@
    "hypotheses": [
     "rho irreducible and det rho odd - both are hypotheses of the statement, not conclusions",
     "N is the prime-to-p part of the Artin conductor: n(l, rho) = dim V/V^{G_0} + b(V) where b is the wild invariant, so N is a genuine conductor and not merely a ramification set",
-    "Serre's remark (5) that N and k are minimal is stated as probable, not proved, in the source; minimality of the weight is proved separately by Edixhoven Thm 4.5 under the non-exceptional hypothesis",
+    "Serre's remark (5) that N and k are minimal is stated as probable, not proved, in the source; Edixhoven Thm 4.5 proves minimality, under the non-exceptional hypothesis, of his own weight k(rho) for Katz forms, which differs from Serre's k_rho in the two cases of his Remark 4.4",
     "the a_p statements at l = p distinguish sharply between rho ramified and unramified at p"
    ],
    "proofSteps": [
     "Serre 1.2 defines n(l, rho) by (1.2.1) and rewrites it as (1.2.2) dim V/V^{G_0} + b(V), and deduces that n(l, rho) = 0 exactly when rho is unramified at l and n(l, rho) = dim V/V^{G_0} exactly when rho is tamely ramified at l.",
     "3.2 states the conjecture in its qualitative and refined forms and translates the isomorphism rho = rho_f into the trace and determinant identities (3.2.5).",
-    "Remarks (1)-(3) analyse the local eigenvalue a_l for l | pN, including the criterion v_l(N) = 1 or v_l(N) = v_l(cond eps) >= 2 for existence of D, and the relation A^2 = eps_prim(l) l^{k-2}.",
+    "Remarks (1)-(3) analyse the local eigenvalue a_l for l | pN: for l | N there is at most one line D; the bracketed claims that D exists iff v_l(N) = 1 or v_l(N) = v_l(cond eps) >= 2 ('Il n'est pas difficile de prouver') and that, when v_l(N) = 1 and v_l(cond eps) = 0, the Frobenius eigenvalue lambda on V/D satisfies lambda^2 = eps_prim(l) l^{k-2} ('on peut montrer') are asserted without proof; for l = p unramified the two eigenvalues lambda, mu with lambda mu = eps(p) may coincide.",
     "Remark (2) notes the consequent uniqueness of f, with coefficients generating the field of rationality of rho over F_p."
    ],
    "acceptance": [
@@ -1015,8 +1088,8 @@
     {
      "sourceId": "serre87-duke",
      "locator": "3.2, Remark (5), printed p. 197",
-     "excerpt": "Il est probable que N et k sont minimaux pour p, autrement dit que, si p est isomorphe a pf ,, avec f ' de type (N', k', e'), N' premier a p, k' r 2, alorsN N' est multiple de N et k' est a k .",
-     "match": "The source itself only conjectures minimality; this packet does not record minimality as an established input."
+     "excerpt": "Il est probable que N et k sont minimaux pour rho, autrement dit que, si rho est isomorphe a rho_f', avec f' de type (N', k', eps'), N' premier a p, k' >= 2, alors N' est multiple de N et k' >= k.",
+     "match": "The source itself only conjectures minimality; this packet does not record minimality as an established input. Transcribed from the page image by the reviewer (the text layer garbles the inequalities)."
     },
     {
      "sourceId": "serre87-duke",
@@ -1054,7 +1127,7 @@
   {
    "source": "AlgebraicModularFormsAndSerreWeights:R15.2/base-change-for-spaces-of-forms-and-the-weight-one-boundary",
    "target": "AlgebraicModularFormsAndSerreWeights:R15.2/integral-hecke-operators-from-q-expansions",
-   "reason": "Katz's existence proof for T_l over an arbitrary coefficient module K begins 'By the base-changing theorem, we are reduced to the case K = Z[1/n]', i.e. it consumes Thm 1.7.1 with its hypotheses n >= 3 and k >= 2 (or k = 1, n <= 11).",
+   "reason": "Katz's existence proof for T_l over an arbitrary coefficient module K begins 'By the base-changing theorem, we are reduced to the case K = Z[1/n]', i.e. it consumes Thm 1.7.1 with its hypotheses n >= 3 and k >= 2 (or k = 1, n <= 11). Reviewer annotation: Prop. 1.11.3 also allows n = 2 with k >= 2; there the base change used is Katz Thm 1.8.1 (node level-one-and-two-by-descent-with-explicit-inverted-primes, see the added link), not Thm 1.7.1.",
    "sources": [
     {
      "sourceId": "katz73-padic-properties",
@@ -1065,7 +1138,7 @@
   {
    "source": "AlgebraicModularFormsAndSerreWeights:R15.3/hasse-invariant-as-a-form-of-weight-p-minus-one",
    "target": "AlgebraicModularFormsAndSerreWeights:R15.3/theta-operator-filtration-and-hecke-commutation",
-   "reason": "The filtration w(f) is defined by divisibility by powers of the Hasse invariant A, and the equivalence with the q-expansion description rests on the kernel of the q-expansion map being the ideal generated by A-1; both consume the construction of A and the value A(Tate(q), omega_can) = 1.",
+   "reason": "The filtration w(f) is defined by divisibility by powers of the Hasse invariant A, and the equivalence with the q-expansion description rests on the kernel of the q-expansion map being the ideal generated by A-1; both consume the construction of A and the value A(Tate(q), omega_can) = 1. Reviewer annotation: Edixhoven cites Katz-Mazur [16], section 12.4, for A, as the form of type (1, p-1) with q-expansion 1 at all cusps (2.1, p. 4 of the DVI); the object is the same as Katz 1973, 2.0, which is what this node supplies.",
    "sources": [
     {
      "sourceId": "edixhoven-weight",
@@ -1074,6 +1147,10 @@
     {
      "sourceId": "katz73-padic-properties",
      "locator": "2.0, printed pp. 97-98 (Ka-29/30)"
+    },
+    {
+     "sourceId": "edixhoven-weight",
+     "locator": "2.1, p. 4 of the DVI"
     }
    ]
   },
@@ -1139,7 +1216,7 @@
   {
    "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
    "target": "AlgebraicModularFormsAndSerreWeights:R15.4/weight-two-iff-finite-flat-at-p",
-   "reason": "Serre's proof of Proposition 4 consumes three specific Raynaud results: cor. 3.4.4 (the tame characters of a prolongable F-vector space scheme are psi^n psi'^{n'} with 0 <= n, n' <= 1), prop. 3.3.2 (uniqueness of the finite flat prolongation), and thm. 2.4.3 (prolongability in the fundamental-character case). R07.1 is the stage that states exactly this material - 'Also construct the (p,...,p)-type classification and its tame inertia characters used in R07.5 (Bull. SMF 102 (1974), sections 2-3, especially Theorems 3.4.1/3.4.3)' - so it is the supplier, not merely a stage using the same words. The edge is at node level and refines the existing R07.5 -> R15.4 stage edge; it does not replace it.",
+   "reason": "Serre's proof of Proposition 4 consumes three specific Raynaud results: cor. 3.4.4 (the tame characters of a prolongable F-vector space scheme are psi^n psi'^{n'} with 0 <= n, n' <= 1), prop. 3.3.2 (uniqueness of the finite flat prolongation), and the printed 'thm. 2.4.3' (prolongability in the fundamental-character case), which has no referent in Raynaud 1974 and is plausibly Theorem 3.4.3. R07.1 is the stage that states exactly this material - 'Also construct the (p,...,p)-type classification and its tame inertia characters used in R07.5 (Bull. SMF 102 (1974), sections 2-3, especially Theorems 3.4.1/3.4.3)' - so it is the supplier, not merely a stage using the same words. The edge is at node level and refines the existing R07.5 -> R15.4 stage edge; it does not replace it. Reviewer check: R07.1's description names Cor. 3.3.6 (from which uniqueness of prolongations for e < p-1 follows) and 'the (p,...,p)-type classification and its tame inertia characters ... especially Theorems 3.4.1/3.4.3' (Cor. 3.4.4 is 3.2.1 combined with 3.4.3), so its scope covers the three inputs. The edge FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1 -> AlgebraicModularFormsAndSerreWeights:R15.4 is new relative to the atlas (R15.4 requires only R07.5); it creates no cycle.",
    "sources": [
     {
      "sourceId": "serre87-duke",
@@ -1150,7 +1227,7 @@
   {
    "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
    "target": "AlgebraicModularFormsAndSerreWeights:R15.4/finite-at-p-equals-peu-ramifie",
-   "reason": "R07.5 states 'Supply the finite-flat generic-fibre calculations from which R15 later proves the p=2 Serre-weight dichotomy and the weight-two criterion for p>=5. Prove the extension-class distinctions used in the peu/tres ramifiee cases.' Edixhoven's Prop. 8.2 is precisely the theorem identifying the extension-class condition with existence of a finite flat model, so R07.5's stated output (the finite flat models and their generic fibres over Z_p and over the maximal unramified D) is the input this node consumes; the node supplies back the peu ramifie translation used by the weight recipe.",
+   "reason": "R07.5 states 'Supply the finite-flat generic-fibre calculations from which R15 later proves the p=2 Serre-weight dichotomy and the weight-two criterion for p>=5. Prove the extension-class distinctions used in the peu/tres ramifiee cases.' Edixhoven's Prop. 8.2 is precisely the theorem identifying the extension-class condition with existence of a finite flat model, so R07.5's stated output (the finite flat models and their generic fibres over Z_p and over the maximal unramified D) is the input this node consumes; the node supplies back the peu ramifie translation used by the weight recipe. Reviewer annotation (scope overlap, unresolved): the proof of Prop. 8.2 actually consumes Raynaud Cor. 2.2.3 (maximal prolongation) and Thm 3.3.3 (uniqueness for e < p-1), which are R07.1-type statements, together with Lemma 8.3 and the Kummer classification of extensions over K and D. R07.5's description ('Prove the extension-class distinctions used in the peu/tres ramifiee cases') describes the conclusion of Prop. 8.2 itself, so either R07.5 owns Prop. 8.2 and this node is its R15-side restatement, or this node owns it and R07.5 supplies only generic-fibre calculations. The edge is kept because R07.5 -> R15.4 is an existing atlas edge; see the gap on ownership of Edixhoven Prop. 8.2.",
    "sources": [
     {
      "sourceId": "edixhoven-weight",
@@ -1170,21 +1247,6 @@
    ]
   },
   {
-   "source": "AlgebraicModularFormsAndSerreWeights:R15.2/base-change-for-spaces-of-forms-and-the-weight-one-boundary",
-   "target": "AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma",
-   "reason": "Lemme 6.11 requires M free of finite type over the discrete valuation ring; in the application 6.10 M is the O_lambda-module of modular forms of type (k, eps) on Gamma_0(N). The freeness and finite generation of that module over O_lambda is exactly what the base-change theorem supplies, and only within its hypotheses (k >= 2, or k = 1 with small level).",
-   "sources": [
-    {
-     "sourceId": "deligne-serre74",
-     "locator": "6.10 and Lemme 6.11, printed p. 522"
-    },
-    {
-     "sourceId": "katz73-padic-properties",
-     "locator": "Theorem 1.7.1, printed p. 85 (Ka-17)"
-    }
-   ]
-  },
-  {
    "source": "AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma",
    "target": "AlgebraicModularFormsAndSerreWeights:R15.6/residual-modularity-with-a-chosen-place-and-coefficient-field",
    "reason": "Serre's property (3.1.6) - every common system of Hecke eigenvalues in F_p-bar lifts to characteristic zero - is justified in the source by an explicit citation to Deligne-Serre lemme 6.11, and it is what makes the definition of residual modularity by reduction from characteristic zero nonvacuous.",
@@ -1192,17 +1254,6 @@
     {
      "sourceId": "serre87-duke",
      "locator": "3.1, (3.1.6), printed pp. 194-195"
-    }
-   ]
-  },
-  {
-   "source": "AlgebraicModularFormsAndSerreWeights:R15.6/realizability-over-the-field-of-characteristic-polynomials",
-   "target": "AlgebraicModularFormsAndSerreWeights:R15.6/residual-modularity-with-a-chosen-place-and-coefficient-field",
-   "reason": "Deligne's representation rho_f is produced in 6.12 as a semisimplification of a reduction, a priori over the residue field of a large extension; Lemme 6.13 is what places it over the field k_f generated by the a_p and the reductions of eps(p), i.e. it is what makes 'a coefficient field and a prime over p' in the residual-modularity definition well posed.",
-   "sources": [
-    {
-     "sourceId": "deligne-serre74",
-     "locator": "6.12-6.13, printed p. 523"
     }
    ]
   },
@@ -1219,12 +1270,38 @@
   },
   {
    "source": "AlgebraicModularFormsAndSerreWeights:R15.4/edixhoven-weight-k-rho-and-its-comparison-with-serre-k",
-   "target": "SerreWeightAndLevelOptimisation:R20.1",
-   "reason": "Requested, not asserted: R15.6's existing consumer edge to R20.1 carries the weight-and-level target. Edixhoven Thm 4.5 is a weight-optimisation theorem conditional on prior modularity, so it belongs to the optimisation roadmap's inputs. The exact output offered is: given rho modular of some type (N, k, eps) with p prime to N, an eigenform of type (N, k_rho, eps) with the same T_l eigenvalues for l different from p, and of type (N, k(rho), eps) when rho is not exceptional. EXT-13 owns R20 and should confirm scope before this edge is integrated.",
+   "target": "SerreWeightAndLevelOptimisation:R20.3",
+   "reason": "Re-targeted by the reviewer from R20.1 to R20.3. R20.1 is 'Level-changing algebra and cohomology' (old/new sequences, congruence modules, removing primes from the level) and does not consume a weight recipe. R20.3, 'Weight optimisation at p', undertakes to 'Prove the Edixhoven/Serre weight theorem', i.e. Edixhoven Thm 4.5, whose statement and proof use Def. 4.3 (k(rho_p)) and Remark 4.4 (comparison with Serre's k_rho) supplied by this node. Exact output: the local recipe k(rho_p), its two discrepancies from k_rho, and the notion 'not exceptional'. The stage edge AlgebraicModularFormsAndSerreWeights:R15.4 -> SerreWeightAndLevelOptimisation:R20.3 is new relative to the atlas; R15.4 is already upstream of R20.1 -> R20.2 -> R20.3, so no cycle is created. EXT-13 owns R20 and should confirm.",
    "sources": [
     {
      "sourceId": "edixhoven-weight",
-     "locator": "Theorem 4.5, p. 11 of the DVI"
+     "locator": "Theorem 4.5 and its proof, pp. 11-12 of the DVI; Definition 4.3 and Remark 4.4, p. 10"
+    }
+   ]
+  },
+  {
+   "source": "AlgebraicModularFormsAndSerreWeights:R15.1/level-one-and-two-by-descent-with-explicit-inverted-primes",
+   "target": "AlgebraicModularFormsAndSerreWeights:R15.2/integral-hecke-operators-from-q-expansions",
+   "reason": "Added by the reviewer. Katz Cor. 1.11.4 constructs T_l on level-one forms with arbitrary Z-module coefficients by viewing the module of level-one forms as the fibre product of the level-n, level-m and level-nm modules for coprime n, m >= 3 prime to l (diagram 1.11.4.1) - the descent description of level-one forms that this node supplies (there with the auxiliary levels 3 and 4). Prop. 1.11.3 at n = 2 uses the level-two base change Thm 1.8.1.",
+   "sources": [
+    {
+     "sourceId": "katz73-padic-properties",
+     "locator": "Proof of Corollary 1.11.4, printed p. 93 (Ka-25); Proposition 1.11.3, printed pp. 92-93"
+    }
+   ]
+  },
+  {
+   "source": "AlgebraicModularFormsAndSerreWeights:R15.4/raynaud-prolongation-input-and-the-e-equals-p-minus-one-obstruction",
+   "target": "AlgebraicModularFormsAndSerreWeights:R15.4/finite-at-p-equals-peu-ramifie",
+   "reason": "Added by the reviewer. The proof of Edixhoven Prop. 8.2 (end of 8.3) uses Raynaud [21], 3.3.3 - at most one finite flat prolongation when e < p-1 - to see that for p > 2 every finite flat F-vector space scheme extension V_D of V_K is an extension of F_D by F^D_D; this node states Thm 3.3.3 with that hypothesis, and records that at p = 2 it is unavailable, which is why Edixhoven gives a separate p = 2 argument.",
+   "sources": [
+    {
+     "sourceId": "edixhoven-weight",
+     "locator": "End of 8.3, p. 27 of the DVI"
+    },
+    {
+     "sourceId": "raynaud74-type-p-p",
+     "locator": "Theorem 3.3.3, printed p. 268"
     }
    ]
   }
@@ -1245,7 +1322,9 @@
    "remaining": [
     "Finite generation of spaces of forms over a noetherian base, as distinct from base change, was not read; Katz 1.7.1 gives base change but the coherence statement was taken for granted.",
     "The comparison of Katz's Hecke q-expansion formula with the analytic Hecke normalization owned by ModularForms was not carried out against the analytic source.",
-    "The diamond operators and nebentype decomposition of the Hecke action were not read in Katz; only the T_l formula was."
+    "The diamond operators and nebentype decomposition of the Hecke action were not read in Katz; only the T_l formula was.",
+    "Katz Result 1.12.0 (special case of Swinnerton-Dyer's structure theorem), admitted in 1.12 and used in the proof of Thm 1.12.1, is proved only in Katz 4.4.1, which was not read.",
+    "Katz 1.10 (the coarse descriptions: omega^{tensor 12} descends to O(1) on P^1_Z at level one, omega^{tensor 2} to O(1) on the lambda-line at level two, with base change for those weights) was read by the reviewer but has no node."
    ]
   },
   {
@@ -1254,17 +1333,20 @@
    "remaining": [
     "The construction of theta is quoted from Edixhoven 3.1, which cites Katz [15] = 'A result on modular forms in characteristic p' (LNM 601). That source is not in the supplied library (checked: no file in references/papers or references/text matches it) and was not read. Next source action: obtain Katz, A result on modular forms in characteristic p, LNM 601, 53-61, and read the construction of theta and the proof that the kernel of the q-expansion map is (A-1).",
     "Frobenius and Verschiebung on mod p forms, and the Igusa-curve interpretation, were not read; Katz 1973 section 4.3 (Igusa's theorem) is in the library but was not inspected.",
-    "The theta-cycle classification is cited by Edixhoven to [13] section 7 for level one; that source was not read, so the classification is recorded as an imported, unverified input."
+    "The theta-cycle classification is cited by Edixhoven to [13] section 7 for level one; that source was not read, so the classification is recorded as an imported, unverified input.",
+    "Edixhoven section 7 imports: Robert [23], Thm B (B = E_{p+1} mod p for p >= 5, one of three constructions), and Serre [25], Theoreme 3 (Asterisque 24-25), to which the cases N = 1, p = 2 or 3 of Thm 3.4 are referred; neither was read."
    ]
   },
   {
    "stageId": "AlgebraicModularFormsAndSerreWeights:R15.4",
    "status": "partial",
    "remaining": [
-    "The p = 2 case of Serre's Proposition 4 is not written out in the source; only the p different from 2 case was read. Next source action: check whether Edixhoven section 8 (Prop. 8.2, which is stated for all p) plus Prop. 8.5 supplies the missing p = 2 argument, and if so record the substitution explicitly.",
+    "The p = 2 case of Serre's Proposition 4 is not written out in the source. Reviewer reading: Edixhoven Prop. 8.2 is stated for every p and the end of its proof (p. 27 of the DVI) gives an explicit p = 2 argument, so for rho_p of shape (8.1.1) finiteness at p is equivalent to peu ramifie also at p = 2. Still missing for the R15.4 obligation 'for p = 2 the classical weight is 2 exactly in the finite-flat case and 4 otherwise': a source argument that the irreducible (level-2) and unramified tame cases at p = 2 are finite (Raynaud Thm 3.4.3 with Remark 3.4.6 gives prolongation over a strictly henselian R, but descent to Z_2 when uniqueness fails is not written in any passage read), and the assembly with Serre 2.6.",
     "Raynaud sections 1 and 2 (classification of F-vector space schemes, schematic closure) were not read; only section 3 (Props 3.3.2, 3.3.6, Thms 3.3.3, 3.4.1, 3.4.3, Cor. 3.4.4) was inspected, which is enough to state the inputs Serre uses but not to prove them.",
     "Serre 2.7 (criterion for k <= p+1) and 2.9 (Proposition 5 on p-division points of semistable elliptic curves) were read but not given nodes.",
-    "Edixhoven Thm 2.6 (Fontaine's theorem) is proved in his section 6, which was not read; the theorem is used as an input to Thm 4.5 and its proof boundary is recorded as a gap."
+    "Edixhoven Thm 2.6 (Fontaine's theorem) is proved in his section 6, which was not read; the theorem is used as an input to Thm 4.5 and its proof boundary is recorded as a gap.",
+    "Theorem 4.5 of Edixhoven is recorded in node edixhoven-weight-k-rho-and-its-comparison-with-serre-k, but proving it is SerreWeightAndLevelOptimisation:R20.3's obligation; its minimality step imports Gross [10], Prop. 4.12, and a case-by-case check that is not displayed.",
+    "Raynaud Cor. 2.2.3 (existence of maximal and minimal prolongations), used in the proof of Edixhoven Prop. 8.2 and in Raynaud 3.3, was not read."
    ]
   },
   {
@@ -1273,7 +1355,8 @@
    "remaining": [
     "Deligne-Serre Thm 6.1 (the characteristic-zero construction of rho_f for k >= 2), which 6.12 invokes, was not read; it is owned by AutomorphicGaloisRepresentations R19.1.",
     "The 'possible need for a weight change' in the roadmap is only partially covered: the Eisenstein shift of 6.9 changes the weight within its class mod l-1, but the statement that not every Katz weight-one eigenform lifts to weight one in characteristic zero was located in Edixhoven Prop. 2.7 and its surrounding discussion rather than proved.",
-    "The application of the lifting lemma to modules of forms other than S(N,k,eps) on Gamma_0(N) (for instance to cohomology with torsion coefficients) was not read."
+    "The application of the lifting lemma to modules of forms other than S(N,k,eps) on Gamma_0(N) (for instance to cohomology with torsion coefficients) was not read.",
+    "Deligne-Serre 6.10 applies Lemme 6.11 to the O_lambda-module M of forms of type (k, eps) on Gamma_0(N) without arguing that M is free of finite type; the l-integrality of E_n and E_n = 1 mod l used in 6.9 are cited to [25] = Swinnerton-Dyer, not read."
    ]
   },
   {
@@ -1282,7 +1365,8 @@
    "remaining": [
     "Deligne's theorem 6.7 attaching rho_f to a mod p eigenform is quoted from Serre 3.1.7 and from the Deligne-Serre proof sketch 6.12; the underlying construction (Deligne, Formes modulaires et representations l-adiques) was not read here and is owned by AutomorphicGaloisRepresentations R19.1.",
     "The 'elementary character/determinant congruence' of the stage is covered by node determinant-parity-and-weight-mod-p-minus-one, but the finite-flat weight-two consequence is only stated for rho_p valued in GL_2(F_p) as in Serre's Proposition 4.",
-    "Shimura Thm 3.52, the source of the dimension comparison (3.1.3), is not in the supplied library and was not read."
+    "Shimura Thm 3.52, the source of the dimension comparison (3.1.3), is not in the supplied library and was not read.",
+    "Where Deligne-Serre Lemme 6.13 is consumed: it is used in Deligne-Serre's own proof of Thm 6.7 (rationality of rho over k_f), not in Serre's definition 3.1; the link realizability -> residual-modularity was removed by the reviewer and the placement question is recorded as a gap."
    ]
   }
  ],
@@ -1300,7 +1384,7 @@
    "neededBy": [
     "AlgebraicModularFormsAndSerreWeights:R15.4/weight-two-iff-finite-flat-at-p"
    ],
-   "detail": "Verified: the statement of Proposition 4 and its full proof for p different from 2, including the reduction to the two possible character pairs and the two exact sequences of finite flat group schemes. Not verified: the p = 2 case, which Serre disposes of with 'le cas p = 2 est un peu different, mais se traite de facon analogue' (printed p. 190). The roadmap's R15.4 explicitly demands the p = 2 dichotomy (weight 2 exactly in the finite-flat case, 4 otherwise), so this boundary sits directly on a stated stage obligation. The reason the p different from 2 argument does not transfer is now identified from the source: Serre's step 'd’apres [35], prop. 3.3.2, ce schema est unique' needs Raynaud's uniqueness statement, which holds under e < p-1; for R = Z_p one has e = 1, so the hypothesis is p >= 3, and at p = 2 one is in Raynaud's e = p-1 case where a simple group scheme can have two prolongations, one etale and one multiplicative (Raynaud Prop. 3.3.2, part 3, printed p. 267). Next source action: (a) check whether Edixhoven Prop. 8.2 - which is stated with no restriction on p - together with Serre 2.6 supplies the p = 2 statement without uniqueness; (b) read Serre 2.8 case (b) ('une construction directe, basee sur la classification des extensions de Z/pZ par mu_p') at p = 2; (c) consult Raynaud Remark 3.3.5 on the biconnected component, which is prolongation-independent even when e = p-1. Until then the p = 2 dichotomy must not be recorded as an available input."
+   "detail": "Verified: the statement of Proposition 4 and its full proof for p different from 2, including the reduction to the two possible character pairs and the two exact sequences of finite flat group schemes. Not verified: the p = 2 case, which Serre disposes of with 'le cas p = 2 est un peu different, mais se traite de facon analogue' (printed p. 190). The roadmap's R15.4 explicitly demands the p = 2 dichotomy (weight 2 exactly in the finite-flat case, 4 otherwise), so this boundary sits directly on a stated stage obligation. The reason the p different from 2 argument does not transfer is now identified from the source: Serre's step 'd’apres [35], prop. 3.3.2, ce schema est unique' needs Raynaud's uniqueness statement, which holds under e < p-1; for R = Z_p one has e = 1, so the hypothesis is p >= 3, and at p = 2 one is in Raynaud's e = p-1 case where a simple group scheme can have two prolongations, one etale and one multiplicative (Raynaud Prop. 3.3.2, part 3, printed p. 267). Next source action: (a) check whether Edixhoven Prop. 8.2 - which is stated with no restriction on p - together with Serre 2.6 supplies the p = 2 statement without uniqueness; (b) read Serre 2.8 case (b) ('une construction directe, basee sur la classification des extensions de Z/pZ par mu_p') at p = 2; (c) consult Raynaud Remark 3.3.5 on the biconnected component, which is prolongation-independent even when e = p-1. Until then the p = 2 dichotomy must not be recorded as an available input. Reviewer update (REVIEW-EXT-10-EXT-07): action (a) was carried out. Edixhoven Prop. 8.2 is stated for every prime, and the last sentences of its proof (end of 8.3, p. 27 of the DVI) treat p = 2 explicitly: 'If p = 2 and an extension V_D as in (2) exists, the functoriality of Ext and a non-zero morphism F_D -> F^D_D give an extension V_D of F_D by F^D_D.' Hence for rho_p of shape (8.1.1) - which at p = 2 is the whole wild case, since there alpha = 0 and beta = 1 - finite at p is equivalent to peu ramifie. This does not by itself give Proposition 4 at p = 2: the irreducible (fundamental characters of level 2) and tame cases still need prolongation over Z_2 (Raynaud Thm 3.4.3 and Remark 3.4.6 give it only over a strictly henselian base; descent to Z_2 when uniqueness fails is not written in any passage read), and Edixhoven's k(rho) adds 1, not 2, at p = 2. Actions (b) and (c) remain open."
   },
   {
    "title": "Serre's citation of Raynaud, and the p = 2 failure of uniqueness of the finite flat model",
@@ -1315,7 +1399,7 @@
    "neededBy": [
     "AlgebraicModularFormsAndSerreWeights:R15.4/edixhoven-weight-k-rho-and-its-comparison-with-serre-k"
    ],
-   "detail": "Verified: the statements of Thms 2.5, 2.6, 2.8, 2.9 and Prop. 2.7, and the place where each is used in the proof of Thm 4.5. Not verified: Edixhoven's section 6 proof of Thm 2.6 (pp. 16-23 of the DVI), Mazur's argument for Thm 2.8 cited to [22] section 6, and Gross's Thm 13.10. The source itself flags that Gross's paper has Hecke-equivariance compatibilities on pages 504-505 that were unchecked, and that for p > 2 the Coleman-Voloch theorem removes the dependence. Next source action: read Edixhoven section 6 in the supplied DVI (it is present and readable), and locate Gross, A tameness criterion for Galois representations associated to modular forms (mod p), Duke 1990 - not found in the supplied catalogue in this pass."
+   "detail": "Verified: the statements of Thms 2.5, 2.6, 2.8, 2.9 and Prop. 2.7, and the place where each is used in the proof of Thm 4.5. Not verified: Edixhoven's section 6 proof of Thm 2.6 (pp. 16-23 of the DVI), Mazur's argument for Thm 2.8 cited to [22] section 6, and Gross's Thm 13.10. The source itself flags that Gross's paper has Hecke-equivariance compatibilities on pages 504-505 that were unchecked, and that for p > 2 the Coleman-Voloch theorem removes the dependence. Next source action: read Edixhoven section 6 in the supplied DVI (it is present and readable), and locate Gross, A tameness criterion for Galois representations associated to modular forms (mod p), Duke 1990 - not found in the supplied catalogue in this pass. Reviewer additions: Thm 2.5 (Deligne) is also only stated, with the proof referred to [10] (Gross); the minimality part of Thm 4.5 imports Gross [10], Proposition 4.12 (k <= p+1 when T_p^* g is nonzero) and a case-by-case check that is not displayed."
   },
   {
    "title": "The analytic/GAGA comparison for geometric modular forms was not read",
@@ -1325,12 +1409,176 @@
    "detail": "Verified: nothing on this point. Not verified: the comparison between H^0(Mbar_n tensor C, omega^{tensor k}) and the classical space of weight-k forms. The library contains SS_SerreGAGA.pdf and references/text/SS_SerreGAGA.txt; neither was opened in this pass. Next source action: read GAGA sections 2-3 (the equivalence of coherent categories on a proper C-scheme and its analytification) and the R12.6 statement in data/atlas.json, then add an R15.1 node giving the comparison with the exact properness and coherence hypotheses."
   },
   {
-   "title": "Weight-one base change beyond level 12 is open in the source",
+   "title": "Weight-one base change at level n >= 12 is open in the source",
    "neededBy": [
-    "AlgebraicModularFormsAndSerreWeights:R15.2/base-change-for-spaces-of-forms-and-the-weight-one-boundary",
-    "AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma"
+    "AlgebraicModularFormsAndSerreWeights:R15.2/base-change-for-spaces-of-forms-and-the-weight-one-boundary"
    ],
-   "detail": "Verified: Katz Thm 1.7.1 and the Remark following it, which states that the author does not know whether formation of weight-one forms of level n > 12 commutes with base change. Not verified: any later resolution. This matters because the Deligne-Serre application 6.10 needs the relevant Hecke module to be free of finite type over O_lambda, and the Deligne-Serre argument avoids weight one precisely by the Eisenstein shift of 6.9. Next source action: check the literature on weight-one forms in families (for instance Katz's later work or the Deligne-Serre section 4) to see whether the base-change question has since been settled; until then, weight-one freeness must not be assumed."
+   "detail": "Verified: Katz Thm 1.7.1 and the Remark following it, which (page image) states that the author does not know whether formation of weight-one forms of level n >= 12 commutes with base change; for n >= 12 omega has degree <= 2g-2 on each component, with equality only for n = 12. The drafter's 'n > 12' was a text-layer artefact. Reviewer correction: the Deligne-Serre application 6.10 is not affected by this boundary - it works with classical forms on Gamma_0(N) with coefficients in O_lambda and does not cite Katz - so the Deligne-Serre lifting lemma was removed from neededBy (its own freeness input is recorded in a separate gap). Not verified: any later resolution. Next source action: check later literature on base change for Katz weight-one forms before any consumer assumes it."
+  },
+  {
+   "title": "Katz Result 1.12.0 is admitted in the proof of the strong q-expansion principle",
+   "neededBy": [
+    "AlgebraicModularFormsAndSerreWeights:R15.2/strong-q-expansion-principle-with-its-divisibility-hypothesis"
+   ],
+   "detail": "Verified: Katz 1.12 (printed pp. 93-95) proves Thm 1.12.1 using Result 1.12.0 - a form over a field of characteristic p not dividing n, of weight k >= 1 with p-1 not dividing k, whose q-expansions at all cusps are constants, vanishes - which is 'a special case of Swinnerton-Dyer's structure theorem (cf. [41], [43]), which will be proven later (cf. 4.4.1)'. Not verified: Katz 4.4.1 (not read) and the characteristic-0 field case, which the induction also meets but the printed hypotheses of 1.12.0 do not literally cover. Next source action: read Katz 4.4 in the library copy (ADD_KATZ73.pdf) and record the characteristic-0 case."
+  },
+  {
+   "title": "Small-level and weight-p+1 imports in Edixhoven's proof of Thm 3.4",
+   "neededBy": [
+    "AlgebraicModularFormsAndSerreWeights:R15.3/weight-reduction-to-at-most-p-plus-one"
+   ],
+   "detail": "Verified (reviewer, section 7, pp. 23-26 of the DVI): the proof for N >= 5, and for N = 2, 3, 4 and N = 1 with p > 3 by G-invariants. Not verified: the cases N = 1, p = 2 or 3, which the source refers to Serre [25], Theoreme 3 (Valeurs propres des operateurs de Hecke modulo l, Asterisque 24-25, 1975) - not in the supplied library; and Robert [23], Thm B, used for one of three constructions of B (the other two, via Kodaira-Spencer and via Katz [15], suffice together with Lemma 7.4). Next source action: obtain Serre's Asterisque 24-25 note, Theoreme 3."
+  },
+  {
+   "title": "Finite freeness of the Deligne-Serre module M is not argued in the source",
+   "neededBy": [
+    "AlgebraicModularFormsAndSerreWeights:R15.5/reduction-to-weight-at-least-two-and-to-a-true-eigenform"
+   ],
+   "detail": "Verified: Deligne-Serre 6.10 (printed p. 522) applies Lemme 6.11, which requires M free of finite type over the discrete valuation ring, to the O_lambda-module of forms of type (k, eps) on Gamma_0(N) with coefficients in O_lambda, with no argument that M is free of finite type. Reviewer finding: the drafter's link from Katz's base-change theorem 1.7.1 to the lemma was removed, because Deligne-Serre do not use it and its hypotheses (full level n invertible on the base) are not those of Thm 6.7 (lambda may divide N). A standard argument (M is a torsion-free O_lambda-submodule of a finite-dimensional K-space, injecting into O_lambda^m by finitely many q-expansion coefficients) is not in the passages read. Also unread: [25] = Swinnerton-Dyer, cited in 6.9 for the l-integrality of E_n and E_n = 1 mod l. Next source action: locate the finiteness statement in Deligne-Serre section 2 (Prop. 2.7 is cited by Serre 3.1.3) or in Shimura, and read Swinnerton-Dyer's Antwerp III paper for 6.9."
+  },
+  {
+   "title": "Consumer and placement of Deligne-Serre Lemme 6.13",
+   "neededBy": [
+    "AlgebraicModularFormsAndSerreWeights:R15.6/realizability-over-the-field-of-characteristic-polynomials"
+   ],
+   "detail": "Verified: Lemme 6.13 (printed p. 523) is used in 6.12 to realize Deligne's mod-lambda representation over k_f, i.e. inside Deligne-Serre's proof of Thm 6.7. Serre 1987 3.1.7 uses rho_f only with values in GL_2(F_p-bar) and does not invoke 6.13, so the drafter's link realizability -> residual-modularity asserted a use that the cited location does not make; the reviewer removed it. Re-targeting the link to AutomorphicGaloisRepresentations:R19.1 (which supplies the theorem attaching rho_f) would close the stage cycle R19.1 -> R15.6 -> R19.1 while the node's parent is R15.6. Orchestrator decision: move the node under R15.5 (the atlas already has R15.5 -> R19.1) and link it to R19.1, or keep it under R15.6 without an outgoing edge."
+  },
+  {
+   "title": "Ownership of Edixhoven Prop. 8.2 and of Raynaud's maximal prolongation",
+   "neededBy": [
+    "AlgebraicModularFormsAndSerreWeights:R15.4/finite-at-p-equals-peu-ramifie",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
+   ],
+   "detail": "Verified: Edixhoven's proof of Prop. 8.2 uses Raynaud [21], 2.2.3 (maximal finite flat prolongation) and [21], 3.3.3 (uniqueness for e < p-1, used for p > 2), Lemma 8.3, the Kummer sequence and Pic(K) = 0. The atlas stage R07.5 describes the conclusion of Prop. 8.2 ('the extension-class distinctions used in the peu/tres ramifiee cases'), while R07.1's description covers Cor. 3.3.6 and Theorems 3.4.1/3.4.3 but does not name Raynaud's maximal/minimal prolongations (Cor. 2.2.3), which were not read. Next action: the orchestrator should decide whether R07.5 or R15.4 owns Prop. 8.2, and whether R07.1 is asked to state Raynaud Cor. 2.2.3 and Thm 3.3.3 explicitly."
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REVIEW-EXT-10-EXT-07",
+  "date": "2026-09-16",
+  "notes": "All 24 nodes and 17 links checked against the library copies (SHA-256 of all five files re-verified). Displayed formulas and inequalities were read on page images rendered from the PDFs, because the text layers drop inequality signs and primes; Edixhoven was re-read in a dvipdfmx conversion of the library DVI. Verdicts: 2 verified, 22 corrected, 0 unverifiable. Main corrections: Katz's weight-one base change is open for n >= 12, not n > 12; the T_l q-expansion formula uses the level structures alpha_n' and alpha_n'', not l.alpha_n and alpha_n; the omega construction is for n >= 3; Result 1.12.0 (proved only in Katz 4.4.1) is an admitted input of the strong q-expansion principle; Katz's p = 2 Hasse lifting exists for all n divisible by 3, 5, 7, 11; Edixhoven's Prop. 8.5 gives eps_1 = eps_2 (not theta_1 = theta_2) and m = 3 at p = 2; the proof of Prop. 8.2 lies at the end of 8.3 and treats p = 2 explicitly; Thm 3.4 at N = 1, p = 2, 3 is referred to Serre [25]. Serre's 'Raynaud th. 2.4.3' finding is confirmed on the page image. Links: 13 kept (3 annotated), 2 removed (Katz base change -> Deligne-Serre lemma: not used by Deligne-Serre; realizability -> residual modularity: Serre 3.1 does not use Lemme 6.13), 1 re-targeted (R20.1 -> R20.3, the stage that proves Edixhoven's theorem), 2 added (level-one descent -> Hecke operators; Raynaud Thm 3.3.3 -> Edixhoven Prop. 8.2). New cross-roadmap stage edges implied: R07.1 -> R15.4 and R15.4 -> R20.3; no cycle with the atlas stageEdges. Gaps 6 -> 11. All parentStageIds and coverage ids exist and belong to the roadmap. Packet status stays partial; open decisions (ownership of Edixhoven Prop. 8.2, placement of Lemme 6.13, p = 2 of Serre Prop. 4) are in the gaps and the review file.",
+  "checked": [
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.1/hodge-bundle-with-tate-curve-normalization",
+    "verdict": "corrected",
+    "note": "Katz 1.5 (pp. 82-83) matches, but the node said n >= 1: 1.4 gives M_n only for n >= 3 and 1.10 says levels 1, 2 have no fine moduli schemes; statement and hypotheses now say n >= 3. The Kodaira-Spencer extension is quoted (cf. A1.3.17 and [7] = Deligne, Bourbaki 355), not proved; proof step rewritten; 1.4 excerpt added."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.1/level-one-and-two-by-descent-with-explicit-inverted-primes",
+    "verdict": "corrected",
+    "note": "Page images of pp. 85-87: Thm 1.8.2 is S(Z,1,k) tensor_Z R_0 = S(R_0,1,k) for k >= 1 (the node gave only the intermediate Z[1/6] step); Thm 1.8.1 is printed with S(Z,2,k); Remark 1.8.2.2 concerns level one only, so 'these statements are false without inverting 2 and 3' was narrowed. Fibre-product description 1.8.2.1 checked."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.2/q-expansion-principle-and-its-vanishing-theorem",
+    "verdict": "corrected",
+    "note": "Thm 1.6.1, Cor. 1.6.2 and Cor. 1.9.1 match (pp. 83-88). The proof step for 1.6.1 was vacuous; replaced by the source argument (dual numbers, limits, completion, Grothendieck comparison, Krull intersection, depth and Cohen-Macaulay property) with those imports named."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.2/strong-q-expansion-principle-with-its-divisibility-hypothesis",
+    "verdict": "corrected",
+    "note": "Thm 1.12.1 and Cor. 1.12.2 match (pp. 94-95). The proof admits Result 1.12.0 (Swinnerton-Dyer structure theorem special case, proved only in Katz 4.4.1), which the node did not name; added to statement, hypotheses, proof steps (with the T_l argument, l > N) and gaps. Characteristic-0 field case not literally covered by 1.12.0 as printed."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.2/base-change-for-spaces-of-forms-and-the-weight-one-boundary",
+    "verdict": "corrected",
+    "note": "Thm 1.7.1 matches, but the page image of p. 85 prints the open case as weight one and level n >= 12 (text layer: n > 12); title, statement, proof steps and excerpt corrected. Acceptance item claiming the Deligne-Serre lifting argument depends on this theorem replaced (Deligne-Serre do not use it)."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.2/integral-hecke-operators-from-q-expansions",
+    "verdict": "corrected",
+    "note": "Formula (1.11.1.2) on the page image is b_i(alpha_n) = l^{k-1} a_{i/l}(alpha_n') + a_{li}(alpha_n'') with the modified level structures of 1.11.0.3-1.11.0.4, not a_{i/l}(l alpha_n) + a_{li}(alpha_n); definition 1.11.0.2 and Katz's explicit rejection of alpha_n o pi-check = l.pi(alpha_n) recorded. Prop. 1.11.3 (n >= 2, k >= 2 or 3 <= n <= 11, k >= 1) and Cor. 1.11.4 (k >= 2) verified on the image."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.3/hasse-invariant-as-a-form-of-weight-p-minus-one",
+    "verdict": "corrected",
+    "note": "Katz 2.0 (pp. 97-98) matches. The plane-curve method proves only holomorphy; the value 1 comes from the invariant-derivation computation, and the source has F*_abs(eta_can) = eta_can on the dual basis, not F_abs(omega_can) = omega_can. Supersingular-locus acceptance item marked as not from the passage."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.3/deligne-congruence-and-the-explicit-p-equals-2-3-liftings",
+    "verdict": "corrected",
+    "note": "Katz 2.1 (pp. 98-99) on page images: no level-one lifting over Q intersect Z_p (not 'over a p-adic ring'); the Remark gives p = 2 liftings for all n divisible by 3, 5, 7 or 11, which the node's 'restricted to odd n <= 11' contradicted; the choice paragraph prints n >= 2 for p = 3. Acceptance item had ord_p(2(p-1)/B_{p-1}) = -1; corrected to ord_p(B_{p-1}) = -1."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.3/theta-operator-filtration-and-hecke-commutation",
+    "verdict": "corrected",
+    "note": "Edixhoven 3.1 (pp. 7-8) matches. The proof step deriving T_p^*(theta f) = 0 was circular; it follows from the stated relation at l = p since p = 0. The relation is stated, not proved, in the source; Edixhoven takes A from Katz-Mazur [16] 12.4."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.3/theta-cycles-and-the-small-characteristic-tables",
+    "verdict": "corrected",
+    "note": "3.2 and Prop. 3.3 with proof (p. 8-9) match, including the p = 3 table. The p = 2 acceptance list was incomplete; replaced by the exact table ((4), (2) for a_2 = 0; (4), (4), (6) otherwise). Classification is asserted, with a level-one reference to Jochnowitz [13]."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.3/weight-reduction-to-at-most-p-plus-one",
+    "verdict": "corrected",
+    "note": "Thm 3.4 matches (p. 9). Section 7 (pp. 23-26) read in full: Prop. 7.3 is a Hecke-compatibility of Phi: S(N,k) -> M^0(N,p+1-k)^dual, not 'the composite map on S(N,k)'; N = 1 with p = 2, 3 is referred to Serre [25], Theoreme 3 (unread) - omitted by the node; 'i taken modulo p-1' was not the source's statement (0 <= i <= p-1)."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.4/tame-inertia-characters-of-a-local-residual-representation",
+    "verdict": "corrected",
+    "note": "Prop. 1 with proof and 2.2 opening (p. 183) match; the node's garbled description of the [41] prop. 4 input was reworded and the 'on verifie facilement' step marked as asserted. No mathematical change."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.4/serre-weight-tame-cases",
+    "verdict": "corrected",
+    "note": "2.2-2.3 with Remarks (pp. 183-185) match on page images. The twisting formula k = k' + a(p+1) is stated by Serre only in the level-2 case (Remark 2 of 2.2); the statement now places it there and records phi' = psi^b psi'^a."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.4/peu-et-tres-ramifie-and-the-wild-case-weight",
+    "verdict": "corrected",
+    "note": "2.4 (pp. 185-187) matches. The Edixhoven step said Prop. 8.5 gives theta_1 = theta_2; the source says eps_1 = eps_2 (the unramified parts). Prop. 8.5 allows m = 3 at p = 2, so it corrects Serre's Remark (1) at p = 2 rather than merely sharpening it. The conjugation-action and Kummer steps are asserted in Serre."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.4/determinant-parity-and-weight-mod-p-minus-one",
+    "verdict": "verified",
+    "note": "1.3 (pp. 181-182) and Prop. 2 with its level-2 verification and 'les autres cas sont analogues' (p. 187) match the statement, hypotheses and proof steps."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.4/weight-two-iff-finite-flat-at-p",
+    "verdict": "corrected",
+    "note": "Props 3 and 4 with proof (pp. 188-190) match on page images. The p != 2 restriction applies only to case (ii) of one direction; the converse cites the nonexistent 'th. 2.4.3' and only sketches the level-1 branch - hypotheses rewritten. Excerpt restored to 'au cas p != 2'."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.4/finite-at-p-equals-peu-ramifie",
+    "verdict": "corrected",
+    "note": "8.1-8.6 (pp. 26-28) read in the dvipdfmx conversion. Proof steps misattributed the equivalence to the 8.4.3 valuation dichotomy; the proof of (1) <=> (2) is at the end of 8.3 and treats p = 2 explicitly. The dichotomy says 'lambda = 1 and eps is trivial', not 'chi is trivial'; it yields Prop. 8.5. Imports [21] 2.2.3 and 3.3.3 named; converse of Prop. 8.6 added."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.4/edixhoven-weight-k-rho-and-its-comparison-with-serre-k",
+    "verdict": "corrected",
+    "note": "Def. 4.3, Remark 4.4, Thm 4.5 and proof (pp. 10-12) match. Serre's tame normalization is the same as Edixhoven's (only the (0,0) value differs); the k(rho) conclusion is for 'an eigenform'; minimality imports Gross [10] Prop. 4.12 and an undisplayed case check; Thm 4.5 is R20.3's obligation."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma",
+    "verdict": "verified",
+    "note": "Lemme 6.11, its proof and the Variante (p. 522) match on the page image, including the explicit warning that only eigenvalues lift."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.5/reduction-to-weight-at-least-two-and-to-a-true-eigenform",
+    "verdict": "corrected",
+    "note": "6.6-6.12 (pp. 521-523) on page images: Thm 6.7 has k >= 1 and 6.9 needs n even > 2; [25] is Swinnerton-Dyer, not Serre; Deligne-Serre never argue that M is free of finite type (and do not use Katz's base change). 6.12 details added."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.4/raynaud-prolongation-input-and-the-e-equals-p-minus-one-obstruction",
+    "verdict": "corrected",
+    "note": "Raynaud pp. 265-271 on page images. Standing hypotheses were overstated (strict henselianity is a 3.4 hypothesis, not of 3.3.2 or 3.3.6); Thm 3.3.3 (cited by Edixhoven) and Remark 3.4.6 added; Thm 3.4.3 is an iff. The 'th. 2.4.3' finding is confirmed: Serre's [35] is Bull. SMF 102 (1974), whose section 2 has only 2.1-2.3 and numbered results 2.2.2, 2.2.3, 2.3.1."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.6/residual-modularity-with-a-chosen-place-and-coefficient-field",
+    "verdict": "corrected",
+    "note": "3.1 (pp. 192-195) matches on page images (N >= 1, k >= 2). 'A priori larger' is Serre's Remark (6), not Edixhoven; footnote 2 (weight k also weight k+p-1 fails for p = 2, 3 with the reduction definition) added."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.6/realizability-over-the-field-of-characteristic-polynomials",
+    "verdict": "corrected",
+    "note": "Lemme 6.13 and proof (p. 523) match; the hypothesis 'in residual characteristic 2 traces alone are insufficient' is not in the source and was moved to a reviewer-suggested acceptance check; [3] identified as Curtis-Reiner. Its outgoing link was removed (see gaps)."
+   },
+   {
+    "nodeId": "AlgebraicModularFormsAndSerreWeights:R15.6/serre-conjecture-target-with-N-k-epsilon",
+    "verdict": "corrected",
+    "note": "1.2 and 3.2 with Remarks (pp. 181, 195-197) match. The existence criterion for D and lambda^2 = eps_prim(l) l^{k-2} (which needs v_l(N) = 1 and v_l(cond eps) = 0) are asserted without proof in the source; Edixhoven's minimality concerns k(rho), not k_rho; excerpt of Remark (5) restored from the page image."
+   }
+  ]
+ }
 }
