@@ -1,0 +1,366 @@
+{
+ "job": "COMPARE-09",
+ "notes": {
+  "tauceti:Completed/EffectiveBounds": {
+   "targets": "Explicit bounds over a number field: |d_F| ≤ |disc b|, #{I ≠ 0 : N(I) ≤ X} ≤ X²·2ⁿ, h_F ≤ |d_F|·4ⁿ, [O_F^× : (O_F^×)²] ≤ 2ⁿ; a measure-free lattice packing/doubling engine; the effective Hermite–Minkowski count of number fields of bounded discriminant; explicit regulator lower bounds and unit-lattice volumes (Layer 3).",
+   "baselineHas": [
+    "NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le (TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean)",
+    "NumberField.card_ideal_absNorm_le (TauCeti/NumberTheory/EffectiveBounds/IdealCount/Basic.lean)",
+    "TauCeti.GeometryOfNumbers.ncard_inter_box_two_le_pow_mul_ncard_inter_box_one (TauCeti/NumberTheory/GeometryOfNumbers/Doubling.lean)",
+    "NumberField.Units.regulator_eq_one_of_rank_eq_zero (TauCeti/NumberTheory/EffectiveBounds/Regulator.lean); Mathlib's NumberField.dedekindZeta_residue already covers the class-number-formula volume side"
+   ],
+   "missing": [
+    "Layer 3 only: an explicit lower bound for the regulator in positive unit rank (a Kronecker-type gap for logarithmic embeddings of non-torsion units, then Minkowski's convex-body theorem on the unit lattice). One modest layer, nothing stacked on it; Brauer–Siegel is only an aspiration."
+   ]
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups": {
+   "targets": "Normalised Haar measure and averaging; Weyl's unitarian trick; compact Maschke; matrix coefficients; Schur orthogonality in L²(G); Peter–Weyl (uniform and L² density, Hilbert basis, isotypic decomposition L²(G) ≅ ⨁̂ End(V_π)); characters as a Hilbert basis of central L² functions; the SU(2) engine (classification of irreducibles, torus characters, Weyl integration and character formulas).",
+   "baselineHas": [
+    "TauCeti.peterWeylBasis and stdPeterWeylBasis (TauCeti/RepresentationTheory/Compact/PeterWeyl.lean)",
+    "TauCeti.ContRepresentation.isUnitarizable (Compact/Unitarizable.lean) and exists_orthogonal_irreducible_decomposition (Continuous/OrthogonalDecomposition.lean)",
+    "TauCeti.characterBasis (Compact/Character/Basis.lean)",
+    "TauCeti.SU2.existsUnique_nonempty_equiv_symPower (SU2/Exhaustion.lean) and weyl_integration_formula_normalized (SU2/Weyl/Orthogonality.lean, torus side only)"
+   ],
+   "missing": [
+    "The SU(2) Weyl integration formula itself: identify Haar measure on SU(2) ≅ S³ with the Weyl-chamber density (2π)⁻¹·4sin²θ (sphere-measure invariance plus a spherical-coordinate computation), then derive SU(2) character orthonormality through it",
+    "The isotypic Hilbert decomposition L²(G) ≅ ⨁̂_π End(V_π) as unitary G×G-representations (left regular action, block projections); only the right regular action and isotypic projectors on finite-dimensional representations exist"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations": {
+   "targets": "Path algebras and QuiverRep ≌ kQ-Mod; Krull–Schmidt; structure of finite-dimensional algebras (projective covers, Cartan matrix, basic algebras, Morita reduction, Gabriel's presentation kQ/I); Euler form, Ext¹, reflection and Coxeter functors; Gabriel's theorem (finite type ⇔ ADE, indecomposables ↔ positive roots); Auslander–Reiten theory (almost split sequences, AR quiver).",
+   "baselineHas": [
+    "TauCeti.isFiniteRepType_of_titsForm_posDef (TauCeti/RepresentationTheory/Quiver/FiniteRepType/PosDef.lean)",
+    "TauCeti.nonempty_iso_of_dimVector_eq_of_indecomposable (Quiver/Reflection/Uniqueness.lean), with sink/source reflection and Coxeter functors in Quiver/Reflection/",
+    "TauCeti/RingTheory/KrullSchmidt/{Existence,Uniqueness}.lean and TauCeti.jacobson_pathAlgebra_eq_arrowIdeal (Quiver/Radical.lean)",
+    "TauCeti.AuslanderReitenTranslate (TauCeti/Algebra/Module/AuslanderReiten/Translate.lean) and uniqueness of almost split sequences (TauCeti/CategoryTheory/AlmostSplit/Uniqueness.lean)"
+   ],
+   "missing": [
+    "Rest of Gabriel's theorem: every positive root realised by an indecomposable; positive-definite Tits form ⇔ ADE graph; infinite representation type for non-Dynkin quivers (Euclidean families in all orientations)",
+    "Ext¹ via the standard projective resolution and ⟨dim M, dim N⟩ = dim Hom − dim Ext¹ in general",
+    "Layer 3: primitive idempotent decompositions and semiperfectness, projective covers and injective envelopes for f.d. algebras, the Cartan matrix, basic algebras and Morita reduction, Gabriel's presentation A ≅ kQ_A/I",
+    "Layer 6: radical of the module category, stable categories and the AR formula, existence of almost split sequences, the AR quiver of a representation-finite algebra"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl": {
+   "targets": "Partition/tableau dictionary; Young subgroups and M^λ; Young symmetrizers; Specht modules, irreducibility and completeness; standard basis and hook-length formula; S_n character table and Murnaghan–Nakayama; Schur polynomials, Jacobi–Trudi, Frobenius characteristic, RSK; GL_d × S_n Schur–Weyl duality with the Schur-functor decomposition; Brauer algebras and orthogonal/symplectic Schur–Weyl duality.",
+   "baselineHas": [
+    "TauCeti.finrank_spechtModule_mul_prod_hookLength (TauCeti/RepresentationTheory/Symmetric/Specht/HookLength.lean), with completeness and absolute irreducibility in Symmetric/Specht/",
+    "TauCeti.centralizer_range_tensorPowerRep_asAlgebraHom_eq_range_permTensorActionAlgHom (Symmetric/TensorAction/GeneralLinear.lean)",
+    "Schur polynomials with Kostka numbers and the Schur basis (TauCeti/RingTheory/MvPolynomial/Symmetric/Schur/Basis.lean); rim hooks (TauCeti/Combinatorics/Young/RimHook.lean)",
+    "TauCeti.composeDiagram_assoc (TauCeti/Combinatorics/Brauer/Associativity.lean) and TauCeti.YoungTableau.weylModule (RepresentationTheory/ClassicalGroups/WeylModule.lean)"
+   ],
+   "missing": [
+    "Murnaghan–Nakayama rule",
+    "Jacobi–Trudi, the Frobenius characteristic p_μ = Σ χ^λ(μ) s_λ, RSK for permutations and ℕ-matrices with the Cauchy identity",
+    "Schur-functor decomposition (ℂᵈ)^{⊗n} ≅ ⊕ S^λ ⊗ 𝕊^λ with GL_d-irreducibility, dimension and character s_λ",
+    "Brauer-algebra action on V^{⊗k} for O and Sp, the first fundamental theorem of invariant theory (surjectivity onto the commutant), the reverse centralizer, harmonic tensors and the trace filtration, semisimplicity of B_k(δ) for |δ| ≥ 2k−2"
+   ]
+  },
+  "KTheoryLowDegrees": {
+   "targets": "Ring K₀ via projectives and idempotent matrices; locally constant rank; λ-ring and det: K₀ → Pic; Steinitz K₀(A) ≅ ℤ ⊕ Pic(A) for Dedekind A, O_F, O_{F,S}; K₀ of regular and elliptic curves; comparison with π₀K and K₀(ℙ¹); stable GL and E(A), Whitehead lemma, K₁, SK₁, Dieudonné determinant, Bass–Milnor–Serre SK₁(O_{F,S}) = 0; relative K₁ and transfers; the π₁BGL(A)⁺ comparison.",
+   "baselineHas": [
+    "TauCeti.SplitK0 (TauCeti/CategoryTheory/GrothendieckGroup/Split.lean) and exact K₀ (GrothendieckGroup/Exact.lean)",
+    "TauCeti.cartanMap (TauCeti/Algebra/Category/ModuleCat/CartanMap.lean)",
+    "Mathlib Module.Invertible and the Picard group (Mathlib/RingTheory/PicardGroup.lean); Module.rankAtStalk (Mathlib/RingTheory/Spectrum/Prime/FreeLocus.lean)",
+    "Mathlib transvections (Mathlib/LinearAlgebra/Matrix/Transvection.lean)"
+   ],
+   "missing": [
+    "Own explicit layers: idempotent-matrix presentation of ring K₀, rank, λ-ring and determinant, Steinitz classification; stable GL and E(A), Whitehead lemma, K₁/SK₁, Bass–Milnor–Serre (Mennicke symbols, congruence arguments), relative K₁ and transfer",
+    "Imported for U.5/U.6: GeneralAlgebraicKTheory K.1–K.2 (Q-construction, plus model) on StableHomotopyKTheory H.1–H.4 (classifying spaces, Quillen A/B, plus construction, group completion)",
+    "Imported for Z.5/Z.6: SchemeKTheoryOperations S.1–S.7 (perfect complexes, scheme K/G-theory, localisation, descent, projective bundles, λ/Adams operations, Chern classes and Grothendieck–Riemann–Roch) on GeneralAlgebraicKTheory K.3–K.7 and H.5 spectra/S-delooping, which rest on EnhancedDerivedSheaves E0/E5 ∞-categories"
+   ]
+  },
+  "StableHomotopyKTheory": {
+   "targets": "Nerves and classifying spaces (BG is a K(G,1), bar vs singular homology); homotopy fibres, Quillen's Theorems A and B, bisimplicial realisation; the plus construction; the group completion theorem; a spectrum model with stable homotopy category and S-construction delooping; Bockstein sequences, p-completion, Milnor lim¹, spectral sequences of filtered spectra.",
+   "baselineHas": [
+    "Mathlib CategoryTheory.nerve (Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean) and SSet.KanComplex (SimplicialSet/KanComplex.lean)",
+    "Mathlib geometric realisation adjunction (AlgebraicTopology/SimplicialSet/TopAdj.lean) and model-category basics (AlgebraicTopology/ModelCategory/)",
+    "TauCeti.IsEilenbergMacLaneSpaceOne (TauCeti/AlgebraicTopology/EilenbergMacLane/Basic.lean)",
+    "Mathlib spectral objects in abelian categories (Mathlib/Algebra/Homology/SpectralObject/)"
+   ],
+   "missing": [
+    "H.1–H.2: BG as K(G,1) with local coefficients, homotopy-fibre sequences, Quillen's Theorems A and B, the bisimplicial lemma",
+    "H.3–H.4: plus construction and the group completion theorem",
+    "H.5–H.6: spectra and the stable homotopy category, S-construction delooping and smash products; Bockstein, completion, lim¹, convergent spectral sequences",
+    "Imported: EnhancedDerivedSheaves E0 (quasicategories, straightening, stable ∞-categories) and E5:abstract (symmetric monoidal ∞-categories); GeneralAlgebraicKTheory K.1 and K.4:construction (Q- and Waldhausen S-constructions)"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/ProfiniteProPGroups": {
+   "targets": "Profinite foundations; supernatural order, index and Lagrange; profinite Sylow theory; pro-p groups, maximal pro-p quotient, Frattini/Burnside, rank, Schreier, Hopf, Gaschütz; free pro-p and pro-C groups; presentations, extensions and H², embedding problems, relation rank, Golod–Shafarevich; cd_p (Serre's theorem, Euler formulas, Nielsen–Schreier); Demushkin groups; lower p-series and finite-quotient determinacy; the Demushkin–Serre–Labute classification; free pro-C groups on profinite spaces.",
+   "baselineHas": [
+    "TauCeti.exists_isProPSylow (TauCeti/Topology/Algebra/Group/Profinite/Sylow/Existence.lean)",
+    "TauCeti.maximalProPQuotient (Topology/Algebra/Group/Profinite/MaximalProP.lean)",
+    "TauCeti.topologicallyGenerates_iff_frattiniQuotient (Profinite/ProP/Burnside.lean); supernatural numbers and profinite Lagrange (TauCeti/NumberTheory/Supernatural.lean, Profinite/Lagrange.lean)",
+    "Low-degree continuous cohomology with Shapiro in degrees 0–1 (TauCeti/RepresentationTheory/Homological/ContCohomology/)"
+   ],
+   "missing": [
+    "Rest of Layer 3 (Schreier bound, Gaschütz lifting, cardinal rank) and Layer 4: free pro-p/pro-C groups, the ℤ_p-module structure theorem for abelian pro-p groups",
+    "Layer 5: presentations, extensions ↔ H², embedding problems and projectivity, H¹/H² rank interpretations, Golod–Shafarevich",
+    "Layer 6: cd_p theory (Serre's cd ≤ 1 ⇒ free, Euler formulas, pro-p Nielsen–Schreier), borrowing all-degree profinite cohomology, cd_p, closed-subgroup Shapiro and the five-term sequence, which the baseline lacks",
+    "Layers 7–10: Demushkin groups and their duality pairings; graded lower p-series and finite-quotient determinacy; char-2 bilinear forms, completed group algebras ℤ_p[[Γ]] and Labute's module; the Demushkin–Serre–Labute classification; free pro-C groups on profinite spaces"
+   ]
+  },
+  "FiniteFieldsAndCharacterSums": {
+   "targets": "Certified finite-field constructions (Frobenius, trace, norm, normal bases); additive and multiplicative characters, Gauss and Jacobi sums; Weil and Deligne square-root bounds for exponential sums via ℓ-adic trace functions; polynomial factorisation and point counting; Galois rings, permutation polynomials and codes; arithmetic applications.",
+   "baselineHas": [
+    "Mathlib gaussSum (Mathlib/NumberTheory/GaussSum.lean)",
+    "Mathlib jacobiSum (Mathlib/NumberTheory/JacobiSum/Basic.lean)",
+    "Mathlib GaloisField and the classification of finite fields (Mathlib/FieldTheory/Finite/GaloisField.lean)",
+    "Mathlib AlgebraicGeometry.Scheme.EllAdicCohomology (Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean), a bare definition with no theory"
+   ],
+   "missing": [
+    "Own: certified presentations and normal bases, factorisation and point-count algorithms, Galois rings and codes (moderate)",
+    "Imported for FF.2: WeilConjectures WC.0–WC.3 and DeligneWeightsAndPurity DWP.0–DWP.7 (Weil I and II), on EtaleDualityAndPerverseSheaves EDC.0–4 (six operations, Poincaré duality, purity), LefschetzPencilsAndVanishingCycles LPV.0–5, the unbuilt étale compact-support, base-change and trace-formula package, abelian schemes, algebraic spaces and stacks, EnhancedDerivedSheaves E0–E3",
+    "Imported for FF.4: SchemeAndStackFoundations SF.0–SF.3 (Picard schemes, Jacobians, Riemann–Roch)"
+   ]
+  },
+  "K3BlochGroups": {
+   "targets": "K₃(A) ≅ H₃(St(A), ℤ) through the superperfect Steinberg group, plus construction and Hurewicz; indecomposable K₃; pre-Bloch and Bloch groups with torsion conventions; the Bloch–Wigner/Suslin exact sequence; K₃(F_q) ≅ ℤ/(q²−1), K₃(ℤ) ≅ K₃(ℚ) ≅ ℤ/48, K₃(ℚ(i)); explicit Bloch elements, certificates and regulator comparisons.",
+   "baselineHas": [
+    "Mathlib groupHomology (Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean)",
+    "TauCeti.schurMultiplier (TauCeti/RepresentationTheory/ProjectiveRepresentation/SchurMultiplier.lean)",
+    "TauCeti.SplitK0 (TauCeti/CategoryTheory/GrothendieckGroup/Split.lean), K₀ only",
+    "Mathlib transvections (Mathlib/LinearAlgebra/Matrix/Transvection.lean); no Steinberg group, Milnor K-theory, Bloch group or dilogarithm"
+   ],
+   "missing": [
+    "Own: the homological model of K₃, K₃^ind, Bloch-group conventions, Suslin's exact sequence (configuration complexes, homology stability), the finite-field and K₃(ℤ) computations, certificates and regulator comparisons",
+    "Imported K-theory tower: StableHomotopyKTheory H.1–H.6, GeneralAlgebraicKTheory K.1–K.7, all of KTheoryLowDegrees, K2SymbolsBrauer T.1–T.6 (Matsumoto, tame kernels), SchemeKTheoryOperations S.1–S.6, EnhancedDerivedSheaves E0/E5",
+    "Imported arithmetic and motivic theory: MotivicEtaleKTheory M.1–M.7 (higher Chow groups, the norm-residue theorem with motives with transfers and Rost motives, the motivic spectral sequence, étale K-theory), ArithmeticKTheory N.1–N.5, Poitou–Tate duality, Borel's stable cohomology with arithmetic groups and reduction theory, Quillen's finite-field computation"
+   ]
+  },
+  "ModularSymbolsPadicLFunctions": {
+   "targets": "Modular symbols with Manin symbols and Hecke actions at arbitrary level, Eichler–Shimura; periods and algebraicity of critical values; p-stabilisation, overconvergent symbols, Stevens' control theorem and the interpolating p-adic L-function (RJW B.1); critical-slope constructions (Pollack–Stevens, Bellaïche); examples and coefficient changes.",
+   "baselineHas": [
+    "TauCeti.cuspFormsNew (TauCeti/NumberTheory/ModularForms/Newforms/Basic.lean), with Hecke operators in ModularForms/HeckeSlash/",
+    "Mathlib CuspForm.Λ_eq_mellin (Mathlib/NumberTheory/ModularForms/LFunction.lean)",
+    "Mathlib AbstractMeasure.amiceTransform (Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean)"
+   ],
+   "missing": [
+    "Own: modular symbols and Eichler–Shimura at general level; the Mellin formula and period normalisations; overconvergent symbols, the control theorem and interpolation; theta-critical and critical-slope theory",
+    "Imported for L1–L2: LocallyAnalyticDistributions L0–L4, PadicMeasuresIwasawaAlgebras L0–L3, Tate local zeta integrals",
+    "Imported for L3 (critical slope): PadicFamilies L0–L3 (Hida theory, eigencurve), ModularCurvesPartII R12–R14.1 (uniformisation, generalised elliptic curves, compactified integral moduli, Tate curve, Hecke correspondences), ComplexComparisonPartII C0–C5 (coherent analytic sheaves, GAGA, Chow), AlgebraicModuli R09 (Hilbert/Quot, algebraic spaces and stacks, coarse spaces), abelian schemes A1–A3"
+   ]
+  },
+  "AutomorphicSpectralTheory": {
+   "targets": "Functional analysis for the spectrum (direct integrals, trace-class operators, meromorphic operator families); Eisenstein series for general reductive groups; intertwining operators, meromorphic continuation and functional equations; Arthur truncation and Maass–Selberg relations; Langlands' spectral decomposition of L²; weighted cohomology; Arthur's coarse, fine and invariant trace formula.",
+   "baselineHas": [
+    "Mathlib NumberField.AdeleRing (Mathlib/NumberTheory/NumberField/AdeleRing.lean) and Haar measure (Mathlib/MeasureTheory/Measure/Haar/Basic.lean)",
+    "Mathlib Eisenstein series for SL₂(ℤ) only (Mathlib/NumberTheory/ModularForms/EisensteinSeries/Defs.lean)",
+    "TauCeti algebraic-group and Tits-system material (TauCeti/Algebra/AlgebraicGroup/, TauCeti/GroupTheory/TitsSystem/Bruhat/Basic.lean); nothing adelic or on automorphic forms for general groups"
+   ],
+   "missing": [
+    "Own: direct integrals, trace-class and nuclear spaces, meromorphic operator families; general Eisenstein series with intertwining operators, meromorphic continuation and functional equations; truncation and Maass–Selberg; the spectral decomposition; weighted cohomology (Franke); Arthur's invariant trace formula",
+    "Imported: AutomorphicFormsOnReductiveGroups AF.0–AF.3 ((g,K)-modules, Casselman–Wallach globalisation, van Est, cusp forms), AdelicAlgebraicGroups AA.0–AA.3 (adelic points, Tamagawa measures, reduction theory), SmoothRepresentationsOfLocalGroups SR.0–SR.3a (Jacquet functors, second adjointness, Bernstein centre, uniform admissibility), ArithmeticLocallySymmetricSpaces ALS.0–1, ReductiveGroupsPartII RG2.0"
+   ]
+  },
+  "DiamondsAndVStacks": {
+   "targets": "ECD §§2, 4, 7–13, 15: spectral-space, topos and stack foundations with cutoff cardinals; totally disconnected perfectoid spaces; pro-étale and v-topologies with v-descent; effective descent and morphisms of stacks; diamonds and small v-stacks; spatial diamonds and representability; analytic adic spaces as diamonds.",
+   "baselineHas": [
+    "TauCeti spectrality of Spa (TauCeti/AlgebraicGeometry/AdicSpace/Spa/Spectral.lean, spectralSpace_spa_of_pairOfDefinition); no structure sheaf, sheafiness or adic spaces yet",
+    "Mathlib untilt and Fontaine's θ (Mathlib/RingTheory/Perfectoid/Untilt.lean, FontaineTheta.lean) and Mathlib/RingTheory/Perfection.lean",
+    "Mathlib AlgebraicGeometry.Scheme.proetaleTopology (Mathlib/AlgebraicGeometry/Sites/Proetale.lean), for schemes only",
+    "TauCeti/Topology/Spectral/ProConstructible.lean"
+   ],
+   "missing": [
+    "Own: coherent-topos and stack foundations with cutoff cardinals, totally disconnected perfectoid spaces, pro-étale and v-sites with v-descent, diamonds and small v-stacks, spatial diamonds, analytic adic spaces as diamonds",
+    "Imported: PerfectoidSpaces P0–P6 (almost mathematics, tilting, sheafiness, almost purity), AdicEtaleGeometry A0–A4 and the unbuilt adic-space foundations",
+    "Imported through André's lemma (A3 needs Q4): PerfectoidQuotients Q0–Q4, PrismaticCohomology PR.0–2, DerivedDeRhamCohomology DD.0–DD.5, CrystallineCohomology CR.0–2, EnhancedDerivedSheaves E0–E5:animation (quasicategories, derived sheaves, animated rings)"
+   ]
+  },
+  "AdicCoefficientsAndComparisons": {
+   "targets": "ECD §§26–27: I-adic coefficients with six operations on diamonds; scheme-to-v-sheaf constructions; non-noetherian Nagata compactification and qcqs Rf!; characteristic-p and mixed-characteristic cohomological comparisons; de Jong alterations with normal-crossing calculations; constructible direct-image comparison and full faithfulness.",
+   "baselineHas": [
+    "Mathlib AlgebraicGeometry.Scheme.ellAdicSheaf and EllAdicCohomology (Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean), definitions only",
+    "Mathlib étale and pro-étale sites of schemes (Mathlib/AlgebraicGeometry/Sites/Etale.lean, Proetale.lean)",
+    "TauCeti spectrality of Spa (TauCeti/AlgebraicGeometry/AdicSpace/Spa/Spectral.lean)"
+   ],
+   "missing": [
+    "Own: adic coefficient categories with six operations, scheme-to-v-sheaf functors, qcqs compactification, comparison theorems 27.1–27.7, de Jong's alterations",
+    "Imported: all of DiamondsAndVStacks and its perfectoid, prismatic, derived-algebra and ∞-categorical closure; DiamondEtaleCohomology C0–C9; DiamondSixOperations S0–S5; ClassicalAdicEtaleCohomology H0–H5; EtaleDualityAndPerverseSheaves EDC.0–4; LefschetzPencils LPV.0–2; EnhancedDerivedSheaves E4; algebraic spaces and stacks"
+   ]
+  },
+  "PadicLocalLanglandsForGL2Qp": {
+   "targets": "Robba rings and (φ,Γ)-modules with the GL₂(ℚ_p) normalisation; mod-p, unitary Banach and locally analytic representation categories with the mod-p classification; Colmez's functor; locally algebraic vectors and classical compatibility; blocks, projective envelopes and deformation rings; the Paškūnas, Hu–Tan and Tung local results including p = 2, 3.",
+   "baselineHas": [
+    "Mathlib WittVector.frobenius (Mathlib/RingTheory/WittVector/Frobenius.lean)",
+    "Mathlib BDeRhamPlus and Fontaine's θ (Mathlib/RingTheory/Perfectoid/BDeRham.lean, FontaineTheta.lean)",
+    "TauCeti.GL2BorelRep, principal series of finite GL₂ (TauCeti/RepresentationTheory/CharacterTable/GL2/PrincipalSeries/Basic.lean)"
+   ],
+   "missing": [
+    "Own: the three local representation categories, Colmez's functor, locally algebraic vectors, Paškūnas' blocks and projective envelopes, the case-by-case local theorems",
+    "Imported: (φ,Γ)-modules PG.0–PG.3 (Fontaine equivalence, overconvergence, Herr complex) and p-adic period rings",
+    "Imported through local Langlands for GL₂ (R16.3, which imports EndoscopicTransfer ET.6): smooth representation theory and local factors, Arthur's trace formula (AutomorphicSpectralTheory AS.0–AS.4, AS.6), fundamental-lemma machinery, Shimura varieties and PEL moduli, Deligne weights DWP.0–9, étale duality and perverse sheaves EDC.0–7, AdicCoefficientsAndComparisons L0–L6 with diamonds, perfectoid and prismatic theory (224 outside stages in all)"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+   "b": "tauceti:Completed/EffectiveBounds",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "CompactGroups still lacks the SU(2) Weyl integration formula (Haar measure on SU(2) ≅ S³ pushed to the torus-angle density) and the G×G isotypic decomposition L²(G) ≅ ⨁̂ End(V_π), whereas EffectiveBounds lacks only an explicit positive-rank regulator lower bound, a gap-principle-plus-Minkowski argument (the class-number-formula volume is already Mathlib's dedekindZeta_residue). Both are nearly finished, so the margin is small."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "QuiverRepresentations still needs projective covers, basic algebras and Gabriel's presentation for finite-dimensional algebras, the surjective and non-Dynkin halves of Gabriel's theorem, Ext¹, and existence of almost split sequences with the AR quiver; CompactGroups already has Peter–Weyl and the character basis and lacks only the SU(2) Weyl integration formula and the L² isotypic decomposition."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Both remainders sit on large built foundations: QuiverRepresentations lacks finite-dimensional-algebra structure theory (projective covers, Morita reduction, Gabriel presentation), the rest of Gabriel's theorem and AR existence with the AR quiver; SchurWeyl lacks Murnaghan–Nakayama, Jacobi–Trudi, the Frobenius characteristic, RSK, the Schur-functor decomposition, and orthogonal/symplectic Brauer duality with the first fundamental theorem of invariant theory and Brauer-algebra semisimplicity. The last two have no foothold in the library, which tips it slightly to SchurWeyl."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+   "b": "KTheoryLowDegrees",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "SchurWeyl's remainder is combinatorics and representation theory (Murnaghan–Nakayama, RSK, Schur functors, Brauer-algebra duality), while KTheoryLowDegrees needs Steinitz theory, Whitehead/SK₁ and Bass–Milnor–Serre and, for its U.6, Z.5 and Z.6 layers, the plus construction, Quillen and Waldhausen K-theory, scheme K-theory with Grothendieck–Riemann–Roch and ∞-categorical foundations, none of which exists."
+  },
+  {
+   "a": "KTheoryLowDegrees",
+   "b": "StableHomotopyKTheory",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "StableHomotopyKTheory needs classifying spaces, Quillen A/B, the plus construction, group completion and spectra over imported ∞-category foundations; KTheoryLowDegrees imports all of that except H.6 (through GeneralAlgebraicKTheory K.2–K.7) and adds scheme K-theory with λ-operations and Riemann–Roch (SchemeKTheoryOperations S.1–S.7) plus its own Steinitz, SK₁ and Bass–Milnor–Serre theory."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+   "b": "StableHomotopyKTheory",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "ProfiniteProPGroups has its profinite, Sylow, maximal pro-p and Frattini foundations built and still needs free pro-p groups, presentations, cd_p, Demushkin theory and Labute's classification (with all-degree profinite cohomology); StableHomotopyKTheory has none of classifying spaces, Quillen A/B, the plus construction, group completion or spectra, and also imports quasicategory straightening, symmetric monoidal ∞-categories and the Q/S-constructions."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+   "b": "FiniteFieldsAndCharacterSums",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "ProfiniteProPGroups' remaining layers (free pro-p groups, cd_p, Demushkin groups, Labute's classification) are deep but self-contained group theory on built foundations, whereas FiniteFieldsAndCharacterSums' Weil–Deligne bound layer imports Weil I and II (DeligneWeightsAndPurity DWP.0–7, WeilConjectures WC.0–3) with étale six operations, Lefschetz pencils and vanishing cycles, algebraic stacks and Picard schemes, none of which exists."
+  },
+  {
+   "a": "FiniteFieldsAndCharacterSums",
+   "b": "K3BlochGroups",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Both rest on monumental unbuilt stacks: FiniteFieldsAndCharacterSums on Deligne's Weil II with étale duality, vanishing cycles, abelian schemes and algebraic stacks; K3BlochGroups on the norm-residue theorem and motivic cohomology (MotivicEtaleKTheory M.1–M.7) plus the whole higher K-theory tower (plus, Q- and S-constructions, scheme K-theory, K₂), Borel's stable cohomology and Poitou–Tate duality, besides Suslin's sequence and K₃(ℤ). K3BlochGroups' closure is larger (97 against 61 stages)."
+  },
+  {
+   "a": "ModularSymbolsPadicLFunctions",
+   "b": "K3BlochGroups",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "ModularSymbolsPadicLFunctions needs Eichler–Shimura, overconvergent symbols with Stevens' control theorem and, for critical slope, the eigencurve over integral moduli of generalised elliptic curves with GAGA and algebraic stacks; K3BlochGroups needs Suslin's theorem and K₃(ℤ) on the entire higher K-theory and homotopy tower, the norm-residue theorem with motivic cohomology, Borel's stable cohomology and Poitou–Tate duality, a much larger stack (97 against 57 stages)."
+  },
+  {
+   "a": "ModularSymbolsPadicLFunctions",
+   "b": "AutomorphicSpectralTheory",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "AutomorphicSpectralTheory needs Langlands' continuation of Eisenstein series, the spectral decomposition, weighted cohomology and Arthur's invariant trace formula over unbuilt (g,K)-module, reduction-theory and Bernstein foundations; ModularSymbolsPadicLFunctions needs Eichler–Shimura, overconvergent symbols and critical-slope theory over Hida families and the eigencurve, which rest on compactified integral moduli of generalised elliptic curves, GAGA, algebraic stacks and abelian schemes. That stack is broader and deeper (57 against 27 stages), but the trace formula keeps it close."
+  },
+  {
+   "a": "DiamondsAndVStacks",
+   "b": "AutomorphicSpectralTheory",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "AutomorphicSpectralTheory's missing theory is Langlands–Arthur spectral theory on reductive-group foundations, whereas DiamondsAndVStacks needs v-descent and diamond theory on perfectoid spaces with almost purity, prismatic cohomology and André's flatness lemma, derived de Rham and cotangent complexes, and the quasicategorical enhancement E0–E5: several independent large theories, stacked much deeper."
+  },
+  {
+   "a": "AdicCoefficientsAndComparisons",
+   "b": "DiamondsAndVStacks",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "AdicCoefficientsAndComparisons imports all of DiamondsAndVStacks (D0–D6 with its perfectoid, prismatic and ∞-categorical closure) and adds diamond étale cohomology with six operations, classical adic étale cohomology, étale duality, de Jong's alterations, non-noetherian Nagata compactification and the ECD §§26–27 comparison theorems."
+  },
+  {
+   "a": "AdicCoefficientsAndComparisons",
+   "b": "PadicLocalLanglandsForGL2Qp",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "PadicLocalLanglandsForGL2Qp imports six of the seven AdicCoefficientsAndComparisons layers (through local Langlands for GL_n) together with Arthur's trace formula, fundamental-lemma machinery, Shimura varieties, Weil II and (φ,Γ)-module theory, then adds Colmez's functor and Paškūnas' block theory; AdicCoefficientsAndComparisons needs none of that extra."
+  },
+  {
+   "a": "PadicLocalLanglandsForGL2Qp",
+   "b": "K3BlochGroups",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "K3BlochGroups needs the higher K-theory tower, the norm-residue theorem and Borel's theorem (97 stages), while PadicLocalLanglandsForGL2Qp's closure (230 stages) spans diamond and étale cohomology with six operations, Weil II, perfectoid and prismatic theory, Shimura varieties, the trace formula and fundamental lemma, (φ,Γ)-modules and its own Colmez–Paškūnas theory."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+   "b": "tauceti:Completed/EffectiveBounds",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "EffectiveBounds is complete apart from positive-rank regulator lower bounds, while QuiverRepresentations still needs Gabriel's presentation and Morita reduction, the rest of Gabriel's theorem, Ext¹, and almost split sequences with the AR quiver."
+  },
+  {
+   "a": "FiniteFieldsAndCharacterSums",
+   "b": "StableHomotopyKTheory",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "StableHomotopyKTheory needs classifying spaces, Quillen A/B, the plus construction, group completion and spectra over E0/E5 ∞-categories (16 stages); FiniteFieldsAndCharacterSums' bound layer needs Weil I and II with étale six operations, Lefschetz pencils and vanishing cycles, algebraic stacks, abelian schemes and the E0–E3 derived-sheaf enhancement (61 stages), a far larger stack."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "CompactGroups lacks only the SU(2) Weyl integration formula and the L²(G) isotypic decomposition, while SchurWeyl lacks Murnaghan–Nakayama, Jacobi–Trudi, the Frobenius characteristic, RSK, the Schur-functor decomposition and the whole orthogonal/symplectic Brauer-algebra duality with the first fundamental theorem."
+  },
+  {
+   "a": "ModularSymbolsPadicLFunctions",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ProfiniteProPGroups' remainder (free pro-p groups, cd_p, Demushkin and Labute theory) builds on existing profinite foundations, whereas ModularSymbolsPadicLFunctions needs modular symbols and Eichler–Shimura at general level, locally analytic distributions and control theorems, and for critical slope Hida families and the eigencurve over integral modular-curve moduli, GAGA and algebraic stacks."
+  },
+  {
+   "a": "AutomorphicSpectralTheory",
+   "b": "AdicCoefficientsAndComparisons",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "AutomorphicSpectralTheory needs Eisenstein series, the spectral decomposition and the trace formula on reductive-group foundations (27 stages); AdicCoefficientsAndComparisons needs diamonds with perfectoid, prismatic and ∞-categorical foundations, diamond and classical adic étale cohomology with six operations, étale duality and de Jong's alterations (102 stages)."
+  },
+  {
+   "a": "KTheoryLowDegrees",
+   "b": "tauceti:Completed/EffectiveBounds",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "EffectiveBounds lacks only positive-rank regulator lower bounds, while KTheoryLowDegrees still needs its explicit K₀/K₁ theory (Steinitz, Whitehead, SK₁, Bass–Milnor–Serre) and, for its comparison layers, the plus construction, Quillen and Waldhausen K-theory and scheme K-theory with Riemann–Roch."
+  },
+  {
+   "a": "DiamondsAndVStacks",
+   "b": "PadicLocalLanglandsForGL2Qp",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "PadicLocalLanglandsForGL2Qp imports all seven DiamondsAndVStacks layers with their perfectoid, prismatic and ∞-categorical closure, and on top of them adic coefficients, Weil II, Shimura varieties, the trace formula and fundamental lemma, (φ,Γ)-modules and Colmez–Paškūnas theory."
+  },
+  {
+   "a": "K3BlochGroups",
+   "b": "DiamondsAndVStacks",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "DiamondsAndVStacks needs diamond theory over perfectoid spaces, prismatic cohomology, derived de Rham and the E0–E5 enhancement (43 stages); K3BlochGroups needs the whole higher K-theory and homotopy tower on E0/E5, the norm-residue theorem with motivic cohomology, Borel's stable cohomology, Poitou–Tate duality and Suslin's theorem (97 stages)."
+  },
+  {
+   "a": "StableHomotopyKTheory",
+   "b": "AutomorphicSpectralTheory",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "StableHomotopyKTheory needs classifying spaces, Quillen A/B, the plus construction, group completion and spectra, importing quasicategory straightening and symmetric monoidal ∞-categories; AutomorphicSpectralTheory needs Langlands' Eisenstein series theory, truncation, the spectral decomposition, weighted cohomology and Arthur's invariant trace formula over (g,K)-module, adelic reduction-theory and Bernstein foundations. The automorphic stack is larger and deeper, but the ∞-categorical imports keep it close."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "SchurWeyl lacks Murnaghan–Nakayama, symmetric-function and RSK layers, Schur functors and Brauer-algebra duality over largely built Specht and Schur–Weyl foundations, while ProfiniteProPGroups still needs about seven stacked layers: free pro-p groups, presentations and H² extension theory, cd_p (with all-degree profinite cohomology and the five-term sequence), Demushkin duality, graded lower p-series and Labute's classification with completed group algebras."
+  }
+ ]
+}

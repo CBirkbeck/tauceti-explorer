@@ -37441,11 +37441,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-09.md",
    "timeout": 14400,
-   "state": "running",
+   "state": "done",
    "account": "claude2",
    "lane": 2,
    "startedAt": "2026-09-16T16:28:03Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-16T16:55:00Z",
+   "seconds": 1617,
+   "result": {
+    "judged": 24,
+    "pairs": 24
+   },
+   "note": ""
   },
   {
    "id": "COMPARE-10",
@@ -37507,11 +37514,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-11.md",
    "timeout": 14400,
-   "state": "running",
+   "state": "done",
    "account": "claude",
    "lane": 1,
    "startedAt": "2026-09-16T16:35:00Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-16T16:58:57Z",
+   "seconds": 1437,
+   "result": {
+    "judged": 24,
+    "pairs": 24
+   },
+   "note": ""
   },
   {
    "id": "COMPARE-12",
@@ -38504,6 +38518,1972 @@
    "prompt": "research/blueprint/prompts/COMPARE-45.md",
    "timeout": 14400,
    "state": "pending"
+  },
+  {
+   "id": "AUDIT-01",
+   "kind": "audit",
+   "priority": 0,
+   "order": 101.5,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry",
+    "ComplexComparisonPartII",
+    "SchemeAndStackFoundations",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-01.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-01.md",
+   "timeout": 21600,
+   "state": "running",
+   "account": "claude2",
+   "lane": 2,
+   "startedAt": "2026-09-16T16:55:00Z",
+   "attempts": 1
+  },
+  {
+   "id": "REV-AUDIT-01",
+   "kind": "review",
+   "priority": 0,
+   "order": 101.75,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry",
+    "ComplexComparisonPartII",
+    "SchemeAndStackFoundations",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-01.result.json",
+    "research/blueprint/reviews/REV-AUDIT-01.md"
+   ],
+   "after": [
+    "AUDIT-01"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-01.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-01"
+  },
+  {
+   "id": "AUDIT-02",
+   "kind": "audit",
+   "priority": 0,
+   "order": 102.5,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/HodgeStructures",
+    "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "tauceti:TauCetiRoadmap/StableReduction",
+    "ArithmeticGaloisDuality",
+    "GeometryOfNumbersAndQuadraticArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-02.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-02.md",
+   "timeout": 21600,
+   "state": "running",
+   "account": "claude6",
+   "lane": 1,
+   "startedAt": "2026-09-16T16:55:02Z",
+   "attempts": 1
+  },
+  {
+   "id": "REV-AUDIT-02",
+   "kind": "review",
+   "priority": 0,
+   "order": 102.75,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/HodgeStructures",
+    "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "tauceti:TauCetiRoadmap/StableReduction",
+    "ArithmeticGaloisDuality",
+    "GeometryOfNumbersAndQuadraticArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-02.result.json",
+    "research/blueprint/reviews/REV-AUDIT-02.md"
+   ],
+   "after": [
+    "AUDIT-02"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-02.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-02"
+  },
+  {
+   "id": "AUDIT-03",
+   "kind": "audit",
+   "priority": 0,
+   "order": 103.5,
+   "roadmapIds": [
+    "HigherLocalFieldsAndHigherClassFieldTheory",
+    "tauceti:Completed/EffectiveBounds",
+    "tauceti:Completed/IntegralLattices",
+    "tauceti:TauCetiRoadmap/Chebotarev",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-03.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-03.md",
+   "timeout": 21600,
+   "state": "running",
+   "account": "claude6",
+   "lane": 2,
+   "startedAt": "2026-09-16T16:55:02Z",
+   "attempts": 1
+  },
+  {
+   "id": "REV-AUDIT-03",
+   "kind": "review",
+   "priority": 0,
+   "order": 103.75,
+   "roadmapIds": [
+    "HigherLocalFieldsAndHigherClassFieldTheory",
+    "tauceti:Completed/EffectiveBounds",
+    "tauceti:Completed/IntegralLattices",
+    "tauceti:TauCetiRoadmap/Chebotarev",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-03.result.json",
+    "research/blueprint/reviews/REV-AUDIT-03.md"
+   ],
+   "after": [
+    "AUDIT-03"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-03.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-03"
+  },
+  {
+   "id": "AUDIT-04",
+   "kind": "audit",
+   "priority": 0,
+   "order": 104.5,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GlobalNumberFields",
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+    "tauceti:TauCetiRoadmap/Multiquadratic",
+    "tauceti:TauCetiRoadmap/NumberFieldArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-04.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-04.md",
+   "timeout": 21600,
+   "state": "running",
+   "account": "claude",
+   "lane": 1,
+   "startedAt": "2026-09-16T16:58:57Z",
+   "attempts": 1
+  },
+  {
+   "id": "REV-AUDIT-04",
+   "kind": "review",
+   "priority": 0,
+   "order": 104.75,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GlobalNumberFields",
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+    "tauceti:TauCetiRoadmap/Multiquadratic",
+    "tauceti:TauCetiRoadmap/NumberFieldArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-04.result.json",
+    "research/blueprint/reviews/REV-AUDIT-04.md"
+   ],
+   "after": [
+    "AUDIT-04"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-04.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-04"
+  },
+  {
+   "id": "AUDIT-05",
+   "kind": "audit",
+   "priority": 0,
+   "order": 105.5,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+    "tauceti:Completed/ContourIntegration",
+    "tauceti:Completed/OrthogonalL2Bases",
+    "tauceti:TauCetiRoadmap/ConformalMapping"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-05.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-05.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-05",
+   "kind": "review",
+   "priority": 0,
+   "order": 105.75,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+    "tauceti:Completed/ContourIntegration",
+    "tauceti:Completed/OrthogonalL2Bases",
+    "tauceti:TauCetiRoadmap/ConformalMapping"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-05.result.json",
+    "research/blueprint/reviews/REV-AUDIT-05.md"
+   ],
+   "after": [
+    "AUDIT-05"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-05.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-05"
+  },
+  {
+   "id": "AUDIT-06",
+   "kind": "audit",
+   "priority": 0,
+   "order": 106.5,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+    "tauceti:TauCetiRoadmap/OptimalTransport",
+    "AnalyticNumberTheory"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-06.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-06.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-06",
+   "kind": "review",
+   "priority": 0,
+   "order": 106.75,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+    "tauceti:TauCetiRoadmap/OptimalTransport",
+    "AnalyticNumberTheory"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-06.result.json",
+    "research/blueprint/reviews/REV-AUDIT-06.md"
+   ],
+   "after": [
+    "AUDIT-06"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-06.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-06"
+  },
+  {
+   "id": "AUDIT-07",
+   "kind": "audit",
+   "priority": 0,
+   "order": 107.5,
+   "roadmapIds": [
+    "ArithmeticStatistics",
+    "DiophantineApproximationAndTranscendence",
+    "ExponentialSumsAndCircleMethod",
+    "ProbabilisticAndMetricNumberTheory",
+    "SieveMethodsAndPrimePatterns"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-07.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-07.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-07",
+   "kind": "review",
+   "priority": 0,
+   "order": 107.75,
+   "roadmapIds": [
+    "ArithmeticStatistics",
+    "DiophantineApproximationAndTranscendence",
+    "ExponentialSumsAndCircleMethod",
+    "ProbabilisticAndMetricNumberTheory",
+    "SieveMethodsAndPrimePatterns"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-07.result.json",
+    "research/blueprint/reviews/REV-AUDIT-07.md"
+   ],
+   "after": [
+    "AUDIT-07"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-07.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-07"
+  },
+  {
+   "id": "AUDIT-08",
+   "kind": "audit",
+   "priority": 0,
+   "order": 108.5,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+    "AbelianSchemesAndArithmeticModuli",
+    "AnabelianGeometryAndNonabelianChabauty",
+    "ArakelovGeometryAndAbelianHeights",
+    "ArithmeticDynamics"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-08.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-08.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-08",
+   "kind": "review",
+   "priority": 0,
+   "order": 108.75,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+    "AbelianSchemesAndArithmeticModuli",
+    "AnabelianGeometryAndNonabelianChabauty",
+    "ArakelovGeometryAndAbelianHeights",
+    "ArithmeticDynamics"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-08.result.json",
+    "research/blueprint/reviews/REV-AUDIT-08.md"
+   ],
+   "after": [
+    "AUDIT-08"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-08.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-08"
+  },
+  {
+   "id": "AUDIT-09",
+   "kind": "audit",
+   "priority": 0,
+   "order": 109.5,
+   "roadmapIds": [
+    "ComplexMultiplicationAndExplicitReciprocity",
+    "EffectiveDiophantineMethods",
+    "FaltingsFinitenessAndIsogenyTheorems",
+    "HeightsRationalPointsAndObstructions",
+    "InverseGaloisAndArithmeticFundamentalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-09.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-09.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-09",
+   "kind": "review",
+   "priority": 0,
+   "order": 109.75,
+   "roadmapIds": [
+    "ComplexMultiplicationAndExplicitReciprocity",
+    "EffectiveDiophantineMethods",
+    "FaltingsFinitenessAndIsogenyTheorems",
+    "HeightsRationalPointsAndObstructions",
+    "InverseGaloisAndArithmeticFundamentalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-09.result.json",
+    "research/blueprint/reviews/REV-AUDIT-09.md"
+   ],
+   "after": [
+    "AUDIT-09"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-09.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-09"
+  },
+  {
+   "id": "AUDIT-10",
+   "kind": "audit",
+   "priority": 0,
+   "order": 110.5,
+   "roadmapIds": [
+    "ModularCurvesPartII",
+    "NeronModelsAndSemistableAbelianVarieties",
+    "PELModuli",
+    "ShimuraCompactifications",
+    "ShimuraData"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-10.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-10.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-10",
+   "kind": "review",
+   "priority": 0,
+   "order": 110.75,
+   "roadmapIds": [
+    "ModularCurvesPartII",
+    "NeronModelsAndSemistableAbelianVarieties",
+    "PELModuli",
+    "ShimuraCompactifications",
+    "ShimuraData"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-10.result.json",
+    "research/blueprint/reviews/REV-AUDIT-10.md"
+   ],
+   "after": [
+    "AUDIT-10"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-10.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-10"
+  },
+  {
+   "id": "AUDIT-11",
+   "kind": "audit",
+   "priority": 0,
+   "order": 111.5,
+   "roadmapIds": [
+    "ShimuraVarieties",
+    "SmallRamificationAndAbelianVarietyBaseCases",
+    "tauceti:TauCetiRoadmap/BelyiMaps",
+    "tauceti:TauCetiRoadmap/EllipticCurves"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-11.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-11.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-11",
+   "kind": "review",
+   "priority": 0,
+   "order": 111.75,
+   "roadmapIds": [
+    "ShimuraVarieties",
+    "SmallRamificationAndAbelianVarietyBaseCases",
+    "tauceti:TauCetiRoadmap/BelyiMaps",
+    "tauceti:TauCetiRoadmap/EllipticCurves"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-11.result.json",
+    "research/blueprint/reviews/REV-AUDIT-11.md"
+   ],
+   "after": [
+    "AUDIT-11"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-11.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-11"
+  },
+  {
+   "id": "AUDIT-12",
+   "kind": "audit",
+   "priority": 0,
+   "order": 112.5,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ModularCurves"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-12.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-12.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-12",
+   "kind": "review",
+   "priority": 0,
+   "order": 112.75,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ModularCurves"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-12.result.json",
+    "research/blueprint/reviews/REV-AUDIT-12.md"
+   ],
+   "after": [
+    "AUDIT-12"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-12.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-12"
+  },
+  {
+   "id": "AUDIT-13",
+   "kind": "audit",
+   "priority": 0,
+   "order": 113.5,
+   "roadmapIds": [
+    "AdelicAlgebraicGroups",
+    "AlgebraicModularFormsAndSerreWeights",
+    "ArithmeticLocallySymmetricSpaces",
+    "AutomorphicBundles",
+    "AutomorphicFormsOnReductiveGroups"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-13.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-13.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-13",
+   "kind": "review",
+   "priority": 0,
+   "order": 113.75,
+   "roadmapIds": [
+    "AdelicAlgebraicGroups",
+    "AlgebraicModularFormsAndSerreWeights",
+    "ArithmeticLocallySymmetricSpaces",
+    "AutomorphicBundles",
+    "AutomorphicFormsOnReductiveGroups"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-13.result.json",
+    "research/blueprint/reviews/REV-AUDIT-13.md"
+   ],
+   "after": [
+    "AUDIT-13"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-13.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-13"
+  },
+  {
+   "id": "AUDIT-14",
+   "kind": "audit",
+   "priority": 0,
+   "order": 114.5,
+   "roadmapIds": [
+    "AutomorphicLFunctionsAndLocalFactors",
+    "AutomorphicSpectralTheory",
+    "CompletedCohomologyPartII",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-14.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-14.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-14",
+   "kind": "review",
+   "priority": 0,
+   "order": 114.75,
+   "roadmapIds": [
+    "AutomorphicLFunctionsAndLocalFactors",
+    "AutomorphicSpectralTheory",
+    "CompletedCohomologyPartII",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-14.result.json",
+    "research/blueprint/reviews/REV-AUDIT-14.md"
+   ],
+   "after": [
+    "AUDIT-14"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-14.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-14"
+  },
+  {
+   "id": "AUDIT-15",
+   "kind": "audit",
+   "priority": 0,
+   "order": 115.5,
+   "roadmapIds": [
+    "HilbertModularVarietiesAndShimuraCurves",
+    "MetaplecticAutomorphicForms",
+    "OverconvergentAutomorphicForms",
+    "PadicFamilies",
+    "QSeriesPartitionsAndMockModularForms"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-15.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-15.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-15",
+   "kind": "review",
+   "priority": 0,
+   "order": 115.75,
+   "roadmapIds": [
+    "HilbertModularVarietiesAndShimuraCurves",
+    "MetaplecticAutomorphicForms",
+    "OverconvergentAutomorphicForms",
+    "PadicFamilies",
+    "QSeriesPartitionsAndMockModularForms"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-15.result.json",
+    "research/blueprint/reviews/REV-AUDIT-15.md"
+   ],
+   "after": [
+    "AUDIT-15"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-15.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-15"
+  },
+  {
+   "id": "AUDIT-16",
+   "kind": "audit",
+   "priority": 0,
+   "order": 116.5,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ModularForms",
+    "AdditiveCombinatorics",
+    "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+    "tauceti:TauCetiRoadmap/DenseGraphLimits"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-16.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-16.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-16",
+   "kind": "review",
+   "priority": 0,
+   "order": 116.75,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ModularForms",
+    "AdditiveCombinatorics",
+    "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+    "tauceti:TauCetiRoadmap/DenseGraphLimits"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-16.result.json",
+    "research/blueprint/reviews/REV-AUDIT-16.md"
+   ],
+   "after": [
+    "AUDIT-16"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-16.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-16"
+  },
+  {
+   "id": "AUDIT-17",
+   "kind": "audit",
+   "priority": 0,
+   "order": 117.5,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra",
+    "HabiroCyclotomicCompletions",
+    "HabiroRings",
+    "ComputationalNumberTheory",
+    "tauceti:TauCetiRoadmap/HopfRinow"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-17.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-17.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-17",
+   "kind": "review",
+   "priority": 0,
+   "order": 117.75,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra",
+    "HabiroCyclotomicCompletions",
+    "HabiroRings",
+    "ComputationalNumberTheory",
+    "tauceti:TauCetiRoadmap/HopfRinow"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-17.result.json",
+    "research/blueprint/reviews/REV-AUDIT-17.md"
+   ],
+   "after": [
+    "AUDIT-17"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-17.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-17"
+  },
+  {
+   "id": "AUDIT-18",
+   "kind": "audit",
+   "priority": 0,
+   "order": 118.5,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion",
+    "AdicCoefficientsAndComparisons",
+    "ClassicalAdicEtaleCohomology",
+    "DeligneWeightsAndPurity",
+    "EtaleDualityAndPerverseSheaves"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-18.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-18.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-18",
+   "kind": "review",
+   "priority": 0,
+   "order": 118.75,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion",
+    "AdicCoefficientsAndComparisons",
+    "ClassicalAdicEtaleCohomology",
+    "DeligneWeightsAndPurity",
+    "EtaleDualityAndPerverseSheaves"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-18.result.json",
+    "research/blueprint/reviews/REV-AUDIT-18.md"
+   ],
+   "after": [
+    "AUDIT-18"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-18.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-18"
+  },
+  {
+   "id": "AUDIT-19",
+   "kind": "audit",
+   "priority": 0,
+   "order": 119.5,
+   "roadmapIds": [
+    "HabiroCohomologyFoundations",
+    "LefschetzPencilsAndVanishingCycles",
+    "WeightsInEtaleCohomology",
+    "WeilConjectures",
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-19.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-19.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-19",
+   "kind": "review",
+   "priority": 0,
+   "order": 119.75,
+   "roadmapIds": [
+    "HabiroCohomologyFoundations",
+    "LefschetzPencilsAndVanishingCycles",
+    "WeightsInEtaleCohomology",
+    "WeilConjectures",
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-19.result.json",
+    "research/blueprint/reviews/REV-AUDIT-19.md"
+   ],
+   "after": [
+    "AUDIT-19"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-19.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-19"
+  },
+  {
+   "id": "AUDIT-20",
+   "kind": "audit",
+   "priority": 0,
+   "order": 120.5,
+   "roadmapIds": [
+    "DrinfeldModulesAndTModules",
+    "FunctionFieldArithmetic",
+    "GlobalShtukasAndFunctionFieldLanglands",
+    "BunGAndNewtonStrata",
+    "ExcursionOperatorsAndSpectralAction"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-20.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-20.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-20",
+   "kind": "review",
+   "priority": 0,
+   "order": 120.75,
+   "roadmapIds": [
+    "DrinfeldModulesAndTModules",
+    "FunctionFieldArithmetic",
+    "GlobalShtukasAndFunctionFieldLanglands",
+    "BunGAndNewtonStrata",
+    "ExcursionOperatorsAndSpectralAction"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-20.result.json",
+    "research/blueprint/reviews/REV-AUDIT-20.md"
+   ],
+   "after": [
+    "AUDIT-20"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-20.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-20"
+  },
+  {
+   "id": "AUDIT-21",
+   "kind": "audit",
+   "priority": 0,
+   "order": 121.5,
+   "roadmapIds": [
+    "GeometricSatakeAndFusion",
+    "HeckeStacksAndLocalShtukas",
+    "LanglandsParameterStacks",
+    "VStackSheavesAndLisseCategories",
+    "tauceti:TauCetiRoadmap/CFSGStatement"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-21.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-21.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-21",
+   "kind": "review",
+   "priority": 0,
+   "order": 121.75,
+   "roadmapIds": [
+    "GeometricSatakeAndFusion",
+    "HeckeStacksAndLocalShtukas",
+    "LanglandsParameterStacks",
+    "VStackSheavesAndLisseCategories",
+    "tauceti:TauCetiRoadmap/CFSGStatement"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-21.result.json",
+    "research/blueprint/reviews/REV-AUDIT-21.md"
+   ],
+   "after": [
+    "AUDIT-21"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-21.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-21"
+  },
+  {
+   "id": "AUDIT-22",
+   "kind": "audit",
+   "priority": 0,
+   "order": 122.5,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+    "EnhancedDerivedSheaves",
+    "tauceti:TauCetiRoadmap/DGAInfinity",
+    "tauceti:TauCetiRoadmap/GrothendieckEulerForms"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-22.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-22.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-22",
+   "kind": "review",
+   "priority": 0,
+   "order": 122.75,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+    "EnhancedDerivedSheaves",
+    "tauceti:TauCetiRoadmap/DGAInfinity",
+    "tauceti:TauCetiRoadmap/GrothendieckEulerForms"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-22.result.json",
+    "research/blueprint/reviews/REV-AUDIT-22.md"
+   ],
+   "after": [
+    "AUDIT-22"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-22.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-22"
+  },
+  {
+   "id": "AUDIT-23",
+   "kind": "audit",
+   "priority": 0,
+   "order": 123.5,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+    "AutomorphicCongruences",
+    "AutomorphicPadicLFunctions",
+    "ColemanIntegration"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-23.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-23.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-23",
+   "kind": "review",
+   "priority": 0,
+   "order": 123.75,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+    "AutomorphicCongruences",
+    "AutomorphicPadicLFunctions",
+    "ColemanIntegration"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-23.result.json",
+    "research/blueprint/reviews/REV-AUDIT-23.md"
+   ],
+   "after": [
+    "AUDIT-23"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-23.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-23"
+  },
+  {
+   "id": "AUDIT-24",
+   "kind": "audit",
+   "priority": 0,
+   "order": 124.5,
+   "roadmapIds": [
+    "ColemanPowerSeries",
+    "DirichletPadicLFunctions",
+    "EulerSystemsAndKolyvaginSystems",
+    "EulerSystemsCyclotomicMainConjecture",
+    "GeneralizedHeegnerCycles"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-24.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-24.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-24",
+   "kind": "review",
+   "priority": 0,
+   "order": 124.75,
+   "roadmapIds": [
+    "ColemanPowerSeries",
+    "DirichletPadicLFunctions",
+    "EulerSystemsAndKolyvaginSystems",
+    "EulerSystemsCyclotomicMainConjecture",
+    "GeneralizedHeegnerCycles"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-24.result.json",
+    "research/blueprint/reviews/REV-AUDIT-24.md"
+   ],
+   "after": [
+    "AUDIT-24"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-24.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-24"
+  },
+  {
+   "id": "AUDIT-25",
+   "kind": "audit",
+   "priority": 0,
+   "order": 125.5,
+   "roadmapIds": [
+    "GrossZagierAndArithmeticHeights",
+    "HeegnerPointEulerSystems",
+    "IntegralIwasawaTheory",
+    "KatoEulerSystems",
+    "LocallyAnalyticDistributions"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-25.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-25.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-25",
+   "kind": "review",
+   "priority": 0,
+   "order": 125.75,
+   "roadmapIds": [
+    "GrossZagierAndArithmeticHeights",
+    "HeegnerPointEulerSystems",
+    "IntegralIwasawaTheory",
+    "KatoEulerSystems",
+    "LocallyAnalyticDistributions"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-25.result.json",
+    "research/blueprint/reviews/REV-AUDIT-25.md"
+   ],
+   "after": [
+    "AUDIT-25"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-25.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-25"
+  },
+  {
+   "id": "AUDIT-26",
+   "kind": "audit",
+   "priority": 0,
+   "order": 126.5,
+   "roadmapIds": [
+    "ModularIwasawaMainConjectures",
+    "ModularSymbolsPadicLFunctions",
+    "NoncommutativeAndEquivariantIwasawa",
+    "PadicHodgeRegulators",
+    "PadicMeasuresIwasawaAlgebras"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-26.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-26.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-26",
+   "kind": "review",
+   "priority": 0,
+   "order": 126.75,
+   "roadmapIds": [
+    "ModularIwasawaMainConjectures",
+    "ModularSymbolsPadicLFunctions",
+    "NoncommutativeAndEquivariantIwasawa",
+    "PadicHodgeRegulators",
+    "PadicMeasuresIwasawaAlgebras"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-26.result.json",
+    "research/blueprint/reviews/REV-AUDIT-26.md"
+   ],
+   "after": [
+    "AUDIT-26"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-26.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-26"
+  },
+  {
+   "id": "AUDIT-27",
+   "kind": "audit",
+   "priority": 0,
+   "order": 127.5,
+   "roadmapIds": [
+    "PeriodsAndSpecialValues",
+    "RankZeroOneBSD",
+    "SelmerIwasawaCohomology",
+    "SpecialValuesBirchTate",
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-27.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-27.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-27",
+   "kind": "review",
+   "priority": 0,
+   "order": 127.75,
+   "roadmapIds": [
+    "PeriodsAndSpecialValues",
+    "RankZeroOneBSD",
+    "SelmerIwasawaCohomology",
+    "SpecialValuesBirchTate",
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-27.result.json",
+    "research/blueprint/reviews/REV-AUDIT-27.md"
+   ],
+   "after": [
+    "AUDIT-27"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-27.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-27"
+  },
+  {
+   "id": "AUDIT-28",
+   "kind": "audit",
+   "priority": 0,
+   "order": 128.5,
+   "roadmapIds": [
+    "BorelRegulators",
+    "EllipticKTheory",
+    "EllipticRegulators",
+    "GeneralAlgebraicKTheory",
+    "HabiroNumberFields"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-28.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-28.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-28",
+   "kind": "review",
+   "priority": 0,
+   "order": 128.75,
+   "roadmapIds": [
+    "BorelRegulators",
+    "EllipticKTheory",
+    "EllipticRegulators",
+    "GeneralAlgebraicKTheory",
+    "HabiroNumberFields"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-28.result.json",
+    "research/blueprint/reviews/REV-AUDIT-28.md"
+   ],
+   "after": [
+    "AUDIT-28"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-28.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-28"
+  },
+  {
+   "id": "AUDIT-29",
+   "kind": "audit",
+   "priority": 0,
+   "order": 129.5,
+   "roadmapIds": [
+    "K2SymbolsBrauer",
+    "K3BlochGroups",
+    "KTheoryFiniteLocalFields",
+    "KTheoryLowDegrees"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-29.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-29.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-29",
+   "kind": "review",
+   "priority": 0,
+   "order": 129.75,
+   "roadmapIds": [
+    "K2SymbolsBrauer",
+    "K3BlochGroups",
+    "KTheoryFiniteLocalFields",
+    "KTheoryLowDegrees"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-29.result.json",
+    "research/blueprint/reviews/REV-AUDIT-29.md"
+   ],
+   "after": [
+    "AUDIT-29"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-29.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-29"
+  },
+  {
+   "id": "AUDIT-30",
+   "kind": "audit",
+   "priority": 0,
+   "order": 130.5,
+   "roadmapIds": [
+    "MotivicEtaleKTheory",
+    "Polylogarithms",
+    "RefinedTraceMethods",
+    "SchemeKTheoryOperations",
+    "StableHomotopyKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-30.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-30.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-30",
+   "kind": "review",
+   "priority": 0,
+   "order": 130.75,
+   "roadmapIds": [
+    "MotivicEtaleKTheory",
+    "Polylogarithms",
+    "RefinedTraceMethods",
+    "SchemeKTheoryOperations",
+    "StableHomotopyKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-30.result.json",
+    "research/blueprint/reviews/REV-AUDIT-30.md"
+   ],
+   "after": [
+    "AUDIT-30"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-30.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-30"
+  },
+  {
+   "id": "AUDIT-31",
+   "kind": "audit",
+   "priority": 0,
+   "order": 131.5,
+   "roadmapIds": [
+    "ArithmeticGaloisRepresentations",
+    "AutomorphicGaloisRepresentations",
+    "AutomorphicGaloisRepresentationsPartII",
+    "ClassicalSerreModularity",
+    "CompletedCohomologyAndLocalGlobalCompatibility"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-31.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-31.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-31",
+   "kind": "review",
+   "priority": 0,
+   "order": 131.75,
+   "roadmapIds": [
+    "ArithmeticGaloisRepresentations",
+    "AutomorphicGaloisRepresentations",
+    "AutomorphicGaloisRepresentationsPartII",
+    "ClassicalSerreModularity",
+    "CompletedCohomologyAndLocalGlobalCompatibility"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-31.result.json",
+    "research/blueprint/reviews/REV-AUDIT-31.md"
+   ],
+   "after": [
+    "AUDIT-31"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-31.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-31"
+  },
+  {
+   "id": "AUDIT-32",
+   "kind": "audit",
+   "priority": 0,
+   "order": 132.5,
+   "roadmapIds": [
+    "EllipticCurveModularity",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "GL2ModularityLifting",
+    "GlobalGaloisDeformations",
+    "IgusaVarietiesAndTorsionConcentration"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-32.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-32.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-32",
+   "kind": "review",
+   "priority": 0,
+   "order": 132.75,
+   "roadmapIds": [
+    "EllipticCurveModularity",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "GL2ModularityLifting",
+    "GlobalGaloisDeformations",
+    "IgusaVarietiesAndTorsionConcentration"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-32.result.json",
+    "research/blueprint/reviews/REV-AUDIT-32.md"
+   ],
+   "after": [
+    "AUDIT-32"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-32.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-32"
+  },
+  {
+   "id": "AUDIT-33",
+   "kind": "audit",
+   "priority": 0,
+   "order": 133.5,
+   "roadmapIds": [
+    "IntegralHeckeAndGaloisDeterminants",
+    "LocalGaloisDeformationRings",
+    "ModularityAndLanglandsExtensions",
+    "OrdinaryAutomorphicFormsAndModularityLifting",
+    "PadicLocalLanglandsForGL2Qp"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-33.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-33.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-33",
+   "kind": "review",
+   "priority": 0,
+   "order": 133.75,
+   "roadmapIds": [
+    "IntegralHeckeAndGaloisDeterminants",
+    "LocalGaloisDeformationRings",
+    "ModularityAndLanglandsExtensions",
+    "OrdinaryAutomorphicFormsAndModularityLifting",
+    "PadicLocalLanglandsForGL2Qp"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-33.result.json",
+    "research/blueprint/reviews/REV-AUDIT-33.md"
+   ],
+   "after": [
+    "AUDIT-33"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-33.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-33"
+  },
+  {
+   "id": "AUDIT-34",
+   "kind": "audit",
+   "priority": 0,
+   "order": 134.5,
+   "roadmapIds": [
+    "PotentialAutomorphyInfrastructure",
+    "PotentialModularityAndCompatibleSystems",
+    "SerreWeightAndLevelOptimisation",
+    "TorsionCohomologyInfrastructure",
+    "LogicAndDefinabilityInNumberTheory"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-34.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-34.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-34",
+   "kind": "review",
+   "priority": 0,
+   "order": 134.75,
+   "roadmapIds": [
+    "PotentialAutomorphyInfrastructure",
+    "PotentialModularityAndCompatibleSystems",
+    "SerreWeightAndLevelOptimisation",
+    "TorsionCohomologyInfrastructure",
+    "LogicAndDefinabilityInNumberTheory"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-34.result.json",
+    "research/blueprint/reviews/REV-AUDIT-34.md"
+   ],
+   "after": [
+    "AUDIT-34"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-34.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-34"
+  },
+  {
+   "id": "AUDIT-35",
+   "kind": "audit",
+   "priority": 0,
+   "order": 135.5,
+   "roadmapIds": [
+    "MotivesAndAlgebraicCycles",
+    "AInfCohomology",
+    "AdicEtaleGeometry",
+    "AdicSpacesPartII",
+    "CohomologyComparisons"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-35.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-35.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-35",
+   "kind": "review",
+   "priority": 0,
+   "order": 135.75,
+   "roadmapIds": [
+    "MotivesAndAlgebraicCycles",
+    "AInfCohomology",
+    "AdicEtaleGeometry",
+    "AdicSpacesPartII",
+    "CohomologyComparisons"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-35.result.json",
+    "research/blueprint/reviews/REV-AUDIT-35.md"
+   ],
+   "after": [
+    "AUDIT-35"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-35.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-35"
+  },
+  {
+   "id": "AUDIT-36",
+   "kind": "audit",
+   "priority": 0,
+   "order": 136.5,
+   "roadmapIds": [
+    "CrystallineCohomology",
+    "DerivedDeRhamCohomology",
+    "DiamondEtaleCohomology",
+    "DiamondSixOperations",
+    "DiamondsAndVStacks"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-36.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-36.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-36",
+   "kind": "review",
+   "priority": 0,
+   "order": 136.75,
+   "roadmapIds": [
+    "CrystallineCohomology",
+    "DerivedDeRhamCohomology",
+    "DiamondEtaleCohomology",
+    "DiamondSixOperations",
+    "DiamondsAndVStacks"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-36.result.json",
+    "research/blueprint/reviews/REV-AUDIT-36.md"
+   ],
+   "after": [
+    "AUDIT-36"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-36.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-36"
+  },
+  {
+   "id": "AUDIT-37",
+   "kind": "audit",
+   "priority": 0,
+   "order": 137.5,
+   "roadmapIds": [
+    "FarguesFontaineDiamonds",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "HodgeTateAndCanonicalSubgroups",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "PadicHodgeTheory"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-37.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-37.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-37",
+   "kind": "review",
+   "priority": 0,
+   "order": 137.75,
+   "roadmapIds": [
+    "FarguesFontaineDiamonds",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "HodgeTateAndCanonicalSubgroups",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "PadicHodgeTheory"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-37.result.json",
+    "research/blueprint/reviews/REV-AUDIT-37.md"
+   ],
+   "after": [
+    "AUDIT-37"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-37.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-37"
+  },
+  {
+   "id": "AUDIT-38",
+   "kind": "audit",
+   "priority": 0,
+   "order": 138.5,
+   "roadmapIds": [
+    "PerfectoidQuotients",
+    "PerfectoidShimuraVarieties",
+    "PerfectoidSpaces",
+    "PhiGammaModulesAndIwasawaCohomology",
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-38.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-38.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-38",
+   "kind": "review",
+   "priority": 0,
+   "order": 138.75,
+   "roadmapIds": [
+    "PerfectoidQuotients",
+    "PerfectoidShimuraVarieties",
+    "PerfectoidSpaces",
+    "PhiGammaModulesAndIwasawaCohomology",
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-38.result.json",
+    "research/blueprint/reviews/REV-AUDIT-38.md"
+   ],
+   "after": [
+    "AUDIT-38"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-38.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-38"
+  },
+  {
+   "id": "AUDIT-39",
+   "kind": "audit",
+   "priority": 0,
+   "order": 139.5,
+   "roadmapIds": [
+    "RelativeFarguesFontaine",
+    "TropicalAndBerkovichArithmetic",
+    "VectorBundlesAndIsocrystals",
+    "tauceti:TauCetiRoadmap/AdicSpaces"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-39.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-39.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-39",
+   "kind": "review",
+   "priority": 0,
+   "order": 139.75,
+   "roadmapIds": [
+    "RelativeFarguesFontaine",
+    "TropicalAndBerkovichArithmetic",
+    "VectorBundlesAndIsocrystals",
+    "tauceti:TauCetiRoadmap/AdicSpaces"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-39.result.json",
+    "research/blueprint/reviews/REV-AUDIT-39.md"
+   ],
+   "after": [
+    "AUDIT-39"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-39.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-39"
+  },
+  {
+   "id": "AUDIT-40",
+   "kind": "audit",
+   "priority": 0,
+   "order": 140.5,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/PDE",
+    "tauceti:TauCetiRoadmap/Exchangeability",
+    "tauceti:TauCetiRoadmap/StandardDistributions"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-40.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-40.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-40",
+   "kind": "review",
+   "priority": 0,
+   "order": 140.75,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/PDE",
+    "tauceti:TauCetiRoadmap/Exchangeability",
+    "tauceti:TauCetiRoadmap/StandardDistributions"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-40.result.json",
+    "research/blueprint/reviews/REV-AUDIT-40.md"
+   ],
+   "after": [
+    "AUDIT-40"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-40.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-40"
+  },
+  {
+   "id": "AUDIT-41",
+   "kind": "audit",
+   "priority": 0,
+   "order": 141.5,
+   "roadmapIds": [
+    "ReductiveGroupsPartII",
+    "SmoothRepresentationsOfLocalGroups",
+    "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-41.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-41.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-41",
+   "kind": "review",
+   "priority": 0,
+   "order": 141.75,
+   "roadmapIds": [
+    "ReductiveGroupsPartII",
+    "SmoothRepresentationsOfLocalGroups",
+    "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-41.result.json",
+    "research/blueprint/reviews/REV-AUDIT-41.md"
+   ],
+   "after": [
+    "AUDIT-41"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-41.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-41"
+  },
+  {
+   "id": "AUDIT-42",
+   "kind": "audit",
+   "priority": 0,
+   "order": 142.5,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-42.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-42.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-42",
+   "kind": "review",
+   "priority": 0,
+   "order": 142.75,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-42.result.json",
+    "research/blueprint/reviews/REV-AUDIT-42.md"
+   ],
+   "after": [
+    "AUDIT-42"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-42.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-42"
+  },
+  {
+   "id": "AUDIT-43",
+   "kind": "audit",
+   "priority": 0,
+   "order": 143.5,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-43.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-43.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-43",
+   "kind": "review",
+   "priority": 0,
+   "order": 143.75,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-43.result.json",
+    "research/blueprint/reviews/REV-AUDIT-43.md"
+   ],
+   "after": [
+    "AUDIT-43"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-43.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-43"
+  },
+  {
+   "id": "AUDIT-44",
+   "kind": "audit",
+   "priority": 0,
+   "order": 144.5,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+    "ArithmeticQuantumTopology",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-44.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-44.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-44",
+   "kind": "review",
+   "priority": 0,
+   "order": 144.75,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+    "ArithmeticQuantumTopology",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-44.result.json",
+    "research/blueprint/reviews/REV-AUDIT-44.md"
+   ],
+   "after": [
+    "AUDIT-44"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-44.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-44"
+  },
+  {
+   "id": "AUDIT-45",
+   "kind": "audit",
+   "priority": 0,
+   "order": 145.5,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GeometricTopology",
+    "tauceti:TauCetiRoadmap/HeegaardFloer",
+    "tauceti:TauCetiRoadmap/UniversalCovers"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-45.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/AUDIT-45.md",
+   "timeout": 21600,
+   "state": "pending"
+  },
+  {
+   "id": "REV-AUDIT-45",
+   "kind": "review",
+   "priority": 0,
+   "order": 145.75,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GeometricTopology",
+    "tauceti:TauCetiRoadmap/HeegaardFloer",
+    "tauceti:TauCetiRoadmap/UniversalCovers"
+   ],
+   "outputs": [
+    "research/blueprint/audit/AUDIT-45.result.json",
+    "research/blueprint/reviews/REV-AUDIT-45.md"
+   ],
+   "after": [
+    "AUDIT-45"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AUDIT-45.md",
+   "timeout": 21600,
+   "state": "pending",
+   "avoidAccountOf": "AUDIT-45"
   }
  ]
 }
