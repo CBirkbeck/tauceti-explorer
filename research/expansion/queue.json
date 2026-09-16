@@ -37,12 +37,13 @@
       "title": "Additive combinatorics, higher Fourier analysis and primes",
       "group": "classical",
       "stageCount": 6,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-08/AdditiveCombinatorics.json",
       "draftNodes": 9,
       "draftLinks": 7,
       "assignment": "EXT-08",
-      "reviewNote": "Draft written by the EXT-08 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-08/HANDOFF.md."
+      "promoted": "data/decompositions/AdditiveCombinatorics.json",
+      "note": "Independently reviewed (independent-review-REVIEW-EXT-08-EXT-16, 16 September 2026: 4 verified, 5 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "AdelicAlgebraicGroups",
@@ -96,12 +97,13 @@
       "title": "Algebraic modular forms, reduction and Serre weights",
       "group": "modular",
       "stageCount": 6,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-10/AlgebraicModularFormsAndSerreWeights.json",
       "draftNodes": 24,
       "draftLinks": 17,
       "assignment": "EXT-10",
-      "reviewNote": "Draft written by the EXT-10 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-10/HANDOFF.md."
+      "promoted": "data/decompositions/AlgebraicModularFormsAndSerreWeights.json",
+      "note": "Independently reviewed (independent-review-REVIEW-EXT-10-EXT-07, 16 September 2026: 2 verified, 22 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry",
@@ -124,12 +126,13 @@
       "title": "Analytic number theory, zeta functions and prime distribution",
       "group": "classical",
       "stageCount": 10,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-08/AnalyticNumberTheory.json",
       "draftNodes": 10,
       "draftLinks": 4,
       "assignment": "EXT-08",
-      "reviewNote": "Draft written by the EXT-08 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-08/HANDOFF.md."
+      "promoted": "data/decompositions/AnalyticNumberTheory.json",
+      "note": "Independently reviewed (independent-review-REVIEW-EXT-08-EXT-16, 16 September 2026: 3 verified, 7 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "ArakelovGeometryAndAbelianHeights",
@@ -160,12 +163,13 @@
       "title": "Arithmetic Galois representations and conductors",
       "group": "modular",
       "stageCount": 7,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-10/ArithmeticGaloisRepresentations.json",
       "draftNodes": 9,
       "draftLinks": 6,
       "assignment": "EXT-10",
-      "reviewNote": "Draft written by the EXT-10 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-10/HANDOFF.md."
+      "promoted": "data/decompositions/ArithmeticGaloisRepresentations.json",
+      "note": "Independently reviewed (independent-review-REVIEW-EXT-10-EXT-07, 16 September 2026: 3 verified, 6 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "ArithmeticKTheory",
@@ -196,22 +200,24 @@
       "title": "Arithmetic statistics, counting fields and Selmer distributions",
       "group": "classical",
       "stageCount": 6,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-08/ArithmeticStatistics.json",
       "draftNodes": 8,
       "draftLinks": 6,
       "assignment": "EXT-08",
-      "reviewNote": "Draft written by the EXT-08 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-08/HANDOFF.md."
+      "promoted": "data/decompositions/ArithmeticStatistics.json",
+      "note": "Independently reviewed (independent-review-REVIEW-EXT-08-EXT-16, 16 September 2026: 1 verified, 7 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "AutomorphicBundles",
       "title": "Automorphic bundles and classical automorphic forms",
       "group": "modular",
       "stageCount": 9,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": null,
       "draft": "research/expansion/external/EXT-10/AutomorphicBundles.json",
-      "note": "Draft packet written by the unattended worker on 16 September 2026 (3 nodes, 3 links, 4 recorded gaps); not yet independently reviewed; not integrated."
+      "note": "Independently reviewed (independent-review-REVIEW-EXT-10-EXT-07, 16 September 2026: 1 verified, 2 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md.",
+      "promoted": "data/decompositions/AutomorphicBundles.json"
     },
     {
       "id": "AutomorphicCongruences",
@@ -234,22 +240,24 @@
       "title": "Galois representations attached to modular and Hilbert modular forms",
       "group": "modular",
       "stageCount": 6,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-10/AutomorphicGaloisRepresentations.json",
       "draftNodes": 8,
       "draftLinks": 7,
       "assignment": "EXT-10",
-      "reviewNote": "Draft written by the EXT-10 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-10/HANDOFF.md."
+      "promoted": "data/decompositions/AutomorphicGaloisRepresentations.json",
+      "note": "Independently reviewed (independent-review-REVIEW-EXT-10-EXT-07, 16 September 2026: 0 verified, 8 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII",
       "title": "Automorphic Galois Representations PartII",
       "group": "modular",
       "stageCount": 10,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": null,
       "draft": "research/expansion/external/EXT-10/AutomorphicGaloisRepresentationsPartII.json",
-      "note": "Draft packet written by the unattended worker on 16 September 2026 (7 nodes, 6 links, 5 recorded gaps); not yet independently reviewed; not integrated."
+      "note": "Independently reviewed (independent-review-REVIEW-EXT-10-EXT-07, 16 September 2026: 1 verified, 6 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md.",
+      "promoted": "data/decompositions/AutomorphicGaloisRepresentationsPartII.json"
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactors",
@@ -309,24 +317,26 @@
       "title": "Classical arithmetic, sequences, polynomials and reciprocity",
       "group": "classical",
       "stageCount": 8,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-08/ClassicalArithmeticCompletion.json",
       "draftNodes": 3,
       "draftLinks": 1,
       "assignment": "EXT-08",
-      "reviewNote": "Draft written by the EXT-08 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-08/HANDOFF.md."
+      "promoted": "data/decompositions/ClassicalArithmeticCompletion.json",
+      "note": "Independently reviewed (independent-review-REVIEW-EXT-08-EXT-16, 16 September 2026: 0 verified, 3 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "ClassicalSerreModularity",
       "title": "Classical Serre Modularity",
       "group": "modular",
       "stageCount": 18,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-10/ClassicalSerreModularity.json",
       "draftNodes": 21,
       "draftLinks": 16,
       "assignment": "EXT-10",
-      "reviewNote": "Draft written by the EXT-10 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-10/HANDOFF.md."
+      "promoted": "data/decompositions/ClassicalSerreModularity.json",
+      "note": "Independently reviewed (independent-review-REVIEW-EXT-10-EXT-07, 16 September 2026: 5 verified, 16 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "CohomologyComparisons",
@@ -362,24 +372,26 @@
       "title": "Completed cohomology and p-adic local–global compatibility over Q",
       "group": "modular",
       "stageCount": 6,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-10/CompletedCohomologyAndLocalGlobalCompatibility.json",
       "draftNodes": 5,
       "draftLinks": 6,
       "assignment": "EXT-10",
-      "reviewNote": "Draft written by the EXT-10 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-10/HANDOFF.md."
+      "promoted": "data/decompositions/CompletedCohomologyAndLocalGlobalCompatibility.json",
+      "note": "Independently reviewed (independent-review-REVIEW-EXT-10-EXT-07, 16 September 2026: 1 verified, 4 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "CompletedCohomologyPartII",
       "title": "Completed cohomology, homology and arithmetic towers — Part II",
       "group": "modular",
       "stageCount": 9,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-10/CompletedCohomologyPartII.json",
       "draftNodes": 8,
       "draftLinks": 7,
       "assignment": "EXT-10",
-      "reviewNote": "Draft written by the EXT-10 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-10/HANDOFF.md."
+      "promoted": "data/decompositions/CompletedCohomologyPartII.json",
+      "note": "Independently reviewed (independent-review-REVIEW-EXT-10-EXT-07, 16 September 2026: 0 verified, 8 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "ComplexComparisonPartII",
@@ -402,12 +414,13 @@
       "title": "Certified computational number theory and arithmetic data",
       "group": "classical",
       "stageCount": 6,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-08/ComputationalNumberTheory.json",
       "draftNodes": 4,
       "draftLinks": 3,
       "assignment": "EXT-08",
-      "reviewNote": "Draft written by the EXT-08 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-08/HANDOFF.md."
+      "promoted": "data/decompositions/ComputationalNumberTheory.json",
+      "note": "Independently reviewed (independent-review-REVIEW-EXT-08-EXT-16, 16 September 2026: 0 verified, 4 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "CrystallineCohomology",
@@ -505,12 +518,14 @@
       "title": "Diophantine approximation and transcendence",
       "group": "classical",
       "stageCount": 6,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-08/DiophantineApproximationAndTranscendence.json",
       "draftNodes": 7,
       "draftLinks": 4,
       "assignment": "EXT-08",
-      "reviewNote": "Draft written by the EXT-08 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-08/HANDOFF.md."
+      "reviewNote": "Draft written by the EXT-08 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-08/HANDOFF.md.",
+      "promoted": "data/decompositions/DiophantineApproximationAndTranscendence.json",
+      "note": "Independently reviewed (REVIEW-EXT-08-EXT-16, accepted) and promoted on 16 September 2026 after moving per-chapter hashes out of the single-file sha256 field. Coverage remains partial."
     },
     {
       "id": "DirichletPadicLFunctions",
@@ -541,12 +556,13 @@
       "title": "Modularity and modular parametrisations of elliptic curves over Q",
       "group": "modular",
       "stageCount": 6,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-10/EllipticCurveModularity.json",
       "draftNodes": 6,
       "draftLinks": 7,
       "assignment": "EXT-10",
-      "reviewNote": "Draft written by the EXT-10 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-10/HANDOFF.md."
+      "promoted": "data/decompositions/EllipticCurveModularity.json",
+      "note": "Independently reviewed (independent-review-REVIEW-EXT-10-EXT-07, 16 September 2026: 2 verified, 4 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "EllipticKTheory",
@@ -648,12 +664,13 @@
       "title": "Faltings finiteness, semisimplicity and isogeny theorems",
       "group": "diophantine",
       "stageCount": 6,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/external/EXT-07/FaltingsFinitenessAndIsogenyTheorems.json",
       "draftNodes": 32,
       "draftLinks": 40,
       "assignment": "EXT-07",
-      "reviewNote": "Draft written by the EXT-07 worker; not independently reviewed; not promoted. See research/expansion/external/EXT-07/HANDOFF.md."
+      "promoted": "data/decompositions/FaltingsFinitenessAndIsogenyTheorems.json",
+      "note": "Independently reviewed (independent-review-REVIEW-EXT-10-EXT-07, 16 September 2026: 20 verified, 12 corrected; accepted) and promoted the same day. Coverage remains partial; reviewer questions are in research/expansion/DECISIONS.md."
     },
     {
       "id": "FarguesFontaineDiamonds",

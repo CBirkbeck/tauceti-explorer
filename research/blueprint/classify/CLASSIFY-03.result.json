@@ -1,0 +1,1472 @@
+[
+ {
+  "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+  "primaryMsc": "11H",
+  "secondaryMsc": [
+   "11E",
+   "37A",
+   "19G"
+  ],
+  "cluster": "algebraic-number-theory",
+  "distance": 5,
+  "distanceRationale": "Lattices, covolumes and Minkowski's first theorem are in Mathlib, and TauCeti already has integral lattices, Witt decomposition/cancellation and local quadratic-form predicates, so GN.0–GN.1 are close. Hasse–Minkowski, genera and Siegel mass formulas need a layer of graduate local-global theory, while the Oppenheim/unipotent-flow branch and Schlichting's higher hermitian K-theory each need research-level developments.",
+  "mathlibEvidence": [
+   "mathlib: MeasureTheory.exists_ne_zero_mem_lattice_of_measure_mul_two_pow_lt_measure (Minkowski convex-body theorem)",
+   "mathlib: ZLattice.covolume and NumberField.mixedEmbedding.minkowskiBound (covolumes, number-field geometry of numbers)",
+   "tauceti: QuadraticForm.exists_equivalent_hyperbolicPresentation_prod (Witt decomposition) and TauCeti.IntegralLattice discriminant-form API",
+   "tauceti: QuadraticForm.IsLocallyIsotropic / QuadraticForm.LocallyEquivalent (local predicates only, no local-global theorem)",
+   "absent: Hasse–Minkowski, Hilbert symbols/Hasse invariants, successive minima, genus/spinor genus, mass formulas, LLL, unipotent flows, Grothendieck–Witt groups"
+  ],
+  "references": [
+   {
+    "title": "Algebraic number theory (course notes, v3.08)",
+    "authors": "Milne, J. S.",
+    "zbmath": null,
+    "msc": [],
+    "note": "online course notes; not indexed in zbMATH"
+   },
+   {
+    "title": "Quaternion algebras",
+    "authors": "Voight, John",
+    "zbmath": 7261776,
+    "msc": [
+     "11-02",
+     "16-02",
+     "11E12",
+     "11F06",
+     "11R52",
+     "11S45",
+     "16H05",
+     "16U60",
+     "20H10"
+    ]
+   },
+   {
+    "title": "Unipotent flows and applications",
+    "authors": "Eskin, Alex",
+    "zbmath": 5907409,
+    "msc": [
+     "37A17",
+     "11E12",
+     "37-02"
+    ]
+   },
+   {
+    "title": "Discrete subgroups and ergodic theory",
+    "authors": "Margulis, G. A.",
+    "zbmath": 4105049,
+    "msc": [
+     "11D75",
+     "11H50",
+     "22E40"
+    ]
+   },
+   {
+    "title": "A mean value theorem in geometry of numbers",
+    "authors": "Siegel, Carl Ludwig",
+    "zbmath": 3107230,
+    "msc": [
+     "11H60"
+    ]
+   },
+   {
+    "title": "Factoring polynomials with rational coefficients",
+    "authors": "Lenstra, A. K.; Lenstra, H. W. jun.; Lovász, László",
+    "zbmath": 3767793,
+    "msc": [
+     "11Y16",
+     "11C08",
+     "11R09",
+     "68W30"
+    ]
+   },
+   {
+    "title": "Hermitian K-theory of exact categories",
+    "authors": "Schlichting, Marco",
+    "zbmath": 5690542,
+    "msc": [
+     "19G38",
+     "19D06",
+     "19G12"
+    ]
+   },
+   {
+    "title": "Hermitian K-theory, derived equivalences and Karoubi's fundamental theorem",
+    "authors": "Schlichting, Marco",
+    "zbmath": 6695852,
+    "msc": [
+     "19G38",
+     "19G12"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "GlobalGaloisDeformations",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "11R",
+   "14D",
+   "11G"
+  ],
+  "cluster": "galois-representations-and-langlands",
+  "distance": 7,
+  "distanceRationale": "Only the cohomological substrate exists: continuous group cohomology with cup products and Shapiro, absolute Galois groups and Chebotarev prime sets. Deformation functors, Schlessinger representability, Tate local duality, Poitou–Tate and the global Euler characteristic formula, adjoint Selmer groups and Taylor–Wiles prime selection (KW II, ACC+ §6.2) are all unbuilt, so several research-level layers sit before the targets.",
+  "mathlibEvidence": [
+   "mathlib: continuousCohomology / ContinuousCohomology.cocycles (continuous group cohomology of topological representations)",
+   "tauceti: TauCeti.ContCohomology.pairingLeft and TauCeti.ContCohomology.explicitShapiro0 (cup products, Shapiro lemma)",
+   "tauceti: NumberField.Chebotarev.frobeniusPrimeSet and NumberField.exists_auxiliaryPrime (Frobenius prime sets for finite Galois extensions)",
+   "tauceti: TauCeti.AbsoluteGaloisGroup, TauCeti.IsTopologicallyFinitelyGenerated",
+   "absent: no deformation functor, Schlessinger criterion, pseudorepresentation, Tate local duality, Poitou–Tate sequence, global Euler characteristic, Selmer group of an adjoint representation or Taylor–Wiles prime declarations"
+  ],
+  "references": [
+   {
+    "title": "Deforming Galois representations",
+    "authors": "Mazur, B.",
+    "zbmath": 4175077,
+    "msc": [
+     "11R32",
+     "11F70",
+     "11S20",
+     "14D15"
+    ]
+   },
+   {
+    "title": "Serre's modularity conjecture. II",
+    "authors": "Khare, Chandrashekhar; Wintenberger, Jean-Pierre",
+    "zbmath": 5636296,
+    "msc": [
+     "11F80",
+     "11F11",
+     "11R39"
+    ]
+   },
+   {
+    "title": "Potential automorphy over CM fields",
+    "authors": "Allen, Patrick B.; Calegari, Frank; Caraiani, Ana; Gee, Toby; Helm, David; Le Hung, Bao; Newton, James; Scholze, Peter; Taylor, Richard; Thorne, Jack A.",
+    "zbmath": 7668527,
+    "msc": [
+     "11F80",
+     "11F55",
+     "11G18",
+     "14G05",
+     "14G35"
+    ]
+   },
+   {
+    "title": "Ring-theoretic properties of certain Hecke algebras",
+    "authors": "Taylor, Richard; Wiles, Andrew",
+    "zbmath": 783778,
+    "msc": [
+     "11G05",
+     "11F11",
+     "11D41",
+     "13C40",
+     "14M10",
+     "14H52"
+    ]
+   },
+   {
+    "title": "Automorphy for some l-adic lifts of automorphic mod l Galois representations",
+    "authors": "Clozel, Laurent; Harris, Michael; Taylor, Richard",
+    "zbmath": 5528893,
+    "msc": [
+     "11F80",
+     "11G18",
+     "11R34"
+    ]
+   },
+   {
+    "title": "Presentations of universal deformation rings",
+    "authors": "Böckle, Gebhard",
+    "zbmath": 5282811,
+    "msc": [
+     "11F80"
+    ]
+   },
+   {
+    "title": "Moduli of finite flat group schemes, and modularity",
+    "authors": "Kisin, Mark",
+    "zbmath": 5710184,
+    "msc": [
+     "14L15",
+     "11F80",
+     "14L05",
+     "11G05"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+  "primaryMsc": "11R",
+  "secondaryMsc": [
+   "14G",
+   "11F",
+   "22E"
+  ],
+  "cluster": "function-fields",
+  "distance": 9,
+  "distanceRationale": "The endpoints are V. Lafforgue's global Langlands parametrization and L. Lafforgue's GL_n correspondence. Both rest on algebraic stacks (Bun_G, Hecke stacks), ℓ-adic étale cohomology with Weil II purity, perverse sheaves and intersection complexes, geometric Satake, Drinfeld's lemma and a trace formula. The library has only étale morphisms and sites, sheaf-cohomology long exact sequences, function-field Riemann–Roch and Hopf-algebraic linear groups, so many unbuilt theories stand between it and these landmark theorems.",
+  "mathlibEvidence": [
+   "mathlib: AlgebraicGeometry.Etale and AlgebraicGeometry.Scheme.proetaleTopology (étale morphisms and sites, no ℓ-adic cohomology)",
+   "tauceti: TauCeti.CategoryTheory.Sheaf.H.δ (sheaf-cohomology long exact sequence on a site)",
+   "tauceti: TauCeti.riemannRochSpaceEquivWeilDifferentialFiltration and mathlib FunctionField.inftyValuation (function-field arithmetic of the base curve)",
+   "tauceti: TauCeti.GeneralLinear.reductiveCommHopfAlgProperty_finiteTypeCoordinateHopfAlgebra (affine group schemes via Hopf algebras; no general reductive group schemes)",
+   "absent: no algebraic stacks, Bun_G, affine or Beilinson–Drinfeld Grassmannian, perverse sheaves, geometric Satake, shtuka or excursion-operator declarations"
+  ],
+  "references": [
+   {
+    "title": "Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale",
+    "authors": "Lafforgue, Vincent",
+    "zbmath": 6870171,
+    "msc": [
+     "14G35",
+     "14H60",
+     "11F70",
+     "22E55"
+    ]
+   },
+   {
+    "title": "Chtoucas de Drinfeld et correspondance de Langlands",
+    "authors": "Lafforgue, Laurent",
+    "zbmath": 1777225,
+    "msc": [
+     "11R39",
+     "11F52",
+     "11F70",
+     "11G09",
+     "14G35",
+     "14H60",
+     "22E55"
+    ]
+   },
+   {
+    "title": "Geometric Langlands duality and representations of algebraic groups over commutative rings",
+    "authors": "Mirković, I.; Vilonen, K.",
+    "zbmath": 5241960,
+    "msc": [
+     "22E50",
+     "22E67",
+     "22E47"
+    ]
+   },
+   {
+    "title": "Langlands' conjecture for GL(2) over functional fields",
+    "authors": "Drinfeld, V. G.",
+    "zbmath": 3693404,
+    "msc": [
+     "11R39",
+     "11F12"
+    ]
+   },
+   {
+    "title": "Two-dimensional ℓ-adic representations of the fundamental group of a curve over a finite field and automorphic forms on GL(2)",
+    "authors": "Drinfeld, V. G.",
+    "zbmath": 3851259,
+    "msc": [
+     "14G15",
+     "11F70",
+     "11R39",
+     "11F11",
+     "14H25",
+     "14H30"
+    ]
+   },
+   {
+    "title": "Moduli spaces of principal F-bundles",
+    "authors": "Varshavsky, Yakov",
+    "zbmath": 2103787,
+    "msc": [
+     "14G35",
+     "14H60",
+     "11F70",
+     "11G45",
+     "11R39"
+    ]
+   },
+   {
+    "title": "Uniformization of G-bundles",
+    "authors": "Heinloth, Jochen",
+    "zbmath": 5708680,
+    "msc": [
+     "14D20",
+     "14D23"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "GrossZagierAndArithmeticHeights",
+  "primaryMsc": "11G",
+  "secondaryMsc": [
+   "14G",
+   "11F",
+   "14C"
+  ],
+  "cluster": "iwasawa-theory-and-special-values",
+  "distance": 9,
+  "distanceRationale": "Only point heights exist: Weil heights with Northcott in Mathlib, and TauCeti's elliptic canonical height and regulator. The YZZ Gross–Zagier formula needs Shimura curves and their Jacobians, Arakelov intersection theory with admissible Green functions, heights on abelian varieties, automorphic GL₂/quaternionic representations with Waldspurger and theta kernels, incoherent Eisenstein series and CM intersection calculations. Many research-level theories must be built first.",
+  "mathlibEvidence": [
+   "mathlib: Height.logHeight, Projectivization.logHeight and NumberField.finite_setOfPred_logHeight₁_le (Weil heights and Northcott finiteness)",
+   "tauceti: WeierstrassCurve.Affine.Point.canonicalHeight and WeierstrassCurve.Affine.Point.canonicalHeight_parallelogram_law (elliptic Néron–Tate height)",
+   "tauceti: WeierstrassCurve.Affine.regulator_eq_abs_det_neronTateGramMatrix (elliptic regulator)",
+   "tauceti: QuaternionAlgebra.normForm (quaternion norm forms only, no Shimura curves)",
+   "absent: no Heegner point, Shimura curve, Arakelov intersection/Green function, abelian-variety height, toric period/Waldspurger or L-function-derivative declarations"
+  ],
+  "references": [
+   {
+    "title": "The Gross-Zagier formula on Shimura curves",
+    "authors": "Yuan, Xinyi; Zhang, Shou-Wu; Zhang, Wei",
+    "zbmath": 6123941,
+    "msc": [
+     "11G18",
+     "14G35",
+     "11-02"
+    ]
+   },
+   {
+    "title": "Heegner points and derivatives of L-series",
+    "authors": "Gross, Benedict H.; Zagier, Don B.",
+    "zbmath": 3983362,
+    "msc": [
+     "11G40",
+     "11F11",
+     "11G05",
+     "14G10"
+    ]
+   },
+   {
+    "title": "Heights of Heegner points on Shimura curves",
+    "authors": "Zhang, Shouwu",
+    "zbmath": 1625950,
+    "msc": [
+     "11G18",
+     "14G35",
+     "11F11",
+     "11G40",
+     "11G50"
+    ]
+   },
+   {
+    "title": "Gross-Zagier revisited",
+    "authors": "Conrad, Brian",
+    "zbmath": 2145115,
+    "msc": [
+     "11G18",
+     "11G05"
+    ]
+   },
+   {
+    "title": "Explicit Gross-Zagier and Waldspurger formulae",
+    "authors": "Cai, Li; Shu, Jie; Tian, Ye",
+    "zbmath": 6387030,
+    "msc": [
+     "11G40"
+    ]
+   },
+   {
+    "title": "Sur les valeurs de certaines fonctions L automorphes en leur centre de symétrie",
+    "authors": "Waldspurger, J.-L.",
+    "zbmath": 3904677,
+    "msc": [
+     "11F67",
+     "11F70",
+     "22E55"
+    ]
+   },
+   {
+    "title": "Generalized Heegner cycles and p-adic Rankin L-series",
+    "authors": "Bertolini, Massimo; Darmon, Henri; Prasanna, Kartik",
+    "zbmath": 6165624,
+    "msc": [
+     "11G40",
+     "11G35",
+     "11G15",
+     "11G05"
+    ]
+   },
+   {
+    "title": "Heights and Arakelov's intersection theory",
+    "authors": "Hriljac, Paul",
+    "zbmath": 3952927,
+    "msc": [
+     "14C17",
+     "14H25",
+     "14G05"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "HabiroCohomologyFoundations",
+  "primaryMsc": "14F",
+  "secondaryMsc": [
+   "13F",
+   "19D",
+   "14G"
+  ],
+  "cluster": "etale-and-motivic-cohomology",
+  "distance": 10,
+  "distanceRationale": "The targets are Wagner's 2024–2026 q-Hodge/Habiro descent theorems and the boundary with Scholze's analytic Habiro stack, which is current research. They presuppose animated rings, filtered stable ∞-categories, derived de Rham and prismatic cohomology, q-de Rham–Witt complexes and THH over ku. Mathlib has only p-typical Witt vectors, Kähler differentials, triangulated derived categories and basic quasicategories.",
+  "mathlibEvidence": [
+   "mathlib: WittVector.ghostMap and WittVector.frobenius (p-typical Witt vectors only; no q-Witt or big Witt vectors)",
+   "mathlib: KaehlerDifferential and Algebra.Extension.cotangentComplex (classical differentials and the naive cotangent complex, not derived de Rham)",
+   "mathlib: DerivedCategory (triangulated derived categories, no filtered/complete ∞-categorical modules)",
+   "mathlib: SSet.Quasicategory (basic quasicategories; no stable ∞-categories or animated rings)",
+   "absent: no q-integers/q-derivatives, Habiro ring, λ-rings, prisms, q-de Rham–Witt complex or topological Hochschild homology declarations"
+  ],
+  "references": [
+   {
+    "title": "q-Hodge complexes over the Habiro ring",
+    "authors": "Wagner, Ferdinand",
+    "zbmath": 902850390,
+    "msc": [
+     "14F20",
+     "14F40",
+     "13F35"
+    ],
+    "arxiv": "2510.04782"
+   },
+   {
+    "title": "q-Witt vectors and q-Hodge complexes",
+    "authors": "Wagner, Ferdinand",
+    "zbmath": 902595028,
+    "msc": [
+     "13F35",
+     "14F30",
+     "14F40"
+    ],
+    "arxiv": "2410.23078"
+   },
+   {
+    "title": "q-de Rham cohomology and topological Hochschild homology over ku",
+    "authors": "Wagner, Ferdinand",
+    "zbmath": 902851666,
+    "msc": [
+     "14F30",
+     "14F40",
+     "19D55"
+    ],
+    "arxiv": "2510.06057"
+   },
+   {
+    "title": "Canonical q-deformations in arithmetic geometry",
+    "authors": "Scholze, Peter",
+    "zbmath": 6852451,
+    "msc": [
+     "14G40",
+     "14F40",
+     "14G20"
+    ]
+   },
+   {
+    "title": "Prisms and prismatic cohomology",
+    "authors": "Bhatt, Bhargav; Scholze, Peter",
+    "zbmath": 7611906,
+    "msc": [
+     "14F20",
+     "14F30",
+     "14F40"
+    ]
+   },
+   {
+    "title": "Topological Hochschild homology and integral p-adic Hodge theory",
+    "authors": "Bhatt, Bhargav; Morrow, Matthew; Scholze, Peter",
+    "zbmath": 7059677,
+    "msc": [
+     "14F30",
+     "55P42",
+     "14C35"
+    ]
+   },
+   {
+    "title": "The Habiro ring of a number field",
+    "authors": "Garoufalidis, Stavros; Scholze, Peter; Wheeler, Campbell; Zagier, Don",
+    "zbmath": 902620376,
+    "msc": [],
+    "arxiv": "2412.04241",
+    "arxivCategories": [
+     "math.NT",
+     "hep-th",
+     "math.GT"
+    ]
+   },
+   {
+    "title": "Cyclotomic completions of polynomial rings",
+    "authors": "Habiro, Kazuo",
+    "zbmath": 2185479,
+    "msc": [
+     "13J10",
+     "13B25",
+     "13B35"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "HabiroCyclotomicCompletions",
+  "primaryMsc": "13J",
+  "secondaryMsc": [
+   "13B",
+   "11R",
+   "57K"
+  ],
+  "cluster": "commutative-algebra",
+  "distance": 2,
+  "distanceRationale": "Mathlib already has every ingredient: cyclotomic polynomials, Hasse derivatives, primitive roots, adic completions, limits of commutative rings and topologically nilpotent elements. Only the multi-ideal cyclotomic completion and Habiro's elementary expansion, Taylor-injectivity and evaluation theorems from one 20-page paper are missing, which is less than a layer of graduate theory.",
+  "mathlibEvidence": [
+   "mathlib: Polynomial.cyclotomic and IsPrimitiveRoot.pow_sub_one_eq (cyclotomic factors and roots of unity)",
+   "mathlib: Polynomial.hasseDeriv and Polynomial.hasseDeriv_coeff (Hasse derivatives for Taylor coefficients)",
+   "mathlib: AdicCompletion and IsAdicComplete.lift (single-ideal completion and its universal property)",
+   "mathlib: CommRingCat.limitCone and IsTopologicallyNilpotent (inverse limits of rings, topological nilpotence)",
+   "absent: no completion along the directed system of cyclotomic products, Habiro ring, or cyclotomic Taylor/evaluation maps"
+  ],
+  "references": [
+   {
+    "title": "Cyclotomic completions of polynomial rings",
+    "authors": "Habiro, Kazuo",
+    "zbmath": 2185479,
+    "msc": [
+     "13J10",
+     "13B25",
+     "13B35"
+    ]
+   },
+   {
+    "title": "On the quantum sl_2 invariants of knots and integral homology spheres",
+    "authors": "Habiro, Kazuo",
+    "zbmath": 1886605,
+    "msc": [
+     "17B37",
+     "41A60"
+    ]
+   },
+   {
+    "title": "The Habiro ring of a number field",
+    "authors": "Garoufalidis, Stavros; Scholze, Peter; Wheeler, Campbell; Zagier, Don",
+    "zbmath": 902620376,
+    "msc": [],
+    "arxiv": "2412.04241",
+    "arxivCategories": [
+     "math.NT",
+     "hep-th",
+     "math.GT"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "HabiroNahmSeries",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "11R",
+   "33D",
+   "57K"
+  ],
+  "cluster": "modular-and-automorphic-forms",
+  "distance": 7,
+  "distanceRationale": "Modular-function inputs such as cusps, finite-index subgroups, q-parameters and the Gaussian integral are available. The endpoints are 2021–2025 research theorems (CGZ modularity ⇒ Bloch torsion, Garoufalidis–Zagier asymptotics, GSWZ integrality) that also need the Rogers dilogarithm, Bloch groups and K₃ of number fields with finite-coefficient injectivity, Euler–Maclaurin all-orders asymptotics and number-field Habiro modules. None of these exists yet.",
+  "mathlibEvidence": [
+   "mathlib: IsCusp and Subgroup.isArithmetic_iff_finiteIndex (cusps and finite-index subgroups of SL₂(ℤ))",
+   "mathlib: Function.Periodic.qParam and ModularFormClass.qExpansion_isBigO (q-parameters and q-expansions)",
+   "tauceti: TauCeti.ModularForm.sturm_bound_finiteIndex_SL2Z (finite-index modular forms API)",
+   "mathlib: integral_gaussian (Gaussian integral for the formal Gaussian/saddle-point step)",
+   "absent: no q-Pochhammer symbols or Nahm sums, dilogarithm, Bloch group, K₃ of fields or Euler–Maclaurin asymptotic expansion"
+  ],
+  "references": [
+   {
+    "title": "Bloch groups, algebraic K-theory, units, and Nahm's conjecture",
+    "authors": "Calegari, Frank; Garoufalidis, Stavros; Zagier, Don",
+    "zbmath": 7714638,
+    "msc": [
+     "11F55",
+     "11R70",
+     "12G05",
+     "11F03",
+     "57K16"
+    ]
+   },
+   {
+    "title": "Asymptotics of Nahm sums at roots of unity",
+    "authors": "Garoufalidis, Stavros; Zagier, Don",
+    "zbmath": 7344932,
+    "msc": [
+     "57K16",
+     "57K31"
+    ]
+   },
+   {
+    "title": "The Habiro ring of a number field",
+    "authors": "Garoufalidis, Stavros; Scholze, Peter; Wheeler, Campbell; Zagier, Don",
+    "zbmath": 902620376,
+    "msc": [],
+    "arxiv": "2412.04241",
+    "arxivCategories": [
+     "math.NT",
+     "hep-th",
+     "math.GT"
+    ]
+   },
+   {
+    "title": "Conformal field theory and torsion elements of the Bloch group",
+    "authors": "Nahm, Werner",
+    "zbmath": 5119995,
+    "msc": [
+     "81T40",
+     "11G55",
+     "11Z05",
+     "19D45",
+     "33B30",
+     "33D80"
+    ]
+   },
+   {
+    "title": "The dilogarithm function",
+    "authors": "Zagier, Don",
+    "zbmath": 5119994,
+    "msc": [
+     "11G55",
+     "33B15"
+    ]
+   },
+   {
+    "title": "Nahm's conjecture: asymptotic computations and counterexamples",
+    "authors": "Vlasenko, Masha; Zwegers, Sander",
+    "zbmath": 6055377,
+    "msc": [
+     "81T40",
+     "11F03"
+    ]
+   },
+   {
+    "title": "Knots, perturbative series and quantum modularity",
+    "authors": "Garoufalidis, Stavros; Zagier, Don",
+    "zbmath": 7897506,
+    "msc": [
+     "57K30",
+     "57K16",
+     "57K14",
+     "57K10"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "HabiroNumberFields",
+  "primaryMsc": "11R",
+  "secondaryMsc": [
+   "19D",
+   "19F",
+   "13J"
+  ],
+  "cluster": "k-theory-and-motives",
+  "distance": 9,
+  "distanceRationale": "The Frobenius-glued ring of HB.6 is only a few layers from Mathlib's completions and roots of unity. The K₃-indexed modules and finite regulators need Quillen K₃ of number fields, Suslin's Bloch-group comparison, étale Chern classes and norm-residue inputs (Soulé, Merkurjev–Suslin), the cyclic quantum dilogarithm and p-adic regulators. All of these feed 2024–2025 research theorems (GSWZ, Hutchinson), and only Kummer theory, Hilbert 90 and classical unit regulators exist.",
+  "mathlibEvidence": [
+   "tauceti: TauCeti.kummerMap_eq_kummerCocycleClass (Kummer map into continuous Galois H¹)",
+   "mathlib: groupCohomology.Hilbert90.aux (Hilbert 90)",
+   "mathlib: NumberField.Units.regulator and NumberField.Units.regulator_pos (classical unit regulator only)",
+   "absent: no higher algebraic K-theory (K₃), Bloch group, dilogarithm, étale Chern class, Milnor K-theory/norm-residue map, p-adic logarithm or number-field Habiro ring declarations"
+  ],
+  "references": [
+   {
+    "title": "The Habiro ring of a number field",
+    "authors": "Garoufalidis, Stavros; Scholze, Peter; Wheeler, Campbell; Zagier, Don",
+    "zbmath": 902620376,
+    "msc": [],
+    "arxiv": "2412.04241",
+    "arxivCategories": [
+     "math.NT",
+     "hep-th",
+     "math.GT"
+    ]
+   },
+   {
+    "title": "Bloch groups, algebraic K-theory, units, and Nahm's conjecture",
+    "authors": "Calegari, Frank; Garoufalidis, Stavros; Zagier, Don",
+    "zbmath": 7714638,
+    "msc": [
+     "11F55",
+     "11R70",
+     "12G05",
+     "11F03",
+     "57K16"
+    ]
+   },
+   {
+    "title": "The Chern class for K_3 and the cyclic quantum dilogarithm",
+    "authors": "Hutchinson, Kevin",
+    "zbmath": 7841525,
+    "msc": [
+     "19F99",
+     "20G10"
+    ]
+   },
+   {
+    "title": "K_3 of a field and the Bloch group",
+    "authors": "Suslin, A. A.",
+    "zbmath": 10886,
+    "msc": [
+     "19D45",
+     "11R70",
+     "19D55"
+    ]
+   },
+   {
+    "title": "K-théorie des anneaux d'entiers de corps de nombres et cohomologie étale",
+    "authors": "Soulé, C.",
+    "zbmath": 3681872,
+    "msc": [
+     "11R70",
+     "11R80",
+     "14G10",
+     "14C35",
+     "14F20",
+     "18F25"
+    ]
+   },
+   {
+    "title": "The group K_3 for a field",
+    "authors": "Merkur'ev, A. S.; Suslin, A. A.",
+    "zbmath": 4196242,
+    "msc": [
+     "19D45",
+     "11R70",
+     "11E70",
+     "12F10",
+     "11E81",
+     "18F25"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "HabiroRings",
+  "primaryMsc": "13F",
+  "secondaryMsc": [
+   "13J",
+   "14F",
+   "11R"
+  ],
+  "cluster": "commutative-algebra",
+  "distance": 9,
+  "distanceRationale": "The targets are Wagner's 2024–2025 relative Habiro rings and q-Witt quotient theorems, which are current research. They need arithmetic Λ-rings with Adams operations, derived completion with Appendix-B detection, E∞ cyclotomic descent, degree-zero q-Witt rings, spectral and solid variants, and the late comparison with Habiro cohomology. Mathlib supplies only p-typical Witt vectors, étale and perfect rings, adic completion and equalizers of rings.",
+  "mathlibEvidence": [
+   "mathlib: WittVector.ghostMap (p-typical Witt vectors; no λ-ring/Adams-operation or q-Witt structure)",
+   "mathlib: Algebra.Etale, PerfectRing and Module.FaithfullyFlat (étale algebras, perfect rings, faithful flatness)",
+   "mathlib: CommRingCat.equalizerFork (ring equalizers used by the equalizer-presentation prototype)",
+   "mathlib: AdicCompletion (single-ideal classical completion; no derived completeness)",
+   "absent: no λ-rings/δ-rings, derived Habiro completion, E∞-algebras over A[q], q-Witt rings or Habiro-ring declarations"
+  ],
+  "references": [
+   {
+    "title": "q-Hodge complexes over the Habiro ring",
+    "authors": "Wagner, Ferdinand",
+    "zbmath": 902850390,
+    "msc": [
+     "14F20",
+     "14F40",
+     "13F35"
+    ],
+    "arxiv": "2510.04782"
+   },
+   {
+    "title": "q-Witt vectors and q-Hodge complexes",
+    "authors": "Wagner, Ferdinand",
+    "zbmath": 902595028,
+    "msc": [
+     "13F35",
+     "14F30",
+     "14F40"
+    ],
+    "arxiv": "2410.23078"
+   },
+   {
+    "title": "Cyclotomic completions of polynomial rings",
+    "authors": "Habiro, Kazuo",
+    "zbmath": 2185479,
+    "msc": [
+     "13J10",
+     "13B25",
+     "13B35"
+    ]
+   },
+   {
+    "title": "The Habiro ring of a number field",
+    "authors": "Garoufalidis, Stavros; Scholze, Peter; Wheeler, Campbell; Zagier, Don",
+    "zbmath": 902620376,
+    "msc": [],
+    "arxiv": "2412.04241",
+    "arxivCategories": [
+     "math.NT",
+     "hep-th",
+     "math.GT"
+    ]
+   },
+   {
+    "title": "The basic geometry of Witt vectors. I: The affine case",
+    "authors": "Borger, James",
+    "zbmath": 5973582,
+    "msc": [
+     "13F35"
+    ]
+   },
+   {
+    "title": "Prisms and prismatic cohomology",
+    "authors": "Bhatt, Bhargav; Scholze, Peter",
+    "zbmath": 7611906,
+    "msc": [
+     "14F20",
+     "14F30",
+     "14F40"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "HeckeStacksAndLocalShtukas",
+  "primaryMsc": "14G",
+  "secondaryMsc": [
+   "11S",
+   "22E",
+   "14F"
+  ],
+  "cluster": "geometric-langlands",
+  "distance": 10,
+  "distanceRationale": "The stages formalize Fargues–Scholze chapters VI, VII and IX (Hecke operators on Bun_G, local shtuka spaces and their cohomology), which is current research frontier. They rest on perfectoid spaces, diamonds and v-stacks, the relative Fargues–Fontaine curve, Bun_G and its Newton strata, B_dR-affine Grassmannians with geometric Satake and fusion, and solid/lisse ℓ-adic sheaves. The library has only Spa of Huber pairs, isocrystals over Witt vectors and condensed modules.",
+  "mathlibEvidence": [
+   "tauceti: TauCeti.ValuationSpectrum.spa (adic spectrum of a Huber pair; no perfectoid spaces or diamonds)",
+   "mathlib: WittVector.Isocrystal and WittVector.StandardOneDimIsocrystal (isocrystals, no Kottwitz set B(G))",
+   "mathlib: CondensedMod (condensed modules; no solid or lisse sheaves on v-stacks)",
+   "tauceti: TauCeti.IsSmoothDiscrete (smooth discrete modules only; no smooth representation theory of p-adic reductive groups)",
+   "absent: no Fargues–Fontaine curve, Bun_G, B_dR-affine Grassmannian, geometric Satake, Hecke stack or local shtuka declarations"
+  ],
+  "references": [
+   {
+    "title": "Geometrization of the local Langlands correspondence",
+    "authors": "Fargues, Laurent; Scholze, Peter",
+    "zbmath": 8244242,
+    "msc": [
+     "11-XX",
+     "14-XX"
+    ],
+    "arxiv": "2102.13459",
+    "arxivCategories": [
+     "math.RT",
+     "math.AG",
+     "math.NT"
+    ]
+   },
+   {
+    "title": "Berkeley lectures on p-adic geometry",
+    "authors": "Scholze, Peter; Weinstein, Jared",
+    "zbmath": 7178476,
+    "msc": [
+     "14-02",
+     "14G20",
+     "14G22"
+    ]
+   },
+   {
+    "title": "Étale cohomology of diamonds",
+    "authors": "Scholze, Peter",
+    "zbmath": 900499667,
+    "msc": [
+     "14F20",
+     "14G22",
+     "14G20"
+    ],
+    "arxiv": "1709.07343"
+   },
+   {
+    "title": "Period spaces for p-divisible groups",
+    "authors": "Rapoport, M.; Zink, Th.",
+    "zbmath": 914551,
+    "msc": [
+     "14L05",
+     "14G20",
+     "14-02",
+     "14D20",
+     "14F30",
+     "32G20"
+    ]
+   },
+   {
+    "title": "Towards a theory of local Shimura varieties",
+    "authors": "Rapoport, Michael; Viehmann, Eva",
+    "zbmath": 6382817,
+    "msc": [
+     "11G18",
+     "14G22",
+     "14F30",
+     "11-02"
+    ]
+   },
+   {
+    "title": "Isocrystals with additional structure",
+    "authors": "Kottwitz, Robert E.",
+    "zbmath": 3961963,
+    "msc": [
+     "20G05",
+     "20G25",
+     "14L35"
+    ]
+   },
+   {
+    "title": "On the Kottwitz conjecture for local shtuka spaces",
+    "authors": "Hansen, David; Kaletha, Tasho; Weinstein, Jared",
+    "zbmath": 7536459,
+    "msc": [
+     "14G45",
+     "11S37"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "HeegnerPointEulerSystems",
+  "primaryMsc": "11G",
+  "secondaryMsc": [
+   "11R",
+   "14G",
+   "14H"
+  ],
+  "cluster": "iwasawa-theory-and-special-values",
+  "distance": 9,
+  "distanceRationale": "TauCeti has Mordell–Weil, 2-Selmer groups, canonical heights and abstract class-formation layers. Kolyvagin's theorem and its anticyclotomic refinements (Howard, W. Zhang, BCGS 2026) also need ring class fields, CM theory and CM points on X₀(N) and Shimura curves, modular parametrizations (hence modularity), Néron models, Tate–Poitou duality, Kolyvagin systems, Cornut–Vatsal nonvanishing and an anticyclotomic main conjecture, so many research-level layers are unbuilt.",
+  "mathlibEvidence": [
+   "tauceti: WeierstrassCurve.Affine.fg_point_of_numberField (Mordell–Weil theorem)",
+   "tauceti: WeierstrassCurve.Affine.selmerGroup₂ and WeierstrassCurve.Affine.finite_selmerGroupA (descent Selmer groups)",
+   "tauceti: WeierstrassCurve.Affine.Point.canonicalHeight (Néron–Tate height)",
+   "tauceti: OpenNormalSubgroup.IsAbelianClassFieldLayer (abstract class-formation layers; no ring class fields or Artin map for orders)",
+   "absent: no CM points, Picard groups of quadratic orders, modular parametrization, Tate–Shafarevich group, Kolyvagin system or Heegner point declarations"
+  ],
+  "references": [
+   {
+    "title": "Euler systems",
+    "authors": "Kolyvagin, V. A.",
+    "zbmath": 16094,
+    "msc": [
+     "14G05",
+     "11R29",
+     "14H25"
+    ]
+   },
+   {
+    "title": "Finiteness of Ш over totally real fields",
+    "authors": "Kolyvagin, V. A.; Logachëv, D. Yu.",
+    "zbmath": 22804,
+    "msc": [
+     "14K15",
+     "14H52",
+     "11R80"
+    ]
+   },
+   {
+    "title": "The Heegner point Kolyvagin system",
+    "authors": "Howard, Benjamin",
+    "zbmath": 2140859,
+    "msc": [
+     "11G05",
+     "11R23"
+    ]
+   },
+   {
+    "title": "Selmer groups and the indivisibility of Heegner points",
+    "authors": "Zhang, Wei",
+    "zbmath": 6409349,
+    "msc": [
+     "11G05",
+     "11G40"
+    ]
+   },
+   {
+    "title": "Non-vanishing of Kolyvagin systems and Iwasawa theory",
+    "authors": "Burungale, Ashay; Castella, Francesc; Grossi, Giada; Skinner, Christopher",
+    "zbmath": 8202236,
+    "msc": [
+     "11G05",
+     "11G40",
+     "11R23"
+    ]
+   },
+   {
+    "title": "CM points and quaternion algebras",
+    "authors": "Cornut, C.; Vatsal, V.",
+    "zbmath": 2227493,
+    "msc": [
+     "11G15",
+     "11F67",
+     "11G18",
+     "14G35"
+    ]
+   },
+   {
+    "title": "Kolyvagin's work on modular elliptic curves",
+    "authors": "Gross, Benedict H.",
+    "zbmath": 16127,
+    "msc": [
+     "14H52",
+     "14G10",
+     "14G35",
+     "11G40"
+    ]
+   },
+   {
+    "title": "On refined nonvanishing conjectures by Kurihara and Kolyvagin",
+    "authors": "Castella, Francesc; Sano, Takamichi",
+    "zbmath": 902936348,
+    "msc": [],
+    "arxiv": "2601.14504",
+    "arxivCategories": [
+     "math.NT"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "HeightsRationalPointsAndObstructions",
+  "primaryMsc": "14G",
+  "secondaryMsc": [
+   "11G",
+   "14K",
+   "14F"
+  ],
+  "cluster": "arithmetic-geometry",
+  "distance": 8,
+  "distanceRationale": "Weil heights with Northcott, elliptic Mordell–Weil and Selmer groups, scheme-theoretic abelian varieties and Brauer groups of fields exist, so the height machine and weak Mordell–Weil are about one graduate layer away. Brauer–Manin evaluation needs Brauer groups of schemes, adelic points and global reciprocity. Faltings, Mordell–Lang and the Ullmo–Zhang Bogomolov theorem need research-level Arakelov, Faltings-height and equidistribution theory.",
+  "mathlibEvidence": [
+   "mathlib: Height.logHeight and NumberField.finite_setOfPred_logHeight₁_le (absolute heights and Northcott)",
+   "tauceti: WeierstrassCurve.Affine.fg_point_of_numberField (Mordell–Weil for elliptic curves only)",
+   "tauceti: TauCeti.AlgebraicGeometry.AbelianVariety (scheme-theoretic abelian varieties with homomorphisms and isogenies)",
+   "tauceti: TauCeti.BrauerGroup.baseChange (Brauer groups of fields; no Brauer group of schemes)",
+   "absent: no line-bundle height machine, adelic point spaces, Brauer–Manin pairing, torsor descent sets, Faltings, Mordell–Lang or Bogomolov declarations"
+  ],
+  "references": [
+   {
+    "title": "Rational points on varieties",
+    "authors": "Poonen, Bjorn",
+    "zbmath": 6828731,
+    "msc": [
+     "14-02",
+     "14G05",
+     "14G25",
+     "14F20",
+     "14F22",
+     "11G35"
+    ]
+   },
+   {
+    "title": "Arithmetic duality theorems",
+    "authors": "Milne, J. S.",
+    "zbmath": 5081843,
+    "msc": [
+     "14-02",
+     "14G20",
+     "14G25",
+     "11R34",
+     "14F45",
+     "14F20"
+    ]
+   },
+   {
+    "title": "Equidistribution of small points on abelian varieties",
+    "authors": "Zhang, Shou-Wu",
+    "zbmath": 1192411,
+    "msc": [
+     "11G50",
+     "11G10",
+     "14K15",
+     "14G05",
+     "14G40"
+    ]
+   },
+   {
+    "title": "Positivité et discrétion des points algébriques des courbes",
+    "authors": "Ullmo, Emmanuel",
+    "zbmath": 1192412,
+    "msc": [
+     "14G40",
+     "14H40",
+     "11G30",
+     "14H25"
+    ]
+   },
+   {
+    "title": "Endlichkeitssätze für abelsche Varietäten über Zahlkörpern",
+    "authors": "Faltings, G.",
+    "zbmath": 3944027,
+    "msc": [
+     "14K15",
+     "14G05",
+     "14G40",
+     "14G25",
+     "11G10",
+     "11D41"
+    ]
+   },
+   {
+    "title": "Le groupe de Brauer-Grothendieck en géométrie diophantienne",
+    "authors": "Manin, Yu. I.",
+    "zbmath": 3379066,
+    "msc": [
+     "14G05",
+     "14F22"
+    ]
+   },
+   {
+    "title": "Torsors and rational points",
+    "authors": "Skorobogatov, A.",
+    "zbmath": 1624424,
+    "msc": [
+     "14G05",
+     "14-02",
+     "14G25"
+    ]
+   },
+   {
+    "title": "Diophantine approximation on abelian varieties",
+    "authors": "Faltings, Gerd",
+    "zbmath": 4214190,
+    "msc": [
+     "14G05",
+     "11J99",
+     "14G40"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+  "primaryMsc": "11S",
+  "secondaryMsc": [
+   "19F",
+   "19D",
+   "14C"
+  ],
+  "cluster": "algebraic-number-theory",
+  "distance": 7,
+  "distanceRationale": "Only one-dimensional local fields, Laurent-series valuations, ramification groups for places and abstract class-formation layers exist. Neither ordinary local reciprocity nor Milnor K-theory is formalized. Kato–Parshin higher local reciprocity and existence also need Galois-cohomological duality with wild coefficients and higher topologies, and Kato–Saito global theory needs Parshin chains, higher adeles and étale fundamental groups of arithmetic schemes, so several research-level layers are unbuilt.",
+  "mathlibEvidence": [
+   "mathlib: IsNonarchimedeanLocalField (one-dimensional nonarchimedean local fields only)",
+   "mathlib: LaurentSeries and LaurentSeries.valuation_def (valued Laurent series, the building block for Fq((u))((t)))",
+   "tauceti: OpenNormalSubgroup.IsAbelianClassFieldLayer (abstract class-formation layers; no local reciprocity map)",
+   "tauceti: TauCeti.Place.ramificationGroup (ramification groups for function-field places)",
+   "absent: no Milnor K-groups, tame symbols, higher local fields or higher topologies, reciprocity/existence theorems, Parshin chains or higher adeles"
+  ],
+  "references": [
+   {
+    "title": "Existence theorem for higher local fields",
+    "authors": "Kato, Kazuya",
+    "zbmath": 1552464,
+    "msc": [
+     "11S70",
+     "19D45",
+     "19F05"
+    ],
+    "arxiv": "math/0012150"
+   },
+   {
+    "title": "Invitation to higher local fields",
+    "authors": "Fesenko, Ivan; Kurihara, Masato (eds.)",
+    "zbmath": 1551454,
+    "msc": [
+     "00B25",
+     "11-06",
+     "19-06",
+     "11Sxx",
+     "19Fxx"
+    ]
+   },
+   {
+    "title": "A generalization of local class field theory by using K-groups. II",
+    "authors": "Kato, Kazuya",
+    "zbmath": 3724572,
+    "msc": [
+     "11S70",
+     "11S31",
+     "19C99"
+    ]
+   },
+   {
+    "title": "Local class field theory",
+    "authors": "Parshin, A. N.",
+    "zbmath": 3927045,
+    "msc": [
+     "11S31",
+     "11S70",
+     "18F25",
+     "11T99",
+     "14F22",
+     "14G20"
+    ]
+   },
+   {
+    "title": "Global class field theory of arithmetic schemes",
+    "authors": "Kato, Kazuya; Saito, Shuji",
+    "zbmath": 3993742,
+    "msc": [
+     "14C35",
+     "11S31"
+    ]
+   },
+   {
+    "title": "A Hasse principle for two dimensional global fields",
+    "authors": "Kato, Kazuya",
+    "zbmath": 3920606,
+    "msc": [
+     "11R34",
+     "14F22",
+     "11E12",
+     "12G05",
+     "11R52",
+     "11P05",
+     "11R58"
+    ]
+   },
+   {
+    "title": "Algebraic K-theory and quadratic forms",
+    "authors": "Milnor, John W.",
+    "zbmath": 3318401,
+    "msc": [
+     "19G12",
+     "11E70",
+     "19C30",
+     "14C35"
+    ]
+   },
+   {
+    "title": "Residues and adeles",
+    "authors": "Beĭlinson, A. A.",
+    "zbmath": 3803618,
+    "msc": [
+     "14F10",
+     "11S80",
+     "32A27",
+     "14G15",
+     "14G20",
+     "11S31",
+     "14G25",
+     "32C30"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+  "primaryMsc": "11G",
+  "secondaryMsc": [
+   "14G",
+   "14K",
+   "11F"
+  ],
+  "cluster": "modular-and-automorphic-forms",
+  "distance": 8,
+  "distanceRationale": "Totally real fields, quaternion algebras, the SL₂(ℤ) action on the upper half-plane and abelian varieties over fields are available. The targets need Shimura data and canonical models, fine moduli of abelian schemes with real multiplication and polarization modules, Deligne–Pappas integral models at ramified primes, compactifications, étale cohomology with local systems, Jacquet–Langlands and Čerednik–Drinfeld p-adic uniformization. These are many established but research-level theories, none yet built.",
+  "mathlibEvidence": [
+   "mathlib: NumberField.IsTotallyReal (totally real fields)",
+   "mathlib: QuaternionAlgebra (quaternion algebras by structure constants; no ramification sets or Eichler orders)",
+   "mathlib: UpperHalfPlane and UpperHalfPlane.modular_S_smul (SL₂(ℤ) action on ℍ only; no ℍ^g or Hilbert modular groups)",
+   "tauceti: TauCeti.AlgebraicGeometry.AbelianVariety (abelian varieties over a field; no abelian schemes, RM polarizations or moduli functors)",
+   "absent: no Shimura datum, Hilbert–Blumenthal moduli, integral model, toroidal compactification, Drinfeld upper half-plane or Shimura-curve declarations"
+  ],
+  "references": [
+   {
+    "title": "Arithmetic compactifications of PEL-type Shimura varieties",
+    "authors": "Lan, Kai-Wen",
+    "zbmath": 6151348,
+    "msc": [
+     "14-02",
+     "11G18",
+     "14G35",
+     "14K10"
+    ]
+   },
+   {
+    "title": "Overconvergent Hilbert modular forms via perfectoid modular varieties",
+    "authors": "Birkbeck, Christopher; Heuer, Ben; Williams, Chris",
+    "zbmath": 7710614,
+    "msc": [
+     "11F77",
+     "11F41",
+     "11F33"
+    ]
+   },
+   {
+    "title": "Introduction to the arithmetic theory of automorphic functions",
+    "authors": "Shimura, Goro",
+    "zbmath": 3349944,
+    "msc": [
+     "11-02",
+     "11G15",
+     "11G05",
+     "11Fxx"
+    ]
+   },
+   {
+    "title": "Sur la mauvaise réduction des courbes de Shimura",
+    "authors": "Carayol, Henri",
+    "zbmath": 3981340,
+    "msc": [
+     "11G18",
+     "11G15",
+     "14H25",
+     "14K22"
+    ]
+   },
+   {
+    "title": "Uniformisation p-adique des courbes de Shimura: les théorèmes de Čerednik et de Drinfeld",
+    "authors": "Boutot, J.-F.; Carayol, H.",
+    "zbmath": 124553,
+    "msc": [
+     "14G20",
+     "14G35",
+     "11G09",
+     "14H25",
+     "14L05"
+    ]
+   },
+   {
+    "title": "Singularités des espaces de modules de Hilbert, en les caractéristiques divisant le discriminant",
+    "authors": "Deligne, Pierre; Pappas, Georgios",
+    "zbmath": 558678,
+    "msc": [
+     "14K10",
+     "14F30",
+     "14D20"
+    ]
+   },
+   {
+    "title": "Degeneration of abelian varieties",
+    "authors": "Faltings, Gerd; Chai, Ching-Li",
+    "zbmath": 49143,
+    "msc": [
+     "14K10",
+     "14-02",
+     "14K15",
+     "14L15",
+     "14D10",
+     "14D15",
+     "14L05"
+    ]
+   },
+   {
+    "title": "Hilbert modular forms and p-adic Hodge theory",
+    "authors": "Saito, Takeshi",
+    "zbmath": 5625823,
+    "msc": [
+     "11F80",
+     "11F41",
+     "11G18",
+     "14G35"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "HodgeTateAndCanonicalSubgroups",
+  "primaryMsc": "14G",
+  "secondaryMsc": [
+   "14F",
+   "11F",
+   "14L"
+  ],
+  "cluster": "p-adic-geometry",
+  "distance": 9,
+  "distanceRationale": "Only Cartier duality for finite locally free group schemes, elliptic formal groups and Spa of Huber pairs exist. The Hilbert route (T0–T5) needs p-divisible groups of abelian schemes, relative p-adic Hodge theory on the pro-étale site, perfectoid Shimura towers, Fargues/AIP canonical subgroups with explicit radii and Hilbert integral models. T6 adds the 2021–2023 logarithmic Riemann–Hilbert comparison of Diao–Lan–Liu–Zhu and Boxer–Pilloni, so many deep theories are missing and part of the target is recent research.",
+  "mathlibEvidence": [
+   "tauceti: TauCeti.FiniteLocallyFreeBicommutativeHopfAlgCat.cartierDuality (Cartier duality of finite locally free commutative group schemes)",
+   "tauceti: WeierstrassCurve.FormalGroupPoint (formal group of an elliptic curve)",
+   "tauceti: TauCeti.ValuationSpectrum.spa (adic spectra only; no rigid or perfectoid spaces, pro-étale site or period sheaves)",
+   "absent: no p-divisible (Barsotti–Tate) groups, Tate modules of abelian schemes, Hodge–Tate map, Hasse invariant, canonical subgroup or log-adic-space declarations"
+  ],
+  "references": [
+   {
+    "title": "On torsion in the cohomology of locally symmetric varieties",
+    "authors": "Scholze, Peter",
+    "zbmath": 6514750,
+    "msc": [
+     "14G20",
+     "11F46",
+     "11S37",
+     "14G35",
+     "11G18",
+     "22E50"
+    ]
+   },
+   {
+    "title": "On the generic part of the cohomology of compact unitary Shimura varieties",
+    "authors": "Caraiani, Ana; Scholze, Peter",
+    "zbmath": 6804004,
+    "msc": [
+     "11G18",
+     "14F30",
+     "11F75"
+    ]
+   },
+   {
+    "title": "p-adic Hodge theory for rigid-analytic varieties",
+    "authors": "Scholze, Peter",
+    "zbmath": 6209107,
+    "msc": [
+     "14F30",
+     "14G22",
+     "14F20",
+     "14G20"
+    ]
+   },
+   {
+    "title": "La filtration canonique des points de torsion des groupes p-divisibles",
+    "authors": "Fargues, Laurent",
+    "zbmath": 6026211,
+    "msc": [
+     "14L05",
+     "14G35",
+     "14F30"
+    ]
+   },
+   {
+    "title": "On overconvergent Hilbert modular cusp forms",
+    "authors": "Andreatta, Fabrizio; Iovita, Adrian; Pilloni, Vincent",
+    "zbmath": 6720833,
+    "msc": [
+     "11F41",
+     "11F85"
+    ]
+   },
+   {
+    "title": "Overconvergent Hilbert modular forms via perfectoid modular varieties",
+    "authors": "Birkbeck, Christopher; Heuer, Ben; Williams, Chris",
+    "zbmath": 7710614,
+    "msc": [
+     "11F77",
+     "11F41",
+     "11F33"
+    ]
+   },
+   {
+    "title": "Higher Coleman theory",
+    "authors": "Boxer, George; Pilloni, Vincent",
+    "zbmath": 900492888,
+    "msc": [],
+    "arxiv": "2110.10251",
+    "arxivCategories": [
+     "math.NT"
+    ]
+   },
+   {
+    "title": "Logarithmic Riemann-Hilbert correspondences for rigid varieties",
+    "authors": "Diao, Hansheng; Lan, Kai-Wen; Liu, Ruochuan; Zhu, Xinwen",
+    "zbmath": 7644214,
+    "msc": [
+     "14F40",
+     "14G22",
+     "14D07",
+     "14F30",
+     "14G35"
+    ]
+   }
+  ]
+ }
+]

@@ -1,0 +1,146 @@
+[
+ {
+  "roadmapId": "SpecialValuesBirchTate",
+  "title": "Birch–Tate and arithmetic special-value formulas"
+ },
+ {
+  "roadmapId": "StableHomotopyKTheory",
+  "title": "Homotopy foundations for algebraic K-theory"
+ },
+ {
+  "roadmapId": "TorsionCohomologyInfrastructure",
+  "title": "Reusable infrastructure for torsion in arithmetic cohomology"
+ },
+ {
+  "roadmapId": "TropicalAndBerkovichArithmetic",
+  "title": "Berkovich spaces, tropical curves and nonarchimedean arithmetic"
+ },
+ {
+  "roadmapId": "VStackSheavesAndLisseCategories",
+  "title": "Artin v-stacks, solid and lisse coefficient categories"
+ },
+ {
+  "roadmapId": "VectorBundlesAndIsocrystals",
+  "title": "Isocrystals, vector bundles and Banach–Colmez spaces"
+ },
+ {
+  "roadmapId": "WeightsInEtaleCohomology",
+  "title": "Weights and purity in étale cohomology"
+ },
+ {
+  "roadmapId": "WeilConjectures",
+  "title": "Weil conjectures and cohomological zeta functions"
+ },
+ {
+  "roadmapId": "tauceti:Completed/ContourIntegration",
+  "title": "Contour integration and the Hungerbühler–Wasem generalized residue theorem"
+ },
+ {
+  "roadmapId": "tauceti:Completed/EffectiveBounds",
+  "title": "Effective arithmetic bounds and geometry of numbers"
+ },
+ {
+  "roadmapId": "tauceti:Completed/IntegralLattices",
+  "title": "Integral lattices, discriminant forms, and overlattices"
+ },
+ {
+  "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+  "title": "Weighted orthogonal L² bases — completeness, Hilbert-basis structure, and product bases of orthogonal systems"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+  "title": "Foundations of adic spaces"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+  "title": "Algebraic codes and code-lattice constructions"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "title": "Algebraic curves — function fields, divisors, and Riemann–Roch"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+  "title": "Algebraic topology of spaces and manifolds"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+  "title": "Analytic toric geometry"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+  "title": "Arithmetic Dirichlet series and Tauberian methods"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+  "title": "Belyi maps, dessins d'enfants, and three-point covers"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+  "title": "Stating the classification of finite simple groups"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+  "title": "The Chebotarev density theorem"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+  "title": "Class field theory"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "title": "Combinatorial Heegaard Floer and grid homology"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+  "title": "Conformal mapping and the geometric theory of holomorphic functions"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+  "title": "DG and A-infinity algebras, categories, and modules"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+  "title": "Dense graph limits and graphons"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "title": "Elliptic curves"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+  "title": "Exchangeability and de Finetti"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+  "title": "Fuchsian groups and orbifold Riemann surfaces"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+  "title": "Geometric topology and the solved Kirby-list problems"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+  "title": "Global number fields, ray classes, adeles, and Hecke characters"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+  "title": "Global quadratic forms over number fields"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+  "title": "Grothendieck groups, Cartan maps, and Euler forms"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "title": "Heegaard Floer homology, analytically"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+  "title": "Hodge structures (pure, mixed, and polarized)"
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+  "title": "Geodesics, the exponential map, and the Hopf–Rinow theorem"
+ }
+]

@@ -398,7 +398,7 @@ which pages have now been read from images and which still rest on the OCR.
 
 ---
 
-## REVIEW-EXT-08-EXT-16-review.md (reviewer still running; partial) — last written 2026-09-16 10:37
+## REVIEW-EXT-08-EXT-16-review.md (reviewer still running; partial) — last written 2026-09-16 10:42
 
 ### Supplier questions for the orchestrator — 1. AdditiveCombinatorics.json
 
@@ -451,7 +451,16 @@ which pages have now been read from images and which still rest on the OCR.
 2. The probable-prime vs proven-prime result-type contract is no longer a graph edge. Record it in
    CN.1's stage text if it is wanted.
 
-## REVIEW-EXT-10-EXT-07-review.md (reviewer still running; partial) — last written 2026-09-16 10:25
+---
+
+### Supplier questions for the orchestrator — 6. DiophantineApproximationAndTranscendence.json
+
+1. Accept Evertse as a substitute source for DT.0–DT.4, or require the declared WALDSCHMIDT/SCHMIDT
+   route? The Roth, Subspace and Baker proofs remain unread either way.
+2. Owner for Dirichlet's unit theorem and constructive computation of fundamental units, which are
+   imported by the unit-equation proof.
+
+## REVIEW-EXT-10-EXT-07-review.md (reviewer still running; partial) — last written 2026-09-16 10:41
 
 ### Questions for the orchestrator — 1. AlgebraicModularFormsAndSerreWeights.json (R15.1–R15.6)
 
@@ -542,6 +551,23 @@ which pages have now been read from images and which still rest on the OCR.
 1. **The isogeny step.** Should it be split out of the R29.4 node into R29.5, to match the atlas?
 2. **The φ(N_E) exclusion.** R29.2's stage text demands it, but Serre's route does not need it. Keep
    the stage text, or relax it?
+
+### Questions for the orchestrator — 9. EXT-07/FaltingsFinitenessAndIsogenyTheorems.json (R28.1–R28.6)
+
+1. **Re-parenting.** Confirm the re-parenting of the polarization-reduction node to R28.3; the
+   HANDOFF text still cites the old id.
+2. **Raynaud Théorème 4.1.1.** The FiniteFlatGroups packet now exists, unreviewed. After it is
+   reviewed, extend R07.1 to Raynaud §4.1, as its HANDOFF proposes, and restore the removed link; or
+   keep the theorem as an import here.
+3. **Satz 7 versus RP.4.** Keep the Satz 7 node as Faltings' record of the Parshin construction, or
+   merge it into RP.4.
+4. **Korollar 3.** It sits under R28.4 but its content is "finiteness within an isogeny class" (the
+   R28.3 title). It consumes Korollar 1, so moving it would need that dependency re-examined.
+
+### Questions for the orchestrator — 10. AutomorphicBundles.json (B0–B5; additional packet found in EXT-10)
+
+1. **Deligne's *Variétés de Shimura*.** The library copy has no text layer. Should it be read on page
+   images, as was done here for SGA 7 I, to unblock B1?
 
 ## cohomology-comparisons-handoff.md — last written 2026-09-15 22:14
 

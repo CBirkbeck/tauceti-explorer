@@ -1,0 +1,146 @@
+[
+ {
+  "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+  "title": "Néron models and semistable abelian varieties"
+ },
+ {
+  "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+  "title": "Noncommutative and equivariant Iwasawa theory"
+ },
+ {
+  "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+  "title": "Ordinary automorphic forms and ordinary modularity lifting"
+ },
+ {
+  "roadmapId": "OverconvergentAutomorphicForms",
+  "title": "Overconvergent Hilbert modular forms and p-adic automorphic coefficients"
+ },
+ {
+  "roadmapId": "PELModuli",
+  "title": "Siegel and PEL moduli problems"
+ },
+ {
+  "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+  "title": "P-adic differential equations, rigid cohomology and p-adic weights"
+ },
+ {
+  "roadmapId": "PadicFamilies",
+  "title": "Hida and Coleman families, period modules, and family L-functions"
+ },
+ {
+  "roadmapId": "PadicHodgeRegulators",
+  "title": "P-adic regulators and the local K₃ calculation"
+ },
+ {
+  "roadmapId": "PadicHodgeTheory",
+  "title": "P-adic Hodge theory and geometric comparison"
+ },
+ {
+  "roadmapId": "PadicLocalLanglandsForGL2Qp",
+  "title": "P-adic local Langlands for GL₂(Q_p)"
+ },
+ {
+  "roadmapId": "PadicMeasuresIwasawaAlgebras",
+  "title": "P-adic measures, completed group algebras, and characteristic ideals"
+ },
+ {
+  "roadmapId": "PerfectoidQuotients",
+  "title": "Perfectoid quotients and their prismatic prerequisites"
+ },
+ {
+  "roadmapId": "PerfectoidShimuraVarieties",
+  "title": "Shimura towers and perfectoid representability"
+ },
+ {
+  "roadmapId": "PerfectoidSpaces",
+  "title": "Perfectoid rings and spaces"
+ },
+ {
+  "roadmapId": "PeriodsAndSpecialValues",
+  "title": "Periods, motivic L-values and special-value conjectures"
+ },
+ {
+  "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+  "title": "(φ,Γ)-modules, Herr complexes and local Iwasawa cohomology"
+ },
+ {
+  "roadmapId": "Polylogarithms",
+  "title": "Polylogarithms, explicit regulators and Zagier statements"
+ },
+ {
+  "roadmapId": "PotentialAutomorphyInfrastructure",
+  "title": "Reusable infrastructure for potential automorphy over CM fields"
+ },
+ {
+  "roadmapId": "PotentialModularityAndCompatibleSystems",
+  "title": "Potential Modularity And Compatible Systems"
+ },
+ {
+  "roadmapId": "PrismaticCohomology",
+  "title": "Prismatic cohomology: relative, absolute, Nygaard and log variants"
+ },
+ {
+  "roadmapId": "ProbabilisticAndMetricNumberTheory",
+  "title": "Probabilistic, metric and ergodic number theory"
+ },
+ {
+  "roadmapId": "QSeriesPartitionsAndMockModularForms",
+  "title": "Q-series, partitions, Jacobi and mock modular forms"
+ },
+ {
+  "roadmapId": "RankZeroOneBSD",
+  "title": "Rank-zero and rank-one Birch–Swinnerton-Dyer theory"
+ },
+ {
+  "roadmapId": "ReductiveGroupsPartII",
+  "title": "Reductive groups, Part II: local structure and arithmetic models"
+ },
+ {
+  "roadmapId": "RefinedTraceMethods",
+  "title": "Hochschild, cyclotomic and refined trace methods"
+ },
+ {
+  "roadmapId": "RelativeFarguesFontaine",
+  "title": "Relative Fargues–Fontaine curves and period geometry"
+ },
+ {
+  "roadmapId": "SchemeAndStackFoundations",
+  "title": "Scheme, stack, cohomology and intersection foundations"
+ },
+ {
+  "roadmapId": "SchemeKTheoryOperations",
+  "title": "K-theory of schemes, localisation and operations"
+ },
+ {
+  "roadmapId": "SelmerIwasawaCohomology",
+  "title": "Selmer groups, continuous integral cohomology, and Iwasawa cohomology"
+ },
+ {
+  "roadmapId": "SerreWeightAndLevelOptimisation",
+  "title": "Weight and level optimisation of residual modular representations"
+ },
+ {
+  "roadmapId": "ShimuraCompactifications",
+  "title": "Toroidal compactifications and boundary geometry"
+ },
+ {
+  "roadmapId": "ShimuraData",
+  "title": "Shimura data, Hermitian domains, and adelic level structures"
+ },
+ {
+  "roadmapId": "ShimuraVarieties",
+  "title": "Complex Shimura varieties and canonical models"
+ },
+ {
+  "roadmapId": "SieveMethodsAndPrimePatterns",
+  "title": "Sieve methods, prime gaps and prime patterns"
+ },
+ {
+  "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+  "title": "Small ramification and the base cases for Serre modularity"
+ },
+ {
+  "roadmapId": "SmoothRepresentationsOfLocalGroups",
+  "title": "Smooth representations of local groups"
+ }
+]

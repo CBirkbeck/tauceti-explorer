@@ -1,0 +1,1062 @@
+[
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-g-grid-homology-the-spine",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "in_progress",
+  "quote": "Lane G has the whole chain-level package over `𝔽₂` — diagrams, moves, links, gradings, the bigrading, all three complexes, the grid determinant formula — but not `∂² = 0` in general, not invariance, and not the homology of any nontrivial diagram.",
+  "lineStart": 11,
+  "lineEnd": 11,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Only At a glance names Lane G as a whole, so it is the quote. Roadmap coverage (line 29) goes milestone by milestone: G.1, G.2 and the chain side of G.4 are done, G.3 is partial, G.5 has only its combinatorial half, and G.6-G.13 are untouched. Those per-milestone statements set the child verdicts; nothing is inherited from this parent."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-1",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "complete",
+  "quote": "G.1, G.2 and the chain side of G.4 are done.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Named explicitly in a sentence that also covers G.2 and the chain side of G.4. At a glance (line 11) counts 'diagrams, moves, links' in Lane G's finished chain-level package. The verdict comes from the milestone's own statement, not from Lane G."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-2",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "complete",
+  "quote": "G.1, G.2 and the chain side of G.4 are done.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Named explicitly in a sentence that also covers G.1 and the chain side of G.4. At a glance (line 11) counts 'gradings, the bigrading' in Lane G's chain-level package. The verdict comes from the milestone's own statement, not from Lane G."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-3",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "in_progress",
+  "quote": "G.3 is partial: all three complexes exist with their gradings, but `∂² = 0` holds only in size at most two and, in the general argument, on the annular and disjoint branches of the trichotomy.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Named explicitly. At a glance (line 11) says Lane G has all three complexes 'but not `∂² = 0` in general'. The frontier (line 33) says three of the four configurations in the shared-side-column case are still open."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-4",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "in_progress",
+  "quote": "G.1, G.2 and the chain side of G.4 are done.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Named explicitly, but only 'the chain side' is reported done. Named results (line 15) names the gap: 'the determinant is not yet matched to the Alexander polynomial, and with `∂² = 0` open it is not an Euler characteristic of homology.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-5",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "in_progress",
+  "quote": "G.5 still has only its combinatorial half",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Named explicitly; the combinatorial half has landed and the rest has not. At a glance (line 11) says Lane G has 'not invariance'. The frontier (line 35) says no pentagon-counting chain map or hexagon-counting homotopy exists yet."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-6",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "not_started",
+  "quote": "G.6-G.13 are untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Named explicitly as the first milestone of the range G.6-G.13."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-7",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "not_started",
+  "quote": "G.6-G.13 are untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Falls within the range G.6-G.13; not named on its own."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-8",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "not_started",
+  "quote": "G.6-G.13 are untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Falls within the range G.6-G.13; not named on its own."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-9",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "not_started",
+  "quote": "G.6-G.13 are untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Falls within the range G.6-G.13; not named on its own. The report does not assign its grid-link material (Named results, line 16) to G.9, so that material does not change this verdict."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-10",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "not_started",
+  "quote": "G.6-G.13 are untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Falls within the range G.6-G.13; not named on its own."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-11",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "not_started",
+  "quote": "G.6-G.13 are untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Falls within the range G.6-G.13; not named on its own."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-12",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "not_started",
+  "quote": "G.6-G.13 are untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Falls within the range G.6-G.13; not named on its own."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-13",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "not_started",
+  "quote": "G.6-G.13 are untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Named explicitly as the last milestone of the range G.6-G.13."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-alg-bigraded-and-filtered-homological-algebra",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "in_progress",
+  "quote": "Lane ALG has bigraded Poincaré series, their Euler characteristic, the stabilization quotient and filtered colimits of module complexes, but neither the structure theorem for finitely generated bigraded `𝔽[U]`-modules nor filtered chain complexes.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Named explicitly. At a glance (line 11) adds that 'Lane ALG has the stabilization and filtered-colimit API the roadmap asked for'. Still missing: the structure theorem for finitely generated bigraded 𝔽[U]-modules, and filtered chain complexes."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-k-knot-theory-reconciliation",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "not_started",
+  "quote": "Lanes K and H have not started.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Named explicitly in a sentence covering Lanes K and H. At a glance (line 11): 'Lanes K and H have not begun.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-l-lattice-homology",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "in_progress",
+  "quote": "Lane L has the lattice complex, both blow-ups, top-degree vanishing, the weight filtration, the `U`-tower and the one-vertex computation, all over `𝔽₂[U]`; Némethi's `ℤ[U]` theory and Neumann invariance are untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Named explicitly. At a glance (line 11) adds 'Lane L has its first computed lattice homology and a `U`-tower in every negative-definite plumbing, in characteristic two and with no Neumann-move invariance.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-h-combinatorial-hf-of-3-manifolds",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "not_started",
+  "quote": "Lanes K and H have not started.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Named explicitly in a sentence covering Lanes K and H. At a glance (line 11) says 'Lanes K and H have not begun'. The frontier (line 37) calls Lane H 'Untouched'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-h-1",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "not_started",
+  "quote": "Lanes K and H have not started.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Inherited from parent: the report says Lane H as a whole has not started, and never names H.1. The frontier (line 37) also lists 'pointed Heegaard diagram combinatorics' as 'still to be built'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-h-2",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "not_started",
+  "quote": "Lanes K and H have not started.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Inherited from parent: the report says Lane H as a whole has not started, and never names H.2. The frontier (line 37) also lists 'the nice-move calculus' as 'still to be built'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-h-3",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "not_started",
+  "quote": "Lanes K and H have not started.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Inherited from parent: the report says Lane H as a whole has not started, and never names H.3."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-h-4",
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "status": "not_started",
+  "quote": "Lanes K and H have not started.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "b53ed554b8fc7cc0d6de54eb265d3b75e48a0d85",
+  "note": "Inherited from parent: the report says Lane H as a whole has not started, and never names H.4."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-m-morse-homology-stage-0",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "in_progress",
+  "quote": "Lane M has the Morse lemma, index, model and global flows, stable-set language, and compactly confined trajectory convergence, but no stable-manifold theorem, Morse–Smale moduli spaces, gluing, differential, or homology.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Named explicitly. At a glance (line 11) lists Lane M as 'genuinely partial'. The frontier (line 39) calls the stable-manifold theorem 'the nearest missing step in Lane M'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-m-1",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "in_progress",
+  "quote": "Lane M has the Morse lemma, index, model and global flows, stable-set language, and compactly confined trajectory convergence, but no stable-manifold theorem, Morse–Smale moduli spaces, gluing, differential, or homology.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Inherited from parent: Roadmap coverage speaks about Lane M as a whole and does not name M.1. Notable definitions (line 27) says the Morse index, negative-gradient flows and stable and unstable sets 'support the dynamical route through Lane M', which backs landed material on this route."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-m-2",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "in_progress",
+  "quote": "Lane M has the Morse lemma, index, model and global flows, stable-set language, and compactly confined trajectory convergence, but no stable-manifold theorem, Morse–Smale moduli spaces, gluing, differential, or homology.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Inherited from parent: Roadmap coverage speaks about Lane M as a whole and does not name M.2. The report never mentions a functional-analytic route or splits Lane M by route, so this verdict reflects the lane, not route-specific evidence."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f0-the-nonlinear-analysis-substrate",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "in_progress",
+  "quote": "Lane F0 is advanced but partial: linear Fredholm theory now includes compact-perturbation invariance, and the nonlinear theory includes local normal form, Sard–Smale, parametric regularity, and regular level-set manifolds; the strip operator and a Banach-bundle Fredholm-section package remain.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Named explicitly. At a glance (line 11) adds that 'much of Lane F0's abstract nonlinear Fredholm substrate is now available'. Still missing: the strip operator and a Banach-bundle Fredholm-section package (see also the frontier, line 43)."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f1-the-cauchyriemann-elliptic-package-shared-with-the-pde-roadmap",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "not_started",
+  "quote": "Lane F1 is untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Named explicitly and without hedging. At a glance (line 11) agrees but hedges: 'the Cauchy–Riemann package' is among the things that 'have not begun in the recorded declarations'. The frontier (line 45) calls the package 'the long pole for every holomorphic moduli space'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-1",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "not_started",
+  "quote": "Lane F1 is untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Inherited from parent: the report says Lane F1 as a whole is untouched and never names F1.1. The frontier (line 45) lists the `W^{k,p}` spaces on strips and surfaces and the trace and multiplication results as still to build."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-2",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "not_started",
+  "quote": "Lane F1 is untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Inherited from parent: the report says Lane F1 as a whole is untouched and never names F1.2. The frontier (line 45) lists Calderón–Zygmund estimates as still to build."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-3",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "not_started",
+  "quote": "Lane F1 is untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Inherited from parent: the report says Lane F1 as a whole is untouched and never names F1.3. The strip operator it lists as remaining is assigned to Lane F0, not to this milestone."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f2-j-holomorphic-curves",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "in_progress",
+  "quote": "F2.1 is partial at the level of manifold structures, pseudoholomorphic maps, and energy, while F2.2–F2.5 are untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "The report never names Lane F2 as a whole, but this sentence covers all of its milestones: F2.1 is partial and F2.2–F2.5 are untouched. The lane therefore has landed material with work remaining. At a glance (line 11) says 'the manifold-level definitions in F2.1' are 'genuinely partial'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-1",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "in_progress",
+  "quote": "F2.1 is partial at the level of manifold structures, pseudoholomorphic maps, and energy",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Named explicitly. At a glance (line 11) adds that 'the manifold-level definitions in F2.1' are 'genuinely partial'. Notable definitions (line 29) adds that 'closedness of the two-form is not established here'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-2",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "not_started",
+  "quote": "while F2.2–F2.5 are untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Named explicitly as the first milestone of the range F2.2–F2.5."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-3",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "not_started",
+  "quote": "while F2.2–F2.5 are untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Falls within the range F2.2–F2.5; not named on its own."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-4",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "not_started",
+  "quote": "while F2.2–F2.5 are untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Falls within the range F2.2–F2.5; not named on its own."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-5",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "not_started",
+  "quote": "while F2.2–F2.5 are untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Named explicitly as the last milestone of the range F2.2–F2.5."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f3-lagrangian-floer-homology-exact-case",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "in_progress",
+  "quote": "F3 has only cotangent-model infrastructure and no Floer complex.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Named explicitly (as 'F3'). The lane has only infrastructure so far: cotangent-model infrastructure has landed, but there is no Floer complex. At a glance (line 11) says 'every Floer homology theory' 'have not begun in the recorded declarations'. That does not conflict: no Floer theory exists, but the report places landed infrastructure in F3."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f4-heegaard-floer-homology-holomorphically",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "in_progress",
+  "quote": "F4.1 has symmetric-power charts but not the required complex geometry; F4.2–F4.5, F5, all three reconciliations, and all four acceptance criteria remain untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "The report never names Lane F4 as a whole, but this sentence covers all of its milestones: F4.1 is partial and F4.2–F4.5 are untouched. The lane therefore has landed material with work remaining. At a glance (line 11) calls 'the symmetric-power geometry in F4.1' 'genuinely partial' and says 'holomorphic `HF̂`' 'have not begun in the recorded declarations'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-1",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "in_progress",
+  "quote": "F4.1 has symmetric-power charts but not the required complex geometry",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Named explicitly. At a glance (line 11) calls 'the symmetric-power geometry in F4.1' 'genuinely partial'. Notable definitions (line 31) says there is 'not yet a smooth or complex atlas', and the frontier (line 47) lists what F4.1 still requires."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-2",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "not_started",
+  "quote": "F4.2–F4.5, F5, all three reconciliations, and all four acceptance criteria remain untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Named explicitly as the first milestone of the range F4.2–F4.5."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-3",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "not_started",
+  "quote": "F4.2–F4.5, F5, all three reconciliations, and all four acceptance criteria remain untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Falls within the range F4.2–F4.5; not named on its own."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-4",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "not_started",
+  "quote": "F4.2–F4.5, F5, all three reconciliations, and all four acceptance criteria remain untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Falls within the range F4.2–F4.5; not named on its own. At a glance (line 11) agrees with a hedge: 'holomorphic `HF̂`' 'have not begun in the recorded declarations'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-5",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "not_started",
+  "quote": "F4.2–F4.5, F5, all three reconciliations, and all four acceptance criteria remain untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Named explicitly as the last milestone of the range F4.2–F4.5."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f5-beyond-far-horizon-named-so-nobody-mistakes-the-scope",
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "status": "not_started",
+  "quote": "F4.2–F4.5, F5, all three reconciliations, and all four acceptance criteria remain untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "reportSha": "6704398b2cce336011717b9d7c800ea9729d50c3",
+  "note": "Named explicitly (as 'F5') in a sentence that also covers F4.2–F4.5, the reconciliations and the acceptance criteria. At a glance (line 11) agrees with a hedge: 'Lane F5' is among the things that 'have not begun in the recorded declarations'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-0--finite-graph-and-measure-scaffolding",
+  "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+  "status": "complete",
+  "quote": "Layers 0 and 3 are done.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in a sentence that also covers Layer 3. At a glance does not mention Layer 0."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-1--core-objects-and-their-basic-api",
+  "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+  "status": "in_progress",
+  "quote": "Layer 1 is done except `cutDist_triangle` and the `GraphonSpace` quotient with its metric instance; everything else in Layer 1, including the computed backstops, is in.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Nearly complete: only `cutDist_triangle` and the `GraphonSpace` quotient with its metric instance are missing. At a glance (line 11) says 'The strict carrier (Layer 1)' is proved but the cut metric is 'genuinely partial' because `cutDist_triangle` 'is not there'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-2--counting-regularity-total-boundedness",
+  "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+  "status": "in_progress",
+  "quote": "Layer 2 is partial: both counting lemmas, `stepGraphon`, `stepGraphonAvg`, the partition energy with its Pythagoras increment, and weak regularity are done; `homDensityOnSpace`, density of step graphons, and total boundedness are untouched, gated on the quotient.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly. At a glance (line 11) says 'the counting and weak-regularity milestones of Layer 2' are proved. `homDensityOnSpace`, density of step graphons and total boundedness remain, gated on the quotient."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-3--the-ae--aeeqfun-view",
+  "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+  "status": "complete",
+  "quote": "Layers 0 and 3 are done.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in a sentence that also covers Layer 0. At a glance (line 11) says 'the AE view (Layer 3)' is proved."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-4--completeness-and-compactness",
+  "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+  "status": "not_started",
+  "quote": "Layers 4, 8a, 8b, 9b and 9c are untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in a sentence covering Layers 4, 8a, 8b, 9b and 9c. At a glance (line 11) agrees with a qualifier: 'Compactness (Layer 4)' is among the things that 'have not begun beyond the finite-graph density estimators'. The frontier (line 36) says the statement waits on `GraphonSpace`."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-5--coupling-and-map-cut-distance-agree",
+  "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+  "status": "in_progress",
+  "quote": "Layer 5 is partial: `cutDistPullback`, the agreement theorem and Janson A.9 are done; the atomless mod-null equivalence and the Dirac/finite-atomic/mixed regressions are not in evidence.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly. At a glance (line 11) says 'the coupling/map agreement of Layer 5' is proved. The frontier (line 36) calls the atomless mod-null equivalence 'also Layer 5's remaining item'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-6--separation-and-convergence-equivalence-the-analytic-summit",
+  "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+  "status": "in_progress",
+  "quote": "Layer 6a is partial: the cross-carrier forward direction is done, its same-carrier corollary and the converse are untouched; Layer 6b is untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "The report never names Layer 6 as a whole; it names its parts. Layer 6a is partial (the cross-carrier forward direction is done) and Layer 6b is untouched, so the layer has landed material with work remaining. At a glance (line 11) says 'the forward half of separation (Layer 6a)' is proved and 'the convergence equivalence' has not begun."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-7--applications-and-validation",
+  "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+  "status": "in_progress",
+  "quote": "Layer 7 is partial: Goodman, Mantel and the K₄/C₅/Erdős–Rényi values are done, Sidorenko-C₄ and the sampling expectation untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly. At a glance (line 11) calls Goodman and Mantel 'Layer 7 checks'. Sidorenko-C₄ and the sampling expectation remain."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-8a--quantum-graphs-and-reflection-positivity",
+  "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+  "status": "not_started",
+  "quote": "Layers 4, 8a, 8b, 9b and 9c are untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in a sentence covering Layers 4, 8a, 8b, 9b and 9c. At a glance (line 11) agrees with a qualifier: 'Layers 8–9' (Layer 8a falls within that range) 'have not begun beyond the finite-graph density estimators'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-8b--lovászszegedy-representability",
+  "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+  "status": "not_started",
+  "quote": "Layers 4, 8a, 8b, 9b and 9c are untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in a sentence covering Layers 4, 8a, 8b, 9b and 9c. At a glance (line 11) agrees with a qualifier: 'Layers 8–9' (Layer 8b falls within that range) 'have not begun beyond the finite-graph density estimators'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9a--finite-and-joint-graphon-sampling",
+  "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+  "status": "in_progress",
+  "quote": "Layer 9a is partial: `homDensityFin`, `injHomDensity` with the falling-factorial denominator, and the labelled-copy-count bridge are done; `sampleGraph`, `infiniteSampleLaw`, the closeness bound and the unbiasedness anchor are untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly. This matches the At a glance qualifier (line 11) that Layers 8–9 'have not begun beyond the finite-graph density estimators': those estimators are the landed Layer 9a material. The frontier (line 37) lists what sampling still needs."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9b--exchangeable-graph-laws-and-graphon-mixtures",
+  "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+  "status": "not_started",
+  "quote": "Layers 4, 8a, 8b, 9b and 9c are untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in a sentence covering Layers 4, 8a, 8b, 9b and 9c. At a glance (line 11) agrees with a qualifier: 'Layers 8–9' (Layer 9b falls within that range) 'have not begun beyond the finite-graph density estimators'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9c--sampling-convergence",
+  "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+  "status": "not_started",
+  "quote": "Layers 4, 8a, 8b, 9b and 9c are untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in a sentence covering Layers 4, 8a, 8b, 9b and 9c. At a glance (line 11) agrees with a qualifier: 'Layers 8–9' (Layer 9c falls within that range) 'have not begun beyond the finite-graph density estimators'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+  "status": "in_progress",
+  "quote": "**Layer 0 (profinite foundations): partial.** Done: the totally-disconnected quotient instance, the correspondence theorem, triviality of the intersection of open normal subgroups, the limit description, and the completion's universal property with bijectivity of the unit on finite groups. Not landed: the instance chain (no declaration removes `[T2Space G]` hypotheses), the assembly of a closed subgroup as a profinite group, \"open if and only if closed of finite index\", and the compactness lemma for directed families of nonempty closed subsets.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly. At a glance (line 11) agrees: 'Layer 0 is partial', with the instance chain and the compactness lemma not yet landed. The frontier (line 35) lists 'The rest of Layer 0'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index",
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+  "status": "not_started",
+  "quote": "**Layers 1, 2, 4, 5, 6, 7, 8, 9, 10: untouched.** No supernatural numbers, no Sylow theory, no free objects, no presentations or embedding problems, no cohomological dimension, no Demushkin theory, no lower `p`-series, no completed group algebras, no classification.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in the list 'Layers 1, 2, 4, 5, 6, 7, 8, 9, 10'. At a glance (line 11): 'Layers 1, 2 and 4 through 10 are untouched' (named explicitly there too). The frontier (line 38) lists Layer 1 as independent of the rest."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+  "status": "not_started",
+  "quote": "**Layers 1, 2, 4, 5, 6, 7, 8, 9, 10: untouched.** No supernatural numbers, no Sylow theory, no free objects, no presentations or embedding problems, no cohomological dimension, no Demushkin theory, no lower `p`-series, no completed group algebras, no classification.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in the list 'Layers 1, 2, 4, 5, 6, 7, 8, 9, 10'. At a glance (line 11): 'Layers 1, 2 and 4 through 10 are untouched' (named explicitly there too). The frontier (line 39) says it is blocked on the Layer 1 index and the Layer 0 compactness lemma."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+  "status": "in_progress",
+  "quote": "**Layer 3 (pro-`p` groups, generation): partial, barely.** The `IsProP` definition and its covariant API only. Nothing on closed subgroups, finite products, inverse limits or the limit-of-finite-`p`-groups equivalence; nothing on `proPKernel`, `maximalProPQuotient`, topological generation and rank, the Schreier bound, the Hopf property, Gaschütz lifting, Frattini theory or Burnside.",
+  "lineStart": 30,
+  "lineEnd": 30,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly. Only vocabulary exists (the `IsProP` definition and its covariant API), so it counts as in progress. At a glance (line 11): 'Layer 3 has the `IsProP` predicate with a covariant API and nothing else.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+  "status": "not_started",
+  "quote": "**Layers 1, 2, 4, 5, 6, 7, 8, 9, 10: untouched.** No supernatural numbers, no Sylow theory, no free objects, no presentations or embedding problems, no cohomological dimension, no Demushkin theory, no lower `p`-series, no completed group algebras, no classification.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in the list 'Layers 1, 2, 4, 5, 6, 7, 8, 9, 10'. At a glance (line 11): 'Layers 1, 2 and 4 through 10 are untouched' (the first layer of the range '4 through 10')."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+  "status": "not_started",
+  "quote": "**Layers 1, 2, 4, 5, 6, 7, 8, 9, 10: untouched.** No supernatural numbers, no Sylow theory, no free objects, no presentations or embedding problems, no cohomological dimension, no Demushkin theory, no lower `p`-series, no completed group algebras, no classification.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in the list 'Layers 1, 2, 4, 5, 6, 7, 8, 9, 10'. At a glance (line 11): 'Layers 1, 2 and 4 through 10 are untouched' (Layer 5 falls within the range '4 through 10')."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+  "status": "not_started",
+  "quote": "**Layers 1, 2, 4, 5, 6, 7, 8, 9, 10: untouched.** No supernatural numbers, no Sylow theory, no free objects, no presentations or embedding problems, no cohomological dimension, no Demushkin theory, no lower `p`-series, no completed group algebras, no classification.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in the list 'Layers 1, 2, 4, 5, 6, 7, 8, 9, 10'. At a glance (line 11): 'Layers 1, 2 and 4 through 10 are untouched' (Layer 6 falls within the range '4 through 10')."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+  "status": "not_started",
+  "quote": "**Layers 1, 2, 4, 5, 6, 7, 8, 9, 10: untouched.** No supernatural numbers, no Sylow theory, no free objects, no presentations or embedding problems, no cohomological dimension, no Demushkin theory, no lower `p`-series, no completed group algebras, no classification.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in the list 'Layers 1, 2, 4, 5, 6, 7, 8, 9, 10'. At a glance (line 11): 'Layers 1, 2 and 4 through 10 are untouched' (Layer 7 falls within the range '4 through 10')."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-8-the-central-tower-comparison-method-and-finite-quotient-determinacy",
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+  "status": "not_started",
+  "quote": "**Layers 1, 2, 4, 5, 6, 7, 8, 9, 10: untouched.** No supernatural numbers, no Sylow theory, no free objects, no presentations or embedding problems, no cohomological dimension, no Demushkin theory, no lower `p`-series, no completed group algebras, no classification.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in the list 'Layers 1, 2, 4, 5, 6, 7, 8, 9, 10'. At a glance (line 11): 'Layers 1, 2 and 4 through 10 are untouched' (Layer 8 falls within the range '4 through 10')."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+  "status": "not_started",
+  "quote": "**Layers 1, 2, 4, 5, 6, 7, 8, 9, 10: untouched.** No supernatural numbers, no Sylow theory, no free objects, no presentations or embedding problems, no cohomological dimension, no Demushkin theory, no lower `p`-series, no completed group algebras, no classification.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "The report never mentions a separate Layer 9 prerequisites section. This stage has key 'Layer 9', and the report lists 9 as untouched in 'Layers 1, 2, 4, 5, 6, 7, 8, 9, 10'. At a glance (line 11) also says 'Only the foundations have begun' and that 'Layers 1, 2 and 4 through 10 are untouched'. The verdict rests on the shared key, not on anything said about the prerequisites themselves."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-the-classification-of-demushkin-groups",
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+  "status": "not_started",
+  "quote": "**Layers 1, 2, 4, 5, 6, 7, 8, 9, 10: untouched.** No supernatural numbers, no Sylow theory, no free objects, no presentations or embedding problems, no cohomological dimension, no Demushkin theory, no lower `p`-series, no completed group algebras, no classification.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in the list 'Layers 1, 2, 4, 5, 6, 7, 8, 9, 10'. At a glance (line 11): 'Layers 1, 2 and 4 through 10 are untouched' (Layer 9 falls within the range '4 through 10'). The bullet also says 'no classification'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-10-free-pro-c-groups-on-profinite-spaces",
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+  "status": "not_started",
+  "quote": "**Layers 1, 2, 4, 5, 6, 7, 8, 9, 10: untouched.** No supernatural numbers, no Sylow theory, no free objects, no presentations or embedding problems, no cohomological dimension, no Demushkin theory, no lower `p`-series, no completed group algebras, no classification.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly in the list 'Layers 1, 2, 4, 5, 6, 7, 8, 9, 10'. At a glance (line 11): 'Layers 1, 2 and 4 through 10 are untouched' (the last layer of the range '4 through 10')."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CFSGStatement#i0-indices-and-mathlib-glue",
+  "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+  "status": "complete",
+  "quote": "**I0 done**: indices, `dynkinType_valid`, characteristic and field order, the algebraic closure, the 26-name check, the six pinned permutations with Cartan-matrix proofs, and the Suzuki–Ree exponent and length conventions proved against the upstream long-root predicate.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly as 'I0 done', with no gap listed. At a glance (line 11) says 'The index layer and the whole sporadic lane are done in Lean'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CFSGStatement#l0-ambient-groups-with-root-subgroups",
+  "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+  "status": "in_progress",
+  "quote": "**L0, L1, L3 partial**: complete for type A only, on an explicit type-A carrier rather than the upstream Chevalley–Demazure scheme. Generic Steinberg endomorphisms of Kostant elementary groups exist with their root-subgroup equation. No `ValidLieTypeIndex.AmbientGroup`, `steinberg` or `Group` exists; the E₈, F₄, G₂ pull request shows no declarations in the digest.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly together with L1 and L3: complete for type A only. At a glance (line 11): 'The Lie-type lane has the full recipe only for type A'. The frontier (line 37) says ambient groups for every family other than type A are still needed."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CFSGStatement#l1-ordinary-and-graph-twisted-steinberg-maps",
+  "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+  "status": "in_progress",
+  "quote": "**L0, L1, L3 partial**: complete for type A only, on an explicit type-A carrier rather than the upstream Chevalley–Demazure scheme. Generic Steinberg endomorphisms of Kostant elementary groups exist with their root-subgroup equation. No `ValidLieTypeIndex.AmbientGroup`, `steinberg` or `Group` exists; the E₈, F₄, G₂ pull request shows no declarations in the digest.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly together with L0 and L3: complete for type A only. At a glance (line 11) adds 'plus root-datum shadows of every Steinberg map'. The frontier (line 39) says the other constructors still need their L1 or L2 maps."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CFSGStatement#l2-suzuki--ree-steinberg-maps",
+  "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+  "status": "in_progress",
+  "quote": "**L2 partial**: conventions done; the odd half-Frobenius power and its square relation exist only on the root datum, not on a group.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly. The conventions are done, but the odd half-Frobenius power exists only on the root datum. The frontier (line 38) lists group-level Suzuki–Ree maps as still to come."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CFSGStatement#l3-fixed-points-and-the-simple-group-candidate",
+  "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+  "status": "in_progress",
+  "quote": "**L0, L1, L3 partial**: complete for type A only, on an explicit type-A carrier rather than the upstream Chevalley–Demazure scheme. Generic Steinberg endomorphisms of Kostant elementary groups exist with their root-subgroup equation. No `ValidLieTypeIndex.AmbientGroup`, `steinberg` or `Group` exists; the E₈, F₄, G₂ pull request shows no declarations in the digest.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly together with L0 and L1: complete for type A only. The frontier (line 39) says the type-A branch and the generic recipe are ready, but the uniform `ValidLieTypeIndex.steinberg` and `.Group` are not."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CFSGStatement#l5-agreement-of-explicit-carriers-with-the-pinned-groups",
+  "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+  "status": "unknown",
+  "quote": null,
+  "lineStart": null,
+  "lineEnd": null,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "The report never mentions L5. It does mention an L4 (line 33, 'L4 untouched'; frontier line 41, 'The Mathlib Suzuki identification (L4)'), but no input stage has key L4 and the report does not link it to L5. Tying the two together would mean guessing from the README, so this stays unknown."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CFSGStatement#s0-auditable-presentation-data-and-source-selection",
+  "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+  "status": "complete",
+  "quote": "**S0 done; S1 done in Lean**: all twenty-six rows transcribed, count-checked, and assembled.",
+  "lineStart": 30,
+  "lineEnd": 30,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly and unqualified: 'S0 done'. This contrasts with 'S1 done in Lean' in the same bullet. At a glance (line 11) says 'the whole sporadic lane are done in Lean'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CFSGStatement#s1-the-twenty-six-sporadic-presentations",
+  "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+  "status": "in_progress",
+  "quote": "**S0 done; S1 done in Lean**: all twenty-six rows transcribed, count-checked, and assembled. Every row has letter-count and cyclic-reduction checks (the HN, Ly, Ru and Th words are cyclically reduced only after free reduction). Source read-throughs are recorded for every row except the Monster; the FiniteSimpleGroups comparison is recorded for all fourteen names it covers. Fi24' is a Reidemeister–Schreier rewrite of the Fi24':2 presentation rather than a direct transcription.",
+  "lineStart": 30,
+  "lineEnd": 30,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Nearly complete: only the Monster's source read-through is missing. The report says 'S1 done in Lean', not plain 'done' as it does for S0, and names the exception: 'Source read-throughs are recorded for every row except the Monster'. At a glance (line 11): 'all twenty-six sporadic groups have cited, count-checked finite presentations assembled into one total function'. This is a borderline call: only a record is missing, not any Lean material."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/CFSGStatement#a0-assemble-and-state-cfsg",
+  "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+  "status": "in_progress",
+  "quote": "**L4 untouched. A0 untouched** apart from the abstract universe-lowering theorem.",
+  "lineStart": 33,
+  "lineEnd": 33,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Borderline. The report calls A0 'untouched' but explicitly credits it with landed material, 'the abstract universe-lowering theorem', and an untouched-except-X statement is read like done-except-X. It is very early: At a glance (line 11) says 'the final assembly (`CFSGIndex.Group`, `ClassificationStatement`) has not begun'. The frontier (line 40) says 'the universe step is proved abstractly' and the rest is blocked only on L3."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-a--strongly-continuous-semigroups",
+  "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+  "status": "in_progress",
+  "quote": "Part A’s non-stretch program is complete at theorem level: the C₀ and contraction objects, unbounded generator, real resolvent theory and sharp power bounds, both generation theorems, bounded perturbation, the abstract Cauchy problem, uniformly continuous characterization, and principal examples are present. Complex analyticity of the resolvent via complexification is not established here; C₀ groups are partial.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "34ee8bbdc9e93687de81ec9d577b15011d78c35d",
+  "note": "Nearly complete: the non-stretch program is 'complete at theorem level'. Only complex analyticity of the resolvent via complexification is missing, and C₀ groups are partial. At a glance (line 11) says 'Complex resolvent analyticity ... remain partial' and 'the C₀-group/Stone stretch has substantial foundations but not the full unbounded theorem'. The Part A milestones are judged from their own statements, not inherited."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--hilleyosida-generation-theorem",
+  "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+  "status": "complete",
+  "quote": "Every named non-stretch milestone is now established: Hille–Yosida and Lumer–Phillips generation, the abstract Cauchy problem, Bernstein’s theorem, Bochner’s theorem, and the Berg–Christensen–Ressel representation.",
+  "lineStart": 11,
+  "lineEnd": 11,
+  "reportSha": "34ee8bbdc9e93687de81ec9d577b15011d78c35d",
+  "note": "Only At a glance names this milestone ('Hille–Yosida ... generation' is 'established'), so it is the quote. Roadmap coverage (line 29) agrees without naming it: 'both generation theorems' are present in Part A's program, which is 'complete at theorem level'. Named results (line 15) gives the Hille–Yosida characterization."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--lumerphillips-theorem",
+  "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+  "status": "complete",
+  "quote": "Every named non-stretch milestone is now established: Hille–Yosida and Lumer–Phillips generation, the abstract Cauchy problem, Bernstein’s theorem, Bochner’s theorem, and the Berg–Christensen–Ressel representation.",
+  "lineStart": 11,
+  "lineEnd": 11,
+  "reportSha": "34ee8bbdc9e93687de81ec9d577b15011d78c35d",
+  "note": "Only At a glance names this milestone ('Lumer–Phillips generation' is 'established'), so it is the quote. Roadmap coverage (line 29) agrees without naming it: 'both generation theorems' are present in Part A's program, which is 'complete at theorem level'. Named results (line 16) gives the Lumer–Phillips characterization."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--abstract-cauchy-problem",
+  "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+  "status": "complete",
+  "quote": "Part A’s non-stretch program is complete at theorem level: the C₀ and contraction objects, unbounded generator, real resolvent theory and sharp power bounds, both generation theorems, bounded perturbation, the abstract Cauchy problem, uniformly continuous characterization, and principal examples are present.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "34ee8bbdc9e93687de81ec9d577b15011d78c35d",
+  "note": "Named explicitly: 'the abstract Cauchy problem' is present in Part A's non-stretch program, which is 'complete at theorem level'. At a glance (line 11) also lists 'the abstract Cauchy problem' among the named milestones that are 'now established'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-b--completely-monotone-and-bernstein-functions",
+  "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+  "status": "in_progress",
+  "quote": "Part B has the finite and open-half-line Hausdorff–Bernstein–Widder theorems, closure and composition theory, Lévy–Khintchine representation and uniqueness, while the Stieltjes relationships currently run only in the displayed directions.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "34ee8bbdc9e93687de81ec9d577b15011d78c35d",
+  "note": "Nearly complete: the only gap named is that the Stieltjes relationships 'run only in the displayed directions'. At a glance (line 11) says 'the Stieltjes correspondences remain partial'. The frontier (line 34) asks to 'complete the converse characterizations'. The milestone is judged from its own statement, not inherited."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--bernsteins-theorem",
+  "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+  "status": "complete",
+  "quote": "Every named non-stretch milestone is now established: Hille–Yosida and Lumer–Phillips generation, the abstract Cauchy problem, Bernstein’s theorem, Bochner’s theorem, and the Berg–Christensen–Ressel representation.",
+  "lineStart": 11,
+  "lineEnd": 11,
+  "reportSha": "34ee8bbdc9e93687de81ec9d577b15011d78c35d",
+  "note": "Only At a glance names the milestone ('Bernstein’s theorem' is 'established'), so it is the quote. Roadmap coverage (line 29) says 'Part B has the finite and open-half-line Hausdorff–Bernstein–Widder theorems'. Named results (line 17) gives the Hausdorff–Bernstein–Widder theorem."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-c--positive-definite-functions-and-bochners-theorem",
+  "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+  "status": "in_progress",
+  "quote": "Part C has Bochner and BCR with uniqueness and the measure-slicing infrastructure; only the LCA stretch remains untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "34ee8bbdc9e93687de81ec9d577b15011d78c35d",
+  "note": "Nearly complete: only the LCA stretch is missing, and it is untouched. At a glance (line 11): 'the LCA/Pontryagin extension has not begun'. The frontier (line 36): 'no Pontryagin-duality generalization is established here'. The milestones are judged from their own statements, not inherited."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone-1--bochners-theorem-on-v",
+  "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+  "status": "complete",
+  "quote": "Part C has Bochner and BCR with uniqueness and the measure-slicing infrastructure",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "34ee8bbdc9e93687de81ec9d577b15011d78c35d",
+  "note": "Named explicitly ('Bochner'), with uniqueness. At a glance (line 11) lists 'Bochner’s theorem' among the named non-stretch milestones that are 'now established'. The untouched LCA work in the same sentence is a stretch, not this milestone. Named results (line 18) states Bochner's theorem on a finite-dimensional real inner-product space."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone-2--bcr-semigroupbochner-bergchristensenressel-4113",
+  "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+  "status": "complete",
+  "quote": "Part C has Bochner and BCR with uniqueness and the measure-slicing infrastructure",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "34ee8bbdc9e93687de81ec9d577b15011d78c35d",
+  "note": "Named explicitly ('BCR'), with uniqueness. At a glance (line 11) lists 'the Berg–Christensen–Ressel representation' among the named non-stretch milestones that are 'now established'. Named results (line 19) gives it on `ℝ≥0 × V`."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary",
+  "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+  "status": "in_progress",
+  "quote": "Layer 1: 1.1 partial. The count-versus-`(e,f)` criterion is published; the decomposition-group form is not among these declarations. 1.2 to 1.5 untouched.",
+  "lineStart": 28,
+  "lineEnd": 28,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Reported sub-layer by sub-layer: 1.1 is partial (the count-versus-`(e,f)` criterion is published, the decomposition-group form is not) and 1.2 to 1.5 are untouched. So the layer has landed material with most of it remaining. At a glance (line 11): 'Layer 1.1's count criterion is published' and 'Layers 1.2 to 1.5 ... have no declarations'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+  "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+  "status": "in_progress",
+  "quote": "Layer 2: 2.1 done; 2.2 done; 2.3 partial, with the definition and the representation lemma only, and no conjugation formula, `orderOf Frob = f`, `zpowers = stabilizer`, residue-Frobenius identification, or `K = ℚ` corollary; 2.4 to 2.7 untouched.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Reported sub-layer by sub-layer: 2.1 and 2.2 are done, 2.3 is partial and 2.4 to 2.7 are untouched. At a glance (line 11): 'Layers 2.1 and 2.2 are done, Layer 2.3 has its definition and one characterising lemma but none of its comparison API', and 2.4 to 2.7 'have no declarations'. The frontier (lines 34-36) lists Layer 2.4, the rest of Layer 2.3's API, and Layer 2.5."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-3-the-index-dedekindkummer-and-dedekinds-theorem",
+  "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+  "status": "not_started",
+  "quote": "Layers 3 to 8 untouched: no index, Dedekind–Kummer, Dedekind's theorem, relative discriminant, local-global dictionary, ramification exponents, subfields, units, or label declarations exist.",
+  "lineStart": 30,
+  "lineEnd": 30,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly as the first layer of the range 'Layers 3 to 8'. At a glance (line 11) agrees: 'Nothing else has begun: ... all of Layers 3 to 8 have no declarations.' The frontier (line 38) calls Layers 3.1 to 3.5 'available now', meaning ready to start, not landed."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-4-the-relative-discriminant",
+  "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+  "status": "not_started",
+  "quote": "Layers 3 to 8 untouched: no index, Dedekind–Kummer, Dedekind's theorem, relative discriminant, local-global dictionary, ramification exponents, subfields, units, or label declarations exist.",
+  "lineStart": 30,
+  "lineEnd": 30,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Falls within the range 'Layers 3 to 8'; not named on its own. At a glance (line 11) agrees: 'Nothing else has begun: ... all of Layers 3 to 8 have no declarations.' The frontier (line 38) calls Layer 4.1's `relDiscr` definition 'available now', meaning ready to start, not landed."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+  "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+  "status": "not_started",
+  "quote": "Layers 3 to 8 untouched: no index, Dedekind–Kummer, Dedekind's theorem, relative discriminant, local-global dictionary, ramification exponents, subfields, units, or label declarations exist.",
+  "lineStart": 30,
+  "lineEnd": 30,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Falls within the range 'Layers 3 to 8'; not named on its own. At a glance (line 11) agrees: 'Nothing else has begun: ... all of Layers 3 to 8 have no declarations.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences",
+  "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+  "status": "not_started",
+  "quote": "Layers 3 to 8 untouched: no index, Dedekind–Kummer, Dedekind's theorem, relative discriminant, local-global dictionary, ramification exponents, subfields, units, or label declarations exist.",
+  "lineStart": 30,
+  "lineEnd": 30,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Falls within the range 'Layers 3 to 8'; not named on its own. At a glance (line 11) agrees: 'Nothing else has begun: ... all of Layers 3 to 8 have no declarations.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-7-subfields-integral-bases-monogenicity-and-explicit-units",
+  "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+  "status": "not_started",
+  "quote": "Layers 3 to 8 untouched: no index, Dedekind–Kummer, Dedekind's theorem, relative discriminant, local-global dictionary, ramification exponents, subfields, units, or label declarations exist.",
+  "lineStart": 30,
+  "lineEnd": 30,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Falls within the range 'Layers 3 to 8'; not named on its own. At a glance (line 11) agrees: 'Nothing else has begun: ... all of Layers 3 to 8 have no declarations.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-8-the-intrinsic-label-prefix-and-the-invariant-suite",
+  "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+  "status": "not_started",
+  "quote": "Layers 3 to 8 untouched: no index, Dedekind–Kummer, Dedekind's theorem, relative discriminant, local-global dictionary, ramification exponents, subfields, units, or label declarations exist.",
+  "lineStart": 30,
+  "lineEnd": 30,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Named explicitly as the last layer of the range 'Layers 3 to 8'. At a glance (line 11) agrees: 'Nothing else has begun: ... all of Layers 3 to 8 have no declarations.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/StandardDistributions#layer-0-connect-existing-densities-and-add-the-uniform-distribution",
+  "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+  "status": "complete",
+  "quote": "Layers 0 to 2 are done as before: the density and Radon-Nikodym bridges, the uniform law, the elementary theory of all ten Mathlib families with probability generating functions, and the special functions with the six closed-form cdfs and tails.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "14e3bf8fa527a79fc9d9fd40529fbe48e93e9a31",
+  "note": "Named explicitly as the first layer of the range 'Layers 0 to 2'. At a glance (line 11): 'Layers 0 to 4 are done' (also the first layer of that range)."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/StandardDistributions#layer-1-complete-the-elementary-theory-of-existing-distributions",
+  "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+  "status": "complete",
+  "quote": "Layers 0 to 2 are done as before: the density and Radon-Nikodym bridges, the uniform law, the elementary theory of all ten Mathlib families with probability generating functions, and the special functions with the six closed-form cdfs and tails.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "14e3bf8fa527a79fc9d9fd40529fbe48e93e9a31",
+  "note": "Falls within the range 'Layers 0 to 2'; not named on its own. At a glance (line 11): 'Layers 0 to 4 are done' (Layer 1 falls within that range too)."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/StandardDistributions#layer-2-incomplete-special-functions-and-closed-form-cdfs",
+  "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+  "status": "complete",
+  "quote": "Layers 0 to 2 are done as before: the density and Radon-Nikodym bridges, the uniform law, the elementary theory of all ten Mathlib families with probability generating functions, and the special functions with the six closed-form cdfs and tails.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "14e3bf8fa527a79fc9d9fd40529fbe48e93e9a31",
+  "note": "Named explicitly as the last layer of the range 'Layers 0 to 2'. At a glance (line 11): 'Layers 0 to 4 are done' (Layer 2 falls within that range)."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/StandardDistributions#layer-3-new-scalar-families",
+  "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+  "status": "complete",
+  "quote": "Layer 3 is now done too, all nine new scalar families with their listed formulas and completion checks",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "14e3bf8fa527a79fc9d9fd40529fbe48e93e9a31",
+  "note": "Named explicitly. At a glance (line 11): 'Layers 0 to 4 are done' (Layer 3 falls within that range), and 'every scalar family the roadmap names exists as a measure with its density or mass formula, closed-form cdf, moments, transforms and parameter measurability'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/StandardDistributions#layer-4-relationships-among-distributions",
+  "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+  "status": "complete",
+  "quote": "Layer 3 is now done too, all nine new scalar families with their listed formulas and completion checks, and so is Layer 4: Gaussian squares, the three ratios, the Gamma-Beta pushforward, the exponential, geometric and Laplace sums, the Gamma-mixed Poisson law, and i.i.d. maxima and minima.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "14e3bf8fa527a79fc9d9fd40529fbe48e93e9a31",
+  "note": "Named explicitly ('and so is Layer 4', continuing 'now done too'). At a glance (line 11): 'Layers 0 to 4 are done' (the last layer of that range), and 'the classical relations among the families are proved'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/StandardDistributions#layer-5-multivariate-distributions",
+  "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+  "status": "in_progress",
+  "quote": "Layer 5 is partial. Items 1, 3 and 4 (covariance matrices, affine images, directional and quadratic-form transforms, conditional laws) are done except the Bochner mean of the multivariate Gaussian, which is not established here; item 2's density is missing; the multinomial has masses, coordinate marginals and directional transforms but no mean, covariance, aggregation or characteristic function; Dirichlet is untouched; and item 7's parameter measurability is unrecorded for both.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "14e3bf8fa527a79fc9d9fd40529fbe48e93e9a31",
+  "note": "Named explicitly as partial. Missing: the Bochner mean of the multivariate Gaussian, item 2's density, the multinomial's mean, covariance, aggregation and characteristic function, all of Dirichlet, and item 7's parameter measurability. At a glance (line 11): 'Layer 5 is partial'. The frontier (lines 33, 34 and 37) lists the density, the multinomial moments and Dirichlet."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/StandardDistributions#layer-6-symmetric-matrices-and-wishart-distributions",
+  "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+  "status": "in_progress",
+  "quote": "In Layer 6, item 1 is complete and items 2 to 7 have not begun.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "reportSha": "14e3bf8fa527a79fc9d9fd40529fbe48e93e9a31",
+  "note": "Named explicitly: item 1 is complete and items 2 to 7 have not begun. At a glance (line 11): 'Layer 6 has its symmetric-matrix carrier but no Wishart theory'. The frontier (lines 35-36) lists Cholesky, the multivariate Gamma integral and the Wishart families."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l0--pure-hodge-structures-the-hodge-decomposition",
+  "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+  "status": "in_progress",
+  "quote": "*L0*: milestone done in both directions; companions done for morphisms, conjugation symmetry, dual, tensor product and Tate twist, plus sub-Hodge structures, quotients and strictness of pure morphisms; internal Hom untouched.",
+  "lineStart": 31,
+  "lineEnd": 31,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Nearly complete: only internal Hom is missing. The milestone itself is done in both directions, but the report's L0 bullet covers the whole layer, companions included, and this stage is judged on that. The frontier (line 41) calls internal Hom 'the last L0 companion'. At a glance (line 11) says 'the L0 Hodge decomposition' is proved but does not list the internal Hom gap."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory",
+  "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+  "status": "in_progress",
+  "quote": "*L1*: milestone done; Weil operator and Hodge form as the README asks, packaged as an inner-product core; no bundled category of pure Hodge structures, so the categorical reading of semisimplicity is not stated.",
+  "lineStart": 32,
+  "lineEnd": 32,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Borderline; nearly complete: only the categorical reading of semisimplicity is missing, because there is 'no bundled category of pure Hodge structures'. The milestone is done, and the Weil operator and Hodge form are there 'as the README asks'. At a glance (line 11) says 'L1 semisimplicity' is proved and does not list L1 among its 'Partial' items, and the frontier names no L1 gap. The verdict follows the gap named in Roadmap coverage."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne",
+  "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+  "status": "in_progress",
+  "quote": "*L2*: milestone done; bigrading defined with internal direct sum, recovery of both filtrations and functoriality; conjugation relation partial (modulo W_{p+q−2} rather than ⨆_{r<p,s<q} I^{r,s}); morphisms bundled into a preadditive ℚ-linear category with realization functors, abelian structure untouched.",
+  "lineStart": 33,
+  "lineEnd": 33,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "The milestone (strictness) and the bigrading are done. Still missing: the conjugation relation is only partial (modulo W_{p+q−2}), and the abelian structure is untouched. At a glance (line 11): 'Partial: the L2 companions (coarse conjugation relation on Deligne's bigrading; no abelian structure on the mixed category)'. The frontier (lines 38-39) lists both."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l3--period-domain-points-the-symmetry-group",
+  "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+  "status": "complete",
+  "quote": "*L3*: milestone done, with `HodgeType`, `PeriodDomain.Point` predicating the fixed form, and the symmetry group packaged as a subgroup.",
+  "lineStart": 34,
+  "lineEnd": 34,
+  "reportSha": "8745177e39945cdda39b4203688f5f6bb380a0b9",
+  "note": "Milestone done, with `HodgeType`, `PeriodDomain.Point` and the symmetry group all present and no gap named. At a glance (line 11) says 'the L3 Hodge-number partition' is proved and 'No layer is untouched', and does not list L3 among its 'Partial' items."
+ }
+]

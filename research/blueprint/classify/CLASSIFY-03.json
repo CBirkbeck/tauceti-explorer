@@ -1,0 +1,146 @@
+[
+ {
+  "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+  "title": "Geometry of numbers, quadratic forms and homogeneous arithmetic"
+ },
+ {
+  "roadmapId": "GlobalGaloisDeformations",
+  "title": "Global Galois deformation rings"
+ },
+ {
+  "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+  "title": "Global shtukas and Langlands over function fields"
+ },
+ {
+  "roadmapId": "GrossZagierAndArithmeticHeights",
+  "title": "Gross–Zagier formulas and arithmetic heights"
+ },
+ {
+  "roadmapId": "HabiroCohomologyFoundations",
+  "title": "Q-Hodge filtrations and Habiro cohomology"
+ },
+ {
+  "roadmapId": "HabiroCyclotomicCompletions",
+  "title": "Cyclotomic completions and classical Habiro rings"
+ },
+ {
+  "roadmapId": "HabiroNahmSeries",
+  "title": "Nahm series, asymptotics and Habiro integrality"
+ },
+ {
+  "roadmapId": "HabiroNumberFields",
+  "title": "Number-field Habiro rings, finite regulators and K₃-graded modules"
+ },
+ {
+  "roadmapId": "HabiroRings",
+  "title": "Habiro rings: relative arithmetic constructions and cohomological coefficients"
+ },
+ {
+  "roadmapId": "HeckeStacksAndLocalShtukas",
+  "title": "Hecke correspondences and local shtuka cohomology"
+ },
+ {
+  "roadmapId": "HeegnerPointEulerSystems",
+  "title": "Heegner-point Euler systems and arithmetic descent"
+ },
+ {
+  "roadmapId": "HeightsRationalPointsAndObstructions",
+  "title": "Heights, rational points and obstructions"
+ },
+ {
+  "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+  "title": "Higher local fields and higher class field theory"
+ },
+ {
+  "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+  "title": "Hilbert Modular Varieties And Shimura Curves"
+ },
+ {
+  "roadmapId": "HodgeTateAndCanonicalSubgroups",
+  "title": "Hodge–Tate theory, canonical subgroups, and automorphic period maps"
+ },
+ {
+  "roadmapId": "IgusaVarietiesAndTorsionConcentration",
+  "title": "Igusa varieties, compactified period fibers and torsion concentration"
+ },
+ {
+  "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+  "title": "Integral Hecke actions, determinants and interpolation"
+ },
+ {
+  "roadmapId": "IntegralIwasawaTheory",
+  "title": "Arithmetic Iwasawa theory and the main conjecture"
+ },
+ {
+  "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+  "title": "Inverse Galois theory and arithmetic fundamental groups"
+ },
+ {
+  "roadmapId": "K2SymbolsBrauer",
+  "title": "Explicit K₂: symbols, residues and reciprocity"
+ },
+ {
+  "roadmapId": "K3BlochGroups",
+  "title": "Explicit K₃ and Bloch groups"
+ },
+ {
+  "roadmapId": "KTheoryFiniteLocalFields",
+  "title": "K-theory of finite and local fields"
+ },
+ {
+  "roadmapId": "KTheoryLowDegrees",
+  "title": "Explicit K₀: projectives, rank and determinant"
+ },
+ {
+  "roadmapId": "KatoEulerSystems",
+  "title": "Kato classes and explicit reciprocity for modular forms"
+ },
+ {
+  "roadmapId": "LanglandsParameterStacks",
+  "title": "Parameter stacks, invariant theory and spectral coefficients"
+ },
+ {
+  "roadmapId": "LefschetzPencilsAndVanishingCycles",
+  "title": "Lefschetz pencils, nearby cycles and vanishing cycles"
+ },
+ {
+  "roadmapId": "LocalGaloisDeformationRings",
+  "title": "Local Galois deformation rings and their components"
+ },
+ {
+  "roadmapId": "LocallyAnalyticDistributions",
+  "title": "Locally analytic distributions, growth, and character spaces"
+ },
+ {
+  "roadmapId": "LogicAndDefinabilityInNumberTheory",
+  "title": "Logic, definability, valued fields and motivic integration"
+ },
+ {
+  "roadmapId": "MetaplecticAutomorphicForms",
+  "title": "Metaplectic groups, Weil representations and automorphic theta kernels"
+ },
+ {
+  "roadmapId": "ModularCurvesPartII",
+  "title": "Modular Curves PartII"
+ },
+ {
+  "roadmapId": "ModularIwasawaMainConjectures",
+  "title": "Main conjectures for modular forms and their families"
+ },
+ {
+  "roadmapId": "ModularSymbolsPadicLFunctions",
+  "title": "Modular symbols and analytic p-adic L-functions of modular forms"
+ },
+ {
+  "roadmapId": "ModularityAndLanglandsExtensions",
+  "title": "Modularity, automorphy and Langlands endpoint extensions"
+ },
+ {
+  "roadmapId": "MotivesAndAlgebraicCycles",
+  "title": "Algebraic cycles, pure and mixed motives"
+ },
+ {
+  "roadmapId": "MotivicEtaleKTheory",
+  "title": "Motivic and étale methods for arithmetic K-theory"
+ }
+]
