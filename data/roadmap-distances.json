@@ -7,30 +7,30 @@
   "interval": "One posterior standard deviation either side, from the curvature of the posterior at its peak."
  },
  "bases": {
-  "pairwise": 55,
-  "classification": 155,
+  "pairwise": 73,
+  "classification": 137,
   "children": 1
  },
  "pairwise": {
-  "judgements": 193,
-  "jobs": 8,
+  "judgements": 265,
+  "jobs": 11,
   "ties": 0,
-  "scale": 0.983,
+  "scale": 1.049,
   "priorSd": 1.5,
-  "roadmapsWithEnough": 55,
+  "roadmapsWithEnough": 73,
   "splitHalfShiftSpearman": null,
   "splitHalfRoadmaps": 0,
   "agreesWithClassification": {
-   "share": 0.837,
-   "decided": 129
+   "share": 0.821,
+   "decided": 179
   },
   "agreesWithMissingLayers": {
-   "share": 0.838,
-   "decided": 191
+   "share": 0.854,
+   "decided": 261
   },
   "agreesWithDepth": {
-   "share": 0.817,
-   "decided": 164
+   "share": 0.833,
+   "decided": 227
   }
  },
  "validation": {
@@ -43,8 +43,8 @@
    "tauceti:Completed/IntegralLattices": 0.0,
    "tauceti:Completed/OrthogonalL2Bases": 0.0
   },
-  "pairwiseVsMissingLayers": 0.834,
-  "pairwiseVsDepth": 0.844,
+  "pairwiseVsMissingLayers": 0.869,
+  "pairwiseVsDepth": 0.872,
   "declarationsVsClassification": 0.041
  },
  "roadmaps": {
@@ -69,15 +69,25 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 8.79,
-    "low": 7.85,
-    "high": 9.74,
-    "shift": -0.21
+    "distance": 8.8,
+    "low": 7.84,
+    "high": 9.77,
+    "shift": -0.2
    },
-   "distance": 8.79,
-   "low": 7.85,
-   "high": 9.74,
-   "basis": "pairwise"
+   "distance": 8.8,
+   "low": 7.84,
+   "high": 9.77,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    }
+   ]
   },
   "AbelianSchemesAndArithmeticModuli": {
    "classification": 6,
@@ -90,15 +100,37 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 6.12,
-    "low": 5.0,
-    "high": 7.24,
-    "shift": 0.12
+    "distance": 6.1,
+    "low": 4.97,
+    "high": 7.23,
+    "shift": 0.1
    },
-   "distance": 6.12,
-   "low": 5.0,
-   "high": 7.24,
-   "basis": "pairwise"
+   "distance": 6.1,
+   "low": 4.97,
+   "high": 7.23,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "etale",
+     "roadmaps": 4
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    }
+   ]
   },
   "AdditiveCombinatorics": {
    "classification": 7,
@@ -120,7 +152,8 @@
     }
    },
    "distance": 7.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "AdelicAlgebraicGroups": {
    "classification": 5,
@@ -134,12 +167,30 @@
    "pairwise": {
     "judgements": 3,
     "distance": 5.52,
-    "low": 4.37,
-    "high": 6.68,
+    "low": 4.35,
+    "high": 6.69,
     "shift": 0.52
    },
    "distance": 5.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "analytic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    }
+   ]
   },
   "AdicCoefficientsAndComparisons": {
    "classification": 9,
@@ -160,8 +211,29 @@
      "sourcePages": 14
     }
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 9.13,
+    "low": 8.0,
+    "high": 10.0,
+    "shift": 0.13
+   },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 1
+    }
+   ]
   },
   "AdicEtaleGeometry": {
    "classification": 8,
@@ -185,14 +257,24 @@
    "pairwise": {
     "judgements": 4,
     "distance": 7.28,
-    "low": 6.36,
-    "high": 8.2,
+    "low": 6.33,
+    "high": 8.23,
     "shift": -0.72
    },
    "distance": 7.28,
-   "low": 6.36,
-   "high": 8.2,
-   "basis": "pairwise"
+   "low": 6.33,
+   "high": 8.23,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "etale",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 1
+    }
+   ]
   },
   "AdicSpacesPartII": {
    "classification": 7,
@@ -214,7 +296,29 @@
     }
    },
    "distance": 7.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 4
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "algebraicgeometry",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    }
+   ]
   },
   "AlgebraicModularFormsAndSerreWeights": {
    "classification": 6,
@@ -237,13 +341,19 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 7.63,
-    "low": 6.57,
+    "distance": 7.6,
+    "low": 6.52,
     "high": 8.69,
-    "shift": 1.63
+    "shift": 1.6
    },
    "distance": 6.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 3
+    }
+   ]
   },
   "AlgebraicModuliForArithmeticGeometry": {
    "classification": 6,
@@ -255,7 +365,29 @@
     "suppliers": 2
    },
    "distance": 6.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 7
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "representations",
+     "roadmaps": 1
+    }
+   ]
   },
   "AnabelianGeometryAndNonabelianChabauty": {
    "classification": 9,
@@ -267,7 +399,8 @@
     "suppliers": 37
    },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "AnalyticNumberTheory": {
    "classification": 4,
@@ -289,7 +422,21 @@
     }
    },
    "distance": 4.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "computational",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    }
+   ]
   },
   "ArakelovGeometryAndAbelianHeights": {
    "classification": 8,
@@ -301,7 +448,13 @@
     "suppliers": 25
    },
    "distance": 8.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    }
+   ]
   },
   "ArithmeticDynamics": {
    "classification": 6,
@@ -313,7 +466,13 @@
     "suppliers": 13
    },
    "distance": 6.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "elementary",
+     "roadmaps": 1
+    }
+   ]
   },
   "ArithmeticGaloisDuality": {
    "classification": 5,
@@ -325,7 +484,41 @@
     "suppliers": 13
    },
    "distance": 5.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 9
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 5
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    }
+   ]
   },
   "ArithmeticGaloisRepresentations": {
    "classification": 5,
@@ -347,7 +540,37 @@
     }
    },
    "distance": 5.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 4
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "algebraicnt",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 1
+    }
+   ]
   },
   "ArithmeticKTheory": {
    "classification": 9,
@@ -360,13 +583,19 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 8.65,
+    "distance": 8.68,
     "low": 7.65,
-    "high": 9.65,
-    "shift": -0.35
+    "high": 9.71,
+    "shift": -0.32
    },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 3
+    }
+   ]
   },
   "ArithmeticLocallySymmetricSpaces": {
    "classification": 7,
@@ -379,15 +608,37 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 8.02,
-    "low": 7.13,
-    "high": 8.91,
-    "shift": 1.02
+    "distance": 8.03,
+    "low": 7.11,
+    "high": 8.95,
+    "shift": 1.03
    },
-   "distance": 8.02,
-   "low": 7.13,
-   "high": 8.91,
-   "basis": "pairwise"
+   "distance": 8.03,
+   "low": 7.11,
+   "high": 8.95,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 4
+    },
+    {
+     "galaxy": "analytic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    }
+   ]
   },
   "ArithmeticQuantumTopology": {
    "classification": 9,
@@ -401,14 +652,20 @@
    "pairwise": {
     "judgements": 4,
     "distance": 7.67,
-    "low": 6.74,
-    "high": 8.59,
+    "low": 6.71,
+    "high": 8.63,
     "shift": -1.33
    },
    "distance": 7.67,
-   "low": 6.74,
-   "high": 8.59,
-   "basis": "pairwise"
+   "low": 6.71,
+   "high": 8.63,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    }
+   ]
   },
   "ArithmeticStatistics": {
    "classification": 6,
@@ -431,15 +688,16 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 6.3,
-    "low": 5.17,
+    "distance": 6.29,
+    "low": 5.15,
     "high": 7.43,
-    "shift": 0.3
+    "shift": 0.29
    },
-   "distance": 6.3,
-   "low": 5.17,
+   "distance": 6.29,
+   "low": 5.15,
    "high": 7.43,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": []
   },
   "AutomorphicBundles": {
    "classification": 8,
@@ -462,13 +720,27 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 8.78,
-    "low": 7.71,
-    "high": 9.85,
-    "shift": 0.78
+    "distance": 8.79,
+    "low": 7.69,
+    "high": 9.88,
+    "shift": 0.79
    },
    "distance": 8.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    }
+   ]
   },
   "AutomorphicCongruences": {
    "classification": 10,
@@ -489,7 +761,8 @@
    "distance": 10.0,
    "low": 10.0,
    "high": 10.0,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": []
   },
   "AutomorphicFormsOnReductiveGroups": {
    "classification": 7,
@@ -501,7 +774,25 @@
     "suppliers": 9
    },
    "distance": 7.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    }
+   ]
   },
   "AutomorphicGaloisRepresentations": {
    "classification": 9,
@@ -522,8 +813,29 @@
      "sourcePages": 24
     }
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 9.23,
+    "low": 8.16,
+    "high": 10.0,
+    "shift": 0.23
+   },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    }
+   ]
   },
   "AutomorphicGaloisRepresentationsPartII": {
    "classification": 10,
@@ -546,13 +858,14 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 9.75,
-    "low": 8.78,
+    "distance": 9.74,
+    "low": 8.74,
     "high": 10.0,
-    "shift": -0.25
+    "shift": -0.26
    },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "AutomorphicLFunctionsAndLocalFactors": {
    "classification": 6,
@@ -565,15 +878,33 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 6.06,
-    "low": 5.01,
+    "distance": 6.05,
+    "low": 4.98,
     "high": 7.11,
-    "shift": 0.06
+    "shift": 0.05
    },
-   "distance": 6.06,
-   "low": 5.01,
+   "distance": 6.05,
+   "low": 4.98,
    "high": 7.11,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 5
+    },
+    {
+     "galaxy": "analytic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    }
+   ]
   },
   "AutomorphicPadicLFunctions": {
    "classification": 9,
@@ -587,12 +918,18 @@
    "pairwise": {
     "judgements": 3,
     "distance": 10.0,
-    "low": 8.96,
+    "low": 8.95,
     "high": 10.0,
     "shift": 1.05
    },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    }
+   ]
   },
   "AutomorphicSpectralTheory": {
    "classification": 8,
@@ -603,8 +940,35 @@
     "depth": 14,
     "suppliers": 6
    },
-   "distance": 8.0,
-   "basis": "classification"
+   "pairwise": {
+    "judgements": 4,
+    "distance": 6.59,
+    "low": 5.61,
+    "high": 7.57,
+    "shift": -1.41
+   },
+   "distance": 6.59,
+   "low": 5.61,
+   "high": 7.57,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "analytic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 1
+    }
+   ]
   },
   "BorelRegulators": {
    "classification": 8,
@@ -616,7 +980,13 @@
     "suppliers": 19
    },
    "distance": 8.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    }
+   ]
   },
   "BunGAndNewtonStrata": {
    "classification": 10,
@@ -630,14 +1000,20 @@
    "pairwise": {
     "judgements": 4,
     "distance": 9.55,
-    "low": 8.65,
+    "low": 8.63,
     "high": 10.0,
     "shift": -0.45
    },
    "distance": 9.55,
-   "low": 8.65,
+   "low": 8.63,
    "high": 10.0,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "padic",
+     "roadmaps": 1
+    }
+   ]
   },
   "ClassicalAdicEtaleCohomology": {
    "classification": 8,
@@ -660,13 +1036,19 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 8.34,
-    "low": 7.31,
-    "high": 9.38,
-    "shift": 0.34
+    "distance": 8.35,
+    "low": 7.29,
+    "high": 9.41,
+    "shift": 0.35
    },
    "distance": 8.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "padic",
+     "roadmaps": 6
+    }
+   ]
   },
   "ClassicalArithmeticCompletion": {
    "classification": 3,
@@ -689,13 +1071,43 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 2.2,
-    "low": 1.13,
-    "high": 3.27,
-    "shift": -0.8
+    "distance": 2.19,
+    "low": 1.1,
+    "high": 3.28,
+    "shift": -0.81
    },
    "distance": 3.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "analytic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "algebraicnt",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "combinatorics",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "computational",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "finitefields",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "modeltheory",
+     "roadmaps": 1
+    }
+   ]
   },
   "ClassicalSerreModularity": {
    "classification": 10,
@@ -719,12 +1131,13 @@
    "pairwise": {
     "judgements": 3,
     "distance": 10.0,
-    "low": 9.42,
+    "low": 9.4,
     "high": 10.0,
-    "shift": 0.42
+    "shift": 0.43
    },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "CohomologyComparisons": {
    "classification": 10,
@@ -745,8 +1158,21 @@
      "sourcePages": 32
     }
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 9.36,
+    "low": 8.28,
+    "high": 10.0,
+    "shift": -0.64
+   },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    }
+   ]
   },
   "ColemanIntegration": {
    "classification": 6,
@@ -758,7 +1184,13 @@
     "suppliers": 6
    },
    "distance": 6.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 2
+    }
+   ]
   },
   "ColemanPowerSeries": {
    "classification": 4,
@@ -769,8 +1201,18 @@
     "depth": 10,
     "suppliers": 7
    },
-   "distance": 4.0,
-   "basis": "classification"
+   "pairwise": {
+    "judgements": 4,
+    "distance": 4.69,
+    "low": 3.66,
+    "high": 5.72,
+    "shift": 0.69
+   },
+   "distance": 4.69,
+   "low": 3.66,
+   "high": 5.72,
+   "basis": "pairwise",
+   "usedBy": []
   },
   "CompletedCohomologyAndLocalGlobalCompatibility": {
    "classification": 10,
@@ -792,7 +1234,13 @@
     }
    },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    }
+   ]
   },
   "CompletedCohomologyPartII": {
    "classification": 8,
@@ -815,15 +1263,21 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 7.86,
-    "low": 6.88,
+    "distance": 7.84,
+    "low": 6.83,
     "high": 8.85,
-    "shift": -0.14
+    "shift": -0.16
    },
-   "distance": 7.86,
-   "low": 6.88,
+   "distance": 7.84,
+   "low": 6.83,
    "high": 8.85,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 2
+    }
+   ]
   },
   "ComplexComparisonPartII": {
    "classification": 6,
@@ -836,15 +1290,29 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 5.98,
-    "low": 4.98,
-    "high": 6.98,
-    "shift": -0.02
+    "distance": 5.95,
+    "low": 4.94,
+    "high": 6.97,
+    "shift": -0.05
    },
-   "distance": 5.98,
-   "low": 4.98,
-   "high": 6.98,
-   "basis": "pairwise"
+   "distance": 5.95,
+   "low": 4.94,
+   "high": 6.97,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 5
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    }
+   ]
   },
   "ComplexMultiplicationAndExplicitReciprocity": {
    "classification": 7,
@@ -856,7 +1324,8 @@
     "suppliers": 50
    },
    "distance": 7.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "ComputationalNumberTheory": {
    "classification": 4,
@@ -877,8 +1346,25 @@
      "sourcePages": 27
     }
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 5.89,
+    "low": 4.78,
+    "high": 6.99,
+    "shift": 1.89
+   },
    "distance": 4.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    }
+   ]
   },
   "CrystallineCohomology": {
    "classification": 8,
@@ -899,8 +1385,29 @@
      "sourcePages": 12
     }
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 6.64,
+    "low": 5.64,
+    "high": 7.63,
+    "shift": -1.36
+   },
    "distance": 8.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    }
+   ]
   },
   "DeformationAndDerivedPatchingAlgebra": {
    "classification": 5,
@@ -921,8 +1428,35 @@
      "sourcePages": 105
     }
    },
-   "distance": 5.0,
-   "basis": "classification"
+   "pairwise": {
+    "judgements": 4,
+    "distance": 4.09,
+    "low": 3.07,
+    "high": 5.11,
+    "shift": -0.91
+   },
+   "distance": 4.09,
+   "low": 3.07,
+   "high": 5.11,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 1
+    }
+   ]
   },
   "DeligneWeightsAndPurity": {
    "classification": 9,
@@ -945,15 +1479,37 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 8.68,
-    "low": 7.72,
-    "high": 9.63,
-    "shift": -0.32
+    "distance": 8.71,
+    "low": 7.73,
+    "high": 9.7,
+    "shift": -0.29
    },
-   "distance": 8.68,
-   "low": 7.72,
-   "high": 9.63,
-   "basis": "pairwise"
+   "distance": 8.71,
+   "low": 7.73,
+   "high": 9.7,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "functionfields",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "finitefields",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 1
+    }
+   ]
   },
   "DerivedDeRhamCohomology": {
    "classification": 8,
@@ -975,7 +1531,29 @@
     }
    },
    "distance": 8.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "etale",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "commutative",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "homological",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    }
+   ]
   },
   "DiamondEtaleCohomology": {
    "classification": 9,
@@ -988,15 +1566,25 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 8.58,
-    "low": 7.62,
-    "high": 9.54,
-    "shift": -0.42
+    "distance": 8.6,
+    "low": 7.61,
+    "high": 9.58,
+    "shift": -0.4
    },
-   "distance": 8.58,
-   "low": 7.62,
-   "high": 9.54,
-   "basis": "pairwise"
+   "distance": 8.6,
+   "low": 7.61,
+   "high": 9.58,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    }
+   ]
   },
   "DiamondSixOperations": {
    "classification": 9,
@@ -1007,8 +1595,31 @@
     "depth": 32,
     "suppliers": 20
    },
-   "distance": 9.0,
-   "basis": "classification"
+   "pairwise": {
+    "judgements": 4,
+    "distance": 8.49,
+    "low": 7.49,
+    "high": 9.49,
+    "shift": -0.51
+   },
+   "distance": 8.49,
+   "low": 7.49,
+   "high": 9.49,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    }
+   ]
   },
   "DiamondsAndVStacks": {
    "classification": 8,
@@ -1019,8 +1630,31 @@
     "depth": 22,
     "suppliers": 7
    },
-   "distance": 8.0,
-   "basis": "classification"
+   "pairwise": {
+    "judgements": 4,
+    "distance": 7.44,
+    "low": 6.45,
+    "high": 8.44,
+    "shift": -0.56
+   },
+   "distance": 7.44,
+   "low": 6.45,
+   "high": 8.44,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "etale",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "homological",
+     "roadmaps": 1
+    }
+   ]
   },
   "DiophantineApproximationAndTranscendence": {
    "classification": 5,
@@ -1043,15 +1677,29 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 4.35,
-    "low": 3.34,
-    "high": 5.35,
-    "shift": -0.65
+    "distance": 4.33,
+    "low": 3.3,
+    "high": 5.36,
+    "shift": -0.67
    },
-   "distance": 4.35,
-   "low": 3.34,
-   "high": 5.35,
-   "basis": "pairwise"
+   "distance": 4.33,
+   "low": 3.3,
+   "high": 5.36,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "elementary",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "modeltheory",
+     "roadmaps": 1
+    }
+   ]
   },
   "DirichletPadicLFunctions": {
    "classification": 3,
@@ -1064,13 +1712,19 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 3.77,
-    "low": 2.73,
-    "high": 4.81,
-    "shift": 0.77
+    "distance": 3.78,
+    "low": 2.72,
+    "high": 4.85,
+    "shift": 0.78
    },
    "distance": 3.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 2
+    }
+   ]
   },
   "DrinfeldModulesAndTModules": {
    "classification": 7,
@@ -1083,13 +1737,14 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 6.78,
-    "low": 5.72,
-    "high": 7.83,
-    "shift": -0.22
+    "distance": 6.79,
+    "low": 5.71,
+    "high": 7.87,
+    "shift": -0.21
    },
    "distance": 7.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "EffectiveDiophantineMethods": {
    "classification": 7,
@@ -1103,14 +1758,15 @@
    "pairwise": {
     "judgements": 4,
     "distance": 6.03,
-    "low": 5.08,
-    "high": 6.99,
+    "low": 5.04,
+    "high": 7.01,
     "shift": -0.97
    },
    "distance": 6.03,
-   "low": 5.08,
-   "high": 6.99,
-   "basis": "pairwise"
+   "low": 5.04,
+   "high": 7.01,
+   "basis": "pairwise",
+   "usedBy": []
   },
   "EllipticCurveModularity": {
    "classification": 9,
@@ -1134,14 +1790,24 @@
    "pairwise": {
     "judgements": 4,
     "distance": 10.0,
-    "low": 9.32,
+    "low": 9.31,
     "high": 10.0,
     "shift": 1.39
    },
    "distance": 10.0,
-   "low": 9.32,
+   "low": 9.31,
    "high": 10.0,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    }
+   ]
   },
   "EllipticKTheory": {
    "classification": 8,
@@ -1152,8 +1818,23 @@
     "depth": 16,
     "suppliers": 18
    },
-   "distance": 8.0,
-   "basis": "classification"
+   "pairwise": {
+    "judgements": 4,
+    "distance": 8.49,
+    "low": 7.5,
+    "high": 9.49,
+    "shift": 0.49
+   },
+   "distance": 8.49,
+   "low": 7.5,
+   "high": 9.49,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    }
+   ]
   },
   "EllipticRegulators": {
    "classification": 9,
@@ -1165,7 +1846,13 @@
     "suppliers": 84
    },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    }
+   ]
   },
   "EndoscopicTransferAndUnitaryTraceComparison": {
    "classification": 10,
@@ -1177,7 +1864,21 @@
     "suppliers": 47
    },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    }
+   ]
   },
   "EnhancedDerivedSheaves": {
    "classification": 8,
@@ -1189,7 +1890,41 @@
     "suppliers": 4
    },
    "distance": 8.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "padic",
+     "roadmaps": 8
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 5
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 5
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 5
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "commutative",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "representations",
+     "roadmaps": 1
+    }
+   ]
   },
   "EtaleDualityAndPerverseSheaves": {
    "classification": 9,
@@ -1212,13 +1947,27 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 9.06,
-    "low": 8.06,
+    "distance": 9.05,
+    "low": 8.01,
     "high": 10.0,
-    "shift": 0.06
+    "shift": 0.05
    },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "functionfields",
+     "roadmaps": 1
+    }
+   ]
   },
   "EulerSystemsAndKolyvaginSystems": {
    "classification": 7,
@@ -1230,7 +1979,8 @@
     "suppliers": 14
    },
    "distance": 7.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "EulerSystemsCyclotomicMainConjecture": {
    "classification": 8,
@@ -1252,7 +2002,8 @@
     }
    },
    "distance": 8.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "ExcursionOperatorsAndSpectralAction": {
    "classification": 10,
@@ -1268,10 +2019,16 @@
     "distance": 10.0,
     "low": 9.56,
     "high": 10.0,
-    "shift": 0.63
+    "shift": 0.65
    },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "representations",
+     "roadmaps": 1
+    }
+   ]
   },
   "ExponentialSumsAndCircleMethod": {
    "classification": 6,
@@ -1283,7 +2040,13 @@
     "suppliers": 14
    },
    "distance": 6.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    }
+   ]
   },
   "FaltingsFinitenessAndIsogenyTheorems": {
    "classification": 9,
@@ -1306,15 +2069,21 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 8.56,
-    "low": 7.64,
-    "high": 9.48,
-    "shift": -0.44
+    "distance": 8.58,
+    "low": 7.63,
+    "high": 9.53,
+    "shift": -0.42
    },
-   "distance": 8.56,
-   "low": 7.64,
-   "high": 9.48,
-   "basis": "pairwise"
+   "distance": 8.58,
+   "low": 7.63,
+   "high": 9.53,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    }
+   ]
   },
   "FarguesFontaineDiamonds": {
    "classification": 9,
@@ -1326,7 +2095,8 @@
     "suppliers": 21
    },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "FiniteFieldsAndCharacterSums": {
    "classification": 6,
@@ -1337,8 +2107,25 @@
     "depth": 25,
     "suppliers": 12
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 6.61,
+    "low": 5.48,
+    "high": 7.75,
+    "shift": 0.61
+   },
    "distance": 6.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "analytic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "computational",
+     "roadmaps": 1
+    }
+   ]
   },
   "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
    "classification": 7,
@@ -1350,7 +2137,25 @@
     "suppliers": 12
    },
    "distance": 7.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    }
+   ]
   },
   "FunctionFieldArithmetic": {
    "classification": 6,
@@ -1362,7 +2167,13 @@
     "suppliers": 11
    },
    "distance": 6.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 1
+    }
+   ]
   },
   "GL2AutomorphicRepresentationsAndTransfer": {
    "classification": 9,
@@ -1376,14 +2187,24 @@
    "pairwise": {
     "judgements": 4,
     "distance": 10.0,
-    "low": 9.17,
+    "low": 9.15,
     "high": 10.0,
     "shift": 1.18
    },
    "distance": 10.0,
-   "low": 9.17,
+   "low": 9.15,
    "high": 10.0,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 5
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    }
+   ]
   },
   "GL2ModularityLifting": {
    "classification": 10,
@@ -1397,14 +2218,20 @@
    "pairwise": {
     "judgements": 4,
     "distance": 10.0,
-    "low": 9.81,
+    "low": 9.82,
     "high": 10.0,
-    "shift": 0.83
+    "shift": 0.87
    },
    "distance": 10.0,
-   "low": 9.81,
+   "low": 9.82,
    "high": 10.0,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    }
+   ]
   },
   "GeneralAlgebraicKTheory": {
    "classification": 7,
@@ -1425,8 +2252,27 @@
      "sourcePages": 60
     }
    },
-   "distance": 7.0,
-   "basis": "classification"
+   "pairwise": {
+    "judgements": 4,
+    "distance": 6.18,
+    "low": 5.16,
+    "high": 7.19,
+    "shift": -0.82
+   },
+   "distance": 6.18,
+   "low": 5.16,
+   "high": 7.19,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "algebraicnt",
+     "roadmaps": 1
+    }
+   ]
   },
   "GeneralizedHeegnerCycles": {
    "classification": 10,
@@ -1450,12 +2296,13 @@
    "pairwise": {
     "judgements": 3,
     "distance": 10.0,
-    "low": 9.17,
+    "low": 9.18,
     "high": 10.0,
-    "shift": 0.3
+    "shift": 0.34
    },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "GeometricSatakeAndFusion": {
    "classification": 10,
@@ -1476,8 +2323,16 @@
      "sourcePages": 43
     }
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 10.0,
+    "low": 9.26,
+    "high": 10.0,
+    "shift": 0.29
+   },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "GeometryOfNumbersAndQuadraticArithmetic": {
    "classification": 5,
@@ -1489,7 +2344,17 @@
     "suppliers": 4
    },
    "distance": 5.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "analytic",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    }
+   ]
   },
   "GlobalGaloisDeformations": {
    "classification": 7,
@@ -1502,15 +2367,21 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 7.23,
-    "low": 6.27,
-    "high": 8.19,
-    "shift": 0.23
+    "distance": 7.22,
+    "low": 6.23,
+    "high": 8.21,
+    "shift": 0.22
    },
-   "distance": 7.23,
-   "low": 6.27,
-   "high": 8.19,
-   "basis": "pairwise"
+   "distance": 7.22,
+   "low": 6.23,
+   "high": 8.21,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    }
+   ]
   },
   "GlobalShtukasAndFunctionFieldLanglands": {
    "classification": 9,
@@ -1523,15 +2394,16 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 9.26,
-    "low": 8.34,
+    "distance": 9.27,
+    "low": 8.32,
     "high": 10.0,
-    "shift": 0.26
+    "shift": 0.27
    },
-   "distance": 9.26,
-   "low": 8.34,
+   "distance": 9.27,
+   "low": 8.32,
    "high": 10.0,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": []
   },
   "GrossZagierAndArithmeticHeights": {
    "classification": 9,
@@ -1557,12 +2429,13 @@
     "distance": 10.0,
     "low": 9.29,
     "high": 10.0,
-    "shift": 1.32
+    "shift": 1.34
    },
    "distance": 10.0,
    "low": 9.29,
    "high": 10.0,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": []
   },
   "HabiroCohomologyFoundations": {
    "classification": 10,
@@ -1575,13 +2448,23 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 9.16,
-    "low": 8.16,
+    "distance": 9.2,
+    "low": 8.17,
     "high": 10.0,
-    "shift": -0.84
+    "shift": -0.8
    },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "commutative",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    }
+   ]
   },
   "HabiroCyclotomicCompletions": {
    "classification": 2,
@@ -1594,13 +2477,31 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 2.66,
-    "low": 1.72,
-    "high": 3.6,
-    "shift": 0.66
+    "distance": 2.64,
+    "low": 1.66,
+    "high": 3.61,
+    "shift": 0.64
    },
    "distance": 2.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "topology",
+     "roadmaps": 1
+    }
+   ]
   },
   "HabiroNahmSeries": {
    "classification": 7,
@@ -1613,15 +2514,21 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 8.13,
-    "low": 7.08,
-    "high": 9.18,
-    "shift": 1.13
+    "distance": 8.09,
+    "low": 7.02,
+    "high": 9.16,
+    "shift": 1.09
    },
-   "distance": 8.13,
-   "low": 7.08,
-   "high": 9.18,
-   "basis": "pairwise"
+   "distance": 8.09,
+   "low": 7.02,
+   "high": 9.16,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "topology",
+     "roadmaps": 1
+    }
+   ]
   },
   "HabiroNumberFields": {
    "classification": 9,
@@ -1634,15 +2541,29 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 8.23,
-    "low": 7.31,
-    "high": 9.16,
-    "shift": -0.77
+    "distance": 8.22,
+    "low": 7.26,
+    "high": 9.18,
+    "shift": -0.78
    },
-   "distance": 8.23,
-   "low": 7.31,
-   "high": 9.16,
-   "basis": "pairwise"
+   "distance": 8.22,
+   "low": 7.26,
+   "high": 9.18,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "commutative",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    }
+   ]
   },
   "HabiroRings": {
    "classification": 9,
@@ -1654,7 +2575,17 @@
     "suppliers": 34
    },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    }
+   ]
   },
   "HeckeStacksAndLocalShtukas": {
    "classification": 10,
@@ -1676,7 +2607,13 @@
     }
    },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    }
+   ]
   },
   "HeegnerPointEulerSystems": {
    "classification": 9,
@@ -1700,14 +2637,15 @@
    "pairwise": {
     "judgements": 4,
     "distance": 10.0,
-    "low": 9.77,
+    "low": 9.74,
     "high": 10.0,
-    "shift": 1.76
+    "shift": 1.75
    },
    "distance": 10.0,
-   "low": 9.77,
+   "low": 9.74,
    "high": 10.0,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": []
   },
   "HeightsRationalPointsAndObstructions": {
    "classification": 8,
@@ -1718,8 +2656,21 @@
     "depth": 45,
     "suppliers": 43
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 9.41,
+    "low": 8.35,
+    "high": 10.0,
+    "shift": 1.41
+   },
    "distance": 8.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "analytic",
+     "roadmaps": 1
+    }
+   ]
   },
   "HigherLocalFieldsAndHigherClassFieldTheory": {
    "classification": 7,
@@ -1731,7 +2682,8 @@
     "suppliers": 8
    },
    "distance": 7.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "HilbertModularVarietiesAndShimuraCurves": {
    "classification": 8,
@@ -1744,13 +2696,31 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 8.9,
-    "low": 7.85,
-    "high": 9.96,
-    "shift": 0.9
+    "distance": 8.89,
+    "low": 7.81,
+    "high": 9.97,
+    "shift": 0.89
    },
    "distance": 8.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    }
+   ]
   },
   "HodgeTateAndCanonicalSubgroups": {
    "classification": 9,
@@ -1762,7 +2732,17 @@
     "suppliers": 34
    },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    }
+   ]
   },
   "IgusaVarietiesAndTorsionConcentration": {
    "classification": 10,
@@ -1775,13 +2755,14 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 9.97,
+    "distance": 9.99,
     "low": 8.97,
     "high": 10.0,
-    "shift": -0.03
+    "shift": -0.01
    },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "IntegralHeckeAndGaloisDeterminants": {
    "classification": 5,
@@ -1793,7 +2774,17 @@
     "suppliers": 5
    },
    "distance": 5.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    }
+   ]
   },
   "IntegralIwasawaTheory": {
    "classification": 9,
@@ -1807,12 +2798,18 @@
    "pairwise": {
     "judgements": 3,
     "distance": 8.76,
-    "low": 7.78,
-    "high": 9.75,
+    "low": 7.75,
+    "high": 9.78,
     "shift": -0.24
    },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    }
+   ]
   },
   "InverseGaloisAndArithmeticFundamentalGroups": {
    "classification": 7,
@@ -1823,8 +2820,18 @@
     "depth": 8,
     "suppliers": 3
    },
-   "distance": 7.0,
-   "basis": "classification"
+   "pairwise": {
+    "judgements": 4,
+    "distance": 6.6,
+    "low": 5.67,
+    "high": 7.53,
+    "shift": -0.4
+   },
+   "distance": 6.6,
+   "low": 5.67,
+   "high": 7.53,
+   "basis": "pairwise",
+   "usedBy": []
   },
   "K2SymbolsBrauer": {
    "classification": 5,
@@ -1837,13 +2844,23 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 5.37,
-    "low": 4.27,
-    "high": 6.47,
-    "shift": 0.37
+    "distance": 5.36,
+    "low": 4.25,
+    "high": 6.48,
+    "shift": 0.36
    },
    "distance": 5.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "algebraicnt",
+     "roadmaps": 1
+    }
+   ]
   },
   "K3BlochGroups": {
    "classification": 7,
@@ -1854,8 +2871,27 @@
     "depth": 22,
     "suppliers": 18
    },
-   "distance": 7.0,
-   "basis": "classification"
+   "pairwise": {
+    "judgements": 4,
+    "distance": 8.05,
+    "low": 7.07,
+    "high": 9.04,
+    "shift": 1.05
+   },
+   "distance": 8.05,
+   "low": 7.07,
+   "high": 9.04,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "topology",
+     "roadmaps": 1
+    }
+   ]
   },
   "KTheoryFiniteLocalFields": {
    "classification": 9,
@@ -1867,7 +2903,13 @@
     "suppliers": 15
    },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    }
+   ]
   },
   "KTheoryLowDegrees": {
    "classification": 4,
@@ -1878,8 +2920,21 @@
     "depth": 15,
     "suppliers": 4
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 5.08,
+    "low": 3.92,
+    "high": 6.25,
+    "shift": 1.08
+   },
    "distance": 4.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "elementary",
+     "roadmaps": 1
+    }
+   ]
   },
   "KatoEulerSystems": {
    "classification": 9,
@@ -1901,7 +2956,13 @@
     }
    },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    }
+   ]
   },
   "LanglandsParameterStacks": {
    "classification": 9,
@@ -1922,8 +2983,21 @@
      "sourcePages": 23
     }
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 7.9,
+    "low": 6.8,
+    "high": 9.0,
+    "shift": -1.1
+   },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "representations",
+     "roadmaps": 1
+    }
+   ]
   },
   "LefschetzPencilsAndVanishingCycles": {
    "classification": 8,
@@ -1945,7 +3019,13 @@
     }
    },
    "distance": 8.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 2
+    }
+   ]
   },
   "LocalGaloisDeformationRings": {
    "classification": 8,
@@ -1957,7 +3037,13 @@
     "suppliers": 15
    },
    "distance": 8.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    }
+   ]
   },
   "LocallyAnalyticDistributions": {
    "classification": 5,
@@ -1980,13 +3066,27 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 4.27,
-    "low": 3.19,
-    "high": 5.34,
-    "shift": -0.73
+    "distance": 4.26,
+    "low": 3.16,
+    "high": 5.36,
+    "shift": -0.74
    },
    "distance": 5.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 1
+    }
+   ]
   },
   "LogicAndDefinabilityInNumberTheory": {
    "classification": 6,
@@ -1999,13 +3099,19 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 6.57,
-    "low": 5.52,
-    "high": 7.62,
-    "shift": 0.57
+    "distance": 6.55,
+    "low": 5.48,
+    "high": 7.63,
+    "shift": 0.55
    },
    "distance": 6.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "analytic",
+     "roadmaps": 1
+    }
+   ]
   },
   "MetaplecticAutomorphicForms": {
    "classification": 7,
@@ -2018,15 +3124,21 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 7.4,
-    "low": 6.41,
-    "high": 8.4,
-    "shift": 0.4
+    "distance": 7.39,
+    "low": 6.38,
+    "high": 8.41,
+    "shift": 0.39
    },
-   "distance": 7.4,
-   "low": 6.41,
-   "high": 8.4,
-   "basis": "pairwise"
+   "distance": 7.39,
+   "low": 6.38,
+   "high": 8.41,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 3
+    }
+   ]
   },
   "ModularCurvesPartII": {
    "classification": 8,
@@ -2039,15 +3151,37 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 7.61,
-    "low": 6.71,
-    "high": 8.51,
-    "shift": -0.39
+    "distance": 7.62,
+    "low": 6.69,
+    "high": 8.55,
+    "shift": -0.38
    },
-   "distance": 7.61,
-   "low": 6.71,
-   "high": 8.51,
-   "basis": "pairwise"
+   "distance": 7.62,
+   "low": 6.69,
+   "high": 8.55,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 5
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 5
+    },
+    {
+     "galaxy": "computational",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    }
+   ]
   },
   "ModularIwasawaMainConjectures": {
    "classification": 10,
@@ -2059,7 +3193,8 @@
     "suppliers": 88
    },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "ModularSymbolsPadicLFunctions": {
    "classification": 7,
@@ -2070,8 +3205,25 @@
     "depth": 21,
     "suppliers": 14
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 6.95,
+    "low": 5.89,
+    "high": 8.0,
+    "shift": -0.05
+   },
    "distance": 7.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    }
+   ]
   },
   "ModularityAndLanglandsExtensions": {
    "classification": 10,
@@ -2087,10 +3239,11 @@
     "distance": 10.0,
     "low": 10.0,
     "high": 10.0,
-    "shift": 1.42
+    "shift": 1.43
    },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "MotivesAndAlgebraicCycles": {
    "classification": 8,
@@ -2102,7 +3255,17 @@
     "suppliers": 6
    },
    "distance": 8.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "modeltheory",
+     "roadmaps": 1
+    }
+   ]
   },
   "MotivicEtaleKTheory": {
    "classification": 9,
@@ -2114,7 +3277,21 @@
     "suppliers": 32
    },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "algebraicnt",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "motives",
+     "roadmaps": 1
+    }
+   ]
   },
   "NeronModelsAndSemistableAbelianVarieties": {
    "classification": 8,
@@ -2127,15 +3304,25 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 8.2,
-    "low": 7.02,
-    "high": 9.39,
-    "shift": 0.2
+    "distance": 8.21,
+    "low": 7.03,
+    "high": 9.4,
+    "shift": 0.21
    },
-   "distance": 8.2,
-   "low": 7.02,
-   "high": 9.39,
-   "basis": "pairwise"
+   "distance": 8.21,
+   "low": 7.03,
+   "high": 9.4,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    }
+   ]
   },
   "NoncommutativeAndEquivariantIwasawa": {
    "classification": 10,
@@ -2146,8 +3333,16 @@
     "depth": 23,
     "suppliers": 33
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 9.63,
+    "low": 8.59,
+    "high": 10.0,
+    "shift": -0.37
+   },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "OrdinaryAutomorphicFormsAndModularityLifting": {
    "classification": 9,
@@ -2158,8 +3353,23 @@
     "depth": 53,
     "suppliers": 61
    },
-   "distance": 9.0,
-   "basis": "classification"
+   "pairwise": {
+    "judgements": 4,
+    "distance": 9.89,
+    "low": 8.75,
+    "high": 10.0,
+    "shift": 0.89
+   },
+   "distance": 9.89,
+   "low": 8.75,
+   "high": 10.0,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    }
+   ]
   },
   "OverconvergentAutomorphicForms": {
    "classification": 10,
@@ -2173,14 +3383,15 @@
    "pairwise": {
     "judgements": 4,
     "distance": 8.87,
-    "low": 7.96,
-    "high": 9.77,
+    "low": 7.94,
+    "high": 9.8,
     "shift": -1.13
    },
    "distance": 8.87,
-   "low": 7.96,
-   "high": 9.77,
-   "basis": "pairwise"
+   "low": 7.94,
+   "high": 9.8,
+   "basis": "pairwise",
+   "usedBy": []
   },
   "PELModuli": {
    "classification": 9,
@@ -2193,13 +3404,31 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 7.88,
-    "low": 6.85,
-    "high": 8.92,
-    "shift": -1.12
+    "distance": 7.89,
+    "low": 6.84,
+    "high": 8.95,
+    "shift": -1.11
    },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 1
+    }
+   ]
   },
   "PadicDifferentialEquationsAndRigidCohomology": {
    "classification": 9,
@@ -2223,14 +3452,20 @@
    "pairwise": {
     "judgements": 4,
     "distance": 9.17,
-    "low": 8.27,
+    "low": 8.24,
     "high": 10.0,
     "shift": 0.17
    },
    "distance": 9.17,
-   "low": 8.27,
+   "low": 8.24,
    "high": 10.0,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    }
+   ]
   },
   "PadicFamilies": {
    "classification": 9,
@@ -2253,15 +3488,25 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 9.99,
-    "low": 9.03,
+    "distance": 10.0,
+    "low": 9.01,
     "high": 10.0,
-    "shift": 0.99
+    "shift": 1.0
    },
-   "distance": 9.99,
-   "low": 9.03,
+   "distance": 10.0,
+   "low": 9.01,
    "high": 10.0,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 7
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 3
+    }
+   ]
   },
   "PadicHodgeRegulators": {
    "classification": 10,
@@ -2275,12 +3520,18 @@
    "pairwise": {
     "judgements": 3,
     "distance": 10.0,
-    "low": 9.12,
+    "low": 9.1,
     "high": 10.0,
-    "shift": 0.12
+    "shift": 0.13
    },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 4
+    }
+   ]
   },
   "PadicHodgeTheory": {
    "classification": 9,
@@ -2303,15 +3554,29 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 9.39,
-    "low": 8.36,
+    "distance": 9.43,
+    "low": 8.37,
     "high": 10.0,
-    "shift": 0.39
+    "shift": 0.43
    },
-   "distance": 9.39,
-   "low": 8.36,
+   "distance": 9.43,
+   "low": 8.37,
    "high": 10.0,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    }
+   ]
   },
   "PadicLocalLanglandsForGL2Qp": {
    "classification": 10,
@@ -2322,8 +3587,21 @@
     "depth": 47,
     "suppliers": 42
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 10.0,
+    "low": 9.46,
+    "high": 10.0,
+    "shift": 0.66
+   },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    }
+   ]
   },
   "PadicMeasuresIwasawaAlgebras": {
    "classification": 4,
@@ -2334,8 +3612,33 @@
     "depth": 7,
     "suppliers": 0
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 3.88,
+    "low": 2.78,
+    "high": 4.98,
+    "shift": -0.12
+   },
    "distance": 4.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 1
+    }
+   ]
   },
   "PerfectoidQuotients": {
    "classification": 9,
@@ -2356,8 +3659,16 @@
      "sourcePages": 21
     }
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 7.49,
+    "low": 6.45,
+    "high": 8.53,
+    "shift": -1.51
+   },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "PerfectoidShimuraVarieties": {
    "classification": 10,
@@ -2369,7 +3680,17 @@
     "suppliers": 35
    },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    }
+   ]
   },
   "PerfectoidSpaces": {
    "classification": 8,
@@ -2393,14 +3714,28 @@
    "pairwise": {
     "judgements": 4,
     "distance": 7.3,
-    "low": 6.25,
-    "high": 8.34,
+    "low": 6.23,
+    "high": 8.36,
     "shift": -0.7
    },
    "distance": 7.3,
-   "low": 6.25,
-   "high": 8.34,
-   "basis": "pairwise"
+   "low": 6.23,
+   "high": 8.36,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    }
+   ]
   },
   "PeriodsAndSpecialValues": {
    "classification": 10,
@@ -2416,12 +3751,13 @@
     "distance": 10.0,
     "low": 9.44,
     "high": 10.0,
-    "shift": 0.38
+    "shift": 0.41
    },
    "distance": 10.0,
    "low": 9.44,
    "high": 10.0,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": []
   },
   "PhiGammaModulesAndIwasawaCohomology": {
    "classification": 8,
@@ -2434,13 +3770,23 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 7.71,
-    "low": 6.75,
-    "high": 8.67,
-    "shift": -0.29
+    "distance": 7.7,
+    "low": 6.71,
+    "high": 8.7,
+    "shift": -0.3
    },
    "distance": 8.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    }
+   ]
   },
   "Polylogarithms": {
    "classification": 9,
@@ -2451,8 +3797,25 @@
     "depth": 21,
     "suppliers": 35
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 8.37,
+    "low": 7.28,
+    "high": 9.46,
+    "shift": -0.63
+   },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    }
+   ]
   },
   "PotentialAutomorphyInfrastructure": {
    "classification": 10,
@@ -2466,12 +3829,13 @@
    "pairwise": {
     "judgements": 3,
     "distance": 10.0,
-    "low": 9.54,
+    "low": 9.51,
     "high": 10.0,
     "shift": 0.51
    },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "PotentialModularityAndCompatibleSystems": {
    "classification": 9,
@@ -2482,8 +3846,21 @@
     "depth": 69,
     "suppliers": 64
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 10.0,
+    "low": 9.39,
+    "high": 10.0,
+    "shift": 1.45
+   },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    }
+   ]
   },
   "PrismaticCohomology": {
    "classification": 10,
@@ -2506,13 +3883,27 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 9.27,
-    "low": 8.3,
+    "distance": 9.28,
+    "low": 8.29,
     "high": 10.0,
-    "shift": -0.73
+    "shift": -0.72
    },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "commutative",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    }
+   ]
   },
   "ProbabilisticAndMetricNumberTheory": {
    "classification": 5,
@@ -2524,7 +3915,8 @@
     "suppliers": 15
    },
    "distance": 5.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "QSeriesPartitionsAndMockModularForms": {
    "classification": 7,
@@ -2537,13 +3929,14 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 7.62,
-    "low": 6.42,
-    "high": 8.82,
-    "shift": 0.62
+    "distance": 7.64,
+    "low": 6.43,
+    "high": 8.86,
+    "shift": 0.64
    },
    "distance": 7.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "RankZeroOneBSD": {
    "classification": 10,
@@ -2554,8 +3947,18 @@
     "depth": 106,
     "suppliers": 88
    },
+   "pairwise": {
+    "judgements": 4,
+    "distance": 10.0,
+    "low": 10.0,
+    "high": 10.0,
+    "shift": 1.16
+   },
    "distance": 10.0,
-   "basis": "classification"
+   "low": 10.0,
+   "high": 10.0,
+   "basis": "pairwise",
+   "usedBy": []
   },
   "ReductiveGroupsPartII": {
    "classification": 7,
@@ -2568,15 +3971,37 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 6.02,
-    "low": 5.01,
-    "high": 7.04,
-    "shift": -0.98
+    "distance": 6.03,
+    "low": 4.99,
+    "high": 7.06,
+    "shift": -0.97
    },
-   "distance": 6.02,
-   "low": 5.01,
-   "high": 7.04,
-   "basis": "pairwise"
+   "distance": 6.03,
+   "low": 4.99,
+   "high": 7.06,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 5
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "functionfields",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    }
+   ]
   },
   "RefinedTraceMethods": {
    "classification": 10,
@@ -2589,15 +4014,25 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 9.87,
-    "low": 8.99,
+    "distance": 9.88,
+    "low": 8.97,
     "high": 10.0,
-    "shift": -0.13
+    "shift": -0.12
    },
-   "distance": 9.87,
-   "low": 8.99,
+   "distance": 9.88,
+   "low": 8.97,
    "high": 10.0,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "padic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    }
+   ]
   },
   "RelativeFarguesFontaine": {
    "classification": 10,
@@ -2620,15 +4055,21 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 8.13,
-    "low": 7.16,
-    "high": 9.1,
-    "shift": -1.87
+    "distance": 8.15,
+    "low": 7.15,
+    "high": 9.14,
+    "shift": -1.85
    },
-   "distance": 8.13,
-   "low": 7.16,
-   "high": 9.1,
-   "basis": "pairwise"
+   "distance": 8.15,
+   "low": 7.15,
+   "high": 9.14,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 4
+    }
+   ]
   },
   "SchemeAndStackFoundations": {
    "classification": 6,
@@ -2639,8 +4080,59 @@
     "depth": 7,
     "suppliers": 0
    },
-   "distance": 6.0,
-   "basis": "classification"
+   "pairwise": {
+    "judgements": 4,
+    "distance": 6.71,
+    "low": 5.7,
+    "high": 7.72,
+    "shift": 0.71
+   },
+   "distance": 6.71,
+   "low": 5.7,
+   "high": 7.72,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 5
+    },
+    {
+     "galaxy": "functionfields",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "algebraicnt",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "analytic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "computational",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "finitefields",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "modeltheory",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "motives",
+     "roadmaps": 1
+    }
+   ]
   },
   "SchemeKTheoryOperations": {
    "classification": 8,
@@ -2652,7 +4144,8 @@
     "suppliers": 6
    },
    "distance": 8.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "SelmerIwasawaCohomology": {
    "classification": 7,
@@ -2663,8 +4156,35 @@
     "depth": 15,
     "suppliers": 20
    },
-   "distance": 7.0,
-   "basis": "classification"
+   "pairwise": {
+    "judgements": 4,
+    "distance": 7.21,
+    "low": 6.11,
+    "high": 8.31,
+    "shift": 0.21
+   },
+   "distance": 7.21,
+   "low": 6.11,
+   "high": 8.31,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "algebraicnt",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 1
+    }
+   ]
   },
   "SerreWeightAndLevelOptimisation": {
    "classification": 9,
@@ -2677,15 +4197,16 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 9.66,
-    "low": 8.77,
+    "distance": 9.65,
+    "low": 8.73,
     "high": 10.0,
-    "shift": 0.66
+    "shift": 0.65
    },
-   "distance": 9.66,
-   "low": 8.77,
+   "distance": 9.65,
+   "low": 8.73,
    "high": 10.0,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": []
   },
   "ShimuraCompactifications": {
    "classification": 9,
@@ -2699,12 +4220,26 @@
    "pairwise": {
     "judgements": 3,
     "distance": 8.21,
-    "low": 7.16,
-    "high": 9.27,
+    "low": 7.13,
+    "high": 9.28,
     "shift": -0.79
    },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 2
+    }
+   ]
   },
   "ShimuraData": {
    "classification": 5,
@@ -2717,13 +4252,23 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 4.77,
-    "low": 3.79,
-    "high": 5.76,
-    "shift": -0.23
+    "distance": 4.78,
+    "low": 3.76,
+    "high": 5.79,
+    "shift": -0.22
    },
    "distance": 5.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 1
+    }
+   ]
   },
   "ShimuraVarieties": {
    "classification": 9,
@@ -2736,15 +4281,29 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 8.55,
+    "distance": 8.57,
     "low": 7.55,
-    "high": 9.54,
-    "shift": -0.45
+    "high": 9.59,
+    "shift": -0.43
    },
-   "distance": 8.55,
+   "distance": 8.57,
    "low": 7.55,
-   "high": 9.54,
-   "basis": "pairwise"
+   "high": 9.59,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 1
+    }
+   ]
   },
   "SieveMethodsAndPrimePatterns": {
    "classification": 6,
@@ -2757,13 +4316,19 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 5.14,
-    "low": 3.98,
-    "high": 6.3,
-    "shift": -0.86
+    "distance": 5.13,
+    "low": 3.96,
+    "high": 6.31,
+    "shift": -0.87
    },
    "distance": 6.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "combinatorics",
+     "roadmaps": 1
+    }
+   ]
   },
   "SmallRamificationAndAbelianVarietyBaseCases": {
    "classification": 8,
@@ -2776,15 +4341,21 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 9.07,
-    "low": 8.18,
-    "high": 9.97,
-    "shift": 1.07
+    "distance": 9.06,
+    "low": 8.14,
+    "high": 9.99,
+    "shift": 1.06
    },
-   "distance": 9.07,
-   "low": 8.18,
-   "high": 9.97,
-   "basis": "pairwise"
+   "distance": 9.06,
+   "low": 8.14,
+   "high": 9.99,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    }
+   ]
   },
   "SmoothRepresentationsOfLocalGroups": {
    "classification": 8,
@@ -2796,7 +4367,29 @@
     "suppliers": 32
    },
    "distance": 8.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 5
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 4
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "functionfields",
+     "roadmaps": 1
+    }
+   ]
   },
   "SpecialValuesBirchTate": {
    "classification": 10,
@@ -2808,7 +4401,8 @@
     "suppliers": 47
    },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "StableHomotopyKTheory": {
    "classification": 5,
@@ -2829,8 +4423,35 @@
      "sourcePages": 19
     }
    },
-   "distance": 5.0,
-   "basis": "classification"
+   "pairwise": {
+    "judgements": 4,
+    "distance": 4.77,
+    "low": 3.82,
+    "high": 5.72,
+    "shift": -0.23
+   },
+   "distance": 4.77,
+   "low": 3.82,
+   "high": 5.72,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "commutative",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "homological",
+     "roadmaps": 1
+    }
+   ]
   },
   "TorsionCohomologyInfrastructure": {
    "classification": 10,
@@ -2844,12 +4465,13 @@
    "pairwise": {
     "judgements": 3,
     "distance": 10.0,
-    "low": 9.16,
+    "low": 9.15,
     "high": 10.0,
-    "shift": 0.22
+    "shift": 0.23
    },
    "distance": 10.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "TropicalAndBerkovichArithmetic": {
    "classification": 7,
@@ -2871,7 +4493,13 @@
     }
    },
    "distance": 7.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    }
+   ]
   },
   "VStackSheavesAndLisseCategories": {
    "classification": 10,
@@ -2895,14 +4523,20 @@
    "pairwise": {
     "judgements": 4,
     "distance": 8.58,
-    "low": 7.64,
-    "high": 9.53,
+    "low": 7.61,
+    "high": 9.55,
     "shift": -1.42
    },
    "distance": 8.58,
-   "low": 7.64,
-   "high": 9.53,
-   "basis": "pairwise"
+   "low": 7.61,
+   "high": 9.55,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "commutative",
+     "roadmaps": 1
+    }
+   ]
   },
   "VectorBundlesAndIsocrystals": {
    "classification": 9,
@@ -2925,15 +4559,21 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 8.68,
-    "low": 7.73,
-    "high": 9.62,
-    "shift": -0.32
+    "distance": 8.66,
+    "low": 7.69,
+    "high": 9.64,
+    "shift": -0.34
    },
-   "distance": 8.68,
-   "low": 7.73,
-   "high": 9.62,
-   "basis": "pairwise"
+   "distance": 8.66,
+   "low": 7.69,
+   "high": 9.64,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 2
+    }
+   ]
   },
   "WeightsInEtaleCohomology": {
    "classification": 9,
@@ -2957,14 +4597,32 @@
    "pairwise": {
     "judgements": 4,
     "distance": 9.36,
-    "low": 8.42,
+    "low": 8.4,
     "high": 10.0,
     "shift": 0.36
    },
    "distance": 9.36,
-   "low": 8.42,
+   "low": 8.4,
    "high": 10.0,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 1
+    }
+   ]
   },
   "WeilConjectures": {
    "classification": 9,
@@ -2987,13 +4645,27 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 8.82,
-    "low": 7.78,
-    "high": 9.86,
-    "shift": -0.18
+    "distance": 8.84,
+    "low": 7.77,
+    "high": 9.9,
+    "shift": -0.16
    },
    "distance": 9.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "finitefields",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:Completed/ContourIntegration": {
    "classification": 0,
@@ -3008,11 +4680,17 @@
     "judgements": 2,
     "distance": 0.0,
     "low": 0.0,
-    "high": 0.74,
-    "shift": -0.42
+    "high": 0.75,
+    "shift": -0.43
    },
    "distance": 0.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:Completed/EffectiveBounds": {
    "classification": 1,
@@ -3023,8 +4701,16 @@
     "depth": 0,
     "suppliers": 0
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 0.31,
+    "low": 0.0,
+    "high": 1.44,
+    "shift": -0.69
+   },
    "distance": 1.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:Completed/IntegralLattices": {
    "classification": 0,
@@ -3039,11 +4725,12 @@
     "judgements": 3,
     "distance": 0.0,
     "low": 0.0,
-    "high": 1.02,
-    "shift": -0.3
+    "high": 0.99,
+    "shift": -0.33
    },
    "distance": 0.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:Completed/OrthogonalL2Bases": {
    "classification": 0,
@@ -3058,11 +4745,17 @@
     "judgements": 2,
     "distance": 0.0,
     "low": 0.0,
-    "high": 1.15,
-    "shift": -0.22
+    "high": 1.13,
+    "shift": -0.24
    },
    "distance": 0.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "representations",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/AdicSpaces": {
    "classification": 4,
@@ -3073,8 +4766,16 @@
     "depth": 1,
     "suppliers": 0
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 3.42,
+    "low": 2.28,
+    "high": 4.56,
+    "shift": -0.58
+   },
    "distance": 4.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/AlgebraicCodingTheory": {
    "classification": 3,
@@ -3088,12 +4789,13 @@
    "pairwise": {
     "judgements": 3,
     "distance": 2.38,
-    "low": 1.24,
-    "high": 3.51,
+    "low": 1.23,
+    "high": 3.53,
     "shift": -0.62
    },
    "distance": 3.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/AlgebraicCurves": {
    "classification": 3,
@@ -3107,14 +4809,24 @@
    "pairwise": {
     "judgements": 4,
     "distance": 3.02,
-    "low": 1.93,
-    "high": 4.11,
+    "low": 1.92,
+    "high": 4.12,
     "shift": 0.02
    },
    "distance": 3.02,
-   "low": 1.93,
-   "high": 4.11,
-   "basis": "pairwise"
+   "low": 1.92,
+   "high": 4.12,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/AlgebraicTopology": {
    "classification": 4,
@@ -3127,13 +4839,19 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 4.79,
-    "low": 3.8,
-    "high": 5.78,
-    "shift": 0.79
+    "distance": 4.77,
+    "low": 3.75,
+    "high": 5.79,
+    "shift": 0.77
    },
    "distance": 4.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/AnalyticToricGeometry": {
    "classification": 3,
@@ -3146,13 +4864,14 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 2.95,
-    "low": 1.85,
-    "high": 4.05,
-    "shift": -0.05
+    "distance": 2.96,
+    "low": 1.84,
+    "high": 4.07,
+    "shift": -0.04
    },
    "distance": 3.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries": {
    "classification": 2,
@@ -3165,13 +4884,19 @@
    },
    "pairwise": {
     "judgements": 2,
-    "distance": 1.62,
-    "low": 0.45,
-    "high": 2.79,
-    "shift": -0.38
+    "distance": 1.61,
+    "low": 0.41,
+    "high": 2.8,
+    "shift": -0.39
    },
    "distance": 2.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/BelyiMaps": {
    "classification": 6,
@@ -3183,7 +4908,8 @@
     "suppliers": 0
    },
    "distance": 6.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/CFSGStatement": {
    "classification": 4,
@@ -3196,13 +4922,14 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 3.95,
-    "low": 2.71,
-    "high": 5.19,
-    "shift": -0.05
+    "distance": 3.94,
+    "low": 2.7,
+    "high": 5.18,
+    "shift": -0.06
    },
    "distance": 4.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/Chebotarev": {
    "classification": 3,
@@ -3213,8 +4940,27 @@
     "depth": 1,
     "suppliers": 0
    },
-   "distance": 3.0,
-   "basis": "classification"
+   "pairwise": {
+    "judgements": 4,
+    "distance": 3.07,
+    "low": 2.1,
+    "high": 4.04,
+    "shift": 0.07
+   },
+   "distance": 3.07,
+   "low": 2.1,
+   "high": 4.04,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 2
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/ClassFieldTheory": {
    "classification": 5,
@@ -3228,12 +4974,30 @@
    "pairwise": {
     "judgements": 3,
     "distance": 4.9,
-    "low": 3.81,
-    "high": 5.99,
+    "low": 3.79,
+    "high": 6.01,
     "shift": -0.1
    },
    "distance": 5.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer": {
    "classification": 5,
@@ -3245,7 +5009,8 @@
     "suppliers": 0
    },
    "distance": 5.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/ConformalMapping": {
    "classification": 1,
@@ -3258,13 +5023,14 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 0.4,
+    "distance": 0.41,
     "low": 0.0,
-    "high": 1.33,
-    "shift": -0.6
+    "high": 1.37,
+    "shift": -0.59
    },
    "distance": 1.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/DGAInfinity": {
    "classification": 6,
@@ -3275,8 +5041,16 @@
     "depth": 1,
     "suppliers": 0
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 5.84,
+    "low": 4.67,
+    "high": 7.0,
+    "shift": -0.16
+   },
    "distance": 6.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/DenseGraphLimits": {
    "classification": 3,
@@ -3290,14 +5064,15 @@
    "pairwise": {
     "judgements": 4,
     "distance": 2.25,
-    "low": 1.25,
-    "high": 3.25,
+    "low": 1.22,
+    "high": 3.27,
     "shift": -0.75
    },
    "distance": 2.25,
-   "low": 1.25,
-   "high": 3.25,
-   "basis": "pairwise"
+   "low": 1.22,
+   "high": 3.27,
+   "basis": "pairwise",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/EllipticCurves": {
    "classification": 4,
@@ -3309,7 +5084,13 @@
     "suppliers": 0
    },
    "distance": 4.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/Exchangeability": {
    "classification": 1,
@@ -3322,13 +5103,14 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 0.63,
+    "distance": 0.62,
     "low": 0.0,
-    "high": 1.65,
-    "shift": -0.37
+    "high": 1.67,
+    "shift": -0.38
    },
    "distance": 1.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/FuchsianOrbifolds": {
    "classification": 4,
@@ -3339,8 +5121,16 @@
     "depth": 1,
     "suppliers": 0
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 4.2,
+    "low": 3.23,
+    "high": 5.17,
+    "shift": 0.2
+   },
    "distance": 4.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/GeometricTopology": {
    "classification": 6,
@@ -3352,7 +5142,8 @@
     "suppliers": 0
    },
    "distance": 6.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/GlobalNumberFields": {
    "classification": 4,
@@ -3364,7 +5155,17 @@
     "suppliers": 0
    },
    "distance": 4.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/GlobalQuadraticForms": {
    "classification": 5,
@@ -3376,7 +5177,8 @@
     "suppliers": 0
    },
    "distance": 5.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/GrothendieckEulerForms": {
    "classification": 2,
@@ -3387,8 +5189,16 @@
     "depth": 1,
     "suppliers": 0
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 1.09,
+    "low": 0.0,
+    "high": 2.24,
+    "shift": -0.91
+   },
    "distance": 2.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/HeegaardFloer": {
    "classification": 9,
@@ -3401,15 +5211,16 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 8.34,
+    "distance": 8.36,
     "low": 7.31,
-    "high": 9.37,
-    "shift": -0.66
+    "high": 9.41,
+    "shift": -0.64
    },
-   "distance": 8.34,
+   "distance": 8.36,
    "low": 7.31,
-   "high": 9.37,
-   "basis": "pairwise"
+   "high": 9.41,
+   "basis": "pairwise",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/HodgeStructures": {
    "classification": 0,
@@ -3424,11 +5235,17 @@
     "judgements": 3,
     "distance": 0.0,
     "low": 0.0,
-    "high": 0.68,
-    "shift": -0.28
+    "high": 0.69,
+    "shift": -0.31
    },
    "distance": 0.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/HopfRinow": {
    "classification": 3,
@@ -3441,13 +5258,14 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 2.24,
-    "low": 1.16,
-    "high": 3.32,
-    "shift": -0.76
+    "distance": 2.23,
+    "low": 1.12,
+    "high": 3.33,
+    "shift": -0.77
    },
    "distance": 3.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/JacobianChallenge": {
    "classification": 6,
@@ -3460,15 +5278,29 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 5.69,
-    "low": 4.58,
+    "distance": 5.68,
+    "low": 4.56,
     "high": 6.8,
-    "shift": -0.31
+    "shift": -0.32
    },
-   "distance": 5.69,
-   "low": 4.58,
+   "distance": 5.68,
+   "low": 4.56,
    "high": 6.8,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "etale",
+     "roadmaps": 4
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/LocalFieldsRamification": {
    "classification": 3,
@@ -3480,7 +5312,29 @@
     "suppliers": 0
    },
    "distance": 3.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "padic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "representations",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/ModularCurves": {
    "classification": 8,
@@ -3494,14 +5348,15 @@
    "pairwise": {
     "judgements": 4,
     "distance": 7.06,
-    "low": 6.06,
-    "high": 8.05,
+    "low": 6.04,
+    "high": 8.08,
     "shift": -0.94
    },
    "distance": 7.06,
-   "low": 6.06,
-   "high": 8.05,
-   "basis": "pairwise"
+   "low": 6.04,
+   "high": 8.08,
+   "basis": "pairwise",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/ModularForms": {
    "classification": 4,
@@ -3515,12 +5370,26 @@
    "pairwise": {
     "judgements": 3,
     "distance": 4.96,
-    "low": 3.9,
-    "high": 6.01,
+    "low": 3.88,
+    "high": 6.04,
     "shift": 0.96
    },
    "distance": 4.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "computational",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/Multiquadratic": {
    "classification": 0,
@@ -3533,15 +5402,16 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 0.4,
+    "distance": 0.38,
     "low": 0.0,
-    "high": 1.3,
-    "shift": 0.4
+    "high": 1.32,
+    "shift": 0.38
    },
-   "distance": 0.4,
+   "distance": 0.38,
    "low": 0.0,
-   "high": 1.3,
-   "basis": "pairwise"
+   "high": 1.32,
+   "basis": "pairwise",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/NumberFieldArithmetic": {
    "classification": 2,
@@ -3552,8 +5422,23 @@
     "depth": 1,
     "suppliers": 0
    },
-   "distance": 2.0,
-   "basis": "classification"
+   "pairwise": {
+    "judgements": 4,
+    "distance": 2.33,
+    "low": 1.33,
+    "high": 3.33,
+    "shift": 0.33
+   },
+   "distance": 2.33,
+   "low": 1.33,
+   "high": 3.33,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/OneParameterSemigroups": {
    "classification": 0,
@@ -3566,13 +5451,19 @@
    },
    "pairwise": {
     "judgements": 2,
-    "distance": 0.07,
+    "distance": 0.06,
     "low": 0.0,
-    "high": 1.21,
-    "shift": 0.07
+    "high": 1.22,
+    "shift": 0.06
    },
    "distance": 0.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "pde",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/OptimalTransport": {
    "classification": 7,
@@ -3585,15 +5476,16 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 6.86,
-    "low": 5.89,
-    "high": 7.84,
-    "shift": -0.14
+    "distance": 6.82,
+    "low": 5.82,
+    "high": 7.82,
+    "shift": -0.18
    },
-   "distance": 6.86,
-   "low": 5.89,
-   "high": 7.84,
-   "basis": "pairwise"
+   "distance": 6.82,
+   "low": 5.82,
+   "high": 7.82,
+   "basis": "pairwise",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/PDE": {
    "classification": 4,
@@ -3605,7 +5497,13 @@
     "suppliers": 0
    },
    "distance": 4.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "analysis",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/PolynomialGaloisGroups": {
    "classification": 2,
@@ -3618,13 +5516,14 @@
    },
    "pairwise": {
     "judgements": 2,
-    "distance": 2.12,
-    "low": 0.97,
+    "distance": 2.11,
+    "low": 0.94,
     "high": 3.28,
-    "shift": 0.12
+    "shift": 0.11
    },
    "distance": 2.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/ProfiniteCohomology": {
    "classification": 3,
@@ -3639,13 +5538,31 @@
     "judgements": 4,
     "distance": 2.99,
     "low": 1.87,
-    "high": 4.11,
+    "high": 4.12,
     "shift": -0.01
    },
    "distance": 2.99,
    "low": 1.87,
-   "high": 4.11,
-   "basis": "pairwise"
+   "high": 4.12,
+   "basis": "pairwise",
+   "usedBy": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "algebraicnt",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "representations",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/ProfiniteProPGroups": {
    "classification": 5,
@@ -3656,8 +5573,18 @@
     "depth": 1,
     "suppliers": 0
    },
-   "distance": 5.0,
-   "basis": "classification"
+   "pairwise": {
+    "judgements": 4,
+    "distance": 4.19,
+    "low": 3.14,
+    "high": 5.25,
+    "shift": -0.81
+   },
+   "distance": 4.19,
+   "low": 3.14,
+   "high": 5.25,
+   "basis": "pairwise",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/QuadraticFormInvariants": {
    "classification": 5,
@@ -3670,13 +5597,14 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 4.94,
-    "low": 3.92,
-    "high": 5.96,
-    "shift": -0.06
+    "distance": 4.95,
+    "low": 3.91,
+    "high": 5.99,
+    "shift": -0.05
    },
    "distance": 5.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/ReductiveGroups": {
    "classification": 5,
@@ -3688,7 +5616,25 @@
     "suppliers": 0
    },
    "distance": 5.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory": {
    "classification": 2,
@@ -3699,8 +5645,22 @@
     "depth": 1,
     "suppliers": 0
    },
-   "distance": 2.0,
-   "basis": "children"
+   "distance": 2.03,
+   "basis": "children",
+   "usedBy": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa": {
    "classification": 3,
@@ -3713,13 +5673,14 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 3.3,
-    "low": 2.2,
-    "high": 4.39,
-    "shift": 0.3
+    "distance": 3.29,
+    "low": 2.17,
+    "high": 4.4,
+    "shift": 0.29
    },
    "distance": 3.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory": {
    "classification": 1,
@@ -3733,12 +5694,13 @@
    "pairwise": {
     "judgements": 3,
     "distance": 1.25,
-    "low": 0.22,
-    "high": 2.28,
+    "low": 0.2,
+    "high": 2.31,
     "shift": 0.25
    },
    "distance": 1.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups": {
    "classification": 3,
@@ -3752,12 +5714,13 @@
    "pairwise": {
     "judgements": 3,
     "distance": 3.29,
-    "low": 2.18,
-    "high": 4.41,
+    "low": 2.15,
+    "high": 4.42,
     "shift": 0.29
    },
    "distance": 3.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups": {
    "classification": 1,
@@ -3768,8 +5731,16 @@
     "depth": 1,
     "suppliers": 0
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 0.63,
+    "low": 0.0,
+    "high": 1.67,
+    "shift": -0.37
+   },
    "distance": 1.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction": {
    "classification": 2,
@@ -3782,13 +5753,14 @@
    },
    "pairwise": {
     "judgements": 1,
-    "distance": 1.77,
-    "low": 0.41,
-    "high": 3.14,
-    "shift": -0.23
+    "distance": 1.76,
+    "low": 0.39,
+    "high": 3.13,
+    "shift": -0.24
    },
    "distance": 2.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups": {
    "classification": 5,
@@ -3801,13 +5773,19 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 5.11,
-    "low": 3.99,
-    "high": 6.24,
-    "shift": 0.11
+    "distance": 5.12,
+    "low": 3.98,
+    "high": 6.26,
+    "shift": 0.12
    },
    "distance": 5.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight": {
    "classification": 2,
@@ -3819,7 +5797,8 @@
     "suppliers": 0
    },
    "distance": 2.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations": {
    "classification": 2,
@@ -3830,8 +5809,16 @@
     "depth": 1,
     "suppliers": 0
    },
+   "pairwise": {
+    "judgements": 3,
+    "distance": 2.22,
+    "low": 1.17,
+    "high": 3.26,
+    "shift": 0.22
+   },
    "distance": 2.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems": {
    "classification": 1,
@@ -3844,15 +5831,16 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 1.04,
-    "low": 0.13,
-    "high": 1.96,
-    "shift": 0.04
+    "distance": 1.05,
+    "low": 0.11,
+    "high": 2.0,
+    "shift": 0.05
    },
-   "distance": 1.04,
-   "low": 0.13,
-   "high": 1.96,
-   "basis": "pairwise"
+   "distance": 1.05,
+   "low": 0.11,
+   "high": 2.0,
+   "basis": "pairwise",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl": {
    "classification": 2,
@@ -3863,8 +5851,18 @@
     "depth": 1,
     "suppliers": 0
    },
-   "distance": 2.0,
-   "basis": "classification"
+   "pairwise": {
+    "judgements": 4,
+    "distance": 2.35,
+    "low": 1.34,
+    "high": 3.37,
+    "shift": 0.35
+   },
+   "distance": 2.35,
+   "low": 1.34,
+   "high": 3.37,
+   "basis": "pairwise",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras": {
    "classification": 0,
@@ -3876,7 +5874,8 @@
     "suppliers": 0
    },
    "distance": 0.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations": {
    "classification": 2,
@@ -3889,13 +5888,14 @@
    },
    "pairwise": {
     "judgements": 3,
-    "distance": 2.3,
-    "low": 1.02,
-    "high": 3.58,
-    "shift": 0.3
+    "distance": 2.31,
+    "low": 1.03,
+    "high": 3.59,
+    "shift": 0.31
    },
    "distance": 2.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/StablePeriodicCurved": {
    "classification": 5,
@@ -3916,7 +5916,8 @@
    "distance": 4.67,
    "low": 3.53,
    "high": 5.81,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/StableReduction": {
    "classification": 8,
@@ -3929,15 +5930,16 @@
    },
    "pairwise": {
     "judgements": 4,
-    "distance": 7.14,
-    "low": 6.12,
-    "high": 8.16,
-    "shift": -0.86
+    "distance": 7.12,
+    "low": 6.08,
+    "high": 8.17,
+    "shift": -0.88
    },
-   "distance": 7.14,
-   "low": 6.12,
-   "high": 8.16,
-   "basis": "pairwise"
+   "distance": 7.12,
+   "low": 6.08,
+   "high": 8.17,
+   "basis": "pairwise",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/StandardDistributions": {
    "classification": 1,
@@ -3949,7 +5951,8 @@
     "suppliers": 0
    },
    "distance": 1.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/UniversalCovers": {
    "classification": 0,
@@ -3965,10 +5968,11 @@
     "distance": 0.0,
     "low": 0.0,
     "high": 0.74,
-    "shift": -0.39
+    "shift": -0.41
    },
    "distance": 0.0,
-   "basis": "classification"
+   "basis": "classification",
+   "usedBy": []
   },
   "tauceti:TauCetiRoadmap/ZigzagPreprojective": {
    "classification": 6,
@@ -3982,124 +5986,2796 @@
    "pairwise": {
     "judgements": 4,
     "distance": 5.23,
-    "low": 4.11,
+    "low": 4.1,
     "high": 6.35,
     "shift": -0.77
    },
    "distance": 5.23,
-   "low": 4.11,
+   "low": 4.1,
    "high": 6.35,
-   "basis": "pairwise"
+   "basis": "pairwise",
+   "usedBy": []
   }
  },
  "galaxies": {
   "algebraicgeometry": {
-   "distance": 4.6,
-   "roadmaps": 8
+   "distance": 4.68,
+   "roadmaps": 8,
+   "supplies": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "links": 21,
+     "examples": [
+      {
+       "supplier": "AlgebraicModuliForArithmeticGeometry",
+       "consumer": "AbelianSchemesAndArithmeticModuli"
+      },
+      {
+       "supplier": "AlgebraicModuliForArithmeticGeometry",
+       "consumer": "ArakelovGeometryAndAbelianHeights"
+      },
+      {
+       "supplier": "AlgebraicModuliForArithmeticGeometry",
+       "consumer": "HeightsRationalPointsAndObstructions"
+      }
+     ]
+    },
+    {
+     "galaxy": "etale",
+     "links": 6,
+     "examples": [
+      {
+       "supplier": "SchemeAndStackFoundations",
+       "consumer": "WeilConjectures"
+      },
+      {
+       "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+       "consumer": "WeilConjectures"
+      },
+      {
+       "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge",
+       "consumer": "DeligneWeightsAndPurity"
+      }
+     ]
+    },
+    {
+     "galaxy": "padic",
+     "links": 4,
+     "examples": [
+      {
+       "supplier": "AlgebraicModuliForArithmeticGeometry",
+       "consumer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory"
+      },
+      {
+       "supplier": "SchemeAndStackFoundations",
+       "consumer": "PadicDifferentialEquationsAndRigidCohomology"
+      },
+      {
+       "supplier": "SchemeAndStackFoundations",
+       "consumer": "TropicalAndBerkovichArithmetic"
+      }
+     ]
+    },
+    {
+     "galaxy": "functionfields",
+     "links": 3,
+     "examples": [
+      {
+       "supplier": "SchemeAndStackFoundations",
+       "consumer": "DrinfeldModulesAndTModules"
+      },
+      {
+       "supplier": "SchemeAndStackFoundations",
+       "consumer": "FunctionFieldArithmetic"
+      },
+      {
+       "supplier": "SchemeAndStackFoundations",
+       "consumer": "GlobalShtukasAndFunctionFieldLanglands"
+      }
+     ]
+    },
+    {
+     "galaxy": "langlands",
+     "links": 3,
+     "examples": [
+      {
+       "supplier": "AlgebraicModuliForArithmeticGeometry",
+       "consumer": "EndoscopicTransferAndUnitaryTraceComparison"
+      },
+      {
+       "supplier": "AlgebraicModuliForArithmeticGeometry",
+       "consumer": "LocalGaloisDeformationRings"
+      },
+      {
+       "supplier": "AlgebraicModuliForArithmeticGeometry",
+       "consumer": "PotentialModularityAndCompatibleSystems"
+      }
+     ]
+    },
+    {
+     "galaxy": "iwasawa",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "ComplexComparisonPartII",
+       "consumer": "GrossZagierAndArithmeticHeights"
+      },
+      {
+       "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge",
+       "consumer": "GrossZagierAndArithmeticHeights"
+      }
+     ]
+    },
+    {
+     "galaxy": "algebraicnt",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "SchemeAndStackFoundations",
+       "consumer": "HigherLocalFieldsAndHigherClassFieldTheory"
+      }
+     ]
+    },
+    {
+     "galaxy": "analytic",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "SchemeAndStackFoundations",
+       "consumer": "ArithmeticStatistics"
+      }
+     ]
+    },
+    {
+     "galaxy": "automorphic",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "AlgebraicModuliForArithmeticGeometry",
+       "consumer": "HilbertModularVarietiesAndShimuraCurves"
+      }
+     ]
+    },
+    {
+     "galaxy": "computational",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "SchemeAndStackFoundations",
+       "consumer": "ComputationalNumberTheory"
+      }
+     ]
+    },
+    {
+     "galaxy": "finitefields",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "SchemeAndStackFoundations",
+       "consumer": "FiniteFieldsAndCharacterSums"
+      }
+     ]
+    },
+    {
+     "galaxy": "ktheory",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ComplexComparisonPartII",
+       "consumer": "EllipticRegulators"
+      }
+     ]
+    },
+    {
+     "galaxy": "modeltheory",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "SchemeAndStackFoundations",
+       "consumer": "LogicAndDefinabilityInNumberTheory"
+      }
+     ]
+    },
+    {
+     "galaxy": "motives",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "SchemeAndStackFoundations",
+       "consumer": "MotivesAndAlgebraicCycles"
+      }
+     ]
+    },
+    {
+     "galaxy": "representations",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "AlgebraicModuliForArithmeticGeometry",
+       "consumer": "ReductiveGroupsPartII"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 17
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 14
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 11
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 11
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 11
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 8
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 7
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "functionfields",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "algebraicnt",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "commutative",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "motives",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "representations",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "topology",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 92,
+   "upstreamOnly": false
   },
   "algebraicnt": {
-   "distance": 3.39,
-   "roadmaps": 14
+   "distance": 3.41,
+   "roadmaps": 14,
+   "supplies": [
+    {
+     "galaxy": "iwasawa",
+     "links": 14,
+     "examples": [
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "EulerSystemsAndKolyvaginSystems"
+      },
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "GeneralizedHeegnerCycles"
+      },
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "HeegnerPointEulerSystems"
+      }
+     ]
+    },
+    {
+     "galaxy": "langlands",
+     "links": 9,
+     "examples": [
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "CompletedCohomologyAndLocalGlobalCompatibility"
+      },
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "EndoscopicTransferAndUnitaryTraceComparison"
+      },
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "GlobalGaloisDeformations"
+      }
+     ]
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "links": 5,
+     "examples": [
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "AnabelianGeometryAndNonabelianChabauty"
+      },
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "HeightsRationalPointsAndObstructions"
+      },
+      {
+       "supplier": "GeometryOfNumbersAndQuadraticArithmetic",
+       "consumer": "EffectiveDiophantineMethods"
+      }
+     ]
+    },
+    {
+     "galaxy": "etale",
+     "links": 5,
+     "examples": [
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "ClassicalAdicEtaleCohomology"
+      },
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "DeligneWeightsAndPurity"
+      },
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "LefschetzPencilsAndVanishingCycles"
+      }
+     ]
+    },
+    {
+     "galaxy": "padic",
+     "links": 5,
+     "examples": [
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "DiamondEtaleCohomology"
+      },
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "PadicHodgeTheory"
+      },
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "PhiGammaModulesAndIwasawaCohomology"
+      }
+     ]
+    },
+    {
+     "galaxy": "automorphic",
+     "links": 4,
+     "examples": [
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "ArithmeticLocallySymmetricSpaces"
+      },
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "CompletedCohomologyPartII"
+      },
+      {
+       "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+       "consumer": "AdelicAlgebraicGroups"
+      }
+     ]
+    },
+    {
+     "galaxy": "analytic",
+     "links": 3,
+     "examples": [
+      {
+       "supplier": "GeometryOfNumbersAndQuadraticArithmetic",
+       "consumer": "ArithmeticStatistics"
+      },
+      {
+       "supplier": "GeometryOfNumbersAndQuadraticArithmetic",
+       "consumer": "DiophantineApproximationAndTranscendence"
+      },
+      {
+       "supplier": "GeometryOfNumbersAndQuadraticArithmetic",
+       "consumer": "ProbabilisticAndMetricNumberTheory"
+      }
+     ]
+    },
+    {
+     "galaxy": "geomlanglands",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "ExcursionOperatorsAndSpectralAction"
+      },
+      {
+       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+       "consumer": "LanglandsParameterStacks"
+      }
+     ]
+    },
+    {
+     "galaxy": "ktheory",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "MotivicEtaleKTheory"
+      }
+     ]
+    },
+    {
+     "galaxy": "representations",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+       "consumer": "ReductiveGroupsPartII"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 16
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 15
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 9
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 4
+    },
+    {
+     "galaxy": "commutative",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "representations",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "topology",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 71,
+   "upstreamOnly": false
   },
   "analysis": {
-   "distance": 1.98,
-   "roadmaps": 6
+   "distance": 1.97,
+   "roadmaps": 6,
+   "supplies": [
+    {
+     "galaxy": "automorphic",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "tauceti:Completed/ContourIntegration",
+       "consumer": "tauceti:TauCetiRoadmap/ModularForms"
+      }
+     ]
+    },
+    {
+     "galaxy": "pde",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+       "consumer": "tauceti:TauCetiRoadmap/PDE"
+      }
+     ]
+    },
+    {
+     "galaxy": "representations",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "tauceti:Completed/OrthogonalL2Bases",
+       "consumer": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups"
+      }
+     ]
+    }
+   ],
+   "frontier": [],
+   "frontierRoadmaps": 0,
+   "upstreamOnly": true
   },
   "analytic": {
-   "distance": 4.81,
-   "roadmaps": 7
+   "distance": 4.8,
+   "roadmaps": 7,
+   "supplies": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "DiophantineApproximationAndTranscendence",
+       "consumer": "EffectiveDiophantineMethods"
+      },
+      {
+       "supplier": "DiophantineApproximationAndTranscendence",
+       "consumer": "HeightsRationalPointsAndObstructions"
+      }
+     ]
+    },
+    {
+     "galaxy": "automorphic",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "ExponentialSumsAndCircleMethod",
+       "consumer": "QSeriesPartitionsAndMockModularForms"
+      },
+      {
+       "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+       "consumer": "AutomorphicLFunctionsAndLocalFactors"
+      }
+     ]
+    },
+    {
+     "galaxy": "combinatorics",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "SieveMethodsAndPrimePatterns",
+       "consumer": "AdditiveCombinatorics"
+      }
+     ]
+    },
+    {
+     "galaxy": "computational",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "AnalyticNumberTheory",
+       "consumer": "ComputationalNumberTheory"
+      }
+     ]
+    },
+    {
+     "galaxy": "elementary",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "DiophantineApproximationAndTranscendence",
+       "consumer": "ClassicalArithmeticCompletion"
+      }
+     ]
+    },
+    {
+     "galaxy": "iwasawa",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "AnalyticNumberTheory",
+       "consumer": "PeriodsAndSpecialValues"
+      }
+     ]
+    },
+    {
+     "galaxy": "langlands",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "AnalyticNumberTheory",
+       "consumer": "ModularityAndLanglandsExtensions"
+      }
+     ]
+    },
+    {
+     "galaxy": "modeltheory",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "DiophantineApproximationAndTranscendence",
+       "consumer": "LogicAndDefinabilityInNumberTheory"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "combinatorics",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 5,
+   "upstreamOnly": false
   },
   "arithmeticgeometry": {
-   "distance": 7.33,
-   "roadmaps": 19
+   "distance": 7.31,
+   "roadmaps": 19,
+   "supplies": [
+    {
+     "galaxy": "automorphic",
+     "links": 16,
+     "examples": [
+      {
+       "supplier": "AbelianSchemesAndArithmeticModuli",
+       "consumer": "AutomorphicBundles"
+      },
+      {
+       "supplier": "AbelianSchemesAndArithmeticModuli",
+       "consumer": "HilbertModularVarietiesAndShimuraCurves"
+      },
+      {
+       "supplier": "ModularCurvesPartII",
+       "consumer": "AdelicAlgebraicGroups"
+      }
+     ]
+    },
+    {
+     "galaxy": "langlands",
+     "links": 15,
+     "examples": [
+      {
+       "supplier": "AbelianSchemesAndArithmeticModuli",
+       "consumer": "ArithmeticGaloisRepresentations"
+      },
+      {
+       "supplier": "AbelianSchemesAndArithmeticModuli",
+       "consumer": "EndoscopicTransferAndUnitaryTraceComparison"
+      },
+      {
+       "supplier": "AbelianSchemesAndArithmeticModuli",
+       "consumer": "IgusaVarietiesAndTorsionConcentration"
+      }
+     ]
+    },
+    {
+     "galaxy": "iwasawa",
+     "links": 12,
+     "examples": [
+      {
+       "supplier": "AbelianSchemesAndArithmeticModuli",
+       "consumer": "GrossZagierAndArithmeticHeights"
+      },
+      {
+       "supplier": "ArakelovGeometryAndAbelianHeights",
+       "consumer": "GrossZagierAndArithmeticHeights"
+      },
+      {
+       "supplier": "ModularCurvesPartII",
+       "consumer": "AutomorphicPadicLFunctions"
+      }
+     ]
+    },
+    {
+     "galaxy": "padic",
+     "links": 7,
+     "examples": [
+      {
+       "supplier": "AbelianSchemesAndArithmeticModuli",
+       "consumer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory"
+      },
+      {
+       "supplier": "AbelianSchemesAndArithmeticModuli",
+       "consumer": "HodgeTateAndCanonicalSubgroups"
+      },
+      {
+       "supplier": "PELModuli",
+       "consumer": "PerfectoidShimuraVarieties"
+      }
+     ]
+    },
+    {
+     "galaxy": "etale",
+     "links": 5,
+     "examples": [
+      {
+       "supplier": "AbelianSchemesAndArithmeticModuli",
+       "consumer": "DeligneWeightsAndPurity"
+      },
+      {
+       "supplier": "AbelianSchemesAndArithmeticModuli",
+       "consumer": "EtaleDualityAndPerverseSheaves"
+      },
+      {
+       "supplier": "AbelianSchemesAndArithmeticModuli",
+       "consumer": "LefschetzPencilsAndVanishingCycles"
+      }
+     ]
+    },
+    {
+     "galaxy": "analytic",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "HeightsRationalPointsAndObstructions",
+       "consumer": "ArithmeticStatistics"
+      }
+     ]
+    },
+    {
+     "galaxy": "computational",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ModularCurvesPartII",
+       "consumer": "ComputationalNumberTheory"
+      }
+     ]
+    },
+    {
+     "galaxy": "elementary",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ArithmeticDynamics",
+       "consumer": "ClassicalArithmeticCompletion"
+      }
+     ]
+    },
+    {
+     "galaxy": "ktheory",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ModularCurvesPartII",
+       "consumer": "EllipticRegulators"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 14
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 14
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 9
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 7
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 7
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "functionfields",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "representations",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 60,
+   "upstreamOnly": false
   },
   "automorphic": {
-   "distance": 7.46,
-   "roadmaps": 16
+   "distance": 7.37,
+   "roadmaps": 16,
+   "supplies": [
+    {
+     "galaxy": "langlands",
+     "links": 31,
+     "examples": [
+      {
+       "supplier": "AdelicAlgebraicGroups",
+       "consumer": "EndoscopicTransferAndUnitaryTraceComparison"
+      },
+      {
+       "supplier": "AlgebraicModularFormsAndSerreWeights",
+       "consumer": "AutomorphicGaloisRepresentations"
+      },
+      {
+       "supplier": "AlgebraicModularFormsAndSerreWeights",
+       "consumer": "ClassicalSerreModularity"
+      }
+     ]
+    },
+    {
+     "galaxy": "iwasawa",
+     "links": 26,
+     "examples": [
+      {
+       "supplier": "ArithmeticLocallySymmetricSpaces",
+       "consumer": "AutomorphicPadicLFunctions"
+      },
+      {
+       "supplier": "AutomorphicBundles",
+       "consumer": "AutomorphicPadicLFunctions"
+      },
+      {
+       "supplier": "AutomorphicFormsOnReductiveGroups",
+       "consumer": "AutomorphicPadicLFunctions"
+      }
+     ]
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "links": 5,
+     "examples": [
+      {
+       "supplier": "AdelicAlgebraicGroups",
+       "consumer": "ShimuraData"
+      },
+      {
+       "supplier": "ArithmeticLocallySymmetricSpaces",
+       "consumer": "ShimuraVarieties"
+      },
+      {
+       "supplier": "AutomorphicFormsOnReductiveGroups",
+       "consumer": "ShimuraData"
+      }
+     ]
+    },
+    {
+     "galaxy": "analytic",
+     "links": 4,
+     "examples": [
+      {
+       "supplier": "AdelicAlgebraicGroups",
+       "consumer": "AnalyticNumberTheory"
+      },
+      {
+       "supplier": "ArithmeticLocallySymmetricSpaces",
+       "consumer": "AnalyticNumberTheory"
+      },
+      {
+       "supplier": "AutomorphicLFunctionsAndLocalFactors",
+       "consumer": "AnalyticNumberTheory"
+      }
+     ]
+    },
+    {
+     "galaxy": "ktheory",
+     "links": 4,
+     "examples": [
+      {
+       "supplier": "AdelicAlgebraicGroups",
+       "consumer": "BorelRegulators"
+      },
+      {
+       "supplier": "ArithmeticLocallySymmetricSpaces",
+       "consumer": "BorelRegulators"
+      },
+      {
+       "supplier": "AutomorphicFormsOnReductiveGroups",
+       "consumer": "BorelRegulators"
+      }
+     ]
+    },
+    {
+     "galaxy": "padic",
+     "links": 4,
+     "examples": [
+      {
+       "supplier": "AutomorphicBundles",
+       "consumer": "HodgeTateAndCanonicalSubgroups"
+      },
+      {
+       "supplier": "AutomorphicBundles",
+       "consumer": "PerfectoidShimuraVarieties"
+      },
+      {
+       "supplier": "HilbertModularVarietiesAndShimuraCurves",
+       "consumer": "HodgeTateAndCanonicalSubgroups"
+      }
+     ]
+    },
+    {
+     "galaxy": "computational",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "tauceti:TauCetiRoadmap/ModularForms",
+       "consumer": "ComputationalNumberTheory"
+      }
+     ]
+    },
+    {
+     "galaxy": "geomlanglands",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "AutomorphicSpectralTheory",
+       "consumer": "ExcursionOperatorsAndSpectralAction"
+      }
+     ]
+    },
+    {
+     "galaxy": "topology",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "HabiroNahmSeries",
+       "consumer": "ArithmeticQuantumTopology"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 16
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 15
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 9
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 8
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "commutative",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "topology",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 53,
+   "upstreamOnly": false
   },
   "combinatorics": {
    "distance": 4.08,
-   "roadmaps": 3
+   "roadmaps": 3,
+   "supplies": [],
+   "frontier": [],
+   "frontierRoadmaps": 0,
+   "upstreamOnly": false
   },
   "commutative": {
-   "distance": 5.33,
-   "roadmaps": 3
+   "distance": 5.03,
+   "roadmaps": 3,
+   "supplies": [
+    {
+     "galaxy": "langlands",
+     "links": 6,
+     "examples": [
+      {
+       "supplier": "DeformationAndDerivedPatchingAlgebra",
+       "consumer": "GL2ModularityLifting"
+      },
+      {
+       "supplier": "DeformationAndDerivedPatchingAlgebra",
+       "consumer": "GlobalGaloisDeformations"
+      },
+      {
+       "supplier": "DeformationAndDerivedPatchingAlgebra",
+       "consumer": "LocalGaloisDeformationRings"
+      }
+     ]
+    },
+    {
+     "galaxy": "automorphic",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "DeformationAndDerivedPatchingAlgebra",
+       "consumer": "CompletedCohomologyPartII"
+      },
+      {
+       "supplier": "HabiroCyclotomicCompletions",
+       "consumer": "QSeriesPartitionsAndMockModularForms"
+      }
+     ]
+    },
+    {
+     "galaxy": "etale",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "HabiroCyclotomicCompletions",
+       "consumer": "HabiroCohomologyFoundations"
+      },
+      {
+       "supplier": "HabiroRings",
+       "consumer": "HabiroCohomologyFoundations"
+      }
+     ]
+    },
+    {
+     "galaxy": "ktheory",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "HabiroCyclotomicCompletions",
+       "consumer": "HabiroNumberFields"
+      },
+      {
+       "supplier": "HabiroRings",
+       "consumer": "RefinedTraceMethods"
+      }
+     ]
+    },
+    {
+     "galaxy": "iwasawa",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "DeformationAndDerivedPatchingAlgebra",
+       "consumer": "AutomorphicCongruences"
+      }
+     ]
+    },
+    {
+     "galaxy": "padic",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "DeformationAndDerivedPatchingAlgebra",
+       "consumer": "AdicSpacesPartII"
+      }
+     ]
+    },
+    {
+     "galaxy": "topology",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "HabiroCyclotomicCompletions",
+       "consumer": "ArithmeticQuantumTopology"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 17
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 15
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 14
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 9
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 8
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "representations",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "topology",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 80,
+   "upstreamOnly": false
   },
   "computational": {
    "distance": 4.0,
-   "roadmaps": 1
+   "roadmaps": 1,
+   "supplies": [
+    {
+     "galaxy": "arithmeticgeometry",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ComputationalNumberTheory",
+       "consumer": "EffectiveDiophantineMethods"
+      }
+     ]
+    },
+    {
+     "galaxy": "iwasawa",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ComputationalNumberTheory",
+       "consumer": "PeriodsAndSpecialValues"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 1,
+   "upstreamOnly": false
   },
   "diffgeom": {
    "distance": 3.0,
-   "roadmaps": 1
+   "roadmaps": 1,
+   "supplies": [],
+   "frontier": [],
+   "frontierRoadmaps": 0,
+   "upstreamOnly": true
   },
   "elementary": {
    "distance": 3.0,
-   "roadmaps": 1
+   "roadmaps": 1,
+   "supplies": [
+    {
+     "galaxy": "analytic",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "ClassicalArithmeticCompletion",
+       "consumer": "AnalyticNumberTheory"
+      },
+      {
+       "supplier": "ClassicalArithmeticCompletion",
+       "consumer": "ArithmeticStatistics"
+      }
+     ]
+    },
+    {
+     "galaxy": "algebraicnt",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ClassicalArithmeticCompletion",
+       "consumer": "GeometryOfNumbersAndQuadraticArithmetic"
+      }
+     ]
+    },
+    {
+     "galaxy": "automorphic",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ClassicalArithmeticCompletion",
+       "consumer": "QSeriesPartitionsAndMockModularForms"
+      }
+     ]
+    },
+    {
+     "galaxy": "combinatorics",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ClassicalArithmeticCompletion",
+       "consumer": "AdditiveCombinatorics"
+      }
+     ]
+    },
+    {
+     "galaxy": "computational",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ClassicalArithmeticCompletion",
+       "consumer": "ComputationalNumberTheory"
+      }
+     ]
+    },
+    {
+     "galaxy": "finitefields",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ClassicalArithmeticCompletion",
+       "consumer": "FiniteFieldsAndCharacterSums"
+      }
+     ]
+    },
+    {
+     "galaxy": "modeltheory",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ClassicalArithmeticCompletion",
+       "consumer": "LogicAndDefinabilityInNumberTheory"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "combinatorics",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 4,
+   "upstreamOnly": false
   },
   "etale": {
    "distance": 8.88,
-   "roadmaps": 8
+   "roadmaps": 8,
+   "supplies": [
+    {
+     "galaxy": "padic",
+     "links": 10,
+     "examples": [
+      {
+       "supplier": "AdicCoefficientsAndComparisons",
+       "consumer": "FarguesFontaineDiamonds"
+      },
+      {
+       "supplier": "ClassicalAdicEtaleCohomology",
+       "consumer": "AdicSpacesPartII"
+      },
+      {
+       "supplier": "ClassicalAdicEtaleCohomology",
+       "consumer": "DiamondEtaleCohomology"
+      }
+     ]
+    },
+    {
+     "galaxy": "langlands",
+     "links": 9,
+     "examples": [
+      {
+       "supplier": "AdicCoefficientsAndComparisons",
+       "consumer": "EndoscopicTransferAndUnitaryTraceComparison"
+      },
+      {
+       "supplier": "DeligneWeightsAndPurity",
+       "consumer": "EndoscopicTransferAndUnitaryTraceComparison"
+      },
+      {
+       "supplier": "EtaleDualityAndPerverseSheaves",
+       "consumer": "EndoscopicTransferAndUnitaryTraceComparison"
+      }
+     ]
+    },
+    {
+     "galaxy": "geomlanglands",
+     "links": 5,
+     "examples": [
+      {
+       "supplier": "AdicCoefficientsAndComparisons",
+       "consumer": "VStackSheavesAndLisseCategories"
+      },
+      {
+       "supplier": "DeligneWeightsAndPurity",
+       "consumer": "ExcursionOperatorsAndSpectralAction"
+      },
+      {
+       "supplier": "EtaleDualityAndPerverseSheaves",
+       "consumer": "ExcursionOperatorsAndSpectralAction"
+      }
+     ]
+    },
+    {
+     "galaxy": "functionfields",
+     "links": 3,
+     "examples": [
+      {
+       "supplier": "DeligneWeightsAndPurity",
+       "consumer": "FunctionFieldArithmetic"
+      },
+      {
+       "supplier": "DeligneWeightsAndPurity",
+       "consumer": "GlobalShtukasAndFunctionFieldLanglands"
+      },
+      {
+       "supplier": "EtaleDualityAndPerverseSheaves",
+       "consumer": "GlobalShtukasAndFunctionFieldLanglands"
+      }
+     ]
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "WeightsInEtaleCohomology",
+       "consumer": "FaltingsFinitenessAndIsogenyTheorems"
+      },
+      {
+       "supplier": "WeightsInEtaleCohomology",
+       "consumer": "ModularCurvesPartII"
+      }
+     ]
+    },
+    {
+     "galaxy": "finitefields",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "DeligneWeightsAndPurity",
+       "consumer": "FiniteFieldsAndCharacterSums"
+      },
+      {
+       "supplier": "WeilConjectures",
+       "consumer": "FiniteFieldsAndCharacterSums"
+      }
+     ]
+    },
+    {
+     "galaxy": "automorphic",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "WeightsInEtaleCohomology",
+       "consumer": "HilbertModularVarietiesAndShimuraCurves"
+      }
+     ]
+    },
+    {
+     "galaxy": "commutative",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "HabiroCohomologyFoundations",
+       "consumer": "HabiroRings"
+      }
+     ]
+    },
+    {
+     "galaxy": "ktheory",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "HabiroCohomologyFoundations",
+       "consumer": "RefinedTraceMethods"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 14
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 14
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 10
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 7
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 5
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "commutative",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "functionfields",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "representations",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 61,
+   "upstreamOnly": false
   },
   "finitefields": {
    "distance": 6.0,
-   "roadmaps": 1
+   "roadmaps": 1,
+   "supplies": [
+    {
+     "galaxy": "analytic",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "FiniteFieldsAndCharacterSums",
+       "consumer": "AnalyticNumberTheory"
+      },
+      {
+       "supplier": "FiniteFieldsAndCharacterSums",
+       "consumer": "ExponentialSumsAndCircleMethod"
+      }
+     ]
+    },
+    {
+     "galaxy": "computational",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "FiniteFieldsAndCharacterSums",
+       "consumer": "ComputationalNumberTheory"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "combinatorics",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 4,
+   "upstreamOnly": false
   },
   "functionfields": {
    "distance": 7.42,
-   "roadmaps": 3
+   "roadmaps": 3,
+   "supplies": [
+    {
+     "galaxy": "geomlanglands",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "FunctionFieldArithmetic",
+       "consumer": "ExcursionOperatorsAndSpectralAction"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 1,
+   "upstreamOnly": false
   },
   "geomlanglands": {
    "distance": 9.52,
-   "roadmaps": 6
+   "roadmaps": 6,
+   "supplies": [
+    {
+     "galaxy": "representations",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "ExcursionOperatorsAndSpectralAction",
+       "consumer": "SmoothRepresentationsOfLocalGroups"
+      },
+      {
+       "supplier": "LanglandsParameterStacks",
+       "consumer": "SmoothRepresentationsOfLocalGroups"
+      }
+     ]
+    },
+    {
+     "galaxy": "commutative",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "VStackSheavesAndLisseCategories",
+       "consumer": "HabiroRings"
+      }
+     ]
+    },
+    {
+     "galaxy": "langlands",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "HeckeStacksAndLocalShtukas",
+       "consumer": "EndoscopicTransferAndUnitaryTraceComparison"
+      }
+     ]
+    },
+    {
+     "galaxy": "padic",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "BunGAndNewtonStrata",
+       "consumer": "RelativeFarguesFontaine"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "representations",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 3,
+   "upstreamOnly": false
   },
   "grouptheory": {
-   "distance": 4.5,
-   "roadmaps": 2
+   "distance": 4.1,
+   "roadmaps": 2,
+   "supplies": [],
+   "frontier": [],
+   "frontierRoadmaps": 0,
+   "upstreamOnly": true
   },
   "homological": {
    "distance": 4.73,
-   "roadmaps": 5
+   "roadmaps": 5,
+   "supplies": [
+    {
+     "galaxy": "padic",
+     "links": 8,
+     "examples": [
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "AInfCohomology"
+      },
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "CohomologyComparisons"
+      },
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "CrystallineCohomology"
+      }
+     ]
+    },
+    {
+     "galaxy": "geomlanglands",
+     "links": 6,
+     "examples": [
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "ExcursionOperatorsAndSpectralAction"
+      },
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "GeometricSatakeAndFusion"
+      },
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "HeckeStacksAndLocalShtukas"
+      }
+     ]
+    },
+    {
+     "galaxy": "etale",
+     "links": 5,
+     "examples": [
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "AdicCoefficientsAndComparisons"
+      },
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "ClassicalAdicEtaleCohomology"
+      },
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "EtaleDualityAndPerverseSheaves"
+      }
+     ]
+    },
+    {
+     "galaxy": "ktheory",
+     "links": 5,
+     "examples": [
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "GeneralAlgebraicKTheory"
+      },
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "MotivicEtaleKTheory"
+      },
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "RefinedTraceMethods"
+      }
+     ]
+    },
+    {
+     "galaxy": "langlands",
+     "links": 4,
+     "examples": [
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "EndoscopicTransferAndUnitaryTraceComparison"
+      },
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "IgusaVarietiesAndTorsionConcentration"
+      },
+      {
+       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+       "consumer": "IntegralHeckeAndGaloisDeterminants"
+      }
+     ]
+    },
+    {
+     "galaxy": "representations",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "SmoothRepresentationsOfLocalGroups"
+      },
+      {
+       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+       "consumer": "SmoothRepresentationsOfLocalGroups"
+      }
+     ]
+    },
+    {
+     "galaxy": "algebraicnt",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+       "consumer": "ArithmeticGaloisDuality"
+      }
+     ]
+    },
+    {
+     "galaxy": "automorphic",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "ArithmeticLocallySymmetricSpaces"
+      }
+     ]
+    },
+    {
+     "galaxy": "commutative",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "HabiroRings"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "padic",
+     "roadmaps": 21
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 17
+    },
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 16
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 11
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 11
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 9
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 8
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "algebraicnt",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "commutative",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "functionfields",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "motives",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "representations",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "topology",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 105,
+   "upstreamOnly": false
   },
   "iwasawa": {
-   "distance": 8.09,
-   "roadmaps": 22
+   "distance": 8.13,
+   "roadmaps": 22,
+   "supplies": [
+    {
+     "galaxy": "ktheory",
+     "links": 10,
+     "examples": [
+      {
+       "supplier": "DirichletPadicLFunctions",
+       "consumer": "BorelRegulators"
+      },
+      {
+       "supplier": "DirichletPadicLFunctions",
+       "consumer": "EllipticRegulators"
+      },
+      {
+       "supplier": "IntegralIwasawaTheory",
+       "consumer": "ArithmeticKTheory"
+      }
+     ]
+    },
+    {
+     "galaxy": "automorphic",
+     "links": 9,
+     "examples": [
+      {
+       "supplier": "AutomorphicPadicLFunctions",
+       "consumer": "PadicFamilies"
+      },
+      {
+       "supplier": "KatoEulerSystems",
+       "consumer": "PadicFamilies"
+      },
+      {
+       "supplier": "LocallyAnalyticDistributions",
+       "consumer": "OverconvergentAutomorphicForms"
+      }
+     ]
+    },
+    {
+     "galaxy": "padic",
+     "links": 3,
+     "examples": [
+      {
+       "supplier": "LocallyAnalyticDistributions",
+       "consumer": "PhiGammaModulesAndIwasawaCohomology"
+      },
+      {
+       "supplier": "PadicMeasuresIwasawaAlgebras",
+       "consumer": "PhiGammaModulesAndIwasawaCohomology"
+      },
+      {
+       "supplier": "SelmerIwasawaCohomology",
+       "consumer": "PhiGammaModulesAndIwasawaCohomology"
+      }
+     ]
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "ColemanIntegration",
+       "consumer": "AnabelianGeometryAndNonabelianChabauty"
+      },
+      {
+       "supplier": "ColemanIntegration",
+       "consumer": "EffectiveDiophantineMethods"
+      }
+     ]
+    },
+    {
+     "galaxy": "langlands",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "LocallyAnalyticDistributions",
+       "consumer": "AutomorphicGaloisRepresentationsPartII"
+      },
+      {
+       "supplier": "PadicMeasuresIwasawaAlgebras",
+       "consumer": "OrdinaryAutomorphicFormsAndModularityLifting"
+      }
+     ]
+    },
+    {
+     "galaxy": "algebraicnt",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "SelmerIwasawaCohomology",
+       "consumer": "ArithmeticGaloisDuality"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "langlands",
+     "roadmaps": 11
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 5
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "commutative",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "topology",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 29,
+   "upstreamOnly": false
   },
   "ktheory": {
-   "distance": 7.67,
-   "roadmaps": 15
+   "distance": 7.71,
+   "roadmaps": 15,
+   "supplies": [
+    {
+     "galaxy": "iwasawa",
+     "links": 25,
+     "examples": [
+      {
+       "supplier": "ArithmeticKTheory",
+       "consumer": "IntegralIwasawaTheory"
+      },
+      {
+       "supplier": "ArithmeticKTheory",
+       "consumer": "PadicHodgeRegulators"
+      },
+      {
+       "supplier": "ArithmeticKTheory",
+       "consumer": "SpecialValuesBirchTate"
+      }
+     ]
+    },
+    {
+     "galaxy": "algebraicnt",
+     "links": 3,
+     "examples": [
+      {
+       "supplier": "GeneralAlgebraicKTheory",
+       "consumer": "GeometryOfNumbersAndQuadraticArithmetic"
+      },
+      {
+       "supplier": "K2SymbolsBrauer",
+       "consumer": "HigherLocalFieldsAndHigherClassFieldTheory"
+      },
+      {
+       "supplier": "MotivicEtaleKTheory",
+       "consumer": "HigherLocalFieldsAndHigherClassFieldTheory"
+      }
+     ]
+    },
+    {
+     "galaxy": "automorphic",
+     "links": 3,
+     "examples": [
+      {
+       "supplier": "HabiroNumberFields",
+       "consumer": "HabiroNahmSeries"
+      },
+      {
+       "supplier": "Polylogarithms",
+       "consumer": "HabiroNahmSeries"
+      },
+      {
+       "supplier": "StableHomotopyKTheory",
+       "consumer": "HabiroNahmSeries"
+      }
+     ]
+    },
+    {
+     "galaxy": "commutative",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "HabiroNumberFields",
+       "consumer": "HabiroRings"
+      },
+      {
+       "supplier": "StableHomotopyKTheory",
+       "consumer": "HabiroRings"
+      }
+     ]
+    },
+    {
+     "galaxy": "etale",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "HabiroNumberFields",
+       "consumer": "HabiroCohomologyFoundations"
+      },
+      {
+       "supplier": "RefinedTraceMethods",
+       "consumer": "HabiroCohomologyFoundations"
+      }
+     ]
+    },
+    {
+     "galaxy": "padic",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "RefinedTraceMethods",
+       "consumer": "AInfCohomology"
+      },
+      {
+       "supplier": "RefinedTraceMethods",
+       "consumer": "PrismaticCohomology"
+      }
+     ]
+    },
+    {
+     "galaxy": "elementary",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "KTheoryLowDegrees",
+       "consumer": "ClassicalArithmeticCompletion"
+      }
+     ]
+    },
+    {
+     "galaxy": "homological",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "StableHomotopyKTheory",
+       "consumer": "EnhancedDerivedSheaves"
+      }
+     ]
+    },
+    {
+     "galaxy": "motives",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "MotivicEtaleKTheory",
+       "consumer": "MotivesAndAlgebraicCycles"
+      }
+     ]
+    },
+    {
+     "galaxy": "topology",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "K3BlochGroups",
+       "consumer": "ArithmeticQuantumTopology"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 12
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "algebraicnt",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "commutative",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "homological",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "motives",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "topology",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 22,
+   "upstreamOnly": false
   },
   "langlands": {
-   "distance": 9.05,
-   "roadmaps": 19
+   "distance": 9.09,
+   "roadmaps": 19,
+   "supplies": [
+    {
+     "galaxy": "iwasawa",
+     "links": 16,
+     "examples": [
+      {
+       "supplier": "ArithmeticGaloisRepresentations",
+       "consumer": "EulerSystemsAndKolyvaginSystems"
+      },
+      {
+       "supplier": "ArithmeticGaloisRepresentations",
+       "consumer": "HeegnerPointEulerSystems"
+      },
+      {
+       "supplier": "ArithmeticGaloisRepresentations",
+       "consumer": "KatoEulerSystems"
+      }
+     ]
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "links": 7,
+     "examples": [
+      {
+       "supplier": "ArithmeticGaloisRepresentations",
+       "consumer": "AbelianSchemesAndArithmeticModuli"
+      },
+      {
+       "supplier": "ArithmeticGaloisRepresentations",
+       "consumer": "ComplexMultiplicationAndExplicitReciprocity"
+      },
+      {
+       "supplier": "ArithmeticGaloisRepresentations",
+       "consumer": "FaltingsFinitenessAndIsogenyTheorems"
+      }
+     ]
+    },
+    {
+     "galaxy": "automorphic",
+     "links": 6,
+     "examples": [
+      {
+       "supplier": "ArithmeticGaloisRepresentations",
+       "consumer": "GL2AutomorphicRepresentationsAndTransfer"
+      },
+      {
+       "supplier": "ArithmeticGaloisRepresentations",
+       "consumer": "PadicFamilies"
+      },
+      {
+       "supplier": "AutomorphicGaloisRepresentations",
+       "consumer": "AlgebraicModularFormsAndSerreWeights"
+      }
+     ]
+    },
+    {
+     "galaxy": "ktheory",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "ArithmeticGaloisRepresentations",
+       "consumer": "EllipticRegulators"
+      },
+      {
+       "supplier": "EllipticCurveModularity",
+       "consumer": "EllipticRegulators"
+      }
+     ]
+    },
+    {
+     "galaxy": "algebraicnt",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ArithmeticGaloisRepresentations",
+       "consumer": "ArithmeticGaloisDuality"
+      }
+     ]
+    },
+    {
+     "galaxy": "etale",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ArithmeticGaloisRepresentations",
+       "consumer": "LefschetzPencilsAndVanishingCycles"
+      }
+     ]
+    },
+    {
+     "galaxy": "geomlanglands",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "EndoscopicTransferAndUnitaryTraceComparison",
+       "consumer": "ExcursionOperatorsAndSpectralAction"
+      }
+     ]
+    },
+    {
+     "galaxy": "padic",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ArithmeticGaloisRepresentations",
+       "consumer": "PadicHodgeTheory"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 16
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 13
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 11
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 9
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 9
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 8
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "commutative",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "functionfields",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "representations",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "topology",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 76,
+   "upstreamOnly": false
   },
   "modeltheory": {
    "distance": 6.0,
-   "roadmaps": 1
+   "roadmaps": 1,
+   "supplies": [
+    {
+     "galaxy": "analytic",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "LogicAndDefinabilityInNumberTheory",
+       "consumer": "AnalyticNumberTheory"
+      }
+     ]
+    }
+   ],
+   "frontier": [],
+   "frontierRoadmaps": 0,
+   "upstreamOnly": false
   },
   "motives": {
    "distance": 8.0,
-   "roadmaps": 1
+   "roadmaps": 1,
+   "supplies": [
+    {
+     "galaxy": "iwasawa",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "MotivesAndAlgebraicCycles",
+       "consumer": "PeriodsAndSpecialValues"
+      }
+     ]
+    },
+    {
+     "galaxy": "modeltheory",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "MotivesAndAlgebraicCycles",
+       "consumer": "LogicAndDefinabilityInNumberTheory"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 1,
+   "upstreamOnly": false
   },
   "padic": {
-   "distance": 8.27,
-   "roadmaps": 23
+   "distance": 8.23,
+   "roadmaps": 23,
+   "supplies": [
+    {
+     "galaxy": "langlands",
+     "links": 24,
+     "examples": [
+      {
+       "supplier": "AdicSpacesPartII",
+       "consumer": "AutomorphicGaloisRepresentationsPartII"
+      },
+      {
+       "supplier": "AdicSpacesPartII",
+       "consumer": "IgusaVarietiesAndTorsionConcentration"
+      },
+      {
+       "supplier": "AdicSpacesPartII",
+       "consumer": "LocalGaloisDeformationRings"
+      }
+     ]
+    },
+    {
+     "galaxy": "etale",
+     "links": 15,
+     "examples": [
+      {
+       "supplier": "AInfCohomology",
+       "consumer": "HabiroCohomologyFoundations"
+      },
+      {
+       "supplier": "AdicEtaleGeometry",
+       "consumer": "AdicCoefficientsAndComparisons"
+      },
+      {
+       "supplier": "AdicEtaleGeometry",
+       "consumer": "ClassicalAdicEtaleCohomology"
+      }
+     ]
+    },
+    {
+     "galaxy": "geomlanglands",
+     "links": 13,
+     "examples": [
+      {
+       "supplier": "AdicEtaleGeometry",
+       "consumer": "BunGAndNewtonStrata"
+      },
+      {
+       "supplier": "DerivedDeRhamCohomology",
+       "consumer": "LanglandsParameterStacks"
+      },
+      {
+       "supplier": "DiamondSixOperations",
+       "consumer": "BunGAndNewtonStrata"
+      }
+     ]
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "links": 9,
+     "examples": [
+      {
+       "supplier": "AdicSpacesPartII",
+       "consumer": "ModularCurvesPartII"
+      },
+      {
+       "supplier": "AdicSpacesPartII",
+       "consumer": "NeronModelsAndSemistableAbelianVarieties"
+      },
+      {
+       "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+       "consumer": "AbelianSchemesAndArithmeticModuli"
+      }
+     ]
+    },
+    {
+     "galaxy": "automorphic",
+     "links": 6,
+     "examples": [
+      {
+       "supplier": "AdicSpacesPartII",
+       "consumer": "HilbertModularVarietiesAndShimuraCurves"
+      },
+      {
+       "supplier": "AdicSpacesPartII",
+       "consumer": "OverconvergentAutomorphicForms"
+      },
+      {
+       "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+       "consumer": "AlgebraicModularFormsAndSerreWeights"
+      }
+     ]
+    },
+    {
+     "galaxy": "iwasawa",
+     "links": 6,
+     "examples": [
+      {
+       "supplier": "CrystallineCohomology",
+       "consumer": "PeriodsAndSpecialValues"
+      },
+      {
+       "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+       "consumer": "GrossZagierAndArithmeticHeights"
+      },
+      {
+       "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+       "consumer": "PadicHodgeRegulators"
+      }
+     ]
+    },
+    {
+     "galaxy": "ktheory",
+     "links": 4,
+     "examples": [
+      {
+       "supplier": "AInfCohomology",
+       "consumer": "RefinedTraceMethods"
+      },
+      {
+       "supplier": "CrystallineCohomology",
+       "consumer": "KTheoryFiniteLocalFields"
+      },
+      {
+       "supplier": "DerivedDeRhamCohomology",
+       "consumer": "RefinedTraceMethods"
+      }
+     ]
+    },
+    {
+     "galaxy": "commutative",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "DerivedDeRhamCohomology",
+       "consumer": "HabiroRings"
+      },
+      {
+       "supplier": "PrismaticCohomology",
+       "consumer": "HabiroRings"
+      }
+     ]
+    },
+    {
+     "galaxy": "homological",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "DerivedDeRhamCohomology",
+       "consumer": "EnhancedDerivedSheaves"
+      },
+      {
+       "supplier": "DiamondsAndVStacks",
+       "consumer": "EnhancedDerivedSheaves"
+      }
+     ]
+    },
+    {
+     "galaxy": "algebraicgeometry",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "AdicSpacesPartII",
+       "consumer": "AlgebraicModuliForArithmeticGeometry"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 17
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 17
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 11
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 10
+    },
+    {
+     "galaxy": "etale",
+     "roadmaps": 8
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 7
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "commutative",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "functionfields",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "homological",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "representations",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "topology",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 81,
+   "upstreamOnly": false
   },
   "pde": {
    "distance": 4.0,
-   "roadmaps": 1
+   "roadmaps": 1,
+   "supplies": [
+    {
+     "galaxy": "analysis",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "tauceti:TauCetiRoadmap/PDE",
+       "consumer": "tauceti:TauCetiRoadmap/OptimalTransport"
+      }
+     ]
+    }
+   ],
+   "frontier": [],
+   "frontierRoadmaps": 0,
+   "upstreamOnly": true
   },
   "probability": {
    "distance": 1.0,
-   "roadmaps": 2
+   "roadmaps": 2,
+   "supplies": [],
+   "frontier": [],
+   "frontierRoadmaps": 0,
+   "upstreamOnly": true
   },
   "representations": {
-   "distance": 2.96,
-   "roadmaps": 17
+   "distance": 2.98,
+   "roadmaps": 17,
+   "supplies": [
+    {
+     "galaxy": "geomlanglands",
+     "links": 12,
+     "examples": [
+      {
+       "supplier": "ReductiveGroupsPartII",
+       "consumer": "BunGAndNewtonStrata"
+      },
+      {
+       "supplier": "ReductiveGroupsPartII",
+       "consumer": "ExcursionOperatorsAndSpectralAction"
+      },
+      {
+       "supplier": "ReductiveGroupsPartII",
+       "consumer": "GeometricSatakeAndFusion"
+      }
+     ]
+    },
+    {
+     "galaxy": "automorphic",
+     "links": 11,
+     "examples": [
+      {
+       "supplier": "ReductiveGroupsPartII",
+       "consumer": "AdelicAlgebraicGroups"
+      },
+      {
+       "supplier": "SmoothRepresentationsOfLocalGroups",
+       "consumer": "AutomorphicFormsOnReductiveGroups"
+      },
+      {
+       "supplier": "SmoothRepresentationsOfLocalGroups",
+       "consumer": "AutomorphicLFunctionsAndLocalFactors"
+      }
+     ]
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "links": 4,
+     "examples": [
+      {
+       "supplier": "ReductiveGroupsPartII",
+       "consumer": "ShimuraData"
+      },
+      {
+       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups",
+       "consumer": "PELModuli"
+      },
+      {
+       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups",
+       "consumer": "ShimuraData"
+      }
+     ]
+    },
+    {
+     "galaxy": "langlands",
+     "links": 4,
+     "examples": [
+      {
+       "supplier": "ReductiveGroupsPartII",
+       "consumer": "EndoscopicTransferAndUnitaryTraceComparison"
+      },
+      {
+       "supplier": "SmoothRepresentationsOfLocalGroups",
+       "consumer": "EndoscopicTransferAndUnitaryTraceComparison"
+      },
+      {
+       "supplier": "SmoothRepresentationsOfLocalGroups",
+       "consumer": "IntegralHeckeAndGaloisDeterminants"
+      }
+     ]
+    },
+    {
+     "galaxy": "functionfields",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "ReductiveGroupsPartII",
+       "consumer": "FunctionFieldArithmetic"
+      },
+      {
+       "supplier": "SmoothRepresentationsOfLocalGroups",
+       "consumer": "FunctionFieldArithmetic"
+      }
+     ]
+    },
+    {
+     "galaxy": "iwasawa",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "SmoothRepresentationsOfLocalGroups",
+       "consumer": "AutomorphicCongruences"
+      },
+      {
+       "supplier": "SmoothRepresentationsOfLocalGroups",
+       "consumer": "GrossZagierAndArithmeticHeights"
+      }
+     ]
+    },
+    {
+     "galaxy": "etale",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory",
+       "consumer": "DeligneWeightsAndPurity"
+      }
+     ]
+    },
+    {
+     "galaxy": "padic",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups",
+       "consumer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "iwasawa",
+     "roadmaps": 16
+    },
+    {
+     "galaxy": "langlands",
+     "roadmaps": 15
+    },
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 11
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "roadmaps": 9
+    },
+    {
+     "galaxy": "ktheory",
+     "roadmaps": 8
+    },
+    {
+     "galaxy": "geomlanglands",
+     "roadmaps": 6
+    },
+    {
+     "galaxy": "padic",
+     "roadmaps": 3
+    },
+    {
+     "galaxy": "commutative",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "functionfields",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "topology",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 71,
+   "upstreamOnly": false
   },
   "topology": {
    "distance": 5.17,
-   "roadmaps": 6
+   "roadmaps": 6,
+   "supplies": [
+    {
+     "galaxy": "automorphic",
+     "links": 2,
+     "examples": [
+      {
+       "supplier": "ArithmeticQuantumTopology",
+       "consumer": "QSeriesPartitionsAndMockModularForms"
+      },
+      {
+       "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+       "consumer": "ArithmeticLocallySymmetricSpaces"
+      }
+     ]
+    }
+   ],
+   "frontier": [
+    {
+     "galaxy": "automorphic",
+     "roadmaps": 1
+    }
+   ],
+   "frontierRoadmaps": 1,
+   "upstreamOnly": false
   }
  }
 }
