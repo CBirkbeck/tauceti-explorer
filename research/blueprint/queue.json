@@ -73,7 +73,11 @@
    "after": [],
    "timeout": 36000,
    "prompt": "research/blueprint/prompts/PLAN-HABIRO.md",
-   "state": "pending"
+   "state": "running",
+   "account": "claude",
+   "lane": 2,
+   "startedAt": "2026-09-16T10:51:54Z",
+   "attempts": 1
   },
   {
    "id": "REV-PLAN-HABIRO",
@@ -140,11 +144,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/CLASSIFY-01.md",
-   "state": "running",
-   "account": "claude2",
-   "lane": 2,
+   "state": "pending",
+   "account": null,
+   "lane": null,
    "attempts": 1,
-   "startedAt": "2026-09-16T10:14:27Z"
+   "startedAt": "2026-09-16T10:14:27Z",
+   "note": "interrupted by an orchestrator restart at 25/36 roadmaps; the next attempt continues from the saved file"
   },
   {
    "id": "CLASSIFY-02",
@@ -194,11 +199,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/CLASSIFY-02.md",
-   "state": "pending",
-   "account": null,
-   "lane": 1,
-   "attempts": 0,
-   "startedAt": "2026-09-16T10:25:31Z",
+   "state": "running",
+   "account": "claude2",
+   "lane": 2,
+   "attempts": 1,
+   "startedAt": "2026-09-16T10:51:54Z",
    "note": "released after a usage limit on claude6/1 at 2026-09-16T10:25:33Z"
   },
   {
@@ -249,11 +254,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/CLASSIFY-03.md",
-   "state": "running",
-   "account": "claude",
-   "lane": 2,
+   "state": "pending",
+   "account": null,
+   "lane": null,
    "attempts": 1,
-   "startedAt": "2026-09-16T10:15:45Z"
+   "startedAt": "2026-09-16T10:15:45Z",
+   "note": "interrupted by an orchestrator restart at 30/36 roadmaps; the next attempt continues from the saved file"
   },
   {
    "id": "CLASSIFY-04",
@@ -303,7 +309,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/CLASSIFY-04.md",
-   "state": "pending"
+   "state": "pending",
+   "account": null,
+   "lane": 1,
+   "startedAt": "2026-09-16T10:51:54Z",
+   "attempts": 0,
+   "note": "released after a usage limit on claude6/1 at 2026-09-16T10:52:00Z"
   },
   {
    "id": "CLASSIFY-05",
@@ -353,7 +364,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/CLASSIFY-05.md",
-   "state": "pending"
+   "state": "pending",
+   "account": null,
+   "lane": 2,
+   "startedAt": "2026-09-16T10:51:55Z",
+   "attempts": 0,
+   "note": "released after a usage limit on claude6/2 at 2026-09-16T10:52:00Z"
   },
   {
    "id": "CLASSIFY-06",

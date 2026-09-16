@@ -37,6 +37,42 @@ TRANSIENT = re.compile(r"Request timed out|ECONNRESET|socket hang up|fetch faile
 RESET = re.compile(r"resets?\s+(?:at\s+)?(?:(?P<mon>[A-Z][a-z]{2})\s+(?P<day>\d{1,2}),?\s+(?:at\s+)?)?"
                    r"(?P<hour>\d{1,2})(?::(?P<min>\d{2}))?\s*(?P<ampm>am|pm)\s*(?:\((?P<tz>[^)]+)\))?", re.I)
 DONE_STATES = {"done", "failed", "superseded"}
+ISSUES = REPO / "research" / "blueprint" / "issues.json"
+STATE_LABELS = ("state:available", "state:claimed", "state:running", "state:submitted", "state:done")
+
+
+def issue_number(job_id):
+    try:
+        return json.loads(ISSUES.read_text()).get(job_id)
+    except (OSError, json.JSONDecodeError):
+        return None
+
+
+def issue_labels(number):
+    try:
+        out = subprocess.run(["gh", "issue", "view", str(number), "--json", "labels", "--jq", ".labels[].name"],
+                             capture_output=True, text=True, cwd=REPO, timeout=60)
+        return out.stdout.split() if out.returncode == 0 else None
+    except Exception:
+        return None
+
+
+def mark_issue(job_id, state, comment=None):
+    """Mirror a local state change on the job's GitHub issue; failures are ignored."""
+    number = issue_number(job_id)
+    if not number:
+        return
+    labels = issue_labels(number) or []
+    command = ["gh", "issue", "edit", str(number), "--add-label", state]
+    for label in labels:
+        if label in STATE_LABELS and label != state:
+            command += ["--remove-label", label]
+    try:
+        subprocess.run(command, capture_output=True, cwd=REPO, timeout=60)
+        if comment:
+            subprocess.run(["gh", "issue", "comment", str(number), "--body", comment], capture_output=True, cwd=REPO, timeout=60)
+    except Exception:
+        pass
 DEFAULT_TIMEOUT = 6 * 3600
 
 
@@ -197,7 +233,11 @@ def main():
         while subprocess.run(["tmux", "has-session", "-t", args.wait_session], capture_output=True).returncode == 0:
             time.sleep(60)
     idle = 0
+    started_from = Path(__file__).stat().st_mtime
     while True:
+        if Path(__file__).stat().st_mtime != started_from:
+            print(f"{stamp()} {name}: lane.py changed; reloading", flush=True)
+            os.execv(sys.executable, [sys.executable, __file__, *[a for a in sys.argv[1:]]])
         job = claim(args.account, args.lane, str(workers))
         if job is None:
             idle += 1
@@ -207,6 +247,16 @@ def main():
             time.sleep(600)
             continue
         idle = 0
+        number = issue_number(job["id"])
+        if number:
+            labels = issue_labels(number) or []
+            if "state:claimed" in labels:
+                finish(job["id"], state="external", attempts=job["attempts"] - 1, account=None,
+                       note=f"claimed on GitHub issue #{number}")
+                print(f"{stamp()} {name}: {job['id']} is claimed on GitHub; skipping", flush=True)
+                continue
+            mark_issue(job["id"], "state:running",
+                       f"A local swarm worker ({name}) started this job (attempt {job['attempts']})." if job["attempts"] == 1 else None)
         print(f"{stamp()} {name}: start {job['id']} (attempt {job['attempts']})", flush=True)
         code, log, seconds = run(job, args.account, workers)
         tail = log[-4000:]
@@ -216,6 +266,7 @@ def main():
                    attempts=job["attempts"] - 1, account=None)
             delay = max(300, (wake - dt.datetime.now(wake.tzinfo)).total_seconds() + 300) if wake else 1800
             ledger(stamp(), name, job["id"], "limit", int(seconds), wake.isoformat() if wake else "unknown")
+            mark_issue(job["id"], "state:available")
             print(f"{stamp()} {name}: usage limit; sleeping {int(delay)}s", flush=True)
             time.sleep(delay)
             continue
@@ -228,6 +279,7 @@ def main():
         missing, result = check_outputs(job)
         if code == 0 and not missing:
             finish(job["id"], state="done", finishedAt=stamp(), seconds=int(seconds), result=result, note="")
+            mark_issue(job["id"], "state:submitted", f"The local swarm worker finished this job; outputs: {', '.join(job.get('outputs', []))}. They await review or integration.")
             ledger(stamp(), name, job["id"], "done", int(seconds), json.dumps(result)[:400])
         else:
             state = "pending" if job["attempts"] < 3 else "failed"
