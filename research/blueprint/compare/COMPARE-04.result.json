@@ -1,0 +1,405 @@
+{
+ "job": "COMPARE-04",
+ "notes": {
+  "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction": {
+   "targets": "Transitivity of Ind/Coind and the projection formula on Rep k G; the conjugate representation; induced characters and Frobenius reciprocity; the Mackey decomposition and its irreducibility criterion; Clifford theory over a normal subgroup; the representation ring with Artin and Brauer induction and Brauer's characterization of characters; projective representations, factor sets, twisted group algebras and the Schur multiplier.",
+   "baselineHas": [
+    "mathlib Rep.ind / Rep.indResAdjunction / Rep.resCoindAdjunction / Rep.coinvariantsTensorIndNatIso (Mathlib/RepresentationTheory/Induced.lean, Coinduced.lean, FiniteIndex.lean) — the two adjunctions and the coinvariants projection identity",
+    "tauceti Rep.mackeyDecomposition (TauCeti/RepresentationTheory/Induction/Mackey/Decomposition.lean) and TauCeti.simple_indFDRep_iff_doubleCoset (Mackey/Irreducible.lean) — Layers 3 and 4 already built",
+    "tauceti TauCeti.ClassFunction.natCard_nsmul_mem_indVirtualCharacters_isCyclic (Induction/Artin/Basic.lean) plus Induction/Clifford/*, Induction/VirtualCharacter.lean, RepresentationRing/*",
+    "tauceti TauCeti.IsProjectiveRep.cohomologyClass_eq_zero_iff (ProjectiveRepresentation/SchurMultiplier.lean) and TauCeti.IsPElementary / IsHyperelementary (TauCeti/GroupTheory/Elementary.lean) — Layer 7's H^2 obstruction and Layer 6's elementary-subgroup predicates exist"
+   ],
+   "missing": [
+    "Brauer's induction theorem: integral surjectivity of the sum of inductions from elementary subgroups (only Artin's rational form, with the |G| multiplier, is proved)",
+    "Brauer's characterization of characters (a class function is virtual iff its restriction to every elementary subgroup is)",
+    "the cyclotomic splitting-field corollary, which needs a character-field / Schur-index and field-of-definition descent layer that the baseline has nowhere (no schurIndex, no representationGroup declarations)",
+    "group central extensions and representation groups (Schur covers); Mathlib has central extensions only for Lie algebras",
+    "nothing needed from other roadmaps: the roadmap has no cross-roadmap stage edges"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/CFSGStatement": {
+   "targets": "Every group on the classification list as an honest Lean type with a Group instance — indices, ambient groups with root subgroups, ordinary/graph-twisted and Suzuki–Ree Steinberg maps, fixed-point candidates, the 26 sporadic presentations — and the named proposition ClassificationStatement together with classificationStatement_of_zero. No finiteness, simplicity or classification proof.",
+   "baselineHas": [
+    "tauceti TauCeti.LieTypeIndex.Valid and CFSGIndex (TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean) — I0 index layer with ranges, duplicate table, dynkinType, graph permutations and Suzuki–Ree exponents",
+    "tauceti TauCeti.TypeALieIndex.Group (CFSG/TypeA.lean, line 344) and the same per-family Group for types B, C, D, twisted D, E6, twisted E6, E7, the Geck-carrier E8/F4/G2 and Suzuki",
+    "tauceti TauCeti.SporadicName.presentation (CFSG/Sporadic/Presentation.lean) — all 26 cited count-checked presentations, with TauCeti.Relator.toWord_toFreeGroup",
+    "tauceti TauCeti.UniversalEnvelopingAlgebra.kostantToralGroupScheme and TauCeti.TypeBSpinCarrier.groupScheme_eq_kostantToralGroupScheme, plus Matrix.symplecticSpecialIsogeny, SlStd, SpStd, DynkinType.simplyConnectedRootDatum"
+   ],
+   "missing": [
+    "the tripled D4 carrier (toral closure of 8v+8s+8c in GL24) and triality as a numbered symmetry of it — the 3D4 branch has no Group",
+    "the short-root G2/F4 carriers over F3 and F2 with their special isogenies in characteristic three and two: ordered integral weight bases, the short-root ideal and its stability, the identification C, multiplicativity and the square relation — the 2G2, 2F4 and Tits branches",
+    "the pinned Chevalley–Demazure group schemes over Z with base change, points and root subgroups, and the isomorphism theorem for pinned groups (ReductiveGroups Layer 9) plus the root-systems Layer 6 named root data, needed for L5's identification of every explicit carrier with the pinned points",
+    "the A0 assembly: CFSGIndex.Group by cases, its dependent Group instance, ClassificationStatement and classificationStatement_of_zero"
+   ]
+  },
+  "LogicAndDefinabilityInNumberTheory": {
+   "targets": "Valued-field model theory (henselianity, residue/value sorts, angular components, Ax–Kochen–Ershov and Denef–Pas elimination), p-adic definable cells, measures and rationality of Igusa/Poincaré series, motivic integration with specialization and transfer, MRDP and the negative solution of Hilbert's tenth problem, and o-minimal cell decomposition with Pila–Wilkie counting and source-scoped Pila–Zannier/André–Oort applications.",
+   "baselineHas": [
+    "mathlib FirstOrder.Language and the whole Mathlib/ModelTheory/ tree — languages, structures, formulas, definable sets, elementary extensions",
+    "mathlib FirstOrder.Language.Ultraproduct.sentence_realize (Mathlib/ModelTheory/Ultraproducts.lean:154) — Łoś's theorem, so LD.0's ultraproduct/transfer half is essentially present",
+    "mathlib Dioph.pow_dioph (Mathlib/NumberTheory/Dioph.lean:667) — the Diophantine-set machinery up to exponentiation, the bulk of the MRDP chain",
+    "mathlib/tauceti Mathlib/RingTheory/Henselian.lean and TauCeti/RingTheory/Henselian.lean, plus Mathlib's valuation/ValuationSubring API"
+   ],
+   "missing": [
+    "a valued-field language with residue and value sorts and angular components, and the relative quantifier-elimination theorems (Ax–Kochen–Ershov, Denef–Pas) — nothing of the kind in the baseline",
+    "definable cell decomposition over p-adic fields, definable measures and rationality of local Igusa/Poincaré series with a pinned coefficient ring",
+    "Grothendieck rings of varieties, constructible-function targets, motivic integration, specialization and the transfer principle — which additionally imports MotivesAndAlgebraicCycles MC.4 (geometric mixed motives and motivic cohomology) and SchemeAndStackFoundations SF.1 (descent, algebraic spaces and stacks), neither of which exists in the baseline",
+    "the last step of MRDP (recursively enumerable implies Diophantine) on top of Mathlib's Dioph",
+    "o-minimal structures and cell decomposition, Pila–Wilkie counting outside the algebraic part, and then independent Galois-orbit bounds and Ax–Lindemann/Ax–Schanuel functional transcendence before any André–Oort case"
+   ]
+  },
+  "ArithmeticLocallySymmetricSpaces": {
+   "targets": "Arithmetic locally symmetric quotients X_K with their component decomposition, local systems and finite projective chain models, the Borel–Serre compactification and its stratification spectral sequence, Hecke correspondences as derived-category maps, the boundary/Levi cohomology triangle with Hochschild–Serre, finite-level Poincaré–Lefschetz/Verdier duality, and the level tower API.",
+   "baselineHas": [
+    "mathlib LieGroup (Mathlib/Geometry/Manifold/Algebra/LieGroup.lean) and ModelWithCorners (Mathlib/Geometry/Manifold/IsManifold/Basic.lean)",
+    "mathlib ProperlyDiscontinuousSMul (Mathlib/Topology/Algebra/ConstMulAction.lean) and Subgroup.IsArithmetic (ModularForms/ArithmeticSubgroups.lean, SL2 only)",
+    "tauceti TopPair.singularHomology (TauCeti/AlgebraicTopology/Singular/Relative.lean) — relative singular theory",
+    "tauceti HeckeCoset.degree (TauCeti/NumberTheory/HeckeRing/Basic.lean:524) — abstract double-coset Hecke rings"
+   ],
+   "missing": [
+    "connected reductive groups over number fields, their adelic points and reduction theory (AdelicAlgebraicGroups AA.3): none of this exists in the baseline, and every target is stated in terms of it",
+    "Cartan involutions, maximal compact subgroups and the contractible symmetric space with its proper discontinuous arithmetic action and neat-level freeness",
+    "local systems from integral coefficient modules, comparison with sheaf cohomology, bounded finite projective models and the universal-coefficient spectral sequence",
+    "the Borel–Serre compactification: rational parabolic corners, manifolds with corners, nilmanifold-fibred strata with monodromy, and the stratification spectral sequence",
+    "Hecke correspondences lifted to the derived category with coherence, the boundary triangle, Hochschild–Serre for unipotent/Levi strata and its comparison with parabolic induction and Satake",
+    "finite-level Verdier/Poincaré–Lefschetz duality for perfect coefficient complexes on manifolds with corners, which imports EnhancedDerivedSheaves E1 (presentable derived sheaves), and the tower API, which imports CompletedCohomologyPartII CC.2/CC.4/CC.7, ArithmeticGaloisDuality R02.2, AutomorphicFormsOnReductiveGroups AF.1a and AutomorphicSpectralTheory AS.5"
+   ]
+  },
+  "DrinfeldModulesAndTModules": {
+   "targets": "Drinfeld A-modules over the Ore ring L{tau} with morphisms and isogenies; torsion, Tate modules and Galois actions; analytic uniformization over C_infinity by projective A-lattices; Drinfeld moduli stacks, level schemes and Pink's Satake compactification; Anderson t-modules and effective t-motives; Taguchi's Tate conjecture; Taelman's class-number formula; elliptic sheaves and shtuka realizations; Papanikolas' Tannakian transcendence of Carlitz logarithms.",
+   "baselineHas": [
+    "mathlib SkewPolynomial (Mathlib/Algebra/SkewPolynomial/Basic.lean) — the carrier for the Ore ring L{tau}",
+    "mathlib FunctionField.FqtInfty (Mathlib/NumberTheory/FunctionField.lean) and RatFunc.CompletionAtInfty (Mathlib/FieldTheory/RatFunc/Valuation.lean) — the completion at infinity",
+    "tauceti TauCeti.exists_isRiemannRochDivisor (TauCeti/FieldTheory/FunctionField/Differential/CanonicalDivisor.lean) — Riemann–Roch for function fields",
+    "tauceti TauCeti.FiniteField.fieldRange_frobeniusAlgHom_ratFunc (TauCeti/FieldTheory/RatFunc/Frobenius.lean)"
+   ],
+   "missing": [
+    "the whole first layer: identification of L{tau} with F_q-linear additive polynomials, Drinfeld A-modules with characteristic map and rank, morphisms/isogenies as group-scheme kernels, and the line-bundle version over a base — no Drinfeld or Carlitz declaration exists in the baseline",
+    "ideal torsion as a finite flat group scheme, etaleness away from the characteristic ideal and Tate modules free of rank r with continuous Galois action, which imports SchemeAndStackFoundations SF.2 (sites, scheme cohomology, finite-flat and etale descent)",
+    "C_infinity, the entire Drinfeld exponential, its surjectivity and the lattice-to-module functor — nonarchimedean entire-function theory the baseline does not have",
+    "Drinfeld moduli stacks and level schemes with Hecke correspondences and Pink's generic-fibre Satake compactification, importing SchemeAndStackFoundations SF.1 (algebraic spaces/stacks) and SF.4",
+    "Anderson t-modules and effective t-motives with the abelian-range equivalence, Taguchi's Tate theorem, Taelman's nuclear-determinant class-number formula, elliptic sheaves/shtukas, and the Frobenius-difference Tannakian category with Papanikolas' period transcendence"
+   ]
+  },
+  "EffectiveDiophantineMethods": {
+   "targets": "Provably complete algorithms with certificates: certified algebraic numbers and local precision, LLL reduction and integer relations, explicit linear forms in logarithms with S-unit and Thue–Mahler enumeration, descent/rank bounds and saturation, classical Chabauty–Coleman, the Mordell–Weil sieve, and quadratic Chabauty with reproducible worked examples.",
+   "baselineHas": [
+    "tauceti WeierstrassCurve.Affine.fg_point_of_numberField (TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean:129) — Mordell–Weil over number fields",
+    "tauceti WeierstrassCurve.Affine.selmerGroup2 (MordellWeil/SelmerGroup.lean) and neronTatePairingModTorsion_comm (MordellWeil/PointModTorsion.lean)",
+    "tauceti TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean plus Mathlib/NumberTheory/Height/Basic.lean — the height machine",
+    "mathlib Int.Matrix.exists_ne_zero_int_vec_norm_le (Mathlib/NumberTheory/SiegelsLemma.lean) — small integer vectors, but no reduction algorithm"
+   ],
+   "missing": [
+    "verified LLL reduction with exact Gram–Schmidt, termination and approximation bounds, plus short/closest-vector certificates (imports GeometryOfNumbersAndQuadraticArithmetic GN.5); no LLL declaration exists",
+    "certified exact-number and validated real/p-adic numerics (ComputationalNumberTheory CN.0/CN.4)",
+    "explicit archimedean and p-adic Baker–Matveev lower bounds for linear forms in logarithms with their constants (DiophantineApproximationAndTranscendence DT.3) — a full transcendence theorem, absent",
+    "Jacobians and Picard objects for curves of genus at least two (SchemeAndStackFoundations SF.3) and Coleman integration with Frobenius continuation (ColemanIntegration L1), neither present, before Chabauty–Coleman residue-disc bounds can be stated",
+    "the Mordell–Weil sieve and, on top of it, quadratic Chabauty with its Selmer-variety and local-height hypotheses (AnabelianGeometryAndNonabelianChabauty NC.5)"
+   ]
+  },
+  "AdicEtaleGeometry": {
+   "targets": "The analytic adic operations the diamond construction consumes: completed tensor products and fibre products of Huber pairs, finite etale and etale geometry with the small etale and pro-etale sites and geometric points, separatedness/properness/smoothness and analytification, the nonnoetherian affinoid etale finite-stage approximation theorem, and the analytic presentations used for diamondification.",
+   "baselineHas": [
+    "tauceti TauCeti.Huber.IsHuberRing (TauCeti/RingTheory/Huber/Basic.lean:154) — Huber rings and pairs",
+    "tauceti TauCeti/AlgebraicGeometry/AdicSpace/Spa/** — Spa as a set, spectrality, rational subsets and their covers/refinements, localization with its universal property, and the structure presheaf",
+    "tauceti TauCeti.ValuationSpectrum.isSheaf_iff_isSheafFor_rationalCover (Spa/RationalSubset/SheafCriterion.lean) — a sheaf criterion, but no sheafiness theorem",
+    "mathlib Mathlib/RingTheory/Perfectoid/Untilt.lean and RingTheory/Perfection.lean — tilting of perfect rings only"
+   ],
+   "missing": [
+    "adic spaces as glued locally ringed spaces and the completed tensor product of Huber pairs with its universal property, uniformization, and pullbacks along rational and finite etale maps",
+    "the finite etale and etale categories of adic spaces, their sites, geometric stalks and enough points, and the corrected pro-etale covering definition with higher-rank points kept",
+    "separated/proper/partially proper morphisms with valuative criteria, continuous Kahler differentials, the analytic Jacobian criterion and smooth morphisms, plus analytification and admissible formal models",
+    "perfectoid spaces themselves: almost purity and etale tilting (PerfectoidSpaces P3), limits and etale finite-stage descent (P5), affinoid approximation (P6) and closed perfectoid quotients (PerfectoidQuotients Q4) — no Perfectoid declaration exists in the baseline",
+    "A3's analytic-algebra milestone: pseudocoherent modules over Tate algebras with strict exactness and acyclic gluing, conormal descriptions, quantitative nonarchimedean implicit-function/perturbation lemmas and finite-stage approximation, replacing Fargues–Scholze IV.4"
+   ]
+  },
+  "CompletedCohomologyPartII": {
+   "targets": "Completed cohomology and homology for towers of arithmetic locally symmetric spaces in arbitrary reductive-group dimension: level towers with support data, torsion colimits with the smooth local-group and Hecke action, completion and derived inverse limits with lim^1, continuous duals and completed homology over O[[K_0]], finite-cell tower models, Noetherian finite generation and admissibility, continuous Hochschild–Serre descent, compact-support/boundary triangles, and the Shimura/Galois/Hecke adapters.",
+   "baselineHas": [
+    "mathlib groupCohomology (Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean) and continuousCohomology (Homological/ContCohomology/Basic.lean), extended by TauCeti/RepresentationTheory/Homological/ContCohomology/**",
+    "mathlib CategoryTheory.Functor.IsMittagLeffler (Mathlib/CategoryTheory/CofilteredSystem.lean) — Mittag-Leffler for cofiltered systems of sets, with no lim^1 or Milnor sequence",
+    "mathlib Subgroup.IsArithmetic (Mathlib/NumberTheory/ModularForms/ArithmeticSubgroups.lean) — arithmetic subgroups for SL2 only",
+    "tauceti HeckeCoset.degree (TauCeti/NumberTheory/HeckeRing/Basic.lean) — abstract double-coset Hecke rings"
+   ],
+   "missing": [
+    "all of ArithmeticLocallySymmetricSpaces ALS.0–ALS.5 as input: symmetric spaces and arithmetic quotients, local systems and chain complexes, the Borel–Serre compactification, Hecke correspondences on complexes, boundary/Levi cohomology and finite-level duality — CC.0, CC.4 and CC.7 are stated in terms of them",
+    "the smooth representation category of a p-adic group (SmoothRepresentationsOfLocalGroups SR.0) and completed group rings/Iwasawa algebras with convolution (PadicMeasuresIwasawaAlgebras L1), neither of which exists in the baseline",
+    "derived inverse limits of complexes with the Milnor sequence and lim^1, and continuous derived cohomology with dimension-general duality (ArithmeticGaloisDuality D7)",
+    "completed cohomology and homology themselves, their unitary Banach structure after inverting p, continuous duals and the O[[K_0]]-module structure",
+    "bounded complexes of finite projective O[[K_0]]-modules on cofinal torsion-free towers (with DeformationAndDerivedPatchingAlgebra P7 perfect complexes), Noetherian finite generation and the admissibility criterion, continuous Hochschild–Serre descent, and the Shimura tower adapters"
+   ]
+  },
+  "EtaleDualityAndPerverseSheaves": {
+   "targets": "The exceptional inverse image f^! and Verdier duality with biduality; smooth trace maps, relative purity and Poincare duality; Gysin maps, Chern classes and the cycle class map to etale cohomology; weak Lefschetz, projective-bundle and blowup formulas; the middle perverse t-structure, recollement and the intermediate extension IC; integral/analytic/diamond comparison of the operations; purity of IC with the decomposition theorem and relative hard Lefschetz; cohomological correspondences and the functional-equation interface.",
+   "baselineHas": [
+    "mathlib AlgebraicGeometry.Scheme.smallEtaleTopology (Mathlib/AlgebraicGeometry/Sites/Etale.lean, 115 lines) and Sites/Proetale.lean",
+    "mathlib AlgebraicGeometry.Scheme.EllAdicCohomology (Sites/ElladicCohomology.lean, 87 lines) — a definition of l-adic cohomology on the pro-etale site and nothing beyond vanishing on the empty scheme",
+    "mathlib CategoryTheory.Triangulated.TStructure (Triangulated/TStructure/Basic.lean) — abstract t-structures, no perverse one",
+    "mathlib AlgebraicGeometry.AlgebraicCycle (AlgebraicCycle/Basic.lean) — cycles with no rational equivalence and no Chow group"
+   ],
+   "missing": [
+    "the imported-but-absent finite-coefficient foundations: constructible and ctf etale coefficient categories, ordinary direct image with base change, finiteness and Artin vanishing, Nagata compactification and Rf_!, normalized l-adic realization and the trace formula (the whole CohomologicalPointCounting family)",
+    "a stable enhancement for those categories: EnhancedDerivedSheaves E0–E3 (concrete enhancement and higher-category operations, presentable derived sheaves, coherent diagrams and Kan extensions) — Mathlib has only SSet.Quasicategory",
+    "f^! as an adjoint with biduality, the smooth trace map, relative purity and Poincare duality pairings",
+    "absolute purity/Gysin, Chern classes and the cycle class CH^r(X) -> H^{2r}(X, Lambda(r)), including proper pushforward, flat pullback and rational equivalence where absent; then weak Lefschetz, projective bundle and blowup formulas",
+    "the middle perverse t-structure with recollement, perverse cohomology, j_!* and IC with its duality formula",
+    "EDC.6's adic and diamond comparison of the operations, importing AdicCoefficientsAndComparisons L2/L5/L6 (qcqs compactification, alterations, constructible direct-image comparison) and DerivedDeRhamCohomology DD.1",
+    "EDC.7's purity of IC, geometric semisimplicity, the decomposition theorem and relative hard Lefschetz, on top of DeligneWeightsAndPurity DWP.7–9 (the Weil II direct-image theorem, mixed complexes and absolute hard Lefschetz), which themselves sit on Weil I and the Lefschetz-pencil/vanishing-cycle roadmap"
+   ]
+  },
+  "GL2AutomorphicRepresentationsAndTransfer": {
+   "targets": "GL2 over every number field: local smooth representation theory with the principal-series/special/supercuspidal classification and the conductor/newvector theorem, local Langlands for GL2 with L and epsilon factors, global cuspidal decomposition with strong multiplicity one, the Whittaker expansion and the converse theorem, classical/cohomological specialisations, local and global Jacquet–Langlands, cyclic and solvable base change, automorphic induction and Langlands–Tunnell, and the characteristic-two soluble cases.",
+   "baselineHas": [
+    "mathlib NumberField.AdeleRing (Mathlib/NumberTheory/NumberField/AdeleRing.lean) and IsDedekindDomain.FiniteAdeleRing, with InfiniteAdeleRing.locallyCompactSpace",
+    "tauceti HeckeRing.GL2.heckeTDiag (TauCeti/NumberTheory/HeckeRing/GL2/Basic.lean) — abstract GL2 Hecke ring elements",
+    "tauceti HeckeRing.GL2.Newform.eq_of_forall_notMem_qExpansion_coeff_eq (ModularForms/Newforms/StrongMultiplicityOne.lean) — classical strong multiplicity one over Q only",
+    "mathlib Mathlib/NumberTheory/ModularForms/** — classical holomorphic modular forms, the Q-valued specialisation"
+   ],
+   "missing": [
+    "the smooth and admissible representation category of a p-adic reductive group with induction, Jacquet functors, contragredients, Satake and Whittaker models (SmoothRepresentationsOfLocalGroups SR.0–SR.5) — no Whittaker, Satake or SmoothRep declaration exists",
+    "local L and epsilon factors: Schwartz–Bruhat and Fourier theory, Tate zeta integrals, Godement–Jacquet and Rankin–Selberg (AutomorphicLFunctionsAndLocalFactors AL.0–AL.3)",
+    "the canonical local Langlands correspondence for GL_m and the inner-form comparison (EndoscopicTransferAndUnitaryTraceComparison ET.6), which GL2's R16.3 and R17.1 import rather than reprove",
+    "the complete automorphic spectral decomposition, i.e. Eisenstein series and the residual spectrum (AutomorphicSpectralTheory AS.4), and the coarse/fine/invariant trace formula (AS.6)",
+    "transfer factors and orbital-integral analysis, the fundamental lemma and existence of local transfer, and the simple stable and twisted trace formulas (ET.1, ET.3, ET.4) — the fundamental lemma's own proof consumes the perverse-sheaf and decomposition machinery of EtaleDualityAndPerverseSheaves EDC.7",
+    "then this roadmap's own twelve stages: the GL2 conductor/newvector theorem, the converse theorem with its twist family and growth estimates, global and local Jacquet–Langlands, cyclic and solvable base change with the failure-of-cuspidality criterion, and Langlands–Tunnell including the octahedral case"
+   ]
+  },
+  "PELModuli": {
+   "targets": "Integral, rational and p-integral PEL data with similitude group, determinant condition and reflex field; the isomorphism, rational and prime-to-p quasi-isogeny moduli functors with descent; representability as an algebraic space and smoothness at a good prime; complex uniformization and the generic-fibre comparison with Shimura varieties including the ker^1 indexing; canonical models and normalized integral models at higher p-level; and the Siegel, Hilbert and unitary examples.",
+   "baselineHas": [
+    "tauceti TauCeti.Hodge.Polarization.hodgeForm (TauCeti/Geometry/Hodge/HodgeForm.lean) and TauCeti/Geometry/Hodge/** — polarized Hodge structures, the linear-algebra side of a PEL datum",
+    "tauceti TauCeti.Symplectic.coordinateHopfAlgebra (TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean) — the split symplectic group scheme",
+    "tauceti TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny (TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean) and TauCeti/AlgebraicGeometry/AbelianVariety/** — abelian varieties over a field",
+    "mathlib Mathlib/AlgebraicGeometry/** schemes, morphism properties and Mathlib/AlgebraicGeometry/EllipticCurve/**"
+   ],
+   "missing": [
+    "polarized abelian schemes over a general base with Rosati involutions, Weil pairings, finite flat torsion and level structures (AbelianSchemesAndArithmeticModuli A0–A6) — the baseline has abelian varieties over a field only",
+    "algebraic spaces and algebraic stacks with Artin's representability criterion, and the Hilbert and Quot functors (AlgebraicModuliForArithmeticGeometry R09.2) — no AlgebraicSpace or Stack declaration exists",
+    "the PEL data themselves: similitude group and its representation, dual lattice and discriminant, the determinant condition as a polynomial identity, and the field of definition identified with the reflex field",
+    "the three moduli functors with their comparison, effective descent, and the deformation/obstruction calculation giving representability and smoothness at good primes",
+    "Shimura data and Shimura varieties with Borel algebraicity and uniqueness, canonical models, CM reciprocity and Hodge/abelian type (ShimuraData D1–D4, ShimuraVarieties V1–V6), needed before the generic-fibre comparison and the ker^1(Q,G) component indexing can be stated"
+   ]
+  },
+  "WeightsInEtaleCohomology": {
+   "targets": "The weight and purity interface used by automorphic Galois representations and arithmetic finiteness: Weil numbers and weights with their tensor/dual/twist rules, the curve and abelian-variety Weil bound, nearby and vanishing cycles with specialization, geometric reduction and symplectic monodromy, Weil I together with the Weil II results actually needed and absolute hard Lefschetz, and the eigenspace-purity and coefficient-independence applications to eigenform/Kuga–Sato realizations and Faltings' finiteness argument.",
+   "baselineHas": [
+    "mathlib AlgebraicGeometry.Scheme.EllAdicCohomology (Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean) — l-adic cohomology defined on the pro-etale site, with no finiteness, Frobenius action, compact supports or comparison",
+    "mathlib AlgebraicGeometry.Scheme.smallEtaleTopology (Sites/Etale.lean) with Grothendieck-abelian sheaf categories, so etale cohomology is definable but nothing is proved about it",
+    "tauceti TauCeti.Isogeny.degree_oneSubFrobeniusIsogeny_eq_pointCount (EllipticCurve/Isogeny/OneSubFrobenius/Degree.lean) — deg(1 - pi_q) = #E(F_q), the first input to the Hasse bound",
+    "tauceti TauCeti/AlgebraicGeometry/AbelianVariety/** and TauCeti/Geometry/Hodge/** for the abelian-variety side"
+   ],
+   "missing": [
+    "every one of its stages is an import of theory that does not exist: DeligneWeightsAndPurity DWP.0–DWP.10 — Weil numbers and weights, the curve/abelian Weil estimate, Weil I's dimension induction and tensor-power trick, the fundamental direct-image theorem, mixed complexes and weight filtrations, absolute hard Lefschetz and the arithmetic export contracts",
+    "LefschetzPencilsAndVanishingCycles LPV.0–LPV.5 and LPV.7 — nearby and vanishing cycle functors on actual sites, inertia and the monodromy operator, Picard–Lefschetz for ordinary quadratic singularities, existence of sufficiently ample Lefschetz pencils, global vanishing cycles and open symplectic monodromy",
+    "EtaleDualityAndPerverseSheaves EDC.0–EDC.5 beneath both of those: Verdier duality, smooth trace and Poincare duality, cycle classes, weak Lefschetz and the perverse category",
+    "and beneath all of it the constructible etale coefficient categories, proper/smooth base change, Rf_! and the trace formula, plus the enhanced derived-sheaf foundation Mathlib lacks entirely",
+    "the Rosati-positivity and Jacobian/Tate-module trace inputs for R34.2, and the Kuga–Sato local-system realizations with their idempotent/Hecke compatibility for R34.6"
+   ]
+  },
+  "PeriodsAndSpecialValues": {
+   "targets": "Comparison periods and special values across motives: Betti/de Rham comparison matrices and determinant period lines, Deligne-type critical-value algebraicity, Nori's formal-period algebra and torsor with the evaluation map, regulator determinants and leading terms, integral fundamental lines with local corrections, equivariant Tamagawa-number statements, the BSD and Bloch–Kato assembly, certified numerical evaluation, arithmetic mirror symmetry with Picard–Fuchs equations, and multiple zeta values with the mixed-Tate coaction.",
+   "baselineHas": [
+    "mathlib riemannZeta_two_mul_nat (Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean) — zeta(2k) as a rational multiple of pi^{2k}, the Tate-motive critical values",
+    "mathlib DirichletCharacter.LFunction (Mathlib/NumberTheory/LSeries/DirichletContinuation.lean)",
+    "tauceti ModularForm.LSeries_qExpansion_coeff_eq (TauCeti/NumberTheory/ModularForms/LFunction.lean) — L-series of modular forms without critical-value algebraicity",
+    "tauceti TauCeti.Hodge.HodgeStructure (TauCeti/Geometry/Hodge/Structure.lean) — pure Hodge structures only"
+   ],
+   "missing": [
+    "motives with their realizations and cycle-class compatibility, geometric mixed motives and motivic cohomology, and motivic Galois groups (MotivesAndAlgebraicCycles MC.2, MC.4, MC.6) — no Motive or ChowGroup declaration exists, and the realizations themselves need the etale machinery",
+    "the period lines: comparison matrices, determinant lines, conjugation eigenspaces, Hodge filtration and Tate twists; and Nori's formal-period algebra with the torsor comparison and evaluation in C",
+    "algebraic K-theory as spectra with its nonconnective extension (GeneralAlgebraicKTheory K.6) and motivic etale K-theory regulators (M.8), plus Borel (R.7) and elliptic (ER.5) regulators — the baseline has no KTheory or Regulator declaration",
+    "integral determinant lines of perfect global/local cohomology complexes with Poitou–Tate duality (ArithmeticGaloisDuality R02.4), then equivariant Tamagawa-number statements in relative K-groups with reduced norms and SK1 (NoncommutativeAndEquivariantIwasawa NE.3)",
+    "the rank-zero/one BSD leading-term certificates (RankZeroOneBSD BSD.8) behind the Bloch–Kato assembly, plus crystalline coefficient interfaces (CR.7), polylogarithms (P.1), automorphic local factors (AL.1/AL.4/AL.5) and validated numerics (CN.4)",
+    "the mixed-Tate category with the motivic fundamental group and coaction for multiple zeta values, and the Gauss–Manin/Picard–Fuchs and mirror-map layer"
+   ]
+  },
+  "RefinedTraceMethods": {
+   "targets": "A shared trace-theoretic library: Hochschild, cyclic, negative cyclic and periodic cyclic theory with SBI and HKR; THH of spectral categories with its circle action, cyclotomic structure, TC, TC^- and TP; the cyclotomic trace with the relative nilpotent and rational comparisons; the Antieau–Mathew–Morrow–Nikolaus Beilinson fibre square; topological ku and KU with Bott periodicity, cyclonic spectra and Wagner's even-filtration q-Hodge and Habiro comparisons; localizing motives with the Efimov–Scholze rigidity theorem and refined THH; and the BMS2 quasisyntomic motivic-filtration comparison with prismatic cohomology.",
+   "baselineHas": [
+    "mathlib SSet.Quasicategory (Mathlib/AlgebraicTopology/Quasicategory/Basic.lean) — basic infinity-categories, with no stable infinity-categories and no spectra",
+    "mathlib CategoryTheory.Idempotents.DoldKan.equivalence (AlgebraicTopology/DoldKan/EquivalencePseudoabelian.lean)",
+    "mathlib KaehlerDifferential (Mathlib/RingTheory/Kaehler/Basic.lean) — the HKR target, with no Hochschild side",
+    "tauceti TauCeti.AInfinityAlgebra.Augmentation (TauCeti/Algebra/Homology/AInfinity/Algebra/Augmentation.lean) — A-infinity algebras, with no Hochschild complex"
+   ],
+   "missing": [
+    "the whole spectral foundation: spectra, smash products and genuine homotopy limits (StableHomotopyKTheory H.5/KU-spectra) and a monoidal stable categorical baseline (EnhancedDerivedSheaves E5) — no spectrum or stable infinity-category declaration exists in the baseline",
+    "Waldhausen K-theory with additivity and delooping (GeneralAlgebraicKTheory K.4/KU-waldhausen)",
+    "algebraic Hochschild and cyclic theory: the cyclic complex, Connes's B, SBI, Morita invariance and HKR — absent, no Hochschild or CyclicHomology declaration",
+    "THH with coherent circle action, restriction/orbits/fixed points/Tate, cyclotomic structure in the Nikolaus–Scholze sense, TC, TC^- and TP, and agreement with the classical genuine TR/TC formulation",
+    "the cyclotomic trace with its excision and functor-calculus inputs, the relative nilpotent comparison, and the AMMN Beilinson fibre square with its filtered refinement",
+    "topological ku and KU with Bott periodicity, cyclonic spectra and TC^{-(m)}, Wagner's even filtration and its q-Hodge/Habiro comparisons (importing HabiroRings HR.5 and HabiroCohomologyFoundations HQ.3)",
+    "localizing motives with the Efimov–Scholze rigidity theorem and refined THH, and the BMS2 comparison with prismatic cohomology (PrismaticCohomology PR.0–PR.3), derived de Rham (DD.2) and A_inf/L-eta (AI.1), none of which exists"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+   "b": "tauceti:TauCetiRoadmap/CFSGStatement",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "InductionRestriction needs only Brauer's induction theorem and characterization of characters, the cyclotomic splitting-field/Schur-index layer and Schur covers on top of a baseline that already has Rep.ind with both adjunctions plus TauCeti's Mackey, Clifford, Artin and SchurMultiplier files. CFSG still needs the triality-D4, Ree and Tits carriers with their characteristic-2/3 special isogenies, the pinned Chevalley-Demazure group schemes over Z and the isomorphism theorem for pinned groups for L5, and the A0 assembly."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/CFSGStatement",
+   "b": "LogicAndDefinabilityInNumberTheory",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "CFSG's remaining work is a bounded set of carrier constructions (triality, short-root G2/F4 with their special isogenies, the pinned Chevalley-Demazure identification and the A0 assembly) on top of TauCeti's existing Index, TypeA-E7, Suzuki and 26-presentation files. Logic must build valued-field languages with Ax-Kochen-Ershov/Denef-Pas elimination, p-adic cell decomposition and definable integration, motivic integration on top of absent mixed motives and stacks, and a separate o-minimality/Pila-Wilkie/Andre-Oort branch, with nothing beyond Mathlib's ModelTheory in place."
+  },
+  {
+   "a": "ArithmeticLocallySymmetricSpaces",
+   "b": "LogicAndDefinabilityInNumberTheory",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Logic can state most of its targets directly on Mathlib's FirstOrder.Language, Ultraproduct.sentence_realize and Dioph, and its deep imports are mixed motives for LD.3 and functional transcendence for LD.6. ALSS cannot state anything until adelic reductive groups with reduction theory, Cartan involutions and symmetric spaces, local systems, and the Borel-Serre compactification exist, and then stacks derived Hecke correspondences, the boundary triangle and manifold-with-corners Verdier duality on an absent EnhancedDerivedSheaves foundation, with AS.5 and CC.2/CC.4/CC.7 reexports above that."
+  },
+  {
+   "a": "ArithmeticLocallySymmetricSpaces",
+   "b": "DrinfeldModulesAndTModules",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Drinfeld builds nine stages from scratch but on a partly present base (SkewPolynomial for L{tau}, FqtInfty, TauCeti's function-field Riemann-Roch) and imports only function-field arithmetic and SchemeAndStackFoundations SF.1/SF.2/SF.4. ALSS has no relevant baseline beyond manifolds and SL2 arithmetic subgroups, must build adelic reduction theory, symmetric spaces and Borel-Serre before its targets are even stateable, and additionally imports EnhancedDerivedSheaves E1, AutomorphicSpectralTheory AS.5 and CompletedCohomologyPartII CC.2/CC.4/CC.7."
+  },
+  {
+   "a": "EffectiveDiophantineMethods",
+   "b": "DrinfeldModulesAndTModules",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "EffectiveDiophantine's core descent and S-unit targets sit on TauCeti's existing Mordell-Weil, 2-Selmer and Neron-Tate height machinery, with LLL, Baker-Matveev bounds, Coleman integration and quadratic Chabauty as the genuinely new tail. Drinfeld has literally no object in the baseline: additive polynomials and Drinfeld modules, finite-flat torsion and Tate modules, the C_infinity exponential and lattice functor, moduli stacks with Pink's Satake compactification, t-motives, Taguchi's Tate theorem, Taelman's class-number formula and Papanikolas' Tannakian transcendence must all be built in sequence."
+  },
+  {
+   "a": "AdicEtaleGeometry",
+   "b": "EffectiveDiophantineMethods",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "EffectiveDiophantine reuses TauCeti's Mordell-Weil, Selmer and height machinery and adds LLL, Baker-Matveev, Coleman integration and quadratic Chabauty. AdicEtaleGeometry must first turn TauCeti's Spa/Huber-pair set-level development into sheafy adic spaces with completed tensor products, then build the etale and pro-etale sites of adic spaces, and it imports perfectoid spaces entirely (almost purity and tilting P3, finite-stage etale descent P5/P6, closed quotients Q4), none of which exists, before A3's pseudocoherent-module and nonarchimedean perturbation milestone."
+  },
+  {
+   "a": "CompletedCohomologyPartII",
+   "b": "AdicEtaleGeometry",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "AdicEtaleGeometry has a real head start (TauCeti's Huber rings, Spa, rational subsets, localization and structure presheaf) and five stages above the missing perfectoid layer. CompletedCohomologyPartII takes all of ArithmeticLocallySymmetricSpaces ALS.0-ALS.5 (symmetric spaces, Borel-Serre, Hecke complexes, finite-level duality) as input, adds the absent smooth representation category SR.0 and Iwasawa algebras L1 and continuous duality D7, and only then builds its own nine stages of completion, derived limits, completed homology, finite-projective tower models and admissibility."
+  },
+  {
+   "a": "EtaleDualityAndPerverseSheaves",
+   "b": "CompletedCohomologyPartII",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "CompletedCohomologyPartII stacks completed-cohomology machinery on ALSS plus Iwasawa algebras and smooth representations. EtaleDuality must first import a six-roadmap etale foundation that does not exist at all (constructible coefficients, proper/smooth base change, Nagata compactification and Rf_!, l-adic realization, trace formula) on a stable enhancement Mathlib lacks, then build f^!, Verdier duality, purity, cycle classes, the perverse t-structure and IC, and finally EDC.7's decomposition theorem and relative hard Lefschetz on top of Weil II (DWP.7-9)."
+  },
+  {
+   "a": "GL2AutomorphicRepresentationsAndTransfer",
+   "b": "EtaleDualityAndPerverseSheaves",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "GL2's missing theory transitively contains EtaleDuality's: its R17.2 imports the fundamental lemma (ET.3), whose proof consumes exactly EDC.7's pure intersection complexes and decomposition theorem. On top of that GL2 still needs the whole smooth-representation category SR.0-SR.5, local factors AL.0-AL.3, local Langlands for GL_m (ET.6), the automorphic spectral decomposition (AS.4) and the invariant trace formula (AS.6), before its own twelve stages ending at Jacquet-Langlands, solvable base change and Langlands-Tunnell."
+  },
+  {
+   "a": "GL2AutomorphicRepresentationsAndTransfer",
+   "b": "PELModuli",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "PELModuli needs polarized abelian schemes over a base, algebraic spaces/stacks with Artin representability, and Shimura data and canonical models before its moduli functors and smoothness theorem; that is a long but classical stack. GL2 needs all of that kind of depth plus the invariant trace formula, transfer factors and the fundamental lemma, local Langlands for GL_m and the full automorphic spectral decomposition, none of which has any baseline support beyond adele rings and abstract Hecke rings."
+  },
+  {
+   "a": "WeightsInEtaleCohomology",
+   "b": "PELModuli",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "PELModuli's stack is abelian schemes, algebraic spaces/stacks and Shimura canonical models, and TauCeti already has abelian varieties over a field and polarized Hodge structures to build from. WeightsInEtaleCohomology's own stages are thin adapters over theory that is entirely absent: DWP.0-DWP.10 (Weil numbers, Weil I, the Weil II direct-image theorem, mixed complexes, absolute hard Lefschetz), LPV.0-LPV.7 (nearby/vanishing cycles, Picard-Lefschetz, pencil existence, symplectic monodromy) and EDC.0-EDC.5 beneath them, with Mathlib offering only a bare definition of l-adic cohomology on the pro-etale site."
+  },
+  {
+   "a": "PeriodsAndSpecialValues",
+   "b": "WeightsInEtaleCohomology",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Both sit on the absent etale/realization machinery, but Weights stops at the Weil I/Weil II/hard-Lefschetz tower plus its eigenform and Kuga-Sato applications. Periods additionally needs mixed motives with motivic Galois groups, Nori's period torsor, algebraic K-theory as spectra with Borel/elliptic/motivic regulators, Poitou-Tate and integral determinant lines, noncommutative Iwasawa reduced norms for ETNC, rank-zero/one BSD certificates, and the mixed-Tate coaction for multiple zeta values."
+  },
+  {
+   "a": "PeriodsAndSpecialValues",
+   "b": "RefinedTraceMethods",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "RefinedTrace's foundation gap is deeper per layer (Mathlib has SSet.Quasicategory and nothing else, so spectra, stable infinity-categories, Hochschild homology, THH and cyclotomic structure must all precede TC, AMMN and Wagner). But Periods needs that same spectral foundation for its K-theory and regulator inputs and adds mixed motives and realizations, Nori periods, Poitou-Tate and integral fundamental lines, noncommutative Iwasawa and ETNC, rank-zero/one BSD, polylogarithms, automorphic local factors and the mixed-Tate MZV coaction on top of it."
+  },
+  {
+   "a": "RefinedTraceMethods",
+   "b": "CompletedCohomologyPartII",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "CompletedCohomologyPartII builds on absent but classical geometry and algebra (ALSS's symmetric spaces and Borel-Serre, Iwasawa algebras, smooth representations) and Mathlib already supplies group and continuous cohomology to start from. RefinedTrace has no baseline at all beneath it: spectra and stable infinity-categories, Waldhausen K-theory, Hochschild and cyclic homology, THH with its cyclotomic structure, TC and the cyclotomic trace, then prismatic cohomology, A_inf and Habiro rings before the AMMN square and Wagner's comparisons."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/CFSGStatement",
+   "b": "DrinfeldModulesAndTModules",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "CFSG's index layer, all 26 sporadic presentations and the type A-E7, Suzuki and Geck-carrier Group definitions are already in TauCeti; what remains is the triality and Ree/Tits carriers, the pinned Chevalley-Demazure identification and the A0 assembly. Drinfeld has no Drinfeld module, Carlitz module, C_infinity, t-motive, elliptic sheaf or moduli stack anywhere in the baseline, and must stack nine layers from additive polynomials up to Taelman's class-number formula and Papanikolas' Tannakian transcendence."
+  },
+  {
+   "a": "LogicAndDefinabilityInNumberTheory",
+   "b": "EffectiveDiophantineMethods",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Both have a deep tail (Baker-Matveev bounds, Coleman integration and quadratic Chabauty on one side; motivic integration and Andre-Oort on the other), but EffectiveDiophantine's descent, saturation and S-unit targets rest on TauCeti's existing Mordell-Weil, 2-Selmer and Neron-Tate height files. Logic must build valued-field languages with Denef-Pas elimination, p-adic cell decomposition and definable measures, then Grothendieck rings and motivic integration on top of the absent mixed-motive category MC.4 and stacks SF.1, and separately o-minimal cell decomposition, Pila-Wilkie, Ax-Schanuel and Galois-orbit bounds."
+  },
+  {
+   "a": "PELModuli",
+   "b": "ArithmeticLocallySymmetricSpaces",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "PEL needs abelian schemes with Rosati and Weil pairings, algebraic spaces with Artin representability, and Shimura data with canonical models, but TauCeti's abelian varieties, isogenies and polarized Hodge structures give it a starting point and its five prerequisite roadmaps are all algebro-geometric. ALSS has essentially no baseline (SL2 arithmetic subgroups and abstract Hecke cosets only), must build adelic reduction theory, symmetric spaces and the Borel-Serre compactification before any statement, and additionally imports EnhancedDerivedSheaves E1, AutomorphicSpectralTheory AS.5 and CompletedCohomologyPartII CC.2/CC.4/CC.7."
+  },
+  {
+   "a": "PeriodsAndSpecialValues",
+   "b": "EtaleDualityAndPerverseSheaves",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "EtaleDuality owns a single enormous body: the etale six functors, Verdier duality, cycle classes, the perverse t-structure and the decomposition theorem over Weil II, on a stable enhancement Mathlib lacks. Periods needs the etale realization and cycle classes too, inside MotivesAndAlgebraicCycles MC.2/MC.4, and then adds motivic Galois groups and Nori's period torsor, K-theory spectra with Borel/elliptic regulators, Poitou-Tate and integral fundamental lines, noncommutative Iwasawa and ETNC, BSD rank zero/one, and the mixed-Tate MZV layer."
+  },
+  {
+   "a": "GL2AutomorphicRepresentationsAndTransfer",
+   "b": "RefinedTraceMethods",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "RefinedTrace's bottom layer is missing outright (no spectra or stable infinity-categories in Mathlib) and it stacks THH, cyclotomic structure, TC, prismatic and Habiro above it. GL2's stack is comparably tall but wider: it needs the whole smooth-representation and local-factor apparatus, local Langlands for GL_m, Eisenstein/spectral decomposition and Arthur's invariant trace formula, and the fundamental lemma, whose own proof consumes the perverse-sheaf and decomposition machinery that is itself absent, before its twelve stages up to Langlands-Tunnell."
+  },
+  {
+   "a": "AdicEtaleGeometry",
+   "b": "WeightsInEtaleCohomology",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "AdicEtale's five stages sit on TauCeti's substantial Spa/Huber development plus the missing perfectoid layer. Weights imports theory of which nothing exists: the constructible etale coefficient categories, Rf_! and the trace formula, then EDC.0-EDC.5's duality, cycle classes and perverse category, then LPV's vanishing cycles, Lefschetz pencils and symplectic monodromy, and finally Deligne's Weil I, Weil II and absolute hard Lefschetz, before its own purity applications."
+  },
+  {
+   "a": "CompletedCohomologyPartII",
+   "b": "PeriodsAndSpecialValues",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "CompletedCohomologyPartII is tall but narrow: ALSS's symmetric spaces and Borel-Serre, plus smooth representations, Iwasawa algebras and continuous duality, then nine stages of completion, derived limits and admissibility. Periods draws on more than a dozen absent bodies at once — mixed motives with realizations and motivic Galois groups, Nori's period torsor, K-theory spectra with Borel and elliptic regulators, Poitou-Tate determinant lines, noncommutative Iwasawa reduced norms and ETNC, rank-zero/one BSD, crystalline interfaces, polylogarithms and mixed-Tate MZVs."
+  },
+  {
+   "a": "EffectiveDiophantineMethods",
+   "b": "GL2AutomorphicRepresentationsAndTransfer",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "EffectiveDiophantine adds LLL, Baker-Matveev bounds, Coleman integration and quadratic Chabauty to TauCeti's existing Mordell-Weil, Selmer and height machinery. GL2 has to build the smooth representation category of p-adic groups, Whittaker models and local factors, local Langlands for GL_m, the automorphic spectral decomposition and Arthur's invariant trace formula, transfer factors and the fundamental lemma, before Jacquet-Langlands, solvable base change and Langlands-Tunnell can even be stated."
+  },
+  {
+   "a": "AdicEtaleGeometry",
+   "b": "ArithmeticLocallySymmetricSpaces",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "AdicEtale needs perfectoid spaces with almost purity and tilting plus A3's pseudocoherent-module milestone, but starts from TauCeti's Huber rings, Spa, rational subsets, localization and structure presheaf, and owns only five stages. ALSS starts from nothing relevant, must build adelic reduction theory, Cartan involutions and symmetric spaces, local systems, the Borel-Serre compactification, derived Hecke correspondences and manifold-with-corners duality in sequence, and imports EnhancedDerivedSheaves E1, AutomorphicSpectralTheory AS.5 and CompletedCohomologyPartII CC.2/CC.4/CC.7 on top."
+  },
+  {
+   "a": "RefinedTraceMethods",
+   "b": "WeightsInEtaleCohomology",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Weights imports an enormous but categorically well-supported stack: Mathlib already has Grothendieck topologies, sheaf cohomology, derived categories and t-structures, and even a definition of l-adic cohomology, so the work is the etale six functors, cycle classes, perverse sheaves and Weil I/II above them. RefinedTrace has no foundation at all — no spectra, no stable infinity-categories, no Hochschild complex — and must build spectra, THH with its cyclotomic structure, TC and the trace, then prismatic cohomology and Habiro rings, before AMMN's Beilinson square and Wagner's q-Hodge and Habiro comparisons."
+  }
+ ]
+}

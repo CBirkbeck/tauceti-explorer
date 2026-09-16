@@ -1,0 +1,420 @@
+{
+ "job": "COMPARE-03",
+ "notes": {
+  "HabiroCyclotomicCompletions": {
+   "targets": "Habiro's cyclotomic completion R[q]^S = lim_f R[q]/(f) over the multiplicative monoid of cyclotomic polynomials, with its topology and universal property; convergent factorial expansions in P_N(q)=prod(1-q^i) and coefficient algorithms; root evaluation and Taylor maps into R[zeta][[q-zeta]]; the connectedness/rigidity theorems (Habiro Thm 4.1, rootwise Taylor injectivity Thm 5.2, evaluation uniqueness Thm 6.1); completed modules, prime inversion and Chinese-remainder decomposition.",
+   "baselineHas": [
+    "Mathlib Polynomial.cyclotomic and its irreducibility/divisibility API (Mathlib/RingTheory/Polynomial/Cyclotomic/*)",
+    "Mathlib AdicCompletion / IsAdicComplete and Ideal.Quotient inverse-limit machinery (Mathlib/RingTheory/AdicCompletion/Basic.lean)",
+    "Mathlib Polynomial.hasseDeriv (Mathlib/Algebra/Polynomial/HasseDeriv.lean), needed to identify the higher Taylor coefficients",
+    "Tau Ceti IsCyclotomicExtension/IsPrimitiveRoot API (TauCeti/NumberTheory/Cyclotomic/*) for the root-evaluation targets"
+   ],
+   "missing": [
+    "the directed system over cyclotomic-divisibility and its completion, with projections, density of polynomials, completeness/separatedness and the universal property (this is not the adic completion Mathlib has)",
+    "cofinality of the P_N system and the comparison with completion at q^m-1, with multiplicity counts",
+    "normalized factorial expansions, their uniqueness, and the finite-precision arithmetic/coefficient-extraction algorithms",
+    "evaluation at a root of order d and the Taylor map into R[zeta][[q-zeta]], naturality under conjugation, order restriction and q -> q^a, plus the p-adic re-expansion cocycle",
+    "adjacency of cyclotomic orders, the resultant/comaximality lemmas and the rigidity theorems 4.1/5.2/6.1",
+    "completed modules over the completion, exactness hypotheses/derived-limit correction, CRT splitting and the R = Z[1/p] examples",
+    "no external roadmap input: only the Mathlib polynomial-cyclotomic algebra marked UPSTREAM"
+   ]
+  },
+  "ClassicalArithmeticCompletion": {
+   "targets": "Complete the elementary/algebraic entry layer: divisibility and multiplicative arithmetic (Mobius inversion, Dirichlet convolution); residues and reciprocity up to source-scoped higher reciprocity; sequences, Bernoulli/Euler numbers and generating functions; polynomial and matrix arithmetic (resultants, discriminants, Smith/Hermite/rational canonical forms); classical Diophantine equations; number-field arithmetic handoff; Mahler measure and Pisot/Salem classes; integral Galois modules, normal integral bases and locally free class groups.",
+   "baselineHas": [
+    "Mathlib ArithmeticFunction.moebius and sum_eq_iff_sum_smul_moebius_eq (Mathlib/NumberTheory/ArithmeticFunction.lean)",
+    "Mathlib legendreSym.quadratic_reciprocity and gaussSum (Mathlib/NumberTheory/LegendreSymbol/*)",
+    "Mathlib bernoulli, Pell.* , Polynomial resultant/discriminant and Smith-normal-form API",
+    "Mathlib/NumberTheory/MahlerMeasure.lean plus Tau Ceti ClassFieldTheory/* and class-group/unit-group API"
+   ],
+   "missing": [
+    "source-scoped higher reciprocity laws on top of the existing class field theory, and residue symbols at 2 and at infinite places",
+    "Christol-type bridges to algebraic power series in characteristic p, automatic sequences and radix families, which need their own statements",
+    "proved Mahler-measure lower bounds and certified Pisot/Salem classification, needing heights and canonical heights from DiophantineApproximation DT.0 and ArithmeticDynamics DY.1",
+    "integral Galois module theory: group-ring modules of rings of integers, normal-basis maps, locally free class groups, Noether tame NIB, Hilbert-Speiser and Froehlich, needing K0 of orders from KTheoryLowDegrees Z.1 (no K-theory of projectives in the baseline)",
+    "certified normal-form algorithms returning change-of-basis matrices and reconstruction equations",
+    "breadth is large but the stacking is shallow: most stages extend carriers the library already has"
+   ]
+  },
+  "DirichletPadicLFunctions": {
+   "targets": "RJW Parts I in full: complex special values and algebraicity of L(chi,1-k) via generalized Bernoulli numbers and Gauss sums; the Dedekind zeta pole and residue; the smoothed measure F_a(T) and the Kubota-Leopoldt pseudo-measure zeta_p with its interpolation and Kummer congruences; interpolation for all Dirichlet characters via the tame-conductor measures zeta_eta; Teichmuller branches, log_p, Leopoldt's p-adic formula and the pole theorem; the Eisenstein coefficient measures and their weight specializations.",
+   "baselineHas": [
+    "Mathlib DirichletCharacter.LFunction, completedLFunction and the functional equation (Mathlib/NumberTheory/LSeries/DirichletContinuation.lean)",
+    "Mathlib riemannZeta_neg_nat_eq_bernoulli and HurwitzZetaValues (Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean)",
+    "Mathlib PadicInt.mahler / mahlerSeries and AbstractMeasure.amiceTransform (Mathlib/NumberTheory/Padics/{MahlerBasis.lean,Measure/AmiceTransform.lean})",
+    "Mathlib ModularForm and EisensteinSeries.qExpansion; Tau Ceti dedekindZeta Euler product (TauCeti/NumberTheory/ArithmeticDirichletSeries/*)"
+   ],
+   "missing": [
+    "generalized Bernoulli numbers attached to Dirichlet characters, primitive-character Gauss-sum inversion, conductor change and imprimitive Euler-factor deletion",
+    "pseudo-measures: the Amice inverse of F_a, psi-invariance, division by [a]-1 in the total quotient ring, independence of the smoothing parameter, and zeta_p with its interpolation and Kummer congruences",
+    "the twisted measures zeta_eta for tame conductor D>1 and the full RJW 5.1/5.7 interpolation, with descent and scalar extension",
+    "Teichmuller decomposition, a compatible p-adic logarithm with log_p(p)=0, Leopoldt's formula and the residue/pole theorem",
+    "the Eisenstein coefficient measures A_n and the measure-valued q-expansion specializing to p-stabilized E_k",
+    "supplier theory absent from the baseline: Tate zeta integrals (AutomorphicLFunctionsAndLocalFactors AL.1) for the Dedekind-zeta pole, and the unbounded Amice transform / character-and-weight spaces of LocallyAnalyticDistributions L1/L3",
+    "a separate p=2 branch on 1+4Z_2 with its corrected normalization"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/HopfRinow": {
+   "targets": "The Riemannian connection-and-geodesic layer culminating in Hopf-Rinow: the piecewise-C1 versus C1 length comparison and finiteness of riemannianEDist; existence, uniqueness and C-infinity regularity of the Levi-Civita connection; covariant differentiation along curves, geodesics, the geodesic spray and flow; the exponential map, normal neighbourhoods, the Gauss lemma and minimizing geodesics; the TFAE of geodesic completeness, properness, metric completeness and existence of minimizers; compactness corollaries and the metric length/geodesic-space API.",
+   "baselineHas": [
+    "Mathlib Manifold.pathELength, Manifold.riemannianEDist and EMetricSpace.ofRiemannianMetric (Mathlib/Geometry/Manifold/Riemannian/{Basic,PathELength}.lean)",
+    "Mathlib CovariantDerivative with torsion, metric compatibility and leviCivitaAux (Mathlib/Geometry/Manifold/VectorBundle/CovariantDerivative/{Torsion,Metric,LeviCivita}.lean)",
+    "Tau Ceti CovariantDerivative.contMDiffOn_leviCivitaConnection and contMDiffOn_christoffelSymbol_leviCivitaConnection (TauCeti/Geometry/Manifold/VectorBundle/CovariantDerivative/LeviCivita/Regularity.lean), plus AlongCurve/*",
+    "Tau Ceti TauCeti.Manifold.geodesicSpray, contMDiff_geodesicSpray, geodesicInterval and IsGeodesicCurveOn (TauCeti/Geometry/Manifold/Riemannian/Geodesic/*), maximalIntegralCurveInterval and the finite-endpoint extension lemmas (TauCeti/Geometry/Manifold/IntegralCurve/{Extension,Maximal}.lean), isLocalDiffeomorphAt_of_mfderiv_eq (TauCeti/Geometry/Manifold/LocalDiffeomorph.lean) and TauCeti.IsLengthSpace/IsGeodesicSegment (TauCeti/Topology/MetricSpace/Length.lean)"
+   ],
+   "missing": [
+    "the exponential map itself: expDomain, its openness and star-shapedness, smoothness of the time-one flow, mfderiv exp_p 0 = id and the local-diffeomorphism consequence (no expDomain/exp_p in the baseline)",
+    "normal neighbourhoods and the local logarithm, normal coordinates",
+    "the Gauss lemma, ball-internal radial minimization with its equality case, and the escape estimate giving pathELength = edist on small radial segments",
+    "the first variation of energy and the criticality characterization of geodesics",
+    "the Hopf-Rinow TFAE itself: (c)=>(d) with convergence in TM, (d)=>(a_p), (a_p)=>(f_p) by minimizing on compact spheres, (a_p) and (f_p) => properness, and (b)<=>(e_p), plus base-point propagation",
+    "Layer 4 corollaries: compact implies geodesically complete, and transport of the whole theory across smooth Riemannian isometries",
+    "no other roadmap is needed: everything below the missing layers is already in Mathlib or Tau Ceti"
+   ]
+  },
+  "ArithmeticStatistics": {
+   "targets": "Prove source-qualified counting theorems for families ordered by height or discriminant: finiteness at bounded height and asymptotic densities with stabilizer weights; integral orbit parametrizations of number rings and genus-one models; lattice-point counting in fundamental domains with cusp and reducible-locus bounds and uniform tail estimates; field-counting and class-group distribution theorems; the Bhargava-Shankar average Selmer bound and its rank consequence; higher moments and function-field analogues.",
+   "baselineHas": [
+    "Mathlib MeasureTheory/Group/GeometryOfNumbers.lean (Minkowski convex-body theorem) and NumberField CanonicalEmbedding/ConvexBody.lean",
+    "Mathlib NumberField.classNumber finiteness (Mathlib/NumberTheory/ClassNumber/Finite.lean) and NumberField.Units Dirichlet unit theorem",
+    "Tau Ceti EllipticCurve MordellWeil FinitelyGenerated and SelmerGroup (TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/*)",
+    "Mathlib/RingTheory/DedekindDomain/SelmerGroup.lean for the abstract Selmer carrier"
+   ],
+   "missing": [
+    "arithmetic families with equivalence relations, height/discriminant orderings, local conditions and weighted counts, with finiteness at bounded height proved before any density",
+    "integral invariant theory and orbit-to-object bijections for number rings and genus-one models, including nonmaximal, reducible and degenerate loci (no binary cubic/quartic form parametrization in the baseline)",
+    "counting lattice points in fundamental domains, cusp and reducible-contribution bounds, and uniform tail theorems allowing infinitely many local conditions",
+    "the actual counting and class-group moment theorems by discriminant and signature",
+    "a complete Bhargava-Shankar Selmer orbit count and the resulting rank inequality",
+    "supplier theory absent from the baseline: successive-minima/convex-body refinements (GeometryOfNumbers GN.1), the large sieve and bilinear sums (SieveMethods SV.2), weak Mordell-Weil and descent exact sequences (Heights RP.1), curves/divisors/Picard objects (SchemeAndStackFoundations SF.3), and normal-form arithmetic (ClassicalArithmeticCompletion CA.3)"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/ZigzagPreprojective": {
+   "targets": "Zigzag algebras of finite simple graphs and their skew variants with bases, centers and symmetric Frobenius traces; graded Cartan matrices C_G(q)=(1+q^2)I+qA_G; preprojective algebras with orientation independence; the quadratic dual and the theorem that path-graded zigzag is Koszul exactly off finite ADE; the 2-dimensional Ginzburg DG algebra and its identification with the 2-Calabi-Yau completion; derived Koszul duality, the Hochschild comparison HH^{2,q} and Liu-Wang's intrinsic-formality classification for trees; braid-group actions by two-term bimodule complexes and their comparison with Seidel-Thomas spherical twists.",
+   "baselineHas": [
+    "Tau Ceti TauCeti/RepresentationTheory/Quiver/Zigzag/* (~30 files: Basic, Relations, Multiplication, Basis, Dimension, Center, Trace, Socle, Radical, SelfInjective, CartanMatrix, Projective/*, Skew/*, Gauge, Tree, ADE/*)",
+    "Tau Ceti TauCeti/RepresentationTheory/Quiver/Preprojective/{Basic,Grading,Orientation,Gauge,Opposite}.lean",
+    "Tau Ceti TauCeti/LinearAlgebra/RootSystem/AffineDynkinType/* (affine simply-laced diagrams, deletion, positive semidefiniteness, star descriptions) and Quiver/PathAlgebra/*, Quiver/Symmetrify.lean",
+    "Tau Ceti TauCeti/Algebra/Homology/{DG/Algebra/*, AInfinity/{Algebra,Stasheff,Coderivation}} and Mathlib DerivedCategory/HomotopyCategory/Triangulated"
+   ],
+   "missing": [
+    "Koszul duality for graded algebras: Koszul complexes, exactness, Hilbert-series identities, handedness of left and right quadratic duals, and the Koszulity criterion (no Koszul-duality API anywhere in the baseline)",
+    "the signless quadratic dual and its rescaling comparison with the signed preprojective relation, including the non-bipartite sign obstruction",
+    "2-dimensional Ginzburg DG algebras, H^0 identification with the preprojective algebra, and Calabi-Yau completions under Keller's hypotheses (no CalabiYau in the baseline), plus the 3-dimensional quiver-with-potential version",
+    "Hochschild cohomology of a DG/graded algebra with its small cofibrant bimodule resolution and the bigraded HH^{2,q} comparison (no Hochschild theory in the baseline)",
+    "derived Koszul duality RHom over the Ginzburg algebra, minimal A-infinity deformations and the intrinsic-formality criterion, then Liu-Wang's exact characteristic-dependent theorem",
+    "braid bimodule complexes, their inverse/commuting/braid homotopy equivalences, and Seidel-Thomas spherical twists with Serre duality (neither spherical objects nor Serre duality are in the baseline)"
+   ]
+  },
+  "GlobalGaloisDeformations": {
+   "targets": "Global Galois deformation problems over number fields: framed and unframed deformation functors over Artinian coefficient rings, representability and universal representations, local conditions and the global-to-local presentation with its exact variable and relation counts (KW II Prop 4.5/Cor 4.7), restriction/twisting/change of problem, Taylor-Wiles auxiliary primes with prescribed Frobenius eigenvalues and dual-Selmer reduction, and the polarized dimension-n and determinant-variable problems of ACC+ 6.2 with g = qn - n^2[F+:Q].",
+   "baselineHas": [
+    "Mathlib groupCohomology with functoriality and low-degree API (Mathlib/RepresentationTheory/Homological/GroupCohomology/*)",
+    "Tau Ceti GaloisCohomology/{Coefficients,Kummer}.lean",
+    "Tau Ceti Chebotarev/* including AuxiliaryPrime.lean, and ClassFieldTheory/* (idele-class formation)",
+    "Mathlib IsAdicComplete / AdicCompletion/LocalRing.lean for complete local coefficient rings"
+   ],
+   "missing": [
+    "continuous Galois representations of G_{F,S} over complete local rings and their integral models (ArithmeticGaloisRepresentations R01.1/G7): nothing of this is in the baseline",
+    "continuous and derived Galois cohomology with Poitou-Tate duality, Selmer and dual-Selmer comparisons (ArithmeticGaloisDuality R02.1/R02.2/R02.6/D7/D8)",
+    "complete local coefficient categories, Schlessinger/Mazur representability and obstruction algebra (DeformationAndDerivedPatchingAlgebra R03.1/R03.2); no deformation functor exists in the baseline",
+    "local deformation rings, including the local models of LocalGaloisDeformationRings L7/L8 which themselves consume the p-adic Hodge period functors R06.2",
+    "the roadmap's own eight stages: deformation functors, representability, global presentations and relation bounds, restriction/twisting with p=2 branches, the Taylor-Wiles prime construction, and the polarized/determinant-variable ACC+ problems"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/OptimalTransport": {
+   "targets": "The whole transport chain: couplings, gluing and kernels; existence and stability of optimal plans; general Kantorovich duality with c-transforms and optimality certificates; Wasserstein spaces and their topology; the Monge problem; the convex-analysis tower with Brenier and polar factorization; Monge-Ampere measures and regularity (Aleksandrov, Caffarelli, Ma-Trudinger-Wang); Riemannian Brenier-McCann; dynamic plans and Benamou-Brenier; displacement convexity; abstract metric gradient flows; entropy, JKO and PDE flows; barycenters; entropic transport, Sinkhorn and Schrodinger bridges; CD/RCD synthetic curvature; Gromov-Wasserstein.",
+   "baselineHas": [
+    "Tau Ceti TauCeti/MeasureTheory/OptimalTransport/* (~43 files: Coupling, Gluing, Disintegration, Cost/*, Existence, Compactness, Stability, CTransform/*, Duality/{Basic,Compact,LowerSemicontinuous,Certificate}, Finite/{Duality,CyclicalMonotonicity}, MultiMarginal/*, Monge, Wasserstein/*)",
+    "Mathlib ProbabilityTheory.Kernel with disintegration, and MeasureTheory.Measure.map/prod",
+    "Mathlib convexity API: ConvexOn.locallyLipschitzOn_interior, intrinsicInterior, affineSpan, and eVariationOn (Mathlib/Analysis/BoundedVariation.lean)",
+    "Tau Ceti HopfRinow geodesic/spray layer and TauCeti.IsLengthSpace, which Layer 7 and Layer 8 consume"
+   ],
+   "missing": [
+    "the dual-pair convex-analysis tower: EReal convex functions, Legendre-Fenchel conjugates, Fenchel-Moreau, Rockafellar's cyclical-monotonicity theorem, then Brenier and polar factorization (no convex conjugate or Brenier in the baseline)",
+    "Monge-Ampere theory: Aleksandrov measures, comparison and maximum principles, Alexandrov twice-differentiability, viscosity/Aleksandrov/Sobolev bridges, Caffarelli regularity and MTW partial regularity",
+    "Riemannian Brenier-McCann, which needs the rest of the HopfRinow roadmap (exponential map, minimizing geodesics, Hopf-Rinow) plus injectivity radius, squared-distance semiconcavity, cut-locus measurability and Riemannian volume and curvature from GeometricTopology Layer 7",
+    "absolutely continuous curves in Wasserstein space, dynamic plans, the continuity equation and Benamou-Brenier; displacement interpolation and convexity",
+    "abstract metric gradient flows (EVI, minimizing movements), Wasserstein differential calculus, JKO and the identification with PDE flows",
+    "barycenters, entropic transport with Sinkhorn/IPF convergence and dynamic Schrodinger theory (no entropic transport in the baseline)",
+    "synthetic curvature: distortion coefficients, CD(K,N)/CD*(K,N)/MCP, weak upper gradients, Cheeger energy, infinitesimal Hilbertianity, RCD with stability and tensorization, and the smooth weighted comparison (no CD/RCD anywhere in the baseline)",
+    "measured kernels and Gromov-Wasserstein, plus the public API layer"
+   ]
+  },
+  "HilbertModularVarietiesAndShimuraCurves": {
+   "targets": "The Hilbert examples of Shimura theory for every totally real F: the two data and their domains; abelian schemes with real multiplication, c-polarization modules and Hilbert-Blumenthal moduli; Deligne-Pappas integral models at arbitrary and ramified p with the Rapoport locus, ordinary locus and Hasse ideal; the arithmetic quotient and unit action with Delta(N); p-level structures and effective groups; twisted torsion moduli with prescribed local behaviour; quaternionic Shimura curves, their compactifications and integral models (Carayol); definite quaternionic algebraic forms and Taylor-Wiles freeness; cohomology and Hecke correspondences; Cerednik-Drinfeld bad-prime uniformisation.",
+   "baselineHas": [
+    "Tau Ceti AbelianVariety/* and AlgebraicGeometry scheme API; Mathlib QuaternionAlgebra",
+    "Mathlib UpperHalfPlane, ModularForm, ArithmeticSubgroups and EisensteinSeries",
+    "Tau Ceti HeckeRing/GL2/* (coset decomposition, degree, Delta0) and AdicSpace/* (Huber rings, Cont, formal geometry inputs)",
+    "Mathlib/Tau Ceti number-field API: different, units, class groups, totally-positive elements"
+   ],
+   "missing": [
+    "the entire general Shimura theory it consumes: ShimuraData, and ShimuraVarieties V8 (analytic tower, Baily-Borel, Borel algebraicity, canonical models, modular-curve comparison) - nothing Shimura-related exists in the baseline",
+    "abelian schemes with polarization and level over general bases, PEL moduli representability and integral models (AbelianSchemesAndArithmeticModuli A3-A5, PELModuli M2-M4)",
+    "Weil I and the needed Weil II results for the Hecke/cohomology stage (WeightsInEtaleCohomology R34.5), on top of an etale cohomology theory the baseline does not have at all",
+    "Hilbert compactifications and automorphic bundles (ShimuraCompactifications C6, AutomorphicBundles B4), and local smooth representation theory for definite quaternionic forms (GL2AutomorphicRepresentationsAndTransfer R16.2)",
+    "its own thirteen stages, including Deligne-Pappas models at ramified p and p=2, the Hasse ideal and formal blow-up models, the twisted torsion moduli with prescribed real and local loci, Carayol's bad reduction of Shimura curves, and the Drinfeld upper half-plane with Cerednik-Drinfeld uniformisation"
+   ]
+  },
+  "PhiGammaModulesAndIwasawaCohomology": {
+   "targets": "The local cohomological engine: cyclotomic coefficient rings A_K, B_K and their overconvergent/Robba variants with field-of-norms input; Fontaine's equivalence between p-adic representations and etale (phi,Gamma)-modules; Cherbonnier-Colmez overconvergence and the Robba realization; the Herr complex with its quasi-isomorphism to continuous Galois cochains, cup products and Tate duality; the psi operator with integrality; the psi-complex and its identification with derived Iwasawa cohomology; Wach modules for crystalline lattices; relative Herr and Iwasawa complexes in the Kedlaya-Pottharst-Xiao affinoid setting.",
+   "baselineHas": [
+    "Mathlib WittVector and Perfection/PreTilt.untilt (Mathlib/RingTheory/{WittVector/*,Perfection.lean,Perfectoid/Untilt.lean})",
+    "Mathlib WittVector.fontaineTheta and BDeRhamPlus/BDeRham (Mathlib/RingTheory/Perfectoid/{FontaineTheta,BDeRham}.lean)",
+    "Tau Ceti AdicSpace/* and RingTheory/Huber/* (a large Huber-ring and continuous-valuation base) and NumberTheory/LocalField/*",
+    "Mathlib groupCohomology and Tau Ceti GaloisCohomology for the cochain side"
+   ],
+   "missing": [
+    "the analytic annulus/Robba coefficient rings themselves: convergent Laurent series on annuli with norms, restriction maps, Frobenius and Gamma action (no Robba or affinoid rings in the baseline), which it imports from PadicHodgeTheory P7 and hence from the period rings R06.1",
+    "integral cyclotomic coefficient rings, the field-of-norms equivalence and its descent/lifting statements",
+    "Fontaine's etale equivalence in both directions with full faithfulness and essential surjectivity, for lattices, rational and torsion coefficients",
+    "the Cherbonnier-Colmez overconvergence theorem with bounded-radius descent",
+    "Herr cochain complexes, the quasi-isomorphism to continuous Galois cohomology, cup products and Tate duality with residue normalization, and the p=2 derived torsion descent",
+    "the psi operator with proved integrality, the two-term psi complex, and its comparison with Rlim RGamma(K_n,T) from SelmerIwasawaCohomology L3",
+    "Wach modules for crystalline lattices, which additionally consume the period functors R06.2 (D_cris), and the KPX relative/family theory with LocallyAnalyticDistributions L4 and rigid weight spaces"
+   ]
+  },
+  "ArithmeticKTheory": {
+   "targets": "K_n(O_{F,S}) for number fields and S-integers: the localisation sequence and its low-degree consequences; finite generation of K_n(O_{F,S}) by Quillen's argument; the rank formula r_1+r_2 / r_2 / 0 from Borel; the twisted roots-of-unity invariants w_j(F); the exact group structures of the odd groups including the four classes mod 8; the even groups via arithmetic etale cohomology with tame and wild kernels; regular primes and Bernoulli numerators; certified examples such as K_2(Z[i])=0 and K_3(Q(i)) = Z + Z/24.",
+   "baselineHas": [
+    "Mathlib number-field, Dedekind-domain, S-integer and localisation carriers (Mathlib/RingTheory/DedekindDomain/*, NumberField/*)",
+    "Mathlib NumberField.classNumber finiteness and NumberField.Units (S-unit rank input for K_1)",
+    "Mathlib/Algebra/BrauerGroup/Defs.lean and Tau Ceti BrauerGroup/* for the K_2/symbol side",
+    "Tau Ceti CategoryTheory/GrothendieckGroup/* and Algebra/Category/FGModuleCat/Finrank.lean (additive-invariant machinery, not yet K-theory)"
+   ],
+   "missing": [
+    "higher algebraic K-theory itself: there is no Quillen Q-construction or plus-construction, no K_1, no K_2, no Milnor K-theory and no K-theory spectrum anywhere in the baseline",
+    "the fundamental theorems for exact categories (resolution, devissage, localisation) and homotopy-fibre technology (GeneralAlgebraicKTheory K.3/K.7, StableHomotopyKTheory H.2)",
+    "Quillen's computation of K_*(F_q) and the local-to-global comparison (KTheoryFiniteLocalFields L.1/L.7)",
+    "reduction theory and arithmetic-group finiteness, and Borel's stable cohomology theorem giving the ranks (BorelRegulators R.1/R.3)",
+    "motivic and etale K-theory with the comparison range, continuous arithmetic cohomology coefficients and Tate's degree-two theorem (MotivicEtaleKTheory M.1/M.3/M.7); no motivic cohomology in the baseline",
+    "Bloch groups and K_3 calculations (K3BlochGroups V.5/V.6), Hilbert symbols and Tate's comparison (K2SymbolsBrauer T.7)",
+    "the cyclotomic index formula from IntegralIwasawaTheory L0 for the regular-prime stage",
+    "its own twelve stages: localisation with finite support, finite generation, ranks, w_j, the exact odd-group structures, even groups with tame/wild kernels, regular primes and the certified examples"
+   ]
+  },
+  "PadicHodgeTheory": {
+   "targets": "Period rings B_dR, B_cris, B_st with their topological, Galois, Frobenius, filtration and monodromy structure; the period functors D_HT, D_dR, D_cris, D_st, filtered (phi,N)-modules and weak admissibility; the p-adic monodromy theorem and the potentially semistable Weil-Deligne parameter; the integral and small-weight interface (Fontaine-Laffaille, Breuil-Kisin); relative period sheaves on the pro-etale site with the local Poincare lemma; the proper-smooth crystalline, de Rham and semistable comparison theorems and their arithmetic consequences.",
+   "baselineHas": [
+    "Mathlib WittVector (full development) and Perfection / PreTilt.untilt",
+    "Mathlib WittVector.fontaineTheta with surjectivity, and BDeRhamPlus / BDeRham (Mathlib/RingTheory/Perfectoid/{FontaineTheta,BDeRham}.lean)",
+    "Tau Ceti AdicSpace/* and RingTheory/Huber/* (Huber rings, continuous valuations, adic spectra) and NumberTheory/LocalField/*",
+    "Mathlib DerivedCategory/HomotopyCategory and the filtered/complete-filtered algebra fragments the period construction sits on"
+   ],
+   "missing": [
+    "B_cris, B_st, the crystalline Frobenius, the monodromy operator and the filtration comparisons; only B_dR^+ and theta exist in the baseline",
+    "the period functors and admissibility theory, filtered (phi,N)-modules with descent data, and weak admissibility versus admissibility",
+    "perfectoid spaces with almost purity and etale tilting, and rational localization/sheafiness (PerfectoidSpaces P1-P3)",
+    "A_inf cohomology with the AOmega construction, Lη and BKF modules (AInfCohomology AI.0/AI.2/AI.3), crystalline cohomology with PD envelopes and Hyodo-Kato (CrystallineCohomology CR.0/CR.6), and derived de Rham with the Hodge filtration (DerivedDeRhamCohomology DD.1/DD.2)",
+    "etale cohomology itself: neither classical etale sheaves and direct images nor the analytic pro-etale site exists in the baseline (ClassicalAdicEtaleCohomology H0, AdicEtaleGeometry A1), and the geometric stage additionally needs nearby/vanishing cycles and Weil II (WeightsInEtaleCohomology R34.3)",
+    "the actual comparison theorems C_cris, C_dR, C_st (CohomologyComparisons CP.2-CP.4) and the p-adic local monodromy theorem (PadicDifferentialEquations RD.2)",
+    "Fontaine-Laffaille and Breuil-Kisin classifications (FiniteFlatGroups R07.3/R07.4), and the Herr/Wach input from PhiGammaModulesAndIwasawaCohomology PG.3/PG.6, itself an eight-layer roadmap"
+   ]
+  },
+  "ShimuraVarieties": {
+   "targets": "For every pure Shimura datum: arithmetic groups, neat levels and the connected-component decomposition; the analytic tower with level maps and Hecke correspondences; the Baily-Borel theorem and the projective minimal compactification; Borel's algebraicity theorem and uniqueness of algebraization; the reflex norm and the canonical-model condition on special points; CM abelian varieties, the main theorem of complex multiplication and the Siegel canonical model; Hodge and abelian type by inheritance; Milne's conjugation and descent argument for general data; the algebraic tower over the reflex field with the GL_2 modular-curve comparison.",
+   "baselineHas": [
+    "Mathlib UpperHalfPlane, ModularForm, ArithmeticSubgroups (Mathlib/NumberTheory/ModularForms/*)",
+    "Tau Ceti AbelianVariety/* (endomorphisms, base change) and Mathlib EllipticCurve/Jacobian",
+    "Tau Ceti ClassFieldTheory/* (idele-class formation, Artin map) for the reciprocity input of V4",
+    "Mathlib scheme/projective-variety API and Tau Ceti HeckeRing/GL2/* for the modular-curve comparison"
+   ],
+   "missing": [
+    "hermitian symmetric domains and the whole Shimura-datum layer, which does not exist in the baseline (no Shimura, no reductive-group structure theory)",
+    "reduction theory of arithmetic groups: rational parabolics, Siegel sets, finite arithmetic coverings and adelic component finiteness (ArithmeticLocallySymmetricSpaces ALS.0)",
+    "complex analytic spaces, projective coherent GAGA and Chow algebraization (ComplexComparisonPartII C2/C4); there is no complex analytic space theory or GAGA in the baseline",
+    "the Baily-Borel proof chain: rational boundary components, Satake topology, automorphic forms with growth conditions, finite generation of the graded ring and projective realization",
+    "Borel's algebraicity theorem and the smooth projective compactification with normal-crossings boundary it consumes (AlgebraicModuliForArithmeticGeometry R09.7d)",
+    "CM types, reflex norms and the main theorem of complex multiplication with the Shimura-Taniyama Frobenius calculation (no complex multiplication in the baseline), plus abelian schemes and PEL moduli (A5, M3, M4)",
+    "Milne's conjugation theorem and effective quasi-projective descent to the reflex field for general data, with its type-A_1 subdata construction and cocycle law"
+   ]
+  },
+  "GeneralizedHeegnerCycles": {
+   "targets": "Generalized Heegner cycles and their Iwasawa variation: Kuga-Sato varieties with CM factors and integral coefficient projectors; the cycles, their etale and de Rham/syntomic Abel-Jacobi realizations; ring-class trace and congruence relations with corrected local conditions; ordinary stabilization and universal norms in the anticyclotomic tower; Castella-Hsieh's p-adic Gross-Zagier/Abel-Jacobi formula and the big-logarithm reciprocity law; the higher-weight Kolyvagin system with its full hypothesis list; nonvanishing and source-qualified Selmer consequences; Howard/Castella big Heegner classes in Hida families; the weight-two comparison with Heegner points.",
+   "baselineHas": [
+    "Mathlib EllipticCurve (Weierstrass, Jacobian) and ModularForm/EisensteinSeries",
+    "Tau Ceti AbelianVariety/* and WeilDivisor/AbelJacobi/* (the curve-level Abel-Jacobi map)",
+    "Tau Ceti HeckeRing/GL2/* and EllipticCurve/MordellWeil/SelmerGroup",
+    "Tau Ceti ClassFieldTheory/* and Cyclotomic/* for the ring-class-field and character input"
+   ],
+   "missing": [
+    "the entire geometric input: modular curves as schemes with algebraic Hecke correspondences, universal elliptic curves and their desingularized fiber powers, CM points and ring class fields (ModularCurvesPartII R12/R14, HeegnerPointEulerSystems HE.0-HE.1, which themselves consume ShimuraVarieties V5); nothing Heegner- or CM-related is in the baseline",
+    "cycle complexes, motivic cohomology and cycle-class functoriality (MotivicEtaleKTheory M.4), and continuous derived Galois cohomology with dimension-general duality (ArithmeticGaloisDuality D7)",
+    "p-adic Hodge regulator theory: Bloch-Kato exponentials, the big logarithm and explicit interpolation (PadicHodgeRegulators L1/L3), which sits on the full PadicHodgeTheory period-ring/period-functor stack and on the (phi,Gamma)-module and Wach-module theory of PhiGammaModulesAndIwasawaCohomology",
+    "Iwasawa cohomology and control theorems (SelmerIwasawaCohomology L3), ordinary projectors and integral Hida families (PadicFamilies L0a/L1), generic Euler/Kolyvagin system machinery (EulerSystemsAndKolyvaginSystems ES.3/ES.4), and Hsieh's anticyclotomic mu-invariant theorem (AutomorphicPadicLFunctions L3h)",
+    "its own nine stages: the projectors with their integrality, the cycles and both Abel-Jacobi realizations, the corrected local conditions of CH section 7, universal norms, the CH Theorem 4.9 and 5.7 formulas, the Kolyvagin system with hypotheses (H.1)-(H.5), the Castella two-variable reciprocity and Yager-module comparison, and the weight-two identification"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "ClassicalArithmeticCompletion",
+   "b": "HabiroCyclotomicCompletions",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Habiro must build its whole tower from nothing: the directed system over cyclotomic divisibility and its completion, P_N cofinality, normalized factorial expansions, Taylor maps into R[zeta][[q-zeta]] and the rigidity theorems 4.1/5.2/6.1, five layers deep. ClassicalArithmeticCompletion is far broader but mostly extends carriers Mathlib already has (moebius inversion, quadratic reciprocity, bernoulli, Pell, resultants, MahlerMeasure.lean); its only deep gaps are integral Galois modules needing K0 of orders and proved Mahler/Pisot-Salem bounds needing heights."
+  },
+  {
+   "a": "DirichletPadicLFunctions",
+   "b": "ClassicalArithmeticCompletion",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "DirichletPadicLFunctions stacks five new layers - generalized Bernoulli and Gauss-sum L-values, the smoothed measure and the Kubota-Leopoldt pseudo-measure, twisted interpolation for all characters, Teichmuller branches with Leopoldt's formula, and Eisenstein coefficient measures - and additionally needs Tate zeta integrals and the unbounded Amice/character-space theory, none of which is in the baseline. ClassicalArithmeticCompletion sits almost entirely on existing Mathlib arithmetic (moebius, reciprocity, bernoulli, Pell, Smith normal form)."
+  },
+  {
+   "a": "DirichletPadicLFunctions",
+   "b": "tauceti:TauCetiRoadmap/HopfRinow",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "HopfRinow has roughly two and a half layers left - the exponential map, normal balls with the Gauss lemma and minimizing geodesics, and the TFAE itself - on top of a Levi-Civita connection with regularity, geodesic spray and maximal-interval extension that are already in Mathlib and Tau Ceti, and it needs no other roadmap. DirichletPadicLFunctions needs pseudo-measures, zeta_p, twisted interpolation and p-adic logarithms built from scratch plus Tate zeta integrals and locally analytic distributions from two further roadmaps."
+  },
+  {
+   "a": "ArithmeticStatistics",
+   "b": "tauceti:TauCetiRoadmap/HopfRinow",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ArithmeticStatistics has nothing in the baseline for its core objects - no integral orbit parametrization of number rings or genus-one models, no fundamental-domain lattice counting with cusp cutoffs, no uniform tail estimates - and six strictly stacked stages plus supplier theory (large sieve and bilinear sums, weak Mordell-Weil descent, Picard objects). HopfRinow needs only the exponential map, Gauss lemma and minimizing geodesics, and the TFAE, over an already-built connection-and-spray layer."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+   "b": "ArithmeticStatistics",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Zigzag's first five layers are already in Tau Ceti (about thirty Zigzag files plus Preprojective and AffineDynkinType), leaving four layers: Koszul duality, Ginzburg DG algebras with Calabi-Yau completion, Hochschild cohomology with A-infinity formality, and spherical twists. ArithmeticStatistics has zero baseline coverage of Bhargava-style orbit parametrization, cusp-bounded counting in fundamental domains and uniform tails, and its six stages sit on five further supplier stages that are equally absent."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+   "b": "GlobalGaloisDeformations",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "GlobalGaloisDeformations has no starting point in the baseline: continuous Galois representations, Poitou-Tate duality and derived Galois cohomology, Schlessinger representability over complete local coefficient categories and local deformation rings are all absent, and its dimension-n stages additionally consume the p-adic Hodge period functors, above which its own eight stages sit. Zigzag has Layers 0-4 already built in Tau Ceti and needs four further layers of homological algebra."
+  },
+  {
+   "a": "GlobalGaloisDeformations",
+   "b": "tauceti:TauCetiRoadmap/OptimalTransport",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "OptimalTransport's remaining eleven layers are individually huge (Caffarelli and MTW regularity, metric gradient flows, RCD curvature, Schrodinger bridges) but its first five layers already exist in Tau Ceti and everything else rests on Mathlib measure theory, kernels and convexity. GlobalGaloisDeformations starts from nothing at all - no continuous Galois representation, no deformation functor, no Poitou-Tate duality, no local deformation ring - and must stack four supplier roadmaps, one of which reaches into the p-adic Hodge period functors, under its own eight stages."
+  },
+  {
+   "a": "HilbertModularVarietiesAndShimuraCurves",
+   "b": "tauceti:TauCetiRoadmap/OptimalTransport",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "HilbertModularVarieties consumes the entire Shimura programme (ShimuraData and ShimuraVarieties V8 with Baily-Borel, Borel algebraicity and canonical models), PEL moduli and abelian schemes, and Weil II on top of an etale cohomology theory the baseline lacks completely, before its own thirteen stages including Deligne-Pappas models at ramified p and Cerednik-Drinfeld uniformisation. OptimalTransport, though large, has five layers built and its missing layers sit directly on Mathlib measure theory and convexity."
+  },
+  {
+   "a": "HilbertModularVarietiesAndShimuraCurves",
+   "b": "PhiGammaModulesAndIwasawaCohomology",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Both start near zero, but HilbertModularVarieties needs the whole Shimura canonical-model theory, PEL and abelian-scheme moduli, compactifications, automorphic bundles, local smooth representation theory and Weil II before its own thirteen stages, whereas PhiGamma needs the Robba and period rings, then eight stages of (phi,Gamma)-module theory (Fontaine equivalence, overconvergence, Herr, psi, Wach, KPX) resting on a substantial Huber/adic-space and Witt-vector base already in Tau Ceti and Mathlib."
+  },
+  {
+   "a": "ArithmeticKTheory",
+   "b": "PhiGammaModulesAndIwasawaCohomology",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "ArithmeticKTheory cannot even state its targets until higher algebraic K-theory exists: the baseline has no Q-construction, no K_1, K_2 or Milnor K-theory, no motivic or etale K-theory, and it further needs Quillen's finite-field computation, Borel's stable cohomology theorem for the ranks and a cyclotomic index formula. PhiGamma needs the period and Robba rings plus eight technical layers, but Witt vectors, perfection, fontaineTheta and a large Huber/adic-space base already exist."
+  },
+  {
+   "a": "PadicHodgeTheory",
+   "b": "ArithmeticKTheory",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Both need an absent foundation, but PadicHodgeTheory's is larger: beyond B_cris, B_st and the period functors it consumes perfectoid spaces with almost purity, A_inf cohomology, crystalline and derived de Rham cohomology, the pro-etale site and the actual comparison theorems, nearby cycles and Weil II, and the whole eight-layer (phi,Gamma)-module roadmap - and the baseline has no etale or crystalline cohomology at all. ArithmeticKTheory must build higher K-theory, Borel's theorem and etale K-theory, but its cohomological needs stay largely Galois-cohomological over number rings."
+  },
+  {
+   "a": "ShimuraVarieties",
+   "b": "PadicHodgeTheory",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "ShimuraVarieties needs complex analytic spaces and GAGA, reduction theory, Baily-Borel, Borel algebraicity, complex multiplication and Milne's conjugation theorem, none of which exist in the baseline, plus PEL and abelian-scheme moduli - a deep stack. PadicHodgeTheory's is deeper still: fourteen supplier roadmaps including perfectoid spaces, A_inf, crystalline and derived de Rham cohomology, the pro-etale site, the C_cris/C_dR/C_st comparison theorems, Weil II and the entire (phi,Gamma)-module roadmap, with only fontaineTheta and B_dR^+ present today."
+  },
+  {
+   "a": "GeneralizedHeegnerCycles",
+   "b": "ShimuraVarieties",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "GeneralizedHeegnerCycles consumes the CM and canonical-model side of ShimuraVarieties itself (through HeegnerPointEulerSystems HE.0-HE.1) and then adds motivic cycle complexes, Bloch-Kato and big-logarithm regulators resting on the full p-adic Hodge and (phi,Gamma)-module stack, Iwasawa cohomology, Hida families, Euler and Kolyvagin systems and Hsieh's nonvanishing theorem, before its own nine stages. ShimuraVarieties, though deep, stops at the canonical models."
+  },
+  {
+   "a": "GeneralizedHeegnerCycles",
+   "b": "GlobalGaloisDeformations",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "GlobalGaloisDeformations needs continuous Galois representations, Poitou-Tate duality, Schlessinger representability and local deformation rings, then eight stages of deformation algebra. GeneralizedHeegnerCycles needs all of the CM and modular-curve geometry, motivic cycle complexes and Abel-Jacobi maps, p-adic Hodge regulators with the big logarithm, Iwasawa cohomology, Hida families and Kolyvagin systems, each an absent roadmap in its own right, before its nine stages of cycle geometry and explicit reciprocity."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HopfRinow",
+   "b": "HabiroCyclotomicCompletions",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "HopfRinow's connection, regularity, spray, maximal-interval and inverse-function-theorem layers are already in Mathlib and Tau Ceti, leaving the exponential map, normal balls with the Gauss lemma and minimizers, the TFAE and its corollaries. Habiro must build all six of its layers - the cyclotomic directed system and its completion, P_N cofinality, factorial expansions, Taylor maps, the adjacency and rigidity theorems, and completed modules - with only Polynomial.cyclotomic and generic adic-completion machinery to start from."
+  },
+  {
+   "a": "ShimuraVarieties",
+   "b": "ArithmeticStatistics",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ArithmeticStatistics needs orbit parametrizations, fundamental-domain counting with cusp cutoffs and uniform tails over a Minkowski/class-number base that does exist, six stages plus five supplier stages. ShimuraVarieties needs an entirely absent stack - hermitian symmetric domains, reduction theory and Siegel sets, complex analytic spaces with GAGA and Chow, Baily-Borel, resolution-based compactification for Borel's theorem, CM theory and Milne's conjugation argument - under its own ten stages."
+  },
+  {
+   "a": "GeneralizedHeegnerCycles",
+   "b": "HilbertModularVarietiesAndShimuraCurves",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Both sit at the top. HilbertModularVarieties needs the full Shimura canonical-model theory including Milne's conjugation step, PEL and abelian-scheme moduli, compactifications and Weil II, then Carayol and Cerednik-Drinfeld. GeneralizedHeegnerCycles needs the CM and modular-curve geometry too, but adds the whole p-adic and Iwasawa side on top of it: motivic cycle complexes, Bloch-Kato and big-logarithm regulators over the p-adic Hodge and (phi,Gamma)-module stack, Iwasawa cohomology, Hida families, Kolyvagin systems and Hsieh's theorem."
+  },
+  {
+   "a": "PadicHodgeTheory",
+   "b": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Zigzag has Layers 0-4 in the library and needs four further layers - Koszul duality, Ginzburg DG algebras with Calabi-Yau completion, Hochschild cohomology with A-infinity formality, and braid/spherical twists - over an existing DG and A-infinity base. PadicHodgeTheory needs B_cris, B_st, the period functors, perfectoid spaces, A_inf, crystalline and derived de Rham cohomology, the pro-etale site, the comparison theorems and Weil II, with essentially nothing beyond fontaineTheta and B_dR^+ in place."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/OptimalTransport",
+   "b": "ArithmeticKTheory",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "OptimalTransport's eleven remaining layers are very large, but they rest on Mathlib measure theory, kernels, convexity and metric geometry, and five layers are already built in Tau Ceti. ArithmeticKTheory cannot state K_n(O_{F,S}) at all until higher algebraic K-theory is built: no Q-construction, K_1, K_2, Milnor or etale K-theory exists, and it then needs Quillen's finite-field computation, Borel's stable cohomology theorem and motivic-etale comparisons before any of its twelve stages."
+  },
+  {
+   "a": "DirichletPadicLFunctions",
+   "b": "HabiroCyclotomicCompletions",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Mathlib gives DirichletPadicLFunctions a strong start (Dirichlet L-functions with continuation and functional equation, zeta at negative integers via Bernoulli, the Mahler basis and the Amice transform), but it still needs generalized Bernoulli theory, pseudo-measures and zeta_p, twisted interpolation, p-adic logarithms and Eisenstein measures, plus Tate zeta integrals and locally analytic distributions from two absent roadmaps. Habiro's six layers are all new but self-contained commutative algebra over Polynomial.cyclotomic with no external supplier."
+  },
+  {
+   "a": "PhiGammaModulesAndIwasawaCohomology",
+   "b": "GlobalGaloisDeformations",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "The two share suppliers - both need continuous Galois representations with duality and both reach into the p-adic Hodge period rings (PhiGamma through the annulus foundations, GlobalGaloisDeformations through the local models of L7/L8). PhiGamma's own content is the larger body: Robba and field-of-norms coefficient rings, Fontaine's equivalence in both directions, Cherbonnier-Colmez overconvergence, Herr complexes with Tate duality, the psi operator, the Iwasawa comparison, Wach modules and the KPX relative theory, against eight stages of deformation algebra for which Tau Ceti already supplies Chebotarev with auxiliary primes."
+  },
+  {
+   "a": "ClassicalArithmeticCompletion",
+   "b": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "ClassicalArithmeticCompletion is broad but shallow: moebius inversion, quadratic reciprocity, Gauss sums, bernoulli, Pell, resultants, Smith normal form and MahlerMeasure.lean are all in Mathlib, leaving higher reciprocity, proved Mahler/Pisot bounds and integral Galois modules. Zigzag must build four layers of homological machinery that is wholly absent - Koszul duality with its complexes and Hilbert-series identities, Ginzburg DG algebras and Calabi-Yau completions, Hochschild cohomology with A-infinity deformation theory, and spherical twists with Serre duality."
+  },
+  {
+   "a": "PadicHodgeTheory",
+   "b": "ArithmeticStatistics",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ArithmeticStatistics needs orbit parametrizations, cusp-bounded counting and uniform tails plus a handful of supplier stages, all of it classical analysis and geometry of numbers over a base that already has Minkowski, class numbers and units. PadicHodgeTheory needs perfectoid spaces, A_inf, crystalline and derived de Rham cohomology, etale cohomology of schemes and of adic spaces, the pro-etale site, Weil II, the p-adic monodromy theorem and the (phi,Gamma)-module roadmap before B_cris, the period functors and the comparison theorems can even be stated."
+  },
+  {
+   "a": "ShimuraVarieties",
+   "b": "tauceti:TauCetiRoadmap/OptimalTransport",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "OptimalTransport's remaining eleven layers are enormous in volume, but five layers exist in Tau Ceti and the rest builds on Mathlib measure theory, kernels, convexity and metric geometry. ShimuraVarieties has no starting point: hermitian symmetric domains, reduction theory and Siegel sets, complex analytic spaces with GAGA and Chow, complex multiplication and resolution-based compactification are all absent, and Baily-Borel, Borel algebraicity and Milne's conjugation theorem stack on top of them."
+  }
+ ]
+}

@@ -37208,11 +37208,15 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-03.md",
    "timeout": 14400,
-   "state": "running",
+   "state": "done",
    "account": "claude4",
    "lane": 1,
    "startedAt": "2026-09-16T15:24:35Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-16T15:41:30Z",
+   "seconds": 1014,
+   "result": {},
+   "note": ""
   },
   {
    "id": "COMPARE-04",
@@ -37241,11 +37245,15 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-04.md",
    "timeout": 14400,
-   "state": "running",
+   "state": "done",
    "account": "claude4",
    "lane": 2,
    "startedAt": "2026-09-16T15:27:00Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-16T15:43:53Z",
+   "seconds": 1012,
+   "result": {},
+   "note": ""
   },
   {
    "id": "COMPARE-05",
@@ -37274,7 +37282,15 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-05.md",
    "timeout": 14400,
-   "state": "pending"
+   "state": "done",
+   "account": "claude4",
+   "lane": 1,
+   "startedAt": "2026-09-16T15:41:30Z",
+   "attempts": 1,
+   "finishedAt": "2026-09-16T15:59:02Z",
+   "seconds": 1052,
+   "result": {},
+   "note": ""
   },
   {
    "id": "COMPARE-06",
@@ -37303,7 +37319,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-06.md",
    "timeout": 14400,
-   "state": "pending"
+   "state": "running",
+   "account": "claude4",
+   "lane": 2,
+   "startedAt": "2026-09-16T15:43:53Z",
+   "attempts": 1
   },
   {
    "id": "COMPARE-07",
@@ -37332,7 +37352,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-07.md",
    "timeout": 14400,
-   "state": "pending"
+   "state": "running",
+   "account": "claude4",
+   "lane": 1,
+   "startedAt": "2026-09-16T15:59:02Z",
+   "attempts": 1
   },
   {
    "id": "COMPARE-08",

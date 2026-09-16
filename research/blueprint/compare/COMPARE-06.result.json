@@ -1,0 +1,268 @@
+{
+ "job": "COMPARE-06",
+ "notes": {
+  "tauceti:TauCetiRoadmap/UniversalCovers": {
+   "targets": "The universal cover of a semilocally simply connected, locally path-connected space with its covering projection and pi1-action; the deck transformation group and Deck(proj) ~= pi1(X,x0); the lifting criterion and the Galois correspondence between connected covers and subgroups (pointed) / conjugacy classes (unpointed); the pi_n API with p_* : pi_n(Xtilde) ~= pi_n(X) for n >= 2; the applications pi1(S^1) ~= Z, pi_n(S^1) = 0 for n >= 2, pi_n(T^k), pi1(RP^n) and K(G,1) recognition.",
+   "baselineHas": [
+    "TauCeti/AlgebraicTopology/UniversalCover/{BasedPath,Covering,Action,PathHomotopyDiscreteness}.lean - the based-path space, IsCoveringMap proj and TauCeti.UniversalCover.isQuotientCoveringMap",
+    "TauCeti/AlgebraicTopology/UniversalCover/Deck/ and Classification/ - Deck p, Deck(proj) ~= pi1(X,x0)^mop, deckSubgroupQuotientProjEquiv, the pointed/unpointed classification and the monodromy functor",
+    "TauCeti/AlgebraicTopology/UniversalCover/{Circle,Torus,RealProjective}/ - AddCircle.fundamentalGroupMulEquivInt, AddCircle.subsingleton_homotopyGroup, Circle.fundamentalGroupMulEquiv",
+    "TauCeti/AlgebraicTopology/EilenbergMacLane/{Basic,Covering}.lean - IsCoveringMap.isAspherical and IsQuotientCoveringMap.isEilenbergMacLaneSpaceOne; Mathlib IsCoveringMap.existsUnique_continuousMap_lifts_of_range_le and IsCoveringMap.liftHomotopy"
+   ],
+   "missing": [
+    "Essentially nothing: data/stage-status-reports.json records all five stages (port, Deck ~= pi1, lifting criterion and Galois correspondence, higher homotopy, applications) as complete, and the declarations are present in the baseline."
+   ]
+  },
+  "tauceti:TauCetiRoadmap/Exchangeability": {
+   "targets": "The symmetry predicates Exchangeable / FullyExchangeable / Contractable / MixedIID / ConditionallyIID with their implication lattice; the directing measure and the de Finetti representation ConditionallyIIDWith, together with the Ryll-Nardzewski upgrade from contractability, a.e. uniqueness, empirical-measure convergence and the zero-one / ergodic / extreme-point interfaces; three independent routes (L2, Koopman, reverse martingale); and, in Layer 8, finite de Finetti bounds, Markov exchangeability and the Aldous-Hoover array representation.",
+   "baselineHas": [
+    "TauCeti/Probability/DeFinetti/ - Barycenter.lean (ExchangeableLaw.existsUnique_mixingLaw, deFinettiBarycenter) and BlockFactorization.lean (blockLaw_eq_lintegral_prod_directingMeasure, mixedIID_of_iCondIndepFun_tailProcess)",
+    "The ConditionallyIIDWith API (about 55 declarations) with directingMeasure and empiricalMeasure convergence",
+    "TauCeti/Probability/Martingale reverse-martingale lane: tendsto_ae_condExp_iInf (downward convergence along an antitone filtration)",
+    "The Koopman lane (about 30 koopman declarations) plus Mathlib's kernels, Measure.bind, conditional expectation, Lp and mean ergodic theorem"
+   ],
+   "missing": [
+    "Layer 8 only: the hard recurrent Markov-exchangeable-to-mixture implication (Diaconis-Freedman); the converse Aldous-Hoover representation theorem for exchangeable arrays. Layers 0-7, including the de Finetti and Ryll-Nardzewski summits on all three routes, are recorded complete and present in the baseline."
+   ]
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory": {
+   "targets": "Class functions with the character pairing; class sums, structure constants and the integral class centre; Wedderburn with #irreducibles = #conjugacy classes; the character table with completeness and second orthogonality; the arithmetic of character values (cyclotomic integrality, chi(1) | |G|, the Galois action, Burnside p^a q^b); the Dixon-Schneider specification and an executable, certified solver; the Frobenius-Schur indicator and the real/quaternionic trichotomy; Frobenius groups and Frobenius's theorem; and the full character table of GL2(F_q).",
+   "baselineHas": [
+    "TauCeti/RepresentationTheory/CharacterTable/{Table,Completeness,Pairing,Wedderburn,ClassSum/,CentralCharacter,CentralIdempotent,Galois,Solvable}.lean - TauCeti.characterTable and TauCeti.isSolvable_of_card_dvd_prime_pow_mul_prime_pow (Burnside)",
+    "TauCeti/RepresentationTheory/CharacterTable/Dixon/ - the class-multiplication eigenrow theory, ClassData/EigenvectorSearch.lean, the certified solver ClassData.isCharacterTableSpec_of_dixonCyclotomicCharacterTable?_eq_some and worked tables for C2, C3, D3, D4, Q8, A4, S4",
+    "TauCeti/RepresentationTheory/FrobeniusGroup.lean and Induction/ExceptionalCharacter.lean - frobeniusKernelSubgroup_normal and frobeniusKernel_isComplement' (Frobenius's theorem)",
+    "TauCeti/RepresentationTheory/CharacterTable/FrobeniusSchur/ and GL2/ plus TauCeti.card_conjClasses_GL2 - the indicator, the principal series, Steinberg and linear characters with their values on all four class families"
+   ],
+   "missing": [
+    "The cuspidal (discrete-series) representations of GL2(F_q) from the non-split torus, their irreducibility and dimension q-1, and the assembled (q^2-1) x (q^2-1) table with its orthonormality acceptance test (only GL2NonSplitTorus.indClassFun_* groundwork is present)",
+    "The general Z[zeta_e] structured lift of the Dixon solver beyond the rational and small-cyclotomic worked cases, and the existence theorem for a good Dixon prime"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/AlgebraicCurves": {
+   "targets": "IsFunctionField, places and their degrees, weak and strong approximation; divisors, L(D), the product formula, Riemann's theorem and the genus; repartitions, Weil differentials, duality and the Riemann-Roch theorem; extensions of function fields, the different and the Hurwitz genus formula; constant-field extensions and the inseparable pathologies; Kaehler differentials, residues and the comparison with Weil differentials; elliptic, hyperelliptic and plane model classes; Aut(F/k), Weierstrass points and the 84(g-1) bound; and the anti-equivalence with regular projective curves with the cohomological comparison contract.",
+   "baselineHas": [
+    "TauCeti/FieldTheory/FunctionField/{Place/,Divisor/,RiemannRoch/} - places, degrees, weak approximation, Divisor.dim, Divisor.degree_add_one_sub_genus_le_dim (Riemann's theorem) and Divisor.finite_classGroup",
+    "TauCeti/FieldTheory/FunctionField/{Repartition/,Differential/} - repartitions, Weil differentials, TauCeti.canonicalClass and riemannRochSpaceEquivWeilDifferentialFiltration, finrank_kaehlerDifferential_eq_one_of_separating",
+    "TauCeti/FieldTheory/FunctionField/{Different/,Place/Extension/} - the different exponent with d >= e-1, Kummer and Eisenstein criteria, ramification and inertia groups, the fundamental identity",
+    "Mathlib IsDedekindDomain.HeightOneSpectrum with FractionalIdeal.count, differentIdeal, Ideal.sum_ramification_inertia, KaehlerDifferential and RatFunc's Ostrowski theorem"
+   ],
+   "missing": [
+    "Finite normalization without separability and the two-chart affine model compatibility (Layer 2 remainder)",
+    "The cotrace of Weil differentials, the tame different value d = e-1 and the Hurwitz genus formula (Layer 7 remainder)",
+    "Constant-field extensions with genus invariance, the Galois ramification filtration with Hilbert's different formula, Abhyankar and the inseparability counterexamples (Layer 8)",
+    "Local expansions, residues with the change-of-uniformiser law and the Delta_F ~= Omega_F comparison theorem (Layer 9 remainder)",
+    "The elliptic / hyperelliptic / plane-curve model classes with the Kummer and Artin-Schreier cover calculus (Layer 10)",
+    "Automorphism groups, Weierstrass points by the Wronskian, finiteness for g >= 2 and the 84(g-1) bound (Layer 11)",
+    "The function-field / curve dictionary 12A-12E: normalisation of P^1 in F, the anti-equivalence, Weil divisors and the H^0 = L(D) cohomology comparison (Layer 12)"
+   ]
+  },
+  "K2SymbolsBrauer": {
+   "targets": "The stable Steinberg group St(A) with its universal central extension property and classical K2 = ker(St(A) -> E(A)); the Steinberg symbol, Milnor K-theory and Matsumoto's theorem K2^M(F) ~= K2(F); the tame residue at a discrete valuation with its transfer and norm formula; the Bass-Tate sequence and Weil reciprocity on a proper regular curve; tame kernels with the localisation sequence for K2(O_F), K2(Z) ~= Z/2 and K2(F_q) = 0; Dennis-Stein symbols for rings; and Tate's comparison K2(F)/m -> H^2(F, mu_m^{ot 2}) with the Hilbert norm-residue symbol and global reciprocity.",
+   "baselineHas": [
+    "Mathlib Matrix.GeneralLinearGroup and the elementary-matrix API, plus Mathlib's valuation and Dedekind-domain machinery (IsDedekindDomain.HeightOneSpectrum) for the residue maps",
+    "TauCeti/Algebra/BrauerGroup/ (CSA.baseChange, isBrauerEquivalent_baseChange_congr) and Mathlib's cyclotomic fields for the symbol targets",
+    "TauCeti/RepresentationTheory/Homological/ContCohomology/ and Mathlib group cohomology for the Galois-cohomology side of T.7",
+    "Nothing K-theoretic: grep finds no K0/K1/K2, no Milnor K-theory, no tame symbol, and no Steinberg group (the Steinberg declarations in TauCeti are Chevalley-system Lie theory)"
+   ],
+   "missing": [
+    "K0, K1, stable matrices and elementary groups (KTheoryLowDegrees U.1-U.2)",
+    "Higher algebraic K-theory: the plus construction, the localisation sequence and products (GeneralAlgebraicKTheory K.2, K.3, K.5, K.7)",
+    "Spectra, infinite loop spaces and the Hurewicz comparison needed for K2 = pi_2 of the K-theory space (StableHomotopyKTheory)",
+    "Etale / motivic K-theory with the norm-residue map and the etale Chern class (MotivicEtaleKTheory M.3) for the Tate and Hilbert-symbol stage",
+    "Its own eight stages: Steinberg groups, Matsumoto, tame residues, Bass-Tate and Weil reciprocity, tame kernels, Dennis-Stein, Tate comparison"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/ClassFieldTheory": {
+   "targets": "Formations and class formations with fundamental classes; Tate's theorem and the abstract Artin map with the character formula and norm limitation; the local Brauer invariant, the local symbol and local Tate duality; the local class formation, finite and absolute local reciprocity, conductors and local existence; the local Weil group; the global Brauer sequence with the sum of local invariants and the two fundamental inequalities; global Artin reciprocity; global existence and the class-field correspondence; the cyclic Hasse norm theorem, ray / Hilbert / ring class fields, Kronecker-Weber; and the Hilbert product formula with quadratic reciprocity.",
+   "baselineHas": [
+    "Mathlib/RepresentationTheory/Homological/TateCohomology/Basic.lean (tateComplex, Rep.tateNorm) and Mathlib group cohomology with restriction/corestriction",
+    "TauCeti/NumberTheory/ClassFieldTheory/Formation/{Basic,Restriction,Refinement,GaloisMaps,AbelianLayer}.lean - NormalLayer.TateH and the layer/tower bookkeeping of Layer 1",
+    "TauCeti/RepresentationTheory/Homological/TateCohomology/HerbrandQuotient.lean and ContCohomology/ (continuous cochains, corestriction)",
+    "Mathlib NumberField.IdeleGroup and AdeleRing, TauCeti GlobalNumberFields.RayClassGroup, TauCeti/NumberTheory/LocalField/UnitFiltration/ and Chebotarev/Frobenius"
+   ],
+   "missing": [
+    "Class formations, the invariant and fundamental classes with the three hypotheses of Tate's theorem (Layer 2)",
+    "Tate's theorem itself and the derived isomorphism in all integer degrees (Layer 3)",
+    "The abstract Artin map with the four Artin-Tate diagrams, the character formula and norm limitation (Layer 4)",
+    "Local coefficients: the Brauer group with its invariant, the Kummer cup local symbol and local Tate duality (Layer 5)",
+    "The local class formation and finite local reciprocity, the absolute local Artin map and conductors (Layers 6-7)",
+    "Local existence and the local class-field correspondence via Kummer theory (Layer 8), and the local Weil group with its topology (Layer 9)",
+    "Global carriers, the first and second fundamental inequalities, the Brauer exact sequence and the global invariant (Layer 10)",
+    "The global class formation and global Artin reciprocity (Layer 11), global existence and the correspondence (Layer 12)",
+    "Norm theorems and class fields - cyclic Hasse norm, ray/Hilbert/ring class fields, Kronecker-Weber (Layer 13) - and Hilbert/quadratic reciprocity (Layer 14)",
+    "Supplier gaps it names: ProfiniteCohomology's cup products in all Tate bidegrees, LocalFieldsRamification, and parts of GlobalNumberFields and NumberFieldArithmetic"
+   ]
+  },
+  "HabiroNahmSeries": {
+   "targets": "The distinguished real solution of the Nahm equations for a symmetric positive-definite rational matrix, its algebraicity, number field and Bloch class; the q-Pochhammer Nahm sums with the all-orders radial root-of-unity asymptotic expansion (CGZ Theorem 7.1); modularity implies torsion of the Bloch class (CGZ Theorem 7.5) with the finite-index cusp analysis it needs; GSWZ admissibility with the finite-support product theorem (Theorem 6); the Frobenius congruence (Theorem 4) and membership of the formal Gaussian series in a K3-indexed Habiro module (Theorem 5); and worked rational and nonabelian examples.",
+   "baselineHas": [
+    "TauCeti/NumberTheory/ModularForms/ and Mathlib UpperHalfPlane with the slash action - the Layer HB.5a import base",
+    "Mathlib's power series, formal Gaussian-free analysis (Asymptotics, Euler-Maclaurin-free summation) and cyclotomic fields for the coefficient rings",
+    "Mathlib IsPrimitiveRoot and NumberTheory/Cyclotomic/ for root-of-unity coefficients",
+    "Nothing of the subject itself: no polylogarithm, no Bloch group, no dilogarithm, no Habiro ring, no K3 in the baseline"
+   ],
+   "missing": [
+    "Everything HabiroNumberFields needs (K0-K3 and higher K-theory, motivic/etale K-theory with the norm residue, Bloch groups and Suslin, Borel and p-adic regulators, the cyclotomic Habiro completions) plus the number-field Habiro ring and its K3-indexed modules",
+    "Classical and single-valued polylogarithms with their functional equations (Polylogarithms P.1)",
+    "Finite-index modular functions at cusps: widths, scaling matrices, Laurent expansions and the radial exponential rate (HB.5a)",
+    "The Nahm equations' distinguished solution, algebraicity and Bloch class (HB.3)",
+    "The all-orders radial asymptotic expansion: Euler-Maclaurin estimates, critical point, Hessian branch, formal Gaussian integration and uniform remainders (HB.4)",
+    "Admissibility and the finite-support product theorem (HB.8), the Frobenius congruence and module membership (HB.9), and the modularity-implies-torsion endpoint (HB.5)"
+   ]
+  },
+  "AutomorphicPadicLFunctions": {
+   "targets": "Ray-class character spaces with a general evaluation-and-interpolation construction principle; the Barrera-Dimitrov-Williams overconvergent-cohomology p-adic L-function for GL2 over an arbitrary number field in its small-slope range, with Hilbert and Bianchi specialisations; the Deligne-Ribet p-adic partial zeta functions for totally real fields; Katz's CM p-adic L-function; Hsieh's anticyclotomic distribution with mu = 0; and the Eischen-Harris-Li-Skinner ordinary unitary-group construction by the doubling method, with the Eischen-Wan finite-slope Klingen families.",
+   "baselineHas": [
+    "TauCeti/NumberTheory/ModularForms/ and HeckeRing/ (HeckeRing.GL2.IsEigenformAwayFromLevel) for the classical GL2/Q input",
+    "TauCeti GlobalNumberFields.RayClassGroup and Mathlib NumberField.IdeleGroup for the ray-class carriers",
+    "Mathlib Padic/PadicInt, DirichletCharacter and LSeries for the one-variable arithmetic side",
+    "Nothing of the machinery: no p-adic measures or Iwasawa algebras, no modular symbols, no locally analytic distributions, no Shimura varieties, no rigid-analytic affinoids"
+   ],
+   "missing": [
+    "p-adic measures and Iwasawa algebras, rigid weight spaces, and locally analytic distribution modules with Fredholm theory",
+    "Modular curves as arithmetic schemes with their etale cohomology, modular symbols and the rational p-adic L-function (ModularCurvesPartII, ModularSymbolsPadicLFunctions)",
+    "Arithmetic locally symmetric spaces with Borel-Serre, automorphic forms on reductive groups, Whittaker models and automorphic L-functions with local factors",
+    "PEL and unitary Shimura varieties with automorphic bundles, integral toroidal compactifications and ordinary Igusa towers, coherent cohomology and q-expansion principles",
+    "Hida and Coleman families with period modules (PadicFamilies), Selmer and Iwasawa cohomology, and the integral Iwasawa inputs",
+    "Its own seven construction stages: ray-class distributions and the evaluation principle, the GL2/F cohomological input, the BSW interpolation theorem, Deligne-Ribet and Katz, Hsieh's toric distribution, EHLS doubling and Eischen-Wan, and the comparison layer"
+   ]
+  },
+  "HabiroNumberFields": {
+   "targets": "The comparison of CGZ's Bloch group with Suslin's convention and the finite-coefficient K3 Chern class; the cyclic quantum dilogarithm with the five-term identity, Galois action and Hutchinson's refinement R_zeta = c_zeta^2; the number-field Habiro ring H_R for R = O_F[1/Delta] built from Frobenius-twisted Taylor gluing of root-of-unity coefficient rings (GSWZ Definition 1.1); and the K3-indexed Habiro modules H_{R,xi} with their multiplication, change of index and Galois action.",
+   "baselineHas": [
+    "Mathlib NumberTheory/Cyclotomic/ with IsPrimitiveRoot, ring of integers and class-group API for the coefficient rings R = O_F[1/Delta]",
+    "Mathlib Padic/PadicInt and TauCeti/NumberTheory/LocalField/{Teichmuller,UnitFiltration}/ for the p-adic completions and Frobenius lifts",
+    "Mathlib PowerSeries and MvPowerSeries for the Taylor families",
+    "Nothing of the K-theoretic input: no K-groups, no Bloch group, no regulator, no Habiro ring in the baseline"
+   ],
+   "missing": [
+    "Spectra and stable homotopy theory, then K0, K1 and higher algebraic K-theory with the plus construction and localisation",
+    "Milnor K-theory and K2 symbols (K2SymbolsBrauer), and scheme K-theory operations with Adams/gamma filtration",
+    "Etale and motivic K-theory with the norm-residue map, finite-coefficient Chern classes and the Bockstein sequence (MotivicEtaleKTheory)",
+    "Arithmetic K-theory of number fields with Quillen finiteness, Borel regulators, and Bloch groups with Suslin's K3 theorem (K3BlochGroups)",
+    "p-adic Hodge regulators (the syntomic regulator D.3-D.4) used to define the local sections of the K3-indexed modules",
+    "Habiro cyclotomic completions, then its own four stages: integral Bloch conventions, the cyclic dilogarithm, the ring H_R and the modules H_{R,xi}"
+   ]
+  },
+  "PadicFamilies": {
+   "targets": "Ordinary p-adic modular forms with the canonical ordinary projector and Hida's finiteness and control theorems; integral ordinary modular symbols, period and congruence modules and the two-variable cyclotomic measure; finite-slope eigenvarieties (the eigencurve) with the coherent eigensymbol sheaf and the small-slope classicality theorem; family L-functions with the Pollack-Stevens and Bellaiche critical specialisations; big ordinary Galois representations, family Selmer complexes and big Kato classes; and Hida theory over totally real fields.",
+   "baselineHas": [
+    "TauCeti/NumberTheory/ModularForms/ and HeckeRing/ with diamond and Hecke operators and HeckeRing.GL2.IsEigenformAwayFromLevel",
+    "Mathlib Padic, PadicInt, PowerSeries and complete local ring API for the coefficient side",
+    "TauCeti/AlgebraicGeometry/EllipticCurve/ and MordellWeil/SelmerGroup.lean for the classical arithmetic targets",
+    "Nothing of the family machinery: no ordinary projector, no eigencurve, no overconvergent forms, no modular symbols, no Iwasawa algebra, no affinoid or rigid-analytic geometry"
+   ],
+   "missing": [
+    "p-adic measures and Iwasawa algebras with rigid character and weight spaces (PadicMeasuresIwasawaAlgebras)",
+    "Locally analytic distribution modules, compact operators and Fredholm theory over affinoids (LocallyAnalyticDistributions)",
+    "Modular curves as arithmetic schemes with integral models and etale cohomology, and modular symbols with the rational p-adic L-function",
+    "Galois representations attached to modular forms and over Hecke algebras, with integral Hecke and determinant theory",
+    "Kato's Euler system and the p-adic regulator, and Selmer / Iwasawa cohomology for the arithmetic-family layer",
+    "Its own eight stages: the ordinary tower and Hecke algebras, the profinite ordinary projector, integral symbols and periods, eigenvariety gluing and the eigencurve, family L-functions and critical specialisation, arithmetic families, and the totally real case"
+   ]
+  },
+  "VectorBundlesAndIsocrystals": {
+   "targets": "Isocrystals over E-breve with the Dieudonne-Manin classification and the Brauer invariant of the endomorphism division algebras; vector bundles on the relative Fargues-Fontaine curve with v-descent, degree, rank, slope, semistability and H^0/H^1; ampleness, algebraisation and the GAGA comparison with the Proj curve; the classification E ~= sum of O(lambda) at geometric points; Banach-Colmez spaces with their diamond representability, dimension, cohomological smoothness and projectivised properness; and relative Harder-Narasimhan strata with slope-zero bundles equal to pro-etale E-local systems.",
+   "baselineHas": [
+    "Mathlib RingTheory/WittVector/Isocrystal.lean (the semilinear Frobenius module setting) and the full WittVector API with Teichmuller and ghost components",
+    "Mathlib RingTheory/Perfectoid/{FontaineTheta,BDeRham}.lean and RingTheory/Perfection.lean (PreTilt) - period-ring fragments only",
+    "TauCeti/AlgebraicGeometry/AdicSpace/{Spa,Cont,ValuationSpectrum} - adic spectra, continuous valuations and rational subsets",
+    "TauCeti/FieldTheory/FunctionField/ for the classical curve analogues (divisors, degree, Riemann-Roch spaces); no perfectoid space, no diamond, no Fargues-Fontaine curve exists"
+   ],
+   "missing": [
+    "Perfectoid rings and spaces with the tilting equivalence, almost mathematics and the sheafiness arguments (PerfectoidSpaces P1-P4), and perfectoid quotients",
+    "Diamonds and v-stacks with v-descent and spatiality (DiamondsAndVStacks)",
+    "The whole relative Fargues-Fontaine curve: ramified Witt coefficients, Y_S and X_S, untilts and Cartier divisors, B_dR, O(1) and the graded algebra (RelativeFarguesFontaine RF0-RF3)",
+    "The six operations on diamonds with cohomological smoothness (DiamondSixOperations S4-S5) used by the Banach-Colmez dimension theory",
+    "Its own five stages: isocrystals and Dieudonne-Manin, bundles with descent and cohomology, ampleness and geometric classification, Banach-Colmez geometry, relative HN strata"
+   ]
+  },
+  "GL2ModularityLifting": {
+   "targets": "The minimal deformation-to-Hecke surjection for a modular residual representation; Taylor-Wiles auxiliary primes with the freeness statement; arithmetic patching over the completed tensor product of local rings; component and level-change arguments; odd-prime modularity lifting in the ordinary, finite-flat and potentially Barsotti-Tate ranges; Kisin's dyadic completion; and the modern statement table - residually modular regular de Rham lifting, the dyadic nonsolvable theorem, Pan's p >= 5 residually reducible Fontaine-Mazur theorem and the Skinner-Wiles p = 3 branch.",
+   "baselineHas": [
+    "TauCeti/NumberTheory/ModularForms/ and HeckeRing/ for the classical Hecke side, and TauCeti/NumberTheory/Chebotarev/ for Frobenius data",
+    "Mathlib's Galois theory, profinite groups and Padic API, plus TauCeti ContCohomology for continuous cochains",
+    "TauCeti/AlgebraicGeometry/EllipticCurve/ with Selmer groups as the classical arithmetic target",
+    "Nothing of the machinery: grep finds no deformation ring, no Galois representation attached to a modular form, no completed cohomology, no Shimura curve"
+   ],
+   "missing": [
+    "Galois representations attached to automorphic forms and over Hecke algebras (AutomorphicGaloisRepresentations), which itself needs modular curves and their etale cohomology",
+    "Local and global Galois deformation rings with framing, determinants and local deformation geometry (LocalGaloisDeformationRings, GlobalGaloisDeformations)",
+    "The abstract patching / derived patching algebra with its depth and presentation hypotheses (DeformationAndDerivedPatchingAlgebra)",
+    "Hilbert modular varieties and Shimura curves with quaternionic Hecke modules (HilbertModularVarietiesAndShimuraCurves)",
+    "Serre weights and level optimisation, and ordinary automorphic forms with Hida theory (which consumes part of PadicFamilies)",
+    "p-adic local Langlands for GL2(Q_p) and completed cohomology with local-global compatibility (PadicLocalLanglandsForGL2Qp, CompletedCohomologyAndLocalGlobalCompatibility)",
+    "Its own twelve stages, from the minimal R -> T map through patching to the dyadic and residually reducible theorems"
+   ]
+  },
+  "HabiroCohomologyFoundations": {
+   "targets": "q-differentials with the global arithmetic gluing over a perfectly covered Lambda-ring; derived q-de Rham cohomology on animated algebras with base change; the q-Hodge filtration in Wagner's source form and the modification qHdg with the symmetric-monoidal factorisation through the Habiro-complete category; the positive-degree q-de Rham-Witt complex with cyclotomic descent; existence classes for smooth and quasi-regular inputs including the trace-theoretic case; and the crystalline / A_inf / prismatic comparison atlas.",
+   "baselineHas": [
+    "Mathlib RingTheory/WittVector/ with ghost components and Mathlib's KaehlerDifferential with the smooth/etale dictionary",
+    "Mathlib Algebra/Homology/DerivedCategory/ and the ModelCategory files for ordinary derived categories",
+    "Mathlib AlgebraicTopology/Quasicategory/ (basic quasicategories only) and SimplicialObject API",
+    "Nothing of the subject: grep finds no prismatic, no crystalline, no de Rham-Witt, no animated ring, no filtered infinity-categorical sheaf in the baseline"
+   ],
+   "missing": [
+    "Enhanced derived and filtered infinity-categorical sheaves with animated commutative algebra (EnhancedDerivedSheaves)",
+    "Derived de Rham cohomology with the Hodge filtration (DerivedDeRhamCohomology), crystalline cohomology and the de Rham-Witt complex (CrystallineCohomology)",
+    "Prismatic and q-crystalline cohomology with the framed q-difference complex (PrismaticCohomology PR.6)",
+    "A_inf cohomology with L-eta and Breuil-Kisin-Fargues modules (AInfCohomology), which itself needs perfectoid spaces and the relative Fargues-Fontaine curve",
+    "Refined trace methods - THH, Nygaard and syntomic comparison with spherical E2-lifts (RefinedTraceMethods RT.4, RT.6) - and the global cohomology comparisons",
+    "Habiro rings and cyclotomic completions (HabiroRings HR.2-HR.4), then its own eight stages through the comparison atlas"
+   ]
+  },
+  "RelativeFarguesFontaine": {
+   "targets": "Ramified Witt coefficients W_{O_E}(R) with Teichmueller lifts and the pi-adic universal property; the integral period space Y_S and the annuli Y_S with sheafiness and the perfectoid chart theorem (FS II.1.1-II.1.2); the relative curve X_S = Y_S / phi^Z with descent and base change; marked untilts, degree-d Cartier divisors, B_dR^+ and B_dR with the residue filtration; O(1), the graded algebra and Proj; and Beauville-Laszlo patching with the Tannakian transfer to G-torsors.",
+   "baselineHas": [
+    "Mathlib RingTheory/WittVector/ (Teichmuller, ghost components, Frobenius) and RingTheory/Perfectoid/FontaineTheta.lean with BDeRham fragments",
+    "Mathlib RingTheory/Perfection.lean (Perfection, PreTilt) for the tilting fragment",
+    "TauCeti/AlgebraicGeometry/AdicSpace/{Spa/,Cont/,ValuationSpectrum.lean} - adic spectra, continuous valuations, rational subsets and the structure presheaf (AdicSpaces Layers 0-5)",
+    "No perfectoid space, no tilting equivalence, no diamond or v-sheaf, and no Fargues-Fontaine curve of any kind in the baseline"
+   ],
+   "missing": [
+    "Perfectoid rings and spaces with the tilting equivalence, almost purity and the sousperfectoid / stably uniform sheafiness arguments (PerfectoidSpaces P1-P4), and perfectoid quotients",
+    "Diamonds, v-sheaves and v-stacks with v-descent and spatiality (DiamondsAndVStacks D1-D6), plus adic etale geometry",
+    "The absolute Fargues-Fontaine curve and its period rings and quotient interfaces (FarguesFontaineDiamonds F0-F4), and the remaining AdicSpacesPartII sheafiness layers",
+    "Its own five stage groups: ramified Witt coefficients and the integral Y_S, the annuli and X_S, untilts and Cartier divisors with B_dR, O(1) with the graded algebra and Proj, and Beauville-Laszlo patching with the G-torsor transfer"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "tauceti:TauCetiRoadmap/Exchangeability",
+   "b": "tauceti:TauCetiRoadmap/UniversalCovers",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Universal covers has every stage built in the baseline - the cover and deck group, Deck(proj) ~= pi1, the Galois correspondence, the pi_n API and pi1(S^1) ~= Z with K(G,1) recognition - so nothing is missing; exchangeability has its de Finetti summit but still lacks the recurrent Markov-exchangeable-to-mixture implication and the converse Aldous-Hoover array representation."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/Exchangeability",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Exchangeability's Layers 0-7 are complete, including ConditionallyIIDWith, the directing measure and all three routes, leaving only the two Layer 8 converses; character theory still has to build the cuspidal series of GL2(F_q) from the non-split torus and assemble the (q^2-1)-square table, plus the general Z[zeta_e] lift of the Dixon solver."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Character theory needs only the GL2(F_q) cuspidal representations and the general cyclotomic Dixon lift on top of a finished table theory (characterTable, Burnside, Frobenius's theorem, the Frobenius-Schur trichotomy are all in the baseline); algebraic curves still needs the cotrace and the Hurwitz genus formula, constant-field extensions with the ramification filtration, residues and the Delta_F ~= Omega_F comparison, the model classes, the 84(g-1) bound and the whole scheme dictionary."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+   "b": "K2SymbolsBrauer",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Curves sits on an existing function-field stack (places, divisors, Riemann's theorem, Weil differentials, the different ideal) and names no other roadmap; K2 has no K-theory at all in the baseline and must first build K0/K1 and stable elementary groups, the stable Steinberg group, the plus construction and localisation sequence, and the etale norm-residue map before Matsumoto, Weil reciprocity and the Hilbert-symbol comparison can even be stated."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+   "b": "K2SymbolsBrauer",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Class field theory's thirteen missing layers stand on a real substrate - Mathlib's Tate complex, TauCeti's Herbrand quotient, continuous cohomology, idele groups and the local unit filtration - whereas K2 must import four foundations absent from the library entirely (spectra and the plus construction, Quillen localisation, Milnor K-theory, the norm-residue map) before any symbol or reciprocity target is reachable."
+  }
+ ]
+}
