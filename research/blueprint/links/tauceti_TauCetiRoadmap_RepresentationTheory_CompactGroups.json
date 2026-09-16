@@ -56,27 +56,27 @@
         },
         {
           "stageId": "AutomorphicFormsOnReductiveGroups:AF.1",
-          "quote": "Construct Harish–Chandra modules for\n`(𝔤,K_∞)`, admissibility, central-character conditions, smooth finite-adelic actions, and moderate\nand uniform moderate growth."
+          "quote": "Define compatible (g,K)-modules with algebraic infinitesimal action, locally finite K action and derivative compatibility."
         }
       ]
     },
     {
-      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem",
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-0-normalized-haar-measure-and-averaging",
       "target": "AutomorphicFormsOnReductiveGroups:AF.1a",
-      "reason": "AF.1a names K-finite vectors and its source route explicitly requests Peter-Weyl/K-type preliminaries. Reuse Layer 5 uniform representative-function density to build finite-K-type convolution kernels for the compact subgroup; the orbit-integral argument then supplies the K-finite approximation used by the algebraic-to-continuous comparison. The Frechet-valued integral and seminorm estimates must be constructed in AF.1a, not inferred from Layer 0 normed-space Bochner averaging. The source finite-spectral-sum shortcut needs the repair in the handoff before this producer is available. No Casselman-Wallach theorem is imported from compact Peter-Weyl.",
       "confidence": "inferred",
+      "reason": "Layer 0 supplies integration of continuous functions into complete normed spaces and Haar translation invariance. AF.1a explicitly tests the compact-group averaging case with finite-dimensional smooth real or complex coefficients. Use this supplier to average homogeneous continuous cochains over one group variable; AF.1a must prove the contracting-homotopy identity, equivariance, parameter continuity and compatibility with its cochain model. This is not a Peter-Weyl or globalization dependency. The quasi-complete coefficient extension requires its own integration theorem and is not supplied by a normed-space Bochner theorem.",
       "evidence": [
         {
-          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem",
-          "quote": "The representative `*`-subalgebra is **dense in `C(G)` for the uniform norm**"
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-0-normalized-haar-measure-and-averaging",
+          "quote": "For a continuous `F : G → V` into a complete normed space, the average"
         },
         {
           "stageId": "AutomorphicFormsOnReductiveGroups:AF.1a",
-          "quote": "Give complete Frechet or the source's specified completed tensor models, continuous group actions,\ndifferentiation, K-finite vectors, moderate-growth seminorms and the algebraic-to-continuous comparison maps."
+          "quote": "Acceptance: a compact group (averaging), a real vector group with trivial coefficients,"
         },
         {
           "stageId": "AutomorphicFormsOnReductiveGroups:AF.1a",
-          "quote": "Peter–Weyl/K-type preliminaries"
+          "quote": "First use finite-dimensional smooth real or complex coefficient modules V;"
         }
       ]
     },
@@ -158,7 +158,7 @@
     {
       "roadmapId": "AutomorphicFormsOnReductiveGroups",
       "result": "links",
-      "note": "Full README and all stage descriptions read, including AF.1a. Finite K-types and Peter-Weyl kernel approximation are recorded. Noncompact unipotent integration, Frechet orbit integration, admissibility and globalization are not supplied by finite-dimensional compact theory."
+      "note": "Full pinned README and stage extract reread after CI exposed three erroneous quotations in the first submission. AF.1 uses locally finite K actions; AF.1a is continuous cohomology/van Est, not the K-type globalization paragraph previously attributed to it. Corrected links record finite-dimensional compact complete reducibility into AF.1 and Haar averaging into the finite-dimensional compact-group test in AF.1a. No Peter-Weyl-to-AF.1a edge remains."
     },
     {
       "roadmapId": "AdelicAlgebraicGroups",
@@ -225,7 +225,7 @@
       "id": "CG-R6",
       "owner": "AutomorphicFormsOnReductiveGroups",
       "stage": "AutomorphicFormsOnReductiveGroups:AF.1a",
-      "request": "Construct Frechet-valued compact orbit integration, seminorm estimates and finite-K-type kernel approximation; the normed-space averaging supplier does not already prove this."
+      "request": "For the finite-dimensional compact-group case, construct averaging on homogeneous continuous cochains, verify equivariance and parameter continuity, and prove the contracting-homotopy identity. Extend to quasi-complete smooth coefficients only with the separate source-qualified integration theorem. Globalization and its Frechet/K-type estimates belong to AF.1, not this van Est stage."
     },
     {
       "id": "CG-R7",
@@ -247,5 +247,16 @@
     "Recheck all other link packets and newly published roadmaps at continuation time; preserve this packet and avoid duplicating existing overlaps.",
     "Independently check the six proposed links, the comparison overlap, and all mathematical repair proposals in the handoff. Inferred links specify reusable construction routes, not minimal prerequisites of every possible proof.",
     "Run scripts/check_links.py in the full repository on the final submission revision and inspect its actual output. Structural validation does not establish mathematical correctness."
+  ],
+  "correctionHistory": [
+    {
+      "baseRevision": "89f2531443d9c855fd83ea72e8051f81a6db13f0",
+      "supersedesPullRequest": 779,
+      "failedWorkflowRun": 35101130993,
+      "actualValidatorResult": "3 errors, 0 warnings despite a green workflow conclusion; three source quotations in the AF.1/AF.1a links were not verbatim.",
+      "repair": "Replaced the AF.1 quotation with the actual locally finite K-action statement; removed the unsupported Peter-Weyl-to-AF.1a edge and inserted Haar averaging to the explicitly stated finite-dimensional compact-group cohomology test. Reread the full pinned AF README and extract; this corrects the author's submission, not a source revision.",
+      "continuationClaimComment": 5698199701,
+      "continuationConfirmationComment": 5698202048
+    }
   ]
 }
