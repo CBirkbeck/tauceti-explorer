@@ -1,0 +1,2021 @@
+{
+  "roadmapId": "PerfectoidSpaces",
+  "status": "partial",
+  "summary": "Source decomposition of the tilting equivalence (Scholze, Perfectoid spaces, sections 3-5), the sheaf theorem with its approximation lemma (section 6), the almost purity theorem and the etale site (section 7), the henselian finite-stage input (Prop. 7.4, Lemma 7.5) and the tilde-limit comparison (7.14-7.19), read against the Tate-ring statements of Scholze's Etale cohomology of diamonds (ECD 3.1-3.24, 6.1-6.5). Stages P1, P2, P3 are decomposed from the actual proofs; P0, P5 and P7 partially; P4, P6, P8, P9 are recorded as not read. All results in the Sch12 source are proved over a fixed perfectoid base field K; the Tate-ring generality asserted in ECD is recorded as an unverified boundary where Sch12 does not carry it out. Independent review (REVIEW-EXT-03, 2026-09-16) re-read Sections 3-7 of Sch12, Sections 3 and 6 of ECD and the cited Gabber-Ramero statements; corrections are listed in the review object.",
+  "sources": [
+    {
+      "id": "sch12-perfectoid",
+      "title": "Perfectoid spaces",
+      "authors": "Peter Scholze",
+      "edition": "arXiv:1111.4914v1, 21 November 2011 (library copy; published as Publ. Math. IHES 116 (2012) 245-313); printed page numbers of the arXiv version",
+      "url": "https://arxiv.org/abs/1111.4914",
+      "sha256": "065441a872c5861560014f5c7675fdd4606b5796684f6a829747f01afee18e7b",
+      "readSections": [
+        "Section 3 Perfectoid fields: Definition 3.1 - Proposition 3.8 with proofs (pp. 15-18)",
+        "Section 4 Almost mathematics: Definitions 4.1-4.14, Propositions 4.4-4.10, Theorems 4.11, 4.16, 4.17 (pp. 18-21)",
+        "Section 5 Perfectoid algebras: Definition 5.1 - Theorem 5.25 with all proofs, including the proof of Theorem 3.7 (pp. 21-29)",
+        "Section 6 Analytic topology: Definition 6.1 - Proposition 6.18 with all proofs (pp. 30-38)",
+        "Section 7 Etale topology: Definition 7.1 - Corollary 7.19 with proofs (pp. 39-44)",
+        "REVIEW-EXT-03 (2026-09-16; regenerated pdftotext -layout extraction of the library PDF, SHA-256 re-verified; stamp \"arXiv:1111.4914v1 [math.AG] 21 Nov 2011\" on the first page, line 15; the cited extraction line numbers reproduce): Theorem 1.1 and the outline of its proof (p. 2); Section 3 (lines 745-929), Section 4 (930-1104), Section 5 (1105-1594), Section 6 (1595-2184) and Section 7 (2185-2503) re-read in full, together with the reference list ([2] Bosch-Guntzer-Remmert, [14] Gabber-Ramero LNM 1800, [19] Huber Math. Z. 217 (1994), [20] Huber, Etale cohomology of rigid analytic varieties and adic spaces (1996), [31] Tate, Rigid analytic spaces (1971))."
+      ]
+    },
+    {
+      "id": "ecd-2026",
+      "title": "Etale cohomology of diamonds",
+      "authors": "Peter Scholze",
+      "edition": "Version prepared for the Asterisque volume (bibliography dated 2026; cites [FS26] as 'this Asterisque volume'); library copy EtCohDiamonds.pdf; arXiv:1709.07343 is the preprint",
+      "url": "https://arxiv.org/abs/1709.07343",
+      "sha256": "4ce3d1232a6e9e186d1a36da5cc659616569ac8dd2bb263510247c07995a26c1",
+      "readSections": [
+        "Section 3 Perfectoid spaces: Definition 3.1 - Theorem 3.24 with the proofs given there (Remark 3.2, Proposition 3.5, Lemma 3.10, Lemma 3.14, Lemma 3.16) (pp. 14-19)",
+        "Section 6 Etale morphisms: Theorem 6.1 - Proposition 6.5 with the proofs of 6.4 and 6.5 (pp. 26-29)",
+        "REVIEW-EXT-03 (2026-09-16; SHA-256 of the library PDF re-verified; a regenerated pdftotext -layout extraction reproduces the cited line numbers): Section 3 re-read in full (lines 605-880), including Remark 3.7 (a perfectoid Tate ring that is a field is a perfectoid field: answered by Kedlaya [Ked18]); Section 6, Theorem 6.1 through Proposition 6.5 with the proofs of 6.4 and 6.5 (lines 1168-1345)."
+      ]
+    },
+    {
+      "id": "gr-almost",
+      "title": "Almost ring theory",
+      "authors": "Ofer Gabber, Lorenzo Ramero",
+      "edition": "arXiv:math/0201175v3, sixth and final release, 22 July 2002 (statement numbering differs from the LNM 1800 book numbering used in Sch12's citations; correspondences noted per node)",
+      "url": "https://arxiv.org/abs/math/0201175",
+      "sha256": "c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8",
+      "readSections": [
+        "Statements only: Theorem 2.5.36, Proposition 2.4.18, Propositions 3.2.9 and 3.2.16, Theorem 3.5.13, Theorem 3.5.28 (statement and first lines of proof), Theorem 4.1.14, Theorem 5.3.24 and 5.3.27 (statements), Section 5.4 introduction, Proposition 5.4.21, Corollary 5.4.42, Proposition 5.4.54 (statement and opening of proof), Proposition 6.3.6, Proposition 6.6.2, Proposition 6.6.6",
+        "REVIEW-EXT-03 (2026-09-16; regenerated pdftotext -layout extraction of the library PDF, SHA-256 re-verified; stamp \"arXiv:math/0201175v3 [math.AG] 22 Jul 2002\", \"sixth (and final) release\"): statements re-read at the cited lines: Theorem 2.5.36 (1935; a Tor-vanishing criterion for L_{S/R} ≃ 0), Proposition 2.4.18 (1376), Propositions 3.2.9 and 3.2.16 (2197, 2296), Theorem 3.5.13 (3701), Theorem 3.5.28 (3869), Theorem 4.1.14 (4128), (5.3.21)-(5.3.23), Theorem 5.3.24, Theorem 5.3.27 with its proof and Claim 5.3.29 (6445-6495), Proposition 5.4.21 (6764), Proposition 5.4.54 (7032), Proposition 6.3.6 (9020), Proposition 6.6.2 (9983), Proposition 6.6.6 (10029). Sch12 cites the LNM 1800 book, so every GR number in Sch12 is a book number."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "PerfectoidSpaces:P0/almost-modules-over-perfectoid-base",
+      "parentStageId": "PerfectoidSpaces:P0",
+      "title": "Almost modules over (K°, m) for a perfectoid field",
+      "kind": "definition",
+      "statement": "Let K be a perfectoid field, K° its valuation ring and m = K°° = {x : |x|<1} its maximal ideal. Then m² = m, the almost-zero K°-modules (mM = 0) form a thick Serre subcategory, and K°a-mod := K°-mod/(m-torsion) is an abelian tensor category with Hom_{K°a}(Mᵃ, Nᵃ) = Hom_{K°}(m ⊗ M, N), internal alHom, a right adjoint M ↦ M_* = Hom_{K°a}(K°a, M) to localization with (M_*)ᵃ ≅ M and (Mᵃ)_* = Hom(m, M), and a left adjoint M ↦ M_! = m ⊗ M_*. Almost algebras and their modules are defined abstractly in this tensor category, and every K°a-algebra is Aᵃ_* for the K°-algebra A_*.",
+      "hypotheses": [
+        "K is a perfectoid field (Sch12 Definition 3.1); the base ideal is m = K°°. Idempotence m² = m, which Lemma 4.2 uses without comment, follows from nondiscreteness of the rank-1 valuation alone (packet-authored: for x ∈ m choose y ∈ m with |y|² ≥ |x|); p-divisibility of the value group (Lemma 3.2) is not needed for it.",
+        "This is the special case (V, m) = (K°, K°°) of Gabber-Ramero's basic setup; the general abstract base (idempotent flat ideal) demanded by stage P0 was not read in this session."
+      ],
+      "proofSteps": [
+        "Thickness (Lemma 4.2): the only nontrivial closure is under extensions; an extension of two almost-zero modules is killed by m², and m² = m.",
+        "Hom formula, tensor structure and the adjoints are cited from Gabber-Ramero §2.2 (Sch12 Propositions 4.4-4.6); no almost-zero elements exist in Hom_{K°a}(X, Y).",
+        "The left adjoint M_! = m ⊗ M_* is used in the proof of Lemma 5.3(iv) to show that both M ↦ M_* and N ↦ Nᵃ commute with inverse limits."
+      ],
+      "acceptance": [
+        "For K = completed Q_p(p^{1/p^∞}) the residue field K°/m is almost zero, and Hom_{K°a}(K°a, K°a/ϖ) = Hom(m, K°/ϖ) contains the sums Σ ϖ^{1-1/p^i} x_i that are not in the image of K° (Remark 4.8), so K°a is not projective in the categorical sense.",
+        "m ⊗ M_* → M_* is the counit and (M_*)ᵃ → M is an isomorphism for every almost module M."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 4, Definition 4.1, Lemma 4.2, Definition 4.3, Propositions 4.4-4.6, Remark 4.8, pp. 18-20 (extraction lines 926-1030)",
+          "excerpt": "In general, one gets that m^2 M = 0. But in our situation, m^2 = m, so M is almost zero.",
+          "match": "Idempotence of m is the only input for thickness; the rest of the node records the categorical package Sch12 imports from Gabber-Ramero §2.2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P0/almost-finite-projective-and-finite-etale-algebras",
+      "parentStageId": "PerfectoidSpaces:P0",
+      "title": "Almost flat, almost projective, almost finitely presented and finite etale almost algebras",
+      "kind": "definition",
+      "statement": "Over a K°a-algebra A: M is flat if M ⊗_A – is exact (equivalently all Tor_i^R(N, X), i>0, are almost zero when M = Nᵃ); almost projective if alHom_A(M, –) is exact (equivalently all Ext^i_R(N, X), i>0, almost zero); almost finitely generated/presented if for every ε ∈ m there is a finitely generated/presented R-module N_ε with a map N_ε → N whose kernel and cokernel are killed by ε, uniformly so if the number of generators can be bounded independently of ε. 'Finite projective' (flat and almost finitely presented) equals almost projective and almost finitely generated (GR 2.4.18). A uniformly finite projective module has a unique rank decomposition A = A_0 × ... × A_k with ∧^i M_i invertible and ∧^{i+1} M_i = 0. A → B is unramified if there is an idempotent e ∈ (B ⊗_A B)_* with μ(e) = 1 and ker(μ)_* e = 0, etale if unramified and flat, finite etale if etale and B almost finitely presented; for B finite projective, A → B is finite etale iff the trace form t_{B/A} is a perfect pairing (GR 4.1.14).",
+      "hypotheses": [
+        "A is an algebra over K°a for a perfectoid field K. The definitions are Gabber-Ramero's, specialized to this base: Sch12 Definition/Proposition 4.7 cites [14] Definition 2.4.4, §2.4.10 and Remark 2.4.12(i) for flatness and almost projectivity, and Definition 2.3.8, Remark 2.3.9(i) and Corollary 2.3.13 for almost finite generation/presentation; Proposition 4.10 cites [14] Proposition 2.4.18; Theorem 4.11 cites [14] Proposition 4.3.27 and Remark 4.3.10(i); Theorem 4.16 cites [14] Theorem 4.1.14. All GR numbers in Sch12 are LNM 1800 book numbers.",
+        "The term 'finite etale' is Sch12's, not Gabber-Ramero's; it means etale plus almost finitely presented, hence B is finite projective over A."
+      ],
+      "proofSteps": [
+        "The Tor/Ext reformulations and the independence of the almost finite presentation property from the representative N are quoted from GR §2.3-2.4 (Sch12 Definition/Proposition 4.7, Remark 4.8).",
+        "Trace form: for P finite projective, P* = alHom(P, A), End(P)ᵃ = P ⊗_A P*, giving tr_{P/A}; t_{B/A}(b ⊗ b') = tr(b b' ·) is defined on almost elements via B_* → End_{A_*}(B_*) (Remark 4.15).",
+        "The rank decomposition is GR Proposition 4.3.27 with Remark 4.3.10(i) (Sch12 Theorem 4.11), not reproved."
+      ],
+      "acceptance": [
+        "Example 4.9: for K = completed Q_p(p^{1/p^∞}), p ≠ 2, and L = K(p^{1/2}), the maps K° ⊕ p^{1/2p^n} K° → L° have cokernel killed by p^{1/2p^n}, so L°a is uniformly almost finitely presented over K°a.",
+        "GR Proposition 2.4.18 reads: every almost finitely generated projective module is almost finitely presented, and every almost finitely presented flat module is almost projective."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 4, Definition/Proposition 4.7, Example 4.9, Proposition 4.10, Theorem 4.11, Definitions 4.12-4.14, Theorem 4.16, pp. 19-21 (extraction lines 1000-1090)",
+          "excerpt": "A morphism A → B of K°a-algebras is said to be finite etale if it is etale and B is an almost finitely presented A-module.",
+          "match": "Fixes the exact meaning of 'finite etale almost algebra' used in the tilting of finite etale covers and in almost purity."
+        },
+        {
+          "sourceId": "gr-almost",
+          "locator": "Proposition 2.4.18 (extraction line 1376) and Theorem 4.1.14 (extraction line 4128)",
+          "excerpt": "An almost finite projective morphism φ : A → B of almost V-algebras is etale if and only if the trace form t_{B/A} is a perfect pairing.",
+          "match": "Confirms the trace-form criterion cited as Sch12 Theorem 4.16 in the arXiv numbering of Gabber-Ramero."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P0/finite-etale-lifting-along-complete-flat-almost-algebras",
+      "parentStageId": "PerfectoidSpaces:P0",
+      "title": "Finite etale almost algebras lift uniquely modulo ϖ",
+      "kind": "theorem",
+      "statement": "Let A be a K°a-algebra which is flat over K°a and ϖ-adically complete (A ≅ lim A/ϖⁿ). Then B ↦ B ⊗_A A/ϖ is an equivalence A_fet ≅ (A/ϖ)_fet. Every B ∈ A_fet is again flat over K°a and ϖ-adically complete, and B is uniformly finite projective over A iff B ⊗_A A/ϖ is uniformly finite projective over A/ϖ.",
+      "hypotheses": [
+        "A flat over K°a and ϖ-adically complete; ϖ ∈ K a fixed element with |p| ≤ |ϖ| < 1.",
+        "The equivalence is imported from Gabber-Ramero Theorem 5.3.27 (tight ideal I = ϖA of an inverse system A_n = A/ϖⁿ); Sch12 marks the remaining assertions 'easy' and gives no argument."
+      ],
+      "proofSteps": [
+        "GR 5.3.27: for a tight ideal, the functor A_∞-Ét_afp → A_0-Ét_afp is an equivalence, reduced via GR 3.2.28(ii) (lifting along nilpotent thickenings) and GR 5.3.24 (lifting of almost finitely generated projective modules) to Claim 5.3.29 that an algebra whose reduction is unramified is unramified.",
+        "Flatness and completeness of B and the uniform bound are asserted without proof in Sch12 ('The rest is easy')."
+      ],
+      "acceptance": [
+        "Applied with A = K°a: K°a_fet ≅ (K°a/ϖ)_fet, the middle link in the chain K_fet ≅ K°a_fet ≅ (K°a/ϖ)_fet = (K♭°a/ϖ♭)_fet ≅ K♭°a_fet ≅ K♭_fet.",
+        "A finite etale cover of A/ϖ has exactly one deformation to a finite etale A-algebra up to unique isomorphism."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 4, Theorem 4.17 and proof, p. 21 (extraction lines 1091-1099)",
+          "excerpt": "Then the functor B ↦ B ⊗_A A/ϖ induces an equivalence of categories A_fet ≅ (A/ϖ)_fet. ... Proof. The first part follows from [14], Theorem 5.3.27. The rest is easy.",
+          "match": "The theorem statement and the exact import boundary (GR 5.3.27) for the lifting equivalence."
+        },
+        {
+          "sourceId": "gr-almost",
+          "locator": "Section 5.3, 5.3.21-5.3.24 and Theorem 5.3.27 with the opening of its proof (extraction lines 6445-6487)",
+          "excerpt": "Theorem 5.3.27. In the situation of (5.3.21), suppose that I is tight. Then (5.3.23) is an equivalence of categories.",
+          "match": "Confirms that the cited result is the lifting equivalence A_∞-Ét_afp → A_0-Ét_afp for tight ideals; its proof (Claim 5.3.29 and Theorem 5.3.24) was not read."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P1/perfectoid-field-definition",
+      "parentStageId": "PerfectoidSpaces:P1",
+      "title": "Perfectoid fields and p-divisibility of the value group",
+      "kind": "definition",
+      "statement": "A perfectoid field is a complete nonarchimedean field K of residue characteristic p > 0 whose rank-1 valuation is nondiscrete and such that Frobenius is surjective on K°/p. Then the minimal value group Γ = |K^×| is p-divisible. In characteristic p a perfectoid field is the same as a complete perfect nonarchimedean field. Equivalently (ECD Definition 3.6 / Proposition 3.8) a nonarchimedean field is perfectoid iff it is a perfectoid Tate ring; in particular Q_p and every discretely valued field are not perfectoid.",
+      "hypotheses": [
+        "Completeness, nondiscreteness of the valuation (needed to exclude unramified extensions of Q_p), residue characteristic p, Frobenius surjective on K°/p.",
+        "ECD's Remark 3.3 gives the exclusion of discretely valued fields via the length argument on K°/ϖ vs K°/ϖ^p.",
+        "ECD Remark 3.7: it is not clear a priori that a perfectoid Tate ring which is a field is a perfectoid field; ECD attributes the affirmative answer to Kedlaya [Ked18], which was not read."
+      ],
+      "proofSteps": [
+        "Lemma 3.2: Γ ≠ |p|^Z, so Γ is generated by |x| with |p| < |x| ≤ 1; choose y with |x − y^p| ≤ |p|, then |y|^p = |x|, hence Γ is p-divisible.",
+        "ECD Remark 3.3: if K were discretely valued with ϖ^p | p, K°/ϖ and K°/ϖ^p are Artin local rings of different lengths, so Φ cannot be an isomorphism."
+      ],
+      "acceptance": [
+        "Completed Q_p(p^{1/p^∞}), Q_p^cycl and completed F_p((t))(t^{1/p^∞}) are perfectoid; Q_p is not (ECD Remark 3.3, Example 3.4)."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 3, Definition 3.1 and Lemma 3.2 with proof, p. 15 (extraction lines 753-765)",
+          "excerpt": "As Γ ≠ |p|^Z, the group Γ is generated by the set of all |x| for x ∈ K with |p| < |x| ≤ 1. For such x, choose some y such that |x − y^p| ≤ |p|. Then |y|^p = |y^p| = |x|",
+          "match": "The proof of p-divisibility, which is used to normalize ϖ with compatible p-power roots and to define the almost setting."
+        },
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 3, Remark 3.3, Definition 3.6, Proposition 3.8, pp. 14-15 (extraction lines 645-698)",
+          "excerpt": "The field Q_p is not perfectoid, even though the Frobenius map on F_p is an isomorphism. The issue is that there is no element ϖ ∈ Z_p whose p-th power divides p.",
+          "match": "Supports the stage's insistence that surjectivity of Frobenius on the residue field is not enough."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P1/tilt-of-perfectoid-field",
+      "parentStageId": "PerfectoidSpaces:P1",
+      "title": "Tilt of a perfectoid field and the sharp map",
+      "kind": "construction",
+      "statement": "Let K be perfectoid and ϖ ∈ K^× with |p| ≤ |ϖ| < 1. Projection gives a multiplicative homeomorphism lim_{x↦x^p} K° ≅ lim_Φ K°/ϖ, independent of ϖ, with a multiplicative continuous map x ↦ x♯ to K° given by x♯ = lim_n x_n^{p^n} for arbitrary lifts x_n. There is ϖ♭ ∈ lim_Φ K°/ϖ with |(ϖ♭)♯| = |ϖ|, and K♭ := (lim_Φ K°/ϖ)[(ϖ♭)^{-1}] = lim_{x↦x^p} K (multiplicative homeomorphism) is a perfectoid field of characteristic p with K♭° = lim K°, valuation |x|_{K♭} = |x♯|_K, |K♭×| = |K^×|, K♭°/ϖ♭ ≅ K°/ϖ and K♭°/m♭ = K°/m. If char K = p then K♭ = K. Replacing ϖ by (ϖ♭)♯ one may assume ϖ has a compatible system of p-power roots.",
+      "hypotheses": [
+        "K perfectoid field; ϖ with |p| ≤ |ϖ| < 1 (so ϖ | p in K°, used in the convergence estimate).",
+        "The sharp map is multiplicative and continuous but not additive (only stated as multiplicative)."
+      ],
+      "proofSteps": [
+        "Well-definedness of x♯: if x_n' is another lift, x_n − x_n' ∈ ϖK° and by induction (x_n')^{p^i} − x_n^{p^i} is well defined in K°/ϖ^{i+1}, using ϖ | p; so x_n^{p^n} is well defined mod ϖ^{n+1} and the limit exists.",
+        "Inverse of the projection: x ↦ (x♯, (x^{1/p})♯, ...).",
+        "Existence of ϖ♭: pick ϖ_1 with |ϖ_1|^p = |ϖ|, lift the sequence (0, ϖ_1, ...) using surjectivity of Φ on K°/ϖ; |(ϖ♭)♯ − ϖ_1^p| ≤ |ϖ|², hence |(ϖ♭)♯| = |ϖ|.",
+        "K♭ → lim_{x↦x^p} K is a homeomorphism, the topology on lim_Φ K°/ϖ is induced by x ↦ |x♯|, K♭ is perfect and complete, hence perfectoid of characteristic p."
+      ],
+      "acceptance": [
+        "For K = completed Q_p(p^{1/p^∞}), K♭ = completed F_p((t^{1/p^∞})) with t = (p, p^{1/p}, ...) and t♯ = p.",
+        "|(ϖ♭)♯| = |ϖ| and K♭°/ϖ♭ ≅ K°/ϖ via x ↦ x♯."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 3, Lemma 3.4 (i)-(iv), Remark 3.5 and proof, pp. 15-17 (extraction lines 781-879)",
+          "excerpt": "Then we claim that the limit x♯ = lim_{n→∞} x_n^{p^n} exists and is independent of all choices. For this, it is enough to see that x_n^{p^n} gives a well-defined element of K°/ϖ^{n+1}.",
+          "match": "The construction of the sharp map and the tilt exactly as stated, including the role of ϖ | p."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P1/continuous-valuations-under-tilting",
+      "parentStageId": "PerfectoidSpaces:P1",
+      "title": "Continuous valuations of K and K♭ correspond",
+      "kind": "lemma",
+      "statement": "For a perfectoid field K with tilt K♭, |·| ↦ |·|♭, |x|♭ := |x♯|, is a bijection between continuous valuations of K up to equivalence and continuous valuations of K♭ up to equivalence.",
+      "hypotheses": [
+        "K perfectoid; continuity of valuations in Huber's sense (open valuation subrings K^+ ⊂ K° contain m)."
+      ],
+      "proofSteps": [
+        "|·|♭ is a valuation: only the ultrametric inequality is nontrivial and follows from |x+y|♭ = lim |(x^{1/p^n})♯ + (y^{1/p^n})♯|^{p^n} ≤ max(|x♯|, |y♯|).",
+        "Continuous valuations correspond to open valuation subrings K^+ ⊂ K°, which contain m, hence to valuation subrings of K°/m = K♭°/m♭; this bijection is the one described."
+      ],
+      "acceptance": [
+        "The rank-1 valuation of K maps to the rank-1 valuation of K♭ defined in Lemma 3.4(iii); higher-rank continuous valuations correspond to valuation subrings of the common residue ring K°/m."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 3, Proposition 3.6 and proof, p. 17 (extraction lines 880-898)",
+          "excerpt": "We see that open valuation subrings K^+ ⊂ K° are in bijection with valuation subrings in K°/m = K♭°/m♭.",
+          "match": "The proof mechanism, reused for the surjectivity part of the tilting homeomorphism of Spa (Corollary 6.7(iii))."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P1/perfectoid-tate-rings-and-algebras",
+      "parentStageId": "PerfectoidSpaces:P1",
+      "title": "Perfectoid Tate rings; perfectoid K-algebras; characteristic p and field cases",
+      "kind": "definition",
+      "statement": "(ECD 3.1) A Tate ring R is perfectoid if it is complete, uniform (R° bounded), and there is a pseudo-uniformizer ϖ with ϖ^p | p in R° such that Φ: R°/ϖ → R°/ϖ^p is an isomorphism. Injectivity of Φ is automatic for any complete Tate ring with ϖ^p | p, and the condition is equivalent to surjectivity of Φ: R°/p → R°/p, independent of ϖ. (Sch12 5.1) Over a perfectoid field K, a perfectoid K-algebra is a Banach K-algebra R with R° open and bounded and Φ surjective on R°/ϖ; then Φ: R°/ϖ^{1/p} ≅ R°/ϖ, R is reduced, and if char K = p, R is perfectoid iff R is perfect (given R° open and bounded). A topological ring with pR = 0 is a perfectoid Tate ring iff it is a perfect complete Tate ring (uniformity is automatic).",
+      "hypotheses": [
+        "Tate ring: has an open bounded subring and a topologically nilpotent unit; completeness and uniformity are part of the definition.",
+        "In Sch12 the base field K is perfectoid and ϖ ∈ K; in ECD ϖ is any pseudo-uniformizer with ϖ^p | p in R°."
+      ],
+      "proofSteps": [
+        "Automatic injectivity (ECD Remark 3.2): if x^p = ϖ^p y with y ∈ R°, then (x/ϖ)^p ∈ R°, so x/ϖ ∈ R°.",
+        "Independence of ϖ / equivalence with Φ surjective on R°/p: successive ϖ^p-adic approximation writes x = x_0^p + ϖ^p x_1^p + ..., so x ≡ (x_0 + ϖx_1 + ...)^p mod p.",
+        "Char p (ECD Prop. 3.5): if R is perfect, Φ is an open bijection on R by Banach's open mapping theorem, giving ϖ^n R_0 ⊂ Φ(R_0) and hence Φ^{-k}(R_0) ⊂ ϖ^{-n} R_0 for all k, so R° ⊂ ϖ^{-n}R_0 is bounded; conversely R°/ϖⁿ ≅ R°/ϖ^{np} for all n gives Φ bijective on R° after completion.",
+        "Reducedness (Sch12 5.8): a nonzero nilpotent x gives Kx ⊂ R°, contradicting boundedness.",
+        "Sch12 Prop. 5.5: injectivity of Φ: R°/ϖ^{1/p} → R°/ϖ since x^p/ϖ powerbounded implies x/ϖ^{1/p} powerbounded."
+      ],
+      "acceptance": [
+        "Q_p^cycl, F_p((t^{1/p^∞})), Q_p^cycl⟨T^{1/p^∞}⟩ and the non-field example R = Z_p^cycl[[T^{1/p^∞}]]⟨(p/T)^{1/p^∞}⟩[1/T] with ϖ = T^{1/p} (ECD Example 3.4) satisfy the definition.",
+        "Uniformity is not automatic in characteristic 0: the definition asks for it explicitly."
+      ],
+      "sources": [
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 3, Definition 3.1, Remarks 3.2-3.3, Example 3.4, Proposition 3.5 with proof, pp. 14-15 (extraction lines 613-684)",
+          "excerpt": "A Tate ring R is perfectoid if R is complete, uniform, i.e. R° ⊂ R is bounded, and there exists a pseudo-uniformizer ϖ ∈ R such that ϖ^p | p in R° and the Frobenius map Φ : R°/ϖ → R°/ϖ^p : x ↦ x^p is an isomorphism.",
+          "match": "Exact definition used by the stage; Remark 3.2's proof of the equivalent Frobenius-surjectivity criterion was read."
+        },
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, Definition 5.1, Propositions 5.5, 5.8, 5.9 with proofs, pp. 21-24 (extraction lines 1113-1257)",
+          "excerpt": "Assume 0 ≠ x ∈ R is nilpotent. Then Kx ⊂ R°, contradicting the condition that R° is bounded.",
+          "match": "Reducedness and the field-based definition on which the proofs of Sections 5-7 rest."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P1/almost-integral-dictionary",
+      "parentStageId": "PerfectoidSpaces:P1",
+      "title": "Perfectoid K-algebras are equivalent to perfectoid K°a-algebras",
+      "kind": "lemma",
+      "statement": "A perfectoid K°a-algebra is a ϖ-adically complete flat K°a-algebra A with Φ: A/ϖ^{1/p} ≅ A/ϖ. (Lemma 5.3) For a K°a-module M: M is flat iff M_* is flat over K° iff M_* has no ϖ-torsion; for N flat, (Nᵃ)_* = {x ∈ N[1/ϖ] : εx ∈ N for all ε ∈ m}; for M flat, (xM)_* = xM_*, M_*/xM_* ⊂ (M/xM)_* with ε(M/xM)_* ⊂ M_*/xM_* for all ε ∈ m; M is ϖ-adically complete iff M_* is. (Prop. 5.5, Lemma 5.6) R ↦ R°a and A ↦ A_*[ϖ^{-1}] (with A_* open and bounded) are inverse equivalences K-Perf ≅ K°a-Perf; in particular A_* = R° is the full ring of powerbounded elements and Φ: A_*/ϖ^{1/p} ≅ A_*/ϖ is an actual isomorphism.",
+      "hypotheses": [
+        "K perfectoid field, ϖ ∈ K with |p| ≤ |ϖ| < 1 and a chosen p-th root ϖ^{1/p}.",
+        "Flatness over K° is equivalent to ϖ-torsion-freeness because K° is a valuation ring."
+      ],
+      "proofSteps": [
+        "Lemma 5.3(i): Tor_1(M_*, K°/ϖ) almost zero gives ϖ-torsion of M_* almost zero; M_* = Hom(m, M_*) has no almost-zero elements, so no ϖ-torsion.",
+        "Lemma 5.3(iii): for m ∈ (M/xM)_* evaluate a lift at ε to get n ∈ M_*/xM_*, lift to ñ ∈ M_*; ñ is divisible by ε because δñ ∈ εM_* for all δ ∈ m; then ñ/ε lifts εm.",
+        "Lemma 5.3(iv): both M ↦ M_* and N ↦ Nᵃ have left adjoints, so commute with inverse limits; combine with (iii).",
+        "Lemma 5.7: if x^p ∈ A_* then x ∈ A_*, by descending induction on k with ϖ^{k/p} x ∈ A_*, using injectivity of Φ and absence of ϖ-torsion.",
+        "Lemma 5.6: powerbounded x has (εx)^{p^N} ∈ A_* for large N, so εx ∈ A_* for all ε, so x ∈ A_* by 5.3(ii); Φ surjective on A_*/ϖ: from almost surjectivity ϖ^{1/p} x ≡ y^p mod ϖ, set z = y/ϖ^{1/p²}, then z^p ≡ x mod ϖ^{(p-1)/p}, z ∈ A_* by Lemma 5.7, and x ≡ z^p mod m A_*, which suffices for surjectivity onto A_*/m and hence mod ϖ."
+      ],
+      "acceptance": [
+        "For R = K⟨T^{1/p^∞}⟩, R° = the ϖ-adic completion of K°[T^{1/p^∞}] and R°a is a perfectoid K°a-algebra (Prop. 5.20).",
+        "The non-surjectivity of M_*/xM_* → (M/xM)_* in Lemma 5.3(iii) is witnessed by the elements of Remark 4.8 (Remark 5.4)."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, Definition 5.1(ii), Lemma 5.3, Remark 5.4, Proposition 5.5, Lemmas 5.6-5.7 with proofs, pp. 21-23 (extraction lines 1119-1237)",
+          "excerpt": "Then A_* = R° is the set of power-bounded elements, R is perfectoid, and Φ : A_*/ϖ^{1/p} ≅ A_*/ϖ.",
+          "match": "The equivalence K-Perf ≅ K°a-Perf and the exact integral statements (no ϖ-torsion, completeness transfer) used in every later limit argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P1/cotangent-complex-vanishing-mod-varpi",
+      "parentStageId": "PerfectoidSpaces:P1",
+      "title": "Vanishing of the almost cotangent complex of a perfectoid K°a/ϖ-algebra",
+      "kind": "lemma",
+      "statement": "(Prop. 5.13(ii)) If R → S is a map of F_p-algebras such that the relative Frobenius induces an isomorphism R_(Φ) ⊗^L_R S → S_(Φ) in D(R), then L_{S/R} ≅ 0; in particular L_{R/F_p} = 0 for perfect R. (Cor. 5.16) For a perfectoid K°a/ϖ-algebra A (flat over K°a/ϖ with Φ: A/ϖ^{1/p} ≅ A), the almost cotangent complex Lᵃ_{A/(K°a/ϖ)} vanishes.",
+      "hypotheses": [
+        "pR = 0 for the Frobenius argument; the hypothesis is on the derived relative Frobenius, not merely on Ω¹.",
+        "Cor. 5.16 uses the almost version of Prop. 5.13, which Sch12 says 'can be proved in the same way', or the functor C ↦ C_!! of GR §2.2.25 applied to B = (A × K°a/ϖ)_!!, a flat K°/ϖ-algebra with B/ϖ^{1/p} ≅ B via Φ; neither route is written out."
+      ],
+      "proofSteps": [
+        "Take a simplicial resolution S^• of S by free R-algebras; the relative Frobenius R_(Φ) ⊗_R S^• → S^•_(Φ) sends X_i ↦ X_i^p on polynomial generators.",
+        "The hypothesis says this is a quasi-isomorphism of simplicial R_(Φ)-algebras, hence R_(Φ) ⊗^L_R L_{S/R} ≅ L_{S_(Φ)/R_(Φ)}.",
+        "On differentials the map sends dX_i ↦ dX_i^p = 0, so the induced map is zero, forcing L_{S_(Φ)/R_(Φ)} = 0, which identifies with L_{S/R}."
+      ],
+      "acceptance": [
+        "Ω¹_{R/F_p} = 0 for perfect R since dx = d(y^p) = p y^{p-1} dy = 0 (Remark 5.14); the full statement is the derived strengthening.",
+        "Remark 5.14: W(R) for perfect R is characterized as the unique flat p-adically complete deformation of R."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, Proposition 5.13, Remark 5.14, Remark 5.15, Corollary 5.16 with proofs, pp. 25-26 (extraction lines 1304-1350)",
+          "excerpt": "On the other hand, the explicit description shows that the map induced by Φ_{S^k/R} on differentials will map dX_i to dX_i^p = 0, and hence is the zero map. This shows that L_{S_(Φ)/R_(Φ)} ≅ 0",
+          "match": "The core mechanism of the Frobenius vanishing criterion, attributed to GR Lemma 6.5.13 i) (book numbering; not located in the arXiv extraction)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P1/deformation-lifting-of-perfectoid-mod-varpi-algebras",
+      "parentStageId": "PerfectoidSpaces:P1",
+      "title": "Unique flat deformation of perfectoid K°a/ϖ-algebras to K°a",
+      "kind": "theorem",
+      "statement": "The functor A ↦ A/ϖ is an equivalence K°a-Perf ≅ (K°a/ϖ)-Perf. Concretely, a perfectoid K°a/ϖ-algebra A lifts uniquely, through the square-zero extensions (K°/ϖⁿ)ᵃ → (K°/ϖ^{n-1})ᵃ, to a compatible system of flat (K°/ϖⁿ)ᵃ-algebras A_n with A_n/ϖ^{n-1} ≅ A_{n-1}; the inverse limit A is ϖ-adically complete with A/ϖⁿ = A_n, flat, and Φ: A/ϖ^{1/p} ≅ A/ϖ, so A is perfectoid.",
+      "hypotheses": [
+        "Illusie's deformation theory (Thm 5.11: obstruction in Ext²(L_{S_0/R_0}, S_0 ⊗ I), deformations a torsor under Ext¹, automorphisms Hom; Thm 5.12: lifting of morphisms obstructed in Ext¹ with lifts a torsor under Hom) in its almost version (GR Propositions 3.2.9 and 3.2.16) for square-zero ideals I with I² = 0 and flat S_0.",
+        "The vanishing Lᵃ_{A_n/(K°/ϖⁿ)ᵃ} = 0 for all n, which is deduced from the case n = 1 by the transitivity triangle for the exact sequence 0 → A → A_n → A_{n-1} → 0 (Sch12 cites GR 'Theorem 2.5.36' in book numbering; the arXiv Theorem 2.5.36 is a different statement, see gap)."
+      ],
+      "proofSteps": [
+        "Obstruction and ambiguity groups for lifting A_{n-1} to a flat (K°/ϖⁿ)ᵃ-algebra are Ext groups of the almost cotangent complex, which vanish by Cor. 5.16 and the inductive triangle Lᵃ_{A/(K°/ϖ)ᵃ} → Lᵃ_{A_n/(K°/ϖⁿ)ᵃ} → Lᵃ_{A_{n-1}/(K°/ϖ^{n-1})ᵃ} →.",
+        "Uniqueness of lifts of morphisms (Thm 5.12) gives full faithfulness at every finite level, hence for the inverse limit.",
+        "The inverse limit A is ϖ-adically complete with A/ϖⁿ A = A_n; flatness and the Frobenius isomorphism are inherited from A_1 = A.",
+        "Combined with the dictionary K-Perf ≅ K°a-Perf and the tautology (K°a/ϖ)-Perf = (K♭°a/ϖ♭)-Perf (since K°/ϖ = K♭°/ϖ♭ with matching almost settings), this yields the tilting equivalence Theorem 5.2."
+      ],
+      "acceptance": [
+        "Prop. 5.20: K⟨T^{1/p^∞}⟩ and K♭⟨T^{1/p^∞}⟩ have the same reduction K°/ϖ[T^{1/p^∞}] and are therefore tilts of each other.",
+        "Uniqueness: two flat deformations with the same reduction are uniquely isomorphic compatibly with the reduction."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, Theorem 5.10 with proof, Theorems 5.11-5.12, pp. 24-26 (extraction lines 1258-1303 and 1351-1378)",
+          "excerpt": "We see inductively that all obstructions and ambiguities in lifting inductively to a flat (K°/ϖⁿ)ᵃ-algebra A_n vanish: All groups occuring can be expressed in terms of the cotangent complex by the theorems above, so that it suffices to show that Lᵃ_{A_n/(K°/ϖⁿ)ᵃ} = 0.",
+          "match": "The actual deformation-theoretic proof of the lifting equivalence, with its dependence on the cotangent-complex vanishing."
+        },
+        {
+          "sourceId": "gr-almost",
+          "locator": "Propositions 3.2.9 and 3.2.16 (extraction lines 2197-2296)",
+          "excerpt": "Assume that the obstruction ω(B̃, f_0, u) vanishes. Then the set of isomorphism classes of A-extensions C̃ as in (i) forms a torsor under the group: Exal_{B_0}(C_0, J) ≃ Ext¹_{C_0}(Lᵃ_{C_0/B_0}, J).",
+          "match": "The almost version of the obstruction/torsor statements cited as Sch12 Theorems 5.11-5.12 ([14, 3.2.9], [14, 3.2.16])."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P1/tilting-equivalence-and-explicit-tilt",
+      "parentStageId": "PerfectoidSpaces:P1",
+      "title": "Tilting equivalence K-Perf ≅ K♭-Perf and the explicit tilt R♭ = lim R",
+      "kind": "theorem",
+      "statement": "(Thm 5.2) K-Perf ≅ K°a-Perf ≅ (K°a/ϖ)-Perf = (K♭°a/ϖ♭)-Perf ≅ K♭°a-Perf ≅ K♭-Perf. (Prop. 5.17) For R perfectoid over K with A = R°a, the tilt is R♭ = A♭_*[(ϖ♭)^{-1}] with A♭ = lim_Φ A/ϖ; moreover R♭ = lim_{x↦x^p} R, A♭_* = lim_{x↦x^p} A_* and A♭_*/ϖ♭ ≅ A_*/ϖ, so there is a continuous multiplicative map R♭ → R, x ↦ x♯. The tilting functor is independent of the choices of ϖ, ϖ♭ (Remark 5.18). (Lemma 5.21) R is a perfectoid field iff R♭ is. (ECD Thm 3.13) The same equivalence is asserted for perfectoid R-algebras over any perfectoid Tate ring R, with the remark that the Sch12 proof works in general.",
+      "hypotheses": [
+        "Sch12 proves the equivalence over a perfectoid base field K; the Tate-ring version (ECD 3.13) is not proved in either source read here and is a recorded boundary.",
+        "A♭_* = lim_Φ A_*/ϖ requires Lemma 5.3(iii) (image of Φ on (A/ϖ)_* is A_*/ϖ) and Lemma 5.6."
+      ],
+      "proofSteps": [
+        "A♭_* = (lim_Φ A/ϖ)_* = lim_Φ (A/ϖ)_* = lim_Φ A_*/ϖ because (−)_* commutes with inverse limits and Φ on (A/ϖ)_* factors through (A/ϖ^{1/p})_* with image A_*/ϖ; then lim_Φ A_*/ϖ = lim_{x↦x^p} A_* as in Lemma 3.4(i).",
+        "A♭_* is ϖ♭-adically complete and flat over K♭°, and x ↦ x♯ induces A♭_*/ϖ♭ ≅ A_*/ϖ by Lemma 5.6, so A♭ is a perfectoid K♭°a-algebra.",
+        "Running through the chain of equivalences identifies A♭/ϖ♭ with A/ϖ, so R♭ is the tilt of R.",
+        "Lemma 5.21: the spectral norm ||x||_R = inf{|t|^{-1} : tx ∈ R°} satisfies ||x||_{R♭} = ||x♯||_R; multiplicativity transfers in both directions by approximating x, y ∈ R° by (x♭)♯, (y♭)♯ modulo ϖR°, and R is a field because ||1 − (x x♭)♯|| < 1 makes (x x♭)♯ invertible.",
+        "Remark 5.19 records the converse functor R = W(R♭°) ⊗_{W(K♭°)} K via θ, not used in the proof."
+      ],
+      "acceptance": [
+        "Prop. 5.20: the tilt of K⟨T_1^{1/p^∞}, ..., T_n^{1/p^∞}⟩ is K♭⟨T_1^{1/p^∞}, ..., T_n^{1/p^∞}⟩.",
+        "The sharp map is multiplicative and continuous; additivity is not asserted."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, Theorem 5.2 (p. 22), Proposition 5.17, Remarks 5.18-5.19, Proposition 5.20, Lemma 5.21 with proofs, pp. 26-28 (extraction lines 1131-1142 and 1379-1474)",
+          "excerpt": "R♭ = lim_{x↦x^p} R, A♭_* = lim_{x↦x^p} A_*, A♭_*/ϖ♭ ≅ A_*/ϖ. In particular, we have a continuous multiplicative map R♭ → R, x ↦ x♯.",
+          "match": "The explicit description of the tilt and the sharp map used in the sheaf theorem and almost purity."
+        },
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 3, Theorem 3.13 and its one-line proof, p. 17 (extraction lines 766-770)",
+          "excerpt": "Proof. In [Sch12], these are only proved over a perfectoid field, but the proof works in general.",
+          "match": "Records that the Tate-ring generality of the tilting equivalence rests on an unwritten adaptation; kept as a gap."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P1/tilt-of-perfectoid-tate-ring",
+      "parentStageId": "PerfectoidSpaces:P1",
+      "title": "Tilt of a perfectoid Tate ring and its rings of integral elements",
+      "kind": "construction",
+      "statement": "For a perfectoid Tate ring R, R♭ := lim_{x↦x^p} R with the inverse limit topology, pointwise multiplication and addition (x + y)^{(i)} = lim_n (x^{(i+n)} + y^{(i+n)})^{p^n} is a perfectoid F_p-algebra with R♭° = lim_{x↦x^p} R° ≅ lim_Φ R°/ϖ for any pseudo-uniformizer ϖ | p. There is a pseudo-uniformizer ϖ with ϖ^p | p admitting compatible p-power roots, giving ϖ♭ = (ϖ, ϖ^{1/p}, ...) ∈ R♭°, a pseudo-uniformizer of R♭ with R♭ = R♭°[1/ϖ♭]. Projection to the zeroth coordinate is a continuous multiplicative map f ↦ f♯ inducing R♭°/ϖ♭ ≅ R°/ϖ, and R^+ ↦ R♭+ = lim_{x↦x^p} R^+ is an inclusion-preserving bijection between open integrally closed subrings of R° and of R♭°, with R♭+/ϖ♭ = R^+/ϖ.",
+      "hypotheses": [
+        "R perfectoid Tate ring (complete, uniform, ϖ^p | p, Φ iso mod ϖ); ϖ_0 | p in R° for the identification lim R° ≅ lim_Φ R°/ϖ_0.",
+        "The existence of ϖ with p-power roots uses ϖ_0 = ϖ_1^p and lifting ϖ_1 through R♭° = lim_Φ R°/ϖ_0 → R°/ϖ_0."
+      ],
+      "proofSteps": [
+        "Any (x̄_0, x̄_1, ...) ∈ lim_Φ R°/ϖ_0 lifts uniquely to lim_{x↦x^p} R° via x^{(i)} = lim_n x_{n+i}^{p^n}, since x ≡ y mod ϖ_0^n implies x^p ≡ y^p mod ϖ_0^{n+1}.",
+        "A preimage ϖ♭ of ϖ_1 is congruent to ϖ_1 mod ϖ_0, hence topologically nilpotent and invertible in R♭; ϖ := ϖ♭♯ is the desired pseudo-uniformizer.",
+        "R♭ = R♭°[1/ϖ♭] as monoids and rings, so the addition is well defined and R♭ is a perfect ring of characteristic p.",
+        "Open integrally closed subrings of R° and R♭° both correspond to integrally closed subrings of the common quotient R°/ϖ = R♭°/ϖ♭ (ECD Lemma 3.11; Sch12 Lemma 6.2 over a field)."
+      ],
+      "acceptance": [
+        "For R over a perfectoid field K this recovers Prop. 5.17: R♭ = lim R and R♭° = lim R°.",
+        "R♭+ /ϖ♭ = R^+/ϖ and R♭+ = lim_{x↦x^p} R^+ (Sch12 Lemma 6.2)."
+      ],
+      "sources": [
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 3, Definition 3.9, Lemma 3.10 with proof, Lemma 3.11, pp. 16-17 (extraction lines 699-760)",
+          "excerpt": "This lift is given by x^{(i)} = lim_{n→∞} x_{n+i}^{p^n}, where x_j ∈ R° is any lift of x̄_j. (For the convergence of that limit, note that if x ≡ y (mod ϖ_0^n), then x^p ≡ y^p (mod ϖ_0^{n+1}).)",
+          "match": "The construction of the tilt in Tate-ring generality with the precise divisibility hypothesis on ϖ_0."
+        },
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, Definition 6.1, Lemma 6.2 with proof, p. 30 (extraction lines 1595-1607)",
+          "excerpt": "Giving an open integrally closed subring of R° is equivalent to giving an integrally closed subring of R°/m. This description is compatible with tilting.",
+          "match": "The correspondence of plus rings under tilting over a perfectoid field."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P1/fontaine-theta-and-primitive-kernel",
+      "parentStageId": "PerfectoidSpaces:P1",
+      "title": "Fontaine's θ: W(R♭+) → R^+ is surjective with kernel generated by a degree-one primitive nonzerodivisor",
+      "kind": "theorem",
+      "statement": "Let R be a perfectoid Tate ring with ring of integral elements R^+ and tilt (R♭, R♭+). Then θ: W(R♭+) → R^+, Σ [r_n] pⁿ ↦ Σ r_n♯ pⁿ, is a surjective ring homomorphism whose kernel is generated by a nonzerodivisor ξ = p + [ϖ]α with ϖ ∈ R♭+ a pseudo-uniformizer and α ∈ W(R♭+). Any element of the form p + [ϖ♭]α with ϖ♭ ∈ R♭+ a pseudo-uniformizer is a nonzerodivisor in W(R♭+) (ECD Lemma 3.16; the printed statement writes α ∈ W(R^+), a misprint for W(R♭+)).",
+      "hypotheses": [
+        "R perfectoid Tate; ϖ♭ ∈ R♭ a pseudo-uniformizer such that ϖ = (ϖ♭)♯ satisfies ϖ^p | p (needed for surjectivity and for the description of ker θ).",
+        "W(R♭+)/ξ is [ϖ♭]-torsion free and [ϖ♭]-adically complete (used without proof in ECD)."
+      ],
+      "proofSteps": [
+        "θ is a ring map: modulo ϖ^m it agrees with the composite W(R♭+) → W(R^+/ϖ) → R^+/ϖ^m, where the second map is induced by the m-th ghost component (x_0, x_1, ...) ↦ Σ x_n^{p^{m-n}} pⁿ, which factors over W(R^+/ϖ) by congruences.",
+        "Surjectivity: R♭+ → R^+/ϖ is surjective, so θ is surjective modulo [ϖ♭]; conclude by [ϖ♭]-adic completeness.",
+        "Kernel: with α = p/ϖ ∈ R^+ choose β ∈ R♭+ with β♯ ≡ α mod pR^+, so f := ϖ♭β satisfies f♯ ≡ p mod pϖR^+; write p = f♯ + pϖ♯ Σ r_n♯ pⁿ and set ξ = p − [f] − [ϖ♭] Σ [r_n] p^{n+1} ∈ ker θ.",
+        "ξ generates: W(R♭+)/ξ → R^+ is surjective and an isomorphism modulo [ϖ♭] since W(R♭+)/(ξ, [ϖ♭]) = W(R♭+)/(p, [ϖ♭]) = R♭+/ϖ♭ = R^+/ϖ; conclude using [ϖ♭]-torsion-freeness and completeness of W(R♭+)/ξ.",
+        "Nonzerodivisor (Lemma 3.16): if ξ Σ [c_n] pⁿ = 0 then mod [ϖ♭] all c_n ≡ 0 mod ϖ♭; divide by ϖ♭ and induct."
+      ],
+      "acceptance": [
+        "For R = C = completed algebraic closure of Q_p, ξ can be taken as p − [p♭] with p♭ = (p, p^{1/p}, ...).",
+        "The Mathlib primitive Mathlib.RingTheory.Perfectoid.FontaineTheta defines fontaineTheta : 𝕎 R♭ →+* R for p-adically complete R and proves surjectivity under Frobenius surjectivity on R/p (candidate implementation input, unchecked against this node)."
+      ],
+      "sources": [
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 3, Lemma 3.14, Definition 3.15, Lemma 3.16 with proofs, pp. 17-18 (extraction lines 772-824)",
+          "excerpt": "It is enough to show that f is an isomorphism modulo [ϖ♭], because W(R♭+)/ξ is [ϖ♭]-torsion free and [ϖ♭]-adically complete. But W(R♭+)/(ξ, [ϖ♭]) = W(R♭+)/(p, [ϖ♭]) = R♭+/ϖ♭ = R^+/ϖ",
+          "match": "The proof that the kernel is principal, including the two completeness/torsion facts assumed without proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P1/untilts-classified-by-primitive-ideals",
+      "parentStageId": "PerfectoidSpaces:P1",
+      "title": "Untilts of a characteristic-p perfectoid pair are classified by degree-one primitive ideals",
+      "kind": "comparison",
+      "statement": "(ECD Thm 3.17) The functors (S, S^+) ↦ (S♭, S♭+, ker θ) and (R, R^+, J) ↦ (W(R^+)[[ϖ]^{-1}]/J, W(R^+)/J) (ϖ ∈ R any pseudouniformizer) are inverse equivalences between pairs (S, S^+) of a perfectoid Tate ring with an open integrally closed S^+ ⊂ S°, and triples (R, R^+, J) with R perfectoid of characteristic p, R^+ ⊂ R° open and integrally closed, and J ⊂ W(R^+) primitive of degree 1.",
+      "hypotheses": [
+        "Primitive of degree 1 means J = (ξ) with ξ = p + [ϖ♭]α, ϖ♭ a pseudo-uniformizer of R^+ and α ∈ W(R^+).",
+        "ECD states the theorem as 'straightforward to check' after Lemma 3.14 and attributes it to [KL15] and [Fon13]; no proof is written in ECD. Only the direction (S, S^+) ↦ (S♭, S♭+, ker θ) is supported by the proofs read (Lemma 3.14)."
+      ],
+      "proofSteps": [
+        "Forward direction: Lemma 3.14 shows ker θ is primitive of degree 1 and θ: W(S♭+)/ker θ ≅ S^+.",
+        "Backward direction (not verified here): show W(R^+)/J is a ring of integral elements of the Tate ring W(R^+)[[ϖ]^{-1}]/J, that this ring is perfectoid with tilt R, and that the two composites are naturally isomorphic; the topology and plus ring construction must be checked (stage text: 'including the converse construction with its topology and plus ring')."
+      ],
+      "acceptance": [
+        "For (R, R^+) = (K♭, K♭°) for a perfectoid field K, ker θ = (ξ) and the construction returns (K, K°).",
+        "Different primitive ideals give non-isomorphic untilts over the same tilt (e.g. Frobenius-twisted ideals φ(J))."
+      ],
+      "sources": [
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 3, Theorem 3.17, p. 18 (extraction lines 825-832)",
+          "excerpt": "It is now straightforward to check the following theorem. Theorem 3.17 ([KL15], [Fon13]). There is an equivalence of categories between: (i) Pairs (S, S^+) ... and (ii) Triples (R, R^+, J)",
+          "match": "Statement matched to the stage's 'classification of marked untilts by primitive degree-one ideals'; proof absent in the source read."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P2/rational-localization-of-perfectoid-affinoids",
+      "parentStageId": "PerfectoidSpaces:P2",
+      "title": "Rational localizations of perfectoid affinoid algebras are perfectoid, with explicit integral model and tilt",
+      "kind": "construction",
+      "statement": "Let (R, R^+) be a perfectoid affinoid K-algebra with tilt (R♭, R♭+), X = Spa(R, R^+), and U = U(f_1, ..., f_n / g) ⊂ X♭ rational with f_i, g ∈ R♭° and f_n = (ϖ♭)^N, with preimage U♯ ⊂ X. Then (i) the ϖ-adic completion R°⟨(f_1♯/g♯)^{1/p^∞}, ..., (f_n♯/g♯)^{1/p^∞}⟩ of the subring R°[(f_i♯/g♯)^{1/p^∞}] ⊂ R[1/g♯] is, almost, a perfectoid K°a-algebra; (ii) O_X(U♯) is a perfectoid K-algebra with O_X(U♯)°a equal to that completion; (iii) the tilt of O_X(U♯) is O_{X♭}(U).",
+      "hypotheses": [
+        "K perfectoid field; the normalization f_n = (ϖ♭)^N ensures f_1♯, ..., f_n♯ generate R (Remark 2.8) so that U♯ is the rational subset U(f_1♯, ..., f_n♯ / g♯).",
+        "Statement (i) in characteristic p is proved first; the general case uses tilting through (ii) and the already-known characteristic-p case for U."
+      ],
+      "proofSteps": [
+        "Char p: R°[T_1^{1/p^∞}, ..., T_n^{1/p^∞}]/I → R°[(f_i/g)^{1/p^∞}] with I generated by T_i^{1/p^m} g^{1/p^m} − f_i^{1/p^m} is an almost isomorphism (isomorphism after inverting ϖ, and ϖ^k f ∈ I implies ϖ^{k/p^m} f ∈ I by perfectness of I); reducing mod ϖ and using Φ: (I, ϖ^{1/p}) ↦ (I, ϖ) shows the completion is almost perfectoid.",
+        "(i) ⇒ (ii) for general K: the inclusions R°⟨f_i♯/g♯⟩ ⊂ R°⟨(f_i♯/g♯)^{1/p^∞}⟩ ⊂ R⟨f_i♯/g♯⟩ = O_X(U♯) together with ϖ^{nN} R°[(f_i♯/g♯)^{1/p^∞}] ⊂ R°[f_i♯/g♯] (since 1/g♯ = ϖ^{-N} f_n♯/g♯) show O_X(U♯) = R°⟨(f_i♯/g♯)^{1/p^∞}⟩[ϖ^{-1}] is perfectoid.",
+        "(i), (iii) general K: let (S, S^+) be the tilt of (O_{X♭}(U), O^+_{X♭}(U)); Spa(S, S^+) → X factors over U♯, giving O_X(U♯) → S; the composite R°⟨T^{1/p^∞}⟩ᵃ/(I, ϖ) → R°⟨(f_i♯/g♯)^{1/p^∞}⟩ᵃ/ϖ → S°a/ϖ is the tilt of R♭°⟨T^{1/p^∞}⟩ᵃ/(I♭, ϖ♭) → O_{X♭}(U)°a/ϖ♭, an isomorphism; the first map being surjective, both maps are isomorphisms, giving (i), (ii) and then (iii)."
+      ],
+      "acceptance": [
+        "For U = {|g| ≤ |ϖ|^c} on the perfectoid unit polydisc, O_X(U♯)°a = R°⟨(g♯/ϖ^c)^{1/p^∞}⟩ᵃ, the formula used in the proof of the approximation lemma.",
+        "O_X(U♯)°a is ϖ-adically complete and flat over K°a by construction; the perfectoid property is the nontrivial assertion."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, Lemma 6.4 with proof, pp. 31-33 (extraction lines 1659-1818)",
+          "excerpt": "If f lies in the kernel of this map, there is some k with ϖ^k f ∈ I. But then (ϖ^{k/p^m} f)^{p^m} ∈ I, and because I is perfect, also ϖ^{k/p^m} f ∈ I. This gives the desired statement.",
+          "match": "The Frobenius-descent argument that makes the presentation of the rational localization almost exact in characteristic p."
+        },
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 3, Theorem 3.18 statement, p. 18 (extraction lines 833-841)",
+          "excerpt": "Moreover, for any rational subset U ⊂ X with image U♭ ⊂ X♭, O_X(U) is perfectoid with tilt O_{X♭}(U♭).",
+          "match": "The Tate-ring form of the localization statement cited by the stage as ECD 3.18."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P2/approximation-lemma",
+      "parentStageId": "PerfectoidSpaces:P2",
+      "title": "Approximation lemma: functions on the perfectoid polydisc are approximated by sharps of tilted functions",
+      "kind": "lemma",
+      "statement": "Let R = K⟨T_0^{1/p^∞}, ..., T_n^{1/p^∞}⟩ and f ∈ R° homogeneous of degree d ∈ Z[1/p]. For every rational c ≥ 0 and ε > 0 there is g_{c,ε} ∈ R♭° = K♭°⟨T_0^{1/p^∞}, ..., T_n^{1/p^∞}⟩ homogeneous of degree d with |f(x) − g_{c,ε}♯(x)| ≤ |ϖ|^{1−ε} max(|f(x)|, |ϖ|^c) for all x ∈ Spa(R, R°). In particular for ε < 1, max(|f(x)|, |ϖ|^c) = max(|g♯(x)|, |ϖ|^c). (Cor. 6.7(i)) For any perfectoid affinoid (R, R^+), f ∈ R, c ≥ 0, ε > 0 there is g ∈ R♭ with the same estimate on Spa(R, R^+).",
+      "hypotheses": [
+        "K perfectoid; ϖ with compatible p-power roots; homogeneity in the T-variables with degrees in Z[1/p].",
+        "The proof uses Lemma 6.4's description O_X(U_c♯)°a = R°⟨(g_c♯/ϖ^c)^{1/p^∞}⟩ᵃ for U_c = {|g_c| ≤ |ϖ♭|^c} and loses a small constant ε(c) at each step because of almost mathematics."
+      ],
+      "proofSteps": [
+        "Fix ε ∈ Z[1/p], 0 < ε < 1; prove by induction on c (steps c → c' = c + a, 0 < a < ε) the existence of ε(c) > 0 and g_c with |f − g_c♯| ≤ |ϖ|^{1−ε+ε(c)} max(|f|, |ϖ|^c); c = 0 is trivial with ε(0) = ε.",
+        "On U_c♯ = {|f| ≤ |ϖ|^c}, h := f − g_c♯ lies in ϖ^{c+1−ε+ε(c)} O^+_X(U_c♯); by homogeneity h lies almost in the completion of ⊕_{i ∈ Z[1/p], 0 ≤ i ≤ 1} ϖ^{c+1−ε+ε(c)} (g_c♯/ϖ^c)^i R°_{deg = d − di}, so h = Σ ϖ^{c+1−ε+ε(c')} (g_c♯/ϖ^c)^i r_i with r_i → 0 homogeneous.",
+        "Choose s_i ∈ R♭+ homogeneous with ϖ | r_i − s_i♯ and set g_{c'} = g_c + Σ (ϖ♭)^{c+1−ε+ε(c')} (g_c/(ϖ♭)^c)^i s_i.",
+        "If |f(x)| > |ϖ|^c then |g_c♯(x)| = |f(x)| and each correction term is bounded by |ϖ|^{1−ε+ε(c')} |f(x)| (maximal at i = 1); if |f(x)| ≤ |ϖ|^c then f − g_{c'}♯ = f − g_c♯ − h = 0 modulo ϖ^{c+1} in O_X(U_c♯)°, giving |f(x) − g_{c'}♯(x)| ≤ |ϖ|^{c'+1−ε+ε(c')}.",
+        "Cor. 6.7(i): reduce to R^+ = R° via maximal points, to f ∈ R° and c integral, write f = g_0♯ + ϖ g_1♯ + ... + ϖ^c g_c♯ + ϖ^{c+1} f_{c+1} and pull back T_0 + ϖT_1 + ... + ϖ^c T_c along K⟨T_0^{1/p^∞}, ..., T_c^{1/p^∞}⟩ → R, T_i^{1/p^m} ↦ (g_i^{1/p^m})♯."
+      ],
+      "acceptance": [
+        "For f = T_0 the lemma is trivial (g = T_0); for f = T_0 + ϖ T_1 one needs a genuine correction since (T_0 + ϖT_1) is not a sharp.",
+        "Remark 6.6: for ε < 1 the loci {|f| ≤ |ϖ|^c} and {|g♯| ≤ |ϖ|^c} coincide, which is what the tilting homeomorphism needs."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, Lemma 6.5, Remark 6.6, proof pp. 33-34, Corollary 6.7(i) with proof p. 35 (extraction lines 1819-1943)",
+          "excerpt": "We will need ε(c), as each induction step will lose some small constant because of some almost mathematics involved. Now we argue by induction, increasing from c to c' = c + a, where 0 < a < ε is some fixed rational number in Z[1/p].",
+          "match": "The inductive structure and the almost-mathematics loss that the stage must reproduce."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P2/tilting-homeomorphism-and-rational-subsets",
+      "parentStageId": "PerfectoidSpaces:P2",
+      "title": "Spa(R, R^+) ≅ Spa(R♭, R♭+) identifying rational subsets; completed residue fields are perfectoid",
+      "kind": "theorem",
+      "statement": "For a perfectoid affinoid K-algebra (R, R^+) with tilt (R♭, R♭+): x ↦ x♭, |f(x♭)| := |f♯(x)|, is a homeomorphism Spa(R, R^+) → Spa(R♭, R♭+) under which rational subsets correspond; every completed residue field k(x)^ is a perfectoid field; for rational U ⊂ X the pair (O_X(U), O^+_X(U)) is a perfectoid affinoid K-algebra with tilt (O_{X♭}(U♭), O^+_{X♭}(U♭)). (ECD Thm 3.12 states the homeomorphism for any perfectoid Tate ring.)",
+      "hypotheses": [
+        "Perfectoid base field K in Sch12; well-definedness of x♭ uses that |·|♭ is a valuation (proof of Prop. 3.6).",
+        "Surjectivity uses the untilting of perfectoid fields (Lemma 5.21) and of continuous valuations (Prop. 3.6)."
+      ],
+      "proofSteps": [
+        "Continuity: the preimage of U(f_1, ..., f_n / g) is U(f_1♯, ..., f_n♯ / g♯) after arranging f_n = (ϖ♭)^N.",
+        "Injectivity: by the approximation lemma every rational subset {|f| ≤ |ϖ|^c}-type condition of X is the preimage of a rational subset of X♭, so rational subsets of X are preimages; X is T_0, so the map is injective.",
+        "Surjectivity: a point of X♭ factors R♭ → k(x)^ → Γ ∪ {0}; k(x)^ is perfectoid (char p: the ϖ-adic completion of O_{X,x}°a is perfectoid by Lemma 6.4), untilt to a perfectoid field over K and untilt the valuation by Prop. 3.6.",
+        "Cor. 6.8: (O_X(U), O^+_X(U)) is perfectoid affinoid by Cor. 6.7(iii) and Lemma 6.4(ii), characterized by the universal property of Huber's Prop. 2.14 among perfectoid affinoid K-algebras; tilting the universal property identifies its tilt with (O_{X♭}(U♭), O^+_{X♭}(U♭))."
+      ],
+      "acceptance": [
+        "For R = K⟨T^{1/p^∞}⟩ the closed disc {|T| ≤ |ϖ|} tilts to {|T| ≤ |ϖ♭|}; the point given by T ↦ ϖ tilts to T ↦ ϖ♭.",
+        "The homeomorphism is not merely on rank-one points: all continuous valuations correspond (Prop. 3.6 mechanism)."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, Theorem 6.3(i)-(ii), Corollary 6.7(ii)-(iii), Corollary 6.8 with proofs, pp. 30 and 34-35 (extraction lines 1608-1658 and 1926-1979)",
+          "excerpt": "First, part (i) immediately implies that any rational subset of X is the preimage of a rational subset of X♭. Because X is T_0, this implies that the map is injective.",
+          "match": "The deduction of the homeomorphism from the approximation lemma."
+        },
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 3, Theorem 3.12, p. 17 (extraction lines 761-765)",
+          "excerpt": "The map sending x ∈ Spa(R, R^+) to x♭ ∈ Spa(R♭, R♭+) defined by |f(x♭)| = |f♯(x)| defines a homeomorphism Spa(R, R^+) ≅ Spa(R♭, R♭+). A subset U ⊂ Spa(R, R^+) is rational if and only if its image in Spa(R♭, R♭+) is rational.",
+          "match": "The Tate-ring statement referenced by the stage; its proof over a general perfectoid Tate ring is delegated to [KL15] and not read."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P2/p-finite-acyclicity-from-tate",
+      "parentStageId": "PerfectoidSpaces:P2",
+      "title": "Almost acyclicity for p-finite perfectoid affinoids via Tate's acyclicity theorem",
+      "kind": "lemma",
+      "statement": "Assume char K = p. A perfectoid affinoid K-algebra (R, R^+) is p-finite if it is the completed perfection of a reduced affinoid K-algebra (S, S^+) of topologically finite type (R^+ = ϖ-adic completion of colim_Φ S^+, R = R^+[ϖ^{-1}]). For such (S, S^+) with Y = Spa(S, S^+): S^+ = S° is open and bounded; rational localizations are reduced tft; and for any finite rational cover the Čech complex of O° has cohomology killed by a power of ϖ. Consequently Spa(R, R^+) ≅ Y identifying rational subsets, (O_X(U), O^+_X(U)) is the completed perfection of (O_Y(V), O^+_Y(V)), and the Čech complex 0 → O_X(X)°a → Π O_X(U_i)°a → Π O_X(U_i ∩ U_j)°a → ... is exact, so O_X is a sheaf and H^i(X, O_X°a) = 0 for i > 0 (equivalently H^i(X, O^+_X) is killed by m).",
+      "hypotheses": [
+        "char K = p; S reduced and topologically of finite type over K (the Bosch-Guntzer-Remmert results 6.2.4 Theorem 1, 7.3.2 Corollary 10 and Tate's acyclicity 8.2.1 Theorem 1 are cited via Huber [19] Proposition 4.3 and were not read).",
+        "Banach's open mapping theorem for K-Banach spaces is used to compare subspace and quotient topologies on ker d_i = im d_{i-1}."
+      ],
+      "proofSteps": [
+        "Tate acyclicity gives exactness of the rational Čech complex of O; ker d_i is closed, hence Banach, and d_{i-1} is open onto it, so the subspace and quotient topologies on im d_{i-1} coincide.",
+        "By (i) and (ii) these topologies have bases ϖⁿ im d°_{i-1} and ϖⁿ ker d°_i respectively; agreement means the cohomology of the O°-complex is killed by a power of ϖ.",
+        "Perfection does not change the adic space or rational subsets, nor does completion (Huber Prop. 2.11); the completed perfection of O_Y(V) has the universal property of O_X(U) among perfectoid affinoids.",
+        "The O°-Čech complex of Y is exact up to a ϖ-power; passing to the perfection (direct limit over Frobenius, dividing the exponent by p each time) makes it almost exact, and completion preserves this."
+      ],
+      "acceptance": [
+        "For S = K⟨T⟩ and the cover by {|T| ≤ |ϖ|} and {|ϖ| ≤ |T| ≤ 1}, the O°-Čech cohomology is not zero but is ϖ-power torsion; after perfection it is almost zero.",
+        "Remark 6.12: almost exactness of the O°a complex is equivalent to m-torsion of H^i(X, O^+_X)."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, Definition 6.9, Propositions 6.10-6.11, Remark 6.12 with proofs, pp. 35-37 (extraction lines 1980-2053)",
+          "excerpt": "That they agree precisely amounts to saying that the cohomology group is annihilated by some power of ϖ.",
+          "match": "The open-mapping argument turning Tate's acyclicity into a bounded-torsion statement on integral Čech cohomology."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P2/completed-direct-limits-of-p-finite-affinoids",
+      "parentStageId": "PerfectoidSpaces:P2",
+      "title": "Every perfectoid affinoid K-algebra in characteristic p is a completed direct limit of p-finite ones",
+      "kind": "lemma",
+      "statement": "Assume char K = p and that R^+ is a K°-algebra. Then (R, R^+) is the completion of a filtered direct limit of p-finite perfectoid affinoid K-algebras (R_i, R_i^+); Spa(R, R^+) ≅ lim Spa(R_i, R_i^+) with every rational U ⊂ X the preimage of some rational U_i; (O_X(U), O^+_X(U)) is the completion of the direct limit of the (O_{X_j}(U_j), O^+_{X_j}(U_j)); and any quasicompact open U_i ⊂ X_i containing the image of X contains the image of X_j for some j.",
+      "hypotheses": [
+        "char K = p and R^+ a K°-algebra (arranged in Prop. 6.14 by replacing K with the perfectoid subfield completed F_p((ϖ))(ϖ^{1/p^∞})).",
+        "S_I^+ (powerbounded elements of the reduced quotient S_I of K⟨T_i : i ∈ I⟩) is the integral closure of K°⟨T_i⟩ by [31] Theorem 5.2 (unread); S_I^+ is in general not the preimage of R^+."
+      ],
+      "proofSteps": [
+        "For finite I ⊂ R^+, S_I = image of K⟨T_i⟩ → R with quotient topology, (R_I, R_I^+) its completed perfection; R^+/ϖⁿ = colim_I R_I^+/ϖⁿ (surjective, and injective since a relation f_1 − f_2 = ϖⁿ g with g ∈ R^+ holds in R_J^+ for J ∋ g).",
+        "Spa of the uncompleted direct limit (L, L^+) is lim Spa(R_i, R_i^+) compatibly with rational subsets, and completion does not change Spa (Prop. 2.11).",
+        "(iii) by the universal property of completed direct limits of perfectoid affinoids; (iv) by the constructible topology: the complements A_j are compact in the constructible topology with continuous transition maps, so if their inverse limit is empty one of them is empty."
+      ],
+      "acceptance": [
+        "For R = K⟨T^{1/p^∞}⟩ the system {S_I} contains K⟨T^{1/p^n}⟩ and the construction returns R itself as a completed perfection at a finite stage.",
+        "Part (iv) is the spectral-space input that lets a finite rational cover of X descend to a finite level."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, Lemma 6.13 (i)-(iv) with proof, p. 37 (extraction lines 2054-2096)",
+          "excerpt": "We claim that R^+/ϖⁿ = colim_I R_I^+/ϖⁿ. Indeed, the map is clearly surjective. It is also injective, since if f_1, f_2 ∈ R_I^+ satisfy f_1 − f_2 = ϖⁿ g for some g ∈ R^+, then for some larger J ⊃ I containing g, also f_1 − f_2 ∈ ϖⁿ R_J^+.",
+          "match": "The completed-direct-limit presentation reused in the sheaf theorem, Prop. 7.6 and Lemma 7.5."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity",
+      "parentStageId": "PerfectoidSpaces:P2",
+      "title": "Sheaf theorem: O_X is a sheaf on Spa(R, R^+) and H^i(X, O_X°a) = 0 for i > 0",
+      "kind": "theorem",
+      "statement": "For any perfectoid affinoid K-algebra (R, R^+), X = Spa(R, R^+) and any finite cover of X by rational subsets U_i, the Čech complex 0 → O_X(X)°a → Π_i O_X(U_i)°a → Π_{i,j} O_X(U_i ∩ U_j)°a → ... is exact. Hence O_X is a sheaf, H^i(X, O_X°a) = 0 for i > 0, and H^i(X, O^+_X) is m-torsion for i > 0 (Thm 6.3(iii)-(iv)); ECD 3.18/3.24 record the same for perfectoid Tate rings with H^0(X, O^+_X) = R^+.",
+      "hypotheses": [
+        "Perfectoid base field K (Sch12). In characteristic p one first reduces to a perfectoid subfield to make R^+ a K°-algebra; in characteristic 0 the tilted sequence is used.",
+        "Passage from Čech exactness on finite rational covers to sheaf cohomology vanishing is stated ('the rest follows as before') and relies on the standard acyclic-basis comparison, which is not written in the source."
+      ],
+      "proofSteps": [
+        "Char p: write X = lim X_i with (R_i, R_i^+) p-finite (Lemma 6.13); a finite rational cover descends to a finite level; the almost exact sequences for X_i (Prop. 6.11) pass to the completed direct limit.",
+        "Char 0: the tilted sequence is exact; reduce modulo ϖ♭ (exact by flatness); this is the original sequence reduced modulo ϖ; conclude exactness of the original sequence by flatness and completeness (Lemma 5.3).",
+        "Sheafiness of O_X follows from exactness in degrees 0 and 1 after inverting ϖ; the almost vanishing of higher cohomology is the higher-degree exactness."
+      ],
+      "acceptance": [
+        "Prop. 6.14 applied to the trivial cover recovers R°a = O_X(X)°a; applied to the two-disc cover of the perfectoid closed disc gives almost vanishing where the tft O°-cohomology was only ϖ-power torsion.",
+        "The statement is about the almost integral structure sheaf O°a, not merely about O after inverting ϖ."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, Theorem 6.3(iii)-(iv) and Proposition 6.14 with proof, pp. 30 and 37-38 (extraction lines 1616-1626 and 2097-2129)",
+          "excerpt": "In characteristic 0, first use the exactness of the tilted sequence, then reduce modulo ϖ♭ (which is still exact by flatness), and then remark that this is just the original sequence reduced modulo ϖ. As this is exact, the original sequence is exact, by flatness and completeness.",
+          "match": "The tilting reduction that proves the sheaf property in characteristic 0."
+        },
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 3, Theorem 3.18 and Theorem 3.24, pp. 18-19 (extraction lines 833-841 and 870-874)",
+          "excerpt": "Then the R^+-module H^i(X, O^+_X) is almost zero for i > 0, and H^0(X, O^+_X) = R^+.",
+          "match": "The Tate-ring form of the almost acyclicity, including the degree-0 identification the stage must supply."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P2/perfectoid-spaces-and-glued-tilting",
+      "parentStageId": "PerfectoidSpaces:P2",
+      "title": "Perfectoid spaces, glued tilts and the equivalence of perfectoid spaces over K and K♭",
+      "kind": "construction",
+      "statement": "A perfectoid space over K is an adic space over K locally isomorphic to an affinoid perfectoid space Spa(R, R^+); morphisms are morphisms of adic spaces. X♭ is a tilt of X if Hom(Spa(R♭, R♭+), X♭) = Hom(Spa(R, R^+), X) functorially in perfectoid affinoid (R, R^+). Every perfectoid space admits a tilt, unique up to unique isomorphism; tilting is an equivalence between perfectoid spaces over K and over K♭; |X| = |X♭|; X is affinoid perfectoid iff X♭ is; and for affinoid perfectoid U ⊂ X, (O_X(U), O^+_X(U)) is perfectoid affinoid with tilt (O_{X♭}(U♭), O^+_{X♭}(U♭)). (ECD 3.19-3.20 state the definition and the slice equivalence for general perfectoid Tate rings.)",
+      "hypotheses": [
+        "Uses Theorem 5.2 (tilting equivalence of algebras), Theorem 6.3 (sheafiness and tilting of rational localizations) and Huber's Prop. 2.19 (Spa of a sheafy affinoid is an adic space with the expected global sections).",
+        "The ECD slice equivalence (Cor. 3.20) over a general perfectoid Tate base is asserted by 'globalizing' Thm 3.13 and is not proved in the sources read."
+      ],
+      "proofSteps": [
+        "Sch12 calls Prop. 6.17 'a formal consequence' of Theorem 5.2, Theorem 6.3 and Prop. 2.19; the only additional observation given is that an open U ⊂ X with its restricted structure sheaf and valuations is a perfectoid space with global sections (O_X(U), O^+_X(U)), so affinoid U equals Spa(O_X(U), O^+_X(U)).",
+        "The gluing of tilts along rational subsets uses Corollary 6.8 (tilt of a rational localization is the corresponding localization of the tilt)."
+      ],
+      "acceptance": [
+        "The tilt of the perfectoid projective space (P^n)^{ad} over K, built from perfected affine charts, is the corresponding space over K♭ (Section 8 construction, not read here).",
+        "Affinoid perfectoid subsets of X are exactly the tilts of affinoid perfectoid subsets of X♭."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, Definitions 6.15-6.16, Proposition 6.17 with proof, p. 38 (extraction lines 2130-2160)",
+          "excerpt": "This is a formal consequence of Theorem 5.2, Theorem 6.3 and Proposition 2.19.",
+          "match": "The gluing is delegated to formal arguments; the node records exactly which inputs are named."
+        },
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 3, Definition 3.19 and Corollary 3.20, pp. 18-19 (extraction lines 842-851)",
+          "excerpt": "Let X be a perfectoid space with tilt X♭. Then the functor X' ↦ X'♭ from perfectoid spaces over X to perfectoid spaces over X♭ is an equivalence of categories.",
+          "match": "The slice-category form of the equivalence named by the stage (ECD 3.20)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P2/fibre-products-of-perfectoid-spaces",
+      "parentStageId": "PerfectoidSpaces:P2",
+      "title": "Fibre products of perfectoid spaces over K exist and are perfectoid",
+      "kind": "construction",
+      "statement": "If X → Y ← Z are perfectoid spaces over K, the fibre product X ×_Y Z exists in adic spaces over K and is perfectoid. Affinoid case X = Spa(A, A^+), Y = Spa(B, B^+), Z = Spa(C, C^+): W = Spa(D, D^+) with D the completion of A ⊗_B C and D^+ the completion of the integral closure of the image of A^+ ⊗_{B^+} C^+ in D; the completed almost tensor product A°a ⊗̂_{B°a} C°a is a perfectoid K°a-algebra.",
+      "hypotheses": [
+        "All three spaces are perfectoid over the same perfectoid field K; the absolute product of perfectoid spaces (no common perfectoid Tate base) is not covered by this proposition.",
+        "Perfectoidness of the tensor product is checked modulo ϖ (flatness over K°a/ϖ), which reduces to characteristic p."
+      ],
+      "proofSteps": [
+        "Reduce to the affinoid case; define (D, D^+) as above.",
+        "A°a ⊗_{B°a} C°a /ϖ is flat over K°a/ϖ: in characteristic p, if ϖ f = 0 then ϖ^{1/p} f^{1/p} = 0 by perfectness, so ϖ^{1/p} f = 0, and iterating shows ϖ-torsion is almost zero.",
+        "Hence (D, D^+) is perfectoid affinoid and the universal property is checked directly (stated as immediate in the source)."
+      ],
+      "acceptance": [
+        "Spa K⟨T^{1/p^∞}⟩ ×_{Spa K} Spa K⟨S^{1/p^∞}⟩ = Spa K⟨T^{1/p^∞}, S^{1/p^∞}⟩.",
+        "The construction uses the completion of the ordinary tensor product, not a uniformization; uniformity of D follows from perfectoidness."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, Proposition 6.18 with proof, p. 38 (extraction lines 2161-2184)",
+          "excerpt": "Here, it is enough to check that A°a ⊗_{B°a} C°a is ϖ-torsion free; but if ϖf = 0, then ϖ^{1/p} f^{1/p} = 0 by perfectness, hence ϖ^{1/p} f = 0. Continuing gives the result.",
+          "match": "The characteristic-p torsion argument proving perfectoidness of the completed tensor product."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P3/finite-etale-covers-in-characteristic-p",
+      "parentStageId": "PerfectoidSpaces:P3",
+      "title": "Almost purity in characteristic p: finite etale covers of perfectoid algebras",
+      "kind": "theorem",
+      "statement": "(Prop. 5.22) A finite etale algebra over a perfectoid K°a/ϖ-algebra is perfectoid. (Prop. 5.23) If char K = p, R is a perfectoid K-algebra and S/R is finite etale (with the canonical topology of a finite projective R-module), then S is perfectoid, S°a is finite etale over R°a, and S°a is a uniformly finite projective R°a-module.",
+      "hypotheses": [
+        "char K = p for Prop. 5.23; S carries the canonical topology of a finitely generated module over R = R°[ϖ^{-1}] (GR Definitions 5.4.10-5.4.11), for which S is complete since it is projective.",
+        "Prop. 5.22 imports GR Theorem 3.5.13(ii) (weakly etale maps in characteristic p commute with Frobenius twists) for the Frobenius condition."
+      ],
+      "proofSteps": [
+        "S is a perfect Banach K-algebra; for a finitely generated R°-subalgebra S_0 with S_0[1/ϖ] = S define S_0^⊥ via the perfect trace pairing; then S_0 ⊂ Y ⊂ S_0^⊥ for Y the integral closure of R° in S, so Y is open and bounded and S°a = Y^a, hence S° is open and bounded.",
+        "Uniform finite projectivity: the unramified idempotent e ∈ S ⊗_R S satisfies ϖ^N e ∈ image of S° ⊗_{R°} S°; by bijectivity of Frobenius ϖ^{N/p^m} e = Σ x_i^{1/p^m} ⊗ y_i^{1/p^m}, so for every ε ∈ m, εe = Σ_{i=1}^n a_i ⊗ b_i with a_i, b_i ∈ S°; the maps s ↦ (t(s, b_i))_i and (r_i) ↦ Σ a_i r_i compose to multiplication by ε.",
+        "Unramifiedness of S°a/R°a: the same e defines an almost element of S°a ⊗ S°a with the idempotent properties."
+      ],
+      "acceptance": [
+        "Reviewer-authored test (the source gives no example): for K the completion of F_p((t^{1/p^∞})) and the Artin-Schreier extension S = K[u]/(u^p − u − t^{-1}), Proposition 5.23 gives that S is perfectoid and S°a is finite etale and uniformly finite projective over K°a. Whether S° is free over K° at any finite level is not addressed in the source and must not be assumed.",
+        "The bound n on the number of generators is independent of ε: uniformity."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, Propositions 5.22-5.23 and Remark 5.24 with proofs, pp. 28-29 (extraction lines 1475-1552)",
+          "excerpt": "As Frobenius is bijective, we have ϖ^{N/p^m} e = Σ_{i=1}^n x_i^{1/p^m} ⊗ y_i^{1/p^m} for all m. In particular, for any ε ∈ m, we can write εe = Σ_{i=1}^n a_i ⊗ b_i for certain a_i, b_i ∈ S°, depending on ε.",
+          "match": "The Frobenius-division argument that produces almost finite presentation with a uniform bound."
+        },
+        {
+          "sourceId": "gr-almost",
+          "locator": "Theorem 3.5.13 statement and Theorem 3.5.28 with opening of proof (extraction lines 3701-3737 and 3869-3880)",
+          "excerpt": "Let R be a finite etale V[ε^{-1}]-algebra. Since V[ε^{-1}] is perfect, the same holds for R, in view of theorem 3.5.13(ii)",
+          "match": "Confirms the imported results are the Frobenius-compatibility of weakly etale maps and the finite etale equivalence over perfect bases, in arXiv numbering."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P3/tilting-finite-etale-algebras-fully-faithful",
+      "parentStageId": "PerfectoidSpaces:P3",
+      "title": "Tilting of finite etale algebras: fully faithful functor R♭_fet → R_fet with identified essential image",
+      "kind": "theorem",
+      "statement": "For R perfectoid over K with tilt R♭, A = R°a, Ā = A/ϖ = A♭/ϖ♭: the chain R_fet ← A_fet ≅ Ā_fet ≅ A♭_fet → R♭_fet (with A_fet ≅ Ā_fet by Theorem 4.17 and A♭_fet ≅ R♭_fet by Prop. 5.23) gives a fully faithful functor R♭_fet → R_fet, inverse to tilting on its image. The essential image consists of the finite etale S/R such that S is perfectoid and S°a is finite etale over R°a; in that case S°a is uniformly finite projective over R°a and the functor preserves degrees.",
+      "hypotheses": [
+        "Theorem 4.17 (needs A flat and ϖ-adically complete: true for A = R°a by Prop. 5.5) and Prop. 5.22 (finite etale over Ā is again perfectoid) make the middle equivalences land in perfectoid algebras.",
+        "Full faithfulness of A_fet → R_fet is read off from the diagram (S°a determines S = S°a_*[1/ϖ]); the theorem does not yet assert essential surjectivity in characteristic 0 (that is Theorem 7.9)."
+      ],
+      "proofSteps": [
+        "Prop. 5.22 shows finite etale algebras over perfectoid Ā are perfectoid Ā-algebras, so Thm 4.17 lifts them to perfectoid A- and A♭-algebras; Prop. 5.23 identifies A♭_fet with R♭_fet in characteristic p.",
+        "All finite etale algebras over A, Ā, A♭ are uniformly almost finitely presented by Thm 4.17 and Prop. 5.23.",
+        "Degrees are preserved because rank decompositions (Thm 4.11) are compatible with the equivalences."
+      ],
+      "acceptance": [
+        "For R = K a perfectoid field this is the input to Theorem 3.7; for K♭ algebraically closed the image is all of K_fet (Prop. 3.8 route).",
+        "Neither ordinary etaleness of S° over R° nor freeness of S over R is asserted or needed."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, the diagram following Proposition 5.22, the diagram following Proposition 5.23, and Theorem 5.25, pp. 28-29 (extraction lines 1481-1494 and 1553-1565)",
+          "excerpt": "There is a fully faithful functor from R♭_fet to R_fet inverse to the tilting functor. The essential image of this functor consists of the finite etale covers S of R, for which S (with its natural topology) is perfectoid and S°a is finite etale over R°a.",
+          "match": "Exact statement of the pre-almost-purity comparison of finite etale categories."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P3/finite-extensions-of-perfectoid-fields",
+      "parentStageId": "PerfectoidSpaces:P3",
+      "title": "Finite extensions of perfectoid fields are perfectoid and tilting is a degree-preserving equivalence",
+      "kind": "theorem",
+      "statement": "Let K be a perfectoid field. (i) Every finite extension L/K, with its natural topology, is a perfectoid field. (ii) L ↦ L♭ is an equivalence between finite extensions of K and of K♭, preserving degrees. Auxiliary: if K♭ is algebraically closed then K is algebraically closed (Prop. 3.8).",
+      "hypotheses": [
+        "Two proofs are sketched; the ramification-theory proof imports GR Propositions 6.6.2, 6.6.6 (deeply ramified fields; L°a/K°a etale) and 6.3.6 (L°a finite projective), which were read only as statements.",
+        "The second proof reduces to K♭ algebraically closed and uses Krasner's lemma and Lemma 5.21; it relies on Theorem 5.25 for full faithfulness and degree preservation."
+      ],
+      "proofSteps": [
+        "Prop. 3.8: for monic irreducible P ∈ K°[X] of degree d with |a_0| = 1 (possible since |K^×| is a Q-vector space), pick Q ∈ K♭°[X] with the same image in K°/ϖ[X] = K♭°/ϖ♭[X] and a root y ∈ K♭°; P(y♯) is divisible by ϖ, so P_1(X) = c^{-d} P(cX + y♯) with |c|^d = |P(y♯)| has integral coefficients; iterate to converge to a root.",
+        "Second proof of 3.7: let M = completed algebraic closure of K♭ (perfect, complete, hence perfectoid), M♯ its untilt, algebraically closed by Lemma 5.21 and Prop. 3.8; the union N of the untilts L♯ of finite extensions L ⊂ M of K♭ is dense in M♯ and algebraically closed by Krasner; so any finite F/K lies in some Galois L♯, is cut out by a subgroup H of Gal(L♯/K) = Gal(L/K♭), and F♭ = L^H untilts to F by full faithfulness and degree count."
+      ],
+      "acceptance": [
+        "Q_p(p^{1/p^∞})^ and F_p((t^{1/p^∞}))^ have isomorphic absolute Galois groups (Theorem 1.1); the equivalence is compatible with Galois groups because it preserves degrees and automorphisms.",
+        "For K = Q_p^cycl and L = K(p^{1/2}), L is perfectoid and L♭ is a degree-2 extension of K♭."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 3, Theorem 3.7, Proposition 3.8 with proof, pp. 17-18, and the proof of Theorem 3.7 at the end of Section 5, p. 29 (extraction lines 899-929 and 1566-1594)",
+          "excerpt": "Now Krasner's lemma implies that N is algebraically closed. Hence any finite extension F of K is contained in N; this means that there is some Galois extension L of K♭ such that F is contained in L♯.",
+          "match": "The reduction of the equivalence for finite extensions to the algebraically closed case."
+        },
+        {
+          "sourceId": "gr-almost",
+          "locator": "Propositions 6.3.6, 6.6.2 and 6.6.6, statements (extraction lines 9020-9023, 9983-9988, 10029-10040, in that order)",
+          "excerpt": "(ii) The morphism of almost algebras (K^+)^a → (K^{s+})^a is weakly etale; ... Moreover, the above equivalent conditions imply that the valuation of K is not discrete.",
+          "match": "The ramification-theoretic alternative proof's imports, verified as statements only."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P3/strongly-etale-morphisms-and-base-change",
+      "parentStageId": "PerfectoidSpaces:P3",
+      "title": "Finite etale, etale and strongly (finite) etale morphisms; base change",
+      "kind": "definition",
+      "statement": "(Def. 7.1) A morphism (R, R^+) → (S, S^+) of affinoid k-algebras is finite etale if S is finite etale over R with the induced topology and S^+ is the integral closure of R^+ in S; a morphism of adic spaces is finite etale if locally on the target it is of this affinoid form, and etale if locally on source and target it factors as an open embedding followed by a finite etale map. (Def. 7.2) A morphism of perfectoid affinoid K-algebras is strongly finite etale if additionally S°a is finite etale over R°a, with the corresponding local notions of strongly finite etale and strongly etale maps of perfectoid spaces; f is strongly (finite) etale iff its tilt is, and in characteristic p (finite) etale implies strongly (finite) etale. (Lemma 7.3, Prop. 7.10) Strongly (finite) etale maps are stable under base change along arbitrary maps of perfectoid spaces, with affinoid formula D = A ⊗_B C, D^+ = integral closure of C^+ in D, and surjective on the topological fibre product; the same holds for (finite) etale maps from adic spaces to perfectoid targets in characteristic p, and, after Theorem 7.9, in characteristic 0.",
+      "hypotheses": [
+        "For locally noetherian adic spaces these notions agree with Huber's (Example 1.6.6 ii), Lemma 2.2.8 of [Hub96]); this comparison was not read.",
+        "Surjectivity onto |X| ×_{|Z|} |Y| is imported from the argument of [19], proof of Lemma 3.9(i), where [19] is Huber, A generalization of formal schemes and rigid analytic varieties, Math. Z. 217 (1994). The printed statement of Lemma 7.3(i) writes |X ×_Z Y| → |X| ×_{|Z|} |Y| where |X ×_Y Z| → |X| ×_{|Y|} |Z| is meant."
+      ],
+      "proofSteps": [
+        "Lemma 7.3(ii): A ⊗_B C is finite projective over C, hence complete; the universal property follows; base change preserves finite etale almost algebras.",
+        "(i) reduces to (ii) via the definition; open embeddings are preserved by fibre products.",
+        "(iv): Prop. 5.23 shows D = A ⊗_B C is perfectoid, so Spa(D, D^+) is a perfectoid space; (iii) reduces to (iv)."
+      ],
+      "acceptance": [
+        "A finite etale cover of a perfectoid affinoid pulled back along a rational localization is given by the tensor product with the localization (used in Thm 7.9(ii)).",
+        "In characteristic 0 the identification etale = strongly etale is a theorem (7.9), not part of the definition."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, Definitions 7.1-7.2, Lemma 7.3 with proof, Proposition 7.10, pp. 39-40 and 43 (extraction lines 2185-2269 and 2417-2419)",
+          "excerpt": "From the definitions, Proposition 6.17, and Theorem 5.25, we see that f : X → Y is strongly finite etale, resp. strongly etale, if and only if the tilt f♭ : X♭ → Y♭ is strongly finite etale, resp. strongly etale.",
+          "match": "The tilting invariance of the strong notions, which is what makes the reduction to characteristic p possible."
+        },
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 6, Definition 6.2 and following paragraph, p. 26 (extraction lines 1177-1198)",
+          "excerpt": "In particular, it is proved there that a morphism is finite etale if and only if there is a cover by open affinoid perfectoid U = Spa(R, R^+) ⊂ X such that their preimages V = Spa(S, S^+) ⊂ Y are affinoid perfectoid, R → S is finite etale, and S^+ is the integral closure of R^+ in S.",
+          "match": "ECD's definition quantifies over all affinoid perfectoid opens; the equivalence with Sch12's 'exists a cover' definition is Prop. 7.6 plus Thm 7.9."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P3/strongly-finite-etale-maps-are-affinoid-over-affinoids",
+      "parentStageId": "PerfectoidSpaces:P3",
+      "title": "Preimages of affinoid perfectoids under strongly finite etale maps are affinoid; local structure of etale maps in characteristic p",
+      "kind": "lemma",
+      "statement": "(Prop. 7.6) If f: X → Y is strongly finite etale and V ⊂ Y is open affinoid perfectoid, then U = f^{-1}(V) is affinoid perfectoid and (O_Y(V), O^+_Y(V)) → (O_X(U), O^+_X(U)) is strongly finite etale; hence in characteristic p finite etale covers of Spa(R, R^+) are the finite etale covers of R. (Prop. 7.7) In characteristic p an etale map of perfectoid spaces is locally the base change of an etale map U' → V' of affinoid noetherian adic spaces over K. (Cor. 7.8) Strongly etale maps are open and strongly (finite) etale maps compose.",
+      "hypotheses": [
+        "Reduction to characteristic p by tilting (Theorem 5.25) and to R^+ a K°-algebra by shrinking K.",
+        "Imports for noetherian adic spaces: [Hub96] Example 1.6.6(ii), Proposition 1.7.8 (openness), Proposition 1.6.7(ii) (composition); not read."
+      ],
+      "proofSteps": [
+        "Write (R, R^+) as a completed direct limit of p-finite (R_i, R_i^+) (Lemma 6.13); the finitely many rational subsets over which X is finite etale, the covers, the gluing data and cocycle conditions are all defined at a finite level by Lemma 7.5(i) and quasi-separatedness of Y.",
+        "By Lemma 7.3(ii) reduce to (R, R^+) p-finite, the completed perfection of tft (S, S^+); by Lemma 7.5(ii) X is defined as a finite etale cover of Z = Spa(S, S^+), where the noetherian result applies, and Lemma 7.3(iv) transfers it back.",
+        "Prop. 7.7 and Cor. 7.8 follow by the same reduction."
+      ],
+      "acceptance": [
+        "A finite etale cover of the perfectoid closed disc glued from covers of two rational pieces with compatible gluing is the analytification of a single finite etale algebra over K⟨T^{1/p^∞}⟩.",
+        "Openness of strongly etale maps is deduced, not assumed."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, Propositions 7.6-7.7 and Corollary 7.8 with proofs, pp. 41-42 (extraction lines 2310-2353)",
+          "excerpt": "Indeed, there are finitely many rational subsets of Y over which we have a finite etale cover; by Lemma 7.5 (i), these are defined over a finite level, and because Y is quasi-separated, also the gluing data over intersections (as well as the cocycle condition) are defined over a finite level.",
+          "match": "The finite-level descent step that reduces to the noetherian case."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P3/almost-purity-theorem",
+      "parentStageId": "PerfectoidSpaces:P3",
+      "title": "Almost purity: finite etale covers of a perfectoid affinoid are perfectoid with almost finite etale integral closure",
+      "kind": "theorem",
+      "statement": "Let (R, R^+) be perfectoid affinoid over K, X = Spa(R, R^+). (i) For any open affinoid perfectoid U ⊂ X, global sections give a fully faithful functor from strongly finite etale covers of U to finite etale O_X(U)-algebras. (ii) This functor is an equivalence. (iii) For any finite etale S/R, S is perfectoid, S°a is finite etale over R°a, and S°a is uniformly almost finitely generated over R°a. Consequently every (finite) etale map of perfectoid spaces is strongly (finite) etale. ECD Theorem 6.1 records (i) S perfectoid, (ii) tilting is an equivalence of finite etale categories, (iii) S° almost finite etale over R°, for any perfectoid Tate ring.",
+      "hypotheses": [
+        "Perfectoid base field K (Sch12); ECD's Tate-ring statement cites [KL15, 3.6.21, 5.5.9] and [Fal02] in addition and is not proved in the sources read.",
+        "Inputs: Prop. 7.6, Theorem 5.25, Lemma 7.5(i) (finite etale covers of the completed residue field come from neighbourhoods), Theorem 3.7 (perfectoid fields), Lemma 7.3(ii), the sheaf property of O_X and O_Y, and flatness of S over R."
+      ],
+      "proofSteps": [
+        "(i): by Prop. 7.6 and Thm 5.25, strongly finite etale covers of U are the finite etale O_X(U)°a-algebras, a full subcategory of finite etale O_X(U)-algebras.",
+        "(ii), local step: for x ∈ X, 2-colim_{x ∈ U} (O_X(U))_fet ≅ (k(x)^)_fet by Lemma 7.5(i); k(x)^ is perfectoid and by Theorem 3.7 (k(x)^)_fet ≅ (k(x♭)^)_fet; so 2-colim (O_X(U))_fet ≅ 2-colim (O_{X♭}(U♭))_fet; choose V♭ finite etale over some U♭ whose global sections tilt to S ⊗ k(x)^ up to shrinking, and untilt to a strongly finite etale V → U.",
+        "(ii), global step: get a finite rational cover X = ∪ U_i with strongly finite etale V_i = Spa(S_i, S_i^+) → U_i, S_i = O_X(U_i) ⊗_R S; by Lemma 7.3(ii) these glue to a strongly finite etale Y → X, affinoid by Prop. 7.6, Y = Spa(A, A^+); the sheaf sequence of O_Y is the sheaf sequence of O_X tensored with the flat R-module S, so A = S.",
+        "(iii): formal from (ii), Prop. 7.6 and Thm 5.25."
+      ],
+      "acceptance": [
+        "Every finite etale R-algebra S, for R perfectoid over K, is itself perfectoid with S°a finite etale over R°a; the three assertions of ECD 6.1 are recovered with 'almost finite etale' meaning finite etale in the almost category, not etaleness of S° over R°.",
+        "Test: R = Q_p^cycl⟨T^{±1/p^∞}⟩ and the Kummer cover S = R[T^{1/ℓ}] for ℓ ≠ p, and a wildly ramified Artin-Schreier-Witt type cover, both have S°a uniformly almost finitely generated over R°a."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, Theorem 7.9 with proof, pp. 42-43 (extraction lines 2354-2416)",
+          "excerpt": "Because S is flat over R, tensoring is exact, and the first sequence is identified with the second sequence after ⊗_R S. Therefore A = S, as desired.",
+          "match": "The final identification in the proof of (ii), which needs the sheaf property from P2 and flatness of S."
+        },
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 6, Theorem 6.1, p. 26 (extraction lines 1170-1176)",
+          "excerpt": "(i) For any finite etale R-algebra S, S is perfectoid. (ii) Tilting induces an equivalence {Finite etale R-algebras} → {Finite etale R♭-algebras} (iii) For any finite etale R-algebras S, S° is almost finite etale over R°.",
+          "match": "The three-part statement demanded by the stage (ECD 6.1)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P3/etale-site-tilting-and-etale-almost-acyclicity",
+      "parentStageId": "PerfectoidSpaces:P3",
+      "title": "The etale site of a perfectoid space, its tilting isomorphism, and almost acyclicity of O°a on X_et",
+      "kind": "comparison",
+      "statement": "The etale site X_et of a perfectoid space X has objects the perfectoid spaces etale over X and coverings the topological coverings; tilting induces an isomorphism of sites X_et ≅ X♭_et, functorial in X (Thm 7.12; ECD 6.3). U ↦ O_U(U) is a sheaf on X_et, and H^i(X_et, O_X°a) = 0 for i > 0 when X is affinoid perfectoid (Prop. 7.13; ECD 6.3 states H^i(X_et, O^+_X) almost zero and H^0 = R^+).",
+      "hypotheses": [
+        "Site axioms rely on Lemma 7.3, Prop. 7.10 and Cor. 7.8 (base change, composition, openness); a morphism to a locally noetherian adic space also induces a morphism of sites.",
+        "Prop. 7.13's proof covers X by finitely many etale U_i given as rational subsets of finite etale covers of rational subsets, reduces by tilting to characteristic p and to p-finite (R, R^+), and uses that the analogous sequence for noetherian adic spaces is exact up to a bounded ϖ-power (imported, unread)."
+      ],
+      "proofSteps": [
+        "Thm 7.12 is 'immediate' from the tilting invariance of strongly etale maps and Thm 7.9 (etale = strongly etale).",
+        "Prop. 7.13: exactness of the etale Čech complex of O°a for the stated covers; after tilting and reduction to p-finite algebras, take the perfection of the bounded-torsion exact sequence."
+      ],
+      "acceptance": [
+        "For a finite etale Galois cover Y → X of affinoid perfectoids, H^i(G, O_Y°a) is almost zero for i > 0 and (O_Y°a)^G = O_X°a (a special case of the Čech statement).",
+        "The site isomorphism is compatible with the underlying topological homeomorphism |X| = |X♭|."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, Definition 7.11, Theorem 7.12, Proposition 7.13 with proofs, p. 43 (extraction lines 2420-2452)",
+          "excerpt": "Under tilting, this reduces to the assertion in characteristic p, and then to the assertion for p-finite (R, R^+). In that case, one uses that the analogous sequence for noetherian adic spaces is exact up to a bounded ϖ-power, and hence after taking the perfection almost exact.",
+          "match": "The proof of etale almost acyclicity and its imported noetherian input."
+        },
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 6, Theorem 6.3, p. 26 (extraction lines 1199-1204)",
+          "excerpt": "If X = Spa(R, R^+) is affinoid perfectoid, then the R^+-module H^i(X_et, O^+_X) is almost zero for i > 0, and H^0(X_et, O^+_X) = R^+.",
+          "match": "The stage's ECD 6.3 target, including the H^0 identification."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P3/henselian-finite-etale-approximation",
+      "parentStageId": "PerfectoidSpaces:P3",
+      "title": "Finite etale algebras over henselian K°-algebras and their completions; finite-stage descent of finite etale covers",
+      "kind": "theorem",
+      "statement": "(Prop. 7.4) For a flat K°-algebra A henselian along (ϖ), finite etale A[ϖ^{-1}]-algebras and finite etale Â[ϖ^{-1}]-algebras are equivalent (Â the ϖ-adic completion). (Lemma 7.5) (i) If A_i is a filtered direct system of complete flat K°-algebras and A the completion of their direct limit, then A[ϖ^{-1}]_fet ≅ 2-colim A_i[ϖ^{-1}]_fet; in particular for perfectoid R_i with completed direct limit R, R_fet ≅ 2-colim (R_i)_fet. (ii) In characteristic p, for (R, R^+) p-finite from (S, S^+), R_fet ≅ S_fet.",
+      "hypotheses": [
+        "A flat over K° and henselian along (ϖ): ϖ-adically complete algebras are henselian along (ϖ), and direct limits of algebras henselian along (ϖ) are henselian along (ϖ) (recalled without proof).",
+        "Prop. 7.4 is imported from Gabber-Ramero (book Proposition 5.4.53 = arXiv Proposition 5.4.54, requiring the assumptions of Proposition 5.4.21: t a nonzerodivisor, (R, tI) henselian, R^∧ the (t, I)-adic completion); the proof (Elkik-type approximation, Theorem 5.4.38, Corollary 5.4.42, Lemmas 5.4.46, 5.4.53) was not read.",
+        "Placement: the atlas stage P5 assigns this henselian finite-stage approximation to P5, but Sch12 uses Lemma 7.5(i) inside the proofs of Proposition 7.6 and Theorem 7.9 (almost purity, stage P3); since P5 requires P3 in the atlas, the node is filed under P3 and exported to P5 and P7 (see gap 'Reversed dependency')."
+      ],
+      "proofSteps": [
+        "Lemma 7.5(i): finite etale covers and their morphisms are finitely presented objects, so (colim A_i[ϖ^{-1}])_fet ≅ 2-colim A_i[ϖ^{-1}]_fet; colim A_i is henselian along (ϖ), so Prop. 7.4 identifies this with A[ϖ^{-1}]_fet.",
+        "Lemma 7.5(ii): R_fet ≅ 2-colim (S^{1/pⁿ})_fet by (i), and each (S^{1/pⁿ})_fet ≅ S_fet."
+      ],
+      "acceptance": [
+        "A finite etale cover of the completed direct limit is, with all its morphisms, defined and unique at a finite stage (used in Prop. 7.6, Thm 7.9, ECD 6.4(i)).",
+        "Uniqueness of the finite-stage descent is part of the 2-colimit equivalence, not only existence."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, Proposition 7.4 and Lemma 7.5 with proofs, pp. 40-41 (extraction lines 2270-2309)",
+          "excerpt": "Because finite etale covers, and morphisms between these, are finitely presented objects, we have (colim A_i[ϖ^{-1}])_fet ≅ 2-colim A_i[ϖ^{-1}]_fet. On the other hand, colim A_i is henselian along (ϖ), hence the left-hand side agrees with A[ϖ^{-1}]_fet by Proposition 7.4.",
+          "match": "The two-step argument (finite presentation, then henselian comparison with the completion)."
+        },
+        {
+          "sourceId": "gr-almost",
+          "locator": "Section 5.4 introduction, Proposition 5.4.21 and Proposition 5.4.54 with the opening of its proof (extraction lines 6499-6512, 6764-6769, 7032-7046)",
+          "excerpt": "Proposition 5.4.54. Resume the assumptions of proposition 5.4.21. Then the base change functor R[t^{-1}]-Alg → R^∧[t^{-1}]-Alg induces an equivalence of categories from the category of finite etale R[t^{-1}]-algebras to the category of finite etale R^∧[t^{-1}]-algebras.",
+          "match": "Identifies the imported henselian approximation theorem and its hypotheses ((R, tI) henselian, t a nonzerodivisor) in the arXiv numbering."
+        },
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 6, proof of Proposition 6.4(i), p. 27 (extraction lines 1345-1349)",
+          "excerpt": "This is a consequence [Sch12, Lemma 7.5 (i)] of a theorem of Elkik, [Elk73], (in the noetherian case) and Gabber-Ramero, [GR03, Proposition 5.4.53], in general.",
+          "match": "Confirms the provenance chain Elkik/Gabber-Ramero → Sch12 7.5 → ECD 6.4(i)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P5/cofiltered-limits-of-affinoid-perfectoid-spaces",
+      "parentStageId": "PerfectoidSpaces:P5",
+      "title": "Cofiltered limits of affinoid perfectoid spaces; ω₁-cofiltered limits; countably generated presentations",
+      "kind": "construction",
+      "statement": "For a cofiltered diagram X_i = Spa(R_i, R_i^+) of affinoid perfectoid spaces, the limit X = lim X_i exists in perfectoid spaces and is X = Spa(R, R^+) with R^+ the ϖ-adic completion of colim R_i^+ (ϖ a compatible pseudouniformizer for large i) and R = R^+[ϖ^{-1}]; |X| → lim |X_i| is a homeomorphism of spectral spaces. If I is ω₁-cofiltered then colim R_i → R and colim R_i^+ → R^+ are bijective. Every affinoid perfectoid space is an ω₁-cofiltered limit of affinoid perfectoid spaces with topologically countably generated R_i, R_i^+.",
+      "hypotheses": [
+        "The R_i are perfectoid Tate rings (ECD generality); the claim that (R, R^+) is again perfectoid is used without proof in the statement.",
+        "The homeomorphism (o) is imported from [Hub93a, Prop. 3.9] via Sch12 Lemma 6.13(ii)."
+      ],
+      "proofSteps": [
+        "Universal property from uniformity: a compatible family Y → X_i gives colim R_i^+ → O^+(Y), which extends uniquely to the ϖ-adic completion R^+ because O^+(Y) is complete, inducing (R, R^+) → (O(Y), O^+(Y)).",
+        "ω₁-cofiltered: any Cauchy sequence in colim R_i^+ already lives in some R_i^+, so the colimit is complete.",
+        "Countable generation: (R, R^+) is the (automatically ω₁-filtered) colimit of the perfectoid sub-pairs admitting a countable dense subset."
+      ],
+      "acceptance": [
+        "Spa Q_p^cycl⟨T^{1/p^∞}⟩ = lim_n Spa Q_p^cycl⟨T^{1/pⁿ}⟩ in perfectoid spaces? No: the finite-level spaces are not perfectoid, so this is a tilde-limit (P7), not an instance of this node; the node applies to towers of perfectoid affinoids, e.g. lim_n Spa(R_n, R_n^+) with all R_n perfectoid.",
+        "For a countable tower (I = N) the uncompleted colimit is not complete in general; the ω₁ hypothesis is necessary for the bijectivity statement."
+      ],
+      "sources": [
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 6, Proposition 6.4(o) and Proposition 6.5 with proof, pp. 27 and 29 (extraction lines 1210-1220 and 1313-1343)",
+          "excerpt": "The first part follows from uniformity of perfectoid spaces, which means that whenever Y maps compatibly to all X_i, the map colim R_i^+ → O^+(Y) extends uniquely to the ϖ-adic completion R^+",
+          "match": "The uniformity argument for the universal property, and the ω₁-cofiltered refinement demanded by the stage (ECD 6.5)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P5/finite-stage-descent-of-qcqs-etale-objects",
+      "parentStageId": "PerfectoidSpaces:P5",
+      "title": "Finite-stage descent along cofiltered limits: finite etale, qcqs etale and qc separated etale objects",
+      "kind": "theorem",
+      "statement": "In the situation of the previous node: (i) 2-colim (X_i)_fet → X_fet is an equivalence; (ii) 2-colim (X_i)_{et,qcqs} → X_{et,qcqs} is an equivalence; (iii) 2-colim (X_i)_{et,qc,sep} → X_{et,qc,sep} is an equivalence. Size: if I is λ-small for λ < κ and all X_i are κ'-small for a strong limit cardinal κ' < κ (κ as in ECD Lemma 4.1) then X is κ-small. Part (iv) (affinoid etale objects) is excluded here and belongs to P6/A3.",
+      "hypotheses": [
+        "Uses (o) (|X| = lim |X_i| as spectral spaces), (i) (from Lemma 7.5(i)), approximation of quasicompact open subsets of inverse limits of spectral spaces at finite level, and that graphs of maps between etale spaces over X are quasicompact open immersions.",
+        "The size statement uses ECD Lemma 4.1 (cofinal class of cardinals κ with κ_λ of cofinality > λ), not read in detail."
+      ],
+      "proofSteps": [
+        "Faithfulness: two maps f_i, g_i: Y_i → Y_i' equal after pullback have graphs Γ_{f_i}, Γ_{g_i} whose quasicompact open images in |Z_i| = |Y_i ×_{X_i} Y_i'| agree after pullback to |Z| = lim |Z_j|, hence agree in |Z_j| for large j.",
+        "Isomorphism detection: if f_i pulls back to an isomorphism then f_j is surjective for large j (image is quasicompact open, Y' → Y_i' factors through it at a finite stage); applying this to the diagonal Δ_{f_i} (an injection) shows Δ_{f_j} is an isomorphism, hence f_j is.",
+        "Fullness: the graph Γ_f ⊂ Y ×_X Y' is a quasicompact open immersion approximated by V_j ⊂ Y_j ×_{X_j} Y_j'; V_j → Y_j becomes an isomorphism after pullback, hence at a finite stage; compose the inverse with the projection to Y_j'.",
+        "Essential surjectivity: a qcqs etale Y → X is covered by finitely many pieces which are composites of rational opens, a finite etale map and a rational open, each descending by (i); pieces glue at a finite stage by full faithfulness.",
+        "(iii): separatedness of f_j for large j since an open-and-closed quasicompact subset of an inverse limit of spectral spaces (here the diagonal) descends to an open-and-closed subset at a finite stage."
+      ],
+      "acceptance": [
+        "A finite etale cover of a limit of perfectoid affinoids is the pullback of one at a finite stage, uniquely up to unique isomorphism at a later stage.",
+        "The affinoid statement (iv) requires the extra input (Hub96 1.7.1 / KL16 pseudocoherent sheaves / FS IV.4.19) and is not proved here."
+      ],
+      "sources": [
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 6, Proposition 6.4 (i)-(iii) with proof, pp. 27-28 (extraction lines 1210-1300)",
+          "excerpt": "The graph Γ_f : Y ↪ Y ×_X Y' is a quasicompact open embedding. By approximation of quasicompact open subsets, we can find a quasicompact open immersion V_j ⊂ Y_j ×_{X_j} Y_j' whose pullback agrees with the image of Γ_f.",
+          "match": "The graph-approximation argument for fullness demanded by the stage ('full faithfulness through graph approximation')."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P7/tilde-limits-and-etale-topos-comparison",
+      "parentStageId": "PerfectoidSpaces:P7",
+      "title": "Tilde-limits X ~ lim X_i of noetherian adic spaces and the comparison of etale topoi",
+      "kind": "comparison",
+      "statement": "For a perfectoid space X with compatible maps φ_i: X → X_i to a filtered inverse system of noetherian (qcqs, locally strongly noetherian) adic spaces over K, write X ~ lim X_i if |X| → lim |X_i| is a homeomorphism and for every x ∈ X the map colim k(x_i) → k(x) has dense image. Then |X| is spectral; for Y → X_i etale, Y ×_{X_i} X ~ lim_{j ≥ i} Y ×_{X_i} X_j; X_et^~ is the projective limit of the fibred topos (X_{i,et}^~); colim H^n(X_{j,et}, F_j) ≅ H^n(X_et, F) for abelian sheaves F_i on X_{i,et}; and if all transition maps induce purely inseparable extensions on completed residue fields and homeomorphisms then X_et^~ ≅ X_{i,et}^~ for every i.",
+      "hypotheses": [
+        "All X_i are qcqs noetherian adic spaces over K; X perfectoid (so its etale site is the one of Definition 7.11).",
+        "Proofs are by reference to [Hub96] Remark 2.4.3, Proposition 2.4.4 (with the modification that etale maps factor locally as open immersion followed by finite etale, descended via Lemma 7.5), Corollary 2.4.6 and the remark after Proposition 2.3.7; none of these Huber arguments were read.",
+        "The bijectivity-plus-density criterion (Prop. 7.16) shows that |X| → lim |X_i| bijective with dense residue-field images already implies a homeomorphism."
+      ],
+      "proofSteps": [
+        "Prop. 7.16 and Thm 7.17: transcribe Huber's proofs, replacing the appeal to [Hub96] 1.7.3 by the local factorization of etale maps and finite-stage descent of finite etale maps (Lemma 7.5).",
+        "Cor. 7.18 follows as in Huber Cor. 2.4.6; Cor. 7.19 from the invariance of the etale topos under purely inseparable universal homeomorphisms."
+      ],
+      "acceptance": [
+        "Spa K⟨T^{1/p^∞}⟩ ~ lim_n Spa K⟨T^{1/pⁿ}⟩ and Spa K⟨T^{±1/p^∞}⟩ ~ lim Spa K⟨T^{±1/pⁿ}⟩ (compatible-root disc and torus).",
+        "Theorem 1.12/8.5's (P^n)^{ad} ~ lim_φ (P^n)^{ad} (Frobenius tower) is the source's application; in this case Cor. 7.19 does not apply but Thm 7.17 does."
+      ],
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, Definition 7.14, Remark 7.15, Proposition 7.16, Theorem 7.17, Corollaries 7.18-7.19 with proofs, pp. 43-44 (extraction lines 2453-2503)",
+          "excerpt": "The same proof as for Proposition 2.4.4 of [20] works, except that one uses that any etale morphism factors locally as the composite of an open immersion and a finite etale map instead of appealing to Corollary 1.7.3 of [20] on the top of page 128. The latter kind of morphisms can be descended to a finite level because of Lemma 7.5.",
+          "match": "The exact modification of Huber's argument; the rest of the proof is by reference and remains an unread boundary."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "PerfectoidSpaces:P0/almost-modules-over-perfectoid-base",
+      "target": "PerfectoidSpaces:P0/almost-finite-projective-and-finite-etale-algebras",
+      "reason": "Definition/Proposition 4.7, Theorem 4.11 and Definitions 4.12-4.14 are formulated inside the abelian tensor category K°a-mod and use alHom, the functor of almost elements and the characterization of almost-zero modules from the previous node. Added by REVIEW-EXT-03.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 4, Definition/Proposition 4.7 and Remark 4.15, pp. 19-21 (extraction lines 1000-1090)"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P0/almost-modules-over-perfectoid-base",
+      "target": "PerfectoidSpaces:P1/almost-integral-dictionary",
+      "reason": "Lemma 5.3 is formulated with the functors M ↦ M_*, M ↦ Mᵃ, M_! and the Hom formula Hom(m, M); its proof uses that both adjoints commute with inverse limits.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, proof of Lemma 5.3 (i), (iv), pp. 22-23"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P0/almost-finite-projective-and-finite-etale-algebras",
+      "target": "PerfectoidSpaces:P0/finite-etale-lifting-along-complete-flat-almost-algebras",
+      "reason": "Theorem 4.17 is a statement about the categories A_fet defined via Definition 4.13 and about uniformly finite projective modules of Proposition 4.10.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 4, Theorem 4.17, p. 21"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P0/finite-etale-lifting-along-complete-flat-almost-algebras",
+      "target": "PerfectoidSpaces:P3/tilting-finite-etale-algebras-fully-faithful",
+      "reason": "Supplies the equivalences A_fet ≅ (A/ϖ)_fet and A♭_fet ≅ (A♭/ϖ♭)_fet in the chain defining the functor R♭_fet → R_fet, and the uniform almost finite presentation of its objects.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, diagram before Proposition 5.23 and the sentence 'using Theorem 4.17' before Theorem 5.25, pp. 28-29"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P1/perfectoid-field-definition",
+      "target": "PerfectoidSpaces:P1/tilt-of-perfectoid-field",
+      "reason": "The construction needs ϖ with |p| ≤ |ϖ| < 1, surjectivity of Frobenius on K°/ϖ and (for Remark 3.5) p-divisibility of the value group to choose ϖ_1 with |ϖ_1|^p = |ϖ|.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 3, proof of Lemma 3.4 (ii), p. 16"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P1/tilt-of-perfectoid-field",
+      "target": "PerfectoidSpaces:P1/continuous-valuations-under-tilting",
+      "reason": "The sharp map and the identification K°/m = K♭°/m♭ are the data through which valuations are transported.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 3, proof of Proposition 3.6, p. 17"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P1/perfectoid-tate-rings-and-algebras",
+      "target": "PerfectoidSpaces:P1/almost-integral-dictionary",
+      "reason": "Proposition 5.5 turns the definition of a perfectoid K-algebra into the isomorphism Φ: R°/ϖ^{1/p} ≅ R°/ϖ and the flat complete almost algebra R°a; Lemma 5.6 goes back.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, Proposition 5.5 and Lemma 5.6, pp. 23"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P1/cotangent-complex-vanishing-mod-varpi",
+      "target": "PerfectoidSpaces:P1/deformation-lifting-of-perfectoid-mod-varpi-algebras",
+      "reason": "Vanishing of Lᵃ_{A/(K°/ϖ)ᵃ} kills all obstruction and ambiguity groups (Ext², Ext¹, Hom of the cotangent complex) in the inductive lifting.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, proof of Theorem 5.10, p. 26"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P1/almost-integral-dictionary",
+      "target": "PerfectoidSpaces:P1/tilting-equivalence-and-explicit-tilt",
+      "reason": "Supplies K-Perf ≅ K°a-Perf on both sides of the chain of Theorem 5.2 and Lemma 5.3(iii)/5.6 used in Proposition 5.17 to compute A♭_* = lim A_*.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, Theorem 5.2 and proof of Proposition 5.17, pp. 22 and 26-27"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P1/deformation-lifting-of-perfectoid-mod-varpi-algebras",
+      "target": "PerfectoidSpaces:P1/tilting-equivalence-and-explicit-tilt",
+      "reason": "Theorem 5.10 is the middle equivalence K°a-Perf ≅ (K°a/ϖ)-Perf, applied on both sides of the tautological identification (K°a/ϖ)-Perf = (K♭°a/ϖ♭)-Perf.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, sentence after the proof of Theorem 5.10, p. 26"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P1/tilt-of-perfectoid-field",
+      "target": "PerfectoidSpaces:P1/tilting-equivalence-and-explicit-tilt",
+      "reason": "K♭, ϖ♭ and the identity K°/ϖ = K♭°/ϖ♭ are the base data of the chain of equivalences; the argument lim_Φ A_*/ϖ = lim_{x↦x^p} A_* is 'as in the proof of Lemma 3.4 (i)'.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, proof of Proposition 5.17, p. 27"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P1/perfectoid-tate-rings-and-algebras",
+      "target": "PerfectoidSpaces:P1/tilt-of-perfectoid-tate-ring",
+      "reason": "ECD Lemma 3.10 constructs R♭ from Definition 3.1: the existence of a pseudo-uniformizer ϖ with ϖ^p | p and the isomorphism Φ: R°/ϖ → R°/ϖ^p are what make limΦ R°/ϖ0 → limx↦x^p R° bijective and R♭ perfect. Added by REVIEW-EXT-03.",
+      "sources": [
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 3, proof of Lemma 3.10, pp. 16-17 (extraction lines 712-745)"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P1/tilt-of-perfectoid-tate-ring",
+      "target": "PerfectoidSpaces:P1/fontaine-theta-and-primitive-kernel",
+      "reason": "θ is defined on W(R♭+) with R♭+ = lim R^+ and uses the sharp map, R♭+/ϖ♭ = R^+/ϖ and the pseudo-uniformizer ϖ♭ with (ϖ♭♯)^p | p.",
+      "sources": [
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 3, proof of Lemma 3.14, pp. 17-18"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P1/fontaine-theta-and-primitive-kernel",
+      "target": "PerfectoidSpaces:P1/untilts-classified-by-primitive-ideals",
+      "reason": "The forward functor (S, S^+) ↦ (S♭, S♭+, ker θ) lands in primitive degree-one ideals by Lemma 3.14(ii).",
+      "sources": [
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 3, Theorem 3.17, p. 18"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P1/tilting-equivalence-and-explicit-tilt",
+      "target": "PerfectoidSpaces:P2/rational-localization-of-perfectoid-affinoids",
+      "reason": "The general-K case of Lemma 6.4 tilts the map R°⟨T^{1/p^∞}⟩ᵃ → O_X(U♯)°a → S°a to the characteristic-p situation and uses the equivalence to compare reductions modulo ϖ and ϖ♭.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, proof of Lemma 6.4, (i),(iii) general K, pp. 32-33"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P2/rational-localization-of-perfectoid-affinoids",
+      "target": "PerfectoidSpaces:P2/approximation-lemma",
+      "reason": "The induction step uses O_X(U_c♯)°a = R°⟨(g_c♯/ϖ^c)^{1/p^∞}⟩ᵃ to expand h = f − g_c♯ in powers (g_c♯/ϖ^c)^i.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, proof of Lemma 6.5, 'The previous lemma shows that', p. 34"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P2/approximation-lemma",
+      "target": "PerfectoidSpaces:P2/tilting-homeomorphism-and-rational-subsets",
+      "reason": "Corollary 6.7(i) shows every rational subset of X is the preimage of a rational subset of X♭, giving injectivity and the identification of rational subsets.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, proof of Corollary 6.7 (iii), p. 35"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P1/continuous-valuations-under-tilting",
+      "target": "PerfectoidSpaces:P2/tilting-homeomorphism-and-rational-subsets",
+      "reason": "Well-definedness of x ↦ x♭ and surjectivity (untilting a valuation of the perfectoid field k(x)^) use Proposition 3.6.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, proof of Theorem 6.3 first paragraph, p. 31, and proof of Corollary 6.7 (iii), p. 35"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P1/tilting-equivalence-and-explicit-tilt",
+      "target": "PerfectoidSpaces:P2/tilting-homeomorphism-and-rational-subsets",
+      "reason": "Lemma 5.21 (perfectoid fields untilt to perfectoid fields) is used to untilt k(x)^ for surjectivity.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, proof of Corollary 6.7 (iii), p. 35"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P2/p-finite-acyclicity-from-tate",
+      "target": "PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity",
+      "reason": "The characteristic-p case of Proposition 6.14 is the completed direct limit of the almost exact sequences of Proposition 6.11 for p-finite algebras.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, proof of Proposition 6.14, pp. 37-38"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P2/completed-direct-limits-of-p-finite-affinoids",
+      "target": "PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity",
+      "reason": "Lemma 6.13 writes X as lim X_i with p-finite X_i so that finite rational covers descend to a finite level.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, proof of Proposition 6.14, p. 38"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P2/tilting-homeomorphism-and-rational-subsets",
+      "target": "PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity",
+      "reason": "The characteristic-0 case reduces modulo ϖ♭ the exact tilted sequence, which is the original sequence modulo ϖ by Corollary 6.8's identification of the tilts of rational localizations.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, proof of Proposition 6.14, characteristic 0 paragraph, p. 38"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P1/almost-integral-dictionary",
+      "target": "PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity",
+      "reason": "Flatness and ϖ-adic completeness of the O°a terms (Lemma 5.3) are what allow exactness to be deduced from exactness modulo ϖ.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, proof of Proposition 6.14, 'by flatness and completeness', p. 38"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity",
+      "target": "PerfectoidSpaces:P2/perfectoid-spaces-and-glued-tilting",
+      "reason": "Sheafiness makes Spa(R, R^+) an adic space (with Huber's Proposition 2.19), which is needed to define perfectoid spaces and glue tilts.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, proof of Proposition 6.17, p. 38"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P2/tilting-homeomorphism-and-rational-subsets",
+      "target": "PerfectoidSpaces:P2/perfectoid-spaces-and-glued-tilting",
+      "reason": "Corollary 6.8 (tilts of rational localizations) is what lets tilting be glued along rational subsets and identifies |X| with |X♭|.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, Proposition 6.17 statement and proof, p. 38"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P2/perfectoid-spaces-and-glued-tilting",
+      "target": "PerfectoidSpaces:P2/fibre-products-of-perfectoid-spaces",
+      "reason": "Fibre products are constructed affinoid-locally and glued in the category of perfectoid spaces defined by 6.15-6.17.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, proof of Proposition 6.18, p. 38"
+        }
+      ]
+    },
+    {
+      "source": "AdicEtaleGeometry:A0",
+      "target": "PerfectoidSpaces:P2/fibre-products-of-perfectoid-spaces",
+      "reason": "A0 owns the completed tensor product of complete Huber pairs with its plus ring (integral closure of the image of A^+ ⊗ C^+) and the universal property for continuous morphisms; Proposition 6.18 uses exactly this (D, D^+) and only adds the perfectoidness check. A0's description explicitly defers the perfectoid pullback theorem to P2.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, proof of Proposition 6.18, p. 38"
+        }
+      ]
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity",
+      "reason": "D0 supplies the Čech-to-sheaf cohomology comparison and acyclic-basis argument ('these ordinary foundations suffice for the structure-sheaf vanishing statements in P2'); Proposition 6.14 proves Čech exactness on finite rational covers and states sheaf-cohomology vanishing without writing this passage.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, Proposition 6.14 statement 'In particular, O_X is a sheaf, and H^i(X, O_X°a) = 0 for i > 0', p. 37"
+        }
+      ]
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "PerfectoidSpaces:P2/p-finite-acyclicity-from-tate",
+      "reason": "R3's stated scope ('the affinoid coherent-sheaf equivalence, acyclicity and the comparison needed for finite affinoid covers') covers Tate's acyclicity theorem for finite rational covers of tft affinoids, which is the exactness input of Proposition 6.10(iii). The boundedness inputs (BGR 6.2.4 Thm 1, 7.3.2 Cor 10) are not covered by R3's text and remain a gap.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 6, proof of Proposition 6.10, 'Tate's acyclicity theorem, 8.2.1 Theorem 1 in [2]', p. 36"
+        }
+      ]
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "PerfectoidSpaces:P1/cotangent-complex-vanishing-mod-varpi",
+      "reason": "DD.0 constructs L_{B/A} by simplicial polynomial resolutions and proves the transitivity triangle and derived base change; Proposition 5.13 argues on such a resolution and the proof of Theorem 5.10 uses the transitivity triangle for A → A_n → A_{n-1}. The almost-context version (GR §2.5) is not in DD.0's scope and is recorded as a gap.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, proof of Proposition 5.13 and proof of Theorem 5.10, pp. 25-26"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P3/finite-etale-covers-in-characteristic-p",
+      "target": "PerfectoidSpaces:P3/tilting-finite-etale-algebras-fully-faithful",
+      "reason": "Proposition 5.23 gives A♭_fet ≅ R♭_fet (finite etale covers of a characteristic-p perfectoid algebra are almost finite etale integrally) closing the chain at the characteristic-p end.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, diagram after Proposition 5.23 and Theorem 5.25, p. 29"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P3/tilting-finite-etale-algebras-fully-faithful",
+      "target": "PerfectoidSpaces:P3/finite-extensions-of-perfectoid-fields",
+      "reason": "The proof of Theorem 3.7 reduces to showing that the fully faithful, degree-preserving functor K♭_fet → K_fet of Theorem 5.25 is essentially surjective.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, proof of Theorem 3.7, p. 29"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P1/tilting-equivalence-and-explicit-tilt",
+      "target": "PerfectoidSpaces:P3/finite-extensions-of-perfectoid-fields",
+      "reason": "Lemma 5.21 (untilts of perfectoid fields are perfectoid fields) identifies M♯ as a field in the reduction to the algebraically closed case.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 5, proof of Theorem 3.7, 'by Lemma 5.21 and Proposition 3.8', p. 29"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P3/tilting-finite-etale-algebras-fully-faithful",
+      "target": "PerfectoidSpaces:P3/strongly-etale-morphisms-and-base-change",
+      "reason": "Tilting invariance of strong (finite) etaleness is read off from Theorem 5.25 and Proposition 6.17.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, paragraph after Definition 7.2, p. 40"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P2/completed-direct-limits-of-p-finite-affinoids",
+      "target": "PerfectoidSpaces:P3/strongly-finite-etale-maps-are-affinoid-over-affinoids",
+      "reason": "Proposition 7.6 writes (R, R^+) as a completed direct limit of p-finite pairs to descend the finite etale cover and its gluing data to a p-finite level.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, proof of Proposition 7.6, p. 41"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P3/henselian-finite-etale-approximation",
+      "target": "PerfectoidSpaces:P3/strongly-finite-etale-maps-are-affinoid-over-affinoids",
+      "reason": "Lemma 7.5(i) descends finite etale covers of rational subsets to a finite level; Lemma 7.5(ii) passes from the p-finite algebra to the tft algebra S.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, proof of Proposition 7.6, p. 41"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P3/strongly-etale-morphisms-and-base-change",
+      "target": "PerfectoidSpaces:P3/strongly-finite-etale-maps-are-affinoid-over-affinoids",
+      "reason": "Lemma 7.3(ii) and (iv) are used to base change from the finite level and from the noetherian space Z back to X.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, proof of Proposition 7.6, p. 41"
+        }
+      ]
+    },
+    {
+      "source": "AdicEtaleGeometry:A1",
+      "target": "PerfectoidSpaces:P3/strongly-finite-etale-maps-are-affinoid-over-affinoids",
+      "reason": "A1 owns, for complete Tate Huber pairs, the topology on a finite etale algebra, its integral plus ring, the comparison with Huber's finite etale/etale notions and openness of etale maps; Propositions 7.6-7.8 import exactly the locally noetherian results [Hub96] 1.6.6(ii), 1.7.8, 1.6.7(ii) after reduction to tft algebras.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, proofs of Proposition 7.6 and Corollary 7.8, pp. 41-42"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P3/strongly-finite-etale-maps-are-affinoid-over-affinoids",
+      "target": "PerfectoidSpaces:P3/almost-purity-theorem",
+      "reason": "Proposition 7.6 gives part (i) (strongly finite etale covers of U are finite etale O_X(U)°a-algebras) and shows the glued cover Y in part (ii) is affinoid.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, proof of Theorem 7.9 (i) and (ii), pp. 42-43"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P3/henselian-finite-etale-approximation",
+      "target": "PerfectoidSpaces:P3/almost-purity-theorem",
+      "reason": "Lemma 7.5(i) identifies 2-colim_{x∈U} (O_X(U))_fet with (k(x)^)_fet, the local step of the proof of (ii).",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, proof of Theorem 7.9 (ii), 'by Lemma 7.5 (i)', p. 42"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P3/finite-extensions-of-perfectoid-fields",
+      "target": "PerfectoidSpaces:P3/almost-purity-theorem",
+      "reason": "Theorem 3.7 gives (k(x)^)_fet ≅ (k(x♭)^)_fet for the completed residue fields, from which the local untilting of the finite etale algebra is obtained.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, proof of Theorem 7.9 (ii), 'By Theorem 3.7', p. 42"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P2/tilting-homeomorphism-and-rational-subsets",
+      "target": "PerfectoidSpaces:P3/almost-purity-theorem",
+      "reason": "Completed residue fields k(x)^ are perfectoid (Corollary 6.7(ii)), which is required to apply Theorem 3.7 at x.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, proof of Theorem 7.9 (ii), 'The latter is a perfectoid field', p. 42"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity",
+      "target": "PerfectoidSpaces:P3/almost-purity-theorem",
+      "reason": "The exact sequences 0 → A → Π O_X(U_i) ⊗ S → Π O_X(U_i ∩ U_j) ⊗ S and 0 → R → Π O_X(U_i) → Π O_X(U_i ∩ U_j) are the sheaf property for O_Y and O_X; with flatness of S they give A = S.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, proof of Theorem 7.9 (ii), end, pp. 42-43"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P3/almost-purity-theorem",
+      "target": "PerfectoidSpaces:P3/etale-site-tilting-and-etale-almost-acyclicity",
+      "reason": "Theorem 7.9 identifies etale with strongly etale maps, so the etale site is tilting-invariant (Theorem 7.12) and Proposition 7.10 provides base change in characteristic 0.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, remark after Theorem 7.9, Proposition 7.10, Theorem 7.12, p. 43"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P2/p-finite-acyclicity-from-tate",
+      "target": "PerfectoidSpaces:P3/etale-site-tilting-and-etale-almost-acyclicity",
+      "reason": "Proposition 7.13 reduces etale almost acyclicity to p-finite algebras and the bounded-torsion exactness for noetherian adic spaces, then perfects, exactly as in Proposition 6.11.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, proof of Proposition 7.13, p. 43"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P3/henselian-finite-etale-approximation",
+      "target": "PerfectoidSpaces:P5/finite-stage-descent-of-qcqs-etale-objects",
+      "reason": "ECD 6.4(i) is Lemma 7.5(i) restated for the pair (R, R^+); (ii) descends the finite etale pieces of a qcqs etale map through (i).",
+      "sources": [
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 6, proof of Proposition 6.4 (i) and essential surjectivity in (ii), pp. 27-28"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P3/strongly-finite-etale-maps-are-affinoid-over-affinoids",
+      "target": "PerfectoidSpaces:P5/finite-stage-descent-of-qcqs-etale-objects",
+      "reason": "The essential surjectivity step of ECD 6.4(ii) assumes that a qcqs etale map is covered by composites of a rational open, a finite etale map and a rational open. That local structure is Sch12 Proposition 7.7 in characteristic p (this node), extended to characteristic 0 by Theorem 7.9. Added by REVIEW-EXT-03.",
+      "sources": [
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 6, proof of Proposition 6.4(ii), essential surjectivity, p. 28 (extraction lines 1292-1298)"
+        },
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, Proposition 7.7, p. 41 (extraction lines 2335-2343)"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P5/cofiltered-limits-of-affinoid-perfectoid-spaces",
+      "target": "PerfectoidSpaces:P5/finite-stage-descent-of-qcqs-etale-objects",
+      "reason": "The limit X = Spa(R, R^+) and the homeomorphism |X| = lim |X_i| (spectral, so quasicompact opens descend) are the setting and the topological input of every step of the proof of 6.4(ii)-(iii).",
+      "sources": [
+        {
+          "sourceId": "ecd-2026",
+          "locator": "Section 6, Proposition 6.4 (o) and proof of (ii), pp. 27-28"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P3/etale-site-tilting-and-etale-almost-acyclicity",
+      "target": "PerfectoidSpaces:P7/tilde-limits-and-etale-topos-comparison",
+      "reason": "Theorem 7.17 compares X_et (Definition 7.11) with the limit of the X_{i,et}; the etale site of the perfectoid space must exist first.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, Theorem 7.17, p. 44"
+        }
+      ]
+    },
+    {
+      "source": "PerfectoidSpaces:P3/henselian-finite-etale-approximation",
+      "target": "PerfectoidSpaces:P7/tilde-limits-and-etale-topos-comparison",
+      "reason": "Finite etale maps are descended to a finite level via Lemma 7.5 in the modification of Huber's Proposition 2.4.4.",
+      "sources": [
+        {
+          "sourceId": "sch12-perfectoid",
+          "locator": "Section 7, proof of Theorem 7.17, p. 44"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "PerfectoidSpaces:P0",
+      "status": "partial",
+      "remaining": [
+        "Gabber-Ramero's general basic setup (V, m) with an idempotent flat ideal, and the actual proofs of GR §2.2-2.4 (Hom formula, adjoints, Proposition 2.4.18, 4.3.27, Theorem 4.1.14) and of GR Theorem 5.3.27/5.3.24 (lifting of finite etale algebras along tight henselian ideals), which Sch12 only cites.",
+        "Instantiation for R^+ (rather than K°) and comparison of the almost categories of R^+ and R° (ECD 3.21-3.23 state the equivalence R°a-mod ≅ R+a-mod without proof).",
+        "Descent of almost modules along faithfully flat maps and the 'almost exact ⇒ exact after inversion' statements demanded by the stage: not located in the sections read."
+      ]
+    },
+    {
+      "stageId": "PerfectoidSpaces:P1",
+      "status": "partial",
+      "remaining": [
+        "Tate-ring generality of the tilting equivalence (ECD Theorem 3.13: 'the proof works in general') and of the untilt classification (ECD Theorem 3.17, 'straightforward to check'): neither is proved in the sources read; KL15 Theorem 3.6.5 and Fontaine's Bourbaki talk are the cited proofs.",
+        "Almost-context deformation theory (GR Propositions 3.2.9, 3.2.16) and the almost cotangent-complex triangle for the extension 0 → A → A_n → A_{n-1} → 0 (Sch12 cites GR 'Theorem 2.5.36' in book numbering; the arXiv Theorem 2.5.36 is a different statement): read as statements only.",
+        "GR Lemma 6.5.13 i) (Frobenius vanishing criterion in the almost setting) not located in the arXiv extraction; Sch12 sketches the classical version.",
+        "Examples demanded by the stage (non-field perfectoid Tate ring ECD 3.4(iv)) recorded as examples only.",
+        "ECD Remark 3.7 (a perfectoid Tate ring which is a field is a perfectoid field, attributed to Kedlaya [Ked18]) and ECD Proposition 3.8 (equivalence with the Sch12 field definition, stated without proof): the Kedlaya reference was not read."
+      ]
+    },
+    {
+      "stageId": "PerfectoidSpaces:P2",
+      "status": "partial",
+      "remaining": [
+        "Bosch-Guntzer-Remmert inputs for Proposition 6.10 (6.2.4 Theorem 1: S° open and bounded for reduced tft; 7.3.2 Corollary 10: rational localizations reduced tft; 8.2.1 Theorem 1: Tate acyclicity) and Huber [19] Proposition 4.3 (translation to rigid geometry), [19] Propositions 2.10, 2.11, 2.14, 2.15, 2.19 and [31] Theorem 5.2: not read.",
+        "Passage from Čech exactness on finite rational covers to sheaf cohomology (acyclic basis) is not written in Sch12; supplier D0 is proposed.",
+        "Products in Perf without a common perfectoid base, and completed residue fields' plus rings in the Tate-ring setting: not treated in the sections read.",
+        "The Tate-ring versions (ECD 3.12, 3.18, 3.24) are proved in KL15 (Theorem 3.6.14 etc.), not read."
+      ]
+    },
+    {
+      "stageId": "PerfectoidSpaces:P3",
+      "status": "partial",
+      "remaining": [
+        "GR imports: Theorem 3.5.13(ii), Theorem 3.5.28 (proof), Propositions 6.6.2, 6.6.6, 6.3.6 (ramification-theory proof of Theorem 3.7): statements read, proofs not.",
+        "Huber [Hub96] Example 1.6.6(ii), Lemma 2.2.8, Proposition 1.7.8, Proposition 1.6.7(ii), and [Hub93] Lemma 3.9(i) (surjectivity on topological fibre products): not read.",
+        "Krasner's lemma and the density of N = ∪ L♯ in M♯ in the proof of Theorem 3.7: standard, unread here.",
+        "ECD Theorem 6.1 over a general perfectoid Tate ring ([KL15, 3.6.21, 5.5.9]): not read; the ECD definition of finite etale ('for all affinoid opens') vs Sch12's ('there is a cover') is reconciled by Proposition 7.6 only over a perfectoid field."
+      ]
+    },
+    {
+      "stageId": "PerfectoidSpaces:P4",
+      "status": "not_read",
+      "remaining": [
+        "ECD §5 (Definition 5.1 - Proposition 5.11: injections, qcqs criteria on (C, C^+)-points, immersions, Zariski closed immersions, diagonals, separatedness) was indexed but not read in this session."
+      ]
+    },
+    {
+      "stageId": "PerfectoidSpaces:P5",
+      "status": "partial",
+      "remaining": [
+        "Correction to the stage text: the Gabber-Ramero finite etale approximation (Sch12 Prop. 7.4 / Lemma 7.5) is consumed by P3's almost purity proof, so it is recorded as node PerfectoidSpaces:P3/henselian-finite-etale-approximation and imported here rather than proved here.",
+        "Gabber-Ramero Proposition 5.4.54 (book 5.4.53) proof and its inputs (Theorem 5.4.38, Corollary 5.4.42, Lemmas 5.4.46, 5.4.53; Elkik's approximation theory): statements read only.",
+        "Preservation of henselianity along (ϖ) under direct limits and for complete algebras: recalled without proof in Sch12.",
+        "ECD Lemma 4.1 (cutoff cardinals) and the size bound in Proposition 6.4: not read in detail.",
+        "ECD 6.4(iv) is deliberately excluded (P6/A3)."
+      ]
+    },
+    {
+      "stageId": "PerfectoidSpaces:P6",
+      "status": "not_read",
+      "remaining": [
+        "ECD 6.4(iv) with its inputs (Hub96 1.7.1, KL16 pseudocoherent sheaves, FS IV.4.19), ECD 7.9-7.11 (pro-etale maps) and ECD 4.2-4.4 (κ-small perfectoid spaces): not read."
+      ]
+    },
+    {
+      "stageId": "PerfectoidSpaces:P7",
+      "status": "partial",
+      "remaining": [
+        "Huber [Hub96] Remark 2.4.3, Proposition 2.4.4, Corollary 2.4.6 and the remark after Proposition 2.3.7, on which Proposition 7.16 - Corollary 7.19 are proved 'by the same proof': not read.",
+        "The Frobenius-controlled integral tower theorem (torsion paper II.1-II.2) giving the perfectoid criterion for A_i^+ with eventual Frobenius lifting: not read; the source scholze-torsion.txt is in the library.",
+        "Uniqueness in the perfectoid representable class, restriction to rational opens, cofinal change of index and finite etale base change of tilde-limits: not in Sch12 §7; the Shimura source (Hansen-Johansson) is in the scratch library but unread."
+      ]
+    },
+    {
+      "stageId": "PerfectoidSpaces:P8",
+      "status": "not_read",
+      "remaining": [
+        "Hansen-Johansson §5 (finite quotients, invariant affinoid covers) and ECD 5.8 with Q4: not read."
+      ]
+    },
+    {
+      "stageId": "PerfectoidSpaces:P9",
+      "status": "not_read",
+      "remaining": [
+        "Continuous torsor descent with coefficients: no source read."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Tilting equivalence and untilt classification over general perfectoid Tate rings",
+      "neededBy": [
+        "PerfectoidSpaces:P1/tilting-equivalence-and-explicit-tilt",
+        "PerfectoidSpaces:P1/untilts-classified-by-primitive-ideals",
+        "PerfectoidSpaces:P2/tilting-homeomorphism-and-rational-subsets",
+        "PerfectoidSpaces:P3/almost-purity-theorem"
+      ],
+      "detail": "Sch12 proves Theorems 5.2, 6.3 and 7.9 over a perfectoid base field K. ECD 3.12, 3.13, 3.17, 3.18, 3.24, 6.1 state the Tate-ring versions citing [KL15] (Theorems 3.6.5, 3.6.14, 3.6.21, 5.5.9) and [Fon13], with the remark 'the proof works in general' for 3.13 and 'straightforward to check' for 3.17. Next source action: read Kedlaya-Liu, Relative p-adic Hodge theory: foundations, §3.6 (library file KedlayaLiu_RelativePadicHodgeFoundations.pdf, scratch extraction available) and Fontaine, Perfectoides, presque purete et monodromie-poids (Fontaine_Perfectoides.pdf) for the untilt classification, then decide whether the P1 nodes can be restated over a perfectoid Tate base or must remain over a field."
+    },
+    {
+      "title": "Almost deformation theory and cotangent-complex inputs cited from Gabber-Ramero (book numbering)",
+      "neededBy": [
+        "PerfectoidSpaces:P1/deformation-lifting-of-perfectoid-mod-varpi-algebras",
+        "PerfectoidSpaces:P1/cotangent-complex-vanishing-mod-varpi"
+      ],
+      "detail": "Verified as statements in the arXiv extraction: Propositions 3.2.9 and 3.2.16 (obstruction classes, torsors). Not located: 'Theorem 2.5.36' (the arXiv Theorem 2.5.36 is a Tor-vanishing criterion, so the book's 2.5.36 must be the almost transitivity/extension triangle) and 'Lemma 6.5.13 i)' (Frobenius vanishing). DD.0 is proposed as supplier for the classical cotangent complex and transitivity triangle; the almost-context versions (GR §2.5, §3.2) have no supplier stage. Next action: locate the corresponding statements in the LNM 1800 edition or in GR §2.5 of the arXiv version by content, and read Illusie III.2.1.2.3 / III.2.2.2."
+    },
+    {
+      "title": "Rigid-analytic inputs of the sheaf theorem (BGR, Huber 1993/1994)",
+      "neededBy": [
+        "PerfectoidSpaces:P2/p-finite-acyclicity-from-tate",
+        "PerfectoidSpaces:P2/completed-direct-limits-of-p-finite-affinoids",
+        "PerfectoidSpaces:P2/tilting-homeomorphism-and-rational-subsets"
+      ],
+      "detail": "Proposition 6.10 imports BGR 6.2.4 Theorem 1, 7.3.2 Corollary 10 and Tate's acyclicity 8.2.1 Theorem 1 through Huber [19] Proposition 4.3; Lemma 6.13 imports [31] Theorem 5.2 (powerbounded = integral over K°⟨T⟩ for reduced tft) and Huber Proposition 2.11 (completion does not change Spa); Corollary 6.8 uses Huber Proposition 2.14 (universal property of rational localization). AdicSpacesPartII:R3 is proposed as supplier for Tate acyclicity only; no atlas stage description mentions the boundedness statements. Next action: read Huber, A generalization of formal schemes and rigid analytic varieties (Math. Z. 1994) §§1-4 and BGR 6.2.4, 7.3.2, 8.2.1, then check R3's packet for the tft acyclicity statement."
+    },
+    {
+      "title": "Huber's locally noetherian etale theory and the tilde-limit comparison",
+      "neededBy": [
+        "PerfectoidSpaces:P3/strongly-finite-etale-maps-are-affinoid-over-affinoids",
+        "PerfectoidSpaces:P3/etale-site-tilting-and-etale-almost-acyclicity",
+        "PerfectoidSpaces:P7/tilde-limits-and-etale-topos-comparison"
+      ],
+      "detail": "Sch12 §7 proves Propositions 7.6-7.8, 7.13 and 7.16-7.19 by reduction to [Hub96] (Example 1.6.6(ii), Lemma 2.2.8, Propositions 1.6.7(ii), 1.7.8, Remark 2.4.3, Proposition 2.4.4, Corollary 2.4.6, remark after 2.3.7) and to bounded-torsion exactness of etale Čech complexes of O° on noetherian adic spaces. The library has SUP_Huber_EtaleCohomology_1996.pdf (text extracted with OCR caveats). AdicEtaleGeometry:A1 is proposed as supplier for the finite etale/etale comparison; the tilde-limit topos comparison has no identified supplier. Next action: read Hub96 §§1.6-1.7 and §2.4 and record which statements A1 actually covers."
+    },
+    {
+      "title": "Elkik/Gabber-Ramero henselian approximation (GR arXiv 5.4.54 = book 5.4.53)",
+      "neededBy": [
+        "PerfectoidSpaces:P3/henselian-finite-etale-approximation"
+      ],
+      "detail": "The statement was verified (finite etale R[t^{-1}]-algebras ≅ finite etale R^∧[t^{-1}]-algebras under the assumptions of GR 5.4.21: t a nonzerodivisor and (R, tI) henselian). Its proof via Theorem 5.4.38, Corollary 5.4.42 and Lemmas 5.4.46, 5.4.53 (groupoid of etale algebra structures on a projective module) was not read, nor was Elkik's noetherian original. The stage text asks for lifting and uniqueness statements: uniqueness is part of the equivalence. Next action: read GR §5.4 (extraction lines 6499-7053) in full."
+    },
+    {
+      "title": "Frobenius-controlled towers and the perfectoid criterion for tilde-limits",
+      "neededBy": [
+        "PerfectoidSpaces:P7/tilde-limits-and-etale-topos-comparison"
+      ],
+      "detail": "Sch12 §7 only defines tilde-limits and compares etale topoi; the criterion producing a perfectoid tilde-limit from an integral tower with eventual Frobenius lifting modulo p (torsion paper, Lemma II.2.1 / Cor. II.2.3 range) and the Shimura-variety cofinality arguments (Hansen-Johansson) were not read. Library sources: text/scholze-torsion.txt and the scratch extraction of Hansen-Johansson. No packet node claims these results."
+    },
+    {
+      "title": "Candidate Lean primitives (unchecked against the nodes)",
+      "neededBy": [
+        "PerfectoidSpaces:P1/tilt-of-perfectoid-field",
+        "PerfectoidSpaces:P1/fontaine-theta-and-primitive-kernel"
+      ],
+      "detail": "Mathlib (as vendored in the TauCeti project) has Mathlib.RingTheory.Perfection (Perfection, PerfectionMap, ModP, PreTilt = Perfection of O/(p), Tilt = FractionRing (PreTilt) for a field with a real valuation), Mathlib.RingTheory.Perfectoid.Untilt (PreTilt.untilt : PreTilt O p →* O for p-adically complete O), Mathlib.RingTheory.Perfectoid.FontaineTheta (fontaineTheta : 𝕎 R♭ →+* R and surjectivity under Frobenius surjectivity on R/p), Mathlib.RingTheory.Perfectoid.BDeRham, and Mathlib.RingTheory.WittVector. These cover parts of the tilt-of-a-field construction and of Lemma 3.14(i); none covers perfectoid Tate rings, the kernel description of θ, almost mathematics, or any sheaf-theoretic statement. The TauCeti sources contain no perfectoid material (grep for 'perfectoid' returned nothing). Implementation status of every node remains unchecked."
+    },
+    {
+      "title": "Reversed dependency: henselian finite-stage approximation is needed by P3, not first by P5",
+      "neededBy": [
+        "PerfectoidSpaces:P3/almost-purity-theorem",
+        "PerfectoidSpaces:P3/strongly-finite-etale-maps-are-affinoid-over-affinoids",
+        "PerfectoidSpaces:P5/finite-stage-descent-of-qcqs-etale-objects"
+      ],
+      "detail": "Stage P5's text ('Prove finite etale finite-stage approximation using the henselian-pair/approximation theorem cited from Gabber-Ramero 5.4.53') places Sch12 Proposition 7.4 and Lemma 7.5 after almost purity, but the proof of Theorem 7.9(ii) uses Lemma 7.5(i) to identify finite etale covers of the completed residue field with the 2-colimit over affinoid neighbourhoods, and Proposition 7.6 uses Lemma 7.5(i)-(ii) to descend covers to a p-finite level. Adding the link P5 -> P3 would create a stage-level cycle (P5 requires P3). The node is therefore filed under P3; the atlas stage texts of P3 and P5 should be adjusted so that P3 states the henselian import and P5 only reuses it for ECD 6.4(i)."
+    },
+    {
+      "title": "Printed misprints and unargued small steps recorded by REVIEW-EXT-03",
+      "neededBy": [
+        "PerfectoidSpaces:P0/almost-modules-over-perfectoid-base",
+        "PerfectoidSpaces:P1/fontaine-theta-and-primitive-kernel",
+        "PerfectoidSpaces:P3/strongly-etale-morphisms-and-base-change"
+      ],
+      "detail": "(a) Sch12 Lemma 4.2 uses m² = m without justification; nondiscreteness of the valuation gives it. (b) ECD Lemma 3.16 states α ∈ W(R^+) where W(R♭+) is meant. (c) Sch12 Lemma 7.3(i) writes the surjectivity statement as |X ×_Z Y| → |X| ×_{|Z|} |Y| instead of |X ×_Y Z| → |X| ×_{|Y|} |Z|. (d) Sch12 Theorem 1.1 is stated for Q_p(p^{1/p^∞}) and F_p((t^{1/p^∞})) themselves, while the proof works with their completions; the invariance of the absolute Galois group under completion is used implicitly and was not read. None of these affects a node statement; they are recorded so that a later formalization does not copy them."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REVIEW-EXT-03",
+    "date": "2026-09-16",
+    "notes": "All 33 nodes and all links were checked against the library copies of Scholze, Perfectoid spaces (stamp arXiv:1111.4914v1, 21 Nov 2011), the supplied ECD revision (SHA-256 re-verified) and Gabber-Ramero arXiv:math/0201175v3. The reviewer regenerated pdftotext -layout extractions of all three PDFs; every cited extraction line number reproduces. Sections 3-7 of Sch12, Sections 3 and 6 of ECD, and the eleven cited Gabber-Ramero statements were read.\nNodes: 26 verified, 7 corrected, 0 unverifiable. This packet is the most accurate of the EXT-03 set: the proof steps reproduce the source arguments, and the Sch12-versus-ECD generality boundary is recorded honestly throughout. Corrections: the justification for m² = m; the incomplete list of Gabber-Ramero citations behind Definition/Proposition 4.7; ECD Remark 3.7 (perfectoid ring that is a field, Kedlaya [Ked18]) added to the field node; the ECD Lemma 3.16 misprint α ∈ W(R^+); an acceptance example that wrote an Artin-Schreier equation valid only for p = 2, together with an unsourced non-freeness claim; a Gabber-Ramero locator whose names and line ranges were in different orders; and the reference label [Hub93] for what Sch12 cites as [19] (Huber, Math. Z. 217 (1994)).\nLinks: 47 → 50. Three were added (almost modules → almost finite projective; perfectoid Tate rings → tilt of a perfectoid Tate ring; local structure of etale maps → ECD 6.4(ii) essential surjectivity). The cross-roadmap suppliers were checked against their atlas descriptions and all four are adequate for what the reason claims: AdicEtaleGeometry:A0 (completed tensor products, with the perfectoid pullback explicitly deferred to P2), DiamondsAndVStacks:D0 (acyclic-basis comparison, named for P2), AdicSpacesPartII:R3 (Tate acyclicity only, with the BGR boundedness gap recorded), AdicEtaleGeometry:A1 (finite etale/etale theory and openness) and DerivedDeRhamCohomology:DD.0 (cotangent complex, with the almost version recorded as having no supplier).\nStructure: all 33 parentStageIds are owned by PerfectoidSpaces; all ten coverage stage ids exist and cover every stage of the roadmap; no stage-level cycle. The P3-versus-P5 placement of the henselian approximation node and its consequences for the two stage texts are the drafter's recorded finding and are confirmed: the proofs of Proposition 7.6 and Theorem 7.9(ii) both use Lemma 7.5(i). A new gap records printed misprints. Packet status stays partial.",
+    "checked": [
+      {
+        "nodeId": "PerfectoidSpaces:P0/almost-modules-over-perfectoid-base",
+        "verdict": "corrected",
+        "note": "Definitions 4.1-4.3, Propositions 4.4-4.6 and Remark 4.8 (lines 930-1030) match. The justification offered for m² = m (p-divisibility, Lemma 3.2) was replaced: nondiscreteness of the valuation suffices, and the source gives no argument."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P0/almost-finite-projective-and-finite-etale-algebras",
+        "verdict": "corrected",
+        "note": "Definition/Proposition 4.7, Example 4.9, Propositions 4.10, Theorems 4.11, 4.16 and Definitions 4.12-4.14 match, as do GR Proposition 2.4.18 and Theorem 4.1.14 at the cited lines. The list of Gabber-Ramero citations was completed (§2.4.10, Remarks 2.4.12(i) and 2.3.9(i), Corollary 2.3.13) and the book-versus-arXiv numbering made explicit."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P0/finite-etale-lifting-along-complete-flat-almost-algebras",
+        "verdict": "verified",
+        "note": "Theorem 4.17 and its one-line proof match. GR (5.3.21)-(5.3.23), Theorem 5.3.24, Theorem 5.3.27 and Claim 5.3.29 were read: the reduction via Theorem 3.2.28(ii) and Theorem 5.3.24 is as the packet describes, and \"The rest is easy\" is indeed all Sch12 provides."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P1/perfectoid-field-definition",
+        "verdict": "corrected",
+        "note": "Definition 3.1, Lemma 3.2 with proof, ECD Remark 3.3, Definition 3.6 and Proposition 3.8 match. ECD Remark 3.7 (Kedlaya [Ked18]) was added as a hypothesis and to the P1 coverage."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P1/tilt-of-perfectoid-field",
+        "verdict": "verified",
+        "note": "Lemma 3.4(i)-(iv) with proof and Remark 3.5 (lines 781-897) match, including the |($ϖ♭)♯ − ϖ_1^p| ≤ |ϖ|² estimate and the ϖ | p use in the well-definedness argument."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P1/continuous-valuations-under-tilting",
+        "verdict": "verified",
+        "note": "Proposition 3.6 with proof (lines 880-898) matches, including the reduction to valuation subrings of K°/m = K♭°/m♭."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P1/perfectoid-tate-rings-and-algebras",
+        "verdict": "verified",
+        "note": "ECD Definition 3.1, Remarks 3.2-3.3, Example 3.4 and Proposition 3.5 with proof, and Sch12 Definition 5.1, Propositions 5.5, 5.8, 5.9 all match, including the boundedness argument via Banach's open mapping theorem."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P1/almost-integral-dictionary",
+        "verdict": "verified",
+        "note": "Lemma 5.3(i)-(iv) with proofs, Remark 5.4, Proposition 5.5 and Lemmas 5.6-5.7 (lines 1143-1237) match, including the ε-divisibility step in (iii) and the z = y/ϖ^{1/p²} surjectivity argument."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P1/cotangent-complex-vanishing-mod-varpi",
+        "verdict": "verified",
+        "note": "Proposition 5.13, Remarks 5.14-5.15 and Corollary 5.16 (lines 1304-1350) match; the attribution to GR Lemma 6.5.13 i) and the two alternative routes for the almost version are as recorded."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P1/deformation-lifting-of-perfectoid-mod-varpi-algebras",
+        "verdict": "verified",
+        "note": "Theorem 5.10 with proof and Theorems 5.11-5.12 match. GR Propositions 3.2.9 and 3.2.16 were re-read at the cited lines; the arXiv Theorem 2.5.36 is indeed a Tor-vanishing criterion, so the packet's gap about the book numbering stands."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P1/tilting-equivalence-and-explicit-tilt",
+        "verdict": "verified",
+        "note": "Theorem 5.2, Proposition 5.17 with proof, Remarks 5.18-5.19, Proposition 5.20 and Lemma 5.21 match, including the spectral-norm argument and the \"as in the proof of Lemma 3.4 (i)\" step."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P1/tilt-of-perfectoid-tate-ring",
+        "verdict": "verified",
+        "note": "ECD Definition 3.9, Lemma 3.10 with proof and Lemma 3.11 match, including the congruence x ≡ y mod ϖ_0^n ⇒ x^p ≡ y^p mod ϖ_0^{n+1} and the plus-ring bijection."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P1/fontaine-theta-and-primitive-kernel",
+        "verdict": "corrected",
+        "note": "ECD Lemma 3.14 with proof, Definition 3.15 and Lemma 3.16 match in every step, including the construction of f = ϖ♭β and the [ϖ♭]-torsion-free/complete argument. The printed α ∈ W(R^+) in Lemma 3.16 is a misprint for W(R♭+); now recorded."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P1/untilts-classified-by-primitive-ideals",
+        "verdict": "verified",
+        "note": "ECD Theorem 3.17 matches; \"It is now straightforward to check\" is all the source gives, as the packet states."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P2/rational-localization-of-perfectoid-affinoids",
+        "verdict": "verified",
+        "note": "Lemma 6.4(i)-(iii) with proof (lines 1659-1818) matches, including the perfect-ideal argument, the ϖ^{nN} inclusion and the tilting comparison of the two presentations."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P2/approximation-lemma",
+        "verdict": "verified",
+        "note": "Lemma 6.5 with proof, Remark 6.6 and Corollary 6.7(i) match step by step, including ε(c), the expansion of h in powers of g_c♯/ϖ^c and both cases of the estimate."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P2/tilting-homeomorphism-and-rational-subsets",
+        "verdict": "verified",
+        "note": "Theorem 6.3(i)-(ii), Corollary 6.7(ii)-(iii) and Corollary 6.8 match, including the T_0 argument for injectivity and the untilting of k(x)^ for surjectivity."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P2/p-finite-acyclicity-from-tate",
+        "verdict": "verified",
+        "note": "Definition 6.9, Propositions 6.10-6.11 and Remark 6.12 match, including the open-mapping argument and the perfection of the bounded-torsion sequence."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P2/completed-direct-limits-of-p-finite-affinoids",
+        "verdict": "verified",
+        "note": "Lemma 6.13(i)-(iv) with proof matches, including the injectivity argument for R^+/ϖ^n = colim R_I^+/ϖ^n, the caveat that S_I^+ is not the preimage of R^+, and the constructible-topology argument for (iv)."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity",
+        "verdict": "verified",
+        "note": "Theorem 6.3(iii)-(iv) and Proposition 6.14 match; the characteristic-0 reduction and the \"rest follows as before\" boundary are recorded as the packet states."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P2/perfectoid-spaces-and-glued-tilting",
+        "verdict": "verified",
+        "note": "Definitions 6.15-6.16 and Proposition 6.17 match, including the \"formal consequence\" attribution and the restriction-to-open-subspace observation."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P2/fibre-products-of-perfectoid-spaces",
+        "verdict": "verified",
+        "note": "Proposition 6.18 with proof matches, including the ϖ-torsion-freeness argument in characteristic p."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P3/finite-etale-covers-in-characteristic-p",
+        "verdict": "corrected",
+        "note": "Propositions 5.22-5.23 and Remark 5.24 match, including the S_0 ⊂ Y ⊂ S_0^⊥ trace argument and the Frobenius-division construction of the maps. The acceptance example wrote the Artin-Schreier equation as u² + u = t^{-1}, which is Artin-Schreier only for p = 2; corrected to u^p − u = t^{-1} and the unsourced non-freeness claim was removed."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P3/tilting-finite-etale-algebras-fully-faithful",
+        "verdict": "verified",
+        "note": "Theorem 5.25 and the two diagrams match, including the degree preservation and the essential-image description."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P3/finite-extensions-of-perfectoid-fields",
+        "verdict": "corrected",
+        "note": "Theorem 3.7, Proposition 3.8 with proof and the two proofs at the end of Section 5 match, including the Krasner argument. GR Propositions 6.3.6, 6.6.2 and 6.6.6 were re-read; the locator listed the names and the line ranges in different orders, now aligned."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P3/strongly-etale-morphisms-and-base-change",
+        "verdict": "corrected",
+        "note": "Definitions 7.1-7.2, Lemma 7.3 and Proposition 7.10 match. The reference label [Hub93] was corrected to Sch12's [19] (Huber, Math. Z. 217 (1994)), and the printed index misprint in Lemma 7.3(i) was recorded."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P3/strongly-finite-etale-maps-are-affinoid-over-affinoids",
+        "verdict": "verified",
+        "note": "Propositions 7.6-7.7 and Corollary 7.8 with proofs match, including the two-step reduction through Lemma 6.13 and Lemma 7.5 and the appeal to [20] Example 1.6.6(ii), Propositions 1.7.8 and 1.6.7(ii)."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P3/almost-purity-theorem",
+        "verdict": "verified",
+        "note": "Theorem 7.9(i)-(iii) with proof matches in every step, including the 2-colimit over neighbourhoods, the untilting through Theorem 3.7 and the final flatness identification A = S. ECD Theorem 6.1 matches."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P3/etale-site-tilting-and-etale-almost-acyclicity",
+        "verdict": "verified",
+        "note": "Definition 7.11, Theorem 7.12 and Proposition 7.13 match, including the imported bounded-ϖ-power exactness for noetherian adic spaces. ECD Theorem 6.3 matches."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P3/henselian-finite-etale-approximation",
+        "verdict": "verified",
+        "note": "Proposition 7.4 and Lemma 7.5(i)-(ii) with proofs match; GR Proposition 5.4.54 (book 5.4.53) and the hypotheses of Proposition 5.4.21 were verified at the cited lines, as was ECD 6.4(i)'s provenance chain."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P5/cofiltered-limits-of-affinoid-perfectoid-spaces",
+        "verdict": "verified",
+        "note": "ECD Proposition 6.5 with proof and 6.4(o) match, including the ω₁-cofiltered completeness argument and the countable-generation statement."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P5/finite-stage-descent-of-qcqs-etale-objects",
+        "verdict": "verified",
+        "note": "ECD Proposition 6.4(i)-(iii) with proof matches step by step (graphs, isomorphism detection, fullness by approximation of quasicompact opens, essential surjectivity, separatedness), as does the exclusion of (iv)."
+      },
+      {
+        "nodeId": "PerfectoidSpaces:P7/tilde-limits-and-etale-topos-comparison",
+        "verdict": "verified",
+        "note": "Definition 7.14, Remark 7.15, Proposition 7.16, Theorem 7.17 and Corollaries 7.18-7.19 match, including the exact modification of Huber's argument recorded in the excerpt."
+      }
+    ]
+  }
+}

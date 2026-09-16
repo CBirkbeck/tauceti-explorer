@@ -1,0 +1,1175 @@
+{
+  "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+  "status": "partial",
+  "summary": "Source decomposition of the cyclotomic-unit route to the Iwasawa main conjecture, read from Rubin's Euler systems monograph draft (Chapters II and III), Greither's 1992 Annales de l'institut Fourier paper, and Rodrigues Jacinto-Williams' notes. Covers: the cyclotomic-unit Euler system for Z_p(1) with its three-case distribution relation and the reason for the extra norm from level mp; the twist to the chi-component and the restriction dictionary; Rubin's finite-level bound II.2.2 with both error lengths retained and the separate proof that they vanish for this twist; Thm. III.2.3's divisibility |A_L^chi| | [E_L^chi : C_{L,chi}] with the two distinct uses of the hypothesis chi(p) not 1; Rubin's Iwasawa theorems II.3.2-II.3.4 with Hyp(K_infinity,T) and Hyp(K_infinity/K); the local-global diagram III.2.6 including the augmentation correction when chi(p) = 1; Thm. III.2.7's divisibility with its explicit J^2 bookkeeping and the Leopoldt-based removal of J; the endpoint Thm. III.2.10 via the four-term class-field-theory sequence; the plus-part formulation and its separation from the Vandiver isomorphism; and Greither's abelian/all-p Thms. 3.1, 3.2, A, B, C with their one-half normalisation and the genuinely necessary cyclicity hypothesis on Delta_2. The upgrades from divisibility to equality (Cors. III.2.4 and III.2.8) and the local-unit index (Thm. III.2.9) are cited by the sources rather than proved there, and are recorded as gaps; the proofs of Rubin Chapters IV, V, VII and of Greither Sec. 3-4 are NOT read.",
+  "sources": [
+    {
+      "id": "rubin-euler-systems-draft",
+      "title": "Euler systems (author's course draft of the Annals of Mathematics Studies 147 monograph)",
+      "authors": "Karl Rubin",
+      "edition": "Author draft distributed with the 1999 Arizona Winter School notes (inspected 2026-09-15); chapter/section numbering agrees with the published monograph",
+      "url": "https://swc-math.github.io/notes/files/99RubinES.pdf",
+      "sha256": "de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50",
+      "readSections": [
+        "Table of contents, pp. iii-iv",
+        "Chapter II, Sec. 2 'Results over K', pp. 24-26 (Hyp(K,T)/Hyp(K,V), Def. 2.1, Thms. 2.2, 2.3, 2.10 with proof, Remarks 2.4-2.13)",
+        "Chapter II, Sec. 3 'Results over K_infinity', pp. 26-29 (Hyp(K_infinity/K), Hyp(K_infinity,T), Hyp(K_infinity,V), Def. 3.1, Thms. 3.2, 3.3, 3.4, Prop. 3.7 with the start of its proof)",
+        "Chapter III, Sec. 2 'Cyclotomic units', pp. 33-39 in full (2.1-2.6, Def. 2.2, Thms. 2.3, 2.7, 2.9, 2.10, Cors. 2.4, 2.8, Prop. 2.6 with proofs, Remarks 2.1, 2.5)",
+        "Chapter III, Sec. 3 'Elliptic units', pp. 39-40 (Thms. 3.1, 3.2, Remarks 3.3; read only to compare hypothesis packaging)",
+        "Chapter III, Sec. 1 closing, p. 33 (the vanishing criterion for H^1(Omega/K, D_rho) used as Lemma 1.1)"
+      ]
+    },
+    {
+      "id": "greither-main-conjecture-1992",
+      "title": "Class groups of abelian fields, and the main conjecture",
+      "authors": "Cornelius Greither",
+      "edition": "Annales de l'institut Fourier 42 (1992), no. 3, pp. 449-499; Numdam digitisation AIF_1992__42_3_449_0 (inspected 2026-09-15)",
+      "url": "https://www.numdam.org/item/10.5802/aif.1299.pdf",
+      "sha256": "8e4db974556923a9532151657039d50b34028254f13fc2f1541f449bb50623da",
+      "readSections": [
+        "Sec. 1 'The Main Conjecture and its consequences', pp. 451-454 (the introduction's statement of Thm. 3.2 with its Remark, and Thms. A, B, C with their notation and remarks)",
+        "Sec. 2, pp. 458-466 (Thm. 2.4 (Coleman exact sequence), the Coleman trace operator and Thm. 2.6, Thm. 2.8, Thm. 2.13 and Cor. 2.14 with the start of the proof of 2.13)",
+        "Sec. 3 'The Main Conjecture for odd and even characters', pp. 468-470 (Thm. 3.1 with Remarks a)-c), Thm. 3.2, Lemma 3.3, Prop. 3.4, the full proof of the implication 3.1 => 3.2, and the opening of the proof of Thm. 3.1 including Lemma 3.5)"
+      ]
+    },
+    {
+      "id": "rodrigues-jacinto-williams-padic-L",
+      "title": "An introduction to p-adic L-functions",
+      "authors": "Joaquin Rodrigues Jacinto; Chris Williams",
+      "edition": "arXiv:2309.15692v2 (inspected 2026-09-15)",
+      "url": "https://arxiv.org/pdf/2309.15692v2",
+      "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
+      "readSections": [
+        "Sec. 13.2-13.4, printed pp. 66-68 (Remark 13.7, Thm. 13.8, Remark 13.9, Def. 13.10, Thm. 13.11, Def. 13.12, Prop. 13.13, Cor. 13.14 with proof, Prop. 13.15, Cor. 13.16)"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-unit-euler-system-for-Zp-one",
+      "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+      "title": "The cyclotomic-unit Euler system for Z_p(1)",
+      "kind": "construction",
+      "statement": "Take K = Q. Kummer theory identifies H^1(F,Z_p(1)) with the p-adic completion (F^x)^hat for every extension F of Q. Fix a compatible system {zeta_m} of primitive m-th roots of unity with zeta_{mn}^n = zeta_m. Define c-tilde_{m,infinity} = N_{Q(mu_{mp})/Q(mu_m)}(zeta_{mp} - 1), an element of Q(mu_m)^x inside H^1(Q(mu_m),Z_p(1)), and c-tilde_m = N_{Q(mu_m)/Q(mu_m)^+}(c-tilde_{m,infinity}). Then {c-tilde_{m,infinity}, c-tilde_m} is an Euler system for (Z_p(1), Q^ab, p): the required norm relation is the classical distribution relation N_{Q(mu_{m ell})/Q(mu_m)}(zeta_{m ell} - 1) = (zeta_m - 1) if ell divides m, = (zeta_m - 1)^{1 - Fr_ell^{-1}} if ell does not divide m and m > 1, and = (-1)^{ell-1} ell if m = 1; and the Euler polynomial is det(1 - Fr_ell^{-1} x | Z_p(1)^*) = det(1 - Fr_ell^{-1} x | Z_p) = 1 - x for every prime ell not equal to p.",
+      "hypotheses": [
+        "the compatible system {zeta_m} must satisfy zeta_{mn}^n = zeta_m (Rubin fixes such a collection before (2)); with a non-compatible choice the norm in (2) lands on a Galois conjugate of zeta_m - 1, so the norm compatibilities fail as written (packet-authored remark)",
+        "the m = 1 case of the distribution relation is genuinely different (it produces (-1)^{ell-1} ell, not a unit), so that conductor must be treated separately",
+        "the extra norm N_{Q(mu_{mp})/Q(mu_m)} in the definition of c-tilde_{m,infinity} is imposed precisely so that the collection satisfies N_{Q(mu_{mp})/Q(mu_m)} c-tilde_{mp} = c-tilde_m, i.e. so that it is an Euler system in Rubin's sense; Rubin records that this LOSES information",
+        "these are genuine global units or p-units of Q(mu_m) and of its real subfield: zeta_{mp} - 1 is not a root of unity, in contrast with the ratio (zeta^{-1} - 1)/(zeta - 1) = -zeta^{-1}, which is torsion and carries no arithmetic"
+      ],
+      "proofSteps": [
+        "Kummer theory gives H^1(F,Z_p(1)) = lim_n F^x/(F^x)^{p^n} = (F^x)^hat, so cyclotomic units define Galois cohomology classes.",
+        "The classical norm relation for 1 - zeta_m (Rubin's (2), quoted from Lang's Cyclotomic Fields Thm. 6.3.1) supplies the three-case distribution formula.",
+        "Because the Euler-system axiom requires compatibility also in the p-direction, one replaces zeta_m - 1 by its norm from level mp; Rubin's Remark 2.1 notes that if p divides m then c-tilde_{m,infinity} = zeta_m - 1, while if p does not divide m the extra norm is a genuine modification.",
+        "The Euler polynomial of Z_p(1)^* = Z_p is 1 - x, so the Euler-system relation reduces exactly to the distribution relation."
+      ],
+      "acceptance": [
+        "Check that the system is nontorsion: the ratio (zeta_m^{-1} - 1)/(zeta_m - 1) equals -zeta_m^{-1} and is a root of unity, so it is NOT the system used here; the system used is built from zeta_{mp} - 1 and its norms.",
+        "Check the m = 1 exceptional value (-1)^{ell-1} ell against the convention for the conductor-1 term of the system.",
+        "Check that the Euler polynomial is computed for the DUAL representation Z_p(1)^*, matching Rubin's convention that Euler systems for T are indexed by det(1 - Fr_ell^{-1} x | T^*)."
+      ],
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, 2.1, printed p. 34",
+          "excerpt": "For every m >= 1 and prime ell we have the relation N_{Q(mu_{m ell})/Q(mu_m)}(zeta_{m ell} - 1) = (zeta_m - 1) if ell | m, (zeta_m - 1)^{1 - Fr_ell^{-1}} if ell does not divide m and m > 1, (-1)^{ell-1} ell if m = 1, where Fr_ell is the Frobenius of ell in Gal(Q(mu_m)/Q)",
+          "match": "Gives the three-case distribution relation verbatim, including the exceptional m = 1 value, as recorded in the statement and hypotheses."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, 2.1, printed p. 34",
+          "excerpt": "c-tilde_{m infinity} = N_{Q(mu_{mp})/Q(mu_m)}(zeta_{mp} - 1) in Q(mu_m)^x contained in H^1(Q(mu_m), Zp(1)) and c-tilde_m = N_{Q(mu_m)/Q(mu_m)+}(c-tilde_{m infinity}). The distribution relation (2) shows that the collection {c-tilde_{m infinity}, c-tilde_m} is an Euler system for (Zp(1), Qab, p) ... since for every prime ell not p, det(1 - Fr_ell^{-1} x | Zp(1)^*) = det(1 - Fr_ell^{-1} x | Zp) = 1 - x.",
+          "match": "Gives the exact definition of the two families and the Euler-polynomial computation, as recorded in the statement."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, Remark 2.1, printed p. 34",
+          "excerpt": "If p | m then (2) shows that c-tilde_{m infinity} = zeta_m - 1. But if p does not divide m, our definition takes into account that our Euler system must satisfy N_{Q(mu_{mp})/Q(mu_m)} c-tilde_{mp} = c-tilde_m. This causes us to lose some information, and leads to the unwanted hypothesis chi(p) not= 1 in Theorem 2.3 below.",
+          "match": "Records that the extra norm is forced by the Euler-system axiom and is the source of the chi(p) not 1 hypothesis at finite level."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EulerSystemsCyclotomicMainConjecture:L0/character-twist-and-the-restriction-dictionary",
+      "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+      "title": "Twisting to the chi-component and the unit-to-cohomology dictionary",
+      "kind": "construction",
+      "statement": "Fix a character chi : G_Q -> O^x of finite order prime to p, assumed EVEN and NONTRIVIAL, with conductor f and fixed field L; put Delta = Gal(L/Q), Q_n the degree-p^n subextension of Q_infinity inside Q(mu_{p^{n+1}}), and L_n = L Q_n. Let T = O_chi, so T^* = Z_p(1) tensor chi^{-1}. Since [L:Q] is prime to p, L intersect Q_n = Q and Delta = Gal(L_n/Q_n) for all n, and restriction gives an isomorphism H^1(Q_n,T^*) = H^1(L_n,T^*)^Delta = (L_n^x tensor-hat O_{chi^{-1}})^Delta = (L_n^x)^chi inside L_n^x tensor-hat O. Twisting the Euler system c-tilde by chi^{-1} (Rubin Prop. II.4.2) gives an Euler system c = c-tilde^{chi^{-1}} for (T^*, Q^ab, p f), whose class c_Q corresponds under the above isomorphism to the product over delta in Gal(Q(mu_f)^+/Q) of (delta c-tilde_f)^{chi^{-1}(delta)}, equivalently the product over delta in Gal(Q(mu_{fp})/Q) of (zeta_{fp}^delta - 1)^{chi^{-1}(delta)}. The chi-cyclotomic units C_{n,chi} are the O[Gal(L_n/Q)]-submodule of E_n^chi generated by xi_{n,chi} (Def. 2.2: for n = 0 the product over Gal(Q(mu_f)/Q) of (zeta_f^delta - 1)^{chi^{-1}(delta)}, for n > 0 the product over Gal(Q_n(mu_{f p^{n+1}})/Q_n) of (zeta_{f p^{n+1}}^delta - 1)^{chi^{-1}(delta)}); at n = 0 this generator is NOT the displayed image of c_Q, which by (6) equals xi_{L,chi}^{1 - chi^{-1}(p)}.",
+      "hypotheses": [
+        "chi is even, nontrivial, of finite order PRIME TO p; the prime-to-p order is what makes the chi-component a direct summand and makes L intersect Q_n = Q",
+        "chi is viewed as a Dirichlet character modulo f, with the convention chi(q) = 0 when q divides f and chi(q) = chi(Fr_q) otherwise; this convention matters in the formula c_Q = xi_{L,chi}^{1 - chi^{-1}(p)}",
+        "the identification of H^1(Q_n,T^*) with (L_n^x)^chi is by restriction followed by the completed tensor product; it identifies the FULL H^1, not a Selmer subgroup",
+        "the definition of xi_{n,chi} differs between n = 0 (product over Gal(Q(mu_f)/Q) of (zeta_f^delta - 1)^{chi^{-1}(delta)}) and n > 0 (product over Gal(Q_n(mu_{f p^{n+1}})/Q_n) of (zeta_{f p^{n+1}}^delta - 1)^{chi^{-1}(delta)})"
+      ],
+      "proofSteps": [
+        "Rubin's Prop. II.4.2 twists an Euler system for Z_p(1) into one for T^* = Z_p(1) tensor chi^{-1}, enlarging the conductor set from p to pf.",
+        "Rubin's Lemma II.4.3 computes the image of the twisted class c_Q in L^x tensor-hat O under the restriction dictionary, yielding the displayed product over Gal(Q(mu_f)^+/Q).",
+        "Definition 2.2 packages the resulting elements as the groups C_{n,chi} of chi-cyclotomic units inside E_n^chi."
+      ],
+      "acceptance": [
+        "Check that the twisted system lives over the enlarged conductor set pf and that its Euler factors are the chi-twists of 1 - x.",
+        "Check the two-case definition of xi_{n,chi}: at n = 0 the root of unity has conductor f, at n > 0 it has conductor f p^{n+1}.",
+        "Check the convention chi(p) = 0 when p divides f, which makes 1 - chi^{-1}(p) a unit whenever chi(p) is not 1."
+      ],
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, 2.2, printed pp. 34-35",
+          "excerpt": "Let T = O_chi as in Sec. 1, so that T^* = Zp(1) tensor chi^{-1}. The restriction map gives an isomorphism (using (1)) H^1(Qn, T^*) = H^1(Ln, T^*)^Delta = (Ln^x tensor-hat O_{chi^{-1}})^Delta = (Ln^x)^chi contained in Ln^x tensor-hat O",
+          "match": "Gives the restriction dictionary between Galois cohomology and chi-components of units, as recorded in the statement."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, 2.2, printed p. 35",
+          "excerpt": "The Euler system c-tilde for Zp(1) constructed in Sec. 2.1 gives rise (by Proposition II.4.2) to an Euler system c = c-tilde^{chi^{-1}} for (T^*, Qab, pf). By Lemma II.4.3, the image of cQ in L^x tensor-hat O under (3) is prod_{delta in Gal(Q(mu_f)+/Q)} (delta c-tilde_f)^{chi^{-1}(delta)} = prod_{delta in Gal(Q(mu_{fp})/Q)} (zeta_{fp}^delta - 1)^{chi^{-1}(delta)}.",
+          "match": "Gives the twisting step, its conductor set pf, and the explicit formula for c_Q."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, Def. 2.2, printed p. 35",
+          "excerpt": "If n >= 0 we let En denote the group of global units of Ln. We define the group of chi-cyclotomic units C_{n,chi} to be the subgroup of En^chi generated over O[Gal(Ln/Q)] by xi_{n,chi} = prod_{delta in Gal(Q(mu_f)/Q)} (zeta_f^delta - 1)^{chi^{-1}(delta)} if n = 0, prod_{delta in Gal(Qn(mu_{f p^{n+1}})/Qn)} (zeta_{f p^{n+1}}^delta - 1)^{chi^{-1}(delta)} if n > 0.",
+          "match": "Gives the two-case definition of the chi-cyclotomic units recorded in the hypotheses."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, 2.2, printed p. 34",
+          "excerpt": "we fix a character chi : GQ -> O^x of finite, prime-to-p order, and we assume now that chi is even and nontrivial. ... we will view chi as a Dirichlet character modulo f in the usual way, so that chi(q) = 0 if the prime q divides f, and otherwise chi(q) = chi(Frq).",
+          "match": "Fixes the standing hypotheses on chi and the value convention at ramified primes."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EulerSystemsCyclotomicMainConjecture:L1/finite-level-error-tolerant-bound-and-its-hypotheses",
+      "parentStageId": "EulerSystemsCyclotomicMainConjecture:L1",
+      "title": "Rubin's finite-level bound II.2.2 with its two error lengths",
+      "kind": "theorem",
+      "statement": "Suppose p > 2 and T satisfies Hyp(K,T): (i) there is tau in G_K acting trivially on mu_{p^infinity}, on (O_K^x)^{1/p^infinity} and on K(1), with T/(tau-1)T free of rank one over O; and (ii) T tensor k is an irreducible k[G_K]-module. (These are Rubin's Hyp(K,T). The conditions dim_Phi(V/(tau-1)V) = 1 and V irreducible over Phi[G_K] form the weaker Hyp(K,V), which Rubin uses only for the finiteness Thm. II.2.3.) If c is an Euler system for T then length_O(S_{Sigma_p}(K,W^*)) <= ind_O(c) + n_W + n^*_W, where ind_O(c) = sup{n : c_K in p^n H^1(K,T) + H^1(K,T)_tors} (possibly infinite), n_W = length_O(H^1(Omega/K,W) intersect S^{Sigma_p}(K,W)), n^*_W = length_O(H^1(Omega/K,W^*) intersect S_{Sigma_p}(K,W^*)), and Omega = K(1)K(W)K(mu_{p^infinity},(O_K^x)^{1/p^infinity}). The bound is for the RESTRICTED Selmer group S_{Sigma_p}, with no condition imposed at p; the true Selmer group is reached only through global duality (Thm. II.2.10).",
+      "hypotheses": [
+        "p > 2 is required for Thm. II.2.2; Rubin notes separately that Thm. 2.3 (finiteness) holds even if p = 2 and that Thm. II.3.3 also applies when p = 2",
+        "Hyp(K,T)(i) is used to guarantee a supply of primes q with H^1_f(K(q),W_M) and H^1_s(K(q),W_M^*) free of rank one over O/MO -- Rubin states this in Remark 2.6",
+        "if rank_O(T) = 1 then Hyp(K,T)(i) holds with tau = 1 and (ii) holds as well (Remark 2.4); this is why the cyclotomic application needs no large-image hypothesis",
+        "the two error lengths n_W and n^*_W are part of the statement and are NOT in general zero; Rubin's Remark 2.5 says only that they are frequently zero",
+        "ind_O(c) = infinity when c_K is torsion, in which case the bound is vacuous (Remark 2.8)"
+      ],
+      "proofSteps": [
+        "Rubin proves Thm. II.2.2 in Chapter V Sec. 2 from the derived classes constructed in Chapter IV; that proof was NOT read for this packet.",
+        "Remark 2.9 makes explicit that the object bounded is S_{Sigma_p}(K,W^*), because no local condition at p has been imposed on T or on c, so 'that restricted Selmer group is all that the Euler system can see'.",
+        "Thm. II.2.10(ii), under its standing hypothesis that loc^s_{Sigma_p}(c_K) is nonzero, upgrades the bound to the true Selmer group: length_O(S(K,W^*)) <= length_O(H^1_s(K_p,T)/O loc^s_{Sigma_p}(c_K)) + n_W + n^*_W, by combining Thm. II.2.2 with Corollary I.7.5 (global duality) applied to the index [S(K,W^*) : S_{Sigma_p}(K,W^*)] = [H^1_s(K_p,T) : O loc^s_{Sigma_p}(S^{Sigma_p}(K,T))]."
+      ],
+      "acceptance": [
+        "Check that the two error terms are retained downstream unless separately proved to vanish; Rubin's own cyclotomic application does prove their vanishing.",
+        "Check the distinction between S_{Sigma_p} and S: the Euler system alone bounds only the former, and the passage to the latter costs the local index at p.",
+        "Check that the conclusion is a length bound, which becomes a divisibility of orders only after the module is known to be finite."
+      ],
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter II, Thm. 2.2 and Def. 2.1, printed p. 24",
+          "excerpt": "Theorem 2.2. Suppose that p > 2 and that T satisfies Hyp(K, T). If c is an Euler system for T then `_O(S_{Sigma_p}(K, W^*)) <= ind_O(c) + n_W + n^*_W where n_W = `_O(H^1(Omega/K, W) intersect S^{Sigma_p}(K, W)), n^*_W = `_O(H^1(Omega/K, W^*) intersect S_{Sigma_p}(K, W^*))",
+          "match": "Gives the bound with both error lengths and the p > 2 hypothesis exactly as recorded."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter II, Remark 2.4, printed p. 24",
+          "excerpt": "Hypotheses Hyp(K, T) are satisfied if the image of the Galois representation on T is 'sufficiently large'. They often hold in practice; see the discussion of the examples in the next chapter. If rank_O(T) = 1, then (i) holds with tau = 1, and (ii) holds as well.",
+          "match": "Gives the rank-one escape clause that the cyclotomic application uses."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter II, Remark 2.9, printed p. 25",
+          "excerpt": "Theorem 2.2 gives a bound for the size of S_{Sigma_p}(K, W^*), not the true Selmer group S(K, W^*). Since we have put no local conditions at p either on our representation T or our Euler system c, that restricted Selmer group is all that the Euler system can 'see'.",
+          "match": "States explicitly which Selmer group is bounded."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter II, Thm. 2.10(ii), printed p. 25",
+          "excerpt": "Suppose that p > 2 and T satisfies Hyp(K, T). Let n_W and n^*_W be as in Theorem 2.2. Then `_O(S(K, W^*)) <= `_O(H^1_s(K_p, T)/O loc^s_{Sigma_p}(c_K)) + n_W + n^*_W.",
+          "match": "Gives the global-duality upgrade recorded in the proofSteps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EulerSystemsCyclotomicMainConjecture:L1/vanishing-of-the-error-terms-in-the-cyclotomic-twist",
+      "parentStageId": "EulerSystemsCyclotomicMainConjecture:L1",
+      "title": "Verification of Hyp(Q,T^*) and vanishing of n_W, n^*_W for the cyclotomic twist",
+      "kind": "lemma",
+      "statement": "For T^* = Z_p(1) tensor chi^{-1} with chi even, nontrivial, of finite prime-to-p order, one has rank_O T^* = 1, so Hyp(Q,T^*) holds with tau = 1 by Rubin's Remark II.2.4. In this situation Omega = L(mu_{p^infinity}), and Rubin's Lemma III.1.1 shows that both error terms n_{W^*} and n^*_{W^*} of Theorem II.2.2 are ZERO. The vanishing criterion is: if rho is a character not congruent to 1 modulo p then k_rho^Delta = 0 and hence H^1(Omega/K, D_rho) = 0; it is applied with rho = chi and with rho = chi^{-1} epsilon_cyc. Rubin's Lemma III.1.1 has two parts: (i) if chi is not 1 then H^1(L(mu_{p^infinity})/K, W) = 0; (ii) if chi is not congruent to the cyclotomic character modulo the maximal ideal of O then H^1(L(mu_{p^infinity})/K, W^*) = 0. The proof of Thm. III.2.3 invokes it 'since chi is nontrivial and even'.",
+      "hypotheses": [
+        "chi has order prime to p, so chi is not congruent to 1 modulo p unless chi is trivial: nontriviality gives Lemma 1.1(i) (rho = chi). Lemma 1.1(ii) (rho = chi^{-1} epsilon_cyc) needs chi not congruent to epsilon_cyc modulo the maximal ideal; for p > 2 evenness supplies this, since complex conjugation acts by 1 through chi and by -1 through epsilon_cyc (this reduction is review-authored; Rubin only cites 'nontrivial and even')",
+        "the criterion is applied to both the module and its Tate dual (rho = chi and rho = chi^{-1} epsilon_cyc)",
+        "rank_O T^* = 1 gives Hyp(Q,T^*) with tau = 1; no large-image assumption is available or needed here"
+      ],
+      "proofSteps": [
+        "Rubin's Lemma III.1.1 proves H^1(Omega/K, k_rho) = 0 implies H^1(Omega/K, D_rho)_p = 0 implies H^1(Omega/K, D_rho) = 0, and identifies k_rho^Delta = 0 when rho is not congruent to 1 mod p.",
+        "Applying the criterion with rho = chi gives part (i) and with rho = chi^{-1} epsilon_cyc gives part (ii); these are exactly the two modules W and W^* appearing in n_W and n^*_W.",
+        "Rubin records the conclusion in the proof of Thm. III.2.3."
+      ],
+      "acceptance": [
+        "Check that this vanishing is proved for THIS twist and is not general; Rubin's Remark II.2.5 gives only finiteness in general.",
+        "Check that when p divides the order of chi the setup changes: Remark 2.5 says Thm. II.2.2 still applies but the Selmer group is no longer exactly the ideal class group.",
+        "Check the identification Omega = L(mu_{p^infinity}) against the general definition with K = Q."
+      ],
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Thm. 2.3, printed p. 36",
+          "excerpt": "Since rank_O T^* = 1, Hyp(Q, T^*) is satisfied with tau = 1. Further, in this case Omega = L(mu_{p^infinity}), and since chi is nontrivial and even, Lemma 1.1 shows that the error terms n_{W^*} and n^*_{W^*} in Theorem II.2.2 are both zero.",
+          "match": "States the verification of Hyp(Q,T^*) and the vanishing of both error terms verbatim, with the exact reasons."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, Sec. 1 closing (Lemma 1.1), printed p. 33",
+          "excerpt": "H^1(Omega/K, k_rho) = 0 => H^1(Omega/K, D_rho)_p = 0 => H^1(Omega/K, D_rho) = 0. If rho is not congruent to 1 modulo p, then k_rho^Delta = 0 and so H^1(Omega/K, D_rho) = 0. Applying this with rho = chi proves (i), and with rho = chi^{-1} eps_cyc proves (ii).",
+          "match": "Gives the vanishing criterion and both of its applications."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter II, Remark 2.5, printed p. 25",
+          "excerpt": "Corollary C.2.2 shows that if V is an irreducible Phi[GK]-module, then H^1(Omega/K, W) is finite (resp. H^1(Omega/K, W^*) is finite) unless T = O with trivial action (resp. T = O(1)). Frequently the 'error terms' n_W and n^*_W in Theorem 2.2 are zero; see the examples in Chapter III.",
+          "match": "Confirms that vanishing is not automatic in general, only finiteness."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EulerSystemsCyclotomicMainConjecture:L1/finite-level-class-number-divisibility",
+      "parentStageId": "EulerSystemsCyclotomicMainConjecture:L1",
+      "title": "The finite-level divisibility |A_L^chi| divides [E_L^chi : C_{L,chi}]",
+      "kind": "theorem",
+      "statement": "Suppose p > 2 and chi(p) is not 1. Then |A_L^chi| divides [E_L^chi : C_{L,chi}], where A_L is the p-part of the ideal class group of L, E_L the global units and C_{L,chi} the chi-cyclotomic units. The proof identifies c_Q = xi_{L,chi}^{1-chi^{-1}(p)} (with chi(p) = 0 when p divides f), observes that 1 - chi^{-1}(p) is a unit of O because chi(p) is not 1 and chi has prime-to-p order, so c_Q generates C_{L,chi}; computes ind_O(c) = length_O(E_L^chi/C_{L,chi}) using that L^x/E_L is torsion-free and that E_L^chi is free of rank one over O by the Dirichlet unit theorem (using p > 2, chi even, chi nontrivial); and identifies S_{Sigma_p}(Q,W) with S(Q,W) = Hom_O(A_L^chi,D) because H^1_ur(Q_p,V) = V^I/(Fr_p - 1)V^I = V^I/(chi(p)-1)V^I = 0 when chi(p) is not 1.",
+      "hypotheses": [
+        "p > 2 and chi(p) not equal to 1; the second hypothesis is, by Rubin's Remark 2.1, an artefact of the Euler-system normalisation and not intrinsic to the theorem",
+        "chi even, nontrivial, of prime-to-p order; evenness and nontriviality are used in the Dirichlet-unit-theorem step to get rank exactly one",
+        "chi(p) = 0 by convention when p divides f, in which case 1 - chi^{-1}(p) = 1",
+        "the identification S(Q,W) = Hom_O(A_L^chi,D) is Rubin's Prop. I.6.1 and is valid because chi has order prime to p; Remark 2.5 warns that when p divides the order of chi the Selmer group is no longer exactly the ideal class group"
+      ],
+      "proofSteps": [
+        "Apply Thm. II.2.2 to the twisted Euler system c; the error terms vanish by the sibling lemma.",
+        "Compute c_Q: by (2) and (4), c_Q = xi_{L,chi}^{1 - chi^{-1}(p)} in H^1(Q,T^*), so under the hypothesis chi(p) not 1 the exponent is a unit and c_Q generates C_{L,chi}.",
+        "Compute ind_O(c): since L^x/E_L is torsion-free, ind_O(c) is the largest power of p dividing a generator of C_{L,chi} inside E_L^chi; since E_L^chi is free of rank one over O, ind_O(c) = length_O(E_L^chi/C_{L,chi}).",
+        "Identify the Selmer group: by Lemma I.3.2(i), H^1_ur(Q_p,V) = V^I/(Fr_p-1)V^I = V^I/(chi(p)-1)V^I = 0 since chi(p) is not 1, hence H^1_f(Q_p,W) = 0 and S_{Sigma_p}(Q,W) = S(Q,W) = Hom_O(A_L^chi,D).",
+        "Combine: |S_{Sigma_p}(Q,W)| divides [E_L^chi : C_{L,chi}], which is the assertion."
+      ],
+      "acceptance": [
+        "Check that the hypothesis chi(p) not 1 enters TWICE and for different reasons: to make c_Q a generator of C_{L,chi}, and to kill the local condition at p. A proof removing it must address both.",
+        "Check that the Dirichlet unit theorem step gives rank exactly one for E_L^chi: this uses p > 2, chi even and chi nontrivial.",
+        "Check the torsion-freeness of L^x/E_L, which converts the index of divisibility into a module length.",
+        "Check that this is a divisibility of orders and that the upgrade to equality is a separate analytic input."
+      ],
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, Thm. 2.3, printed p. 36",
+          "excerpt": "Theorem 2.3. Suppose that p > 2 and chi(p) not= 1. Then |A_L^chi| divides [E_L^chi : C_{L,chi}].",
+          "match": "Gives the statement with both hypotheses exactly as recorded."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Thm. 2.3, printed p. 36",
+          "excerpt": "Identifying xi_{L,chi} with its image in H^1(Q, T^*), it follows from (2) and (4) that cQ = xi_{L,chi}^{1-chi^{-1}(p)} (6) where chi(p) = 0 if p | f. Since chi(p) not= 1 and chi has order prime to p, 1-chi^{-1}(p) in O^x so cQ generates C_{L,chi}.",
+          "match": "Gives the computation of c_Q and the exact role of the hypothesis chi(p) not 1."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Thm. 2.3, printed p. 36",
+          "excerpt": "Since L^x/EL is torsion-free, it follows that ind_O(c) is the largest power of p by which a generator of C_{L,chi} can be divided in E_L^chi. Since p > 2, chi is even, and chi not= 1, the Dirichlet unit theorem ... shows that E_L^chi is free of rank one over O, and we conclude ind_O(c) = `_O(E_L^chi/C_{L,chi}).",
+          "match": "Gives the index computation and the exact hypotheses used in it."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Thm. 2.3, printed p. 36",
+          "excerpt": "Let I denote an inertia group above p and Frp in GQ a Frobenius element. By Lemma I.3.2(i), H^1_ur(Qp, V) = V^I/(Frp - 1)V^I = V^I/(chi(p) - 1)V^I = 0 since chi(p) not= 1. Therefore H^1_f(Qp, W) = 0 and S_{Sigma_p}(Q, W) = S(Q, W) = Hom_O(A_L^chi, D)",
+          "match": "Gives the local computation that identifies the restricted and true Selmer groups."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EulerSystemsCyclotomicMainConjecture:L1/analytic-class-number-upgrade-at-finite-level",
+      "parentStageId": "EulerSystemsCyclotomicMainConjecture:L1",
+      "title": "Upgrade to equality at finite level via the analytic class number formula",
+      "kind": "theorem",
+      "statement": "With the hypotheses of the previous node (p > 2, chi(p) not 1, chi even nontrivial of prime-to-p order), one has |A_L^chi| = [E_L^chi : C_{L,chi}]. This is Mazur-Wiles Theorem 1.10.1. The upgrade is obtained by a 'well-known argument using the analytic class number formula' applied to the divisibility of the previous node for ALL such characters chi at once; Rubin gives no further detail and refers to [Ru3] Thm. 4.2. The mechanism 'componentwise divisibilities plus equality of the products' is packet-authored and must also account for the components excluded from Thm. III.2.3: for chi(p) = 1 Rubin's Remarks III.2.5 say c_Q = 0 and that the equality is instead deduced (by Greenberg) from Thm. III.2.10.",
+      "hypotheses": [
+        "the same hypotheses as the divisibility: p > 2, chi(p) not 1, chi even, nontrivial, prime-to-p order",
+        "the argument needs the divisibility for every relevant chi simultaneously: a single component's divisibility together with a global cardinality equality does NOT give that component's equality",
+        "the analytic class number formula is an external input; Rubin does not reprove it"
+      ],
+      "proofSteps": [
+        "Rubin states the upgrade as Corollary 2.4 and refers to [Ru3] Theorem 4.2 for the argument; that reference was not read.",
+        "The intended structure (packet-authored, not verified in any source read): the product over all chi of [E_L^chi : C_{L,chi}] equals the product over all chi of |A_L^chi| by the analytic class number formula, and each factor on the right divides the corresponding factor on the left by Thm. 2.3, so all divisibilities are equalities."
+      ],
+      "acceptance": [
+        "Check that the argument is genuinely componentwise: equality of total cardinalities alone does not give equality of individual chi-components without the previously established componentwise divisibilities.",
+        "Check which characters are excluded (chi trivial, chi odd, chi with chi(p) = 1, p = 2) and how the product formula accounts for them.",
+        "Check the reference [Ru3] Theorem 4.2 before treating this node as fully sourced."
+      ],
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, Cor. 2.4, printed p. 36",
+          "excerpt": "A well-known argument using the analytic class number formula takes Theorem 2.3 for all such characters chi and gives the following strengthening. Corollary 2.4 (Mazur & Wiles [MW] Theorem 1.10.1). With hypotheses as in Theorem 2.3, |A_L^chi| = [E_L^chi : C_{L,chi}]. Proof. See for example [Ru3] Theorem 4.2.",
+          "match": "Gives the statement, the attribution to Mazur-Wiles Thm. 1.10.1, the fact that the argument uses ALL characters simultaneously, and that Rubin refers out for the proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EulerSystemsCyclotomicMainConjecture:L2/iwasawa-theoretic-euler-system-bound",
+      "parentStageId": "EulerSystemsCyclotomicMainConjecture:L2",
+      "title": "Rubin's Iwasawa-theoretic Euler-system theorems II.3.2-II.3.4",
+      "kind": "theorem",
+      "statement": "Fix an abelian extension K_infinity/K with Gal(K_infinity/K) isomorphic to Z_p^d and such that NO FINITE PRIME OF K SPLITS COMPLETELY IN K_infinity. Let c be an Euler system for (T, K_infinity) in Rubin's sense (an Euler system for (T, K-script, N) whose field K-script contains K_infinity), Lambda = O[[Gamma]], S_{Sigma_p}(K_infinity,W^*) the direct limit of the restricted Selmer groups, X_infinity = Hom_O(S_{Sigma_p}(K_infinity,W^*),D), H^1_infinity(K,T) the inverse limit of H^1(F,T) along corestriction, and ind_Lambda(c) = {phi(c_{K,infinity}) : phi in Hom_Lambda(H^1_infinity(K,T),Lambda)}. Then: (II.3.2) if c_{K,infinity} is not in the Lambda-torsion submodule of H^1_infinity(K,T) and V satisfies Hyp(K_infinity,V), then X_infinity is a torsion Lambda-module (the weak Leopoldt conjecture for T); (II.3.3) if T satisfies Hyp(K_infinity,T) and Hyp(K_infinity/K), then char(X_infinity) divides ind_Lambda(c); (II.3.4) if only V satisfies Hyp(K_infinity,V) together with Hyp(K_infinity/K), there is a nonnegative integer t with char(X_infinity) dividing p^t ind_Lambda(c). Moreover (Prop. II.3.7) there is an exact sequence 0 -> H^1_{infinity,s}(K_p,T)/loc^s_{Sigma_p}(H^1_infinity(K,T)) -> Hom_O(S(K_infinity,W^*),D) -> X_infinity -> 0.",
+      "hypotheses": [
+        "the no-completely-split-finite-prime hypothesis on K_infinity/K is part of the setup of Rubin's Sec. II.3 and is not removable there",
+        "Hyp(K_infinity,T)(i) requires tau in G_{K_infinity} acting trivially on mu_{p^infinity}, on (O_K^x)^{1/p^infinity} and on K(1), with T/(tau-1)T FREE OF RANK ONE OVER O; (ii) requires T tensor k irreducible as a k[G_{K_infinity}]-module -- over G_{K_infinity}, not over G_K",
+        "Hyp(K_infinity/K) is a separate weak assumption: if rank_{Z_p}(Gamma) = 1 and G_{K_infinity} acts trivially or by the cyclotomic character on V, then either K is totally real with Leopoldt known for K, or K is imaginary quadratic; it holds when K = Q",
+        "Thm. II.3.3 gives an INTEGRAL divisibility, Thm. II.3.4 only a divisibility up to an unspecified power p^t; the weakening is the price of assuming only Hyp(K_infinity,V)",
+        "for Prop. II.3.7 one must assume the corestriction and restriction compatibilities of the H^1_f at the layers, which Rubin states explicitly"
+      ],
+      "proofSteps": [
+        "Rubin describes the method: 'Essentially by proving analogues of Theorem 2.2 for each field F, K subset F subset K_infinity, we can pass to the limit and prove an Iwasawa-theoretic version of Theorem 2.2.' The proofs are in Chapter VII and were NOT read for this packet.",
+        "Prop. 3.7 is proved from Corollary B.3.4, which identifies H^1_infinity(K,T) with the inverse limit of the restricted Selmer modules S^{Sigma_p}(F,T).",
+        "Rubin records the implications Hyp(K_infinity,T) => Hyp(K_infinity,V) => Hyp(K,V) and Hyp(K_infinity,T) => Hyp(K,T)."
+      ],
+      "acceptance": [
+        "Check that Thm. 3.3's conclusion is an inclusion of ideals char(X_infinity) inside ind_Lambda(c), and that ind_Lambda(c) is an IDEAL (the image of the class under all Lambda-functionals), not a single element.",
+        "Check the no-completely-split hypothesis in the intended application. Rubin's footnote in Sec. III.3 says the splitting condition is unnecessary in the elliptic-unit setting, referring to Chapter IX Sec. 2 (not read); the passages read do not show how, or whether, it can be dropped in general.",
+        "Check which of II.3.2, II.3.3, II.3.4 an application invokes: they have genuinely different hypotheses and conclusions.",
+        "Check that the irreducibility clause is over G_{K_infinity}; irreducibility over G_K alone is strictly weaker."
+      ],
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter II, Sec. 3 opening, printed p. 26",
+          "excerpt": "Fix for this section an abelian extension K_infinity of K such that Gal(K_infinity/K) = Zp^d for some d and such that no finite prime of K splits completely in K_infinity. Essentially by proving analogues of Theorem 2.2 for each field F, K subset F subset K_infinity, we can pass to the limit and prove an Iwasawa-theoretic version of Theorem 2.2.",
+          "match": "Gives the standing hypothesis on K_infinity and the proof strategy."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter II, Hyp(K_infinity/K), printed p. 27",
+          "excerpt": "Hypothesis Hyp(K_infinity/K). If rank_{Zp}(Gamma) = 1 and G_{K_infinity} acts either trivially or by the cyclotomic character on V, then either K is a totally real field and Leopoldt's conjecture holds for K (i.e., the p-adic completion of O_K^x injects into (O_K tensor Zp)^x), or K is an imaginary quadratic field. ... In particular it is satisfied if K = Q.",
+          "match": "Gives the auxiliary hypothesis verbatim, including that it holds for K = Q."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter II, Hyp(K_infinity,T), printed p. 27",
+          "excerpt": "Hypotheses Hyp(K_infinity, T). (i) There is a tau in G_{K_infinity} such that tau acts trivially on mu_{p^infinity}, on (O_K^x)^{1/p^infinity}, and on K(1), T/(tau - 1)T is free of rank one over O. (ii) T tensor k is an irreducible k[G_{K_infinity}]-module.",
+          "match": "Gives the hypothesis package verbatim, showing the irreducibility is required over G_{K_infinity}."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter II, Def. 3.1 and Thms. 3.2-3.4, printed p. 28",
+          "excerpt": "indLambda(c) = {phi(c_{K,infinity}) : phi in HomLambda(H^1_infinity(K, T), Lambda)} contained in Lambda. ... Theorem 3.3. Suppose c is an Euler system for (T, K_infinity), and T satisfies hypotheses Hyp(K_infinity, T) and Hyp(K_infinity/K). Then char(X_infinity) divides indLambda(c). Theorem 3.4. Suppose c is an Euler system for (T, K_infinity), and V satisfies hypotheses Hyp(K_infinity, V) and Hyp(K_infinity/K). Then there is a nonnegative integer t such that char(X_infinity) divides p^t indLambda(c).",
+          "match": "Gives Def. 3.1 and both divisibility theorems with their distinct hypotheses and conclusions."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter II, Prop. 3.7, printed p. 29",
+          "excerpt": "There is an exact sequence 0 -> H^1_{infinity,s}(Kp, T)/loc^s_{Sigma_p}(H^1_infinity(K, T)) -> HomO(S(K_infinity, W^*), D) -> X_infinity -> 0.",
+          "match": "Gives the exact sequence relating the restricted and true dual Selmer modules."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EulerSystemsCyclotomicMainConjecture:L2/cyclotomic-local-global-comparison-diagram",
+      "parentStageId": "EulerSystemsCyclotomicMainConjecture:L2",
+      "title": "The local-global comparison diagram for cyclotomic units (Rubin Prop. III.2.6)",
+      "kind": "lemma",
+      "statement": "With Lambda = O[[Gal(Q_infinity/Q)]], A_infinity = lim A_n, E_infinity = lim (E_n)^hat, C_{infinity,chi} = lim (C_{n,chi})^hat, U_infinity = lim (U_n)^hat the semilocal units, Y_infinity = lim (L_{n,p}^x)^hat, and E'_infinity the inverse limit of the p-units: (i) there is a commutative diagram of horizontal inclusions and surjections Lambda{c_{Q_n}} -> H^1_infinity(Q,T^*) -> H^1_infinity(Q_p,T^*) onto H^1_{infinity,s}(Q_p,T^*) with vertical isomorphisms onto C_{infinity,chi} -> (E'_infinity)^chi -> Y_infinity^chi onto Y_infinity^chi/U_infinity^chi; (ii) Y_infinity^chi/U_infinity^chi is isomorphic as a Lambda-module to 0 if chi(p) is not 1, and to O if chi(p) = 1; (iii) there is a Lambda-module injection (E'_infinity)^chi/E_infinity^chi into O.",
+      "hypotheses": [
+        "the injectivity of the middle horizontal map in (i) rests on Leopoldt's conjecture, which Rubin notes 'is known in this setting' (abelian fields); it is an input, not a formality",
+        "(ii) is precisely the augmentation-type correction appearing when chi is trivial on the decomposition group at p: Y_infinity^chi/U_infinity^chi is isomorphic to Z_p[Delta/Delta_p]^chi, nonzero exactly when chi is trivial on Delta_p, i.e. when chi(p) = 1",
+        "(iii) follows from (ii) because E_infinity^chi is the kernel of (E'_infinity)^chi -> Y_infinity^chi/U_infinity^chi; the cokernel is therefore at worst O",
+        "the identification of H^1_f(Q_{n,p},T^*) with U_n^chi is the local analogue of the global restriction dictionary"
+      ],
+      "proofSteps": [
+        "The left-hand vertical isomorphism is Lemma II.4.3 again, showing that the image of c_{Q_n} in (L_n^x)^chi is xi_{n,chi}.",
+        "The middle vertical isomorphism uses S^{p}(Q_n,T^*) = (E'_n)^chi (Chapter I Sec. 6.3) together with Corollary B.3.4, which gives lim_n H^1(Q_n,T^*) = lim_n S^{p}(Q_n,T^*).",
+        "The local row is the restriction isomorphism H^1(Q_{n,p},T^*) = (L_{n,p}^x)^chi carrying H^1_f(Q_{n,p},T^*) onto U_n^chi.",
+        "For (ii) Rubin computes by valuations that L_{m,p}^x/U_m = sum over w|p of Z_w = Z[Delta/Delta_p] compatibly with the norm maps, so Y_infinity^chi/U_infinity^chi = Z_p[Delta/Delta_p]^chi, nonzero exactly when chi is trivial on the decomposition group Delta_p."
+      ],
+      "acceptance": [
+        "Check that (ii) is the SOURCE of the augmentation ideal J = char(O) cancelled in the divisibility argument; removing it without proof would be a normalisation error.",
+        "Check that the Leopoldt input to the injectivity in (i) is recorded, since the corresponding statement is false for general number fields.",
+        "Check the distinction between E_infinity (units) and E'_infinity (p-units) throughout; the Euler system naturally produces p-units."
+      ],
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, Prop. 2.6, printed p. 37",
+          "excerpt": "(ii) There is a Lambda-module isomorphism Y_infinity^chi/U_infinity^chi = 0 if chi(p) not= 1, O if chi(p) = 1. (iii) There is a Lambda-module injection (E'_infinity)^chi/E_infinity^chi -> O.",
+          "match": "Gives parts (ii) and (iii) verbatim, the augmentation-type corrections recorded in the hypotheses."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Prop. 2.6, printed pp. 37-38",
+          "excerpt": "(Note that once we have the vertical isomorphisms, the injectivity of the upper center horizontal map follows from that of the lower center horizontal map; the latter injectivity follows from Leopoldt's conjecture, which is known in this setting.)",
+          "match": "Records the Leopoldt input explicitly."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Prop. 2.6, printed p. 38",
+          "excerpt": "and so Y_infinity^chi/U_infinity^chi = Zp[Delta/Delta_p]^chi. Clearly Zp[Delta/Delta_p]^chi not= 0 if and only if chi is trivial on Delta_p, i.e. if and only if chi(p) = 1. This proves (ii), and (iii) follows from (ii) since E_infinity^chi is the kernel of the natural map (E'_infinity)^chi -> Y_infinity^chi/U_infinity^chi.",
+          "match": "Gives the computation behind (ii) and the deduction of (iii)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EulerSystemsCyclotomicMainConjecture:L2/cyclotomic-iwasawa-divisibility",
+      "parentStageId": "EulerSystemsCyclotomicMainConjecture:L2",
+      "title": "char(A_infinity^chi) divides char(E_infinity^chi/C_{infinity,chi}) (Rubin Thm. III.2.7)",
+      "kind": "theorem",
+      "statement": "For chi even, nontrivial, of finite prime-to-p order, char(A_infinity^chi) divides char(E_infinity^chi/C_{infinity,chi}) as ideals of Lambda = O[[Gal(Q_infinity/Q)]]. Here A_infinity = lim (A_n)^hat is the inverse limit of the p-completed ideal class groups of L_n, which under class field theory is the module the atlas stage text (in RJW's notation) names Y_infinity. Notation warning: in Rubin's own notation Y_infinity = lim (L_{n,p}^x)^hat is the SEMILOCAL multiplicative group of Prop. III.2.6, not a class-group module. NO hypothesis chi(p) not 1 is needed. Rubin remarks after Cor. 2.4 that 'Theorem II.3.3 also applies when p = 2'; he does not state that the other inputs of this proof (Prop. 2.6, [Iw3] Thm. 25, the Leopoldt step) hold verbatim at p = 2, so the case p = 2 of Thm. III.2.7 is not established by the passages read.",
+      "hypotheses": [
+        "Hyp(Q_infinity,T^*) is satisfied with tau = 1 because rank_O T^* = 1; this is the only large-image input and it is automatic in rank one",
+        "Hyp(Q_infinity/Q) holds because K = Q",
+        "the final step, that char(A_infinity^chi) is not divisible by the augmentation ideal J, uses Leopoldt's conjecture for the real abelian field L via the fact that L has no Z_p^2-extension; Rubin says 'We only sketch the proof' for this step",
+        "the input [Iw3] Theorem 25 (Iwasawa), that Y_infinity^chi (Rubin's semilocal Y_infinity = lim (L_{n,p}^x)^hat) is a torsion-free finitely generated rank-one Lambda-module, is an external citation"
+      ],
+      "proofSteps": [
+        "Apply Thm. II.3.3 together with Prop. II.3.7 to obtain char(Hom_O(S(Q_infinity,W),D)) divides ind_Lambda(c) char(H^1_{infinity,s}(Q_p,T^*)).",
+        "By [Iw3] Thm. 25, Y_infinity^chi is torsion-free, finitely generated and of rank one over Lambda; since (E'_infinity)^chi is a nonzero Lambda-submodule it is too. With the diagram of Prop. 2.6(i) this gives ind_Lambda(c) = char((E'_infinity)^chi/C_{infinity,chi}).",
+        "By Prop. 2.6(iii), (E'_infinity)^chi/E_infinity^chi injects into O, so ind_Lambda(c) divides J char(E_infinity^chi/C_{infinity,chi}) with J = char(O) the augmentation ideal.",
+        "By the Selmer identification (5), Hom_O(S(Q_infinity,W),D) = A_infinity^chi, and by Prop. 2.6 char(H^1_{infinity,s}(Q_p,T^*)) divides J. Hence char(A_infinity^chi) divides J^2 char(E_infinity^chi/C_{infinity,chi}).",
+        "It remains to show J does not divide char(A_infinity^chi). A standard Iwasawa argument gives J | char(A_infinity^chi) if and only if A_infinity^chi/J A_infinity^chi is infinite, and identifies A_infinity^chi/J A_infinity^chi with Gal(M_infinity/L_infinity) for M_infinity an extension of L_infinity abelian over L. Since chi is even, L is real abelian, Leopoldt holds for L, so class field theory gives that L has no Z_p^2-extension; hence Gal(M_infinity/L) has Z_p-rank one and [M_infinity : L_infinity] is finite. Rubin gives this last step only as a sketch."
+      ],
+      "acceptance": [
+        "Check the J^2 bookkeeping: the divisibility is first proved up to J^2 and only then cleaned up; a statement without the augmentation correction is not what the argument produces.",
+        "Check the naming dictionary: Rubin's A_infinity^chi (inverse limit of class groups) corresponds under class field theory to the atlas's Y_infinity^chi, so the atlas's phrasing of Rubin III.2.7 is consistent once that identification is made.",
+        "Check that this theorem, unlike Thm. 2.3, needs no hypothesis chi(p) not 1, and check separately whether its proof works at p = 2 (only Thm. II.3.3 is asserted to apply there).",
+        "Check the two external citations ([Iw3] Thm. 25 and [Iw3] Sec. 3.1) before treating this node as fully sourced."
+      ],
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, Thm. 2.7, printed p. 38",
+          "excerpt": "Theorem 2.7. char(A_infinity^chi) divides char(E_infinity^chi/C_{infinity,chi}). Proof. Hypotheses Hyp(Q_infinity, T^*) are satisfied with tau = 1, so we can apply Theorem II.3.3 and Proposition II.3.7 to conclude that char(HomO(S(Q_infinity, W), D)) divides indLambda(c) char(H^1_{infinity,s}(Qp, T^*))",
+          "match": "Gives the statement and the first step of the proof, including the verification of Hyp(Q_infinity,T^*) with tau = 1."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Thm. 2.7, printed p. 38",
+          "excerpt": "Combined with the diagram of Proposition 2.6(i), it follows easily that indLambda(c) = char((E'_infinity)^chi/C_{infinity,chi}), and so using Proposition 2.6(iii) indLambda(c) divides J char(E_infinity^chi/C_{infinity,chi}) where J = char(O), the augmentation ideal of Lambda. ... Thus we conclude that char(A_infinity^chi) divides J^2 char(E_infinity^chi/C_{infinity,chi}) so to prove the theorem we need only show that char(A_infinity^chi) is not divisible by J.",
+          "match": "Gives the augmentation bookkeeping including the intermediate J^2 statement."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Thm. 2.7, printed p. 38",
+          "excerpt": "We only sketch the proof. A standard elementary Iwasawa theory argument (see for example [Iw3] Sec. 3.1) shows that A_infinity^chi/J A_infinity^chi is a finitely-generated Zp-module, that J | char(A_infinity^chi) <=> A_infinity^chi/J A_infinity^chi is infinite ... Since chi is even, L is a real abelian field, and Leopoldt's conjecture holds for L. Therefore class field theory shows that L has no Zp^2-extensions, so Gal(M_infinity/L) has Zp-rank one and [M_infinity : L_infinity] must be finite.",
+          "match": "Records that the final step is a sketch and identifies its Leopoldt input."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, Remarks 2.5, printed pp. 36-37",
+          "excerpt": "When chi(p) = 1, (6) shows that cQ = 0, so Theorem II.2.2 is of no use. However, in this case Greenberg ([Gr1] Sec. 5) has shown how to deduce the equality of Corollary 2.4 from Theorem 2.10 below (Iwasawa's 'main conjecture') which we will prove below using Theorem II.3.3. See also Chapter IX Sec. 1. Theorem II.3.3 also applies when p = 2.",
+          "match": "Confirms that the Iwasawa-theoretic route avoids the chi(p) not 1 hypothesis and applies at p = 2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EulerSystemsCyclotomicMainConjecture:L3/analytic-class-number-equality-at-infinite-level",
+      "parentStageId": "EulerSystemsCyclotomicMainConjecture:L3",
+      "title": "Equality char(A_infinity^chi) = char(E_infinity^chi/C_{infinity,chi}) (Rubin Cor. III.2.8)",
+      "kind": "theorem",
+      "statement": "For chi even, nontrivial, of finite prime-to-p order, char(A_infinity^chi) = char(E_infinity^chi/C_{infinity,chi}). The equality follows from the divisibility of Rubin Thm. III.2.7 together with the analytic class number formula, exactly as Corollary 2.4 follows from Theorem 2.3 at finite level.",
+      "hypotheses": [
+        "the same hypotheses as the divisibility (chi even, nontrivial, prime-to-p order); no hypothesis chi(p) not 1 and no restriction to p > 2",
+        "as at finite level, the analytic argument requires the componentwise divisibilities for all relevant characters simultaneously: equality of total sizes alone does not give componentwise equality",
+        "the analytic class number formula and the Iwasawa-theoretic form of the argument are external inputs; Rubin refers to [MW] Sec. 1.6 or [Ru3] p. 414"
+      ],
+      "proofSteps": [
+        "Rubin states the corollary and refers to [MW] Sec. 1.6 or [Ru3] p. 414 for the argument; neither was read for this packet.",
+        "The intended structure mirrors the finite-level case: the product of the characteristic ideals over all chi is computed analytically, and each individual divisibility of Thm. 2.7 then has to be an equality."
+      ],
+      "acceptance": [
+        "Check that the trivial-character component is excluded from the product and treated separately (Rubin's chi is nontrivial throughout Chapter III Sec. 2).",
+        "Check the pole/augmentation factor for the trivial character, which the atlas stage text requires to be treated separately.",
+        "Check [Ru3] p. 414 before treating this node as fully sourced."
+      ],
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, Cor. 2.8, printed p. 38",
+          "excerpt": "Corollary 2.8. char(A_infinity^chi) = char(E_infinity^chi/C_{infinity,chi}). Proof. As with Corollary 2.4, this follows from Theorem 2.7 and the analytic class number formula. See for example [MW] Sec. 1.6, or [Ru3] p. 414.",
+          "match": "Gives the equality and records that its proof is referred out."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EulerSystemsCyclotomicMainConjecture:L3/local-unit-index-and-the-p-adic-L-function",
+      "parentStageId": "EulerSystemsCyclotomicMainConjecture:L3",
+      "title": "The p-adic L-function and the local-unit index char(U_infinity^chi/C_{infinity,chi}) = L_chi Lambda",
+      "kind": "theorem",
+      "statement": "Let omega be the Teichmuller character giving the action of G_Q on mu_p (p odd) or mu_4 (p = 2), so omega^{-1} epsilon_cyc is a character of Gal(Q_infinity/Q). Fix an embedding O into Qbar_p and identify complex and p-adic finite-order characters. Then (i) there is an element L_chi in Lambda such that for every k >= 1 and every finite-order character rho of Gal(Q_infinity/Q), (omega^{-1} epsilon_cyc)^k rho (L_chi) = (1 - omega^{-k} rho chi(p) p^{k-1}) L(1-k, omega^{-k} rho chi); and (ii) char(U_infinity^chi/C_{infinity,chi}) = L_chi Lambda. Statement (ii) is Iwasawa's theorem identifying the characteristic ideal of the SEMILOCAL unit quotient with the p-adic L-function; it is the chi-component form of the statement the atlas assigns to the Coleman-map owner.",
+      "hypotheses": [
+        "the interpolation in (i) is at the characters (omega^{-1} epsilon_cyc)^k rho for k >= 1, with the Euler factor at p removed in the form (1 - omega^{-k} rho chi(p) p^{k-1})",
+        "the identification of complex and p-adic characters requires a fixed embedding O into Qbar_p into C; L_chi depends on that choice",
+        "U_infinity is the inverse limit of the SEMILOCAL units U_n of L_{n,p} = L_n tensor Q_p, not the global units; the quotient is by the closure of the cyclotomic units inside them",
+        "Rubin does not prove (i) or (ii); he cites [Iw2] Sec. 6 or [Wa] Thm. 7.10 for (i), and [Iw1], [Wa] Thm. 13.56, [Lan] Thm. 7.5.2, or Gillard's Theoreme 1 for the general case of (ii), noting that his Appendix D Sec. 2 carries out the main computation for (ii)",
+        "Greither's Cor. 2.14 compares V_rho(U_infinity/C_infinity) with O_p(chi)[[T]]/(G_p(T,rho))^*(1) as Q_p Lambda_rho-modules, i.e. after tensoring with Q_p: it determines the characteristic ideal only up to powers of p, so integrality needs a separate input (for instance mu = 0); the two modules are isomorphic when chi(p) is not 1",
+        "For an even chi of arbitrary conductor f Rubin attributes (ii) to Gillard [Gi] Theoreme 1 (not read); the supplier stage ColemanPowerSeries:L4 (RJW Thm. 12.23) states only the tower Q(mu_{p^infinity})^+, i.e. the characters of Gal(Q(mu_p)^+/Q)"
+      ],
+      "proofSteps": [
+        "Rubin states Thm. 2.9 with references; the proof of (ii) reduces, via the Coleman map, to a computation he says is carried out in Appendix D Sec. 2 (not read for this packet).",
+        "Greither's Sec. 2 gives an independent route to the same computation for general abelian fields unramified at p, including p = 2: Thm. 2.4 (Coleman's exact sequence), Thm. 2.6 (the kernel of the Coleman trace operator is R(1-X)), Thm. 2.8 (a four-term exact sequence), and Thm. 2.13 with Cor. 2.14, which compute the characteristic ideal of V_rho(U_infinity/C_infinity) as that of O_p(chi)[[T]]/(G_p(T,rho))^*(1)."
+      ],
+      "acceptance": [
+        "Check that (ii) is a statement about LOCAL (semilocal) units; naming it the main conjecture would be an error, since the Galois-theoretic statement is Thm. 2.10.",
+        "Check the Euler factor (1 - omega^{-k} rho chi(p) p^{k-1}) and its compatibility with the convention chi(p) = 0 for p dividing f.",
+        "Check the comparison between Rubin's chi-component form char(U_infinity^chi/C_{infinity,chi}) = L_chi Lambda and the plus-part form U_{infinity,1}^+/C_{infinity,1}^+ = Z_p[[G^+]]/(I(G^+) zeta_p) owned by the Coleman-map stage of the atlas; the two differ by coefficient ring and by single-component versus whole-even-part packaging."
+      ],
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, Thm. 2.9, printed p. 39",
+          "excerpt": "Theorem 2.9. (i) There is an element L_chi in Lambda (the p-adic L-function attached to chi) such that for every k >= 1 and every character rho of finite order of Gal(Q_infinity/Q), (omega^{-1} eps_cyc)^k rho(L_chi) = (1 - omega^{-k} rho chi(p) p^{k-1}) L(1 - k, omega^{-k} rho chi). (ii) char(U_infinity^chi/C_{infinity,chi}) = L_chi Lambda.",
+          "match": "Gives both parts verbatim with the exact interpolation formula and Euler factor."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Thm. 2.9, printed p. 39",
+          "excerpt": "See for example [Iw2] Sec. 6 or [Wa] Theorem 7.10 for (i), and [Iw1], [Wa] Theorem 13.56, [Lan] Theorem 7.5.2, or (for the general case) [Gi] Theoreme 1 for (ii). (See also Appendix D Sec. 2 where we carry out the main computation needed to prove (ii).)",
+          "match": "Records that both parts are cited rather than proved in the read text."
+        },
+        {
+          "sourceId": "greither-main-conjecture-1992",
+          "locator": "Sec. 2, Cor. 2.14, printed p. 465",
+          "excerpt": "For any even nontrivial character rho of Delta', chi = omega rho^{-1}, consider the two Qp Lambda_p-modules V_rho(U_infinity/C_infinity) and Op(chi)[[T]]/(Gp(T,rho))^*(1). These two modules have the same characteristic ideal over Qp Lambda_p. If chi(p) not= 1, they are even isomorphic.",
+          "match": "Gives Greither's independent computation of the semilocal unit index for abelian fields unramified at p, with the chi(p) not 1 refinement."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EulerSystemsCyclotomicMainConjecture:L3/main-conjecture-endpoint-for-the-p-ramified-galois-group",
+      "parentStageId": "EulerSystemsCyclotomicMainConjecture:L3",
+      "title": "The main-conjecture endpoint char(Z_infinity^chi) = L_chi Lambda (Rubin Thm. III.2.10)",
+      "kind": "theorem",
+      "statement": "Let M_infinity be the maximal abelian p-extension of L_infinity unramified outside primes above p and let Z_infinity = Gal(M_infinity/L_infinity). Then Z_infinity is a Gal(L/Q)-module and a finitely generated Lambda-module, and char(Z_infinity^chi) = L_chi Lambda. The proof: class field theory gives the four-term exact sequence 0 -> E_infinity^chi/C_{infinity,chi} -> U_infinity^chi/C_{infinity,chi} -> Z_infinity^chi -> A_infinity^chi -> 0; applying Corollary 2.8 (char(A_infinity^chi) = char(E_infinity^chi/C_{infinity,chi})) and Theorem 2.9(ii) (char(U_infinity^chi/C_{infinity,chi}) = L_chi Lambda) together with multiplicativity of characteristic ideals in exact sequences gives the result.",
+      "hypotheses": [
+        "the exact sequence is the class-field-theory sequence of de Shalit Sec. III.1.7; it relates GLOBAL units, SEMILOCAL units, the p-ramified Galois group and the class groups, in that order",
+        "Rubin states multiplicativity of char for all finitely generated Lambda-modules (with char = 0 for non-torsion modules); cancelling char(E_infinity^chi/C_{infinity,chi}) = char(A_infinity^chi) from both sides requires this ideal to be nonzero, i.e. A_infinity^chi torsion (classical Iwasawa theory); Rubin's two-line proof leaves this implicit",
+        "the statement is for a fixed even nontrivial chi of prime-to-p order; the trivial character and the odd characters are not covered by this argument"
+      ],
+      "proofSteps": [
+        "Split the four-term sequence into two short exact sequences and apply multiplicativity of characteristic ideals.",
+        "Substitute char(A_infinity^chi) = char(E_infinity^chi/C_{infinity,chi}) from Cor. 2.8; the two outer terms cancel.",
+        "Substitute char(U_infinity^chi/C_{infinity,chi}) = L_chi Lambda from Thm. 2.9(ii) to obtain char(Z_infinity^chi) = L_chi Lambda."
+      ],
+      "acceptance": [
+        "Check that the cancellation of the outer terms uses the EQUALITY of Cor. 2.8, not merely the divisibility of Thm. 2.7; the divisibility alone gives only one inclusion.",
+        "Check the identification of the atlas's four-term sequence 0 -> E^+/C^+ -> U^+/C^+ -> X^+ -> Y^+ -> 0 with Rubin's: the atlas's X^+ is Rubin's Z_infinity (p-ramified Galois group) and the atlas's Y^+ is Rubin's A_infinity (class groups).",
+        "Check that this is an equality of characteristic ideals only; a module isomorphism Z_infinity^chi = Lambda/L_chi Lambda is strictly stronger and is NOT proved here."
+      ],
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, Thm. 2.10, printed p. 39",
+          "excerpt": "Theorem 2.10. Let M_infinity denote the maximal abelian p-extension of L_infinity which is unramified outside primes above p, and let Z_infinity = Gal(M_infinity/L_infinity). Then Z_infinity is a Gal(L/Q)-module and a finitely-generated Lambda-module, and char(Z_infinity^chi) = L_chi Lambda where L_chi is the p-adic L-function defined in Theorem 2.9.",
+          "match": "Gives the endpoint statement verbatim."
+        },
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Thm. 2.10, printed p. 39",
+          "excerpt": "Proof. Class field theory gives an exact sequence (see for example Sec. III.1.7 of [dS]) 0 -> E_infinity^chi/C_{infinity,chi} -> U_infinity^chi/C_{infinity,chi} -> Z_infinity^chi -> A_infinity^chi -> 0. Applying Corollary 2.8 and Theorem 2.9(ii) proves the corollary.",
+          "match": "Gives the four-term exact sequence and the two substitutions."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EulerSystemsCyclotomicMainConjecture:L3/unconditional-statement-versus-the-vandiver-isomorphism",
+      "parentStageId": "EulerSystemsCyclotomicMainConjecture:L3",
+      "title": "The plus-part formulation and its separation from the Vandiver isomorphism",
+      "kind": "comparison",
+      "statement": "In the plus-part formulation of Rodrigues Jacinto-Williams, with F_n = Q(mu_{p^n}) and F_n^+ its maximal real subfield, X_infinity^+ = Gal(M_infinity^+/F_infinity^+) where M_infinity^+ is the maximal abelian pro-p extension of F_infinity^+ unramified outside the prime above p, and Y_infinity^+ = Gal(L_infinity^+/F_infinity^+) with L_infinity^+ the maximal unramified abelian pro-p extension, so that Y_n^+ = Gal(L_n^+/F_n^+) = Cl(F_n^+) tensor Z_p, the Iwasawa Main Conjecture (their Thm. 13.8) states that X_infinity^+ is a finitely generated torsion Lambda(Gamma^+)-module with ch_{Lambda(Gamma^+)}(X_infinity^+) = I(Gamma^+)_{zeta_p}. This is an equality of IDEALS. Their Thm. 13.11 is a strictly stronger MODULE ISOMORPHISM X_infinity^+ = Lambda(Gamma^+)/I(Gamma^+)_{zeta_p}, proved only under the hypothesis that p is a Vandiver prime (p does not divide h_1^+ = #Cl(F_1^+)). The bridge is Cor. 13.14's exact sequence 0 -> E_{infinity,1}^+/C_{infinity,1}^+ -> U_{infinity,1}^+/C_{infinity,1}^+ -> X_infinity^+ -> Y_infinity^+ -> 0; under Vandiver, Cor. 13.16 gives Y_infinity^+ = 0 and E_{infinity,1}^+/C_{infinity,1}^+ = 0, collapsing the sequence to an isomorphism.",
+      "hypotheses": [
+        "Thm. 13.11's hypothesis is that p is a Vandiver prime; this is NOT known for all p",
+        "Cor. 13.16 derives Y_infinity^+ = 0 from Vandiver via Prop. 13.15 (the control statement (Y_infinity^+)_{Gamma_n^+} = Y_n^+) and Nakayama's lemma; the derivation is genuinely two-step",
+        "Prop. 13.13's exact sequence 0 -> E_{infinity,1}^+ -> U_{infinity,1}^+ -> Gal(M_infinity^+/L_infinity^+) -> 0 comes from global class field theory at each finite level and an inverse limit justified by the Mittag-Leffler condition",
+        "Leopoldt's conjecture for F_n = Q(mu_{p^n}) (known here by a theorem of Brumer, as RJW note) is quoted as an input to the rank of E_n"
+      ],
+      "proofSteps": [
+        "For the nontrivial even characters chi of Gal(Q(mu_p)/Q) (conductor p, order prime to p), the components of the ideal equality are Rubin Thm. III.2.10, char(Z_infinity^chi) = L_chi Lambda, once RJW's I(Gamma^+)_{zeta_p} is matched with Rubin's L_chi (dictionary not established in the passages read). The trivial-character component, where zeta_p has its pole, is not covered by Rubin's theorem (chi is nontrivial throughout Rubin III.2) and needs a separate argument that was not read.",
+        "The passage from componentwise statements to the plus-part statement is the standard idempotent decomposition, available because the relevant group has order prime to p when p is odd.",
+        "Under Vandiver, Cor. 13.16(i) gives Y_infinity^+ = 0 and (iii) gives E_{infinity,1}^+/C_{infinity,1}^+ = 0, so Cor. 13.14's sequence becomes U_{infinity,1}^+/C_{infinity,1}^+ = X_infinity^+, and the Coleman-map computation of the left-hand side yields Thm. 13.11."
+      ],
+      "acceptance": [
+        "Check that the atlas stage's endpoint is the IDEAL equality, not the module isomorphism; asserting the latter without Vandiver would be an unjustified strengthening.",
+        "Check that the plus-part idempotent decomposition is valid only when p is odd; at p = 2 the even/odd splitting over Z_2 is not available, which is the point of the separate p = 2 treatment at L4.",
+        "Check that Cor. 13.16(iii) uses the finite-level index [V_n^+ : D_n^+] = h_n^+, i.e. the cyclotomic-unit index formula.",
+        "Check the dictionary between RJW's I(Gamma^+)_{zeta_p} and Rubin's L_chi Lambda (Euler factor, Teichmuller twist, trivial component) before identifying Thm. 13.8 with the recombination of Rubin III.2.10."
+      ],
+      "sources": [
+        {
+          "sourceId": "rodrigues-jacinto-williams-padic-L",
+          "locator": "Sec. 13.3, Thm. 13.8, printed p. 67",
+          "excerpt": "Theorem 13.8 (Iwasawa Main Conjecture). X_infinity^+ is a finitely generated torsion Lambda(Gamma^+)-module, and ch_{Lambda(Gamma^+)}(X_infinity^+) = I(Gamma^+)_{zeta_p}.",
+          "match": "Gives the unconditional ideal-equality formulation which the atlas stage names as its endpoint."
+        },
+        {
+          "sourceId": "rodrigues-jacinto-williams-padic-L",
+          "locator": "Sec. 13.4, Def. 13.10 and Thm. 13.11, printed p. 67",
+          "excerpt": "Definition 13.10. Let h_n^+ = #Cl(F_n^+) be the class number of F_n^+. We say p is a Vandiver prime if p does not divide h_1^+. ... Theorem 13.11. If p is a Vandiver prime, we have an isomorphism of Lambda(Gamma^+)-modules X_infinity^+ = Lambda(Gamma^+)/I(Gamma^+)_{zeta_p}. In particular, Iwasawa's Main Conjecture holds.",
+          "match": "Gives the Vandiver hypothesis and the strictly stronger isomorphism statement."
+        },
+        {
+          "sourceId": "rodrigues-jacinto-williams-padic-L",
+          "locator": "Sec. 13.4, Cor. 13.14, printed p. 68",
+          "excerpt": "Corollary 13.14. We have an exact sequence of Lambda(G)-modules 0 -> E_{infinity,1}^+/C_{infinity,1}^+ -> U_{infinity,1}^+/C_{infinity,1}^+ -> X_infinity^+ -> Y_infinity^+ -> 0.",
+          "match": "Gives the four-term exact sequence quoted in the atlas stage text."
+        },
+        {
+          "sourceId": "rodrigues-jacinto-williams-padic-L",
+          "locator": "Sec. 13.4, Cor. 13.16, printed p. 68",
+          "excerpt": "Corollary 13.16. If p is a Vandiver prime, then: (i) Y_infinity^+ = 0; (ii) p does not divide h_n^+ for any n >= 1; (iii) E_{infinity,1}^+/C_{infinity,1}^+ = 0.",
+          "match": "Gives the two vanishing statements that collapse the four-term sequence under Vandiver."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-even-character-divisibility",
+      "parentStageId": "EulerSystemsCyclotomicMainConjecture:L4",
+      "title": "Greither's even-character divisibility for abelian fields unramified at p (Thm. 3.1)",
+      "kind": "theorem",
+      "statement": "Let F/Q be abelian and unramified at p (p arbitrary, INCLUDING p = 2), K_n = F(mu_{p^{n+1}}), K_infinity their union, X = lim A(K_n) with A the p-class group, E_n the pro-p part of the closure of the global units of K_n in the semilocal units, E_infinity = lim E_n, and C_infinity the inverse limit of the circular units. Then for every even character rho not equal to 1 of Delta_0 = Gal(K_0/Q), the characteristic ideal of the Lambda_rho-module X_rho divides the characteristic ideal of (E_infinity/C_infinity)_rho. Greither records that for rho = 1 one can show char(X_rho) = char((E_infinity/C_infinity)_rho) = (1), and that equality in Thm. 3.1 is a byproduct of the proof of Thm. 3.2.",
+      "hypotheses": [
+        "F/Q abelian and UNRAMIFIED AT p; the argument is set up for this class of fields and Greither performs conductor-reduction steps rather than assuming prime-to-p degree everywhere",
+        "p is arbitrary; in particular p = 2 is included, so the argument may not use the odd-prime even/odd idempotent splitting",
+        "rho is an even character of Delta_0 with rho not trivial; the trivial character is handled separately (Remark b))",
+        "the passage from X and E_infinity/C_infinity to their plus counterparts is justified by Greither's Remark a) only up to a power of p, because mu = 0 for E_infinity/C_infinity is not available at that point; he notes char(X_rho) is prime to p, which makes the replacement legitimate in the proof of Thm. 3.1",
+        "the proof accumulates factors p and (gamma - 1) which are removed at the end using mu = 0 (Ferrero-Washington) and Leopoldt's conjecture"
+      ],
+      "proofSteps": [
+        "Greither states that the proof is 'a very technical matter; the principal ideas are already contained in the relevant papers of Kolyvagin and Rubin', i.e. an Euler-system/Kolyvagin-derivative argument adapted to the abelian, all-p setting.",
+        "The proof begins with Lemma 3.5, quoted as Rubin Lemma 2.3: for K/Q real abelian, M a power of p, and a prime ell congruent to 1 mod M splitting totally in K, there is a unique G-equivariant map with prescribed properties. That lemma was read only in its opening statement.",
+        "The removal of the accumulated factors p and (gamma - 1) at the end uses mu = 0 and Leopoldt's conjecture, both treated by Greither as available inputs."
+      ],
+      "acceptance": [
+        "Check that the mu = 0 input is the Ferrero-Washington theorem, supplied independently, and is NOT derived from the main conjecture being proved.",
+        "Check the plus/minus replacement in Remark a): it is justified only up to a p-power factor, and Greither's justification uses that char(X_rho) is prime to p.",
+        "Check the trivial-character case separately (Remark b)), where both characteristic ideals are the unit ideal.",
+        "Check that the conclusion is a divisibility; equality is asserted only as a byproduct of the proof of Thm. 3.2 (Remark c))."
+      ],
+      "sources": [
+        {
+          "sourceId": "greither-main-conjecture-1992",
+          "locator": "Sec. 3, Thm. 3.1, printed p. 468",
+          "excerpt": "THEOREM 3.1. - For every even character rho not= 1 of Delta_0, the characteristic ideal of the Lambda_rho-module X_rho divides the characteristic ideal of (E_infinity/C_infinity)_rho.",
+          "match": "Gives the divisibility statement with its even-nontrivial character hypothesis."
+        },
+        {
+          "sourceId": "greither-main-conjecture-1992",
+          "locator": "Sec. 3, Remarks after Thm. 3.1, printed p. 468",
+          "excerpt": "Since we did not prove yet that E_infinity/C_infinity has mu = 0, we only may infer from this isomorphism that the characteristic ideals of (E_infinity/C_infinity)_rho and (E_infinity^+/C_infinity^+)_rho agree up to a factor power of p. Since char(X_rho) is prime to p, we may replace X and E_infinity/C_infinity by their plus counterparts in the proof of Theorem 3.1. b) For rho = 1, one can show that char(X_rho) = char((E_infinity/C_infinity)_rho) = (1). c) It is a byproduct of the proof of Thm. 3.2 below that in Theorem 3.1, actually equality holds.",
+          "match": "Gives the exact status of the plus-part replacement, the trivial-character case, and that equality is obtained only later."
+        },
+        {
+          "sourceId": "greither-main-conjecture-1992",
+          "locator": "Sec. 3, after the proof of 3.1 => 3.2, printed p. 470",
+          "excerpt": "The rest of the section is devoted to the proof of Theorem 3.1. This is a very technical matter; the principal ideas are already contained in the relevant papers of Kolyvagin and Rubin. As the proof wears on, factors p and (gamma-1) accumulate in the formulas; using mu = 0 and Leopoldt's conjecture, one can fortunately throw them out at the end.",
+          "match": "Records the proof method and the two external inputs (mu = 0 and Leopoldt)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-odd-character-main-conjecture-with-half-normalisation",
+      "parentStageId": "EulerSystemsCyclotomicMainConjecture:L4",
+      "title": "Greither's odd-character main conjecture with the one-half normalisation (Thm. 3.2)",
+      "kind": "theorem",
+      "statement": "Let F/Q be abelian, unramified at p (p arbitrary, including p = 2), with the notation above. For every ODD character chi of Delta_0 not equal to omega, setting rho = omega chi^{-1}, one has char(X_chi) = ((1/2) G_p(T,rho)) as ideals of Lambda_chi = O_p(chi)[[T]] when rho is not trivial, and char(X_chi) = ((1/2) G_p(T,rho)(T - q_0)) = (1) when rho is trivial. Here G_p(T,psi) (psi even, viewed as a primitive p-adic Dirichlet character) is the element of Quot(Z_p(psi)[[T]]) written f(T,psi) in Washington p. 122, characterised by L_p(s,psi) = G_p(u^s - 1, psi) for s in Z_p (s not 1 for psi trivial), with u = 1 + q_0; for psi nontrivial (1/2) G_p(T,psi) lies in Z_p(psi)[[T]], and for psi trivial (1/2) G_p(T,psi)(T - q_0) lies in Z_p(psi)[[T]] and is a unit (Greither p. 452, citing Washington p. 125). The introduction's version of the theorem also records the canonical isomorphism (X/im X^+)_chi = X_chi for chi odd. The factor 1/2 is part of the normalisation, and the case chi = omega is genuinely excluded and handled by showing X_omega is finite.",
+      "hypotheses": [
+        "F/Q abelian and unramified at p; p arbitrary, so p = 2 is included and the odd-prime plus/minus idempotent splitting is NOT assumed",
+        "chi is odd and chi is not omega; the excluded character omega is treated separately by proving X_omega finite (odd p via Mazur-Wiles p. 183; p = 2 by F = Q or Q(i) with X itself zero)",
+        "for rho trivial the power series G_p(T,rho) has a pole and must be multiplied by (T - q_0) to become a unit of Z_p(psi)[[T]]; this is the pole/augmentation correction",
+        "the one-half factor is present throughout and is the normalisation that makes the odd-character statement match the Stickelberger/B_{1,chi^{-1}} normalisation of Thms. A and B",
+        "the final equality (rather than divisibility) uses the analytic class number formula for minus class groups",
+        "Cor. 2.14 and Prop. 3.4 are statements after tensoring with Q_p (Greither remarks that Greenberg analysed the Kummer pairing for p = 2 without tensoring by Q_2); the integral ideal identities in the proof of 3.1 => 3.2 therefore rely on the absence of p-power discrepancies (mu = 0), which the pages read do not spell out"
+      ],
+      "proofSteps": [
+        "The implication Thm. 3.1 => Thm. 3.2 is 'a well-known argument (cf. Rubin p. 415-416, and Greenberg Sec. 2)' involving the direct limit A_infinity = lim A(K_n) and the Galois group Y of the maximal abelian p-ramified p-extension of K_infinity.",
+        "Lemma 3.3: X is quasi-isomorphic to Hom_{Z_p}(A_infinity, Q/Z) over Lambda', with the explicit CAUTION that Lambda' acts via a f(a) = f(sigma a) and not via the inverse map.",
+        "Prop. 3.4 (Kummer pairing, as in Greenberg, after tensoring with Q_p): V_rho(Y^+) = V_chi(X)^*(1), i.e. in odd notation V_chi(X) = V_rho(Y^+)^*(1), with chi = omega rho^{-1}.",
+        "Start from the two exact sequences 0 -> U_infinity/E_infinity -> Y -> X -> 0 (class field theory) and 0 -> E_infinity/C_infinity -> U_infinity/C_infinity -> U_infinity/E_infinity -> 0 (tautological). By Thm. 3.1, h_rho char(X) = char((E_infinity/C_infinity)_rho) for some h_rho; multiplicativity of char on short exact sequences then gives h_rho char(Y_rho) = char((U_infinity/C_infinity)_rho) = char((Lambda_chi/((1/2) G_p(T,rho)))^*(1)) by Cor. 2.14 (a statement over Q_p Lambda, see the L3 local-unit node).",
+        "By Prop. 3.4, char(Y_rho) = char(X_chi^*(1)); hence char(X_chi) divides char(Lambda_chi/((1/2) G_p(T,rho))) = ((1/2) G_p(T,rho)) for all odd chi not omega. Finiteness of X_omega gives char(X_omega) = (1), and the analytic class number formula for minus class groups upgrades the divisibility to equality."
+      ],
+      "acceptance": [
+        "Check the one-half normalisation explicitly before comparing with any other source's p-adic L-function or branch convention: the factor of two and the Teichmuller twist rho = omega chi^{-1} must be matched.",
+        "Check the exclusion of chi = omega and the two separate arguments used for odd p and for p = 2.",
+        "Check that Lemma 3.3's Lambda'-action convention is the non-inverted one; using the inverse action changes the characteristic ideal by the involution.",
+        "Check the pole factor (T - q_0) for trivial rho and that it makes the ideal the unit ideal."
+      ],
+      "sources": [
+        {
+          "sourceId": "greither-main-conjecture-1992",
+          "locator": "Sec. 3, Thm. 3.2, printed p. 469",
+          "excerpt": "THEOREM 3.2. - For every odd character chi not= omega of Delta_0, one has with rho = omega chi^{-1}: char(X_chi) = ((1/2) Gp(T,rho)) contained in Op(chi)[[T]] = Lambda_chi, if rho not= 1; char(X_chi) = ((1/2) Gp(T,rho)(T-q0)) = (1) if rho = 1.",
+          "match": "Gives the theorem with the one-half normalisation, the omega exclusion, and the trivial-rho pole correction."
+        },
+        {
+          "sourceId": "greither-main-conjecture-1992",
+          "locator": "Sec. 3, proof of 3.1 => 3.2, printed pp. 469-470",
+          "excerpt": "One starts from the two exact sequences (one from class field theory, the other tautological): 0 -> U_infinity/E_infinity -> Y -> X -> 0, 0 -> E_infinity/C_infinity -> U_infinity/C_infinity -> U_infinity/E_infinity -> 0. By 3.1, h_rho char(X) = char((E_infinity/C_infinity)_rho) for some h_rho in Lambda_rho. Moreover, the function 'characteristic ideal' is multiplicative on short exact sequences.",
+          "match": "Gives the two exact sequences and the multiplicativity step."
+        },
+        {
+          "sourceId": "greither-main-conjecture-1992",
+          "locator": "Sec. 3, proof of 3.1 => 3.2, printed p. 470",
+          "excerpt": "We claim that X_chi is finite for chi = omega. By Lemma 2.2, one can replace F by F intersect Q(mu_p) in showing this. For odd p, X_chi is then zero (see e.g. Mazur, Wiles [17], p. 183). For p = 2, F = Q or Q(i), X is itself zero. Hence we have char(X_chi) = (1) for chi = omega. From the analytic class number formula for minus class groups, one deduces equality, as claimed in Thm. 3.2.",
+          "match": "Gives the separate treatment of chi = omega for odd p and p = 2, and records that the final equality uses the analytic class number formula."
+        },
+        {
+          "sourceId": "greither-main-conjecture-1992",
+          "locator": "Sec. 1, statement of Thm. 3.2, printed p. 452",
+          "excerpt": "THEOREM (=Thm.3.2). - Let X = lim A_p(K_n), X^+ = lim A_p(K_n^+). Let chi be any odd character of Delta'. Then (X/im X^+)_chi = X_chi canonically, and we have char(X_chi) = ((1/2) G_p(T,chi-check)) if chi-check is not trivial, char(X_chi) = ((1/2) G_p(T,chi-check)(T-q_0)) = (1) if chi-check is trivial, as ideals of the ring Lambda_chi = Z_p(chi)[[T]].",
+          "match": "Gives the introduction's packaging, with the convention chi-check = chi^{-1} omega (= rho), including the canonical isomorphism (X/im X^+)_chi = X_chi; checked against the page image, since the text layer drops the accent and misreads X and X^+."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-arithmetic-consequences-at-p-equals-2",
+      "parentStageId": "EulerSystemsCyclotomicMainConjecture:L4",
+      "title": "Greither's arithmetic consequences at p = 2 and the real counterpart",
+      "kind": "application",
+      "statement": "Theorem A: if F/Q is abelian imaginary, unramified at 2, with Galois group Delta whose 2-Sylow subgroup Delta_2 is CYCLIC, then for every odd 2-adic character chi of Delta which is NOT of 2-power order, |A_2(F)_chi| is given by the stated power of |(1/2) B_{1,chi^{-1}}|_2, with exponent d(chi) = [O(chi) : Z_2] and the convention |a|_2 = 2^{-r} for a = 2^r u, u a unit of O(chi). Theorem B (= Thm. 4.1) is the divisibility for the quotient A_2(F)_chi / im A_2(F^+)_chi from which Greither derives Thm. A (he shows that B implies A, after remarking that it is enough to prove a divisibility in Thm. A). Theorem C: if F is real and Delta_p is cyclic, then for all characters chi of Delta whose order is not a power of p and which are FAITHFUL on Delta_p, |A'_p(F)_chi| is given by the corresponding power of |L_p(1,chi)|_p, where A'_p(F) is the p-part of the projective limit of the ray class groups Cl_{p^nu}(F). Greither notes that some condition on Delta_2 is necessary (examples show this) and that a corollary of Thm. A is a sharpening of Stickelberger's theorem at p = 2.",
+      "hypotheses": [
+        "Theorem A requires F imaginary abelian UNRAMIFIED AT 2 and Delta_2 CYCLIC; Greither states explicitly that 'Examples show that some condition on Delta_2 is necessary'",
+        "the characters in Thm. A are odd and NOT of 2-power order; up to Q_2-conjugacy there is exactly one odd character of 2-power order, treated separately via the analytic class number formula in Remark b)",
+        "the normalisation on the right-hand side is (1/2) B_{1,chi^{-1}}, i.e. the same one-half factor as in Thm. 3.2",
+        "Theorem C requires chi faithful on Delta_p and of order not a power of p; A'_p(F) is INFINITE and only (1 - e_epsilon) A'_p(F) is finite",
+        "the deduction of Thm. A from Thm. B uses the analytic class number formula, the computation k_F = k_L of the kernel |ker(A_2(F) -> A_2(L))|, and Q_L = 1"
+      ],
+      "proofSteps": [
+        "Greither reduces Thm. A to Thm. B (a divisibility for the quotient by the image of the real part) and derives Thm. B from the main conjecture Thm. 3.2 in his Sec. 4.",
+        "The derivation of Thm. A from Thm. B compares the product over all odd chi with chi restricted to Delta_0 nontrivial (modulo Q_2-conjugacy) of the two sides, using the analytic class number formula and the identity |A_2(F)_chi| = |A_2(F)_chi / im A_2(F^+)_chi| valid because chi is odd and the norm A_2(F) -> A_2(F^+) is onto.",
+        "Sec. 4, where Thms. B and C are actually proved from the main conjecture, was NOT read for this packet."
+      ],
+      "acceptance": [
+        "Check that the cyclicity hypothesis on Delta_2 is retained; Greither states a counterexample-based necessity for some such condition.",
+        "Check the one-half normalisation in Thm. A against the one in Thm. 3.2, and against any other source's Stickelberger normalisation, before comparing.",
+        "Check the Q_2-conjugacy bookkeeping and the exceptional odd character of 2-power order, handled by the analytic class number formula rather than by the main conjecture.",
+        "Check Thm. C's ray-class group A'_p(F): it is infinite, and only its (1 - e_epsilon)-part is finite, so the stated cardinality is for that part."
+      ],
+      "sources": [
+        {
+          "sourceId": "greither-main-conjecture-1992",
+          "locator": "Sec. 1, Thm. A, printed p. 453",
+          "excerpt": "THEOREM A. - If F/Q is abelian imaginary, unramified in 2, with Galois group Delta, such that the 2-Sylow subgroup Delta_2 is cyclic, then for every odd 2-adic character chi of Delta which is not of 2-power order: [displayed equality involving |(1/2) B_{1,chi^{-1}}|_2 raised to d(chi)] (Notation. |a|_2 = 2^{-r} for a = 2^r u in O(chi), u a unit; d(chi) = [O(chi) : Z_2].)",
+          "match": "Gives the hypotheses of Thm. A and its one-half Bernoulli normalisation; the digitisation drops the displayed formula itself, so the node states the shape and the normalisation rather than transcribing a garbled display."
+        },
+        {
+          "sourceId": "greither-main-conjecture-1992",
+          "locator": "Sec. 1, Remark a) after Thm. A, printed p. 453",
+          "excerpt": "This is a sharpening of Stickelbergers's Theorem for p = 2, and generalizes results of Gras [7]. Examples show that some condition on Delta_2 is necessary.",
+          "match": "Records that some hypothesis on Delta_2 is genuinely necessary."
+        },
+        {
+          "sourceId": "greither-main-conjecture-1992",
+          "locator": "Sec. 1, Thm. C, printed p. 454",
+          "excerpt": "THEOREM C. - If F is real and Delta_p is cyclic, then for all characters chi of Delta whose order is not a power of p (i.e. chi|Delta_0 not= epsilon), and which are faithful on Delta_p, we have [displayed equality with |Lp(1,chi)|] where A'p(F) is the p-part of the projective limit of the ray class groups Cl_{p^nu}(F). (Note that A'p(F) is infinite, but we will see that (1-e_epsilon)A'p(F) is finite.)",
+          "match": "Gives Thm. C with its faithfulness and cyclicity hypotheses and the warning that A'_p(F) is infinite."
+        },
+        {
+          "sourceId": "greither-main-conjecture-1992",
+          "locator": "Sec. 1, Thm. B, printed p. 453",
+          "excerpt": "THEOREM B (= Thm. 4.1). - For all odd characters chi of Delta which are not of 2-power order: [|A_2(F)_chi / im A_2(F^+)_chi|] is divisible by [(1/2) B_{1,chi^{-1}}] to the power d(chi).",
+          "match": "Gives the divisibility form actually proved from the main conjecture in Sec. 4."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-unit-euler-system-for-Zp-one",
+      "target": "EulerSystemsCyclotomicMainConjecture:L0/character-twist-and-the-restriction-dictionary",
+      "reason": "The chi-component system is literally the twist c = c-tilde^{chi^{-1}} of the untwisted cyclotomic system by Rubin Prop. II.4.2, and the formula for c_Q is obtained from c-tilde_f by Lemma II.4.3. Without the untwisted system and its distribution relation there is nothing to twist.",
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, 2.2, printed p. 35"
+        }
+      ]
+    },
+    {
+      "source": "EulerSystemsCyclotomicMainConjecture:L0/character-twist-and-the-restriction-dictionary",
+      "target": "EulerSystemsCyclotomicMainConjecture:L1/finite-level-class-number-divisibility",
+      "reason": "The proof of Thm. III.2.3 uses the explicit formula (4) for the image of c_Q together with the restriction dictionary H^1(Q,T^*) = (L^x)^chi to identify c_Q with xi_{L,chi}^{1-chi^{-1}(p)} and hence with a generator of C_{L,chi}; the index of divisibility entering the bound is computed inside (L^x)^chi through this identification.",
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Thm. 2.3, printed p. 36"
+        }
+      ]
+    },
+    {
+      "source": "EulerSystemsCyclotomicMainConjecture:L1/finite-level-error-tolerant-bound-and-its-hypotheses",
+      "target": "EulerSystemsCyclotomicMainConjecture:L1/finite-level-class-number-divisibility",
+      "reason": "Theorem III.2.3 is an application of Theorem II.2.2 to the twisted cyclotomic Euler system: the bound length_O(S_{Sigma_p}(Q,W)) <= ind_O(c) + n_W + n^*_W is what is specialised, after the error terms are shown to vanish and both sides are computed arithmetically.",
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Thm. 2.3, printed p. 36 ('We will apply Theorem II.2.2 with the Euler system c constructed from cyclotomic units above.')"
+        }
+      ]
+    },
+    {
+      "source": "EulerSystemsCyclotomicMainConjecture:L1/vanishing-of-the-error-terms-in-the-cyclotomic-twist",
+      "target": "EulerSystemsCyclotomicMainConjecture:L1/finite-level-class-number-divisibility",
+      "reason": "The finite-level divisibility is error-free only because both n_{W^*} and n^*_{W^*} are proved to vanish for this particular twist by Rubin Lemma III.1.1; the general Theorem II.2.2 retains them. This edge records exactly which hypothesis discharges the error terms.",
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Thm. 2.3, printed p. 36; Chapter III, Lemma 1.1, printed p. 33"
+        }
+      ]
+    },
+    {
+      "source": "EulerSystemsCyclotomicMainConjecture:L1/finite-level-class-number-divisibility",
+      "target": "EulerSystemsCyclotomicMainConjecture:L1/analytic-class-number-upgrade-at-finite-level",
+      "reason": "Corollary III.2.4 is obtained by taking the divisibility of Theorem III.2.3 for ALL admissible characters chi simultaneously and comparing with the analytic class number formula; the componentwise divisibilities are the input without which the cardinality comparison gives nothing componentwise.",
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, Cor. 2.4, printed p. 36"
+        }
+      ]
+    },
+    {
+      "source": "EulerSystemsCyclotomicMainConjecture:L2/cyclotomic-local-global-comparison-diagram",
+      "target": "EulerSystemsCyclotomicMainConjecture:L2/cyclotomic-iwasawa-divisibility",
+      "reason": "Proposition III.2.6 supplies three distinct inputs to Theorem III.2.7: part (i)'s diagram gives ind_Lambda(c) = char((E'_infinity)^chi/C_{infinity,chi}); part (iii) converts that into a divisibility by J char(E_infinity^chi/C_{infinity,chi}); and part (ii) is what makes char(H^1_{infinity,s}(Q_p,T^*)) divide J. All three are used explicitly in the proof.",
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Thm. 2.7, printed p. 38"
+        }
+      ]
+    },
+    {
+      "source": "EulerSystemsCyclotomicMainConjecture:L2/iwasawa-theoretic-euler-system-bound",
+      "target": "EulerSystemsCyclotomicMainConjecture:L2/cyclotomic-iwasawa-divisibility",
+      "reason": "Theorem III.2.7 applies Theorem II.3.3 together with Proposition II.3.7 to the cyclotomic Euler system; the hypotheses Hyp(Q_infinity,T^*) and Hyp(Q_infinity/Q) are verified in the proof (the former with tau = 1 by rank one, the latter because K = Q).",
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Thm. 2.7, printed p. 38; Chapter II, Thm. 3.3 and Prop. 3.7, printed pp. 28-29"
+        }
+      ]
+    },
+    {
+      "source": "EulerSystemsCyclotomicMainConjecture:L2/cyclotomic-iwasawa-divisibility",
+      "target": "EulerSystemsCyclotomicMainConjecture:L3/analytic-class-number-equality-at-infinite-level",
+      "reason": "Corollary III.2.8 is the divisibility of Theorem III.2.7 upgraded to equality by the analytic class number formula, exactly as Cor. 2.4 upgrades Thm. 2.3. The divisibility is the necessary input: the analytic formula alone bounds only the product over characters.",
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, Cor. 2.8, printed p. 38"
+        }
+      ]
+    },
+    {
+      "source": "EulerSystemsCyclotomicMainConjecture:L3/analytic-class-number-equality-at-infinite-level",
+      "target": "EulerSystemsCyclotomicMainConjecture:L3/main-conjecture-endpoint-for-the-p-ramified-galois-group",
+      "reason": "In the four-term class-field-theory sequence the outer terms E_infinity^chi/C_{infinity,chi} and A_infinity^chi cancel only because their characteristic ideals are EQUAL (Cor. 2.8); the divisibility of Thm. 2.7 alone would leave one inclusion.",
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Thm. 2.10, printed p. 39"
+        }
+      ]
+    },
+    {
+      "source": "EulerSystemsCyclotomicMainConjecture:L3/local-unit-index-and-the-p-adic-L-function",
+      "target": "EulerSystemsCyclotomicMainConjecture:L3/main-conjecture-endpoint-for-the-p-ramified-galois-group",
+      "reason": "Theorem III.2.9(ii), char(U_infinity^chi/C_{infinity,chi}) = L_chi Lambda, is the second substitution in the proof of Theorem III.2.10; it is the only place where the p-adic L-function enters the endpoint.",
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Thm. 2.10, printed p. 39"
+        }
+      ]
+    },
+    {
+      "source": "EulerSystemsCyclotomicMainConjecture:L3/main-conjecture-endpoint-for-the-p-ramified-galois-group",
+      "target": "EulerSystemsCyclotomicMainConjecture:L3/unconditional-statement-versus-the-vandiver-isomorphism",
+      "reason": "The plus-part ideal equality ch(X_infinity^+) = I(Gamma^+)_{zeta_p} is the idempotent recombination of the componentwise equalities char(Z_infinity^chi) = L_chi Lambda; the comparison node records that this, and NOT the Vandiver module isomorphism, is what the Euler-system argument delivers. Review note: the recombination covers the nontrivial even characters of Gal(Q(mu_p)/Q); the trivial component is not given by Rubin III.2.10, and the I(Gamma^+)_{zeta_p}/L_chi dictionary is not established.",
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, Thm. 2.10, printed p. 39"
+        },
+        {
+          "sourceId": "rodrigues-jacinto-williams-padic-L",
+          "locator": "Sec. 13.3-13.4, Thms. 13.8 and 13.11, printed p. 67"
+        }
+      ]
+    },
+    {
+      "source": "EulerSystemsCyclotomicMainConjecture:L4/greither-even-character-divisibility",
+      "target": "EulerSystemsCyclotomicMainConjecture:L4/greither-odd-character-main-conjecture-with-half-normalisation",
+      "reason": "Greither's Thm. 3.2 is deduced from Thm. 3.1 by the Kummer-pairing/reflection argument of Lemma 3.3 and Prop. 3.4 together with Cor. 2.14; his Sec. 3 is explicitly organised as 'Proof of the implication 3.1 => 3.2'. The even-character divisibility is therefore the load-bearing input.",
+      "sources": [
+        {
+          "sourceId": "greither-main-conjecture-1992",
+          "locator": "Sec. 3, proof of the implication 3.1 => 3.2, printed pp. 469-470"
+        }
+      ]
+    },
+    {
+      "source": "EulerSystemsCyclotomicMainConjecture:L4/greither-odd-character-main-conjecture-with-half-normalisation",
+      "target": "EulerSystemsCyclotomicMainConjecture:L4/greither-arithmetic-consequences-at-p-equals-2",
+      "reason": "Theorems A, B and C are Greither's stated arithmetic consequences of Thm. 3.2; Thm. B is derived from the main conjecture in his Sec. 4 and Thm. A is then derived from Thm. B by the analytic class number formula. The one-half normalisation of Thm. 3.2 is what produces the (1/2) B_{1,chi^{-1}} on the right-hand side of Thms. A and B.",
+      "sources": [
+        {
+          "sourceId": "greither-main-conjecture-1992",
+          "locator": "Sec. 1, printed pp. 452-454 ('Thm. B will be derived from the main conjecture in Sec. 4.')"
+        }
+      ]
+    },
+    {
+      "source": "ColemanPowerSeries:L4",
+      "target": "EulerSystemsCyclotomicMainConjecture:L3/local-unit-index-and-the-p-adic-L-function",
+      "reason": "The output supplied is the identification of the characteristic ideal of the SEMILOCAL unit quotient with the p-adic L-function. The atlas stage ColemanPowerSeries:L4 names 'Theorem 12.23, including U_infty,1^+ / C_infty,1^+ = Z_p[[G^+]] / (I(G^+) zeta_p)' and warns that this is a statement about LOCAL units. That is exactly Rubin Thm. III.2.9(ii), char(U_infinity^chi/C_{infinity,chi}) = L_chi Lambda, in plus-part rather than chi-component packaging. The consumer uses it as the second substitution in the proof of Rubin Thm. III.2.10 (equivalently in RJW Cor. 13.14's four-term sequence): without the local-unit index the endpoint has no p-adic L-function on its right-hand side. The comparison between the two packagings (O-coefficients and a single chi versus Z_p and the whole plus part) is listed as an acceptance item on the consumer node and is not assumed here. Supplier-scope note (review): the atlas text of ColemanPowerSeries:L4 (RJW Thm. 12.23) concerns the tower Q(mu_{p^infinity})^+, i.e. the characters of Gal(Q(mu_p)^+/Q) together with the trivial component; that is what the L3 stage endpoint (RJW Thm. 13.8) needs, but Rubin's Thm. III.2.9(ii) for an even chi of arbitrary conductor f is attributed to Gillard [Gi] Theoreme 1 and is not supplied by this stage.",
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, Thm. 2.9(ii) and proof of Thm. 2.10, printed p. 39"
+        }
+      ]
+    },
+    {
+      "source": "IntegralIwasawaTheory:L1",
+      "target": "EulerSystemsCyclotomicMainConjecture:L3/main-conjecture-endpoint-for-the-p-ramified-galois-group",
+      "reason": "The output supplied is the four-term class-field-theory exact sequence. The atlas stage IntegralIwasawaTheory:L1 states it as '0 -> E_infty^+/C_infty^+ -> U_infty^+/C_infty^+ -> X_infty^+ -> Y_infty^+ -> 0', obtained from ray-class reciprocity at finite level plus an inverse limit. Rubin's proof of Thm. III.2.10 uses the chi-component form of precisely this sequence (cited to de Shalit Sec. III.1.7), and RJW obtain it as Cor. 13.14. The consumer uses it, plus multiplicativity of characteristic ideals, to convert the two equalities (Cor. 2.8 and Thm. 2.9(ii)) into the endpoint. This refines the already-recorded stage-level prerequisite (EulerSystemsCyclotomicMainConjecture:L3 requires IntegralIwasawaTheory:L1) by naming the exact node that consumes it. Supplier-scope note (review): the supplier states the sequence for RJW's tower Q(mu_{p^infinity})^+; the chi-component sequence over L_infinity = L Q_infinity for an arbitrary conductor ([dS] III.1.7) is analogous but is not what the stage text states.",
+      "sources": [
+        {
+          "sourceId": "rubin-euler-systems-draft",
+          "locator": "Chapter III, proof of Thm. 2.10, printed p. 39"
+        },
+        {
+          "sourceId": "rodrigues-jacinto-williams-padic-L",
+          "locator": "Sec. 13.4, Cor. 13.14, printed p. 68"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "EulerSystemsCyclotomicMainConjecture:L0",
+      "status": "partial",
+      "remaining": [
+        "Rubin Chapter II Sec. 1 (Def. II.1.1 and Remark II.1.3, the definition of an Euler system) and Sec. 4 (twisting by finite-order characters, Prop. II.4.2 and Lemma II.4.3) were used as cited inputs but not read; they are the carrier and twisting API the stage text asks to import from ES.2.",
+        "The stage text asks for the comparison with c(a) and the smoothing divisor from the Dirichlet p-adic L-function owner; Rubin Chapter III Sec. 2 uses no smoothing divisor and the comparison was not located in the sources read.",
+        "Rubin Chapter I Sec. 2 (Example I.2.1, the Kummer identification H^1(F,Z_p(1)) = (F^x)^hat) was read only as a quoted display; its proof was not inspected.",
+        "The p-power norm relation is verified here only through the distribution relation (2) as quoted from Lang's Cyclotomic Fields Thm. 6.3.1, which was not read."
+      ]
+    },
+    {
+      "stageId": "EulerSystemsCyclotomicMainConjecture:L1",
+      "status": "partial",
+      "remaining": [
+        "The proof of Rubin Thm. II.2.2 (Chapter V Sec. 2, resting on the derived classes of Chapter IV) was not read; only the statement, its hypotheses and Rubin's remarks about it were inspected.",
+        "Rubin Cor. I.7.5 (global duality) and Prop. I.6.1 (identification of the Selmer group with Hom(A_L,D_chi)^Delta) were used as cited inputs and were not read.",
+        "The stage text asks for the simultaneous Chebotarev and independence lemmas in explicit cyclotomic representation fields; those live in Rubin Chapter IV and were not read.",
+        "The proof of Cor. III.2.4 is referred out by Rubin to [Ru3] Thm. 4.2 and was not read.",
+        "The stage text asks that the conclusion control LENGTH, not merely exponent. Thm. II.2.2 does bound a length; Rubin Chapter V Sec. 3 (bounding the exponent) was not compared."
+      ]
+    },
+    {
+      "stageId": "EulerSystemsCyclotomicMainConjecture:L2",
+      "status": "partial",
+      "remaining": [
+        "The proofs of Rubin Thms. II.3.2, II.3.3, II.3.4 (Chapter VII) were not read; only their statements, hypotheses and Hyp(K_infinity/K) were inspected.",
+        "The proof of Prop. II.3.7 was read only in its opening line (the appeal to Corollary B.3.4); Corollary B.3.4 itself was not read.",
+        "The external input [Iw3] Theorem 25 (Y_infinity^chi torsion-free finitely generated of rank one over Lambda) was not read.",
+        "The final step of Rubin Thm. III.2.7, that J does not divide char(A_infinity^chi), is given by Rubin only as a sketch and its cited source [Iw3] Sec. 3.1 was not read.",
+        "The stage text asks for multivariable variants and for keeping pseudo-null terms separate from finite terms in several variables. Rubin's Sec. II.3 is stated for Z_p^d with the pseudo-null definition quoted, but the several-variable applications were not inspected."
+      ]
+    },
+    {
+      "stageId": "EulerSystemsCyclotomicMainConjecture:L3",
+      "status": "partial",
+      "remaining": [
+        "The analytic class number formula argument behind Cor. III.2.8 is referred out by Rubin to [MW] Sec. 1.6 or [Ru3] p. 414; neither was read. This is the load-bearing step for the EQUALITY.",
+        "Rubin Thm. III.2.9(i) and (ii) are both cited rather than proved in the read text; Rubin's Appendix D Sec. 2 was not read.",
+        "Greither's independent computation (Thm. 2.13 and Cor. 2.14) was read as a statement with the start of the proof of 2.13, but Lemmas 2.10-2.12 on which it rests were not.",
+        "RJW Sec. 13.1-13.2 (the construction of X_infinity, Y_infinity and the ideal I(Gamma^+)_{zeta_p}) and their Thm. 11.9 were not read; only Sec. 13.2-13.4 were inspected.",
+        "The stage text asks for the product-over-characters calculation, coefficient valuations, finite-layer error terms and their stabilisation in Lang's appendix. That appendix was not available in the supplied library and was not read.",
+        "The stage text asks to prove all equivalent even-character, odd-character/class-group and Tate-twisted Selmer formulations. Only the even-character (Rubin) and plus-part (RJW) formulations were inspected; the odd-character one is Greither Thm. 3.2 and is recorded at L4.",
+        "The trivial-character component of RJW Thm. 13.8 (pole of zeta_p, augmentation ideal I(Gamma^+)) is not covered by Rubin Thm. III.2.10, which assumes chi nontrivial; its source argument was not read.",
+        "Gillard [Gi] Theoreme 1 (the local-unit theorem for an even chi of arbitrary conductor) was not read and is not supplied by ColemanPowerSeries:L4, whose text covers Q(mu_{p^infinity})^+ only.",
+        "The dictionary between RJW's I(Gamma^+)_{zeta_p} and Rubin's L_chi Lambda for the characters of Gal(Q(mu_p)/Q) was not established."
+      ]
+    },
+    {
+      "stageId": "EulerSystemsCyclotomicMainConjecture:L4",
+      "status": "partial",
+      "remaining": [
+        "The proof of Greither Thm. 3.1 (Sec. 3 from p. 470 onwards: Lemmas 3.5-3.7 and the remainder of Sec. 3) was not read; only its statement, its remarks and the first cited lemma were inspected.",
+        "Greither Sec. 4 (where Thms. B and C and the generalisation of Gras' conjecture, Thm. 4.14, are derived from the main conjecture) was not read.",
+        "Greither Sec. 2's semilocal-unit machinery was read only at the level of the statements of Thms. 2.4, 2.6, 2.8, 2.13 and Cor. 2.14; the character functors of Sec. 2 and the bounded-error statements when p divides the order of the finite group were not inspected.",
+        "The Ferrero-Washington input (mu = 0) that Greither uses to discard the accumulated factors is an external theorem; it was not read here and belongs to IntegralIwasawaTheory:L4.",
+        "The stage text asks to compare Greither's one-half normalisation with the branch functions of the Dirichlet p-adic L-function owner only after proving the factor-of-two and twist dictionary. That dictionary was NOT established: Greither's G_p(T,psi) is characterised by L_p(s,psi) = G_p(u^s - 1, psi) with u = 1 + q_0 (checked on the page image of p. 452), and matching it against Rubin's L_chi was not carried out.",
+        "A draft link from the L3 endpoint to Greither's Thm. 3.1 was removed in review because no statement is transported (Greither's proof of 3.1 uses Rubin's appendix to Lang, Lemma 2.3, not Rubin III.2.10); the specialisation check of Greither Thm. 3.2 to F = Q against Rubin III.2.10 stays open under the normalisation gap.",
+        "Greither's Cor. 2.14 and Prop. 3.4 hold after tensoring with Q_p; the step from these rational identities to the integral ideals of Thm. 3.2 (including the factor 1/2 at p = 2) was not traced in the pages read."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "The analytic class number formula step is unread at both finite and infinite level",
+      "neededBy": [
+        "EulerSystemsCyclotomicMainConjecture:L1/analytic-class-number-upgrade-at-finite-level",
+        "EulerSystemsCyclotomicMainConjecture:L3/analytic-class-number-equality-at-infinite-level"
+      ],
+      "detail": "Verified: that Rubin obtains Cor. III.2.4 from Thm. III.2.3 and Cor. III.2.8 from Thm. III.2.7 by 'a well-known argument using the analytic class number formula' applied to ALL characters chi at once, and that he refers to [Ru3] Thm. 4.2 (finite level) and [MW] Sec. 1.6 or [Ru3] p. 414 (infinite level). Not verified: the argument itself, in particular the product-over-characters computation, the coefficient valuations and the treatment of the excluded characters. This is the ONLY step converting the Euler-system divisibility into the equality that the L3 endpoint asserts, so the endpoint is at present half-sourced. Next source action: Washington 'Introduction to Cyclotomic Fields' 2nd ed. Thm. 13.56 and Rubin's appendix to Lang's 'Cyclotomic Fields I and II'. Neither is present in the supplied library: CATALOGUE.json lists Washington_CyclotomicFields2 and CoatesSujatha_CyclotomicZeta as records with NO resolved file. ACQUISITION REQUEST."
+    },
+    {
+      "title": "Rubin's Iwasawa-theoretic theorems II.3.2-II.3.4 are used but their proofs are unread",
+      "neededBy": [
+        "EulerSystemsCyclotomicMainConjecture:L2/iwasawa-theoretic-euler-system-bound",
+        "EulerSystemsCyclotomicMainConjecture:L2/cyclotomic-iwasawa-divisibility"
+      ],
+      "detail": "Verified: the exact statements of Thms. II.3.2, II.3.3, II.3.4, of Hyp(K_infinity,T), Hyp(K_infinity,V) and Hyp(K_infinity/K), of Def. II.3.1 (ind_Lambda) and of Prop. II.3.7, all read in the supplied draft on printed pp. 26-29. Not verified: their proofs, which occupy Rubin Chapter VII (Sec. 1 'Outline', Sec. 2, Sec. 3, Sec. 4 'Proof of Theorem II.3.2', Sec. 5-7) and rest on Chapters IV and V. Next source action: read Rubin Chapter VII Sec. 1 and Sec. 4 and Chapter V Sec. 2 in the same supplied draft; these are present and readable. NOTE: this is the same import boundary recorded in the EXT-15 KatoEulerSystems packet for Kato Thm. 13.4, so one reading discharges both."
+    },
+    {
+      "title": "The p-adic L-function and the local-unit index (Rubin Thm. III.2.9) are cited, not proved",
+      "neededBy": [
+        "EulerSystemsCyclotomicMainConjecture:L3/local-unit-index-and-the-p-adic-L-function",
+        "ColemanPowerSeries:L4"
+      ],
+      "detail": "Verified: the statements of Rubin Thm. III.2.9(i) (interpolation, with Euler factor (1 - omega^{-k} rho chi(p) p^{k-1})) and (ii) (char(U_infinity^chi/C_{infinity,chi}) = L_chi Lambda), and Greither's independent Cor. 2.14 for abelian F unramified at p. Not verified: either proof. Rubin cites [Iw2] Sec. 6 / [Wa] Thm. 7.10 for (i) and [Iw1] / [Wa] Thm. 13.56 / [Lan] Thm. 7.5.2 / Gillard for (ii), and says the main computation for (ii) is in his Appendix D Sec. 2. Greither's route runs through Thms. 2.4, 2.6, 2.8 and Lemmas 2.10-2.12, of which only 2.4, 2.6, 2.8 and 2.13 were read as statements. Next source action: read Rubin Appendix D Sec. 2 and Greither Sec. 2 pp. 462-466 in full; both are available in the supplied library. SHARED-SUPPLIER REQUEST to whoever owns ColemanPowerSeries:L4. Review additions: Greither's Cor. 2.14 holds over Q_p Lambda_rho (after tensoring with Q_p), so it fixes the characteristic ideal only up to powers of p; and for even chi of arbitrary conductor f Rubin attributes (ii) to Gillard [Gi] Theoreme 1, which is not supplied by ColemanPowerSeries:L4 (whose text covers Q(mu_{p^infinity})^+ only)."
+    },
+    {
+      "title": "Greither Thm. 3.1's proof and his Sec. 4 are unread",
+      "neededBy": [
+        "EulerSystemsCyclotomicMainConjecture:L4/greither-even-character-divisibility",
+        "EulerSystemsCyclotomicMainConjecture:L4/greither-arithmetic-consequences-at-p-equals-2"
+      ],
+      "detail": "Verified: the statements of Greither Thms. 3.1, 3.2, A, B, C, the full proof of the implication 3.1 => 3.2 (printed pp. 469-470), Lemma 3.3, Prop. 3.4, and the opening of the proof of Thm. 3.1 including the quotation of Lemma 3.5 from Rubin. Not verified: the proof of Thm. 3.1 itself (the Kolyvagin/Rubin-style argument adapted to abelian F and all p, occupying the rest of Sec. 3), and Sec. 4 where Thms. B, C and 4.14 are derived. In particular the claim that the argument works INTEGRALLY at p = 2 has not been checked against its own proof. Next source action: read Greither pp. 470-484 (remainder of Sec. 3) and pp. 484-495 (Sec. 4) in the same digitisation; both are available."
+    },
+    {
+      "title": "The Greither/Rubin normalisation dictionary (factor of two and Teichmuller twist) is not established",
+      "neededBy": [
+        "EulerSystemsCyclotomicMainConjecture:L4/greither-odd-character-main-conjecture-with-half-normalisation",
+        "EulerSystemsCyclotomicMainConjecture:L3/local-unit-index-and-the-p-adic-L-function"
+      ],
+      "detail": "Verified (page image of Greither p. 452): G_p(T,psi) is the element written f(T,psi) in Washington p. 122, characterised by L_p(s,psi) = G_p(u^s - 1, psi) for s in Z_p (s not 1 for psi trivial), with u = 1 + q_0 an integer fixed in the construction; for psi nontrivial (1/2) G_p(T,psi) lies in Z_p(psi)[[T]], and for psi trivial (1/2) G_p(T,psi)(T - q_0) lies in Z_p(psi)[[T]] and is a unit. (The draft had L_p(1-s,psi) and omitted the factor 1/2 in the integrality statements; corrected in review.) Verified: Rubin's L_chi is characterised by (omega^{-1} eps_cyc)^k rho(L_chi) = (1 - omega^{-k} rho chi(p) p^{k-1}) L(1-k, omega^{-k} rho chi). NOT verified: that Greither's char(X_chi) = ((1/2) G_p(T,rho)) with rho = omega chi^{-1} is the same normalisation as Rubin's char(Z_infinity^chi) = L_chi Lambda. The factor 1/2 and the direction of the Teichmuller twist have not been reconciled, and the atlas stage text explicitly forbids comparing them before that dictionary is proved. Next source action: Washington 2nd ed. pp. 122-125 (the construction of f(T,psi)) -- catalogue record Washington_CyclotomicFields2 has NO resolved file. ACQUISITION REQUEST."
+    },
+    {
+      "title": "Atlas-text check: the displayed torsion element in the L0 stage description",
+      "neededBy": [
+        "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-unit-euler-system-for-Zp-one"
+      ],
+      "detail": "The stage L0 description warns that 'The notes' displayed choice c_m=(xi_m^-1-1)/(xi_m-1)=-xi_m^-1 is torsion; it is not the nontrivial system used in this proof.' This warning is CONFIRMED against the sources: Rubin's cyclotomic Euler system is built from c-tilde_{m,infinity} = N_{Q(mu_{mp})/Q(mu_m)}(zeta_{mp} - 1) and c-tilde_m = N_{Q(mu_m)/Q(mu_m)^+}(c-tilde_{m,infinity}) (Chapter III, 2.1, printed p. 34), genuine non-torsion p-units; and Kato's Example 13.2 (Asterisque 295, printed p. 225) uses the image of (1 - zeta_m)(1 - zeta_m^{-1}). No correction to the stage text is needed. This entry records that the warning was checked rather than assumed."
+    },
+    {
+      "title": "Trivial-character component of the plus-part main conjecture",
+      "neededBy": [
+        "EulerSystemsCyclotomicMainConjecture:L3/unconditional-statement-versus-the-vandiver-isomorphism",
+        "EulerSystemsCyclotomicMainConjecture:L3"
+      ],
+      "detail": "Found in review. RJW Thm. 13.8 is stated for the whole plus part, including the trivial character of Gal(Q(mu_p)/Q), where zeta_p has its pole and the augmentation ideal I(Gamma^+) enters. Rubin Chapter III Sec. 2 assumes chi nontrivial throughout, so Thm. III.2.10 does not supply that component, and the atlas L3 text asks for it to be treated separately. Not verified: any source argument for the trivial component, and the dictionary matching RJW's I(Gamma^+)_{zeta_p} with Rubin's L_chi. Next source action: RJW Thm. 11.9, Thm. 12.23 and Appendix A (in the supplied library)."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
+    "date": "2026-09-15",
+    "notes": "All 16 nodes and 16 links checked against Rubin, Euler systems (author draft, library copy, SHA-256 verified: Chapter II Secs. 2-3 pp. 23-29, Chapter III Sec. 1 closing and Secs. 2-3 pp. 33-40), Greither 1992 (library copy, SHA-256 verified: Sec. 1 pp. 451-454, Sec. 2 pp. 455-465, Sec. 3 pp. 468-472; pp. 451, 452, 468, 469, 470 re-read from page images because the text layer garbles formulas), Rodrigues Jacinto-Williams arXiv:2309.15692v2 Sec. 13.2-13.4 (SHA-256 verified), and Kato 2004 Example 13.2 for the atlas-text gap. 4 nodes verified, 12 corrected. Main corrections: Rubin's Hyp(K,T) for Thm. II.2.2 had been recorded with the conditions of the weaker Hyp(K,V); Greither's p-adic L-function normalisation was reversed (source: L_p(s,psi) = G_p(u^s - 1, psi)) and the factor 1/2 dropped from the integrality statements; formula (4) had zeta_f^{delta p} for zeta_{fp}^delta; the definition of RJW's X_infinity^+ used the wrong base field; Greither's proof steps misquoted Prop. 3.4 and Cor. 2.14; claims that Rubin III.2.7 holds at p = 2 and that RJW Thm. 13.8 is 'exactly' Rubin III.2.10 were softened, and a new gap records the trivial-character component. One link (L3 endpoint -> Greither Thm. 3.1) was removed because by its own statement it transported nothing. Supplier scopes: ColemanPowerSeries:L4 and IntegralIwasawaTheory:L1 cover the Q(mu_{p^infinity})^+ tower required by the L3 endpoint but not Rubin's general-conductor statements (annotated). The atlas L0 torsion warning and the catalogue acquisition claims were checked. Every parentStageId belongs to the roadmap; all five coverage stage ids exist. The ColemanPowerSeries:L4 link adds a stage-level edge absent from the atlas (ColemanPowerSeries:L4 -> L3; the atlas has it only through L0). Packet status stays partial.",
+    "checked": [
+      {
+        "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-unit-euler-system-for-Zp-one",
+        "verdict": "corrected",
+        "note": "Rubin III.2.1 (p. 34) matches: Kummer identification (1), compatible roots of unity, distribution relation (2), the definitions of c-tilde and the Euler-polynomial computation; the statement now records 'for every prime ell not p' and the compatibility remark is marked packet-authored."
+      },
+      {
+        "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/character-twist-and-the-restriction-dictionary",
+        "verdict": "corrected",
+        "note": "Rubin III.2.2, (3), (4), Def. 2.2 (pp. 34-35) match, except that formula (4) was transliterated as (zeta_f^{delta p} - 1) where the source has (zeta_{fp}^delta - 1), and the statement claimed C_{n,chi} is generated by 'the same product formula', although the n = 0 generator differs from c_Q by the exponent 1 - chi^{-1}(p) (6)."
+      },
+      {
+        "nodeId": "EulerSystemsCyclotomicMainConjecture:L1/finite-level-error-tolerant-bound-and-its-hypotheses",
+        "verdict": "corrected",
+        "note": "Rubin II.2 (pp. 23-26) matches except that the statement gave the conditions of Hyp(K,V) (dim V/(tau-1)V = 1, V irreducible) under the name Hyp(K,T); Thm. II.2.2 needs Hyp(K,T): T/(tau-1)T free of rank one and T tensor k irreducible. The standing hypothesis loc^s(c_K) nonzero of Thm. II.2.10 was added."
+      },
+      {
+        "nodeId": "EulerSystemsCyclotomicMainConjecture:L1/vanishing-of-the-error-terms-in-the-cyclotomic-twist",
+        "verdict": "corrected",
+        "note": "Rubin Lemma III.1.1 with proof (p. 33) and the proof of Thm. III.2.3 match; the hypothesis attributed both vanishings to nontriviality, but part (ii) of the lemma needs chi not congruent to epsilon_cyc, which evenness supplies (Rubin cites 'nontrivial and even')."
+      },
+      {
+        "nodeId": "EulerSystemsCyclotomicMainConjecture:L1/finite-level-class-number-divisibility",
+        "verdict": "verified",
+        "note": "Rubin Thm. III.2.3 and its proof (p. 36), Remarks 2.1 and 2.5 match in every step, including both uses of chi(p) not 1."
+      },
+      {
+        "nodeId": "EulerSystemsCyclotomicMainConjecture:L1/analytic-class-number-upgrade-at-finite-level",
+        "verdict": "corrected",
+        "note": "Rubin Cor. III.2.4 and its one-line proof (p. 36) match; the product-of-components mechanism stated as fact is packet-authored, and it must handle the components with chi(p) = 1 excluded from Thm. 2.3 (Remarks 2.5)."
+      },
+      {
+        "nodeId": "EulerSystemsCyclotomicMainConjecture:L2/iwasawa-theoretic-euler-system-bound",
+        "verdict": "corrected",
+        "note": "Rubin II.3 opening, Hyp(K_infinity/K), Hyp(K_infinity,T/V), Def. 3.1, Thms. 3.2-3.4, Remark 3.5, Prop. 3.7 with proof (pp. 26-29) match; the Euler system for (T, K_infinity) requirement was added, and an acceptance item misread Rubin's elliptic-unit footnote."
+      },
+      {
+        "nodeId": "EulerSystemsCyclotomicMainConjecture:L2/cyclotomic-local-global-comparison-diagram",
+        "verdict": "verified",
+        "note": "Rubin III.2.5 definitions and Prop. 2.6 with its proof (pp. 37-38), including the Leopoldt input and the computation Y^chi/U^chi = Z_p[Delta/Delta_p]^chi, match."
+      },
+      {
+        "nodeId": "EulerSystemsCyclotomicMainConjecture:L2/cyclotomic-iwasawa-divisibility",
+        "verdict": "corrected",
+        "note": "Rubin Thm. III.2.7 and proof (p. 38) match; the claim that the theorem applies at p = 2 extrapolated Rubin's remark about Thm. II.3.3 and was softened; the clash between Rubin's semilocal Y_infinity and the atlas's class-group Y_infinity is now flagged."
+      },
+      {
+        "nodeId": "EulerSystemsCyclotomicMainConjecture:L3/analytic-class-number-equality-at-infinite-level",
+        "verdict": "verified",
+        "note": "Rubin Cor. III.2.8 and its referral to [MW] Sec. 1.6 / [Ru3] p. 414 (p. 38) match."
+      },
+      {
+        "nodeId": "EulerSystemsCyclotomicMainConjecture:L3/local-unit-index-and-the-p-adic-L-function",
+        "verdict": "corrected",
+        "note": "Rubin Thm. III.2.9 with its references (p. 39) and Greither Thms. 2.4, 2.6, 2.8, 2.13, Cor. 2.14 (pp. 459-465) match; added that Cor. 2.14 holds over Q_p Lambda (up to powers of p) and that the general-conductor case rests on Gillard, not on the ColemanPowerSeries:L4 supplier."
+      },
+      {
+        "nodeId": "EulerSystemsCyclotomicMainConjecture:L3/main-conjecture-endpoint-for-the-p-ramified-galois-group",
+        "verdict": "corrected",
+        "note": "Rubin Thm. III.2.10 and proof (p. 39) match; the hypothesis claiming multiplicativity needs torsion modules was replaced by the actual implicit requirement (char(A_infinity^chi) nonzero for the cancellation)."
+      },
+      {
+        "nodeId": "EulerSystemsCyclotomicMainConjecture:L3/unconditional-statement-versus-the-vandiver-isomorphism",
+        "verdict": "corrected",
+        "note": "RJW Sec. 13.2-13.4 (pp. 66-68: definitions, Thm. 13.8, Def. 13.10, Thm. 13.11, Def. 13.12, Prop. 13.13, Cor. 13.14, Prop. 13.15, Cor. 13.16) match, except that X_infinity^+ was defined over L_infinity^+ with F_n 'the real cyclotomic fields' (RJW: F_n = Q(mu_{p^n}), X_infinity^+ = Gal(M_infinity^+/F_infinity^+)); the claim that Thm. 13.8 is 'exactly' Rubin III.2.10 ignored the trivial character component (new gap)."
+      },
+      {
+        "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-even-character-divisibility",
+        "verdict": "verified",
+        "note": "Greither Sec. 3 opening, Thm. 3.1, Remarks a)-c) (p. 468, page image) and the paragraph and Lemma 3.5 on p. 470 match."
+      },
+      {
+        "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-odd-character-main-conjecture-with-half-normalisation",
+        "verdict": "corrected",
+        "note": "Greither Thm. 3.2, Lemma 3.3, Prop. 3.4 and the proof of 3.1 => 3.2 (pp. 469-470, page images) and the Sec. 1 statement (p. 452, page image) match, except: the normalisation was given as G_p(u^s - 1, psi) = L_p(1-s, psi) (source: L_p(s, psi) = G_p(u^s - 1, psi)); the Cor. 2.14 step omitted the twist (1) and involution *; Prop. 3.4 gives char(Y_rho) = char(X_chi^*(1)), not char(A_infinity(1)); the Sec. 1 excerpt was OCR-garbled."
+      },
+      {
+        "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-arithmetic-consequences-at-p-equals-2",
+        "verdict": "corrected",
+        "note": "Greither Thms. A, B, C with remarks (pp. 453-454) match; Thm. B is not 'equivalent' to Thm. A in the source, Greither shows B implies A."
+      }
+    ]
+  }
+}

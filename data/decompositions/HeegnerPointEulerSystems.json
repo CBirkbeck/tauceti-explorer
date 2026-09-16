@@ -1,0 +1,780 @@
+{
+  "roadmapId": "HeegnerPointEulerSystems",
+  "status": "partial",
+  "summary": "Source decomposition of the Heegner-point Euler system from Howard's 'The Heegner point Kolyvagin system' (Sec. 0, Sec. 1.3, Secs. 1.5-1.7 and Sec. 2.3 read, including all proofs in Sec. 1.7 and in the proof of Thm. 1.6.5) together with Cornut-Vatsal's statements. Covers: the CM construction of h_m and P[m] with the Heegner hypothesis and the two excluded discriminants; the norm relation and the reduction congruence, and the two equivalent descriptions of the ideal I_ell = (a_ell, ell+1); the Selmer structure obtained by propagation, the transverse modification at primes dividing n, and Lemma 1.7.3's explicit vanishing computation ell(ell+1)/2 . c(Fr_lambda) = 0; the derived classes kappa-tilde_n with Lemma 1.7.1's proof, the descent to K through Hochschild-Serre (which is where full surjectivity is used), and McCallum's cocycle formula; Prop. 1.7.4's finite/singular automorphism chi_ell built from a_ell - (ell+1)Fr_ell, and Thm. 1.7.5's CORRECTED Kolyvagin system -- the raw derivative classes only ALMOST form one; hypotheses H.0-H.5 with H.4 and H.5 flagged as additional to Mazur-Rubin, Thm. 1.6.1, the full verification of H.0-H.5 for T_p(E), and Theorem A; the Lambda-adic construction with Lemma 2.3.4's two cases and Theorem B with its extra hypothesis p not dividing h_K, its DIVISIBILITY (not equality) conclusion, the Manin constant in Perrin-Riou's predicted equality, and the resulting rank inequality; and Cornut-Vatsal Thms. 1.4 and 1.5 with their exact hypotheses and the stated origin of the extra conditions in Thm. 1.5. HE.0, HE.7, HE.7s and HE.8b are not_read. Gross's paper -- the source of the norm relation and of the away-from-n local conditions -- is present in the library but has NO text layer.",
+  "sources": [
+    {
+      "id": "howard-heegner-point-kolyvagin-system",
+      "title": "The Heegner point Kolyvagin system",
+      "authors": "Benjamin Howard",
+      "edition": "arXiv:1202.6340v1 [math.NT], 28 February 2012 (inspected 2026-09-15); the published version is Compositio Math. 140 (2004), 1439-1472",
+      "url": "https://arxiv.org/pdf/1202.6340",
+      "sha256": "d2d06e851d6aa1fdc33a932b69b5c06a8c56dc2d9e05fb10d97c0358d6d6ea9a",
+      "readSections": [
+        "Sec. 0 'Introduction' in full, printed pp. 1-3 (Thms. A and B, the inequality (1), the Perrin-Riou main conjecture and the Manin constant c)",
+        "Sec. 1.1 'Local conditions', printed pp. 5-8 (Defs. 1.1.1, 1.1.2, 1.1.3, 1.1.6, 1.1.8, 1.1.10 and Props. 1.1.7, 1.1.9, read for the definitions used later)",
+        "Sec. 1.3 hypotheses H.0-H.5 with the following remarks, printed pp. 8-9",
+        "Sec. 1.5-1.6, printed pp. 15-19 (Prop. 1.5.9, Thm. 1.6.1 and the start of its proof, Thm. 1.6.5 with its full proof verifying H.0-H.5)",
+        "Sec. 1.7 'Heegner points' in full, printed pp. 19-21 (the construction of h_m and P[m], the Euler system relation, the congruence (13), Lemmas 1.7.1, 1.7.2, 1.7.3, Prop. 1.7.4 and Thm. 1.7.5, all with their proofs)",
+        "Sec. 2.3 'The anticyclotomic Euler system', printed pp. 29-30 (the construction of the compatible family Q[n], the Lambda-adic derivative classes and Lemma 2.3.4 with cases (i) and (ii) of its proof)",
+        "Sec. 2.3, statement of Thm. 2.3.7",
+        "Read during the independent review: Sec. 2.3 in full through Lemma 2.3.4 (all three local cases, including case (iii) v | p) and the opening of the proof of Thm. 2.3.7"
+      ]
+    },
+    {
+      "id": "cornut-vatsal-nontriviality",
+      "title": "Nontriviality of Rankin-Selberg L-functions and CM points",
+      "authors": "Christophe Cornut; Vinayak Vatsal",
+      "edition": "Author preprint (inspected 2026-09-15); published in L-functions and Galois representations, LMS Lecture Note Series 320 (2007), 121-186",
+      "url": "https://personal.math.ubc.ca/~vatsal/research/part1.pdf",
+      "sha256": "bdf258c742a88ce4328dcf3ef1df0dfe1235f1640c06bd66eeaaef2c1c6625e1",
+      "readSections": [
+        "Sec. 1.1 'Mazur's conjectures' and the statements of Thms. 1.4 and 1.5 with the surrounding definitions of G(n), G(0), G(2) and P(n,chi_0), printed pp. 5-6",
+        "Sec. 1.2 'Gross-Zagier formulae', opening, printed p. 6",
+        "Read during the independent review: Def. 1.3 (exceptional pairs) with the factorisation that motivates it, and Sec. 1.3's reduction of Thm. 1.5 to Thm. 1.10 via Zhang's Gross-Zagier formula"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation",
+      "parentStageId": "HeegnerPointEulerSystems:HE.1",
+      "title": "The family of Heegner points h_m on X_0(N) and their images P[m] in E",
+      "kind": "construction",
+      "statement": "Let E/Q be an elliptic curve of conductor N and K an imaginary quadratic field of discriminant D prime to p, with D not -3 and not -4, such that every prime divisor of N is split in K (the Heegner hypothesis); assume in addition that p does not divide N. Fix an integral ideal a of O_K with O_K/a isomorphic to Z/NZ -- the Heegner hypothesis is exactly what makes such an a exist. For every integer m = p^k n with n a squarefree product of primes inert in K, let O_m be the order of conductor m in O_K and set h_m = [C/O_m -> C/(O_m intersect a)^{-1}], the cyclic N-isogeny of complex tori determined by the invertible O_m-ideal O_m intersect a. Then h_m is a point of X_0(N) rational over the ring class field K[m] of conductor m. Embedding X_0(N) into J_0(N) by sending the cusp at infinity to the origin and fixing a modular parametrisation J_0(N) -> E, the image P[m] in E(K[m]) is the Heegner point of conductor m.",
+      "hypotheses": [
+        "the Heegner hypothesis is that ALL primes dividing N split in K; it is what produces the ideal a with O_K/a isomorphic to Z/NZ and hence the cyclic N-isogeny",
+        "D is prime to p and D is not -3 and not -4; the two excluded discriminants are the ones with extra units, and they are excluded for the whole of Howard's paper",
+        "p does not divide N",
+        "the base point for the embedding X_0(N) -> J_0(N) is the CUSP AT INFINITY; a different base point changes P[m] by a fixed class",
+        "the rationality of h_m over K[m] is the theory of complex multiplication applied to the pair (O_m, O_m intersect a); it is quoted, not proved, in the source read",
+        "the modular parametrisation is FIXED once and for all; the Manin constant c attached to this choice appears in the Perrin-Riou main conjecture but does not appear in Howard's Theorem A or B"
+      ],
+      "proofSteps": [
+        "Complex multiplication gives the pair of CM elliptic curves C/O_m and C/(O_m intersect a)^{-1} and the cyclic N-isogeny between them, hence a point of the moduli space X_0(N) over C.",
+        "The main theorem of complex multiplication identifies the field of definition of h_m as the ring class field K[m]; Howard states this without proof.",
+        "Sending the cusp at infinity to the origin gives the Abel-Jacobi embedding into J_0(N), and composing with the fixed parametrisation J_0(N) -> E gives P[m] in E(K[m])."
+      ],
+      "acceptance": [
+        "Check that the ideal a exists exactly under the Heegner hypothesis, and that a different choice of a changes the family by an explicit Galois translation.",
+        "Check the case m = p^k n with k > 0, which is used in the anticyclotomic tower; the construction is stated for all such m, not only for squarefree n.",
+        "Check that the Manin constant enters only in the comparison with Perrin-Riou's module and NOT in the statements of Thms. A and B.",
+        "Check the two excluded discriminants D = -3, -4 and where the extra units would break the argument."
+      ],
+      "sources": [
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, printed p. 19",
+          "excerpt": "Let E/Q be an elliptic curve of conductor N and K a quadratic imaginary field of discriminant prime to p and not= -3, -4. Assume that p does not divide N and that all prime divisors of N are split in K. Fix an integral ideal a of O_K satisfying O_K/a isomorphic to Z/NZ.",
+          "match": "Gives the full hypothesis package of the construction, as recorded in the node."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, printed p. 19",
+          "excerpt": "For every integer of the form m = p^k n with n in N we let h_m in X_0(N) be the point corresponding to the cyclic N-isogeny of complex tori h_m = [C/O_m -> C/(O_m intersect a)^{-1}] where O_m is the order of conductor m in O_K and (O_m intersect a)^{-1} is the inverse of the invertible O_m-ideal (O_m intersect a). The point h_m is rational over the ring class field of conductor m, which we denote by K[m].",
+          "match": "Gives the explicit CM construction and the rationality statement, recorded in the statement and proofSteps."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, printed p. 19",
+          "excerpt": "Let J_0(N) be the Jacobian of X_0(N), and embed X_0(N) into J_0(N) by sending the cusp at infinity to the origin. The image of h_m in J_0(N) is again denoted by h_m. Fix a modular parametrization J_0(N) -> E. The image of h_m is now denoted by P[m] in E(K[m]), the Heegner point of conductor m.",
+          "match": "Gives the base point and the parametrisation, both of which are choices recorded in the hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.2/norm-relation-and-reduction-congruence",
+      "parentStageId": "HeegnerPointEulerSystems:HE.2",
+      "title": "The Euler-system norm relation and the reduction congruence at inert auxiliary primes",
+      "kind": "theorem",
+      "statement": "For n a squarefree product of primes inert in K and ell an inert prime with n*ell again admissible, the Heegner points satisfy the norm relation Norm_{K[n ell]/K[n]} P[n ell] = a_ell P[n], where a_ell is the trace of Frobenius at ell on T_p(E), and the reduction congruence P[n ell] is congruent to [Frobenius of lambda' in Gal(K[n ell]/Q)] applied to P[n], modulo lambda', for lambda' ANY prime of K[n ell] above ell. Here Gal(K[n]/K[m]) is isomorphic to the product over ell dividing n/m of G_ell, with G_ell = Gal(K[ell]/K[1]); and the ideal I_ell of Z_p is the smallest ideal containing ell + 1 for which Frobenius of the prime lambda above ell (equal to Fr_ell^2) acts trivially on T/I_ell T, so that Fr_ell acts on T/I_ell T with characteristic polynomial X^2 - 1; equivalently I_ell is generated by a_ell and ell + 1.",
+      "hypotheses": [
+        "ell is inert in K and prime to p and to N (it lies in the set L = L_1(T) of Kolyvagin primes)",
+        "the norm relation is the trace from K[n ell] down to K[n] and produces the multiplier a_ell, NOT a_ell times a Frobenius; the Frobenius appears only in the congruence",
+        "the congruence holds modulo lambda' for ANY prime lambda' of K[n ell] above ell; it is a pointwise congruence between P[n ell] and a Frobenius translate of P[n], and is a genuinely stronger input than the trace relation alone",
+        "I_ell is defined by the trivial action of Fr_lambda = Fr_ell^2 on T/I_ell T, and is THEN shown to be generated by a_ell and ell + 1; the two descriptions must be kept aligned"
+      ],
+      "proofSteps": [
+        "Howard quotes both relations rather than proving them: the norm relation is attributed to Gross, 'Kolyvagin's work on modular elliptic curves', Proposition 3.7, or to Perrin-Riou Sec. 3.3; the congruence (13) is quoted in the same place.",
+        "The description of I_ell is derived in the source from the requirement that Fr_lambda act trivially on T/I_ell T: since Fr_ell has characteristic polynomial X^2 - a_ell X + ell on T and Fr_lambda = Fr_ell^2, the condition is exactly that a_ell and ell + 1 lie in I_ell.",
+        "The telescoping identity (sigma_ell - 1) D_ell = ell + 1 - Norm_ell, for D_ell the Kolyvagin derivative, is what converts the norm relation into the invariance statement of HE.4."
+      ],
+      "acceptance": [
+        "Check that the norm relation is stated with a_ell and not with a_ell minus a Frobenius term; the shape of the Euler factor here differs from the cyclotomic and Kato cases.",
+        "Check that the congruence is used in the proof of Prop. 1.7.4 (the finite/singular comparison), and that it is NOT derivable from the norm relation.",
+        "Check the two descriptions of I_ell agree: the smallest ideal with Fr_lambda acting trivially on T/I_ell T, and the ideal (a_ell, ell + 1).",
+        "Check the initial conductor and unit exceptions: the source works throughout with D not -3, -4 and with n prime to N, so the exceptional small discriminants are excluded by hypothesis rather than treated."
+      ],
+      "sources": [
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, printed p. 19",
+          "excerpt": "If n ell in N we have the Euler system relation ([Gro91] Proposition 3.7, or [PR87] Section 3.3, for example) Norm_{K[n ell]/K[n]} P[n ell] = a_ell P[n] and the congruence (13) P[n ell] is congruent to [lambda'/(K[n ell]/Q)] P[n] (mod lambda') where lambda' is any prime of K[n ell] above ell.",
+          "match": "Gives both relations verbatim with their attributions, as recorded in the statement and proofSteps."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, printed p. 19",
+          "excerpt": "The ideal I_ell in Z_p is the smallest ideal containing ell + 1 for which Fr_lambda = Fr_ell^2 acts trivially on T/I_ell T, and hence on which Fr_ell acts with characteristic polynomial X^2 - 1. Therefore I_ell is generated by a_ell and ell + 1.",
+          "match": "Gives both descriptions of I_ell and the derivation of the second from the first."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, printed p. 19",
+          "excerpt": "Define the derivative operator D_ell in Z_p[G(ell)] by D_ell = sum_{i=1}^{ell} i sigma_ell^i, where sigma_ell is a fixed generator of G(ell), and let D_n = product over ell | n of D_ell in Z_p[G(n)]. One has the easy telescoping identity (sigma_ell - 1) D_ell = ell + 1 - Norm_ell.",
+          "match": "Gives the derivative operator and the telescoping identity that converts the norm relation into the invariance property."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.3/kummer-classes-and-the-modified-selmer-conditions",
+      "parentStageId": "HeegnerPointEulerSystems:HE.3",
+      "title": "Kummer classes of the Heegner points and the exact local conditions they satisfy",
+      "kind": "lemma",
+      "statement": "Let F be the Selmer structure of Theorem 1.6.5 on T = T_p(E), so that H^1_F(K,T) = S_p(E/K): at every place v not dividing p the local condition is the unramified one, and at v dividing p it is obtained by propagating the image of the local Kummer map E(K_v) tensor Q_p -> H^1(K,V). For n a squarefree product of Kolyvagin primes, let H^1_{F(n)}(K, T/I_n T) be the generalised Selmer group of Definition 1.2.2, obtained from F by replacing the local condition at each prime of K dividing n by the TRANSVERSE one. Lemma 1.7.3: the derived class kappa_n lies in H^1_{F(n)}(K, T/I_n T). The proof splits into two parts: at places v not dividing n, the assertion loc_v(kappa_n) in H^1_F(K_v, T/I_n T) is Proposition 6.2 of Gross's paper (quoted, not proved); at a prime ell dividing n, with lambda the prime of K above ell and lambda' the unique prime of K[ell] above ell, one uses that lambda splits completely in K[n/ell] and hence lambda' splits completely in K[n], identifies K[ell]_{lambda'} = K[n]_{lambda''}, and computes (D_ell c)(Fr_lambda) = (sum_{i=1}^{ell} i) c(Fr_lambda) = [ell(ell+1)/2] c(Fr_lambda) = 0, because sigma_ell acts trivially on T/I_n T and ell + 1 lies in I_ell.",
+      "hypotheses": [
+        "the transverse local condition at a prime dividing n is defined only for primes in the Kolyvagin set L, for which GK_v acts trivially on T/I_n T and the residue field order condition of Def. 1.1.8 holds",
+        "the vanishing computation uses ell(ell+1)/2 in Z_p; since ell is odd and ell + 1 lies in I_ell, the coefficient ell(ell+1)/2 lies in I_ell -- the halving is legitimate because p is ODD",
+        "the local condition at v dividing p is the PROPAGATED Bloch-Kato condition, and Howard records that propagation from V makes H^1(K_v,T)/H^1_F(K_v,T) torsion-free at every v, which is what gives hypothesis H.3",
+        "the identification H^1_F(K, E[p^infinity]) = Sel_{p^infinity}(E/K) is quoted from Rubin's Prop. 1.6.8"
+      ],
+      "proofSteps": [
+        "Define the Selmer structure F by propagation from V = T tensor Q_p, so that H^1_F(K,T) = S_p(E/K) and H^1_F(K,A) = Sel_{p^infinity}(E/K).",
+        "Modify F at the primes dividing n to the transverse condition, giving the generalised Selmer group H^1_{F(n)}.",
+        "Away from n, invoke Gross Prop. 6.2 for the local behaviour of the derived class.",
+        "At ell dividing n, reduce to a computation over the completion using the complete splitting of lambda in K[n/ell] and the identification K[ell]_{lambda'} = K[n]_{lambda''}, and conclude by Prop. 1.1.7 that it suffices to check (D_ell c)(Fr_lambda) = 0, which follows from the arithmetic of I_ell."
+      ],
+      "acceptance": [
+        "Check the halving step ell(ell+1)/2: it is valid in Z_p because p is odd, and it is the only place where oddness of p enters this lemma.",
+        "Check that the local condition at v dividing p is the propagated one and not the naive unramified one; the two differ exactly at p.",
+        "Check that the assertion away from n is an IMPORT (Gross Prop. 6.2) and has not been proved here.",
+        "Check the component-group behaviour at bad primes: Howard's Selmer structure is defined by propagation, which sidesteps the component-group discussion that the stage text asks for."
+      ],
+      "sources": [
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, Lemma 1.7.3, printed p. 20",
+          "excerpt": "Fix n in N and let F denote the Selmer structure of Theorem 1.6.5 on T, so that H^1_F(K, T) = S_p(E/K). Then kappa_n in H^1_{F(n)}(K, T/I_n T). Proof. The statement that loc_v(kappa_n) in H^1_F(K_v, T/I_n T) for v not dividing n is Proposition 6.2 of [Gro91].",
+          "match": "Gives the statement and records that the away-from-n part is imported from Gross."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, proof of Lemma 1.7.3, printed p. 20",
+          "excerpt": "The prime lambda of K above ell splits completely in K[n/ell], and so lambda' splits completely in K[n]. Fixing a prime lambda'' of K[n] above lambda', we have K[ell]_{lambda'} = K[n]_{lambda''}. ... By definition of I_n, the Frobenius automorphism, Fr_lambda in Gal(K_lambda^{unr}/K_lambda) acts trivially on T/I_n T, and so by Proposition 1.1.7 it suffices to show that (D_ell c)(Fr_lambda) in T/I_n T is zero. Since sigma_ell acts trivially on T/I_n T, we have (D_ell c)(Fr_lambda) = sum_{i=1}^{ell} i c(Fr_lambda) = [ell(ell+1)/2] c(Fr_lambda) = 0.",
+          "match": "Gives the splitting argument and the explicit vanishing computation, recorded in the statement and proofSteps."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.6, before Thm. 1.6.5, printed p. 18",
+          "excerpt": "let L be the condition at each place v of K which does not divide p, and at v|p take the image of the local Kummer map E(K_v) tensor Q_p -> H^1(K, V). Define local conditions on T_p(E) and E[p^infinity] isomorphic to V/T_p(E) by propagating F. By Proposition 1.6.8 of [Rub00], H^1_F(K, E[p^infinity]) = Sel_{p^infinity}(E/K).",
+          "match": "Gives the exact definition of the Selmer structure F and the identification of H^1_F with the classical Selmer group."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.4/kolyvagin-derivative-classes-and-descent-to-K",
+      "parentStageId": "HeegnerPointEulerSystems:HE.4",
+      "title": "The derived classes kappa-tilde_n, their G(n)-invariance modulo I_n, and the descent to K",
+      "kind": "construction",
+      "statement": "For n a squarefree product of Kolyvagin primes put G(n) = Gal(K[n]/K) and G(n) = product over ell dividing n of G_ell, so that Gal(K[n]/K[m]) is isomorphic to G(n/m) for m dividing n. Choosing a set S of coset representatives for G(n) inside G(n), set kappa-tilde_n = sum over s in S of s D_n(P[n]) in E(K[n]). LEMMA 1.7.1: the image of kappa-tilde_n in E(K[n])/I_n E(K[n]) is fixed by G(n); the proof is the three-line computation (sigma_ell - 1) D_n P[n] = (sigma_ell - 1) D_ell D_{n/ell} P[n] = -D_{n/ell} Norm_ell P[n] = -a_ell D_{n/ell} P[n/ell], which vanishes modulo I_n because a_ell lies in I_ell which is contained in I_n. Since the surjectivity of G_K -> Aut(T) forces E(K[n])[p] = 0, the Hochschild-Serre spectral sequence makes restriction an ISOMORPHISM H^1(K, T/I_n T) -> H^1(K[n], T/I_n T)^{G(n)}, and kappa_n is defined as the unique preimage of delta_n(kappa-tilde_n) under it, delta_n being the Kummer map. LEMMA 1.7.2 gives kappa_n by the explicit cocycle kappa_n(sigma) = (sigma - 1)(kappa-tilde_n/p^{M_n}) - ((sigma-1) kappa-tilde_n)/p^{M_n}, where I_n = p^{M_n} Z_p, kappa-tilde_n/p^{M_n} is a fixed p^{M_n}-divisor in E(Kbar), and ((sigma-1)kappa-tilde_n)/p^{M_n} is the UNIQUE p^{M_n}-divisor of (sigma-1)kappa-tilde_n inside E(K[n]).",
+      "hypotheses": [
+        "the surjectivity of G_K -> Aut_{Z_p}(T) is used HERE, to force E(K[n])[p] = 0 and hence to make the restriction map an isomorphism; without it the descent is not unrestricted and torsion invariants obstruct uniqueness",
+        "the invariance in Lemma 1.7.1 holds only MODULO I_n, not on the nose",
+        "the second term of the cocycle in Lemma 1.7.2 is the UNIQUE p^{M_n}-divisor inside E(K[n]); uniqueness again uses E(K[n])[p] = 0",
+        "the choice of the coset representatives S and of the generators sigma_ell are choices; the transformation law under changing sigma_ell is what forces the tensor factor G_n in the Kolyvagin system",
+        "Lemma 1.7.2 is attributed to McCallum, Lemma 4.1"
+      ],
+      "proofSteps": [
+        "Compute (sigma_ell - 1) D_n P[n] using the telescoping identity of HE.2 and the norm relation, obtaining -a_ell D_{n/ell} P[n/ell]; since a_ell is in I_ell it vanishes modulo I_n.",
+        "Use E(K[n])[p] = 0 (a consequence of surjectivity) and Hochschild-Serre to identify H^1(K, T/I_n T) with the G(n)-invariants of H^1(K[n], T/I_n T).",
+        "Define kappa_n as the unique preimage of the Kummer image of kappa-tilde_n, and record the explicit cocycle of Lemma 1.7.2 (quoted from McCallum).",
+        "At n = 1, kappa_1 is the Kummer image of Norm_{K[1]/K} P[1] in H^1(K,T)."
+      ],
+      "acceptance": [
+        "Check that the invariance is modulo I_n and that a claim of exact invariance would be false.",
+        "Check where E(K[n])[p] = 0 is used: in the descent isomorphism AND in the uniqueness of the p^{M_n}-divisor of Lemma 1.7.2. A weaker large-image hypothesis must address both.",
+        "Check the transformation law of kappa_n under a change of the generator sigma_ell, which is why the Kolyvagin system takes values in H^1 tensor G_n.",
+        "Check the n = 1 case against the statement that kappa_1 is the Kummer image of the norm of P[1] and is nonzero exactly when the Heegner point is non-torsion."
+      ],
+      "sources": [
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, Lemma 1.7.1 and its proof, printed pp. 19-20",
+          "excerpt": "Choosing a set of coset representatives S for G(n) in G(n), we define kappa-tilde_n = sum_{s in S} s D_n(P[n]) in E(K[n]). Lemma 1.7.1. The image of kappa-tilde_n in E(K[n])/I_n E(K[n]) is fixed by G(n). Proof. For each ell|n we have the equalities in E(K[n])/I_n E(K[n]) (sigma_ell - 1)D_n(P[n]) = (sigma_ell - 1)D_ell D_{n/ell} P[n] = -D_{n/ell} Norm_ell(P[n]) = -a_ell D_{n/ell}(P[n/ell]). Since a_ell in I_ell contained in I_n, the claim follows.",
+          "match": "Gives the construction and the complete proof of the invariance modulo I_n."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, printed p. 20",
+          "excerpt": "Our assumption that the map G_K -> Aut(T) is surjective guarantees that E(K[n])[p] = 0, and so, by the Hochschild-Serre spectral sequence, restriction gives an isomorphism H^1(K, T/I_n T) -> H^1(K[n], T/I_n T)^{G(n)}. If delta_n : E(K[n])/I_n E(K[n]) -> H^1(K[n], T/I_n T) is the Kummer map, we define kappa_n to be the unique preimage of delta_n(kappa-tilde_n) under restriction.",
+          "match": "States exactly where the surjectivity hypothesis is used and how the descent to K is performed."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, Lemma 1.7.2, printed p. 20",
+          "excerpt": "Lemma 1.7.2. The class kappa_n in H^1(K, T/I_n T) may be given as an explicit cocycle as follows. Let I_n = p^{M_n} Z_p and fix a p^{M_n}-divisor of kappa-tilde_n, kappa-tilde_n/p^{M_n} in E(Kbar). For sigma in G_K let ((sigma-1)kappa-tilde_n)/p^{M_n} be the unique p^{M_n}-divisor of (sigma - 1)kappa-tilde_n in E(K[n]). Then kappa_n(sigma) = (sigma - 1)(kappa-tilde_n/p^{M_n}) - ((sigma - 1)kappa-tilde_n)/p^{M_n}. Proof. This is Lemma 4.1 of [Mc91].",
+          "match": "Gives the explicit cocycle and its attribution."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.5/finite-singular-comparison-and-the-corrected-kolyvagin-system",
+      "parentStageId": "HeegnerPointEulerSystems:HE.5",
+      "title": "The finite/singular comparison chi_ell and the corrected Kolyvagin system",
+      "kind": "theorem",
+      "statement": "PROPOSITION 1.7.4: for every ell dividing lambda in L there is an AUTOMORPHISM chi_ell : T/I_ell T -> T/I_ell T such that, for n ell in the admissible set, chi_ell(kappa_n(Fr_lambda)) = kappa_{n ell}(sigma_ell) as elements of T/I_{n ell} T. The map is constructed as the composite E(K_lambda) -> E-tilde(Fbar) -> E-tilde(F)[p^infinity] --(p^{-M_ell}(a_ell - (ell+1) Fr_ell))--> E-tilde(F)[I_ell] -> E[I_ell], where the first arrow is reduction at lambda, the second is projection to the p-Sylow subgroup, and the last is the canonical lift; it is surjective because the action of Fr_ell splits the p-Sylow subgroup of E-tilde(F) into cyclic eigencomponents whose lengths are the p-orders of ell + 1 - a_ell and ell + 1 + a_ell, and since E[I_ell] is defined over K_lambda it factors through an isomorphism E(K_lambda)/I_ell E(K_lambda) -> E[I_ell], which under E(K_lambda)/I_ell E(K_lambda) = H^1(K_lambda^{unr}/K_lambda, E[I_ell]) = E[I_ell] gives the automorphism. Hence the raw classes kappa_n only ALMOST form a Kolyvagin system. THEOREM 1.7.5: there is a genuine Kolyvagin system kappa' for (T, F, L) with kappa'_1 = kappa_1, obtained by setting kappa'_n = chi_n^{-1}(kappa_n) tensor (tensor over ell dividing n of sigma_ell) in H^1_{F(n)}(K, T/I_n T) tensor G_n, where chi_n is the composite of the pairwise commuting automorphisms chi_ell.",
+      "hypotheses": [
+        "the correction is by an automorphism of T/I_ell T constructed from the reduction map and the operator a_ell - (ell+1) Fr_ell; it is NOT the identity, so the raw derivative classes do not satisfy Mazur-Rubin's relations",
+        "the surjectivity of chi_ell uses the eigencomponent structure of the p-Sylow subgroup of E-tilde(F) under Fr_ell, whose lengths are ord_p(ell + 1 - a_ell) and ord_p(ell + 1 + a_ell)",
+        "the factorisation through E(K_lambda)/I_ell E(K_lambda) uses that E[I_ell] is defined over K_lambda, which is exactly the defining property of the Kolyvagin primes",
+        "the chi_ell pairwise commute, which is what makes chi_n well defined",
+        "the tensor factor G_n = tensor over ell dividing n of G_ell records the dependence on the chosen generators sigma_ell"
+      ],
+      "proofSteps": [
+        "Use Lemma 1.7.2's cocycle description together with the Euler system relation and the reduction congruence (13) of HE.2 to obtain kappa_{n ell}(sigma_ell) congruent to [(a_ell - (ell+1) Fr_ell)/p^{M_{n ell}}] kappa-tilde_n modulo lambda'; Howard refers to the proof of Proposition 4.4 of McCallum.",
+        "Define chi_ell as the displayed composite and prove surjectivity via the Fr_ell-eigencomponent decomposition of the p-Sylow subgroup of E-tilde(F).",
+        "Factor chi_ell through E(K_lambda)/I_ell E(K_lambda) and identify that quotient with E[I_ell] via unramified cohomology, obtaining an automorphism.",
+        "Define kappa'_n = chi_n^{-1}(kappa_n) tensor sigma_ell's; the resulting family satisfies the Kolyvagin system relations of Definition 1.2.3 and agrees with kappa_1 at n = 1."
+      ],
+      "acceptance": [
+        "Check that the correction is genuinely needed: Howard says explicitly that the kappa_n 'almost form a Kolyvagin system. Only a slight modification is needed.' Asserting that raw derivative classes form a Kolyvagin system would be an error.",
+        "Check that the reduction congruence (13) -- not merely the norm relation -- is what produces the operator a_ell - (ell+1) Fr_ell.",
+        "Check the commutation of the chi_ell and that chi_1 is the identity so that kappa'_1 = kappa_1.",
+        "Check the auxiliary-prime existence: the Kolyvagin primes ell in L are produced by Chebotarev applied to the residual representation and to the field cut out by the classes; Howard's Lemma 1.6.2 is the corresponding statement in the abstract setting."
+      ],
+      "sources": [
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, Prop. 1.7.4, printed p. 21",
+          "excerpt": "Proposition 1.7.4. For every ell | lambda in L there is an automorphism chi_ell : T/I_ell T -> T/I_ell T such that for n ell in N, chi_ell(kappa_n(Fr_lambda)) = kappa_{n ell}(sigma_ell) as elements of T/I_{n ell} T.",
+          "match": "Gives the finite/singular comparison statement verbatim."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, proof of Prop. 1.7.4, printed p. 21",
+          "excerpt": "Combining this with the Euler system relations and the congruence (13) gives kappa_{n ell}(sigma_ell) congruent to [(a_ell - (ell + 1)Fr_ell)/p^{M_{n ell}}] kappa-tilde_n (mod lambda') (see the proof of Proposition 4.4 of [Mc91]). Define chi_ell to be the composition E(K_lambda) -> E-tilde(Fbar) -> E-tilde(F)[p^infinity] --p^{-M_ell}(a_ell-(ell+1)Fr_ell)--> E-tilde(F)[I_ell] -> E[I_ell] ... The action of Fr_ell splits the p-Sylow subgroup of E-tilde(F) into cyclic eigencomponents whose lengths are the orders at p of ell + 1 - a_ell and ell + 1 + a_ell, it follows that chi_ell is a surjection.",
+          "match": "Gives the construction of chi_ell, the role of the congruence (13), and the surjectivity argument."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, Thm. 1.7.5 and the remark before it, printed p. 21",
+          "excerpt": "The above proposition shows that the classes kappa_n almost form a Kolyvagin system. Only a slight modification is needed: Theorem 1.7.5. There is a Kolyvagin system kappa' for (T, F, L) with kappa'_1 = kappa_1. ... We now define kappa'_n = chi_n^{-1}(kappa_n) tensor_{ell|n} sigma_ell in H^1_{F(n)}(K, T/I_n T) tensor G_n.",
+          "match": "States explicitly that the raw classes do NOT form a Kolyvagin system and gives the corrected definition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.6/clean-rank-one-descent-theorem-A",
+      "parentStageId": "HeegnerPointEulerSystems:HE.6",
+      "title": "The abstract bound (Thm. 1.6.1) with hypotheses H.0-H.5, and Kolyvagin's Theorem A",
+      "kind": "theorem",
+      "statement": "Let R be a discrete valuation ring with uniformiser pi, (T,F,L) a Selmer triple satisfying HYPOTHESES H.0-H.5, and L_s(T) contained in L for s large. THEOREM 1.6.1: if there is a Kolyvagin system kappa in KS(T,F,L) with kappa_1 nonzero, then H^1_F(K,T) is a FREE RANK-ONE R-module and there is a FINITE R-module M with H^1_F(K,A) isomorphic to D + M + M, and length_R(M) <= length_R(H^1_F(K,T)/R kappa_1). The hypotheses are: H.0 T is free of rank 2 over R; H.1 T-bar is an absolutely irreducible (R/m)[[G_K]]-representation; H.2 there is a Galois extension F/Q containing K with G_F acting trivially on T and H^1(F(mu_{p^infinity})/K, T-bar) = 0; H.3 at every v in Sigma(F) the local condition is cartesian on Quot(T); H.4 there is a perfect symmetric R-bilinear pairing T x T -> R(1) with (s^sigma, t^{tau sigma tau^{-1}}) = (s,t)^sigma, and F is its OWN EXACT ORTHOGONAL COMPLEMENT under the induced local pairing H^1(K_v,T) x H^1(K_v-bar,T) -> R at every v; H.5 (a) the G_K-action on T-bar extends to G_Q and tau splits T-bar into one-dimensional eigenspaces, (b) F propagated to T-bar is G_Q-stable, (c) the residual pairing satisfies (s^tau,t^tau) = (s,t)^tau. THEOREM 1.6.5 (Kolyvagin) specialises this to T = T_p(E) and yields THEOREM A: assuming p odd, p, D and N pairwise coprime, and G_K -> Aut_{Z_p}(T) SURJECTIVE, if kappa_1 is nonzero then S_p(E/K) is free of rank one over Z_p and Sel_{p^infinity}(E/K) is isomorphic to (Q_p/Z_p) + M + M with length_{Z_p}(M) <= length_{Z_p}(S_p(E/K)/Z_p kappa_1).",
+      "hypotheses": [
+        "H.4 -- the self-duality of T up to a twist, with F its own exact orthogonal complement -- is NOT one of Mazur-Rubin's hypotheses; Howard states that it 'plays an essential role here'. H.5 is introduced 'to overcome a technical difficulty'",
+        "Theorem A's standing hypotheses are p ODD, the pairwise coprimality of p, D and N, and the SURJECTIVITY of G_K -> Aut_{Z_p}(T) onto the full automorphism group; together with the standing D not -3, -4 and the Heegner hypothesis of HE.1",
+        "the conclusion gives one DIVISIBLE rank-one summand and two paired finite summands M; the factor of two in the length of the discrete Selmer group is a consequence of the self-duality H.4 and is not an artefact",
+        "the bound is an inequality (a divisibility of lengths), with the index of the bottom class kappa_1 on the right; equality requires the stronger primitivity hypotheses of the abstract theory and is NOT asserted here",
+        "in the verification of H.2 the extension F = K(E[p^infinity]) works because surjectivity gives H^1(GL_2(Z_p), F_p^2) = 0, proved by inflation-restriction applied to the diagonally embedded mu_{p-1} inside GL_2(Z_p) -- this is where p - 1 > 1, i.e. p odd, is used",
+        "H.3 holds because F is obtained by PROPAGATION from V, which makes H^1(K_v,T)/H^1_F(K_v,T) torsion-free at every place (Mazur-Rubin Lemma 3.7.1)",
+        "the nonvanishing of the bottom class is an ANALYTIC input, not part of this theorem: Howard records in Sec. 0 that 'the celebrated theorem of Gross and Zagier says that ord_{s=1} L(s,E/K) = 1 iff kappa_1 has infinite order', and immediately after Thm. 1.7.5 that kappa'_1 'is nonzero provided that L'(E/K,1) not= 0, by the results of Gross' and Zagier. Theorem A is vacuous without it"
+      ],
+      "proofSteps": [
+        "Theorem 1.6.1 is proved by a sequence of lemmas reducing modulo m^k, using the decomposition H^1_{F(n)}(K,T^{(k)}) = R^{(k),epsilon} + M^{(k)}(n) + M^{(k)}(n) with epsilon independent of n and k, and Prop. 1.5.9 controlling how the localisation vanishing propagates when a prime is added; the full proof was read only in outline.",
+        "Theorem 1.6.5 is proved by verifying H.0-H.5 for T_p(E) with the propagated Selmer structure: H.0 trivially; H.1 from surjectivity; H.2 with F = K(E[p^infinity]) via the GL_2(Z_p)-cohomology vanishing; H.3 from propagation plus Mazur-Rubin Lemma 3.7.1; H.4 by the Weil pairing with the twist of Remark 1.3.2, whose orthogonality relations are equivalent to Tate local duality; H.5 using that E is defined over Q, with (a) from tau-invariance of the Weil pairing, (b) from G_Q-stability of the local Kummer images, and (c) from (s^tau,t^tau) = e(s^tau,t) = e(s,t^tau)^tau = (s,t)^tau.",
+        "Theorem A follows by applying Theorem 1.6.5 to the Kolyvagin system kappa' of HE.5."
+      ],
+      "acceptance": [
+        "Check that H.4 and H.5 are recorded whenever Theorem 1.6.1 is invoked; they are not part of the Mazur-Rubin package.",
+        "Check the three separate arithmetic hypotheses of Theorem A -- p odd, pairwise coprimality, full surjectivity -- and do not conflate surjectivity with residual surjectivity or with residual irreducibility.",
+        "Check the direction of the divisibility and the factor of two: the discrete Selmer group has ONE divisible summand and TWO copies of the same finite M.",
+        "Check that the conclusion is an inequality; ES.5-style equality requires primitivity, which is not proved here.",
+        "Check the Weil-pairing verification of H.4 including the twist of Remark 1.3.2, since an untwisted pairing does not satisfy the stated equivariance.",
+        "Check that the hypothesis 'kappa_1 not= 0' is discharged by a Gross-Zagier statement and not by the construction; at finite level that is ord_{s=1} L(s,E/K) = 1, and in the tower it is Cornut-Vatsal (see HE.8 and HE.8c)."
+      ],
+      "sources": [
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.3, hypotheses H.0-H.5, printed pp. 8-9",
+          "excerpt": "H.0 T is a free, rank 2 R-module. H.1 T-bar is an absolutely irreducible representation of (R/m)[[G_K]]. H.2 There is a Galois extension F/Q such that K is contained in F, G_F acts trivially on T, and H^1(F(mu_{p^infinity})/K, T-bar) = 0. H.3 For every v in Sigma(F) the local condition F at v is cartesian on the category Quot(T). H.4 There is a perfect, symmetric, R-bilinear pairing ( , ) : T x T -> R(1) which satisfies (s^sigma, t^{tau sigma tau^{-1}}) = (s, t)^sigma ... We assume that the local condition F is its own exact orthogonal complement under the induced local pairing.",
+          "match": "Gives the hypothesis package verbatim, recorded in the node statement."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.3, remark after H.5, printed p. 9",
+          "excerpt": "While Hypotheses H.0-H.3 are similar to hypotheses used in [MR04], Hypothesis H.4, the self-duality of T (up to a twist), is not used by those authors, but plays an essential role here. Hypothesis H.5 is made to overcome a technical difficulty.",
+          "match": "Records that H.4 and H.5 are additional to the Mazur-Rubin package, as in the hypotheses."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.6, Thm. 1.6.1, printed p. 16",
+          "excerpt": "Theorem 1.6.1. Suppose there is a Kolyvagin system kappa in KS(T, F, L) with kappa_1 not= 0. Then H^1_F(K, T) is a free rank-one R module, and there is a finite R-module M such that H^1_F(K, A) is isomorphic to D + M + M. Furthermore length_R(M) <= length_R(H^1_F(K, T)/R . kappa_1).",
+          "match": "Gives the abstract bound with its exact conclusion."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 0, Thm. A, printed p. 2",
+          "excerpt": "Theorem A. (Kolyvagin) Assume p is odd and the integers p, D, and N are pairwise coprime. Assume also that Gal(Kbar/K) -> Aut_{Z_p}(T) is surjective. If kappa_1 not= 0 then S_p(E/K) is free of rank one over Z_p and there is a finite Z_p-module M such that Sel_{p^infinity}(E/K) is isomorphic to (Q_p/Z_p) + M + M with length_{Z_p}(M) <= length_{Z_p}(S_p(E/K)/Z_p kappa_1).",
+          "match": "Gives Theorem A with its three arithmetic hypotheses and its exact conclusion."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.6, proof of Thm. 1.6.5, printed pp. 18-19",
+          "excerpt": "Hypothesis H.1 follows from our assumption that G_K surjects onto Aut_{Z_p}(T_p(E)). This assumption also implies that H^1(K(E[p^infinity])/K, E[p]) isomorphic to H^1(GL2(Z_p), F_p^2) = 0 (for the second equality, apply the inflation-restriction sequence to the subgroup mu_{p-1} contained in GL2(Z_p) embedded diagonally.) Hence H.2 holds with F = K(E[p^infinity]). The fact that F is obtained by propagation from V implies that the quotient of H^1(K_v, T_p(E)) by H^1_F(K_v, T_p(E)) is torsion-free for every place v, and hence Hypothesis H.3 holds by Lemma 3.7.1 of [MR04]. The pairing of H.4 is the Weil pairing, modified as in Remark 1.3.2.",
+          "match": "Gives the verification of each hypothesis, including the inflation-restriction argument where p odd is used."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 0 and the closing paragraph of Sec. 1.7, printed pp. 1-2 and 21",
+          "excerpt": "The class kappa_1 in H^1_{F(1)}(K, T) = S_p(E/K) is just the image under the Kummer map of the norm of P[1], and the celebrated theorem of Gross and Zagier says that ord_{s=1} L(s, E/K) = 1 iff kappa_1 has infinite order. ... The class kappa'_1 is the image of Norm_{K[1]/K} P[1] under the Kummer map E(K) -> H^1(K,T), and so is nonzero provided that L'(E/K,1) not= 0, by the results of Gross [and Zagier].",
+          "match": "Records that the nonvanishing hypothesis of Theorem A is supplied by Gross-Zagier and is not produced by the Kolyvagin-system construction; added in review."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.8/lambda-adic-heegner-kolyvagin-system-and-theorem-B",
+      "parentStageId": "HeegnerPointEulerSystems:HE.8",
+      "title": "The anticyclotomic Lambda-adic Heegner Kolyvagin system and Howard's Theorem B",
+      "kind": "theorem",
+      "statement": "Assume in addition that E is ORDINARY at p. Let K_infinity be the anticyclotomic Z_p-extension of K, Gamma = Gal(K_infinity/K), Lambda = Z_p[[Gamma]], K_n the subfield with [K_n:K] = p^n, T isomorphic to T tensor Lambda and A isomorphic to Hom(T, mu_{p^infinity}). Greenberg-style generalised Selmer groups H^1_{F_Lambda}(K,T) inside lim H^1(K_n,T) and H^1_{F_Lambda}(K,A) inside colim H^1(K_n,E[p^infinity]) are pseudo-isomorphic to lim S_p(E/K_n) and colim Sel_{p^infinity}(E/K_n) respectively; set X = Hom(H^1_{F_Lambda}(K,A), Q_p/Z_p). A compatible family Q[n] of Lambda-adic Heegner classes is constructed by a compactness argument, derivative operators D_n in Z_p[G(n)] inside Lambda[G(n)] are applied to give kappa-tilde_n = sum over s in S of s D_n Q[n], and kappa_n is defined as the unique preimage under H^1(K, T/I_n T) -> H^1(K[n], T/I_n T)^{G(n)}, the bijectivity following from H^0(K[n], T/I_n T) = lim H^0(K_k[n], E[I_n]) = 0 since E has no p-torsion over any abelian extension of K. LEMMA 2.3.4 shows kappa_n lies in H^1_{F_Lambda(n)}(K, T/I_n T). Its proof has FOUR parts, not two. At primes dividing n the localisation lies in the transverse subspace 'exactly as in the proof of Lemma 1.7.3'. Case (i), v not dividing pN: H^1_{F_Lambda}(K_v, T/I_n T) equals the unramified subgroup, because Gal(K_v^{unr}/K_v) has cohomological dimension one, and the Kummer image is unramified by the injectivity of torsion points in the reduction of E. Case (ii), v dividing N: the Heegner hypothesis forces the prime w to be FINITELY DECOMPOSED in K_infinity[n], Rubin's Prop. B.3.4 gives H^1(K_v,T) = H^1_unr(K_v,T), and the required injectivity reduces, by local duality and Shapiro's lemma, to the surjectivity of a norm map on p-power torsion, which holds because the degree of K_infinity[n]_{w'} over K_{infinity,v'} is prime to p. Case (iii), v dividing p -- the longest, and omitted from the first draft of this node: one sets Fil_w(T) = ker(T -> T_p(E-tilde)) and gr_w(T) = T/Fil_w(T), shows that the image of delta(n) lands in the ordinary subgroup H^1_ord(K[n]_w, T) because a universal norm would yield a class in the p-adic Tate module of the FINITE group E-tilde(F[n])[p^infinity], which is trivial, and then lifts loc_v(kappa_n) to H^1(K_v, T^+/I_n T^+) by a diagram chase whose relevant kernel is an inverse limit that vanishes. THEOREM 2.3.7 states that the Lambda-module H is free of rank one, generated by kappa-tilde_1; its proof is NOT self-contained -- 'by the main result of [Cor02], one of the points Norm_{K_k[1]/K_k} P_k[1] has infinite order, and so Proposition 10 of section 3 of [PR87] implies that H is free of rank one' -- so Cornut's nontriviality theorem and Perrin-Riou's proposition are both imports, and the hypothesis p not dividing h_K enters there as the statement that G(1), the ideal class group of K, has no p-torsion. THEOREM B: with the hypotheses of Theorem A, E ordinary at p, and p NOT DIVIDING THE CLASS NUMBER OF K, the module H^1_{F_Lambda}(K,T) is torsion-free of rank one and there is a finitely generated torsion Lambda-module M with (a) char(M) = char(M)^iota for iota the involution induced by inversion in Gamma, (b) X pseudo-isomorphic to Lambda + M + M, and (c) char(M) divides char(H^1_{F_Lambda}(K,T)/H).",
+      "hypotheses": [
+        "E ordinary at p, and p does NOT divide the class number h_K of K; the latter is an extra hypothesis of Theorem B beyond those of Theorem A, and carrying a class-number factor in a construction does not remove it",
+        "the class kappa^{Hg}_1 is nonzero BY THE WORK OF CORNUT AND VATSAL; this is an imported analytic/geometric nonvanishing input, not a formal consequence of the inverse limit",
+        "conclusion (c) is a DIVISIBILITY, not an equality; Perrin-Riou's conjecture predicts char(M) = c^{-1} char(H^1_{F_Lambda}(K,T)/H) with c the Manin constant of the chosen modular parametrisation, and Howard proves only one divisibility",
+        "the identification of H with Perrin-Riou's module is itself part of the content of Thm. 2.3.7",
+        "the source notes that parts (a) and (b) were already known from Bertolini, Cornut and Nekovar; only (c) is new",
+        "the reduction of a Kolyvagin system for T at a height-one prime P of Lambda is to a Kolyvagin system for T tensor_Lambda S_P with S_P the integral closure of Lambda/P; the machinery of Theorem A is then applied prime by prime",
+        "Theorem 2.3.7, which identifies H as free of rank one and is what makes Theorem B non-vacuous, imports Cornut's nontriviality theorem [Cor02] and Perrin-Riou's Prop. 10 of [PR87, Sec. 3]; neither is proved by Howard, and p not dividing h_K is used in its proof through the absence of p-torsion in the ideal class group of K"
+      ],
+      "proofSteps": [
+        "Construct the compatible family Q[n] by lifting Phi x to the inverse limit H-tilde of the modules H-tilde_k and pushing forward along phi(m); compactness of the module of partial families gives non-emptiness of the inverse limit over all n.",
+        "Apply the derivative operators and descend exactly as in Sec. 1.7, using H^0(K[n], T/I_n T) = 0.",
+        "Prove the local conditions by Lemma 2.3.4: the transverse part exactly as in Lemma 1.7.3; case (i) using cd(Gal(K_v^{unr}/K_v)) = 1 and the injectivity of torsion in the reduction; case (ii) using the finite decomposition forced by the Heegner hypothesis together with Rubin Prop. B.3.4 and a prime-to-p degree argument; and case (iii), v | p, using the ordinary filtration Fil_w(T) and the finiteness of E-tilde(F[n])[p^infinity].",
+        "Reduce at each height-one prime P of Lambda and apply the same machinery as for Theorem A; assemble the resulting bounds into (a), (b), (c).",
+        "Via Mazur's control theorem, rank_{Z_p} X/(gamma-1)X = corank_{Z_p} Sel_{p^infinity}(E/K), so (b) makes that corank ODD, consistent with the Heegner hypothesis forcing sign -1; and (c) plus control gives rank_{Z_p} S_p(E/K) <= 1 + 2 ord_J(L) with J the augmentation ideal and L = char(H^1_{F_Lambda}(K,T)/H). Howard notes that equality is NOT typically expected."
+      ],
+      "acceptance": [
+        "Check that p not dividing h_K is carried; it is a hypothesis of Theorem B only.",
+        "Check that the nonvanishing of kappa^{Hg}_1 is an import from Cornut-Vatsal and is NOT deduced from the construction.",
+        "Check that (c) is one divisibility and that Perrin-Riou's equality involves the Manin constant c.",
+        "Check the inequality rank_{Z_p} S_p(E/K) <= 1 + 2 ord_J(L) and Howard's own remark that equality is not typically expected.",
+        "Check all three local cases of Lemma 2.3.4, not only the first two: the Heegner hypothesis reappears in case (ii) to force finite decomposition in K_infinity[n], and case (iii) at v | p needs the ordinary filtration and is where the good-ordinary hypothesis does its work in the local verification."
+      ],
+      "sources": [
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 0, Thm. B, printed p. 2",
+          "excerpt": "Theorem B. Keep the assumptions on T, p, D, and N of Theorem A, and assume also that p does not divide the class number of K. We continue to assume that E is ordinary at p. Let H denote the Lambda-submodule of H^1_{F_Lambda}(K, T) generated by kappa^{Hg}_1, and let iota : Lambda -> Lambda be the involution induced by inversion in Gamma. The Lambda-module H^1_{F_Lambda}(K, T) is torsion-free of rank one, and there is a finitely-generated torsion Lambda-module M such that (a) char(M) = char(M)^iota (b) X pseudo-isomorphic to Lambda + M + M (c) char(M) divides char(H^1_{F_Lambda}(K, T)/H).",
+          "match": "Gives Theorem B with all its hypotheses and its three conclusions."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 0, printed p. 2",
+          "excerpt": "In Section 2.3 we use Heegner points to construct a Kolyvagin system kappa^{Hg} for the Lambda-module T. The class kappa^{Hg}_1 in H^1_{F_Lambda}(K, T) is nonzero by the work of Cornut and Vatsal.",
+          "match": "Records that the nonvanishing of the bottom Lambda-adic class is an imported result."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 0, printed p. 3",
+          "excerpt": "The Main Conjecture for Heegner points was formulated by Perrin-Riou in [PR87] and predicts that char(M) = c^{-1} . char(H^1_{F_Lambda}(K, T)/H) where c in Z_p is the Manin constant associated to our choice of modular parametrization of E (the proof that our H agrees with the module considered by Perrin-Riou is part of the content of Theorem 2.3.7).",
+          "match": "States the predicted equality, the Manin constant, and that only one divisibility is proved."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 0, printed p. 3",
+          "excerpt": "Similarly, part (c) of the theorem, together with the control theorem, gives the inequality (1) rank_{Z_p} S_p(E/K) <= 1 + 2 . ord_J(L) where J is contained in Lambda is the augmentation ideal and L = char(H^1_{F_Lambda}(K, T)/H). One does not typically expect equality to hold.",
+          "match": "Gives the resulting rank inequality and the explicit warning that equality is not expected."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 2.3, Lemma 2.3.4 and its proof, printed p. 30",
+          "excerpt": "Case (i), v not dividing pN. We first observe that H^1_{F_Lambda}(K_v, T/I_n T) = H^1_{unr}(K_v, T/I_n T). Indeed, since Gal(K_v^{unr}/K_v) has cohomological dimension one, the map H^1_{unr}(K_v, T) -> H^1_{unr}(K_v, T/I_n T) is surjective. ... Case (ii), v|N. In this case the Heegner hypothesis implies that the prime w is finitely decomposed in K_infinity[n].",
+          "match": "Gives the two cases of the local verification and the second use of the Heegner hypothesis."
+        },
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 2.3, Lemma 2.3.4 case (iii) and the proof of Thm. 2.3.7, printed pp. 31-32 and 34",
+          "excerpt": "Case(iii), v|p. For each prime w of K[n], fix an extension of w to Kbar and denote by Fil_w(T) the kernel of the reduction map T -> T_p(E-tilde) at that place. ... If the point Q_k can be lifted to a universal norm in H[n], then this class can be lifted to an element of the p-adic Tate module of the finite group E-tilde(F[n])[p^infinity], which is trivial. ... [Thm. 2.3.7] Proof. By the main result of [Cor02], one of the points Norm_{K_k[1]/K_k} P_k[1] has infinite order, and so Proposition 10 of section 3 of [PR87] implies that H is free of rank one. ... G = G(1) is the ideal class group of K (which has no p-torsion by assumption).",
+          "match": "Gives the third local case of Lemma 2.3.4, which the node had omitted, and the two imports in the proof of Thm. 2.3.7 together with the point at which p not dividing h_K is used; added in review."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.8c/cornut-vatsal-nonvanishing-with-its-exact-hypotheses",
+      "parentStageId": "HeegnerPointEulerSystems:HE.8c",
+      "title": "Cornut-Vatsal nonvanishing: the exact statements and their hypotheses",
+      "kind": "theorem",
+      "statement": "Let F be totally real, K/F a CM extension, pi a cuspidal automorphic representation, P a prime, omega the central character. Let K[P^n]/K be the abelian extension attached by class field theory to K^x K_infinity^x (O-hat_{P^n})^x inside A_K^x, so that G(n) = Gal(K[P^n]/K) is isomorphic to Pic(O_{P^n}); put K[P^infinity] = union K[P^n], G(infinity) = lim G(n), G_0 the TORSION subgroup of G(infinity). It is shown that G_0 is finite and G(infinity)/G_0 is a free Z_p-module of rank [F_P : Q_p]; the reciprocity map of K sends A_F^x into a subgroup G_2 isomorphic to Pic(O_F) of G_0, and the compatibility condition on chi becomes chi . omega = 1 on G_2. For a character chi_0 of G_0 with chi_0 . omega = 1 on A_F^x, let P(n,chi_0) be the set of characters of G(n) inducing chi_0 on G_0 and NOT factoring through G(n-1). THEOREM 1.4 (definite case): for the data (pi,K,P) definite and any chi_0 of G_0 with chi_0 . omega = 1 on A_F^x, for ALL n SUFFICIENTLY LARGE there EXISTS chi in P(n,chi_0) with L(pi,chi,1/2) nonzero. THEOREM 1.5 (indefinite case, slightly more restrictive): assume in addition that omega = 1 and that N, D and P are PAIRWISE COPRIME; then for any chi_0 of G_0 with chi_0 = 1 on A_F^x, for all n sufficiently large there exists chi in P(n,chi_0) with L'(pi,chi,1/2) nonzero.",
+      "hypotheses": [
+        "in the definite case the source assumes throughout that the pair (pi,K) is NOT EXCEPTIONAL. 'Exceptional' is DEFINED in Def. 1.3 by pi isomorphic to pi tensor eta; the double zero is the MOTIVATION, not the definition. The source explains that this occurs precisely when pi is isomorphic to pi(alpha) for a quasi-character alpha of A_K^x/K^x, in which case L(pi,chi,s) = L(alpha chi, s) L(alpha chi_0, s) with chi_0 the outer twist by Gal(K/F), each factor has a functional equation with sign +-1, and 'it can and does happen that both signs are -1', giving at least a double zero",
+        "Theorem 1.5 has the two EXTRA hypotheses omega = 1 and N, D, P pairwise coprime; the authors state these 'are due to the fact that these formulae are not yet known in full generality' -- i.e. they come from the availability of the Gross-Zagier formula, not from the CM-point argument",
+        "the conclusion is EXISTENCE of a nonvanishing character in each sufficiently large conductor stratum with the prescribed torsion type chi_0, NOT nonvanishing for every sufficiently ramified character",
+        "the characters range over P(n,chi_0): they induce chi_0 on the torsion subgroup G_0 and do NOT factor through G(n-1), i.e. they have exact conductor P^n",
+        "the authors state that they prove the relevant statements ABOUT CM POINTS without the extra restrictions; only the passage to L-values needs them"
+      ],
+      "proofSteps": [
+        "The proof reduces nonvanishing of L-functions and their derivatives to nontriviality of certain CM points via Gross-Zagier formulae: in the general framework there is a discrete set of CM points with a continuous Galois action and a function psi such that chi is generic exactly when the twisted integral a(x,chi) = integral over Gal^{ab}_K of chi(sigma) psi(sigma . x) d sigma is nonzero.",
+        "The geometric input is a CM-point equidistribution statement, which the authors prove without the extra hypotheses; the extra hypotheses enter only when converting it into an L-value statement.",
+        "Each theorem is reduced to a CM-point statement. For Thm. 1.4 the source says 'Theorem 1.4 therefore is a consequence of the following result'; for Thm. 1.5 it says 'Zhang's Gross-Zagier formula implies that Theorem 1.5 is now a consequence of the following result', namely Thm. 1.10 -- for any good CM point x of conductor P^n with n sufficiently large there exists chi in P(n,chi_0) with a(x,chi) nonzero -- 'which itself is a special case of Theorem 4.1 in the text'. None of Thms. 1.10, 4.1 or the corresponding definite-case statement was read here."
+      ],
+      "acceptance": [
+        "Check that the conclusion is an existence statement in each large conductor stratum with the FIXED torsion type chi_0; a statement that all sufficiently ramified characters are nonvanishing is stronger and is not proved.",
+        "Check the definite/indefinite dichotomy, determined by local epsilon signs, and the exclusion of exceptional pairs (pi,K) in the definite case.",
+        "Check the extra hypotheses of Theorem 1.5 and their stated origin in the availability of the Gross-Zagier formula, so that an improved Gross-Zagier formula (e.g. Yuan-Zhang-Zhang) would potentially remove them.",
+        "Check that the CM-point distribution statement is proved before the Gross-Zagier formula is applied, i.e. the two are separate inputs."
+      ],
+      "sources": [
+        {
+          "sourceId": "cornut-vatsal-nontriviality",
+          "locator": "Sec. 1.1, Thm. 1.4, printed p. 6",
+          "excerpt": "Theorem 1.4 Let the data of (pi, K, P) be given and definite. Let chi_0 be any character of G_0 with chi_0 . omega = 1 on A_F^x. Then for all n sufficiently large, there exists a character chi in P(n, chi_0) for which L(pi, chi, 1/2) not= 0.",
+          "match": "Gives the definite-case statement verbatim, including that the conclusion is an existence statement for large n."
+        },
+        {
+          "sourceId": "cornut-vatsal-nontriviality",
+          "locator": "Sec. 1.1, Thm. 1.5, printed p. 6",
+          "excerpt": "Theorem 1.5 Let the data of (pi, K, P) be given and indefinite. Suppose also that omega = 1, and that N, D and P are pairwise coprime. Let chi_0 be any character of G_0 with chi_0 = 1 on A_F^x. Then for all n sufficiently large, there exists a character chi in P(n, chi_0) for which L'(pi, chi, 1/2) not= 0.",
+          "match": "Gives the indefinite-case statement with its two extra hypotheses."
+        },
+        {
+          "sourceId": "cornut-vatsal-nontriviality",
+          "locator": "Sec. 1.1, printed p. 6",
+          "excerpt": "We prove these theorems using Gross-Zagier formulae to reduce the nonvanishing of L-functions and their derivatives to the nontriviality of certain CM points. The extra assumptions in the indefinite case are due to the fact that these formulae are not yet known in full generality, although great progress has been made by Zhang in extending the original work of Gross and Zagier. We prove the relevant statements about CM points without these restrictions.",
+          "match": "States the proof strategy and the exact origin of the extra hypotheses in Theorem 1.5."
+        },
+        {
+          "sourceId": "cornut-vatsal-nontriviality",
+          "locator": "Sec. 1.1, printed pp. 5-6",
+          "excerpt": "In this paper, we will always assume that (pi, K) is not exceptional when (pi, K, P) is definite. ... Put K[P^infinity] = union K[P^n], G(infinity) = Gal(K[P^infinity]/K) = lim G(n) and let G_0 be the torsion subgroup of G(infinity). It is shown in section 2 below that G_0 is a finite group and G(infinity)/G_0 is a free Z_p-module of rank [F_P : Q_p].",
+          "match": "Gives the exceptional-pair convention and the structure of the Galois group, recorded in the statement and hypotheses."
+        },
+        {
+          "sourceId": "cornut-vatsal-nontriviality",
+          "locator": "Sec. 1.1, Def. 1.3 with the surrounding discussion, and Sec. 1.3, printed pp. 5 and 8",
+          "excerpt": "Definition 1.3 We say that (pi, K) is exceptional if pi is isomorphic to pi tensor eta. This occurs precisely when pi is isomorphic to pi(alpha) for some quasi-character alpha of A_K^x/K^x, in which case L(pi, chi, s) = L(alpha chi, s) . L(alpha chi_0, s) where chi_0 is the outer twist of chi by Gal(K/F). Moreover, both factors have a functional equations with sign +-1 and it can and does happen that both signs are -1, in which case L(pi, chi, s) has at least a double zero. ... In any case, Zhang's Gross-Zagier formula implies that Theorem 1.5 is now a consequence of the following result, which itself is a special case of Theorem 4.1 in the text. Theorem 1.10 Let chi_0 be any character of G_0 such that chi_0 . omega = 1 on A_F^x. Then, for any good CM point x of conductor P^n with n sufficiently large, there exists a character chi in P(n, chi_0) such that a(x, chi) not= 0.",
+          "match": "Gives the actual definition of an exceptional pair, which the node had replaced by its motivation, and the precise CM-point statement to which Thm. 1.5 is reduced through Zhang's Gross-Zagier formula; added in review."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation",
+      "target": "HeegnerPointEulerSystems:HE.2/norm-relation-and-reduction-congruence",
+      "reason": "The norm relation and the reduction congruence are statements about the specific family P[m] constructed at HE.1; they depend on the choice of the ideal a, the base point (the cusp at infinity) and the fixed modular parametrisation, and on the Heegner hypothesis that made the family exist.",
+      "sources": [
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, printed p. 19"
+        }
+      ]
+    },
+    {
+      "source": "HeegnerPointEulerSystems:HE.2/norm-relation-and-reduction-congruence",
+      "target": "HeegnerPointEulerSystems:HE.4/kolyvagin-derivative-classes-and-descent-to-K",
+      "reason": "The invariance of kappa-tilde_n modulo I_n (Lemma 1.7.1) is proved by combining the telescoping identity (sigma_ell - 1) D_ell = ell + 1 - Norm_ell with the norm relation Norm_ell P[n] = a_ell P[n/ell]; the conclusion holds precisely because a_ell lies in I_ell. No other property of the family is used at that step.",
+      "sources": [
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, Lemma 1.7.1 and its proof, printed pp. 19-20"
+        }
+      ]
+    },
+    {
+      "source": "HeegnerPointEulerSystems:HE.2/norm-relation-and-reduction-congruence",
+      "target": "HeegnerPointEulerSystems:HE.5/finite-singular-comparison-and-the-corrected-kolyvagin-system",
+      "reason": "The finite/singular comparison of Prop. 1.7.4 is obtained by combining the cocycle description of the derived class with BOTH the Euler system relation AND the reduction congruence (13); the congruence is what produces the operator a_ell - (ell+1) Fr_ell defining chi_ell. The trace relation alone does not give it.",
+      "sources": [
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, proof of Prop. 1.7.4, printed p. 21"
+        }
+      ]
+    },
+    {
+      "source": "HeegnerPointEulerSystems:HE.3/kummer-classes-and-the-modified-selmer-conditions",
+      "target": "HeegnerPointEulerSystems:HE.5/finite-singular-comparison-and-the-corrected-kolyvagin-system",
+      "reason": "The corrected family kappa'_n is asserted to lie in H^1_{F(n)}(K, T/I_n T) tensor G_n; membership in the modified Selmer group is exactly Lemma 1.7.3, and chi_n is an automorphism of H^1(K,T/I_n T) so it preserves that subgroup.",
+      "sources": [
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, Lemma 1.7.3 and Thm. 1.7.5, printed pp. 20-21"
+        }
+      ]
+    },
+    {
+      "source": "HeegnerPointEulerSystems:HE.4/kolyvagin-derivative-classes-and-descent-to-K",
+      "target": "HeegnerPointEulerSystems:HE.5/finite-singular-comparison-and-the-corrected-kolyvagin-system",
+      "reason": "Proposition 1.7.4's proof uses the explicit cocycle of Lemma 1.7.2, i.e. the descended class kappa_n together with its p^{M_n}-divisor description; and Theorem 1.7.5 defines kappa'_n from kappa_n directly.",
+      "sources": [
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.7, Lemma 1.7.2 and Prop. 1.7.4, printed pp. 20-21"
+        }
+      ]
+    },
+    {
+      "source": "HeegnerPointEulerSystems:HE.5/finite-singular-comparison-and-the-corrected-kolyvagin-system",
+      "target": "HeegnerPointEulerSystems:HE.6/clean-rank-one-descent-theorem-A",
+      "reason": "Theorem A is obtained by applying Theorem 1.6.5 to the Kolyvagin system constructed at HE.5; the source states 'In the next section we will construct a Kolyvagin system from the Euler system of Heegner points. Applying Theorem 1.6.5 to this Kolyvagin system proves Theorem A of the introduction.' The corrected system, not the raw classes, is what the abstract theorem consumes.",
+      "sources": [
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 1.6 closing and Thm. 1.7.5, printed pp. 19, 21"
+        }
+      ]
+    },
+    {
+      "source": "HeegnerPointEulerSystems:HE.6/clean-rank-one-descent-theorem-A",
+      "target": "HeegnerPointEulerSystems:HE.8/lambda-adic-heegner-kolyvagin-system-and-theorem-B",
+      "reason": "Theorem B is proved by reducing the Lambda-adic Kolyvagin system at each height-one prime P of Lambda to a Kolyvagin system for T tensor_Lambda S_P and applying 'the same machinery used to prove Theorem A'. Theorem A's hypotheses H.0-H.5 must therefore hold after each such reduction, which is why Theorem B keeps all of Theorem A's assumptions.",
+      "sources": [
+        {
+          "sourceId": "howard-heegner-point-kolyvagin-system",
+          "locator": "Sec. 0, printed p. 2 ('Applying at every prime of Lambda the same machinary used to prove Theorem A gives the following result.')"
+        }
+      ]
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.8",
+      "target": "HeegnerPointEulerSystems:HE.8c/cornut-vatsal-nonvanishing-with-its-exact-hypotheses",
+      "reason": "The output supplied is the Gross-Zagier height formula itself. Cornut and Vatsal state that their theorems are proved 'using Gross-Zagier formulae to reduce the nonvanishing of L-functions and their derivatives to the nontriviality of certain CM points', and that the extra hypotheses of their Theorem 1.5 (omega = 1 and N, D, P pairwise coprime) exist ONLY because those formulae were not then known in full generality. The atlas stage GrossZagierAndArithmeticHeights:GZ.8 owns the general quaternionic formula, so it is the correct supplier, and its scope (all factorisable test vectors, totally real F, quaternionic Shimura curves) strictly contains what Cornut-Vatsal needed. This edge is proposed because of a stated logical dependency, not because both stages mention CM points; the consuming node records that the CM-point distribution statement is proved INDEPENDENTLY of Gross-Zagier and only the L-value conversion uses it.",
+      "sources": [
+        {
+          "sourceId": "cornut-vatsal-nontriviality",
+          "locator": "Sec. 1.1 closing and Sec. 1.2 opening, printed p. 6"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.0",
+      "status": "not_read",
+      "remaining": [
+        "No source on quadratic orders, ring class fields and their Artin maps was read for this packet. Howard USES K[m] and Gal(K[n]/K[m]) isomorphic to the product of G_ell but does not construct them.",
+        "The stage asks for the kernels of Pic(O_{c ell}) -> Pic(O_c) and the extension degrees with the exceptional unit indices retained, and warns that ell + 1 is only the inert, prime-to-conductor, ordinary-unit case. Nothing on this was inspected.",
+        "The K/F CM order/idele variants required by the quaternionic curve were not inspected; Cornut-Vatsal Sec. 2 contains the relevant structure result for G(infinity) and G_0 and was NOT read (only its statement, quoted in Sec. 1.1, was).",
+        "Next source: Cornut-Vatsal Sec. 2, and a class-field-theory reference for ring class fields."
+      ]
+    },
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.1",
+      "status": "partial",
+      "remaining": [
+        "The main theorem of complex multiplication giving the rationality of h_m over K[m] is QUOTED by Howard and was not read.",
+        "The quaternionic case (optimal embeddings of the specified orders, their CM points in the canonical tower, the local embedding conditions and the comparison with the complex description) is entirely outside Howard's modular-curve setting and was not inspected.",
+        "The stage asks to track the denominators of xi and the degree of the parametrisation integrally; Howard's modular parametrisation is fixed but its degree and the Manin constant appear only in the comparison with Perrin-Riou's module.",
+        "The distinction between a trace to K and a point over its ring class field is present in the source (kappa_1 is the Kummer image of Norm_{K[1]/K} P[1]) but the general statement was not traced."
+      ]
+    },
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.2",
+      "status": "partial",
+      "remaining": [
+        "BOTH relations are quoted by Howard, not proved: the norm relation from Gross Prop. 3.7 or Perrin-Riou Sec. 3.3, and the congruence (13) from the same place. Gross's paper is in the library as BSD_GrossKolyvagin.pdf but its text extraction is EMPTY (0 lines) -- the PDF has no text layer -- so neither could be read. See the corresponding gap.",
+        "The stage asks for the full recurrence at split and ramified primes and at repeated conductor primes, with Frobenius and degeneracy corrections. Howard states only the inert-prime relation.",
+        "The Eichler-Shimura relation used in the proof, and the specialisation map to the Neron model, were not inspected.",
+        "The quaternionic extension was not inspected."
+      ]
+    },
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.3",
+      "status": "partial",
+      "remaining": [
+        "The away-from-n local statement is Gross Prop. 6.2, quoted and unread (same access problem as above).",
+        "Howard Secs. 1.1-1.2 were read for the definitions (local conditions, cartesian conditions, transverse conditions, Selmer triples, Kolyvagin systems) but their proofs were not.",
+        "The stage asks for the precise component-group obstruction at bad primes and the real-place/Tate correction at infinity. Howard's Selmer structure is defined by PROPAGATION, which avoids that discussion; neither was inspected.",
+        "Rubin's Prop. 1.6.8, used to identify H^1_F(K,E[p^infinity]) with Sel_{p^infinity}(E/K), was not read."
+      ]
+    },
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.4",
+      "status": "partial",
+      "remaining": [
+        "Lemma 1.7.2 is quoted from McCallum Lemma 4.1 and was not read at the source.",
+        "The stage asks for reduction compatibility as p^m varies and relations on enlarging or shrinking the auxiliary-prime set; these are part of the Kolyvagin-system formalism (Howard Sec. 1.2, Remark 1.2.4) and were read only as definitions.",
+        "The complex-conjugation parity of the classes was not inspected in detail; it enters Howard's Sec. 1.5 through the eigenspace decomposition under tau.",
+        "The transformation law under changing the generator sigma_ell is implicit in the tensor factor G_n but was not written out from the source."
+      ]
+    },
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.5",
+      "status": "partial",
+      "remaining": [
+        "The reference computation is 'the proof of Proposition 4.4 of [Mc91]' (McCallum), quoted and unread.",
+        "The stage asks for auxiliary-prime existence by Chebotarev applied to the actual residual representation. Howard's Lemma 1.6.2 is the abstract counterpart and was read only in its statement and the first lines of its proof.",
+        "The stage asks to compute local errors at p and at Tamagawa primes and to establish named comparison lemmas turning abstract ES.4 errors into arithmetic quantities. Howard's framework has NO error terms (his Theorem 1.6.1 is error-free under H.0-H.5), so this material is not in the source read; it belongs to the Rubin-style error-tolerant interface.",
+        "The stage explicitly asks for one example with p dividing a Tamagawa factor and one with nonzero local p-torsion. Neither was located."
+      ]
+    },
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.6",
+      "status": "partial",
+      "remaining": [
+        "The proof of Thm. 1.6.1 (Howard Sec. 1.6, Lemmas 1.6.2-1.6.4 and the induction) was read only in outline: the statement, the reduction modulo m^k, the decomposition of H^1_{F(n)}(K,T^{(k)}) and Prop. 1.5.9.",
+        "Howard Secs. 1.4-1.5 (the local and global duality bookkeeping, Lemma 1.5.3 on the independence of epsilon, Lemma 1.5.8's diagram) were not read.",
+        "The stage asks to separate nonzero, primitive and primitive-after-local-correction, and says ES.5 gives equality only under stronger primitivity hypotheses. Howard proves only the inequality; the primitivity theory was not inspected.",
+        "The stage asks to instantiate Wei Zhang's indivisibility theorem with its enumerated residual ramification assumptions. BSD_ZhangIndivisibility.pdf is present and fully extracted (2934 lines) but was NOT read."
+      ]
+    },
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.7",
+      "status": "not_read",
+      "remaining": [
+        "Nothing on the all-prime integral theorem was read. Howard's Theorem A is the CLEAN odd-prime, full-surjectivity statement and explicitly does not cover the exceptional primes, p = 2, or the CM case.",
+        "The stage requires bounded-denominator derivative classes where residual or local hypotheses fail, uniform bounds on restriction/corestriction kernels and invariants, the p = 2 real-place/Tate correction, and separate CM and non-CM arguments. None was inspected.",
+        "The sources named by the stage (Kolyvagin's full Euler-systems proof, Kolyvagin-Logachev, Rubin's CM paper) are NOT in the supplied library; CATALOGUE.json lists Kolyvagin, KolyvaginLogachev and R02_KI_RubinCM1987 as records with NO resolved file."
+      ]
+    },
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.7s",
+      "status": "not_read",
+      "remaining": [
+        "This stage is itself a recorded source-boundary note rather than a mathematical target. Its content was READ (from data/atlas.json) and is CONSISTENT with what this packet found: Gross's exposition is the clean odd-prime non-CM route, and the dyadic and CM branches need separate sources.",
+        "New information from this packet: Gross's paper is present in the library as BSD_GrossKolyvagin.pdf (sha256 60b310c5...) but has NO text layer, so even the clean odd-prime exposition could not be read here.",
+        "Rubin, 'Tate-Shafarevich groups and L-functions of elliptic curves with complex multiplication', Invent. Math. 89 (1987) 527-559 -- confirmed ABSENT from the supplied library (catalogue id R02_KI_RubinCM1987, no resolved file). The stage's assessment stands unchanged."
+      ]
+    },
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.8",
+      "status": "partial",
+      "remaining": [
+        "Howard Sec. 2.1-2.2 (the Iwasawa-theoretic Selmer structures, Lemma 2.2.2, Def. 2.2.3, Thm. 2.2.10) were not read; Sec. 2.3 was read only from the construction of Q[n] through Lemma 2.3.4, plus the statement of Thm. 2.3.7.",
+        "The proof of Thm. 2.3.7 (the freeness of H and the comparison with Perrin-Riou's module) was not read.",
+        "The stage asks for the p-stabilised classes with the initial Euler factor, the finite ring-class torsion and the possible class-number factor made explicit. Howard's construction proceeds through the compactness argument rather than an explicit p-stabilisation, and those factors were not located.",
+        "The BCGS arithmetic comparison between specialisations near the trivial character is a separate source (BSD_BCGS.pdf, present and extracted, 2297 lines) and was NOT read."
+      ]
+    },
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.8b",
+      "status": "not_read",
+      "remaining": [
+        "OBSERVATION, not a mathematical gap: in data/atlas.json the stage record HeegnerPointEulerSystems:HE.8b carries a description IDENTICAL to that of HeegnerPointEulerSystems:HE.8 (both begin '## HE.8. Anticyclotomic families, nonvanishing and divisibility defects' and both list milestone HE.8). The two stages have different ids, titles and consumer sets. This packet treats HE.8 as the substantive stage and leaves HE.8b unread rather than duplicating the same nodes under a second parent. NO atlas edit has been made; the duplication is reported here for the integrator to resolve.",
+        "If HE.8b is intended as a distinct stage, its intended scope needs to be stated before it can be decomposed."
+      ]
+    },
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.8c",
+      "status": "partial",
+      "remaining": [
+        "Cornut-Vatsal Secs. 2-8 were not read; in particular the CM-point equidistribution argument, the structure result for G(infinity) and G_0 (Sec. 2), and the result to which Theorem 1.4 is reduced.",
+        "Cornut's own modular-curve theorem ('Mazur's conjecture on higher Heegner points', BSD_Cornut.pdf, present and extracted, 1845 lines, Theorems A and B in Sec. 4) was NOT read; the stage requires its Heegner hypothesis and p not dividing N.",
+        "Vatsal's 'Uniform distribution of Heegner points' (BSD_Vatsal.pdf, present and extracted) was not read.",
+        "BCGS Theorem A with its (Heeg), (disc), (tor) hypotheses and its rational anticyclotomic Main Conjecture 1.2.10 was not read; BSD_BCGS.pdf is present and extracted."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Gross's 'Kolyvagin's work on modular elliptic curves' has NO text layer; two of its results are load-bearing here",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.2/norm-relation-and-reduction-congruence",
+        "HeegnerPointEulerSystems:HE.3/kummer-classes-and-the-modified-selmer-conditions"
+      ],
+      "detail": "Verified: BSD_GrossKolyvagin.pdf is registered in CATALOGUE.json (id GrossKolyvagin, sha256 60b310c58a3494860c5967a03569a7d30033e9074d9d3d9a0d5bc2dfedd46b32) and the library's extraction references/text/BSD_GrossKolyvagin.txt is EMPTY (0 lines); re-running pdftotext on the PDF produces a 12-byte file. The PDF is a scan with no OCR layer. NOT verified: Gross Proposition 3.7 (the Heegner-point norm relation Norm_{K[n ell]/K[n]} P[n ell] = a_ell P[n]) and Gross Proposition 6.2 (the local conditions satisfied by the derived classes away from n). Both are quoted by Howard and BOTH are load-bearing: 3.7 drives Lemma 1.7.1 and 6.2 is half of Lemma 1.7.3. Next source action: OCR the existing PDF; alternatively read Perrin-Riou, 'Points de Heegner et derivees de fonctions L p-adiques', Sec. 3.3, which Howard offers as an alternative reference for the norm relation -- a CATALOGUE.json search found no record for Perrin-Riou's Heegner paper (only KI_PerrinRiou_PadicL, 'Fonctions L p-adiques des representations p-adiques', which is a different paper). ACQUISITION REQUEST for Perrin-Riou [PR87]."
+    },
+    {
+      "title": "McCallum's cocycle lemma and finite/singular computation are quoted and unread",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.4/kolyvagin-derivative-classes-and-descent-to-K",
+        "HeegnerPointEulerSystems:HE.5/finite-singular-comparison-and-the-corrected-kolyvagin-system"
+      ],
+      "detail": "Verified: Howard's Lemma 1.7.2 (the explicit cocycle for kappa_n) is attributed verbatim to 'Lemma 4.1 of [Mc91]', and the key congruence in the proof of Prop. 1.7.4 to 'the proof of Proposition 4.4 of [Mc91]'. NOT verified: either McCallum statement or proof. [Mc91] is W. McCallum's article in the Boston-Cassels-Frohlich style volume on Kolyvagin's work. A CATALOGUE.json search for 'McCallum' returned no record. ACQUISITION REQUEST: W. McCallum, 'Kolyvagin's work on Shafarevich-Tate groups', in L-functions and Arithmetic (Durham 1989), LMS Lecture Notes 153."
+    },
+    {
+      "title": "The proof of Howard's abstract bound (Thm. 1.6.1) and of Thm. 2.3.7 were read only in outline",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.6/clean-rank-one-descent-theorem-A",
+        "HeegnerPointEulerSystems:HE.8/lambda-adic-heegner-kolyvagin-system-and-theorem-B"
+      ],
+      "detail": "Verified: the statements of Thms. 1.6.1, 1.6.5, A, B and 2.3.7, the full list of hypotheses H.0-H.5, the complete verification of H.0-H.5 for T_p(E) (Howard's proof of Thm. 1.6.5, read in full), Lemma 2.3.4 with both cases of its proof, and Prop. 1.5.9. Read additionally during the independent review: Lemma 2.3.4's proof IN FULL, including the third local case at v | p that this packet had omitted, and the opening of the proof of Thm. 2.3.7, which identifies its two imports. NOT verified: the induction proving Thm. 1.6.1 (Howard Secs. 1.4-1.6), the remainder of the proof of Thm. 2.3.7, and Howard Secs. 2.1-2.2. The whole paper is present and extracted (2036 lines), so this is a reading-budget boundary. Next source action: read Howard Secs. 1.4-1.6 and 2.1-2.3 in the same extraction."
+    },
+    {
+      "title": "The all-prime integral theorem (HE.7) has no available source in the library",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.7",
+        "HeegnerPointEulerSystems:HE.7s"
+      ],
+      "detail": "Verified by searching CATALOGUE.json: the records 'Kolyvagin -- Finiteness of E(Q) and Sha(E,Q) for a subclass of Weil curves', 'Kolyvagin-Logachev -- Finiteness of the Shafarevich-Tate group and the group of rational points ...' and 'R02_KI_RubinCM1987 -- Tate-Shafarevich groups and L-functions of elliptic curves with complex multiplication' all exist as catalogue entries with NO resolved local file. Gross's exposition, which would at least cover the clean odd-prime non-CM branch, is present but has no text layer (see the first gap). CONSEQUENCE: nothing in HE.7 or HE.7s has been verified in this packet, and the atlas stage HE.7s's own assessment -- that the all-prime target is a proof target and the dyadic and CM source passages still need acquisition -- is CONFIRMED rather than changed. ACQUISITION REQUEST: Kolyvagin (Izv. 1988 and 1989), Kolyvagin-Logachev, and Rubin Invent. Math. 89 (1987) 527-559."
+    },
+    {
+      "title": "Nonvanishing inputs read only at the level of statements; the CM-point distribution arguments are unread",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8c/cornut-vatsal-nonvanishing-with-its-exact-hypotheses",
+        "HeegnerPointEulerSystems:HE.8/lambda-adic-heegner-kolyvagin-system-and-theorem-B"
+      ],
+      "detail": "Verified: the exact statements of Cornut-Vatsal Thms. 1.4 and 1.5 with all their hypotheses, the exceptional-pair convention in the definite case, the structure of G(infinity) and G_0, the definition of P(n,chi_0), and the authors' explanation that Thm. 1.5's extra hypotheses come from the then-incomplete state of the Gross-Zagier formula. NOT verified: the CM-point equidistribution argument (Cornut-Vatsal Secs. 2-8), Cornut's own Thms. A and B, Vatsal's uniform distribution theorem, or the precise statement that Howard invokes in Sec. 0 to conclude kappa^{Hg}_1 is nonzero -- there he cites 'the work of Cornut and Vatsal' without a theorem number. PARTLY RESOLVED IN REVIEW: inside the proof of Thm. 2.3.7 the citation IS precise -- 'by the main result of [Cor02], one of the points Norm_{K_k[1]/K_k} P_k[1] has infinite order' -- so the load-bearing statement there is Cornut's theorem, with Perrin-Riou's Prop. 10 converting it into freeness of H. Howard's Sec. 0 also states the finite-level analogue: kappa_1 has infinite order if and only if ord_{s=1} L(s,E/K) = 1, by Gross-Zagier. All three papers are present and text-extracted in the library. Next source action: read Cornut Sec. 4 (Thms. A and B) and Cornut-Vatsal Sec. 2, then identify the precise statement matching Howard's use."
+    },
+    {
+      "title": "Atlas observation: HE.8 and HE.8b carry identical descriptions",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8b"
+      ],
+      "detail": "This is a REPORT about the atlas data, not a mathematical gap. Reading data/atlas.json, the stage records HeegnerPointEulerSystems:HE.8 and HeegnerPointEulerSystems:HE.8b have byte-identical description fields (both open '## HE.8. Anticyclotomic families, nonvanishing and divisibility defects' and both declare 'Milestone: HE.8'), while differing in id, title and consumers: HE.8 consumes into a different set from HE.8b. No atlas file has been edited by this worker. Next action for the integrator: decide whether HE.8b is an intended split (in which case its distinct scope needs to be written) or a duplication to be merged. Until then HE.8b is marked not_read in this packet rather than being given a copy of HE.8's nodes."
+    },
+    {
+      "title": "REVERSED EDGE: the atlas records HE.8 -> HE.8c, but the mathematical dependency runs the other way",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/lambda-adic-heegner-kolyvagin-system-and-theorem-B",
+        "HeegnerPointEulerSystems:HE.8c/cornut-vatsal-nonvanishing-with-its-exact-hypotheses"
+      ],
+      "detail": "FINDING, reported rather than acted on. data/atlas.json contains the stage edges HeegnerPointEulerSystems:HE.8 -> HeegnerPointEulerSystems:HE.8c and HeegnerPointEulerSystems:HE.8b -> HeegnerPointEulerSystems:HE.8c, i.e. HE.8c is recorded as a CONSUMER of HE.8. The mathematics runs the other way: Howard states 'The class kappa^{Hg}_1 in H^1_{F_Lambda}(K, T) is nonzero by the work of Cornut and Vatsal' (Sec. 0, printed p. 2), so the Cornut-Vatsal nonvanishing is an INPUT to Theorem B, not an output of it. Without it the Lambda-adic Kolyvagin system may be the zero system and Theorem B is vacuous, exactly as in Rubin's Remark II.2.8 for the cyclotomic case. A prerequisite edge HE.8c -> HE.8 was drafted for this packet and then WITHDRAWN, because combined with the existing atlas edge it would create the stage-level cycle HE.8 -> HE.8c -> HE.8 (and, through RankZeroOneBSD:BSD.7a and AutomorphicCongruences:L5a, three further cycles). The pre-existing atlas stage graph is acyclic, and this worker has not introduced a cycle into it. Next action for the integrator: decide whether HE.8c is intended as a downstream SOURCE-HYPOTHESIS NOTE on HE.8 (in which case the edge direction is a bookkeeping convention and the mathematical input relation should be recorded some other way, e.g. in HE.8's own text) or as an upstream supplier (in which case the two existing edges should be reversed). Until that is settled, this packet records the dependency only in the hypotheses and acceptance items of the HE.8 node, which state explicitly that the nonvanishing of kappa^{Hg}_1 is an imported result and not a consequence of the construction."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
+    "date": "2026-09-16",
+    "notes": "Independent review of all 8 nodes, 8 links, 12 coverage records and 7 gaps against the two sources. Both are in the library, and the SHA-256 of each library file was recomputed and matches the packet exactly (Howard d2d06e85..., Cornut-Vatsal bdf258c7...); nothing was fetched from the network. Read for the review: Howard Sec. 0 in full, Sec. 1.3 (H.0-H.5 with the remarks), Prop. 1.5.9, Thm. 1.6.1, Thm. 1.6.5 with its complete proof, Sec. 1.7 in full, and Sec. 2.3 including Lemma 2.3.3, Lemma 2.3.4's proof in all three local cases and the opening of the proof of Thm. 2.3.7; and Cornut-Vatsal Sec. 1.1 in full with Def. 1.3, Thms. 1.4 and 1.5, and Sec. 1.3's reduction of Thm. 1.5 to Thm. 1.10. Verdicts: 5 verified, 3 corrected, 0 unverifiable. The five verified nodes are quoted with unusual accuracy -- Lemmas 1.7.1-1.7.3, Prop. 1.7.4 and Thm. 1.7.5 match the source clause by clause, including the places where Howard himself flags an import. The corrections are: (i) Lemma 2.3.4's proof has four parts, and the packet recorded only two, omitting the transverse part and the whole of case (iii) at v | p, which is the case the ordinary hypothesis actually serves; (ii) Thm. 2.3.7 -- what makes Theorem B non-vacuous -- is not self-contained, its proof importing Cornut's nontriviality theorem and Perrin-Riou's Prop. 10, and using p not dividing h_K through the absence of p-torsion in the class group; (iii) Cornut-Vatsal's 'exceptional' is defined by pi isomorphic to pi tensor eta, not by the double zero, which is the motivation. HE.6 was also extended: the hypothesis kappa_1 not= 0 is discharged by Gross-Zagier, which the packet nowhere recorded although Howard states it twice. All 8 links were checked. The 7 internal links run prerequisite to consumer with both endpoints present, and each cited locator does use the source node's output. The cross-roadmap link GrossZagierAndArithmeticHeights:GZ.8 -> HE.8c is ENDORSED: Cornut and Vatsal state that they prove their theorems 'using Gross-Zagier formulae to reduce the nonvanishing of L-functions and their derivatives to the nontriviality of certain CM points' and that Thm. 1.5's extra hypotheses exist only because those formulae were not then general; GZ.8 owns exactly that general formula, and the HE.8c stage text itself says 'Prove the geometric CM distribution before applying GZ's formula'. This is supply, not shared vocabulary. Note for the orchestrator: data/atlas.json does NOT carry that stage edge, and adding it is acyclic. Every factual claim the packet makes about the library and the atlas was independently checked and all of them hold. references/text/BSD_GrossKolyvagin.txt is 0 lines and re-running pdftotext on the PDF produces a 12-byte file, so Gross's paper -- the source of the norm relation (Prop. 3.7) and of the local conditions away from n (Prop. 6.2) -- genuinely has no text layer; the Howard extraction is 2036 lines as stated; CATALOGUE.json has no Perrin-Riou [PR87] and no McCallum record, and does have Kolyvagin, Kolyvagin-Logachev and R02_KI_RubinCM1987 entries with no resolved file. The two atlas findings are also confirmed: the stage records HE.8 and HE.8b have byte-identical descriptions, and HE.8c requires HE.8 and HE.8b, so the mathematical dependency (Cornut-Vatsal nonvanishing is an INPUT to Theorem B) runs against the recorded edge. The packet's decision to withdraw the prerequisite edge HE.8c -> HE.8 rather than introduce a cycle is correct: adding it would close the cycle HE.8 -> HE.8c -> HE.8 and, through HE.8b, RankZeroOneBSD:BSD.7a and AutomorphicCongruences:L5a, three further ones. That is a decision for the integrator, not for a packet. Coverage records name all twelve stages of the roadmap; HE.0, HE.7, HE.7s and HE.8b are honestly not_read. Implementation status stays unchecked throughout and the packet status stays partial.",
+    "checked": [
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation",
+        "verdict": "verified",
+        "note": "Sec. 1.7's opening was read in full and every clause matches: the hypothesis package (D prime to p, D not -3 or -4, p not dividing N, all prime divisors of N split in K), the ideal a with O_K/a isomorphic to Z/NZ, the CM construction of h_m, its rationality over K[m], the embedding of X_0(N) in J_0(N) via the cusp at infinity, and the fixed modular parametrisation."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.2/norm-relation-and-reduction-congruence",
+        "verdict": "verified",
+        "note": "The norm relation with its two attributions ([Gro91] Prop. 3.7 or [PR87] Sec. 3.3), the congruence (13) with 'lambda' any prime of K[n ell] above ell', the two descriptions of I_ell and the derivation of I_ell = (a_ell, ell+1), and the derivative operators with the telescoping identity are all verbatim from printed p. 19."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.3/kummer-classes-and-the-modified-selmer-conditions",
+        "verdict": "verified",
+        "note": "Lemma 1.7.3 and its complete proof match, including the import of Gross Prop. 6.2 for the places away from n, the complete splitting of lambda in K[n/ell], the identification K[ell]_{lambda'} = K[n]_{lambda''}, the appeal to Prop. 1.1.7 and the computation ell(ell+1)/2 . c(Fr_lambda) = 0. The definition of the Selmer structure F before Thm. 1.6.5, with the local Kummer image at v | p and Rubin's Prop. 1.6.8, also matches."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.4/kolyvagin-derivative-classes-and-descent-to-K",
+        "verdict": "verified",
+        "note": "Lemma 1.7.1 with its three-line proof, the sentence locating exactly where surjectivity is used ('guarantees that E(K[n])[p] = 0, and so, by the Hochschild-Serre spectral sequence, restriction gives an isomorphism'), and Lemma 1.7.2's explicit cocycle with its attribution to Lemma 4.1 of [Mc91] are all verbatim."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.5/finite-singular-comparison-and-the-corrected-kolyvagin-system",
+        "verdict": "verified",
+        "note": "Prop. 1.7.4, its proof (the congruence for kappa_{n ell}(sigma_ell), the composite defining chi_ell, the Fr_ell-eigencomponent argument for surjectivity with the orders of ell+1-a_ell and ell+1+a_ell, the factorisation through E(K_lambda)/I_ell E(K_lambda) and the unramified identification) and Thm. 1.7.5 with the remark that the raw classes 'almost form a Kolyvagin system' are all verbatim. The node is right that the correction is essential."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.6/clean-rank-one-descent-theorem-A",
+        "verdict": "corrected",
+        "note": "H.0-H.5 are verbatim, as are the remark that H.4 'is not used by those authors, but plays an essential role here' and that H.5 overcomes a technical difficulty, Thm. 1.6.1, Thm. 1.6.5 with its complete verification (the inflation-restriction argument with mu_{p-1} diagonal in GL_2(Z_p), Lemma 3.7.1 of [MR04], the Weil pairing modified as in Remark 1.3.2, and the three parts of H.5), Prop. 1.5.9, and Theorem A. Extended in review: the node did not record that the hypothesis kappa_1 not= 0 is discharged by Gross-Zagier -- Howard states in Sec. 0 that kappa_1 has infinite order if and only if ord_{s=1} L(s,E/K) = 1, and after Thm. 1.7.5 that kappa'_1 is nonzero provided L'(E/K,1) is nonzero. Without that, Theorem A is vacuous, so it belongs in the hypotheses."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.8/lambda-adic-heegner-kolyvagin-system-and-theorem-B",
+        "verdict": "corrected",
+        "note": "Theorem B with all its hypotheses and three conclusions, the Perrin-Riou main conjecture with the Manin constant, the inequality (1) with 'one does not typically expect equality', the remark that (a) and (b) were already known from Bertolini, Cornut and Nekovar, the reduction at height-one primes, and the compactness construction of the family Q[n] are all verbatim. Two corrections. Lemma 2.3.4's proof has FOUR parts, not the two recorded: the transverse part at primes dividing n, case (i) v not dividing pN, case (ii) v | N, and case (iii) v | p -- the last being the longest, using the ordinary filtration Fil_w(T) and the finiteness of E-tilde(F[n])[p^infinity]. And Thm. 2.3.7 is not self-contained: its proof imports Cornut's main result and Perrin-Riou's Prop. 10, and it is there that p not dividing h_K is used, as the absence of p-torsion in the class group."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.8c/cornut-vatsal-nonvanishing-with-its-exact-hypotheses",
+        "verdict": "corrected",
+        "note": "Thms. 1.4 and 1.5 are verbatim, as are the structure of G(infinity) and G_0, the subgroup G_2 isomorphic to Pic(O_F), the definition of P(n,chi_0), and the authors' statement that Thm. 1.5's extra hypotheses exist only because the Gross-Zagier formulae 'are not yet known in full generality'. Correction: 'exceptional' is DEFINED by pi isomorphic to pi tensor eta (Def. 1.3); the double-zero factorisation is the motivation for excluding such pairs, not the definition. Extended: Thm. 1.5 is reduced, via Zhang's Gross-Zagier formula, to Thm. 1.10 (a special case of the paper's Thm. 4.1), which is the CM-point statement; neither was read."
+      }
+    ]
+  }
+}

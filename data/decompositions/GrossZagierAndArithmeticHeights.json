@@ -1,0 +1,905 @@
+{
+  "roadmapId": "GrossZagierAndArithmeticHeights",
+  "status": "partial",
+  "summary": "Source decomposition of the quaternionic Gross-Zagier programme from Yuan-Zhang-Zhang's monograph (Chapter 1 read in full by the packet author; Sec. 7.1 read in full, its Secs. 7.1.2-7.1.3 and 7.1.6-7.1.7 during the independent review) together with the authors' published erratum (read in full). Covers: the three normalisation choices that govern every statement (root-number convention, dichotomy set, toric measure) in their ERRATUM-CORRECTED form; the Neron-Tate height with Thms. 7.1-7.2 and the Poincare pairing; flat and xi-admissible arithmetic divisors with the Faltings-Hriljac index theorem (Thm. 7.4) and its sign; the normalised Hodge class xi_U, deg L_U = vol(X_U) and the space pi_A = Hom^0_xi(X,A) of xi-normalised parametrisations with strict GL(2)-type derived from Eichler-Shimura; Saito-Tunnell multiplicity one with the corrected epsilon dichotomy and the local toric functional alpha_v; the Waldspurger formula with its exact constant and its two Siegel-Weil inputs; the generating series, the push-forward definition of the special cycles (erratum-corrected), the geometric kernel and the arithmetic theta lifting; the degenerate Schwartz functions with their four stated effects and the nearby-quaternion approximation argument; and the main Theorem 1.2 with its vacuous and essential cases, the projector reformulation Thm. 3.15, and the classical Thm. 1.1 as quoted. Chapters 2-6 and 8 and Secs. 3.1-3.6, 7.2-7.4 of the book are NOT read: every proof step recorded from them comes from the authors' own plan of the proof and is flagged as such. GZ.9 is not started. The original Gross-Zagier paper and Zhang's 'Admissible pairing on a curve' are present in the library but have NO usable text layer.",
+  "sources": [
+    {
+      "id": "yzz-gross-zagier-shimura-curves-2013",
+      "title": "The Gross-Zagier Formula on Shimura Curves",
+      "authors": "Xinyi Yuan; Shou-Wu Zhang; Wei Zhang",
+      "edition": "Annals of Mathematics Studies 184, Princeton University Press, 2013 (inspected 2026-09-15)",
+      "url": "https://web.math.princeton.edu/~shouwu/publications.html",
+      "sha256": "6a87b131febb325ea59259098117cc79dfeecbeae66f8ebaeac9fbd66e345337",
+      "readSections": [
+        "Preface and Contents, pp. vii-viii",
+        "Chapter 1 'Introduction and Statement of Main Results', pp. 1-19 in full (1.1 the original formula and Thm. 1.1; 1.2.1 incoherent quaternion algebras and Shimura curves; 1.2.2 Hodge classes; 1.2.3 abelian varieties parametrized by Shimura curves; 1.3.1 CM points; 1.3.2 Thm. 1.2 and the local functional alpha_v; 1.4 Thms. 1.3 and 1.4; 1.5.1-1.5.10 the plan of the proof)",
+        "Chapter 7, opening of the chapter and Sec. 7.1, printed pp. 206-215, in full (7.1.1 Neron-Tate height with Thms. 7.1-7.2 and Prop. 7.3; 7.1.2 the curve case and the factor 1/2; 7.1.3 Gillet-Soule arithmetic intersection and formulas (7.1.1)-(7.1.2); 7.1.4 the arithmetic Hodge index theorem, Thm. 7.4; 7.1.5 admissible arithmetic divisors; 7.1.6 the admissible pairing; 7.1.7 its decomposition into i and j). Secs. 7.1.2-7.1.3 and 7.1.6-7.1.7 were read during the independent review",
+        "Verified during the independent review, against locators the packet cites without claiming to have read: Sec. 3.3 Thm. 3.15 (printed p. 84), Sec. 3.4.3 the two descriptions of Z(x)_U (printed p. 93), Sec. 3.6.2 Thm. 3.21 (printed p. 105), Sec. 1.6 p. 23 and Sec. 2.1.5 p. 33 and Sec. 2.4 p. 43 for the three passages the erratum's measure items correct, and a page rendering of printed p. 17"
+      ]
+    },
+    {
+      "id": "yzz-gross-zagier-erratum",
+      "title": "Erratum: Gross-Zagier Formula On Shimura Curves",
+      "authors": "Xinyi Yuan; Shou-Wu Zhang; Wei Zhang",
+      "edition": "Dated 28 June 2026 (inspected 2026-09-15)",
+      "url": "https://faculty.bicmr.pku.edu.cn/~yxy/preprints/erratum-GZSC.pdf",
+      "sha256": "e4c4eaeb197ceaf18b02955d90a56e52e4776eca1f31c88c16074adaf19d8d1e",
+      "readSections": [
+        "Sec. 1 'Erratum', items 1-30 (corrections to book pp. 3-93), and the closing corrections to book pp. 96-97 with the acknowledgement"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.0",
+      "title": "Root-number convention, dichotomy set and Haar-measure normalisation (with the published corrections)",
+      "kind": "definition",
+      "statement": "Three normalisation choices govern every statement of the quaternionic Gross-Zagier and Waldspurger formulae, and all three were misprinted in the first printing of Yuan-Zhang-Zhang and are fixed by the authors' erratum. (1) ROOT-NUMBER CONVENTION. epsilon(1/2, pi, chi) may be taken either as the root number of the base-change L-function over E twisted by chi, or as that of the Rankin-Selberg L-function over F; the two differ by eta(-1). Yuan-Zhang-Zhang take the FIRST convention, and with it the Saito-Tunnell dichotomy reads epsilon(1/2, pi, chi) = chi(-1) epsilon(B), NOT chi(-1) eta(-1) epsilon(B). (2) DICHOTOMY SET. Correspondingly Sigma(A,chi) = {places v of F : epsilon(1/2, pi_{A,v}, chi_v) is not chi_v(-1)}, without the factor eta_v(-1). (3) MEASURE. The local Haar measures dt_v on E_v^x/F_v^x are normalised so that the product measure gives vol(E^x \\ E_A^x / A^x) = 2 L(1, eta) -- NOT the Tamagawa measure; the sentence that explains the factor 4 L(1,eta)^2 (book p. 43, inside the Chapter 2 proof of the Waldspurger formula, where the toric double integral is converted using vol(T(F) Z(A) quotient of T(A)) = 2 L(1,eta)) is changed from 'comes from the Tamagawa measure' to 'comes from the measure'; the same normalisation is what produces the constants of Thms. 1.2 and 1.4. In addition the rationality statement for alpha_v(f1 tensor f2) holds 'for all non-archimedean places v', not for all places.",
+      "hypotheses": [
+        "the two root-number conventions differ by exactly eta(-1); a statement that does not say which is in force is ambiguous at the level of a sign",
+        "the measure normalisation vol(E^x \\ E_A^x / A^x) = 2 L(1,eta) is a NON-Tamagawa normalisation; the erratum also deletes the sentence asserting that the Tamagawa number of SO(V) is 2L(1,eta), 2, 2 in the three relevant cases",
+        "the Petersson pairing used to normalise the local pairings is taken with the Tamagawa measure, which has volume 2 on B^x \\ B_A^x / A^x -- a different measure from the toric one; the two must not be conflated",
+        "the local functionals alpha_v are defined with the normalising factor L(1,eta_v) L(1,pi_v,ad) / (zeta_{F_v}(2) L(1/2, pi_v, chi_v)), so a change of any of these local factors changes alpha_v"
+      ],
+      "proofSteps": [
+        "Erratum item 5 states the corrected Saito-Tunnell dichotomy and explains the source of the discrepancy: 'In the literature, there are two conventional ways to define the root number epsilon(1/2,pi,chi) ... The ratio of these two definitions are eta(-1). This paper takes the first convention.'",
+        "Erratum item 2 propagates the same correction to the definition of Sigma(A,chi) on book p. 8.",
+        "Erratum items 4, 10, 13 and 15 replace the Tamagawa normalisation of the toric measure by the explicit normalisation vol = 2 L(1,eta) and delete the corresponding Tamagawa-number sentence.",
+        "Erratum item 3 restricts the rationality assertion for alpha_v to non-archimedean v."
+      ],
+      "acceptance": [
+        "Check any downstream use of the dichotomy against the CORRECTED form epsilon(1/2,pi,chi) = chi(-1) epsilon(B); a source that includes eta(-1) is using the other root-number convention and its Sigma set differs.",
+        "Check that the constant 4 L(1,eta)^2 in Thm. 1.2 and 8 L(1,eta)^2 in Thm. 1.4 are traced to the toric measure normalisation vol = 2 L(1,eta) and not re-derived from a Tamagawa computation.",
+        "Check the relation between the Petersson (Tamagawa, volume 2) and toric (volume 2 L(1,eta)) measures wherever a local pairing is rescaled, and confirm that a rescaling of the local pairing (.,.)_v by c rescales alpha_v by c, NOT by c^{-1}: the pairing enters the defining integral linearly, so the global compatibility (.,.) = tensor_v (.,.)_v is what forces the product of the local rescalings to be 1.",
+        "Check that alpha_v is claimed rational only at non-archimedean v."
+      ],
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-erratum",
+          "locator": "Erratum item 5 (correcting book p. 10, Thm. 1.3)",
+          "excerpt": "Change the equation epsilon(1/2, pi, chi) = chi(-1) eta(-1) epsilon(B) to epsilon(1/2, pi, chi) = chi(-1) epsilon(B). In the literature, there are two conventional ways to define the root number epsilon(1/2, pi, chi), by viewing the L-function as either the base change L-function over E (twisted by chi) or the Rankin-Selberg L-function over F. The ratio of these two definitions are eta(-1). This paper takes the first convention, as written right before the theorem.",
+          "match": "Gives the corrected dichotomy and states explicitly which root-number convention is in force, exactly as recorded in the statement."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-erratum",
+          "locator": "Erratum item 2 (correcting book p. 8, line 10)",
+          "excerpt": "Change the equation Sigma(A, chi) = {places v of F : epsilon(1/2, pi_{A,v}, chi_v) not= chi_v(-1) eta_v(-1)} to Sigma(A, chi) = {places v of F : epsilon(1/2, pi_{A,v}, chi_v) not= chi_v(-1)}.",
+          "match": "Gives the corrected dichotomy set without the eta_v(-1) factor."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-erratum",
+          "locator": "Erratum items 4 and 15 (correcting book pp. 8 and 43)",
+          "excerpt": "Change 'Fix Haar measures dt_v on E_v^x/F_v^x such that the product measure over all v gives the Tamagawa measure on E_A^x/A^x' to 'Fix Haar measures dt_v on E_v^x/F_v^x such that the product measure over all v gives vol(E^x \\ E_A^x /A^x) = 2L(1, eta).' ... Change 'Here the factor 4L(1, eta)^2 comes from the Tamagawa measure' to 'Here the factor 4L(1, eta)^2 comes from the measure.'",
+          "match": "Gives the corrected toric measure normalisation and the corrected explanation of the constant 4 L(1,eta)^2."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.3.2, printed p. 8",
+          "excerpt": "Then alpha_v is defined formally by alpha_v(f1 tensor f2) = [L(1, eta_v) L(1, pi_v, ad) / (zeta_{F_v}(2) L(1/2, pi_v, chi_v))] integral over E_v^x/F_v^x of (pi_v(t) f1, f2)_v chi_v(t) dt, f1 in pi_v, f2 in pi_v-tilde.",
+          "match": "Gives the exact normalising factor of the local toric functional, recorded in the hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.1/neron-tate-height-and-the-poincare-pairing",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.1",
+      "title": "The Neron-Tate height, its quadraticity and the Poincare pairing between A and A-dual",
+      "kind": "construction",
+      "statement": "Fix a number field F; the normalisation of heights depends on F. The standard height on P^n_F is h(x) = (1/[K:F]) sum over places w of K of log max{|x_0|_w, ..., |x_n|_w}, independent of the homogeneous coordinates and of the field K containing them. For a projective variety Y/F and a line bundle L there is a Weil height h_L : Y(Fbar) -> R, determined by L up to a bounded function, defined first for very ample L by an embedding and then for general L by writing L = L_1 tensor L_2^{-1}. For an abelian variety A/F and a SYMMETRIC line bundle L (i.e. [-1]^* L is isomorphic to L), the Neron-Tate height is h-hat_L(x) = lim_{N -> infinity} N^{-2} h_L(Nx); the limit exists and is independent of the choice of Weil height. Theorem 7.1: if L is ample and symmetric then (1) h-hat_L(x) >= 0 with equality exactly for torsion x, and (2) h-hat_L is quadratic: h-hat_L(x+y) + h-hat_L(x-y) = 2 h-hat_L(x) + 2 h-hat_L(y). Hence <x,y>_L = h-hat_L(x+y) - h-hat_L(x) - h-hat_L(y) is a pairing, positive definite modulo torsion, extending to a positive definite Hermitian pairing on A(Fbar)_C. Taking L = the Poincare bundle P on A x A-dual, which is symmetric, gives the bilinear Neron-Tate pairing <.,.>_NT : A(Fbar) x A-dual(Fbar) -> R, and Theorem 7.2 asserts <x,y>_L = <x, phi_L(y)>_NT for the polarisation phi_L(x) = T_x^* L tensor L^{-1}.",
+      "hypotheses": [
+        "the normalisation of h depends on the chosen base number field F; a base change multiplies the arithmetic intersection identity by [L:F]",
+        "L must be SYMMETRIC for the limit defining h-hat_L to exist as stated, and AMPLE for the positivity and torsion characterisation of Thm. 7.1(1)",
+        "positive definiteness of <.,.>_L is only modulo torsion; the statement 'h-hat_L(x) = 0 iff x is torsion' is where Northcott-type finiteness enters",
+        "the Poincare bundle pairing is a pairing between A and its DUAL; identifying it with <.,.>_L requires the polarisation phi_L, per Thm. 7.2"
+      ],
+      "proofSteps": [
+        "The Weil height machine gives h_L up to bounded functions; the quadratic limit removes the ambiguity.",
+        "Theorem 7.1 is quoted by Yuan-Zhang-Zhang from Serre's book ('All the results here can be found in Serre's book [Se]'); the proofs are not reproduced there and were not read here.",
+        "Theorem 7.2 identifies the L-pairing with the Poincare pairing composed with the polarisation, which is what allows the Gross-Zagier statement to be written for the pair (A, A-dual) rather than for a single polarised A."
+      ],
+      "acceptance": [
+        "Check the factor-of-two convention: <x,y>_L = h-hat_L(x+y) - h-hat_L(x) - h-hat_L(y) gives <x,x>_L = 2 h-hat_L(x), so a Gram determinant in rank r scales by 2^r relative to the convention <x,x> = h-hat(x).",
+        "Check the dependence on the base field F, which the source states explicitly ('Our normalization of heights depends on F').",
+        "Check that the pairing used in the main theorem is the L-linear pairing <.,.>_L : A(chi) x A-dual(chi^{-1}) -> L tensor_Q R induced by the M-linear Neron-Tate pairing between A(F) and A-dual(F), and not the Q-valued trace pairing."
+      ],
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 7, Sec. 7.1.1, printed p. 207",
+          "excerpt": "All the results here can be found in Serre's book [Se]. In the following, fix a number field F. Our normalization of heights depends on F. The standard height on the projective space P^n_F is a map h : P^n(Fbar) -> R defined by h(x) := (1/[K : F]) sum_w log max{|x_0|_w, |x_1|_w, ..., |x_n|_w}.",
+          "match": "Gives the normalisation of the standard height and records that it depends on F; also records that the results are quoted from Serre and not proved in the source read."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 7, Thm. 7.1, printed p. 208",
+          "excerpt": "Theorem 7.1. Assume that L is ample and symmetric on A. Then the following are true: (1) One has h-hat_L(x) >= 0 for any x in A(Fbar). The equality holds if and only if x is a torsion point. (2) The function h-hat_L : A(Fbar) -> R is quadratic in the sense that h-hat_L(x + y) + h-hat_L(x - y) = 2 h-hat_L(x) + 2 h-hat_L(y), for all x, y in A(Fbar).",
+          "match": "Gives the positivity, torsion characterisation and quadraticity with the exact ampleness and symmetry hypotheses."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 7, Sec. 7.1.1 and Thm. 7.2, printed p. 208",
+          "excerpt": "Let P be the Poincare line bundle on A x A-dual. Then P is symmetric and its Neron-Tate height on A x A-dual gives a map h-hat_P : A(Fbar) x A-dual(Fbar) -> R. It is a bilinear pairing ... Theorem 7.2. Assume that L is ample and symmetric on A. Then <x, y>_L = <x, phi_L(y)>_NT, for all x, y in A(Fbar).",
+          "match": "Gives the Poincare pairing and its comparison with the L-pairing through the polarisation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.2/hodge-index-theorem-and-admissible-arithmetic-extensions",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.2",
+      "title": "Flat and xi-admissible arithmetic divisors and the arithmetic Hodge index theorem",
+      "kind": "theorem",
+      "statement": "Let X be a complete smooth (possibly disconnected) curve over a number field F, Div^0(X) the divisors of degree zero on EVERY connected component, and X a regular integral model over O_F with semistable reduction. An arithmetic divisor D-hat = (D, g_D) on X is FLAT if its intersection with every vertical divisor is zero; equivalently its curvature form omega_D vanishes and its intersection with every finite vertical divisor is zero. Flatness forces the generic fibre D_F to lie in Div^0(X). Theorem 7.4 (arithmetic Hodge index theorem of Faltings and Hriljac): for two flat arithmetic divisors D-hat_1, D-hat_2 on X, D-hat_1 . D-hat_2 = - <D_{1,F}, D_{2,F}>_NT. Since flat extensions exist only for degree-zero divisors, one fixes instead an arithmetic class xi-hat in Pic-hat(X) whose generic fibre has degree one on each connected component and calls D-hat xi-hat-ADMISSIBLE if, on each connected component: D-hat - deg(D) xi-hat is flat; the archimedean integral of g_D against c_1(xi-hat) vanishes at every archimedean place; and the intersection of the vertical part with xi-hat vanishes at every non-archimedean place. Every divisor D in Div(X) then has a UNIQUE xi-hat-admissible extension, depending on xi-hat. When the divisors are disjoint on the generic fibre the Neron-Tate height decomposes into a sum of local heights. The remaining subsections of Sec. 7.1, read during the independent review, make this explicit. Sec. 7.1.2: for a smooth projective curve X/F of genus > 0 with Jacobian J, the Neron-Tate pairing on J(Fbar) = Pic^0(X_Fbar) is the Poincare pairing composed with the canonical polarisation phi_Theta, and equals (1/2) <.,.>_{Theta-hat} for the symmetric divisor Theta-hat = Theta + [-1]^* Theta, which is independent of the base point; for a disjoint union of curves the component pairings extend orthogonally. Sec. 7.1.3: an arithmetic divisor is a pair (D, g_D) whose curvature omega_D = (d d-bar / (pi i)) g_D + delta_{D(C)} is smooth, and when the generic fibres are disjoint, D-hat_1 . D-hat_2 = (D_1 . D_2) + g_{D_1}(D_2(C)) + the integral over X(C) of g_{D_2} omega_{D_1}, with finite part the sum over finite v of m_v(D_1 . D_2) log N_v and the convention log N_v = 1 (resp. 2) at real (resp. complex) archimedean v; this is the decomposition D-hat_1 . D-hat_2 = sum_v (D-hat_1 . D-hat_2)_v. Secs. 7.1.6-7.1.7: fixing xi-hat in the limit of Pic-hat(Y) over all models Y of X_L for all finite L/F, and taking xi-hat-admissible extensions of divisors D_1, D_2 with DISJOINT supports, one defines <D_1, D_2> := -(1/[L:F]) D-hat_1 . D-hat_2, which on Div^0 is the Neron-Tate pairing by Thm. 7.4, depends on xi-hat, and does NOT factor through the Picard group because rational equivalence does not preserve admissibility; it decomposes non-canonically as <.,.> = -i - j with i(D_1,D_2) = (1/[L:F])(D_1 . D_2 + g(D_1(C), D_2(C))) and j(D_1,D_2) = (1/[L:F]) D_1 . V_2 the vertical-correction term, each a sum of local multiplicities over the places of F.",
+      "hypotheses": [
+        "X must be regular with SEMISTABLE reduction for the statement as given; a non-semistable model requires base change first",
+        "Div^0 means degree zero on EVERY connected component, not merely total degree zero; X is allowed to be disconnected throughout (this is essential because the Shimura curves X_U are geometrically disconnected)",
+        "the Hodge index theorem is stated for FLAT arithmetic divisors; admissible extensions are introduced precisely because flat extensions exist only in degree zero",
+        "the sign in D-hat_1 . D-hat_2 = - <D_{1,F},D_{2,F}>_NT is part of the theorem and must be carried through every height computation",
+        "passing to a finite extension L/F modifies the identity by a factor [L:F] because of the height normalisation of GZ.1",
+        "the decomposition of the global height into local heights requires the divisors to be DISJOINT on the generic fibre; otherwise self-intersection terms appear",
+        "the i/j decomposition of Sec. 7.1.7 needs D_1 and D_2 to have DISJOINT supports and is non-canonical: it depends on the chosen integral model and on xi-hat, so only the total pairing is an invariant; on curves the Neron-Tate pairing carries the factor (1/2) <.,.>_{Theta-hat}, a power of two that must be carried into any Gram determinant (cf. GZ.0 and GZ.1)"
+      ],
+      "proofSteps": [
+        "Yuan-Zhang-Zhang review the theory and attribute the arithmetic intersection theory to Arakelov and Gillet-Soule, the index theorem to Faltings and Hriljac, and admissible arithmetic extensions to Zhang; none of these proofs is reproduced in the section read.",
+        "The existence and uniqueness of the xi-hat-admissible extension is stated in Sec. 7.1.5 and used throughout Chapters 7 and 8.",
+        "In the application the degenerate Schwartz functions of Chapter 5 are chosen precisely so that there is no horizontal self-intersection and the intersections with the Hodge bundle vanish, which is what makes the local decomposition available."
+      ],
+      "acceptance": [
+        "Check the disjointness hypothesis in every application; the source secures it by the Chapter 5 assumptions rather than by a general regularisation.",
+        "Check the sign convention of Thm. 7.4 against the height convention fixed at GZ.1.",
+        "Check that the admissible extension depends on the chosen xi-hat, so that a change of Hodge class changes the local heights even though the global height is unchanged.",
+        "Check that the intersection matrix of vertical fibre components is degenerate (it kills the whole fibre class), so that any 'inverse' used in a vertical correction is a generalised inverse on the orthogonal complement."
+      ],
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 7, Sec. 7.1.4, printed pp. 211-212",
+          "excerpt": "An arithmetic divisor D-hat on X is called flat if its intersection with any vertical divisor on X is zero. Equivalently, its curvature form omega_D is zero and its intersection with any finite vertical divisor on X is zero. It is easy to see that the flatness of D-hat = (D, g_D) forces the generic fiber D_F to lie in Div^0(X).",
+          "match": "Gives the definition of flatness in both equivalent forms and the consequence that the generic fibre has degree zero."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 7, Thm. 7.4, printed p. 212",
+          "excerpt": "Theorem 7.4. Let D-hat_1 = (D_1, g_{D_1}) and D-hat_2 = (D_2, g_{D_2}) be two flat arithmetic divisors on X. Then D-hat_1 . D-hat_2 = - <D_{1,F}, D_{2,F}>_NT.",
+          "match": "Gives the arithmetic Hodge index theorem with its sign, as recorded in the statement."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 7, Sec. 7.1.5, printed p. 212",
+          "excerpt": "The arithmetic divisor D-hat = (D, g_D) is called xi-hat-admissible if the following conditions hold on each connected component of X: The difference D-hat - deg D . xi-hat is flat; The integral over X_v(C) of g_D c_1(xi-hat) = 0 at any archimedean place v of F; The intersection (V . xi-hat)_v = 0 at any non-archimedean place v of F. Any divisor D in Div(X) has a unique xi-hat-admissible extension, which we denote by D-bar. It depends on xi-hat.",
+          "match": "Gives the three defining conditions of admissibility and the existence-and-uniqueness statement, including the dependence on xi-hat."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 7, opening, printed p. 207",
+          "excerpt": "The Hodge index theorem gives a way to 'compute' the Neron-Tate height by flat arithmetic extensions. Flat arithmetic extensions are only for divisors of degree zero, so it is not enough in the computation. It is the reason to use admissible arithmetic extensions. If the divisors are disjoint on the generic fiber, we have a natural decomposition of the Neron-Tate height into local heights.",
+          "match": "States exactly why admissible extensions are needed and the disjointness hypothesis for the local decomposition."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 7, Secs. 7.1.2-7.1.3, printed pp. 209-211",
+          "excerpt": "Alternatively, define a new divisor Theta-hat = Theta + [-1]^* Theta on J. It is symmetric by definition. One can check that it is independent of the choice of a. ... Then the Neron-Tate height pairing <.,.>_NT : J(Fbar) x J(Fbar) -> C is equal to the pairing (1/2) <.,.>_{Theta-hat}. ... In the case that two divisors D-hat_1 = (D_1, g_{D_1}) and D-hat_2 = (D_2, g_{D_2}) in Div-hat(X) have no horizontal self-intersection in the sense that |D_{1,F}| intersect |D_{2,F}| is empty, the intersection is defined by D-hat_1 . D-hat_2 = (D_1 . D_2) + g_{D_1}(D_2(C)) + integral over X(C) of g_{D_2} omega_{D_1}. (7.1.1) ... For archimedean v, we take the convention that log Nv equals 1 (resp. 2) if v is real (resp. complex).",
+          "match": "Gives the curve-case factor of one half and the Gillet-Soule intersection formula with its archimedean convention; read during the independent review and added to this node."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 7, Secs. 7.1.6-7.1.7, printed pp. 213-215",
+          "excerpt": "Define a pairing <D_1, D_2> := -(1/[L : F]) D-hat_1 . D-hat_2. Here D-hat_1 and D-hat_2 are the xi-hat-admissible extensions on Y. When D_1, D_2 in Div^0(X_Fbar), the pairing is just the Neron-Tate height pairing by the arithmetic Hodge index theorem. ... The pairing does not factor through Pic-hat(X_F), since rational equivalence does not keep xi-hat-admissibility. ... There is a non-canonical decomposition <.,.> = -i - j depending on the choice of integral models. ... i(D_1, D_2) := (1/[L : F])(D_1 . D_2 + g(D_1(C), D_2(C))), j(D_1, D_2) := (1/[L : F]) D_1 . V_2.",
+          "match": "Gives the admissible pairing with its normalisation by [L:F], its dependence on xi-hat, the failure to factor through the Picard group, and the i/j decomposition; read during the independent review and added to this node."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.3/normalised-hodge-class-and-xi-parametrised-realisation",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.3",
+      "title": "The normalised Hodge class xi_U and the space pi_A of xi-normalised parametrisations",
+      "kind": "construction",
+      "statement": "The Shimura curve X_U carries a Hodge class L_U in Pic(X_U)_Q, the line bundle whose global sections are holomorphic modular forms of weight two; the system L = {L_U} is compatible under pullback along the projections pi_{U_1,U_2} : X_{U_1} -> X_{U_2}. If X_U is a modular curve -- which happens exactly when F = Q and Sigma = {infinity} -- then L_U is linearly equivalent to a linear combination of cusps; if F is not Q or Sigma is not {infinity} then X_U has no cusps and L_U is isomorphic to the canonical bundle for U small enough. For each geometric component alpha in pi_0(X_{U,Fbar}) set xi_{U,alpha} = L_{U,alpha}/deg(L_{U,alpha}) and xi_U = sum over alpha of xi_{U,alpha}, the NORMALISED Hodge class; deg L_{U,alpha} is independent of alpha because the geometric components are Galois conjugate, and Lemma 3.1 gives deg L_U = vol(X_U) with vol(X_U) the integral of dx dy/(2 pi y^2) over X_{U,tau}(C), a positive rational number; consequently deg(pi_{U_1,U_2}) = vol(X_{U_1})/vol(X_{U_2}). A simple abelian variety A/F is PARAMETRISED BY X if there is a non-constant morphism X_U -> A over F for some U; by Eichler-Shimura such an A is of strict GL(2)-type, i.e. M = End^0(A) is a FIELD and Lie(A) is free of rank one over M tensor_Q F. Define pi_A = Hom^0_xi(X,A) = direct limit over U of Hom^0_{xi_U}(X_U,A), where f in Hom_F(X_U,A) tensor_Z Q lies in pi_A exactly when sum_i a_i f(x_i) = 0 in A(Fbar)_Q for xi_U represented by the divisor sum_i a_i x_i. Equivalently pi_A = Hom^0(J,A) = direct limit of Hom^0(J_U,A).",
+      "hypotheses": [
+        "the standing setting is that of Sec. 1.2.1: F is a totally real number field and B is an INCOHERENT quaternion algebra over the adeles A = A_F (so #Sigma(B) is odd and B is not the base change of any quaternion algebra over F), totally definite at infinity; X_U is the associated compactified Shimura curve over F and X the projective limit of the system {X_U}",
+        "A is SIMPLE and parametrised by X; strict GL(2)-type is a CONSEQUENCE (via Eichler-Shimura), not an assumption, and no claim is made that every abelian variety is parametrised by a Shimura curve",
+        "the normalisation of xi_U is by deg L_{U,alpha} on each GEOMETRIC component; the independence of alpha uses that the components are Galois conjugate",
+        "the cusp description of L_U is available exactly in the modular-curve case F = Q, Sigma = {infinity}; in all other cases X_U is proper and L_U is the canonical bundle only for U sufficiently small",
+        "the base-point condition defining Hom^0_{xi_U} is an identity in A(Fbar)_Q, so the morphisms are taken up to isogeny and denominators are allowed"
+      ],
+      "proofSteps": [
+        "Define L_U as the weight-two modular line bundle and normalise componentwise to get degree one on each geometric component.",
+        "Lemma 3.1 identifies deg L_U with the hyperbolic volume vol(X_U), which gives the degree formula for the projections and makes vol(X_U) the natural normalising factor throughout the book.",
+        "Eichler-Shimura theory gives the strict GL(2)-type statement for any A parametrised by X.",
+        "Factor any morphism X_U -> A through the Jacobian J_U to identify pi_A with Hom^0(J,A)."
+      ],
+      "acceptance": [
+        "Check the case distinction for L_U: a proof that uses the cusp description is valid only for F = Q and Sigma = {infinity}.",
+        "Check that xi_U has degree one on EACH geometric component, which is exactly the hypothesis required by the admissible-extension construction at GZ.2.",
+        "Check the identity deg L_U = vol(X_U) in one explicit modular-curve example, and that the volume is rational.",
+        "Check that strict GL(2)-type is derived and not assumed, and that Lie(A) free of rank one over M tensor_Q F is part of the definition."
+      ],
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.2.1, printed pp. 2-3",
+          "excerpt": "If #Sigma is even then B = B tensor_F A for a quaternion algebra B over F unique up to an F-isomorphism. In this case, we call B a coherent quaternion algebra. If #Sigma is odd, then B is not the base change of any quaternion algebra over F. In this case, we call B an incoherent quaternion algebra. ... Now assume that F is a totally real number field and that B is an incoherent quaternion algebra over A, totally definite at infinity in the sense that B_tau is the Hamiltonian algebra for every archimedean place tau of F. For each open compact subgroup U of B_f^x, we have a (compactified) Shimura curve X_U over F.",
+          "match": "Fixes the standing hypotheses under which the Hodge class and the parametrisations of this node are constructed; added in review."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.2.2, printed pp. 3-4",
+          "excerpt": "The curve X_U has a Hodge class L_U in Pic(X_U)_Q. It is the line bundle whose global sections are holomorphic modular forms of weight two. ... If X_U is a modular curve, which happens exactly when F = Q and Sigma = {infinity}, then L_U is linearly equivalent to some linear combination of cusps. If F not= Q or Sigma not= {infinity}, then X_U has no cusps and L_U is isomorphic to the canonical bundle of X_U over F for sufficiently small U.",
+          "match": "Gives the definition of the Hodge class and the exact case distinction recorded in the statement and hypotheses."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.2.2, printed p. 4",
+          "excerpt": "Denote by xi_{U,alpha} = (1/deg L_{U,alpha}) L_{U,alpha} the normalized Hodge class on X_{U,alpha}, and by xi_U = sum_alpha xi_{U,alpha} the normalized Hodge class on X_U. ... Then Lemma 3.1 asserts that deg L_U = vol(X_U). In particular, the volume is always a positive rational number.",
+          "match": "Gives the componentwise normalisation and the identification of the degree with the hyperbolic volume."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.2.3, printed pp. 4-5",
+          "excerpt": "Let A be a simple abelian variety defined over F. We say that A is parametrized by X if there is a non-constant morphism X_U -> A over F for some U. By the Eichler-Shimura theory, if A is parametrized by X, then A is of strict GL(2)-type in the sense that M = End^0(A) := End_F(A) tensor_Z Q is a field and Lie(A) is a free module of rank one over M tensor_Q F by the induced action.",
+          "match": "Gives the parametrisation hypothesis and the derived strict GL(2)-type property."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.2.3, printed p. 5",
+          "excerpt": "where Hom^0_{xi_U}(X_U, A) denotes the morphisms in Hom_F(X_U, A) tensor_Z Q using xi_U as a base point. More precisely, if xi_U is represented by a divisor sum_i a_i x_i on X_{U,Fbar}, then f in Hom_F(X_U, A) tensor_Z Q is in pi_A if and only if sum_i a_i f(x_i) = 0 in A(Fbar)_Q.",
+          "match": "Gives the exact base-point condition defining the xi-normalised parametrisations."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.4",
+      "title": "Saito-Tunnell multiplicity one, the epsilon dichotomy, and the local toric functional alpha_v",
+      "kind": "theorem",
+      "statement": "Let F be a local field, B a quaternion algebra over F with Hasse invariant epsilon(B) = 1 if B is M_2(F) and -1 if B is the division algebra, E either F + F or a quadratic field extension with a fixed embedding E -> B, eta the associated quadratic character of F^x, pi an irreducible admissible representation of B^x with central character omega_pi, and chi a character of E^x with omega_pi . chi|_{F^x} = 1. Put P(pi,chi) = Hom_{E^x}(pi tensor chi, C). THEOREM 1.3 (Tunnell, Saito): P(pi,chi) is at most one-dimensional, and is one-dimensional if and only if epsilon(1/2, pi, chi) = chi(-1) epsilon(B) -- in the root-number convention of GZ.0, i.e. viewing the L-function as the base change to E twisted by chi. Here epsilon(1/2,pi,chi) = epsilon(1/2,sigma,chi) = epsilon(1/2, sigma_E tensor chi) with sigma the Jacquet-Langlands transfer to GL_2(F). Since P(pi-tilde, chi^{-1}) has the same dimension, one works with P(pi,chi) tensor P(pi-tilde,chi^{-1}) and defines on it the canonical generator alpha_v(f1 tensor f2) = [L(1,eta_v) L(1,pi_v,ad) / (zeta_{F_v}(2) L(1/2,pi_v,chi_v))] times the integral over E_v^x/F_v^x of (pi_v(t) f1, f2)_v chi_v(t) dt. In the SPHERICAL situation -- B = M_2(F) SPLIT, E/F unramified, pi and chi unramified, dt normalised by vol(O_E^x/O_F^x) = 1, and f1, f2 spherical with (f1,f2) = 1 -- alpha(f1 tensor f2) = 1, so the product over all v is finite; and alpha is nonzero exactly when P(pi,chi) is nonzero.",
+      "hypotheses": [
+        "omega_pi . chi|_{F^x} = 1 is required for P(pi,chi) to be nonzero for trivial reasons; it is a matching condition on central characters, not a normalisation",
+        "the CORRECTED dichotomy is epsilon(1/2,pi,chi) = chi(-1) epsilon(B); the first printing of the book had an extra eta(-1), which corresponds to the Rankin-Selberg rather than the base-change convention (see GZ.0)",
+        "the values alpha_v(f1 tensor f2) lie in L and are independent of the auxiliary complex embedding for all NON-ARCHIMEDEAN v (erratum item 3); the archimedean case is excluded from that rationality claim",
+        "alpha_v depends on the choice of the local invariant pairing (.,.)_v, normalised by the compatibility (.,.) = tensor_v (.,.)_v with the global duality pairing",
+        "the integral defining alpha_v is over E_v^x/F_v^x and is written 'formally'; the source defines it through an auxiliary embedding iota : L -> C"
+      ],
+      "proofSteps": [
+        "Theorem 1.3 is quoted from Tunnell and Saito; its proof is not in the book and was not read here.",
+        "The generator alpha = tensor_v alpha_v is well defined because alpha_v = 1 at almost all v by the unramified computation (Waldspurger, Sec. III-2, Lemme 10, cited by the source).",
+        "The rationality of alpha_v at non-archimedean v, and its independence of the embedding iota, are asserted in Sec. 1.3.2 as corrected by the erratum."
+      ],
+      "acceptance": [
+        "Check that the one-dimensionality is used only as an upper bound where a statement must hold vacuously, and as an exact-dimension statement only under the dichotomy condition.",
+        "Check the spherical value alpha_v = 1 against ALL five stated conditions, including B = M_2(F) split, the normalisation vol(O_E^x/O_F^x) = 1 and (f1,f2) = 1; a different local measure, or a division algebra, changes the value.",
+        "Check that a change of the local pairing (.,.)_v by a scalar c changes alpha_v by c, NOT by c^{-1} (the pairing enters the defining integral linearly), and that the global compatibility (.,.) = tensor_v (.,.)_v pins the product of the local rescalings to 1.",
+        "Check that the dichotomy is applied in the corrected form; an application carrying eta(-1) is using a different epsilon convention."
+      ],
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Thm. 1.3, printed p. 10",
+          "excerpt": "Theorem 1.3 (Tunnell [Tu], Saito [Sa]). The space P(pi, chi) is at most one-dimensional, and it is one-dimensional if and only if epsilon(1/2, pi, chi) = chi(-1) eta(-1) epsilon(B).",
+          "match": "Gives the theorem AS PRINTED in the book; the erratum (item 5) corrects the displayed criterion to epsilon(1/2,pi,chi) = chi(-1) epsilon(B), which is the form recorded in this node's statement."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-erratum",
+          "locator": "Erratum item 5",
+          "excerpt": "Change the equation epsilon(1/2, pi, chi) = chi(-1) eta(-1) epsilon(B) to epsilon(1/2, pi, chi) = chi(-1) epsilon(B).",
+          "match": "Gives the correction applied in the node statement."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.4.1, printed pp. 10-11",
+          "excerpt": "The following result asserts that the dimension of this space is determined by the local root number epsilon(1/2, pi, chi) = epsilon(1/2, sigma, chi) = epsilon(1/2, sigma_E tensor chi). Here sigma is the Jacquet-Langlands correspondence of pi on GL2(F), and sigma_E is the base change to E.",
+          "match": "Identifies the root number as that of the base change to E twisted by chi, which is the convention fixed at GZ.0."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.4.1, printed p. 11",
+          "excerpt": "B = M_2(F), E is an unramified extension of F, pi and chi are both unramified, dt is normalized such that vol(O_E^x/O_F^x) = 1, f1 in pi^{GL2(OF)} and f2 in pi-tilde^{GL2(OF)} satisfy (f1, f2) = 1. It is easy to see that alpha defines an element of P(pi, chi) tensor P(pi-tilde, chi^{-1}). It is actually a generator of the space. In other words, alpha not= 0 if and only if P(pi, chi) not= 0. See [Wa, Sec. III-2, Lemme 10].",
+          "match": "Gives the spherical case in full, including the split condition B = M_2(F) that the node statement had omitted, the unramified normalisation and the statement that alpha generates the space exactly when the space is nonzero."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.5",
+      "title": "The Waldspurger period formula and its proof through Shimizu lifting and Siegel-Weil",
+      "kind": "theorem",
+      "statement": "Let F be a number field with adele ring A, B a quaternion algebra over F, E a quadratic field extension with a fixed embedding E -> B over F, pi an irreducible cuspidal automorphic representation of B_A^x with central character omega_pi, chi a character of E^x \\ E_A^x with omega_pi . chi|_{A^x} = 1, and eta the quadratic character attached to E/F. Define P_chi(f) = integral over E^x \\ E_A^x / A^x of f(t) chi(t) dt using the Haar measure of TOTAL VOLUME 1, and P_{chi^{-1}} on pi-tilde likewise. THEOREM 1.4 (Waldspurger): for f1 in pi and f2 in pi-tilde, P_chi(f1) . P_{chi^{-1}}(f2) = [zeta_F(2) L(1/2, pi, chi) / (8 L(1,eta)^2 L(1, pi, ad))] alpha(f1 tensor f2), where L(s,pi,chi) = L(s,sigma,chi) = L(s, sigma_E tensor chi) with sigma the Jacquet-Langlands lift, and alpha = tensor_v alpha_v with the local pairings normalised by (.,.)_Pet = tensor_v (.,.)_v, the Petersson pairing being taken with the TAMAGAWA measure of volume 2 on B^x \\ B_A^x / A^x. The formula is an identity of two elements alpha and P_chi tensor P_{chi^{-1}} of P(pi,chi) tensor P(pi-tilde,chi^{-1}), which is nonzero only if Sigma(B) = Sigma(pi,chi) and is then one-dimensional with generator alpha.",
+      "hypotheses": [
+        "chi is a character of E^x \\ E_A^x with omega_pi . chi|_{A^x} = 1; Waldspurger's own statement assumed omega_pi trivial, and the source records that 'his proof goes through to the general case'",
+        "the period integral uses the PROBABILITY measure (total volume 1) on E^x \\ E_A^x / A^x, whereas Waldspurger used the Tamagawa measure; the source flags this difference explicitly",
+        "the Petersson pairing uses the Tamagawa measure with volume 2 on B^x \\ B_A^x / A^x; this is a different measure from the toric one of GZ.0",
+        "the identity is between two vectors in a space of dimension at most one; when Sigma(B) is not Sigma(pi,chi) the space is zero and the formula is vacuous",
+        "the constant is 8 L(1,eta)^2 in the Waldspurger formula, against 4 L(1,eta)^2 in the Gross-Zagier formula (Thm. 1.2); the factor-of-two difference is a genuine feature of the two normalisations and must not be transported"
+      ],
+      "proofSteps": [
+        "Start from the Shimizu (theta) lifting theta : S(B x A^x) tensor sigma -> pi tensor pi-tilde, where the Weil representation r of GL_2(A) x B_A^x x B_A^x acts on S(B_A x A^x) and the theta series is the double sum over u in F^x and x in B of r(g,(h_1,h_2)) Phi(x,u). (The book's p. 13 display omitted the inner sum over x in B; erratum item 6 restores it.)",
+        "Write f1 tensor f2 = theta(Phi tensor phi) and obtain P_chi(f1) P_{chi^{-1}}(f2) = (theta(., (chi,chi^{-1}), Phi), phi)_Pet, where theta(g,(chi,chi^{-1}),Phi) is the double toric integral of the theta kernel.",
+        "Use the integral representation (I(s,.,chi,Phi), phi)_Pet = (nonzero explicit constant) L((s+1)/2, sigma, chi), where I(s,g,chi,Phi) is the toric integral of the mixed theta-Eisenstein series I(s,g,Phi) = sum over u in F^x, x_1 in E, gamma in P^1(F) \\ P^1(A) of delta(gamma g)^s r(gamma g) Phi(x_1,u).",
+        "The formula follows from the two identities (1.5.1) I(0,g,chi,Phi) = 2 theta(g,(chi,chi^{-1}),Phi) and (1.5.2) (I(0,.,chi,Phi),phi)_Pet = (constant) L(1/2,sigma,chi) alpha(f1 tensor f2). The source states that both are implied by the SIEGEL-WEIL formula with minor extra work: the first by Siegel-Weil on the quadratic space (E,q), the second by Siegel-Weil on (B_0,q) with B_0 the trace-zero elements of B."
+      ],
+      "acceptance": [
+        "Check the measure bookkeeping end to end: probability measure in the period, Tamagawa measure (volume 2) in the Petersson pairing, and vol = 2 L(1,eta) in the toric normalisation of alpha (GZ.0). The constants 8 L(1,eta)^2 and 4 L(1,eta)^2 depend on exactly these choices.",
+        "Check that the two Siegel-Weil inputs are on DIFFERENT quadratic spaces, (E,q) and (B_0,q), and that the second is the one producing the L-value and alpha.",
+        "Check the specialisation f2 = conjugate of f1, in which the left side becomes |P_chi(f1)|^2 -- the form usually quoted in the literature.",
+        "Check the vacuous case: if Sigma(B) is not Sigma(pi,chi) both sides vanish, so the formula carries no information there."
+      ],
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Thm. 1.4, printed p. 11",
+          "excerpt": "Theorem 1.4 (Waldspurger [Wa]). For any f1 in pi and f2 in pi-tilde, we have P_chi(f1) . P_{chi^{-1}}(f2) = [zeta_F(2) L(1/2, pi, chi) / (8 L(1, eta)^2 L(1, pi, ad))] alpha(f1 tensor f2).",
+          "match": "Gives the formula with its exact constant, as recorded in the statement."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.4.2 Remark, printed p. 12",
+          "excerpt": "The formula was proved by Waldspurger with a slightly different setting (cf. [Wa, Proposition 7]). Note that we use the probability measure in the period integral, while Waldspurger used the Tamagawa measure. Waldspurger assumed that the central character omega_pi is trivial, but his proof goes through to the general case.",
+          "match": "Records both normalisation differences and the extension to non-trivial central character, as in the hypotheses."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.4.2, printed pp. 11-12",
+          "excerpt": "The integration uses the Tamagawa measure, which has volume 2 on B^x \\ B_A^x / A^x.",
+          "match": "Fixes the measure used in the Petersson pairing, distinct from the toric measure."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.5.1, printed p. 13",
+          "excerpt": "The Waldspurger formula follows from the equalities I(0, g, chi, Phi) = 2 theta(g, (chi, chi^{-1}), Phi), (1.5.1) (I(0, ., chi, Phi), phi)_Pet = (*) L(1/2, sigma, chi) alpha(f1 tensor f2). (1.5.2) Here (*) denotes a nonzero explicit constant. Both of the equalities are implied by the Siegel-Weil formula with some minor extra work. The first equality is given by the Siegel-Weil formula on the quadratic space (E, q), and the second equality is given by the Siegel-Weil formula on the quadratic space (B_0, q). Here B_0 is the space of elements of B with traces equal to zero.",
+          "match": "Gives the two identities and the two distinct Siegel-Weil inputs, recorded in the proofSteps."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-erratum",
+          "locator": "Erratum items 6 and 7 (correcting book p. 13)",
+          "excerpt": "The formula theta(g, (h1, h2), Phi) = sum_{u in F^x} r(g, (h1, h2)) Phi(x, u) should be theta(g, (h1, h2), Phi) = sum_{u in F^x} sum_{x in B} r(g, (h1, h2)) Phi(x, u). ... In the summation, Phi(x) should be Phi(x1, u).",
+          "match": "Corrects the displayed theta series and the mixed theta-Eisenstein series; both corrections are incorporated in the proofSteps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.6/generating-series-arithmetic-theta-lifting-and-the-kernel-identity",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.6",
+      "title": "The generating series, the geometric kernel, and the kernel identity",
+      "kind": "construction",
+      "statement": "For Phi in S(B_A x A^x) bi-invariant under an open compact U of B_f^x, the generating function on X_U is Z(g,Phi)_U = Z_0(phi)_U + w_U sum over a in F^x, x in U \\ B_f^x / U of r(g) phi(x, a q(x)^{-1}) Z(x)_U, where phi is the archimedean average of Phi, w_U and Z_0(phi)_U are the constant terms, and Z(x)_U is the special cycle attached to the double coset U x U. The special cycle Z(x)_U must be defined as the PUSH-FORWARD (with multiplicities) of X_{U_x} under (pi_{U_x,U}, pi_{U_x,U} o T_x) : X_{U_x} -> X_U x X_U, NOT as the set-theoretic image; the first printing of the book defined it as the image and the erratum corrects this. Z(g,Phi)_U is an automorphic form in g in GL_2(A) with coefficients in Pic(X_U x X_U)_C; for X_U = X_0(N) and suitable Phi it recovers the classical series sum_{n >= 0} T_n e^{2 pi i n z}. Rescaling gives a compatible system Z-tilde(g,Phi) in Pic(X x X)_C, and the height series is Z-tilde(g,(h_1,h_2),Phi) = <Z-tilde(g,Phi)[h_1]^o, [h_2]^o>_NT with [h]^o = [h] - xi_{q(h)} the xi-normalised degree-zero class of the CM point T_h(P). The geometric kernel is the REGULARISED toric integral Z-tilde(g,chi,Phi) = integral^* over T(F) \\ T(A) / Z(A) of Z-tilde(g,(t,1),Phi) chi(t) dt. The kernel identity (Theorem 3.21) is (I'(0,.,chi,Phi), phi)_Pet = 2 (Z-tilde(.,chi,Phi), phi)_Pet for all phi in sigma; the exact pointwise equality I'(0,g,chi,Phi) = 2 Z-tilde(g,chi,Phi) is NOT asserted. The bridge is the arithmetic theta lifting Z-tilde(Phi tensor phi) = (Z-tilde(g,Phi), phi)_Pet, for which (1.5.5) states Z-tilde(Phi tensor phi) = [L(1,pi,ad)/(2 zeta_F(2))] T(theta(Phi tensor phi)).",
+      "hypotheses": [
+        "Phi must be bi-invariant under an open compact U, and phi denotes its archimedean average; the erratum (item 8) corrects the displayed generating function to use phi rather than Phi in the Schwartz factor",
+        "the special cycle is the proper push-forward with multiplicities; using the set-theoretic image changes the cycle whenever the map is not injective",
+        "the toric integral defining the geometric kernel is REGULARISED; it is not an absolutely convergent integral",
+        "the kernel identity is asserted only after pairing with cusp forms phi in sigma, i.e. after cuspidal projection; the source explicitly discusses 'the impossibility of the exact equality'",
+        "the CM classes are xi-normalised to degree zero via [h]^o = [h] - xi_{q(h)}, which is what makes the Neron-Tate pairing defined"
+      ],
+      "proofSteps": [
+        "Modularity of Z(g,Phi)_U in g, with coefficients in Pic(X_U x X_U)_C, is attributed by the source to 'the work of many people' and is proved in Chapter 4 Sec. 4.2 (not read here).",
+        "The identity (1.5.5) is proved in two steps in Chapter 4: first that both sides agree up to a constant, because each induces an element of the one-dimensional space Hom_{GL_2(A) x B_A^x x B_A^x}(S(V x A^x) tensor sigma, pi tensor pi-tilde) after decomposing H^{1,0}(X_tau) = direct sum over pi_1 of pi_1; second that the constant is as stated, by computing traces on H^{0,1}(X_{U,tau}).",
+        "The trace computation uses the Lefschetz fixed point theorem to reduce the trace of Z-tilde(Phi tensor phi) to the intersection number Delta_U . Z-tilde(Phi tensor phi), and hence to the pullback Delta_U^* Z(g,Phi)_U, which is an explicit generating function whose coefficients are CM points, Hodge classes or cusps. The source records that 'the computation is very complicated if X_U contains cusps' and compares with Hirzebruch-Zagier on Hilbert modular surfaces.",
+        "Given (1.5.5), the equivalence between the projector formulation (1.5.3) and the kernel identity (1.5.4) is immediate."
+      ],
+      "acceptance": [
+        "Check the push-forward definition of Z(x)_U against the erratum; a set-theoretic image drops multiplicities and changes the generating series.",
+        "Check that the kernel identity is stated after pairing with phi in sigma, and that no pointwise identity of the two kernels is claimed.",
+        "Check the constant L(1,pi,ad)/(2 zeta_F(2)) in (1.5.5) against the constants in Thms. 1.2 and 1.4: the factors of two in (1.5.4) and (1.5.5) are what relate the Waldspurger constant 8 L(1,eta)^2 to the Gross-Zagier constant 4 L(1,eta)^2. This packet does NOT derive that relation; it is carried out in Sec. 3.3 and Sec. 3.6, which were not read.",
+        "Check that the regularisation of the toric integral is defined before it is used, and that the degenerate Schwartz functions of GZ.7 are what remove the self-intersection and Hodge-class contributions."
+      ],
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.5.4, printed p. 15",
+          "excerpt": "The generating function on X_U, for any g in GL2(A), is defined by Z(g, Phi)_U = Z_0(phi)_U + w_U sum_{a in F^x} sum_{x in U \\ B_f^x / U} r(g) Phi(x, a q(x)^{-1}) Z(x)_U. ... The key part Z(x)_U is the Hecke correspondence on X_U corresponding to the double coset U x U. Based on the work of many people, we will show that Z(g, Phi)_U is an automorphic form of g in GL2(A) with coefficients in Pic(X_U x X_U)_C.",
+          "match": "Gives the generating function and the modularity assertion; erratum item 8 corrects the Schwartz factor to phi."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-erratum",
+          "locator": "Erratum item 30 (correcting book p. 93)",
+          "excerpt": "The special cycle Z(x)_U should be defined as the push-forward (instead of the image) of X_{U_x} under the morphism (pi_{U_x,U}, pi_{U_x,U} o T_x) : X_{U_x} -> X_U x X_U.",
+          "match": "Gives the correction to the definition of the special cycle, recorded in the statement and acceptance."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.5.5-1.5.6, printed pp. 15-16",
+          "excerpt": "Z-tilde(g, (h1, h2), Phi) := <Z-tilde(g, Phi) [h1]^o, [h2]^o>_NT ... Here [h] denotes the point T_h(P) obtained by multiplication by h, and [h2]^o denotes the degree zero cycle [h] - xi_{q(h)}. The geometric kernel is Z-tilde(g, chi, Phi) = integral^* over T(F) \\ T(A) / Z(A) of Z-tilde(g, (t, 1), Phi) chi(t) dt. Here the integral is a regularized integral.",
+          "match": "Gives the height series, the xi-normalisation of the CM classes and the regularised toric integral."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.5.6, printed p. 16",
+          "excerpt": "The kernel identity here, analogous to equation (1.5.1), is (I'(0, ., chi, Phi), phi)_Pet = 2 (Z-tilde(., chi, Phi), phi)_Pet, for all phi in sigma. (1.5.4) See Theorem 3.21. We will discuss later the impossibility of the exact equality I'(0, g, chi, Phi) = 2 Z-tilde(g, chi, Phi).",
+          "match": "Gives the kernel identity in its cuspidally-paired form and the explicit warning that the pointwise identity fails."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.5.6-1.5.7, printed pp. 16-17",
+          "excerpt": "The main result for arithmetic theta lifting is Z-tilde(Phi tensor phi) = [L(1, pi, ad)/(2 zeta_F(2))] T(theta(Phi tensor phi)), Phi in S(V x A^x), phi in sigma. (1.5.5) ... The first step is to show that the equation is true up to a constant. ... So they must be equal up to a constant. It remains to check that the constant is exactly given by (1.5.5). For that, fixing a level U, it suffices to prove that traces of two sides, as an operator on H^{0,1}(X_{U,tau}), are equal.",
+          "match": "Gives the arithmetic theta lifting identity and the two-step structure of its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-functions-local-decomposition-and-approximation",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.7",
+      "title": "Degenerate Schwartz functions, the local decomposition of both kernels, and the nearby-quaternion approximation",
+      "kind": "construction",
+      "statement": "For a non-archimedean place v define S^1(B_v x F_v^x) = {Phi_v : Phi_v(x,u) = 0 whenever v(u q(x)) >= -v(d_v) or v(u q(x_2)) >= -v(d_v)} with d_v the local different and x = x_1 + x_2 the decomposition along B_v = E_v + E_v j_v, and S^2(B_v x F_v^x) = {Phi_v : r(g) Phi_v(0,u) = 0 for all g in GL_2(F_v), u in F_v^x}. Assume Phi_v lies in S^1 at all ramified non-archimedean v nonsplit in E and at at least two non-archimedean v split in E. These assumptions (i) kill the self-intersections of CM points in the height series, (ii) kill the logarithmic singularities coming from both the derivatives and the local heights at v, (iii) kill the constant term of the generating series, and (iv) kill the arithmetic intersections with the Hodge classes. With them, both kernels decompose over the nonsplit places: Pr I'(0,g,chi,Phi) = sum over v nonsplit of I'(0,g,chi,Phi)(v), obtained from the Fourier expansion into local Whittaker functions with the derivative taken at v, and Z-tilde(g,chi,Phi) = sum over v nonsplit of Z-tilde(g,chi,Phi)(v), from the decomposition of a global arithmetic intersection into local ones. For archimedean v and GOOD non-archimedean v one proves I'(0,g,chi,Phi)(v) = 2 Z(g,chi,Phi)(v) by explicit computation. For the remaining BAD primes the local components are impossible to compute; instead one shows that each such I'(0,g,chi,Phi)(v) is APPROXIMATED by a coherent kernel I(0,g,chi,Phi(v)) built from the NEARBY quaternion algebra B(v) obtained by switching the Hasse invariant of B at v, and similarly for Z-tilde(g,chi,Phi)(v). Here Psi is approximated by Psi_0 if they agree on 1^S GL_2(A^S) for some finite S; if both are automorphic they are then equal, since GL_2(F) GL_2(A^S) is dense in GL_2(A). The resulting identity is Pr I'(0,g,chi,Phi) - 2 Z-tilde(g,chi,Phi) = sum_v I(0,g,chi,Phi(v)) (1.5.6). Its right-hand side is A PRIORI NOT ZERO; it is perpendicular to sigma by Thm. 1.3, because the ramification set of each nearby B(v) disagrees with Sigma, and that perpendicularity -- not the density argument -- is what yields the kernel identity (1.5.4).",
+      "hypotheses": [
+        "the S^1 condition is imposed at ALL ramified non-archimedean places nonsplit in E and at AT LEAST TWO non-archimedean places split in E; both parts of the assumption are needed for the four listed effects",
+        "as PRINTED, the assumption imposes S^1 at BOTH sets of places (at all ramified non-archimedean v nonsplit in E and at at least two non-archimedean v split in E), although S^2 is defined on the same page and is not used there; a rendering of book p. 17 was inspected in review and confirms the printed text, and the erratum does not correct it, so it is recorded as printed. Which class is really imposed at the split places is settled in Chapter 5 Sec. 5.2, which was not read",
+        "the reduction from the general kernel identity to the degenerate case is not formal: it uses the one-dimensionality of P(pi,chi) tensor P(pi-tilde,chi^{-1}) (Thm. 1.3), which reduces the identity to a single pair (Phi,phi) with alpha(theta(Phi tensor phi)) nonzero; the existence of such a Phi satisfying the degeneracy assumptions is a LOCAL problem solved in Chapter 5",
+        "the local decomposition of the geometric kernel requires no self-intersection, which is exactly what the degeneracy assumptions provide; without them the decomposition into local heights is not available (cf. GZ.2)",
+        "the approximation argument is valid because GL_2(F) GL_2(A^S) is dense in GL_2(A) and both sides are automorphic; it does not give a local identity at the bad places"
+      ],
+      "proofSteps": [
+        "Chapter 5 introduces the two classes of degenerate Schwartz functions and proves that the full kernel identity can be recovered from them, using Thm. 1.3.",
+        "Chapter 6 expands I(s,g,chi,Phi) as a Fourier series in local Whittaker functions, takes the derivative place by place, applies the cuspidal holomorphic projection Pr (which only changes the archimedean terms), and proves the approximation statement at bad v.",
+        "Chapter 7 decomposes the geometric kernel into local heights using the Arakelov theory of GZ.2, and proves the vanishing of the Hodge-class contributions under the Chapter 5 assumptions.",
+        "Chapter 8 computes the local heights of CM points in the archimedean, supersingular, superspecial and ordinary cases and proves the corresponding approximation statements at bad v.",
+        "The difference Pr I'(0,g,chi,Phi) - 2 Z-tilde(g,chi,Phi) is then approximated by a finite sum of coherent kernels I(0,g,chi,Phi(v)); automorphy plus density upgrades the approximation to the exact identity (1.5.6). The sum on the right does not vanish, but it is perpendicular to sigma by Thm. 1.3, since the ramification set of each B(v) differs from Sigma; pairing with phi in sigma therefore gives (1.5.4)."
+      ],
+      "acceptance": [
+        "Check that the four listed effects of the degeneracy assumptions are each used where claimed; in particular that the vanishing of the Hodge-class contribution (Chapter 7 Sec. 7.3) is a theorem under those assumptions, not a general fact.",
+        "Check the reduction back to the general case: it needs BOTH Thm. 1.3's one-dimensionality and the local existence result of Chapter 5.",
+        "Check that Chapter 8's four local cases (archimedean, supersingular, superspecial, ordinary) are separate computations with separate hypotheses, and that the j-part (Sec. 8.5) is treated separately.",
+        "Check the density statement: GL_2(F) GL_2(A^S) dense in GL_2(A) is what converts approximation into the identity (1.5.6), and it applies only to automorphic functions; the vanishing after pairing with sigma is a separate step and rests on Thm. 1.3."
+      ],
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.5.8, printed p. 17",
+          "excerpt": "S^1(B_v x F_v^x) := {Phi_v in S(B_v x F_v^x) : Phi_v(x, u) = 0 if v(u q(x)) >= -v(d_v) or v(u q(x_2)) >= -v(d_v)}. Here d_v is the local different of F at v, and x = x_1 + x_2 according to the orthogonal decomposition B_v = E_v + E_v j_v. Define S^2(B_v x F_v^x) := {Phi_v in S(B_v x F_v^x) : r(g)Phi_v(0, u) = 0, for all g in GL2(F_v), u in F_v^x}.",
+          "match": "Gives the two degeneracy classes verbatim with their defining conditions."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.5.8, printed pp. 17-18",
+          "excerpt": "Assume that Phi_v lies in S^1(B_v x F_v^x) for all ramified non-archimedean places v nonsplit in E, and assume that Phi_v lies in S^1(B_v x F_v^x) for at least two non-archimedean places v split in E. Here are some major effects of the assumptions: Kill the self-intersections of CM points in the height series Z(g, (t1, t2), Phi). Kill the logarithmic singularities coming from both the derivatives and the local heights at v. Kill the constant term of the generating series Z(g, Phi)_U. Kill the arithmetic intersections coming for the Hodge classes in the height series Z(g, (t1, t2), Phi).",
+          "match": "Gives the exact placement of the assumptions and the four effects, as recorded in the statement. The excerpt was checked against a rendering of book p. 17 in review: the book does print S^1 in both clauses."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.5.9, printed pp. 18-19",
+          "excerpt": "For archimedean v and good non-archimedean v, we prove I'(0, g, chi, Phi)(v) = 2Z(g, chi, Phi)(v) by explicit computations in Chapter 6 and Chapter 8. It is routine after the work of Gross-Zagier and S. Zhang. For the remaining bad primes, the local components are impossible to compute. This was the essential difficulty to remove the assumptions of mild ramifications in the work of Gross-Zagier and S. Zhang.",
+          "match": "States which local identities are proved directly and identifies the bad-prime obstruction that the approximation argument circumvents."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.5.10, printed p. 19",
+          "excerpt": "We say a function Psi : GL2(A) -> C is approximated by an automorphic form Psi_0 on GL2(A) if there exists a finite set S of places of F such that Psi(g) = Psi_0(g) for all g in 1^S GL2(A^S). Here is a simple fact. If furthermore Psi is automorphic, then Psi = Psi_0 identically. It is true since GL2(F)GL2(A^S) is dense in GL2(A). ... I'(0, g, chi, Phi)(v) can be approximated by a coherent kernel function of the form I(0, g, chi, Phi(v)), where Phi(v) = Phi^v tensor Phi_v' in S(B(v)_A x A^x) is a Schwartz function based on the nearby quaternion algebra B(v) over F obtained by changing the Hasse invariant of B at v.",
+          "match": "Gives the definition of approximation, the density argument and the nearby quaternion algebra construction."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+      "title": "The general Gross-Zagier identity on quaternionic Shimura curves (YZZ Theorem 1.2)",
+      "kind": "theorem",
+      "statement": "Let F be a totally real field, B an INCOHERENT quaternion algebra over the adeles A = A_F with ramification set Sigma = Sigma(B) of ODD cardinality, totally definite at infinity (so B is not the base change of any quaternion algebra over F), X the associated Shimura curve system over F, A a simple abelian variety over F parametrised by X with M = End^0(A), pi_A = Hom^0_xi(X,A), E a TOTALLY IMAGINARY quadratic extension of F with a fixed embedding E_A into B over A, and chi a character of E^x \\ E_A^x of finite order with omega_A . chi|_{A_F^x} = 1. THEOREM 1.2: for any f1 in pi_A and f2 in pi_{A-dual}, <P_chi(f1), P_{chi^{-1}}(f2)>_L = [zeta_F(2) L'(1/2, pi_A, chi) / (4 L(1,eta)^2 L(1, pi_A, ad))] alpha(f1,f2), as an identity in L tensor_Q C, where <.,.>_L : A(chi) x A-dual(chi^{-1}) -> L tensor_Q R is the L-linear Neron-Tate pairing induced by the M-linear pairing of GZ.1. The theorem compares the two elements alpha and <P_chi(.), P_{chi^{-1}}(.)>_L of the at-most-one-dimensional space P(pi_A,chi) tensor_L P(pi_{A-dual},chi^{-1}). If Sigma(B) is not Sigma(A,chi) the space is ZERO and both sides vanish, so the theorem is VACUOUS there; in the essential case Sigma(B) = Sigma(A,chi) the space is one-dimensional with generator alpha, epsilon(1/2,pi_A,chi) = -1, and the theorem is an explicit evaluation of the resulting scalar. An equivalent formulation (Theorem 3.15) states <T(f1 tensor f2) P_chi, P_{chi^{-1}}>_NT = [zeta_F(2) L'(1/2,pi,chi)/(4 L(1,eta)^2 L(1,pi,ad))] alpha(f1 tensor f2) in terms of the projector T(f1 tensor f2) in Hom^0(J,J-dual)_C; the equivalence uses T_alg(f1,f2) = f2-dual o f1 and the projection formula for height pairings. The classical case is Theorem 1.1 (Gross-Zagier): for f a newform of weight 2 on Gamma_0(N), K imaginary quadratic of odd fundamental discriminant D satisfying the Heegner condition that every prime factor of N splits in K, and chi a character of Pic(O_K), <P_chi(f), P_chi(f)>^H_NT = [h u^2 |D|^{1/2} / (8 pi^2 (f,f))] L'(f,chi,1).",
+      "hypotheses": [
+        "A is SIMPLE and parametrised by X; chi has FINITE order; the central-character matching omega_A . chi|_{A_F^x} = 1 is required",
+        "B is INCOHERENT (#Sigma odd) and totally definite at infinity, and E/F is TOTALLY IMAGINARY: these are the standing hypotheses of Secs. 1.2.1 and 1.3.1 and are not optional. For a coherent B there is no such Shimura curve X and the coherent setting of GZ.5 (Waldspurger) applies instead; this is exactly the coherent/incoherent dichotomy that the proof exploits at the nearby algebras B(v) in GZ.7",
+        "the statement is an identity of two vectors in a space of dimension at most one, so it must be stated first as an identity of invariant bilinear forms; a zero pairing is never placed in a denominator",
+        "in the vacuous case Sigma(B) not equal to Sigma(A,chi) the identity holds trivially because both sides are zero",
+        "the dichotomy set Sigma(A,chi) is the ERRATUM-corrected one (see GZ.0): {v : epsilon(1/2,pi_{A,v},chi_v) not equal to chi_v(-1)}",
+        "the constant 4 L(1,eta)^2 comes from the toric measure normalisation vol(E^x \\ E_A^x / A^x) = 2 L(1,eta), not from a Tamagawa measure",
+        "in the classical Theorem 1.1, h is the class number of K, u is HALF the number of units of O_K, (f,f) is the Petersson inner product, D is an ODD fundamental discriminant, and the Heegner condition is that every prime factor of N splits in K; under these hypotheses the sign of the functional equation is -1 and L(f,chi,1) = 0",
+        "the construction of P_chi(f) in Theorem 1.1 uses an idempotent of the Hecke algebra for Gamma_0(N) and therefore involves DENOMINATORS; the denominator-free statement is available for elliptic curves via a modular parametrisation of degree deg phi",
+        "STRUCTURAL CORRECTION (erratum item 1): the Shimura curve X is a regular scheme over F, locally noetherian but not of finite type, ONLY IF #Sigma > 1; the first printing asserted this without the restriction"
+      ],
+      "proofSteps": [
+        "Reduce Theorem 1.2 to Theorem 3.15 (the projector form) using T(f1^iota tensor f2^iota) = T_alg(f1 tensor f2)^iota and the projection formula for height pairings.",
+        "Reduce Theorem 3.15 to the kernel identity (1.5.4) using the arithmetic theta lifting identity (1.5.5) of GZ.6.",
+        "Reduce the kernel identity for general Schwartz data to the degenerate case using Thm. 1.3's one-dimensionality plus the local existence result of Chapter 5 (GZ.7).",
+        "Prove the degenerate kernel identity by decomposing both sides over the nonsplit places, computing the archimedean and good non-archimedean local identities explicitly (Chapters 6 and 8), and handling the bad places by the nearby-quaternion approximation argument (GZ.7).",
+        "The classical Theorem 1.1 is the specialisation to F = Q, Sigma = {infinity}, B = M_2(Q) under the Heegner condition, which forces Sigma(f,chi) = {infinity} so that the Heegner points live on the modular curve."
+      ],
+      "acceptance": [
+        "Check that the identity is stated for ALL f1, f2 and then extended by bilinearity, and that the vacuous case is recorded rather than silently assumed away.",
+        "Check the constants against GZ.0: 4 L(1,eta)^2 here versus 8 L(1,eta)^2 in Waldspurger's formula; the ratio traces to the arithmetic theta lifting constant L(1,pi,ad)/(2 zeta_F(2)) of (1.5.5).",
+        "Check the classical specialisation numerically in one example: Theorem 1.1's constant h u^2 |D|^{1/2}/(8 pi^2 (f,f)) with u = half the number of units, and the elliptic-curve version with the extra factor deg phi.",
+        "Check the erratum's structural restriction #Sigma > 1 wherever the tower X is treated as a scheme; in the modular case Sigma = {infinity} the assertion is withdrawn.",
+        "Check that a nonzero central derivative plus a nonzero alpha gives a non-torsion point only through the positivity of GZ.1, and that alpha nonzero is itself a local condition (GZ.4)."
+      ],
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Thm. 1.2, printed p. 9",
+          "excerpt": "Theorem 1.2. Assume omega_A . chi|_{A_F^x} = 1. For any f1 in pi_A and f2 in pi_{A-dual}, <P_chi(f1), P_{chi^{-1}}(f2)>_L = [zeta_F(2) L'(1/2, pi_A, chi) / (4 L(1, eta)^2 L(1, pi_A, ad))] alpha(f1, f2) as an identity in L tensor_Q C. Here <.,.>_L : A(chi) x A-dual(chi^{-1}) -> L tensor_Q R is the L-linear Neron-Tate height pairing induced by the M-linear Neron-Tate height pairing <.,.>_M between A(F) and A-dual(F).",
+          "match": "Gives the main theorem with its exact constant and the precise pairing, as recorded in the statement."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Secs. 1.2.1 and 1.3.1, printed pp. 2-3 and 6",
+          "excerpt": "If #Sigma is odd, then B is not the base change of any quaternion algebra over F. In this case, we call B an incoherent quaternion algebra. ... Now assume that F is a totally real number field and that B is an incoherent quaternion algebra over A, totally definite at infinity ... Let E/F be a totally imaginary quadratic extension, with a fixed embedding E_A into B over A.",
+          "match": "Gives the standing hypotheses on B and E that Thm. 1.2 inherits; added in review because the node had B as a quaternion algebra over F and E as an arbitrary quadratic extension."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, after Thm. 1.2, printed p. 9",
+          "excerpt": "If Sigma(B) not= Sigma(A, chi), the linear space is zero and thus both sides of the formula are zero. The theorem is vacuous in this case. In the essential case Sigma(B) = Sigma(A, chi), the linear space is one-dimensional and alpha is a generator. It follows that <P_chi(.), P_{chi^{-1}}(.)>_L must be a constant multiple of alpha. ... Note that epsilon(1/2, pi_A, chi) = -1 in this case.",
+          "match": "Gives the vacuous and essential cases explicitly, as recorded in the hypotheses."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Thm. 1.1, printed p. 1",
+          "excerpt": "Theorem 1.1 (Gross-Zagier). Denote by h the class number of K, and u half of the number of units of O_K. Then <P_chi(f), P_chi(f)>^H_NT = [h u^2 |D|^{1/2} / (8 pi^2 (f, f))] . L'(f, chi, 1).",
+          "match": "Gives the classical formula with its exact constant and the definitions of h and u."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.1.1-1.1.2, printed pp. 1-2",
+          "excerpt": "Assume that K has an odd fundamental discriminant D, and satisfies the following Heegner condition: every prime factor of N is split in K. Then the sign of the functional equation of the L-series L(f, chi, s) is -1 and hence L(f, chi, 1) = 0. ... The construction of Heegner points P_chi(f) involves the idempotent in the Hecke algebra for Gamma_0(N), thus involves some denominators.",
+          "match": "Gives the Heegner condition, the resulting sign, and the explicit warning about denominators in the classical construction."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.5.3, printed p. 14",
+          "excerpt": "Theorem 3.15 asserts that, for any f1 tensor f2 in pi tensor pi-tilde, <T(f1 tensor f2) P_chi, P_{chi^{-1}}>_NT = [zeta_F(2) L'(1/2, pi, chi) / (4 L(1, eta)^2 L(1, pi, ad))] alpha(f1 tensor f2). (1.5.3) ... It is easy to show that the theorem is equivalent to Theorem 1.2. The key ingredient is another interpretation of the projector.",
+          "match": "Gives the projector reformulation and records that its equivalence with Thm. 1.2 goes through T_alg and the projection formula."
+        },
+        {
+          "sourceId": "yzz-gross-zagier-erratum",
+          "locator": "Erratum items 1 and 16 (correcting book pp. 3 and 59)",
+          "excerpt": "Change 'It is a regular scheme over F, locally noetherian but not of finite type' to 'If #Sigma > 1, it is a regular scheme over F, locally noetherian but not of finite type.'",
+          "match": "Gives the structural correction recorded in the hypotheses, which is precisely the exception the atlas stage text flags for the modular case."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections",
+      "target": "GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional",
+      "reason": "The Saito-Tunnell criterion is stated in terms of epsilon(1/2,pi,chi), which is convention-dependent: the base-change and Rankin-Selberg conventions differ by eta(-1), and the published erratum changes the printed criterion from chi(-1)eta(-1)epsilon(B) to chi(-1)epsilon(B). The dichotomy node is therefore not usable without the convention fixed at GZ.0.",
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-erratum",
+          "locator": "Erratum item 5, correcting book p. 10 Thm. 1.3"
+        }
+      ]
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections",
+      "target": "GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof",
+      "reason": "The constant 8 L(1,eta)^2 in the Waldspurger formula is produced by the toric measure normalisation vol(E^x \\\\ E_A^x / A^x) = 2 L(1,eta), while the period integral uses the probability measure and the Petersson pairing uses the Tamagawa measure of volume 2. All three normalisations are fixed at GZ.0. Erratum items 4, 10 and 13 replace the Tamagawa normalisation of the toric measure; item 15 corrects the explanation of the factor 4 L(1,eta)^2 at book p. 43, inside the Chapter 2 proof, rather than the constant printed in Thm. 1.4.",
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-erratum",
+          "locator": "Erratum items 4, 10, 13, 15"
+        },
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.4.2 and its Remark, printed pp. 11-12"
+        }
+      ]
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections",
+      "target": "GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity",
+      "reason": "Theorem 1.2's statement depends on the erratum-corrected dichotomy set Sigma(A,chi) = {v : epsilon(1/2,pi_{A,v},chi_v) not= chi_v(-1)} to decide the vacuous versus essential case, and its constant 4 L(1,eta)^2 comes from the corrected toric measure normalisation.",
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-erratum",
+          "locator": "Erratum items 2, 4, 15"
+        }
+      ]
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.1/neron-tate-height-and-the-poincare-pairing",
+      "target": "GrossZagierAndArithmeticHeights:GZ.2/hodge-index-theorem-and-admissible-arithmetic-extensions",
+      "reason": "The arithmetic Hodge index theorem (Thm. 7.4) equates an arithmetic intersection number with MINUS the Neron-Tate pairing of the generic fibres; that pairing, its normalisation by the base field F and its bilinearity are exactly what GZ.1 constructs.",
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 7, Thm. 7.4, printed p. 212"
+        }
+      ]
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.2/hodge-index-theorem-and-admissible-arithmetic-extensions",
+      "target": "GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-functions-local-decomposition-and-approximation",
+      "reason": "The decomposition Z-tilde(g,chi,Phi) = sum over nonsplit v of Z-tilde(g,chi,Phi)(v) is the decomposition of a global arithmetic intersection number into local ones; the source states that this is available precisely because the degeneracy assumptions remove horizontal self-intersections, so that the height pairing of disjoint divisors decomposes as in Sec. 7.1.",
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 7, opening and Sec. 7.1, printed pp. 206-207, 212; Chapter 1, Sec. 1.5.9, printed p. 18"
+        }
+      ]
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.3/normalised-hodge-class-and-xi-parametrised-realisation",
+      "target": "GrossZagierAndArithmeticHeights:GZ.6/generating-series-arithmetic-theta-lifting-and-the-kernel-identity",
+      "reason": "The height series pairs the degree-zero CM classes [h]^o = [h] - xi_{q(h)}; the subtraction is by the normalised Hodge class of GZ.3, whose defining property (degree one on each geometric component) is what makes [h]^o lie in Div^0 and hence admit a Neron-Tate pairing. The same xi also fixes the admissible extensions used in the local decomposition.",
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.2.2 and Sec. 1.5.5, printed pp. 4, 15-16"
+        }
+      ]
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.3/normalised-hodge-class-and-xi-parametrised-realisation",
+      "target": "GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity",
+      "reason": "Theorem 1.2 is stated for f1 in pi_A = Hom^0_xi(X,A) and f2 in pi_{A-dual}; these are exactly the xi-normalised parametrisations constructed at GZ.3, and the strict GL(2)-type property of A (Eichler-Shimura) is what makes M = End^0(A) a field so that the L-linear pairing on the left-hand side is defined.",
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.2.3 and Thm. 1.2, printed pp. 4-5, 9"
+        }
+      ]
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional",
+      "target": "GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof",
+      "reason": "The right-hand side of the Waldspurger formula is alpha(f1 tensor f2), the canonical generator of P(pi,chi) tensor P(pi-tilde,chi^{-1}) constructed at GZ.4; the interpretation of the formula as an identity of two vectors in an at-most-one-dimensional space is exactly Thm. 1.3.",
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Thm. 1.4 and the following Remark, printed pp. 11-12"
+        }
+      ]
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional",
+      "target": "GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-functions-local-decomposition-and-approximation",
+      "reason": "The reduction of the general kernel identity to the degenerate Schwartz functions is NOT formal: the source says 'The key to recover (1.5.4) in the full case from these assumptions is Theorem 1.3'. One-dimensionality reduces the identity to a single pair (Phi,phi) with alpha(theta(Phi tensor phi)) nonzero, and the existence of such a Phi satisfying the degeneracy assumptions is a local problem.",
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.5.8, printed p. 18"
+        }
+      ]
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof",
+      "target": "GrossZagierAndArithmeticHeights:GZ.6/generating-series-arithmetic-theta-lifting-and-the-kernel-identity",
+      "reason": "The coherent Waldspurger identity is the template for the incoherent one: the geometric kernel Z-tilde(g,chi,Phi) 'takes the place of the kernel function theta(g,(chi,chi^{-1}),Phi) in the incoherent case', the analytic kernel I(s,g,chi,Phi) is defined by exactly the same formula, and the arithmetic theta lifting identity (1.5.5) is the incoherent counterpart of the (trivial) coherent statement.",
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.5.5-1.5.7, printed pp. 15-17"
+        }
+      ]
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.6/generating-series-arithmetic-theta-lifting-and-the-kernel-identity",
+      "target": "GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-functions-local-decomposition-and-approximation",
+      "reason": "GZ.7 computes the difference Pr I'(0,g,chi,Phi) - 2 Z-tilde(g,chi,Phi) of exactly the two kernels constructed at GZ.6; the degeneracy assumptions are imposed on the Schwartz function entering the generating series, and their four listed effects are all effects on that series and on the resulting height series.",
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.5.8-1.5.9, printed pp. 17-19"
+        }
+      ]
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-functions-local-decomposition-and-approximation",
+      "target": "GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity",
+      "reason": "The kernel identity, once proved in the degenerate case and extended by Thm. 1.3, is equivalent to Theorem 3.15 via the arithmetic theta lifting (1.5.5), and Theorem 3.15 is equivalent to Theorem 1.2 via the projector interpretation. GZ.7 is therefore the last proof step of GZ.8, not an independent statement.",
+      "sources": [
+        {
+          "sourceId": "yzz-gross-zagier-shimura-curves-2013",
+          "locator": "Chapter 1, Sec. 1.5.3, 1.5.6, 1.5.10, printed pp. 14, 16, 19"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.0",
+      "status": "partial",
+      "remaining": [
+        "Yuan-Zhang-Zhang Sec. 1.6 ('Notation and terminology', book pp. 20-27) was NOT read; it fixes the remaining conventions (measures on B^x, the definition of delta, the decomposition B_v = E_v + E_v j_v, and the local pairings).",
+        "The stage text asks for the relation between motivic centre s = 1 and unitary centre s = 1/2. The source records L(s, A_E, chi) = L(s - 1/2, pi_A, chi) (book p. 7) and erratum item 23 corrects L_v(s,A,M) = L(s - 1/2, pi_{A,v}); the general comparison map was not traced.",
+        "The stage text asks for the comparison with the EXISTING elliptic height normalised by the logarithmic x-height, including the factor of two and the c_infinity real-period factor. Neither that existing normalisation nor the comparison was inspected in this packet.",
+        "The Gram-determinant scaling statement (a pairing scaled by c has rank-r Gram determinant scaled by c^r) is elementary but was not located in the source; it is recorded here as an acceptance item only."
+      ]
+    },
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.1",
+      "status": "partial",
+      "remaining": [
+        "Yuan-Zhang-Zhang explicitly refer the proofs of Thms. 7.1 and 7.2 to Serre's book ('All the results here can be found in Serre's book [Se]'); that book is not in the supplied library and the proofs were not read.",
+        "Book Sec. 7.1.2-7.1.3 (local heights, Green functions and the decomposition formula (7.1.1)) were not read.",
+        "The stage text asks for the M-linear pairing valued in M tensor_Q R for strict GL(2)-type A and the dual-endomorphism compatibility. The source uses <.,.>_M and <.,.>_L but its construction of them (book Sec. 3.2) was not read.",
+        "Northcott finiteness, weak descent and the Mordell-Weil theorem are inputs to Thm. 7.1(1) and were not inspected."
+      ]
+    },
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.2",
+      "status": "partial",
+      "remaining": [
+        "The arithmetic Hodge index theorem is quoted from Faltings and Hriljac; neither proof was read, and neither paper is present in the supplied library.",
+        "Zhang's 'Admissible pairing on a curve' is in the library as BSD_ZhangAdmissible.pdf but its text extraction contains only 36 lines of front matter, i.e. THE PDF HAS NO USABLE TEXT LAYER. The reduction graph, Laplacian, admissible measure and Green kernel at semistable places were therefore NOT read.",
+        "Book Sec. 7.2 (the arithmetic models actually used) was not read. Secs. 7.1.2-7.1.3 (the curve case and the Gillet-Soule intersection with formulas (7.1.1)-(7.1.2)) and Secs. 7.1.6-7.1.7 (the admissible pairing and its i/j decomposition) WERE read during the independent review and are now recorded in the node.",
+        "The stage text asks for intersection matrices and their kernel, and for the vertical correction divisors; these live in Sec. 7.2 and in Zhang's paper and were not inspected.",
+        "The Faltings-Hriljac comparison sign is recorded from Thm. 7.4 but was not cross-checked against a second source."
+      ]
+    },
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.3",
+      "status": "partial",
+      "remaining": [
+        "Book Sec. 3.1 ('Basics on Shimura curves', pp. 58-68) and Sec. 3.2 ('Abelian varieties parametrized by Shimura curves', pp. 68-83) were not read; they contain Lemma 3.1 (deg L_U = vol(X_U)) with its proof, the Eichler-Shimura argument, and the construction of the pairing on pi_A x pi_{A-dual}.",
+        "The stage text asks for the pairing of the realisations for A and A-dual obtained by composing induced homomorphisms of Jacobians and dividing by the curve volume, its independence of level, adjunction, perfectness and comparison with the Petersson pairing. All of this is in book Sec. 3.2 and was not read.",
+        "The stage text asks for Manin constants and differential pullbacks with exact isogeny functoriality; these do not appear in the sections read.",
+        "The identification of pi_A with the representation supplied by the GL_2 transfer owner was not traced."
+      ]
+    },
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.4",
+      "status": "partial",
+      "remaining": [
+        "Tunnell's and Saito's proofs of Thm. 1.3 were not read; neither paper is in the supplied library.",
+        "The convergence or regularisation of the integral defining alpha_v was not inspected; the source calls the definition 'formal' and defines it through an auxiliary embedding.",
+        "Book Sec. 2.1-2.2 (Weil representation, Shimizu lifting) and the local test-vector theory were not read.",
+        "The stage text asks for explicit test vectors with conductor mismatch, ramified quadratic extensions and wild or dyadic cases, and for the Cai-Shu-Tian explicit formulas. BSD_YZZExplicit.pdf (Cai-Shu-Tian) is present in the library but was NOT read in this packet.",
+        "The archimedean discrete-series contributions to the toric Hom space were not inspected."
+      ]
+    },
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.5",
+      "status": "partial",
+      "remaining": [
+        "Book Chapter 2 (pp. 28-57) was not read: Weil representation (2.1), Shimizu lifting (2.2), integral representations of the L-function (2.3), the actual proof of the Waldspurger formula (2.4) and incoherent Eisenstein series (2.5).",
+        "The two Siegel-Weil inputs, on the quadratic spaces (E,q) and (B_0,q), were identified from the plan of the proof but their statements and proofs were not read.",
+        "Waldspurger's original paper is not in the supplied library and was not read.",
+        "The stage text asks for the explicit split, ramified and definite-quaternionic specialisations exported to Euler-system and level-raising consumers; those specialisations were not located in the sections read."
+      ]
+    },
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.6",
+      "status": "partial",
+      "remaining": [
+        "Book Chapter 3 Sec. 3.4-3.6 (the generating series, the geometric kernel, the analytic kernel and the kernel identity, pp. 91-105) and Chapter 4 (pp. 106-170, containing the modularity proof, the degree of the generating series, the trace identity and the pullback formulas in both the compact and non-compact cases) were NOT read. Chapter 4 is where (1.5.5) is actually proved.",
+        "The modularity of Z(g,Phi)_U is attributed to 'the work of many people' and its proof (Sec. 4.2) was not read.",
+        "The regularisation of the toric integral defining the geometric kernel was not inspected.",
+        "The stage text asks for the functional-equation vanishing that permits differentiation and the justification of interchanging derivatives, sums and integrals; these are in Chapter 6 and were not read."
+      ]
+    },
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.7",
+      "status": "partial",
+      "remaining": [
+        "Book Chapter 5 (pp. 171-183), Chapter 6 (pp. 184-205), Chapter 7 Sec. 7.2-7.4 (pp. 216-229) and Chapter 8 (pp. 230-250) were NOT read. These contain: the proof that the degeneracy assumptions suffice; the Fourier decomposition and holomorphic projection; the vanishing of the Hodge contributions; and the four local height computations (archimedean, supersingular, superspecial, ordinary) plus the j-part.",
+        "The local representation-density and Whittaker-derivative identities at finite places, and the archimedean Green-function identity with its spectral expansion, were not read.",
+        "The stage text asks that residue characteristic 2 be preserved where a claimed general theorem includes it; no residue-characteristic hypotheses were located in the sections read.",
+        "The stage text asks for the noncompact modular-curve boundary and cusp corrections; the source flags that 'the computation is very complicated if X_U contains cusps' (Sec. 4.7, non-compact case) but that section was not read.",
+        "Cerednik-Drinfeld uniformization and the reduction-graph input were not inspected."
+      ]
+    },
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.8",
+      "status": "partial",
+      "remaining": [
+        "Book Sec. 3.3 ('Main theorem in terms of projectors', pp. 83-90), where Theorem 3.15 is stated and its equivalence with Theorem 1.2 proved, was not read.",
+        "The original Gross-Zagier paper (Invent. Math. 84 (1986), 225-320) is present in the library as BSD_GrossZagier.pdf but its text extraction contains ONLY 4 lines of bibliographic metadata, i.e. THE PDF HAS NO USABLE TEXT LAYER. Theorem 1.1 is therefore recorded here only as quoted by Yuan-Zhang-Zhang; the original proof was not read.",
+        "Conrad's 'Gross-Zagier revisited' and Shou-Wu Zhang's 'Heights of Heegner points on Shimura curves' ARE fully extracted in the library but were not read in this packet; they are the natural next sources for the classical and first-generalised cases.",
+        "Cai-Shu-Tian's explicit Gross-Zagier and Waldspurger formulae (BSD_YZZExplicit.pdf, present and extracted) were not read; the stage text asks for their explicit formulas with the stated conductor conditions, unit-group factors, discriminants, degrees and Manin constants.",
+        "The deduction 'nonzero derivative implies non-torsion point' via GZ.1 positivity was not traced in the source."
+      ]
+    },
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.9",
+      "status": "not_read",
+      "remaining": [
+        "Bertolini-Darmon-Prasanna, 'Generalized Heegner cycles and p-adic Rankin L-series' (Duke Math. J. 162 (2013), 1033-1148) IS fully extracted in the library and its Theorem 5.13 is the p-adic Gross-Zagier formula the stage needs; only the abstract and the table of contents were inspected in this packet.",
+        "Brooks, 'Shimura curves and special values of p-adic L-functions' (R02_Brooks_ShimuraPadicL.pdf, present) was not read; the stage explicitly needs Brooks Prop. 8.13 for the quaternionic good-supersingular case.",
+        "Jetchev-Skinner-Wan (BSD_JSW.pdf, present) Sec. 5.1 and Props. 5.1.6-5.1.7 were not read.",
+        "The interpolation range, CM periods and removed Euler factors of the BDP p-adic L-function were not inspected, nor the distinction between the squared BDP L-function and its square root.",
+        "NOTE: this stage will be revisited when the EXT-15 GeneralizedHeegnerCycles packet is written, since BDP Thm. 5.13 is shared between the two roadmaps."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "The original Gross-Zagier paper has no usable text layer in the supplied library",
+      "neededBy": [
+        "GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity"
+      ],
+      "detail": "Verified: BSD_GrossZagier.pdf is registered in CATALOGUE.json (id GrossZagier, sha256 a9a52cb8662e03f19ace81dcfbf24bf873bf9c46ba89a8c890727b9541abdbf5) and the library's text extraction references/text/BSD_GrossZagier.txt contains ONLY four lines of bibliographic metadata ('Heegner points and derivatives of L-series. by Gross, B.H.; Zagier, D.B. in Inventiones mathematicae volume 84; pp. 225 - 320'). The PDF is a scan without an OCR layer. NOT verified: any statement or proof from the original paper; Theorem 1.1 is recorded in this packet only as QUOTED by Yuan-Zhang-Zhang p. 1. Next source action: OCR the existing PDF, or read Conrad's 'Gross-Zagier revisited' (references/text/BSD_ConradGZ.txt, 4684 lines, fully extracted and present) which reworks the original proof, and Shou-Wu Zhang's 'Heights of Heegner points on Shimura curves' (references/text/BSD_ZhangHeights.txt, 6430 lines, present)."
+    },
+    {
+      "title": "Zhang's 'Admissible pairing on a curve' has no usable text layer",
+      "neededBy": [
+        "GrossZagierAndArithmeticHeights:GZ.2/hodge-index-theorem-and-admissible-arithmetic-extensions"
+      ],
+      "detail": "Verified: BSD_ZhangAdmissible.pdf is registered (id ZhangAdmissible, sha256 ec17d361c9239352705f8d630198ffe4eb3ce62b185b0b038cbc6163a968a9a6) and its text extraction is 36 lines of front matter only. Verified from Yuan-Zhang-Zhang Sec. 7.1.5: the DEFINITION of a xi-hat-admissible arithmetic divisor, the existence and uniqueness of the admissible extension, and its dependence on xi-hat. NOT verified: the reduction graph, the Laplacian, the admissible measure and the Green kernel at semistable non-archimedean places, and the agreement of the admissible Green kernel with model intersection after vertical correction -- all of which the stage text requires and all of which live in Zhang's paper. Next source action: OCR BSD_ZhangAdmissible.pdf, or read Yuan-Zhang-Zhang Sec. 7.2 (book pp. 216-219), which describes the arithmetic models actually used and is present in the extracted text."
+    },
+    {
+      "title": "Chapters 2-8 of Yuan-Zhang-Zhang are unread; only Chapter 1 and Sec. 7.1 were inspected",
+      "neededBy": [
+        "GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof",
+        "GrossZagierAndArithmeticHeights:GZ.6/generating-series-arithmetic-theta-lifting-and-the-kernel-identity",
+        "GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-functions-local-decomposition-and-approximation",
+        "GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity"
+      ],
+      "detail": "Verified: every statement recorded in this packet's nodes traces to Chapter 1 (pp. 1-19) or Sec. 7.1 (pp. 206-215), both read in full, or to the erratum. NOT verified: any proof from Chapters 2-6, 8 or from Secs. 3.1-3.6, 7.2-7.4. In particular the modularity of the generating series (Sec. 4.2), the arithmetic theta lifting identity (1.5.5) (Chapter 4), the proof that the degenerate Schwartz functions suffice (Chapter 5), the Fourier/Whittaker decomposition and holomorphic projection (Chapter 6), and the four local height computations (Chapter 8) are all recorded from the author's own plan of the proof rather than from the arguments. The whole text is present and extracted (14474 lines), so this is a reading-budget boundary, not an access boundary. One point of substance is left open by the sections read: at the split places the degeneracy assumption on p. 17 is printed with S^1, not S^2, although S^2 is defined immediately above it and is not otherwise used; Chapter 5 Sec. 5.2, where the assumption is applied, decides this. Next source action: read Sec. 3.3 (Thm. 3.15 and the equivalence with Thm. 1.2), Sec. 3.6 (Thm. 3.21), Chapter 5 Sec. 5.2, and Chapter 7 Secs. 7.2-7.4, in that order."
+    },
+    {
+      "title": "Saito-Tunnell and Waldspurger are quoted, not proved, and are absent from the library",
+      "neededBy": [
+        "GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional",
+        "GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof"
+      ],
+      "detail": "Verified: the statement of Thm. 1.3 as printed and as corrected by the erratum, and the statement of Thm. 1.4 with its constant, measures and remark about Waldspurger's differing normalisations. NOT verified: Tunnell's and Saito's proofs of the dichotomy; Waldspurger's own Proposition 7 and his Sec. III-2 Lemme 10 (cited for the unramified value of alpha_v); the Siegel-Weil formulae on (E,q) and (B_0,q). CORRECTED IN REVIEW: CATALOGUE.json does carry an acquisition placeholder for exactly this family, id LocalToricAndWaldspurger, title 'Saito-Tunnell local distinction and Waldspurger toric-period primary papers', status source_family_not_fully_acquired, priority 2, whose stated reason is that the GZ.4-GZ.5 proof sources are 'partly in YZZ/Cai-Shu-Tian' and the primary editions are to be obtained during detailed proof review. What is missing is a FILE: the other Tunnell, Saito and Waldspurger records in the catalogue are different papers (ADD_TUNNELL81, Artin's conjecture for representations of octahedral type, status acquisition_failed; ADD_T_SAITO, T. Saito on Hilbert modular forms and p-adic Hodge theory, a different Saito; and the Moeglin-Waldspurger Eisenstein-series book together with Waldspurger's endoscopy and transfer papers). ACQUISITION REQUEST: Tunnell, 'Local epsilon-factors and characters of GL(2)'; Saito, 'On Tunnell's formula for characters of GL(2)'; Waldspurger, 'Sur les valeurs de certaines fonctions L automorphes en leur centre de symetrie'. Note that Yuan-Zhang-Zhang Chapter 2 contains its own proof of the Waldspurger formula and IS available."
+    },
+    {
+      "title": "The published erratum materially changes statements that downstream stages consume",
+      "neededBy": [
+        "GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections",
+        "GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional",
+        "GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity",
+        "HeegnerPointEulerSystems:HE.1"
+      ],
+      "detail": "This is a CORRECTION NOTICE rather than an unread boundary. The erratum dated 28 June 2026 was read in full. Four of its items change mathematical content rather than typography: (1) item 1/16 -- the Shimura curve X is a regular locally noetherian scheme over F only if #Sigma > 1; (2) item 2 -- Sigma(A,chi) has NO eta_v(-1) factor; (3) item 5 -- the Saito-Tunnell criterion is epsilon(1/2,pi,chi) = chi(-1) epsilon(B), the discrepancy being the choice between the base-change and Rankin-Selberg root-number conventions; (4) items 4/10/13/15 -- the toric measure is normalised by vol(E^x \\\\ E_A^x / A^x) = 2 L(1,eta) and is NOT the Tamagawa measure. Item 30 also corrects the special cycle Z(x)_U to a push-forward rather than a set-theoretic image. Any consumer of GZ.4, GZ.6 or GZ.8 must use the corrected forms. The role of HeegnerPointEulerSystems:HE.1 was stated backwards and is corrected here: in data/atlas.json HE.1 REQUIRES GrossZagierAndArithmeticHeights:GZ.3 (its stage text names 'GZ.0 and GZ.3's Hodge class only'), and GZ.6 in turn REQUIRES HE.1. So HE.1 is a consumer of the GZ.0 conventions -- the root-number convention and the toric measure -- and must state them in the corrected form, while the push-forward definition of the special cycles (item 30) and the #Sigma > 1 restriction (items 1 and 16) bind GZ.6 where it consumes HE.1's CM divisors, not HE.1 itself. NO next source action is needed for this item; it is recorded so that a later reader does not reintroduce the printed versions."
+    },
+    {
+      "title": "GZ.9 not started; its sources are present and extracted",
+      "neededBy": [
+        "GrossZagierAndArithmeticHeights:GZ.9"
+      ],
+      "detail": "Nothing about GZ.9 has been verified in this packet beyond the existence and abstract of Bertolini-Darmon-Prasanna. The stage requires: the BDP p-adic L-function with its actual interpolation range, CM periods and removed Euler factors; Brooks Prop. 8.13 for the quaternionic good-supersingular case; JSW Sec. 5.1 and Props. 5.1.6-5.1.7; and the p-adic Waldspurger identity at the weight-two point OUTSIDE the interpolation range. All three sources are present and text-extracted (BSD_BDP, R02_Brooks_ShimuraPadicL, BSD_JSW). Next source action: read BDP Sec. 5 (printed pp. 1127-1139) for Thm. 5.13 and the construction of the anticyclotomic p-adic L-function, then Brooks Sec. 8. This will be done together with the EXT-15 GeneralizedHeegnerCycles packet, which shares BDP Thm. 5.13."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
+    "date": "2026-09-16",
+    "notes": "Independent review of all 9 nodes, 12 links, 10 coverage records and 6 gaps against the two sources, both of which are in the supplied library and whose SHA-256 values match the packet (6a87b131... for the monograph, e4c4eaeb... for the erratum; no source was fetched from the network for this packet). Read for the review: the monograph's Chapter 1 pp. 1-19 and Sec. 7.1 pp. 206-215 in full, the erratum in full including its Sec. 2 on the special cycle, and, to check locators the packet cites without claiming to have read them, Thm. 3.15 (p. 84), the two descriptions of Z(x)_U (p. 93), Thm. 3.21 (p. 105) and the three passages corrected by erratum items 10, 13 and 15 (pp. 23, 33, 43). A rendering of printed p. 17 was inspected because the assumption on degenerate Schwartz functions names S^1 twice; the book does print S^1 twice, so the packet is faithful and the ambiguity is recorded as a reading boundary rather than silently repaired. Verdicts: 2 verified, 7 corrected, 0 unverifiable. The corrections of substance are three. (i) GZ.8 had lost the two standing hypotheses of the whole theory: B is an incoherent quaternion algebra over the adeles, totally definite at infinity, and E/F is totally imaginary. (ii) GZ.7 stated that automorphy and density force the difference of the two kernels to vanish; in the source the residual sum of coherent kernels is not zero and is killed only by being perpendicular to sigma, via Thm. 1.3. (iii) GZ.4 recorded the spherical value alpha = 1 without the source's condition that B be split. Two smaller ones: the erratum's 4 L(1,eta)^2 sentence was mislocated to the main theorem (it corrects book p. 43), and two acceptance items had the rescaling of alpha_v under a change of local pairing inverted (it is c, not c^{-1}). GZ.2 was extended, not corrected: Secs. 7.1.2-7.1.3 and 7.1.6-7.1.7 were read in review and supply the local decomposition, the factor of one half on curves and the vertical-correction term j that the stage text asks for. All 12 links are internal to the roadmap, all endpoints exist, and every direction runs prerequisite to consumer; each cited locator was checked and does use the source node's output, so no link was removed. One link reason was made precise about which erratum item corrects what. Two gap claims were false and are corrected: CATALOGUE.json does hold an acquisition placeholder for the Saito-Tunnell and Waldspurger family (id LocalToricAndWaldspurger, status source_family_not_fully_acquired), and the erratum gap had HeegnerPointEulerSystems:HE.1 as a consumer of GZ.4/GZ.6/GZ.8 when the atlas has HE.1 requiring GZ.3 and GZ.6 requiring HE.1. The remaining gap claims were checked against the library and hold: BSD_GrossZagier.txt is 4 lines and BSD_ZhangAdmissible.txt is 36, so neither scan has a usable text layer, while BSD_ConradGZ (4684 lines), BSD_ZhangHeights (6430), BSD_BDP, R02_Brooks_ShimuraPadicL, BSD_JSW and BSD_YZZExplicit are all present and extracted, with BDP Thm. 5.13, Brooks Prop. 8.13 and JSW Props. 5.1.6-5.1.7 located where the packet says. Coverage records name the ten real stages of this roadmap and each lists specific remaining work; GZ.9 is honestly not_read. Implementation status stays unchecked throughout and the packet status stays partial.",
+    "checked": [
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections",
+        "verdict": "corrected",
+        "note": "All four erratum items (2, 3, 4, 5) and the alpha_v normalising factor at book p. 8 read and confirmed verbatim, as were the three passages they correct (p. 23 'All of them are Tamagawa measures', p. 33 the SO(V) Tamagawa numbers, p. 43 the factor 4 L(1,eta)^2). Two corrections: the statement placed the erratum's 4 L(1,eta)^2 sentence 'in the main theorem', whereas item 15 corrects a sentence on p. 43 inside the Chapter 2 proof of the Waldspurger formula; and an acceptance item asserted that rescaling a local pairing by c changes alpha_v by c^{-1}, whereas alpha_v is linear in that pairing and changes by c."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.1/neron-tate-height-and-the-poincare-pairing",
+        "verdict": "verified",
+        "note": "Sec. 7.1.1 read in full. The height normalisation and its dependence on F, the symmetric/ample hypotheses, Thm. 7.1 (1) and (2), the pairing <x,y>_L, the Poincare bundle and Thm. 7.2 all match the source word for word, and the attribution of the proofs to Serre is the source's own. The factor-of-two acceptance item is correct: <x,x>_L = 2 h-hat_L(x)."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/hodge-index-theorem-and-admissible-arithmetic-extensions",
+        "verdict": "corrected",
+        "note": "Nothing recorded was wrong: flatness in both forms, Thm. 7.4 with its minus sign, the three admissibility conditions and the uniqueness of the admissible extension are verbatim from Secs. 7.1.4-7.1.5. The node was EXTENDED with Secs. 7.1.2-7.1.3 and 7.1.6-7.1.7, read during this review, which the stage text needs and which the packet had listed as unread: the curve-case factor of one half, the Gillet-Soule formula (7.1.1) with the log N_v convention, the admissible pairing -(1/[L:F]) D-hat_1 . D-hat_2 and its i/j decomposition. Two source entries and one hypothesis added; the GZ.2 coverage record updated."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.3/normalised-hodge-class-and-xi-parametrised-realisation",
+        "verdict": "corrected",
+        "note": "Secs. 1.2.2-1.2.3 read in full: the Hodge class and its cusp/canonical-bundle dichotomy, the componentwise normalisation of xi_U, deg L_U = vol(X_U) with rationality, the degree of the projections, strict GL(2)-type from Eichler-Shimura and the base-point definition of pi_A all match. Correction: the node did not record the standing setting of Sec. 1.2.1 (F totally real, B incoherent over the adeles and totally definite at infinity); a hypothesis and a source entry were added."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional",
+        "verdict": "corrected",
+        "note": "Thm. 1.3 as printed, erratum item 5, the base-change convention sentence and the definition of alpha_v all verified. Correction: the spherical value alpha = 1 was recorded without the source's first condition B = M_2(F) split, so the statement, the excerpt and one acceptance item were completed. The c^{-1} error in the rescaling acceptance item was corrected to c, as at GZ.0."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof",
+        "verdict": "verified",
+        "note": "Thm. 1.4 with the constant 8 L(1,eta)^2, the probability measure in the period, the Tamagawa measure of volume 2 in the Petersson pairing, the Remark on Waldspurger's differing normalisations and trivial central character, the Shimizu lifting, the integral representation, and (1.5.1)-(1.5.2) with their two distinct Siegel-Weil inputs on (E,q) and (B_0,q) are all verbatim from pp. 11-13. Erratum items 6 and 7 are correctly applied to the two displays."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/generating-series-arithmetic-theta-lifting-and-the-kernel-identity",
+        "verdict": "corrected",
+        "note": "The generating series with erratum item 8, the push-forward correction of item 30 (checked against book p. 93, which does read 'can also be defined as the image of the morphism'), the height series with [h]^o = [h] - xi_{q(h)}, the regularised toric integral, the kernel identity of Thm. 3.21 (located and read at printed p. 105 in review; it matches the Chapter 1 statement) and (1.5.5) are all verified. Correction: one acceptance item asserted that the constant of (1.5.5) 'is the bridge' converting 8 L(1,eta)^2 into 4 L(1,eta)^2; the packet does not derive that, so it is now stated as a check with the unread sections named."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-functions-local-decomposition-and-approximation",
+        "verdict": "corrected",
+        "note": "The two degeneracy classes, the four listed effects, the split of both kernels over the nonsplit places, the good/bad dichotomy and the nearby-quaternion approximation are verbatim from pp. 17-19. The OCR oddity that S^1 appears in both clauses of the assumption was checked against a rendering of book p. 17: the book does print S^1 twice, so the packet is faithful and the point is now recorded as an open reading boundary (Chapter 5 Sec. 5.2). Correction of substance: the final step was recorded as 'automorphy plus density forces it to vanish'. The source says the opposite -- the sum of coherent kernels in (1.5.6) is a priori not zero, and it is perpendicular to sigma by Thm. 1.3 because each B(v) has the wrong ramification set. Statement, proof step and one acceptance item were rewritten."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity",
+        "verdict": "corrected",
+        "note": "Thm. 1.2 with its constant and the L-linear pairing, the vacuous and essential cases with epsilon = -1, Thm. 3.15 (verified directly at printed p. 84, same constant), the T_alg reduction, Thm. 1.1 with h, u half the number of units and 8 pi^2 (f,f), the Heegner condition, the resulting sign and the denominator warning, and erratum items 1 and 16 are all verified. Correction: the hypotheses had 'B a quaternion algebra over F' and 'E a quadratic field extension of F', losing the two hypotheses the whole theory rests on -- B is INCOHERENT over the adeles (Sigma odd) and totally definite at infinity, and E/F is TOTALLY IMAGINARY. Statement, hypotheses and sources were corrected."
+      }
+    ]
+  }
+}

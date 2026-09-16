@@ -1,0 +1,1523 @@
+{
+  "roadmapId": "StableHomotopyKTheory",
+  "status": "partial",
+  "summary": "Source-based expansion of the category-to-space tools used by Quillen K-theory: nerves and classifying spaces, coverings and homology with local coefficients (Quillen 1973 §1; Weibel K-book IV §3), homotopy fibres, the bisimplicial realization lemma, Quillen's quasi-fibration lemma and complete proofs of Theorems A and B; acyclic maps and the plus construction (Weibel IV §1, with Hatcher's cell-attachment proof of existence); the S⁻¹S group completion, Quillen's localization-of-homology theorem, the telescope identification with Z × BGL(R)⁺ and cofinality for projective modules (Weibel IV §4); Segal's Γ-space delooping and the Eilenberg–Mac Lane bar construction (Carlsson, Handbook I.1 §1.2); the iterated S.-construction spectrum (Weibel IV §8); and mod-ℓ coefficients, the universal coefficient (Bockstein) sequence and ℓ-adic completion (Weibel IV §2). The universal property of the plus construction, the concrete spectrum model and stable homotopy category, the Milnor lim¹ and exact-couple convergence proofs, and several imported topology lemmas (Dold–Lashof, Milnor, Segal, Tornehave) remain unread boundaries recorded as gaps.",
+  "sources": [
+    {
+      "id": "Quillen-HigherK-I-1973",
+      "title": "Higher algebraic K-theory: I",
+      "authors": "Daniel Quillen",
+      "edition": "Algebraic K-theory I (Battelle 1972), Lecture Notes in Math. 341, Springer 1973, pp. 85–147; scanned copy (63 PDF pages). Locators give LNM page (printed at page foot) and PDF page.",
+      "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf",
+      "sha256": "5d2db42d3fec06156da4e6f6d5a85fb9a04358df59141d3abe74a57b815bae04",
+      "readSections": [
+        "Introduction and contents, LNM pp. 85–88 (PDF 1–4)",
+        "§1 The classifying space of a small category, complete: coverings and π₁ (Prop. 1), homology (1)–(2), properties of the classifying space functor (Props. 2–3 and corollaries), Theorem A with its example, corollary and full proof including the bisimplicial realization lemma, the exact homotopy sequence, Theorem B with corollary, the quasi-fibration lemma and the proof of Theorem B, LNM pp. 89–99 (PDF 5–15)",
+        "§2 opening (exact categories, definition of QM), LNM pp. 99–100 (PDF 15–16); the rest of §2 is read in the GeneralAlgebraicKTheory packet",
+        "References, LNM pp. 146–147 (PDF 62–63), to identify the imported results of §1"
+      ]
+    },
+    {
+      "id": "Weibel-KBook-IV",
+      "title": "The K-book: An introduction to algebraic K-theory, Chapter IV: Definitions of higher K-theory",
+      "authors": "Charles A. Weibel",
+      "edition": "Author's online chapter file Kbook.IV.pdf (93 pages; chapter page numbers equal PDF page numbers). The published book (AMS GSM 145, 2013) has different page numbers; theorem numbers are those of this file.",
+      "url": "https://www.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf",
+      "sha256": "9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248",
+      "readSections": [
+        "Chapter introduction, pp. IV.1–2",
+        "§1 The BGL⁺ definition for rings, including Definitions 1.1–1.4.1, Theorem 1.5 (statement and proof pointer), Lemma 1.6 with proof, Proposition 1.7 with proof, Theorem 1.8, Constructions 1.9, relative groups 1.11, and Exercises 1.1–1.27, pp. IV.2–17",
+        "§2 K-theory with finite coefficients, Definitions 2.1–2.4, Universal Coefficient Sequence 2.2 and Theorem 2.5, Proposition 2.3 with proof, Proposition 2.7 with proof, Theorem 2.8, 2.9 (ℓ-adic completion), Rigidity 2.10, Exercises 2.1–2.6, pp. IV.18–23",
+        "§3 Geometric realization of a small category, complete including Theorem 3.6.1, Example 3.6.2, Theorems A (3.7) and B (3.8) with proofs, 3.7.3–3.8.1, bicategories, Exercises 3.1–3.14, pp. IV.24–35",
+        "§4 Symmetric monoidal categories, complete including Definitions 4.1–4.7.1, Lemma 4.3.1, Lemma 4.4.1, Theorem 4.4.3, Theorem 4.8 with proof, Theorem 4.9 with proof, Theorems 4.10–4.11 with proofs, Exercises 4.1–4.10, pp. IV.36–46",
+        "§6 Exercises 6.13–6.16 and §7 The + = Q theorem, complete, pp. IV.61–65",
+        "§8 Waldhausen's wS. construction, Definitions 8.1–8.5, 8.5.1–8.5.5, Lemma 8.5.4 with proof, 8.6–8.11 and Exercises 8.1–8.15, pp. IV.66–75",
+        "Checked by independent review: Theorem 1.12 and Corollary 1.13, p. IV.10 (used by the link to KTheoryFiniteLocalFields:L.1); Exercises 4.7–4.10, p. IV.46"
+      ]
+    },
+    {
+      "id": "Carlsson-Deloopings-Handbook-2005",
+      "title": "Deloopings in algebraic K-theory (Handbook of K-theory, vol. 1, chapter I.1)",
+      "authors": "Gunnar Carlsson; volume editors Eric M. Friedlander and Daniel R. Grayson",
+      "edition": "Handbook of K-theory, Springer 2005, vol. 1, pp. 3–37; campaign library copy of the two-volume Handbook (1177 PDF pages). No public URL verified for this copy.",
+      "sha256": "3d5b694c62befa78068cfb3d8e63271f766d29581770a4b5fa8f4a483f5b7e60",
+      "readSections": [
+        "Volume preface, pp. V–VIII (PDF 5–8), to identify chapter I.1",
+        "Chapter I.1 contents and §1.1 Introduction, printed pp. 3–5 (PDF 17–19)",
+        "§1.2 Generic deloopings using infinite loop space machines: Eilenberg–Mac Lane bar construction, Definition 1 (Γ-space), summing functors, Proposition 2 with proof, Theorem 3 (statement), Examples 4–5, Remark 6, Definition 7 (symmetric monoidal category), printed pp. 5–9 (PDF 19–23)"
+      ]
+    },
+    {
+      "id": "Hatcher-AlgebraicTopology",
+      "title": "Algebraic Topology",
+      "authors": "Allen Hatcher",
+      "edition": "Author's free online edition AT.pdf (560 PDF pages, PDF metadata dated 26 October 2022), downloaded from the author's Cornell page; printed page = PDF page − 9 in the pages read. Cambridge University Press print edition 2002 has the same theorem numbering. Provenance check by independent review: re-fetched from the URL above on 2026-09-15 (22:11 UTC) into the reviewer's scratch directory; SHA-256 identical to the value recorded here; PDF CreationDate 26 October 2022.",
+      "url": "https://pi.math.cornell.edu/~hatcher/AT/AT.pdf",
+      "sha256": "bebb3032bf9021b956da3bd070eb6c67dc662cf849be9cdf6679f677560e5618",
+      "readSections": [
+        "§4.2, Lemma 4.39 and 'The Plus Construction': Proposition 4.40 with proof and the following construction for a perfect subgroup, printed pp. 373–374 (PDF 382–383)",
+        "§4.2 Exercise 23 (uniqueness of the plus construction for abelian targets), printed p. 420 (PDF 429); Corollary 4.73 cited there was not read"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "StableHomotopyKTheory:H.1/nerve-and-classifying-space",
+      "parentStageId": "StableHomotopyKTheory:H.1",
+      "title": "Nerve, classifying space and its cell structure",
+      "kind": "construction",
+      "statement": "For a small category C, the nerve NC is the simplicial set whose p-simplices are strings X₀ → X₁ → ⋯ → X_p of composable morphisms, with i-th face deleting X_i and i-th degeneracy inserting an identity; BC = |NC| is a CW complex whose p-cells correspond to the nondegenerate p-simplices (no arrow an identity). A functor induces a cellular map, giving a faithful (not full) functor from small categories to CW complexes. There is a canonical cellular homeomorphism BC ≅ B(C^op) not induced by a functor, and B(C × C′) → BC × BC′ is a homeomorphism if one factor is a finite complex or if the product is given the compactly generated topology. For a partially ordered set the realization is the simplicial complex of its finite chains; for a group G viewed as a one-object category, BG is a K(G,1).",
+      "hypotheses": [
+        "C is small (its objects form a set); for a skeletally small category such as finitely generated projective modules one realizes an equivalent small category, and any two choices give homotopy equivalent realizations (Weibel IV Example 3.2.1).",
+        "The product comparison needs either a finite factor or the compactly generated product topology."
+      ],
+      "proofSteps": [
+        "Define NC with faces and degeneracies as above and take geometric realization; the recipe attaches one n-simplex for each string of n composable non-identity morphisms (Weibel IV Recipe 3.1.1, Definition 3.1.4).",
+        "The cellular homeomorphism with the opposite category comes from reversing each string; it is not realized by a functor except in special cases such as groups (Quillen §1 (3)).",
+        "Product compatibility is imported from Milnor's theorem on realizations of products (Quillen §1 (4), citing Milnor 1957); this imported proof was not read.",
+        "For a group G, Lemma 3.4 with the empty tree gives π₁(BG) = G; vanishing of higher homotopy groups is Weibel IV Exercise 3.2 (universal cover B(∫_G G) contractible), stated with a hint only."
+      ],
+      "acceptance": [
+        "B(n) is the standard (n−1)-simplex and B of the two-element group is RP^∞ (Weibel IV Example 3.1.2).",
+        "The realization of a poset of simplices of a simplicial complex is its barycentric subdivision (Quillen §1, LNM p. 89).",
+        "Do not identify BC × BC′ with B(C × C′) in the ordinary product topology without the finiteness hypothesis."
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§1, LNM p. 89 (PDF 5) and LNM pp. 91–92, formulas (3)–(4) (PDF 7–8)",
+          "excerpt": "is a homeomorphism if either BC or BC′ is a finite complex, and also if the product is given the compactly generated topology",
+          "match": "Quillen states the product comparison (4) with exactly these topological hypotheses (scan OCR reads 'i f either or H;'' for 'if either BC or BC′')."
+        },
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Characterization 3.1, Recipe 3.1.1 and Definition 3.1.4, pp. IV.24–25",
+          "excerpt": "The nerve N C of a small category C is the simplicial set defined by the following data.",
+          "match": "Gives the nerve, faces, degeneracies and the realization used in the node statement."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.1/natural-transformations-adjoints-contractibility",
+      "parentStageId": "StableHomotopyKTheory:H.1",
+      "title": "Natural transformations give homotopies; adjoints and initial objects",
+      "kind": "lemma",
+      "statement": "A natural transformation θ: f → g between functors C → C′ induces a homotopy BC × I → BC′ between Bf and Bg. Consequently a functor admitting a left or right adjoint is a homotopy equivalence, an equivalence of small categories is a homotopy equivalence, and a category with an initial or a final object is contractible (so every comma category C/d and d\\C is contractible).",
+      "hypotheses": [
+        "C, C′ small categories.",
+        "Uses the homeomorphism B(C × [1]) ≅ BC × B[1], valid because B[1] = I is a finite complex."
+      ],
+      "proofSteps": [
+        "View (f, g, θ) as a functor C × [1] → C′, where [1] is the ordered set {0 < 1}; realize and use B[1] = I with the product homeomorphism (Quillen Prop. 2).",
+        "If f′ is left adjoint to f, the unit and counit give natural transformations f′f → id and id → ff′, so Bf′ is a homotopy inverse of Bf (Quillen Prop. 2 Cor. 1).",
+        "A category with an initial or final object has an adjoint to the functor to the one-point category (Quillen Prop. 2 Cor. 2)."
+      ],
+      "acceptance": [
+        "The comma category C/d has terminal object id_d and is contractible (Weibel IV Example 3.2.2).",
+        "An additive category, having zero as initial object, has contractible realization; the interesting space is B(iso A) (Weibel IV §4 opening)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§1, Proposition 2 and Corollaries 1–2, LNM p. 92 (PDF 8)",
+          "excerpt": "A category having either an initial or a final object is contractible.",
+          "match": "Quillen's Corollary 2 is the contractibility statement; Proposition 2 and Corollary 1 precede it on the same page."
+        },
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Homotopy-theoretic properties 3.2 and Examples 3.2.1–3.2.2, pp. IV.25–26",
+          "excerpt": "any adjoint pair of functors L: C → D, R: D → C induces a homotopy equivalence between BC and BD",
+          "match": "Confirms the adjoint corollary and its derivation from natural transformations LR ⇒ id and id ⇒ RL."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.1/filtered-colimits-of-categories",
+      "parentStageId": "StableHomotopyKTheory:H.1",
+      "title": "Filtered colimits of small categories",
+      "kind": "lemma",
+      "statement": "Let I be a filtering small category and i ↦ C_i a functor to small categories with colimit C, and choose compatible objects X_i with common image X. Then colim_i π_n(C_i, X_i) ≅ π_n(C, X). If every transition functor C_i → C_{i′} is a homotopy equivalence then each C_i → C is a homotopy equivalence. Every filtering category is contractible.",
+      "hypotheses": [
+        "I is filtering (non-empty and directed).",
+        "The final Whitehead-theorem step needs CW complexes, which classifying spaces are."
+      ],
+      "proofSteps": [
+        "Filtered colimits commute with finite limits, so NC = colim NC_i; a simplicial subset with finitely many nondegenerate simplices lifts to some NC_i, uniquely after enlarging i (Quillen Prop. 3 proof).",
+        "Every compact subset of a CW complex lies in a finite subcomplex, so compact subsets of BC lift, giving the colimit formula for homotopy groups.",
+        "For Corollary 1 replace I by the cofinal category i\\I with initial object i; the map BC_i → BC is a weak equivalence, hence a homotopy equivalence by Whitehead's theorem.",
+        "I is the colimit of i ↦ I/i and each I/i has a final object, so I is contractible (Quillen Prop. 3 Cor. 2)."
+      ],
+      "acceptance": [
+        "A mapping telescope category ∫_{∪n} C has realization homotopy equivalent to B(colim C_n) (Weibel IV Exercise 3.5).",
+        "Do not apply the corollary when transition functors are not homotopy equivalences."
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§1, Proposition 3 and Corollaries 1–2, LNM pp. 92–93 (PDF 8–9)",
+          "excerpt": "Any filtering category is contractible.",
+          "match": "Corollary 2 of Proposition 3; the proposition and Corollary 1 are proved on the preceding page as summarized."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.1/coverings-fundamental-group-local-coefficients",
+      "parentStageId": "StableHomotopyKTheory:H.1",
+      "title": "π₀, π₁, coverings and local coefficient systems of BC",
+      "kind": "theorem",
+      "statement": "π₀(BC) is the set of objects modulo the equivalence relation generated by the existence of a morphism. The category of covering spaces of BC is equivalent to the category of morphism-inverting functors C → Sets, equivalently functors C[C⁻¹] → Sets from the groupoid obtained by formally inverting all arrows; hence π₁(BC, X) is canonically the automorphism group of X in C[C⁻¹], and a local coefficient system of abelian groups on BC is a morphism-inverting functor C → Ab. For connected C and a maximal tree T, π₁(BC) is generated by symbols [f] for morphisms f modulo [t] = 1 for t ∈ T, [id] = 1 and [f][g] = [f∘g].",
+      "hypotheses": [
+        "C small; the maximal-tree presentation assumes C connected and non-empty (maximal trees exist by Zorn's lemma)."
+      ],
+      "proofSteps": [
+        "A covering E of BC gives a functor X ↦ E(X) sending arrows to bijections by path lifting along 1-cells (Quillen §1, LNM p. 90).",
+        "Conversely, for F morphism-inverting, the forgetful functor F\\C → C (the Grothendieck construction ∫F) realizes to a map with fibre F(X); local triviality is imported from Gabriel–Zisman App. I 3.2 (not read).",
+        "The functor C → C[C⁻¹] induces an equivalence on morphism-inverting functor categories (Gabriel–Zisman I 1.2, not read); for connected C, C[C⁻¹] is equivalent to the automorphism group G_X, so coverings correspond to G_X-sets and π₁ = G_X by covering space theory.",
+        "The maximal-tree presentation is an application of van Kampen's theorem to the 2-skeleton (Weibel IV Lemma 3.4, proof indicated)."
+      ],
+      "acceptance": [
+        "For a group G regarded as a one-object category, π₁(BG) = G (Weibel IV Application 3.4.1); for a monoid M, π₁(BM) is the group completion of M (Application 3.4.2).",
+        "For H ⊂ G, the homotopy fibre of BH → BG is the discrete set G/H while the fibre category ι⁻¹(*) is a point (Weibel IV Exercise 3.3)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Lemma 3.3, Lemma 3.4, Local coefficients 3.5.1 and Exercise 3.1, pp. IV.27–29, IV.33–34",
+          "excerpt": "morphism-inverting functors are in 1–1 correspondence with covering spaces of BC",
+          "match": "States the covering-space correspondence and its local-coefficient consequence used in the node."
+        },
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§1 'Coverings of BC and the fundamental group', Proposition 1, LNM p. 90 (PDF 6)",
+          "excerpt": "It follows in particular thet a local coefficient system L of abelian groups on Be may be identified with the morphism-inverting functor",
+          "match": "Quillen's Proposition 1 and its consequence for local systems (scan OCR: 'Be' is BC)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.1/homology-of-small-categories",
+      "parentStageId": "StableHomotopyKTheory:H.1",
+      "title": "Homology of a small category and of its classifying space",
+      "kind": "comparison",
+      "statement": "For a functor A: C → Ab let H_p(C, A) be the homology of the simplicial abelian group p ↦ ⊕_{X₀→⋯→X_p} A(X₀) (normalized chains). Then H_p(C, A) ≅ L_p colim^C(A), the left derived functors of colim: Funct(C, Ab) → Ab, with H₀(C, A) = colim A. For a local coefficient system L (a morphism-inverting functor), H_p(BC, L) ≅ H_p(C, L), and dually for cohomology with derived limits. For a discrete group G and G-module M this recovers group homology H_*(BG; M) = H_*(G; M), and H₁(BG; Z) = G/[G, G].",
+      "hypotheses": [
+        "C small; the comparison with singular homology of BC is for coefficients forming a local system, i.e. morphism-inverting functors."
+      ],
+      "proofSteps": [
+        "A ↦ H_*(C, A) is an exact δ-functor agreeing with colim in degree 0 and effaceable in positive degrees, hence equals the derived functors (Quillen §1, citing Gabriel–Zisman App. II 3.3, not read).",
+        "Filter BC by skeleta; the resulting spectral sequence has E¹_{pq} = 0 for q ≠ 0 and E¹_{*0} the normalized chain complex, so it degenerates to the local-coefficient comparison (Quillen §1, compare Segal 1968 §5.1, not read).",
+        "For G a one-object category the cellular chain complex of BG is the canonical bar complex computing group homology (Weibel IV 3.4.2 and 3.5, citing [WHomo 6.10.5, 8.2.3])."
+      ],
+      "acceptance": [
+        "H₀(C; M) is the cokernel description of colim M (Weibel IV 3.5).",
+        "H₁(BG; Z) is the abelianization of G (roadmap H.1 test).",
+        "Group homology with nontrivial coefficients is required for acyclic maps; trivial-coefficient cohomology does not suffice (see H.3/acyclic-map-homology-criterion)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§1 'The homology of BC', formulas (1)–(2), LNM p. 91 (PDF 7)",
+          "excerpt": "It is well-known that the homology and cohomology of the classifying space of a dis-crete group coincide with the homology and cohomology of the group",
+          "match": "Introduces the generalization to arbitrary small categories proved on the same page by the effaceability and skeletal spectral sequence arguments."
+        },
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "3.5 The homology of C and BC, p. IV.28",
+          "excerpt": "The cokernel of this map is the usual description for the colimit of the functor M , so H0 (C; M ) = colimc∈C M (c).",
+          "match": "Confirms the chain complex with coefficients in a functor and its degree-zero value."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence",
+      "parentStageId": "StableHomotopyKTheory:H.2",
+      "title": "Homotopy fibre, homotopy-cartesian squares and the exact homotopy sequence",
+      "kind": "definition",
+      "statement": "For a map g: E → B and b ∈ B the homotopy fibre is F(g, b) = E ×_B B^I ×_B {b}, the space of pairs (e, γ) with γ a path from g(e) to b. For e ∈ g⁻¹(b) there is a long exact sequence ⋯ → π_{i+1}(B, b) → π_i(F(g, b), ē) → π_i(E, e) → π_i(B, b) → ⋯ ending in pointed sets π₁(B) → π₀(F) → π₀(E) → π₀(B). A commutative square E′ → E over B′ → B is homotopy-cartesian if E′ → B′ ×_B B^I ×_B E is a homotopy equivalence; if B′ is contractible this holds iff E′ → F(g, h(b′)) is a homotopy equivalence. A functor f: C → C′ and an object Y give a canonical map B(Y\\f) → F(Bf, Y) from the natural transformation Y → fj.",
+      "hypotheses": [
+        "The degree-0 and degree-1 terms are pointed sets and groups respectively; when E → B is an H-map of H-spaces F is an H-space and the terms are product preserving (Weibel IV 1.2).",
+        "Spaces of CW homotopy type are needed to turn weak equivalences into homotopy equivalences (Quillen §1 citing Milnor 1959)."
+      ],
+      "proofSteps": [
+        "Define F(g, b) and the comparison map from the strict fibre (Quillen §1, LNM p. 96).",
+        "The long exact sequence is the classical sequence of a fibration applied to the path-space replacement; its proof is imported from standard homotopy theory ([Wh]) and was not re-read.",
+        "For Y\\f, the forgetful functor j: Y\\f → C and the transformation (X, v) ↦ v: Y → fX give a canonical contraction of Bf∘Bj to Y, hence the canonical map to the homotopy fibre (Quillen §1, LNM p. 96; Weibel IV Example 3.2.3)."
+      ],
+      "acceptance": [
+        "Record whether each low-degree term is a pointed set or a group.",
+        "Exhibit homotopy fibres over points joined by a path as homotopy equivalent; the change-of-basepoint transport itself is a separate construction still to be sourced.",
+        "For H ⊂ G the fibre category and homotopy fibre of BH → BG differ (Weibel IV Exercise 3.3)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Homotopy Fiber 1.2, p. IV.3",
+          "excerpt": "is the space of pairs (e, γ), where e ∈ E and γ : [0, 1] → B is a path in B",
+          "match": "Definition of the homotopy fibre and the stated long exact sequence of groups/pointed sets."
+        },
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§1 'The exact homotopy sequence', LNM pp. 96–97 (PDF 12–13)",
+          "excerpt": "is called homotopy-cartesian if the map",
+          "match": "Quillen's definition of homotopy-cartesian squares and the contractible-base criterion stated on the following page."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.2/bisimplicial-realization-lemma",
+      "parentStageId": "StableHomotopyKTheory:H.2",
+      "title": "Realization of bisimplicial spaces",
+      "kind": "lemma",
+      "statement": "For a bisimplicial space T, realizing first in q then in p, first in p then in q, and realizing the diagonal simplicial space p ↦ T_pp give spaces related by homeomorphisms functorial in T. In particular the realization of a bisimplicial set is homeomorphic to the realization of its diagonal.",
+      "hypotheses": [
+        "Realization of simplicial spaces is defined as the left adjoint of Y ↦ (p ↦ Hom(Δ^p, Y)), so it commutes with colimits.",
+        "The representable case uses the product homeomorphism |Δ^r × Δ^s| ≅ Δ^r × Δ^s from the theory of realizations of products."
+      ],
+      "proofSteps": [
+        "Check the three realizations agree functorially on bisimplicial spaces of the form h^{rs} × S = Hom(−, r) × Hom(−, s) × S, using |Hom(·, r) × Hom(·, s) × S| = Δ^r × Δ^s × S.",
+        "Every T has a canonical presentation as the coequalizer of ⊔ h^{r′s′} × T_rs ⇉ ⊔ h^{rs} × T_rs → T.",
+        "All three functors commute with colimits, so the homeomorphisms extend from representables to all T (Quillen §1 Lemma)."
+      ],
+      "acceptance": [
+        "The diagonal of the bisimplicial set T(f) in the proof of Theorem A is the nerve of S(f).",
+        "The realization of the product bicategory A ⊗ B is BA × BB (Weibel IV Example 3.10.1).",
+        "Scope (review): this node does not supply the levelwise-equivalence theorem — a map of bisimplicial sets or simplicial spaces that is a homotopy equivalence in each degree realizes to a homotopy equivalence (Weibel IV Theorem 3.6.1(i), cited from Waldhausen 1978 and Quillen) — which GeneralAlgebraicKTheory:K.4 uses in Waldhausen §§1.4–1.5."
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§1, Lemma preceding the proof of Theorem A, LNM pp. 94–95 (PDF 10–11)",
+          "excerpt": "procedures yield the same result:",
+          "match": "Quillen states the three-way homeomorphism and proves it by representables and the canonical presentation."
+        },
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Definition 3.6, p. IV.29",
+          "excerpt": "it is well known (see [BF,B.1]) that BX is homeomorphic to B diag(X)",
+          "match": "Weibel's formulation for bisimplicial sets, with a citation rather than a proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.2/quasi-fibration-lemma",
+      "parentStageId": "StableHomotopyKTheory:H.2",
+      "title": "Quillen's quasi-fibration lemma for diagrams of spaces over a nerve",
+      "kind": "lemma",
+      "statement": "Let I be a small category and i ↦ X_i a functor to topological spaces, and let g: X_I → BI be the realization of the map from p ↦ ⊔_{i₀→⋯→i_p} X_{i₀} to the nerve of I. If every induced map X_i → X_{i′} is a homotopy equivalence then g is a quasi-fibration: for every b ∈ BI the map g⁻¹(b) → F(g, b) induces isomorphisms on homotopy groups. When the spaces involved have CW homotopy type the square g⁻¹(b) → X_I over {b} → BI is homotopy-cartesian.",
+      "hypotheses": [
+        "Every transition map X_i → X_{i′} (for arrows i → i′ of I) is a homotopy equivalence.",
+        "Homotopy-cartesian conclusion requires CW homotopy types (Milnor 1959, cited, not read)."
+      ],
+      "proofSteps": [
+        "By Dold–Lashof Lemma 1.5 it suffices to show g restricted to each skeleton F_p of BI is a quasi-fibration (imported, not read).",
+        "Let U be F_p minus the barycentres of the p-cells and V = F_p − F_{p−1}; by Dold–Lashof Lemma 1.4 it suffices to treat U, V and U ∩ V (imported, not read); over each open p-cell g is a product, which handles V and U ∩ V.",
+        "For U apply Dold–Lashof Lemma 1.3 (imported, not read) using induction on p and the radial fibre-preserving deformation of Δ^p minus its barycentre onto ∂Δ^p.",
+        "If the deformation moves x in the cell of i₀ → ⋯ → i_p to the face with vertices j₀ < ⋯ < j_q, then g⁻¹(x) = X_{i₀}, g⁻¹(x′) = X_{k₀} with k₀ = i_{j₀}, and the induced map is the transition map of i₀ → k₀, a homotopy equivalence by hypothesis (Quillen §1 Lemma proof)."
+      ],
+      "acceptance": [
+        "Applied to Y ↦ B(Y\\f) under the hypothesis of Theorem B, yields that BS(f) → BC′^op is a quasi-fibration.",
+        "Applied to the map realizing q ↦ (⊔ B(C′/fX₀)^op → NC_q), whose fibres have final objects and so are contractible, it promotes these levelwise homotopy equivalences to the homotopy equivalence Bp₁ in the proof of Theorem A (Quillen's alternative to Tornehave A.3).",
+        "The Dold–Lashof lemmas must be supplied or sourced before this node is proof-complete."
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§1, lemma and proof preceding 'Proof of Theorem B', LNM pp. 97–98 (PDF 13–14)",
+          "excerpt": "which is a special case of a general result about the realization of a map of simplicial spaces",
+          "match": "Quillen's lemma is stated and proved from Dold–Lashof Lemmas 1.3–1.5 as described in the proof steps."
+        },
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Theorem 3.6.1(ii), p. IV.29",
+          "excerpt": "and f −1 (i) → f −1 (j) is a homotopy equivalence for every i → j in I, then each B(f −1 (i)) → BX → B(I) is a homotopy fibration sequence",
+          "match": "Weibel's bisimplicial-set form of the same statement, cited from Waldhausen and Quillen without proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.2/quillen-theorem-a",
+      "parentStageId": "StableHomotopyKTheory:H.2",
+      "title": "Quillen's Theorem A",
+      "kind": "theorem",
+      "statement": "Let f: C → C′ be a functor between small categories. If the comma category Y\\f of pairs (X, v: Y → fX) is contractible for every object Y of C′, then f is a homotopy equivalence. Dually, it suffices that every f/Y be contractible. If f is prefibred or precofibred and every fibre f⁻¹(Y) is contractible, f is a homotopy equivalence.",
+      "hypotheses": [
+        "C, C′ small.",
+        "For the corollary: f prefibred (each f⁻¹(Y) → Y\\f has a right adjoint) or precofibred (each f⁻¹(Y) → f/Y has a left adjoint)."
+      ],
+      "proofSteps": [
+        "Form S(f), the category of triples (X, Y, v: Y → fX), with functors p₁: S(f) → C and p₂: S(f) → C′^op; it is the cofibred category over C × C′^op defined by (X, Y) ↦ Hom(Y, fX).",
+        "Let T(f) be the bisimplicial set of pairs (Y_p → ⋯ → Y₀ → fX₀, X₀ → ⋯ → X_q); its diagonal is NS(f) (bisimplicial realization lemma), and forgetting the first component realizes to Bp₁.",
+        "Realizing in p gives, in each q, ⊔_{X₀→⋯→X_q} B(C′/fX₀)^op → NC_q, a homotopy equivalence since C′/fX₀ has a final object; by the quasi-fibration lemma (or Tornehave A.3) Bp₁ is a homotopy equivalence.",
+        "Realizing T(f) → N(C′^op) in q gives fibres B(Y₀\\f), contractible by hypothesis, so p₂ is a homotopy equivalence.",
+        "Compare with f = id_{C′} through S(f) → S(id_{C′}), (X, Y, v) ↦ (fX, Y, v), compatible with p₁ and p₂; since Y\\id_{C′} has an initial object the same argument applies, and two-out-of-three gives Bf a homotopy equivalence.",
+        "For the corollary, the adjoint gives B(f⁻¹(Y)) ≃ B(Y\\f) (Quillen §1, Prop. 2 Cor. 1)."
+      ],
+      "acceptance": [
+        "A simplicial map of simplicial complexes whose inverse image of every closed simplex is contractible is a homotopy equivalence (Quillen's example).",
+        "The inclusion of monoids N → Z gives BN ≃ BZ ≃ S¹ (Weibel IV Example 3.7.2).",
+        "Source and target functors from the arrow category (Segal subdivision) are homotopy equivalences (Quillen's example after the corollary; Weibel IV Exercises 3.9, 3.12)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§1, Theorem A, LNM p. 93 (PDF 9); proof LNM pp. 95–96 (PDF 11–12)",
+          "excerpt": "which is a homotopy equiValence for each q because the category C 'IfX0 has a final object",
+          "match": "Key step of Quillen's proof of Theorem A (scan OCR of C′/fX₀); the statement is on LNM p. 93."
+        },
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "3.7 Quillen's Theorem A with proof and Corollary 3.7.4, pp. IV.30–31",
+          "excerpt": "Let F : C → D be a functor such that d\\F is contractible for every d in D. Then BF : BC −→ BD is a homotopy equivalence.",
+          "match": "Clean statement matching the node; Weibel's proof uses D\\F and Theorem 3.6.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.2/quillen-theorem-b",
+      "parentStageId": "StableHomotopyKTheory:H.2",
+      "title": "Quillen's Theorem B",
+      "kind": "theorem",
+      "statement": "Let f: C → C′ be a functor such that for every arrow u: Y → Y′ of C′ the induced functor u*: Y′\\f → Y\\f is a homotopy equivalence. Then for every object Y of C′ the square with Y\\f → C over Y\\C′ → C′ is homotopy-cartesian, so B(Y\\f) is homotopy equivalent to the homotopy fibre of Bf over Y, and for X ∈ f⁻¹(Y) there is an exact sequence ⋯ → π_{i+1}(C′, Y) → π_i(Y\\f, (X, id_Y)) → π_i(C, X) → π_i(C′, Y) → ⋯. Dually with f/Y. If f is prefibred and every base change u*: f⁻¹(Y′) → f⁻¹(Y) is a homotopy equivalence (or precofibred with cobase changes homotopy equivalences), the fibre f⁻¹(Y) is homotopy equivalent to the homotopy fibre of f over Y.",
+      "hypotheses": [
+        "Every transition functor Y′\\f → Y\\f (respectively every base change or cobase change) is a homotopy equivalence; contractibility of comma categories alone (Theorem A) does not produce a fibration sequence.",
+        "Spaces have CW homotopy type so that quasi-fibrations give homotopy-cartesian squares."
+      ],
+      "proofSteps": [
+        "As in Theorem A, p₁: S(f) → C is a homotopy equivalence.",
+        "Bp₂: BS(f) → BC′^op is the realization of T(f) → N(C′^op); apply the quasi-fibration lemma to Y ↦ B(Y\\f), whose transition maps are homotopy equivalences by hypothesis, so Bp₂ is a quasi-fibration and the square Y\\f → S(f) over pt → C′^op is homotopy-cartesian.",
+        "Form the diagram with squares (1) Y\\f → S(f) over Y\\C′ → S(id_{C′}), (2) S(f) → C over S(id_{C′}) → C′, and (3) Y\\C′ → S(id_{C′}) over pt → C′^op; all horizontal comparison maps marked are homotopy equivalences.",
+        "(1)+(3) is homotopy-cartesian by the previous step and (3) is homotopy-cartesian, so (1) is; composing with (2), whose horizontal maps are homotopy equivalences, gives the theorem (Quillen, proof of Theorem B).",
+        "For the corollary use f⁻¹(Y) → Y\\f, a homotopy equivalence when f is prefibred."
+      ],
+      "acceptance": [
+        "The target functor t: EA → QA is fibred, but Theorem B does not apply to it unless A ≅ 0 (Weibel IV Exercise 7.4); S⁻¹EA → QA does satisfy it for split exact A (Weibel IV Theorem 7.8).",
+        "The long exact sequence must keep the basepoint (X, id_Y) and the pointed-set end terms.",
+        "Additivity and localization consumers must verify the transition hypothesis for their specific functors."
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§1, Theorem B and Corollary, LNM p. 97 (PDF 13); proof LNM pp. 98–99 (PDF 14–15)",
+          "excerpt": "Since the square (1) + (3) ie homotopy-cartesian. it follows that (1) is homotopy-cartesian. hence (1) + (2) is aleo. whence the theorem.",
+          "match": "Final step of Quillen's proof (scan OCR) matching the last proof step."
+        },
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "3.8 Quillen's Theorem B with proof, Corollary 3.8.1 and Exercise 3.6, pp. IV.31–32, IV.34",
+          "excerpt": "the induced functor d′ \\F → d\\F is a homotopy equivalence",
+          "match": "Hypothesis of Theorem B in Weibel's formulation, followed by the homotopy fibration conclusion and long exact sequence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.3/acyclic-spaces-and-maps",
+      "parentStageId": "StableHomotopyKTheory:H.3",
+      "title": "Acyclic spaces, acyclic maps and plus constructions",
+      "kind": "definition",
+      "statement": "A space F is acyclic if its reduced integral homology vanishes; then F is connected, G = π₁(F) is perfect and H₂(G; Z) = 0. A map f: X → Y of based connected CW complexes is acyclic if its homotopy fibre F(f) is acyclic; then π₁(X) → π₁(Y) is surjective with perfect normal kernel P. An acyclic map f: X → Y is a plus construction on X relative to a perfect normal subgroup P ⊂ π₁(X) if P is the kernel of π₁(X) → π₁(Y).",
+      "hypotheses": [
+        "X, Y based connected CW complexes.",
+        "Lemma 1.3.1 uses the Serre spectral sequence of the universal-cover fibration F̃ → F → BG and its low-degree exact sequence."
+      ],
+      "proofSteps": [
+        "H₀(F) = Z gives connectedness; G/[G, G] = H₁(F; Z) = 0 gives perfectness (Weibel IV Lemma 1.3.1).",
+        "The homotopy fibre of F → BG is the universal cover F̃, with H₁(F̃; Z) = 0; the Serre spectral sequence E²_{pq} = H_p(G; H_q(F̃; Z)) ⇒ H_{p+q}(F; Z) gives H₂(F) → H₂(G) → H₁(F̃)_G, hence H₂(G; Z) = 0.",
+        "For an acyclic map, exactness of π₁F(f) → π₁X → π₁Y → π₀F(f) with F(f) connected gives surjectivity, and the kernel is the image of the perfect group π₁F(f) (Weibel IV Definition 1.4)."
+      ],
+      "acceptance": [
+        "The Volodin space X(R) ⊂ BGL(R) is acyclic with π₁ image E(R) (Weibel IV Example 1.3.2, cited from Suslin).",
+        "Applying the plus construction to an acyclic space gives a contractible space (Weibel IV Exercise 1.2(a)).",
+        "Group homology with nontrivial local coefficients, not trivial-coefficient cohomology, defines acyclicity (roadmap H.1)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Definition 1.3, Lemma 1.3.1 with proof, Definitions 1.4 and 1.4.1, pp. IV.4–5",
+          "excerpt": "Let F be an acyclic space. Then F is connected, its fundamental group G = π1 (F ) is a perfect group, and H2 (G; Z) = 0 as well.",
+          "match": "The lemma and the definitions of acyclic map and plus construction used in the node."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.3/acyclic-map-homology-criterion",
+      "parentStageId": "StableHomotopyKTheory:H.3",
+      "title": "Acyclic maps are local-coefficient homology isomorphisms",
+      "kind": "lemma",
+      "statement": "A map f: X → Y of connected CW complexes is acyclic if and only if H_*(X; M) → H_*(Y; M) is an isomorphism for every π₁(Y)-module M (pulled back to X).",
+      "hypotheses": [
+        "X, Y connected CW complexes; M ranges over all π₁(Y)-modules, including Z[π₁Y].",
+        "Uses the Serre spectral sequence with local coefficients and its comparison theorem."
+      ],
+      "proofSteps": [
+        "If f is acyclic, π₁F(f) → π₁Y is trivial, so π₁F(f) acts trivially on M and H_q(F(f); M) = 0 for q ≠ 0 by universal coefficients; the Serre spectral sequence H_p(Y; H_q(F(f); M)) ⇒ H_{p+q}(X; M) collapses.",
+        "Conversely, if π₁Y = 0 and f is an integral homology isomorphism, comparing the Serre spectral sequences of F(f) → X → Y and ∗ → Y → Y gives H̃_*(F(f); Z) = 0.",
+        "In general pass to the universal cover Ỹ and X̃ = X ×_Y Ỹ: H_*(Ỹ; Z) ≅ H_*(Y; Z[π₁Y]) and H_*(X̃; Z) ≅ H_*(X; Z[π₁Y]), so X̃ → Ỹ is an integral homology isomorphism with simply connected target, and F(f̃) ≅ F(f) by path lifting (Weibel IV Lemma 1.6 proof)."
+      ],
+      "acceptance": [
+        "An integral homology isomorphism with non-perfect kernel on π₁ is not acyclic; test with a map inducing an isomorphism on integral homology only.",
+        "The comparison must be proved for Z[π₁Y] coefficients, not only for trivial modules."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Lemma 1.6 with proof, p. IV.5",
+          "excerpt": "A map f : X → Y is acyclic if and only if H∗ (X, M ) ∼ = H∗ (Y, M ) for every π1 (Y )-module M .",
+          "match": "Statement and three-step proof reproduced in the node."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.3/plus-construction-by-cell-attachment",
+      "parentStageId": "StableHomotopyKTheory:H.3",
+      "title": "Existence of the plus construction by attaching 2- and 3-cells",
+      "kind": "construction",
+      "statement": "If X is a connected CW complex with H₁(X) = 0, there are a simply connected CW complex X⁺ and an inclusion X → X⁺ inducing isomorphisms on all integral homology groups. More generally, for a connected CW complex X and a perfect subgroup H ⊂ π₁(X), there is a CW complex X⁺ and a map X → X⁺ such that π₁(X) → π₁(X⁺) is surjective with kernel the normal subgroup generated by H and X → X⁺ is an isomorphism on integral homology.",
+      "hypotheses": [
+        "X connected CW complex; H ⊂ π₁(X) perfect (normality is not assumed; the kernel is the normal closure).",
+        "The source proves integral homology isomorphism only; the local-coefficient isomorphism (equivalently acyclicity, by Lemma 1.6) required by Weibel IV Definition 1.1(2) is not proved in the passages read."
+      ],
+      "proofSteps": [
+        "For H₁(X) = 0: attach 2-cells along loops generating π₁(X) to get a simply connected X′; since H₁(X) = 0 the sequence 0 → H₂(X) → H₂(X′) → H₂(X′, X) → 0 splits, with H₂(X′, X) free on the 2-cells (Hatcher Prop. 4.40).",
+        "By Hurewicz H₂(X′) ≅ π₂(X′); represent a basis of the free summand by cellular maps S² → X′ and attach 3-cells along them, giving simply connected X⁺ with X → X⁺ a homology isomorphism.",
+        "For perfect H ⊂ π₁(X): take the covering p: X̃ → X with π₁(X̃) ≅ H, so H₁(X̃) = 0, apply the first case to X̃, and glue X̃⁺ to the mapping cylinder M_p along X̃.",
+        "Van Kampen gives π₁(X) → π₁(X⁺) surjective with kernel the normal closure of H; X⁺/M_p ≅ X̃⁺/X̃ gives H_*(X⁺, M_p) = H_*(X̃⁺, X̃) = 0, so X → X⁺ is an integral homology isomorphism.",
+        "Weibel IV Exercise 1.4 gives an alternative outline for normal perfect P attaching one 2-cell per element of P and matching 3-cells; its homology claims are stated as an exercise."
+      ],
+      "acceptance": [
+        "Plus construction relative to the trivial subgroup is a homotopy equivalence (roadmap H.3 test); for a perfect group the result is simply connected with the same integral homology.",
+        "For the Poincaré homology sphere X = S³/SL₂(F₅), S³ → X⁺ is a homotopy equivalence (Weibel IV Exercise 1.1).",
+        "Do not export the local-coefficient isomorphism from this node without the missing acyclicity argument."
+      ],
+      "sources": [
+        {
+          "sourceId": "Hatcher-AlgebraicTopology",
+          "locator": "§4.2, Proposition 4.40 with proof and the construction following it, printed p. 374 (PDF 383)",
+          "excerpt": "the induced map π1 (X)→π1 (X + ) is surjective with kernel the normal subgroup generated by H",
+          "match": "Hatcher's general construction for a perfect subgroup, proved via covering space, mapping cylinder, van Kampen and excision."
+        },
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Exercise 1.4, p. IV.14; Theorem 1.5(1), p. IV.5",
+          "excerpt": "Form Y by attaching one 2-cell ep for each element of P",
+          "match": "Weibel's exercise outline of part (1) of Theorem 1.5."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.3/plus-construction-universal-property",
+      "parentStageId": "StableHomotopyKTheory:H.3",
+      "title": "Universal property and uniqueness of the plus construction (unread proof boundary)",
+      "kind": "theorem",
+      "statement": "Recorded statement (Weibel IV Theorem 1.5, Quillen): for a perfect normal subgroup P of π₁(X), (1) a plus construction f: X → Y relative to P exists; (2) for any map g: X → Z with P mapping trivially to π₁(Z) there is h: Y → Z, unique up to homotopy, with g = hf; (3) any two plus constructions relative to P are homotopy equivalent under X. For rings, BGL(R) → BGL(R)⁺ is universal for maps into H-spaces, the induced map on homotopy groups being independent of the factorization, and an integral homology isomorphism BGL(R) → H into an H-space is acyclic and induces BGL(R)⁺ ≃ H (Theorem 1.8, Remark 1.8.1). Weibel derives (3) from (2) with the words 'in particular' and gives no further argument; the proofs of (2) and of Theorem 1.8 are not in the passages read.",
+      "hypotheses": [
+        "X based connected CW complex, P perfect normal in π₁(X); homotopy uniqueness is up to homotopy, not literal equality of chosen spaces.",
+        "Theorem 1.8 and Remark 1.8.1 concern H-space targets of CW homotopy type."
+      ],
+      "proofSteps": [
+        "Part (1) is the node H.3/plus-construction-by-cell-attachment together with the missing acyclicity check.",
+        "Part (2): Weibel states that the proof uses topological obstruction theory and refers to Berrick, An approach to algebraic K-theory (1982), §5; that proof has not been read (source boundary).",
+        "Part (3): Weibel states it as a consequence of (2) ('In particular', Theorem 1.5(3)); the argument — apply (2) in both directions and use uniqueness up to homotopy of the factorizations — is packet-authored.",
+        "Theorem 1.8: Weibel omits the obstruction-theory proof and cites Gersten 1972, 1.5 (source boundary); Remark 1.8.1 is reduced to Exercise 1.3 (a map between H-spaces of CW homotopy type inducing an isomorphism on integral homology is a homotopy equivalence; the hint uses the trivial action of π₁ of the target on the homotopy fibre [Wh, IV.3.6] and the relative Hurewicz theorem [Wh, IV.7.2]), stated with a hint only.",
+        "Hatcher Exercise 23 gives uniqueness among abelian targets from Corollary 4.73; neither was proved in the passages read."
+      ],
+      "acceptance": [
+        "Functoriality of BGL(R)⁺ in R holds only up to homotopy and follows from (2) (Weibel IV 1.1.2).",
+        "Lemma 4.4.1 (group completion of group-like H-spaces) uses (3); flag its dependence on this boundary.",
+        "Do not replace (2) by an assumed structure field before the obstruction-theory proof is sourced."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Theorem 1.5 and the paragraph before it, p. IV.5; Theorem 1.8 and Remark 1.8.1, p. IV.6; Exercise 1.3, p. IV.14",
+          "excerpt": "its proof uses topological obstruction theory. Part (1) is proven in Ex. 1.4; an explicit proof may be found in §5 of [Berrick].",
+          "match": "Shows that the universal property is stated with an external proof reference, which is why the node records a boundary."
+        },
+        {
+          "sourceId": "Hatcher-AlgebraicTopology",
+          "locator": "§4.2 Exercise 23, printed p. 420 (PDF 429)",
+          "excerpt": "if there is an abelian CW complex Y and a map X →Y inducing an isomorphism H∗ (X; Z) ≈ H∗ (Y ; Z) , then such a Y is unique up to homotopy equivalence",
+          "match": "A second, weaker uniqueness route whose proof (via Corollary 4.73) was not read."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension",
+      "parentStageId": "StableHomotopyKTheory:H.3",
+      "title": "π₂ of a plus construction and universal central extensions",
+      "kind": "theorem",
+      "statement": "Let P be a perfect normal subgroup of a group G and f: BG → BG⁺ the plus construction relative to P, with homotopy fibre F(f). Then π₁F(f) is the universal central extension of P and π₂(BG⁺) ≅ H₂(P; Z). For G = GL(R), P = E(R) this identifies π₂BGL(R)⁺ with H₂(E(R); Z), the kernel of the Steinberg extension. Moreover BP⁺ is homotopy equivalent to the universal cover of BG⁺, so π_n(BP⁺) ≅ π_n(BG⁺) for n ≥ 2, and for a universal central extension A → S → P there is a homotopy fibration BA → BS⁺ → BP⁺ with π_n(BS⁺) = 0 for n ≤ 2 and π₃(BP⁺) ≅ H₃(S; Z).",
+      "hypotheses": [
+        "P perfect normal in G; for the Steinberg application E(R) is perfect and St(R) → E(R) is its universal central extension (Weibel III.5.5, not read here).",
+        "The last two assertions are Weibel IV Exercises 1.8 and 1.9, stated with hints and not proved in the source."
+      ],
+      "proofSteps": [
+        "The homotopy sequence gives π₂(BG) = 0 → π₂(BG⁺) → π₁F(f) → G → G/P → 1, so π₁F(f) is an extension of P by π₂(BG⁺).",
+        "π₂(BG⁺) is central in π₁F(f) ([Wh IV.3.5], imported).",
+        "F(f) is acyclic, so π₁F(f) is perfect with H₂ = 0 (H.3/acyclic-spaces-and-maps).",
+        "The recognition theorem for universal central extensions (Weibel III.5.4, not read here) identifies π₁F(f) as the universal central extension of P, whose kernel is H₂(P; Z) (Weibel IV Proposition 1.7).",
+        "Exercises 1.8–1.9: BP is homotopy equivalent to a covering of BG; apply the plus construction and Hurewicz in the first nonzero degree (hints only)."
+      ],
+      "acceptance": [
+        "K₂(R) = π₂BGL(R)⁺ ≅ H₂(E(R); Z) (Weibel IV Corollary 1.7.1).",
+        "K_n(R) ≅ π_n BSt(R)⁺ for n ≥ 3 and K₃(R) ≅ H₃(St(R); Z) (Weibel IV Exercise 1.9) — exercise-level until proved.",
+        "Naturality in R must be checked on representatives, since the plus construction is only homotopy functorial."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Proposition 1.7 with proof and Corollary 1.7.1, p. IV.6; Exercises 1.8–1.9, pp. IV.14–15",
+          "excerpt": "If F (f ) is the homotopy fiber of f then π1 F (f ) is the universal central extension of P , and π2 (BG+ ) ∼ = H2 (P ; Z).",
+          "match": "Statement of Proposition 1.7; the proof steps follow Weibel's four-line argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.4/symmetric-monoidal-S-inverse-S",
+      "parentStageId": "StableHomotopyKTheory:H.4",
+      "title": "Quillen's S⁻¹S construction for a symmetric monoidal groupoid",
+      "kind": "construction",
+      "statement": "For a symmetric monoidal category (S, □, e), BS is a homotopy-commutative, homotopy-associative H-space and B(iso S) ≃ ⊔ B Aut(s) over isomorphism classes. Assume every morphism of S is an isomorphism and translations Aut(s) → Aut(s□t) are injective. S⁻¹S has objects pairs (m, n) and morphisms equivalence classes of composites (m₁, m₂) → (s□m₁, s□m₂) → (n₁, n₂), two composites being equivalent when an isomorphism α: s ≅ t identifies their second parts. S⁻¹S is symmetric monoidal, m ↦ (m, e) is monoidal, π₀(S⁻¹S) is an abelian group, and K₀(S) = π₀(S⁻¹S) is the group completion of the monoid π₀(S) = S^iso; K_n(S) = π_n B(S⁻¹S).",
+      "hypotheses": [
+        "S symmetric monoidal with coherence isomorphisms satisfying the pentagon, hexagon and unit conditions (Carlsson Definition 7); direct sum is not assumed strictly associative.",
+        "Every morphism an isomorphism and translations faithful, needed for Theorem 4.8 and for morphisms of S⁻¹S to determine s, f, g up to unique isomorphism."
+      ],
+      "proofSteps": [
+        "Define the H-space structure on BS from B(□): BS × BS ≅ B(S × S) → BS (compactly generated product) and the coherence isomorphisms (Weibel IV §4 opening).",
+        "Define S⁻¹S and its composition; with faithful translations each morphism determines s, f and g up to unique isomorphism (Explanation 4.2.1).",
+        "The inverse of (m, n) in π₀ is (n, m), using a morphism (e, e) → (m□n, n□m); this is not natural (Remark 4.2.2 and Exercise 4.3).",
+        "Lemma 4.3.1: α(m, n) = [m] − [n] is constant on components, giving an inverse to the universal map from the group completion of π₀(S)."
+      ],
+      "acceptance": [
+        "Pic(R) with π₀ already a group gives K₀ = Pic(R), K₁ = R^× and K_n = 0 for n ≥ 2 (Weibel IV Example 4.4.2).",
+        "There is no natural transformation 0 ⇒ id□ι on S⁻¹S (Weibel IV Exercise 4.3): the homotopy inverse is not given by a natural transformation.",
+        "Do not use the nerve of all projective-module maps; BP(R) is contractible, only iso P(R) carries the group completion input."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "§4 opening, Definition 4.1, Examples 4.1.1, Definition 4.2, Explanation 4.2.1, Remark 4.2.2, Definition 4.3, Lemma 4.3.1, pp. IV.36–38; Exercise 4.3, p. IV.46",
+          "excerpt": "The objects of S −1 S are pairs (m, n) of objects of S.",
+          "match": "Definition 4.2, with the hypotheses and consequences listed in the node taken from the surrounding statements."
+        },
+        {
+          "sourceId": "Carlsson-Deloopings-Handbook-2005",
+          "locator": "§1.2, Definition 7, printed p. 9 (PDF 23)",
+          "excerpt": "A symmetric monoidal category is a small category S together with a functor ⊕ : S × S → S and an object 0, together with three natural isomorphisms",
+          "match": "Coherence data for the symmetric monoidal structure, which Weibel uses without restating."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.4/quillen-localization-of-homology",
+      "parentStageId": "StableHomotopyKTheory:H.4",
+      "title": "Quillen's theorem: S⁻¹X localizes homology; B(S⁻¹S) is a group completion",
+      "kind": "theorem",
+      "statement": "Let S be a symmetric monoidal category in which every map is an isomorphism and translations are faithful, acting on a category X (s□(t□x) ≅ (s□t)□x, e□x ≅ x coherently), and let S⁻¹X = ⟨S, S × X⟩. Then the map (π₀S)⁻¹H_q(X) → H_q(S⁻¹X) induced by x ↦ (e, x) is an isomorphism for all q. In particular B(S⁻¹S) is a group completion of BS: an H-space map inducing the group completion on π₀ and H_*(B(S⁻¹S); k) ≅ π₀(S)⁻¹H_*(BS; k) for every commutative ring k.",
+      "hypotheses": [
+        "Every map in S is an isomorphism; translations Aut(s) → Aut(s□t) are injective.",
+        "Group completion in Definition 4.4 is defined for homotopy commutative, homotopy associative H-spaces; for CW complexes the completion is group-like."
+      ],
+      "proofSteps": [
+        "The projection ρ: S⁻¹X → ⟨S, S⟩, (s, x) ↦ s, is cofibred with fibre X (Weibel IV Exercise 4.5, statement only).",
+        "A cofibred functor yields a spectral sequence E²_{pq} = H_p(⟨S, S⟩; H_q(X)) ⇒ H_{p+q}(S⁻¹X) from the double complex of pairs of strings (Weibel IV Exercise 3.7, statement with construction hint).",
+        "Localizing at the multiplicative set π₀S ⊂ H₀(S) is exact and π₀S already acts invertibly on H_*(S⁻¹X), giving E²_{pq} = H_p(⟨S, S⟩; M_q) with M_q = (π₀S)⁻¹H_q(X).",
+        "Each M_q is morphism-inverting, hence a local system (H.1 coverings node), and ⟨S, S⟩ is contractible because e is initial; so H_p(⟨S, S⟩; M_q) vanishes for p ≠ 0 and the spectral sequence degenerates (Weibel IV Theorem 4.8 proof, following Grayson's 'Higher algebraic K-theory II', p. 221, not read).",
+        "The group completion statement follows with Remark 4.2.2 and Lemma 4.3.1."
+      ],
+      "acceptance": [
+        "K₁(S) = colim_s H₁(Aut(s); Z) (Weibel IV Corollary 4.8.1).",
+        "Barratt–Priddy–Quillen–Segal: for finite sets K(Sets_fin) ≃ Z × BΣ_∞⁺ (Weibel IV 4.9.2–4.9.3; the identification with Ω^∞S^∞ is cited, not proved).",
+        "The homology spectral sequence for cofibred functors (Exercise 3.7) and Exercise 4.5 need written proofs before this node is proof-complete."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Definitions 4.4, 4.7, 4.7.1, (4.7.2) and Theorem 4.8 with proof, pp. IV.38–42; Exercises 3.7 and 4.5, pp. IV.34, IV.46",
+          "excerpt": "If every map in S is an isomorphism and translations are faithful in S, then the map (4.7.2) is an isomorphism for all X and q.",
+          "match": "Theorem 4.8; the proof steps follow Weibel's proof and the two exercises it invokes."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.4/group-completion-uniqueness",
+      "parentStageId": "StableHomotopyKTheory:H.4",
+      "title": "Group completions of H-spaces: group-like case and uniqueness up to phantom maps",
+      "kind": "lemma",
+      "statement": "If X is a group-like H-space, X is its own group completion and every group completion X → Y is a homotopy equivalence. In general group completions are not unique up to homotopy when phantom maps exist; if π₀(X) is countable or has a countable cofinal submonoid, any two group completions X → X′, X → X″ are related by a homotopy equivalence g: X′ → X″, unique up to weak homotopy, with gf′ weakly homotopic to f″.",
+      "hypotheses": [
+        "H-spaces of CW type; countability of π₀(X) or of a cofinal submonoid for the uniqueness theorem."
+      ],
+      "proofSteps": [
+        "A group completion of a group-like X is a homology isomorphism, hence an isomorphism on π₀ and π₁; on basepoint components it is a plus construction relative to the trivial subgroup, so Theorem 1.5 gives a homotopy equivalence (Weibel IV Lemma 4.4.1; depends on H.3/plus-construction-universal-property).",
+        "If f: X → Y is a group completion and φ is phantom, f + φ is again a group completion (Weibel IV p. 39).",
+        "The uniqueness theorem is quoted from Caradus–Clarke–McGibbon–Thomason [CCMT, 1.2]; its proof was not read (source boundary)."
+      ],
+      "acceptance": [
+        "Exhibit the dependence of uniqueness on countability; do not state strict uniqueness up to homotopy in general.",
+        "Z × BGL(R)⁺ is a group completion of ⊔ BGL_n(R) directly (Weibel IV Exercise 4.9)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Lemma 4.4.1 with proof, phantom maps paragraph and Theorem 4.4.3, p. IV.39",
+          "excerpt": "phantom maps are essentially the only obstruction to uniqueness of group completions",
+          "match": "Introduces Theorem 4.4.3 as quoted from [CCMT, 1.2]; Lemma 4.4.1 and its proof appear above it."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.4/gl-telescope-plus-comparison",
+      "parentStageId": "StableHomotopyKTheory:H.4",
+      "title": "B(S⁻¹S) ≃ Z × BGL(R)⁺ for based free modules",
+      "kind": "comparison",
+      "statement": "For a ring R let S = F(R) = ⊔_n GL_n(R), the symmetric monoidal groupoid of based free modules R^n under concatenation and block sum. Then B(S⁻¹S) is the group completion of BS and B(S⁻¹S) ≃ Z × BGL(R)⁺. More generally, if S = iso S has faithful translations and a cofinal sequence s_{n+1} = s_n□a_n, then the commutator subgroup E of Aut(S) = colim Aut(s_n) is perfect normal, K₁(S) = Aut(S)/E, and K(S) ≃ K₀(S) × B Aut(S)⁺.",
+      "hypotheses": [
+        "E(R) = [GL(R), GL(R)] is a perfect normal subgroup of GL(R) (Whitehead; Weibel IV §1 recalling chapter III).",
+        "The product decomposition is a space-level statement after choosing component representatives; it is not a natural splitting of infinite loop spaces (Weibel IV 1.1.2).",
+        "For Theorem 4.10 (general S with a cofinal sequence), Weibel imports the facts that the commutator subgroup E of Aut(S) is perfect and normal from [Bass, p. 355] ('essentially on p. 355'); not read."
+      ],
+      "proofSteps": [
+        "The homomorphisms η_n: GL_n(R) → Aut_{S⁻¹S}(R^n, R^n), g ↦ (g, 1), are compatible with stabilization up to the natural transformation η ⇒ η(□R), giving a map from the mapping telescope of BGL_n(R) into the basepoint component Y_S (Weibel IV proof of Theorem 4.9).",
+        "By Theorem 4.8, H_*(B(S⁻¹S)) is the localization of H_*(BS) at {e^n}, i.e. the colimit along ⊕R, so H_*(B(S⁻¹S)) ≅ H_*(Y_S) ⊗ Z[e, e⁻¹] with H_*(Y_S) ≅ colim H_*(BGL_n(R)) = H_*(BGL(R)).",
+        "Thus BGL(R) → Y_S is an integral homology isomorphism into an H-space, so Remark 1.8.1 (H.3 universal-property boundary) gives BGL(R)⁺ ≃ Y_S.",
+        "For Theorem 4.10 the telescope gives an acyclic map from B Aut(S) to the basepoint component, which is by definition a plus construction."
+      ],
+      "acceptance": [
+        "Quadratic forms: K(Quad^ε(A)) ≃ εL₀(A) × BεO⁺ (Weibel IV Example 4.12.2).",
+        "The components of B(S⁻¹S) are indexed by Z = K₀(F(R)), not by K₀(R).",
+        "Naturality holds for ring maps and block sum up to the stated homotopies; translations between components are not natural."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Theorem 4.9 with proof, pp. IV.42–43; Theorem 4.10 with proof, pp. IV.43–44",
+          "excerpt": "B(S −1 S) ≃ Z × BGL(R)+ .",
+          "match": "Displayed conclusion of Theorem 4.9, proved by the telescope and homology-localization argument recorded above."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.4/cofinality-projective-modules",
+      "parentStageId": "StableHomotopyKTheory:H.4",
+      "title": "Cofinality: iso P(R) group completion is K₀(R) × BGL(R)⁺",
+      "kind": "theorem",
+      "statement": "Let f: S → T be a cofinal monoidal functor (for every t there are t′ and s with t□t′ ≅ f(s)). (a) If T acts on X then S acts via f and S⁻¹X ≃ T⁻¹X. (b) If Aut_S(s) ≅ Aut_T(fs) for all s, the basepoint components of K(S) and K(T) are homotopy equivalent, so K_n(S) ≅ K_n(T) for n ≥ 1. Since every finitely generated projective module is a summand of a free one, F(R) → iso P(R) is cofinal, and B(S⁻¹S) ≃ K₀(R) × BGL(R)⁺ for S = iso P(R); K₀ may differ (Z versus K₀(R)).",
+      "hypotheses": [
+        "S = iso S, T = iso T with faithful translations; for (b) the automorphism groups are preserved by f.",
+        "Every finitely generated projective R-module is a direct summand of a finite free module."
+      ],
+      "proofSteps": [
+        "(a) By cofinality S acts invertibly on X iff T does; Exercise 4.6 gives S⁻¹X ≃ T⁻¹(S⁻¹X) ≅ S⁻¹(T⁻¹X) ≃ T⁻¹X (Weibel IV Theorem 4.11 proof; Exercise 4.6 is stated with a hint).",
+        "(b) Theorem 4.8 gives H_*(Y_S) = colim_{s∈S} H_*(B Aut(s)) = colim_{s∈S} H_*(B Aut(fs)) ≅ colim_{t∈T} H_*(B Aut(t)) = H_*(Y_T) using cofinality of the translation categories.",
+        "The induced H-space map Y_S → Y_T is an integral homology isomorphism of connected H-spaces, hence a homotopy equivalence (Exercise 1.3, statement with hint).",
+        "Combine with Theorem 4.9 and cofinality of F(R) in iso P(R) (Weibel IV Example 4.1.1(c)) to obtain Corollary 4.11.1."
+      ],
+      "acceptance": [
+        "Check K₀(F(R)) = Z against K₀(P(R)) = K₀(R) for a ring with nontrivial projective modules.",
+        "The one-object subcategory R^× is cofinal in Pic(R) (Weibel IV p. 44).",
+        "Consumers must use this component-preserving comparison, not a claimed natural product splitting."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Cofinality Theorem 4.11 with proof and Corollary 4.11.1, pp. IV.44–45; Exercises 4.6 and 4.8, p. IV.46",
+          "excerpt": "Let S = iso P(R) be the category of finitely generated projective R-modules and their isomorphisms. Then B(S −1 S) ≃ K0 (R) × BGL(R)+ .",
+          "match": "Corollary 4.11.1, derived from Theorems 4.9 and 4.11 as in the proof steps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.4/segal-gamma-space-delooping",
+      "parentStageId": "StableHomotopyKTheory:H.4",
+      "title": "Segal's Γ-space construction from categories with sums",
+      "kind": "construction",
+      "statement": "A Γ-space is a functor F from Γ^op (finite based sets) to simplicial sets with F(∅₊) weakly contractible and F(n) → ∏_{i=1}^n F(1) (induced by the projections p_i) a weak equivalence. For a category C with a zero object and categorical sums, Sum_C(X) is the category of summing functors Π(X) → C (φ(∅) a zero object and φ(S) ⊕ φ(T) → φ(S ∪ T) an isomorphism when S ∩ T = {∗}) with natural isomorphisms; Sp₁(C) = N∘Sum_C(−) is a Γ-space, iterating gives Sp_n(C) and maps σ_n: Sp_n(C) → ΩSp_{n+1}(C). Segal's theorem (quoted): σ_n are weak equivalences for n > 1 as printed, σ₀ is a group completion, and the construction gives a functor to spectra; for finite sets it gives the sphere spectrum, for finitely generated projective modules the K-theory spectrum.",
+      "hypotheses": [
+        "C has a zero object and categorical sums, and functors preserve them; symmetric monoidal categories without categorical sums (such as iso P(R)) require the May–Thomason extension, not read.",
+        "The printed statement of Theorem 3 says 'for n > 1'; the case n = 1 must be checked against Segal's original before use."
+      ],
+      "proofSteps": [
+        "Sum_C(f)(φ)(S) = φ(f⁻¹(S)) makes Sum_C a functor Γ^op → CAT (Carlsson §1.2).",
+        "Proposition 2: Sum_C(∅) is the contractible category of zero objects; the functor Sum_C(n) → ∏ Sum_C(1) is an equivalence with inverse θ(φ₁, …, φ_n)({i₁, …, i_s}) = φ_{i₁}(1) ⊕ ⋯ ⊕ φ_{i_s}(1) (proof given).",
+        "Sum_C(X) again has zero objects and sums, so the construction iterates; SumC(1) ≃ C gives ΣN.C → Sp₁(C) and adjoints σ_n.",
+        "Theorem 3 (Segal 1974, 'Categories and cohomology theories') is quoted without proof in Carlsson; its proof is an unread boundary."
+      ],
+      "acceptance": [
+        "For an abelian group A the bar construction B^n.A gives the Eilenberg–Mac Lane spectrum, a case not induced by categorical sums (Carlsson §1.2 and p. 9).",
+        "Compare π₀ of the resulting spectrum with the Grothendieck group of the monoid of components."
+      ],
+      "sources": [
+        {
+          "sourceId": "Carlsson-Deloopings-Handbook-2005",
+          "locator": "§1.2, Definition 1, Proposition 2 with proof, Theorem 3, Examples 4–5, printed pp. 6–8 (PDF 20–22)",
+          "excerpt": "The maps σn are weak equivalences for n > 1, and for n = 0, σ0 can be described as a group completion.",
+          "match": "Literal statement of the quoted Segal theorem, including the printed range n > 1 recorded as a check."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.5:spectra/omega-spectra-and-eilenberg-maclane",
+      "parentStageId": "StableHomotopyKTheory:H.5:spectra",
+      "title": "Ω-spectra, homotopy groups and Eilenberg–Mac Lane spectra from the bar construction",
+      "kind": "definition",
+      "statement": "A spectrum (in the sequential model used by the K-theory sources) is a family of based spaces {X_i}_{i≥0} with bonding maps σ_i: X_i → ΩX_{i+1}; an Ω-spectrum has σ_i homotopy equivalences, and it is connective if π_n = 0 for n < 0. Its homotopy groups are π_n(E) = colim_r π_{n+r}(E_r), defined for all n ∈ Z. (Traceability: Carlsson defines spectra with bonding maps that 'can be taken to be homeomorphisms'; the Ω-spectrum and connectivity conventions are used, not defined, in Weibel IV 4.5.2 and 8.5.5, and Weibel IV 2.3.1 displays the colimit formula only with Z/ℓ coefficients.) For an abelian group A the bar construction B.A (B_kA = A^k with the displayed faces) is a simplicial abelian group; iterating gives n-simplicial abelian groups B^n.A with exact sequences B^{n−1}.A → E^n.A → B^n.A, E^n.A contractible, which realize to fibrations, so |B^{n−1}.A| ≃ Ω|B^n.A| and {B^n.A} is the Eilenberg–Mac Lane spectrum of A.",
+      "hypotheses": [
+        "A abelian (so that B.A is a simplicial abelian group and the construction iterates).",
+        "The fibration property of exact sequences of simplicial abelian groups is imported, not proved in the passage read."
+      ],
+      "proofSteps": [
+        "Define faces d₀, d_i (adding adjacent entries) and d_k on A^k; commutativity makes multiplication a homomorphism, so B.A is a simplicial abelian group (Carlsson §1.2).",
+        "Apply B. degreewise to obtain B^n.A and restrict to the diagonal.",
+        "Quote: exact sequences of simplicial abelian groups realize to Serre fibrations, and E^n.A is contractible, giving |B^{n−1}.A| ≃ Ω|B^n.A| (Carlsson §1.2; proof imported, not read).",
+        "The stable homotopy category, stable equivalences, fibrant replacement and the fibre/cofibre shift are not constructed in the sources read (see gaps)."
+      ],
+      "acceptance": [
+        "π_n of the Eilenberg–Mac Lane spectrum of A is A in degree 0 and zero otherwise.",
+        "Weibel IV 8.5.5: the S.-construction gives a connective Ω-spectrum with π_i = K_i for i ≥ 0.",
+        "Negative homotopy groups of a spectrum depend on the chosen deloopings (Weibel IV §2 remark on K_m(R; Z/ℓ) for m < 2)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Carlsson-Deloopings-Handbook-2005",
+          "locator": "§1.1, printed p. 4 (PDF 18); §1.2 opening, printed pp. 5–6 (PDF 19–20)",
+          "excerpt": "a spectrum is a family of based topological spaces {Xi }i≥0 , together with bonding maps σi : Xi → ΩXi+1",
+          "match": "Definition of spectrum used; the bar-construction Eilenberg–Mac Lane example follows on the next pages."
+        },
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Spectra 2.3.1, p. IV.19; Infinite Loop Structure 8.5.5, p. IV.69",
+          "excerpt": "the homotopy groups π∗ (E; Z/ℓ) = lim −→ π∗+r (Er ; Z/ℓ)",
+          "match": "Colimit formula for homotopy groups of a spectrum (here with coefficients), matching the integral definition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.5:S-delooping/iterated-S-construction-omega-spectrum",
+      "parentStageId": "StableHomotopyKTheory:H.5:S-delooping",
+      "title": "The iterated S.-construction is a connective Ω-spectrum",
+      "kind": "theorem",
+      "statement": "For a small Waldhausen category C with K(C) = Ω|wS.C| and π₁|wS.C| ≅ K₀(C), the sequence of spaces Ω|wS.C|, |wS.C|, |wS.S.C|, …, |wS.^nC|, … with the maps |wS.^nC| → Ω|wS.^{n+1}C| forms a connective Ω-spectrum KC with π_i(KC) = K_i(C) for i ≥ 0. An exact functor induces a map of spectra, and a biexact functor A × B → C satisfying the cofibration condition F(A′, B) ∪_{F(A, B)} F(A, B′) ↣ F(A′, B′) for all pairs of cofibrations (Weibel IV 8.11, II.9.5.2) induces a pairing K(A) ∧ K(B) → K(C).",
+      "hypotheses": [
+        "C small Waldhausen category; the S.-construction S_nC (with chosen subquotients, cofibrations and weak equivalences) is supplied by GeneralAlgebraicKTheory:K.4:construction.",
+        "The homotopy-fibration step uses the fibration sequence of Weibel V.1.7, which rests on the Additivity Theorem; that proof is not read in this packet but is read and decomposed in GeneralAlgebraicKTheory:K.4/relative-S-construction-fibration-and-delooping, which supplies it by a link."
+      ],
+      "proofSteps": [
+        "π₁ of a simplicial space X. with X₀ a point is the free group on π₀(X₁) modulo ∂₁x = ∂₂x·∂₀x; for X. = BwS.C this is K₀(C) (Weibel IV Proposition 8.4).",
+        "For an exact functor f: B → C define S_nf = S_nB ×_{S_nC} S_{n+1}C, a simplicial Waldhausen category containing C, with C → S.f → S.B (Weibel IV 8.5.3).",
+        "Lemma 8.5.4: for f = id_C, S.f is the simplicial path space of S.C and wS.S.f the path space of wS.S.C, contractible since S₀f = 0 (proof given).",
+        "The realization of wS.B → wS.C → wS.(S.f) → wS.(S.B) is a homotopy fibration sequence by Weibel V.1.7 (source boundary here; to be read with the Additivity Theorem).",
+        "Taking f = id gives |wS.C| ≃ Ω|wS.S.C|; iterating in the multisimplicial categories S.^nC gives the Ω-spectrum (Weibel IV 8.5.5).",
+        "Products: a biexact functor induces wS.A × wS.B → wwS.S.C, factoring through the smash product after realization (Weibel IV 8.11, sketched)."
+      ],
+      "acceptance": [
+        "For an exact category A with isomorphisms as weak equivalences, |iS.A| ≃ BQA (Waldhausen 1.9; Weibel IV Exercises 8.5–8.6, statements with hints).",
+        "Relative groups end with K₀(B) → K₀(C) → K₋₁(f) → 0 (Weibel IV Exercise 8.11).",
+        "A sequence of spaces without the fibration theorem does not count as the spectrum."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Proposition 8.4 with proof, Definition 8.5, Relative K-theory spaces 8.5.3, Lemma 8.5.4 with proof, Infinite Loop Structure 8.5.5, pp. IV.68–69; Products 8.11, p. IV.73",
+          "excerpt": "forms a connective Ω-spectrum KC, called the K-theory spectrum of C.",
+          "match": "Conclusion of 8.5.5, whose fibration input is deferred in the source to V.1.7 as recorded."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.6/mod-l-homotopy-and-bockstein-sequence",
+      "parentStageId": "StableHomotopyKTheory:H.6",
+      "title": "Mod-ℓ homotopy groups and the universal coefficient (Bockstein) sequence",
+      "kind": "theorem",
+      "statement": "For m ≥ 2 let P^m(Z/ℓ) be the Moore space (S^{m−1} with an m-cell attached by a degree ℓ map) and π_m(X; Z/ℓ) = [P^m(Z/ℓ), X]. The cofibration S^{m−1} → S^{m−1} → P^m(Z/ℓ) gives an exact sequence π_m(X) → π_m(X) → π_m(X; Z/ℓ) → π_{m−1}(X) → π_{m−1}(X) (multiplication by ℓ), hence for m ≥ 3 a natural short exact sequence 0 → π_m(X) ⊗ Z/ℓ → π_m(X; Z/ℓ) → ℓπ_{m−1}(X) → 0, split but not naturally when ℓ ≢ 2 mod 4. For a spectrum or infinite loop space E the sequence holds for all m ∈ Z, with π_*(E; Z/ℓ) the homotopy of E ∧ P^∞(Z/ℓ), and for K-theory 0 → K_m(C) ⊗ Z/ℓ → K_m(C; Z/ℓ) → ℓK_{m−1}(C) → 0 is split unless ℓ ≡ 2 mod 4, not naturally. If X is a loop space, π_m(X; Z/ℓ) ≅ π_{m−1}(F) for F the homotopy fibre of ℓ: X → X, and for coprime q₁q₂ = ℓ, π_m(X; Z/ℓ) ≅ π_m(X; Z/q₁) × π_m(X; Z/q₂).",
+      "hypotheses": [
+        "m ≥ 2 for spaces (groups for m ≥ 3, abelian for m ≥ 4, improved by one for H-spaces); all m ∈ Z for spectra/infinite loop spaces with specified deloopings.",
+        "The splitting is non-canonical and fails for ℓ ≡ 2 mod 4."
+      ],
+      "proofSteps": [
+        "Apply [−, X] to the defining cofibration sequence and use exactness of [P, F] → [P, E] → [P, B] for fibrations ([Wh III.6.18*], imported) (Weibel IV 2.1.1).",
+        "Rewrite the five-term sequence using the ℓ-torsion subgroup ℓA to obtain the universal coefficient sequence (Weibel IV 2.2).",
+        "Neisendorfer's proof of Proposition 2.3: Maps(−, X) turns the cofibration S^k → S^k → P^{k+1} into a fibration and Maps(S^k, −) preserves the fibration F → X → X; compare the two homotopy fibres.",
+        "Proposition 2.7: P = P^m(Z/q₁) ∨ P^m(Z/q₂) → P^m(Z/ℓ) is a homotopy equivalence because P has the single reduced homology group Z/q₁ × Z/q₂ ≅ Z/ℓ.",
+        "Spectrum version: the Moore spectrum is the cofibre of ℓ on the sphere spectrum and π_*(E; Z/ℓ) = colim π_{*+r}(E_r; Z/ℓ) = π_*(E ∧ P^∞(Z/ℓ)) by S-duality (Weibel IV 2.3.1, stated)."
+      ],
+      "acceptance": [
+        "Nonsplit example: π_{m+2}(S^m; Z/2) = Z/4 for m ≥ 3 and π₂(BO; Z/2) = Z/4 (Weibel IV Example 2.2.1).",
+        "K₂(Z; Z/2) ≅ Z/4 has a nonzero torsion right-hand term (Weibel IV Example 2.5.1).",
+        "The Bott element in K₂(R; Z/ℓ) depends on the chosen splitting (Weibel IV Remark 2.5.3).",
+        "Products on mod ℓ^ν groups are asserted only outside ℓ^ν = 2, 3, 4, 8 (Theorem 2.8; Araki–Toda input not read)."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Definition 2.1, 2.1.1, Universal Coefficient Sequence 2.2, Example 2.2.1, Proposition 2.3 with proof, 2.3.1, Definition 2.4, Theorem 2.5, Proposition 2.7 with proof, Theorem 2.8, pp. IV.18–21",
+          "excerpt": "It is split exact unless ℓ ≡ 2 mod 4. Ex. 2.3 shows that the splitting is not natural in R.",
+          "match": "Universal Coefficient Theorem 2.5 for K-theory; the space-level sequence 2.2 and its proof ingredients appear on the preceding page."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "StableHomotopyKTheory:H.6/l-adic-completion-milnor-sequence",
+      "parentStageId": "StableHomotopyKTheory:H.6",
+      "title": "ℓ-adic completion of a spectrum and the lim¹ sequence",
+      "kind": "theorem",
+      "statement": "For a prime ℓ and a spectrum E, the ℓ-adic completion is the homotopy limit over ν of E ∧ P^∞(Z/ℓ^ν), with homotopy groups π_n(E; Z_ℓ), and there is an extension 0 → lim¹_ν π_{n+1}(E; Z/ℓ^ν) → π_n(E; Z_ℓ) → lim_ν π_n(E; Z/ℓ^ν) → 0. If the groups π_{n+1}(E; Z/ℓ^ν) are finite the lim¹ term vanishes and π_n(E; Z_ℓ) is an extension of the ℓ-adic Tate module of π_{n−1}(E) by the ℓ-adic completion of π_n(E). Consequently π_n(E; Z_ℓ) agrees with π_n(E) ⊗ Z_ℓ only under additional hypotheses (for example π_n(E) finitely generated and vanishing Tate module of π_{n−1}(E)).",
+      "hypotheses": [
+        "Homotopy limit of the tower E ∧ P^∞(Z/ℓ^ν) with the transition maps induced by the Moore spectra; finiteness of π_{n+1}(E; Z/ℓ^ν) for the vanishing of lim¹.",
+        "If E is a homotopy associative and commutative ring spectrum, so is its completion."
+      ],
+      "proofSteps": [
+        "Define the completion as a homotopy limit of the tower (Weibel IV 2.9).",
+        "The lim¹ extension for the homotopy groups of a homotopy limit of a tower is quoted without proof (source boundary: Milnor sequence).",
+        "Finite groups satisfy the Mittag-Leffler condition, so lim¹ vanishes; combining lim_ν of the universal coefficient sequences 2.5 gives the Tate-module extension (Weibel IV 2.9 as stated)."
+      ],
+      "acceptance": [
+        "Index check (review): by the formula of 2.9 the Tate module of π_{n−1}(E) contributes to π_n(E; Z_ℓ), so the Tate module Z_ℓ of K₁(C) = C^× appears in K₂(C; Z_ℓ). Weibel's printed example 'K₁(C; Z_ℓ) = π₁(K(C); Z_ℓ) is Z_ℓ' (p. IV.22) is inconsistent with that formula and must not be used as a test without correction.",
+        "Exhibit a tower with nonzero lim¹ before replacing completion by an inverse limit (roadmap H.6 acceptance).",
+        "Keep the Tate module term: completion is not tensoring with Z_ℓ in general."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "2.9 The ℓ-adic completion, p. IV.22",
+          "excerpt": "πn (E; Zℓ ) is an extension of the Tate module of πn−1 (E) by the ℓ-adic completion of πn (E)",
+          "match": "Weibel's statement under the finiteness hypothesis; the lim¹ sequence is displayed immediately before it without proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "StableHomotopyKTheory:H.1/nerve-and-classifying-space",
+      "target": "StableHomotopyKTheory:H.1/natural-transformations-adjoints-contractibility",
+      "reason": "The homotopy induced by a natural transformation is the realization of a functor C × [1] → C′ and needs the product homeomorphism B(C × [1]) ≅ BC × I supplied by the classifying-space construction.",
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "§1, (4) and Proposition 2, LNM p. 92"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.1/natural-transformations-adjoints-contractibility",
+      "target": "StableHomotopyKTheory:H.2/quillen-theorem-a",
+      "reason": "The proof of Theorem A uses contractibility of C′/fX₀ (final object) and of Y\\id_{C′} (initial object) from the initial/final-object corollary.",
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "Proof of Theorem A, LNM pp. 95–96"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2/bisimplicial-realization-lemma",
+      "target": "StableHomotopyKTheory:H.2/quillen-theorem-a",
+      "reason": "Theorem A identifies the diagonal of the bisimplicial set T(f) with the nerve of S(f) and computes Bp₁, Bp₂ by realizing T(f) in one direction at a time.",
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "Lemma and proof of Theorem A, LNM pp. 94–95"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2/quasi-fibration-lemma",
+      "target": "StableHomotopyKTheory:H.2/quillen-theorem-a",
+      "reason": "The levelwise homotopy equivalences obtained by realizing T(f) in one direction are promoted to homotopy equivalences of realizations by the quasi-fibration lemma (Quillen's alternative to Tornehave A.3).",
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "Proof of Theorem A, LNM p. 95"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2/quasi-fibration-lemma",
+      "target": "StableHomotopyKTheory:H.2/quillen-theorem-b",
+      "reason": "Applied to Y ↦ B(Y\\f) with homotopy-equivalence transition maps, the lemma shows Bp₂ is a quasi-fibration, which gives the homotopy-cartesian square in Theorem B.",
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "Proof of Theorem B, LNM pp. 98–99"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence",
+      "target": "StableHomotopyKTheory:H.2/quillen-theorem-b",
+      "reason": "Theorem B is formulated with homotopy-cartesian squares and derives its exact sequence from the exact homotopy sequence of Bf.",
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "'The exact homotopy sequence' and Theorem B, LNM pp. 96–97"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2/quillen-theorem-a",
+      "target": "StableHomotopyKTheory:H.2/quillen-theorem-b",
+      "reason": "The proof of Theorem B reuses from Theorem A that p₁: S(f) → C is a homotopy equivalence and the comparison with S(id_{C′}).",
+      "sources": [
+        {
+          "sourceId": "Quillen-HigherK-I-1973",
+          "locator": "Proof of Theorem B, LNM p. 98"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.1/homology-of-small-categories",
+      "target": "StableHomotopyKTheory:H.3/acyclic-spaces-and-maps",
+      "reason": "Re-pointed in review. Lemma 1.3.1 writes the Serre spectral sequence of F̃ → F → BG as E²_{pq} = H_p(G; H_q(F̃; Z)), i.e. with group homology, which is the homology of BG with local coefficients by the comparison supplied here (Weibel IV 3.4.2, 3.5.1). The previous target, Lemma 1.6, is stated and proved for arbitrary connected CW complexes with local coefficients and does not use that comparison.",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Lemma 1.3.1 proof, p. IV.4; 3.4.2 and Local coefficients 3.5.1, pp. IV.28–29"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence",
+      "target": "StableHomotopyKTheory:H.3/acyclic-spaces-and-maps",
+      "reason": "Acyclic maps are defined by acyclicity of the homotopy fibre, and the surjectivity and perfect-kernel consequences come from its exact homotopy sequence.",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Definition 1.4, p. IV.4"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.3/acyclic-spaces-and-maps",
+      "target": "StableHomotopyKTheory:H.3/acyclic-map-homology-criterion",
+      "reason": "The criterion characterizes the acyclic maps defined there, using the trivial action of π₁F(f) on coefficients.",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Lemma 1.6 proof, p. IV.5"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.3/acyclic-spaces-and-maps",
+      "target": "StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension",
+      "reason": "Proposition 1.7 uses that the fibre of a plus construction is acyclic, hence has perfect π₁ with vanishing H₂ (Lemma 1.3.1).",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Proposition 1.7 proof, p. IV.6"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.3/plus-construction-by-cell-attachment",
+      "target": "StableHomotopyKTheory:H.3/plus-construction-universal-property",
+      "reason": "Part (1) of Theorem 1.5 is the existence statement supplied by the cell-attachment construction; parts (2)–(3) concern the resulting map.",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Theorem 1.5 and Exercise 1.4, pp. IV.5, IV.14"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.3/acyclic-map-homology-criterion",
+      "target": "StableHomotopyKTheory:H.3/plus-construction-universal-property",
+      "reason": "Remark 1.8.1 recognizes an integral homology isomorphism into an H-space as an acyclic map, via the local-coefficient criterion. Review note: Weibel only asserts that f is acyclic in Remark 1.8.1 and indicates the proof through Exercise 1.3 (relative Hurewicz); routing the acyclicity claim through Lemma 1.6 is packet-authored.",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Remark 1.8.1 and Lemma 1.6, pp. IV.5–6"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.3/plus-construction-universal-property",
+      "target": "StableHomotopyKTheory:H.4/group-completion-uniqueness",
+      "reason": "Lemma 4.4.1 identifies a group completion of a group-like H-space with a plus construction relative to the trivial subgroup and invokes Theorem 1.5 to conclude it is a homotopy equivalence.",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Lemma 4.4.1 proof, p. IV.39"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.4/symmetric-monoidal-S-inverse-S",
+      "target": "StableHomotopyKTheory:H.4/quillen-localization-of-homology",
+      "reason": "Theorem 4.8 is a statement about S⁻¹X = ⟨S, S × X⟩ and needs the faithful-translation groupoid hypotheses and Lemma 4.3.1 on π₀.",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Definition 4.7.1 and Theorem 4.8, pp. IV.41–42"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.1/coverings-fundamental-group-local-coefficients",
+      "target": "StableHomotopyKTheory:H.4/quillen-localization-of-homology",
+      "reason": "The proof uses that the localized homology functors M_q are morphism-inverting, hence local systems on the contractible category ⟨S, S⟩, to degenerate the spectral sequence.",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Theorem 4.8 proof (Ex. 3.1), p. IV.41"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.4/quillen-localization-of-homology",
+      "target": "StableHomotopyKTheory:H.4/gl-telescope-plus-comparison",
+      "reason": "The homology of B(S⁻¹S) is computed as the localization of H_*(BS) at the powers of [R], which identifies the basepoint component homology with H_*(BGL(R)).",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Proof of Theorem 4.9, p. IV.43"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.3/plus-construction-universal-property",
+      "target": "StableHomotopyKTheory:H.4/gl-telescope-plus-comparison",
+      "reason": "The homology isomorphism BGL(R) → Y_S into an H-space is converted to BGL(R)⁺ ≃ Y_S by Theorem 1.8 and Remark 1.8.1.",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Proof of Theorem 4.9, p. IV.43"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.4/gl-telescope-plus-comparison",
+      "target": "StableHomotopyKTheory:H.4/cofinality-projective-modules",
+      "reason": "Corollary 4.11.1 combines Theorem 4.9 for free modules with the cofinality theorem for F(R) ⊂ iso P(R).",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Paragraph before Corollary 4.11.1, p. IV.45"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.5:spectra/omega-spectra-and-eilenberg-maclane",
+      "target": "StableHomotopyKTheory:H.5:S-delooping/iterated-S-construction-omega-spectrum",
+      "reason": "The S.-construction output is an Ω-spectrum in the sequential sense defined there, with homotopy groups indexed through the deloopings.",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Infinite Loop Structure 8.5.5, p. IV.69"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.5:spectra/omega-spectra-and-eilenberg-maclane",
+      "target": "StableHomotopyKTheory:H.6/mod-l-homotopy-and-bockstein-sequence",
+      "reason": "Mod-ℓ groups in all degrees m ∈ Z and the K-theory universal coefficient theorem use the chosen deloopings of the spectrum and its smash product with the Moore spectrum.",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "2.1 remarks, 2.3.1 and Definition 2.4, pp. IV.18–20"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.6/mod-l-homotopy-and-bockstein-sequence",
+      "target": "StableHomotopyKTheory:H.6/l-adic-completion-milnor-sequence",
+      "reason": "The Tate-module description of π_n(E; Z_ℓ) is the inverse limit of the universal coefficient sequences for Z/ℓ^ν.",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "2.9, p. IV.22"
+        }
+      ]
+    },
+    {
+      "source": "KTheoryLowDegrees:U.1",
+      "target": "StableHomotopyKTheory:H.4/gl-telescope-plus-comparison",
+      "reason": "U.1 supplies GL(R) as the stabilization colimit and Whitehead's identity [GL(R), GL(R)] = E(R) with E(R) perfect and normal; Theorem 4.9 needs exactly this perfect normal subgroup to form BGL(R)⁺ and the telescope over GL_n(R).",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "§1 opening, p. IV.2; Theorem 4.9, pp. IV.42–43"
+        }
+      ]
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.1",
+      "target": "StableHomotopyKTheory:H.4/cofinality-projective-modules",
+      "reason": "Z.1 supplies that every finitely generated projective module is a direct summand of a finite free module with explicit complement; this is the cofinality of F(R) in iso P(R) used to deduce Corollary 4.11.1.",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Example 4.1.1(c) and Cofinality paragraph, pp. IV.36, IV.44"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension",
+      "target": "K2SymbolsBrauer:T.1:plus",
+      "reason": "Supplies π₂(BG⁺) ≅ H₂(P; Z) with π₁F(f) the universal central extension of P; T.1:plus applies it to P = E(A) and the Steinberg extension to identify classical K₂ with π₂BGL(A)⁺.",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Proposition 1.7 and Corollary 1.7.1, p. IV.6"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension",
+      "target": "K3BlochGroups:V.1",
+      "reason": "Supplies (at exercise level, proof pending) BP⁺ as universal cover of BG⁺ and, for a universal central extension S of P, π₃(BP⁺) ≅ H₃(S; Z); V.1 uses this for K₃(A) ≅ H₃(St(A); Z).",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Exercises 1.8–1.9, pp. IV.14–15"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.4/cofinality-projective-modules",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Supplies B(S⁻¹S) ≃ K₀(R) × BGL(R)⁺ for S = iso P(R); K.2:plus combines it with the + = Q theorem ΩBQA ≃ B(S⁻¹S) to identify the loop space of Q(Proj_fg(R)).",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Corollary 4.11.1, p. IV.45; Corollary 7.2, p. IV.62"
+        }
+      ]
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence",
+      "target": "KTheoryFiniteLocalFields:L.1",
+      "reason": "L.1 identifies BGL(F_q)⁺ with the homotopy fibre of ψ^q − 1 on BU and reads off K_n(F_q) from the long exact homotopy sequence of that fibre; the fibre and its exact sequence (with the correct low-degree terms) are supplied here.",
+      "sources": [
+        {
+          "sourceId": "Weibel-KBook-IV",
+          "locator": "Theorem 1.12 and Corollary 1.13, p. IV.10; Homotopy Fiber 1.2, p. IV.3"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "StableHomotopyKTheory:H.1",
+      "status": "partial",
+      "remaining": [
+        "Imported proofs: Milnor 1957 (realization of products), Gabriel–Zisman App. I 3.2 and I 1.2 (coverings), App. II 3.3 (derived colimits), Segal 1968 §5.1 (skeletal spectral sequence).",
+        "Homotopy groups of BG above degree 1 (Weibel IV Exercise 3.2 hint only) and the test that conjugate homomorphisms induce freely homotopic maps: no proof read.",
+        "Comparison of the bar complex with the pinned Mathlib group homology and simplicial-set realization is unchecked."
+      ]
+    },
+    {
+      "stageId": "StableHomotopyKTheory:H.2",
+      "status": "partial",
+      "remaining": [
+        "Dold–Lashof 1959 Lemmas 1.3–1.5 and Milnor 1959 used in the quasi-fibration lemma are unread.",
+        "Basepoint-change transport on homotopy-fibre sequences and the Kan-simplicial versus topological homotopy group comparison have no source read.",
+        "Weibel IV Theorem 3.6.1(i) (levelwise equivalence of bisimplicial sets) is cited from Waldhausen 1978; only Quillen's quasi-fibration route is decomposed.",
+        "The levelwise realization lemma (Weibel IV 3.6.1(i)) is also required by GeneralAlgebraicKTheory:K.4 (Waldhausen §1.4 p. 336, §1.5 pp. 342, 346); the link from H.2/bisimplicial-realization-lemma to that packet was annotated in review because the node states only the diagonal homeomorphism."
+      ]
+    },
+    {
+      "stageId": "StableHomotopyKTheory:H.3",
+      "status": "partial",
+      "remaining": [
+        "Proof of the universal property (Weibel IV Theorem 1.5(2), Theorem 1.8): Berrick 1982 §5 or Gersten 1972 not read.",
+        "Local-coefficient homology isomorphism (acyclicity) of the cell-attachment construction not proved in the passages read.",
+        "Relative construction comparing fibres after applying plus; exercises 1.3, 1.8, 1.9 need written proofs; Weibel III.5.4 recognition theorem not read."
+      ]
+    },
+    {
+      "stageId": "StableHomotopyKTheory:H.4",
+      "status": "partial",
+      "remaining": [
+        "Segal 1974 delooping theorem for Γ-spaces and the May–Thomason extension to symmetric monoidal categories without categorical sums.",
+        "Strictification/coherence independence for non-strict direct sums (Thomason) not read.",
+        "Caradus–Clarke–McGibbon–Thomason uniqueness theorem; Grayson 'Higher algebraic K-theory II' p. 221 proof of Theorem 4.8; written proofs of Weibel IV Exercises 3.7, 4.5, 4.6, 1.3.",
+        "Weibel IV Exercise 4.7 (the fibration S⁻¹S → S⁻¹X → ⟨S, X⟩ for monic X) and the invertibility statement 4.7.1, used by GeneralAlgebraicKTheory:K.2:plus (Proposition 7.6, proof of Theorem 7.1), are not in any node of this packet; [Bass, p. 355] behind Theorem 4.10 not read."
+      ]
+    },
+    {
+      "stageId": "StableHomotopyKTheory:H.5",
+      "status": "partial",
+      "remaining": [
+        "Aggregates H.5:spectra and H.5:S-delooping; both remain partial."
+      ]
+    },
+    {
+      "stageId": "StableHomotopyKTheory:H.5:spectra",
+      "status": "partial",
+      "remaining": [
+        "Concrete spectrum model compatible with simplicial sets, stable equivalences, functorial fibrant/cofibrant replacement, stable homotopy category, fibre/cofibre shift and finite biproducts: no source in the library read constructs these (candidates: Bousfield–Friedlander 1978; Hovey–Shipley–Smith, Symmetric spectra, arXiv:math/9801077).",
+        "Proof that exact sequences of simplicial abelian groups realize to fibrations (Eilenberg–Mac Lane construction).",
+        "Comparison with EnhancedDerivedSheaves E5:abstract stable categories (owned by E5:spectra-comparison)."
+      ]
+    },
+    {
+      "stageId": "StableHomotopyKTheory:H.5:S-delooping",
+      "status": "partial",
+      "remaining": [
+        "The fibration sequence of Weibel V.1.7 / Waldhausen §1.5 (which depends on the Additivity Theorem) is read and decomposed in GeneralAlgebraicKTheory:K.4/relative-S-construction-fibration-and-delooping and linked into this stage's node; the stage-level ordering against GeneralAlgebraicKTheory:K.4 is left to the orchestrator (see the gap below and that packet's first gap).",
+        "Smash products of spectra and the pairing on homotopy groups (Weibel IV 8.11 only sketched); E∞ refinement not sourced."
+      ]
+    },
+    {
+      "stageId": "StableHomotopyKTheory:H.6",
+      "status": "partial",
+      "remaining": [
+        "Proof of the Milnor lim¹ sequence for homotopy limits of towers.",
+        "Exact couples of filtered spectra, convergence criteria, rationalization and arithmetic fracture squares: no source read.",
+        "Araki–Toda/Neisendorfer products on mod ℓ^ν homotopy (Theorem 2.8) not read."
+      ]
+    },
+    {
+      "stageId": "StableHomotopyKTheory:KU-existing",
+      "status": "not_read",
+      "remaining": [
+        "Aggregation checkpoint for UPSTREAM Mathlib and pinned Tau Ceti foundations: requires a declaration-level audit at the implementation pin; no primary source applies."
+      ]
+    },
+    {
+      "stageId": "StableHomotopyKTheory:KU-homotopy",
+      "status": "partial",
+      "remaining": [
+        "Aggregates H.1 and H.2; closes only when their remaining imports are read."
+      ]
+    },
+    {
+      "stageId": "StableHomotopyKTheory:KU-plus",
+      "status": "partial",
+      "remaining": [
+        "Aggregates H.3 and H.4; blocked on the plus-construction universal property and Segal/Thomason group-completion sources."
+      ]
+    },
+    {
+      "stageId": "StableHomotopyKTheory:KU-spectra",
+      "status": "partial",
+      "remaining": [
+        "Aggregates H.5:spectra and H.6; blocked on a concrete spectrum model and the Milnor/exact-couple proofs."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Quasi-fibration and realization imports behind Theorems A and B",
+      "neededBy": [
+        "StableHomotopyKTheory:H.2/quasi-fibration-lemma",
+        "StableHomotopyKTheory:H.2/quillen-theorem-a",
+        "StableHomotopyKTheory:H.2/quillen-theorem-b",
+        "StableHomotopyKTheory:H.1/nerve-and-classifying-space",
+        "StableHomotopyKTheory:H.2/bisimplicial-realization-lemma",
+        "GeneralAlgebraicKTheory:K.4/waldhausen-additivity-theorem"
+      ],
+      "detail": "Quillen's proofs were read in full, but they import Dold–Lashof (Illinois J. Math. 3 (1959) 285–305) Lemmas 1.3–1.5, Milnor (Trans. AMS 90 (1959)) on CW homotopy types, Milnor (Ann. of Math. 65 (1957)) on realizations of products, and Tornehave A.3. None was read. Next action: obtain Dold–Lashof from Project Euclid (open access) and read Lemmas 1.3–1.5; alternatively source Weibel's [BF, B.1]/Waldhausen 1978 route to Theorem 3.6.1. Review addition: the levelwise realization lemma (Weibel IV Theorem 3.6.1(i), cited from [Wa78, pp. 164–165] and [Q341, p. 98]) is not decomposed in any node, although Waldhausen §§1.4–1.5 and Weibel V 1.3 use it."
+    },
+    {
+      "title": "Serre spectral sequence with local coefficients has no atlas supplier",
+      "neededBy": [
+        "StableHomotopyKTheory:H.3/acyclic-spaces-and-maps",
+        "StableHomotopyKTheory:H.3/acyclic-map-homology-criterion",
+        "StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension"
+      ],
+      "detail": "Lemma 1.3.1, Lemma 1.6 and Proposition 1.7 use the Serre spectral sequence of a fibration with local coefficients and its comparison theorem. A search of all atlas stage descriptions found no stage constructing it (one mention in ArithmeticLocallySymmetricSpaces:ALS.4 is a use, not a construction). The pinned Mathlib tree has no file matching 'SerreSpectralSequence' (grep, unchecked beyond names). Next action: request a shared supplier stage (see HANDOFF) or source a direct proof."
+    },
+    {
+      "title": "Universal property of the plus construction and acyclicity of the construction",
+      "neededBy": [
+        "StableHomotopyKTheory:H.3/plus-construction-universal-property",
+        "StableHomotopyKTheory:H.3/plus-construction-by-cell-attachment",
+        "StableHomotopyKTheory:H.4/group-completion-uniqueness",
+        "StableHomotopyKTheory:H.4/gl-telescope-plus-comparison"
+      ],
+      "detail": "Weibel states Theorem 1.5(2)–(3) and Theorem 1.8 but omits their obstruction-theory proofs (pointing to Berrick 1982 §5 and Gersten 1972, 1.5); Hatcher proves existence with integral homology isomorphism only and leaves uniqueness for abelian targets as Exercise 23. The local-coefficient homology isomorphism required by Weibel's Definition 1.1(2) is therefore not source-proved for any construction read. Next action: acquire Berrick, An approach to algebraic K-theory (Pitman 1982) §5, or Hausmann–Husemoller, Acyclic maps (Enseign. Math. 1979); or read Hatcher Corollary 4.73 and the lifting obstruction theory for the abelian-target case."
+    },
+    {
+      "title": "Segal Γ-space delooping and group-completion uniqueness proofs",
+      "neededBy": [
+        "StableHomotopyKTheory:H.4/segal-gamma-space-delooping",
+        "StableHomotopyKTheory:H.4/group-completion-uniqueness",
+        "StableHomotopyKTheory:H.4/quillen-localization-of-homology"
+      ],
+      "detail": "Carlsson quotes Segal's Theorem 3 without proof and prints its range as 'n > 1'; the extension to symmetric monoidal categories without categorical sums is referred to May and Thomason. Weibel quotes the CCMT uniqueness theorem and proves Theorem 4.8 using Exercises 3.7 and 4.5 whose proofs are left to the reader (following Grayson, Higher algebraic K-theory II). Next action: read Segal, Categories and cohomology theories (Topology 13, 1974) §§1–4; Thomason, Homotopy colimits in the category of small categories / symmetric monoidal categories model all connective spectra; Grayson 1976 p. 221."
+    },
+    {
+      "title": "Concrete spectrum model and stable homotopy category are unsourced",
+      "neededBy": [
+        "StableHomotopyKTheory:H.5:spectra/omega-spectra-and-eilenberg-maclane",
+        "StableHomotopyKTheory:H.5:spectra"
+      ],
+      "detail": "The K-theory sources read use sequential Ω-spectra but do not construct stable equivalences, fibrant replacement, the stable homotopy category or the fibre/cofibre shift. The library catalogue has no Bousfield–Friedlander or symmetric spectra source. Next action: download Hovey–Shipley–Smith, Symmetric spectra (arXiv:math/9801077, public) or Bousfield–Friedlander 1978, read the stable model structure and its proofs, and compare with Lurie HA §1.4 (in the library) for EnhancedDerivedSheaves:E5:spectra-comparison."
+    },
+    {
+      "title": "S.-construction delooping depends on the fibration theorem (possible ordering issue with K.4)",
+      "neededBy": [
+        "StableHomotopyKTheory:H.5:S-delooping/iterated-S-construction-omega-spectrum",
+        "GeneralAlgebraicKTheory:K.4"
+      ],
+      "detail": "Weibel IV 8.5.5 obtains |wS.C| ≃ Ω|wS.S.C| from a fibration sequence proved in V.1.7 using the Additivity Theorem. In the atlas, GeneralAlgebraicKTheory:K.4 (which owns additivity) requires StableHomotopyKTheory:H.5:S-delooping. If the delooping proof needs additivity, the additivity theorem must be a separate node that precedes H.5:S-delooping. Not yet verified against Waldhausen §1.4–1.5; next action is in the GeneralAlgebraicKTheory packet. Review update: verified in the GeneralAlgebraicKTheory review against Waldhausen §1.3 p. 330 ('the additivity theorem is needed to prove this') and Proposition 1.5.3 (proved from Proposition 1.5.5, which uses additivity), and against Weibel V 1.7; the dependency is real, so the atlas edge H.5:S-delooping → GeneralAlgebraicKTheory:K.4 runs against the proof."
+    },
+    {
+      "title": "Milnor lim¹ sequence, exact couples and convergence for spectra",
+      "neededBy": [
+        "StableHomotopyKTheory:H.6/l-adic-completion-milnor-sequence",
+        "StableHomotopyKTheory:H.6"
+      ],
+      "detail": "Weibel IV 2.9 displays the lim¹ extension without proof; no source read constructs exact couples of filtered spectra, convergence under completeness/boundedness hypotheses, rationalization or fracture squares. Consumers MotivicEtaleKTheory:M.6b and HabiroRings:HR.2 depend on these. Next action: source Boardman, Conditionally convergent spectral sequences (1999) and a model-level proof of the Milnor sequence (e.g. Bousfield–Kan IX)."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REVIEW-EXT-01-EXT-15",
+    "date": "2026-09-15",
+    "notes": "All 25 nodes and 28 links checked against Quillen LNM 341 §1 (PDF 5–15, complete), Weibel K-book IV §§1–4 and 8 (author chapter file), Carlsson, Handbook of K-theory I.1 §§1.1–1.2 (library copy, SHA-256 verified) and Hatcher, Algebraic Topology §4.2 (printed pp. 373–374, 420; re-fetched from the author's page into the reviewer's scratch directory, SHA-256 identical to the packet). 17 nodes verified unchanged, 8 corrected in place. Main corrections: an acceptance item reproduced Weibel's printed example K₁(C; Z_ℓ) = Z_ℓ, which contradicts his own formula in 2.9 (the Tate module of K₁ lies in K₂(C; Z_ℓ)); the plus-construction universal-property node claimed a source reduction of (3) to (2) that Weibel does not give, and misdescribed Exercise 1.3; the S.-delooping pairing needs the biexact cofibration condition; the [Bass, p. 355] import of Theorem 4.10 and the scope of the realization node (diagonal homeomorphism only, not the levelwise realization lemma) were recorded. Link H.1/homology-of-small-categories → H.3/acyclic-map-homology-criterion asserted a use that Lemma 1.6 does not make and was re-pointed to H.3/acyclic-spaces-and-maps (Lemma 1.3.1 uses group homology as homology of BG with local coefficients); one link reason annotated as packet-authored. Cross-roadmap supplier and consumer scopes checked (KTheoryLowDegrees:U.1, Z.1; K2SymbolsBrauer:T.1:plus; K3BlochGroups:V.1; GeneralAlgebraicKTheory:K.2:plus; KTheoryFiniteLocalFields:L.1). Every parentStageId is a StableHomotopyKTheory stage; all 12 coverage stage ids exist. Links U.1 → H.4 node, Z.1 → H.4 node and H.2 node → L.1 add stage-level edges absent from the atlas. Packet status stays partial.",
+    "checked": [
+      {
+        "nodeId": "StableHomotopyKTheory:H.1/nerve-and-classifying-space",
+        "verdict": "corrected",
+        "note": "Quillen §1 opening and (3)–(4) (PDF 5, 7–8) and Weibel IV 3.1–3.2.1, 3.1.2, 3.4.1, Ex. 3.2 match; the Quillen excerpt contained OCR garbage and was normalized."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.1/natural-transformations-adjoints-contractibility",
+        "verdict": "verified",
+        "note": "Quillen Prop. 2 with Corollaries 1–2 (PDF 8) and Weibel IV 3.2, 3.2.1–3.2.2 and §4 opening match."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.1/filtered-colimits-of-categories",
+        "verdict": "verified",
+        "note": "Quillen Prop. 3 with proof and Corollaries 1–2 (PDF 8–9) and Weibel IV Ex. 3.5 match."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.1/coverings-fundamental-group-local-coefficients",
+        "verdict": "verified",
+        "note": "Quillen Prop. 1 and proof (PDF 6), Weibel IV Lemmas 3.3–3.4, 3.4.1–3.4.2, 3.5.1, Ex. 3.1, 3.3 match; Gabriel–Zisman imports correctly flagged."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.1/homology-of-small-categories",
+        "verdict": "verified",
+        "note": "Quillen (1)–(2) with the effaceability and skeletal-spectral-sequence arguments (PDF 7) and Weibel IV 3.4.2, 3.5, 3.5.1 match."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence",
+        "verdict": "verified",
+        "note": "Quillen 'The exact homotopy sequence' (PDF 12–13) and Weibel IV 1.2, Ex. 3.3 match."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.2/bisimplicial-realization-lemma",
+        "verdict": "corrected",
+        "note": "Quillen's Lemma and proof (PDF 10–11) and Weibel IV Definition 3.6, Example 3.10.1 match; a scope note was added because the node does not contain the levelwise realization lemma (Weibel IV 3.6.1(i)) that a cross-packet consumer needs."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.2/quasi-fibration-lemma",
+        "verdict": "corrected",
+        "note": "Quillen's lemma and proof from Dold–Lashof 1.3–1.5 (PDF 13–14) and Weibel IV 3.6.1(ii) match; an acceptance item said the lemma 'yields the levelwise equivalences' — it promotes them to an equivalence of realizations."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.2/quillen-theorem-a",
+        "verdict": "verified",
+        "note": "Quillen Theorem A, example, corollary, proof (PDF 9–12) and Weibel IV 3.7, 3.7.2–3.7.4, Ex. 3.9, 3.12 match."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.2/quillen-theorem-b",
+        "verdict": "verified",
+        "note": "Quillen Theorem B, corollary and proof (PDF 13–15) and Weibel IV 3.8, 3.8.1, Ex. 3.6, 7.4 match."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.3/acyclic-spaces-and-maps",
+        "verdict": "verified",
+        "note": "Weibel IV 1.3, 1.3.1 with proof, 1.3.2, 1.4, 1.4.1, Ex. 1.2 match."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.3/acyclic-map-homology-criterion",
+        "verdict": "verified",
+        "note": "Weibel IV Lemma 1.6 and its three-step proof match."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.3/plus-construction-by-cell-attachment",
+        "verdict": "verified",
+        "note": "Hatcher Prop. 4.40, the perfect-subgroup construction (printed pp. 373–374, re-fetched copy with matching SHA-256) and Weibel IV Ex. 1.1, 1.4 match."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.3/plus-construction-universal-property",
+        "verdict": "corrected",
+        "note": "Weibel IV 1.1.2, 1.5, 1.8, 1.8.1, Ex. 1.3 and Hatcher Ex. 23 match; the source gives no reduction of (3) to (2) (only 'in particular'), and Exercise 1.3 concerns a map between H-spaces, not an H-space map."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension",
+        "verdict": "verified",
+        "note": "Weibel IV Prop. 1.7 with proof, Cor. 1.7.1, Ex. 1.8–1.9 match."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.4/symmetric-monoidal-S-inverse-S",
+        "verdict": "verified",
+        "note": "Weibel IV §4 opening, 4.1–4.3.1, 4.4.2, Ex. 4.3 and Carlsson Definition 7 (the excerpt is interrupted by a margin number in the extraction) match."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.4/quillen-localization-of-homology",
+        "verdict": "verified",
+        "note": "Weibel IV 4.4, 4.7, 4.7.1, (4.7.2), Theorem 4.8 with proof, 4.8.1, 4.9.2–4.9.3, Ex. 3.7, 4.5 match."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.4/group-completion-uniqueness",
+        "verdict": "verified",
+        "note": "Weibel IV Lemma 4.4.1 with proof, phantom maps paragraph, Theorem 4.4.3 ([CCMT 1.2]) and Ex. 4.9 match."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.4/gl-telescope-plus-comparison",
+        "verdict": "corrected",
+        "note": "Weibel IV Theorem 4.9 with proof, Theorem 4.10 with proof and 4.12.2 match; the [Bass, p. 355] import behind Theorem 4.10 was added."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.4/cofinality-projective-modules",
+        "verdict": "verified",
+        "note": "Weibel IV Theorem 4.11 with proof, Corollary 4.11.1, 4.1.1(c), Ex. 4.6, 4.8 match."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.4/segal-gamma-space-delooping",
+        "verdict": "verified",
+        "note": "Carlsson §1.2 Definition 1, summing functors, Proposition 2 with proof, Theorem 3 (printed range 'n > 1'), Examples 4–5 and p. 9 match."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.5:spectra/omega-spectra-and-eilenberg-maclane",
+        "verdict": "corrected",
+        "note": "Carlsson §1.1–1.2 and Weibel IV 2.1, 2.3.1, 4.5.2, 8.5.5 match; a traceability note was added because the Ω-spectrum convention and the integral colimit formula are used, not defined, in the passages read."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.5:S-delooping/iterated-S-construction-omega-spectrum",
+        "verdict": "corrected",
+        "note": "Weibel IV 8.4, 8.5, 8.5.3–8.5.5, 8.11, Ex. 8.5–8.6, 8.11 match; the pairing needs the biexact cofibration condition of 8.11 (added); the V.1.7 input is now decomposed in the GeneralAlgebraicKTheory packet."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.6/mod-l-homotopy-and-bockstein-sequence",
+        "verdict": "verified",
+        "note": "Weibel IV 2.1–2.8 (Moore spaces, 2.1.1, 2.2, 2.2.1, 2.3 with Neisendorfer's proof, 2.3.1, 2.4–2.5, 2.5.1–2.5.3, 2.7, 2.8) match."
+      },
+      {
+        "nodeId": "StableHomotopyKTheory:H.6/l-adic-completion-milnor-sequence",
+        "verdict": "corrected",
+        "note": "Weibel IV 2.9 matches; the acceptance item copied Weibel's example K₁(C; Z_ℓ) = Z_ℓ, which contradicts the formula of 2.9 itself (the Tate module of K₁(C) lies in K₂(C; Z_ℓ)); replaced by an index check."
+      }
+    ]
+  }
+}
