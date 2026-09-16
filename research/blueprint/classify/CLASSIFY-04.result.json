@@ -1887,5 +1887,385 @@
     ]
    }
   ]
+ },
+ {
+  "roadmapId": "ProbabilisticAndMetricNumberTheory",
+  "primaryMsc": "11K",
+  "secondaryMsc": [
+   "11N",
+   "11J",
+   "37A"
+  ],
+  "cluster": "analytic-number-theory",
+  "distance": 5,
+  "distanceRationale": "Mathlib supplies the measure-theoretic and probabilistic base: Borel–Cantelli, Lévy's continuity theorem, ergodicity of circle maps, continued fractions, Dirichlet approximation, Chebyshev functions and ω(n). Tau Ceti adds mean ergodic theorems. Missing is a graduate layer (Weyl's criterion, discrepancy, Mertens' estimates, Turán–Kubilius, Erdős–Kac, Khintchine, the Gauss measure). The modern endpoints (Koukoulopoulos–Maynard, Matomäki–Radziwiłł) are research-level but mostly self-contained analytic and combinatorial arguments.",
+  "mathlibEvidence": [
+   "mathlib:MeasureTheory.measure_limsup_atTop_eq_zero (Mathlib/MeasureTheory/OuterMeasure/BorelCantelli.lean) — Borel–Cantelli, convergence half",
+   "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_tendsto_charFun (Mathlib/MeasureTheory/Measure/LevyConvergence.lean) — Lévy continuity theorem",
+   "mathlib:AddCircle.ergodic_zsmul (Mathlib/Dynamics/Ergodic/AddCircle.lean) — ergodicity of multiplication maps on the circle",
+   "mathlib:Real.exists_rat_abs_sub_lt_and_lt_of_irrational (Mathlib/NumberTheory/DiophantineApproximation/Basic.lean) and GenContFract (Mathlib/Algebra/ContinuedFractions/Basic.lean)",
+   "mathlib:ArithmeticFunction.cardDistinctFactors (Mathlib/NumberTheory/ArithmeticFunction/Misc.lean) — ω(n)",
+   "absent: Weyl's equidistribution criterion, discrepancy, Mertens' Σ1/p estimate, Turán–Kubilius and Erdős–Kac, Khintchine and Duffin–Schaeffer theorems, the Gauss measure of continued fractions (no declarations matching Equidistribut, Discrepancy, ErdosKac, TuranKubilius, DuffinSchaeffer, GaussMap)"
+  ],
+  "references": [
+   {
+    "title": "Probabilistic methods in the theory of numbers",
+    "authors": "Kubilius, J.",
+    "zbmath": 3216361,
+    "msc": [
+     "11K65",
+     "11-02",
+     "11N60",
+     "11N64"
+    ]
+   },
+   {
+    "title": "Uniform distribution of sequences",
+    "authors": "Kuipers, L.; Niederreiter, Harald",
+    "zbmath": 3440485,
+    "msc": [
+     "11-02",
+     "11J71",
+     "11K06",
+     "11K16",
+     "11K36",
+     "11K38",
+     "65D30",
+     "22D99",
+     "54D45"
+    ]
+   },
+   {
+    "title": "On the Duffin–Schaeffer conjecture",
+    "authors": "Koukoulopoulos, Dimitris; Maynard, James",
+    "zbmath": 7239275,
+    "msc": [
+     "11J83",
+     "05C40"
+    ]
+   },
+   {
+    "title": "The Gaussian law of errors in the theory of additive number theoretic functions",
+    "authors": "Erdős, Pál; Kac, M.",
+    "zbmath": 3038649,
+    "msc": [
+     "11K65",
+     "11N60"
+    ]
+   },
+   {
+    "title": "Über die Gleichverteilung von Zahlen mod. Eins",
+    "authors": "Weyl, Hermann",
+    "zbmath": 2610490,
+    "msc": [
+     "11J71",
+     "11K06"
+    ]
+   },
+   {
+    "title": "Einige Sätze über Kettenbrüche, mit Anwendungen auf die Theorie der Diophantischen Approximationen",
+    "authors": "Khintchine, A.",
+    "zbmath": 2595457,
+    "msc": []
+   },
+   {
+    "title": "Ergodic theory. With a view towards number theory",
+    "authors": "Einsiedler, Manfred; Ward, Thomas",
+    "zbmath": 5785125,
+    "msc": [
+     "37-02",
+     "37Axx",
+     "28-02",
+     "28Axx",
+     "11K99"
+    ]
+   },
+   {
+    "title": "Multiplicative functions in short intervals",
+    "authors": "Matomäki, Kaisa; Radziwiłł, Maksym",
+    "zbmath": 6589413,
+    "msc": [
+     "11N37",
+     "11N56"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "QSeriesPartitionsAndMockModularForms",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "11P",
+   "17B",
+   "05A"
+  ],
+  "cluster": "modular-and-automorphic-forms",
+  "distance": 7,
+  "distanceRationale": "Mathlib already has the Euler product for the partition generating function, the Dedekind eta function, Jacobi theta functions with their functional equations, and heterogeneous vertex operators. The formal q-series stage is nearly in reach, but there are no Jacobi forms or half-integral multiplier systems, no Kloosterman sums or Rademacher series, and no harmonic Maass forms, ξ-operator or Zwegers completions. The moonshine stage needs vertex operator algebras, the Monster and Borcherds's proof, so research layers of very different depths remain.",
+  "mathlibEvidence": [
+   "mathlib:Nat.Partition.hasProd_genFun (Mathlib/Combinatorics/Enumerative/Partition/GenFun.lean) — Euler product for Σ p(n)qⁿ",
+   "mathlib:ModularForm.eta (Mathlib/NumberTheory/ModularForms/DedekindEta.lean) — Dedekind eta, without the general multiplier system",
+   "mathlib:jacobiTheta₂_functional_equation (Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean)",
+   "mathlib:HVertexOperator (Mathlib/Algebra/Vertex/HVertexOperator.lean) — heterogeneous vertex operators, with no VOAs or moonshine module",
+   "absent: Jacobi forms, half-integral weight multipliers, Kloosterman sums and Rademacher's exact formula, harmonic Maass forms and the ξ-operator, Appell–Lerch sums and mock theta completions, monstrous moonshine (no declarations matching JacobiForm, Maass, AppellLerch, MockTheta, Kloosterman, Moonshine)"
+  ],
+  "references": [
+   {
+    "title": "Mock theta functions",
+    "authors": "Zwegers, Sander Pieter",
+    "zbmath": 5784497,
+    "msc": [
+     "11F27",
+     "11F37",
+     "33D15",
+     "11F50",
+     "11E45"
+    ]
+   },
+   {
+    "title": "The theory of partitions",
+    "authors": "Andrews, George E.",
+    "zbmath": 3577263,
+    "msc": [
+     "11-02",
+     "11P81",
+     "11P82",
+     "11P83",
+     "11P84",
+     "05-02",
+     "05A15",
+     "05A17",
+     "05A19",
+     "05A30"
+    ]
+   },
+   {
+    "title": "On the partition function p(n)",
+    "authors": "Rademacher, Hans",
+    "zbmath": 3026852,
+    "msc": [
+     "11P82"
+    ]
+   },
+   {
+    "title": "Asymptotic formulae in combinatory analysis",
+    "authors": "Hardy, G. H.; Ramanujan, S.",
+    "zbmath": 2610184,
+    "msc": [
+     "11P82"
+    ]
+   },
+   {
+    "title": "The theory of Jacobi forms",
+    "authors": "Eichler, Martin; Zagier, Don",
+    "zbmath": 3882526,
+    "msc": [
+     "11F50",
+     "11-02"
+    ]
+   },
+   {
+    "title": "On two geometric theta lifts",
+    "authors": "Bruinier, Jan Hendrik; Funke, Jens",
+    "zbmath": 2135351,
+    "msc": [
+     "11F27",
+     "11F55",
+     "14C25"
+    ]
+   },
+   {
+    "title": "Vertex operator algebras and the Monster",
+    "authors": "Frenkel, Igor; Lepowsky, James; Meurman, Arne",
+    "zbmath": 42233,
+    "msc": [
+     "17B69",
+     "17B68",
+     "17-02",
+     "20D08",
+     "81T40"
+    ]
+   },
+   {
+    "title": "Monstrous moonshine and monstrous Lie superalgebras",
+    "authors": "Borcherds, Richard E.",
+    "zbmath": 220742,
+    "msc": [
+     "17B67",
+     "20D08",
+     "17B70",
+     "17B68",
+     "17B81",
+     "81R10",
+     "22E67"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "RankZeroOneBSD",
+  "primaryMsc": "11G",
+  "secondaryMsc": [
+   "11R",
+   "11F",
+   "14G"
+  ],
+  "cluster": "iwasawa-theory-and-special-values",
+  "distance": 10,
+  "distanceRationale": "Tau Ceti has proved Mordell–Weil over number fields, with 2-Selmer groups, weak Mordell–Weil and the Néron–Tate regulator, and Mathlib has reduction types of Weierstrass curves. There is no L-function of E/ℚ or its modular continuation, and no Tate–Shafarevich group, Tamagawa factor or real period. Heegner points, Gross–Zagier, Kolyvagin systems and Iwasawa main conjectures are also missing. The prime-part formulas (Jetchev–Skinner–Wan, Castella, Castella–Grossi–Skinner, Burungale–Skinner–Tian–Wan) are frontier results sitting on twenty prerequisite roadmaps.",
+  "mathlibEvidence": [
+   "tauceti:WeierstrassCurve.Affine.fg_point_of_numberField (TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean) — Mordell–Weil theorem",
+   "tauceti:WeierstrassCurve.Affine.regulator (TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean) — Néron–Tate regulator",
+   "tauceti:WeierstrassCurve.Affine.selmerGroup₂ (TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean) — 2-Selmer group for descent",
+   "mathlib:WeierstrassCurve.HasGoodReduction (Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean)",
+   "absent: the L-function of an elliptic curve and its analytic continuation, Tate–Shafarevich groups, Tamagawa numbers and real periods, Heegner points and Gross–Zagier, Kolyvagin systems, Iwasawa main conjectures (no declarations matching Heegner, GrossZagier, TateShafarevich, Tamagawa, RealPeriod, WeierstrassCurve LSeries)"
+  ],
+  "references": [
+   {
+    "title": "Heegner points and derivatives of L-series",
+    "authors": "Gross, Benedict H.; Zagier, Don B.",
+    "zbmath": 3983362,
+    "msc": [
+     "11G40",
+     "11F11",
+     "11G05",
+     "14G10"
+    ]
+   },
+   {
+    "title": "Euler systems",
+    "authors": "Kolyvagin, V. A.",
+    "zbmath": 16094,
+    "msc": [
+     "14G05",
+     "11R29",
+     "14H25"
+    ]
+   },
+   {
+    "title": "Nonvanishing theorems for L-functions of modular forms and their derivatives",
+    "authors": "Bump, Daniel; Friedberg, Solomon; Hoffstein, Jeffrey",
+    "zbmath": 4187918,
+    "msc": [
+     "11F67",
+     "11F11",
+     "11F66",
+     "11G05"
+    ]
+   },
+   {
+    "title": "The Birch and Swinnerton-Dyer formula for elliptic curves of analytic rank one",
+    "authors": "Jetchev, Dimitar; Skinner, Christopher; Wan, Xin",
+    "zbmath": 6843572,
+    "msc": [
+     "11G05",
+     "11G40"
+    ]
+   },
+   {
+    "title": "The Iwasawa main conjectures for GL₂",
+    "authors": "Skinner, Christopher; Urban, Eric",
+    "zbmath": 6261655,
+    "msc": [
+     "11R23",
+     "11F85",
+     "11G05",
+     "11F80",
+     "11F33"
+    ]
+   },
+   {
+    "title": "On the p-part of the Birch–Swinnerton-Dyer formula for multiplicative primes",
+    "authors": "Castella, Francesc",
+    "zbmath": 6853918,
+    "msc": [
+     "11R23",
+     "11G40",
+     "11G05"
+    ]
+   },
+   {
+    "title": "Mazur's main conjecture at Eisenstein primes",
+    "authors": "Castella, Francesc; Grossi, Giada; Skinner, Christopher",
+    "zbmath": 8125066,
+    "msc": [
+     "11R23",
+     "11G05",
+     "11G40"
+    ]
+   },
+   {
+    "title": "Zeta elements for elliptic curves and applications (arXiv:2409.01350)",
+    "authors": "Burungale, Ashay; Skinner, Christopher; Tian, Ye; Wan, Xin",
+    "zbmath": 902552717,
+    "msc": [
+     "arXiv:math.NT"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "ReductiveGroupsPartII",
+  "primaryMsc": "20G",
+  "secondaryMsc": [
+   "14L",
+   "22E",
+   "20E"
+  ],
+  "cluster": "lie-theory-and-representations",
+  "distance": 7,
+  "distanceRationale": "Tau Ceti has reductive affine group schemes over fields, abstract Tits systems with Bruhat cells, and split classical groups, and Mathlib has root pairings and their duals. There is no topology on E-points of schemes and no Weil restriction. Relative and valued root data, Bruhat–Tits buildings, parahoric group schemes, Cartan/Iwasawa decompositions over local fields and L-groups are also missing. Bruhat–Tits I/II is a research-level theory needing several layers (Borel–Tits relative theory, valued root data, integral models) on top of the field-level foundations.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.ReductiveAffineGroupSchemeCat (TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean) — reductive group schemes, with no local-field structure",
+   "tauceti:TauCeti.TitsSystem.bruhatCell (TauCeti/GroupTheory/TitsSystem/Bruhat/Basic.lean) — abstract BN-pairs and Bruhat cells",
+   "mathlib:RootPairing (Mathlib/LinearAlgebra/RootSystem/Defs.lean) and RootPairing.flip — absolute root data and their duals, without valuations",
+   "absent: topologies on E-points of schemes, Weil restriction, relative and valued root data, Bruhat–Tits buildings, parahoric/Iwahori group schemes, Cartan and Iwasawa decompositions over local fields, L-groups (no declarations matching Building, Apartment, BruhatTits, Parahoric, Iwahori, WeilRestriction, CartanDecomposition, LanglandsDual)"
+  ],
+  "references": [
+   {
+    "title": "Groupes réductifs sur un corps local. I. Données radicielles valuées",
+    "authors": "Bruhat, François; Tits, Jacques",
+    "zbmath": 3401076,
+    "msc": [
+     "14L99",
+     "20G25",
+     "22E99"
+    ]
+   },
+   {
+    "title": "Groupes réductifs sur un corps local. II. Schémas en groupes. Existence d'une donnée radicielle valuée",
+    "authors": "Bruhat, François; Tits, Jacques",
+    "zbmath": 3961838,
+    "msc": [
+     "14Lxx",
+     "14L15",
+     "20G25"
+    ]
+   },
+   {
+    "title": "Bruhat–Tits theory. A new approach",
+    "authors": "Kaletha, Tasho; Prasad, Gopal",
+    "zbmath": 7609626,
+    "msc": [
+     "20-02",
+     "20E42",
+     "20G25",
+     "11F70",
+     "22E50"
+    ]
+   },
+   {
+    "title": "Introduction to the theory of admissible representations of p-adic reductive groups (notes)",
+    "authors": "Casselman, W.",
+    "zbmath": null,
+    "msc": []
+   },
+   {
+    "title": "The Stacks Project (restriction of scalars, tags 05Y8, 05YF)",
+    "authors": "The Stacks Project Authors",
+    "zbmath": null,
+    "msc": []
+   }
+  ]
  }
 ]
