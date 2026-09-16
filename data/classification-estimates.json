@@ -1,0 +1,354 @@
+{
+ "version": 1,
+ "purpose": "Provisional subject clusters and distances for roadmaps whose evidence-based classification (research/blueprint/classify) has not finished. scripts/classification.py uses an entry only when no classification result exists. Distances use the classification scale: 0 means the targets can be stated and proved from Mathlib now, 10 means several research-level theories must be built first.",
+ "estimates": {
+  "SpecialValuesBirchTate": {
+   "cluster": "iwasawa-theory-and-special-values",
+   "distance": 8,
+   "primaryMsc": "11R42",
+   "reason": "Zeta special values against K2 of rings of integers; needs Iwasawa main conjectures and étale K-theory."
+  },
+  "StableHomotopyKTheory": {
+   "cluster": "k-theory-and-motives",
+   "distance": 7,
+   "primaryMsc": "19D06",
+   "reason": "Classifying spaces, plus construction and spectra; Mathlib has simplicial sets but no spectra or group completion."
+  },
+  "TorsionCohomologyInfrastructure": {
+   "cluster": "modular-and-automorphic-forms",
+   "distance": 8,
+   "primaryMsc": "11F75",
+   "reason": "Torsion in the cohomology of arithmetic groups and locally symmetric spaces."
+  },
+  "TropicalAndBerkovichArithmetic": {
+   "cluster": "p-adic-geometry",
+   "distance": 8,
+   "primaryMsc": "14G22",
+   "reason": "Berkovich analytification and skeleta; no nonarchimedean analytic spaces in Mathlib."
+  },
+  "VStackSheavesAndLisseCategories": {
+   "cluster": "geometric-langlands",
+   "distance": 10,
+   "primaryMsc": "14G45",
+   "reason": "Sheaves on Artin v-stacks for Fargues–Scholze geometrization, over diamonds and condensed coefficients."
+  },
+  "VectorBundlesAndIsocrystals": {
+   "cluster": "p-adic-geometry",
+   "distance": 9,
+   "primaryMsc": "14G45",
+   "reason": "Isocrystals and bundles on the Fargues–Fontaine curve; needs the curve and Banach–Colmez spaces."
+  },
+  "WeightsInEtaleCohomology": {
+   "cluster": "etale-and-motivic-cohomology",
+   "distance": 9,
+   "primaryMsc": "14F20",
+   "reason": "Deligne weights; needs ℓ-adic cohomology with its six operations."
+  },
+  "WeilConjectures": {
+   "cluster": "etale-and-motivic-cohomology",
+   "distance": 9,
+   "primaryMsc": "14G10",
+   "reason": "Deligne's proof of the Riemann hypothesis over finite fields via étale cohomology."
+  },
+  "tauceti:Completed/ContourIntegration": {
+   "cluster": "analysis",
+   "distance": 0,
+   "primaryMsc": "30E20",
+   "reason": "Archived as complete upstream."
+  },
+  "tauceti:Completed/OrthogonalL2Bases": {
+   "cluster": "analysis",
+   "distance": 0,
+   "primaryMsc": "42C05",
+   "reason": "Archived as complete upstream."
+  },
+  "tauceti:TauCetiRoadmap/AdicSpaces": {
+   "cluster": "p-adic-geometry",
+   "distance": 6,
+   "primaryMsc": "14G22",
+   "reason": "Huber rings and adic spectra; Mathlib has valuations and topological rings but no adic spaces."
+  },
+  "tauceti:TauCetiRoadmap/AlgebraicCurves": {
+   "cluster": "algebraic-geometry",
+   "distance": 5,
+   "primaryMsc": "14H05",
+   "reason": "Function fields, divisors and Riemann–Roch; Mathlib has schemes but no divisor theory on curves."
+  },
+  "tauceti:TauCetiRoadmap/AnalyticToricGeometry": {
+   "cluster": "algebraic-geometry",
+   "distance": 5,
+   "primaryMsc": "14M25",
+   "reason": "Toric varieties from fans with complex-analytic charts and comparison."
+  },
+  "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries": {
+   "cluster": "analytic-number-theory",
+   "distance": 3,
+   "primaryMsc": "11M41",
+   "reason": "Dirichlet series and Tauberian theorems; Mathlib has L-series and Dirichlet's theorem."
+  },
+  "tauceti:TauCetiRoadmap/BelyiMaps": {
+   "cluster": "arithmetic-geometry",
+   "distance": 6,
+   "primaryMsc": "11G32",
+   "reason": "Belyi's theorem and dessins; needs curves over number fields and étale covers."
+  },
+  "tauceti:TauCetiRoadmap/CFSGStatement": {
+   "cluster": "group-theory",
+   "distance": 4,
+   "primaryMsc": "20D05",
+   "reason": "Stating the classification needs groups of Lie type and the sporadic groups."
+  },
+  "tauceti:TauCetiRoadmap/Chebotarev": {
+   "cluster": "algebraic-number-theory",
+   "distance": 5,
+   "primaryMsc": "11R45",
+   "reason": "Density of Frobenius classes; needs Artin L-functions or Deuring reduction beyond Dirichlet."
+  },
+  "tauceti:TauCetiRoadmap/ClassFieldTheory": {
+   "cluster": "algebraic-number-theory",
+   "distance": 7,
+   "primaryMsc": "11R37",
+   "reason": "Local and global reciprocity; needs Galois cohomology, ideles and Brauer groups."
+  },
+  "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer": {
+   "cluster": "topology",
+   "distance": 5,
+   "primaryMsc": "57K18",
+   "reason": "Grid homology of knots; combinatorial but needs knot diagrams and chain complexes over them."
+  },
+  "tauceti:TauCetiRoadmap/ConformalMapping": {
+   "cluster": "analysis",
+   "distance": 3,
+   "primaryMsc": "30C20",
+   "reason": "Riemann mapping theorem and boundary behaviour; Mathlib has holomorphic functions but not the mapping theorem."
+  },
+  "tauceti:TauCetiRoadmap/DGAInfinity": {
+   "cluster": "homological-algebra-and-categories",
+   "distance": 4,
+   "primaryMsc": "18G70",
+   "reason": "DG and A-infinity algebras and modules over Mathlib's homological complexes."
+  },
+  "tauceti:TauCetiRoadmap/EllipticCurves": {
+   "cluster": "arithmetic-geometry",
+   "distance": 5,
+   "primaryMsc": "11G05",
+   "reason": "Mathlib has Weierstrass curves and the group law; reduction, Mordell–Weil and Tate curves remain."
+  },
+  "tauceti:TauCetiRoadmap/Exchangeability": {
+   "cluster": "probability",
+   "distance": 2,
+   "primaryMsc": "60G09",
+   "reason": "De Finetti's theorem over Mathlib's measure-theoretic probability."
+  },
+  "tauceti:TauCetiRoadmap/FuchsianOrbifolds": {
+   "cluster": "topology",
+   "distance": 5,
+   "primaryMsc": "30F35",
+   "reason": "Fuchsian groups, quotient Riemann surfaces and orbifold points."
+  },
+  "tauceti:TauCetiRoadmap/GeometricTopology": {
+   "cluster": "topology",
+   "distance": 6,
+   "primaryMsc": "57K40",
+   "reason": "Solved Kirby-list problems in low-dimensional topology."
+  },
+  "tauceti:TauCetiRoadmap/GlobalNumberFields": {
+   "cluster": "algebraic-number-theory",
+   "distance": 3,
+   "primaryMsc": "11R04",
+   "reason": "Ray classes, adeles and Hecke characters on top of Mathlib's number fields and class groups."
+  },
+  "tauceti:TauCetiRoadmap/GlobalQuadraticForms": {
+   "cluster": "algebraic-number-theory",
+   "distance": 4,
+   "primaryMsc": "11E12",
+   "reason": "Hasse–Minkowski and genus theory over number fields."
+  },
+  "tauceti:TauCetiRoadmap/GrothendieckEulerForms": {
+   "cluster": "homological-algebra-and-categories",
+   "distance": 4,
+   "primaryMsc": "18F30",
+   "reason": "Exact structures, Grothendieck groups and Euler forms of finite-dimensional algebras."
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer": {
+   "cluster": "topology",
+   "distance": 9,
+   "primaryMsc": "57K18",
+   "reason": "Analytic Heegaard Floer homology needs pseudo-holomorphic curve theory."
+  },
+  "tauceti:TauCetiRoadmap/HodgeStructures": {
+   "cluster": "algebraic-geometry",
+   "distance": 5,
+   "primaryMsc": "14C30",
+   "reason": "Pure, mixed and polarized Hodge structures and their geometric sources."
+  },
+  "tauceti:TauCetiRoadmap/HopfRinow": {
+   "cluster": "differential-geometry",
+   "distance": 3,
+   "primaryMsc": "53C22",
+   "reason": "Geodesics and the exponential map on Riemannian manifolds."
+  },
+  "tauceti:TauCetiRoadmap/ModularCurves": {
+   "cluster": "modular-and-automorphic-forms",
+   "distance": 7,
+   "primaryMsc": "11G18",
+   "reason": "Katz–Mazur moduli of elliptic curves with Drinfeld level structure."
+  },
+  "tauceti:TauCetiRoadmap/ModularForms": {
+   "cluster": "modular-and-automorphic-forms",
+   "distance": 4,
+   "primaryMsc": "11F11",
+   "reason": "Mathlib has modular forms and Eisenstein series; Hecke theory and newforms remain."
+  },
+  "tauceti:TauCetiRoadmap/NumberFieldArithmetic": {
+   "cluster": "algebraic-number-theory",
+   "distance": 2,
+   "primaryMsc": "11R04",
+   "reason": "Ramification and Frobenius over Mathlib's Dedekind domains."
+  },
+  "tauceti:TauCetiRoadmap/OptimalTransport": {
+   "cluster": "analysis",
+   "distance": 3,
+   "primaryMsc": "49Q22",
+   "reason": "Kantorovich duality and Wasserstein geometry over Mathlib's measure theory."
+  },
+  "tauceti:TauCetiRoadmap/PDE": {
+   "cluster": "pde",
+   "distance": 4,
+   "primaryMsc": "35J",
+   "reason": "Sobolev spaces and elliptic and evolution equations."
+  },
+  "tauceti:TauCetiRoadmap/PolynomialGaloisGroups": {
+   "cluster": "algebraic-number-theory",
+   "distance": 2,
+   "primaryMsc": "12F10",
+   "reason": "Computing Galois groups of rational polynomials."
+  },
+  "tauceti:TauCetiRoadmap/ProfiniteCohomology": {
+   "cluster": "group-theory",
+   "distance": 3,
+   "primaryMsc": "20J06",
+   "reason": "Continuous cohomology of profinite groups beyond Mathlib's discrete group cohomology."
+  },
+  "tauceti:TauCetiRoadmap/ProfiniteProPGroups": {
+   "cluster": "group-theory",
+   "distance": 2,
+   "primaryMsc": "20E18",
+   "reason": "Profinite and pro-p groups over Mathlib's profinite groups."
+  },
+  "tauceti:TauCetiRoadmap/QuadraticFormInvariants": {
+   "cluster": "algebraic-number-theory",
+   "distance": 5,
+   "primaryMsc": "11E81",
+   "reason": "Witt groups and cohomological invariants of quadratic forms."
+  },
+  "tauceti:TauCetiRoadmap/ReductiveGroups": {
+   "cluster": "lie-theory-and-representations",
+   "distance": 5,
+   "primaryMsc": "20G15",
+   "reason": "Reductive group schemes, tori and root data."
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory": {
+   "cluster": "lie-theory-and-representations",
+   "distance": 3,
+   "primaryMsc": "20C",
+   "reason": "Collection of representation-theory roadmaps."
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa": {
+   "cluster": "lie-theory-and-representations",
+   "distance": 3,
+   "primaryMsc": "17B10",
+   "reason": "Faithful finite-dimensional representations of Lie algebras."
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory": {
+   "cluster": "lie-theory-and-representations",
+   "distance": 1,
+   "primaryMsc": "20C15",
+   "reason": "Characters of finite groups over Mathlib's representation theory."
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups": {
+   "cluster": "lie-theory-and-representations",
+   "distance": 3,
+   "primaryMsc": "20G05",
+   "reason": "Finite-dimensional representations of the classical groups."
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups": {
+   "cluster": "lie-theory-and-representations",
+   "distance": 3,
+   "primaryMsc": "22E46",
+   "reason": "Peter–Weyl over Mathlib's Haar measure and compact operators."
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction": {
+   "cluster": "lie-theory-and-representations",
+   "distance": 1,
+   "primaryMsc": "20C15",
+   "reason": "Induction, restriction and Mackey theory for finite groups."
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups": {
+   "cluster": "lie-theory-and-representations",
+   "distance": 3,
+   "primaryMsc": "22E15",
+   "reason": "Lie groups and the Lie-algebra correspondence."
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight": {
+   "cluster": "lie-theory-and-representations",
+   "distance": 3,
+   "primaryMsc": "17B10",
+   "reason": "Highest-weight theory for semisimple Lie algebras."
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations": {
+   "cluster": "lie-theory-and-representations",
+   "distance": 2,
+   "primaryMsc": "16G20",
+   "reason": "Path algebras and Gabriel's theorem."
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems": {
+   "cluster": "lie-theory-and-representations",
+   "distance": 2,
+   "primaryMsc": "17B22",
+   "reason": "Weyl groups and the Cartan–Killing classification over Mathlib's root systems."
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl": {
+   "cluster": "lie-theory-and-representations",
+   "distance": 2,
+   "primaryMsc": "20C30",
+   "reason": "Specht modules and Schur–Weyl duality."
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras": {
+   "cluster": "lie-theory-and-representations",
+   "distance": 1,
+   "primaryMsc": "16K20",
+   "reason": "Artin–Wedderburn over Mathlib's semisimple rings."
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations": {
+   "cluster": "lie-theory-and-representations",
+   "distance": 3,
+   "primaryMsc": "15A66",
+   "reason": "Pin and Spin groups over Mathlib's Clifford algebras."
+  },
+  "tauceti:TauCetiRoadmap/StablePeriodicCurved": {
+   "cluster": "homological-algebra-and-categories",
+   "distance": 5,
+   "primaryMsc": "18G80",
+   "reason": "Stable categories, periodic complexes and matrix factorizations."
+  },
+  "tauceti:TauCetiRoadmap/StableReduction": {
+   "cluster": "algebraic-geometry",
+   "distance": 7,
+   "primaryMsc": "14H10",
+   "reason": "Stable reduction of curves and moduli of stable maps."
+  },
+  "tauceti:TauCetiRoadmap/UniversalCovers": {
+   "cluster": "topology",
+   "distance": 2,
+   "primaryMsc": "57M10",
+   "reason": "Universal covers over Mathlib's covering maps."
+  },
+  "tauceti:TauCetiRoadmap/ZigzagPreprojective": {
+   "cluster": "lie-theory-and-representations",
+   "distance": 5,
+   "primaryMsc": "16G20",
+   "reason": "Zigzag, preprojective and Ginzburg algebras."
+  }
+ }
+}
