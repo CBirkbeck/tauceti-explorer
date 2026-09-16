@@ -29,13 +29,13 @@
    "decided": 284
   },
   "agreesWithDepth": {
-   "share": 0.834,
-   "decided": 253
+   "share": 0.839,
+   "decided": 254
   }
  },
  "validation": {
-  "classificationVsMissingLayers": 0.849,
-  "classificationVsDepth": 0.844,
+  "classificationVsMissingLayers": 0.85,
+  "classificationVsDepth": 0.843,
   "missingLayersVsDepth": 0.951,
   "completedRoadmaps": {
    "tauceti:Completed/ContourIntegration": 0.0,
@@ -43,7 +43,7 @@
    "tauceti:Completed/IntegralLattices": 0.0,
    "tauceti:Completed/OrthogonalL2Bases": 0.0
   },
-  "pairwiseVsMissingLayers": 0.872,
+  "pairwiseVsMissingLayers": 0.873,
   "pairwiseVsDepth": 0.878,
   "declarationsVsClassification": 0.041
  },
@@ -93,8 +93,8 @@
    "classification": 6,
    "structure": {
     "layers": 7,
-    "missingOwn": 7.0,
-    "missingLayers": 48.5,
+    "missingOwn": 6.0,
+    "missingLayers": 47.5,
     "depth": 14,
     "suppliers": 15
    },
@@ -137,9 +137,9 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 19.0,
-    "depth": 12,
-    "suppliers": 4,
+    "missingLayers": 13.5,
+    "depth": 8,
+    "suppliers": 3,
     "declarationLevel": {
      "source": "decomposition",
      "reviewed": true,
@@ -197,7 +197,7 @@
    "structure": {
     "layers": 7,
     "missingOwn": 7.0,
-    "missingLayers": 95.5,
+    "missingLayers": 94.5,
     "depth": 33,
     "suppliers": 20,
     "declarationLevel": {
@@ -325,7 +325,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 238.0,
+    "missingLayers": 237.0,
     "depth": 44,
     "suppliers": 44,
     "declarationLevel": {
@@ -394,7 +394,7 @@
    "structure": {
     "layers": 7,
     "missingOwn": 7.0,
-    "missingLayers": 149.5,
+    "missingLayers": 148.5,
     "depth": 39,
     "suppliers": 37
    },
@@ -413,10 +413,10 @@
    "classification": 4,
    "structure": {
     "layers": 10,
-    "missingOwn": 10.0,
-    "missingLayers": 68.5,
+    "missingOwn": 6.5,
+    "missingLayers": 60.0,
     "depth": 19,
-    "suppliers": 18,
+    "suppliers": 16,
     "declarationLevel": {
      "source": "decomposition",
      "reviewed": true,
@@ -450,7 +450,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 89.0,
+    "missingLayers": 88.0,
     "depth": 25,
     "suppliers": 25
    },
@@ -476,8 +476,8 @@
    "classification": 6,
    "structure": {
     "layers": 7,
-    "missingOwn": 7.0,
-    "missingLayers": 36.0,
+    "missingOwn": 6.0,
+    "missingLayers": 34.0,
     "depth": 15,
     "suppliers": 13
    },
@@ -541,7 +541,7 @@
    "structure": {
     "layers": 7,
     "missingOwn": 7.0,
-    "missingLayers": 16.0,
+    "missingLayers": 15.0,
     "depth": 9,
     "suppliers": 4,
     "declarationLevel": {
@@ -688,9 +688,9 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 70.0,
+    "missingLayers": 64.5,
     "depth": 18,
-    "suppliers": 24,
+    "suppliers": 23,
     "declarationLevel": {
      "source": "decomposition",
      "reviewed": true,
@@ -720,7 +720,7 @@
    "structure": {
     "layers": 9,
     "missingOwn": 9.0,
-    "missingLayers": 94.0,
+    "missingLayers": 93.0,
     "depth": 27,
     "suppliers": 23,
     "declarationLevel": {
@@ -763,7 +763,7 @@
    "structure": {
     "layers": 10,
     "missingOwn": 10.0,
-    "missingLayers": 551.0,
+    "missingLayers": 550.0,
     "depth": 101,
     "suppliers": 88
    },
@@ -815,7 +815,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 301.0,
+    "missingLayers": 300.0,
     "depth": 49,
     "suppliers": 49,
     "declarationLevel": {
@@ -858,7 +858,7 @@
    "structure": {
     "layers": 10,
     "missingOwn": 10.0,
-    "missingLayers": 280.5,
+    "missingLayers": 279.5,
     "depth": 49,
     "suppliers": 48,
     "declarationLevel": {
@@ -927,7 +927,7 @@
    "structure": {
     "layers": 8,
     "missingOwn": 8.0,
-    "missingLayers": 502.0,
+    "missingLayers": 501.0,
     "depth": 89,
     "suppliers": 82
    },
@@ -1016,7 +1016,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 130.5,
+    "missingLayers": 129.5,
     "depth": 37,
     "suppliers": 27
    },
@@ -1043,7 +1043,7 @@
    "structure": {
     "layers": 9,
     "missingOwn": 9.0,
-    "missingLayers": 66.5,
+    "missingLayers": 65.5,
     "depth": 19,
     "suppliers": 18,
     "declarationLevel": {
@@ -1078,7 +1078,7 @@
    "structure": {
     "layers": 8,
     "missingOwn": 8.0,
-    "missingLayers": 26.5,
+    "missingLayers": 24.5,
     "depth": 13,
     "suppliers": 10,
     "declarationLevel": {
@@ -1137,7 +1137,7 @@
    "structure": {
     "layers": 18,
     "missingOwn": 18.0,
-    "missingLayers": 475.0,
+    "missingLayers": 474.0,
     "depth": 83,
     "suppliers": 72,
     "declarationLevel": {
@@ -1251,7 +1251,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 341.0,
+    "missingLayers": 340.0,
     "depth": 53,
     "suppliers": 55,
     "declarationLevel": {
@@ -1358,7 +1358,7 @@
    "structure": {
     "layers": 7,
     "missingOwn": 7.0,
-    "missingLayers": 303.0,
+    "missingLayers": 302.0,
     "depth": 49,
     "suppliers": 50
    },
@@ -1371,7 +1371,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 80.5,
+    "missingLayers": 76.5,
     "depth": 26,
     "suppliers": 18,
     "declarationLevel": {
@@ -1502,7 +1502,7 @@
    "structure": {
     "layers": 11,
     "missingOwn": 11.0,
-    "missingLayers": 42.5,
+    "missingLayers": 41.5,
     "depth": 25,
     "suppliers": 9,
     "declarationLevel": {
@@ -1599,7 +1599,7 @@
    "structure": {
     "layers": 10,
     "missingOwn": 10.0,
-    "missingLayers": 82.5,
+    "missingLayers": 81.5,
     "depth": 27,
     "suppliers": 19
    },
@@ -1630,7 +1630,7 @@
    "structure": {
     "layers": 7,
     "missingOwn": 7.0,
-    "missingLayers": 90.5,
+    "missingLayers": 89.5,
     "depth": 32,
     "suppliers": 20
    },
@@ -1790,9 +1790,9 @@
    "structure": {
     "layers": 7,
     "missingOwn": 7.0,
-    "missingLayers": 167.0,
+    "missingLayers": 161.0,
     "depth": 39,
-    "suppliers": 43
+    "suppliers": 42
    },
    "pairwise": {
     "judgements": 4,
@@ -1812,7 +1812,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 439.0,
+    "missingLayers": 438.0,
     "depth": 89,
     "suppliers": 69,
     "declarationLevel": {
@@ -1880,7 +1880,7 @@
    "structure": {
     "layers": 8,
     "missingOwn": 8.0,
-    "missingLayers": 553.0,
+    "missingLayers": 552.0,
     "depth": 90,
     "suppliers": 84
    },
@@ -1907,7 +1907,7 @@
    "structure": {
     "layers": 14,
     "missingOwn": 14.0,
-    "missingLayers": 250.5,
+    "missingLayers": 249.5,
     "depth": 43,
     "suppliers": 47
    },
@@ -1979,7 +1979,7 @@
    "structure": {
     "layers": 11,
     "missingOwn": 11.0,
-    "missingLayers": 114.5,
+    "missingLayers": 113.5,
     "depth": 35,
     "suppliers": 21,
     "declarationLevel": {
@@ -2058,7 +2058,7 @@
    "structure": {
     "layers": 13,
     "missingOwn": 13.0,
-    "missingLayers": 291.5,
+    "missingLayers": 290.5,
     "depth": 47,
     "suppliers": 51
    },
@@ -2083,7 +2083,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 60.0,
+    "missingLayers": 56.5,
     "depth": 28,
     "suppliers": 14
    },
@@ -2101,7 +2101,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 173.0,
+    "missingLayers": 172.0,
     "depth": 43,
     "suppliers": 35,
     "declarationLevel": {
@@ -2138,7 +2138,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 88.5,
+    "missingLayers": 87.5,
     "depth": 31,
     "suppliers": 21
    },
@@ -2158,7 +2158,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 52.0,
+    "missingLayers": 51.0,
     "depth": 25,
     "suppliers": 12
    },
@@ -2187,7 +2187,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 34.0,
+    "missingLayers": 33.0,
     "depth": 13,
     "suppliers": 12
    },
@@ -2217,7 +2217,7 @@
    "structure": {
     "layers": 8,
     "missingOwn": 8.0,
-    "missingLayers": 43.0,
+    "missingLayers": 42.0,
     "depth": 15,
     "suppliers": 11
    },
@@ -2244,7 +2244,7 @@
    "structure": {
     "layers": 12,
     "missingOwn": 12.0,
-    "missingLayers": 216.5,
+    "missingLayers": 215.5,
     "depth": 47,
     "suppliers": 40
    },
@@ -2275,7 +2275,7 @@
    "structure": {
     "layers": 12,
     "missingOwn": 12.0,
-    "missingLayers": 424.0,
+    "missingLayers": 423.0,
     "depth": 67,
     "suppliers": 67
    },
@@ -2343,7 +2343,7 @@
    "structure": {
     "layers": 9,
     "missingOwn": 9.0,
-    "missingLayers": 497.0,
+    "missingLayers": 496.0,
     "depth": 97,
     "suppliers": 78,
     "declarationLevel": {
@@ -2373,7 +2373,7 @@
    "structure": {
     "layers": 10,
     "missingOwn": 10.0,
-    "missingLayers": 166.5,
+    "missingLayers": 165.5,
     "depth": 41,
     "suppliers": 29,
     "declarationLevel": {
@@ -2452,7 +2452,7 @@
    "structure": {
     "layers": 8,
     "missingOwn": 8.0,
-    "missingLayers": 63.5,
+    "missingLayers": 62.5,
     "depth": 23,
     "suppliers": 13
    },
@@ -2474,7 +2474,7 @@
    "structure": {
     "layers": 10,
     "missingOwn": 10.0,
-    "missingLayers": 460.0,
+    "missingLayers": 459.0,
     "depth": 91,
     "suppliers": 72,
     "declarationLevel": {
@@ -2656,7 +2656,7 @@
    "structure": {
     "layers": 5,
     "missingOwn": 5.0,
-    "missingLayers": 178.5,
+    "missingLayers": 177.5,
     "depth": 42,
     "suppliers": 30,
     "declarationLevel": {
@@ -2684,7 +2684,7 @@
    "structure": {
     "layers": 12,
     "missingOwn": 12.0,
-    "missingLayers": 518.0,
+    "missingLayers": 517.0,
     "depth": 96,
     "suppliers": 84,
     "declarationLevel": {
@@ -2716,7 +2716,7 @@
    "structure": {
     "layers": 7,
     "missingOwn": 7.0,
-    "missingLayers": 203.0,
+    "missingLayers": 202.0,
     "depth": 45,
     "suppliers": 43
    },
@@ -2763,7 +2763,7 @@
    "structure": {
     "layers": 13,
     "missingOwn": 13.0,
-    "missingLayers": 153.5,
+    "missingLayers": 152.5,
     "depth": 28,
     "suppliers": 34
    },
@@ -2800,7 +2800,7 @@
    "structure": {
     "layers": 8,
     "missingOwn": 8.0,
-    "missingLayers": 177.0,
+    "missingLayers": 176.0,
     "depth": 39,
     "suppliers": 34
    },
@@ -2831,7 +2831,7 @@
    "structure": {
     "layers": 8,
     "missingOwn": 8.0,
-    "missingLayers": 323.5,
+    "missingLayers": 322.5,
     "depth": 49,
     "suppliers": 52
    },
@@ -2873,7 +2873,7 @@
    "structure": {
     "layers": 15,
     "missingOwn": 15.0,
-    "missingLayers": 210.0,
+    "missingLayers": 209.0,
     "depth": 25,
     "suppliers": 45
    },
@@ -3023,7 +3023,7 @@
    "structure": {
     "layers": 5,
     "missingOwn": 5.0,
-    "missingLayers": 385.0,
+    "missingLayers": 384.0,
     "depth": 50,
     "suppliers": 66,
     "declarationLevel": {
@@ -3051,7 +3051,7 @@
    "structure": {
     "layers": 7,
     "missingOwn": 7.0,
-    "missingLayers": 92.5,
+    "missingLayers": 91.5,
     "depth": 31,
     "suppliers": 23,
     "declarationLevel": {
@@ -3086,7 +3086,7 @@
    "structure": {
     "layers": 9,
     "missingOwn": 9.0,
-    "missingLayers": 113.5,
+    "missingLayers": 112.5,
     "depth": 35,
     "suppliers": 21,
     "declarationLevel": {
@@ -3236,7 +3236,7 @@
    "structure": {
     "layers": 20,
     "missingOwn": 20.0,
-    "missingLayers": 57.5,
+    "missingLayers": 56.5,
     "depth": 20,
     "suppliers": 13
    },
@@ -3279,7 +3279,7 @@
    "structure": {
     "layers": 7,
     "missingOwn": 7.0,
-    "missingLayers": 558.0,
+    "missingLayers": 557.0,
     "depth": 104,
     "suppliers": 88
    },
@@ -3292,7 +3292,7 @@
    "structure": {
     "layers": 5,
     "missingOwn": 5.0,
-    "missingLayers": 52.5,
+    "missingLayers": 51.5,
     "depth": 21,
     "suppliers": 14
    },
@@ -3321,9 +3321,9 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 78.5,
+    "missingLayers": 70.5,
     "depth": 19,
-    "suppliers": 25
+    "suppliers": 23
    },
    "pairwise": {
     "judgements": 3,
@@ -3389,7 +3389,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 111.0,
+    "missingLayers": 110.0,
     "depth": 37,
     "suppliers": 23
    },
@@ -3420,7 +3420,7 @@
    "structure": {
     "layers": 8,
     "missingOwn": 8.0,
-    "missingLayers": 113.0,
+    "missingLayers": 112.0,
     "depth": 23,
     "suppliers": 33
    },
@@ -3440,7 +3440,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 360.0,
+    "missingLayers": 359.0,
     "depth": 53,
     "suppliers": 61
    },
@@ -3467,7 +3467,7 @@
    "structure": {
     "layers": 9,
     "missingOwn": 9.0,
-    "missingLayers": 190.0,
+    "missingLayers": 189.0,
     "depth": 48,
     "suppliers": 38
    },
@@ -3489,7 +3489,7 @@
    "structure": {
     "layers": 7,
     "missingOwn": 7.0,
-    "missingLayers": 72.0,
+    "missingLayers": 71.0,
     "depth": 20,
     "suppliers": 20
    },
@@ -3526,7 +3526,7 @@
    "structure": {
     "layers": 8,
     "missingOwn": 8.0,
-    "missingLayers": 67.5,
+    "missingLayers": 66.5,
     "depth": 19,
     "suppliers": 20,
     "declarationLevel": {
@@ -3563,7 +3563,7 @@
    "structure": {
     "layers": 8,
     "missingOwn": 8.0,
-    "missingLayers": 375.0,
+    "missingLayers": 374.0,
     "depth": 50,
     "suppliers": 66,
     "declarationLevel": {
@@ -3604,7 +3604,7 @@
    "structure": {
     "layers": 10,
     "missingOwn": 10.0,
-    "missingLayers": 430.0,
+    "missingLayers": 429.0,
     "depth": 49,
     "suppliers": 69
    },
@@ -3629,7 +3629,7 @@
    "structure": {
     "layers": 8,
     "missingOwn": 8.0,
-    "missingLayers": 133.5,
+    "missingLayers": 132.5,
     "depth": 35,
     "suppliers": 28,
     "declarationLevel": {
@@ -3674,7 +3674,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 221.5,
+    "missingLayers": 220.5,
     "depth": 47,
     "suppliers": 42
    },
@@ -3766,7 +3766,7 @@
    "structure": {
     "layers": 8,
     "missingOwn": 8.0,
-    "missingLayers": 187.0,
+    "missingLayers": 186.0,
     "depth": 42,
     "suppliers": 35
    },
@@ -3840,9 +3840,9 @@
    "structure": {
     "layers": 10,
     "missingOwn": 10.0,
-    "missingLayers": 671.0,
+    "missingLayers": 665.0,
     "depth": 107,
-    "suppliers": 104
+    "suppliers": 103
    },
    "pairwise": {
     "judgements": 4,
@@ -3920,7 +3920,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 343.5,
+    "missingLayers": 342.5,
     "depth": 52,
     "suppliers": 55
    },
@@ -3940,7 +3940,7 @@
    "structure": {
     "layers": 12,
     "missingOwn": 12.0,
-    "missingLayers": 401.0,
+    "missingLayers": 400.0,
     "depth": 69,
     "suppliers": 64
    },
@@ -4008,9 +4008,9 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 57.5,
+    "missingLayers": 55.5,
     "depth": 27,
-    "suppliers": 15
+    "suppliers": 14
    },
    "distance": 5.0,
    "basis": "classification",
@@ -4021,7 +4021,7 @@
    "structure": {
     "layers": 7,
     "missingOwn": 7.0,
-    "missingLayers": 110.5,
+    "missingLayers": 109.5,
     "depth": 30,
     "suppliers": 26
    },
@@ -4041,7 +4041,7 @@
    "structure": {
     "layers": 12,
     "missingOwn": 12.0,
-    "missingLayers": 575.0,
+    "missingLayers": 574.0,
     "depth": 106,
     "suppliers": 88
    },
@@ -4289,7 +4289,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 317.0,
+    "missingLayers": 316.0,
     "depth": 55,
     "suppliers": 50
    },
@@ -4311,7 +4311,7 @@
    "structure": {
     "layers": 9,
     "missingOwn": 9.0,
-    "missingLayers": 85.0,
+    "missingLayers": 84.0,
     "depth": 24,
     "suppliers": 22
    },
@@ -4373,7 +4373,7 @@
    "structure": {
     "layers": 10,
     "missingOwn": 10.0,
-    "missingLayers": 71.0,
+    "missingLayers": 70.0,
     "depth": 21,
     "suppliers": 20
    },
@@ -4408,9 +4408,9 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 15.0,
-    "depth": 12,
-    "suppliers": 3
+    "missingLayers": 7.5,
+    "depth": 6,
+    "suppliers": 1
    },
    "pairwise": {
     "judgements": 3,
@@ -4433,7 +4433,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 420.0,
+    "missingLayers": 419.0,
     "depth": 71,
     "suppliers": 67
    },
@@ -4460,7 +4460,7 @@
    "structure": {
     "layers": 10,
     "missingOwn": 10.0,
-    "missingLayers": 192.5,
+    "missingLayers": 191.5,
     "depth": 47,
     "suppliers": 32
    },
@@ -4494,7 +4494,7 @@
    "structure": {
     "layers": 8,
     "missingOwn": 8.0,
-    "missingLayers": 233.0,
+    "missingLayers": 232.0,
     "depth": 27,
     "suppliers": 47
    },
@@ -4556,7 +4556,7 @@
    "structure": {
     "layers": 5,
     "missingOwn": 5.0,
-    "missingLayers": 303.5,
+    "missingLayers": 302.5,
     "depth": 45,
     "suppliers": 50
    },
@@ -4604,7 +4604,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 146.5,
+    "missingLayers": 145.5,
     "depth": 39,
     "suppliers": 28,
     "declarationLevel": {
@@ -4641,7 +4641,7 @@
    "structure": {
     "layers": 8,
     "missingOwn": 8.0,
-    "missingLayers": 112.5,
+    "missingLayers": 111.5,
     "depth": 34,
     "suppliers": 23,
     "declarationLevel": {
@@ -4678,7 +4678,7 @@
    "structure": {
     "layers": 6,
     "missingOwn": 6.0,
-    "missingLayers": 48.5,
+    "missingLayers": 47.5,
     "depth": 26,
     "suppliers": 10,
     "declarationLevel": {
@@ -4727,7 +4727,7 @@
    "structure": {
     "layers": 9,
     "missingOwn": 9.0,
-    "missingLayers": 81.0,
+    "missingLayers": 80.0,
     "depth": 23,
     "suppliers": 20,
     "declarationLevel": {
@@ -4975,8 +4975,8 @@
    "classification": 2,
    "structure": {
     "layers": 11,
-    "missingOwn": 5.5,
-    "missingLayers": 5.5,
+    "missingOwn": 3.0,
+    "missingLayers": 3.0,
     "depth": 1,
     "suppliers": 0
    },
@@ -5214,8 +5214,8 @@
    "classification": 4,
    "structure": {
     "layers": 7,
-    "missingOwn": 7.0,
-    "missingLayers": 7.0,
+    "missingOwn": 5.5,
+    "missingLayers": 5.5,
     "depth": 1,
     "suppliers": 0
    },
@@ -5576,8 +5576,8 @@
    "classification": 7,
    "structure": {
     "layers": 22,
-    "missingOwn": 20.5,
-    "missingLayers": 20.5,
+    "missingOwn": 19.0,
+    "missingLayers": 19.0,
     "depth": 1,
     "suppliers": 0
    },
@@ -5616,8 +5616,8 @@
    "classification": 2,
    "structure": {
     "layers": 8,
-    "missingOwn": 7.0,
-    "missingLayers": 7.0,
+    "missingOwn": 4.0,
+    "missingLayers": 4.0,
     "depth": 1,
     "suppliers": 0
    },
@@ -5697,8 +5697,8 @@
    "classification": 5,
    "structure": {
     "layers": 16,
-    "missingOwn": 16.0,
-    "missingLayers": 16.0,
+    "missingOwn": 13.0,
+    "missingLayers": 13.0,
     "depth": 1,
     "suppliers": 0
    },
