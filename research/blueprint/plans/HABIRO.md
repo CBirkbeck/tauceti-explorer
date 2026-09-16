@@ -169,6 +169,10 @@ These are cited by the sources above for steps the roadmaps adopt.
   as used in CGZ.
 - The 2024 version of S. Meyer, F. Wagner, *Derived q-Hodge complexes and refined TC⁻*, whose Theorem 1.7 V5A4
   Theorem 1.7 cites; version v4 (§1.3) has no such theorem (§8 item 24).
+- S. Meyer, F. Wagner, *Derived q-Hodge complexes and refined TC⁻*, Lemma 3.17: the divided-power lifts
+  $\gamma^{(n)}(x^\alpha)$ inside the $q$-Hodge filtration in the universal case $A=\mathbb Z_p\{x\}$, $R=\mathbb Z_p\{x\}/x^\alpha$
+  with $\alpha\ge2$. Wagner v2 reduces the surjectivity half of Theorem 4.22(a) to it (p. 65), so HQ.5 needs it
+  (§6.5).
 - D. Clausen's computation of continuous K-theory of $\mathbb C$ (V5A2 Theorem 7.6): no written source was found
   (decision D6).
 - The *Analytic Stacks* lecture course of Clausen–Scholze (recordings). Rodríguez Camargo's notes are used as
@@ -369,7 +373,7 @@ $D_{m,\ell}=m^{2\ell-1}(\ell-1)!$, eq:poch.dml).
 | 5 (30 May 2025) | Ex 5.1, Prop 5.2 (rational: $\Omega^\bullet_{R\otimes\mathbb Q(\zeta_d)}\cong H^\bullet(q\mathrm{Hdg}_{(R,\square)}\otimes\mathbb Q(\zeta_d))$), Prop 5.3 (torsion-freeness and injection into $\prod_{d\mid m}$), Thm 5.4 (Wagner: the image is $q\text{-}W_m\Omega^i$), Remarks 5.5–5.6, **Thm 5.7 (Wagner [Wag24, Thm 5.1], variant: no functor $\mathrm{Alg}^{sm}_{\mathbb Z}\to\mathrm{CAlg}(D(\mathbb Z[q^{\pm}]))$ with (i) $q\mathrm{Hdg}_R\simeq(\mathcal H_{(R,\square)})^{h\mathbb Z^d}$ for all étale framings and (ii) $H^0\otimes\mathbb Q(\zeta_d)\cong R\otimes\mathbb Q(\zeta_d)$)**, Remarks 5.8–5.10, Lemma 5.11 ($L_{R/\mathbb F_p}=0$ for perfect $R$), Lemma 5.12, Cor 5.13, Prop 5.14, proof with $R=\mathbb Z_p\langle t^{1/p^\infty}\rangle/(t-p)$ |
 | 6 (20 Jun 2025) | Conj 6.1 (Wagner: symmetric monoidal functor on smooth $R$ with $1/d!\in R$ to $D(\mathcal H)$ with (i), (ii)), Remark 6.2, Def 6.3 (THH), Conj 6.4 and Thm 6.5 (Devalapurkar), Examples 6.6–6.7 (ku-lifts; the unnumbered text around them treats genuine fixed points and refined THH), Remarks 6.8–6.9 (primes that are not inverted; bad primes), **Examples 6.10–6.11 (transmutation: $D_{\mathrm{Hab}}(X)\simeq D_{qc}(X^{\mathrm{Hab}})$, $\mathbb G_m^{\mathrm{Hab}}=\mathbb G_{m,\mathcal H}/q^{\mathbb Z}$), Prop 6.12 (functors commuting with finite limits and gluing are determined by $F(\mathbb A^1)$), Remarks 6.13–6.14** |
 | 7 (4 Jul 2025) | $(-)^{\mathrm{Hab}}:\mathrm{Sch}^{sft}_{\mathbb Z}\to\mathrm{AnStk}_{\mathcal H^{\mathrm{an}}}$ and its extension to Berkovich spaces via normed ring stacks; Remark 7.1, Examples 7.2–7.3 ($\mathbb Z((u))_\square$), Defs 7.4–7.6 (overconvergent functions, discs, $\mathbb A^{1,\mathrm{an}}$), Remark 7.7, **Def 7.8 ($\mathcal H^{\mathrm{an}}$)**, Remark 7.9, Lemma 7.10 ($\mathcal H\to\mathcal H^{\mathrm{an}}$), Prop 7.11 (Habiro cohomology of $D_0(1)^\dagger$ is trivial), **Def 7.12 ($(\mathbb G_m)^{\mathrm{Hab}}=\mathbb G^{\mathrm{an}}_{m}/G$)**, Remark 7.13, Lemma 7.14 (full faithfulness), Ex 7.15 ($B_1$; $\mathcal H^{\mathrm{an}}\ne0$), Remark 7.16 ($B_m$; $\mathcal H^{\mathrm{an}}/p\ne0$; $q$-divided powers fail) |
-| 8 (11 Jul 2025) | the variant without condition (ii); Lemma 8.1 ($G$ at $\zeta_m$); Ex 8.2 ($q=1$: the analytic de Rham stack; expected specialisations); Ex 8.3 ($(-1)^{\mathrm{Hab}}=q^{1/2}$); **Def 8.4 ($1-_{\mathrm{Hab}}x$)**; Cartier duality; the ring stack with $x-y=x(1-y/x)$ and associativity via the five-term relation; Remark 8.5; Ex 8.6 ($1+_{\mathrm{Hab}}1$) |
+| 8 (11 Jul 2025) | the variant that removes the growth clause of condition (ii) (§8 item 8); Lemma 8.1 ($G$ at $\zeta_m$); Ex 8.2 ($q=1$: the analytic de Rham stack; expected specialisations); Ex 8.3 ($(-1)^{\mathrm{Hab}}=q^{1/2}$); **Def 8.4 ($1-_{\mathrm{Hab}}x$)**; Cartier duality; the ring stack with $x-y=x(1-y/x)$ and associativity via the five-term relation; Remark 8.5; Ex 8.6 ($1+_{\mathrm{Hab}}1$) |
 | App. A–B | Lemma A.1 (Ex 4.5); Thm B.1 (Dold–Kan), Def B.2 (cotangent complex), Defs B.3–B.8 (animation), Ex B.7, B.10, Remark B.9, Prop B.11 |
 
 The course description announces two further topics not in the notes: the realisation of Berkovich motives,
@@ -537,8 +541,9 @@ Each declaration below was read in its source file at the pinned commits. Line n
 
 **Prismatic and $p$-adic material in Tau Ceti.**
 - No prisms, prismatic cohomology or perfectoid rings.
-- Present: Huber rings (`TauCeti/RingTheory/Huber/*`, e.g. `IsHuberRing`, pairs of definition, Tate rings,
-  pseudo-uniformizers, restricted and weighted restricted series, Laurent series), adic spectra
+- Present: Huber rings (`TauCeti/RingTheory/Huber/*`, e.g. `TauCeti.Huber.IsHuberRing` in `Huber/Basic.lean`, l. 154,
+  together with pairs of definition, Tate rings, pseudo-uniformizers, restricted and weighted restricted series and
+  Laurent series), adic spectra
   (`TauCeti/AlgebraicGeometry/AdicSpace/*`: `TauCeti.ValuationSpectrum.spa` in `Spa/Basic.lean`, l. 97, and valuation
   spectra), and roots of unity.
 - Mathlib supplies `PreTilt`, `WittVector.fontaineThetaModPPow` and `WittVector.fontaineTheta`
@@ -602,7 +607,9 @@ Each object is listed with its source locator and its owner stage.
 - Étale Chern classes $c_{\zeta_m}$ with finite coefficients, CGZ's integral Bloch conventions and excluded
   primes — HB.1. HB.1 uses Kummer theory from `tauceti:…/ProfiniteCohomology` Layer 9 and continuous cohomology
   from M.1.
-- The cyclic quantum dilogarithm and $\varepsilon_m=c_{\zeta_m}^2$ (CGZ Thm 1.6; Hutchinson Thm 3.1) — HB.2.
+- The cyclic quantum dilogarithm and $\varepsilon_m=c_{\zeta_m}^2$ (CGZ Thm 1.5, the locator GSWZ give on p. 8 for the
+  definition of the unit; CGZ Thm 1.6 with its equation (14), which GSWZ use in the proof of Theorem 5;
+  Hutchinson) — HB.2.
 - The $p$-adic dilogarithm $D_p$ (Coleman) — ColemanIntegration L2 and PadicHodgeRegulators D.1.
 - $D_p$ as the syntomic regulator (Besser–de Jeu) — D.2–D.3.
 - GSWZ Theorem 9 ($D_p:K_3(L;\mathbb Z_p)\cong p^2\mathcal O_L$ for unramified $L$, $p>3$, generated by the classes $[\zeta]$),
@@ -699,7 +706,7 @@ Each object is listed with its source locator and its owner stage.
 | Habiro ring of a number field $\mathcal H_R$ | GSWZ Def 1.1; V5A2 Def 3.6 | HB.6 (with HR.1) |
 | $K_3$-indexed modules $\mathcal H_{R,\xi}$ | GSWZ Defs 1.3–1.4 | HB.7 |
 | Bloch groups, Suslin sequence, Bloch–Wigner | CGZ; V5A2 Def 4.3, Defs 6.17–6.18, Thm 6.19, L8 and App. A (V5A2 has no Suslin sequence) | K3BlochGroups V.3–V.5 |
-| $K_3$ Chern classes, cyclic quantum dilogarithm, $\varepsilon_m$ | CGZ Thm 1.6; Hutchinson | HB.1–HB.2 |
+| $K_3$ Chern classes, cyclic quantum dilogarithm, $\varepsilon_m$ | CGZ Thm 1.5 (definition of $\varepsilon_m$), Thm 1.6 and eq. (14) (the property used by HB.9); Hutchinson | HB.1–HB.2 |
 | $p$-adic dilogarithm and regulator $D_p$ | Coleman; Besser–de Jeu; GSWZ Thm 9 | ColemanIntegration L2, PadicHodgeRegulators D.1–D.4, HB.7 |
 | admissible series, FGI, Nahm sums | GSWZ §§1.6–2; V5A2 Def 1.2, L4–5 (V5A2 has no formal Gaussian integration) | HB.8–HB.10 |
 
@@ -810,7 +817,8 @@ HB.6 ─► HB.7 ─► HB.9 ─► HB.10
 QW.4 ─► QW.5–QW.7 ─► HQ.1–HQ.4 ─► HQ.5 ─► HQ.5-trace, HQ.9, HR.6
 SA ─► AS ─► RS ─► HS ─► HQ.6 ◄─ HQ.5
 HQ.1 ─► HS.1
-K3BlochGroups, Polylogarithms, ColemanIntegration, PadicHodgeRegulators ─► HB.1, HB.2, HB.7
+K3BlochGroups, Polylogarithms, ColemanIntegration, PadicHodgeRegulators ─► HB.1, HB.2, HB.3, HB.7
+V.3, HB.1 ─► HB.3 ─► HB.4 ─► HB.9
 ```
 
 ## 6. (d) The six existing roadmaps: verdicts and stage moves
@@ -856,7 +864,7 @@ All six are **kept**; none is merged or retired. Four are rescoped. Requirement 
 
 | stage | proposed scope | moves | requires |
 |---|---|---|---|
-| HB.3 | unchanged, plus the Bloch class $\xi=\sum_j[z_j]\in B(K)$ of an arbitrary non-degenerate solution of the Nahm equations of a symmetric integral $A$ over a number field $K$ (the setting of GSWZ Theorem 5), with HB.1's torsion convention | in: the general Bloch class | — |
+| HB.3 | unchanged, plus the Bloch class $\xi=\sum_j[z_j]\in B(K)$ of an arbitrary non-degenerate solution of the Nahm equations of a symmetric integral $A$ over a number field $K$ (the setting of GSWZ Theorem 5), with HB.1's torsion convention | in: the general Bloch class | add V.3 (the pre-Bloch and Bloch groups and the five-term relation, which `Polylogarithms` P.1 does not supply), HB.1 (the torsion convention the stage already names) |
 | HB.4 | unchanged, plus V5A2 L4: Lemma 4.1, Thm 4.2 ($\mathrm{Li}_2(e^h)+h\mathrm{Li}_1(e^h)$ modulo $(2\pi i)^2\mathbb Z$), the five-term relations as used (imported from V.3/P.1), Prop 4.5, Cor 4.6, Props 4.8–4.12, Thm 4.13; V5A2 Prop 11.2 (Poisson summation) | in: V5A2 L4, L11 | add HB.2, HC.1 |
 | HB.5a, HB.5 | unchanged | — | — |
 | HB.8 | **Admissible series, formal Gaussian integration and the identification theorems.** Def 1.7 and (defgamma); the series $F_A$ (FAdef) and $F_{A,m,k}$ (FAmdef), the $q$-difference system (PhiAshift), the $t$-deformed Nahm equations (zjt) with the corrected product (§8 item 14), the rings $S$ (Sdef) and $S^{(m)}$ (RA), the discriminant $\delta$ (taulambda) and the collections $\Phi_{A,m}$ (Phidef); Lemma 2.3, Cor 2.4, Lemma 2.5; Lemma 2.6; Theorem 6; Lemma 2.7, Def 2.8, Lemma 2.9, Theorem 7, Lemma 2.10; Def 2.11, Lemma 2.12 (with the identity $D_{\zeta_m}(1)^{24m}=m^{12m}$, which GSWZ derive from the Dedekind $\eta$ multiplier; HB.8 proves it directly: $D_{\zeta_m}(1)^m=P:=\prod_{\ell=1}^{m-1}(1-\zeta_m^\ell)^\ell$, pairing $\ell$ with $m-\ell$ and using $\prod_{\ell=1}^{m-1}(1-\zeta_m^\ell)=m$ gives $P^2=m^m(-1)^{m(m-1)/2}\zeta_m^{-m(m^2-1)/6}$, a sixth root of unity times $m^m$, so $P^{24}=m^{12m}$), Lemma 2.13, Remark 2.14, Lemma 2.15, Lemma 2.16, Cor 2.17; Theorem 8; Theorem 3; Theorem 4; Cor 2.18; V5A2 L5 (Def 5.1, Prop 5.3, Thm 5.6, Examples 5.7–5.8). Proof order: Def 2.11 → Lemma 2.15 → Theorem 8 → Lemmas 2.6, 2.9 → Theorems 6, 7 → Theorem 3 → Theorem 4. | in: Theorem 4 (from HB.9), Theorems 3, 7, 8 and the FGI material; the current text covers Theorem 6 only | add HC.1, HB.2 |
@@ -868,11 +876,11 @@ All six are **kept**; none is merged or retired. Four are rescoped. Requirement 
 
 | stage | proposed scope | moves | requires |
 |---|---|---|---|
-| HQ.1 | global $q$-de Rham functor (unchanged: Wagner v2 App. A, Theorem A.1, i.e. Sch17 Conj 1.1/3.1; framed complexes imported from QW.6, with the comparison of their $(p,q-1)$-completions for $A=\mathbb Z$ with PR.6's $p$-complete framed complexes), plus V5A4 L2–L3 module theory: $q$-connections (Def 2.15), Ex 2.17, modified $q$-connections (Def 2.18, Cor 2.21, Props 2.22–2.23, Question 2.24, Ex 2.25), Prop 2.26, Ex 2.27, Cor 2.28, Lemma 3.5, Thm 3.6, Ex 3.7, Props 3.8, 3.12, Cors 3.9, 3.14, Def 3.10, Examples 3.16–3.18 | in: V5A4 L2–L3 | add QW.6 |
+| HQ.1 | global $q$-de Rham functor (unchanged: Wagner v2 App. A, Theorem A.1, i.e. Sch17 Conj 1.1/3.1; framed complexes imported from QW.6, with the comparison of their $(p,q-1)$-completions for $A=\mathbb Z$ with PR.6's $p$-complete framed complexes), plus V5A4 L2–L3 module theory: $q$-connections (Def 2.15), Ex 2.17, modified $q$-connections (Def 2.18, Remark 2.20 with the operators $\gamma_{i,M}=\tilde\nabla^q_{i,M}+\mathrm{id}_M$ and the twisted tensor product, Cor 2.21, Props 2.22–2.23, Question 2.24, Ex 2.25), Prop 2.26, Ex 2.27, Cor 2.28, Lemma 3.5, Thm 3.6, Ex 3.7, Props 3.8, 3.12, Cors 3.9, 3.14, Def 3.10, Examples 3.16–3.18 | in: V5A4 L2–L3 | add QW.6 |
 | HQ.2 | derived $q$-de Rham (unchanged), plus the twisted complexes $q\Omega^{(m)}$ (Wagner v2 3.14–3.18), Lemma 3.15, Prop 3.19, the Nygaard filtration on $q\Omega^{(p^\alpha)}$ (3.20), Prop 3.22, Lemma 3.29 | in: Wagner v2 §3.3 and the $q$-de Rham part of §3.4 | add QW.7, HR.3 |
 | HQ.3 | $q$-Hodge filtrations and Theorem 3.11 (unchanged), plus Wagner v2 3.32–3.54 (§3.5 from 3.32 on, and §§3.6–3.8), including the cyclotomic descent previously listed under HQ.4 | in: from HQ.4 | drop HQ.4; add QW.7 |
-| HQ.4 | **Habiro rings of framed algebras and the $q$-Habiro–Hodge complex.** V5A4 Defs 3.19–3.23 and (3.1); Defs 4.1–4.2; Prop 4.3; Remark 4.4; Ex 4.5 with Lemma A.1; Def 4.6; (4.3); Remark 4.7; Thms 4.8 and 4.9 in their *uncompleted* form, via Wagner v2 Ex 3.12 and Cor 3.54 and the identification of the framed Habiro–Hodge complex with the Koszul complex of $\gamma_i-1$ on $\mathcal H_{(R,\square)}$; Remarks 4.10–4.11, 4.14, 4.17; Ex 4.12; Prop 4.13; Ex 5.1; Props 5.2–5.3; Thm 5.4; Remarks 5.5–5.6; Thm 5.7 with Remarks 5.8–5.10, Lemmas 5.11–5.12, Cor 5.13, Prop 5.14. | out: positive-degree $q$-dRW, $F$/$V$ systems, CR.4 specialisations, Cor 3.31 → QW.5, QW.7; Prop 4.15 → QW.2; cyclotomic descent → HQ.3 | drop CR.4, HR.4; add HR.1, HR.5, QW.6, QW.7, HQ.3 (Wagner v2 Example 3.12 is in §3.2 and Corollary 3.54 in §3.8, both owned by HQ.3) |
-| HQ.5 | unchanged, except that Theorem 4.22(b) moves to HQ.5-trace; plus V5A4 Conj 6.1 and Remark 6.2 stated, with Theorem 4.11 and Cor 4.16 as the proved part | in: V5A4 L6 statements; out: Theorem 4.22(b) → HQ.5-trace | — |
+| HQ.4 | **Habiro rings of framed algebras and the $q$-Habiro–Hodge complex.** V5A4 Defs 3.19–3.23 and (3.1); Defs 4.1–4.2; Prop 4.3; Remark 4.4; Ex 4.5 with Lemma A.1; Def 4.6; (4.3); Remark 4.7; Thms 4.8 and 4.9 in their *uncompleted* form, via Wagner v2 Ex 3.12 and Cor 3.54 and the identification of the framed Habiro–Hodge complex with the Koszul complex of $\gamma_i-1$ on $\mathcal H_{(R,\square)}$; Remarks 4.10–4.11, 4.14; Ex 4.12; Prop 4.13; Ex 5.1; Props 5.2–5.3; Thm 5.4; Remarks 5.5–5.6; Thm 5.7 with Remarks 5.8–5.10, Lemmas 5.11–5.12, Cor 5.13, Prop 5.14. | out: positive-degree $q$-dRW, $F$/$V$ systems, CR.4 specialisations, Cor 3.31 → QW.5, QW.7; Prop 4.15 with Remark 4.16 (the index shift in the ghost square) and Remark 4.17 (no restriction maps on $q\text{-}W_m$) → QW.2; cyclotomic descent → HQ.3 | drop CR.4, HR.4; add HR.1, HR.5, QW.6, QW.7, HQ.3 (Wagner v2 Example 3.12 is in §3.2 and Corollary 3.54 in §3.8, both owned by HQ.3) |
+| HQ.5 | unchanged, except that Theorem 4.22(b) moves to HQ.5-trace; plus V5A4 Conj 6.1 and Remark 6.2 stated, with Theorem 4.11 and Cor 4.16 as the proved part. The surjectivity half of Theorem 4.22(a) reduces (Wagner v2, p. 65) to the universal case $A=\mathbb Z_p\{x\}$, $R=\mathbb Z_p\{x\}/x^\alpha$, where the divided-power lifts are Meyer–Wagner Lemma 3.17; HQ.5 owns that lemma, since no other stage in the atlas does (§1.4, §8 item 29) | in: V5A4 L6 statements, Meyer–Wagner Lemma 3.17; out: Theorem 4.22(b) → HQ.5-trace | — |
 | HQ.5-trace | unchanged, plus Wagner v2 Theorem 4.22(b) (a spherical $E_1$-lift), which Wagner v2 proves as a special case of Wagner's ku paper Theorem 4.17 (RT.4:q-Hodge), with V5A4 Thm 1.7 as its case over $\mathbb Z_p$; V5A4 Conj 6.4, Thm 6.5, Examples 6.6–6.7 and Remarks 6.8–6.9 as citations to RT | in: Theorem 4.22(b) from HQ.5; V5A4 Thm 1.7 | — |
 | HQ.6 | the algebraic–analytic comparison: HQ's $q$-Hodge and Habiro–Hodge complexes on $\mathbb G_m$ and on étale algebras compared with analytic Habiro cohomology through HS.3's base-change functor (HS.3 owns that functor, HQ.6 the comparison), with the precise open statement (Wagner v2 1.17: comparison expected after a completed localisation) | supplier added | add HS.3 |
 | HQ.7 | tests, plus V5A4 Examples 2.27, 3.16–3.18, 4.12. The tests are algebraic, so HQ.7 no longer waits for the analytic comparison (V5A4 Examples 1.4–1.5 go to HQ.9) | — | drop HQ.6; add HQ.4, HQ.5, HQ.5-trace |
@@ -908,13 +916,14 @@ In scratch, the requirement changes of §§6.1–6.7 were applied to the atlas s
 together with `stageEdges`), with the five new roadmaps added. The union graph has no cycle, every referenced
 stage id exists, and every `requires` entry of the new definitions resolves to an atlas stage or a new stage.
 The check was repeated with the requirement changes of the review (HQ.4 adds HQ.3; HQ.7 replaces HQ.6 by HQ.4,
-HQ.5 and HQ.5-trace; RS.0 drops AS.2; HB.8 does not add QM.1; HR.7 does not add HQ.4; HR.1 keeps PR.0), with the
-same result.
+HQ.5 and HQ.5-trace; RS.0 drops AS.2; HB.8 does not add QM.1; HR.7 does not add HQ.4; HR.1 keeps PR.0; HB.3 adds
+V.3 and HB.1), with the same result. In that graph the `requires` lists and the recorded `stageEdges` were taken
+together, and the five new roadmaps were added with the `requires` of their definitions.
 
 ## 7. (e) Blueprint order
 
 Two tracks can run in parallel. They meet in three places: HR.2 needs SA.1, HS.0–HS.2 need HC.1–HC.2, and HS.1
-needs HQ.1. Arrows are "blueprint before".
+needs HQ.1. They meet once more at the assembly, where HQ.6 needs HS.3 (step 13). Arrows are "blueprint before".
 
 **Track A (algebraic and number-theoretic).**
 1. `HabiroCyclotomicCompletions`, with the enlarged HC.1 and HC.4. Nothing in the family precedes it.
@@ -994,14 +1003,18 @@ Items marked **[fix]** are local corrections the blueprint makes and records.
 
    The notes give an outline that uses Theorem 4.8 and animation. HQ.4 proves Theorem 5.7 completely, from the
    notes' route or by reduction to QW.7. **[gap]** until written.
-8. **Status of the analytic Habiro ring.** Definition 7.8 is preliminary (Remark 7.9). Lecture 8 uses the variant
-   without (ii), while Proposition 7.11 and Lemma 7.14 use (ii). Example 8.2's identification at $q=1$ is stated
+8. **Status of the analytic Habiro ring.** Definition 7.8 is preliminary (Remark 7.9). Condition (ii) has two
+   clauses: invertibility of every $1-q^n$, and the growth bound that $(u^{\varepsilon n}/(1-q^n))_n$ is a null sequence
+   for every $\varepsilon>0$. Proposition 7.11 and Lemma 7.14 use both. Example 8.2's identification at $q=1$ is stated
    without proof, over a base that is not a Banach field. HS builds both variants (decision D4). The notation
-   $u^{\varepsilon n}$ in (ii) is read as $u^{\lfloor\varepsilon n\rfloor}$ (equivalently a norm bound). **[fix]** The Lecture 8 variant
-   must drop all of (ii), including the invertibility of $1-q^n$: over $\mathcal H^{\mathrm{an}}$ the polynomial $\Phi_m(q)$ divides
-   the unit $1-q^m$, so the specialisations at $q=\zeta_m$ of Lemma 8.1, Example 8.2 and the expectations after it
-   exist only for the variant; over $\mathcal H^{\mathrm{an}}$ itself only the base changes to the rings $B_m$ of Remark 7.16
-   are available.
+   $u^{\varepsilon n}$ in (ii) is read as $u^{\lfloor\varepsilon n\rfloor}$ (equivalently a norm bound). **[fix]** The variant that
+   Lecture 8 announces removes only the growth clause: it says that "the condition that for all $\varepsilon>0$ the
+   sequence $u^{\varepsilon n}/(1-q^n)$ is a nullsequence is removed". That is not enough for the rest of Lecture 8. With
+   $1-q^n$ still invertible, $\Phi_m(q)$ divides the unit $1-q^m$, so the quotient at $q=\zeta_m$ is the zero ring and
+   the specialisations of Lemma 8.1, Example 8.2 and the expectations after it are empty. The blueprint therefore
+   takes the variant $\mathcal H^{\mathrm{an}}_{\mathrm{(i)}}$ that imposes (i) alone, which is the ring Remark 7.9 says "one would only
+   want in principle", and states those specialisations over it. Over $\mathcal H^{\mathrm{an}}$ itself only the base changes to
+   the rings $B_m$ of Remark 7.16 are available, and those are not in the notes.
 9. **Definition 8.4 as printed.**
    - With $k+\ell=n$ the $q$-trinomial has last index $0$, and the sign $(-1)^n$ makes the $q=1$ specialisation
      $(-1)^n(x+y)^n$ (up to binomial factors) rather than a power of $1-x-y$.
@@ -1091,6 +1104,12 @@ Items marked **[fix]** are local corrections the blueprint makes and records.
     relative motivic class $V^{univ}$ of Lecture 9, which D5 excludes. HB.9 states Theorems 11.3 and 12.1–12.6 with
     GSWZ's explicit unit $U^{\mathrm{FGI}}_m$ and cyclic factor $D_{\zeta_m}$ over $R_m$; their identification with the
     regulator of $V^{univ}$ is a **[gap]** (D5).
+29. **Wagner v2 Theorem 4.22(a).** Its surjectivity half is reduced on p. 65 to the universal case $A=\mathbb Z_p\{x\}$,
+    $R=\mathbb Z_p\{x\}/x^\alpha$ with $\alpha\ge2$, where the divided-power lifts inside the $q$-Hodge filtration are taken
+    from Meyer–Wagner Lemma 3.17. Part (b) is reduced on the same page to the ku paper's Theorem 4.17, which
+    RT.4:q-Hodge supplies to HQ.5-trace (item 24). The Meyer–Wagner lemma has no other owner in the atlas:
+    `RefinedTraceMethods` owns refined $\mathrm{TC}^-$ and the ku comparison, not these lifts. HQ.5 therefore owns
+    Lemma 3.17 and its blueprint job reads Meyer–Wagner §3. **[gap]** until written.
 
 ## 9. (g) Decisions for the user
 
