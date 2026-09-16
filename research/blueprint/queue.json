@@ -201,12 +201,13 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/CLASSIFY-02.md",
-   "state": "external",
+   "state": "done",
    "account": "claude2",
    "lane": 2,
    "attempts": 1,
    "startedAt": "2026-09-16T10:51:54Z",
-   "note": "finishing on the Mac before the move; outputs will be copied here"
+   "note": "deliverables arrived from the external worker on issue #4",
+   "finishedAt": "2026-09-16T11:34:23Z"
   },
   {
    "id": "CLASSIFY-03",
@@ -482,7 +483,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ZAGIER.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #11"
   },
   {
    "id": "REV-DESIGN-ZAGIER",
@@ -549,7 +551,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_ModularForms.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #13"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_ModularForms",
@@ -615,7 +618,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_AdicSpaces.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #15"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_AdicSpaces",
@@ -681,7 +685,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_GlobalNumberFields.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #17"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_GlobalNumberFields",
@@ -714,7 +719,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #18"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
@@ -2232,7 +2238,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #64"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
@@ -2265,7 +2272,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #65"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
@@ -2298,7 +2306,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #66"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
@@ -2365,7 +2374,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #68"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
@@ -2509,7 +2519,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-K3BlochGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #72"
   },
   {
    "id": "REV-K3BlochGroups",
@@ -2551,7 +2562,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-Polylogarithms.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #73"
   },
   {
    "id": "REV-Polylogarithms",
@@ -2594,7 +2606,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-BorelRegulators.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #74"
   },
   {
    "id": "REV-BorelRegulators",

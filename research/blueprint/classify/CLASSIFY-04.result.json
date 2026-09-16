@@ -422,5 +422,886 @@
     ]
    }
   ]
+ },
+ {
+  "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+  "primaryMsc": "14F",
+  "secondaryMsc": [
+   "12H",
+   "14G",
+   "11G"
+  ],
+  "cluster": "p-adic-geometry",
+  "distance": 9,
+  "distanceRationale": "Mathlib has Kähler differentials and one-dimensional isocrystals over W(k)[1/p], and Tau Ceti has Huber rings and restricted (Tate) power series. There are no Robba rings, dagger algebras or differential modules with Frobenius, no slope filtrations, formal schemes, tubes or overconvergent isocrystals, and no rigid or crystalline cohomology. Kedlaya's local monodromy, finiteness and p-adic Weil II theorems, and the comparison with ℓ-adic purity, rest on many layers of research-level theory.",
+  "mathlibEvidence": [
+   "mathlib:WittVector.isocrystal_classification (Mathlib/RingTheory/WittVector/Isocrystal.lean) — classification of one-dimensional isocrystals only",
+   "tauceti:TauCeti.Huber.IsRestricted (TauCeti/RingTheory/Huber/Restricted/PowerSeries.lean) — restricted power series, with no overconvergent or dagger variant",
+   "mathlib:KaehlerDifferential (Mathlib/RingTheory/Kaehler/Basic.lean) — algebraic differentials, without connections or differential modules",
+   "absent: Robba rings, dagger algebras, (φ,∇)-modules and slope filtrations, formal schemes and tubes, overconvergent F-isocrystals, rigid and crystalline cohomology (no declarations matching Robba, Dagger, Overconvergent, FormalScheme, RigidCohomology, Crystalline)"
+  ],
+  "references": [
+   {
+    "title": "A p-adic local monodromy theorem",
+    "authors": "Kedlaya, Kiran S.",
+    "zbmath": 2151001,
+    "msc": [
+     "14F30",
+     "12H25",
+     "11G25"
+    ]
+   },
+   {
+    "title": "Finitude et pureté cohomologique en cohomologie rigide (avec un appendice par A. J. de Jong)",
+    "authors": "Berthelot, Pierre",
+    "zbmath": 1028186,
+    "msc": [
+     "14F20",
+     "14F30",
+     "14F17",
+     "14G20"
+    ]
+   },
+   {
+    "title": "Finiteness of rigid cohomology with coefficients",
+    "authors": "Kedlaya, Kiran S.",
+    "zbmath": 5049027,
+    "msc": [
+     "14F30",
+     "11G25",
+     "12H25",
+     "14G22"
+    ]
+   },
+   {
+    "title": "Fourier transforms and p-adic 'Weil II'",
+    "authors": "Kedlaya, Kiran S.",
+    "zbmath": 5082081,
+    "msc": [
+     "14F30",
+     "11G25",
+     "12H25",
+     "14G22"
+    ]
+   },
+   {
+    "title": "p-adic differential equations (2nd edition)",
+    "authors": "Kedlaya, Kiran Sridhara",
+    "zbmath": 7504238,
+    "msc": [
+     "12-02",
+     "12H25",
+     "11S80",
+     "12H05",
+     "14G20",
+     "13A35"
+    ]
+   },
+   {
+    "title": "Représentations p-adiques et équations différentielles",
+    "authors": "Berger, Laurent",
+    "zbmath": 1777245,
+    "msc": [
+     "14F30",
+     "11S20",
+     "12H25",
+     "14F40",
+     "14G20"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "PadicFamilies",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "11G",
+   "46S",
+   "14G"
+  ],
+  "cluster": "modular-and-automorphic-forms",
+  "distance": 9,
+  "distanceRationale": "Mathlib's Fitting decomposition gives the finite-level input to the ordinary projector, Mahler's basis describes continuous functions on ℤ_p, and Tau Ceti has classical U_p operators and q-expansions. There are no p-adic or Λ-adic modular forms, no ordinary Hecke algebras, no compact operators or Fredholm determinants on p-adic Banach modules, no rigid-analytic modular curves, modular symbols, eigenvarieties, p-adic L-functions or big Galois representations. The Coleman–Mazur/Buzzard eigenvariety machine and the Pollack–Stevens/Bellaïche family L-functions need many research-level layers built first.",
+  "mathlibEvidence": [
+   "mathlib:LinearMap.eventually_isCompl_ker_pow_range_pow (Mathlib/RingTheory/Artinian/Module.lean) — Fitting decomposition, the finite-level ingredient of L0a",
+   "tauceti:HeckeRing.GL2.heckeUNat (TauCeti/NumberTheory/ModularForms/HeckeSlash/BadPrime/Basic.lean) — classical U_p on modular forms",
+   "mathlib:PadicInt.mahlerEquiv (Mathlib/NumberTheory/Padics/MahlerBasis.lean) — Mahler basis for continuous functions on ℤ_p",
+   "tauceti:TauCeti.ModularForm.qExpansion_levelRaise (TauCeti/NumberTheory/ModularForms/Degeneracy.lean) — classical q-expansions and level raising",
+   "absent: p-adic and Λ-adic modular forms, ordinary Hecke algebras, p-adic Banach Fredholm theory, modular symbols, eigencurves and eigenvarieties, p-adic L-functions of modular forms (no declarations matching ModularSymbol, Eigenvariety, Eigencurve, FredholmDeterminant, PadicLFunction, Overconvergent)"
+  ],
+  "references": [
+   {
+    "title": "Galois representations into GL₂(Z_p[[X]]) attached to ordinary cusp forms",
+    "authors": "Hida, Haruzo",
+    "zbmath": 3989449,
+    "msc": [
+     "11F80",
+     "11F67",
+     "11F33",
+     "11F11",
+     "11F25",
+     "11R23"
+    ]
+   },
+   {
+    "title": "p-adic Banach spaces and families of modular forms",
+    "authors": "Coleman, Robert F.",
+    "zbmath": 1026420,
+    "msc": [
+     "11F33",
+     "46S10"
+    ]
+   },
+   {
+    "title": "The eigencurve",
+    "authors": "Coleman, R.; Mazur, B.",
+    "zbmath": 1302899,
+    "msc": [
+     "11F33",
+     "11F80",
+     "11G20",
+     "46H25"
+    ]
+   },
+   {
+    "title": "Eigenvarieties",
+    "authors": "Buzzard, Kevin",
+    "zbmath": 5282812,
+    "msc": [
+     "11F33",
+     "11F85",
+     "11F32",
+     "11M41"
+    ]
+   },
+   {
+    "title": "Familles p-adiques de formes automorphes pour GL_n",
+    "authors": "Chenevier, Gaëtan",
+    "zbmath": 2092079,
+    "msc": [
+     "11F85",
+     "11F33",
+     "11G18",
+     "22E55"
+    ]
+   },
+   {
+    "title": "Modular curves and rigid-analytic spaces",
+    "authors": "Conrad, Brian",
+    "zbmath": 5510985,
+    "msc": [
+     "14G22",
+     "14H52",
+     "11G18"
+    ]
+   },
+   {
+    "title": "Overconvergent modular symbols and p-adic L-functions",
+    "authors": "Pollack, Robert; Stevens, Glenn",
+    "zbmath": 5877526,
+    "msc": [
+     "11F85",
+     "11F67",
+     "11S40"
+    ]
+   },
+   {
+    "title": "Critical p-adic L-functions",
+    "authors": "Bellaïche, Joël",
+    "zbmath": 6065252,
+    "msc": [
+     "11F67",
+     "11F85",
+     "11F66",
+     "11F03"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "PadicHodgeRegulators",
+  "primaryMsc": "11S",
+  "secondaryMsc": [
+   "11R",
+   "19F",
+   "14F"
+  ],
+  "cluster": "iwasawa-theory-and-special-values",
+  "distance": 10,
+  "distanceRationale": "Mathlib has B_dR^+ as a ring, Teichmüller lifts in Witt vectors, and p-adic measures on ℤ_p with the Amice transform. Tau Ceti adds Teichmüller roots of unity in local fields. There is no algebraic K₃ or derived p-completion, no Bloch group, p-adic logarithm or polylogarithm, no syntomic cohomology or étale regulators, and no Bloch–Kato exponentials, (φ,Γ)- or Wach modules, or Perrin-Riou logarithm. The targets combine the 2024–25 Garoufalidis–Scholze–Wheeler–Zagier unramified K₃ theorem with Perrin-Riou/LLZ regulator theory resting on many unbuilt theories.",
+  "mathlibEvidence": [
+   "mathlib:AbstractMeasure.amiceTransformEquiv (Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean) — measures on ℤ_p ≅ ℤ_p⟦X⟧, with no locally analytic distributions H(Γ)",
+   "mathlib:BDeRhamPlus (Mathlib/RingTheory/Perfectoid/BDeRham.lean) — period ring without its Galois action, filtration or B_cris",
+   "tauceti:TauCeti.rootsOfUnityEquivResidueFieldUnits (TauCeti/NumberTheory/LocalField/Teichmuller.lean) — Teichmüller roots of unity in local fields",
+   "mathlib:WittVector.teichmuller (Mathlib/RingTheory/WittVector/Teichmuller.lean)",
+   "absent: algebraic K₃ and its p-completion, Bloch groups, p-adic logarithms and (poly)logarithms, syntomic cohomology and regulators, Bloch–Kato exponential, (φ,Γ)/Wach modules, Perrin-Riou big logarithm (no declarations matching Bloch, Polylog, Dilog, Syntomic, BlochKato, Wach, PhiGamma, KTheory)"
+  ],
+  "references": [
+   {
+    "title": "An introduction to p-adic L-functions",
+    "authors": "Rodrigues Jacinto, Joaquín; Williams, Chris",
+    "zbmath": 8030000,
+    "msc": [
+     "11F33",
+     "11F67",
+     "11R23"
+    ]
+   },
+   {
+    "title": "Théorie d'Iwasawa des représentations p-adiques sur un corps local",
+    "authors": "Perrin-Riou, Bernadette",
+    "zbmath": 549840,
+    "msc": [
+     "11R23",
+     "14F30",
+     "11S20",
+     "11S25"
+    ]
+   },
+   {
+    "title": "L-functions and Tamagawa numbers of motives",
+    "authors": "Bloch, Spencer; Kato, Kazuya",
+    "zbmath": 16076,
+    "msc": [
+     "14A20",
+     "11G40",
+     "14G10"
+    ]
+   },
+   {
+    "title": "Coleman maps and the p-adic regulator",
+    "authors": "Lei, Antonio; Loeffler, David; Zerbes, Sarah Livia",
+    "zbmath": 6054529,
+    "msc": [
+     "11R23",
+     "11F80",
+     "11S25"
+    ]
+   },
+   {
+    "title": "(φ,Γ)-modules de de Rham et fonctions L p-adiques",
+    "authors": "Rodrigues Jacinto, Joaquín",
+    "zbmath": 6911689,
+    "msc": [
+     "11S40",
+     "11R23",
+     "11S37"
+    ]
+   },
+   {
+    "title": "The Habiro ring of a number field (arXiv:2412.04241)",
+    "authors": "Garoufalidis, Stavros; Scholze, Peter; Wheeler, Campbell; Zagier, Don",
+    "zbmath": 902620376,
+    "msc": [
+     "arXiv:math.NT",
+     "arXiv:hep-th",
+     "arXiv:math.GT"
+    ]
+   },
+   {
+    "title": "A p-adic analogue of the Borel regulator and the Bloch–Kato exponential map",
+    "authors": "Huber, Annette; Kings, Guido",
+    "zbmath": 5838438,
+    "msc": [
+     "11S70",
+     "19F27",
+     "14G22",
+     "14F40",
+     "22E35",
+     "22E41"
+    ]
+   },
+   {
+    "title": "The syntomic regulator for the K-theory of fields",
+    "authors": "Besser, Amnon; de Jeu, Rob",
+    "zbmath": 2075507,
+    "msc": [
+     "11G55",
+     "14F43",
+     "19F27"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "PadicHodgeTheory",
+  "primaryMsc": "14F",
+  "secondaryMsc": [
+   "11S",
+   "14G",
+   "11F"
+  ],
+  "cluster": "p-adic-geometry",
+  "distance": 9,
+  "distanceRationale": "Mathlib has ℂ_p, the tilt, Fontaine's θ, and B_dR^+ and B_dR as bare rings. There is no filtration, topology or Galois action on B_dR, and no B_cris, B_st, period functors, filtered (φ,N)-modules or weak admissibility. Fontaine–Laffaille modules, Robba rings, relative period sheaves and crystalline/semistable comparison are also missing. The targets combine Colmez–Fontaine, the p-adic monodromy theorem, Kisin's potentially semistable deformation rings and Scholze/Česnavičius–Koshikawa comparisons, needing many research-level layers.",
+  "mathlibEvidence": [
+   "mathlib:WittVector.fontaineTheta (Mathlib/RingTheory/Perfectoid/FontaineTheta.lean) — Fontaine's θ : W(R♭) → R",
+   "mathlib:BDeRham (Mathlib/RingTheory/Perfectoid/BDeRham.lean) — B_dR as a ring, without filtration, topology or Galois action",
+   "mathlib:PadicComplex (Mathlib/NumberTheory/Padics/Complex.lean) — ℂ_p",
+   "mathlib:Tilt (Mathlib/RingTheory/Perfection.lean)",
+   "absent: B_cris and B_st, D_dR/D_cris/D_st, filtered (φ,N)-modules and weak admissibility, Fontaine–Laffaille modules, relative period sheaves OB_dR and comparison theorems (no declarations matching BCris, FilteredPhi, WeaklyAdmissible, HodgeTate, IsCrystalline, IsDeRham)"
+  ],
+  "references": [
+   {
+    "title": "Le corps des périodes p-adiques (avec un appendice par P. Colmez)",
+    "authors": "Fontaine, Jean-Marc",
+    "zbmath": 732148,
+    "msc": [
+     "14F30",
+     "11S20",
+     "14F20"
+    ]
+   },
+   {
+    "title": "Construction de représentations p-adiques",
+    "authors": "Fontaine, Jean-Marc; Laffaille, Guy",
+    "zbmath": 3927099,
+    "msc": [
+     "14L05",
+     "14F30",
+     "14G20",
+     "20G05"
+    ]
+   },
+   {
+    "title": "Construction des représentations p-adiques semi-stables",
+    "authors": "Colmez, Pierre; Fontaine, Jean-Marc",
+    "zbmath": 1443591,
+    "msc": [
+     "14G20",
+     "11S31",
+     "14F30",
+     "11R32"
+    ]
+   },
+   {
+    "title": "Représentations p-adiques et équations différentielles",
+    "authors": "Berger, Laurent",
+    "zbmath": 1777245,
+    "msc": [
+     "14F30",
+     "11S20",
+     "12H25",
+     "14F40",
+     "14G20"
+    ]
+   },
+   {
+    "title": "Potentially semi-stable deformation rings",
+    "authors": "Kisin, Mark",
+    "zbmath": 5234675,
+    "msc": [
+     "11F80",
+     "11S20"
+    ]
+   },
+   {
+    "title": "Modular forms and p-adic Hodge theory",
+    "authors": "Saito, Takeshi",
+    "zbmath": 1054512,
+    "msc": [
+     "11F85",
+     "11S37",
+     "14F30",
+     "11F70"
+    ]
+   },
+   {
+    "title": "p-adic Hodge theory for rigid-analytic varieties",
+    "authors": "Scholze, Peter",
+    "zbmath": 6209107,
+    "msc": [
+     "14F30",
+     "14G22",
+     "14F20",
+     "14G20"
+    ]
+   },
+   {
+    "title": "The A_inf-cohomology in the semistable case",
+    "authors": "Česnavičius, Kęstutis; Koshikawa, Teruhisa",
+    "zbmath": 7109551,
+    "msc": [
+     "14G20",
+     "14G22",
+     "14F20",
+     "14F30",
+     "14F40"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "PadicLocalLanglandsForGL2Qp",
+  "primaryMsc": "11S",
+  "secondaryMsc": [
+   "22E",
+   "11F"
+  ],
+  "cluster": "galois-representations-and-langlands",
+  "distance": 10,
+  "distanceRationale": "Tau Ceti has smooth discrete modules for continuous cohomology and Peter–Weyl theory for compact groups. There are no smooth admissible or unitary Banach representations of p-adic groups, no locally analytic vectors, and no Robba rings, (φ,Γ)-modules or Galois deformation rings. Colmez's functor, Paškūnas's projective envelopes and the Breuil–Mézard results of Paškūnas, Hu–Tan and Tung are frontier theorems resting on all of these unbuilt theories.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.SmoothDiscreteTopRep (TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean) — smooth discrete modules for continuous cohomology, without admissibility or Banach theory",
+   "tauceti:TauCeti.ContRepresentation.character_orthonormal_self (TauCeti/RepresentationTheory/Compact/Character/Basic.lean) — representation theory of compact groups over ℂ only",
+   "mathlib:BDeRham (Mathlib/RingTheory/Perfectoid/BDeRham.lean) — the only period-ring input, with no Robba ring or (φ,Γ)-modules",
+   "absent: (φ,Γ)-modules and Robba rings, unitary admissible Banach and locally analytic representations of GL₂(ℚ_p), the mod-p classification, Colmez's Montreal functor, projective envelopes and Breuil–Mézard multiplicities (no declarations matching PhiGamma, Robba, BanachRep, admissible smooth representations, Colmez, DeformationRing)"
+  ],
+  "references": [
+   {
+    "title": "Représentations de GL₂(Q_p) et (φ,Γ)-modules",
+    "authors": "Colmez, Pierre",
+    "zbmath": 5765033,
+    "msc": [
+     "11S37",
+     "11F80",
+     "22E50"
+    ]
+   },
+   {
+    "title": "The image of Colmez's Montreal functor",
+    "authors": "Paškūnas, Vytautas",
+    "zbmath": 6233892,
+    "msc": [
+     "22E50",
+     "11S37"
+    ]
+   },
+   {
+    "title": "On the Breuil–Mézard conjecture",
+    "authors": "Paškūnas, Vytautas",
+    "zbmath": 6416950,
+    "msc": [
+     "11F80",
+     "11F85"
+    ]
+   },
+   {
+    "title": "On 2-dimensional 2-adic Galois representations of local and global fields",
+    "authors": "Paškūnas, Vytautas",
+    "zbmath": 6626477,
+    "msc": [
+     "11F80"
+    ]
+   },
+   {
+    "title": "The Breuil–Mézard conjecture for non-scalar split residual representations",
+    "authors": "Hu, Yongquan; Tan, Fucheng",
+    "zbmath": 6543146,
+    "msc": [
+     "11F80",
+     "11S37",
+     "11F85",
+     "22E50"
+    ]
+   },
+   {
+    "title": "On the automorphy of 2-dimensional potentially semistable deformation rings of G_{Q_p}",
+    "authors": "Tung, Shen-Ning",
+    "zbmath": 7463740,
+    "msc": [
+     "11F80",
+     "11F33"
+    ]
+   },
+   {
+    "title": "On the modularity of 2-adic potentially semi-stable deformation rings",
+    "authors": "Tung, Shen-Ning",
+    "zbmath": 7357469,
+    "msc": [
+     "11F80",
+     "22E50",
+     "11F70"
+    ]
+   },
+   {
+    "title": "A simplified proof of Serre's conjecture",
+    "authors": "Dieulefait, Luis Victor; Pacetti, Ariel Martín",
+    "zbmath": 7733909,
+    "msc": [
+     "11F33"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "PadicMeasuresIwasawaAlgebras",
+  "primaryMsc": "11R",
+  "secondaryMsc": [
+   "11S",
+   "46S",
+   "13F"
+  ],
+  "cluster": "iwasawa-theory-and-special-values",
+  "distance": 4,
+  "distanceRationale": "Mathlib already has abstract measures as continuous duals of C(X,R), the Mahler basis, the Amice transform D(ℤ_p,ℤ_p) ≃ ℤ_p⟦X⟧, Weierstrass preparation and profinite groups. Still missing is about one graduate layer: completed group rings with convolution, pseudo-measures, the structure theorem, characteristic ideals and μ/λ invariants for Λ-modules, and determinant lines of perfect complexes. The rigid character-space stage L0a additionally needs rigid geometry that is not yet built.",
+  "mathlibEvidence": [
+   "mathlib:AbstractMeasure.amiceTransformEquiv (Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean) — Amice transform D(ℤ_p,ℤ_p) ≃ ℤ_p⟦X⟧",
+   "mathlib:PadicInt.hasSum_mahler (Mathlib/NumberTheory/Padics/MahlerBasis.lean) — Mahler expansion of continuous functions on ℤ_p",
+   "mathlib:PowerSeries.exists_isWeierstrassFactorization (Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean) — Weierstrass preparation",
+   "mathlib:ProfiniteGrp (Mathlib/Topology/Algebra/Category/ProfiniteGrp/Basic.lean)",
+   "absent: completed group rings R[[G]] and convolution, pseudo-measures, structure theorem for Λ-modules, characteristic and Fitting ideals, μ- and λ-invariants, determinant lines of perfect complexes, rigid weight spaces (no declarations matching CompletedGroupRing, pseudoIsomorphism, characteristicIdeal, fittingIdeal, iwasawaMu, iwasawaLambda)"
+  ],
+  "references": [
+   {
+    "title": "An introduction to p-adic L-functions",
+    "authors": "Rodrigues Jacinto, Joaquín; Williams, Chris",
+    "zbmath": 8030000,
+    "msc": [
+     "11F33",
+     "11F67",
+     "11R23"
+    ]
+   },
+   {
+    "title": "Introduction to cyclotomic fields (2nd edition)",
+    "authors": "Washington, Lawrence C.",
+    "zbmath": 967875,
+    "msc": [
+     "11R18",
+     "11-01",
+     "11-02",
+     "11R23"
+    ]
+   },
+   {
+    "title": "Cohomology of number fields (2nd edition)",
+    "authors": "Neukirch, Jürgen; Schmidt, Alexander; Wingberg, Kay",
+    "zbmath": 5162349,
+    "msc": [
+     "11-02",
+     "11R34",
+     "11R23",
+     "11S25",
+     "18G10",
+     "18G20",
+     "20J05",
+     "11R37"
+    ]
+   },
+   {
+    "title": "Fonctions d'une variable p-adique",
+    "authors": "Colmez, Pierre",
+    "zbmath": 5765028,
+    "msc": [
+     "11S80",
+     "46S10",
+     "47S10"
+    ]
+   },
+   {
+    "title": "Interpolation p-adique",
+    "authors": "Amice, Yvette",
+    "zbmath": 3255059,
+    "msc": [
+     "11S80",
+     "12J99",
+     "41A05"
+    ]
+   },
+   {
+    "title": "An interpolation series for continuous functions of a p-adic variable",
+    "authors": "Mahler, K.",
+    "zbmath": 3131169,
+    "msc": []
+   },
+   {
+    "title": "The projectivity of the moduli space of stable curves. I: Preliminaries on \"det\" and \"Div\"",
+    "authors": "Knudsen, Finn; Mumford, David",
+    "zbmath": 3534619,
+    "msc": [
+     "14H10",
+     "14D20"
+    ]
+   },
+   {
+    "title": "On the theory of higher rank Euler, Kolyvagin and Stark systems, II (arXiv:1805.08448)",
+    "authors": "Burns, David; Sakamoto, Ryotaro; Sano, Takamichi",
+    "zbmath": 900349721,
+    "msc": [
+     "arXiv:math.NT"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "PerfectoidQuotients",
+  "primaryMsc": "14G",
+  "secondaryMsc": [
+   "14F",
+   "13D",
+   "13J"
+  ],
+  "cluster": "p-adic-geometry",
+  "distance": 9,
+  "distanceRationale": "Mathlib has perfections and the tilt, Witt vectors with Fontaine's θ, and the naive two-term cotangent complex. There are no integral perfectoid rings, almost mathematics, δ-rings or prisms, no simplicial commutative rings, derived cotangent complex or derived p-completion, and no prismatic cohomology or Hodge–Tate comparison. The endpoint (Bhatt–Scholze Theorem 7.4, and Theorem 5.8 of Scholze's Étale cohomology of diamonds) is recent research resting on all of these, plus André's flatness lemma.",
+  "mathlibEvidence": [
+   "mathlib:Perfection (Mathlib/RingTheory/Perfection.lean) — perfection of a characteristic-p ring",
+   "mathlib:WittVector.fontaineTheta (Mathlib/RingTheory/Perfectoid/FontaineTheta.lean) — θ, with no perfect prisms",
+   "mathlib:Algebra.Extension.cotangentComplex (Mathlib/RingTheory/Extension/Cotangent/Basic.lean) — naive cotangent complex only, not the derived one",
+   "absent: δ-rings and prisms, integral perfectoid rings, almost mathematics, simplicial/animated commutative rings, derived p-completion, prismatic cohomology and perfectoidization, André's flatness lemma (no declarations matching DeltaRing, Prism, IsPerfectoid, PerfectoidRing, AlmostZero, SimplicialCommRing, Animated)"
+  ],
+  "references": [
+   {
+    "title": "Prisms and prismatic cohomology",
+    "authors": "Bhatt, Bhargav; Scholze, Peter",
+    "zbmath": 7611906,
+    "msc": [
+     "14F20",
+     "14F30",
+     "14F40"
+    ]
+   },
+   {
+    "title": "Étale cohomology of diamonds (arXiv:1709.07343)",
+    "authors": "Scholze, Peter",
+    "zbmath": 900499667,
+    "msc": [
+     "14F20",
+     "14G22",
+     "14G20"
+    ]
+   },
+   {
+    "title": "Integral p-adic Hodge theory",
+    "authors": "Bhatt, Bhargav; Morrow, Matthew; Scholze, Peter",
+    "zbmath": 7018374,
+    "msc": [
+     "14F30",
+     "11G25",
+     "14B99",
+     "13A35",
+     "14G45"
+    ]
+   },
+   {
+    "title": "Topological Hochschild homology and integral p-adic Hodge theory",
+    "authors": "Bhatt, Bhargav; Morrow, Matthew; Scholze, Peter",
+    "zbmath": 7059677,
+    "msc": [
+     "14F30",
+     "55P42",
+     "14C35"
+    ]
+   },
+   {
+    "title": "La conjecture du facteur direct",
+    "authors": "André, Yves",
+    "zbmath": 6914159,
+    "msc": [
+     "13D22",
+     "13C14",
+     "14G22"
+    ]
+   },
+   {
+    "title": "Le lemme d'Abhyankar perfectoide",
+    "authors": "André, Yves",
+    "zbmath": 6914158,
+    "msc": [
+     "14G22",
+     "11S15",
+     "13J07",
+     "13B40"
+    ]
+   },
+   {
+    "title": "Perfectoid spaces",
+    "authors": "Scholze, Peter",
+    "zbmath": 6120994,
+    "msc": [
+     "14F20",
+     "11S20",
+     "14G20",
+     "14G22",
+     "11G25"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "PerfectoidShimuraVarieties",
+  "primaryMsc": "14G",
+  "secondaryMsc": [
+   "11G",
+   "11S",
+   "11F"
+  ],
+  "cluster": "p-adic-geometry",
+  "distance": 10,
+  "distanceRationale": "Tau Ceti has adic spectra of Huber pairs and reductive group schemes, and Mathlib has the Grassmannian functor and tilts. There are no Shimura varieties or canonical models, no minimal or toroidal compactifications, no perfectoid spaces, diamonds or pro-étale sites, no canonical subgroups and no Hodge–Tate period maps. The targets (Scholze 2015, Hansen–Johansson 2023, Boxer–Pilloni §4.4) are frontier results resting on all of these.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.ValuationSpectrum.spa (TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean) — adic spectra only, no adic or perfectoid spaces",
+   "tauceti:TauCeti.reductiveCommHopfAlgProperty (TauCeti/Algebra/AlgebraicGroup/Reductive/Basic.lean) — reductive groups, the group-theoretic input to Shimura data",
+   "mathlib:Module.Grassmannian (Mathlib/RingTheory/Grassmannian.lean) — Grassmannian functor, with no flag varieties of G or their analytification",
+   "mathlib:Tilt (Mathlib/RingTheory/Perfection.lean)",
+   "absent: Shimura varieties and canonical models, minimal/toroidal compactifications, perfectoid spaces, diamonds and v-sheaves, canonical subgroups, Hodge–Tate period maps (no declarations matching Shimura, ModularCurve, PerfectoidSpace, VSheaf, ProEtale, HodgeTatePeriod)"
+  ],
+  "references": [
+   {
+    "title": "On torsion in the cohomology of locally symmetric varieties",
+    "authors": "Scholze, Peter",
+    "zbmath": 6514750,
+    "msc": [
+     "14G20",
+     "11F46",
+     "11S37",
+     "14G35",
+     "11G18",
+     "22E50"
+    ]
+   },
+   {
+    "title": "Perfectoid Shimura varieties and the Calegari–Emerton conjectures",
+    "authors": "Hansen, David; Johansson, Christian",
+    "zbmath": 7780666,
+    "msc": [
+     "11S37",
+     "14G45"
+    ]
+   },
+   {
+    "title": "Higher Coleman theory (arXiv:2110.10251)",
+    "authors": "Boxer, George; Pilloni, Vincent",
+    "zbmath": 900492888,
+    "msc": [
+     "arXiv:math.NT"
+    ]
+   },
+   {
+    "title": "Overconvergent Hilbert modular forms via perfectoid modular varieties",
+    "authors": "Birkbeck, Christopher; Heuer, Ben; Williams, Chris",
+    "zbmath": 7710614,
+    "msc": [
+     "11F77",
+     "11F41",
+     "11F33"
+    ]
+   },
+   {
+    "title": "Perfectoid Shimura varieties of abelian type",
+    "authors": "Shen, Xu",
+    "zbmath": 7004482,
+    "msc": [
+     "14G35",
+     "11G18",
+     "14J28"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "PerfectoidSpaces",
+  "primaryMsc": "14G",
+  "secondaryMsc": [
+   "14F",
+   "11S",
+   "13B"
+  ],
+  "cluster": "p-adic-geometry",
+  "distance": 8,
+  "distanceRationale": "Tau Ceti has built Huber pairs and Tate rings, the adic spectrum with rational subsets, and a structure presheaf on Spa. Mathlib has the tilt, the multiplicative untilt map and θ. There is no sheafiness theorem or adic space, and no almost ring theory, perfectoid Tate rings, tilting equivalence, almost purity or perfectoid étale site. The later stages (limits, pro-étale presentations, finite quotients, torsor descent) need Scholze's diamond-era results and the prismatic quotient theorem: several research-level layers.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.Huber.Pair (TauCeti/RingTheory/Huber/Pair.lean) and TauCeti.Huber.IsTateRing (TauCeti/RingTheory/Huber/Basic.lean)",
+   "tauceti:TauCeti.ValuationSpectrum.presentationLimitPresheaf (TauCeti/AlgebraicGeometry/AdicSpace/Spa/StructurePresheaf/Basic.lean) — structure presheaf on Spa, without a sheafiness theorem or adic spaces",
+   "mathlib:PreTilt.untilt (Mathlib/RingTheory/Perfectoid/Untilt.lean) — multiplicative untilt map, not the tilting equivalence",
+   "mathlib:WittVector.fontaineTheta (Mathlib/RingTheory/Perfectoid/FontaineTheta.lean)",
+   "absent: almost mathematics, perfectoid Tate rings and spaces, the tilting equivalence, almost purity, perfectoid étale and pro-étale sites, tilde-limits (no declarations matching IsPerfectoid, PerfectoidRing, AlmostZero, AlmostPurity, an AdicSpace structure, TildeLimit)"
+  ],
+  "references": [
+   {
+    "title": "Perfectoid spaces",
+    "authors": "Scholze, Peter",
+    "zbmath": 6120994,
+    "msc": [
+     "14F20",
+     "11S20",
+     "14G20",
+     "14G22",
+     "11G25"
+    ]
+   },
+   {
+    "title": "Relative p-adic Hodge theory: foundations",
+    "authors": "Kedlaya, Kiran S.; Liu, Ruochuan",
+    "zbmath": 6456685,
+    "msc": [
+     "14G22",
+     "11S15",
+     "13J07",
+     "13F35",
+     "14C30",
+     "14F30"
+    ]
+   },
+   {
+    "title": "Perfectoïdes, presque pureté et monodromie-poids (d'après Peter Scholze)",
+    "authors": "Fontaine, Jean-Marc",
+    "zbmath": 6295898,
+    "msc": [
+     "14F20",
+     "11S20",
+     "14G20",
+     "14G22",
+     "11G25"
+    ]
+   },
+   {
+    "title": "Étale cohomology of diamonds (arXiv:1709.07343)",
+    "authors": "Scholze, Peter",
+    "zbmath": 900499667,
+    "msc": [
+     "14F20",
+     "14G22",
+     "14G20"
+    ]
+   },
+   {
+    "title": "Almost ring theory",
+    "authors": "Gabber, Ofer; Ramero, Lorenzo",
+    "zbmath": 1975628,
+    "msc": [
+     "13B40",
+     "12J20",
+     "14G22",
+     "13-01",
+     "13-02",
+     "13A18",
+     "14E22"
+    ]
+   },
+   {
+    "title": "On torsion in the cohomology of locally symmetric varieties",
+    "authors": "Scholze, Peter",
+    "zbmath": 6514750,
+    "msc": [
+     "14G20",
+     "11F46",
+     "11S37",
+     "14G35",
+     "11G18",
+     "22E50"
+    ]
+   },
+   {
+    "title": "Perfectoid Shimura varieties and the Calegari–Emerton conjectures",
+    "authors": "Hansen, David; Johansson, Christian",
+    "zbmath": 7780666,
+    "msc": [
+     "11S37",
+     "14G45"
+    ]
+   },
+   {
+    "title": "Prisms and prismatic cohomology",
+    "authors": "Bhatt, Bhargav; Scholze, Peter",
+    "zbmath": 7611906,
+    "msc": [
+     "14F20",
+     "14F30",
+     "14F40"
+    ]
+   }
+  ]
  }
 ]

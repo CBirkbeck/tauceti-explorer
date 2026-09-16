@@ -1963,5 +1963,978 @@
     ]
    }
   ]
+ },
+ {
+  "roadmapId": "AutomorphicPadicLFunctions",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "11S",
+   "11R",
+   "11G"
+  ],
+  "cluster": "iwasawa-theory-and-special-values",
+  "distance": 9,
+  "distanceRationale": "Mathlib has measures on ℤ_p with the Amice transform, CM fields, Dedekind zeta functions and ζ(−n) through Bernoulli numbers, and Tau Ceti has finite ray class groups, but there are no Hecke characters with infinity types, p-power ray class towers, Hilbert modular forms with a q-expansion principle, overconvergent cohomology, CM abelian varieties, Igusa towers or unitary Shimura varieties. The Barrera Salazar–Williams, Deligne–Ribet, Katz and Eischen–Harris–Li–Skinner constructions are research-level results that need all of these, the unitary ones close to the frontier.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.GlobalNumberFields.RayClassGroup (TauCeti/NumberTheory/NumberField/Global/RayClass/Basic.lean) — finite-level ray class groups, with no limit over p-power conductors",
+   "mathlib:AbstractMeasure.amiceTransformEquiv (Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean) — measures on ℤ_p as power series, not distributions on ray class groups",
+   "mathlib:riemannZeta_neg_nat_eq_bernoulli (Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean) — negative zeta values over ℚ only",
+   "mathlib:NumberField.IsCMField (Mathlib/NumberTheory/NumberField/CMField.lean) — CM fields, with no CM types or CM abelian varieties",
+   "mathlib:ModularForm.eisensteinSeriesMF (Mathlib/NumberTheory/ModularForms/EisensteinSeries/Basic.lean) — elliptic Eisenstein series; no Hilbert modular forms",
+   "absent: Hecke characters with infinity type, Hilbert modular forms, overconvergent cohomology, Igusa towers, unitary Shimura varieties and doubling integrals, p-adic L-functions (no matching declarations)"
+  ],
+  "references": [
+   {
+    "title": "p-adic L-functions for GL_2",
+    "authors": "Barrera Salazar, Daniel; Williams, Chris",
+    "zbmath": 7106604,
+    "msc": [
+     "11F41",
+     "11F67",
+     "11F85",
+     "11S40",
+     "11M41"
+    ]
+   },
+   {
+    "title": "Values of abelian L-functions at negative integers over totally real fields",
+    "authors": "Deligne, Pierre; Ribet, Kenneth A.",
+    "zbmath": 3676017,
+    "msc": [
+     "11S40",
+     "11R42",
+     "11R80",
+     "11F80",
+     "11F33",
+     "14G10"
+    ]
+   },
+   {
+    "title": "p-adic L-functions for CM fields",
+    "authors": "Katz, Nicholas M.",
+    "zbmath": 3648841,
+    "msc": [
+     "11S40",
+     "11S80",
+     "12H25",
+     "11F41",
+     "14G10",
+     "11G15"
+    ]
+   },
+   {
+    "title": "p-adic L-functions for unitary groups",
+    "authors": "Eischen, Ellen; Harris, Michael; Li, Jianshu; Skinner, Christopher",
+    "zbmath": 7209559,
+    "msc": [
+     "11F85",
+     "11F66",
+     "14G10",
+     "11F55",
+     "11R23",
+     "14G35",
+     "11G10",
+     "11F03"
+    ]
+   },
+   {
+    "title": "Special values of anticyclotomic Rankin-Selberg L-functions",
+    "authors": "Hsieh, Ming-Lun",
+    "zbmath": 6358809,
+    "msc": [
+     "11F67",
+     "11S40",
+     "11G15",
+     "11R23"
+    ]
+   },
+   {
+    "title": "p-adic Eisenstein series and L-functions of certain cusp forms on definite unitary groups",
+    "authors": "Eischen, Ellen; Wan, Xin",
+    "zbmath": 6603526,
+    "msc": [
+     "11F33",
+     "11F03",
+     "11F30",
+     "11S40",
+     "11G18",
+     "11F55",
+     "11F85"
+    ]
+   },
+   {
+    "title": "An introduction to p-adic L-functions",
+    "authors": "Rodrigues Jacinto, Joaquín; Williams, Chris",
+    "zbmath": 8030000,
+    "msc": [
+     "11F33",
+     "11F67",
+     "11R23"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "AutomorphicSpectralTheory",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "22E",
+   "20G",
+   "43A"
+  ],
+  "cluster": "modular-and-automorphic-forms",
+  "distance": 8,
+  "distanceRationale": "Mathlib has Haar measures on quotients and Tau Ceti adds eigenbases for compact self-adjoint operators, Stone's theorem for unbounded self-adjoint operators and a fundamental domain for PSL(2,ℤ), but there are no direct integrals of Hilbert spaces, trace-class or Hilbert–Schmidt operators, Eisenstein series or intertwining operators on reductive groups, Arthur truncation or weighted orbital integrals. Langlands' spectral decomposition and Arthur's invariant trace formula are long research-level theories on top of automorphic forms on reductive groups, which are themselves missing.",
+  "mathlibEvidence": [
+   "tauceti:ContinuousLinearMap.exists_hilbertBasis_forall_hasEigenvector (TauCeti/Analysis/InnerProductSpace/Spectrum.lean) — compact self-adjoint operators only",
+   "tauceti:LinearPMap.isSelfAdjoint_iff_exists_isUnitary_complexGenerator_eq_I_smul (TauCeti/Analysis/Semigroups/Group/Stone/Unbounded.lean) — Stone's theorem",
+   "mathlib:MeasureTheory.QuotientMeasureEqMeasurePreimage.haarMeasure_quotient (Mathlib/MeasureTheory/Measure/Haar/Quotient.lean)",
+   "tauceti:ModularGroup.isFundamentalDomain_fdo (TauCeti/NumberTheory/Modular.lean) — measure-theoretic fundamental domain for PSL(2,ℤ)",
+   "mathlib:eisensteinSeries (Mathlib/NumberTheory/ModularForms/EisensteinSeries/Defs.lean) — holomorphic Eisenstein series for congruence subgroups only",
+   "absent: direct integrals, trace-class and Hilbert–Schmidt operators, Eisenstein series and intertwining operators for reductive groups, truncation, orbital integrals, the trace formula (no declarations matching DirectIntegral, TraceClass, HilbertSchmidt, IntertwiningOperator, OrbitalIntegral, TraceFormula)"
+  ],
+  "references": [
+   {
+    "title": "An introduction to the trace formula",
+    "authors": "Arthur, James",
+    "zbmath": 5071307,
+    "msc": [
+     "11F72",
+     "11-02"
+    ]
+   },
+   {
+    "title": "A trace formula for reductive groups. I: Terms associated to classes in G(Q)",
+    "authors": "Arthur, James G.",
+    "zbmath": 3786893,
+    "msc": [
+     "11F70",
+     "22E46"
+    ]
+   },
+   {
+    "title": "A trace formula for reductive groups. II: Applications of a truncation operator",
+    "authors": "Arthur, James G.",
+    "zbmath": 3786894,
+    "msc": [
+     "11F70",
+     "22E46"
+    ]
+   },
+   {
+    "title": "The trace formula in invariant form",
+    "authors": "Arthur, James",
+    "zbmath": 3779639,
+    "msc": [
+     "22E46",
+     "11F70",
+     "11R39",
+     "20G35"
+    ]
+   },
+   {
+    "title": "The invariant trace formula. I: Local theory",
+    "authors": "Arthur, James",
+    "zbmath": 4116624,
+    "msc": [
+     "11F70",
+     "22E55",
+     "22E50"
+    ]
+   },
+   {
+    "title": "The invariant trace formula. II: Global theory",
+    "authors": "Arthur, James",
+    "zbmath": 4091599,
+    "msc": [
+     "11F70",
+     "22E55"
+    ]
+   },
+   {
+    "title": "Harmonic analysis in weighted L_2-spaces",
+    "authors": "Franke, Jens",
+    "zbmath": 1146352,
+    "msc": [
+     "11F75",
+     "11F72",
+     "22E41"
+    ]
+   },
+   {
+    "title": "On the functional equations satisfied by Eisenstein series",
+    "authors": "Langlands, Robert P.",
+    "zbmath": 3518893,
+    "msc": [
+     "11F27",
+     "11F12",
+     "11-02",
+     "22E40",
+     "30F35",
+     "32N10",
+     "43A85"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "BorelRegulators",
+  "primaryMsc": "19F",
+  "secondaryMsc": [
+   "57T",
+   "14G",
+   "11R"
+  ],
+  "cluster": "k-theory-and-motives",
+  "distance": 8,
+  "distanceRationale": "Mathlib has the unit regulator of a number field, the residue of the Dedekind zeta function at s = 1, Lie algebra cochains in degrees at most two and arithmetic subgroups of SL₂(ℤ), but there is no higher algebraic K-theory or plus construction, no rational Hurewicz theorem, no continuous or relative Lie algebra cohomology with van Est, no Borel–Serre theory for SL_n over rings of integers, no Dedekind zeta values at negative integers and no Beilinson regulator. Borel's rank and regulator theorems and the comparison with Beilinson need several research-level layers on top of these.",
+  "mathlibEvidence": [
+   "mathlib:NumberField.Units.regulator (Mathlib/NumberTheory/NumberField/Units/Regulator.lean) — the classical regulator of units only",
+   "mathlib:NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT (Mathlib/NumberTheory/NumberField/DedekindZeta.lean) — residue at s = 1; no continuation to s = 1−j",
+   "mathlib:LieModule.Cohomology.twoCochain (Mathlib/Algebra/Lie/Cochain.lean) — Lie algebra cochains in low degree only",
+   "mathlib:Subgroup.IsArithmetic (Mathlib/NumberTheory/ModularForms/ArithmeticSubgroups.lean) — arithmetic subgroups of SL₂ only",
+   "mathlib:Algebra.GrothendieckGroup (Mathlib/GroupTheory/MonoidLocalization/GrothendieckGroup.lean) — group completion of a monoid only",
+   "absent: higher K-groups and the plus construction, rational Hurewicz, continuous and relative Lie algebra cohomology, stable cohomology of SL_n(O_F), Borel classes, the Bloch–Wigner dilogarithm, Beilinson regulators (no matching declarations)"
+  ],
+  "references": [
+   {
+    "title": "Stable real cohomology of arithmetic groups",
+    "authors": "Borel, Armand",
+    "zbmath": 3495395,
+    "msc": [
+     "57T99",
+     "18F25"
+    ]
+   },
+   {
+    "title": "Cohomologie de SL_n et valeurs de fonctions zeta aux points entiers",
+    "authors": "Borel, Armand",
+    "zbmath": 3594311,
+    "msc": [
+     "57T10",
+     "18F25",
+     "20G10",
+     "57T15"
+    ]
+   },
+   {
+    "title": "Higher regulators, algebraic K-theory, and zeta functions of elliptic curves",
+    "authors": "Bloch, Spencer J.",
+    "zbmath": 1479597,
+    "msc": [
+     "19F27",
+     "14G10",
+     "14-02",
+     "19D50",
+     "19-02",
+     "11G40"
+    ]
+   },
+   {
+    "title": "Regulators",
+    "authors": "Goncharov, Alexander B.",
+    "zbmath": 2247520,
+    "msc": [
+     "19E15",
+     "14G10",
+     "11R39"
+    ]
+   },
+   {
+    "title": "Algebraic K-theory, algebraic cycles and arithmetic geometry",
+    "authors": "Kahn, Bruno",
+    "zbmath": 2247521,
+    "msc": [
+     "19E15",
+     "14C25"
+    ]
+   },
+   {
+    "title": "Higher regulators and values of L-functions",
+    "authors": "Beilinson, A. A.",
+    "zbmath": 3944014,
+    "msc": [
+     "14C35",
+     "18F25",
+     "14G10"
+    ]
+   },
+   {
+    "title": "The regulators of Beilinson and Borel",
+    "authors": "Burgos Gil, José I.",
+    "zbmath": 1703911,
+    "msc": [
+     "19F27",
+     "14G10",
+     "19-02",
+     "14-02"
+    ]
+   },
+   {
+    "title": "The K-book. An introduction to algebraic K-theory",
+    "authors": "Weibel, Charles A.",
+    "zbmath": 6123945,
+    "msc": [
+     "19-00",
+     "19-01",
+     "19Axx",
+     "19Bxx",
+     "19Cxx",
+     "19Dxx",
+     "19Fxx",
+     "19L64",
+     "19E08",
+     "19F27",
+     "19M05"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "BunGAndNewtonStrata",
+  "primaryMsc": "14G",
+  "secondaryMsc": [
+   "11S",
+   "14F",
+   "20G"
+  ],
+  "cluster": "geometric-langlands",
+  "distance": 10,
+  "distanceRationale": "Mathlib has Witt vectors and the classification of one-dimensional isocrystals, and Tau Ceti has reductive group schemes over a field, cocharacter Levi subgroups, split root data and fppf quotient torsors, but there are no G-isocrystals, σ-conjugacy classes B(G), Kottwitz or Newton maps, perfectoid spaces, v-stacks, relative Fargues–Fontaine curves or Banach–Colmez spaces. Bun_G as an ℓ-cohomologically smooth Artin v-stack, with its Newton strata and charts, is recent Fargues–Scholze work that rests on all of these theories.",
+  "mathlibEvidence": [
+   "mathlib:WittVector.isocrystal_classification (Mathlib/RingTheory/WittVector/Isocrystal.lean) — one-dimensional isocrystals only",
+   "tauceti:TauCeti.ReductiveAffineGroupSchemeCat (TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean) — reductive groups over a field",
+   "tauceti:TauCeti.Cocharacter.mapLevi (TauCeti/Algebra/AlgebraicGroup/Dynamic/Functor.lean) — Levi subgroups attached to cocharacters",
+   "tauceti:TauCeti.CommHopfAlgCat.fppfQuotientTorsorAction (TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Torsor.lean)",
+   "tauceti:TauCeti.DynkinType.simplyConnectedRootDatum (TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/Assembly.lean)",
+   "absent: B(G) and the Kottwitz and Newton maps, perfectoid spaces, the Fargues–Fontaine curve, v-stacks, Banach–Colmez spaces, Bun_G (no declarations matching Kottwitz, NewtonPoint, SigmaConj, Perfectoid, FarguesFontaine, VSheaf, BanachColmez)"
+  ],
+  "references": [
+   {
+    "title": "Geometrization of the local Langlands correspondence",
+    "authors": "Fargues, Laurent; Scholze, Peter",
+    "zbmath": 8244242,
+    "msc": [
+     "11-XX",
+     "14-XX"
+    ]
+   },
+   {
+    "title": "Berkeley lectures on p-adic geometry",
+    "authors": "Scholze, Peter; Weinstein, Jared",
+    "zbmath": 7178476,
+    "msc": [
+     "14-02",
+     "14G20",
+     "14G22"
+    ]
+   },
+   {
+    "title": "Isocrystals with additional structure",
+    "authors": "Kottwitz, Robert E.",
+    "zbmath": 3961963,
+    "msc": [
+     "20G05",
+     "20G25",
+     "13F35",
+     "14L35"
+    ]
+   },
+   {
+    "title": "Isocrystals with additional structure. II",
+    "authors": "Kottwitz, Robert E.",
+    "zbmath": 1080103,
+    "msc": [
+     "20G25",
+     "14F30",
+     "11S25",
+     "14L05"
+    ]
+   },
+   {
+    "title": "On the classification and specialization of F-isocrystals with additional structure",
+    "authors": "Rapoport, M.; Richartz, M.",
+    "zbmath": 938725,
+    "msc": [
+     "14F30"
+    ]
+   },
+   {
+    "title": "G-torseurs en théorie de Hodge p-adique",
+    "authors": "Fargues, Laurent",
+    "zbmath": 7283067,
+    "msc": [
+     "11S31",
+     "14F30",
+     "14L05",
+     "14L24"
+    ]
+   },
+   {
+    "title": "Reductive group schemes over the Fargues-Fontaine curve",
+    "authors": "Anschütz, Johannes",
+    "zbmath": 7087152,
+    "msc": [
+     "11S31",
+     "11S37",
+     "14H60"
+    ]
+   },
+   {
+    "title": "Courbes et fibrés vectoriels en théorie de Hodge p-adique",
+    "authors": "Fargues, Laurent; Fontaine, Jean-Marc",
+    "zbmath": 7005651,
+    "msc": [
+     "14-02",
+     "14G20",
+     "14F30",
+     "11S31",
+     "11S37"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "ClassicalAdicEtaleCohomology",
+  "primaryMsc": "14F",
+  "secondaryMsc": [
+   "14G",
+   "32P"
+  ],
+  "cluster": "etale-and-motivic-cohomology",
+  "distance": 8,
+  "distanceRationale": "Mathlib has the small étale site of a scheme with a Grothendieck abelian category of sheaves, étale points and sheaf cohomology, and Tau Ceti has Huber pairs and Spa(A,A⁺), but there are no adic spaces with étale sites, formal schemes or specialization maps, strict localizations, nearby cycles over valuation rings, proper-support pushforward, or traces and Poincaré duality for rigid curves, and even the scheme-theoretic base change theorems are absent. Huber's comparison, invariance, constructibility and duality theorems are research-level results that need several of these layers first.",
+  "mathlibEvidence": [
+   "mathlib:AlgebraicGeometry.Scheme.isGrothendieckAbelian_sheaf_smallEtaleTopology (Mathlib/AlgebraicGeometry/Sites/AffineEtale.lean)",
+   "mathlib:AlgebraicGeometry.Scheme.pointSmallEtale (Mathlib/AlgebraicGeometry/Sites/EtalePoint.lean) — points of the small étale site of a scheme",
+   "mathlib:CategoryTheory.Sheaf.H (Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean), with the long exact sequence tauceti:TauCeti.CategoryTheory.Sheaf.H.δ (TauCeti/CategoryTheory/Sites/SheafCohomology/LongExactSequence.lean)",
+   "mathlib:HenselianRing (Mathlib/RingTheory/Henselian.lean) — no henselization or strict localization",
+   "tauceti:TauCeti.ValuationSpectrum.spa (TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean) — Spa(A,A⁺) as a space, not yet an adic space with an étale site",
+   "absent: étale sites of adic spaces, formal schemes, pseudo-adic spaces, nearby cycles, proper-support pushforward, trace maps and curve duality, proper and smooth base change (no declarations matching EtaleCohomology, FormalScheme, NearbyCycle, ProperBaseChange, StrictHenselization)"
+  ],
+  "references": [
+   {
+    "title": "Étale cohomology of rigid analytic varieties and adic spaces",
+    "authors": "Huber, Roland",
+    "zbmath": 981434,
+    "msc": [
+     "14F20",
+     "32P05"
+    ]
+   },
+   {
+    "title": "Etale cohomology of diamonds",
+    "authors": "Scholze, Peter",
+    "zbmath": 900499667,
+    "msc": [
+     "14F20",
+     "14F08",
+     "14G22",
+     "14G20"
+    ]
+   },
+   {
+    "title": "Perfectoid spaces",
+    "authors": "Scholze, Peter",
+    "zbmath": 6120994,
+    "msc": [
+     "14F20",
+     "11S20",
+     "14G20",
+     "14G22",
+     "11G25"
+    ]
+   },
+   {
+    "title": "The structure of proper rigid groups",
+    "authors": "Lütkebohmert, Werner",
+    "zbmath": 825449,
+    "msc": [
+     "14G20",
+     "14L30",
+     "32P05",
+     "14K05"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "ClassicalArithmeticCompletion",
+  "primaryMsc": "11A",
+  "secondaryMsc": [
+   "11R",
+   "11Y",
+   "11B"
+  ],
+  "cluster": "elementary-and-computational-number-theory",
+  "distance": 3,
+  "distanceRationale": "Most of the elementary layer is already present: Mathlib has quadratic reciprocity for Jacobi symbols, Gauss and Jacobi sums, Möbius inversion, the Chinese remainder theorem, linear recurrences, Bernoulli numbers, Pell equations, sums of two and four squares, Frobenius numbers, Mahler measure and Kronecker's theorem, and Tau Ceti adds Smith normal form, resultants, discriminants and Kummer–Dedekind. What is missing is higher power-residue reciprocity through class field theory, Christol's theorem, Hermite and rational canonical forms, Pisot–Salem theory and Galois module structure (Noether's normal integral bases, locally free class groups), about one layer of standard graduate theory.",
+  "mathlibEvidence": [
+   "mathlib:jacobiSym.quadratic_reciprocity (Mathlib/NumberTheory/LegendreSymbol/JacobiSymbol.lean)",
+   "mathlib:ArithmeticFunction.sum_eq_iff_sum_mul_moebius_eq (Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean)",
+   "mathlib:Pell.Solution₁ (Mathlib/NumberTheory/Pell.lean) and Nat.sum_four_squares (Mathlib/NumberTheory/SumFourSquares.lean)",
+   "tauceti:Matrix.exists_smith_normal_form_of_det_ne_zero (TauCeti/LinearAlgebra/Matrix/SmithNormalForm.lean) and Polynomial.discr_prod_X_sub_C (TauCeti/RingTheory/Polynomial/Resultant/Discriminant.lean)",
+   "mathlib:Polynomial.mahlerMeasure (Mathlib/Analysis/Polynomial/MahlerMeasure.lean) and NumberField.Embeddings.pow_eq_one_of_norm_eq_one (Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean)",
+   "absent: power residue symbols and higher reciprocity, Christol's theorem and automatic sequences, Farey sequences, Hermite and rational canonical forms, Pisot and Salem numbers, the normal basis theorem, normal integral bases and locally free class groups (no matching declarations)"
+  ],
+  "references": [
+   {
+    "title": "A computational introduction to number theory and algebra",
+    "authors": "Shoup, Victor",
+    "zbmath": 5494431,
+    "msc": [
+     "11-01",
+     "11Axx",
+     "11Y05",
+     "11Y11",
+     "11Y16",
+     "12E20",
+     "11T06"
+    ]
+   },
+   {
+    "title": "Notes on class field theory",
+    "authors": "Kedlaya, Kiran S.",
+    "zbmath": null,
+    "msc": []
+   },
+   {
+    "title": "Galois module structure of algebraic integers",
+    "authors": "Fröhlich, Albrecht",
+    "zbmath": 3788760,
+    "msc": [
+     "11R33",
+     "11-02",
+     "11R32",
+     "11R04",
+     "20C05"
+    ]
+   },
+   {
+    "title": "Normalbasis bei Körpern ohne höhere Verzweigung",
+    "authors": "Noether, Emmy",
+    "zbmath": 3003146,
+    "msc": [
+     "12F10"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "ClassicalSerreModularity",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "11R",
+   "14L",
+   "11G"
+  ],
+  "cluster": "galois-representations-and-langlands",
+  "distance": 10,
+  "distanceRationale": "Tau Ceti has newforms with Hecke eigenvalues and a partial Chebotarev development, and Mathlib has absolute Galois groups, the cyclotomic character and continuous representations, but there are no Galois representations attached to modular forms, no Serre weights or conductors, no deformation rings, patching or modularity lifting, no potential modularity or compatible systems, and no Fontaine–Laffaille, Barsotti–Tate or p-adic local Langlands theory. Khare–Wintenberger's proof and the Dieulefait–Pacetti route through Pan's 2022 theorem are landmark research results resting on all of these.",
+  "mathlibEvidence": [
+   "tauceti:HeckeRing.GL2.Newform (TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean) — newforms, with no attached Galois representations",
+   "mathlib:Field.absoluteGaloisGroup (Mathlib/FieldTheory/AbsoluteGaloisGroup.lean)",
+   "mathlib:cyclotomicCharacter (Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean)",
+   "mathlib:TopRep (Mathlib/RepresentationTheory/Continuous/TopRep.lean) — continuous representations in general",
+   "tauceti:NumberField.Chebotarev.mem_frobeniusPrimeSet_iff_artinSymbol_eq (TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean) — Chebotarev groundwork without the density theorem",
+   "absent: Galois representations of newforms, Serre's weight and conductor, deformation rings and R = T theorems, modularity lifting, potential modularity, compatible systems, Fontaine–Laffaille and Barsotti–Tate theory (no matching declarations)"
+  ],
+  "references": [
+   {
+    "title": "Serre's modularity conjecture. I",
+    "authors": "Khare, Chandrashekhar; Wintenberger, Jean-Pierre",
+    "zbmath": 5636295,
+    "msc": [
+     "11F80",
+     "11R39",
+     "11F11"
+    ]
+   },
+   {
+    "title": "Serre's modularity conjecture. II",
+    "authors": "Khare, Chandrashekhar; Wintenberger, Jean-Pierre",
+    "zbmath": 5636296,
+    "msc": [
+     "11F80",
+     "11F11",
+     "11R39"
+    ]
+   },
+   {
+    "title": "On Serre's reciprocity conjecture for 2-dimensional mod p representations of Gal(Q̄/Q)",
+    "authors": "Khare, Chandrashekhar; Wintenberger, Jean-Pierre",
+    "zbmath": 5578743,
+    "msc": [
+     "11F80",
+     "11R39",
+     "11F11"
+    ]
+   },
+   {
+    "title": "Serre's modularity conjecture: the level one case",
+    "authors": "Khare, Chandrashekhar",
+    "zbmath": 5077493,
+    "msc": [
+     "11F80",
+     "11F11",
+     "11R39"
+    ]
+   },
+   {
+    "title": "Modularity of 2-adic Barsotti-Tate representations",
+    "authors": "Kisin, Mark",
+    "zbmath": 5636297,
+    "msc": [
+     "11F80",
+     "11F41",
+     "14L15",
+     "14L30"
+    ]
+   },
+   {
+    "title": "Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)",
+    "authors": "Serre, Jean-Pierre",
+    "zbmath": 4043940,
+    "msc": [
+     "11F80",
+     "11F33",
+     "11G05",
+     "11R32",
+     "11R39"
+    ]
+   },
+   {
+    "title": "A simplified proof of Serre's conjecture",
+    "authors": "Dieulefait, Luis Victor; Pacetti, Ariel Martín",
+    "zbmath": 7733909,
+    "msc": [
+     "11F33"
+    ]
+   },
+   {
+    "title": "The Fontaine-Mazur conjecture in the residually reducible case",
+    "authors": "Pan, Lue",
+    "zbmath": 7571575,
+    "msc": [
+     "11F80",
+     "11F33",
+     "11R39",
+     "22E50",
+     "11F11"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "CohomologyComparisons",
+  "primaryMsc": "14F",
+  "secondaryMsc": [
+   "14G",
+   "11S",
+   "11G"
+  ],
+  "cluster": "p-adic-geometry",
+  "distance": 10,
+  "distanceRationale": "Mathlib has Witt vectors, the tilt, Fontaine's θ, B_dR^+ as a ring, divided power algebras, Kähler differentials and the cyclotomic character, but none of the theories being compared exists: there is no A_inf, crystalline, log-crystalline, de Rham or prismatic cohomology, no B_cris or B_st, no Hyodo–Kato complex and no p-adic étale cohomology of rigid spaces. The roadmap sits above the A_inf, crystalline, derived de Rham and prismatic roadmaps, and its targets are recent integral p-adic Hodge theory (Bhatt–Morrow–Scholze, Česnavičius–Koshikawa, Bhatt–Scholze).",
+  "mathlibEvidence": [
+   "mathlib:WittVector.fontaineTheta (Mathlib/RingTheory/Perfectoid/FontaineTheta.lean)",
+   "mathlib:BDeRhamPlus (Mathlib/RingTheory/Perfectoid/BDeRham.lean) — a ring, with no filtration, Galois action or comparison",
+   "mathlib:DividedPowerAlgebra (Mathlib/RingTheory/DividedPowerAlgebra/Init.lean) — no PD envelopes or A_cris",
+   "mathlib:KaehlerDifferential (Mathlib/RingTheory/Kaehler/Basic.lean) — no de Rham complex of a formal scheme",
+   "mathlib:cyclotomicCharacter (Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean)",
+   "absent: A_inf, crystalline, log-crystalline, de Rham and prismatic cohomology, B_cris and B_st, Hyodo–Kato complexes, period sheaves, Breuil–Kisin–Fargues modules (no declarations matching Crystalline, Prismatic, Acris, Bcris, HyodoKato, BreuilKisin, DeRhamComplex, HodgeTate)"
+  ],
+  "references": [
+   {
+    "title": "Integral p-adic Hodge theory",
+    "authors": "Bhatt, Bhargav; Morrow, Matthew; Scholze, Peter",
+    "zbmath": 7018374,
+    "msc": [
+     "14F30",
+     "11G25",
+     "14B99",
+     "13A35",
+     "14G45"
+    ]
+   },
+   {
+    "title": "The A_inf-cohomology in the semistable case",
+    "authors": "Česnavičius, Kęstutis; Koshikawa, Teruhisa",
+    "zbmath": 7109551,
+    "msc": [
+     "14G20",
+     "14G22",
+     "14F20",
+     "14F30",
+     "14F40"
+    ]
+   },
+   {
+    "title": "Prisms and prismatic cohomology",
+    "authors": "Bhatt, Bhargav; Scholze, Peter",
+    "zbmath": 7611906,
+    "msc": [
+     "14F20",
+     "14F30",
+     "14F40"
+    ]
+   },
+   {
+    "title": "Semi-stable reduction and crystalline cohomology with logarithmic poles",
+    "authors": "Hyodo, Osamu; Kato, Kazuya",
+    "zbmath": 732151,
+    "msc": [
+     "14F30",
+     "14L30"
+    ]
+   },
+   {
+    "title": "p-adic Hodge theory for rigid-analytic varieties",
+    "authors": "Scholze, Peter",
+    "zbmath": 6209107,
+    "msc": [
+     "14F30",
+     "14G22",
+     "14F20",
+     "14G20"
+    ]
+   },
+   {
+    "title": "Corrigendum: \"p-adic Hodge theory for rigid-analytic varieties\"",
+    "authors": "Scholze, Peter",
+    "zbmath": 6700126,
+    "msc": [
+     "14F30",
+     "14G22",
+     "14F20",
+     "14G20"
+    ]
+   },
+   {
+    "title": "Crystalline representations and F-crystals",
+    "authors": "Kisin, Mark",
+    "zbmath": 5234060,
+    "msc": [
+     "11S20",
+     "14F30"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "ColemanIntegration",
+  "primaryMsc": "11S",
+  "secondaryMsc": [
+   "14G",
+   "11R",
+   "33B"
+  ],
+  "cluster": "iwasawa-theory-and-special-values",
+  "distance": 6,
+  "distanceRationale": "Mathlib has ℂ_p, convergent power series over any complete field, Mahler expansions on ℤ_p, Gauss sums and complex Dirichlet L-functions, and Tau Ceti has restricted power series, but there is no p-adic logarithm with a chosen branch, no Kubota–Leopoldt p-adic L-function, no wide opens or overconvergent de Rham cohomology with Frobenius lifts, and no Coleman functions or p-adic polylogarithms. Coleman's construction and the formula for L_p(θ,k) need a graduate layer of p-adic analysis and p-adic L-functions and then a research-level layer of rigid cohomology and Frobenius continuation.",
+  "mathlibEvidence": [
+   "mathlib:PadicComplex (Mathlib/NumberTheory/Padics/Complex.lean)",
+   "mathlib:HasFPowerSeriesOnBall (Mathlib/Analysis/Analytic/Basic.lean) — convergent power series over any complete normed field",
+   "mathlib:PadicInt.mahlerEquiv (Mathlib/NumberTheory/Padics/MahlerBasis.lean)",
+   "mathlib:gaussSum (Mathlib/NumberTheory/GaussSum.lean) and DirichletCharacter.LFunction (Mathlib/NumberTheory/LSeries/DirichletContinuation.lean) — complex L-functions only",
+   "tauceti:TauCeti.Huber.IsRestricted (TauCeti/RingTheory/Huber/Restricted/PowerSeries.lean) — restricted power series",
+   "absent: p-adic logarithm branches, Kubota–Leopoldt p-adic L-functions, wide opens and overconvergent de Rham cohomology, Frobenius lifts, Coleman functions, p-adic polylogarithms (no declarations matching PadicLog, KubotaLeopoldt, PadicLFunction, Overconvergent, WideOpen, Coleman, Polylog)"
+  ],
+  "references": [
+   {
+    "title": "An introduction to p-adic L-functions",
+    "authors": "Rodrigues Jacinto, Joaquín; Williams, Chris",
+    "zbmath": 8030000,
+    "msc": [
+     "11F33",
+     "11F67",
+     "11R23"
+    ]
+   },
+   {
+    "title": "Dilogarithms, regulators and p-adic L-functions",
+    "authors": "Coleman, Robert F.",
+    "zbmath": 3815796,
+    "msc": [
+     "11S40",
+     "11S70",
+     "30G06",
+     "33B30",
+     "14G20",
+     "14G10",
+     "19C99"
+    ]
+   },
+   {
+    "title": "Torsion points on curves and p-adic abelian integrals",
+    "authors": "Coleman, Robert F.",
+    "zbmath": 3924990,
+    "msc": [
+     "14K20",
+     "14G20",
+     "14K22",
+     "14G05",
+     "14H45",
+     "14H52",
+     "14H05",
+     "11S80"
+    ]
+   },
+   {
+    "title": "Coleman integration using the Tannakian formalism",
+    "authors": "Besser, Amnon",
+    "zbmath": 1716697,
+    "msc": [
+     "11G25",
+     "11S80",
+     "14F30",
+     "14G22"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "ColemanPowerSeries",
+  "primaryMsc": "11R",
+  "secondaryMsc": [
+   "11S",
+   "14L"
+  ],
+  "cluster": "iwasawa-theory-and-special-values",
+  "distance": 4,
+  "distanceRationale": "Mathlib has cyclotomic extensions with norms of ζ−1, the p-adic cyclotomic character, measures on ℤ_p with the Amice transform and Weierstrass preparation, and Tau Ceti has unit filtrations and Teichmüller lifts for local fields, but there are no local cyclotomic towers ℚ_p(μ_{p^n}) with norm-compatible units, no completed group rings ℤ_p[[ℤ_p^×]], no Coleman norm operator or ψ, no Coleman map and no cyclotomic units. That is one to two layers of standard graduate Iwasawa theory (Coleman, Iwasawa, Rodrigues Jacinto–Williams §§9–12).",
+  "mathlibEvidence": [
+   "mathlib:cyclotomicCharacter (Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean)",
+   "mathlib:IsCyclotomicExtension.norm_zeta_sub_one_of_isPrimePow (Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean)",
+   "mathlib:AbstractMeasure.amiceTransformEquiv (Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean) — a linear equivalence, with no convolution product",
+   "mathlib:PowerSeries.IsWeierstrassFactorization (Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean)",
+   "tauceti:TauCeti.unitFiltration (TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean) and TauCeti.teichmuller (TauCeti/NumberTheory/LocalField/Teichmuller.lean)",
+   "absent: norm-compatible local units in ℚ_p(μ_{p^∞}), completed group rings ℤ_p[[G]], the Coleman norm operator and ψ, the Coleman map, cyclotomic units (no declarations matching Coleman, CompletedGroupAlgebra, IwasawaAlgebra, CyclotomicUnit)"
+  ],
+  "references": [
+   {
+    "title": "An introduction to p-adic L-functions",
+    "authors": "Rodrigues Jacinto, Joaquín; Williams, Chris",
+    "zbmath": 8030000,
+    "msc": [
+     "11F33",
+     "11F67",
+     "11R23"
+    ]
+   },
+   {
+    "title": "Division values in local fields",
+    "authors": "Coleman, Robert F.",
+    "zbmath": 3668729,
+    "msc": [
+     "11S31",
+     "14L05"
+    ]
+   },
+   {
+    "title": "Local units modulo circular units",
+    "authors": "Coleman, R.",
+    "zbmath": 3838151,
+    "msc": [
+     "11R18",
+     "11R27",
+     "11S85"
+    ]
+   },
+   {
+    "title": "On some modules in the theory of cyclotomic fields",
+    "authors": "Iwasawa, K.",
+    "zbmath": 3203888,
+    "msc": [
+     "11R29",
+     "11R18"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "22E",
+   "11S",
+   "11R"
+  ],
+  "cluster": "galois-representations-and-langlands",
+  "distance": 10,
+  "distanceRationale": "Mathlib has continuous group cohomology, topological representations and arithmetic subgroups of SL₂(ℤ), and Tau Ceti has abstract Hecke rings and finite-level newforms, but there are no towers of modular or Shimura curves with completed cohomology, no completed Hecke algebras with their Galois representations, no locally algebraic vectors or admissible Banach representations, no (φ,Γ)-modules or Colmez's p-adic local Langlands correspondence, and no Galois deformation rings or patched modules. Emerton's local–global compatibility theorem and the Paškūnas and Tung refinements are frontier results that combine all of these with the Galois representations of modular forms, which are also absent.",
+  "mathlibEvidence": [
+   "mathlib:continuousCohomology (Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean)",
+   "mathlib:TopRep (Mathlib/RepresentationTheory/Continuous/TopRep.lean) — no admissible unitary Banach representations of GL₂(ℚ_p)",
+   "mathlib:Subgroup.IsArithmetic (Mathlib/NumberTheory/ModularForms/ArithmeticSubgroups.lean) — single arithmetic subgroups, with no tower of modular curves",
+   "tauceti:HeckeCoset.degree (TauCeti/NumberTheory/HeckeRing/Basic.lean) — abstract double-coset Hecke rings",
+   "tauceti:HeckeRing.GL2.Newform (TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean) — finite-level eigenforms",
+   "absent: completed cohomology, completed Hecke algebras, locally algebraic vectors, (φ,Γ)-modules and Colmez's functor, p-adic local Langlands for GL₂(ℚ_p), Galois deformation rings, patched modules (no declarations matching CompletedCohomology, PhiGamma, LocallyAlgebraic, Colmez, DeformationRing, PatchedModule)"
+  ],
+  "references": [
+   {
+    "title": "Local-global compatibility in the p-adic Langlands programme for GL_2/Q (draft, 2011)",
+    "authors": "Emerton, Matthew",
+    "zbmath": null,
+    "msc": []
+   },
+   {
+    "title": "Completed cohomology -- a survey",
+    "authors": "Calegari, Frank; Emerton, Matthew",
+    "zbmath": 6059400,
+    "msc": [
+     "11F85",
+     "11F75",
+     "11R34",
+     "11S25"
+    ]
+   },
+   {
+    "title": "On the Breuil-Mézard conjecture",
+    "authors": "Paškūnas, Vytautas",
+    "zbmath": 6416950,
+    "msc": [
+     "11F80",
+     "11F85"
+    ]
+   },
+   {
+    "title": "On 2-dimensional 2-adic Galois representations of local and global fields",
+    "authors": "Paškūnas, Vytautas",
+    "zbmath": 6626477,
+    "msc": [
+     "11F80"
+    ]
+   },
+   {
+    "title": "On the automorphy of 2-dimensional potentially semistable deformation rings of G_{Q_p}",
+    "authors": "Tung, Shen-Ning",
+    "zbmath": 7463740,
+    "msc": [
+     "11F80",
+     "11F33"
+    ]
+   },
+   {
+    "title": "On the modularity of 2-adic potentially semi-stable deformation rings",
+    "authors": "Tung, Shen-Ning",
+    "zbmath": 7357469,
+    "msc": [
+     "11F80",
+     "22E50",
+     "11F70"
+    ]
+   },
+   {
+    "title": "Représentations de GL_2(Q_p) et (φ,Γ)-modules",
+    "authors": "Colmez, Pierre",
+    "zbmath": 5765033,
+    "msc": [
+     "11S37",
+     "11F80",
+     "22E50"
+    ]
+   }
+  ]
  }
 ]
