@@ -3586,6 +3586,167 @@
        "note": "Proves existence of coarse spaces for the finite-inertia and quotient presentations used across the programme, with the exact base-change statements available: the general form of 9D's coarse construction and KM 8.1.6-type base change."
       }
      ]
+    },
+    "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The relative normalisation carrier: X_H as the normalisation of ℙ¹_j over ℤ[1/N] in Y_H, with toNormalization, fromNormalization, normalizationDesc and normalization.hom_ext as its literal universal property",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.normalization",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Normalization.lean",
+         "line": 123,
+         "fit": "exact"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.fromNormalization",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Normalization.lean",
+         "line": 170,
+         "fit": "exact"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.normalizationDesc",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Normalization.lean",
+         "line": 373,
+         "fit": "exact"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.normalization.hom_ext",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Normalization.lean",
+         "line": 437,
+         "fit": "exact"
+        }
+       ],
+       "note": "Present at the pin exactly as the roadmap says: the relative normalisation of a qcqs morphism, the dominant and integral factor maps, and the unique factorisation through any integral factorisation. The inputs Y_H and Y_H ⟶ ℙ¹_j do not exist."
+      },
+      {
+       "target": "Base change of normalisation along smooth morphisms (normalizationPullback an isomorphism)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.normalizationPullback",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Normalization.lean",
+         "line": 584,
+         "fit": "exact"
+        }
+       ],
+       "note": "The comparison morphism is defined, and an unnamed instance (Normalization.lean line 607) proves it an isomorphism when g is smooth, as the roadmap records."
+      },
+      {
+       "target": "Modular milestones of item 1: fromNormalization finite; X_H restricted over 𝔸¹_j is Y_H; X_H smooth and proper over ℤ[1/N]; Y_H ⊆ X_H the complement of the fibre over ∞",
+       "library": "absent",
+       "declarations": [],
+       "note": "No finiteness criterion for fromNormalization, no coarse Y_H and no j-map to ℙ¹_j exist."
+      },
+      {
+       "target": "Geometric-fibre base change: for algebraically closed k with char k ∤ N, Norm_{ℙ¹_k}(Y_H ×_{ℤ[1/N]} k) ⟶ X_H ×_{ℤ[1/N]} k is an isomorphism, compatibly with the open immersion, the cusps, X₁(N) ⟶ X₀(N) and the group action (four-step proof)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Cusps_H := X_H ×_{ℙ¹_j} {∞}: finite locally free of rank (N²−1)/(2|H|), a relative effective Cartier divisor along which X_H is smooth; its reduction finite étale of rank (N−1)/|H| with m_H cusps of each width; D₀ ≅ Spec ℤ[1/N] ⊔ Spec ℤ[1/N] with sections 0 and ∞; ramification indices 1 and N",
+       "library": "absent",
+       "declarations": [],
+       "note": "No algebraic cusp scheme exists. Tau Ceti's cusp material (integer cusp widths of finite-index subgroups, rational cusp transport) is analytic and group-theoretic."
+      },
+      {
+       "target": "Extension of the Atkin–Lehner involution w_N from Y₀(N) to X₀(N): the extension of j ∘ w_N, its finiteness, normalisation functoriality, the involution identity, and the swap of the two cusp sections",
+       "library": "absent",
+       "declarations": [],
+       "note": "Tau Ceti's Atkin–Lehner material is the slash operator on modular forms, not a morphism of curves."
+      },
+      {
+       "target": "The formal-cusp package (KM 8.7–8.11, 10.8): T[N], the Tate curve over ℤ[1/N]((q)) with subgroup schemes and [Γ₀(N)]-structures, integral closure of the q-adic local ring in the level cover, formal parameters along Cusps_H, and the cusp count via KM 10.6 cusp labels",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Tate curve exists in either library, formal or analytic."
+      },
+      {
+       "target": "The ramification table of X₁(N) ⟶ X₀(N) (Mazur II §2, six rows): unramified at cusps; inertia of order 2 and 3 over j = 1728 and 0; wild ramification of the first type in characteristics 2 and 3; Aut(E)/±1 ≅ A₄ (char 2) and S₃ (char 3) with normaliser computations",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.autGroupMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Aut.lean",
+         "line": 222,
+         "fit": "related"
+        }
+       ],
+       "note": "Only Aut(E) ≅ ℤ/2 for j ∉ {0, 1728} is proved; the exceptional automorphism groups in characteristics 2 and 3 are not."
+      },
+      {
+       "target": "The wild break ν = 1 via Kähler differentials, the global different, Riemann–Hurwitz in the Euler-characteristic form deg 𝔡 = −2χ(X₁,𝒪) + 2dχ(X₀,𝒪), fibrewise constancy of χ, and v(𝔡) = Σ_{i≥0}(|G_i| − 1)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.different",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Different/Divisor.lean",
+         "line": 141,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.ramificationGroup",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/RamificationGroup.lean",
+         "line": 109,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.ramificationIdx_eq_differentExponent_add_one",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Different/Tame.lean",
+         "line": 81,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Modules.eulerCharBelow",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Cohomology/EulerCharacteristic.lean",
+         "line": 105,
+         "fit": "related"
+        }
+       ],
+       "note": "Some supplier ingredients are in Tau Ceti for function fields: the different divisor, Dedekind's theorem (tame equality e = d + 1), lower ramification groups G_i, and a truncated Euler characteristic of a sheaf on a scheme over a field. Missing: Hilbert's different formula, the Hurwitz genus formula, constancy of χ in families, and the modular application."
+      },
+      {
+       "target": "The Shimura covering X₂(N) = X₁(N)/H, |H| = gcd(N−1,12)/2: Galois cyclic of degree num((N−1)/12) over X₀(N), unramified by the inertia computation (including cusps and characteristics 2 and 3), flat by miracle flatness for finite maps of smooth relative curves, hence finite étale over ℤ[1/N]",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has miracle flatness or any modular curve over ℤ[1/N]."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ModularCurvesPartII:R13.3",
+       "note": "Builds Tate curves and formal neighbourhoods of cusps, cusp widths, and ramification and stabilisers in characteristics 2 and 3, keeping the finite-flat cusp fibre, its reduction and its Cartier structure as separate assertions. This overlaps item 2's formal-cusp package and item 3's table, in the generalised-elliptic setting."
+      },
+      {
+       "layer": "ModularCurvesPartII:R12.3",
+       "note": "Identifies the analytic compact curve with this layer's normalisation compactification for prime N ≥ 5 diamond quotients, and the scheme-theoretic cusp locus; a consumer that must not repeat the construction."
+      },
+      {
+       "layer": "ModularCurvesPartII:R13.4a",
+       "note": "Constructs coarse compactified curves at all levels and proves agreement with Layer 10 for prime N ≥ 5 diamond quotients by uniqueness of normalisation."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+       "note": "Declared supplier of the different divisor, Dedekind's different theorem and the Hurwitz genus formula consumed in item 3."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+       "note": "Declared supplier of lower-numbering ramification groups and Hilbert's different formula d = Σ(|G_i| − 1) consumed in item 3."
+      }
+     ]
     }
    }
   }
