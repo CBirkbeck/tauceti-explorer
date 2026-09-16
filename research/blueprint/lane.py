@@ -230,6 +230,9 @@ def run(job, account, workers: Path):
     env = dict(os.environ)
     env["CLAUDE_CONFIG_DIR"] = str(Path.home() / f".{account}")
     env["CLAUDE_CODE_EFFORT_LEVEL"] = "max"
+    # A worker that starts background agents must see them finish: print mode
+    # otherwise terminates them after ten minutes. The lane's own timeout bounds the wait.
+    env["CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS"] = "0"
     # Workers run the checkers against the lane's baseline, with any extra tools first on the path.
     env["TAUCETI_BASELINE"] = os.environ.get("TAUCETI_BASELINE", str(workers / "baseline"))
     if os.environ.get("TAUCETI_TOOLS_BIN"):
