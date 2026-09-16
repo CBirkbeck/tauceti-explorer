@@ -1,0 +1,2494 @@
+{
+ "job": "AUDIT-07",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "ArithmeticStatistics": {
+   "summary": "Mathlib supplies Weil heights with the Northcott property, Hermite's finiteness theorem for number fields, lattice-point asymptotics for dilated regions (main term only) and the ideal-counting limit; Tau Ceti supplies the Mordell-Weil theorem over number fields, an explicit 2-Selmer group with the injection of E(K)/2E(K) and the rank bound 2^r * #E(K)[2] <= #Sel, an explicit Hermite count and genus theory for quadratic class groups. Genuinely missing: the invariant theory of binary forms and every orbit parametrization (Delone-Faddeev, Bhargava, the binary-quartic model of 2-Selmer elements), Davenport's lattice-point lemma with error term, cusp and uniformity (Ekedahl) estimates, any asymptotic count of fields or class-group moment, Sha and the full descent sequence, the Bhargava-Shankar average and all higher-moment, random-matrix and function-field statistics.",
+   "layers": {
+    "ArithmeticStatistics:ST.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Arithmetic families up to isomorphism (elliptic curves under admissible changes of variables; number fields as subfields of a fixed extension)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.VariableChange",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/VariableChange.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.variableChange_j",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/VariableChange.lean",
+         "line": 246,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.autGroup",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Aut.lean",
+         "line": 212,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.finite_of_discr_bdd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+         "line": 496,
+         "fit": "related"
+        }
+       ],
+       "note": "The isomorphism relation on Weierstrass curves (the VariableChange group action) and automorphism groups exist; no general notion of an arithmetic family, and no family of curves or forms indexed by integral coefficients with its equivalence relation, is defined."
+      },
+      {
+       "target": "Height and discriminant orderings: Weil heights on number fields, the discriminant of a number field, the naive height max(4|A|^3, 27B^2) of E_{A,B} and H(I,J) = max(|I|^3, J^2/4) on binary quartic forms",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Height.AdmissibleAbsValues",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Basic.lean",
+         "line": 78,
+         "fit": "more general"
+        },
+        {
+         "name": "Height.mulHeight",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Basic.lean",
+         "line": 233,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.discr",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
+         "line": 36,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.naiveHeight",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/NaiveHeight.lean",
+         "line": 91,
+         "fit": "related"
+        }
+       ],
+       "note": "Weil heights for any field with a product formula and the number-field discriminant are in Mathlib. The heights that order the Bhargava-Shankar families (the naive height of a curve and the height of a binary quartic form) are not defined; Tau Ceti's naiveHeight is a height on points, not on curves."
+      },
+      {
+       "target": "Families cut out by local (congruence) conditions, e.g. large families and the eligible pairs (I,J) modulo 27",
+       "library": "absent",
+       "declarations": [],
+       "note": "No predicate for a family defined by local conditions at all primes, and no characterization of the invariants of integral binary quartic forms."
+      },
+      {
+       "target": "Weighted versus unweighted counts: orbit counts weighted by 1/#stabilizer or 1/#Aut",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MulAction.card_eq_sum_card_group_div_card_stabilizer",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/GroupAction/CardCommute.lean",
+         "line": 62,
+         "fit": "related"
+        },
+        {
+         "name": "MulAction.card_orbit_mul_card_stabilizer_eq_card_group",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/GroupAction/Quotient.lean",
+         "line": 185,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ModularGroup.card_stabilizer_eq_two_mul_card_stabilizer_psl",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Modular/Stabilizer.lean",
+         "line": 189,
+         "fit": "related"
+        }
+       ],
+       "note": "Finite orbit-stabilizer and class-equation identities exist; there is no weighted counting function for infinite families ordered by height."
+      },
+      {
+       "target": "Finiteness at bounded height (Northcott property) before forming densities",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "Northcott",
+         "library": "mathlib",
+         "file": "Mathlib/Order/Northcott.lean",
+         "line": 36,
+         "fit": "more general"
+        },
+        {
+         "name": "NumberField.finite_setOfPred_mulHeight₁_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 411,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.finite_of_discr_bdd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+         "line": 496,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean",
+         "line": 172,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.finite_naiveHeight_le",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/NaiveHeight.lean",
+         "line": 186,
+         "fit": "related"
+        }
+       ],
+       "note": "Northcott for number-field elements and Hermite's theorem (fields inside a fixed extension of Q with |disc| <= N) are in Mathlib, with an explicit count bound in Tau Ceti. Finiteness of curves or integral forms of bounded height is not stated, though it is elementary once those heights are defined."
+      },
+      {
+       "target": "Asymptotic densities of subfamilies ordered by height",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.Set.HasNaturalDensity",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/NaturalDensity.lean",
+         "line": 61,
+         "fit": "related"
+        },
+        {
+         "name": "schnirelmannDensity",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Schnirelmann.lean",
+         "line": 55,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the natural density of sets of prime ideals (Tau Ceti) and Schnirelmann density of subsets of N (Mathlib) exist; no density of a subfamily of a height-ordered family."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.0",
+       "note": "RP.0 imports the same normalized absolute heights, product formula and Northcott finiteness (Mathlib Height and Northcott already supply them)."
+      },
+      {
+       "layer": "DiophantineApproximationAndTranscendence:DT.0",
+       "note": "DT.0 also defines Weil heights and local absolute values normalized by the product formula."
+      },
+      {
+       "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+       "note": "GN.3 also fixes finite stabilizer weights before weighted class counts (mass formulas)."
+      }
+     ]
+    },
+    "ArithmeticStatistics:ST.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Integral invariant theory of binary quartic forms: the GL2 action, invariants I and J with weights (det)^4 and (det)^6, Delta = (4I^3 - J^2)/27, and generation of the invariant ring",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Polynomial.discr",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+         "line": 930,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has polynomial discriminants and resultants but no binary forms with a GL2 action and no invariants I, J."
+      },
+      {
+       "target": "Orbit parametrization of number rings: GL2(Z)-classes of binary cubic forms and cubic rings (Delone-Faddeev), pairs of ternary quadratic forms and quartic rings with cubic resolvents (Bhargava)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.NumberField.IsMonogenic",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Monogenic.lean",
+         "line": 68,
+         "fit": "related"
+        }
+       ],
+       "note": "No cubic or quartic rings, resolvent rings or their parametrizations; Tau Ceti only has monogenicity of rings of integers."
+      },
+      {
+       "target": "Parametrization of E(K)/2E(K) and of 2-Selmer elements by PGL2-orbits of (locally) soluble binary quartic forms with invariants I, J (Birch-Swinnerton-Dyer/Cremona), including integrality of representatives",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.μ",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+         "line": 817,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.ker_μ_eq",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+         "line": 991,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti parametrizes E(K)/2E(K) by the other classical model, square classes in the etale algebra K[X]/(f) via the x - T map (ker = 2E(K)); binary quartic forms, 2-coverings and the quartic-form model are absent."
+      },
+      {
+       "target": "Stabilizer identification: the PGL2(K)-stabilizer of a binary quartic with invariants I, J is E(K)[2]",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.card_ker_nsmul_two",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/TwoTorsion.lean",
+         "line": 57,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the size of E(K)[2] (one more than the number of roots of f in K) is known; no stabilizer statement."
+      },
+      {
+       "target": "Nonmaximal orders, reducible and degenerate loci of the parametrizations (with local maximality conditions)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing on reducible forms, nonmaximal cubic or quartic rings, or degenerate loci."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.8",
+       "note": "AN.8 builds prehomogeneous vector spaces with their orbit decomposition and local densities, the same orbit spaces (binary cubic forms, pairs of ternary quadratic forms) viewed through zeta integrals."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+       "note": "Its explicit 2-descent lane parametrizes E(K)/2E(K) and the 2-Selmer group by etale-algebra square classes, the alternative to the binary-quartic model asked for here."
+      }
+     ]
+    },
+    "ArithmeticStatistics:ST.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Counting lattice points in a (non-compact) fundamental domain: Bhargava's averaging formula over GL2(Z) acting on binary quartic forms",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ZLattice.covolume.tendsto_card_le_div",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+         "line": 327,
+         "fit": "related"
+        },
+        {
+         "name": "tendsto_card_div_pow_atTop_volume",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/BoxIntegral/UnitPartition.lean",
+         "line": 458,
+         "fit": "related"
+        },
+        {
+         "name": "ModularGroup.isFundamentalDomain_fdo",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Modular.lean",
+         "line": 230,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib counts lattice points in dilates of a bounded measurable region with null frontier (main term only), and Tau Ceti proves the standard domain is a fundamental domain for PSL2(Z) on the upper half-plane; nothing averages over a fundamental domain of GL2(Z) acting on forms."
+      },
+      {
+       "target": "Davenport's lemma: lattice points in a bounded semialgebraic region equal its volume plus O(largest projection volume)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ZLattice.covolume.tendsto_card_div_pow",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+         "line": 317,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has only the limit of the normalized count for homothetic dilates, with no error term and no uniformity over the family of regions."
+      },
+      {
+       "target": "Cusp and reducibility bounds: reducible forms O(X^{2/3+eps}), orbits with large stabilizer O(X^{3/4+eps}), cusp volume O(X^{3/4})",
+       "library": "absent",
+       "declarations": [],
+       "note": "No such estimates."
+      },
+      {
+       "target": "Uniform tail estimate (Ekedahl-type sieve): forms with p^2 | Disc for some p > M contribute O(X^{5/6}/log M) uniformly",
+       "library": "absent",
+       "declarations": [],
+       "note": "No geometric sieve or uniformity estimate."
+      },
+      {
+       "target": "Imposing infinitely many local conditions: interchange of sieve and height limits, yielding products of local densities",
+       "library": "absent",
+       "declarations": [],
+       "note": "No local-density product theorem for height-ordered families."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+       "note": "GN.4 also plans lattice-point estimates in regions; Davenport's semialgebraic lemma belongs with it."
+      },
+      {
+       "layer": "ExponentialSumsAndCircleMethod:ES.5",
+       "note": "ES.5 counts integral points with explicit uniformity parameters, overlapping the uniform counting asked for here."
+      }
+     ]
+    },
+    "ArithmeticStatistics:ST.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Counts of number fields by discriminant with fixed degree, signature and Galois group (quadratic, Davenport-Heilbronn cubic, Bhargava quartic/quintic)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.finite_of_discr_bdd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+         "line": 496,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean",
+         "line": 172,
+         "fit": "related"
+        }
+       ],
+       "note": "Only finiteness (Mathlib) and a crude explicit upper bound on the count (Tau Ceti) exist; no asymptotic count, no restriction by degree, signature or Galois group, not even for quadratic fields (the density of squarefree integers is also absent)."
+      },
+      {
+       "target": "Class-number sums for binary forms: Mertens-Siegel sum of h_D ~ (pi/18) X^{3/2} and Davenport's count of cubic forms",
+       "library": "absent",
+       "declarations": [],
+       "note": "No class numbers of binary quadratic or cubic forms."
+      },
+      {
+       "target": "Class-group moment and distribution theorems (e.g. average 3-torsion of quadratic class groups; 2-torsion statistics)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Multiquadratic.natCard_classGroup_sq_eq_one_eq_two_pow",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Multiquadratic/Quadratic/AmbiguousClassNumber.lean",
+         "line": 67,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.classNumber",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+         "line": 64,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.classNumber_le_of_abs_discr_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/ClassNumber/Basic.lean",
+         "line": 153,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Ideal.tendsto_norm_le_div_atTop",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Ideal/Asymptotics.lean",
+         "line": 152,
+         "fit": "related"
+        }
+       ],
+       "note": "Genus theory is in Tau Ceti (an imaginary quadratic field has exactly 2^{t-1} classes of order dividing 2), with class-number upper bounds and Mathlib's ideal-counting limit (which contains the class number); no average or moment over a family of fields."
+      },
+      {
+       "target": "Cohen-Lenstra and Malle predictions stated as conjectures, kept separate from proved low-degree cases",
+       "library": "absent",
+       "declarations": [],
+       "note": "No statements of these heuristics."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.4",
+       "note": "AN.4 connects ideal counting to the analytic class number formula, the class-number input that field and class-group counts consume."
+      }
+     ]
+    },
+    "ArithmeticStatistics:ST.4": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The 2-Selmer group of an elliptic curve over a number field",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.selmerGroup₂",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+         "line": 104,
+         "fit": "exact"
+        },
+        {
+         "name": "IsDedekindDomain.selmerGroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/SelmerGroup.lean",
+         "line": 163,
+         "fit": "related"
+        }
+       ],
+       "note": "Defined for y^2 = f(x) with f monic cubic, as square classes in K[X]/(f) of trivial norm satisfying the local conditions at all places. The comparison with the cohomological Sel_2(E/K) in H^1(K, E[2]) and a standalone finiteness theorem for this subgroup are not stated."
+      },
+      {
+       "target": "Descent exact sequence 0 -> E(K)/2E(K) -> Sel_2(E/K) -> Sha(E/K)[2] -> 0",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.ker_μ_eq",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+         "line": 991,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.range_μ_le_selmerGroup₂",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+         "line": 120,
+         "fit": "exact"
+        }
+       ],
+       "note": "The injection of E(K)/2E(K) into the 2-Selmer group is proved; Sha, the map to Sha[2] and exactness on the right are absent."
+      },
+      {
+       "target": "Weak Mordell-Weil and Mordell-Weil over number fields; finiteness of the Selmer-type groups",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.finiteIndex_range_nsmulAddMonoidHom_two",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/WeakMordellWeil.lean",
+         "line": 94,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.fg_point_of_numberField",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean",
+         "line": 129,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.finite_selmerGroupA",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroupA.lean",
+         "line": 149,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.mem_selmerGroupA_of_forall_localRes",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SemilocalComparison.lean",
+         "line": 418,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.finite_selmerGroup_of_numberField",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/SelmerGroup/NumberField.lean",
+         "line": 44,
+         "fit": "exact"
+        }
+       ],
+       "note": "E(K)/2E(K) finite and E(K) finitely generated are proved for every elliptic curve over a number field, and the finite group A(S,2) of S-unramified square classes contains the descent image. A semilocal comparison (unramified at every good completion implies S-unramified) is proved, but the inclusion of selmerGroup₂ in A(S,2), hence finiteness of selmerGroup₂ itself, is not stated."
+      },
+      {
+       "target": "Rank bound from the Selmer group: 2^rank * #E(K)[2] <= #S for a finite S containing the descent image",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.pow_rank_le_card_of_range_μ_le",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+         "line": 142,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.card_range_μ",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+         "line": 128,
+         "fit": "exact"
+        }
+       ],
+       "note": "The per-curve inequality is proved; the averaged form over a family is not."
+      },
+      {
+       "target": "Local-solubility parametrization of Selmer elements by locally soluble integral binary quartic forms",
+       "library": "absent",
+       "declarations": [],
+       "note": "See ST.1: binary quartic forms and 2-coverings are absent."
+      },
+      {
+       "target": "Bhargava-Shankar: the average size of Sel_2 over any large family ordered by height is 3 (Tamagawa number of PGL2)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No averages over families of elliptic curves and no Tamagawa-number computation."
+      },
+      {
+       "target": "Average rank of elliptic curves over Q ordered by height is at most 1.5",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present; it would follow from the average Selmer size together with the per-curve bound above."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.1",
+       "note": "RP.1 constructs the Kummer maps, Selmer groups and A(K)/nA(K) descent that ST.4 says it imports; Tau Ceti already has the 2-descent case over number fields."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+       "note": "Owns the explicit 2-Selmer group, weak Mordell-Weil and the Selmer rank bound, which Tau Ceti has built."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+       "note": "Owns Sel_m, Sha and the exact sequence 0 -> E(K)/mE(K) -> Sel_m -> Sha[m] -> 0."
+      },
+      {
+       "layer": "EffectiveDiophantineMethods:ED.3",
+       "note": "ED.3 also turns Selmer computations into rank bounds, for individual curves."
+      }
+     ]
+    },
+    "ArithmeticStatistics:ST.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Higher moments and distributions of Selmer and class groups (e.g. average sizes of 3-, 4- and 5-Selmer groups; 2-Selmer distributions in quadratic twist families)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing beyond the per-curve Selmer theory of ST.4."
+      },
+      {
+       "target": "Local statistics in families (distribution of local invariants and local conditions)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Random-matrix and Cohen-Lenstra-type limiting distributions, with the measure on the limiting space explicit",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Cohen-Lenstra measure on finite abelian p-groups and no random-matrix models; Mathlib's probability library is generic."
+      },
+      {
+       "target": "Function-field analogues of these counts and distributions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.classNumber",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/ClassNumber.lean",
+         "line": 202,
+         "fit": "related"
+        }
+       ],
+       "note": "Only finiteness of divisor class groups of function fields over finite fields is present; no statistics over families."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.5",
+       "note": "AN.5 also formulates random-matrix predictions as conjectural models and moments in separately sourced ranges."
+      },
+      {
+       "layer": "ProbabilisticAndMetricNumberTheory:PM.5",
+       "note": "PM.5 likewise keeps random models separate from proved joint distributions."
+      }
+     ]
+    }
+   }
+  },
+  "DiophantineApproximationAndTranscendence": {
+   "summary": "Mathlib already has most of DT.0 and part of DT.1: Weil heights with the product formula and Northcott, number-field places, continued fractions with Legendre's theorem, Dirichlet's approximation theorem, Minkowski's convex body theorem, Liouville's inequality with transcendence of Liouville numbers, LiouvilleWith exponents, Siegel's lemma over Z and over number fields, and Mahler measure. Only the analytic step of Lindemann-Weierstrass is present, and Tau Ceti adds finite generation of S-units. Genuinely missing: simultaneous Dirichlet approximation, an explicit Liouville constant, Thue and Roth, the subspace theorem and unit equations, Lindemann-Weierstrass itself (hence transcendence of e and pi), Gelfond-Schneider, Baker and Matveev bounds, p-adic logarithms, every effective application (Thue, Thue-Mahler, S-unit, exponential equations) and all of DT.5.",
+   "layers": {
+    "DiophantineApproximationAndTranscendence:DT.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Rational approximations and approximation exponents (irrationality exponent / Liouville exponent)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "LiouvilleWith",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Transcendental/Liouville/LiouvilleWith.lean",
+         "line": 51,
+         "fit": "related"
+        },
+        {
+         "name": "Liouville",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Transcendental/Liouville/Basic.lean",
+         "line": 36,
+         "fit": "related"
+        }
+       ],
+       "note": "LiouvilleWith p x (infinitely many m/n with 0 < |x - m/n| < C/n^p) is the predicate behind the irrationality exponent, with its arithmetic closure properties; the exponent itself as a supremum, and approximation by algebraic numbers of bounded degree, are not defined."
+      },
+      {
+       "target": "Weil heights of algebraic numbers and points, normalized compatibly with the product formula and the denominator convention H(p/q) = max(|p|,|q|)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Height.mulHeight₁",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Basic.lean",
+         "line": 114,
+         "fit": "exact"
+        },
+        {
+         "name": "Height.mulHeight",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Basic.lean",
+         "line": 233,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.absMulHeight₁",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 137,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.instAdmissibleAbsValues",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 78,
+         "fit": "exact"
+        },
+        {
+         "name": "Rat.mulHeight₁_eq_max",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 533,
+         "fit": "exact"
+        }
+       ],
+       "note": "Relative heights over any field with admissible absolute values, the absolute height of an algebraic number (normalized by the degree of Q(x)), Northcott, and the rational formula are all present."
+      },
+      {
+       "target": "Local absolute values of a number field and the product formula",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "NumberField.InfinitePlace",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+         "line": 57,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.FinitePlace",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Completion/FinitePlace.lean",
+         "line": 329,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.prod_abs_eq_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ProductFormula.lean",
+         "line": 98,
+         "fit": "exact"
+        },
+        {
+         "name": "Rat.AbsoluteValue.equiv_real_or_padic",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Ostrowski.lean",
+         "line": 436,
+         "fit": "related"
+        }
+       ],
+       "note": "Infinite places carry multiplicities (squared complex absolute value) in the product formula; Ostrowski's theorem is proved for Q."
+      },
+      {
+       "target": "Continued fractions and their convergents as best approximations (Legendre's criterion)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "GenContFract.of",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/ContinuedFractions/Computation/Basic.lean",
+         "line": 185,
+         "fit": "exact"
+        },
+        {
+         "name": "GenContFract.abs_sub_convergents_le'",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/ContinuedFractions/Computation/Approximations.lean",
+         "line": 471,
+         "fit": "exact"
+        },
+        {
+         "name": "Real.exists_rat_eq_convergent",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DiophantineApproximation/Basic.lean",
+         "line": 538,
+         "fit": "exact"
+        },
+        {
+         "name": "Real.convs_eq_convergent",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DiophantineApproximation/ContinuedFractions.lean",
+         "line": 38,
+         "fit": "exact"
+        }
+       ],
+       "note": "Legendre: |x - q| < 1/(2 den(q)^2) forces q to be a convergent; the convergent error bounds are proved."
+      },
+      {
+       "target": "Dirichlet's approximation theorem and its corollary (infinitely many p/q with |x - p/q| < 1/q^2 for irrational x)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Real.exists_int_int_abs_mul_sub_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DiophantineApproximation/Basic.lean",
+         "line": 95,
+         "fit": "exact"
+        },
+        {
+         "name": "Real.infinite_rat_abs_sub_lt_one_div_den_sq_of_irrational",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DiophantineApproximation/Basic.lean",
+         "line": 197,
+         "fit": "exact"
+        },
+        {
+         "name": "Real.infinite_rat_abs_sub_lt_one_div_den_sq_iff_irrational",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DiophantineApproximation/Basic.lean",
+         "line": 277,
+         "fit": "exact"
+        }
+       ],
+       "note": "Pigeonhole form with 0 < k <= n and |k x - j| <= 1/(n+1)."
+      },
+      {
+       "target": "Geometry-of-numbers route: Minkowski's convex body theorem and simultaneous Dirichlet approximation",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MeasureTheory.exists_ne_zero_mem_lattice_of_measure_mul_two_pow_lt_measure",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Group/GeometryOfNumbers.lean",
+         "line": 65,
+         "fit": "exact"
+        }
+       ],
+       "note": "Minkowski's theorem is in Mathlib (strict volume inequality; a compact variant with <= is next to it), but neither the derivation of Dirichlet from it nor simultaneous approximation of several reals is stated."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.0",
+       "note": "RP.0 imports the same normalized absolute heights and product formula (Mathlib's Height library)."
+      },
+      {
+       "layer": "ArithmeticStatistics:ST.0",
+       "note": "ST.0 also defines heights and Northcott finiteness."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula",
+       "note": "Builds the normalized local absolute values and the product formula over all places of a number field."
+      },
+      {
+       "layer": "ProbabilisticAndMetricNumberTheory:PM.4",
+       "note": "PM.4 also constructs continued-fraction expansions, from the metric side."
+      }
+     ]
+    },
+    "DiophantineApproximationAndTranscendence:DT.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Liouville's inequality: |alpha - a/b| >= c(alpha)/b^d for an irrational real algebraic alpha of degree d, and transcendence of Liouville numbers",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Liouville.exists_pos_real_of_irrational_root",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Transcendental/Liouville/Basic.lean",
+         "line": 126,
+         "fit": "exact"
+        },
+        {
+         "name": "Liouville.transcendental",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Transcendental/Liouville/Basic.lean",
+         "line": 179,
+         "fit": "exact"
+        },
+        {
+         "name": "transcendental_liouvilleNumber",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Transcendental/Liouville/LiouvilleNumber.lean",
+         "line": 191,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated for an irrational real root of a nonzero integer polynomial f, with exponent natDegree f and an existential constant A > 0."
+      },
+      {
+       "target": "Liouville's inequality with the effective constant 2^{1-d} M(alpha)^{-1} (Mahler measure)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Polynomial.mahlerMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Polynomial/MahlerMeasure.lean",
+         "line": 81,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.norm_coeff_le_choose_mul_mahlerMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Polynomial/MahlerMeasure.lean",
+         "line": 359,
+         "fit": "related"
+        }
+       ],
+       "note": "Mahler measure and its coefficient bounds are in Mathlib, but Mathlib's Liouville constant is not made explicit."
+      },
+      {
+       "target": "Siegel's lemma (small integer solutions of underdetermined linear systems) for auxiliary polynomials",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Int.Matrix.exists_ne_zero_int_vec_norm_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SiegelsLemma.lean",
+         "line": 155,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.house.exists_ne_zero_int_vec_house_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/House.lean",
+         "line": 343,
+         "fit": "more general"
+        }
+       ],
+       "note": "Integer version and the version over the ring of integers of a number field (bounds on the house) are both present."
+      },
+      {
+       "target": "Thue's approximation theorem (exponent > d/2 + 1) by the auxiliary-polynomial method",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Roth's theorem for algebraic irrationals with its auxiliary polynomials, index estimates and Roth's lemma",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present; Mathlib's 'Roth's theorem' is the unrelated statement about three-term progressions."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ClassicalArithmeticCompletion:CA.6",
+       "note": "CA.6 constructs Mahler measure and the house, which Mathlib already has, as inputs to height comparisons."
+      }
+     ]
+    },
+    "DiophantineApproximationAndTranscendence:DT.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Schmidt's subspace theorem (archimedean and Schlickewei's nonarchimedean form) with its finite union of exceptional proper subspaces",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Deduction of Roth's theorem and of approximation by algebraic numbers of bounded degree from the subspace theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "S-unit equations: finiteness of solutions of x + y = 1 (and of nondegenerate sums) in S-units",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Set.unit",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
+         "line": 108,
+         "fit": "related"
+        },
+        {
+         "name": "Set.unit_fg",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
+         "line": 149,
+         "fit": "related"
+        },
+        {
+         "name": "exist_unique_eq_mul_prod",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+         "line": 506,
+         "fit": "related"
+        }
+       ],
+       "note": "The S-unit group (Mathlib), its finite generation (Tau Ceti) and Dirichlet's unit theorem (NumberField.Units.exist_unique_eq_mul_prod) are present; no finiteness theorem for unit equations."
+      },
+      {
+       "target": "Decomposable form (norm form) equations under linear-independence and nondegeneracy hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EffectiveDiophantineMethods:ED.2",
+       "note": "ED.2 treats S-unit equations, in their effective form via logarithmic forms."
+      },
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.4",
+       "note": "RP.4 proves Siegel finiteness for affine curves from this layer's Diophantine approximation input."
+      }
+     ]
+    },
+    "DiophantineApproximationAndTranscendence:DT.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Exponential and algebraic independence tools: transcendence and algebraic independence predicates, transcendence degree, auxiliary functions and zero estimates",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Transcendental",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Algebraic/Defs.lean",
+         "line": 49,
+         "fit": "exact"
+        },
+        {
+         "name": "AlgebraicIndependent",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AlgebraicIndependent/Defs.lean",
+         "line": 54,
+         "fit": "exact"
+        },
+        {
+         "name": "Algebra.trdeg",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AlgebraicIndependent/Basic.lean",
+         "line": 45,
+         "fit": "exact"
+        }
+       ],
+       "note": "The field-theoretic predicates and transcendence degree are in Mathlib; the analytic transcendence machinery (auxiliary functions, Schwarz-lemma extrapolation, zero estimates) is not."
+      },
+      {
+       "target": "Hermite-Lindemann and Lindemann-Weierstrass (Baker's form), with transcendence of e and pi",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "LindemannWeierstrass.exp_polynomial_approx",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Transcendental/Lindemann/AnalyticalPart.lean",
+         "line": 157,
+         "fit": "related"
+        },
+        {
+         "name": "irrational_pi",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Real/Pi/Irrational.lean",
+         "line": 281,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has only the analytic approximation step of the Lindemann-Weierstrass proof and the irrationality of pi; the theorem itself and the transcendence of e and pi are absent."
+      },
+      {
+       "target": "Gelfond-Schneider theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Baker's theorem on linear forms in logarithms and its quantitative lower bounds (Baker-Wustholz, Matveev), archimedean and p-adic",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Chosen complex or p-adic logarithms",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Complex.log",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Complex/Log.lean",
+         "line": 30,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.logBranch",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/BranchLogRoot.lean",
+         "line": 102,
+         "fit": "related"
+        }
+       ],
+       "note": "The principal complex logarithm and a branch-log construction exist; no p-adic logarithm is in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EffectiveDiophantineMethods:ED.2",
+       "note": "ED.2 imports exactly these archimedean and p-adic logarithmic-form bounds, with their constants and hypotheses."
+      }
+     ]
+    },
+    "DiophantineApproximationAndTranscendence:DT.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Effective bounds for Thue equations F(x,y) = m from logarithmic forms",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Effective bounds for Thue-Mahler, S-unit and superelliptic equations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Exponential Diophantine equations (Pillai/Tijdeman-type) with explicit bounds",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Height, degree and branch conversion lemmas",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Height.mulHeight₁_mul_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Basic.lean",
+         "line": 776,
+         "fit": "related"
+        },
+        {
+         "name": "Height.mulHeight₁_add_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Basic.lean",
+         "line": 903,
+         "fit": "related"
+        },
+        {
+         "name": "Height.mulHeight_eval_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/MvPolynomial.lean",
+         "line": 298,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.house.exists_ne_zero_int_vec_house_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/House.lean",
+         "line": 343,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the height inequalities for sums, products and polynomial values; the branch conversions and the specific estimates used to feed Baker bounds into equations are not present."
+      },
+      {
+       "target": "Solution-set-preserving reductions ending in a proven finite search region",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EffectiveDiophantineMethods:ED.2",
+       "note": "ED.2 also combines logarithmic-form bounds with reduction to solve S-unit and Thue-Mahler instances; the handoff is stated in both roadmaps."
+      },
+      {
+       "layer": "EffectiveDiophantineMethods:ED.6",
+       "note": "ED.6 maintains worked Thue and S-unit examples built on the same bounds."
+      }
+     ]
+    },
+    "DiophantineApproximationAndTranscendence:DT.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Mahler's method (Mahler functions and their transcendence and algebraic independence)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "E-functions and G-functions (Siegel-Shidlovskii, Andre) with explicit differential equations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Algebraic independence theorems (e.g. Nesterenko)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AlgebraicIndependent",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AlgebraicIndependent/Defs.lean",
+         "line": 54,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the definition of algebraic independence is present."
+      },
+      {
+       "target": "Functional transcendence (Ax-Schanuel, Ax-Lindemann) and unlikely-intersection applications",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Schanuel's and the period conjectures stated as explicit conditional hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "LogicAndDefinabilityInNumberTheory:LD.6",
+       "note": "LD.6 owns Pila-Wilkie counting, functional transcendence inputs and Andre-Oort/Pila-Zannier unlikely intersections."
+      },
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.5",
+       "note": "RP.5 owns Mordell-Lang, Manin-Mumford and Bogomolov, the unlikely-intersection theorems this layer coordinates with."
+      },
+      {
+       "layer": "ArithmeticDynamics:DY.6",
+       "note": "DY.6 also lists dynamical unlikely intersections as source-bound endpoints."
+      }
+     ]
+    }
+   }
+  },
+  "ExponentialSumsAndCircleMethod": {
+   "summary": "Mathlib supplies the harmonic-analysis base: torus and finite-group character orthogonality, Fourier series and Poisson summation, the discrete Fourier transform on ZMod, Gauss and Jacobi sums with |g|^2 = q, Dirichlet's approximation theorem, one-variable Hensel, Chevalley-Warning, Euler products, Lagrange's four squares and Dirichlet's theorem on primes in progressions. Tau Ceti adds nothing specific to exponential sums. Genuinely missing is the whole circle method: Weyl differencing, van der Corput and stationary phase, completion of sums, the counting identity and arcs, Vinogradov's mean value theorem and decoupling, singular series and integrals with local densities, Waring, three primes (with Vaughan identities and Siegel-Walfisz), Birch's theorem and the determinant method.",
+   "layers": {
+    "ExponentialSumsAndCircleMethod:ES.0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Weyl differencing and Weyl's inequality for polynomial exponential sums",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "van der Corput's inequality and derivative tests (A and B processes)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Stationary phase and first/second derivative bounds for exponential integrals",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Real.zero_at_infty_fourier",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/RiemannLebesgueLemma.lean",
+         "line": 215,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the qualitative Riemann-Lebesgue lemma; no quantitative oscillatory-integral estimate."
+      },
+      {
+       "target": "Completion of incomplete sums modulo q via finite Fourier analysis",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ZMod.dft",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/ZMod.lean",
+         "line": 88,
+         "fit": "related"
+        },
+        {
+         "name": "AddChar.sum_eq_ite",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Group/AddChar.lean",
+         "line": 329,
+         "fit": "related"
+        }
+       ],
+       "note": "The discrete Fourier transform on ZMod q and additive-character orthogonality exist; the completion inequality is not stated."
+      },
+      {
+       "target": "Interface to finite-field character sums: Gauss and Jacobi sums, and Weil-type square-root bounds",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "gaussSum_mul_gaussSum_eq_card",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/GaussSum.lean",
+         "line": 188,
+         "fit": "exact"
+        },
+        {
+         "name": "jacobiSum_eq_gaussSum_mul_gaussSum_div_gaussSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+         "line": 193,
+         "fit": "exact"
+        }
+       ],
+       "note": "|g(chi,psi)|^2 = q for nontrivial characters and the Gauss-Jacobi relation are proved; Weil's bound for polynomial or Kloosterman sums is absent (Tau Ceti defines the Frobenius trace of an elliptic curve but has no Hasse bound)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FiniteFieldsAndCharacterSums:FF.1",
+       "note": "FF.1 constructs the Gauss and Jacobi sums that Mathlib already has."
+      },
+      {
+       "layer": "FiniteFieldsAndCharacterSums:FF.5",
+       "note": "FF.5 exports the character-sum certificates this layer consumes."
+      },
+      {
+       "layer": "ProbabilisticAndMetricNumberTheory:PM.2",
+       "note": "PM.2's equidistribution of polynomial sequences is proved by the same Weyl differencing."
+      },
+      {
+       "layer": "QSeriesPartitionsAndMockModularForms:QM.2",
+       "note": "QM.2 also develops Kloosterman-sum estimates for the Rademacher series."
+      }
+     ]
+    },
+    "ExponentialSumsAndCircleMethod:ES.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Orthogonality on the torus: the integral of e(n alpha) over R/Z is 1 if n = 0 and 0 otherwise",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "fourierCoeff_fourier",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/AddCircle.lean",
+         "line": 514,
+         "fit": "exact"
+        },
+        {
+         "name": "orthonormal_fourier",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/AddCircle.lean",
+         "line": 272,
+         "fit": "more general"
+        }
+       ],
+       "note": "Stated for AddCircle T with normalized Haar measure."
+      },
+      {
+       "target": "Finite orthogonality of additive characters modulo q",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "AddChar.sum_eq_ite",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Group/AddChar.lean",
+         "line": 329,
+         "fit": "exact"
+        },
+        {
+         "name": "AddChar.sum_apply_eq_ite",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
+         "line": 188,
+         "fit": "more general"
+        }
+       ],
+       "note": "For any finite abelian group."
+      },
+      {
+       "target": "Counting identity: the number of integral solutions equals the torus integral of a product of exponential sums",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not stated, although it follows directly from torus orthogonality."
+      },
+      {
+       "target": "Major and minor arcs: definitions, disjointness and covering of the torus",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Real.exists_int_int_abs_mul_sub_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DiophantineApproximation/Basic.lean",
+         "line": 95,
+         "fit": "related"
+        }
+       ],
+       "note": "Dirichlet's approximation theorem, the input for the covering, is present; no Farey dissection or arcs."
+      },
+      {
+       "target": "Weighted and smoothed counting variants",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Real.tsum_eq_tsum_fourier",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/PoissonSummation.lean",
+         "line": 102,
+         "fit": "related"
+        }
+       ],
+       "note": "Poisson summation is available for smoothing; no smoothed circle-method identity."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdditiveCombinatorics:AC.0",
+       "note": "AC.0 also builds Fourier analysis and convolution on finite abelian groups, where the finite orthogonality relations live."
+      }
+     ]
+    },
+    "ExponentialSumsAndCircleMethod:ES.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Vinogradov's mean value theorem J_{s,k}(X) << X^{s+eps} + X^{2s-k(k+1)/2+eps}",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Decoupling for the moment curve (Bourgain-Demeter-Guth) or efficient congruencing (Wooley), with restriction inputs",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Lp.fourierTransformₗᵢ",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/LpSpace.lean",
+         "line": 52,
+         "fit": "related"
+        }
+       ],
+       "note": "Only Plancherel-level Fourier analysis exists; no decoupling, restriction or multilinear Kakeya estimates."
+      },
+      {
+       "target": "Low-degree mean values (k = 2 via the divisor bound; Hua's lemma)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Nat.card_divisors_le_self",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Divisors.lean",
+         "line": 220,
+         "fit": "related"
+        }
+       ],
+       "note": "Not even the divisor bound d(n) << n^eps is stated."
+      }
+     ],
+     "duplicates": []
+    },
+    "ExponentialSumsAndCircleMethod:ES.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Singular integral: definition and absolute convergence",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Singular series: absolute convergence and Euler-product factorization into local factors",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "EulerProduct.eulerProduct_tprod",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/EulerProduct/Basic.lean",
+         "line": 225,
+         "fit": "related"
+        }
+       ],
+       "note": "General Euler products for multiplicative functions exist; no singular series."
+      },
+      {
+       "target": "p-adic local densities as limits of solution counts modulo p^k, with Haar normalization matching the asymptotic constant",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Positivity of local densities from nonsingular local solutions (Hensel lifting; real density)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "hensels_lemma",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Hensel.lean",
+         "line": 461,
+         "fit": "special case"
+        },
+        {
+         "name": "char_dvd_card_solutions_of_sum_lt",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/ChevalleyWarning.lean",
+         "line": 109,
+         "fit": "related"
+        }
+       ],
+       "note": "One-variable Hensel over Z_p and Chevalley-Warning over finite fields exist; the multivariable Hensel lift of a nonsingular zero and density positivity are not stated."
+      },
+      {
+       "target": "Major-arc approximation of exponential sums by S(q,a) v(beta)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+       "note": "GN.3 builds local representation densities with Haar normalizations for quadratic forms, the degree-two case of these local factors."
+      },
+      {
+       "layer": "AnalyticNumberTheory:AN.8",
+       "note": "AN.8 builds local densities and their Euler products for prehomogeneous zeta functions."
+      },
+      {
+       "layer": "SieveMethodsAndPrimePatterns:SV.0",
+       "note": "SV.0 defines multiplicative local densities for sieve problems."
+      },
+      {
+       "layer": "QSeriesPartitionsAndMockModularForms:QM.2",
+       "note": "QM.2 runs the same major-arc analysis for partition asymptotics."
+      }
+     ]
+    },
+    "ExponentialSumsAndCircleMethod:ES.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Waring's problem: asymptotic formula for representations as sums of s k-th powers in the proved range",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Nat.sum_four_squares",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SumFourSquares.lean",
+         "line": 199,
+         "fit": "related"
+        }
+       ],
+       "note": "Only Lagrange's four-square theorem (existence for k = 2) is present."
+      },
+      {
+       "target": "Sums of primes (Vinogradov's three-primes theorem) through a prime-weighted branch: Vaughan or Heath-Brown identities, Type I/II estimates and Siegel-Walfisz major arcs",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ArithmeticFunction.vonMangoldt",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
+         "line": 65,
+         "fit": "related"
+        },
+        {
+         "name": "Nat.forall_exists_prime_gt_and_eq_mod",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+         "line": 442,
+         "fit": "related"
+        }
+       ],
+       "note": "The von Mangoldt function and Dirichlet's theorem (infinitely many primes in each coprime residue class) exist; no combinatorial identities, bilinear estimates or uniform prime counts in progressions."
+      },
+      {
+       "target": "Forms in many variables (Birch-type theorems) with the dimension of the singular locus recorded",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "char_dvd_card_solutions_of_sum_lt",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/ChevalleyWarning.lean",
+         "line": 109,
+         "fit": "related"
+        }
+       ],
+       "note": "Only Chevalley-Warning over finite fields."
+      },
+      {
+       "target": "Hasse principles and asymptotics with explicit error exponents",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SieveMethodsAndPrimePatterns:SV.2",
+       "note": "SV.2 owns the Vaughan identity and bilinear decompositions that the prime-weighted branch of this layer asks to construct."
+      },
+      {
+       "layer": "AdditiveCombinatorics:AC.5",
+       "note": "AC.5 proves counts of linear equations in primes with local factors, which contain the three-primes theorem."
+      },
+      {
+       "layer": "ClassicalArithmeticCompletion:CA.4",
+       "note": "CA.4 supplies sums of squares, the elementary end of Waring's problem."
+      }
+     ]
+    },
+    "ExponentialSumsAndCircleMethod:ES.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Determinant method (Bombieri-Pila, Heath-Brown) with uniform bounds for rational and integral points",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Counting rational points of bounded height by arithmetic-geometric comparison, with dependence on coefficients, degree and height explicit",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.finite_setOfPred_mulHeight_nat_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 374,
+         "fit": "related"
+        },
+        {
+         "name": "ZLattice.covolume.tendsto_card_le_div",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+         "line": 327,
+         "fit": "related"
+        }
+       ],
+       "note": "Finiteness of points of bounded height and lattice-point asymptotics exist; no counting theorem for points on varieties (not even Schanuel's theorem for projective space)."
+      },
+      {
+       "target": "Distinguishing upper bounds from asymptotics with positive main term; handoff to arithmetic statistics",
+       "library": "absent",
+       "declarations": [],
+       "note": "No counting statements exist to classify."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "LogicAndDefinabilityInNumberTheory:LD.6",
+       "note": "LD.6's Pila-Wilkie estimate is the o-minimal counterpart of the determinant method for counting rational points with uniformity in height."
+      },
+      {
+       "layer": "ArithmeticStatistics:ST.2",
+       "note": "ST.2 also proves uniform counts of integral points in regions."
+      }
+     ]
+    }
+   }
+  },
+  "ProbabilisticAndMetricNumberTheory": {
+   "summary": "Mathlib has the probabilistic base: uniform measures, moments, characteristic functions, convergence in distribution with Levy's continuity theorem, the i.i.d. central limit theorem, the strong law, both Borel-Cantelli lemmas, Gallagher's zero-one law, the fact that almost no real is LiouvilleWith p for p > 2, Hausdorff measure, ergodicity of rotations and of x -> nx, and the mean ergodic theorem; Tau Ceti adds L1 convergence of Birkhoff averages to conditional expectations. Genuinely missing: Turan-Kubilius, Hardy-Ramanujan and Erdos-Kac (with Mertens' estimate), Weyl's criterion and every equidistribution or discrepancy theorem, normal numbers, Khintchine and Duffin-Schaeffer, Jarnik-Besicovitch, the Gauss map with its invariant measure and ergodicity, Birkhoff's pointwise theorem, continued-fraction statistics, homogeneous dynamics and all of PM.5.",
+   "layers": {
+    "ProbabilisticAndMetricNumberTheory:PM.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Uniform probability measure on the integers up to x",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "ProbabilityTheory.uniformOn",
+         "library": "mathlib",
+         "file": "Mathlib/Probability/UniformOn.lean",
+         "line": 59,
+         "fit": "more general"
+        },
+        {
+         "name": "PMF.uniformOfFinset",
+         "library": "mathlib",
+         "file": "Mathlib/Probability/Distributions/Uniform.lean",
+         "line": 209,
+         "fit": "more general"
+        }
+       ],
+       "note": "Uniform measures on finite sets; the x-indexed family on {1,...,x} is a direct instance."
+      },
+      {
+       "target": "Additive and multiplicative arithmetic functions as random variables (omega, Omega and general additive functions)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ArithmeticFunction.IsMultiplicative",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Defs.lean",
+         "line": 421,
+         "fit": "exact"
+        },
+        {
+         "name": "ArithmeticFunction.cardDistinctFactors_mul",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+         "line": 367,
+         "fit": "special case"
+        },
+        {
+         "name": "ArithmeticFunction.cardFactors_mul",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+         "line": 290,
+         "fit": "special case"
+        }
+       ],
+       "note": "Multiplicative functions and the additivity of omega and Omega are in Mathlib; there is no general predicate for (strongly) additive functions and no packaging as random variables on the uniform space."
+      },
+      {
+       "target": "Moments and characteristic functions",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "ProbabilityTheory.moment",
+         "library": "mathlib",
+         "file": "Mathlib/Probability/Moments/Basic.lean",
+         "line": 55,
+         "fit": "exact"
+        },
+        {
+         "name": "MeasureTheory.charFun",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/CharacteristicFunction/Basic.lean",
+         "line": 130,
+         "fit": "exact"
+        }
+       ],
+       "note": "Generic probability theory."
+      },
+      {
+       "target": "Weak convergence and the link from counting limits (limiting distributions of arithmetic functions) to convergence in distribution",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MeasureTheory.TendstoInDistribution",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Function/ConvergenceInDistribution.lean",
+         "line": 64,
+         "fit": "related"
+        },
+        {
+         "name": "MeasureTheory.ProbabilityMeasure.tendsto_iff_tendsto_charFun",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/LevyConvergence.lean",
+         "line": 216,
+         "fit": "related"
+        }
+       ],
+       "note": "Convergence in distribution and Levy's continuity theorem are in Mathlib; nothing states limiting distributions of arithmetic functions or the dictionary with densities."
+      },
+      {
+       "target": "Independence of divisibility events, or an explicit comparison with an independent (Kubilius) model",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ProbabilityTheory.iIndepFun",
+         "library": "mathlib",
+         "file": "Mathlib/Probability/Independence/Basic.lean",
+         "line": 136,
+         "fit": "related"
+        }
+       ],
+       "note": "Only generic independence; no arithmetic comparison theorem."
+      }
+     ],
+     "duplicates": []
+    },
+    "ProbabilisticAndMetricNumberTheory:PM.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Turan-Kubilius inequality",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Hardy-Ramanujan theorem: omega(n) has normal order log log n",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Erdos-Kac theorem via moments or characteristic functions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ProbabilityTheory.tendstoInDistribution_inv_sqrt_mul_sum",
+         "library": "mathlib",
+         "file": "Mathlib/Probability/CentralLimitTheorem.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's central limit theorem is for i.i.d. sequences with finite variance; there is no triangular-array or arithmetic version."
+      },
+      {
+       "target": "Centering and variance: Mertens' estimate sum_{p <= x} 1/p = log log x + M + o(1), with control of large primes",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "not_summable_one_div_on_primes",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SumPrimeReciprocals.lean",
+         "line": 98,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the divergence of the sum of prime reciprocals is proved; no Mertens asymptotic."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.5",
+       "note": "AN.5 develops the value distribution of multiplicative functions, which contains the distribution laws of additive functions studied here."
+      }
+     ]
+    },
+    "ProbabilisticAndMetricNumberTheory:PM.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Weyl's criterion for uniform distribution modulo 1",
+       "library": "absent",
+       "declarations": [],
+       "note": "No notion of equidistributed sequence in either library."
+      },
+      {
+       "target": "Equidistribution of n*alpha for irrational alpha and of polynomial sequences (Weyl)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AddCircle.ergodic_add_left",
+         "library": "mathlib",
+         "file": "Mathlib/Dynamics/Ergodic/AddCircleAdd.lean",
+         "line": 28,
+         "fit": "related"
+        }
+       ],
+       "note": "Only ergodicity of an irrational rotation (an almost-everywhere statement) is present; no equidistribution of every orbit and nothing for polynomials."
+      },
+      {
+       "target": "Discrepancy inequalities (Erdos-Turan, Koksma)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Applications to fractional parts and digit expansions (normal numbers)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AddCircle.ergodic_nsmul",
+         "library": "mathlib",
+         "file": "Mathlib/Dynamics/Ergodic/AddCircle.lean",
+         "line": 124,
+         "fit": "related"
+        },
+        {
+         "name": "ProbabilityTheory.strong_law_ae_real",
+         "library": "mathlib",
+         "file": "Mathlib/Probability/StrongLaw.lean",
+         "line": 597,
+         "fit": "related"
+        }
+       ],
+       "note": "Ergodicity of x -> n x on the circle and the strong law of large numbers are available; Borel's normal number theorem is not stated."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+       "note": "GN.4 also plans equidistribution statements, for lattice points and homogeneous flows."
+      },
+      {
+       "layer": "ExponentialSumsAndCircleMethod:ES.0",
+       "note": "ES.0's Weyl differencing is the proof engine for polynomial equidistribution."
+      }
+     ]
+    },
+    "ProbabilisticAndMetricNumberTheory:PM.3": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "limsup sets and the Borel-Cantelli lemmas",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "MeasureTheory.measure_limsup_atTop_eq_zero",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/OuterMeasure/BorelCantelli.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "ProbabilityTheory.measure_limsup_eq_one",
+         "library": "mathlib",
+         "file": "Mathlib/Probability/BorelCantelli.lean",
+         "line": 69,
+         "fit": "exact"
+        }
+       ],
+       "note": "The divergence (second) lemma requires mutual independence; the quasi-independence versions used in metric number theory are absent."
+      },
+      {
+       "target": "Khintchine's theorem, convergence and divergence halves, for monotone psi",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ae_not_liouvilleWith",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Transcendental/Liouville/Measure.lean",
+         "line": 115,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only the convergence half for psi(q) = C q^{1-p} with p > 2 (almost no real number is LiouvilleWith p); the general convergence half and the divergence half are absent."
+      },
+      {
+       "target": "Duffin-Schaeffer theorem (Koukoulopoulos-Maynard) with coprimality weights, and Gallagher's zero-one law",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AddCircle.addWellApproximable_ae_empty_or_univ",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/WellApproximable.lean",
+         "line": 192,
+         "fit": "exact"
+        },
+        {
+         "name": "wellApproximable",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/WellApproximable.lean",
+         "line": 88,
+         "fit": "exact"
+        }
+       ],
+       "note": "Gallagher's zero-one law for coprime approximations (delta -> 0) is proved; the Duffin-Schaeffer theorem is not."
+      },
+      {
+       "target": "Hausdorff-measure versions (Jarnik-Besicovitch, mass transference)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Measure.hausdorffMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Hausdorff.lean",
+         "line": 535,
+         "fit": "related"
+        },
+        {
+         "name": "dimH",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/MetricSpace/HausdorffDimension.lean",
+         "line": 97,
+         "fit": "related"
+        }
+       ],
+       "note": "Hausdorff measure and dimension exist; no dimension computation for sets of well-approximable numbers."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DiophantineApproximationAndTranscendence:DT.0",
+       "note": "DT.0 defines the approximation exponents whose metric (almost-everywhere) behaviour is studied here."
+      }
+     ]
+    },
+    "ProbabilisticAndMetricNumberTheory:PM.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Gauss map T(x) = {1/x} and its link to continued-fraction digits",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "GenContFract.IntFractPair.stream",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/ContinuedFractions/Computation/Basic.lean",
+         "line": 142,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib computes continued fractions by iterating the Gauss step on integer-fractional pairs, but the Gauss map is not a measurable dynamical system there."
+      },
+      {
+       "target": "Invariance of the Gauss measure dx/((1+x) log 2)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Ergodicity and mixing of the Gauss map",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Ergodic",
+         "library": "mathlib",
+         "file": "Mathlib/Dynamics/Ergodic/Ergodic.lean",
+         "line": 49,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the general notion of ergodicity; no mixing notion is used for it."
+      },
+      {
+       "target": "Ergodic theorems to apply: Birkhoff's pointwise theorem, and the mean ergodic theorem",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ContinuousLinearMap.tendsto_birkhoffAverage_orthogonalProjection",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/InnerProductSpace/MeanErgodic.lean",
+         "line": 89,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.tendsto_integral_abs_birkhoffAverage_sub_condExp",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Ergodic/CondExpProjection.lean",
+         "line": 169,
+         "fit": "related"
+        }
+       ],
+       "note": "Von Neumann's mean ergodic theorem (Mathlib) and L1 convergence of Birkhoff averages to the conditional expectation on the invariant sigma-algebra (Tau Ceti) are present; the pointwise theorem is absent, so almost-everywhere digit statistics cannot yet be derived."
+      },
+      {
+       "target": "Metric continued-fraction statistics (Gauss-Kuzmin, Khinchin's and Levy's constants)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Extension to homogeneous dynamics",
+       "library": "absent",
+       "declarations": [],
+       "note": "No homogeneous flows or unipotent dynamics."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+       "note": "GN.4 owns the ergodic, mixing and unipotent-flow results for homogeneous dynamics that this layer extends to."
+      },
+      {
+       "layer": "DiophantineApproximationAndTranscendence:DT.0",
+       "note": "DT.0 also connects continued fractions to approximation."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/Exchangeability#layer-5-koopman-operators-and-invariant-σ-algebras",
+       "note": "Builds the Koopman-operator mean ergodic theorem and invariant sigma-algebras, which Tau Ceti already has."
+      }
+     ]
+    },
+    "ProbabilisticAndMetricNumberTheory:PM.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Short-interval distribution of multiplicative functions (Matomaki-Radziwill) in its proved ranges",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Correlations of multiplicative functions (two-point logarithmic Chowla/Elliott) with averaging and exceptional sets",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Random models (Cramer-type, random multiplicative functions) kept distinct from proved distributions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Chowla and Sarnak conjectures recorded in a conjecture register",
+       "library": "absent",
+       "declarations": [],
+       "note": "No conjecture statements; this part is bookkeeping rather than mathematics."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.5",
+       "note": "AN.5 also plans pretentious and Halasz-type mean values, exceptional sets and random-matrix/correlation models kept conjectural."
+      },
+      {
+       "layer": "AnalyticNumberTheory:AN.3",
+       "note": "AN.3 plans short-interval applications in their proved ranges."
+      },
+      {
+       "layer": "AdditiveCombinatorics:AC.5",
+       "note": "AC.5 proves Mobius-nilsequence orthogonality, the proved part of Sarnak-type statements."
+      }
+     ]
+    }
+   }
+  },
+  "SieveMethodsAndPrimePatterns": {
+   "summary": "Mathlib already has the sieve carrier SV.1 asks to reuse: BoundingSieve and SelbergSieve with local densities, remainders and sifted sums, the upper bound from any upper-Mobius sequence, Lambda^2 weights as upper-bound sieves and the diagonalized main term; also Dirichlet-character orthogonality, conductors and primitive characters, Chebyshev's bound for pi(x), Dirichlet's theorem on primes in progressions, and a definition of almost primes. Tau Ceti has nothing specific to sieves. Genuinely missing: sieve dimension and level-of-distribution hypotheses, lower-bound sieves, the optimized Selberg bound, Brun's sieve, the fundamental lemma and its applications (Brun-Titchmarsh, Brun's theorem), both large sieves and Vaughan's identity, Siegel-Walfisz and Bombieri-Vinogradov, admissible tuples and all of Maynard's bounded-gaps proof, and the beta sieve, Chen's theorem and the affine sieve.",
+   "layers": {
+    "SieveMethodsAndPrimePatterns:SV.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Sieve data: a weighted finite sequence, the primes sifted out, the multiplicative local density nu, the approximation A_d = nu(d) X + R_d, remainders and the sifted sum",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "BoundingSieve",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SelbergSieve.lean",
+         "line": 53,
+         "fit": "exact"
+        },
+        {
+         "name": "BoundingSieve.rem",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SelbergSieve.lean",
+         "line": 168,
+         "fit": "exact"
+        },
+        {
+         "name": "BoundingSieve.siftedSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SelbergSieve.lean",
+         "line": 171,
+         "fit": "exact"
+        },
+        {
+         "name": "BoundingSieve.errSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SelbergSieve.lean",
+         "line": 177,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib's carrier fixes a finite support, a squarefree product of sifting primes and nonnegative weights, with 0 < nu(p) < 1 for sifting primes."
+      },
+      {
+       "target": "Sieve dimension (kappa) as a hypothesis on the local densities",
+       "library": "absent",
+       "declarations": [],
+       "note": "No dimension condition is defined."
+      },
+      {
+       "target": "Level of distribution: control of sum_{d <= D} |R_d|",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "SelbergSieve",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SelbergSieve.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "SelbergSieve carries a level parameter used to truncate the weights, but no level-of-distribution hypothesis or estimate on the remainder sum is defined."
+      },
+      {
+       "target": "Inclusion-exclusion (Legendre-Eratosthenes identity) for sifted sets",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Finset.inclusion_exclusion_card_biUnion",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/InclusionExclusion.lean",
+         "line": 154,
+         "fit": "more general"
+        },
+        {
+         "name": "ArithmeticFunction.moebius_mul_coe_zeta",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
+         "line": 156,
+         "fit": "related"
+        }
+       ],
+       "note": "General inclusion-exclusion and Mobius inversion are present; the sieve identity sifted sum = sum_{d | P} mu(d) A_d is not stated for BoundingSieve."
+      },
+      {
+       "target": "Elementary upper and lower bounds for the sifted sum",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "BoundingSieve.IsUpperMoebius",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SelbergSieve.lean",
+         "line": 191,
+         "fit": "exact"
+        },
+        {
+         "name": "BoundingSieve.siftedSum_le_mainSum_errSum_of_upperMoebius",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SelbergSieve.lean",
+         "line": 216,
+         "fit": "exact"
+        }
+       ],
+       "note": "Any upper-Mobius coefficient sequence gives sifted sum <= X * mainSum + errSum; there is no lower-bound counterpart."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ClassicalArithmeticCompletion:CA.0",
+       "note": "CA.0 also covers Mobius inversion and inclusion-exclusion over divisor sums, which Mathlib has."
+      },
+      {
+       "layer": "ExponentialSumsAndCircleMethod:ES.3",
+       "note": "ES.3 builds multiplicative local densities for the singular series."
+      }
+     ]
+    },
+    "SieveMethodsAndPrimePatterns:SV.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Selberg Lambda^2 weights and the fact that they form an upper-bound sieve",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "BoundingSieve.lambdaSquared",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SelbergSieve.lean",
+         "line": 236,
+         "fit": "exact"
+        },
+        {
+         "name": "BoundingSieve.upperMoebius_lambdaSquared",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SelbergSieve.lean",
+         "line": 250,
+         "fit": "exact"
+        }
+       ],
+       "note": "Requires weights(1) = 1."
+      },
+      {
+       "target": "Optimization of the Selberg weights: diagonalization of the main term and the optimal bound X / G(sqrt D)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "BoundingSieve.selbergTerms",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SelbergSieve.lean",
+         "line": 276,
+         "fit": "exact"
+        },
+        {
+         "name": "BoundingSieve.mainSum_lambdaSquared_eq_sum_mul_sum_sq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SelbergSieve.lean",
+         "line": 375,
+         "fit": "exact"
+        }
+       ],
+       "note": "The main term is diagonalized as a quadratic form with eigenvalues 1/g(l); the choice of optimal weights, their size bound and the final Selberg upper bound are not in Mathlib."
+      },
+      {
+       "target": "Combinatorial (Brun) sieve weights and Brun's pure sieve",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Fundamental lemma of sieve theory in its proved ranges",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Upper-bound applications: Brun-Titchmarsh, upper bounds for twin primes, Brun's theorem on twin-prime reciprocals",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Chebyshev.eventually_primeCounting_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Chebyshev.lean",
+         "line": 799,
+         "fit": "related"
+        }
+       ],
+       "note": "Only Chebyshev's upper bound for pi(x) exists; no sieve application is stated."
+      },
+      {
+       "target": "Parity limitation (Selberg's parity example)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": []
+    },
+    "SieveMethodsAndPrimePatterns:SV.2": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Additive large sieve inequality",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Multiplicative large sieve over primitive characters",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Duality principle for bilinear forms",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not stated in the sieve setting."
+      },
+      {
+       "target": "Primitive-character reduction and conductor",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "DirichletCharacter.conductor",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 246,
+         "fit": "exact"
+        },
+        {
+         "name": "DirichletCharacter.primitiveCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 307,
+         "fit": "exact"
+        },
+        {
+         "name": "DirichletCharacter.primitiveCharacter_isPrimitive",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 314,
+         "fit": "exact"
+        }
+       ],
+       "note": "Every Dirichlet character factors through a primitive character of its conductor."
+      },
+      {
+       "target": "Orthogonality of Dirichlet characters with the principal and diagonal terms visible",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "DirichletCharacter.sum_char_inv_mul_char_eq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Orthogonality.lean",
+         "line": 79,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated for values in an integral domain with enough roots of unity."
+      },
+      {
+       "target": "Vaughan's identity and bilinear (Type I/II) decompositions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ArithmeticFunction.vonMangoldt",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
+         "line": 65,
+         "fit": "related"
+        },
+        {
+         "name": "ArithmeticFunction.sum_moebius_mul_log_eq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
+         "line": 133,
+         "fit": "related"
+        }
+       ],
+       "note": "Only Lambda = mu * log and basic convolution identities are present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExponentialSumsAndCircleMethod:ES.4",
+       "note": "ES.4 also constructs Vaughan or Heath-Brown identities and Type I/II estimates for its prime-weighted branch."
+      },
+      {
+       "layer": "AnalyticNumberTheory:AN.1",
+       "note": "AN.1 works with primitive and imprimitive characters and their conductors, which Mathlib already has."
+      }
+     ]
+    },
+    "SieveMethodsAndPrimePatterns:SV.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Bombieri-Vinogradov theorem with its quantifiers in A, B, x and Q <= x^{1/2}(log x)^{-B}",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Siegel-Walfisz or zero-density input for primes in progressions with uniformity in the modulus",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Nat.forall_exists_prime_gt_and_eq_mod",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+         "line": 442,
+         "fit": "related"
+        }
+       ],
+       "note": "Only Dirichlet's theorem (infinitely many primes in a fixed coprime class) is proved; no asymptotic or uniform count."
+      },
+      {
+       "target": "Stronger distribution hypotheses (Elliott-Halberstam) as explicit conditions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.3",
+       "note": "AN.3 plans the zero-density estimates and arithmetic-progression applications that the large-sieve route combines with."
+      },
+      {
+       "layer": "AnalyticNumberTheory:AN.6",
+       "note": "AN.6 exports the zero-free and density contracts to sieves and registers conditional distribution hypotheses."
+      }
+     ]
+    },
+    "SieveMethodsAndPrimePatterns:SV.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Admissible k-tuples",
+       "library": "absent",
+       "declarations": [],
+       "note": "No definition in either library."
+      },
+      {
+       "target": "Maynard's multidimensional sieve weights and the asymptotic evaluation of the associated quadratic forms",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Positivity (variational) argument and the choice of an admissible tuple",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Bounded gaps: liminf (p_{n+1} - p_n) is finite with an explicit or existential bound",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdditiveCombinatorics:AC.4",
+       "note": "AC.4 constructs the Goldston-Yildirim truncated divisor-sum majorant, the one-dimensional ancestor of these sieve weights."
+      },
+      {
+       "layer": "AnalyticNumberTheory:AN.6",
+       "note": "AN.6 keeps the prime tuples conjecture in its statement register."
+      }
+     ]
+    },
+    "SieveMethodsAndPrimePatterns:SV.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Beta (Rosser-Iwaniec) and weighted sieves",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Chen's theorem (every large even number is p + P_2) with its parity-breaking inputs",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Affine sieve with expansion (spectral gap) inputs and orbit hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Almost primes with the number of prime factors counted with multiplicity",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Nat.IsAlmostPrime",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/AlmostPrime.lean",
+         "line": 40,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.IsAtMostAlmostPrime",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/AlmostPrime.lean",
+         "line": 45,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib defines k-almost primes via Omega (with multiplicity); no almost-prime existence theorem is proved."
+      }
+     ],
+     "duplicates": []
+    }
+   }
+  }
+ }
+}

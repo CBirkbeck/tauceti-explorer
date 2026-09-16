@@ -1,0 +1,559 @@
+{
+ "job": "AUDIT-09",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "ComplexMultiplicationAndExplicitReciprocity": {
+   "summary": "Neither library has complex multiplication. Mathlib supplies the ambient field theory a CM development would sit on — `NumberField.IsCMField` with the maximal real subfield and complex conjugation, the idele group and idele class group, class groups and Dedekind-domain ideal theory, `WeierstrassCurve.j` with `exists_variableChange_of_j_eq`, and integral models/good-and-bad reduction; Tau Ceti supplies ideal-theoretic ray class groups with a modulus, the Artin symbol at unramified primes with Chebotarev, and a substantial elliptic-curve isogeny theory (the Hom group, degree multiplicativity, kernels, separability, Frobenius factorisation). Genuinely missing is everything the roadmap names: CM types and reflex norms, orders of a number field other than the maximal one (so no proper invertible ideals, no conductor, no ring class group), the analytic uniformization ℓattice → elliptic curve, the main theorem of complex multiplication, class polynomials, ring and ray class *fields* as fields, algebraic Hecke characters, Tate modules, abelian varieties and the Shimura–Taniyama formula. The roadmap's own targets are therefore almost entirely unbuilt; its CM.2 is by construction a re-export of ShimuraVarieties:V5, which is itself unbuilt.",
+   "layers": {
+    "ComplexMultiplicationAndExplicitReciprocity:CM.0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Orders in CM fields (subrings of finite index in the ring of integers) and their conductors",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.IsCMField",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/CMField.lean",
+         "line": 71,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.RingOfIntegers",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Basic.lean",
+         "line": 104,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.CMExtension.equivMaximalRealSubfield",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/CMField.lean",
+         "line": 480,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines a CM field (totally complex quadratic over its maximal totally real subfield) and its complex conjugation, but has no notion of an order: only the maximal order `𝓞 K` exists. `grep -rn 'an order in|non-maximal order|order of conductor'` over both libraries returns nothing in this sense, and the only `conductor` declarations are `DirichletCharacter.conductor` and a `Subalgebra`-conductor lemma for quadratic splitting."
+      },
+      {
+       "target": "Proper invertible ideals of an order and the ideal class group of an order, distinguished from the class group of the maximal order",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/ClassGroup/Basic.lean",
+         "line": 90,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.RayClassGroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Basic.lean",
+         "line": 180,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.classMap",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Basic.lean",
+         "line": 266,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's `ClassGroup R` is the Picard group of fractional ideals of a Dedekind domain, so it is only the class group of the *maximal* order; Tau Ceti's ray class groups are quotients of ideals prime to a modulus inside `𝓞 K`. Proper (= with multiplier ring exactly the order) invertible ideals of a non-maximal order, and their class group, exist nowhere."
+      },
+      {
+       "target": "CM types Φ ⊂ Hom(K,ℂ) with Φ ⊔ Φ̄ = Hom(K,ℂ), and non-Galois CM types",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.IsCMField.complexConj",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/CMField.lean",
+         "line": 143,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.ComplexEmbedding.conjugate",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean",
+         "line": 192,
+         "fit": "related"
+        }
+       ],
+       "note": "The two ingredients (complex embeddings and their conjugation, complex conjugation on a CM field) are in Mathlib, but no set-of-embeddings structure with the CM-type condition is defined; `grep -rn -i 'CM type'` over both libraries returns nothing."
+      },
+      {
+       "target": "The reflex field and reflex norm of a CM type, on the existing torus/idele objects",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.IdeleGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 93,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.IdeleClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 119,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.norm",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Norm/Defs.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "The idele group and idele class group of a number field are in Mathlib, and the field norm is there, but no reflex field and no reflex norm N_Φ is defined in either library. `grep -rn -i 'reflex'` returns nothing."
+      },
+      {
+       "target": "Conjugation and change-of-type formulas for CM types",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the CM-type definition, which does not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraVarieties:V5",
+       "note": "V5 explicitly says 'Construct CM types, reflex types, reflex norms, and the Tate-module action', which is the whole of CM.0 in greater generality."
+      },
+      {
+       "layer": "PELModuli:M0",
+       "note": "M0 constructs the field of definition of the determinant condition and identifies it with the reflex field, overlapping CM.0's reflex-field target."
+      },
+      {
+       "layer": "ShimuraData:D3",
+       "note": "D3 defines the conjugacy class {µ}, its Galois action and the reflex field as the fixed field of its stabiliser — the reflex field of CM.0 is the special case of a CM torus."
+      }
+     ]
+    },
+    "ComplexMultiplicationAndExplicitReciprocity:CM.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The elliptic curve ℂ/𝔞 attached to a complex lattice / ideal of an order, with its order action",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.IsElliptic",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+         "line": 367,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Toric.ComplexTorus",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Analytic/Character.lean",
+         "line": 67,
+         "fit": "related"
+        }
+       ],
+       "note": "Elliptic curves exist only as Weierstrass equations; there is no Weierstrass ℘-function, no Eisenstein series g₂/g₃ of a lattice, and no uniformization ℂ/Λ ≅ E(ℂ). Tau Ceti's `ComplexTorus` is the algebraic torus (ℂˣ)ⁿ of toric geometry, not ℂ/Λ."
+      },
+      {
+       "target": "Identification of isomorphism classes of such curves with proper ideal classes of the order",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.exists_variableChange_of_j_eq",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/IsomOfJ.lean",
+         "line": 331,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves that equal j-invariants give isomorphic curves over an algebraically closed field, which is the classification input; the bijection with proper ideal classes needs both the lattice construction and the order class group, neither of which exists."
+      },
+      {
+       "target": "Automorphism factors at j = 0 and j = 1728 (extra automorphisms of the curve)",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.autGroup",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Aut.lean",
+         "line": 212,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.autGroupMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Aut.lean",
+         "line": 222,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.j_eq_1728_iff",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+         "line": 73,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.j_eq_zero_iff",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+         "line": 399,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti computes the automorphism group of a Weierstrass curve as a group of variable changes, with the j = 0 and j = 1728 characterisations available; this is the only target of this layer with library support, and it is stated for Weierstrass models rather than for lattices."
+      },
+      {
+       "target": "Action of an invertible prime ideal on the curve and its isogeny degree",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.Hom.degree_comp",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
+         "line": 272,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.Hom.polePointsAddEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Add.lean",
+         "line": 218,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.ker",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Kernel.lean",
+         "line": 74,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has a genuine isogeny theory — `Hom(W₁,W₂)` as an additive group, multiplicative degree, kernels, separability and Frobenius factorisation — so the target of an ideal action (an isogeny of prescribed degree) has a home. The action of an ideal itself is absent, since it needs the order and the lattice model."
+      },
+      {
+       "target": "Comparison of analytic and algebraic endomorphism rings",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.Hom.instNontrivialEnd",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
+         "line": 350,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.Hom.comp_eq_zero_iff",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
+         "line": 258,
+         "fit": "related"
+        }
+       ],
+       "note": "The algebraic side (End as a ring with no zero divisors, degree multiplicative) is built in Tau Ceti; the analytic side (End(ℂ/Λ) = {α : αΛ ⊆ Λ}) does not exist, so the comparison cannot even be stated. No theorem identifying End with an order in an imaginary quadratic field is present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeegnerPointEulerSystems:HE.1",
+       "note": "HE.1 constructs CM elliptic curves and cyclic-isogeny pairs over ℂ and descends them to ring class fields — the same complex CM curves and ideal actions as CM.1, used for Heegner points."
+      },
+      {
+       "layer": "AbelianSchemesAndArithmeticModuli:A5",
+       "note": "A5 proves the Riemann bilinear relations and algebraicity of polarized complex tori, the general form of the analytic-quotient-equals-algebraic-curve comparison CM.1 asks for in dimension one."
+      }
+     ]
+    },
+    "ComplexMultiplicationAndExplicitReciprocity:CM.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The main theorem of complex multiplication (the reciprocity law for the Galois action on a CM abelian variety and its torsion)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing towards this exists: there are no abelian varieties, no Tate modules (`grep -i tateModule` is empty), and no CM types in either library. The layer is itself framed as importing ShimuraVarieties:V5, which is unbuilt."
+      },
+      {
+       "target": "Ideal, idele and torsion-level dictionaries with a fixed Artin convention",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.artinSymbol",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.artinSymbol_eq_mk_of_isArithFrobAt",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+         "line": 72,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.IdeleClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 119,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.RayClassGroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Basic.lean",
+         "line": 180,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti fixes the arithmetic Artin convention at unramified primes (conjugacy-class valued, with functoriality in towers) and has ideal-theoretic ray class groups; Mathlib has the idele class group. The ideal ↔ idele comparison itself — the global reciprocity map — is not proved in either library; Tau Ceti's `ClassFieldTheory/Formation` is the abstract class-formation machinery only, with no arithmetic instance."
+      },
+      {
+       "target": "Separation of base field, CM endomorphism field and reflex field",
+       "library": "absent",
+       "declarations": [],
+       "note": "All three notions presuppose CM types and reflex norms, which are absent."
+      },
+      {
+       "target": "Action on torsion and polarizations in a dimension-two example",
+       "library": "absent",
+       "declarations": [],
+       "note": "No abelian surfaces, polarizations or torsion-level structures exist in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraVarieties:V5",
+       "note": "V5 states 'Prove the main theorem of complex multiplication' including the Shimura–Taniyama Frobenius calculation and the passage to the full reciprocity law; CM.2 is by its own text a re-import and comparison of exactly that theorem."
+      },
+      {
+       "layer": "ShimuraVarieties:V7",
+       "note": "V7 handles conjugation and descent for general Shimura data, which subsumes CM.2's Artin-convention bookkeeping for the CM case."
+      }
+     ]
+    },
+    "ComplexMultiplicationAndExplicitReciprocity:CM.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The class polynomial H_D(X) = ∏_{[𝔞]} (X − j(𝔞)) over proper ideal classes",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.j",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+         "line": 389,
+         "fit": "related"
+        }
+       ],
+       "note": "The j-invariant of a Weierstrass curve exists, but the modular function j on the upper half plane does not (no `jFunction`, no Klein invariant; Mathlib's `UpperHalfPlane.J` is the symplectic matrix, not the modular function), so j(𝔞) for a lattice cannot be written and the product over ideal classes does not exist."
+      },
+      {
+       "target": "Algebraic integrality of the j-values (H_D ∈ ℤ[X])",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsIntegralClosure",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/IntegralClosure/IsIntegralClosure/Defs.lean",
+         "line": 28,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the general integral-closure machinery is available; the integrality of singular moduli is not proved."
+      },
+      {
+       "target": "Galois equivariance of the j-values and the identification of the ring class field of an order in an imaginary quadratic field",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.artinSymbol",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+         "line": 57,
+         "fit": "related"
+        }
+       ],
+       "note": "No class field of any kind is constructed in either library: `grep -rn -i 'hilbert class field|ring class field|ray class field'` finds only a passing remark in a Tau Ceti docstring. Tau Ceti's ray class *groups* exist but no abelian extension is attached to them."
+      },
+      {
+       "target": "Ray-class variants using level (modular) functions with admissibility conditions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.GlobalNumberFields.ray",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Basic.lean",
+         "line": 139,
+         "fit": "related"
+        }
+       ],
+       "note": "The ray subgroup of a modulus is defined in Tau Ceti; the Weber functions / level functions generating ray class fields are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeegnerPointEulerSystems:HE.1",
+       "note": "HE.1 also proves descent of CM points to ring class fields, so the ring-class-field identification is stated twice."
+      }
+     ]
+    },
+    "ComplexMultiplicationAndExplicitReciprocity:CM.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Algebraic Hecke characters attached to CM abelian varieties",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no Hecke character, Größencharakter or idele-class character anywhere: the only `Hecke` declarations in either library are the abstract Hecke ring and its GL₂ instances (Mathlib/NumberTheory/HeckeRing, TauCeti/NumberTheory/HeckeRing), which are double-coset algebras, not characters."
+      },
+      {
+       "target": "Infinity type and finite conductor of such a character",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DirichletCharacter.conductor",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 246,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the conductor of a Dirichlet character (a character of (ℤ/n)ˣ) exists; there is no conductor of an idele class character and no infinity type."
+      },
+      {
+       "target": "Frobenius identities ψ(𝔭) = a_𝔭 at good primes",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.mem_frobeniusPrimeSet_iff_artinSymbol_eq",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "The Artin symbol and its Chebotarev equidistribution are available in Tau Ceti, but there is no L-series of an elliptic curve with proved Euler factors at good primes to match against; Mathlib's `EllipticCurve/LFunction.lean` is not a proved Euler product over the CM decomposition."
+      },
+      {
+       "target": "Comparison of the one-dimensional components of the ℓ-adic representation with the Tate module; splitting of the rank-two representation for a CM curve",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Tate module of an elliptic curve or abelian variety is defined in either library (`grep -i tateModule` is empty), so neither the rank-two representation nor its CM decomposition can be stated."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraVarieties:V5",
+       "note": "V5's 'Tate-module action' for CM abelian varieties is the same object CM.4 compares its characters against."
+      },
+      {
+       "layer": "AutomorphicPadicLFunctions:L3",
+       "note": "L3 covers totally real abelian and CM constructions, which build on the same CM Hecke characters."
+      }
+     ]
+    },
+    "ComplexMultiplicationAndExplicitReciprocity:CM.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The Shimura–Taniyama formula for the reduction of a CM abelian variety",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; it presupposes CM types and reduction of abelian varieties, neither of which exists."
+      },
+      {
+       "target": "Isogeny graphs of CM elliptic curves at a good prime; ordinary versus supersingular reduction",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.HasGoodReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 325,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.Hom.degree_comp",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
+         "line": 272,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.relativeFrobeniusIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/RelativeFrobenius.lean",
+         "line": 150,
+         "fit": "related"
+        }
+       ],
+       "note": "Good/multiplicative/additive reduction classes and integral models are in Mathlib, and Tau Ceti has isogenies with degrees, kernels and the relative Frobenius; but there is no `IsSupersingular`/`IsOrdinary` predicate anywhere (`grep -i supersingular` is empty), so the dichotomy the acceptance clause turns on is not even expressible."
+      },
+      {
+       "target": "Certified complex or CRT computation of class polynomials with proved height/precision bounds",
+       "library": "absent",
+       "declarations": [],
+       "note": "Class polynomials do not exist, and no certified-numerics framework for algebraic numbers with error certificates is present in either library."
+      },
+      {
+       "target": "Endomorphism-ring verification as a separate certificate",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.Hom.instNontrivialEnd",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
+         "line": 350,
+         "fit": "related"
+        }
+       ],
+       "note": "The endomorphism carrier exists in Tau Ceti but is not identified with an order in a quadratic field, and there is no algorithm or certificate for computing it."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraVarieties:V5",
+       "note": "V5 lists 'reduction of CM abelian varieties at suitable primes, the Shimura–Taniyama Frobenius calculation' among its proof obligations, the same statement CM.5 instantiates."
+      }
+     ]
+    },
+    "ComplexMultiplicationAndExplicitReciprocity:CM.6": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Export of ring/ray class fields, torsion fields, Hecke characters and ideal-action theorems to downstream applications",
+       "library": "absent",
+       "declarations": [],
+       "note": "This is an interface/re-export task over CM.0–CM.5, none of whose objects exist; it states no new mathematics of its own."
+      },
+      {
+       "target": "Documentation of which level functions generate the asserted field",
+       "library": "absent",
+       "declarations": [],
+       "note": "Bookkeeping over the (absent) ray class field construction of CM.3."
+      },
+      {
+       "target": "A worked elliptic ring-class example and a higher-dimensional reflex-field example",
+       "library": "absent",
+       "declarations": [],
+       "note": "Acceptance examples for the preceding layers; no independent target."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeegnerPointEulerSystems:HE.1",
+       "note": "The named consumer of CM.6's ring-class-field export already states the same descent to ring class fields as one of its own obligations."
+      }
+     ]
+    }
+   }
+  }
+ }
+}

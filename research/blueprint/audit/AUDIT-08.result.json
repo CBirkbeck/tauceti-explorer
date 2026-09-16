@@ -1,0 +1,2500 @@
+{
+ "job": "AUDIT-08",
+ "baseline": "mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; tauceti f790474821cf4256814db967cb154e7af3d0c369",
+ "roadmaps": {
+  "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries": {
+   "summary": "Tau Ceti has built most of this roadmap: `TauCeti/NumberTheory/ArithmeticDirichletSeries/` holds 665 sorry-free declarations across 28 files, and Layers 0–4 are complete in the stated generality — the nonzero-ideal carrier with its zero extension, both completely multiplicative weight carriers with all constructors and the three rejection tests, `normCoeff` and `regroupByNorm`, ideal convolution with Möbius inversion and the von Mangoldt transform, `EulerProductData` with the analytic Euler product and a holomorphic branch of its logarithm, and the counting carriers with `primeTheta`, `primeCount` and `primePsi`. Layer 5 is complete but for the named density-zero corollary for degree-above-one primes, Layer 8 for the ordinary-versus-absolute abscissa equality (which no library can state, having no ordinary abscissa), and Layer 6 for the cancellation package `HasCancellation`/`continuedLFunctionOfWeight`; the arithmetic Perron formula that the roadmap's own STATUS.md calls untouched is in fact proved, as are the analytic Euler product, the log-derivative identity and the meromorphic Landau corollary. What is genuinely missing is a connected block: Wiener–Ikehara's final Tauberian step (the smoothed asymptotic with derived Chebyshev growth is done, the passage to `x⁻¹ ∑_{n≤x} a n → κ` is not), the whole Dirichlet-density calculus of Layer 7 beyond the base Mathlib API the pinned revision already supplies, and consequently `PrimeBoundaryRemainder`, `primePsi_asymptotic_of_boundary` and the summit `primeNumberTheoremTransfer`. Mathlib contributes the ambient `LSeries`, `ArithmeticFunction`, `EulerProduct`, `AbelSummation` and `NumberField.Set.HasDirichletDensity` APIs but nothing ideal-indexed and no Tauberian theorem.",
+   "layers": {
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-0-arithmetic-functions-on-nonzero-ideals": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "`IdealArithmeticFunction K`: complex-valued functions on the nonzero ideals `(Ideal (𝓞 K))⁰`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IdealArithmeticFunction",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Basic.lean",
+         "line": 79,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.IsMultiplicative",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Basic.lean",
+         "line": 88,
+         "fit": "related"
+        }
+       ],
+       "note": "An `abbrev` for `(Ideal (𝓞 K))⁰ → ℂ`, exactly the carrier the layer asks for; the coprime-multiplicativity predicate sits beside it. Mathlib has no ideal-indexed arithmetic-function carrier of its own (`ArithmeticFunction` is `ℕ`-indexed)."
+      },
+      {
+       "target": "canonical `zeroExtend` to all integral ideals; the extension vanishes exactly at `⊥` when the original never vanishes",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IdealArithmeticFunction.zeroExtend",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Basic.lean",
+         "line": 170,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.zeroExtend_bot",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Basic.lean",
+         "line": 185,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.zeroExtend_eq_zero_iff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Basic.lean",
+         "line": 245,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.zeroExtend_ne_zero",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Basic.lean",
+         "line": 256,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.existsUnique_zeroExtend_eq",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Basic.lean",
+         "line": 239,
+         "fit": "exact"
+        }
+       ],
+       "note": "`zeroExtend_ne_zero` is precisely the 'zero exactly at ⊥ when `f` has no zero values' statement; the `restrict`/`zeroExtend` pair is proved to be a bijection onto functions vanishing at `⊥`."
+      },
+      {
+       "target": "`MultiplicativeIdealWeight K` via `Ideal (𝓞 K) →*₀ ℂ` with a finite bad set of height-one primes",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 116,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.badPrimes",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 156,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.finite_badPrimes",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 163,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.apply_bot",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 148,
+         "fit": "exact"
+        }
+       ],
+       "note": "Built on Mathlib's `MonoidWithZeroHom` vocabulary, so `apply_bot` is inherited from `map_zero` exactly as the layer specifies."
+      },
+      {
+       "target": "`UnitaryIdealWeight K` as the unit-modulus subtype away from the bad set",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.UnitaryIdealWeight",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 608,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.UnitaryIdealWeight.norm_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 616,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.UnitaryIdealWeight.norm_le_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 631,
+         "fit": "exact"
+        }
+       ],
+       "note": "A subtype of `MultiplicativeIdealWeight` with modulus one on good ideals, as stated."
+      },
+      {
+       "target": "constructors and operations: trivial weight, conjugation, pointwise product, restriction away from a finite prime set, norm twists, finite-order weights",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.one_apply",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 266,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.conj",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 327,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.restrict",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 311,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.normTwist",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 350,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.UnitaryIdealWeight.ofPowEqOne",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 667,
+         "fit": "exact"
+        }
+       ],
+       "note": "`ofPowEqOne` is the finite-order constructor landing in `UnitaryIdealWeight`; `UnitaryIdealWeight.normTwist` (Weight.lean:681) is the imaginary twist that stays unitary, while the general `MultiplicativeIdealWeight.normTwist` is the arbitrary one. Pointwise product is the monoid `mul_apply` (Weight.lean:253), kept separate from ideal convolution."
+      },
+      {
+       "target": "maps to `IdealArithmeticFunction` and functoriality under a number-field equivalence",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.toIdealArithmeticFunction",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 403,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.UnitaryIdealWeight.toIdealArithmeticFunction",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 825,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.mapEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Basic.lean",
+         "line": 370,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.mapEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 532,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.UnitaryIdealWeight.mapEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 766,
+         "fit": "exact"
+        }
+       ],
+       "note": "Transport along `K ≃+* L` exists on all three carriers with `map_id`/`map_map` and compatibility with `one`, `mul`, `restrict`, `conj` and `normTwist`."
+      },
+      {
+       "target": "the zero-ideal rejection test: the everywhere-one function on all ideals is no zero extension and underlies neither weight carrier; a twist with `Re z ≠ 0` fails unitarity on good ideals of norm > 1",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IdealArithmeticFunction.not_exists_zeroExtend_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Basic.lean",
+         "line": 308,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.coe_ne_const_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 462,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.UnitaryIdealWeight.norm_normTwist_apply_ne_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 706,
+         "fit": "exact"
+        }
+       ],
+       "note": "All three required worked rejection examples are proved theorems, not remarks."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "finite norm fibres of the absolute norm on nonzero ideals",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "Ideal.finite_setOf_absNorm_eq",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean",
+         "line": 362,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.finite_normFiber",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/NormCoeff.lean",
+         "line": 60,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.normFiber",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/NormCoeff.lean",
+         "line": 65,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib supplies finiteness for an arbitrary ring of integers; Tau Ceti packages the fibre as a `Finset` of `(Ideal (𝓞 K))⁰`, which is what the summation needs."
+      },
+      {
+       "target": "`normCoeff f : ArithmeticFunction ℂ` by summing over the norm fibre, with values at 0 and 1, conjugation, norm twists and field equivalence",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.normCoeff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/NormCoeff.lean",
+         "line": 101,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.normCoeff_apply_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/NormCoeff.lean",
+         "line": 139,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.normCoeff_star_apply",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/NormCoeff.lean",
+         "line": 145,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.normCoeff_mul_absNorm_cpow",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/NormCoeff.lean",
+         "line": 163,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.normCoeff_map",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/NormCoeff.lean",
+         "line": 173,
+         "fit": "exact"
+        }
+       ],
+       "note": "The value at `0` is definitional (`ArithmeticFunction` carrier); `normCoeff_mul_absNorm_cpow` is the general norm twist and `MultiplicativeIdealWeight.normCoeff_normTwist` (Weight.lean:413) / `UnitaryIdealWeight.normCoeff_normTwist` (Weight.lean:835) the weight-level versions. The roadmap's STATUS.md lists the twist and field-equivalence compatibilities as 'not visible'; at this baseline they are."
+      },
+      {
+       "target": "`regroupByNorm`: ideal-indexed absolute convergence implies `LSeriesSummable (normCoeff f) s` with equal sum; abscissa comparison; converse under ideal-summand nonnegativity",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.regroupByNorm",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Regroup.lean",
+         "line": 191,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.LSeriesSummable_normCoeff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Regroup.lean",
+         "line": 198,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.abscissaOfAbsConv_normCoeff_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Regroup.lean",
+         "line": 235,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.summable_idealTerm_of_nonneg",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Regroup.lean",
+         "line": 297,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.idealAbscissaOfAbsConv_eq_abscissaOfAbsConv",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Regroup.lean",
+         "line": 304,
+         "fit": "exact"
+        }
+       ],
+       "note": "The converse is proved exactly under nonnegativity of every ideal summand, and `exists_forall_normCoeff_nonneg_not_forall_nonneg` (NormCoeff.lean:216) is the counterexample showing nonnegative grouped coefficients do not suffice."
+      },
+      {
+       "target": "trivial specialization: `normCoeff` of the trivial weight is the Dedekind-zeta coefficient; the coefficient is 1 for every positive integer over `ℚ`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.dedekindZetaCoeff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Trivial.lean",
+         "line": 48,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.normCoeff_one_apply",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Trivial.lean",
+         "line": 84,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.dedekindZeta_eq_LSeries_normCoeff_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Trivial.lean",
+         "line": 100,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.normCoeff_one_rat_apply",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Trivial.lean",
+         "line": 140,
+         "fit": "exact"
+        }
+       ],
+       "note": "Matches the layer, including the `K = ℚ` specialization; the exact abscissa is deliberately deferred to Layer 5, as the roadmap requires."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.0",
+       "note": "AN.0 asks in one line for 'arithmetic functions, absolute convergence, ... partial summation' over ℚ; this layer is the number-field-ideal refinement of the same carrier, and AN.0 is a specification with no Lean content."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-2-convolution-and-logarithmic-derivatives": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "ideal convolution on `IdealArithmeticFunction K` with associativity, commutativity, delta identity, distributivity, iterated powers",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IdealArithmeticFunction.convolution",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Convolution.lean",
+         "line": 214,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.convolution_assoc",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Convolution.lean",
+         "line": 240,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.delta_convolution",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Convolution.lean",
+         "line": 252,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.convolution_add",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Convolution.lean",
+         "line": 286,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.convolutionPow",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Convolution.lean",
+         "line": 332,
+         "fit": "exact"
+        }
+       ],
+       "note": "Defined by the finite divisor antidiagonal of a nonzero ideal, codomain again `IdealArithmeticFunction`, exactly as specified."
+      },
+      {
+       "target": "`normCoeff_convolution`: transport to Mathlib Dirichlet convolution in `ArithmeticFunction ℂ`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.normCoeff_convolution",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Convolution.lean",
+         "line": 420,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.normCoeff_convolutionPow",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Convolution.lean",
+         "line": 440,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.normCoeff_delta",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Convolution.lean",
+         "line": 401,
+         "fit": "exact"
+        }
+       ],
+       "note": "Identifies `normCoeff (f ⋆ g)` with the product in Mathlib's `ArithmeticFunction ℂ`; `convolution_one_one_ne_mul` (Convolution.lean:378) is the recorded warning that pointwise product is different."
+      },
+      {
+       "target": "ideal Möbius function: prime-power values, convolution inverse of the constant one, multiplicativity on coprime ideals, and rejection from both weight carriers",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IdealArithmeticFunction.moebius",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Moebius.lean",
+         "line": 104,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.moebius_apply_prime_pow",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Moebius.lean",
+         "line": 145,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.convolution_moebius_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Moebius.lean",
+         "line": 283,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.convolution_one_eq_iff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Moebius.lean",
+         "line": 307,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.not_exists_multiplicativeIdealWeight_eq_moebius",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Moebius.lean",
+         "line": 326,
+         "fit": "exact"
+        }
+       ],
+       "note": "`convolution_one_eq_iff` is the Möbius-inversion equivalence; the unitary rejection is `not_exists_unitaryIdealWeight_eq_moebius` (Moebius.lean:348). Both the positive multiplicativity statement and the rejection theorem are exported, as demanded."
+      },
+      {
+       "target": "ideal von Mangoldt weight, its transform attached to a weight, support on prime powers, and the exact log-derivative coefficient identity on the absolute-convergence half-plane",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IdealArithmeticFunction.vonMangoldt",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/VonMangoldt.lean",
+         "line": 84,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.vonMangoldtTransform",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/VonMangoldt.lean",
+         "line": 198,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.vonMangoldt_eq_zero_of_not_isPrimePow",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/VonMangoldt.lean",
+         "line": 125,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.logDeriv_LSeries_eq_neg_tsum_vonMangoldtTransform",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Logarithm/VonMangoldtCoeff.lean",
+         "line": 118,
+         "fit": "exact"
+        }
+       ],
+       "note": "`logDeriv L(s) = -∑' A, χ(A) Λ(A) / N(A)^s` strictly right of `idealAbscissaOfAbsConv`, which is exactly 2.3. The roadmap's own STATUS.md (2026-09-01) records 2.3 as lacking this identity; at this baseline it is proved, sorry-free."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "`EulerProductData` storing coprime multiplicativity, prime-power local series and the finite bad set, extending Mathlib's `ArithmeticFunction.ofPowerSeries`/`eulerProduct` and `EulerProduct`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.EulerProductData",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Data.lean",
+         "line": 56,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.EulerProductData.ext",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Data.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.EulerProductData.localPowerSeries",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Data.lean",
+         "line": 80,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.EulerProductData.ofMultiplicativeIdealWeight",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Data.lean",
+         "line": 138,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.EulerProductData.restrictAway",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Data.lean",
+         "line": 208,
+         "fit": "exact"
+        }
+       ],
+       "note": "Extensionality, product (`mul_apply` 162), unit (`one_apply` 170), conjugation (`star_apply` 203), restriction and the trivial-weight instance are all present, and the file builds on Mathlib's `EulerProduct`/`ArithmeticFunction.eulerProduct` rather than duplicating them. The roadmap's STATUS.md records that 'nothing named EulerProductData exists'; at this baseline it does."
+      },
+      {
+       "target": "factorization of a coefficient over the prime-power factorization of a nonzero ideal; equality for Euler products over a finite set of primes",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IdealArithmeticFunction.normCoeff_supportedPart",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Basic.lean",
+         "line": 475,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.normCoeff_eq_eulerProduct",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Basic.lean",
+         "line": 503,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.EulerProductData.LSeries_normCoeff_supportedPart",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 203,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.localArithmeticFactor",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Basic.lean",
+         "line": 184,
+         "fit": "exact"
+        }
+       ],
+       "note": "The formal coefficientwise product and the analytic finite product over a `Finset` of height-one primes are separate named theorems."
+      },
+      {
+       "target": "infinite Euler product under absolute convergence, identified with `LSeries (normCoeff f)`, with nonvanishing where the reciprocal product converges",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.EulerProductData.hasProd_eulerFactor",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 237,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.EulerProductData.tprod_eulerFactor",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 265,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.LSeries_ne_zero_of_summable_idealTerm",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 355,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.dedekindZeta_eulerProduct_hasProd",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 386,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.dedekindZeta_ne_zero_of_one_lt_re",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 408,
+         "fit": "exact"
+        }
+       ],
+       "note": "`HasProd` over the height-one primes in the unrestricted sense, hypothesis exactly absolute convergence of the ideal-indexed series; nonvanishing is stated pointwise only, as the roadmap insists. STATUS.md records 3.3 as 'formal only' — it is no longer."
+      },
+      {
+       "target": "a holomorphic logarithm on a simply connected zero-free region, with the prime-power expansion and its derivative",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.exists_differentiableOn_exp_eq_LSeries",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Branch.lean",
+         "line": 55,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.exp_tsum_prime_pow_eq_LSeries",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Logarithm/Basic.lean",
+         "line": 92,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.logDeriv_LSeries_eq_tsum_prime_pow",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Logarithm/Deriv.lean",
+         "line": 190,
+         "fit": "exact"
+        }
+       ],
+       "note": "The branch is chosen on a simply connected open set of absolute convergence, and the principal logarithm is deliberately not applied to the product — exactly the 3.4 discipline. STATUS.md records 3.4 as untouched; at this baseline it is proved."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.0",
+       "note": "AN.0's 'Euler products ... with convergence proofs' is the same target over ℚ, at specification level only."
+      },
+      {
+       "layer": "AutomorphicLFunctionsAndLocalFactors:AL.4",
+       "note": "AL.4 builds unramified local L-factors for general L-groups; the degree-one ideal Euler factor here is the `GL(1)` case, and this roadmap is AL's declared supplier."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-4-counting-carriers-and-local-finiteness": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "cutoff subtypes of ideals, height-one primes and prime powers with `absNorm ≤ x`; finiteness, monotonicity, real/natural cutoff equivalence, empty small cutoffs",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.idealsLE",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Counting.lean",
+         "line": 112,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primesLE",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Counting.lean",
+         "line": 116,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primePowersLE",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Counting.lean",
+         "line": 131,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primePowersLE_eq_primePowersLE_natFloor",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Counting.lean",
+         "line": 342,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.idealsLE_eq_empty_of_lt_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Counting.lean",
+         "line": 319,
+         "fit": "exact"
+        }
+       ],
+       "note": "Finiteness comes from a Northcott instance for `Ideal.absNorm` on `(Ideal (𝓞 K))⁰` (Counting.lean:101), which in turn rests on Mathlib's `Ideal.finite_setOf_absNorm_le`. `primesLE_eq_empty_of_lt_two` and `primePowersLE_eq_empty_of_lt_two` give the small-cutoff cases."
+      },
+      {
+       "target": "generic inclusive summatory functions on ideals, primes and prime powers for nonnegative real weights, with additivity, monotonicity and invariance under modification on a finite set",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.idealSummatory",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Counting.lean",
+         "line": 362,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primeSummatory",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Counting.lean",
+         "line": 367,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primePowerSummatory",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Counting.lean",
+         "line": 372,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primePowerSummatory_add",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Counting.lean",
+         "line": 410,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eventually_primePowerSummatory_sub_eq",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Counting.lean",
+         "line": 435,
+         "fit": "exact"
+        }
+       ],
+       "note": "All three are instances of a single generic `TauCeti.summatory` over a Northcott norm (TauCeti/Order/Northcott.lean); monotonicity and nonnegativity are at Counting.lean:424 and :429."
+      },
+      {
+       "target": "`primeTheta` and `primeCount` for a set of height-one primes, with finite-union and finite-symmetric-difference lemmas",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.primeTheta",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Counting.lean",
+         "line": 516,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primeCount",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Counting.lean",
+         "line": 521,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primeTheta_union",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Counting.lean",
+         "line": 703,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primeCount_union",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Counting.lean",
+         "line": 709,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eventually_primeTheta_sub_eq",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Counting.lean",
+         "line": 785,
+         "fit": "exact"
+        }
+       ],
+       "note": "Inclusive real cutoffs with `primeTheta_eq_primeTheta_natFloor`/`primeCount_eq_primeCount_natFloor` (Counting.lean:685, :694) giving the natural-cutoff conversion; `eventually_primeCount_sub_eq` (:793) is the symmetric-difference lemma."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/Chebotarev#layer-11-the-frobenius-von-mangoldt-coefficient-and-its-summatory-functions",
+       "note": "Chebotarev 11.2 defines `ψ_C` and `ϑ_C` on 'the canonical prime subtype' — it specializes these carriers to a Frobenius fibre rather than redefining them, and cites them by name."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "two-sided linear bounds for the ideal count, packaged as `IdealCountingLinearBounds`, with `idealCount_linearBounds`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IdealCountingLinearBounds",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Estimates.lean",
+         "line": 123,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.idealCount_linearBounds",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Estimates.lean",
+         "line": 181,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.finite_setOf_absNorm_real_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Estimates.lean",
+         "line": 89,
+         "fit": "exact"
+        }
+       ],
+       "note": "The contract names are used verbatim; the bounds are positive and two-sided, as required for the divergence half of 5.1a."
+      },
+      {
+       "target": "`abscissaOfAbsConv_normCoeff_one = 1`, proved from the two-sided counts and not from continuation",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.abscissaOfAbsConv_normCoeff_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Estimates.lean",
+         "line": 408,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.not_LSeriesSummable_normCoeff_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Estimates.lean",
+         "line": 355,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.abscissaOfAbsConv_dedekindZetaCoeff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Estimates.lean",
+         "line": 485,
+         "fit": "exact"
+        }
+       ],
+       "note": "Estimates.lean imports no continuation and no Dedekind pole; the divergence at `s = 1` comes from `lower_div_two_le_sum_Ioc_norm_term`. Noncircular exactly as the roadmap demands."
+      },
+      {
+       "target": "generic `O(√x log² x)` estimate for higher prime powers under the standard logarithmic weight, with isolated hypotheses for other weights",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.higherPrimePowerTheta_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/HigherPrimePowers.lean",
+         "line": 301,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.higherPrimePowerTheta_isBigO",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/HigherPrimePowers.lean",
+         "line": 318,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.higherPrimePowerTheta_isLittleO",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/HigherPrimePowers.lean",
+         "line": 342,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primePowerSummatory_isBigO_of_le_higherPrimePowerWeight",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/HigherPrimePowers.lean",
+         "line": 351,
+         "fit": "exact"
+        }
+       ],
+       "note": "The `O(√x log² x)` bound is proved with an explicit constant, and the two `..._of_le_higherPrimePowerWeight` lemmas isolate exactly the domination hypothesis another weight must supply."
+      },
+      {
+       "target": "convergence and density-zero statements for primes of residue degree above one",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.primeCount_higherDegreePrimes_isLittleO",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/ResidueDegree.lean",
+         "line": 165,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.primeTheta_higherDegreePrimes_isLittleO",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/ResidueDegree.lean",
+         "line": 177,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.summable_absNorm_rpow_higherDegreePrimes",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/ResidueDegree.lean",
+         "line": 235,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primeIdealZetaSum_higherDegreePrimes_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/ResidueDegree.lean",
+         "line": 250,
+         "fit": "exact"
+        }
+       ],
+       "note": "The convergence statements are complete, including the bound on `primeIdealZetaSum` uniform in `s ≥ 1` that a Dirichlet-density-zero argument needs. What is missing is the density-zero statement itself: the Lean docstring at ResidueDegree.lean:160 says explicitly that `o(x / log x)` 'is not a statement of natural density zero' because the prime ideal theorem is unavailable, and there is no `HasDirichletDensity (higherDegreePrimes K) 0` either, since Layer 7's predicate does not exist yet."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Abel summation extended from Mathlib's `sum_mul_eq_sub_sub_integral_mul` to norm-indexed and Stieltjes corollaries",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "sum_mul_eq_sub_sub_integral_mul",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/AbelSummation.lean",
+         "line": 129,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.summatory_mul_eq_sub_sub_integral_mul",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/AbelSummation.lean",
+         "line": 117,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primeSummatory_mul_eq_sub_integral_mul",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/AbelSummation.lean",
+         "line": 164,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primeTheta_eq_log_mul_primeCount_sub_integral",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/AbelSummation.lean",
+         "line": 186,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primeCount_eq_primeTheta_div_log_add_integral",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/AbelSummation.lean",
+         "line": 216,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib's identity is consumed, not restated; Tau Ceti adds only the norm-indexed bridges (`normFiberSum`, AbelSummation.lean:67) and the ϑ↔π conversions, with the inclusive cutoff convention."
+      },
+      {
+       "target": "`ϑ(x) ∼ δx ⟹ π(x) ∼ δ Li(x)`, `Li(x) ∼ x/log x`, and the zero-density case",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.primeCount_asymptotic_of_primeTheta",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Transfer.lean",
+         "line": 140,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primeCount_isLittleO_logIntegral",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Transfer.lean",
+         "line": 130,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Real.logIntegral",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/LogIntegral.lean",
+         "line": 130,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Real.logIntegral_isEquivalent_div_log",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/LogIntegral.lean",
+         "line": 269,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both the `δ ≠ 0` equivalence and the `δ = 0` little-o form are separate named theorems, as the layer requires. Mathlib has no logarithmic integral; Tau Ceti defines it as `∫ t in 2..x, (log t)⁻¹`."
+      },
+      {
+       "target": "`truncatedPerronKernel x c T` as a smoothed step with a proved universal error constant; exact value `π⁻¹ arctan(T/c)` at `x = 1` tending to `1/2`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.truncatedPerronKernel",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Perron/Basic.lean",
+         "line": 140,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.truncatedPerronKernel_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Perron/Basic.lean",
+         "line": 203,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.truncatedPerronKernel_one_ne_half",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Perron/Basic.lean",
+         "line": 219,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.tendsto_truncatedPerronKernel_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Perron/Basic.lean",
+         "line": 231,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.norm_truncatedPerronKernel_sub_step_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Perron/Basic.lean",
+         "line": 666,
+         "fit": "exact"
+        }
+       ],
+       "note": "The `(2π)⁻¹` prefactor convention is the one in `perronIntegrand` (Perron/Basic.lean:75); `truncatedPerronKernel_one_ne_half` is the required endpoint rejection test."
+      },
+      {
+       "target": "arithmetic Perron: interchange with an absolutely convergent `LSeries`, truncated summatory formula, off-norm and half-weight limiting forms",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.truncatedPerron_LSeries",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Perron/Formula.lean",
+         "line": 130,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.norm_truncatedPerron_LSeries_sub_sum_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Perron/Formula.lean",
+         "line": 221,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.tendsto_truncatedPerron_LSeries",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Perron/Formula.lean",
+         "line": 281,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.tendsto_truncatedPerron_LSeries_natCast",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Perron/Formula.lean",
+         "line": 338,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.integral_LSeries_mul_perronIntegrand",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Perron/Formula.lean",
+         "line": 102,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both required forms are present: the off-norm bound against the sharp partial sum, and the integer-endpoint limit with the half weight `f N / 2`. The contract row names this `perronFormula`; no declaration carries that name, but the mathematics is proved. STATUS.md records 6.4 as untouched; at this baseline it is done."
+      },
+      {
+       "target": "`HasCancellation χ` (uniform `O(X^(1-1/[K:ℚ]))` for ideal partial sums) and `continuedLFunctionOfWeight χ` with agreement on `Re s > 1` and analyticity on `Re s > 1-1/[K:ℚ]`",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither name nor any equivalent statement appears in Mathlib or Tau Ceti: no declaration bounds ideal partial sums of a unitary weight by `X^(1-1/[K:ℚ])`, and no continuation of such an L-series into the strip exists. The Abel-summation input it would use (`summatory_mul_eq_sub_sub_integral_mul`) is available, so the gap is the analytic construction, not its machinery. The related good-ideal/conjugation/square/imaginary-twist operations on `UnitaryIdealWeight` do exist (Weight.lean:717–835)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.0",
+       "note": "AN.0 lists 'partial summation, Mellin transforms and Perron inversion with explicit truncation errors' — the same 6.1/6.3 targets over ℚ, at specification level."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/Chebotarev#layer-13-ϑ_c-and-π_c",
+       "note": "Chebotarev 13 applies Abel summation to get `π_C(x)/(x/log x) → #C/#G`; it explicitly instructs consuming `primeCount_asymptotic_of_primeTheta` rather than restating it."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "adopt Mathlib's `primeIdealZetaSum`, `HasDirichletDensity`, `dirichletDensity`",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "NumberField.Set.primeIdealZetaSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DirichletDensity.lean",
+         "line": 54,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Set.HasDirichletDensity",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DirichletDensity.lean",
+         "line": 82,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Set.dirichletDensity",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DirichletDensity.lean",
+         "line": 90,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Set.hasDirichletDensity_empty",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DirichletDensity.lean",
+         "line": 106,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Set.dirichletDensity_le_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DirichletDensity.lean",
+         "line": 143,
+         "fit": "exact"
+        }
+       ],
+       "note": "The layer's first task is 'update the repository pin' to a Mathlib containing this file; the pinned baseline already contains it, so that task is done and is in any case process rather than mathematics. Mathlib supplies the ratio definition, the junk-valued density, emptiness, nonnegativity and `≤ 1`. Tau Ceti already adds two monotonicity lemmas in the same namespace (Convergence.lean:125, :137)."
+      },
+      {
+       "target": "finite-error, union, squeeze, normalization and contraction lemmas for `HasDirichletDensity`, plus `IsLowerDirichletDensityBound` / `IsUpperDirichletDensityBound` and `hasDirichletDensity_of_upperBound_of_lowerBound`",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library defines one-sided Dirichlet-density bounds, and no union, squeeze, complement, finite-symmetric-difference or contraction lemma for `HasDirichletDensity` exists. The analogous calculus does exist for the *natural* density predicate Tau Ceti defines (`NumberField.Set.HasNaturalDensity.union`, `.compl`, `.of_finite_symmDiff`, `hasNaturalDensity_of_finite` in NaturalDensity.lean:112–176), so this is a transcription of an existing pattern to the Dirichlet side."
+      },
+      {
+       "target": "the all-prime normalization `P_all(s) = log(1/(s-1)) + O(1)` and equivalence with logarithmic normalization",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.dedekindZeta_eulerProduct_hasProd",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 386,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.primeIdealZetaSum_higherDegreePrimes_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/ResidueDegree.lean",
+         "line": 250,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent as a statement. The two prerequisites the roadmap names are now in place: the ideal Euler product of `ζ_K` on `Re s > 1`, and the uniform bound on the higher-degree-prime contribution. Mathlib has the rational-prime analogue only in spirit, via `Nat.Primes`-indexed Euler products; nothing states the `log(1/(s-1))` asymptotic for the number-field prime sum."
+      },
+      {
+       "target": "density calculus: finite-set density zero, finite symmetric difference, monotonicity, complements, finite disjoint unions, squeeze, and the natural-to-Dirichlet implication with the named denominator hypothesis",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.Set.HasNaturalDensity",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/NaturalDensity.lean",
+         "line": 61,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Set.hasNaturalDensity_of_finite",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/NaturalDensity.lean",
+         "line": 176,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Set.HasNaturalDensity.compl",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/NaturalDensity.lean",
+         "line": 136,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Set.hasNaturalDensity_iff_of_finite_symmDiff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/NaturalDensity.lean",
+         "line": 170,
+         "fit": "related"
+        }
+       ],
+       "note": "The whole calculus exists for `HasNaturalDensity` (defined by Tau Ceti as the ratio of prime counts) and none of it for `HasDirichletDensity`. `hasDirichletDensity_of_hasNaturalDensity` is absent, as is any `AllPrimeDirichletDenominatorAsymptotic` hypothesis carrier."
+      },
+      {
+       "target": "fibre counts: a locally finite map of prime carriers with constant finite fibre size off a density-zero exception relates the two prime sums and densities, with the residue-degree-one variant",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.sum_comp_rationalPrimeBelow_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/ResidueDegree.lean",
+         "line": 100,
+         "fit": "related"
+        }
+       ],
+       "note": "No fibre-counting density theorem exists. The nearest thing is the bound for sums over primes above a rational prime, which is the degree-one/higher-degree split that the variant would use."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/Chebotarev#layer-3-prime-sums-and-density-normalization",
+       "note": "Chebotarev 3 states the same dictionary — ratio to the all-prime sum, logarithmic normalization by `log((s-1)⁻¹)`, insertion/deletion of a finite set, and upper/lower density versions — specialized to `frobeniusPrimeSet`, and imposes the same discipline that the Dedekind residue alone is insufficient."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems",
+       "note": "Chebotarev 14 proves natural density for Frobenius sets and 'compatibility of the Dirichlet-density and natural-density results', overlapping 7.3's natural-to-Dirichlet bridge; it explicitly does not import this roadmap's conditional prime ideal theorem."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Landau's theorem: nonnegative coefficients with `abscissaOfAbsConv a = (σ : EReal)` make `σ` a singularity of every continuation from `Re s > σ`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.LSeries.landau",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LSeries/Landau.lean",
+         "line": 290,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.LSeries.HasAnalyticExtensionAt",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LSeries/Landau.lean",
+         "line": 134,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.LSeries.abscissaOfAbsConv_le_of_differentiableOn",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LSeries/Landau.lean",
+         "line": 364,
+         "fit": "more general"
+        }
+       ],
+       "note": "The hypothesis is the Mathlib *equality* `LSeries.abscissaOfAbsConv a = (σ : EReal)`, verbatim what the layer requires; the proof is sorry-free and the file contains no `sorry`. Mathlib has no Landau theorem."
+      },
+      {
+       "target": "the meromorphic-order corollary needed by nonvanishing arguments",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.LSeries.meromorphicOrderAt_lt_zero_of_eq_LSeries",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LSeries/Landau.lean",
+         "line": 335,
+         "fit": "exact"
+        }
+       ],
+       "note": "States that the forced singularity is a pole, not removable. STATUS.md lists this as 'not visible'; at this baseline it is proved."
+      },
+      {
+       "target": "the equality between ordinary and absolute abscissae for nonnegative coefficients",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LSeries.abscissaOfAbsConv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/Convergence.lean",
+         "line": 30,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines only the abscissa of *absolute* convergence; no ordinary abscissa of convergence exists in either library (no `abscissaOfConv` anywhere), so the equality cannot even be stated yet. This is the one gap in an otherwise finished layer."
+      },
+      {
+       "target": "the `3-4-1` trigonometric nonnegativity packaged as a finite nonnegative coefficient combination, with analytic input kept separate",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.LSeries.threeFourOneCombination",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LSeries/ThreeFourOne.lean",
+         "line": 59,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.LSeries.isNonnegativeTrigonometricCombination_threeFourOne",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LSeries/ThreeFourOne.lean",
+         "line": 102,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.LSeries.threeFourOne_re_neg_log_one_sub_nonneg",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LSeries/ThreeFourOne.lean",
+         "line": 119,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.LSeries.threeFourOneCombination_eq_two_mul_sq",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LSeries/ThreeFourOne.lean",
+         "line": 94,
+         "fit": "exact"
+        }
+       ],
+       "note": "Packaged with no character data attached, exactly as the layer specifies; `3 + 4cos θ + cos 2θ = 2(1 + cos θ)²` is the proved identity behind it."
+      },
+      {
+       "target": "the rejection test: the trivial weight and its nonzero norm twists do not have cancellation (linear partial sums, shifted Dedekind zeta with a pole)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.idealCount_linearBounds",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Estimates.lean",
+         "line": 181,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.abscissaOfAbsConv_normCoeff_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Estimates.lean",
+         "line": 408,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.UnitaryIdealWeight.norm_normTwist_apply_ne_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+         "line": 706,
+         "fit": "related"
+        }
+       ],
+       "note": "The ingredients are proved — the two-sided linear ideal count is exactly the statement that the trivial weight's partial sums are of linear size — but there is no declaration asserting the failure of `HasCancellation`, because `HasCancellation` itself does not exist (Layer 6.5)."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "`wienerIkehara`: `a n ≥ 0`, `LSeriesHasSum` on `Re s > 1`, a continuous `G` on `Re s ≥ 1` agreeing with `F(s) - κ/(s-1)`, `0 ≤ κ` ⟹ `x⁻¹ ∑_{n≤x} a n → κ`",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.LSeries.tendsto_tsum_term_mul_fourier_atTop_of_nonneg",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LSeries/WienerIkehara/BoundaryGrowth.lean",
+         "line": 236,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.LSeries.tendsto_tsum_term_mul_fourier_atTop_of_contDiff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LSeries/WienerIkehara/Asymptotic.lean",
+         "line": 160,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.LSeries.tsum_term_mul_fourier_sub_pole_eq_integral_boundary",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LSeries/WienerIkehara/Limit.lean",
+         "line": 149,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.LSeries.isBigO_sum_Icc_norm_of_boundary",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LSeries/WienerIkehara/BoundaryGrowth.lean",
+         "line": 120,
+         "fit": "related"
+        }
+       ],
+       "note": "The smoothed asymptotic is proved with exactly the intended hypotheses — nonnegativity, a separately named continuous `G` on `{z | 1 ≤ z.re}` with `G z = LSeries a z - A/(z-1)` on the open half-plane, and summability on every vertical line right of 1 — and the Chebyshev-type growth bound is *derived* from them rather than assumed, as the layer insists. What is missing is the last Tauberian step from the smoothed limit `∑ a n 𝓕ψ(log(n/x)/2π) → 2π A ψ(0)` to the sharp cutoff `x⁻¹ ∑_{n≤x} a n → κ`. No declaration named `wienerIkehara` exists in either library; Mathlib mentions Wiener–Ikehara only in a docstring in `Mathlib/NumberTheory/LSeries/PrimesInAP.lean:253`. All four WienerIkehara files are sorry-free."
+      },
+      {
+       "target": "`wienerIkehara_zero`: the `κ = 0` case exported explicitly",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present; it is a specialization of the missing summit."
+      },
+      {
+       "target": "variants: natural cutoffs, finite changes of coefficients, a pole at a positive abscissa after rescaling, coefficients in an ordered real normed algebra",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.primePsi_natCast_eq_sum_range",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean",
+         "line": 515,
+         "fit": "related"
+        }
+       ],
+       "note": "None of the 9.2 variants exists. The natural-cutoff bridge on the arithmetic side (`primePsi_eq_sum_range`, Prime/Psi.lean:506) is in place, so the variant would be a restatement once the main theorem lands."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.2",
+       "note": "AN.2 asks for 'Tauberian or contour arguments giving PNT'; it is a specification stage with no Lean content and no separate Tauberian carrier."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/Chebotarev#layer-12-the-weighted-transfer-package-and-the-tauberian-theorem",
+       "note": "Chebotarev 12.2 applies 'the consumed `wienerIkehara`' by name to `Λ_σ`; it consumes this layer's export rather than duplicating it."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "`primePsi` with all prime powers present, and its exact nonnegative von Mangoldt coefficient system as an `ℕ → ℝ` series",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.primePsi",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean",
+         "line": 137,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primeVonMangoldtWeight",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean",
+         "line": 332,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primeVonMangoldtCoeff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean",
+         "line": 437,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primePsi_eq_sum_range",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean",
+         "line": 506,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.normCoeff_vonMangoldt",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean",
+         "line": 494,
+         "fit": "exact"
+        }
+       ],
+       "note": "Nonnegativity (`primeVonMangoldtCoeff_nonneg`, :448) and prime-power support (:477) are proved, and `primePsi_eq_sum_range` is exactly the bridge a Tauberian theorem consumes."
+      },
+      {
+       "target": "`PrimeBoundaryRemainder K S δ` packaging `0 ≤ δ`, named `F`/`G`, `LSeriesHasSum` on `Re s > 1`, continuity of `G` on `Re s ≥ 1` and `G = F - δ/(s-1)`; and `primePsi_asymptotic_of_boundary`",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither the structure nor the theorem exists; the only occurrence of the name in the whole baseline is a prose mention in the module docstring of Prime/Psi.lean:67. It cannot be discharged before Layer 9's `wienerIkehara`."
+      },
+      {
+       "target": "`standardPrimePowerRemoval : HasNegligibleHigherPrimePowers K S` and `primeTheta_asymptotic_of_primePsi` consuming it",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.HasNegligibleHigherPrimePowers",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean",
+         "line": 219,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.standardPrimePowerRemoval",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean",
+         "line": 230,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primeTheta_asymptotic_of_primePsi",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean",
+         "line": 297,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primePsi_asymptotic_of_primeTheta",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean",
+         "line": 303,
+         "fit": "exact"
+        }
+       ],
+       "note": "Exactly the contract names, and the transfer theorem takes the named estimate as a hypothesis rather than reproving it; the generalized-weight route is `primePowerSummatory_isLittleO_of_le_higherPrimePowerWeight` (HigherPrimePowers.lean:374), which demands nonnegativity, support and the growth bound as the layer requires."
+      },
+      {
+       "target": "`primeCount_asymptotic_of_primeTheta`, and the summit `primeNumberTheoremTransfer` returning `ψ`, `ϑ` and `π` from a `PrimeBoundaryRemainder`",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.primeCount_asymptotic_of_primeTheta",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Transfer.lean",
+         "line": 140,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primeCount_isLittleO_logIntegral",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Transfer.lean",
+         "line": 130,
+         "fit": "exact"
+        }
+       ],
+       "note": "The ϑ-to-π leg is proved in both the `δ ≠ 0` and `δ = 0` forms. The summit itself does not exist: it needs the missing `PrimeBoundaryRemainder` and Layer 9."
+      },
+      {
+       "target": "the conditional `primeIdealTheorem_of_boundary` and the external `TauCeti.LFunctions.primeIdealVonMangoldtBoundary : PrimeBoundaryRemainder K Set.univ 1`",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.dedekindZeta_ne_zero_of_one_lt_re",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 408,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither exists. Producing the external input needs continuation of `ζ_K` past `Re s = 1` and nonvanishing on the line; the baseline proves nonvanishing only on the open half-plane `Re s > 1`, which is strictly weaker and exactly the gap the layer names."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.2",
+       "note": "AN.2 'track Chebyshev functions and conversion to prime counts' is the ψ→ϑ→π chain over ℚ, at specification level only."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/Chebotarev#layer-12-the-weighted-transfer-package-and-the-tauberian-theorem",
+       "note": "Chebotarev 12.1 constructs `G_1(s) = -L_1'/L_1 - 1/(s-1)` continuous on `Re s ≥ 1`, which it describes as 'exactly the `PrimeBoundaryRemainder`-shaped data' — the same package this layer owns, built there for cyclotomic extensions with `κ = 1/#Gal`."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems",
+       "note": "Chebotarev 14 obtains the prime ideal theorem for `K` from its own 12.2 rather than from 10.4, so the two roadmaps reach `ψ_K(x) ~ x` by different routes."
+      }
+     ]
+    }
+   }
+  },
+  "AbelianSchemesAndArithmeticModuli": {
+   "summary": "Neither Mathlib nor Tau Ceti has an abelian scheme: the phrase does not occur in any Lean source in the baseline, and there is no base scheme, relative dimension, Picard functor, dual, polarization, Weil pairing, relative de Rham cohomology, Tate module, p-divisible group or Weil restriction anywhere. What exists is the field case and the linear-algebra shadow of the complex theory. Mathlib proves that a proper geometrically integral group scheme over a field is commutative (Stacks 0BFD) and that such a group scheme is smooth; Tau Ceti builds on those to define `AbelianVariety K` with dimension, zero section, base change along field extensions, products, hom groups, the endomorphism ring, isogenies and the tangent space at the identity, and separately has Cartier duality for finite locally free commutative affine group schemes — the one import A3 and A4 declare — together with a full polarized-Hodge-structure library that supplies the target category of A5's uniformization equivalence. Genuinely missing is almost everything the roadmap owns: the relative theory over a base, rigidity for pointed maps and the theorems of the square and cube, the Picard functor and the dual with Poincaré bundle and polarizations, torsion quotients and pairings, degree-one realizations and Serre–Tate, complex uniformization with the Siegel family, and the arithmetic Hom/End theorems with Weil restriction. A1 is the only layer with real coverage, and only in the base = `Spec K` case; A0 is an explicit import boundary and is process rather than mathematics.",
+   "layers": {
+    "AbelianSchemesAndArithmeticModuli:A0": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "import and reexport of `AlgebraicModuliForArithmeticGeometry` R09.1–R09.6 and A0-extension: algebraic spaces, Hilbert/Picard representability, higher-dimensional coherent base change, Artin criteria",
+       "library": "absent",
+       "declarations": [],
+       "note": "The layer states outright that it 'is an import boundary, not a second construction' and that its producer row 'imports exactly those general stages and reexports their hypotheses and universal properties'. It contains no mathematical target of its own, so it is bookkeeping. For the record the imported objects are themselves absent: neither library has algebraic spaces, a Picard functor for schemes (no `Pic` of a scheme anywhere), a Hilbert functor, or Artin representability criteria."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AlgebraicModuliForArithmeticGeometry:R09.4",
+       "note": "The owner of the imported general stages; A0 is by its own text only a reexport of it."
+      }
+     ]
+    },
+    "AbelianSchemesAndArithmeticModuli:A1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "abelian scheme over a general base: proper smooth group scheme with geometrically connected fibres, relative dimension locally constant on a possibly disconnected base",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 94,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.dim",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 117,
+         "fit": "special case"
+        },
+        {
+         "name": "AlgebraicGeometry.smooth_of_grpObj",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Group/Smooth.lean",
+         "line": 64,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.geometricallyConnected",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 135,
+         "fit": "special case"
+        }
+       ],
+       "note": "Nothing in either library is an abelian scheme over a base: the string 'abelian scheme' does not occur in any Lean source, and no relative-dimension function exists. What exists is the base = `Spec K` case: `AbelianVariety K` bundles a proper geometrically integral group scheme over a field, from which smoothness (Mathlib's `smooth_of_grpObj`, itself for a group scheme over a field) and geometric connectedness are derived, and `dim` is the topological Krull dimension of the total space rather than a locally constant relative dimension."
+      },
+      {
+       "target": "rigidity for pointed maps, and commutativity of the group law",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.isCommMonObj_of_isProper_of_geometricallyIntegral",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Group/Abelian.lean",
+         "line": 132,
+         "fit": "special case"
+        },
+        {
+         "name": "AlgebraicGeometry.isCommMonObj_of_isProper_of_isIntegral_tensorObj_of_isAlgClosed",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Group/Abelian.lean",
+         "line": 39,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.isCommMonObj",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 143,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib proves commutativity (Stacks 0BFD) for a proper geometrically integral group scheme over a *field*; over a base it is absent. The rigidity lemma itself — a pointed map from a proper family constant on one fibre is constant — is not stated separately in either library, only this corollary, and neither is the nonreduced-base argument the layer demands."
+      },
+      {
+       "target": "translation invariance of differentials; theorem of the square and of the cube",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent from both libraries: no occurrence of a theorem of the square, theorem of the cube, seesaw principle, or invariant differentials of a group scheme. Tau Ceti has the tangent space at the identity of an abelian variety with its finite-dimensionality (`AbelianVariety.TangentSpace`, TangentSpace.lean:85, and `finiteDimensional_tangentSpace`, :157) but no translation-invariance statement."
+      },
+      {
+       "target": "homomorphisms as group-scheme homomorphisms; decomposition of a map into a homomorphism and a translation; products and base change",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.Hom.instCommGroup",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/MorphismGroup.lean",
+         "line": 69,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.prod",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Product.lean",
+         "line": 61,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.baseChange",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 274,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.Hom.baseChange",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Hom/BaseChange.lean",
+         "line": 57,
+         "fit": "special case"
+        }
+       ],
+       "note": "Over a field, homomorphisms are morphisms of group objects, form a commutative group under the pointwise law, and are stable under base change; products of abelian varieties are constructed with properness and geometric integrality of the product. `baseChange` is along a field extension `K → L`, not along an arbitrary base change of schemes. The hom-plus-translation decomposition is absent."
+      },
+      {
+       "target": "one-dimensional pointed abelian schemes coincide with the scheme-theoretic elliptic curves, compatibly with the group laws",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Mathlib's `Mathlib/AlgebraicGeometry/EllipticCurve/` is entirely Weierstrass models with point-set group laws (Affine, Projective, Jacobian); there is no elliptic curve as a group scheme in either library and therefore no equivalence to state."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+       "note": "Layer E states the identical targets — 'abelian variety = smooth, proper, geometrically connected group scheme over `k`; basic API, `dim`. Commutativity is automatic (rigidity, `Group/Abelian.lean`)' — over a field, and is the layer whose targets Tau Ceti has actually built."
+      }
+     ]
+    },
+    "AbelianSchemesAndArithmeticModuli:A2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "the relative degree-zero Picard functor as an algebraic space",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Picard functor, Picard scheme or `Pic` of a scheme exists in either library — the only `Picard` declarations in Mathlib are `IsPicardLindelof` for ODEs. Algebraic spaces are absent too. Tau Ceti has invertible sheaves and their tensor product (`TauCeti.AlgebraicGeometry.InvertibleSheaf`, LineBundle/Basic.lean:78; `LineBundleClass`, LineBundle/Class.lean:49) but no Picard group functor."
+      },
+      {
+       "target": "Raynaud's abelian-algebraic-space-to-scheme theorem (Faltings–Chai I.1.9) with its actual base hypotheses, and the dual abelian scheme",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. No dual abelian variety or scheme exists in either library."
+      },
+      {
+       "target": "rigidified Poincaré bundle and the biduality isomorphism",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no Poincaré bundle in either library."
+      },
+      {
+       "target": "`φ_L : A → A∨` from a line bundle, its behaviour under tensor product, translation and pullback, the positivity condition defining a polarization, symmetric homomorphisms, Rosati involutions and polarization types",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. There is no polarization of an abelian variety and no Rosati involution anywhere (`Rosati` has zero occurrences). The word 'polarization' in the baseline means either the polarization identity for quadratic forms or a polarization of a Hodge structure (`TauCeti.Hodge.Polarization`, TauCeti/Geometry/Hodge/Polarization.lean:157), which is the linear-algebra shadow of this target, not the geometric object."
+      },
+      {
+       "target": "functoriality of dualization, the dual of a composite, and identification with the elliptic relative Picard/Poincaré construction including the evaluation pairings",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, since neither dual exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+       "note": "Layer D owns the relative Picard functor as an fppf sheafification, its rigidification by a section, the Poincaré bundle and `Pic⁰` with representability and properness — the same construction, for curves over a field."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+       "note": "Layer E also claims 'the theorem of the cube/square, the dual abelian variety, polarizations ... and `[n]` as an isogeny', duplicating A2 and part of A3 in the one-dimensional-base case."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
+       "note": "2D constructs Picard duality for elliptic curves and compares the duals, the relative-dimension-one case of A2's dualization functoriality."
+      },
+      {
+       "layer": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+       "note": "R11.4 owns Picard schemes of semistable curves, overlapping the representability half of A2."
+      }
+     ]
+    },
+    "AbelianSchemesAndArithmeticModuli:A3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "fppf quotient by a finite locally free subgroup scheme, with its universal property, flatness and base-change compatibility",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.GroupScheme.IsIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/GroupScheme/CentralIsogeny/Basic.lean",
+         "line": 161,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GroupScheme.HasCentralKernel",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/GroupScheme/CentralIsogeny/Basic.lean",
+         "line": 112,
+         "fit": "related"
+        }
+       ],
+       "note": "No fppf quotient of a group scheme by a finite locally free subgroup exists. Tau Ceti's group-scheme isogeny API (finite, flat, surjective morphisms with central kernel) is about maps that would be quotient maps, not about constructing the quotient."
+      },
+      {
+       "target": "isogenies of abelian schemes and their duals",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
+         "line": 61,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny.comp",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
+         "line": 122,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny.baseChange",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
+         "line": 140,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.isIsogeny_mulBy_neg_one",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
+         "line": 150,
+         "fit": "special case"
+        }
+       ],
+       "note": "Isogenies of abelian varieties over a field exist with finiteness, surjectivity, composition and base change; dual isogenies do not, since the dual does not. There is no degree of an isogeny."
+      },
+      {
+       "target": "`[n]` finite locally free of rank `n^(2g)` on a relative-dimension-`g` component, étale exactly when `n` is invertible",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.mulBy",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
+         "line": 243,
+         "fit": "related"
+        }
+       ],
+       "note": "`mulBy n` exists as an endomorphism (with `mulBy_eq_zpow`, `mulBy_add`, `mulBy_mul` and base-change compatibility) but nothing is proved about its rank, flatness or étaleness; `isIsogeny_mulBy_neg_one` only handles `n = -1`."
+      },
+      {
+       "target": "Cartier duality imported from R07.1 and the Weil pairing between `A[n]` and `A∨[n]`",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean",
+         "line": 232,
+         "fit": "more general"
+        },
+        {
+         "name": "FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDualDualIso",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean",
+         "line": 320,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDualBaseChangeIso",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/BaseChange.lean",
+         "line": 209,
+         "fit": "related"
+        }
+       ],
+       "note": "The imported half is genuinely present: Tau Ceti has Cartier duality as an equivalence of categories for finite locally free commutative affine group schemes, with double duality and base-change compatibility. The Weil pairing is absent — `weilPairing` has zero occurrences in either library — and so is the `A[n]` torsion subgroup scheme it would pair."
+      },
+      {
+       "target": "the alternating pairing induced by a polarization with the criterion for perfectness, and the Tate-module pairings with their Tate twist",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; neither polarizations of abelian schemes nor Tate modules of abelian schemes exist (`tateModule` has zero occurrences)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing",
+       "note": "2E constructs Cartier–Nishi duality and the Weil pairing for elliptic curves — the relative-dimension-one case of A3's pairing targets."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality",
+       "note": "0B owns finite locally free group schemes and Cartier duality, which A3 declares it imports; Tau Ceti has already built that import."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+       "note": "Layer 2 owns torsion, the Weil pairing and the Tate module for elliptic curves over a field."
+      }
+     ]
+    },
+    "AbelianSchemesAndArithmeticModuli:A4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "relative `H¹_dR` with Hodge exact sequence, Gauss–Manin connection, cup-product pairing and base change",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Neither library has de Rham cohomology of a scheme (the only `DeRham` names in Mathlib are the perfectoid period rings `BDeRham`, `BDeRhamPlus`), and `GaussManin` has zero occurrences."
+      },
+      {
+       "target": "the étale Tate module for `ℓ` invertible on the base, as a functorial local system",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no Tate module of an abelian scheme or of a group scheme exists."
+      },
+      {
+       "target": "integral complex homology and de Rham comparison in degree one",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "imported p-divisible groups, Cartier duality and connected–étale sequences (R07.1–R07.2) and Grothendieck–Messing deformation theory (R07.6)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean",
+         "line": 232,
+         "fit": "related"
+        }
+       ],
+       "note": "Only Cartier duality is present. `p`-divisible (Barsotti–Tate) groups do not exist in either library, and neither does Dieudonné theory or Grothendieck–Messing deformation theory. Tau Ceti has a connected-component API for affine group schemes (`TauCeti/AlgebraicGeometry/AffineGroupScheme/Components/`) but no connected–étale sequence for finite flat groups."
+      },
+      {
+       "target": "the Serre–Tate equivalence for deformations with endomorphism and polarization structures, and identification of its tangent map with the Hodge filtration",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `SerreTate` has zero occurrences and there is no deformation category of abelian schemes."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
+       "note": "7F owns Serre–Tate theory with level structure for elliptic curves, the relative-dimension-one case of A4's deformation target."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
+       "note": "7E owns p-divisible groups for elliptic curves; A4 declares it imports them from R07.1 instead."
+      },
+      {
+       "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+       "note": "R07.6 owns Grothendieck–Messing deformation theory, which A4 names as its import; A4 adds only the abelian-scheme Serre–Tate statement on top."
+      }
+     ]
+    },
+    "AbelianSchemesAndArithmeticModuli:A5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Riemann bilinear relations and algebraicity of polarized complex tori",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. No complex torus attached to a lattice in `ℂ^g` exists in either library — Tau Ceti's `Toric.ComplexTorus` (TauCeti/Geometry/Toric/Analytic/Character.lean:62) is the algebraic torus `Hom(N,ℂ^×)` of toric geometry, a different object — and there is no algebraization statement."
+      },
+      {
+       "target": "the equivalence with polarizable integral Hodge structures of types `(-1,0),(0,-1)`",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.IsPolarization",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Polarization.lean",
+         "line": 70,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.Polarization",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Polarization.lean",
+         "line": 157,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.IsPolarizable",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Polarization.lean",
+         "line": 219,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.PeriodDomain.Point",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/PeriodDomain.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "One side of the equivalence is built: Tau Ceti has pure Hodge structures on a lattice, the Hodge–Riemann bilinear relations as `IsPolarization`, bundled polarizations, polarizability, period-domain points and semisimplicity of polarizable structures. The abelian-variety side and the equivalence itself are absent, as is any restriction to the weight `-1` types the layer names."
+      },
+      {
+       "target": "the relative version for analytic polarized families and variations, and compatibility of an algebraic abelian scheme with its analytic variation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there are no variations of Hodge structure over a base and no analytification of an abelian scheme."
+      },
+      {
+       "target": "the Siegel universal analytic family, its monodromy, and level structures as symplectic lattice trivializations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. There is no Siegel upper half space in either library (`Siegel` has zero occurrences; Mathlib's `UpperHalfPlane` is the genus-one case only), and no universal family. Tau Ceti has the symplectic group as an affine group scheme (TauCeti/Algebra/AlgebraicGroup/Symplectic/) but nothing acting on a Siegel space."
+      },
+      {
+       "target": "agreement with the scheme-theoretic elliptic curve, its differential and pairing in genus one",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, for the same reason as in A1: there is no elliptic curve as a group scheme to compare with."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory",
+       "note": "L1 owns polarizations and the Hodge–Riemann relations with semisimplicity; it is the layer whose targets Tau Ceti has built, and A5's 'polarizable integral Hodge structures' is exactly its output specialized to weight -1."
+      },
+      {
+       "layer": "ShimuraVarieties:V5",
+       "note": "V5 owns CM abelian varieties and the Siegel canonical model; A5's analytic Siegel family feeds it, and the roadmap text defers the converse algebraization to V5."
+      },
+      {
+       "layer": "ModularCurvesPartII:R12.1",
+       "note": "R12.1 owns uniformisation of elliptic curves, the genus-one case of A5's complex uniformization."
+      }
+     ]
+    },
+    "AbelianSchemesAndArithmeticModuli:A6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "finite generation and torsion freeness of Hom groups; the semisimple endomorphism algebra; Poincaré complete reducibility; Rosati positivity; degree formulas for polarized isogenies",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.Hom.instCommGroup",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/MorphismGroup.lean",
+         "line": 69,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.End",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.End.instRing",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
+         "line": 168,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.End.congr",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
+         "line": 199,
+         "fit": "related"
+        }
+       ],
+       "note": "The API this layer says it will extend exists over a field — `Hom` is a commutative group, `End` is a ring, transported along isomorphisms and stable under base change — but none of the extensions is proved: no `Module.Finite`/torsion-freeness for `Hom`, no semisimplicity of `End ⊗ ℚ`, no complete reducibility (`Poincaré complete reducibility` has zero occurrences), no Rosati involution and no degree of an isogeny."
+      },
+      {
+       "target": "compatibility of the Hom/End API with relative dualization and geometric fibres",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no dualization to be compatible with."
+      },
+      {
+       "target": "Weil restriction along a finite locally free `S′→S` as a functor with a representing algebraic space",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Weil restriction / restriction of scalars of schemes does not exist in either library (`restrictionOfScalars`, `WeilRestriction` have zero occurrences), nor do algebraic spaces."
+      },
+      {
+       "target": "for finite étale `S′→S`, the restriction of an abelian scheme is an abelian scheme, by étale splitting, descent of properness, smoothness and geometrically connected fibres",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, together with the negative acceptance example `Res_{k[ε]/(ε²)/k}(E) ≅ E × Lie(E)` that the layer requires as the failure case for a merely finite locally free base change."
+      },
+      {
+       "target": "the `G_K`-equivariant comparison `T_ℓ(Res_{L/K} A) ≅ Ind_{G_L}^{G_K} T_ℓ(A)` for a finite separable extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no Tate module of an abelian variety exists, so neither side is definable."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraData:D0",
+       "note": "D0 owns restriction of scalars and topological points, overlapping A6's Weil-restriction construction."
+      },
+      {
+       "layer": "ArithmeticGaloisRepresentations:G7",
+       "note": "G7 constructs 'tensor induction and restriction of scalars with continuity and characteristic-polynomial identities' for Galois representations, which is the target side of A6's `T_ℓ(Res) ≅ Ind` comparison."
+      },
+      {
+       "layer": "ReductiveGroupsPartII:RG2.0a",
+       "note": "RG2.0a owns Weil restriction and the Deligne torus for reductive groups; the representability machinery is the same."
+      }
+     ]
+    }
+   }
+  },
+  "AnabelianGeometryAndNonabelianChabauty": {
+   "summary": "Nothing this roadmap owns exists in either library. The decisive gap is at the very bottom: there is no étale fundamental group of a scheme anywhere in the baseline — Mathlib's `CategoryTheory/Galois/` develops Galois categories, fibre functors, Galois objects, prorepresentability and `IsFundamentalGroup` in the abstract, but the phrase 'finite étale' does not occur in `Mathlib/AlgebraicGeometry/`, and the only instantiation of that abstract theory is Tau Ceti's topological one for finite covering spaces. Without it there are no path torsors, no Galois sections, no unipotent quotients and no Selmer varieties; independently, `Chabauty`, `Coleman`, `iteratedIntegral`, `NeronSeveri` and `anabelian` each have zero occurrences in the whole baseline, and there is no p-adic height, no de Rham or rigid cohomology of a curve, no nonabelian `H¹`, and no Jacobian. The genuinely usable inputs are Mathlib's abstract Galois-category API and low-degree abelian group cohomology, and Tau Ceti's Tannakian and unipotent-algebraic-group machinery, which would be the target category of NC.2. NC.6 is an export and conditionality-bookkeeping layer with no mathematics of its own.",
+   "layers": {
+    "AnabelianGeometryAndNonabelianChabauty:NC.0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "the finite-étale fibre functor and the Galois category of finite étale covers of a scheme, with its profinite automorphism group",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.PreGaloisCategory",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Galois/Basic.lean",
+         "line": 66,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.PreGaloisCategory.FiberFunctor",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Galois/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.PreGaloisCategory.IsFundamentalGroup",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Galois/IsFundamentalgroup.lean",
+         "line": 232,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.PreGaloisCategory.functorToAction",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Galois/Action.lean",
+         "line": 37,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the abstract theory — Galois categories, fibre functors, Galois objects, prorepresentability, the equivalence with continuous finite `Aut F`-sets and the `IsFundamentalGroup` predicate — but no instance of it for finite étale covers of a scheme. The words 'finite étale' do not appear in `Mathlib/AlgebraicGeometry/`, and neither library defines an étale fundamental group of a scheme. Tau Ceti instantiates the same abstract theory for finite covering spaces of a topological space (`TauCeti.FiniteCoveringSpace.instGaloisCategory`, TauCeti/AlgebraicTopology/UniversalCover/Classification/GaloisCategory.lean:329), which is the topological analogue, not the arithmetic one."
+      },
+      {
+       "target": "the arithmetic exact sequence `1 → π₁^geom → π₁ → G_K → 1`",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, since neither fundamental group exists for a scheme."
+      },
+      {
+       "target": "path torsors and the section attached to a rational point, with base-point change and conjugacy independence",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.FundamentalGroup.basepointChangeSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/FundamentalGroup/BasepointChange.lean",
+         "line": 84,
+         "fit": "related"
+        }
+       ],
+       "note": "No arithmetic path torsor or Galois section exists in either library. The only base-point-change machinery is topological, for the fundamental group of a space."
+      },
+      {
+       "target": "tangential base points for selected open curves, and the `P¹ ∖ {0,1,∞}` comparison of a rational and a tangential point",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no tangential base point anywhere in the baseline."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+       "note": "IG.0 owns the profinite automorphism group of the geometric fibre functor on finite étale covers and its equivalence with finite continuous sets — the first target here, which NC.0 declares it imports."
+      },
+      {
+       "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+       "note": "IG.1 owns the geometric/arithmetic fundamental-group sequence, decomposition and inertia subgroups; NC.0's second target is its conclusion."
+      },
+      {
+       "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+       "note": "IG.6 says it will 'hand the profinite fundamental group and path torsors to the anabelian continuation', so path torsors are claimed on both sides of the boundary."
+      }
+     ]
+    },
+    "AnabelianGeometryAndNonabelianChabauty:NC.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "reconstruction of a smooth proper hyperbolic curve over a number field from outer Galois-equivariant fundamental-group data (the selected Mochizuki theorem)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, and far out of reach at this baseline: neither library has an étale fundamental group, an outer Galois action, or hyperbolic curves. The words 'anabelian' and 'Mochizuki' do not occur in either library."
+      },
+      {
+       "target": "decomposition-group recovery, covers, linear systems and effectivity, decomposed from the full proof",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Neither decomposition groups of a fundamental group nor linear systems on a curve exist; Tau Ceti has linear systems of Weil divisors (TauCeti/AlgebraicGeometry/WeilDivisor/LinearSystem/) but nothing tied to fundamental-group data."
+      },
+      {
+       "target": "separate isomorphism and Hom versions, with base-field compatibility, topology and allowed morphisms stated exactly",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+       "note": "IG.6 names the anabelian continuation as a downstream consumer and keeps the reconstruction theorem out of its own scope, so the boundary is stated on both sides but only NC.1 owns the theorem."
+      }
+     ]
+    },
+    "AnabelianGeometryAndNonabelianChabauty:NC.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "unipotent étale and de Rham fundamental groups via their Tannakian categories, central series and finite quotients",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Tannaka.pointNatIso",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/ScalarExtension.lean",
+         "line": 73,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AdditiveGroup.isUnipotentPoint",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/AdditiveGroup/Unipotent.lean",
+         "line": 489,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither unipotent fundamental group exists. Tau Ceti does have Tannakian reconstruction machinery for affine group schemes and a developed unipotent-group theory (unipotent radical, Borel subgroups, Jordan decomposition), which is the target category such a construction would land in, but there is no de Rham cohomology of a scheme and no étale fundamental group to make unipotent."
+      },
+      {
+       "target": "path torsors with filtration, Frobenius and Galois structures, and comparison maps at the good-reduction coefficient prime",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. There is no rigid or crystalline cohomology of a curve, no Frobenius structure on a de Rham torsor, and no `p`-adic comparison isomorphism for a fundamental group in either library."
+      },
+      {
+       "target": "recovery of the Jacobian's abelian realization at depth one",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Jacobian of a curve in either library (the Tau Ceti Jacobian roadmap has not produced one) and no Tate module to compare with."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ColemanIntegration:L1",
+       "note": "L1 owns finite-dimensional rigid/de Rham cohomology in the integration degree and the Frobenius lifts, which NC.2 imports for its comparison maps; it also builds the `P¹ ∖ {0,1,∞}` unipotent case directly 'so that no general Tannakian theorem is an unowned prerequisite', overlapping NC.2's construction for that curve."
+      },
+      {
+       "layer": "PadicHodgeTheory:R06.5",
+       "note": "The declared source of the comparison at the coefficient prime."
+      }
+     ]
+    },
+    "AnabelianGeometryAndNonabelianChabauty:NC.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "torsor-valued `H¹` for finite unipotent quotients of the fundamental group",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "groupCohomology.H1",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/LowDegree.lean",
+         "line": 961,
+         "fit": "related"
+        },
+        {
+         "name": "groupCohomology.H1InfRes_exact",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Functoriality.lean",
+         "line": 393,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has abelian group cohomology in low degree with inflation–restriction, but no nonabelian `H¹` with values in a group with action, and no continuous/profinite cohomology of a Galois group. Nonabelian torsor-valued cohomology is absent from both libraries."
+      },
+      {
+       "target": "local unramified and crystalline conditions at each place, retaining bad-place conditions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there are no local conditions of Bloch–Kato type in either library."
+      },
+      {
+       "target": "representable Selmer varieties",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.selmerGroup₂",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+         "line": 104,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.selmerGroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/SelmerGroup.lean",
+         "line": 163,
+         "fit": "related"
+        }
+       ],
+       "note": "No Selmer variety exists. The two `selmerGroup` objects in the baseline are the classical abelian ones — Mathlib's `K(S,n)` group of a Dedekind domain and Tau Ceti's 2-Selmer group used in the Mordell–Weil descent for an elliptic curve — neither of which is a scheme or carries a nonabelian structure."
+      },
+      {
+       "target": "obstruction and dimension calculations from central extensions and actual Galois cohomology; depth-one Kummer/Selmer agreement; a nontrivial depth-two obstruction",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticGaloisDuality:R02.6",
+       "note": "The declared supplier of the Galois-cohomology input; NC.3 owns only the nonabelian and unipotent layer on top of it."
+      }
+     ]
+    },
+    "AnabelianGeometryAndNonabelianChabauty:NC.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "the local unipotent Albanese map by iterated integration",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. `iteratedIntegral` and `Coleman` have zero occurrences in either library, so there is no `p`-adic iterated integral to build the map from."
+      },
+      {
+       "target": "the global-to-local Selmer map and the Chabauty–Kim intersection locus, with rational/integral points proved to lie in it",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `Chabauty` has zero occurrences in either library."
+      },
+      {
+       "target": "finiteness from the selected dimension and nonvanishing theorem, with conjectural motivic dimension inputs retained as hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "recovery of classical Chabauty at depth one",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Tau Ceti has the Mordell–Weil machinery for elliptic curves (descent, Selmer groups, canonical heights) but nothing about annihilating differentials or residue discs on a higher-genus curve."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EffectiveDiophantineMethods:ED.4",
+       "note": "ED.4 owns classical Chabauty–Coleman with annihilating differentials, Coleman integrals and residue-disc bounds — exactly the depth-one case NC.4's acceptance criterion asks it to recover."
+      },
+      {
+       "layer": "ColemanIntegration:L1",
+       "note": "L1 owns the Coleman functions, their integration and the uniqueness principle that NC.4's iterated integration consumes."
+      }
+     ]
+    },
+    "AnabelianGeometryAndNonabelianChabauty:NC.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "the depth-two unipotent quotient and the `p`-adic height equations for a good-reduction curve and its Jacobian",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. There is no `p`-adic height in either library: the only heights in the baseline are the naive and canonical archimedean heights of points on an elliptic curve (`WeierstrassCurve.Affine.Point.canonicalHeight`, TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean:124) and the Néron–Tate pairing built from them."
+      },
+      {
+       "target": "Néron–Severi contributions and all bad-place local terms",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `NeronSeveri` has zero occurrences and there is no Néron–Severi group of a variety in either library."
+      },
+      {
+       "target": "the precise rank-versus-genus/Picard-number criterion",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Picard number, since there is no Picard group of a scheme."
+      },
+      {
+       "target": "a fully worked curve with certified rank, independent divisor classes, local heights and every residue disc",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.0",
+       "note": "RP.0 owns the height machine and canonical heights that NC.5's height equations rest on; NC.5 declares RP.1 as its dependency."
+      }
+     ]
+    },
+    "AnabelianGeometryAndNonabelianChabauty:NC.6": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "export of four independent APIs — profinite reconstruction, Selmer varieties, iterated-integral equations, finite Chabauty–Kim loci — to `EffectiveDiophantineMethods:ED.6` with precision requirements",
+       "library": "absent",
+       "declarations": [],
+       "note": "This layer states no new mathematics: it packages and re-exports the outputs of NC.1–NC.5 and hands them to a consuming roadmap. Since none of NC.1–NC.5 has any content in the libraries, there is nothing to export either."
+      },
+      {
+       "target": "preserving the section-conjecture and eventual-stabilization frontiers, and keeping theorems conditional on Bloch–Kato explicitly conditional",
+       "library": "absent",
+       "declarations": [],
+       "note": "A bookkeeping discipline on statements rather than a theorem. Neither the section conjecture nor the Bloch–Kato conjecture is stated in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EffectiveDiophantineMethods:ED.6",
+       "note": "ED.6 is the declared consumer and states the same handoff from its side ('Consume the nonabelian/quadratic Chabauty construction when its rank and local-height hypotheses are verified'), so the interface is written twice."
+      }
+     ]
+    }
+   }
+  }
+ }
+}
