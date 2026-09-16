@@ -1,0 +1,397 @@
+{
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+  "protocol": "links-v1",
+  "status": "partial",
+  "summary": "Partial, source-checked interface mapping: twelve prerequisite-to-consumer links from ProfiniteCohomology to arithmetic duality, smooth representations and arithmetic K-theory, with a single smooth-dictionary rescope proposal. All target stages were read; the catalogue-wide search is not finished. Existing class-field/pro-p links are not duplicated. Finite/discrete, compact, nonabelian, low-degree and all-degree interfaces are kept distinct.",
+  "provenance": {
+    "job": "LINK-tauceti_TauCetiRoadmap_ProfiniteCohomology",
+    "issue": 25,
+    "worker": "ChatGPT Pro — cgp-0d677fbc2f21",
+    "inputRevision": "3bbae93d74134ee48575d60d889fc8e57f3ac7e9",
+    "date": "2026-09-16",
+    "baseline": {
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+    },
+    "targetExtractBlob": "08de90904909708cf55e59fb1a6e431849af6390",
+    "targetDocumentBlob": "c184506d49598a1370e2d05d45d1f7cf8998d783",
+    "baselineDeclarationsCited": [],
+    "documents": [
+      {
+        "path": "content/campaign/ArithmeticGaloisDuality/README.md",
+        "blob": "72f13c57800f801ed2bc1e1c785d25b2d5d51798",
+        "read": "complete"
+      },
+      {
+        "path": "content/tau-ceti/ProfiniteCohomology/README.md",
+        "blob": "c184506d49598a1370e2d05d45d1f7cf8998d783",
+        "read": "Introductory conventions/API, inventory, examples, ordering and references; all 14 full stage descriptions in the companion extract."
+      },
+      {
+        "path": "content/tau-ceti/RepresentationTheory/InductionRestriction/README.md",
+        "blob": "591cf0455be8ca4143176565e5d69d1c8f13b424",
+        "read": "complete"
+      },
+      {
+        "path": "content/campaign/SmoothRepresentationsOfLocalGroups/README.md",
+        "blob": "1aa900110c00666cf720298012bacb9cf0e6b153",
+        "read": "complete"
+      },
+      {
+        "path": "content/campaign/SelmerIwasawaCohomology/README.md",
+        "blob": "b2c8ef859b1f5ff137cfbe33de4cfef3b182e9b5",
+        "read": "complete"
+      },
+      {
+        "path": "content/campaign/MotivicEtaleKTheory/README.md",
+        "blob": "f4a4331560fb9b94e715850a7d2e259a1a1270af",
+        "read": "lines 1–140, all mathematical stages and tests; remaining readiness checkpoint/handoff tail not claimed read"
+      },
+      {
+        "path": "content/campaign/K2SymbolsBrauer/README.md",
+        "blob": "e8b0970fa595c2da1f644d23686b2ac259c8c8bb",
+        "read": "lines 90–end, T.6/T.7 and acceptance/handoff; earlier selected stages through companion extract"
+      },
+      {
+        "path": "research/blueprint/atlas/roadmaps/PotentialAutomorphyInfrastructure.json",
+        "blob": "d1b7ad4a497e530af8d40e61093df9eb1bfbd0d4",
+        "read": "complete"
+      }
+    ],
+    "existingPacketSearch": {
+      "query": "ProfiniteCohomology repo:CBirkbeck/tauceti-explorer path:research/blueprint/links",
+      "matches": 18,
+      "incompleteResults": false,
+      "note": "Discovery, not a complete content audit; all matched packets belong to other upstream roadmaps. Current produced links have campaign targets."
+    },
+    "preSubmissionRevision": "c0ef517ffdf50d37ca4be50468e0c0d249b3f298",
+    "preSubmissionCheck": "Issue comments still identify this session as the sole accepted claimant, state:claimed; target output absent. Blob hashes of all five documents furnishing link evidence and baseline.json match the input revision. Full atlas graph validation is delegated to the actual PR workflow and is not represented as having run locally.",
+    "baselineBlob": "fdb00afdfae8e5728e070f310f5a880707764bc2",
+    "submission": {
+      "pullRequest": 785,
+      "branch": "cgp-0d677fbc2f21/link-profinite-cohomology",
+      "claimComment": 5699145622,
+      "acceptanceComment": 5699147944,
+      "submissionComment": 5699660157
+    },
+    "coordinationNotice": "After submission, the same worker label was found on issue #22 claim 5697549504 and acceptance 5697551437. That claim was not made in this run. This run is identified by issue #25 claim 5699145622 and PR #785; it does not assert ownership of #22. No other claim was released or modified, and new job acquisition stopped pending disambiguation."
+  },
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+      "target": "ArithmeticGaloisDuality:R02.1",
+      "reason": "The canonical continuous-cohomology carrier and smooth-discrete coefficient dictionary are the reference objects against which the lattice and torsion-quotient constructions must be compared. This edge supplies that reference object and its coefficient maps, not a lattice inverse-limit theorem. R02.1 must construct the topology-sensitive comparison and retain derived-limit terms itself.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+          "quote": "`TopRep R G` as an abbreviation for `Action (TopModuleCat R) G`, and `Hⁿ_cont(G, X) = (continuousCohomology R G n).obj X` as the canonical object of every all-degree statement below."
+        },
+        {
+          "stageId": "ArithmeticGaloisDuality:R02.1",
+          "quote": "Construct cohomology for lattices and their torsion quotients through a comparison with the canonical continuous-cohomology construction."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "ArithmeticGaloisDuality:R02.1",
+      "reason": "The finite discrete quotients of a continuous lattice representation carry the canonical all-degree cohomology and discrete exact-sequence API. These are the finite/discrete side of the required comparison for lattices and their torsion quotients. Filtered direct limits here must not be substituted for the inverse limits, Mittag–Leffler conditions or lim¹ terms that R02.1 builds.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+          "quote": "`Hⁿ(G, M)` for all `n`, for a profinite `G` and a discrete `G`-module `M`, as the canonical `continuousCohomology n`"
+        },
+        {
+          "stageId": "ArithmeticGaloisDuality:R02.1",
+          "quote": "Construct cohomology for lattices and their torsion quotients through a comparison with the canonical continuous-cohomology construction."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "ArithmeticGaloisDuality:R02.2",
+      "reason": "For profinite G, a closed normal subgroup N and discrete coefficients, the supplier fixes inflation, restriction and the lift-and-differentiate transgression in the five-term sequence. R02.2 must identify the edge maps of its full continuous Hochschild–Serre construction with these maps on the discrete specialization. The five-term sequence is an input to that comparison, not a substitute for constructing the spectral sequence or proving its convergence.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+          "quote": "**The five-term sequence, for profinite `G` and closed normal `N`**"
+        },
+        {
+          "stageId": "ArithmeticGaloisDuality:R02.2",
+          "quote": "Identify the low-degree sequence with the existing inflation–restriction maps."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "ArithmeticGaloisDuality:R02.2",
+      "reason": "Continuous restriction/corestriction and their all-degree identities for open subgroups with discrete coefficients are the reference operations in the finite-extension descent comparison. R02.2 extends and compares this package; the edge does not assert these discrete theorems for compact coefficients without R02.1. The supplier normalization is cor after res equals the subgroup index on cohomology classes.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+          "quote": "`cor ∘ res = (G : U) • id` (`corestriction_comp_res`)"
+        },
+        {
+          "stageId": "ArithmeticGaloisDuality:R02.2",
+          "quote": "Prove restriction/corestriction identities and the precise descent consequences for finite extensions of number fields."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+      "target": "ArithmeticGaloisDuality:R02.3",
+      "reason": "Global cohomological-dimension bounds must use the supplier’s ordinary cd_p for all discrete p-primary torsion modules, with its finite-module reduction, rather than defining a new bound only on bounded-exponent modules or confusing cd_p with strict scd_p. The global numerical bounds, finiteness and real-place exceptions remain R02.3 results; none follows from the generic definition alone.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+          "quote": "The three invariants `cd_p`, `scd_p` and `cd` are valued in `ℕ∞`"
+        },
+        {
+          "stageId": "ArithmeticGaloisDuality:R02.3",
+          "quote": "Prove finiteness of finite-coefficient cohomology, bounds on cohomological dimension with the real-place exceptions, and the global Euler-characteristic formula."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+      "target": "ArithmeticGaloisDuality:R02.4",
+      "reason": "The finite-module evaluation cup pairings are the local cohomological pairings from which the finite global pairing is assembled, using the same discrete coefficients and conjugation action on Hom. This supplies the underlying pairing only. Arithmetic local invariant maps and local perfectness belong to ClassFieldTheory; compact support, the global exact sequence and global perfectness must be proved in R02.4, not inferred by summing perfect local pairings.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+          "quote": "For finite discrete `M`, the evaluation pairing `evalPairing` of Layer 0, with its equivariance `evalPairing_equivariant` and the conjugation action `homAction`, composed with the cups gives `Hⁱ(G, M →+ N) × H²⁻ⁱ(G, M) → H²(G, N)` for `i = 0, 1, 2`."
+        },
+        {
+          "stageId": "ArithmeticGaloisDuality:R02.4",
+          "quote": "Specify the dual M^∨(1), the evaluation pairing, local invariant maps and their sum, and the restricted product where needed."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "reason": "The profinite smooth-discrete dictionary is the specified comparison on compact open subgroups of a locally profinite group. Use the underlying discrete additive module and its jointly continuous action, not an arbitrary TopRep object with merely individually continuous operators. SR.0 retains responsibility for the A-linear interface, the locally profinite construction and its abelian-category, sum and filtered-colimit APIs. This link targets the early abelian stage and does not import its derived enhancement.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+          "quote": "the two translations are mutually inverse **on the smooth discrete subcategory**, which they exhibit as equivalent to the discrete `G`-modules."
+        },
+        {
+          "stageId": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+          "quote": "The existing ProfiniteCohomology roadmap owns the equivalence between discrete continuous representations and smooth discrete objects on profinite groups. Extend that dictionary to locally profinite groups and reuse it on compact opens."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+      "target": "K2SymbolsBrauer:T.7",
+      "reason": "For a field F and a positive integer m invertible in F, the supplier constructs the two classes (a),(b) in H¹(G_F,μ_m) using the natural Galois action on roots of unity. These, not classes in an arbitrarily trivialized cyclic coefficient group, are the inputs to T.7’s comparison with the norm-residue symbol. No primitive root is assumed until T.7 explicitly changes coefficients. The scheme/S-integer comparison and the arithmetic norm-residue isomorphism remain with T.7 and MotivicEtaleKTheory M.3.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+          "quote": "`Kˣ ⧸ (Kˣ)ⁿ ≃* Multiplicative (H¹(AbsoluteGaloisGroup K, KummerCoeff K n))`"
+        },
+        {
+          "stageId": "K2SymbolsBrauer:T.7",
+          "quote": "Import the norm-residue map constructed in MotivicEtaleKTheory M.3 and compare its symbol formula with the cup product of the two Kummer classes:"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+      "target": "K2SymbolsBrauer:T.7",
+      "reason": "Apply the supplier’s (1,1) cup to the equivariant tensor pairing μ_m × μ_m → μ_m ⊗ μ_m, for m positive and invertible in the field. This constructs the displayed H²-valued cup of the two Kummer classes. T.7 proves equality with the imported Chern/norm-residue map; neither the cup’s existence nor its bilinearity proves the Steinberg relation or the arithmetic isomorphism. Retain both tensor factors until the stated choice of primitive root.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+          "quote": "`H^p(G, M) × H^q(G, N) → H^{p+q}(G, P)`, `p + q ≤ 2`"
+        },
+        {
+          "stageId": "K2SymbolsBrauer:T.7",
+          "quote": "Import the norm-residue map constructed in MotivicEtaleKTheory M.3 and compare its symbol formula with the cup product of the two Kummer classes:"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+      "target": "MotivicEtaleKTheory:M.1",
+      "reason": "The finite-coefficient field-side comparison uses the supplier’s Kummer map and its equivariant coefficient model, for a positive modulus invertible in the field. This is the finite Kummer reference map in M.1’s realization/localization comparison. ArithmeticGaloisDuality still supplies compact coefficients and derived limits, and the scheme étale/Galois comparison still needs its named supplier; a field Kummer statement is not by itself a theorem about every scheme.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+          "quote": "`Kˣ ⧸ (Kˣ)ⁿ ≃* Multiplicative (H¹(AbsoluteGaloisGroup K, KummerCoeff K n))`"
+        },
+        {
+          "stageId": "MotivicEtaleKTheory:M.1",
+          "quote": "Construct arithmetic K-theory realization maps into these carriers and prove agreement with finite/discrete cohomology, Kummer localization and transfer."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "MotivicEtaleKTheory:M.1",
+      "reason": "M.1 must identify its arithmetic realizations with the established canonical cohomology and transfer on the finite/discrete specialization. The supplier provides all degrees and restriction/corestriction at open subgroups, including the index normalization. This comparison edge does not bypass ArithmeticGaloisDuality’s compact/derived construction or the separate comparison from scheme étale cohomology.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+          "quote": "`cor ∘ res = (G : U) • id` (`corestriction_comp_res`)"
+        },
+        {
+          "stageId": "MotivicEtaleKTheory:M.1",
+          "quote": "Construct arithmetic K-theory realization maps into these carriers and prove agreement with finite/discrete cohomology, Kummer localization and transfer."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+      "target": "MotivicEtaleKTheory:M.5c",
+      "reason": "For the mod-ell theorem in M.5c, the natural norm-residue map needs multiplicative compatibility in all degrees on its Galois-cohomology target H^j(F,μ_ell^{⊗j}), with ell invertible in F. This target uses the supplier’s graded cup and the tensor pairings between twists, not just its low-degree six-shape API. The prime-power passage belongs to M.5d, not this mod-ell stage. Motivic operations, Rost motives, norm varieties and the isomorphism proof remain M.5a–d responsibilities.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+          "quote": "`cup`, `cup_add_left`, `cup_add_right`, `cup_one_left`, `cup_one_right`, `cup_assoc`, `cup_gradedComm`, `cup_res`, `cup_infl`, `cup_coeffMap`, `cup_projection`"
+        },
+        {
+          "stageId": "MotivicEtaleKTheory:M.5c",
+          "quote": "Export the actual natural map and its compatibility with residues, products and transfers."
+        }
+      ]
+    }
+  ],
+  "overlaps": [
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category"
+      ],
+      "detail": "Both specifications include the equivalence between discrete jointly continuous actions and smooth discrete objects. The shared profinite restriction is expressly assigned to ProfiniteCohomology by the smooth-representation document; the latter also asks for a wider coefficient/category API.",
+      "recommendation": "rescope",
+      "proposal": "Keep the profinite coefficient dictionary and its finite subobject/quotient/restriction comparisons in ProfiniteCohomology Layer 1. State SR.0’s use on compact opens as reuse with the A-linear comparison made explicit. SR.0 owns the locally profinite smooth abelian category, smooth-vector adjunction, arbitrary sums and filtered colimits. Do not import SR.0:derived-extension to construct the early abelian carrier and do not identify separately continuous TopRep objects with jointly continuous actions.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+          "quote": "the two translations are mutually inverse **on the smooth discrete subcategory**, which they exhibit as equivalent to the discrete `G`-modules."
+        },
+        {
+          "stageId": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+          "quote": "For a discrete topology, prove equivalence with joint continuity of the action."
+        }
+      ]
+    }
+  ],
+  "examined": [
+    {
+      "roadmapId": "ArithmeticGaloisDuality",
+      "result": "links",
+      "note": "Summary, complete roadmap document and all eight stage descriptions read. Six direct links identify the discrete/canonical inputs of R02.1–R02.4. D7’s compact/derived extension and full Hochschild–Serre remain owned here; D8 and R02.5–R02.6 consume those through named intermediate stages, so no extra generic shortcut is added."
+    },
+    {
+      "roadmapId": "SmoothRepresentationsOfLocalGroups",
+      "result": "links",
+      "note": "Complete document and all native milestone texts read, including the separate SR.0 abelian/derived stages. One early dictionary link and one rescope proposal. Do not infer general locally profinite induction, Hecke averaging, second adjointness or integral finiteness from discrete profinite cohomology."
+    },
+    {
+      "roadmapId": "K2SymbolsBrauer",
+      "result": "links",
+      "note": "Summary, T.1–T.3 descriptions, and complete T.6/T.7 plus completion/acceptance text read. Two direct links to T.7’s Kummer-cup comparison. T.4–T.5 full descriptions and their other possible relationships remain to be screened; no claim of full-roadmap coverage."
+    },
+    {
+      "roadmapId": "MotivicEtaleKTheory",
+      "result": "links",
+      "note": "Summary and full mathematical document from M.1 through M.8, including M.5a–d and M.6a–b, read. Three comparison links. Preserved KU readiness checkpoints are aggregations, not new proof owners. Scheme, compact and real-place corrections retain their named suppliers; no purported full-scan result for every checkpoint or external supplier."
+    },
+    {
+      "roadmapId": "SelmerIwasawaCohomology",
+      "result": "none",
+      "note": "Complete document L0–L4 and its ownership/acceptance/handoff text read. The text expressly imports compact/derived cochains, twists, full Hochschild–Serre and integral Kummer from ArithmeticGaloisDuality. Do not replace those imports by ProfiniteCohomology’s finite/discrete results or add a second Iwasawa-limit owner. No additional direct edge established in this pass."
+    },
+    {
+      "roadmapId": "LanglandsParameterStacks",
+      "result": "none",
+      "note": "Summary and all native LP0–LP4 stage descriptions, including LP2 sub-stages, read. The LP0 placeholder UPSTREAM:ProfiniteCohomology does not identify an exact supplier for nonabelian continuous/condensed Weil cocycles. An additive H¹ construction is insufficient. LP1 tangent cohomology also needs the actual Weil/discretization coefficient comparison. Record the unresolved anchoring question, not an invented edge."
+    },
+    {
+      "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+      "result": "none",
+      "note": "Summary and all IHG.0–IHG.6 stage descriptions read. Determinant interpolation is not a cohomological finite-quotient colimit. IHG.6 explicitly assigns its topological continuous cochain/class API to ArithmeticGaloisDuality R02.1. Finitely generated T-modules are not automatically finite discrete coefficient modules. No additional exact direct edge established."
+    },
+    {
+      "roadmapId": "PotentialAutomorphyInfrastructure",
+      "result": "none",
+      "note": "Summary and all six PA.0–PA.5 stage descriptions read. The roadmap-level ProfiniteCohomology prerequisite is not a stage-level supplier by itself. PA.4 imports arithmetic duality for auxiliary primes; the other stated coefficient/patching operations have dedicated owners. No precise additional direct cohomology edge is justified merely by the shared word cohomology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+      "result": "none",
+      "note": "Complete upstream document read as the second style/ownership reference. Finite-group factor-set H² is ordinary cohomology, not an automatic consumer of continuous cohomology. ProfiniteCohomology Layer 7 names the algebraic induction/coinduction interface but its precise baseline-or-stage anchoring needs a separate check: the finite-dimensional character stage does not supply the arbitrary discrete Z-module comparison. No unsupported inbound edge added."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+      "result": "links",
+      "note": "Existing link packet’s ProfiniteCohomology interface inspected as a deduplication lead: the canonical carrier, low/all-degree cups, Kummer, Shapiro and finite-quotient Brauer comparisons already have recorded edges there. Not copied here. This is not a fresh full reading of every class-field-theory stage or an independent acceptance of that packet."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+      "result": "links",
+      "note": "Existing link packet’s ProfiniteCohomology interface inspected as a deduplication lead: low-degree H¹/H², five-term sequences, coefficient and dimension interfaces already appear there. Not copied. Full independent review of that packet and all pro-p stage descriptions remains outside this checkpoint."
+    }
+  ],
+  "remainingWork": [
+    "Finish the mandatory whole-catalogue search: read all other upstream roadmaps and every same-area roadmap; search all area extracts and new roadmap definitions for the target inventory’s inputs, outputs, synonyms and notation. Only the individually described examined records are completed reading in this checkpoint.",
+    "Read K2SymbolsBrauer T.4–T.5 in full and finish every unexamined source/consumer description before claiming complete mapping. Read both endpoints of any newly proposed edge.",
+    "Inspect all 18 pre-existing matching link packets in full for target-touching entries, and refresh that search at submission/integration time. Existing ClassFieldTheory and ProfiniteProPGroups interfaces were inspected as deduplication leads, not independently reviewed.",
+    "Resolve the precise finite-index algebraic induction/coinduction input of ProfiniteCohomology Layer 7 by checking actual pinned declarations and the exact upstream stage; do not infer the needed Z-module generality from a finite-dimensional character theorem.",
+    "Resolve the named-but-unanchored ProfiniteCohomology prerequisite in LanglandsParameterStacks LP0 with a precise abelian/nonabelian and Weil/profinite comparison contract.",
+    "Obtain independent mathematical review and repeat scripts/check_links.py against the integration revision. The first submitted packet passed the complete PR workflow with zero errors and warnings; this is not mathematical approval or complete catalogue coverage."
+  ],
+  "gaps": [
+    {
+      "title": "Shapiro complex-level contract needs clarification",
+      "neededBy": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
+      ],
+      "detail": "Layer 10 requests shapiroCochainIso. For ordinary homogeneous/inhomogeneous cochains the two standard complexes are not degreewise isomorphic: take G=C2, H=1, M=F2; degree zero on the G side with Coind_H^G M has dimension 2, and on the H side dimension 1. Identify a changed resolution model or use a quasi-isomorphism/chain-homotopy equivalence. This observation is about the roadmap contract, not a checked implementation or a refutation of cohomological Shapiro."
+    },
+    {
+      "title": "Separate early Kummer results from late Galois adapter comparisons",
+      "neededBy": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory"
+      ],
+      "detail": "Layer 9’s early prerequisites list Layers 3,4,5,8, but its galoisCor/galoisEvens adapters explicitly also use Layers 10 and 13 (the API table acknowledges this). Keep Kummer/Hilbert 90 early and schedule the adapter comparisons after those suppliers; do not imply all of Layer 9 precedes them. This is a sequencing ambiguity, not an established cycle in the recorded graph."
+    },
+    {
+      "title": "Keep Kummer modulus and scheme hypotheses explicit in consumers",
+      "neededBy": [
+        "K2SymbolsBrauer:T.7",
+        "MotivicEtaleKTheory:M.1"
+      ],
+      "detail": "The links supply Kummer for positive m invertible in the field, with its natural μ_m action. T.7’s shorthand m must retain these hypotheses. Scheme étale comparison, residue-characteristic variants, roots-of-unity trivializations and compact inverse limits need their own identified constructions."
+    }
+  ],
+  "validation": {
+    "local": "JSON parse and limited packet-only structural checks passed; complete check_links.py not run locally.",
+    "workflow": {
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/actions/runs/35112557658",
+      "jobId": 104849735254,
+      "sourceHead": "9de8354e7d05be11b48604caed89162ff99b1d77",
+      "testMerge": "e2ca46f4f194be1be4cc1b59291948a7e6ed29ec",
+      "base": "5fd9a4536478b9abffe59986d4a551397fc11cc9",
+      "command": "python3 scripts/check_links.py research/blueprint/links/tauceti_TauCetiRoadmap_ProfiniteCohomology.json",
+      "result": "0 error(s), 0 warning(s)",
+      "observedAt": "2026-09-16T15:02:21Z",
+      "note": "Actual job log read; 12 links, 1 overlap, 11 examined. Subsequent metadata/wording changes need their own check. This is structural validation, not independent mathematical review."
+    }
+  }
+}
