@@ -1,0 +1,716 @@
+[
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+  "title": "Partial differential equations",
+  "statusPath": "content/tau-ceti/PDE/STATUS.md",
+  "readmePath": "content/tau-ceti/PDE/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#lane-a-function-spaces-on-a-domain-the-universal-prerequisite",
+    "key": "Lane A",
+    "title": "Lane A: function spaces on a domain (the universal prerequisite)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-a-1",
+    "key": "A.1",
+    "title": "W^{k,p}(Ω) via weak derivatives",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-a-function-spaces-on-a-domain-the-universal-prerequisite"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-a-2",
+    "key": "A.2",
+    "title": "Density and W^{k,p}_0",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-a-function-spaces-on-a-domain-the-universal-prerequisite"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-a-3",
+    "key": "A.3",
+    "title": "Reconcile with Mathlib's Bessel-potential scale",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-a-function-spaces-on-a-domain-the-universal-prerequisite"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-a-4",
+    "key": "A.4",
+    "title": "Embeddings",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-a-function-spaces-on-a-domain-the-universal-prerequisite"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-a-5",
+    "key": "A.5",
+    "title": "Poincaré",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-a-function-spaces-on-a-domain-the-universal-prerequisite"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-a-6",
+    "key": "A.6",
+    "title": "Trace, extension, Rellich",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-a-function-spaces-on-a-domain-the-universal-prerequisite"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-a-7",
+    "key": "A.7",
+    "title": "Hölder spaces C^{k,α}(Ω)",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-a-function-spaces-on-a-domain-the-universal-prerequisite"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#lane-b-harmonic-analysis-estimates",
+    "key": "Lane B",
+    "title": "Lane B: harmonic-analysis estimates",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-b-8",
+    "key": "B.8",
+    "title": "Hardy–Littlewood maximal function",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-b-harmonic-analysis-estimates"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-b-9",
+    "key": "B.9",
+    "title": "Interpolation",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-b-harmonic-analysis-estimates"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-b-10",
+    "key": "B.10",
+    "title": "Calderón–Zygmund",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-b-harmonic-analysis-estimates"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-b-11",
+    "key": "B.11",
+    "title": "BMO and John–Nirenberg",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-b-harmonic-analysis-estimates"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#lane-c-maximum-principles-and-potential-theory",
+    "key": "Lane C",
+    "title": "Lane C: maximum principles and potential theory",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-c-12",
+    "key": "C.12",
+    "title": "Mean-value property and smoothness of harmonic functions",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-c-maximum-principles-and-potential-theory"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-c-13",
+    "key": "C.13",
+    "title": "The weak and strong maximum principles",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-c-maximum-principles-and-potential-theory"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-c-14",
+    "key": "C.14",
+    "title": "The Harnack inequality",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-c-maximum-principles-and-potential-theory"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-c-15",
+    "key": "C.15",
+    "title": "Fundamental solution / Newtonian potential",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-c-maximum-principles-and-potential-theory"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#lane-d-linear-elliptic-existence-the-energy-method",
+    "key": "Lane D",
+    "title": "Lane D: linear elliptic existence (the energy method)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-d-16",
+    "key": "D.16",
+    "title": "Weak formulation",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-d-linear-elliptic-existence-the-energy-method"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-d-17",
+    "key": "D.17",
+    "title": "Existence & uniqueness (coercive case)",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-d-linear-elliptic-existence-the-energy-method"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-d-18",
+    "key": "D.18",
+    "title": "The Fredholm alternative (non-coercive case)",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-d-linear-elliptic-existence-the-energy-method"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-d-19",
+    "key": "D.19",
+    "title": "Spectrum of −Δ",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-d-linear-elliptic-existence-the-energy-method"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#lane-e-elliptic-regularity",
+    "key": "Lane E",
+    "title": "Lane E: elliptic regularity",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-e-20",
+    "key": "E.20",
+    "title": "Interior H²/Hᵏ estimates",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-e-elliptic-regularity"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-e-21",
+    "key": "E.21",
+    "title": "Calderón–Zygmund W^{2,p} estimates",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-e-elliptic-regularity"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-e-22",
+    "key": "E.22",
+    "title": "Schauder estimates",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-e-elliptic-regularity"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-e-23",
+    "key": "E.23",
+    "title": "De Giorgi–Nash–Moser",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-e-elliptic-regularity"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#lane-f-parabolic-and-evolution-equations",
+    "key": "Lane F",
+    "title": "Lane F: parabolic and evolution equations",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-f-24",
+    "key": "F.24",
+    "title": "Bochner spaces and the Gelfand triple",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-f-parabolic-and-evolution-equations"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-f-25",
+    "key": "F.25",
+    "title": "Linear parabolic existence",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-f-parabolic-and-evolution-equations"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-f-26",
+    "key": "F.26",
+    "title": "Semigroups",
+    "parentStageId": "tauceti:TauCetiRoadmap/PDE#lane-f-parabolic-and-evolution-equations"
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+  "title": "Continuous cohomology of profinite groups",
+  "statusPath": "content/tau-ceti/ProfiniteCohomology/STATUS.md",
+  "readmePath": "content/tau-ceti/ProfiniteCohomology/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
+    "key": "Layer 0",
+    "title": "Layer 0: discrete modules and continuous sections",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+    "key": "Layer 1",
+    "title": "Layer 1: the canonical carrier and its functoriality",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality",
+    "key": "Layer 2",
+    "title": "Layer 2: the explicit low-degree complex and its functoriality",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+    "key": "Layer 3",
+    "title": "Layer 3: the comparison isomorphisms",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+    "key": "Layer 4",
+    "title": "Layer 4: the finite-quotient colimit description",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+    "key": "Layer 5",
+    "title": "Layer 5: exact sequences",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+    "key": "Layer 6",
+    "title": "Layer 6: change of groups",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+    "key": "Layer 7",
+    "title": "Layer 7: coinduced modules and Shapiro's lemma",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+    "key": "Layer 8",
+    "title": "Layer 8: cup products in low degrees",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+    "key": "Layer 9",
+    "title": "Layer 9: the Galois interface: Hilbert 90 and Kummer theory",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+    "key": "Layer 10",
+    "title": "Layer 10: continuous cohomology in all degrees",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+    "key": "Layer 11",
+    "title": "Layer 11: cohomological dimension",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+    "key": "Layer 12",
+    "title": "Layer 12: the graded cup product in all degrees",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-13-the-evens-norm",
+    "key": "Layer 13",
+    "title": "Layer 13: the Evens norm",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+  "title": "DG and A-infinity algebras, categories, and modules",
+  "statusPath": "content/tau-ceti/DGAInfinity/STATUS.md",
+  "readmePath": "content/tau-ceti/DGAInfinity/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-0-signed-graded-multilinear-and-tensor-coalgebra-infrastructure",
+    "key": "Layer 0",
+    "title": "Layer 0: signed graded multilinear and tensor-coalgebra infrastructure",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules",
+    "key": "Layer 1",
+    "title": "Layer 1: DG algebras, categories, modules, and bimodules",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-2-a-algebras-categories-morphisms-functors-modules-and-bimodules",
+    "key": "Layer 2",
+    "title": "Layer 2: A∞ algebras, categories, morphisms, functors, modules, and bimodules",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-3-minimal-models-and-homological-transfer",
+    "key": "Layer 3",
+    "title": "Layer 3: minimal models and homological transfer",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-4-bar--cobar-dg-strictification-and-controlled-maurer--cartan-twisting",
+    "key": "Layer 4",
+    "title": "Layer 4: bar--cobar, DG strictification, and controlled Maurer--Cartan twisting",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-5-derived-modules-twisted-complexes-and-perfect-envelopes",
+    "key": "Layer 5",
+    "title": "Layer 5: derived modules, twisted complexes, and perfect envelopes",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-6-quasi-equivalence-derived-morita-theory-and-compact-generators",
+    "key": "Layer 6",
+    "title": "Layer 6: quasi-equivalence, derived Morita theory, and compact generators",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-7-dg-and-a-quotients-verdier-comparison-and-k₀-localization",
+    "key": "Layer 7",
+    "title": "Layer 7: DG and A∞ quotients, Verdier comparison, and K₀ localization",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality",
+    "key": "Layer 8",
+    "title": "Layer 8: Hochschild cochains, deformations, Massey products, and formality",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-9-smoothness-properness-serre-and-calabi--yau-structures-and-completions",
+    "key": "Layer 9",
+    "title": "Layer 9: smoothness, properness, Serre, and Calabi--Yau structures and completions",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
+    "key": "Layer 10",
+    "title": "Layer 10: K₀(Perf), Euler and numerical forms",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-11-relative-quadratic-and-derived-koszul-duality",
+    "key": "Layer 11",
+    "title": "Layer 11: relative quadratic and derived Koszul duality",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+  "title": "Arithmetic Dirichlet series and Tauberian methods",
+  "statusPath": "content/tau-ceti/ArithmeticDirichletSeries/STATUS.md",
+  "readmePath": "content/tau-ceti/ArithmeticDirichletSeries/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-0-arithmetic-functions-on-nonzero-ideals",
+    "key": "Layer 0",
+    "title": "Layer 0: arithmetic functions on nonzero ideals",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries",
+    "key": "Layer 1",
+    "title": "Layer 1: norm fibres and Mathlib LSeries",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-2-convolution-and-logarithmic-derivatives",
+    "key": "Layer 2",
+    "title": "Layer 2: convolution and logarithmic derivatives",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+    "key": "Layer 3",
+    "title": "Layer 3: local factors and Euler products",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-4-counting-carriers-and-local-finiteness",
+    "key": "Layer 4",
+    "title": "Layer 4: counting carriers and local finiteness",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates",
+    "key": "Layer 5",
+    "title": "Layer 5: ideal and prime estimates",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+    "key": "Layer 6",
+    "title": "Layer 6: Abel and Perron summation",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+    "key": "Layer 7",
+    "title": "Layer 7: Dirichlet density",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity",
+    "key": "Layer 8",
+    "title": "Layer 8: Landau-type positivity",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara",
+    "key": "Layer 9",
+    "title": "Layer 9: Wiener–Ikehara",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+    "key": "Layer 10",
+    "title": "Layer 10: generic prime-number-theorem transfer",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+  "title": "Reductive algebraic groups",
+  "statusPath": "content/tau-ceti/ReductiveGroups/STATUS.md",
+  "readmePath": "content/tau-ceti/ReductiveGroups/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary",
+    "key": "Layer 0",
+    "title": "Layer 0: the functor of points and the three-way dictionary",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+    "key": "Layer 1",
+    "title": "Layer 1: representations = comodules",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+    "key": "Layer 2",
+    "title": "Layer 2: Lie algebra and the adjoint representation",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+    "key": "Layer 3",
+    "title": "Layer 3: subgroups, quotients, components",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+    "key": "Layer 4",
+    "title": "Layer 4: Jordan decomposition, diagonalizable groups, tori",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-5-solvable-and-unipotent-groups-the-unipotent-radical",
+    "key": "Layer 5",
+    "title": "Layer 5: solvable and unipotent groups; the unipotent radical",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+    "key": "Layer 6",
+    "title": "Layer 6: reductive and semisimple groups",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "key": "Layer 7",
+    "title": "Layer 7: structure theory",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon",
+    "key": "Layer 8",
+    "title": "Layer 8: classification and existence (long horizon)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+    "key": "Layer 9",
+    "title": "Layer 9: pinned Chevalley–Demazure group schemes over ℤ",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+  "title": "Zigzag, preprojective, and Ginzburg algebras",
+  "statusPath": "content/tau-ceti/ZigzagPreprojective/STATUS.md",
+  "readmePath": "content/tau-ceti/ZigzagPreprojective/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-0-affine-simply-laced-diagrams-doubled-graphs-relation-quotients-and-grading-descent",
+    "key": "Layer 0",
+    "title": "Layer 0: affine simply-laced diagrams, doubled graphs, relation quotients, and grading descent",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-1-strict-ordinary-and-skew-zigzag-algebras",
+    "key": "Layer 1",
+    "title": "Layer 1: strict ordinary and skew zigzag algebras",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-2-bases-dimensions-centers-and-symmetric-frobenius-traces",
+    "key": "Layer 2",
+    "title": "Layer 2: bases, dimensions, centers, and symmetric Frobenius traces",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms",
+    "key": "Layer 3",
+    "title": "Layer 3: projectives, graded Cartan matrices, and q-Euler forms",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-4-additive-preprojective-algebras-and-orientation-independence",
+    "key": "Layer 4",
+    "title": "Layer 4: additive preprojective algebras and orientation independence",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-5-quadratic-and-koszul-duality",
+    "key": "Layer 5",
+    "title": "Layer 5: quadratic and Koszul duality",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-6-2-dimensional-ginzburg-dg-algebras-and-calabi--yau-completion",
+    "key": "Layer 6",
+    "title": "Layer 6: 2-dimensional Ginzburg DG algebras and Calabi--Yau completion",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-7-derived-koszul-duality-hochschild-classes-and-a-deformation-theory",
+    "key": "Layer 7",
+    "title": "Layer 7: derived Koszul duality, Hochschild classes, and A∞ deformation theory",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-8-braid-complexes-and-spherical-twist-comparisons",
+    "key": "Layer 8",
+    "title": "Layer 8: braid complexes and spherical-twist comparisons",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+  "title": "Galois groups of polynomials",
+  "statusPath": "content/tau-ceti/PolynomialGaloisGroups/STATUS.md",
+  "readmePath": "content/tau-ceti/PolynomialGaloisGroups/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial",
+    "key": "Layer 0",
+    "title": "Layer 0: the permutation representation of a polynomial",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-1-permutation-groups-blocks-and-wreath-products",
+    "key": "Layer 1",
+    "title": "Layer 1: permutation groups, blocks, and wreath products",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-2-the-dictionary-between-galois-theory-and-permutations",
+    "key": "Layer 2",
+    "title": "Layer 2: the dictionary between Galois theory and permutations",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-3-the-discriminant-and-the-alternating-group",
+    "key": "Layer 3",
+    "title": "Layer 3: the discriminant and the alternating group",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-4-resolvents",
+    "key": "Layer 4",
+    "title": "Layer 4: resolvents",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-5-frobenius-specialization",
+    "key": "Layer 5",
+    "title": "Layer 5: Frobenius specialization",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates",
+    "key": "Layer 6",
+    "title": "Layer 6: transitive subgroups of Sₙ for n ≤ 5, and the label predicates",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-9-sₙ-as-a-galois-group-over-ℚ",
+    "key": "Layer 9",
+    "title": "Layer 9: Sₙ as a Galois group over ℚ",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+  "title": "The Jacobian challenge (Christian Merten's AG version)",
+  "statusPath": "content/tau-ceti/JacobianChallenge/STATUS.md",
+  "readmePath": "content/tau-ceti/JacobianChallenge/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+    "key": "Layer A",
+    "title": "Layer A, line bundles, divisors, Picard group, degree",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+    "key": "Layer B",
+    "title": "Layer B, coherent cohomology over k: genus, Riemann–Roch, Serre duality",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+    "key": "Layer C",
+    "title": "Layer C, relative coherent cohomology and base change",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+    "key": "Layer D",
+    "title": "Layer D, the relative Picard functor and the Jacobian scheme",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+    "key": "Layer E",
+    "title": "Layer E, abelian varieties",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+    "key": "Layer F",
+    "title": "Layer F, Abel–Jacobi and the universal property",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+  "title": "Universal covers",
+  "statusPath": "content/tau-ceti/UniversalCovers/STATUS.md",
+  "readmePath": "content/tau-ceti/UniversalCovers/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti",
+    "key": "Stage 0",
+    "title": "Stage 0: port the foundations into TauCeti/",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-1-close-out-the-universal-cover",
+    "key": "Stage 1",
+    "title": "Stage 1: close out the universal cover",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+    "key": "Stage 2",
+    "title": "Stage 2: lifting criterion and Galois correspondence",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy",
+    "key": "Stage 3",
+    "title": "Stage 3: higher homotopy",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-4-applications",
+    "key": "Stage 4",
+    "title": "Stage 4: applications",
+    "parentStageId": null
+   }
+  ]
+ }
+]

@@ -1,0 +1,717 @@
+[
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "title": "Combinatorial Heegaard Floer and grid homology",
+  "statusPath": "content/tau-ceti/CombinatorialHeegaardFloer/STATUS.md",
+  "readmePath": "content/tau-ceti/CombinatorialHeegaardFloer/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-g-grid-homology-the-spine",
+    "key": "Lane G",
+    "title": "Lane G: grid homology (the spine)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-1",
+    "key": "G.1",
+    "title": "Grid diagrams and grid states",
+    "parentStageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-g-grid-homology-the-spine"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-2",
+    "key": "G.2",
+    "title": "Gradings",
+    "parentStageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-g-grid-homology-the-spine"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-3",
+    "key": "G.3",
+    "title": "The complexes and ∂² = 0",
+    "parentStageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-g-grid-homology-the-spine"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-4",
+    "key": "G.4",
+    "title": "Euler characteristic = Alexander polynomial",
+    "parentStageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-g-grid-homology-the-spine"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-5",
+    "key": "G.5",
+    "title": "Invariance over 𝔽₂",
+    "parentStageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-g-grid-homology-the-spine"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-6",
+    "key": "G.6",
+    "title": "All V_i act identically on homology",
+    "parentStageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-g-grid-homology-the-spine"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-7",
+    "key": "G.7",
+    "title": "|τ(K)| ≤ u(K)",
+    "parentStageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-g-grid-homology-the-spine"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-8",
+    "key": "G.8",
+    "title": "Symmetries and the genus bound",
+    "parentStageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-g-grid-homology-the-spine"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-9",
+    "key": "G.9",
+    "title": "Skein exact sequence; alternating knots are thin; links",
+    "parentStageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-g-grid-homology-the-spine"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-10",
+    "key": "G.10",
+    "title": "Slice genus:",
+    "parentStageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-g-grid-homology-the-spine"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-11",
+    "key": "G.11",
+    "title": "Legendrian and transverse GRID invariants",
+    "parentStageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-g-grid-homology-the-spine"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-12",
+    "key": "G.12",
+    "title": "ℤ coefficients",
+    "parentStageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-g-grid-homology-the-spine"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-13",
+    "key": "G.13",
+    "title": "The filtered theory",
+    "parentStageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-g-grid-homology-the-spine"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-alg-bigraded-and-filtered-homological-algebra",
+    "key": "Lane ALG",
+    "title": "Lane ALG: bigraded and filtered homological algebra",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-k-knot-theory-reconciliation",
+    "key": "Lane K",
+    "title": "Lane K: knot-theory reconciliation",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-l-lattice-homology",
+    "key": "Lane L",
+    "title": "Lane L: lattice homology",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-h-combinatorial-hf-of-3-manifolds",
+    "key": "Lane H",
+    "title": "Lane H: combinatorial HF̂ of 3-manifolds",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-h-1",
+    "key": "H.1",
+    "title": "Pointed multi-pointed Heegaard diagram combinatorics (the diagram as data:",
+    "parentStageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-h-combinatorial-hf-of-3-manifolds"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-h-2",
+    "key": "H.2",
+    "title": "The nice-move calculus and \"convenient\" diagrams from pair-of-pants",
+    "parentStageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-h-combinatorial-hf-of-3-manifolds"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-h-3",
+    "key": "H.3",
+    "title": "HF̂_st(Y) over 𝔽₂: well-definedness and the purely topological invariance",
+    "parentStageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-h-combinatorial-hf-of-3-manifolds"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-h-4",
+    "key": "H.4",
+    "title": "ℤ coefficients via sign assignments",
+    "parentStageId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-h-combinatorial-hf-of-3-manifolds"
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "title": "Heegaard Floer homology, analytically",
+  "statusPath": "content/tau-ceti/HeegaardFloer/STATUS.md",
+  "readmePath": "content/tau-ceti/HeegaardFloer/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-m-morse-homology-stage-0",
+    "key": "Lane M",
+    "title": "Lane M: Morse homology (Stage 0)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-m-1",
+    "key": "M.1",
+    "title": "Dynamical route",
+    "parentStageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-m-morse-homology-stage-0"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-m-2",
+    "key": "M.2",
+    "title": "Functional-analytic route",
+    "parentStageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-m-morse-homology-stage-0"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f0-the-nonlinear-analysis-substrate",
+    "key": "Lane F0",
+    "title": "Lane F0: the nonlinear-analysis substrate",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f1-the-cauchyriemann-elliptic-package-shared-with-the-pde-roadmap",
+    "key": "Lane F1",
+    "title": "Lane F1: the Cauchy–Riemann elliptic package (shared with the PDE roadmap)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-1",
+    "key": "F1.1",
+    "title": "W^{k,p} of maps of surfaces/strips, Sobolev multiplication (kp > 2), trace",
+    "parentStageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f1-the-cauchyriemann-elliptic-package-shared-with-the-pde-roadmap"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-2",
+    "key": "F1.2",
+    "title": "The Calderón–Zygmund inequality ‖u‖_{W^{1,p}} ≤ C‖∂̄u‖_{L^p} via the Cauchy",
+    "parentStageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f1-the-cauchyriemann-elliptic-package-shared-with-the-pde-roadmap"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-3",
+    "key": "F1.3",
+    "title": "Linear Cauchy–Riemann operators on the disk/strip as Fredholm operators between",
+    "parentStageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f1-the-cauchyriemann-elliptic-package-shared-with-the-pde-roadmap"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f2-j-holomorphic-curves",
+    "key": "Lane F2",
+    "title": "Lane F2: J-holomorphic curves",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-1",
+    "key": "F2.1",
+    "title": "Definitions land immediately",
+    "parentStageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f2-j-holomorphic-curves"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-2",
+    "key": "F2.2",
+    "title": "Local theory",
+    "parentStageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f2-j-holomorphic-curves"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-3",
+    "key": "F2.3",
+    "title": "Compactness",
+    "parentStageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f2-j-holomorphic-curves"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-4",
+    "key": "F2.4",
+    "title": "Transversality",
+    "parentStageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f2-j-holomorphic-curves"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-5",
+    "key": "F2.5",
+    "title": "Gluing",
+    "parentStageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f2-j-holomorphic-curves"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f3-lagrangian-floer-homology-exact-case",
+    "key": "Lane F3",
+    "title": "Lane F3: Lagrangian Floer homology, exact case",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f4-heegaard-floer-homology-holomorphically",
+    "key": "Lane F4",
+    "title": "Lane F4: Heegaard Floer homology, holomorphically",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-1",
+    "key": "F4.1",
+    "title": "Sym^g(Σ) geometry:",
+    "parentStageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f4-heegaard-floer-homology-holomorphically"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-2",
+    "key": "F4.2",
+    "title": "Spin^c structures",
+    "parentStageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f4-heegaard-floer-homology-holomorphically"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-3",
+    "key": "F4.3",
+    "title": "Nearly-symmetric J",
+    "parentStageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f4-heegaard-floer-homology-holomorphically"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-4",
+    "key": "F4.4",
+    "title": "HF̂ over 𝔽₂:",
+    "parentStageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f4-heegaard-floer-homology-holomorphically"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-5",
+    "key": "F4.5",
+    "title": "Then, staged:",
+    "parentStageId": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f4-heegaard-floer-homology-holomorphically"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f5-beyond-far-horizon-named-so-nobody-mistakes-the-scope",
+    "key": "Lane F5",
+    "title": "Lane F5: beyond (far horizon, named so nobody mistakes the scope)",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+  "title": "Dense graph limits and graphons",
+  "statusPath": "content/tau-ceti/DenseGraphLimits/STATUS.md",
+  "readmePath": "content/tau-ceti/DenseGraphLimits/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-0--finite-graph-and-measure-scaffolding",
+    "key": "Layer 0",
+    "title": "Layer 0 — finite-graph and measure scaffolding",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-1--core-objects-and-their-basic-api",
+    "key": "Layer 1",
+    "title": "Layer 1 — core objects and their basic API",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-2--counting-regularity-total-boundedness",
+    "key": "Layer 2",
+    "title": "Layer 2 — counting, regularity, total boundedness",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-3--the-ae--aeeqfun-view",
+    "key": "Layer 3",
+    "title": "Layer 3 — the AE / AEEqFun view",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-4--completeness-and-compactness",
+    "key": "Layer 4",
+    "title": "Layer 4 — completeness and compactness",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-5--coupling-and-map-cut-distance-agree",
+    "key": "Layer 5",
+    "title": "Layer 5 — coupling and map cut distance agree",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-6--separation-and-convergence-equivalence-the-analytic-summit",
+    "key": "Layer 6",
+    "title": "Layer 6 — separation and convergence equivalence (the analytic summit)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-7--applications-and-validation",
+    "key": "Layer 7",
+    "title": "Layer 7 — applications and validation",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-8a--quantum-graphs-and-reflection-positivity",
+    "key": "Layer 8a",
+    "title": "Layer 8a — quantum graphs and reflection positivity",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-8b--lovászszegedy-representability",
+    "key": "Layer 8b",
+    "title": "Layer 8b — Lovász–Szegedy representability",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9a--finite-and-joint-graphon-sampling",
+    "key": "Layer 9a",
+    "title": "Layer 9a — finite and joint graphon sampling",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9b--exchangeable-graph-laws-and-graphon-mixtures",
+    "key": "Layer 9b",
+    "title": "Layer 9b — exchangeable graph laws and graphon mixtures",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9c--sampling-convergence",
+    "key": "Layer 9c",
+    "title": "Layer 9c — sampling convergence",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+  "title": "Profinite and pro-p groups",
+  "statusPath": "content/tau-ceti/ProfiniteProPGroups/STATUS.md",
+  "readmePath": "content/tau-ceti/ProfiniteProPGroups/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
+    "key": "Layer 0",
+    "title": "Layer 0: profinite foundations",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index",
+    "key": "Layer 1",
+    "title": "Layer 1: supernatural order and index",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
+    "key": "Layer 2",
+    "title": "Layer 2: profinite Sylow theory",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+    "key": "Layer 3",
+    "title": "Layer 3: pro-p groups, the maximal pro-p quotient, Frattini theory, generation",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+    "key": "Layer 4",
+    "title": "Layer 4: free pro-p and pro-C groups on finite sets",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+    "key": "Layer 5",
+    "title": "Layer 5: presentations, extensions, and the rank interpretations",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+    "key": "Layer 6",
+    "title": "Layer 6: cohomological dimension of pro-p groups",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+    "key": "Layer 7",
+    "title": "Layer 7: Demushkin groups, their invariants, and the orientation",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-8-the-central-tower-comparison-method-and-finite-quotient-determinacy",
+    "key": "Layer 8",
+    "title": "Layer 8: the central-tower comparison method and finite-quotient determinacy",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+    "key": "Layer 9",
+    "title": "Layer 9 prerequisites: two owned inputs",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-the-classification-of-demushkin-groups",
+    "key": "Layer 9",
+    "title": "Layer 9: the classification of Demushkin groups",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-10-free-pro-c-groups-on-profinite-spaces",
+    "key": "Layer 10",
+    "title": "Layer 10: free pro-C groups on profinite spaces",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+  "title": "Stating the classification of finite simple groups",
+  "statusPath": "content/tau-ceti/CFSGStatement/STATUS.md",
+  "readmePath": "content/tau-ceti/CFSGStatement/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/CFSGStatement#i0-indices-and-mathlib-glue",
+    "key": "I0",
+    "title": "I0: indices and Mathlib glue",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CFSGStatement#l0-ambient-groups-with-root-subgroups",
+    "key": "L0",
+    "title": "L0: ambient groups with root subgroups",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CFSGStatement#l1-ordinary-and-graph-twisted-steinberg-maps",
+    "key": "L1",
+    "title": "L1: ordinary and graph-twisted Steinberg maps",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CFSGStatement#l2-suzuki--ree-steinberg-maps",
+    "key": "L2",
+    "title": "L2: Suzuki--Ree Steinberg maps",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CFSGStatement#l3-fixed-points-and-the-simple-group-candidate",
+    "key": "L3",
+    "title": "L3: fixed points and the simple-group candidate",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CFSGStatement#l5-agreement-of-explicit-carriers-with-the-pinned-groups",
+    "key": "L5",
+    "title": "L5: agreement of explicit carriers with the pinned groups",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CFSGStatement#s0-auditable-presentation-data-and-source-selection",
+    "key": "S0",
+    "title": "S0: auditable presentation data and source selection",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CFSGStatement#s1-the-twenty-six-sporadic-presentations",
+    "key": "S1",
+    "title": "S1: the twenty-six sporadic presentations",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/CFSGStatement#a0-assemble-and-state-cfsg",
+    "key": "A0",
+    "title": "A0: assemble and state CFSG",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+  "title": "One-parameter semigroups, completely monotone and positive-definite functions, and Bochner-type representations",
+  "statusPath": "content/tau-ceti/OneParameterSemigroups/STATUS.md",
+  "readmePath": "content/tau-ceti/OneParameterSemigroups/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-a--strongly-continuous-semigroups",
+    "key": "Part A",
+    "title": "Part A — Strongly continuous semigroups",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--hilleyosida-generation-theorem",
+    "key": "Milestone",
+    "title": "Milestone — Hille–Yosida generation theorem",
+    "parentStageId": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-a--strongly-continuous-semigroups"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--lumerphillips-theorem",
+    "key": "Milestone",
+    "title": "Milestone — Lumer–Phillips theorem",
+    "parentStageId": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-a--strongly-continuous-semigroups"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--abstract-cauchy-problem",
+    "key": "Milestone",
+    "title": "Milestone — abstract Cauchy problem",
+    "parentStageId": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-a--strongly-continuous-semigroups"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-b--completely-monotone-and-bernstein-functions",
+    "key": "Part B",
+    "title": "Part B — Completely monotone (and Bernstein) functions",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--bernsteins-theorem",
+    "key": "Milestone",
+    "title": "Milestone — Bernstein's theorem",
+    "parentStageId": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-b--completely-monotone-and-bernstein-functions"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-c--positive-definite-functions-and-bochners-theorem",
+    "key": "Part C",
+    "title": "Part C — Positive-definite functions and Bochner's theorem",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone-1--bochners-theorem-on-v",
+    "key": "Milestone 1",
+    "title": "Milestone 1 — Bochner's theorem on V",
+    "parentStageId": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-c--positive-definite-functions-and-bochners-theorem"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone-2--bcr-semigroupbochner-bergchristensenressel-4113",
+    "key": "Milestone 2",
+    "title": "Milestone 2 — BCR semigroup–Bochner (Berg–Christensen–Ressel 4.1.13)",
+    "parentStageId": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-c--positive-definite-functions-and-bochners-theorem"
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+  "title": "Number fields, ramification, Frobenius, and the LMFDB invariants",
+  "statusPath": "content/tau-ceti/NumberFieldArithmetic/STATUS.md",
+  "readmePath": "content/tau-ceti/NumberFieldArithmetic/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary",
+    "key": "Layer 1",
+    "title": "Layer 1: the splitting dictionary",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+    "key": "Layer 2",
+    "title": "Layer 2: Frobenius elements and the Artin symbol",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-3-the-index-dedekindkummer-and-dedekinds-theorem",
+    "key": "Layer 3",
+    "title": "Layer 3: the index, Dedekind–Kummer, and Dedekind's theorem",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-4-the-relative-discriminant",
+    "key": "Layer 4",
+    "title": "Layer 4: the relative discriminant",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+    "key": "Layer 5",
+    "title": "Layer 5: the global-local dictionary at finite places",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences",
+    "key": "Layer 6",
+    "title": "Layer 6: global ramification consequences",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-7-subfields-integral-bases-monogenicity-and-explicit-units",
+    "key": "Layer 7",
+    "title": "Layer 7: subfields, integral bases, monogenicity, and explicit units",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-8-the-intrinsic-label-prefix-and-the-invariant-suite",
+    "key": "Layer 8",
+    "title": "Layer 8: the intrinsic label prefix and the invariant suite",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+  "title": "Standard probability distributions and their elementary theory",
+  "statusPath": "content/tau-ceti/StandardDistributions/STATUS.md",
+  "readmePath": "content/tau-ceti/StandardDistributions/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-0-connect-existing-densities-and-add-the-uniform-distribution",
+    "key": "Layer 0",
+    "title": "Layer 0: connect existing densities and add the uniform distribution",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-1-complete-the-elementary-theory-of-existing-distributions",
+    "key": "Layer 1",
+    "title": "Layer 1: complete the elementary theory of existing distributions",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-2-incomplete-special-functions-and-closed-form-cdfs",
+    "key": "Layer 2",
+    "title": "Layer 2: incomplete special functions and closed-form cdfs",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-3-new-scalar-families",
+    "key": "Layer 3",
+    "title": "Layer 3: new scalar families",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-4-relationships-among-distributions",
+    "key": "Layer 4",
+    "title": "Layer 4: relationships among distributions",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-5-multivariate-distributions",
+    "key": "Layer 5",
+    "title": "Layer 5: multivariate distributions",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-6-symmetric-matrices-and-wishart-distributions",
+    "key": "Layer 6",
+    "title": "Layer 6: symmetric matrices and Wishart distributions",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+  "title": "Hodge structures (pure, mixed, and polarized)",
+  "statusPath": "content/tau-ceti/HodgeStructures/STATUS.md",
+  "readmePath": "content/tau-ceti/HodgeStructures/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l0--pure-hodge-structures-the-hodge-decomposition",
+    "key": "L0",
+    "title": "L0 — Pure Hodge structures; the Hodge decomposition",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory",
+    "key": "L1",
+    "title": "L1 — Polarization & Hodge–Riemann; semisimplicity (summit of the pure theory)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne",
+    "key": "L2",
+    "title": "L2 — Mixed Hodge structures; strictness (Deligne)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l3--period-domain-points-the-symmetry-group",
+    "key": "L3",
+    "title": "L3 — Period-domain points; the symmetry group",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory",
+  "title": "Representation theory",
+  "statusPath": "content/tau-ceti/RepresentationTheory/STATUS.md",
+  "readmePath": "content/tau-ceti/RepresentationTheory/README.md",
+  "stages": []
+ }
+]
