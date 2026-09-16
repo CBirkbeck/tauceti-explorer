@@ -3,7 +3,7 @@
  "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
  "roadmaps": {
   "tauceti:TauCetiRoadmap/OneParameterSemigroups": {
-   "summary": "Tau Ceti (TauCeti/Analysis/Semigroups, Normed/Operator/Resolvent, CompletelyMonotone, PositiveDefinite, Bochner) already contains essentially the whole roadmap on real Banach spaces: C₀ and contraction semigroups with generators, closedness, uniqueness, the real resolvent and its sharp power bounds, operator-norm analyticity of unbounded resolvents, bounded perturbation, both the Hille–Yosida and Lumer–Phillips theorems as iff statements, Hausdorff–Bernstein–Widder with uniqueness, Lévy–Khintchine, Bochner on finite-dimensional inner-product spaces and the Berg–Christensen–Ressel theorem; Mathlib contributes only AbsolutelyMonotoneOn, LinearPMap, charFun and Matrix.PosSemidef. Genuinely missing: uniqueness of solutions of the abstract Cauchy problem, a public statement of the integral formula for resolvent powers (it exists only as private lemmas), the half-plane complex resolvent set of the complexified generator, the reciprocal complete-Bernstein/Stieltjes correspondence, and the optional LCA Bochner stretch. The roadmap's Bernstein milestone, stated with C^∞ smoothness on [0,∞), is false in the converse direction; Tau Ceti proves the correct form with continuity at 0 and complete monotonicity on (0,∞). The milestone layers repeat text from their parent parts.",
+   "summary": "Tau Ceti (TauCeti/Analysis/Semigroups, Normed/Operator/Resolvent, CompletelyMonotone, PositiveDefinite, Bochner) already contains essentially the whole roadmap on real Banach spaces: C₀ and contraction semigroups with generators, closedness, uniqueness, the real resolvent with its integral formula for powers and sharp power bounds, operator-norm analyticity of unbounded resolvents, bounded perturbation, both the Hille–Yosida and Lumer–Phillips theorems as iff statements, Hausdorff–Bernstein–Widder with uniqueness, Lévy–Khintchine, Bochner on finite-dimensional inner-product spaces and the Berg–Christensen–Ressel theorem; Mathlib contributes only AbsolutelyMonotoneOn, LinearPMap, charFun and Matrix.PosSemidef. Genuinely missing: uniqueness of solutions of the abstract Cauchy problem, the half-plane complex resolvent set of the complexified generator, the reciprocal complete-Bernstein/Stieltjes correspondence, and the optional LCA Bochner stretch. The roadmap's Bernstein milestone, stated with C^∞ smoothness on [0,∞), is false in the converse direction; Tau Ceti proves the correct form with continuity at 0 and complete monotonicity on (0,∞). The milestone layers repeat text from their parent parts.",
    "layers": {
     "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-a--strongly-continuous-semigroups": {
      "verdict": "partly built",
@@ -451,31 +451,31 @@
       },
       {
        "target": "Power formula R(λ,A)ⁿx = ∫₀^∞ tⁿ⁻¹/(n−1)! e^{−λt} S(t)x dt",
-       "library": "partial",
+       "library": "tauceti",
        "declarations": [
         {
-         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.resolventMoment",
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.resolvent_pow_succ_apply",
          "library": "tauceti",
          "file": "TauCeti/Analysis/Semigroups/Resolvent/PowerBounds.lean",
-         "line": 106,
-         "fit": "related"
+         "line": 209,
+         "fit": "exact"
         },
         {
-         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.iteratedDeriv_resolventFun_apply_eq_resolventMoment",
+         "name": "TauCeti.Semigroups.ContractionSemigroup.resolvent_pow_succ_apply",
          "library": "tauceti",
          "file": "TauCeti/Analysis/Semigroups/Resolvent/PowerBounds.lean",
-         "line": 164,
-         "fit": "related"
+         "line": 310,
+         "fit": "special case"
         },
         {
-         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.iteratedDeriv_resolventFun_apply_eq_pow",
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.iteratedDeriv_resolventFun",
          "library": "tauceti",
-         "file": "TauCeti/Analysis/Semigroups/Resolvent/PowerBounds.lean",
-         "line": 200,
+         "file": "TauCeti/Analysis/Semigroups/Resolvent/Deriv.lean",
+         "line": 190,
          "fit": "related"
         }
        ],
-       "note": "Both halves are proved, but only as private declarations in PowerBounds.lean (the moment integral and its identification with the resolvent power); there is no public statement of the integral formula."
+       "note": "Public: `StronglyContinuousSemigroup.resolvent_pow_succ_apply` states `R(λ)^(n+1) x = (1/n!) ∫_{t>0} tⁿ e^{−λt} S(t)x dt` for `λ > ω`, which is the roadmap's formula reindexed (`n ↦ n+1`); the contraction case is `ContractionSemigroup.resolvent_pow_succ_apply`. The moment integral and the derivative identification behind it are private helpers in the same file."
       },
       {
        "target": "Iterated resolvent bounds ‖R(λ,A)ⁿ‖ ≤ M/(λ−ω)ⁿ; contraction corollary ‖R(λ,A)‖ ≤ 1/λ",
@@ -1985,7 +1985,7 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.fourierAtom (public def; absent from declarations.tsv)",
+         "name": "TauCeti.fourierAtom",
          "library": "tauceti",
          "file": "TauCeti/Analysis/PositiveDefinite/FourierAtom.lean",
          "line": 41,
@@ -2112,7 +2112,7 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.fourierAtom (public def; absent from declarations.tsv)",
+         "name": "TauCeti.fourierAtom",
          "library": "tauceti",
          "file": "TauCeti/Analysis/PositiveDefinite/FourierAtom.lean",
          "line": 41,
@@ -2223,7 +2223,7 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.fourierAtom (public def; absent from declarations.tsv)",
+         "name": "TauCeti.fourierAtom",
          "library": "tauceti",
          "file": "TauCeti/Analysis/PositiveDefinite/FourierAtom.lean",
          "line": 41,
@@ -2301,10 +2301,10 @@
    }
   },
   "tauceti:TauCetiRoadmap/FuchsianOrbifolds": {
-   "summary": "Layer 0 is done: Tau Ceti has the effective `PSL(2, R)`-action on ℍ (`UpperHalfPlane.instMulActionPSL2`), its faithfulness, joint continuity, properness, the `T2Space` on `PSL(2, ℝ)`, proper discontinuity of every discrete subgroup, and the full elliptic-stabilizer analysis — finite, cyclic, generated by an element whose derivative at the fixed point is a primitive `m`-th root of unity (`Subgroup.exists_isPrimitiveRoot_stabilizerDeriv`). The generic free-locus theory (`TauCeti.freeLocus`, `isCoveringMap_quotientMk_freeLocus`) and the finite-cyclic disc-quotient model `u ↦ u^m` (`TauCeti.rootsOfUnityBallQuotientHomeomorph`) are also built, in greater generality than the roadmap asks, and Mathlib supplies far more of the cusp layer than the roadmap assumes: `IsCusp`, `CuspOrbits`, `Subgroup.strictPeriods`/`strictWidthInfty` with `strictPeriods = wℤ`, `Function.Periodic.qParam`/`cuspFunction`, and the whole removable-singularity and q-expansion chain. What is genuinely missing is everything complex-analytic about the quotient and everything polygonal: no precisely invariant horodiscs, no charted space or complex manifold on the coarse or compactified quotient, no hyperbolic polygons, Gauss--Bonnet, Poincaré polygon theorem, Dirichlet domains, triangle groups or covolume, and — the largest gap — no compact-Riemann-surface API at all (no genus, local multiplicity, degree, divisor pullback, degree-one biholomorphism or Riemann--Hurwitz), nor the CW Euler characteristic it is meant to be built on. The level-one application is blocked twice over: it needs those layers and it needs a `j`-function, which exists in neither library.",
+   "summary": "Layer 0 is built except the complex-analytic half of its item 5. Tau Ceti has the effective `PSL(2, R)`-action on ℍ (`UpperHalfPlane.instMulActionPSL2`), its faithfulness, joint continuity, properness, the `T2Space` on `PSL(2, ℝ)`, proper discontinuity of every discrete subgroup, and the full elliptic-stabilizer analysis — finite, cyclic, generated by an element whose derivative at the fixed point is a primitive `m`-th root of unity (`Subgroup.exists_isPrimitiveRoot_stabilizerDeriv`). The generic free-locus theory (`TauCeti.freeLocus`, `isCoveringMap_quotientMk_freeLocus`; no complex-manifold structure on the quotient, so the projection is not yet a local biholomorphism) and the finite-cyclic disc-quotient model `u ↦ u^m` (`TauCeti.rootsOfUnityBallQuotientHomeomorph`) are also built, in greater generality than the roadmap asks, and Mathlib supplies far more of the cusp layer than the roadmap assumes: the parabolic classification with its unique boundary fixed point (`IsParabolic.smul_eq_self_iff`), `IsCusp`, `CuspOrbits`, `Subgroup.strictPeriods`/`strictWidthInfty` with `strictPeriods = wℤ`, `Function.Periodic.qParam`/`cuspFunction`, and the whole removable-singularity and q-expansion chain. What is genuinely missing is everything complex-analytic about the quotient and everything polygonal: no precisely invariant horodiscs, no charted space or complex manifold on the coarse or compactified quotient, no hyperbolic polygons, Gauss--Bonnet, Poincaré polygon theorem, Dirichlet domains, triangle groups or covolume, and — the largest gap — no compact-Riemann-surface API at all, only the planar local-degree theorem and combinatorial genera (no topological genus, local multiplicity, degree, divisor pullback, degree-one biholomorphism or Riemann--Hurwitz), nor the CW Euler characteristic it is meant to be built on. The level-one application is blocked twice over: it needs those layers and it needs the `j`-function owned by ModularForms Layer 0, which exists in neither library.",
    "layers": {
     "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-0-the-effective-projective-möbius-action": {
-     "verdict": "built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "Quotient topology on PSL(2,R) with Hausdorff, second-countable topological-group structure, identified with the algebraic quotient by the centre",
@@ -2318,7 +2318,7 @@
          "fit": "exact"
         },
         {
-         "name": "anonymous instance : T2Space PSL(2, ℝ)",
+         "name": "TauCeti.instT2SpaceProjectiveSpecialLinearGroupFinOfNatNatReal_tauCeti",
          "library": "tauceti",
          "file": "TauCeti/Topology/Algebra/Matrix/ProjectiveSpecialLinearGroup.lean",
          "line": 29,
@@ -2339,7 +2339,7 @@
          "fit": "more general"
         }
        ],
-       "note": "`PSL(2, R)` is *by definition* Mathlib's `SL(2,R) ⧸ Subgroup.center`, so there is nothing to relate: the quotient topology, open quotient map and topological-group structure are Mathlib's generic `QuotientGroup` instances, and second countability is `QuotientGroup.instSecondCountableTopology`. Tau Ceti adds the `T2Space PSL(2, ℝ)` instance (unnamed instance at line 29 of the file; it is anonymous so it does not appear in declarations.tsv), proved from finiteness of the centre."
+       "note": "`PSL(2, R)` is *by definition* Mathlib's `SL(2,R) ⧸ Subgroup.center`, so there is nothing to relate: the quotient topology, open quotient map and topological-group structure are Mathlib's generic `QuotientGroup` instances, and second countability is `QuotientGroup.instSecondCountableTopology`. Tau Ceti adds the `T2Space PSL(2, ℝ)` instance (an unnamed instance at line 29; Lean names it `TauCeti.instT2SpaceProjectiveSpecialLinearGroupFinOfNatNatReal_tauCeti`, which declarations.tsv omits), proved from finiteness of the centre."
       },
       {
        "target": "Canonical homomorphism PSL(2,R) → PGL(2,R) and the restricted projective Möbius action",
@@ -2409,28 +2409,28 @@
        "library": "tauceti",
        "declarations": [
         {
-         "name": "anonymous instance : FaithfulSMul PSL(2, ℝ) ℍ",
+         "name": "UpperHalfPlane.instFaithfulSMulProjectiveSpecialLinearGroupFinOfNatNatReal_tauCeti",
          "library": "tauceti",
          "file": "TauCeti/Analysis/Complex/UpperHalfPlane/PSLAction.lean",
          "line": 172,
          "fit": "exact"
         }
        ],
-       "note": "An anonymous `instance : FaithfulSMul PSL(2, ℝ) ℍ` at line 168 (hence absent from declarations.tsv), obtained from Mathlib's faithful `PGL(2, ℝ)`-action along the injective `toPGL`; the corresponding `PSL(2, ℤ)` instance is at line 186."
+       "note": "An unnamed `instance : FaithfulSMul PSL(2, ℝ) ℍ` at line 172 (auto-named `UpperHalfPlane.instFaithfulSMulProjectiveSpecialLinearGroupFinOfNatNatReal_tauCeti`, absent from declarations.tsv), obtained from Mathlib's faithful `PGL(2, ℝ)`-action along the injective `toPGL`; the corresponding `PSL(2, ℤ)` instance is at line 189."
       },
       {
        "target": "Joint continuity of PSL(2,R) × UpperHalfPlane → UpperHalfPlane",
        "library": "tauceti",
        "declarations": [
         {
-         "name": "anonymous instance : ContinuousSMul PSL(2, ℝ) ℍ",
+         "name": "TauCeti.UpperHalfPlane.instContinuousSMulProjectiveSpecialLinearGroupFinOfNatNatRealUpperHalfPlane_tauCeti",
          "library": "tauceti",
          "file": "TauCeti/Analysis/Complex/UpperHalfPlane/ProperAction.lean",
          "line": 31,
          "fit": "exact"
         }
        ],
-       "note": "Anonymous `instance : ContinuousSMul PSL(2, ℝ) ℍ` at line 31, proved by pulling back along the open quotient map `SL(2,ℝ) → PSL(2,ℝ)`; this is exactly joint continuity, not merely continuity in the point."
+       "note": "The unnamed `instance : ContinuousSMul PSL(2, ℝ) ℍ` at line 31, proved by pulling back along the open quotient map `SL(2,ℝ) → PSL(2,ℝ)`; this is exactly joint continuity, not merely continuity in the point."
       },
       {
        "target": "Every element acts by a biholomorphism of the upper half-plane",
@@ -2472,7 +2472,7 @@
        "library": "tauceti",
        "declarations": [
         {
-         "name": "anonymous instance (G : Subgroup PSL(2, ℝ)) [DiscreteTopology G] : ProperlyDiscontinuousSMul G ℍ",
+         "name": "TauCeti.instProperlyDiscontinuousSMulSubtypeProjectiveSpecialLinearGroupFinOfNatNatRealMemSubgroupUpperHalfPlaneOfDiscreteTopology_tauCeti",
          "library": "tauceti",
          "file": "TauCeti/Analysis/Complex/Fuchsian/ProperAction.lean",
          "line": 33,
@@ -2493,7 +2493,7 @@
          "fit": "related"
         }
        ],
-       "note": "The anonymous instance at `Fuchsian/ProperAction.lean:33` gives `ProperlyDiscontinuousSMul G ℍ` for every `G : Subgroup PSL(2, ℝ)` with `[DiscreteTopology G]`, descended from Mathlib's proper `SL(2, ℝ)`-action through the surjective quotient map — exactly the required relation to Mathlib without a chosen lift in the interface."
+       "note": "The unnamed instance at `Fuchsian/ProperAction.lean:33` gives `ProperlyDiscontinuousSMul G ℍ` for every `G : Subgroup PSL(2, ℝ)` with `[DiscreteTopology G]`, descended from Mathlib's proper `SL(2, ℝ)`-action through the surjective quotient map — exactly the required relation to Mathlib without a chosen lift in the interface."
       },
       {
        "target": "Finiteness of every stabilizer, and classification of a nontrivial stabilizer as finite cyclic generated by an elliptic element",
@@ -2526,9 +2526,16 @@
          "file": "Mathlib/Analysis/Complex/UpperHalfPlane/FixedPoints.lean",
          "line": 121,
          "fit": "more general"
+        },
+        {
+         "name": "TauCeti.finite_stabilizer_of_properlyDiscontinuousSMul",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Algebra/ConstMulAction.lean",
+         "line": 89,
+         "fit": "exact"
         }
        ],
-       "note": "Finiteness is Mathlib's `ProperlyDiscontinuousSMul` consequence (`MulAction.finite_stabilizer_of_properlyDiscontinuousSMul`) applied through the Tau Ceti instance; cyclicity and ellipticity of a nonidentity stabilizer element are proved outright. `Matrix.GeneralLinearGroup.IsElliptic` is Mathlib's discriminant definition."
+       "note": "Finiteness is Mathlib's `ProperlyDiscontinuousSMul.finite_stabilizer`, packaged by Tau Ceti as the `Finite` instance `TauCeti.finite_stabilizer_of_properlyDiscontinuousSMul` and applied through the discrete-subgroup instance; cyclicity and ellipticity of a nonidentity stabilizer element are proved outright. `Matrix.GeneralLinearGroup.IsElliptic` is Mathlib's discriminant definition."
       },
       {
        "target": "Identification of the stabilizer order with the order of the derivative in a disc coordinate",
@@ -2652,8 +2659,15 @@
      "targets": [
       {
        "target": "An invariant disc at an elliptic point whose translates are disjoint outside the stabilizer",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
+        {
+         "name": "ProperlyDiscontinuousSMul.exists_nhds_disjoint_image",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/ConstMulAction.lean",
+         "line": 584,
+         "fit": "related"
+        },
         {
          "name": "ProperlyDiscontinuousSMul.exists_nhds_image_smul_eq_self",
          "library": "mathlib",
@@ -2662,7 +2676,7 @@
          "fit": "related"
         }
        ],
-       "note": "No 'precisely invariant' neighbourhood is constructed anywhere: grep for `preciselyInvariant`, `horo`, `invariantDisc` finds nothing in either library. Mathlib's properly-discontinuous API gives a neighbourhood `U` with `g • U ∩ U = ∅` for `g` outside a finite set, and Tau Ceti uses it in `isOpen_freeLocus`, but the stabilizer-invariant round disc at an elliptic point, and the holomorphic conjugation of the stabilizer action to multiplication by `m`-th roots of unity, are not built."
+       "note": "Mathlib gives the disjointness half for any properly discontinuous action on a locally compact Hausdorff space: `ProperlyDiscontinuousSMul.exists_nhds_disjoint_image` produces a neighbourhood `U` of `x` with `γ • U` disjoint from `U` whenever `γ • x ≠ x`. Missing: a stabilizer-invariant round disc (e.g. a disc in the Cayley coordinate), the precisely-invariant packaging, and the holomorphic conjugation of the stabilizer action to multiplication by `m`-th roots of unity; no `preciselyInvariant` or horodisc notion exists in either library."
       },
       {
        "target": "Holomorphic linearizing coordinate conjugating the stabilizer action to the m-th roots of unity",
@@ -2985,11 +2999,18 @@
          "fit": "exact"
         },
         {
-         "name": "UpperHalfPlane.fixedPt",
+         "name": "Matrix.GeneralLinearGroup.parabolicFixedPoint",
          "library": "mathlib",
-         "file": "Mathlib/Analysis/Complex/UpperHalfPlane/FixedPoints.lean",
-         "line": 140,
-         "fit": "related"
+         "file": "Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean",
+         "line": 186,
+         "fit": "exact"
+        },
+        {
+         "name": "Matrix.GeneralLinearGroup.IsParabolic.smul_eq_self_iff",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean",
+         "line": 189,
+         "fit": "exact"
         },
         {
          "name": "OnePoint.exists_mem_SL2",
@@ -2999,7 +3020,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib defines `IsParabolic` (not scalar, discriminant zero), `IsHyperbolic`, `IsElliptic` for `2×2` matrices, proves the upper-triangular normal form for parabolics in a `HasDetPlusMinusOne` subgroup, and acts on `OnePoint ℝ` as `ℙ¹(ℝ)`. The roadmap treats this classification as work to be done; it is already Mathlib's."
+       "note": "Mathlib defines `IsParabolic` (not scalar, discriminant zero), `IsHyperbolic`, `IsElliptic` for `2×2` matrices, proves the upper-triangular normal form for parabolics in a `HasDetPlusMinusOne` subgroup, and proves that a parabolic `g` fixes exactly one point of `OnePoint K` (`IsParabolic.smul_eq_self_iff`: `g • c = c ↔ c = parabolicFixedPoint g`). The roadmap treats this classification as work to be done; it is already Mathlib's."
       },
       {
        "target": "Cusp orbits in OnePoint ℝ, and finiteness of the set of cusp orbits for a cofinite group",
@@ -3298,15 +3319,37 @@
          "file": "TauCeti/Algebra/Homology/EulerCharacteristic/ExtEuler/Basic.lean",
          "line": 232,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.eulerChar",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/EulerCharacteristic.lean",
+         "line": 62,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.PermutationTriple.genus",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/PermutationTriple/EulerCharacteristic.lean",
+         "line": 188,
+         "fit": "related"
         }
        ],
-       "note": "Absent. `TauCeti.AlgebraicTopology.Cellular.FiniteCW`, `compactManifoldFiniteCWType` and `finiteCWEulerCharacteristic` — the three names the roadmap says to import — do not exist; `TauCeti/AlgebraicTopology/` has no `Cellular` directory. The only Euler characteristics in the libraries are homological-algebra ones (`extEuler`) and combinatorial ones, not a CW Euler characteristic of a compact surface, and no `genus` is defined."
+       "note": "Absent. `TauCeti.AlgebraicTopology.Cellular.FiniteCW`, `compactManifoldFiniteCWType` and `finiteCWEulerCharacteristic` — the three names the roadmap says to import — do not exist; `TauCeti/AlgebraicTopology/` has no `Cellular` directory, and Mathlib's CW complexes carry no Euler characteristic. Neither library has a topological genus of a surface. The genera that do exist are the function-field genus `TauCeti.genus`, the stable-reduction `NumericalType.topologicalGenus`, and the combinatorial genus `TauCeti.PermutationTriple.genus` of a branched cover, defined from a cycle-count Euler characteristic without building the surface."
       },
       {
        "target": "Finite nonconstant holomorphic maps, local multiplicity from the local normal form, and degree as a fibre sum",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent: there is no `RiemannSurface` namespace at all in Tau Ceti or Mathlib (`grep -i riemannsurface` over declarations.tsv returns nothing), hence no `localMultiplicity`, `degree`, or their positivity/finiteness/independence/multiplicativity theorems."
+       "declarations": [
+        {
+         "name": "TauCeti.exists_localDegree",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/LocalDegree.lean",
+         "line": 197,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent on surfaces: there is no `RiemannSurface` namespace in Tau Ceti or Mathlib, hence no `localMultiplicity`, `degree`, or their positivity/finiteness/independence/multiplicativity theorems. The planar local model exists: `TauCeti.exists_localDegree` proves that near a point where `f - f z₀` vanishes to order `n`, every nearby value is taken exactly `n` times with multiplicity."
       },
       {
        "target": "Degree-one biholomorphism theorem with the simp lemma RiemannSurface.biholomorph_of_degree_eq_one_toFun",
@@ -3376,6 +3419,10 @@
       {
        "layer": "FunctionFieldArithmetic:FA.3",
        "note": "FA.3 plans Riemann--Hurwitz including the wild different for function-field extensions; same name, different carrier (valuations and the different, not local multiplicities of a holomorphic map), so the overlap is nominal but worth pinning so neither roadmap claims the other's theorem."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/BelyiMaps#layer-8-riemann-surfaces-and-analytic-riemann-existence",
+       "note": "BelyiMaps Layer 8 builds the same compact-Riemann-surface API: `ramificationIndex` from the local normal form, the degree as a fibre sum of indices, finiteness and covering properties, and the Riemann sphere. That is items 2–3 of this layer, so the two roadmaps need one owner."
       }
      ]
     },
@@ -3428,7 +3475,7 @@
        "target": "Descend the normalized j-function to the uncompactified quotient and extend it meromorphically over the cusp",
        "library": "absent",
        "declarations": [],
-       "note": "Absent, and so is its input: there is no `j`-function in either library. `grep -i 'jFunction|modularJ|kleinJ'` over declarations.tsv finds only unrelated `WeierstrassCurve.j` (the j-invariant of an elliptic curve over a ring) and knot-theoretic `J`. `TauCeti/NumberTheory/ModularForms/LevelOne/` contains only `GradedRing.lean` and `ValenceFormula.lean`."
+       "note": "Absent, and so is its input: there is no `j`-function in either library. `grep -i 'jFunction|modularJ|kleinJ'` over declarations.tsv finds only the unrelated `WeierstrassCurve.j` (the j-invariant of an elliptic curve over a ring) and knot-theoretic `J`. `TauCeti/NumberTheory/ModularForms/LevelOne/` holds `GradedRing.lean`, `ValenceFormula.lean` and the `FundamentalDomainBoundary/` contour machinery behind the valence formula, and none of them defines `j`."
       },
       {
        "target": "Regard the extension as a holomorphic map X(1) → P^1 with a single simple pole over ∞, i.e. degree one",
@@ -3452,21 +3499,25 @@
      "duplicates": [
       {
        "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas",
-       "note": "Layer 10 owns the normalized level-one `j`, its invariance, q-expansion and exact elliptic orders in `ModularForms.LevelOne.JInputs`, which this layer consumes; the j-function itself must not be built twice."
+       "note": "ModularForms Layer 10 consumes this layer's `X(1) ≃ ℙ¹` and `genus X(1) = 0` theorems from `Fuchsian.LevelOne` and says it does not redefine `j`. The boundary is stated from both sides, so the level-one quotient must be built here only."
       },
       {
        "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
-       "note": "Layer 0 of ModularForms explicitly declares it imports neither FuchsianOrbifolds nor `RiemannSurface.Degree`, pinning the boundary; recorded so the level-one material is not duplicated from the other side."
+       "note": "ModularForms Layer 0 owns the `j` inputs this layer consumes. Its lower module `ModularForms.LevelOne.JInputs` defines `j = E₄³/Δ` and proves modular invariance, the q-expansion and the exact orders at `ρ` and `i`, without importing FuchsianOrbifolds. The `j`-function must be built there once."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/BelyiMaps#layer-8-riemann-surfaces-and-analytic-riemann-existence",
+       "note": "Target 2 needs `ℙ¹` as a compact Riemann surface. BelyiMaps Layer 8.1 builds exactly that carrier (`ChartedSpace ℂ (OnePoint ℂ)` with charts `z`, `1/z` and its `IsManifold` instance), so the Riemann sphere should have one owner."
       }
      ]
     }
    }
   },
   "tauceti:TauCetiRoadmap/OptimalTransport": {
-   "summary": "Layers 0--4 are largely done and sorry-free: `TauCeti/MeasureTheory/OptimalTransport/` holds about 800 declarations covering couplings and the bundled `Coupling` space, graph plans on Mathlib's `HasLaw`, disintegration, one-sided and symmetric gluing plus Ionescu--Tulcea chains, multi-marginal couplings, the extended `transportCost` with a signed bounded-below interface, tightness/Prokhorov compactness, lower semicontinuity of the plan integral, primal attainment and stability, the whole `c`-transform/`c`-concave/contact-set tower with its analytic-set measurability bridge, finite and multi-marginal LP duality with both attainments and complementary slackness, compact and Polish lower-semicontinuous strong duality, dual certificates, and a `W_p` theory for all `p ∈ [1,∞]` with the triangle inequality by gluing, completeness, separability, density of finite support and quantization convergence. Mathlib contributes `klDiv`, `GromovHausdorff.ghDist`, `levyProkhorovEDist`, `ConvexOn.locallyLipschitzOn_interior` and Rademacher — all inputs the roadmap already identifies. Everything from Layer 5 onward is genuinely missing: there is no Legendre--Fenchel conjugate anywhere in either library, hence no Brenier theorem, no Monge--Ampère measure or regularity theory, no Riemannian exponential map (so no McCann), no `ACᵖ` curves, continuity equation or Benamou--Brenier, no displacement convexity, no metric gradient flows, EVI, JKO or Γ-convergence, no Boltzmann entropy functional, no Fréchet or Wasserstein barycenters, no entropic transport or Sinkhorn, no CD/RCD theory, and no Gromov--Wasserstein. Within the built layers the notable residual gaps are dual attainment under a split upper envelope, the Schachermayer--Teichmann converse (flagged in Tau Ceti's own docstring), Kantorovich--Rubinstein for `W₁`, Pratelli's Monge=Kantorovich theorem, and the `W_p`-convergence characterization.",
+   "summary": "Layers 0--4 are largely done and sorry-free: `TauCeti/MeasureTheory/OptimalTransport/` holds about 800 declarations covering couplings and the bundled `Coupling` space, graph plans on Mathlib's `HasLaw`, disintegration, one-sided and symmetric gluing plus Ionescu--Tulcea chains and the countable-index Kolmogorov extension theorem, multi-marginal couplings, the extended `transportCost` with a signed bounded-below interface, tightness/Prokhorov compactness, lower semicontinuity of the plan integral, primal attainment and stability, the whole `c`-transform/`c`-concave/contact-set tower with its analytic-set measurability bridge, finite and multi-marginal LP duality with both attainments and complementary slackness, strong duality on compact metrizable spaces (continuous and lower-semicontinuous costs), dual certificates, and a `W_p` theory for all `p ∈ [1,∞]` with the triangle inequality by gluing, completeness, separability, density of finite support and quantization convergence. Mathlib contributes `klDiv` with its chain rule and data-processing inequality, the realization of every standard-Borel law by a map from the unit interval, Arzelà–Ascoli, metric absolutely continuous curves, the Brownian-motion predicates, `GromovHausdorff.ghDist`, `levyProkhorovEDist`, `ConvexOn.locallyLipschitzOn_interior` and Rademacher. The roadmap names some of these as inputs, but asks to prove data processing and the deterministic Arzelà–Ascoli theorem, which Mathlib already has. From Layer 5 on, only the Gaussian matrix toolkit exists (Tau Ceti's `TauCeti.geometricMean`, the unique positive solution of `A S A = T`, and the affine Gaussian pushforward); everything else is missing. There is no Legendre--Fenchel conjugate anywhere in either library, hence no Brenier theorem, no Monge--Ampère measure or regularity theory, no Riemannian exponential map (so no McCann), no `ACᵖ` curves for `p > 1`, continuity equation or Benamou--Brenier, no displacement convexity, no metric gradient flows, EVI, JKO or Γ-convergence, no Boltzmann entropy functional, no Fréchet or Wasserstein barycenters, no entropic transport or Sinkhorn, no CD/RCD theory, and no Gromov--Wasserstein. Within Layers 0--4 the notable residual gaps are the Polish lower-semicontinuous duality theorem, dual attainment under a split upper envelope, the Schachermayer--Teichmann converse (flagged in Tau Ceti's own docstring), Kantorovich--Rubinstein for `W₁`, Pratelli's Monge=Kantorovich theorem, the `W_p`-convergence characterization, the Borel σ-algebra of `P_p(X)`, `W_∞` attainment and completeness, and two acceptance checks (matrix gluing versus measure gluing, and optimality of the monotone coupling).",
    "layers": {
     "tauceti:TauCetiRoadmap/OptimalTransport#layer-0-transport-plans-maps-kernels-and-gluing": {
-     "verdict": "built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "Raw coupling relation and bundled probability coupling space; equal total mass, marginal formulas, extensionality",
@@ -3683,13 +3734,6 @@
        "library": "tauceti",
        "declarations": [
         {
-         "name": "TauCeti.Measure.chainKernel",
-         "library": "tauceti",
-         "file": "TauCeti/MeasureTheory/OptimalTransport/Chain.lean",
-         "line": 48,
-         "fit": "exact"
-        },
-        {
          "name": "TauCeti.Measure.chainMeasure",
          "library": "tauceti",
          "file": "TauCeti/MeasureTheory/OptimalTransport/Chain.lean",
@@ -3716,9 +3760,16 @@
          "file": "TauCeti/MeasureTheory/OptimalTransport/Chain.lean",
          "line": 149,
          "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Measure.exists_isProjectiveLimit_of_countable",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/ProjectiveLimit/Countable.lean",
+         "line": 167,
+         "fit": "exact"
         }
        ],
-       "note": "`chainMeasure` is built from `ProbabilityTheory.Kernel.traj` as instructed, with the adjacent-pair marginals and the `frestrictLe` projective-family identities proved. The roadmap's optional 'arbitrary countable standard-Borel projective-family extension theorem' beyond the `ℕ`-indexed case is the one piece not visible here."
+       "note": "`chainMeasure` is built from `ProbabilityTheory.Kernel.traj` as instructed, with the adjacent-pair marginals and the `frestrictLe` projective-family identities proved, and the arbitrary countable standard-Borel extension theorem is `TauCeti.Measure.exists_isProjectiveLimit_of_countable` (`MeasureTheory/Measure/ProjectiveLimit/Countable.lean`, whose docstring names this roadmap item). It reduces to the ℕ-indexed theorem by enumeration."
       },
       {
        "target": "Multi-marginal couplings indexed by a finite type: projections, reindexing, product nonemptiness, marginal replacement, reduction to the two-marginal API",
@@ -3764,7 +3815,7 @@
       },
       {
        "target": "Acceptance checks: uniqueness of a coupling with a Dirac marginal; finite probability vectors as nonnegative matrices with prescribed row/column sums; matrix gluing agrees",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.IsCoupling.eq_map_prodMk",
@@ -3802,13 +3853,18 @@
          "fit": "exact"
         }
        ],
-       "note": "`eq_map_prodMk` is exactly the acceptance check that a Dirac first marginal forces `π = Measure.map (x, ·)_# ν`. `Finite/TransportMatrix.lean` is the finite matrix model and `Finite/Gluing.lean` gives the matrix gluing with the same marginal identities."
+       "note": "`eq_map_prodMk` and `eq_dirac` are the Dirac acceptance checks, and `transportMatrixEquiv` identifies prescribed-marginal PMFs with nonnegative matrices of the given row and column sums. Missing: the last check, that matrix gluing agrees with the measure-theoretic construction. `PMF.finiteGluing` is deliberately a PMF-level formula; its docstring says it is 'not a second measure-level gluing theorem', and nothing relates it to `Measure.glue`."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-1--core-objects-and-their-basic-api",
+       "note": "DenseGraphLimits Layer 1 defines its cut distance through `IsCoupling` and proves the triangle inequality by gluing couplings on arbitrary probability carriers (Janson Lemma 6.5). That is the coupling and gluing API of this layer, and Tau Ceti's `PMF.finiteGluing` was written for it."
+      }
+     ]
     },
     "tauceti:TauCetiRoadmap/OptimalTransport#layer-1-transport-cost-compactness-existence-and-stability": {
-     "verdict": "built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "Extended transport cost and the set of optimal couplings, with monotonicity, scaling, split marginal terms, a.e.-congruence, symmetry, functoriality, Dirac and graph-plan formulas",
@@ -4100,9 +4156,16 @@
          "file": "TauCeti/MeasureTheory/OptimalTransport/Wasserstein/Quantile.lean",
          "line": 61,
          "fit": "related"
+        },
+        {
+         "name": "Monovary.sum_smul_comp_perm_le_sum_smul",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Order/Rearrangement.lean",
+         "line": 139,
+         "fit": "related"
         }
        ],
-       "note": "The finite machinery for the 2×2 check exists, and the monotone/quantile coupling is constructed in Layer 3's `Quantile.lean`; but the submodular uncrossing argument ('uncrossing terminates and the monotone coupling is optimal', with the `|x-y|^p` specialization) is not proved anywhere, and the barrier-cost statement has no declaration."
+       "note": "The finite machinery for the 2×2 check exists, and the monotone/quantile coupling is constructed in Layer 3's `Quantile.lean`. Mathlib's rearrangement inequality covers the equal-weight bilinear case. The submodular uncrossing argument ('uncrossing terminates and the monotone coupling is optimal', with the `|x-y|^p` specialization) is not proved anywhere; the quantile file says optimality of the monotone coupling is not proved. The barrier-cost statement has no declaration."
       }
      ],
      "duplicates": []
@@ -4301,7 +4364,7 @@
       },
       {
        "target": "Strong Kantorovich duality for continuous finite costs on compact metrizable spaces; the Polish lower-semicontinuous theorem",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.toReal_transportCost_eq_sSup",
@@ -4332,7 +4395,7 @@
          "fit": "exact"
         }
        ],
-       "note": "The compact continuous case is proved with the comparison of bounded-continuous and integrable dual classes (both `isLUB` forms), and the lower-semicontinuous extended-valued equality is proved by `lscApprox` monotone approximation and remains meaningful at value `∞`."
+       "note": "Built only on compact metrizable spaces: continuous finite costs with both the bounded-continuous and the integrable dual class, and lower-semicontinuous `ℝ≥0∞` costs via `lscApprox` (value `∞` allowed). The Polish lower-semicontinuous theorem for `c ≥ a ⊕ b` with upper-semicontinuous integrable `a, b` is absent: `Duality/LowerSemicontinuous.lean` assumes `[CompactSpace X] [CompactSpace Y]` and calls itself 'the compact exhaustion step used by the Polish lower-semicontinuous regime', and no duality file assumes `PolishSpace`."
       },
       {
        "target": "Dual attainment for a real cost with finite primal value under an integrable split upper envelope c ≤ c_X ⊕ c_Y",
@@ -4565,7 +4628,7 @@
       },
       {
        "target": "Anchored PseudoEMetric component and P_p(X) with PseudoMetric/Metric instances; inherited measurable structure; the anchor/Dirac identification",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.WassersteinComponent",
@@ -4603,7 +4666,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Both carriers exist with the anchored-component/`P_p(X)` comparison stated as an isometry available exactly when the anchor has finite moment — the guardrail the roadmap insists on. The measurable structure is the `Subtype` pullback from `ProbabilityMeasure`; the theorem that it *equals* the Borel σ-algebra of the `W_p` topology is not proved."
+       "note": "Both carriers exist, and the anchored-component/`P_p(X)` comparison is an isometry available exactly when the anchor has finite moment, which is the guardrail the roadmap insists on. Missing: the theorem that the inherited subtype measurable structure is the Borel σ-algebra of the `W_p` topology. There is no `BorelSpace` or `OpensMeasurableSpace` instance for `WassersteinSpace` or `WassersteinComponent`, and Layer 12 needs this for `P_p(P_p(X))`."
       },
       {
        "target": "Separability and completeness of P_p(X) for a complete separable X",
@@ -4663,9 +4726,24 @@
       },
       {
        "target": "Relative compactness in P_p(X) ⟺ tightness plus uniform integrability of p-moment tails; a.s. convergence of empirical measures W_p(n⁻¹∑δ_{Xᵢ}, μ) → 0",
-       "library": "absent",
-       "declarations": [],
-       "note": "Neither is present: there is no compactness criterion for subsets of `WassersteinSpace` and no empirical-measure law of large numbers in `W_p`."
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.ConditionallyIIDWith.tendsto_empiricalMeasure_ae",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/ConditionallyIID/WeakConvergence.lean",
+         "line": 75,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.empiricalMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/EmpiricalMeasure.lean",
+         "line": 128,
+         "fit": "related"
+        }
+       ],
+       "note": "The compactness criterion is absent: nothing characterizes relatively compact subsets of `WassersteinSpace`. For the empirical-measure statement Tau Ceti has the empirical measure and proves that it converges weakly almost surely for a conditionally i.i.d. (in particular i.i.d.) sequence. The upgrade to `W_p` convergence, which needs the moment part, is missing."
       },
       {
        "target": "Characterization of W_p convergence as weak convergence plus convergence of p-moments; lower semicontinuity under weak convergence",
@@ -4684,9 +4762,16 @@
          "file": "TauCeti/MeasureTheory/OptimalTransport/Wasserstein/WeakConvergence.lean",
          "line": 147,
          "fit": "exact"
+        },
+        {
+         "name": "TauCeti.transportCost_le_liminf_transportCost_of_lowerSemicontinuous",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/OptimalTransport/Stability.lean",
+         "line": 426,
+         "fit": "related"
         }
        ],
-       "note": "Only one direction is built: `W_p` convergence implies weak convergence (through a Lévy--Prokhorov bound). The converse characterization with moment convergence/uniform integrability, and lower semicontinuity of `W_p` under weak convergence, are absent."
+       "note": "Only one direction is built: `W_p` convergence implies weak convergence, through a Lévy–Prokhorov bound. The converse characterization with moment convergence or uniform integrability is absent. Lower semicontinuity of `W_p` under weak convergence is not stated, although on Polish spaces it follows from Layer 1's `transportCost_le_liminf_transportCost_of_lowerSemicontinuous` applied to `edist^p` via `wassersteinEDist_rpow_eq_transportCost`."
       },
       {
        "target": "Functorial estimates: L-Lipschitz pushforward, the ℓᵖ product identity, the mixture bound, convolution/translation contraction, and the Markov-kernel Wasserstein-Lipschitz bound",
@@ -4746,10 +4831,10 @@
          "library": "tauceti",
          "file": "TauCeti/MeasureTheory/OptimalTransport/Wasserstein/Basic.lean",
          "line": 784,
-         "fit": "exact"
+         "fit": "related"
         }
        ],
-       "note": "The `p=∞` case is covered by the uniform `eLpNorm` definition and attainment is proved for all `p` under Polish hypotheses. The Givens--Shortt identity `W_∞ = sup_p W_p = lim_p W_p`, the `W_∞`-specific convergence characterization, and the maximum-form product/mixture estimates are absent."
+       "note": "The `p=∞` value is the uniform `eLpNorm` definition with the essential-supremum formula `wassersteinEDist_top`, and separation holds at `p=∞`. Everything else at this endpoint is absent. Attainment (`exists_isCoupling_eLpNorm_eq_wassersteinEDist`) and completeness of anchored components are proved only for finite `p` (`hp : p ≠ ∞`, `Fact (p ≠ ∞)`). Also missing are the Givens–Shortt identity `W_∞ = sup_p W_p = lim_p W_p`, the `W_∞`-specific convergence characterization and the maximum-form product/mixture estimates."
       },
       {
        "target": "Quantile coupling on ℝ: generalized inverse, pushforward of uniform measure, optimality, and W_p as the Lᵖ(0,1) distance of quantiles",
@@ -4870,9 +4955,23 @@
          "file": "TauCeti/MeasureTheory/OptimalTransport/Monge.lean",
          "line": 206,
          "fit": "exact"
+        },
+        {
+         "name": "MeasureTheory.Measure.exists_measurable_map_eq",
+         "library": "mathlib",
+         "file": "Mathlib/Probability/Kernel/Representation.lean",
+         "line": 126,
+         "fit": "special case"
+        },
+        {
+         "name": "MeasureTheory.Measure.exists_measurePreserving_from_unitInterval",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/UnitIntervalMap.lean",
+         "line": 64,
+         "fit": "special case"
         }
        ],
-       "note": "The atom obstruction is proved in its `mongeCost = ∞` form. The positive half — existence of a transport map from a nonatomic standard probability space to an arbitrary standard-Borel target law — is absent; Mathlib's `MeasureTheory.Measure.exists_hasLaw` is unrelated (it merely exhibits the identity map on the target)."
+       "note": "The atom obstruction is proved only in its `mongeCost = ∞` form, for a target null on singletons. The positive half exists for the canonical nonatomic source. Mathlib's `MeasureTheory.Measure.exists_measurable_map_eq` gives, for every probability law `μ` on a standard Borel space, a measurable `f : I → Y` with `volume.map f = μ`, and Tau Ceti repackages it as `exists_measurePreserving_from_unitInterval`. Missing: the general nonatomic source, which needs the mod-null isomorphism of a nonatomic standard probability space with `(I, volume)`, and the general inequality `ν({T x}) ≥ μ({x})` with the atom-set version."
       },
       {
        "target": "Narrow density of graph couplings in Π(μ,ν) for nonatomic Polish μ, and Pratelli's theorem that the Monge infimum equals the Kantorovich minimum for continuous [0,∞]-valued costs",
@@ -4929,10 +5028,15 @@
        "note": "Absent; there is no measurable-selection layer in the OT tree (the Jankov--von Neumann uniformization that Layer 8 also needs is likewise missing)."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-5--coupling-and-map-cut-distance-agree",
+       "note": "DenseGraphLimits Layer 5 needs the same realization of standard-Borel laws by maps from `(I, volume)` and the atomless mod-null equivalence with the unit interval. Those are the nonatomic feasibility results of item 2 here."
+      }
+     ]
     },
     "tauceti:TauCetiRoadmap/OptimalTransport#layer-5-convex-analysis-brenier-and-polar-factorization": {
-     "verdict": "not built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "Dual-pair convex-analysis tower: proper EReal convex functions, Legendre--Fenchel conjugates, Fenchel--Young, subgradients, conjugate-subgradient reciprocity, algebraic Rockafellar theorem, Fenchel--Moreau",
@@ -4985,8 +5089,22 @@
       },
       {
        "target": "Positive-definite matrix square root, inverse/geometric-mean identities, Gaussian covariance pushforward",
-       "library": "partial",
+       "library": "both",
        "declarations": [
+        {
+         "name": "TauCeti.geometricMean",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/ContinuousFunctionalCalculus/GeometricMean.lean",
+         "line": 75,
+         "fit": "exact"
+        },
+        {
+         "name": "Matrix.PosDef.existsUnique_posSemidef_mul_mul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Matrix/GeometricMean.lean",
+         "line": 41,
+         "fit": "exact"
+        },
         {
          "name": "TauCeti.map_affine_multivariateGaussian",
          "library": "tauceti",
@@ -4995,11 +5113,11 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.covarianceBilin_map_affine_multivariateGaussian",
-         "library": "tauceti",
-         "file": "TauCeti/Probability/Distributions/Gaussian/Affine.lean",
-         "line": 45,
-         "fit": "exact"
+         "name": "CFC.sqrt",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/ContinuousFunctionalCalculus/Rpow/Basic.lean",
+         "line": 235,
+         "fit": "more general"
         },
         {
          "name": "Matrix.PosDef",
@@ -5009,7 +5127,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Tau Ceti already proves the affine pushforward of a multivariate Gaussian and its covariance transformation — precisely the lemma the roadmap says is needed for the Gaussian Brenier map and the closed `W₂` formula. Mathlib supplies `PosDef`/`PosSemidef` and the CFC square root; the geometric-mean identities specific to the Gaussian `W₂` formula are not assembled."
+       "note": "Built. Mathlib supplies `PosDef`/`PosSemidef` and the continuous-functional-calculus square root. Tau Ceti's `TauCeti.geometricMean` (`√a·√(√a⁻¹·b·√a⁻¹)·√a`) comes with its symmetry, inversion, Riccati and uniqueness identities, and `Matrix.PosDef.existsUnique_posSemidef_mul_mul` gives the unique positive semidefinite `A` with `A S A = T`. Its docstring identifies that matrix as the linear Brenier map between centred Gaussians. `map_affine_multivariateGaussian` is the covariance pushforward. Only the downstream statements (optimality of that map, the closed `W₂` formula) belong to later items."
       },
       {
        "target": "Connection of ordinary cyclic monotonicity to c-cyclical monotonicity for c(x,y) = ‖x-y‖²/2",
@@ -5056,7 +5174,12 @@
        "note": "Absent, and blocked twice over: it needs the PDE roadmap's weighted Sobolev spaces and Rellich--Kondrachov, which are also unbuilt."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/StandardDistributions#layer-5-multivariate-distributions",
+       "note": "StandardDistributions Layer 5 owns the multivariate Gaussian with its covariance matrix and affine pushforward, which item 3 of this layer consumes for the Gaussian Brenier map."
+      }
+     ]
     },
     "tauceti:TauCetiRoadmap/OptimalTransport#layer-6-monge--ampère-measures-equations-and-regularity": {
      "verdict": "not built",
@@ -5088,8 +5211,16 @@
       {
        "target": "Weighted measure MA_{u,g}, the a.e. Jacobian equation f = g(∇u)det(D²u), and the Brenier ⇒ Aleksandrov criterion",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent, and dependent on Layer 5's Brenier potential, which does not exist."
+       "declarations": [
+        {
+         "name": "MeasureTheory.lintegral_image_eq_lintegral_abs_det_fderiv_mul",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Function/Jacobian.lean",
+         "line": 1183,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent, and dependent on Layer 5's Brenier potential, which does not exist. The only area-formula input is Mathlib's change of variables for maps that are injective and differentiable on a measurable set. The approximate-differentiability and a.e.-twice-differentiable-gradient version the item asks for is missing."
       },
       {
        "target": "Convex sections, John normalization, engulfing, section-adapted Vitali covering, and Caffarelli local C^{1,α}/W^{2,1+ε} regularity",
@@ -5289,6 +5420,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume",
        "note": "GeometricTopology Layer 7 owns Riemannian volume and curvature, which this layer consumes; the roadmaps agree on the boundary, but both would need the same exponential-map/volume API, currently absent from the libraries."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/HopfRinow#layer-1-the-geodesic-equation-the-flow-and-the-exponential-map",
+       "note": "HopfRinow Layer 1 owns the geodesic flow and the Riemannian exponential map, which item 1 here consumes. The missing exponential map blocks this layer and must be built there."
       }
      ]
     },
@@ -5312,15 +5447,37 @@
          "file": "Mathlib/Topology/EMetricSpace/BoundedVariation.lean",
          "line": 61,
          "fit": "related"
+        },
+        {
+         "name": "AbsolutelyContinuousOnInterval",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Function/AbsolutelyContinuous.lean",
+         "line": 154,
+         "fit": "related"
         }
        ],
-       "note": "Only the bounded-variation side exists: Tau Ceti proves `eVariationOn` equals the integral of the norm of the derivative for metric-valued curves, which is the `p=1` fundamental theorem. There is no `ACᵖ` predicate, no metric derivative `|γ'|(t)`, and no `p`-action functional."
+       "note": "Only the `p = 1` side exists. Mathlib defines `AbsolutelyContinuousOnInterval` for curves in a pseudometric space, with bounded variation and a.e. differentiability, and Tau Ceti proves that `eVariationOn` is the integral of the norm of the derivative for `C¹` curves in a normed space. There is no `ACᵖ` predicate for `p > 1`, no metric derivative `|γ'|(t)` and no `p`-action functional."
       },
       {
        "target": "Arzelà--Ascoli on C([0,T];X) with its stated hypotheses, and tightness of path-space laws from a probabilistic modulus of continuity",
-       "library": "absent",
-       "declarations": [],
-       "note": "Absent in the path-space form; Mathlib's Arzelà--Ascoli is for a compact carrier and is not specialized here."
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ArzelaAscoli.isCompact_closure_of_isClosedEmbedding",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/UniformSpace/Ascoli.lean",
+         "line": 475,
+         "fit": "more general"
+        },
+        {
+         "name": "ArzelaAscoli.isCompact_of_equicontinuous",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/UniformSpace/Ascoli.lean",
+         "line": 500,
+         "fit": "related"
+        }
+       ],
+       "note": "The deterministic theorem is Mathlib's general Arzelà–Ascoli. For functions on a compact domain such as `[0,T]`, a family that is equicontinuous and pointwise contained in compact sets has compact closure (`ArzelaAscoli.isCompact_closure_of_isClosedEmbedding`), with no properness assumption on the target. The path-space tightness criterion (tight marginals plus a probabilistic modulus) is absent."
       },
       {
        "target": "Alexandrov CBB(κ) predicate with triangle/quadruple comparison and equivalence",
@@ -5385,7 +5542,12 @@
        "note": "Absent."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/HopfRinow#layer-4-corollaries-and-downstream-theory",
+       "note": "HopfRinow Layer 4 owns the metric length-space API (metric curve length, length and geodesic spaces) that this layer says it consumes; only the `ACᵖ` and path-space theory belong here."
+      }
+     ]
     },
     "tauceti:TauCetiRoadmap/OptimalTransport#layer-9-displacement-geometry-and-convexity": {
      "verdict": "not built",
@@ -5509,21 +5671,35 @@
          "fit": "exact"
         },
         {
+         "name": "InformationTheory.klDiv_compProd_eq_add",
+         "library": "mathlib",
+         "file": "Mathlib/InformationTheory/KullbackLeibler/ChainRule.lean",
+         "line": 204,
+         "fit": "related"
+        },
+        {
+         "name": "InformationTheory.klDiv_map_le",
+         "library": "mathlib",
+         "file": "Mathlib/InformationTheory/KullbackLeibler/DataProcessing.lean",
+         "line": 160,
+         "fit": "exact"
+        },
+        {
+         "name": "InformationTheory.klDiv_comp_right_le",
+         "library": "mathlib",
+         "file": "Mathlib/InformationTheory/KullbackLeibler/DataProcessing.lean",
+         "line": 186,
+         "fit": "exact"
+        },
+        {
          "name": "InformationTheory.klDiv_eq_top_iff",
          "library": "mathlib",
          "file": "Mathlib/InformationTheory/KullbackLeibler/Basic.lean",
          "line": 94,
          "fit": "exact"
-        },
-        {
-         "name": "InformationTheory.klDiv_self",
-         "library": "mathlib",
-         "file": "Mathlib/InformationTheory/KullbackLeibler/Basic.lean",
-         "line": 78,
-         "fit": "exact"
         }
        ],
-       "note": "Mathlib has the `klDiv` root definition and its basic algebra, which the roadmap correctly treats as existing. The genuinely missing pieces it names — the conditional chain rule and the measurability of `x ↦ klDiv (κ x) (η x)`, plus Pinsker and Donsker--Varadhan — are not in the baseline (the file has no `compProd` chain-rule lemma at this pin)."
+       "note": "Mathlib has more of this than the roadmap assumes. `KullbackLeibler/ChainRule.lean` proves `klDiv_compProd_eq_add` (`klDiv (μ⊗ₘκ) (ν⊗ₘη) = klDiv μ ν + klDiv (μ⊗ₘκ) (μ⊗ₘη)`) and `klDiv_compProd_left`, and `DataProcessing.lean` proves data processing for maps, sub-σ-algebras and Markov kernels. Missing: the conditional form with `∫⁻ x, klDiv (κ x) (η x) ∂μ` and the measurability it needs, strict convexity and lower semicontinuity of `klDiv` in the measures, change of reference, tensorization, Pinsker, and Donsker–Varadhan."
       },
       {
        "target": "Signed extended-real Boltzmann entropy Ent_m(μ) : EReal with its explicit formula, finite-reference bridge to klDiv, and lower semicontinuity/coercivity of sublevels",
@@ -5796,8 +5972,16 @@
       {
        "target": "Dynamic Schrödinger: endpoint-constrained path entropy, the f(X₀)g(X₁)R factorization, the Brownian path reference with its Fokker--Planck equations, and Schilder's LDP",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent; there is no Wiener measure on `C([0,1];ℝⁿ)` and no large-deviation principle in either library."
+       "declarations": [
+        {
+         "name": "ProbabilityTheory.IsBrownianReal",
+         "library": "mathlib",
+         "file": "Mathlib/Probability/BrownianMotion/Basic.lean",
+         "line": 303,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Mathlib has real-valued Brownian motion only as predicates: `IsPreBrownianReal` and `IsBrownianReal`, with the Gaussian projective family, independent increments and the weak Markov property. It has no Wiener measure on `C([0,1];ℝⁿ)`, no path-space reference law with a prescribed initial law, no heat-kernel Fokker–Planck theory and no large-deviation principle."
       }
      ],
      "duplicates": []
@@ -6130,14 +6314,14 @@
          "fit": "related"
         },
         {
-         "name": "TauCeti.freeLocus",
+         "name": "TauCeti.Measure.exists_isProjectiveLimit_of_countable",
          "library": "tauceti",
-         "file": "TauCeti/Topology/Algebra/GroupAction/FreeLocus.lean",
-         "line": 33,
+         "file": "TauCeti/MeasureTheory/Measure/ProjectiveLimit/Countable.lean",
+         "line": 167,
          "fit": "related"
         }
        ],
-       "note": "Process. Tau Ceti already follows this for the pieces it has built: the lower-semicontinuous lintegral lemmas live in `MeasureTheory/Measure/`, not inside the OT tree."
+       "note": "Process. Tau Ceti already follows this for the pieces it has built. The lower-semicontinuous lintegral lemmas live in `MeasureTheory/Measure/LowerSemicontinuousLintegral.lean`, and the countable Kolmogorov extension in `MeasureTheory/Measure/ProjectiveLimit/`, not inside the OT tree."
       },
       {
        "target": "Module documentation mapping hypotheses to theorem regimes",
@@ -6157,7 +6341,7 @@
    }
   },
   "AnalyticNumberTheory": {
-   "summary": "The first two stages are essentially finished in the libraries, which the roadmap document does not reflect. Mathlib supplies the whole `LSeries` carrier with abscissa of absolute convergence, termwise differentiation, Euler products, Abel summation, Mellin transform and inversion; `riemannZeta` with its completed form, functional equation, residue at 1 and trivial zeros; Dirichlet L-functions with gamma factors, completed L-functions, root numbers, the primitive functional equation, change of level for imprimitive characters, and nonvanishing on `Re s ≥ 1`; Hurwitz and periodic (exponential) zeta with continuation, residue, Hurwitz's functional equation and Bernoulli special values; Dirichlet's theorem on primes in arithmetic progressions; `dedekindZeta` together with a proved **Dirichlet class number formula**; and Dirichlet density for sets of prime ideals. Tau Ceti adds the ideal-indexed Dirichlet-series library (`ArithmeticDirichletSeries`, ~665 declarations) with Perron inversion and explicit truncation errors, Landau's theorem, ψ and θ for prime ideals, and a partial Wiener--Ikehara and Chebotarev development. What is genuinely missing is the quantitative half of the subject: no zero-free region of positive width, no Tauberian theorem in final form, no prime number theorem (in any shape) and no PNT in progressions, no zero-counting or explicit formula, no zero-density or mean-value estimates, no continuation or functional equation for Dedekind zeta, no Hecke or Artin L-functions, and nothing at all from AN.5, AN.8 and AN.9 (multiplicative-function mean values, Halász, moments, prehomogeneous and multiple zeta functions, Selberg zeta, Bost--Connes).",
+   "summary": "The first two stages are essentially finished in the libraries, which the roadmap document does not reflect. Mathlib supplies the whole `LSeries` carrier with abscissa of absolute convergence, termwise differentiation, Euler products, Abel summation, Mellin transform and inversion; `riemannZeta` with its completed form, functional equation, residue at 1 and trivial zeros; Dirichlet L-functions with gamma factors, completed L-functions, root numbers, the primitive functional equation, change of level for imprimitive characters, and nonvanishing on `Re s ≥ 1`; Hurwitz and periodic (exponential) zeta with continuation, residue, Hurwitz's functional equation and Bernoulli special values; Dirichlet's theorem on primes in arithmetic progressions; Chebyshev's `ψ` and `θ` with Chebyshev's bounds, `ψ − θ = O(√x)` and the exact identity converting `θ` to `π`; `dedekindZeta` together with a proved **Dirichlet class number formula**; and Dirichlet density for sets of prime ideals. Tau Ceti adds the ideal-indexed Dirichlet-series library (`ArithmeticDirichletSeries`, ~665 declarations) with Perron inversion and explicit truncation errors, Landau's theorem, ψ and θ for prime ideals with the transfer `ϑ ∼ δx ⇒ π ∼ δ Li(x)`, and a partial Wiener--Ikehara and Chebotarev development. What is genuinely missing is the quantitative half of the subject: no zero-free region of positive width, no Tauberian theorem in final form, no prime number theorem (in any shape) and no PNT in progressions, no zero-counting or explicit formula, no zero-density or mean-value estimates, no continuation or functional equation for Dedekind zeta, no Hecke or Artin L-functions, and almost nothing from AN.5, AN.8 and AN.9: no multiplicative-function mean values, Halász, moments, prehomogeneous or multiple zeta functions, Selberg zeta or Bost--Connes, only Mathlib's elementary bound on the smooth-number count.",
    "layers": {
     "AnalyticNumberTheory:AN.0": {
      "verdict": "built",
@@ -6258,10 +6442,10 @@
          "fit": "exact"
         },
         {
-         "name": "LSeries.LSeriesSummable_logMul_and_hasDerivAt",
+         "name": "LSeriesSummable_logMul_of_lt_re",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/LSeries/Deriv.lean",
-         "line": 56,
+         "line": 98,
          "fit": "exact"
         },
         {
@@ -6272,7 +6456,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Proved with the convergence side condition the acceptance criterion asks for: `LSeriesSummable_logMul_and_hasDerivAt` supplies summability of the differentiated series and the derivative at once."
+       "note": "Proved with the convergence side condition the acceptance criterion asks for: `LSeriesSummable_logMul_of_lt_re` gives summability of the differentiated series and `LSeries_hasDerivAt` the derivative. The private lemma behind both is not a citable declaration."
       },
       {
        "target": "Euler products for multiplicative coefficients, with convergence proofs",
@@ -6405,10 +6589,10 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.norm_truncatedPerronKernel_le_bound",
+         "name": "TauCeti.norm_truncatedPerronKernel_sub_step_le",
          "library": "tauceti",
-         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Perron/Formula.lean",
-         "line": 246,
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Perron/Basic.lean",
+         "line": 666,
          "fit": "exact"
         },
         {
@@ -6419,12 +6603,26 @@
          "fit": "exact"
         }
        ],
-       "note": "This is exactly the stage's 'Perron inversion with explicit truncation errors': `norm_truncatedPerron_LSeries_sub_sum_le` bounds the difference between the truncated vertical integral and the partial sum, and `norm_truncatedPerronKernel_le_bound` is the explicit kernel error. The roadmap document treats this as work to be specified."
+       "note": "This is exactly the stage's 'Perron inversion with explicit truncation errors': `norm_truncatedPerron_LSeries_sub_sum_le` bounds the difference between the truncated vertical integral and the partial sum, and `norm_truncatedPerronKernel_sub_step_le` is the public explicit kernel error `‖K_T(x) − step(x)‖ ≤ x^c/(πT|log x|)`. The roadmap document treats this as work to be specified."
       },
       {
        "target": "Interchange of limits (uniform convergence on closed half-planes) with convergence proofs",
        "library": "both",
        "declarations": [
+        {
+         "name": "LSeries_analyticOnNhd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/Deriv.lean",
+         "line": 157,
+         "fit": "related"
+        },
+        {
+         "name": "LSeries_iteratedDeriv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/Deriv.lean",
+         "line": 133,
+         "fit": "related"
+        },
         {
          "name": "LSeries.abscissaOfAbsConv",
          "library": "mathlib",
@@ -6447,7 +6645,7 @@
          "fit": "related"
         }
        ],
-       "note": "Available through the abscissa API plus Tau Ceti's boundary-growth and Landau machinery; there is no single named 'interchange of limits' theorem, but each use in the built material carries its own convergence proof."
+       "note": "Available through Mathlib's half-plane theory — `LSeries_analyticOnNhd` (holomorphy on the open half-plane of absolute convergence) and `LSeries_iteratedDeriv` (termwise derivatives of every order) — and Tau Ceti's boundary-growth and Landau machinery. There is no single named 'interchange of limits' theorem, but each use in the built material carries its own convergence proof."
       }
      ],
      "duplicates": [
@@ -6630,13 +6828,6 @@
          "fit": "exact"
         },
         {
-         "name": "DirichletCharacter.LFunction_apply_one_ne_zero_of_quadratic",
-         "library": "mathlib",
-         "file": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
-         "line": 202,
-         "fit": "exact"
-        },
-        {
          "name": "DirichletCharacter.LFunction_ne_zero_of_one_le_re",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
@@ -6644,7 +6835,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Proved in Mathlib, including the hard real-quadratic case, and in fact in the stronger form `L(s,χ) ≠ 0` for all `Re s ≥ 1` (excluding `s = 1` for the trivial character)."
+       "note": "Proved in Mathlib, including the hard real-quadratic case (a private step superseded by `LFunction_apply_one_ne_zero`), and in fact in the stronger form `L(s,χ) ≠ 0` for all `Re s ≥ 1` (excluding `s = 1` for the trivial character)."
       },
       {
        "target": "Dirichlet L-series as an L-series with its convergence and Euler product",
@@ -6809,20 +7000,27 @@
       },
       {
        "target": "Chebyshev functions ψ and θ and their conversion to prime counts",
-       "library": "partial",
+       "library": "both",
        "declarations": [
         {
-         "name": "TauCeti.primePsi",
-         "library": "tauceti",
-         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean",
-         "line": 137,
-         "fit": "more general"
+         "name": "Chebyshev.psi",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Chebyshev.lean",
+         "line": 73,
+         "fit": "exact"
         },
         {
-         "name": "TauCeti.primePsi_sub_primeTheta",
-         "library": "tauceti",
-         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean",
-         "line": 199,
+         "name": "Chebyshev.primeCounting_eq_theta_div_log_add_integral",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Chebyshev.lean",
+         "line": 635,
+         "fit": "exact"
+        },
+        {
+         "name": "Chebyshev.isBigO_psi_sub_theta_sqrt",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Chebyshev.lean",
+         "line": 606,
          "fit": "exact"
         },
         {
@@ -6830,24 +7028,17 @@
          "library": "tauceti",
          "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean",
          "line": 311,
-         "fit": "exact"
+         "fit": "more general"
         },
         {
-         "name": "TauCeti.standardPrimePowerRemoval",
+         "name": "TauCeti.primeCount_asymptotic_of_primeTheta",
          "library": "tauceti",
-         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean",
-         "line": 230,
-         "fit": "exact"
-        },
-        {
-         "name": "NumberField.Chebotarev.frobeniusPsi",
-         "library": "tauceti",
-         "file": "TauCeti/NumberTheory/Chebotarev/PrimeCounting/VonMangoldt.lean",
-         "line": 155,
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Transfer.lean",
+         "line": 140,
          "fit": "more general"
         }
        ],
-       "note": "Tau Ceti has ψ and θ and the `ψ - θ = o(x)` conversion, but over the prime ideals of a number field (the ℚ case is the special case `K = ℚ`), and as a *conditional* transfer: `primeTheta_isEquivalent_of_primePsi` derives one asymptotic from the other rather than proving either."
+       "note": "Mathlib's `Mathlib/NumberTheory/Chebyshev.lean` defines `Chebyshev.psi` and `Chebyshev.theta` over ℕ, with Chebyshev's bounds, `ψ − θ = O(√x)` and the exact Abel-summation identity `π(x) = θ(x)/log x + ∫₂ˣ θ(t)/(t log²t) dt` (with `π − θ/log x = O(x/log²x)`). Tau Ceti has the same functions for sets of prime ideals of a number field, and the conditional transfers `ψ ∼ δx ⇒ ϑ ∼ δx` and `ϑ ∼ δx ⇒ π ∼ δ Li(x)`. The asymptotic inputs themselves (PNT) are absent; see target 3."
       },
       {
        "target": "Labelling of ineffective constants and exceptional (Siegel) zeros",
@@ -6959,6 +7150,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
        "note": "Layer 6 says `ZerosOfLFunctions` consumes its Perron theorem for explicit formulas; the contour machinery cited above is owned there, and AN.3's explicit formula would be its consumer."
+      },
+      {
+       "layer": "SieveMethodsAndPrimePatterns:SV.3",
+       "note": "SV.3 derives Bombieri–Vinogradov from the large-sieve/zero-density route. That is the arithmetic-progression application of zero-density estimates that this stage also lists, so the two stages need one owner for the zero-density input."
       }
      ]
     },
@@ -7155,6 +7350,14 @@
       {
        "layer": "DirichletPadicLFunctions:KU-zeta",
        "note": "'Completed Dedekind zeta and special values' states the completed zeta and its special values, duplicating this stage's gamma-factor/functional-equation target."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+       "note": "GlobalNumberFields Layer 10 defines `HeckeCharacter` with its infinity types and algebraicity. That is the Hecke-character carrier this stage needs for its L-functions."
+      },
+      {
+       "layer": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+       "note": "AL.1 (Tate zeta integrals) proves the global continuation and functional equation of Hecke L-functions, including the trivial-character case, i.e. the completed Dedekind zeta. That is this stage's gamma-factor/continuation target, and BorelRegulators R.5 imports it from there."
       }
      ]
     },
@@ -7192,14 +7395,21 @@
          "fit": "related"
         },
         {
-         "name": "EulerProduct.prod_primesBelow_tsum_eq_tsum_smoothNumbers",
+         "name": "Nat.smoothNumbersUpTo",
          "library": "mathlib",
-         "file": "Mathlib/NumberTheory/EulerProduct/Basic.lean",
-         "line": 152,
+         "file": "Mathlib/NumberTheory/SmoothNumbers.lean",
+         "line": 391,
+         "fit": "related"
+        },
+        {
+         "name": "Nat.smoothNumbersUpTo_card_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SmoothNumbers.lean",
+         "line": 453,
          "fit": "related"
         }
        ],
-       "note": "The *set* of smooth numbers exists in Mathlib with the factorization API used to prove Euler products, but nothing about Ψ(x,y) — no Dickman function, no counting asymptotic, no saddle-point estimate."
+       "note": "Mathlib has the smooth-number sets with their factorization API and one elementary count: `Nat.smoothNumbersUpTo_card_le` bounds the number of `k`-smooth integers up to `N` by `2^{π(k−1)}·√N`. Missing: the asymptotic theory of `Ψ(x,y)` — Dickman's function, the counting asymptotic, saddle-point estimates."
       },
       {
        "target": "Divisor problems (Dirichlet hyperbola, Δ(x))",
@@ -7232,7 +7442,12 @@
        "note": "Absent, since none of the theorems exists."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "ProbabilisticAndMetricNumberTheory:PM.5",
+       "note": "PM.5 organizes multiplicative-function correlations and random models and keeps Chowla/Sarnak in the conjecture register. That overlaps this stage's 'random-matrix and correlation predictions as conjectural models'."
+      }
+     ]
     },
     "AnalyticNumberTheory:AN.6": {
      "verdict": "process",
@@ -7533,7 +7748,12 @@
        "note": "Absent; multiple zeta values are not defined in either library either."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "PeriodsAndSpecialValues:PS.9",
+       "note": "PS.9 constructs multiple zeta values with their shuffle/stuffle and motivic theory. This stage's acceptance criterion assigns multiple zeta values to PS, so its multiple Dirichlet series must stop at that boundary."
+      }
+     ]
     },
     "AnalyticNumberTheory:AN.9": {
      "verdict": "not built",
@@ -7581,5 +7801,336 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-06",
+  "date": "2026-09-16",
+  "checked": 351,
+  "corrections": [
+   {
+    "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-0-the-effective-projective-möbius-action",
+    "target": "(layer verdict)",
+    "was": "built",
+    "now": "partly built",
+    "why": "The audit's own target 10 is partial: nothing puts a complex-manifold structure on the free quotient, so the local-biholomorphism half of item 5 is missing (Mathlib's `Geometry/Manifold/Instances/Quotient.lean` stops at `ChartedSpace` and lists `IsManifold` as a TODO)."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-0-the-effective-projective-möbius-action",
+    "target": "targets 0, 3, 4, 6 (instance citations)",
+    "was": "four citations named `anonymous instance : …`; target 3's note put the instances at lines 168 and 186",
+    "now": "the auto-generated names (`TauCeti.instT2SpaceProjectiveSpecialLinearGroupFinOfNatNatReal_tauCeti`, `UpperHalfPlane.instFaithfulSMulProjectiveSpecialLinearGroupFinOfNatNatReal_tauCeti`, `TauCeti.UpperHalfPlane.instContinuousSMulProjectiveSpecialLinearGroupFinOfNatNatRealUpperHalfPlane_tauCeti`, `TauCeti.instProperlyDiscontinuousSMul…OfDiscreteTopology_tauCeti`); lines 172 and 189",
+    "why": "A citation must be a declaration name. Lean assigned these names in a build of the pinned sources; the instances are at the cited lines 29, 172, 31 and 33."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-0-the-effective-projective-möbius-action",
+    "target": "Finiteness of every stabilizer, and classification of a nontrivial stabilizer as finite cyclic generated by an elliptic element",
+    "was": "no citation for finiteness; the note named `MulAction.finite_stabilizer_of_properlyDiscontinuousSMul`, which does not exist",
+    "now": "cites `TauCeti.finite_stabilizer_of_properlyDiscontinuousSMul` (ConstMulAction.lean:89), which wraps Mathlib's `ProperlyDiscontinuousSMul.finite_stabilizer`",
+    "why": "The note's lemma name is not in either library; these are the real declarations."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
+    "target": "An invariant disc at an elliptic point whose translates are disjoint outside the stabilizer",
+    "was": "absent",
+    "now": "partial",
+    "why": "Mathlib's `ProperlyDiscontinuousSMul.exists_nhds_disjoint_image` (ConstMulAction.lean:584) already gives a neighbourhood whose translates by non-stabilizer elements are disjoint from it; only stabilizer invariance, the disc shape and the linearization are missing."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates",
+    "target": "Classification of parabolic elements and their unique boundary fixed points",
+    "was": "cited `UpperHalfPlane.fixedPt`, the fixed point of an elliptic element, for the boundary fixed point of a parabolic",
+    "now": "cites `Matrix.GeneralLinearGroup.parabolicFixedPoint` and `IsParabolic.smul_eq_self_iff` (Topology/Compactification/OnePoint/ProjectiveLine.lean:186, 189)",
+    "why": "These are the Mathlib statements of the target's 'unique boundary fixed point'; `fixedPt` concerns elliptic elements."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications",
+    "target": "Finite CW model of a compact smooth surface, its homotopy-invariant Euler characteristic, and topological genus via χ(X) = 2 - 2g",
+    "was": "note: 'no `genus` is defined'",
+    "now": "note lists the genera that do exist (function-field, stable-reduction, permutation-triple), none a topological genus of a surface; related citations added",
+    "why": "`TauCeti.genus`, `TauCeti.NumericalType.topologicalGenus` and `TauCeti.PermutationTriple.genus` are in the baseline. The last is the combinatorial Riemann–Hurwitz genus of a dessin."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications",
+    "target": "Finite nonconstant holomorphic maps, local multiplicity from the local normal form, and degree as a fibre sum",
+    "was": "no citation",
+    "now": "related `TauCeti.exists_localDegree` (Conformal/LocalDegree.lean:197)",
+    "why": "The planar local-degree theorem is the local normal-form input that BelyiMaps Layer 8.2 also names; the surface-level target stays absent."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications",
+    "target": "(duplicates)",
+    "was": "ModularForms 10B, FunctionFieldArithmetic FA.3",
+    "now": "adds BelyiMaps Layer 8",
+    "why": "BelyiMaps Layer 8.2–8.3 state the local multiplicity and degree theorems of this layer."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-6-the-level-one-modular-quotient-in-construction-order",
+    "target": "Descend the normalized j-function to the uncompactified quotient and extend it meromorphically over the cusp",
+    "was": "note: LevelOne/ 'contains only GradedRing.lean and ValenceFormula.lean'",
+    "now": "note also lists the FundamentalDomainBoundary/ directory",
+    "why": "The directory has a third component, which also has no `j`."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-6-the-level-one-modular-quotient-in-construction-order",
+    "target": "(duplicates)",
+    "was": "ModularForms Layer 10 said to own the normalized `j` in `ModularForms.LevelOne.JInputs`",
+    "now": "Layer 0 recorded as the owner of `JInputs`, and Layer 10 as the consumer of `X(1) ≃ ℙ¹`; BelyiMaps Layer 8 added for the Riemann sphere",
+    "why": "ModularForms Layer 10 says the `j` inputs 'were already supplied by the independent Layer-0 `ModularForms.LevelOne.JInputs` module'."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+    "target": "(summary)",
+    "was": "'Layer 0 is done'",
+    "now": "Layer 0 is described as built except the local-biholomorphism half of item 5; parabolic fixed points and the owner of `j` are named",
+    "why": "The summary must agree with the corrected layer 0 verdict and the duplicate records."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-a--strongly-continuous-semigroups",
+    "target": "Power formula R(λ,A)ⁿx = ∫₀^∞ tⁿ⁻¹/(n−1)! e^{−λt} S(t)x dt",
+    "was": "partial: \"only as private declarations … there is no public statement of the integral formula\"",
+    "now": "tauceti: `TauCeti.Semigroups.StronglyContinuousSemigroup.resolvent_pow_succ_apply` (Resolvent/PowerBounds.lean:209), public and in declarations.tsv",
+    "why": "The public theorem states exactly `R(λ)^(n+1)x = (1/n!)∫ tⁿ e^{−λt} S(t)x dt`; the audit cited only the private helpers."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+    "target": "(summary)",
+    "was": "listed the resolvent-power integral formula as missing",
+    "now": "lists it as built",
+    "why": "See the part A power-formula correction."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+    "target": "part C, milestones 1 and 2 (Bochner targets)",
+    "was": "citation name 'TauCeti.fourierAtom (public def; absent from declarations.tsv)'",
+    "now": "`TauCeti.fourierAtom`",
+    "why": "The name field must be the declaration name; the definition is at PositiveDefinite/FourierAtom.lean:41."
+   },
+   {
+    "layer": "AnalyticNumberTheory:AN.0",
+    "target": "Termwise differentiation of a Dirichlet series",
+    "was": "cited the private `LSeries.LSeriesSummable_logMul_and_hasDerivAt` as exact",
+    "now": "cites the public `LSeriesSummable_logMul_of_lt_re` (LSeries/Deriv.lean:98)",
+    "why": "A private lemma cannot be used outside its file."
+   },
+   {
+    "layer": "AnalyticNumberTheory:AN.0",
+    "target": "Perron inversion with explicit truncation errors",
+    "was": "cited the private `TauCeti.norm_truncatedPerronKernel_le_bound` as exact",
+    "now": "cites the public `TauCeti.norm_truncatedPerronKernel_sub_step_le` (Perron/Basic.lean:666)",
+    "why": "A private lemma cannot be used outside its file."
+   },
+   {
+    "layer": "AnalyticNumberTheory:AN.0",
+    "target": "Interchange of limits (uniform convergence on closed half-planes) with convergence proofs",
+    "was": "only abscissa, Landau and boundary-growth citations",
+    "now": "adds `LSeries_analyticOnNhd` and `LSeries_iteratedDeriv` (LSeries/Deriv.lean:157, 133)",
+    "why": "These are the Mathlib results that carry the limit interchanges for Dirichlet series."
+   },
+   {
+    "layer": "AnalyticNumberTheory:AN.1",
+    "target": "Nonvanishing at s = 1 for nontrivial Dirichlet characters",
+    "was": "cited the private `DirichletCharacter.LFunction_apply_one_ne_zero_of_quadratic` as exact",
+    "now": "citation dropped; the public theorems already cover it",
+    "why": "A private lemma cannot be used outside its file."
+   },
+   {
+    "layer": "AnalyticNumberTheory:AN.2",
+    "target": "Chebyshev functions ψ and θ and their conversion to prime counts",
+    "was": "partial (only Tau Ceti prime-ideal ψ/θ and the ψ→ϑ transfer cited)",
+    "now": "both: Mathlib `Chebyshev.psi`, `Chebyshev.primeCounting_eq_theta_div_log_add_integral`, `Chebyshev.isBigO_psi_sub_theta_sqrt`; Tau Ceti `primeCount_asymptotic_of_primeTheta` (ϑ ∼ δx ⇒ π ∼ δ Li)",
+    "why": "The audit missed Mathlib's Chebyshev file, which has ψ and θ and their conversion to π. It also missed Tau Ceti's ϑ→π transfer (ArithmeticDirichletSeries/Transfer.lean:140)."
+   },
+   {
+    "layer": "AnalyticNumberTheory:AN.3",
+    "target": "(duplicates)",
+    "was": "ArithmeticDirichletSeries Layer 6 only",
+    "now": "adds SieveMethodsAndPrimePatterns:SV.3",
+    "why": "SV.3 states the same zero-density and arithmetic-progression application."
+   },
+   {
+    "layer": "AnalyticNumberTheory:AN.4",
+    "target": "(duplicates)",
+    "was": "Chebotarev L10, ArithmeticDirichletSeries L7, BorelRegulators R.5, DirichletPadicLFunctions KU-zeta",
+    "now": "adds GlobalNumberFields Layer 10 and AutomorphicLFunctionsAndLocalFactors AL.1",
+    "why": "They own the Hecke characters and the Tate-thesis continuation that targets 4 and 5 ask for."
+   },
+   {
+    "layer": "AnalyticNumberTheory:AN.5",
+    "target": "Smooth numbers and their counting function",
+    "was": "note: 'nothing about Ψ(x,y)'",
+    "now": "note cites Mathlib `Nat.smoothNumbersUpTo` and the count bound `Nat.smoothNumbersUpTo_card_le` (SmoothNumbers.lean:391, 453)",
+    "why": "Mathlib has an explicit upper bound for the smooth-number count; the asymptotic is still missing."
+   },
+   {
+    "layer": "AnalyticNumberTheory:AN.5",
+    "target": "(duplicates)",
+    "was": "none",
+    "now": "adds ProbabilisticAndMetricNumberTheory:PM.5",
+    "why": "Same conjectural-model register."
+   },
+   {
+    "layer": "AnalyticNumberTheory:AN.8",
+    "target": "(duplicates)",
+    "was": "none",
+    "now": "adds PeriodsAndSpecialValues:PS.9",
+    "why": "Multiple zeta values are owned there."
+   },
+   {
+    "layer": "AnalyticNumberTheory",
+    "target": "(summary)",
+    "was": "no mention of Mathlib Chebyshev functions; \"nothing at all from AN.5\"",
+    "now": "mentions Mathlib ψ/θ/π conversion, Tau Ceti ϑ→π transfer, and the smooth-number count bound",
+    "why": "Agree with the corrected targets."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-0-transport-plans-maps-kernels-and-gluing",
+    "target": "Finite-chain gluing and countable chains through Ionescu--Tulcea; projective-limit marginals",
+    "was": "note: the 'arbitrary countable standard-Borel projective-family extension theorem … is the one piece not visible here'; cited the private `chainKernel`",
+    "now": "cites `TauCeti.Measure.exists_isProjectiveLimit_of_countable` (MeasureTheory/Measure/ProjectiveLimit/Countable.lean:167)",
+    "why": "The theorem exists at the pin, outside the OT directory, and its docstring cites OptimalTransport Layer 0 item 4."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-0-transport-plans-maps-kernels-and-gluing",
+    "target": "Acceptance checks: uniqueness of a coupling with a Dirac marginal; finite probability vectors as nonnegative matrices with prescribed row/column sums; matrix gluing agrees",
+    "was": "tauceti",
+    "now": "partial",
+    "why": "No declaration identifies `PMF.finiteGluing` with the measure-level `Measure.glue`, which is what the acceptance check asks for."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-0-transport-plans-maps-kernels-and-gluing",
+    "target": "(layer verdict)",
+    "was": "built",
+    "now": "partly built",
+    "why": "Target 7 is partial, so not every target of the layer is in the libraries."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-0-transport-plans-maps-kernels-and-gluing",
+    "target": "(duplicates)",
+    "was": "none",
+    "now": "adds DenseGraphLimits Layer 1",
+    "why": "Shared coupling/gluing API."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-1-transport-cost-compactness-existence-and-stability",
+    "target": "(layer verdict)",
+    "was": "built",
+    "now": "partly built",
+    "why": "The audit's own target 7 is partial (no uncrossing/monotone-coupling optimality, no barrier-cost statement)."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-2-kantorovich-duality-transforms-and-optimality-certificates",
+    "target": "Strong Kantorovich duality for continuous finite costs on compact metrizable spaces; the Polish lower-semicontinuous theorem",
+    "was": "tauceti",
+    "now": "partial",
+    "why": "Every duality theorem cited assumes compact metrizable spaces; the Polish theorem this target names is not in the baseline."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-3-wasserstein-distances-and-topology",
+    "target": "Anchored PseudoEMetric component and P_p(X) with PseudoMetric/Metric instances; inherited measurable structure; the anchor/Dirac identification",
+    "was": "tauceti",
+    "now": "partial",
+    "why": "The audit's own note says the Borel σ-algebra identification required by item 2 is not proved; a search confirms no Borel instance on the Wasserstein carriers."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-3-wasserstein-distances-and-topology",
+    "target": "Relative compactness in P_p(X) ⟺ tightness plus uniform integrability of p-moment tails; a.s. convergence of empirical measures W_p(n⁻¹∑δ_{Xᵢ}, μ) → 0",
+    "was": "absent",
+    "now": "partial",
+    "why": "Tau Ceti's `ConditionallyIIDWith.tendsto_empiricalMeasure_ae` (Exchangeability/ConditionallyIID/WeakConvergence.lean:75) is the weak-convergence half of the empirical-measure theorem."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-3-wasserstein-distances-and-topology",
+    "target": "The p=∞ endpoint: essential-supremum formula, completeness of anchored components, W_∞ = sup_{p<∞} W_p = lim_{p→∞} W_p, attainment, and the max-form product/mixture estimates",
+    "was": "note: 'attainment is proved for all `p`'; attainment theorem cited as exact",
+    "now": "note: attainment and completeness are finite-`p` only; that citation is now related",
+    "why": "The attainment theorem assumes `p ≠ ∞`, and so do the completeness instances; `W_∞` attainment is absent."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-4-the-monge-problem-and-abstract-transport-maps",
+    "target": "Feasibility theory: atom obstruction ν({T x}) ≥ μ({x}), atom-set version, nonatomic corollary that a nonatomic standard probability space maps onto every standard-Borel law",
+    "was": "note: the positive half 'is absent; Mathlib's `MeasureTheory.Measure.exists_hasLaw` is unrelated'",
+    "now": "note and citations: Mathlib `Measure.exists_measurable_map_eq` (Probability/Kernel/Representation.lean:126) and Tau Ceti `exists_measurePreserving_from_unitInterval` (MeasureTheory/Measure/UnitIntervalMap.lean:64) realize every standard-Borel law from `(I, volume)`",
+    "why": "The positive half is in the baseline for the unit-interval source; only the general nonatomic source is missing."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-4-the-monge-problem-and-abstract-transport-maps",
+    "target": "(duplicates)",
+    "was": "none",
+    "now": "adds DenseGraphLimits Layer 5",
+    "why": "Shared unit-interval realization theorem."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-5-convex-analysis-brenier-and-polar-factorization",
+    "target": "Positive-definite matrix square root, inverse/geometric-mean identities, Gaussian covariance pushforward",
+    "was": "partial: \"the geometric-mean identities specific to the Gaussian W₂ formula are not assembled\"",
+    "now": "both: `TauCeti.geometricMean`, `Matrix.PosDef.existsUnique_posSemidef_mul_mul`, Mathlib `CFC.sqrt`, and the affine Gaussian pushforward",
+    "why": "Tau Ceti's CFC geometric-mean files (Analysis/SpecialFunctions/ContinuousFunctionalCalculus/GeometricMean.lean, Analysis/Matrix/GeometricMean.lean) are exactly this lemma package; the audit cited a private covariance lemma instead."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-5-convex-analysis-brenier-and-polar-factorization",
+    "target": "(layer verdict)",
+    "was": "not built",
+    "now": "partly built",
+    "why": "Target 2 is now fully present."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-5-convex-analysis-brenier-and-polar-factorization",
+    "target": "(duplicates)",
+    "was": "none",
+    "now": "adds StandardDistributions Layer 5",
+    "why": "Owner of the Gaussian covariance lemmas."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-7-riemannian-brenier--mccann-transport",
+    "target": "(duplicates)",
+    "was": "GeometricTopology Layer 7 only",
+    "now": "adds HopfRinow Layer 1",
+    "why": "Declared supplier of the exponential map."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-8-metric-curves-dynamic-plans-and-benamou--brenier",
+    "target": "ACᵖ([0,T];X), metric derivatives, p-energy/action, measurable families of curves, the fundamental theorem for AC metric curves, reparameterization and lower semicontinuity of action",
+    "was": "note: 'Only the bounded-variation side exists … There is no `ACᵖ` predicate'",
+    "now": "adds Mathlib `AbsolutelyContinuousOnInterval` (MeasureTheory/Function/AbsolutelyContinuous.lean:154), the metric AC (p = 1) predicate",
+    "why": "Mathlib has absolutely continuous curves in pseudometric spaces at the pin."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-8-metric-curves-dynamic-plans-and-benamou--brenier",
+    "target": "Arzelà--Ascoli on C([0,T];X) with its stated hypotheses, and tightness of path-space laws from a probabilistic modulus of continuity",
+    "was": "absent",
+    "now": "partial",
+    "why": "Mathlib's `Topology/UniformSpace/Ascoli.lean` already proves the deterministic Arzelà–Ascoli theorem in the generality item 1 asks for, since the time domain `[0,T]` is compact."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-8-metric-curves-dynamic-plans-and-benamou--brenier",
+    "target": "(duplicates)",
+    "was": "none",
+    "now": "adds HopfRinow Layer 4",
+    "why": "Declared supplier of metric curve length and geodesic spaces."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-11-entropy-wasserstein-differential-calculus-jko-and-pde-flows",
+    "target": "Extended klDiv API: conditional chain rule klDiv(μ⊗ₘκ, ν⊗ₘη) = klDiv μ ν + ∫⁻ klDiv(κx)(ηx) dμ, strict convexity, lower semicontinuity, data processing, tensorization, Pinsker, Donsker--Varadhan",
+    "was": "note: 'the file has no `compProd` chain-rule lemma at this pin'; data processing listed as missing",
+    "now": "cites `InformationTheory.klDiv_compProd_eq_add` (KullbackLeibler/ChainRule.lean:204), `klDiv_map_le` and `klDiv_comp_right_le` (KullbackLeibler/DataProcessing.lean:160, 186)",
+    "why": "The chain rule the roadmap names and the data-processing inequality are both in Mathlib at the pin; the target stays partial."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-16-public-api-extraction-and-end-to-end-examples",
+    "target": "Keep general-purpose additions separate from transport-specific material",
+    "was": "cited `TauCeti.freeLocus` (Fuchsian group actions, unrelated to transport)",
+    "now": "cites `TauCeti.Measure.exists_isProjectiveLimit_of_countable`",
+    "why": "The citation should illustrate an OT-facing general-purpose addition."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/OptimalTransport",
+    "target": "(summary)",
+    "was": "claimed Polish lower-semicontinuous duality and that everything from Layer 5 on is missing",
+    "now": "compact duality only; Layer 5 Gaussian toolkit, Mathlib KL chain rule/data processing, unit-interval realization and Kolmogorov extension named; residual gaps extended",
+    "why": "Agree with the corrected layers."
+   }
+  ],
+  "notes": "All 351 targets and all 679 citations were checked against the pinned baseline. 672 citations match declarations.tsv at the exact file and line. In the other 7 the name field was not a declaration name (4 unnamed instances, 3 'TauCeti.fourierAtom (public def …)'); all are fixed, and Lean confirms the names and lines. No cited file contains a sorry token or declares an axiom. The statements of all cited declarations were read against their targets. Every declaration newly cited or named in a corrected note was checked in Lean: 42 names, against the pinned Mathlib and a build whose Tau Ceti sources are byte-identical to the pin, with axioms only propext, Classical.choice and Quot.sound. Every built and process verdict was checked against the layer text. All 213 absent and partial claims were searched again by concept, Mathlib naming convention and keyword, over the index and both source trees. Target status changes (9): absent to partial for FuchsianOrbifolds L1 T0, OptimalTransport L3 T5 and L8 T1; partial to present for OneParameterSemigroups A T18, AnalyticNumberTheory AN.2 T5 and OptimalTransport L5 T2; present to partial for OptimalTransport L0 T7, L2 T5 and L3 T2. Verdict changes (4): FuchsianOrbifolds L0 and OptimalTransport L0 and L1 go from built to partly built (the first two had listed a partial target of their own), and OptimalTransport L5 from not built to partly built. Library content wrongly reported absent: Mathlib's Chebyshev ψ/θ/π file; the KL chain rule and data processing; the unit-interval realization of standard-Borel laws; Arzelà–Ascoli; metric absolutely continuous curves; the parabolic fixed point; the smooth-number count bound. On the Tau Ceti side: the public resolvent-power formula, the matrix geometric mean, the countable Kolmogorov extension, the empirical-measure law and a Monge-feasibility realization. Presence overstated: Kantorovich duality is only compact, not Polish; W_∞ attainment and completeness hold only for finite p. Private declarations cited as exact were replaced by public ones where a public equivalent exists. Four private citations remain, each documenting how a result is proved rather than exporting it: the Bochner existence route, the Rockafellar potential, the roots-of-unity quotient map and a few 'related' helpers. 12 duplicate records were added and two ModularForms ownership notes corrected. All 53 duplicate records point at existing layers of unretired roadmaps."
  }
 }
