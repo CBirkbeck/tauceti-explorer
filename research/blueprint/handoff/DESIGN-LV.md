@@ -17,7 +17,7 @@ Baseline: Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, Mathlib 082e2d37e8b
 
 ## Numbers
 
-- 131 nodes: 70 lemmas, 29 theorems, 21 definitions, 10 constructions, 1 comparison; 253 API items on the 31
+- 132 nodes: 70 lemmas, 29 theorems, 21 definitions, 11 constructions, 1 comparison; 253 API items on the 32
   definitions and constructions.
 - 89 baseline declarations cited (73 Mathlib, 16 Tau Ceti), each read in its source file at the pinned commit.
 - 92 requests to 51 supplier stages (19 of them are integration requests to `FoundationsAndLibraryIntegration:LI.4`,
@@ -36,7 +36,7 @@ Baseline: Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, Mathlib 082e2d37e8b
 | LV.2 | abelian-by-finite families, good models, de Rham bundle, residue disks, formal horizontal sections, transports, crystalline Frobenius | source_decomposed |
 | LV.3 | Lagrangian Grassmannian and period varieties, monodromy group, period maps, LV 3.1–3.3, Strassmann, finite preimages | source_decomposed |
 | LV.4 | fibre crystalline comparison, transport (6.6)–(6.7), orbit lemma, finiteness criterion, LV Proposition 3.4 | source_decomposed |
-| LV.5 | surfaces, classification, mapping class groups, Dehn twists, Birman, configuration fibration, twist lifting, families of branched covers | partial (gap) |
+| LV.5 | surfaces, classification, mapping class groups, Dehn twists, point pushing and the Birman sequence, configuration fibration, twist lifting, families of branched covers | partial (gap) |
 | LV.6 | S-unit theorem: reductions, Kummer fields, Legendre family and monodromy, LV 4.2–4.4, Theorem 4.1 | source_decomposed |
 | LV.7 | size_v, LV 6.1–6.4 and the Sublemma, Proposition 5.3 | source_decomposed |
 | LV.8 | Hurwitz spaces (LV 7.1, 7.4), reduced Pryms and their homology, Kodaira–Parshin family, fibre map (5.5) | source_decomposed |
