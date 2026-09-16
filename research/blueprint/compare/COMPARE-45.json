@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-45",
+ "round": 3,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:Completed/ContourIntegration",
+   "title": "Contour integration and the Hungerbühler–Wasem generalized residue theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_Completed_ContourIntegration.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+   "title": "Hodge structures (pure, mixed, and polarized)",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_HodgeStructures.json"
+  },
+  {
+   "roadmapId": "HabiroCyclotomicCompletions",
+   "title": "Cyclotomic completions and classical Habiro rings",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroCyclotomicCompletions.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+   "title": "Algebraic topology of spaces and manifolds",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AlgebraicTopology.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+   "title": "Global quadratic forms over number fields",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_GlobalQuadraticForms.json"
+  },
+  {
+   "roadmapId": "FunctionFieldArithmetic",
+   "title": "Global function fields, reciprocity and automorphic foundations",
+   "extract": "research/blueprint/atlas/roadmaps/FunctionFieldArithmetic.json"
+  },
+  {
+   "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+   "title": "Inverse Galois theory and arithmetic fundamental groups",
+   "extract": "research/blueprint/atlas/roadmaps/InverseGaloisAndArithmeticFundamentalGroups.json"
+  },
+  {
+   "roadmapId": "CrystallineCohomology",
+   "title": "Crystalline cohomology, de Rham–Witt and logarithmic foundations",
+   "extract": "research/blueprint/atlas/roadmaps/CrystallineCohomology.json"
+  },
+  {
+   "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+   "title": "Hilbert Modular Varieties And Shimura Curves",
+   "extract": "research/blueprint/atlas/roadmaps/HilbertModularVarietiesAndShimuraCurves.json"
+  },
+  {
+   "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+   "title": "Néron models and semistable abelian varieties",
+   "extract": "research/blueprint/atlas/roadmaps/NeronModelsAndSemistableAbelianVarieties.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+   "title": "Modular curves, following Katz–Mazur",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ModularCurves.json"
+  },
+  {
+   "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+   "title": "Anabelian geometry and nonabelian Chabauty",
+   "extract": "research/blueprint/atlas/roadmaps/AnabelianGeometryAndNonabelianChabauty.json"
+  },
+  {
+   "roadmapId": "MotivicEtaleKTheory",
+   "title": "Motivic and étale methods for arithmetic K-theory",
+   "extract": "research/blueprint/atlas/roadmaps/MotivicEtaleKTheory.json"
+  },
+  {
+   "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "title": "Ordinary automorphic forms and ordinary modularity lifting",
+   "extract": "research/blueprint/atlas/roadmaps/OrdinaryAutomorphicFormsAndModularityLifting.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/HodgeStructures",
+   "b": "tauceti:Completed/ContourIntegration"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HodgeStructures",
+   "b": "HabiroCyclotomicCompletions"
+  },
+  {
+   "a": "HabiroCyclotomicCompletions",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicTopology"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicTopology"
+  },
+  {
+   "a": "FunctionFieldArithmetic",
+   "b": "tauceti:TauCetiRoadmap/GlobalQuadraticForms"
+  },
+  {
+   "a": "FunctionFieldArithmetic",
+   "b": "InverseGaloisAndArithmeticFundamentalGroups"
+  },
+  {
+   "a": "CrystallineCohomology",
+   "b": "InverseGaloisAndArithmeticFundamentalGroups"
+  },
+  {
+   "a": "HilbertModularVarietiesAndShimuraCurves",
+   "b": "CrystallineCohomology"
+  },
+  {
+   "a": "NeronModelsAndSemistableAbelianVarieties",
+   "b": "HilbertModularVarietiesAndShimuraCurves"
+  },
+  {
+   "a": "NeronModelsAndSemistableAbelianVarieties",
+   "b": "tauceti:TauCetiRoadmap/ModularCurves"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ModularCurves",
+   "b": "AnabelianGeometryAndNonabelianChabauty"
+  },
+  {
+   "a": "AnabelianGeometryAndNonabelianChabauty",
+   "b": "MotivicEtaleKTheory"
+  },
+  {
+   "a": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "b": "MotivicEtaleKTheory"
+  },
+  {
+   "a": "HabiroCyclotomicCompletions",
+   "b": "tauceti:Completed/ContourIntegration"
+  },
+  {
+   "a": "NeronModelsAndSemistableAbelianVarieties",
+   "b": "OrdinaryAutomorphicFormsAndModularityLifting"
+  },
+  {
+   "a": "MotivicEtaleKTheory",
+   "b": "FunctionFieldArithmetic"
+  },
+  {
+   "a": "InverseGaloisAndArithmeticFundamentalGroups",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicTopology"
+  },
+  {
+   "a": "AnabelianGeometryAndNonabelianChabauty",
+   "b": "HilbertModularVarietiesAndShimuraCurves"
+  },
+  {
+   "a": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "b": "tauceti:TauCetiRoadmap/ModularCurves"
+  },
+  {
+   "a": "CrystallineCohomology",
+   "b": "tauceti:TauCetiRoadmap/GlobalQuadraticForms"
+  },
+  {
+   "a": "MotivicEtaleKTheory",
+   "b": "NeronModelsAndSemistableAbelianVarieties"
+  },
+  {
+   "a": "FunctionFieldArithmetic",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicTopology"
+  },
+  {
+   "a": "HabiroCyclotomicCompletions",
+   "b": "tauceti:TauCetiRoadmap/GlobalQuadraticForms"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ModularCurves",
+   "b": "InverseGaloisAndArithmeticFundamentalGroups"
+  }
+ ]
+}

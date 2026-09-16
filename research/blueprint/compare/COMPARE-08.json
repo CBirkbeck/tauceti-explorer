@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-08",
+ "round": 1,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+   "title": "Weighted orthogonal L² bases — completeness, Hilbert-basis structure, and product bases of orthogonal systems",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_Completed_OrthogonalL2Bases.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "title": "Algebraic codes and code-lattice constructions",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AlgebraicCodingTheory.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+   "title": "The Ado–Iwasawa theorem and faithful finite-dimensional Lie representations",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_AdoIwasawa.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+   "title": "Algebraic topology of spaces and manifolds",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AlgebraicTopology.json"
+  },
+  {
+   "roadmapId": "DiophantineApproximationAndTranscendence",
+   "title": "Diophantine approximation and transcendence",
+   "extract": "research/blueprint/atlas/roadmaps/DiophantineApproximationAndTranscendence.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+   "title": "Lie groups and the Lie algebra correspondence",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.json"
+  },
+  {
+   "roadmapId": "QSeriesPartitionsAndMockModularForms",
+   "title": "Q-series, partitions, Jacobi and mock modular forms",
+   "extract": "research/blueprint/atlas/roadmaps/QSeriesPartitionsAndMockModularForms.json"
+  },
+  {
+   "roadmapId": "ReductiveGroupsPartII",
+   "title": "Reductive groups, Part II: local structure and arithmetic models",
+   "extract": "research/blueprint/atlas/roadmaps/ReductiveGroupsPartII.json"
+  },
+  {
+   "roadmapId": "ModularCurvesPartII",
+   "title": "Modular Curves PartII",
+   "extract": "research/blueprint/atlas/roadmaps/ModularCurvesPartII.json"
+  },
+  {
+   "roadmapId": "PerfectoidSpaces",
+   "title": "Perfectoid rings and spaces",
+   "extract": "research/blueprint/atlas/roadmaps/PerfectoidSpaces.json"
+  },
+  {
+   "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+   "title": "Small ramification and the base cases for Serre modularity",
+   "extract": "research/blueprint/atlas/roadmaps/SmallRamificationAndAbelianVarietyBaseCases.json"
+  },
+  {
+   "roadmapId": "DiamondEtaleCohomology",
+   "title": "Étale cohomology of diamonds and its four operations",
+   "extract": "research/blueprint/atlas/roadmaps/DiamondEtaleCohomology.json"
+  },
+  {
+   "roadmapId": "GrossZagierAndArithmeticHeights",
+   "title": "Gross–Zagier formulas and arithmetic heights",
+   "extract": "research/blueprint/atlas/roadmaps/GrossZagierAndArithmeticHeights.json"
+  },
+  {
+   "roadmapId": "IntegralIwasawaTheory",
+   "title": "Arithmetic Iwasawa theory and the main conjecture",
+   "extract": "research/blueprint/atlas/roadmaps/IntegralIwasawaTheory.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:Completed/OrthogonalL2Bases",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicTopology"
+  },
+  {
+   "a": "DiophantineApproximationAndTranscendence",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicTopology"
+  },
+  {
+   "a": "DiophantineApproximationAndTranscendence",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+   "b": "QSeriesPartitionsAndMockModularForms"
+  },
+  {
+   "a": "QSeriesPartitionsAndMockModularForms",
+   "b": "ReductiveGroupsPartII"
+  },
+  {
+   "a": "ModularCurvesPartII",
+   "b": "ReductiveGroupsPartII"
+  },
+  {
+   "a": "PerfectoidSpaces",
+   "b": "ModularCurvesPartII"
+  },
+  {
+   "a": "SmallRamificationAndAbelianVarietyBaseCases",
+   "b": "PerfectoidSpaces"
+  },
+  {
+   "a": "DiamondEtaleCohomology",
+   "b": "SmallRamificationAndAbelianVarietyBaseCases"
+  },
+  {
+   "a": "DiamondEtaleCohomology",
+   "b": "GrossZagierAndArithmeticHeights"
+  },
+  {
+   "a": "IntegralIwasawaTheory",
+   "b": "GrossZagierAndArithmeticHeights"
+  },
+  {
+   "a": "SmallRamificationAndAbelianVarietyBaseCases",
+   "b": "IntegralIwasawaTheory"
+  },
+  {
+   "a": "tauceti:Completed/OrthogonalL2Bases",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa"
+  },
+  {
+   "a": "PerfectoidSpaces",
+   "b": "GrossZagierAndArithmeticHeights"
+  },
+  {
+   "a": "ReductiveGroupsPartII",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicTopology"
+  },
+  {
+   "a": "ModularCurvesPartII",
+   "b": "DiamondEtaleCohomology"
+  },
+  {
+   "a": "DiophantineApproximationAndTranscendence",
+   "b": "QSeriesPartitionsAndMockModularForms"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups"
+  },
+  {
+   "a": "IntegralIwasawaTheory",
+   "b": "ModularCurvesPartII"
+  },
+  {
+   "a": "GrossZagierAndArithmeticHeights",
+   "b": "SmallRamificationAndAbelianVarietyBaseCases"
+  },
+  {
+   "a": "DiophantineApproximationAndTranscendence",
+   "b": "PerfectoidSpaces"
+  },
+  {
+   "a": "ReductiveGroupsPartII",
+   "b": "DiamondEtaleCohomology"
+  }
+ ]
+}

@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-18",
+ "round": 2,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:Completed/ContourIntegration",
+   "title": "Contour integration and the Hungerbühler–Wasem generalized residue theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_Completed_ContourIntegration.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+   "title": "Galois groups of polynomials",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_PolynomialGaloisGroups.json"
+  },
+  {
+   "roadmapId": "DirichletPadicLFunctions",
+   "title": "Dirichlet p-adic L-functions, special values, and Eisenstein measures",
+   "extract": "research/blueprint/atlas/roadmaps/DirichletPadicLFunctions.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+   "title": "Geodesics, the exponential map, and the Hopf–Rinow theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_HopfRinow.json"
+  },
+  {
+   "roadmapId": "ComplexComparisonPartII",
+   "title": "Complex Comparison PartII",
+   "extract": "research/blueprint/atlas/roadmaps/ComplexComparisonPartII.json"
+  },
+  {
+   "roadmapId": "ExponentialSumsAndCircleMethod",
+   "title": "Exponential sums, decoupling and the circle method",
+   "extract": "research/blueprint/atlas/roadmaps/ExponentialSumsAndCircleMethod.json"
+  },
+  {
+   "roadmapId": "FunctionFieldArithmetic",
+   "title": "Global function fields, reciprocity and automorphic foundations",
+   "extract": "research/blueprint/atlas/roadmaps/FunctionFieldArithmetic.json"
+  },
+  {
+   "roadmapId": "AdicSpacesPartII",
+   "title": "Adic Spaces PartII",
+   "extract": "research/blueprint/atlas/roadmaps/AdicSpacesPartII.json"
+  },
+  {
+   "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+   "title": "Anabelian geometry and nonabelian Chabauty",
+   "extract": "research/blueprint/atlas/roadmaps/AnabelianGeometryAndNonabelianChabauty.json"
+  },
+  {
+   "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+   "title": "Faltings finiteness, semisimplicity and isogeny theorems",
+   "extract": "research/blueprint/atlas/roadmaps/FaltingsFinitenessAndIsogenyTheorems.json"
+  },
+  {
+   "roadmapId": "ShimuraCompactifications",
+   "title": "Toroidal compactifications and boundary geometry",
+   "extract": "research/blueprint/atlas/roadmaps/ShimuraCompactifications.json"
+  },
+  {
+   "roadmapId": "HeckeStacksAndLocalShtukas",
+   "title": "Hecke correspondences and local shtuka cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/HeckeStacksAndLocalShtukas.json"
+  },
+  {
+   "roadmapId": "ModularIwasawaMainConjectures",
+   "title": "Main conjectures for modular forms and their families",
+   "extract": "research/blueprint/atlas/roadmaps/ModularIwasawaMainConjectures.json"
+  },
+  {
+   "roadmapId": "TorsionCohomologyInfrastructure",
+   "title": "Reusable infrastructure for torsion in arithmetic cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/TorsionCohomologyInfrastructure.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+   "b": "tauceti:Completed/ContourIntegration"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+   "b": "DirichletPadicLFunctions"
+  },
+  {
+   "a": "DirichletPadicLFunctions",
+   "b": "tauceti:TauCetiRoadmap/HopfRinow"
+  },
+  {
+   "a": "ComplexComparisonPartII",
+   "b": "tauceti:TauCetiRoadmap/HopfRinow"
+  },
+  {
+   "a": "ComplexComparisonPartII",
+   "b": "ExponentialSumsAndCircleMethod"
+  },
+  {
+   "a": "ExponentialSumsAndCircleMethod",
+   "b": "FunctionFieldArithmetic"
+  },
+  {
+   "a": "FunctionFieldArithmetic",
+   "b": "AdicSpacesPartII"
+  },
+  {
+   "a": "AdicSpacesPartII",
+   "b": "AnabelianGeometryAndNonabelianChabauty"
+  },
+  {
+   "a": "FaltingsFinitenessAndIsogenyTheorems",
+   "b": "AnabelianGeometryAndNonabelianChabauty"
+  },
+  {
+   "a": "FaltingsFinitenessAndIsogenyTheorems",
+   "b": "ShimuraCompactifications"
+  },
+  {
+   "a": "HeckeStacksAndLocalShtukas",
+   "b": "ShimuraCompactifications"
+  },
+  {
+   "a": "ModularIwasawaMainConjectures",
+   "b": "HeckeStacksAndLocalShtukas"
+  },
+  {
+   "a": "TorsionCohomologyInfrastructure",
+   "b": "ModularIwasawaMainConjectures"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HopfRinow",
+   "b": "tauceti:Completed/ContourIntegration"
+  },
+  {
+   "a": "AnabelianGeometryAndNonabelianChabauty",
+   "b": "TorsionCohomologyInfrastructure"
+  },
+  {
+   "a": "tauceti:Completed/ContourIntegration",
+   "b": "DirichletPadicLFunctions"
+  },
+  {
+   "a": "ShimuraCompactifications",
+   "b": "ExponentialSumsAndCircleMethod"
+  },
+  {
+   "a": "HeckeStacksAndLocalShtukas",
+   "b": "TorsionCohomologyInfrastructure"
+  },
+  {
+   "a": "FaltingsFinitenessAndIsogenyTheorems",
+   "b": "ModularIwasawaMainConjectures"
+  },
+  {
+   "a": "ComplexComparisonPartII",
+   "b": "AdicSpacesPartII"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HopfRinow",
+   "b": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups"
+  },
+  {
+   "a": "AnabelianGeometryAndNonabelianChabauty",
+   "b": "FunctionFieldArithmetic"
+  },
+  {
+   "a": "ExponentialSumsAndCircleMethod",
+   "b": "DirichletPadicLFunctions"
+  },
+  {
+   "a": "ShimuraCompactifications",
+   "b": "ModularIwasawaMainConjectures"
+  }
+ ]
+}

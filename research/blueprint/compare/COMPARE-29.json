@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-29",
+ "round": 2,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+   "title": "Semisimple algebras, Artin-Wedderburn, and the structure of their modules",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json"
+  },
+  {
+   "roadmapId": "tauceti:Completed/EffectiveBounds",
+   "title": "Effective arithmetic bounds and geometry of numbers",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_Completed_EffectiveBounds.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "title": "Analytic toric geometry",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AnalyticToricGeometry.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+   "title": "The Chebotarev density theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_Chebotarev.json"
+  },
+  {
+   "roadmapId": "AdditiveCombinatorics",
+   "title": "Additive combinatorics, higher Fourier analysis and primes",
+   "extract": "research/blueprint/atlas/roadmaps/AdditiveCombinatorics.json"
+  },
+  {
+   "roadmapId": "DrinfeldModulesAndTModules",
+   "title": "Drinfeld modules, t-motives and characteristic-p special values",
+   "extract": "research/blueprint/atlas/roadmaps/DrinfeldModulesAndTModules.json"
+  },
+  {
+   "roadmapId": "QSeriesPartitionsAndMockModularForms",
+   "title": "Q-series, partitions, Jacobi and mock modular forms",
+   "extract": "research/blueprint/atlas/roadmaps/QSeriesPartitionsAndMockModularForms.json"
+  },
+  {
+   "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+   "title": "(φ,Γ)-modules, Herr complexes and local Iwasawa cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/PhiGammaModulesAndIwasawaCohomology.json"
+  },
+  {
+   "roadmapId": "HabiroRings",
+   "title": "Habiro rings: relative arithmetic constructions and cohomological coefficients",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroRings.json"
+  },
+  {
+   "roadmapId": "IntegralIwasawaTheory",
+   "title": "Arithmetic Iwasawa theory and the main conjecture",
+   "extract": "research/blueprint/atlas/roadmaps/IntegralIwasawaTheory.json"
+  },
+  {
+   "roadmapId": "PerfectoidQuotients",
+   "title": "Perfectoid quotients and their prismatic prerequisites",
+   "extract": "research/blueprint/atlas/roadmaps/PerfectoidQuotients.json"
+  },
+  {
+   "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+   "title": "Completed cohomology and p-adic local–global compatibility over Q",
+   "extract": "research/blueprint/atlas/roadmaps/CompletedCohomologyAndLocalGlobalCompatibility.json"
+  },
+  {
+   "roadmapId": "HabiroCohomologyFoundations",
+   "title": "Q-Hodge filtrations and Habiro cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroCohomologyFoundations.json"
+  },
+  {
+   "roadmapId": "ModularityAndLanglandsExtensions",
+   "title": "Modularity, automorphy and Langlands endpoint extensions",
+   "extract": "research/blueprint/atlas/roadmaps/ModularityAndLanglandsExtensions.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+   "b": "tauceti:Completed/EffectiveBounds"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "b": "tauceti:Completed/EffectiveBounds"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "b": "tauceti:TauCetiRoadmap/Chebotarev"
+  },
+  {
+   "a": "AdditiveCombinatorics",
+   "b": "tauceti:TauCetiRoadmap/Chebotarev"
+  },
+  {
+   "a": "AdditiveCombinatorics",
+   "b": "DrinfeldModulesAndTModules"
+  },
+  {
+   "a": "DrinfeldModulesAndTModules",
+   "b": "QSeriesPartitionsAndMockModularForms"
+  },
+  {
+   "a": "PhiGammaModulesAndIwasawaCohomology",
+   "b": "QSeriesPartitionsAndMockModularForms"
+  },
+  {
+   "a": "HabiroRings",
+   "b": "PhiGammaModulesAndIwasawaCohomology"
+  },
+  {
+   "a": "HabiroRings",
+   "b": "IntegralIwasawaTheory"
+  },
+  {
+   "a": "IntegralIwasawaTheory",
+   "b": "PerfectoidQuotients"
+  },
+  {
+   "a": "PerfectoidQuotients",
+   "b": "CompletedCohomologyAndLocalGlobalCompatibility"
+  },
+  {
+   "a": "CompletedCohomologyAndLocalGlobalCompatibility",
+   "b": "HabiroCohomologyFoundations"
+  },
+  {
+   "a": "ModularityAndLanglandsExtensions",
+   "b": "HabiroCohomologyFoundations"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
+  },
+  {
+   "a": "ModularityAndLanglandsExtensions",
+   "b": "PhiGammaModulesAndIwasawaCohomology"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/Chebotarev",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
+  },
+  {
+   "a": "PerfectoidQuotients",
+   "b": "HabiroCohomologyFoundations"
+  },
+  {
+   "a": "IntegralIwasawaTheory",
+   "b": "QSeriesPartitionsAndMockModularForms"
+  },
+  {
+   "a": "CompletedCohomologyAndLocalGlobalCompatibility",
+   "b": "ModularityAndLanglandsExtensions"
+  },
+  {
+   "a": "DrinfeldModulesAndTModules",
+   "b": "HabiroRings"
+  },
+  {
+   "a": "PerfectoidQuotients",
+   "b": "AdditiveCombinatorics"
+  },
+  {
+   "a": "tauceti:Completed/EffectiveBounds",
+   "b": "tauceti:TauCetiRoadmap/Chebotarev"
+  },
+  {
+   "a": "HabiroCohomologyFoundations",
+   "b": "DrinfeldModulesAndTModules"
+  },
+  {
+   "a": "CompletedCohomologyAndLocalGlobalCompatibility",
+   "b": "IntegralIwasawaTheory"
+  }
+ ]
+}

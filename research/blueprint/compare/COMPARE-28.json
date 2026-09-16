@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-28",
+ "round": 2,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+   "title": "Representations of compact groups and the Peter-Weyl theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_CompactGroups.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+   "title": "Algebraic curves — function fields, divisors, and Riemann–Roch",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AlgebraicCurves.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+   "title": "Local fields and ramification",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_LocalFieldsRamification.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+   "title": "Class field theory",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ClassFieldTheory.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+   "title": "Reductive algebraic groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ReductiveGroups.json"
+  },
+  {
+   "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+   "title": "Automorphic L-functions and local factors",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicLFunctionsAndLocalFactors.json"
+  },
+  {
+   "roadmapId": "ModularSymbolsPadicLFunctions",
+   "title": "Modular symbols and analytic p-adic L-functions of modular forms",
+   "extract": "research/blueprint/atlas/roadmaps/ModularSymbolsPadicLFunctions.json"
+  },
+  {
+   "roadmapId": "ModularCurvesPartII",
+   "title": "Modular Curves PartII",
+   "extract": "research/blueprint/atlas/roadmaps/ModularCurvesPartII.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+   "title": "Stable reduction of curves and stable maps",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_StableReduction.json"
+  },
+  {
+   "roadmapId": "HodgeTateAndCanonicalSubgroups",
+   "title": "Hodge–Tate theory, canonical subgroups, and automorphic period maps",
+   "extract": "research/blueprint/atlas/roadmaps/HodgeTateAndCanonicalSubgroups.json"
+  },
+  {
+   "roadmapId": "LanglandsParameterStacks",
+   "title": "Parameter stacks, invariant theory and spectral coefficients",
+   "extract": "research/blueprint/atlas/roadmaps/LanglandsParameterStacks.json"
+  },
+  {
+   "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "title": "Ordinary automorphic forms and ordinary modularity lifting",
+   "extract": "research/blueprint/atlas/roadmaps/OrdinaryAutomorphicFormsAndModularityLifting.json"
+  },
+  {
+   "roadmapId": "PotentialModularityAndCompatibleSystems",
+   "title": "Potential Modularity And Compatible Systems",
+   "extract": "research/blueprint/atlas/roadmaps/PotentialModularityAndCompatibleSystems.json"
+  },
+  {
+   "roadmapId": "ShimuraVarieties",
+   "title": "Complex Shimura varieties and canonical models",
+   "extract": "research/blueprint/atlas/roadmaps/ShimuraVarieties.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicCurves"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+   "b": "tauceti:TauCetiRoadmap/ClassFieldTheory"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ReductiveGroups",
+   "b": "tauceti:TauCetiRoadmap/ClassFieldTheory"
+  },
+  {
+   "a": "AutomorphicLFunctionsAndLocalFactors",
+   "b": "tauceti:TauCetiRoadmap/ReductiveGroups"
+  },
+  {
+   "a": "ModularSymbolsPadicLFunctions",
+   "b": "AutomorphicLFunctionsAndLocalFactors"
+  },
+  {
+   "a": "ModularCurvesPartII",
+   "b": "ModularSymbolsPadicLFunctions"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/StableReduction",
+   "b": "ModularCurvesPartII"
+  },
+  {
+   "a": "HodgeTateAndCanonicalSubgroups",
+   "b": "tauceti:TauCetiRoadmap/StableReduction"
+  },
+  {
+   "a": "LanglandsParameterStacks",
+   "b": "HodgeTateAndCanonicalSubgroups"
+  },
+  {
+   "a": "LanglandsParameterStacks",
+   "b": "OrdinaryAutomorphicFormsAndModularityLifting"
+  },
+  {
+   "a": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "b": "PotentialModularityAndCompatibleSystems"
+  },
+  {
+   "a": "PotentialModularityAndCompatibleSystems",
+   "b": "ShimuraVarieties"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+   "b": "tauceti:TauCetiRoadmap/LocalFieldsRamification"
+  },
+  {
+   "a": "ShimuraVarieties",
+   "b": "LanglandsParameterStacks"
+  },
+  {
+   "a": "ModularSymbolsPadicLFunctions",
+   "b": "PotentialModularityAndCompatibleSystems"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+   "b": "tauceti:TauCetiRoadmap/StableReduction"
+  },
+  {
+   "a": "ModularCurvesPartII",
+   "b": "tauceti:TauCetiRoadmap/ReductiveGroups"
+  },
+  {
+   "a": "ShimuraVarieties",
+   "b": "AutomorphicLFunctionsAndLocalFactors"
+  },
+  {
+   "a": "HodgeTateAndCanonicalSubgroups",
+   "b": "OrdinaryAutomorphicFormsAndModularityLifting"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ReductiveGroups",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicCurves"
+  },
+  {
+   "a": "LanglandsParameterStacks",
+   "b": "PotentialModularityAndCompatibleSystems"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+   "b": "ModularSymbolsPadicLFunctions"
+  },
+  {
+   "a": "AutomorphicLFunctionsAndLocalFactors",
+   "b": "tauceti:TauCetiRoadmap/LocalFieldsRamification"
+  }
+ ]
+}

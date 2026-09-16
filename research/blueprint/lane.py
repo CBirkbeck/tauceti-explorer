@@ -167,9 +167,28 @@ def reset_time(text: str):
     return candidate
 
 
+def compare_progress(job):
+    """(judged, listed) pairs for a pairwise-judgement job."""
+    listed = json.loads((REPO / "research" / "blueprint" / "compare" / f"{job['id']}.json").read_text())["pairs"]
+    try:
+        data = json.loads((REPO / job["outputs"][0]).read_text())
+    except (OSError, ValueError):
+        return 0, len(listed)
+    items = data.get("judgements", []) if isinstance(data, dict) else []
+    answered = {(item.get("a"), item.get("b")) for item in items if isinstance(item, dict) and item.get("farther") in ("a", "b", "tie")}
+    return sum((pair["a"], pair["b"]) in answered for pair in listed), len(listed)
+
+
 def check_outputs(job):
     missing = [pattern for pattern in job.get("outputs", []) if not list(REPO.glob(pattern))]
     result = {}
+    if job.get("kind") == "compare" and not missing:
+        judged, listed = compare_progress(job)
+        result = {"judged": judged, "pairs": listed}
+        if judged < listed:
+            # A partial file is a checkpoint: the job returns to the queue and the next worker completes it.
+            missing = [f"{job['outputs'][0]} ({judged} of {listed} pairs judged)"]
+        return missing, result
     packets = [str(p) for pattern in job.get("outputs", []) for p in REPO.glob(pattern)
                if p.suffix == ".json" and "/packets/" in str(p)]
     if packets:

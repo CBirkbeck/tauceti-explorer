@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-34",
+ "round": 3,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+   "title": "Grothendieck groups, Cartan maps, and Euler forms",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+   "title": "Quiver representations, path algebras, and Gabriel's theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json"
+  },
+  {
+   "roadmapId": "ClassicalArithmeticCompletion",
+   "title": "Classical arithmetic, sequences, polynomials and reciprocity",
+   "extract": "research/blueprint/atlas/roadmaps/ClassicalArithmeticCompletion.json"
+  },
+  {
+   "roadmapId": "DirichletPadicLFunctions",
+   "title": "Dirichlet p-adic L-functions, special values, and Eisenstein measures",
+   "extract": "research/blueprint/atlas/roadmaps/DirichletPadicLFunctions.json"
+  },
+  {
+   "roadmapId": "ArithmeticGaloisRepresentations",
+   "title": "Arithmetic Galois representations and conductors",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticGaloisRepresentations.json"
+  },
+  {
+   "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+   "title": "Integral Hecke actions, determinants and interpolation",
+   "extract": "research/blueprint/atlas/roadmaps/IntegralHeckeAndGaloisDeterminants.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+   "title": "Combinatorial Heegaard Floer and grid homology",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_CombinatorialHeegaardFloer.json"
+  },
+  {
+   "roadmapId": "ComplexComparisonPartII",
+   "title": "Complex Comparison PartII",
+   "extract": "research/blueprint/atlas/roadmaps/ComplexComparisonPartII.json"
+  },
+  {
+   "roadmapId": "EffectiveDiophantineMethods",
+   "title": "Effective Diophantine methods and certified rational points",
+   "extract": "research/blueprint/atlas/roadmaps/EffectiveDiophantineMethods.json"
+  },
+  {
+   "roadmapId": "ModularSymbolsPadicLFunctions",
+   "title": "Modular symbols and analytic p-adic L-functions of modular forms",
+   "extract": "research/blueprint/atlas/roadmaps/ModularSymbolsPadicLFunctions.json"
+  },
+  {
+   "roadmapId": "AInfCohomology",
+   "title": "Integral A_inf cohomology and Breuil–Kisin–Fargues structures",
+   "extract": "research/blueprint/atlas/roadmaps/AInfCohomology.json"
+  },
+  {
+   "roadmapId": "OverconvergentAutomorphicForms",
+   "title": "Overconvergent Hilbert modular forms and p-adic automorphic coefficients",
+   "extract": "research/blueprint/atlas/roadmaps/OverconvergentAutomorphicForms.json"
+  },
+  {
+   "roadmapId": "PadicLocalLanglandsForGL2Qp",
+   "title": "P-adic local Langlands for GL₂(Q_p)",
+   "extract": "research/blueprint/atlas/roadmaps/PadicLocalLanglandsForGL2Qp.json"
+  },
+  {
+   "roadmapId": "SpecialValuesBirchTate",
+   "title": "Birch–Tate and arithmetic special-value formulas",
+   "extract": "research/blueprint/atlas/roadmaps/SpecialValuesBirchTate.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+   "b": "tauceti:TauCetiRoadmap/GrothendieckEulerForms"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+   "b": "ClassicalArithmeticCompletion"
+  },
+  {
+   "a": "ClassicalArithmeticCompletion",
+   "b": "DirichletPadicLFunctions"
+  },
+  {
+   "a": "ArithmeticGaloisRepresentations",
+   "b": "DirichletPadicLFunctions"
+  },
+  {
+   "a": "ArithmeticGaloisRepresentations",
+   "b": "IntegralHeckeAndGaloisDeterminants"
+  },
+  {
+   "a": "IntegralHeckeAndGaloisDeterminants",
+   "b": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+   "b": "ComplexComparisonPartII"
+  },
+  {
+   "a": "EffectiveDiophantineMethods",
+   "b": "ComplexComparisonPartII"
+  },
+  {
+   "a": "ModularSymbolsPadicLFunctions",
+   "b": "EffectiveDiophantineMethods"
+  },
+  {
+   "a": "AInfCohomology",
+   "b": "ModularSymbolsPadicLFunctions"
+  },
+  {
+   "a": "AInfCohomology",
+   "b": "OverconvergentAutomorphicForms"
+  },
+  {
+   "a": "OverconvergentAutomorphicForms",
+   "b": "PadicLocalLanglandsForGL2Qp"
+  },
+  {
+   "a": "SpecialValuesBirchTate",
+   "b": "PadicLocalLanglandsForGL2Qp"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+   "b": "IntegralHeckeAndGaloisDeterminants"
+  },
+  {
+   "a": "SpecialValuesBirchTate",
+   "b": "AInfCohomology"
+  },
+  {
+   "a": "DirichletPadicLFunctions",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+   "b": "ClassicalArithmeticCompletion"
+  },
+  {
+   "a": "ComplexComparisonPartII",
+   "b": "ArithmeticGaloisRepresentations"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+   "b": "ModularSymbolsPadicLFunctions"
+  },
+  {
+   "a": "EffectiveDiophantineMethods",
+   "b": "SpecialValuesBirchTate"
+  },
+  {
+   "a": "PadicLocalLanglandsForGL2Qp",
+   "b": "ModularSymbolsPadicLFunctions"
+  },
+  {
+   "a": "OverconvergentAutomorphicForms",
+   "b": "SpecialValuesBirchTate"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+   "b": "IntegralHeckeAndGaloisDeterminants"
+  },
+  {
+   "a": "ArithmeticGaloisRepresentations",
+   "b": "ClassicalArithmeticCompletion"
+  }
+ ]
+}

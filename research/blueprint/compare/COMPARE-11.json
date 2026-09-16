@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-11",
+ "round": 1,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+   "title": "Grothendieck groups, Cartan maps, and Euler forms",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+   "title": "Number fields, ramification, Frobenius, and the LMFDB invariants",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+   "title": "The Chebotarev density theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_Chebotarev.json"
+  },
+  {
+   "roadmapId": "ColemanPowerSeries",
+   "title": "Coleman power series, local units, and cyclotomic-unit quotients",
+   "extract": "research/blueprint/atlas/roadmaps/ColemanPowerSeries.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+   "title": "Fuchsian groups and orbifold Riemann surfaces",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_FuchsianOrbifolds.json"
+  },
+  {
+   "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+   "title": "Commutative algebra for deformation theory and patching",
+   "extract": "research/blueprint/atlas/roadmaps/DeformationAndDerivedPatchingAlgebra.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "title": "DG and A-infinity algebras, categories, and modules",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_DGAInfinity.json"
+  },
+  {
+   "roadmapId": "SelmerIwasawaCohomology",
+   "title": "Selmer groups, continuous integral cohomology, and Iwasawa cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/SelmerIwasawaCohomology.json"
+  },
+  {
+   "roadmapId": "AutomorphicGaloisRepresentations",
+   "title": "Galois representations attached to modular and Hilbert modular forms",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicGaloisRepresentations.json"
+  },
+  {
+   "roadmapId": "LanglandsParameterStacks",
+   "title": "Parameter stacks, invariant theory and spectral coefficients",
+   "extract": "research/blueprint/atlas/roadmaps/LanglandsParameterStacks.json"
+  },
+  {
+   "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "title": "Ordinary automorphic forms and ordinary modularity lifting",
+   "extract": "research/blueprint/atlas/roadmaps/OrdinaryAutomorphicFormsAndModularityLifting.json"
+  },
+  {
+   "roadmapId": "Polylogarithms",
+   "title": "Polylogarithms, explicit regulators and Zagier statements",
+   "extract": "research/blueprint/atlas/roadmaps/Polylogarithms.json"
+  },
+  {
+   "roadmapId": "PotentialModularityAndCompatibleSystems",
+   "title": "Potential Modularity And Compatible Systems",
+   "extract": "research/blueprint/atlas/roadmaps/PotentialModularityAndCompatibleSystems.json"
+  },
+  {
+   "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+   "title": "Noncommutative and equivariant Iwasawa theory",
+   "extract": "research/blueprint/atlas/roadmaps/NoncommutativeAndEquivariantIwasawa.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+   "b": "tauceti:TauCetiRoadmap/NumberFieldArithmetic"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+   "b": "tauceti:TauCetiRoadmap/Chebotarev"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/Chebotarev",
+   "b": "ColemanPowerSeries"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+   "b": "ColemanPowerSeries"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+   "b": "DeformationAndDerivedPatchingAlgebra"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "b": "DeformationAndDerivedPatchingAlgebra"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "b": "SelmerIwasawaCohomology"
+  },
+  {
+   "a": "SelmerIwasawaCohomology",
+   "b": "AutomorphicGaloisRepresentations"
+  },
+  {
+   "a": "LanglandsParameterStacks",
+   "b": "AutomorphicGaloisRepresentations"
+  },
+  {
+   "a": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "b": "LanglandsParameterStacks"
+  },
+  {
+   "a": "Polylogarithms",
+   "b": "OrdinaryAutomorphicFormsAndModularityLifting"
+  },
+  {
+   "a": "Polylogarithms",
+   "b": "PotentialModularityAndCompatibleSystems"
+  },
+  {
+   "a": "NoncommutativeAndEquivariantIwasawa",
+   "b": "PotentialModularityAndCompatibleSystems"
+  },
+  {
+   "a": "NoncommutativeAndEquivariantIwasawa",
+   "b": "LanglandsParameterStacks"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+   "b": "DeformationAndDerivedPatchingAlgebra"
+  },
+  {
+   "a": "Polylogarithms",
+   "b": "NoncommutativeAndEquivariantIwasawa"
+  },
+  {
+   "a": "ColemanPowerSeries",
+   "b": "SelmerIwasawaCohomology"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/Chebotarev",
+   "b": "tauceti:TauCetiRoadmap/FuchsianOrbifolds"
+  },
+  {
+   "a": "PotentialModularityAndCompatibleSystems",
+   "b": "AutomorphicGaloisRepresentations"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "b": "OrdinaryAutomorphicFormsAndModularityLifting"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+   "b": "ColemanPowerSeries"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/Chebotarev",
+   "b": "tauceti:TauCetiRoadmap/GrothendieckEulerForms"
+  },
+  {
+   "a": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "b": "SelmerIwasawaCohomology"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+   "b": "DeformationAndDerivedPatchingAlgebra"
+  }
+ ]
+}

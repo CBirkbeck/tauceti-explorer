@@ -17,7 +17,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 OWNED = ["research/blueprint/packets", "research/blueprint/readmes", "research/blueprint/reviews",
          "research/blueprint/links", "research/blueprint/handoff", "research/blueprint/roadmaps",
-         "research/blueprint/plans", "research/blueprint/classify", "research/blueprint/queue.json",
+         "research/blueprint/plans", "research/blueprint/classify", "research/blueprint/compare", "research/blueprint/queue.json",
          "research/blueprint/ledger.tsv", "research/blueprint/issues.json", "research/expansion/status",
          "research/expansion/naming"]
 TRAILER = ("\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\n"

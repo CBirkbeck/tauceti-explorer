@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-35",
+ "round": 3,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+   "title": "Clifford algebras, the Pin and Spin groups, and spin representations",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "title": "Analytic toric geometry",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AnalyticToricGeometry.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+   "title": "Local fields and ramification",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_LocalFieldsRamification.json"
+  },
+  {
+   "roadmapId": "AdelicAlgebraicGroups",
+   "title": "Adelic algebraic groups and arithmetic quotients",
+   "extract": "research/blueprint/atlas/roadmaps/AdelicAlgebraicGroups.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+   "title": "Geometric topology and the solved Kirby-list problems",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_GeometricTopology.json"
+  },
+  {
+   "roadmapId": "EulerSystemsAndKolyvaginSystems",
+   "title": "Euler systems, Kolyvagin systems and higher-rank descent",
+   "extract": "research/blueprint/atlas/roadmaps/EulerSystemsAndKolyvaginSystems.json"
+  },
+  {
+   "roadmapId": "HabiroNahmSeries",
+   "title": "Nahm series, asymptotics and Habiro integrality",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroNahmSeries.json"
+  },
+  {
+   "roadmapId": "DerivedDeRhamCohomology",
+   "title": "Derived de Rham cohomology and its algebraic foundations",
+   "extract": "research/blueprint/atlas/roadmaps/DerivedDeRhamCohomology.json"
+  },
+  {
+   "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+   "title": "Euler systems and the unconditional cyclotomic main conjecture",
+   "extract": "research/blueprint/atlas/roadmaps/EulerSystemsCyclotomicMainConjecture.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+   "title": "Stable reduction of curves and stable maps",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_StableReduction.json"
+  },
+  {
+   "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+   "title": "Automorphic Galois Representations PartII",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicGaloisRepresentationsPartII.json"
+  },
+  {
+   "roadmapId": "BunGAndNewtonStrata",
+   "title": "Reductive bundles, B(G) and Newton strata",
+   "extract": "research/blueprint/atlas/roadmaps/BunGAndNewtonStrata.json"
+  },
+  {
+   "roadmapId": "GeometricSatakeAndFusion",
+   "title": "Geometric Satake over the Fargues–Fontaine curve",
+   "extract": "research/blueprint/atlas/roadmaps/GeometricSatakeAndFusion.json"
+  },
+  {
+   "roadmapId": "VStackSheavesAndLisseCategories",
+   "title": "Artin v-stacks, solid and lisse coefficient categories",
+   "extract": "research/blueprint/atlas/roadmaps/VStackSheavesAndLisseCategories.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+   "b": "tauceti:TauCetiRoadmap/AnalyticToricGeometry"
+  },
+  {
+   "a": "AdelicAlgebraicGroups",
+   "b": "tauceti:TauCetiRoadmap/LocalFieldsRamification"
+  },
+  {
+   "a": "AdelicAlgebraicGroups",
+   "b": "tauceti:TauCetiRoadmap/GeometricTopology"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GeometricTopology",
+   "b": "EulerSystemsAndKolyvaginSystems"
+  },
+  {
+   "a": "HabiroNahmSeries",
+   "b": "EulerSystemsAndKolyvaginSystems"
+  },
+  {
+   "a": "HabiroNahmSeries",
+   "b": "DerivedDeRhamCohomology"
+  },
+  {
+   "a": "EulerSystemsCyclotomicMainConjecture",
+   "b": "DerivedDeRhamCohomology"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/StableReduction",
+   "b": "EulerSystemsCyclotomicMainConjecture"
+  },
+  {
+   "a": "AutomorphicGaloisRepresentationsPartII",
+   "b": "tauceti:TauCetiRoadmap/StableReduction"
+  },
+  {
+   "a": "BunGAndNewtonStrata",
+   "b": "AutomorphicGaloisRepresentationsPartII"
+  },
+  {
+   "a": "BunGAndNewtonStrata",
+   "b": "GeometricSatakeAndFusion"
+  },
+  {
+   "a": "GeometricSatakeAndFusion",
+   "b": "VStackSheavesAndLisseCategories"
+  },
+  {
+   "a": "HabiroNahmSeries",
+   "b": "VStackSheavesAndLisseCategories"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "b": "AdelicAlgebraicGroups"
+  },
+  {
+   "a": "BunGAndNewtonStrata",
+   "b": "tauceti:TauCetiRoadmap/StableReduction"
+  },
+  {
+   "a": "AutomorphicGaloisRepresentationsPartII",
+   "b": "DerivedDeRhamCohomology"
+  },
+  {
+   "a": "EulerSystemsCyclotomicMainConjecture",
+   "b": "VStackSheavesAndLisseCategories"
+  },
+  {
+   "a": "GeometricSatakeAndFusion",
+   "b": "EulerSystemsAndKolyvaginSystems"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GeometricTopology",
+   "b": "tauceti:TauCetiRoadmap/AnalyticToricGeometry"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+   "b": "AdelicAlgebraicGroups"
+  },
+  {
+   "a": "AutomorphicGaloisRepresentationsPartII",
+   "b": "HabiroNahmSeries"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/StableReduction",
+   "b": "tauceti:TauCetiRoadmap/GeometricTopology"
+  }
+ ]
+}

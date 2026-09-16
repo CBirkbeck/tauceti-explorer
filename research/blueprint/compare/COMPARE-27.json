@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-27",
+ "round": 2,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+   "title": "One-parameter semigroups, completely monotone and positive-definite functions, and Bochner-type representations",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_OneParameterSemigroups.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+   "title": "Representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_LieHighestWeight.json"
+  },
+  {
+   "roadmapId": "KTheoryLowDegrees",
+   "title": "Explicit K₀: projectives, rank and determinant",
+   "extract": "research/blueprint/atlas/roadmaps/KTheoryLowDegrees.json"
+  },
+  {
+   "roadmapId": "ArithmeticGaloisRepresentations",
+   "title": "Arithmetic Galois representations and conductors",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticGaloisRepresentations.json"
+  },
+  {
+   "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+   "title": "Commutative algebra for deformation theory and patching",
+   "extract": "research/blueprint/atlas/roadmaps/DeformationAndDerivedPatchingAlgebra.json"
+  },
+  {
+   "roadmapId": "SchemeAndStackFoundations",
+   "title": "Scheme, stack, cohomology and intersection foundations",
+   "extract": "research/blueprint/atlas/roadmaps/SchemeAndStackFoundations.json"
+  },
+  {
+   "roadmapId": "SelmerIwasawaCohomology",
+   "title": "Selmer groups, continuous integral cohomology, and Iwasawa cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/SelmerIwasawaCohomology.json"
+  },
+  {
+   "roadmapId": "CrystallineCohomology",
+   "title": "Crystalline cohomology, de Rham–Witt and logarithmic foundations",
+   "extract": "research/blueprint/atlas/roadmaps/CrystallineCohomology.json"
+  },
+  {
+   "roadmapId": "EnhancedDerivedSheaves",
+   "title": "Enhanced derived categories of sheaves",
+   "extract": "research/blueprint/atlas/roadmaps/EnhancedDerivedSheaves.json"
+  },
+  {
+   "roadmapId": "HeightsRationalPointsAndObstructions",
+   "title": "Heights, rational points and obstructions",
+   "extract": "research/blueprint/atlas/roadmaps/HeightsRationalPointsAndObstructions.json"
+  },
+  {
+   "roadmapId": "SmoothRepresentationsOfLocalGroups",
+   "title": "Smooth representations of local groups",
+   "extract": "research/blueprint/atlas/roadmaps/SmoothRepresentationsOfLocalGroups.json"
+  },
+  {
+   "roadmapId": "AInfCohomology",
+   "title": "Integral A_inf cohomology and Breuil–Kisin–Fargues structures",
+   "extract": "research/blueprint/atlas/roadmaps/AInfCohomology.json"
+  },
+  {
+   "roadmapId": "WeilConjectures",
+   "title": "Weil conjectures and cohomological zeta functions",
+   "extract": "research/blueprint/atlas/roadmaps/WeilConjectures.json"
+  },
+  {
+   "roadmapId": "BunGAndNewtonStrata",
+   "title": "Reductive bundles, B(G) and Newton strata",
+   "extract": "research/blueprint/atlas/roadmaps/BunGAndNewtonStrata.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+   "b": "tauceti:TauCetiRoadmap/OneParameterSemigroups"
+  },
+  {
+   "a": "KTheoryLowDegrees",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+  },
+  {
+   "a": "KTheoryLowDegrees",
+   "b": "ArithmeticGaloisRepresentations"
+  },
+  {
+   "a": "DeformationAndDerivedPatchingAlgebra",
+   "b": "ArithmeticGaloisRepresentations"
+  },
+  {
+   "a": "SchemeAndStackFoundations",
+   "b": "DeformationAndDerivedPatchingAlgebra"
+  },
+  {
+   "a": "SelmerIwasawaCohomology",
+   "b": "SchemeAndStackFoundations"
+  },
+  {
+   "a": "SelmerIwasawaCohomology",
+   "b": "CrystallineCohomology"
+  },
+  {
+   "a": "CrystallineCohomology",
+   "b": "EnhancedDerivedSheaves"
+  },
+  {
+   "a": "HeightsRationalPointsAndObstructions",
+   "b": "EnhancedDerivedSheaves"
+  },
+  {
+   "a": "HeightsRationalPointsAndObstructions",
+   "b": "SmoothRepresentationsOfLocalGroups"
+  },
+  {
+   "a": "SmoothRepresentationsOfLocalGroups",
+   "b": "AInfCohomology"
+  },
+  {
+   "a": "WeilConjectures",
+   "b": "AInfCohomology"
+  },
+  {
+   "a": "WeilConjectures",
+   "b": "BunGAndNewtonStrata"
+  },
+  {
+   "a": "BunGAndNewtonStrata",
+   "b": "EnhancedDerivedSheaves"
+  },
+  {
+   "a": "WeilConjectures",
+   "b": "HeightsRationalPointsAndObstructions"
+  },
+  {
+   "a": "KTheoryLowDegrees",
+   "b": "SelmerIwasawaCohomology"
+  },
+  {
+   "a": "CrystallineCohomology",
+   "b": "AInfCohomology"
+  },
+  {
+   "a": "ArithmeticGaloisRepresentations",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+  },
+  {
+   "a": "BunGAndNewtonStrata",
+   "b": "SmoothRepresentationsOfLocalGroups"
+  },
+  {
+   "a": "CrystallineCohomology",
+   "b": "DeformationAndDerivedPatchingAlgebra"
+  },
+  {
+   "a": "SchemeAndStackFoundations",
+   "b": "KTheoryLowDegrees"
+  },
+  {
+   "a": "WeilConjectures",
+   "b": "EnhancedDerivedSheaves"
+  },
+  {
+   "a": "SelmerIwasawaCohomology",
+   "b": "HeightsRationalPointsAndObstructions"
+  },
+  {
+   "a": "DeformationAndDerivedPatchingAlgebra",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+  }
+ ]
+}

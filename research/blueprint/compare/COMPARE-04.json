@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-04",
+ "round": 1,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+   "title": "Induction, restriction, and Mackey theory for finite groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_InductionRestriction.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+   "title": "Stating the classification of finite simple groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_CFSGStatement.json"
+  },
+  {
+   "roadmapId": "LogicAndDefinabilityInNumberTheory",
+   "title": "Logic, definability, valued fields and motivic integration",
+   "extract": "research/blueprint/atlas/roadmaps/LogicAndDefinabilityInNumberTheory.json"
+  },
+  {
+   "roadmapId": "ArithmeticLocallySymmetricSpaces",
+   "title": "Arithmetic locally symmetric spaces and their cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticLocallySymmetricSpaces.json"
+  },
+  {
+   "roadmapId": "DrinfeldModulesAndTModules",
+   "title": "Drinfeld modules, t-motives and characteristic-p special values",
+   "extract": "research/blueprint/atlas/roadmaps/DrinfeldModulesAndTModules.json"
+  },
+  {
+   "roadmapId": "EffectiveDiophantineMethods",
+   "title": "Effective Diophantine methods and certified rational points",
+   "extract": "research/blueprint/atlas/roadmaps/EffectiveDiophantineMethods.json"
+  },
+  {
+   "roadmapId": "AdicEtaleGeometry",
+   "title": "Analytic adic geometry required for diamonds",
+   "extract": "research/blueprint/atlas/roadmaps/AdicEtaleGeometry.json"
+  },
+  {
+   "roadmapId": "CompletedCohomologyPartII",
+   "title": "Completed cohomology, homology and arithmetic towers — Part II",
+   "extract": "research/blueprint/atlas/roadmaps/CompletedCohomologyPartII.json"
+  },
+  {
+   "roadmapId": "EtaleDualityAndPerverseSheaves",
+   "title": "Étale duality, cycle classes and perverse sheaves",
+   "extract": "research/blueprint/atlas/roadmaps/EtaleDualityAndPerverseSheaves.json"
+  },
+  {
+   "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+   "title": "GL₂ Automorphic Representations And Transfer",
+   "extract": "research/blueprint/atlas/roadmaps/GL2AutomorphicRepresentationsAndTransfer.json"
+  },
+  {
+   "roadmapId": "PELModuli",
+   "title": "Siegel and PEL moduli problems",
+   "extract": "research/blueprint/atlas/roadmaps/PELModuli.json"
+  },
+  {
+   "roadmapId": "WeightsInEtaleCohomology",
+   "title": "Weights and purity in étale cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/WeightsInEtaleCohomology.json"
+  },
+  {
+   "roadmapId": "PeriodsAndSpecialValues",
+   "title": "Periods, motivic L-values and special-value conjectures",
+   "extract": "research/blueprint/atlas/roadmaps/PeriodsAndSpecialValues.json"
+  },
+  {
+   "roadmapId": "RefinedTraceMethods",
+   "title": "Hochschild, cyclotomic and refined trace methods",
+   "extract": "research/blueprint/atlas/roadmaps/RefinedTraceMethods.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+   "b": "tauceti:TauCetiRoadmap/CFSGStatement"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/CFSGStatement",
+   "b": "LogicAndDefinabilityInNumberTheory"
+  },
+  {
+   "a": "ArithmeticLocallySymmetricSpaces",
+   "b": "LogicAndDefinabilityInNumberTheory"
+  },
+  {
+   "a": "ArithmeticLocallySymmetricSpaces",
+   "b": "DrinfeldModulesAndTModules"
+  },
+  {
+   "a": "EffectiveDiophantineMethods",
+   "b": "DrinfeldModulesAndTModules"
+  },
+  {
+   "a": "AdicEtaleGeometry",
+   "b": "EffectiveDiophantineMethods"
+  },
+  {
+   "a": "CompletedCohomologyPartII",
+   "b": "AdicEtaleGeometry"
+  },
+  {
+   "a": "EtaleDualityAndPerverseSheaves",
+   "b": "CompletedCohomologyPartII"
+  },
+  {
+   "a": "GL2AutomorphicRepresentationsAndTransfer",
+   "b": "EtaleDualityAndPerverseSheaves"
+  },
+  {
+   "a": "GL2AutomorphicRepresentationsAndTransfer",
+   "b": "PELModuli"
+  },
+  {
+   "a": "WeightsInEtaleCohomology",
+   "b": "PELModuli"
+  },
+  {
+   "a": "PeriodsAndSpecialValues",
+   "b": "WeightsInEtaleCohomology"
+  },
+  {
+   "a": "PeriodsAndSpecialValues",
+   "b": "RefinedTraceMethods"
+  },
+  {
+   "a": "RefinedTraceMethods",
+   "b": "CompletedCohomologyPartII"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/CFSGStatement",
+   "b": "DrinfeldModulesAndTModules"
+  },
+  {
+   "a": "LogicAndDefinabilityInNumberTheory",
+   "b": "EffectiveDiophantineMethods"
+  },
+  {
+   "a": "PELModuli",
+   "b": "ArithmeticLocallySymmetricSpaces"
+  },
+  {
+   "a": "PeriodsAndSpecialValues",
+   "b": "EtaleDualityAndPerverseSheaves"
+  },
+  {
+   "a": "GL2AutomorphicRepresentationsAndTransfer",
+   "b": "RefinedTraceMethods"
+  },
+  {
+   "a": "AdicEtaleGeometry",
+   "b": "WeightsInEtaleCohomology"
+  },
+  {
+   "a": "CompletedCohomologyPartII",
+   "b": "PeriodsAndSpecialValues"
+  },
+  {
+   "a": "EffectiveDiophantineMethods",
+   "b": "GL2AutomorphicRepresentationsAndTransfer"
+  },
+  {
+   "a": "AdicEtaleGeometry",
+   "b": "ArithmeticLocallySymmetricSpaces"
+  },
+  {
+   "a": "RefinedTraceMethods",
+   "b": "WeightsInEtaleCohomology"
+  }
+ ]
+}

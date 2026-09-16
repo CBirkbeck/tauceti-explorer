@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-06",
+ "round": 1,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+   "title": "Universal covers",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_UniversalCovers.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+   "title": "Exchangeability and de Finetti",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_Exchangeability.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+   "title": "Character theory of finite groups, and computing character tables",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_CharacterTheory.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+   "title": "Algebraic curves — function fields, divisors, and Riemann–Roch",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AlgebraicCurves.json"
+  },
+  {
+   "roadmapId": "K2SymbolsBrauer",
+   "title": "Explicit K₂: symbols, residues and reciprocity",
+   "extract": "research/blueprint/atlas/roadmaps/K2SymbolsBrauer.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+   "title": "Class field theory",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ClassFieldTheory.json"
+  },
+  {
+   "roadmapId": "HabiroNahmSeries",
+   "title": "Nahm series, asymptotics and Habiro integrality",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroNahmSeries.json"
+  },
+  {
+   "roadmapId": "AutomorphicPadicLFunctions",
+   "title": "Ray-class distributions and general automorphic constructions",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicPadicLFunctions.json"
+  },
+  {
+   "roadmapId": "HabiroNumberFields",
+   "title": "Number-field Habiro rings, finite regulators and K₃-graded modules",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroNumberFields.json"
+  },
+  {
+   "roadmapId": "PadicFamilies",
+   "title": "Hida and Coleman families, period modules, and family L-functions",
+   "extract": "research/blueprint/atlas/roadmaps/PadicFamilies.json"
+  },
+  {
+   "roadmapId": "VectorBundlesAndIsocrystals",
+   "title": "Isocrystals, vector bundles and Banach–Colmez spaces",
+   "extract": "research/blueprint/atlas/roadmaps/VectorBundlesAndIsocrystals.json"
+  },
+  {
+   "roadmapId": "GL2ModularityLifting",
+   "title": "GL₂ Modularity Lifting",
+   "extract": "research/blueprint/atlas/roadmaps/GL2ModularityLifting.json"
+  },
+  {
+   "roadmapId": "HabiroCohomologyFoundations",
+   "title": "Q-Hodge filtrations and Habiro cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroCohomologyFoundations.json"
+  },
+  {
+   "roadmapId": "RelativeFarguesFontaine",
+   "title": "Relative Fargues–Fontaine curves and period geometry",
+   "extract": "research/blueprint/atlas/roadmaps/RelativeFarguesFontaine.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/Exchangeability",
+   "b": "tauceti:TauCetiRoadmap/UniversalCovers"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/Exchangeability",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicCurves"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+   "b": "K2SymbolsBrauer"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+   "b": "K2SymbolsBrauer"
+  },
+  {
+   "a": "HabiroNahmSeries",
+   "b": "tauceti:TauCetiRoadmap/ClassFieldTheory"
+  },
+  {
+   "a": "HabiroNahmSeries",
+   "b": "AutomorphicPadicLFunctions"
+  },
+  {
+   "a": "HabiroNumberFields",
+   "b": "AutomorphicPadicLFunctions"
+  },
+  {
+   "a": "HabiroNumberFields",
+   "b": "PadicFamilies"
+  },
+  {
+   "a": "VectorBundlesAndIsocrystals",
+   "b": "PadicFamilies"
+  },
+  {
+   "a": "VectorBundlesAndIsocrystals",
+   "b": "GL2ModularityLifting"
+  },
+  {
+   "a": "GL2ModularityLifting",
+   "b": "HabiroCohomologyFoundations"
+  },
+  {
+   "a": "HabiroCohomologyFoundations",
+   "b": "RelativeFarguesFontaine"
+  },
+  {
+   "a": "GL2ModularityLifting",
+   "b": "RelativeFarguesFontaine"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/UniversalCovers",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory"
+  },
+  {
+   "a": "AutomorphicPadicLFunctions",
+   "b": "VectorBundlesAndIsocrystals"
+  },
+  {
+   "a": "HabiroNahmSeries",
+   "b": "K2SymbolsBrauer"
+  },
+  {
+   "a": "PadicFamilies",
+   "b": "RelativeFarguesFontaine"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+   "b": "tauceti:TauCetiRoadmap/Exchangeability"
+  },
+  {
+   "a": "HabiroNumberFields",
+   "b": "HabiroCohomologyFoundations"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+   "b": "tauceti:TauCetiRoadmap/ClassFieldTheory"
+  },
+  {
+   "a": "HabiroNumberFields",
+   "b": "HabiroNahmSeries"
+  },
+  {
+   "a": "RelativeFarguesFontaine",
+   "b": "VectorBundlesAndIsocrystals"
+  },
+  {
+   "a": "GL2ModularityLifting",
+   "b": "PadicFamilies"
+  }
+ ]
+}

@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-37",
+ "round": 3,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+   "title": "One-parameter semigroups, completely monotone and positive-definite functions, and Bochner-type representations",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_OneParameterSemigroups.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+   "title": "Geodesics, the exponential map, and the Hopf–Rinow theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_HopfRinow.json"
+  },
+  {
+   "roadmapId": "KTheoryLowDegrees",
+   "title": "Explicit K₀: projectives, rank and determinant",
+   "extract": "research/blueprint/atlas/roadmaps/KTheoryLowDegrees.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+   "title": "Stating the classification of finite simple groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_CFSGStatement.json"
+  },
+  {
+   "roadmapId": "LocallyAnalyticDistributions",
+   "title": "Locally analytic distributions, growth, and character spaces",
+   "extract": "research/blueprint/atlas/roadmaps/LocallyAnalyticDistributions.json"
+  },
+  {
+   "roadmapId": "ArithmeticDynamics",
+   "title": "Arithmetic dynamics",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticDynamics.json"
+  },
+  {
+   "roadmapId": "ColemanIntegration",
+   "title": "Coleman integration and noncritical Dirichlet L-values",
+   "extract": "research/blueprint/atlas/roadmaps/ColemanIntegration.json"
+  },
+  {
+   "roadmapId": "ArithmeticLocallySymmetricSpaces",
+   "title": "Arithmetic locally symmetric spaces and their cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticLocallySymmetricSpaces.json"
+  },
+  {
+   "roadmapId": "GeneralAlgebraicKTheory",
+   "title": "General algebraic K-theory",
+   "extract": "research/blueprint/atlas/roadmaps/GeneralAlgebraicKTheory.json"
+  },
+  {
+   "roadmapId": "BorelRegulators",
+   "title": "Stable arithmetic cohomology and Borel regulators",
+   "extract": "research/blueprint/atlas/roadmaps/BorelRegulators.json"
+  },
+  {
+   "roadmapId": "AutomorphicGaloisRepresentations",
+   "title": "Galois representations attached to modular and Hilbert modular forms",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicGaloisRepresentations.json"
+  },
+  {
+   "roadmapId": "HodgeTateAndCanonicalSubgroups",
+   "title": "Hodge–Tate theory, canonical subgroups, and automorphic period maps",
+   "extract": "research/blueprint/atlas/roadmaps/HodgeTateAndCanonicalSubgroups.json"
+  },
+  {
+   "roadmapId": "SerreWeightAndLevelOptimisation",
+   "title": "Weight and level optimisation of residual modular representations",
+   "extract": "research/blueprint/atlas/roadmaps/SerreWeightAndLevelOptimisation.json"
+  },
+  {
+   "roadmapId": "ShimuraCompactifications",
+   "title": "Toroidal compactifications and boundary geometry",
+   "extract": "research/blueprint/atlas/roadmaps/ShimuraCompactifications.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+   "b": "tauceti:TauCetiRoadmap/HopfRinow"
+  },
+  {
+   "a": "KTheoryLowDegrees",
+   "b": "tauceti:TauCetiRoadmap/HopfRinow"
+  },
+  {
+   "a": "KTheoryLowDegrees",
+   "b": "tauceti:TauCetiRoadmap/CFSGStatement"
+  },
+  {
+   "a": "LocallyAnalyticDistributions",
+   "b": "tauceti:TauCetiRoadmap/CFSGStatement"
+  },
+  {
+   "a": "ArithmeticDynamics",
+   "b": "LocallyAnalyticDistributions"
+  },
+  {
+   "a": "ColemanIntegration",
+   "b": "ArithmeticDynamics"
+  },
+  {
+   "a": "ColemanIntegration",
+   "b": "ArithmeticLocallySymmetricSpaces"
+  },
+  {
+   "a": "GeneralAlgebraicKTheory",
+   "b": "ArithmeticLocallySymmetricSpaces"
+  },
+  {
+   "a": "GeneralAlgebraicKTheory",
+   "b": "BorelRegulators"
+  },
+  {
+   "a": "BorelRegulators",
+   "b": "AutomorphicGaloisRepresentations"
+  },
+  {
+   "a": "HodgeTateAndCanonicalSubgroups",
+   "b": "AutomorphicGaloisRepresentations"
+  },
+  {
+   "a": "HodgeTateAndCanonicalSubgroups",
+   "b": "SerreWeightAndLevelOptimisation"
+  },
+  {
+   "a": "SerreWeightAndLevelOptimisation",
+   "b": "ShimuraCompactifications"
+  },
+  {
+   "a": "ColemanIntegration",
+   "b": "ShimuraCompactifications"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/CFSGStatement",
+   "b": "ArithmeticDynamics"
+  },
+  {
+   "a": "BorelRegulators",
+   "b": "SerreWeightAndLevelOptimisation"
+  },
+  {
+   "a": "ShimuraCompactifications",
+   "b": "HodgeTateAndCanonicalSubgroups"
+  },
+  {
+   "a": "LocallyAnalyticDistributions",
+   "b": "tauceti:TauCetiRoadmap/HopfRinow"
+  },
+  {
+   "a": "KTheoryLowDegrees",
+   "b": "GeneralAlgebraicKTheory"
+  },
+  {
+   "a": "ArithmeticLocallySymmetricSpaces",
+   "b": "AutomorphicGaloisRepresentations"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/CFSGStatement",
+   "b": "tauceti:TauCetiRoadmap/HopfRinow"
+  },
+  {
+   "a": "ArithmeticDynamics",
+   "b": "SerreWeightAndLevelOptimisation"
+  },
+  {
+   "a": "ShimuraCompactifications",
+   "b": "BorelRegulators"
+  },
+  {
+   "a": "GeneralAlgebraicKTheory",
+   "b": "ColemanIntegration"
+  }
+ ]
+}

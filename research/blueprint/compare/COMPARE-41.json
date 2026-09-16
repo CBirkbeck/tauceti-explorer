@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-41",
+ "round": 3,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+   "title": "Semisimple algebras, Artin-Wedderburn, and the structure of their modules",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+   "title": "Root systems, Weyl groups, and the Cartan-Killing classification",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+   "title": "The Ado–Iwasawa theorem and faithful finite-dimensional Lie representations",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_AdoIwasawa.json"
+  },
+  {
+   "roadmapId": "AnalyticNumberTheory",
+   "title": "Analytic number theory, zeta functions and prime distribution",
+   "extract": "research/blueprint/atlas/roadmaps/AnalyticNumberTheory.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+   "title": "Class field theory",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ClassFieldTheory.json"
+  },
+  {
+   "roadmapId": "QSeriesPartitionsAndMockModularForms",
+   "title": "Q-series, partitions, Jacobi and mock modular forms",
+   "extract": "research/blueprint/atlas/roadmaps/QSeriesPartitionsAndMockModularForms.json"
+  },
+  {
+   "roadmapId": "ReductiveGroupsPartII",
+   "title": "Reductive groups, Part II: local structure and arithmetic models",
+   "extract": "research/blueprint/atlas/roadmaps/ReductiveGroupsPartII.json"
+  },
+  {
+   "roadmapId": "PerfectoidSpaces",
+   "title": "Perfectoid rings and spaces",
+   "extract": "research/blueprint/atlas/roadmaps/PerfectoidSpaces.json"
+  },
+  {
+   "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+   "title": "(φ,Γ)-modules, Herr complexes and local Iwasawa cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/PhiGammaModulesAndIwasawaCohomology.json"
+  },
+  {
+   "roadmapId": "EllipticCurveModularity",
+   "title": "Modularity and modular parametrisations of elliptic curves over Q",
+   "extract": "research/blueprint/atlas/roadmaps/EllipticCurveModularity.json"
+  },
+  {
+   "roadmapId": "HeegnerPointEulerSystems",
+   "title": "Heegner-point Euler systems and arithmetic descent",
+   "extract": "research/blueprint/atlas/roadmaps/HeegnerPointEulerSystems.json"
+  },
+  {
+   "roadmapId": "PELModuli",
+   "title": "Siegel and PEL moduli problems",
+   "extract": "research/blueprint/atlas/roadmaps/PELModuli.json"
+  },
+  {
+   "roadmapId": "WeilConjectures",
+   "title": "Weil conjectures and cohomological zeta functions",
+   "extract": "research/blueprint/atlas/roadmaps/WeilConjectures.json"
+  },
+  {
+   "roadmapId": "PrismaticCohomology",
+   "title": "Prismatic cohomology: relative, absolute, Nygaard and log variants",
+   "extract": "research/blueprint/atlas/roadmaps/PrismaticCohomology.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems"
+  },
+  {
+   "a": "AnalyticNumberTheory",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+   "b": "AnalyticNumberTheory"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+   "b": "QSeriesPartitionsAndMockModularForms"
+  },
+  {
+   "a": "QSeriesPartitionsAndMockModularForms",
+   "b": "ReductiveGroupsPartII"
+  },
+  {
+   "a": "ReductiveGroupsPartII",
+   "b": "PerfectoidSpaces"
+  },
+  {
+   "a": "PerfectoidSpaces",
+   "b": "PhiGammaModulesAndIwasawaCohomology"
+  },
+  {
+   "a": "EllipticCurveModularity",
+   "b": "PhiGammaModulesAndIwasawaCohomology"
+  },
+  {
+   "a": "EllipticCurveModularity",
+   "b": "HeegnerPointEulerSystems"
+  },
+  {
+   "a": "HeegnerPointEulerSystems",
+   "b": "PELModuli"
+  },
+  {
+   "a": "PELModuli",
+   "b": "WeilConjectures"
+  },
+  {
+   "a": "PrismaticCohomology",
+   "b": "WeilConjectures"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
+  },
+  {
+   "a": "PhiGammaModulesAndIwasawaCohomology",
+   "b": "PrismaticCohomology"
+  },
+  {
+   "a": "QSeriesPartitionsAndMockModularForms",
+   "b": "PrismaticCohomology"
+  },
+  {
+   "a": "AnalyticNumberTheory",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems"
+  },
+  {
+   "a": "EllipticCurveModularity",
+   "b": "PerfectoidSpaces"
+  },
+  {
+   "a": "WeilConjectures",
+   "b": "ReductiveGroupsPartII"
+  },
+  {
+   "a": "PELModuli",
+   "b": "PhiGammaModulesAndIwasawaCohomology"
+  },
+  {
+   "a": "QSeriesPartitionsAndMockModularForms",
+   "b": "HeegnerPointEulerSystems"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+   "b": "tauceti:TauCetiRoadmap/ClassFieldTheory"
+  },
+  {
+   "a": "PrismaticCohomology",
+   "b": "PerfectoidSpaces"
+  },
+  {
+   "a": "AnalyticNumberTheory",
+   "b": "ReductiveGroupsPartII"
+  }
+ ]
+}

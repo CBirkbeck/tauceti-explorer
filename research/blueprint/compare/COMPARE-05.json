@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-05",
+ "round": 1,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+   "title": "Hodge structures (pure, mixed, and polarized)",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_HodgeStructures.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+   "title": "Multiquadratic fields and genus theory",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_Multiquadratic.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+   "title": "Conformal mapping and the geometric theory of holomorphic functions",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ConformalMapping.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+   "title": "Root systems, Weyl groups, and the Cartan-Killing classification",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+   "title": "Continuous cohomology of profinite groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ProfiniteCohomology.json"
+  },
+  {
+   "roadmapId": "AdelicAlgebraicGroups",
+   "title": "Adelic algebraic groups and arithmetic quotients",
+   "extract": "research/blueprint/atlas/roadmaps/AdelicAlgebraicGroups.json"
+  },
+  {
+   "roadmapId": "LocallyAnalyticDistributions",
+   "title": "Locally analytic distributions, growth, and character spaces",
+   "extract": "research/blueprint/atlas/roadmaps/LocallyAnalyticDistributions.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+   "title": "Quadratic forms and cohomological invariants",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_QuadraticFormInvariants.json"
+  },
+  {
+   "roadmapId": "AbelianSchemesAndArithmeticModuli",
+   "title": "Abelian Schemes And Arithmetic Moduli",
+   "extract": "research/blueprint/atlas/roadmaps/AbelianSchemesAndArithmeticModuli.json"
+  },
+  {
+   "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+   "title": "Néron models and semistable abelian varieties",
+   "extract": "research/blueprint/atlas/roadmaps/NeronModelsAndSemistableAbelianVarieties.json"
+  },
+  {
+   "roadmapId": "EllipticCurveModularity",
+   "title": "Modularity and modular parametrisations of elliptic curves over Q",
+   "extract": "research/blueprint/atlas/roadmaps/EllipticCurveModularity.json"
+  },
+  {
+   "roadmapId": "ShimuraCompactifications",
+   "title": "Toroidal compactifications and boundary geometry",
+   "extract": "research/blueprint/atlas/roadmaps/ShimuraCompactifications.json"
+  },
+  {
+   "roadmapId": "WeilConjectures",
+   "title": "Weil conjectures and cohomological zeta functions",
+   "extract": "research/blueprint/atlas/roadmaps/WeilConjectures.json"
+  },
+  {
+   "roadmapId": "IgusaVarietiesAndTorsionConcentration",
+   "title": "Igusa varieties, compactified period fibers and torsion concentration",
+   "extract": "research/blueprint/atlas/roadmaps/IgusaVarietiesAndTorsionConcentration.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/Multiquadratic",
+   "b": "tauceti:TauCetiRoadmap/HodgeStructures"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/Multiquadratic",
+   "b": "tauceti:TauCetiRoadmap/ConformalMapping"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ConformalMapping",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteCohomology"
+  },
+  {
+   "a": "AdelicAlgebraicGroups",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteCohomology"
+  },
+  {
+   "a": "AdelicAlgebraicGroups",
+   "b": "LocallyAnalyticDistributions"
+  },
+  {
+   "a": "LocallyAnalyticDistributions",
+   "b": "tauceti:TauCetiRoadmap/QuadraticFormInvariants"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+   "b": "AbelianSchemesAndArithmeticModuli"
+  },
+  {
+   "a": "AbelianSchemesAndArithmeticModuli",
+   "b": "NeronModelsAndSemistableAbelianVarieties"
+  },
+  {
+   "a": "EllipticCurveModularity",
+   "b": "NeronModelsAndSemistableAbelianVarieties"
+  },
+  {
+   "a": "ShimuraCompactifications",
+   "b": "EllipticCurveModularity"
+  },
+  {
+   "a": "WeilConjectures",
+   "b": "ShimuraCompactifications"
+  },
+  {
+   "a": "IgusaVarietiesAndTorsionConcentration",
+   "b": "WeilConjectures"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HodgeStructures",
+   "b": "tauceti:TauCetiRoadmap/ConformalMapping"
+  },
+  {
+   "a": "EllipticCurveModularity",
+   "b": "IgusaVarietiesAndTorsionConcentration"
+  },
+  {
+   "a": "IgusaVarietiesAndTorsionConcentration",
+   "b": "ShimuraCompactifications"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HodgeStructures",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+   "b": "tauceti:TauCetiRoadmap/Multiquadratic"
+  },
+  {
+   "a": "NeronModelsAndSemistableAbelianVarieties",
+   "b": "AdelicAlgebraicGroups"
+  },
+  {
+   "a": "WeilConjectures",
+   "b": "AbelianSchemesAndArithmeticModuli"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteCohomology"
+  },
+  {
+   "a": "NeronModelsAndSemistableAbelianVarieties",
+   "b": "LocallyAnalyticDistributions"
+  },
+  {
+   "a": "AbelianSchemesAndArithmeticModuli",
+   "b": "EllipticCurveModularity"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+   "b": "tauceti:TauCetiRoadmap/Multiquadratic"
+  }
+ ]
+}

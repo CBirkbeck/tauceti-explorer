@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-03",
+ "round": 1,
+ "roadmaps": [
+  {
+   "roadmapId": "HabiroCyclotomicCompletions",
+   "title": "Cyclotomic completions and classical Habiro rings",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroCyclotomicCompletions.json"
+  },
+  {
+   "roadmapId": "ClassicalArithmeticCompletion",
+   "title": "Classical arithmetic, sequences, polynomials and reciprocity",
+   "extract": "research/blueprint/atlas/roadmaps/ClassicalArithmeticCompletion.json"
+  },
+  {
+   "roadmapId": "DirichletPadicLFunctions",
+   "title": "Dirichlet p-adic L-functions, special values, and Eisenstein measures",
+   "extract": "research/blueprint/atlas/roadmaps/DirichletPadicLFunctions.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+   "title": "Geodesics, the exponential map, and the Hopf–Rinow theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_HopfRinow.json"
+  },
+  {
+   "roadmapId": "ArithmeticStatistics",
+   "title": "Arithmetic statistics, counting fields and Selmer distributions",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticStatistics.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+   "title": "Zigzag, preprojective, and Ginzburg algebras",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
+  },
+  {
+   "roadmapId": "GlobalGaloisDeformations",
+   "title": "Global Galois deformation rings",
+   "extract": "research/blueprint/atlas/roadmaps/GlobalGaloisDeformations.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+   "title": "Optimal transport and Wasserstein geometry",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_OptimalTransport.json"
+  },
+  {
+   "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+   "title": "Hilbert Modular Varieties And Shimura Curves",
+   "extract": "research/blueprint/atlas/roadmaps/HilbertModularVarietiesAndShimuraCurves.json"
+  },
+  {
+   "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+   "title": "(φ,Γ)-modules, Herr complexes and local Iwasawa cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/PhiGammaModulesAndIwasawaCohomology.json"
+  },
+  {
+   "roadmapId": "ArithmeticKTheory",
+   "title": "K-theory of number fields and S-integers",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticKTheory.json"
+  },
+  {
+   "roadmapId": "PadicHodgeTheory",
+   "title": "P-adic Hodge theory and geometric comparison",
+   "extract": "research/blueprint/atlas/roadmaps/PadicHodgeTheory.json"
+  },
+  {
+   "roadmapId": "ShimuraVarieties",
+   "title": "Complex Shimura varieties and canonical models",
+   "extract": "research/blueprint/atlas/roadmaps/ShimuraVarieties.json"
+  },
+  {
+   "roadmapId": "GeneralizedHeegnerCycles",
+   "title": "Generalized Heegner cycles and their Iwasawa variation",
+   "extract": "research/blueprint/atlas/roadmaps/GeneralizedHeegnerCycles.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "ClassicalArithmeticCompletion",
+   "b": "HabiroCyclotomicCompletions"
+  },
+  {
+   "a": "DirichletPadicLFunctions",
+   "b": "ClassicalArithmeticCompletion"
+  },
+  {
+   "a": "DirichletPadicLFunctions",
+   "b": "tauceti:TauCetiRoadmap/HopfRinow"
+  },
+  {
+   "a": "ArithmeticStatistics",
+   "b": "tauceti:TauCetiRoadmap/HopfRinow"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+   "b": "ArithmeticStatistics"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+   "b": "GlobalGaloisDeformations"
+  },
+  {
+   "a": "GlobalGaloisDeformations",
+   "b": "tauceti:TauCetiRoadmap/OptimalTransport"
+  },
+  {
+   "a": "HilbertModularVarietiesAndShimuraCurves",
+   "b": "tauceti:TauCetiRoadmap/OptimalTransport"
+  },
+  {
+   "a": "HilbertModularVarietiesAndShimuraCurves",
+   "b": "PhiGammaModulesAndIwasawaCohomology"
+  },
+  {
+   "a": "ArithmeticKTheory",
+   "b": "PhiGammaModulesAndIwasawaCohomology"
+  },
+  {
+   "a": "PadicHodgeTheory",
+   "b": "ArithmeticKTheory"
+  },
+  {
+   "a": "ShimuraVarieties",
+   "b": "PadicHodgeTheory"
+  },
+  {
+   "a": "GeneralizedHeegnerCycles",
+   "b": "ShimuraVarieties"
+  },
+  {
+   "a": "GeneralizedHeegnerCycles",
+   "b": "GlobalGaloisDeformations"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HopfRinow",
+   "b": "HabiroCyclotomicCompletions"
+  },
+  {
+   "a": "ShimuraVarieties",
+   "b": "ArithmeticStatistics"
+  },
+  {
+   "a": "GeneralizedHeegnerCycles",
+   "b": "HilbertModularVarietiesAndShimuraCurves"
+  },
+  {
+   "a": "PadicHodgeTheory",
+   "b": "tauceti:TauCetiRoadmap/ZigzagPreprojective"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/OptimalTransport",
+   "b": "ArithmeticKTheory"
+  },
+  {
+   "a": "DirichletPadicLFunctions",
+   "b": "HabiroCyclotomicCompletions"
+  },
+  {
+   "a": "PhiGammaModulesAndIwasawaCohomology",
+   "b": "GlobalGaloisDeformations"
+  },
+  {
+   "a": "ClassicalArithmeticCompletion",
+   "b": "tauceti:TauCetiRoadmap/ZigzagPreprojective"
+  },
+  {
+   "a": "PadicHodgeTheory",
+   "b": "ArithmeticStatistics"
+  },
+  {
+   "a": "ShimuraVarieties",
+   "b": "tauceti:TauCetiRoadmap/OptimalTransport"
+  }
+ ]
+}

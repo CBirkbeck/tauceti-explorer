@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-21",
+ "round": 2,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+   "title": "Grothendieck groups, Cartan maps, and Euler forms",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+   "title": "Induction, restriction, and Mackey theory for finite groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_InductionRestriction.json"
+  },
+  {
+   "roadmapId": "ColemanPowerSeries",
+   "title": "Coleman power series, local units, and cyclotomic-unit quotients",
+   "extract": "research/blueprint/atlas/roadmaps/ColemanPowerSeries.json"
+  },
+  {
+   "roadmapId": "ComputationalNumberTheory",
+   "title": "Certified computational number theory and arithmetic data",
+   "extract": "research/blueprint/atlas/roadmaps/ComputationalNumberTheory.json"
+  },
+  {
+   "roadmapId": "ProbabilisticAndMetricNumberTheory",
+   "title": "Probabilistic, metric and ergodic number theory",
+   "extract": "research/blueprint/atlas/roadmaps/ProbabilisticAndMetricNumberTheory.json"
+  },
+  {
+   "roadmapId": "StableHomotopyKTheory",
+   "title": "Homotopy foundations for algebraic K-theory",
+   "extract": "research/blueprint/atlas/roadmaps/StableHomotopyKTheory.json"
+  },
+  {
+   "roadmapId": "ColemanIntegration",
+   "title": "Coleman integration and noncritical Dirichlet L-values",
+   "extract": "research/blueprint/atlas/roadmaps/ColemanIntegration.json"
+  },
+  {
+   "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "title": "Finite flat group schemes and integral p-adic Hodge theory",
+   "extract": "research/blueprint/atlas/roadmaps/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json"
+  },
+  {
+   "roadmapId": "HabiroNahmSeries",
+   "title": "Nahm series, asymptotics and Habiro integrality",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroNahmSeries.json"
+  },
+  {
+   "roadmapId": "K3BlochGroups",
+   "title": "Explicit K₃ and Bloch groups",
+   "extract": "research/blueprint/atlas/roadmaps/K3BlochGroups.json"
+  },
+  {
+   "roadmapId": "CompletedCohomologyPartII",
+   "title": "Completed cohomology, homology and arithmetic towers — Part II",
+   "extract": "research/blueprint/atlas/roadmaps/CompletedCohomologyPartII.json"
+  },
+  {
+   "roadmapId": "ArithmeticKTheory",
+   "title": "K-theory of number fields and S-integers",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticKTheory.json"
+  },
+  {
+   "roadmapId": "PrismaticCohomology",
+   "title": "Prismatic cohomology: relative, absolute, Nygaard and log variants",
+   "extract": "research/blueprint/atlas/roadmaps/PrismaticCohomology.json"
+  },
+  {
+   "roadmapId": "VStackSheavesAndLisseCategories",
+   "title": "Artin v-stacks, solid and lisse coefficient categories",
+   "extract": "research/blueprint/atlas/roadmaps/VStackSheavesAndLisseCategories.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+   "b": "tauceti:TauCetiRoadmap/GrothendieckEulerForms"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+   "b": "ColemanPowerSeries"
+  },
+  {
+   "a": "ComputationalNumberTheory",
+   "b": "ColemanPowerSeries"
+  },
+  {
+   "a": "ComputationalNumberTheory",
+   "b": "ProbabilisticAndMetricNumberTheory"
+  },
+  {
+   "a": "StableHomotopyKTheory",
+   "b": "ProbabilisticAndMetricNumberTheory"
+  },
+  {
+   "a": "StableHomotopyKTheory",
+   "b": "ColemanIntegration"
+  },
+  {
+   "a": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "b": "ColemanIntegration"
+  },
+  {
+   "a": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "b": "HabiroNahmSeries"
+  },
+  {
+   "a": "HabiroNahmSeries",
+   "b": "K3BlochGroups"
+  },
+  {
+   "a": "K3BlochGroups",
+   "b": "CompletedCohomologyPartII"
+  },
+  {
+   "a": "ArithmeticKTheory",
+   "b": "CompletedCohomologyPartII"
+  },
+  {
+   "a": "PrismaticCohomology",
+   "b": "ArithmeticKTheory"
+  },
+  {
+   "a": "PrismaticCohomology",
+   "b": "VStackSheavesAndLisseCategories"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+   "b": "ProbabilisticAndMetricNumberTheory"
+  },
+  {
+   "a": "VStackSheavesAndLisseCategories",
+   "b": "FiniteFlatGroupsAndIntegralPadicHodgeTheory"
+  },
+  {
+   "a": "ComputationalNumberTheory",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction"
+  },
+  {
+   "a": "K3BlochGroups",
+   "b": "PrismaticCohomology"
+  },
+  {
+   "a": "ColemanPowerSeries",
+   "b": "tauceti:TauCetiRoadmap/GrothendieckEulerForms"
+  },
+  {
+   "a": "ColemanIntegration",
+   "b": "ArithmeticKTheory"
+  },
+  {
+   "a": "CompletedCohomologyPartII",
+   "b": "HabiroNahmSeries"
+  },
+  {
+   "a": "StableHomotopyKTheory",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction"
+  },
+  {
+   "a": "ArithmeticKTheory",
+   "b": "VStackSheavesAndLisseCategories"
+  },
+  {
+   "a": "ComputationalNumberTheory",
+   "b": "FiniteFlatGroupsAndIntegralPadicHodgeTheory"
+  },
+  {
+   "a": "ProbabilisticAndMetricNumberTheory",
+   "b": "ColemanPowerSeries"
+  }
+ ]
+}

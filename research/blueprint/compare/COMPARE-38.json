@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-38",
+ "round": 3,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+   "title": "Number fields, ramification, Frobenius, and the LMFDB invariants",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json"
+  },
+  {
+   "roadmapId": "FoundationsAndLibraryIntegration",
+   "title": "Foundations, existing libraries, and proof integrity",
+   "extract": "research/blueprint/atlas/roadmaps/FoundationsAndLibraryIntegration.json"
+  },
+  {
+   "roadmapId": "StableHomotopyKTheory",
+   "title": "Homotopy foundations for algebraic K-theory",
+   "extract": "research/blueprint/atlas/roadmaps/StableHomotopyKTheory.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+   "title": "Quadratic forms and cohomological invariants",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_QuadraticFormInvariants.json"
+  },
+  {
+   "roadmapId": "ExponentialSumsAndCircleMethod",
+   "title": "Exponential sums, decoupling and the circle method",
+   "extract": "research/blueprint/atlas/roadmaps/ExponentialSumsAndCircleMethod.json"
+  },
+  {
+   "roadmapId": "SieveMethodsAndPrimePatterns",
+   "title": "Sieve methods, prime gaps and prime patterns",
+   "extract": "research/blueprint/atlas/roadmaps/SieveMethodsAndPrimePatterns.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+   "title": "The Jacobian challenge (Christian Merten's AG version)",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_JacobianChallenge.json"
+  },
+  {
+   "roadmapId": "CompletedCohomologyPartII",
+   "title": "Completed cohomology, homology and arithmetic towers — Part II",
+   "extract": "research/blueprint/atlas/roadmaps/CompletedCohomologyPartII.json"
+  },
+  {
+   "roadmapId": "ArithmeticQuantumTopology",
+   "title": "Arithmetic quantum topology, Habiro invariants and regulators",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticQuantumTopology.json"
+  },
+  {
+   "roadmapId": "GrossZagierAndArithmeticHeights",
+   "title": "Gross–Zagier formulas and arithmetic heights",
+   "extract": "research/blueprint/atlas/roadmaps/GrossZagierAndArithmeticHeights.json"
+  },
+  {
+   "roadmapId": "HabiroRings",
+   "title": "Habiro rings: relative arithmetic constructions and cohomological coefficients",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroRings.json"
+  },
+  {
+   "roadmapId": "KTheoryFiniteLocalFields",
+   "title": "K-theory of finite and local fields",
+   "extract": "research/blueprint/atlas/roadmaps/KTheoryFiniteLocalFields.json"
+  },
+  {
+   "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+   "title": "Endoscopic transfer and unitary trace comparison",
+   "extract": "research/blueprint/atlas/roadmaps/EndoscopicTransferAndUnitaryTraceComparison.json"
+  },
+  {
+   "roadmapId": "RankZeroOneBSD",
+   "title": "Rank-zero and rank-one Birch–Swinnerton-Dyer theory",
+   "extract": "research/blueprint/atlas/roadmaps/RankZeroOneBSD.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+   "b": "FoundationsAndLibraryIntegration"
+  },
+  {
+   "a": "StableHomotopyKTheory",
+   "b": "FoundationsAndLibraryIntegration"
+  },
+  {
+   "a": "StableHomotopyKTheory",
+   "b": "tauceti:TauCetiRoadmap/QuadraticFormInvariants"
+  },
+  {
+   "a": "ExponentialSumsAndCircleMethod",
+   "b": "tauceti:TauCetiRoadmap/QuadraticFormInvariants"
+  },
+  {
+   "a": "ExponentialSumsAndCircleMethod",
+   "b": "SieveMethodsAndPrimePatterns"
+  },
+  {
+   "a": "SieveMethodsAndPrimePatterns",
+   "b": "tauceti:TauCetiRoadmap/JacobianChallenge"
+  },
+  {
+   "a": "CompletedCohomologyPartII",
+   "b": "tauceti:TauCetiRoadmap/JacobianChallenge"
+  },
+  {
+   "a": "ArithmeticQuantumTopology",
+   "b": "CompletedCohomologyPartII"
+  },
+  {
+   "a": "ArithmeticQuantumTopology",
+   "b": "GrossZagierAndArithmeticHeights"
+  },
+  {
+   "a": "HabiroRings",
+   "b": "GrossZagierAndArithmeticHeights"
+  },
+  {
+   "a": "HabiroRings",
+   "b": "KTheoryFiniteLocalFields"
+  },
+  {
+   "a": "EndoscopicTransferAndUnitaryTraceComparison",
+   "b": "KTheoryFiniteLocalFields"
+  },
+  {
+   "a": "RankZeroOneBSD",
+   "b": "EndoscopicTransferAndUnitaryTraceComparison"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+   "b": "tauceti:TauCetiRoadmap/QuadraticFormInvariants"
+  },
+  {
+   "a": "RankZeroOneBSD",
+   "b": "GrossZagierAndArithmeticHeights"
+  },
+  {
+   "a": "SieveMethodsAndPrimePatterns",
+   "b": "ArithmeticQuantumTopology"
+  },
+  {
+   "a": "FoundationsAndLibraryIntegration",
+   "b": "ExponentialSumsAndCircleMethod"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+   "b": "StableHomotopyKTheory"
+  },
+  {
+   "a": "KTheoryFiniteLocalFields",
+   "b": "RankZeroOneBSD"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/JacobianChallenge",
+   "b": "HabiroRings"
+  },
+  {
+   "a": "EndoscopicTransferAndUnitaryTraceComparison",
+   "b": "CompletedCohomologyPartII"
+  },
+  {
+   "a": "SieveMethodsAndPrimePatterns",
+   "b": "StableHomotopyKTheory"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/JacobianChallenge",
+   "b": "tauceti:TauCetiRoadmap/QuadraticFormInvariants"
+  },
+  {
+   "a": "GrossZagierAndArithmeticHeights",
+   "b": "CompletedCohomologyPartII"
+  }
+ ]
+}

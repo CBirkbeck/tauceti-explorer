@@ -1,0 +1,183 @@
+{
+ "job": "COMPARE-16",
+ "round": 2,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+   "title": "Hodge structures (pure, mixed, and polarized)",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_HodgeStructures.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+   "title": "Standard probability distributions and their elementary theory",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_StandardDistributions.json"
+  },
+  {
+   "roadmapId": "LocallyAnalyticDistributions",
+   "title": "Locally analytic distributions, growth, and character spaces",
+   "extract": "research/blueprint/atlas/roadmaps/LocallyAnalyticDistributions.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+   "title": "Global quadratic forms over number fields",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_GlobalQuadraticForms.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+   "title": "Belyi maps, dessins d'enfants, and three-point covers",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_BelyiMaps.json"
+  },
+  {
+   "roadmapId": "GlobalGaloisDeformations",
+   "title": "Global Galois deformation rings",
+   "extract": "research/blueprint/atlas/roadmaps/GlobalGaloisDeformations.json"
+  },
+  {
+   "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+   "title": "Euler systems and the unconditional cyclotomic main conjecture",
+   "extract": "research/blueprint/atlas/roadmaps/EulerSystemsCyclotomicMainConjecture.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+   "title": "Modular curves, following Katz–Mazur",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ModularCurves.json"
+  },
+  {
+   "roadmapId": "EllipticRegulators",
+   "title": "Elliptic regulators, explicit K₂ classes and L-values",
+   "extract": "research/blueprint/atlas/roadmaps/EllipticRegulators.json"
+  },
+  {
+   "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+   "title": "GL₂ Automorphic Representations And Transfer",
+   "extract": "research/blueprint/atlas/roadmaps/GL2AutomorphicRepresentationsAndTransfer.json"
+  },
+  {
+   "roadmapId": "KatoEulerSystems",
+   "title": "Kato classes and explicit reciprocity for modular forms",
+   "extract": "research/blueprint/atlas/roadmaps/KatoEulerSystems.json"
+  },
+  {
+   "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+   "title": "P-adic differential equations, rigid cohomology and p-adic weights",
+   "extract": "research/blueprint/atlas/roadmaps/PadicDifferentialEquationsAndRigidCohomology.json"
+  },
+  {
+   "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+   "title": "Endoscopic transfer and unitary trace comparison",
+   "extract": "research/blueprint/atlas/roadmaps/EndoscopicTransferAndUnitaryTraceComparison.json"
+  },
+  {
+   "roadmapId": "ExcursionOperatorsAndSpectralAction",
+   "title": "Excursion operators and the spectral action",
+   "extract": "research/blueprint/atlas/roadmaps/ExcursionOperatorsAndSpectralAction.json"
+  },
+  {
+   "roadmapId": "GeneralizedHeegnerCycles",
+   "title": "Generalized Heegner cycles and their Iwasawa variation",
+   "extract": "research/blueprint/atlas/roadmaps/GeneralizedHeegnerCycles.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/HodgeStructures",
+   "b": "tauceti:TauCetiRoadmap/StandardDistributions"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/StandardDistributions",
+   "b": "LocallyAnalyticDistributions"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+   "b": "LocallyAnalyticDistributions"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+   "b": "tauceti:TauCetiRoadmap/BelyiMaps"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/BelyiMaps",
+   "b": "GlobalGaloisDeformations"
+  },
+  {
+   "a": "GlobalGaloisDeformations",
+   "b": "EulerSystemsCyclotomicMainConjecture"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ModularCurves",
+   "b": "EulerSystemsCyclotomicMainConjecture"
+  },
+  {
+   "a": "EllipticRegulators",
+   "b": "tauceti:TauCetiRoadmap/ModularCurves"
+  },
+  {
+   "a": "GL2AutomorphicRepresentationsAndTransfer",
+   "b": "EllipticRegulators"
+  },
+  {
+   "a": "KatoEulerSystems",
+   "b": "GL2AutomorphicRepresentationsAndTransfer"
+  },
+  {
+   "a": "PadicDifferentialEquationsAndRigidCohomology",
+   "b": "KatoEulerSystems"
+  },
+  {
+   "a": "EndoscopicTransferAndUnitaryTraceComparison",
+   "b": "PadicDifferentialEquationsAndRigidCohomology"
+  },
+  {
+   "a": "ExcursionOperatorsAndSpectralAction",
+   "b": "EndoscopicTransferAndUnitaryTraceComparison"
+  },
+  {
+   "a": "GeneralizedHeegnerCycles",
+   "b": "ExcursionOperatorsAndSpectralAction"
+  },
+  {
+   "a": "GeneralizedHeegnerCycles",
+   "b": "KatoEulerSystems"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/BelyiMaps",
+   "b": "LocallyAnalyticDistributions"
+  },
+  {
+   "a": "EndoscopicTransferAndUnitaryTraceComparison",
+   "b": "GeneralizedHeegnerCycles"
+  },
+  {
+   "a": "EllipticRegulators",
+   "b": "ExcursionOperatorsAndSpectralAction"
+  },
+  {
+   "a": "GL2AutomorphicRepresentationsAndTransfer",
+   "b": "GlobalGaloisDeformations"
+  },
+  {
+   "a": "EulerSystemsCyclotomicMainConjecture",
+   "b": "PadicDifferentialEquationsAndRigidCohomology"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+   "b": "tauceti:TauCetiRoadmap/ModularCurves"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/BelyiMaps",
+   "b": "KatoEulerSystems"
+  },
+  {
+   "a": "GeneralizedHeegnerCycles",
+   "b": "EllipticRegulators"
+  },
+  {
+   "a": "EndoscopicTransferAndUnitaryTraceComparison",
+   "b": "EulerSystemsCyclotomicMainConjecture"
+  },
+  {
+   "a": "GlobalGaloisDeformations",
+   "b": "LocallyAnalyticDistributions"
+  }
+ ]
+}

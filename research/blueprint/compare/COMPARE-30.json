@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-30",
+ "round": 2,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+   "title": "Number fields, ramification, Frobenius, and the LMFDB invariants",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json"
+  },
+  {
+   "roadmapId": "ClassicalArithmeticCompletion",
+   "title": "Classical arithmetic, sequences, polynomials and reciprocity",
+   "extract": "research/blueprint/atlas/roadmaps/ClassicalArithmeticCompletion.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+   "title": "Finite-dimensional representations of the classical groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+   "title": "Algebraic topology of spaces and manifolds",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AlgebraicTopology.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+   "title": "Global number fields, ray classes, adeles, and Hecke characters",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_GlobalNumberFields.json"
+  },
+  {
+   "roadmapId": "K2SymbolsBrauer",
+   "title": "Explicit K₂: symbols, residues and reciprocity",
+   "extract": "research/blueprint/atlas/roadmaps/K2SymbolsBrauer.json"
+  },
+  {
+   "roadmapId": "DerivedDeRhamCohomology",
+   "title": "Derived de Rham cohomology and its algebraic foundations",
+   "extract": "research/blueprint/atlas/roadmaps/DerivedDeRhamCohomology.json"
+  },
+  {
+   "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+   "title": "Hilbert Modular Varieties And Shimura Curves",
+   "extract": "research/blueprint/atlas/roadmaps/HilbertModularVarietiesAndShimuraCurves.json"
+  },
+  {
+   "roadmapId": "LocalGaloisDeformationRings",
+   "title": "Local Galois deformation rings and their components",
+   "extract": "research/blueprint/atlas/roadmaps/LocalGaloisDeformationRings.json"
+  },
+  {
+   "roadmapId": "AutomorphicGaloisRepresentations",
+   "title": "Galois representations attached to modular and Hilbert modular forms",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicGaloisRepresentations.json"
+  },
+  {
+   "roadmapId": "AutomorphicPadicLFunctions",
+   "title": "Ray-class distributions and general automorphic constructions",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicPadicLFunctions.json"
+  },
+  {
+   "roadmapId": "MotivicEtaleKTheory",
+   "title": "Motivic and étale methods for arithmetic K-theory",
+   "extract": "research/blueprint/atlas/roadmaps/MotivicEtaleKTheory.json"
+  },
+  {
+   "roadmapId": "Polylogarithms",
+   "title": "Polylogarithms, explicit regulators and Zagier statements",
+   "extract": "research/blueprint/atlas/roadmaps/Polylogarithms.json"
+  },
+  {
+   "roadmapId": "RankZeroOneBSD",
+   "title": "Rank-zero and rank-one Birch–Swinnerton-Dyer theory",
+   "extract": "research/blueprint/atlas/roadmaps/RankZeroOneBSD.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+   "b": "ClassicalArithmeticCompletion"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+   "b": "ClassicalArithmeticCompletion"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicTopology"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+   "b": "tauceti:TauCetiRoadmap/GlobalNumberFields"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+   "b": "K2SymbolsBrauer"
+  },
+  {
+   "a": "K2SymbolsBrauer",
+   "b": "DerivedDeRhamCohomology"
+  },
+  {
+   "a": "DerivedDeRhamCohomology",
+   "b": "HilbertModularVarietiesAndShimuraCurves"
+  },
+  {
+   "a": "HilbertModularVarietiesAndShimuraCurves",
+   "b": "LocalGaloisDeformationRings"
+  },
+  {
+   "a": "AutomorphicGaloisRepresentations",
+   "b": "LocalGaloisDeformationRings"
+  },
+  {
+   "a": "AutomorphicPadicLFunctions",
+   "b": "AutomorphicGaloisRepresentations"
+  },
+  {
+   "a": "AutomorphicPadicLFunctions",
+   "b": "MotivicEtaleKTheory"
+  },
+  {
+   "a": "Polylogarithms",
+   "b": "MotivicEtaleKTheory"
+  },
+  {
+   "a": "RankZeroOneBSD",
+   "b": "Polylogarithms"
+  },
+  {
+   "a": "HilbertModularVarietiesAndShimuraCurves",
+   "b": "RankZeroOneBSD"
+  },
+  {
+   "a": "K2SymbolsBrauer",
+   "b": "tauceti:TauCetiRoadmap/NumberFieldArithmetic"
+  },
+  {
+   "a": "MotivicEtaleKTheory",
+   "b": "AutomorphicGaloisRepresentations"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+   "b": "ClassicalArithmeticCompletion"
+  },
+  {
+   "a": "AutomorphicPadicLFunctions",
+   "b": "Polylogarithms"
+  },
+  {
+   "a": "LocalGaloisDeformationRings",
+   "b": "RankZeroOneBSD"
+  },
+  {
+   "a": "DerivedDeRhamCohomology",
+   "b": "AutomorphicPadicLFunctions"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+   "b": "tauceti:TauCetiRoadmap/NumberFieldArithmetic"
+  },
+  {
+   "a": "K2SymbolsBrauer",
+   "b": "HilbertModularVarietiesAndShimuraCurves"
+  },
+  {
+   "a": "Polylogarithms",
+   "b": "AutomorphicGaloisRepresentations"
+  }
+ ]
+}

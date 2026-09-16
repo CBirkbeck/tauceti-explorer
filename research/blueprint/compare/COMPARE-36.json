@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-36",
+ "round": 3,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+   "title": "Algebraic curves — function fields, divisors, and Riemann–Roch",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AlgebraicCurves.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "title": "Dense graph limits and graphons",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_DenseGraphLimits.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+   "title": "Continuous cohomology of profinite groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ProfiniteCohomology.json"
+  },
+  {
+   "roadmapId": "ArithmeticGaloisDuality",
+   "title": "Global Galois duality and compact coefficients",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticGaloisDuality.json"
+  },
+  {
+   "roadmapId": "AutomorphicSpectralTheory",
+   "title": "Automorphic spectral theory and trace distributions",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicSpectralTheory.json"
+  },
+  {
+   "roadmapId": "LocalGaloisDeformationRings",
+   "title": "Local Galois deformation rings and their components",
+   "extract": "research/blueprint/atlas/roadmaps/LocalGaloisDeformationRings.json"
+  },
+  {
+   "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+   "title": "Faltings finiteness, semisimplicity and isogeny theorems",
+   "extract": "research/blueprint/atlas/roadmaps/FaltingsFinitenessAndIsogenyTheorems.json"
+  },
+  {
+   "roadmapId": "PadicHodgeTheory",
+   "title": "P-adic Hodge theory and geometric comparison",
+   "extract": "research/blueprint/atlas/roadmaps/PadicHodgeTheory.json"
+  },
+  {
+   "roadmapId": "GeneralizedHeegnerCycles",
+   "title": "Generalized Heegner cycles and their Iwasawa variation",
+   "extract": "research/blueprint/atlas/roadmaps/GeneralizedHeegnerCycles.json"
+  },
+  {
+   "roadmapId": "HeckeStacksAndLocalShtukas",
+   "title": "Hecke correspondences and local shtuka cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/HeckeStacksAndLocalShtukas.json"
+  },
+  {
+   "roadmapId": "ModularIwasawaMainConjectures",
+   "title": "Main conjectures for modular forms and their families",
+   "extract": "research/blueprint/atlas/roadmaps/ModularIwasawaMainConjectures.json"
+  },
+  {
+   "roadmapId": "PotentialAutomorphyInfrastructure",
+   "title": "Reusable infrastructure for potential automorphy over CM fields",
+   "extract": "research/blueprint/atlas/roadmaps/PotentialAutomorphyInfrastructure.json"
+  },
+  {
+   "roadmapId": "RefinedTraceMethods",
+   "title": "Hochschild, cyclotomic and refined trace methods",
+   "extract": "research/blueprint/atlas/roadmaps/RefinedTraceMethods.json"
+  },
+  {
+   "roadmapId": "RelativeFarguesFontaine",
+   "title": "Relative Fargues–Fontaine curves and period geometry",
+   "extract": "research/blueprint/atlas/roadmaps/RelativeFarguesFontaine.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicCurves"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+   "b": "tauceti:TauCetiRoadmap/DenseGraphLimits"
+  },
+  {
+   "a": "ArithmeticGaloisDuality",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteCohomology"
+  },
+  {
+   "a": "AutomorphicSpectralTheory",
+   "b": "ArithmeticGaloisDuality"
+  },
+  {
+   "a": "LocalGaloisDeformationRings",
+   "b": "AutomorphicSpectralTheory"
+  },
+  {
+   "a": "FaltingsFinitenessAndIsogenyTheorems",
+   "b": "LocalGaloisDeformationRings"
+  },
+  {
+   "a": "PadicHodgeTheory",
+   "b": "FaltingsFinitenessAndIsogenyTheorems"
+  },
+  {
+   "a": "PadicHodgeTheory",
+   "b": "GeneralizedHeegnerCycles"
+  },
+  {
+   "a": "GeneralizedHeegnerCycles",
+   "b": "HeckeStacksAndLocalShtukas"
+  },
+  {
+   "a": "ModularIwasawaMainConjectures",
+   "b": "HeckeStacksAndLocalShtukas"
+  },
+  {
+   "a": "PotentialAutomorphyInfrastructure",
+   "b": "ModularIwasawaMainConjectures"
+  },
+  {
+   "a": "PotentialAutomorphyInfrastructure",
+   "b": "RefinedTraceMethods"
+  },
+  {
+   "a": "RelativeFarguesFontaine",
+   "b": "RefinedTraceMethods"
+  },
+  {
+   "a": "RelativeFarguesFontaine",
+   "b": "HeckeStacksAndLocalShtukas"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+   "b": "ArithmeticGaloisDuality"
+  },
+  {
+   "a": "FaltingsFinitenessAndIsogenyTheorems",
+   "b": "PotentialAutomorphyInfrastructure"
+  },
+  {
+   "a": "ModularIwasawaMainConjectures",
+   "b": "LocalGaloisDeformationRings"
+  },
+  {
+   "a": "GeneralizedHeegnerCycles",
+   "b": "RefinedTraceMethods"
+  },
+  {
+   "a": "RelativeFarguesFontaine",
+   "b": "PadicHodgeTheory"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicCurves"
+  },
+  {
+   "a": "HeckeStacksAndLocalShtukas",
+   "b": "AutomorphicSpectralTheory"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "b": "ArithmeticGaloisDuality"
+  },
+  {
+   "a": "LocalGaloisDeformationRings",
+   "b": "GeneralizedHeegnerCycles"
+  },
+  {
+   "a": "FaltingsFinitenessAndIsogenyTheorems",
+   "b": "RefinedTraceMethods"
+  }
+ ]
+}

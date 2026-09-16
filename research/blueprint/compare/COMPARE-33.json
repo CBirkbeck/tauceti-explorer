@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-33",
+ "round": 3,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:Completed/IntegralLattices",
+   "title": "Integral lattices, discriminant forms, and overlattices",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_Completed_IntegralLattices.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+   "title": "Arithmetic Dirichlet series and Tauberian methods",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+   "title": "Finite-dimensional representations of the classical groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.json"
+  },
+  {
+   "roadmapId": "ColemanPowerSeries",
+   "title": "Coleman power series, local units, and cyclotomic-unit quotients",
+   "extract": "research/blueprint/atlas/roadmaps/ColemanPowerSeries.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+   "title": "Partial differential equations",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_PDE.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+   "title": "Stable, periodic, and curved homological algebra",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_StablePeriodicCurved.json"
+  },
+  {
+   "roadmapId": "AbelianSchemesAndArithmeticModuli",
+   "title": "Abelian Schemes And Arithmetic Moduli",
+   "extract": "research/blueprint/atlas/roadmaps/AbelianSchemesAndArithmeticModuli.json"
+  },
+  {
+   "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+   "title": "Algebraic moduli and representability for arithmetic geometry",
+   "extract": "research/blueprint/atlas/roadmaps/AlgebraicModuliForArithmeticGeometry.json"
+  },
+  {
+   "roadmapId": "FiniteFieldsAndCharacterSums",
+   "title": "Finite fields, character sums, finite rings and coding interfaces",
+   "extract": "research/blueprint/atlas/roadmaps/FiniteFieldsAndCharacterSums.json"
+  },
+  {
+   "roadmapId": "AutomorphicFormsOnReductiveGroups",
+   "title": "Automorphic forms on reductive groups",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicFormsOnReductiveGroups.json"
+  },
+  {
+   "roadmapId": "DrinfeldModulesAndTModules",
+   "title": "Drinfeld modules, t-motives and characteristic-p special values",
+   "extract": "research/blueprint/atlas/roadmaps/DrinfeldModulesAndTModules.json"
+  },
+  {
+   "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "title": "Finite flat group schemes and integral p-adic Hodge theory",
+   "extract": "research/blueprint/atlas/roadmaps/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json"
+  },
+  {
+   "roadmapId": "PadicFamilies",
+   "title": "Hida and Coleman families, period modules, and family L-functions",
+   "extract": "research/blueprint/atlas/roadmaps/PadicFamilies.json"
+  },
+  {
+   "roadmapId": "IgusaVarietiesAndTorsionConcentration",
+   "title": "Igusa varieties, compactified period fibers and torsion concentration",
+   "extract": "research/blueprint/atlas/roadmaps/IgusaVarietiesAndTorsionConcentration.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:Completed/IntegralLattices",
+   "b": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+   "b": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+   "b": "ColemanPowerSeries"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/PDE",
+   "b": "ColemanPowerSeries"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+   "b": "tauceti:TauCetiRoadmap/PDE"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+   "b": "AbelianSchemesAndArithmeticModuli"
+  },
+  {
+   "a": "AlgebraicModuliForArithmeticGeometry",
+   "b": "AbelianSchemesAndArithmeticModuli"
+  },
+  {
+   "a": "FiniteFieldsAndCharacterSums",
+   "b": "AlgebraicModuliForArithmeticGeometry"
+  },
+  {
+   "a": "FiniteFieldsAndCharacterSums",
+   "b": "AutomorphicFormsOnReductiveGroups"
+  },
+  {
+   "a": "DrinfeldModulesAndTModules",
+   "b": "AutomorphicFormsOnReductiveGroups"
+  },
+  {
+   "a": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "b": "DrinfeldModulesAndTModules"
+  },
+  {
+   "a": "PadicFamilies",
+   "b": "FiniteFlatGroupsAndIntegralPadicHodgeTheory"
+  },
+  {
+   "a": "PadicFamilies",
+   "b": "IgusaVarietiesAndTorsionConcentration"
+  },
+  {
+   "a": "IgusaVarietiesAndTorsionConcentration",
+   "b": "AutomorphicFormsOnReductiveGroups"
+  },
+  {
+   "a": "FiniteFieldsAndCharacterSums",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/PDE",
+   "b": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries"
+  },
+  {
+   "a": "AlgebraicModuliForArithmeticGeometry",
+   "b": "PadicFamilies"
+  },
+  {
+   "a": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "b": "IgusaVarietiesAndTorsionConcentration"
+  },
+  {
+   "a": "DrinfeldModulesAndTModules",
+   "b": "AbelianSchemesAndArithmeticModuli"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+   "b": "ColemanPowerSeries"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+   "b": "tauceti:TauCetiRoadmap/PDE"
+  },
+  {
+   "a": "AlgebraicModuliForArithmeticGeometry",
+   "b": "AutomorphicFormsOnReductiveGroups"
+  },
+  {
+   "a": "FiniteFieldsAndCharacterSums",
+   "b": "FiniteFlatGroupsAndIntegralPadicHodgeTheory"
+  },
+  {
+   "a": "DrinfeldModulesAndTModules",
+   "b": "PadicFamilies"
+  }
+ ]
+}
