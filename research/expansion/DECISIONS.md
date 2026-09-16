@@ -280,7 +280,7 @@ a claim of ownership; when the DWP packets are written they should become links.
 7. **Catalogue.** Kedlaya math/0110124v4 and both Baker–Payne–Rabinoff papers are not in
    `CATALOGUE.json`; the hashes above are confirmed and ready for registration.
 
-## REVIEW-EXT-05-EXT-02-review.md (reviewer still running; partial) — last written 2026-09-16 10:04
+## REVIEW-EXT-05-EXT-02-review.md (reviewer still running; partial) — last written 2026-09-16 10:10
 
 ### Supplier questions for the orchestrator — 1. EXT-05 / GeometricSatakeAndFusion.json
 
@@ -398,7 +398,60 @@ which pages have now been read from images and which still rest on the OCR.
 
 ---
 
-## REVIEW-EXT-10-EXT-07-review.md (reviewer still running; partial) — last written 2026-09-16 10:00
+## REVIEW-EXT-08-EXT-16-review.md (reviewer still running; partial) — last written 2026-09-16 10:37
+
+### Supplier questions for the orchestrator — 1. AdditiveCombinatorics.json
+
+1. Should the endgame's prime-number-theorem input come from `AnalyticNumberTheory:AN.2`
+   (fixed modulus, adequate with w constant) or from a modulus-uniform statement?
+2. The atlas edge `SieveMethodsAndPrimePatterns:SV.3 → AC.4` (Bombieri–Vinogradov) is not used by
+   the source. Should it be re-pointed at an owner of the Goldston–Yıldırım divisor-sum
+   asymptotics? No such owner exists yet.
+3. Keep `AN.2/classical-zero-free-region → AC.4` as a partial-supplier edge, or wait until Lemma A.1's
+   growth bounds (Titchmarsh Ch. 3) have an owner?
+
+---
+
+### Supplier questions for the orchestrator — 2. AnalyticNumberTheory.json
+
+1. Composite-modulus Gauss sums: widen FF.1, or give AN.1 its own Dirichlet-character node? This is
+   the draft's recommendation; I confirmed the scope mismatch.
+2. Is Chebotarev with natural density (as AN.4's text and Kedlaya Thm 22.5 state) required, or does
+   Dirichlet density suffice for consumers? The only argument in the read sources gives Dirichlet
+   density.
+3. Which stage owns Artin L-function inductivity and the non-vanishing of Hecke L-functions on
+   Re s = 1?
+
+---
+
+### Supplier questions for the orchestrator — 3. ArithmeticStatistics.json
+
+1. Owner for Davenport's semialgebraic lattice-point lemma. GN.1 (Minkowski) is the wrong theorem;
+   GlobalNumberFields 3A is the nearest but covers only homothetic dilates.
+2. Owner for the cubic Thue-equation bound (≤ 12 solutions; Delone 1930, Evertse 1983), used twice
+   in this proof.
+3. Should Bhargava's geometric sieve [6] and quartic-ring uniformity [4, Prop. 23] be acquired as
+   ST.2 prerequisites?
+
+---
+
+### Supplier questions for the orchestrator — 4. ClassicalArithmeticCompletion.json
+
+1. CA.0's acceptance asks for CRT at non-coprime moduli. The only source statement is an unproved
+   two-moduli exercise, so a proof source (or an in-house proof) is needed.
+2. The infinite-place residue symbols required by CA.1 have no source. Should this be routed through
+   the KED-CFT reading shared with AnalyticNumberTheory?
+
+---
+
+### Supplier questions for the orchestrator — 5. ComputationalNumberTheory.json
+
+1. **Placement:** move the finite-field factorization node to FF.3, keeping a checked-factor
+   contract under CN.1, or declare CN.1 the owner and narrow FF.3?
+2. The probable-prime vs proven-prime result-type contract is no longer a graph edge. Record it in
+   CN.1's stage text if it is wanted.
+
+## REVIEW-EXT-10-EXT-07-review.md (reviewer still running; partial) — last written 2026-09-16 10:25
 
 ### Questions for the orchestrator — 1. AlgebraicModularFormsAndSerreWeights.json (R15.1–R15.6)
 
@@ -474,6 +527,21 @@ which pages have now been read from images and which still rest on the OCR.
    since it depends on Theorem 6.2.13.
 2. **CC.2 and tame levels.** Should CC.2 or R31.1 own the colimit over tame levels and the
    (5.1.1)-type identification for the modular tower?
+
+### Questions for the orchestrator — 7. CompletedCohomologyPartII.json (CC.0–CC.8)
+
+1. **Home of Scholze's Corollaries 4.2.2–4.2.3.** Candidate: TorsionCohomologyInfrastructure:TC.2,
+   which requires CC.8. Should Theorem 4.2.1 itself move there too, as an automorphic-section
+   comparison?
+2. **Theorem 1.1(3) misprint.** Accept the torsion reading provisionally, or wait for the published
+   version?
+3. **CC.3/CC.5 order.** This remains undecided; see the existing gap.
+
+### Questions for the orchestrator — 8. EllipticCurveModularity.json (R29.1–R29.6)
+
+1. **The isogeny step.** Should it be split out of the R29.4 node into R29.5, to match the atlas?
+2. **The φ(N_E) exclusion.** R29.2's stage text demands it, but Serre's route does not need it. Keep
+   the stage text, or relax it?
 
 ## cohomology-comparisons-handoff.md — last written 2026-09-15 22:14
 

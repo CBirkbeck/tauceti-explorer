@@ -1,0 +1,297 @@
+[
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+  "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+  "status": "in_progress",
+  "quote": "Layer 0 has boundedness, Huber and Tate foundations, completion, restricted series with their universal properties and quotients, open mapping, and Proposition 6.18; Weierstrass theory and strong noetherianness of complete rank-one fields remain.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "note": "Report lists landed material for the layer and names what 'remain[s]' (Weierstrass theory, strong noetherianness of complete rank-one fields)."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+  "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+  "status": "complete",
+  "quote": "Layer 1 is done, including vertical generization of continuous valuations.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "note": "Corroborated by line 11: 'Layer 1 is complete'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+  "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+  "status": "in_progress",
+  "quote": "Layer 2 covers `Spa`, functoriality, spectrality, the rational basis, intersections, perturbation invariance, rational-in-rational, plus-ring recovery, emptiness, quotient pairs and closed polydiscs; Corollary 7.53, the standard-refinement Lemma 7.54, and most of the analytic-locus theory of Proposition 7.49(2) are not established here.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "note": "Corroborated by line 11: 'Layer 2 is now close to it' (i.e. close to complete), with named gaps (Corollary 7.53, Lemma 7.54, Proposition 7.49(2))."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+  "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+  "status": "in_progress",
+  "quote": "Layer 3 has coordinate rings, presentation-change and enlargement restriction maps, the complete separated target category with all small limits, and a presentation-limit candidate presheaf, but not its identification with `A_U`, nor `𝒪_X⁺`, stalks or pre-adic spaces.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "note": "Corroborated by line 11: 'Layer 3 has coordinate rings, restriction maps and a candidate structure presheaf but no stalk theory'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+  "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+  "status": "in_progress",
+  "quote": "Layer 4 has module base change, the Lemma 8.31 flatness statements and Proposition 8.30, but nothing on Čech exactness, sheafiness or stable uniformity.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "note": "Corroborated by line 11: 'Layer 4 has the algebraic chain up to Proposition 8.30 and nothing past it'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+  "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+  "status": "not_started",
+  "quote": "Layers 5 and 6 are untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "note": "Grouped statement covering Layers 5 and 6; Layer 5 is named explicitly. Corroborated by line 11: 'Layers 5 and 6 have not begun.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+  "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+  "status": "not_started",
+  "quote": "Layers 5 and 6 are untouched.",
+  "lineStart": 35,
+  "lineEnd": 35,
+  "note": "Grouped statement covering Layers 5 and 6; Layer 6 is named explicitly. Corroborated by line 11: 'Layers 5 and 6 have not begun.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-1-consumed-frobenius-classes-and-powers-of-conjugacy-classes",
+  "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+  "status": "in_progress",
+  "quote": "Layer 1 now has its conjugacy-class power API, both Artin-symbol tower laws, and the split-completely criterion, but the roadmap's explicit tower regression is not established here.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "note": "Corroborated by line 11, which lists Layer 1 among the layers that 'are genuinely partial'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-2-frobenius-prime-sets-and-finite-exceptional-sets",
+  "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+  "status": "complete",
+  "quote": "Layer 2 is done.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "note": "Corroborated by line 11: 'Layer 2, the Frobenius-prime carrier and its finite exceptional set, is complete.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-3-prime-sums-and-density-normalization",
+  "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+  "status": "not_started",
+  "quote": "Layers 3, 5, 6, 9, 10, and 12–14 remain untouched as theorem layers.",
+  "lineStart": 11,
+  "lineEnd": 11,
+  "note": "Grouped statement; Layer 3 is named explicitly. The report hedges with 'as theorem layers'; line 29 states the same verdict as 'Layers 3, 5, 6, 9, 10, and 12–14 have no roadmap theorem established here.' Mapped to not_started on the rule keyword 'untouched'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters",
+  "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+  "status": "in_progress",
+  "quote": "Layer 4 has the Frobenius orientation, character weight, and orthogonality, but not the conductor factorization or analytic series.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "note": "Corroborated by line 11, which lists Layer 4 among the layers that 'are genuinely partial'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-5-ray-class-counting-and-continuation",
+  "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+  "status": "not_started",
+  "quote": "Layers 3, 5, 6, 9, 10, and 12–14 remain untouched as theorem layers.",
+  "lineStart": 11,
+  "lineEnd": 11,
+  "note": "Grouped statement; Layer 5 is named explicitly. The report hedges with 'as theorem layers'; line 29 states the same verdict as 'Layers 3, 5, 6, 9, 10, and 12–14 have no roadmap theorem established here.' Mapped to not_started on the rule keyword 'untouched'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-6-cyclotomic-dirichlet-density",
+  "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+  "status": "not_started",
+  "quote": "Layers 3, 5, 6, 9, 10, and 12–14 remain untouched as theorem layers.",
+  "lineStart": 11,
+  "lineEnd": 11,
+  "note": "Grouped statement; Layer 6 is named explicitly. The report hedges with 'as theorem layers'; line 29 states the same verdict as 'Layers 3, 5, 6, 9, 10, and 12–14 have no roadmap theorem established here.' Mapped to not_started on the rule keyword 'untouched'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-7-the-auxiliary-prime-and-the-crossing-data",
+  "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+  "status": "in_progress",
+  "quote": "Layer 7 has the auxiliary prime, full cyclotomic degree and ramification machinery, compositum splitting, and tagged cyclotomic fixed fields, but not all Frobenius compatibility and contraction statements.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "note": "Corroborated by line 11, which lists Layer 7 among the layers that 'are genuinely partial'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-8-the-cyclic-fixed-field-fibre",
+  "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+  "status": "in_progress",
+  "quote": "Layer 8 has its cyclic fixed-field generator and key residue-degree-one lemmas, but not the exact fibre count or exceptional set.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "note": "Corroborated by line 11, which lists Layer 8 among the layers that 'are genuinely partial'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-9-abelian-chebotarev",
+  "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+  "status": "not_started",
+  "quote": "Layers 3, 5, 6, 9, 10, and 12–14 remain untouched as theorem layers.",
+  "lineStart": 11,
+  "lineEnd": 11,
+  "note": "Grouped statement; Layer 9 is named explicitly. The report hedges with 'as theorem layers'; line 29 states the same verdict as 'Layers 3, 5, 6, 9, 10, and 12–14 have no roadmap theorem established here.' Mapped to not_started on the rule keyword 'untouched'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+  "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+  "status": "not_started",
+  "quote": "Layers 3, 5, 6, 9, 10, and 12–14 remain untouched as theorem layers.",
+  "lineStart": 11,
+  "lineEnd": 11,
+  "note": "Grouped statement; Layer 10 is named explicitly. The report hedges with 'as theorem layers'; line 29 states the same verdict as 'Layers 3, 5, 6, 9, 10, and 12–14 have no roadmap theorem established here.' Mapped to not_started on the rule keyword 'untouched'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-11-the-frobenius-von-mangoldt-coefficient-and-its-summatory-functions",
+  "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+  "status": "in_progress",
+  "quote": "Layer 11 has the powered coefficient, `ψ_C`, `ϑ_C`, and higher-prime-power removal; its other discard estimates and logarithmic-derivative identity are absent.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "note": "Corroborated by line 11, which lists Layer 11 among the layers that 'are genuinely partial'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-12-the-weighted-transfer-package-and-the-tauberian-theorem",
+  "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+  "status": "not_started",
+  "quote": "Layers 3, 5, 6, 9, 10, and 12–14 remain untouched as theorem layers.",
+  "lineStart": 11,
+  "lineEnd": 11,
+  "note": "Grouped statement; Layer 12 falls within the range '12–14'. The report hedges with 'as theorem layers'; line 29 states the same verdict as 'Layers 3, 5, 6, 9, 10, and 12–14 have no roadmap theorem established here.' Mapped to not_started on the rule keyword 'untouched'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-13-ϑ_c-and-π_c",
+  "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+  "status": "not_started",
+  "quote": "Layers 3, 5, 6, 9, 10, and 12–14 remain untouched as theorem layers.",
+  "lineStart": 11,
+  "lineEnd": 11,
+  "note": "Grouped statement; Layer 13 falls within the range '12–14'. The report hedges with 'as theorem layers'; line 29 states the same verdict as 'Layers 3, 5, 6, 9, 10, and 12–14 have no roadmap theorem established here.' Mapped to not_started on the rule keyword 'untouched'. Note: the report attributes the `ϑ_C` carrier to Layer 11 (line 29), so the definitional overlap with this layer's title does not alter the report's verdict on Layer 13."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems",
+  "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+  "status": "not_started",
+  "quote": "Layers 3, 5, 6, 9, 10, and 12–14 remain untouched as theorem layers.",
+  "lineStart": 11,
+  "lineEnd": 11,
+  "note": "Grouped statement; Layer 14 falls within the range '12–14'. The report hedges with 'as theorem layers'; line 29 states the same verdict as 'Layers 3, 5, 6, 9, 10, and 12–14 have no roadmap theorem established here.' Mapped to not_started on the rule keyword 'untouched'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+  "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "status": "in_progress",
+  "quote": "Layer 0 has the point–place dictionary, the class-group anchor and the start of divisor calculus, but not Weil reciprocity or functions with prescribed divisors.",
+  "lineStart": 29,
+  "lineEnd": 29
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-05-base-change-galois-actions-translations-and-descent-cross-cutting",
+  "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "status": "in_progress",
+  "quote": "Layer 0.5 has base change and the translation fixed-field theorem, but no Galois descent.",
+  "lineStart": 29,
+  "lineEnd": 29
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+  "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "status": "in_progress",
+  "quote": "Layer 1 has degree, Frobenius and relative Frobenius, factorisation, `[n]` with `deg [n] = n²`, the additive group of morphisms, kernels, and the invariant differential through its separability criterion; it lacks the quadratic degree form, a ring structure on `End`, `[n]^*ω = n • ω`, separable-implies-unramified, the dual, Verschiebung and Vélu quotients.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "note": "The layer title also covers formal groups; the report's next sentence (line 29) is consistent: 'Of the four formal-group milestones the law and the group of points are present; the logarithm and the identification with the kernel of reduction are not.' Corroborated by line 11 ('The isogeny layer has ... but not the quadratic degree form or the dual')."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+  "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "status": "not_started",
+  "quote": "Layers 2, 4, 4.5a, 4.5b, 7 and 8 are untouched as far as the material here shows: no `E[N]`, Weil pairing or Tate module; no reduction map, Tate algorithm or Tate curve; no global minimal models; no Selmer or Sha.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "note": "Grouped statement; Layer 2 is named explicitly. The report hedges with 'as far as the material here shows'; mapped to not_started on the rule keyword 'untouched'. Corroborated by line 11: 'The Weil pairing, the Hasse bound, the reduction filtration and Selmer/Sha have not begun.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+  "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "status": "in_progress",
+  "quote": "Layer 3 has vocabulary only: the [projective point count](https://taucetiproject.github.io/TauCeti/docs/TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.html#WeierstrassCurve.pointCount), the [Frobenius trace](https://taucetiproject.github.io/TauCeti/docs/TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.html#WeierstrassCurve.frobeniusTrace) and a separable `1 − π`; no `deg (1 − π) = #E(𝔽_q)`, Hasse bound or zeta function.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "note": "Borderline: the report attributes landed material to the layer ('has vocabulary only': point count, Frobenius trace, separable `1 − π`) while naming the missing theorems, so the in_progress rule applies; but line 11 says the layer's headline result, the Hasse bound, has 'not begun'. Quote kept verbatim, including its two markdown links."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+  "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "status": "not_started",
+  "quote": "Layers 2, 4, 4.5a, 4.5b, 7 and 8 are untouched as far as the material here shows: no `E[N]`, Weil pairing or Tate module; no reduction map, Tate algorithm or Tate curve; no global minimal models; no Selmer or Sha.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "note": "Grouped statement; Layer 4 is named explicitly. The report hedges with 'as far as the material here shows'; mapped to not_started on the rule keyword 'untouched'. Corroborated by line 11: 'The Weil pairing, the Hasse bound, the reduction filtration and Selmer/Sha have not begun.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-45a-invariant-theory-over-a-dedekind-domain-aec-viii8",
+  "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "status": "not_started",
+  "quote": "Layers 2, 4, 4.5a, 4.5b, 7 and 8 are untouched as far as the material here shows: no `E[N]`, Weil pairing or Tate module; no reduction map, Tate algorithm or Tate curve; no global minimal models; no Selmer or Sha.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "note": "Grouped statement; Layer 4.5a is named explicitly. The report hedges with 'as far as the material here shows'; mapped to not_started on the rule keyword 'untouched'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-45b-global-equation-construction-over-a-number-field",
+  "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "status": "not_started",
+  "quote": "Layers 2, 4, 4.5a, 4.5b, 7 and 8 are untouched as far as the material here shows: no `E[N]`, Weil pairing or Tate module; no reduction map, Tate algorithm or Tate curve; no global minimal models; no Selmer or Sha.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "note": "Grouped statement; Layer 4.5b is named explicitly. The report hedges with 'as far as the material here shows'; mapped to not_started on the rule keyword 'untouched'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+  "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "status": "in_progress",
+  "quote": "Layer 5's quadratic twists are complete; the nonabelian `H¹` stretch is not.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "note": "Report splits the layer: quadratic twists 'are complete', the nonabelian `H¹` stretch 'is not'; a named gap, so in_progress."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+  "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "status": "in_progress",
+  "quote": "Layer 6 is done except `ĥ(φP) = deg φ · ĥ(P)`.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "note": "'done except' one named identity (`ĥ(φP) = deg φ · ĥ(P)`) is a named gap, so in_progress under the rules, although line 11 calls the Mordell–Weil summit 'proved'."
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+  "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "status": "not_started",
+  "quote": "Layers 2, 4, 4.5a, 4.5b, 7 and 8 are untouched as far as the material here shows: no `E[N]`, Weil pairing or Tate module; no reduction map, Tate algorithm or Tate curve; no global minimal models; no Selmer or Sha.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "note": "Grouped statement; Layer 7 is named explicitly. The report hedges with 'as far as the material here shows'; mapped to not_started on the rule keyword 'untouched'. Corroborated by line 11: 'The Weil pairing, the Hasse bound, the reduction filtration and Selmer/Sha have not begun.'"
+ },
+ {
+  "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+  "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "status": "not_started",
+  "quote": "Layers 2, 4, 4.5a, 4.5b, 7 and 8 are untouched as far as the material here shows: no `E[N]`, Weil pairing or Tate module; no reduction map, Tate algorithm or Tate curve; no global minimal models; no Selmer or Sha.",
+  "lineStart": 29,
+  "lineEnd": 29,
+  "note": "Grouped statement; Layer 8 is named explicitly. The report hedges with 'as far as the material here shows'; mapped to not_started on the rule keyword 'untouched'."
+ }
+]

@@ -1,5 +1,5 @@
 {
-  "purpose": "Short faithful names for extracted landmark planets; results are merged into data/landmark-labels.json only after validation (length, vocabulary drawn from the passage, uniqueness per star).",
+  "purpose": "Decide which extracted landmark planets are key definitions, named theorems or central constructions (keep or name them) and drop the rest; results are merged with scripts/merge_landmark_names.py after validation.",
   "jobs": [
     {
       "id": "NAME-01",
@@ -126,10 +126,20 @@
       "galaxy": "Function fields and higher local fields",
       "landmarks": 72,
       "curated": 10,
-      "state": "running",
+      "state": "queued for re-run under the strict rubric",
       "input": "research/expansion/naming/NAME-13.json",
       "result": "research/expansion/naming/NAME-13.result.json",
-      "account": "claude5 (in-session pilot)"
+      "account": "claude"
+    },
+    {
+      "id": "NAME-14",
+      "galaxy": "upstream TauCetiRoadmap roadmaps added by the 16 September refresh",
+      "landmarks": 1380,
+      "curated": 0,
+      "state": "queued",
+      "input": "research/expansion/naming/NAME-14.json",
+      "result": "research/expansion/naming/NAME-14.result.json",
+      "account": "claude2"
     }
   ]
 }
