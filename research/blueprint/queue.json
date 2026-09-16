@@ -37554,11 +37554,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-12.md",
    "timeout": 14400,
-   "state": "running",
+   "state": "done",
    "account": "claude",
    "lane": 2,
    "startedAt": "2026-09-16T16:35:00Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-16T17:00:47Z",
+   "seconds": 1547,
+   "result": {
+    "judged": 24,
+    "pairs": 24
+   },
+   "note": ""
   },
   {
    "id": "COMPARE-13",
@@ -38729,7 +38736,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-05.md",
    "timeout": 21600,
-   "state": "pending"
+   "state": "running",
+   "account": "claude",
+   "lane": 2,
+   "startedAt": "2026-09-16T17:00:47Z",
+   "attempts": 1
   },
   {
    "id": "REV-AUDIT-05",
