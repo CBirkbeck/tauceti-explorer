@@ -1,0 +1,581 @@
+{
+ "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+ "status": "partial",
+ "summary": "Source decomposition of the statement layer of the automorphic Galois representation constructions for GL_n over CM fields, from five primary sources whose introductions were read in full: Harris-Lan-Taylor-Thorne for the non-self-dual construction as a p-adic limit inside a GL_{2n} unitary similitude setting, with its dagger-space and overconvergent-cusp-form machinery and the Katz congruence argument; Chenevier-Harris for the polarized construction with its de Rham, Hodge-Tate regularity and crystalline conclusions and its partial-order local-global statement; Varma for the extension to all places away from the coefficient prime in semisimplified form plus a monodromy bound; Caraiani's two papers for the upgrade to full Frobenius-semisimplified Weil-Deligne equality, away from p via temperedness and purity, and at p via a log-crystalline weight spectral sequence; and the potential-automorphy source for the enormity condition (Definition 6.2.29 and Lemma 6.2.30) and for decomposed genericity (Definition 4.3.1 and Lemma 4.3.2), both of which match the atlas stage texts verbatim. The decomposition keeps the three strengths of local-global compatibility distinct - equality of semisimplifications, a partial-order monodromy bound, and full Weil-Deligne equality - as the roadmap requires. The dominant boundary is that only introductions were read; three stages (AG2.1b, AG2.2, AG2.3) have no nodes and are marked not_read.",
+ "sources": [
+  {
+   "id": "hltt-rigid-cohomology",
+   "title": "On the rigid cohomology of certain Shimura varieties",
+   "authors": "Michael Harris, Kai-Wen Lan, Richard Taylor and Jack Thorne",
+   "edition": "Author's copy rigcoh.pdf (published in Res. Math. Sci. 3 (2016)); read from the supplied extracted text references/text/SS_HLTT.txt. Locators give the article's own page numbers and result numbers",
+   "url": "https://www.kwlan.org/articles/rigcoh.pdf",
+   "sha256": "abecfd049d617654dd0bb60e4945bf6967d3953ed20f2126de0624f2bd0bdbc7",
+   "readSections": [
+    "Abstract and Introduction: Theorem A (quoted there as Corollary 7.14), the remark on extending local-global compatibility, the sketch of the argument including the group G_n, its maximal parabolic and Levi, the induced representation Pi(N), the realization in overconvergent p-adic cusp forms of finite slope, Katz's congruence argument, and the dagger-space set-up with the ordinary loci and the subcanonical sheaf, pp. 1-3"
+   ]
+  },
+  {
+   "id": "chenevier-harris-II",
+   "title": "Construction of automorphic Galois representations, II",
+   "authors": "Gaetan Chenevier and Michael Harris",
+   "edition": "Author's copy ConstructionII.pdf (published in Camb. J. Math. 1 (2013), 53-73); read from the supplied extracted text references/text/SS_ChenevierHarris.txt. Locators give the article's own page and result numbers",
+   "url": "https://webusers.imj-prg.fr/~michael.harris/ConstructionII.pdf",
+   "sha256": "9b5e76798f75273f53d1d4160f35815b1a3b656f04c965ad47fd4fa454840529",
+   "readSections": [
+    "Introduction: the setting (F totally real, K/F totally imaginary quadratic, G = Res_{K/Q} GL(n)), and the main theorem quoted there as Theorem 3.2.3 with its parts (a), (b), (c), p. 1"
+   ]
+  },
+  {
+   "id": "varma-local-global",
+   "title": "Local-global compatibility for regular algebraic cuspidal automorphic representations when l is different from p",
+   "authors": "Ila Varma",
+   "edition": "arXiv:1411.2520v1, 10 November 2014; read from the supplied extracted text references/text/SS_VarmaLocalGlobal.txt. Locators give the arXiv version's own page numbers",
+   "url": "https://arxiv.org/pdf/1411.2520",
+   "sha256": "24076dfcc6ca9b9e3168efb0150e75d5200f66e64085625b3e52895cfd1e56ef",
+   "readSections": [
+    "Abstract, p. 1",
+    "1 Introduction: the setting, the known unramified compatibility, Theorem (1^ss), Theorem (1) with the partial order, and the summary of the proof strategy through the Bernstein centre, pp. 1-2"
+   ]
+  },
+  {
+   "id": "caraiani-monodromy-away",
+   "title": "Local-global compatibility and the action of monodromy on nearby cycles",
+   "authors": "Ana Caraiani",
+   "edition": "arXiv:1010.2188v1, 11 October 2010 (published Duke Math. J. 161 (2012)); read from references/text/SS_CaraianiMonodromyAway.txt. Locators give the arXiv version's page numbers",
+   "url": "https://arxiv.org/pdf/1010.2188",
+   "sha256": "769e68e2384b42caf16861d9011b35afe48018eba006074ce0d6c4111451f3b3",
+   "readSections": [
+    "Abstract and 1 Introduction: Theorem 1.1, Theorem 1.2 (Ramanujan-Petersson), the statement of what was already known, and the strategy (realizing R_l(Pi)^{tensor 2} in the cohomology of a unitary Shimura system and proving purity by computing the monodromy operator), pp. 1-2"
+   ]
+  },
+  {
+   "id": "caraiani-monodromy-at-p",
+   "title": "Monodromy and local-global compatibility for l = p",
+   "authors": "Ana Caraiani",
+   "edition": "arXiv:1202.4683v1, 21 February 2012 (published Algebra Number Theory 8 (2014)); read from references/text/SS_CaraianiMonodromyAtP.txt. Locators give the arXiv version's page numbers",
+   "url": "https://arxiv.org/pdf/1202.4683",
+   "sha256": "6ec698414d5d3ad03f3d1c98de178b39d69722699f4a08a059e8d14027df885e",
+   "readSections": [
+    "Abstract and 1 Introduction: Theorem 1.1, the statement of what was known from Barnet-Lamb-Gee-Geraghty-Taylor and what is new, and the announcement of a generalization of Mokrane's weight spectral sequence for log crystalline cohomology, p. 1"
+   ]
+  },
+  {
+   "id": "accplus-cm-potential-automorphy",
+   "title": "Potential automorphy over CM fields",
+   "authors": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne",
+   "edition": "Annals of Mathematics 197 (2023), 897-1113; read from references/text/accplus-potential-automorphy.txt",
+   "url": "https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf",
+   "sha256": "c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02",
+   "readSections": [
+    "4.3 Definition 4.3.1 (generic, decomposed generic for a prime, decomposed generic) with the note on projective invariance, and Lemma 4.3.2 with its Chebotarev proof, printed pp. 972-973",
+    "6.2.28-6.2.31 (Definition 6.2.29 'enormous', Lemma 6.2.30 with proof, Remark 6.2.31, and the definition of a Taylor-Wiles datum), printed pp. 1044-1045"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "AutomorphicGaloisRepresentationsPartII:AG2.0/the-normalization-dictionary-fixed-by-the-sources",
+   "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+   "title": "The normalization actually used in every source: rec(pi_v tensor |det|^{(1-n)/2}) and the choice of embeddings",
+   "kind": "definition",
+   "statement": "All four construction sources fix the same normalization. Data: a rational prime p and an isomorphism iota: Qbar_p -> C (equivalently a pair of embeddings iota = (iota_p: Qbar -> Qbar_p, iota_infinity: Qbar -> C)). For pi a cuspidal automorphic representation of GL_n(A_E) with pi_infinity having the same infinitesimal character as an irreducible algebraic representation rho_pi of Res_{E/Q} GL_n (this is the definition of REGULAR ALGEBRAIC used), the attached representation r_{p,iota}(pi): G_E -> GL_n(Qbar_p) is characterized at unramified places by r_{p,iota}(pi)|^{ss}_{W_{E_v}} = iota^{-1} rec_{E_v}(pi_v |det|_v^{(1-n)/2}). The twist by |det|^{(1-n)/2} is what converts the unitary normalization of rec into the arithmetic one; the same twist appears in Chenevier-Harris as |.|_v^{(1-n)/2}, in Varma explicitly, and Caraiani instead states her theorems with the GEOMETRIC normalization of the local Langlands correspondence L_{n,L_y}. In Chenevier-Harris the comparison at places of residue characteristic prime to p is stated with the PARTIAL ORDER '<' on Weil-Deligne representations, not with equality.",
+   "hypotheses": [
+    "the pair of embeddings must be fixed before the statement makes sense; the representation depends on iota",
+    "'regular algebraic' means pi_infinity has the same infinitesimal character as an irreducible algebraic representation of Res_{E/Q} GL_n; no self-duality is assumed in the HLTT source",
+    "two distinct normalizations of rec appear in the sources read: the twist by |det|^{(1-n)/2} of the arithmetic-normalized rec, and Caraiani's geometric normalization L_{n,L_y}; they are not interchangeable",
+    "Chenevier-Harris state (a) with the partial order rather than isomorphism, so their result is weaker than an equality of Weil-Deligne representations"
+   ],
+   "proofSteps": [
+    "Each source states its normalization once and uses it throughout; the node records the four statements side by side.",
+    "The partial order in Chenevier-Harris is defined in a reference of theirs ([Ch] section 3.1), which was NOT read here."
+   ],
+   "acceptance": [
+    "Check the n = 1 case: an algebraic Hecke character and the twist |det|^{(1-n)/2} = 1, so the dictionary must reduce to class field theory in the chosen normalization",
+    "Check the n = 2 case against the R19 convention (characteristic polynomial X^2 - a_l X + eps(l) l^{k-1} at good arithmetic Frobenius) and record the twist relating the two"
+   ],
+   "sources": [
+    {
+     "sourceId": "hltt-rigid-cohomology",
+     "locator": "Theorem A, p. 1",
+     "excerpt": "then rp,ı (π) is unramified at v and rp,ı (π)|ss WEv = ı −1 recEv (πv | det |v (1−n)/2 ).",
+     "match": "The normalization verbatim, with the |det|^{(1-n)/2} twist and the semisimplification."
+    },
+    {
+     "sourceId": "chenevier-harris-II",
+     "locator": "Theorem (quoted as Theorem 3.2.3), part (a), p. 1",
+     "excerpt": "(ρι,Π |Γv )F −ss ≺ L(Πv ⊗ | • |v 1−n 2 ), ... and the relation ≺ is the partial ordering on the associated Weil-Deligne representations defined in [Ch] §3.1;",
+     "match": "The Chenevier-Harris statement is a PARTIAL ORDER, not an isomorphism; the stage's demand to 'distinguish equality of semisimplifications, Frobenius-semisimplified Weil-Deligne equality retaining N, and a bound on monodromy' is exactly this distinction."
+    },
+    {
+     "sourceId": "caraiani-monodromy-away",
+     "locator": "After Theorem 1.1, p. 1",
+     "excerpt": "Here Ln,Ly (Πy ) is the image of Πy under the local Langlands correspondence, where the geometric normalization is used.",
+     "match": "A different normalization convention in a source that strengthens the same comparison; mixing the two would shift the answer by a twist."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris",
+   "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+   "title": "What the polarized geometric construction supplies, and the regularity condition that splits its cases",
+   "kind": "theorem",
+   "statement": "For Pi a cuspidal automorphic representation of GL_n(A_K) over a CM field K which is CONJUGATE SELF-DUAL (Pi^dual = Pi composed with c) and COHOMOLOGICAL for an irreducible algebraic representation Xi, a semisimple continuous Galois representation R_l(Pi): Gal(Kbar/K) -> GL_n(Qbar_l) exists. Chenevier-Harris Theorem 3.2.3: (a) at finite primes v of residue characteristic prime to p, (rho_{iota,Pi}|Gamma_v)^{F-ss} is related to L(Pi_v tensor |.|_v^{(1-n)/2}) by the partial order; (b) at finite primes v of residue characteristic p, rho_{iota,Pi}|Gamma_v is DE RHAM in Fontaine's sense, its Hodge-Tate numbers have multiplicity at most one (Hodge-Tate regular) and are determined by Pi_infinity by an explicit recipe; (c) if v divides p and Pi_v has a nonzero vector fixed by a maximal compact subgroup of GL(n, K_v), then rho_v is CRYSTALLINE and det(T - phi | D_cris(rho_v)) = det(T - L(Pi_v tensor |.|_v^{(1-n)/2})(Frob_v)) for phi the smallest linear power of the crystalline Frobenius. The sources record the case division: the results are already known when n is ODD, or when n is even and Pi is SLIGHTLY REGULAR in Shin's sense, or when Pi is square-integrable at a finite place (Harris-Taylor, Taylor-Yoshida); the Chenevier-Harris construction covers the remaining even, not-slightly-regular case at the cost of only the partial-order statement.",
+   "hypotheses": [
+    "conjugate self-duality and cohomologicality are both hypotheses; no statement is made for arbitrary GL_n representations",
+    "part (c) requires Pi_v to be unramified in the strong sense of having a maximal-compact-fixed vector, not merely spherical for some compact open",
+    "the Hodge-Tate regularity in (b) is a CONCLUSION under these hypotheses, derived from Pi_infinity by an explicit recipe",
+    "the case division (n odd / n even slightly regular / n even not slightly regular / square-integrable at a finite place) governs which theorem is available; they are not interchangeable"
+   ],
+   "proofSteps": [
+    "Chenevier-Harris state the theorem in their introduction with a pointer to their Theorem 3.2.3; the proof was NOT read here.",
+    "Caraiani's two papers record which cases were already available and which she supplies."
+   ],
+   "acceptance": [
+    "Check part (c) on an unramified place and confirm that the crystalline Frobenius polynomial matches the Satake parameters under the chosen normalization",
+    "Check that the partial-order statement of (a) does not determine N, by exhibiting two Weil-Deligne representations comparable in that order with different monodromy"
+   ],
+   "sources": [
+    {
+     "sourceId": "chenevier-harris-II",
+     "locator": "Theorem (3.2.3), parts (b) and (c), p. 1",
+     "excerpt": "(b) For all finite primes v of K of residue characteristic p, ρι,Π |Γv is de Rham (in Fontaine’s sense), and its Hodge-Tate numbers have multiplicity at most one (i.e., ρι,Π is Hodge-Tate regular) and are determined by the archimedean component Π∞ of Π in accordance with an explicit recipe.",
+     "match": "The de Rham and Hodge-Tate regularity conclusions at places above p, with the recipe from Pi_infinity."
+    },
+    {
+     "sourceId": "caraiani-monodromy-away",
+     "locator": "1 Introduction, p. 2",
+     "excerpt": "The above theorems are already known when n is odd or when n is even and Π is slightly regular, by work of Shin [Sh3]. They are also known if Π is square integrable at a finite place, by the work of Harris-Taylor [HT] and Taylor-Yoshida [TY].",
+     "match": "The precise case division, which the stage's 'retain the parity and Shin-regularity restrictions of the geometric construction' requires."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-construction-of-nonselfdual-systems",
+   "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.4",
+   "title": "The HLTT construction: a non-self-dual GL_n system as a p-adic limit inside a GL_{2n} unitary similitude setting",
+   "kind": "theorem",
+   "statement": "Theorem A of the source: let p be a rational prime and iota: Qbar_p -> C; let E be a CM or totally real field and pi a cuspidal automorphic representation of GL_n(A_E) with pi_infinity of the same infinitesimal character as an irreducible algebraic representation rho_pi of Res_{E/Q} GL_n. Then there is a UNIQUE continuous semisimple r_{p,iota}(pi): G_E -> GL_n(Qbar_p) such that for a rational prime q different from p at which pi is unramified and v | q a prime of E, r_{p,iota}(pi) is unramified at v with r_{p,iota}(pi)|^{ss}_{W_{E_v}} = iota^{-1} rec_{E_v}(pi_v |det|_v^{(1-n)/2}). NO self-duality hypothesis is imposed. The construction: reduce to an imaginary CM F containing an imaginary quadratic field in which p splits; work on the quasi-split unitary similitude group G_n attached to F^{2n}, whose maximal parabolic P^+_{n,(n)} has Levi L_{n,(n)} = GL_1 x Res_{F/Q} GL_n; set Pi(N) = the induction from P^+_{n,(n)}(A^{infinity,p}) to G_n(A^{infinity,p}) of (1 x iota^{-1}(pi ||det||^N)^{infinity,p}); realize Pi(N), for N sufficiently large, in a space of overconvergent p-adic cusp forms for G_n of finite slope; use an argument of Katz to find congruences modulo arbitrarily high powers of p to CLASSICAL holomorphic cusp forms on G_n of other weights; attach Galois representations to those by lifting them through the trace formula to polarizable regular algebraic discrete automorphic representations of GL_{2n}(A_F) and applying the polarized construction; this gives a 2n-dimensional R_p(iota^{-1}(pi||det||^N)^{infinity}) whose unramified Weil-group semisimplification is the sum iota^{-1} rec_{F_v}(pi_v |det|_v^{N+(1-n)/2}) + iota^{-1} rec_{F_v}(pi_v |det|_v^{N+(1-n)/2})^{dual, c} p^{1-2n}, from which r_{p,iota}(pi) is recovered by elementary algebra. The geometry used: the Shimura variety X_{n,U}/Q attached to a neat U, a moduli space for abelian n[F:Q]-folds with an isogeny action of F, NOT proper; its canonical normal compactification X^min_{n,U}; a smooth compactification X_{n,U,Delta} with simple normal crossings boundary; a locally free sheaf E_{U,rho} with canonical extension E_{U,Delta,rho} and subcanonical E^sub_{U,Delta,rho} (the product with the boundary ideal sheaf) whose global sections are automorphic and cusp forms respectively; and the associated dagger spaces with their ordinary loci, on which an overconvergent cusp form of weight rho and level U is a section of E^sub over the ordinary locus.",
+   "hypotheses": [
+    "no self-duality is assumed on pi; the source stresses that in the non-polarizable case r_{p,iota}(pi) will never occur in the Betti or etale cohomology of a Shimura variety, according to unpublished computations of Harris and Clozel",
+    "the reduction to an imaginary CM F containing an imaginary quadratic field in which p SPLITS is part of the construction",
+    "N must be sufficiently large, and the realization is in overconvergent forms of a NON-CLASSICAL weight and finite slope",
+    "the spaces of global sections of E_{U,Delta,rho} and E^sub_{U,Delta,rho}, and the notion of an overconvergent cusp form, are independent of the auxiliary choice Delta - the source says so explicitly",
+    "the Galois representations for the classical forms are obtained by the trace formula lift to GL_{2n} plus the polarized construction; the whole argument therefore consumes the polarized case"
+   ],
+   "proofSteps": [
+    "The source sketches the argument in its introduction as recorded above and refers to its Corollary 7.14 for the theorem.",
+    "The source records that the idea of realizing Pi(N) in overconvergent forms of finite slope is due to Skinner, and that the key problem was how to achieve such a realization.",
+    "It notes as an alternative that one could presumably construct an eigenvariety in this setting but that this was not carried out."
+   ],
+   "acceptance": [
+    "Check that the 2n-dimensional representation really decomposes as stated, and that the elementary algebra recovering the n-dimensional one is unambiguous",
+    "Check that the subcanonical sheaf, not the canonical one, is what carries cusp forms, and that the ordinary locus is an admissible open sub-dagger space"
+   ],
+   "sources": [
+    {
+     "sourceId": "hltt-rigid-cohomology",
+     "locator": "Abstract and Theorem A, p. 1",
+     "excerpt": "The main innovation is that we impose no self-duality hypothesis on the automorphic representation.",
+     "match": "The scope of the construction: it is exactly the non-polarized case that the polarized sources do not reach."
+    },
+    {
+     "sourceId": "hltt-rigid-cohomology",
+     "locator": "Introduction, p. 2",
+     "excerpt": "according to unpublished computations of one of us (M.H.) and of Laurent Clozel, in the non-polarizable case the representation rp,ı (π) will never occur in the Betti or etale cohomology of a Shimura variety. Rather we construct it as a p-adic limit of representations which do occur in such cohomology groups.",
+     "match": "Records that the construction is essentially a p-adic limit and not a direct geometric realization - which is why the stage puts it in a separate branch from AG2.1."
+    },
+    {
+     "sourceId": "hltt-rigid-cohomology",
+     "locator": "Introduction, sketch, p. 2",
+     "excerpt": "Then our strategy is to realize Π(N ), for sufficiently large N , in a space of overconvergent p-adic cusp forms for Gn of finite slope. Once we have done this, we can use an argument of Katz (see [Katz1]) to find congruences modulo arbitrarily high powers of p to classical (holomorphic) cusp forms on Gn (of other weights).",
+     "match": "The weight-changing congruences modulo arbitrarily high powers of p that the stage text names, attributed to Katz."
+    },
+    {
+     "sourceId": "hltt-rigid-cohomology",
+     "locator": "Introduction, p. 1",
+     "excerpt": "It may be possible to extend the local-global compatibility to other primes v. Ila Varma is considering this question.",
+     "match": "The source's own statement that its local-global compatibility is only at good places; the stage's separate treatment of AG2.5 is source-correct."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AutomorphicGaloisRepresentationsPartII:AG2.5/varma-semisimplified-comparison-and-monodromy-bound",
+   "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+   "title": "Varma's extension to all places away from p: equality of semisimplifications and a bound, not an equality, of monodromy",
+   "kind": "theorem",
+   "statement": "Let F be an imaginary CM or totally real field and pi a regular algebraic cuspidal automorphic representation of GL_n(A_F), with r_{p,iota}(pi) the representation constructed in the two cited sources. Theorem (1^ss): for EVERY prime v not dividing p of F, WD(r_{p,iota}(pi)|G_{F_v})^{ss} = iota^{-1} rec_{F_v}(pi_v tensor |det|_v^{(1-n)/2})^{ss}. Theorem (1): moreover WD(r_{p,iota}(pi)|G_{F_v})^{Frob-ss} < iota^{-1} rec_{F_v}(pi_v |det|_v^{(1-n)/2}) for the partial order, i.e. the monodromy of the Galois side is 'MORE NILPOTENT' than that of rec(pi_v). This is a semisimplified comparison together with a monodromy BOUND; it is not asserted to be an equality of Weil-Deligne representations. Strategy: follow the construction; at all primes v not dividing p of F which split over F^+ (equivalently at all primes away from p where G splits), the Bernstein centres of a finite union of Bernstein components containing Pi(M)_v map to the Hecke algebras acting on p-adic and classical cusp forms on G of arbitrary integral, not necessarily classical, weight; for each sigma in W_{F_v} the image contains Hecke operators whose eigenvalue on a p-adic cusp form Pi' equals tr rec_{F_v}(Pi'_v tensor |det|_v^{(1-2n)/2})(sigma); for classical Pi' local-global compatibility is already known, so the eigenvalue is also computed on the Galois side, and the p-adic limit transfers the identity.",
+   "hypotheses": [
+    "the comparison is at places v not dividing p; places above p are a different problem",
+    "the Bernstein-centre argument is run at primes that SPLIT over the maximal totally real subfield, i.e. where the unitary similitude group splits",
+    "the Hecke eigenvalue identity involves the twist |det|^{(1-2n)/2} for the 2n-dimensional object, not |det|^{(1-n)/2}",
+    "the conclusion of Theorem (1) is a partial-order statement; advertising it as full monodromy equality would overstate it - the stage text warns against exactly this"
+   ],
+   "proofSteps": [
+    "The source states the two theorems and summarizes the argument as recorded; the details were not read here.",
+    "The identity of traces is obtained on classical points, where local-global compatibility is already known, and then propagated to the p-adic limit by continuity of the Bernstein-centre action."
+   ],
+   "acceptance": [
+    "Check on a Steinberg place that the bound is strict, i.e. that the Galois monodromy can be smaller than rec's",
+    "Check that the argument genuinely needs the split hypothesis at v, by identifying where the Bernstein centre of the unitary group is used"
+   ],
+   "sources": [
+    {
+     "sourceId": "varma-local-global",
+     "locator": "Abstract, p. 1",
+     "excerpt": "Furthermore, we can show that the monodromy of the associated Weil-Deligne representation of rp (π)|GalF is ‘more nilpotent’ than the monodromy of rec(πv ).",
+     "match": "The monodromy statement is a bound in one direction; the stage's requirement that 'its semisimplified comparison plus monodromy bound is not advertised as full monodromy equality' is confirmed by the source's own wording."
+    },
+    {
+     "sourceId": "varma-local-global",
+     "locator": "1 Introduction, Theorem (1), p. 2",
+     "excerpt": "WD( rp,ı (π)|GF )Frob −ss ≺ ı−1 recFv (πv | det |(1−n)/2 v ), v where ‘Frob-ss’ denotes Frobenius semisimplification.",
+     "match": "The literal statement with the partial order."
+    },
+    {
+     "sourceId": "varma-local-global",
+     "locator": "1 Introduction, strategy, p. 2",
+     "excerpt": "at all primes v ∤ p of F which split over F + (equivalently, at all primes away from p where G splits), the Bernstein centers associated to a finite union of Bernstein components containing Π(M )v map to the Hecke algebras acting on spaces of p-adic and classical cusp forms on G of arbitrary integral (not necessarily classical) weight.",
+     "match": "The split hypothesis and the Bernstein-centre mechanism, both of which must be recorded as hypotheses of the interpolation."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-upgrade-away-from-p-and-temperedness",
+   "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+   "title": "Caraiani's upgrade to full Weil-Deligne equality away from p, via purity, and the Ramanujan-Petersson input",
+   "kind": "theorem",
+   "statement": "Theorem 1.1 of the source: let n >= 2, L a CM field with complex conjugation c, l a prime and iota_l: Qbar_l -> C. Let Pi be a cuspidal automorphic representation of GL_n(A_L) with Pi^dual = Pi composed with c and Pi cohomological for an irreducible algebraic Xi. Let R_l(Pi) be the Galois representation attached to Pi by the polarized construction, p different from l, and y a place of L above p. Then WD(R_l(Pi)|Gal(Lbar_y/L_y))^{F-ss} is isomorphic to iota_l^{-1} L_{n,L_y}(Pi_y), with the GEOMETRIC normalization of local Langlands. Theorem 1.2: under the same hypotheses Pi is TEMPERED at every finite place of L, i.e. the Ramanujan-Petersson conjecture holds for such Pi. Strategy: both Weil-Deligne representations are shown to be PURE; Theorem 1.2 gives purity of iota_l^{-1} L_{n,L_y}(Pi_y); for the Galois side one realizes R_l(Pi)^{tensor 2} in the cohomology of a system of Shimura varieties X_U for a unitary group which at infinity looks like U(1, n-1) x U(1, n-1) x U(0, n)^{d-2}, and follows the Taylor-Yoshida structure of argument, computing the action of the monodromy operator N on that cohomology explicitly, using Theorem 1.2 at a crucial point; purity of the tensor square then forces purity of WD(R_l(Pi)|...)^{F-ss}. A technical input developed for this is the action of N on the complex of nearby cycles on a scheme locally etale over a product of semistable schemes, and a generalization of the weight-spectral sequence in that situation. The companion paper proves the analogous statement at l = p, by identifying the monodromy operator on the global side and deriving a generalization of Mokrane's weight spectral sequence for LOG CRYSTALLINE cohomology; there the case of Shin-regular weight was already known from Barnet-Lamb-Gee-Geraghty-Taylor, and only up to semisimplification otherwise.",
+   "hypotheses": [
+    "Pi must be conjugate self-dual and cohomological; the upgrade is NOT available in the non-polarized HLTT setting",
+    "the geometric normalization of local Langlands is used, different from the |det|^{(1-n)/2}-twisted arithmetic normalization of the other sources",
+    "the argument passes through R_l(Pi)^{tensor 2} realized in the cohomology of a specific unitary Shimura system with the displayed signature at infinity; it is not a statement about R_l(Pi) directly",
+    "the technical generalization of the weight spectral sequence is for a scheme LOCALLY ETALE OVER A PRODUCT of semistable schemes, not for a semistable scheme",
+    "at l = p the corresponding statement needs a generalization of Mokrane's weight spectral sequence for log crystalline cohomology, and the previously known cases required Shin-regular weight"
+   ],
+   "proofSteps": [
+    "Prove temperedness (Theorem 1.2) first, which makes the automorphic side pure.",
+    "Realize the tensor square in Shimura cohomology, compute N by the nearby-cycle analysis and the generalized weight spectral sequence, and deduce purity of the Galois side.",
+    "Two pure Weil-Deligne representations with the same semisimplification are isomorphic, which upgrades the Chenevier-Harris partial-order statement to an isomorphism."
+   ],
+   "acceptance": [
+    "Check that purity on both sides is what forces equality, and that the semisimplified statement alone does not",
+    "Check the signature U(1, n-1) x U(1, n-1) x U(0, n)^{d-2} against the Shimura-variety roadmap's data, since it is a specific auxiliary choice"
+   ],
+   "sources": [
+    {
+     "sourceId": "caraiani-monodromy-away",
+     "locator": "Theorem 1.1, p. 1",
+     "excerpt": "W D(Rl (Π)|Gal(L̄y /Ly ) )F −ss ≃ ι−1 l Ln,Ly (Πy ).",
+     "match": "The full Weil-Deligne isomorphism away from p, upgrading the partial order of the construction papers."
+    },
+    {
+     "sourceId": "caraiani-monodromy-away",
+     "locator": "1 Introduction, strategy, p. 2",
+     "excerpt": "we find the Galois representation Rl (Π)⊗2 in the cohomology of a system of Shimura varieties XU associated to a unitary group which looks like U (1, n − 1) × U (1, n − 1) × U (0, n)d−2 at infinity.",
+     "match": "The auxiliary geometric input, with its exact signature; the upgrade is not an abstract purity argument."
+    },
+    {
+     "sourceId": "caraiani-monodromy-at-p",
+     "locator": "Abstract and Theorem 1.1, p. 1",
+     "excerpt": "We extend the compatibility to Frobenius semisimplification in all cases by identifying the monodromy operator on the global side. To achieve this, we derive a generalization of Mokrane’s weight spectral sequence for log crystalline cohomology.",
+     "match": "The l = p case and the log-crystalline weight spectral sequence that the stage names as a reusable p-adic Hodge target."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/the-residual-ratio-condition-for-taylor-wiles-primes",
+   "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+   "title": "Decomposed genericity: the exact residual ratio condition, and the separate enormity condition",
+   "kind": "definition",
+   "statement": "Definition 4.3.1 of the potential-automorphy source, with k a finite field of characteristic p. (1) For l different from p and L/Q_l finite, a continuous r: G_L -> GL_n(k) is GENERIC if it is UNRAMIFIED and the eigenvalues alpha_1, ..., alpha_n in k of r(Frob_L), taken with multiplicity, satisfy alpha_i/alpha_j different from |O_L/m_L| for all i different from j. (2) For L a number field and r: G_L -> GL_n(k) continuous, a prime l different from p is DECOMPOSED GENERIC FOR r if l splits completely in L and r restricted to G_{L_v} is generic for every place v | l. (3) r is DECOMPOSED GENERIC if some prime l different from p is decomposed generic for r. The condition depends only on the projectivisation. Lemma 4.3.2: if r is decomposed generic then infinitely many primes are decomposed generic for r, by Chebotarev applied to the Galois closure of the extension of L(zeta_p) cut out by r. Two consequences matching the stage text: the condition is on the RATIO alpha_i/alpha_j being different from the residue cardinality, so repeated eigenvalues alpha_i = alpha_j are permitted exactly when the residue cardinality is different from 1 in k, i.e. when q is not congruent to 1 modulo p; and pairwise distinctness of the alpha_i neither implies nor is implied by it. Separately, the residual-image condition that the Taylor-Wiles construction consumes is ENORMITY of the image of rho restricted to G_{F(zeta_p)}: an absolutely irreducible H in GL_n(k) is enormous over k if (1) H has no nontrivial p-power order quotient, (2) H^0(H, ad^0) = H^1(H, ad^0) = 0, and (3) for any simple k[H]-submodule W of ad^0 there is a regular semisimple h in H with W^h nonzero; it depends only on the image in PGL_n(k), is invariant under algebraic extension of k, and is unsatisfiable when p divides n because ad^0 then contains the scalars. Decomposed genericity and enormity are different conditions appearing at different points; neither implies the other in the source read.",
+   "hypotheses": [
+    "genericity as defined BUNDLES unramifiedness with the ratio condition; the atlas stage text states the ratio condition and 'residual unramifiedness stated separately', which is the same content split differently - any transcription must keep both",
+    "the ratio condition compares alpha_i/alpha_j with the residue cardinality |O_L/m_L| reduced into k, not with the rational integer",
+    "decomposed genericity requires l to split COMPLETELY in L and genericity at EVERY place above l, not at one place",
+    "enormity requires absolute irreducibility as part of its definition and fails identically when p divides n",
+    "the source notes immediately before the definition that 'the roles of p and l are reversed' relative to the surrounding discussion; the naming of the two primes must be tracked"
+   ],
+   "proofSteps": [
+    "Definition 4.3.1 is read literally from the source.",
+    "Lemma 4.3.2's proof: let K' be the Galois closure of the extension of L(zeta_p) cut out by r; if l_0 is decomposed generic for r then so is any prime l unramified in K' whose Frobenius lies in the same conjugacy class of Gal(K'/Q), and there are infinitely many such by Chebotarev.",
+    "The enormity definition and its coefficient-extension invariance are read from the same source; Lemma 6.2.30's proof is reproduced in this job's ArithmeticGaloisRepresentations packet."
+   ],
+   "acceptance": [
+    "Exhibit a residual representation with a repeated eigenvalue that is nevertheless generic at a place with q not congruent to 1 mod p, confirming that the ratio condition is weaker than pairwise distinctness",
+    "Exhibit pairwise distinct eigenvalues with alpha_i/alpha_j equal to q, confirming that distinctness does not imply genericity",
+    "Check that enormity fails for p | n by exhibiting the scalars in ad^0"
+   ],
+   "sources": [
+    {
+     "sourceId": "accplus-cm-potential-automorphy",
+     "locator": "Definition 4.3.1(1), printed p. 972",
+     "excerpt": "We say that a continuous representation r : GL → GLn (k) is generic if it is unramified and the eigenvalues (with multiplicity) α1 , . . . , αn ∈ k of r(FrobL ) satisfy αi /αj 6= |OL /mL | for all i 6= j.",
+     "match": "The exact ratio condition, with multiplicity allowed and unramifiedness bundled in. This confirms the atlas stage text's insistence that the condition is on the ratio and not on distinctness."
+    },
+    {
+     "sourceId": "accplus-cm-potential-automorphy",
+     "locator": "Definition 4.3.1(2), printed p. 972",
+     "excerpt": "We say that a prime l 6= p is decomposed generic for r if l splits completely in L and for all places v|l of L, r|GLv is generic.",
+     "match": "The completely-split hypothesis and the requirement at every place above l, both of which the atlas stage text records."
+    },
+    {
+     "sourceId": "accplus-cm-potential-automorphy",
+     "locator": "Definition 6.2.29(3), printed p. 1044",
+     "excerpt": "(3) For any simple k[H]-submodule W ⊆ ad0 , there is a regular semisimple h ∈ H such that W h 6= 0.",
+     "match": "The third clause of enormity, a separate condition from decomposed genericity."
+    },
+    {
+     "sourceId": "accplus-cm-potential-automorphy",
+     "locator": "Note after Definition 6.2.29, printed p. 1044",
+     "excerpt": "If p divides n, then no subgroup of GLn (k) is enormous (because ad0 contains the scalar matrices).",
+     "match": "Constrains which residual characteristics the export can serve."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-prime-branch-and-what-it-does-not-give",
+   "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+   "title": "What is available at the coefficient prime in each branch, and the explicit non-availability in the non-self-dual case",
+   "kind": "comparison",
+   "statement": "Polarized branch: the construction gives de Rham at all places above p with Hodge-Tate numbers of multiplicity at most one determined by Pi_infinity by an explicit recipe, and crystalline with a Frobenius characteristic-polynomial identity at places where Pi_v has a maximal-compact-fixed vector. The Frobenius-semisimplified Weil-Deligne comparison at places above the coefficient prime is supplied by the l = p paper, which identifies the monodromy operator on the global side using a generalization of Mokrane's weight spectral sequence for log crystalline cohomology; the previously available results required Shin-regular weight (n odd, or n even with an additional regularity condition) and were otherwise only up to semisimplification. Non-self-dual branch: the basic construction's local-global compatibility is asserted only at rational primes q different from p at which pi is unramified, and the source itself says only that 'it may be possible to extend the local-global compatibility to other primes v'; Varma then extends it to all v not dividing p, in the semisimplified form plus a monodromy bound. Nothing in the sources read supplies de Rham, crystalline or full local-global compatibility at places above p in the non-self-dual branch.",
+   "hypotheses": [
+    "the polarized de Rham and crystalline statements require conjugate self-duality and cohomologicality",
+    "the crystalline statement requires a maximal-compact-fixed vector in Pi_v, which is stronger than 'unramified' for some compact open",
+    "the l = p monodromy identification is proved for conjugate self-dual cohomological Pi; it does not apply to the non-self-dual construction",
+    "the Hodge-Tate multiset is determined by the algebraic highest weight through an explicit recipe whose DUAL CONVENTION must be fixed; the sources read state the existence of the recipe but this reading did not transcribe it"
+   ],
+   "proofSteps": [
+    "Read off from the statements of the polarized construction (parts (b) and (c)), the l = p paper's Theorem 1.1, and the non-self-dual source's own remark about other primes.",
+    "The stage text's warning that 'the basic nonselfdual HLTT construction does not by itself supply de Rham/crystalline or full local-global compatibility at every coefficient-prime place' is confirmed by all three sources."
+   ],
+   "acceptance": [
+    "Check that the crystalline Frobenius polynomial identity is stated for the smallest LINEAR power of the crystalline Frobenius, not for the crystalline Frobenius itself",
+    "Transcribe the Hodge-Tate recipe from Pi_infinity and check the dual convention against the labelled Hodge-Tate multiset the stage requires"
+   ],
+   "sources": [
+    {
+     "sourceId": "chenevier-harris-II",
+     "locator": "Theorem (3.2.3), part (c), p. 1",
+     "excerpt": "Then ρv := ρι,Π |Γv is crystalline, and if ϕ denotes the smallest linear power of the crystalline Frobenius of Dcrys (ρv ) then det(T − ϕ | Dcris (ρv )) = det(T − L(Πv ⊗ | • |v 1−n 2 )(F robv )).",
+     "match": "The crystalline statement with the precise 'smallest linear power' qualification."
+    },
+    {
+     "sourceId": "hltt-rigid-cohomology",
+     "locator": "Introduction, after Theorem A, p. 1",
+     "excerpt": "It may be possible to extend the local-global compatibility to other primes v. Ila Varma is considering this question.",
+     "match": "The non-self-dual construction's own statement of the limits of its local-global compatibility."
+    },
+    {
+     "sourceId": "caraiani-monodromy-at-p",
+     "locator": "1 Introduction, p. 1",
+     "excerpt": "This theorem is proved in [BLGGT1, BLGGT2] in the case when Π has Shin-regular weight (either n is odd or if n is even then Π satisfies an additional regularity condition) and in general up to semisimplification.",
+     "match": "The precise prior state of the coefficient-prime comparison, and the regularity condition that separates the cases."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "AutomorphicGaloisRepresentationsPartII:AG2.0/the-normalization-dictionary-fixed-by-the-sources",
+   "target": "AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-construction-of-nonselfdual-systems",
+   "reason": "Theorem A's characterization of r_{p,iota}(pi) is stated entirely in the normalization of AG2.0: the twist |det|^{(1-n)/2}, the choice of iota, and the semisimplified restriction to the Weil group. Without fixing that dictionary the uniqueness assertion has no content.",
+   "sources": [
+    {
+     "sourceId": "hltt-rigid-cohomology",
+     "locator": "Theorem A, p. 1"
+    }
+   ]
+  },
+  {
+   "source": "AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris",
+   "target": "AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-construction-of-nonselfdual-systems",
+   "reason": "The HLTT construction attaches Galois representations to the auxiliary CLASSICAL cusp forms on G_n by lifting them through the trace formula to polarizable regular algebraic discrete automorphic representations of GL_{2n}(A_F) and then applying the polarized construction; the source cites exactly the two polarized sources for that step. So the non-self-dual construction consumes the polarized one and does not replace it.",
+   "sources": [
+    {
+     "sourceId": "hltt-rigid-cohomology",
+     "locator": "Introduction, sketch, p. 2: 'by using the trace formula to lift them to polarizable, regular algebraic, discrete automorphic representations of GL2n (AF ) (see e.g. [Sh2]) and then applying the results of [Sh1] and [CH]'"
+    }
+   ]
+  },
+  {
+   "source": "AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-construction-of-nonselfdual-systems",
+   "target": "AutomorphicGaloisRepresentationsPartII:AG2.5/varma-semisimplified-comparison-and-monodromy-bound",
+   "reason": "Varma's theorems are about 'the Galois representations constructed in [9, 16]', i.e. exactly the representations of this construction, and her proof 'follows very similar arguments as in the construction'. The exact output consumed is the realization of Pi(M) in overconvergent p-adic cusp forms of finite slope, which is what the Bernstein-centre interpolation acts on.",
+   "sources": [
+    {
+     "sourceId": "varma-local-global",
+     "locator": "Abstract and 1 Introduction, pp. 1-2"
+    }
+   ]
+  },
+  {
+   "source": "AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris",
+   "target": "AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-upgrade-away-from-p-and-temperedness",
+   "reason": "Caraiani's Theorem 1.1 upgrades precisely the Chenevier-Harris partial-order statement: 'Chenevier and Harris constructed an l-adic Galois representation R_l(Pi) and proved the local-global compatibility up to semisimplification at primes v not dividing l. We extend this compatibility...'. The input consumed is R_l(Pi) together with the semisimplified comparison.",
+   "sources": [
+    {
+     "sourceId": "caraiani-monodromy-away",
+     "locator": "Abstract, p. 1"
+    }
+   ]
+  },
+  {
+   "source": "AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-upgrade-away-from-p-and-temperedness",
+   "target": "AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-prime-branch-and-what-it-does-not-give",
+   "reason": "The l = p companion paper extends the same monodromy identification to places above the coefficient prime, and its technical engine - a generalization of Mokrane's weight spectral sequence for log crystalline cohomology - is exactly the 'generalized log-crystalline weight spectral sequence' the AG2.6 stage text names. The away-from-p paper supplies the temperedness and purity input that the l = p argument reuses.",
+   "sources": [
+    {
+     "sourceId": "caraiani-monodromy-at-p",
+     "locator": "Abstract and 1 Introduction, p. 1"
+    }
+   ]
+  },
+  {
+   "source": "ArithmeticGaloisRepresentations:G7",
+   "target": "AutomorphicGaloisRepresentationsPartII:AG2.7/the-residual-ratio-condition-for-taylor-wiles-primes",
+   "reason": "The existing stage edge G7 -> AG2.0 carries the dimension-general API. At node level the enormity condition and its coefficient-extension invariance, which G7 owns and which this job decomposed there from the potential-automorphy source, are precisely what AG2.7's residual exports must be stated against. The output supplied is Definition 6.2.29 together with Lemma 6.2.30; the consumer uses it to state which residual images its packages may serve.",
+   "sources": [
+    {
+     "sourceId": "accplus-cm-potential-automorphy",
+     "locator": "Definition 6.2.29 and Lemma 6.2.30, printed p. 1044"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+   "status": "partial",
+   "remaining": [
+    "The normalization dictionary is recorded from four sources, but the cohomological infinitesimal characters and algebraic coefficient representations that AutomorphicFormsOnReductiveGroups is to supply were not read.",
+    "Rationality of Hecke eigenvalues and finite fields of definition, and the distinction between the field of rationality and a field of realization, were not read in any source.",
+    "The normalized Satake and integral Hecke polynomial dictionary of IntegralHeckeAndGaloisDeterminants IHG.3 was not read."
+   ]
+  },
+  {
+   "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.1",
+   "status": "not_read",
+   "remaining": [
+    "This stage is the aggregate of AG2.1a and AG2.1b and has no independent content; no node was written for it. It should be marked complete only when both components are."
+   ]
+  },
+  {
+   "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+   "status": "partial",
+   "remaining": [
+    "Only the statements of what the polarized construction supplies were read. The finite-level etale cohomology with the algebraic local system, the Kuga-Sato powers, the algebraic correspondences and projectors, the Schur functor, Tate twist, parity and degree, and the raw fixed-point/nearby-cycle trace identities were NOT read.",
+    "Shin's papers, which supply the n odd and slightly regular cases, were not read; Shin_GaloisCompact.pdf and Shin_StableIgusa.pdf are in the library and were not opened.",
+    "Chenevier-Harris's own Sections 1-3 were not read; only their introduction."
+   ]
+  },
+  {
+   "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.1b",
+   "status": "not_read",
+   "remaining": [
+    "No node written. The virtual-character comparison with the geometric trace formula, the separation of actual representations from alternating classes, the Igusa-variety route and the purity/weight-separation/multiplicity/cancellation arguments were not read. Next source action: read Shin, 'Galois representations arising from some compact Shimura varieties' (references/papers/Shin_GaloisCompact.pdf, in the library with extracted text) and Chenevier-Harris Section 3."
+   ]
+  },
+  {
+   "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.2",
+   "status": "not_read",
+   "remaining": [
+    "No node written. Stable unitary base change, the endoscopic character identities, the rank and multiplicity formulas, and the descent for essentially conjugate self-dual forms were not read. Next source action: read Chenevier-Harris Section 2 and the trace-formula sources assigned to EndoscopicTransferAndUnitaryTraceComparison (EXT-11)."
+   ]
+  },
+  {
+   "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.3",
+   "status": "not_read",
+   "remaining": [
+    "No node written. Definite-unitary eigenvarieties, the Fredholm/slope machinery, classicality regions, density of strongly regular classical points and the determinant interpolation were not read. Next source action: read Chenevier's eigenvariety papers - references/text/R02_KI_BuzzardEigenvarieties.txt is in the library and is a related source that was not opened."
+   ]
+  },
+  {
+   "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.4",
+   "status": "partial",
+   "remaining": [
+    "Only the introduction of the non-self-dual source was read. Its Sections 1-7, containing the construction of the dagger spaces, the overconvergent logarithmic de Rham complex, the finite-slope theory, the boundary/Levi inclusion and the Katz congruence argument, were not read; Corollary 7.14, which is Theorem A, was not opened.",
+    "The toroidal and minimal compactifications and the canonical/subcanonical extensions were read only as named objects; Lan's compactification book (references/papers/R02_Lan_PELCompactifications.pdf, in the library) was not opened."
+   ]
+  },
+  {
+   "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+   "status": "partial",
+   "remaining": [
+    "Varma's Sections 2 onwards, containing the Bernstein-centre interpolation and the nilpotent-orbit bounds, were not read; only the introduction.",
+    "Caraiani's nearby-cycle analysis and generalized weight spectral sequence were not read; only the abstracts and introductions of her two papers.",
+    "Taylor-Yoshida, whose structure of argument both papers follow, was not read and is not in the supplied library under that name (checked CATALOGUE.json)."
+   ]
+  },
+  {
+   "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+   "status": "partial",
+   "remaining": [
+    "The p-adic Hodge comparison theorems themselves, and the passage through deformation and descent, were not read.",
+    "The labelled Hodge-Tate multiset recipe from the algebraic highest weight was not transcribed; the sources state that a recipe exists.",
+    "The weakly compatible-system object, independence of coefficient embeddings and semisimple uniqueness were not read in any source."
+   ]
+  },
+  {
+   "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+   "status": "partial",
+   "remaining": [
+    "Definition 4.3.1 and Lemma 4.3.2 were read, and Definition 6.2.29 and Lemma 6.2.30; but where decomposed genericity is consumed in the source's arguments was not read.",
+    "Lattice choice after proving a finite field of realization, residual semisimplification comparison, and reduction of good-prime polynomials were not read in any source.",
+    "The 'stronger decomposed-generic API' that the stage mentions as a separate specialization was not identified."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Only introductions were read for all five construction and comparison sources",
+   "neededBy": [
+    "AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-construction-of-nonselfdual-systems",
+    "AutomorphicGaloisRepresentationsPartII:AG2.5/varma-semisimplified-comparison-and-monodromy-bound",
+    "AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-upgrade-away-from-p-and-temperedness",
+    "AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris"
+   ],
+   "detail": "Verified: the main theorems of all five sources, their hypotheses, their normalizations, the case divisions between them, and the strategy sketches the authors give. NOT verified: any proof. All five files ARE in the supplied library with usable extracted text (references/text/SS_HLTT.txt, SS_ChenevierHarris.txt, SS_VarmaLocalGlobal.txt, SS_CaraianiMonodromyAway.txt, SS_CaraianiMonodromyAtP.txt), so these are reading gaps, not availability gaps. Next source action, in order of leverage: the non-self-dual source's Sections 5-7 (the overconvergent complex and the congruence argument), Varma's Section 2 (the Bernstein-centre interpolation), and Caraiani's Sections 2-4 (the nearby-cycle monodromy computation)."
+  },
+  {
+   "title": "The partial order on Weil-Deligne representations is used but not defined in any source read",
+   "neededBy": [
+    "AutomorphicGaloisRepresentationsPartII:AG2.0/the-normalization-dictionary-fixed-by-the-sources",
+    "AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris",
+    "AutomorphicGaloisRepresentationsPartII:AG2.5/varma-semisimplified-comparison-and-monodromy-bound"
+   ],
+   "detail": "Verified: two sources state their main comparison using a partial order '<' on Weil-Deligne representations, and one of them attributes its definition to 'the partial ordering ... defined in [Ch] section 3.1'. NOT verified: that definition. The stage AG2.5 explicitly requires implementing 'the partial order on nilpotent monodromy types', so this is a stated obligation with no source read. Searched the supplied library: the reference [Ch] is Chenevier's own earlier paper, and the Chenevier item present is references/papers/chenevier-determinants.pdf, which is the determinants paper and does NOT contain a section 3.1 on Weil-Deligne partial orders (checked its section headings). Next source action: obtain Chenevier, 'On the infinite fern of Galois representations of unitary type' (or whichever paper is [Ch]) and read its section 3.1; alternatively read the definition through the nilpotent orbit closure order as used in Varma."
+  },
+  {
+   "title": "Taylor-Yoshida, whose argument structure both upgrade papers follow, is absent",
+   "neededBy": [
+    "AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-upgrade-away-from-p-and-temperedness"
+   ],
+   "detail": "Verified: both Caraiani papers state that they follow the strategy of Taylor-Yoshida, and that Taylor-Yoshida assumed Pi square-integrable at a finite place. NOT verified: the Taylor-Yoshida argument. Searched the supplied library: CATALOGUE.json has no record for Taylor-Yoshida, 'Compatibility of local and global Langlands correspondences', J. Amer. Math. Soc. 20 (2007); Harris-Taylor, 'The Geometry and Cohomology of Some Simple Shimura Varieties', appears as a catalogue entry with NO resolved file. Next source action: obtain Taylor-Yoshida and Harris-Taylor; without them the purity argument's structure cannot be checked."
+  },
+  {
+   "title": "AG2.1b, AG2.2 and AG2.3 have no nodes at all",
+   "neededBy": [
+    "AutomorphicGaloisRepresentationsPartII:AG2.1b",
+    "AutomorphicGaloisRepresentationsPartII:AG2.2",
+    "AutomorphicGaloisRepresentationsPartII:AG2.3",
+    "AutomorphicGaloisRepresentationsPartII:AG2.1"
+   ],
+   "detail": "Verified: nothing for these three stages. They concern, respectively, the separation of automorphic constituents from the geometric trace formula, stable base change and endoscopic character identities, and definite-unitary eigenvarieties. None of the sources read covers them: the construction papers cite the trace-formula results rather than proving them, and the eigenvariety construction is explicitly NOT carried out in the non-self-dual source ('Alternatively it is presumably possible to construct an eigenvariety in this setting, but we have not carried this out'). Next source action: Shin_GaloisCompact.pdf and Shin_StableIgusa.pdf are in the library for AG2.1b; the endoscopy sources belong to EndoscopicTransferAndUnitaryTraceComparison, owned by EXT-11, and this job should coordinate rather than duplicate."
+  },
+  {
+   "title": "Decomposed genericity is now verified; what remains is its relation to the other AG2.7 exports",
+   "neededBy": [
+    "AutomorphicGaloisRepresentationsPartII:AG2.7",
+    "AutomorphicGaloisRepresentationsPartII:AG2.7/the-residual-ratio-condition-for-taylor-wiles-primes"
+   ],
+   "detail": "Correction to an earlier draft of this packet: the ratio condition IS in the supplied library. It is Definition 4.3.1 of the potential-automorphy source (references/text/accplus-potential-automorphy.txt, printed pp. 972-973), and it has now been read together with Lemma 4.3.2. It matches the atlas stage text, with one presentational difference: the source bundles unramifiedness into the definition of 'generic', whereas the stage text states the ratio condition and adds 'with residual unramifiedness stated separately'. NOT verified: where in the source's arguments decomposed genericity is used, and how it interacts with enormity - the stage text says 'Do not deduce global residual irreducibility or adequacy from local genericity', and nothing read here establishes or refutes such an implication. Also not verified: the 'stronger decomposed-generic API' the stage mentions as a separate specialization. Next source action: read the source's Theorem 4.3.3 and Section 4.3 in full, and the places listed by grep where 'rho_m is decomposed generic' appears as a hypothesis (printed pp. 950, 968, 1012, 1050 area), to record exactly what each use consumes."
+  }
+ ]
+}

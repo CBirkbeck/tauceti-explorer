@@ -107,7 +107,7 @@
       ],
       "state": "assigned_internal",
       "assignedOn": "2026-09-15",
-      "note": "Claimed on 15 September 2026; scheduled to run unattended in tmux under the local account \"claude2\" from 16 Sep 02:10 BST (weekly limit reset). Do not hand this job to another agent; packets land in research/expansion/external/EXT-07/."
+      "note": "Claimed on 15 September 2026; scheduled to run unattended in tmux under the local account \"claude2\" from 16 Sep 02:10 BST (weekly limit reset). Do not hand this job to another agent; packets land in research/expansion/external/EXT-07/. First run (claude2, 02:10–04:12 on 16 September) wrote only FaltingsFinitenessAndIsogenyTheorems.json before a request timeout; the six remaining roadmaps continue in the same account on 16 September."
     },
     {
       "id": "EXT-08",
@@ -208,7 +208,9 @@
         "TorsionCohomologyInfrastructure",
         "tauceti:TauCetiRoadmap/ModularForms"
       ],
-      "state": "available"
+      "state": "assigned_internal",
+      "assignedOn": "2026-09-16",
+      "note": "Claimed on 16 September 2026; queued unattended in tmux under the local account \"claude2\" after a review job and the EXT-07 continuation. Do not hand this job to another agent; packets land in research/expansion/external/EXT-13/."
     },
     {
       "id": "EXT-14",

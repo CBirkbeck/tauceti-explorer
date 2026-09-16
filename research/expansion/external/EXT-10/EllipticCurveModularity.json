@@ -1,0 +1,472 @@
+{
+ "roadmapId": "EllipticCurveModularity",
+ "status": "partial",
+ "summary": "Source decomposition of the deduction 'Serre's conjecture in the case eps = 1, k = 2 implies modularity of elliptic curves over Q', following Serre's own section 4.6 (Theoreme 4 and Lemme 5) with its inputs: the weight-two-iff-finite-flat criterion of his 2.8, the replacement of absolute irreducibility by irreducibility over F_p at odd p from his 3.3, the eigenvalue lifting of Deligne-Serre, the pigeonhole over the finite set of weight-2 level-N newforms, the algebraic-integer norm argument giving exact equality of coefficients, and Faltings' isogeny theorem in the form of his Korollar 2. Carayol's corollary supplies the exact conductor and the equality of L-functions. Not covered: the construction of the modular parametrisation X_0(N) -> E itself (Serre concludes only 'quotient of J_0(N)'), Mazur's rational-isogeny theorem, and the bad coefficients.",
+ "sources": [
+  {
+   "id": "serre87-duke",
+   "title": "Sur les representations modulaires de degre 2 de Gal(Qbar/Q)",
+   "authors": "Jean-Pierre Serre",
+   "edition": "Duke Math. J. 54 (1987), 179-230; read from the library PDF text layer (OCR: rho prints as 'p', chi as 'x' or 'X', epsilon as 'e'); locators give printed journal pages",
+   "url": "https://www.college-de-france.fr/media/jean-pierre-serre/UPL5835292064138487263_Serre_Repr.modulaires_Galois.pdf",
+   "sha256": "8048919db24dcb972435aaaa2a74d1168d0fe533af3aa26c6c809b12ddaee038",
+   "readSections": [
+    "2.8 Proposition 4 (k = 2 iff finite at p), pp. 189-190",
+    "2.9 Proposition 5 (p-division points of a semistable elliptic curve), pp. 191-192",
+    "3.1 (3.1.6): lifting of mod p eigensystems, pp. 194-195",
+    "3.2 (3.2.4?) and (3.2.6?), pp. 196-197",
+    "3.3 Exemple k = 2, conditions (a),(b),(b'),(c) and the statements (3.3.1?) and (3.3.2?), pp. 198-199",
+    "4.6 La conjecture de Taniyama-Weil: Theoreme 4, (4.6.1), Lemme 5 with (4.6.2), (4.6.3) and conditions (a),(b), the proof of Theoreme 4 through (4.6.4), and Remarques (1)-(3), pp. 207-208",
+    "4.7 Varietes abeliennes a multiplications reelles: Theoreme 5 and (4.7.1), (4.7.2), pp. 208-209"
+   ]
+  },
+  {
+   "id": "faltings83",
+   "title": "Endlichkeitssaetze fuer abelsche Varietaeten ueber Zahlkoerpern",
+   "authors": "Gerd Faltings",
+   "edition": "Invent. Math. 73 (1983), 349-366; read from the library PDF text layer (OCR of a 1983 scan is poor: umlauts and subscripts are frequently lost). Locators give printed journal pages. The file read is references/papers/ADD_FALTINGS83.pdf in the supplied library (catalogue id ADD_FALTINGS83)",
+   "url": "https://math.uchicago.edu/~drinfeld/Deligne%27s_conjecture_Manin_conf/Faltings_argument/Faltings.pdf",
+   "sha256": "0b7fb3e505d5d63e3e6c5913daf15bd843488e59f80f8d5176b154ac8faa3fc2",
+   "readSections": [
+    "1 Einleitung, statements a), b), c) and their names (Tate conjecture, Shafarevich conjecture), p. 349",
+    "Satz 3 (semisimplicity), Satz 4 (the Tate map is an isomorphism), p. 360 area",
+    "Korollar 1 (Hom tensor Z_l = Hom of Tate modules), Korollar 2 (four equivalent conditions for isogeny), Korollar 3, pp. 361-362",
+    "Satz 5 and Satz 6 (Shafarevich conjecture) - statements located, not read"
+   ]
+  },
+  {
+   "id": "carayol86-hilbert",
+   "title": "Sur les representations l-adiques associees aux formes modulaires de Hilbert",
+   "authors": "Henri Carayol",
+   "edition": "Ann. Sci. Ecole Norm. Sup. (4) 19 (1986), 409-468; read from the supplied extracted text references/text/SS_Carayol.txt; locators give printed journal pages",
+   "url": "https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf",
+   "sha256": "d4a5fb6b1cd76f944f8948e06df1c7ad5656ae5ee14b9189178ee1e8f2b0dab8",
+   "readSections": [
+    "0.5 (the Hecke normalization of the local correspondence), p. 410",
+    "0.7 Theoreme (A), pp. 410-411",
+    "0.8 Corollaire on Weil curves (equality of L-functions and of conductors), p. 411"
+   ]
+  },
+  {
+   "id": "deligne-serre74",
+   "title": "Formes modulaires de poids 1",
+   "authors": "Pierre Deligne and Jean-Pierre Serre",
+   "edition": "Ann. Sci. Ecole Norm. Sup. (4) 7 (1974), 507-530; read from the library PDF text layer; used here only for Lemme 6.11 (eigenvalue lifting), which Serre 1987 (3.1.6) invokes",
+   "url": "https://www.numdam.org/article/ASENS_1974_4_7_4_507_0.pdf",
+   "sha256": "65b390f6d33e827e30c6c66bbc15421eca51db3180bdf5996dcee19047be97fc",
+   "readSections": [
+    "Lemme 6.11 with proof, printed p. 522"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "EllipticCurveModularity:R29.1/residual-irreducibility-and-the-conductor-of-E-p",
+   "parentStageId": "EllipticCurveModularity:R29.1",
+   "title": "Lemme 5 of the source: for all but finitely many p, E[p] is irreducible and has conductor exactly N",
+   "kind": "lemma",
+   "statement": "Let E be an elliptic curve over Q with conductor N and modular invariant j_E, and for each prime p let rho_p: G_Q -> GL_2(F_p) be the representation on the p-division points. Then det rho_p = chi, the mod p cyclotomic character. There is a constant C_E such that for every p > C_E: (4.6.2) rho_p is irreducible, and (4.6.3) the conductor of rho_p equals N. Quantitatively: by Mazur's theorem (4.6.2) holds as soon as p > 163; the definition of the conductor of E in terms of l-adic representations shows the conductor N_p of rho_p always DIVIDES N (which the source notes would already suffice for the argument); and for p > 5 one has N_p = N if and only if (a) p does not divide N and (b) for every l with v_l(N) = 1, p does not divide v_l(j_E). Note that v_l(N) = 1 means E has multiplicative reduction at l, so v_l(j_E) < 0.",
+   "hypotheses": [
+    "E is an elliptic curve over Q; no semistability is assumed here (unlike in the source's Proposition 5)",
+    "the bound p > 163 for irreducibility is Mazur's theorem on rational isogenies of prime degree, quoted and not proved in the source",
+    "condition (b) is a finite condition because only the finitely many l with v_l(N) = 1 occur, and for each of those v_l(j_E) is a fixed nonzero integer",
+    "the criterion N_p = N is stated for p > 5"
+   ],
+   "proofSteps": [
+    "det rho_p = chi is the Weil pairing on E[p].",
+    "Irreducibility for p > 163 is Mazur's theorem; the source calls the whole of Lemme 5 'un resultat connu'.",
+    "That N_p divides N follows from the definition of the conductor of E via l-adic representations (the source cites SGA 7, Ogg, Serre-Tate).",
+    "The equality criterion (a) and (b) is a local computation: (b) is exactly the condition that the multiplicative-reduction places do not become unramified in E[p], which by the source's Proposition 5 is the condition that p does not divide v_p(j_E) at those places."
+   ],
+   "acceptance": [
+    "Check the criterion on a semistable curve with a prime l of multiplicative reduction and p dividing v_l(j_E), confirming that N_p is then a proper divisor of N",
+    "Check that for odd p irreducibility over F_p upgrades to absolute irreducibility using oddness, as in the source's 3.3 bracket (b')"
+   ],
+   "sources": [
+    {
+     "sourceId": "serre87-duke",
+     "locator": "Lemme 5 and the discussion following it, printed p. 207",
+     "excerpt": "C'est là un résultat connu . En effet, d'après Mazur [29], (4 .6 .2) est vrai dès que p > 163 . D'autre part la définition du conducteur de E en termes de représentations l adiques (cf . [18], [40], [49]) montre que le conducteur Np de pE divise N (ce qui d'ailleurs suffirait pour la suite)",
+     "match": "Both the quantitative irreducibility bound and the fact that only DIVISIBILITY of the conductor is needed, which the roadmap's R29.2 states as 'prime-to-p conductor divides the fixed N_E'."
+    },
+    {
+     "sourceId": "serre87-duke",
+     "locator": "Lemme 5, conditions (a) and (b), printed p. 207",
+     "excerpt": "De plus, si p > 5, on vérifie que Np = N si et seulement si p satisfait aux deux conditions suivantes : (a) p ne divise pas N; (b) pour tout l tel que v 1 (N) =1, p ne divise pas v l ( jE ) .",
+     "match": "The exact finite set of excluded primes for conductor equality, which R29.4 needs to upgrade 'divides' to 'equals'."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EllipticCurveModularity:R29.1/absolute-irreducibility-from-oddness-at-odd-p",
+   "parentStageId": "EllipticCurveModularity:R29.1",
+   "title": "For p different from 2, irreducibility over F_p implies absolute irreducibility",
+   "kind": "lemma",
+   "statement": "Suppose rho: G_Q -> GL_2(F_p) satisfies det rho = chi and p is different from 2. Then irreducibility of rho over F_p implies absolute irreducibility, i.e. irreducibility over F_p-bar. Reason: det rho = chi is odd, so the eigenvalues of rho(c) for c complex conjugation are +1 and -1, and since p is different from 2 these are distinct; if rho became a direct sum of two one-dimensional representations over F_p-bar, that decomposition would have to be the one given by the eigenvectors of rho(c), hence would be rational over F_p, contradicting irreducibility over F_p.",
+   "hypotheses": [
+    "p different from 2 is essential: at p = 2 the two eigenvalues of rho(c) coincide and the argument fails",
+    "det rho = chi (or more generally det rho odd) is what makes rho(c) have eigenvalues +1 and -1",
+    "the argument is about a 2-dimensional representation; it does not generalize to higher rank"
+   ],
+   "proofSteps": [
+    "The source states the argument in a bracketed remark in 3.3, replacing hypothesis (b) (absolute irreducibility) by the apparently weaker (b') (irreducibility over F_p) when p is different from 2."
+   ],
+   "acceptance": [
+    "Check at p = 2 that the implication fails, by exhibiting an F_2-irreducible representation that becomes reducible over F_4",
+    "Check that the eigenvector decomposition of rho(c) is defined over F_p when the eigenvalues are distinct and lie in F_p"
+   ],
+   "sources": [
+    {
+     "sourceId": "serre87-duke",
+     "locator": "3.3, bracketed remark after condition (c), printed p. 198",
+     "excerpt": "En effet, (a) entraîne que det p est impair, donc que les valeurs propres de p (c) sont + 1 et -1 ; du fait que p 2, ces valeurs propres sont distinctes . Si alors p se décomposait sur Fp en somme directe de deux représentations de dimension 1, cette décomposition ne pourrait être que celle donnée par les vecteurs propres de p (c ), donc serait rationnelle sur Fp , ce qui contredirait (b') .",
+     "match": "The literal argument the roadmap's R29.1 refers to as 'For odd p, use oddness to obtain absolute irreducibility'."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EllipticCurveModularity:R29.2/weight-two-and-level-N-from-the-weight-recipe",
+   "parentStageId": "EllipticCurveModularity:R29.2",
+   "title": "Why the Serre data of E[p] is (N, 2, trivial): good reduction gives finiteness at p and determinant chi",
+   "kind": "construction",
+   "statement": "For p not dividing N, E has good reduction at p, so rho_p is finite at p in the sense of the source's 2.8, and det rho_p = chi. Hence by the source's 1.3 the nebentypus eps is trivial, and by Proposition 4 of 2.8 the Serre weight is k = 2. The conjecture (3.2.4?) then specializes to (3.3.1?): there is a cusp form f of weight 2 and level N with coefficients in F_p-bar which is a normalized Hecke eigenform with rho_f isomorphic to rho_p; by (3.2.6?) this form has coefficients in F_p except possibly when rho_p is unramified at p, which can happen only if p = 2. Equivalently (3.3.2?): rho_p occurs as a Jordan-Holder quotient of the representation of G_Q on the p-division points of J_0(N).",
+   "hypotheses": [
+    "p must not divide N for the good-reduction argument; the excluded primes are among the finitely many of Lemme 5",
+    "the identification k = 2 is Proposition 4 of 2.8, whose proof in the source is written only for p different from 2 - so at p = 2 this step inherits the boundary recorded in this job's AlgebraicModularFormsAndSerreWeights packet",
+    "the coefficient field is F_p-bar in general; F_p-rationality is a separate assertion coming from (3.2.6?) and can fail exactly in the unramified-at-p case, which needs p = 2",
+    "the level in (3.3.1?) is the prime-to-p Artin conductor N(rho_p), which by Lemme 5 equals N only for p outside the finite exceptional set"
+   ],
+   "proofSteps": [
+    "E has good reduction at p, so E[p] extends to a finite flat group scheme over Z_p, i.e. rho_p is finite at p.",
+    "det rho_p = chi gives eps = 1 by 1.3 and k = 2 mod (p-1) by Proposition 2; Proposition 4 then upgrades this to k = 2 exactly.",
+    "Serre's 3.3 assembles these into the statements (3.3.1?) and (3.3.2?)."
+   ],
+   "acceptance": [
+    "Check that the finite flat model of E[p] at p is the p-torsion of the Neron model, and that this is what 'finite at p' means in 2.8",
+    "Check that the excluded primes are exactly those of Lemme 5 together with the primes dividing phi(N), the latter being needed to make reduction injective on roots of unity of order dividing phi(N)"
+   ],
+   "sources": [
+    {
+     "sourceId": "serre87-duke",
+     "locator": "3.3, printed p. 198",
+     "excerpt": "Soient N, k et e les invariants de p . D'après le n° 1 .3, on a e =1, et d'après la prop . 4 du n° 2 .8, on a k = 2 .",
+     "match": "The derivation of the Serre data (N, 2, 1) from det rho = chi and finiteness at p."
+    },
+    {
+     "sourceId": "serre87-duke",
+     "locator": "3.3, after (3.3.1?), printed p. 198",
+     "excerpt": "D'après (3 .2 .6,), cette forme parabolique est à coefficients dans Fp , sauf peut-être si p est non ramifiée en p (ce qui ne peut se produire que si p = 2) .",
+     "match": "The precise exception to F_p-rationality of the coefficients, which the roadmap's demand to 'record all coefficient fields' must keep."
+    },
+    {
+     "sourceId": "serre87-duke",
+     "locator": "Proposition 5, printed p. 191",
+     "excerpt": "(i) Si E a bonne réduction, on a k = 2 .",
+     "match": "The good-reduction case of the weight computation for the p-division points of an elliptic curve, stated for semistable E."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EllipticCurveModularity:R29.3/a-single-newform-for-infinitely-many-p-and-exact-coefficients",
+   "parentStageId": "EllipticCurveModularity:R29.3",
+   "title": "Pigeonhole on a finite set of newforms, and the norm argument giving exact equality of coefficients",
+   "kind": "theorem",
+   "statement": "For each p > C_E, (3.3.1?) gives a mod p eigenform f_p of weight 2 and level N. By (3.1.6) - which is Deligne-Serre's eigenvalue lifting lemma - f_p lifts to a normalized characteristic-zero cuspidal Hecke eigenform F = sum A_n q^n of weight 2 and level N with algebraic integer coefficients whose reduction is f_p. A priori F depends on p; but the weight and level are fixed, so only finitely many F are possible, whence there is a single F with F-bar = f_p for all p in an INFINITE set P of primes. For l a prime not dividing N, E has good reduction at l; let a_l be the trace of the corresponding Frobenius endomorphism. Then a_l = a_{l,p} mod p for every p different from l, so the algebraic integer A_l - a_l has zero image in F_p-bar for every p in P with p different from l; since P is infinite, A_l = a_l for every l not dividing N. In particular the A_l lie in Z.",
+   "hypotheses": [
+    "the pigeonhole step needs the space of weight-2 level-N cusp forms to be finite-dimensional, so that only finitely many normalized eigenforms occur",
+    "the lifting (3.1.6) produces a form with coefficients in the ring of integers of a number field; the source states 'a coefficients dans Z-bar'",
+    "the norm argument needs A_l - a_l to be an algebraic integer whose reduction vanishes at infinitely many primes; a nonzero algebraic integer cannot have infinitely many prime divisors of its norm",
+    "the conclusion A_l = a_l is asserted for l not dividing N only; the bad coefficients require a separate argument"
+   ],
+   "proofSteps": [
+    "Apply (3.3.1?) for each p > C_E to get f_p, then (3.1.6) to lift to F depending on p.",
+    "Finiteness of the set of possible F plus infinitude of the primes gives a single F and an infinite set P.",
+    "Congruence a_l = a_{l,p} mod p for p in P and the infinitude of P force A_l = a_l.",
+    "The A_l then define a Weil curve E_F of level a divisor of N."
+   ],
+   "acceptance": [
+    "Check that the norm argument is applied to A_l - a_l as an algebraic integer, and that its vanishing modulo infinitely many primes is what forces it to be zero",
+    "Check that the coefficient field of F is Q, i.e. that K_F = Q, and record how the bad coefficients A_l for l dividing N are pinned down"
+   ],
+   "sources": [
+    {
+     "sourceId": "serre87-duke",
+     "locator": "Proof of Theoreme 4, printed pp. 207-208",
+     "excerpt": "A priori, F dépend de p . Mais il n'y a qu'un nombre fini de F possibles, puisque le poids et le niveau sont fixés . On en conclut qu'il existe un choix de F tel que l'on ait F= fp pour tout p E P, où P est un ensemble infini de nombres premiers .",
+     "match": "The pigeonhole step, verbatim; it needs only that weight and level are fixed."
+    },
+    {
+     "sourceId": "serre87-duke",
+     "locator": "Proof of Theoreme 4, printed p. 208",
+     "excerpt": "Il en résulte que l'entier algébrique A, - a 1 a une image dans Fp qui est égale à 0 pour tout p E P, p l. Comme P est infini, cela entraîne (4 .6 .4) A, = a, pour tout l + N .",
+     "match": "The norm/infinitude argument and the exact scope of the conclusion (l not dividing N)."
+    },
+    {
+     "sourceId": "deligne-serre74",
+     "locator": "Lemme 6.11, printed p. 522",
+     "excerpt": "(Noter qu'on n'affirme pas que les vecteurs propres se relèvent, mais seulement les valeurs propres.)",
+     "match": "The lifting step (3.1.6) is exactly this lemma, and it lifts only the eigenvalue system, not a form; the pigeonhole is therefore over eigensystems."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EllipticCurveModularity:R29.4/isogeny-from-faltings-and-exact-conductor",
+   "parentStageId": "EllipticCurveModularity:R29.4",
+   "title": "Faltings' isogeny theorem closes the argument, and Carayol's corollary gives the exact conductor",
+   "kind": "theorem",
+   "statement": "Faltings Korollar 2: for abelian varieties A_1, A_2 over a number field K the following are equivalent: (i) A_1 and A_2 are isogenous; (ii) T_l(A_1) tensor Q_l is isomorphic to T_l(A_2) tensor Q_l as a Galois module; (iii) L_v(s, A_1) = L_v(s, A_2) for almost all places v; (iv) the same for all v. The equivalence of (i) and (ii) is Satz 4 (End_K(A) tensor Z_l -> End_{Galois}(T_l(A)) is an isomorphism), that of (ii) and (iii) is Satz 3 (semisimplicity of the Galois action on T_l(A) tensor Q_l) together with Cebotarev. Applying this to E and the curve E_F attached to the newform F, whose l-adic representations agree by the coefficient equality, gives an isogeny over Q, which is the last step of the source's Theoreme 4. For the conductor, Carayol's Corollaire to his Theoreme (A) with F = Q and k = 2 gives directly that for a rational normalized newform f in S_2(Gamma_0(N)) the L-function of the associated elliptic curve E_f equals L(f, s) and the geometric conductor of E_f equals N.",
+   "hypotheses": [
+    "Faltings' results are over an arbitrary number field K; the application here is K = Q",
+    "Korollar 2 gives isogeny from agreement of local L-factors at almost all places - the 'almost all' version already suffices",
+    "Carayol's conductor statement is a consequence of local-global compatibility at EVERY finite place including the bad ones, together with Ogg's conductor formula; it is not a consequence of agreement of unramified traces alone",
+    "Serre's Remarque (2) records that the form F produced in the proof of Theoreme 4 is PRIMITIVE, citing a theorem of Carayol"
+   ],
+   "proofSteps": [
+    "From (4.6.4) the l-adic representations attached to E and to E_F have the same traces of Frobenius at all good l, hence are isomorphic after semisimplification by Cebotarev and Satz 3.",
+    "Faltings Korollar 2 (ii) implies (i) gives the isogeny over Q.",
+    "Serre then concludes Theoreme 4: E is a Weil curve of level N, and in particular is isomorphic to a quotient of the Jacobian J_0(N) of X_0(N).",
+    "The exactness of the level, as opposed to divisibility, is supplied by Carayol's corollary and by Lemme 5(4.6.3)."
+   ],
+   "acceptance": [
+    "Check that the isogeny produced is over Q and not merely over Qbar, which is what Korollar 2 gives since it is stated over K",
+    "Check the equality of bad local Euler factors directly, since Korollar 2(iii) is stated for almost all v but (iv) asserts all v"
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings83",
+     "locator": "Korollar 2 with its proof, printed pp. 361-362",
+     "excerpt": "Korollar 2. Seien A 1 , A 2 wie im Korollar 1. Es sind iiquivalent i) A 1 und A 2 sind isogen. ii) rt(A1)@zl~l~ rt(A2)@zff~z als n-Modul. iii) Lv(s, AO=L~(s, A2) fiir fast alle Stellen v yon K. iv) Lv(s, A O = L , ( s , A2) ffir alle v.",
+     "match": "The isogeny theorem in the exact form Serre's proof consumes, including the 'almost all places' version."
+    },
+    {
+     "sourceId": "serre87-duke",
+     "locator": "Proof of Theoreme 4 and Remarque (2), printed p. 208",
+     "excerpt": "d'après (4 .6 .4), les représentations l-adiques attachées à E et EF sont isomorphes, et l'on sait (Faltings [13], [14]) que cela entraîne que E et EF sont isogènes sur Q. D'où le th . 4 .",
+     "match": "The place where Faltings' theorem is used, and the conclusion that the isogeny is over Q."
+    },
+    {
+     "sourceId": "carayol86-hilbert",
+     "locator": "0.8 Corollaire, printed p. 411",
+     "excerpt": "Alors la fonction L de Ey est égale à L(/, s), et le conducteur géométrique de Ey est égal à N.",
+     "match": "The exact conductor and the equality of L-functions, obtained from local-global compatibility at all finite places, which R29.4 requires rather than a divisibility statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EllipticCurveModularity:R29.6/what-theoreme-4-asserts-and-its-scope",
+   "parentStageId": "EllipticCurveModularity:R29.6",
+   "title": "The statement obtained, and what it does not give",
+   "kind": "application",
+   "statement": "Theoreme 4 of the source: granting (3.3.1?) - the case eps = 1, k = 2 of Serre's conjecture, which is now the theorem of Khare-Wintenberger and Kisin - every elliptic curve E over Q is a Weil curve of level N, its conductor; in particular E is isomorphic to a quotient of the Jacobian J_0(N) of the modular curve X_0(N). The source records that all of its applications except the last use the conjecture only in the case eps = 1, k = 2. The companion Theoreme 5 extends the conclusion to abelian varieties with real multiplications: every abelian variety X over Q of dimension n with K_X = Q tensor End_Q(X) a totally real number field of degree n is isomorphic to a quotient of J_0(N), where N is the n-th root of the conductor of X - this uses (4.7.1) that X defines a degree-2 system of lambda-adic representations rational over K_X with cyclotomic determinant, and (4.7.2) that the conductor of X is of the form N^n. Nothing about ranks or the Birch-Swinnerton-Dyer conjecture is asserted.",
+   "hypotheses": [
+    "Theoreme 4 is stated conditionally on (3.3.1?); the source is from 1987 and the conjecture was open",
+    "the level is the conductor N of E, and the conclusion is 'quotient of J_0(N)', i.e. a modular parametrisation exists but the source does not construct the map X_0(N) -> E explicitly",
+    "Theoreme 5 requires K_X to be totally real of degree exactly n = dim X; it is the real-multiplication case, not general GL_2-type over a number field",
+    "the source's Remarque (3) gives a further analogous application to Shimura's question over a real quadratic field, again conditional on (3.2.4?)"
+   ],
+   "proofSteps": [
+    "Theoreme 4 is proved by the chain: Lemme 5, the weight-2 specialization of the conjecture, the eigenvalue lifting, the pigeonhole, the coefficient identity (4.6.4), and Faltings' isogeny theorem.",
+    "Theoreme 5's proof is stated to be analogous, recovering Theoreme 4 for n = 1; the source gives only its outline."
+   ],
+   "acceptance": [
+    "Check that the conclusion is a quotient of J_0(N), and that producing a nonconstant morphism X_0(N) -> E requires the Abel-Jacobi map and a choice of rational cusp, which the source does not supply",
+    "Check that no rank statement is inferred; the source makes none"
+   ],
+   "sources": [
+    {
+     "sourceId": "serre87-duke",
+     "locator": "Theoreme 4, printed p. 207",
+     "excerpt": "THÉORÈME 4 . Admettons (3 .3 .1,) . Alors E est une courbe de Weil de niveau N . (En particulier, E est isomorphe à un quotient de la jacobienne J0 (N) de la courbe modulaire Xo (N ) .)",
+     "match": "The statement obtained, with its conditional hypothesis and the precise form of the conclusion."
+    },
+    {
+     "sourceId": "serre87-duke",
+     "locator": "Theoreme 5 and (4.7.2), printed pp. 208-209",
+     "excerpt": "Alors toute variété abélienne X sur Q, à multiplications réelles, de dimension n, est isomorphe à un quotient de J 0 (N), où N est la racine n-ème du conducteur de X .",
+     "match": "The real-multiplication extension, with its exact hypothesis and the N^n conductor shape."
+    },
+    {
+     "sourceId": "serre87-duke",
+     "locator": "Introduction to section 4, printed p. 199",
+     "excerpt": "Excepté la dernière, ces applications n'utilisent la conjecture (3 .2.4,) que dans le cas où e =1, k = 2, cf . n° . 3 .3 .",
+     "match": "Records that only the weight-two, trivial-nebentypus case of the conjecture is consumed, which is exactly what ClassicalSerreModularity R27.6 is asked to export."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "EllipticCurveModularity:R29.1/residual-irreducibility-and-the-conductor-of-E-p",
+   "target": "EllipticCurveModularity:R29.2/weight-two-and-level-N-from-the-weight-recipe",
+   "reason": "(3.3.1?) is applied to rho_p, and its conclusion is a form of level N(rho_p); Lemme 5(4.6.3) is what identifies N(rho_p) with N for p outside the finite exceptional set, and (4.6.2) supplies the irreducibility hypothesis of the conjecture.",
+   "sources": [
+    {
+     "sourceId": "serre87-duke",
+     "locator": "Lemme 5 and the paragraph applying (3.3.1?), printed p. 207"
+    }
+   ]
+  },
+  {
+   "source": "EllipticCurveModularity:R29.1/absolute-irreducibility-from-oddness-at-odd-p",
+   "target": "EllipticCurveModularity:R29.2/weight-two-and-level-N-from-the-weight-recipe",
+   "reason": "The conjecture as stated in 3.3 has hypothesis (b) absolute irreducibility; this node is the source's own replacement of (b) by the weaker (b') for p different from 2, which is what makes Lemme 5(4.6.2) - irreducibility over F_p - sufficient.",
+   "sources": [
+    {
+     "sourceId": "serre87-duke",
+     "locator": "3.3, conditions (b) and (b'), printed p. 198"
+    }
+   ]
+  },
+  {
+   "source": "AlgebraicModularFormsAndSerreWeights:R15.4",
+   "target": "EllipticCurveModularity:R29.2/weight-two-and-level-N-from-the-weight-recipe",
+   "reason": "The step 'good reduction at p gives k = 2' is Proposition 4 of the source's 2.8, the weight-two-iff-finite-flat criterion, which this job decomposed as a node under R15.4. The exact output supplied is the equivalence k = 2 iff (det rho_p restricted to I = chi and rho_p finite at p); the consumer uses it in the direction: E has good reduction at p, hence rho_p is finite at p, hence k = 2. Since the source proves Proposition 4 only for p different from 2, the p = 2 boundary recorded there propagates here.",
+   "sources": [
+    {
+     "sourceId": "serre87-duke",
+     "locator": "Proposition 4 (2.8) and 3.3, printed pp. 189-190 and 198"
+    }
+   ]
+  },
+  {
+   "source": "AlgebraicModularFormsAndSerreWeights:R15.5",
+   "target": "EllipticCurveModularity:R29.3/a-single-newform-for-infinitely-many-p-and-exact-coefficients",
+   "reason": "Step (3.1.6) of the proof - lifting the mod p eigensystem to a characteristic-zero normalized eigenform of the same weight and level - is Deligne-Serre's Lemme 6.11, which R15.5 owns. The exact output consumed is a normalized weight-2 level-N eigenform over the ring of integers of a number field whose reduction is f_p; the pigeonhole is then over the finite set of such forms.",
+   "sources": [
+    {
+     "sourceId": "serre87-duke",
+     "locator": "Proof of Theoreme 4, printed p. 207"
+    },
+    {
+     "sourceId": "deligne-serre74",
+     "locator": "Lemme 6.11, printed p. 522"
+    }
+   ]
+  },
+  {
+   "source": "EllipticCurveModularity:R29.3/a-single-newform-for-infinitely-many-p-and-exact-coefficients",
+   "target": "EllipticCurveModularity:R29.4/isogeny-from-faltings-and-exact-conductor",
+   "reason": "Faltings Korollar 2 is applied to E and E_F; its hypothesis (ii) - isomorphism of the rational Tate modules as Galois modules - is exactly what the coefficient identity A_l = a_l for all l not dividing N gives, through Cebotarev and semisimplicity (Faltings Satz 3).",
+   "sources": [
+    {
+     "sourceId": "serre87-duke",
+     "locator": "Proof of Theoreme 4, printed p. 208"
+    },
+    {
+     "sourceId": "faltings83",
+     "locator": "Satz 3 and Korollar 2, printed pp. 360-362"
+    }
+   ]
+  },
+  {
+   "source": "ClassicalSerreModularity:R27.6",
+   "target": "EllipticCurveModularity:R29.2/weight-two-and-level-N-from-the-weight-recipe",
+   "reason": "The existing stage edge R27.6 -> R29.1 carries the residual modularity input. At node level the consumer needs only the case eps = 1, k = 2 of the conjecture, which is precisely what the source says all its applications but one use, and which R27.6 is asked to export as 'the finite-flat weight-two bounded-level consequence used by R29'. The output supplied is: for rho_p irreducible odd with det rho_p = chi and rho_p finite at p, a normalized mod p Hecke eigenform of weight 2 and level N(rho_p).",
+   "sources": [
+    {
+     "sourceId": "serre87-duke",
+     "locator": "3.3 (3.3.1?) and the introduction to section 4, printed pp. 198-199"
+    }
+   ]
+  },
+  {
+   "source": "EllipticCurveModularity:R29.4/isogeny-from-faltings-and-exact-conductor",
+   "target": "EllipticCurveModularity:R29.6/what-theoreme-4-asserts-and-its-scope",
+   "reason": "Theoreme 4's last step is the isogeny; the statement 'E is a Weil curve of level N, in particular a quotient of J_0(N)' is what the isogeny plus the construction of E_F as a quotient of J_0(N) yields.",
+   "sources": [
+    {
+     "sourceId": "serre87-duke",
+     "locator": "Theoreme 4 and the end of its proof, printed pp. 207-208"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "EllipticCurveModularity:R29.1",
+   "status": "partial",
+   "remaining": [
+    "The proof that End_Q(E) = Z via the derivative on the invariant differential was not read in any source; Serre's Lemme 5 quotes Mazur instead.",
+    "Mazur, 'Rational isogenies of prime degree', Invent. Math. 44 (1978), which supplies (4.6.2) for p > 163, is NOT in the supplied library (checked CATALOGUE.json, papers/ and text/: the Mazur entries are ADD_MAZUR89 'Deforming Galois representations', ADD_MazurWiles_AbelianExtensions and ADD_MazurSwinnertonDyer_WeilCurves).",
+    "Faltings' finiteness of Q-isomorphism classes in a Q-isogeny class (his Satz 5 / Satz 6) was located but not read; only Satz 3, Satz 4 and Korollare 1-3 were."
+   ]
+  },
+  {
+   "stageId": "EllipticCurveModularity:R29.2",
+   "status": "partial",
+   "remaining": [
+    "The exclusion of primes dividing phi(N_E), which the stage text requires to make reduction injective on nebentypus roots of unity, is not in Serre's argument (he gets eps = 1 directly from det rho_p = chi via 1.3). Next source action: check whether the stage text's phi(N_E) step is needed in the formulation used, or is an artefact of a different route.",
+    "The finite flatness of E[p] at p, i.e. the identification of the finite flat model with the p-torsion of the Neron model, was not read in a source."
+   ]
+  },
+  {
+   "stageId": "EllipticCurveModularity:R29.3",
+   "status": "partial",
+   "remaining": [
+    "The finite-dimensionality of S_2(Gamma_0(N)) and the newform theory (multiplicity one, strong multiplicity one) were not read; the source uses them implicitly.",
+    "The determination of the BAD coefficients A_l for l dividing N, and the rationality of the full coefficient field via Galois conjugation, were not read; Serre's proof only gives A_l = a_l for l not dividing N."
+   ]
+  },
+  {
+   "stageId": "EllipticCurveModularity:R29.4",
+   "status": "partial",
+   "remaining": [
+    "Ogg's conductor formula, used by Carayol's corollary, was not read.",
+    "Faltings Satz 3 and Satz 4 were read as statements only; their proofs (which occupy the bulk of the paper) were not."
+   ]
+  },
+  {
+   "stageId": "EllipticCurveModularity:R29.5",
+   "status": "not_read",
+   "remaining": [
+    "No node written. The construction of A_f as a quotient of J_0(N), the Abel-Jacobi map normalized at a rational cusp, and the proof that the composite X_0(N) -> J_0(N) -> A_f -> E is nonconstant were not read. Serre's Theoreme 4 asserts only that E is isomorphic to a quotient of J_0(N). Next source action: read Shimura's construction (Introduction to the Arithmetic Theory of Automorphic Functions, section 7.5) - NOT in the supplied library, the catalogue entry has no resolved file - or Mazur-Swinnerton-Dyer, 'Arithmetic of Weil curves', which IS in the library as references/papers/ADD_MazurSwinnertonDyer_WeilCurves.pdf and was not opened in this pass."
+   ]
+  },
+  {
+   "stageId": "EllipticCurveModularity:R29.6",
+   "status": "partial",
+   "remaining": [
+    "The transfer of analytic continuation and functional equation from the modular form to E, after equality of every local factor, was not read; Carayol's corollary gives equality of L-functions but the analytic properties are quoted from Hecke theory elsewhere.",
+    "The equivalence with the Frobenius-coefficient formulation in a fixed convention was not checked against the roadmap's stated convention."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Mazur's rational-isogeny theorem is an unread import",
+   "neededBy": [
+    "EllipticCurveModularity:R29.1/residual-irreducibility-and-the-conductor-of-E-p"
+   ],
+   "detail": "Verified: Serre's Lemme 5 and its attribution 'd'apres Mazur [29], (4.6.2) est vrai des que p > 163'. Not verified: Mazur's theorem. Searched the supplied library: CATALOGUE.json contains no record for Mazur, 'Rational isogenies of prime degree', Invent. Math. 44 (1978); the Mazur items present are ADD_MAZUR89 (Deforming Galois representations), ADD_MazurWiles_AbelianExtensions (Class fields of abelian extensions of Q) and ADD_MazurSwinnertonDyer_WeilCurves (Arithmetic of Weil curves). Note that Serre observes the argument only needs N_p to DIVIDE N, so the sharp constant 163 is not essential to Theoreme 4; but irreducibility of rho_p for all but finitely many p is. Next source action: obtain Mazur, Invent. Math. 44 (1978), 129-162, and read the theorem on rational points of X_0(p); alternatively record the weaker statement that E[p] is irreducible for all but finitely many p, which follows from Faltings finiteness as the stage text itself proposes."
+  },
+  {
+   "title": "The modular parametrisation X_0(N) -> E is not constructed in any source read",
+   "neededBy": [
+    "EllipticCurveModularity:R29.5",
+    "EllipticCurveModularity:R29.6/what-theoreme-4-asserts-and-its-scope"
+   ],
+   "detail": "Verified: Serre's Theoreme 4 concludes that E is isomorphic to a QUOTIENT of J_0(N), and his (3.3.2?) reformulates the conjecture in terms of the p-division points of J_0(N). Not verified: the passage from 'quotient of J_0(N)' to a nonconstant morphism X_0(N) -> E over Q, which requires the Abel-Jacobi embedding normalized at a rational cusp and the fact that the curve generates its Jacobian. Next source action: read Mazur-Swinnerton-Dyer, 'Arithmetic of Weil curves', Invent. Math. 25 (1974), which IS in the supplied library at references/papers/ADD_MazurSwinnertonDyer_WeilCurves.pdf, for the normalized modular parametrisation; and ModularCurvesPartII R14.5 in data/atlas.json for the quotient theorem the stage text names."
+  },
+  {
+   "title": "The p = 2 branch of the weight-two criterion propagates here",
+   "neededBy": [
+    "EllipticCurveModularity:R29.2/weight-two-and-level-N-from-the-weight-recipe"
+   ],
+   "detail": "Verified: Serre's 3.3 derives k = 2 from Proposition 4 of 2.8. Not verified: Proposition 4 at p = 2, whose proof the source writes only for p different from 2 (see this job's AlgebraicModularFormsAndSerreWeights packet, where the boundary and its cause - Raynaud's uniqueness needs e < p-1, i.e. p >= 3 over Z_p - are recorded). For the present argument this is harmless, because the primes used are p > C_E and in particular p > 163, but any statement of R29.2 that ranges over all p must carry the restriction. Next source action: as recorded in the Serre-weights packet."
+  },
+  {
+   "title": "The bad coefficients and the rationality of the coefficient field",
+   "neededBy": [
+    "EllipticCurveModularity:R29.3",
+    "EllipticCurveModularity:R29.3/a-single-newform-for-infinitely-many-p-and-exact-coefficients"
+   ],
+   "detail": "Verified: Serre's (4.6.4) A_l = a_l for every l not dividing N, and his Remarque (2) that the form F is primitive, citing a theorem of Carayol. Not verified: the values A_l for l dividing N, and the argument that the full coefficient field of F is Q (Serre deduces only that the A_l for good l are in Z). The stage text asks for rationality via Galois conjugation and strong multiplicity one. Next source action: read the newform theory (Atkin-Lehner-Li) - not present in the supplied catalogue under that name - or Diamond-Shurman chapter 5, which IS in the library as references/papers/LOCAL_f0c0fae15426e865.pdf."
+  }
+ ]
+}

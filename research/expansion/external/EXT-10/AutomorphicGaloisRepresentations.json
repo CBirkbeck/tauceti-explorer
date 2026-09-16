@@ -1,0 +1,615 @@
+{
+ "roadmapId": "AutomorphicGaloisRepresentations",
+ "status": "partial",
+ "summary": "Source decomposition of the construction and local-global compatibility chain for two-dimensional automorphic Galois representations, from four primary sources: Deligne-Serre for the weight-one Artin representation and the uniqueness/normalization of the lambda-adic representation in weight k >= 2; Carayol's Annales paper for the strictly compatible system attached to a cohomological Hilbert modular form, its parity/auxiliary-place hypothesis, and the Hecke normalization of the local correspondence with its exact relation to Langlands; Saito for potential semistability and compatibility at places above the coefficient characteristic, and for the monodromy-weight purity statement; Chenevier for the determinant formalism and the representability criterion. Two boundaries dominate: the geometric construction of the representations is quoted rather than proved in every source read, and Chenevier's representability theorem has an algebraically-closed-residue-field hypothesis that a localized Hecke algebra does not satisfy.",
+ "sources": [
+  {
+   "id": "deligne-serre74",
+   "title": "Formes modulaires de poids 1",
+   "authors": "Pierre Deligne and Jean-Pierre Serre",
+   "edition": "Ann. Sci. Ecole Norm. Sup. (4) 7 (1974), 507-530; read from the library PDF text layer (OCR: lambda prints as 'X' or 'k', ell as '/'); locators give printed journal pages",
+   "url": "https://www.numdam.org/article/ASENS_1974_4_7_4_507_0.pdf",
+   "sha256": "65b390f6d33e827e30c6c66bbc15421eca51db3180bdf5996dcee19047be97fc",
+   "readSections": [
+    "Theoreme 4.1 with Corollaire 4.2 and Remarques 4.3-4.5, pp. 513-514",
+    "Theoreme 4.10 (Weil-Langlands), p. 517 (statement only)",
+    "6 Representations l-adiques et reduction mod l: Theoreme 6.1, Remarque 6.2, Corollaire 6.3, Remarques 6.4-6.5, pp. 520-521",
+    "6.6-6.13 (mod-lambda eigenforms, Theoreme 6.7 with proof, Lemme 6.11, Lemme 6.13), pp. 521-523"
+   ]
+  },
+  {
+   "id": "deligne-bourbaki-355",
+   "title": "Formes modulaires et representations l-adiques",
+   "authors": "Pierre Deligne",
+   "edition": "Seminaire N. Bourbaki, 1968/69, expose no. 355, published 1971, pp. 139-172; read from the Numdam scan via its PDF text layer (OCR is poor: subscripts and exponents are frequently lost, so excerpts are quoted only where the sentence survives). Locators give printed Bourbaki pages",
+   "url": "https://www.numdam.org/item/SB_1968-1969__11__139_0.pdf",
+   "sha256": "19509c19b0cb056f4a5eba83a48a99f54bb6df0c7a96ab7f4018b0765e1ed98c",
+   "readSections": [
+    "No. 1 Introduction (the Ramanujan conjecture, Serre's conjectural l-adic representation and the reduction of Ramanujan to Weil), pp. 139-140",
+    "Proposition 3.15 and the description of the Hecke correspondence by subgroups of order p, with its degeneration in characteristic p",
+    "Propositions 3.18 and 3.19 (the endomorphism T) - located, statements only",
+    "Theorem 4.1 (Igusa: compactification of M_n), Proposition 4.3, Proposition 4.4, Proposition 4.8 - located",
+    "Theorem 4.9 (Formule de congruence) with its setup, and No. 5 (Weil implies Ramanujan): the statement of the Weil conjectures used, Theorem 5.1, Lemma 5.2 and Theorem 5.6 with its proof"
+   ]
+  },
+  {
+   "id": "carayol86-hilbert",
+   "title": "Sur les representations l-adiques associees aux formes modulaires de Hilbert",
+   "authors": "Henri Carayol",
+   "edition": "Ann. Sci. Ecole Norm. Sup. (4) 19 (1986), 409-468; read from the supplied extracted text references/text/SS_Carayol.txt (Numdam scan, OCR: sigma prints as 'a' or 'o', pi as 'n' or '7i'); locators give printed journal pages",
+   "url": "https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf",
+   "sha256": "d4a5fb6b1cd76f944f8948e06df1c7ad5656ae5ee14b9189178ee1e8f2b0dab8",
+   "readSections": [
+    "0 Introduction et notations, 0.1-0.11 (including the normalization 0.4, the Hecke correspondence 0.5, Theoreme (A), the Corollaire on Weil curves, Theoreme (B), Theoreme (B') and the description of the geometric method), pp. 409-412",
+    "Section headings and numbered statements of 1.2.2, 1.4.1, 1.5.3, 1.7.5, 8.3, 12.3 (locations only, statements not all read)"
+   ]
+  },
+  {
+   "id": "saito-hilbert-padic-hodge",
+   "title": "Hilbert modular forms and p-adic Hodge theory",
+   "authors": "Takeshi Saito",
+   "edition": "arXiv:math/0612077v2, 11 December 2006; published as Compositio Math. 145 (2009), 1081-1113. Locators give the arXiv version's own page numbers",
+   "url": "https://arxiv.org/pdf/math/0612077",
+   "sha256": "fb5b69b76d2257ce20f47366c4bd165ccdb571333e7f25a4ed6e92dbb4b55df7",
+   "readSections": [
+    "Abstract and introduction (method of proof), p. 1",
+    "The Weil-Deligne construction recalled, and Theorem 0 (quoted from Carayol) with its Remark, pp. 10-11",
+    "Theorem 1 with its Remark, Claim 1 (parts (0),(1),(2)), Theorem 2 (monodromy-weight) with its Remark and the deduction of Claim 1(2), pp. 11-13"
+   ]
+  },
+  {
+   "id": "chenevier-determinants",
+   "title": "The p-adic analytic space of pseudocharacters of a profinite group and pseudorepresentations over arbitrary rings",
+   "authors": "Gaetan Chenevier",
+   "edition": "arXiv:0809.0415v2, 18 July 2013; read from the supplied extracted text references/text/chenevier-determinants.txt. Locators give the arXiv version's section and theorem numbers",
+   "url": "https://arxiv.org/pdf/0809.0415",
+   "sha256": "f3c0e0d86e803301c617d3023d425752e30da46673ed5af932647eb284286953",
+   "readSections": [
+    "Abstract and the statements of Theorems A, B, D, F, H in the introduction",
+    "Locations of Theorem 2.12, Theorem 2.16, Theorem 2.22, Proposition 1.6, Proposition 1.23, Proposition 1.27 (statements of A, B read in full; 2.12/2.16/2.22 read only as referenced in the introduction)"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "AutomorphicGaloisRepresentations:R19.1/geometric-construction-and-the-eichler-congruence-relation",
+   "parentStageId": "AutomorphicGaloisRepresentations:R19.1",
+   "title": "The geometric construction of the l-adic representation and the Eichler congruence relation T_p = F + V",
+   "kind": "construction",
+   "statement": "For n >= 3 prime to p let M_n be the modular scheme with level-n structure, and let F_{n,p} be the functor of diagrams adding a subgroup of order p to the universal elliptic curve. Proposition 3.15: F_{n,p} is represented by a scheme M_{n,p} and the two degeneracy morphisms q_1, q_2 to M_n are finite; over a geometric point s of M_n the fibre of q_1 is the set of subgroups of order p of E, which has p+1 elements when the residue characteristic is different from p and exactly ONE (the kernel of Frobenius) when the residue characteristic is p. The l-adic sheaf W_l = W^k_l built from the k-th symmetric power of the Tate module of the universal curve carries the Hecke endomorphism T_p (Propositions 3.18, 3.19). Theorem 4.9 (congruence formula, going back to Eichler): let K_{n,l} be the largest subextension of Qbar unramified outside n and l, phi_p a Frobenius element for p in Gal(K_{n,l}/Q), F the endomorphism phi_p^{-1} of W_l and V the transpose of F with respect to the pairing (3.20); then T_p = F + V, equivalently 1 - T_p X + p^{k+1} X^2 = (1 - FX)(1 - VX). Theorem 5.1: granting the Weil conjectures, the eigenvalues of F on W_l are algebraic integers all of whose complex conjugates have absolute value p^{(k+1)/2}; Theorem 5.6: the Weil conjectures imply the Ramanujan conjecture.",
+   "hypotheses": [
+    "n >= 3 and p prime to n, so that M_n is a fine moduli scheme and the level structure is rigid",
+    "the degeneration of the fibre of q_1 at residue characteristic p - a single subgroup, the kernel of Frobenius - is exactly what produces the congruence relation; away from p the fibre has p+1 points",
+    "Theorem 5.1 is CONDITIONAL on the Weil conjectures as stated there (projective smooth X over F_p, eigenvalues of F* of absolute value p^{i/2}); the source is a 1969 Bourbaki talk and does not have Deligne's later proof",
+    "the source notes that regularity of M_{n,p} and flatness of q_1, q_2 is a delicate result it does NOT use, contenting itself with the statement that over the locus where q_1 is etale, M_{n,p} is an etale covering of M_n of degree p+1",
+    "Theorem 5.6's proof for n = 1 uses that W^k_l at level one is the GL_2(Z/(m))-invariant submodule of the level-m object, plus the hermitian character of T_p for the Petersson product"
+   ],
+   "proofSteps": [
+    "Proposition 3.15 represents the Hecke correspondence by Hilbert-scheme theory and computes the fibres of q_1, distinguishing residue characteristic p.",
+    "Theorem 4.9 is stated as synonymous with the preceding identity 4.8 and attributed to Eichler; it identifies the Hecke operator T_p with F + V for F the inverse Frobenius and V its transpose under the cohomological pairing.",
+    "Theorem 5.6 deduces Ramanujan: from 4.8 at level one, 1 - T_p X + p^{k+1} X^2 = (1-FX)(1-VX); since F and V are transposes, det(1-FX) = det(1-VX); the action of T_p on the cohomology is compatible with the decomposition into S_{k+2} and its complex conjugate, and the hermitian character of T_p for the Petersson product together with 3.19 gives the identity (5.7) relating the Hecke polynomial to det(1-FX); Theorem 5.1 then bounds the eigenvalues.",
+    "Lemma 5.2 extends the Weil bound to a smooth X that is open in a projective smooth X*, by factoring H^i_c(X) -> H^i(X) through H^i(X*)."
+   ],
+   "acceptance": [
+    "Check the congruence relation on an explicit small level and weight, confirming T_p = F + V and the factorization of 1 - T_p X + p^{k+1} X^2",
+    "Check that at residue characteristic p the fibre of q_1 really degenerates to the single Frobenius kernel, since that degeneration is the whole source of the congruence relation",
+    "Check that the weight normalization p^{(k+1)/2} in Theorem 5.1 matches the roadmap's convention X^2 - a_l X + eps(l) l^{k-1}, recording the shift between Deligne's k and the classical weight k+2"
+   ],
+   "sources": [
+    {
+     "sourceId": "deligne-bourbaki-355",
+     "locator": "Proposition 3.15 and its proof, printed p. 157 area",
+     "excerpt": "l’ensemble des sous-groupes d’ordre p de E , et a p + 1 éléments si car(k(s)) / p , un seul (le noyau de Frobenius) si car(k(s)) = p .",
+     "match": "The degeneration of the Hecke correspondence at residue characteristic p, which is the geometric source of the Eichler relation."
+    },
+    {
+     "sourceId": "deligne-bourbaki-355",
+     "locator": "Proposition 3.15, proof, printed p. 157 area",
+     "excerpt": "On peut montrer que est régulier, et que et sont finis et plats ; nous n’utiliserons pas ce résultat délicat,",
+     "match": "The source explicitly declines to use regularity and flatness of the correspondence; a decomposition must not silently assume them."
+    },
+    {
+     "sourceId": "deligne-bourbaki-355",
+     "locator": "Theoreme 4.9 (Formule de congruence), printed p. 165 area",
+     "excerpt": "Le théorème suivant, synonyme de (4.$}, remonte à Eichler. THÉORÈME 4.9 (Formule de congruence).- Soient Kn e la plus grande sous-extension de Q non ramifiée en dehors de n et l , 03C6p un élément de Frobenius relatif à p dans Gal(Kn l/Q) , F l’endomorphisme 03C6-1p de nW l et V le transposé de F relativement au produit scalaire (3.20).",
+     "match": "The exact definitions of F and V entering the congruence relation; F is the INVERSE Frobenius and V is its transpose for the specified pairing."
+    },
+    {
+     "sourceId": "deligne-bourbaki-355",
+     "locator": "Theoreme 5.1 and No. 5, printed pp. 166-167 area",
+     "excerpt": "THÉORÈME 5.1.- Si les conjectures de Weil sont vraies, alors les valeurs propres de l’endomorphisme F de knWl sont des entiers algébriques (dont tous les conjugués complexes sont) de valeur absolue pk+1/2 .",
+     "match": "The purity statement as it stood in 1969: conditional on the Weil conjectures, which were then open."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AutomorphicGaloisRepresentations:R19.1/lambda-adic-representation-of-a-weight-k-eigenform",
+   "parentStageId": "AutomorphicGaloisRepresentations:R19.1",
+   "title": "The lambda-adic representation attached to an eigenform of weight k >= 2, and its uniqueness",
+   "kind": "theorem",
+   "statement": "Let f be a modular form of type (k, eps) on Gamma_0(N), not identically zero, with k >= 2, an eigenvector of the T_p for p not dividing N with eigenvalues a_p. Let K be a finite extension of Q containing the a_p and the eps(p), lambda a finite place of K of residue characteristic l, and K_lambda the completion. Then there is a continuous semisimple linear representation rho_lambda: G_Q -> GL_2(K_lambda), unramified outside Nl, such that Tr(F_p, rho_lambda) = a_p and det(F_p, rho_lambda) = eps(p) p^{k-1} for p not dividing Nl. By Cebotarev (the source's Lemma 3.2) this condition determines rho_lambda uniquely up to isomorphism. Corollary 6.3: if two such data have a_p = a'_p on a set of primes of density 1, then k = k', eps = eps' and a_p = a'_p for all p not dividing NN'. The image of G_Q is a compact subgroup of GL_2(K_lambda), hence an l-adic Lie group and NOT finite.",
+   "hypotheses": [
+    "k >= 2 is required in Theorem 6.1; the weight-one case is obtained only after Theorem 4.1 is proved, and the source says so explicitly in Remarque 6.5",
+    "the Frobenius normalization is Artin's: 'F_p' is the Frobenius substitution, whose inverse is the geometric Frobenius; this is stated in a footnote and is the convention under which det(F_p) = eps(p) p^{k-1}",
+    "K must contain both the a_p and the values eps(p); the representation is over K_lambda, not over a residue field",
+    "semisimplicity is part of the statement; uniqueness is only up to isomorphism and only for the semisimple representation"
+   ],
+   "proofSteps": [
+    "Deligne-Serre quote the result as Theoreme 6.1 with attribution: for f Eisenstein it follows from Hecke's results by taking a direct sum of two one-dimensional representations; for f cuspidal it is proved in a special case in their reference [4], and in general by Langlands, who however assumes without proof a trace formula.",
+    "Uniqueness is from their Lemme 3.2 and Cebotarev: the trace and determinant on Frobenius elements of density one determine the semisimple representation.",
+    "Corollaire 6.3 is the same uniqueness argument applied to two eigenforms."
+   ],
+   "acceptance": [
+    "Check the Frobenius normalization against the roadmap's stated convention (characteristic polynomial X^2 - a_l X + eps(l) l^{k-1} at good arithmetic Frobenius) and record whether a dual or twist is needed",
+    "Check that rho_lambda is defined over K_lambda and identify the integral lattice separately; the source does not produce one"
+   ],
+   "sources": [
+    {
+     "sourceId": "deligne-serre74",
+     "locator": "Theoreme 6.1, printed p. 520",
+     "excerpt": "On suppose que k ^ 2 et que f est fonction propre des Tp, p )( N, avec pour valeurs propres Op.",
+     "match": "The weight hypothesis k >= 2 and the eigenform hypothesis away from N, exactly as the source states them."
+    },
+    {
+     "sourceId": "deligne-serre74",
+     "locator": "Remarque 6.2, printed p. 521",
+     "excerpt": "Il est traité, par une autre méthode (inspirée de lhara) et dans un autre langage, par Langlands [11] (où est toutefois admise sans démonstration une « formule des traces » qui semble accessible mais que personne n'a démontrée).",
+     "match": "The source itself flags that the general cuspidal case, as it cites it, rests on an unproved trace formula in Langlands' treatment - an unresolved boundary in the citation chain, not in the statement."
+    },
+    {
+     "sourceId": "deligne-serre74",
+     "locator": "footnote to section 4, printed p. 513",
+     "excerpt": "Nous adoptons ici les conventions d'Artin [1]. Notre « substitution de Frobenius » est donc l'élément noté (p dans [5]; son inverse est le « Frobenius géométrique ».",
+     "match": "The Frobenius normalization convention which the roadmap requires to be carried through the comparison."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AutomorphicGaloisRepresentations:R19.1/weight-one-artin-representation",
+   "parentStageId": "AutomorphicGaloisRepresentations:R19.1",
+   "title": "The weight-one Artin representation of Deligne-Serre and its properties",
+   "kind": "theorem",
+   "statement": "Let N >= 1, eps a Dirichlet character mod N with eps(-1) = -1, and f a modular form of type (1, eps) on Gamma_0(N), not identically zero, an eigenvector of the T_p for p not dividing N with eigenvalues a_p. Then there is a linear representation rho: G_Q -> GL_2(C), unramified outside N, with Tr(F_p, rho) = a_p and det(F_p, rho) = eps(p) for all p not dividing N. This representation is irreducible if and only if f is cuspidal. It is unique up to isomorphism (Lemme 3.2). Consequences: det(rho) = eps under class field theory (Remarque 4.4); det(rho(c)) = -1 and rho(c) is conjugate to diag(1,-1) (Remarque 4.5); and the eigenvalues a_p are sums of two roots of unity, so |a_p| <= 2 (Corollaire 4.2), i.e. the Ramanujan-Petersson conjecture in weight 1.",
+   "hypotheses": [
+    "eps(-1) = -1 is a hypothesis of the theorem, not a conclusion; it is what makes the representation odd",
+    "the representation is complex, with FINITE image (in contrast with the l-adic case of weight k >= 2, where the image is an l-adic Lie group)",
+    "the conclusion is stated at primes p not dividing N; behaviour at ramified primes is not asserted here",
+    "the proof is deferred to section 8 of the source and was NOT read in this pass"
+   ],
+   "proofSteps": [
+    "The source states the theorem in section 4 and defers the proof to section 8 (unread here).",
+    "Corollaire 4.2 follows because the image of rho is finite, so the eigenvalues of rho(F_p) are roots of unity and a_p is their sum.",
+    "Remarque 4.4 identifies det(rho) with eps through class field theory; Remarque 4.5 deduces oddness of rho from oddness of eps."
+   ],
+   "acceptance": [
+    "Check that the produced rho has finite image, distinguishing the weight-one case from the l-adic constructions of the other nodes",
+    "Check the irreducibility criterion: rho irreducible if and only if f is cuspidal"
+   ],
+   "sources": [
+    {
+     "sourceId": "deligne-serre74",
+     "locator": "Theoreme 4.1, printed pp. 513-514",
+     "excerpt": "Cette représentation est irréductible si et seulement si f est parabolique. La démonstration sera donnée au § 8.",
+     "match": "The irreducibility criterion and the source's own deferral of the proof to section 8, which this packet records as unread."
+    },
+    {
+     "sourceId": "deligne-serre74",
+     "locator": "Corollaire 4.2, printed p. 514",
+     "excerpt": "Les valeurs propres âp sont sommes de deux racines de l'unité', en particulier on a \\|âp\\| ^ 2 .",
+     "match": "The weight-one Ramanujan bound, a consequence of finiteness of the image."
+    },
+    {
+     "sourceId": "deligne-serre74",
+     "locator": "Remarque 6.5, printed p. 521",
+     "excerpt": "Une fois le théorème 4.1 démontré, on voit facilement (2) que 6.1 et 6.3 restent valables en poids 1; toutefois, dans ce cas, l'image du groupe G est un groupe fini.",
+     "match": "The precise logical order: the l-adic statement in weight one is deduced from Theorem 4.1, not the other way round."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
+   "parentStageId": "AutomorphicGaloisRepresentations:R19.2",
+   "title": "Carayol's Theorem (A): the strictly compatible system attached to a cohomological Hilbert modular form",
+   "kind": "theorem",
+   "statement": "Let F be a totally real number field of degree d, and let k_1, ..., k_d (all >= 2) and w be integers of the same parity. Let pi = tensor pi_v be a cuspidal automorphic representation of GL_2(A_F) whose archimedean components are pi_{tau_i} = D_{k_i, w}, the essentially square-integrable representation of GL_2(R) occurring in the unitary induction Ind(mu, nu) with mu(t) = |t|^{(w+1)/2} sgn(t)^{k} and nu(t) = |t|^{-(w+1)/2} in the source's normalization. Assume moreover that when d is EVEN there is at least one finite place v of F at which pi_v is essentially square-integrable (special or cuspidal). Then there is a finite extension E of Q(pi) and a STRICTLY compatible system {sigma_lambda} of continuous two-dimensional E_lambda-adic representations of Gal(Fbar/F) such that for every finite place p of F and every finite place lambda of E of residue characteristic different from that of p, the restriction of sigma_lambda to the local Weil group W_p is equivalent to sigma_lambda(pi_p). The new content is the determination at EVERY finite place p; existence with the property for almost every p was already known.",
+   "hypotheses": [
+    "all the weights k_i must be >= 2 and k_1, ..., k_d, w of the same parity - this is the cohomological condition",
+    "the parity hypothesis 'd even implies there exists a finite place v with pi_v essentially square-integrable' is a genuine restriction that is removed only in Theorem (A) by base change, and remains in Theorem (B)",
+    "lambda must have residue characteristic different from that of p; the case of equal characteristic is Saito's theorem, a separate node",
+    "sigma_lambda(pi_p) is formed with the HECKE correspondence, not the Langlands correspondence"
+   ],
+   "proofSteps": [
+    "The source proves a weakened Theorem (B) first: with a fixed finite place v where pi_v is essentially square-integrable (when d is even), the conclusion holds at every finite place p different from v where pi_p is not 'cuspidale extraordinaire' (which can only occur at residue characteristic 2).",
+    "Theorem (B) is transferred by Jacquet-Langlands to Theorem (B') for the quaternion algebra B over F split at tau_1, ramified at tau_2,...,tau_d and split at all finite places except v when d is even; G = Res_{F/Q}(B^*).",
+    "The system is constructed from the projective system of Shimura curves M_K(G, X) equipped with l-adic sheaves F_lambda, decomposing H^1(M_K tensor Fbar, F_lambda) - parabolic cohomology when F = Q, where the curves are not proper - under the Hecke operators.",
+    "The method rests on knowing the (possibly bad) reduction of the Shimura curves, which the source had established in its companion paper on bad reduction of Shimura curves.",
+    "Theorem (A) is deduced from Theorem (B) by base change arguments for GL(2)."
+   ],
+   "acceptance": [
+    "Check that the parity/auxiliary-place hypothesis is carried in every downstream use, since Theorem (B) does not remove it",
+    "Check that the excluded 'cuspidale extraordinaire' case at residue characteristic 2 is treated only by the base-change step, not by the geometric construction"
+   ],
+   "sources": [
+    {
+     "sourceId": "carayol86-hilbert",
+     "locator": "0.3 and Theoreme (A), printed pp. 409-410",
+     "excerpt": "Nous supposerons de plus toujours que, dans le cas où le degré d de F est pair, alors il existe au moins une place finie y de F telle que la composante locale îiy soit une représentation essentiellement de carré intégrable (= spéciale ou cuspidale) du groupe GL^ (F,).",
+     "match": "The auxiliary-place hypothesis in the even-degree case, which R19.2 must carry explicitly."
+    },
+    {
+     "sourceId": "carayol86-hilbert",
+     "locator": "Theoreme (B), printed p. 411",
+     "excerpt": "Alors il existe une extension finie E de Q (71) et un système strictement compatible {c^} de représentations E^-adiques continues du groupe Gai (F/F), tel que la conclusion du théorème (A) soit vérifiée en chaque place finie p^v où n^ n'est pas cuspidale extraordinaire.",
+     "match": "The two exclusions in the weakened theorem: the auxiliary place v and the extraordinary cuspidal case."
+    },
+    {
+     "sourceId": "carayol86-hilbert",
+     "locator": "0.11, printed p. 412",
+     "excerpt": "en considérant le système projectif des courbes de Shimura MK(G, X) associé au groupe G, en le munissant d'un système de faisceaux /-adiques ^\\, et en décomposant sous l'action des opérateurs de Hecke la cohomologie H^(M^ ® F, J^\\) (cohomologie « parabolique » dans le cas F=Q où les courbes M^ ne sont pas propres).",
+     "match": "The geometric realization, including the need for parabolic cohomology exactly when F = Q."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AutomorphicGaloisRepresentations:R19.4/hecke-versus-langlands-normalization-and-local-global-compatibility",
+   "parentStageId": "AutomorphicGaloisRepresentations:R19.4",
+   "title": "Local-global compatibility away from p, in the Hecke normalization, with its exact relation to Langlands",
+   "kind": "comparison",
+   "statement": "For each finite place p of F, Kutzko's work attaches to pi_p a Frobenius-semisimple degree-2 representation sigma(pi_p) of the local Weil-Deligne group W_p, characterized by L(chi . sigma(pi_p)) = L(chi . omega_p^{1/2} . pi_p) and eps(chi . sigma(pi_p)) = eps(chi . omega_p^{1/2} . pi_p) for every quasicharacter chi of F_p^*. This 'Hecke' correspondence differs from the Langlands correspondence by a twist by omega_p^{1/2} followed by passage to the contragredient. For an irreducible principal series pi_p = Ind(chi_1, chi_2) one has sigma(pi_p) = chi_1 omega_p^{1/2} + chi_2 omega_p^{1/2}. It satisfies (a) det sigma(pi_p) = xi^{-1} omega_p^{-1} where xi is the central character of pi_p, and (b) sigma(chi . pi_p) = chi^{-1} . sigma(pi_p). Its advantage over Langlands' is that it is compatible with automorphisms of the field of definition. Carayol's theorem asserts that the restriction of sigma_lambda to W_p is equivalent to the lambda-adic realization of sigma(pi_p), which is an equality of Weil-DELIGNE representations, hence includes the monodromy operator and therefore the special/Steinberg case, not only the semisimplified inertia action or the unramified traces.",
+   "hypotheses": [
+    "the comparison is at finite places p whose residue characteristic differs from that of lambda",
+    "sigma(pi_p) is F-semisimple (Frobenius-semisimple) by construction; the comparison is with the F-semisimplification of the Weil-Deligne representation attached to sigma_lambda restricted to D_p",
+    "the normalization of class field theory is fixed so that GEOMETRIC Frobenius elements correspond to uniformizers (source 0.4)",
+    "the twist relating Hecke to Langlands is by omega_p^{1/2} together with contragredience; using the wrong one changes the determinant by omega_p and the L-factors"
+   ],
+   "proofSteps": [
+    "Kutzko's classification of the local representations gives sigma(pi_p) with the stated L- and epsilon-factor characterization.",
+    "The source records properties (a) and (b) as consequences, and notes that the compatibility with field automorphisms is what makes the Hecke normalization preferable for rationality questions.",
+    "Carayol's Theorem (A) supplies the global-to-local comparison at every finite place.",
+    "Applied to F = Q and k = 2, this yields the Corollaire: for f in S_2(Gamma_0(N)) a rational normalized newform with associated elliptic curve E_f, the L-function of E_f equals L(f, s) and the geometric conductor of E_f equals N - the latter using Ogg's work."
+   ],
+   "acceptance": [
+    "Check the determinant relation det sigma(pi_p) = xi^{-1} omega_p^{-1} on an unramified principal series and confirm the normalization is the source's, not Langlands'",
+    "Check that the special (Steinberg) case gives a nonzero monodromy operator on both sides, so the comparison is not merely of semisimplifications"
+   ],
+   "sources": [
+    {
+     "sourceId": "carayol86-hilbert",
+     "locator": "0.5, printed p. 410",
+     "excerpt": "La correspondance « de Hecke » ainsi définie diffère de la correspondance de Langlands par torsion par le caractère œ^2 suivie du passage à la contragrédiente.",
+     "match": "The exact relation between the two normalizations; the OCR renders omega_p^{1/2} as 'œ^2'. The roadmap requires this convention to be carried through the comparison."
+    },
+    {
+     "sourceId": "carayol86-hilbert",
+     "locator": "0.5(a), printed p. 410",
+     "excerpt": "Le déterminant de a(îCp) est lié au caractère central ^ de îip par la formule : deia(K^=^l.(ù;l.",
+     "match": "The determinant formula in the Hecke normalization, from which conductor and bad Euler factor statements are read off."
+    },
+    {
+     "sourceId": "carayol86-hilbert",
+     "locator": "0.8 Corollaire, printed p. 411",
+     "excerpt": "Alors la fonction L de Ey est égale à L(/, s), et le conducteur géométrique de Ey est égal à N.",
+     "match": "The conductor equality that R19.4 requires as a deduction from local-global compatibility, stated here for the elliptic curve attached to a rational weight-2 newform."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AutomorphicGaloisRepresentations:R19.3/strict-compatibility-and-the-monodromy-weight-purity",
+   "parentStageId": "AutomorphicGaloisRepresentations:R19.3",
+   "title": "Strict compatibility, and purity via the monodromy-weight theorem",
+   "kind": "theorem",
+   "statement": "Carayol's system is asserted to be STRICTLY compatible: for every finite place p of F and every lambda of residue characteristic different from p, the Weil-Deligne parameter of sigma_lambda restricted to D_p is sigma(pi_p), an object defined over E and independent of lambda. Purity is Saito's Theorem 2: with notation as in Claim 1, the monodromy filtration of the Weil-Deligne representations 'rho_{f,lambda,p} and 'rho_{f,mu,p} is pure of weight w-1; concretely, for any lifting F of geometric Frobenius, an eigenvalue alpha of 'rho(F) has weight w-1 if N = 0, weight w-2 if N is nonzero and alpha is an eigenvalue on Ker N, and weight w if N is nonzero and alpha is an eigenvalue on Coker N. The three notions - weakly compatible, almost strictly compatible, strictly compatible - are genuinely different: Carayol proves strict compatibility for a fixed cohomological Hilbert eigenform, whereas the systems produced by lifting theorems in the Serre-conjecture literature are only almost strictly compatible.",
+   "hypotheses": [
+    "Saito's Theorem 2 assumes the setting of his Claim 1: p a finite place of F above p, lambda and mu places of L(f) above l different from p and above p respectively",
+    "the purity statement is for the monodromy filtration, and presupposes N^2 = 0 so that the three-step filtration 0 subset Im N subset Ker N subset V is defined",
+    "the case N nonzero is described by the source as easy, since the determinant is known and N induces an isomorphism Gr^W_1(V)(1) -> Gr^W_{-1}(V); the substantive case is N = 0",
+    "'pure of weight n' is defined by: the eigenvalues of a lifting F of geometric Frobenius on Gr_i^W are algebraic numbers whose conjugates have complex absolute value Np^{(n+i)/2}"
+   ],
+   "proofSteps": [
+    "Carayol's Theorem (A) gives the lambda-independence of the Weil-Deligne parameter at every finite place of residue characteristic different from that of lambda, which is the definition of strict compatibility.",
+    "Saito deduces purity from the Weil conjecture together with a vanishing of global sections which he describes as an analogue of a standard vanishing; the deduction and the vanishing were not read here.",
+    "Saito then uses Theorem 2 together with Claim 1(1) (equality of traces of 'rho_{f,lambda,p} and 'rho_{f,mu,p} on W^+) to prove Claim 1(2): N_lambda = 0 if and only if N_mu = 0, by distinguishing the two cases by the absolute values of the Frobenius eigenvalues."
+   ],
+   "acceptance": [
+    "Check on a Steinberg place that the weight-(w-2) and weight-w eigenvalues really occur, so the purity statement distinguishes N = 0 from N nonzero",
+    "Check that a system produced by a lifting theorem in the Serre-conjecture literature is only almost strictly compatible, by exhibiting a place above the coefficient characteristic where the Weil-Deligne parameter is not pinned down"
+   ],
+   "sources": [
+    {
+     "sourceId": "saito-hilbert-padic-hodge",
+     "locator": "Theorem 2, p. 13 of the arXiv version",
+     "excerpt": "the eigenvalue α of ′ ρf,λ,p (F ) for an arbitrary lifting F ∈ W (F̄p /Fp ) of the geometric Frobenius is of weight n where n = w−1 if N = 0, w−2 if N 6= 0 and α is the eigenvalue on Ker N, w if N 6= 0 and α is the eigenvalue on Coker N .",
+     "match": "The precise purity statement, split by the monodromy operator, which is what 'purity' means here."
+    },
+    {
+     "sourceId": "saito-hilbert-padic-hodge",
+     "locator": "Remark after Theorem 2, p. 13 of the arXiv version",
+     "excerpt": "The assertion for the case N 6= 0 is easy since we know the determinant and N : GrW 1 (V )(1) → GrW −1 (V ) is an isomorphism.",
+     "match": "Identifies which case carries the mathematical content, so the decomposition does not treat the two cases as equally deep."
+    },
+    {
+     "sourceId": "carayol86-hilbert",
+     "locator": "Theoreme (A), printed pp. 410-411",
+     "excerpt": "il existe alors une extension finie E de Q(n) et un système strictement compatible {a^} de représentations continues E^-adiques de dimension 2 du groupe de Galois Gai (F/F)",
+     "match": "The word 'strictement compatible' in the source, whose definition differs from the 'almost strictly compatible' systems used elsewhere in this job's packets."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime",
+   "parentStageId": "AutomorphicGaloisRepresentations:R19.5",
+   "title": "Saito's theorem: local-global compatibility at places above the coefficient characteristic",
+   "kind": "theorem",
+   "statement": "Let f be a normalized eigen newform of multiweight k over a totally real F, and assume as in Carayol's theorem that if g = [F:Q] is even there is a finite place v with pi_{f,v} in the discrete series. Let mu be a place of L(f) dividing the residue characteristic p of a prime p of F. Then the representation rho_{f,mu,p} of Gal(Fbar_p/F_p) is POTENTIALLY SEMI-STABLE and there is an isomorphism of Weil-Deligne representations 'rho^{F-ss}_{f,mu,p} = sigma-check_h(pi_{f,p}), where the left side is formed by Fontaine's construction V -> D(V) using B_st and the right side is the same Hecke-normalized local parameter as in the l-adic case. In particular 'rho_{f,mu,p} has degree 2 and the left side is L(f)-rational. When g is even and p is the place in question, one may arrange by a quadratic base change, as in Carayol, that the auxiliary discrete-series place v is different from p.",
+   "hypotheses": [
+    "the same parity/auxiliary-place hypothesis as in Carayol's Theorem 0, with the extra arrangement v different from p obtained by quadratic base change",
+    "the construction of the Weil-Deligne representation at p uses Fontaine's B_st and the Frobenius-semisimplification; degree 2 is a consequence of the semistability, not an assumption",
+    "the proof compares p-adic with l-adic cohomology for a place lambda of L(f) above a prime l different from p; it is not an independent p-adic construction",
+    "the comparison of traces is only asserted on W^+ = {sigma in W(Fbar_p/F_p) : n(sigma) >= 0}, and only up to a finite extension of L(f)"
+   ],
+   "proofSteps": [
+    "Claim 1 splits the theorem into (0) potential semistability, (1) equality of traces of 'rho_{f,lambda,p} and 'rho_{f,mu,p} on W^+, and (2) N_lambda = 0 if and only if N_mu = 0. (0) is the case sigma = 1 of (1).",
+    "(1) is proved by constructing the Galois representation purely geometrically from the etale cohomology of an analogue of a Kuga-Sato variety with algebraic correspondences acting on it, then applying the p-adic comparison theorem and the weight spectral sequence to compute traces and monodromy in terms of the reduction mod p, and finally the Lefschetz trace formula, which has the same shape for l-adic and crystalline cohomology.",
+    "(2) follows from (1) and Theorem 2 (monodromy-weight), which lets one distinguish N = 0 from N nonzero by the absolute values of the Frobenius eigenvalues.",
+    "Theorem 1 then follows from Claim 1 by a lemma of the author's earlier paper on the elliptic modular case."
+   ],
+   "acceptance": [
+    "Check that the produced Weil-Deligne representation at p has the same inertial type as the l-adic one, which is what the modularity-lifting arguments consume",
+    "Check the L(f)-rationality claim, and that the comparison is stated only up to a finite extension of L(f) at the level of traces"
+   ],
+   "sources": [
+    {
+     "sourceId": "saito-hilbert-padic-hodge",
+     "locator": "Theorem 1, p. 12 of the arXiv version",
+     "excerpt": "Then, the representation ρf,µ,p of Gal(F̄p /Fp ) is potentially semi-stable and there is an isomorphism ′ ρF-ss f,µ,p ≃ σ̌h (πf,p ) of representations of the Weil-Deligne group ′ W (F̄p /Fp ).",
+     "match": "The literal statement of compatibility at the coefficient prime, in the same Hecke normalization as the l-adic case."
+    },
+    {
+     "sourceId": "saito-hilbert-padic-hodge",
+     "locator": "Claim 1, p. 12 of the arXiv version",
+     "excerpt": "(1) For σ ∈ W + = {σ ∈ W (F̄p /Fp )|n(σ) ≥ 0}, we have an equality in some finite extension of L(f ) Tr ′ ρf,λ,p (σ) = Tr ′ ρf,µ,p (σ).",
+     "match": "The trace comparison is only on W^+ and only in a finite extension of L(f); both restrictions must survive into any downstream statement."
+    },
+    {
+     "sourceId": "saito-hilbert-padic-hodge",
+     "locator": "Abstract, p. 1 of the arXiv version",
+     "excerpt": "We prove the compatibility by comparing the p-adic and ℓ-adic representations for it is already established for ℓ-adic representation [C2].",
+     "match": "Records that R19.5 genuinely consumes R19.4 (Carayol's l-adic compatibility) and is not an independent construction."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AutomorphicGaloisRepresentations:R19.6/determinants-and-representability-over-a-hecke-algebra",
+   "parentStageId": "AutomorphicGaloisRepresentations:R19.6",
+   "title": "Determinant laws and the representability criterion over a henselian local coefficient ring",
+   "kind": "theorem",
+   "statement": "Chenevier's theory of determinants: a d-dimensional determinant on a group G over a ring A is a multiplicative A-polynomial law D: A[G] -> A of degree d, generalizing pseudocharacters and working over an arbitrary base ring (in particular without inverting d!). Theorem A: if k is an algebraically closed field and D: k[G] -> k is a determinant of dimension d, there is a UNIQUE semisimple representation rho: G -> GL_d(k) with det(1 + t rho(g)) = D(1 + tg) for all g; uniqueness is up to k-isomorphism. If k is perfect, or of characteristic p > 0 with p > d or [k : k^p] finite, one has the stronger statement that k[G]/ker(D) is a semisimple finite-dimensional k-algebra (Theorem 2.16). Theorem B: if A is a HENSELIAN LOCAL ring with ALGEBRAICALLY CLOSED residue field k, D: A[G] -> A a determinant of dimension d, and the semisimple representation rho attached to D tensor k is IRREDUCIBLE, then there is a unique representation rho-tilde: G -> GL_d(A) with det(1 + t rho-tilde(g)) = D(1 + tg). The stronger statement proved is that the largest Cayley-Hamilton quotient of A[G] is the faithful one and is isomorphic to (M_d(A), det); the multiplicity-free case gives a generalized matrix algebra instead.",
+   "hypotheses": [
+    "Theorem B requires A henselian local with ALGEBRAICALLY CLOSED residue field; a localized Hecke algebra has finite residue field, so a descent step is needed before the theorem applies to it. That descent is not supplied by this source",
+    "Theorem B requires the residual representation to be IRREDUCIBLE (absolutely irreducible, since k is algebraically closed); the multiplicity-free case gives only a generalized matrix algebra",
+    "Theorem A does not need any invertibility of d!, which is the point of determinants over pseudocharacters, and it holds in residual characteristic p <= d",
+    "the source records that there is a gap in Rouquier's Lemma 4.1 and hence in his Theorem 4.2 where d! is required to be invertible - so the determinant formalism is not merely a reformulation"
+   ],
+   "proofSteps": [
+    "The source states Theorems A and B in the introduction with pointers to Theorems 2.12 and 2.22 for the proofs; those proofs were not read in this pass.",
+    "For the descent from an algebraically closed residue field to a finite one, the standard input is that a semisimple representation over a finite field is realizable over the subfield generated by the coefficients of its characteristic polynomials - which is Deligne-Serre Lemme 6.13, decomposed in this job's AlgebraicModularFormsAndSerreWeights packet. Whether that suffices in the present setting was NOT verified here."
+   ],
+   "acceptance": [
+    "Check the passage from a localized Hecke algebra with finite residue field to the hypothesis of Theorem B, and record exactly which descent statement is used",
+    "Check on a nonreduced Hecke algebra that the determinant law is defined on the whole algebra and not only on its reduced characteristic-zero specializations"
+   ],
+   "sources": [
+    {
+     "sourceId": "chenevier-determinants",
+     "locator": "Theorem A, introduction",
+     "excerpt": "Let k be an algebraically closed field and D : k[G] −→ k be a determinant of dimension d. There exists a unique semisimple representation ρ : G −→ GLd (k) such that for any g ∈ G, det(1 + tρ(g)) = D(1 + tg).",
+     "match": "The determinant-to-representation statement in the residual setting, the first half of what R19.6 needs."
+    },
+    {
+     "sourceId": "chenevier-determinants",
+     "locator": "Theorem B, introduction",
+     "excerpt": "Let A be a henselian local ring with algebraically closed residue field k, D : A[G] −→ A a determinant of dimension d, and let ρ be the semisimple representation attached to D ⊗A k by Theorem A. If ρ is irreducible, then there exists a unique representation ρ̃ : G −→ GLd (A) such that for any g ∈ G, det(1 + tρ̃(g)) = D(1 + tg).",
+     "match": "The representability criterion with its two hypotheses - henselian local with algebraically closed residue field, and irreducible residual representation - both of which must be checked before applying it to a Hecke algebra."
+    },
+    {
+     "sourceId": "chenevier-determinants",
+     "locator": "Abstract and introduction",
+     "excerpt": "Our main tool is a theory of determinants extending the one of pseudocharacters but which works over an arbitrary base ring",
+     "match": "The reason this source rather than a pseudocharacter reference is the right supplier when the residue characteristic is small relative to the dimension."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "AutomorphicGaloisRepresentations:R19.1/geometric-construction-and-the-eichler-congruence-relation",
+   "target": "AutomorphicGaloisRepresentations:R19.1/lambda-adic-representation-of-a-weight-k-eigenform",
+   "reason": "Deligne's Bourbaki talk is the construction that Deligne-Serre's Theoreme 6.1 quotes: it builds the l-adic sheaf from the symmetric power of the Tate module of the universal elliptic curve, identifies the Hecke operator on its cohomology, and proves the congruence relation T_p = F + V from which det(1 - F_p X) = 1 - a_p X + eps(p) p^{k-1} X^2 is read off. The output supplied to the uniqueness statement is exactly the unramified characteristic polynomial at good p.",
+   "sources": [
+    {
+     "sourceId": "deligne-bourbaki-355",
+     "locator": "Theoreme 4.9 and the derivation (5.7) in No. 5, printed pp. 165 and 171 area"
+    },
+    {
+     "sourceId": "deligne-serre74",
+     "locator": "Theoreme 6.1 and Remarque 6.2, printed pp. 520-521"
+    }
+   ]
+  },
+  {
+   "source": "AutomorphicGaloisRepresentations:R19.1/lambda-adic-representation-of-a-weight-k-eigenform",
+   "target": "AutomorphicGaloisRepresentations:R19.1/weight-one-artin-representation",
+   "reason": "Deligne-Serre's Remarque 6.5 states that Theoreme 6.1 and Corollaire 6.3 remain valid in weight one ONLY once Theorem 4.1 has been proved, and that the image of G is then finite. So the l-adic statement in weight k >= 2 is logically prior and the weight-one l-adic statement is a consequence of the Artin representation. The precise point at which the weight >= 2 theory enters the section 8 proof of Theorem 4.1 was NOT verified, because section 8 was not read; the edge records the order the source states, not a proof step inspected here.",
+   "sources": [
+    {
+     "sourceId": "deligne-serre74",
+     "locator": "Remarque 6.5 and 6.9, printed pp. 521 and 521"
+    }
+   ]
+  },
+  {
+   "source": "AlgebraicModularFormsAndSerreWeights:R15.5",
+   "target": "AutomorphicGaloisRepresentations:R19.1/lambda-adic-representation-of-a-weight-k-eigenform",
+   "reason": "The existing stage edge R15.5 -> R19.1 is justified at node level: the proof of Deligne-Serre Theoreme 6.7 (the mod-lambda statement, which is what makes 'residual modularity' meaningful) reduces to Theoreme 6.1 exactly through the two steps of R15.5 - the Eisenstein weight shift 6.9 to reach k >= 2 and the eigenvalue-lifting Lemme 6.11 through 6.10 to reach a genuine eigenform. The output supplied is a characteristic-zero normalized eigenform of weight k >= 2 with prescribed mod-lambda eigenvalues.",
+   "sources": [
+    {
+     "sourceId": "deligne-serre74",
+     "locator": "6.9, 6.10 and 6.12, printed pp. 521-523"
+    }
+   ]
+  },
+  {
+   "source": "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
+   "target": "AutomorphicGaloisRepresentations:R19.4/hecke-versus-langlands-normalization-and-local-global-compatibility",
+   "reason": "Theorem (A) IS the local-global compatibility statement: its conclusion is that sigma_lambda restricted to W_p is equivalent to sigma_lambda(pi_p) at every finite place p of residue characteristic different from lambda. The node separates the construction (R19.2) from the normalization analysis and conductor consequences (R19.4) that the roadmap demands.",
+   "sources": [
+    {
+     "sourceId": "carayol86-hilbert",
+     "locator": "Theoreme (A) and 0.5, printed pp. 410-411"
+    }
+   ]
+  },
+  {
+   "source": "AutomorphicGaloisRepresentations:R19.4/hecke-versus-langlands-normalization-and-local-global-compatibility",
+   "target": "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime",
+   "reason": "Saito proves the p-adic statement by COMPARING it to the l-adic one, which he quotes as Theorem 0 = Carayol's theorem: 'it is enough to compare rho_{f,lambda,p} with rho_{f,mu,p}'. The l-adic compatibility is therefore an input, not a parallel result.",
+   "sources": [
+    {
+     "sourceId": "saito-hilbert-padic-hodge",
+     "locator": "Theorem 0 and the paragraph following Theorem 1, pp. 10-12 of the arXiv version"
+    }
+   ]
+  },
+  {
+   "source": "AutomorphicGaloisRepresentations:R19.3/strict-compatibility-and-the-monodromy-weight-purity",
+   "target": "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime",
+   "reason": "Claim 1(2) - that the monodromy operators vanish simultaneously at lambda and at mu - is deduced from Claim 1(1) together with Theorem 2, the monodromy-weight purity statement: the two cases are distinguished by the absolute values of the Frobenius eigenvalues. Without purity the trace comparison does not give the Weil-Deligne isomorphism.",
+   "sources": [
+    {
+     "sourceId": "saito-hilbert-padic-hodge",
+     "locator": "The deduction of Claim 1(2) after Theorem 2, p. 13 of the arXiv version"
+    }
+   ]
+  },
+  {
+   "source": "AlgebraicModularFormsAndSerreWeights:R15.6",
+   "target": "AutomorphicGaloisRepresentations:R19.6/determinants-and-representability-over-a-hecke-algebra",
+   "reason": "Requested, with a caveat. Chenevier's Theorem B needs an algebraically closed residue field, whereas a localized Hecke algebra has a finite one. The descent statement that closes that gap is Deligne-Serre Lemme 6.13 (a semisimple representation over a finite field is realizable over the subfield generated by the coefficients of its characteristic polynomials), which this job decomposed as a node under R15.6. The exact output supplied is that descent; whether it is sufficient in Chenevier's setting was NOT verified, so this edge is proposed rather than asserted.",
+   "sources": [
+    {
+     "sourceId": "deligne-serre74",
+     "locator": "Lemme 6.13, printed p. 523"
+    },
+    {
+     "sourceId": "chenevier-determinants",
+     "locator": "Theorem B, introduction"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "AutomorphicGaloisRepresentations:R19.1",
+   "status": "partial",
+   "remaining": [
+    "The construction of the l-adic sheaf W_l from the symmetric power of the Tate module (Deligne Bourbaki 355, Propositions 3.6, 3.8, 3.18, 3.19) was located but not read; only Proposition 3.15, Theorem 4.9 and No. 5 were.",
+    "Igusa's compactification (Theorem 4.1 there) and the identity (4.8) of which the congruence formula is declared synonymous were not read.",
+    "The projector onto the two-dimensional eigenspace, the coefficient field and the integral lattice were not read in any source; Deligne-Serre quote the existence of rho_lambda without producing a lattice.",
+    "Deligne-Serre section 8, which proves Theorem 4.1 (the weight-one Artin representation), was not read.",
+    "The weight normalization shift between Deligne's k and the classical weight k+2 was noticed but not reconciled with the roadmap's stated convention."
+   ]
+  },
+  {
+   "stageId": "AutomorphicGaloisRepresentations:R19.2",
+   "status": "partial",
+   "remaining": [
+    "Only Carayol's introduction (0.1-0.11) was read. Sections 1-12, which contain the construction of the Shimura curves, their bad reduction, the sheaves F_lambda, the Hecke decomposition and the proof of Theorem (B'), were not read. Next source action: read Carayol sections 1-2 (the curves and the universal object), section 10 (the decomposition of cohomology) and section 12.3 (the proof of Theorem (A) from (B)).",
+    "The base-change step deducing Theorem (A) from Theorem (B) was not read; it is at 12.3, located but not inspected.",
+    "The companion paper on bad reduction of Shimura curves (R02_SS_CarayolBadReduction.pdf, in the library) was not read, although Theorem (B) depends on it crucially."
+   ]
+  },
+  {
+   "stageId": "AutomorphicGaloisRepresentations:R19.3",
+   "status": "partial",
+   "remaining": [
+    "Saito's proof of Theorem 2 (monodromy-weight) was not read; it rests on the Weil conjecture plus a vanishing of global sections described as an analogue of a standard vanishing.",
+    "The weight theorem that the roadmap assigns to WeightsInEtaleCohomology R34 was not checked against Saito's use of it.",
+    "The distinction between weak, almost strict and strict compatibility is recorded here from the two sources' own definitions but was not traced forward into PotentialModularityAndCompatibleSystems R24, which is owned by EXT-12."
+   ]
+  },
+  {
+   "stageId": "AutomorphicGaloisRepresentations:R19.4",
+   "status": "partial",
+   "remaining": [
+    "Kutzko's classification, on which the definition of sigma(pi_p) rests, was not read.",
+    "The archimedean normalization and the conventions of the source at infinite places (0.2) were read but not decomposed.",
+    "Ogg's conductor computation, used in the Corollaire, was not read."
+   ]
+  },
+  {
+   "stageId": "AutomorphicGaloisRepresentations:R19.5",
+   "status": "partial",
+   "remaining": [
+    "The geometric core of Saito's proof - the Kuga-Sato analogue, the algebraic correspondences, the p-adic comparison theorem and the weight spectral sequence - was not read; only the statement of Claim 1 and the logical structure were.",
+    "The 'Lemma 1 [Sa]' by which Theorem 1 follows from Claim 1 was not read.",
+    "Inertial-type comparisons in the Barsotti-Tate, ordinary and endpoint-weight cases, which the roadmap names explicitly, are not covered by the nodes written here."
+   ]
+  },
+  {
+   "stageId": "AutomorphicGaloisRepresentations:R19.6",
+   "status": "partial",
+   "remaining": [
+    "Chenevier's Theorems 2.12, 2.16 and 2.22 were located but their proofs were not read; only the introduction's statements of Theorems A and B were.",
+    "The construction of the determinant law FROM Hecke operators and Frobenius polynomials, and the compatibility with specialisation, were not read in any source.",
+    "The weight-two statement V_l(A_f) = direct sum over lambda | l of rho_{f,lambda}, with its dimension bookkeeping, was not decomposed; no source for it was read in this pass."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "The geometric construction is now partly read, but Theorem 5.1 of the 1969 source is conditional on the Weil conjectures",
+   "neededBy": [
+    "AutomorphicGaloisRepresentations:R19.1/geometric-construction-and-the-eichler-congruence-relation",
+    "AutomorphicGaloisRepresentations:R19.1"
+   ],
+   "detail": "Correction to an earlier draft of this packet: Deligne, 'Formes modulaires et representations l-adiques', Seminaire Bourbaki expose 355, IS in the supplied library, as references/papers/ADD_DELIGNE69.pdf (catalogue id ADD_DELIGNE69). It has been read for the sections listed in this packet's source record. Verified: Proposition 3.15 (representability of the Hecke correspondence and the degeneration of its fibre at p), Theorem 4.9 (the Eichler congruence relation T_p = F + V), and No. 5 (Theorem 5.1, Lemma 5.2, Theorem 5.6) with the deduction of Ramanujan. Not verified: the construction of the sheaf W_l itself (Propositions 3.6, 3.8, 3.18, 3.19 were located but not read), Igusa's compactification Theorem 4.1, and the identity (4.8) of which Theorem 4.9 is declared 'synonyme'. Also not closed: Theorem 5.1 is stated conditionally on the Weil conjectures, which were open in 1969; the unconditional purity now used comes from Deligne's Weil I, present in the library as references/text/SS_WeilI.txt and not read in this pass. Next source action: read Deligne Bourbaki 355 sections 3.6-3.8 and 3.18-3.19 and the identity (4.8); then read Weil I Theoreme 1.6 to replace the conditional Theorem 5.1, and check against WeightsInEtaleCohomology R34.5 in data/atlas.json before proposing an edge."
+  },
+  {
+   "title": "Carayol's Theorem (B) depends on his companion paper on bad reduction, which was not read",
+   "neededBy": [
+    "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A"
+   ],
+   "detail": "Verified: Carayol's statement that the method 'utilise de facon cruciale les resultats que nous avons obtenus au prealable sur la (mauvaise) reduction de ces courbes', and that his section 1 is a summary of those results. Not verified: any of the bad-reduction results. The companion paper IS in the supplied library as references/papers/R02_SS_CarayolBadReduction.pdf ('Sur la mauvaise reduction des courbes de Shimura', Compositio Math. 59 (1986), 151-230) with extracted text at references/text/R02_SS_CarayolBadReduction.txt. Next source action: read its main theorems on the integral models and their special fibres at the ramified places, and check them against HilbertModularVarietiesAndShimuraCurves R18.4 (owned by EXT-11)."
+  },
+  {
+   "title": "Chenevier's Theorem B has an algebraically-closed-residue-field hypothesis that a Hecke algebra does not satisfy",
+   "neededBy": [
+    "AutomorphicGaloisRepresentations:R19.6/determinants-and-representability-over-a-hecke-algebra",
+    "AutomorphicGaloisRepresentations:R19.6"
+   ],
+   "detail": "Verified: the literal hypotheses of Theorems A and B, including 'A henselian local ring with algebraically closed residue field k'. Not verified: any statement bridging to a localized Hecke algebra, whose residue field is finite. The natural bridge is Deligne-Serre Lemme 6.13 together with a descent of the determinant law, but the sufficiency of that bridge was not checked in any source. Next source action: read Chenevier Theorem 2.22 and its surrounding discussion (the source says 'the biggest Cayley-Hamilton quotient of A[G] is the faithful one'), and look for the finite-residue-field version, for instance in Bellaiche-Chenevier's book chapter 1, which is cited as [BC] and is not in the supplied library."
+  },
+  {
+   "title": "The weight-two decomposition of V_l(A_f) has no source read",
+   "neededBy": [
+    "AutomorphicGaloisRepresentations:R19.6"
+   ],
+   "detail": "Verified: nothing. The stage text asserts V_l(A_f) = direct sum over lambda | l of rho_{f,lambda} as Q_l-representations with K_f-action, total Q_l-dimension 2[K_f:Q], each lambda-component of dimension two over K_{f,lambda}. This is standard but was not read in a source in this pass. Next source action: read Shimura's construction of A_f (Introduction to the Arithmetic Theory of Automorphic Functions, section 7.5) - NOT in the supplied library (checked CATALOGUE.json: the Shimura record has no resolved file) - or Diamond-Shurman section 6.6, which IS in the library as references/papers/LOCAL_f0c0fae15426e865.pdf."
+  },
+  {
+   "title": "Inertial types at the coefficient prime in the Barsotti-Tate, ordinary and endpoint-weight cases",
+   "neededBy": [
+    "AutomorphicGaloisRepresentations:R19.5"
+   ],
+   "detail": "Verified: Saito's Theorem 1 gives potential semistability and the Weil-Deligne isomorphism at p. Not verified: the translation into the inertial-type and Hodge-Tate-weight statements in the specific regimes that modularity lifting consumes (Barsotti-Tate, ordinary, weight p+1). Those are the statements that KW I Theorem 5.1 and Kisin's theorems use. Next source action: read Saito's section deriving Hodge-Tate weights from the multiweight k, and cross-check against FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4 and PadicHodgeTheory R06.5 in data/atlas.json before proposing any edge."
+  }
+ ]
+}

@@ -1,0 +1,294 @@
+{
+ "roadmapId": "AutomorphicBundles",
+ "status": "partial",
+ "summary": "Thin but source-faithful decomposition of the coherent-sheaf side of this roadmap. Three nodes are written, all from statements read in two sources: the two categories of weights (scalar automorphy factors versus representations of the centralizer of the Hodge cocharacter) and the concrete Levi instantiation; the canonical extension on a toroidal compactification with fan-independent sections, its log connection for bundles restricted from the whole group, and the subcanonical extension as the twist by the reduced boundary divisor, together with the fact that a general automorphic vector bundle does NOT extend over the minimal compactification; and the classical automorphy and growth conditions. One correction is recorded: the source's printed cocycle condition for an automorphy factor is inconsistent with its own automorphy condition, and the atlas stage text has the correct identity. Five of the nine stages (B0, B1, B1.general, B2.general, B3.general, B5) have no nodes: the canonical principal bundle, which is the core object of B0 and B1, has no readable source in the supplied library - Deligne's Varietes de Shimura is present but its PDF carries no text layer, and Milne's 1990 automorphic-vector-bundles paper is absent from the catalogue.",
+ "sources": [
+  {
+   "id": "lan-example-based-intro",
+   "title": "An Example-Based Introduction to Shimura Varieties",
+   "authors": "Kai-Wen Lan",
+   "edition": "Author's copy intro-sh-ex.pdf; read from the supplied extracted text references/text/SS_LanIntroduction.txt with spot checks against a per-page PDF text extraction. Locators give the article's own printed page numbers",
+   "url": "https://www.kwlan.org/articles/intro-sh-ex.pdf",
+   "sha256": "d9a3e75544a0a168db70d552a80696c4ef2f84d8184654cd0ca45eae81b32dad",
+   "readSections": [
+    "4.2.5 (reductive Borel-Serre compactification) and 4.2.6 (models over number fields), pp. 48-49",
+    "4.2.7 Algebro-geometric definition of modular forms: the automorphy and growth conditions, the cocycle condition as printed, the subtlety that a general automorphic vector bundle does not extend over the minimal compactification, the canonical extension W^can over a toroidal compactification with sections independent of the fan, the integrable connection with log poles for bundles restricted from representations of G(C), and the subcanonical extension W^sub = W^can(-infinity), pp. 49-50",
+    "5.1.4-5.1.5 (automorphic vector bundles over integral models; integral models not defined by smooth moduli), pp. 57-58"
+   ]
+  },
+  {
+   "id": "hltt-rigid-cohomology",
+   "title": "On the rigid cohomology of certain Shimura varieties",
+   "authors": "Michael Harris, Kai-Wen Lan, Richard Taylor and Jack Thorne",
+   "edition": "Author's copy rigcoh.pdf; read from references/text/SS_HLTT.txt. Locators give the article's own page numbers",
+   "url": "https://www.kwlan.org/articles/rigcoh.pdf",
+   "sha256": "abecfd049d617654dd0bb60e4945bf6967d3953ed20f2126de0624f2bd0bdbc7",
+   "readSections": [
+    "Introduction, the paragraph constructing E_{U,rho}, its canonical extension E_{U,Delta,rho} to a smooth toroidal compactification X_{n,U,Delta} with simple normal crossings boundary, the subcanonical E^sub_{U,Delta,rho} as the product with the boundary ideal sheaf, the independence of the spaces of global sections from Delta, and the definition of an overconvergent cusp form as a section of E^sub over the ordinary locus of the dagger space, pp. 2-3"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "AutomorphicBundles:B4/automorphy-factor-cocycle-and-growth-conditions",
+   "parentStageId": "AutomorphicBundles:B4",
+   "title": "The classical definition of a modular form by an automorphy factor, and the cocycle identity it forces",
+   "kind": "definition",
+   "statement": "In the source's classical formulation, a holomorphic modular form is a holomorphic f: D -> C satisfying (1) the AUTOMORPHY CONDITION f(gamma Z) = j(gamma, Z) f(Z) for all gamma in Gamma and Z in D, for an automorphy factor j: Gamma x D -> C^* defining the weight of f; and (2) the GROWTH CONDITION that f(Z) stays bounded near D^* minus D, with f a cusp form when in addition f(Z) -> 0 as Z -> D^* minus D. When Gamma is neat, the growth condition implies that the section represented by f extends to a section of a line bundle over the minimal compactification (Gamma\\D)^min = Gamma\\D^*. The automorphy factor is exactly the datum making f a section of an automorphic line bundle over Gamma\\D; the line bundles used in the classical embedding theorem are powers of the canonical bundle, i.e. the top exterior power of the cotangent bundle of Gamma\\D. CORRECTION TO THE SOURCE: the source displays the cocycle condition as j(gamma' gamma, Z) = j(gamma', Z) j(gamma, Z). That is inconsistent with its own automorphy condition: applying the automorphy condition twice gives f(gamma' gamma Z) = j(gamma', gamma Z) f(gamma Z) = j(gamma', gamma Z) j(gamma, Z) f(Z), so the correct identity for a LEFT action is j(gamma' gamma, Z) = j(gamma', gamma Z) j(gamma, Z). Two independent text extractions of the source PDF (whole-document and per-page) give the same printed form, so this is a typo in the source rather than an extraction artefact. The atlas stage text for B4 states the correct identity.",
+   "hypotheses": [
+    "the growth condition's consequence - extension of the section over the minimal compactification - is stated only when Gamma is NEAT",
+    "the automorphy factor takes values in C^*, so this formulation captures only LINE bundles; vector-valued weights need automorphy factors valued in the centralizer of h_0 in G(C), which is treated separately",
+    "the cocycle identity as printed in the source is wrong; the correct left-action identity carries the argument gamma Z in the first factor",
+    "the atlas stage text further requires deriving the RIGHT-action formula rather than reusing the left-action one; no source read here does that derivation"
+   ],
+   "proofSteps": [
+    "The source states the two conditions and the cocycle condition in its Section 4.2.7.",
+    "The inconsistency is detected by composing the automorphy condition with itself, which is the only way the two displayed conditions can be reconciled."
+   ],
+   "acceptance": [
+    "Verify the cocycle identity by composing the automorphy condition twice, and check that the printed form fails already for SL_2(Z) acting on the upper half plane with j(gamma, z) = (cz+d)^k",
+    "Check that for non-neat Gamma the growth condition does not by itself give extension across the minimal compactification"
+   ],
+   "sources": [
+    {
+     "sourceId": "lan-example-based-intro",
+     "locator": "4.2.7, printed p. 49",
+     "excerpt": "(1) Automorphy condition: f (γZ) = j(γ, Z)f (Z), for all γ ∈ Γ and Z ∈ D, for some automorphy factor j : Γ × D → C× defining the weight of f , satisfying the cocycle condition j(γ 0 γ, Z) = j(γ 0 , Z)j(γ, Z) for all γ, γ 0 ∈ Γ and Z ∈ D.",
+     "match": "The printed automorphy and cocycle conditions. The cocycle condition as printed is inconsistent with the automorphy condition; the correct form is j(gamma' gamma, Z) = j(gamma', gamma Z) j(gamma, Z), as the atlas stage text states."
+    },
+    {
+     "sourceId": "lan-example-based-intro",
+     "locator": "4.2.7, printed p. 49",
+     "excerpt": "(2) Growth condition: f (Z) stays bounded near D∗ − D. (When Γ is neat, this implies that the section represented by f extends to a section of a line bundle over (Γ\\D) min = Γ\\D∗ .) If f satisfies the additional condition that f (Z) → 0 as Z → D ∗ − D, then f is called a cusp form.",
+     "match": "The growth condition with the neatness hypothesis attached to its geometric consequence."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AutomorphicBundles:B3/canonical-and-subcanonical-extensions",
+   "parentStageId": "AutomorphicBundles:B3",
+   "title": "Canonical and subcanonical extensions on a toroidal compactification, and why the minimal one does not work",
+   "kind": "construction",
+   "statement": "For a finite-dimensional representation W of the centralizer of h_0 in G(C) the associated automorphic vector bundle W over Gamma\\D in general does NOT extend to a vector bundle over the minimal compactification (Gamma\\D)^min; the source notes this is consistent with the boundary of the minimal compactification having high codimension. It does, however, admit CANONICAL EXTENSIONS W^can to vector bundles over the toroidal compactifications (Gamma\\D)^tor_Sigma, whose SECTIONS ARE INDEPENDENT OF Sigma. When W is the restriction of a representation of the whole group G(C), the bundle W carries an integrable connection, and W^can carries an integrable connection WITH LOG POLES along the boundary, coinciding with the one of Deligne's canonical extension. The SUBCANONICAL extension is W^sub = W^can(-infinity), where infinity denotes the boundary divisor (Gamma\\D)^tor minus (Gamma\\D) with its REDUCED structure; its global sections are what is used for cusp forms. The cohomology of W^can and W^sub is the coherent cohomology of the toroidal compactification, and it is this algebro-geometric formulation that permits modular forms in mixed or positive characteristic over integral models. The same construction appears in the unitary-similitude setting of the second source: a locally free E_{U,rho} on X_{n,U} with canonical locally free extension E_{U,Delta,rho} to the smooth compactification X_{n,U,Delta} whose boundary is a simple normal crossings divisor, and E^sub_{U,Delta,rho} = the product of E_{U,Delta,rho} with the ideal sheaf of the boundary, whose global sections are the holomorphic cusp forms of weight rho and level U - again independent of Delta.",
+   "hypotheses": [
+    "the canonical extension is on a TOROIDAL compactification and depends on a choice of admissible fan Sigma (resp. auxiliary data Delta); only the SPACES OF SECTIONS are independent of that choice, not the sheaf",
+    "the log connection is available only for W restricted from a representation of the whole group G(C), not for an arbitrary representation of the centralizer",
+    "the subcanonical extension is the twist by the ideal sheaf of the REDUCED boundary divisor; the reducedness is part of the definition",
+    "in the second source the compactification is required to be SMOOTH with simple normal crossings boundary; the canonical extension is asserted locally free there"
+   ],
+   "proofSteps": [
+    "The first source states the non-extension over the minimal compactification, the existence of the canonical extension with Sigma-independent sections, the log connection, and the definition of the subcanonical extension, citing Mumford and Harris for the canonical extension and Deligne for the connection.",
+    "The second source repeats the construction concretely for its unitary-similitude Shimura varieties and records the independence from Delta twice - once for automorphic forms and once for cusp forms."
+   ],
+   "acceptance": [
+    "Check on a modular curve that the canonical extension of the weight-k bundle is omega^k on the compactified curve and the subcanonical extension is omega^k(-cusps)",
+    "Exhibit a representation W of the centralizer whose automorphic bundle does not extend over the minimal compactification, confirming that the toroidal compactification is necessary",
+    "Check that the log connection exists for W restricted from G(C) and fails for a general W"
+   ],
+   "sources": [
+    {
+     "sourceId": "lan-example-based-intro",
+     "locator": "4.2.7, printed pp. 49-50",
+     "excerpt": "Nevertheless, the automorphic vector bundle W has canonical extensions (see [Mum77] and [Har89]) to vector bundles W can over the toroidal compactifications (Γ\\D)tor Σ , whose sections are independent of Σ.",
+     "match": "The canonical extension with the Sigma-independence of its sections, which the stage requires to be proved rather than assumed."
+    },
+    {
+     "sourceId": "lan-example-based-intro",
+     "locator": "4.2.7, printed p. 50",
+     "excerpt": "(When W is the restriction of a representation of G(C), the vector bundle W is equipped with an integrable connection, and its canonical extension W can is equipped with an integrable connection with log poles along the boundary and coincides with the one given in [Del70].)",
+     "match": "The log-connection statement with its exact hypothesis - W restricted from the whole group - which the stage names."
+    },
+    {
+     "sourceId": "lan-example-based-intro",
+     "locator": "4.2.7, printed p. 50",
+     "excerpt": "There are also the subcanonical extensions W sub := W can (−∞), where ∞ abusively denotes the boundary divisor (Γ\\D)tor − (Γ\\D) with its reduced structure, whose global sections are (roughly speaking) useful for studying cusp forms.",
+     "match": "The definition of the subcanonical extension with the reduced boundary divisor."
+    },
+    {
+     "sourceId": "hltt-rigid-cohomology",
+     "locator": "Introduction, pp. 2-3",
+     "excerpt": "The product of EU,∆,ρ with the ideal sheaf of the boundary of Xn,U,∆ , which we denote sub EU,∆,ρ , is again locally free and its global sections are holomorphic cusp forms on Gn ‘of weight ρ and level U ’ (and again the space of global sections does not depend on ∆).",
+     "match": "The same construction in the unitary-similitude setting, with local freeness of the subcanonical extension and independence of the auxiliary data asserted."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AutomorphicBundles:B2/automorphic-vector-bundles-from-representations-of-the-centralizer",
+   "parentStageId": "AutomorphicBundles:B2",
+   "title": "The bundle attached to a representation, and the two weight categories that must be distinguished",
+   "kind": "construction",
+   "statement": "Two categories of weights appear and must be kept distinct. (i) Automorphy factors valued in C^* give automorphic LINE bundles, and these are the classical scalar weights. (ii) Automorphy factors valued in the centralizer Cent_{h_0}(G(C)) of the Hodge cocharacter give automorphic VECTOR bundles W for arbitrary finite-dimensional representations W of that centralizer. The source states explicitly that not all modular forms arise from case (i). Bundles in case (ii) restricted from representations of the whole group G(C) are exactly those carrying an integrable connection, and only those acquire a log connection on the canonical extension. In the second source the corresponding object is a representation rho of the Levi L_{n,(n)} = GL_1 x Res_{F/Q} GL_n of the maximal parabolic of the quasi-split unitary similitude group, with the attached locally free sheaf E_{U,rho} on the Shimura variety X_{n,U}, whose global sections over the canonical extension are the holomorphic automorphic forms of weight rho and level U.",
+   "hypotheses": [
+    "the group whose representations give weights is the centralizer of h_0 in G(C), i.e. a Levi, not the whole group",
+    "the subcategory of representations restricted from G(C) is where connections live; this is not all of the weight category",
+    "in the concrete unitary-similitude setting the weight group is the Levi of a specific maximal parabolic, and the Shimura variety is NOT proper",
+    "the relation between sections of the analytic bundle and the algebro-geometric one is the content of the comparison the stage requires; it is not read here"
+   ],
+   "proofSteps": [
+    "The first source distinguishes the two weight categories and records the consequence for connections.",
+    "The second source instantiates the construction concretely and identifies global sections with automorphic forms of weight rho and level U."
+   ],
+   "acceptance": [
+    "Check that the weight category for the modular curve is representations of the standard torus, recovering the classical integer weight",
+    "Check that a representation of the centralizer not extending to G(C) gives a bundle with no integrable connection"
+   ],
+   "sources": [
+    {
+     "sourceId": "lan-example-based-intro",
+     "locator": "4.2.7, printed p. 49",
+     "excerpt": "Not all modular forms are defined as above using only automorphy factors valued in C× . It is possible to consider automorphy factors valued in Centh0 (G(C)), so that it makes sense to consider modular forms with weights given by all finite-dimensional representations W of Centh0 (G(C)).",
+     "match": "The two weight categories, with the centralizer of the Hodge cocharacter as the weight group in the vector-valued case."
+    },
+    {
+     "sourceId": "hltt-rigid-cohomology",
+     "locator": "Introduction, p. 2",
+     "excerpt": "To a representation ρ of Ln,(n) (over Q) one can attach a locally free sheaf EU,ρ /Xn,U together with a canonical (locally free) extension EU,∆,ρ to Xn,U,∆ , whose global sections are holomorphic automorphic forms on Gn ‘of weight ρ and level U ’.",
+     "match": "The concrete instantiation with the Levi as weight group and the identification of global sections with automorphic forms."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "AutomorphicBundles:B2/automorphic-vector-bundles-from-representations-of-the-centralizer",
+   "target": "AutomorphicBundles:B3/canonical-and-subcanonical-extensions",
+   "reason": "The canonical and subcanonical extensions are extensions OF the automorphic vector bundle attached to a representation, so B3 consumes B2's construction; and the availability of a log connection on the canonical extension is conditional on B2's distinction between representations of the centralizer and those restricted from the whole group.",
+   "sources": [
+    {
+     "sourceId": "lan-example-based-intro",
+     "locator": "4.2.7, printed pp. 49-50"
+    }
+   ]
+  },
+  {
+   "source": "AutomorphicBundles:B3/canonical-and-subcanonical-extensions",
+   "target": "AutomorphicBundles:B4/automorphy-factor-cocycle-and-growth-conditions",
+   "reason": "The stage defines classical modular and cuspidal forms as sections of the canonical and subcanonical extensions and then requires the analytic transformation-law comparison; the growth condition of the classical definition is exactly what corresponds to extension across the boundary, and the source states that correspondence (for neat Gamma) as the consequence of the growth condition.",
+   "sources": [
+    {
+     "sourceId": "lan-example-based-intro",
+     "locator": "4.2.7, growth condition and the canonical/subcanonical extensions, printed pp. 49-50"
+    }
+   ]
+  },
+  {
+   "source": "AutomorphicBundles:B3/canonical-and-subcanonical-extensions",
+   "target": "AutomorphicGaloisRepresentationsPartII:AG2.4",
+   "reason": "The existing stage edge B3 -> AG2.4 is justified at node level: the non-self-dual construction defines an overconvergent cusp form of weight rho and level U as a section of the SUBCANONICAL sheaf E^sub_{U,rho} over the ordinary locus of the dagger space attached to the toroidal compactification. The exact output supplied is the subcanonical extension together with the independence of its spaces of sections from the auxiliary compactification data.",
+   "sources": [
+    {
+     "sourceId": "hltt-rigid-cohomology",
+     "locator": "Introduction, pp. 2-3: 'By an overconvergent cusp form of weight ρ and level U one means a section of EU,ρ sub over Xord,† n,U,∆ . (Again this definition does not depend on the choice of ∆.)'"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "AutomorphicBundles:B0",
+   "status": "not_read",
+   "remaining": [
+    "No node written. The generic associated-bundle construction for torsors and representations, the geometric/analytic descent comparison, the equivariant-function description of sections with a chosen left or right action, and semilinear descent data for coefficient extensions were not read in any source. Next source action: the canonical principal bundle and its associated-bundle formalism are developed in Milne, 'Canonical models of (mixed) Shimura varieties and automorphic vector bundles' (1990) and in Harris's papers; neither is in the supplied library (checked CATALOGUE.json: the Milne items are SS_MilneShimura, SS_MilneDuality, R02_SS_MilneConjugation1983 and R02_SS_MilneDescent1999, none of which is the 1990 automorphic-vector-bundles paper). SS_MilneShimura mentions automorphic vector bundles only in its historical notes and bibliography."
+   ]
+  },
+  {
+   "stageId": "AutomorphicBundles:B1",
+   "status": "not_read",
+   "remaining": [
+    "No node written. The canonical principal bundle, its filtration reduction, the special-point/CM description, Hecke compatibility, algebraicity, descent, and the Hodge-tensor description via Betti, de Rham and etale realizations were not read. Next source action: Deligne, 'Varietes de Shimura', IS in the supplied library as references/papers/SS_DeligneVarietes.pdf, but its extracted text file is EMPTY (43 bytes), i.e. the PDF has no usable text layer; it would need OCR. SS_MilneShimura has usable text and its sections on canonical models should be read first."
+   ]
+  },
+  {
+   "stageId": "AutomorphicBundles:B1.general",
+   "status": "not_read",
+   "remaining": [
+    "No node written. This stage is the general-data completion of B1 and inherits its unread status."
+   ]
+  },
+  {
+   "stageId": "AutomorphicBundles:B2",
+   "status": "partial",
+   "remaining": [
+    "Only the distinction between scalar and vector-valued weights and the concrete Levi instantiation were read. The canonical-model descent of the bundle, the comparison with the analytic bundle, the local system attached to a representation of G^c with its de Rham bundle, integrable connection and Hodge filtration, and the tensor and Hecke compatibilities were not read."
+   ]
+  },
+  {
+   "stageId": "AutomorphicBundles:B2.general",
+   "status": "not_read",
+   "remaining": [
+    "No node written; inherits the unread status of B1.general."
+   ]
+  },
+  {
+   "stageId": "AutomorphicBundles:B3",
+   "status": "partial",
+   "remaining": [
+    "The statements of the canonical and subcanonical extensions and their independence properties were read, but no construction was: the source cites Mumford and Harris for the canonical extension and Deligne for the log connection, and none of those was read.",
+    "The degeneration charts and the gluing argument that the stage requires were not read. Lan's thesis on arithmetic compactifications of PEL-type Shimura varieties IS in the supplied library (references/papers/R02_Lan_PELCompactifications.pdf with extracted text) and was not opened in this pass; it is the natural next source.",
+    "Compatibility with refinements of the fan was read only as the assertion that spaces of sections are independent of the fan."
+   ]
+  },
+  {
+   "stageId": "AutomorphicBundles:B3.general",
+   "status": "not_read",
+   "remaining": [
+    "No node written; inherits the unread status of B2.general."
+   ]
+  },
+  {
+   "stageId": "AutomorphicBundles:B4",
+   "status": "partial",
+   "remaining": [
+    "The classical automorphy and growth conditions were read and a correction to the source's printed cocycle condition is recorded, but the analytic transformation-law comparison with the algebro-geometric definition was not read, nor was the Hilbert-bundle identification the stage requires from another roadmap.",
+    "The right-action formula that the stage demands be derived rather than reused was not derived in any source read."
+   ]
+  },
+  {
+   "stageId": "AutomorphicBundles:B5",
+   "status": "not_read",
+   "remaining": [
+    "No node written. Pullback, coefficient identification and trace along Hecke correspondences, the scalar normalizations, composition against the abstract Hecke algebra, and the treatment of non-neat levels by equivariance and descent rather than by dividing by a possibly non-invertible group order were not read. Next source action: read Lan's thesis chapters on Hecke actions on compactifications, in the library."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "The source's printed cocycle condition for an automorphy factor is wrong",
+   "neededBy": [
+    "AutomorphicBundles:B4/automorphy-factor-cocycle-and-growth-conditions",
+    "AutomorphicBundles:B4"
+   ],
+   "detail": "Verified: the source's Section 4.2.7 displays the automorphy condition f(gamma Z) = j(gamma, Z) f(Z) together with the cocycle condition j(gamma' gamma, Z) = j(gamma', Z) j(gamma, Z). These two are inconsistent: composing the automorphy condition gives f(gamma' gamma Z) = j(gamma', gamma Z) j(gamma, Z) f(Z), so the correct left-action identity is j(gamma' gamma, Z) = j(gamma', gamma Z) j(gamma, Z). Checked twice, by whole-document extraction of the supplied text file and by a per-page pdftotext -raw run of the source PDF; both give the same printed string, and the Greek letters elsewhere in the same display extract correctly, so this is a typo in the source and not an extraction artefact. The atlas stage text for B4 states the correct identity; no correction to the atlas is needed. Next source action: none required for the mathematics; when the packet is promoted, cite a source that prints the identity correctly, for instance any standard treatment of automorphy factors."
+  },
+  {
+   "title": "The canonical principal bundle, the core object of B0 and B1, has no source in the supplied library",
+   "neededBy": [
+    "AutomorphicBundles:B0",
+    "AutomorphicBundles:B1",
+    "AutomorphicBundles:B1.general",
+    "AutomorphicBundles:B2.general",
+    "AutomorphicBundles:B3.general"
+   ],
+   "detail": "Verified: nothing about the canonical principal bundle. NOT verified: its construction, filtration reduction, special-point description, Hecke compatibility, algebraicity or descent. Searched the supplied library: CATALOGUE.json contains no record for Milne, 'Canonical models of (mixed) Shimura varieties and automorphic vector bundles' (1990), which the introduction read here cites in its bibliography; nor for Harris, 'Automorphic forms and the cohomology of vector bundles on Shimura varieties'. Deligne's 'Varietes de Shimura' IS present as references/papers/SS_DeligneVarietes.pdf but its extracted text file references/text/SS_DeligneVarietes.txt is 43 bytes, i.e. the PDF carries no usable text layer. Next source action: (a) OCR the Deligne PDF or obtain a text-bearing copy; (b) obtain Milne's 1990 paper (it is publicly available in the Ann Arbor proceedings volume and on the author's site); (c) meanwhile read SS_MilneShimura's sections on canonical models, which IS in the library with usable text, to fix the Shimura-variety side of the interface."
+  },
+  {
+   "title": "Only statements, never constructions, were read for the extensions",
+   "neededBy": [
+    "AutomorphicBundles:B3/canonical-and-subcanonical-extensions",
+    "AutomorphicBundles:B3"
+   ],
+   "detail": "Verified: the existence of the canonical extension with fan-independent sections, the log connection for bundles restricted from G(C), and the definition of the subcanonical extension - all as statements, with citations to Mumford, Harris and Deligne. Also verified: the same construction asserted concretely in the unitary-similitude setting with local freeness and Delta-independence. NOT verified: any construction, the degeneration charts, the gluing, or the behaviour under refinement of the fan. The natural source IS in the supplied library: Lan, 'Arithmetic compactifications of PEL-type Shimura varieties' (references/papers/R02_Lan_PELCompactifications.pdf, with extracted text at references/text/R02_Lan_PELCompactifications.txt), which the introduction read here cites for exactly these constructions. Next source action: read its chapters on the toroidal compactification and on automorphic bundles over integral models."
+  },
+  {
+   "title": "No source read treats Hecke correspondences on the compactifications",
+   "neededBy": [
+    "AutomorphicBundles:B5",
+    "AutomorphicBundles:B2"
+   ],
+   "detail": "Verified: nothing. The stage requires pullback, coefficient identification and trace along Hecke correspondences, with all scalar normalizations stated and with non-neat levels handled by equivariance and descent rather than by dividing by a group order that may fail to be invertible. None of the sources read addresses this. Next source action: Lan's thesis (in the library) treats Hecke actions on the compactifications; read those chapters, and cross-check the normalization against Katz's Hecke q-expansion formula decomposed in this job's AlgebraicModularFormsAndSerreWeights packet, which is the rank-one instance."
+  }
+ ]
+}

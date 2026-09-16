@@ -1,0 +1,1712 @@
+{
+ "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+ "status": "partial",
+ "summary": "Source decomposition of Faltings' Endlichkeitssaetze fuer abelsche Varietaeten ueber Zahlkoerpern (Invent. Math. 73 (1983) 349-366) and its 1984 erratum, read in full, together with the one imported result that could also be read in the original (Raynaud, Schemas en groupes de type (p,...,p), Theoreme 4.1.1). The packet follows the paper's actual architecture: Section 2 (semiabelian schemes, the Hodge line bundle, the extension lemma, the stable-curve correspondence stack and the two-sided comparison of the modular and Hodge bundles), Section 3 (metrized line bundles, the modular height, logarithmic singularities of the Hodge metric, the Northcott lemma for such metrics, Satz 1), Section 4 (the isogeny height formula, Lemma 6, the local Tate computations and the global determinant identity sum m_i d_i = mh/2), Section 5 (the corrected tower argument, Zarhin's quaternion construction, Satz 3, Satz 4 and their corollaries) and Section 6 (Satz 5, the choice of N from Weil bounds, the Raynaud determinant computation, Satz 6, the curve corollary and Satz 7). Satz 2 is recorded only in its corrected form: the sequence h(A_n) becomes stationary, after replacing A by A_m for large m. Every step that Faltings imports (Tate's p-divisible groups, Zarhin's idempotent argument, the principal-polarization reduction, SGA 7 I Exp. IX, Baily-Borel, Namikawa, Deligne-Mumford, Torelli, Hermite-Minkowski and the finiteness of invariant lattices) is recorded as an explicit unresolved boundary with a next source action rather than packaged as an input.",
+ "sources": [
+  {
+   "id": "faltings-1983-endlichkeitssaetze",
+   "title": "Endlichkeitssaetze fuer abelsche Varietaeten ueber Zahlkoerpern",
+   "authors": "Gerd Faltings",
+   "edition": "Inventiones mathematicae 73 (1983), 349-366; copy inspected: scanned journal offprint with OCR text layer, 18 pages, printed pages 349-366",
+   "url": "https://link.springer.com/article/10.1007/BF01388432",
+   "sha256": "0b7fb3e505d5d63e3e6c5913daf15bd843488e59f80f8d5176b154ac8faa3fc2",
+   "readSections": [
+    "Section 1 Einleitung, p. 349-350",
+    "Section 2 Semiabelsche Varietaeten, pp. 350-353 (Definition, Bemerkungen a)-d), Lemma 1, the facts about Mbar_g and A_g, Lemma 2 and its Korollar, with proofs)",
+    "Section 3 Hoehen, pp. 353-357 (metrized line bundles, Grad, h(A), logarithmic singularities and the semistable-curve computation, Lemma 3, Satz 1, Lemma 4, with proofs)",
+    "Section 4 Isogenien, pp. 357-360 (Lemma 5 and its Bemerkung, Satz 2, Lemma 6, the Tate computations and the global determinant identity, with proofs)",
+    "Section 5 Endomorphismen, pp. 360-362 (Satz 3, Satz 4 and their joint proof, Korollar 1, Korollar 2, Korollar 3, with proofs)",
+    "Section 6 Endlichkeitssaetze, pp. 362-365 (Satz 5, Satz 6, the auxiliary polynomials P_h and the choice of N, the Raynaud determinant computation, Korollar 1, Satz 7, Bemerkungen 1-2, with proofs)",
+    "Literatur, pp. 365-366; Zusatz bei der Korrektur, p. 366"
+   ]
+  },
+  {
+   "id": "faltings-1984-erratum",
+   "title": "Erratum: Endlichkeitssaetze fuer abelsche Varietaeten ueber Zahlkoerpern",
+   "authors": "Gerd Faltings",
+   "edition": "Inventiones mathematicae 75 (1984), 381; copy inspected: 1-page scanned offprint with OCR text layer",
+   "url": "https://link.springer.com/article/10.1007/BF01388572",
+   "sha256": "e9d9269bf52151e3bc606f3b4f3581ef8bd0c2bafbc9dbdc4864b49a534a9734",
+   "readSections": [
+    "the whole page: the corrected statement of Satz 2 and the two corrections a) and b)"
+   ]
+  },
+  {
+   "id": "raynaud-1974-schemas-en-groupes-p-p",
+   "title": "Schemas en groupes de type (p, ..., p)",
+   "authors": "Michel Raynaud",
+   "edition": "Bulletin de la Societe Mathematique de France 102 (1974), 241-280; Numdam scan with text layer",
+   "url": "https://www.numdam.org/item/BSMF_1974__102__241_0/",
+   "sha256": "05cad2f5c2c33a2eea5739d255a8bb7de724e48e38dadb30507adc5e84f2edfe",
+   "readSections": [
+    "Section 3.3 Prolongements des schemas en F-vectoriels, printed pp. 265-268 (Prop. 3.3.1, Prop. 3.3.2, Th. 3.3.3, Remarques 3.3.4-3.3.5, Cor. 3.3.6, Cor. 3.3.7)",
+    "Section 3.4 Action du groupe de Galois, printed pp. 269-271 (Th. 3.4.1, Rem. 3.4.2, Th. 3.4.3, Cor. 3.4.4, Remarques 3.4.5-3.4.7 and the elliptic example)",
+    "Section 4 Determinants, printed pp. 271-273 (Section 4.1 with Theoreme 4.1.1 and Remarque 4.1.2; Section 4.2 with Theoreme 4.2.1, Remarque 4.2.2 and the start of the deformation proof)"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.1/semiabelian-scheme-and-its-hodge-line-bundle",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+   "title": "Semiabelian schemes and the Hodge line bundle omega_{A/S}",
+   "kind": "definition",
+   "statement": "For a scheme (or algebraic stack) S, a semiabelian variety of relative dimension g over S is a smooth algebraic group p : G -> S whose fibres are connected of dimension g and are extensions of an abelian variety by a torus. With s : S -> A the zero section one sets omega_{A/S} = s^*(Omega^g_{A/S}), a line bundle on S. It satisfies: (a) omega_{A/S} = p_*(Omega^g_{A/S}) when p is proper; (b) it commutes with base change; (c) if A = Pic^tau(C/S) for a stable curve q : C -> S then omega_{A/S} = Lambda^g q_*(omega_{C/S}) with omega_{C/S} the relative dualizing module; (d) for S = Spec(C) and p proper, omega_{A/S} = Gamma(A, Omega^g_{A/C}) carries the canonical hermitian product <alpha,beta> = (i/2)^g int_A alpha ^ conj(beta).",
+   "hypotheses": [
+    "S a scheme or algebraic stack; p : G -> S smooth with connected fibres of dimension g, each fibre an extension of an abelian variety by a torus",
+    "for (a): p proper (i.e. A/S abelian scheme)",
+    "for (c): q : C -> S a stable curve of genus g in the sense of Deligne-Mumford, and A = Pic^tau(C/S)",
+    "for (d): S = Spec(C) and p proper, so that A/C is a complex abelian variety"
+   ],
+   "proofSteps": [
+    "Define omega_{A/S} as the pullback along the zero section of the top exterior power of the relative differentials; smoothness of p of relative dimension g makes Omega^g_{A/S} invertible, so omega_{A/S} is a line bundle.",
+    "Base-change compatibility is the base-change compatibility of Omega^1 for a smooth morphism together with the base change of the zero section.",
+    "For proper p the invariant differentials give p_*(Omega^g_{A/S}) = s^*(Omega^g_{A/S}).",
+    "For A = Pic^tau(C/S) the identification omega_{A/S} = Lambda^g q_*(omega_{C/S}) is Faltings' Bemerkung c); it is the statement used in the proof of Lemma 2 and of its corollary via alpha^* : omega_{A/R'} -> Lambda^g q_*(omega_{C/R'}).",
+    "Over C the hermitian product is the classical Hodge product on global holomorphic g-forms of a complex abelian variety; it is what metrizes omega_{A/R} at the archimedean places in Section 3."
+   ],
+   "acceptance": [
+    "Check that for a semiabelian but non-proper fibre (multiplicative reduction of an elliptic curve) omega_{A/S} is still defined via s^* while p_*(Omega^1) is not the same object.",
+    "Check (c) for a stable curve of genus 1 with one node: Pic^tau is G_m and Lambda^1 q_*(omega_{C/S}) is free of rank 1.",
+    "Check that <alpha,alpha> > 0 for alpha a nonzero global g-form on a complex abelian variety."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 2, pp. 350-351 (Definition of semiabelian variety, definition of omega_{A/S} and Bemerkungen a)-d))",
+     "excerpt": "Setze: omega_{A/S} = s^*(Omega^g_{A/S}), omega_{A/S} ist ein Geradenbuendel auf S. Bemerkungen. a) Wenn p eigentlich ist, so ist omega_{A/S} = p_*(Omega^g_{A/S}). b) omega_{A/S} kommutiert mit Basiswechsel. c) Wenn A = Pic^tau(C/S) mit einer stabilen Kurve q : C -> S, so ist omega_{A/S} = Lambda^g q_*(omega_{C/S}), wobei omega_{C/S} den relativen dualisierenden Modul bezeichnet.",
+     "match": "This is the literal definition and the four properties used throughout the paper; the node reproduces them with their stated hypotheses (properness only in (a), stable curve in (c), S = Spec(C) in (d))."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.1/extension-of-homomorphisms-of-semiabelian-schemes-over-a-normal-base",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+   "title": "Unique extension of a homomorphism of semiabelian schemes over a dense open",
+   "kind": "lemma",
+   "statement": "Let S be normal, U subset S open and dense, p_1 : A_1 -> S and p_2 : A_2 -> S semiabelian varieties and phi : A_1|U -> A_2|U a homomorphism of algebraic groups defined over U. Then phi extends uniquely to a homomorphism A_1 -> A_2 over S.",
+   "hypotheses": [
+    "S normal (and, in the proof, reduced to noetherian and excellent)",
+    "U subset S open and dense",
+    "A_1, A_2 semiabelian over S in the sense of the previous node (smooth, connected fibres, extensions of abelian varieties by tori)",
+    "phi a homomorphism of algebraic groups over U (not merely a morphism of schemes)"
+   ],
+   "proofSteps": [
+    "The case where S is the spectrum of a complete discrete valuation ring is quoted by Faltings as well known (this is the Neron mapping property / Grothendieck's extension theorem for semiabelian schemes).",
+    "Reduce the general case immediately to S noetherian and excellent.",
+    "Let X be the closure of the graph of phi inside A_1 x_S A_2.",
+    "After base change by suitable valuation rings one sees that pr_1 : X -> A_1 is proper and has one-point fibres.",
+    "Since A_1 is normal, pr_1 must be an isomorphism, so X is the graph of the desired extension.",
+    "Uniqueness follows e.g. by considering torsion points."
+   ],
+   "acceptance": [
+    "Check the statement fails without normality of S (a cuspidal base) or without density of U.",
+    "Check on S = Spec(R) a DVR with A_1 = A_2 an elliptic curve with multiplicative reduction that an endomorphism of the generic fibre extends to the Neron model but need not extend to a proper model.",
+    "Check that the extension is again a group homomorphism, not merely a morphism of schemes."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 2, Lemma 1 and its proof, p. 350",
+     "excerpt": "Lemma 1. Sei S normal, U subset S offen und dicht p_1 : A_1 -> S und p_2 : A_2 -> S zwei semiabelsche Varietaeten, phi : A_1/U -> A_2/U ein ueber U definierter Homomorphismus algebraischer Gruppen. Dann laesst sich phi eindeutig auf ganz S fortsetzen.",
+     "match": "Literal statement; the proof steps recorded are Faltings' own (closure of the graph, valuative properness, normality of A_1)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.1/stable-curve-correspondence-stack-over-Z",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+   "title": "A proper stack over Spec(Z) carrying a stable curve dominating principally polarized moduli",
+   "kind": "construction",
+   "statement": "There exists over Spec(Z) a proper algebraic stack J, an open substack U subset J and a proper morphism psi : U -> A_g (the stack of principally polarized abelian varieties of relative dimension g) extending to psibar : J/Q -> Abar_g/Q, such that over J the following exist: (a) a stable curve q : C -> J; (b) a sub-line-bundle (locally a direct summand) L subset Lambda^g q_*(omega_{C/Z}); (c) over U a pair of group homomorphisms alpha : Pic^tau(C/J) -> psi^*(A) and beta : psi^*(A) -> Pic^tau(C/J) with alpha o beta = multiplication by some d in N, d != 0 (A the universal abelian variety over A_g); (d) over J tensor_Z Q an isomorphism L^{otimes r} = psibar^*(M), with L over U/Q the image of alpha^* : psi^*(omega_{A/A_g}) -> Lambda^g q_*(omega_{C/Z}), and the resulting isomorphism psi^*(omega_{A/A_g})^{otimes r} = psi^*(M) over U/Q is the psi^*-pullback of the isomorphism used in the construction of M over A_g.",
+   "hypotheses": [
+    "g fixed; A_g the algebraic stack of principally polarized abelian varieties of relative dimension g, A_g its coarse moduli space, Mbar_g the proper Deligne-Mumford stack of stable curves of genus gtilde",
+    "r > 0 such that (omega_{A/A_g})^{otimes r} is very ample on A_g/Q (Baily-Borel), Abar_g/Q the Zariski closure of A_g/Q in the corresponding P^N_Q, Abar_g/Z its closure in P^N_Z, and M = O(1) on Abar_g/Z",
+    "over C a proper dominant morphism phi : N -> Abar_g/C over which the universal abelian variety extends to a semiabelian variety with omega^{otimes r} = phi^*(M) (Namikawa's toroidal compactification)"
+   ],
+   "proofSteps": [
+    "At the generic point of A_g the corresponding abelian variety is a quotient of a Jacobian; the associated curve gives a rational map from A_g to Mbar_gtilde for some gtilde.",
+    "Taking the graph of this rational map yields a first candidate J satisfying (a) and, by Lemma 1, (c).",
+    "L is then already determined over U tensor_Z Q by (d) and yields a rational map of U tensor_Z Q into a suitable projective bundle over J; replace J by the normalization of the closure of the corresponding graph, which makes (b) and the second half of (d) hold.",
+    "For the remaining part of (d) the isomorphism is already constructed over U tensor_Z Q; only extendability to J tensor_Z Q is missing. One may enlarge the ground field from Q to C and it suffices to prove extendability for one Jtilde/C dominant and proper over J.",
+    "Using phi : N -> Abar_g/C one constructs a normal Jtilde over which psi^*(A) extends to a semiabelian variety; by Lemma 1 alpha and beta extend as well, and these give the required isomorphism over Jtilde."
+   ],
+   "acceptance": [
+    "Check that J is proper over Spec(Z) while A_g is not, and that the extension psibar is only claimed over Q.",
+    "Check that d in (c) is allowed to depend on the component and is only required to be nonzero; the construction produces an isogeny, not an isomorphism, between Pic^tau(C/J) and psi^*(A).",
+    "Exhibit for g = 1 the classical case (every principally polarized abelian variety of dimension 1 is its own Jacobian, d = 1)."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 2, Lemma 2 and its proof, p. 352",
+     "excerpt": "Lemma 2. Es gibt ueber Spec(Z) einen eigentlichen algebraic stack J, eine offene Teilmenge U subset J und einen eigentlichen Morphismus psi : U -> A_g, welcher sich zu einem psibar : J/Q -> Abar_g/Q fortsetzt, so dass ueber J die folgenden Objekte existieren: a) Eine stabile Kurve q : C -> J. b) Ein Untergeradenbuendel (= lokal direkter Summand) L subset Lambda^g q_*(omega_{C/Z}). c) Ueber U ein Paar von Gruppenhomomorphismen alpha : Pic^tau(C/J) -> psi^*(A), beta : psi^*(A) -> Pic^tau(C/J) mit alpha o beta = Multiplikation mit einem d in N, d != 0.",
+     "match": "Literal statement of the geometric input that turns the modular height into a Hodge-bundle degree; hypotheses (a)-(d) reproduced verbatim including Pic^tau (not Pic^0) and the condition d != 0."
+    },
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 2, p. 351 (the two facts about A_g quoted before Lemma 2)",
+     "excerpt": "Wenn p : A -> A_g die universelle abelsche Varietaet ueber A_g bezeichnet, so gibt es ein r > 0, fuer welches (omega_{A/A_g})^{otimes r} ein sehr amples Geradenbuendel auf A_g/Q definiert ([3]).",
+     "match": "Records that the projective embedding of A_g/Q used to define M is imported from Baily-Borel ([3] = Baily-Borel, Ann. of Math. 84 (1966)), and the semiabelian extension over N from Namikawa ([8])."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.1/commensurability-of-the-modular-and-hodge-line-bundles",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+   "title": "Two-sided comparison e . rho^*(M) subset (omega_{A/R})^{otimes r} subset e^{-1} . rho^*(M)",
+   "kind": "comparison",
+   "statement": "There is a natural number e > 0 with the following property. Let K be a number field, R its ring of integers, p : A -> Spec(R) a semiabelian variety whose generic fibre A/K is proper over K and carries a principal polarization. The corresponding map rho : Spec(K) -> A_g/Q extends to rho : Spec(R) -> Abar_g/Z, and by construction there is an isomorphism rho^*(M) otimes_R K = (omega_{A/R})^{otimes r} otimes_R K. Under this isomorphism one has e . rho^*(M) subset (omega_{A/R})^{otimes r} subset e^{-1} . rho^*(M).",
+   "hypotheses": [
+    "K a number field, R = O_K",
+    "p : A -> Spec(R) semiabelian with A/K proper over K and principally polarized (the polarization is required only on the generic fibre)",
+    "r and M as in the previous node; e is uniform in K and in A, depending only on g",
+    "the proof assumes psibar : J/Q -> Abar_g/Q extends to a proper psibar : J/Z -> Abar_g/Z"
+   ],
+   "proofSteps": [
+    "One may assume psibar : J/Q -> Abar_g/Q extends to a proper psibar : J/Z -> Abar_g/Z. Then there is a finite field extension K' of K with ring of integers R' over which rho lifts to rhotilde : Spec(R') -> J.",
+    "Over J tensor_Z Q the bundles psibar^*(M) and L^{otimes r} are isomorphic, so there is e_1 > 0 with e_1 . L^{otimes r} subset psibar^*(M) subset e_1^{-1} . L^{otimes r} over J.",
+    "It suffices to prove the assertion after base change to R', so only omega_{A/R'} and rhotilde^*(L) must be compared.",
+    "Pulling back gives a stable curve q : C -> Spec(R') and alpha : Pic^tau(C/R') -> A/R', beta : A/R' -> Pic^tau(C/R') with alpha o beta = d . id (using Lemma 1 over R'), such that rhotilde^*(L) is the subbundle of Lambda^g q_*(omega_{C/R'}) generated by the image of alpha^* : omega_{A/R'} -> Lambda^g q_*(omega_{C/R'}).",
+    "Hence d^g . rhotilde^*(L) subset omega_{A/R'} subset rhotilde^*(L), which gives the claim."
+   ],
+   "acceptance": [
+    "Check the two-sided inclusion is with a constant e depending only on g and not on K, A or the class number of K; this is what makes it usable in Satz 1.",
+    "Check the failure mode: without the boundary control of Lemma 2 the isomorphism holds only over K, giving no bound on the finite places.",
+    "Test with an elliptic curve over Q with multiplicative reduction, where A/Z is the Neron model and rho lands in the boundary of Abar_1/Z."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 2, Korollar to Lemma 2 and its proof, pp. 352-353",
+     "excerpt": "Korollar. Es gibt eine natuerliche Zahl e > 0 mit der folgenden Eigenschaft: ... Unter Benutzung dieses Isomorphismus gilt: e . rho^*(M) subset (omega_{A/R})^{otimes r} subset e^{-1} . rho^*(M).",
+     "match": "Literal statement of the comparison; the final inclusion d^g . rhotilde^*(L) subset omega_{A/R'} subset rhotilde^*(L) in Faltings' proof is what bounds the difference between the projective and the modular height in Satz 1."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.1/faltings-modular-height-of-a-semiabelian-model",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+   "title": "Metrized line bundles on Spec(R), their degree, and the modular height h(A)",
+   "kind": "definition",
+   "statement": "For K a number field with ring of integers R, a metrized line bundle on Spec(R) is a projective R-module P of rank 1 together with norms ||.||_v on P otimes_R K_v for every infinite place v of K; put e_v = 1 if K_v = R and e_v = 2 if K_v = C. Its degree is Grad(P, ||.||) = log(#(P/R.p)) - sum_v e_v log ||p||_v for any nonzero p in P (independent of p by the product formula). For p : A -> Spec(R) semiabelian with proper generic fibre A/K, omega_{A/R} is metrized at the infinite places by ||alpha||_v^2 = (i/2)^g int_{A(K_v)} alpha ^ conj(alpha), and the modular height is h(A) = Grad(omega_{A/R}) / [K : Q]. It is invariant under extension of the ground field.",
+   "hypotheses": [
+    "K a number field, R = O_K",
+    "p : A -> Spec(R) semiabelian with proper generic fibre A/K (properness of the generic fibre is what makes the archimedean Hodge product defined)",
+    "the archimedean metric is the canonical Hodge product of node semiabelian-scheme-and-its-hodge-line-bundle (d)",
+    "no polarization is required for the definition of h(A)"
+   ],
+   "proofSteps": [
+    "Follow Arakelov's notion of metrized line bundle on an arithmetic curve ([2]); the degree combines the finite length log #(P/R.p) with the archimedean contribution -sum_v e_v log ||p||_v, and is independent of the chosen nonzero p by the product formula.",
+    "Metrize omega_{A/R} at the infinite places by the Hodge product on global g-forms of the complex abelian variety A(K_v).",
+    "Normalize by [K : Q] to obtain a height invariant under extension of the ground field; this uses that omega commutes with base change and that both terms of Grad scale by the degree of the extension.",
+    "Faltings compares this with the usual height of a point x in P^n(K), defined as Grad(rho^*(O(1)))/[K : Q] for a chosen metric on O(1); changing the hermitian metric changes the height function only by a bounded amount."
+   ],
+   "acceptance": [
+    "Check invariance of h(A) under a finite extension K'/K for a fixed A.",
+    "Check that h does not depend on the chosen nonzero element p in P.",
+    "Check that the normalization e_v = 2 at complex places is what makes the product formula and the invariance work; with e_v = 1 the height is not invariant."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 3, pp. 353-354 (definition of metrized line bundle, of Grad, and of h(A))",
+     "excerpt": "Grad(P, ||.||) = log(#(P/R.p)) - sum_v e_v log ||p||_v ... Definition. Die modultheoretische Hoehe h(A) ist h(A) = (1/[K:Q]) Grad(omega_{A/R}).",
+     "match": "Literal definition, including the factor e_v distinguishing real and complex places and the normalization by [K:Q] that gives invariance under field extension."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.1/hodge-metric-has-logarithmic-singularities-along-the-boundary",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+   "title": "The canonical metric on omega has logarithmic singularities along the degeneration locus",
+   "kind": "theorem",
+   "statement": "Let X/C be a compact complex variety, Y subset X a closed subvariety, M a line bundle on X and ||.|| a hermitian metric on M restricted to X - Y. Say ||.|| has logarithmic singularities along Y if there is a proper dominant map Phi : Xtilde -> X with Xtilde smooth and Phi^{-1}(Y) a normal crossings divisor, such that for a local generator h of Phi^*(M) and a local equation f of Phi^{-1}(Y) one has sup{||h||, ||h||^{-1}} <= c_1 . |log|f||^{c_2} with constants c_1, c_2 > 0. Theorem: for X smooth, Y a normal crossings divisor of X, and p : A -> X semiabelian such that over X - Y the map p is proper and A is principally polarized, the canonical (Hodge) metric on omega_{A/X} has logarithmic singularities along Y. In particular this holds for X = Abar_g(C), Y = Abar_g(C) - A_g(C) with M and the canonical metric ||.||.",
+   "hypotheses": [
+    "X/C compact complex variety; for the general statement X smooth and Y a normal crossings divisor",
+    "p : A -> X semiabelian, proper over X - Y, with a principal polarization over X - Y",
+    "logarithmic singularities are defined after pullback along one proper dominant Phi with Xtilde smooth and Phi^{-1}(Y) a normal crossings divisor",
+    "in the special case, the ambient projective embedding of A_g/Q is the one fixed by (omega)^{otimes r} very ample"
+   ],
+   "proofSteps": [
+    "Work with p_*(Omega^1_{A/X}) instead of omega_{A/X}; logarithmic singularities also make sense for vector bundles.",
+    "With the methods of Section 2 (the correspondence stack of Lemma 2) reduce to the case where A is the Jacobian of a semistable curve q : C -> X.",
+    "Treat the case of a semistable curve over the unit disc D, with good reduction outside 0. Then C has a cover by charts of two types: (a) U_i = {(z,t) : |z| < 1, |t| < 1} with q smooth on U_i and z a fibre coordinate; (b) U_i = {(z_1, z_2, t) : |z_1| < 1, |z_2| < 1, z_1 z_2 = t^m} with q(z_1, z_2, t) = t.",
+    "A local section alpha of q_*(omega_{C/D}) is, on charts of type (a), of the form (holomorphic) . dz and on charts of type (b) of the form (holomorphic) . dz_1/z_1.",
+    "An explicit computation shows that (i/2) int_{U_i cap q^{-1}(t)} alpha ^ conj(alpha) either stays bounded as t -> 0 or grows at most like |log|t||; and that ||.|| >= (positive constant) . ||.||_1 for a hermitian metric ||.||_1 defined on all of X.",
+    "The general case is the same argument in a neighbourhood of an arbitrary boundary point."
+   ],
+   "acceptance": [
+    "Check the rate: the singularity is at most a power of log, never a power of |f|; this is exactly what Lemma 3 tolerates.",
+    "Check the elliptic case g = 1: the Hodge norm of dz on the Tate curve degenerates like |log|q|| and not like a power of |q|.",
+    "Check that the metric does extend continuously on the good-reduction locus, so the singularity is concentrated along Y."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 3, pp. 355-356 (definition of logarithmic singularities, the example X = Abar_g(C), and the local computation for semistable curves)",
+     "excerpt": "Die Metrik ||.|| hat logarithmische Singularitaeten laengs Y, wenn folgendes gilt: Es gibt eine eigentliche dominante Abbildung Phi : Xtilde -> X, so dass Xtilde glatt und Phi^{-1}(Y) ein Divisor mit normalen Ueberkreuzungen ist, und so dass fuer ein lokales Erzeugendes h von Phi^*(M) und eine lokale Gleichung f von Phi^{-1}(Y): sup{||h||, ||h||^{-1}} <= c_1 . |log|f||^{c_2}.",
+     "match": "Literal definition. The subsequent proof sketch (given, Faltings says, at the referees' request, the full argument being in [6] end of Section 2) is the source of the local charts and the |log|t|| growth bound recorded in the proof steps."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.1/northcott-property-for-heights-from-log-singular-metrics",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+   "title": "Finiteness of points of bounded height for a metric with logarithmic singularities",
+   "kind": "theorem",
+   "statement": "Let X subset P^n_Z be Zariski closed, Y subset X closed, and ||.|| a hermitian metric on O(1) restricted to X(C) - Y(C) with logarithmic singularities along Y. For a number field K and x in X(K) - Y(K) define h(x) as the normalized degree of the pullback of the metrized O(1). Then for every c there are only finitely many x in X(K) - Y(K) with h(x) <= c.",
+   "hypotheses": [
+    "X subset P^n_Z Zariski closed and Y subset X closed",
+    "||.|| hermitian on O(1)|(X(C) - Y(C)) with logarithmic singularities along Y in the sense of the preceding node",
+    "K a fixed number field; the statement is for K-rational points, not for points of bounded degree"
+   ],
+   "proofSteps": [
+    "Choose a hermitian metric ||.||_1 for O(1)|X(C) (smooth everywhere) with associated height function h_1, and choose s > 0 and f_1, ..., f_t in Gamma(X/Z, O(s)) whose common zero set is exactly Y.",
+    "Then ||.||_1 induces a metric on O(s), and the logarithmic-singularity hypothesis gives constants c_1, c_2 > 0 with |log (||.||/||.||_1)(z)| <= c_1 + c_2 . inf_i{log(|log ||f_i(z)||_1|)} for z in X(C).",
+    "For x in X(K) - Y(K) corresponding to rho : Spec(R) -> X the sections rho^*(f_i) of rho^*(O(s)) compute h_1(x). Since ||f_i(z)||_1 is bounded above on X(C) one gets constants c_3, c_4 > 0 with |h(x) - h_1(x)| <= c_3 + c_4 . log(h_1(x)).",
+    "The classical Northcott finiteness for the smooth height h_1 on projective space then gives the assertion, because h(x) <= c forces h_1(x) to be bounded."
+   ],
+   "acceptance": [
+    "Check that the argument needs the common zero locus of the f_i to be exactly Y; a larger zero locus destroys the comparison.",
+    "Check that the estimate is only |h - h_1| <= c_3 + c_4 log h_1 and not a two-sided constant bound; the conclusion still follows.",
+    "Exhibit a metric with a pole of polynomial rate along Y for which the conclusion fails, to see that the logarithmic rate is used."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 3, Lemma 3 and its proof, p. 356",
+     "excerpt": "Lemma 3. Sei X subset P^n_Z Zariski-abgeschlossen, Y subset X abgeschlossen, ||.|| eine hermitesche Metrik auf O(1)|(X(C) - Y(C)), mit logarithmischen Singularitaeten laengs Y. Fuer einen Zahlkoerper K und x in X(K) - Y(K) definiert man wie bisher h(x). Dann gibt es fuer jedes c nur endlich viele x in X(K) - Y(K) mit h(x) <= c.",
+     "match": "Literal statement; the two displayed estimates in the proof (the log-log comparison of metrics and |h(x) - h_1(x)| <= c_3 + c_4 log(h_1(x))) are reproduced in the proof steps."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.1/hermite-minkowski-finiteness-of-extensions-unramified-outside-S",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+   "title": "Finiteness of extensions of bounded degree unramified outside S (imported)",
+   "kind": "theorem",
+   "statement": "Let K be a number field and S a finite set of places of K. Then there are only finitely many field extensions K' of K of a given degree that are unramified outside S.",
+   "hypotheses": [
+    "K a number field, S a finite set of places of K (the set is finite but arbitrary, so wildly ramified places inside S are allowed)",
+    "the degree [K' : K] is fixed",
+    "K' ranges over subfields of a fixed algebraic closure"
+   ],
+   "proofSteps": [
+    "Faltings gives no proof: the entire proof in the source is the single word 'Bekannt (Hermite-Minkowski)'.",
+    "The standard route is: bound the discriminant d_{K'/Q} in terms of [K' : Q] and S using the different and the ramification filtration, then apply the Hermite-Minkowski finiteness theorem for number fields of bounded discriminant.",
+    "This node is therefore an explicitly imported statement, not a result decomposed from this source."
+   ],
+   "acceptance": [
+    "Check the statement is about extensions inside a fixed algebraic closure; without that, the count is up to isomorphism.",
+    "Check that the bound on the discriminant depends on the wild part of S; the tame estimate alone does not suffice for places above the residue characteristic.",
+    "Check the two uses in this paper: constructing K' containing the n-division points in the proof of Satz 1, and constructing the Galois extension K' containing all extensions of degree <= l^{8g^2} unramified outside l and S in the proof of Satz 5."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 3, Lemma 4 and its proof, p. 357",
+     "excerpt": "Lemma 4. Sei K ein Zahlkoerper, S eine endliche Menge von Stellen von K. Dann gibt es nur endlich viele Koerpererweiterungen K' von K von vorgegebener Ordnung, welche ausserhalb von S unverzweigt sind. Beweis. Bekannt (Hermite-Minkowski).",
+     "match": "Literal statement and literal proof. The proof is a citation, so the node is recorded as an imported theorem with an explicit gap rather than as a decomposed argument."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.1/finiteness-of-principally-polarized-semiabelian-models-of-bounded-height",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+   "title": "Satz 1: finiteness of principally polarized semiabelian models of bounded modular height",
+   "kind": "theorem",
+   "statement": "Fix g and a number field K, and let c be given. Then there are only finitely many isomorphism classes of pairs consisting of (i) a semiabelian variety p : A -> Spec(R) of relative dimension g with proper generic fibre A/K, and (ii) a principal polarization on A/K, such that h(A) <= c.",
+   "hypotheses": [
+    "K a number field with ring of integers R fixed; g fixed",
+    "A/K proper (so the generic fibre is an abelian variety) but A -> Spec(R) only semiabelian",
+    "a principal polarization on the generic fibre; the polarization degree is fixed to 1 here",
+    "isomorphism classes are over K (the passage from Kbar-classes to K-classes is part of the proof)"
+   ],
+   "proofSteps": [
+    "By the Korollar to Lemma 2 the difference between h(x) and r . h(A) is bounded, where x in A_g(K) is the moduli point of A.",
+    "By Lemma 3, applied with X = Abar_g/Z, Y the boundary and the canonical metric (which has logarithmic singularities by the node hodge-metric-has-logarithmic-singularities-along-the-boundary), the A with h(A) <= c give only finitely many distinct x in A_g(K).",
+    "It remains to see that only finitely many K-isomorphism classes can induce the same class over Kbar. Fix such a Kbar-class and consider the corresponding A/K.",
+    "All of these have bad reduction at the same places of K.",
+    "By Lemma 4 there is a finite extension K' of K containing, for some n >= 3, the coordinates of the n-division points of all of these A/K.",
+    "Over K' the A are then already isomorphic (rigidity of level-n structures for n >= 3), and the rest follows from general principles of Galois cohomology (finiteness of the relevant H^1 with finite automorphism group)."
+   ],
+   "acceptance": [
+    "Check the statement is for pairs (model, polarization): dropping the polarization the finiteness assertion is not what is proved here.",
+    "Check that the descent step genuinely needs n >= 3 and the finiteness of the automorphism group of a polarized abelian variety.",
+    "Check that the bad-reduction places are the same for all members of one Kbar-class, which is what makes Lemma 4 applicable with a fixed S."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 3, Satz 1 and its proof, pp. 356-357",
+     "excerpt": "Satz 1. Sei c gegeben. Dann gibt es nur endlich viele Isomorphieklassen von Paaren aus i) einer semiabelschen Varietaet der relativen Dimension g p : A -> Spec(R) mit eigentlicher generischer Faser A/K ii) einer prinzipalen Polarisation auf A/K, fuer welche h(A) <= c gilt.",
+     "match": "Literal statement; the proof steps are Faltings' own five-step argument (Korollar to Lemma 2, Lemma 3, same bad reduction, Lemma 4 and n-division points, Galois cohomology)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.2/height-change-under-an-isogeny-of-semiabelian-models",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+   "title": "Lemma 5: the isogeny height formula",
+   "kind": "lemma",
+   "statement": "Let p_1 : A_1 -> Spec(R) and p_2 : A_2 -> Spec(R) be semiabelian varieties with proper generic fibres, s : Spec(R) -> A_1 the zero section, and phi : A_1 -> A_2 an isogeny (by Lemma 1 it suffices to give phi over K). Put G = Ker(phi) subset A_1, a quasi-finite flat group scheme over Spec(R) since phi is automatically flat. Then phi induces an injection phi^* : omega_{A_2/R} -> omega_{A_1/R} with #(omega_{A_1/R} / phi^*(omega_{A_2/R})) = # s^*(Omega^1_{A_1/A_2}) = # s^*(Omega^1_{G/R}), and since phi^* changes the norms at the infinite places by (Grad(phi))^{1/2}, h(A_2) = h(A_1) + (1/2) log(Grad(phi)) - (1/[K:Q]) . log(# s^*(Omega^1_{G/R})).",
+   "hypotheses": [
+    "K a number field, R = O_K",
+    "A_1, A_2 semiabelian over Spec(R) with proper generic fibres",
+    "phi : A_1 -> A_2 an isogeny; it may be given only over K, since Lemma 1 extends it over the normal base Spec(R)",
+    "Grad(phi) denotes the degree of the isogeny; G = Ker(phi) is quasi-finite and flat over Spec(R), not necessarily finite"
+   ],
+   "proofSteps": [
+    "phi is automatically flat, so G = Ker(phi) is a quasi-finite flat group scheme over Spec(R).",
+    "phi induces an injection phi^* : omega_{A_2/R} -> omega_{A_1/R} of line bundles on Spec(R); its cokernel has order # s^*(Omega^1_{A_1/A_2}) = # s^*(Omega^1_{G/R}) (the relative differentials of the isogeny are computed on the kernel along the zero section).",
+    "At the archimedean places phi^* rescales the Hodge norms by (Grad(phi))^{1/2}, because phi has degree Grad(phi) on the g-dimensional complex tori.",
+    "Combining the finite and archimedean contributions in the definition of Grad gives the displayed height formula."
+   ],
+   "acceptance": [
+    "Check the two terms have opposite signs: the archimedean term (1/2) log Grad(phi) is a gain and the finite term -(1/[K:Q]) log # s^*(Omega^1_{G/R}) a loss, so that h is unchanged exactly when the two balance.",
+    "Check the elliptic multiplication-by-l case: Grad(phi) = l^2 and s^*(Omega^1_{G/R}) has order determined by the differential of [l].",
+    "Check that only the generic fibre isogeny is required as input, since Lemma 1 supplies the integral extension."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 4, Lemma 5 and the computation preceding it, pp. 357-358",
+     "excerpt": "phi^* : omega_{A_2/R} -> omega_{A_1/R}, und man sieht sofort, dass #(omega_{A_1/R}/phi^*(omega_{A_2/R})) = # s^*(Omega^1_{A_1/A_2}) = # s^*(Omega^1_{G/R}). Da ausserdem phi^* die Normen an den unendlichen Stellen um (Grad(phi))^{1/2} veraendert, folgt unmittelbar Lemma 5. h(A_2) = h(A_1) + (1/2) log(Grad(phi)) - (1/[K:Q]) . log(# s^*(Omega^1_{G/R})).",
+     "match": "Literal statement of the formula, verified against the printed page image (the OCR text of this line is corrupted; the displayed formula was read from the rendered page 358)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.2/bounded-denominators-of-height-differences-under-isogeny",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+   "title": "Bemerkung: exp(2[K:Q](h(A_2) - h(A_1))) is rational with prime divisors dividing the isogeny degree",
+   "kind": "lemma",
+   "statement": "If G = Ker(phi) is annihilated by n in N, then n also annihilates Omega^1_{G/R}. Consequently exp(2 [K:Q] . (h(A_2) - h(A_1))) is a rational number in whose numerator and denominator only prime divisors of Grad(phi) occur, and the exponents of those prime divisors are bounded by their exponents in Grad(phi).",
+   "hypotheses": [
+    "the hypotheses of Lemma 5",
+    "n in N annihilating G (so in particular n annihilates Omega^1_{G/R})",
+    "the conclusion is about exp(2[K:Q](h(A_2) - h(A_1))), i.e. the height difference is a rational multiple of log of a Grad(phi)-smooth rational number"
+   ],
+   "proofSteps": [
+    "Annihilation of G by n gives annihilation of Omega^1_{G/R} by n, so # s^*(Omega^1_{G/R}) is a product of primes dividing n.",
+    "Insert this into Lemma 5: 2 [K:Q](h(A_2) - h(A_1)) = [K:Q] log(Grad(phi)) - 2 log(# s^*(Omega^1_{G/R})), whose exponential is a rational number supported on the primes dividing Grad(phi).",
+    "The exponent bound follows because the order of s^*(Omega^1_{G/R}) divides a power of Grad(phi) with exponent controlled by the exponent of the prime in Grad(phi)."
+   ],
+   "acceptance": [
+    "Check that this is the step used twice later: in Korollar 3 to Satz 4 (bounding h(B) for B isogenous to A by an isogeny of controlled degree) and in the proof of Satz 6.",
+    "Check the statement bounds only the primes occurring and their exponents, not the size of the rational number itself.",
+    "Check on a prime-to-p isogeny that the finite contribution vanishes and the formula reduces to the archimedean term."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 4, Bemerkung after Lemma 5, p. 358",
+     "excerpt": "Bemerkung. Wenn G von einer Zahl n in N annulliert wird, so annulliert n auch Omega^1_{G/R}. Daraus folgt, dass exp(2 [K:Q] . (h(A_2) - h(A_1))) eine rationale Zahl ist, in deren Zaehler und Nenner nur Primteiler von Grad(phi) auftauchen. Die Exponenten dieser Primteiler darin koennen durch ihre Exponenten in Grad(phi) beschraenkt werden.",
+     "match": "Literal statement, read from the rendered page image."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.2/inertia-triviality-on-the-quotient-by-the-l-divisible-group-of-the-formal-completion",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+   "title": "Lemma 6: inertia acts trivially on T_l(A)/T_l(H_i)",
+   "kind": "lemma",
+   "statement": "Let v_i be a place of K above l, K_i = K_{v_i}, R_i its valuation ring, and let Ahat be the formal completion of A/R_i along the special fibre A_s. Write A_s as an extension 0 -> T_s -> A_s -> B_s -> 0 with T_s a torus and B_s an abelian variety; lift T_s to a torus T over Spec(R_i) (possible since morphisms from T_s into smooth group schemes lift), so that That is a closed formal subscheme of Ahat. Let Hhat_i = Ahat[l^infty], the formal completion of an l-divisible group H_i over R_i, so that T_l(T) subset T_l(H_i) subset T_l(A). Let D_i = Gal(Kbar_i/K_i) and I_i subset D_i the inertia group. Then I_i acts trivially on T_l(A)/T_l(H_i), and the induced action of D_i/I_i = Zhat is through a finite quotient of Zhat.",
+   "hypotheses": [
+    "A/R_i semiabelian with proper generic fibre; A_s the special fibre, an extension of an abelian variety by a torus",
+    "l a prime; K_i = K_v for v | l, R_i its valuation ring",
+    "a polarization of A/K is used to obtain the symplectic form on T_l(A)",
+    "the lifting of the torus T_s uses that morphisms from a torus into smooth group schemes lift"
+   ],
+   "proofSteps": [
+    "The polarization of A/K induces a nondegenerate symplectic form <,> : T_l(A) x T_l(A) -> Z_l(1) = T_l(G_m).",
+    "By SGA 7, Expos\u00e9 IX, one has <T_l(T), T_l(H_i)> = 0.",
+    "For dimension reasons T_l(H_i) = T_l(T)^perp, so there is an injection T_l(A)/T_l(H_i) -> Hom_{Z_l}(T_l(T), Z_l(1)).",
+    "This injection is D_i-linear, and D_i acts on Hom_{Z_l}(T_l(T), Z_l(1)) in the asserted way: inertia acts trivially because the character group of T is unramified, and the residual action factors through a finite quotient of Zhat."
+   ],
+   "acceptance": [
+    "Check the orthogonality <T_l(T), T_l(H_i)> = 0 is the SGA 7 input and not a consequence of the definitions used here.",
+    "Check the dimension count T_l(H_i) = T_l(T)^perp in the totally toric case (A_s a torus) and the good-reduction case (T_s trivial).",
+    "Check that the conclusion is about the quotient T_l(A)/T_l(H_i) and not about T_l(A) itself, on which inertia need not act trivially."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 4, Lemma 6 and its proof, pp. 358-359",
+     "excerpt": "Lemma 6. Sei D_i = Gal(Kbar_i/K_i) die absolute Galois-Gruppe von K_i, I_i subset D_i die Verzweigungsgruppe. Dann operiert I_i trivial auf T_l(A)/T_l(H_i), und die induzierte Operation von D_i/I_i = Zhat erfolgt ueber einen endlichen Quotienten von Zhat. ... ( , ) ist nicht ausgeartet, und bekanntlich (SGA VII, Exp. IX) ist (T_l(T), T_l(H_i)) = 0.",
+     "match": "Literal statement and the imported orthogonality from SGA 7 I, Expos\u00e9 IX, which is recorded as an unread boundary in this packet's gaps."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.2/local-differential-computation-for-the-l-divisible-tower",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+   "title": "Tate's computations feeding the height of A_n = A/G_n (imported)",
+   "kind": "theorem",
+   "statement": "With the notation of Lemma 6, after base extension K_i -> Kbar_i form G_i = G intersect Hhat_i, the maximal l-divisible subgroup of G_i/K_i that extends over R_i. Then # (s^* Omega^1_{A/A_n} otimes R_i) = # s^*(Omega^1_{(G_i)_n / R_i}), and by Tate, p-divisible groups, Proposition 2, # s^*(Omega^1_{(G_i)_n/R_i}) = l^{n . m_i . d_i} where d_i is the dimension of the maximal formal subgroup of G_i. Moreover, with C_i the completion of an algebraic closure of K_i, Tate's Theorem 3, Corollary 2 gives T_l(G_i) otimes C_i = C_i^{h_i - d_i} + C_i^{d_i}(+1) as D_i-modules, where h_i is the height of G_i. Together with Lemma 6 this shows that D_i acts on Lambda^h T_l(G) otimes C_i as on C_i(chi_0^{d_i}) = C_i(d_i), with h the height of G and chi_0 the cyclotomic character.",
+   "hypotheses": [
+    "R_i the valuation ring of K_i, K_i/Q_l finite with m_i = [K_i : Q_l]",
+    "G_i an l-divisible group over R_i of height h_i and with maximal formal subgroup of dimension d_i",
+    "C_i the completion of an algebraic closure of K_i",
+    "Tate's results are quoted as [13]: Proposition 2, Theorem 2, and Theorem 3 Corollary 2"
+   ],
+   "proofSteps": [
+    "Faltings quotes, without reproving, three results of Tate's paper on p-divisible groups: the order of the module of invariant differentials of the level-n piece (Proposition 2), the Hodge-Tate decomposition T_l(G_i) otimes C_i = C_i^{h_i - d_i} + C_i^{d_i}(1) (Theorem 3, Corollary 2), and the statement that a character of D whose C-realization is C(+k) differs from chi_0^k by a character of finite order (Theorem 2).",
+    "Combining the Hodge-Tate decomposition with Lemma 6 identifies the action of D_i on the top exterior power.",
+    "These are imported results; this packet does not decompose their proofs."
+   ],
+   "acceptance": [
+    "Check the normalization of the Tate twist: the (+1) in Tate's Theorem 3 Corollary 2 is what produces the cyclotomic exponent d_i.",
+    "Check the two ordinary extremes: d_i = 0 (etale) and d_i = h_i (multiplicative type).",
+    "Check that the local exponent d_i is a dimension of a formal group and not the height."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 4, p. 359 (application of [13] Proposition 2 and Theorem 3 Corollary 2)",
+     "excerpt": "Nach [13], Proposition 2 kann man dies sofort ausrechnen: Sei d_i die Dimension der maximalen formalen Untergruppe von G_i. Dann ist # s^*(Omega^1_{(G_i)_n/R_i}) = l^{n . m_i . d_i}. Wenn C_i die Komplettierung des algebraischen Abschlusses von K_i bezeichnet, so ist weiter bekannt ([13], Theorem 3, Corollary 2), dass T_l(G_i) otimes C_i = C_i^{h_i - d_i} + C_i^{d_i}(+1).",
+     "match": "Literal quotation of the imported statements with their exact locators in Tate's paper; Tate's paper is not present in the supplied library, so this node is an explicit import boundary."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.2/global-determinant-identity-forcing-sum-m-i-d-i-equals-mh-over-two",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+   "title": "The global determinant computation sum_i m_i d_i = m h / 2",
+   "kind": "theorem",
+   "statement": "In the situation of Satz 2, let G subset A[l^infty] be an l-divisible subgroup over K of height h, G_n the kernel of l^n on G and A_n = A/G_n. Then # s^*(Omega^1_{A/A_n}) = l^{n sum_i m_i d_i} and h(A_n) - h(A) = n . log(l) . (h/2 - (1/m) sum_{i=1}^r m_i d_i). Considering the absolute Galois group pitilde = Gal(Qbar/Q) and the pitilde-module Vtilde = Ind_pi^pitilde(T_l(A)) with pi = Gal(Kbar/K), the submodule Wtilde = Ind_pi^pitilde(T_l(G)) has rank m h and pitilde acts on the line L = Lambda^{mh}(Wtilde) subset Lambda^{mh}(Vtilde) through a character chi : pitilde -> Z_l^*. Class field theory forces chi to be an l-adic power of the cyclotomic character chi_0 times a character of finite order; the local computation gives L otimes_{Z_l} C = C(+ sum_i m_i d_i) as a module over the decomposition group D = Gal(Qbar_l/Q_l), hence by Tate's Theorem 2 chi . chi_0^{- sum m_i d_i} has finite order. Finally, by the part of the Weil conjectures already proved by Weil, chi(F_p) is for almost all p an algebraic number all of whose conjugates have absolute value p^{mh/2}; since chi_0(F_p) = p one gets sum_{i=1}^r m_i d_i = m h / 2.",
+   "hypotheses": [
+    "K a number field of degree m = [K : Q] = sum_i m_i over the places v_i | l; A/R semiabelian with proper generic fibre",
+    "G/K subset A[l^infty]/K an l-divisible subgroup of height h",
+    "the determinant character argument uses class field theory over Q for chi restricted to the induced module",
+    "the Weil bound is applied to the Frobenius F_p acting on Lambda^{mh} of the induced Tate module, for almost all p (those of good reduction)"
+   ],
+   "proofSteps": [
+    "Sum the local differential computations to get # s^*(Omega^1_{A/A_n}) = l^{n sum m_i d_i}, hence via Lemma 5 the formula h(A_n) - h(A) = n log(l)(h/2 - (1/m) sum m_i d_i).",
+    "Transfer to the global setting: induce the Tate module from pi to pitilde = Gal(Qbar/Q), so that the determinant line of the induced submodule carries a global character chi of pitilde with values in Z_l^*.",
+    "Class field theory gives chi = (l-adic power of chi_0) . (character of finite order).",
+    "The local Hodge-Tate computation gives L otimes C = C(+ sum m_i d_i) as D-module, so by Tate's Theorem 2 the exponent is sum m_i d_i.",
+    "The Weil bound for the Frobenius eigenvalues on Lambda^{mh} of the induced Tate module forces the exponent to be m h / 2, since chi_0(F_p) = p and the conjugates of chi(F_p) have absolute value p^{mh/2}.",
+    "Therefore h(A_n) = h(A) for all n; this is Satz 2 as originally printed, and must be replaced by the weaker corrected statement recorded in the R28.3 nodes."
+   ],
+   "acceptance": [
+    "Check the appearance of m = [K:Q] on both sides; the identity is sum_i m_i d_i = m h / 2 with m_i = [K_{v_i} : Q_l], and it fails if the local degrees are omitted.",
+    "Check the two inputs that are imported rather than proved here: Tate's Theorem 2 and the Weil bound for abelian varieties over finite fields.",
+    "Check the consequence: the height along the tower is constant in the original argument, so the corrected version only claims eventual stationarity."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 4, pp. 359-360 (the global transfer, the character chi, and the conclusion sum m_i d_i = mh/2)",
+     "excerpt": "Aus der Klassenkoerpertheorie folgt, dass chi von der Form chi = (l-adische Potenz von chi_0) . (Charakter endlicher Ordnung) ist. ... und somit ist nach [13], Theorem 2 chi . chi_0^{- sum_{i=1}^r m_i d_i} ein Charakter endlicher Ordnung auf D und auch auf pitilde. Schliesslich folgt aus dem schon von Weil bewiesenen Teil der Weil-Vermutungen mit einigen lokalen Ueberlegungen, dass chi(F_p) fuer fast alle p eine algebraische Zahl ist, all deren Konjugierte Betrag p^{mh/2} haben. Da chi_0(F_p) = p ist, ist wie verlangt sum_{i=1}^r m_i d_i = mh/2.",
+     "match": "Literal reproduction of the determinant argument, verified against the rendered page 360; the class-field-theory step, Tate's Theorem 2 and the Weil bound are recorded as the three imported inputs."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.3/closure-tower-becomes-l-divisible-only-after-a-shift",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.3",
+   "title": "Erratum (a): the Zariski closures form an l-divisible group only after passing to A_m",
+   "kind": "lemma",
+   "statement": "Let W subset T_l(Ahat) be a D_i-invariant sublattice. It corresponds to an l-divisible subgroup of A/K_i, and taking Zariski closures produces a system of finite flat group schemes G_{i,n} subset A over Spf(R_i) (or Spec(R_i)). These form an l-divisible group only if the maps G_{i,n+1}/G_{i,n} -> G_{i,n}/G_{i,n-1} are isomorphisms for n > 1, which cannot be expected in general; a consideration of discriminants shows that it does hold for large n. Passing from A = A_0 to A_m means considering those maps only for n > m, and the original argument then works.",
+   "hypotheses": [
+    "W subset T_l(Ahat) a D_i-invariant sublattice; R_i the valuation ring of a finite extension K_i of Q_l",
+    "G_{i,n} defined as the scheme-theoretic (Zariski) closure of the generic-fibre level-n subgroup",
+    "the corrected conclusion is only that h(A_n) becomes stationary, not that it is constant"
+   ],
+   "proofSteps": [
+    "The closures G_{i,n} are finite flat over R_i but the transition maps G_{i,n+1}/G_{i,n} -> G_{i,n}/G_{i,n-1} need not be isomorphisms, so the system need not be an l-divisible group.",
+    "A discriminant (different) computation shows the transition maps are isomorphisms for all sufficiently large n.",
+    "Replacing A = A_0 by A_m for m large enough makes the relevant maps isomorphisms for all n > m, which is exactly what the argument of Satz 2 needs.",
+    "Faltings notes that this argument already occurs in Tate's paper on p-divisible groups, p. 182."
+   ],
+   "acceptance": [
+    "Check that the defect is only at the first finitely many levels: the tail is l-divisible.",
+    "Check the discriminant monotonicity that forces stabilization; without it no bound on m exists.",
+    "Check that the corrected conclusion 'h(A_n) becomes stationary' is exactly what the later arguments use (Satz 1 needs only infinitely many A_n of bounded height)."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1984-erratum",
+     "locator": "Erratum, Invent. Math. 75 (1984) 381, part a)",
+     "excerpt": "a) Wenn W subset T_l(Ahat) ein D_i-invariantes Untergitter ist, so entspricht dem zwar eine l-divisible Untergruppe von A/K_i, und durch Bildung der Zariski-Abschluesse erhaelt man ein System endlicher flacher Gruppenschemata G_{i,n} subset A ueber Spf(R_i) oder auch Spec(R_i). Diese bilden jedoch nur dann eine l-divisible Gruppe, wenn die Abbildungen G_{i,n+1}/G_{i,n} -> G_{i,n}/G_{i,n-1} Isomorphismen fuer n > 1 sind. Dies kann man im Allgemeinen nicht erwarten, doch lehrt eine Betrachtung der Diskriminanten, dass dies fuer grosse n der Fall ist.",
+     "match": "Literal statement of the first of the two corrections; it is the exact defect the roadmap text warns about."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.3/intersection-with-the-toric-l-divisible-group-after-a-shift",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.3",
+   "title": "Erratum (b): the intersection G intersect Hhat_i is l-divisible only after a shift",
+   "kind": "lemma",
+   "statement": "The intersection G_i = G intersect Hhat_i of l-divisible groups over Spec(R_i) does not in general define an l-divisible group even over K_i. This problem also disappears on passing to a suitable A_m, after which one may proceed as in part (a).",
+   "hypotheses": [
+    "the notation of Lemma 6 and of the proof of Satz 2: G/K subset A[l^infty] an l-divisible subgroup, Hhat_i = Ahat[l^infty]",
+    "the defect is already at the level of K_i, not only over R_i"
+   ],
+   "proofSteps": [
+    "The scheme-theoretic intersection of two l-divisible groups is a system of finite group schemes whose transition maps need not have the l-divisibility property.",
+    "Faltings states that the problem disappears after replacing A by a suitable A_m, and one then continues as in (a).",
+    "Faltings gives no further detail; the discriminant argument of (a) is what he invokes."
+   ],
+   "acceptance": [
+    "Check that the defect is at the intersection step and is independent of the closure step in (a); both shifts are needed.",
+    "Check that the corrected Satz 2 is used only through 'the sequence h(A_n) becomes stationary'.",
+    "Check that no statement is made about A_0 itself."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1984-erratum",
+     "locator": "Erratum, Invent. Math. 75 (1984) 381, part b)",
+     "excerpt": "b) Der Durchschnitt G_i = G intersect Hhat_i von l-divisiblen Gruppen ueber Spec(R_i) definiert im Allgemeinen nicht einmal ueber K_i eine l-divisible Gruppe. Auch dieses Problem verschwindet beim Uebergang zu einem passenden A_m. Man kann dann wieder wie in a) weitermachen.",
+     "match": "Literal statement of the second correction."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.3/corrected-satz-2-stationarity-of-heights-along-an-l-divisible-tower",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.3",
+   "title": "Satz 2 as corrected: the sequence h(A_n) becomes stationary",
+   "kind": "theorem",
+   "statement": "Let p : A -> Spec(R) be a semiabelian variety with proper generic fibre, l a prime and G/K subset A[l^infty]/K an l-divisible subgroup. Let G_n be the kernel of l^n on G and A_n = A/G_n the associated semiabelian variety. Then the sequence h(A_n) becomes stationary. (The originally printed assertion h(A_n) = h(A) for all n is false: N. Katz observed the error and O. Gabber constructed a counterexample.)",
+   "hypotheses": [
+    "K a number field, R = O_K; A/R semiabelian with proper generic fibre",
+    "l a prime; G/K subset A[l^infty]/K an l-divisible subgroup defined over K",
+    "the conclusion holds after replacing A = A_0 by A_m for a sufficiently large m, as required by the erratum's two corrections",
+    "the argument uses a polarization of A/K to produce the symplectic form in Lemma 6"
+   ],
+   "proofSteps": [
+    "Run the local analysis of Section 4 (Lemma 6, Tate's Proposition 2 and Theorem 3 Corollary 2) and the global determinant identity of the preceding R28.2 node, but only from level m onwards.",
+    "The two defects identified in the erratum (the closure tower failing to be l-divisible at small n; the intersection with Hhat_i failing to be l-divisible) are removed by replacing A by A_m for large m.",
+    "The determinant identity sum_i m_i d_i = m h / 2 then gives h(A_{n+1}) = h(A_n) for n >= m, i.e. stationarity of the sequence.",
+    "Faltings states explicitly in the Zusatz bei der Korrektur and in the erratum that this weaker conclusion suffices for all later uses."
+   ],
+   "acceptance": [
+    "Check that the conclusion is stationarity of h(A_n), not constancy: any consumer that needs h(A_n) = h(A_0) is using a false statement.",
+    "Check that the needed consequence in Satz 3/4 is only 'infinitely many A_n are isomorphic', which follows from stationarity plus Satz 1.",
+    "Check the two shift constructions of the erratum are applied before, not after, the height computation."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 4, Satz 2, p. 358, together with the Zusatz bei der Korrektur, p. 366",
+     "excerpt": "Satz 2. Sei p : A -> Spec(R) eine semiabelsche Varietaet mit eigentlicher generischer Faser, l eine Primzahl, und G/K subset A[l^infty]/K eine l-divisible Untergruppe. Weiter sei G_n der Kern von l^n auf G, und A_n die semiabelsche Varietaet A_n = A/G_n. Dann ist h(A_n) = h(A). ... Zusatz bei der Korrektur: Herr O. Gabber hat mir mitgeteilt, dass der Beweis von Satz 2 nicht ganz korrekt ist. Man erhaelt nur, dass die Folge h(A_n) stationaer wird. Dies reicht fuer unsere Zwecke.",
+     "match": "The printed statement and the author's own correction; the node records the corrected statement as the theorem and the printed one as superseded."
+    },
+    {
+     "sourceId": "faltings-1984-erratum",
+     "locator": "Erratum, Invent. Math. 75 (1984) 381, opening paragraph",
+     "excerpt": "N. Katz hat bemerkt, dass der Satz 2 in der obigen Arbeit nicht ganz korrekt ist (O. Gabber hat ein Gegenbeispiel konstruiert). Seine Aussage sollte durch die folgende ersetzt werden, die fuer das Weitere ausreicht: Die Folge h(A_n) wird stationaer. Der Fehler besteht darin, dass zwei Feinheiten uebersehen wurden. Der urspruengliche Beweis funktioniert jedoch, wenn man gleich zu Beginn A = A_0 durch ein A_m ersetzt, mit genuegend grossem m.",
+     "match": "Confirms both the corrected statement and the exact repair (start from A_m)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.3/infinitely-many-isomorphic-quotients-along-a-maximal-isotropic-tower",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.3",
+   "title": "From stationarity and Satz 1: infinitely many A_n are isomorphic",
+   "kind": "theorem",
+   "statement": "Assume A/K is principally polarized and extends to a semiabelian variety over Spec(R). Let W subset T_l(A) otimes Q_l be a pi-invariant maximal isotropic subspace for the symplectic form coming from the principal polarization, G subset A[l^infty] the corresponding l-divisible subgroup, and A_n = A/G_n. Then each A_n again carries a principal polarization, the heights h(A_n) are stationary (corrected Satz 2), hence bounded, and therefore by Satz 1 infinitely many of the A_n are isomorphic.",
+   "hypotheses": [
+    "A/K principally polarized and extending to a semiabelian variety over Spec(R); both reductions are made at the start of the proof of Satz 3/4",
+    "W maximal isotropic and pi-invariant; maximal isotropy is what makes the quotients A_n principally polarized",
+    "l a fixed prime",
+    "Satz 1 is applied with the fixed number field K, the fixed dimension g and the fixed polarization degree 1"
+   ],
+   "proofSteps": [
+    "A pi-invariant maximal isotropic subspace W of T_l(A) otimes Q_l determines an l-divisible subgroup G subset A[l^infty].",
+    "Because W is maximal isotropic, the principal polarization descends: each A_n = A/G_n is again principally polarized.",
+    "By the corrected Satz 2 the sequence h(A_n) is stationary, in particular bounded.",
+    "Satz 1 applied to the pairs (A_n, principal polarization) with the bound gives only finitely many isomorphism classes, so infinitely many A_n are isomorphic."
+   ],
+   "acceptance": [
+    "Check that maximal isotropy, not mere pi-invariance, is what preserves principal polarizations along the tower.",
+    "Check that the finiteness input is Satz 1 for a fixed K and fixed g, and that the polarization degree stays 1.",
+    "Check that this conclusion, not constancy of the height, is what the semisimplicity argument consumes."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 5, proof of Satz 3 and Satz 4, p. 361",
+     "excerpt": "Wir koennen also annehmen, dass A/K prinzipal polarisiert ist, und dass A sich zu einer semiabelschen Varietaet ueber Spec(R) fortsetzt. Dann besitzt T_l eine nichtausgeartete schiefsymmetrische Bilinearform. Sei W ein pi-invarianter maximal isotroper Teilraum. Dem entspricht eine l-divisible Untergruppe G subset A[l^infty], und die semiabelschen Varietaeten A_n = A/G_n tragen wieder prinzipale Polarisationen. Nach Satz 2 ist h(A_n) = h(A), und nach Satz 1 sind unendlich viele A_n isomorph.",
+     "match": "Literal argument; 'Nach Satz 2 ist h(A_n) = h(A)' must be read with the erratum as 'the sequence h(A_n) is stationary', which still yields boundedness and hence the same conclusion."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.4/reduction-to-a-principally-polarized-semiabelian-model",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+   "title": "The polarization and semistability reductions at the start of the proof of Satz 3/4",
+   "kind": "construction",
+   "statement": "In proving Satz 3 and Satz 4 one may enlarge the ground field K and replace A by an isogenous abelian variety; Faltings concludes from this that one may assume A/K is principally polarized and extends to a semiabelian variety over Spec(R).",
+   "hypotheses": [
+    "the statements of Satz 3 and Satz 4 are invariant under finite extension of K and under isogeny (for Satz 4 in the weaker form End_K(A) otimes Q_l -> End_pi(T_l otimes Q_l) bijective)",
+    "the semiabelian extension after a finite extension of K is Grothendieck's semistable reduction theorem",
+    "the source states the principal-polarization reduction in one sentence, with no proof and no citation at that point"
+   ],
+   "proofSteps": [
+    "Both statements are invariant under enlarging K, since T_l otimes Q_l and End otimes Q_l only grow by a finite amount and the bijectivity assertion is stable.",
+    "Both statements are invariant under replacing A by an isogenous abelian variety, since End otimes Q_l and End_pi(T_l otimes Q_l) are unchanged up to canonical isomorphism.",
+    "Faltings then asserts that one may assume A/K principally polarized; the source supplies no argument for this at this point. The standard justification is Zarhin's trick, which produces a principally polarized abelian variety isogenous to A^8 (since A is isogenous to its dual via any polarization, (A x Adual)^4 is principally polarized and isogenous to A^8), and End(A^8) = M_8(End(A)) so the assertion for A^8 is equivalent to that for A.",
+    "The semiabelian extension over Spec(R) after a further finite extension of K is the semistable reduction theorem."
+   ],
+   "acceptance": [
+    "Check that this is where the roadmap's reference to 'Zarhin's trick or the appropriate polarisation argument' actually enters the proof: in Faltings it is a single unargued sentence on p. 361, not a step of Satz 1.",
+    "Check that the later quaternion construction on T_l(A)^8 is a different use of the same circle of ideas and does need the principal polarization already in place.",
+    "Verify with an abelian surface admitting no principal polarization over K that the reduction is not vacuous."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 5, proof of Satz 3/4, p. 361",
+     "excerpt": "Man darf dann zum Beweis den Grundkoerper erweitern, oder A durch eine isogene abelsche Varietaet ersetzen. Wir koennen also annehmen, dass A/K prinzipal polarisiert ist, und dass A sich zu einer semiabelschen Varietaet ueber Spec(R) fortsetzt.",
+     "match": "Literal quotation. The statement is recorded exactly as printed; the justification of the principal-polarization step is not present in this source and is logged as a gap."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.4/quaternion-construction-of-an-invariant-maximal-isotropic-subspace",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+   "title": "Zarhin's quaternion trick: embedding an arbitrary invariant subspace into a maximal isotropic one in T_l(A)^8",
+   "kind": "construction",
+   "statement": "Choose a, b, c, d in Z_l with a^2 + b^2 + c^2 + d^2 = -1 and let v be the 4x4 matrix corresponding to the quaternion a + b i + c j + d k, so that v . v^t = -1. For an arbitrary pi-invariant subspace W of T_l otimes Q_l, the subspace W_1 = {(x, v x) : x in W^4} + {(y, -v y) : y in (W^perp)^4} of T_l(A)^8 otimes Q_l is pi-invariant and maximal isotropic.",
+   "hypotheses": [
+    "a, b, c, d in Z_l with a^2 + b^2 + c^2 + d^2 = -1 (solvable over Z_l for every prime l)",
+    "A principally polarized, so that T_l(A) carries a nondegenerate alternating form and T_l(A)^8 = T_l(A^8) carries the product form",
+    "W any pi-invariant subspace of T_l otimes Q_l, W^perp its orthogonal complement"
+   ],
+   "proofSteps": [
+    "The quaternion relation a^2 + b^2 + c^2 + d^2 = -1 gives a matrix v with v v^t = -1, so the graph {(x, vx)} of v on W^4 is isotropic for the product form on the 8-fold product.",
+    "Likewise {(y, -vy)} on (W^perp)^4 is isotropic, and the two pieces are orthogonal to each other.",
+    "Dimension count: dim W_1 = 4 dim W + 4 dim W^perp = 4 . dim(T_l otimes Q_l) = half of dim(T_l^8 otimes Q_l), so W_1 is maximal isotropic.",
+    "W_1 is pi-invariant because W and W^perp are and v is a constant matrix.",
+    "Apply the previous argument (infinitely many isomorphic quotients) to W_1 in A^8 to conclude that W_1, hence W, is the image of an idempotent."
+   ],
+   "acceptance": [
+    "Check that a^2 + b^2 + c^2 + d^2 = -1 is solvable in Z_l for l = 2 as well as odd l; the construction must not silently exclude l = 2.",
+    "Check the dimension count producing maximal isotropy.",
+    "Check that the conclusion is transported back from A^8 to A using End(A^8) = M_8(End(A))."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 5, proof of Satz 3/4, p. 361",
+     "excerpt": "Waehle a, b, c, d in Z_l mit a^2 + b^2 + c^2 + d^2 = -1. Setze v = ... (entsprechend dem Quaternion a + b i + c j + d k), so dass v . v^t = -1. Wenn W ein beliebiger pi-invarianter Teilraum von T_l otimes Q_l ist, so wendet man obige Ueberlegungen an auf den maximal isotropen Teilraum W_1 = {(x, v x) : x in W^4} + {(y, -v y) : y in (W^perp)^4} subset T_l(A)^8 otimes Q_l.",
+     "match": "Literal quotation of the construction, including the coefficients in Z_l and the 8-fold product; this is the Zarhin trick as it actually occurs in this proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.4/semisimplicity-and-the-tate-homomorphism-comparison",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+   "title": "Satz 3 and Satz 4: semisimplicity of V_l(A) and End_K(A) otimes Z_l = End_pi(T_l)",
+   "kind": "theorem",
+   "statement": "Let K be a number field, A/K an abelian variety of dimension g, l a prime, T_l = T_l(A) the Tate module with its action of pi = Gal(Kbar/K). Then: (Satz 3) the action of pi on T_l otimes_{Z_l} Q_l is semisimple; (Satz 4) the natural map End_K(A) otimes_Z Z_l -> End_pi(T_l) is an isomorphism.",
+   "hypotheses": [
+    "K a number field (the proof uses Satz 1, hence heights, hence the number-field case)",
+    "A/K an abelian variety, l an arbitrary prime including l = 2 and l = char of residue fields",
+    "End_K(A) means endomorphisms defined over K, not geometric endomorphisms",
+    "the proof passes through the weaker statement that End_K(A) otimes_Z Q_l -> End_pi(T_l otimes_{Z_l} Q_l) is bijective"
+   ],
+   "proofSteps": [
+    "It suffices, as is well known, to prove the weaker statement that End_K(A) otimes Q_l -> End_pi(T_l otimes Q_l) is bijective.",
+    "Reduce (previous node) to A principally polarized and semiabelian over Spec(R).",
+    "For a pi-invariant maximal isotropic W, the corresponding tower A_n = A/G_n has stationary height and, by Satz 1, infinitely many A_n are isomorphic.",
+    "As in Zarhin [16], it follows that W is the image of an idempotent of End_K(A) otimes Z_l; this deduction is quoted from Zarhin and not reproved here.",
+    "For an arbitrary pi-invariant subspace W one applies the previous step to the maximal isotropic W_1 inside T_l(A)^8 otimes Q_l built from the quaternion matrix v.",
+    "Existence of an idempotent projecting onto every invariant subspace gives both semisimplicity (Satz 3) and the surjectivity in Satz 4; injectivity is the classical statement that End_K(A) otimes Z_l -> End(T_l) is injective."
+   ],
+   "acceptance": [
+    "Check both injectivity and surjectivity are established, rather than an equality of dimensions.",
+    "Check the statement is for End_K, and test a CM elliptic curve over Q where End_Q(E) = Z but End_Qbar(E) is an order in an imaginary quadratic field: the rational Hom comparison must see only Z.",
+    "Check the integral statement End_K(A) otimes Z_l -> End_pi(T_l) is the one stated, and that the proof goes through the rational version."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 5, Satz 3, Satz 4 and their common proof, pp. 360-361",
+     "excerpt": "Satz 3. Die Operation von pi auf T_l otimes_{Z_l} Q_l ist halbeinfach. Satz 4. Die Abbildung End_K(A) otimes_Z Z_l -> End_pi(T_l) ist ein Isomorphismus. Beweis. Die beiden Saetze werden zusammen bewiesen. Es reicht bekanntlich, statt Satz 4 die etwas schwaechere Aussage zu beweisen, dass die Abbildung End_K(A) otimes_Z Q_l -> End_pi(T_l otimes_{Z_l} Q_l) bijektiv ist.",
+     "match": "Literal statements, read from the rendered page 360; the proof steps follow Faltings' own five-line argument, with the idempotent step explicitly attributed to Zarhin [16]."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.4/hom-comparison-for-pairs-and-the-isogeny-criterion",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+   "title": "Korollar 1 and Korollar 2: Hom comparison and the four equivalent isogeny criteria",
+   "kind": "comparison",
+   "statement": "Korollar 1: for abelian varieties A_1, A_2 over K the natural map Hom_K(A_1, A_2) otimes Z_l -> Hom_pi(T_l(A_1), T_l(A_2)) is an isomorphism. Korollar 2: with L(A,s) = prod_v det(1 - (Nv)^{-s} F_v | T_l(A))^{-1} = prod_v L_v(A,s) over almost all places of K (the local factors L_v being independent of l), the following are equivalent: (i) A_1 and A_2 are isogenous; (ii) T_l(A_1) otimes Q_l = T_l(A_2) otimes Q_l as pi-modules; (iii) L_v(s, A_1) = L_v(s, A_2) for almost all places v of K; (iv) L_v(s, A_1) = L_v(s, A_2) for all v.",
+   "hypotheses": [
+    "A_1, A_2 abelian varieties over the number field K",
+    "the L-factors are defined at the places of good reduction (the product runs over almost all v) and are independent of l there",
+    "(i) means K-isogenous",
+    "the proof of (ii) <=> (iii) uses semisimplicity (Satz 3) together with Chebotarev"
+   ],
+   "proofSteps": [
+    "Korollar 1 follows from Satz 4 applied to A_1 x A_2, since End(A_1 x A_2) contains Hom(A_1, A_2) as a direct summand.",
+    "(i) <=> (ii) follows from Satz 4 (Korollar 1): an isomorphism of rational Tate modules is, after clearing denominators, an isogeny.",
+    "(ii) <=> (iii) follows from Satz 3 together with Chebotarev: two semisimple l-adic representations with the same characteristic polynomials of Frobenius at a set of places of density one are isomorphic.",
+    "(ii) => (iv) => (iii) is trivial."
+   ],
+   "acceptance": [
+    "Check that (iii) is only about almost all v, so that a finite set of bad places cannot be used to separate the varieties.",
+    "Check the semisimplicity input: without Satz 3 equality of Frobenius traces would only give equality of semisimplifications.",
+    "Test on an isogenous pair of elliptic curves over Q with different conductors at no place (isogenous curves have equal conductors) and on a non-isogenous pair with matching a_p for finitely many p."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 5, Korollar 1 and Korollar 2 with proofs, p. 361",
+     "excerpt": "Korollar 1. Seien A_1 und A_2 abelsche Varietaeten ueber K. Dann ist Hom_K(A_1, A_2) otimes Z_l -> Hom_pi(T_l(A_1), T_l(A_2)) ein Isomorphismus. Beweis. Satz 4 fuer A_1 x A_2. ... Korollar 2 ... Beweis. Die Aequivalenz von i) und ii) folgt aus Satz 4, die von ii) und iii) aus Satz 3 (+ Chebotarev), und aus ii) folgt iv) folgt iii) ist trivial.",
+     "match": "Literal statements and the literal one-line proofs, which identify exactly which of Satz 3 and Satz 4 is used for each equivalence."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.4/finiteness-of-polarized-varieties-with-all-tate-modules-isomorphic",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+   "title": "Korollar 3: finiteness of d-fold polarized B with T_l(A) = T_l(B) for all l",
+   "kind": "theorem",
+   "statement": "Let A/K be an abelian variety and d > 0. Then there are only finitely many isomorphism classes of d-fold polarized abelian varieties B/K such that T_l(A) = T_l(B) for all l.",
+   "hypotheses": [
+    "K a number field; A/K an abelian variety; d > 0 a fixed polarization degree",
+    "the hypothesis is an isomorphism of Tate modules for every prime l simultaneously",
+    "in the proof one may enlarge K and assume: (a) all B have semistable reduction, (b) all B/K are principally polarized, (c) there is an N such that for every prime l and every B there is an isogeny phi : A -> B whose largest l-power factor of Grad(phi) divides N"
+   ],
+   "proofSteps": [
+    "The hypothesis means that for every l there is an isogeny of degree prime to l between A and B (by Korollar 1/Satz 4).",
+    "Enlarging K one may assume A and all the B extend to semiabelian varieties over Spec(R), and that for every B there is an isogeny of l-power degree to a principally polarized abelian variety; this yields conditions (a), (b), (c) above.",
+    "The Bemerkung after Lemma 5 then shows that exp(2 [K:Q](h(B) - h(A))) is a rational number whose numerator and denominator are bounded by a suitable power of N.",
+    "Hence the h(B) are bounded, and Satz 1 applies to give finiteness."
+   ],
+   "acceptance": [
+    "Check that the conclusion is finiteness of polarized isomorphism classes, not of isomorphism classes of abelian varieties without polarization.",
+    "Check that the hypothesis is for all l; for a single l it is weaker and does not give this conclusion.",
+    "Check that the height bound comes from the Bemerkung after Lemma 5 and not from Northcott alone."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 5, Korollar 3 and its proof, p. 362",
+     "excerpt": "Korollar 3. Sei A/K eine abelsche Varietaet, d > 0. Dann gibt es nur endlich viele Isomorphieklassen d-fach polarisierter abelscher Varietaeten B/K, so dass fuer alle l T_l(A) = T_l(B). ... a) alle B haben semistabile Reduktion, b) alle B/K sind prinzipal polarisiert, c) es gibt ein N, so dass fuer jede Primzahl l und alle B Isogenien phi : A -> B existieren, fuer die die groesste l-Potenz in Grad(phi) N teilt.",
+     "match": "Literal statement with the three normalizations (a), (b), (c) made in the proof; these are the hypotheses that must be carried by any consumer."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-isogeny-classes-with-good-reduction-outside-S",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.5",
+   "title": "Satz 5: finitely many isogeny classes of abelian varieties of given dimension with good reduction outside S",
+   "kind": "theorem",
+   "statement": "Let K be a number field and S a finite set of places of K. Then there are only finitely many isogeny classes of abelian varieties of a prescribed dimension g over K having good reduction outside S.",
+   "hypotheses": [
+    "K a number field, S a finite set of places of K, g fixed",
+    "good reduction outside S",
+    "the proof fixes a prime l and uses the finite Galois extension K' of K containing all extensions of K of degree <= l^{8 g^2} unramified outside l and S",
+    "the algebra M generated by the image of pi inside End_{Z_l}(T_l(A_1)) x End_{Z_l}(T_l(A_2)) is a free Z_l-module of rank <= 8 g^2"
+   ],
+   "proofSteps": [
+    "By the Weil conjectures there are, for v outside S, only finitely many possibilities for the local L-factor L_v(A,s).",
+    "Construct finitely many places v_1, ..., v_r such that two abelian varieties are already isogenous when they have the same local L-factor at these places.",
+    "Fix a prime l. By Lemma 4 there is a finite Galois extension K' of K containing all extensions of K of degree <= l^{8 g^2} unramified outside l and S.",
+    "Let G = Gal(K'/K) and choose v_1, ..., v_r so that every conjugacy class in G contains the image of a Frobenius F_v for v in {v_1, ..., v_r} (Chebotarev).",
+    "Let A_1, A_2 have the same local L-factors at v_1, ..., v_r, and let M subset End_{Z_l}(T_l(A_1)) x End_{Z_l}(T_l(A_2)) be the Z_l-subalgebra generated by the image of pi. Then M is a free Z_l-module of rank <= 8 g^2 with representations on T_l(A_1) and T_l(A_2).",
+    "It suffices to prove Spur(m | T_l(A_1)) = Spur(m | T_l(A_2)) for m in a Z_l-basis of M; by hypothesis this holds for m in the conjugacy class of F_v for v in {v_1, ..., v_r}.",
+    "Those images generate M over Z_l: by Nakayama it suffices that they generate M/lM, and the representation rho : pi -> (M/lM)^* has image generating M/lM; since #(M/lM)^* < l^{8 g^2}, rho factors through G, and rho(pi) is the union of the images of the conjugacy classes of the F_v.",
+    "Hence the traces agree for all m in M, so T_l(A_1) otimes Q_l = T_l(A_2) otimes Q_l by semisimplicity (Satz 3), and Korollar 2 gives an isogeny."
+   ],
+   "acceptance": [
+    "Check that the finite set v_1, ..., v_r depends on g, K, S and the auxiliary prime l, and that the argument produces isogeny classes, not isomorphism classes.",
+    "Check the rank bound 8 g^2 for M and the corresponding cardinality bound #(M/lM)^* < l^{8 g^2}, which is what forces rho to factor through G.",
+    "Check that Nakayama is applied to a finitely generated module over the local ring Z_l."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, Satz 5 and its proof, pp. 362-363",
+     "excerpt": "Satz 5. Sei S eine endliche Menge von Stellen von K. Dann gibt es nur endlich viele Isogenie-Klassen abelscher Varietaeten vorgegebener Dimension ueber K, welche gute Reduktion ausserhalb S haben. ... Dann ist M freier Z_l-Modul vom Rang <= 8 g^2, und M besitzt Darstellungen auf T_l(A_1) und T_l(A_2). ... Da #(M/lM)^* < l^{8 g^2}, faktorisiert rho ueber G, und rho(pi) ist die Vereinigung der Bilder der Konjugationsklassen der F_v.",
+     "match": "Literal statement and the complete proof strategy including the rank bound, the Nakayama step and the Chebotarev choice of places."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.5/weil-bounds-on-exterior-powers-and-the-choice-of-N",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.5",
+   "title": "The auxiliary polynomials P_h(T) and the choice of N",
+   "kind": "lemma",
+   "statement": "Let n be the product of the primes l at which either K/Q is ramified or A does not have good reduction at all places of characteristic l. Choose a prime p not dividing n, put pitilde = Gal(Qbar/Q), pi = Gal(Kbar/K), and for 0 <= h <= 2 g m (g = dim A, m = [K:Q]) set P_h(T) = det[T - F_p | Lambda^h(Ind_pi^pitilde(T_l(A)))], where l is a prime coprime to p n and F_p is the Frobenius at p. The P_h(T) are independent of l, have coefficients in Z, and their roots have absolute value p^{h/2} (Weil). Choose N >= 2 so large that no prime l > N divides P_h(+- p^j) whenever 0 <= h <= 2 g m, 0 <= j <= g m and j != h/2; also require N >= n p.",
+   "hypotheses": [
+    "A/K an abelian variety of dimension g over the number field K of degree m",
+    "n the product of primes at which K/Q ramifies or A has bad reduction over that residue characteristic",
+    "p a prime not dividing n; l a prime coprime to p n",
+    "the eigenvalue bound |root| = p^{h/2} is the Weil conjecture (Weil's theorem) for abelian varieties over finite fields, applied to the induced module"
+   ],
+   "proofSteps": [
+    "Ind_pi^pitilde(T_l(A)) is the Tate module of the Weil restriction Res_{K/Q} A; since p does not divide n, this abelian variety has good reduction at p and the Frobenius F_p is defined.",
+    "Independence of l and integrality of the characteristic polynomial of F_p on the Tate module is the standard good-reduction statement; it passes to exterior powers.",
+    "Weil's theorem gives absolute value p^{1/2} for the Frobenius eigenvalues, hence p^{h/2} for the roots of P_h.",
+    "Since P_h(+- p^j) != 0 whenever j != h/2 (by the absolute-value bound), only finitely many primes divide these finitely many nonzero integers; N is chosen above all of them and above n p."
+   ],
+   "acceptance": [
+    "Check the exclusion j != h/2: this is exactly where the Weil bound is used, and the choice of N is impossible without it.",
+    "Check that P_h has coefficients in Z and is independent of l, so that the divisibility condition is a condition on integers.",
+    "Check that the induction from pi to pitilde corresponds to Weil restriction of scalars and that the good reduction of A at places over p transfers."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, proof of Satz 6, pp. 363-364",
+     "excerpt": "P_h(T) = det[T - F_p | Lambda^h(Ind_pi^pitilde(T_l(A)))]. Dabei ist l eine zu p n prime Primzahl, und F_p bezeichnet den Frobenius an der Stelle p. Die P_h(T) sind unabhaengig von l, haben Koeffizienten in Z, und ihre Nullstellen haben absoluten Betrag p^{h/2} (Weil-Vermutung oder besser -Satz). Wir waehlen nun N >= 2 so gross, dass keine Primzahl l > N P_h(+- p^j) teilt, falls 0 <= h <= 2 g m, 0 <= j <= g m, j != h/2. Ausserdem sei N >= n p.",
+     "match": "Literal statement, read from the rendered page 364; the inequalities and the exclusion j != h/2 are reproduced exactly."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.5/determinant-character-of-the-kernel-computed-by-raynaud",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.5",
+   "title": "chi . eps^h = chi_0^{+d} for an isogeny of l-power degree with l > N",
+   "kind": "theorem",
+   "statement": "Let B_1, B_2 be abelian varieties isogenous to A and phi : B_1 -> B_2 an isogeny whose degree is a power of a prime l > N; one may assume l kills G = Ker(phi). Put V_l = T_l(B_1)/l T_l(B_1) = B_1[l](Kbar), Vtilde_l = Ind_pi^pitilde(V_l), W_l = G(Kbar) subset V_l and Wtilde_l = Ind_pi^pitilde(W_l) subset Vtilde_l. If phi has order l^h then pitilde acts on L = Lambda^{mh}(Wtilde_l) subset Lambda^{mh}(Vtilde_l) via a character chi : pitilde -> (Z/lZ)^*. Let eps : pitilde -> {+-1} be the character by which pitilde acts on Lambda^m Ind_pi^pitilde(Z). Then chi . eps^h is unramified outside l, because the inertia groups at the places v of K not dividing l act unipotently on V_l (semistable reduction). By class field theory chi . eps^h is a power of the cyclotomic character chi_0, and by Raynaud, Schemas en groupes de type (p,...,p), Theoreme 4.1.1 (used in place of Tate's theory) this power is d, where l^d = # s^*(Omega^1_{G/R}) and 0 <= d <= g m. Hence chi_0^d(F_p) = +- p^d is a root of P_{mh}(T) modulo l, and by the choice of N necessarily d = h m / 2; since h(B_2) - h(B_1) = log(l)(h/2 - d/m), the heights agree.",
+   "hypotheses": [
+    "B_1, B_2 isogenous to A, all with semistable reduction over R (arranged by enlarging K)",
+    "phi of degree a power of a prime l > N, and l kills G = Ker(phi)",
+    "semistable reduction is used exactly to make inertia at v not dividing l act unipotently on V_l",
+    "Raynaud's Theoreme 4.1.1 requires the base to be strictly henselian of mixed characteristic with absolute ramification e <= p - 1; here p = l and e = 1 because l does not divide n, so K/Q is unramified at l",
+    "0 <= d <= g m with l^d = # s^*(Omega^1_{G/R})"
+   ],
+   "proofSteps": [
+    "Reduce to the case where l kills the kernel G of phi.",
+    "Form the mod-l representation V_l and induce to pitilde; the determinant of the induced sub-representation Wtilde_l defines a character chi with values in (Z/lZ)^*.",
+    "Twist by eps^h, where eps records the action of pitilde on Lambda^m of the induced trivial module, to make the character unramified outside l; this uses unipotence of inertia at v not dividing l, i.e. semistable reduction.",
+    "Class field theory over Q identifies an everywhere-unramified-outside-l character of pitilde with a power of the cyclotomic character chi_0.",
+    "Raynaud's Theoreme 4.1.1 computes the determinant of the generic fibre of a finite flat commutative group scheme killed by l over a strictly henselian mixed-characteristic base with e <= l - 1 as the tame character of level equal to the different exponent; summing the local contributions gives chi . eps^h = chi_0^{+d} with l^d = # s^*(Omega^1_{G/R}).",
+    "Evaluating at F_p shows +- p^d is a root of P_{mh} modulo l; by the choice of N (which excludes all j != h m /2) one gets d = h m / 2.",
+    "By Lemma 5, h(B_2) - h(B_1) = log(l)(h/2 - d/m) = 0."
+   ],
+   "acceptance": [
+    "Check that the hypothesis l > N >= n p forces K/Q unramified at l, so Raynaud's e <= l - 1 hypothesis is satisfied with e = 1; the argument is invalid without this.",
+    "Check the role of eps: without the twist the character is ramified at places outside l.",
+    "Check that the conclusion is h(B_1) = h(B_2) only for isogenies of l-power degree with l > N; the remaining finitely many primes are handled by the separate argument using Satz 4."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, proof of Satz 6, p. 364",
+     "excerpt": "Wenn eps : pitilde -> {+-1} den Charakter bezeichnet, mit dem pitilde auf Lambda^m Ind_pi^pitilde(Z) operiert, so ist chi . eps^h unverzweigt ausserhalb l, denn die Traegheitsgruppen der Stellen v von K, welche l nicht teilen, operieren unipotent auf V_l (semistabile Reduktion). Nach der Klassenkoerpertheorie ist chi . eps^h eine Potenz des zyklotomischen Charakters chi_0. Diese Potenz laesst sich mit Hilfe von [10], Theoreme 4.11 (statt der Tateschen Theorie [13]) wie folgt bestimmen: Sei l^d = # s^*(Omega^1_{G/R}), 0 <= d <= g m. Dann ist (nach Raynaud) chi . eps^h = chi_0^{+d}.",
+     "match": "Literal quotation read from the rendered page 364. Faltings' citation '[10], Theoreme 4.11' is Raynaud's Theoreme 4.1.1 (Bull. SMF 102 (1974), Section 4.1, printed p. 272); this identification was verified directly in the Raynaud text."
+    },
+    {
+     "sourceId": "raynaud-1974-schemas-en-groupes-p-p",
+     "locator": "Section 4.1, Theoreme 4.1.1, printed p. 272",
+     "excerpt": "THEOREME 4.1.1. - Soit G la fibre generique d'un R-schema en groupes ^, fini, plat, commutatif, annule par p. Supposons e <= p-1. Alors l'action de Gal(K/K) sur det(G) est donnee par le caractere modere T_{d(^)}.",
+     "match": "The imported theorem, with its own hypotheses: R strictly henselian of mixed characteristic (stated at the head of Section 4), the group scheme finite flat commutative killed by p, and e <= p - 1. In Faltings' application p = l, e = 1 and l does not divide n."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-pi-invariant-lattices-from-semisimplicity",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.5",
+   "title": "Only finitely many pi-invariant lattices up to isomorphism, from semisimplicity of M_l otimes Q_l",
+   "kind": "lemma",
+   "statement": "If T_l(B_1) and T_l(B_2) are isomorphic as pi-modules, then by Satz 4 there is an isogeny of degree prime to l between B_1 and B_2, and l does not occur in exp(2[K:Q](h(B_1) - h(B_2))). It therefore suffices that there be only finitely many isomorphism classes of pi-invariant lattices in T_l(A) otimes Q_l. Let M_l be the Z_l-subalgebra of End_{Z_l}(T_l(A)) generated by pi; the assertion follows from the fact that M_l otimes Q_l is semisimple (Satz 3).",
+   "hypotheses": [
+    "B_1, B_2 abelian varieties over K isogenous to A",
+    "M_l the Z_l-algebra generated by the image of pi in End_{Z_l}(T_l(A))",
+    "semisimplicity of M_l otimes Q_l is Satz 3",
+    "the finiteness of invariant lattices is the Jordan-Zassenhaus-type finiteness for lattices over an order in a semisimple Q_l-algebra"
+   ],
+   "proofSteps": [
+    "An isomorphism of pi-modules T_l(B_1) = T_l(B_2) gives, by Satz 4, an isogeny of degree prime to l, so l contributes nothing to the height difference.",
+    "Hence the l-part of exp(2[K:Q](h(B_1) - h(B_2))) is bounded once the number of isomorphism classes of pi-invariant lattices in T_l(A) otimes Q_l is finite.",
+    "Faltings deduces this finiteness from the semisimplicity of M_l otimes Q_l (Satz 3); the lattice-counting statement itself is quoted, not proved, in this source."
+   ],
+   "acceptance": [
+    "Check that the finiteness assertion is about lattices over the order M_l inside the semisimple algebra M_l otimes Q_l; this is a Jordan-Zassenhaus statement and needs its own proof.",
+    "Check that the conclusion bounds the exponent of l in the height difference for the small primes l <= N.",
+    "Check that semisimplicity of M_l otimes Q_l is the only input used from Satz 3 at this point."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, proof of Satz 6, p. 363",
+     "excerpt": "Wenn fuer zwei abelsche Varietaeten B_1/K und B_2/K T_l(B_1) und T_l(B_2) als pi-Moduln isomorph sind, so existiert nach Satz 4 eine Isogenie vom Grad prim zu l zwischen B_1 und B_2, und l tritt nicht in exp(2 [K:Q](h(B_1) - h(B_2))) auf. Es reicht also, wenn es nur endlich viele Isomorphie-Klassen pi-invarianter Gitter in T_l(A) otimes Q_l gibt. Dazu sei M_l die von pi erzeugte Z_l-Unteralgebra von End_{Z_l}(T_l(A)). Es folgt dann alles aus der Tatsache, dass M_l otimes Q_l halbeinfach ist (Satz 3).",
+     "match": "Literal quotation; the roadmap text for R28.1 is right that a finite-lattice theorem is needed and is not implied by Northcott, and the source indeed only sketches this step."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.5/shafarevich-finiteness",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.5",
+   "title": "Satz 6 (Shafarevich conjecture): finiteness of d-polarized abelian varieties with good reduction outside S",
+   "kind": "theorem",
+   "statement": "Let K be a number field, S a finite set of places of K and d > 0. Then there are only finitely many isomorphism classes of d-fold polarized abelian varieties over K of a prescribed dimension having good reduction outside S.",
+   "hypotheses": [
+    "K a number field, S a finite set of places of K, d > 0, dimension g fixed",
+    "in the proof one reduces to a single isogeny class (Satz 5), assumes all B extend to semiabelian varieties over Spec(R) and takes d = 1",
+    "the reduction to d = 1 and to semiabelian models is the same normalization as in the proof of Korollar 3 to Satz 4"
+   ],
+   "proofSteps": [
+    "By Satz 5 one may assume all the abelian varieties B/K under consideration are isogenous to a fixed A/K.",
+    "As in the proof of Korollar 3 to Satz 4, one may further assume all B extend to semiabelian varieties over Spec(R) and that d = 1.",
+    "exp(2 [K:Q](h(B) - h(A))) is known to be rational; one constructs N such that its numerator and denominator have no prime factors l > N, and such that the l-powers occurring for l <= N are bounded.",
+    "The bound for small l is the preceding node (finitely many pi-invariant lattices, from semisimplicity).",
+    "The bound for l > N is the Raynaud determinant computation: for every isogeny of l-power degree with l > N between varieties isogenous to A, the heights agree.",
+    "Hence the h(B) are bounded and Satz 6 follows from Satz 1."
+   ],
+   "acceptance": [
+    "Check that the polarization degree d is fixed and the reduction to d = 1 is part of the proof, not an extra hypothesis on consumers.",
+    "Check that the finiteness is of isomorphism classes of polarized abelian varieties over K, and that the good-reduction hypothesis is outside a fixed finite S.",
+    "Check that no naive projective height bound is used: the height bound is produced by the two arguments above, exactly as the roadmap text demands."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, Satz 6 and its proof, pp. 363-365",
+     "excerpt": "Satz 6 (Shafarevich-Vermutung). Sei S eine endliche Menge von Stellen von K, d > 0. Dann gibt es nur endlich viele Isomorphie-Klassen d-fach polarisierter abelscher Varietaeten ueber K von vorgegebener Dimension, welche ausserhalb S gute Reduktion haben. ... folgt unsere Behauptung, und es ergibt sich, dass die h(B)'s der betrachteten B's beschraenkt sind. Damit folgt Satz 6 aus Satz 1.",
+     "match": "Literal statement and the closing sentence of the proof, which shows that the entire content is the height bound plus Satz 1."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-curves-of-genus-at-least-two-with-good-reduction-outside-S",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.5",
+   "title": "Korollar 1 to Satz 6: finiteness of curves of genus at least 2 with good reduction outside S",
+   "kind": "application",
+   "statement": "There are only finitely many isomorphism classes of smooth curves X/K of genus g >= 2 with good reduction outside S.",
+   "hypotheses": [
+    "K a number field, S a finite set of places, g >= 2 fixed",
+    "the Jacobian of such a curve is principally polarized and has good reduction outside S",
+    "the proof is the single word 'Torelli': the Torelli theorem recovers the curve from its principally polarized Jacobian"
+   ],
+   "proofSteps": [
+    "A curve X/K of genus g >= 2 with good reduction outside S has Jacobian J(X) principally polarized with good reduction outside S.",
+    "Satz 6 with d = 1 gives finitely many possibilities for the principally polarized Jacobian.",
+    "Torelli's theorem recovers X from (J(X), theta-polarization), up to the standard ambiguity; Faltings' proof is the one word 'Torelli'."
+   ],
+   "acceptance": [
+    "Check that the Torelli theorem is used over K and that its field-of-definition subtleties (hyperelliptic vs non-hyperelliptic, the quadratic twist ambiguity) are separate statements not addressed in this source.",
+    "Check that good reduction of X implies good reduction of J(X), which is the direction used.",
+    "Check genus at least 2 is needed both for Torelli and for the later Mordell application."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, Korollar 1 to Satz 6 and its proof, p. 365",
+     "excerpt": "Korollar 1. Es gibt nur endlich viele Isomorphie-Klassen glatter Kurven X/K vom Geschlecht g >= 2, welche ausserhalb S gute Reduktion haben. Beweis. Torelli.",
+     "match": "Literal statement and literal proof; the Torelli input is an explicit import boundary, recorded in this packet's gaps."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.5/mordell-conjecture-by-the-parshin-construction",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.5",
+   "title": "Satz 7 (Mordell conjecture) from Shafarevich finiteness via the Parshin construction",
+   "kind": "application",
+   "statement": "Let X/K be a smooth curve of genus g >= 2. Then X(K) is finite.",
+   "hypotheses": [
+    "K a number field; X/K smooth of genus g >= 2",
+    "after a possible extension of the ground field there is an unramified covering phi : X_1 -> X of degree m >= 2",
+    "Lemma 4 supplies a finite extension K_1 of K such that for every x in X(K), phi^{-1}(x) consists of m distinct K_1-rational points",
+    "the auxiliary curve Y(x) has bad reduction only at places dividing 2, at places of bad reduction of X_1, and at places where phi ramifies mod v"
+   ],
+   "proofSteps": [
+    "This argument is Parshin's ([9]). After a possible extension of the ground field there is an unramified covering phi : X_1 -> X of degree m >= 2.",
+    "Lemma 4 gives a finite extension K_1 of K such that for each x in X(K) the fibre phi^{-1}(x) consists of m distinct K_1-rational points; choose one, y in phi^{-1}(x).",
+    "Let D = phi^{-1}(x) - {y} and let A/K_1 be the generalized Jacobian of the pair (X_1, D). Using y one constructs a map X_1 - D -> A.",
+    "Multiplication by 2 on A induces a covering Y(x) -> X_1 ramified exactly over D; the curve Y(x) can have bad reduction only at places v of K_1 with (a) v divides 2, (b) X_1 has bad reduction at v, or (c) phi ramifies in the fibre mod v.",
+    "These are finitely many places, so by Korollar 1 there are only finitely many possibilities for Y(x), and likewise for the map Y(x) -> X_1 -> X, which is ramified exactly over x.",
+    "Hence there are only finitely many x in X(K)."
+   ],
+   "acceptance": [
+    "Check that the construction produces, for each rational point x, a curve Y(x) in a fixed finite set, and that the map Y(x) -> X determines x because it is ramified exactly over x.",
+    "Check the three bad-reduction conditions, which is what keeps the bad set of Y(x) uniformly finite.",
+    "Check that the argument needs both the field extension K_1 (Lemma 4) and the finiteness of curves (Korollar 1), i.e. it is not self-contained."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, Satz 7 and its proof, p. 365",
+     "excerpt": "Satz 7 (Mordell-Vermutung). Sei X/K eine glatte Kurve vom Geschlecht g >= 2. Dann ist X(K) endlich. Beweis. Dies steht in [9]: Nach eventueller Erweiterung des Grundkoerpers gibt es eine unverzweigte Ueberlagerung vom Grad m >= 2: phi : X_1 -> X. ... wobei die Kurve Y(x) nur an solchen Stellen v von K_1 schlechte Reduktion haben kann, fuer die eine der drei folgenden Bedingungen gilt: a) v teilt 2. b) X_1 hat schlechte Reduktion in v. c) phi verzweigt in der Faser mod v.",
+     "match": "Literal statement and the complete Parshin construction as printed, with the three explicit bad-reduction conditions."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.6/commutant-statement-for-almost-all-primes",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.6",
+   "title": "Bemerkung 2: for almost all l the algebra generated by pi is the full commutant of End_K(A) otimes Z_l",
+   "kind": "theorem",
+   "statement": "Using the method of Zarhin [16] one deduces from Satz 6 that for almost all primes l the subalgebra M_l of End_{Z_l}(T_l(A)) generated by pi is the full commutant of End_K(A) otimes Z_l.",
+   "hypotheses": [
+    "K a number field, A/K an abelian variety",
+    "M_l the Z_l-algebra generated by the image of pi in End_{Z_l}(T_l(A))",
+    "the conclusion is for almost all l, not for all l",
+    "the method is quoted from Zarhin [16]; Faltings gives no proof here"
+   ],
+   "proofSteps": [
+    "Faltings records this as a remark at the end of Section 6, attributing the method to Zarhin [16] and deducing it from Satz 6.",
+    "The statement is the integral (Z_l-level) refinement of Satz 4; it is what downstream residual-irreducibility arguments consume.",
+    "No proof appears in this source, so this node is an explicit import boundary."
+   ],
+   "acceptance": [
+    "Check that the assertion is integral (over Z_l) and holds only for almost all l; the exceptional set is not made explicit here.",
+    "Check the difference from Satz 4, which is an isomorphism onto End_pi(T_l) for every l.",
+    "Test on an elliptic curve E/Q with End_Q(E) = Z: the statement becomes that the image of Galois in GL_2(Z_l) generates the full matrix algebra for almost all l."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, Bemerkungen 2 after Satz 7, p. 365",
+     "excerpt": "2. Mit Hilfe der Methode aus [16] kann man aus Satz 6 folgern, dass fuer fast alle Primzahlen l die von pi erzeugte Unteralgebra M_l von End_{Z_l}(T_l(A)) der volle Kommutator von End_K(A) otimes Z_l ist.",
+     "match": "Literal quotation of the remark; recorded as an imported statement without a proof in this source."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems:R28.6/siegel-theorem-without-diophantine-approximation",
+   "parentStageId": "FaltingsFinitenessAndIsogenyTheorems:R28.6",
+   "title": "Bemerkung 1: Siegel's theorem on integral points follows by the same route",
+   "kind": "application",
+   "statement": "Faltings remarks that the same route also yields a proof of Siegel's theorem on integral points, one that does not use Diophantine approximation.",
+   "hypotheses": [
+    "the setting of Satz 7 (the Parshin construction and Korollar 1 to Satz 6)",
+    "Siegel's theorem here means finiteness of integral points on the relevant affine curves",
+    "no statement of the precise form of Siegel's theorem obtained is given in this source"
+   ],
+   "proofSteps": [
+    "Faltings states the consequence in one sentence without giving the argument.",
+    "The point recorded is methodological: the finiteness input is Shafarevich finiteness via coverings, not Diophantine approximation.",
+    "This node records exactly what the source asserts and no more."
+   ],
+   "acceptance": [
+    "Check that this source does not state the genus/boundary hypotheses under which Siegel's theorem is obtained; any consumer must supply them from a separate source.",
+    "Check that the claim is about avoiding Diophantine approximation, not about effectivity: no effective bound is claimed anywhere in this paper.",
+    "Compare with the separate Diophantine-approximation route required by HeightsRationalPointsAndObstructions RP.4."
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, Bemerkungen 1 after Satz 7, p. 365",
+     "excerpt": "1. Man erhaelt auf diesem Wege auch einen Beweis des Siegelschen Satzes (ueber ganze Punkte), welcher ohne diophantische Approximation auskommt.",
+     "match": "Literal quotation; no proof or precise statement is given in the source, so nothing further is asserted here."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.1/extension-of-homomorphisms-of-semiabelian-schemes-over-a-normal-base",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.1/stable-curve-correspondence-stack-over-Z",
+   "reason": "Lemma 1 is used twice inside the construction of Lemma 2: to extend the homomorphisms alpha and beta from U to J, and again over the normal Jtilde built from the toroidal chart phi : N -> Abar_g/C. Without the extension lemma condition (c) of Lemma 2 only holds over U.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 2, proof of Lemma 2, p. 352 ('schon a) und (nach Lemma 1) c) erfuellt sind' and 'Nach Lemma 1 kann man auch alpha und beta fortsetzen')"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.1/stable-curve-correspondence-stack-over-Z",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.1/commensurability-of-the-modular-and-hodge-line-bundles",
+   "reason": "The corollary is proved by pulling back the stable curve q : C -> J and the pair (alpha, beta) of Lemma 2 along a lift rhotilde : Spec(R') -> J, which yields d^g . rhotilde^*(L) subset omega_{A/R'} subset rhotilde^*(L). The corollary is exactly Lemma 2 evaluated at an arithmetic point.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 2, proof of the Korollar to Lemma 2, p. 353"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.1/commensurability-of-the-modular-and-hodge-line-bundles",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.1/finiteness-of-principally-polarized-semiabelian-models-of-bounded-height",
+   "reason": "Satz 1 opens with 'Nach dem Korollar zu Lemma 2 ist die Differenz zwischen h(x) und r . h(A) beschraenkt': the corollary supplies the bounded difference between the projective height of the moduli point and r times the modular height, which converts a bound on h(A) into a bound on h(x).",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 3, proof of Satz 1, first sentence, p. 357"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.1/hodge-metric-has-logarithmic-singularities-along-the-boundary",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.1/northcott-property-for-heights-from-log-singular-metrics",
+   "reason": "Lemma 3 assumes a metric with logarithmic singularities along Y; the preceding node supplies exactly that hypothesis for M on Abar_g(C) with Y the boundary, which is the only case in which Lemma 3 is applied.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 3, Beispiel preceding Lemma 3, p. 355, and Lemma 3, p. 356"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.1/northcott-property-for-heights-from-log-singular-metrics",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.1/finiteness-of-principally-polarized-semiabelian-models-of-bounded-height",
+   "reason": "Lemma 3 is the finiteness input: 'Nach Lemma 3 liefern die A mit h(A) <= c somit nur endlich viele verschiedene x in A_g(K)'. It supplies finiteness of moduli points of bounded height for the singular metric actually used.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 3, proof of Satz 1, p. 357"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.1/hermite-minkowski-finiteness-of-extensions-unramified-outside-S",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.1/finiteness-of-principally-polarized-semiabelian-models-of-bounded-height",
+   "reason": "Lemma 4 supplies the finite extension K' of K containing, for some n >= 3, the coordinates of the n-division points of all A in one Kbar-isomorphism class; this is the descent step converting finitely many Kbar-classes into finitely many K-classes.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 3, proof of Satz 1, p. 357"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.1/faltings-modular-height-of-a-semiabelian-model",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.2/height-change-under-an-isogeny-of-semiabelian-models",
+   "reason": "Lemma 5 is a computation of the degree of the metrized bundle omega_{A/R} defined in the height node: the finite part contributes log # s^*(Omega^1_{G/R}) and the archimedean part the factor (Grad(phi))^{1/2}.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 4, pp. 357-358"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.2/height-change-under-an-isogeny-of-semiabelian-models",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.2/bounded-denominators-of-height-differences-under-isogeny",
+   "reason": "The Bemerkung is the arithmetic consequence of Lemma 5 once G is annihilated by n: it converts the height difference into a rational number supported on the primes dividing Grad(phi).",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 4, Bemerkung following Lemma 5, p. 358"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.2/inertia-triviality-on-the-quotient-by-the-l-divisible-group-of-the-formal-completion",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.2/global-determinant-identity-forcing-sum-m-i-d-i-equals-mh-over-two",
+   "reason": "Lemma 6 is combined with Tate's Hodge-Tate decomposition to identify the action of D_i on Lambda^h T_l(G) otimes C_i with C_i(d_i); this local identification is what the global determinant character argument needs.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 4, p. 359 ('Zusammen mit Lemma 6 ergibt sich daraus, dass D_i auf ... wie auf C_i(d_i) operiert')"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.2/local-differential-computation-for-the-l-divisible-tower",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.2/global-determinant-identity-forcing-sum-m-i-d-i-equals-mh-over-two",
+   "reason": "Tate's Proposition 2 gives # s^*(Omega^1_{(G_i)_n/R_i}) = l^{n m_i d_i}, which is summed over the places above l to give # s^*(Omega^1_{A/A_n}) = l^{n sum m_i d_i} and hence the height formula; Tate's Theorem 2 identifies the cyclotomic exponent.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 4, pp. 359-360"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.2/global-determinant-identity-forcing-sum-m-i-d-i-equals-mh-over-two",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.3/corrected-satz-2-stationarity-of-heights-along-an-l-divisible-tower",
+   "reason": "The determinant identity sum_i m_i d_i = m h / 2 is what makes the height difference vanish along the tower; after the erratum's shift to A_m it yields stationarity of h(A_n) rather than constancy.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 4, Satz 2 and its proof, pp. 358-360"
+    },
+    {
+     "sourceId": "faltings-1984-erratum",
+     "locator": "Erratum, Invent. Math. 75 (1984) 381"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.3/closure-tower-becomes-l-divisible-only-after-a-shift",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.3/corrected-satz-2-stationarity-of-heights-along-an-l-divisible-tower",
+   "reason": "Correction (a) is the reason the original proof of Satz 2 fails at small n; the corrected theorem is obtained by applying the argument only from the index m onwards.",
+   "sources": [
+    {
+     "sourceId": "faltings-1984-erratum",
+     "locator": "Erratum, part a)"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.3/intersection-with-the-toric-l-divisible-group-after-a-shift",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.3/corrected-satz-2-stationarity-of-heights-along-an-l-divisible-tower",
+   "reason": "Correction (b) removes the second defect (the intersection G intersect Hhat_i failing to be l-divisible even over K_i), again by passing to a suitable A_m.",
+   "sources": [
+    {
+     "sourceId": "faltings-1984-erratum",
+     "locator": "Erratum, part b)"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.1/finiteness-of-principally-polarized-semiabelian-models-of-bounded-height",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.3/infinitely-many-isomorphic-quotients-along-a-maximal-isotropic-tower",
+   "reason": "Satz 1 is applied to the stationary-height family (A_n, principal polarization): boundedness of h(A_n) plus Satz 1 gives finitely many isomorphism classes, hence infinitely many isomorphic A_n.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 5, proof of Satz 3/4, p. 361 ('nach Satz 1 sind unendlich viele A_n isomorph')"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.3/corrected-satz-2-stationarity-of-heights-along-an-l-divisible-tower",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.3/infinitely-many-isomorphic-quotients-along-a-maximal-isotropic-tower",
+   "reason": "Stationarity of h(A_n) is the height bound needed before Satz 1 can be applied; this is the only way the corrected Satz 2 is used.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 5, proof of Satz 3/4, p. 361"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.4/reduction-to-a-principally-polarized-semiabelian-model",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.3/infinitely-many-isomorphic-quotients-along-a-maximal-isotropic-tower",
+   "reason": "The tower construction presupposes that A/K is principally polarized (so that T_l carries a nondegenerate alternating form and the quotients stay principally polarized) and that A extends to a semiabelian model; these are exactly the two reductions made at the start of the proof.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 5, proof of Satz 3/4, p. 361"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.3/infinitely-many-isomorphic-quotients-along-a-maximal-isotropic-tower",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.4/semisimplicity-and-the-tate-homomorphism-comparison",
+   "reason": "The conclusion 'infinitely many A_n are isomorphic' is the input to Zarhin's argument that the isotropic subspace W is the image of an idempotent of End_K(A) otimes Z_l, which is what yields semisimplicity and the Hom comparison.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 5, proof of Satz 3/4, p. 361 ('Wie in [16] folgt daraus, dass W Bild eines Idempotents aus End_K(A) otimes Z_l ist')"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.4/quaternion-construction-of-an-invariant-maximal-isotropic-subspace",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.4/semisimplicity-and-the-tate-homomorphism-comparison",
+   "reason": "The quaternion construction reduces an arbitrary pi-invariant subspace W to a maximal isotropic subspace W_1 of T_l(A)^8 otimes Q_l, to which the tower argument applies; without it the argument would only handle isotropic subspaces.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 5, proof of Satz 3/4, p. 361"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.4/semisimplicity-and-the-tate-homomorphism-comparison",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.4/hom-comparison-for-pairs-and-the-isogeny-criterion",
+   "reason": "Korollar 1 is Satz 4 for A_1 x A_2 and Korollar 2 uses Satz 4 for (i)<=>(ii) and Satz 3 plus Chebotarev for (ii)<=>(iii).",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 5, Korollar 1 and Korollar 2 with proofs, p. 361"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.2/bounded-denominators-of-height-differences-under-isogeny",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.4/finiteness-of-polarized-varieties-with-all-tate-modules-isomorphic",
+   "reason": "The Bemerkung after Lemma 5 gives the bound on exp(2[K:Q](h(B)-h(A))) in terms of a power of N, which is precisely how the heights h(B) are bounded in the proof of Korollar 3.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 5, proof of Korollar 3, p. 362 ('Die Bemerkung nach Lemma 5 zeigt dann, dass ...')"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.4/hom-comparison-for-pairs-and-the-isogeny-criterion",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.4/finiteness-of-polarized-varieties-with-all-tate-modules-isomorphic",
+   "reason": "The hypothesis T_l(A) = T_l(B) for all l is converted, via Korollar 1 / Satz 4, into the existence for every l of an isogeny of degree prime to l; this is the starting point of the proof of Korollar 3.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 5, proof of Korollar 3, p. 362"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.4/hom-comparison-for-pairs-and-the-isogeny-criterion",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-isogeny-classes-with-good-reduction-outside-S",
+   "reason": "Satz 5 ends by producing equality of traces of the algebra M on T_l(A_1) and T_l(A_2); Satz 3 (semisimplicity) and Korollar 2 then upgrade this to an isogeny. The corollary is used as the final step of Satz 5.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, proof of Satz 5, pp. 362-363"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-isogeny-classes-with-good-reduction-outside-S",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.5/shafarevich-finiteness",
+   "reason": "Satz 6 begins 'Nach Satz 5 nehmen wir an, dass die betrachteten abelschen Varietaeten B/K alle isogen zu einem festen A/K sind': Satz 5 reduces Shafarevich finiteness to a single isogeny class.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, proof of Satz 6, first sentence, p. 363"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.5/weil-bounds-on-exterior-powers-and-the-choice-of-N",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.5/determinant-character-of-the-kernel-computed-by-raynaud",
+   "reason": "The choice of N excludes every exponent j != h m / 2 from being a root of P_{mh} modulo a prime l > N; this is exactly the step that forces d = h m / 2 in the Raynaud determinant computation.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, proof of Satz 6, p. 364"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.5/determinant-character-of-the-kernel-computed-by-raynaud",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.5/shafarevich-finiteness",
+   "reason": "The determinant computation shows that isogenies of l-power degree with l > N do not change the height, which bounds the large-prime part of exp(2[K:Q](h(B)-h(A))).",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, proof of Satz 6, pp. 364-365"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-pi-invariant-lattices-from-semisimplicity",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.5/shafarevich-finiteness",
+   "reason": "This node bounds the contribution of the finitely many primes l <= N to the height difference; together with the large-prime node it gives boundedness of h(B).",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, proof of Satz 6, p. 363"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.1/finiteness-of-principally-polarized-semiabelian-models-of-bounded-height",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.5/shafarevich-finiteness",
+   "reason": "The proof of Satz 6 closes with 'Damit folgt Satz 6 aus Satz 1': once the h(B) are bounded, Satz 1 supplies the finiteness.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, end of the proof of Satz 6, p. 365"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.5/shafarevich-finiteness",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-curves-of-genus-at-least-two-with-good-reduction-outside-S",
+   "reason": "Korollar 1 applies Satz 6 with d = 1 to the principally polarized Jacobian of the curve and then inverts the assignment by Torelli.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, Korollar 1 to Satz 6, p. 365"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-curves-of-genus-at-least-two-with-good-reduction-outside-S",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.5/mordell-conjecture-by-the-parshin-construction",
+   "reason": "The Parshin construction produces for each rational point x a curve Y(x) with bad reduction in a fixed finite set; finiteness of such curves (Korollar 1) bounds the number of possible Y(x) and hence of x.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, proof of Satz 7, p. 365"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.1/hermite-minkowski-finiteness-of-extensions-unramified-outside-S",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.5/mordell-conjecture-by-the-parshin-construction",
+   "reason": "Lemma 4 supplies the finite extension K_1 of K over which every fibre phi^{-1}(x) consists of m distinct rational points; the Parshin construction cannot start without it.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, proof of Satz 7, p. 365 ('Lemma 4 liefert einen endlichen Oberkoerper K_1 ...')"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.4/hom-comparison-for-pairs-and-the-isogeny-criterion",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.6/commutant-statement-for-almost-all-primes",
+   "reason": "The remark refines Satz 4 integrally: for almost all l the algebra generated by pi is the full commutant of End_K(A) otimes Z_l. It is the interface statement that residual-irreducibility arguments consume.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, Bemerkungen 2, p. 365"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.5/shafarevich-finiteness",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.6/commutant-statement-for-almost-all-primes",
+   "reason": "Faltings states that the commutant assertion is deduced from Satz 6 by Zarhin's method; Satz 6 is the stated input.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, Bemerkungen 2, p. 365"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.4/reduction-to-a-principally-polarized-semiabelian-model",
+   "reason": "R11.3's stated scope is 'semistable reduction for abelian varieties after a finite extension and the monodromy criterion relating it to the Tate-module action'. Exactly that statement is the second half of the reduction at the start of the proof of Satz 3/4 ('dass A sich zu einer semiabelschen Varietaet ueber Spec(R) fortsetzt'), and the monodromy criterion is the source of the unipotence of inertia used again on p. 364. The polarisation half of the reduction is NOT supplied by R11.3 and is logged as a gap.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 5, p. 361 and Section 6, p. 364 ('die Traegheitsgruppen der Stellen v von K, welche l nicht teilen, operieren unipotent auf V_l (semistabile Reduktion))"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.5/determinant-character-of-the-kernel-computed-by-raynaud",
+   "reason": "The step 'chi . eps^h is unramified outside l' is justified in the source only by the unipotence of inertia at v not dividing l, which is the monodromy criterion for semistable reduction owned by R11.3. Without semistability this character is ramified and the class-field-theory identification fails.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, proof of Satz 6, p. 364"
+    }
+   ]
+  },
+  {
+   "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/determinant-of-the-generic-fibre-by-the-tame-different-character",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.5/determinant-character-of-the-kernel-computed-by-raynaud",
+   "reason": "Faltings' computation of the cyclotomic exponent is 'mit Hilfe von [10], Theoreme 4.11 ... (nach Raynaud) chi . eps^h = chi_0^{+d}'. The cited result is Raynaud's Theoreme 4.1.1, which this packet adds as a node under R07.1 (the existing R07.1 text scopes Raynaud Sections 2-3 only, not Section 4). The output supplied is: for a finite flat commutative group scheme killed by p over a strictly henselian mixed-characteristic base with e <= p-1, the Galois action on det of the generic fibre is the tame character of level equal to the different exponent. Faltings uses it with p = l > N and e = 1.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, proof of Satz 6, p. 364"
+    },
+    {
+     "sourceId": "raynaud-1974-schemas-en-groupes-p-p",
+     "locator": "Section 4.1, Theoreme 4.1.1, printed p. 272"
+    }
+   ]
+  },
+  {
+   "source": "AbelianSchemesAndArithmeticModuli:A6",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.5/weil-bounds-on-exterior-powers-and-the-choice-of-N",
+   "reason": "A6 explicitly constructs, for finite separable L/K and l different from the characteristic, the G_K-equivariant comparison T_l(Res_{L/K} A) = Ind_{G_L}^{G_K} T_l(A). Faltings' P_h(T) is the characteristic polynomial of F_p on Lambda^h of exactly this induced module, so A6 supplies the identification that lets the Weil bound for an abelian variety over a finite field be applied.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, proof of Satz 6, pp. 363-364"
+    }
+   ]
+  },
+  {
+   "source": "WeightsInEtaleCohomology:R34.2",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.5/weil-bounds-on-exterior-powers-and-the-choice-of-N",
+   "reason": "R34.2's scope is the curve/abelian-variety Weil bound. The bound |root of P_h| = p^{h/2}, which Faltings attributes to 'Weil-Vermutung oder besser -Satz', is exactly the Weil bound for the reduction of Res_{K/Q} A at p, transported to exterior powers. This is the only use of weights in the paper besides the finiteness of possible local L-factors in Satz 5.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, pp. 362 and 364"
+    }
+   ]
+  },
+  {
+   "source": "ArithmeticGaloisRepresentations:R01.6",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.4/hom-comparison-for-pairs-and-the-isogeny-criterion",
+   "reason": "R01.6 constructs the Tate module and proves the good-reduction Frobenius polynomial and its independence of l. Korollar 2 needs exactly that the local factors L_v(A,s) at the places of good reduction are defined and independent of l, which is the property it quotes ('Die lokalen L-Faktoren L_v(A,s) sind unabhaengig von l').",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 5, p. 361, the sentence defining L(A,s) before Korollar 2"
+    }
+   ]
+  },
+  {
+   "source": "FoundationsAndLibraryIntegration:LI.4",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-isogeny-classes-with-good-reduction-outside-S",
+   "reason": "LI.4 lists Chebotarev among the imported arithmetic suppliers. Satz 5 uses Chebotarev twice in an essential way: to choose places v_1, ..., v_r whose Frobenius classes cover every conjugacy class of G = Gal(K'/K). The supplied output is the density statement for a finite Galois extension of a number field; the consumer needs surjectivity onto conjugacy classes, not an asymptotic count.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, proof of Satz 5, p. 362"
+    }
+   ]
+  },
+  {
+   "source": "FaltingsFinitenessAndIsogenyTheorems:R28.5/shafarevich-finiteness",
+   "target": "HeightsRationalPointsAndObstructions:RP.4",
+   "reason": "The existing atlas edge R28.5 -> RP.4 is confirmed by the source: RP.4's Parshin covering reduction is Faltings' Satz 7, whose only global input besides Lemma 4 is Korollar 1 to Satz 6, i.e. Shafarevich finiteness for curves. Note the node actually consumed by RP.4 is the curve corollary, not Satz 6 for abelian varieties.",
+   "sources": [
+    {
+     "sourceId": "faltings-1983-endlichkeitssaetze",
+     "locator": "Section 6, Korollar 1 and Satz 7, p. 365"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+   "status": "partial",
+   "remaining": [
+    "Baily-Borel ([3]) for the very ampleness of (omega)^{otimes r} on A_g/Q: quoted by Faltings on p. 351, not read here. The library has no Baily-Borel copy; candidate supplier is ShimuraVarieties V2 (Baily-Borel algebraicity and minimal compactification) whose scope must be checked against the integral closure Abar_g/Z used here.",
+    "Namikawa, Toroidal compactification of Siegel spaces ([8], Section 9) for the semiabelian extension of the universal abelian variety over N and omega^{otimes r} = phi^*(M): quoted on p. 352, not read here.",
+    "Deligne-Mumford ([4]) for the properness of the stack of stable curves Mbar_g: quoted on p. 351, not read here.",
+    "Faltings, Arakelov's theorem for abelian varieties ([6], Section 2) for the full proof that the canonical metric has logarithmic singularities; only the sketch given at the referees' request on pp. 355-356 was read.",
+    "Hermite-Minkowski (Lemma 4) is quoted with no proof; the discriminant bound from ramification restricted to S is not in this source.",
+    "The Galois-cohomology descent step in the proof of Satz 1 ('der Rest folgt aus allgemeinen Grundsaetzen der Galois-Kohomologie') is not spelled out in the source.",
+    "The roadmap text for R28.1 asks for Zarhin's trick and a Jordan-Zassenhaus finite-lattice theorem at this stage. Neither occurs at this point in Faltings: the polarisation reduction is on p. 361 (R28.4) and the lattice finiteness on p. 363 (R28.5). See the corrections in HANDOFF.md."
+   ]
+  },
+  {
+   "stageId": "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+   "status": "partial",
+   "remaining": [
+    "Tate, p-divisible groups (Driebergen 1966), Proposition 2, Theorem 2 and Theorem 3 Corollary 2: quoted on pp. 359-360, not in the supplied library and not read.",
+    "SGA 7 I, Expos\u00e9 IX, for the orthogonality (T_l(T), T_l(H_i)) = 0 used in Lemma 6: the library copy (references/text/R02_SGA7I.txt) has no OCR text layer, so this was not read.",
+    "Class field theory over Q for the shape of chi (l-adic power of chi_0 times a finite-order character): quoted on p. 360, not decomposed here.",
+    "The lifting of the torus T_s to a torus T over Spec(R_i) is asserted with a parenthetical justification ('Morphismen von T_s in glatte Gruppenschemata koennen geliftet werden'), not proved."
+   ]
+  },
+  {
+   "stageId": "FaltingsFinitenessAndIsogenyTheorems:R28.3",
+   "status": "partial",
+   "remaining": [
+    "The discriminant argument behind erratum part (a) ('doch lehrt eine Betrachtung der Diskriminanten, dass dies fuer grosse n der Fall ist') is not carried out in the erratum; Faltings refers to Tate, p-divisible groups, p. 182, which was not read.",
+    "Erratum part (b) is asserted without any argument ('Auch dieses Problem verschwindet beim Uebergang zu einem passenden A_m').",
+    "The quantitative shift m is not made explicit anywhere, so no effective statement is available."
+   ]
+  },
+  {
+   "stageId": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+   "status": "partial",
+   "remaining": [
+    "Zarhin [16] (A remark on endomorphisms of abelian varieties over function fields of finite characteristic, Math. USSR Izv. 8 (1974) 477-480) for the step 'W is the image of an idempotent of End_K(A) otimes Z_l': quoted on p. 361, not in the library and not read. This is the load-bearing step of Satz 3 and Satz 4.",
+    "The principal-polarization reduction on p. 361 is asserted without proof or citation in this source.",
+    "Chebotarev for the equivalence (ii) <=> (iii) of Korollar 2 is quoted, not proved."
+   ]
+  },
+  {
+   "stageId": "FaltingsFinitenessAndIsogenyTheorems:R28.5",
+   "status": "partial",
+   "remaining": [
+    "Raynaud's Theoreme 4.1.1 was read in the original (Bull. SMF 102 (1974), Section 4.1, p. 272) and is decomposed in this job's FiniteFlatGroupsAndIntegralPadicHodgeTheory packet; the devissage (cor. 3.3.7) it uses was read, but Raynaud's appendix on differents (Proposition 9) was not.",
+    "The Weil bound for abelian varieties over finite fields is quoted, not proved here.",
+    "The finiteness of pi-invariant lattices (a Jordan-Zassenhaus statement over the order M_l) is asserted from semisimplicity with no argument on p. 363.",
+    "Torelli's theorem (the entire proof of Korollar 1 to Satz 6) is quoted as one word and not read from any source.",
+    "Parshin, Algebraic curves over function fields I ([9]) for Satz 7 is quoted; Faltings reproduces the construction but its details (generalized Jacobian of (X_1, D), ramification of the multiplication-by-2 covering) are given without proof."
+   ]
+  },
+  {
+   "stageId": "FaltingsFinitenessAndIsogenyTheorems:R28.6",
+   "status": "partial",
+   "remaining": [
+    "Nothing in Faltings 1983 proves the R28.6 target 'only finitely many rational prime-degree isogenies' for elliptic curves; the source supplies Satz 4, Korollar 1, Korollar 2 and the Bemerkung 2 commutant statement, all of which are recorded here, but the export to EllipticCurveModularity R29.1 needs a further argument from a different source.",
+    "The finite-generation and rank-one Hom consequence for End_Q(E) = Z is an immediate consequence of Korollar 1 but is not stated in the source; it should be recorded as a derived interface, with the CM example (End_Q(E) = Z but End_Qbar(E) an order in an imaginary quadratic field) as the acceptance test named by the roadmap.",
+    "Bemerkung 2 (the commutant statement) is quoted from Zarhin's method with no proof."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Tate, p-divisible groups (Driebergen 1966) is absent from the supplied library",
+   "neededBy": [
+    "FaltingsFinitenessAndIsogenyTheorems:R28.2/local-differential-computation-for-the-l-divisible-tower",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.2/global-determinant-identity-forcing-sum-m-i-d-i-equals-mh-over-two",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.3/closure-tower-becomes-l-divisible-only-after-a-shift"
+   ],
+   "detail": "Faltings uses [13] Proposition 2 (order of s^*(Omega^1) of the level-n piece), Theorem 2 (a character whose C-realization is C(+k) is chi_0^k up to finite order) and Theorem 3 Corollary 2 (the Hodge-Tate decomposition T_l(G) otimes C = C^{h-d} + C^d(1)); the erratum additionally cites p. 182. A catalogue search of the supplied library (CATALOGUE.json, papers/, text/) finds no copy: the only Tate items are tate-thesis.pdf and ADD_Tate_K2Galois.pdf, neither of which is this paper. Next source action: obtain 'p-divisible groups', Proceedings of a Conference on Local Fields (Driebergen 1966), Springer 1967, pp. 158-183, from an authorized public copy and read Proposition 2, Theorem 2, Theorem 3 and its Corollary 2, plus p. 182. Until then these are import boundaries, not verified inputs."
+  },
+  {
+   "title": "Zarhin's idempotent argument is unread and is the load-bearing step of Satz 3 and Satz 4",
+   "neededBy": [
+    "FaltingsFinitenessAndIsogenyTheorems:R28.4/semisimplicity-and-the-tate-homomorphism-comparison"
+   ],
+   "detail": "Faltings writes 'Wie in [16] folgt daraus, dass W Bild eines Idempotents aus End_K(A) otimes Z_l ist. Der Rest des Beweises geht genauso wie in [16], und sei daher nur skizziert' (p. 361). Reference [16] is Zarhin, A remark on endomorphisms of abelian varieties over function fields of finite characteristic, Math. USSR Izvestija 8 (1974) 477-480 (cf. also [15], Math. USSR Sbornik 24 (1974) 451-461). Neither is in the supplied library. Without it, semisimplicity and the Tate conjecture for homomorphisms have an unread core. Next source action: obtain Zarhin 1974 (Izvestija) and decompose the passage from 'infinitely many quotients isomorphic' to 'the invariant subspace is the image of an idempotent'."
+  },
+  {
+   "title": "The principal-polarization reduction on p. 361 has no proof or citation in this source",
+   "neededBy": [
+    "FaltingsFinitenessAndIsogenyTheorems:R28.4/reduction-to-a-principally-polarized-semiabelian-model",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.1/finiteness-of-principally-polarized-semiabelian-models-of-bounded-height"
+   ],
+   "detail": "Faltings asserts in one sentence that one may enlarge K or replace A by an isogenous abelian variety and hence assume A/K principally polarized. Over a number field an arbitrary abelian variety need not be isogenous to a principally polarized one by an obvious argument; the standard justification is Zarhin's trick, i.e. (A x Adual)^4 is principally polarized and is isogenous to A^8 (A being isogenous to Adual via any polarization), together with End(A^8) = M_8(End(A)). That justification is not in this paper. Note that the quaternion matrix v with a^2+b^2+c^2+d^2 = -1 used later on the same page IS the l-adic half of Zarhin's trick, so the two should not be conflated. Next source action: read Zarhin 1974 or Mumford, Abelian Varieties, for the statement that (A x Adual)^4 is principally polarizable, with its exact hypotheses over a general base field."
+  },
+  {
+   "title": "SGA 7 I, Expos\u00e9 IX is not readable in the supplied library",
+   "neededBy": [
+    "FaltingsFinitenessAndIsogenyTheorems:R28.2/inertia-triviality-on-the-quotient-by-the-l-divisible-group-of-the-formal-completion"
+   ],
+   "detail": "The orthogonality (T_l(T), T_l(H_i)) = 0 in the proof of Lemma 6 is cited as 'SGA VII, Exp. IX'. The library file references/text/R02_SGA7I.txt contains only page numbers (the PDF is a scan without an OCR layer), so this was not read. Candidate owner in the atlas: NeronModelsAndSemistableAbelianVarieties R11.3 (semistable reduction, monodromy criterion, Raynaud extension). Next source action: obtain an OCR-able copy of SGA 7 I, Expos\u00e9 IX (Grothendieck, Modeles de Neron et monodromie) and read the section computing the orthogonal of the toric Tate module under the polarization pairing."
+  },
+  {
+   "title": "Baily-Borel, Namikawa and Deligne-Mumford are quoted for the moduli inputs of Lemma 2",
+   "neededBy": [
+    "FaltingsFinitenessAndIsogenyTheorems:R28.1/stable-curve-correspondence-stack-over-Z",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.1/commensurability-of-the-modular-and-hodge-line-bundles"
+   ],
+   "detail": "p. 351 quotes [3] = Baily-Borel (very ampleness of (omega)^{otimes r} on A_g/Q), [4] = Deligne-Mumford (properness of the stack of stable curves), and p. 352 quotes [8] = Namikawa (the semiabelian extension over a toroidal compactification with omega^{otimes r} = phi^*(M)). None of the three is in the supplied library. Candidate atlas owners: ShimuraVarieties V2 for Baily-Borel, ShimuraCompactifications C2/C4/C5 for the toroidal input, AlgebraicModuliForArithmeticGeometry R09.4 for Deligne-Mumford stacks. Their scopes were not checked against the integral models Abar_g/Z used here, so no edges were added. Next source action: check ShimuraCompactifications C4/C5 statements against Namikawa Section 9, and ShimuraVarieties V2 against Baily-Borel."
+  },
+  {
+   "title": "Hermite-Minkowski with ramification restricted to S is not covered by the candidate suppliers",
+   "neededBy": [
+    "FaltingsFinitenessAndIsogenyTheorems:R28.1/hermite-minkowski-finiteness-of-extensions-unramified-outside-S"
+   ],
+   "detail": "Faltings' Lemma 4 needs: finitely many extensions K' of K of a given degree unramified outside a finite set S. The nearest atlas supplier, tauceti:Completed/EffectiveBounds layer 2, describes Mathlib's NumberField.finite_of_discr_bdd (finiteness of number fields of bounded discriminant) and an effective count; it does not contain the step bounding the discriminant of an extension unramified outside S in terms of S and the degree, which requires different/conductor estimates at the wildly ramified places of S. FoundationsAndLibraryIntegration LI.4 lists NumberFieldArithmetic and LocalFieldsRamification as imports but states no such theorem. No edge was added. Next source action: ask the owner of LI.4 (or of tauceti:Completed/EffectiveBounds) to state the S-restricted form explicitly, and record the different bound used."
+  },
+  {
+   "title": "Torelli's theorem is the entire proof of the curve corollary and is unread",
+   "neededBy": [
+    "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-curves-of-genus-at-least-two-with-good-reduction-outside-S"
+   ],
+   "detail": "The proof of Korollar 1 to Satz 6 is the single word 'Torelli'. The field-of-definition subtleties of Torelli over a non-algebraically-closed field (the hyperelliptic/non-hyperelliptic dichotomy and the resulting quadratic twist ambiguity) are not addressed. No Torelli source is present in the supplied library. Next source action: obtain a primary Torelli source valid over a general field (e.g. Serre's appendix in Lauter, or Milne's Jacobian Varieties, Section 12) and record which form of the theorem the finiteness argument needs (finiteness only needs finiteness of the fibre of the Torelli map, which is weaker than an isomorphism criterion)."
+  },
+  {
+   "title": "Faltings' own auxiliary paper [6] contains the full logarithmic-singularity proof",
+   "neededBy": [
+    "FaltingsFinitenessAndIsogenyTheorems:R28.1/hodge-metric-has-logarithmic-singularities-along-the-boundary"
+   ],
+   "detail": "Faltings says the statement 'wurde zwar schon in [6] gezeigt (Ende von Section 2)' and gives only a sketch at the referees' request. Reference [6] is Faltings, Arakelov's theorem for abelian varieties, Invent. Math. 73 (1983) 337-347 - the paper immediately preceding this one in the same volume. It is not in the supplied library. Next source action: obtain Invent. Math. 73 (1983) 337-347 and read the end of its Section 2, together with its Section 2 computation showing omega^{otimes r} of the semiabelian extension is phi^*(M)."
+  },
+  {
+   "title": "Finiteness of pi-invariant lattices is asserted from semisimplicity without an argument",
+   "neededBy": [
+    "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-pi-invariant-lattices-from-semisimplicity",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.5/shafarevich-finiteness"
+   ],
+   "detail": "On p. 363 Faltings writes 'Es folgt dann alles aus der Tatsache, dass M_l otimes Q_l halbeinfach ist (Satz 3)'. The implicit statement is a Jordan-Zassenhaus-type finiteness of isomorphism classes of lattices over the Z_l-order M_l in the semisimple Q_l-algebra M_l otimes Q_l. That finiteness is a theorem in its own right and is not proved here. The roadmap text for R28.1 already flags that such a finite-lattice theorem 'is not implicit in Northcott'; this packet locates the actual use at R28.5, not R28.1. Next source action: pin a primary source for the local Jordan-Zassenhaus statement over Z_l (e.g. Curtis-Reiner, Methods of Representation Theory, Section 26) and identify or request an owning atlas stage in the general-algebra roadmaps."
+  }
+ ]
+}

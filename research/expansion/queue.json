@@ -205,8 +205,10 @@
       "title": "Automorphic bundles and classical automorphic forms",
       "group": "modular",
       "stageCount": 9,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": null,
+      "draft": "research/expansion/external/EXT-10/AutomorphicBundles.json",
+      "note": "Draft packet written by the unattended worker on 16 September 2026 (3 nodes, 3 links, 4 recorded gaps); not yet independently reviewed; not integrated."
     },
     {
       "id": "AutomorphicCongruences",
@@ -241,8 +243,10 @@
       "title": "Automorphic Galois Representations PartII",
       "group": "modular",
       "stageCount": 10,
-      "state": "pending",
-      "packet": null
+      "state": "draft_needs_review",
+      "packet": null,
+      "draft": "research/expansion/external/EXT-10/AutomorphicGaloisRepresentationsPartII.json",
+      "note": "Draft packet written by the unattended worker on 16 September 2026 (7 nodes, 6 links, 5 recorded gaps); not yet independently reviewed; not integrated."
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactors",

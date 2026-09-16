@@ -1,0 +1,1336 @@
+{
+ "roadmapId": "ClassicalSerreModularity",
+ "status": "partial",
+ "summary": "Source decomposition of the Khare-Wintenberger strand (R27) and the Dieulefait-Pacetti strand (R33), with a partial start on the level-one strand (R26). Read in full: KW I sections 1-10 (Definition 2.1, the hypotheses (L_r), (W_r), (D_r), Theorems 3.1-3.4 with their proofs in 8.1-8.4, Theorem 4.1 and Theorem 5.1 as statements, Lemmas 6.1-6.3, the prime estimates of section 7, Corollary 8.1, Lemma 8.2, Hypothesis (H) and Theorem 9.1, Theorem 10.1); Bockle's appendix in full (Proposition 1, Lemmas 1-2, Corollaries 1-2, Theorem 1 with proofs); Dieulefait-Pacetti in full (Theorems 1.1-1.11, Lemmas 1.13-1.15, 2.1, 2.3, Pasos 1-6 and section 3); the killing-ramification section 6.2 of the published Annals paper; and the statement sections of Khare's level-one paper. Three corrections are recorded: the atlas cites killing ramification at section 5.2 whereas the published Annals paper has it at 6.2; the level-one source in the library is the arXiv preprint under a different title from the catalogued Duke publication; and KW I itself corrects the proof reference for Khare's Corollary 1.2 and removes its p > 2 hypothesis. The unread boundary that dominates the R27 strand is KW II, which contains the proofs of Theorems 4.1 and 5.1.",
+ "sources": [
+  {
+   "id": "kw-serre-modularity-I",
+   "title": "Serre's modularity conjecture (I)",
+   "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+   "edition": "Author's preprint (results.pdf) of the paper published as Invent. Math. 178 (2009), 485-504; read through the supplied extracted text references/text/SS_KW1.txt. Locators give the preprint's own running page numbers (2-21), which are NOT the Invent. Math. pages",
+   "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
+   "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82",
+   "readSections": [
+    "1 Introduction incl. 1.1-1.5, pp. 2-4",
+    "2 A crucial definition (Definition 2.1), pp. 4-5",
+    "3 Proof of Theorem 1.2: 3.1 hypotheses (L_r), (W_r), Theorems 3.1-3.4, 3.2 the induction, pp. 5-6",
+    "4 Modularity lifting results (Theorem 4.1), pp. 6-7",
+    "5 Compatible systems of geometric representations (definitions, minimal lifts, Theorem 5.1 with its four parts and the following Remarks), pp. 7-10",
+    "6 Some utilitarian lemmas (Lemmas 6.1, 6.2, 6.3 with proofs), pp. 10-12",
+    "7 Estimates on primes (inequalities (1)-(4) and the Remark), p. 12",
+    "8 Proofs of the auxiliary theorems: 8.1, 8.2 (mod 3, mod 5, inductive step, Remarks), 8.3 (Corollary 8.1 with proof), 8.4 (with Lemma 8.2 and its Remark), pp. 12-18",
+    "9 The general case: Hypothesis (H), Theorem 9.1 with proof, pp. 18-19",
+    "10 Modularity of compatible systems: Theorem 10.1 with proof sketch, pp. 19-20"
+   ]
+  },
+  {
+   "id": "kw-annals-2009",
+   "title": "On Serre's conjecture for 2-dimensional mod p representations of Gal(Qbar/Q)",
+   "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+   "edition": "Annals of Mathematics 169 (2009), 229-253, published version; read through references/text/R02_SS_KWAnnals2009.txt. Locators give printed Annals pages",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v169-n1-p05.pdf",
+   "sha256": "154c0c2a2245e50cb2be3c82705f9176fe0e9b597424236ddca11299d38cdb22",
+   "readSections": [
+    "Title page and abstract, p. 229",
+    "1 Introduction (partial), pp. 229-231",
+    "Table of contents / section headings, pp. 229-253",
+    "6.2 Killing ramification, with Theorem 6.2 and its proof and the closing Remark, pp. 250-251"
+   ]
+  },
+  {
+   "id": "khare-level-one",
+   "title": "On Serre's modularity conjecture for 2-dimensional mod p representations of Gal(Qbar/Q) unramified outside p",
+   "authors": "Chandrashekhar Khare",
+   "edition": "arXiv:math/0504080v1, 5 April 2005. This is the preprint of the paper published as 'Serre's modularity conjecture: the level one case', Duke Math. J. 134 (2006), 557-589, under a different title; the library catalogue records it under the published title. Locators give the preprint's own page numbers",
+   "url": "https://arxiv.org/pdf/math/0504080",
+   "sha256": "3012a51759ad10695792bc8a2d1af75890f38d6ebacd37fb61e01bfdb89c9c2f",
+   "readSections": [
+    "Abstract and 1.1 The main result (Theorem 1.1, Corollaries 1.2 and 1.3 with the surrounding discussion), pp. 1-4",
+    "Strategy summary (the bulleted schematic argument and the two-thirds prime estimate), pp. 6-7",
+    "2 Liftings: the minimal-of-weight-2 definition, Proposition 2.1 with proof, Proposition 2.2 with proof, pp. 11-14"
+   ]
+  },
+  {
+   "id": "bockle-appendix-2003",
+   "title": "Appendix 1: On the isomorphism R_empty -> T_empty",
+   "authors": "Gebhard Bockle",
+   "edition": "Appendix to Chandrashekhar Khare, 'On isomorphisms between deformation rings and Hecke rings', Invent. Math. 154 (2003); read from the author's separately distributed copy via references/text/R02_SS_BockleAppendix2003.txt. Locators give that file's own page numbers 1-6",
+   "url": "https://arith-geom.github.io/ag-comp-arith-geom/assets/img/fileadmin/groups/arithgeo/templates/data/Gebhard_Boeckle/KhareAppboeckleNew2.pdf",
+   "sha256": "67de08f6a1958d6c350d6de0ad70839cc737cc14c9c3636ab68fb1bd638202de",
+   "readSections": [
+    "Statement of Theorem 1, p. 1",
+    "Setup: deformation conditions X, the rings R_{X,l}, the invariants d and Ad_X, pp. 1-2",
+    "Proposition 1 with full proof, p. 2",
+    "Lemma 1 and the case analysis (i)-(iv), Corollary 1, pp. 3-4",
+    "Lemma 2 with proof, Corollary 2, p. 4",
+    "Proof of Theorem 1 with diagrams (1) and (2), pp. 5-6"
+   ]
+  },
+  {
+   "id": "dieulefait-pacetti",
+   "title": "A simplified proof of Serre's conjecture",
+   "authors": "Luis Victor Dieulefait and Ariel Martin Pacetti",
+   "edition": "arXiv:2108.07577v2, 3 May 2022; read through references/text/SS_DieulefaitPacetti.txt. Locators give the arXiv version's own page numbers",
+   "url": "https://arxiv.org/pdf/2108.07577",
+   "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6",
+   "readSections": [
+    "Introduction with the statement of the target theorem, Remark 1, and the seven-step outline, pp. 1-3",
+    "1.1 Base cases (Theorems 1.1, 1.2, 1.3), p. 3",
+    "1.2 Modularity lifting theorems (Theorems 1.4, 1.5, 1.6, 1.7 with their attributions), pp. 3-5",
+    "1.3 Existence of lifts (Theorem 1.9), pp. 5-6",
+    "1.4 Existence of almost strictly compatible systems (Definition 1.10, Theorem 1.11), pp. 6-7",
+    "1.5 Lemmas on images (Definition 1.12, Lemmas 1.13, 1.14 with proof, Remark 5, Lemma 1.15), pp. 7-10",
+    "2 The proof for p not 2: Pasos 1-6, Lemma 2.1 with proof, Definition 2.2, Lemma 2.3 with proof, Remark 6, pp. 10-15",
+    "3 The case p = 2, p. 15"
+   ]
+  },
+  {
+   "id": "kw-serre-modularity-II",
+   "title": "Serre's modularity conjecture (II)",
+   "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+   "edition": "Author's preprint (proofs.pdf) of the paper published as Invent. Math. 178 (2009), 505-586. ONLY the title page, abstract and table of contents were read in this pass; no proof in it was inspected",
+   "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+   "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+   "readSections": [
+    "Title page, abstract and table of contents, pp. 1-2 (nothing else)"
+   ]
+  },
+  {
+   "id": "serre87-duke",
+   "title": "Sur les representations modulaires de degre 2 de Gal(Qbar/Q)",
+   "authors": "Jean-Pierre Serre",
+   "edition": "Duke Math. J. 54 (1987), 179-230; read from the library PDF text layer. Used here only for the definitions of N(rho-bar) and k(rho-bar) and the tres ramifiee condition",
+   "url": "https://www.college-de-france.fr/media/jean-pierre-serre/UPL5835292064138487263_Serre_Repr.modulaires_Galois.pdf",
+   "sha256": "8048919db24dcb972435aaaa2a74d1168d0fe533af3aa26c6c809b12ddaee038",
+   "readSections": [
+    "1.2 (Artin conductor N), p. 181",
+    "2.4 (peu/tres ramifie), pp. 185-187",
+    "2.6 (p=2 values of k), p. 188"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "ClassicalSerreModularity:R26.1/level-one-theorem-and-the-meaning-of-arises-from",
+   "parentStageId": "ClassicalSerreModularity:R26.1",
+   "title": "Khare's level-one theorem, with the exact sense of 'arises from'",
+   "kind": "theorem",
+   "statement": "Let rho-bar: G_Q -> GL_2(F) be continuous, absolutely irreducible, two-dimensional, odd (det rho-bar(c) = -1), with F a finite field of characteristic p, and suppose rho-bar is unramified outside p, i.e. N(rho-bar) = 1. Then rho-bar arises from S_{k(rho-bar)}(SL_2(Z)) with respect to an embedding iota: Qbar -> Qbar_p. 'Arises from a newform f' means: there is an integral model rho: G_Q -> GL_2(O) of the p-adic representation rho_f attached to f, with O the ring of integers of a finite extension of Q_p, such that rho-bar is isomorphic to the reduction of rho modulo the maximal ideal of O. The weight is Serre's k(rho-bar) and the level is N(rho-bar) = 1; conductor one does not assert that the p-adic lift is unramified at p.",
+   "hypotheses": [
+    "p is odd throughout the proof; the cases p = 2 and p = 3 of the level-one statement are due to Tate and to Serre respectively and are cited, not reproved",
+    "the theorem is for GL_2 over Q; no analogue for other base fields or higher rank is claimed",
+    "the embedding iota_p: Qbar -> Qbar_p is fixed in advance and the statement is relative to it",
+    "the modularity lifting inputs used are restricted: either the p-adic lift is crystalline at p of weight k <= p+1 (ordinary when the weight is p+1), or it is of Hodge-Tate weights (1,0) and Barsotti-Tate over Q_p(mu_p)"
+   ],
+   "proofSteps": [
+    "Khare uses the inductive method proposed in Theorem 5.1 of the joint Annals paper, and adds a new 'weight reduction' technique that changes the inductive step.",
+    "He uses the results of the Annals paper for weights 2, 4, 6, and after that proves the level-one case without further appeal to classification results for abelian varieties; the only such input that remains is the nonexistence of a semistable abelian variety over Q with good reduction outside 5 (Fontaine, Schoof, Brumer-Kramer).",
+    "Taylor's potential modularity and Bockle's deformation-theoretic appendix result are used to construct the minimal and non-minimal lifts; Dieulefait's and Wintenberger's arguments refine them into compatible systems.",
+    "The residually degenerate cases are handled by Skinner-Wiles, applicable because the lifts to be proved modular are ordinary up to twist; that ordinarity comes from Breuil-Mezard Prop. 6.1.1 and Savitt Thms 6.11, 6.12.",
+    "Kisin's potentially Barsotti-Tate theorem is used only when the p-adic lift is locally at p Barsotti-Tate over Q_p(mu_p)."
+   ],
+   "acceptance": [
+    "Check the p = 2 and p = 3 level-one cases separately against Tate's and Serre's arguments rather than inheriting them from the odd-p induction",
+    "Check that the produced newform has weight exactly k(rho-bar) and level exactly 1, and that the isomorphism is with the residual semisimplification for the chosen prime of O"
+   ],
+   "sources": [
+    {
+     "sourceId": "khare-level-one",
+     "locator": "Theorem 1.1, p. 2 of the preprint",
+     "excerpt": "A ρ̄ of level one arises from Sk(ρ̄) (SL2 (Z)) with respect to an embedding ι : Q ֒→ Qp .",
+     "match": "Literal statement of the level-one theorem with the embedding made explicit."
+    },
+    {
+     "sourceId": "khare-level-one",
+     "locator": "1.1 and the following historical discussion, pp. 2-3 of the preprint",
+     "excerpt": "it being already known for p = 2, 3 because of a method of Tate, see [51] for p = 2, which was later applied to the case of p = 3 by Serre, see page 710 of [45].",
+     "match": "Records that p = 2 and p = 3 are imported, not proved by the inductive argument; the roadmap's demand for explicit exceptional characteristics rests on this."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "1 Introduction, p. 2 of the preprint",
+     "excerpt": "By arises from f we mean that there is an integral model ρ : GQ → GL2 (O) of the p-adic representation ρf associated to f , such that ρ̄ is isomorphic to the reduction of ρ modulo the maximal ideal of O",
+     "match": "The definition of 'arises from' used in both papers, which R26.1 must transcribe rather than assume."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R26.1/corollary-1-2-conductor-a-prime-and-its-corrected-proof",
+   "parentStageId": "ClassicalSerreModularity:R26.1",
+   "title": "Corollary 1.2 (conductor a prime, weight 2) and the correction of its proof in KW I",
+   "kind": "theorem",
+   "statement": "Khare's Corollary 1.2: if rho-bar is an irreducible, odd, 2-dimensional mod p representation of G_Q with k(rho-bar) = 2 and N(rho-bar) = q a prime, and p > 2, then it arises from S_2(Gamma_1(q)). KW I restate this as Corollary 8.1(i) WITHOUT the hypothesis p > 2 ('Note that p = 2 is included'), treating q = 2 by the earlier Annals paper, and explicitly correct the reference given for the proof: 'the reference to 3 of Theorem 5.1 of [24] is not enough as p may not divide q-1'. The corrected argument uses Theorem 5.1(1) to build an almost strictly compatible weight-2 system with unramified Weil-Deligne parameter away from q and with rho_p minimal at q; at a place above q the Weil-Deligne parameter r_q is either semistable with nontrivial monodromy (so rho_q is semistable of weight 2) or unramified after restriction to Q_q(mu_q) (so rho_q is geometric of weight 2, crystalline over Q_q(mu_q)); the level-one theorem gives modularity of rho-bar_q, possibly reducible, and then Theorem 6.1(2) of the Annals paper concludes.",
+   "hypotheses": [
+    "rho-bar irreducible and odd with k(rho-bar) = 2 and N(rho-bar) = q prime",
+    "Khare's version additionally assumes p > 2; KW I's Corollary 8.1(i) does not, at the cost of importing the q = 2 case from the Annals paper",
+    "one may assume the projective image of rho-bar is not dihedral; otherwise KW I Lemma 6.2 applies directly",
+    "the final step uses Theorem 6.1(2) of the Annals paper with the Skinner-Wiles references augmented by the published correction"
+   ],
+   "proofSteps": [
+    "Reduce to non-dihedral projective image via Lemma 6.2.",
+    "Build the compatible system by Theorem 5.1(1): weight 2, unramified Weil-Deligne parameter away from q, rho_p a minimal lift at q.",
+    "Split on the shape of r_q: semistable with nontrivial monodromy, or unramified after restriction to Q_q(mu_q).",
+    "Use the level-one theorem to get modularity of rho-bar_q (which may be reducible), and apply the residually-reducible-tolerant lifting theorem to rho_q.",
+    "Transfer modularity back along the compatible system."
+   ],
+   "acceptance": [
+    "Check the case p | q-1 versus p not dividing q-1 separately, since this is exactly where Khare's original reference fails",
+    "Check that the conclusion is a form in S_2(Gamma_1(q)) with the correct nebentype, not merely S_2(Gamma_0(q))"
+   ],
+   "sources": [
+    {
+     "sourceId": "khare-level-one",
+     "locator": "Corollary 1.2, p. 3 of the preprint",
+     "excerpt": "If ρ̄ is an irreducible, odd, 2-dimensional, mod p representation of GQ with k(ρ̄) = 2, N(ρ̄) = q, with q prime, and p > 2, then it arises from S2 (Γ1 (q)).",
+     "match": "Khare's statement, including the hypothesis p > 2 that KW I later remove."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "8.3, proof of Corollary 8.1, pp. 15-16 of the preprint",
+     "excerpt": "The first statement is Corollary 1.2 of [24] (for p > 2). Let us take the opportunity to give a correct reference for the proof (the reference to 3 of Theorem 5.1 of [24] is not enough as p may not divide q − 1).",
+     "match": "The published correction of the proof reference for Corollary 1.2. R26.1's obligation to 'verify the exact hypotheses of Khare's Corollary 1.2' must record this correction."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "8.3, proof of Corollary 8.1, p. 16 of the preprint",
+     "excerpt": "We already know by Serre’s conjecture for level 1 that ρ̄q is modular (maybe reducible). We then use (2) of Theorem 6.1 of [24] (the references there to [39] and [40] should also be augmented to [41] which is a correction to [40]), to get that ρq is modular, and prove (i).",
+     "match": "The corrected chain of references, including a further correction inside the Skinner-Wiles citations."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R26.1/bockle-appendix-minimal-deformation-ring-presentation",
+   "parentStageId": "ClassicalSerreModularity:R26.1",
+   "title": "Bockle's appendix: presentation of the minimal deformation ring and R_empty = T_empty",
+   "kind": "theorem",
+   "statement": "Proposition 1: let rho and a set X of deformation conditions be given, S a finite set of places outside which deformations of type X are unramified. Assume (a) for l in S minus {p, infinity} the local ring R_{X,l} is a complete intersection, flat over Z_p, of relative dimension h^0(G_l, Ad_X(rho)) - Delta_l, and (b) R_{X,p} is a complete intersection, flat over Z_p, of relative dimension h^0(G_p, Ad_X(rho)) + 1 + d - Delta_p. With Delta the sum of the Delta_l, then R_X is isomorphic to O[[x_1,...,x_{n+d}]]/(f_1,...,f_{n+Delta}). Corollary 1: each of R_empty and R_Q^{alpha-new} has a presentation with m <= n relations. Lemma 2: a CNL O-algebra finite over O with a presentation having m <= n relations is a complete intersection, finite flat over O. Corollary 2: if R_Q is finite over O then R_empty is a complete intersection, finite flat over O. Theorem 1: if for some auxiliary set Q of primes one has an isomorphism R_Q -> T_Q of finite flat W(k)-algebras, then the canonical morphism R_empty -> T_empty of minimal rings is an isomorphism as well.",
+   "hypotheses": [
+    "d and Ad_X(rho) are tied to whether X fixes a determinant: d = 0 and Ad_X = Ad^0 if the determinant is fixed, otherwise d = 1 and Ad_X = Ad",
+    "Proposition 1's proof uses that rho is ODD, through the formula of [1], Lem. 5.5(ii); oddness is not decorative here",
+    "Lemma 2's proof needs O a discrete valuation ring and R finitely generated as an O-module, so that R/(pi) is finite local over k and the ideal has height n+1",
+    "Theorem 1's proof needs T_Q and T_empty finite flat over W(k) and reduced (the latter by choice of Q)",
+    "the case where rho restricted to a decomposition group at p is decomposable and flat is NOT covered by the generic computation Delta_p = 0 and is handled by a separate Lemma 1 following Ramakrishna's thesis"
+   ],
+   "proofSteps": [
+    "Proposition 1: choose an auxiliary set S_aux, present each R_{X,l} with n_l generators, count relations j_l, and use the global-to-local presentation theorem ([1], Thm 5.6) plus the oddness formula to get n + Delta = j.",
+    "Corollary 1 follows by verifying hypotheses (a),(b) in the four cases (i)-(iv) listed, citing [1] Thm 2.4, Thm 3.8, Lem. 3.10/Rem. 3.11, and for the Q-new condition a smoothness R_{X,l} = O[[T]] extracted from the main text.",
+    "Lemma 2: A = O[[x_1,...,x_n]] is regular local of dimension n+1; finiteness of R over O forces the ideal (pi, f_1, ..., f_m) to have height n+1, hence n = m, hence a regular sequence, hence complete intersection and flatness.",
+    "Theorem 1: all four rings in the square R_Q -> T_Q, R_empty -> T_empty are finite flat over W(k) by Corollary 2 and the standard finiteness of Hecke algebras, so it suffices to check the bottom map after tensoring with K; the right-hand vertical maps become products over sets of newforms M_Q and M_empty, and a form in M_Q minus M_empty would have to be unramified at the places dividing Q, forcing its conductor prime to Q, a contradiction."
+   ],
+   "acceptance": [
+    "Check that the oddness of rho is used exactly once, in the dimension count of Proposition 1, and that removing it breaks n + Delta = j",
+    "Check the excluded decomposable-and-flat case at p against Lemma 1 rather than assuming Delta_p = 0 uniformly"
+   ],
+   "sources": [
+    {
+     "sourceId": "bockle-appendix-2003",
+     "locator": "Theorem 1, p. 1",
+     "excerpt": "Suppose for some auxiliary set of primes Q one has the isomorphism RQ → TQ of finite flat W (k)-algebras. Then the canonical morphism R∅ → T∅ of minimal rings is an isomorphism as well.",
+     "match": "Literal statement of the appendix's Theorem 1, which R26.1 names as a required source input."
+    },
+    {
+     "sourceId": "bockle-appendix-2003",
+     "locator": "Proposition 1, p. 2",
+     "excerpt": "(b) The ring RX,p is a complete intersection, flat over Zp and of relative dimension h0 (Gp , AdX (ρ)) + 1 + d − ∆p for some ∆p ∈ Z.",
+     "match": "Hypothesis (b) with its +1+d correction term, which distinguishes the fixed-determinant and free-determinant settings."
+    },
+    {
+     "sourceId": "bockle-appendix-2003",
+     "locator": "Proof of Proposition 1, p. 2",
+     "excerpt": "Because ρ is odd, the formula in [1], Lem. 5.5(ii), yields",
+     "match": "The single place where oddness enters the presentation count; the hypothesis must be carried."
+    },
+    {
+     "sourceId": "bockle-appendix-2003",
+     "locator": "p. 3, after the case list",
+     "excerpt": "then ∆p = 0, cf. [5], Sect. 2, except in the case when the restriction of ρ to a decomposition group at p is decomposable and flat. This case is treated by the following lemma,",
+     "match": "The excluded case that the roadmap's 'all hypotheses' requirement must record."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R26.3/prime-gap-estimates-driving-the-weight-recursion",
+   "parentStageId": "ClassicalSerreModularity:R26.3",
+   "title": "The explicit prime-gap inequalities that make the weight recursion terminate",
+   "kind": "lemma",
+   "statement": "For each prime p >= 5 one needs a prime P > p (for instance the next prime after p) together with either (i) an odd prime power divisor l^r exactly dividing P-1 such that P/p <= (2m+1)/(m+1) - (m/(m+1))(1/p) where l^r = 2m+1 with m >= 1, or (ii) 2^r exactly dividing P-1 with r >= 4 such that P/p <= 2^r/(2^{r-1}+2) - ((2^{r-1}-2)/(2^{r-1}+2))(1/p). These are checked by hand for p <= 31; for p > 31 the estimates of Rosser-Schoenfeld give P/p <= 3/2 - 1/30 = 1.46, which suffices because (2m+1)/(m+1) and 2^r/(2^{r-1}+2) are >= 3/2 while m/(m+1) and (2^{r-1}-2)/(2^{r-1}+2) are <= 1 for m >= 1, r >= 4. Consequences used later: (3) p+1 >= ((m+1)/(2m+1))(P-1) + 2 = (P+1) - (m/(2m+1))(P-1), and (4) p+1 >= ((2^{r-1}+2)/2^r)(P-1) + 2 >= (P+1) - (1/2)(P-1).",
+   "hypotheses": [
+    "the inequalities are needed only for p >= 5; smaller primes are handled by the separate mod 3 and mod 5 arguments",
+    "case (ii) requires r >= 4, i.e. 16 | P-1; r = 1, 2, 3 are not covered by (2)",
+    "the numerical verification for p <= 31 is by hand and is a finite exceptional check, not a consequence of the asymptotic estimate",
+    "the Annals paper proves the stronger statement that one can always find P with (i), for example P the smallest non-Fermat prime > p"
+   ],
+   "proofSteps": [
+    "Rosser-Schoenfeld's explicit prime estimates bound the ratio of consecutive primes above 31 by 1.46.",
+    "The right-hand sides of (1) and (2) are bounded below by 3/2 - 1/p, which exceeds 1.46 for p > 31.",
+    "Inequalities (3) and (4) are algebraic rearrangements of (1) and (2) and are what is actually consumed: they bound the interval of admissible twisting exponents i in the inductive step of Theorem 3.2 so that the new Serre weight satisfies k <= p+1."
+   ],
+   "acceptance": [
+    "Verify (1) and (2) by direct computation for every prime p <= 31, and record the list of (p, P, l^r) triples used",
+    "Verify that (3) and (4) really give a nonempty integer interval for the exponent i in each case, including the parity constraint when l = 2"
+   ],
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "7 Estimates on primes, p. 12 of the preprint",
+     "excerpt": "We check this by hand for p ≤ 31. From [35] one deduces (see [24]) that for p > 31, Pp ≤ 32 − ( 30 1 ) = 1.46.",
+     "match": "The literal split between a finite hand check for p <= 31 and the Rosser-Schoenfeld bound above 31; the roadmap asks for exactly this finite exceptional list."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "7 Estimates on primes, Remark, p. 12 of the preprint",
+     "excerpt": "It is proven in [24] that in fact one can always find P such that (i) holds (for example P the smallest non Fermat prime > p).",
+     "match": "Records that case (ii) can be avoided at the cost of citing the Annals paper, a choice the decomposition should make explicit."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R26.6/corollary-8-1-ii-and-the-statement-W1",
+   "parentStageId": "ClassicalSerreModularity:R26.6",
+   "title": "Corollary 8.1(ii) and the derivation of the induction's starting point (W_1)",
+   "kind": "theorem",
+   "statement": "Corollary 8.1(ii): if rho-bar is an irreducible, odd, 2-dimensional mod p representation of G_Q with k(rho-bar) = 2, unramified outside p and one other odd prime q, tamely ramified at q, such that the order of rho-bar(I_q) is a power of an odd prime t > 5, then rho-bar arises from S_2(Gamma_1(q^2)). Theorem 3.3 - the hypothesis (W_r) for r = 1 - follows from this. Thus the starting point of the KW induction is NOT the conductor-one theorem restated: (W_1) concerns locally good-dihedral representations of weight 2 whose odd conductor has at most one prime divisor, and Corollary 8.1(ii) is the statement about representations ramified at exactly one odd prime q with tame image of odd prime-power order t > 5 - i.e. exactly the shape a good dihedral prime produces.",
+   "hypotheses": [
+    "t is an odd prime, t > 5, and t is different from p and from q: t not p because otherwise the first statement applies, and t not q because rho-bar is tamely ramified at q",
+    "one may assume the projective image of rho-bar is not dihedral, the A_4 and S_4 cases reducing to level one because t > 5",
+    "the conclusion is level q^2, not q: the good-dihedral inertia character is of level 2 at q",
+    "the argument uses modularity lifting results of Skinner-Wiles in the residually reducible branch and Wiles/Taylor-Wiles in the residually irreducible branch"
+   ],
+   "proofSteps": [
+    "Reduce (ii) to (i). Build an almost strictly compatible lift by Theorem 5.1(1): rho_p unramified outside {p, q}, crystalline of weight 2 at p, with |rho_p(I_q)| = |rho-bar_p(I_q)|.",
+    "Consider the mod t reduction rho-bar_t. If it is reducible, or unramified at q (which forces reducibility by the level-one weight-2 case), apply Skinner-Wiles to conclude rho_t is modular; note rho_t is crystalline of weight 2 because the system is almost strictly compatible of weight 2 and t is not 2.",
+    "If rho-bar_t is irreducible and ramified at q, then k(rho-bar_t) = 2 by almost strict compatibility and part (i) gives modularity (the ramification at q is unipotent); Wiles/Taylor-Wiles then gives modularity of rho_t.",
+    "In the last case, irreducibility of rho-bar_t restricted to Q(mu_t) is checked either from |rho-bar_t(I_q)| = t or from k(rho-bar_t) = 2 together with Lemma 6.2(ii)."
+   ],
+   "acceptance": [
+    "Check that the produced form has level q^2 and not q, and that this is what (W_1) consumes",
+    "Check that the branch where rho-bar_t becomes reducible after the change of prime is actually reachable, so that it is a branch of the proof and not an impossible case"
+   ],
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Corollary 8.1(ii), pp. 15-16 of the preprint",
+     "excerpt": "If ρ̄ is an irreducible, odd, 2-dimensional, mod p representation of GQ with k(ρ̄) = 2, unramified outside p and another odd prime q, tamely ramified at q, such that the order of ρ̄(Iq ) is the power of an odd prime t > 5, then ρ̄ arises from S2 (Γ1 (q 2 )).",
+     "match": "Literal statement of the corollary from which (W_1) is derived; the level is q^2."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "8.3, first line, p. 15 of the preprint",
+     "excerpt": "Theorem 3.3 follows from Corollary 8.1 (ii) below, which in turn follows from Corollary 8.1 (i).",
+     "match": "The derivation chain that R26.6 must reproduce; (W_1) is not a restatement of conductor one."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R27.1/good-dihedral-prime-definition",
+   "parentStageId": "ClassicalSerreModularity:R27.1",
+   "title": "Definition 2.1: good dihedral prime",
+   "kind": "definition",
+   "statement": "Let Q: N -> N be defined by Q(1) = 1 and, for n >= 2, Q(n) = the largest prime dividing n. For rho-bar: G_Q -> GL_2(F_p-bar) continuous, a prime q different from p is a good dihedral prime for rho-bar if (i) rho-bar restricted to I_q is of the form diag(psi, psi^q) with psi a NON-TRIVIAL character of I_q whose order is a power of an odd prime t such that t divides q+1 and t > max(Q(N(rho-bar)/q^2), 5, p); and (ii) q is 1 mod 8, and 1 mod r for every prime r with r <= max(Q(N(rho-bar)/q^2), p). If such a q exists, rho-bar is called locally good-dihedral (for the prime q), or q-dihedral.",
+   "hypotheses": [
+    "psi must be nontrivial and of order a power of an ODD prime t with t | q+1 - so psi is of level 2 at q and t does not divide q-1",
+    "the bound on t is taken against Q(N(rho-bar)/q^2), i.e. the largest prime dividing the prime-to-q part of the conductor, together with 5 and p",
+    "condition (ii) includes q = 1 mod 8, which is what rules out ramification of an auxiliary quadratic field at 2",
+    "the definition is a property of the pair (rho-bar, q), and both conditions refer to N(rho-bar), so it is not stable under arbitrary changes of level"
+   ],
+   "proofSteps": [
+    "The definition is stated outright in the source. Its purpose, made explicit in Remark 2 after the proof of Theorem 3.2, is that starting with a q-dihedral rho-bar in characteristic P ramified at a set S, the proofs of Theorems 3.1 and 3.2 only need residual representations in characteristic at most max over l in S minus {q} of (P, l) - which is exactly the range in which (i) and (ii) have been imposed."
+   ],
+   "acceptance": [
+    "Check on an explicit example that t > 5, t | q+1 and t odd force rho-bar restricted to D_q to be irreducible",
+    "Check that condition (ii) fails for some q = 5 mod 8 and that the Lemma 6.3 argument then breaks at the ramified-quadratic-field step"
+   ],
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Definition 2.1, pp. 4-5 of the preprint",
+     "excerpt": "where ψ is a non-trivial character of Iq of order a power of an odd prime t, such that t divides q + 1, and t > max(Q( Nq(ρ̄) 2 ), 5, p);",
+     "match": "Condition (i) verbatim, including nontriviality, odd prime-power order, t | q+1, and the three-way maximum."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Definition 2.1(ii), p. 5 of the preprint",
+     "excerpt": "(ii) q is 1 mod 8, and 1 mod r for every prime r such that r ≤ max(Q( Nq(ρ̄) 2 ), p).",
+     "match": "Condition (ii) verbatim; the 1 mod 8 clause is the one used at the prime 2 in Lemma 6.3."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "8.2 Remark 2, p. 14 of the preprint",
+     "excerpt": "the proofs of Theorems 3.1 and 3.2 need to consider residual representations in characteristic at most max`∈S\\{q} (P, `). This is what motivates our Definition 2.1.",
+     "match": "The source's own explanation of why the bounds in Definition 2.1 take that exact shape."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved",
+   "parentStageId": "ClassicalSerreModularity:R27.1",
+   "title": "Lemma 6.3: a locally good-dihedral representation has non-solvable, non-A_5 image, and the property propagates through a compatible system",
+   "kind": "lemma",
+   "statement": "Let rho-bar be locally good-dihedral for a prime q. (i) The image of rho-bar is not solvable and its projective image is not isomorphic to A_5. (ii) Let (rho_iota) be any compatible system lifting rho-bar whose ramified primes are contained in the prime divisors of N(rho-bar)p, and such that rho_p restricted to D_q is a minimal lift of rho-bar restricted to D_q. Then for any prime r <= max(Q(N(rho-bar)/q^2), p), any mod r representation rho-bar_r arising from (rho_iota) is again locally good-dihedral for the prime q, and hence has non-solvable image with projective image not A_5.",
+   "hypotheses": [
+    "in (ii) the two hypotheses on the system are essential: the ramification set must be contained in the primes dividing N(rho-bar)p, and rho_p must be MINIMAL at q",
+    "the range of r is bounded by max(Q(N(rho-bar)/q^2), p), exactly the bound built into Definition 2.1",
+    "the argument for (i) uses t > 5 twice: to exclude A_5, and to force the projective image to be dihedral in the solvable case via Dickson"
+   ],
+   "proofSteps": [
+    "(ii) follows from compatibility, (i), and two observations: for t different from 2 and r a prime different from t, the reduction map is bijective on a dihedral subgroup D_{2t^a} of PGL_2(Q_r-bar) sitting inside PGL_2(O); and for r <= max(Q(N(rho-bar)/q^2), p) one has max(Q(N(rho-bar_r)/q^2), r) <= max(Q(N(rho-bar)/q^2), p).",
+    "(i): since t divides q+1 and not q-1, rho-bar restricted to D_q is irreducible, hence so is rho-bar; since t > 5 the projective image cannot be A_5.",
+    "If the image were solvable then by Dickson the projective image is dihedral, so rho-bar is induced from a quadratic K unramified outside the primes ramified in rho-bar; the primes s different from q at which rho-bar is ramified satisfy q = 1 mod s (and 1 mod 8 if s = 2), so q either splits or ramifies in K. Splitting contradicts irreducibility of rho-bar restricted to D_q; ramification contradicts t being odd."
+   ],
+   "acceptance": [
+    "Check the bijectivity of reduction on D_{2t^a} directly for a small t and r, and check it fails when r = t",
+    "Check the two contradictions in (i) on an explicit K, confirming that the 1 mod 8 clause of Definition 2.1 is what closes the s = 2 case"
+   ],
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Lemma 6.3 and its proof, pp. 11-12 of the preprint",
+     "excerpt": "Let (ρι ) be any compatible system lifting of ρ̄ such that the ramified primes of the compatible system are contained in the prime divisors of N (ρ̄)p and ρp |Dq is a minimal lift of ρ̄|Dq .",
+     "match": "The two hypotheses on the lifting system that make good-dihedrality propagate; a link that omits them would be unjustified."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Proof of Lemma 6.3(i), p. 12 of the preprint",
+     "excerpt": "Note that the primes s different from q at which ρ̄ is ramified are such that q is 1 mod s (and 1 mod 8 if s = 2).",
+     "match": "Where condition (ii) of Definition 2.1 is consumed."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement",
+   "parentStageId": "ClassicalSerreModularity:R27.1",
+   "title": "Dickson's classification, its p = 2 refinement, and the dihedral and degenerate weight lemmas",
+   "kind": "lemma",
+   "statement": "Dickson: for any prime p, a finite subgroup of GL_2(F_p-bar) acting irreducibly on the plane has projective image isomorphic to a dihedral group, A_4, S_4, A_5, PSL_2(F_0) or PGL_2(F_0) for F_0 a finite subfield of F_p-bar; PSL_2(F_0) is simple nonabelian as soon as |F_0| >= 4. Lemma 6.1: a finite SOLVABLE subgroup G of GL_2(F_2-bar) acting irreducibly has dihedral projective image. Lemma 6.2(i): an S-type rho-bar with dihedral projective image is modular, and arises from S_{k(rho-bar)}(Gamma_1(N(rho-bar))). Lemma 6.2(ii): if rho-bar is of S-type, p >= 3, 2 <= k(rho-bar) <= p+1, and rho-bar restricted to G_{Q(mu_p)} is reducible, then k(rho-bar) is (p+1)/2 or (p+3)/2.",
+   "hypotheses": [
+    "Lemma 6.1 is over F_2-bar and uses that an element of GL_2(F_2-bar) of 2-power order has order 1 or 2, and that a Sylow 2-subgroup is unipotent",
+    "Lemma 6.2(i) at p = 2 is not 'well known': it goes through the method of Proposition 10 of Serre's Duke paper (the 'trick of Serre'), with the refined level and weight coming from a separate theorem of Wiese",
+    "Lemma 6.2(ii) needs p > 2 (the projectivisation must be tamely ramified at p) and the normalized weight range 2 <= k <= p+1"
+   ],
+   "proofSteps": [
+    "Lemma 6.1: by Dickson the projective image is dihedral, A_4 or S_4; S_4 is excluded because 2-power-order elements of GL_2(F_2-bar) have order at most 2; A_4 is excluded because it has a normal subgroup of order 4, which forces G into the upper triangular matrices, contradicting irreducibility.",
+    "Lemma 6.2(ii): for p > 2 the projectivisation is tamely ramified at p so its inertia image is cyclic; as the quadratic subfield of Q(mu_p) is ramified at p, that image has order 2, and the two possible weights follow from Serre's definition of k."
+   ],
+   "acceptance": [
+    "Check Lemma 6.2(ii) against Serre's weight recipe directly, recovering (p+1)/2 and (p+3)/2 from the level-1 and level-2 tame cases",
+    "Check that Lemma 6.1 fails over F_p-bar for odd p, by exhibiting a solvable irreducible subgroup with projective image A_4"
+   ],
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Lemma 6.1 with proof, pp. 10-11 of the preprint",
+     "excerpt": "Although the lemma below, which refines the above statement for p = 2, is also a part of Dickson’s theorem it is often not stated as such, and we give the easy proof.",
+     "match": "Records that the p = 2 refinement is proved here rather than quoted, which the roadmap's demand for exact statements requires."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Lemma 6.2(i) and proof, p. 11 of the preprint",
+     "excerpt": "If p > 2 this is well-known. If p = 2 we first address the modularity of such ρ̄. This follows from the method of proof of Proposition 10 of [38]",
+     "match": "The p = 2 dihedral case has a separate proof route; it is not covered by the odd-p statement."
+    },
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Lemma 1.14 and its proof, pp. 8-9 of the arXiv version",
+     "excerpt": "This is Lemma 6.2 (ii) of [KW09b]. The proof lacks some details, hence the difference between the niveau 1 and the niveau 2 case is hard to see (which justifies the present proof)",
+     "match": "A later source states that KW I's proof of Lemma 6.2(ii) is incomplete as written and supplies a replacement distinguishing the two niveaux; the decomposition should use the Dieulefait-Pacetti version."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R27.2/hypotheses-Lr-Wr-and-Dr",
+   "parentStageId": "ClassicalSerreModularity:R27.2",
+   "title": "The three families of hypotheses (L_r), (W_r) and (D_r)",
+   "kind": "definition",
+   "statement": "For an integer r >= 1: (L_r) all rho-bar of S-type are modular provided (a) rho-bar is locally good-dihedral, (b) k(rho-bar) = 2 IF p = 2, and (c) N(rho-bar) is odd and divisible by at most r primes. (W_r) the same with (b) strengthened to k(rho-bar) = 2 for every p. For an integer r >= 0: (D_r) all rho-bar of S-type are modular provided (a) rho-bar is locally good-dihedral, (b) the residue characteristic of rho-bar is an odd prime, and (c) N(rho-bar) is NOT divisible by 2^{r+1}. Obviously (L_r) implies (W_r). Note that (L_r) and (W_r) require the conductor to be odd, while (D_r) allows even conductor with bounded 2-valuation and instead forbids p = 2.",
+   "hypotheses": [
+    "all three hypotheses are restricted to locally good-dihedral rho-bar; this is the device that avoids residually degenerate modularity lifting beyond what Theorem 1.1 already uses",
+    "(L_r) imposes weight 2 only at p = 2; (W_r) imposes it at all p",
+    "(D_r) bounds v_2(N(rho-bar)) by r, and excludes p = 2 entirely"
+   ],
+   "proofSteps": [
+    "The hypotheses are stated outright. The source records the two consequences used: by Theorem 3.4, (D_0) implies Serre's conjecture for S-type rho-bar in odd characteristic with N(rho-bar) odd and for rho-bar in characteristic 2 with k(rho-bar) = 2; and (D_1) implies Serre's conjecture in characteristic 2 and in odd characteristic with N(rho-bar) not divisible by 4."
+   ],
+   "acceptance": [
+    "Check that (L_r) does not imply (W_r) for weights other than 2 at odd p, so that Theorem 3.2 is a genuine statement",
+    "Check the bookkeeping 'at most r primes' against an example where a change of prime adds a divisor to the conductor"
+   ],
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "3.1, pp. 5-6 of the preprint",
+     "excerpt": "(Lr ) All ρ̄ of S-type which satisfy the following three conditions are modular: (a) ρ̄ is locally good-dihedral; (b) k(ρ̄) = 2 if p = 2; (c) N (ρ̄) is odd and divisible by at most r primes.",
+     "match": "Literal definition of (L_r), with the conditional weight-2 clause at p = 2."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Theorem 3.4 and the following Remark, p. 6 of the preprint",
+     "excerpt": "(Dr ) All ρ̄ of S-type which satisfy the following three conditions are modular: (a) ρ̄ is locally good-dihedral; (b) the residue characteristic of ρ̄ is an odd prime; (c) N (ρ̄) is not divisible by 2r+1 .",
+     "match": "Literal definition of (D_r), with its odd-characteristic restriction and the bound on v_2 of the conductor."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R27.2/theorem-3-2-weight-reduction",
+   "parentStageId": "ClassicalSerreModularity:R27.2",
+   "title": "Theorem 3.2 (reduction to weight 2): (W_r) implies (L_r), with its three-part proof",
+   "kind": "theorem",
+   "statement": "For a positive integer r, (W_r) implies (L_r). The proof is an induction on the residue characteristic p, with the cases p = 3 and p = 5 done separately and a general inductive step. Mod 3: lift a q-dihedral rho-bar with k(rho-bar) <= 4 by Theorem 5.1(2), pass to rho_2; rho-bar_2 is q-dihedral hence non-solvable, k(rho-bar_2) = 2 by almost strict compatibility, and N(rho-bar_2) has at most r+1 prime divisors, namely those of N(rho-bar) together with 3. If rho-bar_2 is unramified at 3 one concludes by (W_r) and Theorem 4.1. Otherwise rho-bar_2 restricted to I_3 is nontrivial unipotent (because omega_3 has order 2), so rho-bar_2 restricted to D_3 is, up to unramified twist, upper triangular with diagonal (chi_2, 1); apply Theorem 5.1(4) with chi' = omega_{3,2}^2 and conclude through rho-bar'_3. Mod 5: same with chi' = omega_5^2 in Theorem 5.1(3), producing rho-bar'_5 of weight 4, then splitting on whether 3 divides N(rho-bar'_5). Inductive step: let P be the next prime after p, choose a prime power l^r exactly dividing P-1 satisfying (1) or (2) of section 7, and choose the twisting exponent i in the interval [(2m+1)^{-1} m (P-1), (m+1)(2m+1)^{-1}(P-1)] (respectively an even i in [(P-1)/2, (2^{r-1}+2)/2^r (P-1)] when l = 2); the estimates (3) and (4) then give k(rho-bar'_P) <= p+1 after a twist.",
+   "hypotheses": [
+    "throughout, rho-bar is locally good-dihedral, p is odd, N(rho-bar) is odd and has at most r prime divisors",
+    "the mod 3 step uses that omega_3 has order 2, so ramification at 3 is unipotent; the mod 5 step uses that omega_5 has order 4",
+    "the choice of i in the inductive step is constrained by the prime estimates AND, when l = 2, by a parity condition needed for the lift to be odd",
+    "at every change of prime the new residual representation is again q-dihedral by Lemma 6.3, which is what keeps the residually degenerate cases out of reach"
+   ],
+   "proofSteps": [
+    "Base cases p = 3 and p = 5 are run explicitly, each splitting on whether the auxiliary residual representation is ramified at the old prime.",
+    "In the general step, Theorem 5.1(2) gives a weight-2 lift with prescribed inertial Weil-Deligne parameter at P; reduction mod l gives rho-bar_l, q-dihedral with conductor divisible by at most r+1 primes.",
+    "If rho-bar_l is unramified at P the conductor drops to r primes and the inductive hypothesis (in characteristic l <= p) applies.",
+    "Otherwise Theorem 5.1(3) is applied to a twist rho-bar'_l with 2 <= k <= l+1 (when l is odd), producing a system whose P-adic member has residual weight <= p+1 by the estimates, and whose conductor is odd with at most r prime divisors.",
+    "Modularity is then transported back along the two systems, which are linked at l, by two applications of Theorem 4.1."
+   ],
+   "acceptance": [
+    "Run the smallest nontrivial transition (p = 5, P = 7) and exhibit the admissible interval of exponents i explicitly",
+    "Check that at each recursive call either the residue characteristic strictly decreases or the number of prime divisors of the conductor strictly decreases, and record the well-founded measure; a change of prime alone is not a decrease"
+   ],
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "8.2, mod 3 case, pp. 13 of the preprint",
+     "excerpt": "Otherwise, note that ρ̄2 |I3 is non-trivial and unipotent, as ω3 is of order 2.",
+     "match": "The exact local fact that makes the mod 3 branch work; it is specific to p = 3 and does not generalise."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "8.2, inductive step, p. 14 of the preprint",
+     "excerpt": "choosing χ0 = ωPi with i ∈ [ 2m+1 m (P − 1), 2m+1 m+1 (P − 1)] when ` > 2, and an even i ∈ [ 21 (P − 1), 2 r−1 2r+2 (P − 1)] when ` = 2.",
+     "match": "The precise admissible range for the twisting exponent, tied to the prime estimates of section 7 and with the parity condition at l = 2."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "8.2, inductive step, pp. 14-15 of the preprint",
+     "excerpt": "By choice of i, the estimates (3) and (4) of Section 7, and Theorem 5.1 (3), we deduce that (after twisting by a suitable power of χP ) k(ρ̄0P ) ≤ p + 1, and the conductor N (ρ̄0P ) is odd and divisible by at most r primes.",
+     "match": "Where the prime estimates are consumed: they are what bounds the new Serre weight, hence what makes the recursion terminate."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R27.3/theorem-3-1-killing-ramification",
+   "parentStageId": "ClassicalSerreModularity:R27.3",
+   "title": "Theorem 3.1 (killing ramification in weight 2): (L_r) implies (W_{r+1})",
+   "kind": "theorem",
+   "statement": "For a positive integer r, (L_r) implies (W_{r+1}). Proof: let rho-bar be of S-type, locally good-dihedral for a prime q, with k(rho-bar) = 2 and N(rho-bar) odd divisible by at most r+1 primes. Choose a prime s different from q dividing N(rho-bar). By Theorem 5.1(1) construct an almost strictly compatible lift (rho_iota) and consider rho_s. Then rho-bar_s is of S-type, is q-dihedral and hence has non-solvable image by Lemma 6.3(ii), and N(rho-bar_s) is divisible by at most r primes, because the prime divisors of N(rho-bar_s) form a subset of the prime divisors of the prime-to-s part of N(rho-bar). By (L_r) rho-bar_s is modular, and Theorem 4.1 finishes.",
+   "hypotheses": [
+    "s must be different from q: the good-dihedral prime is deliberately not killed at this step",
+    "the conductor bookkeeping uses that the ramification at s is absorbed into the coefficient prime, so s drops out of the conductor - this is the whole content of 'killing ramification'",
+    "Theorem 5.1(1) requires k(rho-bar) = 2 when p = 2 and gives a lift minimally ramified away from p and crystalline of weight k(rho-bar) at p",
+    "Theorem 4.1 requires rho-bar_s to have non-solvable image if s = 2, and rho-bar_s restricted to Q(mu_s) absolutely irreducible if s > 2; both come from q-dihedrality via Lemma 6.3"
+   ],
+   "proofSteps": [
+    "The proof is three sentences in the source and is reproduced above. The published Annals paper presents the same device in general form as Theorem 6.2 ('killing ramification'): given a compatible system (rho_lambda), take lambda_0 above a prime of ramification, apply the lifting theorem to a cyclotomic twist of rho-bar_{lambda_0} to get a system with a strictly smaller ramification set, and induct."
+   ],
+   "acceptance": [
+    "Check that after the step the conductor really loses the prime s and gains nothing, using the inclusion of prime divisor sets stated in the source",
+    "Check that the good-dihedral prime q survives the step, i.e. that rho-bar_s is still q-dihedral"
+   ],
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "8.1, p. 12 of the preprint",
+     "excerpt": "N (ρ̄s ) is divisible by at most r primes: the prime divisors of N (ρ̄s ) are a subset of the set of the prime divisors of the prime-to-s part of N (ρ̄).",
+     "match": "The exact conductor bookkeeping; this, not a general monotonicity claim, is what makes the induction work."
+    },
+    {
+     "sourceId": "kw-annals-2009",
+     "locator": "6.2 Killing ramification, Theorem 6.2 and its proof, printed pp. 250-251",
+     "excerpt": "Let λ0 be above a prime of ramification of (ρλ ). One applies the theorem 4.2 to a cyclotomic twist of ρ̄λ0 to get a compatible system (ρ0λ0 ) whose set of ramification primes is smaller than the set of ramification primes of (ρλ ).",
+     "match": "The general formulation of the same device in the published Annals paper, at section 6.2 - NOT section 5.2, which is the numbering of the preprint that Khare's level-one paper cites."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R27.3/double-induction-assembly",
+   "parentStageId": "ClassicalSerreModularity:R27.3",
+   "title": "The assembly: (W_1) plus the two implications give every (L_r) and (W_r), hence (D_0)",
+   "kind": "theorem",
+   "statement": "Hypothesis (D_0) is satisfied as soon as (L_r) holds for every r >= 1, and this is proved by induction on r: Theorem 3.3 gives (W_1); Theorem 3.2 turns it into (L_1); and for the step, (L_r) implies (W_{r+1}) by Theorem 3.1, which Theorem 3.2 turns into (L_{r+1}). Combined with Theorem 3.4 and the remark after it, this yields Theorem 1.2: (1) for p odd, a rho-bar of S-type with N(rho-bar) an odd integer arises from S_{k(rho-bar)}(Gamma_1(N(rho-bar))); (2) for p = 2, a rho-bar of S-type with k(rho-bar) = 2 arises from S_2(Gamma_1(N(rho-bar))). The induction is on two parameters - the number of prime divisors of N(rho-bar) and the residue characteristic - and is NOT a claim that the conductor decreases at every congruence: Theorem 3.2 can increase the number of prime divisors by one before Theorem 3.1 removes one.",
+   "hypotheses": [
+    "the whole chain is restricted to locally good-dihedral rho-bar until Theorem 3.4 removes that restriction",
+    "Theorem 1.2(2) at p = 2 is only for k(rho-bar) = 2; the weight-4 case at p = 2 is deferred to section 9 and needs Hypothesis (H)",
+    "the source explicitly notes that even after Theorem 1.2(2), the strong form of the conjecture in Edixhoven's sense at p = 2 (unramified at 2 if and only if it arises from a Katz weight-1 form) is not known"
+   ],
+   "proofSteps": [
+    "3.2: (L_1) from Theorem 3.3 and Theorem 3.2; the step (L_r) -> (W_{r+1}) -> (L_{r+1}) from Theorems 3.1 and 3.2.",
+    "Theorem 3.4 then removes the good-dihedral hypothesis and gives Theorem 1.2 via the remark that (D_0) implies odd characteristic with odd conductor and characteristic 2 with weight 2."
+   ],
+   "acceptance": [
+    "Exhibit the well-founded measure on pairs (number of prime divisors, residue characteristic) and verify that each of Theorems 3.1 and 3.2 moves strictly along it",
+    "Check Theorem 1.2(2)'s scope: it does not give the Edixhoven-strong form at p = 2"
+   ],
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "3.2, p. 6 of the preprint",
+     "excerpt": "(L1 ): Theorem 3.3 fulfills the hypothesis (W1 ) of Theorem 3.2. Thus Theorem 3.2 gives that (L1 ) is true. Induction step: Assume we have proved (Lr ) for r ≥ 1, and we want to prove (Lr+1 ). The hypothesis (Lr ) implies the hypothesis (Wr+1 ) by Theorem 3.1. This by Theorem 3.2 yields (Lr+1 ).",
+     "match": "The literal two-stage induction; the packet records it as such rather than as a monotone conductor decrease."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "1.1, p. 3 of the preprint",
+     "excerpt": "Nevertheless, we do not know for p = 2 the strong form of the conjecture in the sense of Edixhoven: we do not know in general that ρ̄ is unramified at 2 if and only if it arises from a Katz form of weight 1",
+     "match": "Explicit scope limit at p = 2, which the roadmap's conventions (classical k >= 2, not Katz weight one) already anticipate."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R27.4/theorem-3-4-raising-levels-and-the-chebotarev-choice",
+   "parentStageId": "ClassicalSerreModularity:R27.4",
+   "title": "Theorem 3.4 (raising levels) and Lemma 8.2, with its rationality correction",
+   "kind": "theorem",
+   "statement": "Theorem 3.4: assume (D_r) for a given r >= 0. Then any rho-bar of S-type of residue characteristic p with conductor not divisible by 2^{r+1}, and with k(rho-bar) = 2 if p = 2 and r = 0, is modular. The proof passes to an auxiliary prime p_0 > 5, congruent to 1 mod 4, larger than all primes in S union {p}, splitting completely in E, with rho-bar_{p_0} of non-solvable image; such p_0 exists because for p_0 outside S union {p} with p_0 > 5 one has k(rho-bar_{p_0}) = 2 by almost strict compatibility, so the projective image of rho-bar_{p_0}(I_{p_0}) contains an element of order at least 6 and Dickson forces a solvable projective image to be dihedral - a case already handled by Lemma 6.2 and the lifting theorem. Lemma 8.2: for p congruent to 1 mod 4 and rho-bar: G_Q -> GL_2(F_p) of S-type with non-solvable image, there is a positive-density set of primes q unramified in rho-bar with (i) rho-bar_proj(Frob_q) and rho-bar_proj(c) conjugate in rho-bar_proj(G_Q), (ii) q congruent to 1 modulo every prime <= p-1 and 1 mod 8, (iii) q congruent to -1 mod p. Theorem 5.1(4) then makes q a good dihedral prime for a new system.",
+   "hypotheses": [
+    "Lemma 8.2 is stated for rho-bar valued in GL_2(F_p), NOT GL_2(F_p-bar): the source records that an earlier version allowed F_p-bar and that Dieulefait and Wiese pointed out that a rationality hypothesis may be necessary",
+    "p congruent to 1 mod 4 is used to place rho-bar_proj(c) inside PSL_2(F_p) when the projective image is PGL_2(F_p), and to make -1 a square mod p for condition (iii)",
+    "the compatibility of the four Chebotarev conditions rests on the intersection L of the field cut out by rho-bar_proj with the relevant cyclotomic field having degree 1 or 2 over Q",
+    "condition (ii)'s '1 mod 8' and '1 mod every prime <= p-1' are exactly Definition 2.1(ii)"
+   ],
+   "proofSteps": [
+    "Reduce to rho-bar restricted to Q(mu_p) absolutely irreducible (Lemma 6.2) and to non-solvable image at p = 2 (Lemma 6.1).",
+    "Build an almost strictly compatible system by Theorem 5.1(2) and discard the finitely many residual representations that are not absolutely irreducible.",
+    "Choose the auxiliary prime p_0 as above; apply Lemma 8.2 to rho-bar_{p_0} to get q; apply Theorem 5.1(4) to attach a level-2 character chi' of I_q of p_0-power order, making q good dihedral.",
+    "Let s be the largest prime < p_0; rho-bar'_s is good-dihedral for q, s > 2, and N(rho-bar'_s) is not divisible by 2^{r+1}, so (D_r) applies.",
+    "Theorem 4.1 transports modularity to (rho'_lambda), then along the link at rho-bar_{p_0} back to (rho_lambda) and rho-bar."
+   ],
+   "acceptance": [
+    "Check the four Chebotarev conditions are simultaneously satisfiable by computing the degree of L over Q in an example with projective image PGL_2(F_p)",
+    "Check the rationality hypothesis in Lemma 8.2 by attempting the argument for a rho-bar whose traces generate a proper extension of F_p, and record where it fails"
+   ],
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Lemma 8.2 and the Remark after it, p. 17 of the preprint",
+     "excerpt": "In an earlier version of this lemma we allowed ρ̄ with values in GL2 (Fp ). L. Dieulefait and G. Wiese pointed out that some hypothesis on the rationality of ρ̄ may be necessary to warrant the conclusion of the lemma.",
+     "match": "The published rationality correction. Any decomposition that states Lemma 8.2 for F_p-bar coefficients would reproduce the withdrawn version."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Proof of Lemma 8.2, pp. 17-18 of the preprint",
+     "excerpt": "Let L be the intersection of the field M defined by the kernel of ρ̄proj and the cyclotomic field generated by µ8 , µ` for ` odd < p and µp . The degree of L over Q is either 1 or 2.",
+     "match": "The compatibility argument for the Chebotarev conditions, which is the technical core of the lemma."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "8.4, p. 17 of the preprint",
+     "excerpt": "Further as k(ρ̄p0 ) = 2, and p0 > 5 by considering the projective image of ρ̄p0 (Ip0 ), we deduce that the projective image of ρ̄p0 has an element of order ≥ 6.",
+     "match": "Where the Serre weight of the auxiliary residual representation is used to force non-solvability via Dickson."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R27.5/hypothesis-H-and-theorem-9-1",
+   "parentStageId": "ClassicalSerreModularity:R27.5",
+   "title": "Hypothesis (H), Theorem 9.1, and the ad hoc dyadic weight computation",
+   "kind": "theorem",
+   "statement": "Hypothesis (H): let rho: G_Q -> GL_2(O) be continuous, odd, irreducible and p-adic with (i) rho-bar of non-solvable image and modular, and (ii) rho unramified outside a finite set of primes, of weight 2 and potentially crystalline at p; then rho is modular. By Breuil (p different from 2) and Kisin, a crystalline representation of G_K with Hodge-Tate weights 0 and 1 comes from a p-divisible group, so the condition at p may be replaced by 'potentially Barsotti-Tate'. Theorem 9.1: assuming (H), Serre's conjecture is true. The proof first gets (D_1) and characteristic 2 by reversing the roles of 2 and 3 relative to the mod 3 case of Theorem 3.2: construct a weight-2 minimal system, look at rho-bar_3; if it is unramified at 2 conclude by Theorem 1.2 and Theorem 4.1; otherwise rho-bar_3(I_2) is unipotent, so rho-bar_3(D_2) is up to unramified twist upper triangular with diagonal (chi_3, 1), and Theorem 5.1(4) with the two 3-adic characters chi', chi'^2 of I_2 of order 3 gives a system whose 2-adic residual representation has k = 2. Then (D_r) for r > 1 follows: one may assume rho-bar(I_2) is not, up to twist, unipotent, and rho-bar_2 is then modular and rho_2 potentially crystalline of weight 2, so (H) applies.",
+   "hypotheses": [
+    "Hypothesis (H) requires the residual representation to have NON-SOLVABLE image and to be modular; it is not a general lifting statement",
+    "the weight-2 and potentially crystalline conditions at p are both needed; the Breuil-Kisin remark only reformulates them",
+    "the claim k(rho-bar'_2) = 2 in the proof is given by an ad hoc argument because the reference used elsewhere for residual weights (Savitt) does not cover p = 2"
+   ],
+   "proofSteps": [
+    "The dyadic weight claim: if k(rho-bar'_2) were 4 then rho-bar'_2 would be tres ramifiee, so for any finite extension K of Q_2 of ODD ramification index, rho-bar'_2 restricted to G_K could not be finite flat. But Theorem 5.1(2) provides a finite extension K of Q_2 of ramification index 3 (the order of chi') over which rho-bar'_2 restricted to G_K is finite flat - for instance the field cut out by chi' over the unramified quadratic extension of Q_2. Contradiction, so k(rho-bar'_2) = 2.",
+    "Having (D_1) and characteristic 2, one deduces (D_r) for r > 1 by taking rho-bar with rho-bar(I_2) not unipotent up to twist, building a weight-2 minimal system, and applying (H) to rho_2."
+   ],
+   "acceptance": [
+    "Check the tres ramifiee / odd-ramification-index argument against Serre's definition (2.4.7) and the p = 2 value k = 4 of 2.6, confirming the two are the same notion",
+    "Check that Hypothesis (H) is only invoked with non-solvable residual image at every use in the proof"
+   ],
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "9, Hypothesis (H), p. 18 of the preprint",
+     "excerpt": "(i) the residual representation ρ̄ has non-solvable image, and ρ̄ is modular; (ii) ρ is unramified outside a finite set of primes, is of weight 2 and potentially crystalline at p.",
+     "match": "Literal hypotheses of (H), which must not be weakened when the statement is imported as Kisin's theorem."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Proof of Theorem 9.1, p. 19 of the preprint",
+     "excerpt": "To prove the claim (we give this ad hoc argument as the reference [37] does not consider the case p = 2), note that if k(ρ̄02 ) = 4, then it is très ramifiée and thus for a finite extension K of Q2 of odd ramification index, ρ̄02 (GK ) cannot be finite flat.",
+     "match": "The dyadic weight argument, with the source's own note that the usual residual-weight reference does not cover p = 2."
+    },
+    {
+     "sourceId": "serre87-duke",
+     "locator": "2.6, printed p. 188",
+     "excerpt": "Pour p = 2, on a k = 2 si l'action de Ip est triviale, ou peu ramifiee, et k = 4 si l'action de Ip est tres ramifiee .",
+     "match": "Serre's dyadic weight dichotomy, the definition on which the ad hoc argument of Theorem 9.1 depends."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R27.6/scope-of-the-final-statement-and-the-compatible-system-export",
+   "parentStageId": "ClassicalSerreModularity:R27.6",
+   "title": "What the assembled theorem does and does not assert, and the compatible-system corollary",
+   "kind": "application",
+   "statement": "The assembled theorem is Serre's conjecture for two-dimensional, odd, absolutely irreducible mod p representations of G_Q: each such rho-bar arises from a newform of weight k(rho-bar) and level N(rho-bar) with respect to the fixed embedding iota_p. Its export to compatible systems is Theorem 10.1: (i) a two-dimensional REGULAR compatible system that is irreducible and odd arises up to twist from a newform of weight >= 2; (ii) a two-dimensional IRREGULAR compatible system that is irreducible and odd arises up to twist from a newform of weight 1. The proof of (ii) uses a theorem of Sen and Fontaine (for almost all lambda, rho_lambda is unramified at the residue characteristic of lambda) and then the arguments of Gross and Coleman-Voloch on weight-one forms. No statement is made for base fields other than Q or for representations of rank greater than 2.",
+   "hypotheses": [
+    "in both parts irreducibility of rho-bar_lambda for almost all lambda is established first, from the boundedness of the conductor and the fixity of the Hodge-Tate weights",
+    "part (ii) needs the Sen-Fontaine unramifiedness statement and the Gross / Coleman-Voloch weight-one criteria, which are cited and not proved",
+    "the conclusion is 'up to twist'; the twist normalizes the Hodge-Tate numbers to (a, 0) with a >= 0"
+   ],
+   "proofSteps": [
+    "Twist so that the Hodge-Tate numbers are (a, 0) with a >= 0.",
+    "For a > 0, Serre's conjecture applies to rho-bar_lambda for infinitely many lambda and the resulting forms are a single fixed newform in S_k(Gamma_1(N)) with k = a+1 and N fixed.",
+    "For a = b = 0, Sen and Fontaine give unramifiedness at the residue characteristic for almost all lambda, and then the Gross and Coleman-Voloch results place rho-bar_lambda in S_1(Gamma_1(N)) with N independent of lambda."
+   ],
+   "acceptance": [
+    "Check that the newform produced in (i) really has weight a+1 and level N with both independent of lambda",
+    "Check that the finitely many lambda excluded in each step are identified, since the statement is about almost all lambda"
+   ],
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Theorem 10.1, p. 20 of the preprint",
+     "excerpt": "(i) A two-dimensional regular compatible system that is irreducible and odd arises up to twist from a newform of weight ≥ 2. (ii) A two-dimensional irregular compatible system that is irreducible and odd arises up to twist from a newform of weight 1.",
+     "match": "The export that downstream roadmaps (elliptic-curve modularity, Artin conjecture) consume."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Proof of Theorem 10.1, p. 20 of the preprint",
+     "excerpt": "We only sketch the proof.",
+     "match": "The source gives a sketch, not a full proof; this packet records Theorem 10.1 as a sketched export rather than a decomposed argument."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R33.1/dp-target-and-the-weight-at-least-two-convention",
+   "parentStageId": "ClassicalSerreModularity:R33.1",
+   "title": "The Dieulefait-Pacetti target: weak Serre modularity, with weight restricted to k >= 2 via Deligne-Serre 6.9",
+   "kind": "theorem",
+   "statement": "Target: let rho: Gal_Q -> GL_2(F_p-bar) be an odd continuous irreducible Galois representation. Then rho is modular, i.e. there is a modular form f in S_k(Gamma_0(N), eps) with rho isomorphic to rho_{f,p}. Only 'cohomological' forms, i.e. k >= 2, are considered, following Serre's original conjecture; the source justifies this by the congruence of Deligne-Serre section 6.9, which shows that if rho is congruent to a representation coming from a weight-1 form then it is also congruent to one attached to a cohomological form. The paper proves the WEAK conjecture and then cites Edixhoven for the weight refinement and Ribet (and Boston-Lenstra-Ribet) for the level refinement; it does not reprove either.",
+   "hypotheses": [
+    "irreducible and odd are hypotheses of the statement",
+    "the restriction to k >= 2 is a convention justified by the Deligne-Serre Eisenstein congruence, not an omission",
+    "the equivalence between weak and strong Serre is imported: weight reduction from Edixhoven, level reduction from Ribet",
+    "the whole argument for odd p assumes without loss of generality that rho has non-solvable image, the solvable case being Langlands-Tunnell"
+   ],
+   "proofSteps": [
+    "The source states the target and its scope in the introduction and Remark 1.",
+    "The reduction to non-solvable image is by Theorem 1.3 (Langlands-Tunnell): for p odd, an odd continuous irreducible rho with solvable image is modular."
+   ],
+   "acceptance": [
+    "Check that the produced form has k >= 2 and that no step of the argument silently uses a weight-1 form",
+    "Check that the weight and level refinements really are imported, so the 'independence' claim of this strand concerns only the qualitative statement"
+   ],
+   "sources": [
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Remark 1, p. 1 of the arXiv version",
+     "excerpt": "the congruence proved in [DS74] §6.9 shows that if the representation ρ is congruent to a representation coming from a weight 1 modular form, then it is also congruent to the representation attached to a cohomological modular form, so we can (and will) restrict to weights k ≥ 2.",
+     "match": "The literal justification for the k >= 2 convention, and an explicit reuse of the Deligne-Serre Eisenstein weight shift."
+    },
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Introduction, p. 1 of the arXiv version",
+     "excerpt": "The equivalence between Serre’s strong and weak version is due to many authors, the main contributions on the weight reduction being due to Edixhoven (see [Edi92] and the references therein). The level reduction is mainly due to Ribet",
+     "match": "Records that the strong form is imported, which the roadmap's R33.6 convention already demands be stated explicitly."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R33.1/dp-modularity-lifting-inputs",
+   "parentStageId": "ClassicalSerreModularity:R33.1",
+   "title": "The four modularity lifting theorems the simplified proof rests on, with their exact hypotheses",
+   "kind": "theorem",
+   "statement": "Theorem 1.4 (p odd, residually irreducible): rho: Gal_Q -> GL_2(Qbar_p) continuous, odd, finitely ramified, with rho-bar restricted to Gal_{Q(sqrt(p*))} absolutely irreducible, rho restricted to Gal_{Q_p} de Rham with Hodge-Tate weights {0, k-1}, k > 1, and rho-bar modular; then rho comes from a weight-k form. Theorem 1.5 (p = 2): rho: Gal_Q -> GL_2(Qbar_2) continuous, odd, finitely ramified, de Rham at 2 with Hodge-Tate weights {0, k-1}, k > 1, and rho-bar modular with NON-SOLVABLE image; then rho comes from a weight-k form. Theorem 1.6 (residually reducible, p >= 5): rho continuous, irreducible, odd, finitely ramified, de Rham at p with Hodge-Tate weights {0, k-1}, k > 1, and rho-bar semisimplifying to a sum of two characters; then rho comes from a weight-k form. Theorem 1.7 (p = 3, residually reducible): rho: Gal_Q -> GL_2(Qbar_3) continuous, irreducible, odd, finitely ramified, with rho-bar^{ss} = 1 + chi_3, rho-bar restricted to D_3 not the identity, rho-bar restricted to I_3 upper triangular, and det(rho) = psi chi_3^{k-1} for some k >= 2; then rho comes from a weight-k form.",
+   "hypotheses": [
+    "Theorem 1.4's residual hypothesis is stated via Q(sqrt(p*)), the unique quadratic extension of Q unramified outside p; the source proves in Lemma 1.13 that this is equivalent to absolute irreducibility over Q(zeta_p)",
+    "Theorem 1.5 requires non-solvable residual image; it is not available for solvable image at p = 2",
+    "Theorem 1.6 requires p >= 5; the case p = 3 residually reducible is the separate, much more restrictive Theorem 1.7",
+    "Theorem 1.7 has four separate local hypotheses at 3 that must all be checked",
+    "the attributions are explicit and layered: Kisin for the core, with Emerton or Paskunas removing the local-global compatibility hypothesis, Hu-Tan removing the other hypothesis for p >= 5, Tung for p = 3; Skinner-Wiles and Pan for the residually reducible cases"
+   ],
+   "proofSteps": [
+    "The source states each theorem and gives, in each proof environment, the chain of papers from which it is assembled.",
+    "Lemma 1.13 supplies the equivalence between the Q(sqrt(p*)) and Q(zeta_p) forms of the residual hypothesis, by showing that reducibility over Q(zeta_p) forces a solvable image and then eliminating the Borel and exceptional cases."
+   ],
+   "acceptance": [
+    "Check that the version of Theorem 1.4 used at p = 3 really incorporates Tung's removal of Kisin's extra hypothesis, since the DP argument uses p = 3 at a critical step",
+    "Check Theorem 1.7's four local hypotheses in the step of Paso 6 where it is applied, in particular that the Serre weight is not 3"
+   ],
+   "sources": [
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Theorem 1.4 and its proof, pp. 3-4 of the arXiv version",
+     "excerpt": "There are two extra hypothesis in the last result: the second one (related to a compatibility between classical and p-adic local Langlands correspondence, as explained in Hypothesis (1.2.6) of [Kis09a]) is removed in [Eme11, Theorem 1.2.1] and in [Paš15, Theorem 1.1].",
+     "match": "The layered attribution; the theorem as used is not a single published statement and its provenance must be recorded."
+    },
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Theorem 1.6, p. 4 of the arXiv version",
+     "excerpt": "Let p ≥ 5 be a prime number and ρ : GalQ → GL2 (Qp ) be a continuous, irreducible odd Galois representation ramified at finitely many primes",
+     "match": "The p >= 5 restriction on the residually reducible lifting theorem, which is why Theorem 1.7 exists separately for p = 3."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R33.2/dp-lift-existence-and-good-dihedral-insertion",
+   "parentStageId": "ClassicalSerreModularity:R33.2",
+   "title": "Theorem 1.9 (existence of prescribed lifts) and the insertion of the good-dihedral prime",
+   "kind": "construction",
+   "statement": "Theorem 1.9: let rho: Gal_Q -> GL_2(F_p-bar) be odd, continuous, with rho restricted to Gal_{Q(zeta_p)} absolutely irreducible, and with non-solvable image when p = 2. Then rho admits a lift rho: Gal_Q -> GL_2(E) with any one of: (1) p = 2 and k(rho) = 2: a minimal crystalline lift with Hodge-Tate weights {0,1}; (2) p = 2 and k(rho) = 4: a lift with Hodge-Tate weights {0,1}, minimally ramified outside 2, inertial Weil-Deligne parameter at 2 equal to (omega_1 + 1, N) with N the nonzero nilpotent (Steinberg); (3) p > 2: a minimal crystalline lift with Hodge-Tate weights {0, k(rho)-1}; (4) p > 2: a lift with Hodge-Tate weights {0,1}, any inertial type tau_l compatible with rho at primes l in Sigma different from p, unramified outside Sigma, crystalline at p if k(rho) = 2 and Steinberg at p if k(rho) = p+1. Paso 2 uses (4) at an auxiliary prime N chosen by Lemma 1.15 to attach to the system a level-2 character of order q from the unramified quadratic extension Q_{N^2}, making N a good-dihedral prime; Lemma 2.1 then guarantees non-solvable residual image at every prime of S_1 union {2,3}.",
+   "hypotheses": [
+    "Theorem 1.9 requires absolute irreducibility over Q(zeta_p) and, when p = 2, non-solvable image",
+    "cases (1) and (2) at p = 2 are restricted to k(rho) = 2 and k(rho) = 4 respectively; there is no general crystalline lift at p = 2",
+    "case (4)'s attributions split: partial results from KW I Theorem 5.1, the general case from Gee and from Snowden Theorem 7.2.1",
+    "Lemma 2.1's hypotheses are: the system's ramification set is contained in S union {2,3}, and the local inertial type at N is the induction of the chosen character from Q_{N^2}"
+   ],
+   "proofSteps": [
+    "Lemma 2.1's proof: strict compatibility makes rho_p restricted to D_N the induction of a ramified character of order q from the quadratic extension; since q > p, the kernel of Z_p -> F_p has no element of order q, so the residual restriction to D_N stays irreducible.",
+    "If the residual image were solvable, Dickson plus q > 5 forces a dihedral projective image, induced from a quadratic K ramified only where the family is; N = 1 mod p for odd p in S_1 union {3} and N = 1 mod 8 mean N splits or ramifies in K; splitting contradicts irreducibility at D_N, ramification contradicts the odd order of the local type."
+   ],
+   "acceptance": [
+    "Check that the good-dihedral prime N really satisfies the congruences of Lemma 1.15 before Lemma 2.1 is invoked",
+    "Check that the inertial type at N is preserved through every congruence used in Pasos 3 and 4, since Lemma 2.1's hypothesis refers to it"
+   ],
+   "sources": [
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Theorem 1.9, pp. 5-6 of the arXiv version",
+     "excerpt": "(2) If p = 2 and k(ρ) = 4, then ρ is a lift with Hodge-Tate weights {0, 1}, minimally ramified outside 2 and the inertial Weil-Deligne parameter at 2 is given by (ω1 ⊕ 1, ( 00 10 )).",
+     "match": "The p = 2 weight-4 lift with its Steinberg type, used in Paso 4 step (1)."
+    },
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Lemma 2.1 with proof, pp. 11-12 of the arXiv version",
+     "excerpt": "Since the prime q is larger than p (by construction), the kernel of the reduction map Zp → Fp does not have elements of order q, hence the restriction of the residual representation ρp to the decomposition group DN is irreducible",
+     "match": "The mechanism by which the good-dihedral prime forces large residual image at every relevant prime."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R33.3/dp-dyadic-transition-and-the-order-three-type",
+   "parentStageId": "ClassicalSerreModularity:R33.3",
+   "title": "Paso 4: removing 2 from the level, via a Steinberg type and an order-3 local type at 2",
+   "kind": "construction",
+   "statement": "Lemma 2.3: let (rho_l) be an almost strictly compatible system with Hodge-Tate weights {0,1}, unramified at 3, whose Weil-Deligne representation at 2 is a twist of Steinberg, and with rho-bar_3 of non-solvable image. Then there is another almost strictly compatible system (rho'_l) with the same Hodge-Tate weights and ramification set, whose 3-adic members are congruent to those of the first, and whose Weil-Deligne type at 2 is given by an order-3 character - in particular with trivial monodromy; modularity of one system is equivalent to modularity of the other. Remark 6 explains why: if the residual representation at 2 has Serre weight 4 (the tres ramifiee case) it is flat only over extensions of even ramification index, whereas the type produced by Lemma 2.3 becomes flat over a cubic extension, forcing the new residual weight to be 2. Paso 4 then runs three steps: raise to Steinberg at 2 when k(rho_2) = 4, change the type at 2 by a congruence at 3 via Lemma 2.3, and finally take a minimal crystalline weight-2 lift.",
+   "hypotheses": [
+    "Lemma 2.3 needs the system unramified at 3, Steinberg (up to twist) at 2, and non-solvable residual image at 3",
+    "the order-3 character chi' is of level 2 at 2, corresponding to the unramified quadratic extension Q_4 of Q_2",
+    "the whole detour exists because Theorem 1.9 provides a crystalline lift at p = 2 only when the Serre weight is 2; that is the stated reason in Remark 6",
+    "the argument that the new weight is 2 is exactly the tres ramifiee / odd-ramification-index argument of KW I Theorem 9.1"
+   ],
+   "proofSteps": [
+    "Lemma 2.3: under the hypothesis rho-bar_3 restricted to D_2 is, up to twist, upper triangular with diagonal (chi_3, 1). Take a level-2 character chi' of order 3 and induce to Gal_{Q_2}; the resulting local representation has the same restriction to I_2 after reduction and zero trace at Frobenius. Take a crystalline weight-2 minimal lift of rho-bar_3 with that local type at 2 (Theorem 1.9(4)) and a compatible system containing it (Theorem 1.11); modularity transfers by Theorem 1.4.",
+    "Paso 4: (1) if k(rho-bar_2) = 4 take a minimal weight-2 lift with Steinberg type at 2 by Theorem 1.9(2) and transfer modularity by Theorem 1.5; (2) change the type at 2 by Lemma 2.3; (3) by Remark 6 the residual weight at 2 is now 2, so take a minimal crystalline weight-2 lift by Theorem 1.9(1) and transfer by Theorem 1.5."
+   ],
+   "acceptance": [
+    "Check the flatness-over-a-cubic-extension argument against Serre's tres ramifiee definition, confirming the parity of the ramification index is the operative fact",
+    "Check that the congruence used in Lemma 2.3 is at 3 and that the hypothesis 'unramified at 3' is genuinely available at that point of the proof"
+   ],
+   "sources": [
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Remark 6, p. 13 of the arXiv version",
+     "excerpt": "The reason is that the weight 4 case corresponds to a très ramifiée situation; in particular the residual representation is flat over an extension with even ramification index. On the other hand, the ramification type at 2 of the representation produced by the lemma was chosen so that it becomes flat over a cubic extension, leading to a contradiction.",
+     "match": "The dyadic weight argument in the simplified proof, mirroring KW I Theorem 9.1 and depending on Serre's tres ramifiee condition."
+    },
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Remark 6, p. 13 of the arXiv version",
+     "excerpt": "The previous lemma is needed because existence of a crystalline lift of a Galois representation into GL2 (F2 ) is only proved when Serre’s weight is 2 (see the hypothesis of Theorem 1.9 (1) and (2)).",
+     "match": "The exact reason the dyadic detour is necessary; it is a limitation of the available lifting theorem, not a stylistic choice."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R33.4/dp-terminal-characteristic-five-and-the-schoof-base-case",
+   "parentStageId": "ClassicalSerreModularity:R33.4",
+   "title": "Paso 6: the level-one system at p = 5, weights 2, 4, 6, and the abelian-variety exclusion",
+   "kind": "theorem",
+   "statement": "After Paso 5 the system has empty ramification set. At p = 5 three cases: (1) rho''_5 reducible, modular by Theorem 1.6; (2) rho''_5 irreducible but bad dihedral - impossible because the system has level 1 and 5 is not congruent to 3 mod 4 (Remark 5); (3) rho''_5 irreducible and not bad dihedral. In case (3), if the Serre weight is 2 or 4 take a minimal crystalline lift with Hodge-Tate weights (0, k-1) (Theorem 1.9(3)) and pass to the 3-adic member: by Theorem 1.1 there is no irreducible residual representation unramified outside 3, so rho-bar_3 is reducible; it is ordinary by Berger-Li-Zhu Corollary 4.3 because the weight is 2 or 4 = 3+1; and since the Serre weight is not 3 the image of rho-bar_3 restricted to D_3 is nontrivial, so Theorem 1.7 applies. If the Serre weight is 6, take a weight-2 lift Steinberg at 5 and unramified elsewhere (Theorem 1.9(4)); by Snowden Proposition 9.4.1 it matches the 5-adic representation of an abelian variety A over Q of GL_2-type, which is then semistable with good reduction outside 5, contradicting Theorem 1.2 (Schoof).",
+   "hypotheses": [
+    "Remark 5 (excluding bad dihedral at level 1) has two inputs: Wintenberger's lemma (Khare's Lemma 6.2(i)) excluding the niveau-2 case at level 1, and Lemma 1.14 forcing p = 2k-1 with k even in the niveau-1 case, hence p congruent to 3 mod 4",
+    "the ordinarity of rho-bar_3 is imported from Berger-Li-Zhu and requires the weight to be 2 or 4 = 3+1",
+    "Theorem 1.7's hypotheses include rho-bar restricted to D_3 not being the identity, which is what 'Serre weight is not 3' supplies",
+    "Theorem 1.2 (Schoof) is the nonexistence of nonzero semistable rational abelian varieties with good reduction outside l for l = 2, 3, 5, 7, 13 - the dimension, field of definition and reduction set of A must be verified before it is invoked"
+   ],
+   "proofSteps": [
+    "Case analysis at 5 as above, with the weight-6 branch routed to the abelian-variety exclusion via Snowden's realization result.",
+    "In the weight 2 and 4 branches the chain is: level-one 5-adic system, minimal crystalline lift, reduce mod 3, use Theorem 1.1 to force reducibility, use Berger-Li-Zhu for ordinarity, then Theorem 1.7."
+   ],
+   "acceptance": [
+    "Check that A has GL_2-type, is semistable and has good reduction outside 5 before invoking Schoof's theorem, as the roadmap requires",
+    "Check Remark 5's congruence condition p = 3 mod 4 at p = 5 and confirm the bad-dihedral branch really is empty"
+   ],
+   "sources": [
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Paso 6, p. 14 of the arXiv version",
+     "excerpt": "Furthermore, ρ̃3 is ordinary by [BLZ04, Corollary 4,3], because the weight is either 2 or 4 = 3 + 1, so the third hypothesis of Theorem 1.7 is satisfied.",
+     "match": "The precise reason the weight-2/4 branch reaches Theorem 1.7, including the weight condition that Berger-Li-Zhu needs."
+    },
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Paso 6, p. 14 of the arXiv version",
+     "excerpt": "by [Sno09, Proposition 9.4.1] the representation ρ˜5 matches the 5-adic representation of an abelian variety A/Q of GL2 -type. Since ρ̃5 is Steinberg at 5 and unramified at any other prime, the variety A is semistable and has good reduction outside 5 contradicting Theorem 1.2.",
+     "match": "The weight-6 branch and the exact properties of A that make Schoof's theorem applicable."
+    },
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Remark 5, p. 9 of the arXiv version",
+     "excerpt": "Over Q, a Galois representation with Serre’s level 1 cannot be bad dihedral in the niveau 2 case due to a Lemma of Wintenberger (see [Kha06, Lemma 6.2] part (i)), hence the bad dihedral case can only occur for p = 2k(ρ̄) − 1 in level 1.",
+     "match": "The two inputs that empty the bad-dihedral branch at level 1; both must be present for the argument at p = 5."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalSerreModularity:R33.5/dp-characteristic-two-closure",
+   "parentStageId": "ClassicalSerreModularity:R33.5",
+   "title": "Section 3: the characteristic-two case reduced to the already-proved odd case",
+   "kind": "theorem",
+   "statement": "At p = 2 the projective image is solvable or not. In the irreducible solvable case, every solvable subgroup of PGL_2(F_2-bar) has dihedral projective image (the S_4 case does not occur and the A_4 case corresponds to a Borel subgroup over F_4, by KW I Lemma 6.1), and the dihedral case is Rohrlich-Tunnell. If the image is non-solvable, take an odd weight-2 lift (Theorem 1.9(1) and (2)), make it part of an almost strictly compatible system, and reduce modulo a prime greater than 3 outside the ramification set: since the residual Serre weight is 2, Lemma 1.14 shows p > 2 * 2 - 1 = 3 suffices to avoid the bad-dihedral situation. The reduction is then either reducible (Theorem 1.6) or irreducible in odd characteristic, hence covered by the already-proved odd-characteristic case; modularity transfers by Theorem 1.4.",
+   "hypotheses": [
+    "this stage legitimately uses the odd-characteristic qualitative theorem already proved in section 2; it is not self-contained at p = 2",
+    "the choice of auxiliary prime must be > 3 and outside the ramification set, and the bound 3 comes from Lemma 1.14 applied with k = 2",
+    "the solvable branch is entirely imported: Rohrlich-Tunnell for the dihedral case"
+   ],
+   "proofSteps": [
+    "Split on solvability of the projective image at 2; handle the solvable case by the F_2-bar refinement of Dickson plus Rohrlich-Tunnell.",
+    "In the non-solvable case, lift to weight 2, spread out into a compatible system, and reduce at a prime > 3 chosen to avoid both the ramification set and the bad-dihedral locus.",
+    "Conclude by the residually reducible lifting theorem or by the odd-characteristic theorem plus Theorem 1.4."
+   ],
+   "acceptance": [
+    "Check that the bound p > 3 from Lemma 1.14 is exactly what avoids bad dihedral at residual weight 2",
+    "Check that the claimed independence of this strand is only about the qualitative argument, since the weight and level refinements come from elsewhere"
+   ],
+   "sources": [
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Section 3, p. 15 of the arXiv version",
+     "excerpt": "(since the residual Serre weight is 2 under these conditions, applying Lemma 1.14 we see that p > 2 · 2 − 1 = 3 is enough to avoid the bad-dihedral situation)",
+     "match": "The explicit bound for the auxiliary prime, derived from the corrected niveau analysis of Lemma 1.14."
+    },
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Section 3, p. 15 of the arXiv version",
+     "excerpt": "The dihedral case was proven in [RT97].",
+     "match": "The solvable dyadic branch is imported from Rohrlich-Tunnell, as the roadmap's R33.5 text requires."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "ClassicalSerreModularity:R26.1",
+   "target": "ClassicalSerreModularity:R26.6/corollary-8-1-ii-and-the-statement-W1",
+   "reason": "The source derives (W_1) from Corollary 8.1(ii), which is itself derived from Corollary 8.1(i) = Khare's Corollary 1.2 with the p > 2 hypothesis removed. R26.1's obligation to extract Corollary 1.2 with all hypotheses is therefore consumed verbatim by R26.6.",
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "8.3, first line and Corollary 8.1, pp. 15-16 of the preprint"
+    }
+   ]
+  },
+  {
+   "source": "ClassicalSerreModularity:R26.1/bockle-appendix-minimal-deformation-ring-presentation",
+   "target": "ClassicalSerreModularity:R26.1/level-one-theorem-and-the-meaning-of-arises-from",
+   "reason": "Khare's construction of the minimal lifts (his Propositions 2.1 and 2.2) works by exhibiting the global deformation ring as finite flat over O, and cites 'the crucial Proposition 1 of Bockle's appendix' to do so. The supplied output is the presentation R_X = O[[x_1,...,x_{n+d}]]/(f_1,...,f_{n+Delta}) together with Corollary 2, which turns finiteness of R_Q into a complete-intersection statement for the minimal ring.",
+   "sources": [
+    {
+     "sourceId": "khare-level-one",
+     "locator": "2, the discussion preceding Proposition 2.1, p. 11 of the preprint: 'By the crucial Proposition 1 of Böckle’s appendix to [30], this ...'"
+    },
+    {
+     "sourceId": "bockle-appendix-2003",
+     "locator": "Proposition 1 and Corollary 2, pp. 2-4"
+    }
+   ]
+  },
+  {
+   "source": "ClassicalSerreModularity:R26.6/corollary-8-1-ii-and-the-statement-W1",
+   "target": "ClassicalSerreModularity:R27.3/double-induction-assembly",
+   "reason": "Theorem 3.3 - i.e. the truth of (W_1) - is the base of the induction that produces every (L_r) and (W_r). Without it Theorem 3.2 has nothing to start from.",
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "3.2, p. 6 of the preprint"
+    }
+   ]
+  },
+  {
+   "source": "ClassicalSerreModularity:R27.1/good-dihedral-prime-definition",
+   "target": "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved",
+   "reason": "Lemma 6.3 reads its bounds directly off Definition 2.1: t > max(Q(N/q^2), 5, p) gives non-solvability and excludes A_5, and q = 1 mod 8 and 1 mod r closes the ramified-quadratic-field case. The lemma is not merely about the same words; it consumes the two numbered conditions.",
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Definition 2.1 and proof of Lemma 6.3, pp. 4-5 and 11-12 of the preprint"
+    }
+   ]
+  },
+  {
+   "source": "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved",
+   "target": "ClassicalSerreModularity:R27.2/theorem-3-2-weight-reduction",
+   "reason": "Every change of coefficient prime in the proof of Theorem 3.2 is followed by the sentence 'is q-dihedral and hence has non-solvable image (see Lemma 6.3)'. That non-solvability is exactly the hypothesis Theorem 4.1 needs at p = 2 and, through absolute irreducibility over Q(mu_p), at odd p. The dependency is on Lemma 6.3(ii) specifically, including its minimality hypothesis at q.",
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "8.2, pp. 13-15 of the preprint"
+    }
+   ]
+  },
+  {
+   "source": "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved",
+   "target": "ClassicalSerreModularity:R27.3/theorem-3-1-killing-ramification",
+   "reason": "Same mechanism in the killing-ramification step: rho-bar_s is q-dihedral by Lemma 6.3(ii) and therefore has non-solvable image, which is what lets Theorem 4.1 be applied without any residually degenerate modularity lifting.",
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "8.1, pp. 12-13 of the preprint"
+    }
+   ]
+  },
+  {
+   "source": "ClassicalSerreModularity:R26.3/prime-gap-estimates-driving-the-weight-recursion",
+   "target": "ClassicalSerreModularity:R27.2/theorem-3-2-weight-reduction",
+   "reason": "The inductive step of Theorem 3.2 chooses the twisting exponent i inside an interval read off from inequalities (1) and (2) of section 7, and concludes k(rho-bar'_P) <= p+1 from the rearranged inequalities (3) and (4). Without the estimates the new Serre weight is not controlled and the recursion does not descend.",
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "7 and 8.2, pp. 12 and 14-15 of the preprint"
+    }
+   ]
+  },
+  {
+   "source": "ClassicalSerreModularity:R27.2/theorem-3-2-weight-reduction",
+   "target": "ClassicalSerreModularity:R27.3/double-induction-assembly",
+   "reason": "The assembly uses Theorem 3.2 twice per round of the induction: once to convert (W_1) into (L_1) and once to convert each (W_{r+1}) into (L_{r+1}).",
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "3.2, p. 6 of the preprint"
+    }
+   ]
+  },
+  {
+   "source": "ClassicalSerreModularity:R27.3/theorem-3-1-killing-ramification",
+   "target": "ClassicalSerreModularity:R27.3/double-induction-assembly",
+   "reason": "Theorem 3.1 supplies the other half of each round: (L_r) implies (W_{r+1}).",
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "3.2, p. 6 of the preprint"
+    }
+   ]
+  },
+  {
+   "source": "ClassicalSerreModularity:R27.3/double-induction-assembly",
+   "target": "ClassicalSerreModularity:R27.4/theorem-3-4-raising-levels-and-the-chebotarev-choice",
+   "reason": "Theorem 3.4 is the statement '(D_r) implies modularity for conductor not divisible by 2^{r+1}'; the induction supplies (D_0) as the hypothesis, by giving every (L_r). The source is explicit: 'We will explain how hypothesis (D_0) follows from Theorems 3.1, 3.2 and 3.3. Then by Theorem 3.4, and the remark after it, we get Theorem 1.2.'",
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "3.2, p. 6 of the preprint"
+    }
+   ]
+  },
+  {
+   "source": "ClassicalSerreModularity:R27.4/theorem-3-4-raising-levels-and-the-chebotarev-choice",
+   "target": "ClassicalSerreModularity:R27.5/hypothesis-H-and-theorem-9-1",
+   "reason": "Theorem 9.1 proves (D_r) for every r and then invokes Theorem 3.4 to convert that into Serre's conjecture; it also reuses Theorem 1.2 itself inside the argument at the step where rho-bar_3 is unramified at 2.",
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "9, proof of Theorem 9.1, pp. 18-19 of the preprint"
+    }
+   ]
+  },
+  {
+   "source": "ClassicalSerreModularity:R27.5/hypothesis-H-and-theorem-9-1",
+   "target": "ClassicalSerreModularity:R27.6/scope-of-the-final-statement-and-the-compatible-system-export",
+   "reason": "Theorem 10.1 is stated as a corollary of 'Theorem 1.2 and 9.1 of this paper, and Theorem 0.1 and Corollary 0.2 of [28]', i.e. it consumes the assembled theorem including the Hypothesis (H) branch discharged by Kisin.",
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "10.1, p. 19 of the preprint"
+    }
+   ]
+  },
+  {
+   "source": "AlgebraicModularFormsAndSerreWeights:R15.6",
+   "target": "ClassicalSerreModularity:R27.5/hypothesis-H-and-theorem-9-1",
+   "reason": "The ad hoc dyadic argument inside the proof of Theorem 9.1 is run entirely inside Serre's weight recipe: it uses that k = 4 at p = 2 means tres ramifiee, and that tres ramifiee representations are not finite flat over extensions of odd ramification index. R15.6 is the stage that states N(rho-bar) and k(rho-bar) and the finite-flat weight-two consequences of the local recipe, so it is the supplier for this step. The dependency is on the p = 2 branch of the recipe specifically.",
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Proof of Theorem 9.1, p. 19 of the preprint"
+    },
+    {
+     "sourceId": "serre87-duke",
+     "locator": "2.4 and 2.6, printed pp. 186-188"
+    }
+   ]
+  },
+  {
+   "source": "ClassicalSerreModularity:R33.1/dp-modularity-lifting-inputs",
+   "target": "ClassicalSerreModularity:R33.3/dp-dyadic-transition-and-the-order-three-type",
+   "reason": "Each of the three steps of Paso 4 transfers modularity across a congruence by an explicitly named lifting theorem: Theorem 1.5 at p = 2 for steps (1) and (3), Theorem 1.4 at p = 3 inside Lemma 2.3. The step is not available without exactly those hypotheses (non-solvable residual image at 2; absolute irreducibility over Q(sqrt(3*)) at 3).",
+   "sources": [
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Paso 4 steps (1)-(3) and Lemma 2.3, pp. 12-13 of the arXiv version"
+    }
+   ]
+  },
+  {
+   "source": "ClassicalSerreModularity:R33.2/dp-lift-existence-and-good-dihedral-insertion",
+   "target": "ClassicalSerreModularity:R33.4/dp-terminal-characteristic-five-and-the-schoof-base-case",
+   "reason": "Paso 6 uses Theorem 1.9(3) in the weight 2 and 4 branches and Theorem 1.9(4) in the weight 6 branch, and the fact that the system reaching p = 5 has empty ramification set is what Pasos 3-5 (which rest on the good-dihedral prime and Lemma 2.1) deliver.",
+   "sources": [
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Paso 6, p. 14 of the arXiv version"
+    }
+   ]
+  },
+  {
+   "source": "ClassicalSerreModularity:R33.4/dp-terminal-characteristic-five-and-the-schoof-base-case",
+   "target": "ClassicalSerreModularity:R33.5/dp-characteristic-two-closure",
+   "reason": "The p = 2 argument reduces to 'a situation covered before, namely ... irreducible in odd characteristic hence it is covered by the cases of Serre's conjecture we have already solved'. The odd-characteristic conclusion, whose terminal case is the p = 5 analysis, is therefore an input to the dyadic stage, and the roadmap's warning that R33.5 may not use its own p = 2 conclusion is source-correct.",
+   "sources": [
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Section 3, p. 15 of the arXiv version"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "ClassicalSerreModularity:R26.1",
+   "status": "partial",
+   "remaining": [
+    "Khare's Sections 3-7 (compatible systems, the prime estimates in his numbering, the proof of Theorem 1.1 and the derivation of the corollaries in Section 7) were not read; only Sections 1 and 2 and the strategy summary were.",
+    "The assignment of local lifting, compatible-system and small-prime lemmas to their suppliers (R04, R22, R24, R25) was not carried out against those stages' texts in this pass.",
+    "KW II, which contains the proofs of KW I Theorems 4.1 and 5.1, was opened only at its title page, abstract and table of contents."
+   ]
+  },
+  {
+   "stageId": "ClassicalSerreModularity:R26.2",
+   "status": "not_read",
+   "remaining": [
+    "No node written. Khare's Propositions 2.1 and 2.2 were read (statements and the local deformation-ring facts they rest on) but the ramification and determinant verifications, and the placement of each lift in an R24 compatible system, were not decomposed. Next source action: read Khare Sections 2.1, 3 and 4 in full and KW Annals Section 3 (minimal lifts) and Section 4 (compatible system lifts)."
+   ]
+  },
+  {
+   "stageId": "ClassicalSerreModularity:R26.3",
+   "status": "partial",
+   "remaining": [
+    "The weight-reduction and weight-cycle statements of Khare's own level-one proof (his Sections 5 and 6) were not read; the node written here covers only the prime estimates, taken from KW I Section 7.",
+    "The well-founded measure for the recursive calls is stated as an acceptance obligation, not proved; the source does not display one explicitly."
+   ]
+  },
+  {
+   "stageId": "ClassicalSerreModularity:R26.4",
+   "status": "not_read",
+   "remaining": [
+    "No node written. The soluble, residually reducible and cyclotomically reducible branches (Langlands-Tunnell, Skinner-Wiles) were not read in their own sources. Next source action: read Khare Section 5 (Lemmas 5.2, 5.4, Corollary 5.5) and the Skinner-Wiles papers SS_SkinnerWiles1999 and SS_SkinnerWiles2001, both present in the supplied library."
+   ]
+  },
+  {
+   "stageId": "ClassicalSerreModularity:R26.5",
+   "status": "not_read",
+   "remaining": [
+    "No node written. The arithmetic exclusions (Fontaine, Schoof, Brumer-Kramer) and the ordinary calculations were not read. Next source action: read Schoof's theorem as quoted in Dieulefait-Pacetti Theorem 1.2 in its own source, and Khare Section 6."
+   ]
+  },
+  {
+   "stageId": "ClassicalSerreModularity:R26.6",
+   "status": "partial",
+   "remaining": [
+    "Corollary 8.1(i) is stated here through its corrected KW I proof, but the underlying Theorem 6.1(2) of the Annals paper, and the Skinner-Wiles results it cites, were not read.",
+    "The restoration of twists and the completion of the level-one induction (Khare Section 6) were not read."
+   ]
+  },
+  {
+   "stageId": "ClassicalSerreModularity:R27.1",
+   "status": "partial",
+   "remaining": [
+    "Lemma 6.2(i) at p = 2 rests on Wiese's Theorem 1 and Lemma 2, which were not read; the file ADD_WIESE04.pdf is in the library and was not opened in this pass.",
+    "Dieulefait-Pacetti report that KW I's proof of Lemma 6.2(ii) 'lacks some details'; their replacement (Lemma 1.14) was read, but Ribet's Proposition 2.2 in 'Images of semistable Galois representations', which it follows, was not."
+   ]
+  },
+  {
+   "stageId": "ClassicalSerreModularity:R27.2",
+   "status": "partial",
+   "remaining": [
+    "Theorems 4.1 and 5.1, on which every step of 8.2 depends, are stated in KW I and proved in KW II; KW II was not read. This is the largest open boundary of this packet.",
+    "Savitt's Corollary 6.15 and Remark 6.17, which compute the residual weights appearing in Theorem 5.1(3),(4), were not read; ADD_SAVITT05.pdf is in the library."
+   ]
+  },
+  {
+   "stageId": "ClassicalSerreModularity:R27.3",
+   "status": "partial",
+   "remaining": [
+    "The Annals paper's Theorem 6.2 was read, but its inputs (Theorem 4.2 there, and the MLC) were not.",
+    "Theorem 4.1's proof (in KW II) was not read."
+   ]
+  },
+  {
+   "stageId": "ClassicalSerreModularity:R27.4",
+   "status": "partial",
+   "remaining": [
+    "Carayol's level-raising result for modular forms, of which Theorem 5.1(4) is the Galois analogue, was not read; SS_Carayol.pdf is in the library.",
+    "The Diamond-Fujiwara-Kisin improvements cited for Theorem 4.1 were not read."
+   ]
+  },
+  {
+   "stageId": "ClassicalSerreModularity:R27.5",
+   "status": "partial",
+   "remaining": [
+    "Kisin's theorem discharging Hypothesis (H) (Modularity of 2-adic Barsotti-Tate representations) was not read; SS_Kisin2.dvi is in the library and was not converted in this pass.",
+    "Breuil's and Kisin's results identifying crystalline representations with Hodge-Tate weights 0,1 with p-divisible groups were not read."
+   ]
+  },
+  {
+   "stageId": "ClassicalSerreModularity:R27.6",
+   "status": "partial",
+   "remaining": [
+    "Theorem 10.1's proof is a sketch in the source; the Sen-Fontaine, Gross and Coleman-Voloch inputs to part (ii) were not read.",
+    "The assembly with R20's optimisation to produce an actual normalised newform of level N(rho-bar) and weight k(rho-bar) was not carried out; R20 is owned by EXT-13."
+   ]
+  },
+  {
+   "stageId": "ClassicalSerreModularity:R33.1",
+   "status": "partial",
+   "remaining": [
+    "Kisin's, Emerton's, Paskunas's, Hu-Tan's and Tung's papers, from which Theorem 1.4 is assembled, were not read; ADD_PASKUNAS15.pdf, ADD_PASKUNAS16.pdf, ADD_HU_TAN15.pdf and SS_TungAutomorphy.pdf are in the library.",
+    "Lemma 1.13's proof was read only in outline."
+   ]
+  },
+  {
+   "stageId": "ClassicalSerreModularity:R33.2",
+   "status": "partial",
+   "remaining": [
+    "Gee's 'Automorphic lifts of prescribed types' and Snowden's Theorem 7.2.1, which supply the general case of Theorem 1.9(4), were not read; ADD_GEE11.pdf and SS_Snowden.txt are in the library.",
+    "Dieulefait's Theorem 1.1 (existence of almost strictly compatible systems, Theorem 1.11 here) was not read; ADD_DIEULEFAIT04.pdf is in the library."
+   ]
+  },
+  {
+   "stageId": "ClassicalSerreModularity:R33.3",
+   "status": "partial",
+   "remaining": [
+    "Pan's theorem in the residually reducible case (used at Paso 5, and cited for Theorem 1.6) was not read; SS_Pan.pdf is in the library and was not opened in this pass.",
+    "The exact statement of 'almost strictly compatible' and where its weakness bites (Paso 5 case (1)) was read in Dieulefait-Pacetti but not checked against KW I's Section 5 definition line by line."
+   ]
+  },
+  {
+   "stageId": "ClassicalSerreModularity:R33.4",
+   "status": "partial",
+   "remaining": [
+    "Schoof's Theorem 1.1, Berger-Li-Zhu Corollary 4.3 and Snowden Proposition 9.4.1 were not read in their own sources.",
+    "Theorem 1.7 (Skinner-Wiles at p = 3) was not read in SS_SkinnerWiles1999, which is in the library."
+   ]
+  },
+  {
+   "stageId": "ClassicalSerreModularity:R33.5",
+   "status": "partial",
+   "remaining": [
+    "Rohrlich-Tunnell was not read; ADD_RT97.pdf is in the library.",
+    "The claim that this strand is an independent qualitative proof was not audited against its globalisation sources, as the roadmap requires."
+   ]
+  },
+  {
+   "stageId": "ClassicalSerreModularity:R33.6",
+   "status": "not_read",
+   "remaining": [
+    "No node written. The final refinement reuses R20's optimisation and the KW weight-two dyadic subtheorem; neither was decomposed here. Next source action: read KW I Theorem 1.2(2) together with Buzzard 2000 Theorem 2.8 (R02_SS_Buzzard2000 is in the library) and Wiese 2004."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "KW I Theorems 4.1 and 5.1 are unproved inputs: their proofs are in KW II, which was not read",
+   "neededBy": [
+    "ClassicalSerreModularity:R27.2/theorem-3-2-weight-reduction",
+    "ClassicalSerreModularity:R27.3/theorem-3-1-killing-ramification",
+    "ClassicalSerreModularity:R27.4/theorem-3-4-raising-levels-and-the-chebotarev-choice",
+    "ClassicalSerreModularity:R27.5/hypothesis-H-and-theorem-9-1"
+   ],
+   "detail": "Verified: the full statements of Theorem 4.1 (two cases, p = 2 and p > 2) and Theorem 5.1 (the compatible-system existence statement and its four refinements), together with the definitions of compatible, strictly compatible and almost strictly compatible systems and of minimal lifts, all read literally at pp. 6-10 of the KW I preprint. Not verified: any of their proofs. The source states plainly 'Theorems 4.1 and 5.1 are proved in the second part, cf. [23]'. KW II is present in the library as references/papers/SS_KW2.pdf with extracted text; in this pass only its title page, abstract and table of contents were opened. This is the single largest unread boundary of this packet and it sits under every stage of the R27 strand. Next source action: read KW II sections 3 (deformation rings for GL_2), 4-5 (the R = T statements), and the sections proving Theorem 5.1's parts (3) and (4) with the Savitt weight computations."
+  },
+  {
+   "title": "Savitt's residual weight computations behind Theorem 5.1(3) and (4)",
+   "neededBy": [
+    "ClassicalSerreModularity:R27.2/theorem-3-2-weight-reduction"
+   ],
+   "detail": "Verified: KW I's Remark after Theorem 5.1 attributes the computation of the residual Serre weights in parts (3) and (4) to Savitt, Corollary 6.15 (1) and (2) and Remark 6.17. Not verified: those statements. The whole weight bookkeeping of the inductive step in 8.2 rests on them. The library contains references/papers/ADD_SAVITT05.pdf, 'On a conjecture of Conrad, Diamond, and Taylor (corrected author version)', which is the paper cited; it was not opened. Next source action: open ADD_SAVITT05.pdf, confirm it contains Corollary 6.15 and Remark 6.17, and transcribe the weight formulas i+2 / q+1-i and q+1-(i-j) / i-j / q."
+  },
+  {
+   "title": "The p = 2 case of Theorem 5.1(3),(4) has no Savitt reference",
+   "neededBy": [
+    "ClassicalSerreModularity:R27.5/hypothesis-H-and-theorem-9-1"
+   ],
+   "detail": "Verified: KW I writes in the proof of Theorem 9.1 'we give this ad hoc argument as the reference [37] does not consider the case p = 2', and supplies the tres ramifiee / odd-ramification-index argument in its place. Not verified: the general p = 2 weight statement. The consequence is that the dyadic branch of the KW argument depends on Serre's dyadic weight dichotomy (Serre 2.6) rather than on a uniform residual-weight theorem, and inherits the open boundary recorded in this job's AlgebraicModularFormsAndSerreWeights packet (Serre's Proposition 4 is not proved at p = 2 in his paper). Next source action: settle the p = 2 branch of Serre Prop. 4 via Edixhoven Prop. 8.2, then re-examine whether the ad hoc argument can be replaced by a clean citation."
+  },
+  {
+   "title": "Kisin's theorem discharging Hypothesis (H) was not read",
+   "neededBy": [
+    "ClassicalSerreModularity:R27.5/hypothesis-H-and-theorem-9-1",
+    "ClassicalSerreModularity:R27.6/scope-of-the-final-statement-and-the-compatible-system-export"
+   ],
+   "detail": "Verified: the statement of Hypothesis (H) and KW I's assertion that it 'is now a theorem of Kisin, see [28]'. Not verified: Kisin's theorem or its hypotheses. Without it, Theorem 9.1 is conditional and the final theorem covers only odd characteristic with odd conductor and characteristic 2 with weight 2. The library has references/papers/SS_Kisin2.dvi ('Modularity of 2-adic Barsotti-Tate representations'); it is a DVI and was not converted in this pass. Next source action: convert SS_Kisin2.dvi with dvi2tty, confirm it is the paper cited as [28], and check that its hypotheses match Hypothesis (H) exactly, in particular the non-solvability of the residual image."
+  },
+  {
+   "title": "KW I Lemma 6.2(ii) is reported incomplete by a later source",
+   "neededBy": [
+    "ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement"
+   ],
+   "detail": "Verified: KW I Lemma 6.2(ii) (weight is (p+1)/2 or (p+3)/2 when rho-bar restricted to G_{Q(mu_p)} is reducible) with its two-line proof; and Dieulefait-Pacetti Lemma 1.14 with a fuller proof distinguishing p = 2k-3 (niveau 2) and p = 2k-1 (niveau 1), together with their statement that KW's 'proof lacks some details'. Not verified: Ribet, 'Images of semistable Galois representations', Proposition 2.2, which Dieulefait-Pacetti follow, and which is not in the supplied library (checked CATALOGUE.json; the only Ribet item is ADD_RIBET90.pdf, 'On modular representations of Gal(Qbar/Q) arising from modular forms', whose PDF has no usable text layer - pdftotext returns 5 lines). Next source action: obtain Ribet, Pacific J. Math. Special Issue (1997), 277-297, and read Proposition 2.2; separately, obtain a text-bearing copy of ADD_RIBET90."
+  },
+  {
+   "title": "The atlas cites the killing-ramification argument at the wrong section number",
+   "neededBy": [
+    "ClassicalSerreModularity:R26.1",
+    "ClassicalSerreModularity:R27.3/theorem-3-1-killing-ramification"
+   ],
+   "detail": "Verified: R26.1's stage text says 'Khare-Wintenberger, Annals 169 (2009), 229-253, especially section 5.2's killing-ramification argument'. In the PUBLISHED Annals 169 (2009), 229-253 the killing-ramification discussion is section 6.2, at printed pages 250-251; section 5 of that paper is 'Low levels and weights'. The number 5.2 is Khare's citation of an earlier preprint numbering ('the method of killing ramification of Section 5.2 of [31]', level-one preprint p. 3). Not verified: whether any published version carries 5.2. Next source action: none needed for the mathematics; the atlas text should be corrected to 6.2 when Annals pagination is cited, or the citation should be marked as being to the preprint."
+  },
+  {
+   "title": "Edition discrepancy in the level-one source",
+   "neededBy": [
+    "ClassicalSerreModularity:R26.1/level-one-theorem-and-the-meaning-of-arises-from",
+    "ClassicalSerreModularity:R26.1/corollary-1-2-conductor-a-prime-and-its-corrected-proof"
+   ],
+   "detail": "Verified: references/papers/ADD_KHARE06.pdf is arXiv:math/0504080v1 (5 April 2005), titled 'On Serre's modularity conjecture for 2-dimensional mod p representations of Gal(Qbar/Q) unramified outside p'. The library catalogue records it under the published title 'Serre's modularity conjecture: the level one case', Duke Math. J. 134 (2006), 557-589. Not verified: whether the numbering of results is the same in the two versions; all locators in this packet are to the preprint. Next source action: if Duke pagination is required downstream, obtain the published version and re-map Theorem 1.1, Corollaries 1.2, 1.3 and Propositions 2.1, 2.2."
+  },
+  {
+   "title": "Theorem 1.9(4) of the simplified proof rests on unread sources",
+   "neededBy": [
+    "ClassicalSerreModularity:R33.2/dp-lift-existence-and-good-dihedral-insertion",
+    "ClassicalSerreModularity:R33.4/dp-terminal-characteristic-five-and-the-schoof-base-case"
+   ],
+   "detail": "Verified: the statement of Theorem 1.9 with its four cases and the attribution 'The first three cases are due to Khare-Wintenberger ([KW09b, Theorem 5.1], its proof given in [KW09c]). Partial results of the last case are also proven in Khare-Wintenberger's article (same Theorem), the more general case is due to Gee and Snowden'. Not verified: Gee, 'Automorphic lifts of prescribed types', Math. Ann. 350 (2011), 107-144, and Snowden, Theorem 7.2.1. Both are in the supplied library (references/papers/ADD_GEE11.pdf and references/text/SS_Snowden.txt) and were not opened in this pass. Next source action: read ADD_GEE11 for the prescribed-type lifting statement and SS_Snowden Theorem 7.2.1 and Proposition 9.4.1, the latter being the GL_2-type realization used in the weight-6 branch."
+  }
+ ]
+}
