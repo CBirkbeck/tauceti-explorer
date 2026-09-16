@@ -261,6 +261,13 @@ def sync(mapping):
             if "state:claimed" in labels and state == "pending":
                 job["state"] = "external"; job["note"] = f"claimed on GitHub issue #{number}"; changed_queue += 1
                 continue
+            # An external worker's submission has landed on main when every
+            # deliverable exists; the job then counts as done, so its review runs.
+            if state == "external" and job.get("outputs") and all((REPO / path).exists() for path in job["outputs"]):
+                job["state"] = "done"; job["note"] = f"deliverables arrived from the external worker on issue #{number}"
+                job["finishedAt"] = __import__("datetime").datetime.now(__import__("datetime").timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+                changed_queue += 1
+                state = "done"
             if state == "external" and "state:available" in labels:
                 job["state"] = "pending"; job["note"] = f"released on GitHub issue #{number}"; changed_queue += 1
                 state = "pending"
