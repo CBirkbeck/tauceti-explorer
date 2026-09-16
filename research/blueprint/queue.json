@@ -1066,12 +1066,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_ProfiniteCohomology.md",
-   "state": "pending",
+   "state": "external",
    "account": null,
    "lane": 2,
    "startedAt": "2026-09-16T13:09:19Z",
    "attempts": 0,
-   "note": "released after a usage limit on claude6/2 at 2026-09-16T13:20:09Z"
+   "note": "claimed on GitHub issue #25"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_ProfiniteCohomology",
