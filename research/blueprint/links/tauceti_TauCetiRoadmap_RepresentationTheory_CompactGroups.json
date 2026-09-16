@@ -1,0 +1,251 @@
+{
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+  "protocol": "links-v1",
+  "status": "partial",
+  "worker": "ChatGPT Pro — cgp-aae89b9faddc",
+  "jobId": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_CompactGroups",
+  "issue": 59,
+  "inputRevision": "088ac3dcfb573a1e875fcea971ce54526bbe74d3",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "summary": "Partial checkpoint: six outward links, no established inward links, and one finite-character comparison overlap. All seven CompactGroups layers were read in full. Selected Lie, finite-character, automorphic and equidistribution consumers were checked at the scopes recorded below; the all-catalogue screen is not finished. Normed-space averaging is not a Frechet integration theorem, Peter-Weyl does not classify SU(2) irreducibles, and L2 character completeness is not the continuous-test Weyl criterion. The handoff supplies explicit source-error witnesses and repair contracts. No formalization, independent approval, or proof of absence of further links is asserted.",
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-0-normalized-haar-measure-and-averaging",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration",
+      "reason": "Layer 0 supplies the fixed Haar probability normalization and its invariance/uniqueness. LieGroups Layer 6 uses that same normalization on a compact connected Lie group and its maximal torus in the Weyl integration formula. The group and torus are separately proved compact Hausdorff before applying the supplier. This does not supply torus existence, conjugacy, the root Jacobian, or the integration formula itself, and creates no return dependency from Lie classification to general Peter-Weyl.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-0-normalized-haar-measure-and-averaging",
+          "quote": "Then `haarProb_apply_univ : haarProb G univ = 1` and\n  `isProbabilityMeasure_haarProb`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration",
+          "quote": "**The Weyl integration formula.** For a compact connected `G` with maximal torus `T` and normalized\n  Haar `μ_G`, `μ_T`, and any class function (conjugation-invariant integrable) `f`,"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-0-normalized-haar-measure-and-averaging",
+      "target": "AdelicAlgebraicGroups:AA.0",
+      "reason": "This is the compact-open normalization reuse route, not a claim that an adelic group is compact. For each chosen compact open K_v of a locally compact local group, normalize an ambient Haar measure to mass one on K_v and identify its restriction to K_v with Layer 0 Haar probability by uniqueness. AA.0 owns the ambient restricted-product measure, almost-all-place normalization, exceptional-place rescaling and Fubini/extension arguments. Haar probability on K_v alone does not extend by zero to Haar measure on a larger noncompact group.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-0-normalized-haar-measure-and-averaging",
+          "quote": "among Haar probability measures is `isHaarMeasure_eq_of_isProbabilityMeasure`, restated for\n  `haarProb`"
+        },
+        {
+          "stageId": "AdelicAlgebraicGroups:AA.0",
+          "quote": "Construct restricted products of Haar measures normalized to give chosen compact opens volume one at almost all places; prove change-of-finite-set and Fubini statements."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-2-complete-reducibility",
+      "target": "AutomorphicFormsOnReductiveGroups:AF.1",
+      "reason": "For the K-infinity-finite part of the specified (g,K-infinity) representation category, restrict to each finite-dimensional continuous K-infinity orbit span and use compact complete reducibility to decompose it into irreducible K-types. Then assemble compatible algebraic isotypic summands. The supplier does not make an infinite-dimensional module finite-dimensional, prove finite K-type multiplicities/admissibility, construct a maximal compact subgroup, or prove globalization. Those remain AF.1 and its geometric suppliers. Continuity of the group action must be stated separately from the bare ContRepresentation carrier.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-2-complete-reducibility",
+          "quote": "a unitary\n  finite-dimensional continuous representation is an **orthogonal direct sum of irreducible invariant\n  subspaces**"
+        },
+        {
+          "stageId": "AutomorphicFormsOnReductiveGroups:AF.1",
+          "quote": "Construct Harish–Chandra modules for\n`(𝔤,K_∞)`, admissibility, central-character conditions, smooth finite-adelic actions, and moderate\nand uniform moderate growth."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem",
+      "target": "AutomorphicFormsOnReductiveGroups:AF.1a",
+      "reason": "AF.1a names K-finite vectors and its source route explicitly requests Peter-Weyl/K-type preliminaries. Reuse Layer 5 uniform representative-function density to build finite-K-type convolution kernels for the compact subgroup; the orbit-integral argument then supplies the K-finite approximation used by the algebraic-to-continuous comparison. The Frechet-valued integral and seminorm estimates must be constructed in AF.1a, not inferred from Layer 0 normed-space Bochner averaging. The source finite-spectral-sum shortcut needs the repair in the handoff before this producer is available. No Casselman-Wallach theorem is imported from compact Peter-Weyl.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem",
+          "quote": "The representative `*`-subalgebra is **dense in `C(G)` for the uniform norm**"
+        },
+        {
+          "stageId": "AutomorphicFormsOnReductiveGroups:AF.1a",
+          "quote": "Give complete Frechet or the source's specified completed tensor models, continuous group actions,\ndifferentiation, K-finite vectors, moderate-growth seminorms and the algebraic-to-continuous comparison maps."
+        },
+        {
+          "stageId": "AutomorphicFormsOnReductiveGroups:AF.1a",
+          "quote": "Peter–Weyl/K-type preliminaries"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem",
+      "target": "ModularityAndLanglandsExtensions:ML.3",
+      "reason": "For the representation-character form of the Weyl equidistribution criterion requested by ML.3, uniform density of representative functions is the correct approximation input. Average a uniform approximation over conjugation; prove this is a sup-norm contraction and that the average of a matrix coefficient is a scalar multiple of a conjugate irreducible trace character. This gives uniform density of the character span in continuous class functions. Empirical probability averages can then be tested on characters. This is a selected generic reuse route; a separate SU(2) polynomial proof could avoid general Peter-Weyl. Analytic nonvanishing, Frobenius classes and their limiting character averages remain ML.3.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem",
+          "quote": "The representative `*`-subalgebra is **dense in `C(G)` for the uniform norm**"
+        },
+        {
+          "stageId": "ModularityAndLanglandsExtensions:ML.3",
+          "quote": "Integrate Newton-Thorne source-scoped symmetric-power automorphy, CM/non-CM branches and resulting analytic/equidistribution arguments. Supply nonvanishing/analytic inputs for the Weyl criterion separately."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups",
+      "target": "ModularityAndLanglandsExtensions:ML.3",
+      "reason": "The same character-test route consumes Layer 6 trace characters, their class invariance and Haar orthogonality, which identify the Haar averages of the trivial and nontrivial irreducible tests. Combine these with the separate Layer 5 uniform-density link and the conjugation-average bridge; an L2 Hilbert basis alone does not establish convergence against empirical measures. General Peter-Weyl does not identify the SU(2) irreducibles with symmetric powers, nor identify the CM compact group; the unindexed SU(2) engine and the CM branch still need their own producer contracts.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups",
+          "quote": "`∫ g, χ_π(g) · conj(χ_ρ(g)) ∂(haarProb G) = δ_{[π],[ρ]}` for irreducibles"
+        },
+        {
+          "stageId": "ModularityAndLanglandsExtensions:ML.3",
+          "quote": "Integrate Newton-Thorne source-scoped symmetric-power automorphy, CM/non-CM branches and resulting analytic/equidistribution arguments. Supply nonvanishing/analytic inputs for the Weyl criterion separately."
+        }
+      ]
+    }
+  ],
+  "overlaps": [
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality"
+      ],
+      "detail": "For a finite discrete group over C, CompactGroups central L2 character completeness and CharacterTheory Layer 3 finite class-function completeness describe the same character basis after normalization and carrier comparison. This is an overlap of that specialization, not of the full theories: CharacterTheory also works over nonmodular algebraically closed fields, constructs the class algebra and computational character table, while CompactGroups treats arbitrary compact Hausdorff groups and analytic Hilbert bases.",
+      "recommendation": "keep",
+      "proposal": "Keep both general developments. Construct the finite-C comparison ClassFunction C G -> centralLp G using normalized counting measure and prove that a.e. equality is pointwise since every singleton has positive mass. Identify the irreducible index sets, trace characters, and basis elements under this map. Distinguish the bilinear characterPairing from the conjugate-linear-first L2 inner product: for arbitrary complex class functions use H(f,g)=B(Jf,g), Jf(x)=conj(f(x^-1)); do not identify them on the entire complex span without this involution. On virtual characters Jf=f. Keep counting, positive-characteristic theory, arithmetic and executable tables in CharacterTheory. Avoid forcing either entire roadmap to depend on the other.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups",
+          "quote": "The characters of the irreducibles form\n  an **orthonormal Hilbert basis of `centralLp G`**"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality",
+          "quote": "The irreducible characters `{χᵢ}` **span** `ClassFunction k G`"
+        }
+      ]
+    }
+  ],
+  "examined": [
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "result": "links",
+      "note": "Full README, all seven registered stage descriptions and the unindexed SU(2) engine read. Input/output inventory and proof-error checks are in the handoff. Catalogue-wide completeness is not claimed."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+      "result": "links",
+      "note": "Overview, source extracts and the full maximal-torus/Weyl integration stage read; other Lie stages inspected for scope. One outward Haar-normalization link. Its reverse claim that complexification feeds general Peter-Weyl is not encoded: it concerns compact Lie classification, not arbitrary compact G. The SU(2) engine has no registered target stage."
+    },
+    {
+      "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+      "result": "overlap",
+      "note": "Full README read. The real-measure orthogonal-polynomial B2 bridge is not a generic complex L2(G) basis constructor. This exact B2/CompactGroups Layer 5 overlap is already recorded in research/blueprint/links/tauceti_Completed_OrthogonalL2Bases.json and is not duplicated. Its C1 Chebyshev U specialization may help the unindexed SU(2) engine after weighting and scalar extension; no invented stage endpoint."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+      "result": "overlap",
+      "note": "Overview/conventions and full Layers 0 and 3 read, with adjacent indexing/class-algebra passages. One keep-and-compare finite-complex specialization overlap. Mathlib-native finite Schur and Maschke are not attributed to this roadmap merely because it discusses them. Remaining application layers were not exhaustively screened."
+    },
+    {
+      "roadmapId": "AutomorphicFormsOnReductiveGroups",
+      "result": "links",
+      "note": "Full README and all stage descriptions read, including AF.1a. Finite K-types and Peter-Weyl kernel approximation are recorded. Noncompact unipotent integration, Frechet orbit integration, admissibility and globalization are not supplied by finite-dimensional compact theory."
+    },
+    {
+      "roadmapId": "AdelicAlgebraicGroups",
+      "result": "links",
+      "note": "Full README/all six stage specifications read. Only the compact-open probability normalization comparison is recorded. Quotient Haar/Tamagawa measures, nonunimodular parabolics and adelic reduction are not compact-group probability theorems."
+    },
+    {
+      "roadmapId": "AutomorphicSpectralTheory",
+      "result": "none",
+      "note": "Full README/all seven stage specifications read. A compact arithmetic quotient is not a compact group. Its direct integrals, Eisenstein spectrum, finite-rank residues and trace formula are not consequences of Peter-Weyl on L2(G). No direct edge established from the inspected statements; this does not assert no possible analytic reuse."
+    },
+    {
+      "roadmapId": "ModularityAndLanglandsExtensions",
+      "result": "links",
+      "note": "Full README/all six stage specifications read. ML.3 supplies the Weyl-criterion consumer. Two links jointly record the uniform-density and character-test inputs, leaving nonvanishing, Frobenius data, compact Sato-Tate groups and symmetric-power classification explicit."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+      "result": "none",
+      "note": "Overview and the unitarian-trick candidate passage inspected, not a full roadmap audit. Its primary complete-reducibility route is algebraic. No mandatory compact averaging dependency is inferred from an optional analytic route. Complete the remaining stage screen before closing the job."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+      "result": "none",
+      "note": "Catalogue keyword hit for Layer 0 inspected: complete reducibility is delegated to ReductiveGroups, and U(n)/Haar averaging is explicitly an alternative outside the chosen route. This is only that candidate decision, not a full roadmap screen."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+      "result": "none",
+      "note": "Only existing link packet and its CompactGroups mention checked for duplicates; no direct stage relationship is asserted. The source roadmap still needs its own screen. Another worker's examination claims are not counted as this worker's source audit."
+    }
+  ],
+  "requests": [
+    {
+      "id": "CG-R1",
+      "owner": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "stage": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-4-schur-orthogonality-in-l²g",
+      "request": "Correct the rank-one operator to v -> <e_l,v> e_j under the conjugate-linear-first inner product. State the raw-product integral and the L2-inner-product formulas separately, with the corrected conjugations in the handoff."
+    },
+    {
+      "id": "CG-R2",
+      "owner": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "stage": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups",
+      "request": "Trace is the conjugate of the sum of the chosen diagonal matrix coefficients. Repair character transport, circle indexing and coefficient/projector formulas consistently."
+    },
+    {
+      "id": "CG-R3",
+      "owner": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "stage": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem",
+      "request": "Replace the claim that every convolution is a finite matrix-coefficient sum by a finite spectral truncation and a proved L2-to-uniform smoothing estimate. Do not assume L2(G) separable for arbitrary compact Hausdorff G."
+    },
+    {
+      "id": "CG-R4",
+      "owner": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "stage": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem",
+      "request": "Use an explicit continuity-in-G hypothesis in all averaging/coefficient statements: pinned ContRepresentation only asserts continuity of each linear operator. Audit the primitive trace/projector prefix separately from later character completeness to avoid a Layer 5/6 cycle."
+    },
+    {
+      "id": "CG-R5",
+      "owner": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "request": "Give the SU(2) engine separate stable stage identifiers, then place Lie smoothness/classification, weighted Chebyshev U and Sato-Tate symmetric-power comparisons there. Do not modify current atlas IDs or add a reverse whole-core Lie dependency in this job."
+    },
+    {
+      "id": "CG-R6",
+      "owner": "AutomorphicFormsOnReductiveGroups",
+      "stage": "AutomorphicFormsOnReductiveGroups:AF.1a",
+      "request": "Construct Frechet-valued compact orbit integration, seminorm estimates and finite-K-type kernel approximation; the normed-space averaging supplier does not already prove this."
+    },
+    {
+      "id": "CG-R7",
+      "owner": "ModularityAndLanglandsExtensions",
+      "stage": "ModularityAndLanglandsExtensions:ML.3",
+      "request": "Prove the uniform centralization/character-test criterion, identify each compact Sato-Tate group and the actual irreducible test characters, then supply the analytic limiting averages. L2 character completeness alone is insufficient."
+    }
+  ],
+  "alreadyRecorded": [
+    {
+      "path": "research/blueprint/links/tauceti_Completed_OrthogonalL2Bases.json",
+      "scope": "B2 real orthogonal-polynomial bridge versus CompactGroups Layer 5 generic Hilbert-basis assembly",
+      "disposition": "Do not duplicate. Prefer the pinned Mathlib HilbertBasis.mk/mkOfOrthogonalEqBot constructors with specified-vector equations; the compact density proof remains new work."
+    }
+  ],
+  "remainingWork": [
+    "Finish catalogue-wide keyword/synonym screening, including every same-area roadmap and every upstream tauceti roadmap. The current examined list is deliberately not an exhaustive 212-roadmap inventory.",
+    "Read every candidate stage fully before adding any further edge. Resolve the unindexed SU(2) engine with the orchestrator; do not attach its Lie-theory dependencies to the general Peter-Weyl stage.",
+    "Recheck all other link packets and newly published roadmaps at continuation time; preserve this packet and avoid duplicating existing overlaps.",
+    "Independently check the six proposed links, the comparison overlap, and all mathematical repair proposals in the handoff. Inferred links specify reusable construction routes, not minimal prerequisites of every possible proof.",
+    "Run scripts/check_links.py in the full repository on the final submission revision and inspect its actual output. Structural validation does not establish mathematical correctness."
+  ]
+}
