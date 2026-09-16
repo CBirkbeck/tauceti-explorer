@@ -1233,19 +1233,19 @@
     "title": "Exact finite optimal-transport examples",
     "summary": "Work out finite, Dirac and product examples across optimal transport and Wasserstein geometry. Compare exact mathematical solutions with numerical approximations whose residuals and error bounds are certified, retaining the hypotheses of the relevant transport and duality theorems."
   },
-  "tauceti:TauCetiRoadmap/OrthogonalL2Bases#a1--hermite-polynomial-api": {
+  "tauceti:Completed/OrthogonalL2Bases#a1--hermite-polynomial-api": {
     "title": "Hermite polynomials and Gaussian orthogonality",
     "summary": "Prove differentiation, integration-by-parts and generating-function identities for the probabilists’ Hermite polynomials. Establish their Gaussian orthogonality with the exact factorial normalization, in both Lebesgue-density and Gaussian-probability forms."
   },
-  "tauceti:TauCetiRoadmap/OrthogonalL2Bases#part-b--the-family-agnostic-spine-the-reusable-layer": {
+  "tauceti:Completed/OrthogonalL2Bases#part-b--the-family-agnostic-spine-the-reusable-layer": {
     "title": "Moment determinacy and orthogonal L² bases",
     "summary": "Derive completeness of weighted polynomial systems from moment determinacy under exponential-integrability hypotheses. Construct normalized Hilbert bases, compare weighted measures through multiplication by the square root of the weight, and prove completeness of product bases for σ-finite measures."
   },
-  "tauceti:TauCetiRoadmap/OrthogonalL2Bases#b1--completeness-toolkit-moment-determinacy": {
+  "tauceti:Completed/OrthogonalL2Bases#b1--completeness-toolkit-moment-determinacy": {
     "title": "Moment determinacy and completeness",
     "summary": "Prove that an integrable function with sufficient exponential integrability and vanishing polynomial moments is zero almost everywhere, using analyticity and uniqueness of its Fourier transform. Apply this result to completeness of weighted polynomial systems in L², including Gaussian and compactly supported cases."
   },
-  "tauceti:TauCetiRoadmap/OrthogonalL2Bases#part-d--the-multidimensional-hermite-basis-a-later-milestone-of-this-roadmap-consumes-b3": {
+  "tauceti:Completed/OrthogonalL2Bases#part-d--the-multidimensional-hermite-basis-a-later-milestone-of-this-roadmap-consumes-b3": {
     "title": "Multidimensional Hermite bases",
     "summary": "Construct multidimensional Hermite bases as products of one-dimensional bases, indexed by multi-indices. Prove completeness for both Lebesgue and Gaussian L² spaces and compare their normalizations through weighting and coordinatewise dilation."
   },

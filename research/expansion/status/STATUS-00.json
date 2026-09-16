@@ -1,0 +1,224 @@
+[
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+  "title": "Foundations of adic spaces",
+  "statusPath": "content/tau-ceti/AdicSpaces/STATUS.md",
+  "readmePath": "content/tau-ceti/AdicSpaces/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+    "key": "Layer 0",
+    "title": "Layer 0: topological algebra, Huber rings, and Tate algebras",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+    "key": "Layer 1",
+    "title": "Layer 1: valuation spectra and continuous valuations",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+    "key": "Layer 2",
+    "title": "Layer 2: affinoid spectra and rational subsets",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+    "key": "Layer 3",
+    "title": "Layer 3: rational localisation and the structure presheaf",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+    "key": "Layer 4",
+    "title": "Layer 4: sheafiness and Tate acyclicity",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+    "key": "Layer 5",
+    "title": "Layer 5: adic spaces and elementary geometry",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+    "key": "Layer 6",
+    "title": "Layer 6: the adic Fargues–Fontaine curve",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+  "title": "The Chebotarev density theorem",
+  "statusPath": "content/tau-ceti/Chebotarev/STATUS.md",
+  "readmePath": "content/tau-ceti/Chebotarev/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-1-consumed-frobenius-classes-and-powers-of-conjugacy-classes",
+    "key": "Layer 1",
+    "title": "Layer 1: consumed Frobenius classes and powers of conjugacy classes",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-2-frobenius-prime-sets-and-finite-exceptional-sets",
+    "key": "Layer 2",
+    "title": "Layer 2: Frobenius prime sets and finite exceptional sets",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-3-prime-sums-and-density-normalization",
+    "key": "Layer 3",
+    "title": "Layer 3: prime sums and density normalization",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters",
+    "key": "Layer 4",
+    "title": "Layer 4: cyclotomic Galois characters",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-5-ray-class-counting-and-continuation",
+    "key": "Layer 5",
+    "title": "Layer 5: ray-class counting and continuation",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-6-cyclotomic-dirichlet-density",
+    "key": "Layer 6",
+    "title": "Layer 6: cyclotomic Dirichlet density",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-7-the-auxiliary-prime-and-the-crossing-data",
+    "key": "Layer 7",
+    "title": "Layer 7: the auxiliary prime and the crossing data",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-8-the-cyclic-fixed-field-fibre",
+    "key": "Layer 8",
+    "title": "Layer 8: the cyclic fixed-field fibre",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-9-abelian-chebotarev",
+    "key": "Layer 9",
+    "title": "Layer 9: abelian Chebotarev",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+    "key": "Layer 10",
+    "title": "Layer 10: Dirichlet-density Chebotarev",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-11-the-frobenius-von-mangoldt-coefficient-and-its-summatory-functions",
+    "key": "Layer 11",
+    "title": "Layer 11: the Frobenius von Mangoldt coefficient and its summatory functions",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-12-the-weighted-transfer-package-and-the-tauberian-theorem",
+    "key": "Layer 12",
+    "title": "Layer 12: the weighted transfer package and the Tauberian theorem",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-13-ϑ_c-and-π_c",
+    "key": "Layer 13",
+    "title": "Layer 13: ϑ_C and π_C",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems",
+    "key": "Layer 14",
+    "title": "Layer 14: natural density and consistency theorems",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "title": "Elliptic curves",
+  "statusPath": "content/tau-ceti/EllipticCurves/STATUS.md",
+  "readmePath": "content/tau-ceti/EllipticCurves/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+    "key": "Layer 0",
+    "title": "Layer 0: the function field, places, and divisors",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-05-base-change-galois-actions-translations-and-descent-cross-cutting",
+    "key": "Layer 0.5",
+    "title": "Layer 0.5: base change, Galois actions, translations, and descent (cross-cutting)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+    "key": "Layer 1",
+    "title": "Layer 1: isogenies, the dual, the invariant differential, and formal groups (AEC II.2, III.4–6, IV)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+    "key": "Layer 2",
+    "title": "Layer 2: torsion, the Weil pairing, and the Tate module (AEC III.6–8)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+    "key": "Layer 3",
+    "title": "Layer 3: elliptic curves over finite fields — the Hasse bound (AEC V.1)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+    "key": "Layer 4",
+    "title": "Layer 4: elliptic curves over local fields — reduction, Tate's algorithm, the Tate curve (AEC VII, ATAEC IV–V)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-45a-invariant-theory-over-a-dedekind-domain-aec-viii8",
+    "key": "Layer 4.5a",
+    "title": "Layer 4.5a: invariant theory over a Dedekind domain (AEC VIII.8)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-45b-global-equation-construction-over-a-number-field",
+    "key": "Layer 4.5b",
+    "title": "Layer 4.5b: global equation construction over a number field",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+    "key": "Layer 5",
+    "title": "Layer 5: twists (AEC X.2, X.5)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+    "key": "Layer 6",
+    "title": "Layer 6: the Mordell–Weil theorem (AEC VIII)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+    "key": "Layer 7",
+    "title": "Layer 7: Selmer groups and Sha (AEC X.4)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+    "key": "Layer 8",
+    "title": "Layer 8: selected ℚ-specific database adapters",
+    "parentStageId": null
+   }
+  ]
+ }
+]
