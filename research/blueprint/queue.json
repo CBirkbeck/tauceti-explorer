@@ -1001,8 +1001,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #23"
+   "state": "done",
+   "note": "deliverables arrived from the external worker on issue #23",
+   "finishedAt": "2026-09-16T16:39:02Z"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries",
@@ -1069,12 +1070,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_ProfiniteCohomology.md",
-   "state": "external",
+   "state": "pending",
    "account": null,
    "lane": 2,
    "startedAt": "2026-09-16T13:09:19Z",
    "attempts": 0,
-   "note": "claimed on GitHub issue #25"
+   "note": "released on GitHub issue #25"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_ProfiniteCohomology",
@@ -1845,8 +1846,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #48"
+   "state": "done",
+   "note": "deliverables arrived from the external worker on issue #48",
+   "finishedAt": "2026-09-16T16:39:04Z"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
@@ -2523,8 +2525,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #68"
+   "state": "done",
+   "note": "deliverables arrived from the external worker on issue #68",
+   "finishedAt": "2026-09-16T16:39:06Z"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
@@ -3091,7 +3094,8 @@
     "LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective"
    ],
    "prompt": "research/blueprint/prompts/BP-FoundationsAndLibraryIntegration.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "roadmap retired on 2026-09-16 (data/roadmap-retirements.json)"
   },
   {
    "id": "REV-FoundationsAndLibraryIntegration",
@@ -3109,7 +3113,8 @@
    ],
    "avoidAccountOf": "BP-FoundationsAndLibraryIntegration",
    "prompt": "research/blueprint/prompts/REV-FoundationsAndLibraryIntegration.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "roadmap retired on 2026-09-16 (data/roadmap-retirements.json)"
   },
   {
    "id": "BP-HabiroCyclotomicCompletions",
