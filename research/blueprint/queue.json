@@ -98,11 +98,11 @@
    "avoidAccountOf": "PLAN-HABIRO",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-PLAN-HABIRO.md",
-   "state": "pending",
-   "account": null,
-   "lane": 1,
-   "startedAt": "2026-09-16T12:50:37Z",
-   "attempts": 0,
+   "state": "running",
+   "account": "claude2",
+   "lane": 2,
+   "startedAt": "2026-09-16T13:38:02Z",
+   "attempts": 1,
    "note": "released after a usage limit on claude6/1 at 2026-09-16T13:25:24Z"
   },
   {
@@ -650,12 +650,15 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_EllipticCurves.md",
-   "state": "running",
-   "note": "released on GitHub issue #14",
+   "state": "done",
+   "note": "",
    "account": "claude2",
    "lane": 2,
    "startedAt": "2026-09-16T13:02:02Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-16T13:38:00Z",
+   "seconds": 2154,
+   "result": {}
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
@@ -886,11 +889,15 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_ClassFieldTheory.md",
-   "state": "running",
+   "state": "done",
    "account": "claude",
    "lane": 1,
    "startedAt": "2026-09-16T12:41:16Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-16T13:33:29Z",
+   "seconds": 3129,
+   "result": {},
+   "note": ""
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory",
@@ -1097,11 +1104,15 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
-   "state": "running",
+   "state": "done",
    "account": "claude2",
    "lane": 1,
    "startedAt": "2026-09-16T13:14:25Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-16T13:48:21Z",
+   "seconds": 2032,
+   "result": {},
+   "note": ""
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
@@ -1831,7 +1842,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #48"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
@@ -37115,10 +37127,11 @@
    "prompt": "research/blueprint/prompts/COMPARE-01.md",
    "timeout": 14400,
    "state": "running",
-   "account": "claude",
-   "lane": 2,
-   "startedAt": "2026-09-16T13:28:17Z",
-   "attempts": 1
+   "account": "claude2",
+   "lane": 1,
+   "startedAt": "2026-09-16T13:48:25Z",
+   "attempts": 1,
+   "note": "released after a usage limit on claude/2 at 2026-09-16T13:37:25Z"
   },
   {
    "id": "COMPARE-02",
@@ -37147,7 +37160,12 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-02.md",
    "timeout": 14400,
-   "state": "pending"
+   "state": "pending",
+   "account": null,
+   "lane": 1,
+   "startedAt": "2026-09-16T13:33:32Z",
+   "attempts": 0,
+   "note": "released after a usage limit on claude/1 at 2026-09-16T13:37:29Z"
   },
   {
    "id": "COMPARE-03",

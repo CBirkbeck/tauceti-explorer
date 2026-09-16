@@ -1,0 +1,1828 @@
+{
+  "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+  "protocol": "links-v1",
+  "status": "complete",
+  "summary": "Catalogue-wide screen of Profinite and pro-p groups (12 stages) against the 211 other atlas roadmaps and the 6 new roadmaps. I read this roadmap's document in full and wrote down every stage's inputs and outputs. ProfiniteCohomology, BelyiMaps and the Iwasawa-theory roadmaps were read in full, and the named consumers and suppliers were read stage by stage. Every other roadmap got a summary read and a keyword-in-context screen. 32 links: 18 into this roadmap and 14 out of it. Inward: ProfiniteCohomology Layers 0, 1, 2, 3, 5, 7, 8, 10, 11 and 12 supply the carrier, explicit low degrees, comparisons, five-term and long exact sequences, Shapiro, corestriction, cd_p, duality pairings and cups used by Layers 5, 6, 7 and 10; GrothendieckEulerForms Layer 5 supplies finrank additivity for Layer 6's Euler formula. Outward: Layers 0, 3 and 4 feed BelyiMaps Layers 12–13 (completion, maximal pro-p quotient, zHat, free pro-ℓ group); Layers 2 and 3 feed DiamondEtaleCohomology C8 (Sylow and pro-p structure); Layer 2 feeds ClassicalAdicEtaleCohomology H1:valuation-nearby-cycles; Layer 1 feeds DiamondSixOperations S5 and SmoothRepresentationsOfLocalGroups SR.1 (pro-order and pro-p indices for Haar averaging); Layer 3 feeds ReductiveGroupsPartII RG2.3 (pro-p congruence subgroups); Layer 0 feeds PadicMeasuresIwasawaAlgebras L1; Layer 4 feeds ColemanPowerSeries L0 (ℤ_p-module of an abelian pro-p group); the Layer 9 prerequisites feed IntegralIwasawaTheory I.1 (completed group algebra). The three LocalFieldsRamification links and one overlap are already in that roadmap's packet and are not repeated. 7 overlaps, all rescope: continuous sections and the closed-subgroup cohomology colimit with ProfiniteCohomology Layers 0 and 11; the trivial 𝔽_p coefficient object with ProfiniteCohomology Layer 13; ℤ_p-powers on pro-p groups with BelyiMaps Layer 12; completed group algebras, their coordinates and Weierstrass division with PadicMeasuresIwasawaAlgebras L1–L5 and NoncommutativeAndEquivariantIwasawa NE.0; finite embedding problems with InverseGaloisAndArithmeticFundamentalGroups IG.4. LocalGaloisGroups and ProfiniteArithmetic, which the document names, are not atlas roadmaps, so nothing is recorded for them.",
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+      "reason": "ProfiniteCohomology Layer 0 proves that over a profinite group a finite discrete module has an open normal subgroup acting trivially, so the action factors through a finite quotient. ProfiniteProPGroups Layer 6's trivial-filtration theorem starts from exactly this fact: for pro-p G the action on a finite discrete p-primary module factors through a finite p-quotient, whose fixed points are then nonzero. Neither text names the other at this point; the match is exact.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
+          "quote": "over a profinite `G`, a finite discrete module has an open **normal** subgroup acting trivially, so its action factors through a finite quotient."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+          "quote": "a nonzero finite discrete `p`-primary `G`-module has nonzero invariants: the action factors through a finite `p`-quotient"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+      "reason": "ProfiniteCohomology Layer 1 fixes the canonical carrier: TopRep R G as Action (TopModuleCat R) G and Hⁿ_cont(G, X) as Mathlib's continuousCohomology. ProfiniteProPGroups Layer 5 defines its coefficient object trivialFp p G as an object of ProfiniteCohomology.TopRep (ZMod p) G and cohomFp as its continuous cohomology, citing PC-1 TopRep.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+          "quote": "`TopRep R G` as an abbreviation for `Action (TopModuleCat R) G`, and `Hⁿ_cont(G, X) = (continuousCohomology R G n).obj X` as the canonical object of every all-degree statement below."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+          "quote": "`trivialFp p G` is the trivial `𝔽_p`-representation of `G`, an object of `ProfiniteCohomology.TopRep (ZMod p) G`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+          "quote": "*Needs:* PC-1 `TopRep`, M `continuousCohomology`, M `TopModuleCat`, M `Action`."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+      "reason": "ProfiniteCohomology Layer 1 supplies the named coefficient maps (coeffMap) on the canonical carrier. ProfiniteProPGroups Layer 7 states the prescription property through the reduction maps H¹(G, I(χ)/p^i) → H¹(G, I(χ)/p), which are coefficient maps, and its canonical-character milestone cites PC-1 coeffMap.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+          "quote": "Restriction along the inclusion of a subgroup, inflation along a quotient map with invariant coefficients, and coefficient maps at `φ = id`, each as a natural transformation of functors on `TopRep R G`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+          "quote": "the reduction map `H¹(G, I(χ)/p^i) → H¹(G, I(χ)/p)` is surjective for every"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+          "quote": "*Needs:* L5 the coefficient objects; PC-1 `coeffMap`; L7 the predicate; L4 `ℤ_p` chain."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+      "reason": "ProfiniteCohomology Layer 2 builds the explicit inhomogeneous complex in degrees 0, 1, 2 (continuous 1- and 2-cochains, the cocycle identities, H¹ and H²) and its trivial-action description of H¹ as continuous homomorphisms. ProfiniteProPGroups Layer 5 builds extensions from continuous normalized 2-cocycles and back, citing PC-2 the explicit low degrees, and reads H¹(G, 𝔽_p) as Hom_cont(G, 𝔽_p).",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality",
+          "quote": "`C1`, `C2`, `Z1`, `Z2`, `B1`, `B2`, `H0`, `H1`, `H2` as fixed in §3"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality",
+          "quote": "`H¹` additively isomorphic to the continuous homomorphisms `G →ₜ* M`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+          "quote": "From a continuous normalized `2`-cocycle build the extension on `M × G` with the twisted multiplication"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+          "quote": "*Needs:* PC-2 the explicit low degrees; L5 sections."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+      "reason": "ProfiniteCohomology Layer 3 proves the comparison isomorphisms between the explicit low-degree groups and the canonical continuousCohomology for profinite G, and with discrete groupCohomology for finite G. ProfiniteProPGroups Layer 5's H¹ interpretation identifies H¹(G, 𝔽_p) on the canonical carrier with Hom_cont(G, 𝔽_p), citing PC-3 the degree-one comparison.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+          "quote": "Inhomogeneous against canonical, for profinite `G`, degrees `0, 1, 2`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+          "quote": "`H¹(G, 𝔽_p) ≅ Hom_cont(G, 𝔽_p) ≅ (G/Φ(G))^∨`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+          "quote": "*Needs:* L5 the coefficient objects; PC-3 the degree-one comparison; L3 Burnside."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+      "reason": "ProfiniteCohomology Layer 5 constructs the five-term inflation–restriction–transgression sequence for a closed normal subgroup of a profinite group, and says the presentation theory of Profinite Pro-p Groups is built from it. ProfiniteProPGroups Layer 5's H² interpretation proves that transgression H¹(R, 𝔽_p)^F → H²(G, 𝔽_p) is an isomorphism for a minimal presentation, citing PC-5 the five-term sequence.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+          "quote": "The presentation theory of the Profinite Pro-`p` Groups roadmap is built from this sequence"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+          "quote": "transgression `H¹(R, 𝔽_p)^F → H²(G, 𝔽_p)` is an isomorphism, by the five-term sequence and the vanishing theorem above"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+          "quote": "*Needs:* PC-5 the five-term sequence; L5 vanishing theorem; L5 presentations."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+      "reason": "ProfiniteCohomology Layer 5 supplies the long exact sequence of continuous cohomology with explicit connecting maps. ProfiniteProPGroups Layer 6 uses it in the dévissage from elementary abelian to all finite p-primary coefficients and in the two-term Euler formula, citing PC-5 the long exact sequence in both.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+          "quote": "explicit connecting maps `explicitDelta0 : H⁰(G, C) → H¹(G, A)`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+          "quote": "*Needs:* L6 trivial filtration; PC-5 the long exact sequence."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+          "quote": "*Needs:* PC-7 Shapiro; PC-5 the long exact sequence; L6 trivial filtration; L3 Schreier bound;"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+      "reason": "ProfiniteCohomology Layer 5 supplies transgression, the five-term exactness theorems fiveTerm_exact_H1N and fiveTerm_exact_H2Q, and the connecting maps with their exactness. ProfiniteProPGroups Layer 7 uses the five-term sequence for cd_p G = 2 of an infinite Demushkin group, the connecting maps for the prescription property, and the long exact sequence for the three-term Euler formula. Layer 7 labels the five-term declarations 'PC-6', but they are Layer 5 exports of ProfiniteCohomology.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+          "quote": "at its four nodes, which is `explicitInfl1_injective`, `explicitInfRes_exact`, `fiveTerm_exact_H1N` and `fiveTerm_exact_H2Q`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+          "quote": "*Needs:* L6 `cd_p`; PC-6 `transgression`, `fiveTerm_exact_H1N`, `fiveTerm_exact_H2Q`; L7 the predicate."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+          "quote": "*Needs:* L5 coefficient objects; PC-5 connecting maps and exactness."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+      "reason": "ProfiniteCohomology Layer 7 constructs the coinduced discrete module Coind_H^G A for closed H with its exactness in A, Shapiro's lemma in degrees 0, 1 and 2, the acyclic module Coind_1^G A and, for open H, Ind_H^G A ≅ Coind_H^G A. ProfiniteProPGroups Layer 6 shifts dimension through Coind_1^G M, cites PC-7 Coind and closed-subgroup Shapiro for cd of open subgroups and for the Sylow equality, and uses Shapiro for U and Coind_U^G 𝔽_p ≅ 𝔽_p[G/U] in the degree 0–1 Euler formula. The all-degree shapiroIso is a Layer 10 export and is covered by the Layer 10 link.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+          "quote": "`Coind_H^G A` is the locally constant `H`-equivariant maps `G → A`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+          "quote": "prove `Ind_H^G A ≅ Coind_H^G A` using a finite transversal"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+          "quote": "Route: dimension shifting through `Coind_1^G M`, which uses Shapiro for the **closed** trivial subgroup"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+          "quote": "The proof uses Shapiro for `U`, the identification `Coind_U^G 𝔽_p ≅ 𝔽_p[G/U]`, the long exact sequence"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+      "reason": "ProfiniteCohomology Layer 7 proves Shapiro's lemma Hⁱ(G, Coind_H^G A) ≅ Hⁱ(H, A) in degrees 0, 1, 2. ProfiniteProPGroups Layer 7's three-term Euler formula for open U in a pro-p group with cd_p ≤ 2 runs through Shapiro in exactly those degrees, citing PC-7 Shapiro.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+          "quote": "`Hⁱ(G, Coind_H^G A) ≅ Hⁱ(H, A)` for `i = 0, 1, 2` on the explicit model"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+          "quote": "*Needs:* PC-7 Shapiro; PC-5 the long exact sequence; L6 trivial filtration."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+      "reason": "ProfiniteCohomology Layer 8 supplies the duality cup pairings Hⁱ(G, M →+ N) × H²⁻ⁱ(G, M) → H²(G, N) built from evalPairing, homAction and the cups, and the worked example that the (1,1) cup square on C₂ with 𝔽₂ coefficients is the nontrivial class of H²(C₂, 𝔽₂). ProfiniteProPGroups Layer 7 states perfect pairings H^j(G, M) × H^{2-j}(G, M^∨(χ)) → H²(G, I(χ)/p^i) with M^∨(χ) = Hom(M, I(χ)/p^i) carrying the diagonal action, which are these pairings at N = I(χ)/p^i. It also proves ℤ/2 Demushkin through the nonvanishing of that cup square. Layer 7 cites only its own cupFp, which covers neither the Hom-valued coefficients nor the C₂ computation, so the link is inferred.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+          "quote": "composed with the cups gives `Hⁱ(G, M →+ N) × H²⁻ⁱ(G, M) → H²(G, N)` for `i = 0, 1, 2`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+          "quote": "the `(1,1)` square on `C₂` with `𝔽₂` coefficients is the nontrivial class of `H²(C₂, 𝔽₂)`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+          "quote": "the cup pairing `H^j(G, M) × H^{2-j}(G, M^∨(χ)) → H²(G, I(χ)/p^i) ≅ ℤ/p^i` is a perfect pairing"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+          "quote": "the cup square of the generator of `H¹(ℤ/2, 𝔽₂)` is the class of the extension `ℤ/4`"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+      "reason": "ProfiniteCohomology Layer 10 supplies all-degree corestriction with cor ∘ res = (G : U) (corestriction_comp_res), all-degree Shapiro shapiroIso, the acyclic coinduced module, dimensionShiftIso and the all-degree long exact sequence. ProfiniteProPGroups Layer 6 uses these in its Sylow equality cd_p G = cd_p G_p and in vanishing in all degrees above 2, citing PC-10 corestriction and corestriction_comp_res and shapiroIso. ProfiniteCohomology Layer 11 names 'Layer 10's all-degree tools that the Sylow argument uses'.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+          "quote": "`cor ∘ res = (G : U) • id` (`corestriction_comp_res`)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+          "quote": "derive the named `dimensionShiftIso : Hⁱ⁺¹(G, M) ≅ Hⁱ(G, Coind_1^G M ⧸ M)` for `i ≥ 1`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+          "quote": "*Needs:* L1 supernatural index; L2 Sylow existence and conjugacy; PC-10 `corestriction`, `corestriction_comp_res`; PC-11 `cd_p_eq_of_index_not_dvd`; PC-7 closed-subgroup Shapiro."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+          "quote": "*Needs:* L6 dévissage; PC-7 `Coind`, `shapiroIso` for a closed subgroup; L6 dimension shifting."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+      "reason": "ProfiniteCohomology Layer 11 defines cd_p and proves cd_p_le_iff_boundedExponent, cd_p_le_iff_finite_pPrimary, cd_p_le_of_isClosed and cd_p_eq_of_index_not_dvd. It assigns to Profinite Pro-p Groups the 𝔽_p-test refinement for pro-p groups and the Sylow equality. ProfiniteProPGroups Layer 6 takes cd_p to be ProfiniteCohomology.cd_p, cites the two reductions and builds cd_p_le_iff_elementaryAbelian_of_isProP, cd_p_eq_of_isOpen and cd_p_eq_of_isProPSylow on them.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+          "quote": "that refinement lives in the Profinite Pro-`p` Groups roadmap, built on this layer."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+          "quote": "this layer supplies the definitions, the monotonicity, the prime-to-`p` equality, and Layer 10's all-degree tools that the Sylow argument uses."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+          "quote": "`cd_p G` is `ProfiniteCohomology.cd_p p G`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+          "quote": "This is `ProfiniteCohomology.cd_p_le_iff_finite_pPrimary`, which is cited and not restated"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+      "reason": "ProfiniteCohomology Layer 11 defines cd_p and names the Profinite Pro-p Groups roadmap as a consumer. ProfiniteProPGroups Layer 7 proves cd_p G = 2 for an infinite Demushkin group (cd_p_eq_two_of_isDemushkin) and states its recognition criteria and open-subgroup theorem in terms of cd_p. Layer 6 fixes that cd_p is ProfiniteCohomology.cd_p and that no second cohomological dimension is defined. The atlas records no internal edges of this roadmap, so Layer 7's direct use of the supplier's invariant is recorded here.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+          "quote": "Consumers: the Profinite Pro-`p` Groups, Class Field Theory, and Local Galois Groups roadmaps."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+          "quote": "An infinite Demushkin group has `cd_p G = 2`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+          "quote": "`cd_p G = 2` and `finrank H²(N, 𝔽_p) = 1` for every open normal `N ≤ G`;"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+          "quote": "`cd_p G` is `ProfiniteCohomology.cd_p p G`"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-10-free-pro-c-groups-on-profinite-spaces",
+      "reason": "ProfiniteCohomology Layer 11 proves cd_p_le_of_isClosed: cd_p H ≤ cd_p G for every closed subgroup H, open or not. ProfiniteProPGroups Layer 10 proves Serre's theorem in full generality (cd_p G ≤ 1 iff G is free pro-p) and that closed subgroups of free pro-p groups are free pro-p. The second statement needs cd_p H ≤ cd_p F ≤ 1 for closed, non-open H, which Layer 6 excludes and assigns to Layer 10, and which only the closed-subgroup theorem of ProfiniteCohomology gives. Layer 10's text names neither the declaration nor the supplier layer.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+          "quote": "`cd_p_le_of_isClosed`, that is `cd_p H ≤ cd_p G` for closed `H ≤ G`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-10-free-pro-c-groups-on-profinite-spaces",
+          "quote": "`cd_p G ≤ 1` if and only if `G` is free pro-`p`, with no finite generation"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-10-free-pro-c-groups-on-profinite-spaces",
+          "quote": "Closed subgroups of free pro-`p` groups are free pro-`p`, which is the full pro-`p` Nielsen–Schreier theorem."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+      "reason": "ProfiniteCohomology Layer 12 supplies the coefficient pairing type TopPairing, ofDiscreteModulePairing, the all-degree cup product, and cup_gradedComm. ProfiniteProPGroups Layer 5 defines fpPairing as a TopPairing and the cup square cupFp as ProfiniteCohomology.cup at that pairing, and derives graded commutativity from cup_gradedComm, citing PC-12. degreeCast, which Layer 5 also cites from PC-12, is not in ProfiniteCohomology's export table.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+          "quote": "`ofDiscreteModulePairing` builds one from a biadditive equivariant map of discrete modules"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+          "quote": "derive the class-level theorem `cup_gradedComm`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+          "quote": "`cupFp p G a b` is `ProfiniteCohomology.cup (fpPairing p G) 1 1 a b`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+          "quote": "*Needs:* PC-12 `TopPairing`, `ofDiscreteModulePairing`, `cup`, `cup_gradedComm`, `degreeCast`."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+      "reason": "ProfiniteCohomology Layer 12 proves the projection formula cup_projection, cor (res a ⌣ b) = a ⌣ cor b, in all bidegrees. ProfiniteProPGroups Layer 7's naturality milestone for the Demushkin duality pairings is the identity ⟨res a, b⟩_U = ⟨a, cor b⟩_G. The open-subgroup theorem uses it. ProfiniteProPGroups lists cup_projection among the operations imported from ProfiniteCohomology.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+          "quote": "`cup_projection`, `cor (res a ⌣ b) = a ⌣ cor b` in all bidegrees"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+          "quote": "Compatibility of the pairings with restriction to an open subgroup and with corestriction, in the form `⟨res a, b⟩_U = ⟨a, cor b⟩_G`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+          "quote": "Naturality: `cup_res`, `cup_infl`, `cup_coeffMap` and `cup_projection`, all imported."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+      "reason": "GrothendieckEulerForms Layer 5 proves the finite-exact-sequence formula for the signed sum of an additive invariant and Euler–Poincaré for bounded complexes of finite-dimensional vector spaces. The Tau Ceti baseline already contains HomologicalComplex.eulerChar_forgetFG_eq_homologyEulerChar. ProfiniteProPGroups Layer 6's two-term Euler formula needs additivity of finrank along a finite exact sequence of finite-dimensional vector spaces, which is that formula for finrank. Neither text names the other.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+          "quote": "Prove reindexing, shift/sign, direct-sum, and finite-exact-sequence formulas."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+          "quote": "For vector spaces, record finite-dimensionality of every term and boundedness explicitly."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+          "quote": "additivity of `finrank` along a finite exact sequence of finite-dimensional vector spaces."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+      "reason": "ProfiniteProPGroups Layer 0 states the profinite completion's unbundled universal property: continuous homomorphisms out of the completion correspond to abstract homomorphisms. BelyiMaps Layer 12 defines the profinite power x ^ᶻ a as the image of a under the unique continuous homomorphism ẑ → G sending 1 to x, by that universal property applied to n ↦ xⁿ. Its milestones 12.1, 12.2 and 12.6 list ProfiniteProPGroups Layers 0 and 4 as prerequisites.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
+          "quote": "Add the unbundled universal property: continuous homomorphisms from the completion to a profinite `P` correspond to abstract homomorphisms from `G`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+          "quote": "the image of `a` under the unique continuous homomorphism `ẑ → G` sending `1` to `x` — the completion's universal property applied to `n ↦ xⁿ`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+          "quote": "ProfiniteProPGroups Layers 0, 4 for `zHat` and its group API."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+      "reason": "ProfiniteProPGroups Layer 3 constructs maximalProPQuotient with its quotient map and universal property: continuous homomorphisms to pro-p groups factor uniquely through it. BelyiMaps Layer 12 (12.3) defines the ℤ_ℓ-power on a pro-ℓ group by factoring the powering homomorphism ẑ → G through the maximal pro-ℓ quotient of ẑ, which it calls legitimate by ProfiniteProPGroups Layer 3's universal property.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+          "quote": "State its quotient map, its universal property, its idempotence on pro-`p` groups, and its functoriality once, here."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+          "quote": "legitimate by ProfiniteProPGroups Layer 3's universal property, since `G` is pro-`ℓ`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+          "quote": "*Prerequisites:* Layers 12.1, 12.2; ProfiniteProPGroups Layers 3, 4; Mathlib `Fact`, `PadicInt`."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+      "reason": "ProfiniteProPGroups Layer 4 constructs freeProfiniteGroup X := profiniteCompletion (FreeGroup X). Through the rank-one chain it identifies the maximal pro-p quotient of the profinite completion of ℤ with ℤ_p, and it owns zHat as a profinite group. BelyiMaps Layer 12 compares its ring ProfiniteInt with ProfiniteProPGroups' zHat (12.1), defines the ℤ_ℓ-power through maximalProPQuotient_zHat_equiv_padicInt (12.3), and identifies π₁ᵍᵉᵒ with profiniteCompletion (FreeGroup (Fin 2)), with prerequisites ProfiniteProPGroups Layers 0 and 4 (12.6).",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+          "quote": "`maximalProPQuotient p (profiniteCompletion ℤ) ≅ lim_n ℤ/p^nℤ` as topological groups"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+          "quote": "`freeProfiniteGroup X := profiniteCompletion (FreeGroup X)`, the free profinite group"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+          "quote": "`zHat` as a profinite *group* (Layer 4), the identification of its maximal pro-`p` quotient with `ℤ_p`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+          "quote": "Using ProfiniteProPGroups Layer 4's `maximalProPQuotient_zHat_equiv_padicInt`, define the `ℤ_ℓ`-power `x ^[ℓ] u` for `u : ℤ_[ℓ]` on a pro-`ℓ` group"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+          "quote": "*Prerequisites:* Layers 5.6, 6.1, 6.3, 12.4, 12.5; ProfiniteProPGroups Layers 0, 4;"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-13-the-pro-ℓ-peripheral-theorem-and-faithfulness",
+      "reason": "ProfiniteProPGroups Layer 3 proves proPKernel p G closed, normal, characteristic for continuous automorphisms and preserved by continuous homomorphisms. BelyiMaps Layer 13 (13.1) descends the outer Galois action from the free profinite group to its pro-ℓ quotient because proPKernel ℓ is topologically characteristic, citing ProfiniteProPGroups Layer 3.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+          "quote": "It is closed, normal, characteristic for continuous automorphisms, and preserved by continuous homomorphisms."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-13-the-pro-ℓ-peripheral-theorem-and-faithfulness",
+          "quote": "`proPKernel ℓ` is topologically characteristic (ProfiniteProPGroups Layer 3)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-13-the-pro-ℓ-peripheral-theorem-and-faithfulness",
+          "quote": "*Prerequisites:* Layers 12.7, 12.11, 12.2, 12.3; ProfiniteProPGroups Layers 3, 4."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-13-the-pro-ℓ-peripheral-theorem-and-faithfulness",
+      "reason": "ProfiniteProPGroups Layer 4 constructs freeProP p X as the maximal pro-p quotient of the free profinite group, with its generators and universal property. BelyiMaps Layer 13 defines the pro-ℓ peripheral carrier Δ_ℓ as ProfiniteProPGroups.freeProP ℓ (Fin 2) with the supplier's canonical generators, and states the peripheral-power theorem and its dyadic instance on it.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+          "quote": "`freeProP p X := maximalProPQuotient p (freeProfiniteGroup X)`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-13-the-pro-ℓ-peripheral-theorem-and-faithfulness",
+          "quote": "define `Δ_ℓ := ProfiniteProPGroups.freeProP ℓ (Fin 2)` directly"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "IntegralIwasawaTheory:I.1",
+      "reason": "ProfiniteProPGroups' Layer 9 prerequisites construct completedGroupAlgebra p Γ = lim_U ℤ_p[Γ/U] and, for Γ ≅ ℤ_p with a chosen topological generator, the power-series coordinate ℤ_p[[T]] ≅ ℤ_p[[Γ]] with its change-of-generator substitution. IntegralIwasawaTheory lists 'the completed-group-algebra portion of ProfiniteProPGroups' as a dependency of its I-stages. I.1 reuses the completed group algebra for Λ = ℤ_p[[Γ]] of the cyclotomic ℤ_p-extension, identifies the procyclic quotient with ℤ_p after choosing a generator and proves generator-change formulas.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+          "quote": "`completedGroupAlgebra p Γ := lim_U ℤ_p[Γ/U]` over the open **normal** subgroups `U ≤ Γ`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+          "quote": "a different generator changes the isomorphism by the substitution `T ↦ (1+T)^u - 1` with `u ∈ ℤ_pˣ`"
+        },
+        {
+          "stageId": "IntegralIwasawaTheory:I.1",
+          "quote": "Reuse the completed group algebra, but prove its arithmetic-module actions."
+        },
+        {
+          "stageId": "IntegralIwasawaTheory:I.1",
+          "quote": "ClassFieldTheory and the completed-group-algebra portion of ProfiniteProPGroups"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+      "target": "ColemanPowerSeries:L0",
+      "reason": "ProfiniteProPGroups Layer 4 makes every abelian pro-p group a topological ℤ_p-module, functorially, by inverse-limit exponentiation. ColemanPowerSeries depends on ProfiniteProPGroups, and L0 makes the inverse limit of principal units of ℚ_p(μ_{p^n}), an abelian pro-p group, into a compact ℤ_p-module. The LocalFieldsRamification packet separately records the principal-unit decomposition as input from LocalFieldsRamification Layer 1.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+          "quote": "`A` becomes a topological `ℤ_p`-module, functorially in continuous homomorphisms of abelian pro-`p` groups."
+        },
+        {
+          "stageId": "ColemanPowerSeries:L0",
+          "quote": "principal units form its compact Z_p-module"
+        },
+        {
+          "stageId": "ColemanPowerSeries:L0",
+          "quote": "Depend on R01/R03 and the existing LocalFieldsRamification and ProfiniteProPGroups roadmaps."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
+      "target": "PadicMeasuresIwasawaAlgebras:L1",
+      "reason": "ProfiniteProPGroups Layer 0 supplies the unbundled profinite-group foundations: quotients by open normal subgroups, the separation of points by open normal subgroups, and the limit description of a profinite group through its finite quotients. PadicMeasuresIwasawaAlgebras names ProfiniteProPGroups as an existing foundation and says completed group rings import the existing profinite group and inverse-limit APIs. L1 defines R[[G]] as a limit over the open normal subgroups U of G, with density of the group algebra.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
+          "quote": "Restate the limit description for consumers outside the category: a compatible family of elements of the finite quotients of `G` comes from a unique element."
+        },
+        {
+          "stageId": "PadicMeasuresIwasawaAlgebras:L1",
+          "quote": "where U ranges over open normal subgroups."
+        },
+        {
+          "stageId": "PadicMeasuresIwasawaAlgebras:L1",
+          "quote": "Completed group rings import the existing profinite group and inverse-limit APIs."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
+      "target": "DiamondEtaleCohomology:C8",
+      "reason": "ProfiniteProPGroups Layer 2 proves existence and conjugacy of pro-p Sylow subgroups of profinite groups, containment of closed pro-p subgroups and uniqueness of a normal Sylow subgroup. DiamondEtaleCohomology C8 imports 'Sylow/pro-p structure from ProfiniteProPGroups' for the Galois-cohomological dimension bounds and the wild-inertia lemma 21.17 of general complete valued fields. The Layer 6 Sylow equality is not named there and is not linked.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
+          "quote": "Every profinite group has a `p`-Sylow subgroup."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
+          "quote": "A normal `p`-Sylow subgroup is unique."
+        },
+        {
+          "stageId": "DiamondEtaleCohomology:C8",
+          "quote": "import canonical continuous cohomology and its closed-subgroup/Shapiro dimension API from ProfiniteCohomology, and Sylow/pro-`p` structure from ProfiniteProPGroups"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+      "target": "DiamondEtaleCohomology:C8",
+      "reason": "ProfiniteProPGroups Layer 3 owns the IsProP API, including the equivalence of pro-p with being a limit of finite p-groups and stability under closed subgroups and quotients. DiamondEtaleCohomology C8 imports the pro-p structure from ProfiniteProPGroups and proves the wild-inertia pro-p lemma 21.17 for complete valued fields.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+          "quote": "The equivalence milestone: a profinite group is pro-`p` if and only if it is continuously isomorphic to a limit of finite `p`-groups."
+        },
+        {
+          "stageId": "DiamondEtaleCohomology:C8",
+          "quote": "Sylow/pro-`p` structure from ProfiniteProPGroups"
+        },
+        {
+          "stageId": "DiamondEtaleCohomology:C8",
+          "quote": "Prove the wild-inertia pro-`p` lemma 21.17"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
+      "target": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "reason": "ProfiniteProPGroups Layer 2 supplies the abstract pro-p Sylow theory of profinite groups: existence, conjugacy, containment of closed pro-p subgroups, and uniqueness of a normal Sylow subgroup. ClassicalAdicEtaleCohomology H1:valuation-nearby-cycles proves Huber's constructibility of nearby cycles over valuation bases, with 'valuation-theoretic pro-p Sylow/tame comparison (4.2.1–4.2.2)' as a proof substep. That comparison identifies the wild ramification group as the pro-p Sylow subgroup of inertia, the same use LocalFieldsRamification Layer 4 makes explicitly. The consumer names only ArithmeticGaloisDuality for Hochschild–Serre, so the link is inferred.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
+          "quote": "Every closed pro-`p` subgroup lies in a `p`-Sylow subgroup."
+        },
+        {
+          "stageId": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+          "quote": "Proof substeps: valuation-theoretic pro-p Sylow/tame comparison (4.2.1–4.2.2)"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index",
+      "target": "DiamondSixOperations:S5",
+      "reason": "ProfiniteProPGroups Layer 1 defines the supernatural order profiniteOrder of a profinite group and proves Lagrange together with agreement of profiniteIndex with Subgroup.index for open subgroups. DiamondSixOperations S5 proves ECD 24.2 for free actions of a profinite group of pro-order prime to ℓ, with the normalized Λ-valued Haar measure. That normalization needs every index [G : U] of an open subgroup to be prime to ℓ, which is Lagrange for the supernatural order. The consumer does not name the supplier.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index",
+          "quote": "`profiniteOrder G : Supernatural` takes at each prime the supremum of the valuations of the orders of the finite quotients."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index",
+          "quote": "Lagrange: `profiniteOrder G = profiniteOrder H * profiniteIndex H G`;"
+        },
+        {
+          "stageId": "DiamondSixOperations:S5",
+          "quote": "Prove 24.2 for free actions of a profinite group of pro-order prime to `ℓ`, including the normalized `Λ`-valued Haar measure and compatibility of finite-level traces."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.1",
+      "reason": "ProfiniteProPGroups Layer 1 defines the supernatural order profiniteOrder, proves Lagrange and agreement with Subgroup.index for open subgroups, and proves that G is pro-p iff its order is supported at p. SmoothRepresentationsOfLocalGroups SR.1 proves the equivalence between smooth representations and nondegenerate Hecke modules under a cofinal family of compact opens whose pro-order is invertible in A, with locally pro-p groups and p invertible as the principal application. Normalized idempotents need exactly those facts: the indices of open subgroups divide the pro-order, which for pro-p groups is a power of p. Neither text names the other.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index",
+          "quote": "`G` is pro-`p` if and only if `profiniteOrder G` is supported at `p`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index",
+          "quote": "Lagrange: `profiniteOrder G = profiniteOrder H * profiniteIndex H G`;"
+        },
+        {
+          "stageId": "SmoothRepresentationsOfLocalGroups:SR.1",
+          "quote": "Under the explicit hypothesis of a cofinal family of compact opens of invertible pro-order in A, prove smooth representations correspond to nondegenerate modules over the locally unital Hecke algebra"
+        },
+        {
+          "stageId": "SmoothRepresentationsOfLocalGroups:SR.1",
+          "quote": "For a locally pro-p group, p invertible in A is the principal application."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+      "target": "ReductiveGroupsPartII:RG2.3",
+      "reason": "ProfiniteProPGroups Layer 3 owns the IsProP API: a profinite group is pro-p iff it is a limit of finite p-groups, and pro-p passes to closed subgroups. ReductiveGroupsPartII RG2.3 identifies the pro-p congruence subgroups of parahoric group schemes. That means proving that deep congruence subgroups, limits of the finite p-group quotients by deeper congruence levels, are pro-p. It is the same use LocalFieldsRamification Layer 1 makes explicitly for U(K,1). The consumer does not name the supplier.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+          "quote": "The equivalence milestone: a profinite group is pro-`p` if and only if it is continuously isomorphic to a limit of finite `p`-groups."
+        },
+        {
+          "stageId": "ReductiveGroupsPartII:RG2.3",
+          "quote": "Identify pro-p congruence subgroups and prove their compact openness."
+        }
+      ]
+    }
+  ],
+  "overlaps": [
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations"
+      ],
+      "detail": "Both stages prove continuous sections of quotient maps of profinite groups. ProfiniteCohomology Layer 0 proves that for profinite G and closed K ≤ H ≤ G the projection G ⧸ K → G ⧸ H has a continuous section, normalized so that G ⧸ H → G sends 1 to 1 (Ribes–Zalesskii 2.2.2); transgression and Shapiro use it. ProfiniteProPGroups Layer 5 has its own milestone, 'continuous sections along a finite kernel': for finite normal N in a profinite E, E ↠ E/N has a continuous set-theoretic section sending 1 to 1. Layer 5 itself remarks that the closed-kernel case exists. With K = 1 and H = N (finite, hence closed) this is the normalized specialization of the Layer 0 theorem, so one statement is planned twice.",
+      "recommendation": "rescope",
+      "proposal": "Remove the finite-kernel section milestone from ProfiniteProPGroups Layer 5. 'Cocycles and extensions' then cites ProfiniteCohomology Layer 0's normalized continuous section of G → G ⧸ H at H = N; Layer 5 already imports ProfiniteCohomology Layers 1, 2, 3, 5 and 12. If the elementary finite-kernel proof is wanted (an open normal U with U ∩ N = 1, then coset translates of a local section), move it into ProfiniteCohomology Layer 0 as its proof of the finite-subgroup case. ProfiniteProPGroups then carries no second section theorem."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups"
+      ],
+      "detail": "Both stages need the description of the cohomology of a closed subgroup as a colimit over the open subgroups containing it (NSW (1.5.1)). ProfiniteProPGroups Layer 6 proves it as the first step of its Sylow equality: 'the cohomology of a closed subgroup, with discrete coefficients, is the filtered colimit of the cohomology of the open subgroups containing it'. ProfiniteCohomology Layer 11 proves cd_p_le_of_isClosed 'by coinduction and Shapiro for the cofinal open case and then the limit argument' (NSW (3.3.5)). That limit argument is the same colimit theorem, but no ProfiniteCohomology layer states it, and its all-degree colimit (Layer 10) runs over finite quotients G ⧸ U, not over open subgroups above a closed H. ProfiniteProPGroups Layer 6 imports cd_p_le_of_isClosed, so the supplier cannot take the theorem from Layer 6 without a cycle. As written the theorem is proved twice, or used before it is stated.",
+      "recommendation": "rescope",
+      "proposal": "Add to ProfiniteCohomology Layer 10, beside continuousFiniteQuotientColimit, a named all-degree theorem: for profinite G, closed H ≤ G and discrete M, Hⁿ(H, M) is the filtered colimit over open U ⊇ H of Hⁿ(U, M) along restriction. Cite it in Layer 11's proof of cd_p_le_of_isClosed. ProfiniteProPGroups Layer 6's cd_p_eq_of_isProPSylow then imports it with corestriction_comp_res and cd_p_eq_of_index_not_dvd, and proves only the Sylow-specific steps: indices prime to p for open U ⊇ G_p, injectivity of restriction, and Shapiro for G_p."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-13-the-evens-norm",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations"
+      ],
+      "detail": "Both roadmaps build the trivial mod-p coefficient object on the canonical carrier, and its multiplication pairing. ProfiniteProPGroups Layer 5 defines trivialFp p G, the trivial 𝔽_p-representation with carrier ULift (ZMod p), as an object of ProfiniteCohomology.TopRep (ZMod p) G, and fpPairing p G, multiplication as a TopPairing. ProfiniteCohomology lifts 𝔽₂ for the Evens norm (§3: 'trivialF2 carries ULift (ZMod 2)'). QuadraticFormInvariants' contract table takes trivialF2, trivialF2_isSmoothDiscrete and f2Pairing from ProfiniteCohomology Layer 13, as an object of TopRep ℤ G_K with multiplication as a TopPairing. At p = 2 these are two constructions of one object, in two coefficient categories (TopRep ℤ and TopRep (ZMod p)). No restriction-of-scalars comparison between the two cohomologies is stated, although ProfiniteProPGroups Layer 6 combines ProfiniteCohomology.cd_p, over ℤ-coefficient cohomology, with 𝔽_p-tests on cohomFp.",
+      "recommendation": "rescope",
+      "proposal": "Build the trivial 𝔽_p object and its multiplication TopPairing once, for every prime p, in ProfiniteCohomology Layer 12 next to TopPairing and ofDiscreteModulePairing. Give it smooth-discreteness and the restriction-of-scalars comparison between its TopRep ℤ and TopRep (ZMod p) cohomology. Define trivialF2 and f2Pairing as the p = 2 instances that Layer 13 and QuadraticFormInvariants 7A consume. ProfiniteProPGroups Layer 5 then imports the object and the pairing, keeps cohomFp and cupFp as abbreviations over them, and states Layer 6's 𝔽_p-test through the comparison."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem"
+      ],
+      "detail": "Both stages construct p-adic powers in pro-p groups. ProfiniteProPGroups Layer 4 defines ℤ_p-exponentiation a^λ only on abelian pro-p groups, as an inverse limit over finite quotients, and proves freeProP p (Fin 1) ≅ Multiplicative ℤ_[p] by the universal property. BelyiMaps Layer 12 (milestone 12.3) defines the ℤ_ℓ-power x ^[ℓ] u on an arbitrary pro-ℓ group, factoring through maximalProPQuotient_zHat_equiv_padicInt, proves the same laws, and names ProfiniteArithmetic as the generic owner. ProfiniteProPGroups defers only the ẑ-power and its ℤ_ℓ comparison to ProfiniteArithmetic. Its Layers 8–9 still write the even-rank q = 2 Demushkin relator in the nonabelian free pro-2 group with a 2-adic exponent, x₁^{2+α} with α ∈ 4ℤ₂, and give no construction of that power. So the ℤ_p-power on pro-p groups is planned twice, for abelian groups here and for all pro-ℓ groups in BelyiMaps, while the stages that most need it name no supplier.",
+      "recommendation": "rescope",
+      "proposal": "Add a milestone to ProfiniteProPGroups Layer 4 defining x^λ for x in any pro-p group G and λ ∈ ℤ_p. It is the image of λ under the continuous homomorphism Multiplicative ℤ_[p] ≅ freeProP p (Fin 1) → G that sends the generator to x. Prove x^{λ+μ} = x^λ x^μ, (x^λ)^μ = x^{λμ}, naturality under continuous homomorphisms, agreement with ℤ-powers, and agreement with Layer 4's abelian exponentiation. Layers 8–9 cite it for the normal-form relator demushkinWordTwoEven and its basis changes. BelyiMaps 12.3, and its generic owner ProfiniteArithmetic, import x ^[ℓ] u from here and keep only the comparison x ^ᶻ a = x ^[ℓ] (component_ℓ a)."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+        "PadicMeasuresIwasawaAlgebras:L1",
+        "PadicMeasuresIwasawaAlgebras:L5",
+        "NoncommutativeAndEquivariantIwasawa:NE.0"
+      ],
+      "detail": "Three roadmaps construct the completed group algebra as an inverse limit over open normal subgroups, and two of them also build its compact-module theory. ProfiniteProPGroups' Layer 9 prerequisites build completedGroupAlgebra p Γ = lim_U ℤ_p[Γ/U] for any profinite Γ, as a compact topological ℤ_p-algebra with proj, of and map. They add IsCompactModule with compactModule_limit_surjective (lifting compatible families along towers of compact modules) and the Λ-scalar action labuteSMul extending conjugation on Labute's module. PadicMeasuresIwasawaAlgebras L1 builds R[[G]] = lim (R/I^n)[G/U] for complete adic R, with functoriality, Dirac elements, density of the group algebra, and the universal property for continuous actions on complete separated linearly topologized modules. Its L5 proves exactness of compact inverse systems and topological Nakayama. NoncommutativeAndEquivariantIwasawa NE.0 cites PMIA L1 but again constructs O[[G]] as the inverse limit over open normal subgroups, with its topology and continuous module actions. At R = ℤ_p these are one ring built up to three times, and labuteSMul is an instance of PMIA L1's continuous-action universal property.",
+      "recommendation": "rescope",
+      "proposal": "Keep one carrier for ℤ_p coefficients. ProfiniteProPGroups keeps completedGroupAlgebra p Γ with proj, of, map, commutativity for abelian Γ, IsCompactModule and compactModule_limit_surjective, which is all Labute needs; being upstream, it takes none of this from a campaign roadmap. PadicMeasuresIwasawaAlgebras L1 defines R[[G]] for complete adic R and proves, as a named comparison, R[[G]] ≅ R ⊗̂_{ℤ_p} completedGroupAlgebra p G, which is the identity at R = ℤ_p. L1 states the continuous-action universal property so that labuteSMul is an instance of it, and L5 cites compactModule_limit_surjective as the base case of its exactness results. NoncommutativeAndEquivariantIwasawa NE.0 drops its separate inverse-limit construction of O[[G]] and keeps only the Lazard noetherian and module-finiteness theorems over PMIA L1's carrier."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+        "PadicMeasuresIwasawaAlgebras:L2",
+        "PadicMeasuresIwasawaAlgebras:L3",
+        "PadicMeasuresIwasawaAlgebras:L4"
+      ],
+      "detail": "Both roadmaps develop the one-variable coordinate on ℤ_p[[Γ]] and division in ℤ_p[[T]]. ProfiniteProPGroups' Layer 9 prerequisites prove the power-series coordinate ℤ_p[[T]] ≅ completedGroupAlgebra p Γ for Γ ≅ ℤ_p, with T ↦ γ − 1 and change of generator T ↦ (1+T)^u − 1. They prove convergent evaluation ψ(c) for v_p(c) ≥ 1, and the division criterion (T − c) ∣ ψ ⟺ ψ(c) = 0 ('the special case of Weierstrass division that Labute uses'). They also prove the dyadic branch ℤ₂[[C₂ × ℤ₂]] ≅ ℤ₂[C₂][[T]], insisting that C₂ × ℤ₂ is not procyclic. PadicMeasuresIwasawaAlgebras develops the same mathematics in greater generality. L2's Mahler–Amice isomorphism M(ℤ_p, O) ≅ O[[T]] gives O[[ℤ_p]] ≅ O[[T]] with [1] ↦ 1 + T. L3 proves the procyclic augmentation-ideal theorem, change of generator and evaluation at characters, and treats ℤ₂ˣ as {±1} × (1 + 4ℤ₂), not as a procyclic group. L4 proves Weierstrass division and preparation for O[[T]].",
+      "recommendation": "rescope",
+      "proposal": "Let PadicMeasuresIwasawaAlgebras specialize to ProfiniteProPGroups' named statements rather than re-prove them. PMIA L2 proves that its Mahler–Amice isomorphism at O = ℤ_p equals completedGroupAlgebra.powerSeriesCoordinate at γ = 1. PMIA L3 cites that coordinate's substitution formula for change of generator, and states its ℤ₂ˣ treatment through dyadicCoordinate at Γ = ℤ₂ˣ ≅ C₂ × ℤ₂. PMIA L4 derives powerSeries_sub_C_dvd_iff and powerSeriesEval as the linear case of Weierstrass division. ProfiniteProPGroups keeps its short elementary proofs, so the upstream Demushkin classification stays independent of the campaign roadmap, and PMIA records the identifications as comparison lemmas."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.4"
+      ],
+      "detail": "Both stages define finite embedding problems and their weak solutions. ProfiniteProPGroups Layer 5 (5.1–5.6) defines FiniteEmbeddingProblem for a profinite group G, a continuous surjection onto a finite Q together with a surjection E ↠ Q, and FiniteEmbeddingProblem.IsSolution, a solution that need not be surjective; it warns that solutions cannot be made surjective in general. It then reduces solvability with p-group kernels to elementary abelian kernels through the lower p-central filtration and H². InverseGaloisAndArithmeticFundamentalGroups IG.4 again defines 'weak and proper solutions of finite embedding problems' for absolute Galois groups. It decomposes Shafarevich's solvable realization theorem into abelian kernels and successive proper solutions. The carrier and the weak-solution predicate are the same definitions, and the abelian-kernel reduction is the same technique.",
+      "recommendation": "rescope",
+      "proposal": "IG.4 imports FiniteEmbeddingProblem and FiniteEmbeddingProblem.IsSolution from ProfiniteProPGroups Layer 5, at G the absolute Galois group, as its weak solutions. It defines only the proper-solution predicate (β surjective), the local constraints and the arithmetic realization steps. Wherever its kernels are p-groups it cites Layer 5's reductions (hasPGroupSolutions_of_hasElementaryAbelianSolutions and the H² criterion). ProfiniteProPGroups keeps the abstract definitions and criteria unchanged."
+    }
+  ],
+  "examined": [
+    {
+      "roadmapId": "AInfCohomology",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (profinite) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "AbelianSchemesAndArithmeticModuli",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (symplectic, weierstrass) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "AdditiveCombinatorics",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "AdelicAlgebraicGroups",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "AdicCoefficientsAndComparisons",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (o[[) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "AdicEtaleGeometry",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (profinite) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "AdicSpacesPartII",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "AlgebraicModularFormsAndSerreWeights",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (tame inertia) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+      "result": "none",
+      "note": "I read the whole short document. Profinite reconstruction and pro-unipotent completions of fundamental groups use no pro-p Sylow, free pro-p, presentation or cohomological-dimension result of this roadmap."
+    },
+    {
+      "roadmapId": "AnalyticNumberTheory",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "ArakelovGeometryAndAbelianHeights",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "ArithmeticDynamics",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisDuality",
+      "result": "none",
+      "note": "I read the README and R02.1–R02.4. The cohomological-dimension bounds for G_{F,S} and Hochschild–Serre extend ProfiniteCohomology, and Tate duality comes from ClassFieldTheory. No Sylow equality, pro-p presentation or Demushkin object from this roadmap is named or needed in the stated form."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisRepresentations",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "ArithmeticKTheory",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "ArithmeticLocallySymmetricSpaces",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (profinite) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "ArithmeticQuantumTopology",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "ArithmeticStatistics",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "AutomorphicBundles",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "AutomorphicCongruences",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (profinite) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "AutomorphicFormsOnReductiveGroups",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (profinite) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentations",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "AutomorphicPadicLFunctions",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (iwasawa algebra) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "AutomorphicSpectralTheory",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "BorelRegulators",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "BunGAndNewtonStrata",
+      "result": "none",
+      "note": "I screened the document. The single 'cohomological dimension' hit is a caution about stacks, with no use of this roadmap."
+    },
+    {
+      "roadmapId": "ClassicalAdicEtaleCohomology",
+      "result": "links",
+      "note": "I read H1, H1:valuation-nearby-cycles and H1:valuation-exports and screened the rest. The proof substep 'valuation-theoretic pro-p Sylow/tame comparison' uses the abstract pro-p Sylow theory: inferred link Layer 2 → H1:valuation-nearby-cycles. The rest concerns sheaves on adic spaces."
+    },
+    {
+      "roadmapId": "ClassicalArithmeticCompletion",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "ClassicalSerreModularity",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (residually) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "CohomologyComparisons",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "ColemanIntegration",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "ColemanPowerSeries",
+      "result": "links",
+      "note": "I read the whole document (L0–L4). It depends on ProfiniteProPGroups: link Layer 4 → L0, where the inverse limit of principal units becomes a compact ℤ_p-module. Its completed-group-ring action comes from R01 (PadicMeasuresIwasawaAlgebras). Its compactness arguments are generic topology, not a named export of this roadmap."
+    },
+    {
+      "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "CompletedCohomologyPartII",
+      "result": "none",
+      "note": "I read CC.0 and screened CC.1–CC.8. Its cofinal pro-p level towers and the noetherian O[[K₀]] of a compact p-adic analytic group rely on Lazard theory and on PadicMeasuresIwasawaAlgebras. They are not drawn from this roadmap's finite-rank or completed-group-algebra statements."
+    },
+    {
+      "roadmapId": "ComplexComparisonPartII",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (weierstrass) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "ComplexMultiplicationAndExplicitReciprocity",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "ComputationalNumberTheory",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "CrystallineCohomology",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+      "result": "none",
+      "note": "I screened the document. O[[X]] power-series rings and the 'bounded generator rank' of finite abelian groups Δ_N in patching are commutative algebra, not profinite generator rank."
+    },
+    {
+      "roadmapId": "DeligneWeightsAndPurity",
+      "result": "none",
+      "note": "I screened the document. 'Cohomological dimension' refers to étale cohomology of schemes, and 'symplectic' to monodromy groups."
+    },
+    {
+      "roadmapId": "DerivedDeRhamCohomology",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "DiamondEtaleCohomology",
+      "result": "links",
+      "note": "I read C8 in full and screened C0–C9. C8 imports 'Sylow/pro-p structure from ProfiniteProPGroups' for Galois-cohomological dimension bounds and the wild-inertia pro-p lemma: links Layer 2 → C8 and Layer 3 → C8. The Layer 6 Sylow equality is not named there and is not linked. Its Hochschild–Serre input comes from ArithmeticGaloisDuality."
+    },
+    {
+      "roadmapId": "DiamondSixOperations",
+      "result": "links",
+      "note": "I read S5 and the acceptance notes and screened S0–S6. ECD 24.2 for free actions of a profinite group 'of pro-order prime to ℓ', with its normalized Λ-valued Haar measure, uses the supernatural order and Lagrange of Layer 1: inferred link Layer 1 → S5. The statement that a pro-ℓ quotient cannot use prime-to-ℓ averaging is an acceptance test, not a use."
+    },
+    {
+      "roadmapId": "DiamondsAndVStacks",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (profinite) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "DiophantineApproximationAndTranscendence",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (weierstrass) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "DirichletPadicLFunctions",
+      "result": "none",
+      "note": "I read L1–L3. The measures and ℤ_p[[T]] calculus come from PadicMeasuresIwasawaAlgebras, and the Teichmüller decomposition and logarithm from LocalFieldsRamification (recorded in that packet). No object of this roadmap is used."
+    },
+    {
+      "roadmapId": "DrinfeldModulesAndTModules",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "EffectiveDiophantineMethods",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "EllipticCurveModularity",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (weierstrass) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "EllipticKTheory",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (weierstrass) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "EllipticRegulators",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "EnhancedDerivedSheaves",
+      "result": "none",
+      "note": "I screened the document. 'Finite and profinite coherent group actions' concern ∞-categorical homotopy fixed points and use no object of this roadmap."
+    },
+    {
+      "roadmapId": "EtaleDualityAndPerverseSheaves",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "EulerSystemsAndKolyvaginSystems",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (z_p[[) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "ExcursionOperatorsAndSpectralAction",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (profinite) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "ExponentialSumsAndCircleMethod",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "FarguesFontaineDiamonds",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "FiniteFieldsAndCharacterSums",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (schreier) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (tame inertia) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "FoundationsAndLibraryIntegration",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (profinite) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "FunctionFieldArithmetic",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (profinite, schreier) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "GL2ModularityLifting",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (residually) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "GeneralAlgebraicKTheory",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "GeneralizedHeegnerCycles",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "GeometricSatakeAndFusion",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+      "result": "none",
+      "note": "I screened the document. Symmetric and alternating forms occur in exact categories with duality (Grothendieck–Witt theory), not as the 𝔽_p normal forms of the Layer 9 prerequisites."
+    },
+    {
+      "roadmapId": "GlobalGaloisDeformations",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "GrossZagierAndArithmeticHeights",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "HabiroCohomologyFoundations",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (ℤ_p[[) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "HabiroCyclotomicCompletions",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "HabiroNahmSeries",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "HabiroNumberFields",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "HabiroRings",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (iwasawa algebra) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "HeckeStacksAndLocalShtukas",
+      "result": "none",
+      "note": "I screened HS0–HS4. 'Pro-p levels' and pro-p compact induction are p-adic-group vocabulary; no result of this roadmap is used."
+    },
+    {
+      "roadmapId": "HeegnerPointEulerSystems",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "HeightsRationalPointsAndObstructions",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+      "result": "none",
+      "note": "I screened the document. The cohomological dimension of higher local fields rests on ProfiniteCohomology and ClassFieldTheory, not on this roadmap."
+    },
+    {
+      "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (profinite, symplectic) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "HodgeTateAndCanonicalSubgroups",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "IgusaVarietiesAndTorsionConcentration",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (alternating form, profinite) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+      "result": "none",
+      "note": "I screened the document. Completed group algebras appear only through determinant laws; the 'residually' hits refer to residual representations."
+    },
+    {
+      "roadmapId": "IntegralIwasawaTheory",
+      "result": "links",
+      "note": "I read the whole document (I.1–I.10, L0–L4). It lists 'the completed-group-algebra portion of ProfiniteProPGroups' as a dependency: link from the Layer 9 prerequisites to I.1, which reuses the completed group algebra and proves generator-change formulas. The Λ-module algebra of L1–L3 is imported from PadicMeasuresIwasawaAlgebras. No other object of this roadmap is used; its maximal abelian pro-p extensions are field-theoretic constructions."
+    },
+    {
+      "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+      "result": "overlap",
+      "note": "I read the whole document (IG.0–IG.6). IG.4 again defines weak and proper solutions of finite embedding problems and uses abelian-kernel reductions, which overlaps Layer 5's FiniteEmbeddingProblem, IsSolution and kernel reductions (rescope). IG.0–IG.1 construct fundamental groups, inertia and tame quotients of schemes without Sylow theory from here; IG.3 and IG.6 consume BelyiMaps."
+    },
+    {
+      "roadmapId": "K2SymbolsBrauer",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "K3BlochGroups",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "KTheoryFiniteLocalFields",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "KTheoryLowDegrees",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "KatoEulerSystems",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "LanglandsParameterStacks",
+      "result": "none",
+      "note": "I screened LP0–LP7. Inertia, wild inertia and tame inertia with their topologies come from LocalFieldsRamification, and the continuous cohomology from ProfiniteCohomology. No object of this roadmap is used."
+    },
+    {
+      "roadmapId": "LefschetzPencilsAndVanishingCycles",
+      "result": "none",
+      "note": "I read LPV.1 and LPV.5. Tame/wild inertia and the tame character come from LocalFieldsRamification's ramification APIs. The 'topological generation' of LPV.5 concerns ℓ-adic monodromy groups, not this roadmap's generator rank."
+    },
+    {
+      "roadmapId": "LocalGaloisDeformationRings",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "LocallyAnalyticDistributions",
+      "result": "none",
+      "note": "I read L1 and L3 and screened the rest. The components of the character space of ℤ_pˣ and the 1 + 4ℤ₂ chart use the unit decomposition owned by LocalFieldsRamification Layer 1, not a result of this roadmap."
+    },
+    {
+      "roadmapId": "LogicAndDefinabilityInNumberTheory",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "MetaplecticAutomorphicForms",
+      "result": "none",
+      "note": "I screened the document. Symplectic spaces here assume characteristic not two and serve the Weil representation; there is no overlap with the 𝔽_p and characteristic-two bilinear-form normal forms of the Layer 9 prerequisites."
+    },
+    {
+      "roadmapId": "ModularCurvesPartII",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (weierstrass) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "ModularIwasawaMainConjectures",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (o[[) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "ModularSymbolsPadicLFunctions",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (o[[) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "ModularityAndLanglandsExtensions",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (symplectic) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "MotivesAndAlgebraicCycles",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "MotivicEtaleKTheory",
+      "result": "none",
+      "note": "I screened the document. Cohomological dimension enters through ProfiniteCohomology in Quillen–Lichtenbaum degree ranges; no object of this roadmap is used."
+    },
+    {
+      "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+      "result": "overlap",
+      "note": "I read the scope and NE.0–NE.2 and screened the rest. NE.0 cites PadicMeasuresIwasawaAlgebras L1 but again constructs O[[G]] as an inverse limit over open normal subgroups. It is included in the rescope overlap with the Layer 9 prerequisites and PadicMeasuresIwasawaAlgebras L1/L5. Its Ore localization and K₁ theory use no object of this roadmap."
+    },
+    {
+      "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+      "result": "none",
+      "note": "I read R21.1. Completed group algebras and Iwasawa algebras are consumed from PadicMeasuresIwasawaAlgebras and PadicFamilies, not from this roadmap."
+    },
+    {
+      "roadmapId": "OverconvergentAutomorphicForms",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (profinite) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "PELModuli",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "PadicFamilies",
+      "result": "none",
+      "note": "I read L0a. Profinite ordinary projectors on inverse-limit modules use no object of this roadmap."
+    },
+    {
+      "roadmapId": "PadicHodgeRegulators",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "PadicHodgeTheory",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (profinite) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "PadicLocalLanglandsForGL2Qp",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "PadicMeasuresIwasawaAlgebras",
+      "result": "links",
+      "note": "I read the whole document, L0–L6. It calls itself 'Analytic and algebraic Part II of ProfiniteProPGroups' and imports the profinite-group and inverse-limit APIs: link Layer 0 → L1. Overlaps (rescope): its completed group rings, continuous-action universal property and compact exactness (L1, L5) against the Layer 9 prerequisites; and its Mahler–Amice coordinate, procyclic generator change, ℤ₂ˣ treatment and Weierstrass division (L2–L4) against the power-series coordinate, dyadic branch and division criterion of the Layer 9 prerequisites."
+    },
+    {
+      "roadmapId": "PerfectoidQuotients",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "PerfectoidShimuraVarieties",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (profinite, symplectic) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "PerfectoidSpaces",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (profinite) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "PeriodsAndSpecialValues",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "Polylogarithms",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "PotentialAutomorphyInfrastructure",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (profinite) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "PotentialModularityAndCompatibleSystems",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (residually) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "PrismaticCohomology",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (z_p[[) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "ProbabilisticAndMetricNumberTheory",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "QSeriesPartitionsAndMockModularForms",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "RankZeroOneBSD",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (residually, weierstrass) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "ReductiveGroupsPartII",
+      "result": "links",
+      "note": "I read RG2.3 and screened the rest. 'Identify pro-p congruence subgroups' proves that congruence subgroups are pro-p as limits of finite p-groups: inferred link Layer 3 → RG2.3, the same use LocalFieldsRamification Layer 1 makes for U(K,1)."
+    },
+    {
+      "roadmapId": "RefinedTraceMethods",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "RelativeFarguesFontaine",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "SchemeAndStackFoundations",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "SchemeKTheoryOperations",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "SelmerIwasawaCohomology",
+      "result": "none",
+      "note": "I read the scope and dependency statement and screened L0–L4. It extends ProfiniteCohomology to compact coefficients and uses no object of this roadmap."
+    },
+    {
+      "roadmapId": "SerreWeightAndLevelOptimisation",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "ShimuraCompactifications",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "ShimuraData",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (symplectic) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "ShimuraVarieties",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "SieveMethodsAndPrimePatterns",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "SmoothRepresentationsOfLocalGroups",
+      "result": "links",
+      "note": "I read the scope and SR.0–SR.1 and screened SR.2–SR.6. SR.1 builds Hecke-algebra averaging under 'compact opens of invertible pro-order in A', with locally pro-p groups and p invertible as the principal application: inferred link Layer 1 → SR.1 (supernatural order, Lagrange, pro-p iff order supported at p). Its discrete-module dictionary comes from ProfiniteCohomology. Later stages only reuse SR.1's hypothesis."
+    },
+    {
+      "roadmapId": "SpecialValuesBirchTate",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "StableHomotopyKTheory",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "TorsionCohomologyInfrastructure",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (symplectic) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "TropicalAndBerkovichArithmetic",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "VStackSheavesAndLisseCategories",
+      "result": "none",
+      "note": "I read VS4–VS5 and screened the rest. 'Locally pro-p H' and 'pro-p open K' are hypotheses inherited from SmoothRepresentationsOfLocalGroups' compact induction, where the averaging use is linked (Layer 1 → SR.1). VS4–VS5 use no further result of this roadmap."
+    },
+    {
+      "roadmapId": "VectorBundlesAndIsocrystals",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (profinite) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "WeightsInEtaleCohomology",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (symplectic) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "WeilConjectures",
+      "result": "none",
+      "note": "I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:Completed/ContourIntegration",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:Completed/EffectiveBounds",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:Completed/IntegralLattices",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (weierstrass) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I screened the document. Its Weierstrass division and preparation are over a complete nonarchimedean field (Tate algebras), not the ℤ_p[[T]] division criterion of the Layer 9 prerequisites."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (schreier, weierstrass) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I screened the document; the only hit assigns continuous cohomology of profinite groups to ProfiniteCohomology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (symplectic) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+      "result": "links",
+      "note": "I read the scope, boundaries and supplier table, and Layers 12 and 13 in full, and screened Layers 0–11 and 14 for this roadmap's objects (no other hit). Layer 12 consumes this roadmap's Layer 0 (the completion's universal property), Layer 3 (the maximal pro-p quotient's universal property) and Layer 4 (zHat, maximalProPQuotient_zHat_equiv_padicInt, profiniteCompletion (FreeGroup (Fin 2))). Layer 13 consumes Layer 3 (proPKernel characteristic) and Layer 4 (freeProP ℓ (Fin 2)). Overlap (rescope): 12.3's ℤ_ℓ-power on pro-ℓ groups against Layer 4's abelian ℤ_p-exponentiation. BelyiMaps assigns the ẑ-ring, ẑ-powers and ContinuousOut to ProfiniteArithmetic, which is not an atlas roadmap, so they are not linked."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I screened the document. Mathlib's FreeGroup and PresentedGroup are used for sporadic groups; there are no profinite or pro-p presentations."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+      "result": "none",
+      "note": "I read the ownership and boundary sections and screened every layer. The document states that it has no dependency on pro-p group theory and places Demushkin structure outside its scope. Its Sylow arguments concern finite groups. Its exports go to LocalGaloisGroups, which is not an atlas roadmap. This roadmap in turn imports nothing from class field theory."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (symplectic) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the Galois-cohomology dependency passage and the Tate-module milestone. Continuous (and nonabelian) cohomology of profinite Galois groups is ProfiniteCohomology's material or a separate lane, and the Tate module is a free ℤ_ℓ-module of rank 2 over Mathlib. No object of this roadmap is used."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I screened the document; its hits are Mathlib's measure-theoretic IsProjectiveLimit."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I screened the document. Discrete Fuchsian group presentations and orbifold signatures use no pro-p one-relator or Demushkin theory."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I screened the document; it states no profinite completion, residual finiteness or finite-quotient determinacy."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the Layer 7 context: the profiniteness of C_K/D_K comes from ray-class quotients of the idele class group, not from quotients of a profinite group by this roadmap's Layer 0."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+      "result": "links",
+      "note": "I read Layer 5 in full and screened the rest. Its finite-exact-sequence formula for additive invariants and the finite-dimensional Euler–Poincaré theorem (HomologicalComplex.eulerChar_forgetFG_eq_homologyEulerChar is already in the Tau Ceti baseline) supply the finrank additivity used by Layer 6's two-term Euler formula. The link is inferred."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (symplectic) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I screened the document; its single hit is the alternating form of a polarization."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (weierstrass) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+      "result": "links",
+      "note": "I read the contract audit, Layers 1 and 4, and the dependency section. Its consumption of this roadmap is exactly IsProP (Layer 3 → its Layer 1), the Sylow interface (Layer 2 → its Layer 4) and freeProfiniteGroup/presentedProfiniteGroup (Layer 4 → its Layer 4). All three links, and the keep overlap of its Layer 1 with this roadmap's Layer 7 (ℤ₂ˣ and the logarithm), are already recorded in the LocalFieldsRamification link packet and are not duplicated. The audit says it uses no other declaration, and this roadmap imports no local field, so there is nothing further in either direction."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I screened the document. The hits are Lazard's classification of one-parameter formal groups and Weierstrass preparation over A[[Q]], neither related to this roadmap."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I screened the document; its 'cohomological dimension' remark concerns sheaf cohomology on Riemann surfaces."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the hit contexts: stabilizerHom_surjective_of_profinite is Mathlib, and D_v/I_v ≅ Ẑ is used as a fact about Galois groups. No object of this roadmap is used."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I screened the document; its hits (CD(K,N), IsProjectiveLimit) are unrelated notations."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the Sylow contexts: they are Mathlib's finite Sylow theory for transitive groups of degree 4 and 5, and wreath products. No profinite object of this roadmap is used."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "result": "links",
+      "note": "I read the whole document and all 14 stages. It is the named cohomology supplier (PC-<layer> in this roadmap), and its export contract names ProfiniteProPGroups as a consumer. Links into this roadmap's Layers 5, 6, 7 and 10 come from its Layers 0, 1, 2, 3, 5, 7, 8, 10, 11 and 12. Several of this roadmap's PC-labels do not match the supplier layers: transgression is Layer 5 (labelled PC-6), and shapiroIso is Layer 10 (labelled PC-7). Links follow the supplier's layers. Three overlaps (rescope): continuous sections (Layer 0 against Layer 5); the closed-subgroup colimit that Layer 11 uses without stating it (against Layer 6); and trivialF2/f2Pairing against trivialFp/fpPairing (Layer 13 against Layer 5). No reverse link: the document says it depends on no other roadmap except InductionRestriction. Boundary gaps are recorded in the handoff note: the p-primary torsion refinement that Layer 10 assigns to this roadmap has no milestone here, and degreeCast is missing from the export table."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+      "result": "none",
+      "note": "I read the contract tables and Layer 7A and screened the whole document. Its continuous cohomology comes from ProfiniteCohomology, including trivialF2 and f2Pairing (its table gives Layer 13), and it assumes Invertible (2 : K), so it has no characteristic-two bilinear forms. It uses no object of this roadmap. The trivialF2/trivialFp duplication is recorded as a ProfiniteCohomology overlap."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (symplectic) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (residually) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I screened the document. Burnside's pᵃqᵇ theorem and primitive central idempotents are finite-group character theory. The ℚ₂[C₂] idempotents of the Layer 9 prerequisites are too elementary to link."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I screened the document. Alternating forms define Sp_n over ℂ, not the 𝔽_p normal forms of the Layer 9 prerequisites."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and screened the document. Haar measure and Peter–Weyl for compact groups use no profinite or pro-p result of this roadmap."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I screened the document. Its p-groups are p-elementary subgroups of finite groups in Brauer induction, and its coinduction reaches this roadmap only through ProfiniteCohomology Layer 7."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (hom_cont, symplectic) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I screened the document. The alternating form on V is used for Brauer-algebra diagrams, not the 𝔽_p normal forms of the Layer 9 prerequisites."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I screened the document. Hyperbolic bases of quadratic spaces for spinors are not the alternating or characteristic-two normal forms of the Layer 9 prerequisites."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I screened the document; its hits are projective-dimension bounds on modules."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). The hits (weierstrass) are in other senses: they use no object of this roadmap and develop none."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I screened the document. Discrete fundamental groups and covering spaces use no profinite completion or free profinite group from here."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+      "result": "none",
+      "note": "Upstream Tau Ceti roadmap. I read the summary and stage titles and ran a keyword screen of the document and stage texts (profinite and pro-p groups, Sylow subgroups, supernatural order and index, Frattini quotient and generator rank, maximal pro-p quotient, free and presented profinite or pro-p groups, embedding problems, cohomological dimension, Demushkin groups, lower p-series, completed group algebras, ℤ_p-powers and ℤ_p-modules of abelian pro-p groups, bilinear forms over 𝔽_p). No object of this roadmap is used or developed there."
+    },
+    {
+      "roadmapId": "AnalyticHabiroStack",
+      "result": "none",
+      "note": "New roadmap. I read the document and all stages. No object of this roadmap is used or developed."
+    },
+    {
+      "roadmapId": "AnalyticStacks",
+      "result": "none",
+      "note": "New roadmap. I read the document and all stages. Its profinite sets appear only as Betti-stack test objects."
+    },
+    {
+      "roadmapId": "MordellLawrenceVenkatesh",
+      "result": "none",
+      "note": "New roadmap. I read the document and all stages. It uses Schreier's lemma for discrete groups (Mathlib) and symplectic bases in the homology monodromy lemmas, not this roadmap's profinite Schreier bound or bilinear forms over 𝔽_p."
+    },
+    {
+      "roadmapId": "QWittVectors",
+      "result": "none",
+      "note": "New roadmap. I read the document and all stages. Λ-rings here are λ-rings, 'not an Iwasawa algebra'; no object of this roadmap is used."
+    },
+    {
+      "roadmapId": "RingStacksAndTransmutation",
+      "result": "none",
+      "note": "New roadmap. I read the document and all stages. Profinite sets and ℤ_p[[q−1]] appear in other senses."
+    },
+    {
+      "roadmapId": "SolidAnalyticRings",
+      "result": "none",
+      "note": "New roadmap. I read the document and all stages. Light profinite sets are condensed-mathematics test objects, not profinite groups."
+    }
+  ]
+}
