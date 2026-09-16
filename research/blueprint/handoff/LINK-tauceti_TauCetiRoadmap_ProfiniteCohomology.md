@@ -27,7 +27,7 @@ The reading revision is `3bbae93d74134ee48575d60d889fc8e57f3ac7e9`. The pre-subm
 | `content/campaign/K2SymbolsBrauer/README.md` | `e8b0970fa595c2da1f644d23686b2ac259c8c8bb` |
 | `content/campaign/MotivicEtaleKTheory/README.md` | `f4a4331560fb9b94e715850a7d2e259a1a1270af` |
 
-The target's browser extract is `research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ProfiniteCohomology.json`, input blob `08de90904909708cf55e59fb1a6e431849af6390`. Its 14 full stage descriptions were read; it had no recorded touching `stageEdges` at the reading revision. This does not mean no other link packets mention it. The full atlas graph still needs the repository validator.
+The target's browser extract is `research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ProfiniteCohomology.json`, input blob `08de90904909708cf55e59fb1a6e431849af6390`. Its 14 full stage descriptions were read; it had no recorded touching `stageEdges` at the reading revision. This does not mean no other link packets mention it. The actual full-graph validation result is recorded in the addendum below.
 
 The baseline file, rechecked unchanged at submission, is blob `fdb00afdfae8e5728e070f310f5a880707764bc2`:
 
@@ -53,7 +53,7 @@ There are **12 directed links**, all from ProfiniteCohomology to campaign consum
 | MotivicEtaleKTheory M.1 | 9, 10 | finite Kummer and transfer comparison targets for realizations |
 | MotivicEtaleKTheory M.5c | 12 | the all-degree Galois-cohomology cup underlying multiplicative compatibility |
 
-No newly justified incoming link was established in this pass; this is not a claim that none exists. Each edge has one supplying and one consuming quotation; some quotations come from the owning roadmap's explicit API table or scope text, as the protocol permits. The quotes were checked against the accessed text, allowing whitespace normalization. The official checker must still establish the canonical-world quote/end-point and global-cycle checks. All links are conservatively labelled inferred rather than claiming both texts explicitly name the stage pairing.
+No newly justified incoming link was established in this pass; this is not a claim that none exists. Each edge has one supplying and one consuming quotation; some quotations come from the owning roadmap's explicit API table or scope text, as the protocol permits. The quotes were checked against the accessed text, allowing whitespace normalization. The official checker subsequently passed its canonical-world quote/end-point and global-cycle checks; see the addendum for the checked revision. All links are conservatively labelled inferred rather than claiming both texts explicitly name the stage pairing.
 
 The single overlap proposal concerns the smooth-discrete dictionary. Keep its profinite ownership in ProfiniteCohomology Layer 1, use it on compact opens in SR.0, and give SR.0 the locally profinite, A-linear, smooth-vector, sum, filtered-colimit and abelian-category extensions. The early abelian carrier must not acquire the late derived enhancement as a prerequisite. This is a proposed rescope of the shared interface, not a merge of the whole roadmaps or an edit of their texts.
 
@@ -135,3 +135,17 @@ The complete canonical atlas and other packet files are not mounted in this runt
 5. Run the official checker on the complete current world, inspect every warning and any cycle, and obtain independent mathematical review before acceptance. Only then may a complete status be justified.
 
 The submission remains awaiting continuation/review/integration. Do not mark the job done on the strength of this partial packet, do not silently release its claim while the submission is awaiting routing, and do not interpret a successful structural check as approval of the mathematical specifications.
+
+## Submission and validation addendum
+
+**Durable submission:** draft PR [#785](https://github.com/CBirkbeck/tauceti-explorer/pull/785), branch `cgp-0d677fbc2f21/link-profinite-cohomology`. The actual files were posted and independently fetched back; the first uploaded packet and handoff blobs exactly matched the locally parsed copies. Submission was announced on issue #25 in comment 5699660157. This remains a partial result, not a job-completion claim.
+
+**The full checker has now actually passed.** Workflow [35112557658](https://github.com/CBirkbeck/tauceti-explorer/actions/runs/35112557658), job `104849735254`, ran the official command printed above for the submitted packet. Its decoded log was read. At 2026-09-16 15:02:21 UTC it reported **12 links, 1 overlap, 11 examined; 0 error(s), 0 warning(s)**. It checked submission head `9de8354e7d05be11b48604caed89162ff99b1d77` in GitHub's synthetic test merge `e2ca46f4f194be1be4cc1b59291948a7e6ed29ec` against base `5fd9a4536478b9abffe59986d4a551397fc11cc9`; this synthetic test is not integration of the PR. The earlier pending-check text describes the pre-submission environment and is superseded by this observed result. No full validator was run locally.
+
+This follow-up records that result and clarifies that the M.5c product comparison is **mod ell**; M.5d owns the prime-power passage. No endpoint or quotation changed. The updated metadata/wording is subject to its own PR check; the run-specific latest result belongs in the PR/issue comment. A passing checker does not discharge the incomplete catalogue scan, the source-contract issues, or independent mathematical review.
+
+### Coordination flag: reused session identifier
+
+After submission, the job log exposed other branches bearing the same session identifier. A live issue search and the actual comments on [issue #22](https://github.com/CBirkbeck/tauceti-explorer/issues/22#issuecomment-5697549504) confirmed a separate accepted claim using `ChatGPT Pro — cgp-0d677fbc2f21` (claim 5697549504; acceptance 5697551437). **That claim was not made in this run.** The reason for the identifier reuse has not been established. Do not infer that it belongs to this run from the account or worker label alone.
+
+Identify this run by **issue #25, claim 5699145622, acceptance 5699147944, branch `cgp-0d677fbc2f21/link-profinite-cohomology`, and PR #785**. No claim or file belonging to #22 was released, modified or treated as owned here. New job acquisition stopped rather than risk further ambiguous ownership. The maintainer should disambiguate those worker records and route #25's partial submission for continuation/review. The submitted #25 claim is not released merely to become available.
