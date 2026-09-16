@@ -280,7 +280,7 @@ a claim of ownership; when the DWP packets are written they should become links.
 7. **Catalogue.** Kedlaya math/0110124v4 and both Baker–Payne–Rabinoff papers are not in
    `CATALOGUE.json`; the hashes above are confirmed and ready for registration.
 
-## REVIEW-EXT-05-EXT-02-review.md (reviewer still running; partial) — last written 2026-09-16 09:52
+## REVIEW-EXT-05-EXT-02-review.md (reviewer still running; partial) — last written 2026-09-16 10:04
 
 ### Supplier questions for the orchestrator — 1. EXT-05 / GeometricSatakeAndFusion.json
 
@@ -389,7 +389,16 @@ None. The four gaps (Weyl's invariant theory for the `Sp`-coinvariants; the SGA 
 formula and SGA 4 XVIII duality imports; Weil II 3.2.3 and 1.8.4; the OCR losses, now
 resolved) are accurate boundaries.
 
-## REVIEW-EXT-10-EXT-07-review.md (reviewer still running; partial) — last written 2026-09-16 09:49
+---
+
+### Unverifiable items / supplier questions — 13. EXT-02 / LefschetzPencilsAndVanishingCycles.json *(additional packet found in the job directory)*
+
+None. The packet's four gaps are accurate boundaries; the first was extended to record
+which pages have now been read from images and which still rest on the OCR.
+
+---
+
+## REVIEW-EXT-10-EXT-07-review.md (reviewer still running; partial) — last written 2026-09-16 10:00
 
 ### Questions for the orchestrator — 1. AlgebraicModularFormsAndSerreWeights.json (R15.1–R15.6)
 
@@ -442,6 +451,29 @@ resolved) are accurate boundaries.
 2. **G7 → AG2.7 edge.** Keep or drop it (restatement only).
 3. **Dominance-order source.** Obtain Chenevier, *Une application des variétés de Hecke des groupes
    unitaires*, §3.1. AG2.5 requires implementing that partial order.
+
+---
+
+### Questions for the orchestrator — 5. ClassicalSerreModularity.json (R26, R27, R33)
+
+1. **Duke version of [24].** Obtain the published Duke version of Khare's level-one paper, so that
+   KW I's corrected references (Theorem 5.1(3), Theorem 6.1(2)) can be checked.
+2. **Owner of the odd-ramification-index statement.** Assign "très ramifié mod 2 ⇒ not finite flat
+   over any K/Q₂ of odd ramification index" to `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5`
+   or R15.4. Both KW I and DP need it.
+3. **Two re-homes.** Decide whether to move the prime-estimate node to R27.2 and the Theorem 1.2
+   derivation to R27.4.
+4. **HANDOFF correction 5 (Annals §6.2 vs §5.2).** The reviewer confirms it: §5.2 is the numbering
+   of the preprint that Khare cites.
+
+---
+
+### Questions for the orchestrator — 6. CompletedCohomologyAndLocalGlobalCompatibility.json (R31.1–R31.6)
+
+1. **Placement of Theorem 1.2.6.** Move the mod p multiplicity node from R31.3 to R31.4 (or later),
+   since it depends on Theorem 6.2.13.
+2. **CC.2 and tame levels.** Should CC.2 or R31.1 own the colimit over tame levels and the
+   (5.1.1)-type identification for the modular tower?
 
 ## cohomology-comparisons-handoff.md — last written 2026-09-15 22:14
 
