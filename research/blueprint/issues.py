@@ -115,10 +115,43 @@ def body(job, jobs, roadmaps, stages):
 
 
 def title(job, roadmaps):
+    kind = KIND_TITLE.get(job["kind"], job["kind"])
+    jid = job["id"]
     rid = (job.get("roadmapIds") or [None])[0]
-    name = roadmaps[rid]["title"] if rid in roadmaps else (rid or job["id"])
-    part = f" — {job['scope'][0].split(':', 1)[-1].split('#')[-1][:40]}…" if job.get("scope") and job["id"].count("--") else ""
-    return f"[{KIND_TITLE.get(job['kind'], job['kind'])}] {name}{part}"[:240]
+    name = roadmaps[rid]["title"] if rid in roadmaps else None
+    part = ""
+    if job.get("scope") and "--" in jid:
+        first = job["scope"][0].split(":", 1)[-1].split("#")[-1]
+        part = f" (part from {first[:40]})"
+    special = {
+        "PLAN-HABIRO": "[Plan] Habiro rings and Habiro cohomology: roadmap structure",
+        "REV-PLAN-HABIRO": "[Review] Plan for Habiro rings and Habiro cohomology",
+        "DESIGN-LV": "[New roadmap] The Mordell conjecture after Lawrence and Venkatesh",
+        "DESIGN-ZAGIER": "[New roadmap] Zagier's conjecture via polylogarithms",
+        "REV-DESIGN-LV": "[Review] New roadmap: the Mordell conjecture after Lawrence and Venkatesh",
+        "REV-DESIGN-ZAGIER": "[Review] New roadmap: Zagier's conjecture via polylogarithms",
+    }
+    if jid in special:
+        return special[jid]
+    if job["kind"] == "classify":
+        count = len(job.get("roadmapIds") or [])
+        return f"[Classification] Batch {jid.split('-')[-1]}: subject classes and distance from Mathlib for {count} roadmaps"
+    if job["kind"] == "naming":
+        jobs_file = BP.parent / "expansion" / "naming" / "JOBS.json"
+        area = ""
+        if jobs_file.exists():
+            area = next((j.get("galaxy", "") for j in json.loads(jobs_file.read_text())["jobs"] if j["id"] == jid), "")
+        return f"[Planet names] {area or jid}"
+    if job["kind"] == "review":
+        target = (job.get("after") or [""])[0]
+        if target.startswith("LINK-"):
+            return f"[Review] Links: {name or rid}"
+        if target.startswith("ASM-"):
+            return f"[Review] Assembly: {name or rid}"
+        return f"[Review] Blueprint: {name or rid}{part}"
+    if job["kind"] == "link":
+        return f"[Links] {name or rid}"
+    return f"[{kind}] {name or rid or jid}{part}"[:240]
 
 
 def labels_for(job, roadmaps):
@@ -128,7 +161,7 @@ def labels_for(job, roadmaps):
     out = ["swarm", f"kind:{job['kind']}", f"priority:{job.get('priority', 9)}", f"state:{state}"]
     if job["id"] in LOCAL_ONLY:
         out.append("local-only")
-    if group:
+    if group and job["kind"] not in ("classify", "naming", "plan", "status"):
         out.append(f"area:{group}")
     return out
 
