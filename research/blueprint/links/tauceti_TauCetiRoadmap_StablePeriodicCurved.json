@@ -1,0 +1,259 @@
+{
+  "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+  "protocol": "links-v1",
+  "status": "partial",
+  "implementationStatus": "unchecked",
+  "summary": "Checked boundary-interface checkpoint: four incoming links (GrothendieckEulerForms Layer 0; DGAInfinity Layers 0, 1 and 5), one inferred outgoing additive-quotient link to QuiverRepresentations Layer 6, and three keep/separate ownership overlaps. All 60 upstream roadmap summaries/stage lists were screened, with full reading of the target and the two principal suppliers. This is not an exhaustive all-atlas dependency audit or an integration-ready completion claim; see remainingWork and the handoff.",
+  "provenance": {
+    "jobId": "LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
+    "issue": 68,
+    "worker": "ChatGPT Pro — cgp-6fac5ad10e2c",
+    "sessionId": "cgp-6fac5ad10e2c",
+    "repositoryRevision": "49f74b4d2bace99a76ceff4ac2199a3384c83c57",
+    "atlasBlobSha": "37f2add06983c206067d1104e0f40a839cc3961a",
+    "upstreamSnapshot": "faa5423b925964415cc926802ab206567719d3f4",
+    "baseline": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+    },
+    "sourceBlobShas": {
+      "StablePeriodicCurved": "4c8fea716a9152bbc236d375b750db09a5f1c9aa",
+      "DGAInfinity": "688b7ef618651aabfd2cd7627199129e03b763c1",
+      "GrothendieckEulerForms": "f508d231b5c9b0674a739b942906110e12d6b57e",
+      "RepresentationTheory/QuiverRepresentations": "35743b00b30bfc550d6820cfd1da8533b191bfc8",
+      "ZigzagPreprojective": "84f82584d432e1e54d3e1b40a0b8c387c474e092"
+    },
+    "verificationScope": "Verbatim source-roadmap passages and atlas endpoint identities. Baseline pins recorded only: no library declaration was asserted present or absent. Literature references in source roadmaps were read as bibliography, not independently verified.",
+    "submissionBaseRevision": "b82b494ac1b384423eacc1276c6716f15e186b6d",
+    "coordinationRecheck": "The comparison from the input revision to submission base lists no changes to data/atlas.json or the five quoted source READMEs. Updated browser instructions, link protocol and checker were read. New UniversalCovers and StandardDistributions link packets have no duplicate of the five proposed pairs. The new MordellLawrenceVenkatesh roadmap was screened at scope level.",
+    "relatedSubmission": {
+      "pullRequest": 463,
+      "worker": "ChatGPT Pro — cgp-0d58f52c658d",
+      "packetBlob": "19afc141d310a1fb36cc37abfae4134706e0f123",
+      "checked": "Read the submitted Zigzag packet. It already proposes StablePeriodicCurved Layer 0 -> ZigzagPreprojective Layer 2 for the generic Frobenius/self-injectivity interface. Do not duplicate that directed pair here; coordinate the kept generic/example overlap with that proposal. No reverse edge is proposed. This is a coordination check, not an independent review of PR #463."
+    }
+  },
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "target": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+      "confidence": "explicit",
+      "reason": "Import intrinsic Quillen exact structures, their admissible squares, opposites, and conflation-exact functors. StablePeriodicCurved then defines relative projective/injective predicates and its Frobenius condition; a bare ShortComplex exactness predicate is not this input. The explicit owner is named in the target README boundary, and GrothendieckEulerForms lists stable/periodic/curved theory as a consumer, not a prerequisite. Do not attribute construction of general exact-derived categories to this supplier.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+          "quote": "An `ExactStructure C` is an isomorphism-closed class of these pairs with\n  the self-dual Bühler axioms E0/E0op, E1/E1op, and E2/E2op.",
+          "sourcePath": "content/tau-ceti/GrothendieckEulerForms/README.md",
+          "locator": "Layer 0, Exact structures; lines 186–194"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+          "quote": "Consume the dependency roadmap's exact structure and define:",
+          "sourcePath": "content/tau-ceti/StablePeriodicCurved/README.md",
+          "locator": "Layer 0; lines 177–185"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+          "quote": "This roadmap consumes the genuine Quillen exact structures, exact functors, relative\nprojective/injective objects, and Grothendieck-group conventions of\n[Grothendieck groups, Cartan maps, and Euler forms](../GrothendieckEulerForms/README.md).",
+          "sourcePath": "content/tau-ceti/StablePeriodicCurved/README.md",
+          "locator": "Boundary and dependencies; lines 25–54"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+          "quote": "The DG/A-infinity, stable/periodic/curved, hopfological, zigzag/preprojective, and McKay subjects\nare separate roadmap areas that consume this one.  No declaration from those areas is a\nprerequisite here.",
+          "sourcePath": "content/tau-ceti/GrothendieckEulerForms/README.md",
+          "locator": "Ordering and cross-roadmap dependencies; lines 603–613"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/DGAInfinity#layer-0-signed-graded-multilinear-and-tensor-coalgebra-infrastructure",
+      "target": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-5-curved-dg-algebras-modules-and-duplexes",
+      "confidence": "inferred",
+      "reason": "Use the existing integer-graded carrier, homogeneous maps, opposite/shift conventions and Koszul calculus when defining curved graded algebras. This imports graded infrastructure, not an assertion that the curved differential is square-zero. StablePeriodicCurved owns the new right-curvature equations and their sign proofs. The consumer explicitly names DGAInfinity, but reciprocal naming was not established in the supplier text; confidence is conservatively inferred under the protocol’s two-sided naming rule.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-0-signed-graded-multilinear-and-tensor-coalgebra-infrastructure",
+          "quote": "Package `ℤ`-graded modules both as Mathlib graded objects and, when multiplication is easier on a\n  total module, as an internal direct-sum grading.",
+          "sourcePath": "content/tau-ceti/DGAInfinity/README.md",
+          "locator": "Layer 0, first bullet; lines 261–267"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-5-curved-dg-algebras-modules-and-duplexes",
+          "quote": "Extend the DG/A-infinity roadmap's graded-algebra representation.",
+          "sourcePath": "content/tau-ceti/StablePeriodicCurved/README.md",
+          "locator": "Layer 5, opening; lines 411–421"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules",
+      "target": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-5-curved-dg-algebras-modules-and-duplexes",
+      "confidence": "inferred",
+      "reason": "The category of modules with fixed common curvature is a genuine DG category because its Hom differential is square-zero. Reuse DGAInfinity’s enriched DG-category, closed-map and H0 interfaces for that output. Curved modules themselves are not ordinary DG modules when curvature is nonzero; cancellation in Hom, opposite curvature and tensor-curvature conditions are additional proofs owned by the consumer. The exact layer-level match is inferred from the two constructions.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules",
+          "quote": "Define DG categories as categories enriched in cochain complexes of `k`-modules.  Build the\n  underlying graded category, `Z⁰` category of closed degree-zero maps, and `H⁰` homotopy category;",
+          "sourcePath": "content/tau-ceti/DGAInfinity/README.md",
+          "locator": "Layer 1, DG categories; lines 297–304"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-5-curved-dg-algebras-modules-and-duplexes",
+          "quote": "For modules of the same curvature, the graded Hom differential squares to zero. Build the DG\ncategory of curved modules, its closed degree-zero category, shift, cone, and homotopy category.",
+          "sourcePath": "content/tau-ceti/StablePeriodicCurved/README.md",
+          "locator": "Layer 5; lines 434–439"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/DGAInfinity#layer-5-derived-modules-twisted-complexes-and-perfect-envelopes",
+      "target": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-4-compression-periodic-resolutions-and-relative-projectives",
+      "confidence": "inferred",
+      "reason": "Import pretr and its finite shifts, sums, twisted objects and cones for the DG-orbit/periodic-derived hull comparison. For the consumer’s finite-dimensional algebra of finite global dimension, the hull is generated under shifts and cones before idempotent completion. Use tria rather than silently replacing it by Perf or a Karoubi envelope; the additive orbit category, compression, gradability and comparison theorem remain in StablePeriodicCurved. The consumer explicitly names DGAInfinity, but reciprocal naming was not established in the supplier text; confidence is conservatively inferred under the protocol’s two-sided naming rule.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-5-derived-modules-twisted-complexes-and-perfect-envelopes",
+          "quote": "Construct the pretriangulated envelope `pretr(C)`, prove the Yoneda embedding into modules is\n  quasi-fully faithful, and identify its image with finite semi-free modules.",
+          "sourcePath": "content/tau-ceti/DGAInfinity/README.md",
+          "locator": "Layer 5; lines 451–455"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-4-compression-periodic-resolutions-and-relative-projectives",
+          "quote": "the comparison between that DG\nhull, built with the pretriangulated envelope of the\n[DG and A-infinity roadmap](../DGAInfinity/README.md), and `D_n(mod-Λ)` is a target in the DG\nroadmap's vocabulary, and it is stated without a `KaroubiEnvelope`.",
+          "sourcePath": "content/tau-ceti/StablePeriodicCurved/README.md",
+          "locator": "Layer 4, orbit category and hull; lines 373–382"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-6-auslander-reiten-theory",
+      "confidence": "inferred",
+      "reason": "Reuse the general additive quotient by the ideal of maps factoring through projectives to formulate the transpose/stable-equivalence sublayer 6C and the subsequent DTr construction. Use the injective ideal on the dual side, with explicit opposite/handedness adapters. QuiverRepresentations assumes a finite-dimensional bound-quiver algebra over an algebraically closed field, not a self-injective algebra. Consequently this link consumes the arbitrary-ideal part of Layer 0 only: it does not import a Frobenius condition, Happel triangulation or a claim that every stable module category is triangulated. Reviewer should confirm this proposed API ownership split.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+          "quote": "For a class `P` of objects, define the ideal generated by maps `X → Q → Y` with `P(Q)`. The\ndefinition is its additive closure, so no closure-under-biproduct assumption is needed merely to\nform the quotient.",
+          "sourcePath": "content/tau-ceti/StablePeriodicCurved/README.md",
+          "locator": "Layer 0; lines 172–176"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-6-auslander-reiten-theory",
+          "quote": "it is well-defined only up to projectives, through minimal presentations and duality on\nfinite-dimensional modules, so 6B-6D are prerequisites.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/QuiverRepresentations/README.md",
+          "locator": "Layer 6, opening paragraph; lines 385–396"
+        }
+      ]
+    }
+  ],
+  "overlaps": [
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+        "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-2-bases-dimensions-centers-and-symmetric-frobenius-traces"
+      ],
+      "detail": "Both specify finite-dimensional Frobenius/symmetric-functional structures and self-injectivity. StablePeriodicCurved is the general functional/right-dual interface; ZigzagPreprojective computes the trace on a specific path-algebra quotient, over every field. The target boundary calls zigzag traces examples, not prerequisites for the general construction.",
+      "recommendation": "keep",
+      "proposal": "Keep the roadmaps separate. Coordinate one general Frobenius-functional predicate and its symmetric refinement with explicit left/right opposite adapters. Zigzag owns basis nondegeneracy, low-rank exceptions and trace calculations; StablePeriodicCurved owns generic module/stable machinery. Do not add both generic-to-example and example-to-generic stage edges, or make generic exact categories depend on zigzag calculations. Concurrent PR #463 already proposes the generic Layer 0 -> Zigzag Layer 2 dependency (packet blob 19afc141d310a1fb36cc37abfae4134706e0f123); reuse that proposal rather than emit a duplicate edge. This overlap documents the generic/example boundary and does not oppose that narrow reuse route."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities",
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups"
+      ],
+      "detail": "Both use bounded derived categories, but the supplier only handles the stated abelian bounded-complex/K0 comparisons and explicitly excludes constructing the derived category of a general Quillen exact category. StablePeriodicCurved Layer 2 needs the latter for the Keller–Vossieck comparison.",
+      "recommendation": "keep",
+      "proposal": "Retain general exact-acyclic localization, D^b(E) and its quotient comparison in StablePeriodicCurved Layer 2. Reuse exact structures from GrothendieckEulerForms Layer 0 and any applicable abelian localization baseline, without presenting GrothendieckEulerForms Layer 2 as a supplier of D^b(E). No unrestricted replacement by K^b(E)/K^b(P), and no reverse dependency in the foundational roadmap."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-6-curved-acyclicity-and-derived-categories-of-the-second-kind",
+        "tauceti:TauCetiRoadmap/DGAInfinity#layer-11-relative-quadratic-and-derived-koszul-duality"
+      ],
+      "detail": "Second-kind derived-category language occurs in both. StablePeriodicCurved constructs absolute/co/contra closures and comparison functors for curved right modules, with an abstract triangulated closure tool. DGAInfinity Layer 11 requests derived/coderived Koszul equivalences under conilpotence, boundedness and duality hypotheses; its coalgebraic carriers are not automatically the same module category.",
+      "recommendation": "keep",
+      "proposal": "Coordinate and reuse the abstract closure/localization tool where its hypotheses fit, but retain the respective module and coalgebra instantiations and equivalence proofs. Before adding a directed edge, specify a common carrier, the generating totalizations, required products or coproducts, and the handedness adapter. Do not substitute the curved graded-global-dimension comparison for a conilpotent Koszul-duality theorem."
+    }
+  ],
+  "examined": [
+    {"roadmapId":"tauceti:Completed/ContourIntegration","result":"none","note":"Complex integration and residues, not categorical stable quotients.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:Completed/EffectiveBounds","result":"none","note":"Effective arithmetic/Diophantine bounds, not periodic homological algebra.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:Completed/IntegralLattices","result":"none","note":"Integral quadratic lattices and genera, not module-category Frobenius structures.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:Completed/OrthogonalL2Bases","result":"none","note":"Hilbert-space bases, not enriched homological categories.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/AdicSpaces","result":"none","note":"Adic geometry; no exact stable quotient identified in the scope screen.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCodingTheory","result":"none","note":"Codes and finite-field linear algebra; no matching construction identified.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCurves","result":"none","note":"Curve/function-field geometry, not module singularity categories in this screen.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicTopology","result":"none","note":"Topological homology and homotopy; no exact-category stable quotient identified.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/AnalyticToricGeometry","result":"none","note":"Analytic toric geometry, not curved DG modules.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries","result":"none","note":"Arithmetic Dirichlet series, not DG categorical invariants.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/BelyiMaps","result":"none","note":"Branched covers/dessins; its Frobenius product-one formula is unrelated to Frobenius exact categories.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/CFSGStatement","result":"none","note":"Finite simple group carriers and classification statements, not stable module machinery.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/Chebotarev","result":"none","note":"Frobenius elements/density are not Frobenius exact-category structures.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ClassFieldTheory","result":"none","note":"Reciprocity and group cohomology; a generic stable-module dependency was not established by this screen.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer","result":"none","note":"Combinatorial Floer complexes; the word stable is not evidence of an ideal-quotient dependency. Detailed algebra-lane follow-up remains.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ConformalMapping","result":"none","note":"Complex analysis and conformal maps, not curved algebra.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/DenseGraphLimits","result":"none","note":"Graphons and exchangeability, not graph-indexed Frobenius algebras.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/EllipticCurves","result":"none","note":"Elliptic-curve arithmetic, not periodic module resolutions.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/Exchangeability","result":"none","note":"Probability symmetries, not categorical exact structures.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/FuchsianOrbifolds","result":"none","note":"Fuchsian groups and Riemann surfaces; no matching categorical supplier identified.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/GeometricTopology","result":"none","note":"Manifold/knot foundations, not algebraic singularity categories.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/GlobalNumberFields","result":"none","note":"Global arithmetic and adeles, not stable categories.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms","result":"none","note":"Local-global quadratic forms, not a curvature-potential construction.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/HeegaardFloer","result":"none","note":"Analytic Floer theory; a curved/Fukaya-category interface was not established. Far-horizon substage follow-up remains.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/HodgeStructures","result":"none","note":"Hodge structures and strictness, not the exact quotient required here.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/HopfRinow","result":"none","note":"Riemannian curvature is not curved differential algebra.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/JacobianChallenge","result":"none","note":"Jacobians, Picard and curve cohomology; no matching categorical quotient found in this screen.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/LocalFieldsRamification","result":"none","note":"Ramification/Frobenius terminology is unrelated to Frobenius exact categories.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ModularCurves","result":"none","note":"Moduli of elliptic curves and level structures, not periodic module categories.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ModularForms","result":"none","note":"Hecke/newform theory and modular curves, not curved homotopy categories.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/Multiquadratic","result":"none","note":"Multiquadratic extensions and genus theory, not homological quotients.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/NumberFieldArithmetic","result":"none","note":"Arithmetic field invariants, not module-category homological algebra.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/OneParameterSemigroups","result":"none","note":"Operator semigroups, not additive ideal quotients.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/OptimalTransport","result":"none","note":"Transport/metric analysis, not Frobenius module categories.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/PDE","result":"none","note":"Analytic differential operators are not curved module differentials in the required sense.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups","result":"none","note":"Polynomial Galois groups, not a DG algebra supplier.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteCohomology","result":"none","note":"Continuous cochain/group cohomology, not automatically complete or periodic projective resolutions. Deeper cohomology-interface search remains.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteProPGroups","result":"none","note":"Pro-p group structure and presentations, not stable-module quotient machinery.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants","result":"none","note":"Witt/Brauer invariants; no matrix-factorization input established by the screen.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ReductiveGroups","result":"none","note":"Algebraic groups; no stable exact-category input identified.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory","result":"none","note":"Family index, with no stages of its own; use specific subroadmap endpoints.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa","result":"none","note":"Faithful Lie representations and enveloping quotients, not additive categorical quotients.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory","result":"none","note":"Character tables/Frobenius indicators, not Frobenius algebra functionals as specified here.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups","result":"none","note":"Highest weights and tensor representations, not DG periodic categories.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups","result":"none","note":"Peter–Weyl and compact representations, not stable module quotients.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction","result":"none","note":"Mackey/Clifford theory; Frobenius reciprocity alone does not supply the target exact-category machinery.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups","result":"none","note":"Lie correspondence and geometric Frobenius theorem, not Frobenius exact categories.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight","result":"none","note":"Highest-weight representations, not the required stable quotient.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems","result":"none","note":"Root systems/Coxeter combinatorics; no generic homological input identified.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl","result":"none","note":"Specht modules and Schur–Weyl duality, not the required quotient construction.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras","result":"none","note":"Semisimple algebra structure does not by itself identify the nonsemisimple self-injective stable theory.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations","result":"none","note":"Clifford Bott periodicity is not a periodic-complex or matrix-factorization dependency without an explicit comparison.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/StableReduction","result":"none","note":"Stable curves/maps are not stable exact categories.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/StandardDistributions","result":"none","note":"Probability distributions, not homological categories.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/UniversalCovers","result":"none","note":"Topological universal covers and homotopy, not the target quotient.","readScope":"atlas-summary-and-stage-list-only"},
+    {"roadmapId":"tauceti:TauCetiRoadmap/StablePeriodicCurved","result":"links","note":"Target README read throughout, including all nine layers, conventions, acceptance examples and reference list; nine-stage input/output audit retained in the handoff. This is source-text analysis, not verification of the cited literature or Lean implementations."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/DGAInfinity","result":"links","note":"README read throughout. Layers 0, 1 and 5 supply the three proposed incoming links; Layer 11 has a kept second-kind-category overlap. Layer 7 enhanced quotients are not confused with the target ideal quotient."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/GrothendieckEulerForms","result":"links","note":"README read throughout. Layer 0 supplies exact structures. Layer 2 explicitly excludes the general exact-derived construction; kept ownership boundary. Shared dual-number examples do not justify reversing the foundational dependency."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations","result":"links","note":"Atlas scope and stage list screened; full Layer 6 read at lines 385–419. Proposed outgoing Layer 0 additive-quotient reuse is inferred, not an existing author-confirmed contract. Other quiver layers were not audited in full."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ZigzagPreprojective","result":"overlap","note":"Scope/conventions and trace/projective/preprojective/Koszul passages read at lines 1–95 and 270–351. Shared symmetric-Frobenius interface retained as an overlap; full remaining roadmap audit is outstanding."},
+    {"roadmapId":"EnhancedDerivedSheaves","result":"none","note":"Campaign keyword search read the E5 abstract stable/monoidal carrier passage. Its enhanced infinity-categorical carrier is not supplied by an ordinary Frobenius stable quotient; this was not a full roadmap audit."},
+    {"roadmapId":"StableHomotopyKTheory","result":"none","note":"Campaign keyword search read canonical ownership of higher/stable categories from EnhancedDerivedSheaves and construction of spectra here. No spectra-supplier link is proposed from StablePeriodicCurved; full roadmap audit outstanding."},
+    {"roadmapId":"RefinedTraceMethods","result":"none","note":"Campaign keyword search read RT.5 localizing motives and enhanced small stable categories. A triangulated category is not that enhanced input; full roadmap audit outstanding."},
+    {"roadmapId":"MordellLawrenceVenkatesh","result":"none","note":"New roadmap at submission base b82b494ac1b384423eacc1276c6716f15e186b6d. Scope, conventions, layer table, prerequisite list and an LV.0 excerpt read. Its crystalline/semilinear Frobenius is not Frobenius exact-category structure. No matching stable/periodic/curved interface identified within this scope screen; not a full-stage audit."}
+  ],
+  "remainingWork": [
+    "Complete the issue’s exhaustive all-atlas input/output synonym and notation search, including stage descriptions, not only upstream scope screens. In particular deepen the Floer, group/Tate-cohomology, algebraic K-theory and enhanced-category boundary searches before declaring completeness.",
+    "Run the repository check_links.py against the complete atlas and all current link/new-roadmap packets; full-world duplicate and cycle validation has not run in the browser execution sandbox. Recheck concurrent packets at integration time. Include the related PR #463 when reconciling the generic Frobenius supplier edge; it is not duplicated in this packet.",
+    "Obtain independent review of the inferred QuiverRepresentations 6C quotient ownership and its projective/injective, handedness and opposite adapters. Do not install a Frobenius hypothesis on an arbitrary finite-dimensional algebra.",
+    "Resolve the future Hopfological consumer to an actual stage ID when a supplying packet exists. The target document names it but this search did not find a linkable endpoint; its null-system and tensor compatibility remain separate mathematics.",
+    "Coordinate the three kept overlaps without blanket roadmap merges: exact-derived ownership, generic-versus-zigzag Frobenius interfaces, and module-versus-coalgebra second-kind categories."
+  ],
+  "validation": {
+    "local": "PASS: Python JSON parse; links-v1 field shapes; five unique cross-roadmap links with paired evidence shape; three overlaps; 64 unique examined IDs; packet-only acyclicity. Custom scratch check_checkpoint.py, not the repository validator. Source quotations were checked manually against pinned connector reads, not by this script.",
+    "fullRepository": "Not run locally: full atlas was accessible through the GitHub connector, but could not be downloaded into the execution sandbox. PR CI and maintainer validation remain pending.",
+    "mathematical": "Source-contract reasoning only; independent mathematical review pending.",
+    "checkerAtSubmissionBase": "88135efe5a74ef82e088f3fa3189893e27a7867a; read, not run locally against the full world."
+  },
+  "coverageNote": "An examined result of none means no justified link was identified within its stated reading scope; it is not a proof of absence. Scope-only screens are not full-document or full-stage reviews. Four incoming boundary links and one outgoing link are proposed, not an exhaustive dependency closure."
+}
