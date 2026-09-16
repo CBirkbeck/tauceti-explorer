@@ -1,0 +1,50 @@
+{
+ "K3BlochGroups:V.3/pre-bloch-group": {
+  "job": "BP-K3BlochGroups",
+  "statement": "The pre-Bloch group P(F) of a field F: the free abelian group on F \\ {0,1} modulo the five-term relations, with the convention for the degenerate symbols recorded."
+ },
+ "K3BlochGroups:V.3/bloch-group": {
+  "job": "BP-K3BlochGroups",
+  "statement": "The Bloch group B(F): the kernel of P(F) → ∧²(F^×) (with the source's convention on 2-torsion or tensoring), [x] ↦ x ∧ (1 − x)."
+ },
+ "K3BlochGroups:V.3/five-term-relation": {
+  "job": "BP-K3BlochGroups",
+  "statement": "The five-term relation in P(F), in the source's normalisation."
+ },
+ "K3BlochGroups:V.3/bloch-wigner-dilogarithm": {
+  "job": "BP-K3BlochGroups",
+  "statement": "The Bloch–Wigner function D: P¹(C) → R, D(z) = Im Li₂(z) + arg(1 − z) log|z|, real-analytic off {0, 1, ∞} and continuous on P¹(C)."
+ },
+ "K3BlochGroups:V.3/bloch-wigner-five-term": {
+  "job": "BP-K3BlochGroups",
+  "statement": "D satisfies the five-term relation, hence induces a homomorphism P(C) → R."
+ },
+ "K3BlochGroups:V.4/suslin-exact-sequence": {
+  "job": "BP-K3BlochGroups",
+  "statement": "Suslin's exact sequence 0 → Tor(F^×, F^×)~ → K_3^ind(F) → B(F) → 0 for infinite fields, in the source's precise form."
+ },
+ "Polylogarithms:P.1/classical-polylogarithm": {
+  "job": "BP-Polylogarithms",
+  "statement": "The classical polylogarithm Li_n(z) = Σ z^k / k^n for |z| < 1 and its analytic continuation."
+ },
+ "Polylogarithms:P.1/single-valued-polylogarithm": {
+  "job": "BP-Polylogarithms",
+  "statement": "Zagier's single-valued polylogarithm P_n (or L_n), real-analytic on P¹(C) minus {0, 1, ∞}."
+ },
+ "Polylogarithms:P.4/higher-bloch-group": {
+  "job": "BP-Polylogarithms",
+  "statement": "Zagier's higher Bloch groups B_n(F) defined via functional equations of polylogarithms, with the convention recorded."
+ },
+ "Polylogarithms:P.3/polylogarithmic-complex": {
+  "job": "BP-Polylogarithms",
+  "statement": "Goncharov's polylogarithmic complexes Γ(F, n) for n ≤ 3 and the groups B_n(F) they use."
+ },
+ "BorelRegulators:R.4/borel-regulator": {
+  "job": "BP-BorelRegulators--R.3",
+  "statement": "The Borel regulator K_{2n−1}(O_F) → R^{d_n}, with its normalisation."
+ },
+ "BorelRegulators:R.3/borel-rank-theorem": {
+  "job": "BP-BorelRegulators--R.1",
+  "statement": "Borel's theorem: the rank of K_{2n−1}(O_F) is r₁ + r₂ (n odd, n > 1) or r₂ (n even)."
+ }
+}
