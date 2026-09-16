@@ -6,16 +6,16 @@ Roadmaps: `EffectiveDiophantineMethods`, `FaltingsFinitenessAndIsogenyTheorems`,
 `InverseGaloisAndArithmeticFundamentalGroups`, `NeronModelsAndSemistableAbelianVarieties`,
 `tauceti:TauCetiRoadmap/JacobianChallenge`.
 
-Status: **in progress**. The first run stopped on a request timeout after writing the Faltings
-packet. A continuation run (16 September 2026) is working through the remaining six roadmaps in
-this order:
+Status: **all seven packets written; every packet is `partial`**. The first run stopped on a
+request timeout after writing the Faltings packet. A continuation run (16 September 2026) wrote
+the remaining six roadmaps in this order:
 
 1. `FiniteFlatGroupsAndIntegralPadicHodgeTheory` — **done**
 2. `EffectiveDiophantineMethods` — **done**
 3. `HeightsRationalPointsAndObstructions` — **done**
 4. `InverseGaloisAndArithmeticFundamentalGroups` — **done**
 5. `NeronModelsAndSemistableAbelianVarieties` — **done**
-6. `tauceti:TauCetiRoadmap/JacobianChallenge`
+6. `tauceti:TauCetiRoadmap/JacobianChallenge` — **done**
 
 This file is updated after every packet. Every packet has `status: partial`, and every node is
 `implementationStatus: unchecked`.
@@ -30,6 +30,7 @@ This file is updated after every packet. Every packet has `status: partial`, and
 | `HeightsRationalPointsAndObstructions.json` | HeightsRationalPointsAndObstructions | 59 | 107 | 11 | 7 stages, all `partial` | continuation run; validated; two library sources (Silverman AEC, Faltings 1983) and four public copies (Poonen, Zhang 1998, Ullmo, Szpiro–Ullmo–Zhang) |
 | `InverseGaloisAndArithmeticFundamentalGroups.json` | InverseGaloisAndArithmeticFundamentalGroups | 27 | 44 | 8 | 7 stages, all `partial` | continuation run; validated; all excerpts matched against source text; five public sources (SGA 1, Dèbes lecture notes, NSW electronic edition, Romagny–Wewers, Dèbes 2026) |
 | `NeronModelsAndSemistableAbelianVarieties.json` | NeronModelsAndSemistableAbelianVarieties | 24 | 43 | 7 | 6 stages, all `partial` | continuation run; validated; every excerpt matched against source text (SGA 7 I against a local OCR pass); library sources SGA 7 I Exp. IX, SGA 7 II Exp. XV, Silverman AEC and Poonen, plus four public copies (Romagny 2011, Lichtenstein, Conrad 2015, Raynaud 1970) |
+| `tauceti_TauCetiRoadmap_JacobianChallenge.json` | tauceti:TauCetiRoadmap/JacobianChallenge | 29 | 55 | 9 | 6 stages, all `partial` | continuation run; validated; every excerpt matched against source text; none of the roadmap's named books is in the library, so it uses public copies: six Stacks Project chapters, Milne's *Abelian Varieties* notes, Kleiman's *The Picard scheme*, plus the library Silverman |
 
 ## Validation notes on packets already written
 
@@ -57,6 +58,26 @@ This file is updated after every packet. Every packet has `status: partial`, and
     when e < p−1), LefschetzPencilsAndVanishingCycles LPV.1 → R11.3 (monodromy theorem) and
     LPV.2 → R11.4 (Picard–Lefschetz), and R11.3 → Faltings R28.3 (the reviewer-renamed node
     `reduction-to-a-principally-polarized-semiabelian-model`).
+* **JacobianChallenge packet, node IDs.** The atlas stage IDs of this tauceti roadmap use `#`
+  (`tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-…`). `scripts/decompositions.py` requires
+  node IDs to start with `<roadmapId>:`, so nodes are named
+  `tauceti:TauCetiRoadmap/JacobianChallenge:<layer anchor>/<slug>`, with `parentStageId` set to
+  the `#` stage ID.
+* **JacobianChallenge packet, new stage edges** (the atlas has no stage edges for this roadmap;
+  all acyclic):
+  * Internal: A → B, A → C, B → D, B → E, B → F, C → D, C → F, D → E, D → F, E → F, and
+    **C → B** (flat base change for the genus, against the roadmap order). Three further
+    reversals are recorded as a gap and not linked, because they would create cycles.
+  * External suppliers: SchemeAndStackFoundations SF.1 → Layers C and D (fppf/fpqc descent).
+  * External consumers:
+    * Layer B → SF.3 and → AlgebraicCurves Layer 12;
+    * Layer D → SF.3 and → the R11.4 Raynaud node;
+    * Layer E → AbelianSchemesAndArithmeticModuli A6, → FiniteFlatGroups R07.2, → WeilConjectures
+      WC.5, and → EtaleDualityAndPerverseSheaves EDC.2:trace-purity. The last two refine the
+      atlas edges from `UPSTREAM:JacobianChallenge`.
+* **Dry-run merge.** `merge_decompositions` from `scripts/decompositions.py` was run in memory on
+  all seven EXT-07 packets, with placeholder reviews and nothing written. It accepts them together:
+  287 nodes, no deferred links, and no cycle in the merged stage graph.
 
 ## Sources read in the continuation run
 
@@ -74,7 +95,7 @@ Library-relative paths; nothing was copied into the repository.
 | `bruin-stoll-mordell-weil-sieve` | Bruin–Stoll, *The Mordell–Weil sieve*, arXiv:0906.1934v2 (LMS JCM 13, 2010) | **not in library**; arXiv | 33f88cbd…ffe1485d38122667a88cd9a5f88d842cd43dd | §§1–4 (pp. 1–21); §§5–8 not read |
 | `tzanakis-de-weger-practical-thue` | Tzanakis–de Weger, *On the practical solution of the Thue equation*, J. Number Theory 31 (1989) 99–132 | **not in library**; https://ris.utwente.nl/ws/files/6560439/Tzanakis89on.pdf (institutional repository) | 2eff85fb…2c7b3 | §I, §II.1–II.3 (pp. 99–116), constants read on page images; §III and appendices not read |
 | `bdmtv-quadratic-chabauty-modular-curves` | Balakrishnan–Dogra–Müller–Tuitman–Vonk, *Quadratic Chabauty for modular curves: algorithms and examples*, arXiv:2101.01862v4 | **not in library**; arXiv | 738f0ec0…57c25f61d | §1, §2, §3 (3.1 statement, 3.4, 3.5 incl. Algorithm 3.12), §4 opening and §4.4 |
-| `silverman-arithmetic-of-elliptic-curves-2009` | Silverman, *The Arithmetic of Elliptic Curves*, 2nd ed., GTM 106 (2009) | library copy, catalogue `WEIL-PRIVATE-SILVERMAN2009` (user-supplied private copy, not redistributed; cited by DOI) | 72ee67bf…788cab25 | VIII.1–VIII.6, VIII.9, VIII.10 opening; IX intro, IX.1–IX.4; X.1; X.4. Relations read on page images, because the text layer drops ≠. For the Néron packet: VII notation (p. 185), VII.5–VII.7 |
+| `silverman-arithmetic-of-elliptic-curves-2009` | Silverman, *The Arithmetic of Elliptic Curves*, 2nd ed., GTM 106 (2009) | library copy, catalogue `WEIL-PRIVATE-SILVERMAN2009` (user-supplied private copy, not redistributed; cited by DOI) | 72ee67bf…788cab25 | VIII.1–VIII.6, VIII.9, VIII.10 opening; IX intro, IX.1–IX.4; X.1; X.4. Relations read on page images, because the text layer drops ≠. For the Néron packet: VII notation (p. 185), VII.5–VII.7. For the Jacobian packet: III.3.4 |
 | `poonen-rational-points-on-varieties` | Poonen, *Rational points on varieties*, AMS GSM 186 (2017) | **not in library**; https://math.mit.edu/~poonen/papers/Qpoints.pdf, the author's PDF (created 2018-12-18, watermarked "Unofficial version for incidental online use") | 42e92ce4…16887353579 | §5.7; Thms 5.12.24, 5.12.29; §6.5.7 with Thm 6.5.13; all of Ch. 8 and its exercises; §9.5 |
 | `faltings-1983-endlichkeitssaetze` | Faltings 1983 (same file as the Faltings packet) | `papers/ADD_FALTINGS83.pdf` | 0b7fb3e5…a8faa3fc2 | re-read for this packet: Lemma 4 (p. 357) and Satz 7 with Bemerkungen (p. 365), on page images |
 | `zhang-1998-equidistribution-small-points` | Zhang, *Equidistribution of small points on abelian varieties*, Ann. Math. 147 (1998) 159–165 | **not in library**; JSTOR scan linked from the author's publication list (https://web.math.princeton.edu/~shouwu/publications/bogomolov.pdf) | 023ecdf2…10931bfe2 | whole article, on page images |
@@ -91,6 +112,14 @@ Library-relative paths; nothing was copied into the repository.
 | `lichtenstein-neron-models-stanford-seminar` | Lichtenstein, *Néron models*, Stanford Mordell seminar notes (2011) | **not in library**; B. Conrad's seminar page http://virtualmath1.stanford.edu/~conrad/mordellsem/Notes/L11.pdf | 8ef7cac5…27ca9ebf | §§1.3–1.4, 2, 3.6, 4, 5 (Thm 5.2.1 with full proof), 6 (statements) |
 | `conrad-2015-neron-models-tamagawa-factors-sha` | Conrad, *Néron models, Tamagawa factors, and Tate–Shafarevich groups*, Stanford BSD seminar notes (2015) | **not in library**; author page https://virtualmath1.stanford.edu/~conrad/BSDseminar/Notes/L3.pdf | bc27aad2…2ce988e6 | §§1–4 (pp. 1–13); §§5–6 not read |
 | `raynaud-1970-specialisation-du-foncteur-de-picard` | Raynaud, *Spécialisation du foncteur de Picard*, Publ. Math. IHES 38 (1970) 27–76 | **not in library**; NUMDAM https://www.numdam.org/item/PMIHES_1970__38__27_0/ | fdba4b96…cf04cf92 | §8 (8.0–8.2.3, proofs of 8.1.2, 8.1.4, 8.2.1); §9.1–9.2 opening; §§5–7 not read |
+| `stacks-project-picard-schemes-of-curves` | Stacks Project, ch. 44 *Picard Schemes of Curves* (tag 0B92), version ed88ff78 (compiled 14 July 2026) | **not in library**; https://stacks.math.columbia.edu/download/pic.pdf (GFDL) | d2d67eba…31b27174 | whole chapter, §§1–7 with proofs |
+| `stacks-project-algebraic-curves` | Stacks Project, ch. 53 *Algebraic Curves* (tag 0BRV), same version | **not in library**; …/download/curves.pdf | c4e3d4c0…9f82c030 | §4 (4.1–4.6), §5 (5.1–5.2), 6.1 statement, §8 (8.1–8.4) |
+| `stacks-project-varieties` | Stacks Project, ch. 33 *Varieties* (tag 0209), same version | **not in library**; …/download/varieties.pdf | ed339c31…5f4bca45 | 9.3, 25.6, 26.2, 43.4–43.5 statements; §44 (44.1–44.17 with proofs) |
+| `stacks-project-divisors` | Stacks Project, ch. 31 *Divisors* (tag 01WO), same version | **not in library**; …/download/divisors.pdf | 0527740a…9f28a493 | §15 (15.1, 15.10–15.11), 16.1–16.2, §19 (19.1–19.4, 19.9), §§27–28 |
+| `stacks-project-cohomology-of-schemes` | Stacks Project, ch. 30 *Cohomology of Schemes* (tag 01X6), same version | **not in library**; …/download/coherent.pdf | b4980a08…bcbdbfb8 | 2.2, 2.6, 4.2, 5.2, 7.1, 17.1 statement, 19.1–19.2 |
+| `stacks-project-derived-categories-of-schemes` | Stacks Project, ch. 36 *Derived Categories of Schemes* (tag 08CU), same version | **not in library**; …/download/perfect.pdf | f79e0ebb…bf72fb02 | 30.4–30.7; §32 (32.1–32.7) |
+| `milne-2008-abelian-varieties-v2` | Milne, *Abelian Varieties*, course notes v2.00 (16 March 2008) | **not in library**; author page https://www.jmilne.org/math/CourseNotes/AV.pdf | f5ca4e63…67f6aaef | I §§1, 3, 4, 5 (cube statement only), 7, 8, 11; III §§1–6; signs in III.6 checked on page images |
+| `kleiman-2005-the-picard-scheme` | Kleiman, *The Picard scheme*, arXiv:math/0504020v1 (FGA Explained, AMS 2005) | **not in library**; arXiv | cc14e62f…5f3beeaa | §2 (2.2–2.11); 4.4, 4.7, Thm 4.8 statement; §5 (5.3–5.4, 5.10–5.15, 5.19–5.20) |
 
 Earlier-run sources (Faltings 1983 and erratum) are recorded in the Faltings packet.
 
@@ -288,6 +317,48 @@ Earlier-run sources (Faltings 1983 and erratum) are recorded in the Faltings pac
    * Component groups change under ramified base change even for semistable A (IX 3.3.2).
    * The level-lowering sequences and R29 comparisons have no source read.
 
+## Corrections and qualifications (tauceti:TauCetiRoadmap/JacobianChallenge)
+
+1. **Stacks tags in the README.**
+   * Tag 0B95 is Lemma 44.2.1 (Hilb^d is an fpqc sheaf); the chapter *Picard Schemes of Curves*
+     is 0B92.
+   * Tag 01WP is §31.1, the introduction; the chapter *Divisors* is 01WO.
+   * Tag 0B91 (Lemma 36.30.4, cohomology and base change) is correct.
+   * Tag 0D04 is Prop. 99.10.2: the Picard *stack* is algebraic for flat proper finitely presented
+     morphisms. It is not a Picard-functor statement.
+2. **Representability over a general field.**
+   * The Stacks chapter proves representability of Pic_{X/k} only for **separably closed** k
+     (6.5–6.7), although its introduction says "algebraically closed". The proof of 6.7 says
+     "(2)" where properness, part (1), is meant.
+   * For a field with a rational point, the sources give Milne III 1.6 with Galois descent
+     (1.13–1.14), which cites AG 16.23 and needs projectivity of abelian varieties via the cube.
+     The other route is Kleiman 4.8, whose Hilbert/Quot proof was not read.
+   * Milne works with functors on finite-type k-spaces, not on all k-schemes.
+3. **Layer A degree and Riemann–Roch.**
+   * With deg L := χ(L) − χ(O_X), the formula χ(L) = deg L + 1 − g is definitional once
+     h⁰(O_X) = 1.
+   * The content moves to three places: agreement with Σ[κ(x):k]·ord_x (a derived length
+     computation), deg ω = 2g − 2 (Curves 5.2, via Chow Homology 41.3), and Serre duality (via
+     Duality for Schemes).
+   * The Layer A definition also needs Layer B finiteness and Layer C flat base change.
+4. **Layer order.** Three proofs run against the roadmap's A → F order:
+   * degree (A) needs B and C;
+   * Milne's descent step (D) needs projectivity of abelian varieties (E);
+   * autoduality and the principal polarization (E) need the Abel–Jacobi map and Theorem III 5.1
+     (F).
+
+   These are recorded as a gap and not linked. The one reversal linked is C → B.
+5. **Unproved inputs in Milne's notes.**
+   * The theorem of the cube (I 5.1) has its proof "deferred … until the next version".
+   * The diagram in III 2.2 is "left as an exercise (unfortunately rather complicated)".
+   * III 1.4(b) (base change) and 1.4(e) (Jac = C in genus 1) are stated without proof.
+   * The rank of T_ℓA (I 7.3) and the structure of Ker p (I 7.4) are asserted.
+   * The PDF text layer drops minus signs in III.6. On the page images, Lemma 6.9 reads "−f^∨ and
+     φ_{L(Θ)} are inverse", and Summary 6.11 gives f^∨ = −φ_{L(Θ)}^{-1}.
+6. **Genus one.** Silverman III.3.4 identifies E(K̄) with Pic⁰(E_K̄) only as groups of points. The
+   scheme-level Jac(E, O) ≅ E and the reconciliation with Mathlib's class-group group law are
+   derived or open.
+
 ## Shared-supplier requests
 
 * **Duplicate Raynaud material in EXT-10.**
@@ -366,6 +437,23 @@ Earlier-run sources (Faltings 1983 and erratum) are recorded in the Faltings pac
   * **Source acquisitions:** BLR *Néron Models* (chapters 2–7) and Faltings–Chai (Raynaud
     extension, uniformisation).
 
+* **tauceti:TauCetiRoadmap/JacobianChallenge.**
+  * **SchemeAndStackFoundations SF.1** should export fppf descent of invertible modules with
+    rigidification (Stacks Descent 5.2) and effective descent of closed immersions (Descent 37.2).
+    It should also export Galois descent for quasi-projective schemes (Milne III 1.13).
+  * **Étale realization of the Jacobian**, H¹_et(X_k̄, Z_ℓ(1)) ≅ T_ℓJ and the Kummer sequence.
+    Consumers: WC.5, EDC.2:trace-purity, SF.3 and PadicHodgeTheory R06.5 ("general étale
+    realization is consumed from #196/JacobianChallenge"). The atlas has no owner decision; either
+    JacobianChallenge or the TraceFormula Layer 8 named in EDC.2 must own it.
+  * **Duplicate ownership of Riemann–Roch.** The function-field route in AlgebraicCurves (Layer 12
+    comparison contract) and TauCeti `FieldTheory/FunctionField/RiemannRoch` overlap with Layer B.
+    AlgebraicCurves 12E already names JacobianChallenge Layers A–B as the scheme side.
+  * **Generalized Jacobians** (Faltings Satz 7, NeronModels R11.4) are outside JacobianChallenge v1
+    (smooth proper curves). R11.4 or SF.3 must own them.
+  * **Source acquisitions:** Mumford, *Abelian Varieties* (catalogued as requested); Milne,
+    *Jacobian varieties* in Cornell–Silverman (1986); Kleiman's Appendix A; Stacks *Duality for
+    Schemes*, *Descent* and *Chow Homology* chapters (public).
+
 ## Unresolved cross-job dependencies
 
 * AlgebraicModuliForArithmeticGeometry **R09.3** (EXT-06), the only atlas prerequisite of R07.1.
@@ -420,10 +508,38 @@ Earlier-run sources (Faltings 1983 and erratum) are recorded in the Faltings pac
   edges), and R11.3 → the Faltings R28.3 node (new). The consumer packets for R35, HE, BSD, CM, R14,
   R20, R25 and GZ were not checked against the new node IDs.
 
+* tauceti:TauCetiRoadmap/JacobianChallenge links:
+  * Supplier: SchemeAndStackFoundations SF.1 (EXT-01) → Layers C and D.
+  * Consumers, each stage statement read in `data/atlas.json`:
+    * SF.3 (EXT-01);
+    * tauceti AlgebraicCurves Layer 12 (12E names JacobianChallenge Layers A–B);
+    * sibling NeronModels R11.4 Raynaud node;
+    * AbelianSchemesAndArithmeticModuli A6 ("field Hom/End API of JacobianChallenge");
+    * FiniteFlatGroups R07.2 ("field-valued abelian varieties are imported from
+      JacobianChallenge/R10");
+    * WeilConjectures WC.5 and EtaleDualityAndPerverseSheaves EDC.2:trace-purity, where the atlas
+      edge comes from `UPSTREAM:JacobianChallenge`.
+
+  Stages that name JacobianChallenge but got no link: GrossZagierAndArithmeticHeights GZ.2,
+  DeligneWeightsAndPurity DWP.1, PadicHodgeTheory R06.5 and SchemeKTheoryOperations S.7. Consumer
+  packets were not checked against the new node IDs.
+
 ## Next actions
 
-1. `tauceti:TauCetiRoadmap/JacobianChallenge` packet (next).
-2. Deferred NeronModels reading:
+1. Orchestrator decisions:
+   * Parshin construction duplication (Heights RP.4 against Faltings R28.5);
+   * layer-order conflicts in JacobianChallenge (A↔B/C, D↔E, E↔F);
+   * owner of the étale realization of the Jacobian;
+   * whether LPV.7:semistable-curves reuses the R11.4 nodes;
+   * independent review of the six continuation-run packets.
+2. Deferred JacobianChallenge reading:
+   * Stacks *Duality for Schemes* (§§3, 12, 15–16, 21–24), *Chow Homology* §41, *Descent* §§5–6
+     and 37, and *Derived Categories of Schemes* §§30–31;
+   * Kleiman §§3–4 and Appendix A;
+   * Milne AV I §§6, 8–9 and III §§7–9;
+   * Mumford, *Abelian Varieties*, once acquired;
+   * an étale-cohomology source for T_ℓJ ≅ H¹_et.
+3. Deferred NeronModels reading:
    * SGA 7 I Exp. I (monodromy theorem, with Deligne's appendix);
    * Exp. IX §§2 and 4–10 on page images (orthogonality, conductor, p-adic criterion, Raynaud
      extension, monodromy pairing, 10.4);
@@ -433,21 +549,21 @@ Earlier-run sources (Faltings 1983 and erratum) are recorded in the Faltings pac
    * Silverman, Advanced Topics IV;
    * Ribet 1990 §§2–3;
    * BLR and Faltings–Chai, once acquired.
-3. Deferred Heights reading:
+4. Deferred Heights reading:
    * Hindry–Silverman Parts B and D, once acquired;
    * Serre, *Lectures on the Mordell–Weil theorem*;
    * Poonen §§6.6–6.9 and §1.5.7;
    * Zhang 1995 (JAG) and Zhang 1993 (library `ZhangAdmissible`);
    * Corvaja–Zannier 2002;
    * Faltings 1991/1994.
-4. Deferred InverseGalois reading:
+5. Deferred InverseGalois reading:
    * Dèbes ch. 7 (Riemann existence) and §§2.5–2.6;
    * SGA 1 XIII §§2.1–2.10;
    * NSW 9.6.2–9.6.5, IX §5 and 9.3.2;
    * Romagny–Wewers §§4.3–4.5;
    * Dèbes–Douai 1997 (field of moduli counterexample);
    * the BelyiMaps successor stages.
-5. Deferred FiniteFlatGroups reading:
+6. Deferred FiniteFlatGroups reading:
    * Conrad 1999 pp. 10–20 (proof of Fontaine's Honda-system theorem);
    * `papers/SS_Kisin2.dvi` §2.2 (Cor. 2.2.6, via dvipdfmx);
    * `papers/SS_KisinSemistable.dvi` (descent data, potentially semistable case);
