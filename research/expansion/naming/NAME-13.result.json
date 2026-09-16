@@ -1,0 +1,436 @@
+[
+ {
+  "id": "DrinfeldModulesAndTModules:DM.0::landmark:ore-ring-l-tau-with-tau-a-a-q-tau-and-iden-14igglb",
+  "decision": "keep",
+  "label": "Ore rings and additive polynomials",
+  "kind": null
+ },
+ {
+  "id": "DrinfeldModulesAndTModules:DM.0::landmark:for-a-f-q-t-the-carlitz-module-t-theta-tau-15fx8d9",
+  "decision": "name",
+  "label": "Carlitz module t -> theta+tau",
+  "kind": null
+ },
+ {
+  "id": "DrinfeldModulesAndTModules:DM.1::landmark:ideal-torsion-and-prove-finite-flatness-of-1uts2va",
+  "decision": "name",
+  "label": "Ideal torsion, finite flatness and etaleness",
+  "kind": null
+ },
+ {
+  "id": "DrinfeldModulesAndTModules:DM.1::landmark:scheme-theoretic-kernel-with-separable-tor-1elkyl4",
+  "decision": "name",
+  "label": "Scheme-theoretic kernel and separable torsion",
+  "kind": null
+ },
+ {
+  "id": "DrinfeldModulesAndTModules:DM.2::landmark:over-the-completed-algebraic-closure-c-inf-qqz4yx",
+  "decision": "name",
+  "label": "Entire exponential and its A-lattice kernel",
+  "kind": null
+ },
+ {
+  "id": "DrinfeldModulesAndTModules:DM.2::landmark:carlitz-exponential-recurrence-and-period--19v4dk9",
+  "decision": "name",
+  "label": "Carlitz exponential and period lattice",
+  "kind": null
+ },
+ {
+  "id": "DrinfeldModulesAndTModules:DM.3::landmark:moduli-stack-and-sufficiently-fine-prime-t-cq0m4i",
+  "decision": "name",
+  "label": "Moduli stack and level schemes",
+  "kind": null
+ },
+ {
+  "id": "DrinfeldModulesAndTModules:DM.3::landmark:rank-one-and-rank-two-principal-level-test-16fkmun",
+  "decision": "name",
+  "label": "Rank one and rank-two principal level",
+  "kind": null
+ },
+ {
+  "id": "DrinfeldModulesAndTModules:DM.4::landmark:for-a-f-q-t-construct-an-anderson-t-module-1rle3fm",
+  "decision": "keep",
+  "label": "Anderson modules and motives",
+  "kind": null
+ },
+ {
+  "id": "DrinfeldModulesAndTModules:DM.4::landmark:carlitz-motive-and-its-tensor-powers-test--1b27anb",
+  "decision": "name",
+  "label": "Carlitz motive and its tensor powers",
+  "kind": null
+ },
+ {
+  "id": "DrinfeldModulesAndTModules:DM.5::landmark:for-drinfeld-modules-of-the-same-character-1jir2e8",
+  "decision": "name",
+  "label": "Tate theorem for Drinfeld modules",
+  "kind": "theorem"
+ },
+ {
+  "id": "DrinfeldModulesAndTModules:DM.5::landmark:finite-field-module-checks-the-frobenius-c-197faut",
+  "decision": "name",
+  "label": "Frobenius centralizer of a finite-field module",
+  "kind": null
+ },
+ {
+  "id": "DrinfeldModulesAndTModules:DM.6::landmark:for-taelman-s-integral-drinfeld-module-set-1lal8pp",
+  "decision": "name",
+  "label": "Taelman's class-number formula",
+  "kind": "theorem"
+ },
+ {
+  "id": "DrinfeldModulesAndTModules:DM.6::landmark:carlitz-module-must-recover-its-explicit-z-qn3qbf",
+  "decision": "name",
+  "label": "Explicit zeta value of the Carlitz module",
+  "kind": null
+ },
+ {
+  "id": "DrinfeldModulesAndTModules:DM.7::landmark:vector-bundle-chain-and-frobenius-modifica-fuk08u",
+  "decision": "name",
+  "label": "Vector-bundle chain and Frobenius modification",
+  "kind": null
+ },
+ {
+  "id": "DrinfeldModulesAndTModules:DM.7::landmark:rank-one-checks-frobenius-direction-and-pe-vx187e",
+  "decision": "name",
+  "label": "Frobenius direction and periodicity in rank one",
+  "kind": null
+ },
+ {
+  "id": "DrinfeldModulesAndTModules:DM.8::landmark:in-generic-characteristic-over-an-algebrai-l1irg3",
+  "decision": "name",
+  "label": "Frobenius-difference Galois group",
+  "kind": null
+ },
+ {
+  "id": "DrinfeldModulesAndTModules:DM.8::landmark:one-nonzero-logarithm-and-a-linearly-depen-ubn6o1",
+  "decision": "name",
+  "label": "Nonzero logarithm and linearly dependent pair",
+  "kind": null
+ },
+ {
+  "id": "FunctionFieldArithmetic:FA.0::landmark:normalization-of-a-projective-model-and-th-r7vf0h",
+  "decision": "name",
+  "label": "Function fields and smooth projective curves",
+  "kind": null
+ },
+ {
+  "id": "FunctionFieldArithmetic:FA.0::landmark:p-1-from-f-q-t-and-show-that-f-q-m-t-viewe-1ct428v",
+  "decision": "keep",
+  "label": "Rational curves and constant fields",
+  "kind": null
+ },
+ {
+  "id": "FunctionFieldArithmetic:FA.1::landmark:effective-divisors-degree-weighted-by-resi-4xtlvl",
+  "decision": "name",
+  "label": "Effective divisors, degree and spaces L(D)",
+  "kind": null
+ },
+ {
+  "id": "FunctionFieldArithmetic:FA.1::landmark:l-n-infinity-on-p-1-and-the-residue-theore-z3qfzy",
+  "decision": "keep",
+  "label": "Riemann–Roch and residues",
+  "kind": null
+ },
+ {
+  "id": "FunctionFieldArithmetic:FA.2::landmark:restricted-product-from-local-completions--1x0e0pl",
+  "decision": "name",
+  "label": "Additive adeles and the idele degree map",
+  "kind": null
+ },
+ {
+  "id": "FunctionFieldArithmetic:FA.2::landmark:on-f-q-t-check-the-annihilator-of-k-is-k-t-1if7e7q",
+  "decision": "name",
+  "label": "Annihilator of K and product formula on Fq(t)",
+  "kind": null
+ },
+ {
+  "id": "FunctionFieldArithmetic:FA.3::landmark:for-finite-separable-k-extensions-construc-rp1bnw",
+  "decision": "name",
+  "label": "Ramification of finite separable K extensions",
+  "kind": null
+ },
+ {
+  "id": "FunctionFieldArithmetic:FA.3::landmark:unramified-constant-extension-a-tame-kumme-1i6l77r",
+  "decision": "name",
+  "label": "Constant extension and Kummer cover",
+  "kind": null,
+  "orchestratorNote": "Formula dropped from the name on 16 September 2026: the builder accepts plain text only; wording otherwise the pilot reviewer's."
+ },
+ {
+  "id": "FunctionFieldArithmetic:FA.4::landmark:specialize-and-prove-the-local-reciprocity-1wypei",
+  "decision": "keep",
+  "label": "Function-field local reciprocity",
+  "kind": null
+ },
+ {
+  "id": "FunctionFieldArithmetic:FA.4::landmark:unramified-constant-extension-checks-the-f-124ab27",
+  "decision": "name",
+  "label": "Frobenius/degree sign for constant extensions",
+  "kind": null
+ },
+ {
+  "id": "FunctionFieldArithmetic:FA.5::landmark:euler-products-by-closed-point-degree-iden-5ur778",
+  "decision": "name",
+  "label": "Euler products and the curve zeta function",
+  "kind": null
+ },
+ {
+  "id": "FunctionFieldArithmetic:FA.5::landmark:constant-field-extension-must-give-zero-pr-fdwuj",
+  "decision": "name",
+  "label": "Constant-field extension and quadratic cover",
+  "kind": null
+ },
+ {
+  "id": "FunctionFieldArithmetic:FA.6::landmark:g-k-g-a-k-compact-level-functions-central--1ersgi8",
+  "decision": "keep",
+  "label": "Automorphic forms over function fields",
+  "kind": null
+ },
+ {
+  "id": "FunctionFieldArithmetic:FA.6::landmark:gl-1-reduces-to-class-field-theory-r27pp3",
+  "decision": "name",
+  "label": "GL1 class field theory and GL2 cusp space",
+  "kind": null
+ },
+ {
+  "id": "FunctionFieldArithmetic:FA.7::landmark:divisor-arithmetic-ray-characters-conducto-bh0aay",
+  "decision": "name",
+  "label": "Divisor arithmetic, conductors and L-polynomials",
+  "kind": null
+ },
+ {
+  "id": "FunctionFieldArithmetic:FA.7::landmark:work-out-f-q-t-one-hyperelliptic-curve-wit-1fy7b76",
+  "decision": "keep",
+  "label": "Explicit function-field zeta computations",
+  "kind": null
+ },
+ {
+  "id": "GlobalShtukasAndFunctionFieldLanglands:GS.0::landmark:bun-g-on-the-global-curve-for-the-chosen-s-4lvx61",
+  "decision": "name",
+  "label": "BunG and its Harder–Narasimhan bounded opens",
+  "kind": null
+ },
+ {
+  "id": "GlobalShtukasAndFunctionFieldLanglands:GS.0::landmark:gl-1-gives-the-picard-stack-with-all-degre-v8xp67",
+  "decision": "keep",
+  "label": "The Picard stack by degree",
+  "kind": null
+ },
+ {
+  "id": "GlobalShtukasAndFunctionFieldLanglands:GS.1::landmark:beilinson-drinfeld-grassmannian-over-power-109bbj4",
+  "decision": "name",
+  "label": "Beilinson–Drinfeld Grassmannian and Hecke stacks",
+  "kind": null
+ },
+ {
+  "id": "GlobalShtukasAndFunctionFieldLanglands:GS.1::landmark:torus-and-the-gl-2-minuscule-orbit-test-we-buykds",
+  "decision": "name",
+  "label": "Torus and GL2 minuscule orbit",
+  "kind": null
+ },
+ {
+  "id": "GlobalShtukasAndFunctionFieldLanglands:GS.2::landmark:multi-leg-global-shtuka-as-successive-modi-xx7lwi",
+  "decision": "name",
+  "label": "Multi-leg global shtuka",
+  "kind": "definition"
+ },
+ {
+  "id": "GlobalShtukasAndFunctionFieldLanglands:GS.2::landmark:rank-one-shtuka-over-a-finite-field-checks-1we8c3s",
+  "decision": "name",
+  "label": "Rank-one shtuka over a finite field",
+  "kind": null
+ },
+ {
+  "id": "GlobalShtukasAndFunctionFieldLanglands:GS.3::landmark:compactly-supported-intersection-cohomolog-1gmah2r",
+  "decision": "name",
+  "label": "Intersection cohomology on bounded truncations",
+  "kind": null
+ },
+ {
+  "id": "GlobalShtukasAndFunctionFieldLanglands:GS.3::landmark:at-the-trivial-representation-and-no-legs--1lnzna3",
+  "decision": "name",
+  "label": "Cusp-form space at the trivial representation",
+  "kind": null
+ },
+ {
+  "id": "GlobalShtukasAndFunctionFieldLanglands:GS.4::landmark:drinfeld-s-lemma-in-the-exact-lisse-finite-9mf7za",
+  "decision": "name",
+  "label": "Drinfeld lemma in the lisse/finite-rank setting",
+  "kind": "theorem"
+ },
+ {
+  "id": "GlobalShtukasAndFunctionFieldLanglands:GS.4::landmark:one-leg-recovers-the-usual-action-1miw7dh",
+  "decision": "name",
+  "label": "One leg and the diagonal two-leg specialization",
+  "kind": null
+ },
+ {
+  "id": "GlobalShtukasAndFunctionFieldLanglands:GS.5::landmark:excursion-operators-indexed-by-invariant-f-1aswkfw",
+  "decision": "name",
+  "label": "Excursion operators and L-group parameters",
+  "kind": null
+ },
+ {
+  "id": "GlobalShtukasAndFunctionFieldLanglands:GS.5::landmark:gl-1-agrees-with-fa-4-and-unramified-gl-n--iqyzlk",
+  "decision": "name",
+  "label": "GL1 and unramified GLn parameters",
+  "kind": null
+ },
+ {
+  "id": "GlobalShtukasAndFunctionFieldLanglands:GS.6::landmark:laurent-lafforgue-s-independent-gl-n-route-trdw0k",
+  "decision": "keep",
+  "label": "Lafforgue’s global Langlands correspondence",
+  "kind": null
+ },
+ {
+  "id": "GlobalShtukasAndFunctionFieldLanglands:GS.6::landmark:n-1-recovers-reciprocity-and-n-2-the-drinf-1xnmhw6",
+  "decision": "keep",
+  "label": "Reciprocity and rank-two Langlands",
+  "kind": null
+ },
+ {
+  "id": "GlobalShtukasAndFunctionFieldLanglands:GS.7::landmark:at-a-chosen-place-compare-restriction-of-t-csffd9",
+  "decision": "name",
+  "label": "Local–global compatibility at a chosen place",
+  "kind": null
+ },
+ {
+  "id": "GlobalShtukasAndFunctionFieldLanglands:GS.7::landmark:unramified-place-a-ramified-gl-2-place-and-139ntzv",
+  "decision": "name",
+  "label": "Unramified place and ramified GL2 place",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0::landmark:n-local-field-by-its-complete-discrete-val-8e7uer",
+  "decision": "name",
+  "label": "n-local field and its residue tower",
+  "kind": "definition"
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0::landmark:work-out-fq-u-t-and-qp-t-with-two-valuatio-1f4t0a6",
+  "decision": "name",
+  "label": "Fq((u))((t)) and Qp((t))",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0::landmark:known-conjectural-boundary-oltdif",
+  "decision": "name",
+  "label": "Higher topology and joint continuity",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1::landmark:unit-symbol-tensor-quotient-to-all-milnor--1f4tkny",
+  "decision": "name",
+  "label": "Boundary maps and iterated residues with signs",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1::landmark:iterated-residue-of-a-symbol-with-uniformi-1t3cwge",
+  "decision": "name",
+  "label": "Iterated residue of a symbol with uniformizers",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1::landmark:known-conjectural-boundary-oltdif",
+  "decision": "name",
+  "label": "Algebraic and topological Milnor groups",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2::landmark:continuous-cohomology-and-invariant-maps-w-hximdt",
+  "decision": "name",
+  "label": "Invariant maps and finite-coefficient duality",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2::landmark:ordinary-local-duality-at-n-1-and-compute--slat4f",
+  "decision": "keep",
+  "label": "Ordinary local duality",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2::landmark:known-conjectural-boundary-oltdif",
+  "decision": "name",
+  "label": "Nondegeneracy and topological perfectness",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3::landmark:reciprocity-homomorphism-from-the-appropri-nuovpz",
+  "decision": "name",
+  "label": "Reciprocity homomorphism from the Milnor K-group",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3::landmark:for-n-1-recover-the-chosen-arithmetic-geom-waw0h9",
+  "decision": "name",
+  "label": "Frobenius convention and norm subgroup index",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3::landmark:known-conjectural-boundary-oltdif",
+  "decision": "name",
+  "label": "Dense reciprocity image, kernel and completion",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.4::landmark:higher-tame-symbols-witt-residue-pairings--1a4m9km",
+  "decision": "name",
+  "label": "Higher tame symbols and Witt/residue pairings",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.4::landmark:evaluate-a-tame-k2-symbol-and-an-artin-sch-1b2ov4o",
+  "decision": "name",
+  "label": "Tame K2 symbol and Artin–Schreier–Witt example",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.4::landmark:known-conjectural-boundary-oltdif",
+  "decision": "name",
+  "label": "Exceptional ramification hypotheses",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5::landmark:flags-of-points-successive-henselization-c-vs3mlh",
+  "decision": "name",
+  "label": "Flags, henselization and restricted products",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5::landmark:ordinary-ideles-for-a-curve-and-list-the-f-1piqi7z",
+  "decision": "name",
+  "label": "Ideles of a curve and flags of a regular surface",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5::landmark:known-conjectural-boundary-oltdif",
+  "decision": "name",
+  "label": "Multiple branches along a flag",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6::landmark:assemble-reciprocity-maps-for-arithmetic-s-1kza37s",
+  "decision": "name",
+  "label": "Reciprocity maps for arithmetic schemes",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6::landmark:known-conjectural-boundary-oltdif",
+  "decision": "name",
+  "label": "Restrictions on local–global exactness",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.7::landmark:explicit-residue-reciprocity-maps-to-braue-v603ug",
+  "decision": "name",
+  "label": "Residue/reciprocity maps and Brauer obstructions",
+  "kind": null
+ },
+ {
+  "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.7::landmark:known-conjectural-boundary-oltdif",
+  "decision": "procedural",
+  "label": null,
+  "kind": null,
+  "reason": "Methodological caveat from the layer's Known/conjectural boundary section (an analogy is a design guide, not evidence); it names no mathematical object, statement or construction"
+ }
+]

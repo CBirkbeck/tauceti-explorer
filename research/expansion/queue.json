@@ -329,12 +329,13 @@
       "title": "Cohomology comparisons: integral diagrams and rational period realizations",
       "group": "cohomology",
       "stageCount": 7,
-      "state": "draft_needs_review",
+      "state": "integrated_partial",
       "packet": "research/expansion/drafts/CohomologyComparisons.json",
       "assignment": "integral-cohomology",
-      "reviewNote": "Draft written by R3 on 15 September 2026 from BMS1 §§3–4, 13–14 (20 nodes, 49 links, 12 gaps); handoff in research/expansion/reviews/cohomology-comparisons-handoff.md. Not independently reviewed; not promoted.",
       "draftNodes": 20,
-      "draftLinks": 49
+      "draftLinks": 49,
+      "promoted": "data/decompositions/CohomologyComparisons.json",
+      "note": "Internal draft independently reviewed (REVIEW-COHCMP, 16 September 2026: 7 nodes verified, 13 corrected, accepted) and promoted the same day. Coverage remains partial; five decisions for the orchestrator are recorded in research/expansion/DECISIONS.md."
     },
     {
       "id": "ColemanIntegration",
