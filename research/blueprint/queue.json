@@ -38552,10 +38552,11 @@
    "prompt": "research/blueprint/prompts/AUDIT-01.md",
    "timeout": 21600,
    "state": "running",
-   "account": "claude2",
-   "lane": 2,
-   "startedAt": "2026-09-16T16:55:00Z",
-   "attempts": 1
+   "account": "claude6",
+   "lane": 1,
+   "startedAt": "2026-09-16T17:22:07Z",
+   "attempts": 1,
+   "note": "released after a usage limit on claude2/2 at 2026-09-16T17:21:06Z"
   },
   {
    "id": "REV-AUDIT-01",
@@ -38599,11 +38600,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-02.md",
    "timeout": 21600,
-   "state": "running",
+   "state": "done",
    "account": "claude6",
    "lane": 1,
    "startedAt": "2026-09-16T16:55:02Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-16T17:22:07Z",
+   "seconds": 1625,
+   "result": {
+    "layers": 37,
+    "audited": 37
+   },
+   "note": ""
   },
   {
    "id": "REV-AUDIT-02",
@@ -38699,11 +38707,12 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-04.md",
    "timeout": 21600,
-   "state": "running",
-   "account": "claude",
+   "state": "pending",
+   "account": null,
    "lane": 1,
    "startedAt": "2026-09-16T16:58:57Z",
-   "attempts": 1
+   "attempts": 0,
+   "note": "released after a usage limit on claude/1 at 2026-09-16T17:15:45Z"
   },
   {
    "id": "REV-AUDIT-04",
@@ -38747,11 +38756,12 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-05.md",
    "timeout": 21600,
-   "state": "running",
-   "account": "claude",
+   "state": "pending",
+   "account": null,
    "lane": 2,
    "startedAt": "2026-09-16T17:00:47Z",
-   "attempts": 1
+   "attempts": 0,
+   "note": "released after a usage limit on claude/2 at 2026-09-16T17:16:41Z"
   },
   {
    "id": "REV-AUDIT-05",
@@ -38794,11 +38804,12 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-06.md",
    "timeout": 21600,
-   "state": "running",
-   "account": "claude2",
+   "state": "pending",
+   "account": null,
    "lane": 1,
    "startedAt": "2026-09-16T17:03:15Z",
-   "attempts": 1
+   "attempts": 0,
+   "note": "released after a usage limit on claude2/1 at 2026-09-16T17:22:34Z"
   },
   {
    "id": "REV-AUDIT-06",

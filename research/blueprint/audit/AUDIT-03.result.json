@@ -1,0 +1,3282 @@
+{
+ "job": "AUDIT-03",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "tauceti:Completed/EffectiveBounds": {
+   "summary": "Nearly everything this completed roadmap asks for is in the libraries. Tau Ceti has, sorry-free, the measure-free packing and doubling bounds (Layer 0), all four explicit bounds of Layer 1 (|d_F| <= |disc b|, the ideal count X^2 2^n, h_F <= |d_F| 4^n, and [O^x : O^x2] <= 2^n, which it even sharpens to the exact value 2^(rank+1)), and the effective Hermite-Minkowski count of Layer 2, built on Mathlib's qualitative theorems. For Layer 3, Mathlib already has the regulator, the volume of the norm-at-most-one part of the fundamental cone, the ideal-counting asymptotic and the analytic class number formula, although the roadmap lists these volume computations as missing. What is genuinely missing is explicit lower bounds on the regulator in positive unit rank, a bridge from the box engine to IsZLattice, and the Brauer-Siegel horizon.",
+   "layers": {
+    "tauceti:Completed/EffectiveBounds#layer-0-the-geometry-of-numbers-engine": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Measure-free packing bound: a set in a polydisc box whose points are pairwise separated is finite and small",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.GeometryOfNumbers.finite_and_ncard_le_of_subset_box_of_separated",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/GeometryOfNumbers/Doubling.lean",
+         "line": 186,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GeometryOfNumbers.addSubgroup_inter_box_finite_and_ncard_le_of_separated",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/GeometryOfNumbers/Doubling.lean",
+         "line": 233,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.GeometryOfNumbers.box",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/GeometryOfNumbers/Doubling.lean",
+         "line": 69,
+         "fit": "exact"
+        },
+        {
+         "name": "Metric.IsSeparated.encard_le_packingNumber",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/MetricSpace/CoveringNumbers.lean",
+         "line": 139,
+         "fit": "related"
+        },
+        {
+         "name": "Metric.packingNumber",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/MetricSpace/CoveringNumbers.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves #S <= (4c/eps)^(2 #iota) for an eps-separated subset of the polydisc box r c in iota -> C, sorry-free. Mathlib has an abstract packing-number API (Metric.packingNumber) but no explicit box bound. The box is Set.pi of closed balls, so it is close to a Mathlib wrapper, which is what the README warned about."
+      },
+      {
+       "target": "Measure-free doubling bound #(Lambda cap 2B) <= C #(Lambda cap B)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.GeometryOfNumbers.ncard_inter_box_two_le_pow_mul_ncard_inter_box_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/GeometryOfNumbers/Doubling.lean",
+         "line": 343,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GeometryOfNumbers.gaussianLattice_ncard_inter_box_two_le_fortyNine_mul_ncard_inter_box_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/GeometryOfNumbers/RankTwoDoubling.lean",
+         "line": 131,
+         "fit": "special case"
+        }
+       ],
+       "note": "Stated with C = 49^#iota for any additive subgroup of iota -> C, taking finiteness of Lambda cap box r 2 as a hypothesis (automatic for a discrete lattice but not derived). The rank-two Gaussian-lattice worked example is included."
+      },
+      {
+       "target": "Reconciliation of the engine with Mathlib's ZLattice/covolume API",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsZLattice",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+         "line": 432,
+         "fit": "related"
+        },
+        {
+         "name": "ZLattice.covolume",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+         "line": 72,
+         "fit": "related"
+        },
+        {
+         "name": "ZLattice.covolume.tendsto_card_le_div'",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+         "line": 373,
+         "fit": "related"
+        }
+       ],
+       "note": "This is a process instruction rather than a theorem. The Tau Ceti engine is stated for AddSubgroup (iota -> C), not for IsZLattice, and no bridge lemma deriving the finiteness hypothesis from IsZLattice/DiscreteTopology exists. Mathlib's ZLattice counting results are asymptotic and measure-based, not the measure-free bounds asked for."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+       "note": "Its 'lattice-point estimates ... packing/covering' overlaps with the packing/doubling engine in general terms, but GN.4 asks for equidistribution and asymptotic counts rather than these explicit measure-free bounds."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting",
+       "note": "Also builds lattice-point counting in Minkowski space (3A), but as an asymptotic with an O(c^(n-1)) error term, not measure-free packing/doubling. This is an adjacent target, not the same one."
+      }
+     ]
+    },
+    "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "|d_F| <= |disc b| for any Q-basis b of F consisting of algebraic integers",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "NumberField.abs_discr_le_of_basis_isIntegral",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/Discriminant/Basic.lean",
+         "line": 61,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.discr_eq_discr",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
+         "line": 45,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.coe_discr",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
+         "line": 38,
+         "fit": "related"
+        }
+       ],
+       "note": "Exactly as stated, for an arbitrary finite index type, sorry-free. Mathlib supplies only the equality for Z-bases of O_F (discr_eq_discr)."
+      },
+      {
+       "target": "Helper: an element x with x^2 in Q and x not in Q has trace zero, used to diagonalise square-root bases (Q(i) example)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "NumberField.trace_eq_zero_of_sq_ratCast",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/Trace.lean",
+         "line": 115,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Algebra.trace_eq_zero_of_sq_algebraMap_of_not_mem_range",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/Trace.lean",
+         "line": 46,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Algebra.discr_one_elem_eq_of_sq_algebraMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/Trace.lean",
+         "line": 78,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.WorkedExamples.abs_discr_cyclotomicField_four",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/WorkedExamples.lean",
+         "line": 173,
+         "fit": "special case"
+        }
+       ],
+       "note": "Present both for number fields and for a general field extension; the worked example |d_Q(i)| = 4 is proved."
+      },
+      {
+       "target": "Explicit ideal count #{I != 0 : N(I) <= X} <= X^2 * 2^n for X >= 1",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "NumberField.card_ideal_absNorm_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/IdealCount/Basic.lean",
+         "line": 399,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.ncard_ideal_absNorm_le_nat",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/IdealCount/Basic.lean",
+         "line": 459,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.Ideal.tendsto_norm_le_div_atTop",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Ideal/Asymptotics.lean",
+         "line": 152,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves finiteness and the bound exactly as stated. Mathlib has only the asymptotic count (tendsto_norm_le_div_atTop), which does not imply a uniform bound."
+      },
+      {
+       "target": "Class number bound h_F <= |d_F| * 4^n from the Minkowski bound and the ideal count",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "NumberField.classNumber_le_bound",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/ClassNumber/Basic.lean",
+         "line": 81,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.exists_ideal_in_class_of_norm_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.WorkedExamples.classNumber_adjoinRoot_sqrt_neg_five_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/WorkedExamples.lean",
+         "line": 78,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.classNumber_mul_units_sq_index_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/ClassNumber/Basic.lean",
+         "line": 176,
+         "fit": "related"
+        }
+       ],
+       "note": "Exactly the stated bound, consuming Mathlib's exists_ideal_in_class_of_norm_le. The Q(sqrt -5) acceptance example and a product bound h_F [O^x : O^x2] <= |d_F| 8^n are also present."
+      },
+      {
+       "target": "Unit-square index [O_F^x : (O_F^x)^2] <= 2^n, with the abstract group lemma on squares in a finitely generated commutative group",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "NumberField.units_sq_index_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/UnitSquares/Basic.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.index_square_le_of_closure_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Group/PowMonoidHom.lean",
+         "line": 131,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.units_sq_index_eq",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Units/ElementaryTwoQuotient.lean",
+         "line": 84,
+         "fit": "more general"
+        },
+        {
+         "name": "Subgroup.finiteIndex_range_powMonoidHom_of_fg",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/FiniteAbelian/Basic.lean",
+         "line": 204,
+         "fit": "related"
+        }
+       ],
+       "note": "The bound is proved, and Tau Ceti also has the exact value 2^(rank F + 1) (units_sq_index_eq), which sharpens it. The abstract lemma is named index_square_le_of_closure_eq_top rather than the erdos name index_powMonoidHom_two_le_of_closure."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates",
+       "note": "Its 5.1 asks for crude polynomial and linear upper bounds on ideal counts; that overlaps with the explicit ideal count here, which is a polynomial (X^2 2^n) bound but not the linear one."
+      }
+     ]
+    },
+    "tauceti:Completed/EffectiveBounds#layer-2-effective-hermiteminkowski-the-summit": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Consume the qualitative theorems: Minkowski's lower bound on |d_F|, the degree bound and Hermite's finiteness theorem",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "NumberField.abs_discr_ge",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+         "line": 242,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.hermiteTheorem.rank_le_rankOfDiscrBdd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+         "line": 343,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.finite_of_discr_bdd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+         "line": 496,
+         "fit": "exact"
+        }
+       ],
+       "note": "All in Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean, sorry-free, as the roadmap says."
+      },
+      {
+       "target": "Generating step: every number field in A/Q with |d| <= N is generated by a root of an integer polynomial of bounded degree and explicit coefficient height",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "NumberField.exists_mem_rootSet_eq_adjoin_of_abs_discr_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean",
+         "line": 139,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.coeffBoundOfDiscrBdd",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean",
+         "line": 78,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.hermiteTheorem.natDegree_le_rankOfDiscrBdd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+         "line": 386,
+         "fit": "related"
+        }
+       ],
+       "note": "Extracted from Mathlib's finiteness proof, with the explicit height coeffBoundOfDiscrBdd N."
+      },
+      {
+       "target": "Effective count: an explicit upper bound on the number of number fields in A/Q with |d| <= N",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean",
+         "line": 172,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.hermiteCountBound",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean",
+         "line": 202,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le_of_threshold_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean",
+         "line": 268,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.IntermediateField.ncard_setOf_exists_mem_eq_adjoin_simple_le",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/IntermediateField/Card.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "The bound is (2C+1)^(D+1) * D with D = rankOfDiscrBdd N and C = coeffBoundOfDiscrBdd N, sorry-free, with monotone, threshold and natural-number-discriminant forms. It is explicit but far from optimal; no asymptotic count (Davenport-Heilbronn/Bhargava type) is claimed or present."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:Completed/EffectiveBounds#layer-3-regulators-and-unit-lattice-volume": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The regulator as the covolume of the unit lattice",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "NumberField.Units.regulator",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+         "line": 266,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Units.regulator_eq_det",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+         "line": 303,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Units.regOfFamily_div_regulator",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+         "line": 361,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Units.regulator_pos",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+         "line": 286,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines it as ZLattice.covolume (unitLattice K) with determinant formulas and the index formula for subfamilies, as the roadmap already records."
+      },
+      {
+       "target": "Explicit lower bounds on the regulator (positive unit rank)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.Units.regulator_eq_one_of_rank_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/Regulator.lean",
+         "line": 51,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.Units.one_le_regulator_of_isTotallyComplex_of_finrank_eq_two",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/Regulator.lean",
+         "line": 144,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.IsCMField.regulator_div_regulator_eq_two_pow_mul_indexRealUnits_inv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/CMField.lean",
+         "line": 440,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the trivial rank-zero case (R_K = 1, and hence 1 <= R_K for Q and imaginary quadratic fields) is in Tau Ceti. No lower bound for positive rank (Remak, Zimmert or Friedman type) exists in either library; Mathlib's CM-field regulator relation is not a lower bound."
+      },
+      {
+       "target": "Volume computations feeding the analytic class number formula",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "NumberField.mixedEmbedding.fundamentalCone.volume_normLeOne",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/CanonicalEmbedding/NormLeOne.lean",
+         "line": 838,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.mixedEmbedding.covolume_idealLattice",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+         "line": 134,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Ideal.tendsto_norm_le_div_atTop",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Ideal/Asymptotics.lean",
+         "line": 152,
+         "fit": "more general"
+        },
+        {
+         "name": "NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 77,
+         "fit": "more general"
+        },
+        {
+         "name": "NumberField.dedekindZeta_residue",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 56,
+         "fit": "related"
+        }
+       ],
+       "note": "Already in Mathlib, sorry-free: vol(normLeOne K) = 2^r1 pi^r2 R_K, the ideal-lattice covolume, the ideal-counting asymptotic with constant 2^r1 (2pi)^r2 R_K h_K/(w_K sqrt|d_K|), and the analytic class number formula itself (the residue of the Dedekind zeta function at s = 1). The roadmap lists these computations as missing."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-7-subfields-integral-bases-monogenicity-and-explicit-units",
+       "note": "Its 7.4 certifies explicit fundamental units and exact regulator values in rank one. That is a neighbouring regulator target (exact values rather than lower bounds), not the same statement."
+      }
+     ]
+    }
+   }
+  },
+  "tauceti:Completed/IntegralLattices": {
+   "summary": "This completed roadmap is fully built in Tau Ceti (TauCeti/LinearAlgebra/IntegralLattice and FiniteBilinearModule, about 18,000 lines, sorry-free), on Mathlib's Submodule.IsLattice, BilinForm.dualSubmodule, sigPos/sigNeg, CharacterModule and Smith-normal-form quotient API. Every layer's targets are present: the bundled lattice with signature, definiteness, isometries, Gram invariants, scaling, sums and radical quotient; duality, the finite discriminant group and its Smith decomposition; finite bilinear and quadratic modules with double-perp and primary decomposition; Nikulin's overlattice correspondence with A_{L_H} = H^perp/H; and all ADE rows with D8+ = E8. The baseline also closes the three items the roadmap's STATUS.md still calls open: the Smith decomposition for all nondegenerate lattices, the bilinear H^perp/H comparison for odd overlattices, and its orthogonal-sum form. Nothing required is missing. The only optional pieces absent are a general root-datum-to-lattice bridge and an IsZLattice comparison.",
+   "layers": {
+    "tauceti:Completed/IntegralLattices#layer-1-lattices-with-forms": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Bundled integral symmetric lattice (carrier with IsLattice Q, symmetric rational form, integrality), coercions, ext, carrier basis/rank, constructors from a basis plus integral symmetric Gram matrix and from a full submodule",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Basic.lean",
+         "line": 61,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.ext",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Basic.lean",
+         "line": 122,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.ofGramMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Basic.lean",
+         "line": 251,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.ofSubmodule",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Basic.lean",
+         "line": 164,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.gramDet_eq_gramDet",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Gram.lean",
+         "line": 169,
+         "fit": "exact"
+        }
+       ],
+       "note": "Integrality is the field carrier <= form.dualSubmodule carrier, which is literally the dual-lattice formulation. Basis-independence of invariants is proved for the Gram determinant (gramDet_eq_gramDet, gramDet_reindex). Mathlib supplies only the carrier class Submodule.IsLattice."
+      },
+      {
+       "target": "Radical = ker B, signature (n+, n0, n-) from sigPos/sigNeg, quadratic radical = ker B, and n+ + n0 + n- = rank via sigPos_add_sigNeg_add_radical",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.radical",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Signature.lean",
+         "line": 58,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.signature",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Signature.lean",
+         "line": 81,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.radical_toQuadraticMap",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Signature.lean",
+         "line": 68,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.signature_sum_eq_finrank",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Signature.lean",
+         "line": 84,
+         "fit": "exact"
+        },
+        {
+         "name": "QuadraticForm.sigPos_add_sigNeg_add_radical",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/QuadraticForm/Signature.lean",
+         "line": 232,
+         "fit": "more general"
+        }
+       ],
+       "note": "The signature is built on Mathlib's sigPos/sigNeg and the rank identity consumes QuadraticForm.sigPos_add_sigNeg_add_radical, as required. The bilinear-form comparison LinearMap.BilinForm.radical_toQuadraticMap is a general Tau Ceti lemma."
+      },
+      {
+       "target": "Definiteness predicates (pos/neg definite and semidefinite, degenerate, indefinite) with elementwise characterizations, PosDef identification, posdef iff semidef plus nondegenerate, indefinite iff neither semidefinite",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.isPosDef_iff",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Signature.lean",
+         "line": 120,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.isPosDef_iff_isPosSemidef_and_nondegenerate",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Signature.lean",
+         "line": 175,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.isIndefinite_iff_not_semidef",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Signature.lean",
+         "line": 232,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.isDegenerate_iff_exists_mem_radical_ne_zero",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Signature.lean",
+         "line": 225,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.isIndefinite_iff_exists_pos_and_exists_neg",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Signature.lean",
+         "line": 240,
+         "fit": "exact"
+        }
+       ],
+       "note": "IsPosDef is defined as Mathlib's QuadraticMap.PosDef of the form, and each predicate has its signature and elementwise characterization (isPosSemidef_iff, isNegDef_iff, isNegSemidef_iff and so on in Signature.lean)."
+      },
+      {
+       "target": "Nondegeneracy as a mixin, equivalent to ker B = 0, n0 = 0 and nonzero Gram determinant; Gram-matrix constructor nondegenerate exactly for nonsingular matrices",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.IsNondegenerate",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Basic.lean",
+         "line": 133,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.radical_eq_bot_iff_sigNull_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Signature.lean",
+         "line": 114,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.gramDet_ne_zero_iff",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Gram.lean",
+         "line": 179,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.isNondegenerate_ofGramMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Gram.lean",
+         "line": 234,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.determinant_ofGramMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Gram.lean",
+         "line": 219,
+         "fit": "related"
+        }
+       ],
+       "note": "All present. The Gram-matrix nondegeneracy is a theorem taking det G != 0 as a hypothesis rather than a typeclass instance (there is no way to infer the side condition), which is the only deviation from the wording."
+      },
+      {
+       "target": "Linear isometries of integral lattices (id, inverse, composition, ext, carrier restriction, rational extension from a carrier equivalence, transport, basis equivalence) and invariance of integrality, evenness, nondegeneracy, radical, signature, definiteness, rank, determinant and discriminant",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.Isometry",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Isometry.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.Isometry.ofCarrierEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Isometry.lean",
+         "line": 330,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.transportIsometry",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Isometry.lean",
+         "line": 388,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.Isometry.signature_eq",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Signature.lean",
+         "line": 281,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.Isometry.discriminant_eq",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Gram.lean",
+         "line": 304,
+         "fit": "exact"
+        }
+       ],
+       "note": "The Isometry structure requires the carrier to be carried onto the carrier and the form preserved, so a bare additive equivalence cannot be used. Invariance lemmas exist for every listed invariant (Isometry.isEven_iff, Isometry.map_radical, Isometry.determinant_eq, Isometry.finrank_carrier_eq, and so on)."
+      },
+      {
+       "target": "Integer-valued restricted form whose rational scalar extension recovers B, and rationalization of an integral form on a finite free Z-module compared with the embedded model",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.integralForm",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Basic.lean",
+         "line": 146,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.form_rationalizationEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Rationalization.lean",
+         "line": 71,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.ofIntegralForm",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Rationalization.lean",
+         "line": 119,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.ofIntegralForm.carrierIsometry",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Rationalization.lean",
+         "line": 188,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.ofIntegralForm.rationalizationEquiv_baseChange_carrierEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Rationalization.lean",
+         "line": 210,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both directions are present in Rationalization.lean."
+      },
+      {
+       "target": "Integral Gram matrix per carrier basis, symmetry, identification with Mathlib's matrix of the restricted form, signed determinant and discriminant with change-of-basis invariance and basis-free names",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.gramMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Gram.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.gramMatrix_eq_toMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Gram.lean",
+         "line": 82,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.isSymm_gramMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Gram.lean",
+         "line": 93,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.determinant",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Gram.lean",
+         "line": 207,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.discriminant_eq_natAbs_gramDet",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Gram.lean",
+         "line": 252,
+         "fit": "exact"
+        }
+       ],
+       "note": "determinant and discriminant are the basis-free names; gramDet_eq_gramDet proves basis independence."
+      },
+      {
+       "target": "Evenness, unimodularity, norm and roots (vectors of a given norm) with elementary implications and transport",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.IsEven",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Even.lean",
+         "line": 65,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.IsUnimodular",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Unimodular.lean",
+         "line": 56,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.norm",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Norm.lean",
+         "line": 65,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.vectorsOfNorm",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Norm.lean",
+         "line": 183,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.Isometry.isEven_iff",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Even.lean",
+         "line": 146,
+         "fit": "exact"
+        }
+       ],
+       "note": "IsUnimodular is the equality L = L^dual, with the determinant and discriminant-group criteria proved as theorems (Unimodular.lean)."
+      },
+      {
+       "target": "Quotient by the radical: full integral lattice, nondegenerate, inherits evenness, signature (n+, 0, n-), quotient map preserves the form",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.radicalQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RadicalQuotient.lean",
+         "line": 116,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.nondegenerate_radicalQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RadicalQuotient.lean",
+         "line": 199,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.IsEven.radicalQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RadicalQuotient.lean",
+         "line": 212,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.signature_radicalQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RadicalQuotient.lean",
+         "line": 244,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.form_radicalQuotientMap",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RadicalQuotient.lean",
+         "line": 160,
+         "fit": "exact"
+        }
+       ],
+       "note": "Constructed on V / ker B as required; the Mathlib QuadraticMap.lift route is not visible in the names but the statements match."
+      },
+      {
+       "target": "Form scaling, negation and orthogonal direct sums, with rank, determinant, discriminant, integrality, evenness, nondegeneracy, radical and signature behaviour, inclusions, projections, associativity/commutativity isometries and compatibility with isometries",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.signature_orthogonalSum",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/OrthogonalSum.lean",
+         "line": 389,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.signature_neg",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Scaling.lean",
+         "line": 384,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.signature_smul_of_neg",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Scaling.lean",
+         "line": 248,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.Isometry.orthogonalSumAssoc",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/OrthogonalSum.lean",
+         "line": 578,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.Isometry.orthogonalSum",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/OrthogonalSum.lean",
+         "line": 408,
+         "fit": "exact"
+        }
+       ],
+       "note": "Scaling.lean and OrthogonalSum.lean cover every listed invariant (for example determinant_smul, discriminant_neg, isEven_orthogonalSum_iff, radical_orthogonalSum, orthogonalSumInl/Fst, Isometry.orthogonalSumComm)."
+      },
+      {
+       "target": "Acceptance examples: hyperbolic plane (even, unimodular, signature (1,0,1)), <-2> (signature (0,0,1)), affine A1~ (even, positive semidefinite, degenerate, (1,1,0)) with radical quotient A1 = <2>",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.hyperbolicPlane_signature",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Examples.lean",
+         "line": 254,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.hyperbolicPlane_discriminant",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Examples.lean",
+         "line": 231,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.negativeA1_signature",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Examples.lean",
+         "line": 282,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.affineA1_signature",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Examples.lean",
+         "line": 305,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.affineA1RadicalQuotientIsometry",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Examples.lean",
+         "line": 399,
+         "fit": "exact"
+        }
+       ],
+       "note": "All three examples and the radical-quotient isometry to A1 are proved; unimodularity of the hyperbolic plane follows from discriminant 1 by isUnimodular_iff_discriminant_eq_one."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:Completed/IntegralLattices#layer-2-duality-and-the-finite-discriminant-group": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Load-bearing nondegeneracy: the dual is a full lattice exactly when L is nondegenerate, and A_L is finite exactly then",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.isLattice_dualCarrier_iff_nondegenerate",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Dual/Finiteness.lean",
+         "line": 135,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.finite_discriminantGroup_iff_nondegenerate",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Group.lean",
+         "line": 133,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.fg_dualCarrier_iff_nondegenerate",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Dual/Finiteness.lean",
+         "line": 128,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both converses are proved."
+      },
+      {
+       "target": "L^dual = B.dualSubmodule L, L <= L^dual iff integral, dual is a full lattice, dualSubmoduleToDual is an equivalence onto Dual Z L identified in dual bases (perfect pairing)",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.dualCarrier",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Dual/Basic.lean",
+         "line": 75,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.instIsLatticeDualCarrier",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Dual/Basic.lean",
+         "line": 98,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.dualPairingEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Dual/Basic.lean",
+         "line": 123,
+         "fit": "exact"
+        },
+        {
+         "name": "LinearMap.BilinForm.dualSubmoduleEquivDual",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/BilinearForm/DualLattice.lean",
+         "line": 81,
+         "fit": "more general"
+        },
+        {
+         "name": "LinearMap.BilinForm.dualSubmodule",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean",
+         "line": 37,
+         "fit": "exact"
+        }
+       ],
+       "note": "dualSubmodule, its membership criterion and dualSubmoduleToDual are Mathlib; the equivalence dualSubmoduleEquivDual and the dual-basis identification (dualPairingEquiv_dualBasisElem, dualCarrierBasis) are Tau Ceti. L <= L^dual is the integrality field itself, and Mathlib's le_flip_dualSubmodule gives the flipped version."
+      },
+      {
+       "target": "(L^dual)^dual = L with the flip in the nonsymmetric version, and compatibility of the dual with isometry, scaling, negation and orthogonal sum",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.dualSubmodule_flip_dualCarrier",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Dual/Basic.lean",
+         "line": 215,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.dualSubmodule_dualCarrier",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Dual/Basic.lean",
+         "line": 221,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.Isometry.map_dualCarrier_ambientEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Dual/Basic.lean",
+         "line": 261,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.dualCarrier_smul",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Dual/Scaling.lean",
+         "line": 71,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.dualCarrier_orthogonalSum",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Operations.lean",
+         "line": 89,
+         "fit": "exact"
+        }
+       ],
+       "note": "Negation is dualCarrier_neg in Discriminant/Operations.lean. Mathlib only has the basis-dependent double-dual lemmas (dualSubmodule_flip_dualSubmodule_of_basis)."
+      },
+      {
+       "target": "A_L as the quotient of L^dual by the inverse image of L, with quotient map, representatives, zero criterion, group structure, isometry functoriality and finiteness",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.DiscriminantGroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Group.lean",
+         "line": 109,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.discriminantGroup_mk_eq_zero_iff",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Group.lean",
+         "line": 114,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.instFiniteDiscriminantGroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Group.lean",
+         "line": 127,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.Isometry.discriminantGroupEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Group.lean",
+         "line": 165,
+         "fit": "exact"
+        }
+       ],
+       "note": "Defined as the quotient of dualCarrier by carrierInDual, exactly as specified."
+      },
+      {
+       "target": "Smith normal form: A_L = prod ZMod d_i with divisibility chain, related to the Smith form of the Gram matrix; #A_L = |det Gram(L)|",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.discriminantGroupInvariantFactorsEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Smith.lean",
+         "line": 265,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.gramSmithInvariantFactors_dvd",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Smith.lean",
+         "line": 101,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.exists_gramSmithInvariantFactors_smith_normal_form",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Smith.lean",
+         "line": 110,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.natCard_discriminantGroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Cardinality.lean",
+         "line": 92,
+         "fit": "exact"
+        },
+        {
+         "name": "Submodule.quotientEquivPiZMod",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/FreeModule/Finite/Quotient.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "In this baseline the invariant factors, divisibility chain and Smith-form identification need only [IsNondegenerate], so they cover indefinite and negative-definite lattices; the roadmap's STATUS.md still lists this as restricted to positive determinant."
+      },
+      {
+       "target": "Unimodularity equivalences: L = L^dual, A_L trivial, #A_L = 1, |det Gram| = 1, restricted pairing an equivalence",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.isUnimodular_iff_subsingleton_discriminantGroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Unimodular.lean",
+         "line": 79,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.isUnimodular_iff_natCard_discriminantGroup_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Unimodular.lean",
+         "line": 85,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.isUnimodular_iff_natAbs_gramDet_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Unimodular.lean",
+         "line": 184,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.isUnimodular_iff_integralForm_bijective",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Unimodular.lean",
+         "line": 133,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.integralPairingEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Unimodular.lean",
+         "line": 149,
+         "fit": "exact"
+        }
+       ],
+       "note": "All five characterizations are proved; signed determinant -1 is allowed (natAbs)."
+      },
+      {
+       "target": "Discriminant bilinear form b_L = B mod Z: well defined, symmetric, biadditive, nondegenerate, packaged as a finite bilinear module, compatible with isometry, direct sum and negation",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.discriminantPairing",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Bilinear.lean",
+         "line": 96,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.discriminantBilinearModule",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Bilinear.lean",
+         "line": 128,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.isNondegenerate_discriminantBilinearModule",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Bilinear.lean",
+         "line": 160,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.discriminantBilinearIsometryOrthogonalSum",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Operations.lean",
+         "line": 162,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.discriminantBilinearIsometryNeg",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Operations.lean",
+         "line": 370,
+         "fit": "exact"
+        }
+       ],
+       "note": "Isometry functoriality is Isometry.discriminantBilinearIsometry."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:Completed/IntegralLattices#layer-3-finite-bilinear-and-quadratic-modules": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Finite bilinear module (finite abelian group with symmetric biadditive Q/Z pairing), adjoint to CharacterModule, nondegeneracy as a predicate (adjoint bijective) equivalent to trivial radical, morphisms, isometries, restriction, negation, orthogonal sums",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.FiniteBilinearModule",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Basic.lean",
+         "line": 185,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteBilinearModule.IsNondegenerate",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Basic.lean",
+         "line": 242,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteBilinearModule.isNondegenerate_iff_radical_eq_bot",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Basic.lean",
+         "line": 676,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteBilinearModule.Isometry",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Basic.lean",
+         "line": 356,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteBilinearModule.prod",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Basic.lean",
+         "line": 567,
+         "fit": "exact"
+        }
+       ],
+       "note": "The pairing is stored as A ->+ CharacterModule A using Mathlib's CharacterModule; Hom, restrict, neg and Isometry.prod are all present."
+      },
+      {
+       "target": "Finite quadratic module via QuadraticMap Z A (AddCircle 1) with polar form = pairing, morphisms, isometries, sums, negation, restriction, passage to the bilinear module",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.FiniteQuadraticModule",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Quadratic.lean",
+         "line": 97,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteQuadraticModule.polar_eq_pairing",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Quadratic.lean",
+         "line": 139,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteQuadraticModule.restrict",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Quadratic.lean",
+         "line": 356,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteQuadraticModule.Isometry.toFiniteBilinearModule",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Quadratic.lean",
+         "line": 295,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteQuadraticModule.prod",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Quadratic.lean",
+         "line": 435,
+         "fit": "exact"
+        }
+       ],
+       "note": "Reuses Mathlib's QuadraticMap with codomain AddCircle (1 : Q), with no parallel private quadratic-map structure."
+      },
+      {
+       "target": "Radical, isotropic elements and subgroups, H^perp, Lagrangians; H <= H^perp under bilinear or quadratic isotropy, H <= H^perpperp, order reversal, H^perpperp = H + rad(b), and under nondegeneracy H^perpperp = H, |H||H^perp| = |A|, |H|^2 = |A| for Lagrangians",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.FiniteBilinearModule.orthogonalComplement_orthogonalComplement",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Orthogonal/Complement.lean",
+         "line": 160,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteBilinearModule.IsNondegenerate.card_mul_card_orthogonalComplement",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Orthogonal/Complement.lean",
+         "line": 106,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteBilinearModule.IsLagrangian.card_sq",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Orthogonal/Complement.lean",
+         "line": 185,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteBilinearModule.isIsotropic_iff_le_orthogonalComplement",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Basic.lean",
+         "line": 806,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteQuadraticModule.IsIsotropic.le_orthogonalComplement",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Quadratic.lean",
+         "line": 574,
+         "fit": "exact"
+        }
+       ],
+       "note": "Also le_orthogonalComplement_orthogonalComplement, orthogonalComplement_anti and IsNondegenerate.orthogonalComplement_orthogonalComplement are proved, with explicit membership lemmas."
+      },
+      {
+       "target": "Primary components (consuming CommGroup.primaryComponent): orthogonality of distinct primes, primary decomposition preserving bilinear and quadratic forms, nondegeneracy of components, isometry package, componentwise isotropy and perp",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.FiniteBilinearModule.primaryComponent_le_orthogonalComplement_primaryComponent",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Primary/Component.lean",
+         "line": 81,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteBilinearModule.primaryDecomposition",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Primary/Decomposition.lean",
+         "line": 89,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteQuadraticModule.primaryDecomposition",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Primary/Decomposition.lean",
+         "line": 149,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteBilinearModule.isNondegenerate_restrict_primaryComponent",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Primary/Component.lean",
+         "line": 105,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteBilinearModule.primaryPart_orthogonalComplement",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Primary/Subgroup.lean",
+         "line": 109,
+         "fit": "exact"
+        }
+       ],
+       "note": "isIsotropic_iff_primaryPart gives the componentwise isotropy criterion. Mathlib supplies CommGroup.primaryComponent itself."
+      },
+      {
+       "target": "Discriminant bilinear module of every nondegenerate integral lattice; for even lattices B(x,x)/2 mod Z descends to A_L with polar form b_L, nondegenerate, packaged as the discriminant quadratic module, functorial and compatible with orthogonal sum and negation",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.discriminantQuadraticModule",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Quadratic.lean",
+         "line": 184,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.polar_discriminantQuadraticMap",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Quadratic.lean",
+         "line": 158,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.isNondegenerate_discriminantQuadraticModule",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Quadratic.lean",
+         "line": 208,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.discriminantQuadraticIsometryOrthogonalSum",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Operations.lean",
+         "line": 228,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.discriminantQuadraticIsometryNeg",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Operations.lean",
+         "line": 425,
+         "fit": "exact"
+        }
+       ],
+       "note": "Uses the half-norm convention; isometry functoriality is Isometry.discriminantQuadraticIsometry."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+       "note": "Asks again for finite coordinate powers of discriminant alphabets with coordinatewise isometries, which Tau Ceti's FiniteBilinearModule/CoordinatePower.lean already provides. Otherwise that layer explicitly consumes this roadmap's gluing theory rather than restating it."
+      }
+     ]
+    },
+    "tauceti:Completed/IntegralLattices#layer-4-overlattices-and-isotropic-subgroups": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Order isomorphism between intermediate lattices L <= M <= L^dual and subgroups of A_L, via M -> M/L and H -> L_H = preimage, with fullness, membership and quotient-map lemmas",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.intermediateCarrierOrderIsoDiscriminantSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Basic.lean",
+         "line": 85,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.intermediateCarrierOfDiscriminantSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Basic.lean",
+         "line": 127,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.mem_intermediateCarrierOfDiscriminantSubgroup_iff",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Basic.lean",
+         "line": 153,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.instIsLatticeIntermediateCarrier",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Basic.lean",
+         "line": 245,
+         "fit": "exact"
+        }
+       ],
+       "note": "Fullness of intermediate carriers is an instance; the two constructions are proved inverse and monotone."
+      },
+      {
+       "target": "Integral overlattices correspond to bilinear-isotropic subgroups; for even L, even overlattices correspond to quadratic-isotropic subgroups",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.integralIntermediateCarrierOrderIsoIsotropicSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Isotropic.lean",
+         "line": 315,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.evenIntermediateCarrierOrderIsoIsotropicSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Isotropic.lean",
+         "line": 343,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.IntermediateCarrier.isIntegral_iff_isIsotropic_discriminantSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Isotropic.lean",
+         "line": 240,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.IntermediateCarrier.isEven_iff_isIsotropic_discriminantSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Isotropic.lean",
+         "line": 254,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both refinements are stated separately as restrictions of the general order isomorphism."
+      },
+      {
+       "target": "[L_H : L] = |H|, disc(L_H) = disc(L)/[L_H:L]^2 with divisibility, chains of intermediate lattices and multiplicativity of index",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.IntermediateCarrier.index_eq_natCard_discriminantSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Index.lean",
+         "line": 207,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.IntermediateCarrier.IsIntegral.discriminant_eq_discriminant_div_index_sq",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Index.lean",
+         "line": 285,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.IntermediateCarrier.IsIntegral.index_sq_dvd_discriminant",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Index.lean",
+         "line": 280,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.IntermediateCarrier.relIndex_mul_relIndex",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Index.lean",
+         "line": 136,
+         "fit": "exact"
+        }
+       ],
+       "note": "All present in Overlattice/Index.lean."
+      },
+      {
+       "target": "For isotropic H, the induced form on H^perp/H and the natural isometry A_{L_H} = H^perp/H (bilinear for integral, quadratic for even), with representative formula, nondegeneracy, order, and unimodular iff Lagrangian",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.IntermediateCarrier.discriminantOrthogonalQuotientIsometry",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/OrthogonalQuotient/Quadratic.lean",
+         "line": 216,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.IntermediateCarrier.discriminantBilinearOrthogonalQuotientIsometry",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/OrthogonalQuotient/Bilinear.lean",
+         "line": 204,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteQuadraticModule.orthogonalQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/FiniteBilinearModule/Quadratic.lean",
+         "line": 810,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.dual_intermediateCarrierOfDiscriminantSubgroup_eq_self_iff",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Dual.lean",
+         "line": 280,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.IntermediateCarrier.subsingleton_orthogonalQuotient_iff_isUnimodular",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/OrthogonalQuotient/Quadratic.lean",
+         "line": 285,
+         "fit": "exact"
+        }
+       ],
+       "note": "The bilinear comparison for integral overlattices that need not be even (OrthogonalQuotient/Bilinear.lean) is in this baseline, although the roadmap's STATUS.md lists it as missing."
+      },
+      {
+       "target": "Naturality: lattice isometries transport intermediate/integral/even overlattices, subgroups and perps and commute with A_{L_H} = H^perp/H; componentwise statement for orthogonal direct sums",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.Isometry.integralIntermediateCarrierEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Naturality.lean",
+         "line": 312,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.Isometry.discriminantOrthogonalQuotientIsometry_naturality",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/OrthogonalQuotient/Quadratic.lean",
+         "line": 403,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.Isometry.discriminantBilinearOrthogonalQuotientIsometry_naturality",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/OrthogonalQuotient/Bilinear.lean",
+         "line": 359,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.IntermediateCarrier.discriminantBilinearOrthogonalQuotientIsometryOrthogonalSum",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/OrthogonalQuotient/OrthogonalSum.lean",
+         "line": 138,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.IntermediateCarrier.discriminantQuadraticOrthogonalQuotientIsometryOrthogonalSum",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/OrthogonalQuotient/OrthogonalSum.lean",
+         "line": 184,
+         "fit": "exact"
+        }
+       ],
+       "note": "The orthogonal-sum form of the comparison, which STATUS.md also lists as missing, is present in OrthogonalQuotient/OrthogonalSum.lean."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+       "note": "Specializes the correspondence and the A_{L_H} = H^perp/H comparison to Construction A lattices; it says it consumes this gluing theory, so this is a consumer rather than a duplicate."
+      }
+     ]
+    },
+    "tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Rank one <2m>, m != 0: L^dual = (1/2m)Ze, A_L = Z/2m, b(g,g) = 1/2m, q(g) = 1/4m, #A_L = |2m|, polar check, signatures for m > 0 and m < 0, degenerate m = 0",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.rankOneDiscriminantEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RankOne.lean",
+         "line": 305,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.rankOne_dualCarrier_eq_span",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RankOne.lean",
+         "line": 193,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.discriminantQuadraticMap_rankOneClass",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RankOne.lean",
+         "line": 371,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.rankOne_signature_of_neg",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RankOne.lean",
+         "line": 414,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.rankOne_zero_signature",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RankOne.lean",
+         "line": 437,
+         "fit": "exact"
+        }
+       ],
+       "note": "Also discriminantPairing_rankOneClass_self, natCard_rankOne_discriminantGroup, polar_discriminantQuadraticMap_zsmul_rankOneClass and isPosDef_rankOne_iff."
+      },
+      {
+       "target": "A_n row: discriminant group Z/(n+1) generated by the first fundamental weight with q = n/(2(n+1)), identified as a finite quadratic module",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.typeADiscriminantQuadraticIsometry",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/TypeA.lean",
+         "line": 527,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.typeADiscriminantGroupEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/TypeA.lean",
+         "line": 376,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.discriminantQuadraticMap_typeAFundamentalWeightClass",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/TypeA.lean",
+         "line": 437,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.determinant_typeARootLattice",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/TypeA.lean",
+         "line": 176,
+         "fit": "exact"
+        }
+       ],
+       "note": "Built on Fin n -> Q from the Cartan matrix rather than through a root-data bridge."
+      },
+      {
+       "target": "D_n rows: checkerboard model with Conway-Sloane representatives v, s, c; (Z/2)^2 for even n and Z/4 for odd n with q(v) = 1/2, q(s) = q(c) = n/8, mutual pairings, determinant from the Cartan matrix",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.checkerboardDiscriminantQuadraticIsometry",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/TypeD/Basic.lean",
+         "line": 1087,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.checkerboardCyclicQuadraticIsometry",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/TypeD/Basic.lean",
+         "line": 1187,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.discriminantPairing_checkerboardSpinorClass_checkerboardCospinorClass",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/TypeD/Basic.lean",
+         "line": 773,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.determinant_checkerboardLattice_eq_det_cartanMatrixD",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/TypeD/SimpleRoots.lean",
+         "line": 288,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.checkerboardSimpleRootBasis",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/TypeD/SimpleRoots.lean",
+         "line": 261,
+         "fit": "exact"
+        }
+       ],
+       "note": "Uses the coordinate model D_n = {x in Z^n : sum x_i even} with Tau Ceti's type-D simple roots; for even n the three nonzero classes are distinguished by their pairings, not only by order."
+      },
+      {
+       "target": "E6, E7, E8 rows: Z/3 with q = 2/3, Z/2 with q = 3/4, and E8 self-dual with trivial form; determinants from the Gram matrix",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.typeE₆DiscriminantQuadraticIsometry",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/TypeE.lean",
+         "line": 352,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.typeE₇DiscriminantQuadraticIsometry",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/TypeE.lean",
+         "line": 629,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.isUnimodular_typeE₈RootLattice",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/TypeE.lean",
+         "line": 729,
+         "fit": "exact"
+        },
+        {
+         "name": "CartanMatrix.E₆_det",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Cartan.lean",
+         "line": 392,
+         "fit": "related"
+        },
+        {
+         "name": "CartanMatrix.E₈_det",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Cartan.lean",
+         "line": 398,
+         "fit": "related"
+        }
+       ],
+       "note": "The discriminant forms are Tau Ceti; Mathlib supplies the Cartan determinants (E6 = 3, E7 = 2, E8 = 1)."
+      },
+      {
+       "target": "D8 subset E8 glue: spinor subgroup H is quadratic-isotropic, preimage D8+ = D8 cup (s + D8) is even unimodular, explicit isometry D8+ = E8 with Bourbaki-numbered Gram matrix, and A_{D8+} = H^perp/H = 0 agreeing with E8",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.typeE₈IsometryD8Plus",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/D8Plus/Isometry.lean",
+         "line": 296,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.isIsotropic_d8SpinorSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/D8Plus/Basic.lean",
+         "line": 141,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.isUnimodular_d8PlusLattice",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/D8Plus/Basic.lean",
+         "line": 214,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.d8PlusDiscriminantQuadraticIsometry",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/D8Plus/Isometry.lean",
+         "line": 324,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.natCard_orthogonalQuotient_d8SpinorSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/D8Plus/Isometry.lean",
+         "line": 334,
+         "fit": "exact"
+        }
+       ],
+       "note": "The isometry is an actual lattice isometry sending Bourbaki's simple roots to explicit glue roots, not an appeal to uniqueness of determinant-one lattices."
+      },
+      {
+       "target": "Bridge converting Tau Ceti's pinned root data into integral lattices with the Cartan matrix as Gram matrix",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.DynkinType.span_range_root_eq_top_iff",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/RootLattice.lean",
+         "line": 140,
+         "fit": "related"
+        }
+       ],
+       "note": "Layer 5 allows the ADE lattices to be constructed directly, and they are (types A, E6, E7 from Cartan matrices on Fin n -> Q; D and E8 consuming root-system coordinates). No general root-datum-to-IntegralLattice bridge exists; the preamble presents that bridge as this roadmap's contribution, but it is not an acceptance target."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+       "note": "Asks for quadratic-module isometries from the A2 and D4 coordinate alphabets to the actual discriminant modules; these are the n = 2 and n = 4 cases of this layer's A_n and D_n rows, with a different choice of generators."
+      }
+     ]
+    }
+   }
+  },
+  "tauceti:TauCetiRoadmap/Chebotarev": {
+   "summary": "The group-theoretic and algebraic half of this roadmap is largely in Tau Ceti, sorry-free. That covers conjugacy-class powers, the Artin symbol with both tower laws, Frobenius prime sets partitioning the unramified primes, the Galois-character weight with orthogonality, the auxiliary prime, trivial cyclotomic intersections, the compositum splitting with Frobenius compatibility, tagged fibres and tagged fixed fields, the fixed-field residue-degree criterion, and the Frobenius von Mangoldt coefficient with psi_C, theta_C and all four discard estimates. Mathlib contributes the Dirichlet-density carriers, abelian cyclotomic Galois groups, autEquivPow, and the K = Q analytic inputs (Dirichlet L-function nonvanishing on Re s = 1, primes in progressions). Genuinely missing is the whole analytic spine: density normalization and calculus, ray-class characters and counts, continuation and nonvanishing for general K, an unsmoothed Wiener-Ikehara theorem, the prime ideal theorem, and every density or counting theorem (Layers 6, 9, 10, 12-14). Also missing are the fixed-field fibre count on E, the compositum ramification statements, and the named regression examples.",
+   "layers": {
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-1-consumed-frobenius-classes-and-powers-of-conjugacy-classes": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Power operation on conjugacy classes of a monoid with membership (tau in C^j iff tau = sigma^j for some sigma in C), composition, identity and functoriality",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "ConjClasses.pow",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Group/Conj.lean",
+         "line": 286,
+         "fit": "exact"
+        },
+        {
+         "name": "ConjClasses.mem_pow_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Group/Conj.lean",
+         "line": 304,
+         "fit": "exact"
+        },
+        {
+         "name": "ConjClasses.pow_mul",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Group/Conj.lean",
+         "line": 336,
+         "fit": "exact"
+        },
+        {
+         "name": "ConjClasses.pow_one",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Group/Conj.lean",
+         "line": 326,
+         "fit": "exact"
+        },
+        {
+         "name": "ConjClasses.map_pow",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Group/Conj.lean",
+         "line": 349,
+         "fit": "exact"
+        }
+       ],
+       "note": "Defined for any monoid, with pow_zero, mk_pow and a private cyclic-of-order-four sanity check."
+      },
+      {
+       "target": "Artin symbol of an unramified prime as a conjugacy class, used directly (no second Frobenius carrier)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "NumberField.artinSymbol",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+         "line": 57,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.artinSymbol_eq_mk_of_isArithFrobAt",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+         "line": 72,
+         "fit": "exact"
+        }
+       ],
+       "note": "Built on Mathlib's IsArithFrobAt, taking the unramifiedness proof as an argument."
+      },
+      {
+       "target": "Closed transport lemmas: restriction to a normal subextension (no power) and raising the base (power by the intermediate residue degree)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "NumberField.artinSymbol_map_restrictNormalHom",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+         "line": 113,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.exists_isArithFrobAt_pow_inertiaDeg",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Frobenius/Tower.lean",
+         "line": 203,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.artinSymbol_map_restrictScalarsHom_eq_pow_inertiaDeg",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+         "line": 266,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.frobeniusPrimeSet_subset_map_restrictNormalHom",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
+         "line": 213,
+         "fit": "related"
+        }
+       ],
+       "note": "Both laws are sorry-free, at prime level and at class level."
+      },
+      {
+       "target": "The class at a split-completely prime is the identity",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "NumberField.artinSymbol_eq_one_iff_ncard_primesOver_eq_finrank",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+         "line": 223,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.artinSymbol_eq_one_iff_inertiaDeg_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+         "line": 207,
+         "fit": "exact"
+        }
+       ],
+       "note": "Proved as an iff with complete splitting and with residue degree one."
+      },
+      {
+       "target": "The class cardinality is independent of the chosen representative",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ConjClasses.card_carrier_mk",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Group/Conj.lean",
+         "line": 180,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ConjClasses.card_carrier_dvd_card",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Group/Conj.lean",
+         "line": 186,
+         "fit": "related"
+        }
+       ],
+       "note": "Cardinality is stated for the class of an element and via the centralizer index; independence of the representative is immediate since equal classes have equal carriers."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+       "note": "Its 2.3-2.4 already own artinSymbol, artinSymbol_map_restrictNormalHom and exists_isArithFrobAt_pow_inertiaDeg, which this layer only consumes; the overlap is in the transport lemmas restated at class level."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-2-frobenius-prime-sets-and-finite-exceptional-sets": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "frobeniusPrimeSet K L C via an existential unramifiedness proof, with proof-independence",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.frobeniusPrimeSet",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
+         "line": 93,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.mem_frobeniusPrimeSet_iff_artinSymbol_eq",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
+         "line": 113,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.mem_frobeniusPrimeSet_mk_iff_exists_isArithFrobAt",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
+         "line": 161,
+         "fit": "related"
+        }
+       ],
+       "note": "Carrier is HeightOneSpectrum (O K), as specified."
+      },
+      {
+       "target": "Equivariance under isomorphisms of extensions, disjointness for distinct classes, union over classes is exactly the unramified primes",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.frobeniusPrimeSet_map_autCongr",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
+         "line": 179,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.disjoint_frobeniusPrimeSet",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
+         "line": 222,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.iUnion_frobeniusPrimeSet",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
+         "line": 242,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.existsUnique_mem_frobeniusPrimeSet",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
+         "line": 251,
+         "fit": "exact"
+        }
+       ],
+       "note": "iUnion_frobeniusPrimeSet states the union is the complement of ramifiedPrimes K L."
+      },
+      {
+       "target": "The finite set ramifiedPrimes K L whose complement is that union",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.ramifiedPrimes",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/RamifiedPrimes.lean",
+         "line": 114,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.mem_ramifiedPrimes_iff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/RamifiedPrimes.lean",
+         "line": 121,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.finite_compl_iUnion_frobeniusPrimeSet",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
+         "line": 263,
+         "fit": "exact"
+        }
+       ],
+       "note": "A Finset of height-one primes. The consumed Dirichlet-density symmetric-difference theorem is not in either library (see Layer 3); the natural-density analogue NumberField.Set.HasNaturalDensity.of_finite_symmDiff is in Tau Ceti."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-3-prime-sums-and-density-normalization": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Prime zeta sum over a set of primes and the ratio-normalized Dirichlet density predicate (consumed carriers)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "NumberField.Set.primeIdealZetaSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DirichletDensity.lean",
+         "line": 54,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Set.HasDirichletDensity",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DirichletDensity.lean",
+         "line": 82,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Set.dirichletDensity",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DirichletDensity.lean",
+         "line": 90,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib/NumberTheory/NumberField/DirichletDensity.lean has only the carriers and nonneg/le_one/empty lemmas. The specialization to frobeniusPrimeSet is not stated."
+      },
+      {
+       "target": "Dictionary: ratio to the all-prime sum vs normalization by log((s-1)^-1), via the Euler product and convergence of the prime-power (j >= 2) contribution",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.dedekindZeta_eulerProduct_hasProd",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 386,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.exp_tsum_prime_pow_eq_LSeries",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Logarithm/Basic.lean",
+         "line": 92,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "The Euler product and log-of-Euler-product identity are in Tau Ceti and the residue along real s in Mathlib, but P_all(s) = log(1/(s-1)) + O(1) and the equivalence of the two normalizations are not proved."
+      },
+      {
+       "target": "Insertion or deletion of a finite set of primes, and upper and lower density versions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.Set.HasNaturalDensity.of_finite_symmDiff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/NaturalDensity.lean",
+         "line": 154,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.primeIdealZetaSum_higherDegreePrimes_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/ResidueDegree.lean",
+         "line": 250,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Set.primeIdealZetaSum_le_card_of_finite",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DirichletDensity.lean",
+         "line": 68,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the natural-density finite-symmetric-difference lemma and a bound for a finite set's prime zeta sum exist. hasDirichletDensity_of_symmDiff_finite, the squeeze, and IsLower/IsUpperDirichletDensityBound are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+       "note": "Its 7.1-7.3 ask for the same finite-error, squeeze and log-normalization calculus for general prime sets; this layer is that calculus specialized to Frobenius fibres."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "For p not dividing m, arithmetic Frobenius sends zeta_m to zeta_m^(N p) (over Q: p mod m, not its inverse)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "AlgHom.IsArithFrobAt.apply_eq_pow_absNorm_of_pow_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Cyclotomic/Frobenius.lean",
+         "line": 96,
+         "fit": "exact"
+        },
+        {
+         "name": "AlgHom.IsArithFrobAt.autToPow_eq_absNorm",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Cyclotomic/Frobenius.lean",
+         "line": 133,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated for any arithmetic Frobenius at a prime above p not dividing m; the Q case is the specialization N p = p."
+      },
+      {
+       "target": "Gal(F/K) is abelian for F generated by roots of unity",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "IsCyclotomicExtension.isMulCommutative",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/Basic.lean",
+         "line": 355,
+         "fit": "exact"
+        },
+        {
+         "name": "IsCyclotomicExtension.isAbelianGalois",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/Basic.lean",
+         "line": 595,
+         "fit": "exact"
+        }
+       ],
+       "note": "Already in Mathlib."
+      },
+      {
+       "target": "Identify the conductor modulus through Global Number Fields",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.GlobalNumberFields.Modulus",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Modulus.lean",
+         "line": 88,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.classMap",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Basic.lean",
+         "line": 266,
+         "fit": "related"
+        }
+       ],
+       "note": "Moduli and ray class groups exist in Tau Ceti, but no conductor of a cyclotomic extension or character is defined."
+      },
+      {
+       "target": "Canonical ideal weight of a character chi of Gal(F/K): chi(Frob p) at unramified p, 0 at ramified p, with Euler product",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "MonoidHom.galoisCharacterWeight",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/GaloisCharacter/Weight.lean",
+         "line": 181,
+         "fit": "more general"
+        },
+        {
+         "name": "MonoidHom.galoisCharacterWeight_apply_of_unramified",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/GaloisCharacter/Weight.lean",
+         "line": 199,
+         "fit": "exact"
+        },
+        {
+         "name": "MonoidHom.badPrimes_galoisCharacterWeight",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/GaloisCharacter/Weight.lean",
+         "line": 224,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.hasProd_eulerFactor",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 335,
+         "fit": "more general"
+        }
+       ],
+       "note": "Built for an arbitrary finite Galois L/K (named galoisCharacterWeight, not cyclotomicCharacterWeight). It is packaged as a MultiplicativeIdealWeight, so the generic Euler product applies, but no Euler-product theorem specific to this weight is stated."
+      },
+      {
+       "target": "Character-orthogonality identities with the inverse on the tag",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "AlgEquiv.sum_inv_mul_galoisCharacterWeight_apply_of_unramified",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/GaloisCharacter/Orthogonality.lean",
+         "line": 99,
+         "fit": "exact"
+        },
+        {
+         "name": "AlgEquiv.sum_inv_mul_galoisCharacterWeight_apply_eq_zero_of_mem_ramifiedPrimes",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/GaloisCharacter/Orthogonality.lean",
+         "line": 77,
+         "fit": "exact"
+        }
+       ],
+       "note": "Requires IsMulCommutative of the Galois group, as it must."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-5-ray-class-counting-and-continuation": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Factor the character weight through a consumed RayClassCharacter",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.GlobalNumberFields.RayClassGroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Basic.lean",
+         "line": 180,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.idealClass",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Basic.lean",
+         "line": 232,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has ray class groups and ideal classes but no RayClassCharacter type and no factorization of Galois characters through them (that needs reciprocity or the conductor)."
+      },
+      {
+       "target": "Per-class ideal counts with uniform power saving and cancellation of nontrivial character partial sums (consumed rayClassIdealCount, rayClassCharacter_partialSums)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.Ideal.tendsto_norm_le_and_mk_eq_div_atTop",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Ideal/Asymptotics.lean",
+         "line": 80,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.idealCount_linearBounds",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Estimates.lean",
+         "line": 181,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has per-class-group-class asymptotics without an error term; no ray-class count or character cancellation exists."
+      },
+      {
+       "target": "Continuation of the character series across Re s = 1, the single pole of the trivial character, and nonvanishing at s = 1 of nontrivial series (cyclotomicCharacterSeriesC, analyticAt_one, ne_zero_at_one)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "DirichletCharacter.LFunction_apply_one_ne_zero",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+         "line": 408,
+         "fit": "special case"
+        },
+        {
+         "name": "DirichletCharacter.LFunction_ne_zero_of_one_le_re",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+         "line": 400,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.LSeries.landau",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LSeries/Landau.lean",
+         "line": 290,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.LSeries.threeFourOne_re_neg_log_one_sub_nonneg",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LSeries/ThreeFourOne.lean",
+         "line": 119,
+         "fit": "related"
+        }
+       ],
+       "note": "Over K = Q these are Mathlib's Dirichlet L-function continuation and nonvanishing on Re s >= 1. For general K nothing is continued; Tau Ceti supplies Landau's theorem and the 3-4-1 positivity input only."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting",
+       "note": "Owns the rayClassIdealCount and rayClassCharacter_partialSums exports this layer consumes."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+       "note": "Owns RayClassCharacter, the carrier through which this layer factors the Galois-character weight."
+      },
+      {
+       "layer": "AnalyticNumberTheory:AN.4",
+       "note": "Plans Hecke L-function continuation for number fields in general, which contains this layer's specialized continuation and nonvanishing at s = 1."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-6-cyclotomic-dirichlet-density": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Every sigma in Gal(F/K) (F cyclotomic) has Dirichlet density 1/#Gal(F/K) for its Frobenius fibre",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.Set.HasDirichletDensity",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DirichletDensity.lean",
+         "line": 82,
+         "fit": "related"
+        }
+       ],
+       "note": "No density theorem for any Frobenius fibre exists."
+      },
+      {
+       "target": "Specialization to primes p = a mod m over Q (hasDirichletDensity_primesCongruent), with Frobenius sent to a, compared with Mathlib's primes in arithmetic progressions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Nat.forall_exists_prime_gt_and_eq_mod",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+         "line": 442,
+         "fit": "related"
+        },
+        {
+         "name": "Nat.infinite_setOf_prime_and_eq_mod",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+         "line": 437,
+         "fit": "related"
+        },
+        {
+         "name": "ArithmeticFunction.vonMangoldt.LSeries_residueClass_lower_bound",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+         "line": 347,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves infinitude of primes in each coprime residue class via the residue-class von Mangoldt L-series, but no Dirichlet or natural density."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.2",
+       "note": "Plans prime number theorems in fixed arithmetic progressions, whose density corollary covers the rational specialization here."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-7-the-auxiliary-prime-and-the-crossing-data": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "7.1 exists_auxiliaryPrime: q > N, q = 1 mod n and n | q - 1, q unramified in K and L, cyclotomic q irreducible over K",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "NumberField.exists_auxiliaryPrime",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/AuxiliaryPrime.lean",
+         "line": 45,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.exists_prime_gt_modEq_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/PrimesCongruentOne.lean",
+         "line": 28,
+         "fit": "related"
+        }
+       ],
+       "note": "Exactly the stated conjunction."
+      },
+      {
+       "target": "7.2 From q unramified in K: Q(zeta_q)/Q totally ramified at q, K cap Q(zeta_q) = Q, Phi_q irreducible over K, Gal(K(zeta_q)/K) = (Z/q)^x cyclic",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "IsCyclotomicExtension.ramificationIdx_eq_totient",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Cyclotomic/IrreducibleOfUnramified.lean",
+         "line": 141,
+         "fit": "more general"
+        },
+        {
+         "name": "IsCyclotomicExtension.inf_eq_bot_of_unramified",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Cyclotomic/IrreducibleOfUnramified.lean",
+         "line": 216,
+         "fit": "more general"
+        },
+        {
+         "name": "IsCyclotomicExtension.irreducible_cyclotomic_of_unramified",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Cyclotomic/IrreducibleOfUnramified.lean",
+         "line": 258,
+         "fit": "exact"
+        },
+        {
+         "name": "IsCyclotomicExtension.autEquivPow",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/Gal.lean",
+         "line": 77,
+         "fit": "exact"
+        }
+       ],
+       "note": "Tau Ceti proves the ramification index and trivial-intersection statements over a general base and for prime powers; Mathlib's autEquivPow gives the isomorphism from irreducibility."
+      },
+      {
+       "target": "7.3 L cap K(zeta_q) = K from q unramified in L",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "IsCyclotomicExtension.inf_eq_bot_of_unramified",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Cyclotomic/IrreducibleOfUnramified.lean",
+         "line": 216,
+         "fit": "exact"
+        }
+       ],
+       "note": "The general-base form applies directly with A = L and B = K(zeta_q)."
+      },
+      {
+       "target": "7.4 Compositum M = L K(zeta_q): Gal(M/K) = Gal(L/K) x Gal(K(zeta_q)/K) with unpowered Frobenius compatibility",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "IsCyclotomicExtension.galEquivProd",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Cyclotomic/Compositum.lean",
+         "line": 235,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.mem_frobeniusPrimeSet_galEquivProd_symm_iff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/Crossing/CompositumFrobenius.lean",
+         "line": 119,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.mem_frobeniusPrimeSet_mk_iff_restrictNormal_autToPow",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/Crossing/CompositumFrobenius.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "IsCyclotomicExtension.isGalois_of_isGalois_of_isCyclotomicExtension",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Cyclotomic/Compositum.lean",
+         "line": 182,
+         "fit": "related"
+        }
+       ],
+       "note": "The splitting is stated as Gal(M/K) = Gal(L/K) x (ZMod m)^x under m coprime to disc L, derived by a degree count rather than from 7.3 and linear disjointness; for m = q unramified in L the hypotheses agree."
+      },
+      {
+       "target": "7.4 Ramification in the compositum: unramified in M implies unramified in both factors; primes ramified in M but not in L lie above q (finite)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No such statements are in the Chebotarev or cyclotomic files."
+      },
+      {
+       "target": "7.5 Tagged fixed fields: Z cap (G x 1) = 1 when f | orderOf tau, M = E_tau(zeta_q) cyclotomic over E_tau with group of order orderOf tau, pairwise disjoint tagged fibres",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "Subgroup.zpowers_inf_top_prod_bot_eq_bot_of_orderOf_dvd",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Group/Subgroup/ZPowers.lean",
+         "line": 50,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.fixedField_zpowers_isCyclotomicExtension",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/TaggedFixedField.lean",
+         "line": 56,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.card_algEquiv_fixedField_zpowers_eq_orderOf",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/TaggedFixedField.lean",
+         "line": 82,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.pairwise_disjoint_taggedFrobeniusPrimeSet",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/Crossing/TaggedFibres.lean",
+         "line": 140,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.taggedFrobeniusPrimeSet",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/Crossing/TaggedFibres.lean",
+         "line": 68,
+         "fit": "exact"
+        }
+       ],
+       "note": "Uses the hypothesis orderOf sigma | orderOf tau as the roadmap does."
+      },
+      {
+       "target": "7.5 Contraction hypotheses for M/E_tau (contracted primes of E_tau are those of residue degree one over K)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-8-the-cyclic-fixed-field-fibre": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "8.1 The two restriction laws (shrinking the top field unpowered; raising the base by the power f(P/p))",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "NumberField.artinSymbol_map_restrictNormalHom",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+         "line": 113,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.artinSymbol_map_restrictScalarsHom_eq_pow_inertiaDeg",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+         "line": 266,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.restrictScalars_eq_pow_inertiaDeg",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Frobenius/Tower.lean",
+         "line": 123,
+         "fit": "exact"
+        }
+       ],
+       "note": "Consumed from Number Field Arithmetic as specified."
+      },
+      {
+       "target": "8.1 Named regression: Q(zeta_7) over Q(sqrt -7) at p = 3",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Q(zeta_7) example exists."
+      },
+      {
+       "target": "8.2 L/E cyclic for E = L^<sigma>; f(P/p) is the least n >= 1 with Frob^n in <sigma>; f = 1 iff Frob in <sigma>, and then the relative Frobenius is Frob_{L/K}",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "Ideal.isLeast_pow_mem_inertiaDeg_under_fixedField",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Frobenius/FixedField/Inertia.lean",
+         "line": 181,
+         "fit": "exact"
+        },
+        {
+         "name": "Ideal.inertiaDeg_under_fixedField_eq_one_iff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Frobenius/FixedField/Inertia.lean",
+         "line": 195,
+         "fit": "exact"
+        },
+        {
+         "name": "Ideal.exists_isArithFrobAt_and_restrictScalars_eq",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Frobenius/FixedField/Fiber.lean",
+         "line": 49,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.isArithFrobAt_restrictScalars_of_inertiaDeg_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Frobenius/Tower.lean",
+         "line": 251,
+         "fit": "exact"
+        },
+        {
+         "name": "AlgEquiv.card_algEquiv_fixedField_zpowers",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/Galois/FixedField.lean",
+         "line": 275,
+         "fit": "related"
+        }
+       ],
+       "note": "Cyclicity of L/E with generator sigma follows from Mathlib's Galois correspondence and card_algEquiv_fixedField_zpowers."
+      },
+      {
+       "target": "8.2 Exact fibre count: each p in C has #G/(#C f) = #Centralizer(sigma)/f primes of E of residue degree one with relative Frobenius sigma; #C f | #G; cyclic-generator test",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Ideal.frobenius_fiber_card_mul_orderOf_eq_card_centralizer",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Frobenius/FiberCount.lean",
+         "line": 101,
+         "fit": "related"
+        },
+        {
+         "name": "ConjClasses.card_carrier_mul_orderOf_dvd",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Group/Conj.lean",
+         "line": 244,
+         "fit": "exact"
+        },
+        {
+         "name": "ConjClasses.card_div_card_carrier_mul_orderOf_eq_card_centralizer_div_orderOf",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Group/Conj.lean",
+         "line": 261,
+         "fit": "exact"
+        },
+        {
+         "name": "Ideal.frobenius_fiber_eq_orbit_centralizer",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Frobenius/FiberCount.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti counts the primes of L (not of E) above p carrying sigma, #fibre * orderOf sigma = #Centralizer, plus the divisibility and the index identity. The count on the fixed field E, its converse, and the cyclic test are not yet stated."
+      },
+      {
+       "target": "8.3 Exceptional set on the E side: primes of E above ramifiedPrimes K L, and the contraction using it",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.primesAboveRamifiedPrimes",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/PrimesAboveRamifiedPrimes.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.mem_primesAboveRamifiedPrimes_iff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/PrimesAboveRamifiedPrimes.lean",
+         "line": 81,
+         "fit": "exact"
+        }
+       ],
+       "note": "The finite set is defined (the docstring records the S3 witness), but no contraction theorem uses it."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+       "note": "The two restriction laws are that layer's 2.4 exports, which this layer re-exposes and tests."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-9-abelian-chebotarev": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Exact cyclic-group count #{tau in H : f | orderOf tau} = h prod_{p|f} (1 - p^-(v_p(h) - v_p(f) + 1))",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsCyclic.card_filter_dvd_orderOf_eq_sum_totient",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/Cyclic/OrderCount.lean",
+         "line": 72,
+         "fit": "related"
+        },
+        {
+         "name": "IsCyclic.card_orderOf_eq_totient",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/SpecificGroups/Cyclic.lean",
+         "line": 154,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the count as a totient sum over divisors d of h with f | d; the product evaluation is not stated."
+      },
+      {
+       "target": "Uniform inequality c_q >= (1 - 2^-r)^#primeFactors(f) / #G and its limit as r -> infinity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Tagged fibre densities 1/(#G #H_q) over K from Layer 6 over E_tau and the Layer 8 contraction; lower bound c_q and density squeeze to abelian Chebotarev",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.taggedFrobeniusPrimeSet",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/Crossing/TaggedFibres.lean",
+         "line": 68,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the tagged fibre sets and their disjointness exist (Layer 7). No density statement."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "hasDirichletDensity_frobeniusPrimeSet with value #C/#G over every number field",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.Set.HasDirichletDensity",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DirichletDensity.lean",
+         "line": 82,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent from both libraries."
+      },
+      {
+       "target": "Corollaries: split-completely density, non-Galois version via Galois closure, infinitude of every Frobenius class, rational AP case, invariance under finite symmetric difference",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Nat.infinite_setOf_prime_and_eq_mod",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+         "line": 437,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the rational infinitude of primes in progressions (Mathlib) exists; none of the Chebotarev corollaries does."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.4",
+       "note": "Its 'Hecke, Dedekind and Artin analytic interfaces' lists Chebotarev as a target of the L-function route, overlapping with this density theorem."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-11-the-frobenius-von-mangoldt-coefficient-and-its-summatory-functions": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "11.1 Lambda_C(n) with the powered class condition, nonnegativity, summability on Re s > 1, and the cyclic degree-four regression",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.frobeniusVonMangoldtCoeff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/PrimeCounting/VonMangoldt.lean",
+         "line": 231,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.frobeniusVonMangoldtCoeff_nonneg",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/PrimeCounting/VonMangoldt.lean",
+         "line": 243,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.mem_frobeniusPrimePowerSet_iff_artinSymbol_pow_eq",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/PrimeCounting/VonMangoldt.lean",
+         "line": 80,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.primePowerWeight_le_frobeniusVonMangoldtCoeff_of_artinSymbol_order_four",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/PrimeCounting/VonMangoldt.lean",
+         "line": 259,
+         "fit": "exact"
+        }
+       ],
+       "note": "Coefficient, nonnegativity and the order-four regression (a private theorem) are present. Summability on Re s > 1 is not stated, though it follows from frobeniusPrimePowerWeight_le and the all-prime bounds."
+      },
+      {
+       "target": "11.2 psi_C and theta_C on the prime subtype, with 0 <= psi_C - theta_C",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.frobeniusPsi",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/PrimeCounting/VonMangoldt.lean",
+         "line": 155,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.frobeniusTheta",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/PrimeCounting/VonMangoldt.lean",
+         "line": 160,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.frobeniusTheta_le_frobeniusPsi",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/PrimeCounting/VonMangoldt.lean",
+         "line": 336,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.frobeniusPsi_sub_frobeniusTheta_eq_primePowerSummatory",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/PrimeCounting/VonMangoldt.lean",
+         "line": 324,
+         "fit": "related"
+        }
+       ],
+       "note": "As specified."
+      },
+      {
+       "target": "11.3 Discard estimates: prime powers j >= 2 (o(x)), residue degree above one (o(x)), a finite set (O(log x)), and the single total-error theorem",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.frobeniusPsi_sub_frobeniusTheta_isLittleO",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/PrimeCounting/VonMangoldt.lean",
+         "line": 358,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primeTheta_higherDegreePrimes_isLittleO",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/ResidueDegree.lean",
+         "line": 177,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.primePsi_isBigO_log_of_finite",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean",
+         "line": 281,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Chebotarev.frobeniusDiscard_isLittleO",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/PrimeCounting/Discard.lean",
+         "line": 45,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.standardPrimePowerRemoval",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean",
+         "line": 230,
+         "fit": "related"
+        }
+       ],
+       "note": "All four named estimates exist; (2) and (3) are the generic all-prime versions that the roadmap says dominate the Frobenius terms."
+      },
+      {
+       "target": "11.4 Log-derivative identity sum_{p,m} 1_{Frob(p)^m = sigma} log Np Np^-ms = (1/#G) sum_chi chi(sigma)^-1 (-L_chi'/L_chi)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.logDeriv_LSeries_eq_neg_tsum_vonMangoldtTransform",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Logarithm/VonMangoldtCoeff.lean",
+         "line": 118,
+         "fit": "more general"
+        },
+        {
+         "name": "AlgEquiv.sum_inv_mul_galoisCharacterWeight_apply_of_unramified",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/GaloisCharacter/Orthogonality.lean",
+         "line": 99,
+         "fit": "related"
+        }
+       ],
+       "note": "The generic logarithmic derivative of an Euler product and the orthogonality formula exist; their combination for the Frobenius coefficient is not stated."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates",
+       "note": "Its 5.3 plans the residue-degree-above-one convergence and density-zero estimates that 11.3(2) restates for the crossing."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+       "note": "Its 10.2 owns standardPrimePowerRemoval, the all-prime tail that 11.3(1) dominates the Frobenius term by."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-12-the-weighted-transfer-package-and-the-tauberian-theorem": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "12.1 Ramified Euler correction of L_1 (Dedekind zeta minus ramified factors), simple pole with the same residue, continuity of -L_1'/L_1 - 1/(s-1) on Re s >= 1",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.dedekindZeta_eulerProduct_hasProd",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 386,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.EulerProductData.restrictAway",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Data.lean",
+         "line": 208,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the residue along real s -> 1+ and Tau Ceti the Euler product and restriction away from a finite set; no continuation or boundary continuity of the logarithmic derivative is proved."
+      },
+      {
+       "target": "12.2 Cyclotomic weighted theorem psi_sigma(x)/x -> 1/#Gal(F/K) via Wiener-Ikehara applied to the nonnegative Lambda_sigma, and psi_K(x)/x -> 1",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.LSeries.tendsto_tsum_term_mul_fourier_atTop_of_nonneg",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LSeries/WienerIkehara/BoundaryGrowth.lean",
+         "line": 236,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.LSeries.isBigO_sum_Icc_norm_of_boundary",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LSeries/WienerIkehara/BoundaryGrowth.lean",
+         "line": 120,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has only the smoothed Wiener-Ikehara asymptotic (test functions on the Fourier side) and an O(x log x) growth bound; the unsmoothed Tauberian conclusion (sum_{n<=x} a_n)/x -> kappa (the consumed wienerIkehara) and the prime ideal theorem are absent."
+      },
+      {
+       "target": "12.3 Exact residue-degree-one contraction identity and psi_sigma^{L/E} = (#G/(#C f)) psi_C^{L/K} + o(x)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.frobeniusDiscard_isLittleO",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/PrimeCounting/Discard.lean",
+         "line": 45,
+         "fit": "related"
+        }
+       ],
+       "note": "The discard estimates exist; the contraction identity does not."
+      },
+      {
+       "target": "12.4-12.5 Weighted crossing liminf >= c_q, squeeze to 1/#G, and psi_C(x)/x -> #C/#G for arbitrary finite Galois L/K",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara",
+       "note": "Owns the Wiener-Ikehara theorem that 12.2 applies; Tau Ceti's partial smoothed version is that roadmap's work."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+       "note": "Its 10.4 plans the prime ideal theorem psi_K(x) ~ x, conditional on a boundary package, which 12.2 derives here unconditionally by a different route."
+      },
+      {
+       "layer": "AnalyticNumberTheory:AN.2",
+       "note": "Plans Tauberian and contour proofs of prime number theorems, which include the psi asymptotics derived here."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-13-ϑ_c-and-π_c": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "theta_C(x)/x -> #C/#G from psi_C and 11.3(1)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.frobeniusTheta",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/PrimeCounting/VonMangoldt.lean",
+         "line": 160,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.primeTheta_asymptotic_of_primePsi",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean",
+         "line": 297,
+         "fit": "more general"
+        }
+       ],
+       "note": "The generic psi-to-theta transfer exists; the Frobenius asymptotic it would be applied to (Layer 12) does not."
+      },
+      {
+       "target": "pi_C(x) = #{p : Np <= x, Frob p = C} and pi_C(x) ~ (#C/#G) x/log x, with the logarithmic-integral form",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.primeCount",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Counting.lean",
+         "line": 521,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.primeCount_asymptotic_of_primeTheta",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Transfer.lean",
+         "line": 140,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.primeCount_sub_mul_logIntegral_isLittleO",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Transfer.lean",
+         "line": 110,
+         "fit": "more general"
+        }
+       ],
+       "note": "primeCount over any prime set (so over frobeniusPrimeSet) and the theta-to-pi and Li transfers exist in Tau Ceti; no frobeniusPrimeCount or tendsto_frobeniusPrimeCount."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+       "note": "Its 10.3 owns primeCount_asymptotic_of_primeTheta, which this layer only specializes."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Denominator: the prime ideal theorem for K from psi_K(x) ~ x",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.primeCount_asymptotic_of_primeTheta",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Transfer.lean",
+         "line": 140,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.tendsto_primeCount_univ_atTop",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Counting.lean",
+         "line": 550,
+         "fit": "related"
+        }
+       ],
+       "note": "No prime ideal theorem exists in either library (Mathlib has no prime number theorem either)."
+      },
+      {
+       "target": "hasNaturalDensity_frobeniusPrimeSet with value #C/#G",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.Set.HasNaturalDensity",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/NaturalDensity.lean",
+         "line": 61,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Set.HasNaturalDensity.of_finite_symmDiff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/NaturalDensity.lean",
+         "line": 154,
+         "fit": "related"
+        }
+       ],
+       "note": "The natural-density predicate and its finite-set calculus are in Tau Ceti; the theorem is not."
+      },
+      {
+       "target": "Agreement theorems: Q(zeta_5) density 1/4 with Frob zeta_5 -> zeta_5^p, split-completely 1/#G, cyclic degree four, cyclic-generator fixed field, deletion of ramified set, Dirichlet vs natural density compatibility",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.primePowerWeight_le_frobeniusVonMangoldtCoeff_of_artinSymbol_order_four",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/PrimeCounting/VonMangoldt.lean",
+         "line": 259,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the degree-four von Mangoldt filter check (Layer 11) exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+       "note": "Its 10.4 prime ideal theorem is the all-prime denominator this layer needs."
+      }
+     ]
+    }
+   }
+  }
+ }
+}

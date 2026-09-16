@@ -44,3 +44,8 @@
 2026-09-16T17:00:47Z	claude/2	COMPARE-12	done	1547	{"judged": 24, "pairs": 24}
 2026-09-16T17:03:15Z	claude2/1	COMPARE-10	done	1813	{"judged": 24, "pairs": 24}
 2026-09-16T17:11:52Z	claude6/2	AUDIT-03	pending	1010	exit 0 missing ['research/blueprint/audit/AUDIT-03.result.json']
+2026-09-16T17:15:45Z	claude/1	AUDIT-04	limit	1007	2026-09-16T21:30:00+00:00
+2026-09-16T17:16:41Z	claude/2	AUDIT-05	limit	953	2026-09-16T21:30:00+00:00
+2026-09-16T17:21:06Z	claude2/2	AUDIT-01	limit	1565	2026-09-16T21:00:00+00:00
+2026-09-16T17:22:07Z	claude6/1	AUDIT-02	done	1625	{"layers": 37, "audited": 37}
+2026-09-16T17:22:34Z	claude2/1	AUDIT-06	limit	1159	2026-09-16T21:00:00+00:00

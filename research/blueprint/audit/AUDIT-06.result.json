@@ -1,0 +1,2304 @@
+{
+ "job": "AUDIT-06",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "tauceti:TauCetiRoadmap/OneParameterSemigroups": {
+   "summary": "Tau Ceti (TauCeti/Analysis/Semigroups, Normed/Operator/Resolvent, CompletelyMonotone, PositiveDefinite, Bochner) already contains essentially the whole roadmap on real Banach spaces: C₀ and contraction semigroups with generators, closedness, uniqueness, the real resolvent and its sharp power bounds, operator-norm analyticity of unbounded resolvents, bounded perturbation, both the Hille–Yosida and Lumer–Phillips theorems as iff statements, Hausdorff–Bernstein–Widder with uniqueness, Lévy–Khintchine, Bochner on finite-dimensional inner-product spaces and the Berg–Christensen–Ressel theorem; Mathlib contributes only AbsolutelyMonotoneOn, LinearPMap, charFun and Matrix.PosSemidef. Genuinely missing: uniqueness of solutions of the abstract Cauchy problem, a public statement of the integral formula for resolvent powers (it exists only as private lemmas), the half-plane complex resolvent set of the complexified generator, the reciprocal complete-Bernstein/Stieltjes correspondence, and the optional LCA Bochner stretch. The roadmap's Bernstein milestone, stated with C^∞ smoothness on [0,∞), is false in the converse direction; Tau Ceti proves the correct form with continuity at 0 and complete monotonicity on (0,∞). The milestone layers repeat text from their parent parts.",
+   "layers": {
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-a--strongly-continuous-semigroups": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "C₀ semigroup structure and contraction-semigroup subclass",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Basic.lean",
+         "line": 41,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.ContractionSemigroup",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Basic.lean",
+         "line": 230,
+         "fit": "exact"
+        }
+       ],
+       "note": "Over a real Banach space: toFun : ℝ≥0 → X →L[ℝ] X with S 0 = id, S(s+t) = S s ∘ S t and strong continuity at 0; contraction semigroups extend it with ‖S t‖ ≤ 1."
+      },
+      {
+       "target": "Growth bound ‖S t‖ ≤ M e^{ωt} and its existence",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.HasGrowthBound",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/GrowthBound.lean",
+         "line": 41,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.existsGrowthBound",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/GrowthBound.lean",
+         "line": 145,
+         "fit": "exact"
+        }
+       ],
+       "note": "HasGrowthBound ω M includes 1 ≤ M."
+      },
+      {
+       "target": "Generator as strong derivative at 0 on its domain, as a LinearPMap",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.generator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/Basic.lean",
+         "line": 113,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.domain",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/Basic.lean",
+         "line": 90,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.mem_domain_iff_tendsto",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/Basic.lean",
+         "line": 141,
+         "fit": "exact"
+        }
+       ],
+       "note": "The domain is the submodule of x for which (S t x − x)/t converges as t → 0⁺; the generator is a LinearPMap, as the roadmap requires."
+      },
+      {
+       "target": "Density of D(A), and of D(Aⁿ)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.dense_domain",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/Basic.lean",
+         "line": 351,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.dense_domainPow",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/IteratedDomain.lean",
+         "line": 186,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both the named density theorem and the secondary D(Aⁿ) target are present."
+      },
+      {
+       "target": "The generator determines the semigroup",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.eq_of_generator_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/Uniqueness.lean",
+         "line": 170,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.generator_injective",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/Uniqueness.lean",
+         "line": 177,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "The generator is closed",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.isClosed_generator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/Closed.lean",
+         "line": 91,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "S(t)D(A) ⊆ D(A), A S(t)x = S(t)Ax, and differentiability of t ↦ S(t)x for x ∈ D(A)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.map_mem_domain",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/Invariance.lean",
+         "line": 66,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.generator_map",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/Invariance.lean",
+         "line": 74,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.realOperator_hasDerivWithinAt_Ici",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/OrbitDerivative.lean",
+         "line": 184,
+         "fit": "exact"
+        }
+       ],
+       "note": "The orbit derivative is within [0,∞) at every t ≥ 0 and equals A S(t)x."
+      },
+      {
+       "target": "Bounded generator (domain = ⊤) iff uniformly continuous semigroup",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.continuous_iff_domain_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/UniformlyContinuous.lean",
+         "line": 249,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.ofBounded",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/BoundedGenerator/Basic.lean",
+         "line": 56,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.eq_ofBounded_of_generator_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/BoundedGenerator/Basic.lean",
+         "line": 149,
+         "fit": "exact"
+        }
+       ],
+       "note": "Continuity is of t ↦ S t in operator norm; a semigroup with bounded generator A is exp(tA)."
+      },
+      {
+       "target": "Bounded perturbation theorem",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.exists_generator_eq_vadd",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/BoundedPerturbation.lean",
+         "line": 450,
+         "fit": "exact"
+        }
+       ],
+       "note": "For bounded B, B + A generates a C₀ semigroup with growth bound (M, ω + M‖B‖)."
+      },
+      {
+       "target": "∫₀ᵗ S(s)x ds ∈ D(A) with A∫₀ᵗ S(s)x ds = S(t)x − x",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.integral_orbit_mem_domain",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/Basic.lean",
+         "line": 333,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.generator_integral_orbit",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/Basic.lean",
+         "line": 340,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Dissipativity and m-dissipativity (Banach form); generator of a contraction semigroup is m-dissipative",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.IsDissipative",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Dissipative/Basic.lean",
+         "line": 85,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.IsMDissipative",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Dissipative/Basic.lean",
+         "line": 157,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.ContractionSemigroup.isDissipative_generator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Dissipative/Basic.lean",
+         "line": 432,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.ContractionSemigroup.isMDissipative_generator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Dissipative/Basic.lean",
+         "line": 451,
+         "fit": "exact"
+        }
+       ],
+       "note": "Dissipativity is the resolvent-range inequality λ‖x‖ ≤ ‖λx − Ax‖ for λ > 0, the general Banach notion the roadmap asks for."
+      },
+      {
+       "target": "Hilbert characterization of dissipativity ⟪Ax, x⟫ ≤ 0",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.isDissipative_iff_real_inner_nonpos",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Dissipative/Hilbert.lean",
+         "line": 53,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.ContractionSemigroup.real_inner_generator_nonpos",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Dissipative/Hilbert.lean",
+         "line": 91,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated for real inner product spaces, as a specialization."
+      },
+      {
+       "target": "Unbounded resolvent set and resolvent, with the bridge to Mathlib's resolvent for bounded operators",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.LinearPMap.resolventSet",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Normed/Operator/Resolvent/Unbounded.lean",
+         "line": 140,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.LinearPMap.resolvent",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Normed/Operator/Resolvent/Unbounded.lean",
+         "line": 171,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.LinearPMap.mem_resolventSet_toPMap_top_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Normed/Operator/Resolvent/Unbounded.lean",
+         "line": 471,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.LinearPMap.resolvent_toPMap_top",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Normed/Operator/Resolvent/Unbounded.lean",
+         "line": 478,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.ofBounded_resolvent_eq_resolvent",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/BoundedGenerator/Resolvent.lean",
+         "line": 96,
+         "fit": "exact"
+        }
+       ],
+       "note": "λ ∈ ρ(A) iff λI − A : D(A) → X has a bounded two-sided inverse; defined over any nontrivially normed field."
+      },
+      {
+       "target": "R(λ,A)x = ∫₀^∞ e^{−λt} S(t)x dt for real λ > ω",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.resolvent",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Resolvent/Basic.lean",
+         "line": 113,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.generator_resolvent_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Resolvent/Identity.lean",
+         "line": 179,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.Ioi_subset_resolventSet_generator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Resolvent/Identity.lean",
+         "line": 172,
+         "fit": "exact"
+        }
+       ],
+       "note": "The Laplace integral is a pointwise Bochner integral bundled into a continuous linear map, and is identified with the abstract resolvent of the generator."
+      },
+      {
+       "target": "Resolvent identity R(λ) − R(μ) = (μ − λ)R(λ)R(μ)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.resolvent_sub_resolvent",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Resolvent/Identity.lean",
+         "line": 211,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.LinearPMap.resolvent_sub_resolvent",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Normed/Operator/Resolvent/Unbounded.lean",
+         "line": 273,
+         "fit": "more general"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Analyticity of λ ↦ R(λ,A) on the resolvent set",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "LinearPMap.analyticOnNhd_resolvent",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Normed/Operator/Resolvent/Analytic.lean",
+         "line": 85,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.LinearPMap.analyticAt_resolvent",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Normed/Operator/Resolvent/Analytic.lean",
+         "line": 67,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.LinearPMap.isOpen_resolventSet",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Normed/Operator/Resolvent/Unbounded.lean",
+         "line": 406,
+         "fit": "exact"
+        }
+       ],
+       "note": "Proved in operator norm for any unbounded operator on a Banach space over a nontrivially normed field, so both the real resolvent set of the generator and any complex resolvent set are covered. The 2026-09-03 STATUS.md lists this as missing; it is in the baseline."
+      },
+      {
+       "target": "Complex resolvent set via complexification: Re λ > ω lies in the resolvent set of the complexified generator",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.complexify",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Complexification.lean",
+         "line": 56,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.complexGenerator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/ComplexLinear.lean",
+         "line": 178,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.isClosed_complexGenerator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/ComplexLinear.lean",
+         "line": 230,
+         "fit": "related"
+        }
+       ],
+       "note": "The complexified semigroup and complex generator exist, but no theorem places the half-plane Re λ > ω in the complex resolvent set or gives the Laplace formula for complex λ."
+      },
+      {
+       "target": "Derivative formula dᵏR(λ,A)/dλᵏ = (−1)ᵏ k! R(λ,A)^{k+1}",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.iteratedDeriv_resolventFun",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Resolvent/Deriv.lean",
+         "line": 190,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.contDiffOn_resolventFun",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Resolvent/Deriv.lean",
+         "line": 210,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated for the real resolvent function on λ > ω."
+      },
+      {
+       "target": "Power formula R(λ,A)ⁿx = ∫₀^∞ tⁿ⁻¹/(n−1)! e^{−λt} S(t)x dt",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.resolventMoment",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Resolvent/PowerBounds.lean",
+         "line": 106,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.iteratedDeriv_resolventFun_apply_eq_resolventMoment",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Resolvent/PowerBounds.lean",
+         "line": 164,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.iteratedDeriv_resolventFun_apply_eq_pow",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Resolvent/PowerBounds.lean",
+         "line": 200,
+         "fit": "related"
+        }
+       ],
+       "note": "Both halves are proved, but only as private declarations in PowerBounds.lean (the moment integral and its identification with the resolvent power); there is no public statement of the integral formula."
+      },
+      {
+       "target": "Iterated resolvent bounds ‖R(λ,A)ⁿ‖ ≤ M/(λ−ω)ⁿ; contraction corollary ‖R(λ,A)‖ ≤ 1/λ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.resolvent_pow_norm_le",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Resolvent/PowerBounds.lean",
+         "line": 266,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.ContractionSemigroup.resolvent_pow_norm_le",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Resolvent/PowerBounds.lean",
+         "line": 321,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.ContractionSemigroup.resolvent_norm_le",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Resolvent/Basic.lean",
+         "line": 405,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Hille–Yosida generation theorem at general (M, ω)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.hilleYosida_generation_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/HilleYosida/Generation.lean",
+         "line": 217,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Semigroups.hilleYosida_generation",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/HilleYosida/Generation.lean",
+         "line": 205,
+         "fit": "exact"
+        }
+       ],
+       "note": "Real Banach space X; densely defined A with (ω,∞) in its resolvent set and ‖R(λ,A)ⁿ‖ ≤ M/(λ−ω)ⁿ for n ≥ 1 generates a C₀ semigroup with growth bound (M, ω). The iff version also proves necessity."
+      },
+      {
+       "target": "Yosida approximation A_λ = λ²R(λ,A) − λI, contraction exponentials, compact-time Cauchy limit and generator identification",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.yosidaApproximation",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/Yosida/Basic.lean",
+         "line": 86,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.norm_exp_smul_yosidaApproximation_le_one",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/Yosida/Basic.lean",
+         "line": 180,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.IsMDissipative.exp_yosidaApproximation_uniformCauchySeqOn_compact",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/Yosida/Basic.lean",
+         "line": 503,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.IsMDissipative.yosidaLimitSemigroup",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/LimitSemigroup.lean",
+         "line": 479,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.IsMDissipative.yosidaLimitSemigroup_generator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/LumerPhillips.lean",
+         "line": 61,
+         "fit": "exact"
+        }
+       ],
+       "note": "The limit semigroup is defined from the uniformly Cauchy exponentials (not as a limit to a pre-existing S), and its generator is identified with A; the Hille–Yosida route uses the analogous hilleYosidaLimitSemigroup."
+      },
+      {
+       "target": "Lumer–Phillips generation theorem (dissipative + range condition gives contraction semigroup)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.IsMDissipative.exists_contractionSemigroup_generator_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/LumerPhillips.lean",
+         "line": 86,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.exists_contractionSemigroup_generator_eq_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/LumerPhillips.lean",
+         "line": 99,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Semigroups.IsMDissipative",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Dissipative/Basic.lean",
+         "line": 157,
+         "fit": "exact"
+        }
+       ],
+       "note": "IsMDissipative is exactly dissipativity plus surjectivity of λ₀ − A for some λ₀ > 0, as in the roadmap; density of the domain is a separate hypothesis, and the iff adds the converse."
+      },
+      {
+       "target": "Abstract Cauchy problem: t ↦ S(t)x is a classical solution for x ∈ D(A)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.isClassicalSolution_realOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/CauchyProblem.lean",
+         "line": 132,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.IsClassicalSolution",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/CauchyProblem.lean",
+         "line": 50,
+         "fit": "exact"
+        }
+       ],
+       "note": "IsClassicalSolution requires u(0) = x, u(t) ∈ D(A), and a continuous right derivative on [0,∞) equal to A u(t)."
+      },
+      {
+       "target": "Abstract Cauchy problem: t ↦ S(t)x is a mild solution for every x",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.isMildSolution_realOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/CauchyProblem.lean",
+         "line": 149,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.IsMildSolution",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/CauchyProblem.lean",
+         "line": 92,
+         "fit": "exact"
+        }
+       ],
+       "note": "IsMildSolution: continuity on [0,∞), u(0) = x, and ∫₀ᵗ u ∈ D(A) with A∫₀ᵗ u = u(t) − x."
+      },
+      {
+       "target": "Uniqueness: every classical (or mild) solution of u' = Au, u(0) = x equals S(t)x",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.realOperator_apply_eq_of_hasDerivWithinAt_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/Uniqueness.lean",
+         "line": 147,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.eq_of_generator_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/Uniqueness.lean",
+         "line": 170,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the interpolation lemma behind generator uniqueness exists; no theorem states that a classical or mild solution of the abstract Cauchy problem must be the semigroup orbit, so 'the solution' is proved as existence only."
+      },
+      {
+       "target": "Acceptance examples: multiplication semigroup with generator −m, e^{tA} for bounded A, Neumann-series resolvent, resolvent identity and ‖R(λ)‖ ≤ 1/λ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.ofMultiplication_generator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Multiplication.lean",
+         "line": 194,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.ofBounded_generator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/BoundedGenerator/Basic.lean",
+         "line": 143,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.ofBounded_resolvent_eq_inv_smul_tsum_pow",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/BoundedGenerator/Resolvent.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.ContractionSemigroup.ofMultiplication_resolvent_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Multiplication.lean",
+         "line": 362,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.ContractionSemigroup.resolvent_norm_le",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Resolvent/Basic.lean",
+         "line": 405,
+         "fit": "more general"
+        }
+       ],
+       "note": "The multiplication semigroup is on bounded continuous functions α →ᵇ ℝ with a bounded continuous multiplier m, so its generator is bounded; the resolvent identity and the 1/λ bound are proved for all semigroups and contraction semigroups respectively."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/PDE#milestone-f-26",
+       "note": "PDE Lane F item 26 asks for generators and the Hille–Yosida theorem (with the heat semigroup), which this part states in full generality."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/PDE#lane-f-parabolic-and-evolution-equations",
+       "note": "The parent Lane F restates item 26's generators and Hille–Yosida."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--hilleyosida-generation-theorem": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Hille–Yosida generation theorem at general (M, ω)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.hilleYosida_generation_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/HilleYosida/Generation.lean",
+         "line": 217,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Semigroups.hilleYosida_generation",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/HilleYosida/Generation.lean",
+         "line": 205,
+         "fit": "exact"
+        }
+       ],
+       "note": "Real Banach space X; densely defined A with (ω,∞) in its resolvent set and ‖R(λ,A)ⁿ‖ ≤ M/(λ−ω)ⁿ for n ≥ 1 generates a C₀ semigroup with growth bound (M, ω). The iff version also proves necessity."
+      },
+      {
+       "target": "Sharp power bounds on the resolvent of a generator (the necessity half)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.resolvent_pow_norm_le",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Resolvent/PowerBounds.lean",
+         "line": 266,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.Ioi_subset_resolventSet_generator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Resolvent/Identity.lean",
+         "line": 172,
+         "fit": "exact"
+        }
+       ],
+       "note": "Not required by the milestone statement itself, but proved and packaged in hilleYosida_generation_iff."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/PDE#milestone-f-26",
+       "note": "PDE Lane F item 26 lists the Hille–Yosida theorem among its semigroup targets."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/PDE#lane-f-parabolic-and-evolution-equations",
+       "note": "The parent Lane F restates item 26's Hille–Yosida target."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--lumerphillips-theorem": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Lumer–Phillips generation theorem (dissipative + range condition gives contraction semigroup)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.IsMDissipative.exists_contractionSemigroup_generator_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/LumerPhillips.lean",
+         "line": 86,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.exists_contractionSemigroup_generator_eq_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/LumerPhillips.lean",
+         "line": 99,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Semigroups.IsMDissipative",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Dissipative/Basic.lean",
+         "line": 157,
+         "fit": "exact"
+        }
+       ],
+       "note": "IsMDissipative is exactly dissipativity plus surjectivity of λ₀ − A for some λ₀ > 0, as in the roadmap; density of the domain is a separate hypothesis, and the iff adds the converse."
+      },
+      {
+       "target": "Yosida approximation A_λ = λ²R(λ,A) − λI, contraction exponentials, compact-time Cauchy limit and generator identification",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.yosidaApproximation",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/Yosida/Basic.lean",
+         "line": 86,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.norm_exp_smul_yosidaApproximation_le_one",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/Yosida/Basic.lean",
+         "line": 180,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.IsMDissipative.exp_yosidaApproximation_uniformCauchySeqOn_compact",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/Yosida/Basic.lean",
+         "line": 503,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.IsMDissipative.yosidaLimitSemigroup",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/LimitSemigroup.lean",
+         "line": 479,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.IsMDissipative.yosidaLimitSemigroup_generator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/LumerPhillips.lean",
+         "line": 61,
+         "fit": "exact"
+        }
+       ],
+       "note": "The limit semigroup is defined from the uniformly Cauchy exponentials (not as a limit to a pre-existing S), and its generator is identified with A; the Hille–Yosida route uses the analogous hilleYosidaLimitSemigroup."
+      },
+      {
+       "target": "Density sub-lemma and stability estimates for the Yosida exponentials",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.norm_yosidaApproximation_le",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/Yosida/Basic.lean",
+         "line": 136,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.tendsto_yosidaApproximation_apply_atTop",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/Yosida/Basic.lean",
+         "line": 364,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.IsMDissipative.tendsto_smul_resolvent_apply_atTop",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/Yosida/Basic.lean",
+         "line": 482,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.dense_domain",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/Basic.lean",
+         "line": 351,
+         "fit": "exact"
+        }
+       ],
+       "note": "λR(λ,A)x → x and A_λx → Ax on D(A) give the approximation estimates; density of the generator domain is proved for every C₀ semigroup."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--abstract-cauchy-problem": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Abstract Cauchy problem: t ↦ S(t)x is a classical solution for x ∈ D(A)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.isClassicalSolution_realOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/CauchyProblem.lean",
+         "line": 132,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.IsClassicalSolution",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/CauchyProblem.lean",
+         "line": 50,
+         "fit": "exact"
+        }
+       ],
+       "note": "IsClassicalSolution requires u(0) = x, u(t) ∈ D(A), and a continuous right derivative on [0,∞) equal to A u(t)."
+      },
+      {
+       "target": "Abstract Cauchy problem: t ↦ S(t)x is a mild solution for every x",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.isMildSolution_realOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/CauchyProblem.lean",
+         "line": 149,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.IsMildSolution",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/CauchyProblem.lean",
+         "line": 92,
+         "fit": "exact"
+        }
+       ],
+       "note": "IsMildSolution: continuity on [0,∞), u(0) = x, and ∫₀ᵗ u ∈ D(A) with A∫₀ᵗ u = u(t) − x."
+      },
+      {
+       "target": "Uniqueness: every classical (or mild) solution of u' = Au, u(0) = x equals S(t)x",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.realOperator_apply_eq_of_hasDerivWithinAt_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/Uniqueness.lean",
+         "line": 147,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.eq_of_generator_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generator/Uniqueness.lean",
+         "line": 170,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the interpolation lemma behind generator uniqueness exists; no theorem states that a classical or mild solution of the abstract Cauchy problem must be the semigroup orbit, so 'the solution' is proved as existence only."
+      },
+      {
+       "target": "The displayed Lean stubs hilleYosida_generation and lumerPhillips",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.hilleYosida_generation",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/HilleYosida/Generation.lean",
+         "line": 205,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.IsMDissipative.exists_contractionSemigroup_generator_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/LumerPhillips.lean",
+         "line": 86,
+         "fit": "exact"
+        }
+       ],
+       "note": "The stubs printed under this milestone restate the two generation theorems, which are proved with the same hypotheses (no DenseLinearOperator wrapper is needed: density is a hypothesis on a LinearPMap)."
+      },
+      {
+       "target": "Acceptance examples: multiplication semigroup with generator −m, e^{tA} for bounded A, Neumann-series resolvent, resolvent identity and ‖R(λ)‖ ≤ 1/λ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.ofMultiplication_generator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Multiplication.lean",
+         "line": 194,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.ofBounded_generator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/BoundedGenerator/Basic.lean",
+         "line": 143,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup.ofBounded_resolvent_eq_inv_smul_tsum_pow",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/BoundedGenerator/Resolvent.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.ContractionSemigroup.ofMultiplication_resolvent_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Multiplication.lean",
+         "line": 362,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.ContractionSemigroup.resolvent_norm_le",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Resolvent/Basic.lean",
+         "line": 405,
+         "fit": "more general"
+        }
+       ],
+       "note": "The multiplication semigroup is on bounded continuous functions α →ᵇ ℝ with a bounded continuous multiplier m, so its generator is bounded; the resolvent identity and the 1/λ bound are proved for all semigroups and contraction semigroups respectively."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-b--completely-monotone-and-bernstein-functions": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "IsCompletelyMonotone with bundled C^∞ smoothness on [0,∞)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsCompletelyMonotone",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Basic.lean",
+         "line": 195,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsCompletelyMonotoneOnIoi",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Basic.lean",
+         "line": 332,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.IsContinuousCompletelyMonotoneOnIoi",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Basic.lean",
+         "line": 483,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CompletelyMonotoneOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Basic.lean",
+         "line": 100,
+         "fit": "more general"
+        }
+       ],
+       "note": "Defined exactly as ContDiffOn ℝ ∞ f (Ici 0) with alternating signs of iteratedDerivWithin; open-half-line and continuous-at-0 variants, and a set-based version built on Mathlib's AbsolutelyMonotoneOn, are also provided."
+      },
+      {
+       "target": "Bernstein functions",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsBernsteinFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/Basic.lean",
+         "line": 68,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isBernsteinFunction_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/Basic.lean",
+         "line": 75,
+         "fit": "exact"
+        }
+       ],
+       "note": "Continuous and nonnegative on [0,∞), smooth on (0,∞), with completely monotone derivative on (0,∞)."
+      },
+      {
+       "target": "Closure under sums and nonnegative scalar multiples",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsCompletelyMonotone.add",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Basic.lean",
+         "line": 281,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsCompletelyMonotone.smul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Basic.lean",
+         "line": 287,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsCompletelyMonotone.sum",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Basic.lean",
+         "line": 303,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Closure under products",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsCompletelyMonotone.mul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Closure.lean",
+         "line": 66,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsCompletelyMonotone.prod",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Closure.lean",
+         "line": 91,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsCompletelyMonotoneOnIoi.mul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/OpenClosure.lean",
+         "line": 62,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Closure under pointwise limits",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.isCompletelyMonotoneOnIoi_of_tendsto",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Limits.lean",
+         "line": 68,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isContinuousCompletelyMonotoneOnIoi_of_tendsto",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Limits.lean",
+         "line": 96,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated on the open half-line (plus continuity at 0 for the closed version), which is the form in which the class is closed: smoothness at 0 is not preserved by pointwise limits."
+      },
+      {
+       "target": "Composition g ∘ f of completely monotone g with Bernstein f",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsContinuousCompletelyMonotoneOnIoi.comp_isBernsteinFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Composition.lean",
+         "line": 208,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsCompletelyMonotoneOnIoi.comp_isBernsteinFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Composition.lean",
+         "line": 194,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsBernsteinFunction.comp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Composition.lean",
+         "line": 224,
+         "fit": "related"
+        }
+       ],
+       "note": "The open-half-line version needs f > 0 on (0,∞); the continuous version has no extra hypothesis."
+      },
+      {
+       "target": "Derivative and integral closure",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsCompletelyMonotone.neg_derivWithin",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Closure.lean",
+         "line": 141,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsCompletelyMonotoneOnIoi.neg_deriv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/OpenClosure.lean",
+         "line": 128,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsCompletelyMonotone.isBernsteinFunction_integral",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/Integral.lean",
+         "line": 91,
+         "fit": "exact"
+        }
+       ],
+       "note": "−f' is completely monotone; the primitive of a completely monotone function is Bernstein."
+      },
+      {
+       "target": "Extreme rays t ↦ e^{−tx} and their mixtures",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.isCompletelyMonotone_exp_neg_mul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Basic.lean",
+         "line": 318,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isCompletelyMonotone_finiteExponentialMixture",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/FiniteMixture.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.finiteExponentialMixture_eq_integral",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/FiniteMixture.lean",
+         "line": 112,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Completely monotone ↔ Bernstein correspondences",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.isBernsteinFunction_iff_nonneg_and_forall_isContinuousCompletelyMonotoneOnIoi_exp_neg_mul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/Exponential/Basic.lean",
+         "line": 120,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsBernsteinFunction.isContinuousCompletelyMonotoneOnIoi_exp_neg_mul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Composition.lean",
+         "line": 250,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsCompletelyMonotoneOnIoi.isBernsteinFunction_integral",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/Integral.lean",
+         "line": 75,
+         "fit": "exact"
+        }
+       ],
+       "note": "f is Bernstein iff f ≥ 0 and e^{−xf} is completely monotone for all x > 0; derivatives and primitives move between the two classes."
+      },
+      {
+       "target": "Stieltjes and complete Bernstein function relationships",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.isStieltjesFunction_iff_exists_isCompletelyMonotoneOnIoi",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Stieltjes/Laplace.lean",
+         "line": 248,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isStieltjesFunction_iff_exists_isCompleteBernsteinFunction_eqOn_mul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Stieltjes/CompleteBernstein.lean",
+         "line": 236,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsStieltjesFunction.isCompletelyMonotoneOnIoi",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Stieltjes/CompletelyMonotone.lean",
+         "line": 269,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsCompleteBernsteinFunction.isBernsteinFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Stieltjes/CompleteBernstein.lean",
+         "line": 183,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsCompleteBernsteinFunction.isStieltjesFunction_div",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Stieltjes/CompleteBernstein.lean",
+         "line": 207,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stieltjes functions are exactly constants plus Laplace transforms of completely monotone functions, and f is Stieltjes iff t·f(t) is complete Bernstein (both iff, contrary to the older STATUS.md). Missing: the reciprocal correspondence, a nonzero f is complete Bernstein iff 1/f is Stieltjes."
+      },
+      {
+       "target": "Lévy–Khintchine representation of Bernstein functions, with uniqueness of the triplet",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.isBernsteinFunction_iff_exists_bernsteinLevyKhintchineExponent",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/LevyKhintchine/Representation.lean",
+         "line": 417,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsBernsteinFunction.existsUnique_eqOn_bernsteinLevyKhintchineExponent",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/LevyKhintchine/Uniqueness.lean",
+         "line": 134,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsBernsteinLevyMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/LevyKhintchine/Basic.lean",
+         "line": 65,
+         "fit": "exact"
+        }
+       ],
+       "note": "f = a + bt + ∫(1 − e^{−tx}) μ(dx) on [0,∞) with ∫ min(1,x) dμ < ∞."
+      },
+      {
+       "target": "Bernstein (Hausdorff–Bernstein–Widder) theorem: complete monotonicity on [0,∞) iff Laplace transform of a unique finite measure on ℝ≥0",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.hausdorff_bernstein_widder_existsUnique",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/HausdorffBernsteinWidder.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hausdorff_bernstein_widder",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/HausdorffBernsteinWidder.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_representsLaplace_of_isCompletelyMonotone",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/Theorem.lean",
+         "line": 130,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.isCompletelyMonotone_laplaceTransform_of_moments",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Laplace/Representation.lean",
+         "line": 504,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.RepresentsLaplace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Laplace/Representation.lean",
+         "line": 517,
+         "fit": "exact"
+        }
+       ],
+       "note": "Proved with the correct closed-half-line hypothesis IsContinuousCompletelyMonotoneOnIoi (continuous on [0,∞), completely monotone on (0,∞)). The roadmap's literal statement with IsCompletelyMonotone (C^∞ on [0,∞)) is false in the converse direction: a finite measure without a finite first moment has a Laplace transform that is not differentiable at 0. Tau Ceti also proves the forward direction from the smooth predicate and the converse under finite moments."
+      },
+      {
+       "target": "Open half-line version: complete monotonicity on (0,∞) iff Laplace transform of a unique, possibly infinite, measure; 1/t example",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.hausdorff_bernstein_widder_onIoi_existsUnique",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/OpenHalfLine.lean",
+         "line": 260,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hausdorff_bernstein_widder_onIoi",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/OpenHalfLine.lean",
+         "line": 254,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.representsLaplaceOnIoi_one_div",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/OpenHalfLine.lean",
+         "line": 280,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Uniqueness via Laplace-transform injectivity",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Measure.ext_of_forall_laplaceTransform_natCast_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Laplace/Representation.lean",
+         "line": 721,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.RepresentsLaplace.unique",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Laplace/Representation.lean",
+         "line": 729,
+         "fit": "exact"
+        }
+       ],
+       "note": "Finite measures on ℝ≥0 are determined by their Laplace transform at the natural numbers."
+      },
+      {
+       "target": "Measure extraction via Prokhorov tightness",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.isTightMeasureSet_range_chafaiRescaled",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/Tightness.lean",
+         "line": 77,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.chafaiRescaled_tendsto_laplace_integral_of_weak",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/Measures.lean",
+         "line": 1421,
+         "fit": "exact"
+        }
+       ],
+       "note": "Existence goes through tight rescaled Chafaï approximating measures and a weak cluster point."
+      },
+      {
+       "target": "Acceptance examples: e^{−t} ↦ δ₁, 1/(1+t) ↦ e^{−x}dx, closure used to build new examples",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.representsLaplace_dirac",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Laplace/Representation.lean",
+         "line": 711,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.integral_exp_neg_mul_dirac_one",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/FiniteMixture.lean",
+         "line": 126,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.bernsteinMeasure_one_div_one_add",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/Exponential/Measure.lean",
+         "line": 87,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isCompletelyMonotone_one_div_one_add",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Reciprocal.lean",
+         "line": 92,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isCompletelyMonotone_finiteExponentialMixture",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/FiniteMixture.lean",
+         "line": 70,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--bernsteins-theorem": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Bernstein (Hausdorff–Bernstein–Widder) theorem: complete monotonicity on [0,∞) iff Laplace transform of a unique finite measure on ℝ≥0",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.hausdorff_bernstein_widder_existsUnique",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/HausdorffBernsteinWidder.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hausdorff_bernstein_widder",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/HausdorffBernsteinWidder.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_representsLaplace_of_isCompletelyMonotone",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/Theorem.lean",
+         "line": 130,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.isCompletelyMonotone_laplaceTransform_of_moments",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Laplace/Representation.lean",
+         "line": 504,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.RepresentsLaplace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Laplace/Representation.lean",
+         "line": 517,
+         "fit": "exact"
+        }
+       ],
+       "note": "Proved with the correct closed-half-line hypothesis IsContinuousCompletelyMonotoneOnIoi (continuous on [0,∞), completely monotone on (0,∞)). The roadmap's literal statement with IsCompletelyMonotone (C^∞ on [0,∞)) is false in the converse direction: a finite measure without a finite first moment has a Laplace transform that is not differentiable at 0. Tau Ceti also proves the forward direction from the smooth predicate and the converse under finite moments."
+      },
+      {
+       "target": "Open half-line version: complete monotonicity on (0,∞) iff Laplace transform of a unique, possibly infinite, measure; 1/t example",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.hausdorff_bernstein_widder_onIoi_existsUnique",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/OpenHalfLine.lean",
+         "line": 260,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hausdorff_bernstein_widder_onIoi",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/OpenHalfLine.lean",
+         "line": 254,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.representsLaplaceOnIoi_one_div",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/OpenHalfLine.lean",
+         "line": 280,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Uniqueness via Laplace-transform injectivity",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Measure.ext_of_forall_laplaceTransform_natCast_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Laplace/Representation.lean",
+         "line": 721,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.RepresentsLaplace.unique",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Laplace/Representation.lean",
+         "line": 729,
+         "fit": "exact"
+        }
+       ],
+       "note": "Finite measures on ℝ≥0 are determined by their Laplace transform at the natural numbers."
+      },
+      {
+       "target": "Measure extraction via Prokhorov tightness",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.isTightMeasureSet_range_chafaiRescaled",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/Tightness.lean",
+         "line": 77,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.chafaiRescaled_tendsto_laplace_integral_of_weak",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/Measures.lean",
+         "line": 1421,
+         "fit": "exact"
+        }
+       ],
+       "note": "Existence goes through tight rescaled Chafaï approximating measures and a weak cluster point."
+      },
+      {
+       "target": "Acceptance examples: e^{−t} ↦ δ₁, 1/(1+t) ↦ e^{−x}dx, closure used to build new examples",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.representsLaplace_dirac",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Laplace/Representation.lean",
+         "line": 711,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.integral_exp_neg_mul_dirac_one",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/FiniteMixture.lean",
+         "line": 126,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.bernsteinMeasure_one_div_one_add",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Bernstein/Exponential/Measure.lean",
+         "line": 87,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isCompletelyMonotone_one_div_one_add",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/Reciprocal.lean",
+         "line": 92,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isCompletelyMonotone_finiteExponentialMixture",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/CompletelyMonotone/FiniteMixture.lean",
+         "line": 70,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-c--positive-definite-functions-and-bochners-theorem": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "IsPositiveDefinite on an involutive additive monoid (involution form Σ cᵢ c̄ⱼ F(aᵢ + aⱼ⋆) ≥ 0)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsPositiveDefinite",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Basic.lean",
+         "line": 83,
+         "fit": "more general"
+        }
+       ],
+       "note": "Defined on [AddMonoid M] [StarAddMonoid M], slightly more general than the roadmap's AddCommMonoid."
+      },
+      {
+       "target": "Instances: V with a⋆ = −a, and the BCR involution (t, a)⋆ = (t, −a) on ℝ≥0 × V",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsPositiveDefiniteSub",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/AddGroup.lean",
+         "line": 140,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isPositiveDefiniteSub_iff_isPositiveDefinite",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/AddGroup.lean",
+         "line": 153,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.WithNegStar",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/AddGroup.lean",
+         "line": 82,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsSemigroupGroupPD",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/Basic.lean",
+         "line": 157,
+         "fit": "exact"
+        }
+       ],
+       "note": "IsSemigroupGroupPD is IsPositiveDefinite on a private carrier with the BCR involution rather than on the product StarAddMonoid instance; the notion is the same."
+      },
+      {
+       "target": "Closure under sums, scalar multiples, products and Schur products",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsPositiveDefinite.add",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Basic.lean",
+         "line": 246,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsPositiveDefinite.mul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Basic.lean",
+         "line": 258,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsPositiveDefinite.sum",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Basic.lean",
+         "line": 278,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsPositiveDefinite.prod",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Basic.lean",
+         "line": 283,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsPositiveDefinite.const_mul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Basic.lean",
+         "line": 252,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Conjugate symmetry, (F 0).im = 0, 0 ≤ (F 0).re and ‖F a‖ ≤ (F 0).re",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsPositiveDefinite.conj_symm",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Basic.lean",
+         "line": 160,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsPositiveDefinite.map_zero_im",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Basic.lean",
+         "line": 132,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsPositiveDefinite.map_zero_re_nonneg",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Basic.lean",
+         "line": 136,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsPositiveDefinite.norm_apply_le_map_zero_re_of_star_eq_neg",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Basic.lean",
+         "line": 239,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsPositiveDefiniteSub.norm_apply_le_map_zero_re",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/AddGroup.lean",
+         "line": 266,
+         "fit": "exact"
+        }
+       ],
+       "note": "The norm bound needs a⋆ = −a (or a + a⋆ = 0), which is when it holds."
+      },
+      {
+       "target": "Continuity at 0 implies uniform continuity",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsPositiveDefinite.uniformContinuous_of_continuousAt_zero_of_forall_star_eq_neg",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Continuity.lean",
+         "line": 250,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsPositiveDefiniteSub.uniformContinuous_of_continuousAt_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/AddGroup.lean",
+         "line": 382,
+         "fit": "exact"
+        }
+       ],
+       "note": "For the group involution a⋆ = −a."
+      },
+      {
+       "target": "Pointwise limits preserve positive-definiteness; locally uniform limits preserve continuity",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsPositiveDefinite.of_tendsto",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Limits.lean",
+         "line": 59,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsPositiveDefinite.of_tendstoLocallyUniformly",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Limits.lean",
+         "line": 88,
+         "fit": "exact"
+        },
+        {
+         "name": "TendstoLocallyUniformly.continuous",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/UniformSpace/UniformApproximation.lean",
+         "line": 122,
+         "fit": "more general"
+        }
+       ],
+       "note": "Continuity of a locally uniform limit is Mathlib's generic TendstoLocallyUniformly.continuous; the roadmap's warning that pointwise limits need not be continuous is respected."
+      },
+      {
+       "target": "PD-function ↔ PD-kernel equivalence, pullbacks, normalization F(0) = 1",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.isPositiveDefinite_iff_posSemidef",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Function/Kernel.lean",
+         "line": 60,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isPositiveDefinite_iff_posSemidef_sub",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Function/Kernel.lean",
+         "line": 85,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsPositiveDefinite.comp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Pullback.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsPositiveDefinite.normalize",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Normalize.lean",
+         "line": 61,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsPositiveDefinite.normalize_apply_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Normalize.lean",
+         "line": 67,
+         "fit": "exact"
+        }
+       ],
+       "note": "Kernels are expressed through Matrix.PosSemidef on arbitrary index types."
+      },
+      {
+       "target": "GNS/Kolmogorov decomposition of a positive-definite kernel",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "Matrix.PosSemidef.kolmogorovFeature",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean",
+         "line": 133,
+         "fit": "exact"
+        },
+        {
+         "name": "Matrix.PosSemidef.inner_kolmogorovFeature",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean",
+         "line": 142,
+         "fit": "exact"
+        },
+        {
+         "name": "Matrix.PosSemidef.kolmogorovIsometry",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean",
+         "line": 220,
+         "fit": "exact"
+        },
+        {
+         "name": "Matrix.PosSemidef.kolmogorovEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean",
+         "line": 285,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Fourier-convention conversion lemma (e^{−2πi⟨·,·⟩} vs characteristic function)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.integral_fourierAtom_eq_charFun_neg_two_pi_smul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/Fourier/Convention.lean",
+         "line": 78,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.fourierAtom_eq_fourierChar",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/FourierAtom.lean",
+         "line": 45,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Bridge lemma: the Fourier transform of a finite measure is continuous positive definite",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.continuous_charFun_and_isPositiveDefinite_of_star_eq_neg",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/CharFun/PositiveDefinite.lean",
+         "line": 68,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.continuous_and_isPositiveDefiniteSub_of_integral_fourierAtom_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/BochnerTheorem.lean",
+         "line": 246,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.posSemidef_charFun",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/CharFun/PosDef.lean",
+         "line": 125,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Bochner's theorem on a finite-dimensional real inner-product space V (iff, unique finite measure), with ℝᵈ corollary",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.bochner",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/BochnerTheorem.lean",
+         "line": 263,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.bochner_euclideanSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/BochnerTheorem.lean",
+         "line": 291,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.bochnerMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/BochnerTheorem.lean",
+         "line": 327,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.fourierAtom",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/FourierAtom.lean",
+         "line": 41,
+         "fit": "exact"
+        }
+       ],
+       "note": "Continuous and positive definite (group form F(a − b), equivalent to the involution form with a⋆ = −a) iff F(v) = ∫ e^{−2πi⟨v,q⟩} dμ for a unique finite Borel μ (fourierAtom is not in declarations.tsv because its line starts with `public`). The optional LCA/Pontryagin stretch is absent (Mathlib has PontryaginDual but no Bochner theorem)."
+      },
+      {
+       "target": "Berg–Christensen–Ressel theorem on ℝ≥0 × V: bounded continuous positive-definite functions are Laplace–Fourier transforms of unique finite measures",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.bcr_semigroup_bochner",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/Existence.lean",
+         "line": 150,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_representsLaplaceFourier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/Existence.lean",
+         "line": 77,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.RepresentsLaplaceFourier.unique",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/Uniqueness.lean",
+         "line": 85,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Measure.ext_of_forall_laplaceFourierTransform_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/Uniqueness.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsSemigroupGroupPD",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/Basic.lean",
+         "line": 157,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated as an iff, with existence consuming Bochner through spatial slices and uniqueness by Laplace–Fourier injectivity."
+      },
+      {
+       "target": "Acceptance examples: Bochner on V = ℝ, V = 0 collapse of BCR to Bernstein, Gaussian e^{−‖a‖²} positive definite with Gaussian representing measure",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.isPositiveDefinite_cexp_neg_sq_norm",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/Gaussian/Basic.lean",
+         "line": 180,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.charFun_stdGaussian_sqrt_smul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/Gaussian/Basic.lean",
+         "line": 107,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.bochner",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/BochnerTheorem.lean",
+         "line": 263,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.representsLaplace_timeMarginal",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/Slice.lean",
+         "line": 219,
+         "fit": "related"
+        }
+       ],
+       "note": "V = ℝ and V = 0 are instances of the general theorems, and the Gaussian's representing measure is determined by its characteristic function; the identifications are not recorded as separate named statements."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/OptimalTransport#13a-static-entropic-transport",
+       "note": "Item 4 asks to build continuous positive-definite kernel predicates (with universality) on compact spaces, overlapping this part's positive-definite kernel notion."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-13-entropic-transport-sinkhorn-and-schrödinger-bridges",
+       "note": "The parent Layer 13 contains the same positive-definite kernel item as 13A."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone-1--bochners-theorem-on-v": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Bochner's theorem on a finite-dimensional real inner-product space V (iff, unique finite measure), with ℝᵈ corollary",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.bochner",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/BochnerTheorem.lean",
+         "line": 263,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.bochner_euclideanSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/BochnerTheorem.lean",
+         "line": 291,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.bochnerMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/BochnerTheorem.lean",
+         "line": 327,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.fourierAtom",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/FourierAtom.lean",
+         "line": 41,
+         "fit": "exact"
+        }
+       ],
+       "note": "Continuous and positive definite (group form F(a − b), equivalent to the involution form with a⋆ = −a) iff F(v) = ∫ e^{−2πi⟨v,q⟩} dμ for a unique finite Borel μ (fourierAtom is not in declarations.tsv because its line starts with `public`). The optional LCA/Pontryagin stretch is absent (Mathlib has PontryaginDual but no Bochner theorem)."
+      },
+      {
+       "target": "Route (ii): characteristic functions with Lévy/Prokhorov tightness",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.exists_probabilityMeasure_integral_fourierAtom_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/BochnerTheorem.lean",
+         "line": 142,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.gaussianRegularize",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/Gaussian/Regularization.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.fourier_re_nonneg_of_posSemidef",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/Fourier/Nonneg.lean",
+         "line": 581,
+         "fit": "exact"
+        }
+       ],
+       "note": "The proof regularizes by Gaussians, shows the regularized Fourier transforms are nonnegative densities, and extracts a limit measure."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone-2--bcr-semigroupbochner-bergchristensenressel-4113": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Berg–Christensen–Ressel theorem on ℝ≥0 × V: bounded continuous positive-definite functions are Laplace–Fourier transforms of unique finite measures",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.bcr_semigroup_bochner",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/Existence.lean",
+         "line": 150,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_representsLaplaceFourier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/Existence.lean",
+         "line": 77,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.RepresentsLaplaceFourier.unique",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/Uniqueness.lean",
+         "line": 85,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Measure.ext_of_forall_laplaceFourierTransform_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/Uniqueness.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsSemigroupGroupPD",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/Basic.lean",
+         "line": 157,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated as an iff, with existence consuming Bochner through spatial slices and uniqueness by Laplace–Fourier injectivity."
+      },
+      {
+       "target": "Bochner's theorem on a finite-dimensional real inner-product space V (iff, unique finite measure), with ℝᵈ corollary",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.bochner",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/BochnerTheorem.lean",
+         "line": 263,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.bochner_euclideanSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/BochnerTheorem.lean",
+         "line": 291,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.bochnerMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/BochnerTheorem.lean",
+         "line": 327,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.fourierAtom",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/FourierAtom.lean",
+         "line": 41,
+         "fit": "exact"
+        }
+       ],
+       "note": "Continuous and positive definite (group form F(a − b), equivalent to the involution form with a⋆ = −a) iff F(v) = ∫ e^{−2πi⟨v,q⟩} dμ for a unique finite Borel μ (fourierAtom is not in declarations.tsv because its line starts with `public`). The optional LCA/Pontryagin stretch is absent (Mathlib has PontryaginDual but no Bochner theorem)."
+      },
+      {
+       "target": "Laplace–Fourier transform of a finite measure is bounded continuous and BCR positive definite",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.RepresentsLaplaceFourier.isSemigroupGroupPD",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/PositiveDefinite.lean",
+         "line": 168,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.RepresentsLaplaceFourier.continuous",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/PositiveDefinite.lean",
+         "line": 175,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.RepresentsLaplaceFourier.norm_le_mass",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/PositiveDefinite.lean",
+         "line": 183,
+         "fit": "exact"
+        }
+       ],
+       "note": ""
+      },
+      {
+       "target": "Acceptance examples: Bochner on V = ℝ, V = 0 collapse of BCR to Bernstein, Gaussian e^{−‖a‖²} positive definite with Gaussian representing measure",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.isPositiveDefinite_cexp_neg_sq_norm",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/Gaussian/Basic.lean",
+         "line": 180,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.charFun_stdGaussian_sqrt_smul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/Gaussian/Basic.lean",
+         "line": 107,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.bochner",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Bochner/BochnerTheorem.lean",
+         "line": 263,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.representsLaplace_timeMarginal",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/Slice.lean",
+         "line": 219,
+         "fit": "related"
+        }
+       ],
+       "note": "V = ℝ and V = 0 are instances of the general theorems, and the Gaussian's representing measure is determined by its characteristic function; the identifications are not recorded as separate named statements."
+      }
+     ],
+     "duplicates": []
+    }
+   }
+  }
+ }
+}
