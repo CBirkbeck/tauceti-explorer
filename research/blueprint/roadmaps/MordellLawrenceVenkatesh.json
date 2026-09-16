@@ -1,0 +1,263 @@
+{
+ "id": "MordellLawrenceVenkatesh",
+ "title": "The Mordell conjecture after Lawrence and Venkatesh",
+ "group": "diophantine",
+ "summary": "Faltings's theorem, that a smooth projective geometrically connected curve of genus at least two over a number field has only finitely many rational points, proved by the method of Lawrence and Venkatesh. The fibres of an auxiliary abelian-by-finite family over the curve carry global p-adic Galois representations of bounded dimension, restricted ramification and fixed weight, of which Faltings's finiteness lemma leaves only finitely many. Through the crystalline comparison theorem these representations are read off from a p-adic period map on residue disks, which agrees as a power series with the complex period map. Big monodromy of the Kodaira–Parshin family, computed with Dehn twists in mapping class groups, makes the period map Zariski dense; a bound on the centraliser of the semilinear Frobenius, obtained by enlarging the residue fields through an Aff(q)-covering, and a purity argument that controls the failure of semisimplicity then confine the rational points of each residue disk to the zero set of a nonzero analytic function. The S-unit theorem is the first worked instance of the method.",
+ "readme": "# The Mordell conjecture after Lawrence and Venkatesh\n\n## Purpose\n\nThis roadmap proves **Faltings's theorem**: if $K$ is a number field and $Y/K$ is a smooth projective\ngeometrically connected curve of genus $g \\ge 2$, then $Y(K)$ is finite. The proof follows Brian Lawrence\nand Akshay Venkatesh, *Diophantine problems and $p$-adic period mappings* (Invent. Math. 221 (2020),\n893–999; arXiv:1807.02721v3), §§2–8. It is an alternative to Faltings's height-theoretic proof and does not\nuse heights, the Tate conjecture or the Shafarevich conjecture for abelian varieties. Along the way it proves\nthe **S-unit theorem** (LV Theorem 4.1) by the same method.\n\n## Scope\n\nIn scope: the paper's §2 (linear algebra, Faltings's finiteness lemma, friendly places and the purity\nlemmas 2.8–2.10, the group $\\mathrm{Aff}(q)$, symplectic Goursat and transvection lemmas), §3 in the\ngenerality of polarized abelian schemes over a finite étale cover of the base (Gauss–Manin transport on\nresidue disks, complex and $p$-adic period maps, Lemmas 3.1–3.3, Proposition 3.4), §4 (the S-unit\nequation), §§5–6 (abelian-by-finite families, $\\mathrm{size}_v$, Proposition 5.3 and Lemmas 6.1–6.4),\n§7 (the Hurwitz construction and the Kodaira–Parshin family), §8 (mapping class groups, $\\mathrm{Aff}(q)$-covers\nand the monodromy theorem 8.1) and Theorem 5.4.\n\nNot in scope: LV §§9–12 (hypersurfaces, the Bakker–Tsimerman theorem, reductive-group combinatorics, point\ncounting), and Lemmas 2.2, 2.4–2.6, which only those sections use. The general machinery the proof consumes\n(period rings and period functors, crystalline cohomology, the crystalline comparison theorem, abelian schemes\nand their degree-one realizations, étale fundamental groups, class field theory, Chebotarev, algebraic groups,\nsingular homology, covering spaces) is owned by the roadmaps named in each layer.\n\n## Conventions\n\n- $K \\subset \\bar{\\mathbb Q}$ is a number field; $G_K = \\mathrm{Gal}(\\bar{\\mathbb Q}/K)$. For a finite place\n  $\\wp$ of $K$, $q_\\wp$ is the size of its residue field and $\\mathrm{Frob}_\\wp$ is the **arithmetic**\n  Frobenius (Mathlib `IsArithFrobAt`); $\\mathrm{Frob}_\\wp^{\\mathrm{geom}} = \\mathrm{Frob}_\\wp^{-1}$.\n- A continuous representation $\\rho : G_K \\to \\mathrm{GL}(V)$ on a finite-dimensional $\\mathbb Q_p$-vector\n  space is **pure of weight $w$ outside a finite set $T$** if for every finite place $\\wp \\notin T$ it is\n  unramified at $\\wp$ and every root of the characteristic polynomial of $\\rho(\\mathrm{Frob}_\\wp^{\\mathrm{geom}})$\n  is an algebraic number all of whose complex absolute values equal $q_\\wp^{w/2}$; it has **integral\n  Frobenius polynomials outside $T$** if these characteristic polynomials lie in $\\mathbb Z[X]$. With this\n  normalization $H^w_{\\mathrm{et}}(X_{\\bar K},\\mathbb Q_p)$ of a smooth projective variety with good reduction\n  outside $T$ is pure of weight $w$ and $\\mathbb Q_p(1)$ has weight $-2$. LV state their Lemma 2.3 with\n  \"unramified outside $S$\" while applying it to representations ramified above $p$; here $T$ always contains\n  the places above $p$.\n- Local class field theory: $\\mathrm{Art}_{K_v}$ sends uniformizers to arithmetic Frobenius and satisfies\n  $\\chi_{\\mathrm{cyc}}(\\mathrm{Art}_{K_v}(u)) = N_{K_v/\\mathbb Q_p}(u)^{-1}$ for $u \\in \\mathcal O_{K_v}^\\times$\n  (Tau Ceti `ClassFieldTheory`, Layer 7).\n- $p$-adic Hodge theory is covariant: $D_{\\mathrm{cris}}(V) = (V \\otimes_{\\mathbb Q_p} B_{\\mathrm{cris}})^{G_{K_v}}$,\n  $D_{\\mathrm{dR}}(V) = (V \\otimes B_{\\mathrm{dR}})^{G_{K_v}}$. Filtrations are recorded by their **jumps**:\n  $D_{\\mathrm{dR}}(\\mathbb Q_p(n))$ has its jump in degree $-n$ (Brinon–Conrad, Example 6.3.1), so a jump $j$\n  is the Hodge–Tate weight $-j$ in the `PadicHodgeTheory` convention $\\mathrm{HT}(\\chi_p)=+1$. For an abelian\n  variety with good reduction, $D_{\\mathrm{cris}}(H^1_{\\mathrm{et}})$ is $H^1_{\\mathrm{dR}}$ with its Hodge\n  filtration, jumps $0$ and $1$.\n- The **weight of a filtration** $F^\\bullet$ on a nonzero finite-dimensional vector space $V$ with $F^0V=V$ is\n  $\\mathrm{weight}_F(V) = \\sum_{j} j \\dim \\mathrm{gr}^j V / \\dim V$ (LV (2.2)), i.e. $t_H(V)/\\dim V$ in\n  Brinon–Conrad's notation.\n- For $K_v/\\mathbb Q_p$ unramified of degree $f_v$, $\\sigma$ is the arithmetic Frobenius of $K_v$; a\n  crystalline Frobenius $\\varphi$ is $\\sigma$-semilinear and $\\varphi^{f_v}$ is $K_v$-linear.\n- A **curve** over a scheme $S$ is a smooth proper morphism of relative dimension one with geometrically\n  connected fibres. Grassmannians parametrize **subspaces**. $\\mathrm{LGr}(V,\\omega)$ is the variety of\n  Lagrangian subspaces of a $2d$-dimensional symplectic space; it has dimension $d(d+1)/2$.\n- Symplectic transvections are $T_v^r(x) = x + r\\langle v,x\\rangle v$ (LV (2.4)); for a Dehn twist,\n  Farb–Margalit's $\\Psi(T_b)([a]) = [a] + \\hat\\imath(a,b)[b]$ fixes $\\langle v, x\\rangle = \\hat\\imath(x, v)$.\n- $\\mathrm{Aff}(q) = \\{x \\mapsto ax+b\\} \\subset \\mathrm{Sym}(\\mathbb F_q)$ for a prime $q \\ge 3$;\n  $H_q = \\mathbb F_q^\\times$ is the stabilizer of $0$.\n- $\\mathrm{size}_v(E)$ is the proportion of elements of a finite $G_K$-set $E$ unramified at $v$ that lie in\n  $\\mathrm{Frob}_v$-orbits of size $< 8$ (LV Definition 5.2).\n\n## Sources\n\nLawrence–Venkatesh (arXiv:1807.02721v3) is the primary source; Brinon–Conrad's CMI notes for $p$-adic Hodge\ntheory; Farb–Margalit, *A primer on mapping class groups* (v5.0) for §8; Milne, *Complex Multiplication*, for\nCM fields and infinity types; Faltings (1983) and Deligne (Sém. Bourbaki 616) for the finiteness lemma;\nBerthelot–Ogus for crystalline cohomology; SGA 1 for fundamental groups and Riemann existence.\n\n## Layers\n\n| Layer | Content | Paper |\n| --- | --- | --- |\n| LV.0 | semilinear centralizers, $\\mathrm{Aff}(q)$, counting lemmas, symplectic transvections and Goursat | §2.1, §2.6, §2.7, §5 |\n| LV.1 | Faltings's finiteness lemma, friendly places, purity of Hodge weights | §§2.3–2.5 |\n| LV.2 | abelian-by-finite families, good models, Gauss–Manin transport, crystalline Frobenius on fibres | §§3.1–3.3, Def. 5.1 |\n| LV.3 | Lagrangian period varieties, complex and $p$-adic period maps, Lemmas 3.1–3.3 | §§3.2, 3.4 |\n| LV.4 | crystalline comparison for the fibres, Frobenius-centralizer orbits, Proposition 3.4 | §3.5 |\n| LV.5 | the S-unit theorem | §4 |\n| LV.6 | rational points on the base of an abelian-by-finite family, Proposition 5.3 | §§5, 6 |\n| LV.7 | Hurwitz spaces, the Kodaira–Parshin family | §7 |\n| LV.8 | surfaces, mapping class groups, $\\mathrm{Aff}(q)$-covers and their normal form | §§8.1–8.4 |\n| LV.9 | the monodromy theorem and full monodromy of the Kodaira–Parshin family | §§8.2.3, 8.5–8.6 |\n| LV.10 | Theorem 5.4 and Faltings's theorem | §5 |\n\n## Non-goals\n\nLV §§9–12 are not part of this roadmap. Faltings's height-theoretic route (`FaltingsFinitenessAndIsogenyTheorems`\nR28.5 and `HeightsRationalPointsAndObstructions` RP.4) is not used.",
+ "prerequisites": [
+  "AbelianSchemesAndArithmeticModuli",
+  "AlgebraicModuliForArithmeticGeometry",
+  "ArithmeticGaloisRepresentations",
+  "CohomologyComparisons",
+  "ComplexComparisonPartII",
+  "CrystallineCohomology",
+  "DeligneWeightsAndPurity",
+  "EtaleDualityAndPerverseSheaves",
+  "InverseGaloisAndArithmeticFundamentalGroups",
+  "NeronModelsAndSemistableAbelianVarieties",
+  "PadicHodgeTheory",
+  "SchemeAndStackFoundations",
+  "WeightsInEtaleCohomology",
+  "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "tauceti:TauCetiRoadmap/AlgebraicTopology",
+  "tauceti:TauCetiRoadmap/Chebotarev",
+  "tauceti:TauCetiRoadmap/ClassFieldTheory",
+  "tauceti:TauCetiRoadmap/GeometricTopology",
+  "tauceti:TauCetiRoadmap/JacobianChallenge",
+  "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+  "tauceti:TauCetiRoadmap/ReductiveGroups",
+  "tauceti:TauCetiRoadmap/UniversalCovers"
+ ],
+ "stages": [
+  {
+   "key": "LV.0",
+   "title": "Semilinear centralizers, the affine group Aff(q) and symplectic monodromy lemmas",
+   "description": "Linear algebra and group theory used throughout the Lawrence–Venkatesh argument (LV §2.1, §2.6, §2.7 and the\ncounting in the proof of Theorem 5.4).\n\n**Targets.**\n- *Centralizer of a semilinear automorphism* (LV Lemma 2.1): for a field automorphism $\\sigma$ of $E$ of\n  finite order $e$ with fixed field $F$ and a $\\sigma$-semilinear bijection $\\varphi$ of an $E$-vector space\n  $V$, the centralizer $Z(\\varphi) \\subseteq \\mathrm{End}_E(V)$ is an $F$-subalgebra with\n  $\\dim_F Z(\\varphi) = \\dim_E Z(\\varphi^e) \\le (\\dim_E V)^2$; the splitting\n  $E \\otimes_F \\Omega \\cong \\Omega^{\\mathrm{Hom}_F(E,\\Omega)}$ for a Galois extension $E/F$ and an algebraically\n  closed $\\Omega \\supseteq F$; the unramified form used in LV Lemma 6.2.\n- *The affine group* $\\mathrm{Aff}(q) \\le \\mathrm{Sym}(\\mathbb F_q)$ for a prime $q\\ge3$: order $q(q-1)$,\n  abelianization $\\lambda : \\mathrm{Aff}(q) \\to \\mathbb F_q^\\times$ with kernel the translations, trivial\n  centralizer and self-normalizing in $\\mathrm{Sym}(\\mathbb F_q)$, cycle types of its elements; LV Lemma 2.11 on\n  the commutator-product map $\\mathrm{Aff}(q)^{2s} \\to \\mathbb F_q$ (image and equal fibres).\n- *Counting*: the number of generating $k$-tuples of $\\mathbb Z/N$ is\n  $N^k\\prod_{\\ell\\mid N}(1-\\ell^{-k}) \\ge N^k/2$ for $k \\ge 2$; a subgroup $B$ of a finite abelian group $A$\n  with a perfect pairing into $\\mathbb Z/N$ and $\\langle B,B\\rangle=0$ has $|B|^2 \\le |A|$; a\n  representation preserving a nondegenerate bilinear form up to scalars has every minimal nonzero\n  subrepresentation of dimension at most half (LV (6.8)).\n- *Symplectic lemmas*: the symplectic transvection $T_v^r$ with its API; LV Lemma 2.13 (the Zariski closure of\n  $\\langle T_{v_1},T_{v_2}\\rangle$ contains $T_v$ for $v \\in \\mathrm{span}(v_1,v_2)$ when\n  $\\langle v_1,v_2\\rangle\\ne0$); LV Lemma 2.14 (connected intersection graph); Ribet's Lie-algebra Goursat lemma;\n  LV Lemma 2.12 (a Zariski-closed subgroup of $\\mathrm{Sp}(V)^N$ surjecting on each factor, with unipotent\n  pairs of distinct fixed-space dimension, is everything).\n\n**Inputs.** Zariski closures of abstract subgroups, Lie algebras of closed subgroups, identity components and\nthe structure of $\\mathrm{Sp}(V)$ (almost simple, centre $\\pm1$, $\\mathfrak{sp}(V)$ simple with inner\nautomorphisms) from `ReductiveGroups` Layers 2, 3, 6, 7.\n\n**Acceptance.** $\\mathrm{Aff}(3) \\cong S_3$; Lemma 2.1 for $E=\\mathbb Q_{p^2}$, $F=\\mathbb Q_p$ and\n$\\varphi=\\sigma\\oplus\\sigma$ on $E^2$, where $Z(\\varphi)=M_2(\\mathbb Q_p)$ and $Z(\\varphi^2)=M_2(E)$ both have\ndimension $4$; $N = 6$, $k = 2$ gives $24 \\ge 18$ generating pairs; $\\mathrm{SL}_2 = \\mathrm{Sp}_2$ recovered\nfrom two opposite transvections.",
+   "requires": [
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+   ]
+  },
+  {
+   "key": "LV.1",
+   "title": "Galois representations: Faltings's finiteness lemma, friendly places and purity of Hodge weights",
+   "description": "Global Galois-representation inputs (LV §§2.3–2.5).\n\n**Targets.**\n- *Faltings's finiteness lemma* (LV Lemma 2.3, with the ramification set $T$ containing the places above $p$):\n  for $K$, a finite set $T$ of finite places, integers $w$ and $d$, there are finitely many isomorphism\n  classes of semisimple continuous $\\rho: G_K \\to \\mathrm{GL}_d(\\mathbb Q_p)$ unramified, pure of weight $w$\n  and with integral Frobenius polynomials outside $T$. Intermediate results: characteristic-zero\n  Brauer–Nesbitt for arbitrary groups; the Faltings–Deligne finite test set (a finite set $T'$ of places such\n  that traces of Frobenius on $T'$ determine such $\\rho$); finiteness of integer Weil polynomials of fixed\n  degree and weight.\n- *Friendly places* (LV Definition 2.7): the largest CM-or-totally-real subfield $E_K$ of $K$ as the fixed\n  field of the products of two complex conjugations (Milne, CM, Remarks 1.6–1.7); a place is friendly if it is\n  unramified over $\\mathbb Q$ and, when $K$ has a CM subfield, lies over a place of $E_K^+$ inert in $E_K$.\n- *Pure characters at friendly places* (LV Lemma 2.8, stated on units): a continuous finitely ramified\n  $\\eta : G_K \\to \\mathbb Q_p^\\times$, de Rham at every place above $p$ and pure of weight $w$, has $w$ even\n  and $D_{\\mathrm{dR}}(\\eta|_{G_{K_v}})$ has its jump at $w/2$ for every friendly $v \\mid p$. Intermediate\n  results: local algebraicity of de Rham $\\mathbb Q_p$-characters; the infinity-type relation\n  $m(c\\circ\\tau)+m(\\tau)=w$ from global reciprocity; factorization of such functions through $E_K$\n  (Milne, CM, Proposition 4.9).\n- *Hodge weights of pure representations* (LV Lemma 2.9 and Lemma 2.10): the weight of the Hodge filtration\n  of $D_{\\mathrm{dR}}(V|_{G_{K_v}})$ is $w/2$ at a friendly $v$, and for $\\rho$ a representation of $G_L$,\n  $\\sum_{u\\mid v}[L_u:K_v]\\,a_u(\\rho) = [L:K]\\,w/2$.\n- *Fibre representations of abelian varieties*: $H^1_{\\mathrm{et}}(A_{\\bar L},\\mathbb Q_p)$ is pure of weight\n  one with integral Frobenius polynomials outside the bad places and the places above $p$, and carries a\n  $G_L$-equivariant perfect alternating pairing to $\\mathbb Q_p(-1)$.\n\n**Inputs.** Continuous representations and invariant lattices (`ArithmeticGaloisRepresentations` R01.1), Tate\nmodules with the good-reduction Frobenius polynomial (R01.6), Néron–Ogg–Shafarevich (R11.5), Weil numbers and\nthe Weil bound for abelian varieties (`DeligneWeightsAndPurity` DWP.0, DWP.1, `WeightsInEtaleCohomology`\nR34.1), Chebotarev (`Chebotarev` Layer 10), global and local reciprocity (`ClassFieldTheory` Layers 7 and 11),\nunramified extensions of local fields (`LocalFieldsRamification` Layer 2), $D_{\\mathrm{dR}}$ and its tensor and\ninduction compatibilities (`PadicHodgeTheory` R06.2), crystallinity of good-reduction Tate modules (R06.6),\nWeil pairings (`AbelianSchemesAndArithmeticModuli` A3).\n\n**Acceptance.** $K=\\mathbb Q$: every $p$ is friendly and Lemma 2.8 reads $\\eta=\\chi_{\\mathrm{cyc}}^{-w/2}$\nup to finite order on inertia; the CM example of LV (a CM elliptic curve's character with values in\n$\\mathbb Q_{p^2}$) shows that the $\\mathbb Q_p$-coefficient hypothesis is needed; $\\mathbb Q_p(-1)$ has weight $2$\nand jump $1$.",
+   "requires": [
+    "MordellLawrenceVenkatesh:LV.0",
+    "ArithmeticGaloisRepresentations:R01.1",
+    "ArithmeticGaloisRepresentations:R01.6",
+    "NeronModelsAndSemistableAbelianVarieties:R11.5",
+    "DeligneWeightsAndPurity:DWP.0",
+    "DeligneWeightsAndPurity:DWP.1",
+    "WeightsInEtaleCohomology:R34.1",
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+    "PadicHodgeTheory:R06.2",
+    "PadicHodgeTheory:R06.6",
+    "AbelianSchemesAndArithmeticModuli:A3"
+   ]
+  },
+  {
+   "key": "LV.2",
+   "title": "Abelian-by-finite families, good models and Gauss–Manin transport on residue disks",
+   "description": "The families to which the method is applied, and the identification of the de Rham cohomology of nearby fibres\n(LV §§3.1–3.3 and Definition 5.1), in the generality of polarized abelian schemes over a finite étale cover\nof the base.\n\n**Targets.**\n- *Abelian-by-finite family* (LV Definition 5.1): $X \\xrightarrow{f} Y' \\xrightarrow{\\pi} Y$ with $\\pi$ finite\n  étale and $f$ a polarized abelian scheme; its *good model* over $\\mathcal O_S$ (same structure over\n  $\\mathcal O_S$, relative $H^1_{\\mathrm{dR}}$ and its Hodge filtration locally free and compatible with base\n  change, Gauss–Manin connection defined over $\\mathcal O_S$); existence of a good model after enlarging $S$.\n- *The de Rham bundle* $\\mathcal H = \\pi_* H^1_{\\mathrm{dR}}(X/Y')$: a module over the finite étale algebra\n  $\\mathcal E = \\pi_*\\mathcal O_{Y'}$, with Hodge sub-bundle $F^1\\mathcal H$, perfect alternating\n  $\\mathcal E$-bilinear polarization pairing for which $F^1$ is Lagrangian, and the Gauss–Manin connection;\n  fibres $\\mathcal H_y = H^1_{\\mathrm{dR}}(X_y/K)$ as $E_y$-modules, $E_y = \\mathcal O(\\pi^{-1}(y))$.\n- *Residue disks*: for a place $v \\notin S$ with $K_v/\\mathbb Q_p$ unramified and $p>2$, and $y_0 \\in Y(\\mathcal O_v)$,\n  the disk $\\Omega_v(y_0)=\\{y\\in Y(\\mathcal O_v): y\\equiv y_0 \\bmod v\\}$ is in bijection with $(p\\mathcal O_v)^m$\n  through a system of parameters.\n- *Formal horizontal sections*: the unique formal fundamental matrix of an integrable connection on\n  $K[[z_1,\\dots,z_m]]^r$; if the connection matrix has $\\mathcal O_{(v)}$-integral coefficients then\n  $\\alpha!\\,c_\\alpha$ is integral, so the solution converges $v$-adically for $|z_i|_v<|p|_v^{1/(p-1)}$\n  and complex-analytically near $0$ (LV §3.3).\n- *Gauss–Manin transport* $T_v(y):\\mathcal H_{y_0}\\otimes K_v \\cong \\mathcal H_y\\otimes K_v$ for\n  $y\\in\\Omega_v(y_0)$ and $T_{\\mathbb C}(y)$ on a contractible complex neighbourhood (LV (3.7), (3.8)),\n  compatible with the $\\mathcal E$-structure (LV (6.3)–(6.6)) and with the polarization pairing;\n  $T_{\\mathbb C}$ is parallel transport in the Betti local system.\n- *Crystalline Frobenius on the fibres*: for $y\\in Y(\\mathcal O_v)$, the $\\sigma$-semilinear bijection\n  $\\varphi_y$ of $H^1_{\\mathrm{dR}}(X_y/K_v)$ transported from $H^1_{\\mathrm{cris}}$ of the special fibre, and the\n  commutativity $T_v(y)\\circ\\varphi_{y_0}=\\varphi_y\\circ T_v(y)$ (LV (3.9)).\n\n**Inputs.** Abelian schemes, duals and polarizations, relative $H^1_{\\mathrm{dR}}$ with Hodge filtration,\nGauss–Manin connection and cup-product pairing (`AbelianSchemesAndArithmeticModuli` A1, A2, A4), the complex\ncomparison and its Gauss–Manin compatibility (`ComplexComparisonPartII` C5, `AbelianSchemesAndArithmeticModuli`\nA5), crystals, the crystalline–de Rham comparison for smooth lifts, Frobenius on crystalline cohomology and the\nrelative Gauss–Manin interface (`CrystallineCohomology` CR.1, CR.2, CR.3, CR.7), schemes and spreading out\n(`SchemeAndStackFoundations` SF.0).\n\n**Acceptance.** The Legendre family over $\\mathbb Z[1/2][t,1/(t(1-t))]$ is a good model; for the constant family\nthe transport is the identity; for $p=3$ the radius $|3|^{1/2}$ still contains the residue disk.",
+   "requires": [
+    "MordellLawrenceVenkatesh:LV.0",
+    "AbelianSchemesAndArithmeticModuli:A1",
+    "AbelianSchemesAndArithmeticModuli:A2",
+    "AbelianSchemesAndArithmeticModuli:A4",
+    "AbelianSchemesAndArithmeticModuli:A5",
+    "ComplexComparisonPartII:C5",
+    "CrystallineCohomology:CR.1",
+    "CrystallineCohomology:CR.2",
+    "CrystallineCohomology:CR.3",
+    "CrystallineCohomology:CR.7",
+    "SchemeAndStackFoundations:SF.0"
+   ]
+  },
+  {
+   "key": "LV.3",
+   "title": "Lagrangian period varieties and the complex and p-adic period maps",
+   "description": "Period maps on residue disks and the transfer of Zariski density from the complex to the $p$-adic side\n(LV §3.2, §3.4).\n\n**Targets.**\n- *Lagrangian period variety* $\\mathrm{LGr}_E(V,\\omega)$ for a finite étale $K$-algebra $E$ and a free\n  $E$-module $V$ of rank $2d$ with perfect alternating $E$-bilinear form: the closed subscheme of the\n  Grassmannian of $K$-subspaces cut out by $E$-stability and isotropy; functor of points; product decomposition\n  along $E = \\prod E_j$; over a field splitting $E$ it is $\\prod_\\tau \\mathrm{LGr}(V_\\tau)$; smooth, projective,\n  geometrically irreducible of dimension $[E:K]\\,d(d+1)/2$, homogeneous under $\\mathrm{Sp}_E(V,\\omega)$.\n  This is LV's $\\mathrm{Res}^{E}_{K}\\mathrm{LGr}$.\n- *Algebraic monodromy group* $\\Gamma$ (LV (3.5)): the Zariski closure of the image of\n  $\\pi_1(Y(\\mathbb C),y_0)$ acting on $H^1_B(X_{y_0}(\\mathbb C),\\mathbb Q)$.\n- *Complex period map* $\\Phi_{\\mathbb C}$ on a contractible neighbourhood, its analytic continuation to the\n  universal cover and $\\pi_1$-equivariance; LV Lemma 3.1: $\\Gamma\\cdot h_0 \\subseteq \\overline{\\Phi_{\\mathbb C}(\\Omega_{\\mathbb C})}^{\\mathrm{Zar}}$.\n- *Power-series lemma* (LV Lemma 3.2): power series with coefficients in $K$ converging on a $v$-adic and a\n  complex polydisk have Zariski closures that are base changes of one $K$-subscheme.\n- *$p$-adic period map* $\\Phi_v:\\Omega_v(y_0)\\to \\mathrm{LGr}_{E_{y_0}}(\\mathcal H_{y_0})(K_v)$,\n  $y\\mapsto T_v(y)^{-1}(F^1\\mathcal H_y)$, given in Plücker coordinates by restricted power series in\n  $z/p$ which, as formal series, coincide with the complex ones.\n- *Dimension comparison* (LV Lemma 3.3): $\\dim\\overline{\\Phi_v(\\Omega_v)}^{\\mathrm{Zar}} \\ge \\dim \\Gamma\\cdot h_0$;\n  if $\\Gamma$ contains the product of the symplectic groups of the fibres then $\\Phi_v(\\Omega_v)$ is Zariski\n  dense.\n- *Zeros on a one-dimensional disk*: Strassmann's theorem for restricted power series over $K_v$; for $Y$ a\n  curve, the preimage under $\\Phi_v$ of a Zariski-closed subset not containing the image is finite.\n\n**Inputs.** Grassmannians and closed conditions on subbundles (`AlgebraicModuliForArithmeticGeometry` R09.1),\nclosed subgroups and orbits (`ReductiveGroups` Layer 3), the Betti local system and its monodromy\n(`ComplexComparisonPartII` C5, `AbelianSchemesAndArithmeticModuli` A5, `UniversalCovers` Stage 2), LV.2.\n\n**Acceptance.** For $E=K$, $d=1$ the period variety is $\\mathbb P^1$; the Legendre period map is nonconstant on\nevery residue disk; a constant family has zero-dimensional closure.",
+   "requires": [
+    "MordellLawrenceVenkatesh:LV.0",
+    "MordellLawrenceVenkatesh:LV.2",
+    "AlgebraicModuliForArithmeticGeometry:R09.1",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+    "ComplexComparisonPartII:C5",
+    "AbelianSchemesAndArithmeticModuli:A5",
+    "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence"
+   ]
+  },
+  {
+   "key": "LV.4",
+   "title": "Crystalline comparison on residue disks and the finiteness criterion",
+   "description": "The bridge from Galois representations to the period map (LV §3.5).\n\n**Targets.**\n- *Fibre representations*: for $y' \\in Y'$ over $y \\in \\Omega_v(y_0)$ and a place $w$ of $K(y')$ above $v$,\n  $\\rho_{y'}=H^1_{\\mathrm{et}}(X_{y',\\bar K},\\mathbb Q_p)$ restricted to $G_{K(y')_w}$ is crystalline and\n  $D_{\\mathrm{cris}}(\\rho_{y',w}) \\cong (H^1_{\\mathrm{dR}}(X_{y'}/K(y')_w),\\varphi,F^1)$ as filtered\n  $\\varphi$-modules; through LV.2 this is $(\\mathcal H_{y_0,w},\\varphi_{y_0},\\Phi_v(y)_w)$.\n- *Orbit lemma*: two filtered $\\varphi$-modules with the same underlying $\\varphi$-module are isomorphic if and\n  only if their filtrations lie in one orbit of the centralizer $Z(\\varphi)$; this orbit lies in an orbit of the\n  unit group of the $K_v$-algebra $Z(\\varphi^{f_v})$, whose Zariski closure has dimension at most\n  $\\dim_{K_v} Z(\\varphi^{f_v})$.\n- *Finiteness criterion* (LV Proposition 3.4, for polarized abelian schemes over $Y$): if\n  $\\dim_{K_v}Z(\\varphi_v^{[K_v:\\mathbb Q_p]}) < \\dim_{\\mathbb C}\\Gamma\\cdot h_0$ then the set of\n  $y\\in Y(\\mathcal O)$ in the residue disk of $y_0$ with $\\rho_y$ semisimple lies in a proper $K_v$-analytic\n  subset; for $Y$ a curve it is finite.\n\n**Inputs.** Filtered $\\varphi$-modules and $D_{\\mathrm{cris}}$ (`PadicHodgeTheory` R06.2), the crystalline\ncomparison theorem (`CohomologyComparisons` CP.2) and its identification with the Berthelot–Ogus comparison and\nthe Hodge filtration for abelian varieties (`PadicHodgeTheory` R06.5, R06.6), étale cohomology of the fibres\n(`SchemeAndStackFoundations` SF.2), LV.1–LV.3.\n\n**Acceptance.** A good-reduction elliptic curve over $\\mathbb Q_p$: ordinary and supersingular Frobenius give\ncentralizers of dimensions $2$ and $4$; Proposition 3.4 fails for the Legendre family over $\\mathbb Q_p$ (LV §1.3).",
+   "requires": [
+    "MordellLawrenceVenkatesh:LV.1",
+    "MordellLawrenceVenkatesh:LV.2",
+    "MordellLawrenceVenkatesh:LV.3",
+    "PadicHodgeTheory:R06.2",
+    "PadicHodgeTheory:R06.5",
+    "PadicHodgeTheory:R06.6",
+    "CohomologyComparisons:CP.2",
+    "SchemeAndStackFoundations:SF.2"
+   ]
+  },
+  {
+   "key": "LV.5",
+   "title": "The S-unit theorem",
+   "description": "The first worked instance of the method (LV §4, Theorem 4.1).\n\n**Targets.**\n- *Reductions*: enlarging $K$ and $S$ ($\\mu_8 \\subseteq K$, $2 \\in S$); $U \\subseteq U_1\\cup U_1^2\\cup\\dots\\cup\n  U_1^m$ with $U_1$ the non-square solutions; for $t\\in U_1$, $K(t^{1/m})/K$ is cyclic of degree $m$ and\n  unramified outside $S$; finitely many such fields (Hermite–Minkowski); an auxiliary place $v$ inert in the\n  cyclic field (Chebotarev), so that $t$ is not a square in $K_v$ (LV Lemma 4.2 set-up).\n- *The Legendre family* $E_t: y^2=x(x-1)(x-t)$ as a principally polarized elliptic scheme over\n  $\\mathbb P^1_{\\mathcal O}\\smallsetminus\\{0,1,\\infty\\}$ ($2 \\in S$), its monodromy (local monodromies at $0$\n  and $1$ are squares of transvections along vanishing cycles with intersection number $\\pm1$) and the\n  *variant family* $X\\to Y'=\\mathbb P^1\\smallsetminus\\{0,\\mu_m,\\infty\\}\\xrightarrow{u\\mapsto u^m} Y$ as an\n  abelian-by-finite family with good model.\n- *Big monodromy* (LV Lemma 4.3): the Zariski closure of monodromy on\n  $\\bigoplus_{z^m=t_0}H^1_B(E_z,\\mathbb Q)$ contains $\\prod_z \\mathrm{SL}(H^1_B(E_z))$.\n- *Generic simplicity* (LV Lemma 4.4): for $p>2$ unramified in $L$, only finitely many $z\\in L$ with\n  $z,1-z$ $p$-units have $V_p(E_z)$ reducible.\n- *LV Lemma 4.2* (finiteness in each residue disk, via the $K(t_0^{1/m})$-structure, Lemma 2.1 and Lemma 3.3)\n  and *Theorem 4.1*: $\\{t\\in\\mathcal O_S^\\times: 1-t\\in\\mathcal O_S^\\times\\}$ is finite.\n\n**Inputs.** Kummer theory (Mathlib), Hermite–Minkowski for extensions unramified outside a finite set\n(`FaltingsFinitenessAndIsogenyTheorems` R28.1 node), Chebotarev (Layer 10), elliptic schemes\n(`AbelianSchemesAndArithmeticModuli` A1), singular homology and local systems (`AlgebraicTopology` Stages 2, 5),\nLV.0–LV.4.\n\n**Acceptance.** $K=\\mathbb Q(\\zeta_8)$, $S=\\{2\\}$: the reductions produce the finite list of cyclic\n$8$-extensions; the variant family has $m$ geometric components in each fibre.",
+   "requires": [
+    "MordellLawrenceVenkatesh:LV.0",
+    "MordellLawrenceVenkatesh:LV.1",
+    "MordellLawrenceVenkatesh:LV.2",
+    "MordellLawrenceVenkatesh:LV.3",
+    "MordellLawrenceVenkatesh:LV.4",
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+    "AbelianSchemesAndArithmeticModuli:A1",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
+   ]
+  },
+  {
+   "key": "LV.6",
+   "title": "Rational points on the base of an abelian-by-finite family",
+   "description": "The refined criterion for curves (LV §5 Definitions 5.1–5.2, Proposition 5.3, §6).\n\n**Targets.**\n- *$\\mathrm{size}_v$* (LV Definition 5.2) and its monotonicity under maps with fibres of constant size (LV (5.3)).\n- *Full monodromy* (LV (5.1)) for an abelian-by-finite family.\n- *Indexing over a residue disk*: the splitting $E_y\\otimes_K K_v=\\prod_{(y',w)}K(y')_w$ (LV (6.1)), the\n  decomposition of $\\mathcal H_{y}\\otimes K_v$ (LV (6.2)), the Gauss–Manin identifications (6.3)–(6.6), the\n  bijection (6.4) of pairs over $y$ and $y_0$, and the product decomposition of the period variety with the\n  projection formula (6.7).\n- *LV Lemma 6.4* (general position of $r\\ge5$ Lagrangians: the bad locus is a proper closed subset of\n  $\\mathrm{LGr}(V,\\omega)^r$) and *LV Lemma 6.3* (for an unramified extension of degree $r\\ge8$ and a semilinear\n  Frobenius, the Lagrangians admitting a Frobenius-stable $W$ with $\\dim(F\\cap W)\\ge\\dim W/2$ lie in a proper\n  closed subset).\n- *Sublemma, Lemma 6.1* (generic simplicity along the family: outside a finite set, some $(y',w)$ with\n  $[K(y')_w:K_v]\\ge8$ has $\\rho_{y'}$ simple) and *Lemma 6.2* (Galois representations vary: for fixed\n  $(K_v',\\rho_0)$ with $[K_v':K_v]\\ge8$ only finitely many $y$ in the disk realize it).\n- *LV Proposition 5.3*: for a curve $Y$ of genus $\\ge2$, an abelian-by-finite family with full monodromy and a\n  good model, and a friendly place $v\\notin S$, the set $\\{y\\in Y(K):\\mathrm{size}_v(\\pi^{-1}(y))<1/(d+1)\\}$\n  is finite.\n\n**Inputs.** LV.0–LV.4.\n\n**Acceptance.** Lemma 6.4 with the explicit four Lagrangians of LV p. 34; $\\mathrm{size}_v$ of a torsor under\n$(\\mathbb Z/N)^{2g}$ computed by hand for $N=5$, $g=1$.",
+   "requires": [
+    "MordellLawrenceVenkatesh:LV.0",
+    "MordellLawrenceVenkatesh:LV.1",
+    "MordellLawrenceVenkatesh:LV.2",
+    "MordellLawrenceVenkatesh:LV.3",
+    "MordellLawrenceVenkatesh:LV.4"
+   ]
+  },
+  {
+   "key": "LV.7",
+   "title": "Hurwitz spaces of singly ramified covers and the Kodaira–Parshin family",
+   "description": "The auxiliary family (LV §7).\n\n**Targets.**\n- *Group theory of singly ramified covers* (LV Lemma 7.4, group part): the set $S(\\Gamma,c,G)$ of surjections\n  $\\Gamma\\twoheadrightarrow G$ nontrivial on a conjugacy class $c$, its commuting $\\Gamma\\times G$-actions, and\n  the unique extension of the $\\Gamma$-action to an overgroup normalizing $\\Gamma$ and preserving $c$, for $G$\n  centre-free.\n- *Fibration sequence*: $\\pi_1(Y-\\{y_0\\})\\to\\pi_1(Y^2-\\Delta)\\to\\pi_1(Y)\\to1$ exact (topologically and for\n  geometric étale fundamental groups), with the class of loops around $y_0$ stable under conjugation.\n- *Analytic construction* over $\\mathbb C$ (LV §7.3): the covering $Y'\\to Y$ with fibres $S(y)$ and the\n  family $Z\\to Y'\\times Y$ of $G$-covers branched along the graph of $e$; algebraization by Riemann\n  existence and normalization.\n- *Descent* (LV Lemma 7.4 (1)–(3)) and *LV Proposition 7.1* for a curve $Y$ of genus $\\ge2$ over $K$ and a\n  centre-free finite group $G$: $\\pi:Y'\\to Y$ finite étale parametrizing $G$-covers branched at one point,\n  $G_K$-equivariantly on fibres over $K$-points, with the universal relative curve $Z\\to Y'\\times Y$.\n- *Kodaira–Parshin curve family* (LV Definition 7.2) for $G=\\mathrm{Aff}(q)$; the idempotents\n  $e, e' \\in \\mathbb Q[\\mathrm{Aff}(q)]$ and $e''=\\#\\mathrm{Aff}(q)\\,e'$; the *reduced Prym* and the isogeny\n  (7.3); the *Kodaira–Parshin family* $X_q\\to Y'_q\\to Y$ (LV Definition 7.3) as an abelian-by-finite family of\n  relative dimension $d_q=(q-1)(g-\\tfrac12)$ with a good model over some $\\mathcal O_S$; the $G_K$-equivariant\n  identification of $\\pi^{-1}(y)$ with conjugacy classes of surjections\n  $\\pi_1^{\\mathrm{geom}}(Y-y)\\twoheadrightarrow\\mathrm{Aff}(q)$ nontrivial around $y$, and the map (5.5) to\n  $H^1_{\\mathrm{et}}(Y_{\\bar K},\\mathbb Z/(q-1))$ with equal fibres.\n\n**Inputs.** Étale fundamental groups and the geometric–arithmetic sequence\n(`InverseGaloisAndArithmeticFundamentalGroups` IG.0, IG.1), Riemann existence and branched covers (IG.3),\nprojective GAGA (`ComplexComparisonPartII` C2), covering spaces and homotopy sequences (`UniversalCovers`,\n`AlgebraicTopology` Stage 8), relative Picard schemes of curves and abelian subschemes (`JacobianChallenge`\nLayer D, `AlgebraicModuliForArithmeticGeometry` A0-extension, `AbelianSchemesAndArithmeticModuli` A2, A6),\ncurves and genus (`AlgebraicCurves` Layers 3 and 12, `SchemeAndStackFoundations` SF.3), LV.0, LV.2.\n\n**Acceptance.** For $G=\\mathrm{Aff}(3)\\cong S_3$ and $g=2$, Lemma 2.11 counts $15\\cdot 3^3\\cdot 2=810$\nsurjections nontrivial around the branch point, so each geometric fibre of $Y'\\to Y$ has $810/6=135$ points;\n$d_3 = 2g-1 = 3$.",
+   "requires": [
+    "MordellLawrenceVenkatesh:LV.0",
+    "MordellLawrenceVenkatesh:LV.2",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+    "ComplexComparisonPartII:C2",
+    "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+    "AlgebraicModuliForArithmeticGeometry:A0-extension",
+    "AbelianSchemesAndArithmeticModuli:A2",
+    "AbelianSchemesAndArithmeticModuli:A6",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+    "SchemeAndStackFoundations:SF.3"
+   ]
+  },
+  {
+   "key": "LV.8",
+   "title": "Surfaces, mapping class groups and Aff(q)-covers",
+   "description": "The topological set-up of LV §§8.1–8.4.\n\n**Targets.**\n- *Mapping class groups of surfaces* with punctures and boundary, Dehn twists and their action on\n  $H_1$ (Farb–Margalit Proposition 6.3), the Birman exact sequence and point-pushing as $T_aT_b^{-1}$\n  (Farb–Margalit Theorem 4.6, Fact 4.7), primitive classes represented by simple closed curves (Proposition 6.2),\n  surjectivity of $\\mathrm{Mod}(S_g)\\to\\mathrm{Sp}(2g,\\mathbb Z)$ (Theorem 6.4), the capping sequence\n  (Proposition 3.19), cutting along curves.\n- *$\\mathrm{Aff}(q)$-covers* of a surface (LV §8.2), their isomorphism classes as $\\mathrm{Aff}(q)$-conjugacy\n  classes of monodromy maps, *primitive homology* $H_1^{\\mathrm{Pr}}(Z,Y)=\\ker\\pi_*$ with the splitting and the\n  induced perfect pairing for once-punctured compact surfaces, the stabilizer $\\mathrm{MCG}(Y)_Z$ and the lifted\n  monodromy $\\mathrm{Mon}:\\mathrm{MCG}(Y)_Z\\to\\mathrm{Sp}(H_1^{\\mathrm{Pr}}(Z,Y))$ (LV (8.2)–(8.3)).\n- *Dehn twists on covers* (LV §8.3): $D_e^{n_e}$ lifts to a product of twists about the preimage circles;\n  LV Lemma 8.2 (preimage classes independent, rank $k-1$ in primitive homology), LV Lemma 8.3 (the rank of\n  $\\mathrm{Mon}(D_e^M)-1$ detects the cycle type), liftable curves and the intersection formula (8.6).\n- *Normal form* (LV §8.4): LV Lemma 8.4 (surjectivity onto $\\mathrm{Sp}(V,b)$ for a genus-$g$ surface with two\n  boundary components) and LV Proposition 8.5 ($Y=S_{g-1}\\#T$ with the cover split over $S_{g-1}^\\circ$ and the\n  standard monodromy on $T$); LV Lemma 8.11 (the curves $\\gamma_j$ on $T^\\circ$).\n\n**Inputs.** Singular homology, Mayer–Vietoris, CW structures, transfer, Poincaré duality and intersection\npairings (`AlgebraicTopology` Stages 2–6), covering spaces and the Galois correspondence (`UniversalCovers`\nStage 2), cutting and gluing of manifolds (`GeometricTopology` Layer 1), Schreier's lemma (Mathlib), LV.0.\n\n**Acceptance.** Genus one with $q=3$: the normal form is the whole torus; the formula of Proposition 6.3 on a\nstandard symplectic basis; Lemma 8.2 for a nonseparating curve with trivial monodromy.",
+   "requires": [
+    "MordellLawrenceVenkatesh:LV.0",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-3-subdivision-excision-and-mayer--vietoris",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+    "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+    "tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group"
+   ]
+  },
+  {
+   "key": "LV.9",
+   "title": "The monodromy theorem for Kodaira–Parshin families",
+   "description": "Big monodromy (LV §§8.2.3, 8.5, 8.6).\n\n**Targets.**\n- *LV Lemma 8.6*: the image of the point-pushing subgroup $\\pi_1(Y,y)'$ in each\n  $\\mathrm{Sp}(H_1^{\\mathrm{Pr}}(Z_i,Y))$ is not central (proof supplied here: a power of a point-push along a\n  nonseparating simple loop acts by a nontrivial unipotent).\n- *LV Lemma 8.8* (distinct covers are distinguished by the cycle type of the monodromy around a simple closed\n  curve), *LV Lemma 8.10* (liftable curves whose primitive classes span and have connected intersection graph),\n  *LV Lemma 8.9* (each factor is Zariski dense), *LV Lemma 8.7* (the product is Zariski dense for\n  $\\mathrm{MCG}(Y-\\{y\\})'$) and *LV Theorem 8.1* (Zariski density of\n  $\\pi_1(Y,y)'\\to\\prod_i\\mathrm{Sp}(H_1^{\\mathrm{Pr}}(Z_i,Y))$).\n- *Comparison with the algebraic family* (LV §8.2.3): the topological monodromy of the Kodaira–Parshin family\n  over $Y(\\mathbb C)$ is the lifted point-pushing action, and the isogeny (7.3) identifies\n  $H_1(X_{q,y'},\\mathbb Q)$ with $H_1^{\\mathrm{Pr}}(Z_i,Y)$ compatibly; hence the Kodaira–Parshin family has\n  full monodromy (LV (5.1), property (i) before Theorem 5.4).\n\n**Inputs.** Normal subgroups of products of almost simple groups and Zariski closures (`ReductiveGroups`\nLayers 3, 6), Ehresmann transport and local systems of a proper submersion (`ComplexComparisonPartII` C5,\n`AbelianSchemesAndArithmeticModuli` A5), LV.0, LV.7, LV.8.\n\n**Acceptance.** Genus two, $q=3$: $N=135$ singly ramified covers, each factor $\\mathrm{Sp}$ of a\n$6$-dimensional primitive homology; the unipotent element of Lemma 8.6 computed for a nonseparating loop in\nthe split part of the normal form.",
+   "requires": [
+    "MordellLawrenceVenkatesh:LV.0",
+    "MordellLawrenceVenkatesh:LV.7",
+    "MordellLawrenceVenkatesh:LV.8",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+    "ComplexComparisonPartII:C5",
+    "AbelianSchemesAndArithmeticModuli:A5"
+   ]
+  },
+  {
+   "key": "LV.10",
+   "title": "Faltings's theorem after Lawrence and Venkatesh",
+   "description": "The assembly (LV Theorem 5.4).\n\n**Targets.**\n- *Choice of $q$*: primes $q$ with $4\\nmid q-1$, no odd prime below $8[K:\\mathbb Q]$ dividing $q-1$, the\n  Galois closure $K'$ of $K$ linearly disjoint from $\\mathbb Q(\\zeta_{q-1})$, and\n  $8\\cdot2^{g+1}/(q-1)^g<1/((g-\\tfrac12)(q-1)+1)$ exist (Dirichlet's theorem; ramification and Minkowski).\n- *Choice of $v$*: a friendly place $v\\notin S$ with $(q_v,q-1)=1$ and $q_v$ of order $\\ge8$ modulo every odd\n  prime divisor of $q-1$ (Chebotarev in $K'(\\zeta_{q-1})/\\mathbb Q$ and the Chinese remainder theorem).\n- *The Weil pairing on $M=H^1_{\\mathrm{et}}(Y_{\\bar K},\\mathbb Z/(q-1))$*: free of rank $2g$, perfect,\n  alternating, $G_K$-equivariant with values in $\\mu_{q-1}^\\vee$, so that\n  $\\langle Tm_1,Tm_2\\rangle=q_v^{-1}\\langle m_1,m_2\\rangle$ for $T$ the Frobenius at $v$.\n- *Small-orbit bound*: $|\\ker(T^i-1)|\\le2^g(q-1)^g$ for $1\\le i\\le8$, hence at most $8\\cdot2^g(q-1)^g$\n  elements of $M$ lie in $T$-orbits of size $<8$.\n- *Size bound* (LV (5.4)): $\\mathrm{size}_v(\\pi^{-1}(y))<1/(d_q+1)$ for every $y\\in Y(K)$.\n- *LV Theorem 5.4* and the final theorem: for a smooth projective geometrically connected curve $Y$ of genus\n  $g\\ge2$ over a number field $K$, $Y(K)$ is finite.\n\n**Inputs.** Dirichlet's theorem on primes in progressions, cyclotomic ramification and Minkowski's theorem\n(Mathlib), Chebotarev (Layer 10), Poincaré duality for curves with torsion coefficients (`EtaleDualityAndPerverseSheaves`\nEDC.2), LV.0, LV.1, LV.6, LV.7, LV.9.\n\n**Acceptance.** For $K=\\mathbb Q$ and $g=2$, $q=107$ is admissible: $106=2\\cdot53$ and\n$64/106^2<1/160$; the final statement is the one stated by `HeightsRationalPointsAndObstructions` RP.4.",
+   "requires": [
+    "MordellLawrenceVenkatesh:LV.0",
+    "MordellLawrenceVenkatesh:LV.1",
+    "MordellLawrenceVenkatesh:LV.6",
+    "MordellLawrenceVenkatesh:LV.7",
+    "MordellLawrenceVenkatesh:LV.9",
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+    "EtaleDualityAndPerverseSheaves:EDC.2"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "lv2020",
+   "title": "Diophantine problems and p-adic period mappings",
+   "authors": "Brian Lawrence; Akshay Venkatesh",
+   "edition": "arXiv:1807.02721v3 (25 October 2019); published Invent. Math. 221 (2020), 893–999, doi:10.1007/s00222-020-00966-7",
+   "url": "https://arxiv.org/abs/1807.02721v3",
+   "readSections": [
+    "§1 (pp. 1–8)",
+    "§2 (pp. 8–15)",
+    "§3 (pp. 15–20)",
+    "§4 (pp. 20–24)",
+    "§5 (pp. 25–28)",
+    "§6 (pp. 28–34)",
+    "§7 (pp. 34–39)",
+    "§8 (pp. 39–51)",
+    "§9 (pp. 51–55, to confirm it is not used for Mordell)",
+    "References (pp. 74–76)"
+   ]
+  },
+  {
+   "id": "brinon-conrad",
+   "title": "CMI summer school notes on p-adic Hodge theory (preliminary version)",
+   "authors": "Olivier Brinon; Brian Conrad",
+   "edition": "2009 preliminary version",
+   "url": "https://math.stanford.edu/~conrad/papers/notes.pdf",
+   "readSections": [
+    "§2.2 (Theorem 2.2.7)",
+    "§6.3 (Example 6.3.1, Propositions 6.3.2–6.3.3)",
+    "§8.1–8.2 (Definitions 8.1.1, 8.2.1)",
+    "§9.1 (Propositions 9.1.9, 9.1.11)",
+    "§9.3 (Theorem 9.3.4)"
+   ]
+  },
+  {
+   "id": "farb-margalit",
+   "title": "A primer on mapping class groups",
+   "authors": "Benson Farb; Dan Margalit",
+   "edition": "Version 5.0 (authors' distributed version; published Princeton University Press 2012)",
+   "url": "https://pagine.dm.unipi.it/~a019210/Farb%20Magalit_Primer%20on%20Teichmuller%20theory.pdf",
+   "readSections": [
+    "§3.6 (Proposition 3.19)",
+    "§4.2 (Theorem 4.6, Fact 4.7)",
+    "§6.2–6.3 (Propositions 6.2, 6.3, Theorem 6.4)"
+   ]
+  },
+  {
+   "id": "milne-cm",
+   "title": "Complex Multiplication",
+   "authors": "J. S. Milne",
+   "edition": "course notes, version at jmilne.org (accessed 2026-09-16)",
+   "url": "https://www.jmilne.org/math/CourseNotes/CM.pdf",
+   "readSections": [
+    "Chapter I §1 (Proposition 1.4, Corollary 1.5, Remarks 1.6–1.7)",
+    "Chapter I §4 Infinity types (Proposition 4.9)"
+   ]
+  }
+ ],
+ "status": "draft"
+}
