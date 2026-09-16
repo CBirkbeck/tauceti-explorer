@@ -465,11 +465,45 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-LV.md",
-   "state": "running",
+   "state": "done",
    "account": "claude",
    "lane": 2,
    "attempts": 1,
-   "startedAt": "2026-09-16T11:14:07Z"
+   "startedAt": "2026-09-16T11:14:07Z",
+   "finishedAt": "2026-09-16T13:28:14Z",
+   "seconds": 8042,
+   "result": {
+    "check": [
+     {
+      "packet": "/home/chris/tauceti-swarm/tauceti-explorer/research/blueprint/packets/MordellLawrenceVenkatesh.json",
+      "roadmap": "MordellLawrenceVenkatesh",
+      "status": "partial",
+      "nodes": 132,
+      "kinds": {
+       "lemma": 70,
+       "definition": 21,
+       "theorem": 29,
+       "construction": 11,
+       "comparison": 1
+      },
+      "apiItems": 253,
+      "baselineDeclarations": 89,
+      "prerequisites": {
+       "baseline": 136,
+       "node (this packet)": 334,
+       "stage": 140,
+       "node (integrated)": 4
+      },
+      "gaps": 1,
+      "requests": 92,
+      "stagesInScope": 12,
+      "stagesClosed": 0,
+      "errors": 0,
+      "warnings": 0
+     }
+    ]
+   },
+   "note": ""
   },
   {
    "id": "REV-DESIGN-LV",
@@ -37050,6 +37084,1318 @@
     "research/expansion/naming/NAME-14.result.json"
    ],
    "after": [],
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-01",
+   "kind": "compare",
+   "priority": 0,
+   "order": 101,
+   "roadmapIds": [
+    "tauceti:Completed/IntegralLattices",
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+    "tauceti:TauCetiRoadmap/DenseGraphLimits",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+    "tauceti:TauCetiRoadmap/ModularForms",
+    "ShimuraData",
+    "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "AutomorphicBundles",
+    "ClassicalAdicEtaleCohomology",
+    "tauceti:TauCetiRoadmap/StableReduction",
+    "tauceti:TauCetiRoadmap/HeegaardFloer",
+    "AutomorphicCongruences",
+    "AutomorphicGaloisRepresentationsPartII",
+    "PotentialAutomorphyInfrastructure",
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-01.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-01.md",
+   "timeout": 14400,
+   "state": "running",
+   "account": "claude",
+   "lane": 2,
+   "startedAt": "2026-09-16T13:28:17Z",
+   "attempts": 1
+  },
+  {
+   "id": "COMPARE-02",
+   "kind": "compare",
+   "priority": 0,
+   "order": 102,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+    "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+    "AlgebraicModularFormsAndSerreWeights",
+    "ComplexComparisonPartII",
+    "tauceti:TauCetiRoadmap/ModularCurves",
+    "AInfCohomology",
+    "ArithmeticQuantumTopology",
+    "DeligneWeightsAndPurity",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "BunGAndNewtonStrata",
+    "ClassicalSerreModularity",
+    "ModularityAndLanglandsExtensions",
+    "TorsionCohomologyInfrastructure"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-02.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-02.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-03",
+   "kind": "compare",
+   "priority": 0,
+   "order": 103,
+   "roadmapIds": [
+    "HabiroCyclotomicCompletions",
+    "ClassicalArithmeticCompletion",
+    "DirichletPadicLFunctions",
+    "tauceti:TauCetiRoadmap/HopfRinow",
+    "ArithmeticStatistics",
+    "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+    "GlobalGaloisDeformations",
+    "tauceti:TauCetiRoadmap/OptimalTransport",
+    "HilbertModularVarietiesAndShimuraCurves",
+    "PhiGammaModulesAndIwasawaCohomology",
+    "ArithmeticKTheory",
+    "PadicHodgeTheory",
+    "ShimuraVarieties",
+    "GeneralizedHeegnerCycles"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-03.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-03.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-04",
+   "kind": "compare",
+   "priority": 0,
+   "order": 104,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+    "tauceti:TauCetiRoadmap/CFSGStatement",
+    "LogicAndDefinabilityInNumberTheory",
+    "ArithmeticLocallySymmetricSpaces",
+    "DrinfeldModulesAndTModules",
+    "EffectiveDiophantineMethods",
+    "AdicEtaleGeometry",
+    "CompletedCohomologyPartII",
+    "EtaleDualityAndPerverseSheaves",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "PELModuli",
+    "WeightsInEtaleCohomology",
+    "PeriodsAndSpecialValues",
+    "RefinedTraceMethods"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-04.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-04.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-05",
+   "kind": "compare",
+   "priority": 0,
+   "order": 105,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/HodgeStructures",
+    "tauceti:TauCetiRoadmap/Multiquadratic",
+    "tauceti:TauCetiRoadmap/ConformalMapping",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+    "AdelicAlgebraicGroups",
+    "LocallyAnalyticDistributions",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+    "AbelianSchemesAndArithmeticModuli",
+    "NeronModelsAndSemistableAbelianVarieties",
+    "EllipticCurveModularity",
+    "ShimuraCompactifications",
+    "WeilConjectures",
+    "IgusaVarietiesAndTorsionConcentration"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-05.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-05.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-06",
+   "kind": "compare",
+   "priority": 0,
+   "order": 106,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/UniversalCovers",
+    "tauceti:TauCetiRoadmap/Exchangeability",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "K2SymbolsBrauer",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "HabiroNahmSeries",
+    "AutomorphicPadicLFunctions",
+    "HabiroNumberFields",
+    "PadicFamilies",
+    "VectorBundlesAndIsocrystals",
+    "GL2ModularityLifting",
+    "HabiroCohomologyFoundations",
+    "RelativeFarguesFontaine"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-06.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-06.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-07",
+   "kind": "compare",
+   "priority": 0,
+   "order": 107,
+   "roadmapIds": [
+    "tauceti:Completed/ContourIntegration",
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "SieveMethodsAndPrimePatterns",
+    "MetaplecticAutomorphicForms",
+    "FaltingsFinitenessAndIsogenyTheorems",
+    "GlobalShtukasAndFunctionFieldLanglands",
+    "HeegnerPointEulerSystems",
+    "SerreWeightAndLevelOptimisation",
+    "ExcursionOperatorsAndSpectralAction",
+    "OverconvergentAutomorphicForms",
+    "PadicHodgeRegulators",
+    "VStackSheavesAndLisseCategories"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-07.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-07.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-08",
+   "kind": "compare",
+   "priority": 0,
+   "order": 108,
+   "roadmapIds": [
+    "tauceti:Completed/OrthogonalL2Bases",
+    "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "DiophantineApproximationAndTranscendence",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+    "QSeriesPartitionsAndMockModularForms",
+    "ReductiveGroupsPartII",
+    "ModularCurvesPartII",
+    "PerfectoidSpaces",
+    "SmallRamificationAndAbelianVarietyBaseCases",
+    "DiamondEtaleCohomology",
+    "GrossZagierAndArithmeticHeights",
+    "IntegralIwasawaTheory"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-08.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-08.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-09",
+   "kind": "compare",
+   "priority": 0,
+   "order": 109,
+   "roadmapIds": [
+    "tauceti:Completed/EffectiveBounds",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+    "KTheoryLowDegrees",
+    "StableHomotopyKTheory",
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+    "FiniteFieldsAndCharacterSums",
+    "K3BlochGroups",
+    "ModularSymbolsPadicLFunctions",
+    "AutomorphicSpectralTheory",
+    "DiamondsAndVStacks",
+    "AdicCoefficientsAndComparisons",
+    "PadicLocalLanglandsForGL2Qp"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-09.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-09.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-10",
+   "kind": "compare",
+   "priority": 0,
+   "order": 110,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+    "ColemanIntegration",
+    "FunctionFieldArithmetic",
+    "HigherLocalFieldsAndHigherClassFieldTheory",
+    "ArakelovGeometryAndAbelianHeights",
+    "BorelRegulators",
+    "LocalGaloisDeformationRings",
+    "AnabelianGeometryAndNonabelianChabauty",
+    "EllipticRegulators",
+    "FarguesFontaineDiamonds",
+    "HodgeTateAndCanonicalSubgroups",
+    "CompletedCohomologyAndLocalGlobalCompatibility",
+    "PerfectoidShimuraVarieties"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-10.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-10.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-11",
+   "kind": "compare",
+   "priority": 0,
+   "order": 111,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+    "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+    "tauceti:TauCetiRoadmap/Chebotarev",
+    "ColemanPowerSeries",
+    "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+    "DeformationAndDerivedPatchingAlgebra",
+    "tauceti:TauCetiRoadmap/DGAInfinity",
+    "SelmerIwasawaCohomology",
+    "AutomorphicGaloisRepresentations",
+    "LanglandsParameterStacks",
+    "OrdinaryAutomorphicFormsAndModularityLifting",
+    "Polylogarithms",
+    "PotentialModularityAndCompatibleSystems",
+    "NoncommutativeAndEquivariantIwasawa"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-11.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-11.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-12",
+   "kind": "compare",
+   "priority": 0,
+   "order": 112,
+   "roadmapIds": [
+    "ComputationalNumberTheory",
+    "PadicMeasuresIwasawaAlgebras",
+    "tauceti:TauCetiRoadmap/AdicSpaces",
+    "SchemeAndStackFoundations",
+    "GeneralAlgebraicKTheory",
+    "InverseGaloisAndArithmeticFundamentalGroups",
+    "CrystallineCohomology",
+    "EllipticKTheory",
+    "HeightsRationalPointsAndObstructions",
+    "DiamondSixOperations",
+    "PerfectoidQuotients",
+    "CohomologyComparisons",
+    "GeometricSatakeAndFusion",
+    "RankZeroOneBSD"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-12.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-12.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-13",
+   "kind": "compare",
+   "priority": 0,
+   "order": 113,
+   "roadmapIds": [
+    "FoundationsAndLibraryIntegration",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+    "tauceti:TauCetiRoadmap/EllipticCurves",
+    "ArithmeticGaloisRepresentations",
+    "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "AlgebraicModuliForArithmeticGeometry",
+    "ExponentialSumsAndCircleMethod",
+    "tauceti:TauCetiRoadmap/BelyiMaps",
+    "tauceti:TauCetiRoadmap/GeometricTopology",
+    "AdicSpacesPartII",
+    "EnhancedDerivedSheaves",
+    "LefschetzPencilsAndVanishingCycles",
+    "SmoothRepresentationsOfLocalGroups",
+    "ModularIwasawaMainConjectures"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-13.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-13.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-14",
+   "kind": "compare",
+   "priority": 0,
+   "order": 114,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GlobalNumberFields",
+    "tauceti:TauCetiRoadmap/PDE",
+    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+    "AdditiveCombinatorics",
+    "AutomorphicFormsOnReductiveGroups",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "TropicalAndBerkovichArithmetic",
+    "DerivedDeRhamCohomology",
+    "EulerSystemsCyclotomicMainConjecture",
+    "SchemeKTheoryOperations",
+    "KTheoryFiniteLocalFields",
+    "KatoEulerSystems",
+    "MotivicEtaleKTheory",
+    "HeckeStacksAndLocalShtukas"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-14.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-14.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-15",
+   "kind": "compare",
+   "priority": 0,
+   "order": 115,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/StandardDistributions",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+    "AnalyticNumberTheory",
+    "ArithmeticGaloisDuality",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "IntegralHeckeAndGaloisDeterminants",
+    "ProbabilisticAndMetricNumberTheory",
+    "ArithmeticDynamics",
+    "ComplexMultiplicationAndExplicitReciprocity",
+    "EulerSystemsAndKolyvaginSystems",
+    "MotivesAndAlgebraicCycles",
+    "HabiroRings",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "SpecialValuesBirchTate"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-15.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-15.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-16",
+   "kind": "compare",
+   "priority": 0,
+   "order": 116,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/HodgeStructures",
+    "tauceti:TauCetiRoadmap/StandardDistributions",
+    "LocallyAnalyticDistributions",
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+    "tauceti:TauCetiRoadmap/BelyiMaps",
+    "GlobalGaloisDeformations",
+    "EulerSystemsCyclotomicMainConjecture",
+    "tauceti:TauCetiRoadmap/ModularCurves",
+    "EllipticRegulators",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "KatoEulerSystems",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "ExcursionOperatorsAndSpectralAction",
+    "GeneralizedHeegnerCycles"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-16.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-16.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-17",
+   "kind": "compare",
+   "priority": 0,
+   "order": 117,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ConformalMapping",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+    "FoundationsAndLibraryIntegration",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+    "LogicAndDefinabilityInNumberTheory",
+    "SieveMethodsAndPrimePatterns",
+    "AutomorphicFormsOnReductiveGroups",
+    "GeneralAlgebraicKTheory",
+    "ReductiveGroupsPartII",
+    "NeronModelsAndSemistableAbelianVarieties",
+    "SmallRamificationAndAbelianVarietyBaseCases",
+    "DiamondEtaleCohomology",
+    "GeometricSatakeAndFusion",
+    "PadicLocalLanglandsForGL2Qp"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-17.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-17.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-18",
+   "kind": "compare",
+   "priority": 0,
+   "order": 118,
+   "roadmapIds": [
+    "tauceti:Completed/ContourIntegration",
+    "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+    "DirichletPadicLFunctions",
+    "tauceti:TauCetiRoadmap/HopfRinow",
+    "ComplexComparisonPartII",
+    "ExponentialSumsAndCircleMethod",
+    "FunctionFieldArithmetic",
+    "AdicSpacesPartII",
+    "AnabelianGeometryAndNonabelianChabauty",
+    "FaltingsFinitenessAndIsogenyTheorems",
+    "ShimuraCompactifications",
+    "HeckeStacksAndLocalShtukas",
+    "ModularIwasawaMainConjectures",
+    "TorsionCohomologyInfrastructure"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-18.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-18.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-19",
+   "kind": "compare",
+   "priority": 0,
+   "order": 119,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+    "HabiroCyclotomicCompletions",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+    "tauceti:TauCetiRoadmap/ModularForms",
+    "ArithmeticGaloisDuality",
+    "AlgebraicModuliForArithmeticGeometry",
+    "FiniteFieldsAndCharacterSums",
+    "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+    "InverseGaloisAndArithmeticFundamentalGroups",
+    "tauceti:TauCetiRoadmap/OptimalTransport",
+    "MotivesAndAlgebraicCycles",
+    "SchemeKTheoryOperations",
+    "FarguesFontaineDiamonds",
+    "PadicHodgeRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-19.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-19.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-20",
+   "kind": "compare",
+   "priority": 0,
+   "order": 120,
+   "roadmapIds": [
+    "tauceti:Completed/IntegralLattices",
+    "tauceti:Completed/OrthogonalL2Bases",
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+    "AlgebraicModularFormsAndSerreWeights",
+    "ArithmeticStatistics",
+    "TropicalAndBerkovichArithmetic",
+    "AdicEtaleGeometry",
+    "BorelRegulators",
+    "EllipticKTheory",
+    "PadicHodgeTheory",
+    "WeightsInEtaleCohomology",
+    "CohomologyComparisons",
+    "NoncommutativeAndEquivariantIwasawa",
+    "OverconvergentAutomorphicForms"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-20.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-20.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-21",
+   "kind": "compare",
+   "priority": 0,
+   "order": 121,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+    "ColemanPowerSeries",
+    "ComputationalNumberTheory",
+    "ProbabilisticAndMetricNumberTheory",
+    "StableHomotopyKTheory",
+    "ColemanIntegration",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "HabiroNahmSeries",
+    "K3BlochGroups",
+    "CompletedCohomologyPartII",
+    "ArithmeticKTheory",
+    "PrismaticCohomology",
+    "VStackSheavesAndLisseCategories"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-21.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-21.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-22",
+   "kind": "compare",
+   "priority": 0,
+   "order": 122,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Multiquadratic",
+    "tauceti:TauCetiRoadmap/Exchangeability",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+    "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+    "AdelicAlgebraicGroups",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "tauceti:TauCetiRoadmap/GeometricTopology",
+    "ArithmeticLocallySymmetricSpaces",
+    "EffectiveDiophantineMethods",
+    "EulerSystemsAndKolyvaginSystems",
+    "ArakelovGeometryAndAbelianHeights",
+    "AutomorphicBundles",
+    "AutomorphicCongruences",
+    "IgusaVarietiesAndTorsionConcentration"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-22.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-22.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-23",
+   "kind": "compare",
+   "priority": 0,
+   "order": 123,
+   "roadmapIds": [
+    "AnalyticNumberTheory",
+    "tauceti:TauCetiRoadmap/AdicSpaces",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+    "ArithmeticDynamics",
+    "ComplexMultiplicationAndExplicitReciprocity",
+    "HigherLocalFieldsAndHigherClassFieldTheory",
+    "MetaplecticAutomorphicForms",
+    "LefschetzPencilsAndVanishingCycles",
+    "EllipticCurveModularity",
+    "PELModuli",
+    "PadicFamilies",
+    "SerreWeightAndLevelOptimisation",
+    "PerfectoidShimuraVarieties",
+    "PeriodsAndSpecialValues"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-23.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-23.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-24",
+   "kind": "compare",
+   "priority": 0,
+   "order": 124,
+   "roadmapIds": [
+    "DiophantineApproximationAndTranscendence",
+    "IntegralHeckeAndGaloisDeterminants",
+    "AbelianSchemesAndArithmeticModuli",
+    "DiamondsAndVStacks",
+    "PerfectoidSpaces",
+    "AdicCoefficientsAndComparisons",
+    "ArithmeticQuantumTopology",
+    "DeligneWeightsAndPurity",
+    "DiamondSixOperations",
+    "HabiroNumberFields",
+    "VectorBundlesAndIsocrystals",
+    "PotentialAutomorphyInfrastructure",
+    "RefinedTraceMethods",
+    "SpecialValuesBirchTate"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-24.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-24.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-25",
+   "kind": "compare",
+   "priority": 0,
+   "order": 125,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/UniversalCovers",
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+    "PadicMeasuresIwasawaAlgebras",
+    "tauceti:TauCetiRoadmap/CFSGStatement",
+    "tauceti:TauCetiRoadmap/PDE",
+    "ShimuraData",
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+    "tauceti:TauCetiRoadmap/DGAInfinity",
+    "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "AutomorphicSpectralTheory",
+    "GrossZagierAndArithmeticHeights",
+    "KTheoryFiniteLocalFields"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-25.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-25.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-26",
+   "kind": "compare",
+   "priority": 0,
+   "order": 126,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+    "tauceti:TauCetiRoadmap/DenseGraphLimits",
+    "tauceti:TauCetiRoadmap/EllipticCurves",
+    "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+    "ClassicalAdicEtaleCohomology",
+    "EtaleDualityAndPerverseSheaves",
+    "GlobalShtukasAndFunctionFieldLanglands",
+    "HeegnerPointEulerSystems",
+    "tauceti:TauCetiRoadmap/HeegaardFloer",
+    "AutomorphicGaloisRepresentationsPartII",
+    "ClassicalSerreModularity",
+    "GL2ModularityLifting",
+    "RelativeFarguesFontaine"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-26.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-26.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-27",
+   "kind": "compare",
+   "priority": 0,
+   "order": 127,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+    "KTheoryLowDegrees",
+    "ArithmeticGaloisRepresentations",
+    "DeformationAndDerivedPatchingAlgebra",
+    "SchemeAndStackFoundations",
+    "SelmerIwasawaCohomology",
+    "CrystallineCohomology",
+    "EnhancedDerivedSheaves",
+    "HeightsRationalPointsAndObstructions",
+    "SmoothRepresentationsOfLocalGroups",
+    "AInfCohomology",
+    "WeilConjectures",
+    "BunGAndNewtonStrata"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-27.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-27.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-28",
+   "kind": "compare",
+   "priority": 0,
+   "order": 128,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "ModularSymbolsPadicLFunctions",
+    "ModularCurvesPartII",
+    "tauceti:TauCetiRoadmap/StableReduction",
+    "HodgeTateAndCanonicalSubgroups",
+    "LanglandsParameterStacks",
+    "OrdinaryAutomorphicFormsAndModularityLifting",
+    "PotentialModularityAndCompatibleSystems",
+    "ShimuraVarieties"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-28.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-28.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-29",
+   "kind": "compare",
+   "priority": 0,
+   "order": 129,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+    "tauceti:Completed/EffectiveBounds",
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+    "tauceti:TauCetiRoadmap/Chebotarev",
+    "AdditiveCombinatorics",
+    "DrinfeldModulesAndTModules",
+    "QSeriesPartitionsAndMockModularForms",
+    "PhiGammaModulesAndIwasawaCohomology",
+    "HabiroRings",
+    "IntegralIwasawaTheory",
+    "PerfectoidQuotients",
+    "CompletedCohomologyAndLocalGlobalCompatibility",
+    "HabiroCohomologyFoundations",
+    "ModularityAndLanglandsExtensions"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-29.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-29.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-30",
+   "kind": "compare",
+   "priority": 0,
+   "order": 130,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+    "ClassicalArithmeticCompletion",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields",
+    "K2SymbolsBrauer",
+    "DerivedDeRhamCohomology",
+    "HilbertModularVarietiesAndShimuraCurves",
+    "LocalGaloisDeformationRings",
+    "AutomorphicGaloisRepresentations",
+    "AutomorphicPadicLFunctions",
+    "MotivicEtaleKTheory",
+    "Polylogarithms",
+    "RankZeroOneBSD"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-30.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-30.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-31",
+   "kind": "compare",
+   "priority": 0,
+   "order": 131,
+   "roadmapIds": [
+    "tauceti:Completed/OrthogonalL2Bases",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+    "tauceti:TauCetiRoadmap/EllipticCurves",
+    "DeformationAndDerivedPatchingAlgebra",
+    "ProbabilisticAndMetricNumberTheory",
+    "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+    "K3BlochGroups",
+    "MetaplecticAutomorphicForms",
+    "tauceti:TauCetiRoadmap/OptimalTransport",
+    "AutomorphicBundles",
+    "LefschetzPencilsAndVanishingCycles",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "HabiroNumberFields",
+    "ModularityAndLanglandsExtensions",
+    "PadicHodgeRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-31.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-31.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-32",
+   "kind": "compare",
+   "priority": 0,
+   "order": 132,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Multiquadratic",
+    "tauceti:TauCetiRoadmap/ConformalMapping",
+    "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+    "tauceti:TauCetiRoadmap/Chebotarev",
+    "PadicMeasuresIwasawaAlgebras",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "ShimuraData",
+    "LogicAndDefinabilityInNumberTheory",
+    "tauceti:TauCetiRoadmap/BelyiMaps",
+    "AutomorphicPadicLFunctions",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "CohomologyComparisons",
+    "ExcursionOperatorsAndSpectralAction"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-32.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-32.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-33",
+   "kind": "compare",
+   "priority": 0,
+   "order": 133,
+   "roadmapIds": [
+    "tauceti:Completed/IntegralLattices",
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+    "ColemanPowerSeries",
+    "tauceti:TauCetiRoadmap/PDE",
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+    "AbelianSchemesAndArithmeticModuli",
+    "AlgebraicModuliForArithmeticGeometry",
+    "FiniteFieldsAndCharacterSums",
+    "AutomorphicFormsOnReductiveGroups",
+    "DrinfeldModulesAndTModules",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "PadicFamilies",
+    "IgusaVarietiesAndTorsionConcentration"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-33.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-33.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-34",
+   "kind": "compare",
+   "priority": 0,
+   "order": 134,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+    "ClassicalArithmeticCompletion",
+    "DirichletPadicLFunctions",
+    "ArithmeticGaloisRepresentations",
+    "IntegralHeckeAndGaloisDeterminants",
+    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+    "ComplexComparisonPartII",
+    "EffectiveDiophantineMethods",
+    "ModularSymbolsPadicLFunctions",
+    "AInfCohomology",
+    "OverconvergentAutomorphicForms",
+    "PadicLocalLanglandsForGL2Qp",
+    "SpecialValuesBirchTate"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-34.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-34.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-35",
+   "kind": "compare",
+   "priority": 0,
+   "order": 135,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+    "AdelicAlgebraicGroups",
+    "tauceti:TauCetiRoadmap/GeometricTopology",
+    "EulerSystemsAndKolyvaginSystems",
+    "HabiroNahmSeries",
+    "DerivedDeRhamCohomology",
+    "EulerSystemsCyclotomicMainConjecture",
+    "tauceti:TauCetiRoadmap/StableReduction",
+    "AutomorphicGaloisRepresentationsPartII",
+    "BunGAndNewtonStrata",
+    "GeometricSatakeAndFusion",
+    "VStackSheavesAndLisseCategories"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-35.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-35.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-36",
+   "kind": "compare",
+   "priority": 0,
+   "order": 136,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "tauceti:TauCetiRoadmap/DenseGraphLimits",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+    "ArithmeticGaloisDuality",
+    "AutomorphicSpectralTheory",
+    "LocalGaloisDeformationRings",
+    "FaltingsFinitenessAndIsogenyTheorems",
+    "PadicHodgeTheory",
+    "GeneralizedHeegnerCycles",
+    "HeckeStacksAndLocalShtukas",
+    "ModularIwasawaMainConjectures",
+    "PotentialAutomorphyInfrastructure",
+    "RefinedTraceMethods",
+    "RelativeFarguesFontaine"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-36.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-36.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-37",
+   "kind": "compare",
+   "priority": 0,
+   "order": 137,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+    "tauceti:TauCetiRoadmap/HopfRinow",
+    "KTheoryLowDegrees",
+    "tauceti:TauCetiRoadmap/CFSGStatement",
+    "LocallyAnalyticDistributions",
+    "ArithmeticDynamics",
+    "ColemanIntegration",
+    "ArithmeticLocallySymmetricSpaces",
+    "GeneralAlgebraicKTheory",
+    "BorelRegulators",
+    "AutomorphicGaloisRepresentations",
+    "HodgeTateAndCanonicalSubgroups",
+    "SerreWeightAndLevelOptimisation",
+    "ShimuraCompactifications"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-37.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-37.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-38",
+   "kind": "compare",
+   "priority": 0,
+   "order": 138,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+    "FoundationsAndLibraryIntegration",
+    "StableHomotopyKTheory",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+    "ExponentialSumsAndCircleMethod",
+    "SieveMethodsAndPrimePatterns",
+    "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "CompletedCohomologyPartII",
+    "ArithmeticQuantumTopology",
+    "GrossZagierAndArithmeticHeights",
+    "HabiroRings",
+    "KTheoryFiniteLocalFields",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "RankZeroOneBSD"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-38.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-38.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-39",
+   "kind": "compare",
+   "priority": 0,
+   "order": 139,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/UniversalCovers",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+    "tauceti:TauCetiRoadmap/ModularForms",
+    "DiamondsAndVStacks",
+    "ModularCurvesPartII",
+    "DeligneWeightsAndPurity",
+    "DiamondSixOperations",
+    "EllipticRegulators",
+    "LanglandsParameterStacks",
+    "Polylogarithms",
+    "ShimuraVarieties",
+    "tauceti:TauCetiRoadmap/HeegaardFloer",
+    "ClassicalSerreModularity"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-39.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-39.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-40",
+   "kind": "compare",
+   "priority": 0,
+   "order": 140,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Exchangeability",
+    "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+    "tauceti:TauCetiRoadmap/AdicSpaces",
+    "ArithmeticStatistics",
+    "AdditiveCombinatorics",
+    "AdicSpacesPartII",
+    "TropicalAndBerkovichArithmetic",
+    "EnhancedDerivedSheaves",
+    "SmoothRepresentationsOfLocalGroups",
+    "FarguesFontaineDiamonds",
+    "GlobalShtukasAndFunctionFieldLanglands",
+    "KatoEulerSystems",
+    "NoncommutativeAndEquivariantIwasawa",
+    "TorsionCohomologyInfrastructure"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-40.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-40.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-41",
+   "kind": "compare",
+   "priority": 0,
+   "order": 141,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+    "AnalyticNumberTheory",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "QSeriesPartitionsAndMockModularForms",
+    "ReductiveGroupsPartII",
+    "PerfectoidSpaces",
+    "PhiGammaModulesAndIwasawaCohomology",
+    "EllipticCurveModularity",
+    "HeegnerPointEulerSystems",
+    "PELModuli",
+    "WeilConjectures",
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-41.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-41.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-42",
+   "kind": "compare",
+   "priority": 0,
+   "order": 142,
+   "roadmapIds": [
+    "tauceti:Completed/EffectiveBounds",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+    "DiophantineApproximationAndTranscendence",
+    "K2SymbolsBrauer",
+    "AlgebraicModularFormsAndSerreWeights",
+    "SchemeAndStackFoundations",
+    "ComplexMultiplicationAndExplicitReciprocity",
+    "HigherLocalFieldsAndHigherClassFieldTheory",
+    "AdicEtaleGeometry",
+    "SchemeKTheoryOperations",
+    "SmallRamificationAndAbelianVarietyBaseCases",
+    "AdicCoefficientsAndComparisons",
+    "PerfectoidQuotients",
+    "PeriodsAndSpecialValues"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-42.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-42.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-43",
+   "kind": "compare",
+   "priority": 0,
+   "order": 143,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+    "ComputationalNumberTheory",
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "tauceti:TauCetiRoadmap/DGAInfinity",
+    "EllipticKTheory",
+    "ArithmeticKTheory",
+    "DiamondEtaleCohomology",
+    "IntegralIwasawaTheory",
+    "VectorBundlesAndIsocrystals",
+    "WeightsInEtaleCohomology",
+    "AutomorphicCongruences",
+    "HabiroCohomologyFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-43.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-43.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-44",
+   "kind": "compare",
+   "priority": 0,
+   "order": 144,
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/StandardDistributions",
+    "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+    "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "GlobalGaloisDeformations",
+    "SelmerIwasawaCohomology",
+    "ArakelovGeometryAndAbelianHeights",
+    "ClassicalAdicEtaleCohomology",
+    "HeightsRationalPointsAndObstructions",
+    "MotivesAndAlgebraicCycles",
+    "EtaleDualityAndPerverseSheaves",
+    "PotentialModularityAndCompatibleSystems",
+    "CompletedCohomologyAndLocalGlobalCompatibility",
+    "GL2ModularityLifting",
+    "PerfectoidShimuraVarieties"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-44.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-44.md",
+   "timeout": 14400,
+   "state": "pending"
+  },
+  {
+   "id": "COMPARE-45",
+   "kind": "compare",
+   "priority": 0,
+   "order": 145,
+   "roadmapIds": [
+    "tauceti:Completed/ContourIntegration",
+    "tauceti:TauCetiRoadmap/HodgeStructures",
+    "HabiroCyclotomicCompletions",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+    "FunctionFieldArithmetic",
+    "InverseGaloisAndArithmeticFundamentalGroups",
+    "CrystallineCohomology",
+    "HilbertModularVarietiesAndShimuraCurves",
+    "NeronModelsAndSemistableAbelianVarieties",
+    "tauceti:TauCetiRoadmap/ModularCurves",
+    "AnabelianGeometryAndNonabelianChabauty",
+    "MotivicEtaleKTheory",
+    "OrdinaryAutomorphicFormsAndModularityLifting"
+   ],
+   "outputs": [
+    "research/blueprint/compare/COMPARE-45.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/COMPARE-45.md",
+   "timeout": 14400,
    "state": "pending"
   }
  ]

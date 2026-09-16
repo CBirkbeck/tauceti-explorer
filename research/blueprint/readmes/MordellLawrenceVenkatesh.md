@@ -120,7 +120,7 @@ The layers follow the paper closely. The following points differ from its text; 
 | LV.2 | Abelian-by-finite families, good models and Gauss–Manin transport on residue disks | 7 | 4 |
 | LV.3 | Lagrangian period varieties and the complex and p-adic period maps | 5 | 10 |
 | LV.4 | Crystalline comparison on residue disks and the finiteness criterion | 0 | 5 |
-| LV.5 | Surfaces, mapping class groups and families of branched covers | 3 | 10 |
+| LV.5 | Surfaces, mapping class groups and families of branched covers | 4 | 10 |
 | LV.6 | The S-unit theorem | 1 | 9 |
 | LV.7 | Rational points on the base of an abelian-by-finite family | 1 | 7 |
 | LV.8 | Hurwitz spaces of singly ramified covers and the Kodaira–Parshin family | 4 | 7 |
@@ -1875,6 +1875,36 @@ For a simple closed curve α in a surface S, a regular neighbourhood N ≅ S¹ �
 - On the torus with the standard basis, T_b acts on H₁ by the matrix [[1, 0], [±1, 1]].
 - The boundary twist of a once-punctured disk is trivial in Mod.
 
+#### The point-pushing homomorphism
+
+*Construction* — module `TauCeti/NumberTheory/LawrenceVenkatesh/Topology/Birman`, namespace `TauCeti.LawrenceVenkatesh.Surface`.
+
+Let S be a surface and x an interior point. For a loop α in S based at x, extend the motion of x along α to an isotopy φ_t of S fixed near ∂S (isotopy extension for points) and let Push(α) ∈ Mod(S*) be the class of φ_1, regarded as a homeomorphism of S fixing x. Push(α) depends only on the homotopy class of α, and Push : π₁(S, x) → Mod(S*) is a homomorphism (with the composition convention fixed by the path-concatenation convention of Mathlib's fundamental group). Its image lies in the kernel of Forget : Mod(S*) → Mod(S), and Push(α) acts on π₁(S, x) by conjugation by α.
+
+**Construction.**
+
+- Isotopy extension for a point in the interior of a surface gives φ_t.
+- Independence of the choices: the evaluation map Homeo(S, ∂S) → S ∖ ∂S, f ↦ f(x), is a locally trivial fibre bundle with fibre Homeo(S*, ∂S); the connecting map of its homotopy sequence is Push, which is therefore well defined on π₁(S, x) and a homomorphism (Farb–Margalit §4.2).
+- φ_1 is isotopic to the identity in S by construction, so Forget(Push(α)) = 1; tracking the base point along the isotopy shows that φ_1 acts on π₁(S, x) by conjugation by α.
+
+**Declarations and API.**
+
+- `pointPush` (constructor): Push : π₁(S, x) →* Mod(S*).
+- `pointPush_apply` (characterisation): Push(α) is the class of the end map of any isotopy extending the motion of x along α.
+- `forget_pointPush` (simp): Forget (Push α) = 1.
+- `pointPush_action` (relation): Push(α) acts on π₁(S, x) as conjugation by α.
+- `pointPush_homology` (other): Push(α) acts trivially on H₁(S) and on H₁(S ∖ {x}) when S is closed.
+- `pointPush_torus` (example): On the torus Push is trivial.
+
+**Uses.** The mapping class group (`LV.5/mapping-class-group`); Dehn twists (`LV.5/dehn-twist`); `FoundationsAndLibraryIntegration:LI.4` (Imported arithmetic foundations).
+
+**Notes.** Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead — AlgebraicTopology Stage 8 (relative homotopy, long exact sequences); tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group — GeometricTopology Layer 1 (cutting and gluing manifolds along submanifolds).
+
+**Tests.**
+
+- S = S_{0,3} and α a loop around one puncture: Push(α) is a single Dehn twist about the curve enclosing that puncture and x.
+- S a torus: Push is trivial (π₁ is abelian and the fibration has a section), so the injectivity statement of the Birman sequence needs χ(S) < 0.
+
 ### LV.5.B Theorems
 
 #### Classification of compact surfaces
@@ -1959,26 +1989,25 @@ Let g ≥ 1. A nonzero class of H₁(S_g; ℤ) is represented by an oriented sim
 - (2, 0) ∈ H₁(T²) is not represented by a simple closed curve; (2, 3) is.
 - On S_2 the class a_1 + a_2 is represented by a simple closed curve.
 
-#### Point pushing and the Birman exact sequence
+#### The Birman exact sequence and pushes of simple loops
 
-*Theorem* `TauCeti.LawrenceVenkatesh.Surface.birman_exact_sequence` — module `TauCeti/NumberTheory/LawrenceVenkatesh/Topology/Birman`.
+*Theorem* `TauCeti.LawrenceVenkatesh.birman_exact_sequence` — module `TauCeti/NumberTheory/LawrenceVenkatesh/Topology/Birman`.
 
-Let S be a surface with χ(S) < 0 and x an interior point. Pushing x along loops defines a homomorphism Push : π₁(S, x) → Mod(S*), and 1 → π₁(S, x) → Mod(S*) → Mod(S) → 1 (with Forget on the right) is exact. For a simple loop α at x, Push([α]) = T_a T_b⁻¹, where a and b are the simple closed curves in S ∖ {x} obtained by pushing α off itself to the left and to the right; a and b are nonseparating in S ∖ {x} if and only if α is nonseparating in S.
+Let S be a surface with χ(S) < 0 and x an interior point. Then 1 → π₁(S, x) → Mod(S*) → Mod(S) → 1 (Push, then Forget) is exact. For a simple loop α at x, Push([α]) = T_a T_b⁻¹, where a and b are the simple closed curves in S ∖ {x} obtained by pushing α off itself to the left and to the right; a and b are nonseparating in S ∖ {x} if and only if α is nonseparating in S.
 
 **Proof.**
 
-- Push(α) is the end of an isotopy of S extending the motion of x along α (isotopy extension for points); independence of the choices is the content of the theorem (Farb–Margalit, proof via the fibration Homeo(S) → S).
-- Exactness at Mod(S*): a class in the kernel of Forget is isotopic to the identity in S, and the track of x is a loop α with the class equal to Push(α⁻¹); Forget is surjective because a homeomorphism can be isotoped to fix x.
+- Exactness at Mod(S*): a class in the kernel of Forget is isotopic to the identity in S, and the track of x is a loop α whose push is that class (up to inversion); Forget is surjective because a homeomorphism can be isotoped to fix x.
 - Injectivity: Push(α) acts on π₁(S, x) by conjugation by α, and π₁(S) has trivial centre when χ(S) < 0.
-- The formula for simple loops: the isotopy pushing x once around α is supported in the annulus between a and b, where it equals T_a T_b⁻¹.
+- The formula for simple loops: the isotopy pushing x once around α is supported in the annulus between a and b, where it equals T_a T_b⁻¹; nonseparation is read off from the complement of the annulus.
 
-**Uses.** The mapping class group (`LV.5/mapping-class-group`); Dehn twists (`LV.5/dehn-twist`); `FoundationsAndLibraryIntegration:LI.4` (Imported arithmetic foundations).
+**Uses.** The point-pushing homomorphism (`LV.5/point-push`); The mapping class group (`LV.5/mapping-class-group`); Dehn twists (`LV.5/dehn-twist`); `FoundationsAndLibraryIntegration:LI.4` (Imported arithmetic foundations).
 
 **Notes.** Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead — AlgebraicTopology Stage 8 (relative homotopy, long exact sequences); tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence — UniversalCovers Stage 2 (lifting criterion and Galois correspondence of covers).
 
 **Tests.**
 
-- S = S_{0,3} (thrice-punctured sphere) and α a loop around one puncture: a bounds a once-punctured disk, so Push(α) = T_b⁻¹ with b enclosing that puncture and x.
+- S = S_{0,3} and α a loop around one puncture: a bounds a once-punctured disk, so Push(α) = T_b⁻¹ with b enclosing that puncture and x.
 - For S closed of genus ≥ 2 and α nonseparating, Push(α) is a nontrivial element acting trivially on H₁(S).
 
 #### Capping boundary circles and forgetting points are surjective on mapping class groups
@@ -1993,7 +2022,7 @@ Let S be a surface and S' the surface obtained by capping a boundary circle β w
 - Forgetting the marked points is surjective (Birman exact sequence, right-hand map), and a composite of surjections is surjective.
 - The inclusion S ⊆ Ŝ is equivariant, which gives the compatibility on H₁.
 
-**Uses.** The mapping class group (`LV.5/mapping-class-group`); Point pushing and the Birman exact sequence (`LV.5/birman-exact-sequence`).
+**Uses.** The mapping class group (`LV.5/mapping-class-group`); The Birman exact sequence and pushes of simple loops (`LV.5/birman-exact-sequence`).
 
 **Tests.**
 
@@ -2075,7 +2104,7 @@ Let Σ be a closed oriented surface, B ⊂ Σ finite, S = Σ ∖ B with χ(S) �
 - φ_1 represents Push(γ) by definition of the push map; the monodromy of the homology local system of 𝒵̄ is induced by h_γ.
 - Two lifts of φ_1 differ by a deck transformation of Z°_{y₀}.
 
-**Uses.** The configuration fibration of a surface and its fundamental groups (`LV.5/fadell-neuwirth-sequence`); Point pushing and the Birman exact sequence (`LV.5/birman-exact-sequence`); Lifting powers of Dehn twists to finite coverings (`LV.5/covering-dehn-twist-lift`); `FoundationsAndLibraryIntegration:LI.4` (Imported arithmetic foundations); `mathlib:IsCoveringMap.existsUnique_continuousMap_lifts`; `tauceti:TauCeti.LocalCoefficientSystem.monodromyRepresentation`.
+**Uses.** The configuration fibration of a surface and its fundamental groups (`LV.5/fadell-neuwirth-sequence`); The Birman exact sequence and pushes of simple loops (`LV.5/birman-exact-sequence`); Lifting powers of Dehn twists to finite coverings (`LV.5/covering-dehn-twist-lift`); `FoundationsAndLibraryIntegration:LI.4` (Imported arithmetic foundations); `mathlib:IsCoveringMap.existsUnique_continuousMap_lifts`; `tauceti:TauCeti.LocalCoefficientSystem.monodromyRepresentation`.
 
 **Notes.** Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology — AlgebraicTopology Stage 2 (singular homology, local coefficient systems); tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence — UniversalCovers Stage 2 (lifting criterion and Galois correspondence of covers).
 
@@ -2214,7 +2243,7 @@ Let B = ℂ ∖ {0, 1}, λ₀ ∈ (0, 1), and let γ₀ (resp. γ₁) be a simpl
 - Likewise γ₁ gives T_b² with b from a disk D₁ containing exactly λ₀ and 1. Taking D₀, D₁ to be thin neighbourhoods of the segments [0, λ₀] and [λ₀, 1], the core circles of the two annuli are the preimages of the segments, which meet in exactly one point, transversally (in the local coordinate w² = x − λ₀ the segments lift to the two axes); so î(a, b) = ±1.
 - (b), (c): the Zariski closure contains the closures of {T_a^{4kn}} and {T_b^{4kn}}, i.e. the root groups U_a, U_b (LV.0), which generate Sp(H₁ ⊗ ℂ) = SL₂ because î(a, b) ≠ 0 (LV Lemma 2.13 in LV.0).
 
-**Uses.** The Legendre family and its cyclic variant (LV §4.2) (`LV.6/legendre-family`); Monodromy of families of branched covers over configuration spaces (`LV.5/configuration-family-monodromy`); Point pushing and the Birman exact sequence (`LV.5/birman-exact-sequence`); Lifting powers of Dehn twists to finite coverings (`LV.5/covering-dehn-twist-lift`); Action of Dehn twists and multitwists on homology (`LV.5/dehn-twist-homology`); Primitive homology classes are represented by simple closed curves (`LV.5/primitive-classes-simple`); The Zariski closure of the powers of a transvection (`LV.0/zariski-closure-transvection-powers`); Two transvections with nonzero pairing (LV Lemma 2.13) (`LV.0/transvection-pair-closure`); The algebraic monodromy group of an abelian-by-finite family and full monodromy (LV (3.5), (5.1)) (`LV.3/algebraic-monodromy-group`); `AbelianSchemesAndArithmeticModuli:A5` (Complex uniformization with polarization and level); `ComplexComparisonPartII:C5` (Algebraic de Rham–Betti comparison).
+**Uses.** The Legendre family and its cyclic variant (LV §4.2) (`LV.6/legendre-family`); Monodromy of families of branched covers over configuration spaces (`LV.5/configuration-family-monodromy`); The Birman exact sequence and pushes of simple loops (`LV.5/birman-exact-sequence`); Lifting powers of Dehn twists to finite coverings (`LV.5/covering-dehn-twist-lift`); Action of Dehn twists and multitwists on homology (`LV.5/dehn-twist-homology`); Primitive homology classes are represented by simple closed curves (`LV.5/primitive-classes-simple`); The Zariski closure of the powers of a transvection (`LV.0/zariski-closure-transvection-powers`); Two transvections with nonzero pairing (LV Lemma 2.13) (`LV.0/transvection-pair-closure`); The algebraic monodromy group of an abelian-by-finite family and full monodromy (LV (3.5), (5.1)) (`LV.3/algebraic-monodromy-group`); `AbelianSchemesAndArithmeticModuli:A5` (Complex uniformization with polarization and level); `ComplexComparisonPartII:C5` (Algebraic de Rham–Betti comparison).
 
 **Tests.**
 
@@ -2939,7 +2968,7 @@ Throughout, Y is a closed oriented surface of genus g ≥ 2, y ∈ Y, q ≥ 3 is
 - `monodromyMap_twist` (compatibility): Mon_Z(T_e^{n_e}) is the multitwist ∏ T_{e_i}^{n_e/d_i} on homology.
 - `monodromyMap.example` (example): q = 3, g = 2: 135 factors.
 
-**Uses.** Aff(q)-covers and singly ramified Aff(q)-covers (LV §8.2) (`LV.9/affine-cover`); Primitive homology of a covering (`LV.9/primitive-homology`); Point pushing and the Birman exact sequence (`LV.5/birman-exact-sequence`); Lifting powers of Dehn twists to finite coverings (`LV.5/covering-dehn-twist-lift`); Monodromy of families of branched covers over configuration spaces (`LV.5/configuration-family-monodromy`); Aff(q) is centre-free, has trivial centralizer and is self-normalizing in Sym(𝔽_q) (`LV.0/affine-group-centralizer`); `tauceti:TauCeti.BilinForm.isometryGroup`.
+**Uses.** Aff(q)-covers and singly ramified Aff(q)-covers (LV §8.2) (`LV.9/affine-cover`); Primitive homology of a covering (`LV.9/primitive-homology`); The Birman exact sequence and pushes of simple loops (`LV.5/birman-exact-sequence`); Lifting powers of Dehn twists to finite coverings (`LV.5/covering-dehn-twist-lift`); Monodromy of families of branched covers over configuration spaces (`LV.5/configuration-family-monodromy`); Aff(q) is centre-free, has trivial centralizer and is self-normalizing in Sym(𝔽_q) (`LV.0/affine-group-centralizer`); `tauceti:TauCeti.BilinForm.isometryGroup`.
 
 **Tests.**
 
@@ -3120,7 +3149,7 @@ Throughout, Y is a closed oriented surface of genus g ≥ 2, y ∈ Y, q ≥ 3 is
 - u is the identity on π^*H₁(Y) (lifts of point-pushes) and preserves the decomposition, so u is a nontrivial unipotent on H₁^Pr(Z, Y).
 - π₁(Y, y)' has finite index k in π₁(Y, y) and is normal, so γ^{qk!} ∈ π₁(Y, y)' and Mon_Z(Push(γ^{qk!})) = u^{k!}, a nontrivial unipotent (characteristic zero), which is not ±1.
 
-**Uses.** Normal form of a singly ramified Aff(q)-cover (LV Proposition 8.5) (`LV.9/affine-cover-normal-form`); Lifted mapping classes and the monodromy maps Mon (LV (8.2)–(8.5)) (`LV.9/lifted-monodromy`); Classes of the preimage circles (LV Lemma 8.2) (`LV.9/preimage-classes-independent`); Primitive homology of a covering (`LV.9/primitive-homology`); Point pushing and the Birman exact sequence (`LV.5/birman-exact-sequence`); Lifting powers of Dehn twists to finite coverings (`LV.5/covering-dehn-twist-lift`); Action of Dehn twists and multitwists on homology (`LV.5/dehn-twist-homology`); Change of coordinates for simple closed curves (`LV.5/change-of-coordinates`); `tauceti:LinearMap.GeneralLinearGroup.IsUnipotent`.
+**Uses.** Normal form of a singly ramified Aff(q)-cover (LV Proposition 8.5) (`LV.9/affine-cover-normal-form`); Lifted mapping classes and the monodromy maps Mon (LV (8.2)–(8.5)) (`LV.9/lifted-monodromy`); Classes of the preimage circles (LV Lemma 8.2) (`LV.9/preimage-classes-independent`); Primitive homology of a covering (`LV.9/primitive-homology`); The Birman exact sequence and pushes of simple loops (`LV.5/birman-exact-sequence`); Lifting powers of Dehn twists to finite coverings (`LV.5/covering-dehn-twist-lift`); Action of Dehn twists and multitwists on homology (`LV.5/dehn-twist-homology`); Change of coordinates for simple closed curves (`LV.5/change-of-coordinates`); `tauceti:LinearMap.GeneralLinearGroup.IsUnipotent`.
 
 **Tests.**
 
@@ -3248,7 +3277,7 @@ Throughout, Y is a closed oriented surface of genus g ≥ 2, y ∈ Y, q ≥ 3 is
 - The Zariski closure H of its image is therefore normal in the closure of Mon(Mod(Y ∖ {y})'), which is ∏_i Sp by LV Lemma 8.7 (subgroups normalizing a group normalize its closure).
 - By LV Lemma 8.6 each projection of H is non-central; the lemma on closed normal subgroups of symplectic products gives H = ∏_i Sp.
 
-**Uses.** Point-pushing acts non-centrally on each factor (LV Lemma 8.6) (`LV.10/push-monodromy-noncentral`); Zariski density on the product (LV Lemma 8.7) (`LV.10/lifted-monodromy-dense-product`); Closed normal subgroups of products of symplectic groups (`LV.10/normal-subgroups-of-symplectic-products`); Lifted mapping classes and the monodromy maps Mon (LV (8.2)–(8.5)) (`LV.9/lifted-monodromy`); Point pushing and the Birman exact sequence (`LV.5/birman-exact-sequence`); `FoundationsAndLibraryIntegration:LI.4` (Imported arithmetic foundations).
+**Uses.** Point-pushing acts non-centrally on each factor (LV Lemma 8.6) (`LV.10/push-monodromy-noncentral`); Zariski density on the product (LV Lemma 8.7) (`LV.10/lifted-monodromy-dense-product`); Closed normal subgroups of products of symplectic groups (`LV.10/normal-subgroups-of-symplectic-products`); Lifted mapping classes and the monodromy maps Mon (LV (8.2)–(8.5)) (`LV.9/lifted-monodromy`); The Birman exact sequence and pushes of simple loops (`LV.5/birman-exact-sequence`); `FoundationsAndLibraryIntegration:LI.4` (Imported arithmetic foundations).
 
 **Notes.** Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components — ReductiveGroups Layer 3 (closed subgroups, identity components).
 

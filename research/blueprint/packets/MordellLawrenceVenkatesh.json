@@ -5026,29 +5026,103 @@
    }
   },
   {
+   "id": "MordellLawrenceVenkatesh:LV.5/point-push",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.5",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.5"
+   ],
+   "title": "The point-pushing homomorphism",
+   "kind": "construction",
+   "statement": "Let S be a surface and x an interior point. For a loop α in S based at x, extend the motion of x along α to an isotopy φ_t of S fixed near ∂S (isotopy extension for points) and let Push(α) ∈ Mod(S*) be the class of φ_1, regarded as a homeomorphism of S fixing x. Push(α) depends only on the homotopy class of α, and Push : π₁(S, x) → Mod(S*) is a homomorphism (with the composition convention fixed by the path-concatenation convention of Mathlib's fundamental group). Its image lies in the kernel of Forget : Mod(S*) → Mod(S), and Push(α) acts on π₁(S, x) by conjugation by α.",
+   "hypotheses": [
+    "S a surface",
+    "x in the interior of S"
+   ],
+   "proofSteps": [
+    "Isotopy extension for a point in the interior of a surface gives φ_t.",
+    "Independence of the choices: the evaluation map Homeo(S, ∂S) → S ∖ ∂S, f ↦ f(x), is a locally trivial fibre bundle with fibre Homeo(S*, ∂S); the connecting map of its homotopy sequence is Push, which is therefore well defined on π₁(S, x) and a homomorphism (Farb–Margalit §4.2).",
+    "φ_1 is isotopic to the identity in S by construction, so Forget(Push(α)) = 1; tracking the base point along the isotopy shows that φ_1 acts on π₁(S, x) by conjugation by α."
+   ],
+   "acceptance": [
+    "S = S_{0,3} and α a loop around one puncture: Push(α) is a single Dehn twist about the curve enclosing that puncture and x.",
+    "S a torus: Push is trivial (π₁ is abelian and the fibration has a section), so the injectivity statement of the Birman sequence needs χ(S) < 0."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.5/mapping-class-group",
+    "MordellLawrenceVenkatesh:LV.5/dehn-twist",
+    "FoundationsAndLibraryIntegration:LI.4"
+   ],
+   "sources": [
+    {
+     "sourceId": "farb-margalit",
+     "locator": "§4.2, Theorem 4.6, p. 102",
+     "excerpt": "Let S be a surface with χ(S) < 0, possibly with punctures and/or boundary. Let S ∗ be the surface obtained from S by marking a point x in the interior of S. Then the following se- quence is exact:",
+     "match": "The push map and its well-definedness, which Farb–Margalit identify as the content of the theorem."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "pointPush",
+     "role": "constructor",
+     "statement": "Push : π₁(S, x) →* Mod(S*)."
+    },
+    {
+     "name": "pointPush_apply",
+     "role": "characterisation",
+     "statement": "Push(α) is the class of the end map of any isotopy extending the motion of x along α."
+    },
+    {
+     "name": "forget_pointPush",
+     "role": "simp",
+     "statement": "Forget (Push α) = 1."
+    },
+    {
+     "name": "pointPush_action",
+     "role": "relation",
+     "statement": "Push(α) acts on π₁(S, x) as conjugation by α."
+    },
+    {
+     "name": "pointPush_homology",
+     "role": "other",
+     "statement": "Push(α) acts trivially on H₁(S) and on H₁(S ∖ {x}) when S is closed."
+    },
+    {
+     "name": "pointPush_torus",
+     "role": "example",
+     "statement": "On the torus Push is trivial."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Topology/Birman",
+    "namespace": "TauCeti.LawrenceVenkatesh.Surface"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead — AlgebraicTopology Stage 8 (relative homotopy, long exact sequences); tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group — GeometricTopology Layer 1 (cutting and gluing manifolds along submanifolds)."
+  },
+  {
    "id": "MordellLawrenceVenkatesh:LV.5/birman-exact-sequence",
    "parentStageId": "MordellLawrenceVenkatesh:LV.5",
    "realises": [
     "MordellLawrenceVenkatesh:LV.5"
    ],
-   "title": "Point pushing and the Birman exact sequence",
+   "title": "The Birman exact sequence and pushes of simple loops",
    "kind": "theorem",
-   "statement": "Let S be a surface with χ(S) < 0 and x an interior point. Pushing x along loops defines a homomorphism Push : π₁(S, x) → Mod(S*), and 1 → π₁(S, x) → Mod(S*) → Mod(S) → 1 (with Forget on the right) is exact. For a simple loop α at x, Push([α]) = T_a T_b⁻¹, where a and b are the simple closed curves in S ∖ {x} obtained by pushing α off itself to the left and to the right; a and b are nonseparating in S ∖ {x} if and only if α is nonseparating in S.",
+   "statement": "Let S be a surface with χ(S) < 0 and x an interior point. Then 1 → π₁(S, x) → Mod(S*) → Mod(S) → 1 (Push, then Forget) is exact. For a simple loop α at x, Push([α]) = T_a T_b⁻¹, where a and b are the simple closed curves in S ∖ {x} obtained by pushing α off itself to the left and to the right; a and b are nonseparating in S ∖ {x} if and only if α is nonseparating in S.",
    "hypotheses": [
     "χ(S) < 0",
     "x in the interior of S"
    ],
    "proofSteps": [
-    "Push(α) is the end of an isotopy of S extending the motion of x along α (isotopy extension for points); independence of the choices is the content of the theorem (Farb–Margalit, proof via the fibration Homeo(S) → S).",
-    "Exactness at Mod(S*): a class in the kernel of Forget is isotopic to the identity in S, and the track of x is a loop α with the class equal to Push(α⁻¹); Forget is surjective because a homeomorphism can be isotoped to fix x.",
+    "Exactness at Mod(S*): a class in the kernel of Forget is isotopic to the identity in S, and the track of x is a loop α whose push is that class (up to inversion); Forget is surjective because a homeomorphism can be isotoped to fix x.",
     "Injectivity: Push(α) acts on π₁(S, x) by conjugation by α, and π₁(S) has trivial centre when χ(S) < 0.",
-    "The formula for simple loops: the isotopy pushing x once around α is supported in the annulus between a and b, where it equals T_a T_b⁻¹."
+    "The formula for simple loops: the isotopy pushing x once around α is supported in the annulus between a and b, where it equals T_a T_b⁻¹; nonseparation is read off from the complement of the annulus."
    ],
    "acceptance": [
-    "S = S_{0,3} (thrice-punctured sphere) and α a loop around one puncture: a bounds a once-punctured disk, so Push(α) = T_b⁻¹ with b enclosing that puncture and x.",
+    "S = S_{0,3} and α a loop around one puncture: a bounds a once-punctured disk, so Push(α) = T_b⁻¹ with b enclosing that puncture and x.",
     "For S closed of genus ≥ 2 and α nonseparating, Push(α) is a nontrivial element acting trivially on H₁(S)."
    ],
    "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.5/point-push",
     "MordellLawrenceVenkatesh:LV.5/mapping-class-group",
     "MordellLawrenceVenkatesh:LV.5/dehn-twist",
     "FoundationsAndLibraryIntegration:LI.4"
@@ -5074,41 +5148,9 @@
     }
    ],
    "implementationStatus": "unchecked",
-   "api": [
-    {
-     "name": "pointPush",
-     "role": "constructor",
-     "statement": "Push : π₁(S, x) →* Mod(S*)."
-    },
-    {
-     "name": "pointPush_injective",
-     "role": "other",
-     "statement": "Push is injective when χ(S) < 0."
-    },
-    {
-     "name": "range_pointPush",
-     "role": "characterisation",
-     "statement": "range Push = ker Forget."
-    },
-    {
-     "name": "pointPush_simple",
-     "role": "relation",
-     "statement": "Push([α]) = T_a T_b⁻¹ for a simple loop α."
-    },
-    {
-     "name": "pointPush_homology",
-     "role": "other",
-     "statement": "Push(α) acts trivially on H₁(S) (it lies in the kernel of Forget, and H₁(S ∖ x) → H₁(S) is equivariant)."
-    },
-    {
-     "name": "pointPush_example",
-     "role": "example",
-     "statement": "The thrice-punctured sphere case."
-    }
-   ],
    "library": {
     "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Topology/Birman",
-    "namespace": "TauCeti.LawrenceVenkatesh.Surface"
+    "namespace": "TauCeti.LawrenceVenkatesh"
    },
    "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead — AlgebraicTopology Stage 8 (relative homotopy, long exact sequences); tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence — UniversalCovers Stage 2 (lifting criterion and Galois correspondence of covers)."
   },
@@ -9240,6 +9282,7 @@
     "MordellLawrenceVenkatesh:LV.5/surface",
     "MordellLawrenceVenkatesh:LV.5/surface-classification",
     "MordellLawrenceVenkatesh:LV.5/change-of-coordinates",
+    "MordellLawrenceVenkatesh:LV.5/point-push",
     "MordellLawrenceVenkatesh:LV.5/fadell-neuwirth-sequence",
     "MordellLawrenceVenkatesh:LV.9/affine-cover-normal-form"
    ]
@@ -9257,6 +9300,7 @@
    "need": "Integrate AlgebraicTopology Stage 8 (relative homotopy, long exact sequences) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead below are available to consumers.",
    "neededBy": [
     "MordellLawrenceVenkatesh:LV.5/surface-classification",
+    "MordellLawrenceVenkatesh:LV.5/point-push",
     "MordellLawrenceVenkatesh:LV.5/birman-exact-sequence",
     "MordellLawrenceVenkatesh:LV.5/fadell-neuwirth-sequence"
    ]
