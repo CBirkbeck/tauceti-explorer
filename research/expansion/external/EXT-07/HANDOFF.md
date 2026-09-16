@@ -14,7 +14,7 @@ this order:
 2. `EffectiveDiophantineMethods` — **done**
 3. `HeightsRationalPointsAndObstructions` — **done**
 4. `InverseGaloisAndArithmeticFundamentalGroups` — **done**
-5. `NeronModelsAndSemistableAbelianVarieties`
+5. `NeronModelsAndSemistableAbelianVarieties` — **done**
 6. `tauceti:TauCetiRoadmap/JacobianChallenge`
 
 This file is updated after every packet. Every packet has `status: partial`, and every node is
@@ -29,6 +29,7 @@ This file is updated after every packet. Every packet has `status: partial`, and
 | `EffectiveDiophantineMethods.json` | EffectiveDiophantineMethods | 26 | 38 | 7 | 7 stages, all `partial` | continuation run; validated; all four sources are public copies fetched outside the library |
 | `HeightsRationalPointsAndObstructions.json` | HeightsRationalPointsAndObstructions | 59 | 107 | 11 | 7 stages, all `partial` | continuation run; validated; two library sources (Silverman AEC, Faltings 1983) and four public copies (Poonen, Zhang 1998, Ullmo, Szpiro–Ullmo–Zhang) |
 | `InverseGaloisAndArithmeticFundamentalGroups.json` | InverseGaloisAndArithmeticFundamentalGroups | 27 | 44 | 8 | 7 stages, all `partial` | continuation run; validated; all excerpts matched against source text; five public sources (SGA 1, Dèbes lecture notes, NSW electronic edition, Romagny–Wewers, Dèbes 2026) |
+| `NeronModelsAndSemistableAbelianVarieties.json` | NeronModelsAndSemistableAbelianVarieties | 24 | 43 | 7 | 6 stages, all `partial` | continuation run; validated; every excerpt matched against source text (SGA 7 I against a local OCR pass); library sources SGA 7 I Exp. IX, SGA 7 II Exp. XV, Silverman AEC and Poonen, plus four public copies (Romagny 2011, Lichtenstein, Conrad 2015, Raynaud 1970) |
 
 ## Validation notes on packets already written
 
@@ -49,6 +50,13 @@ This file is updated after every packet. Every packet has `status: partial`, and
     SF.3 → RP.5, SF.3 → RP.6, and ArakelovGeometryAndAbelianHeights R35.1 → RP.5.
   * Cross-packet links go to two Faltings nodes: R28.1 (Hermite–Minkowski) and R28.5 (the curve
     corollary).
+* **NeronModels packet, new stage edges** (all acyclic with the atlas):
+  * Internal: R11.1 → R11.4, R11.1 → R11.5, R11.2 → R11.5, R11.3 → R11.6. All are already
+    implied transitively by the atlas order.
+  * External: FiniteFlatGroups R07.1 → R11.6 (the node for Raynaud's uniqueness of prolongation
+    when e < p−1), LefschetzPencilsAndVanishingCycles LPV.1 → R11.3 (monodromy theorem) and
+    LPV.2 → R11.4 (Picard–Lefschetz), and R11.3 → Faltings R28.3 (the reviewer-renamed node
+    `reduction-to-a-principally-polarized-semiabelian-model`).
 
 ## Sources read in the continuation run
 
@@ -66,7 +74,7 @@ Library-relative paths; nothing was copied into the repository.
 | `bruin-stoll-mordell-weil-sieve` | Bruin–Stoll, *The Mordell–Weil sieve*, arXiv:0906.1934v2 (LMS JCM 13, 2010) | **not in library**; arXiv | 33f88cbd…ffe1485d38122667a88cd9a5f88d842cd43dd | §§1–4 (pp. 1–21); §§5–8 not read |
 | `tzanakis-de-weger-practical-thue` | Tzanakis–de Weger, *On the practical solution of the Thue equation*, J. Number Theory 31 (1989) 99–132 | **not in library**; https://ris.utwente.nl/ws/files/6560439/Tzanakis89on.pdf (institutional repository) | 2eff85fb…2c7b3 | §I, §II.1–II.3 (pp. 99–116), constants read on page images; §III and appendices not read |
 | `bdmtv-quadratic-chabauty-modular-curves` | Balakrishnan–Dogra–Müller–Tuitman–Vonk, *Quadratic Chabauty for modular curves: algorithms and examples*, arXiv:2101.01862v4 | **not in library**; arXiv | 738f0ec0…57c25f61d | §1, §2, §3 (3.1 statement, 3.4, 3.5 incl. Algorithm 3.12), §4 opening and §4.4 |
-| `silverman-arithmetic-of-elliptic-curves-2009` | Silverman, *The Arithmetic of Elliptic Curves*, 2nd ed., GTM 106 (2009) | library copy, catalogue `WEIL-PRIVATE-SILVERMAN2009` (user-supplied private copy, not redistributed; cited by DOI) | 72ee67bf…788cab25 | VIII.1–VIII.6, VIII.9, VIII.10 opening; IX intro, IX.1–IX.4; X.1; X.4. Relations read on page images, because the text layer drops ≠ |
+| `silverman-arithmetic-of-elliptic-curves-2009` | Silverman, *The Arithmetic of Elliptic Curves*, 2nd ed., GTM 106 (2009) | library copy, catalogue `WEIL-PRIVATE-SILVERMAN2009` (user-supplied private copy, not redistributed; cited by DOI) | 72ee67bf…788cab25 | VIII.1–VIII.6, VIII.9, VIII.10 opening; IX intro, IX.1–IX.4; X.1; X.4. Relations read on page images, because the text layer drops ≠. For the Néron packet: VII notation (p. 185), VII.5–VII.7 |
 | `poonen-rational-points-on-varieties` | Poonen, *Rational points on varieties*, AMS GSM 186 (2017) | **not in library**; https://math.mit.edu/~poonen/papers/Qpoints.pdf, the author's PDF (created 2018-12-18, watermarked "Unofficial version for incidental online use") | 42e92ce4…16887353579 | §5.7; Thms 5.12.24, 5.12.29; §6.5.7 with Thm 6.5.13; all of Ch. 8 and its exercises; §9.5 |
 | `faltings-1983-endlichkeitssaetze` | Faltings 1983 (same file as the Faltings packet) | `papers/ADD_FALTINGS83.pdf` | 0b7fb3e5…a8faa3fc2 | re-read for this packet: Lemma 4 (p. 357) and Satz 7 with Bemerkungen (p. 365), on page images |
 | `zhang-1998-equidistribution-small-points` | Zhang, *Equidistribution of small points on abelian varieties*, Ann. Math. 147 (1998) 159–165 | **not in library**; JSTOR scan linked from the author's publication list (https://web.math.princeton.edu/~shouwu/publications/bogomolov.pdf) | 023ecdf2…10931bfe2 | whole article, on page images |
@@ -77,6 +85,12 @@ Library-relative paths; nothing was copied into the repository.
 | `nsw-cohomology-of-number-fields-2e` | Neukirch–Schmidt–Wingberg, *Cohomology of Number Fields*, 2nd ed., electronic version 2.3 (May 2020) | **not in library** (catalogue: book_requested); author page https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/, "free for non-commercial use" | abbb7cde…0afdcb91 | III 3.5.1–3.5.4; IX §5 opening; IX §6 (9.6.1, 9.6.6, 9.6.7 steps 1 and 4 and char p, 9.6.8–9.6.10); shrinking proofs 9.6.2–9.6.5 not read |
 | `romagny-wewers-hurwitz-spaces` | Romagny–Wewers, *Hurwitz spaces*, Séminaires et Congrès 13 (2006) 313–341 | **not in library**; author page https://perso.univ-rennes1.fr/matthieu.romagny/articles/hurwitz_spaces.pdf | caed858e…2b529d8f8 | §§1–2; §3.1–3.2; §4.1–4.2; §4.5 statements |
 | `debes-2026-hurwitz-spaces-and-inverse-galois-theory` | Dèbes, *Hurwitz spaces and Inverse Galois Theory*, arXiv:2601.06532v2 (April 2026) | **not in library**; arXiv | 7f640bc6…b2a24a66 | intro, contents, §§2.1–2.4 |
+| `sga7-I-expose-IX` | Grothendieck, *Modèles de Néron et monodromie*, SGA 7 I Exp. IX, LNM 288 (1972) | `papers/R02_SGA7I.pdf` (scan, no text layer; same file as https://library.slmath.org/nonmsri/sga/sga/pdf/sga7-1.pdf). Read through a local tesseract OCR pass; printed page = PDF page − 5 | 17286b0f…c03c8dab | sommaire, 0.1–0.2; 2.2.9; 2.4 statement, 2.6; §3 (3.1 opening, 3.2–3.9; 3.5 and 3.6 on page images); 11.0–11.1, 11.5 (page image) with 11.5.2; §12 (12.1–12.7.2) |
+| `sga7-II-expose-XV` | Deligne, *La formule de Picard-Lefschetz*, SGA 7 II Exp. XV, LNM 340 (1973) | `papers/Weil_SGA7II.pdf` (catalogue WEIL-SGA7-II, IAS author archive; text layer present); printed page = PDF page − 8 | fa679deb…876e1297 | contents; end of 3.3 (D), (E), (F); 3.4 Résumé and Théorème 3.4 on page images |
+| `romagny-2011-neron-models-of-abelian-varieties` | Romagny, *Néron models of abelian varieties*, SGA 3 summer school notes (2011) | **not in library**; author page https://perso.univ-rennes1.fr/matthieu.romagny/exposes/Neron_models.pdf | 22f81b54…ea1a7d7e | whole note (8 pp.) |
+| `lichtenstein-neron-models-stanford-seminar` | Lichtenstein, *Néron models*, Stanford Mordell seminar notes (2011) | **not in library**; B. Conrad's seminar page http://virtualmath1.stanford.edu/~conrad/mordellsem/Notes/L11.pdf | 8ef7cac5…27ca9ebf | §§1.3–1.4, 2, 3.6, 4, 5 (Thm 5.2.1 with full proof), 6 (statements) |
+| `conrad-2015-neron-models-tamagawa-factors-sha` | Conrad, *Néron models, Tamagawa factors, and Tate–Shafarevich groups*, Stanford BSD seminar notes (2015) | **not in library**; author page https://virtualmath1.stanford.edu/~conrad/BSDseminar/Notes/L3.pdf | bc27aad2…2ce988e6 | §§1–4 (pp. 1–13); §§5–6 not read |
+| `raynaud-1970-specialisation-du-foncteur-de-picard` | Raynaud, *Spécialisation du foncteur de Picard*, Publ. Math. IHES 38 (1970) 27–76 | **not in library**; NUMDAM https://www.numdam.org/item/PMIHES_1970__38__27_0/ | fdba4b96…cf04cf92 | §8 (8.0–8.2.3, proofs of 8.1.2, 8.1.4, 8.2.1); §9.1–9.2 opening; §§5–7 not read |
 
 Earlier-run sources (Faltings 1983 and erratum) are recorded in the Faltings packet.
 
@@ -223,6 +237,57 @@ Earlier-run sources (Faltings 1983 and erratum) are recorded in the Faltings pac
      resolution was not checked.
    * The Hurwitz space is fine only for Z(G) = 1.
 
+## Corrections and qualifications (NeronModelsAndSemistableAbelianVarieties)
+
+1. **R11.1 source.** Bosch–Lütkebohmert–Raynaud, cited by the stage, is **absent**
+   (book_requested). The existence chain is decomposed from Romagny 2011 and Lichtenstein. Both
+   omit proofs of:
+   * the δ-defect drop under blow-ups (BLR 3.3/5);
+   * Weil's extension theorems (BLR 4.4/1, 5.1–5.2);
+   * descent from R^sh (BLR 6.5/4);
+   * base change (BLR 7.1–7.2);
+   * quasi-projectivity (Raynaud, LNM 119).
+
+   The atlas input F0 (formal geometry) is **not used** by any source read. The link carries
+   that caveat.
+2. **R11.1 lattice.** The sources give only the local R-line of invariant top forms and the
+   canonical measure (Conrad §4). The **global** invariant-differential lattice for R35.2 is a gap.
+3. **R11.2.**
+   * Silverman VII.6.1 (elliptic Néron models and component groups) has **no proof** in the book;
+     it points to Advanced Topics IV.
+   * Lichtenstein's Weierstrass comparisons assume residue characteristic ≠ 2, 3.
+   * Chevalley's decomposition is cited, and fails over imperfect fields.
+   * The 57C2 component groups are quoted from tables.
+4. **R11.3.**
+   * SGA 7 IX proves Thm 3.6 (semistable reduction) only by reduction to Cor. 3.7, which is
+     proved in **Exposé I** (monodromy theorem, via resolution for excellent 2-dimensional schemes).
+   * The Galois criterion 3.5 uses the orthogonality theorem 2.4, proved with the biextensions of
+     Exposés VII–VIII. The atlas lists neither import; both are unread.
+   * Conrad's choice K′ = K(A[ℓ]) (K(A[4]) for ℓ = 2) and the uniform bound #GL_{2g}(Z/15Z) are
+     stated without proof in his notes.
+   * The Raynaud extension and uniformisation were not read.
+5. **R11.4.**
+   * Raynaud 8.1.4 (Q = P/E is the Néron model) needs k(s) **perfect or δ prime to p**.
+     SGA 7 IX 12.1 needs d = 1.
+   * IX 11.5 identifies only the **ℓ-primary part** of the component group with coker u_ℓ. The
+     integral statement (11.5.2 b) uses Thm 10.4.
+   * IX 12.3.7 (M = H₁ of the dual graph) is "left to the reader".
+   * IX 12.5 (Picard–Lefschetz) needs a **regular** total space. For ℓ ≠ p it rests on SGA 7 II
+     XV 3.4; for ℓ = p it reduces to characteristic 0. IX 12.7.2 calls the proof transcendental
+     in nature.
+   * The atlas supplier LPV.2 states the formula for **one** singular point, while XV 3.4 sums
+     over all nodes.
+6. **R11.5.**
+   * Both Néron–Ogg–Shafarevich proofs read (Lichtenstein 5.2, Silverman VII.7) assume a
+     **perfect residue field**.
+   * The sources give only the inertia-invariant local factor #A⁰_k(k) = q^{dim A} L(1/q). The
+     Weil–Deligne operator and conductor asked for by the stage are not in them.
+   * The p-adic criterion (SGA 7 IX 5.10) is cited only.
+7. **R11.6.**
+   * BLR 7.5/4 (exactness for e < p−1) is quoted, not proved.
+   * Component groups change under ramified base change even for semistable A (IX 3.3.2).
+   * The level-lowering sequences and R29 comparisons have no source read.
+
 ## Shared-supplier requests
 
 * **Duplicate Raynaud material in EXT-10.**
@@ -283,6 +348,24 @@ Earlier-run sources (Faltings 1983 and erratum) are recorded in the Faltings pac
     supplier LI.4 or ArithmeticGaloisDuality; they are used by Shafarevich's theorem.
   * **Stack-theoretic Hurwitz spaces** belong to R09.4.
 
+* **NeronModelsAndSemistableAbelianVarieties.**
+  * **Monodromy theorem** (SGA 7 I Exp. I). LPV.1 owns quasi-unipotence "in the geometric
+    coefficient setting actually used". It should confirm that this covers H¹ of an abelian
+    variety over a mixed-characteristic trait with the echelon-2 refinement of IX 3.7.
+    Alternatively, R11.3 must own it.
+  * **Orthogonality theorem IX 2.4 and biextensions** (SGA 7 VII–VIII) have no named owner. They
+    are needed by the Galois criterion (R11.3). A3 owns the Weil pairing only.
+  * **LPV.2 multi-node form.** The semistable-curve consumer needs XV 3.4 with several ordinary
+    double points, or an exported localization.
+  * **LPV.7:semistable-curves** asks for "compatibility with the component/Jacobian/Tate-module
+    description". That is SGA 7 IX 12.3–12.5 as decomposed in R11.4. An orchestrator should decide
+    whether LPV.7 links to the R11.4 nodes or duplicates them. No link was added.
+  * **ArithmeticGaloisRepresentations R01** (Weil–Deligne carrier and conductor, per LPV.1's
+    statement) is needed for R11.5's characteristic-zero local factor. No link was added, because
+    no conductor source was read.
+  * **Source acquisitions:** BLR *Néron Models* (chapters 2–7) and Faltings–Chai (Raynaud
+    extension, uniformisation).
+
 ## Unresolved cross-job dependencies
 
 * AlgebraicModuliForArithmeticGeometry **R09.3** (EXT-06), the only atlas prerequisite of R07.1.
@@ -325,10 +408,31 @@ Earlier-run sources (Faltings 1983 and erratum) are recorded in the Faltings pac
   IG.0 → ArithmeticDynamics DY.5. New internal stage edges IG.1 → IG.5 and IG.3 → IG.4 are
   acyclic.
 
+* NeronModelsAndSemistableAbelianVarieties links from outside suppliers:
+  * AbelianSchemesAndArithmeticModuli A1 → R11.1 and A3 → R11.3 (existing atlas edges);
+  * AdicSpacesPartII F0 → R11.1 (existing, recorded as not exercised);
+  * PadicHodgeTheory R06.6 → R11.5 (existing);
+  * LefschetzPencilsAndVanishingCycles LPV.1 → R11.3 and LPV.2 → R11.4 (new, with caveats);
+  * sibling FiniteFlatGroups R07.1 → R11.6 (new).
+
+  Links to consumers: R11.1 → ArakelovGeometryAndAbelianHeights R35.2, R11.2 →
+  HeegnerPointEulerSystems HE.5, R11.3 → R35.3, R11.6 → Faltings R28.1 (all existing atlas
+  edges), and R11.3 → the Faltings R28.3 node (new). The consumer packets for R35, HE, BSD, CM, R14,
+  R20, R25 and GZ were not checked against the new node IDs.
+
 ## Next actions
 
-1. `NeronModelsAndSemistableAbelianVarieties` packet (next).
-2. Then `tauceti:TauCetiRoadmap/JacobianChallenge`.
+1. `tauceti:TauCetiRoadmap/JacobianChallenge` packet (next).
+2. Deferred NeronModels reading:
+   * SGA 7 I Exp. I (monodromy theorem, with Deligne's appendix);
+   * Exp. IX §§2 and 4–10 on page images (orthogonality, conductor, p-adic criterion, Raynaud
+     extension, monodromy pairing, 10.4);
+   * SGA 7 II XV §§1–3 (library copy with text layer);
+   * Raynaud 1970 §§5–7;
+   * Conrad, *Minimal models for elliptic curves*;
+   * Silverman, Advanced Topics IV;
+   * Ribet 1990 §§2–3;
+   * BLR and Faltings–Chai, once acquired.
 3. Deferred Heights reading:
    * Hindry–Silverman Parts B and D, once acquired;
    * Serre, *Lectures on the Mordell–Weil theorem*;

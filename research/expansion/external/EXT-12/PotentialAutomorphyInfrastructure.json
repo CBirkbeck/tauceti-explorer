@@ -1,0 +1,1307 @@
+{
+ "roadmapId": "PotentialAutomorphyInfrastructure",
+ "status": "partial",
+ "summary": "Source-based expansion of the arithmetic side of derived Ihara avoidance and ultrapatching in Allen–Calegari–Caraiani–Gee–Helm–Le Hung–Newton–Scholze–Taylor–Thorne, \"Potential automorphy over CM fields\" (published Annals 197 (2023) version; its section numbering §§2–7 agrees with the README matrix). PA.3: the pair of global deformation problems S_1, S_χ congruent modulo ϖ with twisted coefficients V_λ(χ⁻¹) (§6.5.1, §6.6.1); the dimension/component hypotheses of Assumption 6.3.6 from Lemmas 6.2.26–6.2.27; Hecke-algebra-valued Galois representations of type S_χ (Propositions 6.5.3, 6.6.7); the generic support implications of the Fontaine–Laffaille (full support) and ordinary (pointwise) cases; and a comparison with Calegari–Geraghty Theorem 9.19 recording that ACC+ circumvents, rather than proves, the integral degree-vanishing part of CG Conjecture B. PA.4: Taylor–Wiles local conditions and data (§6.2.18, §6.2.28), existence of data killing the dual Selmer group (Lemma 6.2.32) with g = qn − n²[F⁺:Q] patching variables (Proposition 6.2.33), auxiliary level subgroups, Hecke algebras and maximal ideals (Lemma 6.5.8), Taylor–Wiles level-change isomorphisms (Lemma 6.5.9), O[Δ_Q]-linear Galois representations (Proposition 6.5.11), verification that the Fontaine–Laffaille tower satisfies the ultrapatching set-up of §6.4.1 with specialization C_∞/a_∞ ≅ C_0, and the resulting Theorem 6.5.4/Corollary 6.5.5. PA.0: Theorem 2.4.10 (rational cohomology concentration in [q₀, q₀ + l₀]). The abstract §§6.3–6.4 algebra is linked to DeformationAndDerivedPatchingAlgebra P8/P9 rather than duplicated. Recorded misprints: g printed as qn − n[F⁺:Q] on pp. 1070 and 1081; \"Proposition 6.2.32\" for 6.2.33 on p. 1068; \"/(λ)\" for \"/(ϖ)\" in Lemma 6.2.27(1). Unread imports (Khare–Thorne 2017, Taylor 2008, BLGHT 2011, Bellaïche–Chenevier 2009, ACC+ Theorem 3.1.1, Franke–Schwermer) are gaps. PA.1, PA.2 and PA.5 are not yet decomposed in this revision.",
+ "sources": [
+  {
+   "id": "accplus-annals-2023",
+   "title": "Potential automorphy over CM fields",
+   "authors": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne",
+   "edition": "Annals of Mathematics 197 (2023), no. 3, 897–1113 (published version; running heads carry printed pages, printed page = PDF page + 896). Supplied reference library copy (catalogue id ACCPLUS), 217-page PDF; excerpts checked against the library text layer, formulas and inequalities checked on page images. Contents list §§2–7 with the same numbering as the roadmap README matrix.",
+   "url": "https://doi.org/10.4007/annals.2023.197.3.2",
+   "sha256": "c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02",
+   "readSections": [
+    "Contents and introduction, printed pp. 897–900",
+    "§1.2 Notation and §2.1.1–2.1.14 (arithmetic locally symmetric spaces, Hecke operators, Lemmas 2.1.4, 2.1.7, 2.1.10–2.1.14 with proofs), printed pp. 905–916",
+    "§2.2.1–2.2.5 opening (quasi-split unitary group, coefficient lattices, Hecke algebras, Lemma 2.2.4 with proof, Hecke operators and Iwahori levels), printed pp. 916–923",
+    "§2.3 (Theorems 2.3.2, 2.3.3, 2.3.5, Definition 2.3.6, Theorems 2.3.7, 2.3.8, Proposition 2.3.9, with proofs as printed), printed pp. 935–941",
+    "§2.4.9 Theorem 2.4.10 with proof and Theorem 2.4.11 with proof, printed pp. 948–953; §3.1 statements (Theorem 3.1.1, Proposition 3.1.2) and Lemma 3.2.1 statement, printed pp. 953–955",
+    "§6.1 statements and structure, printed pp. 1028–1031; §6.2 in full (Definition 6.2.2 to Proposition 6.2.33 with proofs), printed pp. 1031–1047",
+    "§6.3 and §6.4 in full, printed pp. 1047–1061 (already decomposed in DeformationAndDerivedPatchingAlgebra P8/P9; re-read for linking)",
+    "§6.5 in full (§6.5.1, Lemma 6.5.2, Propositions 6.5.3, 6.5.11, Theorem 6.5.4 with proof, Corollary 6.5.5, Lemmas 6.5.8, 6.5.9, §6.5.12 Proposition 6.5.13 and proof of Theorem 6.1.1), printed pp. 1061–1074",
+    "§6.6 in full (§6.6.1, Theorem 6.6.2 with proof, Lemmas 6.6.5, 6.6.8, Corollary 6.6.6, Propositions 6.6.7, 6.6.9, §6.6.10), printed pp. 1074–1084",
+    "Page images checked: PDF pp. 52, 146, 147, 151, 155, 165, 168–172, 174, 185"
+   ]
+  },
+  {
+   "id": "calegari-geraghty-2018",
+   "title": "Modularity lifting beyond the Taylor–Wiles method",
+   "authors": "Frank Calegari, David Geraghty",
+   "edition": "Inventiones mathematicae, DOI 10.1007/s00222-017-0749-x (Springer online-first file, received 16 July 2012, accepted 29 June 2017). Supplied reference library copy (catalogue id CG), 137-page PDF; locators by PDF page.",
+   "url": "https://doi.org/10.1007/s00222-017-0749-x",
+   "sha256": "c0ba8de04d5ee92fe1a967f9487df6cb49295590dfd03762a9150a92838225c5",
+   "readSections": [
+    "Abstract, contents and §1 introduction through Theorem 1.2, PDF pp. 1–5",
+    "§9.3 Conjecture B with Remarks 9.3–9.5 and Lemma 9.6, PDF pp. 118–120",
+    "§9.4.1–9.4.2 (Lemmas 9.9–9.14, Theorem 9.16 with proof, Remarks 9.17–9.18, application to Taylor–Wiles primes), PDF pp. 124–128",
+    "§9.5 Theorem 9.19 with proof and §10 proof of Theorem 1.1, PDF pp. 128–133"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "PotentialAutomorphyInfrastructure:PA.0/rational-cohomology-concentration-at-absolutely-irreducible-ideals",
+   "parentStageId": "PotentialAutomorphyInfrastructure:PA.0",
+   "title": "Rational cohomology of X_K localized at m with ρ̄_m absolutely irreducible is cuspidal and concentrated in [q₀, q₀ + l₀] (ACC+ Theorem 2.4.10)",
+   "kind": "theorem",
+   "statement": "Setting of ACC+ §2.2: F an imaginary CM field with maximal totally real subfield F⁺, p a prime, E/Q_p finite containing all embeddings of F, O its ring of integers, S a finite set of finite places of F containing the p-adic places, K ⊂ GL_n(A_F^∞) a good (neat, product) subgroup with K_v = GL_n(O_{F_v}) for v ∉ S, λ ∈ (Z^n_+)^{Hom(F,E)}, V_λ the integral dual Weyl module lattice, T^S(K, V_λ) the image of T^S = H(GL_n^S, K^S) ⊗ O in End_{D(O)}(RΓ(X_K, V_λ)). Fix ι: Q̄_p ≅ C. (1) If π is a cuspidal regular algebraic automorphic representation of GL_n(A_F) of weight ιλ with (π^∞)^K ≠ 0, the homomorphism T^S → Q̄_p given by the Hecke eigenvalues of (ι⁻¹π^∞)^K factors through T^S(K, λ). (2) Put q₀ = [F⁺:Q]·n(n−1)/2 and l₀ = [F⁺:Q]·n − 1. If m ⊂ T^S(K, V_λ) is a maximal ideal with ρ̄_m absolutely irreducible, then H^j(X_K, V_λ)_m[1/p] ≠ 0 only for j ∈ [q₀, q₀ + l₀], and if one of these groups in the range is nonzero then all are; every homomorphism f: T^S(K, V_λ)_m → Q̄_p is the Hecke eigensystem of (ι⁻¹π^∞)^K for a cuspidal regular algebraic π of weight ιλ, and then the reduction of r_ι(π) is isomorphic to ρ̄_m. The conclusion is only after inverting p: nothing is asserted about torsion in H^j(X_K, V_λ)_m outside [q₀, q₀ + l₀].",
+   "hypotheses": [
+    "m must admit an absolutely irreducible residual Galois representation ρ̄_m (m of Galois type and non-Eisenstein, ACC+ Definition 2.3.6); its existence for maximal ideals in the support of cohomology is ACC+ Theorem 2.3.5 under S = S^c and the imaginary-quadratic splitting condition on residue characteristics.",
+    "The degree count uses F imaginary CM: the Lie algebra m_G is a sum of the (gl_n(C), U(n)) pieces at the [F⁺:Q] complex places and an abelian Lie algebra of dimension [F⁺:Q] − 1.",
+    "Imported and unread here: Franke [Fra98, Th. 18] (automorphic description of H*(X_K, V)), Franke–Schwermer [FS98, §2.2 and Prop. 3.3] (decomposition along associate classes of parabolics and description of the summands by parabolic induction of cuspidal data), Borel–Wallach [BW00, Ch. II, Prop. 3.1], Clozel [Clo90, Lem. 3.14], and ACC+ Theorem 2.3.2 (the main theorem of HLTT) for Galois representations of regular algebraic cuspidal representations of GL_m, m ≤ n."
+   ],
+   "proofSteps": [
+    "Pass to complex coefficients: H^j(X_K, V_ιλ)_m := H^j(X_K, V_λ)_m ⊗_{O,ι} C; part (2) reduces to degree bounds, all-or-nothing nonvanishing in the range, and cuspidality of each Hecke eigensystem in H*(X_K, V_ιλ)_m (ACC+ proof of Thm 2.4.10, p. 949).",
+    "Franke’s theorem [Fra98, Th. 18], as in [FS98, §2.2], gives a canonical decomposition H*(X_K, V_ιλ) = (⊕_{{Q}} H*(m_G, K_∞; A_{V_ιλ,{Q}} ⊗ V_ιλ)(χ_λ))^K over associate classes {Q} of parabolic Q-subgroups of Res_{F/Q} GL_n; the summand for {G} is cuspidal cohomology ⊕_π (π^∞)^K ⊗ H*(m_G, K_∞; π_∞ ⊗ V_ιλ).",
+    "By [FS98, Prop. 3.3] (see also the proof of [Fra98, Th. 20]) a maximal ideal M of the prime-to-S Hecke algebra ⊗ C in the support of E^K_{Q} is the eigensystem of the unnormalized induction from Q of a cuspidal σ = ⊠π_i on L_Q with π_i regular algebraic (weight determined by some w ∈ W^Q); ACC+ explains how this follows from the filtration argument in the proof of [FS98, Prop. 3.3] (pp. 949–950).",
+    "By ACC+ Theorem 2.3.2 there is r_ι(M) = ⊕_i r_ι(π_i) ⊗ ε^{−(n_{i+1}+⋯+n_r)} with the right Frobenius polynomials; for proper Q this is reducible, contradicting absolute irreducibility of ρ̄_m, so (E^K_{Q})_m = 0 for every proper Q (p. 951).",
+    "For cuspidal π with the matching central character on R_{>0}: H*(m_G, K_∞; π_∞ ⊗ V_ιλ) = 0 unless π is regular algebraic of weight ιλ [BW00, Ch. II, Prop. 3.1]; if it is, the groups are nonzero exactly in degrees [q₀, q₀ + l₀] by [Clo90, Lem. 3.14] and the Künneth formula, the range being (n − 1)[F⁺:Q] + [F⁺:Q] − 1 = l₀ (p. 951). Part (1) is the corresponding statement that the eigenvector for (π^∞)^K occurs in cohomology."
+   ],
+   "acceptance": [
+    "GL₁ sanity check (n = 1): q₀ = 0 and l₀ = [F⁺:Q] − 1, the rank of the unit group of the CM field F, i.e. the degrees of the cohomology of the tori making up X_K.",
+    "n = 2, F imaginary quadratic: q₀ = 1 and l₀ = 1, the degrees 1 and 2 in which cuspidal cohomology of Bianchi manifolds occurs.",
+    "Record explicitly that the statement is after inverting p; integral vanishing outside [q₀, q₀ + l₀] is Calegari–Geraghty Conjecture B(4)(a), which ACC+ does not prove."
+   ],
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "§2.4.9, Theorem 2.4.10(2), printed p. 948 (statement confirmed on page image PDF p. 52)",
+     "excerpt": "is non-zero only if j ∈ [q0 , q0 + l0 ]; moreover if one of the groups in this range is non-zero, then they all are.",
+     "match": "Degree concentration and all-or-nothing nonvanishing of localized rational cohomology."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 2.4.10, printed p. 951",
+     "excerpt": "the assumption that ρm is absolutely irreducible, so we deduce that",
+     "match": "Vanishing of the non-cuspidal Franke summands after localization at m, via reducibility of r_ι(M)."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 2.4.10, printed p. 951",
+     "excerpt": "The second claim follows from [Clo90, Lem. 3.14] and the Künneth formula for relative Lie algebra cohomology.",
+     "match": "Source of the degree range [q₀, q₀ + l₀] for cuspidal cohomology."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialAutomorphyInfrastructure:PA.3/congruent-deformation-problems-and-twisted-coefficients",
+   "parentStageId": "PotentialAutomorphyInfrastructure:PA.3",
+   "title": "The pair of global deformation problems S_1, S_χ congruent modulo ϖ, and the twisted coefficient modules V_λ(χ⁻¹) (ACC+ §6.5.1, §6.6.1)",
+   "kind": "construction",
+   "statement": "Fontaine–Laffaille set-up (ACC+ §6.5.1). Data: F imaginary CM; n ≥ 2 and a prime p > n²; a finite set S of finite places containing S_p; a possibly empty R ⊂ S of places prime to p; π cuspidal regular algebraic of weight λ; ι: Q̄_p ≅ C; subject to conditions (6)–(17) (listed under hypotheses). Level: K = ∏_v K_v with K_v = GL_n(O_{F_v}) for v ∉ S or v | p, K_v = Iw_v for v ∈ R, K_v = Iw_{v,1} (pro-v Iwahori) for v ∈ S − (R ∪ S_p); K is neat (Lemma 6.5.2), hence good. By Theorem 2.4.10 there are E and a maximal ideal m ⊂ T^S(K, V_λ) with ρ̄_m ≅ r̄_ι(π); enlarge E so that the residue field of m is k. For every tuple χ = (χ_{v,i})_{v∈R, 1≤i≤n} of characters χ_{v,i}: k(v)^× → O^× trivial modulo ϖ, define S_χ = (ρ̄_m, S, {O}_{v∈S}, {D_v^FL}_{v∈S_p} ∪ {D_v^χ}_{v∈R} ∪ {D_v^□}_{v∈S−(R∪S_p)}), where D_v^FL is the Fontaine–Laffaille problem of Proposition 6.2.14, D_v^□ is the unrestricted lifting functor, and D_v^χ (§6.2.15, for q_v ≡ 1 mod p, ρ̄|_{G_{F_v}} trivial, p > n) is the functor of lifts ρ with char_{ρ(σ)}(X) = ∏_{i=1}^{n} (X − χ_i(Art_{F_v}^{-1}(σ))) for all σ ∈ I_{F_v}. Fix representatives ρ_{S_χ} of the universal deformations identified modulo ϖ via R_{S_χ}/ϖ ≅ R_{S_1}/ϖ. Coefficients: V_λ(χ⁻¹) = V_λ ⊗_O O(χ⁻¹), K_S acting on V_λ through K_p and on O(χ⁻¹) through K_S → K_R = ∏_{v∈R} Iw_v → ∏_{v∈R} (k(v)^×)^n; in particular V_λ(1) = V_λ and V_λ(χ⁻¹)/ϖ = V_λ/ϖ. The local problems defining S_χ are formally smooth away from R. In the proof of Theorem 6.5.4, after enlarging E to contain a primitive p-th root of unity, p > n allows each χ_v = (χ_{v,1},…,χ_{v,n}) to be chosen pairwise distinct. Ordinary set-up (ACC+ §6.6.1, p > n): K_v = Iw_v(1,1) at v ∈ S_p; Λ_v = Λ_{1,v}/℘_{0,v} with Λ_{1,v} = O[[O_{F_v}^×(p)^n]] and ℘_{0,v} the unique minimal prime contained in ker(p_{μ,v}); Λ = ⊗̂_{v∈S_p} Λ_v; for characters χ: K_R → O^× trivial modulo ϖ, S_χ = (ρ̄_m, S, {O}_{v∈S−S_p} ∪ {Λ_v}_{v∈S_p}, {D_v^{det,ord}}_{v∈S_p} ∪ {D_v^χ}_{v∈R} ∪ {D_v^□}_{v∈S−(R∪S_p)}) and V_μ(χ⁻¹) = V_μ ⊗_O O(χ⁻¹), with m ⊂ T^S(K, μ)^{ord} of residue field k and ρ̄_m ≅ r̄_ι(π).",
+   "hypotheses": [
+    "FL case (ACC+ §6.5.1): (6) every prime below S or ramified in F splits in an imaginary quadratic subfield of F (so S is split over F⁺ and F/F⁺ is everywhere unramified); (7) p unramified in F; (8) λ_{τ,1} + λ_{τc,1} − λ_{τ,n} − λ_{τc,n} < p − 2n for every τ: F ↪ C; (9) for each v ∈ S_p with v̄ below it there is v̄′ ≠ v̄ above p with Σ_{v̄″ ≠ v̄, v̄′} [F⁺_{v̄″}:Q_p] > ½[F⁺:Q]; (10) r̄_ι(π) absolutely irreducible; (11) π_v unramified for v | p; (12) π_v^{Iw_v} ≠ 0 for v ∈ R; (13) for v ∈ S − (R ∪ S_p): π_v unramified, v ∉ R^c, H²(F_v, ad r̄_ι(π)) = 0; (14) S − (R ∪ S_p) contains two places of distinct residue characteristics; (15) π_v unramified for v ∉ S; (16) q_v ≡ 1 mod p and r̄_ι(π)|_{G_{F_v}} trivial for v ∈ R; (17) r̄_ι(π) decomposed generic and r̄_ι(π)(G_{F(ζ_p)}) enormous.",
+    "Ordinary case (ACC+ §6.6.1): p > n; (7) r̄_ι(π) absolutely irreducible; (8) π_v^{Iw_v(1,1)} ≠ 0 and π ι-ordinary at v ∈ S_p ([Ger19, Def. 5.3]); (15) [F_v:Q_p] > n(n+1)/2 + 1 and r̄_ι(π)|_{G_{F_v}} trivial for v ∈ S_p; the other conditions as in the FL case (numbering (6), (9)–(14)).",
+    "Standing assumptions of ACC+ §6.2: ρ̄ absolutely irreducible and p ∤ 2n; the determinant is not fixed (Definition 6.2.2 differs from [CG18, §8.5.2] and [KT17, Def. 4.2] in this respect).",
+    "Imported without proof in the source: that D_v^χ is a local deformation problem (asserted in §6.2.15); Proposition 6.2.14 (D_v^FL), which \"follows from [CHT08, §2.4.1] and a twisting argument\"."
+   ],
+   "proofSteps": [
+    "Neatness (Lemma 6.5.2): if (g_v, g_{v′}) ∈ Iw_{v,1} × Iw_{v′,1} with residue characteristics q ≠ q′ and Γ_v ∩ Γ_{v′} contained a root of unity ζ of prime order q″, then ζ − 1 lies in the maximal ideal at v and at v′, forcing q″ = q and q″ = q′ (printed p. 1062).",
+    "Existence of m with ρ̄_m ≅ r̄_ι(π): Theorem 2.4.10(1) places the Hecke eigensystem of (ι⁻¹π^∞)^K in T^S(K, λ); its maximal ideal m then has ρ̄_m ≅ r̄_ι(π) (printed p. 1062).",
+    "Congruence modulo ϖ: since every χ_{v,i} ≡ 1 mod ϖ, the conditions defining D_v^χ and D_v^1 coincide on coefficient rings killed by ϖ, which is the source of the canonical identifications R_{S_χ}/ϖ ≅ R_{S_1}/ϖ and R^loc/ϖ ≅ R′^loc/ϖ used on printed p. 1068; likewise O(χ⁻¹)/ϖ is the trivial module, so RΓ(X_K, V_λ(χ⁻¹)) ⊗^L_O k ≅ RΓ(X_K, V_λ) ⊗^L_O k compatibly with T^S (the source states these identifications as canonical without further argument; the explanation here is a reviewer reading).",
+    "Distinct characters: with ζ_p ∈ E and q_v ≡ 1 mod p, k(v)^× has a quotient of order p, giving p characters trivial modulo ϖ; p > n allows n pairwise distinct ones (printed p. 1068)."
+   ],
+   "acceptance": [
+    "Check on a toy case (n = 2, one place v ∈ R with q_v ≡ 1 mod p) that D_v^χ and D_v^1 define the same subfunctor on Artinian k-algebras.",
+    "Keep S_1 (unipotent inertial characteristic polynomial) and S_χ (pairwise distinct characters) as two distinct problems: only their reductions modulo ϖ are identified.",
+    "In the ordinary case the coefficient ring is Λ, not O; record which statements are over Λ."
+   ],
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "§6.5.1, printed pp. 1061–1062 (hypotheses (1)–(17) confirmed on page image PDF p. 165)",
+     "excerpt": "that are trivial modulo $, we define a global deformation problem by the formula",
+     "match": "Definition of S_χ for tuples of characters trivial modulo ϖ."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "§6.5.1, printed p. 1062",
+     "excerpt": "We observe that the local deformation problems defining Sχ are formally smooth away from the places in R.",
+     "match": "Formal smoothness away from R."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Lemma 6.5.2 with proof, printed p. 1062",
+     "excerpt": "Then K is neat.",
+     "match": "Neatness of the level K."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "§6.2.15, printed p. 1038",
+     "excerpt": "Then Dvχ is a local deformation problem, and we denote its representing object by Rvχ .",
+     "match": "Definition of the level-raising local condition D_v^χ."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1068 (page image PDF p. 172)",
+     "excerpt": "There are canonical isomorphisms Rloc /$ ∼ = R0 loc /$ and",
+     "match": "The congruence of the two systems of local conditions modulo ϖ."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialAutomorphyInfrastructure:PA.3/dimension-and-component-hypotheses-for-patched-local-rings",
+   "parentStageId": "PotentialAutomorphyInfrastructure:PA.3",
+   "title": "The patched deformation rings R_∞, R′_∞ satisfy the dimension and component hypotheses (1)–(2) of Assumption 6.3.6 (ACC+ Lemmas 6.2.26–6.2.27 and their use in §§6.5–6.6)",
+   "kind": "lemma",
+   "statement": "Let T = S = S_p ⊔ R ⊔ S_a with S_a = S − (R ∪ S_p). (FL, Lemma 6.2.26.) Assume F_v/Q_p unramified and ρ̄|_{G_{F_v}} Fontaine–Laffaille as in Proposition 6.2.14 with D_v = D_v^FL for v ∈ S_p; q_v ≡ 1 mod p, ρ̄|_{G_{F_v}} trivial and D_v = D_v^{χ_v} with χ_{v,i}: O_{F_v}^× → O^× trivial modulo ϖ for v ∈ R; H²(F_v, ad ρ̄) = 0 and D_v = D_v^□ for v ∈ S_a. (1) If all χ_{v,i} = 1, Spec R^{T,loc}_S is equidimensional of dimension 1 + n²|T| + (n(n−1)/2)[F:Q], every generic point has characteristic 0, and every generic point of Spec R^{T,loc}_S/ϖ is the specialization of a unique generic point of Spec R^{T,loc}_S. (2) If χ_{v,1},…,χ_{v,n} are pairwise distinct for each v ∈ R, Spec R^{T,loc}_S is irreducible of dimension 1 + n²|T| + (n(n−1)/2)[F:Q] with characteristic-0 generic point. (Ordinary, Lemma 6.2.27.) Replace the conditions at v ∈ S_p by [F_v:Q_p] > n(n+1)/2 + 1, ρ̄|_{G_{F_v}} trivial, Λ_v = O[[O_{F_v}^×(p)^n]]/℘_v for a minimal prime ℘_v and D_v = D_v^{det,ord}. (1) If all χ_{v,i} = 1: dim Spec R^{T,loc}_S = 1 + n²|T| + (n(n+1)/2)[F:Q]; components of maximum dimension have characteristic-0 generic points; every other component has dimension ≤ n²|T| − 1 + (n(n+1)/2)[F:Q]; every maximum-dimensional component of Spec R^{T,loc}_S/(ϖ) (printed \"/(λ)\") is the specialization of a unique generic point. (2) If the χ_{v,i} are pairwise distinct: the same dimension, a unique component of maximum dimension, with characteristic-0 generic point, all others of dimension ≤ n²|T| − 1 + (n(n+1)/2)[F:Q]. (3) A point on a component of non-maximum dimension maps, for some v ∈ S_p, into the closed locus χ_i^univ = χ_j^univ (i ≠ j) of Spec Λ_v. Consequence (proof of Theorem 6.5.4): with q = h¹(F_S/F, ad ρ̄_m(1)), g = qn − n²[F⁺:Q], S_∞ = T[[Z_p^{nq}]] where T is a power series ring over O in n²|S| − 1 variables (so dim S_∞ = n²|S| + qn), R_∞ = R^{S,loc}_{S_1}[[X_1,…,X_g]] and R′_∞ = R^{S,loc}_{S_χ}[[X_1,…,X_g]] (χ_v pairwise distinct), one has dim R_∞ = dim R′_∞ = 1 + g + n²|S| + (n(n−1)/2)[F:Q] = dim S_∞ − l₀ with l₀ = n[F⁺:Q] − 1, each generic point of Spec R_∞/ϖ specializes from a unique generic point of Spec R_∞, all generic points of R_∞ have characteristic 0, and Spec R′_∞ is irreducible with characteristic-0 generic point; hence hypotheses (1)–(2) of Assumption 6.3.6. In the ordinary proof of Theorem 6.6.2, Lemma 6.2.27(1)–(2) give hypotheses (1)–(2) of §6.3.5 (with T a power series ring over Λ).",
+   "hypotheses": [
+    "p ∤ 2n and ρ̄ absolutely irreducible (standing in ACC+ §6.2); T = S nonempty.",
+    "Local inputs imported by the source and not read here: Proposition 6.2.14 (R_v^FL formally smooth over O of dimension 1 + n² + (n(n−1)/2)[F_v:Q_p]; from [CHT08, §2.4.1] and twisting); Propositions 6.2.16–6.2.17 (R_v^1 equidimensional of dimension 1 + n² with characteristic-0 generic points and unique generization of generic points of R_v^1/ϖ; R_v^χ irreducible of dimension 1 + n²; \"contained in [Tay08, Prop. 3.1]\"); Proposition 6.2.21 (R_v^□ a power series ring in n² variables when H²(F_v, ad ρ̄) = 0; proof \"left to the reader\"); Proposition 6.2.10 (\"essentially contained in [Tho15, Prop. 3.14]\"); [BLGHT11, Lem. 3.3] (components of completed tensor products).",
+    "Proposition 6.2.12 (read, with proof) requires ρ̄|_{G_{F_v}} trivial and [F_v:Q_p] > n(n+1)/2 + 1, and uses Lemma 6.2.9 and Lemma 6.2.11 (both read with proofs).",
+    "The dimension identity requires g = qn − n²[F⁺:Q] (Proposition 6.2.33 and printed p. 1067); the printed \"g = qn − n[F⁺:Q]\" on pp. 1070 and 1081 is a misprint (page images PDF pp. 174, 185)."
+   ],
+   "proofSteps": [
+    "FL (proof of Lemma 6.2.26 as indicated on printed p. 1042): combine the local statements at S_p (formally smooth), R (Props. 6.2.16/6.2.17) and S_a (formally smooth) with [BLGHT11, Lem. 3.3]. Dimension bookkeeping (reviewer check): Σ_{v∈S_p}(1 + n² + (n(n−1)/2)[F_v:Q_p]) + Σ_{v∈R∪S_a}(1 + n²) − (|T| − 1) = 1 + n²|T| + (n(n−1)/2)[F:Q], using Σ_{v∈S_p}[F_v:Q_p] = [F:Q].",
+    "Ordinary (proof of Lemma 6.2.27, printed pp. 1043–1044): by Proposition 6.2.12 each R_v^{det,ord} (v ∈ S_p) has a unique component of dimension 1 + n² + (n(n+1)/2)[F_v:Q_p], of characteristic 0, with minimal prime q_v; apply [BLGHT11, Lem. 3.3] with Propositions 6.2.16, 6.2.17, 6.2.21 to R′ = ⊗̂_{v∈S_p} R_v/q_v ⊗̂ ⊗̂_{v∈R∪S_a} R_v; since each minimal prime p of R^{T,loc}_S pulls back to minimal primes p_v and ⊗̂ R_v/p_v ↠ R^{T,loc}_S/p, Spec R′ is a union of components; if p_v ≠ q_v for some v ∈ S_p then dim R_v/p_v ≤ n² − 1 + (n(n+1)/2)[F_v:Q_p] and p_v lies over χ_i^univ = χ_j^univ (Proposition 6.2.12(2)), giving (1)–(3).",
+    "Proposition 6.2.12 (read): on the open U ⊂ Spec Λ_v where the universal characters are pairwise distinct, geometric points of R_v^{det,ord} lift to the finite algebra R̃_v^{det,ord} (Lemma 6.2.9, using relation (6.2.7) at Art(ϖ_v)) and acquire an ordinary filtration by Lemma 6.2.11, so f⁻¹(U) = g⁻¹(U) and components over U are those of R_v^△ (Proposition 6.2.10); components over the complement Z are bounded by a tangent-space count as in [Ger19, Lem. 3.7].",
+    "Numerical consequence (printed p. 1070): dim S_∞ = n²|S| + qn and l₀ = n[F⁺:Q] − 1 for GL_n over the CM field F; with [F:Q] = 2[F⁺:Q], 1 + (qn − n²[F⁺:Q]) + n²|S| + n(n−1)[F⁺:Q] = n²|S| + qn − (n[F⁺:Q] − 1).",
+    "Implicit in the source (reviewer route): R_∞ = R^loc[[X_1,…,X_g]] inherits equidimensionality, characteristic-0 generic points and unique generization from R^loc; and dim R_∞/ϖ = dim R_∞ − 1 together with the bound < dim S_∞ − l₀ − 1 for non-maximal generic points of Spec R_∞/ϖ follow because ϖ lies in no minimal prime of a maximal-dimensional component and complete local rings are catenary (Krull’s principal ideal theorem on each component)."
+   ],
+   "acceptance": [
+    "Symbolic check: 1 + g + n²|S| + (n(n−1)/2)[F:Q] − (n²|S| + qn − l₀) vanishes for g = qn − n²[F⁺:Q] and equals n(n−1)[F⁺:Q] ≠ 0 for the printed g = qn − n[F⁺:Q] when n ≥ 2.",
+    "Ordinary case: the ring R_∞ need not be equidimensional; confirm that Assumption 6.3.6(2) only requires small components to have dimension < dim S_∞ − l₀ − 1, which Lemma 6.2.27 gives with room 1.",
+    "Keep the local statements (Props. 6.2.10–6.2.21) attributed to their owners; this node only packages the counts needed by Assumption 6.3.6."
+   ],
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Paragraph before Lemma 6.2.26, printed p. 1042 (page image PDF p. 146)",
+     "excerpt": "By applying Propositions 6.2.14, 6.2.16, 6.2.17, 6.2.21, and [BLGHT11, Lem. 3.3], we obtain the following:",
+     "match": "Lemma 6.2.26 is obtained from the local propositions and [BLGHT11, Lem. 3.3]; its proof is not written out."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Lemma 6.2.26(2), printed p. 1042",
+     "excerpt": "Then Spec RST,loc is irreducible of dimension",
+     "match": "Irreducibility for pairwise distinct characters."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Lemma 6.2.27(3), printed p. 1043 (page image PDF p. 147)",
+     "excerpt": "lies in the closed locus defined by",
+     "match": "Location of non-maximal components over the locus of coinciding universal characters."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1070 (page image PDF p. 174)",
+     "excerpt": "Since F is CM, the quantity l0 for the locally symmetric space XK is",
+     "match": "The dimension count dim R_∞ = dim S_∞ − l₀."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.6.2, printed p. 1081 (page image PDF p. 185)",
+     "excerpt": "It follows from parts (1) and (2) of Lemma 6.2.27 that we have satisfied assumptions (1) and (2) of Section 6.3.5.",
+     "match": "Ordinary-case verification of hypotheses (1)–(2)."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "§6.2.15, printed p. 1038",
+     "excerpt": "The following two propositions are contained in [Tay08, Prop. 3.1].",
+     "match": "The level-raising local ring facts are imported from Taylor."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialAutomorphyInfrastructure:PA.3/hecke-valued-galois-representation-of-type-S-chi",
+   "parentStageId": "PotentialAutomorphyInfrastructure:PA.3",
+   "title": "Deformation-ring actions on the level-K Hecke algebras: surjections R_{S_χ} → T^S(RΓ(X_K, V_λ(χ⁻¹)))_m/J with J^δ = 0 (ACC+ Propositions 6.5.3 and 6.6.7)",
+   "kind": "theorem",
+   "statement": "FL case (Proposition 6.5.3): under §6.5.1 (1)–(17), there are an integer δ ≥ 1 depending only on n and [F:Q], an ideal J ⊂ T^S(RΓ(X_K, V_λ(χ⁻¹)))_m with J^δ = 0 and a continuous surjection f_{S_χ}: R_{S_χ} → T^S(RΓ(X_K, V_λ(χ⁻¹)))_m/J such that for every finite place v ∉ S the characteristic polynomial of f_{S_χ} ∘ ρ_{S_χ}(Frob_v) is the image of P_v(X). This is what makes the support of H*(X_K, V_λ(χ⁻¹))_m over R_{S_χ} meaningful although the cohomology is not literally an R_{S_χ}-module. Ordinary case (Proposition 6.6.7): with T^{S,Λ₁} = T^S ⊗_O Λ₁ ⊂ T^{S,ord}, there are δ (depending only on n and [F:Q]), J ⊂ T^{S,Λ₁}(A(μ,χ)_m ⊗_O O(ν + w₀^G μ)⁻¹) with J^δ = 0 and a continuous surjective Λ-algebra map f_{S_χ}: R_{S_χ} → T^{S,Λ₁}(A(μ,χ)_m ⊗_O O(ν + w₀^G μ)⁻¹)/J with the same Frobenius property.",
+   "hypotheses": [
+    "FL: all of §6.5.1 (1)–(17); the maximal ideal m with ρ̄_m ≅ r̄_ι(π) absolutely irreducible.",
+    "Imported theorems (by stage): ACC+ Theorem 2.3.7 (Hecke-algebra-valued ρ_m modulo a nilpotent ideal, from [Sch15, Cor. 5.4.4]; requires S = S^c and the splitting condition, applied with S ∪ S^c); Theorem 3.1.1 (local–global compatibility at places of R and S^c − S, l ≠ p; ACC+ §3, not read here); Theorem 4.5.1 (Fontaine–Laffaille condition at v | p, this roadmap PA.1); Theorem 5.5.1 (ordinary condition at v | p via the characterization of D_v^{det,ord} in §6.2.6, this roadmap PA.2).",
+    "Ordinary case: the passage to the limit over c \"in a similar way to the proof of Theorem 4.5.1\" and Carayol’s lemma ([CHT08, Lem. 2.1.10]) to land in the subalgebra T^{S,Λ₁}."
+   ],
+   "proofSteps": [
+    "Theorem 2.3.7 gives ρ_m: G_{F,S∪S^c} → GL_n(T^S(RΓ(X_K, V_λ(χ⁻¹)))_m/J) with the Frobenius property at v ∉ S ∪ S^c; conjugate so that ρ_m mod m = ρ̄_m (printed p. 1063).",
+    "Theorem 4.5.1 shows ρ_m|_{G_{F_v}} is Fontaine–Laffaille of the required type for v | p.",
+    "Theorem 3.1.1 with its set S replaced by S ∪ S^c and its R replaced by S − S_p gives the inertial characteristic polynomial condition defining D_v^χ at v ∈ R and unramifiedness with the correct Frobenius polynomial at v ∈ S^c − S; at v ∈ S − (R ∪ S_p) the problem is unrestricted.",
+    "Hence ρ_m is of type S_χ and defines f_{S_χ}; surjectivity (not argued explicitly in the printed proof) comes from T^S being generated by the coefficients of the P_v(X), which are traces of exterior powers of ρ_m(Frob_v).",
+    "Ordinary (printed p. 1078): construct compatible R_{S_χ} → T^{S,ord}(RΓ(X_{K(c,c)}, V_μ(χ⁻¹))^{ord})_m/J_c for each c exactly as in Proposition 6.5.3 with Theorem 5.5.1 replacing Theorem 4.5.1; Carayol’s lemma places the image in the subalgebra T^{S,Λ₁}; transpose and twist by O(ν + w₀^G μ) identify the Hecke algebras; pass to the limit in c."
+   ],
+   "acceptance": [
+    "State f_{S_χ} as a surjection onto a quotient by a nilpotent ideal of bounded exponent; do not identify it with an isomorphism R_{S_χ} ≅ T.",
+    "Check that δ depends only on n and [F:Q] (it comes from Theorem 2.3.7 and Theorem 3.1.1), which is needed for the uniform bound in ultrapatching (ACC+ §6.4.1(5))."
+   ],
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proposition 6.5.3 with proof, printed p. 1063",
+     "excerpt": "This is a matter of combining the various local-global compatibility results we have proved so far.",
+     "match": "Proof route of Proposition 6.5.3."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Proposition 6.5.3, printed p. 1063",
+     "excerpt": "Theorem 4.5.1 shows that the Fontaine–Laffaille condition is satisfied for each v|p.",
+     "match": "Use of the FL local–global compatibility theorem."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Paragraph before Theorem 6.5.4, printed p. 1063",
+     "excerpt": "Recall (as in (6.3.5)) that it makes sense to talk about the support of",
+     "match": "Support over R_{S_1} is defined through the surjection f_{S_1}."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proposition 6.6.7 with proof, printed p. 1078",
+     "excerpt": "with the appeal to Theorem 4.5.1 being replaced instead with an appeal to Theorem 5.5.1",
+     "match": "Ordinary analogue."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-fontaine-laffaille-patched-data",
+   "parentStageId": "PotentialAutomorphyInfrastructure:PA.3",
+   "title": "Generic support implication for the Fontaine–Laffaille patched pair: Assumption 6.3.6 holds and H*(C_0) has full support over R_{S_1} (argument of ACC+ printed p. 1070)",
+   "kind": "theorem",
+   "statement": "Keep the set-up of §6.5.1 with χ_v pairwise distinct, q = h¹(F_S/F, ad ρ̄_m(1)), g = qn − n²[F⁺:Q], S_∞ = T[[Z_p^{nq}]] (T a power series ring over O in n²|S| − 1 variables) with augmentation ideal a_∞, R_∞ = R^{S,loc}_{S_1}[[X_1,…,X_g]], R′_∞ = R^{S,loc}_{S_χ}[[X_1,…,X_g]], C_0 = R Hom_O(RΓ(X_K, V_λ(1))_m, O)[−d] with T_0 = T^S(K, V_λ(1))_m. Suppose given patched data as in §6.3.5 items (1)–(5): bounded complexes C_∞, C′_∞ of finite free S_∞-modules; T_∞ ⊂ End_{D(S_∞)}(C_∞), T′_∞ ⊂ End_{D(S_∞)}(C′_∞) with nilpotent I_∞, I′_∞ (I_∞^δ = I′_∞^δ = 0); S_∞-algebra structures on R_∞, R′_∞ and S_∞-algebra surjections R_∞ → T_∞/I_∞, R′_∞ → T′_∞/I′_∞; an isomorphism C_∞ ⊗^L S_∞/ϖ ≅ C′_∞ ⊗^L S_∞/ϖ under which T_∞, T′_∞ have a common image and the actions of R_∞/ϖ ≅ R′_∞/ϖ on H*(C_∞ ⊗^L S_∞/ϖ)/(Ī_∞ + Ī′_∞) agree; and an isomorphism C_∞ ⊗^L_{S_∞} S_∞/a_∞ ≅ C_0 in D(O) inducing T_∞ → T_0 surjective onto T_0/I_0 and compatible with the surjection R_∞/a_∞ → R_{S_1}. Then: (i) Assumption 6.3.6 holds with l₀ = n[F⁺:Q] − 1, the prime p = a_∞ (S_∞/a_∞ ≅ O, one-dimensional of characteristic 0) and a suitable q₀ ∈ Z; (ii) by Proposition 6.3.8, H*(C_∞) has full support over R_∞ (R_∞ being equidimensional); (iii) H*(C_∞ ⊗^L S_∞/a_∞) = H*(C_0) has full support over R_∞/a_∞; (iv) H*(C_0) has full support over R_{S_1}. \"Full support\" means the support (defined through the surjections onto Hecke algebras modulo nilpotent ideals) is all of Spec; it is not an integral isomorphism R = T.",
+   "hypotheses": [
+    "The patched data are not assumed to exist abstractly: they are the output of ACC+ §6.4.2 (DeformationAndDerivedPatchingAlgebra P8 ultrapatching node) applied to the arithmetic set-up verified in PA.4. This node proves only the implication from those outputs.",
+    "Hypotheses (1)–(2) of Assumption 6.3.6 are supplied by the PA.3 node on patched local rings (Lemma 6.2.26); hypothesis (3) by ACC+ Theorem 2.4.10 (PA.0 node); the abstract support theorem is ACC+ Proposition 6.3.8 (DeformationAndDerivedPatchingAlgebra P9).",
+    "No mod-p vanishing of H*(X_K, V_λ/ϖ)_m outside [q₀, q₀ + l₀] is assumed."
+   ],
+   "proofSteps": [
+    "Hypotheses (1)–(2): quote the PA.3 dimension/component node (printed p. 1070 bullets \"By Lemma 6.2.26, we have\").",
+    "Hypothesis (3): the isomorphism C_∞ ⊗^L S_∞/a_∞ ≅ C_0 gives H^i((C_∞ ⊗^L S_∞/a_∞)[1/p]) ≅ Hom_E(H^{d−i}(X_K, V_λ(1))_m[1/p], E) as T_0-modules; Theorem 2.4.10(2) (ρ̄_m absolutely irreducible) and the nonvanishing coming from π (Theorem 2.4.10(1), m being the eigensystem of π) make this nonzero and concentrated in an interval of length l₀ (printed p. 1070). Reviewer note: the shift d is not defined in §6.5; the resulting interval is [d − q₀ − l₀, d − q₀], which suffices because the integer q₀ in §6.3.5(6) is arbitrary.",
+    "Apply Proposition 6.3.8: Supp_{R_∞} H*(C_∞) = Spec T_∞ contains every maximal-dimensional component; R_∞ is equidimensional, so the support is all of Spec R_∞.",
+    "Pass to a_∞ (left implicit in the source; reviewer route): for a prime x ⊇ a_∞R_∞ choose r maximal with H^r(C_∞)_x ≠ 0; right exactness of the top degree of − ⊗^L S_∞/a_∞ on a bounded complex of free modules gives H^r(C_∞ ⊗^L S_∞/a_∞)_x ↠ H^r(C_∞)_x/a_∞ ≠ 0, as in the proof of Corollary 6.3.9.",
+    "Descend along R_∞/a_∞ ↠ R_{S_1} (Lemma 6.4.15, compatible with T_0/I_0 by Proposition 6.4.16) to get full support of H*(C_0) over R_{S_1}; Theorem 6.5.4 states the conclusion for H*(X_K, V_λ(1))_m, whose support over T_0 agrees with that of the dual complex C_0."
+   ],
+   "acceptance": [
+    "Distinguish in the formal statement: (a) Supp_{R_{S_1}} = Spec R_{S_1} (equivalently ker(R_{S_1} → T_0/J) is nilpotent), (b) statements after inverting p, (c) near faithfulness, (d) an integral isomorphism R_{S_1} ≅ T_0; only (a) is concluded.",
+    "Worked numerical check (n = 2, F imaginary quadratic, so [F⁺:Q] = 1): l₀ = 1, dim S_∞ = 4|S| + 2q, g = 2q − 4 and dim R_∞ = 1 + g + 4|S| + 2 = dim S_∞ − 1."
+   ],
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1070 (page image PDF p. 174)",
+     "excerpt": "We have now satisfied all the assumptions of Section 6.3.5, so we can apply Proposition 6.3.8",
+     "match": "The verification of Assumption 6.3.6 and the application of Proposition 6.3.8."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1070",
+     "excerpt": "has full support over R∞ , hence that",
+     "match": "The chain of full-support conclusions over R_∞, R_∞/a_∞ and R_{S_1}."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Theorem 6.5.4, printed p. 1063",
+     "excerpt": "Under assumptions (1)–(17) above, H ∗ (XK , Vλ (1))m has full support over RS1 .",
+     "match": "The statement whose proof ends with this implication."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-ordinary-patched-data",
+   "parentStageId": "PotentialAutomorphyInfrastructure:PA.3",
+   "title": "Generic support implication for the ordinary patched pair: a characteristic-zero point on a maximal-dimensional component lies in the support after inverting p (argument of ACC+ printed p. 1081)",
+   "kind": "theorem",
+   "statement": "Keep the set-up of §6.6.1 with the representation ρ of Theorem 6.6.2 classified by f: R_{S_1} → O (ρ ≅ lift of ρ̄_m of type S_1), χ with χ_{v,i} pairwise distinct at each v ∈ R, q = h¹(F_S/F, ad ρ̄_m(1)), g = qn − n²[F⁺:Q], S_∞ = T[[Z_p^{nq}]] with T a power series ring over Λ in n²|S| − 1 variables, R^loc = R^{S,loc}_{S_1^ord}, R′^loc = R^{S,loc}_{S_χ^ord}, R_∞, R′_∞ their power series rings in g variables. Suppose given patched data as in §6.3.5 (1)–(5) with S_∞-algebra surjections R_∞ → T_∞/I_∞, R′_∞ → T′_∞/I′_∞, surjections of local Λ-algebras R_∞/a_∞ → R_{S_1^ord}, R′_∞/a_∞ → R_{S_χ^ord}, and isomorphisms C_∞ ⊗^L S_∞/a_∞ ≅ B(μ,1)_m and C′_∞ ⊗^L S_∞/a_∞ ≅ B(μ,χ)_m in D(Λ). Then Assumption 6.3.6 holds, with p the inverse image in S_∞ of Ann_Λ(O(ν + w₀^G μ)⁻¹); and if x ∈ Spec R_∞ is the inverse image of ker f with contraction y (the inverse image of Ann_Λ(O(ν + w₀^G λ)⁻¹)), then x lies on a maximal-dimensional component, so Corollary 6.3.9 shows that ker f lies in the support of H*(B(μ,1)_m ⊗^L_Λ O(ν + w₀^G λ)⁻¹)[1/p]. No full-support statement (analogue of Theorem 6.5.4) is obtained in the ordinary case.",
+   "hypotheses": [
+    "As for the FL implication: the patched data come from ACC+ §6.4.2 applied to the ordinary arithmetic set-up (PA.4); this node proves only the implication.",
+    "Hypotheses (1)–(2) from Lemma 6.2.27(1)–(2) (PA.3 local-ring node); hypothesis (3) from Corollary 6.6.6 (independence of weight for B₁(μ,χ), resting on Proposition 5.2.17 and [KT17, Lem. 2.13]; PA.2) and Theorem 2.4.10 (PA.0), using that π contributes.",
+    "For each v ∈ S_p the inertial characters on the diagonal of ρ|_{G_{F_v}} are distinct (condition (2) of Theorem 6.6.2 with the λ there), which is what places x on a maximal-dimensional component through Lemma 6.2.27(3)."
+   ],
+   "proofSteps": [
+    "Hypotheses (1)–(2) of §6.3.5: Lemma 6.2.27(1)–(2) (printed p. 1081).",
+    "Hypothesis (3): by Corollary 6.6.6, (C_∞ ⊗^L S_∞/p)[1/p] ≅ (B(μ,1)_m ⊗^L_Λ O(ν + w₀^G μ)⁻¹)[1/p] has cohomology isomorphic to a quotient of Hom_E(H^{d−*}(X_{K(1,1)}, V_μ)_m[1/p], E); π contributes, so Theorem 2.4.10 gives nonvanishing and concentration in an interval of length l₀.",
+    "Corollary 6.3.9 applies to x because Lemma 6.2.27(3) forbids non-maximal components over loci where universal characters coincide, and the inertial characters of ρ at v ∈ S_p are distinct.",
+    "Conclusion: ker f ∈ Supp H*(B(μ,1)_m ⊗^L_Λ O(ν + w₀^G λ)⁻¹)[1/p]; the proof of Theorem 6.6.2 then uses Corollary 6.6.6 again to pass to H*(A(λ,1,1)_m ⊗ O(ν + w₀^G λ)⁻¹)[1/p] and Theorem 2.4.10 to produce Π."
+   ],
+   "acceptance": [
+    "Record the source’s own limitation: the ordinary argument gives support at a single characteristic-zero point, not full support, because the components of R_v^{det,ord} are not understood well enough.",
+    "Check that the prime p of S_∞ used for hypothesis (3) (weight μ) and the contraction y of x (weight λ) are different in general; Corollary 6.3.9 is applied at y."
+   ],
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.6.2, printed p. 1081 (page image PDF p. 185)",
+     "excerpt": "For each v ∈ Sp , the inertial characters on the diagonal of ρ|GFv are distinct, so x lies on a maximal dimension irreducible component of Spec(R∞ ) by part (3) of Lemma 6.2.27, and this corollary does apply.",
+     "match": "Application of Corollary 6.3.9 at the point defined by ρ."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Remark after Theorem 6.6.2, printed p. 1075",
+     "excerpt": "Note that we do not prove an analogue of Theorem 6.5.4 here, but rather only an analogue of Corollary 6.5.5.",
+     "match": "The ordinary implication is pointwise, not a full-support theorem."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Remark after Theorem 6.6.2, printed p. 1075",
+     "excerpt": "This is due to our poor understanding of the irreducible components of the local lifting rings of type",
+     "match": "Reason for the weaker ordinary conclusion."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialAutomorphyInfrastructure:PA.3/unconditional-derived-ihara-avoidance-versus-calegari-geraghty-conjecture-b",
+   "parentStageId": "PotentialAutomorphyInfrastructure:PA.3",
+   "title": "What ACC+ proves unconditionally versus what Calegari–Geraghty assumed: derived Ihara avoidance replaces the integral degree-vanishing part of Conjecture B",
+   "kind": "comparison",
+   "statement": "Calegari–Geraghty (CG, Invent. Math. 2018) prove their GL_n modularity lifting (Theorem 5.16, Theorem 9.19) assuming Conjecture B for the relevant Taylor–Wiles sets: existence of Hecke-algebra-valued Galois representations r_m; (1) Fontaine–Laffaille at v | p with weights [0,…,n−1]; (2) the Taylor–Wiles local type at v ∈ Q; (3) the inertial characteristic polynomial at v ∈ R; (4)(a) vanishing of H^i(Y_1(Q), O/ϖ^m)_m unless i ∈ [q₀, q₀ + l₀] and (4)(b) vanishing of the localized boundary cohomology; (5) an isomorphism between level Y and Y₀(Q) cohomology via lim Q_x(V_x)^{k!}. CG use (4) to realize the localized cohomology by perfect complexes D_N concentrated in degrees q₀,…,q₀ + l₀ and then combine their two-system patching Proposition 6.6 with Taylor’s argument to get near-faithfulness of H^{q₀}(Y, K/O)^∨_m over R_S (Theorem 9.19). ACC+ proves unconditional versions of the inputs they need in the CM case — existence of ρ_m modulo a nilpotent ideal (Theorem 2.3.7, from Scholze), the analogue of (1) (Theorem 4.5.1, FL) and of the ordinary condition (Theorem 5.5.1), (3) (Theorem 3.1.1), and the Taylor–Wiles level comparison (Lemma 6.5.9, via [KT17, Lem. 5.4]) — but not (4)(a): ACC+ states that the vanishing conjecture is not resolved. Instead the patched complexes are allowed arbitrary integral amplitude, and ACC+ Proposition 6.3.8 transports support between the two systems using only (i) the dimension/component shape of the local rings and (ii) concentration of rational cohomology in [q₀, q₀ + l₀] after localizing at a characteristic-0 prime (Theorem 2.4.10, from Franke’s theorem). The output differs as well: ACC+ obtains full support (FL) or support at a characteristic-zero point (ordinary), not CG’s near-faithfulness of a single degree over R_S.",
+   "hypotheses": [
+    "CG’s Conjecture B is stated for GL_n over an arbitrary number field (CG §9.3); ACC+ works over CM fields with the splitting hypotheses of §6.5.1/§6.6.1.",
+    "CG’s Theorem 9.19 uses patched complexes whose cohomology is concentrated in l₀ + 1 consecutive degrees integrally; ACC+’s Proposition 6.3.8 uses the derived length identity (Lemma 6.3.4) and CG Lemma 6.2 only after localizing at a characteristic-0 prime of S_∞.",
+    "The CG two-system patching Proposition 6.6 has an omitted proof (\"we omit the details\"), recorded in DeformationAndDerivedPatchingAlgebra R03.6; ACC+ §6.4.17 gives the mod-ϖ comparison of the two ultrapatched systems with proof."
+   ],
+   "proofSteps": [
+    "Read CG §9.3 Conjecture B (items (1)–(5)) and Remark 9.5 (the real difficulty lies in nonvanishing in the required range and local–global compatibility at p).",
+    "Read CG §9.5 Theorem 9.19 and its proof: D_N concentrated in degrees q₀,…,q₀ + l₀ \"By Conjecture B and the results of Sect. 7.1\", then Proposition 6.6, Theorem 6.4 and [11, Lemma 2.2] give near-faithfulness.",
+    "Read ACC+ introduction (printed p. 898) and §6.1 (printed pp. 1030–1031): the first CG conjecture (local–global compatibility) is proved in many cases; the vanishing conjecture is not; derived Ihara avoidance uses only rational concentration, following the localization idea of [KT17].",
+    "Map each CG input to its ACC+ replacement (list in the statement); the only CG input without an ACC+ proof, integral vanishing (4)(a)/(4)(b), is circumvented rather than proved."
+   ],
+   "acceptance": [
+    "A reviewer can follow the table: CG Conj. B(1) ↔ ACC+ Thm 4.5.1 (PA.1); ordinary analogue ↔ Thm 5.5.1 (PA.2); B(3) ↔ Thm 3.1.1 (§3, imported); B(5) ↔ Lemma 6.5.9 (PA.4); B(4)(a),(b) ↔ none (circumvented by Prop. 6.3.8 + Thm 2.4.10).",
+    "No node of this roadmap may assume mod-p vanishing of localized cohomology outside [q₀, q₀ + l₀]."
+   ],
+   "sources": [
+    {
+     "sourceId": "calegari-geraghty-2018",
+     "locator": "§9.3, Conjecture B(4)(a), PDF p. 118",
+     "excerpt": "The localizations Hψ (Y1 (Q), O/ )m vanish unless i ∈ [q0 , . . . , q0 +",
+     "match": "Integral degree-vanishing part of Conjecture B (text layer drops the exponent m in O/ϖ^m)."
+    },
+    {
+     "sourceId": "calegari-geraghty-2018",
+     "locator": "§1, PDF p. 4",
+     "excerpt": "Conjecture B amounts to assuming both the existence of Galois representations together with the vanishing of cohomology (localized at an appropriate m) outside a given range.",
+     "match": "CG’s own summary of what is conditional."
+    },
+    {
+     "sourceId": "calegari-geraghty-2018",
+     "locator": "§9.5, proof set-up for Theorem 9.19, PDF p. 129",
+     "excerpt": "By Conjecture B and the results of Sect. 7.1, there exists a perfect complex",
+     "match": "The integral concentration of the complexes D_N comes from Conjecture B."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Introduction, printed p. 898",
+     "excerpt": "On the other hand, we do not resolve the second conjecture concerning the vanishing of mod-p cohomology in this paper.",
+     "match": "ACC+ does not prove the vanishing conjecture."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "§6.1, printed p. 1031",
+     "excerpt": "Here we show that the “Ihara avoidance” technique is robust enough to give a general automorphy lifting result using only the assumption that the rational cohomology is concentrated in the expected range.",
+     "match": "The replacement input is rational concentration."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-local-condition-datum-and-augmented-problem",
+   "parentStageId": "PotentialAutomorphyInfrastructure:PA.4",
+   "title": "Taylor–Wiles places: the diagonalized local lifting ring, the O[Δ_v]-structure, Taylor–Wiles data and the augmented problem S_Q (ACC+ §6.2.18, §6.2.28)",
+   "kind": "definition",
+   "statement": "Local (§6.2.18): assume q_v ≡ 1 mod p (so v ∤ p), ρ̄|_{G_{F_v}} unramified with n distinct eigenvalues α_1,…,α_n ∈ k of Frobenius, Λ_v = O, and let γ̄_i be the unramified character with γ̄_i(Frob_v) = α_i. Lemma 6.2.19: every lift ρ: G_{F_v} → GL_n(A) of ρ̄|_{G_{F_v}} is GL_n(A)-conjugate to γ_1 ⊕ ⋯ ⊕ γ_n for unique continuous characters γ_i lifting γ̄_i. Put Δ_v = k(v)^×(p)^n (k(v)^×(p) the maximal p-power quotient). Applying this to the universal lift on R_v^□, each γ_i ∘ Art_{F_v}|_{O_{F_v}^×} factors through k(v)^×(p), giving a canonical local O-algebra map O[Δ_v] → R_v^□ that depends on the ordering α_1,…,α_n and is formally smooth of relative dimension n². Global (§6.2.28): assume k contains the eigenvalues of all elements of ρ̄(G_F). A Taylor–Wiles datum for S = (ρ̄, S, {Λ_v}, {D_v}) is (Q, (α_{v,1},…,α_{v,n})_{v∈Q}) with Q a finite set of finite places disjoint from S, q_v ≡ 1 mod p for v ∈ Q, and an ordering of the k-rational, pairwise distinct eigenvalues of ρ̄(Frob_v). The augmented problem is S_Q = (ρ̄, S ∪ Q, {Λ_v}_{v∈S} ∪ {O}_{v∈Q}, {D_v}_{v∈S} ∪ {D_v^□}_{v∈Q}). With Δ_Q = ∏_{v∈Q} k(v)^×(p)^n, the orderings make R^T_{S_Q} a Λ[Δ_Q]-algebra for every T ⊆ S, and with a_Q = ker(Λ[Δ_Q] → Λ) the natural surjection R^T_{S_Q} → R^T_S has kernel a_Q R^T_{S_Q}.",
+   "hypotheses": [
+    "Standing hypotheses of ACC+ §6.2: ρ̄ absolutely irreducible, p ∤ 2n, E contains the images of all embeddings of F.",
+    "q_v ≡ 1 mod p and distinct k-rational eigenvalues of ρ̄(Frob_v) at each v ∈ Q; no local condition is imposed at v ∈ Q (D_v^□).",
+    "Not proved in the source: Lemma 6.2.19 (\"similar to [DDT97, Lem. 2.44]. The details are left to the reader.\"), the formal smoothness of O[Δ_v] → R_v^□ of relative dimension n² (\"straightforward to check\"), and the kernel statement R^T_{S_Q}/a_Q = R^T_S (asserted)."
+   ],
+   "proofSteps": [
+    "Diagonalize lifts (reviewer outline of the omitted [DDT97, Lem. 2.44]-type argument; not in the source): ρ kills wild inertia (pro-ℓ with ℓ ≠ p, landing in the pro-p kernel of reduction), so it factors through the tame quotient with φσφ⁻¹ = σ^{q_v}; after Hensel-diagonalizing ρ(φ) using the distinct α_i, an induction on powers of m_A shows the off-diagonal entries of ρ(σ) vanish because α_i/α_j ≠ q_v = 1 in k for i ≠ j; uniqueness of the γ_i follows from distinctness of the γ̄_i.",
+    "Each γ_i ∘ Art_{F_v} restricted to O_{F_v}^× has pro-p image since γ_i ≡ γ̄_i unramified; it factors through the maximal pro-p quotient of O_{F_v}^×, which for v ∤ p is k(v)^×(p) (printed p. 1039).",
+    "Globally, restricting the universal T-framed deformation to G_{F_v} and applying the local construction gives the Λ[Δ_Q]-algebra structure; the quotient by a_Q forces the characters γ_i to be unramified, i.e. recovers type S at v ∈ Q (printed p. 1045)."
+   ],
+   "acceptance": [
+    "Check that the O[Δ_v]-algebra structure changes by the corresponding permutation of the n factors of Δ_v when the ordering α_{v,i} is permuted.",
+    "For n = 1 (outside the source’s range n ≥ 2 but a useful test) the structure is the map O[k(v)^×(p)] → R_v^□ given by the restriction of the lift to inertia."
+   ],
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "§6.2.18, Lemma 6.2.19 and following paragraph, printed pp. 1038–1039",
+     "excerpt": "It is straightforward to check that this morphism is formally smooth of relative dimension n2 .",
+     "match": "The O[Δ_v]-algebra structure and its formal smoothness claim."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "§6.2.18, printed p. 1039",
+     "excerpt": "Note that this depends on the choice of ordering α1 , . . . , αn .",
+     "match": "Dependence on the ordering of eigenvalues."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Lemma 6.2.19, printed p. 1038",
+     "excerpt": "This is similar to [DDT97, Lem. 2.44]. The details are left to the reader.",
+     "match": "The diagonalization lemma is not proved in the source."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "§6.2.28, printed p. 1045",
+     "excerpt": "We define a Taylor–Wiles datum to be a tuple",
+     "match": "Definition of Taylor–Wiles datum."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "§6.2.28, printed p. 1045",
+     "excerpt": "the natural surjection RSTQ → RST has kernel aQ RSTQ .",
+     "match": "Augmentation-ideal description of the unaugmented ring."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialAutomorphyInfrastructure:PA.4/existence-of-taylor-wiles-data-killing-dual-selmer",
+   "parentStageId": "PotentialAutomorphyInfrastructure:PA.4",
+   "title": "Existence of Taylor–Wiles data of any size q ≥ h¹_{S^⊥,T}(ad ρ̄(1)) killing the dual Selmer group, with q_v ≡ 1 mod p^N and v of degree one (ACC+ Lemma 6.2.32)",
+   "kind": "lemma",
+   "statement": "Let T ⊆ S. Assume F is CM with maximal totally real subfield F⁺, ζ_p ∉ F, and ρ̄(G_{F(ζ_p)}) is enormous (ACC+ Definition 6.2.29). Let q ≥ h¹_{S^⊥,T}(ad ρ̄(1)), where H¹_{S^⊥,T}(ad ρ̄(1)) = ker(H¹(F_S/F, ad ρ̄(1)) → ∏_{v∈S−T} H¹(F_v, ad ρ̄(1))/L_v^⊥). Then for every N ≥ 1 there is a Taylor–Wiles datum (Q_N, (α_{v,1},…,α_{v,n})_{v∈Q_N}) with (1) #Q_N = q; (2) q_v ≡ 1 mod p^N and v of degree one over Q for each v ∈ Q_N; (3) h¹_{S_{Q_N}^⊥,T}(ad ρ̄(1)) = 0.",
+   "hypotheses": [
+    "F CM, ζ_p ∉ F, ρ̄(G_{F(ζ_p)}) enormous: no nontrivial p-power order quotient, H⁰ = H¹ = 0 for ad⁰, and a regular semisimple element acting with nonzero invariants on every simple submodule of ad⁰ (enormity implies p ∤ n, which gives ad ρ̄ = k ⊕ ad⁰ ρ̄).",
+    "k contains all eigenvalues of elements of ρ̄(G_F) (standing in §6.2.28).",
+    "The statement produces exactly q places; the printed proof shows how to kill one Selmer class at a time; adding further places when the group is already zero is not written (the dual Selmer group can only shrink, and infinitely many admissible places exist by the same Chebotarev argument — reviewer remark)."
+   ],
+   "proofSteps": [
+    "Since D_v = D_v^□ at v ∈ Q_N, L_v = H¹(G_v, ad ρ̄) and H¹_{S_{Q_N}^⊥,T}(ad ρ̄(1)) = ker(H¹_{S^⊥,T}(ad ρ̄(1)) → ∏_{v∈Q_N} H¹(F_v, ad ρ̄(1))); by induction it suffices, for a cocycle κ representing a nonzero class, to find infinitely many places v of degree one over Q, split in F(ζ_{p^N}), with ρ̄(Frob_v) having n distinct eigenvalues in k and κ|_{G_{F_v}} ≠ 0 (printed p. 1045).",
+    "Degree-one places have density one; by Chebotarev density it suffices to find σ ∈ G_{F(ζ_{p^N})} with ρ̄(σ) having distinct k-rational eigenvalues and p_σ κ(σ) ≠ 0, where p_σ: ad ρ̄ → (ad ρ̄)_σ is the σ-equivariant projection (this makes κ|_{G_{F_v}} a non-coboundary) (printed p. 1046).",
+    "Case κ ∈ H¹(F_S/F, ad⁰ ρ̄(1)): with H = ρ̄(G_{F(ζ_p)}) having no p-power quotient, H = ρ̄(G_{F(ζ_{p^N})}); H⁰(H, ad⁰) = 0 and H¹(H, ad⁰) = 0 make restriction to H¹(F_S/L(ζ_{p^N}), ad⁰ ρ̄(1))^{G_F} injective (inflation–restriction twice, L the splitting field of ρ̄); for a nonzero irreducible W in the span of κ(Gal(F_S/L(ζ_{p^N}))) enormity gives σ₀ with distinct k-rational eigenvalues and W^{σ₀} ≠ 0; take σ = σ₀ or σ = τσ₀ with τ ∈ G_{L(ζ_{p^N})} and p_{σ₀}κ(τ) ≠ 0.",
+    "Case κ ∈ H¹(F_S/F, k(1)): κ corresponds to a Kummer extension F(ζ_p, y) with y^p ∈ F(ζ_p), non-abelian over F because κ ≠ 0 and ζ_p ∉ F; hence y^p ∉ F(ζ_{p^N}) and κ|_{G_{F(ζ_{p^N})}} ≠ 0; the degree-p extension F(ζ_{p^N}, y)/F(ζ_{p^N}) is disjoint from the field cut out by ρ̄|_{G_{F(ζ_{p^N})}} by enormity, so σ with distinct eigenvalues and κ(σ) ≠ 0 exists."
+   ],
+   "acceptance": [
+    "Verify the reduction ad ρ̄ = k ⊕ ad⁰ ρ̄ uses p ∤ n (automatic under enormity, which fails when p | n).",
+    "Worked check of the invariant counted: for each v ∈ Q_N, dim L_v − h⁰(F_v, ad ρ̄) = h⁰(F_v, ad ρ̄(1)) = n (local Tate duality, local Euler characteristic, q_v ≡ 1 mod p and distinct eigenvalues), as used in Proposition 6.2.33."
+   ],
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Lemma 6.2.32 and proof, printed pp. 1045–1046",
+     "excerpt": "Since the augmented deformation datum SQN has Dv = Dv for v ∈ QN , we have",
+     "match": "First step of the proof: the dual Selmer group at level Q_N is a kernel of localization."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Lemma 6.2.32, printed p. 1046",
+     "excerpt": "Then by Chebotarev density, we are reduced to showing that given any cocycle κ representing a nonzero element of",
+     "match": "Chebotarev reduction."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Lemma 6.2.32, printed p. 1046",
+     "excerpt": "The definition of enormous implies that the restriction map",
+     "match": "Use of enormity through inflation–restriction."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Lemma 6.2.32, printed p. 1046",
+     "excerpt": "The cohomology class of κ corresponds to a Kummer extension",
+     "match": "The k(1) case via Kummer theory."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-presentation-with-g-variables",
+   "parentStageId": "PotentialAutomorphyInfrastructure:PA.4",
+   "title": "Taylor–Wiles data with a presentation R^{T,loc}_S[[X_1,…,X_g]] ↠ R^T_{S_{Q_N}}, g = qn − n²[F⁺:Q] (ACC+ Proposition 6.2.33)",
+   "kind": "lemma",
+   "statement": "Take T = S and q ≥ h¹_{S^⊥,T}(ad ρ̄(1)). Assume F = F⁺F₀ with F⁺ totally real and F₀ imaginary quadratic, ζ_p ∉ F, and ρ̄(G_{F(ζ_p)}) enormous. Then for every N ≥ 1 there is a Taylor–Wiles datum (Q_N, (α_{v,i})) with (1) #Q_N = q; (2) q_v ≡ 1 mod p^N and the rational prime below v splits in F₀, for v ∈ Q_N; (3) a local Λ-algebra surjection R^{T,loc}_S[[X_1,…,X_g]] → R^T_{S_{Q_N}} with g = qn − n²[F⁺:Q].",
+   "hypotheses": [
+    "As in the existence lemma (Lemma 6.2.32), with T = S (so Λ_v = O for v ∈ S − T is vacuous and Proposition 6.2.25 applies with T nonempty).",
+    "Imported: ACC+ Proposition 6.2.25 (presentation over R^{T,loc}_S with g = h¹_{S,T}(ad ρ̄) computed via (6.2.24), local and global Euler characteristics and part of Poitou–Tate), recorded in DeformationAndDerivedPatchingAlgebra R03.2; local Tate duality and the local Euler characteristic formula."
+   ],
+   "proofSteps": [
+    "A place of degree one over Q in F = F⁺F₀ lies over a rational prime split in F₀, so Lemma 6.2.32 supplies (1)–(2) together with h¹_{S_{Q_N}^⊥,T}(ad ρ̄(1)) = 0 (printed p. 1047).",
+    "Proposition 6.2.25 for S_{Q_N} then gives g = −h⁰(F_S/F, ad ρ̄(1)) − Σ_{v|∞} h⁰(F_v, ad ρ̄) + Σ_{v∈Q_N}(dim L_v − h⁰(F_v, ad ρ̄)), where Σ_{v|∞} h⁰ = n²[F⁺:Q] for F CM (printed p. 1047 writes this sum directly as n²[F⁺:Q]).",
+    "H⁰(F_S/F, ad ρ̄(1)) = 0 by enormity and ζ_p ∉ F; for v ∈ Q_N, L_v = H¹(F_v, ad ρ̄), and dim L_v − h⁰(F_v, ad ρ̄) = h⁰(F_v, ad ρ̄(1)) = n by local Tate duality, the local Euler characteristic, q_v ≡ 1 mod p and distinct Frobenius eigenvalues; hence g = qn − n²[F⁺:Q]."
+   ],
+   "acceptance": [
+    "This value of g is the one needed for dim R_∞ = dim S_∞ − l₀ in the proof of Theorem 6.5.4; the printed \"g = qn − n[F⁺:Q]\" on printed pp. 1070 and 1081 is a misprint.",
+    "In §6.5 the proof cites \"Proposition 6.2.32 when N ≥ 1\" for the surjection R_∞ → R_N; the surjection is part (3) of this Proposition 6.2.33 (item 6.2.32 is a Lemma)."
+   ],
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proposition 6.2.33 and proof, printed p. 1047 (page image PDF p. 151)",
+     "excerpt": "So Proposition 6.2.25 and Lemma 6.2.32 imply that the proposition holds with",
+     "match": "Derivation of the presentation from Proposition 6.2.25 and Lemma 6.2.32."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Proposition 6.2.33, printed p. 1047",
+     "excerpt": "where the first equality follows from local Tate duality and the local Euler characteristic",
+     "match": "Local count n per Taylor–Wiles place."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialAutomorphyInfrastructure:PA.4/auxiliary-level-subgroups-hecke-algebras-and-maximal-ideals",
+   "parentStageId": "PotentialAutomorphyInfrastructure:PA.4",
+   "title": "Auxiliary level subgroups K₁(Q) ⊂ K₀(Q) ⊂ K, the Hecke algebras with U_{v,i}, and the maximal ideals m^Q, m^Q_0, m^Q_1, n^Q_0, n^Q_1 (ACC+ §6.5.1, Lemma 6.5.8)",
+   "kind": "construction",
+   "statement": "In the set-up of §6.5.1, let (Q, (α_{v,1},…,α_{v,n})_{v∈Q}) be a Taylor–Wiles datum for S_1 such that the residue characteristic of each v ∈ Q splits in an imaginary quadratic subfield of F; it is then a Taylor–Wiles datum for every S_χ, and R_{S_{χ,Q}} is an O[Δ_Q]-algebra, Δ_Q = ∏_{v∈Q} k(v)^×(p)^n. Define good subgroups K₁(Q) ⊂ K₀(Q) ⊂ K by K₁(Q)_v = K₀(Q)_v = K_v for v ∉ S ∪ Q, K₀(Q)_v = Iw_v and K₁(Q)_v = the maximal pro-prime-to-p subgroup of Iw_v for v ∈ Q; then K₀(Q)/K₁(Q) ≅ Δ_Q, and there are surjective T^{S∪Q}-algebra maps (6.5.6) _{K₀(Q)/K₁(Q)}T^{S∪Q}(K₀(Q)/K₁(Q), V_λ(χ⁻¹)) → T^{S∪Q}(K₀(Q), V_λ(χ⁻¹)) → T^{S∪Q}(K, V_λ(χ⁻¹)), the first by K₀(Q)-invariants and the second by t ↦ [K:K₀(Q)]⁻¹ π_{Q,*} ∘ t ∘ π_Q^* (the index [K:K₀(Q)] ≡ (n!)^{|Q|} mod p is a unit since p > n). T^{S∪Q}_Q(K₀(Q), V_λ(χ⁻¹)) ⊂ End_{D(O)}(RΓ(X_{K₀(Q)}, V_λ(χ⁻¹))) is the commutative subalgebra generated over T^{S∪Q} by the U_{v,i} (v ∈ Q, 1 ≤ i ≤ n); similarly T^{S∪Q}_Q(K₀(Q)/K₁(Q), V_λ(χ⁻¹)) ⊂ End_{D(O[Δ_Q])}(RΓ_{K₀(Q)/K₁(Q)}(X_{K₁(Q)}, V_λ(χ⁻¹))) is an O[Δ_Q]-algebra, with a surjection (6.5.7) onto the former taking U_{v,i} to U_{v,i}. Ideals: m^Q = pullback of m to T^{S∪Q}(K, V_λ(χ⁻¹)); m^Q_0, m^Q_1 its pullbacks along (6.5.6); n^Q_0 ⊂ T^{S∪Q}_Q(K₀(Q), V_λ(χ⁻¹)) generated by m^Q_0 and U_{v,i} − q_v^{i(1−i)/2} α_{v,1}⋯α_{v,i}; n^Q_1 = preimage of n^Q_0 under (6.5.7). Lemma 6.5.8: each of m^Q, m^Q_0, m^Q_1, n^Q_0, n^Q_1 is a proper maximal ideal.",
+   "hypotheses": [
+    "§6.5.1 (1)–(17), in particular p > n² (so p > n and [K:K₀(Q)] is a p-adic unit) and q_v ≡ 1 mod p for v ∈ Q.",
+    "Imported: [KT17, Lem. 5.3] \"(or rather its proof)\" — existence of a vector in H*(X_{K₀(Q)}, V_λ(χ⁻¹)/ϖ)[m^Q_0] with U_{v,i} acting by α_{v,1}⋯α_{v,i} once H*(X_K, V_λ(χ⁻¹))[m^Q] is killed by a power of m; Khare–Thorne 2017 is absent from the supplied library.",
+    "Local–global compatibility of ρ̄_m at v ∈ Q (unramified, Frobenius eigenvalues α_{v,i}) is used to show H*(X_K, V_λ(χ⁻¹))[m^Q] is annihilated by a power of m."
+   ],
+   "proofSteps": [
+    "K₀(Q)/K₁(Q) ≅ ∏_{v∈Q} Iw_v/(maximal pro-prime-to-p subgroup) ≅ ∏_{v∈Q} k(v)^×(p)^n = Δ_Q (torus of the Iwahori quotient, p-part).",
+    "The first map of (6.5.6) is K₀(Q)-invariants (O[Δ_Q] acts trivially on invariants); the second is the normalized trace, defined since [K:K₀(Q)] ≡ (n!)^{|Q|} mod p and p > n (printed p. 1064).",
+    "Lemma 6.5.8: m^Q, m^Q_0, m^Q_1 are maximal as pullbacks along the maps in (6.5.6); n^Q_1 is the preimage of n^Q_0 under a surjection, so it suffices that n^Q_0 is proper, i.e. that H*(X_{K₀(Q)}, V_λ(χ⁻¹)/ϖ)[m^Q_0] contains a nonzero simultaneous eigenvector for the U_{v,i} with eigenvalues α_{v,1}⋯α_{v,i}; this follows from [KT17, Lem. 5.3] once H*(X_K, V_λ(χ⁻¹))[m^Q] is killed by a power of m, which follows from ρ̄_m and its local–global compatibility at v ∈ Q (printed p. 1065).",
+    "Note: the generator U_{v,i} − q_v^{i(1−i)/2}α_{v,1}⋯α_{v,i} of n^Q_0 and the eigenvalue α_{v,1}⋯α_{v,i} used in the proof agree modulo ϖ because q_v ≡ 1 mod p (page image PDF p. 169)."
+   ],
+   "acceptance": [
+    "Check the index formula [GL_n(O_{F_v}) : Iw_v] ≡ n! mod p for q_v ≡ 1 mod p (the number of complete flags in k(v)^n is ∏_{i=1}^{n}(q_v^i − 1)/(q_v − 1) ≡ n! mod p).",
+    "Record that all Hecke algebras are images in derived endomorphism rings; they act on cohomology only up to nilpotent kernels (ACC+ Lemma 2.2.4)."
+   ],
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "§6.5.1 before Theorem 6.5.4’s proof, printed p. 1064 (page image PDF p. 168)",
+     "excerpt": "Before proceeding to the proof of Theorem 6.5.4, we need to introduce auxiliary level subgroups.",
+     "match": "Start of the auxiliary-level construction."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "§6.5.1, printed p. 1064",
+     "excerpt": "is a unit in O because of our assumption that p > n.",
+     "match": "Normalization of the trace map uses p > n."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Lemma 6.5.8, printed p. 1065 (page image PDF p. 169)",
+     "excerpt": "This will follow from [KT17, Lem. 5.3] (or rather its proof) if we can show that",
+     "match": "Properness of n^Q_0 is reduced to Khare–Thorne."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Lemma 6.5.8, printed p. 1065",
+     "excerpt": "This follows from the existence of ρm and its local-global compatibility at the places v ∈ Q.",
+     "match": "Galois input for the reduction."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-level-change-isomorphisms-of-localized-complexes",
+   "parentStageId": "PotentialAutomorphyInfrastructure:PA.4",
+   "title": "Taylor–Wiles level-change isomorphisms of localized complexes and the local O[Δ_Q]-Hecke algebra (ACC+ Lemma 6.5.9 and (6.5.10))",
+   "kind": "lemma",
+   "statement": "The natural morphisms RΓ(X_K, V_λ(χ⁻¹))_{m^Q} → RΓ(X_K, V_λ(χ⁻¹))_m, RΓ(X_{K₀(Q)}, V_λ(χ⁻¹))_{n^Q_0} → RΓ(X_K, V_λ(χ⁻¹))_{m^Q} and RΓ(Δ_Q, RΓ_{K₀(Q)/K₁(Q)}(X_{K₁(Q)}, V_λ(χ⁻¹))_{n^Q_1}) → RΓ(X_{K₀(Q)}, V_λ(χ⁻¹))_{n^Q_0} are isomorphisms in D(O). Consequently there is a surjection (6.5.10) _{K₀(Q)/K₁(Q)}T^{S∪Q}(RΓ_{K₀(Q)/K₁(Q)}(X_{K₁(Q)}, V_λ(χ⁻¹))_{n^Q_1}) → T^{S∪Q}(K, V_λ(χ⁻¹))_{m^Q}, whose source is a local O[Δ_Q]-algebra with maximal ideal the preimage of m^Q, because it acts nearly faithfully (annihilator nilpotent, [Tay08, Def. 2.1]) on H*(X_{K₁(Q)}, V_λ(χ⁻¹))_{n^Q_1}.",
+   "hypotheses": [
+    "Taylor–Wiles datum as in the auxiliary-level construction; p > n.",
+    "Imported: [KT17, Lem. 5.4] — the trace map tr_{K/K₀(Q)}: H*(X_{K₀(Q)}, V_λ(χ⁻¹)/ϖ)_{n^Q_0} → H*(X_K, V_λ(χ⁻¹)/ϖ)_{m^Q} is an isomorphism; Khare–Thorne 2017 is absent from the supplied library.",
+    "This is the unconditional replacement, in ACC+, of Calegari–Geraghty Conjecture B(5) (the isomorphism lim ∏ Q_x(V_x)^{k!} between level-Y and level-Y₀(Q) cohomology)."
+   ],
+   "proofSteps": [
+    "A morphism in D(O) is an isomorphism iff it induces isomorphisms on cohomology (printed p. 1066).",
+    "First morphism: m is the unique maximal ideal lying above m^Q (as printed, \"of T^{S∪Q}(K₀(Q), V_λ(χ⁻¹))\"; the argument is the one in the proof of Lemma 6.5.8).",
+    "Third morphism: clear from the definitions (derived Δ_Q-invariants of the K₀(Q)/K₁(Q)-equivariant complex compute level K₀(Q)).",
+    "Second morphism: by derived Nakayama it suffices to check after − ⊗^L_O k, i.e. that tr_{K/K₀(Q)} on mod-ϖ cohomology is an isomorphism after localization, which is [KT17, Lem. 5.4].",
+    "Locality of the O[Δ_Q]-Hecke algebra: near faithfulness on H*(X_{K₁(Q)}, V_λ(χ⁻¹))_{n^Q_1} and the surjection (6.5.10) identify its unique maximal ideal with the preimage of m^Q."
+   ],
+   "acceptance": [
+    "Check on cohomology in one degree that derived Nakayama is applied to perfect complexes over the local ring O (bounded, finitely generated cohomology by Lemma 2.1.4).",
+    "Keep the O[Δ_Q]-equivariant complex RΓ_{K₀(Q)/K₁(Q)} distinct from its image in D(O): the Δ_Q-coinvariant identification C_N ⊗^L_{O[Δ_N]} O ≅ C_0 used in patching is deduced from this lemma."
+   ],
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Lemma 6.5.9 with proof, printed p. 1066 (page image PDF p. 170)",
+     "excerpt": "This is the content of [KT17, Lem. 5.4].",
+     "match": "The key trace isomorphism is imported from Khare–Thorne."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Paragraph after (6.5.10), printed p. 1066",
+     "excerpt": "indeed, this follows from the fact that it acts nearly faithfully on",
+     "match": "Locality of the auxiliary Hecke algebra via near faithfulness."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialAutomorphyInfrastructure:PA.4/delta-Q-equivariant-galois-representation-at-auxiliary-level",
+   "parentStageId": "PotentialAutomorphyInfrastructure:PA.4",
+   "title": "Galois representations over the auxiliary Hecke algebra as O[Δ_Q]-algebra surjections R_{S_{χ,Q}} → T/J (ACC+ Propositions 6.5.11 and 6.6.9)",
+   "kind": "theorem",
+   "statement": "FL case (Proposition 6.5.11): there are δ ≥ 1 depending only on n and [F:Q], an ideal J ⊂ T := _{K₀(Q)/K₁(Q)}T^{S∪Q}(RΓ_{K₀(Q)/K₁(Q)}(X_{K₁(Q)}, V_λ(χ⁻¹))_{n^Q_1}) with J^δ = 0, and a continuous surjective O[Δ_Q]-algebra homomorphism f_{S_{χ,Q}}: R_{S_{χ,Q}} → T/J such that for each finite place v ∉ S ∪ Q the characteristic polynomial of f_{S_{χ,Q}} ∘ ρ_{S_{χ,Q}}(Frob_v) is the image of P_v(X). Ordinary case (Proposition 6.6.9): the analogous continuous surjective Λ[Δ_Q]-algebra homomorphism R_{S_{χ,Q}} → _{Δ_Q}T^{S∪Q,Λ₁}(A(μ,χ,Q)_{n_Q} ⊗_O O(ν + w₀^G μ)⁻¹)/J with J^δ = 0.",
+   "hypotheses": [
+    "Taylor–Wiles datum with q_v ≡ 1 mod p and pairwise distinct α_{v,i}; §6.5.1 hypotheses.",
+    "Imported: ACC+ Theorem 2.3.7 (Hecke-valued Galois representation, from [Sch15]); Theorem 3.1.1 (local–global compatibility at places v ∈ Q: det(X − ρ(σ)) = ∏(X − ψ_{v,i}(σ)) for σ ∈ W_{F_v}; ACC+ §3, not read); [BC09, Prop. 1.5.1] (a representation whose characteristic polynomials on W_{F_v} are those of a sum of pairwise residually distinct characters is that sum); the local conditions at S as in Proposition 6.5.3 (Theorems 4.5.1 and 3.1.1).",
+    "Ordinary case: proof \"just as in\" Propositions 6.6.7 and 6.5.11 using the enlarged algebra T^{S∪Q,ord}_Q(A(μ,χ,Q) ⊗ O(ν + w₀^G μ)⁻¹)_{n_Q}; not written out."
+   ],
+   "proofSteps": [
+    "Let T′ = T^{S∪Q}_Q(K₀(Q)/K₁(Q), V_λ(χ⁻¹))_{n^Q_1} ⊃ T (local homomorphism of finite O[Δ_Q]-algebras). Theorem 2.3.7 gives J′ ⊂ T′ nilpotent and ρ_{n^Q_1}: G_{F,S∪Q} → GL_n(T′/J′) with unramified local–global compatibility; conjugate so it reduces to ρ̄_m (printed p. 1067).",
+    "Conditions at places of S are checked as in Proposition 6.5.3; there is no condition at places of Q; so ρ_{n^Q_1} defines f_{S_{χ,Q}}: R_{S_{χ,Q}} → T′/J′, factoring through the image of T.",
+    "O[Δ_Q]-linearity, checked one v ∈ Q at a time: define ψ_{v,i}: W_{F_v} → (T′)^× by ψ_{v,i}(Art_{F_v}(α)) = t_{v,i}(α); Theorem 3.1.1 (after enlarging J′) gives det(X − ρ_{n^Q_1}(σ)) = ∏_i (X − ψ_{v,i}(σ)); the ψ_{v,i} mod n^Q_1 are pairwise distinct (Frobenius ↦ α_{v,i}); [BC09, Prop. 1.5.1] gives ρ_{n^Q_1}|_{W_{F_v}} ≅ ⊕ψ_{v,i}, which is the O[Δ_v]-structure of §6.2.18.",
+    "Take J = ker(T → T′/J′)."
+   ],
+   "acceptance": [
+    "Confirm that the δ obtained is independent of Q (it depends only on n and [F:Q]), as required by the uniform nilpotence bound in the ultrapatching set-up.",
+    "Check that the O[Δ_Q]-algebra structure on R_{S_{χ,Q}} uses the same ordering of α_{v,i} as the U_{v,i}-eigenvalues defining n^Q_0."
+   ],
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Proposition 6.5.11, printed p. 1067 (page image PDF p. 171)",
+     "excerpt": "There is no condition at places of Q, so we obtain a morphism",
+     "match": "Construction of f_{S_{χ,Q}}."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Proposition 6.5.11, printed p. 1067",
+     "excerpt": "Observe that the characters ψv,i mod nQ 1 are pairwise distinct",
+     "match": "Distinctness of the characters at Taylor–Wiles places."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Proposition 6.5.11, printed p. 1067",
+     "excerpt": "We can therefore apply [BC09, Prop. 1.5.1] to conclude",
+     "match": "Imported Bellaïche–Chenevier criterion."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialAutomorphyInfrastructure:PA.4/arithmetic-tower-satisfies-ultrapatching-set-up-fontaine-laffaille",
+   "parentStageId": "PotentialAutomorphyInfrastructure:PA.4",
+   "title": "The Fontaine–Laffaille arithmetic tower satisfies the ultrapatching set-up of ACC+ §6.4.1, with specialization C_∞ ⊗^L S_∞/a_∞ ≅ C_0 (proof of Theorem 6.5.4, printed pp. 1067–1070)",
+   "kind": "construction",
+   "statement": "Fix a non-principal ultrafilter on N (as in §6.4.1). Put q = h¹(F_S/F, ad ρ̄_m(1)), g = qn − n²[F⁺:Q], Δ_∞ = Z_p^{nq}, Λ = O, T a power series ring over O in n²|S| − 1 variables (framing variables of Lemma 6.2.4), S_∞ = T[[Δ_∞]] with augmentation ideal a_∞; enlarge E to contain ζ_p and choose χ_v pairwise distinct for v ∈ R. For N ≥ 1 choose a Taylor–Wiles datum Q_N by Proposition 6.2.33 (using any imaginary quadratic subfield of F; possible by enormity), Q_0 = ∅, Δ_N = Δ_{Q_N} with a fixed surjection Δ_∞ → Δ_N (kernel in (p^N Z_p)^{nq} because q_v ≡ 1 mod p^N), Δ_0 = 1. Deformation data: R_N = R_{S_{1,Q_N}}, R′_N = R_{S_{χ,Q_N}} (R_0 = R_{S_1}, R′_0 = R_{S_χ}), R^loc = R^{S,loc}_{S_1}, R′^loc = R^{S,loc}_{S_χ} (unchanged by Q_N), canonical isomorphisms R^loc/ϖ ≅ R′^loc/ϖ and R_N/ϖ ≅ R′_N/ϖ, R_N ⊗_{O[Δ_N]} O ≅ R_0, R^loc-algebra structures on R_N ⊗̂_O T (Lemma 6.2.4), R_∞, R′_∞ power series rings in g variables over R^loc, R′^loc, with local surjections R_∞ → R_N, R′_∞ → R′_N compatible with all identifications (Proposition 6.2.25 for N = 0, Proposition 6.2.33(3) for N ≥ 1). Complexes: C_0 = R Hom_O(RΓ(X_K, V_λ(1))_m, O)[−d], T_0 = T^S(K, V_λ(1))_m, C′_0 and T′_0 with V_λ(χ⁻¹); for N ≥ 1, C_N = R Hom_{O[Δ_N]}(RΓ_{K₀(Q_N)/K₁(Q_N)}(X_{K₁(Q_N)}, V_λ(1))_{n^Q_1}, O[Δ_N])[−d] with T_N = _{K₀(Q)/K₁(Q)}T^{S∪Q_N}(…), and C′_N, T′_N with V_λ(χ⁻¹). Verified set-up items: (i) C_N ⊗^L k[Δ_N] ≅ C′_N ⊗^L k[Δ_N] canonically, with T_N, T′_N having the same image T̄_N; (ii) C_N ⊗^L_{O[Δ_N]} O ≅ C_0 and C′_N ⊗^L O ≅ C′_0 compatibly mod ϖ (Lemma 6.5.9); (iii) nilpotent I_N ⊂ T_N, I′_N ⊂ T′_N of exponent ≤ δ with surjections R_N → T_N/I_N, R′_N → T′_N/I′_N compatible mod ϖ (Propositions 6.5.3 and 6.5.11); (iv) T_N ⊗_{O[Δ]} O → T_0 surjective onto T_0/I_0 (Chebotarev density and the Galois representations over T_0/I_0). Output of §6.4.2: bounded complexes C_∞, C′_∞ of free S_∞-modules, T_∞, T′_∞ with I_∞^δ = I′_∞^δ = 0, S_∞-algebra surjections R_∞ → T_∞/I_∞, R′_∞ → T′_∞/I′_∞, surjections R_∞/a_∞ → R_0, R′_∞/a_∞ → R′_0, isomorphisms C_∞ ⊗^L S_∞/a_∞ ≅ C_0, C′_∞ ⊗^L S_∞/a_∞ ≅ C′_0 inducing T_∞ → T_0 surjective onto T_0/I_0, and C_∞ ⊗^L S_∞/ϖ ≅ C′_∞ ⊗^L S_∞/ϖ with common Hecke image and identified R_∞/ϖ ≅ R′_∞/ϖ actions on H*(…)/(Ī_∞ + Ī′_∞).",
+   "hypotheses": [
+    "§6.5.1 hypotheses (1)–(17); in particular enormity of r̄_ι(π)(G_{F(ζ_p)}) and ζ_p ∉ F (H⁰(F_S/F, ad ρ̄_m(1)) = 0 because r̄_ι(π)|_{G_{F(ζ_p)}} is irreducible and ζ_p ∉ F, used for Proposition 6.2.25 at N = 0).",
+    "Boundedness required by ultrapatching (uniform rank and degree bounds for the minimal complexes F(J, N), ACC+ Proposition 6.4.10(1)) is not an extra hypothesis: it follows from C_N ⊗^L Λ ≅ C_0 via rk F(J, N)^i = dim_k H^i(C_0 ⊗^L k) (Definition 6.4.3).",
+    "Perfectness of C_N over O[Δ_N]: RΓ_{K₀(Q)/K₁(Q)}(X_{K₁(Q)}, V) is perfect in D(O[K₀(Q)/K₁(Q)]) by ACC+ Lemma 2.1.7 (finite triangulation of the Borel–Serre compactification); localization at n^Q_1 is a direct summand (idempotent decomposition, §1.2).",
+    "The ultrafilter is fixed once; independence of the patched complex from the transition-map choices is ACC+ Remark 6.4.13 (P8); no independence from the ultrafilter is claimed."
+   ],
+   "proofSteps": [
+    "For each N ≥ 1 choose Q_N by Proposition 6.2.33 and the surjection Δ_∞ → Δ_N; kernel in (p^N Z_p)^{nq} (printed p. 1068).",
+    "Deformation side: R_N, R′_N and their identifications modulo ϖ and after ⊗_{O[Δ_N]} O (the latter from a_Q-description in §6.2.28), Lemma 6.2.4 for framings, and the surjections from R_∞ (Proposition 6.2.25 at N = 0 using H⁰(F_S/F, ad ρ̄_m(1)) = 0; Proposition 6.2.33(3) at N ≥ 1, printed as \"Proposition 6.2.32\"), chosen compatibly with the identifications (printed p. 1068).",
+    "Hecke side: define C_N, T_N and primed versions (dual complexes shifted by d); the mod-ϖ identification from V_λ(1)/ϖ = V_λ(χ⁻¹)/ϖ; the coinvariant identification C_N ⊗^L_{O[Δ_N]} O ≅ C_0 from Lemma 6.5.9 (printed p. 1069).",
+    "Nilpotent ideals and surjections from Propositions 6.5.3 (N = 0) and 6.5.11 (N ≥ 1), all of exponent ≤ δ with δ depending only on n and [F:Q]; compatibility of the mod-ϖ reductions of R_N → T_N/I_N and R′_N → T′_N/I′_N (printed p. 1069).",
+    "Surjectivity of T_N ⊗ O → T_0/I_0 by Chebotarev density and the Galois representations over T_0/I_0 (printed p. 1069); then \"The objects introduced above satisfy the setup described in Section 6.4.1\", and the outputs listed are those of Propositions 6.4.12, 6.4.16, 6.4.17, Remark 6.4.14 and Lemma 6.4.15 (printed pp. 1069–1070)."
+   ],
+   "acceptance": [
+    "Check the kernel condition: for v ∈ Q_N the p-part k(v)^×(p) is cyclic of order divisible by p^N, so any surjection Z_p^{nq} → ∏_{v∈Q_N} k(v)^×(p)^n has kernel in (p^N Z_p)^{nq}.",
+    "Check that the specialization isomorphism C_∞ ⊗^L S_∞/a_∞ ≅ C_0 is compatible with T_∞ → T_0 and with R_∞/a_∞ → R_0 = R_{S_1} (this is what the support implication of PA.3 consumes).",
+    "Record the source’s cross-reference slip (\"Proposition 6.2.32\" for the surjection at N ≥ 1)."
+   ],
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1068 (page image PDF p. 172)",
+     "excerpt": "The kernel of this surjection is contained in (pN Zp )nq , since each v ∈ Q satisfies",
+     "match": "Kernel condition of the set-up."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1068 (page image PDF p. 172)",
+     "excerpt": "and Proposition 6.2.32 when N ≥ 1, there are local O-algebra surjections",
+     "match": "Surjections R_∞ → R_N (with the printed cross-reference)."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1069",
+     "excerpt": "By Lemma 6.5.9, there are canonical isomorphisms",
+     "match": "Coinvariant specialization of the level-Q_N complexes."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1069",
+     "excerpt": "(Surjectivity follows from Chebotarev density and the existence of the Galois representations with coefficients in T0 /I0 and T0 /I00 .)",
+     "match": "Surjectivity onto T_0/I_0."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1069",
+     "excerpt": "The objects introduced above satisfy the setup described in Section 6.4.1.",
+     "match": "Conclusion that the arithmetic tower meets the ultrapatching set-up."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialAutomorphyInfrastructure:PA.4/full-support-and-automorphy-of-type-S1-lifts-fontaine-laffaille",
+   "parentStageId": "PotentialAutomorphyInfrastructure:PA.4",
+   "title": "Patched automorphy in the Fontaine–Laffaille case: H*(X_K, V_λ(1))_m has full support over R_{S_1}, and lifts of type S_1 are automorphic (ACC+ Theorem 6.5.4 and Corollary 6.5.5)",
+   "kind": "application",
+   "statement": "Under §6.5.1 (1)–(17): (Theorem 6.5.4) H*(X_K, V_λ(1))_m has full support over R_{S_1}. (Corollary 6.5.5) Let ρ: G_F → GL_n(Q̄_p) be continuous with ρ̄ ≅ r̄_ι(π); ρ|_{G_{F_v}} crystalline with HT_τ(ρ) = {λ_{ιτ,1} + n − 1, …, λ_{ιτ,n}} for each v | p and τ: F ↪ Q̄_p; ρ|_{G_{F_v}} unramified for v ∉ S; ρ|_{G_{F_v}} unipotently ramified for v ∈ R. Then there is a cuspidal regular algebraic automorphic representation Π of weight λ with ρ ≅ r_ι(Π), and Π_v is unramified if v | p or v ∉ S.",
+   "hypotheses": [
+    "All of §6.5.1 (1)–(17). The full-support conclusion is a statement about supports (reduced structure), not an integral R = T theorem.",
+    "The ultrafilter patching (P8), Taylor–Wiles data (this stage), the support implication (PA.3) and Theorem 2.4.10 (PA.0) are the ingredients; local–global compatibility inputs (Theorems 3.1.1, 4.5.1) enter through Propositions 6.5.3 and 6.5.11.",
+    "The soluble base change reduction (§6.5.12, Proposition 6.5.13 from [AC89]) and the deduction of Theorem 6.1.1 are outside this node (final assembly owned by ModularityAndLanglandsExtensions)."
+   ],
+   "proofSteps": [
+    "Theorem 6.5.4: build the patching set-up for (S_1, S_χ) with χ_v pairwise distinct (arithmetic set-up node), apply ACC+ §6.4.2 to get (C_∞, C′_∞, T_∞, T′_∞, R_∞, R′_∞) with C_∞ ⊗^L S_∞/a_∞ ≅ C_0, then apply the FL generic support implication (PA.3): Assumption 6.3.6 holds and H*(C_0), hence H*(X_K, V_λ(1))_m, has full support over R_{S_1} (printed pp. 1067–1070).",
+    "Corollary 6.5.5: enlarge E and conjugate so ρ is valued in GL_n(O) with ρ mod ϖ = ρ̄_m; ρ is a lift of type S_1 (crystalline with the given Hodge–Tate weights gives type D_v^FL, unipotent ramification gives D_v^1), giving f: R_{S_1} → E (printed p. 1064).",
+    "By Theorem 6.5.4, ker f lies in the support of H*(X_K, V_λ(1))_m[1/p]; Theorem 2.4.10 then gives Π cuspidal regular algebraic of weight λ with ρ ≅ r_ι(Π) and (Π^∞)^K ≠ 0, hence Π_v unramified where K_v = GL_n(O_{F_v}), i.e. v | p or v ∉ S (printed p. 1064)."
+   ],
+   "acceptance": [
+    "Keep hypotheses and conclusions exactly: crystalline with the stated Hodge–Tate multiset (Fontaine–Laffaille range guaranteed by (8) and p > n²), unipotent ramification on R, unramified outside S.",
+    "The final automorphy lifting Theorem 6.1.1 requires the additional soluble base change of §6.5.12; do not attribute it to this node."
+   ],
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Theorem 6.5.4, printed p. 1063",
+     "excerpt": "Under assumptions (1)–(17) above, H ∗ (XK , Vλ (1))m has full support over RS1 .",
+     "match": "Statement of Theorem 6.5.4."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Corollary 6.5.5, printed p. 1063",
+     "excerpt": "Then ρ is automorphic: there exists a cuspidal, regular algebraic automorphic representation Π of weight λ such that",
+     "match": "Statement of Corollary 6.5.5."
+    },
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Corollary 6.5.5, printed p. 1064",
+     "excerpt": "Theorem 6.5.4 implies that ker f is in the support of",
+     "match": "Deduction of Corollary 6.5.5 from Theorem 6.5.4 and Theorem 2.4.10."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+   "target": "PotentialAutomorphyInfrastructure:PA.0/rational-cohomology-concentration-at-absolutely-irreducible-ideals",
+   "reason": "(a) Output supplied: characteristic-zero Galois representations r_ι(π) of regular algebraic cuspidal automorphic representations of GL_m(A_F), m ≤ n, with Frobenius polynomials at good primes (ACC+ Theorem 2.3.2 = main theorem of HLTT); AG2.7 exports the \"good-prime characteristic-zero GL_n systems\" package. (b) Use: the proof of Theorem 2.4.10 builds r_ι(M) = ⊕ r_ι(π_i) ⊗ ε^{−(n_{i+1}+⋯+n_r)} for each Franke summand and uses its reducibility for proper parabolics to kill those summands after localization at m. (c) Scope: only the good-prime Frobenius-polynomial property is used (no local–global compatibility at bad places); existing atlas edge AG2.7 → PA.0.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 2.4.10, printed pp. 950–951"
+    }
+   ]
+  },
+  {
+   "source": "AutomorphicSpectralTheory:AS.5",
+   "target": "PotentialAutomorphyInfrastructure:PA.0/rational-cohomology-concentration-at-absolutely-irreducible-ideals",
+   "reason": "(a) Output supplied: the Hecke-equivariant comparison of the cohomology of X_K with coefficients in an algebraic local system with relative Lie algebra cohomology of spaces of automorphic forms (Franke [Fra98, Th. 18]); AS.5 is described as the automorphic comparison \"with algebraic coefficient systems and Hecke equivariance\" not replacing ordinary cohomology by cusp or L² cohomology. (b) Use: first step of the proof of Theorem 2.4.10. (c) Scope mismatch: the finer Franke–Schwermer decomposition along associate classes and the description of each summand by parabolic induction of cuspidal data ([FS98, §2.2, Prop. 3.3]) are not named in AS.5’s description; Franke’s paper (in the supplied library) and [FS98] were not read in this packet. New stage edge AS.5 → PA.0 (acyclic).",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 2.4.10, printed pp. 949–950"
+    }
+   ]
+  },
+  {
+   "source": "DeformationAndDerivedPatchingAlgebra:P9/support-transport-avoiding-ihara",
+   "target": "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-fontaine-laffaille-patched-data",
+   "reason": "(a) Output supplied: ACC+ Proposition 6.3.8 (support of H*(C_∞) contains every maximal-dimensional component of Spec R_∞) for abstract patched pairs satisfying Assumption 6.3.6. (b) Use: applied on printed p. 1070 once Assumption 6.3.6 has been verified for the FL patched pair. (c) Scope: exact match; the P9 node states Assumption 6.3.6 as hypotheses \"to be verified by the arithmetic consumer (PotentialAutomorphyInfrastructure PA.3)\". Existing atlas edge P9 → PA.3.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1070"
+    }
+   ]
+  },
+  {
+   "source": "DeformationAndDerivedPatchingAlgebra:P9/support-transport-avoiding-ihara",
+   "target": "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-ordinary-patched-data",
+   "reason": "(a) Output supplied: ACC+ Corollary 6.3.9 (for x on a maximal-dimensional component with contraction y, x lies in the support of H*(C_∞ ⊗^L S_∞/y)_y, and in H*(C_∞ ⊗^L S_∞/y)[1/p] when y is one-dimensional of characteristic 0), recorded in the same P9 node. (b) Use: applied at the point x = inverse image of ker f on printed p. 1081. (c) Scope: exact match; existing atlas edge P9 → PA.3.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.6.2, printed p. 1081"
+    }
+   ]
+  },
+  {
+   "source": "DeformationAndDerivedPatchingAlgebra:P8/ultrapatching-of-perfect-complexes",
+   "target": "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-fontaine-laffaille-patched-data",
+   "reason": "(a) Output supplied: the shape of the ultrapatched data (bounded complexes of finite free S_∞-modules, derived Hecke rings with nilpotent ideals of exponent δ, S_∞-algebra structure on R_∞ chosen by formal smoothness, C_∞/a_∞ ≅ C₀, and the mod-ϖ identification of the two systems, ACC+ Propositions 6.4.12, 6.4.16, 6.4.17, Remark 6.4.14, Lemma 6.4.15). (b) Use: these are exactly the objects whose §6.3.5 hypotheses the FL implication checks (printed pp. 1069–1070). (c) Scope: exact; the arithmetic input to the construction is verified in PA.4. New stage edge P8 → PA.3 (P8 → P9 → PA.3 already exists, so no cycle).",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed pp. 1069–1070"
+    }
+   ]
+  },
+  {
+   "source": "DeformationAndDerivedPatchingAlgebra:P8/ultrapatching-of-perfect-complexes",
+   "target": "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-ordinary-patched-data",
+   "reason": "(a) Output supplied: the ultrapatched data of ACC+ §6.4.2 for the ordinary complexes A(μ,χ,Q)_{n_Q} ⊗ O(ν + w₀^G μ)⁻¹ over Λ. (b) Use: listed on printed pp. 1080–1081 as \"the necessary input for Section 6.3.5\". (c) Scope: the P8 node allows Λ a power series ring over O; that Λ = ⊗̂ Λ_v is such a ring (after enlarging E) is not stated in the source and is recorded as a gap.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.6.2, printed pp. 1080–1081"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.0/rational-cohomology-concentration-at-absolutely-irreducible-ideals",
+   "target": "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-fontaine-laffaille-patched-data",
+   "reason": "(a) Output supplied: ACC+ Theorem 2.4.10 — for ρ̄_m absolutely irreducible, H^j(X_K, V_λ)_m[1/p] is nonzero exactly in [q₀, q₀ + l₀] once nonzero. (b) Use: verifies the generic concentration hypothesis (3) of Assumption 6.3.6 at p = a_∞ (printed p. 1070). (c) Scope: exact; existing atlas edge PA.0 → PA.3.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1070"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.0/rational-cohomology-concentration-at-absolutely-irreducible-ideals",
+   "target": "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-ordinary-patched-data",
+   "reason": "(a) Output supplied: Theorem 2.4.10 (degree concentration and nonvanishing of rational cohomology at the level K(1,1)). (b) Use: verifies hypothesis (3) of Assumption 6.3.6 for the ordinary patched complex after Corollary 6.6.6 (printed p. 1081). (c) Scope: exact; existing atlas edge PA.0 → PA.3.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.6.2, printed p. 1081"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.0/rational-cohomology-concentration-at-absolutely-irreducible-ideals",
+   "target": "PotentialAutomorphyInfrastructure:PA.3/congruent-deformation-problems-and-twisted-coefficients",
+   "reason": "(a) Output supplied: Theorem 2.4.10(1) (the Hecke eigensystem of π at level K factors through T^S(K, λ)). (b) Use: produces the maximal ideal m with ρ̄_m ≅ r̄_ι(π) at the start of §6.5.1 and §6.6.1 (printed pp. 1062, 1076). (c) Scope: exact; existing atlas edge PA.0 → PA.3.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "§6.5.1, printed p. 1062; §6.6.1, printed p. 1076"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.3/congruent-deformation-problems-and-twisted-coefficients",
+   "target": "PotentialAutomorphyInfrastructure:PA.3/dimension-and-component-hypotheses-for-patched-local-rings",
+   "reason": "The local conditions D_v^FL, D_v^χ, D_v^□ (and D_v^{det,ord}) and the congruence χ ≡ 1 mod ϖ fixed in the set-up are the inputs of Lemmas 6.2.26–6.2.27 applied on printed pp. 1070 and 1081.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1070"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.3/dimension-and-component-hypotheses-for-patched-local-rings",
+   "target": "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-fontaine-laffaille-patched-data",
+   "reason": "Supplies hypotheses (1)–(2) of Assumption 6.3.6 (dimensions, equidimensionality, unique generization, irreducibility of R′_∞) for the FL implication (printed p. 1070).",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1070"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.3/dimension-and-component-hypotheses-for-patched-local-rings",
+   "target": "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-ordinary-patched-data",
+   "reason": "Supplies hypotheses (1)–(2) of §6.3.5 and, through Lemma 6.2.27(3), the placement of x on a maximal-dimensional component for the ordinary implication (printed p. 1081).",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.6.2, printed p. 1081"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.3/congruent-deformation-problems-and-twisted-coefficients",
+   "target": "PotentialAutomorphyInfrastructure:PA.3/hecke-valued-galois-representation-of-type-S-chi",
+   "reason": "The deformation problems S_χ and coefficient modules V_λ(χ⁻¹) defined in the set-up are the source and target of the surjections f_{S_χ} (Propositions 6.5.3, 6.6.7).",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proposition 6.5.3, printed p. 1063"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.3/hecke-valued-galois-representation-of-type-S-chi",
+   "target": "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-fontaine-laffaille-patched-data",
+   "reason": "f_{S_1}: R_{S_1} → T_0/J gives the meaning of \"support over R_{S_1}\" in the conclusion (iv) and the compatibility R_∞/a_∞ → R_{S_1} → T_0/I_0 (printed pp. 1063, 1070).",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Paragraph before Theorem 6.5.4, printed p. 1063"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.3/hecke-valued-galois-representation-of-type-S-chi",
+   "target": "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-ordinary-patched-data",
+   "reason": "The ordinary surjection f_{S_χ} of Proposition 6.6.7 defines the R_{S_1}-support used for ker f (printed pp. 1078, 1080–1081).",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.6.2, printed pp. 1080–1081"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-fontaine-laffaille-patched-data",
+   "target": "PotentialAutomorphyInfrastructure:PA.3/unconditional-derived-ihara-avoidance-versus-calegari-geraghty-conjecture-b",
+   "reason": "The FL implication is the concrete instance of the unconditional mechanism compared with CG Theorem 9.19 (which instead assumes integral concentration via Conjecture B(4)).",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "§6.1, printed p. 1031"
+    },
+    {
+     "sourceId": "calegari-geraghty-2018",
+     "locator": "§9.5, Theorem 9.19, PDF pp. 129–132"
+    }
+   ]
+  },
+  {
+   "source": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-and-component-support-conclusions",
+   "target": "PotentialAutomorphyInfrastructure:PA.3/unconditional-derived-ihara-avoidance-versus-calegari-geraghty-conjecture-b",
+   "reason": "(a) Output supplied: the record of CG Theorem 6.4 (near-faithfulness conclusions) and CG Proposition 6.6 (two-system patching with omitted proof). (b) Use: the comparison node contrasts CG Theorem 9.19 (which invokes Proposition 6.6 and Theorem 6.4) with ACC+ Proposition 6.3.8. (c) Scope: exact for the CG side. New stage edge R03.6 → PA.3 (R03.6 → P9 → PA.3 already exists; no cycle).",
+   "sources": [
+    {
+     "sourceId": "calegari-geraghty-2018",
+     "locator": "§9.5, proof of Theorem 9.19, PDF pp. 130–132"
+    }
+   ]
+  },
+  {
+   "source": "ArithmeticGaloisRepresentations:G7/enormous-image-and-its-coefficient-extension-invariance",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/existence-of-taylor-wiles-data-killing-dual-selmer",
+   "reason": "(a) Output supplied: the definition of enormous subgroups (no p-power quotient, H⁰ = H¹ = 0 for ad⁰, regular semisimple elements with nonzero invariants on simple submodules) and its coefficient-extension invariance (ACC+ Def. 6.2.29, Lemma 6.2.30). (b) Use: the proof of Lemma 6.2.32 consumes all three clauses for H = ρ̄(G_{F(ζ_p)}) (injectivity of restriction to L(ζ_{p^N}) and choice of σ₀). (c) Scope: exact; new stage edge G7 → PA.4 (acyclic).",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Lemma 6.2.32, printed p. 1046"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/existence-of-taylor-wiles-data-killing-dual-selmer",
+   "reason": "(a) Output supplied: Chebotarev density (Dirichlet density #C/#G of primes with Frobenius in a conjugacy class, and infinitude of each Frobenius class). (b) Use: Lemma 6.2.32 reduces to finding σ in G_{F(ζ_{p^N})} with prescribed eigenvalue and cocycle conditions and then takes places whose Frobenius lies in the conjugacy class of σ in a finite Galois extension, intersected with the density-one set of degree-one places. (c) Scope: the density-one statement for places of degree one over Q is not named in the Chebotarev layer description; recorded as a gap.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Lemma 6.2.32, printed p. 1046"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/existence-of-taylor-wiles-data-killing-dual-selmer",
+   "reason": "(a) Output supplied: the three-term inflation–restriction exact sequence 0 → H¹(G/N, M^N) → H¹(G, M) → H¹(N, M) for discrete coefficients. (b) Use: in Lemma 6.2.32, H⁰(H, ad⁰) = 0 and H¹(H, ad⁰) = 0 give injectivity of restriction from G_F to G_{F(ζ_{p^N})} and then to G_{L(ζ_{p^N})}. (c) Scope: exact (finite k-vector-space coefficients are discrete).",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Lemma 6.2.32, printed p. 1046"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/existence-of-taylor-wiles-data-killing-dual-selmer",
+   "reason": "(a) Output supplied: the Kummer isomorphism K^×/(K^×)^n ≅ H¹(G_K, μ_n). (b) Use: a nonzero class in H¹(F_S/F, k(1)) restricted to F(ζ_p) corresponds to a Kummer extension F(ζ_p, y), y^p ∈ F(ζ_p) (printed p. 1046). (c) Scope: the source additionally uses descent from F(ζ_p) (p ∤ [F(ζ_p):F]) and non-abelianness over F; those steps are part of this node.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Lemma 6.2.32, printed p. 1046"
+    }
+   ]
+  },
+  {
+   "source": "DeformationAndDerivedPatchingAlgebra:R03.2/presentation-relations-and-dual-selmer-bound",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-presentation-with-g-variables",
+   "reason": "(a) Output supplied: ACC+ Proposition 6.2.25 — surjection R^{T,loc}_S[[X_1,…,X_g]] → R^T_S with g = h¹_{S,T}(ad ρ̄) = h¹_{S^⊥,T}(ad ρ̄(1)) − h⁰(F_S/F, ad ρ̄(1)) − Σ_{v|∞} h⁰(F_v, ad ρ̄) + Σ_{v∈S−T}(dim L_v − h⁰(F_v, ad ρ̄)). (b) Use: applied to S_{Q_N} in the proof of Proposition 6.2.33 and at N = 0 in the proof of Theorem 6.5.4. (c) Scope: the R03.2 node records the variable count of Proposition 6.2.25 (and separately KW II’s relation bound, which ACC+ does not use). New stage edge R03.2 → PA.4 (acyclic).",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Proposition 6.2.33, printed p. 1047; proof of Theorem 6.5.4, printed p. 1068"
+    }
+   ]
+  },
+  {
+   "source": "DeformationAndDerivedPatchingAlgebra:P8/ultrapatching-of-perfect-complexes",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/arithmetic-tower-satisfies-ultrapatching-set-up-fontaine-laffaille",
+   "reason": "(a) Output supplied: the abstract ultrapatching construction of ACC+ §6.4.2 (Definitions 6.4.3, 6.4.7, 6.4.11; Propositions 6.4.10, 6.4.12, 6.4.16, 6.4.17; Remarks 6.4.13–6.4.14; Lemma 6.4.15). (b) Use: once the arithmetic tower is shown to satisfy §6.4.1, these results produce the patched objects listed on printed pp. 1069–1070. (c) Scope: exact; the P8 node treats Λ[Δ_N]-perfect complexes with derived Hecke actions, matching C_N here. New stage edge P8 → PA.4 (P8 → P9 → PA.3 → PA.4 already exists).",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed pp. 1069–1070"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-local-condition-datum-and-augmented-problem",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/existence-of-taylor-wiles-data-killing-dual-selmer",
+   "reason": "Uses the definition of Taylor–Wiles data and of S_Q (with D_v^□ at v ∈ Q) to compute the dual Selmer group at level Q_N.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Lemma 6.2.32, printed p. 1045"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.4/existence-of-taylor-wiles-data-killing-dual-selmer",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-presentation-with-g-variables",
+   "reason": "Lemma 6.2.32 supplies Q_N with #Q_N = q, q_v ≡ 1 mod p^N, degree-one places and vanishing dual Selmer group, which Proposition 6.2.33 turns into the presentation with g variables.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Proposition 6.2.33, printed p. 1047"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-local-condition-datum-and-augmented-problem",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/auxiliary-level-subgroups-hecke-algebras-and-maximal-ideals",
+   "reason": "The Taylor–Wiles datum (orderings α_{v,i}) and the O[Δ_Q]-structure on R_{S_{χ,Q}} fix Δ_Q ≅ K₀(Q)/K₁(Q) and the eigenvalues in n^Q_0.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "§6.5.1, printed p. 1064"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.4/auxiliary-level-subgroups-hecke-algebras-and-maximal-ideals",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-level-change-isomorphisms-of-localized-complexes",
+   "reason": "Lemma 6.5.9 is stated for the maximal ideals m^Q, n^Q_0, n^Q_1 of Lemma 6.5.8, and its first isomorphism reuses the argument of that proof.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Lemma 6.5.9, printed p. 1066"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-level-change-isomorphisms-of-localized-complexes",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/delta-Q-equivariant-galois-representation-at-auxiliary-level",
+   "reason": "Proposition 6.5.11 is formulated for the local O[Δ_Q]-algebra of (6.5.10).",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proposition 6.5.11, printed pp. 1066–1067"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-presentation-with-g-variables",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/arithmetic-tower-satisfies-ultrapatching-set-up-fontaine-laffaille",
+   "reason": "Proposition 6.2.33 provides the Taylor–Wiles data Q_N and the surjections R_∞ → R_N for N ≥ 1.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1068"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-level-change-isomorphisms-of-localized-complexes",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/arithmetic-tower-satisfies-ultrapatching-set-up-fontaine-laffaille",
+   "reason": "Lemma 6.5.9 gives the coinvariant specializations C_N ⊗^L_{O[Δ_N]} O ≅ C_0 required by §6.4.1.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1069"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.4/delta-Q-equivariant-galois-representation-at-auxiliary-level",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/arithmetic-tower-satisfies-ultrapatching-set-up-fontaine-laffaille",
+   "reason": "Proposition 6.5.11 gives the nilpotent ideals I_N (exponent ≤ δ) and surjections R_N → T_N/I_N for N ≥ 1.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1069"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.3/hecke-valued-galois-representation-of-type-S-chi",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/arithmetic-tower-satisfies-ultrapatching-set-up-fontaine-laffaille",
+   "reason": "Proposition 6.5.3 gives the N = 0 surjections R_0 → T_0/I_0 (and primed), and its argument is reused for the local conditions at S in Proposition 6.5.11. Existing atlas edge PA.3 → PA.4.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1069"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.3/hecke-valued-galois-representation-of-type-S-chi",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/delta-Q-equivariant-galois-representation-at-auxiliary-level",
+   "reason": "The conditions at places of S in Proposition 6.5.11 \"can be checked just as in the proof of Proposition 6.5.3\". Existing atlas edge PA.3 → PA.4.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Proposition 6.5.11, printed p. 1067"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.3/congruent-deformation-problems-and-twisted-coefficients",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/auxiliary-level-subgroups-hecke-algebras-and-maximal-ideals",
+   "reason": "The level K, the problems S_χ and the coefficients V_λ(χ⁻¹) of the congruent pair are the objects on which the auxiliary levels are built. Existing atlas edge PA.3 → PA.4.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "§6.5.1, printed pp. 1062, 1064"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.4/arithmetic-tower-satisfies-ultrapatching-set-up-fontaine-laffaille",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/full-support-and-automorphy-of-type-S1-lifts-fontaine-laffaille",
+   "reason": "Supplies the patched pair with C_∞ ⊗^L S_∞/a_∞ ≅ C_0 on which the support implication is run.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed pp. 1069–1070"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-fontaine-laffaille-patched-data",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/full-support-and-automorphy-of-type-S1-lifts-fontaine-laffaille",
+   "reason": "The generic support implication turns the patched pair into full support of H*(X_K, V_λ(1))_m over R_{S_1}. Existing atlas edge PA.3 → PA.4.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Theorem 6.5.4, printed p. 1070"
+    }
+   ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.0/rational-cohomology-concentration-at-absolutely-irreducible-ideals",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/full-support-and-automorphy-of-type-S1-lifts-fontaine-laffaille",
+   "reason": "Corollary 6.5.5 applies Theorem 2.4.10 to the point ker f in the support after inverting p to produce Π. New stage edge PA.0 → PA.4 (PA.0 → PA.3 → PA.4 already exists).",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Corollary 6.5.5, printed p. 1064"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "PotentialAutomorphyInfrastructure:PA.0",
+   "status": "partial",
+   "remaining": [
+    "Only ACC+ Theorem 2.4.10 is decomposed; its imports Franke [Fra98, Th. 18] (in the supplied library, unread), Franke–Schwermer [FS98, §2.2, Prop. 3.3] (absent), Borel–Wallach [BW00, II Prop. 3.1] (library djvu, unread) and Clozel [Clo90, Lem. 3.14] (absent) remain open.",
+    "Decompose §2.1 (Lemmas 2.1.4, 2.1.7; Hecke algebra of a monoid, Lemmas 2.1.10–2.1.14) and §2.2 (coefficient lattices V_λ, Hecke algebras T^S(K, V), T^S(K/K′, V), Lemma 2.2.4 nilpotence bound, §2.2.5 Hecke operators, Propositions 2.2.9–2.2.24) against ArithmeticLocallySymmetricSpaces ALS.1–ALS.4 and IntegralHeckeAndGaloisDeterminants IHG.2.",
+    "Read and decompose §2.4 boundary cohomology (Theorems 2.4.2, 2.4.4, 2.4.8, 2.4.11) and §4.2 (Theorem 4.2.1, Lemmas 4.2.2–4.2.3: direct summand of boundary cohomology under genericity)."
+   ]
+  },
+  {
+   "stageId": "PotentialAutomorphyInfrastructure:PA.1",
+   "status": "not_read",
+   "remaining": [
+    "Read ACC+ §4.1 (statements, Fontaine–Laffaille category MF_O and twisting), §4.3 (Definition 4.3.1, Lemma 4.3.2, Theorem 4.3.3, Proposition 4.3.4, Definition 4.3.5, Lemma 4.3.6), §4.4 (Propositions 4.4.1, 4.4.6, Remark 4.4.7, Corollary 4.4.8) and §4.5 (Theorem 4.5.1, Lemma 4.5.2), printed pp. 964–989.",
+    "Check suppliers FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.3 (EXT-07 nodes) and IgusaVarietiesAndTorsionConcentration IG.7 against the exact uses."
+   ]
+  },
+  {
+   "stageId": "PotentialAutomorphyInfrastructure:PA.2",
+   "status": "not_read",
+   "remaining": [
+    "Read ACC+ §5.1 statements, §5.2 Hida theory (ordinary parts of smooth representations, Lemmas 5.2.4–5.2.9; completed cohomology, Lemma 5.2.14, Proposition 5.2.15, Corollaries 5.2.16, 5.2.18, Proposition 5.2.17; results for G̃, Proposition 5.2.28), §5.3 (Proposition 5.3.1, Lemmas 5.3.3–5.3.7, Proposition 5.3.8), §5.4 (Theorems 5.4.1, 5.4.3, Lemmas 5.4.8, 5.4.14–5.4.16, Propositions 5.4.13, 5.4.18) and §5.5 (Theorem 5.5.1), printed pp. 989–1028.",
+    "Check PadicFamilies L0a (no nodes yet) and IgusaVarietiesAndTorsionConcentration IG.7 against the exact uses."
+   ]
+  },
+  {
+   "stageId": "PotentialAutomorphyInfrastructure:PA.3",
+   "status": "partial",
+   "remaining": [
+    "Imports of Propositions 6.5.3/6.6.7: ACC+ Theorem 3.1.1 (§3, local–global compatibility at l ≠ p for Hecke-algebra-valued representations; proof printed pp. 955–964 unread), Theorem 2.3.7 ([Sch15, Cor. 5.4.4], unread), Theorems 4.5.1 and 5.5.1 (PA.1/PA.2, not yet decomposed).",
+    "Local-ring imports of Lemmas 6.2.26–6.2.27: [Tay08, Prop. 3.1], [BLGHT11, Lem. 3.3], [CHT08, §2.4.1], [Tho15, Prop. 3.14] (all absent from the library), Proposition 6.2.21 (proof left to the reader).",
+    "Ordinary-case complexes B(μ,χ), A(μ,χ) and Corollary 6.6.6 (§6.6.1, depending on §5.2) are used in the ordinary implication but not yet decomposed.",
+    "Reviewer confirmation of the implicit steps flagged in the nodes (power-series inheritance of component properties, dim R_∞/ϖ, passage of full support to R_∞/a_∞ and to H*(X_K, V_λ(1))_m, the undefined shift d)."
+   ]
+  },
+  {
+   "stageId": "PotentialAutomorphyInfrastructure:PA.4",
+   "status": "partial",
+   "remaining": [
+    "Ordinary arithmetic set-up of §6.6.1: A₁(μ,χ,c), (6.6.3)–(6.6.4), limit via [KT17, Lem. 2.13], B₁(μ,χ), Lemma 6.6.5, Corollary 6.6.6, A₁(μ,χ,Q), Lemma 6.6.8 (proof omitted in the source), Proposition 6.6.9, and the assembly of Theorem 6.6.2 (requires PA.2 reading of §5.2).",
+    "Imports: [KT17] Lemmas 2.3, 2.5, 2.13, 5.3, 5.4 (Khare–Thorne 2017, absent from library); [BC09, Prop. 1.5.1] (absent); Lemma 6.2.19 ([DDT97, Lem. 2.44], left to the reader); ACC+ Theorem 3.1.1 at Taylor–Wiles places.",
+    "Density one of degree-one places (used in Lemma 6.2.32) is not named in the Chebotarev roadmap layer.",
+    "Out of scope here: soluble base change (§6.5.12, Proposition 6.5.13 from [AC89]) and the deductions of Theorems 6.1.1–6.1.2, owned downstream by ModularityAndLanglandsExtensions."
+   ]
+  },
+  {
+   "stageId": "PotentialAutomorphyInfrastructure:PA.5",
+   "status": "not_read",
+   "remaining": [
+    "Read ACC+ §7.1 (very weakly / extremely weakly compatible systems, Lemmas 7.1.1–7.1.10, Theorem 7.1.11, Corollaries 7.1.12–7.1.16), printed pp. 1084–1098, and check PotentialModularityAndCompatibleSystems R24.5:operations (atlas description only) against the uses."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "ACC+ Theorem 3.1.1 (local–global compatibility at l ≠ p for Hecke-algebra-valued Galois representations) is imported without an identified owner",
+   "neededBy": [
+    "PotentialAutomorphyInfrastructure:PA.3/hecke-valued-galois-representation-of-type-S-chi",
+    "PotentialAutomorphyInfrastructure:PA.4/delta-Q-equivariant-galois-representation-at-auxiliary-level"
+   ],
+   "detail": "Verified: the statement (printed p. 954) and its use in Propositions 6.5.3 (places of R and S^c − S) and 6.5.11 (places of Q, characteristic polynomials of W_{F_v}). Not verified: the proof (§3.2, printed pp. 955–964, via Proposition 3.1.2, [Che14, Th. 2.22] and boundary cohomology). The README matrix assigns §3 to AutomorphicGaloisRepresentationsPartII / PadicHodgeTheory / IntegralHeckeAndGaloisDeterminants, but AG2.7 is described as a characteristic-zero export and no stage description covers torsion Hecke-algebra-valued local–global compatibility. Next action: read ACC+ §3.2 and request an owner (candidates IntegralHeckeAndGaloisDeterminants IHG.5 or TorsionCohomologyInfrastructure TC.4)."
+  },
+  {
+   "title": "Khare–Thorne 2017 lemmas used for Taylor–Wiles levels and minimal complexes are absent from the library",
+   "neededBy": [
+    "PotentialAutomorphyInfrastructure:PA.4/auxiliary-level-subgroups-hecke-algebras-and-maximal-ideals",
+    "PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-level-change-isomorphisms-of-localized-complexes",
+    "PotentialAutomorphyInfrastructure:PA.4/arithmetic-tower-satisfies-ultrapatching-set-up-fontaine-laffaille"
+   ],
+   "detail": "[KT17, Lem. 5.3] (existence of the U_{v,i}-eigenvector, used in Lemma 6.5.8), [KT17, Lem. 5.4] (trace isomorphism, used in Lemma 6.5.9), and [KT17, Lem. 2.3, 2.5, 2.13] (minimal complexes, nilpotence bounds, endomorphisms of limits; used in §6.4 and §6.6.1) are cited but not in the supplied library. Source absent from library: obtain C. B. Khare and J. A. Thorne, \"Potential automorphy and the Leopoldt conjecture\", Amer. J. Math. 139 (2017) (arXiv:1409.7007) and read §2 and §5."
+  },
+  {
+   "title": "Local deformation-ring component inputs to Lemmas 6.2.26–6.2.27 are imported (Taylor 2008, BLGHT 2011, CHT 2008, Thorne 2015)",
+   "neededBy": [
+    "PotentialAutomorphyInfrastructure:PA.3/dimension-and-component-hypotheses-for-patched-local-rings"
+   ],
+   "detail": "Propositions 6.2.16–6.2.17 are \"contained in [Tay08, Prop. 3.1]\"; Lemma 6.2.26 applies [BLGHT11, Lem. 3.3]; Proposition 6.2.14 follows \"from [CHT08, §2.4.1] and a twisting argument\"; Proposition 6.2.10 is \"essentially contained in [Tho15, Prop. 3.14]\"; Proposition 6.2.21 is \"left to the reader\". None of these sources is in the library. Proposition 6.2.12 and Lemmas 6.2.9, 6.2.11 were read with proofs. Shared-supplier request: LocalGaloisDeformationRings L7 (which exports \"the precise local comparisons and component support input used in ACC+ §6.2\") and L8 (det-ord versus flag-ordinary) should own these statements; next action: obtain R. Taylor, Publ. Math. IHES 108 (2008), and T. Barnet-Lamb, D. Geraghty, M. Harris, R. Taylor, Publ. RIMS 47 (2011)."
+  },
+  {
+   "title": "Bellaïche–Chenevier criterion [BC09, Prop. 1.5.1] for splitting a representation along distinct characters",
+   "neededBy": [
+    "PotentialAutomorphyInfrastructure:PA.4/delta-Q-equivariant-galois-representation-at-auxiliary-level"
+   ],
+   "detail": "Used to show ρ_{n^Q_1}|_{W_{F_v}} ≅ ⊕ψ_{v,i} from equality of characteristic polynomials and residual distinctness (printed p. 1067). Source absent: J. Bellaïche and G. Chenevier, Astérisque 324 (2009), Prop. 1.5.1. Candidate owner: IntegralHeckeAndGaloisDeterminants IHG.1 (Cayley–Hamilton algebras and reconstruction); not verified against its scope."
+  },
+  {
+   "title": "Automorphic imports of Theorem 2.4.10 (Franke, Franke–Schwermer, Borel–Wallach, Clozel)",
+   "neededBy": [
+    "PotentialAutomorphyInfrastructure:PA.0/rational-cohomology-concentration-at-absolutely-irreducible-ideals"
+   ],
+   "detail": "The proof of Theorem 2.4.10 uses [Fra98, Th. 18] and [FS98, §2.2, Prop. 3.3] for the decomposition of H*(X_K, V_ιλ) along associate classes of parabolics, [BW00, Ch. II, Prop. 3.1] and [Clo90, Lem. 3.14] for the (m_G, K_∞)-cohomology of cuspidal representations. Franke (catalogue FRANKE) and Borel–Wallach (catalogue SUP_BorelWallach_2000, OCR caveats) are in the supplied library but were not read; Franke–Schwermer and Clozel are absent. Next action: read Franke Theorem 18 and Borel–Wallach II.3.1; obtain J. Franke and J. Schwermer, Math. Ann. 311 (1998), and L. Clozel, \"Motifs et formes automorphes\" (1990), Lemma 3.14. Owner request: AutomorphicSpectralTheory AS.5 (link recorded with scope caveat)."
+  },
+  {
+   "title": "Implicit commutative-algebra steps in the proofs of Theorems 6.5.4 and 6.6.2",
+   "neededBy": [
+    "PotentialAutomorphyInfrastructure:PA.3/dimension-and-component-hypotheses-for-patched-local-rings",
+    "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-fontaine-laffaille-patched-data"
+   ],
+   "detail": "Not written in the source and supplied here only as reviewer routes: (a) R_∞ = R^loc[[X_1,…,X_g]] inherits equidimensionality, characteristic-0 generic points and unique generization; (b) dim R_∞/ϖ = dim S_∞ − l₀ − 1 and the bound for non-maximal generic points of Spec R_∞/ϖ (catenarity and Krull’s principal ideal theorem); (c) full support of H*(C_∞) over R_∞ implies full support of H*(C_∞ ⊗^L S_∞/a_∞) over R_∞/a_∞ (top-degree Nakayama as in Corollary 6.3.9); (d) support of H*(C_0) equals that of H*(X_K, V_λ(1))_m; (e) the shift d in C_0 is not defined in §6.5 (the interval [d − q₀ − l₀, d − q₀] has length l₀, which suffices). Next action: reviewer confirmation; route (a)–(b) should be discharged by DeformationAndDerivedPatchingAlgebra R03.3 dimension theory."
+  },
+  {
+   "title": "Ordinary-case patching inputs (§6.6.1) not yet decomposed; Lemma 6.6.8 proof omitted in the source",
+   "neededBy": [
+    "PotentialAutomorphyInfrastructure:PA.4",
+    "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-ordinary-patched-data"
+   ],
+   "detail": "The complexes A₁(μ,χ,c), their limit A₁(μ,χ) via [KT17, Lem. 2.13], the twist B₁(μ,χ), Lemma 6.6.5 (independence of μ, from Proposition 5.2.17), Corollary 6.6.6, the auxiliary complexes A₁(μ,χ,Q), Lemma 6.6.8 (\"We omit the details\") and Proposition 6.6.9 were read (printed pp. 1076–1080) but depend on §5.2 Hida theory not yet read. The claim that Λ = ⊗̂ Λ_v is a power series ring over O (required by §6.4.1) is not stated in the source (it needs E large enough that the minimal primes of the torsion part are O-rational). Next action: read §5.2 and decompose these as PA.4 nodes with a PA.2 supplier link."
+  },
+  {
+   "title": "Density one of places of degree one over Q is used but not named by the Chebotarev roadmap layer",
+   "neededBy": [
+    "PotentialAutomorphyInfrastructure:PA.4/existence-of-taylor-wiles-data-killing-dual-selmer"
+   ],
+   "detail": "Lemma 6.2.32’s proof states \"The set of places of F that have degree one over Q has density one\" before applying Chebotarev density. The Chebotarev layer 10 description covers Dirichlet-density Chebotarev and split-completely primes but not this standard counting statement. Next action: request it from tauceti:TauCetiRoadmap/Chebotarev (or ArithmeticDirichletSeries layer 5) or add a node."
+  },
+  {
+   "title": "Scholze’s torsion Galois representations (ACC+ Theorem 2.3.7 from [Sch15, Cor. 5.4.4]) are imported",
+   "neededBy": [
+    "PotentialAutomorphyInfrastructure:PA.3/hecke-valued-galois-representation-of-type-S-chi",
+    "PotentialAutomorphyInfrastructure:PA.4/delta-Q-equivariant-galois-representation-at-auxiliary-level"
+   ],
+   "detail": "Theorem 2.3.7 gives ρ_m valued in T^S(K, λ)_m/I with I^N = 0, N depending only on n and [F:Q], under S = S^c and the splitting condition. Its proof \"follows from [Sch15, Cor. 5.4.4]\". Scholze, Annals 182 (2015), is in the supplied library (catalogue SCH-TORSION) but Corollary 5.4.4 was not read. Candidate owner: TorsionCohomologyInfrastructure TC.4 (reusable output) with IntegralHeckeAndGaloisDeterminants IHG.5; not verified against their scope. Next action: read Scholze §5.4."
+  }
+ ]
+}

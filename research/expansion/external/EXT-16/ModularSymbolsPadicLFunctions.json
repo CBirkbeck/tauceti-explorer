@@ -1,570 +1,729 @@
 {
- "roadmapId": "ModularSymbolsPadicLFunctions",
- "status": "partial",
- "summary": "Source decomposition from four primary sources read directly: Rodrigues Jacinto-Williams Appendix B (printed pp. 79-81), Pollack-Stevens 'Critical slope p-adic L-functions' (Sections 1, 2, 3.1-3.2, 8 and 9), Bellaiche 'Critical p-adic L-functions' (Sections 1.1-1.4), and Amice-Velu (Theoreme III, printed p. 125). Formulas (2) of Pollack-Stevens and (4)-(5) of Bellaiche were read from rendered page images at 220 and 500 dpi because the PDF text layers scramble the fractions and drop a bar on Q-bar_p. TWO PRINTED DISCREPANCIES ARE RECORDED. (1) Pollack-Stevens equation (2) prints L(f, chi^{-1}, 1) as the interpolated value, but its left-hand side depends on j and no other factor supplies that dependence; Bellaiche, restating the same Pollack-Stevens interpolation property, prints L_infinity(f phi^{-1}, j+1), which fixes the reading. (2) Bellaiche's modification factor (5) prints alpha in BOTH Euler-factor denominators while its prefactor is 1/beta^nu and the refinement being interpolated is f_beta with U_p f_beta = beta f_beta; by Bellaiche's own Sec. 1.3 the denominators should be beta. The reconciliation of RJW Theorem B.1 (one Euler factor, f of level divisible by p) with Bellaiche (4)-(5) (two Euler factors, newform of level prime to p plus a chosen refinement) is exactly the second-Euler-factor point the stage names, and the Gauss-sum/2-pi-i dictionary between the two printed normalizations is recorded as an AUTHORED computation still to be verified. Three further hypotheses are carried explicitly: the modular-symbol comparison H^1_c = Hom_{Gamma_0}(Delta_0, -) needs the order of every torsion element of Gamma_0 to act invertibly; the control theorem needs slope STRICTLY less than k+1; and at critical slope a (k+1)-admissible distribution is NOT determined by its interpolation values, with Pollack-Stevens stating that their method does not give the missing values at x^{k+1}chi and Bellaiche proving that at a theta-critical point ALL the interpolation values vanish except in one Eisenstein case. All five stages are partial; no canonical integral period and no integrality statement for the measure was found in any source read.",
- "sources": [
-  {
-   "id": "rjw-padic-l-functions",
-   "title": "An introduction to p-adic L-functions",
-   "authors": "Joaquin Rodrigues Jacinto; Chris Williams",
-   "edition": "arXiv:2309.15692v2, 19 December 2024 (inspected 2026-09-16)",
-   "url": "https://arxiv.org/pdf/2309.15692v2",
-   "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
-   "readSections": [
-    "Appendix B, printed pp. 79-81: B.1, B.2.1 with Theorem B.1 and its footnote on Deligne's criticality criterion, B.2.2 with Theorems B.2 and B.3, B.2.3 with Theorem B.4, Remarks B.5 and B.6, and the opening of B.3"
-   ]
-  },
-  {
-   "id": "pollack-stevens-critical-slope",
-   "title": "Critical slope p-adic L-functions",
-   "authors": "Robert Pollack; Glenn Stevens",
-   "edition": "Author PDF (published J. London Math. Soc. 87 (2013) 428-452); 23 printed pages (inspected 2026-09-16)",
-   "url": "https://rpollack9974.github.io/web/Papers/Critical_slope_padic_Lfunctions.pdf",
-   "sha256": "b0ca4fa806675948d5a522ce9e22af009a0d19a197bc7d1485a83f57ea360430",
-   "readSections": [
-    "Abstract and Sec. 1, printed pp. 1-3: Theorem 1.1 (Stevens' control theorem), Theorem 1.2 (the theta criterion), the sketch of the kernel of specialization, and the remarks on Bellaiche's and Loeffler-Zerbes' later work",
-    "Sec. 2, printed pp. 4-5: Sec. 2.1 (Delta_0, the S_0(p)-action, the comparison H^1_c = Hom_{Gamma_0}(Delta_0, M) with its torsion hypothesis, the explicit U_p formula) and Sec. 2.2 (determinant twists M(r), the involution iota, the Banach norm)",
-    "Sec. 3.1-3.2, printed pp. 5-7: the spaces B[Z_p,r], A, D, A-dagger, D-dagger with their norms and the injections, and Proposition 3.1 with proof (the difference-operator exact sequence)",
-    "Sec. 8, printed p. 21: Theorem 8.1 with proof, Remarks 8.2 and 8.3 (rendered from the page image, since the text layer drops the bar on Q-bar_p)",
-    "Sec. 9, printed pp. 21-23: the displayed interpolation formula (2), Proposition 9.1, Definition 9.2, Proposition 9.3, and Remarks 9.4, 9.5, 9.6 (formula (2) read from the page image at 220 dpi)"
-   ]
-  },
-  {
-   "id": "bellaiche-critical-padic-l",
-   "title": "Critical p-adic L-functions",
-   "authors": "Joel Bellaiche",
-   "edition": "arXiv:0912.2925v1, 15 December 2009 (inspected 2026-09-16)",
-   "url": "https://arxiv.org/pdf/0912.2925v1",
-   "sha256": "0a1c068cfc36704c02bd741be37ef95b0ac3216db3e9293364a6368843701032",
-   "readSections": [
-    "Abstract and Sec. 1.1-1.2, printed pp. 2-3: the objectives, and the standing hypotheses that p is odd and prime to N",
-    "Sec. 1.3, printed pp. 4-5: the roots alpha, beta of X^2 - a_p X + epsilon(p) p^{k+1}, the two refinements f_alpha(z) = f(z) - beta f(pz) and f_beta(z) = f(z) - alpha f(pz), and the definitions of critical slope, theta-critical and critical",
-    "Sec. 1.4.1-1.4.5, printed pp. 5-11: the specialization map, Definition 1 (decent), Theorem 1 with its equivalences, Remark 1, the definition of L^pm(f_beta, sigma), the order property, the interpolation formulas (4) and (5), Theorem 2 with (6), Corollary 1, Theorem 3, and the secondary L-functions (7) with their order and interpolation properties (formulas (4) and (5) read from the page image at 500 dpi)"
-   ]
-  },
-  {
-   "id": "amice-velu-hecke-distributions",
-   "title": "Distributions p-adiques associees aux series de Hecke",
-   "authors": "Yvette Amice; Jacques Velu",
-   "edition": "Asterisque 24-25 (1975), pp. 119-131 (Numdam scan, inspected 2026-09-16)",
-   "url": "https://www.numdam.org/item/AST_1975__24-25__119_0.pdf",
-   "sha256": "badff36a5511d38d420dedee03f88603414ede21da2773226ddd1e2eac69169c",
-   "readSections": [
-    "Sec. I Introduction, printed pp. 119-120: the setting (a Hecke cusp form of weight w+2 for SL_2(Z)) and the completed L-function with its functional equation",
-    "Sec. III, printed p. 125: Theoreme III (existence and uniqueness of the analytic function G_lambda on the character space under v_p(lambda) < w+1)",
-    "Sec. IV, printed pp. 127-129: Lemma IV.2, Propositions IV.3 and IV.4 and the surrounding interpolation discussion (skimmed for the admissibility/uniqueness mechanism; read from page images)"
-   ]
+  "roadmapId": "ModularSymbolsPadicLFunctions",
+  "status": "partial",
+  "summary": "Source decomposition from four primary sources read directly: Rodrigues Jacinto-Williams Appendix B (printed pp. 79-81), Pollack-Stevens 'Critical slope p-adic L-functions' (Sections 1, 2, 3.1-3.2, 8 and 9), Bellaiche 'Critical p-adic L-functions' (Sections 1.1-1.4), and Amice-Velu (Theoreme III, printed p. 125). Formulas (2) of Pollack-Stevens and (4)-(5) of Bellaiche were read from rendered page images at 220 and 500 dpi because the PDF text layers scramble the fractions and drop a bar on Q-bar_p. TWO PRINTED DISCREPANCIES ARE RECORDED. (1) Pollack-Stevens equation (2) prints L(f, chi^{-1}, 1) as the interpolated value, but its left-hand side depends on j and no other factor supplies that dependence; Bellaiche, restating the same Pollack-Stevens interpolation property, prints L_infinity(f phi^{-1}, j+1), which fixes the reading. (2) Bellaiche's modification factor (5) prints alpha in BOTH Euler-factor denominators while its prefactor is 1/beta^nu and the refinement being interpolated is f_beta with U_p f_beta = beta f_beta; by Bellaiche's own Sec. 1.3 the denominators should be beta. The reconciliation of RJW Theorem B.1 (one Euler factor, f of level divisible by p) with Bellaiche (4)-(5) (two Euler factors, newform of level prime to p plus a chosen refinement) is exactly the second-Euler-factor point the stage names, and the Gauss-sum/2-pi-i dictionary between the two printed normalizations is recorded as an AUTHORED computation still to be verified. Three further hypotheses are carried explicitly: the modular-symbol comparison H^1_c = Hom_{Gamma_0}(Delta_0, -) needs the order of every torsion element of Gamma_0 to act invertibly; the control theorem needs slope STRICTLY less than k+1; and at critical slope a (k+1)-admissible distribution is NOT determined by its interpolation values, with Pollack-Stevens stating that their method does not give the missing values at x^{k+1}chi and Bellaiche stating (Theorem 2, whose proof is in his Sec. 4 and was not read) that at a theta-critical point ALL the interpolation values vanish except in one Eisenstein case. All five stages are partial; no canonical integral period and no integrality statement for the measure was found in any source read (Amice-Velu p. 120 quote Manin's level-one statement that D^k Q_k^epsilon(x) is an algebraic integer, which is neither). [Corrected in review REVIEW-EXT-08-EXT-16: RJW Theorem B.1 was re-read from a render of printed p. 80. It prints chi-bar in both L-values; the PDF text layer drops the bar. So RJW and Pollack-Stevens interpolate the SAME chi^{-1}-twisted value. They differ in the placement of the Gauss sum, the overall sign, the power of 2 pi i and the Euler factor at n = 0. Two further printed tensions are now recorded. First, Pollack-Stevens (2) and Amice-Velu Theoreme III(a) print no Euler factor at n = 0, where RJW print (1 - p^j/alpha_p). Second, Bellaiche (4) prints the parity condition phi(-1) = pm 1, whereas his own p. 7 support statement and Amice-Velu (1) select the sign by phi(-1)(-1)^j. The control theorem is proved in Pollack-Stevens Sec. 5, contrary to the earlier text. The unsupported link from PadicMeasuresIwasawaAlgebras:L3 was removed.]",
+  "sources": [
+    {
+      "id": "rjw-padic-l-functions",
+      "title": "An introduction to p-adic L-functions",
+      "authors": "Joaquin Rodrigues Jacinto; Chris Williams",
+      "edition": "arXiv:2309.15692v2, 19 December 2024 (inspected 2026-09-16)",
+      "url": "https://arxiv.org/pdf/2309.15692v2",
+      "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
+      "readSections": [
+        "Appendix B, printed pp. 79-81: B.1, B.2.1 with Theorem B.1 and its footnote on Deligne's criticality criterion, B.2.2 with Theorems B.2 and B.3, B.2.3 with Theorem B.4, Remarks B.5 and B.6, and the opening of B.3",
+        "REVIEW-EXT-08-EXT-16 (2026-09-16, library copy, SHA-256 matches): Theorem B.1 was re-read from a 200 dpi render of printed p. 80. The displayed formula reads L_p^an(f, chi-bar, j+1) and L(f, chi-bar, j+1); the text layer drops both bars. Also read: Sec. 3.6 (Definition 3.34, formula (3.11) and Remark 3.35, printed p. 22); Definition 5.2 and Remark 5.3 (primitive Gauss sums and G(chi)G(chi^{-1}) = chi(-1)p^n, printed pp. 29-30); bibliography entries [Bel12], [Del98], [Kat04a], [MTT86], [PS13], [RJ18] and [SU14], printed pp. 82-84."
+      ]
+    },
+    {
+      "id": "pollack-stevens-critical-slope",
+      "title": "Critical slope p-adic L-functions",
+      "authors": "Robert Pollack; Glenn Stevens",
+      "edition": "Author PDF (published J. London Math. Soc. 87 (2013) 428-452); 24 printed pages, the last holding references [7]-[20] (inspected 2026-09-16; page count corrected in review, and the publication data agree with RJW's bibliography entry [PS13])",
+      "url": "https://rpollack9974.github.io/web/Papers/Critical_slope_padic_Lfunctions.pdf",
+      "sha256": "b0ca4fa806675948d5a522ce9e22af009a0d19a197bc7d1485a83f57ea360430",
+      "readSections": [
+        "Abstract and Sec. 1, printed pp. 1-3: Theorem 1.1 (Stevens' control theorem), Theorem 1.2 (the theta criterion), the sketch of the kernel of specialization, and the remarks on Bellaiche's and Loeffler-Zerbes' later work",
+        "Sec. 2, printed pp. 4-5: Sec. 2.1 (Delta_0, the S_0(p)-action, the comparison H^1_c = Hom_{Gamma_0}(Delta_0, M) with its torsion hypothesis, the explicit U_p formula) and Sec. 2.2 (determinant twists M(r), the involution iota, the Banach norm)",
+        "Sec. 3.1-3.2, printed pp. 5-7: the spaces B[Z_p,r], A, D, A-dagger, D-dagger with their norms and the injections, and Proposition 3.1 with proof (the difference-operator exact sequence)",
+        "Sec. 8, printed p. 21: Theorem 8.1 with proof, Remarks 8.2 and 8.3 (rendered from the page image, since the text layer drops the bar on Q-bar_p)",
+        "Sec. 9, printed pp. 21-23: the displayed interpolation formula (2), Proposition 9.1, Definition 9.2, Proposition 9.3, and Remarks 9.4, 9.5, 9.6 (formula (2) read from the page image at 220 dpi)",
+        "REVIEW-EXT-08-EXT-16 (2026-09-16, library copy, SHA-256 matches). Sec. 3.3-3.4 with Proposition 3.3 (0 -> D-dagger_{-2-k}(k+1) -> D-dagger_k -> P_k^dual -> 0), printed pp. 7-8. Definition 4.7, Proposition 4.8 and Lemma 4.9 with their short proofs, printed p. 11. Sec. 5 (Lemmas 5.1-5.3, and Theorem 5.4 with proof), printed pp. 12-14. Sec. 6 (Lemmas 6.1-6.6; Theorem 6.7 with proof; Proposition 6.9; Examples 6.8, 6.10 and 6.11; footnote 5 on Eichler-Shimura), printed pp. 14-17. The opening of Sec. 7 with the statements of Theorems 7.1-7.3, printed p. 18, and the end of the proof of Theorem 7.1 with Remarks 7.5-7.6, printed pp. 20-21. Formula (2) and Theorem 8.1 were re-read from a 220 dpi render of printed p. 21. Remarks 9.5-9.7 and the references, printed pp. 22-24."
+      ]
+    },
+    {
+      "id": "bellaiche-critical-padic-l",
+      "title": "Critical p-adic L-functions",
+      "authors": "Joel Bellaiche",
+      "edition": "arXiv:0912.2925v1, 15 December 2009 (inspected 2026-09-16)",
+      "url": "https://arxiv.org/pdf/0912.2925v1",
+      "sha256": "0a1c068cfc36704c02bd741be37ef95b0ac3216db3e9293364a6368843701032",
+      "readSections": [
+        "Abstract and Sec. 1.1-1.2, printed pp. 2-3: the objectives, and the standing hypotheses that p is odd and prime to N",
+        "Sec. 1.3, printed pp. 4-5: the roots alpha, beta of X^2 - a_p X + epsilon(p) p^{k+1}, the two refinements f_alpha(z) = f(z) - beta f(pz) and f_beta(z) = f(z) - alpha f(pz), and the definitions of critical slope, theta-critical and critical",
+        "Sec. 1.4.1-1.4.5, printed pp. 5-11: the specialization map, Definition 1 (decent), Theorem 1 with its equivalences, Remark 1, the definition of L^pm(f_beta, sigma), the order property, the interpolation formulas (4) and (5), Theorem 2 with (6), Corollary 1, Theorem 3, and the secondary L-functions (7) with their order and interpolation properties (formulas (4) and (5) read from the page image at 500 dpi)",
+        "REVIEW-EXT-08-EXT-16 (2026-09-16, library copy, SHA-256 matches). Formulas (4)-(5) were re-read from a 300 dpi render of printed p. 8. The render confirms: (5) has 1/beta^nu with alpha in both Euler-factor denominators; (4) writes tau(chi^{-1}) while the text says 'tau(phi^{-1}) is the Gauss sum of phi^{-1}'; and the parity condition is printed as phi(-1) = pm 1. Also read: footnotes 1-2, printed pp. 3-4, and the support statement 'L^pm(f_beta, sigma) = 0 whenever sigma(-1) is not pm 1', printed p. 7. The published version is Invent. Math. 189 (2012) 1-60, per RJW bibliography entry [Bel12]."
+      ]
+    },
+    {
+      "id": "amice-velu-hecke-distributions",
+      "title": "Distributions p-adiques associees aux series de Hecke",
+      "authors": "Yvette Amice; Jacques Velu",
+      "edition": "Asterisque 24-25 (1975), pp. 119-131 (Numdam scan, inspected 2026-09-16)",
+      "url": "https://www.numdam.org/item/AST_1975__24-25__119_0.pdf",
+      "sha256": "badff36a5511d38d420dedee03f88603414ede21da2773226ddd1e2eac69169c",
+      "readSections": [
+        "Sec. I Introduction, printed pp. 119-120: the setting (a Hecke cusp form of weight w+2 for SL_2(Z)) and the completed L-function with its functional equation",
+        "Sec. III, printed p. 125: Theoreme III (existence and uniqueness of the analytic function G_lambda on the character space under v_p(lambda) < w+1)",
+        "Sec. IV, printed pp. 127-129: Lemma IV.2, Propositions IV.3 and IV.4 and the surrounding interpolation discussion (skimmed for the admissibility/uniqueness mechanism; read from page images)",
+        "REVIEW-EXT-08-EXT-16 (2026-09-16, library copy, SHA-256 matches; read from page renders of the Numdam scan). Printed p. 120: Theoreme I, attributed to Manin [4]. It gives periods omega_+ in iR and omega_- in R such that Q_k^epsilon(x) = (Q_k(x) + epsilon Q_k(-x))/(2 omega_{epsilon(-1)^k}) lies in the real field generated by the Hecke eigenvalues, and D^k Q_k^epsilon(x) is an algebraic integer when Dx is in Z. The same page defines the algebraic numbers A(chi,k) of (1), with the period omega_{(-1)^k chi(-1)}. Printed p. 125: Theoreme III in full. Its domain is X(Z*_Delta), and its conditions are: (a) G_lambda(chi theta^k) = (1/lambda^n)(-1)^k A(chi,k) for chi = chi_0 chi_1 with f(chi_0) | Delta and f(chi_1) = p^n; (b) G_lambda is o(Log^{w+1}); (c) G_lambda is bounded if v_p(lambda) = 0, and o(Log^{h+1}) with h = [v_p(lambda)]; (d) a functional equation. Printed pp. 126-129: the comparison with Manin, the 'Methode' paragraph, and the statements of Proposition IV.1, Lemma IV.2 and Propositions IV.3 and IV.4."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ModularSymbolsPadicLFunctions:L0/modular-symbols-as-compactly-supported-cohomology",
+      "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+      "title": "Delta_0-valued modular symbols and the comparison with H^1_c, with the torsion hypothesis",
+      "kind": "comparison",
+      "statement": "Let p be a prime, N prime to p, Gamma_0 = Gamma_1(N) intersect Gamma_0(p), and S_0(p) the semigroup of integral matrices (a b; c d) with p not dividing a, p dividing c and ad - bc nonzero. For a right Z[S_0(p)]-module M let M-tilde be the associated locally constant sheaf on the open modular curve Y_{Gamma_0}, and H^1_c(Gamma_0, M) = H^1_c(Y_{Gamma_0}, M-tilde). Set Delta_0 = Div^0(P^1(Q)) with its left GL_2(Q)-action by linear fractional transformations, and let S_0(p) act on the right on Hom(Delta_0, M) by (phi | gamma)(D) = phi(gamma D) | gamma. THEN, PROVIDED THE ORDER OF EVERY TORSION ELEMENT OF Gamma_0 ACTS INVERTIBLY ON M, there is a canonical Hecke-equivariant isomorphism H^1_c(Gamma_0, M) = Hom_{Gamma_0}(Delta_0, M). The U_p operator is realized explicitly by phi | U_p = sum over a = 0 to p-1 of phi | (1 a; 0 p).",
+      "hypotheses": [
+        "The comparison is CONDITIONAL on the order of each torsion element of Gamma_0 acting invertibly on M. Pollack-Stevens list the sufficient conditions: N at least 4, or M a vector space over a field of characteristic 0, or Gamma_0 torsion-free, or M a Z_p-module with p > 3. This is exactly the elliptic-stabilizer point the stage insists on",
+        "M must be a right Z[S_0(p)]-module, not merely a Gamma_0-module; the U_p formula uses matrices of determinant p that lie in S_0(p) but not in Gamma_0",
+        "The Hecke algebra H is the free polynomial algebra over Z on T_l for l not dividing Np and U_q for q dividing Np",
+        "The involution comes from iota = (-1 0; 0 1), which normalizes Gamma_0; the decomposition into plus and minus eigenspaces requires 2 to act invertibly on M",
+        "Determinant twists: for r in Z_{>=0}, M(r) is M with the S_0(p)-action twisted by the r-th power of the determinant, and H^1_c(M(r)) = H^1_c(M)(r), where T_l acts by l^r T_l and U_q by q^r U_q. Pollack-Stevens Sec. 2.2 state this for nonnegative r and call it tautological."
+      ],
+      "proofSteps": [
+        "Form the local system M-tilde on Y_{Gamma_0} and its compactly supported cohomology.",
+        "Under the torsion hypothesis, quote the canonical isomorphism with Gamma_0-equivariant homomorphisms on degree-zero divisors ([2, Prop. 4.2] in Pollack-Stevens's numbering, i.e. Ash-Stevens).",
+        "Check Hecke equivariance and record the explicit U_p formula.",
+        "Record the determinant twist and the involution with their separate hypotheses."
+      ],
+      "acceptance": [
+        "For N < 4, p = 2 or 3 and M a Z_p-module, determine whether Gamma_0 has torsion whose order is divisible by p. Where it does, check that the identification (1) is not available without a torsion-free auxiliary level and descent. [Reworded in review: the source gives only sufficient conditions, so failure is not automatic.]",
+        "Verify the U_p formula against the q-expansion action on a weight-two symbol",
+        "Check H^1_c(M(r)) = H^1_c(M)(r) on a concrete twist"
+      ],
+      "sources": [
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "Sec. 2.1, printed p. 4",
+          "excerpt": "When the order of each torsion element of Gamma_0 acts invertibly on M, the space H^1_c(Gamma_0, M) admits a description in terms of modular symbols.",
+          "match": "The hypothesis under which the modular-symbol description holds; the stage demands that elliptic stabilizers not be divided by without justification, and this is the source's own formulation of that requirement."
+        },
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "Sec. 2.1, printed p. 5",
+          "excerpt": "Note that this condition holds when M is a vector space over a field of characteristic 0, when Gamma_0 is torsion-free, or when M is a Z_p-module with p > 3.",
+          "match": "The three sufficient conditions, which is the precise content of the 'torsion-free auxiliary level and descent' instruction."
+        },
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "Sec. 2.1, printed p. 5",
+          "excerpt": "the U_p-operator on Hom_{Gamma_0}(Delta_0, M) can be explicitly realized by phi | U_p = sum_{a=0}^{p-1} phi | (1 a; 0 p).",
+          "match": "The explicit Hecke action on symbols, with the determinant-p matrices that require the S_0(p)-module structure."
+        },
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "Sec. 2.2, printed p. 5",
+          "excerpt": "We also mention that the matrix iota = (-1 0; 0 1) normalizes Gamma_0, and thus induces an involution on H^1_c(M); if 2 acts invertibly on M, this involution gives a decomposition H^1_c(M) = H^1_c(M)^+ + H^1_c(M)^-",
+          "match": "The involution at infinity and the hypothesis on 2 that the stage requires be kept explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularSymbolsPadicLFunctions:L1/period-normalized-interpolation-formula-two-printed-conventions",
+      "parentStageId": "ModularSymbolsPadicLFunctions:L1",
+      "title": "The interpolation formula for the analytic p-adic L-function, in two printed normalizations",
+      "kind": "theorem",
+      "statement": "Let f be a cuspidal Hecke eigenform of weight k+2. Two printed normalizations of the same interpolation property are recorded. (RJW, level Gamma_0(N) with p dividing N, alpha_p the U_p eigenvalue, v_p(alpha_p) < k+1): for every Dirichlet character chi of conductor p^n and every 0 <= j <= k, L_p^an(f, chi-bar, j+1), defined as the integral of chi(x)x^j against L_p^an(f), equals -alpha_p^{-n} (1 - chi(p)p^j/alpha_p) G(chi) j! p^{nj} (2 pi i)^{-(j+1)} L(f, chi-bar, j+1)/Omega_f^{pm}. (Pollack-Stevens, level Gamma_0 = Gamma_1(N) cap Gamma_0(p), slope h < k+1): mu_f(x^j chi) = a_p^{-n} p^{n(j+1)} (-2 pi i)^{-j} j! tau(chi^{-1})^{-1} L(f, chi^{-1}, 1)/Omega_f^{pm}. Both formulas interpolate the chi^{-1}-twisted L-value, since chi-bar = chi^{-1}. They are NOT literally equal, and differ in four ways. First, G(chi) multiplies in RJW while tau(chi^{-1}) divides in Pollack-Stevens (with p^{nj} against p^{n(j+1)}). Second, RJW carry an overall minus sign. Third, the powers of 2 pi i differ. Fourth, RJW print the Euler factor and Pollack-Stevens do not. For n >= 1 that factor is 1 because chi(p) = 0, so beyond constants the printed formulas disagree only at n = 0. The printed last argument '1' of the Pollack-Stevens L-value is inconsistent with the j-dependence of both sides. Bellaiche, restating the same Pollack-Stevens interpolation property, prints L_infinity(f phi^{-1}, j+1), which is the reading under which the formula is consistent. [Corrected in review: the RJW formula prints chi-bar in both L-values. The bars are visible on a render of printed p. 80, but the PDF text layer drops them, so the earlier claim that the two normalizations differ in the twist was wrong.]",
+      "hypotheses": [
+        "RJW: f has level Gamma_0(N) with p DIVIDING N, so L(f,s) is the L-function of the p-level form and carries only one Euler factor at p",
+        "RJW: the hypothesis is v_p(alpha_p) < k+1; the theorem does NOT cover v_p(alpha_p) = k+1, and RJW say so explicitly",
+        "Pollack-Stevens: chi is a finite order character of Z_p^x of conductor p^n. For n >= 1, chi(p) = 0 and RJW's Euler factor is 1. For n = 0 (chi trivial), RJW print the factor (1 - p^j/alpha_p) while Pollack-Stevens (2) prints none. Amice-Velu Theoreme III(a) likewise shows none, on its own domain X(Z*_Delta). The printed formulas therefore genuinely disagree at n = 0, not only by normalization constants. REVIEWER COMPUTATION, not a source statement: Pollack-Stevens p. 5 give phi | U_p = sum_a phi | (1 a; 0 p), and by Sec. 3.3 the matrix (1 a; 0 p) acts on test functions by g -> g(a + pz). Hence an eigensymbol with Phi | U_p = alpha Phi satisfies Phi({inf}-{0})(1_{pZ_p} z^j) = (p^j/alpha) Phi({inf}-{0})(z^j). Restricting to Z_p^x therefore multiplies the moment by (1 - p^j/alpha), which supports RJW's factor. [Corrected in review.]",
+        "Both period normalizations Omega_f^{pm} are defined only up to a scalar: the plus/minus eigensymbols are normalized by a CHOICE (Pollack-Stevens normalize phi^{pm}_f to have size 1; Bellaiche says the formula holds 'up to a scalar independent on phi t^j')",
+        "The sign is selected by parity. Bellaiche's (4) PRINTS the condition as phi(-1) = pm 1. But his own p. 7 statement is that L^pm(f_beta, sigma) = 0 whenever sigma(-1) is not pm 1, and for sigma = phi t^j that means phi(-1)(-1)^j = pm 1. Amice-Velu (1) (printed p. 120) likewise attach the period omega_{(-1)^k chi(-1)}. The two readings agree only for even j. [Corrected in review: the earlier text took the printed phi(-1) = pm 1 at face value.]",
+        "RJW define G(chi) only for primitive chi of conductor p^n with n >= 1 (Definition 5.2, printed p. 29). At n = 0 the value G(chi) = 1 is a convention that the statement of Theorem B.1 needs but RJW do not state. [Added in review.]",
+        "Amice-Velu's uniqueness in Theoreme III is relative to condition (b), G_lambda = o(Log^{w+1}), not to growth of order v_p(lambda). The finer bound o(Log^{h+1}) with h = [v_p(lambda)] is the separate conclusion (c). [Added in review.]"
+      ],
+      "proofSteps": [
+        "Record RJW Theorem B.1 verbatim, with its growth clause (order v_p(alpha_p)) and its uniqueness clause.",
+        "Record Pollack-Stevens formula (2) verbatim from the page image.",
+        "Record Bellaiche formula (4) with its modification factor (5), which is the same interpolation property for a newform of level Gamma_1(N) with p prime to N and a chosen refinement.",
+        "AUTHORED RECONCILIATION (not quoted from any source). For chi primitive of conductor p^n with n >= 1, RJW Remark 5.3(i) gives G(chi) G(chi^{-1}) = chi(-1) p^n. If Pollack-Stevens' tau is the same Gauss sum (they say only 'a Gauss sum'), then p^{n(j+1)}/tau(chi^{-1}) = chi(-1) G(chi) p^{nj}. Reading the L-argument as j+1, the Pollack-Stevens value divided by the RJW value is then -chi(-1)(-1)^j (2 pi i) times Omega_RJW^pm/Omega_PS^pm. The factor -chi(-1)(-1)^j (2 pi i) is constant on each parity class chi(-1)(-1)^j = pm 1. It can therefore be absorbed into the choice of Omega_f^pm exactly when the sign pm is indexed by chi(-1)(-1)^j. At n = 0 the Euler-factor disagreement is not a normalization constant and is not absorbed. This is the 'dictionary' the stage asks to prove; it is recorded here as a computation to be verified, not as a source statement. [Corrected in review: the earlier version omitted the sign (-1)^j coming from (-2 pi i)^j and RJW's overall minus sign, and did not note the n = 0 discrepancy.]"
+      ],
+      "acceptance": [
+        "Check the n = 0 case of RJW Theorem B.1 separately. There G(chi) = 1 by convention, alpha_p^{-n} = 1, and the Euler factor 1 - p^j/alpha_p is the only surviving modification. Decide between RJW (factor present) and the printed Pollack-Stevens (2) (factor absent), using the U_p-eigen relation.",
+        "Check that for n >= 1 the Euler factor is 1 because chi(p) = 0, so that the two printed formulas differ only in the placement of the Gauss sum, the overall sign and the (2 pi i) conventions.",
+        "Check that Pollack-Stevens' tau agrees with RJW's G (Definition 5.2). Then verify G(chi) G(chi^{-1}) = chi(-1) p^n (RJW Remark 5.3(i)) for chi primitive of conductor p^n, and confirm the reconciliation above, including the residual factor -chi(-1)(-1)^j (2 pi i).",
+        "Verify that the printed Pollack-Stevens L-argument must be j+1 by checking both sides at two different values of j",
+        "Check the parity convention on one odd j: L^pm(f_beta, phi t^j) must vanish unless phi(-1)(-1)^j = pm 1. [Added in review.]"
+      ],
+      "sources": [
+        {
+          "sourceId": "rjw-padic-l-functions",
+          "locator": "Appendix B.2.1, Theorem B.1, printed pp. 79-80 (the formula was re-read in review from a 200 dpi render of printed p. 80; the text layer drops the bars on chi-bar)",
+          "excerpt": "Let alpha_p denote the U_p eigenvalue of f. If v_p(alpha_p) < k+1, then there exists a unique locally analytic distribution L_p^an(f) in D^la(Z_p^x) on Z_p^x such that - L_p^an(f) has growth of order v_p(alpha_p). - For all Dirichlet characters chi of conductor p^n, and for all 0 <= j <= k, we have L_p^an(f, chi-bar, j+1) = integral over Z_p^x of chi(x)x^j . L_p^an(f) = -alpha_p^{-n} . (1 - chi(p) p^j/alpha_p) . G(chi) . j! . p^{nj}/(2 pi i)^{j+1} . L(f, chi-bar, j+1)/Omega_f^pm.",
+          "match": "The roadmap's normative statement, with the strict slope inequality and the uniqueness-from-growth clause. [Excerpt corrected in review: it previously read L(f,chi,j+1), without the bar.]"
+        },
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "Sec. 9, displayed formula (2), printed p. 21 (read from the 220 dpi page image)",
+          "excerpt": "mu_f(x^j . chi) = (1/a_p^n) . (p^{n(j+1)}/(-2 pi i)^j) . (j!/tau(chi^{-1})) . (L(f, chi^{-1}, 1)/Omega_f^{pm})",
+          "match": "The second printed normalization. Its last L-argument is printed as 1, which cannot be right since the left side depends on j; the discrepancy is exactly the printed normalization problem the stage anticipates."
+        },
+        {
+          "sourceId": "bellaiche-critical-padic-l",
+          "locator": "Sec. 1.4.2, formulas (4) and (5), printed p. 8 (read from the 500 dpi page image)",
+          "excerpt": "L^{pm}(f_beta, phi t^j) = e_p(beta, phi t^j) m^{j+1}/(-2 pi i)^j . j!/tau(chi^{-1}) . L_infinity(f phi^{-1}, j+1)/Omega_f^{pm} ... up to a scalar independent on phi t^j",
+          "match": "The same Pollack-Stevens interpolation property restated with the L-argument j+1, which settles the reading of the Pollack-Stevens formula; it also makes explicit that the identity holds only up to a scalar, i.e. that the period is a choice."
+        },
+        {
+          "sourceId": "amice-velu-hecke-distributions",
+          "locator": "Sec. III, Theoreme III, printed p. 125",
+          "excerpt": "Soit lambda une racine de l'equation X^2 - lambda_p X + p^{w+1} = 0, de valuation p-adique v_p(lambda) < w+1, alors il existe une unique fonction G_lambda, analytique sur X(Z*_Delta), et satisfaisant (a) pour k in [0,w], et pour tout caractere chi de Dirichlet, chi = chi_0 chi_1 ... avec f(chi_0) | Delta et f(chi_1) = p^n, G_lambda(chi theta^k) = (1/lambda^n)(-1)^k A(chi,k), (b) G_lambda est o(Log^{w+1}).",
+          "match": "The original existence-and-uniqueness statement, with the same strict slope inequality, for a Hecke cusp form of weight w+2 for SL_2(Z). This is the level-one ancestor of Theorem B.1 and shows that the inequality is not an artifact of a later normalization. [Excerpt corrected in review: the printed domain is X(Z*_Delta), not X(Z_p^x); see Sec. II.1 (not read) and p. 120, where conductors dividing Delta_0 p^n are allowed. Uniqueness is relative to condition (b).]"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularSymbolsPadicLFunctions:L2/refinements-and-the-two-euler-factors",
+      "parentStageId": "ModularSymbolsPadicLFunctions:L2",
+      "title": "The two refinements of a newform and the modification factor with both Euler factors",
+      "kind": "construction",
+      "statement": "Let f be a newform of weight k+2 and level Gamma_1(N) with p prime to N, T_p f = a_p f and <p>f = epsilon(p) f. Let alpha, beta be the roots of X^2 - a_p X + epsilon(p) p^{k+1} (assumed distinct). The two refinements are f_alpha(z) = f(z) - beta f(pz) and f_beta(z) = f(z) - alpha f(pz); they are the two normalized forms of level Gamma = Gamma_1(N) cap Gamma_0(p) that have the same T_l (l prime to pN) and diamond eigenvalues as f AND are U_p-eigenforms [the U_p-eigenform condition was restored in review; without it the space of such normalized forms is not two points], and they satisfy U_p f_beta = beta f_beta and U_p f_alpha = alpha f_alpha. A REFINEMENT IS THE CHOICE OF A ROOT, not a property of f. For a refinement the interpolation factor is e_p(beta, phi t^j) = beta^{-nu} (1 - phi-bar(p) epsilon(p) p^{k-j}/D)(1 - phi(p) p^j/D), where the conductor of phi is m = p^nu M with M prime to p, and D is the U_p eigenvalue of the chosen refinement. Bellaiche PRINTS alpha in both denominators of e_p(beta, -); D = beta is the reading supported by his Sec. 1.3 and by the reviewer computation recorded in the gaps; TWO Euler factors appear, because the L-function on the right is that of the level-prime-to-p NEWFORM f, not of the refinement.",
+      "hypotheses": [
+        "p prime to N; alpha not equal to beta is assumed 'without loss of generality and for simplicity' by Bellaiche",
+        "Bellaiche also assumes throughout that p is ODD",
+        "When phi is ramified at p (nu >= 1) both Euler factors are 1 because phi(p) = phi-bar(p) = 0, and e_p reduces to beta^{-nu}; the Euler factors are visible only for phi unramified at p",
+        "PRINTED DISCREPANCY: Bellaiche's formula (5) prints alpha in BOTH Euler-factor denominators while the prefactor is 1/beta^nu and the L-function attached is that of the refinement f_beta with U_p f_beta = beta f_beta. Since alpha and beta are defined as the two distinct roots and beta is the eigenvalue of the refinement in question, the denominators should be beta. This is recorded as a printed inconsistency in the source, verified against Bellaiche's own Sec. 1.3 definitions. REVIEWER COMPUTATION (not a source statement): f_beta(z) = f(z) - alpha f(pz) gives L(f_beta, phi-bar, s) = (1 - phi-bar(p) alpha p^{-s}) L(f, phi-bar, s). At s = j+1, alpha p^{-(j+1)} = epsilon(p) p^{k-j}/beta because alpha beta = epsilon(p) p^{k+1}. The U_p-eigen relation with eigenvalue beta gives the second factor (1 - phi(p) p^j/beta) at unramified phi. Both denominators are therefore beta, matching the prefactor 1/beta^nu. For weight two (k = j = 0, epsilon(p) = 1) and trivial character, the same computation gives (1 - 1/alpha)^2 for the alpha-refinement.",
+        "RJW Theorem B.1 has only ONE Euler factor because there f already has level divisible by p; converting to the good-prime newform is what produces the second factor"
+      ],
+      "proofSteps": [
+        "Form the two p-stabilizations by the displayed formulas and check the U_p eigenvalues from the q-expansions.",
+        "Record that the refinement is the choice of root, matching Bellaiche's 'The choice of a root beta or alpha of (1) is also called a refinement of f'.",
+        "Record the modification factor (5) with both Euler factors and flag the alpha/beta inconsistency in the printed denominators.",
+        "Compare with RJW Theorem B.1: the single factor (1 - chi(p)p^j/alpha_p) there is the second of Bellaiche's two factors specialized to the p-level form."
+      ],
+      "acceptance": [
+        "Check U_p f_beta = beta f_beta directly from f_beta(z) = f(z) - alpha f(pz)",
+        "Check that for phi ramified the modification factor is beta^{-nu}",
+        "Check the alpha/beta discrepancy by specializing to an ordinary f and the ordinary refinement, where beta is a unit and alpha is not",
+        "Check the relation L(f_beta, s) = (1 - alpha p^{-s}) L(f, s) and confirm it produces exactly the missing Euler factor at unramified phi"
+      ],
+      "sources": [
+        {
+          "sourceId": "bellaiche-critical-padic-l",
+          "locator": "Sec. 1.3, printed p. 4",
+          "excerpt": "As is well known, there are two normalized modular forms for Gamma = Gamma_1(N) cap Gamma_0(p) ... f_alpha(z) = f(z) - beta f(pz), f_beta(z) = f(z) - alpha f(pz). Those forms satisfy U_p f_beta = beta f_beta and U_p f_alpha = alpha f_alpha.",
+          "match": "The construction of the two refinements with the crossed roots, which is the source of the two Euler factors."
+        },
+        {
+          "sourceId": "bellaiche-critical-padic-l",
+          "locator": "Sec. 1.3, printed p. 4",
+          "excerpt": "The choice of a root beta or alpha of (1) is also called a refinement of f. Refinements are also sometimes called p-stabilizations, but we shall not use this terminology.",
+          "match": "Confirms the stage's insistence that a refinement includes a chosen root and is not determined by f alone."
+        },
+        {
+          "sourceId": "bellaiche-critical-padic-l",
+          "locator": "Sec. 1.4.2, formula (5), printed p. 8 (read from the 500 dpi page image)",
+          "excerpt": "e_p(beta, phi t^j) = (1/beta^nu)(1 - phi-bar(p) epsilon(p) p^{k-j}/alpha)(1 - phi(p) p^j/alpha)",
+          "match": "The modification factor as printed. The two Euler factors are the content; the alpha in their denominators is inconsistent with the 1/beta^nu prefactor and with Sec. 1.3's definitions, and is recorded here as a source typo rather than propagated."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularSymbolsPadicLFunctions:L2/stevens-control-theorem-for-small-slope",
+      "parentStageId": "ModularSymbolsPadicLFunctions:L2",
+      "title": "The specialization map is an isomorphism on the slope < k+1 subspace",
+      "kind": "theorem",
+      "statement": "Let D_k be the space of locally Q_p-analytic distributions on Z_p with the weight-k action of Gamma_0, and Sym^k(Q_p^2) its finite-dimensional quotient. The induced Hecke-equivariant specialization map H^1_c(Gamma_0, D_k) -> H^1_c(Gamma_0, Sym^k(Q_p^2)) restricts to an ISOMORPHISM on the subspace where U_p acts with slope STRICTLY LESS THAN k+1. Consequently a slope-h eigensymbol phi_f with h < k+1 lifts uniquely to a Hecke-eigensymbol Phi_f, and integrating Phi_f over the divisor {infinity} - {0} and restricting to Z_p^x gives the p-adic L-function mu_f.",
+      "hypotheses": [
+        "The strict inequality h < k+1 is essential; the theorem fails at slope exactly k+1, which is the whole point of the critical-slope work",
+        "The source of the isomorphism is the identification of the kernel of specialization with H^1_c(Gamma_0, D_{-2-k})(k+1), a twist by the (k+1)-st power of the determinant, on which U_p acts with slope at least k+1",
+        "The surjectivity on the slope-< k+1 part comes from two inputs: surjectivity before slope decomposition (Lemma 5.1, whose proof computes H^2_c(Gamma_0, D-dagger_{-2-k}) = 0 in Lemma 5.2), and exactness of passing to slope parts (Proposition 4.8). Proposition 4.8 rests on the Riesz-type splitting X = X(Q) + X'(Q) in the category C of Sec. 4 (printed pp. 9-11; only p. 11 was read). [Corrected in review.]",
+        "Pollack-Stevens attribute the theorem to Stevens ([19] and [15, Thm. 5.12]) and give a proof, which they call a sketch, in Sec. 5.2 (Theorem 5.4, printed pp. 13-14). Lemma 5.1 gives the exact sequence 0 -> H^1_c(D-dagger_{-2-k})(k+1) -> H^1_c(D-dagger_k) -> H^1_c(P_k^dual) -> 0. Proposition 4.8 and Lemma 5.3 pass to slope < k+1 parts. U_p has norm <= p^{-(k+1)} on the twisted kernel, so Lemma 4.9(2) kills its slope < k+1 part. [Corrected in review: the earlier text said the proof is not reproduced in this paper; the packet had not read Sec. 5.]"
+      ],
+      "proofSteps": [
+        "Identify the kernel of the specialization map with H^1_c(Gamma_0, D_{-2-k})(k+1) (Proposition 3.3 for D-dagger, printed p. 8, and Lemma 5.1, printed p. 12). The determinant twist makes T_n act by n^{k+1}T_n, so U_p acts with slope at least k+1 there.",
+        "Pass to slope < k+1 parts: Proposition 4.8 and Lemma 5.3 turn Lemma 5.1's sequence into 0 -> H^1_c(D_{-2-k})(k+1)^{(<k+1)} -> H^1_c(D_k)^{(<k+1)} -> H^1_c(P_k^dual)^{(<k+1)} -> 0. Since U_p has norm <= 1 on H^1_c(D_{-2-k}), it has norm <= p^{-(k+1)} on the twist, and Lemma 4.9(2) makes the first term vanish. [Corrected in review to follow the proof of Theorem 5.4.]",
+        "Deduce that specialization is an isomorphism on the slope-< k+1 part.",
+        "Define mu_f = Phi_f({infinity} - {0}) restricted to Z_p^x and quote Proposition 9.1 identifying it with the classical p-adic L-function."
+      ],
+      "acceptance": [
+        "Check the twist computation of Proposition 3.3. The operator (d/dz)^{k+1} gives 0 -> P_k -> A-dagger_k -> A-dagger_{-2-k}(k+1) -> 0, hence 0 -> D-dagger_{-2-k}(k+1) -> D-dagger_k -> P_k^dual -> 0. Then check that U_p has norm at most p^{-(k+1)} on the twisted cohomology.",
+        "Check the ordinary case h = 0 and recover a measure",
+        "Check the failure at h = k+1 for a theta-critical form by exhibiting a nonzero element of the kernel with the same eigenpacket. An example is the critical p-stabilization of a CM form at a good ordinary prime, Pollack-Stevens Example 6.10."
+      ],
+      "sources": [
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "Sec. 1, Theorem 1.1, printed p. 2",
+          "excerpt": "H^1_c(Gamma_0, D_k)^{(<k+1)} -> H^1_c(Gamma_0, Sym^k(Q_p^2))^{(<k+1)}. That is, the specialization map is an isomorphism on the subspace where U_p acts with slope strictly less than k+1.",
+          "match": "The control theorem the stage names, with the strict inequality visible."
+        },
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "Sec. 1, printed pp. 2-3",
+          "excerpt": "the kernel of the specialization map can be identified with H^1_c(Gamma_0, D_{-2-k})(k+1); here, we are twisting by the (k+1)st power of the determinant, and thus the Hecke operator T_n acts by n^{k+1} T_n. In particular, U_p acts with slope at",
+          "match": "The mechanism behind the slope bound; this is the intermediate machinery the stage asks to expose rather than package."
+        },
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "Sec. 9, Proposition 9.1, printed p. 22",
+          "excerpt": "With f, phi_f and Phi_f as above, we have Phi_f({infinity} - {0}) restricted to Z_p^x = mu_f, the p-adic L-function of f.",
+          "match": "The evaluation on the divisor {infinity} - {0} and restriction to units that the stage requires, identified with the classical p-adic L-function."
+        },
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "Sec. 5.2, Theorem 5.4 and its proof, printed pp. 13-14",
+          "excerpt": "Theorem 5.4 (Stevens). We have H^1_c(D_k)^{(<k+1)} -> H^1_c(P_k^dual)^{(<k+1)} is an isomorphism. ... As U_p has norm <= 1 on H^1_c(D_{-2-k}), it follows that U_p induces operators on H^1_c(D_{-2-k})(k+1) of norm <= p^{-(k+1)}. From Lemma 4.9.2, it follows that the first term of the above exact sequence vanishes.",
+          "match": "Added in review: the paper's own proof of the control theorem, which the packet had described as not reproduced."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularSymbolsPadicLFunctions:L3/theta-operator-criterion-for-the-critical-slope-lift",
+      "parentStageId": "ModularSymbolsPadicLFunctions:L3",
+      "title": "Pollack-Stevens: specialization is an isomorphism on the f-generalized eigenspace iff f is not in the image of theta^{k+1}",
+      "kind": "theorem",
+      "statement": "Let f be an eigenform in S_{k+2}(Gamma_0, Q-bar_p) of slope exactly k+1, and let theta^{k+1} : M^dagger_{-k}(Gamma, Q_p) -> M^dagger_{k+2}(Gamma, Q_p) be the p-adic theta operator acting on q-expansions by (q d/dq)^{k+1}. Then H^1_c(Gamma_0, D_k)_{(f)} -> H^1_c(Gamma_0, P_k^dual)_{(f)} is an isomorphism IF AND ONLY IF f is not in the image of theta^{k+1}, where the subscript (f) is the GENERALIZED eigenspace. When f is not in that image, the unique eigensymbol Phi_f lifting phi_f defines mu_f = Phi_f({infinity} - {0}) restricted to Z_p^x, which is (k+1)-admissible and satisfies the interpolation property; when f IS in the image, there is a nonzero eigensymbol in the kernel of specialization.",
+      "hypotheses": [
+        "The slope must be exactly k+1; the theorem is about the critical-slope subspace",
+        "The subscript (f) denotes the GENERALIZED eigenspace, not the eigenspace",
+        "A (k+1)-admissible distribution is NOT determined by the interpolation property alone: Pollack-Stevens state that one would also need the values at characters x^{k+1}chi, and that their method does not give those values",
+        "A WEAKER version (Theorem 6.7, printed p. 16) is proved first, under two extra hypotheses: Gamma_0 has no elements of order p, and f has no mod p companion form. Proposition 6.9 shows that f in the image of theta^{k+1} implies f has a mod p companion form, so Theorem 8.1 implies Theorem 6.7 (Remark 8.3). The order-p hypothesis is used in Sec. 6 for the integral filtration (Lemma 6.2, where p does not act invertibly on Fil^r D^0_{-k}); Theorem 8.1 itself does not assume it. [Corrected in review: the order-p hypothesis had been omitted.]",
+        "The proof of Theorem 8.1 uses the exact sequence 0 -> H^1_c(D_{-2-k})(k+1)_{(f)} -> H^1_c(D_k)_{(f)} -> H^1_c(P_k^dual)_{(f)} -> 0 together with Theorem 7.1, which produces an overconvergent eigenform from an eigensymbol. The sequence comes from Lemma 5.1 and Proposition 4.8 on slope-(=k+1) parts, followed by Lemma 6.4. Lemma 6.4 preserves exactness for generalized eigenspaces but not for eigenspaces (Remark 6.5). Theorem 7.1 (Stevens [18, 19]) is applied only in the negative weight -2-k and at slope 0, so its E_2^crit exception does not intervene (Remark 7.5)."
+      ],
+      "proofSteps": [
+        "Form the exact sequence of generalized eigenspaces with kernel H^1_c(D_{-2-k})(k+1)_{(f)}: apply Proposition 4.8 to Lemma 5.1 on the slope-(=k+1) parts, then pass to f-isotypic parts with Lemma 6.4 (as in the proof of Theorem 6.7, printed p. 16).",
+        "If a nonzero H-eigensymbol Psi exists in the kernel, untwist it and apply Theorem 7.1 to get an overconvergent eigenform g in M^dagger_{-k} with the same eigenpacket; then theta^{k+1} g has the eigenpacket of f, and comparing q-expansions gives f = theta^{k+1} g.",
+        "Conversely, if f = theta^{k+1} g, Theorem 7.1 produces an eigensymbol Psi_0 for g; twisting gives a nonzero element of the kernel.",
+        "Define mu_f from the unique lift in the non-theta-critical case; admissibility is quoted from [15, Lemma 6.2] and the interpolation property is formal from Phi_f being a U_p-eigensymbol lifting phi_f."
+      ],
+      "acceptance": [
+        "Check that a (k+1)-admissible distribution is not determined by its values at x^j chi for 0 <= j <= k",
+        "Check Proposition 6.9: f in the image of theta^{k+1} implies f has a mod p companion form",
+        "Check Remark 8.2: when f is in the image of theta^{k+1} one cannot conclude from Theorem 7.1 alone that the kernel eigensymbol is unique up to scaling"
+      ],
+      "sources": [
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "Sec. 8, Theorem 8.1, printed p. 21 (read from the page image)",
+          "excerpt": "Let f be an eigenform in S_{k+2}(Gamma_0, Q-bar_p) with slope k+1. Then H^1_c(Gamma_0, D_k)_{(f)} -> H^1_c(Gamma_0, P_k^dual)_{(f)} is an isomorphism if and only if f is not in im(theta^{k+1}).",
+          "match": "The theorem, with the generalized-eigenspace subscript and the exact coefficient field Q-bar_p (the text layer of the PDF drops the bar; the statement was read from the rendered page)."
+        },
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "Sec. 9, Remark 9.4, printed p. 22",
+          "excerpt": "Since mu_f is a (k+1)-admissible distribution, it is not uniquely determined by the above interpolation property. To uniquely determine this distribution by interpolation, one would also need to specify its values at the characters of the form x^{k+1} chi with chi of finite order. We point out here that our method of producing mu_f from overconvergent modular symbols does not directly give a way of understanding its values at such characters.",
+          "match": "Exactly the stage's requirement to 'prove the correct replacement for uniqueness'; the source states that uniqueness by interpolation FAILS and that its method does not supply the missing values."
+        },
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "Sec. 8, Remark 8.2, printed p. 21 (read from the page image)",
+          "excerpt": "When f is in the image of theta^{k+1}, the above theorem implies that there is an H-eigensymbol Psi in H^1_c(D_k)^{pm}_{(f)} which is in the kernel of specialization. However, from Theorem 7.1 alone, one cannot conclude that this symbol (up to scaling) is unique.",
+          "match": "The precise limitation in the theta-critical case, which Bellaiche later removes."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularSymbolsPadicLFunctions:L3/bellaiche-eigencurve-construction-and-theta-critical-vanishing",
+      "parentStageId": "ModularSymbolsPadicLFunctions:L3",
+      "title": "Bellaiche's one-dimensionality theorem for decent refinements and the vanishing of the interpolation values in the theta-critical case",
+      "kind": "theorem",
+      "statement": "Let f be a newform of weight k+2 and level Gamma_1(N) (p odd, prime to N) and f_beta a refinement of f at p. Call f_beta DECENT if (i) f is Eisenstein, or (ii) f_beta is non-critical, or (iii) f is cuspidal and H^1_g(G_Q, rho_f) = 0. Assume f_beta is decent, and if f is Eisenstein that v_p(beta) > 0. Then for both signs the eigenspace Symb^{pm}_Gamma(D_k)[f_beta] is ONE-DIMENSIONAL, and the following are equivalent: (i) f_beta is critical; (ii) the generalized eigenspaces Symb^{pm}_Gamma(D_k)_{(f_beta)} have dimension strictly greater than 1; (iii) the specialization rho_k^*(Symb^{pm}_Gamma(D_k)[f_beta]) = 0 for both signs. The L-functions are L^{pm}(f_beta, sigma) = Phi^{pm}_{f_beta}({infinity} - {0})(sigma), each defined only up to a nonzero scalar. THEOREM 2: if f_beta is theta-critical then L^{pm}(f_beta, phi t^j) = 0 for ALL finite-order phi and all 0 <= j <= k, with one exception (f Eisenstein, f_beta not critical, sign epsilon(f_beta), chi trivial and j = k). When f_beta is critical, dim Symb^{pm}(D_k)_{(f_beta)} = e > 1 equals the ramification degree of the weight map at the corresponding point of the eigencurve, which is smooth, and e-1 SECONDARY L-functions are defined by L^{pm}_i(f_beta, sigma) = (d^i L^{pm}(y,sigma)/dy^i) at y = x.",
+      "hypotheses": [
+        "p ODD and prime to N throughout Bellaiche's paper",
+        "The 'decent' hypothesis is required; Bellaiche notes all CM forms are decent and that it is conjectured that every cuspidal form satisfies (iii)",
+        "For f Eisenstein one must additionally assume v_p(beta) > 0",
+        "The L-functions are defined only up to a nonzero scalar, since the generators Phi^{pm}_{f_beta} are; the secondary L-functions are only defined up to a scalar AND up to adding a linear combination of the earlier ones, so it is the FLAG F_0 contained in F_1 contained in ... that is well defined",
+        "Theorem 2's vanishing means the standard interpolation values do not determine the theta-critical L-function; the interpolation property (4) is recovered only by the TOP secondary L-function L^{pm}_{e-1}, while L^{pm}_i for 0 <= i <= e-2 satisfy the vanishing property (6). Bellaiche states these interpolation properties of the secondary L-functions only under the assumption that f is CUSPIDAL. [Corrected in review: the cuspidality assumption had been omitted.]",
+        "The eigencurve is NOT etale over the weight space at a critical point, which Bellaiche identifies as the new difficulty in constructing the two-variable L-function",
+        "Bellaiche's D = D[r] is the dual of the functions on Z_p that are analytic on each closed ball of radius r. He takes r = 1/p in the introduction and notes that 'nothing would change for any other value of r'. His involution iota is (1 0; 0 -1). Pollack-Stevens' D_k is D_k[1], with iota = (-1 0; 0 1). The dimension statements of Theorem 1 therefore concern Bellaiche's module and are not literally statements about the Pollack-Stevens spaces. [Added in review.]"
+      ],
+      "proofSteps": [
+        "Construct the eigencurve inside the module of distribution-valued modular symbols over an affinoid of weight space, using the Riesz decomposition for U_p-slope <= nu, and compare with Coleman's construction via a theorem of Chenevier.",
+        "Use smoothness of the eigencurve at decent classical points plus a commutative-algebra argument to compute the eigenspace and generalized eigenspace dimensions (Theorem 1).",
+        "Define L^{pm}(f_beta,sigma) as the Mellin transform of Phi^{pm}_{f_beta}({infinity} - {0}).",
+        "Theorem 2 is proved in Bellaiche Sec. 4, which was not read. Theorem 1's criterion (iii) is equivalent to f_beta being CRITICAL, not theta-critical. For f cuspidal, critical and theta-critical coincide (printed p. 5), so (TS pm) holds for both signs and the values at phi t^j with 0 <= j <= k vanish. That these values depend only on the specialization of the eigensymbol is a reviewer inference from the U_p-eigen relation, not a quoted step. For f Eisenstein, theta-critical is equivalent to critical slope and need not imply critical. Theorem 1 then gives only (TS_{-epsilon(f_beta)}); the remaining vanishing for the sign epsilon(f_beta), with its exception at trivial character and j = k, needs the Sec. 4 argument. [Corrected in review: the earlier step derived Theorem 2 from (iii) for every theta-critical f_beta, which Theorem 1 does not give.]",
+        "Differentiate the two-variable L-function along the smooth curve to define the secondary L-functions and their interpolation properties."
+      ],
+      "acceptance": [
+        "Check the exceptional case in Theorem 2 (f Eisenstein, f_beta not critical, chi trivial, j = k)",
+        "Check that for a critical-slope CM cuspform the ordinary interpolation values all vanish while the distribution does not",
+        "Check that e equals the ramification degree of the weight map at x",
+        "Check the divisibility reformulation. For theta-critical f_beta and every tame psi, s -> L^{pm}(f_beta, psi chi_s) is divisible by log^{[k]}(s), the product over j = 0 to k of log_p(gamma^{-j}s). Bellaiche prints the product index as i but the factor with j. In the exceptional Eisenstein case (psi = psi_k, sign epsilon(f_beta)) the divisor is instead log^{[k]}(s)/(s - gamma^k)."
+      ],
+      "sources": [
+        {
+          "sourceId": "bellaiche-critical-padic-l",
+          "locator": "Sec. 1.4.1, Definition 1 and Theorem 1, printed pp. 5-6",
+          "excerpt": "Definition 1. We shall say that a refined form f_beta is decent if it satisfies at least one of the three following assumption: (i) f is Eisenstein (ii) f_beta is non-critical. (iii) f is cuspidal and H^1_g(G_Q, rho_f) = 0.",
+          "match": "The exact technical hypothesis under which Bellaiche's construction works; the stage requires the eigencurve/local-algebra conditions to be included rather than suppressed."
+        },
+        {
+          "sourceId": "bellaiche-critical-padic-l",
+          "locator": "Sec. 1.4.1, Theorem 1, printed p. 6",
+          "excerpt": "Then for both choices of the sign pm, the eigenspace Symb^{pm}_Gamma(D_k)[f_beta] has dimension 1. Moreover the following are equivalent (i) f_beta is critical. (ii) The generalized eigenspaces Symb^{pm}_Gamma(D_k)_{(f_beta)} ... have dimensions strictly greater than 1. (iii) One has rho_k^*(Symb^{pm}_Gamma(D_k)[f_beta]) = 0.",
+          "match": "The one-dimensionality that replaces Pollack-Stevens' uniqueness, together with the criterion for criticality."
+        },
+        {
+          "sourceId": "bellaiche-critical-padic-l",
+          "locator": "Sec. 1.4.3, Theorem 2 and formula (6), printed p. 8 (read from the page image)",
+          "excerpt": "If f_beta is theta-critical, then L^{pm}(f_beta, phi t^j) = 0 for all phi of finite order and 0 <= j <= k, excepted in the following case: f is Eisenstein, f_beta is not critical, the sign pm is epsilon(f_beta), the character chi is trivial, and j = k.",
+          "match": "The exact statement that at a theta-critical point the ordinary interpolation values all vanish while the distribution does not; this is the stage's warning made precise, with its single exception."
+        },
+        {
+          "sourceId": "bellaiche-critical-padic-l",
+          "locator": "Sec. 1.4.5, printed pp. 10-11",
+          "excerpt": "Of course, the function L^{pm}_i(f_beta,sigma) is only defined up to a scalar and up to adding any linear combination of the L^{pm}_j(f_beta,sigma) for 0 <= j <= i-1. In other words, this is the flag F_0 contained in F_1 contained in ... contained in F_{e-1} in the space of analytic functions of sigma that is well defined",
+          "match": "The precise sense in which the secondary L-functions exist; a consumer must not treat them as individually well-defined functions."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularSymbolsPadicLFunctions:L4/three-constructions-and-the-main-conjecture-for-a-modular-form",
+      "parentStageId": "ModularSymbolsPadicLFunctions:L4",
+      "title": "The analytic, arithmetic and algebraic p-adic L-functions of a modular form and the relations among them",
+      "kind": "application",
+      "statement": "For f a modular form: the ANALYTIC p-adic L-function is L_p^an(f) of Theorem B.1; the ARITHMETIC one is Log_{V_f}(z_Kato(f)) where z_Kato(f) is Kato's Euler system localized at p, living in H^1_Iw(Q_p, V_f), and Log_{V_f} is Perrin-Riou's big logarithm; the ALGEBRAIC one is L_p^alg(f) = ch_{Lambda(Z_p^x)}(X_{p^infinity}(V_f)), defined when f is p-ordinary and using Kato's theorem that the Selmer module is Lambda-torsion. Kato's explicit reciprocity law gives L_p^an(f) = L_p^arith(f) in D^la(Z_p^x). The Iwasawa Main Conjecture for f, L_p^alg(f) = (L_p^an(f)) inside Lambda(Z_p^x), is a theorem of Kato and Skinner-Urban UNDER SOME MILD ADDITIONAL TECHNICAL HYPOTHESES.",
+      "hypotheses": [
+        "The algebraic construction requires f to be p-ORDINARY (v_p(alpha_p) = 0), so that V_f is p-ordinary in the sense of RJW Definition 13.19 and the analytic object is a measure rather than a mere distribution",
+        "The Lambda-torsionness of the Selmer module is Kato's theorem, not a definition",
+        "RJW state the Main Conjecture for f only 'under some mild additional technical hypotheses' and do not list them",
+        "The case alpha_p = 0 (infinite slope) is NOT covered by Theorem B.1; RJW point to Delbourgo for elliptic curves with additive reduction and to Rodrigues Jacinto for partial constructions via Kato's Euler system and Perrin-Riou's big logarithms",
+        "The critical-slope case v_p(alpha_p) = k+1 is covered by Pollack-Stevens and Bellaiche but with a DIFFERENT statement, as recorded in the L3 nodes"
+      ],
+      "proofSteps": [
+        "Record RJW's three constructions and the two comparison theorems (B.3 and B.4) as stated.",
+        "Record the attributions: B.2 and B.3 to Kato's Asterisque 295 paper, B.4 to Kato and Skinner-Urban.",
+        "Record the boundaries: the omitted technical hypotheses in B.4 and the uncovered alpha_p = 0 and v_p(alpha_p) = k+1 cases."
+      ],
+      "acceptance": [
+        "Instantiate at a p-ordinary weight-two form attached to an elliptic curve and compare with the classical Mazur-Swinnerton-Dyer construction",
+        "Check that when v_p(alpha_p) = 0 the growth condition of Theorem B.1 places L_p^an(f) in the measures on Z_p^x. RJW state only this direction; the sources read do not say that L_p^an(f) fails to be a measure when v_p(alpha_p) > 0. [Corrected in review: the item previously asked for 'exactly when'.]",
+        "Check the supersingular case a_p = 0 where both refinements have slope (k+1)/2 and neither is ordinary"
+      ],
+      "sources": [
+        {
+          "sourceId": "rjw-padic-l-functions",
+          "locator": "Appendix B.2.1, printed p. 80",
+          "excerpt": "We see that L_p^an(f) is, in this generality, only a locally analytic distribution (in the sense of Sec. 3.7). We note, however, that if f is p-ordinary (i.e. if v_p(alpha_p) = 0) then the growth condition implies that L_p^an(f) lies in the subspace of p-adic measures on Z_p^x.",
+          "match": "The exact criterion separating measures from distributions, which is the L2/L4 boundedness point."
+        },
+        {
+          "sourceId": "rjw-padic-l-functions",
+          "locator": "Appendix B.2.2, Theorems B.2 and B.3, printed p. 80",
+          "excerpt": "Theorem B.3. - There is an equality L_p^an(f) = L_p^arith(f) in D^la(Z_p^x).",
+          "match": "Kato's explicit reciprocity law as the comparison between the analytic and arithmetic constructions."
+        },
+        {
+          "sourceId": "rjw-padic-l-functions",
+          "locator": "Appendix B.2.3, Theorem B.4, printed p. 80",
+          "excerpt": "Theorem B.4 (Iwasawa Main Conjecture for f). - Under some mild additional technical hypotheses, we have L_p^alg(f) = (L_p^an(f)) inside Lambda(Z_p^x).",
+          "match": "The statement with its hypotheses left unspecified in the source; a consumer must not treat it as unconditional."
+        },
+        {
+          "sourceId": "rjw-padic-l-functions",
+          "locator": "Appendix B.2.1, printed p. 80",
+          "excerpt": "If alpha_p is not 0, then we know that v_p(alpha_p) <= k+1, but the above theorem does not handle the case v_p(alpha) = k+1. ... The case of alpha_p = 0 is known as the infinite slope case.",
+          "match": "Delimits exactly which slopes Theorem B.1 covers, which is the boundary between stages L2, L3 and L4."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "links": [
+    {
+      "source": "ModularSymbolsPadicLFunctions:L0/modular-symbols-as-compactly-supported-cohomology",
+      "target": "ModularSymbolsPadicLFunctions:L2/stevens-control-theorem-for-small-slope",
+      "reason": "The control theorem is a statement about H^1_c(Gamma_0, D_k) and its specialization to H^1_c(Gamma_0, Sym^k). Both spaces are the modular-symbol spaces of the L0 node, and the U_p-slope decomposition that drives the proof uses the explicit U_p formula phi | U_p = sum phi | (1 a; 0 p) on Hom_{Gamma_0}(Delta_0, -), which Pollack-Stevens identify with H^1_c through (1). For the Q_p-vector-space coefficients D_k, D-dagger_k and P_k^dual the torsion hypothesis holds automatically (characteristic 0); the integral arguments of their Sec. 6 add the separate assumption that Gamma_0 has no elements of order p. Moreover the identification of the kernel as H^1_c(D_{-2-k})(k+1) uses L0's determinant-twist identity H^1_c(M(r)) = H^1_c(M)(r). [Verified in review: the proof of Lemma 5.1 uses (1) for injectivity and uses the tautological twist isomorphism of Sec. 2.2.]",
+      "sources": [
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "Sec. 2.1-2.2 (printed pp. 4-5) used in Sec. 1 (printed pp. 2-3)"
+        },
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "Lemma 5.1 and its proof, printed p. 12"
+        }
+      ]
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L2/stevens-control-theorem-for-small-slope",
+      "target": "ModularSymbolsPadicLFunctions:L3/theta-operator-criterion-for-the-critical-slope-lift",
+      "reason": "Pollack-Stevens' critical-slope theorem is obtained by repeating the small-slope analysis on the slope-exactly-(k+1) subspace: the same exact sequence 0 -> H^1_c(D_{-2-k})(k+1)_{(f)} -> H^1_c(D_k)_{(f)} -> H^1_c(P_k^dual)_{(f)} -> 0 is used, but now the kernel can be nonzero and the theta operator decides when. The construction of mu_f from the unique lift is likewise copied from the non-critical case via Proposition 9.1.",
+      "sources": [
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "proof of Thm. 8.1 (printed p. 21) reusing the sequence of Sec. 1 (printed pp. 2-3), and Def. 9.2 (printed p. 22) reusing Prop. 9.1; Lemma 5.1 and Proposition 4.8 (printed pp. 11-12) and Lemma 6.4 (printed p. 15), as cited in the proof of Theorem 6.7 (printed p. 16), which Theorem 8.1 reuses"
+        }
+      ]
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L3/theta-operator-criterion-for-the-critical-slope-lift",
+      "target": "ModularSymbolsPadicLFunctions:L3/bellaiche-eigencurve-construction-and-theta-critical-vanishing",
+      "reason": "Bellaiche's Theorem 1 covers the theta-critical cases that Pollack-Stevens explicitly leave open: Pollack-Stevens' Remark 8.2 says that when f is in the image of theta^{k+1} one cannot conclude uniqueness of the kernel eigensymbol from their Theorem 7.1, and their footnote records that Bellaiche subsequently proved the eigenspace is one-dimensional. Bellaiche states the same in Sec. 1.4.1: 'This theorem was known by a work of Stevens-Pollack in the case of forms f_beta that are not theta-critical ... the new cases provided of this theorem are the theta-critical cases.' [Annotated in review: the consumption is not only historical. Bellaiche identifies his L^pm(f_beta, -) with the Pollack-Stevens L-function in the critical-slope, non-theta-critical case (printed p. 7), and attributes the interpolation property (4) in that case to Pollack and Stevens (printed p. 8).]",
+      "sources": [
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "Remark 8.2 and footnote 3, printed pp. 2 and 21"
+        },
+        {
+          "sourceId": "bellaiche-critical-padic-l",
+          "locator": "Sec. 1.4.1, printed p. 6"
+        },
+        {
+          "sourceId": "bellaiche-critical-padic-l",
+          "locator": "Sec. 1.4.2, printed pp. 7-8"
+        }
+      ]
+    },
+    {
+      "source": "DirichletPadicLFunctions:L0",
+      "target": "ModularSymbolsPadicLFunctions:L1/period-normalized-interpolation-formula-two-printed-conventions",
+      "reason": "Added in review REVIEW-EXT-08-EXT-16: the authored reconciliation in this node uses the primitive Gauss sum G(chi) of RJW Definition 5.2 and the identity G(chi)G(chi^{-1}) = chi(-1)p^n of RJW Remark 5.3(i). The atlas stage DirichletPadicLFunctions:L0 constructs 'primitive-character Gauss sums, their nonvanishing and inversion formula', and data/atlas.json already has the edge DirichletPadicLFunctions:L0 -> ModularSymbolsPadicLFunctions:L1. PARTIAL: the stage text does not name the product identity itself, and RJW do not prove it (they cite [DS05, Sec. 4.3]); the supplier must confirm that the identity is in scope.",
+      "sources": [
+        {
+          "sourceId": "rjw-padic-l-functions",
+          "locator": "Definition 5.2 and Remark 5.3(i), printed pp. 29-30"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4",
+      "target": "ModularSymbolsPadicLFunctions:L2/stevens-control-theorem-for-small-slope",
+      "reason": "Added in review REVIEW-EXT-08-EXT-16: the proof of Theorem 5.4 passes to slope < k+1 parts (Proposition 4.8, Lemma 4.9) of spaces on which U_p has a characteristic power series, and Lemma 5.3 compares D_k, D-dagger_k and the Banach modules D_k[r]. The atlas stage LocallyAnalyticDistributions:L4 supplies 'continuity and compactness of the semigroup operators used for modular symbols, ... slope decompositions, and compatibility with specialization on slope-adapted affinoids', and the atlas has the edge LocallyAnalyticDistributions:L4 -> ModularSymbolsPadicLFunctions:L2. The group-specific norm bound p^{-(k+1)} on the twisted kernel stays in this node.",
+      "sources": [
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "Proposition 4.8 and Lemma 4.9, printed p. 11; Lemma 5.3 and Theorem 5.4, printed pp. 13-14"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L2",
+      "target": "ModularSymbolsPadicLFunctions:L3/theta-operator-criterion-for-the-critical-slope-lift",
+      "reason": "Added in review REVIEW-EXT-08-EXT-16: this node's non-uniqueness hypothesis is a statement about (k+1)-admissible distributions. Proposition 9.3 quotes admissibility from [15, Lemma 6.2], and Remark 9.4 says that interpolation at x^j chi (0 <= j <= k) does not determine such a distribution. The atlas stage LocallyAnalyticDistributions:L2 defines order-h admissibility, proves uniqueness under the Amice-Velu/Vishik degree bound, and says 'At critical slope do not apply the strict small-slope uniqueness theorem'. The atlas already routes this supply through ModularSymbolsPadicLFunctions:L2 (edge LocallyAnalyticDistributions:L2 -> ModularSymbolsPadicLFunctions:L2 -> ModularSymbolsPadicLFunctions:L3), so no new stage order is introduced.",
+      "sources": [
+        {
+          "sourceId": "pollack-stevens-critical-slope",
+          "locator": "Proposition 9.3 and Remark 9.4, printed p. 22"
+        }
+      ]
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L2",
+      "target": "ModularSymbolsPadicLFunctions:L4/three-constructions-and-the-main-conjecture-for-a-modular-form",
+      "reason": "Added in review REVIEW-EXT-08-EXT-16: this node's boundary between measures and distributions is RJW's remark that for v_p(alpha_p) = 0 the growth condition of Theorem B.1 puts L_p^an(f) in the p-adic measures on Z_p^x. The atlas stage LocallyAnalyticDistributions:L2 proves that 'order zero agrees with bounded measures in the setting used for modular L-functions'. Only that direction is consumed.",
+      "sources": [
+        {
+          "sourceId": "rjw-padic-l-functions",
+          "locator": "Appendix B.2.1 and B.2.3, printed p. 80"
+        }
+      ]
+    },
+    {
+      "source": "PadicFamilies:L3",
+      "target": "ModularSymbolsPadicLFunctions:L3/bellaiche-eigencurve-construction-and-theta-critical-vanishing",
+      "reason": "Added in review REVIEW-EXT-08-EXT-16: Bellaiche's Theorem 1 is proved from smoothness of the eigencurve at decent classical points and from the structure Q-bar_p[t]/(t^e) of the Hecke algebra at such a point. The secondary L-functions differentiate a two-variable L-function along the eigencurve (Sec. 1.4.5 and 1.5, printed pp. 10-11). The atlas stage PadicFamilies:L3 is charged to 'Prove the Pollack-Stevens non-theta-critical and Bellaiche critical-point results by their respective arguments, with their local eigenvariety and multiplicity hypotheses', and the atlas has the edge PadicFamilies:L3 -> ModularSymbolsPadicLFunctions:L3. OWNERSHIP QUESTION: this node's proof steps construct the eigencurve and prove Theorem 1 inside ModularSymbolsPadicLFunctions:L3, which duplicates that charge; see the gaps.",
+      "sources": [
+        {
+          "sourceId": "bellaiche-critical-padic-l",
+          "locator": "Sec. 1.4.4-1.5, printed pp. 10-11"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ModularSymbolsPadicLFunctions:L0",
+      "status": "partial",
+      "remaining": [
+        "Only the comparison H^1_c(Gamma_0,M) = Hom_{Gamma_0}(Delta_0,M) with its torsion hypothesis, the U_p formula, the determinant twist and the involution were read (Pollack-Stevens Sec. 2)",
+        "Manin symbols, boundary maps, presentations, parabolic cohomology and the comparisons between them were NOT read",
+        "The Eichler-Shimura period maps at general level, their rational structures, Hecke equivariance, injectivity and eigenspace dimensions were NOT read; Pollack-Stevens invoke 'Eichler-Shimura theory and multiplicity one' in Sec. 9 without proof",
+        "The functorial comparison with the analytic modular-curve carrier was not addressed",
+        "The cited source for the comparison is Ash-Stevens (Pollack-Stevens reference [2], Proposition 4.2), which is not in the supplied library",
+        "Review note (REVIEW-EXT-08-EXT-16): Pollack-Stevens footnote 5 (printed pp. 15-16) records the form of the classical Eichler-Shimura isomorphism they use, S_{k+2} + M_{k+2} = H^1(Gamma, V_k), derived from Shimura [17, Chapter 8]. It is quoted, not proved."
+      ]
+    },
+    {
+      "stageId": "ModularSymbolsPadicLFunctions:L1",
+      "status": "partial",
+      "remaining": [
+        "The period LINES and their integral saturated lattices were not sourced: Pollack-Stevens normalize phi^{pm}_f 'to have size 1' and Bellaiche works 'up to a scalar', so both sources choose a basis rather than constructing a canonical integral period. The canonical integral period up to O^x under multiplicity one was NOT found in the sources read",
+        "The Mellin formula expressing integrals of f against polynomial differentials in terms of L(f,chi,j+1) was NOT read; only the resulting interpolation formulas were read",
+        "Algebraicity of the period-normalized values was not proved from any source. Amice-Velu p. 120 QUOTE it as Theoreme I, attributed to Manin [4]. That statement is at level one, selects the period omega_{epsilon(-1)^k} by parity, and says D^k Q_k^epsilon(x) is an algebraic integer. Manin's paper is not in the supplied library, and no version for general level or nebentypus was read. [Corrected in review: the earlier text said Amice-Velu refer to algebraicity only through the functional equation, and attributed the theorem to Shimura.]",
+        "The reconciliation of the two printed normalizations is recorded as an AUTHORED computation using the Gauss-sum identity, not as a source statement; it must be verified",
+        "The n = 0 case of RJW Theorem B.1 was not separately verified against a source. The printed sources disagree at n = 0 (see gaps)."
+      ]
+    },
+    {
+      "stageId": "ModularSymbolsPadicLFunctions:L2",
+      "status": "partial",
+      "remaining": [
+        "The distribution spaces D_k and their filtration/compactness estimates were decomposed only as far as Pollack-Stevens Sec. 3.1-3.2 (the definitions of A, D, A-dagger and D-dagger, and the difference-operator exact sequence of Prop. 3.1). The review read Sec. 3.3-3.4 (Proposition 3.3) and, from Sec. 4, only Definition 4.7, Proposition 4.8 and Lemma 4.9 (printed p. 11). The category C, Lemma 4.2 and Corollary 4.4 were NOT read.",
+        "The distribution relation, the growth of order h and the uniqueness statement were read only in their final form (Theorem B.1 and Amice-Velu Theoreme III); the admissibility machinery of Amice-Velu Sec. IV was skimmed, not decomposed",
+        "The integrality question (boundedness gives coefficients in O[[G]][1/p], not O[[G]]) is NOT sourced here: no source read states it. This is a genuine open item for the stage",
+        "The control theorem is proved in Pollack-Stevens Sec. 5.2, printed pp. 12-14 (in the authors' words, a sketch). The packet did not decompose that proof; the review read it. Stevens' original [19] and Pollack-Stevens [15] are not in the supplied library. [Corrected in review: the earlier text said only that the proof is attributed to Stevens and to [15, Thm. 5.12].]"
+      ]
+    },
+    {
+      "stageId": "ModularSymbolsPadicLFunctions:L3",
+      "status": "partial",
+      "remaining": [
+        "Pollack-Stevens Sections 4-8 (slope decompositions, the comparison theorem, the critical slope subspace I and II, eigenpackets) are not decomposed into nodes. The review read the proofs of Theorems 5.4 and 6.7 and the statements of Theorems 7.1-7.3. The proofs of Theorems 7.1, 7.2 and 7.3 were NOT read; Theorem 7.2 is attributed to Coleman-Mazur, Buzzard and others.",
+        "Bellaiche Sections 2-4 (the eigencurves, refinements, smoothness, the construction through distribution-valued modular symbols, and the actual proofs of Theorems 1, 2, 3) were NOT read; only the introduction was read",
+        "The comparison of the critical constructions with the arithmetic one (Pollack-Stevens Remark 9.5, via Perrin-Riou's dual exponential and Kato's zeta element) was read as a statement but the reciprocity theorem behind it was not",
+        "The eigenvariety layer that the stage assigns to R13 was not inspected",
+        "Review note (REVIEW-EXT-08-EXT-16): the atlas splits ownership of the Pollack-Stevens and Bellaiche critical-slope proofs between this stage and PadicFamilies:L3 (see gaps)."
+      ]
+    },
+    {
+      "stageId": "ModularSymbolsPadicLFunctions:L4",
+      "status": "partial",
+      "remaining": [
+        "Weight-two examples, tame character twists and the explicit supersingular/ordinary comparisons were not constructed",
+        "Functoriality under coefficient embeddings and primitive/imprimitive level changes was not read",
+        "The matching of local Euler factors is covered only through the Bellaiche modification factor of the L2 node",
+        "The alpha = 0 case is recorded as outside Theorem B.1; the de Rham construction RJW attribute to Rodrigues Jacinto (arXiv paper KI_RJ18_DeRhamPadicL.pdf IS in the library) was not read",
+        "The technical hypotheses of RJW Theorem B.4 are unspecified in the source and were not recovered from Kato or Skinner-Urban (both PDFs are in the library and were not read in this pass)",
+        "Review note (REVIEW-EXT-08-EXT-16): Mazur-Swinnerton-Dyer, Arithmetic of Weil curves, is in the library catalogue (id MazurSwinnertonDyer_WeilCurves). It was not read, and it is the natural comparison source for the weight-two acceptance item."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Stage-ordering tension: L1's stated scope needs L2's refinement data",
+      "neededBy": [
+        "ModularSymbolsPadicLFunctions:L1",
+        "ModularSymbolsPadicLFunctions:L2"
+      ],
+      "detail": "THIS IS A FINDING ABOUT THE ATLAS, NOT ABOUT A SOURCE. Stage L1's text requires that 'the distinction between the L-function of a p-stabilized form and that of the original newform must be separately checked; converting to the good-prime newform introduces the second familiar Euler factor.' That comparison is exactly what separates RJW Theorem B.1 (f of level Gamma_0(N) with p dividing N, ONE Euler factor) from Bellaiche (4)-(5) (f a newform of level prime to p with a CHOSEN refinement, TWO Euler factors). The refinement data - the two roots alpha, beta of X^2 - a_p X + epsilon(p)p^{k+1} and the two p-stabilizations - is assigned by the atlas to stage L2, and data/atlas.json records the edge L1 -> L2 (L2 requires L1). No L2 -> L1 edge is proposed here, because adding one would create a two-cycle. VERIFIED: both printed interpolation formulas (RJW's re-read in review from a render; it has chi-bar in the L-value) and the definitions of the refinements (Bellaiche Sec. 1.3, printed p. 4). RESOLUTION NEEDED BY THE ATLAS OWNER: either narrow L1 to the fixed-level statement and move the newform comparison to L2, or split the refinement definitions out of L2 into a prerequisite of L1. Review note (REVIEW-EXT-08-EXT-16): the roadmap summary in data/atlas.json says 'The starting form can have p in its level; the good-prime p-stabilization comparison is a separate result'. That supports the first option: L1 stays at fixed level, and the comparison is proved in L2."
+    },
+    {
+      "title": "Printed inconsistency in Bellaiche formula (5): alpha in the Euler-factor denominators",
+      "neededBy": [
+        "ModularSymbolsPadicLFunctions:L2/refinements-and-the-two-euler-factors",
+        "ModularSymbolsPadicLFunctions:L1"
+      ],
+      "detail": "Bellaiche Sec. 1.3 (printed p. 4) defines alpha and beta as the two distinct roots of X^2 - a_p X + epsilon(p)p^{k+1}, with U_p f_beta = beta f_beta. Formula (5) on printed p. 8, read from a 500 dpi render of the page, is e_p(beta, phi t^j) = (1/beta^nu)(1 - phi-bar(p)epsilon(p)p^{k-j}/alpha)(1 - phi(p)p^j/alpha). The prefactor uses beta while both Euler-factor denominators use alpha. Since the L-function being interpolated is that of the refinement f_beta, the denominators should be beta. VERIFIED: the definitions in Sec. 1.3, the printed form of (4) and (5), and the fact that both Euler factors reduce to 1 for phi ramified at p (phi(p) = 0). NOT VERIFIED: whether a published erratum or the published version corrects this. The published version is Invent. Math. 189 (2012) 1-60 according to RJW's bibliography entry [Bel12]; the earlier text named Ann. Sci. ENS, which no source read supports. Next source action: compare with that published version, or with Mazur-Tate-Teitelbaum, Invent. Math. 84 (1986) 1-48 (per RJW [MTT86]). Neither is in the supplied library. REVIEWER COMPUTATION (not a source statement): from f_beta(z) = f(z) - alpha f(pz), L(f_beta, phi-bar, j+1) = (1 - phi-bar(p) epsilon(p) p^{k-j}/beta) L(f, phi-bar, j+1), using alpha beta = epsilon(p) p^{k+1}. An eigensymbol with U_p-eigenvalue beta restricts to Z_p^x with the factor (1 - p^j/beta) at trivial phi. Both support beta in both denominators. [Corrected in review.]"
+    },
+    {
+      "title": "Printed inconsistency in Pollack-Stevens formula (2): the L-argument",
+      "neededBy": [
+        "ModularSymbolsPadicLFunctions:L1/period-normalized-interpolation-formula-two-printed-conventions"
+      ],
+      "detail": "Pollack-Stevens Sec. 9 formula (2), read from a 220 dpi render of printed p. 21, is mu_f(x^j chi) = (1/a_p^n)(p^{n(j+1)}/(-2 pi i)^j)(j!/tau(chi^{-1}))(L(f,chi^{-1},1)/Omega_f^{pm}). The last argument of the L-function is printed as 1, but the left-hand side depends on j and no other factor supplies the missing dependence. Bellaiche formula (4), restating the SAME Pollack-Stevens interpolation property, prints L_infinity(f phi^{-1}, j+1). VERIFIED: both printed formulas, from page images. CONCLUSION RECORDED: the Pollack-Stevens argument must be read as j+1. Next source action: check the published J. London Math. Soc. version of Pollack-Stevens. Review note (REVIEW-EXT-08-EXT-16): formula (2) is also stated for every conductor p^n, including n = 0, but carries no Euler factor; see the separate gap on n = 0. The publication data J. London Math. Soc. (2) 87 (2013) 428-452 agree with RJW's bibliography entry [PS13]."
+    },
+    {
+      "title": "No source read supplies canonical integral periods or the integrality of the measure",
+      "neededBy": [
+        "ModularSymbolsPadicLFunctions:L1",
+        "ModularSymbolsPadicLFunctions:L2"
+      ],
+      "detail": "Stage L1 requires saturated integral modular-symbol lattices and canonical integral period choices up to O^x; stage L2 requires that boundedness alone gives coefficients in O[[G]][1/p] and not necessarily O[[G]]. NEITHER statement appears in any of the four sources read: Pollack-Stevens normalize phi^{pm}_f 'to have size 1' (a choice), Bellaiche works 'up to a scalar', RJW write Omega_f^{pm} without constructing it, and Amice-Velu work at level one. VERIFIED: that all four sources leave the period a choice. NOT VERIFIED: any integral normalization. Next source action: Vatsal, Integral periods for modular forms; or Greenberg-Vatsal; or Mazur-Tate-Teitelbaum. None is in the supplied library, and these suggested titles and section pointers were not verified against any source read (the section pointer 'Sec. I' was removed in review). Barrera Salazar-Williams, p-adic L-functions for GL2 (papers/KI_BSW_PadicGL2.pdf) IS in the library and was not read; it may contain the integral statement. Review note (REVIEW-EXT-08-EXT-16): Amice-Velu p. 120 quote Manin's level-one statement that D^k Q_k^epsilon(x) is an algebraic integer when Dx is in Z. That bounds denominators of the normalized values, but it is neither a canonical O^x-period nor integrality of the measure. Their Theoreme III(c) gives only boundedness when v_p(lambda) = 0."
+    },
+    {
+      "title": "Eichler-Shimura and the modular-symbol comparison are quoted, not proved",
+      "neededBy": [
+        "ModularSymbolsPadicLFunctions:L0"
+      ],
+      "detail": "Pollack-Stevens Sec. 2.1 cites '[2, Proposition 4.2]' (Ash-Stevens) for the isomorphism H^1_c(Gamma_0,M) = Hom_{Gamma_0}(Delta_0,M), and Sec. 9 invokes 'Eichler-Shimura theory and multiplicity one' for the one-dimensionality of the f-isotypic part. Neither is proved there and neither reference is in the supplied library. VERIFIED: the statements and their hypotheses. Next source action: A. Ash and G. Stevens, Modular forms in characteristic l and special values of their L-functions, Duke Math. J. 53 (1986); and Shimura's Introduction to the arithmetic theory of automorphic functions Ch. 8 (the chapter Pollack-Stevens cite as [17, Chapter 8] in the proof of Lemma 6.6, printed p. 15)."
+    },
+    {
+      "title": "Amice-Velu's admissibility machinery was skimmed, not decomposed",
+      "neededBy": [
+        "ModularSymbolsPadicLFunctions:L2"
+      ],
+      "detail": "Amice-Velu Theoreme III (printed p. 125) gives existence and uniqueness of G_lambda under v_p(lambda) < w+1 for a level-one Hecke cusp form of weight w+2. The mechanism is in Sec. IV (printed pp. 127-129): interpolation polynomials S_n^h; Proposition IV.1 (printed pp. 127-128), the bijection B_h -> I_h, whose proof rests on continuity of euclidean division by the product over k of Q_n(X/g^k) with Q_n(X) = X^{p^n} - 1 and on a bound for ||S_{n+1}^h - S_n^h||; Lemma IV.2; and Propositions IV.3 and IV.4 (printed p. 129). [Corrected in review: the division estimate belongs to Proposition IV.1, not to IV.3-IV.4. The review read these statements from renders; the proofs remain unread.] Those pages were read only as page images and skimmed. VERIFIED: the statement of Theoreme III with its slope condition. NOT VERIFIED: the admissibility/uniqueness proof. Next source action: read Amice-Velu Sections II-IV in the library copy (papers/KI_AmiceVelu_HeckeDistributions.pdf); the OCR text layer is poor, so page images are needed. The nebentypus and general-level versions are not in that paper."
+    },
+    {
+      "title": "Barrera Salazar-Williams and Hansen are in the library and were not read",
+      "neededBy": [
+        "ModularSymbolsPadicLFunctions:L2",
+        "ModularSymbolsPadicLFunctions:L3"
+      ],
+      "detail": "papers/KI_BSW_PadicGL2.pdf (Barrera Salazar-Williams, p-adic L-functions for GL2, arXiv:1602.06244) and papers/KI_Hansen_CriticalIwasawa.pdf (Hansen, Iwasawa theory of overconvergent modular forms I: critical p-adic L-functions, arXiv:1508.03982) are both present and were NOT opened by this job. They are the natural sources for the general-level and general-nebentypus interpolation formula and for an independent treatment of the critical case. Recorded as an unread-but-available boundary, not an acquisition problem."
+    },
+    {
+      "title": "RJW Theorem B.1 prints chi-bar in the L-value; the atlas transcription drops the bar",
+      "neededBy": [
+        "ModularSymbolsPadicLFunctions:L1",
+        "ModularSymbolsPadicLFunctions:L1/period-normalized-interpolation-formula-two-printed-conventions"
+      ],
+      "detail": "Added in review REVIEW-EXT-08-EXT-16. A 200 dpi render of RJW printed p. 80 shows L_p^an(f, chi-bar, j+1) = integral over Z_p^x of chi(x)x^j . L_p^an(f) = -alpha_p^{-n}(1 - chi(p)p^j/alpha_p) G(chi) j! p^{nj}/(2 pi i)^{j+1} . L(f, chi-bar, j+1)/Omega_f^pm. The PDF text layer drops both bars. The packet's first reading, and the formula quoted in the atlas description of stage ModularSymbolsPadicLFunctions:L1, have L(f,chi,j+1). With the bar, RJW, Pollack-Stevens (2) and Bellaiche (4) all interpolate the chi^{-1}-twisted L-value. The Gauss sum appears as G(chi) in RJW and as 1/tau(chi^{-1}) in the other two. VERIFIED: the rendered formula. ORCHESTRATOR ACTION: the atlas stage text for L1 should quote L(f, chi-bar, j+1). The reviewer does not edit data/."
+    },
+    {
+      "title": "The printed sources disagree on the Euler factor at n = 0",
+      "neededBy": [
+        "ModularSymbolsPadicLFunctions:L1/period-normalized-interpolation-formula-two-printed-conventions",
+        "ModularSymbolsPadicLFunctions:L1"
+      ],
+      "detail": "Added in review REVIEW-EXT-08-EXT-16. RJW Theorem B.1 (printed p. 80) includes (1 - chi(p)p^j/alpha_p), which at n = 0 is (1 - p^j/alpha_p). Pollack-Stevens (2) (printed p. 21) is stated for characters of conductor p^n with no restriction to n >= 1, and prints no Euler factor. Amice-Velu Theoreme III(a) (printed p. 125) prints G_lambda(chi theta^k) = (1/lambda^n)(-1)^k A(chi,k), also with no Euler factor. But its domain is X(Z*_Delta), in the notation of their Sec. II.1 (not read), and p. 120 says the values are taken 'a un facteur correctif pres'. REVIEWER COMPUTATION (not a source statement): Pollack-Stevens p. 5 give the U_p formula, and Sec. 3.3 gives the weight-k action. With these, an eigensymbol with Phi | U_p = alpha Phi satisfies Phi({inf}-{0})(1_{pZ_p} z^j) = alpha^{-1} p^j Phi({inf}-{0})(z^j). So the moment over Z_p^x is (1 - p^j/alpha) times the moment over Z_p, which supports RJW at n = 0 for the restriction to Z_p^x. NOT VERIFIED: the Mellin formula identifying the moment over Z_p with L(f, j+1)/Omega, and Amice-Velu's normalization. Next source action: Pollack-Stevens [15, Prop. 6.3] or Mazur-Tate-Teitelbaum (neither is in the supplied library), or Barrera Salazar-Williams (papers/KI_BSW_PadicGL2.pdf, in the library)."
+    },
+    {
+      "title": "Parity condition in Bellaiche (4) printed as phi(-1) = pm 1",
+      "neededBy": [
+        "ModularSymbolsPadicLFunctions:L1/period-normalized-interpolation-formula-two-printed-conventions"
+      ],
+      "detail": "Added in review REVIEW-EXT-08-EXT-16. Bellaiche (4) (printed p. 8, checked on a 300 dpi render) is asserted 'for all phi ... satisfying phi(-1) = pm 1 and 0 <= j <= k'. On printed p. 7 he states that L^pm(f_beta, sigma) = 0 whenever sigma(-1) is not pm 1. For sigma = phi t^j, sigma(-1) = phi(-1)(-1)^j, so for odd j the printed condition selects exactly the sign for which L^pm(f_beta, phi t^j) vanishes. Amice-Velu (1) (printed p. 120) attach the period omega_{(-1)^k chi(-1)} to the value at s = k+1, which is the parity phi(-1)(-1)^j. CONCLUSION RECORDED: read the condition in (4) as phi(-1)(-1)^j = pm 1. The same page also writes tau(chi^{-1}) in (4) but 'tau(phi^{-1}) is the Gauss sum of phi^{-1}' in the text, and Theorem 2's exception says 'the character chi is trivial'; chi and phi denote the same character there. NOT VERIFIED: the published version."
+    },
+    {
+      "title": "Imported results in the Pollack-Stevens proofs of Theorems 5.4, 6.7 and 8.1",
+      "neededBy": [
+        "ModularSymbolsPadicLFunctions:L2/stevens-control-theorem-for-small-slope",
+        "ModularSymbolsPadicLFunctions:L3/theta-operator-criterion-for-the-critical-slope-lift"
+      ],
+      "detail": "Added in review REVIEW-EXT-08-EXT-16. The inspected proofs invoke the following results, none decomposed here. Proposition 4.8 and Lemma 4.9 (printed p. 11), which rest on Lemma 4.2, Corollary 4.4 and the category C of Sec. 4 (printed pp. 9-11, not read). Lemma 5.2 (printed pp. 12-13), whose proof uses Poincare duality H^2_c(Gamma_0, D-dagger_k) = H_0(Gamma_0, D-dagger_k) and Proposition 3.1. Lemma 5.3 (printed p. 13). Lemma 6.4 (printed p. 15). Theorem 7.1 (Stevens [18, 19], printed p. 18), whose proof uses Theorems 7.2 (attributed to Coleman-Mazur, Buzzard and others) and 7.3 and Corollary 7.4 (printed pp. 18-20). [15, Lemma 6.2], for (k+1)-admissibility in Proposition 9.3. [19] or [15, Prop 6.3], for Proposition 9.1 (printed p. 22). References [15], [18] and [19] are not in the supplied library."
+    },
+    {
+      "title": "Removed link: pseudo-measure evaluation does not supply the GL(2) interpolation formula",
+      "neededBy": [
+        "ModularSymbolsPadicLFunctions:L1/period-normalized-interpolation-formula-two-printed-conventions"
+      ],
+      "detail": "Added in review REVIEW-EXT-08-EXT-16. The packet proposed a link from PadicMeasuresIwasawaAlgebras:L3/pseudo-measures-and-evaluation-at-nontrivial-characters to the L1 node. That supplier node defines pseudo-measures in Q(G), and the integral of a NONTRIVIAL character as (chi(g)-1)^{-1} times the integral against ([g]-[1])lambda (RJW Definition 3.34 and (3.11), printed p. 22). The L1 node instead integrates chi(x)x^j against a locally analytic distribution in D^la(Z_p^x) (RJW Sec. 3.7), including trivial chi at n = 0. Nothing in Appendix B.2.1 uses a pseudo-measure: B.1 (printed p. 79) mentions pseudo-measures only when recalling the GL(1) Kubota-Leopoldt function. The link's own reason conceded that the pseudo-measure theory itself is not consumed, so it was removed. Separately, the growth and uniqueness clauses of Theorem B.1 recorded in the L1 node use order-h growth, which LocallyAnalyticDistributions:L2 owns. The atlas gives that stage to ModularSymbolsPadicLFunctions:L2 but not to L1; the declared roadmap edge PadicMeasuresIwasawaAlgebras -> ModularSymbolsPadicLFunctions has stageCount 0. ORCHESTRATOR DECISION: either the L1 node keeps only the interpolation identity and the growth/uniqueness clauses move to an L2 node, or stage L1 acquires LocallyAnalyticDistributions:L2 as a prerequisite."
+    },
+    {
+      "title": "Atlas ownership overlap for the Pollack-Stevens and Bellaiche critical-slope proofs",
+      "neededBy": [
+        "ModularSymbolsPadicLFunctions:L3",
+        "ModularSymbolsPadicLFunctions:L3/theta-operator-criterion-for-the-critical-slope-lift",
+        "ModularSymbolsPadicLFunctions:L3/bellaiche-eigencurve-construction-and-theta-critical-vanishing"
+      ],
+      "detail": "Added in review REVIEW-EXT-08-EXT-16. The atlas description of ModularSymbolsPadicLFunctions:L3 asks to 'Implement Pollack-Stevens' construction under its non-theta-critical hypothesis' and, for Bellaiche, to 'use R13's finite-slope eigenvariety layer'. PadicFamilies:L3, by contrast, is charged to 'Prove the Pollack-Stevens non-theta-critical and Bellaiche critical-point results by their respective arguments', and says 'R10.L3 consumes these results'. The two L3 nodes of this packet carry proof steps for Theorem 8.1 and for Bellaiche's Theorems 1-3, including the construction of the eigencurve. VERIFIED: both atlas descriptions. ORCHESTRATOR DECISION: which stage owns these proofs. If it is PadicFamilies:L3, the proof steps here should become consumption of that stage; the review added a PadicFamilies:L3 -> Bellaiche node link."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REVIEW-EXT-08-EXT-16",
+    "date": "2026-09-16",
+    "notes": "All 7 nodes and 4 draft links were checked against the library copies; all four SHA-256 hashes match. Displayed formulas were checked on page renders: RJW p. 80, Pollack-Stevens p. 21, Bellaiche p. 8, and Amice-Velu pp. 119-120 and 125-129. The main corrections are these. (1) RJW Theorem B.1 prints chi-bar in both L-values; the text layer drops the bar. The packet's claim that RJW and Pollack-Stevens differ in the twist was therefore false, and the atlas's L1 transcription has the same error. (2) The authored Gauss-sum reconciliation omitted the signs (-1)^j and -1; the residual factor is -chi(-1)(-1)^j (2 pi i), which is absorbable into the periods only when the sign is indexed by chi(-1)(-1)^j. (3) At n = 0 the printed sources disagree on the Euler factor: RJW print it, while Pollack-Stevens (2) and Amice-Velu III(a) do not. A reviewer computation from the U_p-eigen relation supports RJW. (4) Bellaiche (4) prints the parity condition as phi(-1) = pm 1, contradicting his p. 7 support statement. (5) Pollack-Stevens prove the control theorem in Sec. 5 (Theorem 5.4); the packet said the proof is not reproduced. (6) Theorem 6.7 also assumes Gamma_0 has no elements of order p. (7) Bellaiche's Theorem 1(iii) characterizes CRITICAL, not theta-critical, refinements, so the derivation of Theorem 2 was wrong for Eisenstein series; the secondary interpolation properties assume f cuspidal. (8) The refinements need the U_p-eigenform condition. (9) The Amice-Velu domain is X(Z*_Delta). (10) Amice-Velu p. 120 does state Manin's algebraicity theorem. (11) Bellaiche was published in Invent. Math. 189 (2012), not Ann. Sci. ENS. The alpha/beta discrepancy in Bellaiche (5) and the j+1 reading of Pollack-Stevens (2) were confirmed, and each is now backed by a reviewer computation. Links: L0 -> L2 and L2 -> L3 were verified; L3 theta -> L3 Bellaiche was verified and annotated with the actual consumption. The PadicMeasuresIwasawaAlgebras:L3 pseudo-measure -> L1 link was removed because its target consumes no pseudo-measure. Five links were added: DirichletPadicLFunctions:L0 -> L1 (partial: the Gauss-sum identity), LocallyAnalyticDistributions:L4 -> control theorem, LocallyAnalyticDistributions:L2 -> theta criterion, LocallyAnalyticDistributions:L2 -> L4, and PadicFamilies:L3 -> Bellaiche. All added links follow existing atlas stage order. All parentStageIds and coverage ids exist. Orchestrator decisions: the atlas L1 formula needs chi-bar; the L1/L2 ordering of the newform comparison; whether L1 needs LocallyAnalyticDistributions:L2; and whether PadicFamilies:L3 or this stage owns the critical-slope proofs. Packet status stays partial.",
+    "checked": [
+      {
+        "nodeId": "ModularSymbolsPadicLFunctions:L0/modular-symbols-as-compactly-supported-cohomology",
+        "verdict": "verified",
+        "note": "Sec. 2.1-2.2 (printed pp. 4-5) match: S_0(p), Delta_0, the action, [2, Prop. 4.2] = Ash-Stevens (reference list p. 23), the torsion condition with 'for example, whenever N >= 4', the U_p formula, M(r) and iota. Added r >= 0 and reworded an acceptance item that presumed failure."
+      },
+      {
+        "nodeId": "ModularSymbolsPadicLFunctions:L1/period-normalized-interpolation-formula-two-printed-conventions",
+        "verdict": "corrected",
+        "note": "The RJW formula has chi-bar (render of p. 80), so the claimed twist difference was removed. The reconciliation residual was corrected to -chi(-1)(-1)^j (2 pi i). The n = 0 Euler-factor disagreement and the Bellaiche parity tension were added. The Amice-Velu excerpt domain was corrected to X(Z*_Delta). Pollack-Stevens (2) and Bellaiche (4) were re-verified from renders."
+      },
+      {
+        "nodeId": "ModularSymbolsPadicLFunctions:L2/refinements-and-the-two-euler-factors",
+        "verdict": "corrected",
+        "note": "Bellaiche Sec. 1.3 (p. 4) and (5) (p. 8) match. The statement omitted that the two refinements are the U_p-EIGENFORMS with f's T_l and diamond eigenvalues. The alpha/beta reading of (5) is now backed by an explicit L-series and U_p computation, and the conductor notation m = p^nu M was restored."
+      },
+      {
+        "nodeId": "ModularSymbolsPadicLFunctions:L2/stevens-control-theorem-for-small-slope",
+        "verdict": "corrected",
+        "note": "Theorem 1.1, the kernel sketch (pp. 2-3) and Prop. 9.1 (p. 22) match. The claim that the proof is not reproduced was false: Theorem 5.4 is proved in Sec. 5.2 (pp. 13-14). The proof steps and acceptance items now follow Lemma 5.1, Prop. 4.8, Lemma 5.3 and Lemma 4.9(2), with Prop. 3.3 for the D-dagger kernel."
+      },
+      {
+        "nodeId": "ModularSymbolsPadicLFunctions:L3/theta-operator-criterion-for-the-critical-slope-lift",
+        "verdict": "corrected",
+        "note": "Theorem 8.1 and its proof, Remarks 8.2-8.3 (render of p. 21), Theorem 1.2 with the generalized-eigenspace note (p. 2), Def. 9.2, Prop. 9.3 and Remark 9.4 match. Theorem 6.7 also assumes Gamma_0 has no elements of order p (p. 16); this had been omitted. The sources of the exact sequence (Lemma 5.1, Prop. 4.8, Lemma 6.4) were recorded."
+      },
+      {
+        "nodeId": "ModularSymbolsPadicLFunctions:L3/bellaiche-eigencurve-construction-and-theta-critical-vanishing",
+        "verdict": "corrected",
+        "note": "Definition 1, Theorem 1, the L-function definition, Theorem 2 with its exception, the order property, Theorem 3 and Sec. 1.4.5 match pp. 5-11. Three fixes: Theorem 1(iii) is equivalent to CRITICAL, so the claimed derivation of Theorem 2 fails for Eisenstein series; the secondary interpolation properties assume f cuspidal; and Bellaiche's D[r] and iota conventions differ from Pollack-Stevens'."
+      },
+      {
+        "nodeId": "ModularSymbolsPadicLFunctions:L4/three-constructions-and-the-main-conjecture-for-a-modular-form",
+        "verdict": "corrected",
+        "note": "B.2.1-B.2.3, Theorems B.2-B.4, the Kato and Skinner-Urban attributions ([Kat04a] = Asterisque 295), [Del98] and [RJ18] match pp. 80-81. An acceptance item asked for 'measure exactly when v_p(alpha_p) = 0', but RJW state only one direction."
+      }
+    ]
   }
- ],
- "nodes": [
-  {
-   "id": "ModularSymbolsPadicLFunctions:L0/modular-symbols-as-compactly-supported-cohomology",
-   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
-   "title": "Delta_0-valued modular symbols and the comparison with H^1_c, with the torsion hypothesis",
-   "kind": "comparison",
-   "statement": "Let p be a prime, N prime to p, Gamma_0 = Gamma_1(N) intersect Gamma_0(p), and S_0(p) the semigroup of integral matrices (a b; c d) with p not dividing a, p dividing c and ad - bc nonzero. For a right Z[S_0(p)]-module M let M-tilde be the associated locally constant sheaf on the open modular curve Y_{Gamma_0}, and H^1_c(Gamma_0, M) = H^1_c(Y_{Gamma_0}, M-tilde). Set Delta_0 = Div^0(P^1(Q)) with its left GL_2(Q)-action by linear fractional transformations, and let S_0(p) act on the right on Hom(Delta_0, M) by (phi | gamma)(D) = phi(gamma D) | gamma. THEN, PROVIDED THE ORDER OF EVERY TORSION ELEMENT OF Gamma_0 ACTS INVERTIBLY ON M, there is a canonical Hecke-equivariant isomorphism H^1_c(Gamma_0, M) = Hom_{Gamma_0}(Delta_0, M). The U_p operator is realized explicitly by phi | U_p = sum over a = 0 to p-1 of phi | (1 a; 0 p).",
-   "hypotheses": [
-    "The comparison is CONDITIONAL on the order of each torsion element of Gamma_0 acting invertibly on M. Pollack-Stevens list the sufficient conditions: N at least 4, or M a vector space over a field of characteristic 0, or Gamma_0 torsion-free, or M a Z_p-module with p > 3. This is exactly the elliptic-stabilizer point the stage insists on",
-    "M must be a right Z[S_0(p)]-module, not merely a Gamma_0-module; the U_p formula uses matrices of determinant p that lie in S_0(p) but not in Gamma_0",
-    "The Hecke algebra H is the free polynomial algebra over Z on T_l for l not dividing Np and U_q for q dividing Np",
-    "The involution comes from iota = (-1 0; 0 1), which normalizes Gamma_0; the decomposition into plus and minus eigenspaces requires 2 to act invertibly on M",
-    "Determinant twists: M(r) is M with the S_0(p)-action twisted by the r-th power of the determinant, and H^1_c(M(r)) = H^1_c(M)(r) where T_l acts by l^r T_l and U_q by q^r U_q"
-   ],
-   "proofSteps": [
-    "Form the local system M-tilde on Y_{Gamma_0} and its compactly supported cohomology.",
-    "Under the torsion hypothesis, quote the canonical isomorphism with Gamma_0-equivariant homomorphisms on degree-zero divisors ([2, Prop. 4.2] in Pollack-Stevens's numbering, i.e. Ash-Stevens).",
-    "Check Hecke equivariance and record the explicit U_p formula.",
-    "Record the determinant twist and the involution with their separate hypotheses."
-   ],
-   "acceptance": [
-    "Check the comparison fails, or requires descent, for N < 4 with p = 2 or 3 and M integral",
-    "Verify the U_p formula against the q-expansion action on a weight-two symbol",
-    "Check H^1_c(M(r)) = H^1_c(M)(r) on a concrete twist"
-   ],
-   "sources": [
-    {
-     "sourceId": "pollack-stevens-critical-slope",
-     "locator": "Sec. 2.1, printed p. 4",
-     "excerpt": "When the order of each torsion element of Gamma_0 acts invertibly on M, the space H^1_c(Gamma_0, M) admits a description in terms of modular symbols.",
-     "match": "The hypothesis under which the modular-symbol description holds; the stage demands that elliptic stabilizers not be divided by without justification, and this is the source's own formulation of that requirement."
-    },
-    {
-     "sourceId": "pollack-stevens-critical-slope",
-     "locator": "Sec. 2.1, printed p. 5",
-     "excerpt": "Note that this condition holds when M is a vector space over a field of characteristic 0, when Gamma_0 is torsion-free, or when M is a Z_p-module with p > 3.",
-     "match": "The three sufficient conditions, which is the precise content of the 'torsion-free auxiliary level and descent' instruction."
-    },
-    {
-     "sourceId": "pollack-stevens-critical-slope",
-     "locator": "Sec. 2.1, printed p. 5",
-     "excerpt": "the U_p-operator on Hom_{Gamma_0}(Delta_0, M) can be explicitly realized by phi | U_p = sum_{a=0}^{p-1} phi | (1 a; 0 p).",
-     "match": "The explicit Hecke action on symbols, with the determinant-p matrices that require the S_0(p)-module structure."
-    },
-    {
-     "sourceId": "pollack-stevens-critical-slope",
-     "locator": "Sec. 2.2, printed p. 5",
-     "excerpt": "We also mention that the matrix iota = (-1 0; 0 1) normalizes Gamma_0, and thus induces an involution on H^1_c(M); if 2 acts invertibly on M, this involution gives a decomposition H^1_c(M) = H^1_c(M)^+ + H^1_c(M)^-",
-     "match": "The involution at infinity and the hypothesis on 2 that the stage requires be kept explicit."
-    }
-   ],
-   "implementationStatus": "unchecked"
-  },
-  {
-   "id": "ModularSymbolsPadicLFunctions:L1/period-normalized-interpolation-formula-two-printed-conventions",
-   "parentStageId": "ModularSymbolsPadicLFunctions:L1",
-   "title": "The interpolation formula for the analytic p-adic L-function, in two printed normalizations",
-   "kind": "theorem",
-   "statement": "Let f be a cuspidal Hecke eigenform of weight k+2. Two printed normalizations of the same interpolation property are recorded. (RJW, level Gamma_0(N) with p dividing N, alpha_p the U_p eigenvalue, v_p(alpha_p) < k+1): for every Dirichlet character chi of conductor p^n and every 0 <= j <= k, the integral of chi(x)x^j against L_p^an(f) equals -alpha_p^{-n} (1 - chi(p)p^j/alpha_p) G(chi) j! p^{nj} (2 pi i)^{-(j+1)} L(f,chi,j+1)/Omega_f^{pm}. (Pollack-Stevens, level Gamma_0 = Gamma_1(N) cap Gamma_0(p), slope h < k+1): mu_f(x^j chi) = a_p^{-n} p^{n(j+1)} (-2 pi i)^{-j} j! tau(chi^{-1})^{-1} L(f, chi^{-1}, 1)/Omega_f^{pm}. The two are NOT literally equal: they differ in the twist (chi versus chi^{-1}), in whether the Gauss sum appears in the numerator or the denominator, in the power of 2 pi i, and in the presence of the Euler factor. The printed last argument '1' of the Pollack-Stevens L-value is inconsistent with the j-dependence of both sides; Bellaiche, restating the same Pollack-Stevens interpolation property, prints L_infinity(f phi^{-1}, j+1), which is the reading under which the formula is consistent.",
-   "hypotheses": [
-    "RJW: f has level Gamma_0(N) with p DIVIDING N, so L(f,s) is the L-function of the p-level form and carries only one Euler factor at p",
-    "RJW: the hypothesis is v_p(alpha_p) < k+1; the theorem does NOT cover v_p(alpha_p) = k+1, and RJW say so explicitly",
-    "Pollack-Stevens: chi is a finite order character of Z_p^x of conductor p^n; for n >= 1 one has chi(p) = 0 so the Euler factor in RJW's version is 1, and the two formulas can only be compared at n = 0 through the Euler factor",
-    "Both period normalizations Omega_f^{pm} are defined only up to a scalar: the plus/minus eigensymbols are normalized by a CHOICE (Pollack-Stevens normalize phi^{pm}_f to have size 1; Bellaiche says the formula holds 'up to a scalar independent on phi t^j')",
-    "The parity condition selecting the sign is phi(-1) = pm 1 (Bellaiche); it is not an extra hypothesis but part of the statement"
-   ],
-   "proofSteps": [
-    "Record RJW Theorem B.1 verbatim, with its growth clause (order v_p(alpha_p)) and its uniqueness clause.",
-    "Record Pollack-Stevens formula (2) verbatim from the page image.",
-    "Record Bellaiche formula (4) with its modification factor (5), which is the same interpolation property for a newform of level Gamma_1(N) with p prime to N and a chosen refinement.",
-    "AUTHORED RECONCILIATION (not quoted from any source): for chi primitive of conductor p^n one has G(chi) tau(chi^{-1}) = chi(-1) p^n, so p^{n(j+1)}/tau(chi^{-1}) = chi(-1) G(chi) p^{nj}; the residual discrepancies are a factor 2 pi i between (2 pi i)^{j+1} and (-2 pi i)^j and the sign chi(-1), both of which are absorbed into the choice of Omega_f^{pm}. This is the 'dictionary' the stage asks to prove; it is recorded here as a computation to be verified, not as a source statement."
-   ],
-   "acceptance": [
-    "Check the n = 0 case of RJW Theorem B.1 separately: there G(chi) = 1, alpha_p^{-n} = 1 and the Euler factor 1 - p^j/alpha_p is the only surviving modification",
-    "Check that for n >= 1 the Euler factor is 1 because chi(p) = 0, so the two printed formulas differ only by the Gauss-sum and (2 pi i) conventions",
-    "Verify the Gauss-sum identity G(chi) tau(chi^{-1}) = chi(-1) p^n for chi primitive of conductor p^n and confirm the reconciliation above",
-    "Verify that the printed Pollack-Stevens L-argument must be j+1 by checking both sides at two different values of j"
-   ],
-   "sources": [
-    {
-     "sourceId": "rjw-padic-l-functions",
-     "locator": "Appendix B.2.1, Theorem B.1, printed pp. 79-80",
-     "excerpt": "Let alpha_p denote the U_p eigenvalue of f. If v_p(alpha_p) < k+1, then there exists a unique locally analytic distribution L_p^an(f) in D^la(Z_p^x) on Z_p^x such that - L_p^an(f) has growth of order v_p(alpha_p). - For all Dirichlet characters chi of conductor p^n, and for all 0 <= j <= k, we have ... = -alpha_p^{-n} (1 - chi(p) p^j/alpha_p) G(chi) j! p^{nj}/(2 pi i)^{j+1} L(f,chi,j+1)/Omega_f^{pm}.",
-     "match": "The roadmap's normative statement, with the strict slope inequality and the uniqueness-from-growth clause."
-    },
-    {
-     "sourceId": "pollack-stevens-critical-slope",
-     "locator": "Sec. 9, displayed formula (2), printed p. 21 (read from the 220 dpi page image)",
-     "excerpt": "mu_f(x^j . chi) = (1/a_p^n) . (p^{n(j+1)}/(-2 pi i)^j) . (j!/tau(chi^{-1})) . (L(f, chi^{-1}, 1)/Omega_f^{pm})",
-     "match": "The second printed normalization. Its last L-argument is printed as 1, which cannot be right since the left side depends on j; the discrepancy is exactly the printed normalization problem the stage anticipates."
-    },
-    {
-     "sourceId": "bellaiche-critical-padic-l",
-     "locator": "Sec. 1.4.2, formulas (4) and (5), printed p. 8 (read from the 500 dpi page image)",
-     "excerpt": "L^{pm}(f_beta, phi t^j) = e_p(beta, phi t^j) m^{j+1}/(-2 pi i)^j . j!/tau(chi^{-1}) . L_infinity(f phi^{-1}, j+1)/Omega_f^{pm} ... up to a scalar independent on phi t^j",
-     "match": "The same Pollack-Stevens interpolation property restated with the L-argument j+1, which settles the reading of the Pollack-Stevens formula; it also makes explicit that the identity holds only up to a scalar, i.e. that the period is a choice."
-    },
-    {
-     "sourceId": "amice-velu-hecke-distributions",
-     "locator": "Sec. III, Theoreme III, printed p. 125",
-     "excerpt": "Soit lambda une racine de l'equation X^2 - lambda_p X + p^{w+1} = 0, de valuation p-adique v_p(lambda) < w+1, alors il existe une unique fonction G_lambda, analytique sur X(Z_p^x), et satisfaisant ...",
-     "match": "The original existence-and-uniqueness statement with the same strict slope inequality, for a Hecke cusp form of weight w+2 for SL_2(Z); this is the level-one ancestor of Theorem B.1 and shows the inequality is not an artifact of a later normalization."
-    }
-   ],
-   "implementationStatus": "unchecked"
-  },
-  {
-   "id": "ModularSymbolsPadicLFunctions:L2/refinements-and-the-two-euler-factors",
-   "parentStageId": "ModularSymbolsPadicLFunctions:L2",
-   "title": "The two refinements of a newform and the modification factor with both Euler factors",
-   "kind": "construction",
-   "statement": "Let f be a newform of weight k+2 and level Gamma_1(N) with p prime to N, T_p f = a_p f and <p>f = epsilon(p) f. Let alpha, beta be the roots of X^2 - a_p X + epsilon(p) p^{k+1} (assumed distinct). The two refinements are f_alpha(z) = f(z) - beta f(pz) and f_beta(z) = f(z) - alpha f(pz); they are the two normalized forms of level Gamma = Gamma_1(N) cap Gamma_0(p) with the same T_l and diamond eigenvalues as f, and they satisfy U_p f_beta = beta f_beta and U_p f_alpha = alpha f_alpha. A REFINEMENT IS THE CHOICE OF A ROOT, not a property of f. For a refinement the interpolation factor is e_p(beta, phi t^j) = beta^{-nu} (1 - phi-bar(p) epsilon(p) p^{k-j}/D)(1 - phi(p) p^j/D), where nu is the p-part of the conductor of phi and D is the U_p eigenvalue of the chosen refinement; TWO Euler factors appear, because the L-function on the right is that of the level-prime-to-p NEWFORM f, not of the refinement.",
-   "hypotheses": [
-    "p prime to N; alpha not equal to beta is assumed 'without loss of generality and for simplicity' by Bellaiche",
-    "Bellaiche also assumes throughout that p is ODD",
-    "When phi is ramified at p (nu >= 1) both Euler factors are 1 because phi(p) = phi-bar(p) = 0, and e_p reduces to beta^{-nu}; the Euler factors are visible only for phi unramified at p",
-    "PRINTED DISCREPANCY: Bellaiche's formula (5) prints alpha in BOTH Euler-factor denominators while the prefactor is 1/beta^nu and the L-function attached is that of the refinement f_beta with U_p f_beta = beta f_beta. Since alpha and beta are defined as the two distinct roots and beta is the eigenvalue of the refinement in question, the denominators should be beta. This is recorded as a printed inconsistency in the source, verified against Bellaiche's own Sec. 1.3 definitions",
-    "RJW Theorem B.1 has only ONE Euler factor because there f already has level divisible by p; converting to the good-prime newform is what produces the second factor"
-   ],
-   "proofSteps": [
-    "Form the two p-stabilizations by the displayed formulas and check the U_p eigenvalues from the q-expansions.",
-    "Record that the refinement is the choice of root, matching Bellaiche's 'The choice of a root beta or alpha of (1) is also called a refinement of f'.",
-    "Record the modification factor (5) with both Euler factors and flag the alpha/beta inconsistency in the printed denominators.",
-    "Compare with RJW Theorem B.1: the single factor (1 - chi(p)p^j/alpha_p) there is the second of Bellaiche's two factors specialized to the p-level form."
-   ],
-   "acceptance": [
-    "Check U_p f_beta = beta f_beta directly from f_beta(z) = f(z) - alpha f(pz)",
-    "Check that for phi ramified the modification factor is beta^{-nu}",
-    "Check the alpha/beta discrepancy by specializing to an ordinary f and the ordinary refinement, where beta is a unit and alpha is not",
-    "Check the relation L(f_beta, s) = (1 - alpha p^{-s}) L(f, s) and confirm it produces exactly the missing Euler factor at unramified phi"
-   ],
-   "sources": [
-    {
-     "sourceId": "bellaiche-critical-padic-l",
-     "locator": "Sec. 1.3, printed p. 4",
-     "excerpt": "As is well known, there are two normalized modular forms for Gamma = Gamma_1(N) cap Gamma_0(p) ... f_alpha(z) = f(z) - beta f(pz), f_beta(z) = f(z) - alpha f(pz). Those forms satisfy U_p f_beta = beta f_beta and U_p f_alpha = alpha f_alpha.",
-     "match": "The construction of the two refinements with the crossed roots, which is the source of the two Euler factors."
-    },
-    {
-     "sourceId": "bellaiche-critical-padic-l",
-     "locator": "Sec. 1.3, printed p. 4",
-     "excerpt": "The choice of a root beta or alpha of (1) is also called a refinement of f. Refinements are also sometimes called p-stabilizations, but we shall not use this terminology.",
-     "match": "Confirms the stage's insistence that a refinement includes a chosen root and is not determined by f alone."
-    },
-    {
-     "sourceId": "bellaiche-critical-padic-l",
-     "locator": "Sec. 1.4.2, formula (5), printed p. 8 (read from the 500 dpi page image)",
-     "excerpt": "e_p(beta, phi t^j) = (1/beta^nu)(1 - phi-bar(p) epsilon(p) p^{k-j}/alpha)(1 - phi(p) p^j/alpha)",
-     "match": "The modification factor as printed. The two Euler factors are the content; the alpha in their denominators is inconsistent with the 1/beta^nu prefactor and with Sec. 1.3's definitions, and is recorded here as a source typo rather than propagated."
-    }
-   ],
-   "implementationStatus": "unchecked"
-  },
-  {
-   "id": "ModularSymbolsPadicLFunctions:L2/stevens-control-theorem-for-small-slope",
-   "parentStageId": "ModularSymbolsPadicLFunctions:L2",
-   "title": "The specialization map is an isomorphism on the slope < k+1 subspace",
-   "kind": "theorem",
-   "statement": "Let D_k be the space of locally Q_p-analytic distributions on Z_p with the weight-k action of Gamma_0, and Sym^k(Q_p^2) its finite-dimensional quotient. The induced Hecke-equivariant specialization map H^1_c(Gamma_0, D_k) -> H^1_c(Gamma_0, Sym^k(Q_p^2)) restricts to an ISOMORPHISM on the subspace where U_p acts with slope STRICTLY LESS THAN k+1. Consequently a slope-h eigensymbol phi_f with h < k+1 lifts uniquely to a Hecke-eigensymbol Phi_f, and integrating Phi_f over the divisor {infinity} - {0} and restricting to Z_p^x gives the p-adic L-function mu_f.",
-   "hypotheses": [
-    "The strict inequality h < k+1 is essential; the theorem fails at slope exactly k+1, which is the whole point of the critical-slope work",
-    "The source of the isomorphism is the identification of the kernel of specialization with H^1_c(Gamma_0, D_{-2-k})(k+1), a twist by the (k+1)-st power of the determinant, on which U_p acts with slope at least k+1",
-    "The surjectivity on the slope-< k+1 part uses the Riesz decomposition for the compact operator U_p",
-    "Pollack-Stevens attribute the theorem to Stevens and cite [19] and [15, Thm. 5.12]; the proof is not reproduced in full in this paper"
-   ],
-   "proofSteps": [
-    "Identify the kernel of the specialization map with H^1_c(Gamma_0, D_{-2-k})(k+1); the determinant twist makes T_n act by n^{k+1}T_n, so U_p acts with slope at least k+1 there.",
-    "Riesz-decompose with respect to the compact operator U_p; on the slope-< k+1 part the kernel vanishes and specialization is surjective.",
-    "Deduce that specialization is an isomorphism on the slope-< k+1 part.",
-    "Define mu_f = Phi_f({infinity} - {0}) restricted to Z_p^x and quote Proposition 9.1 identifying it with the classical p-adic L-function."
-   ],
-   "acceptance": [
-    "Check the twist computation: the kernel of D_k -> Sym^k is D_{-2-k}(k+1) and U_p there has slope at least k+1",
-    "Check the ordinary case h = 0 and recover a measure",
-    "Check the failure at h = k+1 by exhibiting a nonzero element of the kernel with the same eigenpacket"
-   ],
-   "sources": [
-    {
-     "sourceId": "pollack-stevens-critical-slope",
-     "locator": "Sec. 1, Theorem 1.1, printed p. 2",
-     "excerpt": "H^1_c(Gamma_0, D_k)^{(<k+1)} -> H^1_c(Gamma_0, Sym^k(Q_p^2))^{(<k+1)}. That is, the specialization map is an isomorphism on the subspace where U_p acts with slope strictly less than k+1.",
-     "match": "The control theorem the stage names, with the strict inequality visible."
-    },
-    {
-     "sourceId": "pollack-stevens-critical-slope",
-     "locator": "Sec. 1, printed pp. 2-3",
-     "excerpt": "the kernel of the specialization map can be identified with H^1_c(Gamma_0, D_{-2-k})(k+1); here, we are twisting by the (k+1)st power of the determinant, and thus the Hecke operator T_n acts by n^{k+1} T_n. In particular, U_p acts with slope at",
-     "match": "The mechanism behind the slope bound; this is the intermediate machinery the stage asks to expose rather than package."
-    },
-    {
-     "sourceId": "pollack-stevens-critical-slope",
-     "locator": "Sec. 9, Proposition 9.1, printed p. 22",
-     "excerpt": "With f, phi_f and Phi_f as above, we have Phi_f({infinity} - {0}) restricted to Z_p^x = mu_f, the p-adic L-function of f.",
-     "match": "The evaluation on the divisor {infinity} - {0} and restriction to units that the stage requires, identified with the classical p-adic L-function."
-    }
-   ],
-   "implementationStatus": "unchecked"
-  },
-  {
-   "id": "ModularSymbolsPadicLFunctions:L3/theta-operator-criterion-for-the-critical-slope-lift",
-   "parentStageId": "ModularSymbolsPadicLFunctions:L3",
-   "title": "Pollack-Stevens: specialization is an isomorphism on the f-generalized eigenspace iff f is not in the image of theta^{k+1}",
-   "kind": "theorem",
-   "statement": "Let f be an eigenform in S_{k+2}(Gamma_0, Q-bar_p) of slope exactly k+1, and let theta^{k+1} : M^dagger_{-k}(Gamma, Q_p) -> M^dagger_{k+2}(Gamma, Q_p) be the p-adic theta operator acting on q-expansions by (q d/dq)^{k+1}. Then H^1_c(Gamma_0, D_k)_{(f)} -> H^1_c(Gamma_0, P_k^dual)_{(f)} is an isomorphism IF AND ONLY IF f is not in the image of theta^{k+1}, where the subscript (f) is the GENERALIZED eigenspace. When f is not in that image, the unique eigensymbol Phi_f lifting phi_f defines mu_f = Phi_f({infinity} - {0}) restricted to Z_p^x, which is (k+1)-admissible and satisfies the interpolation property; when f IS in the image, there is a nonzero eigensymbol in the kernel of specialization.",
-   "hypotheses": [
-    "The slope must be exactly k+1; the theorem is about the critical-slope subspace",
-    "The subscript (f) denotes the GENERALIZED eigenspace, not the eigenspace",
-    "A (k+1)-admissible distribution is NOT determined by the interpolation property alone: Pollack-Stevens state that one would also need the values at characters x^{k+1}chi, and that their method does not give those values",
-    "A WEAKER version (Theorem 6.7) is proved first under the stronger hypothesis that f has no mod p companion form; Proposition 6.9 shows f in the image of theta^{k+1} implies f has a mod p companion form",
-    "The proof of Theorem 8.1 uses the exact sequence 0 -> H^1_c(D_{-2-k})(k+1)_{(f)} -> H^1_c(D_k)_{(f)} -> H^1_c(P_k^dual)_{(f)} -> 0 together with Theorem 7.1 producing an overconvergent eigenform from an eigensymbol"
-   ],
-   "proofSteps": [
-    "Form the exact sequence of generalized eigenspaces with kernel H^1_c(D_{-2-k})(k+1)_{(f)}.",
-    "If a nonzero H-eigensymbol Psi exists in the kernel, untwist it and apply Theorem 7.1 to get an overconvergent eigenform g in M^dagger_{-k} with the same eigenpacket; then theta^{k+1} g has the eigenpacket of f, and comparing q-expansions gives f = theta^{k+1} g.",
-    "Conversely, if f = theta^{k+1} g, Theorem 7.1 produces an eigensymbol Psi_0 for g; twisting gives a nonzero element of the kernel.",
-    "Define mu_f from the unique lift in the non-theta-critical case; admissibility is quoted from [15, Lemma 6.2] and the interpolation property is formal from Phi_f being a U_p-eigensymbol lifting phi_f."
-   ],
-   "acceptance": [
-    "Check that a (k+1)-admissible distribution is not determined by its values at x^j chi for 0 <= j <= k",
-    "Check Proposition 6.9: f in the image of theta^{k+1} implies f has a mod p companion form",
-    "Check Remark 8.2: when f is in the image of theta^{k+1} one cannot conclude from Theorem 7.1 alone that the kernel eigensymbol is unique up to scaling"
-   ],
-   "sources": [
-    {
-     "sourceId": "pollack-stevens-critical-slope",
-     "locator": "Sec. 8, Theorem 8.1, printed p. 21 (read from the page image)",
-     "excerpt": "Let f be an eigenform in S_{k+2}(Gamma_0, Q-bar_p) with slope k+1. Then H^1_c(Gamma_0, D_k)_{(f)} -> H^1_c(Gamma_0, P_k^dual)_{(f)} is an isomorphism if and only if f is not in im(theta^{k+1}).",
-     "match": "The theorem, with the generalized-eigenspace subscript and the exact coefficient field Q-bar_p (the text layer of the PDF drops the bar; the statement was read from the rendered page)."
-    },
-    {
-     "sourceId": "pollack-stevens-critical-slope",
-     "locator": "Sec. 9, Remark 9.4, printed p. 22",
-     "excerpt": "Since mu_f is a (k+1)-admissible distribution, it is not uniquely determined by the above interpolation property. To uniquely determine this distribution by interpolation, one would also need to specify its values at the characters of the form x^{k+1} chi with chi of finite order. We point out here that our method of producing mu_f from overconvergent modular symbols does not directly give a way of understanding its values at such characters.",
-     "match": "Exactly the stage's requirement to 'prove the correct replacement for uniqueness'; the source states that uniqueness by interpolation FAILS and that its method does not supply the missing values."
-    },
-    {
-     "sourceId": "pollack-stevens-critical-slope",
-     "locator": "Sec. 8, Remark 8.2, printed p. 21 (read from the page image)",
-     "excerpt": "When f is in the image of theta^{k+1}, the above theorem implies that there is an H-eigensymbol Psi in H^1_c(D_k)^{pm}_{(f)} which is in the kernel of specialization. However, from Theorem 7.1 alone, one cannot conclude that this symbol (up to scaling) is unique.",
-     "match": "The precise limitation in the theta-critical case, which Bellaiche later removes."
-    }
-   ],
-   "implementationStatus": "unchecked"
-  },
-  {
-   "id": "ModularSymbolsPadicLFunctions:L3/bellaiche-eigencurve-construction-and-theta-critical-vanishing",
-   "parentStageId": "ModularSymbolsPadicLFunctions:L3",
-   "title": "Bellaiche's one-dimensionality theorem for decent refinements and the vanishing of the interpolation values in the theta-critical case",
-   "kind": "theorem",
-   "statement": "Let f be a newform of weight k+2 and level Gamma_1(N) (p odd, prime to N) and f_beta a refinement of f at p. Call f_beta DECENT if (i) f is Eisenstein, or (ii) f_beta is non-critical, or (iii) f is cuspidal and H^1_g(G_Q, rho_f) = 0. Assume f_beta is decent, and if f is Eisenstein that v_p(beta) > 0. Then for both signs the eigenspace Symb^{pm}_Gamma(D_k)[f_beta] is ONE-DIMENSIONAL, and the following are equivalent: (i) f_beta is critical; (ii) the generalized eigenspaces Symb^{pm}_Gamma(D_k)_{(f_beta)} have dimension strictly greater than 1; (iii) the specialization rho_k^*(Symb^{pm}_Gamma(D_k)[f_beta]) = 0 for both signs. The L-functions are L^{pm}(f_beta, sigma) = Phi^{pm}_{f_beta}({infinity} - {0})(sigma), each defined only up to a nonzero scalar. THEOREM 2: if f_beta is theta-critical then L^{pm}(f_beta, phi t^j) = 0 for ALL finite-order phi and all 0 <= j <= k, with one exception (f Eisenstein, f_beta not critical, sign epsilon(f_beta), chi trivial and j = k). When f_beta is critical, dim Symb^{pm}(D_k)_{(f_beta)} = e > 1 equals the ramification degree of the weight map at the corresponding point of the eigencurve, which is smooth, and e-1 SECONDARY L-functions are defined by L^{pm}_i(f_beta, sigma) = (d^i L^{pm}(y,sigma)/dy^i) at y = x.",
-   "hypotheses": [
-    "p ODD and prime to N throughout Bellaiche's paper",
-    "The 'decent' hypothesis is required; Bellaiche notes all CM forms are decent and that it is conjectured that every cuspidal form satisfies (iii)",
-    "For f Eisenstein one must additionally assume v_p(beta) > 0",
-    "The L-functions are defined only up to a nonzero scalar, since the generators Phi^{pm}_{f_beta} are; the secondary L-functions are only defined up to a scalar AND up to adding a linear combination of the earlier ones, so it is the FLAG F_0 contained in F_1 contained in ... that is well defined",
-    "Theorem 2's vanishing means the standard interpolation values do not determine the theta-critical L-function; the interpolation property (4) is recovered only by the TOP secondary L-function L^{pm}_{e-1}, while L^{pm}_i for 0 <= i <= e-2 satisfy the vanishing property (6)",
-    "The eigencurve is NOT etale over the weight space at a critical point, which Bellaiche identifies as the new difficulty in constructing the two-variable L-function"
-   ],
-   "proofSteps": [
-    "Construct the eigencurve inside the module of distribution-valued modular symbols over an affinoid of weight space, using the Riesz decomposition for U_p-slope <= nu, and compare with Coleman's construction via a theorem of Chenevier.",
-    "Use smoothness of the eigencurve at decent classical points plus a commutative-algebra argument to compute the eigenspace and generalized eigenspace dimensions (Theorem 1).",
-    "Define L^{pm}(f_beta,sigma) as the Mellin transform of Phi^{pm}_{f_beta}({infinity} - {0}).",
-    "Theorem 2's vanishing follows from (iii) of Theorem 1: theta-criticality forces the specialization of the eigensymbol to vanish, hence all the special values vanish.",
-    "Differentiate the two-variable L-function along the smooth curve to define the secondary L-functions and their interpolation properties."
-   ],
-   "acceptance": [
-    "Check the exceptional case in Theorem 2 (f Eisenstein, f_beta not critical, chi trivial, j = k)",
-    "Check that for a critical-slope CM cuspform the ordinary interpolation values all vanish while the distribution does not",
-    "Check that e equals the ramification degree of the weight map at x",
-    "Check the divisibility reformulation: for theta-critical f_beta, s -> L^{pm}(f_beta, psi chi_s) is divisible by log^{[k]}(s) = product over i = 0 to k of log_p(gamma^{-j}s)"
-   ],
-   "sources": [
-    {
-     "sourceId": "bellaiche-critical-padic-l",
-     "locator": "Sec. 1.4.1, Definition 1 and Theorem 1, printed pp. 5-6",
-     "excerpt": "Definition 1. We shall say that a refined form f_beta is decent if it satisfies at least one of the three following assumption: (i) f is Eisenstein (ii) f_beta is non-critical. (iii) f is cuspidal and H^1_g(G_Q, rho_f) = 0.",
-     "match": "The exact technical hypothesis under which Bellaiche's construction works; the stage requires the eigencurve/local-algebra conditions to be included rather than suppressed."
-    },
-    {
-     "sourceId": "bellaiche-critical-padic-l",
-     "locator": "Sec. 1.4.1, Theorem 1, printed p. 6",
-     "excerpt": "Then for both choices of the sign pm, the eigenspace Symb^{pm}_Gamma(D_k)[f_beta] has dimension 1. Moreover the following are equivalent (i) f_beta is critical. (ii) The generalized eigenspaces Symb^{pm}_Gamma(D_k)_{(f_beta)} ... have dimensions strictly greater than 1. (iii) One has rho_k^*(Symb^{pm}_Gamma(D_k)[f_beta]) = 0.",
-     "match": "The one-dimensionality that replaces Pollack-Stevens' uniqueness, together with the criterion for criticality."
-    },
-    {
-     "sourceId": "bellaiche-critical-padic-l",
-     "locator": "Sec. 1.4.3, Theorem 2 and formula (6), printed p. 8 (read from the page image)",
-     "excerpt": "If f_beta is theta-critical, then L^{pm}(f_beta, phi t^j) = 0 for all phi of finite order and 0 <= j <= k, excepted in the following case: f is Eisenstein, f_beta is not critical, the sign pm is epsilon(f_beta), the character chi is trivial, and j = k.",
-     "match": "The exact statement that at a theta-critical point the ordinary interpolation values all vanish while the distribution does not; this is the stage's warning made precise, with its single exception."
-    },
-    {
-     "sourceId": "bellaiche-critical-padic-l",
-     "locator": "Sec. 1.4.5, printed pp. 10-11",
-     "excerpt": "Of course, the function L^{pm}_i(f_beta,sigma) is only defined up to a scalar and up to adding any linear combination of the L^{pm}_j(f_beta,sigma) for 0 <= j <= i-1. In other words, this is the flag F_0 contained in F_1 contained in ... contained in F_{e-1} in the space of analytic functions of sigma that is well defined",
-     "match": "The precise sense in which the secondary L-functions exist; a consumer must not treat them as individually well-defined functions."
-    }
-   ],
-   "implementationStatus": "unchecked"
-  },
-  {
-   "id": "ModularSymbolsPadicLFunctions:L4/three-constructions-and-the-main-conjecture-for-a-modular-form",
-   "parentStageId": "ModularSymbolsPadicLFunctions:L4",
-   "title": "The analytic, arithmetic and algebraic p-adic L-functions of a modular form and the relations among them",
-   "kind": "application",
-   "statement": "For f a modular form: the ANALYTIC p-adic L-function is L_p^an(f) of Theorem B.1; the ARITHMETIC one is Log_{V_f}(z_Kato(f)) where z_Kato(f) is Kato's Euler system localized at p, living in H^1_Iw(Q_p, V_f), and Log_{V_f} is Perrin-Riou's big logarithm; the ALGEBRAIC one is L_p^alg(f) = ch_{Lambda(Z_p^x)}(X_{p^infinity}(V_f)), defined when f is p-ordinary and using Kato's theorem that the Selmer module is Lambda-torsion. Kato's explicit reciprocity law gives L_p^an(f) = L_p^arith(f) in D^la(Z_p^x). The Iwasawa Main Conjecture for f, L_p^alg(f) = (L_p^an(f)) inside Lambda(Z_p^x), is a theorem of Kato and Skinner-Urban UNDER SOME MILD ADDITIONAL TECHNICAL HYPOTHESES.",
-   "hypotheses": [
-    "The algebraic construction requires f to be p-ORDINARY (v_p(alpha_p) = 0), so that V_f is p-ordinary in the sense of RJW Definition 13.19 and the analytic object is a measure rather than a mere distribution",
-    "The Lambda-torsionness of the Selmer module is Kato's theorem, not a definition",
-    "RJW state the Main Conjecture for f only 'under some mild additional technical hypotheses' and do not list them",
-    "The case alpha_p = 0 (infinite slope) is NOT covered by Theorem B.1; RJW point to Delbourgo for elliptic curves with additive reduction and to Rodrigues Jacinto for partial constructions via Kato's Euler system and Perrin-Riou's big logarithms",
-    "The critical-slope case v_p(alpha_p) = k+1 is covered by Pollack-Stevens and Bellaiche but with a DIFFERENT statement, as recorded in the L3 nodes"
-   ],
-   "proofSteps": [
-    "Record RJW's three constructions and the two comparison theorems (B.3 and B.4) as stated.",
-    "Record the attributions: B.2 and B.3 to Kato's Asterisque 295 paper, B.4 to Kato and Skinner-Urban.",
-    "Record the boundaries: the omitted technical hypotheses in B.4 and the uncovered alpha_p = 0 and v_p(alpha_p) = k+1 cases."
-   ],
-   "acceptance": [
-    "Instantiate at a p-ordinary weight-two form attached to an elliptic curve and compare with the classical Mazur-Swinnerton-Dyer construction",
-    "Check that the growth condition of Theorem B.1 places L_p^an(f) in Lambda(Z_p^x) exactly when v_p(alpha_p) = 0",
-    "Check the supersingular case a_p = 0 where both refinements have slope (k+1)/2 and neither is ordinary"
-   ],
-   "sources": [
-    {
-     "sourceId": "rjw-padic-l-functions",
-     "locator": "Appendix B.2.1, printed p. 80",
-     "excerpt": "We see that L_p^an(f) is, in this generality, only a locally analytic distribution (in the sense of Sec. 3.7). We note, however, that if f is p-ordinary (i.e. if v_p(alpha_p) = 0) then the growth condition implies that L_p^an(f) lies in the subspace of p-adic measures on Z_p^x.",
-     "match": "The exact criterion separating measures from distributions, which is the L2/L4 boundedness point."
-    },
-    {
-     "sourceId": "rjw-padic-l-functions",
-     "locator": "Appendix B.2.2, Theorems B.2 and B.3, printed p. 80",
-     "excerpt": "Theorem B.3. - There is an equality L_p^an(f) = L_p^arith(f) in D^la(Z_p^x).",
-     "match": "Kato's explicit reciprocity law as the comparison between the analytic and arithmetic constructions."
-    },
-    {
-     "sourceId": "rjw-padic-l-functions",
-     "locator": "Appendix B.2.3, Theorem B.4, printed p. 80",
-     "excerpt": "Theorem B.4 (Iwasawa Main Conjecture for f). - Under some mild additional technical hypotheses, we have L_p^alg(f) = (L_p^an(f)) inside Lambda(Z_p^x).",
-     "match": "The statement with its hypotheses left unspecified in the source; a consumer must not treat it as unconditional."
-    },
-    {
-     "sourceId": "rjw-padic-l-functions",
-     "locator": "Appendix B.2.1, printed p. 80",
-     "excerpt": "If alpha_p is not 0, then we know that v_p(alpha_p) <= k+1, but the above theorem does not handle the case v_p(alpha) = k+1. ... The case of alpha_p = 0 is known as the infinite slope case.",
-     "match": "Delimits exactly which slopes Theorem B.1 covers, which is the boundary between stages L2, L3 and L4."
-    }
-   ],
-   "implementationStatus": "unchecked"
-  }
- ],
- "links": [
-  {
-   "source": "ModularSymbolsPadicLFunctions:L0/modular-symbols-as-compactly-supported-cohomology",
-   "target": "ModularSymbolsPadicLFunctions:L2/stevens-control-theorem-for-small-slope",
-   "reason": "The control theorem is a statement about H^1_c(Gamma_0, D_k) and its specialization to H^1_c(Gamma_0, Sym^k). Both spaces are the modular-symbol spaces of the L0 node, and the U_p-slope decomposition that drives the proof uses the explicit U_p formula phi | U_p = sum phi | (1 a; 0 p) on Hom_{Gamma_0}(Delta_0, -), which is available only under L0's torsion hypothesis. Moreover the identification of the kernel as H^1_c(D_{-2-k})(k+1) uses L0's determinant-twist identity H^1_c(M(r)) = H^1_c(M)(r).",
-   "sources": [
-    {
-     "sourceId": "pollack-stevens-critical-slope",
-     "locator": "Sec. 2.1-2.2 (printed pp. 4-5) used in Sec. 1 (printed pp. 2-3)"
-    }
-   ]
-  },
-  {
-   "source": "ModularSymbolsPadicLFunctions:L2/stevens-control-theorem-for-small-slope",
-   "target": "ModularSymbolsPadicLFunctions:L3/theta-operator-criterion-for-the-critical-slope-lift",
-   "reason": "Pollack-Stevens' critical-slope theorem is obtained by repeating the small-slope analysis on the slope-exactly-(k+1) subspace: the same exact sequence 0 -> H^1_c(D_{-2-k})(k+1)_{(f)} -> H^1_c(D_k)_{(f)} -> H^1_c(P_k^dual)_{(f)} -> 0 is used, but now the kernel can be nonzero and the theta operator decides when. The construction of mu_f from the unique lift is likewise copied from the non-critical case via Proposition 9.1.",
-   "sources": [
-    {
-     "sourceId": "pollack-stevens-critical-slope",
-     "locator": "proof of Thm. 8.1 (printed p. 21) reusing the sequence of Sec. 1 (printed pp. 2-3), and Def. 9.2 (printed p. 22) reusing Prop. 9.1"
-    }
-   ]
-  },
-  {
-   "source": "ModularSymbolsPadicLFunctions:L3/theta-operator-criterion-for-the-critical-slope-lift",
-   "target": "ModularSymbolsPadicLFunctions:L3/bellaiche-eigencurve-construction-and-theta-critical-vanishing",
-   "reason": "Bellaiche's Theorem 1 covers the theta-critical cases that Pollack-Stevens explicitly leave open: Pollack-Stevens' Remark 8.2 says that when f is in the image of theta^{k+1} one cannot conclude uniqueness of the kernel eigensymbol from their Theorem 7.1, and their footnote records that Bellaiche subsequently proved the eigenspace is one-dimensional. Bellaiche states the same in Sec. 1.4.1: 'This theorem was known by a work of Stevens-Pollack in the case of forms f_beta that are not theta-critical ... the new cases provided of this theorem are the theta-critical cases.'",
-   "sources": [
-    {
-     "sourceId": "pollack-stevens-critical-slope",
-     "locator": "Remark 8.2 and footnote 3, printed pp. 2 and 21"
-    },
-    {
-     "sourceId": "bellaiche-critical-padic-l",
-     "locator": "Sec. 1.4.1, printed p. 6"
-    }
-   ]
-  },
-  {
-   "source": "PadicMeasuresIwasawaAlgebras:L3/pseudo-measures-and-evaluation-at-nontrivial-characters",
-   "target": "ModularSymbolsPadicLFunctions:L1/period-normalized-interpolation-formula-two-printed-conventions",
-   "reason": "PROPOSED WITH A CAVEAT. The GL(1) side of RJW Appendix B.1 is the Kubota-Leopoldt pseudo-measure, whose evaluation at a character is exactly the pseudo-measure evaluation constructed in PadicMeasuresIwasawaAlgebras:L3 (RJW formula (3.11)). For GL(2) the object is a locally analytic DISTRIBUTION, not a pseudo-measure, except in the p-ordinary case where the growth condition makes it a measure; so the supply used here is the evaluation-at-characters formalism and the measure-versus-distribution distinction, not the pseudo-measure theory itself. The atlas already records ModularSymbolsPadicLFunctions as depending on PadicMeasuresIwasawaAlgebras; this records which part is actually consumed.",
-   "sources": [
-    {
-     "sourceId": "rjw-padic-l-functions",
-     "locator": "App. B.1 (printed p. 79) and B.2.1 (printed p. 80); Sec. 3.6 formula (3.11) (printed p. 22)"
-    }
-   ]
-  }
- ],
- "coverage": [
-  {
-   "stageId": "ModularSymbolsPadicLFunctions:L0",
-   "status": "partial",
-   "remaining": [
-    "Only the comparison H^1_c(Gamma_0,M) = Hom_{Gamma_0}(Delta_0,M) with its torsion hypothesis, the U_p formula, the determinant twist and the involution were read (Pollack-Stevens Sec. 2)",
-    "Manin symbols, boundary maps, presentations, parabolic cohomology and the comparisons between them were NOT read",
-    "The Eichler-Shimura period maps at general level, their rational structures, Hecke equivariance, injectivity and eigenspace dimensions were NOT read; Pollack-Stevens invoke 'Eichler-Shimura theory and multiplicity one' in Sec. 9 without proof",
-    "The functorial comparison with the analytic modular-curve carrier was not addressed",
-    "The cited source for the comparison is Ash-Stevens (Pollack-Stevens reference [2], Proposition 4.2), which is not in the supplied library"
-   ]
-  },
-  {
-   "stageId": "ModularSymbolsPadicLFunctions:L1",
-   "status": "partial",
-   "remaining": [
-    "The period LINES and their integral saturated lattices were not sourced: Pollack-Stevens normalize phi^{pm}_f 'to have size 1' and Bellaiche works 'up to a scalar', so both sources choose a basis rather than constructing a canonical integral period. The canonical integral period up to O^x under multiplicity one was NOT found in the sources read",
-    "The Mellin formula expressing integrals of f against polynomial differentials in terms of L(f,chi,j+1) was NOT read; only the resulting interpolation formulas were read",
-    "Algebraicity of the period-normalized values was not read (Amice-Velu Sec. I refers to it via the functional equation; the algebraicity theorem itself is Shimura's and is not in the library)",
-    "The reconciliation of the two printed normalizations is recorded as an AUTHORED computation using the Gauss-sum identity, not as a source statement; it must be verified",
-    "The n = 0 case of RJW Theorem B.1 was not separately verified against a source"
-   ]
-  },
-  {
-   "stageId": "ModularSymbolsPadicLFunctions:L2",
-   "status": "partial",
-   "remaining": [
-    "The distribution spaces D_k and their filtration/compactness estimates were read only as far as Pollack-Stevens Sec. 3.1-3.2 (the definitions of A, D, A-dagger, D-dagger and the difference-operator exact sequence Prop. 3.1); Sections 3.3-3.4 and 4 (slope decompositions, Riesz theory) were NOT read",
-    "The distribution relation, the growth of order h and the uniqueness statement were read only in their final form (Theorem B.1 and Amice-Velu Theoreme III); the admissibility machinery of Amice-Velu Sec. IV was skimmed, not decomposed",
-    "The integrality question (boundedness gives coefficients in O[[G]][1/p], not O[[G]]) is NOT sourced here: no source read states it. This is a genuine open item for the stage",
-    "The proof of the control theorem is attributed by Pollack-Stevens to Stevens and to [15, Thm. 5.12]; neither reference is in the supplied library"
-   ]
-  },
-  {
-   "stageId": "ModularSymbolsPadicLFunctions:L3",
-   "status": "partial",
-   "remaining": [
-    "Pollack-Stevens Sections 4-8 (slope decompositions, the comparison theorem, the critical slope subspace I and II, eigenpackets) were read only through their statements in Sec. 1 and Sec. 8; the proofs of Theorems 5.4, 6.7, 7.1, 7.2, 7.3 were NOT read",
-    "Bellaiche Sections 2-4 (the eigencurves, refinements, smoothness, the construction through distribution-valued modular symbols, and the actual proofs of Theorems 1, 2, 3) were NOT read; only the introduction was read",
-    "The comparison of the critical constructions with the arithmetic one (Pollack-Stevens Remark 9.5, via Perrin-Riou's dual exponential and Kato's zeta element) was read as a statement but the reciprocity theorem behind it was not",
-    "The eigenvariety layer that the stage assigns to R13 was not inspected"
-   ]
-  },
-  {
-   "stageId": "ModularSymbolsPadicLFunctions:L4",
-   "status": "partial",
-   "remaining": [
-    "Weight-two examples, tame character twists and the explicit supersingular/ordinary comparisons were not constructed",
-    "Functoriality under coefficient embeddings and primitive/imprimitive level changes was not read",
-    "The matching of local Euler factors is covered only through the Bellaiche modification factor of the L2 node",
-    "The alpha = 0 case is recorded as outside Theorem B.1; the de Rham construction RJW attribute to Rodrigues Jacinto (arXiv paper KI_RJ18_DeRhamPadicL.pdf IS in the library) was not read",
-    "The technical hypotheses of RJW Theorem B.4 are unspecified in the source and were not recovered from Kato or Skinner-Urban (both PDFs are in the library and were not read in this pass)"
-   ]
-  }
- ],
- "gaps": [
-  {
-   "title": "Stage-ordering tension: L1's stated scope needs L2's refinement data",
-   "neededBy": [
-    "ModularSymbolsPadicLFunctions:L1",
-    "ModularSymbolsPadicLFunctions:L2"
-   ],
-   "detail": "THIS IS A FINDING ABOUT THE ATLAS, NOT ABOUT A SOURCE. Stage L1's text requires that 'the distinction between the L-function of a p-stabilized form and that of the original newform must be separately checked; converting to the good-prime newform introduces the second familiar Euler factor.' That comparison is exactly what separates RJW Theorem B.1 (f of level Gamma_0(N) with p dividing N, ONE Euler factor) from Bellaiche (4)-(5) (f a newform of level prime to p with a CHOSEN refinement, TWO Euler factors). The refinement data - the two roots alpha, beta of X^2 - a_p X + epsilon(p)p^{k+1} and the two p-stabilizations - is assigned by the atlas to stage L2, and data/atlas.json records the edge L1 -> L2 (L2 requires L1). No L2 -> L1 edge is proposed here, because adding one would create a two-cycle. VERIFIED: both printed interpolation formulas and the definitions of the refinements (Bellaiche Sec. 1.3, printed p. 4). RESOLUTION NEEDED BY THE ATLAS OWNER: either narrow L1 to the fixed-level statement and move the newform comparison to L2, or split the refinement definitions out of L2 into a prerequisite of L1."
-  },
-  {
-   "title": "Printed inconsistency in Bellaiche formula (5): alpha in the Euler-factor denominators",
-   "neededBy": [
-    "ModularSymbolsPadicLFunctions:L2/refinements-and-the-two-euler-factors",
-    "ModularSymbolsPadicLFunctions:L1"
-   ],
-   "detail": "Bellaiche Sec. 1.3 (printed p. 4) defines alpha and beta as the two distinct roots of X^2 - a_p X + epsilon(p)p^{k+1}, with U_p f_beta = beta f_beta. Formula (5) on printed p. 8, read from a 500 dpi render of the page, is e_p(beta, phi t^j) = (1/beta^nu)(1 - phi-bar(p)epsilon(p)p^{k-j}/alpha)(1 - phi(p)p^j/alpha). The prefactor uses beta while both Euler-factor denominators use alpha. Since the L-function being interpolated is that of the refinement f_beta, the denominators should be beta. VERIFIED: the definitions in Sec. 1.3, the printed form of (4) and (5), and the fact that the two Euler factors vanish for phi ramified. NOT VERIFIED: whether a published erratum or the published version (Ann. Sci. ENS 2012) corrects this. Next source action: compare with the published version of Bellaiche's paper, or with Mazur-Tate-Teitelbaum Sec. I where the modification factor is standard; neither is in the supplied library."
-  },
-  {
-   "title": "Printed inconsistency in Pollack-Stevens formula (2): the L-argument",
-   "neededBy": [
-    "ModularSymbolsPadicLFunctions:L1/period-normalized-interpolation-formula-two-printed-conventions"
-   ],
-   "detail": "Pollack-Stevens Sec. 9 formula (2), read from a 220 dpi render of printed p. 21, is mu_f(x^j chi) = (1/a_p^n)(p^{n(j+1)}/(-2 pi i)^j)(j!/tau(chi^{-1}))(L(f,chi^{-1},1)/Omega_f^{pm}). The last argument of the L-function is printed as 1, but the left-hand side depends on j and no other factor supplies the missing dependence. Bellaiche formula (4), restating the SAME Pollack-Stevens interpolation property, prints L_infinity(f phi^{-1}, j+1). VERIFIED: both printed formulas, from page images. CONCLUSION RECORDED: the Pollack-Stevens argument must be read as j+1. Next source action: check the published J. London Math. Soc. version of Pollack-Stevens."
-  },
-  {
-   "title": "No source read supplies canonical integral periods or the integrality of the measure",
-   "neededBy": [
-    "ModularSymbolsPadicLFunctions:L1",
-    "ModularSymbolsPadicLFunctions:L2"
-   ],
-   "detail": "Stage L1 requires saturated integral modular-symbol lattices and canonical integral period choices up to O^x; stage L2 requires that boundedness alone gives coefficients in O[[G]][1/p] and not necessarily O[[G]]. NEITHER statement appears in any of the four sources read: Pollack-Stevens normalize phi^{pm}_f 'to have size 1' (a choice), Bellaiche works 'up to a scalar', RJW write Omega_f^{pm} without constructing it, and Amice-Velu work at level one. VERIFIED: that all four sources leave the period a choice. NOT VERIFIED: any integral normalization. Next source action: Vatsal, Integral periods for modular forms; or Greenberg-Vatsal; or Mazur-Tate-Teitelbaum Sec. I. None is in the supplied library. Barrera Salazar-Williams, p-adic L-functions for GL2 (papers/KI_BSW_PadicGL2.pdf) IS in the library and was not read; it may contain the integral statement."
-  },
-  {
-   "title": "Eichler-Shimura and the modular-symbol comparison are quoted, not proved",
-   "neededBy": [
-    "ModularSymbolsPadicLFunctions:L0"
-   ],
-   "detail": "Pollack-Stevens Sec. 2.1 cites '[2, Proposition 4.2]' (Ash-Stevens) for the isomorphism H^1_c(Gamma_0,M) = Hom_{Gamma_0}(Delta_0,M), and Sec. 9 invokes 'Eichler-Shimura theory and multiplicity one' for the one-dimensionality of the f-isotypic part. Neither is proved there and neither reference is in the supplied library. VERIFIED: the statements and their hypotheses. Next source action: A. Ash and G. Stevens, Modular forms in characteristic l and special values of their L-functions, Duke Math. J. 53 (1986); and Shimura's Introduction to the arithmetic theory of automorphic functions Ch. 8."
-  },
-  {
-   "title": "Amice-Velu's admissibility machinery was skimmed, not decomposed",
-   "neededBy": [
-    "ModularSymbolsPadicLFunctions:L2"
-   ],
-   "detail": "Amice-Velu Theoreme III (printed p. 125) gives existence and uniqueness of G_lambda under v_p(lambda) < w+1 for a level-one Hecke cusp form of weight w+2. The mechanism is in Sec. IV (printed pp. 127-129): interpolation polynomials S_n^h, Propositions IV.3 and IV.4, and a continuity estimate for euclidean division by the polynomial product of Q_n(X/g^k). Those pages were read only as page images and skimmed. VERIFIED: the statement of Theoreme III with its slope condition. NOT VERIFIED: the admissibility/uniqueness proof. Next source action: read Amice-Velu Sections II-IV in the library copy (papers/KI_AmiceVelu_HeckeDistributions.pdf); the OCR text layer is poor, so page images are needed. The nebentypus and general-level versions are not in that paper."
-  },
-  {
-   "title": "Barrera Salazar-Williams and Hansen are in the library and were not read",
-   "neededBy": [
-    "ModularSymbolsPadicLFunctions:L2",
-    "ModularSymbolsPadicLFunctions:L3"
-   ],
-   "detail": "papers/KI_BSW_PadicGL2.pdf (Barrera Salazar-Williams, p-adic L-functions for GL2, arXiv:1602.06244) and papers/KI_Hansen_CriticalIwasawa.pdf (Hansen, Iwasawa theory of overconvergent modular forms I: critical p-adic L-functions, arXiv:1508.03982) are both present and were NOT opened by this job. They are the natural sources for the general-level and general-nebentypus interpolation formula and for an independent treatment of the critical case. Recorded as an unread-but-available boundary, not an acquisition problem."
-  }
- ]
 }

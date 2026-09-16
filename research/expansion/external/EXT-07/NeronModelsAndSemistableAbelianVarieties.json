@@ -1,0 +1,1549 @@
+{
+ "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+ "status": "partial",
+ "summary": "This packet decomposes Neron models and semistable abelian varieties. It uses four library sources: SGA 7 I Expose IX (a scan read through OCR, with key statements on page images), SGA 7 II Expose XV Theoreme 3.4 (page images), Silverman, The Arithmetic of Elliptic Curves VII.5-VII.7, and Poonen, Rational points on varieties 5.7. It also uses four authorized public copies: Romagny, Neron models of abelian varieties (2011 notes); Lichtenstein, Neron models (Stanford seminar notes); Conrad, Neron models, Tamagawa factors, and Tate-Shafarevich groups (2015 notes); and Raynaud, Specialisation du foncteur de Picard (Publ. IHES 1970, NUMDAM). R11.1 covers the definition, Weil extension, abelian schemes as Neron models and good-reduction criteria, smoothening, the weak Neron property, local existence via birational group laws, Dedekind gluing, base change (unramified versus ramified) and the local invariant-differential line. R11.2 covers component groups, Chevalley decomposition and Tamagawa numbers, elliptic Neron models from minimal models, and the 57C2 example. R11.3 covers semiabelian models, the Galois criterion and the semistable reduction theorem. R11.4 covers Neron models of Jacobians via Raynaud's Picard functor, component groups from multidegrees, the dual-graph character group, Picard-Lefschetz and the component group as a cokernel of the monodromy pairing. R11.5 covers Neron-Ogg-Shafarevich, inertia invariants and local L-factors, and the p-adic criterion. R11.6 covers exactness and uniform semistability. All stages are partial: BLR, the monodromy and orthogonality theorems, the Raynaud extension, conductors, Tate's algorithm and the level-lowering interfaces are unread.",
+ "sources": [
+  {
+   "id": "romagny-2011-neron-models-of-abelian-varieties",
+   "title": "Neron models of abelian varieties",
+   "authors": "Matthieu Romagny",
+   "edition": "Lecture notes, Summer School on SGA3, September 3, 2011, 8 pages; author copy from the author's page (not in the supplied library).",
+   "url": "https://perso.univ-rennes1.fr/matthieu.romagny/exposes/Neron_models.pdf",
+   "sha256": "22f81b540f570943fc98c9aca54ab2154f17680beb957c7ed00bae16ea1a7d7e",
+   "readSections": [
+    "Whole note: section 1 (definition and reduction to the local case), section 2 (smoothenings, Definition 2.1.1, Lemma 2.2.2 with proof, canonical partition, Lemma 2.3.2 statement, Definition 2.4.1, Theorem 2.4.2 with proof), section 3 (S-rational maps, Proposition 3.2.1 with proof), section 4 (Lemmas 4.1.1-4.1.2 with proofs, Theorem 4.2.1 with proof, Proposition 4.2.2 with proof, Remark 4.2.3), references"
+   ]
+  },
+  {
+   "id": "lichtenstein-neron-models-stanford-seminar",
+   "title": "Neron models",
+   "authors": "Sam Lichtenstein",
+   "edition": "Notes for the Stanford seminar on Faltings's proof of the Mordell conjecture (hosted on B. Conrad's seminar page), PDF created 27 January 2011, 23 pages; not in the supplied library.",
+   "url": "http://virtualmath1.stanford.edu/~conrad/mordellsem/Notes/L11.pdf",
+   "sha256": "8ef7cac57c32638b6edfb85ccbbc6602dd20b998a913a2030b540ac227ca9ebf",
+   "readSections": [
+    "Section 1.3-1.4 (Definition 1.3.2, Examples 1.3.4-1.3.9, Definition 1.3.6, Theorem 1.3.10, Remark 1.3.11, Propositions 1.4.2-1.4.3), pp. 2-6",
+    "Section 2 (Propositions 2.1.2-2.1.3, Theorem 2.1.4 sketch, Definitions 2.2.1, 2.2.3, Proposition 2.2.4 with proof, Lemma 2.2.5, Corollary 2.2.7 with Lemma 2.2.8 and proof; section 2.3: Exercise 2.3.1, Proposition 2.3.2 sketch, Lemma 2.3.3, Theorem 2.3.4 sketch), pp. 6-11",
+    "Section 3.6 (Proposition 3.6.1 sketch), p. 16",
+    "Section 4 (Definitions 4.1.1-4.1.2, 4.1.6, Theorems 4.1.3, 4.1.5, 4.1.7, Examples 4.1.4, 4.1.8, 4.1.9, Proposition 4.2.1, Definition 4.3.1, Proposition 4.3.2 with proof), pp. 16-20",
+    "Section 5 (Definition 5.1.1; Theorem 5.2.1 with its complete proof 5.2.2-5.2.8, Corollary 5.2.9; Theorem 5.3.1 statement), pp. 20-22",
+    "Section 6 (Propositions 6.1.1, 6.2.1, 6.2.2, Theorem 6.3.1, statements with BLR references), pp. 22-23"
+   ]
+  },
+  {
+   "id": "conrad-2015-neron-models-tamagawa-factors-sha",
+   "title": "Neron models, Tamagawa factors, and Tate-Shafarevich groups",
+   "authors": "Brian Conrad",
+   "edition": "Notes for the Stanford BSD seminar, October 14, 2015 (PDF created 27 November 2015), 23 pages; author page; not in the supplied library.",
+   "url": "https://virtualmath1.stanford.edu/~conrad/BSDseminar/Notes/L3.pdf",
+   "sha256": "bc27aad24f5b0ba8b1ae7fa6f8dde25f17ce479e46b1ff0256cf0e512ce988e6",
+   "readSections": [
+    "Section 1 (motivation, Theorem 1.1, Example 1.2, Remark 1.3, Examples 1.4-1.5, Remark 1.6), pp. 1-3",
+    "Section 2 (properties 1-3, Examples 2.1-2.3, Definition 2.4, Example 2.5), pp. 3-5",
+    "Section 3 (Definitions 3.1, 3.3, 3.6, Example 3.4, Theorem 3.5, Theorem 3.7, Remark 3.8, the Chevalley decomposition and the exact sequences (3.2)-(3.3)), pp. 6-9",
+    "Section 4 (Application 1, Theorem 4.1 with proof, Example 4.2, the canonical measure and Exercise 4.3), pp. 9-13; sections 5-6 not read"
+   ]
+  },
+  {
+   "id": "raynaud-1970-specialisation-du-foncteur-de-picard",
+   "title": "Specialisation du foncteur de Picard",
+   "authors": "Michel Raynaud",
+   "edition": "Publications Mathematiques de l'IHES 38 (1970), 27-76; NUMDAM scan with text layer (51 PDF pages); not in the supplied library.",
+   "url": "https://www.numdam.org/item/PMIHES_1970__38__27_0/",
+   "sha256": "fdba4b96e9f3fa3eeb158868217b95ffd4172f128148a70013115666cf04cf92",
+   "readSections": [
+    "Section 8 (8.0, Proposition 8.0.1, 8.1.1, Proposition 8.1.2 with proof of (i)-(iii), Definition 8.1.3, Theoreme 8.1.4 with proof, Remarques 8.1.5, Theoreme 8.2.1 with proof, Remarque 8.2.2, Proposition 8.2.3), pp. 63-67; start of section 9 (9.1.1-9.1.4, 9.2.1-9.2.3), pp. 67-69"
+   ]
+  },
+  {
+   "id": "sga7-I-expose-IX",
+   "title": "Groupes de monodromie en geometrie algebrique (SGA 7 I), Expose IX: Modeles de Neron et monodromie",
+   "authors": "A. Grothendieck (SGA 7 I, with an appendix by M. Raynaud)",
+   "edition": "Lecture Notes in Mathematics 288, Springer 1972. Copy inspected: the supplied library scan without a text layer (catalogue R02-SGA7I, 528 PDF pages; printed page = PDF page - 5 in Expose IX), the same file as the public copy at the URL below. It was read through a local OCR pass (tesseract), with the key statements checked on page images. Same source id as in this job's Faltings packet.",
+   "url": "https://library.slmath.org/nonmsri/sga/sga/pdf/sga7-1.pdf",
+   "sha256": "17286b0f0bec451068e0a5fa2c39e93de28e7c1ecee6739487cfac11c03c8dab",
+   "readSections": [
+    "Sommaire and 0.1-0.2 (introduction), printed pp. 313-315",
+    "Corollaire 2.2.9 (good-reduction criteria), printed p. 335 (OCR)",
+    "Theoreme 2.4 (orthogonality) statement and Remarques 2.6, printed pp. 338 and 341-342 (OCR)",
+    "Section 3: Proposition 3.1 (start), Proposition 3.2 with proof, 3.2.1, Corollaire 3.3 with proof, 3.3.2, Definition 3.4, 3.4.0, Proposition 3.5 with proof, Remarques 3.5.1, Corollaire 3.5.2, Theoreme 3.6 with the reduction to Corollaire 3.7, Corollaire 3.8, Corollaire 3.9 statement, printed pp. 343-353 (OCR; Proposition 3.5 and Theoreme 3.6 checked on page images)",
+    "Section 11: 11.0-11.1 opening, Theoreme 11.5 with Remarques 11.5.2, printed pp. 448-456 (Theoreme 11.5 on page image)",
+    "Section 12: Theoreme 12.1 (Raynaud), 12.2, 12.3 with 12.3.5-12.3.7, 12.4, Theoreme 12.5 (Picard-Lefschetz), 12.6, 12.7 and Remarques 12.7.2, printed pp. 465-476 (OCR)"
+   ]
+  },
+  {
+   "id": "sga7-II-expose-XV",
+   "title": "Groupes de monodromie en geometrie algebrique (SGA 7 II), Expose XV: La formule de Picard-Lefschetz",
+   "authors": "P. Deligne (SGA 7 II, directed by P. Deligne and N. Katz)",
+   "edition": "Lecture Notes in Mathematics 340, Springer 1973. Copy inspected: the supplied library copy (catalogue WEIL-SGA7-II, from the IAS author archive; text layer present; printed page = PDF page - 8 in Expose XV).",
+   "url": "https://publications.ias.edu/sites/default/files/Number12.pdf",
+   "sha256": "fa679debfc8ada3232d7e752a1837fc6ce474488e20a44d7641cf296876e1297",
+   "readSections": [
+    "Contents of Expose XV, printed p. 164",
+    "Section 3.3, end of step (D) (Lemme 3.3.7) and steps (E)-(F), printed pp. 194-195 (text layer)",
+    "Section 3.4 (Resume) with Theoreme 3.4 (Formule de Picard-Lefschetz), printed pp. 195-196, read on page images"
+   ]
+  },
+  {
+   "id": "silverman-arithmetic-of-elliptic-curves-2009",
+   "title": "The Arithmetic of Elliptic Curves",
+   "authors": "Joseph H. Silverman",
+   "edition": "Second edition, Graduate Texts in Mathematics 106, Springer 2009 (DOI 10.1007/978-0-387-09494-6). Copy inspected: the supplied library copy (catalogue record WEIL-PRIVATE-SILVERMAN2009, a user-supplied private copy; not redistributed). Printed page numbers; same source id as in this job's Heights packet.",
+   "url": "https://doi.org/10.1007/978-0-387-09494-6",
+   "sha256": "72ee67bfa1e3fdf582ac7e4b032d7ca0b35a168ed6443ac39c121fbb788cab25",
+   "readSections": [
+    "Chapter VII notation (K complete for a discrete valuation, K and k perfect), p. 185",
+    "VII.5 (definitions, Proposition 5.1, Example 5.2, potential good reduction, Proposition 5.4 statement), pp. 196-197",
+    "VII.6 (Theorem 6.1 with its cited proof, Corollary 6.2, Proposition 6.3), pp. 199-200",
+    "VII.7 (Theorem 7.1 with proof, Corollaries 7.2-7.3 with proofs), pp. 201-202"
+   ]
+  },
+  {
+   "id": "poonen-rational-points-on-varieties",
+   "title": "Rational points on varieties",
+   "authors": "Bjorn Poonen",
+   "edition": "Graduate Studies in Mathematics 186, AMS 2017; the author's PDF (created 18 December 2018, watermarked \"Unofficial version for incidental online use\"), not in the supplied library; same source id as in this job's Heights packet.",
+   "url": "https://math.mit.edu/~poonen/papers/Qpoints.pdf",
+   "sha256": "42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579",
+   "readSections": [
+    "Section 5.7.4-5.7.6 (Definition 5.7.23, Remark 5.7.24, Theorem 5.7.25, Proposition 5.7.26, Remarks 5.7.27-5.7.28, Theorem 5.7.30), pp. 143-145"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.1/neron-model-definition-uniqueness-products-and-group-structure",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+   "title": "Definition of the Neron model and its formal consequences: uniqueness, products, group structure, A(S) = A(K), and representability of j_* A on smooth schemes",
+   "kind": "definition",
+   "statement": "Let S be a Dedekind scheme with function field K and A_K an abelian variety (more generally X a smooth separated K-scheme of finite type). A Neron model is a smooth, separated S-model A of finite type satisfying the Neron mapping property: every K-morphism u_K : Z_K -> A_K from the generic fibre of a smooth S-scheme Z extends uniquely to an S-morphism Z -> A. If it exists it is unique up to unique isomorphism, the formation commutes with products, the group law extends so A is an S-group scheme, A(S) = A_K(K) (and A(S') = A(K') for quasi-compact etale S' -> S), and A represents the pushforward j_*(A_K) on smooth S-schemes. Separatedness and finite type are not formal consequences of the mapping property. The relative identity component A^0 removes the non-identity components of the finitely many disconnected special fibres. A Neron model is generally not proper.",
+   "hypotheses": [
+    "Conrad Remark 1.6: a smooth K-group of finite type has a Neron model over a DVR iff G(K^sh) is bounded (BLR 1.3/1); no analogue for nontrivial connected semisimple groups over complete R with perfect residue field",
+    "Lichtenstein 1.3.9: P^n_R is not the Neron model of P^n_K (automorphisms need not extend)",
+    "Lichtenstein 1.3.8: for y^2 = x^3 + pi^2 the smooth locus of the minimal Weierstrass model is \"too small\" to be the Neron model"
+   ],
+   "proofSteps": [
+    "Uniqueness: two Neron models dominate each other by the mapping property, and the composites extend the identity, so are the identity by uniqueness.",
+    "Products: the mapping property of X x_S X' follows from those of X and X'.",
+    "Group law: extend m_K : A_K x A_K -> A_K using the product property; identities extend by uniqueness.",
+    "A(S) = A_K(K): apply the mapping property to Z = S (and to etale S')."
+   ],
+   "acceptance": [
+    "Verify that a Neron model of an elliptic curve with multiplicative reduction is not proper (roadmap check).",
+    "Keep identity component, component group and the whole group scheme distinct in every statement."
+   ],
+   "sources": [
+    {
+     "sourceId": "romagny-2011-neron-models-of-abelian-varieties",
+     "locator": "Section 1, the definition and the discussion after it, p. 1",
+     "excerpt": "Definition. A Neron model of A_K over S is a smooth, separated model of finite type A that satisfies the Neron mapping property : each K-morphism u_K : Z_K -> A_K from the generic fibre of a smooth S-scheme Z extends uniquely to an S-morphism u : Z -> A.",
+     "match": "Literal definition."
+    },
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "Definition 1.3.2, Definition 1.3.6, Examples 1.3.7-1.3.9, Proposition 1.4.2, pp. 2-6",
+     "excerpt": "If X 0 is any other Neron model of X there exists a unique isomorphism X -> X 0 over R inducing the identity on the common generic fiber X.",
+     "match": "Literal Proposition 1.4.2(i) as extracted (primes rendered as 0 by the text layer)."
+    },
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Theorem 1.1, Example 1.2, Remark 1.3, Examples 1.4-1.5, Remark 1.6, properties 1-3, pp. 2-4",
+     "excerpt": "Neither of these properties is a formal consequence of the mapping property",
+     "match": "Literal quotation from Remark 1.3 about separatedness and finite type."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.1/weil-extension-theorem-for-rational-maps-into-smooth-group-schemes",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+   "title": "Weil's extension theorem (BLR 4.4/1): an S-rational map from a smooth S-scheme to a smooth separated S-group, defined in codimension 1, is defined everywhere",
+   "kind": "lemma",
+   "statement": "Let S be a normal noetherian scheme, Z a smooth S-scheme and G a smooth separated S-group scheme. If an S-rational map f : Z --> G is defined in codimension <= 1, then it is defined everywhere. S-rational maps are classes of morphisms on S-dense open subschemes; for Y smooth and separated a rational map has a maximal domain of definition (2.1.2), and definedness descends along faithfully flat maps (2.1.3, BLR 2.5/5).",
+   "hypotheses": [
+    "The theorem is sketched in the notes: consider g(z_1, z_2) = f(z_1) f(z_2)^{-1} on dom(f) x dom(f), extend using purity-type arguments, and restrict to the diagonal; the full proof is BLR 4.4/1 (not read)",
+    "This is the input that makes abelian schemes Neron models and completes the existence proof"
+   ],
+   "proofSteps": [
+    "Define g : Z x_S Z --> G by g(z_1, z_2) = f(z_1) f(z_2)^{-1}.",
+    "Show g is defined at points (z, z) of the diagonal using codimension-1 definedness of f and translations (sketch in the source).",
+    "Then f(z) = g(z, z') f(z') on a neighbourhood, so f extends over z."
+   ],
+   "acceptance": [
+    "Check that separatedness of G and smoothness of Z are both used; the statement fails for non-group targets.",
+    "Record that only a sketch was read."
+   ],
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "Section 2.1, Definition 2.1.1, Propositions 2.1.2-2.1.3, Theorem 2.1.4 with sketch, pp. 6-7",
+     "excerpt": "If f is defined in codimension 1, meaning that the domain of definition of f contains all points of Z of codimension <= 1, then f is defined everywhere.",
+     "match": "Literal conclusion of Theorem 2.1.4 (Weil)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-schemes-are-neron-models-and-good-reduction-criteria",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+   "title": "Lichtenstein Proposition 2.2.4 and Corollary 2.2.7, SGA 7 IX 2.2.9: an abelian scheme is the Neron model of its generic fibre; good reduction iff the Neron model is an abelian scheme iff A^0_k is proper iff inertia acts trivially on T_l",
+   "kind": "theorem",
+   "statement": "Let R be a Dedekind domain (or DVR) with fraction field K and A an abelian scheme over R with generic fibre A_K; then A is the Neron model of A_K. For an abelian variety A_K over the fraction field of a DVR with Neron model A, the following are equivalent: (i) A_K has good reduction (some abelian scheme over R has generic fibre A_K); (ii) A is an abelian scheme; (iii) A^0_k is proper; (iv) A is proper over R; and (SGA 7 IX 2.2.9, for l != char k) the Tate module T_l(A) is unramified, i.e. the inertia group acts trivially on T_l(A(Kbar)). An abelian scheme with generic fibre A_K is unique up to unique isomorphism.",
+   "hypotheses": [
+    "The step (iii) => (ii) uses: a smooth R-scheme with geometrically connected generic fibre and proper special fibre is proper (Serre-Tate, Lemma 3 of section 1, cited; Conrad cites EGA IV 15.7.10)",
+    "SGA 7 IX 2.2.9 lists further equivalent conditions (A_s abelian, A^0_s abelian, the l^nu-torsion unramified); its proof was not read"
+   ],
+   "proofSteps": [
+    "Proposition 2.2.4: given smooth Y and f : Y_K -> A_K, spread out f over a neighbourhood of the generic point of S (Lemma 2.2.5).",
+    "At the generic points eta of closed fibres, O_{Y,eta} is a DVR, so the valuative criterion for the proper A extends f to Spec O_{Y,eta}, hence to a neighbourhood; glue by separatedness to an S-rational map defined in codimension 1.",
+    "Weil's extension theorem extends it to all of Y; uniqueness follows from separatedness.",
+    "Corollary 2.2.7: (i) => (ii) by uniqueness of Neron models; (iii) => (ii) since A^0 is proper (Serre-Tate lemma), a subgroup scheme, hence an abelian scheme and the Neron model, so A^0 = A."
+   ],
+   "acceptance": [
+    "Roadmap: compare good reduction with an abelian-scheme model; this node is that comparison.",
+    "Check that \"good reduction\" is defined by the existence of an abelian-scheme model and not by a Weierstrass equation, except for elliptic curves."
+   ],
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "Definition 2.2.3, Proposition 2.2.4 with proof (2.2.6), Corollary 2.2.7 with Lemma 2.2.8 and proof, pp. 8-9",
+     "excerpt": "Let R be a Dedekind domain with fraction field K. Let A be an abelian scheme over Spec R with generic fiber A. Then A is a Neron model of A.",
+     "match": "Literal statement of Proposition 2.2.4."
+    },
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "Corollaire 2.2.9, printed p. 335 (OCR)",
+     "excerpt": "Corollaire 2.2.9. (Cas de bonne reduction.) Soient S un trait, A_K un schema abelien sur le corps des fractions K de S, A le modele de Neron de A_K, l un nombre premier different de car. k. Les conditions suivantes sont equivalentes.",
+     "match": "Literal opening of Corollaire 2.2.9 reconstructed from the OCR text (accents dropped); the equivalent conditions include A abelian, A proper over S, and T_l(A) unramified."
+    },
+    {
+     "sourceId": "poonen-rational-points-on-varieties",
+     "locator": "Remark 5.7.24, p. 143",
+     "excerpt": "Thus A has good reduction if and only if it is the generic fiber of an abelian scheme over Spec R.",
+     "match": "Literal quotation."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.1/neron-smoothening-process",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+   "title": "Romagny Theorem 2.4.2 (Neron-Raynaud): finitely many permissible blow-ups make every point of a given set E of R^sh-points lift to the smooth locus",
+   "kind": "theorem",
+   "statement": "Let R be a DVR, A a flat R-scheme of finite type with smooth generic fibre and E a subset of A(R^sh). Neron's defect delta(a) is the length of the torsion submodule of a^*Omega^1_{A/R}, and delta(A, E) = max over a in E (finite, BLR 3.3/3); delta(A, E) = 0 iff E lies in A^sm(R^sh) (Lemma 2.2.2). There is a finite sequence of E-permissible blow-ups A' -> A (centres geometrically reduced closed subschemes of the special fibre, dense in the specializations of E, meeting them in the smooth locus where Omega^1 is locally free) such that each point of E lifts uniquely to a smooth point of A'. Applied to E = A_0(R^sh) for a proper flat model A_0, it gives a smoothening A_1 -> A_0 whose smooth locus is a weak Neron model.",
+   "hypotheses": [
+    "Imported, proof omitted in the source: Lemma 2.3.2 (Neron, Raynaud): blowing up the centre Y^i strictly lowers delta at points of E^i with singular specialization (BLR 3.3/5); boundedness of delta (BLR 3.3/3)",
+    "Existence of a proper flat model uses Nagata compactification (Conrad, Deligne's notes) and schematic closure"
+   ],
+   "proofSteps": [
+    "Lemma 2.2.2: if delta(a) = 0, a^*Omega^1 is free of rank d_K; by semicontinuity of fibre dimensions the special fibre is smooth at a_k (EGA IV 17.15.5); conversely smoothness gives local freeness.",
+    "Canonical partition: Y^1 = closure of specializations of E, U^1 its smooth part where Omega^1 is locally free, E^1 = points specializing into U^1; iterate on the rest to get E = E^1 u ... u E^t.",
+    "Induction on delta(A, E) + t(A, E): blow up Y^t (E^t-permissible), which lowers delta on E^t (Lemma 2.3.2); by induction smoothen E^t; the remaining partition has length t - 1; induct again."
+   ],
+   "acceptance": [
+    "Record the omitted Lemma 2.3.2 as the load-bearing import of the local existence theorem.",
+    "Check that the process uses R^sh-points, i.e. the Neron model is first built after strict henselization and then descended."
+   ],
+   "sources": [
+    {
+     "sourceId": "romagny-2011-neron-models-of-abelian-varieties",
+     "locator": "Section 2: Definition 2.1.1, Definition 2.2.1, Lemma 2.2.2 with proof, section 2.3, Lemma 2.3.2, Definition 2.4.1, Theorem 2.4.2 with proof, pp. 2-4",
+     "excerpt": "Theorem 2.4.2 Let A be a flat R-scheme of finite type with smooth generic fibre and let E be a subset of A(R^sh). Then there exists a morphism A' -> A, a finite sequence of E-permissible blow-ups, such that each point a in E lifts uniquely to a smooth point of A'.",
+     "match": "Literal statement with primes transliterated."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.1/weak-neron-mapping-property-for-rational-maps",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+   "title": "Romagny Proposition 3.2.1: a weak Neron model extends K-rational maps from smooth R-schemes to R-rational maps",
+   "kind": "lemma",
+   "statement": "Let A be a weak Neron model of A_K over a DVR R (a smooth separated finite-type model with A(R^sh) = A_K(K^sh), equivalently the extension property for etale test schemes). Then every K-rational map u_K : Z_K --> A_K from the generic fibre of a smooth R-scheme Z extends uniquely to an R-rational map Z --> A. Conversely, a smooth separated finite-type model with this property is a weak Neron model.",
+   "hypotheses": [
+    "Weak Neron models are not unique: their special fibres contain extraneous components",
+    "Uses constructibility of images and Zariski's Main Theorem-type spreading out of local isomorphisms"
+   ],
+   "proofSteps": [
+    "Reduce to Z with irreducible special fibre and u_K everywhere defined.",
+    "Let Gamma be the schematic closure of the graph of u_K in Z x A; every k^s-point of Z_k lifts to an R^sh-point whose image extends into A (weak Neron property), so the image of Gamma_k -> Z_k contains a dense open set.",
+    "At the generic point eta of Z_k, O_{Z,eta} is a DVR dominated by O_{Gamma,xi} with the same generic fibre, so they coincide; spread out to an isomorphism of open neighbourhoods and compose with the projection to A."
+   ],
+   "acceptance": [
+    "Check the use of R^sh-points: the argument needs every k^s-point of the smooth special fibre to lift."
+   ],
+   "sources": [
+    {
+     "sourceId": "romagny-2011-neron-models-of-abelian-varieties",
+     "locator": "Section 3, Proposition 3.2.1 with proof, pp. 4-5",
+     "excerpt": "Proposition 3.2.1 Let A be a weak Neron model of A_K. Then A satisfies the weak Neron mapping property : each K-rational map u_K : Z_K --> A_K from the generic fibre of a smooth R-scheme Z extends uniquely to an R-rational map u : Z --> A.",
+     "match": "Literal statement, notation transliterated."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.1/local-existence-of-neron-models-via-birational-group-laws",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+   "title": "Romagny section 4, Lichtenstein 1.3.10 and 3.6.1, Poonen 5.7.25: removing non-minimal components of a weak Neron model gives an R-birational group law whose Weil solution is the Neron model, of finite type",
+   "kind": "theorem",
+   "statement": "Let R be a DVR with fraction field K and A_K an abelian variety of dimension d. Then A_K has a Neron model over R, of finite type (and quasi-projective, by Raynaud). Construction: let A_2 be a weak Neron model (smooth locus of a smoothening of a proper flat model), omega a left-invariant (hence also right-invariant, Lemma 4.1.1) volume form normalized so that the minimum of its orders along special-fibre components is 0, and A_3 the open subscheme obtained by removing the non-minimal components. Then omega generates Omega^d_{A_3/R} (Lemma 4.1.2); multiplication extends to an R-birational group law on A_3 (Theorem 4.2.1); Weil's theorem on birational group laws gives a smooth separated R-group scheme A_4 of finite type containing an R-dense open of A_3 and extending the law; and A_4 satisfies the Neron mapping property (Proposition 4.2.2).",
+   "hypotheses": [
+    "Imported: Weil's extension theorem for R-birational group laws (the \"previous lecture\" of the summer school; BLR 5.1/5 for A_3 embedding into A_4), Weil's extension theorem for rational maps into group schemes (BLR 4.4/1), the invariant volume form (BLR 4.2), Zariski's Main Theorem (EGA IV 8.12.10)",
+    "Remark 4.2.3: quasi-projectivity is Raynaud, Faisceaux amples (LNM 119), Theorem VIII.2, not read",
+    "Poonen Theorem 5.7.25 states existence and finite type with proof by citation (Artin 1986, BLR 1.3 Corollary 2)"
+   ],
+   "proofSteps": [
+    "Lemma 4.1.1: c_x^*omega = chi(x) omega defines a character A_K -> G_m, trivial because A_K is proper, so left-invariant forms are right-invariant.",
+    "Lemma 4.1.2: omega extends over the normal A_2 and does not vanish in codimension 1 on A_3, hence nowhere.",
+    "Theorem 4.2.1: extend m_K to m : A_3 x A_2 --> A_2 (weak Neron property); phi(x, y) = (x, xy) preserves the pulled-back form, which forces the order at image components to be 0, so m maps into A_3; phi is etale (determinant of differentials is an isomorphism) and an isomorphism generically, hence an open immersion (Zariski's Main Theorem); similarly for (xy, y).",
+    "Apply Weil's theorem on birational group laws to get A_4.",
+    "Proposition 4.2.2: extend tau_K(z, x) = u_K(z) x to Z x A_3 --> A_3, view as a rational map to A_4, extend everywhere by Weil's theorem for group schemes, and restrict to the unit section."
+   ],
+   "acceptance": [
+    "Roadmap R11.1: local existence/smoothening; the smoothening node and this node together follow the chain A_0 -> A_1 -> A_2 -> A_3 -> A_4.",
+    "Record the imports of Weil's theorems as the remaining supplier obligations."
+   ],
+   "sources": [
+    {
+     "sourceId": "romagny-2011-neron-models-of-abelian-varieties",
+     "locator": "Section 4, Lemmas 4.1.1-4.1.2, Theorem 4.2.1, Proposition 4.2.2, Remark 4.2.3, pp. 5-8",
+     "excerpt": "Proposition 4.2.2 The group scheme A_4 is the Neron model of A_K, that is, each K-morphism u_K : Z_K -> A_K from the generic fibre of a smooth R-scheme Z extends uniquely to an R-morphism u : Z -> A_4.",
+     "match": "Literal statement, notation transliterated."
+    },
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "Theorem 1.3.10 and Proposition 3.6.1 with sketch, pp. 5, 16",
+     "excerpt": "Let R be a discrete valuation ring with field of fractions K, and let A be an abelian variety over K. Then A admits a Neron model A/R.",
+     "match": "Literal statement of Theorem 1.3.10."
+    },
+    {
+     "sourceId": "poonen-rational-points-on-varieties",
+     "locator": "Theorem 5.7.25 and Proposition 5.7.26, p. 143",
+     "excerpt": "Then A has a Neron model N, and N is of finite type over R.",
+     "match": "Literal conclusion of Theorem 5.7.25."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.1/dedekind-local-to-global-gluing-of-neron-models",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+   "title": "Lichtenstein 2.3.1-2.3.4: Neron models over a Dedekind base are obtained by gluing an abelian scheme over a dense open with the finitely many local Neron models",
+   "kind": "theorem",
+   "statement": "Let R be a Dedekind domain with fraction field K and X a smooth separated K-scheme of finite type. An R-scheme of finite type X with generic fibre X is a Neron model iff X x_S Spec O_{S,s} is a Neron model over O_{S,s} for every closed point s (Lemma 2.3.3, BLR 1.2/4). X has a Neron model over R iff there are a dense open S', a Neron model over S' and Neron models over O_{S,s} for the finitely many s outside S' (Proposition 2.3.2). Hence every abelian variety A over K has a global Neron model over Spec R, which is an abelian scheme over the open subscheme where A has good reduction (Theorem 2.3.4). Neron models over an open cover glue (Exercise 2.3.1).",
+   "hypotheses": [
+    "Spreading out finitely presented schemes and morphisms from local rings to neighbourhoods (Lemma 2.2.5) is used throughout",
+    "Theorem 2.3.4 uses BLR 1.4/2 to spread A out to an abelian scheme over a dense open",
+    "Poonen Remark 5.7.27 states the Dedekind version with reference BLR 1.4 Theorem 3; SGA 7 IX 3.2.1 says existence over Dedekind bases \"se ramene en fait immediatement au cas local\""
+   ],
+   "proofSteps": [
+    "Spread A out to an abelian scheme over a neighbourhood U of the generic point (BLR 1.4/2); it is the Neron model over U (Proposition 2.2.4).",
+    "For the finitely many closed points outside U, take local Neron models (Theorem 1.3.10) and spread them out to neighbourhoods S_i agreeing with the abelian scheme over S_i intersect U.",
+    "Glue to a smooth separated finite-type model, and check the mapping property stalk-locally (Lemma 2.3.3)."
+   ],
+   "acceptance": [
+    "Roadmap R11.1: the Dedekind gluing over rings of integers and S-integers; check that the good-reduction locus is exactly where the model is an abelian scheme.",
+    "The finite type assertion comes from the local finite-type theorem and finiteness of the bad set."
+   ],
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "Section 2.3, Exercise 2.3.1, Proposition 2.3.2 with sketch, Lemma 2.3.3, Theorem 2.3.4 with sketch, pp. 10-11",
+     "excerpt": "Let R be any dedekind domain, with field of fractions K. Let A be an abelian variety over K. Then A admits a \"global\" Neron model A over S = Spec R.",
+     "match": "Literal statement of Theorem 2.3.4."
+    },
+    {
+     "sourceId": "poonen-rational-points-on-varieties",
+     "locator": "Remark 5.7.27, p. 143",
+     "excerpt": "Theorem 5.7.25 extends to the case where R is replaced by an integral Dedekind scheme, and K is its function field.",
+     "match": "Literal quotation."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.1/base-change-of-neron-models-unramified-and-ramified",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+   "title": "Neron models commute with etale base change and extensions of ramification index 1 (descending from R^sh), but not with ramified base change",
+   "kind": "comparison",
+   "statement": "The formation of Neron models commutes with etale base change (Lichtenstein 1.4.3) and with localization, completion, henselization and strict henselization (Conrad, property 2). For a local extension R -> R' of DVRs with ramification index 1, a smooth K-group G has a Neron model over R iff G_{K'} has one over R', and then it is the base change (6.2.2, BLR 7.2/1); Neron models descend from R' inside R^sh (6.2.1, BLR 6.5/4). A smooth R-group G of finite type is the Neron model of its generic fibre iff G(R^sh) -> G(K^sh) is bijective (6.1.1, BLR 7.1/1). Ramified base change fails: y^2 = x^3 + p over Q_p (p not dividing 6) has additive reduction but good reduction over Q_p(p^{1/6}), so the base change of the non-proper Neron model is not the proper Neron model; for split multiplicative reduction the special fibre G_m x Z/nZ with n = -ord(j) becomes G_m x Z/neZ after ramification index e (Conrad Example 2.2). If A has semistable reduction everywhere, base change to any finite separable extension induces isomorphisms of relative identity components (Conrad Theorem 3.7, BLR 7.4).",
+   "hypotheses": [
+    "The statements 6.1.1, 6.2.1, 6.2.2 and Theorem 3.7 are quoted with BLR references; their proofs were not read",
+    "Conrad Example 2.2: that the two identity components are the \"same\" G_m is stated as following from the mapping property and the identification of generic fibres"
+   ],
+   "proofSteps": [
+    "Etale base change: for smooth Y' over R' etale over R, Y' is smooth over R, so the mapping property over R gives the one over R' (1.4.3).",
+    "Ramified counterexample: if the base change of the non-proper model were the proper Neron model over R', properness would descend along the faithfully flat R -> R' (4.1.9)."
+   ],
+   "acceptance": [
+    "Roadmap R11.1: prove the permitted etale/unramified comparisons; arbitrary ramified base change is not asserted; at a ramified extension compute the change of model.",
+    "Use the split multiplicative example to check component-group growth by the ramification index."
+   ],
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "Proposition 1.4.3, Example 4.1.9, Propositions 6.1.1, 6.2.1, 6.2.2, pp. 6, 18-19, 22-23",
+     "excerpt": "Over a discrete valuation ring R, the formation of Neron models is compatible with extensions of the base R0 /R of ramification index 1",
+     "match": "Literal quotation from section 6.2 (primes rendered as 0 by the text layer)."
+    },
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Example 2.2, Theorem 3.7 and the following paragraph, pp. 3, 7",
+     "excerpt": "So if e > 1 then the Neron model \"grows\".",
+     "match": "Literal quotation from Example 2.2."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.1/invariant-differentials-of-the-neron-model-and-the-canonical-measure",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+   "title": "The Neron model picks out an R-line of invariant top-degree differentials and a canonical Haar measure on A(F) (Conrad section 4; Romagny section 4.1)",
+   "kind": "construction",
+   "statement": "For a smooth R-group scheme of relative dimension d the sheaf Omega^d is invertible and locally generated by an invariant form (BLR 4.2). For the Neron model A of A over a complete DVR R with finite residue field and fraction field F, the R-line Omega^top_{A/R} inside the F-line Omega^top_{A/F} is preferred; a generator omega is unique up to R^x and the measure |omega| mu^d on A(F) is a canonical Haar measure. Then Phi(k) = A(R)/A^0(R) = A(F)/A(F)^0, and (Exercise 4.3) vol(A(F)) = #Phi(k) q^{-dim A} #A^0_k(k) = #Phi(k) L(1/q).",
+   "hypotheses": [
+    "The volume formula is an exercise with an outline (fibres of X(R) -> X(k) are analytic polydiscs carrying |omega| to Haar measure)",
+    "The global invariant-differential lattice over a Dedekind base (the lattice consumed by ArakelovGeometryAndAbelianHeights R35.2) and its localization at each finite place are not written in the sources read (gap)"
+   ],
+   "proofSteps": [
+    "Invariant forms: Romagny Lemma 4.1.1 shows left-invariant forms on A_K are right-invariant; on a smooth group scheme Omega^d is generated by invariant forms (BLR 4.2, cited).",
+    "Surjectivity of A(R) -> A(k) for complete R and smooth A gives Phi(k) = A(R)/A^0(R).",
+    "Scaling omega by c changes the measure by |c|, so an R-generator gives a canonical measure."
+   ],
+   "acceptance": [
+    "Roadmap R11.1: identify the invariant-differential lattice; here only its local form over a complete DVR is read.",
+    "Check the normalization mu(R) = 1."
+   ],
+   "sources": [
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Section 4, the canonical measure and Exercise 4.3, pp. 12-13",
+     "excerpt": "The Neron model defines a preferred R-line Omega^top_{A/R} inside the F-line Omega^top_{A/F} of top-degree differential forms on A.",
+     "match": "Literal sentence, notation transliterated."
+    },
+    {
+     "sourceId": "romagny-2011-neron-models-of-abelian-varieties",
+     "locator": "Section 4.1, Lemma 4.1.1, pp. 5-6",
+     "excerpt": "Quite generally, if S is a scheme and G is a smooth S-group scheme of relative dimension d, it is known that the sheaf of differential forms of maximal degree Omega^d_{G/S} is an invertible sheaf that may be generated locally by a left-invariant differential form (see [BLR] 4.2).",
+     "match": "Literal quotation, notation transliterated."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.2/identity-component-component-group-and-chevalley-decomposition",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.2",
+   "title": "Component group Phi_s = A_s/A^0_s as a finite etale group, rational versus geometric points, Tamagawa numbers, and the Chevalley decomposition 1 -> T x U -> A^0_k -> B -> 1",
+   "kind": "definition",
+   "statement": "For the Neron model A of an abelian variety over a Dedekind scheme and a closed point s, the component group Phi_s = A_s/A^0_s is a finite etale k(s)-group, viewed as Phi_s(k(s)^sep) with its Galois action. A_s(k(s)) -> Phi_s(k(s)) need not be surjective (obstruction in H^1(k(s), A^0_s)), but it is for finite k(s) (Lang). The Tamagawa number is c(A) = #Phi(k). Over a perfect residue field, A^0_k is uniquely an extension 1 -> T x U -> A^0_k -> B -> 1 with T a torus, U smooth connected unipotent and B an abelian variety (Chevalley); the toric, unipotent and abelian ranks are dim T, dim U, dim B. For l != char k, 0 -> V_l(T) -> V_l(A^0_k) -> V_l(B) -> 0 is exact (the unipotent part drops out).",
+   "hypotheses": [
+    "Chevalley's structure theorem and the structure of commutative linear algebraic groups over perfect fields are cited, not proved (Lichtenstein 5.2.5-5.2.6; Conrad section 3)",
+    "Over imperfect fields Chevalley's theorem fails (Weil restrictions along purely inseparable extensions), relevant at generic points of special fibres of arithmetic surfaces",
+    "Lichtenstein 5.1.1 notes c(A) is also the number of geometrically connected components of A_k for elliptic curves [Liu, Cor. 10.2.21(a)], cited"
+   ],
+   "proofSteps": [
+    "Phi_s is finite etale since A_s is smooth of finite type with open identity component.",
+    "Snake lemma for [l^n] on 1 -> T x U -> A^0_k -> B -> 1: multiplication by l is an automorphism of U and surjective with finite kernel on T and B, giving 1 -> T[l^n] -> A^0_k[l^n] -> B[l^n] -> 1; pass to the limit."
+   ],
+   "acceptance": [
+    "Roadmap R11.2: distinguish rational component groups from their geometric points (see the 57C2 example node).",
+    "Keep the toric and abelian parts as invariants of A^0_k, not of A_k."
+   ],
+   "sources": [
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Definition 2.4 and the following paragraph; section 3, the Chevalley structure theorem and (3.1)-(3.2), pp. 5, 8",
+     "excerpt": "Beware that in general the map A_s(k(s)) -> Phi_s(k(s)) is not surjective (there is an obstruction in the Galois cohomology group H^1(k(s), A^0_s)); for finite k(s) this problem will not arise.",
+     "match": "Literal quotation, notation transliterated."
+    },
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "Definition 5.1.1, Theorems 5.2.5-5.2.6 and 5.2.7, pp. 20-21",
+     "excerpt": "The Tamagawa number c(A) is number #Phi(k) of k-rational points of the (finite etale) component group Phi = A_k/A^0_k.",
+     "match": "Literal definition, notation transliterated."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.2/neron-models-of-elliptic-curves-from-minimal-models-and-reduction-types",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.2",
+   "title": "Lichtenstein 4.1-4.3, Poonen 5.7.30, Silverman VII.5-VII.6: E^sm of the minimal regular model is the Neron model, W^sm of a minimal Weierstrass model is its identity component, and reduction types and the filtration agree with the scheme data",
+   "kind": "theorem",
+   "statement": "Let R be a DVR with fraction field K and E/K an elliptic curve with minimal regular proper model E, minimal Weierstrass model W and Neron model N. Then E^sm -> N is an isomorphism and W^sm -> N^0 is an isomorphism. For K complete with finite residue field, the reduction map r : E(K) = N(R) -> N_k(k) defines E(K)^1 = ker r contained in E(K)^0 = r^{-1}(N^0_k(k)), with E(K)^0/E(K)^1 = N^0_k(k) and E(K)/E(K)^0 = Phi_E(k). Good, multiplicative and additive reduction (smooth, nodal, cuspidal minimal Weierstrass reduction; Silverman VII.5.1: v(Delta) = 0; v(Delta) > 0, v(c_4) = 0; v(Delta), v(c_4) > 0) coincide with N^0_k being an elliptic curve, G_m, or G_a over the algebraic closure. In the split multiplicative case (Kodaira I_n, v(j) = -n) the special fibre of N is the smooth part of a loop of n rational curves, N^0_k = G_m, and E(K)/E_0(K) is cyclic of order -v(j) (Silverman VII.6.1); otherwise it has order at most 4.",
+   "hypotheses": [
+    "Imported: existence and uniqueness of minimal regular proper models (Lichtenstein 4.1.3, \"a hard theorem\"), BLR 1.5/1 or Liu Lemma 10.2.12, Liu Prop. 10.2.26, Liu Thm 9.4.35, and Conrad's minimal models paper (Poonen 5.7.30 cites Theorems 5.4 and 5.5 there); none read",
+    "Silverman VII.6.1 is stated without proof (\"a direct proof ... is quite lengthy\"), referring to Advanced Topics IV sections 5, 6 and 8 (Neron models and Tate's algorithm)",
+    "Lichtenstein section 4 assumes residue characteristic != 2, 3 for Weierstrass models y^2 = x^3 + beta x + gamma; Tate's algorithm (Advanced Topics IV.9) handles all cases and was not read",
+    "Silverman chapter VII assumes K complete for a discrete valuation with K and k perfect"
+   ],
+   "proofSteps": [
+    "4.1.5: run the Neron construction starting from E; minimality keeps E^sm unchanged (all components omega-minimal), or show directly that E^sm carries an R-group structure (Liu 10.2.12) and apply Weil's extension theorem.",
+    "4.1.7: the minimal Weierstrass model is obtained by blowing down the components of E_k not meeting the identity section.",
+    "4.3.2: good reduction iff N = N^0 proper iff W smooth; in the bad case N^0_k = W^sm_k is an affine cubic with one or two points at infinity, hence G_a or G_m with their only group structures."
+   ],
+   "acceptance": [
+    "Roadmap examples: compute the Neron model of a good elliptic curve (an abelian scheme) and of split and nonsplit multiplicative reduction, and check that it is not a proper elliptic scheme in the multiplicative case.",
+    "Roadmap R11.2: compare with the reduction filtration and Tate's algorithm including wild primes; wild primes are not covered by the sources read (gap)."
+   ],
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "Section 4: Theorems 4.1.3, 4.1.5, 4.1.7, Examples 4.1.4, 4.1.8, Proposition 4.2.1, Definition 4.3.1, Proposition 4.3.2 with proof, pp. 16-20",
+     "excerpt": "Write E sm for the smooth locus of E. The canonoical map E sm -> N induced by the NMP is an isomorphism.",
+     "match": "Literal statement of Theorem 4.1.5 as extracted, including the source's typo \"canonoical\"."
+    },
+    {
+     "sourceId": "poonen-rational-points-on-varieties",
+     "locator": "Theorem 5.7.30, pp. 144-145",
+     "excerpt": "Let W, E, and N be, respectively, a minimal Weierstrass model, the minimal regular proper model, and the Neron model.",
+     "match": "Literal fragment of the hypotheses; the conclusion (E^smooth -> N and W^smooth -> N^0 are isomorphisms) is as stated, with proof cited to Conrad, Minimal models, Theorems 5.4 and 5.5."
+    },
+    {
+     "sourceId": "silverman-arithmetic-of-elliptic-curves-2009",
+     "locator": "VII.5, Proposition 5.1; VII.6, Theorem 6.1 and Corollary 6.2, pp. 196, 200",
+     "excerpt": "If E has split multiplicative reduction over K, then E(K)/E0 (K) is a cyclic group of order v(Delta) = -v(j). In all other cases, the group E(K)/E0 (K) is finite and has order at most 4.",
+     "match": "Literal statement of Theorem VII.6.1 as extracted."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.2/component-groups-of-57C2-rational-versus-geometric-points",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.2",
+   "title": "Conrad Examples 2.5 and 4.2: for 57C2, Phi_3 = Z/2Z and Phi_19 = Z/5Z with nontrivial Galois action, so c_19 = 1 while the component group has order 5; E(Q) -> product of Phi_p(F_p) is not surjective",
+   "kind": "application",
+   "statement": "Let E : y^2 + y = x^3 + x^2 - 4390x - 113432 (Cremona 57C2), with E(Q) = {0}, j(E) = -(2^12 13171)/(3^2 19^5), good reduction away from 3 and 19. Then Phi_3 = Z/2Z, and Phi_19 corresponds to Z/5Z with Frobenius acting through the nontrivial quadratic character (nonsplit multiplicative reduction), so Phi_19(F_19) = 0. The Tamagawa factors are c_3 = 2 and c_19 = 1, although the finite etale group Phi_19 has order 5. The map E(Q) = E(Z) -> Phi_3(F_3) x Phi_19(F_19) = Z/2Z is not surjective.",
+   "hypotheses": [
+    "The component groups are quoted from tables, not computed in the source"
+   ],
+   "proofSteps": [
+    "Nonsplit multiplicative reduction of type I_5 at 19: the geometric component group is cyclic of order 5 = -v_19(j), and Frobenius acts by inversion, fixing only 0.",
+    "E(Q) is trivial, so its image in Phi_3(F_3) = Z/2Z is trivial."
+   ],
+   "acceptance": [
+    "Roadmap R11.2/R11 acceptance: compare component groups over the residue field and its algebraic closure with the Galois action; do not confuse the Tamagawa factor with the order of the component group.",
+    "Recompute from a Tate algorithm run on the equation."
+   ],
+   "sources": [
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Example 2.5, p. 5; Example 4.2, p. 12",
+     "excerpt": "Phi_19 corresponds to the Galois module Z/5Z equipped with a non-trivial G_F19-action (given in fact by the unique quadratic Galois character since the reduction type at 19 is multiplicative but non-split), so Phi_19(F_19) = 0.",
+     "match": "Literal quotation, notation transliterated."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction-and-semiabelian-models-over-dedekind-bases",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+   "title": "SGA 7 IX 3.2-3.4 and Conrad 3.3-3.7: semistable reduction means semiabelian identity components; any smooth separated model with semiabelian fibres is an open subgroup of the Neron model, stable under base change on identity components",
+   "kind": "theorem",
+   "statement": "Let S be a locally noetherian regular integral scheme of dimension 1 with function field K, A_K an abelian variety and A its Neron model. The following are equivalent (3.2): (i) for every s in S, A^0_s has unipotent rank 0, i.e. is an extension of an abelian variety by a torus; (ii) there is a smooth separated S-group scheme G of finite type extending A_K whose fibres have unipotent rank 0. If G is as in (ii), the morphism G -> A is an isomorphism onto an open subgroup, hence an isomorphism on identity components. A_K then has semistable reduction (Definition 3.4). For a dominant S' -> S of the same type, A x_S S' -> A' (Neron model over S') is an open immersion, an isomorphism on identity components (3.3), though not in general on component groups. Equivalently (Conrad Theorem 3.7, BLR 7.4) a semi-abelian scheme extending A_K is the identity component of its Neron model.",
+   "hypotheses": [
+    "Proposition 3.2 is deduced from the auxiliary Proposition 3.1 (kernels of homomorphisms of commutative group schemes and reductive/abelian ranks), whose proof cites SGA 3 and was read only at its opening",
+    "Semistability localizes to strictly henselian DVRs (3.4.0)"
+   ],
+   "proofSteps": [
+    "(i) => (ii) with G = A.",
+    "(ii) => (i): the unique morphism G -> A extending the identity is an open immersion by Proposition 3.1 e).",
+    "3.3: apply 3.2 over S' with G = A x_S S'."
+   ],
+   "acceptance": [
+    "Roadmap R11 conventions: a semistable abelian variety has semiabelian identity component in its special fibre; this node is that definition with its model-theoretic characterization.",
+    "Record that component groups change under ramified base change even in the semistable case (3.3.2, SGA 7 IX 11.10)."
+   ],
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "Proposition 3.2 with proof, 3.2.1, Corollaire 3.3, 3.3.2, Definition 3.4, 3.4.0, printed pp. 347-349 (OCR)",
+     "excerpt": "Proposition 3.2. Soient S un schema localement noetherien regulier integre de dimension 1, K son corps des fonctions rationnelles, A_K un schema abelien sur K, A son modele de Neron sur S",
+     "match": "Literal opening reconstructed from the OCR text, accents dropped; the equivalent conditions (i)-(ii) are as stated in the node."
+    },
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Definitions 3.1, 3.3, 3.6, Theorem 3.7 and the following paragraph, pp. 6-7",
+     "excerpt": "If an abelian variety A over F extends to a semi-abelian scheme A over S then the natural map A -> N(A_F) is an isomorphism onto N(A_F)^0.",
+     "match": "Literal statement of Theorem 3.7 (BLR 7.4), notation transliterated."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.3/galois-criterion-for-semistable-reduction",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+   "title": "SGA 7 IX Proposition 3.5 and Corollaries 3.5.2, 3.8: semistable reduction iff inertia acts unipotently of echelon 2 on T_l, iff it acts unipotently",
+   "kind": "theorem",
+   "statement": "Let S be a trait (henselian after localization), A_K an abelian variety over K and l a prime different from the residue characteristic. The following are equivalent: (i) A_K has semistable reduction; (ii) in the notation of 2.5.3, V = V^f (the fixed part) is equal to the orthogonal of the toric part; (iv) the inertia group I acts unipotently of echelon 2 on U = T_l(A(Kbar)), i.e. there is an I-stable submodule U' with I acting trivially on U' and on U/U'. These are also equivalent to (v) I acts through its maximal pro-l quotient Z_l(1) and a topological generator g satisfies (1 - g)^2 = 0 on U (3.5.2), and to (vi) I acts unipotently on T_l(A(Kbar)) (3.8). The conditions depend only on the Q_l-representation, are stable under base change of traits, and pass to abelian subvarieties, quotients and isogenous varieties.",
+   "hypotheses": [
+    "The proof uses the orthogonality theorem IX 2.4: the toric part T_l(A)^t is the intersection of the fixed part T_l(A)^I with the orthogonal of the fixed part of the dual, for the canonical pairing; 2.4 is proved via biextensions (Exposes VII-VIII), not read",
+    "Corollaire 3.8 uses that a unipotent algebraic group in characteristic 0 is connected, so a finite-index subgroup has the same unipotence echelon",
+    "The OCR of condition (iii) is illegible; it was not transcribed"
+   ],
+   "proofSteps": [
+    "Reduce to S henselian (3.4.0); (i) means the unipotent rank mu = 0, which by (2.5.5) is equivalent to V = V^f + ... i.e. (ii).",
+    "By the orthogonality theorem 2.4, (ii) is equivalent to (iii).",
+    "(iv) means I acts trivially on U^t = V^f, which by duality means it acts trivially on V, i.e. (ii).",
+    "(v): an unipotent continuous action of a profinite group on an l-adic space factors through a pro-l group, hence through Z_l(1)."
+   ],
+   "acceptance": [
+    "Roadmap R11.3: the monodromy criterion relating semistable reduction to the Tate-module action.",
+    "Check isogeny invariance: semistability depends only on V_l(A) (Remarques 3.5.1)."
+   ],
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "Proposition 3.5 with proof, Remarques 3.5.1, Corollaire 3.5.2, printed pp. 350-351 (page images); Corollaire 3.8, printed p. 353 (OCR); Theoreme 2.4 statement, printed p. 338 (OCR)",
+     "excerpt": "Proposition 3.5. (critere galoisien de reduction semi-stable). On suppose S un trait. Les conditions suivantes sur le schema abelien A_K sont equivalentes",
+     "match": "Literal opening as read on the page image, accents dropped; conditions (i), (ii), (iv) and the corollaries are as stated in the node."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction-theorem-for-abelian-varieties",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+   "title": "SGA 7 IX Theoreme 3.6 (Grothendieck): after a finite Galois extension an abelian variety acquires semistable reduction over the normalized Dedekind base; Conrad 3.5: the field K(A[l]) (A[4] for l = 2) suffices",
+   "kind": "theorem",
+   "statement": "Let S be a connected regular noetherian scheme of dimension 1 with function field K and A_K an abelian variety. There is a finite Galois extension K' of K such that A_{K'} has semistable reduction on the normalization S' of S in K'. Over a DVR one can take K' = K(A[l]) for any prime l != char k (K(A[4]) when l = 2), so semistable reduction everywhere is achieved after splitting the 15-torsion, with [K' : K] dividing #GL_{2g}(Z/15Z) for g = dim A. For elliptic curves (Silverman VII.5.4) additive reduction becomes good or multiplicative after a finite extension, while good and multiplicative reduction are stable.",
+   "hypotheses": [
+    "SGA 7 IX: the proof reduces (via 3.5(iv)) to Corollaire 3.7 (an open subgroup of inertia acts unipotently of echelon 2 on T_l), proved in Expose I as a case of the monodromy theorem using resolution of singularities of excellent 2-dimensional schemes (Abhyankar); Expose I was not read",
+    "Conrad: an alternative proof by Deligne in the appendix to Expose I of SGA 7 (monodromy, Neron smoothening and the Riemann hypothesis for abelian varieties over finite fields); not read",
+    "The explicit choice K(A[l]) is stated by Conrad without proof in these notes",
+    "Silverman VII.5.4 was read only as a statement"
+   ],
+   "proofSteps": [
+    "Reduce to S a trait: the bad set T is finite, and it suffices to treat each t in T and take a compositum (Galois conjugation permutes the points above t).",
+    "By Proposition 3.5 (iv) it suffices to find an open subgroup I' of inertia acting unipotently of echelon 2 on T_l(A(Kbar)) (Corollaire 3.7).",
+    "Corollaire 3.7 is the monodromy theorem for H^1(A_Kbar, Z_l) = Hom(T_l(A), Z_l), proved in Expose I."
+   ],
+   "acceptance": [
+    "Roadmap R11.3: prove semistable reduction after a finite extension; the load-bearing monodromy theorem is an unread import.",
+    "Faltings uses the uniform degree bound to reduce to everywhere semistable abelian varieties (Conrad's comment); check this is the form consumed."
+   ],
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "Theoreme 3.6 and its reduction to Corollaire 3.7, printed pp. 351-353 (page image of p. 351 and OCR)",
+     "excerpt": "Theoreme 3.6. (theoreme de reduction semi-stable). Soient S un schema noetherien regulier connexe de dimension 1, K le corps des fonctions rationnelles de S, A_K un schema abelien sur K. Alors il existe une extension finie galoisienne K' de K, telle que le schema abelien A_{K'} = A_K (x)_K K' ait reduction semi-stable (3.4) sur le normalise S' de S dans K'.",
+     "match": "Literal statement as read on the page image, accents dropped."
+    },
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Theorem 3.5 with the following paragraph, p. 7",
+     "excerpt": "Explicitly, we can take F' to be the splitting field of A[l] for any prime l != char(k), where when l = 2 we really use A[4] instead.",
+     "match": "Literal quotation, notation transliterated."
+    },
+    {
+     "sourceId": "silverman-arithmetic-of-elliptic-curves-2009",
+     "locator": "VII.5, Proposition 5.4 (semistable reduction theorem) statement and Example 5.2, pp. 196-197",
+     "excerpt": "This is true in general; after extending the ground field, additive reduction turns into either multiplicative or good reduction, while the latter two do not change; see (VII.5.4).",
+     "match": "Literal quotation."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.4/neron-models-of-jacobians-from-the-picard-functor-of-a-regular-model",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+   "title": "Raynaud 1970 Theoremes 8.1.4 and 8.2.1, SGA 7 IX Theoreme 12.1: for a proper flat curve X over a trait with factorial local rings, P/E is a Neron group, and when the generic fibre is geometrically integral P^0 = Pic^0_{X/S} is the identity component of the Neron model of the Jacobian",
+   "kind": "theorem",
+   "statement": "Let S be a trait, f : X -> S proper and flat with fibres of dimension 1 and factorial local rings (e.g. X regular). Let P = Pic_{X/S}, E the schematic closure of the unit section and Q = P/E. Then Q_S (the relevant part of Q) is a Neron S-group of finite type if k(s) is perfect or delta (the gcd of the total multiplicities of the components of X_s) is prime to the characteristic exponent (Raynaud 8.1.4). The following are related by (i) => (ii) => (iii) => (iv) <=> (v) <=> (vi) <=> (vii) => (viii): (i) delta = 1; (ii) the generic fibre has a divisor of degree 1; (iii) there is a universal invertible sheaf; (iv) X is cohomologically flat and d' = 1; (v) P is representable; (vi) P^0 is representable; (vii) P^0 is separated; (viii) d' = 1; all equivalent if delta = d' (e.g. factorial local rings and perfect k(s)) (Raynaud 8.2.1). In SGA 7 IX 12.1 form (S strictly local, f_*O_X = O_S, factorial local rings, d = 1): Q = P/E is a smooth separated Neron group, 0 -> A -> Q -deg-> Z -> 0 with A the Neron model of the Jacobian of the generic fibre, and P^0 -> A^0 is an isomorphism. Hence N(J)^0 = Pic^0_{X/S} when the gcd of the geometric multiplicities of the non-smooth fibres is 1 (Conrad Example 2.3).",
+   "hypotheses": [
+    "Raynaud's proof uses the Brauer group of the strictly henselian generic point (killed by delta; zero for perfect residue field) and the factoriality to extend invertible sheaves; Remarque 8.1.5 notes that this route to Neron models of Jacobians is less elementary than Neron's and uses Abhyankar's desingularization",
+    "Imported and not read: Raynaud sections 5-7 (representability, cohomological flatness, 7.1.4, 7.2.4, 6.4.5), [11] (Neron groups), and Murre's representability of P_eta",
+    "SGA 7 IX 12.2: the proof of 12.1 is referred to Raynaud; SGA 7 only uses it when the special fibre has only ordinary double points",
+    "Minimal regular models with separable special fibre for semistable Jacobians (Raynaud 8.2.3) are cited from Deligne-Mumford [5]"
+   ],
+   "proofSteps": [
+    "8.1.4: reduce to S strictly henselian; Q_S is smooth of finite type (8.1.2 (iii)) and closed in Q, so it suffices that Q(S) -> Q(eta) is bijective.",
+    "Injectivity from separatedness of Q; surjectivity reduces to P(S) -> P(eta) surjective.",
+    "A point of P(eta) comes from an invertible sheaf on the generic fibre because the obstruction in Br(eta) is killed by delta and vanishes (perfect residue field or delta prime to p).",
+    "Factorial local rings extend the sheaf to X.",
+    "8.2.1: the implications follow from 7.1.6, 7.2.4, 5.3 and 6.4.5 after reducing to S strictly henselian."
+   ],
+   "acceptance": [
+    "Roadmap R11.4: construct the degree-zero Picard and generalized Jacobian of the semistable curves used by R13/R18, and relate it to the Neron model.",
+    "Check the multiplicity hypothesis (gcd 1) in each application; without it Pic^0 need not be separated."
+   ],
+   "sources": [
+    {
+     "sourceId": "raynaud-1970-specialisation-du-foncteur-de-picard",
+     "locator": "Section 8.1: Definition 8.1.3, Theoreme 8.1.4 with proof, Remarques 8.1.5; section 8.2: Theoreme 8.2.1 with proof, Remarque 8.2.2, Proposition 8.2.3, pp. 65-67",
+     "excerpt": "Alors on a les implications suivantes : (i) => (ii) => (iii) => (iv) <=> (v) <=> (vi) <=> (vii) => (viii). Par suite, les huit conditions sont equivalentes si delta = d'",
+     "match": "Literal fragment of Theoreme 8.2.1, symbols transliterated and accents dropped."
+    },
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "Theoreme 12.1 and 12.2, printed pp. 465-469 (OCR)",
+     "excerpt": "dernier est neronien, i.e. satisfait la propriete universelle (1.1.2)",
+     "match": "Literal fragment of 12.1 c) from the OCR text, accents dropped; the remaining statements of 12.1 are as summarized."
+    },
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Example 2.3, pp. 4-5",
+     "excerpt": "in such cases N(J)^0 = Pic^0_{X/S}.",
+     "match": "Literal fragment, notation transliterated."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.4/component-group-of-a-jacobian-from-multidegrees",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+   "title": "Raynaud 1970 Proposition 8.1.2: the complex 0 -> D_0 -> D -> Z^r -> Z and the surjection Ker(beta)/Im(alpha) -> Q'_s/Q^0_s onto the component group",
+   "kind": "theorem",
+   "statement": "Let S be strictly henselian, f : X -> S proper and flat with curve fibres, x_1, ..., x_r the maximal points of X_s with total multiplicities delta_i, and rho : Pic(X) -> Z^r sending an invertible sheaf to its degrees on the components divided by delta_i. (i) There is a canonical complex 0 -> D_0 -> D -alpha-> Z^r -beta-> Z with alpha the composite D -> Pic(X) -> Z^r and beta(n_i) = sum n_i delta_i. (ii) E(S) intersect P^0(S) = Ker(alpha)/Im(i), finite (cyclic of order d' under property (N)*). (iii) If the generic fibre is geometrically irreducible and Q' is the schematic closure of Q^0_eta in Q, there is a canonical surjection gamma : Ker(beta)/Im(alpha) -> Q'(S)/Q^0(S) = (Q'_s/Q^0_s)(k(s)) with finite kernel, zero if f is cohomologically flat. Moreover Q' is of finite type over S iff Q' is closed in Q iff Im(alpha) has rank r - 1 in Z^r (iff, under property (N), each component supports a divisor on X).",
+   "hypotheses": [
+    "D is the group of divisors supported on the special fibre and D_0 the principal ones (6.1.2-6.1.3, not read)",
+    "Proof of (iii): Q' is the degree-0 subfunctor; formal smoothness identifies Q'(S)/Q^0(S) with the special-fibre quotient (6.4.3); the finite kernel uses norms from finite flat traits",
+    "For a regular semistable model with perfect residue field this gives the component group of the Neron model of the Jacobian as the cokernel of the intersection matrix on degree-0 multidegrees; that corollary is not stated in the section read"
+   ],
+   "proofSteps": [
+    "(i): alpha o i = 0 and beta o rho(L) is the total degree, so beta o alpha = 0.",
+    "(ii): E(S) = D/D_0 and an invertible sheaf lies in P^0(S) iff rho(L) = 0.",
+    "(iii): the exact sequence 0 -> P'(S) -> P(S) -> Z and P(S) -> Z^r surjective (7.1.2) give P'(S)/(P^0(S) + E(S)) = Ker(beta)/Im(alpha), which maps onto Q'(S)/Q^0(S) = (Q'_s/Q^0_s)(k(s)) by formal smoothness."
+   ],
+   "acceptance": [
+    "Roadmap R11.4: the component-group description under the exact regularity hypotheses; record which hypotheses (strictly henselian base, geometric irreducibility, cohomological flatness) give an isomorphism rather than a surjection.",
+    "Check the nodal example with two components meeting in n points: Z^2 multidegrees modulo the intersection matrix gives Z/nZ."
+   ],
+   "sources": [
+    {
+     "sourceId": "raynaud-1970-specialisation-du-foncteur-de-picard",
+     "locator": "Section 8.1.1 and Proposition 8.1.2 with proof, pp. 63-65",
+     "excerpt": "Supposons que X_eta soit geometriquement irreductible et notons Q' l'adherence schematique dans Q_S de Q^0_eta. Alors, on a un morphisme surjectif canonique",
+     "match": "Literal opening of 8.1.2 (iii) reconstructed from the NUMDAM text layer, notation transliterated and accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.4/toric-character-group-of-a-degenerate-jacobian-from-the-dual-graph",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+   "title": "SGA 7 IX 12.3-12.4: the maximal torus of Pic^0 of a curve has character group H_1 of the dual graph; for a regular semistable model M = Ker(Z^I -> Z^J) with the positive definite pairing sum over double points",
+   "kind": "construction",
+   "statement": "Let C be a separable proper curve over a separably closed field with normalization Cbar. The maximal torus T of Pic^0_{C} is the maximal torus of N = Ker(Pic^0_C -> Pic^0_{Cbar}), and with R(x) = coker(Z -> Z^{J(x)}) for the branches J(x) through x and R = (sum R(x))/Im Z^J, T = R (x) G_m and its character group is M = Ker(sum_x R(x)^vee -> Z^J) (12.3.3-12.3.4); equivalently M = H_1(Gamma(C), Z) for the dual graph with vertices the components and edges the pairs of branches through singular points (12.3.7). In the situation of 12.1 with special fibre having only ordinary double points (the Jacobian A_K has semistable reduction), the character group of the torus of the special fibre of the Neron model is M = Ker(d : Z^I -> Z^J) with I the double points, J the components and d(x) = c''_x - c'_x (12.4.1-12.4.2). The maps phi_x : M -> Z are well defined up to sign, and u = sum_x phi_x (x) phi_x is a canonical positive definite pairing on M (12.4.5).",
+   "hypotheses": [
+    "The isomorphism M = H_1(Gamma(C), Z) is \"left to the reader\" (12.3.7)",
+    "The structure of N uses EGA IV 21.8.5 and SGA 3 (tori, unipotent groups), not read",
+    "The canonical principal polarization of the Jacobian identifies A with its dual, so M = M' (12.4.6)"
+   ],
+   "proofSteps": [
+    "12.3: the torus of Pic^0_C lies in the kernel N to the normalization (whose Picard variety has reductive rank 0); N is an extension of T by a connected unipotent group, and T is described by gluing data at the singular points.",
+    "12.3.5-12.3.6: at points with two branches R(x) = Z after ordering the branches, giving T = G_m^I / Im G_m^J and M = Ker(Z^I -> Z^J).",
+    "12.4: apply to C = X_s via 12.1; each phi_x changes sign with the order of branches, so phi_x (x) phi_x and u are canonical; u is the restriction to M of the standard quadratic form on Z^I, hence positive definite."
+   ],
+   "acceptance": [
+    "Roadmap R11.4: identify the toric character group from the dual graph; verify for a curve with more than one component (e.g. two P^1 meeting in n points: M = Z^{n-1}).",
+    "Roadmap example: a nodal semistable curve's generalized Jacobian (one component with one node: T = G_m, M = Z)."
+   ],
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "12.3 with 12.3.1-12.3.7, 12.4 with 12.4.1-12.4.7, printed pp. 469-475 (OCR)",
+     "excerpt": "Il est clair qu'il est defini positif, car c'est la restriction a M de la forme quadratique standard x sur Z^I.",
+     "match": "Literal sentence after (12.4.5) reconstructed from the OCR text, accents dropped."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-lefschetz-formula-monodromy-pairing-equals-the-graph-pairing",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+   "title": "SGA 7 IX Theoreme 12.5 (Picard-Lefschetz): for a regular semistable curve over a strictly local trait, the monodromy pairing on the character group of the Jacobian equals the canonical pairing sum phi_x (x) phi_x",
+   "kind": "theorem",
+   "statement": "Let S be a strictly local trait and X a regular scheme, projective and flat over S of relative dimension 1, with smooth connected geometric generic fibre and geometric special fibre having only ordinary double points. With M the character group of the torus of the special fibre of the Neron model of the Jacobian (identified with M' by the canonical polarization), for every prime l the monodromy pairing u_l : M_l (x) M_l -> Z_l of SGA 7 IX 9.1.2 equals the pairing (12.4.5) tensored with Z_l.",
+   "hypotheses": [
+    "Proof for l != p rests on the cohomological Picard-Lefschetz formula for the action of inertia on H^1(X_eta, Z_l) = Hom(T_l(A), Z_l) (IX 12.7). This is SGA 7 II XV Theoreme 3.4: S strictly henselian trait, f proper flat of pure relative dimension n = 2m or 2m + 1, X_eta smooth, X_s with only ordinary quadratic singularities. It was read as a statement only; its proofs (XV 3.1.2-3.3.6, reducing to the transcendental formula XIV 3.2.11) were not read beyond steps (E)-(F) of 3.3",
+    "Proof for l = p reduces to characteristic 0 with a single singular point (12.8 onwards, only located)",
+    "The monodromy pairing (section 9) and the integrality theorem 10.4 were not read; 12.6 notes that 12.5 proves 10.4 in this case"
+   ],
+   "proofSteps": [
+    "l != p: for n = 1 (m = 0), XV 3.4 (iii) gives sigma(a) = a - sum_{x in Sigma} eps_x(sigma) (a.delta_x) delta_x on H^1, with eps_x : I -> Z_l(1) surjective when X is regular at x and the delta_x pairwise orthogonal (XV 3.4 (i)); IX 12.7 states that this is essentially identical to 12.5 once u_l is unwound via Definition 9.2.",
+    "l = p: reduce to characteristic 0 and one singular point, then to the transcendental situation over C (12.7.2)."
+   ],
+   "acceptance": [
+    "Roadmap R11.4: prove the monodromy pairing; record that the proof in the source is by reduction to Expose XV and characteristic 0.",
+    "R11.6 consumers use the character-group exact sequences and monodromy maps; this is the source identifying the pairing with the dual-graph pairing."
+   ],
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "Theoreme 12.5, 12.6, 12.7 and Remarques 12.7.2, printed pp. 475-476 (OCR)",
+     "excerpt": "Theoreme 12.5 (\"Formule de PICARD-LEFSCHETZ\"). Soient S un trait strictement local, X un schema regulier, projectif et plat sur S, de dimension 1, dont la fibre geometrique generique est lisse et connexe, et la fibre geometrique speciale n'admet comme seuls points singuliers que des points quadratiques ordinaires.",
+     "match": "Literal hypotheses reconstructed from the OCR text, accents dropped; the conclusion is as stated in the node."
+    },
+    {
+     "sourceId": "sga7-II-expose-XV",
+     "locator": "Theoreme 3.4 (Formule de Picard-Lefschetz) with (i)-(iii), printed pp. 195-196 (page images); 3.4 Resume names 3.1.2, 3.2.1-3.2.3 and 3.3.5 as the formula",
+     "excerpt": "Theoreme 3.4 (Formule de Picard-Lefschetz). Soient S un trait strictement hensélien et f : X -> S un morphisme propre et plat purement de dimension relative n = 2m ou 2m + 1. On suppose que X_eta est lisse et que X_s ne présente que des singularités quadratiques ordinaires.",
+     "match": "Literal hypotheses as read on the page image, arrow and subscripts transliterated; the imported formula for n odd is quoted in the proof steps."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.4/component-group-as-cokernel-of-the-monodromy-pairing",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+   "title": "SGA 7 IX Theoreme 11.5: for semistable A_K over a henselian trait, the l-part of the component group is the cokernel of the monodromy map M_l -> (M'_l)^vee; integrally Phi = coker(M -> M'^vee) using 10.4",
+   "kind": "theorem",
+   "statement": "Let S be a henselian trait and A_K an abelian variety with semistable reduction. For a prime l, the monodromy pairing (9.1.2) gives a canonical homomorphism u_l : M_l -> (M'_l)^vee from the character group of the torus of A to the dual of that of the dual abelian variety. With Phi(l) = coker u_l there is a canonical isomorphism Phi_0(l) = Phi(l) x_S s of the l-primary part of the component group (11.5.1), and similarly for the dual. This gives a perfect pairing between the component groups of A and A' (11.4.1), shows u_l is an isogeny also for l = p, and, using the integral monodromy pairing u : M (x) M' -> Z of 10.4, identifies the component group with coker(u : M -> M'^vee) (Remarques 11.5.2 b).",
+   "hypotheses": [
+    "11.5 does not use the deeper Theorem 10.4; the integral version in 11.5.2 b) does",
+    "The monodromy pairing (section 9) and the pairing of component groups (11.4) were located but not read",
+    "Combined with the Picard-Lefschetz formula 12.5 this computes the component group of a semistable Jacobian from the dual graph; the combination is not written out in the pages read"
+   ],
+   "proofSteps": [
+    "The proof (11.6 onwards) defines the isomorphism (11.5.1) and was not read."
+   ],
+   "acceptance": [
+    "Roadmap R11.4/R11.6: component group description and the monodromy maps consumed by level lowering.",
+    "Check the example of a Tate curve: M = M' = Z, u(1, 1) = -v(q) up to sign, Phi = Z/v(q)Z."
+   ],
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "Theoreme 11.5 and Remarques 11.5.2, printed p. 455 (page image)",
+     "excerpt": "Theoreme 11.5. Supposons S hensélien, et que A_K ait reduction semi-stable sur S. Soit l un nombre premier, et considerons l'accouplement de monodromie (9.1.2), d'ou un homomorphisme canonique u_l : M_l -> M'_l dual. Soit Phi(l) = coker u_l ; alors on a un isomorphisme canonique (11.5.1) Phi_0(l) = Phi(l) x_S s.",
+     "match": "Literal statement as read on the page image, symbols transliterated."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.5/neron-ogg-shafarevich-criterion",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+   "title": "Neron-Ogg-Shafarevich: an abelian variety has good reduction iff T_l is unramified (Lichtenstein 5.2.1 with proof; SGA 7 IX 2.2.9; Silverman VII.7.1-7.3 for elliptic curves), with isogeny invariance",
+   "kind": "theorem",
+   "statement": "Let R be a DVR with fraction field K and perfect residue field k of characteristic p, A an abelian variety over K and l != p. Then A has good reduction iff T_l(A) is unramified (inertia acts trivially). Consequently good reduction is invariant under isogeny and passes to abelian subvarieties and quotients (Lichtenstein 5.2.9; Silverman VII.7.2), and for elliptic curves E has potential good reduction iff inertia acts on T_l(E) through a finite quotient (Silverman VII.7.3). Silverman's elliptic version: good reduction iff E[m] is unramified for all (or infinitely many) m prime to char k iff T_l(E) is unramified for some (all) l != char k.",
+   "hypotheses": [
+    "Lichtenstein's proof uses: A[l^n](K_s)^I = A[l^n](K^nr) = A[l^n](R^sh) = A_k[l^n](k_s) (Lemma 5.2.3, with BLR 7.3/3 for the last bijection); Chevalley's structure theorem over perfect k; and Corollary 2.2.7 (proper identity component implies good reduction)",
+    "Silverman's proof uses the finiteness of E(K^nr)/E_0(K^nr) (VII.6.2, from the Neron model or Tate's algorithm, cited) and injectivity of prime-to-p torsion into the reduction (VII.3.1)",
+    "Perfect residue field is assumed in Lichtenstein section 5.2 and in Silverman chapter VII"
+   ],
+   "proofSteps": [
+    "(i) => (ii): if A has good reduction, A_k is an abelian variety, so A_k[l^n](k_s) has rank 2d, and by Lemma 5.2.3 so does A[l^n](K_s)^I; hence inertia acts trivially.",
+    "(ii) => (i): write A^0_k as an extension of B by T x U; A^0_k[l^n](k_s) is free of rank dim T + 2 dim B and has index dividing c(A) in A_k[l^n](k_s).",
+    "If T_l is unramified, A_k[l^n](k_s) has order l^{2n dim A} for large n; comparing, 2 dim A = dim T + 2 dim B, and with dim T + dim U + dim B = dim A this forces T = U = 0.",
+    "So A^0_k is proper and A has good reduction (Corollary 2.2.7)."
+   ],
+   "acceptance": [
+    "Roadmap R11.5: prove Neron-Ogg-Shafarevich and preservation of good reduction under isogeny.",
+    "Record the perfect-residue-field hypothesis in the proof read."
+   ],
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "Section 5.2: Theorem 5.2.1, 5.2.2-5.2.8 (proof), Corollary 5.2.9, pp. 20-22",
+     "excerpt": "Let A be an abelian variety over K and Fix a prime l != p. The following are equivalent. i. A has good reduction. ii. The l-adic Tate module T_l(A) is an unramified representation of G_K; i.e. I acts upon it trivially.",
+     "match": "Literal statement of Theorem 5.2.1 with notation transliterated (including the source's capital \"Fix\")."
+    },
+    {
+     "sourceId": "silverman-arithmetic-of-elliptic-curves-2009",
+     "locator": "VII.7, Theorem 7.1 with proof, Corollaries 7.2-7.3 with proofs, pp. 201-202",
+     "excerpt": "Let E1 /K and E2 /K be elliptic curves that are isogenous over K. Then E1 has good reduction over K if and only if E2 has good reduction over K.",
+     "match": "Literal statement of Corollary VII.7.2."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.5/inertia-invariants-and-the-local-l-factor-from-the-special-fibre",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+   "title": "Conrad (3.3) and Theorem 4.1: 0 -> V_l(T) -> V_l(A)^I -> V_l(B) -> 0, the local L-factor is rational and independent of l, and #A^0_k(k) = q^{dim A} L(1/q)",
+   "kind": "theorem",
+   "statement": "Let R be a henselian DVR with perfect residue field k, A an abelian variety with Neron model A and Chevalley decomposition 1 -> T x U -> A^0_k -> B -> 1, and l != char k. Then V_l(A)^I = V_l(A(R^sh)) = V_l(A_k(k_s)) = V_l(A^0_k(k_s)), giving an exact sequence of Gal(k_s/k)-modules 0 -> V_l(T) -> V_l(A)^I -> V_l(B) -> 0. For R complete with finite residue field of size q and Frobenius phi, L(t) = det(1 - phi^{-1} t | H^1(A_{F_s}, Q_l)^I) = det(1 - q phi^{-1} t | V_l(A)^I) lies in Q[t] and is independent of l, #A^0_k(k) = q^{dim A} L(1/q), and #A_k(k) = #Phi(k) q^{dim A} L(1/q), where #Phi(k) is the Tamagawa factor.",
+   "hypotheses": [
+    "Imported: the reduction bijection on l-power torsion over henselian R (Zariski's Main Theorem for quasi-finite separated schemes; BLR 7.3/3), Chevalley's theorem, Lang's theorem, the Riemann hypothesis for abelian varieties over finite fields, and Oesterle's formula #T(k) = det(q - phi | X_*(T))",
+    "The independence of l for V_l(B) uses the theory of abelian varieties over finite fields (cited)",
+    "This is the semisimplified inertia-invariant local factor; the roadmap also asks for the Weil-Deligne operator (monodromy N) recovering the conductor, which is not in these sources"
+   ],
+   "proofSteps": [
+    "Torsion comparison: A[l^n](K^sh) = A[l^n](R^sh) by the mapping property, and reduction A[l^n](R^sh) -> A_k[l^n](k_s) is bijective; pass to V_l.",
+    "Snake lemma on the Chevalley sequence (the unipotent part has no l-torsion) gives (3.3).",
+    "L-factor: split into the torus part (X_*(T)_Q (x) Q_l(1), rational) and the abelian part (Riemann hypothesis symmetry lambda -> q/lambda).",
+    "Point count: Lang's theorem makes k-points exact; #U(k) = q^{dim U}, #T(k) = q^{dim T} det(1 - phi^{-1} | V_l(T)), #B(k) = q^{dim B} det(1 - phi^{-1} | V_l(B)); multiply, then use 0 -> A^0_k(k) -> A_k(k) -> Phi(k) -> 0."
+   ],
+   "acceptance": [
+    "Roadmap R11.5: relate component and toric data to the characteristic-zero local Euler polynomial; the monodromy operator part is a gap.",
+    "Check the formula for an elliptic curve with split multiplicative reduction: L(t) = 1 - t and #A^0_k(k) = q - 1."
+   ],
+   "sources": [
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Section 3, (3.1)-(3.3); section 4, Application 1, Theorem 4.1 with proof, pp. 8-11",
+     "excerpt": "Theorem 4.1. We have #A0k (k) = q dim A L(1/q) where L(t) is the \"local L-function\" attached to A.",
+     "match": "Literal statement as extracted by the text layer (superscripts flattened)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.5/grothendieck-p-adic-good-reduction-criterion",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+   "title": "Grothendieck (SGA 7 IX 5.10, quoted by Lichtenstein 5.3.1): in mixed characteristic, A has good reduction iff its p-divisible group extends to R",
+   "kind": "theorem",
+   "statement": "Let R be a DVR of mixed characteristic (0, p) with fraction field K and A an abelian variety over K. Then A has good reduction iff its p-divisible group A(p) extends to a p-divisible group over R. Combined with Neron-Ogg-Shafarevich, for every prime l (including p) good reduction is equivalent to the l-divisible group extending over R.",
+   "hypotheses": [
+    "Stated with reference [SGA 7 I, 5.10]; the proof uses Tate's theory of p-divisible groups and the semistable reduction theorem; not read",
+    "Lichtenstein notes that later work of de Jong treats equal characteristic p",
+    "The crystalline form of this criterion is owned by PadicHodgeTheory R06.6"
+   ],
+   "proofSteps": [
+    "Cited from SGA 7 IX 5.10; not decomposed."
+   ],
+   "acceptance": [
+    "Roadmap R11.5 uses R06 for p-adic comparisons; this is the group-scheme form of the p-adic criterion."
+   ],
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "Section 5.3, Theorem 5.3.1, p. 22",
+     "excerpt": "Then A has good reduction if and only if its p-divisible group A(p) extends to a p-divisible group over R.",
+     "match": "Literal conclusion of Theorem 5.3.1."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties:R11.6/exactness-of-neron-models-and-uniform-semistability-for-consumers",
+   "parentStageId": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+   "title": "Interfaces for R25/R28: exactness of Neron models of good-reduction sequences for e < p - 1 (BLR 7.5/4), left exactness in the semi-abelian case, and the uniform degree bound for everywhere semistable reduction",
+   "kind": "application",
+   "statement": "Let R be a DVR of mixed characteristic (0, p) with absolute ramification index e < p - 1, and 0 -> A' -> A -> A'' -> 0 an exact sequence of abelian varieties over K. If A has good reduction then so do A' and A'', and the sequence of Neron models (abelian schemes) is exact: A -> A'' is smooth surjective and A' -> A is a closed immersion identifying A' with the kernel (Lichtenstein 6.3.1, BLR 7.5/4, proved with Raynaud's results on group schemes of type (p, ..., p)). If A merely has semi-abelian reduction, the sequence of Neron models is still left exact and A', A'' have semi-abelian reduction. For consumers requiring everywhere-semistable reduction of g-dimensional abelian varieties, a finite extension of degree dividing #GL_{2g}(Z/15Z) suffices (Conrad, after Theorem 3.5), and after semistability all further change of the Neron model under finite separable extension is concentrated in the component groups (Theorem 3.7).",
+   "hypotheses": [
+    "BLR 7.5/4 is quoted, not proved, in the source read",
+    "The character-group exact sequences with degeneracy-map functoriality for level lowering (Ribet) and the equation-level/scheme-level comparison for R29 invariants are not in the sources read (gap)"
+   ],
+   "proofSteps": [
+    "Good reduction of A' and A'' follows from Neron-Ogg-Shafarevich since their Tate modules are subquotients of T_l(A).",
+    "Exactness uses the uniqueness of finite flat prolongations for e < p - 1 (Raynaud 1974), cited.",
+    "The uniform degree: K(A[15]) contains K(A[3]) and K(A[5]); at every place at least one of 3, 5 differs from the residue characteristic, so Theorem 3.5 gives semistability there, and Gal(K(A[15])/K) embeds in GL_{2g}(Z/15Z)."
+   ],
+   "acceptance": [
+    "Roadmap R11.6: supply the semistable and good-reduction facts used by R25 and the isogeny-height analysis of R28.",
+    "Check that consumers state e < p - 1 whenever exactness of Neron models of good-reduction sequences is used."
+   ],
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "Section 6.3, Theorem 6.3.1 and the following paragraph, p. 23",
+     "excerpt": "If A has good reduction, then the sequence of Neron R-models 0 -> A0 -> A -> A00 -> 0, which by (5.2.9) consists of abelian schemes, is exact",
+     "match": "Literal quotation as extracted (primes rendered as 0 and 00 by the text layer)."
+    },
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Theorem 3.5 and the following paragraph, p. 7",
+     "excerpt": "Note in particular that if the dimension g > 0 of A is fixed then [F' : F] can thereby be chosen to divide the number #GL2g (Z/15Z) that depends only on g and otherwise not on A at all.",
+     "match": "Literal quotation as extracted, prime transliterated."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.1/weil-extension-theorem-for-rational-maps-into-smooth-group-schemes",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-schemes-are-neron-models-and-good-reduction-criteria",
+   "reason": "Proposition 2.2.4 extends the codimension-1 map by Weil's theorem 2.1.4.",
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "proof of Proposition 2.2.4, p. 9"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.1/neron-model-definition-uniqueness-products-and-group-structure",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-schemes-are-neron-models-and-good-reduction-criteria",
+   "reason": "Corollary 2.2.7 uses uniqueness of Neron models.",
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "proof of Corollary 2.2.7, p. 9"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.1/neron-smoothening-process",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.1/weak-neron-mapping-property-for-rational-maps",
+   "reason": "The smooth locus of a smoothening of a proper flat model is a weak Neron model, to which Proposition 3.2.1 applies.",
+   "sources": [
+    {
+     "sourceId": "romagny-2011-neron-models-of-abelian-varieties",
+     "locator": "section 3.2, p. 5"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.1/weak-neron-mapping-property-for-rational-maps",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.1/local-existence-of-neron-models-via-birational-group-laws",
+   "reason": "Theorem 4.2.1 and Proposition 4.2.2 extend multiplication and translation maps by the weak Neron mapping property.",
+   "sources": [
+    {
+     "sourceId": "romagny-2011-neron-models-of-abelian-varieties",
+     "locator": "proofs of Theorem 4.2.1 and Proposition 4.2.2, pp. 6-8"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.1/weil-extension-theorem-for-rational-maps-into-smooth-group-schemes",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.1/local-existence-of-neron-models-via-birational-group-laws",
+   "reason": "Proposition 4.2.2 extends tau_4 everywhere by Weil's theorem (BLR 4.4/1).",
+   "sources": [
+    {
+     "sourceId": "romagny-2011-neron-models-of-abelian-varieties",
+     "locator": "proof of Proposition 4.2.2, p. 8"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.1/local-existence-of-neron-models-via-birational-group-laws",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.1/dedekind-local-to-global-gluing-of-neron-models",
+   "reason": "The global theorem glues local Neron models (Theorem 1.3.10) with an abelian scheme over a dense open.",
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "proof of Theorem 2.3.4, p. 11"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-schemes-are-neron-models-and-good-reduction-criteria",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.1/dedekind-local-to-global-gluing-of-neron-models",
+   "reason": "Over the dense open the abelian scheme is the Neron model by Proposition 2.2.4.",
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "proof of Theorem 2.3.4, p. 11"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.1/neron-model-definition-uniqueness-products-and-group-structure",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.1/base-change-of-neron-models-unramified-and-ramified",
+   "reason": "Etale base change and the criterion 6.1.1 are consequences of the mapping property and uniqueness.",
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "Proposition 1.4.3 and section 6, pp. 6, 22"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.1/local-existence-of-neron-models-via-birational-group-laws",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.1/invariant-differentials-of-the-neron-model-and-the-canonical-measure",
+   "reason": "The invariant volume form and its order along components are the tools of the existence proof, and the preferred R-line is defined on the constructed model.",
+   "sources": [
+    {
+     "sourceId": "romagny-2011-neron-models-of-abelian-varieties",
+     "locator": "section 4.1, pp. 5-6"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.1/neron-model-definition-uniqueness-products-and-group-structure",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.2/identity-component-component-group-and-chevalley-decomposition",
+   "reason": "The component group is defined from the relative identity component of the Neron model.",
+   "sources": [
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Definition 2.4, p. 5"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.1/dedekind-local-to-global-gluing-of-neron-models",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.2/neron-models-of-elliptic-curves-from-minimal-models-and-reduction-types",
+   "reason": "The elliptic comparison is made over DVR localizations of the Dedekind base.",
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "section 4, p. 16"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-schemes-are-neron-models-and-good-reduction-criteria",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.2/neron-models-of-elliptic-curves-from-minimal-models-and-reduction-types",
+   "reason": "Proposition 4.3.2 identifies good reduction with the Neron model being an elliptic curve over R (Corollary 2.2.7).",
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "proof of Proposition 4.3.2, p. 19"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.2/identity-component-component-group-and-chevalley-decomposition",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.2/component-groups-of-57C2-rational-versus-geometric-points",
+   "reason": "The example distinguishes Phi(k) from Phi(k^s) as defined in Definition 2.4.",
+   "sources": [
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Examples 2.5 and 4.2, pp. 5, 12"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.2/neron-models-of-elliptic-curves-from-minimal-models-and-reduction-types",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.2/component-groups-of-57C2-rational-versus-geometric-points",
+   "reason": "The Galois action on Phi_19 is that of nonsplit multiplicative reduction.",
+   "sources": [
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Example 2.5, p. 5"
+    }
+   ]
+  },
+  {
+   "source": "AbelianSchemesAndArithmeticModuli:A1",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-schemes-are-neron-models-and-good-reduction-criteria",
+   "reason": "Abelian schemes, their group structure and rigidity (A1) are the objects compared with the Neron model. Existing atlas edge A1 -> R11.1.",
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "Definition 2.2.1 and Proposition 2.2.4, p. 8"
+    }
+   ]
+  },
+  {
+   "source": "AdicSpacesPartII:F0",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.1/neron-smoothening-process",
+   "reason": "The atlas names formal geometry (F0) as an input of R11.1 (existing atlas edge F0 -> R11.1), and the smoothening node is where an existence proof over excellent DVRs would consume it. The sources read use only blow-ups, strict henselization, completion as a faithfully flat base change and Weil's birational group laws, so the dependency is recorded, not exercised. BLR, which may use it, is absent.",
+   "sources": [
+    {
+     "sourceId": "romagny-2011-neron-models-of-abelian-varieties",
+     "locator": "section 2, pp. 2-4"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.1/invariant-differentials-of-the-neron-model-and-the-canonical-measure",
+   "target": "ArakelovGeometryAndAbelianHeights:R35.2",
+   "reason": "R35.2 consumes the invariant-differential lattice of the Neron model; only the local R-line over a complete DVR was read (the global lattice is a gap). Existing atlas edge R11.1 -> R35.2.",
+   "sources": [
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "section 4, p. 12"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.2/identity-component-component-group-and-chevalley-decomposition",
+   "target": "HeegnerPointEulerSystems:HE.5",
+   "reason": "HE.5 computes local errors at Tamagawa primes; Tamagawa numbers c(A) = #Phi(k) are defined here. Existing atlas edge R11.2 -> HE.5.",
+   "sources": [
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Theorem 4.1 and Example 4.2, pp. 10-12"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.2/identity-component-component-group-and-chevalley-decomposition",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction-and-semiabelian-models-over-dedekind-bases",
+   "reason": "Semistable reduction is defined by the vanishing of the unipotent part of the Chevalley decomposition of A^0_s.",
+   "sources": [
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Definition 3.3, p. 6"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction-and-semiabelian-models-over-dedekind-bases",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.3/galois-criterion-for-semistable-reduction",
+   "reason": "Proposition 3.5 characterizes the condition of Definition 3.4.",
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "Proposition 3.5, printed p. 350"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.3/galois-criterion-for-semistable-reduction",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction-theorem-for-abelian-varieties",
+   "reason": "The proof of Theoreme 3.6 uses criterion 3.5 (iv) to reduce to Corollaire 3.7.",
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "proof of Theoreme 3.6, printed p. 352"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction-theorem-for-abelian-varieties",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.3/reduction-to-a-principally-polarized-semiabelian-model",
+   "reason": "Faltings' reduction to semistable models uses the semistable reduction theorem; the sibling packet already links the stage R11.3 to this node. Existing stage edge R11.3 -> R28.3 (from that packet).",
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "Theoreme 3.6, printed p. 351"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.1/dedekind-local-to-global-gluing-of-neron-models",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.4/neron-models-of-jacobians-from-the-picard-functor-of-a-regular-model",
+   "reason": "Raynaud's theorem produces the Neron model of the Jacobian over a trait; it is glued over Dedekind bases as in R11.1. The Picard route is an alternative to the general existence proof (Remarque 8.1.5). New stage edge R11.1 -> R11.4 (implied by the atlas chain).",
+   "sources": [
+    {
+     "sourceId": "raynaud-1970-specialisation-du-foncteur-de-picard",
+     "locator": "Remarques 8.1.5, p. 66"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction-and-semiabelian-models-over-dedekind-bases",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.4/neron-models-of-jacobians-from-the-picard-functor-of-a-regular-model",
+   "reason": "SGA 7 IX uses 12.1 when the Jacobian has semistable reduction (special fibre with ordinary double points).",
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "12.2, printed p. 469"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.4/neron-models-of-jacobians-from-the-picard-functor-of-a-regular-model",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.4/component-group-of-a-jacobian-from-multidegrees",
+   "reason": "Proposition 8.1.2 computes Q'/Q^0 for the group Q of Theoreme 8.1.4.",
+   "sources": [
+    {
+     "sourceId": "raynaud-1970-specialisation-du-foncteur-de-picard",
+     "locator": "Proposition 8.1.2 and Theoreme 8.1.4, pp. 64-65"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.4/neron-models-of-jacobians-from-the-picard-functor-of-a-regular-model",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.4/toric-character-group-of-a-degenerate-jacobian-from-the-dual-graph",
+   "reason": "12.4 applies 12.3 to the special fibre via the identification of 12.1.",
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "12.4, printed p. 473"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.4/toric-character-group-of-a-degenerate-jacobian-from-the-dual-graph",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-lefschetz-formula-monodromy-pairing-equals-the-graph-pairing",
+   "reason": "Theoreme 12.5 compares the monodromy pairing with the pairing (12.4.5).",
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "Theoreme 12.5, printed p. 475"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction-and-semiabelian-models-over-dedekind-bases",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.4/component-group-as-cokernel-of-the-monodromy-pairing",
+   "reason": "Theoreme 11.5 assumes semistable reduction in the sense of 3.4.",
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "Theoreme 11.5, printed p. 455"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-lefschetz-formula-monodromy-pairing-equals-the-graph-pairing",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.4/component-group-as-cokernel-of-the-monodromy-pairing",
+   "reason": "For a semistable Jacobian, 12.5 identifies the monodromy pairing of 11.5 with the dual-graph pairing, so the component group becomes a cokernel computed from the graph.",
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "12.6, printed p. 476"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-schemes-are-neron-models-and-good-reduction-criteria",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.5/neron-ogg-shafarevich-criterion",
+   "reason": "The proof concludes with Corollary 2.2.7: a proper identity component forces good reduction.",
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "proof 5.2.8, p. 21"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.2/identity-component-component-group-and-chevalley-decomposition",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.5/neron-ogg-shafarevich-criterion",
+   "reason": "The proof counts l-power torsion through the Chevalley decomposition and the Tamagawa index.",
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "5.2.7, p. 21"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.2/neron-models-of-elliptic-curves-from-minimal-models-and-reduction-types",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.5/neron-ogg-shafarevich-criterion",
+   "reason": "Silverman's elliptic proof uses the finiteness of E/E_0 and the multiplicative/additive description of the nonsingular points.",
+   "sources": [
+    {
+     "sourceId": "silverman-arithmetic-of-elliptic-curves-2009",
+     "locator": "proof of Theorem VII.7.1, pp. 201-202"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.2/identity-component-component-group-and-chevalley-decomposition",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.5/inertia-invariants-and-the-local-l-factor-from-the-special-fibre",
+   "reason": "The exact sequence (3.3) and the point count use the Chevalley decomposition and the component group.",
+   "sources": [
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "sections 3-4, pp. 8-11"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.4/component-group-as-cokernel-of-the-monodromy-pairing",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.5/inertia-invariants-and-the-local-l-factor-from-the-special-fibre",
+   "reason": "The Tamagawa factor #Phi(k) in the point count is the component group described via the monodromy pairing in the semistable case.",
+   "sources": [
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Theorem 4.1, p. 11"
+    },
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "Theoreme 11.5, printed p. 455"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.5/neron-ogg-shafarevich-criterion",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.6/exactness-of-neron-models-and-uniform-semistability-for-consumers",
+   "reason": "Good reduction of the sub and quotient varieties follows from Corollary 5.2.9.",
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "Theorem 6.3.1, p. 23"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction-theorem-for-abelian-varieties",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.6/exactness-of-neron-models-and-uniform-semistability-for-consumers",
+   "reason": "The uniform degree bound comes from the explicit field in the semistable reduction theorem.",
+   "sources": [
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Theorem 3.5, p. 7"
+    }
+   ]
+  },
+  {
+   "source": "LefschetzPencilsAndVanishingCycles:LPV.1",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction-theorem-for-abelian-varieties",
+   "reason": "SGA 7 IX reduces Theoreme 3.6 to Corollaire 3.7 (an open subgroup of inertia acts unipotently of echelon 2 on T_l), proved in SGA 7 I Expose I as a case of the monodromy theorem. LPV.1 owns the quasi-unipotence theorem with SGA 7 I I as its source. Caveat: Expose I was not read, so it is not checked that the \"geometric coefficient setting\" of LPV.1 covers the mixed-characteristic H^1 of an abelian variety used by 3.7 or the echelon-2 refinement. New stage edge LPV.1 -> R11.3 (acyclic with the atlas).",
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "Theoreme 3.6 with the reduction to Corollaire 3.7, printed pp. 351-353 (page image of p. 351 and OCR)"
+    }
+   ]
+  },
+  {
+   "source": "LefschetzPencilsAndVanishingCycles:LPV.2",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-lefschetz-formula-monodromy-pairing-equals-the-graph-pairing",
+   "reason": "SGA 7 IX 12.7 proves Theoreme 12.5 for l != p from the cohomological Picard-Lefschetz formula (SGA 7 II XV 3.4, odd relative dimension n = 1). LPV.2 owns that formula. Caveat: LPV.2 is stated for one ordinary quadratic singularity, while the semistable curve has several nodes (XV 3.4 sums over the singular locus with pairwise orthogonal vanishing cycles), so the localization to each node must be exported or proved. New stage edge LPV.2 -> R11.4 (acyclic with the atlas).",
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "Section 12.7, printed p. 476 (OCR)"
+    },
+    {
+     "sourceId": "sga7-II-expose-XV",
+     "locator": "Theoreme 3.4, printed pp. 195-196"
+    }
+   ]
+  },
+  {
+   "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/uniqueness-of-finite-flat-prolongation-when-e-less-than-p-minus-1",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.6/exactness-of-neron-models-and-uniform-semistability-for-consumers",
+   "reason": "BLR 7.5/4 exactness for e < p - 1 is proved with Raynaud's uniqueness of finite flat prolongations, decomposed in the sibling FiniteFlatGroups packet. New stage edge R07.1 -> R11.6 (R07.1 already supplies A3 -> R11.3).",
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "Theorem 6.3.1 and the following paragraph, p. 23"
+    }
+   ]
+  },
+  {
+   "source": "AbelianSchemesAndArithmeticModuli:A3",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.3/galois-criterion-for-semistable-reduction",
+   "reason": "The criterion uses Tate modules, the dual abelian variety and the Weil pairing on T_l(A) x T_l(A') (orthogonality theorem); A3 owns these pairings. Existing atlas edge A3 -> R11.3.",
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "Theoreme 2.4 and Proposition 3.5, printed pp. 338, 350"
+    }
+   ]
+  },
+  {
+   "source": "PadicHodgeTheory:R06.6",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.5/grothendieck-p-adic-good-reduction-criterion",
+   "reason": "The p-adic good/semistable reduction comparisons for Tate modules are owned by R06.6. Existing atlas edge R06.6 -> R11.5.",
+   "sources": [
+    {
+     "sourceId": "lichtenstein-neron-models-stanford-seminar",
+     "locator": "Theorem 5.3.1, p. 22"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction-theorem-for-abelian-varieties",
+   "target": "ArakelovGeometryAndAbelianHeights:R35.3",
+   "reason": "The stable Faltings height uses semistable reduction to define the stable height. Existing atlas edge R11.3 -> R35.3.",
+   "sources": [
+    {
+     "sourceId": "sga7-I-expose-IX",
+     "locator": "Theoreme 3.6, printed p. 351"
+    }
+   ]
+  },
+  {
+   "source": "NeronModelsAndSemistableAbelianVarieties:R11.6/exactness-of-neron-models-and-uniform-semistability-for-consumers",
+   "target": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+   "reason": "R28.1 consumes good and semistable reduction facts for semiabelian models of bounded height. Existing atlas edge R11.6 -> R28.1.",
+   "sources": [
+    {
+     "sourceId": "conrad-2015-neron-models-tamagawa-factors-sha",
+     "locator": "Theorem 3.5 and Theorem 3.7, p. 7"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+   "status": "partial",
+   "remaining": [
+    "BLR imports: smoothening Lemma 2.3.2 (BLR 3.3/5), Weil's theorems (BLR 4.4, 5.1-5.2), descent from R^sh (6.5/4), base change (7.1-7.2), quasi-projectivity (Raynaud LNM 119).",
+    "Excellent-DVR hypotheses and the formal-geometry route (F0) are not exercised by the sources read.",
+    "Global invariant-differential lattice over O_K and its localization: not read (only the local R-line)."
+   ]
+  },
+  {
+   "stageId": "NeronModelsAndSemistableAbelianVarieties:R11.2",
+   "status": "partial",
+   "remaining": [
+    "Tate's algorithm, wild primes, and the component-group table for elliptic curves: cited only (Silverman Advanced Topics IV, Liu 10.2, Conrad minimal models).",
+    "Functoriality under isogeny and the exact sequences used in modular-curve arguments: not read.",
+    "Toric and abelian parts and character groups beyond the Chevalley decomposition over perfect k: partly in R11.4 nodes; imperfect residue fields not treated."
+   ]
+  },
+  {
+   "stageId": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+   "status": "partial",
+   "remaining": [
+    "Monodromy theorem (SGA 7 I Expose I) behind IX 3.7 and the orthogonality theorem IX 2.4 (biextensions): unread imports.",
+    "Raynaud extension and uniformisation with polarisation and lattice conditions (SGA 7 IX 7, Faltings-Chai): not read.",
+    "Formal analytic constructions consuming R05: not read."
+   ]
+  },
+  {
+   "stageId": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+   "status": "partial",
+   "remaining": [
+    "Raynaud 1970 sections 5-7 (representability, cohomological flatness): unread.",
+    "Monodromy pairing (SGA 7 IX 9-10), proof of IX 11.5, the proofs in Expose XV (only Theoreme 3.4 read as a statement), and the l = p case of 12.5: unread.",
+    "Worked examples: a nodal semistable curve's generalized Jacobian and a curve with more than one component: not computed in the source."
+   ]
+  },
+  {
+   "stageId": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+   "status": "partial",
+   "remaining": [
+    "Conductors (SGA 7 IX 4; Serre-Tate) and the Weil-Deligne monodromy operator: not read.",
+    "p-adic comparisons (R06.6) and SGA 7 IX 5.10: cited only."
+   ]
+  },
+  {
+   "stageId": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+   "status": "partial",
+   "remaining": [
+    "Character-group exact sequences and degeneracy-map functoriality for level lowering (Ribet; SGA 7 IX 11-12): not read.",
+    "Equation-level/scheme-level comparisons for R29 elliptic invariants: not read.",
+    "BLR 7.5/4 exactness: quoted only."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Bosch-Lutkebohmert-Raynaud, Neron Models, is absent: the omitted smoothening lemma, Weil's theorems, descent from R^sh and base-change statements are imports",
+   "neededBy": [
+    "NeronModelsAndSemistableAbelianVarieties:R11.1/neron-smoothening-process",
+    "NeronModelsAndSemistableAbelianVarieties:R11.1/local-existence-of-neron-models-via-birational-group-laws",
+    "NeronModelsAndSemistableAbelianVarieties:R11.1/weil-extension-theorem-for-rational-maps-into-smooth-group-schemes",
+    "NeronModelsAndSemistableAbelianVarieties:R11.1/base-change-of-neron-models-unramified-and-ramified"
+   ],
+   "detail": "BLR is catalogued as \"book_requested\" and no public copy was found. The existence chain is read from Romagny's summer-school notes and Lichtenstein's seminar notes, which omit several proofs. These are: Lemma 2.3.2 (the defect of smoothness drops under permissible blow-ups; BLR 3.3/5); boundedness of the defect (BLR 3.3/3); Weil's extension theorem for birational group laws (BLR 5.1-5.2) and for rational maps into group schemes (BLR 4.4/1, only sketched); descent of Neron models from R^sh (BLR 6.5/4); the ramification-index-1 base change (BLR 7.2/1); the R^sh criterion (BLR 7.1/1); and quasi-projectivity (Raynaud, LNM 119, VIII.2). Formal geometry (AdicSpacesPartII F0) is named as an R11.1 input but is not used in the sources read. Next source action: acquire BLR chapters 2-7."
+  },
+  {
+   "title": "The global invariant-differential lattice over a Dedekind base and its localization are not in the sources read",
+   "neededBy": [
+    "NeronModelsAndSemistableAbelianVarieties:R11.1/invariant-differentials-of-the-neron-model-and-the-canonical-measure",
+    "NeronModelsAndSemistableAbelianVarieties:R11.1"
+   ],
+   "detail": "R11.1 must identify the global invariant-differential lattice (the lattice consumed by ArakelovGeometryAndAbelianHeights R35.2) and its localization at each finite place. The sources read give only the local R-line of invariant top-degree forms over a complete DVR (Conrad section 4) and the local minimal-component normalization (Romagny 4.1). The global object is omega_{A/S} = e^* Omega^1_{A/S} (or its determinant) for the Neron model over O_K. Its local-freeness, its compatibility with localization and completion, and its behaviour under etale base change are not stated in any source read. Next source action: BLR 4.2 (invariant differentials) and the Faltings/Deligne height references used by R35.2."
+  },
+  {
+   "title": "Component groups: Tate's algorithm, wild primes and the elliptic-curve component group table are not decomposed",
+   "neededBy": [
+    "NeronModelsAndSemistableAbelianVarieties:R11.2/neron-models-of-elliptic-curves-from-minimal-models-and-reduction-types",
+    "NeronModelsAndSemistableAbelianVarieties:R11.2"
+   ],
+   "detail": "R11.2 asks to compare scheme data with the reduction filtration and Tate's algorithm, including the wild primes. The sources read cite this comparison instead of proving it. Silverman VII.6.1 refers to Advanced Topics IV sections 5-9; Lichtenstein refers to Liu 10.2 and assumes residue characteristic != 2, 3 for Weierstrass models; Poonen 5.7.30 cites Conrad's Minimal models for elliptic curves, Theorems 5.4 and 5.5 (author copy available at math.stanford.edu, not read). Isogeny functoriality of component groups and the exact sequences used in modular-curve arguments (e.g. Mazur, Ribet) are also not read. Next source action: read Conrad, Minimal models for elliptic curves (sections 5-6) and Silverman, Advanced Topics IV.8-IV.9."
+  },
+  {
+   "title": "R11.3: the monodromy theorem, the orthogonality theorem and the Raynaud extension and uniformisation are unread",
+   "neededBy": [
+    "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction-theorem-for-abelian-varieties",
+    "NeronModelsAndSemistableAbelianVarieties:R11.3/galois-criterion-for-semistable-reduction",
+    "NeronModelsAndSemistableAbelianVarieties:R11.3"
+   ],
+   "detail": "Several load-bearing inputs of R11.3 were not read. The semistable reduction theorem IX 3.6 reduces to Corollaire 3.7, proved in SGA 7 I Expose I (Grothendieck's monodromy theorem via resolution of 2-dimensional excellent schemes; Deligne's alternative proof in the appendix). The Galois criterion IX 3.5 uses the orthogonality theorem IX 2.4, proved with the biextension theory of Exposes VII-VIII. The Raynaud extension (IX section 7, located in the summary) and the uniformisation of degenerating abelian varieties (Faltings-Chai, catalogued as book_requested; Bosch-Lutkebohmert) were not read, including the required polarisation and lattice conditions. SGA 7 I was read through OCR of a scan, and only the key statements were checked on page images. The candidate owner of the monodromy theorem is LefschetzPencilsAndVanishingCycles LPV.1 (quasi-unipotence, sources SGA 7 I I). It is linked with a caveat, because its coefficient setting was not checked against 3.7. Next source action: SGA 7 I Expose I (and appendix) and Expose IX sections 2, 7-10 on page images; Faltings-Chai chapter II when acquired."
+  },
+  {
+   "title": "R11.4: Raynaud's representability sections, the monodromy pairing, Expose XV Picard-Lefschetz and the worked nodal examples are not decomposed",
+   "neededBy": [
+    "NeronModelsAndSemistableAbelianVarieties:R11.4/neron-models-of-jacobians-from-the-picard-functor-of-a-regular-model",
+    "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-lefschetz-formula-monodromy-pairing-equals-the-graph-pairing",
+    "NeronModelsAndSemistableAbelianVarieties:R11.4/component-group-as-cokernel-of-the-monodromy-pairing",
+    "NeronModelsAndSemistableAbelianVarieties:R11.4"
+   ],
+   "detail": "Theoreme 8.1.4 and Proposition 8.1.2 of Raynaud 1970 rest on sections 5-7 (representability of the Picard functor as an algebraic space, cohomological flatness, Brauer-group obstruction 7.1.4, 7.2.4, 6.4.3-6.4.5), which were not read. SGA 7 IX: the monodromy pairing (section 9), the integrality theorem 10.4 and the proof of Theoreme 11.5 (11.6 onwards) were not read, and the l = p case of 12.5 was only located. The cohomological Picard-Lefschetz formula was read only as the statement of SGA 7 II XV 3.4. Its proofs (XV sections 1-3, via Lefschetz pencils and the transcendental formula XIV 3.2.11) were not read, and the atlas supplier LPV.2 states it for one singular point only. The combination of 11.5 and 12.5 into an explicit component group of a semistable Jacobian from the dual graph is not written in the pages read. Also missing are a worked nodal curve with more than one component, split and nonsplit multiplicative Tate-curve comparisons, and the Galois action on component groups over k versus kbar. Next source action: read SGA 7 IX sections 9-12 in full on page images and SGA 7 II Expose XV sections 1-3 (library copy with text layer), and compute the two-component example."
+  },
+  {
+   "title": "R11.5: conductors, Weil-Deligne operators and the p-adic comparisons are not in the sources read",
+   "neededBy": [
+    "NeronModelsAndSemistableAbelianVarieties:R11.5/inertia-invariants-and-the-local-l-factor-from-the-special-fibre",
+    "NeronModelsAndSemistableAbelianVarieties:R11.5/grothendieck-p-adic-good-reduction-criterion",
+    "NeronModelsAndSemistableAbelianVarieties:R11.5"
+   ],
+   "detail": "R11.5 asks to relate monodromy and component data to the characteristic-zero local Euler polynomial, not just its semisimplified inertial action, using R01 for conductors and R06 for p-adic comparison. The sources read give only V_l(A)^I, the local L-factor and the point count (Conrad section 4). They do not cover: the Weil-Deligne representation with its monodromy operator N (from Grothendieck's l-adic monodromy theorem, SGA 7 IX section 3 and Expose I); the conductor exponent (SGA 7 IX section 4 \"Application ... au conducteur\", located only in the summary); Serre-Tate, Good reduction of abelian varieties (1968); or the p-adic criterion SGA 7 IX 5.10, which is cited only. Next source action: read SGA 7 IX sections 4-5 and Serre-Tate 1968 section 2 (conductor)."
+  },
+  {
+   "title": "R11.6: character-group exact sequences for level lowering and the equation-level/scheme-level comparisons for R29 are not read",
+   "neededBy": [
+    "NeronModelsAndSemistableAbelianVarieties:R11.6/exactness-of-neron-models-and-uniform-semistability-for-consumers",
+    "NeronModelsAndSemistableAbelianVarieties:R11.6"
+   ],
+   "detail": "R11.6 must supply the character-group exact sequences and monodromy maps consumed by level lowering, with degeneracy-map functoriality (Ribet, On modular representations of Gal(Qbar/Q) arising from modular forms; Grothendieck IX 11 and 12; Mazur-Ribet). It must also supply the equation-level/scheme-level comparison for every elliptic invariant used in R29. None of these sources was read, and BLR 7.5/4 (exactness of Neron models for e < p - 1) is quoted from Lichtenstein's notes only. Next source action: read Ribet 1990 sections 2-3 and the R29 consumer statements, and match each elliptic invariant with Silverman VII and Advanced Topics IV."
+  }
+ ]
+}
