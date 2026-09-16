@@ -98,12 +98,12 @@
    "avoidAccountOf": "PLAN-HABIRO",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-PLAN-HABIRO.md",
-   "state": "running",
-   "account": "claude2",
+   "state": "pending",
+   "account": null,
    "lane": 2,
    "startedAt": "2026-09-16T13:38:02Z",
-   "attempts": 1,
-   "note": "released after a usage limit on claude6/1 at 2026-09-16T13:25:24Z"
+   "attempts": 0,
+   "note": "released after a usage limit on claude2/2 at 2026-09-16T14:18:28Z"
   },
   {
    "id": "CLASSIFY-01",
@@ -2174,8 +2174,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #58"
+   "state": "done",
+   "note": "deliverables arrived from the external worker on issue #58",
+   "finishedAt": "2026-09-16T14:06:50Z"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
@@ -2276,8 +2277,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #61"
+   "state": "done",
+   "note": "deliverables arrived from the external worker on issue #61",
+   "finishedAt": "2026-09-16T14:06:51Z"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
@@ -37126,12 +37128,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-01.md",
    "timeout": 14400,
-   "state": "running",
+   "state": "done",
    "account": "claude2",
    "lane": 1,
    "startedAt": "2026-09-16T13:48:25Z",
    "attempts": 1,
-   "note": "released after a usage limit on claude/2 at 2026-09-16T13:37:25Z"
+   "note": "",
+   "finishedAt": "2026-09-16T14:17:40Z",
+   "seconds": 1754,
+   "result": {
+    "judged": 25,
+    "pairs": 25
+   }
   },
   {
    "id": "COMPARE-02",
@@ -37163,9 +37171,9 @@
    "state": "pending",
    "account": null,
    "lane": 1,
-   "startedAt": "2026-09-16T13:33:32Z",
+   "startedAt": "2026-09-16T14:17:40Z",
    "attempts": 0,
-   "note": "released after a usage limit on claude/1 at 2026-09-16T13:37:29Z"
+   "note": "released after a usage limit on claude2/1 at 2026-09-16T14:18:03Z"
   },
   {
    "id": "COMPARE-03",

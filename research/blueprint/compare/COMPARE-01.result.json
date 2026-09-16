@@ -1,0 +1,433 @@
+{
+ "job": "COMPARE-01",
+ "notes": {
+  "tauceti:Completed/IntegralLattices": {
+   "targets": "Bundled integral lattices in a rational ambient space with signature and definiteness API, the dual lattice and finite discriminant group (Smith form, |A_L| = |det Gram|), finite bilinear and quadratic modules, the overlattice/isotropic-subgroup correspondence with A_{L_H} ≅ H^⊥/H (Nikulin 1.4.1), ADE discriminant forms, and the lattice isometry D₈⁺ ≅ E₈.",
+   "baselineHas": [
+    "TauCeti.IntegralLattice.natCard_discriminantGroup_eq_natAbs_gramDet (TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Cardinality.lean)",
+    "TauCeti.IntegralLattice.evenIntermediateCarrierOrderIsoIsotropicSubgroup (TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Isotropic.lean)",
+    "TauCeti.IntegralLattice.IntermediateCarrier.discriminantOrthogonalQuotientIsometry (TauCeti/LinearAlgebra/IntegralLattice/Overlattice/OrthogonalQuotient/Quadratic.lean)",
+    "TauCeti.IntegralLattice.typeE₈IsometryD8Plus (TauCeti/LinearAlgebra/IntegralLattice/RootLattice/D8Plus/Isometry.lean), with finite quadratic modules in TauCeti/LinearAlgebra/FiniteBilinearModule/"
+   ],
+   "missing": [
+    "Essentially nothing: the roadmap was declared complete on 2026-09-09, and all five layers are in the baseline (about 18k lines under TauCeti/LinearAlgebra/IntegralLattice and FiniteBilinearModule, no sorry)."
+   ]
+  },
+  "tauceti:TauCetiRoadmap/AnalyticToricGeometry": {
+   "targets": "Smooth complex toric varieties of finite regular rational fans: fan schemes glued from Spec ℂ[σ^∨ ∩ M]; a Hausdorff, second-countable complex manifold glued from charts ℂ^k × (ℂ*)^(n−k); a holomorphic torus action; the orbit–cone correspondence and SNC boundary divisors; holomorphic toric maps, with the support criterion for properness (complete ⇔ compact); and the comparison with Hom(Spec ℂ, X_Σ).",
+   "baselineHas": [
+    "TauCeti.Toric.Fan, FanHom and Fan.IsSubdivision (TauCeti/Geometry/Toric/Algebraic/Fan/)",
+    "TauCeti.Toric.IsRegularCone and TauCeti.Toric.primitiveGenerator (TauCeti/Geometry/Toric/Algebraic/)",
+    "TauCeti.Toric.affinePointTopology_eq and TauCeti.Toric.mixedMonomialOpenPartialHomeomorph (TauCeti/Geometry/Toric/Analytic/)",
+    "Mathlib PointedCone.DualFG and AlgebraicGeometry.Scheme.GlueData (no fan instance)"
+   ],
+   "missing": [
+    "Rest of Layer 0: dual semigroups σ^∨ ∩ M with finite generation (Gordan's lemma) and face localization; affine toric schemes with dense torus and torus action (the external Toric project is not in the baseline); face-localization open immersions with cocycles; the glued fan scheme and algebraic toric maps",
+    "Regular-cone analytic charts: biholomorphism with ℂ^k × (ℂ*)^(n−k), ChartedSpace/IsManifold instances independent of basis, orbits as locally closed submanifolds",
+    "Complex-manifold gluing along TopCat.GlueData (the generic complex-manifolds supplier does not exist), with Hausdorffness from the fan axiom and second countability",
+    "Holomorphic torus action, orbit–cone correspondence with stabilizers, ray-indexed boundary hypersurfaces in simple-normal-crossings form",
+    "Glued holomorphic toric maps, the cone-by-cone support criterion for properness, compactness of complete fans",
+    "Comparison of complex points of the glued fan scheme with the analytic realization, with naturality"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/DenseGraphLimits": {
+   "targets": "Graphons and cut distance on arbitrary probability spaces: counting and weak regularity; Lovász–Szegedy compactness of graphon space; inverse counting (δ□ = 0 ⇔ equal homomorphism densities) and the convergence equivalence; Lovász–Szegedy representability of reflection-positive graph parameters; the Diaconis–Janson mixture representation of exchangeable graph laws; and sampling convergence.",
+   "baselineHas": [
+    "TauCeti.DenseGraphLimits.counting_lemma and TauCeti.DenseGraphLimits.weak_regularity_frieze_kannan (TauCeti/Combinatorics/DenseGraphLimits/)",
+    "TauCeti.DenseGraphLimits.cutDist_triangle and TauCeti.DenseGraphLimits.totallyBounded_graphonSpaceI",
+    "TauCeti.DenseGraphLimits.cutDist_eq_cutDistPullback (Janson A.9 map form)",
+    "TauCeti.DenseGraphLimits.sampleGraph_homDensityFin_concentration, infiniteSampleLaw and isDissociated_sampleExchangeableLaw; Goodman, Mantel and Sidorenko-C₄ checks"
+   ],
+   "missing": [
+    "CompleteSpace/CompactSpace GraphonSpaceI (Lovász–Szegedy: measure-preserving realignment plus martingale approximation)",
+    "Mod-null equivalence of atomless standard Borel probability spaces with (I, volume)",
+    "Inverse counting lemma (hard direction of separation, via the second sampling lemma) and the convergence equivalence",
+    "Möbius calculus for reflection-positive parameters, the induced exchangeable law and Lovász–Szegedy representability",
+    "Diaconis–Janson mixtures: empirical mixing measures, collision estimate, compact extraction, uniqueness, finite↔infinite extension and the array-law interface",
+    "Second sampling lemma in probability and almost-sure sampling convergence"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups": {
+   "targets": "Finite-dimensional complex representations of GLₙ, SLₙ, Oₙ, SOₙ and Spₙ: Weyl's construction V^{⊗d} ≅ ⊕ S^λV ⊗ Specht_λ; highest-weight classification of rational irreducibles; characters as Schur polynomials (Weyl character formula); the Weyl dimension formula; branching rules; and Gelfand–Tsetlin bases and generators.",
+   "baselineHas": [
+    "TauCeti.stdRep, TauCeti.weylModuleOfShape and TauCeti.IsRationalRep.isInternal_weightSpace (TauCeti/RepresentationTheory/ClassicalGroups/)",
+    "TauCeti.centralizer_range_tensorPowerRep_eq_range_permTensorActionAlgHom (Schur–Weyl double centralizer, TauCeti/RepresentationTheory/Symmetric/TensorAction/GeneralLinear.lean)",
+    "TauCeti.schurPoly and TauCeti.GTPattern.card_topRow_eq_weylDimension (combinatorial sides only; its docstring says that no representation or GT basis is constructed)",
+    "𝔤𝔩ₙ Lie-algebra highest-weight theory (TauCeti/Algebra/Lie/GeneralLinear/) and the semisimple Weyl character identity (TauCeti/Algebra/Lie/HighestWeight/Character.lean)"
+   ],
+   "missing": [
+    "Group-level theorem of the highest weight for rational GLₙ and SLₙ representations: irreducibility of the Weyl modules, bijection with dominant weights and the central-character integrality step. Complete reducibility is taken from the unfinished ReductiveGroups linear-reductivity work.",
+    "V^{⊗d} ≅ ⊕_λ S^λV ⊗ Specht_λ as GLₙ × S_d representations",
+    "Characters of irreducibles are Schur polynomials (with the Laurent determinant twist); dim V_λ = weylDimension; Weyl character and dimension formulas for Spₙ and SOₙ",
+    "Highest-weight classification of SOₙ and Spₙ via the group–Lie-algebra passage, and the Oₙ extension problem",
+    "Branching isomorphisms GLₙ↓GLₙ₋₁, SOₙ↓SOₙ₋₁ and Spₙ↓Spₙ₋₂",
+    "Normalized Gelfand–Tsetlin bases; GT generators from the centres Z(U(𝔤𝔩_k)) with separating joint eigenvalues; orthogonal and symplectic GT-type bases meeting SpinRepresentations"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/ModularForms": {
+   "targets": "The classical arithmetic theory at general level: nebentypus spaces and Eisenstein series with character; the Hecke algebra and Petersson adjoints; newforms, the conductor and strong multiplicity one; Atkin–Lehner signs; L-functions with Euler product and functional equation; modular symbols giving number-field coefficient fields; Galois conjugation and LMFDB invariants; dimension formulas via Riemann–Roch on X(Γ); and the level-one Eichler–Selberg trace formula.",
+   "baselineHas": [
+    "Mathlib ModularForm, CuspForm and ModularForm.dimension_level_one",
+    "isInternal_modFormCharSpace (TauCeti/NumberTheory/ModularForms/CharacterDecomp.lean), HeckeRing.GL2.heckeT_prime_pow_recurrence and TauCeti.ModularForm.valence_formula_finiteIndex_norm",
+    "TauCeti.mem_cuspFormsOld_of_forall_coprime_qExpansion_coeff_eq_zero (Main Lemma) and HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq (fixed-level strong multiplicity one)",
+    "CuspForm.hasEntireExtension_qExpansion_coeff and TauCeti.ModularForm.sturm_bound_finiteIndex; only ~90 lines of Fuchsian-group code (TauCeti/Analysis/Complex/Fuchsian/)"
+   ],
+   "missing": [
+    "Eisenstein series with character and the cusp–Eisenstein decomposition via constant terms at all cusps",
+    "Petersson adjoint Tₙ* = ⟨n⟩⁻¹Tₙ, normality and simultaneous eigenbases; the general-n Hecke polynomial ring and the local–global hand-off",
+    "Bad-prime Uₚ stability of the new space (Fricke tiling route), conductor decomposition, Atkin–Lehner–Li bad-prime eigenvalues, cross-level strong multiplicity one, W_Q signs",
+    "Euler product, sharp abscissa, signed functional equation, analytic rank and conductor",
+    "Modular symbols, period map with Eichler-integral injectivity, finite integral Hecke algebra, coefficient field as a number field (weight one via a Deligne–Serre lattice)",
+    "Galois stability of newforms, character fields, rational characteristic polynomials, twists and inner twists, and the LMFDB invariant layer",
+    "From the unbuilt FuchsianOrbifolds roadmap: compact quotient Riemann surfaces X(Γ), degree theory and Riemann–Hurwitz. Then Forster's analytic Riemann–Roch chain (Čech H¹ finiteness, ∂̄-lemma, Serre duality, analytic genus = topological genus), automorphy line bundles and general-level dimension formulas.",
+    "Hurwitz class numbers, period-polynomial spaces and the Popa–Zagier proof of the level-one Eichler–Selberg trace formula"
+   ]
+  },
+  "ShimuraData": {
+   "targets": "Deligne's category of pure Shimura data: the Deligne torus and Hodge structures; Cartan involutions and the Hermitian symmetric domain structure of X; homogeneous variations of Hodge structure; compact duals with the Borel embedding, the reflex field and descent of the flag variety; Hodge, abelian and pre-abelian types; neat levels; and the torus, GL₂, Siegel and Hilbert examples.",
+   "baselineHas": [
+    "TauCeti.Hodge.HodgeStructureOn and TauCeti.Hodge.PeriodDomain.Point (TauCeti/Geometry/Hodge/, about 11k lines)",
+    "TauCeti.ReductiveAffineGroupSchemeCat, with dynamic parabolics and Levi decompositions (TauCeti/Algebra/AlgebraicGroup/, about 93k lines)",
+    "TauCeti.Lie.lieSubalgebraOfSubgroup and the Lie-group exponential (TauCeti/Geometry/Lie/)",
+    "Mathlib NumberField.AdeleRing, RestrictedProduct and UpperHalfPlane"
+   ],
+   "missing": [
+    "Imported stages not in the baseline: Weil restriction and the Deligne torus (ReductiveGroupsPartII RG2.0a, using projective parameter spaces R09.1), topologies on rational points (RG2.0), restricted-product Haar measures and adelic points (AdelicAlgebraicGroups AA.0–AA.1), continuous cohomology and van Est (AF.1a)",
+    "Unbuilt Lie and algebraic-group input: real points as Lie groups, homogeneous spaces G(ℝ)/K, real forms and Cartan involutions, general parabolics and quotients G/P (LieGroups Layers 7–9, ReductiveGroups Layers 3 and 7), holomorphic bundles and local systems",
+    "Equivalence of real representations of S with sums of pure Hodge structures, with sign and weight conventions",
+    "Invariant complex structure, integrability and Hermitian symmetric domain structure on the components of X",
+    "Homogeneous VHS with Griffiths transversality; compact dual flag variety and Borel embedding; the conjugacy class of μ, finiteness of the reflex field and descent of the flag variety to it",
+    "Category of Shimura data, special points and type predicates; neatness, arithmetic subgroups and effective actions; torus, GL₂, Siegel and Hilbert examples"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/JacobianChallenge": {
+   "targets": "For a smooth, proper, geometrically connected curve with a rational point: the Jacobian Pic⁰ as an abelian variety of dimension g, with the Abel–Jacobi universal property and base-change compatibility. The route runs through Riemann–Roch and Serre duality, relative cohomology and base change, and representability of the Picard functor.",
+   "baselineHas": [
+    "TauCeti.AlgebraicGeometry.AbelianVariety with tangent spaces and base change (TauCeti/AlgebraicGeometry/AbelianVariety/)",
+    "Weil and Cartier divisors and TauCeti.AlgebraicGeometry.LineBundleClass (tensor monoid only; TauCeti/AlgebraicGeometry/WeilDivisor/, LineBundle/)",
+    "TauCeti.AlgebraicGeometry.Scheme.Modules.cohomologyZeroEquiv (Ext-defined sheaf cohomology with H⁰, long exact and Mayer–Vietoris sequences)",
+    "TauCeti.genus and TauCeti.riemannRochSpace for function fields (not coherent cohomology of a curve)"
+   ],
+   "missing": [
+    "Rest of Layer A: Picard group of line-bundle classes with inverses, the line bundle → divisor construction, degree defined through χ",
+    "Coherent cohomology: affine vanishing and Čech comparison, finiteness for proper schemes, vanishing above dimension, genus, Riemann–Roch, dualizing sheaf and Serre duality",
+    "Relative theory: coherent higher direct images, flat base change, cohomology and base change, semicontinuity and Grauert, relative effective Cartier divisors, symmetric powers Sym^d X",
+    "Picard functor as an fppf sheaf, rigidification and Poincaré bundle, representability of Pic⁰ via Abel maps, the open and closed degree-zero component, properness",
+    "Abelian varieties: T₀Pic⁰ ≅ H¹(𝒪), theorems of the cube and square, dual abelian variety, polarizations, [n] isogenies in all characteristics",
+    "Abel–Jacobi morphism, Albanese universal property, base change, genus-one and closed-immersion checks"
+   ]
+  },
+  "AutomorphicBundles": {
+   "targets": "Automorphic vector bundles on Shimura varieties: associated bundles and canonical models of principal bundles over reflex fields; realizations with Hodge filtrations and connections; canonical and subcanonical extensions to toroidal compactifications, and pushforward to minimal compactifications; classical forms as sections, with explicit modular, Hilbert and Siegel weights; Hecke action and q- and Fourier–Jacobi expansions.",
+   "baselineHas": [
+    "Mathlib ModularForm and UpperHalfPlane.qExpansion",
+    "TauCeti.ReductiveAffineGroupSchemeCat (TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean)",
+    "TauCeti.CommHopfAlgCat.fppfQuotientTorsorAction (TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Torsor.lean)",
+    "TauCeti.Hodge.HodgeStructureOn"
+   ],
+   "missing": [
+    "All of ShimuraData (D0–D5) with its unbuilt Lie, algebraic-group and adelic inputs",
+    "ShimuraVarieties V0–V8: arithmetic groups and the analytic tower, Baily–Borel minimal compactification, Borel extension, canonical models (torus, CM/Siegel, Hodge and abelian type, general data via conjugation)",
+    "ShimuraCompactifications C0–C6: admissible fans, mixed boundary data, toroidal gluing, degenerations of polarized abelian schemes, integral PEL compactifications",
+    "PELModuli M0–M4, Hilbert modular varieties H0–H4, and abelian schemes A1–A5 (duals, Picard functors, Dieudonné deformation theory, complex uniformization). These rest on Hilbert/Quot, algebraic spaces and stacks, resolution of singularities (R09.1–R09.7), GAGA and Chow (ComplexComparisonPartII), and reduction theory (AA.3).",
+    "p-adic prefixes reached through abelian schemes: finite flat group schemes, Dieudonné and Breuil–Kisin modules, period rings, A_inf and crystalline prefixes, enhanced derived sheaves, perfectoid spaces P0–P3",
+    "Own B0–B5: associated bundles and coefficient descent, canonical principal bundles with absolute-Hodge comparisons, automorphic bundles and realizations, canonical/subcanonical extensions, classical forms and weights, Hecke action and Fourier–Jacobi expansions"
+   ]
+  },
+  "ClassicalAdicEtaleCohomology": {
+   "targets": "Huber's classical étale cohomology of analytic adic spaces, as input to diamonds: étale sheaves and derived direct images on adic sites; formal-model and nearby-cycle comparisons over arbitrary valuation rings; invariance under extension of algebraically closed fields; proper support with trace and Poincaré duality for curves; constructibility in curve families; the algebraic–analytic comparison; and Lütkebohmert compactification.",
+   "baselineHas": [
+    "TauCeti.ValuationSpectrum.spa (TauCeti/AlgebraicGeometry/AdicSpace/Spa/, a set and space only, no adic space or étale site)",
+    "TauCeti.Huber.IsHuberRing (TauCeti/RingTheory/Huber/)",
+    "Mathlib AlgebraicGeometry.Scheme.isGrothendieckAbelian_sheaf_smallEtaleTopology and AlgebraicGeometry.Scheme.pointSmallEtale",
+    "Mathlib CategoryTheory.Sheaf.H with TauCeti.CategoryTheory.Sheaf.H.δ"
+   ],
+   "missing": [
+    "Scheme étale cohomology from the CohomologicalPointCounting and ECD suppliers (base change, compact support, constructibility, trace formula) and compactification of qcqs schemes (AdicCoefficientsAndComparisons L2)",
+    "EtaleDualityAndPerverseSheaves EDC.0–EDC.4 (Verdier duality, purity, Poincaré duality, Gysin, weak Lefschetz), whose trace/purity stage imports the JacobianChallenge; LefschetzPencilsAndVanishingCycles LPV.0–LPV.2",
+    "AdicEtaleGeometry A0–A3 and AdicSpacesPartII F0 (sheafy adic spaces, formal geometry)",
+    "PerfectoidSpaces P0–P6 (almost purity, pro-étale presentations), PerfectoidQuotients Q0–Q4 with PrismaticCohomology PR.0–PR.2, crystalline and derived de Rham prefixes, EnhancedDerivedSheaves E0–E5",
+    "Abelian schemes A1–A3, algebraic spaces and stacks (R09.1–R09.4), continuous Hochschild–Serre (R02.1–R02.2)",
+    "Own H0–H5: sheaves on adic étale sites, henselian approximation, formal/adic comparison, valuation-base nearby cycles, field-extension invariance, proper support, trace and duality for curves, constructibility and annuli, algebraic/analytic comparison, Lütkebohmert compactification"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/StableReduction": {
+   "targets": "Existence after finite extension, and uniqueness, of stable (pointed) models of curves over a DVR in the full stable range, with stabilization of prestable families; plus scheme-level families of stable maps to projective targets, with their stability, openness, degree, gluing and stabilization API.",
+   "baselineHas": [
+    "TauCeti.FiniteDVRExtension and TauCeti.Model (TauCeti/AlgebraicGeometry/Curves/StableReduction/)",
+    "TauCeti.NumericalType.IsMinimal and the combinatorial Pic(T) rank/torsion files (Curves/StableReduction/NumericalType, Picard)",
+    "Mathlib AlgebraicGeometry.ValuativeCriterion and IsDiscreteValuationRing",
+    "TauCeti.AlgebraicGeometry.Scheme.Modules.cohomologyZeroEquiv (start of the shared cohomology lane)"
+   ],
+   "missing": [
+    "The Jacobian contracts J-A1 to J-E: coherent curve cohomology and Riemann–Roch, relative cohomology and base change, the Picard functor and Pic⁰, abelian varieties with [ℓ] finite étale of degree ℓ^{2g}",
+    "Relative dimension and families of curves, Fitting ideals and the singular locus, syntomic and nodal morphisms with local normal form, normalization and dual graphs",
+    "Relative dualizing sheaf for nodal curves, relative Proj and ampleness criteria, openness of ampleness, effective descent of polarized schemes, contraction descent",
+    "Prestable, semistable, stable and pointed families; clutching; the Knudsen single-marking contraction",
+    "Blowups, intersection theory on arithmetic surfaces, resolution by normalized blowups, contraction of exceptional curves; regular and minimal models",
+    "Line-bundle and ℓ-torsion specialization to numerical types; genus 0, 1 and ≥2 semistable reduction with the Artin–Winters bound",
+    "Canonical contraction and stabilization in families; stable and stable pointed reduction with uniqueness",
+    "Stable maps: prestable maps, automorphisms, stability via ampleness and openness, degrees and decorated graphs, map-aware contraction, gluing, stabilization"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer": {
+   "targets": "The analytic tower up to Heegaard Floer homology:\n- Morse homology, by both the dynamical and functional-analytic routes\n- Fredholm and Sard–Smale theory\n- the Cauchy–Riemann elliptic package with Maslov index\n- J-holomorphic curves with Gromov compactness, transversality and gluing\n- exact Lagrangian Floer homology\n- HF-hat over 𝔽₂ via Sym^g(Σ), with invariance\n- staged extensions (HF±, triangle maps, naturality)\n- the reconciliation theorems with the stable, lattice and grid combinatorial invariants",
+   "baselineHas": [
+    "TauCeti.isMeagre_image_criticalPoints_of_isFredholm (Sard–Smale, TauCeti/Analysis/Fredholm/SardSmale.lean)",
+    "TauCeti.IsNondegenerateCriticalPoint.exists_morse_chart (Morse lemma, TauCeti/Analysis/Calculus/Morse/NormalForm.lean)",
+    "TauCeti.IsPseudoholomorphicAt (TauCeti/Geometry/Symplectic/Manifold/JHolomorphic.lean)",
+    "Sobolev spaces on domains (TauCeti/Analysis/Sobolev/) and TauCeti.symOpenPartialHomeomorph (charts on symmetric powers)"
+   ],
+   "missing": [
+    "Morse homology: stable-manifold theorem, λ-lemma, Morse–Smale transversality, broken-trajectory compactness, gluing, invariance and comparison with singular homology; the Schwarz functional-analytic route",
+    "Banach-bundle Fredholm sections and the strip operator d/ds + A(s)",
+    "Cauchy–Riemann package: W^{k,p} maps of surfaces and strips with trace, Calderón–Zygmund estimate, interior and totally-real boundary regularity, Fredholm CR operators, Riemann–Roch with boundary, Maslov index and spectral flow",
+    "J-holomorphic curves: local theory, mean-value and monotonicity, removal of singularities, Gromov compactness with disk/sphere bubbling, transversality, gluing",
+    "Exact Lagrangian Floer homology with continuation invariance",
+    "HF-hat: smooth/complex structure on Sym^g(Σ), totally real tori, π₂, Spin^c structures, domains and Lipshitz index, admissibility, nearly symmetric J, ∂² = 0, invariance under J, isotopy, handleslides (Perutz) and stabilization. It also needs Heegaard diagrams and their moves from CombinatorialHeegaardFloer and GeometricTopology.",
+    "Staged HF±, HF^∞, orientations, triangle maps, surgery exact triangle, d-invariants, naturality; the cylindrical reformulation used for HFK",
+    "Reconciliations: stable HF-hat = HF-hat, lattice homology = HF⁻ (Zemke), grid homology = HFK"
+   ]
+  },
+  "AutomorphicCongruences": {
+   "targets": "The divisibilities opposite to Kato's in Iwasawa main conjectures, proved on the same integral objects as Kato's:\n- Skinner–Urban U(2,2) Eisenstein congruences\n- Fouquet–Wan U(3,1) congruences, with Beilinson–Flach classes and Nakamura's universal zeta morphism\n- Castella–Liu–Wan semi-ordinary GU(3,1) congruences\n- the Burungale–Castella–Skinner ordinary elliptic-curve refinement",
+   "baselineHas": [
+    "Mathlib eisensteinSeries and ModularForm",
+    "HeckeRing.GL2.Newform (TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean)",
+    "Mathlib continuousCohomology and IsDedekindDomain.selmerGroup (K^×/n Selmer groups only)",
+    "Mathlib PowerSeries Weierstrass preparation (no Iwasawa algebras or characteristic ideals)"
+   ],
+   "missing": [
+    "A prerequisite closure of about 590 campaign stages across 89 roadmaps, almost all unbuilt, including GL₂ automorphic representations and Galois representations, GL₂ modularity lifting, potential modularity and Serre's conjecture, local and global Galois deformation rings and patching",
+    "Unitary Shimura varieties, PEL moduli, toroidal compactifications and automorphic bundles; Hida and p-adic families; metaplectic and Fourier–Jacobi theory; Hilbert modular varieties",
+    "Iwasawa algebras and Selmer complexes; Dirichlet, modular-symbol and automorphic p-adic L-functions; Kato and Heegner Euler systems; generalized Heegner cycles; Gross–Zagier and arithmetic heights",
+    "p-adic Hodge theory and (φ,Γ)-modules, p-adic local Langlands for GL₂(ℚ_p), completed cohomology, étale cohomology with weights, algebraic K-theory",
+    "Own L0–L5: congruence modules and Selmer classes, the Skinner–Urban U(2,2) argument, the Fouquet–Wan U(3,1) input and Castella–Liu–Wan congruences, deformation theory and universal zeta elements, integral descent, the Burungale–Castella–Skinner two-variable and cyclotomic refinement"
+   ]
+  },
+  "AutomorphicGaloisRepresentationsPartII": {
+   "targets": "Characteristic-zero Galois representations attached to regular algebraic cuspidal automorphic representations of GLₙ over CM or totally real fields, in the polarized and nonpolarized branches. This includes local–global compatibility at good and ramified primes, p-adic Hodge properties, compatible systems, and integral and residual exports.",
+   "baselineHas": [
+    "Mathlib Field.absoluteGaloisGroup and TopRep",
+    "TauCeti.ReductiveAffineGroupSchemeCat",
+    "TauCeti.ContinuousCohomology cochain API (TauCeti/RepresentationTheory/Homological/ContCohomology/)",
+    "TauCeti HeckeRing GLₙ double-coset rings (TauCeti/NumberTheory/HeckeRing/GLn/)"
+   ],
+   "missing": [
+    "A closure of about 310 unbuilt campaign stages across 49 roadmaps: ShimuraData, ShimuraVarieties, ShimuraCompactifications, PELModuli and AutomorphicBundles B0–B3",
+    "Étale cohomology with duality and weights (EtaleDualityAndPerverseSheaves, LefschetzPencils, DeligneWeightsAndPurity, WeightsInEtaleCohomology), all of ClassicalAdicEtaleCohomology, diamond étale cohomology and six operations",
+    "EndoscopicTransferAndUnitaryTraceComparison (stable base change, local Langlands for GLₙ), Igusa varieties IG.0–IG.1, smooth representations of p-adic groups, automorphic spectral theory",
+    "Eigenvarieties from LocallyAnalyticDistributions and PadicFamilies; p-adic Hodge theory; perfectoid spaces and Fargues–Fontaine curves",
+    "Own AG2.0–AG2.7: weight normalization, raw cohomology of unitary Shimura varieties, polarized systems, Chenevier–Harris removal of hypotheses, the Harris–Lan–Taylor–Thorne nonselfdual construction, local–global comparison, compatible systems, integral exports"
+   ]
+  },
+  "PotentialAutomorphyInfrastructure": {
+   "targets": "The reusable infrastructure behind ACC+ potential automorphy over CM fields: integral cohomology of locally symmetric spaces with Hecke actions, Fontaine–Laffaille and ordinary degree shifting, derived support and change of local deformation conditions, Taylor–Wiles auxiliary primes with ultrapatching, and transport of compatible systems.",
+   "baselineHas": [
+    "NumberField.Chebotarev.mem_frobeniusPrimeSet_iff_artinSymbol_eq and NumberField.exists_auxiliaryPrime (TauCeti/NumberTheory/Chebotarev/)",
+    "HeckeRing.GL2.heckeSlashGamma0CuspFormEnd (classical GL₂ Hecke operators only)",
+    "Mathlib Ultrafilter",
+    "TauCeti.ContinuousCohomology and Mathlib continuousCohomology"
+   ],
+   "missing": [
+    "All of AutomorphicGaloisRepresentationsPartII (it imports AG2.7) with its closure, covering 319 of the 320 AGR-II closure stages",
+    "IgusaVarietiesAndTorsionConcentration IG.7 (Caraiani–Scholze), PerfectoidShimuraVarieties with Hodge–Tate period maps, TorsionCohomologyInfrastructure, CompletedCohomologyPartII",
+    "ArithmeticLocallySymmetricSpaces, local and global Galois deformation rings, DeformationAndDerivedPatchingAlgebra, integral p-adic Hodge theory (Fontaine–Laffaille), compatible-system operations",
+    "Own PA.0–PA.5: common integral cohomology interface, Fontaine–Laffaille and ordinary degree shifting, derived Ihara avoidance, auxiliary primes and ultrapatching, compatible-system transport"
+   ]
+  },
+  "PrismaticCohomology": {
+   "targets": "Prisms and prismatic sites (Bhatt–Scholze), with Hodge–Tate, crystalline, de Rham and étale comparisons for smooth p-adic formal schemes. Also: derived prismatic cohomology with the Nygaard filtration and syntomic twists, absolute prismatization (Bhatt–Lurie), the q-crystalline/AΩ comparison, prismatic F-crystals ≅ crystalline ℤ_p-lattices, and logarithmic variants.",
+   "baselineHas": [
+    "Mathlib DividedPowers (no PD or prismatic envelopes)",
+    "Mathlib WittVector.frobenius, PreTilt.untilt and WittVector.fontaineThetaModPPow (no δ-ring abstraction)",
+    "Mathlib DerivedCategory (no animated rings or derived completion)",
+    "Mathlib Algebra.Extension.cotangentComplex (naive cotangent complex only)"
+   ],
+   "missing": [
+    "EnhancedDerivedSheaves E0–E5 (∞-categorical derived sheaves, animated rings), DerivedDeRhamCohomology (cotangent complex, derived de Rham, Cartier theory, quasisyntomic descent), CrystallineCohomology (PD envelopes, crystalline sites, de Rham–Witt, log crystalline)",
+    "PerfectoidSpaces P0–P6, PerfectoidQuotients Q0–Q4, DiamondsAndVStacks D0–D6, AdicSpacesPartII and AdicEtaleGeometry, absolute and relative Fargues–Fontaine curves",
+    "AInfCohomology AI.0–AI.4 (Lη, BKF modules, AΩ), period rings, logarithmic adic sites",
+    "RefinedTraceMethods (THH, cyclotomic structure, Beilinson square) with StableHomotopyKTheory and algebraic K-theory",
+    "Own PR.0–PR.8: δ-rings and prisms, relative sites and comparisons, derived extension and descent, Nygaard filtration, étale comparison and Tate twists, absolute prismatics and the Cartier–Witt stack, q-crystalline/AΩ comparison, prismatic F-crystals, log prismatic cohomology"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "b": "tauceti:Completed/IntegralLattices",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Integral lattices is already complete in Tau Ceti: discriminant groups, the Nikulin overlattice correspondence and the isometry D₈⁺ ≅ E₈ are all built. Analytic toric geometry still needs Gordan's lemma, affine toric schemes and fan gluing, complex-manifold charts and gluing, the orbit–cone and boundary theory, the properness criterion and the algebraic–analytic comparison."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "b": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Dense graph limits already has counting, weak regularity, the cut-distance triangle inequality, total boundedness and sampling concentration; about four stacked layers remain (Lovász–Szegedy compactness, inverse counting, representability, the Diaconis–Janson mixture theorem). Toric geometry has only cones, fans and mixed-monomial charts, and about six stacked layers remain (affine toric schemes and fan gluing, manifold charts and gluing, orbit–cone correspondence with SNC boundary, toric maps and properness, the scheme comparison), which is slightly more theory."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+   "b": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Classical groups has scaffolding (standard and tensor-power representations, Weyl modules, weight spaces, Schur–Weyl, the combinatorial Weyl dimension and GT counts) but no representation theorems. The group-level highest-weight classification for GLₙ, SLₙ, SOₙ, Spₙ and Oₙ, characters as Schur polynomials, branching rules and Gelfand–Tsetlin bases with Capelli-type generators are all missing, which is far more than dense graph limits still lacks: compactness, inverse counting, representability and mixture/sampling theorems over a built graphon core."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+   "b": "tauceti:TauCetiRoadmap/ModularForms",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Classical groups lacks the group-level highest-weight classification, character and dimension formulas, branching and Gelfand–Tsetlin bases. Modular forms, beyond its large Hecke/newform base, still needs Eisenstein series with character, bad-prime newform and L-function theory, modular symbols with coefficient fields, the LMFDB layer and the Eichler–Selberg trace formula. Its dimension formulas also need unbuilt Fuchsian compact Riemann surfaces plus analytic Riemann–Roch and Serre duality, a much larger and deeper stack."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ModularForms",
+   "b": "ShimuraData",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Shimura data needs Weil restriction and the Deligne torus, real Lie groups with Cartan involutions and Hermitian symmetric domains, homogeneous VHS, compact duals with reflex-field descent, adelic points and van Est, on top of Tau Ceti's large algebraic-group and Hodge libraries. Modular forms needs slightly more in total: the newform, bad-prime and L-function completions, modular symbols and coefficient fields, the LMFDB layer and trace formula, and for the dimension formulas a further tower of Fuchsian compact Riemann surfaces, Riemann–Hurwitz and Forster's analytic Riemann–Roch."
+  },
+  {
+   "a": "ShimuraData",
+   "b": "tauceti:TauCetiRoadmap/JacobianChallenge",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Shimura data builds on Tau Ceti's extensive reductive-group, parabolic and Hodge-structure libraries, and still needs Weil restriction, Cartan involutions with Hermitian symmetric domains, VHS and compact duals with reflex-field descent. The Jacobian has only divisors, line bundles and Ext-defined cohomology, and must build coherent cohomology with Serre duality, cohomology and base change, symmetric powers, fppf Picard-functor representability, and the cube theorem, dual abelian variety and polarizations: slightly more foundational theory."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/JacobianChallenge",
+   "b": "AutomorphicBundles",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "The Jacobian challenge needs coherent and relative cohomology, Picard representability and abelian-variety duality. Automorphic bundles needs that theory generalized to abelian schemes (duals, Picard functors, Dieudonné deformation), plus Shimura data, canonical models of Shimura varieties, Baily–Borel and toroidal compactifications, PEL moduli, resolution of singularities and GAGA, all before its own canonical extensions (prerequisite depth 28 stages)."
+  },
+  {
+   "a": "ClassicalAdicEtaleCohomology",
+   "b": "AutomorphicBundles",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Classical adic étale cohomology needs about 80 external stages (depth 19): scheme étale cohomology with Verdier and Poincaré duality (also importing the Jacobian), nearby cycles, perfectoid spaces and quotients, adic étale geometry, enhanced derived sheaves, then Huber's comparison theorems. Automorphic bundles needs about 93 (depth 28): Shimura data, canonical models, Baily–Borel and toroidal compactifications with degenerations of abelian schemes, PEL and Hilbert moduli, resolution of singularities and GAGA, so it is slightly larger and deeper."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/StableReduction",
+   "b": "ClassicalAdicEtaleCohomology",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Stable reduction needs the Jacobian's Picard and abelian-variety contracts plus nodal curves, dualizing sheaves, relative Proj and descent, arithmetic-surface intersection theory, resolution, minimal models and stabilization. Classical adic étale cohomology also imports the Jacobian (through étale trace and purity), and adds scheme étale cohomology with Verdier duality, perfectoid spaces and quotients, ∞-categorical derived sheaves, adic étale geometry and all of Huber's theory."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HeegaardFloer",
+   "b": "tauceti:TauCetiRoadmap/StableReduction",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Stable reduction needs the Jacobian's Picard and abelian-variety theory plus arithmetic surfaces (blowups, intersection theory, resolution, minimal models), Artin–Winters semistable reduction, Knudsen stabilization and stable maps. Heegaard Floer, beyond its built Fredholm, Sard–Smale and Morse-lemma base, needs somewhat more: Morse homology, the Cauchy–Riemann elliptic package with Maslov index, Gromov compactness, transversality and gluing, Lagrangian Floer homology, HF-hat invariance in Sym^g(Σ), staged HF± and naturality, and reconciliations such as lattice = HF⁻ and grid = HFK."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HeegaardFloer",
+   "b": "AutomorphicCongruences",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Heegaard Floer's missing tower is analytic and topological: elliptic Cauchy–Riemann theory, compactness and gluing, Floer homology and invariance in Sym^g. Automorphic congruences sits on about 590 unbuilt prerequisite stages before the Skinner–Urban and Fouquet–Wan arguments: GL₂ Galois representations and modularity lifting, unitary Shimura varieties with compactifications and Hida families, Kato and Heegner Euler systems, Gross–Zagier heights, p-adic L-functions, p-adic local Langlands and completed cohomology."
+  },
+  {
+   "a": "AutomorphicCongruences",
+   "b": "AutomorphicGaloisRepresentationsPartII",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "AGR-II's GLₙ constructions need about 320 closure stages: Shimura varieties with compactifications and automorphic bundles, étale and adic cohomology with weights, endoscopic transfer and local Langlands, eigenvarieties. The automorphic-congruences closure contains 302 of those and adds about 295 more (Kato, Heegner and Beilinson–Flach Euler systems, Gross–Zagier, Serre's conjecture and GL₂ modularity lifting, p-adic L-functions, (φ,Γ)-modules, K-theory) before its own U(2,2) and U(3,1) congruence arguments."
+  },
+  {
+   "a": "AutomorphicGaloisRepresentationsPartII",
+   "b": "PotentialAutomorphyInfrastructure",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "PAI imports AGR-II's final export AG2.7, and with it 319 of the 320 stages of AGR-II's closure. On top of that it needs Caraiani–Scholze torsion concentration (Igusa varieties, perfectoid Shimura varieties, Hodge–Tate period maps), torsion and completed cohomology, Galois deformation rings with derived patching, and its own degree-shifting and ultrapatching layers."
+  },
+  {
+   "a": "PotentialAutomorphyInfrastructure",
+   "b": "PrismaticCohomology",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Prismatic cohomology needs about 100 closure stages: ∞-categorical derived sheaves, derived de Rham and crystalline theory, perfectoid spaces, diamonds, Fargues–Fontaine curves, A_inf cohomology and THH trace methods. PAI's closure contains 80 of those and about 300 more, namely all of AGR-II, Shimura varieties and compactifications, étale cohomology with weights, endoscopic transfer, Igusa varieties, deformation rings and patching."
+  },
+  {
+   "a": "tauceti:Completed/IntegralLattices",
+   "b": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Integral lattices is fully built in Tau Ceti, including the overlattice correspondence and D₈⁺ ≅ E₈. Dense graph limits still lacks Lovász–Szegedy compactness, the inverse counting lemma and convergence equivalence, representability of graph parameters, the Diaconis–Janson mixture theorem and sampling convergence."
+  },
+  {
+   "a": "AutomorphicGaloisRepresentationsPartII",
+   "b": "PrismaticCohomology",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Prismatic cohomology needs about 100 closure stages of derived and ∞-categorical algebra, crystalline and derived de Rham theory, perfectoid spaces and diamonds, A_inf cohomology and THH. AGR-II's closure includes 80 of these and about 240 more, namely Shimura varieties and compactifications, automorphic bundles, étale cohomology with weights and duality, endoscopic transfer with local Langlands, and eigenvarieties, before its own GLₙ constructions."
+  },
+  {
+   "a": "ClassicalAdicEtaleCohomology",
+   "b": "tauceti:TauCetiRoadmap/JacobianChallenge",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "The Jacobian needs coherent and relative cohomology, Picard representability and abelian-variety theory. Classical adic étale cohomology imports the Jacobian through its étale trace/purity stage, and further needs scheme étale cohomology with Verdier duality, nearby cycles, perfectoid spaces, adic étale geometry, enhanced derived sheaves and Huber's comparison theorems."
+  },
+  {
+   "a": "PotentialAutomorphyInfrastructure",
+   "b": "AutomorphicCongruences",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "PAI needs AGR-II, Caraiani–Scholze torsion concentration, completed and torsion cohomology and patching: about 380 closure stages. The automorphic-congruences closure shares about 320 of those and adds about 280 more, including Kato, Heegner and Beilinson–Flach Euler systems, Gross–Zagier, Serre's conjecture and GL₂ modularity lifting, Hilbert and metaplectic forms, p-adic L-functions, K-theory and (φ,Γ)-modules."
+  },
+  {
+   "a": "PrismaticCohomology",
+   "b": "tauceti:TauCetiRoadmap/HeegaardFloer",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Heegaard Floer needs a large analytic and topological tower (Morse homology, Cauchy–Riemann elliptic theory, Gromov compactness and gluing, Floer homology, HF-hat in Sym^g, reconciliations), but it starts from Tau Ceti's Fredholm, Sard–Smale, Sobolev and J-holomorphic foundations. Prismatic cohomology has no δ-rings or crystalline theory to start from and needs about 95 unbuilt prerequisite stages before its own nine layers: ∞-categorical derived sheaves and animated rings, derived de Rham and de Rham–Witt theory, perfectoid spaces, diamonds and Fargues–Fontaine curves, A_inf cohomology, THH and cyclotomic spectra."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "b": "ShimuraData",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Toric geometry needs affine toric schemes and gluing, complex-manifold charts and gluing, orbit and boundary theory, properness and a toric comparison; all are fairly elementary constructions on existing cone and fan code. Shimura data needs Weil restriction and the Deligne torus, real Lie groups with Cartan involutions and Hermitian symmetric domains, VHS, flag-variety compact duals with reflex-field descent, adelic points and van Est."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/StableReduction",
+   "b": "AutomorphicBundles",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Stable reduction needs the Jacobian contracts plus arithmetic surfaces, semistable reduction, stabilization and stable maps. Automorphic bundles needs abelian schemes with duals and deformation theory, Hilbert/Quot schemes, algebraic stacks and resolution of singularities, together with Shimura data, canonical models, Baily–Borel and toroidal compactifications, PEL moduli, GAGA and p-adic Hodge prefixes, all before its canonical extensions."
+  },
+  {
+   "a": "tauceti:Completed/IntegralLattices",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Integral lattices is complete in Tau Ceti. Classical groups still lacks the highest-weight classification of irreducible representations of GLₙ, SLₙ, SOₙ, Spₙ and Oₙ, characters as Schur polynomials, the dimension and branching theorems, and Gelfand–Tsetlin bases and generators."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "b": "tauceti:TauCetiRoadmap/ModularForms",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Dense graph limits lacks compactness, inverse counting, representability and the mixture and sampling theorems, over an already built graphon core. Modular forms lacks Eisenstein series with character, bad-prime newform and L-function theory, modular symbols and coefficient fields, Galois/LMFDB invariants and the trace formula, plus Fuchsian compact Riemann surfaces with analytic Riemann–Roch for the dimension formulas."
+  },
+  {
+   "a": "AutomorphicCongruences",
+   "b": "tauceti:TauCetiRoadmap/StableReduction",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Stable reduction's missing theory is the algebraic geometry of curves: the Jacobian contracts, arithmetic surfaces and minimal models, semistable reduction, stabilization and stable maps. Automorphic congruences needs about 590 unbuilt stages, among them Néron models and semistable abelian varieties, Shimura varieties with compactifications, Galois deformation and modularity lifting, Euler systems, p-adic L-functions and p-adic Hodge theory."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HeegaardFloer",
+   "b": "tauceti:TauCetiRoadmap/JacobianChallenge",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "The Jacobian challenge needs coherent and relative cohomology, Picard-functor representability, abelian-variety duality and the Abel–Jacobi universal property. Heegaard Floer needs a much larger tower: Morse homology, the Cauchy–Riemann elliptic package with Maslov index, Gromov compactness, transversality and gluing, Lagrangian Floer homology, HF-hat invariance in Sym^g(Σ), staged HF± and naturality, and reconciliations with grid and lattice homology."
+  }
+ ]
+}

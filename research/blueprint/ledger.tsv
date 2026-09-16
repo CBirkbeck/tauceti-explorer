@@ -26,3 +26,6 @@
 2026-09-16T13:37:29Z	claude/1	COMPARE-02	limit	236	2026-09-16T16:30:00+00:00
 2026-09-16T13:38:02Z	claude2/2	LINK-tauceti_TauCetiRoadmap_EllipticCurves	done	2154	{}
 2026-09-16T13:48:25Z	claude2/1	LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups	done	2032	{}
+2026-09-16T14:17:40Z	claude2/1	COMPARE-01	done	1754	{"judged": 25, "pairs": 25}
+2026-09-16T14:18:04Z	claude2/1	COMPARE-02	limit	23	2026-09-16T16:00:00+00:00
+2026-09-16T14:18:28Z	claude2/2	REV-PLAN-HABIRO	limit	2422	2026-09-16T16:00:00+00:00

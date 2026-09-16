@@ -37,9 +37,10 @@ problems:
 | `RingStacksAndTransmutation` (RS.0–RS.3) | foundations | ring stacks, quasi-ideals, transmutation, algebraic examples, Scholze's Theorem 10.6, analytic de Rham ring stack, normed ring stacks |
 | `AnalyticHabiroStack` (HS.0–HS.4) | motivic | $\mathcal H^{\mathrm{an}}$, $G$, $(\mathbb G_m)^{\mathrm{Hab}}$, $1-_{\mathrm{Hab}}x$, the Habiro ring stack, $D_{\mathrm{Hab}}$, the normed Habiro stack |
 
-**Blueprint order (§7):** HabiroCyclotomicCompletions → QWittVectors → HabiroRings → suppliers (K3BlochGroups,
-Polylogarithms, ColemanIntegration, PadicHodgeRegulators) → HabiroNumberFields → HabiroNahmSeries →
-HabiroCohomologyFoundations → SolidAnalyticRings → AnalyticStacks → RingStacksAndTransmutation →
+**Blueprint order (§7):** HabiroCyclotomicCompletions → QWittVectors → SolidAnalyticRings SA.0–SA.1 →
+HabiroRings → suppliers (K3BlochGroups, Polylogarithms, ColemanIntegration, PadicHodgeRegulators) →
+HabiroNumberFields (with HR.5-number-field-comparison after HB.6) → HabiroNahmSeries →
+HabiroCohomologyFoundations → SolidAnalyticRings SA.2–SA.4 → AnalyticStacks → RingStacksAndTransmutation →
 AnalyticHabiroStack → HQ.6 assembly → ArithmeticQuantumTopology.
 
 ## 1. Sources and provenance
@@ -61,20 +62,28 @@ No PDF or extracted text is stored in the repository. The notes are cited by tit
 |---|---|---|---|
 | 12 Nov 2024 (unsuffixed file) | 20 | 1–3 | `bd4f7cfc93d7a8575e0c860a8427817e09988e51c706839603899698ba01f724` |
 | 1 Dec 2024 ("-1") | 33 | 1–6 | `9d97824e2c1ebd564809e58b62716221e692cb7057b57d677149d362018c1d2f` |
-| 4 Feb 2025 ("-2") | 49 | 1–12 | `ce9b93ded417acbb04fb6b3c117b031b1d7e623696502e4ecdc9071d4d391dc2` |
+| 4 Feb 2025 ("-2") | 49 | 1–12 + App. A | `ce9b93ded417acbb04fb6b3c117b031b1d7e623696502e4ecdc9071d4d391dc2` |
 | 6 Mar 2025 ("-3") | 50 | 1–12 + App. A | `58c2ea7f1d943053a008df05703f90b705b063c4945e503e68ca23cf2d768f18` |
 | campaign library copy (record `Ong_HabiroRingsNotes`) | 50 | 1–12 + App. A | `6e1757b177f62808ef6ce3241dfe90de3831eb19d93a39c5afb7b41a43615955`; word-level comparison shows the same text as 6 Mar 2025 up to PDF rendering (ligatures, line breaks) |
 
 Result of the comparison (word-level diffs of consecutive versions):
 
-- *12 Nov → 1 Dec 2024.* Lectures 4–6 and references were added; nothing was removed.
-- *1 Dec 2024 → 4 Feb 2025.* Three changes:
-  - Lecture 3 gains Corollary 3.4 ($\mathcal H\hookrightarrow\mathbb Z[[q-1]]$);
-  - Lecture 2/3 gains the expected shape $\sqrt\delta f_A(q)\sim\exp(\mathrm{Li}_2(\xi)/\dots)\,\varepsilon_m(\xi)\cdots$ with
-    $\xi\in K_3(K)$;
-  - the Lecture 5 caveat that "the proofs and structure for this lecture are more rough" disappears.
+- *12 Nov → 1 Dec 2024.* Lectures 4–6 and ten references were added, and Definition 1.6 was corrected from
+  $\lim_n\mathbb Z[q]/(q;q)_\infty$ to $\lim_n\mathbb Z[q]/(q;q)_n$; nothing was removed.
+- *1 Dec 2024 → 4 Feb 2025.* Lectures 7–12 and Appendix A were added. In Lectures 1–6:
+  - Lecture 3 gains Corollary 3.4 ($\mathcal H\hookrightarrow\mathbb Z[[q-1]]$), renumbering the later corollaries, the definition
+    and the remarks by one;
+  - Lecture 3 (p. 17) gains the expected ratios for $(t;q)_\infty$ at $q\to1$ and $q\to\zeta_m$ and the Garoufalidis–Zagier
+    asymptotic $f_A(q)\sim\exp(\mathrm{Li}_2(\xi))\cdot\sqrt\delta/\sqrt[m]{\varepsilon_m(\xi)}\cdot O(h)$ "for some class
+    $\xi\in K_3(K)$"; the factor $\sqrt\delta/\sqrt[m]{\varepsilon_m(\xi)}$ was already present;
+  - Proposition 3.3 changes its comparison ring from $\mathbb Z_p[\zeta_{pm}][[q-\zeta_{pm}]]\cong\mathbb Z_p[\zeta_{pm}][[q-\zeta_m]]$ (the
+    correct re-expansion) to $\mathbb Z_p[\zeta_m][[q-\zeta_m]]\cong\mathbb Z_p[\zeta_{pm}][[q-\zeta_{pm}]]$, which is false (§8 item 3);
+  - Lecture 4 loses the margin warning that the discussion "is likely extremely error-prone";
+  - Lecture 5 loses the caveat that "the proofs and structure for this lecture are more rough"; Definition 5.1 gains
+    $f\equiv1\bmod t$; Proposition 5.3 is corrected from "a unique expansion as an admissable series" (false) to a
+    product expansion; Definition 5.4 (λ-ring) and Examples 5.7–5.8 are added.
 
-  One mathematical statement is **dropped**: the 1 Dec version of Theorem 6.19 reads
+  One true mathematical statement is **dropped**: the 1 Dec version of Theorem 6.19 reads
   $K_3(K)\otimes\mathbb Q\cong K_3(\mathcal O_K)\otimes\mathbb Q\cong\dots$, and later versions omit the middle term. The statement
   is true: $K_3(\mathcal O_K)\to K_3(K)$ is an isomorphism, which GSWZ (cm) also uses integrally. It belongs to the
   $K$-theory suppliers (`ArithmeticKTheory` N.5, already an input of HB.1).
@@ -82,12 +91,15 @@ Result of the comparison (word-level diffs of consecutive versions):
   - the duplicated corollary "$\mathcal H\hookrightarrow\prod_m\mathbb Z[\zeta_m]$" (4 Feb Corollary 3.6) is removed;
   - Lecture 10 is rewritten. The 4 Feb version opens with a transitional sentence on realisations of relative
     motivic cohomology, uses a base ring without $\Delta$ and $z_i(1-z_i)$ inverted, and describes the Betti and
-    étale realisations briefly. The 6 Mar version has the ring (10.1) with those elements inverted, the relative
-    Habiro ring and line bundle of which Nahm sums are sections, Remark 10.1 ($V^{univ}$), and the monodromy
-    argument identifying the étale realisation with the cyclic quantum dilogarithm;
-  - Lecture 12 gains the explicit étale $\mathbb Z[t]$-algebra with $\delta=z+a(1-z)$.
+    étale realisations briefly. The 6 Mar version has the ring (10.1) with those elements inverted, the stated aim
+    of a relative Habiro ring and line bundle of which Nahm sums are sections (no construction is given), Remark
+    10.1 ($V^{univ}$), and the monodromy argument identifying the étale realisation with the cyclic quantum
+    dilogarithm. The realisation maps are specialised from $N$ variables to one;
+  - Lecture 12 gains the explicit étale $\mathbb Z[t]$-algebra with $\delta=z+a(1-z)$, and its tilt index is corrected to
+    $t^{1/p^m}$.
 
-  Nothing of mathematical substance is lost.
+  Besides the middle term of Theorem 6.19, the content lost across the versions is the correct comparison ring
+  of Proposition 3.3 (1 Dec → 4 Feb) and, informally, the $N$-variable realisation maps of Lecture 10.
 - The campaign library copy has the same text as 6 Mar 2025.
 
 The plan uses the 6 March 2025 version throughout.
@@ -142,14 +154,21 @@ These are cited by the sources above for steps the roadmaps adopt.
   his Theorem 10.6 (RS.2).
 - B. Bhatt, J. Lurie, *The prismatization of p-adic formal schemes* (arXiv:2201.06124), for the relative
   prismatic comparison used by RS.1 through PR.5.
-- M. Kontsevich, Y. Soibelman (cohomological Hall algebras), for GSWZ Theorem 6. GSWZ cite
-  "[KS, Sec. 6.1, Thm. 9]" and "[Efimov]"; the Efimov paper in the library is the rigidity paper, not the
-  integrality paper, so the correct Efimov reference must be fetched.
-- H. Rademacher, E. Grosswald, *Dedekind sums*, for $D_{\zeta_m}(1)^{24m}=m^{12m}$ (GSWZ proof of Lemma 2.12).
+- M. Kontsevich, Y. Soibelman, *Cohomological Hall algebra, exponential Hodge structures and motivic
+  Donaldson–Thomas invariants*, Commun. Number Theory Phys. 5 (2011), and A. Efimov, *Cohomological Hall algebra
+  of a symmetric quiver*, Compos. Math. 148 (2012) 1133–1146, for GSWZ Theorem 6. GSWZ cite "[KS, Sec. 6.1,
+  Thm. 9]" and "[Efimov]"; the Efimov paper in the library is the rigidity paper, not this one. GSWZ also give an
+  alternative proof, which HB.8 follows.
+- H. Rademacher, E. Grosswald, *Dedekind sums*, cited for $D_{\zeta_m}(1)^{24m}=m^{12m}$ (GSWZ proof of Lemma 2.12). The
+  identity also has a direct proof (§6.4, HB.8), which the blueprint uses.
 - C. Weibel, *The K-book*, Chapter VI, for $K_3(K_p;\mathbb Z_p)\cong H^1(K_p,\mathbb Z_p(2))$ (GSWZ proof of Theorem 9).
 - A. Besser, *Finite and p-adic polylogarithms*, Corollary 2.2 (GSWZ Proposition 3.2).
-- C. Zickert on the surjectivity of the extended Bloch group map, and Kashaev–Mangazeev–Stroganov, for GSWZ
-  Corollary 1.11(b).
+- For GSWZ Corollary 1.11(b): Suslin's surjection $K_3(K)\to B(K)$, which GSWZ cite through C. Zickert, *The
+  extended Bloch group and algebraic K-theory* (J. Reine Angew. Math. 704 (2015)), Eqn. (1.1); and the identity of
+  R. Kashaev, V. Mangazeev, Yu. Stroganov, *Star-square and tetrahedron equations in the Baxter–Bazhanov model*,
+  as used in CGZ.
+- The 2024 version of S. Meyer, F. Wagner, *Derived q-Hodge complexes and refined TC⁻*, whose Theorem 1.7 V5A4
+  Theorem 1.7 cites; version v4 (§1.3) has no such theorem (§8 item 24).
 - D. Clausen's computation of continuous K-theory of $\mathbb C$ (V5A2 Theorem 7.6): no written source was found
   (decision D6).
 - The *Analytic Stacks* lecture course of Clausen–Scholze (recordings). Rodríguez Camargo's notes are used as
@@ -193,16 +212,17 @@ $\mathcal P_R=\big(\prod_{\zeta\in\mu_\infty}R[\zeta][[x]]\big)^{\mathrm{Gal}(\m
   (orders prime to $\Delta$) and $\mathcal H_R|_\gamma$ are defined after the definition. The text after
   Definition 1.1 makes further claims, with proofs sketched:
   - for abelian $K$, $\mathcal H_R\cong\mathcal H_{\mathbb Z[1/\Delta]}\otimes R$ (footnote);
-  - $\mathcal H_R$ is a finite étale $\mathcal H_{\mathbb Z[1/\Delta]}$-algebra, finite projective of rank $[K:\mathbb Q]$;
-  - $(\mathcal H_R)^\wedge_p\cong\prod_{(m,p)=1}\widehat R_p[\zeta_m][[x]]\cong\mathcal H_{\widehat R_p}$ (eq. (habp));
+  - $\mathcal H_R$ is a finite étale $\mathcal H_{\mathbb Z[1/\Delta]}$-algebra, finite projective of rank $[K:\mathbb Q]$ (p. 7: "This
+    follows from the corresponding fact after $p$-completion");
+  - $(\mathcal H_R)^\wedge_p\cong\prod_{(m,p)=1}\widehat R_p[\zeta_m][[x]]\cong\mathcal H_{\widehat R_p}$ (eq. (eq.habp));
   - $\mathcal H_R=\mathcal P_R\cap\mathcal H_{\widehat R}$ (diagram (Hviapcomp)).
 - **Remark 1.2** (p. 7). $\mathcal H_R$ is not a domain. It is a product of domains indexed by the classes of
   $\mathbb N$ under $m\sim pm$ for $p\nmid\Delta$.
 
 **$K_3$-indexed modules.** Let $\varepsilon_m=c_{\zeta_m}^2:K_3(K)\to K(\zeta_m)^\times/(K(\zeta_m)^\times)^m$ be the
-CGZ unit (eq. (emdef), p. 7), $\chi^{-1}$-equivariant, and $D_p$ the Coleman–Besser–de Jeu $p$-adic regulator
-$K_3(K_p)\to K_p$.
-- **Definition 1.3** (pp. 8–9). Fix $\xi\in K_3(K)$ and a prime $p$. An *invertible $L_p(\xi)$-section* is a
+CGZ unit (eq. (emdef), numbered (16), p. 8), $\chi^{-1}$-equivariant, and $D_p$ the Coleman–Besser–de Jeu $p$-adic
+regulator $K_3(K_p)\to K_p$.
+- **Definition 1.3** (p. 9). Fix $\xi\in K_3(K)$ and a prime $p$. An *invertible $L_p(\xi)$-section* is a
   collection $f=(f_m(x))_{(m,p)=1}$ with $f_m\in\varepsilon_m(\xi)^{1/m}(\widehat R_p[\zeta_m]^\times+xK_p[\zeta_m][[x]])$ such that
   $\log\big(\varphi_p\widehat f(q^p)/\widehat f(q)^p\big)\in\prod_{(m,p)=1}\frac px\widehat R_p[\zeta_m][[x]]$. Here
   $\log\widehat f_m=D_p(\xi)/(m^2\log q)+\log f_m\in x^{-1}K_p[\zeta_m][[x]]$. $\mathcal H_{\widehat R_p,\xi}$ is the
@@ -212,7 +232,7 @@ $K_3(K_p)\to K_p$.
   $\mathcal H_{\widehat R_p}$.
 - **Definition 1.4** (p. 10). $\mathcal H_{R,\xi}$ consists of $f=(f_m)_{m\ge1}$ with $f_m\in\varepsilon_m(\xi)^{1/m}K[\zeta_m][[x]]$
   such that:
-  - $(f_m)_{(m,p)=1}\in\mathcal H_{\widehat R_p,\xi}$ for every $p$ (the text before the definition assumes $p$ prime to $6$);
+  - $(f_m)_{(m,p)=1}\in\mathcal H_{\widehat R_p,\xi}$ for every $p$ (the text after the definition assumes $p$ prime to $6$);
   - for all $\gamma\in\mathbb Z_{>0}$, $f(q^\gamma)^\gamma f(q^{-1})\in\mathcal H_{R[1/\gamma]}|_\gamma$ (eq. (eq:gluing)).
 - **Theorem 2** (p. 10). $\mathcal H_{R,0}=\mathcal H_R$. Multiplication gives canonical isomorphisms
   $\mathcal H_{R,\xi}\otimes_{\mathcal H_R}\mathcal H_{R,\xi'}\cong\mathcal H_{R,\xi+\xi'}$. Each $\mathcal H_{R,\xi}$ is invertible, and
@@ -276,7 +296,8 @@ $K_3(K_p)\to K_p$.
 - **Lemma 2.12** (p. 30). $\log\Phi^{\mathrm{FGI}}_{A,m}\in\frac{V^{\mathrm{FGI}}(t)}{m^2\log(1+x/\zeta_m)}-\frac12\log\delta^{\mathrm{FGI}}+\log U_m^{\mathrm{FGI}}+xS^{(m)}_{\mathbb Q}[[x]]$,
   with $\delta^{\mathrm{FGI}}\in S$ and $m^{Nm}(U_m^{\mathrm{FGI}})^{2m}\in S^{(m)}$.
 - **Lemma 2.13** (p. 31). Dwork quotients for $\mathcal S_{A,m,k}$ (FGIcong).
-- **Remark 2.14, Lemma 2.15** (p. 32). The $q$-difference equations of the FGI series.
+- **Remark 2.14** (p. 32). If $U^{\mathrm{FGI}}_m(t)$ is a $p$-unit, (dphiA2) lifts to $\log\Phi^{\mathrm{FGI}}_A(t^p,q^p)-p\log\Phi^{\mathrm{FGI}}_A(t,q)\in
+  x^{-1}S^{(m)}_p[\frac1p][[x]]$. **Lemma 2.15** (p. 32). The $q$-difference equations (PhiFGIAshift) of $t^k\mathcal S_{A,m,k}$.
 - **Lemma 2.16, Corollary 2.17** (pp. 34–35). WKB recursion.
 - **Theorem 8** (p. 35). $F_{A,m,k}(t^{1/m},q)=\mathcal S_{A,m,k}(t,q)$ at $q=\zeta_{mm'}+x$.
 - **Corollary 2.18** (p. 36). $V$ determines $A$.
@@ -314,35 +335,39 @@ $D_{m,\ell}=m^{2\ell-1}(\ell-1)!$, eq:poch.dml).
 - **Proposition 5.2** (p. 63). $H\in\iota(\mathbb H_R)$ if and only if $M_N^*(\gamma_{m,\ell,j})\equiv0\bmod D(N)$ for all $N$.
 - **Proposition 5.3** (p. 65). $\mathcal H_R=\{H\in\mathcal P_R:\varphi(H)\in\iota(\mathbb H_{\widehat R})\}=\mathcal P_R\cap\mathcal H_{\widehat R}$.
 - **Proposition 5.4** (p. 65). The Frobenius-twisted congruence criterion for $\mathcal H_R$.
-- Remark 5.5 (modules are not treated) and Examples 5.6–5.10 (pp. 65–70).
+- Remark 5.5 (modules are not treated). §5.3 (p. 65): Examples 5.6 (the Kontsevich–Zagier series in $\mathcal H_{\mathbb Z}$),
+  5.7 (elements of $\mathcal H_{\mathbb Z[1/2]}$ not in $\mathcal H_{\mathbb Z}$), 5.8 (the cubic field of discriminant $-23$, with and without
+  the Frobenius twist). §5.4 (p. 68): Examples 5.9–5.10, exotic Habiro-like elements whose fields vary with $m$;
+  the value in Example 5.9 is stated "only conjecturally", and Example 5.10 expects Ohtsuki congruences and
+  checks the first one, (363).
 
 ### 3.2 V5A2 notes (6 March 2025 version)
 
 | lecture | targets (locators are statement numbers; pages in Appendix A) |
 |---|---|
-| 1 (11 Oct 2024) | Def 1.1 ($q$-Pochhammer), Def 1.2 (Nahm sum), Prop 1.5 ($f_1=q^{-1/48}(-q^{1/2};q)_\infty$), Def 1.6 ($\mathcal H=\lim\mathbb Z[q]/(1-q^m)^n=\lim\mathbb Z[q]/(q;q)_n$) |
-| 2 (18 Oct 2024) | Table 1 ($q$-calculus), Props 2.1, 2.2, 2.5, Cor 2.6 ($(t;q)_\infty^{-1}=\sum t^n/(q;q)_n$), Prop 2.7 ($\log(t;q)_\infty$), Defs 2.8–2.9 (Bernoulli numbers, polylogarithms), Lemmas 2.10–2.12, Prop 2.13 (asymptotics of $(t;q)_\infty$ at $q=1$: $\exp(\mathrm{Li}_2(t)/h)\sqrt{1-t}\,O(h)$), Def 2.16, Lemmas 2.17–2.19 (Bernoulli polynomials), Prop 2.20 (asymptotics at $\zeta_m$ with the cyclic factor $\prod_i(1-\zeta_m^it)^{i/m}$) |
-| 3 (8 Nov 2024) | Prop 3.3 ($\mathcal H\cong\{(h_m):h_m=h_{pm}$ in $\mathbb Z_p[\zeta_m][[q-\zeta_m]]\cong\mathbb Z_p[\zeta_{pm}][[q-\zeta_{pm}]]\}$), Cor 3.4 ($\mathcal H\hookrightarrow\mathbb Z[[q-1]]$), Cor 3.5 ($\mathcal H\hookrightarrow\prod_m\mathbb Z[\zeta_m]$), Def 3.6 ($\mathcal H_{\mathcal O_K[1/\Delta]}$ with $\Delta=\mathrm{disc}(K)$: $h_m=\varphi_p(h_{pm})$ in $(\mathcal O_K)^\wedge_p[\zeta_m,1/\Delta][[q-\zeta_m]]$ for all $p\nmid\Delta$), Remarks 3.7–3.8 (uniqueness of Frobenius on finite étale algebras; abelian case; the expected $K_3(K)\to\mathrm{Pic}$) |
-| 4 (15 Nov 2024) | Lemma 4.1, Thm 4.2 ($\mathrm{Li}_2(e^h)+h\mathrm{Li}_1(e^h)$ well defined $\mathbb C\setminus2\pi i\mathbb Z\to\mathbb C/(2\pi i)^2\mathbb Z$), Def 4.3 (Bloch–Wigner), five-term relations (4.5)–(4.6), Prop 4.5 ($f_a(t,q)-f_a(qt,q)=tq^{a/2}f_a(q^at,q)$), Cor 4.6, Props 4.8, 4.10, Cor 4.11, Prop 4.12 ($V=-\mathrm{Li}_2(1-Z)-\frac a2\log^2Z$), Thm 4.13 ($f_a(t,q)\sim\exp(V(t^m)/(m^2h))\cdot O(h)$ at $\zeta_m$) |
+| 1 (11 Oct 2024) | Def 1.1 ($q$-Pochhammer), Def 1.2 (Nahm sum), Prop 1.5 (printed $f_1=q^{-1/48}(-q^{1/2};q)_\infty$; correct: $f_1=(-q^{1/2};q)_\infty$, §8 item 2), Def 1.6 ($\mathcal H=\lim\mathbb Z[q]/(1-q^m)^n=\lim\mathbb Z[q]/(q;q)_n$) |
+| 2 (18 Oct 2024) | Table 1 ($q$-calculus), Props 2.1, 2.2, 2.5, Cor 2.6 ($(t;q)_\infty^{-1}=\sum t^n/(q;q)_n$), Prop 2.7 ($\log(t;q)_\infty$), Defs 2.8–2.9 (Bernoulli numbers, polylogarithms), Lemmas 2.10–2.12, Prop 2.13 (asymptotics of $(t;q)_\infty$ at $q=1$: $\exp(\mathrm{Li}_2(t)/h)\sqrt{1-t}\,O(h)$), Def 2.16, Lemma 2.17 (Bernoulli polynomial identities), Lemma 2.18 (expansion of $t^\ell/(\ell(1-q^\ell))$ at $q=\zeta_me^h$), Lemma 2.19 ($m^{1-n}\mathrm{Li}_n(t^m)=\sum_i\mathrm{Li}_n(\zeta_m^it)$), Prop 2.20 (asymptotics at $\zeta_m$: $\exp(\mathrm{Li}_2(t^m)/(m^2h))\sqrt{1-t^m}/\prod_i(1-\zeta_m^it)^{i/m}\cdot O(h)$, printed with $\zeta_m$ for $\zeta_m^i$) |
+| 3 (8 Nov 2024) | Prop 3.3 ($\mathcal H\cong\{(h_m):h_m=h_{pm}$ in $\mathbb Z_p[\zeta_m][[q-\zeta_m]]\cong\mathbb Z_p[\zeta_{pm}][[q-\zeta_{pm}]]\}$; the printed $\cong$ is not an isomorphism, §8 item 3), Cor 3.4 ($\mathcal H\hookrightarrow\mathbb Z[[q-1]]$), Cor 3.5 ($\mathcal H\hookrightarrow\prod_m\mathbb Z[\zeta_m]$), Def 3.6 ($\mathcal H_{\mathcal O_K[1/\Delta]}$ with $\Delta=\mathrm{disc}(K)$: $h_m=\varphi_p(h_{pm})$ in $(\mathcal O_K)^\wedge_p[\zeta_m,1/\Delta][[q-\zeta_m]]$ for all $p\nmid\Delta$), Remarks 3.7–3.8 (uniqueness of Frobenius on finite étale algebras; abelian case) and the expectation after Remark 3.8 ($L(\xi)$, $K_3(K)\to\mathrm{Pic}$) |
+| 4 (15 Nov 2024) | Lemma 4.1, Thm 4.2 ($\mathrm{Li}_2(e^h)+h\mathrm{Li}_1(e^h)$ well defined $\mathbb C\setminus2\pi i\mathbb Z\to\mathbb C/(2\pi i)^2\mathbb Z$), Def 4.3 (Bloch–Wigner), Table 6 (symmetries (4.5) and the five-term relation (4.6)), Prop 4.5 ($f_a(t,q)-f_a(qt,q)=tq^{a/2}f_a(q^at,q)$), Cor 4.6, Props 4.8, 4.10, Cor 4.11, Prop 4.12 ($V=-\mathrm{Li}_2(1-Z)-\frac a2\log^2Z$), Thm 4.13 ($f_a(t,q)\sim\exp(V(t^m)/(m^2h))\cdot O(h)$ at $\zeta_m$) |
 | 5 (22 Nov 2024) | Def 5.1 (admissible), Prop 5.3, Def 5.4 (λ-ring), Def 5.5 (plethystic exponential), Thm 5.6 (Kontsevich–Soibelman, Efimov: $\sum(-1)^{an}q^{\frac12an^2-\frac12an}t^n/(q;q)_n$ is admissible), Examples 5.7–5.8 |
 | 6 (29 Nov 2024) | Def 6.1 (Dedekind zeta), Def 6.2, Thm 6.3 (class number formula), Thm 6.4 (Dirichlet), Def 6.5 (regulator), Def 6.9 ($K$-theory anima), Def 6.11, Thm 6.13 (Borel ranks), Def 6.14 (Borel regulator), Thm 6.16, Defs 6.17–6.18 (pre-Bloch and Bloch groups), Thm 6.19 (Bloch: $K_3(K)\otimes\mathbb Q\cong B(K)$, Borel regulator = Bloch–Wigner) |
 | 7 (6 Dec 2024) | Prop 7.1 (group completion), Def 7.3 (condensed sets), Def 7.5 (continuous $K$-theory anima), Thm 7.6 (Clausen: $\pi_iK^{\mathrm{cont}}(\mathbb C)=\mathbb Z$, $\mathbb C/(2\pi i)^n\mathbb Z$ for $i=2n-1$, $0$ else), Remark 7.7 (liquid/gaseous) |
 | 8 (13 Dec 2024) | Props 8.1–8.6 (the $\mathbb P^1(F)$ resolution and spectral sequence proving Bloch's theorem rationally), Remark 8.7; Appendix A (the spectral sequence diagrams) |
-| 9 (20 Dec 2024) | Def 9.1 (relative $K$-theory $K(R/\mathbb Z[M])=K(R)\otimes_{\mathbb S[*/M]}\mathbb S$), Remarks 9.2–9.4 (log version), Example 9.5, relative motivic cohomology $\mathbb Q(2)(R/\mathbb Z[t^{\pm}])$, the universal dilogarithm, Prop 9.6 ($\mathrm{Li}_2^{univ}(t)=-\mathrm{Li}_2^{univ}(1-t)$), Remark 9.7 |
-| 10 (17 Jan 2025) | the relative Habiro ring for the Nahm ring over $\mathbb Z[t_1,\dots,t_N]$ (10.1); Remark 10.1 ($V^{univ}\in H^1(\mathbb Z(2)(R/\mathbb Z[t]))$ with $\nabla^{\log}_{t_i}V^{univ}=z_i$); de Rham, Betti and étale realisations; the étale realisation of $\mathrm{Li}_2^{univ}$ is $\prod_i(1-\zeta_m^it)^{i/m}$, recovering the CGZ cyclic dilogarithm |
-| 11 (24 Jan 2025) | three methods for asymptotics; Prop 11.2 (Poisson/theta), Thm 11.3 (the $q$-difference equation of $f_a$ has a unique solution $\equiv1\bmod t$ in the line bundle $L_m$ over $R_m[[h]]$) |
-| 12 (31 Jan 2025) | the étale $\mathbb Z[t]$-algebra $R=\mathbb Z[t,z,1/\delta]/(1-z-(-1)^atz^a)$ with $\delta=z+a(1-z)$, $R_m=R[\zeta_m,t^{1/m}]$, $S_m=R_m[\frac12,\sqrt\delta]$; Thm 12.1 ($g_{a,m}(t^{1/m},q)\in\frac{\sqrt\delta}{\sqrt[m]{\varepsilon_m}}R_m[\frac1m][[\varepsilon]]\subseteq\frac{\sqrt\delta}{\sqrt[m]{\varepsilon_m}}S_m[\frac1m][[\varepsilon]]$, with $\varepsilon_m\in H^1(R_m,\mu_m)$ the mod-$m$ regulator of $V^{univ}$, and the line bundles $L_m$, $L'_m$), Prop 12.3 (the line bundle $L_1$ over $\widehat R[1/p][[q-1]]$ cut out by the Dwork condition), Thm 12.4 ($g_{a,1}\in\sqrt\delta\,\widehat R[1/p][[q-1]]$, from admissibility), Thm 12.5 (base change of $L_1$ recovers $L_m$), Thm 12.6 (recovers the asymptotics); aspiration: $S$-families of shtukas over $\operatorname{Spec}\mathbb Z\times S$ |
+| 9 (20 Dec 2024) | Def 9.1 (relative $K$-theory $K(R/\mathbb Z[M])=K(R)\otimes_{\mathbb S[*/M]}\mathbb S$), Remarks 9.2–9.4 (group rings; log version; homotopy orbits), Example 9.5, relative motivic cohomology $\mathbb Q(2)(R/\mathbb Z[t^{\pm}])$, the universal dilogarithm, Prop 9.6 ($\mathrm{Li}_2^{univ}(t)=-\mathrm{Li}_2^{univ}(1-t)$), Remark 9.7 |
+| 10 (17 Jan 2025) | the Nahm ring $R$ over $\mathbb Z[t_1,\dots,t_N]$ with $\Delta$ and $z_i(1-z_i)$ inverted (10.1), and the stated aim (no construction) of a relative Habiro ring and line bundle containing the Nahm sums; Remark 10.1 ($V^{univ}\in H^1(\mathbb Z(2)(R/\mathbb Z[t]))$ with $\nabla^{\log}_{t_i}V^{univ}=z_i$); de Rham, Betti and étale realisations; the étale realisation of $\mathrm{Li}_2^{univ}$ is $\prod_i(1-\zeta_m^it)^{i/m}$ (printed with $\zeta_m$), recovering the CGZ cyclic dilogarithm |
+| 11 (24 Jan 2025) | $a\in\mathbb N$ even throughout; three methods for asymptotics; Prop 11.2 (Poisson/theta), Thm 11.3 (the $q$-difference equation of $f_a$ has a unique solution $\equiv1\bmod t$ in the line bundle $L_m$ over $R_m[[h]]$) |
+| 12 (31 Jan 2025) | the étale $\mathbb Z[t]$-algebra $R=\mathbb Z[t,z,1/\delta]/(1-z-(-1)^atz^a)$ with $\delta=z+a(1-z)$, $R_m=R[\zeta_m,t^{1/m}]$, $S_m=R_m[\frac12,\sqrt\delta]$; Thm 12.1 ($g_{a,m}(t^{1/m},q)\in\frac{\sqrt\delta}{\sqrt[m]{\varepsilon_m}}R_m[\frac1m][[\varepsilon]]\subseteq\frac{\sqrt\delta}{\sqrt[m]{\varepsilon_m}}S_m[\frac1m][[\varepsilon]]$, with $\varepsilon_m\in H^1(R_m,\mu_m)$ the mod-$m$ regulator of $V^{univ}$, and the line bundles $L_m$, $L'_m$), Prop 12.3 (the line bundle $L_1$ over $\widehat R[[q-1]]$, canonically trivialised over $\widehat R[1/p][[q-1]]$, cut out by the Frobenius condition on $\log g_{a,1}$), Example 12.2 (a tilt; D6), Thm 12.4 ($g_{a,1}\in\sqrt\delta\,\widehat R[1/p][[q-1]]$, from admissibility), Thm 12.5 (base change of $L_1$ recovers $L_m$), Thm 12.6 (recovers the asymptotics); aspiration: $S$-families of shtukas over $\operatorname{Spec}\mathbb Z\times S$ |
 
 ### 3.3 V5A4 notes
 
 | lecture | targets |
 |---|---|
-| 1 (11 Apr 2025) | Ex 1.1 ($q$-de Rham prism $(\mathbb Z_p[[q-1]],[p]_q)$); Conj 1.2 (attributed to [Sch17, Conj 1.1]: for smooth $R$ with étale $\operatorname{Spec}R\to\mathbb A^d$, a cohomology theory for smooth proper $R$-varieties valued in finitely generated $R[[q-1]]$-modules with $q$-connection, reducing to de Rham with Gauss–Manin at $q=1$); Thm 1.3 (Wagner [Wag24, Thm 1.7]); Examples 1.4 (Legendre family), 1.5 ($q$-hypergeometric); Remark 1.6; Thm 1.7 (Meyer–Wagner [MW24, Thm 1.7]); **Thm 1.8 (Scholze): an explicit ring stack over an analytic version of the Habiro ring yields a full six-functor formalism**; Remark 1.9 |
+| 1 (11 Apr 2025) | Ex 1.1 ($q$-de Rham prism $(\mathbb Z_p[[q-1]],[p]_q)$); Conj 1.2 (attributed to [Sch17, Conj 1.1]: for smooth $R$ with étale $\operatorname{Spec}R\to\mathbb A^d$, a cohomology theory for smooth proper $R$-varieties valued in finitely generated $R[[q-1]]$-modules with $q$-connection, reducing to de Rham with Gauss–Manin at $q=1$); Thm 1.3 (Wagner [Wag24, Thm 1.7]); Examples 1.4 (Legendre family), 1.5 ($q$-hypergeometric); Remark 1.6; Thm 1.7 (Meyer–Wagner [MW24, Thm 1.7], a locator in the 2024 version; the statement is the case $A=\mathbb Z_p$ of Wagner v2 Theorem 4.22(b), §8 item 24); **Thm 1.8 (Scholze): an explicit ring stack over an analytic version of the Habiro ring yields a full six-functor formalism**; Remark 1.9 |
 | 2 (2 May 2025) | Def 2.1 (framed algebra: étale map to $\mathbb A^d$ or $\mathbb G_m^d$), Def 2.3 ($q$-derivative), Remarks 2.4–2.5, Lemma 2.6 (twisted Leibniz), Def 2.7 ($q$-de Rham complex), Def 2.10 (modified $q$-derivative), Def 2.12 ($q$-Hodge complex), Def 2.15 ($q$-connection), Ex 2.17 (Weyl algebra), Def 2.18 (modified $q$-connection), Remark 2.20, Cor 2.21 (modified $q$-connections on the torus = commuting $\gamma_i$-semilinear $\gamma_{i,M}$), Props 2.22 (symmetric monoidal), 2.23 (fully faithful on $(q-1)$-torsion-free modules), Question 2.24, Ex 2.25 (modified $q$-connections = $\mathrm{QCoh}((\mathbb G_m/q^{\mathbb Z})^d)$), Prop 2.26 ($q\Omega$ and $q\mathrm{Hdg}$ compute $R\mathrm{Hom}(1,1)$), Ex 2.27, Cor 2.28 ($E_\infty$ structures) |
 | 3 (9 May 2025) | Defs 3.1–3.2 (logarithmic $q$-derivatives), Ex 3.4, Lemma 3.5 (étale algebras over $\mathbb Z[q^{\pm}][T^{\pm}]/(q-1)^n$), Thm 3.6 (BS22 §16; Wagner Thm 1.5: coordinate independence of $q\Omega$ over $R[[q-1]]$), Ex 3.7, Prop 3.8 and Cor 3.9 (over $\mathbb Q$: $q$-connections = connections), Def 3.10 ($h$-connections), Prop 3.12, Cor 3.14, Examples 3.16–3.18, Def 3.19 ($R^{(m)}=R\otimes_{\mathbb Z[T^{\pm}]}\mathbb Z[\zeta_m][T^{\pm1/m}]$), Ex 3.20, Def 3.21 ($R_m=(R^{(m)}[q^{\pm}])^\wedge_{\Phi_m}$), (3.1) Frobenius gluing, Def 3.23 ($\mathcal H_{\mathbb Z[T^{\pm}]}$) |
 | 4 (23 May 2025) | Def 4.1 ($\mathcal H_{(R,\square)}=\lim R_n$), Def 4.2, Prop 4.3 (Taylor description of $\mathcal H_{(R,\square)}$ with $\varphi_p(f_{pm})=f_m$), Remark 4.4, Ex 4.5 ($q$-multinomial element; proof in App. A), Def 4.6 ($q$-Habiro–Hodge complex: Koszul complex of $\gamma_i-1$ on $\mathcal H_{(R,\square)}$), (4.3), Remark 4.7 (Bockstein), Thm 4.8 ([Wag22, Prop 5.7]: $W_m(R)[q]/(1-q^m)\twoheadrightarrow H^0(q\mathrm{Hdg}_{(R,\square)}/(1-q^m))$, inducing a coordinate-independent surjection from the de Rham complex of $W_m(R)[q]/(1-q^m)$), Thm 4.9 ([Wag22, Thm 5.7]: $q\text{-}W_m\Omega^\bullet_R\cong H^\bullet(q\mathrm{Hdg}_{(R,\square)}/(1-q^m))$), Remarks 4.10–4.11, Ex 4.12 (torus), Prop 4.13 ($W_p(R)\hookrightarrow H^0(\dots/(1-q^p))$ for $R=\mathbb Z[T^{\pm}]$), Remark 4.14, Prop 4.15 (ghost square), Remarks 4.16–4.17 |
 | 5 (30 May 2025) | Ex 5.1, Prop 5.2 (rational: $\Omega^\bullet_{R\otimes\mathbb Q(\zeta_d)}\cong H^\bullet(q\mathrm{Hdg}_{(R,\square)}\otimes\mathbb Q(\zeta_d))$), Prop 5.3 (torsion-freeness and injection into $\prod_{d\mid m}$), Thm 5.4 (Wagner: the image is $q\text{-}W_m\Omega^i$), Remarks 5.5–5.6, **Thm 5.7 (Wagner [Wag24, Thm 5.1], variant: no functor $\mathrm{Alg}^{sm}_{\mathbb Z}\to\mathrm{CAlg}(D(\mathbb Z[q^{\pm}]))$ with (i) $q\mathrm{Hdg}_R\simeq(\mathcal H_{(R,\square)})^{h\mathbb Z^d}$ for all étale framings and (ii) $H^0\otimes\mathbb Q(\zeta_d)\cong R\otimes\mathbb Q(\zeta_d)$)**, Remarks 5.8–5.10, Lemma 5.11 ($L_{R/\mathbb F_p}=0$ for perfect $R$), Lemma 5.12, Cor 5.13, Prop 5.14, proof with $R=\mathbb Z_p\langle t^{1/p^\infty}\rangle/(t-p)$ |
-| 6 (20 Jun 2025) | Conj 6.1 (Wagner: symmetric monoidal functor on smooth $R$ with $1/d!\in R$ to $D(\mathcal H)$ with (i), (ii)), Remark 6.2, Def 6.3 (THH), Conj 6.4 and Thm 6.5 (Devalapurkar), Examples 6.6–6.9 (ku-lifts, genuine fixed points, refined THH, bad primes), **Examples 6.10–6.11 (transmutation: $D_{\mathrm{Hab}}(X)\simeq D_{qc}(X^{\mathrm{Hab}})$, $\mathbb G_m^{\mathrm{Hab}}=\mathbb G_{m,\mathcal H}/q^{\mathbb Z}$), Prop 6.12 (functors commuting with finite limits and gluing are determined by $F(\mathbb A^1)$), Remarks 6.13–6.14** |
+| 6 (20 Jun 2025) | Conj 6.1 (Wagner: symmetric monoidal functor on smooth $R$ with $1/d!\in R$ to $D(\mathcal H)$ with (i), (ii)), Remark 6.2, Def 6.3 (THH), Conj 6.4 and Thm 6.5 (Devalapurkar), Examples 6.6–6.7 (ku-lifts; the unnumbered text around them treats genuine fixed points and refined THH), Remarks 6.8–6.9 (primes that are not inverted; bad primes), **Examples 6.10–6.11 (transmutation: $D_{\mathrm{Hab}}(X)\simeq D_{qc}(X^{\mathrm{Hab}})$, $\mathbb G_m^{\mathrm{Hab}}=\mathbb G_{m,\mathcal H}/q^{\mathbb Z}$), Prop 6.12 (functors commuting with finite limits and gluing are determined by $F(\mathbb A^1)$), Remarks 6.13–6.14** |
 | 7 (4 Jul 2025) | $(-)^{\mathrm{Hab}}:\mathrm{Sch}^{sft}_{\mathbb Z}\to\mathrm{AnStk}_{\mathcal H^{\mathrm{an}}}$ and its extension to Berkovich spaces via normed ring stacks; Remark 7.1, Examples 7.2–7.3 ($\mathbb Z((u))_\square$), Defs 7.4–7.6 (overconvergent functions, discs, $\mathbb A^{1,\mathrm{an}}$), Remark 7.7, **Def 7.8 ($\mathcal H^{\mathrm{an}}$)**, Remark 7.9, Lemma 7.10 ($\mathcal H\to\mathcal H^{\mathrm{an}}$), Prop 7.11 (Habiro cohomology of $D_0(1)^\dagger$ is trivial), **Def 7.12 ($(\mathbb G_m)^{\mathrm{Hab}}=\mathbb G^{\mathrm{an}}_{m}/G$)**, Remark 7.13, Lemma 7.14 (full faithfulness), Ex 7.15 ($B_1$; $\mathcal H^{\mathrm{an}}\ne0$), Remark 7.16 ($B_m$; $\mathcal H^{\mathrm{an}}/p\ne0$; $q$-divided powers fail) |
 | 8 (11 Jul 2025) | the variant without condition (ii); Lemma 8.1 ($G$ at $\zeta_m$); Ex 8.2 ($q=1$: the analytic de Rham stack; expected specialisations); Ex 8.3 ($(-1)^{\mathrm{Hab}}=q^{1/2}$); **Def 8.4 ($1-_{\mathrm{Hab}}x$)**; Cartier duality; the ring stack with $x-y=x(1-y/x)$ and associativity via the five-term relation; Remark 8.5; Ex 8.6 ($1+_{\mathrm{Hab}}1$) |
 | App. A–B | Lemma A.1 (Ex 4.5); Thm B.1 (Dold–Kan), Def B.2 (cotangent complex), Defs B.3–B.8 (animation), Ex B.7, B.10, Remark B.9, Prop B.11 |
@@ -413,7 +438,10 @@ Each declaration below was read in its source file at the pinned commits. Line n
   - `TauCeti/RingTheory/Cyclotomic/{Lift,Conjugation}.lean` and `TauCeti/NumberTheory/Cyclotomic/*`
     (irreducibility, automorphisms, fixed fields).
 - Missing: cyclotomic resultants $\mathrm{Res}(\Phi_m,\Phi_n)$ and the comaximality lemma $\mathbb Z[q]/(\Phi_m,\Phi_n)$ (HC.4 owns
-  them); `Polynomial.resultant` exists in general (`Mathlib/RingTheory/Polynomial/Resultant/Basic.lean`).
+  them). The general tools exist: `Polynomial.resultant` (`Mathlib/RingTheory/Polynomial/Resultant/Basic.lean`, l. 134) with
+  `Polynomial.exists_mul_add_mul_eq_C_resultant` (l. 874: the resultant lies in the ideal $(f,g)$), and Tau Ceti's
+  `AdjoinRoot.norm_mk_eq_resultant` (`TauCeti/RingTheory/Polynomial/Resultant/AdjoinRoot.lean`, l. 284: for monic $g$ the
+  norm of $p$ in `AdjoinRoot g` is $\mathrm{Res}(g,p)$).
 
 **Completions** (Mathlib).
 - `Mathlib/RingTheory/AdicCompletion/Basic.lean`: `IsHausdorff` (l. 46), `IsPrecomplete` (l. 50), `IsAdicComplete`
@@ -424,19 +452,26 @@ Each declaration below was read in its source file at the pinned commits. Line n
 - `Completeness.lean`: `AdicCompletion.isAdicComplete` (l. 184, finitely generated ideal).
 - `Mathlib/Topology/Algebra/TopologicallyNilpotent.lean`: `IsTopologicallyNilpotent`.
 - Also `IsLinearTopology`, `Ideal.adicTopology` and `UniformSpace.Completion`.
+- Lifting into complete rings: `Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete`
+  (`Mathlib/RingTheory/Smooth/AdicCompletion.lean`, l. 94, a `public` lemma absent from the declaration index).
 - Missing: completion at a multiplicative *directed family* of ideals such as $\{(q;q)_n\}$ or $\{\Phi_d\}$ (HC.1),
   derived completion (DD.1), Habiro completion (HR.2).
 
 **Power series** (Mathlib, `Mathlib/RingTheory/PowerSeries/`).
 - `PowerSeries`.
-- `Substitution.lean`: `HasSubst`, `subst` (l. 158), `substAlgHom` (l. 171). Substitution needs a topologically
-  nilpotent argument; this is the tool for re-expansion $x\mapsto x+\zeta_{pm}-\zeta_m$.
-- `Evaluation.lean`: `HasEval`, `eval₂`, `aeval`.
+- `Substitution.lean`: `HasSubst` (l. 40), `subst` (l. 158), `substAlgHom` (l. 171). `HasSubst a` is nilpotence of the
+  constant coefficient of $a$ (coefficients carry the discrete topology), and `subst` returns $0$ otherwise, so it
+  cannot perform the re-expansion $x\mapsto x+\zeta_{pm}-\zeta_m$.
+- `Evaluation.lean`: `HasEval` (l. 61, topological nilpotence), `eval₂`, `eval₂Hom`, `aeval` (into complete, separated,
+  linearly topologised rings). This is the tool for re-expansion; `MvPowerSeries.LinearTopology.isTopologicallyNilpotent_of_constantCoeff`
+  (`Mathlib/RingTheory/MvPowerSeries/LinearTopology.lean`, l. 147) supplies topological nilpotence of $X+C(c)$.
 - `rescale`, `expand`, `derivative`, `exp` (`Exp.lean`, l. 49), `log` (`Log.lean`, l. 50), `IsRestricted`,
   `WithPiTopology`, `MvPowerSeries.subst`, `LaurentSeries`.
 - `Polynomial.hasseDeriv` (`Mathlib/Algebra/Polynomial/HasseDeriv.lean`, l. 59).
 - Bernoulli: `bernoulli` (`Mathlib/NumberTheory/Bernoulli.lean`, l. 195), `Polynomial.bernoulli`.
 - Tau Ceti `RingTheory/Huber/{LaurentSeries,Restricted,WeightedRestrictedSeries}`.
+- Nearest $q$-product material: `Pentagonal.tprod_one_sub_pow` (`Mathlib/Combinatorics/Enumerative/Pentagonal/Ring.lean`,
+  l. 146, `public`, absent from the index).
 
 **Witt vectors and δ-rings.**
 - Mathlib has only $p$-typical Witt vectors:
@@ -447,10 +482,12 @@ Each declaration below was read in its source file at the pinned commits. Line n
   - `teichmuller` (`Teichmuller.lean`, l. 93);
   - `TruncatedWittVector` (`Truncated.lean`, l. 62);
   - `WittVector.isAdicCompleteIdealSpanP` (`Complete.lean`, l. 116).
-- No big Witt vectors, no truncation sets, no δ-rings, no Λ-/λ-rings and no Adams operations. The
-  documentation of `BinomialRing` (`Mathlib/RingTheory/Binomial.lean`, l. 76) records the λ-ring connection only
-  as a TODO. `DividedPowers` (`Mathlib/RingTheory/DividedPowers/Basic.lean`, l. 78) exists.
-- Tau Ceti has no Witt vectors of rings (only Witt groups of quadratic forms) and no δ-rings.
+- No big Witt vectors, no truncation sets, no δ-rings, no Λ-/λ-rings and no Adams operations. The module
+  documentation of `Mathlib/RingTheory/Binomial.lean` (TODO, ll. 56–59; the class `BinomialRing` is at l. 76) records the
+  λ-ring connection only as a TODO, and `Mathlib/RingTheory/Polynomial/Dickson.lean` (l. 115) notes that Mathlib has no
+  Λ-rings. `DividedPowers` (`Mathlib/RingTheory/DividedPowers/Basic.lean`, l. 78) exists.
+- Tau Ceti has no Witt vectors of rings and no δ-rings. (Its `Witt` files are Witt's cancellation, decomposition and
+  extension theorems for quadratic forms, `TauCeti/LinearAlgebra/QuadraticForm/Witt/*`.)
 
 **$q$-analogues.**
 - Absent. The TODO of `Mathlib/RingTheory/Polynomial/Pochhammer.lean` lists "q-factorials, q-binomials,
@@ -469,10 +506,11 @@ Each declaration below was read in its source file at the pinned commits. Line n
   `CyclotomicField`, `PadicInt`, `Padic`. Tau Ceti: `RingTheory/Frobenius.lean`, `NumberTheory/NumberField/Frobenius.lean`.
 
 **Condensed mathematics** (Mathlib, `Mathlib/Condensed/`).
-- `CondensedSet` (`Basic.lean`, l. 51); `CondensedMod`, `CondensedAb`.
+- `CondensedSet` (`Basic.lean`, l. 51); `CondensedMod`, `CondensedAb` (`Module.lean`, ll. 40, 61).
 - `LightCondensed`/`LightCondSet` (`Light/Basic.lean`, ll. 28, 35).
 - `LightCondMod` (`Light/Module.lean`, l. 42), `LightCondAb` (l. 85) and the free–forgetful adjunction (l. 73).
-- Monoidal and closed structure on light condensed modules (`Light/Monoidal.lean`, ll. 29–53).
+- Monoidal, symmetric and closed structure on light condensed modules over a commutative ring (`Light/Monoidal.lean`,
+  ll. 35–62; `MonoidalClosed (LightCondMod R)` at l. 56).
 - `CountableAB4Star` and `IsGrothendieckAbelian` instances (`Light/AB.lean`, ll. 31, 35).
 - Epimorphism criteria (`Light/Epi.lean`).
 - `internallyProjective_iff_tensor_condition` (`Light/InternallyProjective.lean`).
@@ -486,9 +524,12 @@ Each declaration below was read in its source file at the pinned commits. Line n
 - Tau Ceti has no condensed material.
 
 **Stacks and derived categories.**
-- Mathlib: `Pseudofunctor.IsStack` and descent data (`Mathlib/CategoryTheory/Sites/Descent/IsStack.lean`);
+- Mathlib: `Pseudofunctor.IsStack` (`Mathlib/CategoryTheory/Sites/Descent/IsStack.lean`, l. 49) and
+  `Pseudofunctor.DescentData` (`DescentData.lean`, l. 59);
   `DerivedCategory` (`Mathlib/Algebra/Homology/DerivedCategory/Basic.lean`, l. 87) with t-structures;
-  `Pretriangulated`; `SSet.Quasicategory` (basic only); `Algebra.Extension.cotangentComplex` (the naive complex);
+  `Pretriangulated`; `SSet.Quasicategory` with inner fibrations, nerves, strict Segal and 2-truncated quasicategories
+  (`Mathlib/AlgebraicTopology/Quasicategory/`), `CategoryTheory.SimplicialNerve`, model categories and Dold–Kan;
+  `Algebra.Extension.cotangentComplex` (the naive complex);
   `AlgebraicGeometry.Scheme`.
 - No ∞-categorical derived categories, no algebraic stacks, no ring stacks, no six-functor formalisms.
 - Tau Ceti: `TauCeti.ExactStructure` (`TauCeti/CategoryTheory/Exact/ExactStructure.lean`) and split $K_0$. No
@@ -498,8 +539,10 @@ Each declaration below was read in its source file at the pinned commits. Line n
 - No prisms, prismatic cohomology or perfectoid rings.
 - Present: Huber rings (`TauCeti/RingTheory/Huber/*`, e.g. `IsHuberRing`, pairs of definition, Tate rings,
   pseudo-uniformizers, restricted and weighted restricted series, Laurent series), adic spectra
-  (`TauCeti/AlgebraicGeometry/AdicSpace/*`: `Spa`, valuation spectra), and roots of unity.
-- Mathlib supplies `PreTilt` and `WittVector.fontaineThetaModPPow`, the start of $A_{\inf}$.
+  (`TauCeti/AlgebraicGeometry/AdicSpace/*`: `TauCeti.ValuationSpectrum.spa` in `Spa/Basic.lean`, l. 97, and valuation
+  spectra), and roots of unity.
+- Mathlib supplies `PreTilt`, `WittVector.fontaineThetaModPPow` and `WittVector.fontaineTheta`
+  (`Mathlib/RingTheory/Perfectoid/FontaineTheta.lean`, l. 165), and `BDeRhamPlus`.
 
 ### 4.2 The chain, layer by layer
 
@@ -513,7 +556,8 @@ Each object is listed with its source locator and its owner stage.
 - The $q$-toolkit — HC.1, as enlarged in §6.1:
   - $q$-integers, $q$-factorials, $q$-binomial and $q$-multinomial coefficients;
   - finite and infinite Pochhammer symbols $(x;q)_n$, $(x;q)_\infty$;
-  - the $q$-binomial theorem and Euler identities (V5A2 Cor 2.6);
+  - the $q$-binomial theorem and Euler's identities: $(t;q)_\infty^{-1}=\sum t^n/(q;q)_n$ (V5A2 Cor 2.6, via Props 2.2 and 2.5)
+    and $(t;q)_\infty=\sum(-1)^nq^{\binom n2}t^n/(q;q)_n$ (in $t$-deformed form in the proof of V5A2 Prop 1.5);
   - $\log(t;q)_\infty$ (V5A2 Prop 2.7; GSWZ (logpoc));
   - Jackson $q$-derivatives;
   - plethystic exponential and Adams operations on $\mathbb Z((q))[[t]]$ (V5A2 Defs 5.4–5.5).
@@ -574,25 +618,27 @@ Each object is listed with its source locator and its owner stage.
 
 **L7 — Nahm sums and admissibility.**
 - Nahm equations and Bloch classes — HB.3.
-- Root-of-unity asymptotics: V5A2 L2 Props 2.13, 2.20; L4 Thm 4.13; CGZ Thm 7.1 — HB.4 (and HB.2 for the
-  cyclic factor).
+- Formal asymptotics of $(t;q)_\infty$ at roots of unity: V5A2 L2 Props 2.13, 2.20 — HB.2. Root-of-unity asymptotics of Nahm
+  sums: V5A2 L4 Thm 4.13, CGZ Thm 7.1 — HB.4.
 - Modular functions at cusps — HB.5a. The Nahm implication (CGZ Thm 7.5) — HB.5.
 - Admissible and $m$-admissible series, formal Gaussian integration, Theorems 3, 4, 6, 7, 8 — HB.8.
-- Theorem 5 and Corollaries 1.10–1.11 — HB.9. The V5A2 L10–L12 relative reformulation — HB.9 (decision D5).
+- Theorem 5 and Corollaries 1.10–1.11 — HB.9. The explicit statements of V5A2 L11–L12 — HB.9, with the units and line
+  bundles realised as in §6.4 (decision D5).
 - Theorems 11–12 and the examples — HB.10.
 
 **L8 — $q$-de Rham–Witt complexes and framed complexes** (owner `QWittVectors`).
 - $q$-V- and $q$-FV-systems, $q\text{-}W_m\Omega^*_{R/A}$, Frobenii, étale base change (Wagner v5 §3) — QW.5.
 - Framed $q$-de Rham and $q$-Hodge complexes $q\Omega^*_{R/A,\square}$, $q\mathrm{Hdg}^*_{R/A,\square}$ (Wagner v5 4.7; V5A4
   Defs 2.1–2.12, 3.1–3.2) and Theorem 4.27 — QW.6.
-- Animated $q$-dRW, Nygaard filtrations (Wagner v2 3.21–3.31) and the no-go Theorem 5.1 — QW.7.
+- Animated $q$-dRW, Nygaard and Hodge$_m$ filtrations (Wagner v2 3.21, 3.23–3.28, the construction opening §3.5, 3.30–3.31)
+  and the no-go Theorem 5.1 — QW.7.
 
 **L9 — algebraic Habiro cohomology** (owner `HabiroCohomologyFoundations`).
 - $q$-connections and modified $q$-connections (V5A4 L2–L3) — HQ.1.
 - The global $q$-de Rham functor $q\Omega_{-/A}$ over $A[[q-1]]$ (Wagner v2 Thm A.1; Sch17 Conj 1.1/3.1; BS22 §16
   $p$-adically via PR.6) — HQ.1.
 - Derived $q$-de Rham $q\mathrm{dR}_{-/A}$ (Wagner v2 1.6, 3.6) and the twisted complexes $q\Omega^{(m)}$ with their
-  Nygaard filtrations (3.14–3.22) — HQ.2.
+  Nygaard filtrations (3.14–3.20, Proposition 3.22, Lemma 3.29) — HQ.2.
 - $q$-Hodge filtrations (Def 3.2), the Habiro–Hodge complex $q\mathrm{Hdg}_{-/A}$ and Theorem 3.11 (with §§3.5–3.7) —
   HQ.3.
 - The framed Habiro ring $\mathcal H_{(R,\square)}$, the $q$-Habiro–Hodge complex (V5A4 Defs 3.19–4.6) and V5A4
@@ -647,15 +693,15 @@ Each object is listed with its source locator and its owner stage.
 | derived $q\mathrm{dR}$, $q$-Hodge filtrations, Habiro–Hodge complex $q\mathrm{Hdg}_{-/A}$ | Wagner v2 1.6, 3.2, 3.11 | HQ.2–HQ.3 |
 | $q$-Habiro–Hodge complex of a framed algebra | V5A4 Def 4.6 | HQ.4 |
 | $q$-Witt vectors (absolute, relative) | Wagner v5 §2 | QW.2–QW.4 |
-| $q$-de Rham–Witt complexes (underived, animated) | Wagner v5 §3; v2 3.21–3.31 | QW.5, QW.7 |
+| $q$-de Rham–Witt complexes (underived, animated) | Wagner v5 §3; v2 3.21, 3.23–3.28, 3.30–3.31 | QW.5, QW.7 |
 | Habiro-complete modules and spectra | Wagner v2 App. B | HR.2 |
 | relative Habiro rings $\mathcal H_{R/A,m}$, $\mathcal H_{R/A}$ | Wagner v2 §2 | HR.3–HR.5 |
 | Habiro ring of a number field $\mathcal H_R$ | GSWZ Def 1.1; V5A2 Def 3.6 | HB.6 (with HR.1) |
 | $K_3$-indexed modules $\mathcal H_{R,\xi}$ | GSWZ Defs 1.3–1.4 | HB.7 |
-| Bloch groups, Suslin sequence, Bloch–Wigner | CGZ; V5A2 L6, L8 | K3BlochGroups V.3–V.5 |
+| Bloch groups, Suslin sequence, Bloch–Wigner | CGZ; V5A2 Def 4.3, Defs 6.17–6.18, Thm 6.19, L8 and App. A (V5A2 has no Suslin sequence) | K3BlochGroups V.3–V.5 |
 | $K_3$ Chern classes, cyclic quantum dilogarithm, $\varepsilon_m$ | CGZ Thm 1.6; Hutchinson | HB.1–HB.2 |
 | $p$-adic dilogarithm and regulator $D_p$ | Coleman; Besser–de Jeu; GSWZ Thm 9 | ColemanIntegration L2, PadicHodgeRegulators D.1–D.4, HB.7 |
-| admissible series, FGI, Nahm sums | GSWZ §§1.6–2; V5A2 L4–5 | HB.8–HB.10 |
+| admissible series, FGI, Nahm sums | GSWZ §§1.6–2; V5A2 Def 1.2, L4–5 (V5A2 has no formal Gaussian integration) | HB.8–HB.10 |
 
 ## 5. (c) The proposed roadmaps
 
@@ -753,15 +799,18 @@ The Habiro family after this plan has eleven roadmaps. Five are new; their defin
 
 ### 5.3 Shape of the family
 
+The main edges, prerequisite → consumer:
+
 ```
-Mathlib/Tau Ceti ─┬─ HC ────────────┬─────────────────────────────┬──► HB.6, HB.8 … QT
-                  │                 │                             │
-                  ├─ QW.0–QW.4 ─────┼──► HR.1 ─► HR.2–HR.5 ─► HB.6 ─► HB.7 ─► HB.9
-                  │   (PR.0)        │                  ▲
-                  │                 └──► QW.5–QW.7 ─────┼──► HQ.1–HQ.5 ─► HQ.6 ◄─ HS.3
-                  │                                      │                         ▲
-                  └─ SA ─► AS ─► RS ──────────────────────────────────────────────► HS
-K3BlochGroups, Polylogarithms, ColemanIntegration, PadicHodgeRegulators ─► HB.1–HB.2, HB.7
+HC ─────────────► QW.2, HR.1, HR.2, HB.2, HB.4, HB.6, HB.8, HS.0–HS.2, QT
+QW.0, PR.0 ─► QW.1–QW.4 ─► HR.1 ─► HR.2–HR.5 ─► HQ.2–HQ.4, HB.9, HB.10
+SA.0–SA.1 ────────────────► HR.2
+HR.1 ─► HB.6 ─► HR.5-number-field-comparison ─► HR.6
+HB.6 ─► HB.7 ─► HB.9 ─► HB.10
+QW.4 ─► QW.5–QW.7 ─► HQ.1–HQ.4 ─► HQ.5 ─► HQ.5-trace, HQ.9, HR.6
+SA ─► AS ─► RS ─► HS ─► HQ.6 ◄─ HQ.5
+HQ.1 ─► HS.1
+K3BlochGroups, Polylogarithms, ColemanIntegration, PadicHodgeRegulators ─► HB.1, HB.2, HB.7
 ```
 
 ## 6. (d) The six existing roadmaps: verdicts and stage moves
@@ -773,24 +822,24 @@ All six are **kept**; none is merged or retired. Four are rescoped. Requirement 
 
 | stage | change |
 |---|---|
-| HC.1 | **Moves in:** the elementary $q$-analogue toolkit over $\mathbb Z[q^{\pm1}]$-algebras and formal power series. Namely: $[n]_q$, $[n]_q!$, $q$-binomial and $q$-multinomial coefficients with Pascal recursions and polynomiality; $(x;q)_n$, $(x;q)_\infty$ and their shift identities; the $q$-binomial theorem and Euler's identities $(t;q)_\infty^{-1}=\sum t^n/(q;q)_n$, $(t;q)_\infty=\sum(-1)^nq^{\binom n2}t^n/(q;q)_n$ (V5A2 Cor 2.6); $\log(t;q)_\infty=-\sum_\ell t^\ell/(\ell(1-q^\ell))$ (V5A2 Prop 2.7; GSWZ (logpoc)); $(q^{-1};q^{-1})_n$ in terms of $(q;q)_n$; Jackson $q$-derivatives on $R[q^{\pm1}][x]$; the plethystic exponential on $\mathbb Z((q))[[t]]$ with $\psi^n(t)=t^n$, $\psi^n(q)=q^n$ (V5A2 Defs 5.4–5.5, the Λ-structure imported from QW.1 by HB.8, not here). Requirements unchanged. |
+| HC.1 | **Moves in:** the elementary $q$-analogue toolkit over $\mathbb Z[q^{\pm1}]$-algebras and formal power series. Namely: $[n]_q$, $[n]_q!$, $q$-binomial and $q$-multinomial coefficients with Pascal recursions and polynomiality; $(x;q)_n$, $(x;q)_\infty$ and their shift identities; the $q$-binomial theorem and Euler's identities $(t;q)_\infty^{-1}=\sum t^n/(q;q)_n$ (V5A2 Cor 2.6, via Props 2.2 and 2.5) and $(t;q)_\infty=\sum(-1)^nq^{\binom n2}t^n/(q;q)_n$ (in $t$-deformed form in the proof of V5A2 Prop 1.5), with the corrected Prop 1.5 as a test; V5A2 Def 1.1, Table 1 (the operators $\nabla_q$, $\nabla'_q$) and Prop 2.1; $\log(t;q)_\infty=-\sum_\ell t^\ell/(\ell(1-q^\ell))$ (V5A2 Prop 2.7; GSWZ (logpoc)); $(q^{-1};q^{-1})_n$ in terms of $(q;q)_n$; Jackson $q$-derivatives on $R[q^{\pm1}][x]$; the plethystic exponential on $\mathbb Z((q))[[t]]$ with $\psi^n(t)=t^n$, $\psi^n(q)=q^n$ (V5A2 Defs 5.4–5.5, the Λ-structure imported from QW.1 by HB.8, not here). Requirements unchanged. |
 | HC.2 | unchanged (new consumer HS.0) |
 | HC.3 | unchanged (consumers HR.1, HB.6) |
-| HC.4 | **Moves in:** (i) Wagner v5 Lemma 2.1 in exactly its form, for QW.2. (ii) V5A2 Cors 3.4–3.5. (iii) GSWZ §5.1: the naive ring $\mathbb H_R$ of a torsion-free ring $R$; the filtrations $\mathbb H_{R,N}$, $\mathcal P_{R,N}$ with graded pieces $R[q]/(1-q^N)$ and $\bigoplus_{m\ell=N}R[\zeta_m]$; $D_{m,\ell}=m^{2\ell-1}(\ell-1)!$; injectivity of $\iota$ and isomorphism after $\otimes\mathbb Q$; $M_N$ and Propositions 5.1–5.2; Examples 5.6–5.10 as tests. |
+| HC.4 | **Moves in:** (i) Wagner v5 Lemma 2.1 for QW.2, with the case $m/n=p^\alpha$ stated for $\alpha\ne0$ (for $m=n$ the ring is $\mathbb Z[q]/\Phi_m$; §8 item 25). (ii) V5A2 Cors 3.4–3.5. (iii) GSWZ §5.1: the naive ring $\mathbb H_R$ of a torsion-free ring $R$; the filtrations $\mathbb H_{R,N}$, $\mathcal P_{R,N}$ with graded pieces $R[q]/(1-q^N)$ and $\bigoplus_{m\ell=N}R[\zeta_m]$; $D_{m,\ell}=m^{2\ell-1}(\ell-1)!$; injectivity of $\iota$ and isomorphism after $\otimes\mathbb Q$; $M_N$ and Propositions 5.1–5.2; Examples 5.6–5.7 (§5.3, over $\mathbb Z$ and $\mathbb Z[1/2]$) as tests. |
 | HC.5–HC.6 | unchanged. HC.6 also exports the toolkit to QM.0 (decision D11) and to HB/HS. |
 
 ### 6.2 `HabiroRings` — keep, rescope
 
 | stage | current scope | proposed scope | moves | requires |
 |---|---|---|---|---|
-| HR.1 | Λ-rings, perfectly covered, étale Frobenius lifts | **Étale Frobenius lifts over Λ-bases and the Taylor-glued relative Habiro ring.** Keep: the unique Frobenius lift $\varphi_p$ on $\widehat R_p$ for étale $R$ over a Λ-ring (BS22 Lemma 2.18 through PR.0), the linearised relative Frobenius equivalence, base change and iterates. Add: for $A$ a polynomial or toric Λ-ring and $R$ étale over $A$, the ring $\mathcal H^{\mathrm{Tay}}_{R/A}\subset\prod_m(R\otimes_{A,\psi^m}A)[\zeta_m][[q-\zeta_m]]$ cut out by the Frobenius-twisted gluing conditions, with ring structure, functoriality and the $\mathcal H_{\mathbb Z}$-algebra structure. Sources: GSWZ Def 1.1 ($A=\mathbb Z$), V5A4 Prop 4.3 (framed case), GW25 Def 1.1. | out: Λ-rings, Adams operations, perfectly covered → QW.1; in: Taylor-glued ring (decision D3) | drop PR.0; add QW.1, HC.3 |
+| HR.1 | Λ-rings, perfectly covered, étale Frobenius lifts | **Étale Frobenius lifts over Λ-bases and the Taylor-glued relative Habiro ring.** Keep: the unique Frobenius lift $\varphi_p$ on $\widehat R_p$ for étale $R$ over a Λ-ring (BS22 Lemma 2.18 through PR.0), the linearised relative Frobenius equivalence, base change and iterates. Add: for $A$ a polynomial or toric Λ-ring and $R$ étale over $A$, the ring $\mathcal H^{\mathrm{Tay}}_{R/A}\subset\prod_m(R\otimes_{A,\psi^m}A)[\zeta_m][[q-\zeta_m]]$ cut out by the Frobenius-twisted gluing conditions, with ring structure, functoriality and the $\mathcal H_{\mathbb Z}$-algebra structure. Sources: GSWZ Def 1.1 ($A=\mathbb Z$), V5A4 Prop 4.3 (framed case), GW25 Def 1.1. | out: Λ-rings, Adams operations, perfectly covered → QW.1; in: Taylor-glued ring (decision D3) | add QW.1, HC.3 (PR.0 stays: the Frobenius lift is Bhatt–Scholze Lemma 2.18) |
 | HR.2 | Habiro-complete modules, B.1–B.8 | unchanged, except that the solid comparison B.6–B.8 uses SA.1's light solid spectra instead of VS2 | supplier change | add SA.1 |
 | HR.3 | finite cyclotomic descent, Cor 2.4 | unchanged | — | — |
 | HR.4 | relative $q$-Witt rings and $\mathcal H_{R/A,m}$ | **The rings $\mathcal H_{R/A,m}$.** The completions $E_d$, gluing by Cor 2.4, Theorem 2.9 (staticity, uniqueness of the lift, $\mathcal H_{R/A,m}/(q^m-1)\simeq q\text{-}W_m(R/A)$), transition maps identified with $F_{m/d}$ (Remark 2.10), naturality. | out: the $q$-Witt construction, ghost description, operators, the restriction obstruction → QW.2–QW.4 | drop nothing; add QW.4 |
 | HR.5 | $\mathcal H_{R/A}$, Lemma 2.12 with the $\Phi_m$ repair | unchanged, plus: $\mathcal H_{R/A}$ equals HR.1's $\mathcal H^{\mathrm{Tay}}_{R/A}$ for toric bases, and V5A2 Prop 3.3 / Wagner Remark 2.14 for $R=\mathbb Z$ | in: comparison with HR.1 | — |
 | HR.5-number-field-comparison | GSWZ ring = relative ring | unchanged, plus: $\mathcal H_R$ is finite étale over $\mathcal H_{\mathbb Z[1/\Delta]}$ and finite projective of rank $[K:\mathbb Q]$ (the claim after GSWZ Def 1.1), proved through Theorem 2.9 and étale base change (QW.4) | in: finite étaleness | — |
 | HR.6 | interfaces | unchanged | — | — |
-| HR.7 | tests | add V5A4 Ex 4.5 with App. A Lemma A.1 (the $q$-multinomial element) and the $\Phi_5$ over $\mathbb F_{11}$ test | in: tests | add HQ.4 (for Ex 4.5) |
+| HR.7 | tests | unchanged (its text already has the $\Phi_5$ over $\mathbb F_{11}$ test; V5A4 Ex 4.5 with Lemma A.1 is owned by HQ.4) | — | — |
 
 ### 6.3 `HabiroNumberFields` — keep, rescope
 
@@ -798,7 +847,7 @@ All six are **kept**; none is merged or retired. Four are rescoped. Requirement 
 |---|---|---|---|
 | HB.1 | unchanged (CGZ conventions, finite Chern classes) | — | add `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory`, M.1 |
 | HB.2 | cyclic quantum dilogarithm (unchanged), plus asymptotic analysis of Pochhammer symbols at roots of unity: GSWZ §2.1 (Lemma 2.1, Proposition 2.2 and its $q^{1/2}$ variant), V5A2 L2 (Lemmas 2.10–2.12, Prop 2.13, Def 2.16, Lemmas 2.17–2.19, Prop 2.20) | in: from GSWZ §2.1 and V5A2 L2 | add HC.1, P.1 |
-| HB.6 | **The arithmetic of $\mathcal H_R$.** $\mathcal H_R$ is HR.1's Taylor-glued ring for $A=\mathbb Z$ and $R=\mathcal O_K[1/\Delta]$ (GSWZ Def 1.1; V5A2 Def 3.6 and Remarks 3.7–3.8). Also: the restrictions $\mathcal H_R\vert_\Delta$, $\mathcal H_R\vert_\gamma$; $(\mathcal H_R)^\wedge_p\cong\prod_{(m,p)=1}\widehat R_p[\zeta_m][[x]]\cong\mathcal H_{\widehat R_p}$; $\mathcal H_R=\mathcal P_R\cap\mathcal H_{\widehat R}$; Remark 1.2 (product of domains over the classes of $m\sim pm$); the abelian case; GSWZ §5.2 (Propositions 5.3–5.4, Remark 5.5); Examples 5.6–5.10 for number fields. | construction becomes a specialisation of HR.1 (decision D3) | drop M.1; add HR.1, HC.4 |
+| HB.6 | **The arithmetic of $\mathcal H_R$.** $\mathcal H_R$ is HR.1's Taylor-glued ring for $A=\mathbb Z$ and $R=\mathcal O_K[1/\Delta]$ (GSWZ Def 1.1; V5A2 Def 3.6 and Remarks 3.7–3.8). Also: the restrictions $\mathcal H_R\vert_\Delta$, $\mathcal H_R\vert_\gamma$; $(\mathcal H_R)^\wedge_p\cong\prod_{(m,p)=1}\widehat R_p[\zeta_m][[x]]\cong\mathcal H_{\widehat R_p}$; $\mathcal H_R=\mathcal P_R\cap\mathcal H_{\widehat R}$; Remark 1.2 (product of domains over the classes of $m\sim pm$); the abelian case; GSWZ §5.2 (Propositions 5.3–5.4, Remark 5.5); Example 5.8 and §5.4 (Examples 5.9–5.10, recorded with their conjectural status) as tests. | construction becomes a specialisation of HR.1 (decision D3) | drop M.1; add HR.1, HC.4 |
 | HB.7 | $K_3$-indexed modules, organised in two parts. *Local:* Def 1.3, Lemma 3.4, Cor 3.5, Lemma 3.6, Cor 3.7, Remark 3.8, Def 3.9, Theorem 10, Theorem 1, Cor 3.10, the telescoping argument. *Global:* Def 1.4, Theorem 2, Proposition 1.5, Remark 1.6, the abelian generator. | — | add D.3, V.4 |
 | KU-habiroring | readiness checkpoint | — | drop KU-continuous, KU-existing (continuous K-theory is not an input of the ring); add HR.1 |
 | KU-finitereg, KU-habiromodules | unchanged | — | — |
@@ -807,28 +856,28 @@ All six are **kept**; none is merged or retired. Four are rescoped. Requirement 
 
 | stage | proposed scope | moves | requires |
 |---|---|---|---|
-| HB.3 | unchanged | — | — |
+| HB.3 | unchanged, plus the Bloch class $\xi=\sum_j[z_j]\in B(K)$ of an arbitrary non-degenerate solution of the Nahm equations of a symmetric integral $A$ over a number field $K$ (the setting of GSWZ Theorem 5), with HB.1's torsion convention | in: the general Bloch class | — |
 | HB.4 | unchanged, plus V5A2 L4: Lemma 4.1, Thm 4.2 ($\mathrm{Li}_2(e^h)+h\mathrm{Li}_1(e^h)$ modulo $(2\pi i)^2\mathbb Z$), the five-term relations as used (imported from V.3/P.1), Prop 4.5, Cor 4.6, Props 4.8–4.12, Thm 4.13; V5A2 Prop 11.2 (Poisson summation) | in: V5A2 L4, L11 | add HB.2, HC.1 |
 | HB.5a, HB.5 | unchanged | — | — |
-| HB.8 | **Admissible series, formal Gaussian integration and the identification theorems.** Def 1.7 and (defgamma); Lemma 2.3, Cor 2.4, Lemma 2.5; Lemma 2.6; Theorem 6; Lemma 2.7, Def 2.8, Lemma 2.9, Theorem 7, Lemma 2.10; Def 2.11, Lemma 2.12 (with the Dedekind-eta multiplier identity $D_{\zeta_m}(1)^{24m}=m^{12m}$), Lemma 2.13, Remark 2.14, Lemma 2.15, Lemma 2.16, Cor 2.17; Theorem 8; Theorem 3; Theorem 4; Cor 2.18; V5A2 L5 (Def 5.1, Prop 5.3, Thm 5.6, Examples 5.7–5.8). Proof order: Def 2.11 → Lemma 2.15 → Theorem 8 → Lemmas 2.6, 2.9 → Theorems 6, 7 → Theorem 3 → Theorem 4. | in: Theorem 4 (from HB.9), Theorems 3, 7, 8 and the FGI material; the current text covers Theorem 6 only | add HC.1, HB.2, QM.1 |
-| HB.9 | **Theorem 5 and its consequences.** Theorem 5 with its §3.3 proof, which uses CGZ Thm 1.6 and Hutchinson; Remark 1.9; Cors 1.10–1.11, with Zickert's surjectivity and the Kashaev–Mangazeev–Stroganov identity for (b); Remark 3.11; Cor 3.12. Also V5A2 L10–L12 in explicit form: the Nahm ring over $\mathbb Z[t]$ and its relative Habiro ring (from HR.5), Thm 11.3, Thm 12.1, Prop 12.3, Thms 12.4–12.6, with $\varepsilon_m$ taken from HB.2. | out: Theorem 4 → HB.8; in: V5A2 L10–L12 (decision D5) | add HB.4, HR.5, D.4 |
-| HB.10 | **Symmetrisation, descendants and explicit examples.** Theorems 11 and 12 with (Jwdef), (psitmdef); Examples 4.1, 4.3–4.5; Remark 4.2 (the matrices for $4_1$, $5_2$, $(-2,3,7)$); GW25 Theorems 1.11–1.13 and Proposition 1.14 in relative Habiro rings. | in: GW25 Nahm elements | add HR.5 |
+| HB.8 | **Admissible series, formal Gaussian integration and the identification theorems.** Def 1.7 and (defgamma); the series $F_A$ (FAdef) and $F_{A,m,k}$ (FAmdef), the $q$-difference system (PhiAshift), the $t$-deformed Nahm equations (zjt) with the corrected product (§8 item 14), the rings $S$ (Sdef) and $S^{(m)}$ (RA), the discriminant $\delta$ (taulambda) and the collections $\Phi_{A,m}$ (Phidef); Lemma 2.3, Cor 2.4, Lemma 2.5; Lemma 2.6; Theorem 6; Lemma 2.7, Def 2.8, Lemma 2.9, Theorem 7, Lemma 2.10; Def 2.11, Lemma 2.12 (with the identity $D_{\zeta_m}(1)^{24m}=m^{12m}$, which GSWZ derive from the Dedekind $\eta$ multiplier; HB.8 proves it directly: $D_{\zeta_m}(1)^m=P:=\prod_{\ell=1}^{m-1}(1-\zeta_m^\ell)^\ell$, pairing $\ell$ with $m-\ell$ and using $\prod_{\ell=1}^{m-1}(1-\zeta_m^\ell)=m$ gives $P^2=m^m(-1)^{m(m-1)/2}\zeta_m^{-m(m^2-1)/6}$, a sixth root of unity times $m^m$, so $P^{24}=m^{12m}$), Lemma 2.13, Remark 2.14, Lemma 2.15, Lemma 2.16, Cor 2.17; Theorem 8; Theorem 3; Theorem 4; Cor 2.18; V5A2 L5 (Def 5.1, Prop 5.3, Thm 5.6, Examples 5.7–5.8). Proof order: Def 2.11 → Lemma 2.15 → Theorem 8 → Lemmas 2.6, 2.9 → Theorems 6, 7 → Theorem 3 → Theorem 4. | in: Theorem 4 (from HB.9), Theorems 3, 7, 8 and the FGI material; the current text covers Theorem 6 only | add HC.1, HB.2 |
+| HB.9 | **Theorem 5 and its consequences.** Theorem 5 with its §3.3 proof, which uses CGZ Thm 1.6 and Hutchinson; Remark 1.9; Cors 1.10–1.11, where (b) uses Suslin's surjection $K_3(K)\to B(K)$ (V.4, reached through HB.7; GSWZ cite Zickert, Eqn. (1.1)) and the Kashaev–Mangazeev–Stroganov identity as used in CGZ (HB.2's five-term identity for the cyclic dilogarithm); Remark 3.11; Cor 3.12. Also V5A2 L11–L12 in explicit form: the Nahm ring (10.1) over $\mathbb Z[t]$, its relative Habiro ring built by HR.5 (V5A2 only states the aim), Thm 11.3, Thm 12.1, Prop 12.3, Thms 12.4–12.6. V5A2 defines $\varepsilon_m$ and $L_m$ through the étale realisation of $V^{univ}$ (Lecture 9 material, excluded by D5), and HB.2's $\varepsilon_m$ lives on $K_3$ of a number field, not over $R_m$. HB.9 therefore states these theorems with the explicit unit over $R_m$ given by GSWZ's $U^{\mathrm{FGI}}_m$ and the cyclic factor $D_{\zeta_m}$ (Lemma 2.12, HB.8), defines the base change of Thm 12.5 directly rather than through the $A_{\inf}$ cube, and records the identification with the regulator of $V^{univ}$ as a gap (§8 item 28). | out: Theorem 4 → HB.8; in: V5A2 L10–L12 (decision D5) | add HB.4, HR.5, D.4 |
+| HB.10 | **Symmetrisation, descendants and explicit examples.** Theorems 11 and 12 with (Jwdef), (psitmdef); Examples 4.1, 4.3–4.5; Remark 4.2 (the matrices for $4_1$, $5_2$, $(-2,3,7)$); the worked computations of §§4.2–4.4 (the rank-one admissible series; the 60-torsion class for $A=\begin{pmatrix}8&5\\5&4\end{pmatrix}$, whose Habiro membership GSWZ state conjecturally and as provable after inverting 6; the $p$-adic computations), with that status recorded; GW25 Theorems 1.11–1.13 and Proposition 1.14 in relative Habiro rings. | in: GW25 Nahm elements | add HR.5 |
 | KU-* | unchanged | — | — |
 
 ### 6.5 `HabiroCohomologyFoundations` — keep, rescope
 
 | stage | proposed scope | moves | requires |
 |---|---|---|---|
-| HQ.1 | global $q$-de Rham functor (unchanged: Wagner v2 App. A, Theorem A.1, i.e. Sch17 Conj 1.1/3.1; framed complexes imported from QW.6), plus V5A4 L2–L3 module theory: $q$-connections (Def 2.15), Ex 2.17, modified $q$-connections (Def 2.18, Cor 2.21, Props 2.22–2.23, Question 2.24, Ex 2.25), Prop 2.26, Ex 2.27, Cor 2.28, Lemma 3.5, Thm 3.6, Ex 3.7, Props 3.8, 3.12, Cors 3.9, 3.14, Def 3.10, Examples 3.16–3.18 | in: V5A4 L2–L3 | add QW.6 |
+| HQ.1 | global $q$-de Rham functor (unchanged: Wagner v2 App. A, Theorem A.1, i.e. Sch17 Conj 1.1/3.1; framed complexes imported from QW.6, with the comparison of their $(p,q-1)$-completions for $A=\mathbb Z$ with PR.6's $p$-complete framed complexes), plus V5A4 L2–L3 module theory: $q$-connections (Def 2.15), Ex 2.17, modified $q$-connections (Def 2.18, Cor 2.21, Props 2.22–2.23, Question 2.24, Ex 2.25), Prop 2.26, Ex 2.27, Cor 2.28, Lemma 3.5, Thm 3.6, Ex 3.7, Props 3.8, 3.12, Cors 3.9, 3.14, Def 3.10, Examples 3.16–3.18 | in: V5A4 L2–L3 | add QW.6 |
 | HQ.2 | derived $q$-de Rham (unchanged), plus the twisted complexes $q\Omega^{(m)}$ (Wagner v2 3.14–3.18), Lemma 3.15, Prop 3.19, the Nygaard filtration on $q\Omega^{(p^\alpha)}$ (3.20), Prop 3.22, Lemma 3.29 | in: Wagner v2 §3.3 and the $q$-de Rham part of §3.4 | add QW.7, HR.3 |
-| HQ.3 | $q$-Hodge filtrations and Theorem 3.11 (unchanged), plus Wagner v2 §§3.5–3.7 (3.32–3.54, including the cyclotomic descent previously listed under HQ.4) | in: from HQ.4 | drop HQ.4; add QW.7 |
-| HQ.4 | **Habiro rings of framed algebras and the $q$-Habiro–Hodge complex.** V5A4 Defs 3.19–3.23 and (3.1); Defs 4.1–4.2; Prop 4.3; Remark 4.4; Ex 4.5 with Lemma A.1; Def 4.6; (4.3); Remark 4.7; Thms 4.8 and 4.9 in their *uncompleted* form, via Wagner v2 Ex 3.12 and Cor 3.54 and the identification of the framed Habiro–Hodge complex with the Koszul complex of $\gamma_i-1$ on $\mathcal H_{(R,\square)}$; Remarks 4.10–4.11, 4.14, 4.17; Ex 4.12; Prop 4.13; Ex 5.1; Props 5.2–5.3; Thm 5.4; Remarks 5.5–5.6; Thm 5.7 with Remarks 5.8–5.10, Lemmas 5.11–5.12, Cor 5.13, Prop 5.14. | out: positive-degree $q$-dRW, $F$/$V$ systems, CR.4 specialisations, Cor 3.31 → QW.5, QW.7; Prop 4.15 → QW.2; cyclotomic descent → HQ.3 | drop CR.4, HR.4; add HR.1, HR.5, QW.6, QW.7 |
-| HQ.5 | unchanged, plus V5A4 Conj 6.1 and Remark 6.2 stated, with Theorem 4.11 and Cor 4.16 as the proved part | in: V5A4 L6 statements | — |
-| HQ.5-trace | unchanged, plus V5A4 Conj 6.4, Thm 6.5 and Examples 6.6–6.9 as citations to RT | — | — |
-| HQ.6 | the algebraic–analytic comparison: a comparison functor from HQ's framed and étale data to $D_{\mathrm{Hab}}$ (HS.3) on $\mathbb G_m$ and étale algebras, with the precise open statement (Wagner v2 1.17: comparison expected after a completed localisation) | supplier added | add HS.3 |
-| HQ.7 | tests, plus V5A4 Examples 1.4 (Legendre family), 1.5, 2.27, 3.16–3.18, 4.12 | — | — |
-| HQ.8 | unchanged | — | — |
-| **HQ.9 (new, decision D7)** | **Explicit classes (GW25):** Defs 1.1–1.2, Thms 1.5–1.6, 1.18–1.19, Thm 2.4, Cor 2.5, Thm 2.9, Cor 3.1, Thms 4.2, 4.5–4.7, Cor 4.8 | new | HQ.5, HR.5 |
+| HQ.3 | $q$-Hodge filtrations and Theorem 3.11 (unchanged), plus Wagner v2 3.32–3.54 (§3.5 from 3.32 on, and §§3.6–3.8), including the cyclotomic descent previously listed under HQ.4 | in: from HQ.4 | drop HQ.4; add QW.7 |
+| HQ.4 | **Habiro rings of framed algebras and the $q$-Habiro–Hodge complex.** V5A4 Defs 3.19–3.23 and (3.1); Defs 4.1–4.2; Prop 4.3; Remark 4.4; Ex 4.5 with Lemma A.1; Def 4.6; (4.3); Remark 4.7; Thms 4.8 and 4.9 in their *uncompleted* form, via Wagner v2 Ex 3.12 and Cor 3.54 and the identification of the framed Habiro–Hodge complex with the Koszul complex of $\gamma_i-1$ on $\mathcal H_{(R,\square)}$; Remarks 4.10–4.11, 4.14, 4.17; Ex 4.12; Prop 4.13; Ex 5.1; Props 5.2–5.3; Thm 5.4; Remarks 5.5–5.6; Thm 5.7 with Remarks 5.8–5.10, Lemmas 5.11–5.12, Cor 5.13, Prop 5.14. | out: positive-degree $q$-dRW, $F$/$V$ systems, CR.4 specialisations, Cor 3.31 → QW.5, QW.7; Prop 4.15 → QW.2; cyclotomic descent → HQ.3 | drop CR.4, HR.4; add HR.1, HR.5, QW.6, QW.7, HQ.3 (Wagner v2 Example 3.12 is in §3.2 and Corollary 3.54 in §3.8, both owned by HQ.3) |
+| HQ.5 | unchanged, except that Theorem 4.22(b) moves to HQ.5-trace; plus V5A4 Conj 6.1 and Remark 6.2 stated, with Theorem 4.11 and Cor 4.16 as the proved part | in: V5A4 L6 statements; out: Theorem 4.22(b) → HQ.5-trace | — |
+| HQ.5-trace | unchanged, plus Wagner v2 Theorem 4.22(b) (a spherical $E_1$-lift), which Wagner v2 proves as a special case of Wagner's ku paper Theorem 4.17 (RT.4:q-Hodge), with V5A4 Thm 1.7 as its case over $\mathbb Z_p$; V5A4 Conj 6.4, Thm 6.5, Examples 6.6–6.7 and Remarks 6.8–6.9 as citations to RT | in: Theorem 4.22(b) from HQ.5; V5A4 Thm 1.7 | — |
+| HQ.6 | the algebraic–analytic comparison: HQ's $q$-Hodge and Habiro–Hodge complexes on $\mathbb G_m$ and on étale algebras compared with analytic Habiro cohomology through HS.3's base-change functor (HS.3 owns that functor, HQ.6 the comparison), with the precise open statement (Wagner v2 1.17: comparison expected after a completed localisation) | supplier added | add HS.3 |
+| HQ.7 | tests, plus V5A4 Examples 2.27, 3.16–3.18, 4.12. The tests are algebraic, so HQ.7 no longer waits for the analytic comparison (V5A4 Examples 1.4–1.5 go to HQ.9) | — | drop HQ.6; add HQ.4, HQ.5, HQ.5-trace |
+| HQ.8 | unchanged (it requires CP.1, CP.6, RT.6 and HQ.1–HQ.5, not HQ.6) | — | — |
+| **HQ.9 (new, decision D7)** | **Explicit classes (GW25):** Defs 1.1–1.2, Thms 1.5–1.6, 1.18–1.19, Thm 2.4, Cor 2.5, Thm 2.9, Cor 3.1, Thms 4.2, 4.5–4.7, Cor 4.8; V5A4 Examples 1.4 (Legendre family) and 1.5 ($q$-hypergeometric deformation) as tests, which V5A4 (p. 7) says GW25 makes explicit (GW25 §§2.6–2.7, 3.4) | new | HQ.5, HR.5 |
 
 ### 6.6 `ArithmeticQuantumTopology` — keep unchanged
 
@@ -841,54 +890,66 @@ Garoufalidis–Wheeler's lift of the colored Jones polynomial (arXiv:2603.01619)
   "`QWittVectors` QW.5 owns …". This is a text change only.
 - `PrismaticCohomology` PR.0: split off the δ-ring prefix (δ-rings, Frobenius lifts, Lemmas 2.18, 2.28), which
   does not need `PerfectoidQuotients` Q0, so that QW.1 and HR.1 do not pull in perfectoid rings (decision D10).
-  PR.5 imports RS.0 (decision D13).
+  PR.5 imports RS.0 (decision D13); RS.0 has no analytic prerequisites (its analytic instance is in RS.2), so the
+  import does not bring analytic stacks into PR.5.
 - `VStackSheavesAndLisseCategories` VS2: may import the $\mathbb Z$-coefficient solid theory from SA.1/SA.3, once a
   light versus κ-condensed comparison has an owner (decision D12).
 - `QSeriesPartitionsAndMockModularForms` QM.0: imports $q$-binomial and Pochhammer identities from HC.1 (decision D11).
-  QM.1 supplies the Dedekind eta multiplier to HB.8.
+  HB.8 does not need QM.1: it proves the identity $D_{\zeta_m}(1)^{24m}=m^{12m}$ directly (§6.4).
 - `KTheoryLowDegrees` Z.3: may import the λ-ring notion from QW.1.
 - `PadicHodgeRegulators` D.3 owns GSWZ Lemma 3.1, Propositions 3.2–3.3 and Theorem 9, as its current text already says.
-- `RefinedTraceMethods`: unchanged (RT.4:q-Hodge still needs HQ.3; RT.4:Habiro-comparison still needs
-  HR.5-number-field-comparison).
+- `RefinedTraceMethods`: requirements unchanged (RT.4:q-Hodge still needs HQ.3; RT.4:Habiro-comparison still needs
+  HR.5-number-field-comparison). HQ.5-trace requests from RT.4:q-Hodge Theorem 4.17 of Wagner's ku paper, the input
+  of Wagner v2 Theorem 4.22(b).
 
 ### 6.8 Consistency check
 
 In scratch, the requirement changes of §§6.1–6.7 were applied to the atlas stage graph (`stages[].requires`
 together with `stageEdges`), with the five new roadmaps added. The union graph has no cycle, every referenced
 stage id exists, and every `requires` entry of the new definitions resolves to an atlas stage or a new stage.
+The check was repeated with the requirement changes of the review (HQ.4 adds HQ.3; HQ.7 replaces HQ.6 by HQ.4,
+HQ.5 and HQ.5-trace; RS.0 drops AS.2; HB.8 does not add QM.1; HR.7 does not add HQ.4; HR.1 keeps PR.0), with the
+same result.
 
 ## 7. (e) Blueprint order
 
-Two tracks can run in parallel. Arrows are "blueprint before".
+Two tracks can run in parallel. They meet in three places: HR.2 needs SA.1, HS.0–HS.2 need HC.1–HC.2, and HS.1
+needs HQ.1. Arrows are "blueprint before".
 
 **Track A (algebraic and number-theoretic).**
 1. `HabiroCyclotomicCompletions`, with the enlarged HC.1 and HC.4. Nothing in the family precedes it.
-2. `QWittVectors`, part 1 (QW.0–QW.4). It needs PR.0's δ-ring nodes (decision D10) and HC.4's comaximality
-   node; request both if their blueprints are not yet promoted.
-3. `HabiroRings` HR.1–HR.5 and HR.5-number-field-comparison. HR.6–HR.7 wait for step 8.
+2. `QWittVectors`, part 1 (QW.0–QW.4). It needs PR.0's δ-ring nodes (decision D10), HC.4's comaximality node,
+   DD.1 and E5:abstract; request them if their blueprints are not yet promoted.
+3. `HabiroRings` HR.1–HR.5. HR.2 needs SA.1 (step 9) for Wagner's B.6–B.8, so SA.0–SA.1 are blueprinted first or
+   requested. HR.5-number-field-comparison follows HB.6 in step 5. HR.6–HR.7 wait for step 8.
 4. Suppliers outside the family, which must be blueprinted (or requested) before step 5:
    - `K3BlochGroups` V.3–V.5 (job BP-K3BlochGroups; reserved ids in `reserved-ids.json`);
    - `Polylogarithms` P.1 (BP-Polylogarithms);
    - `ColemanIntegration` L2;
    - `PadicHodgeRegulators` D.1–D.4;
+   - `ArithmeticKTheory` N.5;
    - `MotivicEtaleKTheory` M.1, M.7;
    - `KTheoryFiniteLocalFields` L.6;
    - the `ProfiniteCohomology` Kummer layer.
-5. `HabiroNumberFields` (HB.1, HB.2, HB.6, HB.7).
-6. `HabiroNahmSeries` (HB.3–HB.10). HB.5a needs the upstream `ModularForms` roadmap; HB.8 needs QM.1.
-7. `QWittVectors`, part 2 (QW.5–QW.7), in parallel with steps 5–6. It needs CR.3–CR.4, AI.0–AI.1, DD.0–DD.5.
-8. `HabiroCohomologyFoundations`: HQ.1–HQ.5, HQ.5-trace, HQ.7–HQ.9. Then HR.6–HR.7.
+5. `HabiroNumberFields`. HB.6 needs only HC.3, HC.4 and HR.1, so it comes first, followed by
+   HR.5-number-field-comparison. HB.1, HB.2 and HB.7 follow step 4.
+6. `HabiroNahmSeries` (HB.3–HB.10). HB.5a needs the upstream `ModularForms` roadmap.
+7. `QWittVectors`, part 2 (QW.5–QW.7), in parallel with steps 5–6. It needs CR.3–CR.4, AI.0–AI.1, DD.0–DD.5 and
+   E1, E2, E5:abstract, E5:animation.
+8. `HabiroCohomologyFoundations`: HQ.1–HQ.5 and HQ.9; HQ.5-trace after `RefinedTraceMethods` RT.4:q-Hodge, which
+   itself needs HQ.3; HQ.7 after HQ.5-trace; HQ.8 once CP.1, CP.6 and RT.6 are available. Then HR.6–HR.7.
 
-**Track B (analytic).** Independent of Track A until step 12.
+**Track B (analytic).**
 
-9. `SolidAnalyticRings`.
+9. `SolidAnalyticRings`, with SA.0–SA.1 ahead of step 3.
 10. `AnalyticStacks`, in two parts: AS.0–AS.2 and AS.3–AS.4.
-11. `RingStacksAndTransmutation`. RS.1 waits for PR.5–PR.6; RS.2 needs Ayoub's paper to be fetched.
+11. `RingStacksAndTransmutation`. RS.0 has no analytic prerequisites and can precede PR.5 (decision D13). RS.1
+    waits for PR.5–PR.6; RS.2 needs Ayoub's paper to be fetched.
 12. `AnalyticHabiroStack`. It also needs HC.1–HC.2 and HQ.1 from Track A.
 
 **Assembly.**
 
-13. HQ.6, then HQ.8 (which already needs CP and RT).
+13. HQ.6.
 14. `ArithmeticQuantumTopology` at any time after steps 1 and 6.
 
 The roadmaps with eight or more stages (QW, HQ, and the HB pair if blueprinted jointly) should be split into
@@ -900,15 +961,17 @@ Items marked **[gap]** must become `gap` entries in the corresponding blueprint 
 Items marked **[fix]** are local corrections the blueprint makes and records.
 
 1. **$\Delta$ and the primes 2, 3.** The ring needs only $\mathrm{disc}(K)\mid\Delta$ (GSWZ Def 1.1). The modules need
-   $6\,\mathrm{disc}(K)\mid\Delta$ and $p>3$ (Thm 1, Remark 1.8, the text before Def 1.4). V5A2 Def 3.6 takes $\Delta=\mathrm{disc}(K)$
+   $6\,\mathrm{disc}(K)\mid\Delta$ and $p>3$ (Thm 1, Remark 1.8, the text after Def 1.4). V5A2 Def 3.6 takes $\Delta=\mathrm{disc}(K)$
    and never mentions 6. Wagner v2 Cor 2.13 uses $\Delta=\mathrm{disc}(F)$. Decision D8.
 2. **V5A2 Prop 1.5** prints $f_1=q^{-1/48}(-q^{1/2};q)_\infty$. The Euler identity gives
    $\sum q^{n^2/2}/(q;q)_n=(-q^{1/2};q)_\infty$ with no $q^{-1/48}$; that factor belongs to the modular normalisation
    $q^{-1/48}f_1$. **[fix]** in HC.1/HB.3 tests.
-3. **Gluing notation.** V5A2 Prop 3.3 and Def 3.6 write $h_m=h_{pm}$ (resp. $h_m=\varphi_p(h_{pm})$) "in"
-   $\mathbb Z_p[\zeta_m][[q-\zeta_m]]\cong\mathbb Z_p[\zeta_{pm}][[q-\zeta_{pm}]]$. The precise form is GSWZ's re-expansion
-   $f_m(x+\zeta_{pm}-\zeta_m)=\varphi_pf_{pm}(x)$. The isomorphism is the identification of both rings with the
-   $(p,\Phi_m)$-adic completion of $\mathbb Z[q]$, as in Wagner v2 Remark 2.14. **[fix]**, notational.
+3. **Gluing in V5A2 Prop 3.3 and Def 3.6.** Prop 3.3 writes $h_m=h_{pm}\in\mathbb Z_p[\zeta_m][[q-\zeta_m]]\cong\mathbb Z_p[\zeta_{pm}][[q-\zeta_{pm}]]$,
+   and Def 3.6 writes $h_m=\varphi_p(h_{pm})\in(\mathcal O_K)^\wedge_p[\zeta_m,1/\Delta][[q-\zeta_m]]$. The printed $\cong$ is false: for odd $p$
+   the right-hand ring contains a primitive $p$-th root of unity and the left-hand ring does not. Both rings map, by
+   re-expansion, to $\mathbb Z_p[\zeta_{pm}][[q-\zeta_m]]$, and the gluing condition is equality there: GSWZ's
+   $f_m(x+\zeta_{pm}-\zeta_m)=\varphi_pf_{pm}(x)$ and Wagner v2 Remark 2.14. The 12 Nov and 1 Dec 2024 versions of Prop 3.3,
+   and V5A2 pp. 5–6, print this re-expansion form. **[fix]**, mathematical.
 4. **Wagner v2 Lemma 2.12.** The proof asserts that $\Phi_m$ is irreducible modulo every $\ell\nmid m$. This is false:
    $\Phi_5$ splits into four linear factors over $\mathbb F_{11}$ (Mathlib `normalizedFactors_cyclotomic_card` gives
    $\varphi(5)/\mathrm{ord}_5(11)=4$). The equaliser statement survives with a componentwise argument; HR.5 records this.
@@ -934,13 +997,20 @@ Items marked **[fix]** are local corrections the blueprint makes and records.
 8. **Status of the analytic Habiro ring.** Definition 7.8 is preliminary (Remark 7.9). Lecture 8 uses the variant
    without (ii), while Proposition 7.11 and Lemma 7.14 use (ii). Example 8.2's identification at $q=1$ is stated
    without proof, over a base that is not a Banach field. HS builds both variants (decision D4). The notation
-   $u^{\varepsilon n}$ in (ii) is read as $u^{\lfloor\varepsilon n\rfloor}$ (equivalently a norm bound). **[fix]**
+   $u^{\varepsilon n}$ in (ii) is read as $u^{\lfloor\varepsilon n\rfloor}$ (equivalently a norm bound). **[fix]** The Lecture 8 variant
+   must drop all of (ii), including the invertibility of $1-q^n$: over $\mathcal H^{\mathrm{an}}$ the polynomial $\Phi_m(q)$ divides
+   the unit $1-q^m$, so the specialisations at $q=\zeta_m$ of Lemma 8.1, Example 8.2 and the expectations after it
+   exist only for the variant; over $\mathcal H^{\mathrm{an}}$ itself only the base changes to the rings $B_m$ of Remark 7.16
+   are available.
 9. **Definition 8.4 as printed.**
    - With $k+\ell=n$ the $q$-trinomial has last index $0$, and the sign $(-1)^n$ makes the $q=1$ specialisation
      $(-1)^n(x+y)^n$ (up to binomial factors) rather than a power of $1-x-y$.
    - Example 8.6's sum $\sum_m(-1)^m\binom nm_qq^{\binom m2}x^m(y;q)_{n-m}$ specialises to $(1-x-y)^n$. It must be read
      with $x=(-1)^{\mathrm{Hab}}=q^{1/2}$ (Example 8.3) to give $1+_{\mathrm{Hab}}1$.
-   - Remark 8.5's "$(x;y)_n$" is undefined.
+   - Remark 8.5 omits the superscript $\mathrm{Hab}$ on its left-hand side, and its relation "$(x;y)_n$ has rapid decay for
+     all $n$" (a Pochhammer symbol in base $y$, and a condition on a sequence stated termwise) is not the intended one.
+   - The Cartier-duality sketch calls $(1-t;q)_\infty$ the inverse of $(t;q)_\infty$ and then uses the product
+     $(t;q)_\infty(t-1;q)_\infty$.
 
    HS.2 pins the definition by the specialisation requirement. **[fix]**, plus a **[gap]** for equivalence of the
    formulations.
@@ -965,32 +1035,62 @@ Items marked **[fix]** are local corrections the blueprint makes and records.
       $\delta=z+a(1-z)$, a unit multiple of GSWZ's $\delta$ for $N=1$.
 
     HB.3/HB.8 fix GSWZ's convention and record the substitutions $t\mapsto\pm q^{\pm a/2}t$. **[fix]**
-17. **Asymptotics erratum.** V5A2 Lecture 4 follows the corrected Garoufalidis–Zagier asymptotics; HB.4 already
-    requires the corrected normalisation.
+17. **Lecture 4 erratum.** A margin note at V5A2 Cor 4.6 (p. 22) says the exposition from there on "is drawn from
+    the erratum discussed at the begining of lecture 5" and refers to [GZ21] (Garoufalidis–Zagier, *Asymptotics of
+    Nahm sums at roots of unity*, Ramanujan J. 55 (2021)). The notes do not say that the published asymptotics were
+    corrected, and Thm 4.13 has only a proof outline. HB.4 follows [GZ21] and CGZ with the corrected normalisation
+    it already requires, and uses V5A2 Lecture 4 as an outline.
 18. **Proofs GSWZ only sketches.**
     - Theorem 1's proof runs through Theorem 10 (all $p\nmid\Delta$ are unramified and $>3$); the "telescoping"
       alternative is sketched.
     - Proposition 1.5 is outlined.
-    - The finite projectivity claim after Definition 1.1 is not proved in GSWZ; HR.5-number-field-comparison
-      proves it.
+    - The finite projectivity claim after Definition 1.1 is justified in one sentence (by the corresponding fact
+      after $p$-completion); HR.5-number-field-comparison proves it.
     - The $m$-periodicity of $I_{A,m,k}$ is cited from [AarhusII]/[GSW]; HB.8 proves it.
     - Theorems 5 and 8 are proved in detail for $N=1$ only; HB.8/HB.9 write general $N$.
-    - Corollary 1.11(b) uses Zickert's surjectivity and the Kashaev–Mangazeev–Stroganov identity; HB.9 owns or
-      requests them.
-    - Lemma 2.12 uses the eta multiplier identity $D_{\zeta_m}(1)^{24m}=m^{12m}$ (Rademacher–Grosswald), requested
-      from QM.1.
+    - Corollary 1.11(b) uses Suslin's surjection $K_3(K)\to B(K)$ (cited through Zickert, Eqn. (1.1)) and the
+      Kashaev–Mangazeev–Stroganov identity as used in CGZ; HB.9 takes them from V.4 and HB.2.
+    - Lemma 2.12 uses $D_{\zeta_m}(1)^{24m}=m^{12m}$, attributed to the Dedekind $\eta$ multiplier (Rademacher–Grosswald);
+      HB.8 proves it directly (§6.4).
 
     **[gap]** where a blueprint cannot supply the argument.
-19. **Theorem 6 reference.** GSWZ cite "[Efimov]" together with Kontsevich–Soibelman. The Efimov item in the campaign
-    library is the rigidity paper. HB.8 must fetch the correct source (DT integrality for symmetric quivers) or
-    prove Theorem 6 by GSWZ's elementary route (Lemma 2.6 and the recurrence), as HB.8's current text intends.
-20. **V5A2 Definition 5.4** prints $\lambda^n(a+b)=\sum_{i+j=n}\lambda^i(a)\lambda^i(b)$ (for $\lambda^j(b)$) and conflates the
-    λ-ring axioms with Adams operations on $\mathbb Z((q))[[t]]$. QW.1 uses Hesselholt's definition. **[fix]**
+19. **Theorem 6 reference.** GSWZ cite "[Efimov]" (Efimov, *Cohomological Hall algebra of a symmetric quiver*,
+    Compos. Math. 148 (2012)) together with Kontsevich–Soibelman. The Efimov item in the campaign library is the
+    rigidity paper. GSWZ give an alternative proof after the statement (the $q$-difference equation and the ratio
+    $G=F(qt,q)/F(t,q)$), which HB.8 follows, as its current text intends.
+20. **V5A2 Definition 5.4** prints $\lambda^n(a+b)=\sum_{i+j=n}\lambda^i(a)\lambda^i(b)$ (for $\lambda^j(b)$), lists only the additive
+    axioms (with $0\le k\le\infty$), and the next sentence defines Adams operations directly on $\mathbb Z((q))[[t]]$
+    ($t\mapsto t^n$, $q\mapsto q^n$) without specifying a λ-structure. QW.1 uses Hesselholt's definition. **[fix]**
 21. **Continuous $K$-theory.** V5A2 Theorem 7.6 (Clausen) has no written source; it only motivates (D6).
 22. **Announced topics.** The course description's topics (realisation of Berkovich motives, stacky étale
     cohomology of rigid varieties in equal characteristic zero) are not in the notes (D6).
 23. **Light versus κ-condensed solid theories.** No comparison is stated in the sources read. It is needed if VS2 is to
     import SA (D12).
+24. **V5A4 Theorem 1.7** cites "[MW24, Thm. 1.7]", a theorem of the 2024 version of Meyer–Wagner. Version v4
+    (arXiv:2410.23115v4) has no such theorem; its §3.5 applies Wagner's ku paper, Theorem 4.17. The statement is the
+    case $A=\mathbb Z_p$ of Wagner v2 Theorem 4.22(b), which Wagner v2 proves as a special case of that Theorem 4.17. It
+    therefore lives in HQ.5-trace with RT.4:q-Hodge as supplier, not in HQ.5. **[fix]** (locator and owner).
+25. **Wagner v5 Lemma 2.1** says $\mathbb Z[q]/(\Phi_m,\Phi_n)\cong\mathbb F_p[q]/\Phi_{\min(m,n)}$ whenever $m/n=p^\alpha$ with
+    $\alpha\in\mathbb Z$. For $\alpha=0$ ($m=n$) the ring is $\mathbb Z[q]/\Phi_m$; the statement holds for $\alpha\ne0$. **[fix]** in HC.4.
+26. **Misprints in V5A2 statements owned by the family** (**[fix]** in the owning stage):
+    - Lemma 2.17(iii) prints $B_n(k)=B_k+\dots$ for $B_n(k)=B_n+n\sum_{i<k}i^{n-1}$ (HB.2);
+    - the proof of Prop 2.13 uses $B_0=1/2$ for $B_1=-1/2$ (HB.2);
+    - (2.6) and pp. 41–42 print $\zeta_m$ for $\zeta_m^i$ in the cyclic factor (HB.2);
+    - Lemma 4.1 omits $dz/z$ in $\mathrm{Li}_2(t)=-\int_0^t\log(1-z)\,dz/z$, and (4.3) prints $\mathrm{Li}_2(1-z)$ for
+      $\mathrm{Li}_2(1-t)$ (HB.4, P.1);
+    - (4.11) truncates the multiplicative Taylor series without saying "mod $h^3$", and the display after Cor 4.11
+      prints $g_a(q^a,t)$ for $g_a(q^at,q)$ (HB.4);
+    - Cor 4.6 prints $f_a^{\mathrm{mod}}(t,q)=f_a(q^{-a/2}t,q)$ where its series and (4.8) need $f_a((-1)^aq^{-a/2}t,q)$ (HB.4);
+    - (5.1) prints $(q^it;q)_\infty$ for $(q^it^n;q)_\infty$, and Example 5.7 writes $f_1$ for $f_0$ (HB.8);
+    - the first display in the proof of Prop 1.5 has $+\sum q^{n^2/2+1}t^n/(q;q)_n$ for $-\sum q^{n^2/2+n}t^n/(q;q)_n$ (HC.1).
+27. **Source status in V5A4 Lectures 7–8.** The proof of Proposition 7.11 says the Habiro cohomology of the disc
+    "should be quasi-isomorphic" to the $q$-difference complex; Lemma 7.14 has a proof outline; Lemma 8.1 calls $G$
+    "the subgroup" without proving closure under products and inverses; the integer map $n\mapsto n^{\mathrm{Hab}}$ and its
+    specialisation $n^{1/m}$ "should" exist. HS records each as a **[gap]** or an expectation.
+28. **V5A2 Lectures 11–12** define $\varepsilon_m\in H^1(R_m,\mu_m)$ and the line bundles $L_m$ as étale realisations of the
+    relative motivic class $V^{univ}$ of Lecture 9, which D5 excludes. HB.9 states Theorems 11.3 and 12.1–12.6 with
+    GSWZ's explicit unit $U^{\mathrm{FGI}}_m$ and cyclic factor $D_{\zeta_m}$ over $R_m$; their identification with the
+    regulator of $V^{univ}$ is a **[gap]** (D5).
 
 ## 9. (g) Decisions for the user
 
@@ -1007,22 +1107,27 @@ Each decision has a recommended default, which the roadmap definitions already f
 - **D3 — One construction of $\mathcal H_R$.** Build the elementary Taylor-glued relative ring in HR.1 and make HB.6 its
   specialisation to $A=\mathbb Z$, $R=\mathcal O_K[1/\Delta]$. HR.5 compares it with Wagner's ring. *Default: yes.* The
   alternative keeps two independent constructions linked only by HR.5-number-field-comparison.
-- **D4 — Unwritten analytic results** (§8 items 8–10). Options:
+- **D4 — Unwritten analytic results** (§8 items 8–10, 27). Options:
   - (a) keep them as targets with source-status markers, to be recorded as gaps, as the HS definition does;
   - (b) turn `AnalyticHabiroStack` into a roadmap-for-a-roadmap until a written account exists;
   - (c) postpone creating HS.
 
   *Default: (a), with HS blueprinted last.*
 - **D5 — V5A2 Lectures 9–12.** *Default:*
-  - include the explicit statements of Lectures 10–12 (Thm 11.3, Thm 12.1, Prop 12.3, Thms 12.4–12.6) in HB.9,
-    with $\varepsilon_m$ from HB.2 and the relative Habiro ring from HR.5;
-  - exclude the relative $K$-theory and relative motivic cohomology of Lecture 9 (Def 9.1, Prop 9.6, the
-    universal dilogarithm), and name it as a roadmap-for-a-roadmap in the HB documents.
+  - include the explicit statements of Lectures 11–12 (Thm 11.3, Thm 12.1, Prop 12.3, Thms 12.4–12.6) in HB.9, with
+    the relative Habiro ring from HR.5 and the unit and line bundles realised by GSWZ's explicit $U^{\mathrm{FGI}}_m$ and
+    $D_{\zeta_m}$ over $R_m$ (§6.4, §8 item 28);
+  - exclude the relative $K$-theory and relative motivic cohomology of Lecture 9 (Def 9.1, Remarks 9.2–9.4,
+    Example 9.5, Prop 9.6, Remark 9.7, the universal dilogarithm) and its Lecture 10 continuation (Remark 10.1, the
+    realisation maps and the monodromy argument), and name them as a roadmap-for-a-roadmap in the HB documents.
+    The identification of the explicit units with the regulator of $V^{univ}$ is then a recorded gap.
 
   Alternative: a new HB stage needing MotivicEtaleKTheory M.6 and StableHomotopyKTheory H.5.
 - **D6 — Exclusions.** Confirm that none of the following is a target anywhere in the family:
-  - Clausen's continuous $K$-theory, and liquid and gaseous $K$-theory;
-  - the $A_{\inf}$ line bundles and shtuka aspirations (V5A2 L12; GSWZ §1.9);
+  - Clausen's continuous $K$-theory, and liquid and gaseous $K$-theory (V5A2 Def 7.5, Thm 7.6, Remarks 7.4, 7.7, and
+    the discussion of $K_3^{\mathrm{cont}}(\mathbb C/\mathbb Z[\mathbb C^\times])$ on p. 40);
+  - the $A_{\inf}$ line bundles and shtuka aspirations (V5A2 L12, including Example 12.2 and the $A_{\inf}$ cube;
+    GSWZ §1.9);
   - higher-weight modules and bad primes (GSWZ §1.9);
   - quantum modularity beyond QT.7;
   - Aoki's 2-motives (Theorems A–D) and Scholze's Lecture XI realisations;
@@ -1051,7 +1156,8 @@ Each decision has a recommended default, which the roadmap definitions already f
   *Default: HC.1.*
 - **D12 — VS2 and SA.** Let VS2 import the $\mathbb Z$-coefficient solid theory from SA once a light/κ comparison has an
   owner. *Default: record as a proposal; no change now.*
-- **D13 — PR.5 and RS.0.** PR.5 imports ring stacks, quasi-ideals and transmutation from RS.0. *Default: yes.*
+- **D13 — PR.5 and RS.0.** PR.5 imports ring stacks, quasi-ideals and transmutation from RS.0, which has no analytic
+  prerequisites. *Default: yes.*
 - **D14 — Spurious requirements.** Replace HB.6's `MotivicEtaleKTheory:M.1` and KU-habiroring's continuous
   $K$-theory checkpoints by HR.1 (and HC.4). *Default: yes.*
 - **D15 — Order and parts.** Adopt the two-track order of §7 and the part boundaries QW.4/5, HQ.3/4, AS.2/3.
@@ -1066,7 +1172,7 @@ Each decision has a recommended default, which the roadmap definitions already f
 | 4–8 | §1.3 (p. 4), §1.4 (p. 6), §1.5 (p. 8) |
 | 6 | Def 1.1 |
 | 7 | Remark 1.2 |
-| 8–9 | Def 1.3 |
+| 9 | Def 1.3 |
 | 9 | Thm 1 |
 | 10 | Def 1.4, Thm 2 |
 | 11 | Prop 1.5, Remark 1.6, Def 1.7, §1.6 |
@@ -1105,16 +1211,16 @@ Each decision has a recommended default, which the roadmap definitions already f
 | 47 | Thm 12, Example 4.1 |
 | 48 | Remark 4.2, §4.2 |
 | 51–57 | §4.3 (51), §4.4 (52), §4.5 (54), Example 4.3 (54), §4.6 (55), §4.7 and Examples 4.4–4.5 (57) |
-| 59–70 | §5.1 (59), Prop 5.1 (62), Prop 5.2 (63), §5.2 (64), Props 5.3–5.4, Remark 5.5, Example 5.6 (65), Examples 5.7–5.8 (66), §5.4 (68), Examples 5.9–5.10 (70) |
+| 59–70 | §5.1 (59), Prop 5.1 (62), Prop 5.2 (63), §5.2 (64), Props 5.3–5.4, Remark 5.5, §5.3, Example 5.6 (65), Examples 5.7–5.8 (66), §5.4 (68), Examples 5.9–5.10 (70) |
 
-**V5A2 notes (6 March 2025).**
+**V5A2 notes (6 March 2025)** (printed page = PDF page).
 
 | page | statements |
 |---|---|
 | 2 | Def 1.1 |
 | 3 | Def 1.2, Prop 1.5 |
 | 5 | Def 1.6 |
-| 7 | Prop 2.1 |
+| 7 | Table 1, Prop 2.1 |
 | 8 | Props 2.2, 2.5, Cor 2.6 |
 | 9 | Prop 2.7, Defs 2.8–2.9, Lemma 2.10 |
 | 10 | Lemmas 2.11–2.12 |
@@ -1122,6 +1228,7 @@ Each decision has a recommended default, which the roadmap definitions already f
 | 12 | Def 2.16, Lemma 2.17 |
 | 13 | Lemma 2.18 |
 | 15 | Lemma 2.19, Prop 2.20 |
+| 17 | Remarks 3.1–3.2 |
 | 18 | Prop 3.3, Cors 3.4–3.5 |
 | 19 | Def 3.6, Remarks 3.7–3.8 |
 | 20 | Lemma 4.1, Thm 4.2 |
@@ -1140,10 +1247,10 @@ Each decision has a recommended default, which the roadmap definitions already f
 | 34 | Def 7.5, Thm 7.6, Remark 7.7 |
 | 36 | Props 8.1–8.5 |
 | 37 | Prop 8.6, Remark 8.7 |
-| 38 | Def 9.1 |
+| 38 | Def 9.1, Remarks 9.2–9.4 |
 | 39 | Example 9.5 |
-| 40 | Prop 9.6 |
-| 41 | Remark 10.1 |
+| 40 | Prop 9.6, Remark 9.7 |
+| 41 | (10.1), Remark 10.1 |
 | 44 | Prop 11.2, Thm 11.3 |
 | 45 | Thm 12.1, Example 12.2 |
 | 46 | Prop 12.3, Thm 12.4 |
@@ -1179,7 +1286,7 @@ Each decision has a recommended default, which the roadmap definitions already f
 | 28 | Thm 5.7, Lemma 5.11 |
 | 29 | Lemma 5.12, Cor 5.13, Prop 5.14 |
 | 32 | Conj 6.1, Def 6.3, Conj 6.4, Thm 6.5 |
-| 33 | Examples 6.6–6.10 |
+| 33 | Examples 6.6–6.7, Remarks 6.8–6.9, Example 6.10 |
 | 34 | Ex 6.11, Prop 6.12 |
 | 35 | Remarks 6.13–6.14 |
 | 36 | Remark 7.1 |
@@ -1190,5 +1297,6 @@ Each decision has a recommended default, which the roadmap definitions already f
 | 41 | Lemma 8.1, Ex 8.2 |
 | 42 | Ex 8.3, Def 8.4 |
 | 43 | Remark 8.5, Ex 8.6 |
+| 44 | Appendix A |
 | 45 | Lemma A.1 |
 | 46–48 | Appendix B |
