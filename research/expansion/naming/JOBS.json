@@ -126,10 +126,10 @@
       "galaxy": "Function fields and higher local fields",
       "landmarks": 72,
       "curated": 10,
-      "state": "queued",
+      "state": "running",
       "input": "research/expansion/naming/NAME-13.json",
       "result": "research/expansion/naming/NAME-13.result.json",
-      "account": "claude6"
+      "account": "claude5 (in-session pilot)"
     }
   ]
 }
