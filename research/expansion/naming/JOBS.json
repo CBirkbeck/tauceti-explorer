@@ -1,0 +1,135 @@
+{
+  "purpose": "Short faithful names for extracted landmark planets; results are merged into data/landmark-labels.json only after validation (length, vocabulary drawn from the passage, uniqueness per star).",
+  "jobs": [
+    {
+      "id": "NAME-01",
+      "galaxy": "Modular, Shimura and Galois theory",
+      "landmarks": 516,
+      "curated": 25,
+      "state": "queued",
+      "input": "research/expansion/naming/NAME-01.json",
+      "result": "research/expansion/naming/NAME-01.result.json",
+      "account": "claude"
+    },
+    {
+      "id": "NAME-02",
+      "galaxy": "K-theory, motives, periods and Habiro",
+      "landmarks": 498,
+      "curated": 77,
+      "state": "queued",
+      "input": "research/expansion/naming/NAME-02.json",
+      "result": "research/expansion/naming/NAME-02.result.json",
+      "account": "claude"
+    },
+    {
+      "id": "NAME-03",
+      "galaxy": "Iwasawa, Euler systems and BSD",
+      "landmarks": 393,
+      "curated": 57,
+      "state": "queued",
+      "input": "research/expansion/naming/NAME-03.json",
+      "result": "research/expansion/naming/NAME-03.result.json",
+      "account": "claude"
+    },
+    {
+      "id": "NAME-04",
+      "galaxy": "Cohomology and nonarchimedean geometry",
+      "landmarks": 382,
+      "curated": 49,
+      "state": "queued",
+      "input": "research/expansion/naming/NAME-04.json",
+      "result": "research/expansion/naming/NAME-04.result.json",
+      "account": "claude"
+    },
+    {
+      "id": "NAME-05",
+      "galaxy": "Algebra, representation theory and Lie groups",
+      "landmarks": 352,
+      "curated": 16,
+      "state": "queued",
+      "input": "research/expansion/naming/NAME-05.json",
+      "result": "research/expansion/naming/NAME-05.result.json",
+      "account": "claude2"
+    },
+    {
+      "id": "NAME-06",
+      "galaxy": "Classical, analytic and computational number theory",
+      "landmarks": 307,
+      "curated": 1,
+      "state": "queued",
+      "input": "research/expansion/naming/NAME-06.json",
+      "result": "research/expansion/naming/NAME-06.result.json",
+      "account": "claude2"
+    },
+    {
+      "id": "NAME-07",
+      "galaxy": "Analysis, probability and PDE",
+      "landmarks": 229,
+      "curated": 45,
+      "state": "queued",
+      "input": "research/expansion/naming/NAME-07.json",
+      "result": "research/expansion/naming/NAME-07.result.json",
+      "account": "claude2"
+    },
+    {
+      "id": "NAME-08",
+      "galaxy": "Arithmetic geometry and Diophantine methods",
+      "landmarks": 202,
+      "curated": 4,
+      "state": "queued",
+      "input": "research/expansion/naming/NAME-08.json",
+      "result": "research/expansion/naming/NAME-08.result.json",
+      "account": "claude2"
+    },
+    {
+      "id": "NAME-09",
+      "galaxy": "Diamonds and geometric Langlands",
+      "landmarks": 190,
+      "curated": 33,
+      "state": "queued",
+      "input": "research/expansion/naming/NAME-09.json",
+      "result": "research/expansion/naming/NAME-09.result.json",
+      "account": "claude6"
+    },
+    {
+      "id": "NAME-10",
+      "galaxy": "Shared foundations",
+      "landmarks": 124,
+      "curated": 5,
+      "state": "queued",
+      "input": "research/expansion/naming/NAME-10.json",
+      "result": "research/expansion/naming/NAME-10.result.json",
+      "account": "claude6"
+    },
+    {
+      "id": "NAME-11",
+      "galaxy": "Topology, manifolds and Floer theory",
+      "landmarks": 102,
+      "curated": 19,
+      "state": "queued",
+      "input": "research/expansion/naming/NAME-11.json",
+      "result": "research/expansion/naming/NAME-11.result.json",
+      "account": "claude6"
+    },
+    {
+      "id": "NAME-12",
+      "galaxy": "General automorphic theory",
+      "landmarks": 73,
+      "curated": 4,
+      "state": "queued",
+      "input": "research/expansion/naming/NAME-12.json",
+      "result": "research/expansion/naming/NAME-12.result.json",
+      "account": "claude6"
+    },
+    {
+      "id": "NAME-13",
+      "galaxy": "Function fields and higher local fields",
+      "landmarks": 72,
+      "curated": 10,
+      "state": "queued",
+      "input": "research/expansion/naming/NAME-13.json",
+      "result": "research/expansion/naming/NAME-13.result.json",
+      "account": "claude6"
+    }
+  ]
+}
