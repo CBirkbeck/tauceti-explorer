@@ -1,0 +1,205 @@
+{
+ "job": "AUDIT-11",
+ "roadmaps": [
+  {
+   "roadmapId": "ShimuraVarieties",
+   "title": "Complex Shimura varieties and canonical models",
+   "extract": "research/blueprint/atlas/roadmaps/ShimuraVarieties.json",
+   "layers": [
+    {
+     "id": "ShimuraVarieties:V0",
+     "title": "Arithmetic groups and finite component decompositions"
+    },
+    {
+     "id": "ShimuraVarieties:V1",
+     "title": "The analytic tower"
+    },
+    {
+     "id": "ShimuraVarieties:V2",
+     "title": "Baily–Borel algebraicity and minimal compactification"
+    },
+    {
+     "id": "ShimuraVarieties:V3",
+     "title": "Borel algebraicity and uniqueness"
+    },
+    {
+     "id": "ShimuraVarieties:V4",
+     "title": "Torus models and the canonical-model condition"
+    },
+    {
+     "id": "ShimuraVarieties:V5",
+     "title": "CM abelian varieties and the Siegel canonical model"
+    },
+    {
+     "id": "ShimuraVarieties:V6",
+     "title": "Hodge and abelian type"
+    },
+    {
+     "id": "ShimuraVarieties:V7",
+     "title": "General data: conjugation and descent"
+    },
+    {
+     "id": "ShimuraVarieties:V8",
+     "title": "The algebraic tower and modular-curve comparison"
+    },
+    {
+     "id": "ShimuraVarieties:V8.general",
+     "title": "General-data completion interface"
+    }
+   ]
+  },
+  {
+   "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+   "title": "Small ramification and the base cases for Serre modularity",
+   "extract": "research/blueprint/atlas/roadmaps/SmallRamificationAndAbelianVarietyBaseCases.json",
+   "layers": [
+    {
+     "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+     "title": "Explicit discriminant bounds"
+    },
+    {
+     "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.2",
+     "title": "Tate–Serre small-characteristic representations"
+    },
+    {
+     "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.3",
+     "title": "Fontaine's everywhere-good-reduction theorem"
+    },
+    {
+     "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+     "title": "Schoof's semistable small-prime theorem"
+    },
+    {
+     "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+     "title": "GL₂-type and ordinary terminal cases"
+    },
+    {
+     "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.6",
+     "title": "A complete base-case table"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+   "title": "Belyi maps, dessins d'enfants, and three-point covers",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_BelyiMaps.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/BelyiMaps#layer-0-permutation-triples",
+     "title": "Layer 0: permutation triples"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/BelyiMaps#layer-1-passports-blocks-and-finite-label-semantics",
+     "title": "Layer 1: passports, blocks, and finite label semantics"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/BelyiMaps#layer-2-dessins-as-finite-bipartite-ribbon-graphs",
+     "title": "Layer 2: dessins as finite bipartite ribbon graphs"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/BelyiMaps#layer-3-finite-enumeration-and-character-theoretic-counts",
+     "title": "Layer 3: finite enumeration and character-theoretic counts"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/BelyiMaps#layer-4-triangle-groups",
+     "title": "Layer 4: triangle groups"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group",
+     "title": "Layer 5: the thrice-punctured sphere and its fundamental group"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples",
+     "title": "Layer 6: finite covers and their triples"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/BelyiMaps#layer-7-compactification-and-topological-branched-covers",
+     "title": "Layer 7: compactification and topological branched covers"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/BelyiMaps#layer-8-riemann-surfaces-and-analytic-riemann-existence",
+     "title": "Layer 8: Riemann surfaces and analytic Riemann existence"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+     "title": "Layer 9: algebraic Belyi pairs and algebraization"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+     "title": "Layer 10: Belyi's theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
+     "title": "Layer 11: fields of moduli, fields of definition, and Galois orbits"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+     "title": "Layer 12: profinite powers, the fundamental group, and the branch-cycle theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/BelyiMaps#layer-13-the-pro-ℓ-peripheral-theorem-and-faithfulness",
+     "title": "Layer 13: the pro-ℓ peripheral theorem and faithfulness"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/BelyiMaps#layer-14-lmfdb-assertion-semantics",
+     "title": "Layer 14: LMFDB assertion semantics"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+   "title": "Elliptic curves",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_EllipticCurves.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+     "title": "Layer 0: the function field, places, and divisors"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-05-base-change-galois-actions-translations-and-descent-cross-cutting",
+     "title": "Layer 0.5: base change, Galois actions, translations, and descent (cross-cutting)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+     "title": "Layer 1: isogenies, the dual, the invariant differential, and formal groups (AEC II.2, III.4–6, IV)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+     "title": "Layer 2: torsion, the Weil pairing, and the Tate module (AEC III.6–8)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+     "title": "Layer 3: elliptic curves over finite fields — the Hasse bound (AEC V.1)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+     "title": "Layer 4: elliptic curves over local fields — reduction, Tate's algorithm, the Tate curve (AEC VII, ATAEC IV–V)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-45a-invariant-theory-over-a-dedekind-domain-aec-viii8",
+     "title": "Layer 4.5a: invariant theory over a Dedekind domain (AEC VIII.8)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-45b-global-equation-construction-over-a-number-field",
+     "title": "Layer 4.5b: global equation construction over a number field"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+     "title": "Layer 5: twists (AEC X.2, X.5)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+     "title": "Layer 6: the Mordell–Weil theorem (AEC VIII)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+     "title": "Layer 7: Selmer groups and Sha (AEC X.4)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+     "title": "Layer 8: selected ℚ-specific database adapters"
+    }
+   ]
+  }
+ ]
+}

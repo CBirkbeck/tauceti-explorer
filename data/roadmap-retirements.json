@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "purpose": "Roadmaps removed from the atlas, each with the reason. The snapshot in data/atlas.json is unchanged; scripts/retirements.py removes these roadmaps, their layers and every link through them wherever the atlas is read. A retired roadmap is never a supplier: its consumers take the underlying results from Mathlib, Tau Ceti or the roadmaps named under coveredBy, and the link maps re-establish the real prerequisites.",
+ "roadmaps": {
+  "FoundationsAndLibraryIntegration": {
+   "retired": "2026-09-16",
+   "requestedBy": "the atlas owner",
+   "reason": "Not a mathematical roadmap. Two of its layers inventory general commutative algebra, linear algebra, analysis, topology and category theory that Mathlib already has in generality (localization, integral closure, Dedekind domains, completions, flatness, tensor products, Haar and Bochner integration, Fourier analysis, abelian categories, derived functors, sheafification). One layer 'integrates' roadmaps that exist in their own right, and the rest is process: pinning libraries, auditing imports and checking axioms. Its fifty links made 25 roadmaps depend on it artificially.",
+   "coveredBy": {
+    "library": ["Mathlib commutative algebra, linear algebra, measure theory, analysis, topology and category theory", "Tau Ceti"],
+    "roadmaps": ["tauceti:TauCetiRoadmap/NumberFieldArithmetic", "tauceti:TauCetiRoadmap/GlobalNumberFields", "tauceti:TauCetiRoadmap/LocalFieldsRamification", "tauceti:TauCetiRoadmap/ClassFieldTheory", "tauceti:TauCetiRoadmap/ProfiniteCohomology", "tauceti:TauCetiRoadmap/Chebotarev", "tauceti:TauCetiRoadmap/ModularForms", "tauceti:TauCetiRoadmap/EllipticCurves"],
+    "process": "research/blueprint/PROTOCOL.md (pinned baseline, declaration evidence, axiom checks)"
+   }
+  }
+ }
+}

@@ -1,0 +1,192 @@
+{
+ "job": "AUDIT-35",
+ "roadmaps": [
+  {
+   "roadmapId": "MotivesAndAlgebraicCycles",
+   "title": "Algebraic cycles, pure and mixed motives",
+   "extract": "research/blueprint/atlas/roadmaps/MotivesAndAlgebraicCycles.json",
+   "layers": [
+    {
+     "id": "MotivesAndAlgebraicCycles:MC.0",
+     "title": "Cycle correspondences and equivalence relations"
+    },
+    {
+     "id": "MotivesAndAlgebraicCycles:MC.1",
+     "title": "Pure motives and Tate objects"
+    },
+    {
+     "id": "MotivesAndAlgebraicCycles:MC.2",
+     "title": "Realizations and cycle-class compatibility"
+    },
+    {
+     "id": "MotivesAndAlgebraicCycles:MC.3",
+     "title": "Numerical motives and semisimplicity"
+    },
+    {
+     "id": "MotivesAndAlgebraicCycles:MC.4",
+     "title": "Geometric mixed motives and motivic cohomology"
+    },
+    {
+     "id": "MotivesAndAlgebraicCycles:MC.5",
+     "title": "Nori motives and diagram categories"
+    },
+    {
+     "id": "MotivesAndAlgebraicCycles:MC.6",
+     "title": "Motivic Galois groups and periods"
+    },
+    {
+     "id": "MotivesAndAlgebraicCycles:MC.7",
+     "title": "Cycle conjectures and proven special cases"
+    }
+   ]
+  },
+  {
+   "roadmapId": "AInfCohomology",
+   "title": "Integral A_inf cohomology and Breuil–Kisin–Fargues structures",
+   "extract": "research/blueprint/atlas/roadmaps/AInfCohomology.json",
+   "layers": [
+    {
+     "id": "AInfCohomology:AI.0",
+     "title": "Period-ring interfaces and normalization"
+    },
+    {
+     "id": "AInfCohomology:AI.0:integral",
+     "title": "Period-ring interfaces and normalization — integral"
+    },
+    {
+     "id": "AInfCohomology:AI.0:period-comparison",
+     "title": "Period-ring interfaces and normalization — period comparison"
+    },
+    {
+     "id": "AInfCohomology:AI.1",
+     "title": "The derived décalage operator Lη"
+    },
+    {
+     "id": "AInfCohomology:AI.2",
+     "title": "BKF modules, lattices and modifications"
+    },
+    {
+     "id": "AInfCohomology:AI.3",
+     "title": "Integral pro-étale sheaves and the AΩ construction"
+    },
+    {
+     "id": "AInfCohomology:AI.4",
+     "title": "Local specializations and crystalline comparison"
+    },
+    {
+     "id": "AInfCohomology:AI.5",
+     "title": "Proper A_inf cohomology and torsion control"
+    },
+    {
+     "id": "AInfCohomology:AI.6",
+     "title": "Semistable AΩ with logarithmic specializations"
+    },
+    {
+     "id": "AInfCohomology:AI.7",
+     "title": "Cohomological Breuil–Kisin descent and cross-theory interfaces"
+    }
+   ]
+  },
+  {
+   "roadmapId": "AdicEtaleGeometry",
+   "title": "Analytic adic geometry required for diamonds",
+   "extract": "research/blueprint/atlas/roadmaps/AdicEtaleGeometry.json",
+   "layers": [
+    {
+     "id": "AdicEtaleGeometry:A0",
+     "title": "Completed tensor products and the fibre products actually used"
+    },
+    {
+     "id": "AdicEtaleGeometry:A1",
+     "title": "Finite étale and étale geometry"
+    },
+    {
+     "id": "AdicEtaleGeometry:A2",
+     "title": "Separatedness, smooth charts, and classical analytic geometry"
+    },
+    {
+     "id": "AdicEtaleGeometry:A3",
+     "title": "The nonnoetherian affinoid étale approximation input"
+    },
+    {
+     "id": "AdicEtaleGeometry:A4",
+     "title": "Analytic adic presentations for diamondification"
+    }
+   ]
+  },
+  {
+   "roadmapId": "AdicSpacesPartII",
+   "title": "Adic Spaces PartII",
+   "extract": "research/blueprint/atlas/roadmaps/AdicSpacesPartII.json",
+   "layers": [
+    {
+     "id": "AdicSpacesPartII:F0",
+     "title": "Formal geometry integrated with R0–R3"
+    },
+    {
+     "id": "AdicSpacesPartII:F1",
+     "title": "Dagger geometry and overconvergent de Rham complexes"
+    },
+    {
+     "id": "AdicSpacesPartII:R0",
+     "title": "Morphisms and admissible affinoid products"
+    },
+    {
+     "id": "AdicSpacesPartII:R1",
+     "title": "Analytification and algebraic correspondences"
+    },
+    {
+     "id": "AdicSpacesPartII:R2",
+     "title": "Formal schemes, generic fibres, and Hasse domains"
+    },
+    {
+     "id": "AdicSpacesPartII:R3",
+     "title": "Coherent sheaves and finite traces"
+    },
+    {
+     "id": "AdicSpacesPartII:R4",
+     "title": "Étale and pro-étale sites"
+    },
+    {
+     "id": "AdicSpacesPartII:R5",
+     "title": "Families and sousperfectoid spaces"
+    }
+   ]
+  },
+  {
+   "roadmapId": "CohomologyComparisons",
+   "title": "Cohomology comparisons: integral diagrams and rational period realizations",
+   "extract": "research/blueprint/atlas/roadmaps/CohomologyComparisons.json",
+   "layers": [
+    {
+     "id": "CohomologyComparisons:CP.0",
+     "title": "Common objects, coefficient maps and normalization"
+    },
+    {
+     "id": "CohomologyComparisons:CP.1",
+     "title": "The integral derived comparison diagram"
+    },
+    {
+     "id": "CohomologyComparisons:CP.2",
+     "title": "Rational crystalline comparison and descent"
+    },
+    {
+     "id": "CohomologyComparisons:CP.3",
+     "title": "Canonical B_dR^+ deformation and de Rham comparison"
+    },
+    {
+     "id": "CohomologyComparisons:CP.4",
+     "title": "Semistable, logarithmic and monodromy comparison"
+    },
+    {
+     "id": "CohomologyComparisons:CP.5",
+     "title": "Integral torsion inequalities and lattice recovery"
+    },
+    {
+     "id": "CohomologyComparisons:CP.6",
+     "title": "Reusable coefficient, product and arithmetic exports"
+    }
+   ]
+  }
+ ]
+}

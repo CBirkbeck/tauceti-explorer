@@ -1,0 +1,201 @@
+{
+ "job": "AUDIT-16",
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+   "title": "Modular forms — Hecke theory, newforms, and L-functions",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ModularForms.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+     "title": "Layer 0: diamond operators and modular forms with character (nebentypus)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularForms#layer-1-the-valence-formula-general-level",
+     "title": "Layer 1: the valence formula (general level)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+     "title": "Layer 2: Hecke operators and the Hecke algebra"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms",
+     "title": "Layer 3: the Petersson inner product, adjoints, oldforms and newforms"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+     "title": "Layer 4: eigenforms, newforms, primitive forms; the conductor"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+     "title": "Layer 5: strong multiplicity one and the eigenform characterization"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularForms#layer-6-atkinlehner-and-fricke-operators",
+     "title": "Layer 6: Atkin–Lehner and Fricke operators"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+     "title": "Layer 7: L-functions"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+     "title": "Layer 8: modular symbols, the integral Hecke algebra, and coefficient fields"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+     "title": "Layer 8G: Galois stability, the character field, and rationality"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularForms#layer-9-the-lmfdb-invariant-layer",
+     "title": "Layer 9: the LMFDB invariant layer"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas",
+     "title": "Layer 10: the modular curve Γ\\ℍ and the dimension formulas"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve",
+     "title": "10A — the analytic modular curve"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology",
+     "title": "10B — compact-Riemann-surface cohomology"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas",
+     "title": "10C — modular forms as section spaces, and the dimension formulas"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one",
+     "title": "Layer 11: the Eichler–Selberg trace formula (level one)"
+    }
+   ]
+  },
+  {
+   "roadmapId": "AdditiveCombinatorics",
+   "title": "Additive combinatorics, higher Fourier analysis and primes",
+   "extract": "research/blueprint/atlas/roadmaps/AdditiveCombinatorics.json",
+   "layers": [
+    {
+     "id": "AdditiveCombinatorics:AC.0",
+     "title": "Sumsets and energy"
+    },
+    {
+     "id": "AdditiveCombinatorics:AC.1",
+     "title": "Structure and randomness"
+    },
+    {
+     "id": "AdditiveCombinatorics:AC.2",
+     "title": "Progressions and removal"
+    },
+    {
+     "id": "AdditiveCombinatorics:AC.3",
+     "title": "Gowers norms and nilsequences"
+    },
+    {
+     "id": "AdditiveCombinatorics:AC.4",
+     "title": "Transference to primes"
+    },
+    {
+     "id": "AdditiveCombinatorics:AC.5",
+     "title": "Linear patterns and multiplicative orthogonality"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "title": "Algebraic codes and code-lattice constructions",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AlgebraicCodingTheory.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-1-finite-codes-matrices-and-elementary-constructions",
+     "title": "Layer 1: finite codes, matrices, and elementary constructions"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-2-hamming-data-and-dual-codes",
+     "title": "Layer 2: Hamming data and dual codes"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-3-weight-enumerators-and-macwilliams",
+     "title": "Layer 3: weight enumerators and MacWilliams"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-4-binary-doubly-even-and-type-ii-codes",
+     "title": "Layer 4: binary doubly-even and Type II codes"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-5-tetracode-hexacode-and-the-extended-golay-codes",
+     "title": "Layer 5: tetracode, hexacode, and the extended Golay codes"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+     "title": "Layer 6: Construction A with exact hypotheses"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+     "title": "Layer 7: codes as isotropic discriminant subgroups"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "title": "Dense graph limits and graphons",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_DenseGraphLimits.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-0--finite-graph-and-measure-scaffolding",
+     "title": "Layer 0 — finite-graph and measure scaffolding"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-1--core-objects-and-their-basic-api",
+     "title": "Layer 1 — core objects and their basic API"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-2--counting-regularity-total-boundedness",
+     "title": "Layer 2 — counting, regularity, total boundedness"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-3--the-ae--aeeqfun-view",
+     "title": "Layer 3 — the AE / AEEqFun view"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-4--completeness-and-compactness",
+     "title": "Layer 4 — completeness and compactness"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-5--coupling-and-map-cut-distance-agree",
+     "title": "Layer 5 — coupling and map cut distance agree"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-6--separation-and-convergence-equivalence-the-analytic-summit",
+     "title": "Layer 6 — separation and convergence equivalence (the analytic summit)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-7--applications-and-validation",
+     "title": "Layer 7 — applications and validation"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-8a--quantum-graphs-and-reflection-positivity",
+     "title": "Layer 8a — quantum graphs and reflection positivity"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-8b--lovászszegedy-representability",
+     "title": "Layer 8b — Lovász–Szegedy representability"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9a--finite-and-joint-graphon-sampling",
+     "title": "Layer 9a — finite and joint graphon sampling"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9b--exchangeable-graph-laws-and-graphon-mixtures",
+     "title": "Layer 9b — exchangeable graph laws and graphon mixtures"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9c--sampling-convergence",
+     "title": "Layer 9c — sampling convergence"
+    }
+   ]
+  }
+ ]
+}

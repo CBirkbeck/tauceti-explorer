@@ -1,0 +1,208 @@
+{
+ "job": "AUDIT-36",
+ "roadmaps": [
+  {
+   "roadmapId": "CrystallineCohomology",
+   "title": "Crystalline cohomology, de Rham–Witt and logarithmic foundations",
+   "extract": "research/blueprint/atlas/roadmaps/CrystallineCohomology.json",
+   "layers": [
+    {
+     "id": "CrystallineCohomology:CR.0",
+     "title": "Divided powers and universal thickenings"
+    },
+    {
+     "id": "CrystallineCohomology:CR.1",
+     "title": "Crystalline sites, structure sheaves and crystals"
+    },
+    {
+     "id": "CrystallineCohomology:CR.2",
+     "title": "The PD Poincare lemma and de Rham computations"
+    },
+    {
+     "id": "CrystallineCohomology:CR.3",
+     "title": "Descent, finiteness, base change and Frobenius"
+    },
+    {
+     "id": "CrystallineCohomology:CR.3:Frobenius-isogeny",
+     "title": "Descent, finiteness, base change and Frobenius — Frobenius isogeny"
+    },
+    {
+     "id": "CrystallineCohomology:CR.3:duality",
+     "title": "Trace and Poincaré duality — source-qualified successor"
+    },
+    {
+     "id": "CrystallineCohomology:CR.4",
+     "title": "Ordinary and relative de Rham–Witt complexes"
+    },
+    {
+     "id": "CrystallineCohomology:CR.5",
+     "title": "Logarithmic geometry and log-crystalline cohomology"
+    },
+    {
+     "id": "CrystallineCohomology:CR.5:log-algebra",
+     "title": "Logarithmic geometry and log-crystalline cohomology — log algebra"
+    },
+    {
+     "id": "CrystallineCohomology:CR.6",
+     "title": "Hyodo–Kato complexes and semistable structure"
+    },
+    {
+     "id": "CrystallineCohomology:CR.7",
+     "title": "Coefficient and arithmetic interfaces"
+    }
+   ]
+  },
+  {
+   "roadmapId": "DerivedDeRhamCohomology",
+   "title": "Derived de Rham cohomology and its algebraic foundations",
+   "extract": "research/blueprint/atlas/roadmaps/DerivedDeRhamCohomology.json",
+   "layers": [
+    {
+     "id": "DerivedDeRhamCohomology:DD.0",
+     "title": "Cotangent complexes and derived exterior powers"
+    },
+    {
+     "id": "DerivedDeRhamCohomology:DD.1",
+     "title": "Derived completion and complete filtered algebra"
+    },
+    {
+     "id": "DerivedDeRhamCohomology:DD.2",
+     "title": "Derived de Rham and the Hodge filtration"
+    },
+    {
+     "id": "DerivedDeRhamCohomology:DD.3",
+     "title": "Derived Cartier theory and conjugate filtration"
+    },
+    {
+     "id": "DerivedDeRhamCohomology:DD.4",
+     "title": "The crystalline and p-adic comparison construction"
+    },
+    {
+     "id": "DerivedDeRhamCohomology:DD.5",
+     "title": "Quasisyntomic descent and reusable cohomological control"
+    },
+    {
+     "id": "DerivedDeRhamCohomology:DD.6",
+     "title": "Logarithmic extension and acceptance boundary"
+    }
+   ]
+  },
+  {
+   "roadmapId": "DiamondEtaleCohomology",
+   "title": "Étale cohomology of diamonds and its four operations",
+   "extract": "research/blueprint/atlas/roadmaps/DiamondEtaleCohomology.json",
+   "layers": [
+    {
+     "id": "DiamondEtaleCohomology:C0",
+     "title": "Sites and bounded comparison"
+    },
+    {
+     "id": "DiamondEtaleCohomology:C1",
+     "title": "General base change, before v-locality"
+    },
+    {
+     "id": "DiamondEtaleCohomology:C2",
+     "title": "The left-completed étale category and descent"
+    },
+    {
+     "id": "DiamondEtaleCohomology:C3",
+     "title": "Four operations"
+    },
+    {
+     "id": "DiamondEtaleCohomology:C4",
+     "title": "Proper, partially proper, and canonical compactification"
+    },
+    {
+     "id": "DiamondEtaleCohomology:C5",
+     "title": "Extension by zero and proper base change"
+    },
+    {
+     "id": "DiamondEtaleCohomology:C6",
+     "title": "Algebraically closed base-field invariance"
+    },
+    {
+     "id": "DiamondEtaleCohomology:C7",
+     "title": "Constructible and perfect-constructible coefficients"
+    },
+    {
+     "id": "DiamondEtaleCohomology:C8",
+     "title": "Dimension and cohomological bounds"
+    },
+    {
+     "id": "DiamondEtaleCohomology:C9",
+     "title": "Compact generation in the correct scope"
+    }
+   ]
+  },
+  {
+   "roadmapId": "DiamondSixOperations",
+   "title": "Six operations, cohomological smoothness and biduality",
+   "extract": "research/blueprint/atlas/roadmaps/DiamondSixOperations.json",
+   "layers": [
+    {
+     "id": "DiamondSixOperations:S0",
+     "title": "Compactifiable morphisms"
+    },
+    {
+     "id": "DiamondSixOperations:S1",
+     "title": "Quasicompact proper-support pushforward and the dimension estimate"
+    },
+    {
+     "id": "DiamondSixOperations:S2",
+     "title": "Non-quasicompact maps and small v-stacks"
+    },
+    {
+     "id": "DiamondSixOperations:S3",
+     "title": "Exceptional inverse image and the formal identities"
+    },
+    {
+     "id": "DiamondSixOperations:S4",
+     "title": "Cohomological smoothness with the revised descent hypotheses"
+    },
+    {
+     "id": "DiamondSixOperations:S5",
+     "title": "Examples: the ball, quotients and analytic smooth maps"
+    },
+    {
+     "id": "DiamondSixOperations:S6",
+     "title": "Biduality and conservativity"
+    }
+   ]
+  },
+  {
+   "roadmapId": "DiamondsAndVStacks",
+   "title": "Pro-étale descent, diamonds and small v-stacks",
+   "extract": "research/blueprint/atlas/roadmaps/DiamondsAndVStacks.json",
+   "layers": [
+    {
+     "id": "DiamondsAndVStacks:D0",
+     "title": "Spectral topology, ordinary sites, and size"
+    },
+    {
+     "id": "DiamondsAndVStacks:D1",
+     "title": "Totally disconnected perfectoid spaces"
+    },
+    {
+     "id": "DiamondsAndVStacks:D2",
+     "title": "Pro-étale and v-topologies"
+    },
+    {
+     "id": "DiamondsAndVStacks:D3",
+     "title": "Effective descent and morphisms of stacks"
+    },
+    {
+     "id": "DiamondsAndVStacks:D4",
+     "title": "Diamonds and small v-stacks"
+    },
+    {
+     "id": "DiamondsAndVStacks:D5",
+     "title": "Spatial geometry and relative representability"
+    },
+    {
+     "id": "DiamondsAndVStacks:D6",
+     "title": "Analytic adic spaces as diamonds"
+    }
+   ]
+  }
+ ]
+}

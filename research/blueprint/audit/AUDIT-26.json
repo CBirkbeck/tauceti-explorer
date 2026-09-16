@@ -1,0 +1,192 @@
+{
+ "job": "AUDIT-26",
+ "roadmaps": [
+  {
+   "roadmapId": "ModularIwasawaMainConjectures",
+   "title": "Main conjectures for modular forms and their families",
+   "extract": "research/blueprint/atlas/roadmaps/ModularIwasawaMainConjectures.json",
+   "layers": [
+    {
+     "id": "ModularIwasawaMainConjectures:L0",
+     "title": "The three formulations"
+    },
+    {
+     "id": "ModularIwasawaMainConjectures:L1",
+     "title": "Ordinary theorem with explicit ramification hypotheses (T1)"
+    },
+    {
+     "id": "ModularIwasawaMainConjectures:L2",
+     "title": "Broader cohomological theorem (T2)"
+    },
+    {
+     "id": "ModularIwasawaMainConjectures:L3",
+     "title": "Ordinary elliptic curves with irreducible residual representation (T3)"
+    },
+    {
+     "id": "ModularIwasawaMainConjectures:L4",
+     "title": "Families and signed consequences (T4–T5)"
+    },
+    {
+     "id": "ModularIwasawaMainConjectures:L5",
+     "title": "Consequences and integrity tests"
+    },
+    {
+     "id": "ModularIwasawaMainConjectures:L6",
+     "title": "Reusable branch interfaces and separately owned proof suppliers"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ModularSymbolsPadicLFunctions",
+   "title": "Modular symbols and analytic p-adic L-functions of modular forms",
+   "extract": "research/blueprint/atlas/roadmaps/ModularSymbolsPadicLFunctions.json",
+   "layers": [
+    {
+     "id": "ModularSymbolsPadicLFunctions:L0",
+     "title": "Modular symbols and Hecke actions"
+    },
+    {
+     "id": "ModularSymbolsPadicLFunctions:L1",
+     "title": "Periods and critical values"
+    },
+    {
+     "id": "ModularSymbolsPadicLFunctions:L2",
+     "title": "Refinements and small slope"
+    },
+    {
+     "id": "ModularSymbolsPadicLFunctions:L3",
+     "title": "Critical slope"
+    },
+    {
+     "id": "ModularSymbolsPadicLFunctions:L4",
+     "title": "Examples and coefficient changes"
+    }
+   ]
+  },
+  {
+   "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+   "title": "Noncommutative and equivariant Iwasawa theory",
+   "extract": "research/blueprint/atlas/roadmaps/NoncommutativeAndEquivariantIwasawa.json",
+   "layers": [
+    {
+     "id": "NoncommutativeAndEquivariantIwasawa:NE.0",
+     "title": "Completed group rings for p-adic Lie groups"
+    },
+    {
+     "id": "NoncommutativeAndEquivariantIwasawa:NE.1",
+     "title": "Ore localization and torsion categories"
+    },
+    {
+     "id": "NoncommutativeAndEquivariantIwasawa:NE.2",
+     "title": "K1, relative K0 and characteristic elements"
+    },
+    {
+     "id": "NoncommutativeAndEquivariantIwasawa:NE.3",
+     "title": "Artin evaluation, reduced norms and SK1"
+    },
+    {
+     "id": "NoncommutativeAndEquivariantIwasawa:NE.4",
+     "title": "Equivariant arithmetic complexes"
+    },
+    {
+     "id": "NoncommutativeAndEquivariantIwasawa:NE.5",
+     "title": "Zeta elements and interpolation contracts"
+    },
+    {
+     "id": "NoncommutativeAndEquivariantIwasawa:NE.6",
+     "title": "Source-qualified main theorems"
+    },
+    {
+     "id": "NoncommutativeAndEquivariantIwasawa:NE.7",
+     "title": "Descent, leading terms and equivariant consumers"
+    }
+   ]
+  },
+  {
+   "roadmapId": "PadicHodgeRegulators",
+   "title": "P-adic regulators and the local K₃ calculation",
+   "extract": "research/blueprint/atlas/roadmaps/PadicHodgeRegulators.json",
+   "layers": [
+    {
+     "id": "PadicHodgeRegulators:D.1",
+     "title": "p-adic analytic functions with normalisations"
+    },
+    {
+     "id": "PadicHodgeRegulators:D.2",
+     "title": "Étale and syntomic regulators"
+    },
+    {
+     "id": "PadicHodgeRegulators:D.3",
+     "title": "The unramified p>3 theorem"
+    },
+    {
+     "id": "PadicHodgeRegulators:D.4",
+     "title": "Arithmetic localisation and Frobenius"
+    },
+    {
+     "id": "PadicHodgeRegulators:D.5",
+     "title": "Elliptic and higher-weight interfaces"
+    },
+    {
+     "id": "PadicHodgeRegulators:L0",
+     "title": "Period rings and realizations"
+    },
+    {
+     "id": "PadicHodgeRegulators:L1",
+     "title": "Bloch–Kato maps"
+    },
+    {
+     "id": "PadicHodgeRegulators:L2",
+     "title": "(phi,Gamma)-modules and Iwasawa cohomology"
+    },
+    {
+     "id": "PadicHodgeRegulators:L3",
+     "title": "The big logarithm and explicit interpolation"
+    },
+    {
+     "id": "PadicHodgeRegulators:L4",
+     "title": "Signed and noncrystalline extensions"
+    }
+   ]
+  },
+  {
+   "roadmapId": "PadicMeasuresIwasawaAlgebras",
+   "title": "P-adic measures, completed group algebras, and characteristic ideals",
+   "extract": "research/blueprint/atlas/roadmaps/PadicMeasuresIwasawaAlgebras.json",
+   "layers": [
+    {
+     "id": "PadicMeasuresIwasawaAlgebras:L0",
+     "title": "Coefficients, continuous functions, and duals"
+    },
+    {
+     "id": "PadicMeasuresIwasawaAlgebras:L0a",
+     "title": "Rigid character and weight spaces"
+    },
+    {
+     "id": "PadicMeasuresIwasawaAlgebras:L1",
+     "title": "Completed group rings and convolution"
+    },
+    {
+     "id": "PadicMeasuresIwasawaAlgebras:L2",
+     "title": "Mahler–Amice theory for bounded measures"
+    },
+    {
+     "id": "PadicMeasuresIwasawaAlgebras:L3",
+     "title": "Pseudo-measures and evaluation"
+    },
+    {
+     "id": "PadicMeasuresIwasawaAlgebras:L4",
+     "title": "Weierstrass theory and module structure"
+    },
+    {
+     "id": "PadicMeasuresIwasawaAlgebras:L5",
+     "title": "Determinants, specialization, and exactness"
+    },
+    {
+     "id": "PadicMeasuresIwasawaAlgebras:L6",
+     "title": "Gorenstein coefficient orders and exact duality"
+    }
+   ]
+  }
+ ]
+}

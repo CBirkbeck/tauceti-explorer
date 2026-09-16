@@ -1,0 +1,208 @@
+{
+ "job": "AUDIT-21",
+ "roadmaps": [
+  {
+   "roadmapId": "GeometricSatakeAndFusion",
+   "title": "Geometric Satake over the Fargues–Fontaine curve",
+   "extract": "research/blueprint/atlas/roadmaps/GeometricSatakeAndFusion.json",
+   "layers": [
+    {
+     "id": "GeometricSatakeAndFusion:GS0",
+     "title": "Beilinson–Drinfeld Grassmannians and loop groups"
+    },
+    {
+     "id": "GeometricSatakeAndFusion:GS0:Schubert-smoothness",
+     "title": "Early geometric return to Bun_G"
+    },
+    {
+     "id": "GeometricSatakeAndFusion:GS0:Witt-geometry",
+     "title": "Projectivity and the special-fibre comparison"
+    },
+    {
+     "id": "GeometricSatakeAndFusion:GS0:loop-geometry",
+     "title": "Integral divisors and bounded modifications"
+    },
+    {
+     "id": "GeometricSatakeAndFusion:GS1",
+     "title": "Semi-infinite geometry and constructibility"
+    },
+    {
+     "id": "GeometricSatakeAndFusion:GS2",
+     "title": "Satake objects and convolution"
+    },
+    {
+     "id": "GeometricSatakeAndFusion:GS2:Satake-closure",
+     "title": "Closure after fusion"
+    },
+    {
+     "id": "GeometricSatakeAndFusion:GS2:correspondences",
+     "title": "Objects and convolution before t-exactness"
+    },
+    {
+     "id": "GeometricSatakeAndFusion:GS3",
+     "title": "Fusion, symmetry and finite-set functoriality"
+    },
+    {
+     "id": "GeometricSatakeAndFusion:GS3:fusion",
+     "title": "Coherent collision and factorization maps"
+    },
+    {
+     "id": "GeometricSatakeAndFusion:GS4",
+     "title": "Tannakian reconstruction and the Weil action"
+    },
+    {
+     "id": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison",
+     "title": "A downstream comparison, not an input"
+    },
+    {
+     "id": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+     "title": "Reconstruction and normalized functoriality"
+    },
+    {
+     "id": "GeometricSatakeAndFusion:GS4:rational-reductivity",
+     "title": "The late decomposition-theorem input"
+    }
+   ]
+  },
+  {
+   "roadmapId": "HeckeStacksAndLocalShtukas",
+   "title": "Hecke correspondences and local shtuka cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/HeckeStacksAndLocalShtukas.json",
+   "layers": [
+    {
+     "id": "HeckeStacksAndLocalShtukas:HS0",
+     "title": "Global and local Hecke stacks"
+    },
+    {
+     "id": "HeckeStacksAndLocalShtukas:HS1",
+     "title": "Kernels and the coherent Hecke action"
+    },
+    {
+     "id": "HeckeStacksAndLocalShtukas:HS2",
+     "title": "Local shtuka moduli and bounds"
+    },
+    {
+     "id": "HeckeStacksAndLocalShtukas:HS3",
+     "title": "Cohomology as a representation-valued functor"
+    },
+    {
+     "id": "HeckeStacksAndLocalShtukas:HS4",
+     "title": "Reusable compatibility library"
+    }
+   ]
+  },
+  {
+   "roadmapId": "LanglandsParameterStacks",
+   "title": "Parameter stacks, invariant theory and spectral coefficients",
+   "extract": "research/blueprint/atlas/roadmaps/LanglandsParameterStacks.json",
+   "layers": [
+    {
+     "id": "LanglandsParameterStacks:LP0",
+     "title": "Weil groups and continuous cocycles"
+    },
+    {
+     "id": "LanglandsParameterStacks:LP1",
+     "title": "Representability and local complete intersection geometry"
+    },
+    {
+     "id": "LanglandsParameterStacks:LP2",
+     "title": "Coarse quotient and excursion presentation"
+    },
+    {
+     "id": "LanglandsParameterStacks:LP2:excursion-presentation",
+     "title": "Unrestricted excursion algebra"
+    },
+    {
+     "id": "LanglandsParameterStacks:LP2:integral-invariants",
+     "title": "The stronger spectral-coordinate theorem"
+    },
+    {
+     "id": "LanglandsParameterStacks:LP2:semisimple-characters",
+     "title": "Geometric characters without a good-prime exclusion"
+    },
+    {
+     "id": "LanglandsParameterStacks:LP3",
+     "title": "Integral reductive invariant theory"
+    },
+    {
+     "id": "LanglandsParameterStacks:LP4",
+     "title": "Perfect complexes on parameter stacks"
+    }
+   ]
+  },
+  {
+   "roadmapId": "VStackSheavesAndLisseCategories",
+   "title": "Artin v-stacks, solid and lisse coefficient categories",
+   "extract": "research/blueprint/atlas/roadmaps/VStackSheavesAndLisseCategories.json",
+   "layers": [
+    {
+     "id": "VStackSheavesAndLisseCategories:VS0",
+     "title": "Artin v-stacks and eligible operations"
+    },
+    {
+     "id": "VStackSheavesAndLisseCategories:VS1",
+     "title": "ULA, Jacobian criterion and localization"
+    },
+    {
+     "id": "VStackSheavesAndLisseCategories:VS2",
+     "title": "Condensed and solid foundations"
+    },
+    {
+     "id": "VStackSheavesAndLisseCategories:VS3",
+     "title": "Lisse categories and coefficients"
+    },
+    {
+     "id": "VStackSheavesAndLisseCategories:VS4",
+     "title": "Sheaves on Bun_G strata and compact generation"
+    },
+    {
+     "id": "VStackSheavesAndLisseCategories:VS5",
+     "title": "Duality and admissible objects"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+   "title": "Stating the classification of finite simple groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_CFSGStatement.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/CFSGStatement#i0-indices-and-mathlib-glue",
+     "title": "I0: indices and Mathlib glue"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CFSGStatement#l0-ambient-groups-with-root-subgroups",
+     "title": "L0: ambient groups with root subgroups"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CFSGStatement#l1-ordinary-and-graph-twisted-steinberg-maps",
+     "title": "L1: ordinary and graph-twisted Steinberg maps"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CFSGStatement#l2-suzuki--ree-steinberg-maps",
+     "title": "L2: Suzuki--Ree Steinberg maps"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CFSGStatement#l3-fixed-points-and-the-simple-group-candidate",
+     "title": "L3: fixed points and the simple-group candidate"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CFSGStatement#l5-agreement-of-explicit-carriers-with-the-pinned-groups",
+     "title": "L5: agreement of explicit carriers with the pinned groups"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CFSGStatement#s0-auditable-presentation-data-and-source-selection",
+     "title": "S0: auditable presentation data and source selection"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CFSGStatement#s1-the-twenty-six-sporadic-presentations",
+     "title": "S1: the twenty-six sporadic presentations"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CFSGStatement#a0-assemble-and-state-cfsg",
+     "title": "A0: assemble and state CFSG"
+    }
+   ]
+  }
+ ]
+}

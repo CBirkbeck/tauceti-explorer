@@ -1,0 +1,236 @@
+{
+ "job": "AUDIT-20",
+ "roadmaps": [
+  {
+   "roadmapId": "DrinfeldModulesAndTModules",
+   "title": "Drinfeld modules, t-motives and characteristic-p special values",
+   "extract": "research/blueprint/atlas/roadmaps/DrinfeldModulesAndTModules.json",
+   "layers": [
+    {
+     "id": "DrinfeldModulesAndTModules:DM.0",
+     "title": "Additive polynomials and Drinfeld modules"
+    },
+    {
+     "id": "DrinfeldModulesAndTModules:DM.1",
+     "title": "Torsion, Tate modules and Galois actions"
+    },
+    {
+     "id": "DrinfeldModulesAndTModules:DM.2",
+     "title": "Analytic uniformization and lattices"
+    },
+    {
+     "id": "DrinfeldModulesAndTModules:DM.3",
+     "title": "Moduli, modular forms and compactification"
+    },
+    {
+     "id": "DrinfeldModulesAndTModules:DM.4",
+     "title": "t-modules and effective t-motives"
+    },
+    {
+     "id": "DrinfeldModulesAndTModules:DM.5",
+     "title": "Isogenies and the Tate theorem"
+    },
+    {
+     "id": "DrinfeldModulesAndTModules:DM.6",
+     "title": "L-values, regulators and class modules"
+    },
+    {
+     "id": "DrinfeldModulesAndTModules:DM.7",
+     "title": "Elliptic sheaves and shtuka realizations"
+    },
+    {
+     "id": "DrinfeldModulesAndTModules:DM.8",
+     "title": "Periods, logarithms and algebraic independence"
+    }
+   ]
+  },
+  {
+   "roadmapId": "FunctionFieldArithmetic",
+   "title": "Global function fields, reciprocity and automorphic foundations",
+   "extract": "research/blueprint/atlas/roadmaps/FunctionFieldArithmetic.json",
+   "layers": [
+    {
+     "id": "FunctionFieldArithmetic:FA.0",
+     "title": "Curves, fields and constants"
+    },
+    {
+     "id": "FunctionFieldArithmetic:FA.1",
+     "title": "Divisors, differentials and Riemann--Roch"
+    },
+    {
+     "id": "FunctionFieldArithmetic:FA.2",
+     "title": "Adeles, ideles and global Fourier analysis"
+    },
+    {
+     "id": "FunctionFieldArithmetic:FA.3",
+     "title": "Ramification and positive-characteristic extensions"
+    },
+    {
+     "id": "FunctionFieldArithmetic:FA.4",
+     "title": "Local and global class field theory"
+    },
+    {
+     "id": "FunctionFieldArithmetic:FA.5",
+     "title": "Zeta functions, Artin factors and Chebotarev"
+    },
+    {
+     "id": "FunctionFieldArithmetic:FA.6",
+     "title": "Reductive-group automorphic forms over K"
+    },
+    {
+     "id": "FunctionFieldArithmetic:FA.7",
+     "title": "Explicit arithmetic and downstream contracts"
+    }
+   ]
+  },
+  {
+   "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+   "title": "Global shtukas and Langlands over function fields",
+   "extract": "research/blueprint/atlas/roadmaps/GlobalShtukasAndFunctionFieldLanglands.json",
+   "layers": [
+    {
+     "id": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+     "title": "Global G-bundles and level structures"
+    },
+    {
+     "id": "GlobalShtukasAndFunctionFieldLanglands:GS.1",
+     "title": "Global Hecke stacks and classical geometric Satake"
+    },
+    {
+     "id": "GlobalShtukasAndFunctionFieldLanglands:GS.2",
+     "title": "Shtuka stacks, modifications and truncations"
+    },
+    {
+     "id": "GlobalShtukasAndFunctionFieldLanglands:GS.3",
+     "title": "Cohomology, correspondences and cuspidal sectors"
+    },
+    {
+     "id": "GlobalShtukasAndFunctionFieldLanglands:GS.4",
+     "title": "Partial Frobenius and Drinfeld lemma"
+    },
+    {
+     "id": "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+     "title": "Excursions and general reductive parameters"
+    },
+    {
+     "id": "GlobalShtukasAndFunctionFieldLanglands:GS.6",
+     "title": "The full GL_n global correspondence"
+    },
+    {
+     "id": "GlobalShtukasAndFunctionFieldLanglands:GS.7",
+     "title": "Local--global and equal-characteristic comparison"
+    }
+   ]
+  },
+  {
+   "roadmapId": "BunGAndNewtonStrata",
+   "title": "Reductive bundles, B(G) and Newton strata",
+   "extract": "research/blueprint/atlas/roadmaps/BunGAndNewtonStrata.json",
+   "layers": [
+    {
+     "id": "BunGAndNewtonStrata:BG0",
+     "title": "Torsors and isocrystals with reductive structure"
+    },
+    {
+     "id": "BunGAndNewtonStrata:BG1",
+     "title": "Kottwitz and Newton invariants"
+    },
+    {
+     "id": "BunGAndNewtonStrata:BG2",
+     "title": "Bun_G and uniformization"
+    },
+    {
+     "id": "BunGAndNewtonStrata:BG2:smooth-Artin",
+     "title": "The whole stack, not only its strata"
+    },
+    {
+     "id": "BunGAndNewtonStrata:BG2:uniformization",
+     "title": "The stack and its cover"
+    },
+    {
+     "id": "BunGAndNewtonStrata:BG3",
+     "title": "Basic and nonbasic strata"
+    },
+    {
+     "id": "BunGAndNewtonStrata:BG4",
+     "title": "Local charts and specialization geometry"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ExcursionOperatorsAndSpectralAction",
+   "title": "Excursion operators and the spectral action",
+   "extract": "research/blueprint/atlas/roadmaps/ExcursionOperatorsAndSpectralAction.json",
+   "layers": [
+    {
+     "id": "ExcursionOperatorsAndSpectralAction:ES0",
+     "title": "Centers and excursion algebra"
+    },
+    {
+     "id": "ExcursionOperatorsAndSpectralAction:ES0:classical-center",
+     "title": "A coefficient-qualified comparison return"
+    },
+    {
+     "id": "ExcursionOperatorsAndSpectralAction:ES1",
+     "title": "Spectral center and finite ramification"
+    },
+    {
+     "id": "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification",
+     "title": "Objectwise cutoffs and components"
+    },
+    {
+     "id": "ExcursionOperatorsAndSpectralAction:ES1:spectral-center",
+     "title": "The conditional invariant-coordinate map"
+    },
+    {
+     "id": "ExcursionOperatorsAndSpectralAction:ES2",
+     "title": "Rational categorical action"
+    },
+    {
+     "id": "ExcursionOperatorsAndSpectralAction:ES3",
+     "title": "Integral categorical action"
+    },
+    {
+     "id": "ExcursionOperatorsAndSpectralAction:ES4",
+     "title": "Spectral support and reusable consequences"
+    },
+    {
+     "id": "ExcursionOperatorsAndSpectralAction:ES5",
+     "title": "The proved semisimple parameter assignment"
+    },
+    {
+     "id": "ExcursionOperatorsAndSpectralAction:ES6",
+     "title": "Functorial properties of the assignment"
+    },
+    {
+     "id": "ExcursionOperatorsAndSpectralAction:ES6:duality",
+     "title": "Contragradients with the correct proof return"
+    },
+    {
+     "id": "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
+     "title": "Isogenies, products, restriction, tori and characters"
+    },
+    {
+     "id": "ExcursionOperatorsAndSpectralAction:ES7",
+     "title": "Bernstein-stratum normalization and the classical GL_n comparison"
+    },
+    {
+     "id": "ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison",
+     "title": "Proved characteristic-zero agreement"
+    },
+    {
+     "id": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic",
+     "title": "Separate realization for E=F_q((t))"
+    },
+    {
+     "id": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic",
+     "title": "The required characteristic-p global supplier"
+    },
+    {
+     "id": "ExcursionOperatorsAndSpectralAction:ES7:parabolic",
+     "title": "Stratum maps and parabolic induction"
+    }
+   ]
+  }
+ ]
+}

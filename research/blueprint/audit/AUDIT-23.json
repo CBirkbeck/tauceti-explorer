@@ -1,0 +1,220 @@
+{
+ "job": "AUDIT-23",
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+   "title": "Continuous cohomology of profinite groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ProfiniteCohomology.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
+     "title": "Layer 0: discrete modules and continuous sections"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+     "title": "Layer 1: the canonical carrier and its functoriality"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality",
+     "title": "Layer 2: the explicit low-degree complex and its functoriality"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+     "title": "Layer 3: the comparison isomorphisms"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+     "title": "Layer 4: the finite-quotient colimit description"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+     "title": "Layer 5: exact sequences"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+     "title": "Layer 6: change of groups"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+     "title": "Layer 7: coinduced modules and Shapiro's lemma"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+     "title": "Layer 8: cup products in low degrees"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+     "title": "Layer 9: the Galois interface: Hilbert 90 and Kummer theory"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+     "title": "Layer 10: continuous cohomology in all degrees"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+     "title": "Layer 11: cohomological dimension"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+     "title": "Layer 12: the graded cup product in all degrees"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-13-the-evens-norm",
+     "title": "Layer 13: the Evens norm"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+   "title": "Stable, periodic, and curved homological algebra",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_StablePeriodicCurved.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+     "title": "Layer 0: additive ideals and Frobenius exact categories"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-1-the-triangulated-stable-category",
+     "title": "Layer 1: the triangulated stable category"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities",
+     "title": "Layer 2: self-injective modules, total acyclicity, and singularities"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-3-differential-modules-and-periodic-complexes",
+     "title": "Layer 3: differential modules and periodic complexes"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-4-compression-periodic-resolutions-and-relative-projectives",
+     "title": "Layer 4: compression, periodic resolutions, and relative projectives"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-5-curved-dg-algebras-modules-and-duplexes",
+     "title": "Layer 5: curved DG algebras, modules, and duplexes"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-6-curved-acyclicity-and-derived-categories-of-the-second-kind",
+     "title": "Layer 6: curved acyclicity and derived categories of the second kind"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-7-matrix-factorizations",
+     "title": "Layer 7: matrix factorizations"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-8-comparison-functors-and-reconciliation",
+     "title": "Layer 8: comparison functors and reconciliation"
+    }
+   ]
+  },
+  {
+   "roadmapId": "AutomorphicCongruences",
+   "title": "Automorphic congruences and reverse main-conjecture divisibilities",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicCongruences.json",
+   "layers": [
+    {
+     "id": "AutomorphicCongruences:L0",
+     "title": "Congruence modules and Selmer classes"
+    },
+    {
+     "id": "AutomorphicCongruences:L1",
+     "title": "The Skinner–Urban automorphic argument"
+    },
+    {
+     "id": "AutomorphicCongruences:L2",
+     "title": "The distinct Fouquet–Wan automorphic input"
+    },
+    {
+     "id": "AutomorphicCongruences:L2s",
+     "title": "Semi-ordinary GU(3,1) congruences: the CLW replacement"
+    },
+    {
+     "id": "AutomorphicCongruences:L3",
+     "title": "Deformation theory and universal zeta elements"
+    },
+    {
+     "id": "AutomorphicCongruences:L4",
+     "title": "Integral descent and specialization"
+    },
+    {
+     "id": "AutomorphicCongruences:L5",
+     "title": "The ordinary elliptic-curve refinement"
+    },
+    {
+     "id": "AutomorphicCongruences:L5a",
+     "title": "Shared two-variable congruence input"
+    },
+    {
+     "id": "AutomorphicCongruences:L5b",
+     "title": "Quadratic factorization and cyclotomic descent"
+    },
+    {
+     "id": "AutomorphicCongruences:L5w",
+     "title": "Hilbert/quartic-CM Wan–Fujiwara proof input"
+    }
+   ]
+  },
+  {
+   "roadmapId": "AutomorphicPadicLFunctions",
+   "title": "Ray-class distributions and general automorphic constructions",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicPadicLFunctions.json",
+   "layers": [
+    {
+     "id": "AutomorphicPadicLFunctions:L0",
+     "title": "Ray-class character spaces and evaluation"
+    },
+    {
+     "id": "AutomorphicPadicLFunctions:L1",
+     "title": "Cohomological automorphic input for GL2/F"
+    },
+    {
+     "id": "AutomorphicPadicLFunctions:L2",
+     "title": "Overconvergent cohomology and the BSW construction"
+    },
+    {
+     "id": "AutomorphicPadicLFunctions:L3",
+     "title": "Totally real abelian and CM constructions"
+    },
+    {
+     "id": "AutomorphicPadicLFunctions:L3h",
+     "title": "Anticyclotomic toric distributions and Hsieh's μ theorem"
+    },
+    {
+     "id": "AutomorphicPadicLFunctions:L4",
+     "title": "Ordinary unitary groups and the doubling method"
+    },
+    {
+     "id": "AutomorphicPadicLFunctions:L4e",
+     "title": "Eischen–Wan finite-slope Klingen families"
+    },
+    {
+     "id": "AutomorphicPadicLFunctions:L5",
+     "title": "Comparison and generalized statements"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ColemanIntegration",
+   "title": "Coleman integration and noncritical Dirichlet L-values",
+   "extract": "research/blueprint/atlas/roadmaps/ColemanIntegration.json",
+   "layers": [
+    {
+     "id": "ColemanIntegration:L0",
+     "title": "Analytic differential equations on residue discs"
+    },
+    {
+     "id": "ColemanIntegration:L1",
+     "title": "Frobenius continuation"
+    },
+    {
+     "id": "ColemanIntegration:L2",
+     "title": "Polylogarithms"
+    },
+    {
+     "id": "ColemanIntegration:L3",
+     "title": "Positive integer values"
+    }
+   ]
+  }
+ ]
+}

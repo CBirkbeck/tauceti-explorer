@@ -333,3 +333,18 @@ Rules:
 - `python3 scripts/check_links.py <file>` must report no errors.
 - An independent reviewer checks every link and overlap before the orchestrator
   merges accepted links into the atlas.
+
+## 11. Retired roadmaps and the library audit
+
+- `data/roadmap-retirements.json` lists roadmaps that have left the atlas, each
+  with its reason and the library areas or roadmaps that cover it. A retired
+  roadmap is never a supplier: cite the Mathlib or Tau Ceti declarations, or the
+  stage of the covering roadmap that states what you need. The checkers warn
+  about any reference to a retired roadmap, and links through one are dropped
+  at integration.
+- The library audit (`research/blueprint/audit/`) records, for every layer,
+  which of its targets the pinned Mathlib and Tau Ceti already contain, with
+  the declarations that show it. Read the audit of a roadmap before planning its
+  work, and never plan a construction that the audit shows in the library in at
+  least the stated generality. A layer the reviewed audit finds fully built
+  counts as complete in the atlas.

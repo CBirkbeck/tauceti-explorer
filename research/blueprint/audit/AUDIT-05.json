@@ -1,0 +1,236 @@
+{
+ "job": "AUDIT-05",
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+   "title": "Galois groups of polynomials",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_PolynomialGaloisGroups.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial",
+     "title": "Layer 0: the permutation representation of a polynomial"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-1-permutation-groups-blocks-and-wreath-products",
+     "title": "Layer 1: permutation groups, blocks, and wreath products"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-2-the-dictionary-between-galois-theory-and-permutations",
+     "title": "Layer 2: the dictionary between Galois theory and permutations"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-3-the-discriminant-and-the-alternating-group",
+     "title": "Layer 3: the discriminant and the alternating group"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-4-resolvents",
+     "title": "Layer 4: resolvents"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-5-frobenius-specialization",
+     "title": "Layer 5: Frobenius specialization"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates",
+     "title": "Layer 6: transitive subgroups of Sₙ for n ≤ 5, and the label predicates"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-9-sₙ-as-a-galois-group-over-ℚ",
+     "title": "Layer 9: Sₙ as a Galois group over ℚ"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+   "title": "Quadratic forms and cohomological invariants",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_QuadraticFormInvariants.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence",
+     "title": "Layer 0: square classes, diagonal calculus, and chain equivalence"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory",
+     "title": "Layer 1: hyperbolic planes and Witt theory"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion",
+     "title": "Layer 2: quaternion algebras and the four-fold splitting criterion"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group",
+     "title": "Layer 3: the classical invariants that need no Brauer group"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal",
+     "title": "Layer 4: the Witt ring and the fundamental ideal"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-5-the-brauer-valued-invariants",
+     "title": "Layer 5: the Brauer-valued invariants"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field",
+     "title": "Layer 6: forms over a nonarchimedean local field"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6a-the-local-field-substrate-consumed",
+     "title": "6A. The local-field substrate, consumed"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6b-the-quadratic-defect",
+     "title": "6B. The quadratic defect"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
+     "title": "6C. The Hilbert symbol and the local Hasse invariant"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries",
+     "title": "6D. The classification and its corollaries"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6e-the-two-hasse-invariants-agree-and-both-are-the-invariant-map",
+     "title": "6E. The two Hasse invariants agree, and both are the invariant map"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-7-the-brauer-group-in-galois-cohomology",
+     "title": "Layer 7: the Brauer group in Galois cohomology"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7a-the-mod-2-operations-consumed-and-the-μ₂-adapters",
+     "title": "7A. The mod-2 operations, consumed, and the μ₂ adapters"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²",
+     "title": "7B. The comparison with H²"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7c-the-cup-norm-theorem",
+     "title": "7C. The cup-norm theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-8-stiefel-whitney-classes",
+     "title": "Layer 8: Stiefel-Whitney classes"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-9-transfer-and-the-relative-stiefel-whitney-formula",
+     "title": "Layer 9: transfer and the relative Stiefel-Whitney formula"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:Completed/ContourIntegration",
+   "title": "Contour integration and the Hungerbühler–Wasem generalized residue theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_Completed_ContourIntegration.json",
+   "layers": [
+    {
+     "id": "tauceti:Completed/ContourIntegration#layer-0-curves-cycles-and-the-generalized-winding-number",
+     "title": "Layer 0: curves, cycles, and the generalized winding number"
+    },
+    {
+     "id": "tauceti:Completed/ContourIntegration#layer-1-the-geometry-of-the-generalized-winding-number-hw-2",
+     "title": "Layer 1: the geometry of the generalized winding number (HW §2)"
+    },
+    {
+     "id": "tauceti:Completed/ContourIntegration#layer-2-residues-the-cauchy-primitive-and-the-classical-residue-theorem",
+     "title": "Layer 2: residues, the Cauchy primitive, and the classical residue theorem"
+    },
+    {
+     "id": "tauceti:Completed/ContourIntegration#layer-3-the-global-homological-cauchy-theorem",
+     "title": "Layer 3: the global (homological) Cauchy theorem"
+    },
+    {
+     "id": "tauceti:Completed/ContourIntegration#layer-4-the-hungerbühlerwasem-generalized-residue-theorem-hw-theorem-33",
+     "title": "Layer 4: the Hungerbühler–Wasem generalized residue theorem (HW Theorem 3.3)"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+   "title": "Weighted orthogonal L² bases — completeness, Hilbert-basis structure, and product bases of orthogonal systems",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_Completed_OrthogonalL2Bases.json",
+   "layers": [
+    {
+     "id": "tauceti:Completed/OrthogonalL2Bases#part-a--the-hermite-basis-of-l²ℝ-the-v1-anchor",
+     "title": "Part A — The Hermite basis of L²(ℝ) (the v1 anchor)"
+    },
+    {
+     "id": "tauceti:Completed/OrthogonalL2Bases#a1--hermite-polynomial-api",
+     "title": "A1 — Hermite polynomial API"
+    },
+    {
+     "id": "tauceti:Completed/OrthogonalL2Bases#a2--the-hermite-functions-ψₙ--ℝ--ℝ",
+     "title": "A2 — The Hermite functions ψₙ : ℝ → ℝ"
+    },
+    {
+     "id": "tauceti:Completed/OrthogonalL2Bases#a3--the-hermite-basis-of-l²ℝ-𝕜",
+     "title": "A3 — The Hermite basis of L²(ℝ; 𝕜)"
+    },
+    {
+     "id": "tauceti:Completed/OrthogonalL2Bases#a3--the-gaussian-hermite-basis-measure-side-the-enhancements-named-instance",
+     "title": "A3′ — The Gaussian Hermite basis (measure side; the enhancement's named instance)"
+    },
+    {
+     "id": "tauceti:Completed/OrthogonalL2Bases#part-b--the-family-agnostic-spine-the-reusable-layer",
+     "title": "Part B — The family-agnostic spine (the reusable layer)"
+    },
+    {
+     "id": "tauceti:Completed/OrthogonalL2Bases#b1--completeness-toolkit-moment-determinacy",
+     "title": "B1 — Completeness toolkit (moment determinacy)"
+    },
+    {
+     "id": "tauceti:Completed/OrthogonalL2Bases#b2--orthogonality-relation--hilbertbasis",
+     "title": "B2 — Orthogonality relation → HilbertBasis"
+    },
+    {
+     "id": "tauceti:Completed/OrthogonalL2Bases#b3--l²-product-basis",
+     "title": "B3 — L²-product basis"
+    },
+    {
+     "id": "tauceti:Completed/OrthogonalL2Bases#part-c--a-second-family-the-chebyshev-basis-of-l²-11",
+     "title": "Part C — A second family: the Chebyshev basis of L²([-1,1])"
+    },
+    {
+     "id": "tauceti:Completed/OrthogonalL2Bases#part-d--the-multidimensional-hermite-basis-a-later-milestone-of-this-roadmap-consumes-b3",
+     "title": "Part D — The multidimensional Hermite basis (a later milestone of this roadmap; consumes B3)"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+   "title": "Conformal mapping and the geometric theory of holomorphic functions",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ConformalMapping.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l0--the-local-mapping-engine",
+     "title": "L0 — the local-mapping engine"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l1--normal-families--montel-the-analytic-theorem-not-montelspace",
+     "title": "L1 — normal families / Montel (the analytic theorem, not MontelSpace)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l2--schwarz-lemma-extensions",
+     "title": "L2 — Schwarz lemma extensions"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l3--the-riemann-mapping-theorem-summit",
+     "title": "L3 — the Riemann mapping theorem (summit)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l4--analytic-continuation--the-reflection-principle",
+     "title": "L4 — analytic continuation & the reflection principle"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l5--carathéodory-boundary-correspondence",
+     "title": "L5 — Carathéodory boundary correspondence"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l6--schwarzchristoffel",
+     "title": "L6 — Schwarz–Christoffel"
+    }
+   ]
+  }
+ ]
+}

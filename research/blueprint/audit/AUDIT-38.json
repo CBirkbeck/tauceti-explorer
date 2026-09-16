@@ -1,0 +1,208 @@
+{
+ "job": "AUDIT-38",
+ "roadmaps": [
+  {
+   "roadmapId": "PerfectoidQuotients",
+   "title": "Perfectoid quotients and their prismatic prerequisites",
+   "extract": "research/blueprint/atlas/roadmaps/PerfectoidQuotients.json",
+   "layers": [
+    {
+     "id": "PerfectoidQuotients:Q0",
+     "title": "Integral perfectoid rings, δ-rings and perfect prisms"
+    },
+    {
+     "id": "PerfectoidQuotients:Q0:animated-application",
+     "title": "Imported prism and derived algebra"
+    },
+    {
+     "id": "PerfectoidQuotients:Q0:integral-algebra",
+     "title": "The prefix supplied to prism algebra"
+    },
+    {
+     "id": "PerfectoidQuotients:Q1",
+     "title": "Prismatic cohomology of smooth algebras and Hodge–Tate comparison"
+    },
+    {
+     "id": "PerfectoidQuotients:Q2",
+     "title": "Derived prismatic cohomology and universal prisms"
+    },
+    {
+     "id": "PerfectoidQuotients:Q3",
+     "title": "Quasisyntomic covers and André's flatness lemma"
+    },
+    {
+     "id": "PerfectoidQuotients:Q4",
+     "title": "Surjectivity of perfectoidization and closed perfectoid quotients"
+    }
+   ]
+  },
+  {
+   "roadmapId": "PerfectoidShimuraVarieties",
+   "title": "Shimura towers and perfectoid representability",
+   "extract": "research/blueprint/atlas/roadmaps/PerfectoidShimuraVarieties.json",
+   "layers": [
+    {
+     "id": "PerfectoidShimuraVarieties:S0",
+     "title": "Finite and infinite towers"
+    },
+    {
+     "id": "PerfectoidShimuraVarieties:S0.general",
+     "title": "General-data completion interface"
+    },
+    {
+     "id": "PerfectoidShimuraVarieties:S1",
+     "title": "The Siegel construction"
+    },
+    {
+     "id": "PerfectoidShimuraVarieties:S2",
+     "title": "Hodge type"
+    },
+    {
+     "id": "PerfectoidShimuraVarieties:S3",
+     "title": "Hodge-type period map and coefficients"
+    },
+    {
+     "id": "PerfectoidShimuraVarieties:S4",
+     "title": "Pre-abelian perfectoid representability"
+    },
+    {
+     "id": "PerfectoidShimuraVarieties:S5",
+     "title": "The modular and Hilbert towers"
+    },
+    {
+     "id": "PerfectoidShimuraVarieties:S6",
+     "title": "General period maps and the abelian-type minimal extension"
+    }
+   ]
+  },
+  {
+   "roadmapId": "PerfectoidSpaces",
+   "title": "Perfectoid rings and spaces",
+   "extract": "research/blueprint/atlas/roadmaps/PerfectoidSpaces.json",
+   "layers": [
+    {
+     "id": "PerfectoidSpaces:P0",
+     "title": "Almost mathematics with a reusable base ideal"
+    },
+    {
+     "id": "PerfectoidSpaces:P1",
+     "title": "Perfectoid Tate rings, tilts and marked untilts"
+    },
+    {
+     "id": "PerfectoidSpaces:P2",
+     "title": "Rational localization, sheafiness, and perfectoid spaces"
+    },
+    {
+     "id": "PerfectoidSpaces:P3",
+     "title": "Almost purity and étale tilting"
+    },
+    {
+     "id": "PerfectoidSpaces:P4",
+     "title": "Morphisms and perfectoid quotients"
+    },
+    {
+     "id": "PerfectoidSpaces:P5",
+     "title": "Limits and étale finite-stage descent"
+    },
+    {
+     "id": "PerfectoidSpaces:P6",
+     "title": "Affinoid approximation and pro-étale presentations"
+    },
+    {
+     "id": "PerfectoidSpaces:P7",
+     "title": "Tilde-limits and Frobenius-controlled towers"
+    },
+    {
+     "id": "PerfectoidSpaces:P8",
+     "title": "Finite quotients and closed perfectoidization in towers"
+    },
+    {
+     "id": "PerfectoidSpaces:P9",
+     "title": "Continuous torsor descent with coefficients"
+    }
+   ]
+  },
+  {
+   "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+   "title": "(φ,Γ)-modules, Herr complexes and local Iwasawa cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/PhiGammaModulesAndIwasawaCohomology.json",
+   "layers": [
+    {
+     "id": "PhiGammaModulesAndIwasawaCohomology:PG.0",
+     "title": "Cyclotomic coefficients and semilinear actions"
+    },
+    {
+     "id": "PhiGammaModulesAndIwasawaCohomology:PG.1",
+     "title": "Fontaine's étale equivalence"
+    },
+    {
+     "id": "PhiGammaModulesAndIwasawaCohomology:PG.2",
+     "title": "Overconvergence and Robba realization"
+    },
+    {
+     "id": "PhiGammaModulesAndIwasawaCohomology:PG.3",
+     "title": "Herr cochains and continuous Galois cohomology"
+    },
+    {
+     "id": "PhiGammaModulesAndIwasawaCohomology:PG.4",
+     "title": "The ψ operator and its topology"
+    },
+    {
+     "id": "PhiGammaModulesAndIwasawaCohomology:PG.5",
+     "title": "The ψ-complex and derived Iwasawa comparison"
+    },
+    {
+     "id": "PhiGammaModulesAndIwasawaCohomology:PG.6",
+     "title": "Wach modules and crystalline lattices"
+    },
+    {
+     "id": "PhiGammaModulesAndIwasawaCohomology:PG.7",
+     "title": "Relative cohomology and qualified families"
+    }
+   ]
+  },
+  {
+   "roadmapId": "PrismaticCohomology",
+   "title": "Prismatic cohomology: relative, absolute, Nygaard and log variants",
+   "extract": "research/blueprint/atlas/roadmaps/PrismaticCohomology.json",
+   "layers": [
+    {
+     "id": "PrismaticCohomology:PR.0",
+     "title": "Delta-rings, prisms and envelopes"
+    },
+    {
+     "id": "PrismaticCohomology:PR.1",
+     "title": "Relative sites and the basic comparisons"
+    },
+    {
+     "id": "PrismaticCohomology:PR.2",
+     "title": "Derived extension, semiperfectoid inputs and descent"
+    },
+    {
+     "id": "PrismaticCohomology:PR.3",
+     "title": "Nygaard filtration, divided Frobenius and twists"
+    },
+    {
+     "id": "PrismaticCohomology:PR.4",
+     "title": "Étale comparison and p-adic Tate twists"
+    },
+    {
+     "id": "PrismaticCohomology:PR.5",
+     "title": "Absolute prismatics and geometric coefficient packages"
+    },
+    {
+     "id": "PrismaticCohomology:PR.6",
+     "title": "q-crystalline charts and the AΩ comparison"
+    },
+    {
+     "id": "PrismaticCohomology:PR.7",
+     "title": "Prismatic F-crystals and crystalline lattices"
+    },
+    {
+     "id": "PrismaticCohomology:PR.8",
+     "title": "Logarithmic prismatics and exact comparison ranges"
+    }
+   ]
+  }
+ ]
+}

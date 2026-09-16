@@ -1,0 +1,232 @@
+{
+ "job": "AUDIT-41",
+ "roadmaps": [
+  {
+   "roadmapId": "ReductiveGroupsPartII",
+   "title": "Reductive groups, Part II: local structure and arithmetic models",
+   "extract": "research/blueprint/atlas/roadmaps/ReductiveGroupsPartII.json",
+   "layers": [
+    {
+     "id": "ReductiveGroupsPartII:RG2.0",
+     "title": "Topologies on rational points"
+    },
+    {
+     "id": "ReductiveGroupsPartII:RG2.0a",
+     "title": "Weil restriction and the Deligne torus"
+    },
+    {
+     "id": "ReductiveGroupsPartII:RG2.1",
+     "title": "Relative roots and valued root data"
+    },
+    {
+     "id": "ReductiveGroupsPartII:RG2.2",
+     "title": "Buildings and group action"
+    },
+    {
+     "id": "ReductiveGroupsPartII:RG2.3",
+     "title": "Parahoric and congruence group schemes"
+    },
+    {
+     "id": "ReductiveGroupsPartII:RG2.4",
+     "title": "Decompositions and double cosets"
+    },
+    {
+     "id": "ReductiveGroupsPartII:RG2.5",
+     "title": "Integral dual data"
+    }
+   ]
+  },
+  {
+   "roadmapId": "SmoothRepresentationsOfLocalGroups",
+   "title": "Smooth representations of local groups",
+   "extract": "research/blueprint/atlas/roadmaps/SmoothRepresentationsOfLocalGroups.json",
+   "layers": [
+    {
+     "id": "SmoothRepresentationsOfLocalGroups:SR.0",
+     "title": "Smooth category and complete basic API"
+    },
+    {
+     "id": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+     "title": "Smooth category and complete basic API — abelian category"
+    },
+    {
+     "id": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+     "title": "Smooth category and complete basic API — derived extension"
+    },
+    {
+     "id": "SmoothRepresentationsOfLocalGroups:SR.1",
+     "title": "Hecke algebras over rings"
+    },
+    {
+     "id": "SmoothRepresentationsOfLocalGroups:SR.2",
+     "title": "Induction, compact induction and Jacquet functors"
+    },
+    {
+     "id": "SmoothRepresentationsOfLocalGroups:SR.2a",
+     "title": "Second adjointness in characteristic zero"
+    },
+    {
+     "id": "SmoothRepresentationsOfLocalGroups:SR.3",
+     "title": "Admissible complex representations"
+    },
+    {
+     "id": "SmoothRepresentationsOfLocalGroups:SR.3a",
+     "title": "Early uniform admissibility"
+    },
+    {
+     "id": "SmoothRepresentationsOfLocalGroups:SR.4",
+     "title": "Spherical representations and Satake"
+    },
+    {
+     "id": "SmoothRepresentationsOfLocalGroups:SR.5",
+     "title": "Integral local families for GL_n"
+    },
+    {
+     "id": "SmoothRepresentationsOfLocalGroups:SR.6",
+     "title": "Late integral finiteness and second adjointness"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+   "title": "Reductive algebraic groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ReductiveGroups.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary",
+     "title": "Layer 0: the functor of points and the three-way dictionary"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+     "title": "Layer 1: representations = comodules"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+     "title": "Layer 2: Lie algebra and the adjoint representation"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+     "title": "Layer 3: subgroups, quotients, components"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+     "title": "Layer 4: Jordan decomposition, diagonalizable groups, tori"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-5-solvable-and-unipotent-groups-the-unipotent-radical",
+     "title": "Layer 5: solvable and unipotent groups; the unipotent radical"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+     "title": "Layer 6: reductive and semisimple groups"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+     "title": "Layer 7: structure theory"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon",
+     "title": "Layer 8: classification and existence (long horizon)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+     "title": "Layer 9: pinned Chevalley–Demazure group schemes over ℤ"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+   "title": "The Ado–Iwasawa theorem and faithful finite-dimensional Lie representations",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_AdoIwasawa.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-0-representations-and-finite-enveloping-targets",
+     "title": "Layer 0: representations and finite enveloping targets"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-1-the-pbw-consequences-ado-uses",
+     "title": "Layer 1: the PBW consequences Ado uses"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-2-augmentation-weighted-pbw-truncations-and-the-nilpotent-engine",
+     "title": "Layer 2: augmentation, weighted PBW truncations, and the nilpotent engine"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-3-derivations-of-enveloping-algebras-and-stable-cofinite-ideals",
+     "title": "Layer 3: derivations of enveloping algebras and stable cofinite ideals"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-4-extending-nilrepresentations-across-split-ideal-extensions",
+     "title": "Layer 4: extending nilrepresentations across split ideal extensions"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-5-assemble-ado-in-characteristic-zero",
+     "title": "Layer 5: assemble Ado in characteristic zero"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-6-central-p-polynomials-and-module-finiteness",
+     "title": "Layer 6: central p-polynomials and module-finiteness"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-7-the-generalized-krull-intersection-and-finite-quotients",
+     "title": "Layer 7: the generalized Krull intersection and finite quotients"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-8-assemble-the-positive-characteristic-theorem",
+     "title": "Layer 8: assemble the positive-characteristic theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-9-the-arbitrary-field-summit-and-consumers",
+     "title": "Layer 9: the arbitrary-field summit and consumers"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+   "title": "Character theory of finite groups, and computing character tables",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_CharacterTheory.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-0-class-functions-and-their-pairing",
+     "title": "Layer 0: class functions and their pairing"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-1-the-group-algebra-its-center-and-structure-constants",
+     "title": "Layer 1: the group algebra, its center, and structure constants"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-2-wedderburn-irreducible-indexing-and-the-count",
+     "title": "Layer 2: Wedderburn, irreducible indexing, and the count"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality",
+     "title": "Layer 3: the character table, idempotents, completeness, second orthogonality"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-4-the-arithmetic-of-character-values",
+     "title": "Layer 4: the arithmetic of character values"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-5-the-dixon-schneider-characterization-the-specification",
+     "title": "Layer 5: the Dixon-Schneider characterization (the specification)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-6-the-executable-burnside-dixon-schneider-algorithm-the-summit",
+     "title": "Layer 6: the executable Burnside-Dixon-Schneider algorithm (the summit)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-7-the-frobenius-schur-indicator-and-realquaternionic-type",
+     "title": "Layer 7: the Frobenius-Schur indicator and real/quaternionic type"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-8-frobenius-groups-and-frobeniuss-theorem",
+     "title": "Layer 8: Frobenius groups and Frobenius's theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-9-the-representation-theory-of-gl₂𝔽_q",
+     "title": "Layer 9: the representation theory of GL₂(𝔽_q)"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,216 @@
+{
+ "job": "AUDIT-42",
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+   "title": "Finite-dimensional representations of the classical groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation",
+     "title": "Layer 0: the classical groups and the standard representation"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-1-functorial-constructions-and-tensor-powers",
+     "title": "Layer 1: functorial constructions and tensor powers"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-2-the-weyl-construction-via-young-symmetrizers",
+     "title": "Layer 2: the Weyl construction via Young symmetrizers"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification",
+     "title": "Layer 3: maximal torus, weights, and the highest-weight classification"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-4-characters-and-schur-polynomials",
+     "title": "Layer 4: characters and Schur polynomials"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-5-the-weyl-dimension-formula",
+     "title": "Layer 5: the Weyl dimension formula"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-6-branching-rules-and-gelfand-tsetlin-bases",
+     "title": "Layer 6: branching rules and Gelfand-Tsetlin bases"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+   "title": "Representations of compact groups and the Peter-Weyl theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_CompactGroups.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-0-normalized-haar-measure-and-averaging",
+     "title": "Layer 0: normalized Haar measure and averaging"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-1-unitarizability-weyls-unitarian-trick",
+     "title": "Layer 1: unitarizability (Weyl's unitarian trick)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-2-complete-reducibility",
+     "title": "Layer 2: complete reducibility"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-3-matrix-coefficients",
+     "title": "Layer 3: matrix coefficients"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-4-schur-orthogonality-in-l²g",
+     "title": "Layer 4: Schur orthogonality in L²(G)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem",
+     "title": "Layer 5: the Peter-Weyl theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups",
+     "title": "Layer 6: characters of compact groups"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+   "title": "Induction, restriction, and Mackey theory for finite groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_InductionRestriction.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-0-the-functorial-core----transitivity-and-the-projection-formula",
+     "title": "Layer 0: the functorial core -- transitivity and the projection formula"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-1-the-conjugate-representation",
+     "title": "Layer 1: the conjugate representation"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-2-induced-characters-and-frobenius-reciprocity",
+     "title": "Layer 2: induced characters and Frobenius reciprocity"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3-the-mackey-decomposition-formula",
+     "title": "Layer 3: the Mackey decomposition formula"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3a-the-decomposition-as-an-isomorphism-of-representations-over-commring-k",
+     "title": "Layer 3a: the decomposition as an isomorphism of representations (over [CommRing k])"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3b-the-character-form-over-a-field-needs-layer-2",
+     "title": "Layer 3b: the character form (over a field, needs Layer 2)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-4-intertwining-numbers-and-the-mackey-irreducibility-criterion",
+     "title": "Layer 4: intertwining numbers and the Mackey irreducibility criterion"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-5-clifford-theory-over-a-normal-subgroup",
+     "title": "Layer 5: Clifford theory over a normal subgroup"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
+     "title": "Layer 6: the virtual-character ring, Artin and Brauer induction"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier",
+     "title": "Layer 7: projective representations, factor sets, and the Schur multiplier"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+   "title": "Lie groups and the Lie algebra correspondence",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-0-the-exponential-map-and-one-parameter-subgroups",
+     "title": "Layer 0: the exponential map and one-parameter subgroups"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad",
+     "title": "Layer 1: the adjoint representations Ad and ad"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem",
+     "title": "Layer 2: the closed-subgroup (Cartan) theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff",
+     "title": "Layer 3: the Lie functor and Baker-Campbell-Hausdorff"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories",
+     "title": "Layer 4: Frobenius, Lie's third theorem, and the equivalence of categories"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra",
+     "title": "Layer 5: simply-connected covers and the enveloping algebra"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration",
+     "title": "Layer 6: maximal tori, the Weyl group, and Weyl integration"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms",
+     "title": "Layer 7: complexification and real forms"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat",
+     "title": "Layer 8: Borel-Weil, flag manifolds, and Bruhat"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions",
+     "title": "Layer 9: the Cartan, Iwasawa, and KAK decompositions"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+   "title": "Representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_LieHighestWeight.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine",
+     "title": "Layer 0: sl₂ representation theory (the engine)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-1-cartan-subalgebras-and-the-root-space-decomposition",
+     "title": "Layer 1: Cartan subalgebras and the root-space decomposition"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-2-weights-of-a-module-and-their-integrality",
+     "title": "Layer 2: weights of a module and their integrality"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+     "title": "Layer 3: enveloping algebra, Verma modules, and L(λ)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
+     "title": "Layer 4: the classification of finite-dimensional irreducibles"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-5-complete-reducibility-weyls-theorem",
+     "title": "Layer 5: complete reducibility (Weyl's theorem)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
+     "title": "Layer 6: the Weyl character, dimension, and Kostant formulas"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations",
+     "title": "Layer 7: the center of U(L), Harish-Chandra, Freudenthal, and Serre's relations"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly",
+     "title": "Layer 8: the exceptional Lie algebras, explicitly"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n",
+     "title": "Layer 9: reductive Lie algebras and gl_n"
+    }
+   ]
+  }
+ ]
+}

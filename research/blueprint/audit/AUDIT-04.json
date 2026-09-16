@@ -1,0 +1,196 @@
+{
+ "job": "AUDIT-04",
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+   "title": "Global number fields, ray classes, adeles, and Hecke characters",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_GlobalNumberFields.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula",
+     "title": "Layer 0: places, completions, and the product formula"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences",
+     "title": "Layer 1: weak approximation and multiplicative congruences"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+     "title": "Layer 2: moduli and ray class carriers"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting",
+     "title": "Layer 3: geometry of numbers and ray-class ideal counting"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles",
+     "title": "Layer 4: finite adeles"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-5-full-adeles-and-the-additive-quotient",
+     "title": "Layer 5: full adeles and the additive quotient"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+     "title": "Layer 6: additive strong approximation and ideles"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-7-congruence-subgroups-and-the-ray-class-dictionary",
+     "title": "Layer 7: congruence subgroups and the ray-class dictionary"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles",
+     "title": "Layer 8: finite extensions of adeles and ideles"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+     "title": "Layer 9: Hecke and ray class characters"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+     "title": "Layer 10: archimedean characters, infinity types, and cyclotomic arithmetic"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups",
+     "title": "Layer 11: orders and Picard groups"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+   "title": "Global quadratic forms over number fields",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_GlobalQuadraticForms.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-0-places-completions-and-scalar-extension",
+     "title": "Layer 0: places, completions, and scalar extension"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-1-archimedean-forms-and-signatures",
+     "title": "Layer 1: archimedean forms and signatures"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support",
+     "title": "Layer 2: finite-place invariants and finite support"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants",
+     "title": "Layer 3: admissible systems of local invariants"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
+     "title": "Layer 4: global square, norm, and approximation lemmas"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
+     "title": "Layer 5: Hasse–Minkowski isotropy"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry",
+     "title": "Layer 6: representation and isometry"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants",
+     "title": "Layer 7: existence from compatible local invariants"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences",
+     "title": "Layer 8: global classification and Witt consequences"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-9-worked-examples-and-regression-tests",
+     "title": "Layer 9: worked examples and regression tests"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+   "title": "Local fields and ramification",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_LocalFieldsRamification.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+     "title": "Layer 0: local fields and their finite extensions"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+     "title": "Layer 1: units, the filtration, and the multiplicative group"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+     "title": "Layer 2: unramified extensions and Frobenius"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+     "title": "Layer 3: ramification, the tame and wild cases, and the filtration"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+     "title": "Layer 4: the tame quotient of the absolute Galois group"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+   "title": "Multiquadratic fields and genus theory",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_Multiquadratic.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/Multiquadratic#layer-0-the-multiquadratic-field",
+     "title": "Layer 0: the multiquadratic field"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Multiquadratic#layer-1-the-prime-splitting-law",
+     "title": "Layer 1: the prime-splitting law"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group",
+     "title": "Layer 2: the 2-elementary quotient of the class group"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Multiquadratic#layer-3-the-genus-field-and-the-2-rank-theorem-the-summit",
+     "title": "Layer 3: the genus field and the 2-rank theorem (the summit)"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+   "title": "Number fields, ramification, Frobenius, and the LMFDB invariants",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary",
+     "title": "Layer 1: the splitting dictionary"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+     "title": "Layer 2: Frobenius elements and the Artin symbol"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-3-the-index-dedekindkummer-and-dedekinds-theorem",
+     "title": "Layer 3: the index, Dedekind–Kummer, and Dedekind's theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-4-the-relative-discriminant",
+     "title": "Layer 4: the relative discriminant"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+     "title": "Layer 5: the global-local dictionary at finite places"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences",
+     "title": "Layer 6: global ramification consequences"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-7-subfields-integral-bases-monogenicity-and-explicit-units",
+     "title": "Layer 7: subfields, integral bases, monogenicity, and explicit units"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-8-the-intrinsic-label-prefix-and-the-invariant-suite",
+     "title": "Layer 8: the intrinsic label prefix and the invariant suite"
+    }
+   ]
+  }
+ ]
+}

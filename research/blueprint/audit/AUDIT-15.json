@@ -1,0 +1,224 @@
+{
+ "job": "AUDIT-15",
+ "roadmaps": [
+  {
+   "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+   "title": "Hilbert Modular Varieties And Shimura Curves",
+   "extract": "research/blueprint/atlas/roadmaps/HilbertModularVarietiesAndShimuraCurves.json",
+   "layers": [
+    {
+     "id": "HilbertModularVarietiesAndShimuraCurves:H0",
+     "title": "The two data and their domains"
+    },
+    {
+     "id": "HilbertModularVarietiesAndShimuraCurves:H1",
+     "title": "Polarization modules and Hilbert–Blumenthal moduli"
+    },
+    {
+     "id": "HilbertModularVarietiesAndShimuraCurves:H2",
+     "title": "Integral models at arbitrary p"
+    },
+    {
+     "id": "HilbertModularVarietiesAndShimuraCurves:H3",
+     "title": "Arithmetic quotient and unit actions"
+    },
+    {
+     "id": "HilbertModularVarietiesAndShimuraCurves:H4",
+     "title": "Finite p-level structures and effective groups"
+    },
+    {
+     "id": "HilbertModularVarietiesAndShimuraCurves:H5",
+     "title": "Classical geometry and comparison tests"
+    },
+    {
+     "id": "HilbertModularVarietiesAndShimuraCurves:H6",
+     "title": "Twisted torsion moduli and arithmetic points"
+    },
+    {
+     "id": "HilbertModularVarietiesAndShimuraCurves:R18.1",
+     "title": "Hilbert–Blumenthal and quaternionic moduli"
+    },
+    {
+     "id": "HilbertModularVarietiesAndShimuraCurves:R18.2",
+     "title": "Compactification and integral models"
+    },
+    {
+     "id": "HilbertModularVarietiesAndShimuraCurves:R18.3",
+     "title": "Definite quaternionic forms"
+    },
+    {
+     "id": "HilbertModularVarietiesAndShimuraCurves:R18.4",
+     "title": "Cohomology and Hecke correspondences"
+    },
+    {
+     "id": "HilbertModularVarietiesAndShimuraCurves:R18.5",
+     "title": "Bad-prime uniformisation"
+    },
+    {
+     "id": "HilbertModularVarietiesAndShimuraCurves:R18.6",
+     "title": "The geometric outputs used by modularity"
+    }
+   ]
+  },
+  {
+   "roadmapId": "MetaplecticAutomorphicForms",
+   "title": "Metaplectic groups, Weil representations and automorphic theta kernels",
+   "extract": "research/blueprint/atlas/roadmaps/MetaplecticAutomorphicForms.json",
+   "layers": [
+    {
+     "id": "MetaplecticAutomorphicForms:MP.0",
+     "title": "Symplectic and Heisenberg groups with topology"
+    },
+    {
+     "id": "MetaplecticAutomorphicForms:MP.1",
+     "title": "Stone–von Neumann and the metaplectic extension"
+    },
+    {
+     "id": "MetaplecticAutomorphicForms:MP.2",
+     "title": "Weil index and explicit operator formulas"
+    },
+    {
+     "id": "MetaplecticAutomorphicForms:MP.3",
+     "title": "Dual pairs and local theta modules"
+    },
+    {
+     "id": "MetaplecticAutomorphicForms:MP.4",
+     "title": "Adelic cover and global Weil representation"
+    },
+    {
+     "id": "MetaplecticAutomorphicForms:MP.5",
+     "title": "Theta kernels, convergence and automorphic spaces"
+    },
+    {
+     "id": "MetaplecticAutomorphicForms:MP.6",
+     "title": "Local–global comparison and reusable theta integrals"
+    },
+    {
+     "id": "MetaplecticAutomorphicForms:MP.7",
+     "title": "Half-integral weight, metaplectic Fourier coefficients and twists"
+    },
+    {
+     "id": "MetaplecticAutomorphicForms:MP.8",
+     "title": "Genus-two similitudes, Jacobi forms and cover-specific Eisenstein analysis"
+    }
+   ]
+  },
+  {
+   "roadmapId": "OverconvergentAutomorphicForms",
+   "title": "Overconvergent Hilbert modular forms and p-adic automorphic coefficients",
+   "extract": "research/blueprint/atlas/roadmaps/OverconvergentAutomorphicForms.json",
+   "layers": [
+    {
+     "id": "OverconvergentAutomorphicForms:O0",
+     "title": "Weight spaces and locally analytic representations"
+    },
+    {
+     "id": "OverconvergentAutomorphicForms:O1",
+     "title": "Equivariant sheaves from cocycles"
+    },
+    {
+     "id": "OverconvergentAutomorphicForms:O2",
+     "title": "Hilbert automorphy factors and domains"
+    },
+    {
+     "id": "OverconvergentAutomorphicForms:O3",
+     "title": "Integral coefficients and variation in weight"
+    },
+    {
+     "id": "OverconvergentAutomorphicForms:O4",
+     "title": "Arithmetic descent and polarization classes"
+    },
+    {
+     "id": "OverconvergentAutomorphicForms:O5",
+     "title": "Independent AIP construction and comparison"
+    },
+    {
+     "id": "OverconvergentAutomorphicForms:O6",
+     "title": "Boundary, cusp forms, and Hecke operators"
+    },
+    {
+     "id": "OverconvergentAutomorphicForms:O7",
+     "title": "Ordinary Igusa forms and the Hida comparison"
+    },
+    {
+     "id": "OverconvergentAutomorphicForms:O8",
+     "title": "Examples beyond Hilbert"
+    }
+   ]
+  },
+  {
+   "roadmapId": "PadicFamilies",
+   "title": "Hida and Coleman families, period modules, and family L-functions",
+   "extract": "research/blueprint/atlas/roadmaps/PadicFamilies.json",
+   "layers": [
+    {
+     "id": "PadicFamilies:L0",
+     "title": "Ordinary modular forms and Hecke algebras"
+    },
+    {
+     "id": "PadicFamilies:L0a",
+     "title": "Finite and profinite ordinary projectors"
+    },
+    {
+     "id": "PadicFamilies:L1",
+     "title": "Integral symbols and periods in ordinary families"
+    },
+    {
+     "id": "PadicFamilies:L2",
+     "title": "Finite-slope eigenvarieties"
+    },
+    {
+     "id": "PadicFamilies:L2a",
+     "title": "Group-independent eigenvariety gluing"
+    },
+    {
+     "id": "PadicFamilies:L3",
+     "title": "Family L-functions and critical specialization"
+    },
+    {
+     "id": "PadicFamilies:L4",
+     "title": "Arithmetic families"
+    },
+    {
+     "id": "PadicFamilies:L5",
+     "title": "Ordinary theory over totally real fields"
+    }
+   ]
+  },
+  {
+   "roadmapId": "QSeriesPartitionsAndMockModularForms",
+   "title": "Q-series, partitions, Jacobi and mock modular forms",
+   "extract": "research/blueprint/atlas/roadmaps/QSeriesPartitionsAndMockModularForms.json",
+   "layers": [
+    {
+     "id": "QSeriesPartitionsAndMockModularForms:QM.0",
+     "title": "Formal q-series and partitions"
+    },
+    {
+     "id": "QSeriesPartitionsAndMockModularForms:QM.1",
+     "title": "Theta, eta and Jacobi forms"
+    },
+    {
+     "id": "QSeriesPartitionsAndMockModularForms:QM.2",
+     "title": "Partition asymptotics and exact formulas"
+    },
+    {
+     "id": "QSeriesPartitionsAndMockModularForms:QM.3",
+     "title": "Harmonic Maass forms"
+    },
+    {
+     "id": "QSeriesPartitionsAndMockModularForms:QM.4",
+     "title": "Mock modular completions"
+    },
+    {
+     "id": "QSeriesPartitionsAndMockModularForms:QM.5",
+     "title": "Arithmetic and quantum connections"
+    },
+    {
+     "id": "QSeriesPartitionsAndMockModularForms:QM.6",
+     "title": "Moonshine and representation-theoretic arithmetic"
+    }
+   ]
+  }
+ ]
+}

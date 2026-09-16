@@ -1,0 +1,176 @@
+{
+ "job": "AUDIT-17",
+ "roadmaps": [
+  {
+   "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+   "title": "Commutative algebra for deformation theory and patching",
+   "extract": "research/blueprint/atlas/roadmaps/DeformationAndDerivedPatchingAlgebra.json",
+   "layers": [
+    {
+     "id": "DeformationAndDerivedPatchingAlgebra:P7",
+     "title": "Perfect complexes and derived coefficient change"
+    },
+    {
+     "id": "DeformationAndDerivedPatchingAlgebra:P8",
+     "title": "Patching complexes with cohomology in several degrees"
+    },
+    {
+     "id": "DeformationAndDerivedPatchingAlgebra:P9",
+     "title": "Amplitude, depth and component support"
+    },
+    {
+     "id": "DeformationAndDerivedPatchingAlgebra:R03.1",
+     "title": "Complete local coefficient categories"
+    },
+    {
+     "id": "DeformationAndDerivedPatchingAlgebra:R03.2",
+     "title": "Representability and obstruction algebra"
+    },
+    {
+     "id": "DeformationAndDerivedPatchingAlgebra:R03.3",
+     "title": "Dimension, depth and complete intersections"
+    },
+    {
+     "id": "DeformationAndDerivedPatchingAlgebra:R03.4",
+     "title": "Finiteness and characteristic-zero points"
+    },
+    {
+     "id": "DeformationAndDerivedPatchingAlgebra:R03.5",
+     "title": "Patching modules"
+    },
+    {
+     "id": "DeformationAndDerivedPatchingAlgebra:R03.6",
+     "title": "Support, components and descent"
+    }
+   ]
+  },
+  {
+   "roadmapId": "HabiroCyclotomicCompletions",
+   "title": "Cyclotomic completions and classical Habiro rings",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroCyclotomicCompletions.json",
+   "layers": [
+    {
+     "id": "HabiroCyclotomicCompletions:HC.1",
+     "title": "The directed system and its topology"
+    },
+    {
+     "id": "HabiroCyclotomicCompletions:HC.2",
+     "title": "Expansions and coefficient algorithms"
+    },
+    {
+     "id": "HabiroCyclotomicCompletions:HC.3",
+     "title": "Root evaluation and Taylor maps"
+    },
+    {
+     "id": "HabiroCyclotomicCompletions:HC.4",
+     "title": "Arithmetic connectedness and rigidity"
+    },
+    {
+     "id": "HabiroCyclotomicCompletions:HC.5",
+     "title": "Modules, inversion of primes and components"
+    },
+    {
+     "id": "HabiroCyclotomicCompletions:HC.6",
+     "title": "Interfaces and acceptance examples"
+    }
+   ]
+  },
+  {
+   "roadmapId": "HabiroRings",
+   "title": "Habiro rings: relative arithmetic constructions and cohomological coefficients",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroRings.json",
+   "layers": [
+    {
+     "id": "HabiroRings:HR.1",
+     "title": "Relative bases and local Frobenius"
+    },
+    {
+     "id": "HabiroRings:HR.2",
+     "title": "Habiro-complete modules and derived detection"
+    },
+    {
+     "id": "HabiroRings:HR.3",
+     "title": "Finite cyclotomic arithmetic descent"
+    },
+    {
+     "id": "HabiroRings:HR.4",
+     "title": "Relative q-Witt rings and finite étale lifts"
+    },
+    {
+     "id": "HabiroRings:HR.5",
+     "title": "The relative Habiro ring and its Taylor presentation"
+    },
+    {
+     "id": "HabiroRings:HR.5-number-field-comparison",
+     "title": "Number-field comparison"
+    },
+    {
+     "id": "HabiroRings:HR.6",
+     "title": "Coefficient and cohomology interfaces"
+    },
+    {
+     "id": "HabiroRings:HR.7",
+     "title": "Acceptance tests and executable boundary"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ComputationalNumberTheory",
+   "title": "Certified computational number theory and arithmetic data",
+   "extract": "research/blueprint/atlas/roadmaps/ComputationalNumberTheory.json",
+   "layers": [
+    {
+     "id": "ComputationalNumberTheory:CN.0",
+     "title": "Representations and complexity"
+    },
+    {
+     "id": "ComputationalNumberTheory:CN.1",
+     "title": "Primality and factorization"
+    },
+    {
+     "id": "ComputationalNumberTheory:CN.2",
+     "title": "Number fields and local fields"
+    },
+    {
+     "id": "ComputationalNumberTheory:CN.3",
+     "title": "Curves and modular forms"
+    },
+    {
+     "id": "ComputationalNumberTheory:CN.4",
+     "title": "Validated real and p-adic numerics"
+    },
+    {
+     "id": "ComputationalNumberTheory:CN.5",
+     "title": "Data and reproducibility"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+   "title": "Geodesics, the exponential map, and the Hopf–Rinow theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_HopfRinow.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-0-the-reconciled-riemannian-distance",
+     "title": "Layer 0: the reconciled Riemannian distance"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-1-the-geodesic-equation-the-flow-and-the-exponential-map",
+     "title": "Layer 1: the geodesic equation, the flow, and the exponential map"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-2-normal-neighbourhoods-the-gauss-lemma-and-minimizing-geodesics",
+     "title": "Layer 2: normal neighbourhoods, the Gauss lemma, and minimizing geodesics"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-3-the-hopfrinow-equivalence",
+     "title": "Layer 3: the Hopf–Rinow equivalence"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-4-corollaries-and-downstream-theory",
+     "title": "Layer 4: corollaries and downstream theory"
+    }
+   ]
+  }
+ ]
+}

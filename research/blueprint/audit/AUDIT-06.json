@@ -1,0 +1,233 @@
+{
+ "job": "AUDIT-06",
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+   "title": "Fuchsian groups and orbifold Riemann surfaces",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_FuchsianOrbifolds.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-0-the-effective-projective-möbius-action",
+     "title": "Layer 0: the effective projective Möbius action"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
+     "title": "Layer 1: elliptic points and coarse quotient charts"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
+     "title": "Layer 2: hyperbolic polygons and cofinite groups"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates",
+     "title": "Layer 3: cusps and q-coordinates"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces",
+     "title": "Layer 4: compactified quotient Riemann surfaces"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications",
+     "title": "Layer 5: compact-surface degree theory and Fuchsian applications"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-6-the-level-one-modular-quotient-in-construction-order",
+     "title": "Layer 6: the level-one modular quotient, in construction order"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+   "title": "One-parameter semigroups, completely monotone and positive-definite functions, and Bochner-type representations",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_OneParameterSemigroups.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-a--strongly-continuous-semigroups",
+     "title": "Part A — Strongly continuous semigroups"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--hilleyosida-generation-theorem",
+     "title": "Milestone — Hille–Yosida generation theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--lumerphillips-theorem",
+     "title": "Milestone — Lumer–Phillips theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--abstract-cauchy-problem",
+     "title": "Milestone — abstract Cauchy problem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-b--completely-monotone-and-bernstein-functions",
+     "title": "Part B — Completely monotone (and Bernstein) functions"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--bernsteins-theorem",
+     "title": "Milestone — Bernstein's theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-c--positive-definite-functions-and-bochners-theorem",
+     "title": "Part C — Positive-definite functions and Bochner's theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone-1--bochners-theorem-on-v",
+     "title": "Milestone 1 — Bochner's theorem on V"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone-2--bcr-semigroupbochner-bergchristensenressel-4113",
+     "title": "Milestone 2 — BCR semigroup–Bochner (Berg–Christensen–Ressel 4.1.13)"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+   "title": "Optimal transport and Wasserstein geometry",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_OptimalTransport.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-0-transport-plans-maps-kernels-and-gluing",
+     "title": "Layer 0: transport plans, maps, kernels, and gluing"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-1-transport-cost-compactness-existence-and-stability",
+     "title": "Layer 1: transport cost, compactness, existence, and stability"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-2-kantorovich-duality-transforms-and-optimality-certificates",
+     "title": "Layer 2: Kantorovich duality, transforms, and optimality certificates"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-3-wasserstein-distances-and-topology",
+     "title": "Layer 3: Wasserstein distances and topology"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-4-the-monge-problem-and-abstract-transport-maps",
+     "title": "Layer 4: the Monge problem and abstract transport maps"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-5-convex-analysis-brenier-and-polar-factorization",
+     "title": "Layer 5: convex analysis, Brenier, and polar factorization"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-6-monge--ampère-measures-equations-and-regularity",
+     "title": "Layer 6: Monge--Ampère measures, equations, and regularity"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#6a-aleksandrov-weak-theory",
+     "title": "6A. Aleksandrov weak theory"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#6b-the-transport-equation",
+     "title": "6B. The transport equation"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#6c-quadratic-caffarelli-theory",
+     "title": "6C. Quadratic Caffarelli theory"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#6d-general-costs-ma--trudinger--wang-mtw-and-partial-regularity",
+     "title": "6D. General costs, Ma--Trudinger--Wang (MTW), and partial regularity"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-7-riemannian-brenier--mccann-transport",
+     "title": "Layer 7: Riemannian Brenier--McCann transport"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-8-metric-curves-dynamic-plans-and-benamou--brenier",
+     "title": "Layer 8: metric curves, dynamic plans, and Benamou--Brenier"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-9-displacement-geometry-and-convexity",
+     "title": "Layer 9: displacement geometry and convexity"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-10-abstract-metric-gradient-flows",
+     "title": "Layer 10: abstract metric gradient flows"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-11-entropy-wasserstein-differential-calculus-jko-and-pde-flows",
+     "title": "Layer 11: entropy, Wasserstein differential calculus, JKO, and PDE flows"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-12-fréchet-and-wasserstein-barycenters",
+     "title": "Layer 12: Fréchet and Wasserstein barycenters"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-13-entropic-transport-sinkhorn-and-schrödinger-bridges",
+     "title": "Layer 13: entropic transport, Sinkhorn, and Schrödinger bridges"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#13a-static-entropic-transport",
+     "title": "13A. Static entropic transport"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#13b-iterative-proportional-fitting-and-finite-sinkhorn",
+     "title": "13B. Iterative proportional fitting and finite Sinkhorn"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#13c-dynamic-schrödinger-theory",
+     "title": "13C. Dynamic Schrödinger theory"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-14-synthetic-curvature-nonsmooth-heat-flow-and-optimal-maps",
+     "title": "Layer 14: synthetic curvature, nonsmooth heat flow, and optimal maps"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-15-measured-kernels-and-gromov--wasserstein",
+     "title": "Layer 15: measured kernels and Gromov--Wasserstein"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-16-public-api-extraction-and-end-to-end-examples",
+     "title": "Layer 16: public API, extraction, and end-to-end examples"
+    }
+   ]
+  },
+  {
+   "roadmapId": "AnalyticNumberTheory",
+   "title": "Analytic number theory, zeta functions and prime distribution",
+   "extract": "research/blueprint/atlas/roadmaps/AnalyticNumberTheory.json",
+   "layers": [
+    {
+     "id": "AnalyticNumberTheory:AN.0",
+     "title": "Dirichlet series and summation"
+    },
+    {
+     "id": "AnalyticNumberTheory:AN.1",
+     "title": "Zeta and Dirichlet L-functions"
+    },
+    {
+     "id": "AnalyticNumberTheory:AN.2",
+     "title": "Prime number theorems"
+    },
+    {
+     "id": "AnalyticNumberTheory:AN.3",
+     "title": "Explicit formulas and density estimates"
+    },
+    {
+     "id": "AnalyticNumberTheory:AN.4",
+     "title": "Hecke, Dedekind and Artin analytic interfaces"
+    },
+    {
+     "id": "AnalyticNumberTheory:AN.5",
+     "title": "Multiplicative functions and value distribution"
+    },
+    {
+     "id": "AnalyticNumberTheory:AN.6",
+     "title": "Analytic consumers and scope"
+    },
+    {
+     "id": "AnalyticNumberTheory:AN.7",
+     "title": "Hurwitz, Lerch and parameter-dependent zeta functions"
+    },
+    {
+     "id": "AnalyticNumberTheory:AN.8",
+     "title": "Several-variable and prehomogeneous zeta functions"
+    },
+    {
+     "id": "AnalyticNumberTheory:AN.9",
+     "title": "Spectral zeta and arithmetic noncommutative systems"
+    }
+   ]
+  }
+ ]
+}

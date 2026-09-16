@@ -1,0 +1,188 @@
+{
+ "job": "AUDIT-34",
+ "roadmaps": [
+  {
+   "roadmapId": "PotentialAutomorphyInfrastructure",
+   "title": "Reusable infrastructure for potential automorphy over CM fields",
+   "extract": "research/blueprint/atlas/roadmaps/PotentialAutomorphyInfrastructure.json",
+   "layers": [
+    {
+     "id": "PotentialAutomorphyInfrastructure:PA.0",
+     "title": "A common integral cohomology interface"
+    },
+    {
+     "id": "PotentialAutomorphyInfrastructure:PA.1",
+     "title": "Fontaine–Laffaille weights and degree shifting"
+    },
+    {
+     "id": "PotentialAutomorphyInfrastructure:PA.2",
+     "title": "Ordinary induction and degree shifting"
+    },
+    {
+     "id": "PotentialAutomorphyInfrastructure:PA.3",
+     "title": "Derived support and changes of local deformation condition"
+    },
+    {
+     "id": "PotentialAutomorphyInfrastructure:PA.4",
+     "title": "Auxiliary primes and ultraproduct compatibility"
+    },
+    {
+     "id": "PotentialAutomorphyInfrastructure:PA.5",
+     "title": "Compatible systems and reusable transport"
+    }
+   ]
+  },
+  {
+   "roadmapId": "PotentialModularityAndCompatibleSystems",
+   "title": "Potential Modularity And Compatible Systems",
+   "extract": "research/blueprint/atlas/roadmaps/PotentialModularityAndCompatibleSystems.json",
+   "layers": [
+    {
+     "id": "PotentialModularityAndCompatibleSystems:R23.1",
+     "title": "Moret–Bailly's theorem"
+    },
+    {
+     "id": "PotentialModularityAndCompatibleSystems:R23.2",
+     "title": "The auxiliary moduli problem"
+    },
+    {
+     "id": "PotentialModularityAndCompatibleSystems:R23.3",
+     "title": "Potential residual modularity"
+    },
+    {
+     "id": "PotentialModularityAndCompatibleSystems:R23.4",
+     "title": "Potential modularity of a given lift"
+    },
+    {
+     "id": "PotentialModularityAndCompatibleSystems:R23.5",
+     "title": "Control of the extension and descent data"
+    },
+    {
+     "id": "PotentialModularityAndCompatibleSystems:R23.6",
+     "title": "Exports and noncircularity"
+    },
+    {
+     "id": "PotentialModularityAndCompatibleSystems:R24.1",
+     "title": "Finiteness over the coefficient ring"
+    },
+    {
+     "id": "PotentialModularityAndCompatibleSystems:R24.2",
+     "title": "Existence of characteristic-zero points"
+    },
+    {
+     "id": "PotentialModularityAndCompatibleSystems:R24.3",
+     "title": "Prescribed local lifts"
+    },
+    {
+     "id": "PotentialModularityAndCompatibleSystems:R24.4",
+     "title": "The full KW modularity-lifting interface"
+    },
+    {
+     "id": "PotentialModularityAndCompatibleSystems:R24.5",
+     "title": "Compatible systems from potential modularity"
+    },
+    {
+     "id": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+     "title": "general systems before existence theorems"
+    },
+    {
+     "id": "PotentialModularityAndCompatibleSystems:R24.6",
+     "title": "Changing residual characteristic"
+    }
+   ]
+  },
+  {
+   "roadmapId": "SerreWeightAndLevelOptimisation",
+   "title": "Weight and level optimisation of residual modular representations",
+   "extract": "research/blueprint/atlas/roadmaps/SerreWeightAndLevelOptimisation.json",
+   "layers": [
+    {
+     "id": "SerreWeightAndLevelOptimisation:R20.1",
+     "title": "Level-changing algebra and cohomology"
+    },
+    {
+     "id": "SerreWeightAndLevelOptimisation:R20.2",
+     "title": "Lowering level away from p"
+    },
+    {
+     "id": "SerreWeightAndLevelOptimisation:R20.3",
+     "title": "Weight optimisation at p"
+    },
+    {
+     "id": "SerreWeightAndLevelOptimisation:R20.4",
+     "title": "Coefficient-prime level and character"
+    },
+    {
+     "id": "SerreWeightAndLevelOptimisation:R20.5",
+     "title": "Combined classical optimisation and exceptions"
+    },
+    {
+     "id": "SerreWeightAndLevelOptimisation:R20.6",
+     "title": "Exports for Serre and elliptic curves"
+    }
+   ]
+  },
+  {
+   "roadmapId": "TorsionCohomologyInfrastructure",
+   "title": "Reusable infrastructure for torsion in arithmetic cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/TorsionCohomologyInfrastructure.json",
+   "layers": [
+    {
+     "id": "TorsionCohomologyInfrastructure:TC.0",
+     "title": "Integral sheaf and formal-model transport"
+    },
+    {
+     "id": "TorsionCohomologyInfrastructure:TC.1",
+     "title": "Period-map bundles and approximating sections"
+    },
+    {
+     "id": "TorsionCohomologyInfrastructure:TC.2",
+     "title": "Coherent, completed and torsion cohomology"
+    },
+    {
+     "id": "TorsionCohomologyInfrastructure:TC.3",
+     "title": "Boundary induction and determinant factor extraction"
+    },
+    {
+     "id": "TorsionCohomologyInfrastructure:TC.4",
+     "title": "Reusable output and validation examples"
+    }
+   ]
+  },
+  {
+   "roadmapId": "LogicAndDefinabilityInNumberTheory",
+   "title": "Logic, definability, valued fields and motivic integration",
+   "extract": "research/blueprint/atlas/roadmaps/LogicAndDefinabilityInNumberTheory.json",
+   "layers": [
+    {
+     "id": "LogicAndDefinabilityInNumberTheory:LD.0",
+     "title": "Languages and interpretations"
+    },
+    {
+     "id": "LogicAndDefinabilityInNumberTheory:LD.1",
+     "title": "Valued-field logic"
+    },
+    {
+     "id": "LogicAndDefinabilityInNumberTheory:LD.2",
+     "title": "p-adic definable integration"
+    },
+    {
+     "id": "LogicAndDefinabilityInNumberTheory:LD.3",
+     "title": "Motivic integration and transfer"
+    },
+    {
+     "id": "LogicAndDefinabilityInNumberTheory:LD.4",
+     "title": "Diophantine definability and undecidability"
+    },
+    {
+     "id": "LogicAndDefinabilityInNumberTheory:LD.5",
+     "title": "Uniform arithmetic applications"
+    },
+    {
+     "id": "LogicAndDefinabilityInNumberTheory:LD.6",
+     "title": "o-minimality, definable counting and unlikely intersections"
+    }
+   ]
+  }
+ ]
+}

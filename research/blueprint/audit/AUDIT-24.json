@@ -1,0 +1,172 @@
+{
+ "job": "AUDIT-24",
+ "roadmaps": [
+  {
+   "roadmapId": "ColemanPowerSeries",
+   "title": "Coleman power series, local units, and cyclotomic-unit quotients",
+   "extract": "research/blueprint/atlas/roadmaps/ColemanPowerSeries.json",
+   "layers": [
+    {
+     "id": "ColemanPowerSeries:L0",
+     "title": "Towers and genuine modules"
+    },
+    {
+     "id": "ColemanPowerSeries:L1",
+     "title": "The Coleman norm operator"
+    },
+    {
+     "id": "ColemanPowerSeries:L2",
+     "title": "The Coleman map and its sign"
+    },
+    {
+     "id": "ColemanPowerSeries:L3",
+     "title": "Kernel and cokernel"
+    },
+    {
+     "id": "ColemanPowerSeries:L4",
+     "title": "Cyclotomic units and inverse-limit generators"
+    }
+   ]
+  },
+  {
+   "roadmapId": "DirichletPadicLFunctions",
+   "title": "Dirichlet p-adic L-functions, special values, and Eisenstein measures",
+   "extract": "research/blueprint/atlas/roadmaps/DirichletPadicLFunctions.json",
+   "layers": [
+    {
+     "id": "DirichletPadicLFunctions:L0",
+     "title": "Complex special values and algebraicity"
+    },
+    {
+     "id": "DirichletPadicLFunctions:L1",
+     "title": "The smoothed measure and Kubota–Leopoldt"
+    },
+    {
+     "id": "DirichletPadicLFunctions:L2",
+     "title": "All Dirichlet characters"
+    },
+    {
+     "id": "DirichletPadicLFunctions:L3",
+     "title": "Branches, logarithms and poles"
+    },
+    {
+     "id": "DirichletPadicLFunctions:L4",
+     "title": "Eisenstein families"
+    }
+   ]
+  },
+  {
+   "roadmapId": "EulerSystemsAndKolyvaginSystems",
+   "title": "Euler systems, Kolyvagin systems and higher-rank descent",
+   "extract": "research/blueprint/atlas/roadmaps/EulerSystemsAndKolyvaginSystems.json",
+   "layers": [
+    {
+     "id": "EulerSystemsAndKolyvaginSystems:ES.0",
+     "title": "Coefficient data, quotient propagation and Selmer interfaces"
+    },
+    {
+     "id": "EulerSystemsAndKolyvaginSystems:ES.1",
+     "title": "Auxiliary primes and local comparison maps"
+    },
+    {
+     "id": "EulerSystemsAndKolyvaginSystems:ES.2",
+     "title": "Euler-system modules and norm relations"
+    },
+    {
+     "id": "EulerSystemsAndKolyvaginSystems:ES.3",
+     "title": "Derivative operators and corrected Kolyvagin classes"
+    },
+    {
+     "id": "EulerSystemsAndKolyvaginSystems:ES.4",
+     "title": "Core vertices, descent and error-tolerant bounds"
+    },
+    {
+     "id": "EulerSystemsAndKolyvaginSystems:ES.5",
+     "title": "Primitivity and sharpness over DVRs"
+    },
+    {
+     "id": "EulerSystemsAndKolyvaginSystems:ES.6",
+     "title": "Exterior biduals, Stark systems and Gorenstein coefficients"
+    },
+    {
+     "id": "EulerSystemsAndKolyvaginSystems:ES.7",
+     "title": "Higher-rank derivatives and Fitting-ideal control"
+    },
+    {
+     "id": "EulerSystemsAndKolyvaginSystems:ES.8",
+     "title": "Iwasawa variation and application handoffs"
+    }
+   ]
+  },
+  {
+   "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+   "title": "Euler systems and the unconditional cyclotomic main conjecture",
+   "extract": "research/blueprint/atlas/roadmaps/EulerSystemsCyclotomicMainConjecture.json",
+   "layers": [
+    {
+     "id": "EulerSystemsCyclotomicMainConjecture:L0",
+     "title": "Euler systems and their normalization"
+    },
+    {
+     "id": "EulerSystemsCyclotomicMainConjecture:L1",
+     "title": "Finite-level descent"
+    },
+    {
+     "id": "EulerSystemsCyclotomicMainConjecture:L2",
+     "title": "Iwasawa divisibility"
+    },
+    {
+     "id": "EulerSystemsCyclotomicMainConjecture:L3",
+     "title": "Equality and the unconditional notes endpoint"
+    },
+    {
+     "id": "EulerSystemsCyclotomicMainConjecture:L4",
+     "title": "Abelian fields and p=2"
+    }
+   ]
+  },
+  {
+   "roadmapId": "GeneralizedHeegnerCycles",
+   "title": "Generalized Heegner cycles and their Iwasawa variation",
+   "extract": "research/blueprint/atlas/roadmaps/GeneralizedHeegnerCycles.json",
+   "layers": [
+    {
+     "id": "GeneralizedHeegnerCycles:GH.0",
+     "title": "Kuga–Sato geometry and coefficient projectors"
+    },
+    {
+     "id": "GeneralizedHeegnerCycles:GH.1",
+     "title": "Algebraic cycles and Abel–Jacobi realizations"
+    },
+    {
+     "id": "GeneralizedHeegnerCycles:GH.2",
+     "title": "Ring-class trace, congruence and local conditions"
+    },
+    {
+     "id": "GeneralizedHeegnerCycles:GH.3",
+     "title": "Ordinary stabilization and universal norms"
+    },
+    {
+     "id": "GeneralizedHeegnerCycles:GH.4",
+     "title": "Explicit reciprocity and p-adic Abel–Jacobi formulas"
+    },
+    {
+     "id": "GeneralizedHeegnerCycles:GH.5",
+     "title": "Higher-weight Kolyvagin system and arithmetic hypotheses"
+    },
+    {
+     "id": "GeneralizedHeegnerCycles:GH.6",
+     "title": "Nonvanishing and source-qualified Selmer consequences"
+    },
+    {
+     "id": "GeneralizedHeegnerCycles:GH.7",
+     "title": "Hida-family classes and specialization"
+    },
+    {
+     "id": "GeneralizedHeegnerCycles:GH.8",
+     "title": "Weight-two and main-conjecture consumer comparisons"
+    }
+   ]
+  }
+ ]
+}

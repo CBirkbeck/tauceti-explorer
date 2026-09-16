@@ -1,0 +1,236 @@
+{
+ "job": "AUDIT-32",
+ "roadmaps": [
+  {
+   "roadmapId": "EllipticCurveModularity",
+   "title": "Modularity and modular parametrisations of elliptic curves over Q",
+   "extract": "research/blueprint/atlas/roadmaps/EllipticCurveModularity.json",
+   "layers": [
+    {
+     "id": "EllipticCurveModularity:R29.1",
+     "title": "Rational endomorphisms and residual irreducibility"
+    },
+    {
+     "id": "EllipticCurveModularity:R29.2",
+     "title": "Residual Serre witnesses at bounded level"
+    },
+    {
+     "id": "EllipticCurveModularity:R29.3",
+     "title": "A fixed newform and exact coefficients"
+    },
+    {
+     "id": "EllipticCurveModularity:R29.4",
+     "title": "Galois comparison and exact conductor"
+    },
+    {
+     "id": "EllipticCurveModularity:R29.5",
+     "title": "The modular quotient and parametrisation"
+    },
+    {
+     "id": "EllipticCurveModularity:R29.6",
+     "title": "Final theorem and analytic consequences"
+    }
+   ]
+  },
+  {
+   "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+   "title": "Endoscopic transfer and unitary trace comparison",
+   "extract": "research/blueprint/atlas/roadmaps/EndoscopicTransferAndUnitaryTraceComparison.json",
+   "layers": [
+    {
+     "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+     "title": "Stable conjugacy and endoscopic data"
+    },
+    {
+     "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+     "title": "Transfer factors and orbital-integral analysis"
+    },
+    {
+     "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.2",
+     "title": "Perverse sheaves, Hitchin geometry and support"
+    },
+    {
+     "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a",
+     "title": "Reexport of the general scheme perverse foundation"
+    },
+    {
+     "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+     "title": "Reexport of the general scheme perverse foundation — duality perversity"
+    },
+    {
+     "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:pure-decomposition",
+     "title": "Reexport of the general scheme perverse foundation — pure decomposition"
+    },
+    {
+     "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b",
+     "title": "The geometric fundamental-lemma proof machinery"
+    },
+    {
+     "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.3",
+     "title": "Fundamental lemma and existence of local transfer"
+    },
+    {
+     "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+     "title": "Simple stable and twisted unitary trace formulas"
+    },
+    {
+     "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+     "title": "Counting and stabilizing Igusa correspondences"
+    },
+    {
+     "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+     "title": "Classical local GL_m and inner-form comparison"
+    },
+    {
+     "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+     "title": "Two-tower cohomological realization (mixed characteristic)"
+    },
+    {
+     "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7",
+     "title": "Coherent comparison exports"
+    },
+    {
+     "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+     "title": ", pure automorphic branch"
+    },
+    {
+     "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b",
+     "title": ", Igusa branch"
+    }
+   ]
+  },
+  {
+   "roadmapId": "GL2ModularityLifting",
+   "title": "GL₂ Modularity Lifting",
+   "extract": "research/blueprint/atlas/roadmaps/GL2ModularityLifting.json",
+   "layers": [
+    {
+     "id": "GL2ModularityLifting:R22.1",
+     "title": "Minimal deformation-to-Hecke maps"
+    },
+    {
+     "id": "GL2ModularityLifting:R22.2",
+     "title": "Auxiliary levels and freeness"
+    },
+    {
+     "id": "GL2ModularityLifting:R22.3",
+     "title": "Arithmetic patching"
+    },
+    {
+     "id": "GL2ModularityLifting:R22.4",
+     "title": "Component arguments and nonminimal levels"
+    },
+    {
+     "id": "GL2ModularityLifting:R22.5",
+     "title": "Odd-prime modularity lifting"
+    },
+    {
+     "id": "GL2ModularityLifting:R22.6",
+     "title": "Dyadic lifting and Kisin's completion"
+    },
+    {
+     "id": "GL2ModularityLifting:R32.1",
+     "title": "Exact statement table"
+    },
+    {
+     "id": "GL2ModularityLifting:R32.2",
+     "title": "Residually modular odd-prime lifting"
+    },
+    {
+     "id": "GL2ModularityLifting:R32.3",
+     "title": "Dyadic de Rham lifting"
+    },
+    {
+     "id": "GL2ModularityLifting:R32.4",
+     "title": "Pan's residually reducible theorem"
+    },
+    {
+     "id": "GL2ModularityLifting:R32.5",
+     "title": "Small-prime ordinary completion"
+    },
+    {
+     "id": "GL2ModularityLifting:R32.6",
+     "title": "Modularity-transfer statements for congruence arguments"
+    }
+   ]
+  },
+  {
+   "roadmapId": "GlobalGaloisDeformations",
+   "title": "Global Galois deformation rings",
+   "extract": "research/blueprint/atlas/roadmaps/GlobalGaloisDeformations.json",
+   "layers": [
+    {
+     "id": "GlobalGaloisDeformations:G7",
+     "title": "Polarized dimension-n deformation problems"
+    },
+    {
+     "id": "GlobalGaloisDeformations:G8",
+     "title": "Determinant-variable global problems"
+    },
+    {
+     "id": "GlobalGaloisDeformations:R04.1",
+     "title": "Deformation functors"
+    },
+    {
+     "id": "GlobalGaloisDeformations:R04.2",
+     "title": "Representability and universal representations"
+    },
+    {
+     "id": "GlobalGaloisDeformations:R04.3",
+     "title": "Local conditions and global presentations"
+    },
+    {
+     "id": "GlobalGaloisDeformations:R04.4",
+     "title": "Restriction, twisting and change of problem"
+    },
+    {
+     "id": "GlobalGaloisDeformations:R04.5",
+     "title": "Taylor–Wiles auxiliary primes"
+    },
+    {
+     "id": "GlobalGaloisDeformations:R04.6",
+     "title": "Arithmetic exports for patching and global lifts"
+    }
+   ]
+  },
+  {
+   "roadmapId": "IgusaVarietiesAndTorsionConcentration",
+   "title": "Igusa varieties, compactified period fibers and torsion concentration",
+   "extract": "research/blueprint/atlas/roadmaps/IgusaVarietiesAndTorsionConcentration.json",
+   "layers": [
+    {
+     "id": "IgusaVarietiesAndTorsionConcentration:IG.0",
+     "title": "Newton strata, central leaves and local deformation data"
+    },
+    {
+     "id": "IgusaVarietiesAndTorsionConcentration:IG.1",
+     "title": "Igusa towers and their actions"
+    },
+    {
+     "id": "IgusaVarietiesAndTorsionConcentration:IG.2",
+     "title": "Partial compactifications and affineness"
+    },
+    {
+     "id": "IgusaVarietiesAndTorsionConcentration:IG.3",
+     "title": "Fibers of compactified Hodge–Tate maps"
+    },
+    {
+     "id": "IgusaVarietiesAndTorsionConcentration:IG.4",
+     "title": "Nearby-cycle semiperversity and support bounds"
+    },
+    {
+     "id": "IgusaVarietiesAndTorsionConcentration:IG.5",
+     "title": "Rational Igusa trace comparison and genericity obstruction"
+    },
+    {
+     "id": "IgusaVarietiesAndTorsionConcentration:IG.6",
+     "title": "Equivariant Igusa boundary formula"
+    },
+    {
+     "id": "IgusaVarietiesAndTorsionConcentration:IG.7",
+     "title": "Localized concentration and arithmetic handoff"
+    }
+   ]
+  }
+ ]
+}

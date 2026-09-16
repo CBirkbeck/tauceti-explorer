@@ -1,0 +1,220 @@
+{
+ "job": "AUDIT-27",
+ "roadmaps": [
+  {
+   "roadmapId": "PeriodsAndSpecialValues",
+   "title": "Periods, motivic L-values and special-value conjectures",
+   "extract": "research/blueprint/atlas/roadmaps/PeriodsAndSpecialValues.json",
+   "layers": [
+    {
+     "id": "PeriodsAndSpecialValues:PS.0",
+     "title": "Comparison spaces and period lines"
+    },
+    {
+     "id": "PeriodsAndSpecialValues:PS.1",
+     "title": "Critical values and algebraicity statements"
+    },
+    {
+     "id": "PeriodsAndSpecialValues:PS.2",
+     "title": "Formal periods and the evaluation map"
+    },
+    {
+     "id": "PeriodsAndSpecialValues:PS.3",
+     "title": "Regulator determinants and leading terms"
+    },
+    {
+     "id": "PeriodsAndSpecialValues:PS.4",
+     "title": "Integral fundamental lines and local corrections"
+    },
+    {
+     "id": "PeriodsAndSpecialValues:PS.5",
+     "title": "Equivariant Tamagawa-number statements"
+    },
+    {
+     "id": "PeriodsAndSpecialValues:PS.6",
+     "title": "BSD and Bloch–Kato assembly"
+    },
+    {
+     "id": "PeriodsAndSpecialValues:PS.7",
+     "title": "Certified computations and research boundary"
+    },
+    {
+     "id": "PeriodsAndSpecialValues:PS.8",
+     "title": "Arithmetic mirror symmetry and period differential equations"
+    },
+    {
+     "id": "PeriodsAndSpecialValues:PS.9",
+     "title": "Multiple zeta values and mixed-Tate periods"
+    }
+   ]
+  },
+  {
+   "roadmapId": "RankZeroOneBSD",
+   "title": "Rank-zero and rank-one Birch–Swinnerton-Dyer theory",
+   "extract": "research/blueprint/atlas/roadmaps/RankZeroOneBSD.json",
+   "layers": [
+    {
+     "id": "RankZeroOneBSD:BSD.0",
+     "title": "Actual analytic L-functions, vanishing order and twists"
+    },
+    {
+     "id": "RankZeroOneBSD:BSD.1",
+     "title": "Arithmetic invariants and quadratic descent"
+    },
+    {
+     "id": "RankZeroOneBSD:BSD.2",
+     "title": "Quadratic twists with prescribed local conditions and nonvanishing"
+    },
+    {
+     "id": "RankZeroOneBSD:BSD.3",
+     "title": "Analytic rank one implies rank one and finite Sha"
+    },
+    {
+     "id": "RankZeroOneBSD:BSD.4",
+     "title": "Analytic rank zero implies rank zero and finite Sha"
+    },
+    {
+     "id": "RankZeroOneBSD:BSD.5",
+     "title": "Rational leading-term quotient and Heegner index formula"
+    },
+    {
+     "id": "RankZeroOneBSD:BSD.6",
+     "title": "Irreducible-prime leading-term formulas"
+    },
+    {
+     "id": "RankZeroOneBSD:BSD.6a",
+     "title": "BSD.6. Irreducible-prime leading-term formulas"
+    },
+    {
+     "id": "RankZeroOneBSD:BSD.7",
+     "title": "Eisenstein-prime branches and exact local correction terms"
+    },
+    {
+     "id": "RankZeroOneBSD:BSD.7a",
+     "title": "BSD.7. Eisenstein-prime branches and exact local correction terms"
+    },
+    {
+     "id": "RankZeroOneBSD:BSD.8",
+     "title": "From prime-part certificates to an exact leading term"
+    },
+    {
+     "id": "RankZeroOneBSD:BSD.9",
+     "title": "Reusable comparison tests and endpoint signatures"
+    }
+   ]
+  },
+  {
+   "roadmapId": "SelmerIwasawaCohomology",
+   "title": "Selmer groups, continuous integral cohomology, and Iwasawa cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/SelmerIwasawaCohomology.json",
+   "layers": [
+    {
+     "id": "SelmerIwasawaCohomology:L0",
+     "title": "Integral and rational continuous cohomology"
+    },
+    {
+     "id": "SelmerIwasawaCohomology:L1",
+     "title": "Local and global duality"
+    },
+    {
+     "id": "SelmerIwasawaCohomology:L2",
+     "title": "Selmer structures and duals"
+    },
+    {
+     "id": "SelmerIwasawaCohomology:L3",
+     "title": "Iwasawa cohomology and control"
+    },
+    {
+     "id": "SelmerIwasawaCohomology:L4",
+     "title": "Arithmetic examples and conjectures"
+    }
+   ]
+  },
+  {
+   "roadmapId": "SpecialValuesBirchTate",
+   "title": "Birch–Tate and arithmetic special-value formulas",
+   "extract": "research/blueprint/atlas/roadmaps/SpecialValuesBirchTate.json",
+   "layers": [
+    {
+     "id": "SpecialValuesBirchTate:B.1",
+     "title": "The statement and its inputs"
+    },
+    {
+     "id": "SpecialValuesBirchTate:B.2",
+     "title": "Rationality, sign and equivalent formulations"
+    },
+    {
+     "id": "SpecialValuesBirchTate:B.3",
+     "title": "The base example and independent computations"
+    },
+    {
+     "id": "SpecialValuesBirchTate:B.4",
+     "title": "The historical odd-primary theorem"
+    },
+    {
+     "id": "SpecialValuesBirchTate:B.5",
+     "title": "Totally real abelian fields over Q"
+    },
+    {
+     "id": "SpecialValuesBirchTate:B.6",
+     "title": "The modern 2-primary route for arbitrary totally real fields"
+    },
+    {
+     "id": "SpecialValuesBirchTate:B.7",
+     "title": "S-integers and Euler factors"
+    },
+    {
+     "id": "SpecialValuesBirchTate:B.8",
+     "title": "Higher special values and conjecture statements"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ArithmeticKTheory",
+   "title": "K-theory of number fields and S-integers",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticKTheory.json",
+   "layers": [
+    {
+     "id": "ArithmeticKTheory:N.1",
+     "title": "Arithmetic carriers and degree zero/one"
+    },
+    {
+     "id": "ArithmeticKTheory:N.2",
+     "title": "Localisation and finite support"
+    },
+    {
+     "id": "ArithmeticKTheory:N.3",
+     "title": "Finiteness (N.3:finite-generation)"
+    },
+    {
+     "id": "ArithmeticKTheory:N.3:finite-generation",
+     "title": "Finiteness"
+    },
+    {
+     "id": "ArithmeticKTheory:N.3:ranks",
+     "title": "Rank comparison"
+    },
+    {
+     "id": "ArithmeticKTheory:N.4",
+     "title": "Roots of unity with twists"
+    },
+    {
+     "id": "ArithmeticKTheory:N.5",
+     "title": "Odd groups, including extension data"
+    },
+    {
+     "id": "ArithmeticKTheory:N.6",
+     "title": "Even groups and arithmetic cohomology"
+    },
+    {
+     "id": "ArithmeticKTheory:N.7",
+     "title": "Regular primes and Bernoulli numbers"
+    },
+    {
+     "id": "ArithmeticKTheory:N.8",
+     "title": "Certified examples"
+    }
+   ]
+  }
+ ]
+}

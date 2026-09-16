@@ -7,7 +7,7 @@
  },
  "provisional": false,
  "counts": {
-  "classified": 212,
+  "classified": 211,
   "estimated": 0
  },
  "roadmaps": {
@@ -1189,25 +1189,6 @@
     "automorphic",
     "etale",
     "arithmeticgeometry"
-   ]
-  },
-  "FoundationsAndLibraryIntegration": {
-   "cluster": "foundations",
-   "distance": 3,
-   "primaryMsc": "68V",
-   "secondaryMsc": [
-    "13C",
-    "18G",
-    "11R"
-   ],
-   "basis": "classification",
-   "job": "CLASSIFY-02",
-   "rationale": "Most of the general foundations this roadmap audits are already in Mathlib: finitely presented and flat modules, Dedekind domains, adic completion, Haar measure, Mellin transforms, Schwartz functions and tempered distributions, sheafification, and spectral sequences of spectral objects. The genuine gap is about one layer of standard graduate theory: local and global class field theory for LI.4 (Tau Ceti has only abstract class formations and Artin symbols), plus Fitting ideals, dualizing modules and the Grothendieck spectral sequence of a composite functor. LI.0 and LI.5 are formalisation-process stages.",
-   "galaxy": "foundations",
-   "tags": [
-    "commutative",
-    "homological",
-    "algebraicnt"
    ]
   },
   "FunctionFieldArithmetic": {

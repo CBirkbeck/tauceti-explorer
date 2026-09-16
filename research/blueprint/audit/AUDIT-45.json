@@ -1,0 +1,178 @@
+{
+ "job": "AUDIT-45",
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+   "title": "Geometric topology and the solved Kirby-list problems",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_GeometricTopology.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group",
+     "title": "Layer 1: manifold-library buildout (general dimension, general structure group)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-2-locally-flat-embeddings-in-general-dimension",
+     "title": "Layer 2: locally flat embeddings in general dimension"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-3-diffeomorphism-groups-with-the-c-topology",
+     "title": "Layer 3: diffeomorphism groups with the C^∞ topology"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-4-knot-theory-done-properly-owned-here",
+     "title": "Layer 4: knot theory, done properly (owned here)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-5-dehn-surgery",
+     "title": "Layer 5: Dehn surgery"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-6-knot-concordance-and-4d-cobordism-owned-here",
+     "title": "Layer 6: knot concordance and 4D cobordism (owned here)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume",
+     "title": "Layer 7: Riemannian geometric structures and volume"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-8-thurston-geometries-and-the-jsj--geometric-decomposition",
+     "title": "Layer 8: Thurston geometries and the JSJ / geometric decomposition"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-9-heegaard-splittings-and-heegaard-genus",
+     "title": "Layer 9: Heegaard splittings and Heegaard genus"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-10-foliations-and-their-euler-class",
+     "title": "Layer 10: foliations and their Euler class"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-11-triangulations-pl-structures-and-collapse",
+     "title": "Layer 11: triangulations, PL structures, and collapse"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+   "title": "Heegaard Floer homology, analytically",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_HeegaardFloer.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-m-morse-homology-stage-0",
+     "title": "Lane M: Morse homology (Stage 0)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-m-1",
+     "title": "Dynamical route"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-m-2",
+     "title": "Functional-analytic route"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f0-the-nonlinear-analysis-substrate",
+     "title": "Lane F0: the nonlinear-analysis substrate"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f1-the-cauchyriemann-elliptic-package-shared-with-the-pde-roadmap",
+     "title": "Lane F1: the Cauchy–Riemann elliptic package (shared with the PDE roadmap)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-1",
+     "title": "W^{k,p} of maps of surfaces/strips, Sobolev multiplication (kp > 2), trace"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-2",
+     "title": "The Calderón–Zygmund inequality ‖u‖_{W^{1,p}} ≤ C‖∂̄u‖_{L^p} via the Cauchy"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-3",
+     "title": "Linear Cauchy–Riemann operators on the disk/strip as Fredholm operators between"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f2-j-holomorphic-curves",
+     "title": "Lane F2: J-holomorphic curves"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-1",
+     "title": "Definitions land immediately"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-2",
+     "title": "Local theory"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-3",
+     "title": "Compactness"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-4",
+     "title": "Transversality"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-5",
+     "title": "Gluing"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f3-lagrangian-floer-homology-exact-case",
+     "title": "Lane F3: Lagrangian Floer homology, exact case"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f4-heegaard-floer-homology-holomorphically",
+     "title": "Lane F4: Heegaard Floer homology, holomorphically"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-1",
+     "title": "Sym^g(Σ) geometry:"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-2",
+     "title": "Spin^c structures"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-3",
+     "title": "Nearly-symmetric J"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-4",
+     "title": "HF̂ over 𝔽₂:"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-5",
+     "title": "Then, staged:"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f5-beyond-far-horizon-named-so-nobody-mistakes-the-scope",
+     "title": "Lane F5: beyond (far horizon, named so nobody mistakes the scope)"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+   "title": "Universal covers",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_UniversalCovers.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti",
+     "title": "Stage 0: port the foundations into TauCeti/"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-1-close-out-the-universal-cover",
+     "title": "Stage 1: close out the universal cover"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+     "title": "Stage 2: lifting criterion and Galois correspondence"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy",
+     "title": "Stage 3: higher homotopy"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-4-applications",
+     "title": "Stage 4: applications"
+    }
+   ]
+  }
+ ]
+}

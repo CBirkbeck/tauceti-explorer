@@ -1,0 +1,244 @@
+{
+ "job": "AUDIT-12",
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+   "title": "Modular curves, following Katz–Mazur",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ModularCurves.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#layer-0-scheme-theoretic-prerequisites",
+     "title": "Layer 0: scheme-theoretic prerequisites"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#0a-relative-effective-cartier-divisors",
+     "title": "0A. Relative effective Cartier divisors"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality",
+     "title": "0B. Finite locally free group schemes and Cartier duality"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
+     "title": "0C. Finite quotients and torsors"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions",
+     "title": "0D. Finite étale schemes and Galois actions"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+     "title": "0E. Effective descent and spreading out"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+     "title": "0F. Hom-schemes and closed loci"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
+     "title": "0G. Parameter spaces for subgroup schemes"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#layer-1-elliptic-curves-over-a-base-scheme",
+     "title": "Layer 1: elliptic curves over a base scheme"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#1a-projective-weierstrass-models",
+     "title": "1A. Projective Weierstrass models"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#1b-the-points-dictionary",
+     "title": "1B. The points dictionary"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#1c-pole-sheaves-weierstrass-coordinates-and-variable-changes",
+     "title": "1C. Pole sheaves, Weierstrass coordinates, and variable changes"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+     "title": "1D. The scheme-theoretic group law"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#1e-the-cubic-polarisation-and-elliptic-descent",
+     "title": "1E. The cubic polarisation and elliptic descent"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#layer-2-isogenies-duality-and-the-weil-pairing",
+     "title": "Layer 2: isogenies, duality, and the Weil pairing"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+     "title": "2A. Group homomorphisms, multiplication maps, and their degree"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients",
+     "title": "2B. Isogenies and quotients"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#2c-the-factorisation-dual",
+     "title": "2C. The factorisation dual"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
+     "title": "2D. Picard duality and comparison of the duals"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing",
+     "title": "2E. Cartier–Nishi duality and the Weil pairing"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#2f-endomorphism-degree-trace-and-rigidity",
+     "title": "2F. Endomorphism degree, trace, and rigidity"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#layer-3-drinfeld-level-structures",
+     "title": "Layer 3: Drinfeld level structures"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#3n-naive-level-structures",
+     "title": "3N. Naive level structures"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#3a-full-sets-a-structures-and-generators",
+     "title": "3A. Full sets, A-structures, and generators"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#3b-exact-order-and-cyclic-subgroups",
+     "title": "3B. Exact order and cyclic subgroups"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#3c-the-four-level-structures",
+     "title": "3C. The four level structures"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#3d-comparison-with-naive-level-structures",
+     "title": "3D. Comparison with naive level structures"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#layer-4-the-katzmazur-moduli-formalism",
+     "title": "Layer 4: the Katz–Mazur moduli formalism"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#4a-moduli-problems-over-ellr",
+     "title": "4A. Moduli problems over Ell/R"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#4b-the-weierstrass-presentation",
+     "title": "4B. The Weierstrass presentation"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470",
+     "title": "4C. Rigidifiers and KM 4.7.0"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem",
+     "title": "4D. Regularity of a moduli problem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#layer-5-affine-fine-modular-curves-after-inverting-n",
+     "title": "Layer 5: affine fine modular curves after inverting N"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#5a-tate-normal-form-and-y₁n-for-n4",
+     "title": "5A. Tate normal form and Y₁(N) for N≥4"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+     "title": "5B. Full ordered bases and fixed pairing"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#5c-the-twisted-curve-yρ",
+     "title": "5C. The twisted curve Y(ρ)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#layer-6-the-three-elementary-integral-level-problems",
+     "title": "Layer 6: the three elementary integral level problems"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#layer-7-km-chapter-5-for-the-elementary-problems",
+     "title": "Layer 7: KM Chapter 5 for the elementary problems"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#7a-the-regularity-axioms",
+     "title": "7A. The regularity axioms"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#7b-local-algebra-and-local-schemes",
+     "title": "7B. Local algebra and local schemes"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#7c-formal-completion-at-the-zero-section",
+     "title": "7C. Formal completion at the zero section"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+     "title": "7D. Universal deformations of elliptic curves"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
+     "title": "7E. p-divisible groups"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
+     "title": "7F. Serre–Tate theory with level structure"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#7g-the-three-characteristic-p-calculations",
+     "title": "7G. The three characteristic-p calculations"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#7h-axiomatic-regularity-and-assembly",
+     "title": "7H. Axiomatic regularity and assembly"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#layer-8-km-chapter-6-cyclicity-and-γ₀n",
+     "title": "Layer 8: KM Chapter 6, cyclicity, and [Γ₀(N)]"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#8a-finiteness-of-n-isog",
+     "title": "8A. Finiteness of [N-Isog]"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#8b-generator-schemes-and-the-cyclicity-theorem",
+     "title": "8B. Generator schemes and the cyclicity theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#8c-the-axiomatic-isomorphism-theorem-and-the-rings-of-63",
+     "title": "8C. The Axiomatic Isomorphism Theorem and the rings of §6.3"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#8d-the-cyclicity-locus-and-γ₀n",
+     "title": "8D. The cyclicity locus and [Γ₀(N)]"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#layer-9-γ_h-quotients-quotient-regularity-and-coarse-moduli",
+     "title": "Layer 9: [Γ_H] quotients, quotient regularity, and coarse moduli"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#9a-katzmazur-quotient-problems",
+     "title": "9A. Katz–Mazur quotient problems"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#9b-the-standard-quotient-problems",
+     "title": "9B. The standard quotient problems"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#9c-axiomatic-regularity-of-quotients",
+     "title": "9C. Axiomatic regularity of quotients"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients",
+     "title": "9D. Coarse moduli schemes and finite quotients"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
+     "title": "9E. The coarse j-line and Y₀(N)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+     "title": "Layer 10: compactified coarse curves over ℤ[1/N], cusps, and the Shimura covering"
+    }
+   ]
+  }
+ ]
+}

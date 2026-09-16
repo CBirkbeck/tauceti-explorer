@@ -10,12 +10,15 @@ data/atlas.json is about 14 MB, more than GitHub's contents API returns
 from __future__ import annotations
 
 import json
+import sys
 import shutil
 from collections import defaultdict
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 OUT = REPO / "research" / "blueprint" / "atlas"
+sys.path.insert(0, str(REPO / "scripts"))
+from retirements import apply_retirements  # noqa: E402
 LIMIT = 900_000
 STAGE_FIELDS = ("id", "owner", "key", "title", "description", "requires", "consumers", "parentStageId", "status")
 
@@ -34,7 +37,7 @@ def dump(path, data):
 
 
 def main():
-    atlas = json.loads((REPO / "data" / "atlas.json").read_text())
+    atlas = apply_retirements(json.loads((REPO / "data" / "atlas.json").read_text()))
     roadmaps = atlas["roadmaps"]
     stages = atlas["stages"]
     titles = {s["id"]: s["title"] for s in stages}

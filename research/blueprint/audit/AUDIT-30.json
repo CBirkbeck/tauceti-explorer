@@ -1,0 +1,220 @@
+{
+ "job": "AUDIT-30",
+ "roadmaps": [
+  {
+   "roadmapId": "MotivicEtaleKTheory",
+   "title": "Motivic and étale methods for arithmetic K-theory",
+   "extract": "research/blueprint/atlas/roadmaps/MotivicEtaleKTheory.json",
+   "layers": [
+    {
+     "id": "MotivicEtaleKTheory:M.1",
+     "title": "Coefficient modules and continuous arithmetic cohomology"
+    },
+    {
+     "id": "MotivicEtaleKTheory:M.2",
+     "title": "Local/global duality and the real places"
+    },
+    {
+     "id": "MotivicEtaleKTheory:M.3",
+     "title": "Tate's degree-two arithmetic theorem"
+    },
+    {
+     "id": "MotivicEtaleKTheory:M.4",
+     "title": "Cycle complexes and motivic cohomology"
+    },
+    {
+     "id": "MotivicEtaleKTheory:M.5",
+     "title": "The norm-residue theorem, with its proof dependencies"
+    },
+    {
+     "id": "MotivicEtaleKTheory:M.5a",
+     "title": "Transfers and motivic homotopy prerequisites"
+    },
+    {
+     "id": "MotivicEtaleKTheory:M.5b",
+     "title": "Cohomology operations and norm-variety geometry"
+    },
+    {
+     "id": "MotivicEtaleKTheory:M.5c",
+     "title": "Rost motives and the symbol calculation"
+    },
+    {
+     "id": "MotivicEtaleKTheory:M.5d",
+     "title": "Prime powers, positive characteristic and passage to general fields"
+    },
+    {
+     "id": "MotivicEtaleKTheory:M.6",
+     "title": "Motivic spectral sequence and rational weights"
+    },
+    {
+     "id": "MotivicEtaleKTheory:M.6a",
+     "title": "Coniveau/support filtration and layer comparison"
+    },
+    {
+     "id": "MotivicEtaleKTheory:M.6b",
+     "title": "Exact couples, convergence and operations"
+    },
+    {
+     "id": "MotivicEtaleKTheory:M.7",
+     "title": "Étale K-theory and the comparison range"
+    },
+    {
+     "id": "MotivicEtaleKTheory:M.8",
+     "title": "Regulators and integral structures"
+    }
+   ]
+  },
+  {
+   "roadmapId": "Polylogarithms",
+   "title": "Polylogarithms, explicit regulators and Zagier statements",
+   "extract": "research/blueprint/atlas/roadmaps/Polylogarithms.json",
+   "layers": [
+    {
+     "id": "Polylogarithms:P.1",
+     "title": "Classical and single-valued polylogarithms"
+    },
+    {
+     "id": "Polylogarithms:P.2",
+     "title": "The weight-two regulator"
+    },
+    {
+     "id": "Polylogarithms:P.3",
+     "title": "Weight-three polylogarithmic complexes"
+    },
+    {
+     "id": "Polylogarithms:P.4",
+     "title": "General polylogarithmic statement infrastructure"
+    },
+    {
+     "id": "Polylogarithms:P.5",
+     "title": "Curves and regulator complexes"
+    },
+    {
+     "id": "Polylogarithms:P.6",
+     "title": "Other precise statements and tests"
+    }
+   ]
+  },
+  {
+   "roadmapId": "RefinedTraceMethods",
+   "title": "Hochschild, cyclotomic and refined trace methods",
+   "extract": "research/blueprint/atlas/roadmaps/RefinedTraceMethods.json",
+   "layers": [
+    {
+     "id": "RefinedTraceMethods:RT.1",
+     "title": "Algebraic Hochschild and cyclic theory"
+    },
+    {
+     "id": "RefinedTraceMethods:RT.2",
+     "title": "THH, circle actions and cyclotomic structure"
+    },
+    {
+     "id": "RefinedTraceMethods:RT.3",
+     "title": "The trace and relative comparison"
+    },
+    {
+     "id": "RefinedTraceMethods:RT.3b",
+     "title": "The Beilinson square and the prismatic F-crystal proof bridge"
+    },
+    {
+     "id": "RefinedTraceMethods:RT.4",
+     "title": "Early topological K-theory (RT.4:topological)"
+    },
+    {
+     "id": "RefinedTraceMethods:RT.4:Habiro-comparison",
+     "title": "Late arithmetic comparison"
+    },
+    {
+     "id": "RefinedTraceMethods:RT.4:q-Hodge",
+     "title": "Later q-Hodge instance"
+    },
+    {
+     "id": "RefinedTraceMethods:RT.4:topological",
+     "title": "Early topological K-theory"
+    },
+    {
+     "id": "RefinedTraceMethods:RT.5",
+     "title": "Refined localizing invariants"
+    },
+    {
+     "id": "RefinedTraceMethods:RT.6",
+     "title": "Habiro interfaces and verification"
+    }
+   ]
+  },
+  {
+   "roadmapId": "SchemeKTheoryOperations",
+   "title": "K-theory of schemes, localisation and operations",
+   "extract": "research/blueprint/atlas/roadmaps/SchemeKTheoryOperations.json",
+   "layers": [
+    {
+     "id": "SchemeKTheoryOperations:S.1",
+     "title": "Perfect complexes and enhancements"
+    },
+    {
+     "id": "SchemeKTheoryOperations:S.2",
+     "title": "K, G and maps"
+    },
+    {
+     "id": "SchemeKTheoryOperations:S.3",
+     "title": "Supports and localisation"
+    },
+    {
+     "id": "SchemeKTheoryOperations:S.4",
+     "title": "Descent and coniveau"
+    },
+    {
+     "id": "SchemeKTheoryOperations:S.5",
+     "title": "Homotopy invariance and fundamental formulas"
+    },
+    {
+     "id": "SchemeKTheoryOperations:S.6",
+     "title": "Products, λ-operations and Adams operations"
+    },
+    {
+     "id": "SchemeKTheoryOperations:S.7",
+     "title": "Cycle classes and Riemann–Roch"
+    }
+   ]
+  },
+  {
+   "roadmapId": "StableHomotopyKTheory",
+   "title": "Homotopy foundations for algebraic K-theory",
+   "extract": "research/blueprint/atlas/roadmaps/StableHomotopyKTheory.json",
+   "layers": [
+    {
+     "id": "StableHomotopyKTheory:H.1",
+     "title": "Nerves, classifying spaces and basepoints"
+    },
+    {
+     "id": "StableHomotopyKTheory:H.2",
+     "title": "Homotopy fibres and Quillen's theorems"
+    },
+    {
+     "id": "StableHomotopyKTheory:H.3",
+     "title": "The plus construction"
+    },
+    {
+     "id": "StableHomotopyKTheory:H.4",
+     "title": "Homotopy group completion"
+    },
+    {
+     "id": "StableHomotopyKTheory:H.5",
+     "title": "Early spectrum foundation (H.5:spectra)"
+    },
+    {
+     "id": "StableHomotopyKTheory:H.5:S-delooping",
+     "title": "Later S-construction comparison"
+    },
+    {
+     "id": "StableHomotopyKTheory:H.5:spectra",
+     "title": "Early spectrum foundation"
+    },
+    {
+     "id": "StableHomotopyKTheory:H.6",
+     "title": "Coefficients, completion and spectral sequences"
+    }
+   ]
+  }
+ ]
+}

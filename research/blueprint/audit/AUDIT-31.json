@@ -1,0 +1,228 @@
+{
+ "job": "AUDIT-31",
+ "roadmaps": [
+  {
+   "roadmapId": "ArithmeticGaloisRepresentations",
+   "title": "Arithmetic Galois representations and conductors",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticGaloisRepresentations.json",
+   "layers": [
+    {
+     "id": "ArithmeticGaloisRepresentations:G7",
+     "title": "Dimension-general arithmetic API"
+    },
+    {
+     "id": "ArithmeticGaloisRepresentations:R01.1",
+     "title": "Continuous representations and integral models"
+    },
+    {
+     "id": "ArithmeticGaloisRepresentations:R01.2",
+     "title": "Decomposition groups, inertia and Weil–Deligne representations"
+    },
+    {
+     "id": "ArithmeticGaloisRepresentations:R01.3",
+     "title": "Artin and Swan conductors"
+    },
+    {
+     "id": "ArithmeticGaloisRepresentations:R01.4",
+     "title": "Residual images and oddness"
+    },
+    {
+     "id": "ArithmeticGaloisRepresentations:R01.5",
+     "title": "Recognition by Frobenius polynomials"
+    },
+    {
+     "id": "ArithmeticGaloisRepresentations:R01.6",
+     "title": "Tate modules of elliptic curves and abelian varieties"
+    }
+   ]
+  },
+  {
+   "roadmapId": "AutomorphicGaloisRepresentations",
+   "title": "Galois representations attached to modular and Hilbert modular forms",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicGaloisRepresentations.json",
+   "layers": [
+    {
+     "id": "AutomorphicGaloisRepresentations:R19.1",
+     "title": "Classical Galois representations"
+    },
+    {
+     "id": "AutomorphicGaloisRepresentations:R19.2",
+     "title": "Hilbert and quaternionic Galois representations"
+    },
+    {
+     "id": "AutomorphicGaloisRepresentations:R19.3",
+     "title": "Purity and compatible systems"
+    },
+    {
+     "id": "AutomorphicGaloisRepresentations:R19.4",
+     "title": "Local–global compatibility away from p"
+    },
+    {
+     "id": "AutomorphicGaloisRepresentations:R19.5",
+     "title": "Compatibility at the coefficient prime"
+    },
+    {
+     "id": "AutomorphicGaloisRepresentations:R19.6",
+     "title": "Representations over Hecke algebras"
+    }
+   ]
+  },
+  {
+   "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+   "title": "Automorphic Galois Representations PartII",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicGaloisRepresentationsPartII.json",
+   "layers": [
+    {
+     "id": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+     "title": "Algebraic weights, fields of rationality and normalization"
+    },
+    {
+     "id": "AutomorphicGaloisRepresentationsPartII:AG2.1",
+     "title": "Characteristic-zero geometric Galois realization"
+    },
+    {
+     "id": "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+     "title": "Raw cohomology before local Langlands"
+    },
+    {
+     "id": "AutomorphicGaloisRepresentationsPartII:AG2.1b",
+     "title": "Automorphic constituents after local comparison"
+    },
+    {
+     "id": "AutomorphicGaloisRepresentationsPartII:AG2.2",
+     "title": "Polarized cuspidal and discrete automorphic systems"
+    },
+    {
+     "id": "AutomorphicGaloisRepresentationsPartII:AG2.3",
+     "title": "Removing auxiliary geometric hypotheses"
+    },
+    {
+     "id": "AutomorphicGaloisRepresentationsPartII:AG2.4",
+     "title": "Nonselfdual systems by rigid cohomology and approximation"
+    },
+    {
+     "id": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+     "title": "Good-prime and ramified local–global comparison"
+    },
+    {
+     "id": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+     "title": "Coefficient-prime comparison and compatible systems"
+    },
+    {
+     "id": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+     "title": "Integral, residual and reusable arithmetic exports"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ClassicalSerreModularity",
+   "title": "Classical Serre Modularity",
+   "extract": "research/blueprint/atlas/roadmaps/ClassicalSerreModularity.json",
+   "layers": [
+    {
+     "id": "ClassicalSerreModularity:R26.1",
+     "title": "Statement and exact source decomposition"
+    },
+    {
+     "id": "ClassicalSerreModularity:R26.2",
+     "title": "Prescribed lifts in conductor one"
+    },
+    {
+     "id": "ClassicalSerreModularity:R26.3",
+     "title": "Weight reduction and prime estimates"
+    },
+    {
+     "id": "ClassicalSerreModularity:R26.4",
+     "title": "Degenerate residual branches"
+    },
+    {
+     "id": "ClassicalSerreModularity:R26.5",
+     "title": "Initial characteristics and terminal weights"
+    },
+    {
+     "id": "ClassicalSerreModularity:R26.6",
+     "title": "Level-one theorem and KW's initial case"
+    },
+    {
+     "id": "ClassicalSerreModularity:R27.1",
+     "title": "Good-dihedral representations and auxiliary primes"
+    },
+    {
+     "id": "ClassicalSerreModularity:R27.2",
+     "title": "The induction hypotheses and weight reduction"
+    },
+    {
+     "id": "ClassicalSerreModularity:R27.3",
+     "title": "Removing ramification and the initial case"
+    },
+    {
+     "id": "ClassicalSerreModularity:R27.4",
+     "title": "Removing the good-dihedral condition"
+    },
+    {
+     "id": "ClassicalSerreModularity:R27.5",
+     "title": "Characteristic two of weight four and even conductor"
+    },
+    {
+     "id": "ClassicalSerreModularity:R27.6",
+     "title": "The full classical statement"
+    },
+    {
+     "id": "ClassicalSerreModularity:R33.1",
+     "title": "Qualitative target and first weight change"
+    },
+    {
+     "id": "ClassicalSerreModularity:R33.2",
+     "title": "Good-dihedral auxiliary ramification"
+    },
+    {
+     "id": "ClassicalSerreModularity:R33.3",
+     "title": "The prime two and the auxiliary prime"
+    },
+    {
+     "id": "ClassicalSerreModularity:R33.4",
+     "title": "Terminal characteristic five"
+    },
+    {
+     "id": "ClassicalSerreModularity:R33.5",
+     "title": "Characteristic two and qualitative closure"
+    },
+    {
+     "id": "ClassicalSerreModularity:R33.6",
+     "title": "Classical weight-and-level refinement"
+    }
+   ]
+  },
+  {
+   "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+   "title": "Completed cohomology and p-adic local–global compatibility over Q",
+   "extract": "research/blueprint/atlas/roadmaps/CompletedCohomologyAndLocalGlobalCompatibility.json",
+   "layers": [
+    {
+     "id": "CompletedCohomologyAndLocalGlobalCompatibility:R31.1",
+     "title": "Towers and completed cohomology"
+    },
+    {
+     "id": "CompletedCohomologyAndLocalGlobalCompatibility:R31.2",
+     "title": "Classical specialisations and locally algebraic vectors"
+    },
+    {
+     "id": "CompletedCohomologyAndLocalGlobalCompatibility:R31.3",
+     "title": "Hecke and deformation actions"
+    },
+    {
+     "id": "CompletedCohomologyAndLocalGlobalCompatibility:R31.4",
+     "title": "p-adic local–global compatibility"
+    },
+    {
+     "id": "CompletedCohomologyAndLocalGlobalCompatibility:R31.5",
+     "title": "Patched completed modules and support"
+    },
+    {
+     "id": "CompletedCohomologyAndLocalGlobalCompatibility:R31.6",
+     "title": "Exports and source independence"
+    }
+   ]
+  }
+ ]
+}

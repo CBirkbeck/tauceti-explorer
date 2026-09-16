@@ -1,0 +1,221 @@
+{
+ "job": "AUDIT-44",
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+   "title": "Zigzag, preprojective, and Ginzburg algebras",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ZigzagPreprojective.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-0-affine-simply-laced-diagrams-doubled-graphs-relation-quotients-and-grading-descent",
+     "title": "Layer 0: affine simply-laced diagrams, doubled graphs, relation quotients, and grading descent"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-1-strict-ordinary-and-skew-zigzag-algebras",
+     "title": "Layer 1: strict ordinary and skew zigzag algebras"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-2-bases-dimensions-centers-and-symmetric-frobenius-traces",
+     "title": "Layer 2: bases, dimensions, centers, and symmetric Frobenius traces"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms",
+     "title": "Layer 3: projectives, graded Cartan matrices, and q-Euler forms"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-4-additive-preprojective-algebras-and-orientation-independence",
+     "title": "Layer 4: additive preprojective algebras and orientation independence"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-5-quadratic-and-koszul-duality",
+     "title": "Layer 5: quadratic and Koszul duality"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-6-2-dimensional-ginzburg-dg-algebras-and-calabi--yau-completion",
+     "title": "Layer 6: 2-dimensional Ginzburg DG algebras and Calabi--Yau completion"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-7-derived-koszul-duality-hochschild-classes-and-a-deformation-theory",
+     "title": "Layer 7: derived Koszul duality, Hochschild classes, and A∞ deformation theory"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-8-braid-complexes-and-spherical-twist-comparisons",
+     "title": "Layer 8: braid complexes and spherical-twist comparisons"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ArithmeticQuantumTopology",
+   "title": "Arithmetic quantum topology, Habiro invariants and regulators",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticQuantumTopology.json",
+   "layers": [
+    {
+     "id": "ArithmeticQuantumTopology:QT.0",
+     "title": "Framed links, surgery and normalization"
+    },
+    {
+     "id": "ArithmeticQuantumTopology:QT.1",
+     "title": "Ribbon categories and quantum group invariants"
+    },
+    {
+     "id": "ArithmeticQuantumTopology:QT.2",
+     "title": "Colored Jones polynomials and cyclotomic expansions"
+    },
+    {
+     "id": "ArithmeticQuantumTopology:QT.3",
+     "title": "Unified invariants of integral homology spheres"
+    },
+    {
+     "id": "ArithmeticQuantumTopology:QT.4",
+     "title": "WRT values, Ohtsuki series and general Lie type"
+    },
+    {
+     "id": "ArithmeticQuantumTopology:QT.5",
+     "title": "Hyperbolic geometry, Bloch classes and regulators"
+    },
+    {
+     "id": "ArithmeticQuantumTopology:QT.6",
+     "title": "State integrals, Nahm series and arithmetic asymptotics"
+    },
+    {
+     "id": "ArithmeticQuantumTopology:QT.7",
+     "title": "Quantum modularity and arithmetic research statements"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+   "title": "Algebraic topology of spaces and manifolds",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AlgebraicTopology.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+     "title": "Stage 1: van Kampen through the fundamental groupoid"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+     "title": "Stage 2: relative singular chains and homology"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-3-subdivision-excision-and-mayer--vietoris",
+     "title": "Stage 3: subdivision, excision, and Mayer--Vietoris"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+     "title": "Stage 4: CW pairs, cellular homology, and cofibrations"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+     "title": "Stage 5: bundles, covers, products, and finite-cover descent"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+     "title": "Stage 6: cohomology, products, and manifold duality"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-7-euler-characteristic-and-finite-decompositions",
+     "title": "Stage 7: Euler characteristic and finite decompositions"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+     "title": "Stage 8: relative homotopy, Hurewicz, and Whitehead"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+   "title": "Combinatorial Heegaard Floer and grid homology",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_CombinatorialHeegaardFloer.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-g-grid-homology-the-spine",
+     "title": "Lane G: grid homology (the spine)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-1",
+     "title": "Grid diagrams and grid states"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-2",
+     "title": "Gradings"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-3",
+     "title": "The complexes and ∂² = 0"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-4",
+     "title": "Euler characteristic = Alexander polynomial"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-5",
+     "title": "Invariance over 𝔽₂"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-6",
+     "title": "All V_i act identically on homology"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-7",
+     "title": "|τ(K)| ≤ u(K)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-8",
+     "title": "Symmetries and the genus bound"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-9",
+     "title": "Skein exact sequence; alternating knots are thin; links"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-10",
+     "title": "Slice genus:"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-11",
+     "title": "Legendrian and transverse GRID invariants"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-12",
+     "title": "ℤ coefficients"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-g-13",
+     "title": "The filtered theory"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-alg-bigraded-and-filtered-homological-algebra",
+     "title": "Lane ALG: bigraded and filtered homological algebra"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-k-knot-theory-reconciliation",
+     "title": "Lane K: knot-theory reconciliation"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-l-lattice-homology",
+     "title": "Lane L: lattice homology"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#lane-h-combinatorial-hf-of-3-manifolds",
+     "title": "Lane H: combinatorial HF̂ of 3-manifolds"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-h-1",
+     "title": "Pointed multi-pointed Heegaard diagram combinatorics (the diagram as data:"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-h-2",
+     "title": "The nice-move calculus and \"convenient\" diagrams from pair-of-pants"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-h-3",
+     "title": "HF̂_st(Y) over 𝔽₂: well-definedness and the purely topological invariance"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer#milestone-h-4",
+     "title": "ℤ coefficients via sign assignments"
+    }
+   ]
+  }
+ ]
+}
