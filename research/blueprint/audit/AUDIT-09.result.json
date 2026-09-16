@@ -1027,54 +1027,55 @@
    }
   },
   "FaltingsFinitenessAndIsogenyTheorems": {
-   "summary": "Nothing in this roadmap is built, because neither library has abelian varieties, Tate modules or the Faltings height. What does exist, and is the roadmap's own declared input, is Mathlib's Northcott property for Weil heights on a number field (proved sorry-free) and Hermite's theorem that there are finitely many number fields of bounded discriminant; Mathlib also supplies semisimple modules and rings, Maschke's theorem and the double-centraliser theory that a semisimplicity argument runs on, and Tau Ceti supplies Wedderburn's structure theorem for central simple algebras and a full elliptic-curve isogeny theory (Hom groups, multiplicative degree, kernels, separability, Frobenius). Genuinely missing: abelian varieties and abelian schemes, polarisations, Tate modules and V_ℓ, the Faltings/Arakelov height and its comparison with a moduli height, Zarhin's trick, Jordan–Zassenhaus, the isogeny-height estimates, the Tate isogeny theorem, Shafarevich finiteness — that is, every theorem the roadmap names. The layers do not duplicate each other, but R28.1 leans wholly on ArakelovGeometryAndAbelianHeights:R35.6, which is itself unbuilt.",
+   "summary": "Nothing specific to Faltings' proof exists in either library. Tau Ceti defines abelian varieties over a field (proper geometrically integral group schemes with commutative Hom groups, endomorphism rings, isogenies, products and base change), and has the elliptic-curve isogeny theory (degrees, kernels, deg(n·f) = n²·deg f, deg(1 − π_q) = #E(𝔽_q)) and finite flat group schemes with Cartier duality; Mathlib supplies heights with Northcott for elements of a number field, Hermite's discriminant finiteness, class-group finiteness (the commutative rank-one case of Jordan–Zassenhaus), semisimple modules and elliptic-curve reduction types. Genuinely missing: polarisations, duals and moduli of abelian varieties, Tate modules, the Faltings height and its isogeny estimate, p-divisible groups and Néron models, Zarhin's trick, the general Jordan–Zassenhaus theorem, semisimplicity and Tate's isogeny theorem, Shafarevich finiteness, and the elliptic consequences (End_ℚ(E) = ℤ, finiteness of ℚ-isogeny classes and of prime isogeny degrees).",
    "layers": {
     "FaltingsFinitenessAndIsogenyTheorems:R28.1": {
-     "verdict": "not built",
+     "verdict": "partly built",
      "targets": [
       {
-       "target": "Finiteness of polarised abelian varieties of bounded height with fixed dimension and degree",
+       "target": "Finiteness of polarised abelian varieties of bounded height over a fixed number field, with fixed dimension and polarisation degree",
        "library": "absent",
-       "declarations": [],
-       "note": "Neither library defines an abelian variety or an abelian scheme, let alone a polarisation, so the set whose finiteness is asserted does not exist. Tau Ceti's `AlgebraicGroup` material is Hopf-algebraic (affine group schemes) and has no properness or projectivity."
-      },
-      {
-       "target": "The Northcott property feeding the finiteness (finitely many points of bounded height)",
-       "library": "mathlib",
        "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 94,
+         "fit": "related"
+        },
         {
          "name": "NumberField.finite_setOfPred_mulHeight₁_le",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/Height/NumberField.lean",
          "line": 411,
-         "fit": "more general"
-        },
-        {
-         "name": "NumberField.finite_setOfPred_logHeight₁_le",
-         "library": "mathlib",
-         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
-         "line": 432,
-         "fit": "more general"
-        },
-        {
-         "name": "Height.mulHeight",
-         "library": "mathlib",
-         "file": "Mathlib/NumberTheory/Height/Basic.lean",
-         "line": 233,
          "fit": "related"
         },
         {
-         "name": "NumberField.finite_of_discr_bdd",
+         "name": "NumberField.absMulHeight₁",
          "library": "mathlib",
-         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
-         "line": 496,
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 137,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.finite_mahlerMeasure_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/MahlerMeasure.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.IsPolarization",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Polarization.lean",
+         "line": 70,
          "fit": "related"
         }
        ],
-       "note": "Mathlib proves Northcott for the multiplicative and logarithmic Weil height on any number field, sorry-free, together with Hermite's finiteness of number fields of bounded discriminant. The roadmap is explicit that this is an input, not the theorem: it supplies finiteness *once* a height bound is known, and the height bound is what R28.2 must prove."
+       "note": "Tau Ceti defines abelian varieties over a field (with Hom groups, isogenies, products and base change) but no polarisations of them (its polarisations are of Hodge structures), no moduli and no heights of abelian varieties. The Northcott input the layer cites is in Mathlib only for elements of a fixed number field; the absolute height is defined with no API, and bounded-degree finiteness exists only as finiteness of integer polynomials of bounded degree and Mahler measure."
       },
       {
-       "target": "Descent and level-structure arguments turning moduli points into isomorphism classes",
+       "target": "Descent and level-structure arguments converting moduli points into isomorphism classes",
        "library": "absent",
        "declarations": [],
        "note": "No moduli space of abelian varieties and no level structures exist in either library."
@@ -1083,34 +1084,56 @@
        "target": "Zarhin's trick (A⁴ × Â⁴ is principally polarised) and the resulting finiteness transfer",
        "library": "absent",
        "declarations": [],
-       "note": "Absent; `grep -i Zarhin` over both libraries finds nothing."
+       "note": "There is no dual abelian variety and no polarisation, and `Zarhin` occurs nowhere in the sources."
       },
       {
        "target": "Jordan–Zassenhaus: finitely many isomorphism classes of lattices over an order in a semisimple ℚ-algebra",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
+        {
+         "name": "NumberField.RingOfIntegers.instFintypeClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+         "line": 58,
+         "fit": "special case"
+        },
+        {
+         "name": "ClassGroup.fintypeOfAdmissibleOfFinite",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ClassNumber/Finite.lean",
+         "line": 353,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.finite_classGroup_integralClosure",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/IntegralClosure.lean",
+         "line": 61,
+         "fit": "special case"
+        },
         {
          "name": "IsSemisimpleRing",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/SimpleModule/Basic.lean",
          "line": 73,
          "fit": "related"
-        },
-        {
-         "name": "TauCeti.IsSimpleRing.exists_algEquiv_matrix_centralDivisionRing",
-         "library": "tauceti",
-         "file": "TauCeti/Algebra/CentralSimple/Wedderburn.lean",
-         "line": 92,
-         "fit": "related"
         }
        ],
-       "note": "Semisimple rings and Wedderburn's structure theorem are available, but there is no notion of an order in a semisimple ℚ-algebra and no finiteness of lattice classes over one; the layer is right that this is not implicit in Northcott."
+       "note": "Only the commutative rank-one case is available: finiteness of the class group of a ring of integers (and of integral closures in finite extensions), i.e. of the rank-one lattices over the maximal order of a number field up to isomorphism. Orders in noncommutative semisimple ℚ-algebras and finiteness of their lattice classes are absent from both libraries."
       }
      ],
      "duplicates": [
       {
        "layer": "ArakelovGeometryAndAbelianHeights:R35.6",
-       "note": "R35.6 exports 'the bounded-height comparison and product/polarisation identities needed for the use of Northcott and Zarhin's trick in R28', so the height comparison and the Zarhin identities are stated in both layers, with R35.6 the declared owner."
+       "note": "R35.6 exports the bounded-height comparison and the product/polarisation identities for Northcott and Zarhin’s trick, the same height and Zarhin inputs R28.1 states."
+      },
+      {
+       "layer": "ArakelovGeometryAndAbelianHeights:R35.5",
+       "note": "R35.5 proves the moduli (theta) height comparison with the Faltings height that R28.1’s finiteness on moduli uses."
+      },
+      {
+       "layer": "PELModuli:M6",
+       "note": "M6 compares isomorphism classes with rational moduli points through the descent obstruction and exports it to height finiteness, R28.1’s descent and level-structure target."
       }
      ]
     },
@@ -1118,34 +1141,53 @@
      "verdict": "not built",
      "targets": [
       {
-       "target": "The Faltings (stable) height of an abelian variety",
+       "target": "The Faltings (stable) height of an abelian variety over a number field",
        "library": "absent",
        "declarations": [],
-       "note": "Absent: no Arakelov theory, no hermitian metrics on the Hodge line, no arithmetic degree (`grep -i 'Falt|Arakelov|arithmeticDegree'` over both libraries is empty)."
+       "note": "No Arakelov theory, hermitian Hodge line or arithmetic degree exists; `Faltings` and `Arakelov` occur in neither library's declarations."
       },
       {
-       "target": "Faltings' isogeny-height estimate: the change of height under an ℓ-isogeny, including primes dividing the degree",
+       "target": "Faltings' isogeny-height estimate, including primes dividing the isogeny degree",
        "library": "absent",
        "declarations": [],
-       "note": "Absent, and every ingredient (p-divisible groups, integral differentials, Raynaud's bound) is absent too."
+       "note": "Absent together with its inputs: integral invariant differentials of Néron models, finite flat group schemes over rings of integers and p-divisible groups."
       },
       {
-       "target": "Boundedness of the Faltings height in an isogeny class",
+       "target": "Boundedness of the height within an isogeny class",
        "library": "absent",
        "declarations": [],
-       "note": "Absent. The layer correctly notes that Northcott does not supply this; Mathlib's Northcott theorem is about a Weil height on a field, with no relation to an isogeny class."
+       "note": "Absent; Northcott in Mathlib gives no height bound."
       },
       {
-       "target": "p-divisible groups and the integral differential calculations the estimate runs on",
+       "target": "p-divisible groups and the integral differential calculations behind the estimate",
        "library": "absent",
-       "declarations": [],
-       "note": "No p-divisible (Barsotti–Tate) groups exist in either library; Tau Ceti has finite Hopf-algebraic group schemes and Frobenius kernels but no ℓ-divisible tower."
+       "declarations": [
+        {
+         "name": "TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean",
+         "line": 232,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "No p-divisible (Barsotti–Tate) group, Néron model or Raynaud-type classification exists. Tau Ceti has finite locally free commutative affine group schemes over any ring with Cartier duality, and isogenies of abelian varieties over a field."
       }
      ],
      "duplicates": [
       {
        "layer": "ArakelovGeometryAndAbelianHeights:R35.3",
-       "note": "R35.3 defines the stable Faltings height, its behaviour under finite extension and the bad-place correction terms — the height object R28.2 estimates."
+       "note": "R35.3 defines the stable Faltings height and its behaviour under extension, the height R28.2 estimates."
+      },
+      {
+       "layer": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+       "note": "R11.6 supplies the semistable and good-reduction facts for the isogeny-height analysis of R28."
       }
      ]
     },
@@ -1153,28 +1195,36 @@
      "verdict": "not built",
      "targets": [
       {
-       "target": "Finiteness of isomorphism classes inside an isogeny class (over a fixed field, with the field-of-definition restriction on isogenies)",
+       "target": "Finiteness of isomorphism classes within an isogeny class over a fixed field, with the field-of-definition restriction",
        "library": "absent",
        "declarations": [],
-       "note": "Absent; depends on R28.1 and R28.2, neither of which has any library support."
+       "note": "Absent; it depends on R28.1 and R28.2, which have no library support."
       },
       {
-       "target": "Stationarity of h(A_n) along a tower of isogenies (Faltings' 1984 erratum form)",
+       "target": "Eventual stationarity of h(A_n) along the isogeny tower (Faltings' 1984 erratum form)",
        "library": "absent",
        "declarations": [],
-       "note": "Absent. There is no Faltings height, so no sequence of heights and no stationarity statement."
+       "note": "No Faltings height, hence no sequence of heights."
       },
       {
-       "target": "Construction of the ℓ-divisible group as the tail of a tower of closure group schemes",
+       "target": "The ℓ-divisible group formed by the tail of the tower of closure group schemes",
        "library": "absent",
        "declarations": [],
-       "note": "No ℓ-divisible groups and no scheme-theoretic closure of a subgroup scheme in a model exist in either library."
+       "note": "No ℓ-divisible groups and no scheme-theoretic closure of subgroup schemes in integral models exist."
       },
       {
-       "target": "Companion finiteness for products and polarisations used in the Tate-module argument",
+       "target": "Companion finiteness statements for products and polarisations",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent for the same reason."
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.prod",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Product.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Products of abelian varieties exist in Tau Ceti; polarisations and the finiteness statements do not."
       }
      ],
      "duplicates": []
@@ -1201,39 +1251,61 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib has semisimple modules and Maschke's theorem for a finite group in characteristic prime to its order, but there is no Tate module of an abelian variety, no ℓ-adic representation of a Galois group, and Maschke does not apply to an infinite profinite group with ℚ_ℓ coefficients."
+       "note": "Semisimple modules and representations and Maschke's theorem for finite groups are in Mathlib, but no Tate module of an abelian variety or elliptic curve exists (Tau Ceti proves only #ker[n] = n² for elliptic curves over an algebraically closed field), so V_ℓ(A) cannot be formed."
       },
       {
-       "target": "The Tate comparison Hom_F(A,B) ⊗ ℚ_ℓ ≅ Hom_{G_F}(V_ℓ(A), V_ℓ(B)), with injectivity and surjectivity proved separately",
+       "target": "Tate's comparison Hom_F(A,B) ⊗ ℚ_ℓ ≅ Hom_{G_F}(V_ℓA, V_ℓB), with injectivity and surjectivity proved separately",
        "library": "absent",
        "declarations": [
         {
-         "name": "TauCeti.Isogeny.Hom",
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.Hom.homMulEquiv",
          "library": "tauceti",
-         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
-         "line": 106,
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/MorphismGroup.lean",
+         "line": 76,
          "fit": "related"
         },
         {
-         "name": "TauCeti.Isogeny.Hom.polePointsAddEquiv",
+         "name": "TauCeti.Isogeny.Hom.degree_zsmul",
          "library": "tauceti",
-         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Add.lean",
-         "line": 218,
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Hom.lean",
+         "line": 62,
          "fit": "related"
         }
        ],
-       "note": "The left-hand side exists in Tau Ceti for elliptic curves — Hom(W₁,W₂) is an abelian group of isogenies with a multiplicative degree — but is not proved finitely generated or torsion-free, and the right-hand side has no carrier at all since Tate modules are absent."
+       "note": "The left-hand Hom groups exist (Tau Ceti's commutative group of homomorphisms of abelian varieties, and for elliptic curves the isogeny Hom group with deg(n·f) = n²·deg f, which makes it torsion-free), but neither finite generation nor any Tate module exists."
       },
       {
        "target": "The isogeny criterion: isomorphic rational Tate modules imply isogenous abelian varieties",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent."
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.frobeniusTrace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+         "line": 97,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.degree_oneSubFrobeniusIsogeny_eq_pointCount",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Degree.lean",
+         "line": 96,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Tau Ceti has the Frobenius trace of an elliptic curve over a finite field and deg(1 − π_q) = #E(𝔽_q), but no characteristic polynomial of Frobenius on a Tate module and no isogeny criterion."
       },
       {
-       "target": "Graph constructions and the endomorphism algebra argument",
+       "target": "Graph constructions and the semisimple endomorphism algebra (Poincaré reducibility) used in the argument",
        "library": "absent",
        "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.End",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        },
         {
          "name": "TauCeti.Isogeny.Hom.comp_eq_zero_iff",
          "library": "tauceti",
@@ -1242,17 +1314,17 @@
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti proves the endomorphism carrier of an elliptic curve has no zero divisors, but does not identify End⁰ with a semisimple algebra or prove Poincaré complete reducibility, which the graph argument needs."
+       "note": "Tau Ceti has the endomorphism ring of an abelian variety and, for elliptic curves, End without zero divisors; abelian subvarieties, Poincaré complete reducibility and semisimplicity of End⁰(A) are absent."
       }
      ],
      "duplicates": [
       {
-       "layer": "NeronModelsAndSemistableAbelianVarieties:R11.5",
-       "note": "R11.5 owns Tate modules together with Néron–Ogg–Shafarevich and preservation of good reduction under isogeny; R28.4's semisimplicity argument consumes the same Tate-module API."
+       "layer": "AbelianSchemesAndArithmeticModuli:A6",
+       "note": "A6 proves finite generation and torsion-freeness of Hom, the semisimple endomorphism algebra and Poincaré complete reducibility, the Hom-side inputs R28.4 states."
       },
       {
-       "layer": "AbelianSchemesAndArithmeticModuli:A6",
-       "note": "A6 states the finite generation, torsion-freeness and semisimplicity of the endomorphism algebra with Poincaré complete reducibility, which is the left-hand side of R28.4's comparison."
+       "layer": "ArithmeticGaloisRepresentations:R01.6",
+       "note": "R01.6 constructs Tate modules of elliptic curves and abelian varieties with their Galois action, the V_ℓ(A) of R28.4."
       }
      ]
     },
@@ -1260,7 +1332,7 @@
      "verdict": "not built",
      "targets": [
       {
-       "target": "Shafarevich finiteness: finitely many abelian varieties of fixed dimension over F with good reduction outside a fixed finite set S",
+       "target": "Shafarevich finiteness: finitely many abelian varieties of fixed dimension over F with good reduction outside a finite set S",
        "library": "absent",
        "declarations": [
         {
@@ -1271,25 +1343,37 @@
          "fit": "related"
         }
        ],
-       "note": "Absent. Mathlib's Hermite theorem is the analogous finiteness for number fields of bounded discriminant and is the only statement of this shape in either library; there is no finiteness of extensions unramified outside S, and no abelian varieties."
+       "note": "Absent. Hermite's theorem (finitely many number fields of bounded discriminant, with an explicit count in Tau Ceti) is the only finiteness theorem of this shape; even finiteness of number fields of given degree unramified outside S is not stated, and good reduction exists only for elliptic curves."
       },
       {
-       "target": "The finite Frobenius-data or moduli-boundedness argument that produces a height bound from good reduction",
+       "target": "The finite Frobenius-data or moduli-boundedness argument producing a height bound from good reduction",
        "library": "absent",
        "declarations": [],
-       "note": "Absent; the layer is explicit that good reduction does not by itself bound a naive projective height, and neither the Frobenius data nor a moduli height exists."
+       "note": "Absent; neither the Frobenius data of abelian varieties nor a moduli height exists."
       },
       {
        "target": "The polarisation and semistable-extension reductions",
        "library": "absent",
-       "declarations": [],
-       "note": "No Néron models, no semistable reduction theorem and no polarisations in either library."
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.HasGoodReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 325,
+         "fit": "related"
+        }
+       ],
+       "note": "No polarisations, Néron models or semistable reduction theorem exist; Mathlib has minimal models and the good/multiplicative/additive trichotomy for elliptic curves, and Tau Ceti's stable-reduction files contain only the combinatorics of numerical types."
       }
      ],
      "duplicates": [
       {
        "layer": "HeightsRationalPointsAndObstructions:RP.4",
-       "note": "RP.4 applies 'the existing Shafarevich finiteness route' after a Parshin covering; it consumes R28.5 rather than restating it, but both layers turn on the same finiteness theorem."
+       "note": "RP.4 applies Shafarevich finiteness after a Parshin covering; both layers turn on the same finiteness theorem."
+      },
+      {
+       "layer": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+       "note": "R25.4 proves nonexistence of semistable abelian varieties over ℚ with good reduction outside one small prime, a sharp special case of the same good-reduction finiteness."
       }
      ]
     },
@@ -1297,36 +1381,43 @@
      "verdict": "not built",
      "targets": [
       {
-       "target": "Export of semisimplicity, the rational Hom comparison and isogeny detection to the elliptic-curve types",
+       "target": "Export of semisimplicity, the rational Hom comparison and isogeny detection to the elliptic-curve and abelian-variety types",
        "library": "absent",
        "declarations": [],
-       "note": "An interface over R28.4–R28.5, none of whose results exist; the target types (Mathlib's `WeierstrassCurve`, Tau Ceti's `Isogeny.Hom`) do exist, so only the theorems are missing."
+       "note": "An interface over R28.4–R28.5, none of whose results exist; the target types exist."
       },
       {
-       "target": "Finiteness of the ℚ-isogeny class of an elliptic curve",
+       "target": "Finiteness of the ℚ-isomorphism classes in the ℚ-isogeny class of an elliptic curve",
        "library": "absent",
        "declarations": [
-        {
-         "name": "TauCeti.Isogeny.Hom.degree",
-         "library": "tauceti",
-         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
-         "line": 191,
-         "fit": "related"
-        },
         {
          "name": "TauCeti.Isogeny.finite_ker",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Kernel.lean",
          "line": 115,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.Hom.degree",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
+         "line": 191,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti proves isogeny kernels are finite and degrees multiply, so individual isogenies are under control; the finiteness of the set of curves ℚ-isogenous to a given one is not proved."
+       "note": "Tau Ceti proves isogeny kernels finite and degrees multiplicative; finiteness of the isogeny class is not proved."
       },
       {
-       "target": "Finite generation of Hom and rank-one Hom when End_ℚ(E) = ℤ",
+       "target": "Finite generation of Hom_ℚ(E,E′) and its rank one when End_ℚ(E) = ℤ",
        "library": "absent",
        "declarations": [
+        {
+         "name": "TauCeti.Isogeny.Hom.degree_zsmul",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Hom.lean",
+         "line": 62,
+         "fit": "related"
+        },
         {
          "name": "TauCeti.Isogeny.Hom.instNontrivialEnd",
          "library": "tauceti",
@@ -1335,16 +1426,25 @@
          "fit": "related"
         }
        ],
-       "note": "Hom is an abelian group in Tau Ceti but is not proved finitely generated or torsion-free, and End is never computed to be ℤ in the non-CM case."
+       "note": "Hom is an abelian group with deg(n·f) = n²·deg f, so torsion-freeness is immediate, but finite generation, End_ℚ(E) = ℤ and the rank-one statement are not proved."
       },
       {
-       "target": "Finitely many rational prime-degree isogenies (the consequence R29 consumes)",
+       "target": "Finitely many prime degrees of rational isogenies",
        "library": "absent",
        "declarations": [],
        "note": "Absent."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "EllipticCurveModularity:R29.1",
+       "note": "R29.1 proves End_ℚ(E) = ℤ, rank one of Hom_ℚ(E,E′) and finiteness of prime isogeny degrees from Faltings, the same consequences R28.6 exports."
+      },
+      {
+       "layer": "AbelianSchemesAndArithmeticModuli:A6",
+       "note": "A6 proves finite generation of Hom groups, which R28.6 restates for elliptic curves."
+      }
+     ]
     }
    }
   }
