@@ -1,0 +1,391 @@
+{
+ "job": "COMPARE-07",
+ "notes": {
+  "tauceti:Completed/ContourIntegration": {
+   "targets": "Generalized (principal-value) winding numbers and their sector geometry (HW Props 2.2-2.3); residues, the argument principle and the homology Cauchy theorem for null-homologous cycles; the Hungerbühler–Wasem generalized residue theorem with singularities on the contour.",
+   "baselineHas": [
+    "TauCeti/Analysis/Contour/HungerbuhlerWasem.lean: hungerbuhlerWasem_residueTheorem, hasCauchyPV_half_residue",
+    "TauCeti/Analysis/Contour/HomologyCauchy.lean: homologyCauchyTheorem",
+    "TauCeti/Analysis/Contour/Argument/Cycle.lean: argumentPrinciple_nullHomologous",
+    "Roadmap archived complete by maintainers (2026-08-29); no sorry under Analysis/Contour"
+   ],
+   "missing": [
+    "Nothing required: every layer is built; only out-of-scope extensions remain (valence-formula assembly in ModularForms, a signed-curvature API)"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/OneParameterSemigroups": {
+   "targets": "C0 semigroups with generators and resolvents; Hille–Yosida and Lumer–Phillips generation and the abstract Cauchy problem; Bernstein's theorem for completely monotone functions; Bochner's theorem on finite-dimensional inner-product spaces; the Berg–Christensen–Ressel representation on ℝ≥0 × V.",
+   "baselineHas": [
+    "TauCeti/Analysis/Semigroups/Generation/HilleYosida/Generation.lean: hilleYosida_generation_iff",
+    "TauCeti/Analysis/Semigroups/Generation/LumerPhillips.lean: exists_contractionSemigroup_generator_eq_iff",
+    "TauCeti/Analysis/CompletelyMonotone/Bernstein/HausdorffBernsteinWidder.lean: hausdorff_bernstein_widder",
+    "TauCeti/Analysis/Bochner/BochnerTheorem.lean: bochner; TauCeti/Analysis/PositiveDefinite/SemigroupGroup/FourierLaplace/Existence.lean: bcr_semigroup_bochner"
+   ],
+   "missing": [
+    "Complexified generator and holomorphy of the resolvent on the complex resolvent set (only real-parameter resolvent theory is built)",
+    "Converse Stieltjes/Bernstein-function correspondences (built in one direction only)",
+    "Stretch only, not main targets: Stone's theorem for unbounded self-adjoint generators; Bochner on LCA groups via Pontryagin duality"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations": {
+   "targets": "Clifford algebra structure theory; Pin/Spin double covers; 𝔰𝔬(V) ≅ ⋀²V inside the Clifford algebra; spin and half-spin representations identified as L(ω) for types B and D; the exceptional isomorphisms Spin₃–Spin₆; real Clifford algebras and Bott periodicity; triality for Spin₈; Kostant's isotypy corollary.",
+   "baselineHas": [
+    "TauCeti/LinearAlgebra/CliffordAlgebra: PBW.lean (associated graded ≅ exterior algebra), CartanDieudonne.lean pinToOrthogonal_surjective, Spin/SpinorNorm/DoubleCover.lean",
+    "TauCeti/RepresentationTheory/Spin/Irreducible.lean: spinRep_isIrreducible_of_odd, isIrreducible_spinPlusSubrep",
+    "TauCeti/LinearAlgebra/CliffordAlgebra/EightPeriodicity.lean and Classification.lean (real Clifford algebras, Bott periodicity)",
+    "TauCeti/RepresentationTheory/Spin/Exceptional/Three/Group.lean (Spin₃ ≅ SL₂); TauCeti/Algebra/Lie/GeneralLinear/CAR (gl_N Kostant isotypy); LieHighestWeight Layers 0-5 and RootSystems built"
+   ],
+   "missing": [
+    "Layer 5: spin and half-spin modules as L(ω_l), L(ω_{l-1}) for B_l and D_l (Cartan and root-datum matching, dimensions, type B), using Weyl-character theory that LieHighestWeight Layer 6 has not built",
+    "Layer 6: Spin₄ ≅ SL₂ × SL₂, Spin₅ ≅ Sp₄, Spin₆ ≅ SL₄",
+    "Layer 8: triality, first on the three 8-dimensional modules via the D₄ diagram symmetry, then as an outer automorphism of Spin₈ (lifting root-datum automorphisms to simply connected groups) with the invariant trilinear form",
+    "Layer 9: Kostant's isotypy corollary for semisimple 𝔤 (adjoint embedding into 𝔰𝔬(𝔤, κ), rank bookkeeping d = l + 2#Δ⁺)"
+   ]
+  },
+  "AutomorphicLFunctionsAndLocalFactors": {
+   "targets": "Tate's thesis (local and global zeta integrals, ε- and γ-factors); Godement–Jacquet standard L-functions of GL_n; Rankin–Selberg GL_n × GL_m factors at all places with global continuation and functional equations; unramified L-group Euler factors via Satake; interfaces for p-adic interpolation.",
+   "baselineHas": [
+    "Mathlib NumberTheory/NumberField/AdeleRing.lean and RingTheory/DedekindDomain/FiniteAdeleRing.lean (adele rings)",
+    "Mathlib Haar measure, Fourier transform and SchwartzMap on real vector spaces; Mathlib NumberTheory/LSeries",
+    "TauCeti/Algebra/AlgebraicGroup (affine and reductive groups over fields, maximal tori, Borels) and TauCeti/NumberTheory/ArithmeticDirichletSeries (Euler products, partial Perron)",
+    "TauCeti/NumberTheory/ModularForms (GL₂ holomorphic newforms, Hecke operators, LFunction.lean)"
+   ],
+   "missing": [
+    "Schwartz–Bruhat spaces on local fields and adeles, local self-duality, adelic Poisson summation (AL.0)",
+    "Topology of G(E), Bruhat–Tits buildings, parahorics, Cartan/Iwasawa decompositions, dual groups (ReductiveGroupsPartII)",
+    "Smooth and admissible representations of p-adic groups: Hecke algebras, induction and Jacquet functors, Bernstein decomposition, Satake isomorphism, Bernstein–Zelevinsky derivatives (SmoothRepresentationsOfLocalGroups SR.0-SR.5)",
+    "(g,K)-modules and Casselman–Wallach globalization; adelic GL_n cusp forms with rapid decay and Whittaker expansions (AutomorphicFormsOnReductiveGroups AF.1-AF.3)",
+    "Own layers: Tate zeta integrals → Godement–Jacquet local and global theory → Rankin–Selberg integrals, including Jacquet's archimedean theory → L-group Euler factors → interpolation interfaces (AL.1-AL.5)"
+   ]
+  },
+  "SieveMethodsAndPrimePatterns": {
+   "targets": "Sieve axioms and local densities; Brun and Selberg sieves with the fundamental lemma; the large sieve and Vaughan's identity; Bombieri–Vinogradov; Maynard's bounded gaps between primes; beta/weighted, Chen-type and affine-sieve almost-prime results.",
+   "baselineHas": [
+    "Mathlib NumberTheory/SelbergSieve.lean (BoundingSieve, Λ² upper-bound sieves, diagonalized main term)",
+    "Mathlib NumberTheory/LSeries (continuation of Dirichlet L-functions, nonvanishing on Re s = 1, PrimesInAP) and NumberTheory/Chebyshev.lean (ψ, θ)",
+    "TauCeti/NumberTheory/ArithmeticDirichletSeries (Abel/Perron summation in part, ψ ↔ θ transfer) and TauCeti/NumberTheory/LSeries/WienerIkehara (partial)"
+   ],
+   "missing": [
+    "Prime number theorem with classical error term: zero-free regions, explicit formula, PNT in progressions, Siegel's theorem, Siegel–Walfisz, zero-density estimates (AnalyticNumberTheory AN.0-AN.3)",
+    "Combinatorial sieves and the fundamental lemma; Selberg-sieve upper-bound applications (SV.0-SV.1)",
+    "Additive and multiplicative large sieve, duality, primitive-character reduction, Vaughan's identity (SV.2)",
+    "Bombieri–Vinogradov (SV.3); the Maynard–Tao multidimensional sieve with admissible tuples (SV.4)",
+    "Beta sieve, Chen's switching argument and the affine sieve with expansion inputs (SV.5)"
+   ]
+  },
+  "MetaplecticAutomorphicForms": {
+   "targets": "Heisenberg groups and Stone–von Neumann; the metaplectic double cover and Weil index; local and adelic Weil representations; dual pairs and local theta correspondence; theta kernels and lifts; half-integral-weight forms and Bump–Friedberg–Hoffstein metaplectic kernels; the genus-two GSp(4) cover with its Eisenstein analysis.",
+   "baselineHas": [
+    "Mathlib adele rings, Haar measure, Fourier transform and Poisson summation for lattices in real vector spaces",
+    "Mathlib NumberTheory/ModularForms/JacobiTheta (Jacobi theta functions) and integral-weight modular forms with Eisenstein series",
+    "TauCeti/Algebra/AlgebraicGroup (Symplectic and GeneralLinear shown reductive) and TauCeti/NumberTheory/ModularForms (Hecke operators, Petersson inner product)"
+   ],
+   "missing": [
+    "Adelic reductive groups: restricted-product Haar measures, quotient and Tamagawa measures, reduction theory and Siegel sets (AdelicAlgebraicGroups AA.0-AA.3)",
+    "Smooth representations of p-adic groups with Jacquet functors, second adjointness and uniform admissibility (SR.0-SR.3)",
+    "(g,K)-modules and Casselman–Wallach globalization; automorphic forms, constant terms and cusp forms (AF.0-AF.3); Schwartz–Bruhat Fourier theory (AL.0)",
+    "Eisenstein series: convergence, intertwining operators and meromorphic continuation (AutomorphicSpectralTheory AS.0-AS.2)",
+    "Own chain: Heisenberg/Stone–von Neumann → metaplectic cover and Weil index → dual pairs and local theta → adelic cover and global Weil representation → theta kernels and genuine automorphic spaces → local–global theta integrals → half-integral weight and BFH kernels → GSp(4)-cover Eisenstein continuation (MP.0-MP.8)"
+   ]
+  },
+  "FaltingsFinitenessAndIsogenyTheorems": {
+   "targets": "Finiteness of polarized abelian varieties of bounded Faltings height; isogeny-height estimates and finiteness in an isogeny class; semisimplicity of V_ℓ(A) and the Tate isogeny theorem; Shafarevich finiteness; exports for elliptic curves.",
+   "baselineHas": [
+    "TauCeti/AlgebraicGeometry/AbelianVariety (abelian varieties over fields: Hom, End, isogenies)",
+    "Mathlib NumberTheory/Height (absolute heights, Northcott.lean)",
+    "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil and CanonicalHeight.lean; TauCeti/AlgebraicGeometry/AffineGroupScheme (Cartier duality); TauCeti/NumberTheory/Chebotarev (partial)"
+   ],
+   "missing": [
+    "Algebraic spaces and stacks, Hilbert and Quot schemes (AlgebraicModuliForArithmeticGeometry R09.1-R09.4)",
+    "Abelian schemes over bases: rigidity, the dual via the Picard functor and Raynaud's theorem, finite flat quotients, polarizations, Rosati positivity (AbelianSchemesAndArithmeticModuli A1-A6)",
+    "Siegel/PEL moduli, Shimura data and integral compactifications carrying the Hodge bundle (PELModuli, ShimuraVarieties, ShimuraCompactifications C0-C5)",
+    "Néron models over Dedekind bases, component groups, semistable reduction and Raynaud uniformization, Néron–Ogg–Shafarevich (R11.1-R11.6)",
+    "Finite flat and p-divisible groups (Tate, Raynaud) with p-adic Hodge inputs for Tate modules (R07; R06.6, declared through the A_inf/perfectoid comparison route); weights of Frobenius for abelian varieties (DWP.0-DWP.1, R34.2)",
+    "Arakelov theory: hermitian bundles, Faltings metric and stable height, isogeny variation, comparison with moduli heights (R35.1-R35.6); then the finiteness layers R28.1-R28.6"
+   ]
+  },
+  "GlobalShtukasAndFunctionFieldLanglands": {
+   "targets": "V. Lafforgue's automorphic-to-Galois parameterization for reductive groups over global function fields via excursion operators; L. Lafforgue's full Langlands correspondence for GL_n; local–global compatibility.",
+   "baselineHas": [
+    "TauCeti/FieldTheory/FunctionField (constant field, divisors, differentials) and Mathlib NumberTheory/FunctionField.lean",
+    "TauCeti/Algebra/AlgebraicGroup (reductive groups over fields; Tannaka reconstruction for Hopf algebras) and TauCeti/LinearAlgebra/RootSystem root data",
+    "Mathlib AlgebraicGeometry/Sites/Etale.lean (small étale site only) and TauCeti/AlgebraicGeometry/Cohomology (basic coherent cohomology)",
+    "TauCeti/NumberTheory/ClassFieldTheory (abstract class formations)"
+   ],
+   "missing": [
+    "Algebraic stacks and descent; étale cohomology with proper and smooth base change (SchemeAndStackFoundations SF.0-SF.4, AlgebraicModuli R09.1-R09.4)",
+    "ℓ-adic six operations, Verdier duality and purity, perverse sheaves (EtaleDualityAndPerverseSheaves EDC.0-EDC.5); nearby cycles and Lefschetz pencils (LPV.0-LPV.5)",
+    "Weil I and Weil II purity (DeligneWeightsAndPurity DWP.0-DWP.7)",
+    "Bruhat–Tits theory and the Satake isomorphism (ReductiveGroupsPartII, SR.0/SR.1/SR.4); function-field adeles, ramification, class field theory and automorphic forms (FunctionFieldArithmetic FA.0-FA.6)",
+    "Own chain: Bun_G with level structures → Beilinson–Drinfeld Grassmannian and classical geometric Satake → shtuka stacks and truncations → intersection cohomology of shtukas and the Hecke-finite sector → Drinfeld's lemma → excursion operators and reconstruction of L-parameters (GS.0-GS.5)",
+    "L. Lafforgue's GL_n proof (compactified shtukas, trace-formula comparison, induction on rank, converse theorem and local factors, largely unrecorded as inputs) and local–global compatibility via nearby cycles (GS.6-GS.7)"
+   ]
+  },
+  "HeegnerPointEulerSystems": {
+   "targets": "Ring class fields and CM points; compatible modular parametrizations; Heegner norm and reduction-congruence relations; Kolyvagin derivative classes; clean rank-one descent (Howard) and full Sha finiteness for a non-torsion Heegner point; anticyclotomic Heegner families, Cornut–Vatsal nonvanishing, Howard/BCGS divisibility and the anticyclotomic main conjecture.",
+   "baselineHas": [
+    "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil (weak Mordell–Weil, Selmer groups, canonical height)",
+    "TauCeti/NumberTheory/ModularForms (Newforms, Eigenform.lean, Hecke operators, LFunction.lean)",
+    "TauCeti/NumberTheory/ClassFieldTheory (class formations), NumberField/Ideal/ArtinMap.lean, Chebotarev (partial)",
+    "TauCeti/FieldTheory/GaloisCohomology (Kummer theory) and TauCeti/RepresentationTheory/Homological/ContCohomology"
+   ],
+   "missing": [
+    "Modularity of elliptic curves over ℚ with exact conductor: modular curves over ℤ, Galois representations of modular forms, Serre weights and level lowering, deformation rings and patching, potential modularity, Faltings finiteness (EllipticCurveModularity and its closure)",
+    "CM theory and Shimura reciprocity; Shimura curves and quaternionic CM points (HilbertModularVarietiesAndShimuraCurves, ShimuraVarieties V5-V8)",
+    "Galois cohomology with Poitou–Tate duality; Bloch–Kato local conditions and Selmer structures (ArithmeticGaloisDuality, PadicHodgeRegulators L0-L1, SelmerIwasawaCohomology)",
+    "Euler/Kolyvagin-system machinery (EulerSystemsAndKolyvaginSystems ES.0-ES.8); Gross–Zagier and p-adic Gross–Zagier inputs (GZ.3, GZ.9)",
+    "Anticyclotomic Iwasawa theory: p-adic families, GU(2,2) Eisenstein congruences (AutomorphicCongruences L5a), BSD.7a",
+    "Own chain: ring class fields → CM points and parametrizations → norm/congruence relations → Kummer classes → derivative classes → hypothesis verification → rank-one descent and Sha finiteness → anticyclotomic families and main conjecture (HE.0-HE.8c)"
+   ]
+  },
+  "SerreWeightAndLevelOptimisation": {
+   "targets": "Mazur's principle and Ribet/Diamond level lowering to the prime-to-p Artin conductor; Edixhoven's weight optimization; removal of p-power level with nebentypus control; Buzzard's p = 2 branches; the exported optimization table used for Serre modularity and elliptic curves.",
+   "baselineHas": [
+    "TauCeti/NumberTheory/ModularForms (Newforms, DiamondOperators.lean, Degeneracy.lean, AtkinLehner, SturmBound.lean)",
+    "TauCeti/NumberTheory/HeckeRing (GL₂ Hecke rings) and Mathlib NumberTheory/ModularForms",
+    "TauCeti/AlgebraicGeometry/Curves/StableReduction and TauCeti/AlgebraicGeometry/AbelianVariety (over fields)"
+   ],
+   "missing": [
+    "Modular curves over ℤ (Katz–Mazur/Deligne–Rapoport models), Jacobians with integral Hecke actions, Ihara's lemma (ModularCurvesPartII R12-R14)",
+    "Néron models, character groups and the monodromy pairing (NeronModelsAndSemistableAbelianVarieties R11.1-R11.6)",
+    "Shimura curves with Čerednik–Drinfeld uniformization and quaternionic geometry (HilbertModularVarietiesAndShimuraCurves R18)",
+    "Galois representations of modular forms through étale cohomology and the Weil conjectures, with local–global compatibility at ℓ ≠ p and at p (AutomorphicGaloisRepresentations R19, EDC, DWP)",
+    "GL₂ automorphic representations, Jacquet–Langlands and soluble base change/Langlands–Tunnell (GL2AutomorphicRepresentationsAndTransfer, EndoscopicTransfer ET, AF/AS)",
+    "Finite flat group schemes, Fontaine–Laffaille and p-adic Hodge theory (R07, R06); Katz mod-p modular forms, theta operators and the Serre-weight recipe (R15)",
+    "Own chain: level-changing algebra → level lowering → weight optimization → p-power level and character → p = 2 combination → exports (R20.1-R20.6)"
+   ]
+  },
+  "ExcursionOperatorsAndSpectralAction": {
+   "targets": "The Fargues–Scholze excursion algebra and its map to the Bernstein centre; the rational and integral spectral action of perfect complexes on the stack of L-parameters; the semisimple parameter assignment π ↦ φ_π for every G with its functoriality and duality; parabolic compatibility; agreement with the classical local Langlands correspondence for GL_n in mixed and equal characteristic.",
+   "baselineHas": [
+    "TauCeti/AlgebraicGeometry/AdicSpace (Huber rings, Spa, valuation spectra)",
+    "Mathlib Condensed (CondensedMod, the naive IsSolid in Condensed/Solid.lean) and RingTheory/Perfectoid (FontaineTheta, BDeRham)",
+    "TauCeti/Algebra/AlgebraicGroup (reductive groups, tori, Borels over fields) and TauCeti/LinearAlgebra/RootSystem root data"
+   ],
+   "missing": [
+    "All of VStackSheavesAndLisseCategories and its closure: perfectoid spaces, diamonds, étale cohomology of diamonds with six operations, Artin v-stacks, solid and lisse sheaves, the relative Fargues–Fontaine curve, vector bundles and Bun_G",
+    "Geometric Satake over the B_dR-affine Grassmannian with fusion; Hecke stacks and local shtukas; stacks of L-parameters with integral invariant theory (GeometricSatakeAndFusion, HeckeStacksAndLocalShtukas, LanglandsParameterStacks)",
+    "Smooth representations with Bernstein centre (SR.0-SR.5); Weil I/II and ℓ-adic duality for schemes (DWP, EDC)",
+    "Classical LLC and Jacquet–Langlands for GL_n with the two-tower cohomological realization (EndoscopicTransfer ET.0-ET.6a, Shimura varieties); the function-field automorphic trace formula and Laumon–Rapoport–Stuhler D-elliptic sheaves",
+    "Own chain: excursion algebra → finite ramification and spectral centre → rational and integral spectral action → semisimple parameters → functoriality and duality → parabolic and GL_n comparisons (ES0-ES7)"
+   ]
+  },
+  "OverconvergentAutomorphicForms": {
+   "targets": "Weight spaces and locally analytic coefficient modules; equivariant sheaves from automorphy cocycles; Birkbeck–Heuer–Williams overconvergent Hilbert modular forms through Hodge–Tate torsors (geometric and arithmetic, integral, in families); comparison with Andreatta–Iovita–Pilloni; cusp forms, Hecke operators and complete continuity of U_p; the Igusa/Hida comparison; Siegel examples.",
+   "baselineHas": [
+    "TauCeti/AlgebraicGeometry/AdicSpace (Huber rings, Spa, rational subsets)",
+    "Mathlib RingTheory/Perfectoid (FontaineTheta, BDeRham), RingTheory/WittVector and NumberTheory/Padics/Measure (Amice transform)",
+    "TauCeti/NumberTheory/ModularForms (complex q-expansions, Hecke operators) and TauCeti/AlgebraicGeometry/AbelianVariety (over fields)"
+   ],
+   "missing": [
+    "Adic spaces II, perfectoid spaces, perfectoid quotients and diamonds, with torsor descent for coefficients (AdicSpacesPartII, PerfectoidSpaces P0-P9, DiamondsAndVStacks)",
+    "Abelian schemes; PEL and Hilbert modular varieties with integral models and compactifications (AbelianSchemesAndArithmeticModuli, PELModuli, HilbertModularVarieties H0-H5, ShimuraCompactifications C0-C6)",
+    "Perfectoid Shimura varieties and the Hodge–Tate period map (PerfectoidShimuraVarieties S0-S5); canonical subgroups with quantitative bounds and Igusa trivializations (HodgeTateAndCanonicalSubgroups T0-T5)",
+    "Automorphic bundles, q-expansions and Hecke actions (AutomorphicBundles B0-B5); p-adic Hodge, A_inf and crystalline comparison inputs",
+    "Rigid character and weight spaces; locally analytic distributions (PadicMeasuresIwasawaAlgebras L0a, LocallyAnalyticDistributions L0)",
+    "Own chain: cocycle sheaves → Hilbert automorphy factors → integral families → arithmetic descent → AIP comparison → cusp forms, Hecke operators and U_p → Igusa comparison, plus Siegel examples (O0-O8)"
+   ]
+  },
+  "PadicHodgeRegulators": {
+   "targets": "Normalizations of p-adic polylogarithms; étale and syntomic regulators; the local K₃ theorem K₃(L; ℤ_p) ≅ p²O_L for unramified L and p > 3; global localization; syntomic regulators of curves; Bloch–Kato exponential and dual exponential; (φ,Γ)-modules and Iwasawa cohomology; Perrin-Riou's big logarithm; Lei–Loeffler–Zerbes signed Coleman maps and the de Rham-domain regulator.",
+   "baselineHas": [
+    "Mathlib RingTheory/Perfectoid/BDeRham.lean and FontaineTheta.lean; RingTheory/WittVector",
+    "Mathlib NumberTheory/Padics, including Padics/Measure (Amice transform)",
+    "TauCeti/RepresentationTheory/Homological/ContCohomology (continuous group cohomology) and TauCeti/FieldTheory/GaloisCohomology/Kummer"
+   ],
+   "missing": [
+    "Algebraic K-theory: plus construction, Q-construction, spectra, K-theory of finite and local fields, Suslin's K₃ and Bloch groups, Borel regulators, finite generation (GeneralAlgebraicKTheory, StableHomotopyKTheory, KTheoryFiniteLocalFields, K3BlochGroups, ArithmeticKTheory and related roadmaps)",
+    "Motivic cohomology, higher Chow groups and the motivic–étale comparison, including norm-residue inputs (MotivicEtaleKTheory)",
+    "p-adic Hodge theory: period rings and comparison theorems through the A_inf, crystalline and perfectoid routes (PadicHodgeTheory, CrystallineCohomology, AInfCohomology, PerfectoidSpaces, DiamondEtaleCohomology)",
+    "(φ,Γ)-modules, ψ-complexes, Wach modules and Iwasawa cohomology; locally analytic distributions (PhiGammaModulesAndIwasawaCohomology PG.0-PG.7, LocallyAnalyticDistributions, PadicMeasuresIwasawaAlgebras)",
+    "Coleman integration and p-adic polylogarithms; Galois representations of modular forms at p, with their modular-curve and GL₂ closure (ColemanIntegration, AutomorphicGaloisRepresentations R19.5)",
+    "Own chains: syntomic and étale regulators → local K₃ theorem → localization; Bloch–Kato maps → (φ,Γ) and Iwasawa cohomology → big logarithm → signed and noncrystalline regulators (D.1-D.5, L0-L4)"
+   ]
+  },
+  "VStackSheavesAndLisseCategories": {
+   "targets": "Artin v-stacks and their eligible operations; ULA sheaves, the Jacobian criterion, hyperbolic localization and Drinfeld's lemma (FS IV); solid sheaves on v-stacks and lisse coefficients (FS VII); D_lis on Bun_G strata identified with smooth representations, with semi-orthogonal decomposition and compact generation; Bernstein–Zelevinsky and Verdier duality with admissibility.",
+   "baselineHas": [
+    "TauCeti/AlgebraicGeometry/AdicSpace (Huber rings, Spa, continuous valuations)",
+    "Mathlib Condensed (CondensedMod, the naive IsSolid in Condensed/Solid.lean) and quasicategories in Mathlib CategoryTheory",
+    "Mathlib RingTheory/Perfectoid (FontaineTheta, BDeRham) and AlgebraicGeometry/Sites/Etale.lean"
+   ],
+   "missing": [
+    "Perfectoid spaces, tilting, perfectoid quotients, diamonds and small v-stacks (PerfectoidSpaces, PerfectoidQuotients, DiamondsAndVStacks D0-D6)",
+    "Classical adic étale cohomology and the étale cohomology of diamonds with six operations, on ∞-categorical enhancements with adic-coefficient comparisons (ClassicalAdicEtaleCohomology, DiamondEtaleCohomology, DiamondSixOperations, EnhancedDerivedSheaves, AdicCoefficientsAndComparisons)",
+    "The relative Fargues–Fontaine curve, classification of vector bundles, and Bun_G with its Newton/HN strata and charts (RelativeFarguesFontaine, VectorBundlesAndIsocrystals, BunGAndNewtonStrata)",
+    "Basic smooth representations of p-adic groups and the Bruhat–Tits topology on G(E) (SR.0-SR.2, ReductiveGroupsPartII)",
+    "Own chain: Artin v-stacks → ULA, Jacobian criterion and hyperbolic localization → condensed and solid categories → lisse sheaves → Bun_G strata and compact generation → duality (VS0-VS5)"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+   "b": "tauceti:Completed/ContourIntegration",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "ContourIntegration is archived complete (the Hungerbühler–Wasem theorem, homology Cauchy theorem and argument principle are in TauCeti/Analysis/Contour), while OneParameterSemigroups still lacks the complexified resolvent-holomorphy bridge and the converse Stieltjes/Bernstein correspondences; both remaining gaps are small."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+   "b": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Spin still needs the identification of spin and half-spin modules as L(ω), which relies on Weyl-character theory not yet built, plus Spin₄/Spin₅/Spin₆ exceptional isomorphisms, Spin₈ triality (including lifting a diagram automorphism to the simply connected group) and general Kostant isotypy. OneParameterSemigroups lacks only complex resolvent analyticity and Stieltjes converses."
+  },
+  {
+   "a": "AutomorphicLFunctionsAndLocalFactors",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "AutomorphicLFunctions must first build Schwartz–Bruhat analysis, Bruhat–Tits theory, smooth p-adic representations with Satake and Bernstein–Zelevinsky derivatives, Casselman–Wallach globalization and adelic cusp forms, none of which exists, and only then Tate, Godement–Jacquet and Rankin–Selberg integrals. Spin's remaining gaps (L(ω) identification, three exceptional isomorphisms, triality, Kostant isotypy) sit on largely built Clifford and Lie foundations."
+  },
+  {
+   "a": "SieveMethodsAndPrimePatterns",
+   "b": "AutomorphicLFunctionsAndLocalFactors",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Sieve methods build on Mathlib's Dirichlet L-functions and Selberg Λ² setup and add classical analytic layers: zero-free regions and Siegel–Walfisz, the large sieve, Bombieri–Vinogradov, Maynard weights and Chen/affine sieves. AutomorphicLFunctions needs an absent representation-theoretic foundation (smooth p-adic representations, Satake, Bruhat–Tits, Casselman–Wallach, adelic cusp forms), with Godement–Jacquet and Rankin–Selberg theory stacked on top."
+  },
+  {
+   "a": "MetaplecticAutomorphicForms",
+   "b": "SieveMethodsAndPrimePatterns",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Metaplectic needs the adelic automorphic foundation (reduction theory, (g,K)-modules, cusp forms, meromorphic continuation of Eisenstein series, smooth representations) and then Stone–von Neumann, the Weil index, local theta correspondence, global theta kernels and BFH analysis on the GSp(4) cover. The sieve roadmap's classical analytic stack builds on existing L-series and sieve APIs."
+  },
+  {
+   "a": "MetaplecticAutomorphicForms",
+   "b": "FaltingsFinitenessAndIsogenyTheorems",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Faltings needs abelian schemes with duals and polarizations, Siegel moduli with integral compactifications, Néron models with semistable reduction, p-divisible groups with p-adic Hodge inputs, and Arakelov (Faltings) heights; the baseline has only abelian varieties over fields and naive heights. Metaplectic's automorphic foundation, Eisenstein continuation and theta/Weil-representation chain is comparably deep but smaller, and Mathlib's adeles and Fourier analysis support it in part."
+  },
+  {
+   "a": "FaltingsFinitenessAndIsogenyTheorems",
+   "b": "GlobalShtukasAndFunctionFieldLanglands",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "GlobalShtukas needs the full ℓ-adic formalism (six operations, perverse sheaves, Weil II), stacks, Bruhat–Tits/Satake and function-field class field theory. It then builds classical geometric Satake, shtuka moduli with their intersection cohomology, Drinfeld's lemma, excursion reconstruction and L. Lafforgue's compactification and trace-formula proof. Faltings' declared inputs (abelian schemes, Siegel compactifications, Néron models, p-adic Hodge, Arakelov heights) are broader in recorded stages, but its own finiteness layers are thin."
+  },
+  {
+   "a": "HeegnerPointEulerSystems",
+   "b": "GlobalShtukasAndFunctionFieldLanglands",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Heegner consumes essentially the whole modularity edifice (modular curves over ℤ, Serre weights, deformation rings and patching, potential modularity, Faltings finiteness) and adds CM theory, Gross–Zagier, Kolyvagin systems, anticyclotomic Iwasawa theory and GU(2,2) congruences, with a recorded chain about 96 stages deep. GlobalShtukas' ℓ-adic/Weil II, geometric Satake and Lafforgue layers form a large but much narrower stack."
+  },
+  {
+   "a": "SerreWeightAndLevelOptimisation",
+   "b": "HeegnerPointEulerSystems",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Heegner's modular parametrization requires EllipticCurveModularity, whose closure contains every SerreWeightAndLevelOptimisation layer, and it adds CM theory, Euler/Kolyvagin systems, Gross–Zagier inputs and anticyclotomic main conjectures. Serre optimization stops at level lowering and Edixhoven's theorem, built on modular and Shimura curves, Néron models and GL₂ automorphic inputs."
+  },
+  {
+   "a": "ExcursionOperatorsAndSpectralAction",
+   "b": "SerreWeightAndLevelOptimisation",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Excursion needs the full Fargues–Scholze geometry (diamonds, six operations, v-stacks, Bun_G, Satake on the B_dR-affine Grassmannian, parameter stacks and the spectral action), plus classical LLC for GL_n through the two-tower realization and Laumon–Rapoport–Stuhler D-elliptic sheaves. Serre optimization needs modular and Shimura curves over ℤ, Néron character groups, Jacquet–Langlands, modular Galois representations and integral p-adic Hodge theory; its recorded closure is similar in size, but its own level- and weight-optimization layers are thinner."
+  },
+  {
+   "a": "ExcursionOperatorsAndSpectralAction",
+   "b": "OverconvergentAutomorphicForms",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Excursion needs all of VStack's diamond and Bun_G sheaf theory plus geometric Satake, L-parameter stacks, Weil II, Shimura-variety realizations of LLC for GL_n and LRS. Overconvergent needs perfectoid Shimura varieties with the Hodge–Tate period map, canonical subgroups, Hilbert compactifications and weight spaces before the BHW construction, which is substantial but a much smaller body of theory."
+  },
+  {
+   "a": "OverconvergentAutomorphicForms",
+   "b": "PadicHodgeRegulators",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "PadicHodgeRegulators needs a whole K-theory branch (Quillen K-theory and spectra, K-theory of local fields, Suslin's K₃ and Bloch groups, motivic cohomology, Borel regulators), syntomic regulators, (φ,Γ)-modules with Perrin-Riou's big logarithm, and modular Galois representations at p, on top of p-adic Hodge foundations. Overconvergent shares the perfectoid and p-adic Hodge base but adds only perfectoid Shimura varieties, canonical subgroups, automorphic bundles and the BHW/AIP construction."
+  },
+  {
+   "a": "PadicHodgeRegulators",
+   "b": "VStackSheavesAndLisseCategories",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "PadicHodgeRegulators' recorded inputs already contain most of the diamond étale-cohomology foundation, and it adds algebraic K-theory, motivic cohomology, syntomic regulators, (φ,Γ)-modules with Iwasawa cohomology, and modular Galois representations. VStack adds Fargues–Fontaine vector bundles, Bun_G and the FS IV/VII sheaf categories to the same diamond base."
+  },
+  {
+   "a": "VStackSheavesAndLisseCategories",
+   "b": "ExcursionOperatorsAndSpectralAction",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Excursion consumes every VStack layer (VS1, VS2, VS4, VS5) and adds geometric Satake, Hecke stacks and local shtukas, L-parameter stacks with integral invariant theory, the spectral action, and the GL_n comparisons via the two-tower realization and LRS."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+   "b": "tauceti:Completed/ContourIntegration",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ContourIntegration is complete in Tau Ceti, whereas Spin still needs the L(ω) identification of spin modules, the Spin₄–Spin₆ exceptional isomorphisms, triality for Spin₈ and general Kostant isotypy."
+  },
+  {
+   "a": "GlobalShtukasAndFunctionFieldLanglands",
+   "b": "MetaplecticAutomorphicForms",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "GlobalShtukas needs the ℓ-adic six-functor formalism, perverse sheaves and Weil II, stacks, Bruhat–Tits/Satake and function-field class field theory, and then geometric Satake, shtuka cohomology, Drinfeld's lemma and both Lafforgue proofs. Metaplectic's automorphic foundation (reduction theory, cusp forms, Eisenstein continuation) with its Weil-representation and theta layers is a smaller, more analytic stack."
+  },
+  {
+   "a": "PadicHodgeRegulators",
+   "b": "HeegnerPointEulerSystems",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Heegner imports PadicHodgeRegulators' Bloch–Kato and Iwasawa layers (L0-L4) and also needs modularity of elliptic curves, Faltings finiteness, CM theory, Gross–Zagier, Euler/Kolyvagin systems and anticyclotomic main conjectures, in a recorded chain about 96 stages deep. PadicHodgeRegulators' extra K-theory and motivic branch (K-theory of local fields, Suslin's K₃, Borel regulators) is large but shallower, with a chain of about 48."
+  },
+  {
+   "a": "OverconvergentAutomorphicForms",
+   "b": "FaltingsFinitenessAndIsogenyTheorems",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Both need abelian schemes, PEL/Siegel moduli with integral compactifications and p-adic Hodge/perfectoid inputs. Overconvergent adds perfectoid Shimura varieties with the Hodge–Tate period map, canonical subgroups, Hilbert modular varieties, automorphic bundles and weight spaces beneath the substantial BHW/AIP construction; Faltings adds Néron models and Arakelov heights beneath a thin finiteness layer."
+  },
+  {
+   "a": "SerreWeightAndLevelOptimisation",
+   "b": "VStackSheavesAndLisseCategories",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Serre optimization needs, besides étale cohomology and the diamond and p-adic comparison foundations that appear among its recorded inputs, modular and Shimura curves over ℤ, Néron character groups, GL₂ automorphic theory with Jacquet–Langlands, Weil II, and modular Galois representations with local–global compatibility. VStack needs the perfectoid–diamond–Fargues–Fontaine–Bun_G stack with the FS IV/VII categories on top."
+  },
+  {
+   "a": "SieveMethodsAndPrimePatterns",
+   "b": "HeegnerPointEulerSystems",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Heegner needs modularity of elliptic curves, CM theory, Galois cohomology with Poitou–Tate duality, Euler systems, Gross–Zagier and Iwasawa main conjectures, none of which is in the baseline. The sieve roadmap needs classical analytic layers (PNT error terms, Siegel–Walfisz, the large sieve, Bombieri–Vinogradov, Maynard, Chen) over Mathlib's L-series and Selberg sieve."
+  },
+  {
+   "a": "AutomorphicLFunctionsAndLocalFactors",
+   "b": "MetaplecticAutomorphicForms",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Both need smooth p-adic representations, (g,K)-modules and adelic automorphic forms. Metaplectic additionally needs meromorphic continuation of Eisenstein series and a long metaplectic chain (Stone–von Neumann, Weil index, local theta, global theta kernels, half-integral weight, Eisenstein analysis on the GSp(4) cover), and it imports AL.0 itself. AutomorphicLFunctions' own extras are Bruhat–Tits/Satake, Bernstein–Zelevinsky derivatives and the Tate, Godement–Jacquet and Rankin–Selberg integrals."
+  },
+  {
+   "a": "GlobalShtukasAndFunctionFieldLanglands",
+   "b": "VStackSheavesAndLisseCategories",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "VStack needs the perfectoid–diamond–six-functor foundation, the relative Fargues–Fontaine curve and Bun_G, and its recorded chain is deeper, but its own layers are the FS IV/VII sheaf categories. GlobalShtukas needs ℓ-adic six operations, perverse sheaves, Weil II, stacks and Bruhat–Tits/Satake, then geometric Satake, shtuka cohomology, Drinfeld's lemma and both Lafforgue proofs, which amount to more new theory."
+  },
+  {
+   "a": "FaltingsFinitenessAndIsogenyTheorems",
+   "b": "AutomorphicLFunctionsAndLocalFactors",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Faltings needs abelian schemes and their moduli with integral compactifications, Néron models, p-divisible groups with p-adic Hodge inputs, and Arakelov heights, a deep arithmetic-geometry stack. AutomorphicLFunctions needs smooth p-adic representations with Satake, Casselman–Wallach globalization and cusp forms before the Tate, Godement–Jacquet and Rankin–Selberg integrals, a large but shallower representation-theoretic stack."
+  },
+  {
+   "a": "OverconvergentAutomorphicForms",
+   "b": "SerreWeightAndLevelOptimisation",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Beyond the shared abelian-scheme, Shimura-variety and p-adic Hodge base, Serre optimization needs modular curves over ℤ, Néron character groups, Shimura curves with Čerednik–Drinfeld uniformization, GL₂ automorphic theory with Jacquet–Langlands, Weil II, and modular Galois representations with local–global compatibility. Overconvergent adds only perfectoid Shimura varieties, canonical subgroups, automorphic bundles and weight spaces."
+  }
+ ]
+}
