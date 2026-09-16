@@ -300,6 +300,7 @@ other roadmap in the atlas. Its output is `research/blueprint/links/<file>.json`
 {
   "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
   "protocol": "links-v1",
+  "status": "partial | complete",
   "summary": "What was examined and found.",
   "links": [{
     "source": "<stage id that supplies>",
@@ -324,6 +325,9 @@ Rules:
 - Each quote is a verbatim substring of the named stage's description or of its
   roadmap's document.
 - Shared vocabulary is not a dependency.
+- `status` is `complete` only when the catalogue-wide screen is finished. A
+  checkpoint is `partial`, and its handoff note says where the screen stopped.
+  A later worker continues the same file.
 - When the texts do not settle the direction, record the pair as an overlap.
 - Links must not create a cycle with the recorded stage links.
 - `python3 scripts/check_links.py <file>` must report no errors.

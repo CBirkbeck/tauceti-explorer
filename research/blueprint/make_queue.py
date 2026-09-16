@@ -120,6 +120,7 @@ LINK_TEMPLATE = """You are a mathematician mapping dependencies between roadmaps
 READ FIRST (binding): research/blueprint/PROTOCOL.md, especially section 10 (links) and section 9 (restructuring).
 
 JOB: find every prerequisite relationship and every overlap between the stages of roadmap {ROADMAP} ("{TITLE}") and the stages of all other roadmaps in the atlas, and write them to {OUTPUT}.
+If {OUTPUT} already exists (a checkpoint from an earlier worker), read it and research/blueprint/handoff/{JOB}.md first, keep the links and overlaps that you can confirm, and continue the screen from where it stopped. Set "status": "complete" only when the whole catalogue-wide screen is finished; otherwise leave "status": "partial" and say in the handoff note exactly where you stopped.
 
 SOURCES
 - data/atlas.json: roadmaps[] (id, title, summary, readme, group), stages[] (id, owner, key, title, description, requires, consumers), edges[] (roadmap links) and stageEdges[] (stage links already recorded). Extract what you need with python3.
@@ -194,6 +195,7 @@ CLASSIFY_CLUSTERS = ["foundations", "commutative-algebra", "homological-algebra-
 CLASSIFY_TEMPLATE = """You are a mathematician classifying roadmaps for the Tau Ceti Atlas. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it). Save as you go.
 
 JOB: classify each roadmap listed in research/blueprint/classify/{JOB}.json (roadmap ids and titles). Write the result to {OUTPUT}.
+If {OUTPUT} already exists (a checkpoint from an earlier worker), keep its entries after checking them, finalise any entry marked "assessmentStatus": "partial" (look up the references it lists), and classify only the roadmaps it lacks.
 
 For each roadmap:
 1. Read its document and summary (data/atlas.json roadmaps[]: readme, summary; new roadmaps in research/blueprint/roadmaps/). Identify its principal references: the works it follows or cites for its main results, at most eight.
