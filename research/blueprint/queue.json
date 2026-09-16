@@ -632,8 +632,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_AdicSpaces.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #15"
+   "state": "pending",
+   "note": "released on GitHub issue #15"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_AdicSpaces",
@@ -737,8 +737,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #18"
+   "state": "pending",
+   "note": "released on GitHub issue #18"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
@@ -1366,8 +1366,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_Completed_OrthogonalL2Bases.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #37"
+   "state": "pending",
+   "note": "released on GitHub issue #37"
   },
   {
    "id": "REV-LINK-tauceti_Completed_OrthogonalL2Bases",
@@ -2193,7 +2193,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieHighestWeight.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #62"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieHighestWeight",
@@ -2362,8 +2363,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #67"
+   "state": "done",
+   "note": "deliverables arrived from the external worker on issue #67",
+   "finishedAt": "2026-09-16T12:14:56Z"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
@@ -2396,8 +2398,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #68"
+   "state": "pending",
+   "note": "released on GitHub issue #68"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
@@ -2498,8 +2500,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #71"
+   "state": "done",
+   "note": "deliverables arrived from the external worker on issue #71",
+   "finishedAt": "2026-09-16T12:14:58Z"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
