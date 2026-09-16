@@ -1,0 +1,196 @@
+{
+ "job": "AUDIT-37",
+ "roadmaps": [
+  {
+   "roadmapId": "FarguesFontaineDiamonds",
+   "title": "The existing Fargues–Fontaine curve as a diamond",
+   "extract": "research/blueprint/atlas/roadmaps/FarguesFontaineDiamonds.json",
+   "layers": [
+    {
+     "id": "FarguesFontaineDiamonds:F0",
+     "title": "Reuse the actual adic objects"
+    },
+    {
+     "id": "FarguesFontaineDiamonds:F1",
+     "title": "The untilt product formula"
+    },
+    {
+     "id": "FarguesFontaineDiamonds:F2",
+     "title": "Frobenius equivariance and the quotient comparison"
+    },
+    {
+     "id": "FarguesFontaineDiamonds:F3",
+     "title": "Étale-site and finite-cover comparison"
+    },
+    {
+     "id": "FarguesFontaineDiamonds:F4",
+     "title": "Marked untilts and Cartier divisors"
+    },
+    {
+     "id": "FarguesFontaineDiamonds:F5",
+     "title": "Derived étale comparison"
+    }
+   ]
+  },
+  {
+   "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "title": "Finite flat group schemes and integral p-adic Hodge theory",
+   "extract": "research/blueprint/atlas/roadmaps/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
+   "layers": [
+    {
+     "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+     "title": "Finite flat groups and p-divisible groups"
+    },
+    {
+     "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+     "title": "Dieudonné theory"
+    },
+    {
+     "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+     "title": "Fontaine–Laffaille theory"
+    },
+    {
+     "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+     "title": "Breuil–Kisin modules"
+    },
+    {
+     "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+     "title": "Local residual types and Serre weights"
+    },
+    {
+     "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+     "title": "Integral deformation and ramification consequences"
+    }
+   ]
+  },
+  {
+   "roadmapId": "HodgeTateAndCanonicalSubgroups",
+   "title": "Hodge–Tate theory, canonical subgroups, and automorphic period maps",
+   "extract": "research/blueprint/atlas/roadmaps/HodgeTateAndCanonicalSubgroups.json",
+   "layers": [
+    {
+     "id": "HodgeTateAndCanonicalSubgroups:T0",
+     "title": "p-divisible groups and integral differentials"
+    },
+    {
+     "id": "HodgeTateAndCanonicalSubgroups:T1",
+     "title": "Period rings and relative comparison"
+    },
+    {
+     "id": "HodgeTateAndCanonicalSubgroups:T2",
+     "title": "Hodge–Tate exact sequence and torsors"
+    },
+    {
+     "id": "HodgeTateAndCanonicalSubgroups:T3",
+     "title": "Canonical subgroups with quantitative bounds"
+    },
+    {
+     "id": "HodgeTateAndCanonicalSubgroups:T4",
+     "title": "Canonical/anticanonical geometry and period estimates"
+    },
+    {
+     "id": "HodgeTateAndCanonicalSubgroups:T5",
+     "title": "Igusa trivializations and the modified integral lattice"
+    },
+    {
+     "id": "HodgeTateAndCanonicalSubgroups:T6",
+     "title": "General canonical local systems and logarithmic comparison"
+    },
+    {
+     "id": "HodgeTateAndCanonicalSubgroups:T6:comparison",
+     "title": "Logarithmic periods and canonical local systems"
+    },
+    {
+     "id": "HodgeTateAndCanonicalSubgroups:T6:log-sites",
+     "title": "Logarithmic adic sites before period sheaves"
+    }
+   ]
+  },
+  {
+   "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+   "title": "P-adic differential equations, rigid cohomology and p-adic weights",
+   "extract": "research/blueprint/atlas/roadmaps/PadicDifferentialEquationsAndRigidCohomology.json",
+   "layers": [
+    {
+     "id": "PadicDifferentialEquationsAndRigidCohomology:RD.0",
+     "title": "Dagger algebras and Robba rings"
+    },
+    {
+     "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+     "title": "Differential modules, radii and Frobenius slopes"
+    },
+    {
+     "id": "PadicDifferentialEquationsAndRigidCohomology:RD.2",
+     "title": "Local monodromy with Frobenius"
+    },
+    {
+     "id": "PadicDifferentialEquationsAndRigidCohomology:RD.3",
+     "title": "Overconvergent isocrystals and frames"
+    },
+    {
+     "id": "PadicDifferentialEquationsAndRigidCohomology:RD.4",
+     "title": "Rigid cohomology and compact support"
+    },
+    {
+     "id": "PadicDifferentialEquationsAndRigidCohomology:RD.5",
+     "title": "Finiteness, duality and Kunneth"
+    },
+    {
+     "id": "PadicDifferentialEquationsAndRigidCohomology:RD.6",
+     "title": "Trace formula, Fourier transform and p-adic weights"
+    },
+    {
+     "id": "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+     "title": "Crystalline comparison and Weil-factor export"
+    }
+   ]
+  },
+  {
+   "roadmapId": "PadicHodgeTheory",
+   "title": "P-adic Hodge theory and geometric comparison",
+   "extract": "research/blueprint/atlas/roadmaps/PadicHodgeTheory.json",
+   "layers": [
+    {
+     "id": "PadicHodgeTheory:P7",
+     "title": "Robba analytic foundations and representation-theoretic handoffs"
+    },
+    {
+     "id": "PadicHodgeTheory:P7:annulus-foundations",
+     "title": "Early analytic coefficient rings"
+    },
+    {
+     "id": "PadicHodgeTheory:P8",
+     "title": "Shared relative period sheaves"
+    },
+    {
+     "id": "PadicHodgeTheory:P8:local-rational",
+     "title": "Period sheaves and local Poincaré lemma"
+    },
+    {
+     "id": "PadicHodgeTheory:R06.1",
+     "title": "Period rings"
+    },
+    {
+     "id": "PadicHodgeTheory:R06.2",
+     "title": "Period functors and admissibility"
+    },
+    {
+     "id": "PadicHodgeTheory:R06.3",
+     "title": "Monodromy and Weil–Deligne comparison at p"
+    },
+    {
+     "id": "PadicHodgeTheory:R06.4",
+     "title": "Integral and small-weight interface"
+    },
+    {
+     "id": "PadicHodgeTheory:R06.5",
+     "title": "Geometric comparison theorems"
+    },
+    {
+     "id": "PadicHodgeTheory:R06.6",
+     "title": "Arithmetic consequences"
+    }
+   ]
+  }
+ ]
+}

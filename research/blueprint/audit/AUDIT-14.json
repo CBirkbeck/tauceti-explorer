@@ -1,0 +1,204 @@
+{
+ "job": "AUDIT-14",
+ "roadmaps": [
+  {
+   "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+   "title": "Automorphic L-functions and local factors",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicLFunctionsAndLocalFactors.json",
+   "layers": [
+    {
+     "id": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+     "title": "Schwartz–Bruhat and Fourier theory"
+    },
+    {
+     "id": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+     "title": "Tate zeta integrals"
+    },
+    {
+     "id": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+     "title": "Godement–Jacquet standard GL_n factors"
+    },
+    {
+     "id": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+     "title": "Rankin–Selberg factors and period comparisons"
+    },
+    {
+     "id": "AutomorphicLFunctionsAndLocalFactors:AL.4",
+     "title": "General unramified L-group factors"
+    },
+    {
+     "id": "AutomorphicLFunctionsAndLocalFactors:AL.5",
+     "title": "Interfaces for p-adic interpolation"
+    }
+   ]
+  },
+  {
+   "roadmapId": "AutomorphicSpectralTheory",
+   "title": "Automorphic spectral theory and trace distributions",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicSpectralTheory.json",
+   "layers": [
+    {
+     "id": "AutomorphicSpectralTheory:AS.0",
+     "title": "Functional analysis for the spectrum"
+    },
+    {
+     "id": "AutomorphicSpectralTheory:AS.1",
+     "title": "Induced families and Eisenstein convergence"
+    },
+    {
+     "id": "AutomorphicSpectralTheory:AS.2",
+     "title": "Intertwiners and meromorphic continuation"
+    },
+    {
+     "id": "AutomorphicSpectralTheory:AS.3",
+     "title": "Truncation and Maass–Selberg relations"
+    },
+    {
+     "id": "AutomorphicSpectralTheory:AS.4",
+     "title": "Complete automorphic spectral decomposition"
+    },
+    {
+     "id": "AutomorphicSpectralTheory:AS.5",
+     "title": "Weighted cohomology and automorphic comparison"
+    },
+    {
+     "id": "AutomorphicSpectralTheory:AS.6",
+     "title": "Coarse, fine and invariant trace formula"
+    }
+   ]
+  },
+  {
+   "roadmapId": "CompletedCohomologyPartII",
+   "title": "Completed cohomology, homology and arithmetic towers — Part II",
+   "extract": "research/blueprint/atlas/roadmaps/CompletedCohomologyPartII.json",
+   "layers": [
+    {
+     "id": "CompletedCohomologyPartII:CC.0",
+     "title": "Finite-level towers and support data"
+    },
+    {
+     "id": "CompletedCohomologyPartII:CC.1",
+     "title": "Torsion colimits and the smooth group action"
+    },
+    {
+     "id": "CompletedCohomologyPartII:CC.2",
+     "title": "Completion, derived inverse limits and topology"
+    },
+    {
+     "id": "CompletedCohomologyPartII:CC.3",
+     "title": "Continuous duals and completed homology"
+    },
+    {
+     "id": "CompletedCohomologyPartII:CC.4",
+     "title": "Finite-level chain models and the completed tower complex"
+    },
+    {
+     "id": "CompletedCohomologyPartII:CC.5",
+     "title": "Noetherian finiteness and admissibility"
+    },
+    {
+     "id": "CompletedCohomologyPartII:CC.6",
+     "title": "Descent and classical comparison"
+    },
+    {
+     "id": "CompletedCohomologyPartII:CC.7",
+     "title": "Compact-support and boundary triangles"
+    },
+    {
+     "id": "CompletedCohomologyPartII:CC.8",
+     "title": "Shimura, Galois and Hecke adapters"
+    }
+   ]
+  },
+  {
+   "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+   "title": "GL₂ Automorphic Representations And Transfer",
+   "extract": "research/blueprint/atlas/roadmaps/GL2AutomorphicRepresentationsAndTransfer.json",
+   "layers": [
+    {
+     "id": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+     "title": "Locally compact groups and automorphic functions"
+    },
+    {
+     "id": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+     "title": "Local smooth representation theory"
+    },
+    {
+     "id": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+     "title": "Local Langlands for GL₂"
+    },
+    {
+     "id": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+     "title": "Global cuspidal decomposition and multiplicity"
+    },
+    {
+     "id": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
+     "title": "Integral formulas and converse-theorem prerequisites"
+    },
+    {
+     "id": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+     "title": "Classical and cohomological specialisations"
+    },
+    {
+     "id": "GL2AutomorphicRepresentationsAndTransfer:R17.1",
+     "title": "Quaternionic local transfer"
+    },
+    {
+     "id": "GL2AutomorphicRepresentationsAndTransfer:R17.2",
+     "title": "Trace-formula prerequisites and matching"
+    },
+    {
+     "id": "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+     "title": "Global Jacquet–Langlands"
+    },
+    {
+     "id": "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+     "title": "Cyclic and solvable base change"
+    },
+    {
+     "id": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+     "title": "Automorphic induction and Langlands–Tunnell"
+    },
+    {
+     "id": "GL2AutomorphicRepresentationsAndTransfer:R17.6",
+     "title": "Characteristic-two soluble cases and transfer interfaces"
+    }
+   ]
+  },
+  {
+   "roadmapId": "HabiroNahmSeries",
+   "title": "Nahm series, asymptotics and Habiro integrality",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroNahmSeries.json",
+   "layers": [
+    {
+     "id": "HabiroNahmSeries:HB.10",
+     "title": "Explicit examples and boundaries"
+    },
+    {
+     "id": "HabiroNahmSeries:HB.3",
+     "title": "Nahm equations and their Bloch classes"
+    },
+    {
+     "id": "HabiroNahmSeries:HB.4",
+     "title": "Root-of-unity asymptotics"
+    },
+    {
+     "id": "HabiroNahmSeries:HB.5",
+     "title": "The proved implication in Nahm's conjecture"
+    },
+    {
+     "id": "HabiroNahmSeries:HB.5a",
+     "title": "Finite-index modular functions at cusps"
+    },
+    {
+     "id": "HabiroNahmSeries:HB.8",
+     "title": "Admissibility and integrality: GSWZ Theorem 6"
+    },
+    {
+     "id": "HabiroNahmSeries:HB.9",
+     "title": "Frobenius congruences and module membership"
+    }
+   ]
+  }
+ ]
+}

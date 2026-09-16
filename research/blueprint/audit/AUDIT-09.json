@@ -1,0 +1,176 @@
+{
+ "job": "AUDIT-09",
+ "roadmaps": [
+  {
+   "roadmapId": "ComplexMultiplicationAndExplicitReciprocity",
+   "title": "Complex multiplication and explicit reciprocity",
+   "extract": "research/blueprint/atlas/roadmaps/ComplexMultiplicationAndExplicitReciprocity.json",
+   "layers": [
+    {
+     "id": "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+     "title": "CM types, orders and norm maps"
+    },
+    {
+     "id": "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+     "title": "Elliptic CM and ideal actions"
+    },
+    {
+     "id": "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+     "title": "The common general CM reciprocity theorem"
+    },
+    {
+     "id": "ComplexMultiplicationAndExplicitReciprocity:CM.3",
+     "title": "Class polynomials and ring class fields"
+    },
+    {
+     "id": "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+     "title": "CM Hecke characters and Galois realizations"
+    },
+    {
+     "id": "ComplexMultiplicationAndExplicitReciprocity:CM.5",
+     "title": "Reduction, isogenies and certified computation"
+    },
+    {
+     "id": "ComplexMultiplicationAndExplicitReciprocity:CM.6",
+     "title": "Reciprocity exports and limits"
+    }
+   ]
+  },
+  {
+   "roadmapId": "EffectiveDiophantineMethods",
+   "title": "Effective Diophantine methods and certified rational points",
+   "extract": "research/blueprint/atlas/roadmaps/EffectiveDiophantineMethods.json",
+   "layers": [
+    {
+     "id": "EffectiveDiophantineMethods:ED.0",
+     "title": "Certified algebraic numbers and local precision"
+    },
+    {
+     "id": "EffectiveDiophantineMethods:ED.1",
+     "title": "Lattice reduction and integer relations"
+    },
+    {
+     "id": "EffectiveDiophantineMethods:ED.2",
+     "title": "Linear forms in logarithms and S-unit equations"
+    },
+    {
+     "id": "EffectiveDiophantineMethods:ED.3",
+     "title": "Descent, rank bounds and saturation"
+    },
+    {
+     "id": "EffectiveDiophantineMethods:ED.4",
+     "title": "Classical Chabauty–Coleman"
+    },
+    {
+     "id": "EffectiveDiophantineMethods:ED.5",
+     "title": "Mordell–Weil sieve and combination certificates"
+    },
+    {
+     "id": "EffectiveDiophantineMethods:ED.6",
+     "title": "Explicit higher methods and reproducible examples"
+    }
+   ]
+  },
+  {
+   "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+   "title": "Faltings finiteness, semisimplicity and isogeny theorems",
+   "extract": "research/blueprint/atlas/roadmaps/FaltingsFinitenessAndIsogenyTheorems.json",
+   "layers": [
+    {
+     "id": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+     "title": "Height finiteness on arithmetic moduli"
+    },
+    {
+     "id": "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+     "title": "Isogeny-height estimates and boundedness"
+    },
+    {
+     "id": "FaltingsFinitenessAndIsogenyTheorems:R28.3",
+     "title": "Finiteness within an isogeny class"
+    },
+    {
+     "id": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+     "title": "Semisimplicity and the Tate isogeny theorem"
+    },
+    {
+     "id": "FaltingsFinitenessAndIsogenyTheorems:R28.5",
+     "title": "Shafarevich finiteness"
+    },
+    {
+     "id": "FaltingsFinitenessAndIsogenyTheorems:R28.6",
+     "title": "Interfaces for elliptic curves and automorphic cohomology"
+    }
+   ]
+  },
+  {
+   "roadmapId": "HeightsRationalPointsAndObstructions",
+   "title": "Heights, rational points and obstructions",
+   "extract": "research/blueprint/atlas/roadmaps/HeightsRationalPointsAndObstructions.json",
+   "layers": [
+    {
+     "id": "HeightsRationalPointsAndObstructions:RP.0",
+     "title": "Height machine and canonical heights"
+    },
+    {
+     "id": "HeightsRationalPointsAndObstructions:RP.1",
+     "title": "Weak Mordell–Weil and descent"
+    },
+    {
+     "id": "HeightsRationalPointsAndObstructions:RP.2",
+     "title": "Adelic points and Brauer evaluation"
+    },
+    {
+     "id": "HeightsRationalPointsAndObstructions:RP.3",
+     "title": "Torsor descent and comparison of obstructions"
+    },
+    {
+     "id": "HeightsRationalPointsAndObstructions:RP.4",
+     "title": "Curves: Faltings and integral-point finiteness"
+    },
+    {
+     "id": "HeightsRationalPointsAndObstructions:RP.5",
+     "title": "Subvarieties of abelian varieties and special sets"
+    },
+    {
+     "id": "HeightsRationalPointsAndObstructions:RP.6",
+     "title": "Rational-point classification and frontier register"
+    }
+   ]
+  },
+  {
+   "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+   "title": "Inverse Galois theory and arithmetic fundamental groups",
+   "extract": "research/blueprint/atlas/roadmaps/InverseGaloisAndArithmeticFundamentalGroups.json",
+   "layers": [
+    {
+     "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+     "title": "Galois categories and fibre functors"
+    },
+    {
+     "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+     "title": "Arithmetic exact sequences and specialization"
+    },
+    {
+     "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+     "title": "Hilbert irreducibility and disjoint specializations"
+    },
+    {
+     "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+     "title": "Branch cycles, rigidity and descent"
+    },
+    {
+     "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.4",
+     "title": "Embedding problems and solvable realizations"
+    },
+    {
+     "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.5",
+     "title": "Hurwitz spaces and function-field branches"
+    },
+    {
+     "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+     "title": "Explicit realizations and downstream interfaces"
+    }
+   ]
+  }
+ ]
+}

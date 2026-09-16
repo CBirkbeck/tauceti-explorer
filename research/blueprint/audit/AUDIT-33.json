@@ -1,0 +1,172 @@
+{
+ "job": "AUDIT-33",
+ "roadmaps": [
+  {
+   "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+   "title": "Integral Hecke actions, determinants and interpolation",
+   "extract": "research/blueprint/atlas/roadmaps/IntegralHeckeAndGaloisDeterminants.json",
+   "layers": [
+    {
+     "id": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+     "title": "Polynomial laws and determinants"
+    },
+    {
+     "id": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+     "title": "Cayley–Hamilton algebras and reconstruction"
+    },
+    {
+     "id": "IntegralHeckeAndGaloisDeterminants:IHG.2",
+     "title": "Hecke algebras acting on complexes"
+    },
+    {
+     "id": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+     "title": "Integral spherical normalization"
+    },
+    {
+     "id": "IntegralHeckeAndGaloisDeterminants:IHG.4",
+     "title": "Interpolation through finite quotients"
+    },
+    {
+     "id": "IntegralHeckeAndGaloisDeterminants:IHG.5",
+     "title": "Nilpotent descent and specialization"
+    },
+    {
+     "id": "IntegralHeckeAndGaloisDeterminants:IHG.6",
+     "title": "Integral Ribet theory without residual distinctness"
+    }
+   ]
+  },
+  {
+   "roadmapId": "LocalGaloisDeformationRings",
+   "title": "Local Galois deformation rings and their components",
+   "extract": "research/blueprint/atlas/roadmaps/LocalGaloisDeformationRings.json",
+   "layers": [
+    {
+     "id": "LocalGaloisDeformationRings:L7",
+     "title": "Local models and arbitrary dimension"
+    },
+    {
+     "id": "LocalGaloisDeformationRings:L8",
+     "title": "Ordinary flags versus determinant ordinary conditions"
+    },
+    {
+     "id": "LocalGaloisDeformationRings:R08.1",
+     "title": "Unrestricted local rings"
+    },
+    {
+     "id": "LocalGaloisDeformationRings:R08.2",
+     "title": "Places away from p"
+    },
+    {
+     "id": "LocalGaloisDeformationRings:R08.3",
+     "title": "Potentially semistable deformation spaces"
+    },
+    {
+     "id": "LocalGaloisDeformationRings:R08.4",
+     "title": "Finite-flat and Barsotti–Tate components"
+    },
+    {
+     "id": "LocalGaloisDeformationRings:R08.5",
+     "title": "Dyadic and endpoint cases"
+    },
+    {
+     "id": "LocalGaloisDeformationRings:R08.6",
+     "title": "Local deformation statements for the global arguments"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ModularityAndLanglandsExtensions",
+   "title": "Modularity, automorphy and Langlands endpoint extensions",
+   "extract": "research/blueprint/atlas/roadmaps/ModularityAndLanglandsExtensions.json",
+   "layers": [
+    {
+     "id": "ModularityAndLanglandsExtensions:ML.0",
+     "title": "Endpoint and normalization registry"
+    },
+    {
+     "id": "ModularityAndLanglandsExtensions:ML.1",
+     "title": "Weight one and broader modularity"
+    },
+    {
+     "id": "ModularityAndLanglandsExtensions:ML.2",
+     "title": "Potential automorphy assembly"
+    },
+    {
+     "id": "ModularityAndLanglandsExtensions:ML.3",
+     "title": "Symmetric powers and Sato-Tate"
+    },
+    {
+     "id": "ModularityAndLanglandsExtensions:ML.4",
+     "title": "Classical-group classification and trace sources"
+    },
+    {
+     "id": "ModularityAndLanglandsExtensions:ML.5",
+     "title": "Known functorial transfers and frontiers"
+    }
+   ]
+  },
+  {
+   "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "title": "Ordinary automorphic forms and ordinary modularity lifting",
+   "extract": "research/blueprint/atlas/roadmaps/OrdinaryAutomorphicFormsAndModularityLifting.json",
+   "layers": [
+    {
+     "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+     "title": "Iwasawa algebras and ordinary projectors"
+    },
+    {
+     "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+     "title": "Hida control and finite flatness"
+    },
+    {
+     "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+     "title": "Ordinary Galois and deformation families"
+    },
+    {
+     "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+     "title": "Ordinary R=T and modularity lifting"
+    },
+    {
+     "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+     "title": "Skinner–Wiles and the small-prime cases"
+    },
+    {
+     "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
+     "title": "Ordinary-family outputs and independence"
+    }
+   ]
+  },
+  {
+   "roadmapId": "PadicLocalLanglandsForGL2Qp",
+   "title": "P-adic local Langlands for GL₂(Q_p)",
+   "extract": "research/blueprint/atlas/roadmaps/PadicLocalLanglandsForGL2Qp.json",
+   "layers": [
+    {
+     "id": "PadicLocalLanglandsForGL2Qp:R30.1",
+     "title": "Robba rings and (φ,Γ)-modules"
+    },
+    {
+     "id": "PadicLocalLanglandsForGL2Qp:R30.2",
+     "title": "The local representation categories"
+    },
+    {
+     "id": "PadicLocalLanglandsForGL2Qp:R30.3",
+     "title": "Colmez's construction"
+    },
+    {
+     "id": "PadicLocalLanglandsForGL2Qp:R30.4",
+     "title": "Locally algebraic vectors and classical compatibility"
+    },
+    {
+     "id": "PadicLocalLanglandsForGL2Qp:R30.5",
+     "title": "Blocks, projective envelopes and deformation rings"
+    },
+    {
+     "id": "PadicLocalLanglandsForGL2Qp:R30.6",
+     "title": "The local results consumed by modern lifting"
+    }
+   ]
+  }
+ ]
+}

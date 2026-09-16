@@ -1,0 +1,218 @@
+{
+ "job": "AUDIT-40",
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+   "title": "Partial differential equations",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_PDE.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#lane-a-function-spaces-on-a-domain-the-universal-prerequisite",
+     "title": "Lane A: function spaces on a domain (the universal prerequisite)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-a-1",
+     "title": "W^{k,p}(Ω) via weak derivatives"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-a-2",
+     "title": "Density and W^{k,p}_0"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-a-3",
+     "title": "Reconcile with Mathlib's Bessel-potential scale"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-a-4",
+     "title": "Embeddings"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-a-5",
+     "title": "Poincaré"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-a-6",
+     "title": "Trace, extension, Rellich"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-a-7",
+     "title": "Hölder spaces C^{k,α}(Ω)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#lane-b-harmonic-analysis-estimates",
+     "title": "Lane B: harmonic-analysis estimates"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-b-8",
+     "title": "Hardy–Littlewood maximal function"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-b-9",
+     "title": "Interpolation"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-b-10",
+     "title": "Calderón–Zygmund"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-b-11",
+     "title": "BMO and John–Nirenberg"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#lane-c-maximum-principles-and-potential-theory",
+     "title": "Lane C: maximum principles and potential theory"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-c-12",
+     "title": "Mean-value property and smoothness of harmonic functions"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-c-13",
+     "title": "The weak and strong maximum principles"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-c-14",
+     "title": "The Harnack inequality"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-c-15",
+     "title": "Fundamental solution / Newtonian potential"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#lane-d-linear-elliptic-existence-the-energy-method",
+     "title": "Lane D: linear elliptic existence (the energy method)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-d-16",
+     "title": "Weak formulation"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-d-17",
+     "title": "Existence & uniqueness (coercive case)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-d-18",
+     "title": "The Fredholm alternative (non-coercive case)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-d-19",
+     "title": "Spectrum of −Δ"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#lane-e-elliptic-regularity",
+     "title": "Lane E: elliptic regularity"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-e-20",
+     "title": "Interior H²/Hᵏ estimates"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-e-21",
+     "title": "Calderón–Zygmund W^{2,p} estimates"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-e-22",
+     "title": "Schauder estimates"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-e-23",
+     "title": "De Giorgi–Nash–Moser"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#lane-f-parabolic-and-evolution-equations",
+     "title": "Lane F: parabolic and evolution equations"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-f-24",
+     "title": "Bochner spaces and the Gelfand triple"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-f-25",
+     "title": "Linear parabolic existence"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/PDE#milestone-f-26",
+     "title": "Semigroups"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+   "title": "Exchangeability and de Finetti",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_Exchangeability.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-0-sequence-laws-finite-marginals-and-symmetry-notions",
+     "title": "Layer 0: sequence laws, finite marginals, and symmetry notions"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-1-product-kernels-and-mixtures",
+     "title": "Layer 1: product kernels and mixtures"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-2-process-tails-and-path-space-dynamics",
+     "title": "Layer 2: process tails and path-space dynamics"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-3-l²-averaging-library-and-the-standard-borel-de-finetti-route",
+     "title": "Layer 3: L² averaging library and the standard-Borel de Finetti route"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-4-reverse-martingales-and-conditional-expectation-limits",
+     "title": "Layer 4: reverse martingales and conditional-expectation limits"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-5-koopman-operators-and-invariant-σ-algebras",
+     "title": "Layer 5: Koopman operators and invariant σ-algebras"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-6-directing-measures-and-de-finetti-representation",
+     "title": "Layer 6: directing measures and de Finetti representation"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-7-public-api-and-examples",
+     "title": "Layer 7: public API and examples"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-8-generalized-exchangeability-and-representation-theorems",
+     "title": "Layer 8: generalized exchangeability and representation theorems"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+   "title": "Standard probability distributions and their elementary theory",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_StandardDistributions.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-0-connect-existing-densities-and-add-the-uniform-distribution",
+     "title": "Layer 0: connect existing densities and add the uniform distribution"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-1-complete-the-elementary-theory-of-existing-distributions",
+     "title": "Layer 1: complete the elementary theory of existing distributions"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-2-incomplete-special-functions-and-closed-form-cdfs",
+     "title": "Layer 2: incomplete special functions and closed-form cdfs"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-3-new-scalar-families",
+     "title": "Layer 3: new scalar families"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-4-relationships-among-distributions",
+     "title": "Layer 4: relationships among distributions"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-5-multivariate-distributions",
+     "title": "Layer 5: multivariate distributions"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-6-symmetric-matrices-and-wishart-distributions",
+     "title": "Layer 6: symmetric matrices and Wishart distributions"
+    }
+   ]
+  }
+ ]
+}

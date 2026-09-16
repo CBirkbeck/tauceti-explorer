@@ -1,0 +1,228 @@
+{
+ "job": "AUDIT-25",
+ "roadmaps": [
+  {
+   "roadmapId": "GrossZagierAndArithmeticHeights",
+   "title": "Gross–Zagier formulas and arithmetic heights",
+   "extract": "research/blueprint/atlas/roadmaps/GrossZagierAndArithmeticHeights.json",
+   "layers": [
+    {
+     "id": "GrossZagierAndArithmeticHeights:GZ.0",
+     "title": "Normalization and change-of-convention interfaces"
+    },
+    {
+     "id": "GrossZagierAndArithmeticHeights:GZ.1",
+     "title": "Point heights on abelian varieties and the Poincaré pairing"
+    },
+    {
+     "id": "GrossZagierAndArithmeticHeights:GZ.2",
+     "title": "Admissible pairings on arithmetic surfaces"
+    },
+    {
+     "id": "GrossZagierAndArithmeticHeights:GZ.3",
+     "title": "Rational automorphic realizations and modular degrees"
+    },
+    {
+     "id": "GrossZagierAndArithmeticHeights:GZ.4",
+     "title": "Local toric multiplicity one, dichotomy and test vectors"
+    },
+    {
+     "id": "GrossZagierAndArithmeticHeights:GZ.5",
+     "title": "Coherent theta kernels and the Waldspurger formula"
+    },
+    {
+     "id": "GrossZagierAndArithmeticHeights:GZ.6",
+     "title": "Arithmetic generating series and incoherent analytic kernels"
+    },
+    {
+     "id": "GrossZagierAndArithmeticHeights:GZ.7",
+     "title": "Local arithmetic identities and boundary contributions"
+    },
+    {
+     "id": "GrossZagierAndArithmeticHeights:GZ.8",
+     "title": "The general Gross–Zagier pairing and explicit specializations"
+    },
+    {
+     "id": "GrossZagierAndArithmeticHeights:GZ.9",
+     "title": "The split ordinary p-adic logarithm/toric formula"
+    }
+   ]
+  },
+  {
+   "roadmapId": "HeegnerPointEulerSystems",
+   "title": "Heegner-point Euler systems and arithmetic descent",
+   "extract": "research/blueprint/atlas/roadmaps/HeegnerPointEulerSystems.json",
+   "layers": [
+    {
+     "id": "HeegnerPointEulerSystems:HE.0",
+     "title": "Quadratic orders, ring class fields and reciprocity"
+    },
+    {
+     "id": "HeegnerPointEulerSystems:HE.1",
+     "title": "CM points and compatible modular parametrizations"
+    },
+    {
+     "id": "HeegnerPointEulerSystems:HE.2",
+     "title": "Geometric norm and reduction-congruence relations"
+    },
+    {
+     "id": "HeegnerPointEulerSystems:HE.3",
+     "title": "Kummer classes and exact Selmer conditions"
+    },
+    {
+     "id": "HeegnerPointEulerSystems:HE.4",
+     "title": "Heegner derivative classes and choice independence"
+    },
+    {
+     "id": "HeegnerPointEulerSystems:HE.5",
+     "title": "Local reciprocity and arithmetic hypothesis verification"
+    },
+    {
+     "id": "HeegnerPointEulerSystems:HE.6",
+     "title": "Clean rank-one descent and precise index bounds"
+    },
+    {
+     "id": "HeegnerPointEulerSystems:HE.7",
+     "title": "Integral classical descent and full Sha finiteness"
+    },
+    {
+     "id": "HeegnerPointEulerSystems:HE.7s",
+     "title": "Classical exceptional-prime and CM proof-source boundary"
+    },
+    {
+     "id": "HeegnerPointEulerSystems:HE.8",
+     "title": "Anticyclotomic families, nonvanishing and divisibility defects"
+    },
+    {
+     "id": "HeegnerPointEulerSystems:HE.8b",
+     "title": "HE.8. Anticyclotomic families, nonvanishing and divisibility defects"
+    },
+    {
+     "id": "HeegnerPointEulerSystems:HE.8c",
+     "title": "Source hypotheses for anticyclotomic nonvanishing"
+    }
+   ]
+  },
+  {
+   "roadmapId": "IntegralIwasawaTheory",
+   "title": "Arithmetic Iwasawa theory and the main conjecture",
+   "extract": "research/blueprint/atlas/roadmaps/IntegralIwasawaTheory.json",
+   "layers": [
+    {
+     "id": "IntegralIwasawaTheory:I.1",
+     "title": "Cyclotomic towers and coefficient rings"
+    },
+    {
+     "id": "IntegralIwasawaTheory:I.10",
+     "title": "Comparison with classical arithmetic formulations"
+    },
+    {
+     "id": "IntegralIwasawaTheory:I.2",
+     "title": "Arithmetic inverse limits"
+    },
+    {
+     "id": "IntegralIwasawaTheory:I.3",
+     "title": "p-adic zeta functions and interpolation"
+    },
+    {
+     "id": "IntegralIwasawaTheory:I.4",
+     "title": "Specialisation and Euler characteristics"
+    },
+    {
+     "id": "IntegralIwasawaTheory:I.5",
+     "title": "Classical main conjectures at odd primes"
+    },
+    {
+     "id": "IntegralIwasawaTheory:I.6",
+     "title": "Integral Brumer–Stark prerequisites"
+    },
+    {
+     "id": "IntegralIwasawaTheory:I.7",
+     "title": "The integral Brumer–Stark theorem"
+    },
+    {
+     "id": "IntegralIwasawaTheory:I.8",
+     "title": "The compactly supported Iwasawa complex"
+    },
+    {
+     "id": "IntegralIwasawaTheory:I.9",
+     "title": "The all-prime determinant main conjecture"
+    },
+    {
+     "id": "IntegralIwasawaTheory:L0",
+     "title": "Global cyclotomic arithmetic and the index formula"
+    },
+    {
+     "id": "IntegralIwasawaTheory:L1",
+     "title": "Infinite extensions and class field theory"
+    },
+    {
+     "id": "IntegralIwasawaTheory:L2",
+     "title": "Control and class-number growth"
+    },
+    {
+     "id": "IntegralIwasawaTheory:L3",
+     "title": "Vandiver's condition and the notes' special-case proof"
+    },
+    {
+     "id": "IntegralIwasawaTheory:L4",
+     "title": "Abelian Leopoldt and Ferrero–Washington"
+    }
+   ]
+  },
+  {
+   "roadmapId": "KatoEulerSystems",
+   "title": "Kato classes and explicit reciprocity for modular forms",
+   "extract": "research/blueprint/atlas/roadmaps/KatoEulerSystems.json",
+   "layers": [
+    {
+     "id": "KatoEulerSystems:L0",
+     "title": "Siegel units"
+    },
+    {
+     "id": "KatoEulerSystems:L1",
+     "title": "Symbols and regulators"
+    },
+    {
+     "id": "KatoEulerSystems:L2",
+     "title": "Global zeta classes"
+    },
+    {
+     "id": "KatoEulerSystems:L3",
+     "title": "Explicit reciprocity"
+    },
+    {
+     "id": "KatoEulerSystems:L4",
+     "title": "Nonvanishing and the Euler-system divisibility"
+    }
+   ]
+  },
+  {
+   "roadmapId": "LocallyAnalyticDistributions",
+   "title": "Locally analytic distributions, growth, and character spaces",
+   "extract": "research/blueprint/atlas/roadmaps/LocallyAnalyticDistributions.json",
+   "layers": [
+    {
+     "id": "LocallyAnalyticDistributions:L0",
+     "title": "Banach spaces of locally analytic functions"
+    },
+    {
+     "id": "LocallyAnalyticDistributions:L1",
+     "title": "Amice's unbounded transform"
+    },
+    {
+     "id": "LocallyAnalyticDistributions:L2",
+     "title": "Admissible growth and uniqueness"
+    },
+    {
+     "id": "LocallyAnalyticDistributions:L3",
+     "title": "Character spaces and Mellin transforms"
+    },
+    {
+     "id": "LocallyAnalyticDistributions:L4",
+     "title": "Families and operator theory"
+    }
+   ]
+  }
+ ]
+}

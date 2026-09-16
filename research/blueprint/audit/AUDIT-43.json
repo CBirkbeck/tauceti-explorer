@@ -1,0 +1,204 @@
+{
+ "job": "AUDIT-43",
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+   "title": "Quiver representations, path algebras, and Gabriel's theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-0-quivers-and-the-path-algebra",
+     "title": "Layer 0: quivers and the path algebra"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-1-representations-of-a-quiver-as-kq-modules",
+     "title": "Layer 1: representations of a quiver as kQ-modules"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-2-the-krull-schmidt-theorem",
+     "title": "Layer 2: the Krull-Schmidt theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+     "title": "Layer 3: the structure of a finite-dimensional algebra"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors",
+     "title": "Layer 4: the Euler form, dimension vectors, and reflection functors"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification",
+     "title": "Layer 5: Gabriel's theorem (the ADE classification)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-6-auslander-reiten-theory",
+     "title": "Layer 6: Auslander-Reiten theory"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+   "title": "Root systems, Weyl groups, and the Cartan-Killing classification",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange",
+     "title": "Layer 1: root combinatorics (positive roots, lowering, inversions, exchange)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system",
+     "title": "Layer 2: the Weyl group as a Coxeter system"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-3-the-missing-coxeter-combinatorics-root-system-free",
+     "title": "Layer 3: the missing Coxeter combinatorics (root-system-free)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element",
+     "title": "Layer 4: chambers, the fundamental domain, and the longest element"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+     "title": "Layer 5: Dynkin diagrams and the Cartan-Killing classification"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+     "title": "Layer 6: the Bourbaki numbering and integral root data"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+   "title": "Representations of the symmetric group, Specht modules, and Schur-Weyl duality",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-0-partitions-diagrams-tableaux-and-orders",
+     "title": "Layer 0: partitions, diagrams, tableaux, and orders"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-1-young-subgroups-and-the-permutation-modules-mλ",
+     "title": "Layer 1: Young subgroups and the permutation modules M^λ"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-2-young-symmetrizers",
+     "title": "Layer 2: Young symmetrizers"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-3-the-specht-modules-sλ",
+     "title": "Layer 3: the Specht modules S^λ"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-4-completeness-and-irreducibility-the-classification",
+     "title": "Layer 4: completeness and irreducibility (the classification)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-5-the-standard-basis-and-the-hook-length-formula",
+     "title": "Layer 5: the standard basis and the hook-length formula"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-6-characters-and-the-murnaghan-nakayama-rule",
+     "title": "Layer 6: characters and the Murnaghan-Nakayama rule"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-7-symmetric-functions-the-frobenius-characteristic-and-rsk",
+     "title": "Layer 7: symmetric functions, the Frobenius characteristic, and RSK"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-8-schur-weyl-duality",
+     "title": "Layer 8: Schur-Weyl duality"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-9-schur-weyl-duality-for-the-orthogonal-and-symplectic-groups-the-brauer-algebra",
+     "title": "Layer 9: Schur-Weyl duality for the orthogonal and symplectic groups (the Brauer algebra)"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+   "title": "Semisimple algebras, Artin-Wedderburn, and the structure of their modules",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-0-the-jacobson-radical-and-the-semisimplicity-criterion-supporting-api-optional",
+     "title": "Layer 0: the Jacobson radical and the semisimplicity criterion (supporting API, optional)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-1-simple-modules-schur-and-isotypic-components",
+     "title": "Layer 1: simple modules, Schur, and isotypic components"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-15-every-simple-module-is-a-minimal-left-ideal",
+     "title": "Layer 1.5: every simple module is a minimal left ideal"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
+     "title": "Layer 2: Artin-Wedderburn, assembled with uniqueness"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem",
+     "title": "Layer 3: the double-centralizer (density) theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products",
+     "title": "Layer 4: central simple algebras and their tensor products"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-5-skolem-noether-and-the-centralizer-theorem",
+     "title": "Layer 5: Skolem-Noether and the centralizer theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
+     "title": "Layer 6: the Brauer group and splitting fields"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+   "title": "Clifford algebras, the Pin and Spin groups, and spin representations",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-0-the-clifford-algebra-its-universal-property-and-the-two-gradings",
+     "title": "Layer 0: the Clifford algebra, its universal property, and the two gradings"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-1-the-structure-theorem",
+     "title": "Layer 1: the structure theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-2-the-pin-and-spin-groups-and-the-double-covers",
+     "title": "Layer 2: the Pin and Spin groups and the double covers"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-3-the-lie-algebra-𝔰𝔬v--²v-inside-the-clifford-algebra",
+     "title": "Layer 3: the Lie algebra 𝔰𝔬(V) ≅ ⋀²V inside the Clifford algebra"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-4-the-spin-and-half-spin-representations",
+     "title": "Layer 4: the spin and half-spin representations"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-5-the-fundamental-representations-of-bₗ-and-dₗ",
+     "title": "Layer 5: the fundamental representations of Bₗ and Dₗ"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-6-the-low-dimensional-exceptional-isomorphisms",
+     "title": "Layer 6: the low-dimensional exceptional isomorphisms"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-7-real-clifford-algebras-bott-periodicity-and-spinp-q",
+     "title": "Layer 7: real Clifford algebras, Bott periodicity, and Spin(p, q)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-8-triality-for-spin₈",
+     "title": "Layer 8: triality for Spin₈"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-9-lie-algebras-acting-through-the-clifford-algebra-and-kostants-isotypy-corollary",
+     "title": "Layer 9: Lie algebras acting through the Clifford algebra, and Kostant's isotypy corollary"
+    }
+   ]
+  }
+ ]
+}

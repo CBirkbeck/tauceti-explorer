@@ -1,0 +1,232 @@
+{
+ "job": "AUDIT-10",
+ "roadmaps": [
+  {
+   "roadmapId": "ModularCurvesPartII",
+   "title": "Modular Curves PartII",
+   "extract": "research/blueprint/atlas/roadmaps/ModularCurvesPartII.json",
+   "layers": [
+    {
+     "id": "ModularCurvesPartII:R12.1",
+     "title": "Uniformisation of elliptic curves"
+    },
+    {
+     "id": "ModularCurvesPartII:R12.2",
+     "title": "Level structures and quotient identification"
+    },
+    {
+     "id": "ModularCurvesPartII:R12.3",
+     "title": "Cusps and compactification comparison"
+    },
+    {
+     "id": "ModularCurvesPartII:R12.4",
+     "title": "Connectedness and twisted curves"
+    },
+    {
+     "id": "ModularCurvesPartII:R12.5",
+     "title": "Differentials and Hecke normalisation"
+    },
+    {
+     "id": "ModularCurvesPartII:R12.6",
+     "title": "Descent and compatibility statements"
+    },
+    {
+     "id": "ModularCurvesPartII:R13.1",
+     "title": "Generalised elliptic curves"
+    },
+    {
+     "id": "ModularCurvesPartII:R13.2",
+     "title": "Compactified level moduli"
+    },
+    {
+     "id": "ModularCurvesPartII:R13.3",
+     "title": "Tate curves and formal neighbourhoods of cusps"
+    },
+    {
+     "id": "ModularCurvesPartII:R13.4",
+     "title": "Integral coarse spaces and comparison with #81"
+    },
+    {
+     "id": "ModularCurvesPartII:R13.4a",
+     "title": "Algebraic coarse construction before analytic comparison"
+    },
+    {
+     "id": "ModularCurvesPartII:R13.4b",
+     "title": "Generic-fibre and correspondence compatibility"
+    },
+    {
+     "id": "ModularCurvesPartII:R13.5",
+     "title": "Bad fibres and regular/semistable models"
+    },
+    {
+     "id": "ModularCurvesPartII:R13.6",
+     "title": "Boundary and degeneration outputs"
+    },
+    {
+     "id": "ModularCurvesPartII:R14.1",
+     "title": "Algebraic Hecke correspondences"
+    },
+    {
+     "id": "ModularCurvesPartII:R14.2",
+     "title": "Jacobians and integral Hecke actions"
+    },
+    {
+     "id": "ModularCurvesPartII:R14.3",
+     "title": "Cohomological realisations and pairings"
+    },
+    {
+     "id": "ModularCurvesPartII:R14.4",
+     "title": "Ihara and level-change statements"
+    },
+    {
+     "id": "ModularCurvesPartII:R14.5",
+     "title": "Modular quotients"
+    },
+    {
+     "id": "ModularCurvesPartII:R14.6",
+     "title": "Bad-prime and patching interfaces"
+    }
+   ]
+  },
+  {
+   "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+   "title": "Néron models and semistable abelian varieties",
+   "extract": "research/blueprint/atlas/roadmaps/NeronModelsAndSemistableAbelianVarieties.json",
+   "layers": [
+    {
+     "id": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+     "title": "Néron models and their uniqueness"
+    },
+    {
+     "id": "NeronModelsAndSemistableAbelianVarieties:R11.2",
+     "title": "Special fibres and component groups"
+    },
+    {
+     "id": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+     "title": "Semistable reduction and uniformisation"
+    },
+    {
+     "id": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+     "title": "Picard schemes of semistable curves"
+    },
+    {
+     "id": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+     "title": "Tate modules, conductors and local factors"
+    },
+    {
+     "id": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+     "title": "Interfaces for modularity and finiteness"
+    }
+   ]
+  },
+  {
+   "roadmapId": "PELModuli",
+   "title": "Siegel and PEL moduli problems",
+   "extract": "research/blueprint/atlas/roadmaps/PELModuli.json",
+   "layers": [
+    {
+     "id": "PELModuli:M0",
+     "title": "Linear algebra and reflex field"
+    },
+    {
+     "id": "PELModuli:M1",
+     "title": "The moduli functors and descent"
+    },
+    {
+     "id": "PELModuli:M2",
+     "title": "Representability and smoothness at good level"
+    },
+    {
+     "id": "PELModuli:M3",
+     "title": "Complex and generic-fibre comparison"
+    },
+    {
+     "id": "PELModuli:M4",
+     "title": "Canonical models and integral level changes"
+    },
+    {
+     "id": "PELModuli:M5",
+     "title": "Required examples"
+    },
+    {
+     "id": "PELModuli:M6",
+     "title": "Arithmetic moduli and source R10.3/R10.6"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ShimuraCompactifications",
+   "title": "Toroidal compactifications and boundary geometry",
+   "extract": "research/blueprint/atlas/roadmaps/ShimuraCompactifications.json",
+   "layers": [
+    {
+     "id": "ShimuraCompactifications:C0",
+     "title": "Admissible fans and relative torus embeddings"
+    },
+    {
+     "id": "ShimuraCompactifications:C1",
+     "title": "Rational boundary and mixed data"
+    },
+    {
+     "id": "ShimuraCompactifications:C2",
+     "title": "Toroidal gluing in characteristic zero"
+    },
+    {
+     "id": "ShimuraCompactifications:C2.general",
+     "title": "General-data completion interface"
+    },
+    {
+     "id": "ShimuraCompactifications:C3",
+     "title": "Refinements and Hecke maps"
+    },
+    {
+     "id": "ShimuraCompactifications:C3.general",
+     "title": "General-data completion interface"
+    },
+    {
+     "id": "ShimuraCompactifications:C4",
+     "title": "Degenerations of polarized abelian schemes"
+    },
+    {
+     "id": "ShimuraCompactifications:C5",
+     "title": "Integral PEL compactifications"
+    },
+    {
+     "id": "ShimuraCompactifications:C6",
+     "title": "Hilbert and modular specializations"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ShimuraData",
+   "title": "Shimura data, Hermitian domains, and adelic level structures",
+   "extract": "research/blueprint/atlas/roadmaps/ShimuraData.json",
+   "layers": [
+    {
+     "id": "ShimuraData:D0",
+     "title": "Restriction of scalars and topological points"
+    },
+    {
+     "id": "ShimuraData:D1",
+     "title": "The Deligne torus and Hodge structures"
+    },
+    {
+     "id": "ShimuraData:D2",
+     "title": "Real reductive groups and Hermitian domains"
+    },
+    {
+     "id": "ShimuraData:D3",
+     "title": "Homogeneous variations and compact duals"
+    },
+    {
+     "id": "ShimuraData:D4",
+     "title": "Data, morphisms, and distinguished classes"
+    },
+    {
+     "id": "ShimuraData:D5",
+     "title": "Levels and explicit examples"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,204 @@
+{
+ "job": "AUDIT-19",
+ "roadmaps": [
+  {
+   "roadmapId": "HabiroCohomologyFoundations",
+   "title": "Q-Hodge filtrations and Habiro cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroCohomologyFoundations.json",
+   "layers": [
+    {
+     "id": "HabiroCohomologyFoundations:HQ.1",
+     "title": "q-differentials and coordinate comparisons"
+    },
+    {
+     "id": "HabiroCohomologyFoundations:HQ.2",
+     "title": "Animated inputs and derived q-de Rham"
+    },
+    {
+     "id": "HabiroCohomologyFoundations:HQ.3",
+     "title": "q-Hodge filtrations and modification"
+    },
+    {
+     "id": "HabiroCohomologyFoundations:HQ.4",
+     "title": "q-Witt and cyclotomic descent"
+    },
+    {
+     "id": "HabiroCohomologyFoundations:HQ.5",
+     "title": "Existence classes and number fields"
+    },
+    {
+     "id": "HabiroCohomologyFoundations:HQ.5-trace",
+     "title": "Trace-theoretic existence"
+    },
+    {
+     "id": "HabiroCohomologyFoundations:HQ.6",
+     "title": "Algebraic and analytic boundaries"
+    },
+    {
+     "id": "HabiroCohomologyFoundations:HQ.7",
+     "title": "Acceptance tests and Lean boundary"
+    },
+    {
+     "id": "HabiroCohomologyFoundations:HQ.8",
+     "title": "Crystalline, A_inf and prismatic comparison atlas"
+    }
+   ]
+  },
+  {
+   "roadmapId": "LefschetzPencilsAndVanishingCycles",
+   "title": "Lefschetz pencils, nearby cycles and vanishing cycles",
+   "extract": "research/blueprint/atlas/roadmaps/LefschetzPencilsAndVanishingCycles.json",
+   "layers": [
+    {
+     "id": "LefschetzPencilsAndVanishingCycles:LPV.0",
+     "title": "Nearby and vanishing cycles on actual sites"
+    },
+    {
+     "id": "LefschetzPencilsAndVanishingCycles:LPV.1",
+     "title": "Inertia, variation and the monodromy operator"
+    },
+    {
+     "id": "LefschetzPencilsAndVanishingCycles:LPV.2",
+     "title": "Ordinary quadratic singularities and Picard–Lefschetz"
+    },
+    {
+     "id": "LefschetzPencilsAndVanishingCycles:LPV.3",
+     "title": "Existence of sufficiently ample Lefschetz pencils"
+    },
+    {
+     "id": "LefschetzPencilsAndVanishingCycles:LPV.4",
+     "title": "Global vanishing cycles and middle-degree reduction"
+    },
+    {
+     "id": "LefschetzPencilsAndVanishingCycles:LPV.5",
+     "title": "Irreducibility and open symplectic monodromy"
+    },
+    {
+     "id": "LefschetzPencilsAndVanishingCycles:LPV.6",
+     "title": "Perverse nearby cycles and comparison interfaces"
+    },
+    {
+     "id": "LefschetzPencilsAndVanishingCycles:LPV.7",
+     "title": "Invariant cycles and semistable-curve exports"
+    },
+    {
+     "id": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+     "title": "Invariant cycles and semistable-curve exports"
+    },
+    {
+     "id": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+     "title": "Invariant cycles and semistable-curve exports — semistable curves"
+    }
+   ]
+  },
+  {
+   "roadmapId": "WeightsInEtaleCohomology",
+   "title": "Weights and purity in étale cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/WeightsInEtaleCohomology.json",
+   "layers": [
+    {
+     "id": "WeightsInEtaleCohomology:R34.1",
+     "title": "Frobenius, algebraicity and weights"
+    },
+    {
+     "id": "WeightsInEtaleCohomology:R34.2",
+     "title": "Curves and abelian varieties"
+    },
+    {
+     "id": "WeightsInEtaleCohomology:R34.3",
+     "title": "Nearby and vanishing cycles"
+    },
+    {
+     "id": "WeightsInEtaleCohomology:R34.4",
+     "title": "Geometric reduction and monodromy"
+    },
+    {
+     "id": "WeightsInEtaleCohomology:R34.5",
+     "title": "Weil I and the required Weil II results"
+    },
+    {
+     "id": "WeightsInEtaleCohomology:R34.6",
+     "title": "Purity applications and comparison"
+    }
+   ]
+  },
+  {
+   "roadmapId": "WeilConjectures",
+   "title": "Weil conjectures and cohomological zeta functions",
+   "extract": "research/blueprint/atlas/roadmaps/WeilConjectures.json",
+   "layers": [
+    {
+     "id": "WeilConjectures:WC.0",
+     "title": "Source reconciliation and real geometric inputs"
+    },
+    {
+     "id": "WeilConjectures:WC.1",
+     "title": "Zeta arithmetic and finite-extension API"
+    },
+    {
+     "id": "WeilConjectures:WC.2",
+     "title": "Poincaré duality and exact functional equation"
+    },
+    {
+     "id": "WeilConjectures:WC.3",
+     "title": "Integral factors, all-conjugates RH and ℓ-independence"
+    },
+    {
+     "id": "WeilConjectures:WC.4",
+     "title": "Betti-number comparison in families"
+    },
+    {
+     "id": "WeilConjectures:WC.5",
+     "title": "Point-count bounds and curves"
+    },
+    {
+     "id": "WeilConjectures:WC.5:power-sum-converse",
+     "title": "Independent finite-spectrum lemma"
+    },
+    {
+     "id": "WeilConjectures:WC.5:surface-alternative",
+     "title": "Independent curve bound by intersection theory"
+    },
+    {
+     "id": "WeilConjectures:WC.6",
+     "title": "Broader geometry and cohomology interfaces"
+    },
+    {
+     "id": "WeilConjectures:WC.7",
+     "title": "Worked realizations and final assembly"
+    }
+   ]
+  },
+  {
+   "roadmapId": "FiniteFieldsAndCharacterSums",
+   "title": "Finite fields, character sums, finite rings and coding interfaces",
+   "extract": "research/blueprint/atlas/roadmaps/FiniteFieldsAndCharacterSums.json",
+   "layers": [
+    {
+     "id": "FiniteFieldsAndCharacterSums:FF.0",
+     "title": "Finite-field constructions"
+    },
+    {
+     "id": "FiniteFieldsAndCharacterSums:FF.1",
+     "title": "Characters and elementary sums"
+    },
+    {
+     "id": "FiniteFieldsAndCharacterSums:FF.2",
+     "title": "Weil and Deligne bounds"
+    },
+    {
+     "id": "FiniteFieldsAndCharacterSums:FF.3",
+     "title": "Factorization and point counting"
+    },
+    {
+     "id": "FiniteFieldsAndCharacterSums:FF.4",
+     "title": "Finite rings, sequences and codes"
+    },
+    {
+     "id": "FiniteFieldsAndCharacterSums:FF.5",
+     "title": "Arithmetic applications"
+    }
+   ]
+  }
+ ]
+}

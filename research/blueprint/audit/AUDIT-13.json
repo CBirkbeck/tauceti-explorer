@@ -1,0 +1,184 @@
+{
+ "job": "AUDIT-13",
+ "roadmaps": [
+  {
+   "roadmapId": "AdelicAlgebraicGroups",
+   "title": "Adelic algebraic groups and arithmetic quotients",
+   "extract": "research/blueprint/atlas/roadmaps/AdelicAlgebraicGroups.json",
+   "layers": [
+    {
+     "id": "AdelicAlgebraicGroups:AA.0",
+     "title": "Restricted products of locally compact groups"
+    },
+    {
+     "id": "AdelicAlgebraicGroups:AA.1",
+     "title": "Adelic points and functoriality"
+    },
+    {
+     "id": "AdelicAlgebraicGroups:AA.2",
+     "title": "Characters, heights and integration"
+    },
+    {
+     "id": "AdelicAlgebraicGroups:AA.3",
+     "title": "Reduction theory"
+    },
+    {
+     "id": "AdelicAlgebraicGroups:AA.4",
+     "title": "Approximation and level maps"
+    },
+    {
+     "id": "AdelicAlgebraicGroups:AA.5",
+     "title": "General-purpose validation"
+    }
+   ]
+  },
+  {
+   "roadmapId": "AlgebraicModularFormsAndSerreWeights",
+   "title": "Algebraic modular forms, reduction and Serre weights",
+   "extract": "research/blueprint/atlas/roadmaps/AlgebraicModularFormsAndSerreWeights.json",
+   "layers": [
+    {
+     "id": "AlgebraicModularFormsAndSerreWeights:R15.1",
+     "title": "Geometric forms and comparison"
+    },
+    {
+     "id": "AlgebraicModularFormsAndSerreWeights:R15.2",
+     "title": "q-expansion and integral Hecke theory"
+    },
+    {
+     "id": "AlgebraicModularFormsAndSerreWeights:R15.3",
+     "title": "Characteristic-p operations"
+    },
+    {
+     "id": "AlgebraicModularFormsAndSerreWeights:R15.4",
+     "title": "Serre's local weight recipe"
+    },
+    {
+     "id": "AlgebraicModularFormsAndSerreWeights:R15.5",
+     "title": "Eigenforms and characteristic-zero lifting"
+    },
+    {
+     "id": "AlgebraicModularFormsAndSerreWeights:R15.6",
+     "title": "Definitions used in the Serre statement"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ArithmeticLocallySymmetricSpaces",
+   "title": "Arithmetic locally symmetric spaces and their cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticLocallySymmetricSpaces.json",
+   "layers": [
+    {
+     "id": "ArithmeticLocallySymmetricSpaces:ALS.0",
+     "title": "Symmetric spaces and components"
+    },
+    {
+     "id": "ArithmeticLocallySymmetricSpaces:ALS.1",
+     "title": "Local systems and chain complexes"
+    },
+    {
+     "id": "ArithmeticLocallySymmetricSpaces:ALS.2",
+     "title": "Borel–Serre compactification"
+    },
+    {
+     "id": "ArithmeticLocallySymmetricSpaces:ALS.3",
+     "title": "Hecke correspondences on complexes"
+    },
+    {
+     "id": "ArithmeticLocallySymmetricSpaces:ALS.4",
+     "title": "Boundary and Levi cohomology"
+    },
+    {
+     "id": "ArithmeticLocallySymmetricSpaces:ALS.5",
+     "title": "finite-level-duality (early)"
+    },
+    {
+     "id": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
+     "title": "Duality and comparison — finite level duality"
+    },
+    {
+     "id": "ArithmeticLocallySymmetricSpaces:ALS.6",
+     "title": "Reusable tower API"
+    }
+   ]
+  },
+  {
+   "roadmapId": "AutomorphicBundles",
+   "title": "Automorphic bundles and classical automorphic forms",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicBundles.json",
+   "layers": [
+    {
+     "id": "AutomorphicBundles:B0",
+     "title": "Associated bundles and coefficient descent"
+    },
+    {
+     "id": "AutomorphicBundles:B1",
+     "title": "Canonical principal bundles over number fields"
+    },
+    {
+     "id": "AutomorphicBundles:B1.general",
+     "title": "General-data completion interface"
+    },
+    {
+     "id": "AutomorphicBundles:B2",
+     "title": "Automorphic bundles and realizations"
+    },
+    {
+     "id": "AutomorphicBundles:B2.general",
+     "title": "General-data completion interface"
+    },
+    {
+     "id": "AutomorphicBundles:B3",
+     "title": "Canonical and subcanonical extensions"
+    },
+    {
+     "id": "AutomorphicBundles:B3.general",
+     "title": "General-data completion interface"
+    },
+    {
+     "id": "AutomorphicBundles:B4",
+     "title": "Classical forms and explicit weights"
+    },
+    {
+     "id": "AutomorphicBundles:B5",
+     "title": "Hecke action and Fourier expansions"
+    }
+   ]
+  },
+  {
+   "roadmapId": "AutomorphicFormsOnReductiveGroups",
+   "title": "Automorphic forms on reductive groups",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicFormsOnReductiveGroups.json",
+   "layers": [
+    {
+     "id": "AutomorphicFormsOnReductiveGroups:AF.0",
+     "title": "Test functions and growth"
+    },
+    {
+     "id": "AutomorphicFormsOnReductiveGroups:AF.1",
+     "title": "Real reductive representation foundations"
+    },
+    {
+     "id": "AutomorphicFormsOnReductiveGroups:AF.1a",
+     "title": "Continuous cohomology, van Est and invariant forms"
+    },
+    {
+     "id": "AutomorphicFormsOnReductiveGroups:AF.2",
+     "title": "Automorphic spaces and representations"
+    },
+    {
+     "id": "AutomorphicFormsOnReductiveGroups:AF.3",
+     "title": "Constant terms and cusp forms"
+    },
+    {
+     "id": "AutomorphicFormsOnReductiveGroups:AF.4",
+     "title": "Algebraic weights and rational structures"
+    },
+    {
+     "id": "AutomorphicFormsOnReductiveGroups:AF.5",
+     "title": "Comparison examples and transport"
+    }
+   ]
+  }
+ ]
+}

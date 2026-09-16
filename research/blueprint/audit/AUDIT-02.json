@@ -1,0 +1,188 @@
+{
+ "job": "AUDIT-02",
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+   "title": "Hodge structures (pure, mixed, and polarized)",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_HodgeStructures.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l0--pure-hodge-structures-the-hodge-decomposition",
+     "title": "L0 — Pure Hodge structures; the Hodge decomposition"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory",
+     "title": "L1 — Polarization & Hodge–Riemann; semisimplicity (summit of the pure theory)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne",
+     "title": "L2 — Mixed Hodge structures; strictness (Deligne)"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l3--period-domain-points-the-symmetry-group",
+     "title": "L3 — Period-domain points; the symmetry group"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+   "title": "The Jacobian challenge (Christian Merten's AG version)",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_JacobianChallenge.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+     "title": "Layer A, line bundles, divisors, Picard group, degree"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+     "title": "Layer B, coherent cohomology over k: genus, Riemann–Roch, Serre duality"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+     "title": "Layer C, relative coherent cohomology and base change"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+     "title": "Layer D, the relative Picard functor and the Jacobian scheme"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+     "title": "Layer E, abelian varieties"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+     "title": "Layer F, Abel–Jacobi and the universal property"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+   "title": "Stable reduction of curves and stable maps",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_StableReduction.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/StableReduction#layer-0-relative-curves-and-extensions-of-dvrs",
+     "title": "Layer 0: relative curves and extensions of DVRs"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+     "title": "Layer 1: nodes, normalization, and dual graphs"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+     "title": "Layer 2: coherent curve theory, duality, and positivity"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+     "title": "Layer 3: prestable, semistable, stable, and pointed curves"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+     "title": "Layer 4: blowups and intersection theory on arithmetic surfaces"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+     "title": "Layer 5: regular and minimal models"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion",
+     "title": "Layer 6: numerical types and Picard torsion"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+     "title": "Layer 7: semistable reduction"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+     "title": "Layer 8: canonical contraction and unpointed stable reduction"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
+     "title": "Layer 9: marked stabilization and stable pointed reduction"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StableReduction#layer-10-stable-maps-and-their-stability-condition",
+     "title": "Layer 10: stable maps and their stability condition"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/StableReduction#layer-11-basic-stable-map-api-and-map-aware-stabilization",
+     "title": "Layer 11: basic stable-map API and map-aware stabilization"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ArithmeticGaloisDuality",
+   "title": "Global Galois duality and compact coefficients",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticGaloisDuality.json",
+   "layers": [
+    {
+     "id": "ArithmeticGaloisDuality:D7",
+     "title": "Continuous derived cohomology and dimension-general duality"
+    },
+    {
+     "id": "ArithmeticGaloisDuality:D8",
+     "title": "Selmer and deformation comparisons"
+    },
+    {
+     "id": "ArithmeticGaloisDuality:R02.1",
+     "title": "Topological coefficients and inverse limits"
+    },
+    {
+     "id": "ArithmeticGaloisDuality:R02.2",
+     "title": "Hochschild–Serre and descent"
+    },
+    {
+     "id": "ArithmeticGaloisDuality:R02.3",
+     "title": "Global finiteness and cohomology with restricted ramification"
+    },
+    {
+     "id": "ArithmeticGaloisDuality:R02.4",
+     "title": "Poitou–Tate duality"
+    },
+    {
+     "id": "ArithmeticGaloisDuality:R02.5",
+     "title": "Selmer groups and local conditions"
+    },
+    {
+     "id": "ArithmeticGaloisDuality:R02.6",
+     "title": "Cohomological requirements of patching"
+    }
+   ]
+  },
+  {
+   "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+   "title": "Geometry of numbers, quadratic forms and homogeneous arithmetic",
+   "extract": "research/blueprint/atlas/roadmaps/GeometryOfNumbersAndQuadraticArithmetic.json",
+   "layers": [
+    {
+     "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+     "title": "Lattices and covolumes"
+    },
+    {
+     "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+     "title": "Convex-body and successive-minima theorems"
+    },
+    {
+     "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+     "title": "Quadratic and hermitian local-global theory"
+    },
+    {
+     "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+     "title": "Reduction, mass and theta series"
+    },
+    {
+     "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+     "title": "Lattice points and homogeneous dynamics"
+    },
+    {
+     "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.5",
+     "title": "Certified reductions and applications"
+    },
+    {
+     "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+     "title": "Hermitian K-theory and Grothendieck-Witt groups"
+    }
+   ]
+  }
+ ]
+}

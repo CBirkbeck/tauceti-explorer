@@ -1,0 +1,185 @@
+{
+ "job": "AUDIT-29",
+ "roadmaps": [
+  {
+   "roadmapId": "K2SymbolsBrauer",
+   "title": "Explicit K₂: symbols, residues and reciprocity",
+   "extract": "research/blueprint/atlas/roadmaps/K2SymbolsBrauer.json",
+   "layers": [
+    {
+     "id": "K2SymbolsBrauer:T.1",
+     "title": "Classical construction (T.1:classical)"
+    },
+    {
+     "id": "K2SymbolsBrauer:T.1:classical",
+     "title": "Classical construction"
+    },
+    {
+     "id": "K2SymbolsBrauer:T.1:plus",
+     "title": "Comparison with homotopy K₂"
+    },
+    {
+     "id": "K2SymbolsBrauer:T.2",
+     "title": "Classical field presentation (T.2:symbols)"
+    },
+    {
+     "id": "K2SymbolsBrauer:T.2:graded-map",
+     "title": "Later product comparison"
+    },
+    {
+     "id": "K2SymbolsBrauer:T.2:symbols",
+     "title": "Classical field presentation"
+    },
+    {
+     "id": "K2SymbolsBrauer:T.3",
+     "title": "Classical residue map (T.3:symbols)"
+    },
+    {
+     "id": "K2SymbolsBrauer:T.3:localization-comparison",
+     "title": "Later localization comparison"
+    },
+    {
+     "id": "K2SymbolsBrauer:T.3:symbols",
+     "title": "Classical residue map"
+    },
+    {
+     "id": "K2SymbolsBrauer:T.4",
+     "title": "Rational function fields and reciprocity"
+    },
+    {
+     "id": "K2SymbolsBrauer:T.5",
+     "title": "Tame kernels and explicit arithmetic"
+    },
+    {
+     "id": "K2SymbolsBrauer:T.6",
+     "title": "Rings with symbols and relative groups"
+    },
+    {
+     "id": "K2SymbolsBrauer:T.7",
+     "title": "Tate's comparison and Hilbert symbols"
+    }
+   ]
+  },
+  {
+   "roadmapId": "K3BlochGroups",
+   "title": "Explicit K₃ and Bloch groups",
+   "extract": "research/blueprint/atlas/roadmaps/K3BlochGroups.json",
+   "layers": [
+    {
+     "id": "K3BlochGroups:V.1",
+     "title": "A concrete homological model"
+    },
+    {
+     "id": "K3BlochGroups:V.2",
+     "title": "Decomposable and indecomposable parts"
+    },
+    {
+     "id": "K3BlochGroups:V.3",
+     "title": "Bloch-group conventions"
+    },
+    {
+     "id": "K3BlochGroups:V.4",
+     "title": "Suslin's exact sequence"
+    },
+    {
+     "id": "K3BlochGroups:V.5",
+     "title": "Concrete K₃ calculations"
+    },
+    {
+     "id": "K3BlochGroups:V.6",
+     "title": "Explicit elements and certificates"
+    }
+   ]
+  },
+  {
+   "roadmapId": "KTheoryFiniteLocalFields",
+   "title": "K-theory of finite and local fields",
+   "extract": "research/blueprint/atlas/roadmaps/KTheoryFiniteLocalFields.json",
+   "layers": [
+    {
+     "id": "KTheoryFiniteLocalFields:L.1",
+     "title": "Quillen's finite-field calculation"
+    },
+    {
+     "id": "KTheoryFiniteLocalFields:L.2",
+     "title": "Henselian local rings away from the residue characteristic"
+    },
+    {
+     "id": "KTheoryFiniteLocalFields:L.3",
+     "title": "Integral K₂ of local fields"
+    },
+    {
+     "id": "KTheoryFiniteLocalFields:L.4",
+     "title": "Trace constructions"
+    },
+    {
+     "id": "KTheoryFiniteLocalFields:L.5",
+     "title": "Witt vectors and residue-characteristic calculations"
+    },
+    {
+     "id": "KTheoryFiniteLocalFields:L.6",
+     "title": "Local higher K-groups"
+    },
+    {
+     "id": "KTheoryFiniteLocalFields:L.7",
+     "title": "Local-to-global compatibility"
+    }
+   ]
+  },
+  {
+   "roadmapId": "KTheoryLowDegrees",
+   "title": "Explicit K₀: projectives, rank and determinant",
+   "extract": "research/blueprint/atlas/roadmaps/KTheoryLowDegrees.json",
+   "layers": [
+    {
+     "id": "KTheoryLowDegrees:U.1",
+     "title": "Stabilisation and elementary groups"
+    },
+    {
+     "id": "KTheoryLowDegrees:U.2",
+     "title": "K₁ and its calculus"
+    },
+    {
+     "id": "KTheoryLowDegrees:U.3",
+     "title": "Determinant, units and SK₁"
+    },
+    {
+     "id": "KTheoryLowDegrees:U.4",
+     "title": "S-integers and the arithmetic theorem"
+    },
+    {
+     "id": "KTheoryLowDegrees:U.5",
+     "title": "Relative K₁ and maps"
+    },
+    {
+     "id": "KTheoryLowDegrees:U.6",
+     "title": "Homotopy comparison and tests"
+    },
+    {
+     "id": "KTheoryLowDegrees:Z.1",
+     "title": "Finitely generated projectives and their presentations"
+    },
+    {
+     "id": "KTheoryLowDegrees:Z.2",
+     "title": "Rank in the correct generality"
+    },
+    {
+     "id": "KTheoryLowDegrees:Z.3",
+     "title": "Tensor products, exterior powers and determinant"
+    },
+    {
+     "id": "KTheoryLowDegrees:Z.4",
+     "title": "Dedekind domains and S-integers"
+    },
+    {
+     "id": "KTheoryLowDegrees:Z.5",
+     "title": "Vector bundles and curves"
+    },
+    {
+     "id": "KTheoryLowDegrees:Z.6",
+     "title": "Degree-zero comparison and tests"
+    }
+   ]
+  }
+ ]
+}

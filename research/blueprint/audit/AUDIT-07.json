@@ -1,0 +1,160 @@
+{
+ "job": "AUDIT-07",
+ "roadmaps": [
+  {
+   "roadmapId": "ArithmeticStatistics",
+   "title": "Arithmetic statistics, counting fields and Selmer distributions",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticStatistics.json",
+   "layers": [
+    {
+     "id": "ArithmeticStatistics:ST.0",
+     "title": "Families, heights and measures"
+    },
+    {
+     "id": "ArithmeticStatistics:ST.1",
+     "title": "Parametrizations by orbits"
+    },
+    {
+     "id": "ArithmeticStatistics:ST.2",
+     "title": "Geometry of numbers and uniformity"
+    },
+    {
+     "id": "ArithmeticStatistics:ST.3",
+     "title": "Fields and class groups"
+    },
+    {
+     "id": "ArithmeticStatistics:ST.4",
+     "title": "Selmer groups and rank bounds"
+    },
+    {
+     "id": "ArithmeticStatistics:ST.5",
+     "title": "Beyond first moments"
+    }
+   ]
+  },
+  {
+   "roadmapId": "DiophantineApproximationAndTranscendence",
+   "title": "Diophantine approximation and transcendence",
+   "extract": "research/blueprint/atlas/roadmaps/DiophantineApproximationAndTranscendence.json",
+   "layers": [
+    {
+     "id": "DiophantineApproximationAndTranscendence:DT.0",
+     "title": "Heights and approximation constants"
+    },
+    {
+     "id": "DiophantineApproximationAndTranscendence:DT.1",
+     "title": "Liouville and Roth"
+    },
+    {
+     "id": "DiophantineApproximationAndTranscendence:DT.2",
+     "title": "Subspace theorem and S-unit equations"
+    },
+    {
+     "id": "DiophantineApproximationAndTranscendence:DT.3",
+     "title": "Transcendence and logarithmic forms"
+    },
+    {
+     "id": "DiophantineApproximationAndTranscendence:DT.4",
+     "title": "Effective applications"
+    },
+    {
+     "id": "DiophantineApproximationAndTranscendence:DT.5",
+     "title": "Further transcendence and unlikely intersections"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ExponentialSumsAndCircleMethod",
+   "title": "Exponential sums, decoupling and the circle method",
+   "extract": "research/blueprint/atlas/roadmaps/ExponentialSumsAndCircleMethod.json",
+   "layers": [
+    {
+     "id": "ExponentialSumsAndCircleMethod:ES.0",
+     "title": "Oscillation and finite sums"
+    },
+    {
+     "id": "ExponentialSumsAndCircleMethod:ES.1",
+     "title": "Fourier counting identities"
+    },
+    {
+     "id": "ExponentialSumsAndCircleMethod:ES.2",
+     "title": "Mean-value theorems"
+    },
+    {
+     "id": "ExponentialSumsAndCircleMethod:ES.3",
+     "title": "Major arcs and local factors"
+    },
+    {
+     "id": "ExponentialSumsAndCircleMethod:ES.4",
+     "title": "Minor arcs and Diophantine endpoints"
+    },
+    {
+     "id": "ExponentialSumsAndCircleMethod:ES.5",
+     "title": "Uniform and geometric applications"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ProbabilisticAndMetricNumberTheory",
+   "title": "Probabilistic, metric and ergodic number theory",
+   "extract": "research/blueprint/atlas/roadmaps/ProbabilisticAndMetricNumberTheory.json",
+   "layers": [
+    {
+     "id": "ProbabilisticAndMetricNumberTheory:PM.0",
+     "title": "Arithmetic probability spaces"
+    },
+    {
+     "id": "ProbabilisticAndMetricNumberTheory:PM.1",
+     "title": "Normal order and limit laws"
+    },
+    {
+     "id": "ProbabilisticAndMetricNumberTheory:PM.2",
+     "title": "Uniform distribution and discrepancy"
+    },
+    {
+     "id": "ProbabilisticAndMetricNumberTheory:PM.3",
+     "title": "Metric Diophantine approximation"
+    },
+    {
+     "id": "ProbabilisticAndMetricNumberTheory:PM.4",
+     "title": "Continued fractions and ergodic methods"
+    },
+    {
+     "id": "ProbabilisticAndMetricNumberTheory:PM.5",
+     "title": "Correlations and conjectural models"
+    }
+   ]
+  },
+  {
+   "roadmapId": "SieveMethodsAndPrimePatterns",
+   "title": "Sieve methods, prime gaps and prime patterns",
+   "extract": "research/blueprint/atlas/roadmaps/SieveMethodsAndPrimePatterns.json",
+   "layers": [
+    {
+     "id": "SieveMethodsAndPrimePatterns:SV.0",
+     "title": "Sieve data and local densities"
+    },
+    {
+     "id": "SieveMethodsAndPrimePatterns:SV.1",
+     "title": "Brun and Selberg sieves"
+    },
+    {
+     "id": "SieveMethodsAndPrimePatterns:SV.2",
+     "title": "Large sieve and bilinear sums"
+    },
+    {
+     "id": "SieveMethodsAndPrimePatterns:SV.3",
+     "title": "Average distribution of primes"
+    },
+    {
+     "id": "SieveMethodsAndPrimePatterns:SV.4",
+     "title": "Bounded gaps and clusters"
+    },
+    {
+     "id": "SieveMethodsAndPrimePatterns:SV.5",
+     "title": "Almost primes and advanced sieves"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,188 @@
+{
+ "job": "AUDIT-28",
+ "roadmaps": [
+  {
+   "roadmapId": "BorelRegulators",
+   "title": "Stable arithmetic cohomology and Borel regulators",
+   "extract": "research/blueprint/atlas/roadmaps/BorelRegulators.json",
+   "layers": [
+    {
+     "id": "BorelRegulators:R.1",
+     "title": "Arithmetic groups and finiteness infrastructure"
+    },
+    {
+     "id": "BorelRegulators:R.2",
+     "title": "Continuous and relative Lie-algebra cohomology"
+    },
+    {
+     "id": "BorelRegulators:R.3",
+     "title": "The stable cohomology calculation"
+    },
+    {
+     "id": "BorelRegulators:R.4",
+     "title": "Regulator classes and maps"
+    },
+    {
+     "id": "BorelRegulators:R.5",
+     "title": "Dedekind zeta functions and leading terms"
+    },
+    {
+     "id": "BorelRegulators:R.6",
+     "title": "Bloch's Tamagawa reformulation"
+    },
+    {
+     "id": "BorelRegulators:R.7",
+     "title": "Beilinson comparison and tests"
+    }
+   ]
+  },
+  {
+   "roadmapId": "EllipticKTheory",
+   "title": "K-theory of curves and elliptic curves",
+   "extract": "research/blueprint/atlas/roadmaps/EllipticKTheory.json",
+   "layers": [
+    {
+     "id": "EllipticKTheory:E.1",
+     "title": "The scheme and the existing elliptic-curve carriers"
+    },
+    {
+     "id": "EllipticKTheory:E.2",
+     "title": "K₀ of a curve and of an elliptic curve"
+    },
+    {
+     "id": "EllipticKTheory:E.3",
+     "title": "Localisation in degrees zero through three"
+    },
+    {
+     "id": "EllipticKTheory:E.4",
+     "title": "K₁, SK₁ and the coniveau description of K₃"
+    },
+    {
+     "id": "EllipticKTheory:E.5",
+     "title": "Functoriality and initial examples"
+    },
+    {
+     "id": "EllipticKTheory:E.6",
+     "title": "Arithmetic surfaces and the integral part"
+    },
+    {
+     "id": "EllipticKTheory:E.7",
+     "title": "Certified symbol constructions"
+    },
+    {
+     "id": "EllipticKTheory:E.8",
+     "title": "Completion criterion"
+    }
+   ]
+  },
+  {
+   "roadmapId": "EllipticRegulators",
+   "title": "Elliptic regulators, explicit K₂ classes and L-values",
+   "extract": "research/blueprint/atlas/roadmaps/EllipticRegulators.json",
+   "layers": [
+    {
+     "id": "EllipticRegulators:ER.1",
+     "title": "The analytic elliptic curve and its periods"
+    },
+    {
+     "id": "EllipticRegulators:ER.2",
+     "title": "Deligne cohomology and the symbol regulator"
+    },
+    {
+     "id": "EllipticRegulators:ER.3",
+     "title": "The elliptic dilogarithm and its companion"
+    },
+    {
+     "id": "EllipticRegulators:ER.4",
+     "title": "The divisor formula and Bloch's classes"
+    },
+    {
+     "id": "EllipticRegulators:ER.5",
+     "title": "The complete CM example of Bloch"
+    },
+    {
+     "id": "EllipticRegulators:ER.6",
+     "title": "Integral parts and the Beilinson statement"
+    },
+    {
+     "id": "EllipticRegulators:ER.7",
+     "title": "General modular elliptic curves"
+    },
+    {
+     "id": "EllipticRegulators:ER.8",
+     "title": "p-adic comparison and worked examples"
+    }
+   ]
+  },
+  {
+   "roadmapId": "GeneralAlgebraicKTheory",
+   "title": "General algebraic K-theory",
+   "extract": "research/blueprint/atlas/roadmaps/GeneralAlgebraicKTheory.json",
+   "layers": [
+    {
+     "id": "GeneralAlgebraicKTheory:K.1",
+     "title": "The Q-construction and its smallness"
+    },
+    {
+     "id": "GeneralAlgebraicKTheory:K.2",
+     "title": "Early ring/plus model (K.2:plus)"
+    },
+    {
+     "id": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons",
+     "title": "Late low-degree comparison"
+    },
+    {
+     "id": "GeneralAlgebraicKTheory:K.2:plus",
+     "title": "Early ring/plus model"
+    },
+    {
+     "id": "GeneralAlgebraicKTheory:K.3",
+     "title": "Fundamental theorems for exact categories"
+    },
+    {
+     "id": "GeneralAlgebraicKTheory:K.4",
+     "title": "Early S-construction (K.4:construction)"
+    },
+    {
+     "id": "GeneralAlgebraicKTheory:K.4:construction",
+     "title": "Early S-construction"
+    },
+    {
+     "id": "GeneralAlgebraicKTheory:K.5",
+     "title": "Relative and nonunital theories"
+    },
+    {
+     "id": "GeneralAlgebraicKTheory:K.6",
+     "title": "Nonconnective extension"
+    },
+    {
+     "id": "GeneralAlgebraicKTheory:K.7",
+     "title": "Invariance, products and universal interfaces"
+    }
+   ]
+  },
+  {
+   "roadmapId": "HabiroNumberFields",
+   "title": "Number-field Habiro rings, finite regulators and K₃-graded modules",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroNumberFields.json",
+   "layers": [
+    {
+     "id": "HabiroNumberFields:HB.1",
+     "title": "Integral Bloch conventions and finite Chern classes"
+    },
+    {
+     "id": "HabiroNumberFields:HB.2",
+     "title": "The cyclic quantum dilogarithm"
+    },
+    {
+     "id": "HabiroNumberFields:HB.6",
+     "title": "The number-field Habiro ring"
+    },
+    {
+     "id": "HabiroNumberFields:HB.7",
+     "title": "K₃-indexed Habiro modules"
+    }
+   ]
+  }
+ ]
+}

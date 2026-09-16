@@ -1,0 +1,236 @@
+{
+ "job": "AUDIT-18",
+ "roadmaps": [
+  {
+   "roadmapId": "ClassicalArithmeticCompletion",
+   "title": "Classical arithmetic, sequences, polynomials and reciprocity",
+   "extract": "research/blueprint/atlas/roadmaps/ClassicalArithmeticCompletion.json",
+   "layers": [
+    {
+     "id": "ClassicalArithmeticCompletion:CA.0",
+     "title": "Divisibility and multiplicative arithmetic"
+    },
+    {
+     "id": "ClassicalArithmeticCompletion:CA.1",
+     "title": "Residues and reciprocity"
+    },
+    {
+     "id": "ClassicalArithmeticCompletion:CA.2",
+     "title": "Sequences and generating functions"
+    },
+    {
+     "id": "ClassicalArithmeticCompletion:CA.3",
+     "title": "Polynomial and matrix arithmetic"
+    },
+    {
+     "id": "ClassicalArithmeticCompletion:CA.4",
+     "title": "Classical Diophantine equations"
+    },
+    {
+     "id": "ClassicalArithmeticCompletion:CA.5",
+     "title": "Number-field arithmetic handoff"
+    },
+    {
+     "id": "ClassicalArithmeticCompletion:CA.6",
+     "title": "Special algebraic numbers and Mahler measure"
+    },
+    {
+     "id": "ClassicalArithmeticCompletion:CA.7",
+     "title": "Integral Galois modules and orders"
+    }
+   ]
+  },
+  {
+   "roadmapId": "AdicCoefficientsAndComparisons",
+   "title": "Adic coefficients and comparison with schemes",
+   "extract": "research/blueprint/atlas/roadmaps/AdicCoefficientsAndComparisons.json",
+   "layers": [
+    {
+     "id": "AdicCoefficientsAndComparisons:L0",
+     "title": "Adic coefficients"
+    },
+    {
+     "id": "AdicCoefficientsAndComparisons:L1",
+     "title": "The scheme-to-v-sheaf constructions"
+    },
+    {
+     "id": "AdicCoefficientsAndComparisons:L2",
+     "title": "General qcqs scheme compactification and coefficient extensions"
+    },
+    {
+     "id": "AdicCoefficientsAndComparisons:L3",
+     "title": "Characteristic-p cohomological comparison"
+    },
+    {
+     "id": "AdicCoefficientsAndComparisons:L4",
+     "title": "Mixed-characteristic proper-support comparison"
+    },
+    {
+     "id": "AdicCoefficientsAndComparisons:L5",
+     "title": "Alterations and the local normal-crossing calculations"
+    },
+    {
+     "id": "AdicCoefficientsAndComparisons:L6",
+     "title": "Constructible direct-image comparison and full faithfulness"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ClassicalAdicEtaleCohomology",
+   "title": "The classical analytic cohomology inputs to diamonds",
+   "extract": "research/blueprint/atlas/roadmaps/ClassicalAdicEtaleCohomology.json",
+   "layers": [
+    {
+     "id": "ClassicalAdicEtaleCohomology:H0",
+     "title": "Classical étale sheaves, stalks, and direct image"
+    },
+    {
+     "id": "ClassicalAdicEtaleCohomology:H1",
+     "title": "Formal models, specialization, and nearby-cycle comparison"
+    },
+    {
+     "id": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+     "title": "Formal completion and the actual comparison map"
+    },
+    {
+     "id": "ClassicalAdicEtaleCohomology:H1:henselian",
+     "title": "Henselian pairs and approximation"
+    },
+    {
+     "id": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+     "title": "Interfaces for analytic invariance and support"
+    },
+    {
+     "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+     "title": "Arbitrary valuation bases, not just traits"
+    },
+    {
+     "id": "ClassicalAdicEtaleCohomology:H2",
+     "title": "Invariance under extension of an algebraically closed valued field"
+    },
+    {
+     "id": "ClassicalAdicEtaleCohomology:H3",
+     "title": "Proper support, traces and Poincaré duality for curves"
+    },
+    {
+     "id": "ClassicalAdicEtaleCohomology:H4",
+     "title": "Constructibility in curve families and annulus computations"
+    },
+    {
+     "id": "ClassicalAdicEtaleCohomology:H5",
+     "title": "Algebraic/analytic comparison and compactification of smooth curves"
+    }
+   ]
+  },
+  {
+   "roadmapId": "DeligneWeightsAndPurity",
+   "title": "Deligne weights, purity and the Weil bounds",
+   "extract": "research/blueprint/atlas/roadmaps/DeligneWeightsAndPurity.json",
+   "layers": [
+    {
+     "id": "DeligneWeightsAndPurity:DWP.0",
+     "title": "Eigenvalue weights and functorial linear algebra"
+    },
+    {
+     "id": "DeligneWeightsAndPurity:DWP.1",
+     "title": "Curves and abelian varieties: the initial Weil estimate"
+    },
+    {
+     "id": "DeligneWeightsAndPurity:DWP.10",
+     "title": "Arithmetic interfaces and acceptance checks"
+    },
+    {
+     "id": "DeligneWeightsAndPurity:DWP.2",
+     "title": "Weil I's fundamental estimate, with its actual hypotheses"
+    },
+    {
+     "id": "DeligneWeightsAndPurity:DWP.3",
+     "title": "Pencil local-factor rationality and the radical quotient"
+    },
+    {
+     "id": "DeligneWeightsAndPurity:DWP.4",
+     "title": "Weil I: dimension induction and tensor-power removal of the error"
+    },
+    {
+     "id": "DeligneWeightsAndPurity:DWP.5",
+     "title": "Weil II local weights and the analytic preparation"
+    },
+    {
+     "id": "DeligneWeightsAndPurity:DWP.6",
+     "title": "Pure local systems on curves and the square-improvement argument"
+    },
+    {
+     "id": "DeligneWeightsAndPurity:DWP.7",
+     "title": "The fundamental direct-image theorem and sharp cohomological bounds"
+    },
+    {
+     "id": "DeligneWeightsAndPurity:DWP.8",
+     "title": "Mixed complexes, weight filtrations and geometric semisimplicity"
+    },
+    {
+     "id": "DeligneWeightsAndPurity:DWP.9",
+     "title": "Absolute hard Lefschetz after weights"
+    }
+   ]
+  },
+  {
+   "roadmapId": "EtaleDualityAndPerverseSheaves",
+   "title": "Étale duality, cycle classes and perverse sheaves",
+   "extract": "research/blueprint/atlas/roadmaps/EtaleDualityAndPerverseSheaves.json",
+   "layers": [
+    {
+     "id": "EtaleDualityAndPerverseSheaves:EDC.0",
+     "title": "Coefficient, support and enhancement interfaces"
+    },
+    {
+     "id": "EtaleDualityAndPerverseSheaves:EDC.1",
+     "title": "Exceptional inverse image and Verdier duality"
+    },
+    {
+     "id": "EtaleDualityAndPerverseSheaves:EDC.1:adjoint",
+     "title": "Exceptional inverse image and Verdier duality — adjoint"
+    },
+    {
+     "id": "EtaleDualityAndPerverseSheaves:EDC.1:biduality",
+     "title": "Exceptional inverse image and Verdier duality — biduality"
+    },
+    {
+     "id": "EtaleDualityAndPerverseSheaves:EDC.2",
+     "title": "Smooth trace, relative purity and Poincaré duality"
+    },
+    {
+     "id": "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
+     "title": "Smooth trace, relative purity and Poincaré duality — pairings"
+    },
+    {
+     "id": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+     "title": "Smooth trace, relative purity and Poincaré duality — trace purity"
+    },
+    {
+     "id": "EtaleDualityAndPerverseSheaves:EDC.3",
+     "title": "Gysin maps and cycle classes"
+    },
+    {
+     "id": "EtaleDualityAndPerverseSheaves:EDC.4",
+     "title": "Weak Lefschetz, projective bundles and blowups"
+    },
+    {
+     "id": "EtaleDualityAndPerverseSheaves:EDC.5",
+     "title": "The early perverse category and intermediate extension"
+    },
+    {
+     "id": "EtaleDualityAndPerverseSheaves:EDC.6",
+     "title": "Integral, analytic and diamond comparison of operations"
+    },
+    {
+     "id": "EtaleDualityAndPerverseSheaves:EDC.7",
+     "title": "Pure intersection complexes and decomposition"
+    },
+    {
+     "id": "EtaleDualityAndPerverseSheaves:EDC.8",
+     "title": "Correspondences and the functional-equation interface"
+    }
+   ]
+  }
+ ]
+}

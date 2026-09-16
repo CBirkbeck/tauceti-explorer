@@ -1,0 +1,205 @@
+{
+ "job": "AUDIT-22",
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+   "title": "Profinite and pro-p groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
+     "title": "Layer 0: profinite foundations"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index",
+     "title": "Layer 1: supernatural order and index"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
+     "title": "Layer 2: profinite Sylow theory"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+     "title": "Layer 3: pro-p groups, the maximal pro-p quotient, Frattini theory, generation"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+     "title": "Layer 4: free pro-p and pro-C groups on finite sets"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+     "title": "Layer 5: presentations, extensions, and the rank interpretations"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+     "title": "Layer 6: cohomological dimension of pro-p groups"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+     "title": "Layer 7: Demushkin groups, their invariants, and the orientation"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-8-the-central-tower-comparison-method-and-finite-quotient-determinacy",
+     "title": "Layer 8: the central-tower comparison method and finite-quotient determinacy"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+     "title": "Layer 9 prerequisites: two owned inputs"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-the-classification-of-demushkin-groups",
+     "title": "Layer 9: the classification of Demushkin groups"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-10-free-pro-c-groups-on-profinite-spaces",
+     "title": "Layer 10: free pro-C groups on profinite spaces"
+    }
+   ]
+  },
+  {
+   "roadmapId": "EnhancedDerivedSheaves",
+   "title": "Enhanced derived categories of sheaves",
+   "extract": "research/blueprint/atlas/roadmaps/EnhancedDerivedSheaves.json",
+   "layers": [
+    {
+     "id": "EnhancedDerivedSheaves:E0",
+     "title": "A concrete enhancement and the necessary higher-category operations"
+    },
+    {
+     "id": "EnhancedDerivedSheaves:E1",
+     "title": "Derived sheaves and presentability"
+    },
+    {
+     "id": "EnhancedDerivedSheaves:E2",
+     "title": "Repleteness, Postnikov completion and cohomological descent"
+    },
+    {
+     "id": "EnhancedDerivedSheaves:E3",
+     "title": "Coherent diagrams, Kan extensions and adjoints"
+    },
+    {
+     "id": "EnhancedDerivedSheaves:E4",
+     "title": "Derived adic completion"
+    },
+    {
+     "id": "EnhancedDerivedSheaves:E5",
+     "title": "Shared monoidal enhancement, Ind-completion and animated algebra"
+    },
+    {
+     "id": "EnhancedDerivedSheaves:E5:abstract",
+     "title": "Monoidal stable categorical baseline"
+    },
+    {
+     "id": "EnhancedDerivedSheaves:E5:animation",
+     "title": "Simplicial commutative algebra"
+    },
+    {
+     "id": "EnhancedDerivedSheaves:E5:cotangent-export",
+     "title": "The return from derived de Rham"
+    },
+    {
+     "id": "EnhancedDerivedSheaves:E5:presentability",
+     "title": "Ind-completion and extensions"
+    },
+    {
+     "id": "EnhancedDerivedSheaves:E5:spectra-comparison",
+     "title": "Late concrete realization"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "title": "DG and A-infinity algebras, categories, and modules",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_DGAInfinity.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-0-signed-graded-multilinear-and-tensor-coalgebra-infrastructure",
+     "title": "Layer 0: signed graded multilinear and tensor-coalgebra infrastructure"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules",
+     "title": "Layer 1: DG algebras, categories, modules, and bimodules"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-2-a-algebras-categories-morphisms-functors-modules-and-bimodules",
+     "title": "Layer 2: A∞ algebras, categories, morphisms, functors, modules, and bimodules"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-3-minimal-models-and-homological-transfer",
+     "title": "Layer 3: minimal models and homological transfer"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-4-bar--cobar-dg-strictification-and-controlled-maurer--cartan-twisting",
+     "title": "Layer 4: bar--cobar, DG strictification, and controlled Maurer--Cartan twisting"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-5-derived-modules-twisted-complexes-and-perfect-envelopes",
+     "title": "Layer 5: derived modules, twisted complexes, and perfect envelopes"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-6-quasi-equivalence-derived-morita-theory-and-compact-generators",
+     "title": "Layer 6: quasi-equivalence, derived Morita theory, and compact generators"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-7-dg-and-a-quotients-verdier-comparison-and-k₀-localization",
+     "title": "Layer 7: DG and A∞ quotients, Verdier comparison, and K₀ localization"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality",
+     "title": "Layer 8: Hochschild cochains, deformations, Massey products, and formality"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-9-smoothness-properness-serre-and-calabi--yau-structures-and-completions",
+     "title": "Layer 9: smoothness, properness, Serre, and Calabi--Yau structures and completions"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
+     "title": "Layer 10: K₀(Perf), Euler and numerical forms"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/DGAInfinity#layer-11-relative-quadratic-and-derived-koszul-duality",
+     "title": "Layer 11: relative quadratic and derived Koszul duality"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+   "title": "Grothendieck groups, Cartan maps, and Euler forms",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+     "title": "Layer 0: intrinsic exact structures and conflation-exact functors"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-1-the-small-presentation-and-universal-additive-invariants",
+     "title": "Layer 1: the small presentation and universal additive invariants"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+     "title": "Layer 2: split, exact, abelian, and triangulated Grothendieck groups"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
+     "title": "Layer 3: finite resolutions and the resolution theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+     "title": "Layer 4: finite-dimensional algebras and the Cartan map"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+     "title": "Layer 5: finite-support Euler characteristics and Ext-Euler descent"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-6-laurent-coefficients-q-euler-forms-and-specialization",
+     "title": "Layer 6: Laurent coefficients, q-Euler forms, and specialization"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-7-left-and-right-numerical-grothendieck-groups",
+     "title": "Layer 7: left and right numerical Grothendieck groups"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,177 @@
+{
+ "job": "AUDIT-39",
+ "roadmaps": [
+  {
+   "roadmapId": "RelativeFarguesFontaine",
+   "title": "Relative Fargues–Fontaine curves and period geometry",
+   "extract": "research/blueprint/atlas/roadmaps/RelativeFarguesFontaine.json",
+   "layers": [
+    {
+     "id": "RelativeFarguesFontaine:RF0",
+     "title": "Ramified Witt coefficients and relative period annuli"
+    },
+    {
+     "id": "RelativeFarguesFontaine:RF0:annuli",
+     "title": "Pass to the generic period domain"
+    },
+    {
+     "id": "RelativeFarguesFontaine:RF0:integral-Y",
+     "title": "Retain the integral period space"
+    },
+    {
+     "id": "RelativeFarguesFontaine:RF1",
+     "title": "Quotient and functoriality in the base"
+    },
+    {
+     "id": "RelativeFarguesFontaine:RF2",
+     "title": "Untilts, divisors and local de Rham rings"
+    },
+    {
+     "id": "RelativeFarguesFontaine:RF2:integral-divisors",
+     "title": "Divisors before removing the special fibre"
+    },
+    {
+     "id": "RelativeFarguesFontaine:RF2:untilts",
+     "title": "Generic divisors and de Rham completions"
+    },
+    {
+     "id": "RelativeFarguesFontaine:RF3",
+     "title": "Line bundles and the graded algebra"
+    },
+    {
+     "id": "RelativeFarguesFontaine:RF4",
+     "title": "Patching and modifications"
+    },
+    {
+     "id": "RelativeFarguesFontaine:RF4:G-torsors",
+     "title": "Tannakian transfer"
+    },
+    {
+     "id": "RelativeFarguesFontaine:RF4:vector-bundles",
+     "title": "Linear patching"
+    }
+   ]
+  },
+  {
+   "roadmapId": "TropicalAndBerkovichArithmetic",
+   "title": "Berkovich spaces, tropical curves and nonarchimedean arithmetic",
+   "extract": "research/blueprint/atlas/roadmaps/TropicalAndBerkovichArithmetic.json",
+   "layers": [
+    {
+     "id": "TropicalAndBerkovichArithmetic:TB.0",
+     "title": "Berkovich spectra and analytic comparison"
+    },
+    {
+     "id": "TropicalAndBerkovichArithmetic:TB.1",
+     "title": "Discs, annuli and metric trees"
+    },
+    {
+     "id": "TropicalAndBerkovichArithmetic:TB.2",
+     "title": "Semistable models and skeletons of curves"
+    },
+    {
+     "id": "TropicalAndBerkovichArithmetic:TB.3",
+     "title": "Divisors, slope formula and specialization"
+    },
+    {
+     "id": "TropicalAndBerkovichArithmetic:TB.4",
+     "title": "Tropicalization and multiplicities"
+    },
+    {
+     "id": "TropicalAndBerkovichArithmetic:TB.5",
+     "title": "Faithful tropicalization of curves"
+    },
+    {
+     "id": "TropicalAndBerkovichArithmetic:TB.6",
+     "title": "Model metrics, measures and local heights"
+    },
+    {
+     "id": "TropicalAndBerkovichArithmetic:TB.7",
+     "title": "Uniformization and integration interfaces"
+    }
+   ]
+  },
+  {
+   "roadmapId": "VectorBundlesAndIsocrystals",
+   "title": "Isocrystals, vector bundles and Banach–Colmez spaces",
+   "extract": "research/blueprint/atlas/roadmaps/VectorBundlesAndIsocrystals.json",
+   "layers": [
+    {
+     "id": "VectorBundlesAndIsocrystals:VB0",
+     "title": "Isocrystals and slope conventions"
+    },
+    {
+     "id": "VectorBundlesAndIsocrystals:VB1",
+     "title": "Vector bundles, descent and cohomology"
+    },
+    {
+     "id": "VectorBundlesAndIsocrystals:VB2",
+     "title": "Ampleness, algebraization and geometric classification"
+    },
+    {
+     "id": "VectorBundlesAndIsocrystals:VB2:ampleness",
+     "title": "Positive twists and algebraization"
+    },
+    {
+     "id": "VectorBundlesAndIsocrystals:VB2:classification",
+     "title": "Geometric points"
+    },
+    {
+     "id": "VectorBundlesAndIsocrystals:VB3",
+     "title": "Banach–Colmez geometry without circular classification"
+    },
+    {
+     "id": "VectorBundlesAndIsocrystals:VB3:general-BC",
+     "title": "General bundles after classification"
+    },
+    {
+     "id": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples",
+     "title": "The independent local calculation"
+    },
+    {
+     "id": "VectorBundlesAndIsocrystals:VB3:projectivized-properness",
+     "title": "The input to families"
+    },
+    {
+     "id": "VectorBundlesAndIsocrystals:VB4",
+     "title": "Families and HN strata"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+   "title": "Foundations of adic spaces",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AdicSpaces.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+     "title": "Layer 0: topological algebra, Huber rings, and Tate algebras"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+     "title": "Layer 1: valuation spectra and continuous valuations"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+     "title": "Layer 2: affinoid spectra and rational subsets"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+     "title": "Layer 3: rational localisation and the structure presheaf"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+     "title": "Layer 4: sheafiness and Tate acyclicity"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+     "title": "Layer 5: adic spaces and elementary geometry"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+     "title": "Layer 6: the adic Fargues–Fontaine curve"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,224 @@
+{
+ "job": "AUDIT-03",
+ "roadmaps": [
+  {
+   "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "title": "Higher local fields and higher class field theory",
+   "extract": "research/blueprint/atlas/roadmaps/HigherLocalFieldsAndHigherClassFieldTheory.json",
+   "layers": [
+    {
+     "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0",
+     "title": "Higher local fields and their topologies"
+    },
+    {
+     "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1",
+     "title": "Milnor K-groups, residues and norms"
+    },
+    {
+     "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+     "title": "Higher Galois duality and wild coefficients"
+    },
+    {
+     "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+     "title": "Higher local reciprocity and existence"
+    },
+    {
+     "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.4",
+     "title": "Explicit symbols and ramification filtrations"
+    },
+    {
+     "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5",
+     "title": "Parshin chains and higher adeles"
+    },
+    {
+     "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
+     "title": "Higher global reciprocity and local–global principles"
+    },
+    {
+     "id": "HigherLocalFieldsAndHigherClassFieldTheory:HL.7",
+     "title": "Arithmetic consumers and comparison examples"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:Completed/EffectiveBounds",
+   "title": "Effective arithmetic bounds and geometry of numbers",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_Completed_EffectiveBounds.json",
+   "layers": [
+    {
+     "id": "tauceti:Completed/EffectiveBounds#layer-0-the-geometry-of-numbers-engine",
+     "title": "Layer 0: the geometry-of-numbers engine"
+    },
+    {
+     "id": "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets",
+     "title": "Layer 1: effective upper bounds (the first migration targets)"
+    },
+    {
+     "id": "tauceti:Completed/EffectiveBounds#layer-2-effective-hermiteminkowski-the-summit",
+     "title": "Layer 2: effective Hermite–Minkowski (the summit)"
+    },
+    {
+     "id": "tauceti:Completed/EffectiveBounds#layer-3-regulators-and-unit-lattice-volume",
+     "title": "Layer 3: regulators and unit-lattice volume"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:Completed/IntegralLattices",
+   "title": "Integral lattices, discriminant forms, and overlattices",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_Completed_IntegralLattices.json",
+   "layers": [
+    {
+     "id": "tauceti:Completed/IntegralLattices#layer-1-lattices-with-forms",
+     "title": "Layer 1: lattices with forms"
+    },
+    {
+     "id": "tauceti:Completed/IntegralLattices#layer-2-duality-and-the-finite-discriminant-group",
+     "title": "Layer 2: duality and the finite discriminant group"
+    },
+    {
+     "id": "tauceti:Completed/IntegralLattices#layer-3-finite-bilinear-and-quadratic-modules",
+     "title": "Layer 3: finite bilinear and quadratic modules"
+    },
+    {
+     "id": "tauceti:Completed/IntegralLattices#layer-4-overlattices-and-isotropic-subgroups",
+     "title": "Layer 4: overlattices and isotropic subgroups"
+    },
+    {
+     "id": "tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms",
+     "title": "Layer 5: rank one and ADE discriminant forms"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+   "title": "The Chebotarev density theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_Chebotarev.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-1-consumed-frobenius-classes-and-powers-of-conjugacy-classes",
+     "title": "Layer 1: consumed Frobenius classes and powers of conjugacy classes"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-2-frobenius-prime-sets-and-finite-exceptional-sets",
+     "title": "Layer 2: Frobenius prime sets and finite exceptional sets"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-3-prime-sums-and-density-normalization",
+     "title": "Layer 3: prime sums and density normalization"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters",
+     "title": "Layer 4: cyclotomic Galois characters"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-5-ray-class-counting-and-continuation",
+     "title": "Layer 5: ray-class counting and continuation"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-6-cyclotomic-dirichlet-density",
+     "title": "Layer 6: cyclotomic Dirichlet density"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-7-the-auxiliary-prime-and-the-crossing-data",
+     "title": "Layer 7: the auxiliary prime and the crossing data"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-8-the-cyclic-fixed-field-fibre",
+     "title": "Layer 8: the cyclic fixed-field fibre"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-9-abelian-chebotarev",
+     "title": "Layer 9: abelian Chebotarev"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+     "title": "Layer 10: Dirichlet-density Chebotarev"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-11-the-frobenius-von-mangoldt-coefficient-and-its-summatory-functions",
+     "title": "Layer 11: the Frobenius von Mangoldt coefficient and its summatory functions"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-12-the-weighted-transfer-package-and-the-tauberian-theorem",
+     "title": "Layer 12: the weighted transfer package and the Tauberian theorem"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-13-ϑ_c-and-π_c",
+     "title": "Layer 13: ϑ_C and π_C"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems",
+     "title": "Layer 14: natural density and consistency theorems"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+   "title": "Class field theory",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ClassFieldTheory.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-0-audit-and-complete-the-cohomology-suppliers",
+     "title": "Layer 0: audit and complete the cohomology suppliers"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-1-formations-and-finite-normal-layers",
+     "title": "Layer 1: formations and finite normal layers"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-2-class-formations-and-fundamental-classes",
+     "title": "Layer 2: class formations and fundamental classes"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-3-tates-theorem-for-a-class-formation",
+     "title": "Layer 3: Tate's theorem for a class formation"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-4-the-abstract-artin-map",
+     "title": "Layer 4: the abstract Artin map"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+     "title": "Layer 5: local coefficients, the Brauer group, the local invariant, and duality"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+     "title": "Layer 6: the local class formation and finite local reciprocity"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+     "title": "Layer 7: the absolute local Artin map, its normalizations, and conductors"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
+     "title": "Layer 8: separate arithmetic local existence and the local class-field correspondence"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+     "title": "Layer 9: the local Weil group"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+     "title": "Layer 10: global carriers, the Brauer sequence, and the sum of local invariants"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+     "title": "Layer 11: the global class formation and global Artin reciprocity"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+     "title": "Layer 12: separate arithmetic global existence, the norm index, and the global correspondence"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+     "title": "Layer 13: norm theorems and class fields"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
+     "title": "Layer 14: Hilbert reciprocity and quadratic reciprocity"
+    }
+   ]
+  }
+ ]
+}

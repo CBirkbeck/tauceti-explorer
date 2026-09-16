@@ -182,6 +182,25 @@ def compare_progress(job):
 def check_outputs(job):
     missing = [pattern for pattern in job.get("outputs", []) if not list(REPO.glob(pattern))]
     result = {}
+    if job.get("kind") == "audit" or (job.get("kind") == "review" and job["id"].startswith("REV-AUDIT-")):
+        if not missing:
+            audit = job["id"].replace("REV-", "")
+            listed = [layer["id"] for roadmap in json.loads((REPO / "research" / "blueprint" / "audit" / f"{audit}.json").read_text())["roadmaps"]
+                      for layer in roadmap["layers"]]
+            try:
+                data = json.loads((REPO / job["outputs"][0]).read_text())
+            except (OSError, ValueError):
+                data = {}
+            present = {lid for roadmap in (data.get("roadmaps") or {}).values() for lid in (roadmap.get("layers") or {})}
+            result = {"layers": len(listed), "audited": sum(lid in present for lid in listed)}
+            if result["audited"] < len(listed):
+                missing = [f"{job['outputs'][0]} ({result['audited']} of {len(listed)} layers audited)"]
+            elif job["kind"] == "review":
+                verdict = (data.get("review") or {}).get("status")
+                result["review"] = verdict
+                if verdict not in ("accepted", "needs_changes"):
+                    missing = [f"{job['outputs'][0]} (no review verdict)"]
+        return missing, result
     if job.get("kind") == "compare" and not missing:
         judged, listed = compare_progress(job)
         result = {"judged": judged, "pairs": listed}

@@ -263,6 +263,10 @@ def deliverables_complete(job):
                     and not any(entry.get("assessmentStatus") == "partial" for entry in result))
         if job["kind"] == "link":
             return json.loads(paths[0].read_text()).get("status") == "complete"
+        if job["kind"] == "audit":
+            listed = {layer["id"] for roadmap in json.loads((BP / "audit" / f"{job['id']}.json").read_text())["roadmaps"] for layer in roadmap["layers"]}
+            present = {lid for roadmap in json.loads(paths[0].read_text()).get("roadmaps", {}).values() for lid in roadmap.get("layers", {})}
+            return listed <= present
         if job["kind"] == "compare":
             listed = json.loads((BP / "compare" / f"{job['id']}.json").read_text())["pairs"]
             answered = {(item.get("a"), item.get("b")) for item in json.loads(paths[0].read_text()).get("judgements", [])}

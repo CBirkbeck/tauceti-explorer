@@ -1,0 +1,224 @@
+{
+ "job": "AUDIT-01",
+ "roadmaps": [
+  {
+   "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+   "title": "Algebraic moduli and representability for arithmetic geometry",
+   "extract": "research/blueprint/atlas/roadmaps/AlgebraicModuliForArithmeticGeometry.json",
+   "layers": [
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:A0-extension",
+     "title": "higher-dimensional moduli prerequisites"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.1",
+     "title": "Projective parameter spaces"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.2",
+     "title": "Hilbert and Quot functors"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.3",
+     "title": "Algebraic spaces and descent"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.4",
+     "title": "Algebraic stacks in the required class"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.5",
+     "title": "Coarse spaces and rigidification"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.6",
+     "title": "Formal deformation and representability comparisons"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.7",
+     "title": "Characteristic-zero resolution and normal-crossings compactification"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+     "title": "Blowups, transforms and marked ideals"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+     "title": "Local invariant, maximal contact and coefficient ideals"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+     "title": "Global centres and termination"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+     "title": "The compactification interface for Borel extension"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ComplexComparisonPartII",
+   "title": "Complex Comparison PartII",
+   "extract": "research/blueprint/atlas/roadmaps/ComplexComparisonPartII.json",
+   "layers": [
+    {
+     "id": "ComplexComparisonPartII:C0",
+     "title": "Coherent analytic modules on algebraic analytifications"
+    },
+    {
+     "id": "ComplexComparisonPartII:C1",
+     "title": "Analytic coherent cohomology and projective computations"
+    },
+    {
+     "id": "ComplexComparisonPartII:C2",
+     "title": "Projective coherent GAGA"
+    },
+    {
+     "id": "ComplexComparisonPartII:C3",
+     "title": "Proper coherent GAGA and algebraic spaces"
+    },
+    {
+     "id": "ComplexComparisonPartII:C4",
+     "title": "Chow algebraization and morphism comparison"
+    },
+    {
+     "id": "ComplexComparisonPartII:C5",
+     "title": "Algebraic de Rham–Betti comparison"
+    },
+    {
+     "id": "ComplexComparisonPartII:C6",
+     "title": "Arithmetic comparison acceptance tests"
+    }
+   ]
+  },
+  {
+   "roadmapId": "SchemeAndStackFoundations",
+   "title": "Scheme, stack, cohomology and intersection foundations",
+   "extract": "research/blueprint/atlas/roadmaps/SchemeAndStackFoundations.json",
+   "layers": [
+    {
+     "id": "SchemeAndStackFoundations:SF.0",
+     "title": "Schemes and morphisms"
+    },
+    {
+     "id": "SchemeAndStackFoundations:SF.1",
+     "title": "Descent and algebraic spaces/stacks"
+    },
+    {
+     "id": "SchemeAndStackFoundations:SF.2",
+     "title": "Sites and scheme cohomology"
+    },
+    {
+     "id": "SchemeAndStackFoundations:SF.3",
+     "title": "Curves, divisors and Picard objects"
+    },
+    {
+     "id": "SchemeAndStackFoundations:SF.4",
+     "title": "Deformations, models and birational geometry"
+    },
+    {
+     "id": "SchemeAndStackFoundations:SF.5",
+     "title": "Intersection theory and Riemann-Roch"
+    },
+    {
+     "id": "SchemeAndStackFoundations:SF.6",
+     "title": "Arithmetic cohomology handoffs"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+   "title": "Algebraic curves — function fields, divisors, and Riemann–Roch",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AlgebraicCurves.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+     "title": "Layer 0: function fields, constant fields, and places"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-1-the-rational-function-field",
+     "title": "Layer 1: the rational function field"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
+     "title": "Layer 2: affine models — the Dedekind bridge"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+     "title": "Layer 3: divisors, L(D), Riemann's theorem, and the genus"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
+     "title": "Layer 4: repartitions, Weil differentials, and Riemann–Roch"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+     "title": "Layer 5: consequences of Riemann–Roch, and local components"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+     "title": "Layer 6: extensions of function fields"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+     "title": "Layer 7: the different and the Hurwitz genus formula"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+     "title": "Layer 8: constant-field extensions, Galois ramification, and inseparability ⚠"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+     "title": "Layer 9: Kähler differentials, residues, and the comparison"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
+     "title": "Layer 10: model classes — elliptic, hyperelliptic, plane curves"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-11-automorphisms-and-the-hurwitz-bound",
+     "title": "Layer 11: automorphisms and the Hurwitz bound"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+     "title": "Layer 12: the dictionary — function fields ↔ curves, and the comparison contracts"
+    }
+   ]
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "title": "Analytic toric geometry",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AnalyticToricGeometry.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+     "title": "Layer 0: the Toric-compatible algebraic supplier"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-1-characters-and-mixed-monomial-maps",
+     "title": "Layer 1: characters and mixed monomial maps"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-2-affine-analytic-charts-of-regular-cones",
+     "title": "Layer 2: affine analytic charts of regular cones"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-3-finite-fan-analytic-gluing",
+     "title": "Layer 3: finite-fan analytic gluing"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-4-torus-actions-strata-and-the-boundary",
+     "title": "Layer 4: torus actions, strata, and the boundary"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+     "title": "Layer 5: toric maps and properness"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-6-global-algebraic--analytic-comparison",
+     "title": "Layer 6: global algebraic--analytic comparison"
+    }
+   ]
+  }
+ ]
+}

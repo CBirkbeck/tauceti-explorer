@@ -1,0 +1,192 @@
+{
+ "job": "AUDIT-08",
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+   "title": "Arithmetic Dirichlet series and Tauberian methods",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.json",
+   "layers": [
+    {
+     "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-0-arithmetic-functions-on-nonzero-ideals",
+     "title": "Layer 0: arithmetic functions on nonzero ideals"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries",
+     "title": "Layer 1: norm fibres and Mathlib LSeries"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-2-convolution-and-logarithmic-derivatives",
+     "title": "Layer 2: convolution and logarithmic derivatives"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+     "title": "Layer 3: local factors and Euler products"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-4-counting-carriers-and-local-finiteness",
+     "title": "Layer 4: counting carriers and local finiteness"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates",
+     "title": "Layer 5: ideal and prime estimates"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+     "title": "Layer 6: Abel and Perron summation"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+     "title": "Layer 7: Dirichlet density"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity",
+     "title": "Layer 8: Landau-type positivity"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara",
+     "title": "Layer 9: Wiener–Ikehara"
+    },
+    {
+     "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+     "title": "Layer 10: generic prime-number-theorem transfer"
+    }
+   ]
+  },
+  {
+   "roadmapId": "AbelianSchemesAndArithmeticModuli",
+   "title": "Abelian Schemes And Arithmetic Moduli",
+   "extract": "research/blueprint/atlas/roadmaps/AbelianSchemesAndArithmeticModuli.json",
+   "layers": [
+    {
+     "id": "AbelianSchemesAndArithmeticModuli:A0",
+     "title": "Relative algebraic geometry for polarized moduli"
+    },
+    {
+     "id": "AbelianSchemesAndArithmeticModuli:A1",
+     "title": "Abelian schemes and rigidity"
+    },
+    {
+     "id": "AbelianSchemesAndArithmeticModuli:A2",
+     "title": "Duals, Picard functors, and polarizations"
+    },
+    {
+     "id": "AbelianSchemesAndArithmeticModuli:A3",
+     "title": "Finite flat quotients, torsion, and pairings"
+    },
+    {
+     "id": "AbelianSchemesAndArithmeticModuli:A4",
+     "title": "Degree-one realizations and deformation theory"
+    },
+    {
+     "id": "AbelianSchemesAndArithmeticModuli:A5",
+     "title": "Complex uniformization with polarization and level"
+    },
+    {
+     "id": "AbelianSchemesAndArithmeticModuli:A6",
+     "title": "Arithmetic Hom groups and moduli export"
+    }
+   ]
+  },
+  {
+   "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+   "title": "Anabelian geometry and nonabelian Chabauty",
+   "extract": "research/blueprint/atlas/roadmaps/AnabelianGeometryAndNonabelianChabauty.json",
+   "layers": [
+    {
+     "id": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+     "title": "Fundamental groupoids and sections"
+    },
+    {
+     "id": "AnabelianGeometryAndNonabelianChabauty:NC.1",
+     "title": "Source-qualified anabelian reconstruction"
+    },
+    {
+     "id": "AnabelianGeometryAndNonabelianChabauty:NC.2",
+     "title": "Unipotent fundamental groups and realizations"
+    },
+    {
+     "id": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+     "title": "Nonabelian cohomology and Selmer varieties"
+    },
+    {
+     "id": "AnabelianGeometryAndNonabelianChabauty:NC.4",
+     "title": "Unipotent Albanese and Chabauty–Kim loci"
+    },
+    {
+     "id": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+     "title": "Quadratic Chabauty and height equations"
+    },
+    {
+     "id": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+     "title": "Reconstruction and rational-point handoff"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ArakelovGeometryAndAbelianHeights",
+   "title": "Arakelov geometry and heights of abelian varieties",
+   "extract": "research/blueprint/atlas/roadmaps/ArakelovGeometryAndAbelianHeights.json",
+   "layers": [
+    {
+     "id": "ArakelovGeometryAndAbelianHeights:R35.1",
+     "title": "Hermitian bundles and arithmetic degree"
+    },
+    {
+     "id": "ArakelovGeometryAndAbelianHeights:R35.2",
+     "title": "The Hodge bundle and Faltings metric"
+    },
+    {
+     "id": "ArakelovGeometryAndAbelianHeights:R35.3",
+     "title": "Stable Faltings height"
+    },
+    {
+     "id": "ArakelovGeometryAndAbelianHeights:R35.4",
+     "title": "Isogeny variation"
+    },
+    {
+     "id": "ArakelovGeometryAndAbelianHeights:R35.5",
+     "title": "Moduli and theta-height comparison"
+    },
+    {
+     "id": "ArakelovGeometryAndAbelianHeights:R35.6",
+     "title": "Inputs to finiteness"
+    }
+   ]
+  },
+  {
+   "roadmapId": "ArithmeticDynamics",
+   "title": "Arithmetic dynamics",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticDynamics.json",
+   "layers": [
+    {
+     "id": "ArithmeticDynamics:DY.0",
+     "title": "Iteration, periodicity and dynamical moduli"
+    },
+    {
+     "id": "ArithmeticDynamics:DY.1",
+     "title": "Canonical heights of polarized morphisms"
+    },
+    {
+     "id": "ArithmeticDynamics:DY.2",
+     "title": "Local dynamics and reduction"
+    },
+    {
+     "id": "ArithmeticDynamics:DY.3",
+     "title": "Periodic-point equations and finite bounds"
+    },
+    {
+     "id": "ArithmeticDynamics:DY.4",
+     "title": "Equidistribution and small points"
+    },
+    {
+     "id": "ArithmeticDynamics:DY.5",
+     "title": "Arboreal Galois representations"
+    },
+    {
+     "id": "ArithmeticDynamics:DY.6",
+     "title": "Families, unlikely intersections and frontiers"
+    }
+   ]
+  }
+ ]
+}
