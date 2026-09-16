@@ -2308,8 +2308,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #64"
+   "state": "done",
+   "note": "deliverables arrived from the external worker on issue #64",
+   "finishedAt": "2026-09-16T12:55:41Z"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
