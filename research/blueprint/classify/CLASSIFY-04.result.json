@@ -2267,5 +2267,901 @@
     "msc": []
    }
   ]
+ },
+ {
+  "roadmapId": "RefinedTraceMethods",
+  "primaryMsc": "19D",
+  "secondaryMsc": [
+   "55P",
+   "14F",
+   "16E"
+  ],
+  "cluster": "k-theory-and-motives",
+  "distance": 10,
+  "distanceRationale": "Mathlib has quasicategories, the Dold–Kan correspondence and Kähler differentials, and Tau Ceti has A∞-algebras. There is no Hochschild, cyclic or periodic cyclic homology, and no stable ∞-categories, spectra, THH with circle action, Tate constructions or TC. The cyclotomic trace, topological K-theory ku/KU and localizing motives are also missing. The targets run from Nikolaus–Scholze and the Beilinson fiber square to 2024–2026 refined TC and Habiro comparisons (Wagner, Meyer–Wagner, Efimov): frontier work resting on many unbuilt homotopy-theoretic foundations.",
+  "mathlibEvidence": [
+   "mathlib:SSet.Quasicategory (Mathlib/AlgebraicTopology/Quasicategory/Basic.lean) — basic ∞-categories, with no stable ∞-categories or spectra",
+   "mathlib:CategoryTheory.Idempotents.DoldKan.equivalence (Mathlib/AlgebraicTopology/DoldKan/EquivalencePseudoabelian.lean)",
+   "tauceti:TauCeti.AInfinityAlgebra.Augmentation (TauCeti/Algebra/Homology/AInfinity/Algebra/Augmentation.lean) — A∞-algebras, with no Hochschild complex",
+   "mathlib:KaehlerDifferential (Mathlib/RingTheory/Kaehler/Basic.lean) — the HKR target, without the Hochschild side",
+   "absent: Hochschild and (negative/periodic) cyclic homology, spectra and THH with S¹-action, Tate constructions and TC, the cyclotomic trace, topological K-theory ku/KU, localizing motives (no declarations matching Hochschild, CyclicHomology, MixedComplex, SymmetricSpectrum, TopologicalKTheory)"
+  ],
+  "references": [
+   {
+    "title": "On topological cyclic homology",
+    "authors": "Nikolaus, Thomas; Scholze, Peter",
+    "zbmath": 7009201,
+    "msc": [
+     "19D55",
+     "13D03",
+     "16E40",
+     "55P42",
+     "55P43",
+     "55P91",
+     "55P92"
+    ]
+   },
+   {
+    "title": "The local structure of algebraic K-theory",
+    "authors": "Dundas, Bjørn Ian; Goodwillie, Thomas G.; McCarthy, Randy",
+    "zbmath": 6061719,
+    "msc": [
+     "55-02",
+     "55N35",
+     "19-01",
+     "19D10",
+     "19D55",
+     "55P43",
+     "55P65"
+    ]
+   },
+   {
+    "title": "On the Beilinson fiber square",
+    "authors": "Antieau, Benjamin; Mathew, Akhil; Morrow, Matthew; Nikolaus, Thomas",
+    "zbmath": 7628867,
+    "msc": [
+     "14F30",
+     "14F40",
+     "19D55",
+     "19E15"
+    ]
+   },
+   {
+    "title": "Topological Hochschild homology and integral p-adic Hodge theory",
+    "authors": "Bhatt, Bhargav; Morrow, Matthew; Scholze, Peter",
+    "zbmath": 7059677,
+    "msc": [
+     "14F30",
+     "55P42",
+     "14C35"
+    ]
+   },
+   {
+    "title": "q-de Rham cohomology and topological Hochschild homology over ku (arXiv:2510.06057)",
+    "authors": "Wagner, Ferdinand",
+    "zbmath": 902851666,
+    "msc": [
+     "14F30",
+     "14F40",
+     "19D55"
+    ]
+   },
+   {
+    "title": "q-Hodge complexes and refined TC⁻ (arXiv:2410.23115)",
+    "authors": "Meyer, Samuel; Wagner, Ferdinand",
+    "zbmath": 902595065,
+    "msc": [
+     "14F30",
+     "14F40",
+     "14G25",
+     "19D55",
+     "55P42",
+     "55P43"
+    ]
+   },
+   {
+    "title": "Rigidity of the category of localizing motives (arXiv:2510.17010)",
+    "authors": "Efimov, Alexander I.",
+    "zbmath": 902862619,
+    "msc": [
+     "19D55"
+    ]
+   },
+   {
+    "title": "Doctoral thesis (2026; title not given in the roadmap, author page q-Thesis.pdf)",
+    "authors": "Wagner, Ferdinand",
+    "zbmath": null,
+    "msc": []
+   }
+  ]
+ },
+ {
+  "roadmapId": "RelativeFarguesFontaine",
+  "primaryMsc": "14G",
+  "secondaryMsc": [
+   "14F",
+   "11S",
+   "13J"
+  ],
+  "cluster": "p-adic-geometry",
+  "distance": 10,
+  "distanceRationale": "Mathlib has p-typical Witt vectors with Teichmüller lifts, tilts and Proj of graded rings, and Tau Ceti has adic spectra of Huber pairs. There are no ramified Witt vectors W_{O_E}, no adic or perfectoid spaces, diamonds or v-sheaves, and no relative period spaces 𝒴_S and Y_S or Frobenius quotient X_S. Divisor moduli with B_dR sheaves and Beauville–Laszlo gluing are also missing. The target is the relative curve of Fargues–Scholze (2021/2026), a frontier construction resting on all of these unbuilt theories.",
+  "mathlibEvidence": [
+   "mathlib:WittVector.teichmuller (Mathlib/RingTheory/WittVector/Teichmuller.lean) — p-typical Witt vectors only, with no ramified W_{O_E}",
+   "tauceti:TauCeti.ValuationSpectrum.spa (TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean) — adic spectra, with no adic spaces or gluing",
+   "mathlib:AlgebraicGeometry.Proj.toSpecZero (Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Basic.lean) — Proj of a graded ring, needed for the schematic curve",
+   "mathlib:Tilt (Mathlib/RingTheory/Perfection.lean)",
+   "absent: ramified Witt vectors, relative period spaces and the Frobenius quotient X_S, perfectoid spaces, diamonds and v-sheaves, divisor moduli Div^d and B_dR sheaves, Beauville–Laszlo gluing (no declarations matching RamifiedWitt, FarguesFontaine, BeauvilleLaszlo, PerfectoidSpace, VSheaf)"
+  ],
+  "references": [
+   {
+    "title": "Geometrization of the local Langlands correspondence (arXiv:2102.13459)",
+    "authors": "Fargues, Laurent; Scholze, Peter",
+    "zbmath": 8244242,
+    "msc": [
+     "11-XX",
+     "14-XX"
+    ]
+   },
+   {
+    "title": "Berkeley lectures on p-adic geometry",
+    "authors": "Scholze, Peter; Weinstein, Jared",
+    "zbmath": 7178476,
+    "msc": [
+     "14-02",
+     "14G20",
+     "14G22"
+    ]
+   },
+   {
+    "title": "Relative p-adic Hodge theory: foundations",
+    "authors": "Kedlaya, Kiran S.; Liu, Ruochuan",
+    "zbmath": 6456685,
+    "msc": [
+     "14G22",
+     "11S15",
+     "13J07",
+     "13F35",
+     "14C30",
+     "14F30"
+    ]
+   },
+   {
+    "title": "Courbes et fibrés vectoriels en théorie de Hodge p-adique",
+    "authors": "Fargues, Laurent; Fontaine, Jean-Marc",
+    "zbmath": 7005651,
+    "msc": [
+     "14-02",
+     "14G20",
+     "14F30",
+     "11S31",
+     "11S37"
+    ]
+   },
+   {
+    "title": "Integral p-adic Hodge theory",
+    "authors": "Bhatt, Bhargav; Morrow, Matthew; Scholze, Peter",
+    "zbmath": 7018374,
+    "msc": [
+     "14F30",
+     "11G25",
+     "14B99",
+     "13A35",
+     "14G45"
+    ]
+   },
+   {
+    "title": "Almost ring theory, sixth release (arXiv:math/0201175)",
+    "authors": "Gabber, Ofer; Ramero, Lorenzo",
+    "zbmath": 900009800,
+    "msc": [
+     "13D03",
+     "12J20",
+     "14A99",
+     "14F99",
+     "14G22"
+    ]
+   },
+   {
+    "title": "Un lemme de descente",
+    "authors": "Beauville, Arnaud; Laszlo, Yves",
+    "zbmath": 810980,
+    "msc": [
+     "13B30",
+     "13J10",
+     "14H60"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "SchemeAndStackFoundations",
+  "primaryMsc": "14A",
+  "secondaryMsc": [
+   "14F",
+   "14C",
+   "14D"
+  ],
+  "cluster": "algebraic-geometry",
+  "distance": 6,
+  "distanceRationale": "The SF.0 layer is largely in Mathlib: schemes, flat/étale/smooth/proper/separated morphisms, quasi-coherent modules, big Zariski/étale/fpqc topologies and sheaf cohomology on sites. Tau Ceti adds Riemann–Roch consequences for function fields and Abel–Jacobi classes of Weil divisors. Several substantial layers are missing: algebraic spaces and stacks with effective descent, étale base-change theorems, Picard schemes, formal schemes and deformation theory, Chow groups and intersection theory, and de Jong's alterations.",
+  "mathlibEvidence": [
+   "mathlib:AlgebraicGeometry.IsProper, AlgebraicGeometry.Etale, AlgebraicGeometry.Smooth (Mathlib/AlgebraicGeometry/Morphisms/) — morphism properties",
+   "mathlib:AlgebraicGeometry.Scheme.etaleTopology (Mathlib/AlgebraicGeometry/Sites/Etale.lean) and AlgebraicGeometry.Scheme.fpqcTopology (Mathlib/AlgebraicGeometry/Sites/Fpqc.lean)",
+   "mathlib:CategoryTheory.Sheaf.H (Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean) — sheaf cohomology on sites, with no base-change theorems",
+   "tauceti:TauCeti.Divisor.dim_eq_degree_add_one_sub_genus_of_two_mul_genus_sub_one_le_degree (TauCeti/FieldTheory/FunctionField/Consequences/HighDegree.lean) — Riemann–Roch for function fields in high degree",
+   "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.weightedAbelJacobiClass (TauCeti/AlgebraicGeometry/WeilDivisor/AbelJacobi/Basic.lean)",
+   "absent: algebraic spaces and stacks, effective fpqc descent, proper/smooth base change, Picard schemes, formal schemes and algebraization, alterations, Chow groups and intersection products (no declarations matching AlgebraicSpace, AlgebraicStack, EffectiveDescent, PicardScheme, FormalScheme, Alteration, ChowGroup)"
+  ],
+  "references": [
+   {
+    "title": "The Stacks Project (schemes, descent, algebraic spaces and stacks, étale cohomology, deformation theory)",
+    "authors": "The Stacks Project Authors",
+    "zbmath": null,
+    "msc": []
+   },
+   {
+    "title": "Rational points on varieties",
+    "authors": "Poonen, Bjorn",
+    "zbmath": 6828731,
+    "msc": [
+     "14-02",
+     "14G05",
+     "14G25",
+     "14F20",
+     "14F22",
+     "11G35"
+    ]
+   },
+   {
+    "title": "Intersection theory (2nd edition)",
+    "authors": "Fulton, William",
+    "zbmath": 1027930,
+    "msc": [
+     "14C17",
+     "14-02",
+     "14C15",
+     "14C25"
+    ]
+   },
+   {
+    "title": "Smoothness, semi-stability and alterations",
+    "authors": "de Jong, A. J.",
+    "zbmath": 1019347,
+    "msc": [
+     "14E15",
+     "14H10",
+     "14B05"
+    ]
+   },
+   {
+    "title": "The pro-étale topology for schemes",
+    "authors": "Bhatt, Bhargav; Scholze, Peter",
+    "zbmath": 6479630,
+    "msc": [
+     "19F27",
+     "18F10",
+     "14H30"
+    ]
+   },
+   {
+    "title": "Sur une note de Mattuck-Tate",
+    "authors": "Grothendieck, A.",
+    "zbmath": 3137910,
+    "msc": []
+   }
+  ]
+ },
+ {
+  "roadmapId": "SchemeKTheoryOperations",
+  "primaryMsc": "19E",
+  "secondaryMsc": [
+   "14C",
+   "14F",
+   "18F"
+  ],
+  "cluster": "k-theory-and-motives",
+  "distance": 8,
+  "distanceRationale": "Tau Ceti has K₀ of abelian and exact categories and Weil divisors as algebraic cycles, and Mathlib has derived categories and sheaves of modules on schemes. There is no higher algebraic K-theory (Quillen or Waldhausen), and no perfect complexes on schemes or enhancements. K/G-theory with supports and localisation, Nisnevich descent, Gersten complexes, λ- and Adams operations, Chern classes, Chow groups and Grothendieck–Riemann–Roch are also missing. The Thomason–Trobaugh and SGA 6 theory is established but needs several research-level layers (spectra, enhanced categories, intersection theory) first.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.AbelianK0 (TauCeti/CategoryTheory/GrothendieckGroup/Abelian.lean) — K₀ of abelian categories, with a comparison to exact-category K₀",
+   "mathlib:DerivedCategory (Mathlib/Algebra/Homology/DerivedCategory/Basic.lean) — unenhanced derived categories",
+   "mathlib:AlgebraicGeometry.Scheme.Modules (Mathlib/AlgebraicGeometry/Modules/Sheaf.lean) — sheaves of modules on schemes",
+   "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.toAlgebraicCycle (TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Basic.lean) — Weil divisors as cycles, with no Chow groups",
+   "absent: higher algebraic K-theory, perfect complexes on schemes, K/G-theory with supports and localisation, Gersten/coniveau, λ- and Adams operations, Chern classes and Grothendieck–Riemann–Roch (no declarations matching PerfectComplex, Waldhausen, QConstruction, LambdaRing, AdamsOperation, ChernClass, ChowGroup)"
+  ],
+  "references": [
+   {
+    "title": "Higher algebraic K-theory of schemes and of derived categories",
+    "authors": "Thomason, R. W.; Trobaugh, Thomas",
+    "zbmath": 4208241,
+    "msc": [
+     "14C35",
+     "19E08"
+    ]
+   },
+   {
+    "title": "The K-book. An introduction to algebraic K-theory",
+    "authors": "Weibel, Charles A.",
+    "zbmath": 6123945,
+    "msc": [
+     "19-00",
+     "19-01",
+     "19Axx",
+     "19Bxx",
+     "19Cxx",
+     "19Dxx",
+     "19Fxx",
+     "19L64",
+     "19E08",
+     "19F27",
+     "19M05"
+    ]
+   },
+   {
+    "title": "Higher algebraic K-theory. I",
+    "authors": "Quillen, Daniel",
+    "zbmath": 3457106,
+    "msc": [
+     "18F25",
+     "14C35",
+     "14C15"
+    ]
+   },
+   {
+    "title": "Motivic cohomology, K-theory and topological cyclic homology (Handbook of K-theory, II.1)",
+    "authors": "Geisser, Thomas",
+    "zbmath": 2247518,
+    "msc": [
+     "14F42",
+     "19E15",
+     "19D55",
+     "14C35"
+    ]
+   },
+   {
+    "title": "K-theory and intersection theory (Handbook of K-theory, II.2)",
+    "authors": "Gillet, Henri",
+    "zbmath": 2247519,
+    "msc": [
+     "14C17",
+     "14C35",
+     "19E20",
+     "14C15"
+    ]
+   },
+   {
+    "title": "Mixed motives (Handbook of K-theory, II.5)",
+    "authors": "Levine, Marc",
+    "zbmath": 2247522,
+    "msc": [
+     "14F42",
+     "19E15",
+     "14C15"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "SelmerIwasawaCohomology",
+  "primaryMsc": "11R",
+  "secondaryMsc": [
+   "11S",
+   "11G",
+   "18G"
+  ],
+  "cluster": "iwasawa-theory-and-special-values",
+  "distance": 7,
+  "distanceRationale": "Mathlib has continuous group cohomology, and Tau Ceti adds its functoriality, continuous inflation–restriction, Tate cohomology, the Kummer sequence and 2-Selmer groups of elliptic curves. There is no local Tate duality or Poitou–Tate, no derived-limit theory for compact coefficients and no Selmer structures or complexes. Iwasawa cohomology, control theorems and Bloch–Kato local conditions are also missing. The core (Greenberg, Nekovář) needs several layers of graduate and research-level Galois cohomology, and L4 additionally needs p-adic period rings.",
+  "mathlibEvidence": [
+   "mathlib:continuousCohomology (Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean)",
+   "tauceti:TauCeti.ContCohomology.explicitInfRes_exact (TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean) — inflation–restriction for continuous cohomology",
+   "tauceti:TauCeti.kummerSequence_exact (TauCeti/FieldTheory/GaloisCohomology/Coefficients.lean) — the Kummer sequence",
+   "tauceti:WeierstrassCurve.Affine.selmerGroup₂ (TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean) — 2-Selmer groups of elliptic curves only",
+   "absent: local Tate duality and Poitou–Tate, derived limits of compact continuous cochains, Greenberg and Bloch–Kato Selmer structures, Selmer complexes, Iwasawa cohomology and control theorems (no declarations matching PoitouTate, TateDuality, SelmerComplex, IwasawaCohomology, BlochKato)"
+  ],
+  "references": [
+   {
+    "title": "An introduction to p-adic L-functions",
+    "authors": "Rodrigues Jacinto, Joaquín; Williams, Chris",
+    "zbmath": 8030000,
+    "msc": [
+     "11F33",
+     "11F67",
+     "11R23"
+    ]
+   },
+   {
+    "title": "Selmer complexes",
+    "authors": "Nekovář, Jan",
+    "zbmath": 5161833,
+    "msc": [
+     "11R23",
+     "11G40",
+     "11F41",
+     "11-02",
+     "11R34",
+     "22E41"
+    ]
+   },
+   {
+    "title": "Cohomology of number fields (2nd edition)",
+    "authors": "Neukirch, Jürgen; Schmidt, Alexander; Wingberg, Kay",
+    "zbmath": 5162349,
+    "msc": [
+     "11-02",
+     "11R34",
+     "11R23",
+     "11S25",
+     "18G10",
+     "18G20",
+     "20J05",
+     "11R37"
+    ]
+   },
+   {
+    "title": "Iwasawa theory for p-adic representations",
+    "authors": "Greenberg, Ralph",
+    "zbmath": 16335,
+    "msc": [
+     "11R23",
+     "11S25",
+     "11S40"
+    ]
+   },
+   {
+    "title": "L-functions and Tamagawa numbers of motives",
+    "authors": "Bloch, Spencer; Kato, Kazuya",
+    "zbmath": 16076,
+    "msc": [
+     "14A20",
+     "11G40",
+     "14G10"
+    ]
+   },
+   {
+    "title": "Kolyvagin systems",
+    "authors": "Mazur, Barry; Rubin, Karl",
+    "zbmath": 2056299,
+    "msc": [
+     "11G40",
+     "11R23",
+     "11R34",
+     "11R42",
+     "11F80"
+    ]
+   },
+   {
+    "title": "Continuous étale cohomology",
+    "authors": "Jannsen, Uwe",
+    "zbmath": 4059566,
+    "msc": [
+     "14F20",
+     "14F30",
+     "18G10",
+     "14C35"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "SerreWeightAndLevelOptimisation",
+  "primaryMsc": "11F",
+  "secondaryMsc": [
+   "11G",
+   "14G",
+   "11R"
+  ],
+  "cluster": "galois-representations-and-langlands",
+  "distance": 9,
+  "distanceRationale": "Tau Ceti has classical newforms, degeneracy (level-raising) maps and Atkin–Lehner operators on Γ₀(N). There are no Galois representations attached to modular forms, no Katz modular forms mod p, theta operators or Hasse invariants, and no Jacobians of modular or Shimura curves with their character groups. Ihara's lemma, finite flat group schemes and Serre weights are also missing. Ribet's and Edixhoven's theorems and the Buzzard/Wiese dyadic cases are established research results resting on many of these unbuilt layers.",
+  "mathlibEvidence": [
+   "tauceti:HeckeRing.GL2.Newform (TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean) — classical newforms",
+   "tauceti:TauCeti.ModularForm.levelRaise (TauCeti/NumberTheory/ModularForms/Degeneracy.lean) — degeneracy maps producing oldforms",
+   "tauceti:HeckeRing.GL2.atkinLehnerHom (TauCeti/NumberTheory/HeckeRing/GL2/Gamma0/AtkinLehner.lean)",
+   "absent: Galois representations of modular forms, Katz modular forms mod p with theta operators and Hasse invariants, character groups of bad fibres of modular/Shimura curves, Ihara's lemma, Serre weights and level lowering (no declarations matching KatzModular, ThetaOperator, HasseInvariant, LevelLowering, SerreWeight)"
+  ],
+  "references": [
+   {
+    "title": "Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)",
+    "authors": "Serre, Jean-Pierre",
+    "zbmath": 4043940,
+    "msc": [
+     "11F80",
+     "11F33",
+     "11G05",
+     "11R32",
+     "11R39"
+    ]
+   },
+   {
+    "title": "On modular representations of Gal(Q̄/Q) arising from modular forms",
+    "authors": "Ribet, K. A.",
+    "zbmath": 5244,
+    "msc": [
+     "11F80",
+     "11G18",
+     "11G05",
+     "11S37",
+     "14G35"
+    ]
+   },
+   {
+    "title": "The weight in Serre's conjectures on modular forms",
+    "authors": "Edixhoven, Bas",
+    "zbmath": 220751,
+    "msc": [
+     "11F11",
+     "11F80"
+    ]
+   },
+   {
+    "title": "The refined conjecture of Serre",
+    "authors": "Diamond, Fred",
+    "zbmath": 824712,
+    "msc": [
+     "11F11",
+     "11F80"
+    ]
+   },
+   {
+    "title": "Serre's modularity conjecture. I",
+    "authors": "Khare, Chandrashekhar; Wintenberger, Jean-Pierre",
+    "zbmath": 5636295,
+    "msc": [
+     "11F80",
+     "11R39",
+     "11F11"
+    ]
+   },
+   {
+    "title": "Dihedral Galois representations and Katz modular forms",
+    "authors": "Wiese, Gabor",
+    "zbmath": 2095720,
+    "msc": [
+     "11F80",
+     "14G35"
+    ]
+   },
+   {
+    "title": "On level-lowering for mod 2 representations",
+    "authors": "Buzzard, Kevin",
+    "zbmath": 1489544,
+    "msc": [
+     "11F11",
+     "11F80"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "ShimuraCompactifications",
+  "primaryMsc": "14G",
+  "secondaryMsc": [
+   "14K",
+   "14M",
+   "14D"
+  ],
+  "cluster": "arithmetic-geometry",
+  "distance": 9,
+  "distanceRationale": "Tau Ceti has lattice-rational cones, finite fans with fan morphisms and the complex points of affine toric charts, and Mathlib has pointed cones. There are no arithmetic-admissible infinite fans or relative torus embeddings, and no Shimura varieties, minimal compactifications or mixed Shimura data. Complex-analytic gluing, semi-abelian degenerations, the Tate curve, algebraic spaces and PEL moduli are also missing. The AMRT, Pink, Faltings–Chai and Lan constructions are established research theorems resting on many of these unbuilt layers.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.Toric.Fan (TauCeti/Geometry/Toric/Algebraic/Fan/Basic.lean) — finite fans, with no arithmetic-admissible infinite fans",
+   "tauceti:TauCeti.Toric.AffineSemigroupComplexPoint (TauCeti/Geometry/Toric/Analytic/AffinePoint.lean) — complex points of affine toric charts",
+   "mathlib:PointedCone (Mathlib/Geometry/Convex/Cone/Pointed.lean)",
+   "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety (TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean) — abelian varieties over a field, with no semi-abelian degenerations",
+   "absent: Shimura varieties and minimal compactifications, mixed Shimura data, relative torus embeddings and toroidal gluing, semi-abelian schemes and Mumford degenerations, the Tate curve, integral PEL compactifications (no declarations matching Shimura, Semiabelian, TorusEmbedding, TateCurve, ToroidalCompactification)"
+  ],
+  "references": [
+   {
+    "title": "Smooth compactification of locally symmetric varieties",
+    "authors": "Ash, A.; Mumford, D.; Rapoport, M.; Tai, Y.",
+    "zbmath": 3522110,
+    "msc": [
+     "14E15",
+     "14-02",
+     "32-02",
+     "57-02",
+     "22E99",
+     "32M15"
+    ]
+   },
+   {
+    "title": "Arithmetical compactification of mixed Shimura varieties",
+    "authors": "Pink, Richard",
+    "zbmath": 47436,
+    "msc": [
+     "14G35",
+     "14M25",
+     "14D07"
+    ]
+   },
+   {
+    "title": "Degeneration of abelian varieties",
+    "authors": "Faltings, Gerd; Chai, Ching-Li",
+    "zbmath": 49143,
+    "msc": [
+     "14K10",
+     "14-02",
+     "14K15",
+     "14L15",
+     "14D10",
+     "14D15",
+     "14L05"
+    ]
+   },
+   {
+    "title": "Arithmetic compactifications of PEL-type Shimura varieties",
+    "authors": "Lan, Kai-Wen",
+    "zbmath": 6151348,
+    "msc": [
+     "14-02",
+     "11G18",
+     "14G35",
+     "14K10"
+    ]
+   },
+   {
+    "title": "An example-based introduction to Shimura varieties",
+    "authors": "Lan, Kai-Wen",
+    "zbmath": null,
+    "msc": []
+   },
+   {
+    "title": "An analytic construction of degenerating abelian varieties over complete rings",
+    "authors": "Mumford, David",
+    "zbmath": 3380769,
+    "msc": [
+     "14K20",
+     "14L15"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "ShimuraData",
+  "primaryMsc": "14G",
+  "secondaryMsc": [
+   "11G",
+   "32M",
+   "20G"
+  ],
+  "cluster": "arithmetic-geometry",
+  "distance": 5,
+  "distanceRationale": "Tau Ceti has pure Hodge structures with conjugation, points of period domains and reductive group schemes, and Mathlib has the upper half-plane and adele rings. The missing material is mostly graduate but spans several layers: Weil restriction and the Deligne torus, the equivalence of Deligne-torus representations with Hodge structures, and Cartan involutions with Hermitian symmetric domains. Homogeneous variations of Hodge structure, compact duals with reflex fields, and the category of Shimura data with neat levels are also needed, with little research-level input (Deligne 1979 §2.1, Milne §§1–5).",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.Hodge.HodgeStructureOn (TauCeti/Geometry/Hodge/Structure.lean) — pure Hodge structures, the linear-algebra input to D1",
+   "tauceti:TauCeti.Hodge.PeriodDomain.Point (TauCeti/Geometry/Hodge/PeriodDomain.lean) — points of a period domain, with no complex structure or homogeneous description",
+   "tauceti:TauCeti.ReductiveAffineGroupSchemeCat (TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean)",
+   "mathlib:UpperHalfPlane (Mathlib/Analysis/Complex/UpperHalfPlane/Basic.lean) — the GL₂ example domain",
+   "mathlib:NumberField.AdeleRing (Mathlib/NumberTheory/NumberField/AdeleRing.lean)",
+   "absent: the Deligne torus as a Weil restriction, the representation–Hodge structure equivalence, Cartan involutions and Hermitian symmetric domains, variations of Hodge structure, compact duals and reflex fields, Shimura data and neat levels (no declarations matching DeligneTorus, CartanInvolution, HermitianSymmetric, VariationOfHodge, ReflexField, ShimuraDatum)"
+  ],
+  "references": [
+   {
+    "title": "Variétés de Shimura: interprétation modulaire, et techniques de construction de modèles canoniques",
+    "authors": "Deligne, Pierre",
+    "zbmath": 3681911,
+    "msc": [
+     "14G99",
+     "11F27",
+     "32M15",
+     "20G15"
+    ]
+   },
+   {
+    "title": "Introduction to Shimura varieties",
+    "authors": "Milne, J. S.",
+    "zbmath": 5071308,
+    "msc": [
+     "14G35",
+     "11G18"
+    ]
+   },
+   {
+    "title": "Travaux de Shimura",
+    "authors": "Deligne, Pierre",
+    "zbmath": 3356927,
+    "msc": [
+     "14G35",
+     "14K22",
+     "11G15",
+     "01A70"
+    ]
+   },
+   {
+    "title": "An example-based introduction to Shimura varieties",
+    "authors": "Lan, Kai-Wen",
+    "zbmath": null,
+    "msc": []
+   },
+   {
+    "title": "Perfectoid Shimura varieties and the Calegari–Emerton conjectures",
+    "authors": "Hansen, David; Johansson, Christian",
+    "zbmath": 7780666,
+    "msc": [
+     "11S37",
+     "14G45"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "ShimuraVarieties",
+  "primaryMsc": "14G",
+  "secondaryMsc": [
+   "11G",
+   "11F",
+   "32M"
+  ],
+  "cluster": "arithmetic-geometry",
+  "distance": 9,
+  "distanceRationale": "Mathlib has the upper half-plane with the SL₂(ℤ) fundamental domain, congruence subgroups and adele rings, and Tau Ceti has abstract class formations. There are no adelic double quotients Sh_K(G,X), no reduction theory or strong approximation for reductive groups, and no complex analytic spaces or GAGA. The Baily–Borel compactification, Borel's extension theorem, the main theorem of complex multiplication and canonical models are also missing. The Deligne–Milne canonical-model theorem for all Shimura data rests on many of these research-level layers.",
+  "mathlibEvidence": [
+   "mathlib:ModularGroup.exists_smul_mem_fd (Mathlib/NumberTheory/Modular.lean) — fundamental domain for SL₂(ℤ) acting on ℍ",
+   "mathlib:CongruenceSubgroup.Gamma (Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean)",
+   "mathlib:NumberField.AdeleRing (Mathlib/NumberTheory/NumberField/AdeleRing.lean)",
+   "tauceti:TauCeti.ClassFieldTheory.abelianizationGalEquiv (TauCeti/NumberTheory/ClassFieldTheory/Formation/AbelianLayer.lean) — abstract class formations",
+   "absent: Shimura varieties as adelic double quotients, reduction theory and strong approximation for reductive groups, complex analytic spaces and GAGA, the Baily–Borel compactification, Borel's extension theorem, the main theorem of complex multiplication, canonical models (no declarations matching Shimura, BailyBorel, MinimalCompactification, Analytification, GAGA, ComplexMultiplication, ReflexNorm)"
+  ],
+  "references": [
+   {
+    "title": "Variétés de Shimura: interprétation modulaire, et techniques de construction de modèles canoniques",
+    "authors": "Deligne, Pierre",
+    "zbmath": 3681911,
+    "msc": [
+     "14G99",
+     "11F27",
+     "32M15",
+     "20G15"
+    ]
+   },
+   {
+    "title": "Introduction to Shimura varieties",
+    "authors": "Milne, J. S.",
+    "zbmath": 5071308,
+    "msc": [
+     "14G35",
+     "11G18"
+    ]
+   },
+   {
+    "title": "Compactification of arithmetic quotients of bounded symmetric domains",
+    "authors": "Baily, W. L. jun.; Borel, Armand",
+    "zbmath": 3247427,
+    "msc": []
+   },
+   {
+    "title": "Some metric properties of arithmetic quotients of symmetric spaces and an extension theorem",
+    "authors": "Borel, Armand",
+    "zbmath": 3394558,
+    "msc": [
+     "32H25",
+     "32M15",
+     "22E40",
+     "32M05"
+    ]
+   },
+   {
+    "title": "On canonical models of arithmetic quotients of bounded symmetric domains",
+    "authors": "Shimura, Goro",
+    "zbmath": 3375644,
+    "msc": [
+     "14G35",
+     "11F46",
+     "14L10",
+     "14E30"
+    ]
+   },
+   {
+    "title": "The action of an automorphism of ℂ on a Shimura variety and its special points",
+    "authors": "Milne, J. S.",
+    "zbmath": 3836225,
+    "msc": [
+     "14J25",
+     "14L30",
+     "11F27"
+    ]
+   },
+   {
+    "title": "Descent for Shimura varieties",
+    "authors": "Milne, J. S.",
+    "zbmath": 1548298,
+    "msc": [
+     "11G18",
+     "14G35"
+    ]
+   },
+   {
+    "title": "Travaux de Shimura",
+    "authors": "Deligne, Pierre",
+    "zbmath": 3356927,
+    "msc": [
+     "14G35",
+     "14K22",
+     "11G15",
+     "01A70"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "SieveMethodsAndPrimePatterns",
+  "primaryMsc": "11N",
+  "secondaryMsc": [
+   "11P",
+   "11B"
+  ],
+  "cluster": "analytic-number-theory",
+  "distance": 6,
+  "distanceRationale": "Mathlib has a Selberg sieve carrier, Dirichlet's theorem on primes in progressions, non-vanishing of Dirichlet L-functions on Re s ≥ 1 and Chebyshev functions. Brun's sieve and the fundamental lemma, the large sieve, Vaughan's identity, Siegel–Walfisz and Bombieri–Vinogradov are all missing. Maynard's bounded-gaps theorem needs these graduate analytic layers, and the Chen and affine-sieve stages add parity-breaking bilinear estimates and expander theory (Bourgain–Gamburd–Sarnak).",
+  "mathlibEvidence": [
+   "mathlib:SelbergSieve (Mathlib/NumberTheory/SelbergSieve.lean) — Selberg upper-bound sieve structure",
+   "mathlib:Nat.forall_exists_prime_gt_and_eq_mod (Mathlib/NumberTheory/LSeries/PrimesInAP.lean) — Dirichlet's theorem",
+   "mathlib:DirichletCharacter.LFunction_ne_zero_of_one_le_re (Mathlib/NumberTheory/LSeries/Nonvanishing.lean)",
+   "mathlib:Chebyshev.psi (Mathlib/NumberTheory/Chebyshev.lean)",
+   "absent: Brun's sieve and the fundamental lemma, large sieve inequalities, Vaughan's identity, Siegel–Walfisz and Bombieri–Vinogradov, Maynard's multidimensional sieve, Chen and affine sieves (no declarations matching LargeSieve, Vaughan, BombieriVinogradov, Brun, AdmissibleTuple, PrimeGap)"
+  ],
+  "references": [
+   {
+    "title": "Notes on analytic number theory (21 December 2025)",
+    "authors": "Kedlaya, Kiran S.",
+    "zbmath": null,
+    "msc": []
+   },
+   {
+    "title": "Small gaps between primes",
+    "authors": "Maynard, James",
+    "zbmath": 6383667,
+    "msc": [
+     "11N05",
+     "11N36"
+    ]
+   },
+   {
+    "title": "On the large sieve",
+    "authors": "Bombieri, E.",
+    "zbmath": 3221534,
+    "msc": [
+     "11N35"
+    ]
+   },
+   {
+    "title": "On an elementary method in the theory of primes",
+    "authors": "Selberg, Atle",
+    "zbmath": 3061658,
+    "msc": [
+     "11N05"
+    ]
+   },
+   {
+    "title": "On the representation of a larger even integer as the sum of a prime and the product of at most two primes",
+    "authors": "Chen, Jing-run",
+    "zbmath": 3499888,
+    "msc": [
+     "11N35",
+     "11P32"
+    ]
+   },
+   {
+    "title": "Affine linear sieve, expanders, and sum-product",
+    "authors": "Bourgain, Jean; Gamburd, Alex; Sarnak, Peter",
+    "zbmath": 5675041,
+    "msc": [
+     "11N35",
+     "11B30",
+     "11B13"
+    ]
+   },
+   {
+    "title": "Opera de cribro",
+    "authors": "Friedlander, John; Iwaniec, Henryk",
+    "zbmath": 5757681,
+    "msc": [
+     "11N35",
+     "11-02"
+    ]
+   }
+  ]
  }
 ]
