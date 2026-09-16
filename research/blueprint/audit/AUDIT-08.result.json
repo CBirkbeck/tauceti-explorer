@@ -260,7 +260,7 @@
          "name": "Ideal.finite_setOf_absNorm_eq",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean",
-         "line": 362,
+         "line": 513,
          "fit": "more general"
         },
         {
@@ -2493,6 +2493,794 @@
        "note": "ED.6 is the declared consumer and states the same handoff from its side ('Consume the nonabelian/quadratic Chabauty construction when its rank and local-height hypotheses are verified'), so the interface is written twice."
       }
      ]
+    }
+   }
+  },
+  "ArakelovGeometryAndAbelianHeights": {
+   "summary": "The general height theory this roadmap needs as input is already in Mathlib, and more generally than the roadmap assumes: `Mathlib/NumberTheory/Height/` defines `AdmissibleAbsValues` — a family of absolute values satisfying the product formula with archimedean multiplicities — proves the product formula for every number field, builds multiplicative and logarithmic heights on tuples and on projectivizations, and proves the Northcott finiteness theorems `finite_setOf_mulHeight_nat_le` and `finite_setOf_logHeight₁_le` together with an abstract `Northcott` order class. Everything the roadmap actually owns is absent: `Arakelov`, `Faltings`, `Zarhin`, `arithmeticDegree`, `hermitianBundle` and `NeronModel` each have zero occurrences in the whole baseline, and the geometric inputs are missing too — there is no abelian scheme, no Néron or semistable model, no module of invariant differentials, no period lattice and no polarized moduli scheme. So no hermitian bundle, no arithmetic degree, no Hodge bundle with Faltings metric, no (stable) Faltings height, no isogeny formula and no theta-height comparison exists. The roadmap's own summary anticipates this correctly when it says general heights and Northcott 'are necessary but do not construct the stable Faltings height'; the audit's addition is that the necessary part is finished, in Mathlib, and that R35.1's product-formula target should simply be consumed rather than built.",
+   "layers": {
+    "ArakelovGeometryAndAbelianHeights:R35.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "hermitian line and vector bundles over an arithmetic curve, with determinant, tensor and dual operations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent from both libraries. `Arakelov`, `hermitianBundle` and any metrized-module carrier over `𝓞_K` have zero occurrences; the only invertible-sheaf theory in the baseline is Tau Ceti's `InvertibleSheaf`/`LineBundleClass` for schemes (TauCeti/AlgebraicGeometry/LineBundle/), which carries no metric."
+      },
+      {
+       "target": "arithmetic degree of a hermitian bundle, and comparison with the general height owner's normalization",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `arithmeticDegree` has zero occurrences."
+      },
+      {
+       "target": "the product formula, with archimedean factors",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "NumberField.instAdmissibleAbsValues",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 78,
+         "fit": "exact"
+        },
+        {
+         "name": "Height.AdmissibleAbsValues",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Basic.lean",
+         "line": 78,
+         "fit": "more general"
+        },
+        {
+         "name": "NumberField.prod_archAbsVal_eq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 87,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.prod_nonarchAbsVal_eq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 91,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.totalWeight_eq_finrank",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 158,
+         "fit": "exact"
+        }
+       ],
+       "note": "This target is fully in Mathlib and in more generality than asked: `AdmissibleAbsValues` axiomatizes a family of absolute values satisfying `∏_arch |x|_v · ∏_nonarch |x|_v = 1` with archimedean multiplicities, `Mathlib/NumberTheory/NumberField/ProductFormula.lean` proves it for any number field, and `NumberField.instAdmissibleAbsValues` installs it. The archimedean weights are `totalWeight = [K:ℚ]`. The roadmap document treats the general-height layer as belonging to another owner (`ArithmeticHeights #287`) and does not claim it; the point of record is that it is already done in Mathlib."
+      },
+      {
+       "target": "base-change and degree formulas for the height normalization under finite extension",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Height.mulHeight",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Basic.lean",
+         "line": 233,
+         "fit": "related"
+        },
+        {
+         "name": "Height.mulHeight_comp_equiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Basic.lean",
+         "line": 256,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.mulHeight_eq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 128,
+         "fit": "related"
+        },
+        {
+         "name": "Projectivization.mulHeight",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Projectivization.lean",
+         "line": 46,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has absolute multiplicative and logarithmic heights of tuples and of points of a projectivization, with invariance under scaling and coordinate permutation and explicit formulas over a number field and over `ℚ`. Invariance of the height under finite field extension is not stated as such, and there is no arithmetic-degree normalization to compare it with."
+      },
+      {
+       "target": "the arithmetic intersection statements invoked by the moduli-height comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no arithmetic intersection theory of any kind in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GrossZagierAndArithmeticHeights:GZ.2",
+       "note": "GZ.2 constructs the arithmetic intersection pairing on arithmetic surfaces from finite-place intersection lengths and archimedean Green functions — the same Arakelov machinery R35.1 needs, built for curves rather than for the moduli comparison."
+      },
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.0",
+       "note": "RP.0 says it will 'Import normalized absolute heights, product formula and Northcott from the audited arithmetic-height supplier', so the product-formula and normalization targets appear in at least three roadmaps; Mathlib already supplies them."
+      }
+     ]
+    },
+    "ArakelovGeometryAndAbelianHeights:R35.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "the determinant of invariant differentials of an abelian scheme or semistable model (the Hodge bundle)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.invariantDifferential",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/InvariantDifferential.lean",
+         "line": 105,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. There is no abelian scheme and no semistable model in either library — `Néron model` and `semistable` have zero occurrences — so no module of invariant differentials and no determinant line. The nearest object is the invariant differential of a Weierstrass curve in Tau Ceti, a single differential on one affine model, not a determinant line bundle over a Dedekind base."
+      },
+      {
+       "target": "the archimedean metric defined by integration at complex places, with positivity, basis-invariance and functoriality",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Nothing in the baseline integrates a differential form over the complex points of an abelian variety; there are no complex points of an abelian scheme to integrate over (see A5 of `AbelianSchemesAndArithmeticModuli`)."
+      },
+      {
+       "target": "normalization under products and duals, and comparison with the elliptic period convention",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no period lattice of an elliptic curve in either library (the `period` declarations in the baseline are cusp widths and function periodicity in the modular-forms files)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+       "note": "R11.1 owns Néron models and the global differential lattice over the Dedekind base, which R35.2 declares it imports; neither is in the libraries."
+      },
+      {
+       "layer": "ModularCurvesPartII:R12.5",
+       "note": "R12.5 owns the Hodge bundle and Hecke normalization of differentials on modular curves, the relative-dimension-one case of this construction."
+      }
+     ]
+    },
+    "ArakelovGeometryAndAbelianHeights:R35.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "the Faltings height as the arithmetic degree of the hermitian Hodge line, and its behaviour under finite extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `Faltings` has zero occurrences in either library, and neither input (the Hodge line of R35.2, the arithmetic degree of R35.1) exists."
+      },
+      {
+       "target": "the stable Faltings height via semistable reduction, with independence of the extension and of the model",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no semistable reduction theorem for abelian varieties in the baseline."
+      },
+      {
+       "target": "separation of bad-place correction terms from the stable value, and the relationship between polarized and unpolarized objects",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+       "note": "That layer mentions the Faltings height of an elliptic curve over ℚ as a database-adapter quantity; it is the dimension-one numerical shadow of this definition, not an independent construction."
+      }
+     ]
+    },
+    "ArakelovGeometryAndAbelianHeights:R35.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "the isogeny formula comparing Faltings heights through the degree and the integral cokernel on invariant differentials, with the archimedean normalization fixed",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Tau Ceti has isogenies of abelian varieties over a field as finite surjective group-scheme maps, but no degree, no action on invariant differentials, and no height to compare."
+      },
+      {
+       "target": "treatment of primes dividing the isogeny degree by finite-flat and p-divisible-group theory",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean",
+         "line": 232,
+         "fit": "related"
+        }
+       ],
+       "note": "p-divisible groups do not exist in either library; only the finite locally free side is present, through Tau Ceti's Cartier duality for finite locally free commutative affine group schemes."
+      },
+      {
+       "target": "the inequalities and local terms used downstream to bound heights in an isogeny class",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+       "note": "R28.2 states it will 'Prove the Faltings isogeny-height estimates and the key boundedness result in the isogeny class, using the integral differential/p-divisible-group calculations supplied by R35/R07' — the same estimates, with R35.4 supplying the local calculation and R28.2 the global conclusion."
+      }
+     ]
+    },
+    "ArakelovGeometryAndAbelianHeights:R35.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "the projective/modular height on a fine-level polarized moduli scheme",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Projectivization.mulHeight",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Projectivization.lean",
+         "line": 46,
+         "fit": "related"
+        },
+        {
+         "name": "Projectivization.logHeight",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Projectivization.lean",
+         "line": 51,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the height of a point of a projectivization over a field with admissible absolute values, which is the generic machinery; there is no polarized moduli scheme in either library to evaluate it on."
+      },
+      {
+       "target": "relating the modular line bundle to the Hodge bundle and proving the two-sided comparison with the Faltings height",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; neither bundle exists."
+      },
+      {
+       "target": "boundary behaviour, compactification and degeneration estimates, and the good-prime integral base with explicitly proved local correction bounds",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no toroidal or minimal compactification of a moduli space in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PELModuli:M6",
+       "note": "M6 owns arithmetic PEL moduli and is the declared supplier of the universal family and Hodge line; R35.5 states it 'does not rebuild the compactification'."
+      },
+      {
+       "layer": "ShimuraCompactifications:C5",
+       "note": "C5 owns integral PEL compactifications, which R35.5 imports and on which it proves only the metric growth."
+      }
+     ]
+    },
+    "ArakelovGeometryAndAbelianHeights:R35.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "export of the bounded-height comparison to the finiteness roadmap",
+       "library": "absent",
+       "declarations": [],
+       "note": "An export of R35.5, which does not exist. This half of the layer is integration bookkeeping rather than mathematics: the layer itself says the arithmetic bound in an isogeny class 'is a theorem proved in R28 from these estimates'."
+      },
+      {
+       "target": "product and polarization identities for the height (behaviour under `A × B` and under change of polarization, as used by Zarhin's trick)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `Zarhin` has zero occurrences and there is no height of an abelian variety to satisfy such identities."
+      },
+      {
+       "target": "constant-dependence statements turning height bounds into a finite set of moduli points",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.finite_setOf_mulHeight_nat_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 386,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.finite_setOf_logHeight₁_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 437,
+         "fit": "related"
+        },
+        {
+         "name": "Northcott",
+         "library": "mathlib",
+         "file": "Mathlib/Order/Northcott.lean",
+         "line": 36,
+         "fit": "related"
+        },
+        {
+         "name": "Height.mulHeight₁",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Basic.lean",
+         "line": 114,
+         "fit": "related"
+        }
+       ],
+       "note": "The Northcott side is done in Mathlib and in the generality the roadmap needs: finiteness of the set of elements of a number field of bounded height, both for `mulHeight` on tuples and for `mulHeight₁`/`logHeight₁` on elements, plus an abstract `Northcott` order class with transfer along monotone maps. What is missing is everything specific to this roadmap — the moduli points, and the constants relating their heights to the Faltings height."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+       "note": "R28.1 consumes R35.6 and states the finiteness conclusion, including Zarhin's trick and the Jordan–Zassenhaus input; the polarization-removal argument appears on both sides of the boundary."
+      },
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.0",
+       "note": "RP.0 also imports 'normalized absolute heights, product formula and Northcott' from a general supplier, duplicating the Northcott input."
+      }
+     ]
+    }
+   }
+  },
+  "ArithmeticDynamics": {
+   "summary": "The libraries supply this roadmap's two general inputs in full and almost nothing else. Mathlib's `Mathlib/Dynamics/PeriodicPts/` gives iteration, fixed and periodic points, minimal period and the divisibility calculus for an arbitrary self-map — more general than DY.0's morphisms of varieties, and at the level of maps rather than sampled points — and `Mathlib/NumberTheory/Height/` gives admissible absolute values with the product formula, logarithmic heights and Northcott finiteness over number fields. On top of those Tau Ceti has, for elliptic curves over any field with admissible absolute values, the complete Néron–Tate package DY.1 asks for in its abelian-variety acceptance example: the Tate limit with its convergence proved, the bounded difference from the naive height, the exact functional equation `ĥ(2P) = 4ĥ(P)`, quadraticity, and the theorem that canonical height zero is equivalent to torsion via Northcott. Everything else is missing, and mostly missing at the level of vocabulary: `Berkovich`, `dynatomic`, `equidistribution`, `arboreal`, `MordellLang` and `Lattès` each have zero occurrences in the whole baseline, and there is no self-map of `P¹` given by coprime forms, no dynamical degree or resultant of such a pair, no polarized morphism, no ample line bundle, no local height and no metrized line bundle. DY.1's general polarized construction, and DY.2–DY.6 entirely, are unbuilt; the sharpest overlap in the atlas is `GrossZagierAndArithmeticHeights:GZ.1`, which states DY.1's canonical-height targets for abelian varieties almost word for word.",
+   "layers": {
+    "ArithmeticDynamics:DY.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "iteration of a self-map, orbit maps, periodic and preperiodic points",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Function.IsPeriodicPt",
+         "library": "mathlib",
+         "file": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+         "line": 62,
+         "fit": "more general"
+        },
+        {
+         "name": "Function.IsFixedPt.isPeriodicPt",
+         "library": "mathlib",
+         "file": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+         "line": 66,
+         "fit": "more general"
+        },
+        {
+         "name": "Function.IsPeriodicPt.iterate",
+         "library": "mathlib",
+         "file": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+         "line": 132,
+         "fit": "more general"
+        },
+        {
+         "name": "Function.IsPeriodicPt.eq_of_apply_eq",
+         "library": "mathlib",
+         "file": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+         "line": 173,
+         "fit": "more general"
+        },
+        {
+         "name": "Function.IsPeriodicPt.gcd",
+         "library": "mathlib",
+         "file": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+         "line": 157,
+         "fit": "more general"
+        }
+       ],
+       "note": "Mathlib's `Mathlib/Dynamics/PeriodicPts/` develops iteration, `IsFixedPt`, `IsPeriodicPt`, `periodicPts`, minimal period and the whole divisibility calculus for an arbitrary self-map of a type, which covers the set-level content of this target in greater generality than a morphism of varieties. Because it is stated for `f : α → α` and `f^[n]`, an equality of iterates really is an equality of maps, satisfying the layer's acceptance criterion. What is not there is the scheme-theoretic layer: iteration of a morphism of varieties as a morphism, and orbit maps as morphisms."
+      },
+      {
+       "target": "conjugacy of maps under automorphisms",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Function.IsPeriodicPt.map",
+         "library": "mathlib",
+         "file": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+         "line": 89,
+         "fit": "related"
+        },
+        {
+         "name": "Function.Semiconj",
+         "library": "mathlib",
+         "file": "Mathlib/Logic/Function/Conjugate.lean",
+         "line": 33,
+         "fit": "more general"
+        }
+       ],
+       "note": "Mathlib has semiconjugacy of self-maps and transport of periodic points along it, which is the set-level statement; the dynamical notion of two rational maps being conjugate by an automorphism of `P¹`, and the invariants of that conjugacy class, are absent."
+      },
+      {
+       "target": "rational functions on `P¹` given by coprime homogeneous forms, with degree, resultant and good reduction",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Polynomial.resultant",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+         "line": 134,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.Monic.resultant_deriv",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/Resultant/Discriminant.lean",
+         "line": 105,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.HasGoodReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 325,
+         "fit": "related"
+        }
+       ],
+       "note": "The resultant of two univariate polynomials exists in Mathlib with a Tau Ceti extension (Sylvester matrix, behaviour under `AdjoinRoot`, discriminant). There is no self-map of `P¹` presented by a pair of coprime homogeneous forms, no dynamical degree, no resultant of such a pair, and no dynamical good reduction; `HasGoodReduction` exists only for a Weierstrass curve at a prime. The required worked example — a map whose displayed resultant vanishes at a bad prime — has no carrier."
+      }
+     ],
+     "duplicates": []
+    },
+    "ArithmeticDynamics:DY.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "for `f*L ≅ L^d` with `L` ample and `d > 1`, the canonical height as the limit `d^(-n) h_L(f^n P)`",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 124,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.tendsto_naiveHeight_two_pow_nsmul_div_four_pow",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 166,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.naiveHeight",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/NaiveHeight.lean",
+         "line": 91,
+         "fit": "special case"
+        },
+        {
+         "name": "Height.logHeight",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Basic.lean",
+         "line": 272,
+         "fit": "related"
+        }
+       ],
+       "note": "The Tate limiting construction is done in Tau Ceti for the doubling map on an elliptic curve over any field with `[Height.AdmissibleAbsValues F]` — so over any number field, not only ℚ. `canonicalHeight P = ½ lim h(2^n P)/4^n`, and the limit is proved to be attained, so the value is not `limUnder`'s junk value. The general polarized statement (arbitrary `f`, ample `L`, `f*L ≅ L^d`) is absent, because there is no ample line bundle, no `h_L`, and no polarized morphism in either library."
+      },
+      {
+       "target": "the error bound `|ĥ - h| ≤ C`, the functional equation `ĥ(f P) = d · ĥ(P)`, and uniqueness",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.abs_canonicalHeight_sub_naiveHeight_le",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 196,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight_two_nsmul",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 254,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight_parallelogram_law",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 211,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight_zsmul",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 283,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.approx_parallelogram_law",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/NaiveHeight.lean",
+         "line": 146,
+         "fit": "special case"
+        }
+       ],
+       "note": "The error bound and the functional equation are proved in the elliptic case: `canonicalHeight_two_nsmul` is `ĥ(2P) = 4 ĥ(P)`, the exact `d = 4` functional equation, and the parallelogram law upgrades it to full quadraticity with `ĥ(n • P) = n² ĥ(P)`. Uniqueness among bounded-error refinements is *not* stated as a named theorem in either library; it is used implicitly inside the limit argument (`tendsto_nhds_unique` at CanonicalHeight.lean:246) rather than exported."
+      },
+      {
+       "target": "preperiodicity from zero canonical height, via Northcott",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight_eq_zero_iff_isOfFinAddOrder",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 338,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.isOfFinAddOrder_of_canonicalHeight_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 323,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.finite_naiveHeight_le",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/NaiveHeight.lean",
+         "line": 186,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.finite_setOf_logHeight₁_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 437,
+         "fit": "related"
+        },
+        {
+         "name": "Northcott",
+         "library": "mathlib",
+         "file": "Mathlib/Order/Northcott.lean",
+         "line": 36,
+         "fit": "related"
+        }
+       ],
+       "note": "This is fully proved in the case the layer's own acceptance criterion names — 'multiplication on an abelian variety' — for elliptic curves: a point has canonical height zero exactly when it is torsion, deduced from a `Northcott` instance for the canonical height that Tau Ceti derives from the naive height, which it in turn derives from Mathlib's field-height Northcott property. The other required example, the power map on `P¹`, has no carrier. The general polarized statement is absent."
+      },
+      {
+       "target": "a separately stated theorem removing ampleness",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, as is the ample case."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GrossZagierAndArithmeticHeights:GZ.1",
+       "note": "GZ.1 states almost exactly DY.1's targets for abelian varieties: 'the canonical limit for symmetric bundles ... convergence, uniqueness among bounded-error quadratic refinements, addition and multiplication formulas, isogeny pullback ... positivity for ample symmetric bundles and characterize the zero locus as torsion over a number field using Northcott'. The duplication is essentially total on the abelian-variety side, which is one of DY.1's two acceptance examples."
+      },
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.0",
+       "note": "RP.0 owns the height machine, canonical heights and the comparison of Néron–Tate with local heights; DY.1 declares it as a dependency, but the canonical-height limit and its error bound appear in both."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+       "note": "Layer 6 owns the naive height, the approximate parallelogram law and Northcott finiteness for elliptic curves — the layer whose targets Tau Ceti has actually built, and which supplies DY.1's elliptic instance."
+      }
+     ]
+    },
+    "ArithmeticDynamics:DY.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "the Berkovich analytic carrier over a complete rank-one nonarchimedean field, with the dynamical maps constructed on it",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: `Berkovich` has zero occurrences in either library. Tau Ceti has adic spaces (`TauCeti/AlgebraicGeometry/AdicSpace/`, with `Spa` and continuous valuations), which is the Huber side of the comparison TB.0 owns, but no Berkovich spectrum of a Banach algebra."
+      },
+      {
+       "target": "nonarchimedean local heights and escape rates",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no local height of any kind in either library."
+      },
+      {
+       "target": "good reduction and reduction of cycles, with residue characteristic retained in multiplier and cycle formulas",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.HasGoodReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 325,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent for dynamical systems. Mathlib's reduction theory is only for Weierstrass curves (good/multiplicative/additive trichotomy); there is no multiplier of a periodic cycle and no reduction of a cycle."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "TropicalAndBerkovichArithmetic:TB.0",
+       "note": "TB.0 owns the Berkovich spectrum and its comparison with the adic spectrum; DY.2 declares it consumes TB.0 and 'the dynamical maps are constructed on that carrier', so only the dynamics is owned here."
+      }
+     ]
+    },
+    "ArithmeticDynamics:DY.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "dynatomic polynomials and schemes, with formal versus exact period, multiplier conditions and multiplicities",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Function.minimalPeriod",
+         "library": "mathlib",
+         "file": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+         "line": 245,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent: `dynatomic` has zero occurrences. Mathlib's `Function.minimalPeriod` is the exact period of a point of a self-map, the set-level half of the formal/exact distinction, but there is no dynatomic polynomial whose roots would carry the formal period, and hence no multiplicity statement — so the layer's required worked example (a root with lower exact period but nontrivial dynatomic multiplicity) has no carrier."
+      },
+      {
+       "target": "finiteness of the bounded-degree preperiodic set of a fixed polarized morphism",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight_eq_zero_iff_isOfFinAddOrder",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 338,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.finite_setOf_logHeight₁_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 437,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the elliptic instance: torsion points are exactly the points of canonical height zero, and Northcott makes any bounded-height set finite over a number field. There is no finiteness statement for the preperiodic points of a general polarized morphism."
+      },
+      {
+       "target": "certified enumeration of preperiodic points from effective height bounds",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no effective height bound or enumeration procedure in either library."
+      }
+     ],
+     "duplicates": []
+    },
+    "ArithmeticDynamics:DY.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "an equidistribution theorem for semipositive adelic metrized line bundles",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: `equidistribution` has zero occurrences in either library, and there is no adelic metrized line bundle."
+      },
+      {
+       "target": "model metrics, semipositive approximation and local measures with total mass equal to the intersection degree",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; these are the objects the layer declares it consumes from TB.6, and TB.6's targets are not in the libraries either — there is no formal model, no metric on a line bundle and no Chambert-Loir measure."
+      },
+      {
+       "target": "dynamical energy, generic small-point hypotheses, and the application to a specified polarized system",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "TropicalAndBerkovichArithmetic:TB.6",
+       "note": "TB.6 owns the model metrics, measures and local heights, and states explicitly that 'Equidistribution is a separate global theorem ... this stage provides its local analytic objects' — the boundary is drawn consistently from both sides."
+      }
+     ]
+    },
+    "ArithmeticDynamics:DY.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "the rooted preimage tree of a point under iterated preimages, avoiding critical-orbit collisions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: `arboreal` has zero occurrences and there is no preimage tree of a dynamical system in either library. Mathlib has rooted trees and inverse limits as general structures, but nothing attaching one to a map."
+      },
+      {
+       "target": "the continuous Galois action on the finite levels of the tree and on its inverse limit",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.PreGaloisCategory.IsFundamentalGroup",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Galois/IsFundamentalgroup.lean",
+         "line": 232,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.PreGaloisCategory.functorToAction",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Galois/Action.lean",
+         "line": 37,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the abstract machinery: Mathlib's Galois-category API produces a profinite group acting continuously on finite sets, which is the shape of an arboreal representation, but there is no finite étale cover of a scheme to instantiate it with and no iterated-preimage tower."
+      },
+      {
+       "target": "image and index statements from explicit ramification and irreducibility hypotheses, with a fully worked quadratic polynomial",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+       "note": "IG.0 owns the profinite automorphism group of a fibre functor and its action on finite continuous sets, which DY.5 declares it imports for the Galois action on tree levels."
+      }
+     ]
+    },
+    "ArithmeticDynamics:DY.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "family specialization maps and the comparison of canonical heights under the selected variation theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no family of dynamical systems over a base and no specialization of canonical heights in either library."
+      },
+      {
+       "target": "proved cases of dynamical Mordell–Lang and unlikely intersections, stated as separate source-bound endpoints",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: `MordellLang` has zero occurrences in either library."
+      },
+      {
+       "target": "complete power-map and elliptic/Lattès worked examples",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight_nsmul",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 291,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.neronTatePairing",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 374,
+         "fit": "related"
+        }
+       ],
+       "note": "`Lattès` has zero occurrences. The elliptic side has real content — the canonical height of `n • P` is `n²` times that of `P`, and the Néron–Tate pairing is built from it as the polarization of a quadratic map — but it is stated for the group law, not for a Lattès map on `P¹`, and there is no power map on `P¹` at all."
+      },
+      {
+       "target": "keeping dynamical Lehmer, uniform boundedness and unrestricted dynamical Mordell–Lang conjectural, with explicit conditional parameters",
+       "library": "absent",
+       "declarations": [],
+       "note": "A statement-hygiene requirement rather than a theorem; none of the three conjectures is stated in either library."
+      }
+     ],
+     "duplicates": []
     }
    }
   }
