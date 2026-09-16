@@ -248,6 +248,29 @@ STATE_LABELS = ("state:available", "state:claimed", "state:running", "state:subm
 CLOSE_WHEN_DONE = {"review", "classify", "naming", "status", "assembly", "plan"}
 
 
+def deliverables_complete(job):
+    """Every output exists and, for batch jobs, covers every item of the batch."""
+    paths = [REPO / path for path in job.get("outputs", [])]
+    if not paths or not all(path.exists() for path in paths):
+        return False
+    try:
+        if job["kind"] == "classify":
+            result = json.loads(paths[0].read_text())
+            covered = {entry.get("roadmapId") for entry in result}
+            return (set(job.get("roadmapIds") or []) <= covered
+                    and not any(entry.get("assessmentStatus") == "partial" for entry in result))
+        if job["kind"] == "naming":
+            wanted = {entry["id"] for entry in json.loads((REPO / "research" / "expansion" / "naming" / f"{job['id']}.json").read_text())}
+            return wanted <= {entry.get("id") for entry in json.loads(paths[0].read_text())}
+        if job["kind"] == "status":
+            wanted = {stage["id"] for roadmap in json.loads((REPO / "research" / "expansion" / "status" / f"{job['id']}.json").read_text())
+                      for stage in roadmap["stages"]}
+            return wanted <= {entry.get("stageId") for entry in json.loads(paths[0].read_text())}
+    except (OSError, ValueError, KeyError, TypeError):
+        return False
+    return True
+
+
 def set_state(number, wanted, current):
     remove = [label for label in current if label in STATE_LABELS and label != wanted]
     command = ["gh", "issue", "edit", str(number), "--add-label", wanted]
@@ -281,7 +304,7 @@ def sync(mapping):
                 continue
             # An external worker's submission has landed on main when every
             # deliverable exists; the job then counts as done, so its review runs.
-            if state == "external" and job.get("outputs") and all((REPO / path).exists() for path in job["outputs"]):
+            if state == "external" and deliverables_complete(job):
                 job["state"] = "done"; job["note"] = f"deliverables arrived from the external worker on issue #{number}"
                 job["finishedAt"] = __import__("datetime").datetime.now(__import__("datetime").timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
                 changed_queue += 1
