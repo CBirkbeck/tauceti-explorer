@@ -3,10 +3,10 @@
  "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
  "roadmaps": {
   "ComplexMultiplicationAndExplicitReciprocity": {
-   "summary": "Neither library has complex multiplication, but several inputs exist. Mathlib's `ClassGroup` is defined for every domain (so `ClassGroup O` is already Pic(O) of a non-maximal order), the conductor of a monogenic order, CM fields with complex conjugation, the idele class group, the Weierstrass ℘-function of a lattice with g₂, g₃ and ℘′² = 4℘³ − g₂℘ − g₃, isomorphism of elliptic curves by j-invariant and the Hasse–Weil L-function of a Weierstrass curve. Tau Ceti adds abelian varieties over a field, the elliptic isogeny Hom group with degrees and kernels, Aut(E) = ±1 for j ∉ {0, 1728}, Frobenius traces, the Artin symbol and an ideal-theoretic Artin map without reciprocity, ray class groups and genus theory for quadratic fields. Genuinely missing: a general notion of order with proper ideals and finiteness of Pic(O), CM types and reflex norms, the uniformisation ℂ/Λ ≅ E(ℂ) and CM actions, the main theorem of complex multiplication, the modular j-function and class polynomials, every class field (Hilbert, ring, ray), Hecke characters with infinity types, Tate modules, the supersingular/ordinary dichotomy and the Shimura–Taniyama formula.",
+   "summary": "Neither library has complex multiplication, but several inputs exist. Mathlib's `ClassGroup` is defined for every domain (so `ClassGroup O` is already Pic(O) of a non-maximal order), the conductor of a monogenic order, CM fields with complex conjugation, the idele class group, the Weierstrass ℘-function of a lattice with g₂, g₃ and ℘′² = 4℘³ − g₂℘ − g₃, isomorphism of elliptic curves by j-invariant, the modular discriminant Δ = (E₄³ − E₆²)/1728 and the Hasse–Weil L-function of a Weierstrass curve. Tau Ceti adds abelian varieties over a field, the elliptic isogeny Hom group with degrees and kernels, Aut(E) = ±1 for j ∉ {0, 1728}, Frobenius traces, the Artin symbol and an ideal-theoretic Artin map with no general reciprocity law (its kernel and image are computed only for the genus field of a quadratic field), ray class groups and genus theory for quadratic fields. Genuinely missing: a general notion of order with proper ideals and finiteness of Pic(O), CM types and reflex norms, the uniformisation ℂ/Λ ≅ E(ℂ) and CM actions, the main theorem of complex multiplication, the modular j-function and class polynomials, every class field (Hilbert, ring, ray), Hecke characters with infinity types, Tate modules, the supersingular/ordinary dichotomy and the Shimura–Taniyama formula.",
    "layers": {
     "ComplexMultiplicationAndExplicitReciprocity:CM.0": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Orders in a number field other than the maximal order, and the conductor of an order",
@@ -48,7 +48,7 @@
          "fit": "special case"
         }
        ],
-       "note": "Only monogenic orders are treated: Mathlib's `conductor R x` is the largest ideal of S inside R[x] and `RingOfIntegers.exponent` its norm, and Tau Ceti has ℤ[θ] as a full-rank subalgebra of 𝓞_K with its index and disc(minpoly θ) = [𝓞_K : ℤ[θ]]²·d_K. Quadratic orders ℤ + f𝓞_K are monogenic, so they exist as such subalgebras, but there is no general notion of an order (non-monogenic orders in higher degree), no order of given conductor f and no conductor of a non-monogenic order."
+       "note": "Only monogenic orders are treated: Mathlib's `conductor R x` is the largest ideal of S inside R[x] and `RingOfIntegers.exponent θ` the least positive integer in `conductor ℤ θ` (the conductor exponent), and Tau Ceti has ℤ[θ] as a full-rank subalgebra of 𝓞_K with its index and disc(minpoly θ) = [𝓞_K : ℤ[θ]]²·d_K. Quadratic orders ℤ + f𝓞_K are monogenic, so they exist as such subalgebras, but there is no general notion of an order (non-monogenic orders in higher degree), no order of given conductor f and no conductor of a non-monogenic order."
       },
       {
        "target": "Proper and invertible ideals of an order, and the class group Pic(O) of an order kept distinct from Cl(𝓞_K)",
@@ -186,7 +186,7 @@
      ]
     },
     "ComplexMultiplicationAndExplicitReciprocity:CM.1": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "The elliptic curve attached to a complex (ideal) lattice: ℘, g₂, g₃ and the curve y² = 4x³ − g₂x − g₃",
@@ -417,9 +417,16 @@
          "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Basic.lean",
          "line": 180,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Multiquadratic.artinHomAway_candidateGenusField_eq_one_iff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Multiquadratic/CandidateGenusField/Relative/Artin.lean",
+         "line": 400,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti fixes the arithmetic-Frobenius convention: the Artin symbol at unramified primes and the ideal-theoretic Artin map on ideals prime to S for an abelian extension, with no kernel or reciprocity statement; Mathlib has the idele class group. Neither global Artin reciprocity nor any CM dictionary built on it exists."
+       "note": "Tau Ceti fixes the arithmetic-Frobenius convention: the Artin symbol at unramified primes and the ideal-theoretic Artin map on ideals prime to S for an abelian extension, with no kernel or reciprocity statement in general (only for the genus field of a quadratic field is that Artin map proved surjective, with kernel the ideals whose narrow class is a square); Mathlib has the idele class group. Neither global Artin reciprocity nor any CM dictionary built on it exists."
       },
       {
        "target": "Separate exposure of the base field, the CM endomorphism field and the reflex field",
@@ -477,9 +484,23 @@
          "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
          "line": 957,
          "fit": "related"
+        },
+        {
+         "name": "ModularForm.discriminant_eq_E₄_cube_sub_E₆_sq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/LevelOne/GradedRing.lean",
+         "line": 61,
+         "fit": "related"
+        },
+        {
+         "name": "ModularForm.discriminant_ne_zero",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Discriminant.lean",
+         "line": 125,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib has the j-invariant of a Weierstrass curve and g₂, g₃ of a lattice, but no j-invariant of a lattice, no modular j-function on the upper half-plane and no product over ideal classes; `class polynomial` occurs nowhere."
+       "note": "Mathlib has the j-invariant of a Weierstrass curve, g₂ and g₃ of a lattice, and the modular discriminant Δ = η²⁴ on ℍ, nowhere zero, with Δ = (E₄³ − E₆²)/1728 for the normalised Eisenstein series, so the modular function j = E₄³/Δ is one definition away. But no j-invariant of a lattice, no j-function on the upper half-plane and no product over ideal classes is defined in either library; `class polynomial` occurs nowhere."
       },
       {
        "target": "Algebraic integrality of the singular moduli j(𝔞)",
@@ -511,9 +532,23 @@
          "file": "Mathlib/RingTheory/ClassGroup/Basic.lean",
          "line": 90,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Multiquadratic.autCandidateGenusFieldEquivNarrowElementaryTwoQuotient_artinHomAway",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Multiquadratic/CandidateGenusField/Relative/Artin.lean",
+         "line": 345,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Multiquadratic.artinHomAway_candidateGenusField_eq_one_iff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Multiquadratic/CandidateGenusField/Relative/Artin.lean",
+         "line": 400,
+         "fit": "related"
         }
        ],
-       "note": "No Hilbert, ring or ray class field is constructed in either library. The closest result is Tau Ceti's genus theory for a quadratic field, Gal(K_gen/K) ≅ Cl⁺(K)/Cl⁺(K)² compatibly with the ideal-theoretic Artin map, which covers only the genus subfield of the narrow Hilbert class field of the maximal order."
+       "note": "No Hilbert, ring or ray class field is constructed in either library. The closest result is Tau Ceti's genus theory for a quadratic field: Gal(K_gen/K) ≅ Cl⁺(K)/Cl⁺(K)², carried by the ideal-theoretic Artin map to the narrow ideal class (so that Artin map is surjective with kernel the ideals of square narrow class). It covers only the genus subfield of the narrow Hilbert class field of the maximal order."
       },
       {
        "target": "Ray-class variants generated by level (Weber) functions with their admissibility conditions",
@@ -549,6 +584,10 @@
       {
        "layer": "HeegnerPointEulerSystems:HE.1",
        "note": "HE.1 proves descent of CM points to ring class fields, i.e. the Galois behaviour of the CM moduli that CM.3 uses to identify the ring class field."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+       "note": "Layer 0 isolates the level-one j inputs in their own module: it defines the normalised j = E₄³/Δ and proves its modular invariance, q-expansion and exact orders at ρ and i. That is the j-function whose values at CM points CM.3 multiplies into the class polynomial (not built at the baseline)."
       }
      ]
     },
@@ -771,10 +810,10 @@
    }
   },
   "EffectiveDiophantineMethods": {
-   "summary": "The libraries hold the mathematical inputs to effective Diophantine work and almost none of its algorithms. Mathlib supplies Weil heights with Northcott for number-field elements, ℤ-lattices with Minkowski's theorem and Smith normal form, p-adic truncation with Hensel's lemma, exact interval arithmetic with certified enclosures of π, e and log 2, Descartes' rule of signs, Dirichlet's unit theorem and S-units; Tau Ceti adds finite generation of S-units, finiteness of K(S,n), the 2-Selmer group with the bound 2^rank·#E(K)[2] ≤ #S, the Mordell–Weil theorem, the canonical height and regulator, Nagell–Lutz, and Riemann–Roch with the genus for function fields. Genuinely missing: root isolation and certified algebraic numbers, LLL and short/closest-vector certificates, Baker–Matveev and p-adic linear forms in logarithms, S-unit and Thue–Mahler equations, saturation and Sha, Jacobians of higher-genus curves, Coleman integration and Chabauty, the Mordell–Weil sieve, and quadratic Chabauty.",
+   "summary": "The libraries hold the mathematical inputs to effective Diophantine work and almost none of its algorithms. Mathlib supplies Weil heights with Northcott for number-field elements, ℤ-lattices with Minkowski's theorem and Smith normal form, p-adic truncation with Hensel's lemma, intervals (whose arithmetic applies to ℚ and ℝ only additively) with certified enclosures of π, e and log 2, Descartes' rule of signs, Dirichlet's unit theorem and S-units; Tau Ceti adds finite generation of S-units, finiteness of K(S,n), the 2-Selmer group with the bound 2^rank·#E(K)[2] ≤ #S, the Mordell–Weil theorem, the canonical height and regulator, Nagell–Lutz, and Riemann–Roch with the genus for function fields. Genuinely missing: root isolation and certified algebraic numbers, LLL and short/closest-vector certificates, Baker–Matveev and p-adic linear forms in logarithms, S-unit and Thue–Mahler equations, saturation and Sha, Jacobians of higher-genus curves, Coleman integration and Chabauty, the Mordell–Weil sieve, and quadratic Chabauty.",
    "layers": {
     "EffectiveDiophantineMethods:ED.0": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Certified exact presentations of algebraic numbers: minimal polynomial with isolating interval or disc and proved separation, with decidable equality",
@@ -869,7 +908,7 @@
          "library": "mathlib",
          "file": "Mathlib/Algebra/Order/Interval/Basic.lean",
          "line": 400,
-         "fit": "special case"
+         "fit": "related"
         },
         {
          "name": "Real.pi_gt_d20",
@@ -893,7 +932,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib has exact interval arithmetic on ordered fields with inclusion lemmas, Taylor-remainder bounds for exp and log, and certified rational enclosures of particular constants (π to 20 digits, e, log 2, log 3, log 5). There is no floating-point or ball arithmetic with rounding, no enclosure of algebraic numbers, and no general certificate checker."
+       "note": "Mathlib has intervals with inclusion lemmas, but only interval addition, subtraction and negation apply to ℚ and ℝ: interval multiplication needs monotone multiplication and interval division an ordered group, and the file's own docstrings say neither applies to ℚ or ℝ. It also has Taylor-remainder bounds for exp and log and certified rational enclosures of particular constants (π to 20 digits, e, log 2, log 3, log 5). Its floating-point file `Mathlib/Data/FP/Basic.lean` is experimental: the rounding operations are `unsafe` and carry no correctness theorems. There is no ball arithmetic, no enclosure of algebraic numbers and no general certificate checker."
       }
      ],
      "duplicates": [
@@ -955,9 +994,23 @@
          "file": "TauCeti/NumberTheory/GeometryOfNumbers/Doubling.lean",
          "line": 186,
          "fit": "related"
+        },
+        {
+         "name": "ZLattice.le_norm_of_le_abs_repr",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/ZLattice/Summable.lean",
+         "line": 94,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.one_le_house_of_isIntegral",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/House.lean",
+         "line": 88,
+         "fit": "related"
         }
        ],
-       "note": "Minkowski's convex-body theorem (existence of a short nonzero vector) and Tau Ceti's packing bounds for separated lattice points in boxes are proved; the opposite, certificate-style statement that no nonzero lattice vector lies in a region, and successive minima or the Hermite constant, are absent."
+       "note": "Minkowski's convex-body theorem (existence of a short nonzero vector) and Tau Ceti's packing bounds for separated lattice points in boxes are proved. Lower bounds for nonzero lattice vectors exist only non-effectively or for particular lattices: Mathlib's `ZLattice.normBound b` is an unspecified ε > 0 with ε·|b.repr x i| ≤ ‖x‖, and a nonzero algebraic integer has house at least 1 (likewise a nonzero Gaussian integer has norm at least 1 in Tau Ceti). A checkable certificate excluding every nonzero vector of a given lattice from a given region, successive minima and the Hermite constant are absent."
       },
       {
        "target": "Closest-vector certificates and integer-relation detection (PSLQ-type) used to reduce exponent bounds",
@@ -985,15 +1038,11 @@
       {
        "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.5",
        "note": "GN.5 supplies LLL-style reduction with exact change-of-basis certificates and checked short-vector output, the reduction ED.1 imports."
-      },
-      {
-       "layer": "DiophantineApproximationAndTranscendence:DT.4",
-       "note": "DT.4 transfers logarithmic-form bounds to explicit search regions and hands lattice reduction to ED.2, overlapping ED.1’s exponent-reduction certificates."
       }
      ]
     },
     "EffectiveDiophantineMethods:ED.2": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Explicit archimedean lower bounds for linear forms in logarithms (Baker–Matveev), with constants and degree/height dependence",
@@ -1103,7 +1152,7 @@
      ]
     },
     "EffectiveDiophantineMethods:ED.3": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Descent by 2-isogeny/x − T map: the Selmer group with local conditions as a finite object",
@@ -1331,6 +1380,10 @@
       {
        "layer": "AnabelianGeometryAndNonabelianChabauty:NC.4",
        "note": "NC.4 recovers classical Chabauty at depth one from the Chabauty–Kim locus, the theorem ED.4 constructs directly."
+      },
+      {
+       "layer": "ColemanIntegration:L0",
+       "note": "L0 develops termwise integration of convergent power series and proves the unique primitive with chosen base value on a disc, the residue-disc (tiny) integrals of ED.4's Coleman-integral target; L1, already listed, supplies the Frobenius continuation."
       }
      ]
     },
@@ -1395,9 +1448,16 @@
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
          "line": 97,
          "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.add",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+         "line": 659,
+         "fit": "related"
         }
        ],
-       "note": "Absent; Tau Ceti has point counts and Frobenius traces of elliptic curves over finite fields, but no group structure of E(𝔽_q) and no certificate format."
+       "note": "Absent. Mathlib's group law makes the points of a Weierstrass curve over any field, in particular E(𝔽_q), an abelian group, and Tau Ceti has point counts and Frobenius traces over finite fields; but the structure of E(𝔽_q) as ℤ/m × ℤ/mn is not determined and there is no certificate format."
       }
      ],
      "duplicates": []
@@ -1460,10 +1520,10 @@
    }
   },
   "FaltingsFinitenessAndIsogenyTheorems": {
-   "summary": "Nothing specific to Faltings' proof exists in either library. Tau Ceti defines abelian varieties over a field (proper geometrically integral group schemes with commutative Hom groups, endomorphism rings, isogenies, products and base change), and has the elliptic-curve isogeny theory (degrees, kernels, deg(n·f) = n²·deg f, deg(1 − π_q) = #E(𝔽_q)) and finite flat group schemes with Cartier duality; Mathlib supplies heights with Northcott for elements of a number field, Hermite's discriminant finiteness, class-group finiteness (the commutative rank-one case of Jordan–Zassenhaus), semisimple modules and elliptic-curve reduction types. Genuinely missing: polarisations, duals and moduli of abelian varieties, Tate modules, the Faltings height and its isogeny estimate, p-divisible groups and Néron models, Zarhin's trick, the general Jordan–Zassenhaus theorem, semisimplicity and Tate's isogeny theorem, Shafarevich finiteness, and the elliptic consequences (End_ℚ(E) = ℤ, finiteness of ℚ-isogeny classes and of prime isogeny degrees).",
+   "summary": "Nothing specific to Faltings' proof exists in either library. Tau Ceti defines abelian varieties over a field (proper geometrically integral group schemes with commutative Hom groups, endomorphism rings, isogenies, products and base change), and has the elliptic-curve isogeny theory (degrees, kernels, deg(n·f) = n²·deg f, deg(1 − π_q) = #E(𝔽_q)) finite flat group schemes with Cartier duality, the formal group of a Weierstrass curve, and models over a DVR with finite DVR extensions; Mathlib supplies heights with Northcott for elements of a number field, Hermite's discriminant finiteness, class-group finiteness (the commutative rank-one case of Jordan–Zassenhaus), semisimple modules and elliptic-curve reduction types. Genuinely missing: polarisations, duals and moduli of abelian varieties, Tate modules, the Faltings height and its isogeny estimate, p-divisible groups and Néron models, Zarhin's trick, the general Jordan–Zassenhaus theorem, semisimplicity and Tate's isogeny theorem, Shafarevich finiteness, and the elliptic consequences (End_ℚ(E) = ℤ, finiteness of ℚ-isogeny classes and of prime isogeny degrees).",
    "layers": {
     "FaltingsFinitenessAndIsogenyTheorems:R28.1": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Finiteness of polarised abelian varieties of bounded height over a fixed number field, with fixed dimension and polarisation degree",
@@ -1510,8 +1570,23 @@
       {
        "target": "Descent and level-structure arguments converting moduli points into isomorphism classes",
        "library": "absent",
-       "declarations": [],
-       "note": "No moduli space of abelian varieties and no level structures exist in either library."
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.exists_variableChange_of_j_eq",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/IsomOfJ.lean",
+         "line": 331,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.exists_smul_eq_or_exists_smul_eq_quadraticTwist",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 717,
+         "fit": "related"
+        }
+       ],
+       "note": "No moduli space of abelian varieties and no level structures exist in either library. Only the dimension-one field-level shadows exist: over a separably closed field elliptic curves with equal j-invariant are isomorphic (Mathlib), and for j ∉ {0, 1728} a curve that becomes isomorphic to E over a quadratic extension L is isomorphic over K to E or to its quadratic twist by L (Tau Ceti)."
       },
       {
        "target": "Zarhin's trick (A⁴ × Â⁴ is principally polarised) and the resulting finiteness transfer",
@@ -1582,8 +1657,23 @@
       {
        "target": "Faltings' isogeny-height estimate, including primes dividing the isogeny degree",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent, as are its inputs Néron models with their integral invariant differentials and p-divisible groups; Tau Ceti's finite locally free group schemes over rings are the only related material."
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.degree",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Degree.lean",
+         "line": 99,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.pullbackDifferential_invariantDifferential",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Differential.lean",
+         "line": 140,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent, as are its inputs Néron models with their integral invariant differentials and p-divisible groups. Tau Ceti has finite locally free group schemes over rings and, in dimension one over a field, the degree of an isogeny and the pullback φ^*ω of the invariant differential (with the differential criterion for separability), but no integral model, no cokernel on a lattice of differentials and no height to compare."
       },
       {
        "target": "Boundedness of the height within an isogeny class",
@@ -1608,9 +1698,16 @@
          "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
          "line": 61,
          "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.formalGroup",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Basic.lean",
+         "line": 58,
+         "fit": "related"
         }
        ],
-       "note": "No p-divisible (Barsotti–Tate) group, Néron model or Raynaud-type classification exists. Tau Ceti has finite locally free commutative affine group schemes over any ring with Cartier duality, and isogenies of abelian varieties over a field."
+       "note": "No p-divisible (Barsotti–Tate) group, Néron model or Raynaud-type classification exists. Tau Ceti has finite locally free commutative affine group schemes over any ring with Cartier duality, isogenies of abelian varieties over a field, and the one-dimensional formal group law of a Weierstrass curve over any commutative ring (the formal group underlying the connected part of E[p^∞] at a prime of good reduction, which is not constructed)."
       }
      ],
      "duplicates": [
@@ -1625,6 +1722,10 @@
       {
        "layer": "NeronModelsAndSemistableAbelianVarieties:R11.6",
        "note": "R11.6 supplies the semistable and good-reduction facts for the isogeny-height analysis of R28."
+      },
+      {
+       "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+       "note": "R07.1 defines p-divisible groups as compatible finite locally free levels, with Cartier duality and finite-flat subgroups, the p-divisible-group input R28.2 names as supplied by R07."
       }
      ]
     },
@@ -1664,7 +1765,12 @@
        "note": "Products of abelian varieties exist in Tau Ceti; polarisations and the finiteness statements do not."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+       "note": "R07.1 defines p-divisible groups and requires a proof of finite-flat closure of a generic subgroup, the two ingredients of R28.3's divisible group built from the tail of the tower of closures."
+      }
+     ]
     },
     "FaltingsFinitenessAndIsogenyTheorems:R28.4": {
      "verdict": "not built",
@@ -1798,9 +1904,23 @@
          "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
          "line": 325,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Model",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Model/Basic.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.FiniteDVRExtension",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/DVRExtension/Basic.lean",
+         "line": 85,
+         "fit": "related"
         }
        ],
-       "note": "No polarisations, Néron models or semistable reduction theorem exist; Mathlib has minimal models and the good/multiplicative/additive trichotomy for elliptic curves, and Tau Ceti's stable-reduction files contain only the combinatorics of numerical types."
+       "note": "No polarisations, Néron models or semistable reduction theorem exist; Mathlib has minimal models and the good/multiplicative/additive trichotomy for elliptic curves, and Tau Ceti's stable-reduction files contain the combinatorics of numerical types together with flat finitely presented models over a DVR and finite separable DVR extensions with a chosen place, but no semistable reduction theorem."
       }
      ],
      "duplicates": [
@@ -1811,6 +1931,10 @@
       {
        "layer": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
        "note": "R25.4 proves nonexistence of semistable abelian varieties over ℚ with good reduction outside one small prime, a sharp special case of the same good-reduction finiteness."
+      },
+      {
+       "layer": "SmallRamificationAndAbelianVarietyBaseCases:R25.3",
+       "note": "R25.3 proves that no positive-dimensional abelian variety over ℚ has good reduction everywhere, the empty-S case over ℚ of R28.5's good-reduction finiteness in its sharp form (as R25.4 does for one bad prime)."
       }
      ]
     },
@@ -1886,10 +2010,10 @@
    }
   },
   "HeightsRationalPointsAndObstructions": {
-   "summary": "Heights and the elliptic-curve descent are largely built; obstructions, torsor descent, Faltings–Siegel finiteness and subvarieties of abelian varieties are not. Mathlib has Weil heights with the product formula, heights on projective points, height bounds for polynomial morphisms, Northcott for number-field elements, the abstract descent theorem, the fppf site and sheaf cohomology; Tau Ceti has the Néron–Tate height with the parallelogram law and pairing, the 2-Selmer group with its rank bound, weak Mordell–Weil and the Mordell–Weil theorem over number fields, the Brauer group of a field with Br(ℝ) ≅ ℤ/2, an fppf quotient torsor and quadratic twists of elliptic curves, all sorry-free. Genuinely missing: heights attached to line bundles and local heights, descent for general isogenies and abelian varieties, flat Kummer sequences, adelic points of varieties, Br(X), local invariants and the Brauer–Manin pairing, Hasse–Minkowski, torsor descent sets, the Parshin construction, Faltings' and Siegel's theorems, Mordell–Lang, Manin–Mumford, Bogomolov, and Jacobian varieties.",
+   "summary": "Heights and the elliptic-curve descent are largely built; obstructions, torsor descent, Faltings–Siegel finiteness and subvarieties of abelian varieties are not. Mathlib has Weil heights with the product formula, heights on projective points, height bounds for polynomial morphisms, Northcott for number-field elements, the abstract descent theorem, the fppf site and sheaf cohomology; Tau Ceti has the Néron–Tate height with the parallelogram law and pairing, the 2-Selmer group and the rank bound from any finite group containing the descent image (the Selmer group itself is not proved finite), weak Mordell–Weil and the Mordell–Weil theorem over number fields, the Brauer group of a field with Br(ℝ) ≅ ℤ/2, an fppf quotient torsor and quadratic twists of elliptic curves, all sorry-free. Genuinely missing: heights attached to line bundles and local heights, descent for general isogenies and abelian varieties, flat Kummer sequences, adelic points of varieties, Br(X), local invariants and the Brauer–Manin pairing, Hasse–Minkowski, torsor descent sets, the Parshin construction, Faltings' and Siegel's theorems, Mordell–Lang, Manin–Mumford, Bogomolov, and Jacobian varieties.",
    "layers": {
     "HeightsRationalPointsAndObstructions:RP.0": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Normalized absolute Weil heights with the product formula and the Northcott theorem, independent of projective coordinates and of the field",
@@ -1907,7 +2031,7 @@
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/Height/Projectivization.lean",
          "line": 46,
-         "fit": "exact"
+         "fit": "special case"
         },
         {
          "name": "NumberField.absMulHeight₁",
@@ -1931,7 +2055,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib axiomatises the product formula (`AdmissibleAbsValues`, instantiated for every number field; Tau Ceti also has it over normalised places), defines heights of tuples and of projective points independent of the representative, defines the absolute height of an algebraic number through ℚ(x), and proves Northcott for elements of a fixed number field and, in polynomial form, for integer polynomials of bounded degree and Mahler measure. Missing: comparison of heights under field extension (the absolute height has no API), and Northcott for projective points of bounded height and degree (a TODO in Mathlib)."
+       "note": "Mathlib axiomatises the product formula (`AdmissibleAbsValues`, instantiated for every number field; Tau Ceti also has it over normalised places), defines heights of tuples and of projective points independent of the representative, defines the absolute height of an algebraic number through ℚ(x), and proves Northcott for elements of a fixed number field and, in polynomial form, for integer polynomials of bounded degree and Mahler measure. The height of a projective point is taken over its field K and is not normalised by [K : ℚ], so it is not the absolute height. Missing: comparison of heights under field extension (the absolute height has no API), Northcott for projective points over a fixed number field (a TODO in Mathlib) and for points of bounded height and degree."
       },
       {
        "target": "The height machine: heights attached to divisors or line bundles modulo bounded functions, with pullback and tensor laws and ampleness where finiteness is used",
@@ -1973,7 +2097,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib proves h(F(x)) ≤ d·h(x) + C and, where F is a morphism, h(F(x)) ≥ d·h(x) − C for maps given by homogeneous polynomials (the functoriality of heights on projective space), and Tau Ceti has invertible sheaves with tensor products and the divisor-to-line-bundle map on integral Noetherian schemes. Heights attached to divisors or line bundles, their additivity and pullback laws, ample line bundles and Pic(X) as a group are absent."
+       "note": "Mathlib proves h(F(x)) ≤ d·h(x) + C and, where F is a morphism, h(F(x)) ≥ d·h(x) − C for maps given by homogeneous polynomials (the functoriality of heights on projective space), and Tau Ceti has invertible sheaves with tensor products and the divisor-to-line-bundle map on Noetherian integral schemes of dimension at most one whose codimension-one local rings are DVRs. Heights attached to divisors or line bundles, their additivity and pullback laws, ample line bundles and Pic(X) as a group are absent."
       },
       {
        "target": "The Néron–Tate canonical height with its quadratic (parallelogram) identity",
@@ -2040,11 +2164,15 @@
       {
        "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
        "note": "That layer owns the naive and canonical heights of elliptic curves with the approximate parallelogram law, which Tau Ceti has built."
+      },
+      {
+       "layer": "GrossZagierAndArithmeticHeights:GZ.2",
+       "note": "GZ.2 builds the arithmetic intersection pairing from local intersection lengths and archimedean Green functions, proves the Faltings–Hriljac comparison with the canonical Jacobian pairing and exports the local height decomposition: RP.0's local heights and their comparison with the canonical height, for Jacobians."
       }
      ]
     },
     "HeightsRationalPointsAndObstructions:RP.1": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Kummer maps A(K)/nA(K) ↪ H¹(K, A[n])",
@@ -2227,11 +2355,19 @@
       {
        "layer": "EffectiveDiophantineMethods:ED.3",
        "note": "ED.3 turns the same isogeny descent and Selmer groups into algorithms with rank bounds."
+      },
+      {
+       "layer": "GrossZagierAndArithmeticHeights:GZ.1",
+       "note": "GZ.1 makes general Mordell–Weil and projective-height lemmas missing from its suppliers construction targets, 'proved through weak descent and the height argument', RP.1's finite generation of A(K) for abelian varieties."
+      },
+      {
+       "layer": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+       "note": "NC.3 constructs torsor-valued H¹ with local conditions and Selmer varieties and checks that at depth one they agree with the Kummer map and Selmer group, the abelian objects RP.1 constructs."
       }
      ]
     },
     "HeightsRationalPointsAndObstructions:RP.2": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Restricted adelic point spaces X(𝔸_K) of a variety over a number field",
@@ -2349,11 +2485,15 @@
       {
        "layer": "AdelicAlgebraicGroups:AA.1",
        "note": "AA.1 constructs adelic points of algebraic groups with independence of the spreading-out model, the group case of RP.2’s adelic point spaces."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
+       "note": "That layer proves Hasse–Minkowski isotropy, including the ternary case by local norms (the Hasse principle for conics), which RP.2's acceptance test 'verify a conic' requires."
       }
      ]
     },
     "HeightsRationalPointsAndObstructions:RP.3": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Torsors under linear algebraic groups over a number field, and their twists",
@@ -2408,7 +2548,7 @@
          "fit": "related"
         }
        ],
-       "note": "Neither obstruction set is defined; Mathlib has finite étale algebras but no finite étale covers of a scheme and no finiteness of twist classes."
+       "note": "Neither obstruction set is defined. Mathlib has finite étale algebras and the finite and étale morphism classes of schemes (so a finite étale cover of a scheme can be stated), but no Galois theory of such covers, no torsors under finite étale group schemes used for descent and no finiteness of twist classes."
       }
      ],
      "duplicates": [
@@ -2610,7 +2750,7 @@
    }
   },
   "InverseGaloisAndArithmeticFundamentalGroups": {
-   "summary": "The abstract Galois-category theory is in Mathlib and the classical Galois-theoretic inputs are largely in place; the arithmetic fundamental group itself and every inverse-Galois theorem are not. Mathlib proves the SGA 1 equivalence of a Galois category with finite continuous Aut F-sets (Aut F profinite), the infinite Galois correspondence, decomposition/inertia/Frobenius for finite and profinite actions, finite étale algebras with a geometric fibre functor, cyclotomic Galois groups and the prime-degree S_p criterion; Tau Ceti adds finite topological covers as a Galois category with the profinite completion of π₁, ramification groups for function fields, permutation triples with ribbon-graph dessins, the Artin braid group, group extensions classified by H², and Galois-group computation tools. Genuinely missing: finite étale covers of schemes as a Galois category and the étale π₁, the homotopy exact sequence and specialization maps, tame quotients, Hilbert irreducibility, Riemann existence, Belyi's theorem and rigidity, embedding problems and Shafarevich's theorem, Hurwitz spaces, tame and wild positive-characteristic covers, and the Galois action on dessins.",
+   "summary": "The abstract Galois-category theory is in Mathlib and the classical Galois-theoretic inputs are largely in place; the arithmetic fundamental group itself and every inverse-Galois theorem are not. Mathlib proves the SGA 1 equivalence of a Galois category with finite continuous Aut F-sets (Aut F profinite), the infinite Galois correspondence, decomposition/inertia/Frobenius for finite and profinite actions, finite étale algebras with a geometric fibre functor (an equivalence only over a separably closed field) and points of the small étale site, cyclotomic Galois groups, the prime-degree S_p criterion and the Morse-polynomial S_n criterion; Tau Ceti adds finite topological covers as a Galois category with the profinite completion of π₁, ramification groups for function fields, permutation triples with ribbon-graph dessins, the Artin braid group, group extensions classified by H², and Galois-group computation tools. Genuinely missing: finite étale covers of schemes as a Galois category and the étale π₁, the homotopy exact sequence and specialization maps, tame quotients, Hilbert irreducibility, Riemann existence, Belyi's theorem and rigidity, embedding problems and Shafarevich's theorem, Hurwitz spaces, tame and wild positive-characteristic covers, and the Galois action on dessins.",
    "layers": {
     "InverseGaloisAndArithmeticFundamentalGroups:IG.0": {
      "verdict": "partly built",
@@ -2683,21 +2823,21 @@
          "fit": "special case"
         },
         {
-         "name": "Algebra.Etale.iff_exists_algEquiv_prod",
-         "library": "mathlib",
-         "file": "Mathlib/RingTheory/Etale/Field.lean",
-         "line": 271,
-         "fit": "related"
-        },
-        {
          "name": "TauCeti.FiniteCoveringSpace.instGaloisCategory",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicTopology/UniversalCover/Classification/GaloisCategory.lean",
          "line": 329,
          "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.pointSmallEtale",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/EtalePoint.lean",
+         "line": 64,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib has the category of finite étale R-algebras with the fibre functor S ↦ Hom_R(S, Ω) at a geometric point, proves it is an equivalence onto finite sets for separably closed Ω, and shows étale algebras over a field are finite products of finite separable extensions; Tau Ceti makes finite topological covering spaces a Galois category. Neither library proves the Galois-category axioms for finite étale algebras or covers of a scheme, and there is no étale fundamental group."
+       "note": "Mathlib has the category of finite étale R-algebras with the fibre functor S ↦ Hom_R(S, Ω) at a geometric point, computes it after base change to Ω, and proves it is an equivalence onto finite sets only when the base is the separably closed field Ω itself. For a scheme S, a geometric point Spec Ω → S gives a point of the small étale site with fibre X ↦ Hom_S(Spec Ω, X) on étale S-schemes, and these points are conservative. Tau Ceti makes finite topological covering spaces a Galois category. Neither library proves the Galois-category axioms for finite étale algebras or covers of a scheme, and there is no étale fundamental group."
       },
       {
        "target": "Connected components and change of fibre functor (base point) as explicit equivalences",
@@ -2765,9 +2905,16 @@
          "file": "TauCeti/CategoryTheory/Action/ProfiniteCompletion.lean",
          "line": 235,
          "fit": "related"
+        },
+        {
+         "name": "Algebra.Etale.iff_exists_algEquiv_prod",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Etale/Field.lean",
+         "line": 271,
+         "fit": "related"
         }
        ],
-       "note": "The ingredients are proved: the infinite Galois correspondence (intermediate fields ↔ closed subgroups), Gal(K^sep/K) as a profinite group (Tau Ceti identifies it with Mathlib's absolute Galois group), and in Tau Ceti the profinite completion of G as the fundamental group of finite G-sets. The equivalence of finite étale K-algebras with finite continuous G_K-sets, i.e. π₁(Spec K) ≅ G_K, is not stated."
+       "note": "The ingredients are proved: étale algebras over a field are finite products of finite separable extensions, the infinite Galois correspondence (intermediate fields ↔ closed subgroups), Gal(K^sep/K) as a profinite group (Tau Ceti identifies it with Mathlib's absolute Galois group), and in Tau Ceti the profinite completion of G as the fundamental group of finite G-sets. The equivalence of finite étale K-algebras with finite continuous G_K-sets, i.e. π₁(Spec K) ≅ G_K, is not stated."
       },
       {
        "target": "The fundamental group of 𝔾_m over an algebraically closed field of characteristic zero is Ẑ(1)",
@@ -2801,16 +2948,20 @@
      "duplicates": [
       {
        "layer": "AnabelianGeometryAndNonabelianChabauty:NC.0",
-       "note": "NC.0 imports the finite-étale fibre functor and arithmetic exact sequence to build path torsors, so it restates IG.0’s fundamental-group construction as its input."
+       "note": "NC.0 proves base-point change and conjugacy independence for the fundamental group, including tangential base points, which is IG.0's change-of-fibre-functor target; the finite-étale fibre functor itself it imports from IG."
       },
       {
        "layer": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
        "note": "That layer builds the fundamental group of the thrice-punctured line over ℚ̄ as a profinite Galois group, the same arithmetic fundamental group IG.0 constructs categorically for finite étale covers."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions",
+       "note": "0D constructs the equivalence between finite étale K-schemes and finite continuous Gal(Kˢ/K)-sets over a field, with products and group objects, which is IG.0's recovery of the absolute Galois group as π₁(Spec K)."
       }
      ]
     },
     "InverseGaloisAndArithmeticFundamentalGroups:IG.1": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "The geometric/arithmetic fundamental-group exact sequence 1 → π₁(X_K̄) → π₁(X) → G_K → 1 for geometrically connected X",
@@ -2943,6 +3094,30 @@
       {
        "layer": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
        "note": "That layer owns the tame quotient of the absolute Galois group of a local field, IG.1’s tame quotient."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+       "note": "Layer 12 proves the exact sequence 1 → π₁ᵍᵉᵒ → Gal(Ω/ℚ(t)) → Gal(ℚ̄/ℚ) → 1 for the thrice-punctured line and constructs the inertia subgroups of π₁ᵍᵉᵒ with their tame character, IG.1's exact-sequence, inertia and tame-quotient targets in that case."
+      },
+      {
+       "layer": "LefschetzPencilsAndVanishingCycles:LPV.1",
+       "note": "LPV.1 constructs tame and wild inertia and the tame character t_ℓ : I → ℤ_ℓ(1), IG.1's tame-quotient and wild-inertia target."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+       "note": "That layer owns decomposition and inertia groups of function-field extensions and the lower ramification groups with G₀/G₁ cyclic of order prime to p and G₁ = 1 in characteristic zero: IG.1's decomposition, inertia and tame targets for function fields, and the Tau Ceti home of the Place declarations cited here."
+      },
+      {
+       "layer": "FunctionFieldArithmetic:FA.3",
+       "note": "FA.3 constructs decomposition and inertia groups and the lower and upper ramification filtrations for finite separable extensions of global function fields, IG.1's decomposition, inertia and wild-ramification targets in positive characteristic."
+      },
+      {
+       "layer": "ArithmeticGaloisRepresentations:R01.2",
+       "note": "R01.2 obtains decomposition groups by restriction along a place, proves independence of that choice, and constructs tame characters, IG.1's decomposition-subgroup and tame-quotient targets for Galois groups of number fields."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+       "note": "That layer proves Gal(K^ur/K) ≅ Ẑ carrying Frobenius to the topological generator 1, the profinite Frobenius statement that IG.1's finite-field Frobenius target lacks."
       }
      ]
     },
@@ -3015,7 +3190,7 @@
      "duplicates": []
     },
     "InverseGaloisAndArithmeticFundamentalGroups:IG.3": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Branched covers from generating tuples with product one via Riemann existence",
@@ -3156,11 +3331,31 @@
       {
        "layer": "tauceti:TauCetiRoadmap/BelyiMaps#layer-3-finite-enumeration-and-character-theoretic-counts",
        "note": "That layer counts triples by character theory, the class-structure-constant computation of IG.3’s rigidity criterion."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/BelyiMaps#layer-0-permutation-triples",
+       "note": "Layer 0 defines permutation triples with product one, their relabeling classes, connectedness, automorphism groups, Euler characteristic and genus, the combinatorial part of IG.3's three-point target that Tau Ceti has built from it."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/BelyiMaps#layer-2-dessins-as-finite-bipartite-ribbon-graphs",
+       "note": "Layer 2 constructs bipartite ribbon graphs, the maps between dessins and triples and the bijection of their isomorphism classes, IG.3's dessins and its acceptance comparison of a dessin with its permutation triple."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group",
+       "note": "Layer 5 proves π₁ of the thrice-punctured sphere is free on the two peripheral loops, the standard generators through which IG.3 builds covers from triples with product one."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/BelyiMaps#layer-7-compactification-and-topological-branched-covers",
+       "note": "Layer 7 compactifies finite covers of the punctured sphere into topological branched covers, the compactification step of IG.3's branched covers from tuples."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+       "note": "Layer 9 defines algebraic Belyi pairs, algebraizes analytic ones and fixes the analytic/algebraic comparison contract, IG.3's Belyi maps and analytic/algebraic comparison."
       }
      ]
     },
     "InverseGaloisAndArithmeticFundamentalGroups:IG.4": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Weak and proper solutions of finite embedding problems, with their local constraints",
@@ -3251,8 +3446,16 @@
       {
        "target": "Hurwitz moduli spaces with braid/Nielsen-class components, descent and specialization to regular extensions",
        "library": "absent",
-       "declarations": [],
-       "note": "No Hurwitz space, Nielsen class, moduli of covers or regular-extension notion exists in either library."
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.GeometricallyIntegral",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Geometrically/Integral.lean",
+         "line": 40,
+         "fit": "related"
+        }
+       ],
+       "note": "No Hurwitz space, Nielsen class or moduli of covers exists in either library, and regularity of a field extension is not defined; the nearest notion is Mathlib's scheme-theoretic geometric integrality of a morphism."
       },
       {
        "target": "Tame covers in positive characteristic with p prime to the group order (Grothendieck specialization)",
@@ -3332,10 +3535,10 @@
          "fit": "related"
         },
         {
-         "name": "Polynomial.factorDegrees_X_pow_five_sub_X_sub_one_two",
-         "library": "tauceti",
-         "file": "TauCeti/FieldTheory/GaloisGroups/FactorDegrees.lean",
-         "line": 82,
+         "name": "Polynomial.Splits.surjective_toPermHom_of_iSup_inertia_eq_top",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Morse.lean",
+         "line": 84,
          "fit": "related"
         },
         {
@@ -3346,7 +3549,7 @@
          "fit": "special case"
         }
        ],
-       "note": "Mathlib proves that an irreducible rational polynomial of prime degree p with exactly two non-real roots has Galois group S_p, and computes cyclotomic Galois groups; Tau Ceti has a Galois-group computation toolkit (orbits ↔ irreducible factors, blocks, the discriminant test for A_n, factor degrees of X⁵ − X − 1). No generic polynomials, cover maps or specialization conditions are exported."
+       "note": "Mathlib proves that an irreducible rational polynomial of prime degree p with exactly two non-real roots has Galois group S_p, the Morse-polynomial criterion (a transitive group generated by inertia, acting on roots with at most one collision modulo each maximal ideal, is all of S_n; its number-field specialization and X^n − X − 1 are TODOs), and computes cyclotomic Galois groups; Tau Ceti has a Galois-group computation toolkit (orbits ↔ irreducible factors, blocks, the discriminant test for A_n, factor degrees of X⁵ − X − 1). No generic polynomials, cover maps or specialization conditions are exported."
       },
       {
        "target": "The arithmetic Galois action on Belyi pairs and dessins and its faithfulness, compared with peripheral inertia and the cyclotomic branch-cycle convention",
@@ -3414,10 +3617,450 @@
       {
        "layer": "AnabelianGeometryAndNonabelianChabauty:NC.0",
        "note": "NC.0 constructs the path torsors that IG.6 hands to the anabelian continuation."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
+       "note": "Layer 11 defines the conjugation action of Gal(ℚ̄/ℚ) on algebraic Belyi pairs, its open stabilizers, fields of moduli and fields of definition, IG.6's arithmetic Galois action on Belyi pairs with the field-of-moduli/definition distinction."
       }
      ]
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-09",
+  "date": "2026-09-16",
+  "checked": 136,
+  "corrections": [
+   {
+    "layer": "ComplexMultiplicationAndExplicitReciprocity",
+    "target": "(summary)",
+    "was": "summary lists Mathlib's inputs without the modular discriminant",
+    "now": "summary adds Δ = (E₄³ − E₆²)/1728",
+    "why": "Follows the CM.3 class-polynomial correction: Mathlib's `ModularForm.discriminant` with `discriminant_ne_zero` and `discriminant_eq_E₄_cube_sub_E₆_sq` is the input to j = E₄³/Δ."
+   },
+   {
+    "layer": "ComplexMultiplicationAndExplicitReciprocity",
+    "target": "(summary)",
+    "was": "summary: 'an ideal-theoretic Artin map without reciprocity'",
+    "now": "summary: no general reciprocity law, with kernel and image computed only for the genus field of a quadratic field",
+    "why": "Follows the CM.2 and CM.3 corrections: TauCeti/NumberTheory/Multiquadratic/CandidateGenusField/Relative/Artin.lean proves the genus-field Artin map surjective with kernel the ideals of square narrow class."
+   },
+   {
+    "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+    "target": "Orders in a number field other than the maximal order, and the conductor of an order",
+    "was": "note: `RingOfIntegers.exponent` is the norm of the conductor",
+    "now": "note: `RingOfIntegers.exponent θ` is the least positive integer in `conductor ℤ θ`",
+    "why": "`RingOfIntegers.exponent θ` is defined as `absNorm (under ℤ (conductor ℤ θ))`, the positive generator of the contraction of the conductor to ℤ, and `exponent_eq_sInf` identifies it with the least d > 0 lying in the conductor. It is not the absolute norm of the conductor ideal: for ℤ[fω] in a quadratic field the conductor is f𝓞_K, of norm f², while the exponent is f."
+   },
+   {
+    "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+    "target": "(verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is present in the libraries in its stated generality: 2 are partial (Orders in a number field other than the maximal order, and the conductor of an order; Proper and invertible ideals of an order, and the class group Pic(O) of an order kept distinct from Cl(𝓞_K)) and 3 absent. The audit instructions define 'partly built' as at least one target present and one missing, and 'built' as no target partial or absent, so a layer whose targets are all partial or absent is 'not built' (the convention REV-AUDIT-03 recorded and most audits follow). The partial material stays recorded in the target entries."
+   },
+   {
+    "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+    "target": "(verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is present in the libraries in its stated generality: 2 are partial (The elliptic curve attached to a complex (ideal) lattice: ℘, g₂, g₃ and the curve y² = 4x³ − g₂x − g₃; Automorphism factors in the classification: Aut(E) and lattice automorphisms, including j = 0 and j = 1728) and 3 absent. The audit instructions define 'partly built' as at least one target present and one missing, and 'built' as no target partial or absent, so a layer whose targets are all partial or absent is 'not built' (the convention REV-AUDIT-03 recorded and most audits follow). The partial material stays recorded in the target entries."
+   },
+   {
+    "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+    "target": "The ideal, idele and torsion-level forms of CM reciprocity under one Artin convention",
+    "was": "note: the Tau Ceti Artin map comes with no kernel or reciprocity statement",
+    "now": "note says this holds in general but not for the genus field of a quadratic field; added TauCeti.Multiquadratic.artinHomAway_candidateGenusField_eq_one_iff (related); still absent",
+    "why": "TauCeti/NumberTheory/Multiquadratic/CandidateGenusField/Relative/Artin.lean proves, for K = ℚ(√d) and any finite S containing the primes above 2·disc K, that the Artin map of the genus field K_gen/K is trivial on I exactly when the narrow class of I is a square (artinHomAway_candidateGenusField_eq_one_iff, line 400) and that it is surjective (artinHomAway_candidateGenusField_surjective, line 509): a reciprocity law for that one extension. General global reciprocity is still absent, so the target stays absent."
+   },
+   {
+    "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.3",
+    "target": "The class polynomial ∏(X − j(𝔞)) over the proper ideal classes of an imaginary quadratic order",
+    "was": "cites only WeierstrassCurve.j and PeriodPair.g₂; note lists the Weierstrass j-invariant and g₂, g₃ as all that exists",
+    "now": "added ModularForm.discriminant_eq_E₄_cube_sub_E₆_sq and ModularForm.discriminant_ne_zero (related); note records Δ, E₄, E₆; still absent",
+    "why": "Mathlib defines Δ z = η(z)²⁴ (ModularForm.discriminant, Discriminant.lean:52), proves Δ z ≠ 0 for every z ∈ ℍ (line 125) and Δ z = (E₄ z³ − E₆ z²)/1728 (GradedRing.lean:61), with E₄, E₆ the normalised level-one Eisenstein series; all sorry-free. These are exactly the ingredients of j = E₄³/Δ, which the class polynomial evaluates, so the note understated what exists. No j-function is defined, so the status is unchanged."
+   },
+   {
+    "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.3",
+    "target": "Galois equivariance of the j-values and identification of the ring class field of the order over the imaginary quadratic field",
+    "was": "cites autCandidateGenusFieldEquivNarrowElementaryTwoQuotient (GenusCharacter.lean:167) for the genus-field isomorphism 'compatibly with the ideal-theoretic Artin map'",
+    "now": "added TauCeti.Multiquadratic.autCandidateGenusFieldEquivNarrowElementaryTwoQuotient_artinHomAway (Artin.lean:345) and artinHomAway_candidateGenusField_eq_one_iff (Artin.lean:400) as related; note states the proved compatibility, kernel and surjectivity; still absent",
+    "why": "The cited isomorphism is built from sign patterns, and its own docstring says its identification with the Artin map 'is not proved here'. The compatibility the note asserts is a separate theorem in Relative/Artin.lean: Φ(Art I) = [I] in Cl⁺(K)/Cl⁺(K)² for ideals prime to any S containing the primes over 2·disc K (line 345), with the kernel criterion at line 400 and surjectivity at line 509. The claim was true but its evidence was not cited."
+   },
+   {
+    "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.3",
+    "target": "(duplicates)",
+    "was": "duplicates: ClassFieldTheory layer 13, HE.0, HE.1",
+    "now": "added tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+    "why": "That layer's description owns 'the normalized j = E₄³/Δ', its modular invariance, q-expansion and orders at ρ and i (ModularForms layer 10 says these are 'supplied by the independent Layer-0 ModularForms.LevelOne.JInputs module'). CM.3's class polynomial ∏(X − j(𝔞)) needs exactly this function, and without the link CM.3 would construct j a second time."
+   },
+   {
+    "layer": "EffectiveDiophantineMethods",
+    "target": "(summary)",
+    "was": "summary: 'exact interval arithmetic with certified enclosures of π, e and log 2'",
+    "now": "summary: intervals whose arithmetic applies to ℚ and ℝ only additively",
+    "why": "Follows the ED.0 correction: Mathlib's interval multiplication and division do not apply to ℚ or ℝ (Mathlib/Algebra/Order/Interval/Basic.lean:124 and 370)."
+   },
+   {
+    "layer": "EffectiveDiophantineMethods:ED.0",
+    "target": "Rational error bounds attached to approximate outputs and checked independently",
+    "was": "NonemptyInterval.div_mem_div fit=special case; note: 'exact interval arithmetic on ordered fields with inclusion lemmas … no floating-point or ball arithmetic with rounding'",
+    "now": "div_mem_div fit=related; note: only +, − and negation of intervals apply to ℚ and ℝ, and Mathlib's floating point is unverified; still partial",
+    "why": "div_mem_div (Mathlib/Algebra/Order/Interval/Basic.lean:400) lives under `[Preorder α] [CommGroup α] [MulLeftMono α]` (line 376), a multiplicative ordered group, and the section header at line 370 says 'this division does not apply to ℚ or ℝ'. Interval multiplication (line 130) needs `[MulLeftMono α] [MulRightMono α]` and carries the same warning (line 124). So Mathlib has no interval arithmetic on ordered fields beyond addition, subtraction and negation, and div_mem_div certifies no error bound. Mathlib/Data/FP/Basic.lean does have floats with a rounding mode, but its operations are `unsafe def`s ('TODO(Mario): Prove these and drop unsafe') with no theorems about them."
+   },
+   {
+    "layer": "EffectiveDiophantineMethods:ED.0",
+    "target": "(verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is present in the libraries in its stated generality: 2 are partial (Local (p-adic) precision presentations with valuation adapters; Rational error bounds attached to approximate outputs and checked independently) and 1 absent. The audit instructions define 'partly built' as at least one target present and one missing, and 'built' as no target partial or absent, so a layer whose targets are all partial or absent is 'not built' (the convention REV-AUDIT-03 recorded and most audits follow). The partial material stays recorded in the target entries."
+   },
+   {
+    "layer": "EffectiveDiophantineMethods:ED.1",
+    "target": "Short-vector certificates: a proved lower bound excluding all remaining nonzero lattice vectors in a region",
+    "was": "note: the statement that no nonzero lattice vector lies in a region is absent",
+    "now": "added ZLattice.le_norm_of_le_abs_repr and NumberField.one_le_house_of_isIntegral (related); note separates non-effective and lattice-specific lower bounds from the missing certificates; still absent",
+    "why": "Statements of that shape exist. `ZLattice.le_norm_of_le_abs_repr` (Summable.lean:94) gives normBound b · n ≤ ‖x‖ whenever n ≤ |b.repr x i|, for any basis b of a discrete ℤ-submodule of a finite-dimensional real normed space, with normBound b a chosen (non-explicit) positive constant. `NumberField.one_le_house_of_isIntegral` (House.lean:88) says a nonzero algebraic integer has house ≥ 1, so 𝓞_K misses the open unit sup-norm ball, and Tau Ceti's `one_le_norm_of_mem_gaussianLattice_of_ne_zero` does the same for ℤ[i]. None is a certificate computed from a basis for an arbitrary lattice and region, so the status stays absent."
+   },
+   {
+    "layer": "EffectiveDiophantineMethods:ED.1",
+    "target": "(duplicates)",
+    "was": "duplicate DiophantineApproximationAndTranscendence:DT.4",
+    "now": "removed (it remains a duplicate of ED.2)",
+    "why": "DT.4 transfers linear-form bounds to explicit bounds for Thue, Thue–Mahler, S-unit and exponential equations and says it will 'Export these bound theorems to EffectiveDiophantineMethods ED.2, which owns lattice reduction and certified residual enumeration'. It states none of ED.1's targets (LLL, short- and closest-vector certificates, integer relations); its overlap is with ED.2, where it is already listed."
+   },
+   {
+    "layer": "EffectiveDiophantineMethods:ED.2",
+    "target": "(verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is present in the libraries in its stated generality: 1 are partial (Certified evaluation of logarithms with propagated error) and 3 absent. The audit instructions define 'partly built' as at least one target present and one missing, and 'built' as no target partial or absent, so a layer whose targets are all partial or absent is 'not built' (the convention REV-AUDIT-03 recorded and most audits follow). The partial material stays recorded in the target entries."
+   },
+   {
+    "layer": "EffectiveDiophantineMethods:ED.3",
+    "target": "(verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is present in the libraries in its stated generality: 2 are partial (Descent by 2-isogeny/x − T map: the Selmer group with local conditions as a finite object; The rank upper bound from a finite group containing the descent image) and 3 absent. The audit instructions define 'partly built' as at least one target present and one missing, and 'built' as no target partial or absent, so a layer whose targets are all partial or absent is 'not built' (the convention REV-AUDIT-03 recorded and most audits follow). The partial material stays recorded in the target entries."
+   },
+   {
+    "layer": "EffectiveDiophantineMethods:ED.4",
+    "target": "(duplicates)",
+    "was": "duplicates: ColemanIntegration:L1, NC.4",
+    "now": "added ColemanIntegration:L0",
+    "why": "ED.4's second target is 'annihilating differentials and Coleman integrals on residue discs, with Frobenius continuation'. L0's description says 'termwise integration with its convergence domain. Prove the unique primitive with chosen base value on a disc', which is the residue-disc half; L1 is the continuation half."
+   },
+   {
+    "layer": "EffectiveDiophantineMethods:ED.5",
+    "target": "A combination certificate recording index/saturation assumptions, primes, images and the exhaustive candidate set",
+    "was": "note: Tau Ceti has point counts and Frobenius traces 'but no group structure of E(𝔽_q)'",
+    "now": "note: E(𝔽_q) is a group in Mathlib, but its decomposition as ℤ/m × ℤ/mn and a certificate format are missing; added WeierstrassCurve.Affine.Point.add (related); still absent",
+    "why": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean defines the addition of nonsingular points (`Point.add`, line 659) and proves `instance : AddCommGroup W.Point` (line 807) for a Weierstrass curve over any field, so E(𝔽_q) has its group structure. What the sieve needs and neither library has is the explicit structure of that finite group."
+   },
+   {
+    "layer": "FaltingsFinitenessAndIsogenyTheorems",
+    "target": "(summary)",
+    "was": "summary lists finite flat group schemes with Cartier duality as Tau Ceti's last input",
+    "now": "summary adds the formal group of a Weierstrass curve and models over a DVR with finite DVR extensions",
+    "why": "Follows the R28.2 and R28.5 corrections (WeierstrassCurve.formalGroup, TauCeti.Model, TauCeti.FiniteDVRExtension)."
+   },
+   {
+    "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+    "target": "Descent and level-structure arguments converting moduli points into isomorphism classes",
+    "was": "no citations; note: no moduli space and no level structures",
+    "now": "added WeierstrassCurve.exists_variableChange_of_j_eq and WeierstrassCurve.exists_smul_eq_or_exists_smul_eq_quadraticTwist (related); note names these genus-one analogues; still absent",
+    "why": "Both steps of the target have proved dimension-one versions over a field. Mathlib's IsomOfJ.lean:331 (over a separably closed field, for elliptic E, E′) turns equality of j-invariants, a point of the j-line, into an isomorphism. Tau Ceti's QuadraticTwist.lean:717 (K ⊆ L separable quadratic, E elliptic, j ≠ 0, 1728) classifies the K-forms of E split by L as E or its quadratic twist, the Galois-descent step; distinctness is `not_exists_smul_quadraticTwist_eq` (line 657). Neither involves polarised abelian varieties or level structures, so the target stays absent."
+   },
+   {
+    "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+    "target": "(verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is present in the libraries in its stated generality: 1 are partial (Jordan–Zassenhaus: finitely many isomorphism classes of lattices over an order in a semisimple ℚ-algebra) and 3 absent. The audit instructions define 'partly built' as at least one target present and one missing, and 'built' as no target partial or absent, so a layer whose targets are all partial or absent is 'not built' (the convention REV-AUDIT-03 recorded and most audits follow). The partial material stays recorded in the target entries."
+   },
+   {
+    "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+    "target": "Faltings' isogeny-height estimate, including primes dividing the isogeny degree",
+    "was": "no citations; note: Tau Ceti's finite locally free group schemes over rings are 'the only related material'",
+    "now": "added TauCeti.Isogeny.degree and TauCeti.Isogeny.pullbackDifferential_invariantDifferential (related); note records the field-level degree and differential pullback; still absent",
+    "why": "The isogeny formula compares heights through the degree and the cokernel on invariant differentials. In genus one over a field Tau Ceti has both ingredients: `degree φ = finrank` of the function-field extension (Isogeny/Degree.lean:99, multiplicative by `degree_comp`) and φ^*ω₂ = (W_Y at the tautological point)⁻¹·dx (Isogeny/Differential.lean:140, target elliptic), with `isSeparable_iff_pullbackDifferential_ne_zero` at line 179. So 'the only related material' was false. REV-AUDIT-08 corrected the parallel entry ArakelovGeometryAndAbelianHeights:R35.4 with the same two declarations."
+   },
+   {
+    "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+    "target": "p-divisible groups and the integral differential calculations behind the estimate",
+    "was": "cites Cartier duality and IsIsogeny; note lists finite locally free group schemes and isogenies as the related material",
+    "now": "added WeierstrassCurve.formalGroup (related); note mentions the formal group law; still absent",
+    "why": "`WeierstrassCurve.formalGroup (W : WeierstrassCurve R) : FormalGroup R` (FormalGroup/Basic.lean:58), over any commutative ring and commutative by `isComm_formalGroup`, packages the chord addition series as a Mathlib formal group, with points over adic completions in FormalGroup/Point/. This is the formal Lie group behind the connected p-divisible group of an elliptic curve with good reduction, the nearest existing object to the target's p-divisible groups; no Barsotti–Tate group is built from it."
+   },
+   {
+    "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+    "target": "(duplicates)",
+    "was": "duplicates: R35.3, R35.4, R11.6",
+    "now": "added FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+    "why": "R28.2's text uses 'the integral differential/p-divisible-group calculations supplied by R35/R07', and its fourth target is p-divisible groups. R07.1 says 'Define a p-divisible group as compatible finite locally free levels with the exactness and rank conditions' and develops the finite-flat theory; R35.4, the R35 half, is already listed."
+   },
+   {
+    "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.3",
+    "target": "(duplicates)",
+    "was": "no duplicates",
+    "now": "added FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+    "why": "R28.3's third target is the ℓ-divisible group formed by the tail of the tower of closure group schemes. R07.1 states 'Finite-flat closure of a generic subgroup requires a proof under the correct base hypotheses' and 'Define a p-divisible group as compatible finite locally free levels'."
+   },
+   {
+    "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.5",
+    "target": "The polarisation and semistable-extension reductions",
+    "was": "note: Tau Ceti's stable-reduction files 'contain only the combinatorics of numerical types'",
+    "now": "note: they also contain models over a DVR and finite DVR extensions, with no semistable reduction theorem; added TauCeti.Model and TauCeti.FiniteDVRExtension (related); still absent",
+    "why": "TauCeti/AlgebraicGeometry/Curves/StableReduction/ also has Model/ and DVRExtension/. `TauCeti.Model R K C` (Model/Basic.lean:44) is a flat, finitely presented scheme over Spec R with an identification of its generic fibre with C. `TauCeti.FiniteDVRExtension R K` (DVRExtension/Basic.lean:85) is a finite separable K′/K with a chosen place, whose local ring is proved a DVR with fraction field K′ (lines 158 and 163), and every such K′ arises (`exists_algEquiv_extensionField`). This is the pass-to-a-finite-extension-and-take-a-model set-up of the semistable-extension reduction, so the note was false; the reduction theorem itself is still absent."
+   },
+   {
+    "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.5",
+    "target": "(duplicates)",
+    "was": "duplicates: RP.4, R25.4",
+    "now": "added SmallRamificationAndAbelianVarietyBaseCases:R25.3",
+    "why": "R25.3: 'Prove the nonexistence of a positive-dimensional abelian variety over Q with good reduction everywhere', which is Shafarevich finiteness for F = ℚ and S = ∅ sharpened to emptiness. It qualifies for the same reason as the listed R25.4 (one small bad prime)."
+   },
+   {
+    "layer": "HeightsRationalPointsAndObstructions",
+    "target": "(summary)",
+    "was": "summary: Tau Ceti has 'the 2-Selmer group with its rank bound'",
+    "now": "summary: the 2-Selmer group and the rank bound from any finite group containing the descent image, the Selmer group itself not being proved finite",
+    "why": "`pow_rank_le_card_of_range_μ_le` bounds the rank by any finite S containing the descent image, and SelmerGroup.lean's docstring says 'Nothing here establishes that the Selmer group is finite', so the bound does not yet apply to `selmerGroup₂` itself."
+   },
+   {
+    "layer": "HeightsRationalPointsAndObstructions:RP.0",
+    "target": "Normalized absolute Weil heights with the product formula and the Northcott theorem, independent of projective coordinates and of the field",
+    "was": "Projectivization.mulHeight fit=exact; note: Northcott 'for projective points of bounded height and degree (a TODO in Mathlib)'",
+    "now": "Projectivization.mulHeight fit=special case; note says the projective height is relative to K and places the Mathlib TODO correctly; still partial",
+    "why": "`Projectivization.mulHeight` (Height/Projectivization.lean:46) is `Height.mulHeight` of any representative for a field K with `AdmissibleAbsValues`. Over a number field that is ∏_v max_i |x_i|_v^{mult v} with no 1/[K:ℚ] exponent (`NumberField.mulHeight_eq`, NumberField.lean:128), which is why Mathlib defines `absMulHeight₁` separately with exponent (finrank ℚ ℚ⟮x⟯)⁻¹ (line 141). It is independent of the representative but neither absolute nor independent of the field, so it does not match the target exactly. The TODO in Height/Northcott.lean (lines 18–23) asks for Northcott instances for `Projectivization.mulHeight` over a fixed Northcott field; bounded degree is not part of it."
+   },
+   {
+    "layer": "HeightsRationalPointsAndObstructions:RP.0",
+    "target": "The height machine: heights attached to divisors or line bundles modulo bounded functions, with pullback and tensor laws and ampleness where finiteness is used",
+    "was": "note: Tau Ceti has 'the divisor-to-line-bundle map on integral Noetherian schemes'",
+    "now": "note: the map exists only on Noetherian integral schemes of dimension ≤ 1 with DVR local rings at codimension-one points; still partial",
+    "why": "`TauCeti.AlgebraicGeometry.SchemeWeilDivisor.toInvertibleSheaf` (WeilDivisor/Scheme/LineBundle.lean:56) assumes `[IsIntegral X] [IsNoetherian X]`, `[∀ y : CodimensionOnePoint X, IsDiscreteValuationRing (X.presheaf.stalk y)]` (line 48) and `hX : ∀ y : X, coheight y ≤ 1` (line 52), and the module docstring says 'On a Noetherian integral scheme of dimension at most one'. For the higher-dimensional varieties of a height machine it is not available."
+   },
+   {
+    "layer": "HeightsRationalPointsAndObstructions:RP.0",
+    "target": "(duplicates)",
+    "was": "duplicates: GZ.1, DT.0, DY.1, EllipticCurves layer 6",
+    "now": "added GrossZagierAndArithmeticHeights:GZ.2",
+    "why": "RP.0's fourth target is local (Néron) heights and their comparison with the canonical height. GZ.2 says 'construct the arithmetic intersection pairing from finite-place intersection lengths and archimedean Green functions … Prove the Faltings–Hriljac comparison for degree-zero divisors with the canonical Jacobian pairing … Export local height decomposition', which is that comparison for Jacobians of curves; GZ.1, listed, covers only the global heights."
+   },
+   {
+    "layer": "HeightsRationalPointsAndObstructions:RP.0",
+    "target": "(verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is present in the libraries in its stated generality: 3 are partial (Normalized absolute Weil heights with the product formula and the Northcott theorem, independent of projective coordinates and of the field; The height machine: heights attached to divisors or line bundles modulo bounded functions, with pullback and tensor laws and ampleness where finiteness is used; The Néron–Tate canonical height with its quadratic (parallelogram) identity) and 1 absent. The audit instructions define 'partly built' as at least one target present and one missing, and 'built' as no target partial or absent, so a layer whose targets are all partial or absent is 'not built' (the convention REV-AUDIT-03 recorded and most audits follow). The partial material stays recorded in the target entries."
+   },
+   {
+    "layer": "HeightsRationalPointsAndObstructions:RP.1",
+    "target": "(duplicates)",
+    "was": "duplicates: EllipticCurves layers 6 and 7, ED.3",
+    "now": "added GrossZagierAndArithmeticHeights:GZ.1",
+    "why": "RP.1's fourth target is finite generation of A(K) from finite descent plus a height argument. GZ.1, which works with heights on abelian varieties, says 'General Mordell–Weil or projective-height lemmas absent from the imported owners are construction targets here, proved through weak descent and the height argument'. It is already listed for RP.0, but its Mordell–Weil clause overlaps RP.1."
+   },
+   {
+    "layer": "HeightsRationalPointsAndObstructions:RP.1",
+    "target": "(duplicates)",
+    "was": "no link to NC.3",
+    "now": "added AnabelianGeometryAndNonabelianChabauty:NC.3",
+    "why": "NC.3: 'Construct torsor-valued H¹ for the finite unipotent quotients, local unramified/crystalline conditions and representable Selmer varieties … Check depth-one Kummer/Selmer agreement'. Its depth-one case is the Kummer map and Selmer group of the Jacobian, RP.1's first two targets. REV-AUDIT-08 accepted the reverse link NC.3 → RP.1 on the same grounds."
+   },
+   {
+    "layer": "HeightsRationalPointsAndObstructions:RP.1",
+    "target": "(verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is present in the libraries in its stated generality: 5 are partial (Kummer maps A(K)/nA(K) ↪ H¹(K, A[n]); Finite Selmer groups for isogenies, with local conditions, and finiteness of A(K)/nA(K); Flat (fppf) cohomology and Kummer sequences when n is divisible by a residue characteristic; Finite generation of A(K) from finite descent plus a height argument (Mordell–Weil); An elliptic 2-descent with local conditions and global image, keeping the Selmer upper bound distinct from the rank) and 0 absent. The audit instructions define 'partly built' as at least one target present and one missing, and 'built' as no target partial or absent, so a layer whose targets are all partial or absent is 'not built' (the convention REV-AUDIT-03 recorded and most audits follow). The partial material stays recorded in the target entries."
+   },
+   {
+    "layer": "HeightsRationalPointsAndObstructions:RP.2",
+    "target": "(duplicates)",
+    "was": "duplicates: ClassFieldTheory layers 10 and 5, AA.1",
+    "now": "added tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
+    "why": "RP.2 must 'Verify a conic', for which the Brauer–Manin condition is local solubility and the conclusion is the Hasse principle. GlobalQuadraticForms layer 5 builds exactly that ternary step ('local isotropy → local norm equations → IsLocalNormEverywhere → global norm → global isotropic vector') within Hasse–Minkowski, which this audit's summary lists as missing."
+   },
+   {
+    "layer": "HeightsRationalPointsAndObstructions:RP.2",
+    "target": "(verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is present in the libraries in its stated generality: 1 are partial (The Brauer group of a variety and the local invariant maps inv_v : Br(K_v) → ℚ/ℤ) and 4 absent. The audit instructions define 'partly built' as at least one target present and one missing, and 'built' as no target partial or absent, so a layer whose targets are all partial or absent is 'not built' (the convention REV-AUDIT-03 recorded and most audits follow). The partial material stays recorded in the target entries."
+   },
+   {
+    "layer": "HeightsRationalPointsAndObstructions:RP.3",
+    "target": "Comparison of finite étale descent with the Brauer–Manin set, including stabilizers and finiteness of the relevant twist classes",
+    "was": "note: Mathlib has finite étale algebras 'but no finite étale covers of a scheme'",
+    "now": "note: finite and étale morphisms of schemes exist in Mathlib; what is missing is their Galois theory, torsors for descent and finiteness of twists; still absent",
+    "why": "`AlgebraicGeometry.IsFinite` (Morphisms/Finite.lean:40) and `AlgebraicGeometry.Etale` (Morphisms/Etale.lean:41) are morphism properties of schemes, so a finite étale cover is expressible; the note's blanket statement was false. None of the descent theory built on them exists, so the status is unchanged."
+   },
+   {
+    "layer": "HeightsRationalPointsAndObstructions:RP.3",
+    "target": "(verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is present in the libraries in its stated generality: 1 are partial (Torsors under linear algebraic groups over a number field, and their twists) and 2 absent. The audit instructions define 'partly built' as at least one target present and one missing, and 'built' as no target partial or absent, so a layer whose targets are all partial or absent is 'not built' (the convention REV-AUDIT-03 recorded and most audits follow). The partial material stays recorded in the target entries."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups",
+    "target": "(summary)",
+    "was": "summary: 'finite étale algebras with a geometric fibre functor, cyclotomic Galois groups and the prime-degree S_p criterion'",
+    "now": "summary notes the equivalence only over a separably closed field, adds points of the small étale site and the Morse-polynomial S_n criterion",
+    "why": "Follows the IG.0 and IG.6 corrections."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+    "target": "The Galois category of finite étale covers of a connected scheme, with its geometric fibre functor",
+    "was": "note: the fibre functor S ↦ Hom_R(S, Ω) is 'an equivalence onto finite sets for separably closed Ω'; cites Algebra.Etale.iff_exists_algEquiv_prod",
+    "now": "note: the equivalence holds only for finite étale Ω-algebras, and Mathlib also has the scheme-level geometric fibre functor on étale S-schemes; AlgebraicGeometry.Scheme.pointSmallEtale added (related), Algebra.Etale.iff_exists_algEquiv_prod moved to the Spec K target; still partial",
+    "why": "`CommAlgCat.FiniteEtale.equivOfIsSepClosed (Ω) [IsSepClosed Ω] : (FiniteEtale Ω)ᵒᵖ ≌ FintypeCat` (RingTheory/Etale/Finite.lean:161) and the instance that `fiber Ω Ω` is an equivalence (line 190) are for base ring Ω; over a general R the file only rewrites the fibre as base change to Ω followed by the prime spectrum (`fiberIsoComp`). Separately, `AlgebraicGeometry.Scheme.pointSmallEtale` (Sites/EtalePoint.lean:64) turns s : Spec Ω ⟶ S into a point of the small étale site whose fibre is `Etale.forget S ⋙ coyoneda.obj (op (Over.mk s))`, i.e. X ↦ Hom_S(Spec Ω, X), with conservativity at lines 124 and 148: the scheme-theoretic geometric fibre functor the note did not mention."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+    "target": "Recovery of the absolute Galois group as the fundamental group of Spec K",
+    "was": "cites four declarations; the structure of étale K-algebras is not among them",
+    "now": "added Algebra.Etale.iff_exists_algEquiv_prod (related), moved from the finite-étale-covers target; note lists it among the ingredients; still partial",
+    "why": "The theorem (Etale/Field.lean:271) says A is étale over a field K iff A is a finite product of finite separable field extensions of K. That is the algebraic input to π₁(Spec K) ≅ G_K, so it belongs with this target rather than with finite étale covers of a general scheme, where it made room for the scheme-level fibre functor."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+    "target": "(duplicates)",
+    "was": "NC.0 'imports the finite-étale fibre functor and arithmetic exact sequence to build path torsors, so it restates IG.0's fundamental-group construction as its input'",
+    "now": "the overlap is NC.0's base-point change and conjugacy independence (IG.0's change-of-fibre-functor target)",
+    "why": "NC.0's text imports the fibre functor ('Import the finite-étale fibre functor and arithmetic exact sequence') and so does not restate its construction; what it does construct in common with IG.0 is 'Prove base-point change and conjugacy independence, including tangential base points', IG.0's 'Connected components and change of fibre functor (base point) as explicit equivalences'."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+    "target": "(duplicates)",
+    "was": "duplicates: NC.0, BelyiMaps layer 12",
+    "now": "added tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions",
+    "why": "0D: 'Over a field K, construct the equivalence between finite étale K-schemes and finite continuous Gal(Kˢ/K)-sets'. IG.0's fourth target is exactly this equivalence ('The equivalence of finite étale K-algebras with finite continuous G_K-sets, i.e. π₁(Spec K) ≅ G_K, is not stated'). AUDIT-12 already records the reverse link from 0D to IG.0."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+    "target": "(duplicates)",
+    "was": "duplicates: NC.0, LocalFieldsRamification layers 3 and 4",
+    "now": "added tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+    "why": "Its 12.8 reads 'restriction gives the exact sequence 1 → π₁ᵍᵉᵒ → Gal(Ω / ℚ(t)) → Gal(ℚ̄ / ℚ) → 1' and 12.9 defines 'the inertia subgroups of π₁ᵍᵉᵒ at the places of Ω above it' and 'The tame character', procyclic with an isomorphism to ẑ(1). These are IG.1's first three targets for ℙ¹ minus three points; the layer is already listed for IG.0 and IG.6 but not for IG.1."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+    "target": "(duplicates)",
+    "was": "duplicates: NC.0, LocalFieldsRamification layers 3 and 4",
+    "now": "added LefschetzPencilsAndVanishingCycles:LPV.1",
+    "why": "LPV.1 opens 'Construct tame/wild inertia and the tame character t_ℓ:I→Z_ℓ(1) using the existing ramification and roots-of-unity APIs', which is IG.1's 'Tame quotients and wild inertia, with characteristic and prime-to-p restrictions'."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+    "target": "(duplicates)",
+    "was": "duplicates: NC.0, LocalFieldsRamification layers 3 and 4",
+    "now": "added tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+    "why": "Its 'Galois II' milestone asks for 'decomposition/inertia groups' and 'the i-th ramification groups G_i(P′∣P) with the basic structure G₀/G₁ cyclic prime-to-p, G_i/G_{i+1} elementary abelian p, char-0 ⟹ G₁ = 1'. The audit's own IG.1 citations (TauCeti.Place.ramificationGroup and decompositionQuotientInertiaEquiv) implement it, and its IG.1 note names the cyclicity of G₀/G₁ as missing."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+    "target": "(duplicates)",
+    "was": "duplicates: NC.0, LocalFieldsRamification layers 3 and 4",
+    "now": "added FunctionFieldArithmetic:FA.3",
+    "why": "FA.3: 'For finite separable K extensions construct integral closures, decomposition/inertia groups, different and discriminant, lower and upper ramification filtrations'. IG.1's note lists upper numbering among what is missing."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+    "target": "(duplicates)",
+    "was": "duplicates: NC.0, LocalFieldsRamification layers 3 and 4",
+    "now": "added ArithmeticGaloisRepresentations:R01.2",
+    "why": "R01.2: 'Use a place or an embedding into a local separable closure to obtain restriction; prove invariance under changing that choice. Construct tame characters and fundamental characters of levels one and two.'"
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+    "target": "(duplicates)",
+    "was": "duplicates: NC.0, LocalFieldsRamification layers 3 and 4",
+    "now": "added tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+    "why": "It asks to 'Prove Gal(K^{ur}/K) ≅ Ẑ, carrying Frobenius to the canonical topological generator 1, with Ẑ ≅ lim ℤ/n'. IG.1's note on its Frobenius target says 'Gal(F̄_q/F_q) ≅ Ẑ with Frobenius as topological generator is absent'; the two statements coincide through the residue field."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+    "target": "(verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is present in the libraries in its stated generality: 3 are partial (Decomposition and inertia subgroups; Tame quotients and wild inertia, with characteristic and prime-to-p restrictions; Frobenius in the Galois group of a finite field) and 2 absent. The audit instructions define 'partly built' as at least one target present and one missing, and 'built' as no target partial or absent, so a layer whose targets are all partial or absent is 'not built' (the convention REV-AUDIT-03 recorded and most audits follow). The partial material stays recorded in the target entries."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+    "target": "(duplicates)",
+    "was": "duplicates: BelyiMaps layers 3, 6, 8, 10 and 11",
+    "now": "added tauceti:TauCetiRoadmap/BelyiMaps#layer-0-permutation-triples",
+    "why": "Its milestones are '0.1 The carrier … structure PermutationTriple (n : ℕ)', '0.2 Relabeling and isomorphism classes' and '0.6 Euler characteristic and genus'. These are exactly the Tau Ceti declarations the audit cites as exact for IG.3's three-point target (PermutationTriple, automorphismGroup_eq_centralizer_monodromyGroup, genus)."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+    "target": "(duplicates)",
+    "was": "duplicates: BelyiMaps layers 3, 6, 8, 10 and 11",
+    "now": "added tauceti:TauCetiRoadmap/BelyiMaps#layer-2-dessins-as-finite-bipartite-ribbon-graphs",
+    "why": "Its '2.3 From dessins to triples' and '2.4 The equivalence of classifications … the bijection between isomorphism classes of connected dessins and isomorphism classes of connected triples' are IG.3's dessin target and the ribbon-graph-to-triple converse the audit's note records as missing."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+    "target": "(duplicates)",
+    "was": "duplicates: BelyiMaps layers 3, 6, 8, 10 and 11",
+    "now": "added tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group",
+    "why": "Its 5.6 is 'FundamentalGroup U b ≃* ℤ ∗ ℤ ≃* FreeGroup (Fin 2)' sending the generators to the peripheral loops. IG.3's first target note lists 'π₁ of the punctured sphere with its standard generators' as missing."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+    "target": "(duplicates)",
+    "was": "duplicates: BelyiMaps layers 3, 6, 8, 10 and 11",
+    "now": "added tauceti:TauCetiRoadmap/BelyiMaps#layer-7-compactification-and-topological-branched-covers",
+    "why": "Its milestones '7.2 Filling the punctures' and '7.7 Topological branched covers as a carrier' are the 'compactification to branched covers' that the audit's IG.3 note lists as missing."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+    "target": "(duplicates)",
+    "was": "duplicates: BelyiMaps layers 3, 6, 8, 10 and 11",
+    "now": "added tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+    "why": "It defines the algebraic Belyi pair (a function field unramified outside the three marked places), proves '9.5 Algebraization of an analytic pair' and states '9.8 The comparison contract' (degrees, genera, ramification partitions, attached triple). IG.3 asks for 'finite maps of smooth proper connected curves branched only over {0,1,infinity}' with the 'analytic/algebraic comparison'."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+    "target": "(verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is present in the libraries in its stated generality: 2 are partial (Branched covers from generating tuples with product one via Riemann existence; Three-point covers: permutation triples, bipartite ribbon-graph dessins, Belyi maps and Belyi's theorem, with the analytic/algebraic comparison) and 3 absent. The audit instructions define 'partly built' as at least one target present and one missing, and 'built' as no target partial or absent, so a layer whose targets are all partial or absent is 'not built' (the convention REV-AUDIT-03 recorded and most audits follow). The partial material stays recorded in the target entries."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.4",
+    "target": "(verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is present in the libraries in its stated generality: 1 are partial (Cyclic and dihedral realizations over ℚ) and 3 absent. The audit instructions define 'partly built' as at least one target present and one missing, and 'built' as no target partial or absent, so a layer whose targets are all partial or absent is 'not built' (the convention REV-AUDIT-03 recorded and most audits follow). The partial material stays recorded in the target entries."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.5",
+    "target": "Hurwitz moduli spaces with braid/Nielsen-class components, descent and specialization to regular extensions",
+    "was": "note: no 'regular-extension notion exists in either library'",
+    "now": "note: no field-theoretic regularity, but Mathlib's GeometricallyIntegral exists; added it (related); still absent",
+    "why": "`AlgebraicGeometry.GeometricallyIntegral f` (Geometrically/Integral.lean:40) says X ×_Y Spec K is integral for every field-valued point of Y; for the function field of a variety over k this is the geometric form of k-regularity. Nothing relates it to field extensions or covers, so the target stays absent."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+    "target": "Exported checked polynomials, field extensions, cover maps and Galois-group isomorphisms with specialization conditions",
+    "was": "note gives the prime-degree S_p criterion as Mathlib's only S_n tool; fifth citation Polynomial.factorDegrees_X_pow_five_sub_X_sub_one_two (factor degrees modulo 2 only)",
+    "now": "cites Polynomial.Splits.surjective_toPermHom_of_iSup_inertia_eq_top (related) in place of the X⁵ − X − 1 factor-degree lemma, which the note still mentions; note records the Morse criterion; still partial",
+    "why": "Mathlib/RingTheory/Polynomial/Morse.lean:84 proves that if the roots of f have at most one collision modulo each maximal ideal and a group acting transitively on them is generated by inertia subgroups, it maps onto the symmetric group (Serre, Topics in Galois Theory §4.4). This is the general S_n-realization criterion behind explicit S_n polynomials, which the note omitted; the file lists the number-field case and X^n − X − 1 as TODO, so no S_n realization over ℚ is added."
+   },
+   {
+    "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+    "target": "(duplicates)",
+    "was": "duplicates: BelyiMaps layers 12 and 13, PolynomialGaloisGroups layer 9, NC.0",
+    "now": "added tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
+    "why": "Its '11.1 Galois conjugation of pairs' defines, for σ ∈ Gal(ℚ̄/ℚ), the conjugate of an algebraic Belyi pair, and 11.3 and 11.5 treat fields of moduli and fields of definition. IG.6's second target is 'The arithmetic Galois action on Belyi pairs and dessins … retaining field-of-moduli versus definition distinctions'."
+   }
+  ],
+  "notes": "Checked all 136 targets of the 34 layers in the five roadmaps (273 citations naming 231 distinct declarations in 178 files, and 83 duplicates). Mechanically: every citation exists at the claimed library, file and line, and every full name was recomputed from the namespace structure of its source file; all are correct. Two are not in the pinned index as cited: fermatLastTheoremFour (root namespace, Mathlib/NumberTheory/FLT/Four.lean:267) is missing from it, and the index lists TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality without its TauCeti prefix, which the source (namespace TauCeti opened at line 65) shows to be the index's error, not the audit's. No citation is private; every cited instance is explicitly named; the only sorry tokens in cited files are inside a TODO comment block of Mathlib/GroupTheory/FiniteAbelian/Basic.lean, so nothing cited depends on sorry. Statements: every cited declaration was read against its target with its variables and hypotheses. Two fit labels were wrong (Projectivization.mulHeight is the height over a fixed field, not the absolute height: exact -> special case; NonemptyInterval.div_mem_div lives in ordered groups and does not apply to ℚ or ℝ: special case -> related). Absences: every absent or partial target was searched again by concept, Mathlib naming and synonyms over the index and both source trees, and a sample of load-bearing ones was re-run by the reviewer. No target status changes. Several notes misstated what exists and were corrected with citations: RingOfIntegers.exponent is the least positive integer in the conductor, not its norm; Tau Ceti proves the genus-field Artin map of a quadratic field surjective with kernel the square narrow classes (CandidateGenusField/Relative/Artin.lean), which the CM.3 note asserted without citing and the CM.2 note denied; Mathlib has the modular discriminant with Δ ≠ 0 and Δ = (E₄³ − E₆²)/1728; Mathlib interval multiplication and division do not apply to ℚ or ℝ and its floating point is unverified; non-effective and lattice-specific lower bounds for nonzero lattice vectors exist (ZLattice.normBound, house ≥ 1); E(𝔽_q) has Mathlib's group law; the finite étale fibre functor is an equivalence only over the separably closed field itself, and Mathlib has points of the small étale site; Mathlib has GeometricallyIntegral and the Morse-polynomial S_n criterion; Tau Ceti has the isogeny degree and pullback of the invariant differential, the formal group of a Weierstrass curve, models over a DVR with finite DVR extensions, and the genus-one j-classification and quadratic-twist descent; SchemeWeilDivisor.toInvertibleSheaf needs dimension at most one; Mathlib has finite and étale morphisms of schemes. Searches that could have changed a status did not: there is no CM type, reflex norm, order of a number field beyond ℤ[θ], j-function, class field, Hecke character, Tate module, supersingular predicate, LLL or Sturm sequence, p-adic logarithm, S-unit or Thue theorem, Sha, Chabauty or Coleman integral, Faltings height, p-divisible group, Néron model, Zarhin trick, Jordan–Zassenhaus beyond rank one, Shafarevich finiteness, adelic points of schemes, Brauer–Manin pairing, Hasse–Minkowski, Parshin construction, Siegel or Mordell–Lang theorem, étale fundamental group, Hilbert irreducibility, Riemann existence, Belyi's theorem, embedding problem or Hurwitz space. Verdicts: the three process layers (CM.6, RP.6, IG.6) are export, register and example layers and stay process. Thirteen layers marked partly built had no target present in the libraries, only partial or absent ones, and are changed to not built under the audit instructions' rule that partly built needs a present target (the REV-AUDIT-03 convention); IG.0, whose Galois-category target is in Mathlib, stays partly built. Duplicates: all 83 listed layers are live, unretired layers of other roadmaps, and each was read. DT.4 was removed from ED.1 (it states none of ED.1's targets and remains listed for ED.2), the NC.0 note at IG.0 was corrected to the real overlap (base-point change), and 22 missing duplicates were added (ModularForms layer 0 to CM.3; ColemanIntegration L0 to ED.4; R07.1 to R28.2 and R28.3; R25.3 to R28.5; GZ.2 to RP.0; GZ.1 and NC.3 to RP.1; GlobalQuadraticForms layer 5 to RP.2; ModularCurves 0D to IG.0; six to IG.1: BelyiMaps layer 12, LPV.1, AlgebraicCurves layer 8, FA.3, R01.2, LocalFieldsRamification layer 2; BelyiMaps layers 0, 2, 5, 7 and 9 to IG.3; BelyiMaps layer 11 to IG.6). Declared supplier or consumer links whose notes say so (R28.1 to R35.5, R28.2 to R11.6, R28.4 to R01.6, R28.5 to RP.4, IG.1 to NC.0) were kept, following REV-AUDIT-08. Five roadmap summaries were aligned with the corrections. After review: 1 partly built, 30 not built, 3 process; 290 citations and 104 duplicates."
  }
 }
