@@ -8,11 +8,6 @@
    "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json"
   },
   {
-   "roadmapId": "FoundationsAndLibraryIntegration",
-   "title": "Foundations, existing libraries, and proof integrity",
-   "extract": "research/blueprint/atlas/roadmaps/FoundationsAndLibraryIntegration.json"
-  },
-  {
    "roadmapId": "StableHomotopyKTheory",
    "title": "Homotopy foundations for algebraic K-theory",
    "extract": "research/blueprint/atlas/roadmaps/StableHomotopyKTheory.json"
@@ -75,14 +70,6 @@
  ],
  "pairs": [
   {
-   "a": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
-   "b": "FoundationsAndLibraryIntegration"
-  },
-  {
-   "a": "StableHomotopyKTheory",
-   "b": "FoundationsAndLibraryIntegration"
-  },
-  {
    "a": "StableHomotopyKTheory",
    "b": "tauceti:TauCetiRoadmap/QuadraticFormInvariants"
   },
@@ -137,10 +124,6 @@
   {
    "a": "SieveMethodsAndPrimePatterns",
    "b": "ArithmeticQuantumTopology"
-  },
-  {
-   "a": "FoundationsAndLibraryIntegration",
-   "b": "ExponentialSumsAndCircleMethod"
   },
   {
    "a": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",

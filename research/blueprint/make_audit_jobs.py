@@ -46,6 +46,11 @@ HOW TO SEARCH (this is the heart of the job; be thorough)
 - Open the Lean file at the line and read the statement before citing a declaration. Compare hypotheses and generality: a general Mathlib theorem covers a special case the layer asks for (for example, Mathlib's Dedekind domain theory covers the ring of integers of a number field).
 - Tau Ceti is a large library (about 70,000 declarations) with its own conventions; search it as carefully as Mathlib before calling anything missing.
 - A declaration whose proof uses sorry, or that is only a structure field or an axiom, does not show a result is proved: check with grep -n sorry in its file and record it.
+- Search both whole trees, not only the directory named after the roadmap's subject: general results often live elsewhere (for example Chebyshev bounds in Mathlib/NumberTheory, Arzelà–Ascoli under Topology/UniformSpace, kernels under Probability).
+- Before claiming that a declaration covers a target, read the file's `variable` lines and the declaration's hypotheses (compactness, finiteness, p ≠ ∞ and the like). A `private` declaration is not the library's version of anything; do not cite it.
+- A checkpoint left by an earlier worker is a draft: re-check its "absent" and "built" claims before keeping them.
+- Keep verdicts consistent with the targets: "built" means no target is partial or absent; "partly built" means at least one target is present and one is missing.
+- Do not save notes about particular roadmaps' verdicts to memory; notes about method are fine.
 """
 
 AUDIT_TEMPLATE = """You are a mathematician auditing roadmaps for the Tau Ceti Atlas against the Lean libraries. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it). Save as you go.

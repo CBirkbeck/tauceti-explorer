@@ -49,6 +49,8 @@ INPUTS
 - Each roadmap: research/blueprint/atlas/roadmaps/<id with ':' and '/' replaced by '_'>.json (summary, document path, every layer with its full description, and the layer links with other roadmaps), and the roadmap document it names under content/. Read the summary and every layer description; read the document where the layers are unclear.
 - The baseline: {BASELINE}/declarations.tsv (an index of Mathlib and Tau Ceti declarations: search it with grep -i -P), {BASELINE}/mathlib/Mathlib/ and {BASELINE}/TauCeti/. Check the library's coverage of each roadmap's basic objects yourself, and open a Lean file before relying on a declaration. Tau Ceti is large: search it before calling something missing.
 - Recorded progress: data/status.json and data/stage-status-reports.json list layers already built.
+- The theory a roadmap imports: follow its layer links in research/blueprint/atlas/stage-edges.json back through other roadmaps; a single imported layer can bring in a whole theory (for example the Weil bounds, or the Fargues–Scholze machinery). Tau Ceti roadmaps (ids starting tauceti:) have few recorded links, so also read the prerequisites their documents name and their STATUS.md under content/tau-ceti/.
+- What the libraries already contain, layer by layer: the reviewed library audits research/blueprint/audit/AUDIT-*.result.json whose "review" status is "accepted". Use them as leads and verify what your judgement rests on.
 - Leads only, to verify: the mathlibEvidence lists in research/blueprint/classify/*.result.json. Do not read their distance or distanceRationale fields, and do not read any other COMPARE result, data/roadmap-distances.json or data/roadmap-classification.json: your judgements must be independent.
 
 METHOD
@@ -59,7 +61,7 @@ OUTPUT: {OUTPUT}, one JSON object:
 {{"job": "{JOB}", "notes": {{"<roadmap id>": {{"targets": "...", "baselineHas": ["..."], "missing": ["..."]}}}}, "judgements": [{{"a": "<id>", "b": "<id>", "farther": "a" | "b" | "tie", "strength": "clear" | "slight", "reason": "..."}}]}}
 Give one judgement per listed pair, in the listed order and with "a" and "b" exactly as listed. Rewrite the whole file after every five judgements and check it with python3 -c 'import json;json.load(open("{OUTPUT}"))'.
 If {OUTPUT} already exists (a checkpoint from an earlier worker), keep its notes and judgements after checking them, and complete the rest.
-RULES: edit only {OUTPUT} and your scratch files. Do not run git. No private paths in the repository.
+RULES: edit only {OUTPUT} and your scratch files. Do not run git. No private paths in the repository. Do not save notes about particular roadmaps or your verdicts to memory, so that later judges stay independent; notes about method are fine.
 Finish with the number of judgements, the number of ties, and any pair you found hard to judge."""
 
 

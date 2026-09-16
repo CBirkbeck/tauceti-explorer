@@ -13,11 +13,6 @@
    "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json"
   },
   {
-   "roadmapId": "FoundationsAndLibraryIntegration",
-   "title": "Foundations, existing libraries, and proof integrity",
-   "extract": "research/blueprint/atlas/roadmaps/FoundationsAndLibraryIntegration.json"
-  },
-  {
    "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
    "title": "Continuous cohomology of profinite groups",
    "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ProfiniteCohomology.json"
@@ -79,14 +74,6 @@
    "b": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations"
   },
   {
-   "a": "FoundationsAndLibraryIntegration",
-   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations"
-  },
-  {
-   "a": "FoundationsAndLibraryIntegration",
-   "b": "tauceti:TauCetiRoadmap/ProfiniteCohomology"
-  },
-  {
    "a": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
    "b": "LogicAndDefinabilityInNumberTheory"
   },
@@ -127,10 +114,6 @@
    "b": "PadicLocalLanglandsForGL2Qp"
   },
   {
-   "a": "FoundationsAndLibraryIntegration",
-   "b": "tauceti:TauCetiRoadmap/ConformalMapping"
-  },
-  {
    "a": "PadicLocalLanglandsForGL2Qp",
    "b": "AutomorphicFormsOnReductiveGroups"
   },
@@ -161,10 +144,6 @@
   {
    "a": "tauceti:TauCetiRoadmap/ConformalMapping",
    "b": "tauceti:TauCetiRoadmap/ProfiniteCohomology"
-  },
-  {
-   "a": "LogicAndDefinabilityInNumberTheory",
-   "b": "FoundationsAndLibraryIntegration"
   },
   {
    "a": "DiamondEtaleCohomology",
