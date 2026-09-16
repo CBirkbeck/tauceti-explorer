@@ -1,0 +1,35 @@
+{
+  "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+  "protocol": "links-v1",
+  "status": "partial",
+  "summary": "Partial checkpoint for issue #37 by ChatGPT Pro — cgp-74e70e1a15ce. Three complete upstream READMEs were read: OrthogonalL2Bases, CompactGroups and StandardDistributions. No new prerequisite edge is asserted. The moment-determinacy dependency is already represented in the StandardDistributions link packet and is not duplicated here. One rescope proposal clarifies the boundary between the weighted real-valued, Nat-indexed assembly interface and the arbitrary-index complex Peter-Weyl construction, whose final assembly already exists in pinned Mathlib. The catalogue-wide screen, complete atlas-record examination and repository validator execution are unfinished. Browser-sized extracts became available during the run and are the next starting point; this is not a complete negative survey. See the handoff for pinned statements, exclusions, proof observations and exact remaining work.",
+  "links": [],
+  "overlaps": [
+    {
+      "stages": [
+        "tauceti:Completed/OrthogonalL2Bases#b2--orthogonality-relation--hilbertbasis",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem"
+      ],
+      "detail": "Both descriptions discuss turning an explicit orthonormal family with a completeness proof into a HilbertBasis and retaining its element-level identity. This is a shared assembly substep, not an overlap of Hermite completeness with Peter-Weyl density. The OrthogonalL2Bases README presents B2 as a polynomial-facing bridge on R. At Tau Ceti pin f790474821cf4256814db967cb154e7af3d0c369, WeightedOrthogonalBasis.lean is broader in its measurable domain, but its input remains f : Nat -> alpha -> R and the output remains Nat-indexed, even when its real values are lifted to complex scalars. CompactGroups uses genuinely complex matrix coefficients indexed by a chosen irreducible-representation skeleton and two finite matrix indices. Its Layer 5 already names the general Mathlib constructor, so this is a scope/citation clarification rather than evidence that Peter-Weyl is blocked on extending B2.",
+      "recommendation": "rescope",
+      "proposal": "Keep the weighted-system interface and normalization identities in OrthogonalL2Bases B2. In CompactGroups, make the final assembly import explicitly Mathlib HilbertBasis.mkOfOrthogonalEqBot and HilbertBasis.coe_mkOfOrthogonalEqBot, verified at pin 082e2d37e8b0463410cdb532e111cd43d5a66174 in Mathlib/Analysis/InnerProductSpace/l2Space.lean, lines 533-563. Retain the OrthogonalL2Bases citation as an element-level API design precedent, not as a claim that its Nat-indexed real-valued bridge accepts arbitrary complex matrix coefficients unchanged. CompactGroups continues to own Schur orthogonality, the irreducible skeleton, the non-circular density proof and the explicit basis-vector identity. Do not merge roadmaps, generalize B2 merely for this consumer, or add an unqualified B2-to-Peter-Weyl prerequisite edge."
+    }
+  ],
+  "examined": [
+    {
+      "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+      "result": "overlap",
+      "note": "Full README and its source-defined stages read, with the input/output inventory in the handoff. The newly available atlas extract was opened but truncated; a complete record-by-record atlas cross-check has not been certified. Maintainer completion claims were not independently recompiled."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "result": "overlap",
+      "note": "Full README, all Layers 0-6 and the SU(2) engine case read. The shared assembly substep is recorded as a scope clarification. Product-measure bases are not isotypic Hilbert direct sums, and the Chebyshev-T weighted basis is not the SU(2) character system. A separate spectral-truncation wording/proof obligation is retained in the handoff."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+      "result": "none",
+      "note": "Full README, all Layers 0-6, boundaries and ordering read. No additional edge is emitted in this file: the sibling StandardDistributions packet already records B1 reuse. Pinned measure-level determinacy and the finite-product Gaussian density helper were checked. The optional Gaussian-square moment proof in the handoff is not promoted to a newly mandated stage dependency."
+    }
+  ]
+}
