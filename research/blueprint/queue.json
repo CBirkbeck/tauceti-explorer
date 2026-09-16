@@ -38551,12 +38551,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-01.md",
    "timeout": 21600,
-   "state": "running",
+   "state": "done",
    "account": "claude6",
    "lane": 1,
    "startedAt": "2026-09-16T17:22:07Z",
    "attempts": 1,
-   "note": "released after a usage limit on claude2/2 at 2026-09-16T17:21:06Z"
+   "note": "",
+   "finishedAt": "2026-09-16T17:37:15Z",
+   "seconds": 907,
+   "result": {
+    "layers": 46,
+    "audited": 46
+   }
   },
   {
    "id": "REV-AUDIT-01",
@@ -38655,15 +38661,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-03.md",
    "timeout": 21600,
-   "state": "running",
+   "state": "done",
    "account": "claude6",
    "lane": 2,
    "startedAt": "2026-09-16T17:11:52Z",
    "attempts": 2,
-   "finishedAt": "2026-09-16T17:11:52Z",
-   "seconds": 1010,
-   "result": {},
-   "note": "exit 0; missing outputs ['research/blueprint/audit/AUDIT-03.result.json']"
+   "finishedAt": "2026-09-16T17:39:48Z",
+   "seconds": 1675,
+   "result": {
+    "layers": 46,
+    "audited": 46
+   },
+   "note": ""
   },
   {
    "id": "REV-AUDIT-03",
@@ -38710,9 +38719,9 @@
    "state": "pending",
    "account": null,
    "lane": 1,
-   "startedAt": "2026-09-16T16:58:57Z",
+   "startedAt": "2026-09-16T17:37:15Z",
    "attempts": 0,
-   "note": "released after a usage limit on claude/1 at 2026-09-16T17:15:45Z"
+   "note": "released after a usage limit on claude6/1 at 2026-09-16T17:44:43Z"
   },
   {
    "id": "REV-AUDIT-04",
@@ -38759,9 +38768,9 @@
    "state": "pending",
    "account": null,
    "lane": 2,
-   "startedAt": "2026-09-16T17:00:47Z",
+   "startedAt": "2026-09-16T17:39:48Z",
    "attempts": 0,
-   "note": "released after a usage limit on claude/2 at 2026-09-16T17:16:41Z"
+   "note": "released after a usage limit on claude6/2 at 2026-09-16T17:43:37Z"
   },
   {
    "id": "REV-AUDIT-05",

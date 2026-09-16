@@ -1,0 +1,1336 @@
+{
+ "job": "AUDIT-05",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "tauceti:Completed/ContourIntegration": {
+   "summary": "Everything this completed roadmap asks for is built, sorry-free, in Tau Ceti under TauCeti/Analysis/Contour/ (123 files, about 1150 declarations, no sorry or axiom). That covers: piecewise-C¹ curves, immersions and ℤ-cycles; the PV-defined generalized winding number with integrality, homotopy invariance and vanishing on the unbounded component; the model sector and HW Props 2.2 and 2.3; residues via meromorphicOrderAt, polar-part decompositions, the circle and null-homologous classical residue theorems and the argument principle; the homology Cauchy theorem and integral formula by Dixon's argument, for curves and cycles; and HW Thm 3.3 with conditions (A′)/(B), in single-curve and cycle forms, plus the half-residue case, a simple-pole unconditional form, real-axis PV applications and the Dirichlet integral. Mathlib contributes only ingredients (circle/disc/annulus/rectangle Cauchy theory, the circle Cauchy integral formula, curve integrals with C²-homotopy invariance, meromorphicOrderAt, logDeriv). It has no winding number, principal value, residue, principal-part/Laurent-coefficient API (the README wrongly credits Mathlib with principal-part machinery), residue theorem, argument principle or homology Cauchy theorem. Genuinely missing, and outside the pinned scope: HW Thm 3.3 for accumulation-free singular sets and essential singularities (the residue is only meaningful at meromorphic points), cycle-level versions of Props 2.2/2.3, a cyclic re-basing lemma to remove the basepoint-off-singularity hypotheses, and a signed-curvature API.",
+   "layers": {
+    "tauceti:Completed/ContourIntegration#layer-0-curves-cycles-and-the-generalized-winding-number": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Piecewise-C¹ curves on [a,b]: continuity, finitely many breakpoints, C¹ pieces, integrable/bounded derivative",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.IsPiecewiseC1On",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/PiecewiseC1On.lean",
+         "line": 86,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.IsPiecewiseC1On.intervalIntegrable_deriv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/PiecewiseC1On.lean",
+         "line": 329,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.IsPiecewiseC1On.exists_finset_differentiableAt",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/PiecewiseC1On.lean",
+         "line": 206,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.IsPiecewiseC1On.isBounded_image_deriv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/PiecewiseC1On.lean",
+         "line": 386,
+         "fit": "exact"
+        }
+       ],
+       "note": "Predicate on a raw function γ : ℝ → ℂ over uIcc a b (continuity + a finite breakpoint set off which every closed subinterval is C¹), as the roadmap's function-based convention prescribes; no sorry in the file. Mathlib has no piecewise-C¹ curve notion (only ContDiffOn and C¹ paths)."
+      },
+      {
+       "target": "Closed piecewise-C¹ immersions (non-vanishing one-sided derivative on every piece, γ a = γ b)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.IsPwC1ImmersionOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/PwC1ImmersionOn.lean",
+         "line": 91,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.IsPwC1ImmersionOn.isPiecewiseC1On",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/PwC1ImmersionOn.lean",
+         "line": 137,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.PiecewiseC1ClosedCurve",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cycle/Basic.lean",
+         "line": 58,
+         "fit": "related"
+        }
+       ],
+       "note": "IsPwC1ImmersionOn requires derivWithin ≠ 0 on every closed breakpoint-free piece (one-sided at piece ends, including a and b); closedness γ a = γ b is kept as a separate theorem hypothesis, not bundled. No sorry."
+      },
+      {
+       "target": "Cycles: finite formal ℤ-combinations of closed piecewise-C¹ curves, with additive integral/winding number/trace",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.Cycle",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cycle/Basic.lean",
+         "line": 183,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.Cycle.integral",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cycle/Basic.lean",
+         "line": 303,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.Cycle.windingNumber",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cycle/Basic.lean",
+         "line": 336,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.Cycle.trace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cycle/Basic.lean",
+         "line": 189,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.Cycle.IsNullHomologous",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cycle/Basic.lean",
+         "line": 357,
+         "fit": "exact"
+        }
+       ],
+       "note": "Cycle := FreeAbelianGroup PiecewiseC1ClosedCurve (a small bundle of an interval-restricted closed piecewise-C¹ curve); integral and winding number are the additive extensions (winding number is an AddMonoidHom Cycle →+ ℂ). No sorry."
+      },
+      {
+       "target": "Interval-integrability of γ'·(f∘γ) for f continuous on the image",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.IsPiecewiseC1On.intervalIntegrable_deriv_smul_comp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Curve/Integrability.lean",
+         "line": 46,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.IsPiecewiseC1On.intervalIntegrable_deriv_smul_comp_of_mapsTo",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Curve/Integrability.lean",
+         "line": 54,
+         "fit": "exact"
+        },
+        {
+         "name": "ContinuousOn.curveIntegrable_of_contDiffOn",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Integral/CurveIntegral/Basic.lean",
+         "line": 331,
+         "fit": "special case"
+        }
+       ],
+       "note": "Tau Ceti: vector-valued f continuous on γ '' [[a,b]], γ piecewise C¹. Mathlib only has curve-integrability of a continuous 1-form along a C¹ Path (no breakpoints)."
+      },
+      {
+       "target": "Generalized winding number n_{z₀}(C) = PV (2πi)⁻¹ ∮ dz/(z−z₀) (HW Def 2.1), defined for every z₀ including z₀ on C, with the Cauchy-PV predicate kept separate from integrability",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.windingNumber",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/Number/Basic.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.HasCauchyPVAt",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cauchy/PrincipalValue/Basic.lean",
+         "line": 124,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.cauchyPVAt",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cauchy/PrincipalValue/Basic.lean",
+         "line": 159,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.Cycle.windingNumber",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cycle/Basic.lean",
+         "line": 336,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.windingNumber_eq_of_hasCauchyPVAt",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/Number/Basic.lean",
+         "line": 86,
+         "fit": "exact"
+        }
+       ],
+       "note": "windingNumber γ a b z₀ = (2πi)⁻¹·cauchyPVAt γ a b (· − z₀)⁻¹ z₀, a limUnder value (junk if the PV does not exist); HasCauchyPVAt carries an eventual-integrability clause plus the ε→0⁺ limit of the symmetric-excision integrals. Mathlib has no winding number and no principal value."
+      },
+      {
+       "target": "Classical case z₀ ∉ C: the PV is the ordinary index integral",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.windingNumber_eq_integral_of_avoidance",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/Number/Basic.lean",
+         "line": 170,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.HasCauchyPVAt.of_avoidance",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cauchy/PrincipalValue/Basic.lean",
+         "line": 583,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.Cycle.windingNumber_eq_integral_of_not_mem_trace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cycle/Winding.lean",
+         "line": 108,
+         "fit": "exact"
+        }
+       ],
+       "note": "Hypotheses: γ continuous on uIcc a b, avoids z₀, index integrand interval-integrable (cycle form: z ∉ trace C). No sorry."
+      },
+      {
+       "target": "Integrality n_{z₀}(C) ∈ ℤ off the curve, via the exp-primitive argument",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.exists_int_windingNumber_of_closed",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/Integer.lean",
+         "line": 55,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.IsPiecewiseC1On.exists_int_windingNumber",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/Integer.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.exp_two_pi_I_mul_windingNumber_of_avoidance",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/EndpointRatio.lean",
+         "line": 157,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.Cycle.exists_int_windingNumber_of_not_mem_trace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cycle/Winding.lean",
+         "line": 133,
+         "fit": "exact"
+        }
+       ],
+       "note": "exp(2πi·n) = (γ b − w)/(γ a − w) for any avoiding arc (continuous, differentiable off a countable set), so closedness gives n ∈ ℤ; piecewise-C¹ and cycle forms included. Mathlib only has the circle computation circleIntegral.integral_sub_inv_of_mem_ball."
+      },
+      {
+       "target": "Homotopy invariance of the winding number in ℂ ∖ C (point moving in a component; curve deformed through ℂ ∖ {z₀})",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.windingNumber_eq_of_pathHomotopy",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/Number/Homotopy.lean",
+         "line": 127,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.isLocallyConstant_windingNumber_of_closed",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/LocallyConstant.lean",
+         "line": 85,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.IsPiecewiseC1On.windingNumber_eq_of_mem_connectedComponentIn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/LocallyConstant.lean",
+         "line": 150,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.Cycle.windingNumber_eq_of_mem_connectedComponentIn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cycle/Winding.lean",
+         "line": 198,
+         "fit": "exact"
+        },
+        {
+         "name": "ContinuousMap.Homotopy.curveIntegral_add_curveIntegral_eq_of_hasFDerivWithinAt",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Integral/CurveIntegral/Poincare.lean",
+         "line": 257,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti: invariance under an arbitrary continuous fixed-endpoint Path.Homotopy avoiding w (end paths piecewise C¹ on [0,1]); free (unbased) loop homotopies are not stated separately. Constancy on components of ℂ ∖ image for curves and cycles. Mathlib only has equality of curve integrals of closed 1-forms under a C² homotopy (no winding number)."
+      },
+      {
+       "target": "n_{z₀}(C) = 0 on the unbounded component of ℂ ∖ C",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.IsPiecewiseC1On.windingNumber_eq_zero_of_unbounded_component",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/UnboundedComponent.lean",
+         "line": 74,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.windingNumber_eq_zero_of_unbounded_component",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/UnboundedComponent.lean",
+         "line": 53,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.Cycle.windingNumber_eq_zero_of_unbounded_component",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cycle/Winding.lean",
+         "line": 235,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.windingNumber_eventually_zero_cocompact",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/Vanishing.lean",
+         "line": 93,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated for any unbounded component of the complement (closed curve, piecewise C¹ or raw regularity; also for cycles). No sorry."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:Completed/ContourIntegration#layer-1-the-geometry-of-the-generalized-winding-number-hw-2": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Model sector (HW (2.4)): corner curve of two radii and an arc of opening α has n₀ = α/2π",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.modelSector",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/ModelSector/Closed.lean",
+         "line": 75,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.windingNumber_closedModelSector",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/ModelSector/Closed.lean",
+         "line": 241,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.windingNumber_closedModelSector_eq_crossingAngle_div_two_pi",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/ModelSector/CrossingAngle.lean",
+         "line": 102,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.Cycle.windingNumber_modelSectorCycle",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/ModelSector/Cycle.lean",
+         "line": 107,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.indexIntegral_arc",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/Number/Circle.lean",
+         "line": 122,
+         "fit": "related"
+        }
+       ],
+       "note": "windingNumber (modelSector z₀ r φ α) (−r) (r+α) z₀ = α/2π for 0 < r, 0 ≤ α (the corner reading needs 0 < α < 2π, where it also equals crossingAngle/2π). Proved as a genuine principal value at the corner. No sorry."
+      },
+      {
+       "target": "Seeded values: winding ½ at a smooth boundary point (semicircle, α = π) and 1/6 at a π/3 corner",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.windingNumber_closedModelSector_eq_half",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/ModelSector/Closed.lean",
+         "line": 271,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.windingNumber_closedModelSector_eq_one_div_six",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/ModelSector/Closed.lean",
+         "line": 280,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.windingNumber_at_i",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/ModelSector/Winding.lean",
+         "line": 55,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Contour.windingNumber_at_rho",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/ModelSector/Winding.lean",
+         "line": 67,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ModularForm.windingNumber_fdBoundary_rho_add_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/LevelOne/FundamentalDomainBoundary/Winding/Rho/AddOne/Value.lean",
+         "line": 440,
+         "fit": "related"
+        }
+       ],
+       "note": "Model-sector ½ and 1/6 values, plus the bare arc index integrals over [0,π] and [0,π/3]. The on-contour values at ρ, ρ+1 for the actual fundamental-domain boundary live in the ModularForms consumer (sorry-free), outside this roadmap."
+      },
+      {
+       "target": "HW Prop 2.2 (finiteness): a closed piecewise-C¹ immersion meets any point only finitely often",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.IsPwC1ImmersionOn.finite_crossings",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Crossing/Finiteness.lean",
+         "line": 183,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.IsPwC1ImmersionOn.eventually_ne_nhdsNE",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Crossing/Finiteness.lean",
+         "line": 173,
+         "fit": "exact"
+        }
+       ],
+       "note": "(uIcc a b ∩ γ⁻¹{z₀}).Finite for any IsPwC1ImmersionOn curve (closedness not needed); crossings are isolated by the non-vanishing one-sided tangents. No sorry."
+      },
+      {
+       "target": "HW Prop 2.2 (winding decomposition): n_{z₀}(Λ) = n_{z₀}(Λ̃) + Σ_ℓ α_ℓ/2π with Λ̃ avoiding z₀",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.IsPwC1ImmersionOn.exists_crossingDecomposition",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Crossing/ImmersionDecomposition.lean",
+         "line": 66,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.IsPwC1ImmersionOn.exists_avoiding_curve_windingNumber_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Crossing/ImmersionDecomposition.lean",
+         "line": 202,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.IsPwC1ImmersionOn.exists_int_windingNumber_eq_add_sum_crossingAngle",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/CrossingAngleSum.lean",
+         "line": 298,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.windingNumber_eq_zero_exciseCrossing_modelSector",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/ModelSector/Excision.lean",
+         "line": 56,
+         "fit": "related"
+        }
+       ],
+       "note": "Hypotheses: IsPwC1ImmersionOn γ a b, a < b, γ a = γ b, and basepoint γ a ≠ s (a WLOG normalisation for a closed curve, but no cyclic re-basing lemma is provided). Λ̃ is the explicit circular-cap excision exciseCrossings γ s windows (closed, piecewise C¹, avoiding s); the angles are crossingAngle γ t over the canonical finite crossing set. The identity is at the level of winding numbers, for one curve (no cycle-level version)."
+      },
+      {
+       "target": "HW Prop 2.3: for a closed piecewise-C^{1,1} immersion, n₀(Λ) = (1/2π)∫(xẏ − yẋ)/(x²+y²) dt with bounded integrand (no PV)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.windingNumber_eq_real_integral_of_closed_interior_crossings",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/RealIntegral/OnCurve.lean",
+         "line": 479,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Contour.isBounded_image_realWindingIntegrand_of_interior_crossings",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/RealIntegral/OnCurve.lean",
+         "line": 444,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Contour.intervalIntegrable_realWindingIntegrand_of_interior_crossings",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/RealIntegral/OnCurve.lean",
+         "line": 456,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Contour.windingNumber_eq_real_integral_of_closed",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/RealIntegral/Basic.lean",
+         "line": 70,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Contour.HasLipschitzDerivOnEachSideAt",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Crossing/LipschitzRegularity.lean",
+         "line": 63,
+         "fit": "related"
+        }
+       ],
+       "note": "Needs IsPwC1ImmersionOn, closedness, basepoint γ a ≠ s, and only one-sided C^{1,1} (Lipschitz derivWithin) at each crossing, not global C^{1,1}; boundedness and integrability of the real integrand are proved, not assumed. The integrand realWindingIntegrand z v := (z⁻¹·v).im is defined at TauCeti/Analysis/Contour/Winding/Integrand.lean:31 (missing from the tsv because of its `public noncomputable def` prefix). No sorry."
+      },
+      {
+       "target": "Crossing value: the real integrand tends to ½·k_Λ·|Λ̇| = (ẋÿ − ẏẍ)/(2(ẋ²+ẏ²)) at a crossing (C² near t̃)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.tendsto_realWindingIntegrand_at_crossing_of_contDiffAt",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/CrossingValue/Curvature.lean",
+         "line": 178,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.tendsto_realWindingIntegrand_at_crossing_of_hasDerivAt_deriv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/CrossingValue/Curvature.lean",
+         "line": 151,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Contour.tendsto_realWindingIntegrand_circleMap_crossing",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/CrossingValue/Curvature.lean",
+         "line": 203,
+         "fit": "special case"
+        }
+       ],
+       "note": "ContDiffAt ℝ 2 γ t₀ with deriv γ t₀ ≠ 0 gives the explicit limit on 𝓝[≠] t₀; a variant needs only differentiability near t₀ and a derivative of deriv γ at t₀. Stated in explicit coordinates, as the roadmap asks (neither library has a signed-curvature API). No sorry."
+      },
+      {
+       "target": "Relate the complex PV form and the real form of the winding number",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.HasCauchyPVAt.im_eq_integral_realWindingIntegrand",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/PrincipalValueRealIntegral.lean",
+         "line": 86,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.windingNumber_re_eq_real_integral",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/PrincipalValueRealIntegral.lean",
+         "line": 135,
+         "fit": "exact"
+        }
+       ],
+       "note": "Im of any PV of (z−w)⁻¹ along γ equals the ordinary integral of the real integrand whenever the latter is interval-integrable; the curve may pass through w. No sorry."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:Completed/ContourIntegration#layer-2-residues-the-cauchy-primitive-and-the-classical-residue-theorem": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "FTC along an arc: F' = f along the image of γ ⇒ ∮_γ f = F(γ b) − F(γ a); hence 0 for a closed curve",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.integral_comp_mul_deriv_eq_sub_of_hasDerivAt",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/ArcFTC.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.integral_comp_mul_eq_sub_of_hasDerivAt",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/ArcFTC.lean",
+         "line": 57,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.integral_comp_mul_deriv_eq_zero_of_hasDerivAt_of_closed",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/ArcFTC.lean",
+         "line": 88,
+         "fit": "exact"
+        },
+        {
+         "name": "intervalIntegral.integral_eq_sub_of_hasDerivAt",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Integral/IntervalIntegral/FundThmCalculus.lean",
+         "line": 1148,
+         "fit": "related"
+        },
+        {
+         "name": "circleIntegral.integral_eq_zero_of_hasDerivWithinAt'",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Integral/CircleIntegral.lean",
+         "line": 577,
+         "fit": "special case"
+        }
+       ],
+       "note": "Tau Ceti asks HasDerivAt G (g (γ t)) (γ t) only at parameters in the open interval, plus continuity of G∘γ and integrability (weaker than a neighbourhood of the image). Mathlib has the real FTC and the circle case only."
+      },
+      {
+       "target": "Cauchy's theorem for a contractible contour, reconciled with Mathlib's disc statements",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.cauchyTheorem_of_pathHomotopy_refl",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cauchy/Homotopy.lean",
+         "line": 89,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.cauchyTheorem_ball",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/StarConvex.lean",
+         "line": 125,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.cauchyTheorem_starConvex",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/StarConvex.lean",
+         "line": 115,
+         "fit": "more general"
+        },
+        {
+         "name": "Complex.circleIntegral_eq_zero_of_differentiable_on_off_countable",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/CauchyIntegral.lean",
+         "line": 441,
+         "fit": "special case"
+        },
+        {
+         "name": "DifferentiableOn.isExactOn_ball",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/HasPrimitives.lean",
+         "line": 291,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti: a piecewise-C¹ loop with a continuous Path.Homotopy to the constant path inside open Ω integrates holomorphic f to 0; also any closed piecewise-C¹ curve in a star-shaped open set or disc. Obtained from the Layer-3 homology theorem rather than from the arc FTC. Mathlib only has circles/rectangles/annuli and primitives on discs (simply connected domains are a TODO in HasPrimitives)."
+      },
+      {
+       "target": "Residue Res_{z₀} f as the order-(−1) Laurent coefficient, built on meromorphicOrderAt",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.residue",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Residue/Basic.lean",
+         "line": 80,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.residue_eq_of_order_lt_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Residue/Basic.lean",
+         "line": 93,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.residue_of_laurent_expansion",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Residue/Basic.lean",
+         "line": 462,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.meromorphicPolarCoeffAt_zero_eq_residue",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/MeromorphicLaurent.lean",
+         "line": 277,
+         "fit": "exact"
+        },
+        {
+         "name": "meromorphicOrderAt",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Meromorphic/Order.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "Defined for f meromorphic at z₀ (0 at non-poles, junk 0 where f is not meromorphic), so residues at essential isolated singularities are not covered; this matches the roadmap's own convention of building the residue on meromorphicOrderAt. Mathlib has no residue, Laurent coefficients or principal parts (only order, normal form and trailing coefficient)."
+      },
+      {
+       "target": "Simple-pole value Res_{z₀} f = lim_{z→z₀} (z − z₀) f(z)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.tendsto_sub_mul_nhds_residue_of_order_eq_neg_one",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Residue/SimplePole.lean",
+         "line": 117,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.residue_eq_of_tendsto_sub_mul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Residue/SimplePole.lean",
+         "line": 146,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.residue_eq_meromorphicTrailingCoeffAt_of_order_eq_neg_one",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Residue/Basic.lean",
+         "line": 164,
+         "fit": "exact"
+        },
+        {
+         "name": "MeromorphicAt.tendsto_nhds_meromorphicTrailingCoeffAt",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Meromorphic/TrailingCoefficient.lean",
+         "line": 118,
+         "fit": "related"
+        }
+       ],
+       "note": "Both directions: at order −1 the product converges to the residue, and if f is meromorphic and the product converges to L then residue = L. No sorry."
+      },
+      {
+       "target": "ℂ-linearity of the residue",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.residue_add",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Residue/Basic.lean",
+         "line": 322,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.residue_const_mul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Residue/Basic.lean",
+         "line": 352,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.residue_sub",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Residue/Basic.lean",
+         "line": 399,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.residue_sum",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Residue/Basic.lean",
+         "line": 411,
+         "fit": "exact"
+        }
+       ],
+       "note": "Additivity requires MeromorphicAt of the summands (necessarily); scaling is unconditional. No sorry."
+      },
+      {
+       "target": "Simple-pole decomposition f = (holomorphic) + Σ_s Res_s f/(z − s) (and the general polar-part decomposition)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.exists_simplePoleDecomposition",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/PolarPart/SimplePole.lean",
+         "line": 102,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.PolarPartDecomposition.f_eq_analyticRemainder_add_residue_div",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/PolarPart/SimplePole.lean",
+         "line": 76,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.PolarPartDecomposition.ofMeromorphic",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/PolarPart/Decomposition.lean",
+         "line": 242,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Contour.PolarPartDecomposition",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/PolarPart/Decomposition.lean",
+         "line": 76,
+         "fit": "more general"
+        }
+       ],
+       "note": "Open U, finite S, f differentiable on U ∖ S, meromorphic with order ≥ −1 at each s ∈ S: a g differentiable on all of U with f = g + Σ Res_s f/(z−s) on U ∖ S. The higher-order version (finite Laurent tails) is ofMeromorphic. No sorry."
+      },
+      {
+       "target": "Classical residue theorem, disc/circle case: ∮_{C(c,R)} f = 2πi Σ_s Res_s f with the finite pole set inside",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.classicalResidueTheorem_circle",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Residue/Theorem.lean",
+         "line": 349,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.classicalResidueTheorem_circle_of_meromorphicOrderAt_neg",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Residue/Theorem.lean",
+         "line": 312,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.circleIntegral_twoPrincipalParts_eq_residue_sum",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/WorkedExamples/TwoSimplePoles.lean",
+         "line": 182,
+         "fit": "special case"
+        },
+        {
+         "name": "circleIntegral.integral_sub_inv_of_mem_ball",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Integral/CircleIntegral.lean",
+         "line": 738,
+         "fit": "related"
+        }
+       ],
+       "note": "f meromorphic on the closed disc (R > 0), all poles in a finite S ⊆ open disc; raw f may differ from its meromorphic normal form at isolated points. The two-simple-pole acceptance example is included. No sorry."
+      },
+      {
+       "target": "Recovering the Cauchy integral formula",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "DifferentiableOn.circleIntegral_sub_inv_smul",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/CauchyIntegral.lean",
+         "line": 564,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.residue_div_sub_pow_of_analyticAt",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Residue/Basic.lean",
+         "line": 447,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Contour.cauchyIntegralFormula_ball",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/StarConvex.lean",
+         "line": 175,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Contour.cauchyIntegralFormula_nullHomologous",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cauchy/HomologyFormula.lean",
+         "line": 116,
+         "fit": "more general"
+        }
+       ],
+       "note": "Mathlib already has the circle Cauchy integral formula. Tau Ceti computes Res_{z₀}(g/(z−z₀)^{k+1}) = g^{(k)}(z₀)/k! and derives the winding-weighted formula for any closed curve in a disc or null-homologous in U; no Tau Ceti lemma re-derives the circle formula itself from classicalResidueTheorem_circle, which is not needed."
+      },
+      {
+       "target": "General arbitrary-cycle classical residue theorem ∮_C f = 2πi Σ_s n_s(C) Res_s f for a null-homologous C avoiding S (layer defers it to Layer 3+)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.classicalResidueTheorem_nullHomologous",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Residue/Cycle.lean",
+         "line": 226,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.Cycle.classicalResidueTheorem_nullHomologous",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cycle/Residue.lean",
+         "line": 130,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.classicalResidueTheorem_starConvex",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/StarConvex.lean",
+         "line": 193,
+         "fit": "special case"
+        }
+       ],
+       "note": "Open U, finite S, f differentiable on U ∖ S and meromorphic at points of S in U, a closed piecewise-C¹ curve (or cycle) in U avoiding S and null-homologous in U. Proved via the polar decomposition plus the homology Cauchy theorem. No sorry."
+      },
+      {
+       "target": "Res_z(f'/f) = ord_z f",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.residue_logDeriv_eq_meromorphicOrderAt",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Residue/LogDeriv.lean",
+         "line": 63,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.neg_one_le_meromorphicOrderAt_logDeriv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Argument/Principle.lean",
+         "line": 132,
+         "fit": "related"
+        }
+       ],
+       "note": "f meromorphic at z₀ with meromorphicOrderAt f z₀ = n ∈ ℤ gives residue (logDeriv f) z₀ = n. Mathlib has only AnalyticAt.tendsto_mul_logDeriv_simple_zero (simple zeros). No sorry."
+      },
+      {
+       "target": "Argument principle (2πi)⁻¹ ∮_C f'/f = Σ_z ord_z f (zeros minus poles, with multiplicity)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.argumentPrinciple",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Argument/Principle.lean",
+         "line": 251,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.argumentPrinciple_nullHomologous",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Argument/Cycle.lean",
+         "line": 110,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Contour.argumentPrinciple_divisor",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Argument/Divisor.lean",
+         "line": 81,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.argumentPrinciple_local",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Argument/Principle.lean",
+         "line": 295,
+         "fit": "special case"
+        },
+        {
+         "name": "AnalyticAt.tendsto_mul_logDeriv_simple_zero",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Calculus/LogDeriv.lean",
+         "line": 176,
+         "fit": "related"
+        }
+       ],
+       "note": "Circle form (f meromorphic on the closed disc, nonzero-order points in a finite S inside), a form using Mathlib's MeromorphicOn.divisor, and a winding-weighted form for null-homologous curves avoiding S. The on-contour version is in Layer 4. Mathlib has logDeriv and meromorphicOrderAt but not this identity."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:Completed/ContourIntegration#layer-3-the-global-homological-cauchy-theorem": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Homology Cauchy theorem: f holomorphic on open Ω, C a cycle in Ω null-homologous in Ω ⇒ ∮_C f = 0",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.homologyCauchyTheorem",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/HomologyCauchy.lean",
+         "line": 107,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.Cycle.homologyCauchyTheorem",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cycle/HomologyCauchy.lean",
+         "line": 234,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.homologyCauchyTheorem_of_point_off_curve",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/HomologyCauchy.lean",
+         "line": 79,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Contour.IsNullHomologous",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/Number/Basic.lean",
+         "line": 147,
+         "fit": "exact"
+        },
+        {
+         "name": "Complex.circleIntegral_eq_zero_of_differentiable_on_off_countable",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/CauchyIntegral.lean",
+         "line": 441,
+         "fit": "special case"
+        }
+       ],
+       "note": "Single closed piecewise-C¹ curve and genuine ℤ-cycles, with null-homology imposed on the whole cycle (cancellation between generators allowed). Mathlib has only disc/annulus/rectangle Cauchy theorems. No sorry."
+      },
+      {
+       "target": "Homology form of the Cauchy integral formula f(z)·n_z(C) = (2πi)⁻¹ ∮_C f(w)/(w − z) dw",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.cauchyIntegralFormula_nullHomologous",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cauchy/HomologyFormula.lean",
+         "line": 116,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.Cycle.cauchyIntegralFormula_nullHomologous",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cycle/Residue.lean",
+         "line": 191,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.cauchyIntegralFormula_iteratedDeriv_nullHomologous",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cauchy/HomologyFormula.lean",
+         "line": 81,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Contour.dixonH2_eq_windingNumber_mul_f_of_nullHomologous",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/HomologyCauchy.lean",
+         "line": 59,
+         "fit": "exact"
+        },
+        {
+         "name": "DifferentiableOn.circleIntegral_sub_inv_smul",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/CauchyIntegral.lean",
+         "line": 564,
+         "fit": "special case"
+        }
+       ],
+       "note": "For z ∈ U off the curve/trace; also all iterated derivatives (weight f^{(k)}(z)/k!), for curves and cycles. No sorry."
+      },
+      {
+       "target": "Subsumes the null-homotopic case (null-homotopic ⇒ null-homologous)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.isNullHomologous_of_pathHomotopy_refl",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cauchy/Homotopy.lean",
+         "line": 73,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.cauchyTheorem_of_pathHomotopy_refl",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cauchy/Homotopy.lean",
+         "line": 89,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.isNullHomologous_of_starConvex",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Winding/StarConvex.lean",
+         "line": 75,
+         "fit": "special case"
+        }
+       ],
+       "note": "A piecewise-C¹ loop with a continuous Path.Homotopy to the constant path inside Ω is null-homologous in Ω (one direction only). No sorry."
+      },
+      {
+       "target": "Dixon's argument: g(w,z) = (f(w)−f(z))/(w−z) glues to an entire function that vanishes by Liouville",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.dixonFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Dixon/Def.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.differentiable_dixonFunction",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Dixon/FunctionDiff.lean",
+         "line": 126,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.dixonFunction_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Dixon/Liouville.lean",
+         "line": 86,
+         "fit": "exact"
+        }
+       ],
+       "note": "dixonH1/dixonH2/dixonFunction are irreducible_def definitions (no axioms); the glued function is entire and tends to 0 at infinity, hence 0. The theorem is named the homology Cauchy theorem and Dixon's proof is attributed, as the layer asks. No sorry."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:Completed/ContourIntegration#layer-4-the-hungerbühlerwasem-generalized-residue-theorem-hw-theorem-33": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "HW Thm 3.3 (pinned form): U open, S ⊆ U finite, f holomorphic on U ∖ S and meromorphic on S, C a null-homologous closed piecewise-C¹ immersion in U (basepoint off S) ⇒ PV (2πi)⁻¹∮_C f = Σ_s n_s(C) Res_s f",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.hungerbuhlerWasem_residueTheorem",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/HungerbuhlerWasem.lean",
+         "line": 145,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.Cycle.hungerbuhlerWasem_residueTheorem",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cycle/HungerbuhlerWasem.lean",
+         "line": 136,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Contour.PolarPartDecomposition.hasCauchyPV_analyticRemainder_add_residue_sum_of_conditions",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/HungerbuhlerWasem.lean",
+         "line": 89,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Contour.HasCauchyPV",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Cauchy/PrincipalValue/On.lean",
+         "line": 129,
+         "fit": "related"
+        }
+       ],
+       "note": "Conclusion HasCauchyPV γ a b f (2πi·Σ_{s∈S} n_s(γ)·Res_s f) under (A′) and (B) plus the listed hypotheses; the cycle version asks immersion, basepoint and (A′)/(B) of each generator. HasCauchyPV excises ε-balls about some finite set (existentially bound; value unique). The paper's accumulation-free S and locally straight essential singularities remain out of scope, as the layer's pinned form says. No sorry."
+      },
+      {
+       "target": "Subsumption: classical residue theorem (poles off C) and the half-residue case (on-cycle simple pole with winding ½ contributes πi·Res_s f)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.hasCauchyPV_half_residue",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/HungerbuhlerWasem.lean",
+         "line": 163,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.hasCauchyPV_half_residue_of_simple_pole",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/HungerbuhlerWasem.lean",
+         "line": 274,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.hasCauchyPV_halfDiscBoundary_inv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/WorkedExamples/HalfDisc/HalfResidue.lean",
+         "line": 94,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Contour.classicalResidueTheorem_nullHomologous",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Residue/Cycle.lean",
+         "line": 226,
+         "fit": "related"
+        }
+       ],
+       "note": "The half-residue theorem assumes windingNumber γ a b s = 1/2; the simple-pole form discharges (A′) and (B). The concrete PV of dz/z along the half-disc boundary is πi. The off-curve case is stated separately and needs no immersion. No sorry."
+      },
+      {
+       "target": "Regularity conditions (A′) (finite crossings, flatness matching the pole order) and (B) (sector-cancellation compatibility of higher-order Laurent parts), stated explicitly",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.ConditionAprime",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/RegularityConditions.lean",
+         "line": 315,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.ConditionB",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/RegularityConditions.lean",
+         "line": 384,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.SectorCompatible",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/RegularityConditions.lean",
+         "line": 353,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.FlatOfOrder",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/RegularityConditions.lean",
+         "line": 244,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.crossingAngle",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/RegularityConditions.lean",
+         "line": 112,
+         "fit": "exact"
+        }
+       ],
+       "note": "(A′): each s ∈ S is met finitely often, and at an interior or basepoint crossing of a pole of order n the curve is flat of order n (HW Def 3.2, perpendicular distance to a one-sided tangent line). (B): at every order > 1 on-curve pole the crossing (or basepoint) angle is a rational multiple of π, and k·θ ∈ 2πℤ for each nonzero higher Laurent coefficient. Both are Prop-valued structures; they are hypotheses, not sorry. No sorry in the file."
+      },
+      {
+       "target": "Higher-order poles: simple-pole case first, then the general meromorphic case via the Laurent principal part and sector cancellation under (B)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.hungerbuhlerWasem_residueTheorem_of_simple_poles",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/HungerbuhlerWasem.lean",
+         "line": 256,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.IsPwC1ImmersionOn.hasCauchyPVAt_pow_inv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/HigherOrder/CPV.lean",
+         "line": 130,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.antiderivative_diff_across_crossing_tendsto_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/SectorCancellation.lean",
+         "line": 74,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.conditionAprime_of_simple_poles",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/HungerbuhlerWasem.lean",
+         "line": 217,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.conditionB_of_simple_poles",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/HungerbuhlerWasem.lean",
+         "line": 240,
+         "fit": "exact"
+        }
+       ],
+       "note": "At worst simple poles, (A′) and (B) are automatic, so that regime needs no conditions. For order k ≥ 2 the PV of c/(z−s)^k along a flat, sector-compatible immersion is the endpoint difference of the antiderivative, hence 0 on a closed curve. The general theorem runs through PolarPartDecomposition.ofMeromorphic. No sorry."
+      },
+      {
+       "target": "Application: improper integrals and Cauchy principal values along the real axis that the classical theorem cannot reach",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.hasCauchyPV_realSegment_of_simple_poles",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/WorkedExamples/HalfDisc/Poles.lean",
+         "line": 174,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.tendsto_cauchyPV_realSegment_dirichlet",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/WorkedExamples/HalfDisc/Dirichlet.lean",
+         "line": 148,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.tendsto_integral_sin_div_atTop",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/WorkedExamples/HalfDisc/SineIntegral.lean",
+         "line": 351,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.tendsto_integral_semicircle_exp_div_atTop_nhds_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/JordanLemma.lean",
+         "line": 132,
+         "fit": "related"
+        }
+       ],
+       "note": "PV along [−R, R] with a simple pole at 0 and simple poles in the upper half-disc; PV of e^{iaz}/z along [−R, R] → πi; the Dirichlet integral ∫₀^R sin x/x → π/2 (Mathlib has Real.sinc but not this value); Jordan's lemma. The half-disc construction pins the real-axis singularity at the origin. No sorry."
+      },
+      {
+       "target": "Application: the valence formula's treatment of the on-contour points i and ρ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Contour.hasCauchyPV_logDeriv_nullHomologous",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Argument/CyclePV.lean",
+         "line": 87,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Contour.hasCauchyPV_logDeriv_starConvex",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/StarConvex.lean",
+         "line": 267,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ModularForm.valence_formula",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/LevelOne/ValenceFormula.lean",
+         "line": 82,
+         "fit": "related"
+        }
+       ],
+       "note": "The engine is an argument principle for a null-homologous closed immersion running through the zeros and poles (PV of f'/f = 2πi Σ n_z(γ) ord_z f, basepoint off S). The level-one valence formula ord_∞ + ½ord_i + ⅓ord_ρ + Σ ord_q = k/12 is proved sorry-free in the ModularForms consumer (whole LevelOne directory has no sorry)."
+      }
+     ],
+     "duplicates": []
+    }
+   }
+  }
+ }
+}
