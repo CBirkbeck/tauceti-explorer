@@ -300,5 +300,11 @@
  "REV-tauceti_TauCetiRoadmap_RepresentationTheory_InductionRestriction--Layer 0": 300,
  "REV-tauceti_TauCetiRoadmap_RepresentationTheory_InductionRestriction--Layer 6": 301,
  "REV-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups--Layer 0": 302,
- "REV-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups--Layer 8": 303
+ "REV-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups--Layer 8": 303,
+ "REV-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems": 304,
+ "REV-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl--Layer 0": 305,
+ "REV-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl--Layer 8": 306,
+ "REV-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras": 307,
+ "REV-tauceti_TauCetiRoadmap_StablePeriodicCurved--Layer 0": 308,
+ "REV-tauceti_TauCetiRoadmap_StablePeriodicCurved--Layer 8": 309
 }
