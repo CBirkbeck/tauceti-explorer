@@ -1,0 +1,794 @@
+{
+ "job": "AUDIT-02",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "tauceti:TauCetiRoadmap/HodgeStructures": {
+   "summary": "Mathlib has no Hodge theory, but Tau Ceti's TauCeti/Geometry/Hodge (about 11,000 lines, sorry-free) already proves essentially the whole roadmap: pure Hodge structures with Deligne's decomposition equivalence, morphisms, duals, tensor products, internal Hom, Tate twists and the weight-one complex-structure bridge (L0); polarizations, the Weil operator, the positive-definite Hodge form and semisimplicity of polarizable rational Hodge structures as orthogonal complements and a decomposition into simple substructures (L1); mixed Hodge structures with Deligne's bigrading, its fine conjugation relation, functoriality and strictness for both filtrations (L2); and Hodge types, period-domain points, the Hodge-number partition and the isometry group of a bilinear form (L3). What is genuinely missing is small: the abelian-category structure on mixed Hodge structures (kernels, images and cokernels as objects), a bundled category in which semisimplicity is stated categorically, and a general constructor of integral weight-one structures from a lattice with a complex structure and Riemann form beyond the standard rank-two example.",
+   "layers": {
+    "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l0--pure-hodge-structures-the-hodge-decomposition": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Pure Hodge structure of weight n: a bounded n-opposed decreasing filtration, stated once over a complex space with a conjugation and specialized to an integral lattice via IsBaseChange",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Structure.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Structure.lean",
+         "line": 75,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.Conjugation",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Conjugation.lean",
+         "line": 74,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.latticeConjugation",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Conjugation.lean",
+         "line": 576,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.latticeConj_unique",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Conjugation.lean",
+         "line": 557,
+         "fit": "exact"
+        }
+       ],
+       "note": "The conjugation-parametric object and the integral abbreviation over an abstract base change are exactly the README's design; separatedness F_bot is derived rather than a field, and freeness/finiteness of the lattice is imposed only where used (so slightly more general)."
+      },
+      {
+       "target": "Hodge components piece p = F^p ⊓ conj F^(n-p)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.piece",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Structure.lean",
+         "line": 156,
+         "fit": "exact"
+        }
+       ],
+       "note": "Defined as F p ⊓ conjF (n - p), exactly as stated."
+      },
+      {
+       "target": "Milestone: the Hodge components form an internal direct sum (DirectSum.IsInternal hs.piece), via F^p = ⨆_{p'≥p} H^{p'} and independence",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.isInternal_piece",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Decomposition.lean",
+         "line": 169,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.F_eq_iSup_piece",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Decomposition.lean",
+         "line": 130,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.piece_iSupIndep",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Decomposition.lean",
+         "line": 120,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.decompositionEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Decomposition.lean",
+         "line": 528,
+         "fit": "more general"
+        }
+       ],
+       "note": "Proved with no finiteness hypothesis; decompositionEquiv also gives the converse (Deligne's equivalence between opposed filtrations and conjugation-symmetric bounded decompositions)."
+      },
+      {
+       "target": "Morphisms of pure Hodge structures (preserving the filtration and hence every Hodge component)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.HodgeStructure.Hom",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Morphism.lean",
+         "line": 150,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.IsMorphism",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Morphism.lean",
+         "line": 69,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructure.Hom.map_piece_le",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Morphism.lean",
+         "line": 217,
+         "fit": "exact"
+        }
+       ],
+       "note": "Integral morphisms with derived complex action, identity, composition and additive group structure; the lattice-free predicate IsMorphism is also provided. There is no Category instance for pure Hodge structures."
+      },
+      {
+       "target": "Hodge symmetry of components: conj (piece p) = piece (n - p)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.conj_piece",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Structure.lean",
+         "line": 182,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated as (hs.piece p).map conj = hs.piece (n - p)."
+      },
+      {
+       "target": "Tensor product, internal Hom and dual of pure Hodge structures",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.tensorProduct",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/TensorProduct.lean",
+         "line": 109,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.internalHom",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/InternalHom.lean",
+         "line": 230,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.dual",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Dual.lean",
+         "line": 76,
+         "fit": "exact"
+        }
+       ],
+       "note": "Weights n₁ + n₂, n₂ - n₁ and -n respectively; the internal Hom needs no finiteness hypothesis and is compared with V^* ⊗ W over a finite-dimensional source."
+      },
+      {
+       "target": "Tate structure ℤ(m) and Tate twist V(m) with weight n - 2m and F^p(V(m)) = F^(p+m) V",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.tate",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Tate/Basic.lean",
+         "line": 90,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.tateTwist",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Tate/Twist.lean",
+         "line": 57,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.tateTwist_F",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Tate/Twist.lean",
+         "line": 104,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.tateTwist_piece",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Tate/Twist.lean",
+         "line": 116,
+         "fit": "exact"
+        }
+       ],
+       "note": "The twist is defined as the shifted filtration on the same space (the canonical presentation of V ⊗ ℤ(m)), with the weight and shift pinned as in the README; no lemma compares it with tensorProduct V (tate m)."
+      },
+      {
+       "target": "Effectivity HodgeStructure.IsEffective (F^0 = ⊤, equivalently F^(n+1) = ⊥)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.IsEffective",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Structure.lean",
+         "line": 297,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.IsEffective.F_eq_bot",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Structure.lean",
+         "line": 307,
+         "fit": "exact"
+        }
+       ],
+       "note": "Defined as F 0 = ⊤ with the equivalence to F (n + 1) = ⊥ and vanishing of components outside [0, n] proved."
+      },
+      {
+       "target": "Weight-one instance bridge: real form V_ℝ with its structure map, the complex structure J of an effective weight-one structure, identification of its ±i-eigenspaces with H^(1,0), H^(0,1), and the converse construction from J",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.realPoints",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Complex/Conjugation.lean",
+         "line": 115,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.realAlmostComplexStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeilOperator.lean",
+         "line": 231,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.eigenspace_weilOperator_I",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeightOne/Basic.lean",
+         "line": 106,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.eigenspace_baseChange_realAlmostComplexStructure_I",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeightOne/Basic.lean",
+         "line": 146,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.AlmostComplexStructure.hodgeStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeightOne/Basic.lean",
+         "line": 186,
+         "fit": "exact"
+        }
+       ],
+       "note": "J is the Weil operator restricted to the real points (for any odd weight); the eigenspace comparison assumes effectivity, and the converse builds an effective weight-one structure on ℂ ⊗_ℝ V whose Weil operator is J. Only the standard rank-two lattice example (StandardWeightOne) is packaged as an integral instance from a lattice with J and a Riemann form."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AbelianSchemesAndArithmeticModuli:A5",
+       "note": "A5's equivalence between polarized complex tori and polarizable integral Hodge structures of types (-1,0),(0,-1) contains the linear-algebraic weight-one bridge (lattice with complex structure ↔ effective weight-one Hodge structure) that this layer states and Tau Ceti already has."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "IsPolarization (Hodge–Riemann relations as a Prop on a fixed integral form), Polarization (form plus proof, with derived complex form Q) and IsPolarizable",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.IsPolarization",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Polarization.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.Polarization",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Polarization.lean",
+         "line": 157,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.IsPolarizable",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Polarization.lean",
+         "line": 219,
+         "fit": "exact"
+        }
+       ],
+       "note": "(-1)^n-symmetry, nondegeneracy, orthogonality of F^p and F^(n+1-p) and positivity of i^(p-q) Q(x, conj x) on H^(p,q), with the sign convention pinned in the README."
+      },
+      {
+       "target": "RationalHodgeSubstructure (a ℚ-subspace whose complexification is derived and spanned by its Hodge components)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.RationalHodgeSubstructure",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/RationalSubstructure.lean",
+         "line": 72,
+         "fit": "exact"
+        }
+       ],
+       "note": "Carries only WQ; WC is derived by rationalToComplexSubmodule and conjugation stability is a lemma."
+      },
+      {
+       "target": "Milestone: every rational Hodge substructure of a polarizable structure has a Q-orthogonal rational Hodge-substructure complement, complementary over ℚ and over ℂ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.exists_isCompl_of_isPolarizable",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Orthogonal.lean",
+         "line": 275,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.RationalHodgeSubstructure.orthogonal",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Orthogonal.lean",
+         "line": 228,
+         "fit": "exact"
+        }
+       ],
+       "note": "Assumes Module.Finite ℚ Vℚ, as the milestone implicitly does."
+      },
+      {
+       "target": "Semisimplicity of polarizable rational Hodge structures",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.RationalHodgeSubstructure.complementedLattice_of_isPolarizable",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Semisimple.lean",
+         "line": 66,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.exists_finset_isAtom_sup_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Semisimple.lean",
+         "line": 86,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated object-wise: the lattice of rational Hodge substructures is complemented, and a polarizable structure is a finite independent sum of simple substructures. There is no bundled category of polarizable ℚ-Hodge structures, so the categorical phrasing is not stated; the layer's own milestone is the complement theorem."
+      },
+      {
+       "target": "Weil operator C: definition from the pieces, action by i^(p-q), C² = (-1)^n, compatibility with conjugation and with Q",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.weilOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeilOperator.lean",
+         "line": 83,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.weilOperator_apply_of_mem",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeilOperator.lean",
+         "line": 88,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.weilOperator_comp_weilOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeilOperator.lean",
+         "line": 144,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.conj_weilOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeilOperator.lean",
+         "line": 216,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.IsPolarization.isOrthogonal_weilOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeilOperator.lean",
+         "line": 298,
+         "fit": "exact"
+        }
+       ],
+       "note": "All four properties the layer lists are proved; uniqueness of C and the odd-weight complex structure are also present."
+      },
+      {
+       "target": "Hodge form h(u,v) = Q(Cu, conj v), positive-definite Hermitian on V_ℂ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.Polarization.hodgeForm",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/HodgeForm.lean",
+         "line": 111,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.Polarization.hodgeForm_self_pos",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/HodgeForm.lean",
+         "line": 195,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.Polarization.hodgeInnerProductCore",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Metric.lean",
+         "line": 45,
+         "fit": "exact"
+        }
+       ],
+       "note": "Tau Ceti uses h u v = Q(C(conj u), v), conjugate-linear in the first argument; hodgeForm_eq_conj relates it to the README's convention, and it is packaged as an inner-product core."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AbelianSchemesAndArithmeticModuli:A5",
+       "note": "A5's Riemann bilinear relations for polarized complex tori are the weight-one case of this layer's Hodge–Riemann polarization, already proved in Tau Ceti as isPolarization_of_weilOperator_invariant_on_realPoints_of_pos."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "MixedHodgeStructure: bounded rational weight filtration WQ, bounded Hodge filtration F, and graded_pure as a pure Hodge structure of weight k on each complexified gr^W_k",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Basic.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.gradedHodgeStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Basic.lean",
+         "line": 182,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.ofPure",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Basic.lean",
+         "line": 246,
+         "fit": "exact"
+        }
+       ],
+       "note": "graded_pure is an existential over HodgeStructure on the rational graded piece whose filtration is gradedF, equivalent to the README's Nonempty formulation; pure structures embed as mixed ones."
+      },
+      {
+       "target": "Derived complex weight filtration WC with monotonicity and conjugation stability",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.WC_monotone",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Basic.lean",
+         "line": 119,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.WC_conj",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Basic.lean",
+         "line": 114,
+         "fit": "exact"
+        }
+       ],
+       "note": "WC is an abbreviation for rationalToComplexSubmodule of WQ."
+      },
+      {
+       "target": "Induced conjugation and filtration on graded pieces (gradedConj, gradedF) and the isomorphism WC_k/WC_(k-1) ≃ ℂ ⊗_ℚ gr^W_k",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.gradedF",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Graded.lean",
+         "line": 293,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.gradedConjugation",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Graded.lean",
+         "line": 71,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.gradedComplexEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Graded.lean",
+         "line": 147,
+         "fit": "exact"
+        }
+       ],
+       "note": "The graded conjugation is packaged as a Conjugation, as the README requests."
+      },
+      {
+       "target": "Milestone: strictness of morphisms of mixed Hodge structures for the rational and complexified weight filtrations and for the Hodge filtration",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_WQ_eq_map_WQ",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Strictness.lean",
+         "line": 129,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_WC_eq_map_WC",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Strictness.lean",
+         "line": 116,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_F_eq_map_F",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Strictness.lean",
+         "line": 108,
+         "fit": "exact"
+        }
+       ],
+       "note": "Exactly range f ⊓ W'_k = f(W_k) and range f_ℂ ⊓ F'^p = f_ℂ(F^p), proved through the Deligne bigrading."
+      },
+      {
+       "target": "Deligne bigrading I^(p,q) defined by the closed formula, internal direct sum, recovery of F and of W_ℂ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.deligneSplitting",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/DeligneSplitting.lean",
+         "line": 81,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.isInternal_deligneSplittingFamily",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Decomposition.lean",
+         "line": 539,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.F_eq_iSup_deligneSplitting",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Decomposition.lean",
+         "line": 607,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.WC_eq_iSup_deligneSplitting",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Decomposition.lean",
+         "line": 252,
+         "fit": "exact"
+        }
+       ],
+       "note": "The bigrading is data, not an existential, as the README insists."
+      },
+      {
+       "target": "Conjugation relation conj(I^(p,q)) ≡ I^(q,p) modulo ⨆_{r<q, s<p} I^(r,s)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.map_latticeConj_deligneSplitting_sup_below",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Conjugation.lean",
+         "line": 369,
+         "fit": "exact"
+        }
+       ],
+       "note": "The fine lower-bidegree relation is proved (the coarser relation modulo W_(p+q-2) is also there); the 2026-09-01 status note describing only the coarse form is out of date."
+      },
+      {
+       "target": "Functoriality: a morphism carries I^(p,q) into I^(p,q)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.Hom.map_deligneSplitting_le",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/DeligneSplitting.lean",
+         "line": 224,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated for morphisms given by a single rational map with derived complex action."
+      },
+      {
+       "target": "Conjugation-equivariance of the complexified rational map on an abstract complex model, fC ∘ conj = conj ∘ fC",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.rationalMapToComplex_commutes_conj",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/BaseChange.lean",
+         "line": 493,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.latticeConj_unique",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Conjugation.lean",
+         "line": 557,
+         "fit": "related"
+        }
+       ],
+       "note": "Proved for arbitrary IsBaseChange models (by induction along the base-change witness), not only the concrete tensor product."
+      },
+      {
+       "target": "Bundled morphisms and category of mixed Hodge structures with its abelian-category structure (kernels and cokernels are mixed Hodge structures)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.Hom",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Morphism.lean",
+         "line": 77,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructureCat",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Category.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.Hom.isSubstructure_ker",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Substructure.lean",
+         "line": 207,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.Hom.isSubstructure_range",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Substructure.lean",
+         "line": 217,
+         "fit": "related"
+        }
+       ],
+       "note": "The category is preadditive and ℚ-linear with rational and complex realization functors, and kernels and images are sub-mixed Hodge structures as predicates; missing are kernel, image and cokernel as mixed Hodge structure objects and the Abelian instance."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l3--period-domain-points-the-symmetry-group": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "HodgeType: a weight, finitely supported Hodge numbers h : ℤ → ℕ and Hodge symmetry h p = h (weight - p)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.HodgeType",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Dimension.lean",
+         "line": 105,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.hodgeNumber",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Dimension.lean",
+         "line": 68,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.hodgeNumber_symm",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Dimension.lean",
+         "line": 83,
+         "fit": "exact"
+        }
+       ],
+       "note": "Every Hodge structure has a Hodge type (hodgeType), with symmetry proved from conj_piece."
+      },
+      {
+       "target": "PeriodDomain.Point: a Hodge structure of prescribed type polarized by a fixed integral form",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.PeriodDomain.Point",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/PeriodDomain.lean",
+         "line": 71,
+         "fit": "exact"
+        }
+       ],
+       "note": "The form enters through the IsPolarization field, not as duplicated data, as the layer specifies."
+      },
+      {
+       "target": "Milestone: the Hodge numbers partition the dimension, ∑ᶠ p, h p = dim_ℂ V_ℂ = rank_ℤ V",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.finsum_hodgeNumber_eq_finrank",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Dimension.lean",
+         "line": 92,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.finsum_hodgeNumber_eq_finrank_lattice",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Dimension.lean",
+         "line": 148,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.PeriodDomain.Point.finsum_h_eq_finrank",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/PeriodDomain.lean",
+         "line": 114,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both the complex-dimension and lattice-rank forms are proved."
+      },
+      {
+       "target": "Symmetry group Aut(V, Qint) of integral automorphisms preserving the form, as a Subgroup",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.BilinForm.isometryGroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/BilinearForm/Isometry.lean",
+         "line": 156,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.BilinForm.IsIsometry",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/BilinearForm/Isometry/Basic.lean",
+         "line": 40,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.BilinForm.IsIsometry.toIsometryGroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/BilinearForm/Isometry.lean",
+         "line": 403,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.BilinForm.isometryGroupBaseChange",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/BilinearForm/Isometry.lean",
+         "line": 274,
+         "fit": "more general"
+        },
+        {
+         "name": "LinearMap.BilinForm.IsometryEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/BilinearForm/IsometryEquiv.lean",
+         "line": 39,
+         "fit": "related"
+        }
+       ],
+       "note": "Built for an arbitrary bilinear form over a commutative ring under the name isometryGroup rather than IsLatticeIsometry, with base change to ℂ as a group homomorphism and automatic invertibility of isometries of a nondegenerate lattice form."
+      }
+     ],
+     "duplicates": []
+    }
+   }
+  }
+ }
+}

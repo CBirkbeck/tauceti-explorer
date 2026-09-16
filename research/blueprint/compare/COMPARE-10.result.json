@@ -1,0 +1,390 @@
+{
+ "job": "COMPARE-10",
+ "notes": {
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras": {
+   "targets": "Uniqueness and canonical invariants of the Wedderburn decomposition, the double-centralizer theorem, central simple algebras under tensor product and opposite, Skolem-Noether and the centralizer theorem, the Brauer group as a group with base change, splitting fields, maximal subfields and index, Br(F_q) = 1 and Br(R) = Z/2.",
+   "baselineHas": [
+    "TauCeti RingTheory/Semisimple/Wedderburn/{Presentation,Canonical,Uniqueness}.lean (wedderburn_blocks_unique, blockMultiplicity) and RingTheory/Semisimple/DoubleCentralizer.lean (centralizer_centralizer_of_isSemisimpleModule)",
+    "TauCeti Algebra/CentralSimple/SkolemNoether.lean (skolemNoether), Centralizer.lean (finrank_mul_finrank_centralizer, centralizer_centralizer), TensorProduct.lean (simplicity of the tensor product)",
+    "TauCeti Algebra/BrauerGroup/{Group,BaseChange,Splitting,Trivial,Real}.lean (BrauerGroup.instCommGroup, subsingleton_brauerGroup_of_finite, brauerGroupMulEquiv : Br(R) ≃* Z/2)",
+    "TauCeti Algebra/CentralSimple/{MaximalSubfield,FiniteSeparable,Index}.lean and RingTheory/Jacobson/MulOpposite.lean (isSemiprimaryRing_mulOpposite_iff)"
+   ],
+   "missing": [
+    "Only residual API around layers that are already built (bookkeeping corollaries of the simple-module/isotypic dictionary); no new layer of theory and nothing needed from other roadmaps"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/GlobalQuadraticForms": {
+   "targets": "Hasse-Minkowski for isotropy, representation and isometry of regular forms over a number field; admissible systems of local invariants, existence of a global form with prescribed localizations (O'Meara 72:1) and the resulting classification; hyperbolicity and injectivity of the global-to-local Witt map.",
+   "baselineHas": [
+    "TauCeti NumberTheory/QuadraticForm/Global/{Localization,Predicates}.lean (atFinitePlace, atRealPlace, IsLocallyIsotropic, LocallyEquivalent): this roadmap's Layer 0",
+    "TauCeti LinearAlgebra/QuadraticForm/Witt/{Cancellation,Decomposition}.lean, Representation.lean, Signature.lean (field-generic Witt theory, representation criterion, real classification)",
+    "TauCeti GlobalNumberFields.weakApproximation_denseRange and HeightOneSpectrum.completionAlgHom; Mathlib NumberField.IdeleGroup and IdeleClassGroup",
+    "TauCeti NumberTheory/ClassFieldTheory/Formation/Basic.lean and RepresentationTheory/Homological/TateCohomology (formations, low-degree Tate cohomology, herbrandQuotient), with no class formation or reciprocity map"
+   ],
+   "missing": [
+    "Class Field Theory Layers 2-6: class formations and Tate's theorem, the abstract Artin map, the local Brauer group and invariant, local reciprocity",
+    "Class Field Theory Layers 10-14: idele-class cohomology with the two fundamental inequalities, the Brauer-Hasse-Noether sequence, global reciprocity, the norm index card_ideleClassNormQuotient, the cyclic Hasse norm theorem, Hilbert reciprocity",
+    "Quadratic Form Invariants Layers 4-7: Witt ring, quadratic defect and the dyadic local square theorem, Hilbert symbol and local Hasse invariant, classification over nonarchimedean local fields, comparison with the cohomological symbol",
+    "Own Layers 1-4: localized invariants with finite support, admissible invariant systems, vector weak approximation, global square theorem, sign prescription and the Hasse product",
+    "Own Layers 5-8: Hasse-Minkowski (binary, ternary, quaternary descent, rank >= 5 induction), representation and isometry, existence with prescribed local behaviour, classification and the Witt kernel"
+   ]
+  },
+  "ColemanIntegration": {
+   "targets": "Coleman integration on curves with good reduction (Frobenius continuation, Coleman functions and uniqueness), p-adic polylogarithms with their functional relations, and RJW Theorem 6.7 expressing L_p(theta, k) at positive integers through Li_{k,p} at roots of unity.",
+   "baselineHas": [
+    "Mathlib NumberTheory/Padics/Measure/AmiceTransform.lean (AbstractMeasure.amiceTransform) and MahlerBasis.lean (PadicInt.mahlerEquiv): bounded measures only",
+    "Mathlib DirichletCharacter.LFunction (NumberTheory/LSeries/DirichletContinuation.lean) and gaussSum: complex L-functions only",
+    "Mathlib PadicComplex and HasFPowerSeriesOnBall; TauCeti RingTheory/Huber/Restricted and AlgebraicGeometry/AdicSpace/Spa (restricted power series, affinoid spectra, no adic spaces)"
+   ],
+   "missing": [
+    "PadicMeasuresIwasawaAlgebras L0-L3 (remainder) and LocallyAnalyticDistributions L0-L3: locally analytic functions, Amice's unbounded transform, growth and uniqueness, Mellin transforms",
+    "DirichletPadicLFunctions L0-L3 with Tate zeta integrals (AutomorphicLFunctions AL.0-AL.1): Kubota-Leopoldt p-adic L-functions for all Dirichlet characters, logarithm branches",
+    "L0: overconvergent power series on discs and annuli, residues, termwise primitives, log_p branches",
+    "L1: wide opens of good-reduction curves with Frobenius lifts, finite-dimensional overconvergent de Rham cohomology, Frobenius continuation and Coleman functions (rigid-analytic gluing beyond the current Tau Ceti adic-space layers)",
+    "L2-L3: Coleman polylogarithms with distribution, inversion and Frobenius relations, values at roots of unity, and Theorem 6.7"
+   ]
+  },
+  "FunctionFieldArithmetic": {
+   "targets": "The dictionary between global function fields and curves over finite fields, adeles with Poisson summation, wild ramification and Artin-Schreier-Witt theory, local and global class field theory for function fields, zeta functions with Artin factors and Chebotarev, automorphic forms for reductive G over K with Hecke operators and Satake, and certified explicit arithmetic.",
+   "baselineHas": [
+    "TauCeti FieldTheory/FunctionField/Differential/CanonicalDivisor.lean (the Riemann-Roch theorem via Weil differentials) and RiemannRoch/AffineClassNumber.lean (finite_classGroup)",
+    "TauCeti FieldTheory/FunctionField/{Place,Divisor,Repartition,Different} and Consequences/StrongApproximation (places, divisors, repartitions, the different)",
+    "Mathlib AlgebraicGeometry schemes with Sites/Etale.lean (etaleTopology); TauCeti Algebra/AlgebraicGroup/Reductive and NumberTheory/HeckeRing/GLn (basic definitions only)"
+   ],
+   "missing": [
+    "SchemeAndStackFoundations SF.0-SF.3 and AlgebraicModuli R09.1-R09.4: curves as schemes, algebraic spaces and stacks, Picard objects",
+    "AbelianSchemes A1-A3, etale duality EDC.0-EDC.3 with the upstream etale base-change and trace-formula inputs, then DeligneWeightsAndPurity DWP.1 (Weil bound for curves and abelian varieties)",
+    "ReductiveGroupsPartII RG2.0-RG2.5 (relative root data, Bruhat-Tits buildings, parahorics, double cosets) over reductive-group structure theory, and SmoothRepresentations SR.0-SR.4 (Hecke algebras, Satake)",
+    "Own FA.0-FA.4: curve/function-field dictionary, topological adeles, Haar measures and Poisson summation, Artin-Schreier-Witt and wild Riemann-Hurwitz, full local and global class field theory for function fields",
+    "Own FA.5-FA.7: curve zeta functions and Artin factors, function-field Chebotarev, cusp forms on G(K)\\G(A_K) with reduction-theoretic finiteness and Satake, certified examples"
+   ]
+  },
+  "HigherLocalFieldsAndHigherClassFieldTheory": {
+   "targets": "n-dimensional local fields with their higher topologies, Milnor and topological K-groups with residues and norms, higher Galois duality, higher local reciprocity and existence, explicit symbols and ramification filtrations, Parshin chains and higher adeles, and higher global reciprocity for arithmetic schemes (Kato-Saito).",
+   "baselineHas": [
+    "Mathlib IsNonarchimedeanLocalField and LaurentSeries (one-dimensional local fields; the building blocks of F_q((u))((t)))",
+    "TauCeti NumberTheory/LocalField/UnitFiltration and NumberTheory/ClassFieldTheory/Formation (unit filtrations, abstract formations; no local reciprocity map)",
+    "Mathlib continuousCohomology and TauCeti TateCohomology (low-degree group cohomology); no Milnor K-theory, symbols or K-theory in either library"
+   ],
+   "missing": [
+    "K2SymbolsBrauer T.1-T.3 and Milnor K in all degrees with residues and norms (HL.1)",
+    "MotivicEtaleKTheory M.4 and M.5a-M.5d: cycle complexes, transfers and motivic homotopy, motivic Steenrod operations and norm varieties, Rost motives, i.e. the full norm-residue theorem",
+    "The declared K-theory stack beneath M.4: StableHomotopyKTheory H.1-H.5, GeneralAlgebraicKTheory K.1-K.7, SchemeKTheoryOperations S.1-S.6",
+    "SchemeAndStackFoundations SF.0-SF.5 (descent, sites and scheme cohomology, birational geometry, intersection theory)",
+    "Own HL.0-HL.4: higher local fields and topologies, higher duality with logarithmic de Rham-Witt coefficients, higher local reciprocity and existence, explicit reciprocity",
+    "Own HL.5-HL.7: Parshin chains and higher adeles, Kato-Saito higher global reciprocity, comparison examples"
+   ]
+  },
+  "ArakelovGeometryAndAbelianHeights": {
+   "targets": "Hermitian bundles and arithmetic degree over rings of integers, the Hodge bundle with the Faltings metric, the stable Faltings height, its variation under isogeny, comparison with a moduli/theta height near the boundary of a compactified moduli space, and the inputs to Faltings' finiteness theorem.",
+   "baselineHas": [
+    "Mathlib NumberTheory/Height/{Basic,Projectivization,NumberField}.lean (Projectivization.logHeight) and Order/Northcott.lean",
+    "TauCeti AlgebraicGeometry/AbelianVariety/Basic.lean (AbelianVariety over a field, with isogenies and End) and EllipticCurve/CanonicalHeight.lean",
+    "Mathlib schemes and NumberField.InfinitePlace; no Neron models, moduli of abelian varieties or hermitian bundles"
+   ],
+   "missing": [
+    "AlgebraicModuli R09.2-R09.4 (Hilbert/Quot, algebraic spaces and stacks) and R09.7a-d (resolution of singularities)",
+    "AbelianSchemes A1-A6 (abelian schemes, duals and Picard functors, polarizations, deformation theory, complex uniformization) and FiniteFlat R07.1-R07.2 (p-divisible groups, Dieudonne theory), with declared R07.4-R07.6",
+    "NeronModels R11.1-R11.3: Neron models, component groups, semistable reduction",
+    "ShimuraData D0-D5, ShimuraVarieties V0-V8 (Baily-Borel, Borel extension, canonical models), PELModuli M0-M6",
+    "ShimuraCompactifications C0-C5 (degenerations, toroidal and integral PEL compactifications) and ComplexComparison C0-C4 (GAGA, Chow)",
+    "Own R35.1-R35.6: arithmetic degree, Faltings metric and stable height, isogeny formula, moduli-height comparison with boundary estimates, finiteness inputs"
+   ]
+  },
+  "BorelRegulators": {
+   "targets": "Borel's stable real cohomology of arithmetic groups and the ranks of K_i(O_F), the Borel regulator and its lattice, the order of vanishing and leading term of zeta_F at 1-j with Borel's regulator theorem, Bloch's Tamagawa reformulation, and the comparison with Beilinson's regulator.",
+   "baselineHas": [
+    "Mathlib NumberField.Units.regulator (NumberField/Units/Regulator.lean) and NumberField.dedekindZeta with its residue at s = 1 (NumberField/DedekindZeta.lean)",
+    "Mathlib Subgroup.IsArithmetic (ModularForms/ArithmeticSubgroups.lean, SL_2 only), LieModule.Cohomology.twoCochain (Algebra/Lie/Cochain.lean) and low-degree group cohomology",
+    "TauCeti Algebra/AlgebraicGroup/Reductive and Algebra/Lie (algebraic groups, Lie algebras); no higher algebraic K-theory"
+   ],
+   "missing": [
+    "StableHomotopyKTheory H.1-H.6: classifying spaces, Quillen's theorems, plus construction, group completion, spectra",
+    "GeneralAlgebraicKTheory K.1-K.7 with KTheoryLowDegrees, K2SymbolsBrauer, K3BlochGroups (Suslin) and KTheoryFiniteLocalFields (Quillen's finite fields)",
+    "SchemeKTheoryOperations S.1-S.6 and MotivicEtaleKTheory M.4, M.6: K-theory of schemes with Adams operations, the motivic spectral sequence",
+    "AdelicAlgebraicGroups AA.0-AA.3 and ArithmeticLocallySymmetricSpaces ALS.0-ALS.2 (reduction theory, Borel-Serre), ArithmeticKTheory N.1-N.3 (finite generation)",
+    "Own R.1-R.3: continuous and relative Lie-algebra cohomology, van Est, the stable cohomology calculation and rank theorem",
+    "Own R.4-R.7 with AutomorphicLFunctions AL.0-AL.1 and Polylogarithms P.1-P.2: regulator maps and covolume, zeta leading terms, Tamagawa reformulation, Beilinson comparison"
+   ]
+  },
+  "LocalGaloisDeformationRings": {
+   "targets": "Framed local deformation rings and conditions away from p, Kisin's potentially semistable deformation rings with point criteria and dimension formula, finite-flat and Barsotti-Tate components, dyadic and endpoint cases, rank-n potentially semistable, Fontaine-Laffaille and ordinary deformation rings, and the ordinary-flag versus determinant-ordinary comparison.",
+   "baselineHas": [
+    "Mathlib RingTheory/Perfectoid/BDeRham.lean (BDeRhamPlus) and FontaineTheta.lean (WittVector.fontaineTheta); no B_cris, B_st or admissibility",
+    "Mathlib RingTheory/Grassmannian.lean (Module.Grassmannian) and continuousCohomology; TauCeti FiniteLocallyFreeBicommutativeHopfAlgCat.cartierDuality",
+    "TauCeti RingTheory/Huber and AlgebraicGeometry/AdicSpace/Spa (Huber rings, affinoid spectra; no rigid spaces or formal models)"
+   ],
+   "missing": [
+    "DeformationAndDerivedPatchingAlgebra R03.1-R03.2 and ArithmeticGaloisRepresentations R01.1-R01.4, G7 (deformation functors, Weil-Deligne and residual API)",
+    "AdicSpacesPartII R0-R3, F0-F1: rigid and formal geometry, analytification, coherent sheaves, dagger geometry",
+    "PadicHodgeTheory R06.1-R06.3 with PadicDifferentialEquations RD.0-RD.2: period rings, admissibility, p-adic local monodromy and the Weil-Deligne comparison",
+    "FiniteFlat R07.2-R07.4 (Dieudonne theory, Fontaine-Laffaille, Breuil-Kisin modules), with declared perfectoid P0-P3 and A_inf/crystalline interfaces",
+    "Own R08.1-R08.6, L7, L8: unrestricted and away-from-p rings, Kisin's potentially semistable rings, finite-flat moduli and components, dyadic cases, rank-n local models, ordinary flags"
+   ]
+  },
+  "AnabelianGeometryAndNonabelianChabauty": {
+   "targets": "Arithmetic fundamental groupoids and sections, Mochizuki-type reconstruction of hyperbolic curves, unipotent etale and de Rham fundamental groups with comparison, nonabelian cohomology and Selmer varieties, unipotent Albanese maps and Chabauty-Kim loci, quadratic Chabauty with p-adic height equations.",
+   "baselineHas": [
+    "Mathlib CategoryTheory/Galois/Basic.lean (PreGaloisCategory.FiberFunctor) and IsFundamentalgroup.lean (PreGaloisCategory.IsFundamentalGroup)",
+    "Mathlib RingTheory/Etale/Finite.lean (CommAlgCat.FiniteEtale) and AlgebraicGeometry/Sites/Etale.lean (etale topology)",
+    "Mathlib continuousCohomology (abelian coefficients) and TauCeti RingTheory/DedekindDomain/SInteger/SelmerGroup, EllipticCurve/MordellWeil Selmer groups"
+   ],
+   "missing": [
+    "InverseGalois IG.0-IG.1 and SchemeAndStackFoundations SF.0-SF.5: etale fundamental groups of schemes and the arithmetic exact sequence",
+    "ArithmeticGaloisDuality R02.1-R02.6: continuous cohomology with restricted ramification, Poitou-Tate duality, Selmer conditions",
+    "ColemanIntegration L0-L1 with its p-adic measure and locally analytic distribution prerequisites",
+    "PadicHodgeTheory R06.5 geometric comparison through A_inf and prismatic cohomology (AI.0-AI.6, Q0-Q4), log-crystalline and Hyodo-Kato theory (CR.0-CR.6), perfectoid spaces, diamonds and the relative Fargues-Fontaine curve; etale duality EDC.0-EDC.4",
+    "ComplexComparison C0-C4 and HeightsRationalPoints RP.0-RP.1",
+    "Own NC.0-NC.6: path torsors and sections, reconstruction, unipotent realizations, Selmer varieties, Chabauty-Kim loci, quadratic Chabauty"
+   ]
+  },
+  "EllipticRegulators": {
+   "targets": "Uniformisation and periods of elliptic curves, Deligne cohomology and the regulator of K_2 symbols, the elliptic dilogarithm with its companion, Bloch's divisor formula, Bloch's CM theorem for L(2, chi), the Beilinson statement on the integral part, Beilinson's theorem for modular elliptic curves, and the p-adic (syntomic) comparison.",
+   "baselineHas": [
+    "Mathlib Analysis/SpecialFunctions/Elliptic/Weierstrass.lean (PeriodPair.lattice; no uniformisation E(C) = C/Lambda)",
+    "Mathlib NumberTheory/ModularForms/EisensteinSeries and DedekindEta.lean; TauCeti NumberTheory/ModularForms (Hecke operators, newforms, LFunction.lean)",
+    "Mathlib WeierstrassCurve group law and TauCeti EllipticCurve/MordellWeil/Regulator.lean (Neron-Tate regulator, not K-theoretic)"
+   ],
+   "missing": [
+    "EllipticKTheory E.1-E.7 on the K-theory stack (StableHomotopy, GeneralAlgebraicKTheory, SchemeKTheoryOperations, K2SymbolsBrauer) and MotivicEtaleKTheory M.1-M.8, including the norm-residue theorem and the motivic spectral sequence",
+    "BorelRegulators R.1-R.7 and Polylogarithms (weight-two regulator)",
+    "EllipticCurveModularity R29.1-R29.6 with its modularity-lifting closure (GL2ModularityLifting, LocalGaloisDeformationRings, Serre modularity, Hilbert modular varieties, trace formula, Weil II)",
+    "ModularCurvesPartII R12-R14 and ComplexComparison C0-C5 (algebraic modular curves, modular parametrisations, de Rham-Betti comparison)",
+    "PadicHodgeRegulators D.5 with p-adic Hodge theory, perfectoid spaces and diamonds, plus Arakelov and Faltings inputs present in the closure",
+    "Own ER.1-ER.8: periods, Deligne complex and eta(f,g), elliptic dilogarithm, divisor formula, CM Hecke L-value theorem, Beilinson statement, modular-unit regulators, p-adic comparison"
+   ]
+  },
+  "FarguesFontaineDiamonds": {
+   "targets": "Identify the adic Fargues-Fontaine curve with a diamond: the untilt product formula Y_F^diamond = S x Spd Q_p, the Frobenius quotient X_F^diamond, equivalence of etale and finite etale sites, marked untilts as Cartier divisors, and the derived etale comparison.",
+   "baselineHas": [
+    "Mathlib RingTheory/Perfection.lean (PreTilt, Tilt), RingTheory/Perfectoid/Untilt.lean (PreTilt.untilt) and FontaineTheta.lean",
+    "Mathlib RingTheory/WittVector (Witt vectors and Frobenius)",
+    "TauCeti AlgebraicGeometry/AdicSpace/Spa and RingTheory/Huber (affinoid spectra, rational subsets); Tau Ceti AdicSpaces Layers 5-6 (adic spaces, the adic curve) not begun"
+   ],
+   "missing": [
+    "Tau Ceti AdicSpaces Layers 4-6 (sheafiness, adic spaces, the adic Y_F and X_F) consumed by F0",
+    "PerfectoidSpaces P0-P6 and PerfectoidQuotients Q0-Q4 (almost purity, tilting, closed perfectoid quotients and their prismatic inputs)",
+    "DiamondsAndVStacks D0-D6 and AdicEtaleGeometry A0-A4 (pro-etale and v-topologies, diamonds, analytic adic spaces as diamonds)",
+    "DiamondEtaleCohomology C0-C8, DiamondSixOperations S0-S3, AdicCoefficients L0 and classical etale inputs (for F5)",
+    "Own F0-F5: interface lemmas, untilt product formula, Frobenius quotient comparison, etale and finite-etale site equivalence, Cartier divisors with annulus estimates, derived etale comparison"
+   ]
+  },
+  "HodgeTateAndCanonicalSubgroups": {
+   "targets": "The integral Hodge-Tate map for abelian schemes and their degenerations, relative p-adic comparison for abelian families, the Hodge-Tate sequence and Levi torsors, canonical subgroups with quantitative bounds, canonical/anticanonical geometry and period estimates, Igusa towers and the lattice omega^int, and log adic sites with logarithmic Riemann-Hilbert giving the general Hodge-Tate period map.",
+   "baselineHas": [
+    "TauCeti Geometry/Hodge (pure and mixed Hodge structures, period-domain points)",
+    "TauCeti FiniteLocallyFreeBicommutativeHopfAlgCat.cartierDuality and WeierstrassCurve.FormalGroupPoint (EllipticCurve/FormalGroup)",
+    "Mathlib RingTheory/Perfectoid/BDeRham.lean (BDeRhamPlus) and TauCeti AdicSpace/Spa; no p-divisible groups, Shimura varieties or pro-etale period sheaves"
+   ],
+   "missing": [
+    "AbelianSchemes A1-A6, PELModuli M0-M6, ShimuraData and ShimuraVarieties V0-V8, ShimuraCompactifications C0-C6, Hilbert modular varieties H0-H4, AutomorphicBundles B0-B3",
+    "PerfectoidSpaces P0-P9, DiamondsAndVStacks D0-D6, AdicSpacesPartII R0-R5, AdicEtaleGeometry A0-A4, including Fargues-Fontaine F0-F3 and the relative curve",
+    "PadicHodgeTheory R06.1-R06.5 and P8 relative period sheaves, A_inf AI.0-AI.6, crystalline and logarithmic CR.0-CR.6, CohomologyComparisons CP.0-CP.4, etale duality and vanishing cycles",
+    "Own T0-T2: integral Hodge-Tate map, relative comparison for abelian families, Hodge-Tate sequence and Levi torsors",
+    "Own T3-T5: canonical subgroups with bounds, anticanonical geometry and period estimates, Igusa towers and omega^int",
+    "Own T6: log adic and Kummer-etale sites, logarithmic period sheaves and Riemann-Hilbert, general Hodge-Tate map"
+   ]
+  },
+  "CompletedCohomologyAndLocalGlobalCompatibility": {
+   "targets": "Completed cohomology of modular and Shimura-curve towers, classical specialisations via locally algebraic vectors, completed Hecke algebras with Galois and deformation actions, Emerton's p-adic local-global compatibility, patched completed modules with support statements, and exports to GL_2 modularity lifting.",
+   "baselineHas": [
+    "Mathlib continuousCohomology and RepresentationTheory/Continuous/TopRep.lean (no admissible Banach representations of GL_2(Q_p))",
+    "TauCeti NumberTheory/HeckeRing (HeckeCoset.degree) and NumberTheory/ModularForms/Newforms (finite-level newforms, Atkin-Lehner, Petersson)",
+    "Mathlib Subgroup.IsArithmetic (ModularForms/ArithmeticSubgroups.lean): single arithmetic subgroups, no towers"
+   ],
+   "missing": [
+    "CompletedCohomologyPartII CC.0-CC.8 and ArithmeticLocallySymmetricSpaces ALS.0-ALS.5 (towers, completion, admissibility, boundary triangles)",
+    "ModularCurvesPartII R12-R14 and HilbertModularVarieties R18.1-R18.5, H0-H4 (integral models, Hecke correspondences, cohomology)",
+    "AutomorphicGaloisRepresentations R19.1-R19.6 with DeligneWeights DWP.0-DWP.9, etale duality and perverse sheaves, Lefschetz pencils, and p-adic comparison through A_inf, diamonds and diamond etale cohomology",
+    "GL2AutomorphicRepresentations R16-R17 (local Langlands, Jacquet-Langlands) with AutomorphicSpectralTheory AS.0-AS.6 and EndoscopicTransfer ET.0-ET.6",
+    "PadicLocalLanglandsForGL2Qp R30.1-R30.6 with PhiGammaModules PG.0-PG.3, and GlobalGaloisDeformations R04.1-R04.2",
+    "Own R31.1-R31.6: completed cohomology of towers, locally algebraic vectors, completed Hecke actions, local-global compatibility, patched modules, exports"
+   ]
+  },
+  "PerfectoidShimuraVarieties": {
+   "targets": "Infinite p-level Shimura towers as diamonds, the perfectoid Siegel tower with its minimal compactification, perfectoidness in Hodge type, the Hodge-Tate period map with coefficient pullbacks, pre-abelian perfectoid representability (Hansen-Johansson), the modular and Hilbert towers, and general period maps on toroidal towers.",
+   "baselineHas": [
+    "TauCeti AlgebraicGeometry/AdicSpace/Spa/Basic.lean (adic spectra only)",
+    "TauCeti Algebra/AlgebraicGroup/Reductive/Basic.lean (reductiveCommHopfAlgProperty) and LinearAlgebra/Matrix/GeneralLinearGroup/Symplectic",
+    "Mathlib RingTheory/Grassmannian.lean (Module.Grassmannian), RingTheory/Perfection.lean (Tilt) and TauCeti Geometry/Hodge"
+   ],
+   "missing": [
+    "All of HodgeTateAndCanonicalSubgroups T0-T6 (canonical subgroups, Hodge-Tate maps, log Riemann-Hilbert)",
+    "ShimuraData D0-D5, ShimuraVarieties V0-V8 and V8.general, PELModuli M0-M6, ShimuraCompactifications C0-C6, AutomorphicBundles B0-B4, Hilbert modular varieties H0-H5",
+    "PerfectoidSpaces P0-P9, PerfectoidQuotients Q0-Q4, DiamondsAndVStacks D0-D6, AdicSpacesPartII, AdicEtaleGeometry, and the A_inf, crystalline and p-adic Hodge inputs",
+    "Own S0-S2: towers as diamonds, Siegel anticanonical construction with minimal compactification, Hodge-type perfectoidness",
+    "Own S3-S6: Hodge-type period map, pre-abelian descent, modular and Hilbert tower comparisons, general toroidal period maps"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "SemisimpleAlgebras is essentially already in Tau Ceti (canonical Wedderburn invariants, double centralizer, Skolem-Noether, the centralizer theorem, the Brauer group with splitting fields and Br(R) = Z/2), leaving only API. GlobalQuadraticForms still needs local and global class field theory (norm index, cyclic Hasse norm theorem, Hilbert reciprocity), Hilbert symbols and the classification of forms over dyadic and non-dyadic local fields, and then Hasse-Minkowski with the existence and classification layers."
+  },
+  {
+   "a": "ColemanIntegration",
+   "b": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "GlobalQuadraticForms stacks almost all of class field theory (class formations, local Brauer invariants, the idele-class inequalities, global reciprocity, the norm index, the Hasse norm theorem, Hilbert reciprocity) and local quadratic-form invariants under Hasse-Minkowski and O'Meara's existence theorem. Coleman needs Kubota-Leopoldt L-functions, locally analytic distributions, wide opens with overconvergent de Rham cohomology and Frobenius continuation, and then polylogarithms: a real but shorter p-adic analytic stack."
+  },
+  {
+   "a": "ColemanIntegration",
+   "b": "FunctionFieldArithmetic",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "FunctionFieldArithmetic needs a full class field theory for function fields, the Weil bound through etale duality and abelian schemes, Bruhat-Tits buildings, parahorics and Satake for automorphic forms on G(A_K), and Chebotarev. Coleman's missing theory is limited to p-adic measures and distributions, Kubota-Leopoldt L-functions, wide opens with Frobenius continuation, and polylogarithms."
+  },
+  {
+   "a": "FunctionFieldArithmetic",
+   "b": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "HigherLocalFields rests on the Voevodsky-Rost norm-residue theorem (transfers and motivic homotopy, motivic Steenrod operations, Rost motives), with Quillen, Waldhausen and scheme K-theory and intersection theory beneath it, followed by higher duality, higher local reciprocity and Kato-Saito global reciprocity. FunctionFieldArithmetic needs function-field class field theory, Weil bounds through etale duality and abelian schemes, and Bruhat-Tits with Satake for automorphic forms: large, but a shallower stack."
+  },
+  {
+   "a": "ArakelovGeometryAndAbelianHeights",
+   "b": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Arakelov needs abelian schemes with duals and deformation theory, Neron models and semistable reduction, Siegel/PEL moduli with degenerations and integral toroidal and minimal compactifications, Shimura canonical models and resolution of singularities before the Faltings height and its moduli comparison. HigherLocalFields' decisive cost is the norm-residue theorem, with K-theory and scheme foundations beneath it, plus Kato-Saito higher global reciprocity; this is close, but Arakelov's closure is about twice as large and stacked deeper."
+  },
+  {
+   "a": "BorelRegulators",
+   "b": "ArakelovGeometryAndAbelianHeights",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Both are very far. Borel needs higher algebraic K-theory from the plus construction through scheme K-theory with Adams operations and the motivic spectral sequence, Borel-Serre, and Borel's analytic stable-cohomology and regulator/zeta theorems. Arakelov needs the moduli tower (abelian schemes, PEL moduli, Faltings-Chai style compactifications, Shimura canonical models) plus Neron models and resolution of singularities, which is somewhat larger and deeper."
+  },
+  {
+   "a": "LocalGaloisDeformationRings",
+   "b": "BorelRegulators",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Borel needs the whole of higher algebraic K-theory (plus construction, Q- and S-constructions, K_2 and K_3 with Bloch groups, finite fields, scheme K-theory, the motivic spectral sequence), Borel-Serre, and Borel's stable-cohomology and regulator theorems. LocalGaloisDeformationRings needs rigid geometry, period rings with p-adic local monodromy, Breuil-Kisin modules and deformation functors under Kisin's rings, which is a clearly smaller closure."
+  },
+  {
+   "a": "AnabelianGeometryAndNonabelianChabauty",
+   "b": "LocalGaloisDeformationRings",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Anabelian needs geometric p-adic comparison through A_inf and prismatic cohomology, log-crystalline and Hyodo-Kato theory, perfectoid spaces, diamonds and the relative Fargues-Fontaine curve, together with Poitou-Tate duality, etale fundamental groups and Coleman integration, before reconstruction, Selmer varieties and quadratic Chabauty. LocalGaloisDeformationRings needs only local period rings with monodromy, rigid geometry and Breuil-Kisin modules under Kisin's rings, and Anabelian's closure already contains most of that."
+  },
+  {
+   "a": "AnabelianGeometryAndNonabelianChabauty",
+   "b": "EllipticRegulators",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "EllipticRegulators' closure contains almost all of Anabelian's prerequisites (p-adic comparison, diamonds, Poitou-Tate duality, Coleman integration). On top of these it needs modularity of elliptic curves over Q with its lifting machinery, the full K-theory and motivic stack including the norm-residue theorem, and Borel and syntomic regulators. Anabelian adds only its own reconstruction and Selmer-variety layers, etale fundamental groups, heights and scheme foundations."
+  },
+  {
+   "a": "FarguesFontaineDiamonds",
+   "b": "EllipticRegulators",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "EllipticRegulators' closure already includes the Fargues-Fontaine stages F0-F3 with perfectoid spaces, diamonds and diamond etale cohomology. It adds modular parametrisations and modularity, K_2 of curves with Deligne and syntomic regulators, Borel regulators and the norm-residue theorem. FarguesFontaineDiamonds adds only its Cartier-divisor and derived etale comparison stages."
+  },
+  {
+   "a": "HodgeTateAndCanonicalSubgroups",
+   "b": "FarguesFontaineDiamonds",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "HodgeTate's closure contains Fargues-Fontaine's untilt, quotient and etale-site comparisons (F0-F3) with perfectoid spaces and diamonds. It adds Shimura varieties with PEL moduli and toroidal compactifications, relative p-adic Hodge theory with A_inf and log-crystalline comparison, canonical subgroups and logarithmic Riemann-Hilbert. FarguesFontaineDiamonds adds only F4-F5, with their diamond etale cohomology, six-operations and classical adic etale inputs."
+  },
+  {
+   "a": "HodgeTateAndCanonicalSubgroups",
+   "b": "CompletedCohomologyAndLocalGlobalCompatibility",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "CompletedCohomology's closure contains nearly all of HodgeTate's foundations (Shimura and PEL moduli, compactifications, p-adic Hodge theory, diamonds). It adds Weil I-II, the trace formula with Jacquet-Langlands and endoscopic transfer, Galois representations of modular and Hilbert forms, integral modular curves, Colmez's p-adic local Langlands with (phi,Gamma)-modules, and Emerton's completed cohomology. HodgeTate adds only canonical subgroups, Igusa towers and log Riemann-Hilbert."
+  },
+  {
+   "a": "PerfectoidShimuraVarieties",
+   "b": "CompletedCohomologyAndLocalGlobalCompatibility",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Beyond their shared base (Shimura varieties and compactifications, perfectoid spaces, diamonds, p-adic Hodge theory), PerfectoidShimuraVarieties adds only the Hodge-Tate/canonical-subgroup roadmap and the perfectoid Siegel, Hodge-type and pre-abelian towers. CompletedCohomology adds Weil I-II, the automorphic trace formula and Jacquet-Langlands, Galois representations of modular forms, integral modular curves, p-adic local Langlands for GL_2(Q_p) and completed-cohomology finiteness, about 187 prerequisite layers against 32."
+  },
+  {
+   "a": "HodgeTateAndCanonicalSubgroups",
+   "b": "PerfectoidShimuraVarieties",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "PerfectoidShimuraVarieties uses every layer of HodgeTate (T0-T6: canonical subgroups, Hodge-Tate maps, log Riemann-Hilbert). It also adds infinite-level towers as diamonds, the perfectoid Siegel and Hodge-type constructions with minimal compactifications, Hansen-Johansson pre-abelian descent, general canonical models and general period maps."
+  },
+  {
+   "a": "FarguesFontaineDiamonds",
+   "b": "CompletedCohomologyAndLocalGlobalCompatibility",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "CompletedCohomology's closure contains Fargues-Fontaine's perfectoid, diamond, diamond-etale and F0-F3 inputs. It adds modular-curve and Shimura-curve geometry, Weil I-II, the trace formula and Jacquet-Langlands, Galois representations of modular forms, p-adic local Langlands and completed cohomology. FarguesFontaineDiamonds adds only its Cartier-divisor and derived etale comparison stages."
+  },
+  {
+   "a": "EllipticRegulators",
+   "b": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "EllipticRegulators' closure already contains HigherLocalFields' K-theory and the whole norm-residue theorem. It adds Borel regulators, modularity of elliptic curves, Deligne and syntomic regulators and p-adic Hodge theory. HigherLocalFields adds only its own higher local and global class field theory layers and scheme foundations."
+  },
+  {
+   "a": "PerfectoidShimuraVarieties",
+   "b": "ArakelovGeometryAndAbelianHeights",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "PerfectoidShimuraVarieties' closure contains nearly all of Arakelov's prerequisites (abelian schemes, PEL moduli, Shimura varieties, toroidal compactifications, resolution). It adds perfectoid spaces, diamonds, A_inf and crystalline p-adic Hodge theory, the whole Hodge-Tate/canonical-subgroup roadmap and the perfectoid towers. Arakelov adds only Neron models with semistable reduction and its six height layers."
+  },
+  {
+   "a": "AnabelianGeometryAndNonabelianChabauty",
+   "b": "ColemanIntegration",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Anabelian uses Coleman's Frobenius continuation (L0-L1). It adds geometric p-adic comparison via A_inf and prismatic cohomology and diamonds, Poitou-Tate duality, etale fundamental groups, anabelian reconstruction, Selmer varieties and quadratic Chabauty. Coleman adds only polylogarithms and Theorem 6.7, Kubota-Leopoldt L-functions, and the growth and Mellin-transform layers of locally analytic distributions."
+  },
+  {
+   "a": "FunctionFieldArithmetic",
+   "b": "LocalGaloisDeformationRings",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "FunctionFieldArithmetic spreads over three towers: etale duality and abelian schemes for the Weil bound; Bruhat-Tits buildings with Satake (over reductive structure theory) for automorphic forms on G(A_K); and a full function-field class field theory with Chebotarev. LocalGaloisDeformationRings is one taller tower of rigid geometry, period rings with p-adic local monodromy and Breuil-Kisin modules under Kisin's deformation rings. The two are close in size, with FunctionFieldArithmetic slightly larger."
+  },
+  {
+   "a": "BorelRegulators",
+   "b": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Borel needs algebraic K-theory from the plus construction up, Borel-Serre with Borel's stable cohomology, regulators with Dedekind zeta leading terms, and the motivic spectral sequence. GlobalQuadraticForms needs class field theory and local quadratic-form invariants under Hasse-Minkowski, on a baseline that already has Witt theory, weak approximation and localized forms."
+  },
+  {
+   "a": "ColemanIntegration",
+   "b": "HodgeTateAndCanonicalSubgroups",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "HodgeTate needs Shimura varieties with PEL moduli and compactifications, perfectoid spaces and diamonds, relative p-adic Hodge theory and log Riemann-Hilbert before canonical subgroups and Hodge-Tate period maps. Coleman needs only p-adic measures and distributions, Kubota-Leopoldt L-functions, wide opens with Frobenius continuation, and polylogarithms."
+  },
+  {
+   "a": "LocalGaloisDeformationRings",
+   "b": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "HigherLocalFields rests on the Voevodsky-Rost norm-residue theorem (motivic homotopy, Steenrod operations, Rost motives) with Quillen and scheme K-theory beneath it, followed by Kato duality, higher local reciprocity and Kato-Saito global reciprocity. LocalGaloisDeformationRings needs rigid geometry, period rings with p-adic local monodromy and Breuil-Kisin modules before Kisin's rings, which is a smaller stack."
+  },
+  {
+   "a": "FunctionFieldArithmetic",
+   "b": "EllipticRegulators",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "EllipticRegulators' closure contains FunctionFieldArithmetic's etale duality, Weil bounds, abelian schemes, Bruhat-Tits and Satake inputs. It adds modularity of elliptic curves, the norm-residue and motivic K-theory stack, and Borel and syntomic regulators. FunctionFieldArithmetic adds only its own function-field class field theory, Chebotarev and automorphic layers plus scheme foundations."
+  },
+  {
+   "a": "ArakelovGeometryAndAbelianHeights",
+   "b": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Arakelov needs abelian schemes, Neron models and semistable reduction, PEL moduli with Faltings-Chai style compactifications and Shimura canonical models before Faltings heights can be compared. GlobalQuadraticForms needs class field theory and local quadratic-form invariants under Hasse-Minkowski, on a baseline that already covers its localizations and Witt theory."
+  }
+ ]
+}
