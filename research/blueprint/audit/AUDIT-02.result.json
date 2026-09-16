@@ -1618,6 +1618,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
        "note": "Constructs, for elliptic curves over a base, the fppf sheafified Picard functor of T -> Pic(E_T)/Pic(T), its zero-rigidified version, the degree-zero open-and-closed subfunctor, its representability and the normalized Poincare bundle."
+      },
+      {
+       "layer": "AlgebraicModuliForArithmeticGeometry:R09.2",
+       "note": "Owns the Hilbert and Quot schemes with representability, projectivity and base change, the Grothendieck route this layer states for the general Picard scheme."
       }
      ]
     },
@@ -3305,7 +3309,12 @@
        "note": "Neither the geometric statement nor its numerical input (0C9W/0C9X) exists."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+       "note": "Constructs the degree-zero Picard and generalised Jacobian of semistable curves, the toric character group from the dual graph and the component-group description related to the Neron model, overlapping the comparison of Picard groups of the special fibre with the numerical type and its torsion."
+      }
+     ]
     },
     "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction": {
      "verdict": "not built",
@@ -3411,6 +3420,10 @@
       {
        "layer": "SchemeAndStackFoundations:SF.4",
        "note": "Lists semistable reduction among its own constructions (unscoped), overlapping this layer's main target, although it says stable reduction should be routed through existing owners."
+      },
+      {
+       "layer": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+       "note": "Owns semistable reduction for abelian varieties after a finite extension with the monodromy criterion on the Tate module, which is the Jacobian half of this layer's curve-vs-Jacobian equivalence of semistable reduction."
       }
      ]
     },
@@ -5999,5 +6012,35 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-02",
+  "date": "2026-09-16",
+  "checked": 254,
+  "corrections": [
+   {
+    "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+    "target": "duplicates of layer 7 (semistable reduction)",
+    "was": "one duplicate listed (SchemeAndStackFoundations:SF.4)",
+    "now": "added NeronModelsAndSemistableAbelianVarieties:R11.3",
+    "why": "R11.3 proves semistable reduction for abelian varieties after a finite extension with the monodromy criterion and the uniformisation used for degenerating Jacobians; layer 7's last target is exactly the equivalence between semistable reduction of the curve and of its Jacobian, so the two layers state the same theorem from opposite sides."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion",
+    "target": "duplicates of layer 6 (numerical types and Picard torsion)",
+    "was": "no duplicates listed",
+    "now": "added NeronModelsAndSemistableAbelianVarieties:R11.4",
+    "why": "R11.4 constructs the degree-zero Picard group of semistable curves, reads the toric character group off the dual graph and describes the component group, overlapping targets [10] and [11] (line bundles on the special fibre, specialization maps and l-torsion) and the dual-graph side of the numerical type."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+    "target": "General Picard scheme of a projective variety via Hilbert/Quot schemes (Grothendieck), then specialize",
+    "was": "duplicates listed SF.3, AbelianSchemesAndArithmeticModuli:A2, AlgebraicModuliForArithmeticGeometry:A0-extension and ModularCurves 2D",
+    "now": "added AlgebraicModuliForArithmeticGeometry:R09.2",
+    "why": "R09.2 is the atlas owner of the Hilbert and Quot functors with representability, projectivity of the parameter morphism and base change; this target names that construction as its route, so the Hilbert/Quot half of it is owned there."
+   }
+  ],
+  "notes": "Checked all 254 targets. Mechanically: all 519 cited declarations exist in the pinned baseline at exactly the claimed library, file and line (no name, file or line is wrong); none of the 256 cited files contains the token sorry anywhere; no cited declaration is an axiom (191 def, 180 theorem, 46 structure, 36 abbrev, 31 lemma, 18 class, 17 instance). By source reading: the statements, hypotheses and generality of about sixty presence claims, covering every target of the four 'built' layers and of the 'partly built' ones, among them HodgeStructureOn and isInternal_piece, the three strictness theorems, map_latticeConj_deligneSplitting_sup_below (the fine conjugation relation, with deligneSplittingBelow p q = sup over r<p, s<q, so the index order of the claim is right), finsum_hodgeNumber_eq_finrank, the WeightOne eigenspace and converse constructions, Minkowski's two convex-body theorems and Blichfeldt (the whole of Mathlib's GeometryOfNumbers.lean is those three theorems), covolume_eq_det and the number-field covolumes, finrank_pic and natCard_torsion, AbelianVariety and its isogeny file, LineBundleClass, CartierDivisor and the Tau Ceti scheme-cohomology files. Independently re-searched every one of the 199 absent-or-partial targets by concept and by Mathlib naming convention against declarations.tsv and the Lean sources; the searches confirm the absences, including the ones with standard names: no successive minima or Minkowski II, no Witt or Grothendieck-Witt ring, no Hilbert symbol or Hasse invariant, no genus or spinor genus, no mass formula, representation density or theta series of a lattice, no LLL or shortest-vector API, no equidistribution, Ratner, Howe-Moore, Mahler compactness, Siegel mean value, packing density or Hermite constant, no hermitian K-theory; no syntomic or local-complete-intersection morphisms, no nodal morphisms, no dual graph, no coherent sheaves, dualizing sheaf, ampleness, effective Cartier divisors, relative Proj, blowup of a scheme (the Tau Ceti Plumbing blowUp files are plumbing-graph moves, as the audit says), intersection numbers, regular or minimal models, prestable/stable curves, clutching or stable maps; no Hochschild-Serre, lim^1, cohomological dimension, local invariant map, Poitou-Tate or Galois-cohomological Selmer group. Verdicts: the four 'built' layers (Hodge L0, L1, L3 and GN.0) and the ten 'partly built' ones are consistent with their layer descriptions; no verdict changed. Duplicates: all 94 resolve to real atlas stages, none of them in the retired FoundationsAndLibraryIntegration, and the overlap each claims is borne out by the cited stage's description; three were missing and are added above. Two candidates I considered and rejected: SelmerIwasawaCohomology:L1 imports Poitou-Tate from R02 and says it is 'not a second proof owner', and ShimuraData:D1 declares the HodgeStructures API as a dependency, so both are consumers rather than duplicates. One observation outside the audit's scope: the GN.0, GN.1, GN.5 and GN.6 layer descriptions still list FoundationsAndLibraryIntegration:LI.1-LI.4 among their inputs, and that roadmap was retired on 2026-09-16. The audit's note on the Hodge L2 conjugation relation is right to call the 2026-09-01 STATUS.md out of date: that file records the coarse relation modulo W_(p+q-2) and 'internal Hom untouched', while at the pinned commit both the fine relation and internalHom are proved."
  }
 }
