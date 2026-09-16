@@ -108,9 +108,16 @@
          "file": "TauCeti/NumberTheory/Modular/Stabilizer.lean",
          "line": 189,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.summatory",
+         "library": "tauceti",
+         "file": "TauCeti/Order/Northcott.lean",
+         "line": 82,
+         "fit": "related"
         }
        ],
-       "note": "Finite orbit-stabilizer and class-equation identities exist; there is no weighted counting function for infinite families ordered by height."
+       "note": "Finite orbit-stabilizer and class-equation identities exist (Mathlib), and Tau Ceti's summatory N w x sums an arbitrary weight w over the members of height at most x of any family with a natural-valued Northcott height N. No stabilizer or automorphism weights are attached to families of curves or forms, and real-valued heights are not covered."
       },
       {
        "target": "Finiteness at bounded height (Northcott property) before forming densities",
@@ -171,9 +178,16 @@
          "file": "Mathlib/Combinatorics/Schnirelmann.lean",
          "line": 55,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.summatory",
+         "library": "tauceti",
+         "file": "TauCeti/Order/Northcott.lean",
+         "line": 82,
+         "fit": "related"
         }
        ],
-       "note": "Only the natural density of sets of prime ideals (Tau Ceti) and Schnirelmann density of subsets of N (Mathlib) exist; no density of a subfamily of a height-ordered family."
+       "note": "Only the natural density of sets of prime ideals (Tau Ceti) and the Schnirelmann density of subsets of N (Mathlib) are defined. Tau Ceti's summatory function over a natural-valued Northcott height, with indicator weights for a subfamily and invariance of its difference under finite changes, is the counting carrier a density would be defined from, but no density of a subfamily of a height-ordered family is defined."
       }
      ],
      "duplicates": [
@@ -188,6 +202,10 @@
       {
        "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
        "note": "GN.3 also fixes finite stabilizer weights before weighted class counts (mass formulas)."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+       "note": "Owns the height of an elliptic curve over ℚ: shortEquationHeight = max(4|a₄|³, 27a₆²) on the unique minimal-pair integral short model, naiveHeight E with invariance under ℚ-isomorphism, and finiteness of isomorphism classes of bounded height. Not yet built."
       }
      ]
     },
@@ -375,6 +393,10 @@
       {
        "layer": "ExponentialSumsAndCircleMethod:ES.5",
        "note": "ES.5 counts integral points with explicit uniformity parameters, overlapping the uniform counting asked for here."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting",
+       "note": "Its 3A plans #(c • D ∩ Λ) = vol D / covol Λ · c^n + O(c^(n-1)) for bounded regions with Lipschitz-parametrizable frontier, the Lipschitz-principle counterpart of Davenport's lemma, and 3C counts in the non-compact fundamental cone of a unit group. Not yet built."
       }
      ]
     },
@@ -454,6 +476,10 @@
       {
        "layer": "AnalyticNumberTheory:AN.4",
        "note": "AN.4 connects ideal counting to the analytic class number formula, the class-number input that field and class-group counts consume."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one",
+       "note": "Defines Hurwitz class numbers H(D) by reduced forms: SL₂(ℤ)-classes of positive-definite binary quadratic forms of discriminant -D, weighted 1/2 and 1/3 at the forms with extra automorphisms, with the matrix-orbit to binary-quadratic-form correspondence and its automorphism weights. Not yet built."
       }
      ]
     },
@@ -872,6 +898,10 @@
       {
        "layer": "ProbabilisticAndMetricNumberTheory:PM.4",
        "note": "PM.4 also constructs continued-fraction expansions, from the metric side."
+      },
+      {
+       "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+       "note": "GN.1 proves Minkowski's first and second theorems (the first is already in Mathlib), the convex-body half of this layer's geometry-of-numbers target; DT.0 declares GN.1 as an input and owns only the passage to Dirichlet approximation."
       }
      ]
     },
@@ -1009,7 +1039,7 @@
          "fit": "related"
         },
         {
-         "name": "exist_unique_eq_mul_prod",
+         "name": "NumberField.Units.exist_unique_eq_mul_prod",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
          "line": 506,
@@ -1070,9 +1100,23 @@
          "file": "Mathlib/RingTheory/AlgebraicIndependent/Basic.lean",
          "line": 45,
          "fit": "exact"
+        },
+        {
+         "name": "Complex.dist_le_mul_div_pow_of_mapsTo_ball_of_isLittleO",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/Schwarz.lean",
+         "line": 145,
+         "fit": "related"
+        },
+        {
+         "name": "MeromorphicOn.circleAverage_log_norm",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/JensenFormula.lean",
+         "line": 308,
+         "fit": "related"
         }
        ],
-       "note": "The field-theoretic predicates and transcendence degree are in Mathlib; the analytic transcendence machinery (auxiliary functions, Schwarz-lemma extrapolation, zero estimates) is not."
+       "note": "The field-theoretic predicates and transcendence degree are in Mathlib, as are two analytic inputs of the auxiliary-function method: the Schwarz lemma for a function vanishing to order n at the centre of a disc, and Jensen's formula. The auxiliary-function constructions, the multi-point Schwarz-lemma extrapolation and zero (multiplicity) estimates are not."
       },
       {
        "target": "Hermite-Lindemann and Lindemann-Weierstrass (Baker's form), with transcendence of e and pi",
@@ -1119,20 +1163,43 @@
          "fit": "related"
         },
         {
-         "name": "TauCeti.logBranch",
+         "name": "Complex.exists_continuousOn_eqOn_exp_comp",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/BranchLogRoot.lean",
+         "line": 37,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.exists_differentiableOn_eqOn_exp_comp",
          "library": "tauceti",
          "file": "TauCeti/Analysis/Complex/BranchLogRoot.lean",
-         "line": 102,
+         "line": 155,
          "fit": "related"
         }
        ],
-       "note": "The principal complex logarithm and a branch-log construction exist; no p-adic logarithm is in either library."
+       "note": "The principal complex logarithm (Mathlib), a continuous branch of log of a nonvanishing function on a simply connected open set (Mathlib) and its holomorphic upgrade (Tau Ceti) exist. No p-adic logarithm is in either library: Tau Ceti's NormedSpace.logOneAdd series is proved to converge only over fields with ContinuousSMul ℚ≥0, which excludes ℚ_p."
       }
      ],
      "duplicates": [
       {
        "layer": "EffectiveDiophantineMethods:ED.2",
        "note": "ED.2 imports exactly these archimedean and p-adic logarithmic-form bounds, with their constants and hypotheses."
+      },
+      {
+       "layer": "IntegralIwasawaTheory:L4",
+       "note": "L4 makes the Baker-Brumer theorem, p-adic linear independence of p-adic logarithms of algebraic numbers with its auxiliary-polynomial transcendence argument, a named deliverable (for abelian Leopoldt): the qualitative p-adic case of this layer's linear forms in logarithms."
+      },
+      {
+       "layer": "DirichletPadicLFunctions:L3",
+       "note": "L3 fixes the branch log_p(p) = 0 of the p-adic logarithm compatibly on all algebraic extensions and uses the complex logarithmic formula for L(1, χ): the chosen complex and p-adic logarithms of this layer's last target."
+      },
+      {
+       "layer": "ColemanIntegration:L0",
+       "note": "L0 constructs the p-adic logarithm with log_p(p) = 0 on annuli and records how another branch changes it."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+       "note": "Its deep-unit milestone constructs localLogarithm and localExponential on a finite extension of ℚ_p, inverse isomorphisms U(K,i) ≃ 𝔪^i for (p − 1)i > e: the Tau Ceti roadmap home of a p-adic logarithm (convergent domain only, no branch choice). Not yet built."
       }
      ]
     },
@@ -1264,6 +1331,14 @@
       {
        "layer": "ArithmeticDynamics:DY.6",
        "note": "DY.6 also lists dynamical unlikely intersections as source-bound endpoints."
+      },
+      {
+       "layer": "PeriodsAndSpecialValues:PS.7",
+       "note": "PS.7 maintains the period, Beilinson and higher-rank special-value conjectures as statements with dependency gates (PS.2 builds the formal periods and says the numerical period conjecture is not a consequence of them): the period-conjecture statements this layer coordinates with PS."
+      },
+      {
+       "layer": "DrinfeldModulesAndTModules:DM.8",
+       "note": "DM.8 proves Papanikolas's algebraic independence of Carlitz logarithms through Frobenius-difference Galois groups: the function-field analogue of the algebraic independence theorems of this layer. Parallel rather than shared."
       }
      ]
     }
@@ -1381,6 +1456,10 @@
       {
        "layer": "QSeriesPartitionsAndMockModularForms:QM.2",
        "note": "QM.2 also develops Kloosterman-sum estimates for the Rademacher series."
+      },
+      {
+       "layer": "FiniteFieldsAndCharacterSums:FF.2",
+       "note": "FF.2 states the Weil and Deligne square-root bounds for polynomial and rational exponential sums, with nontriviality and conductor conditions: the bounds this layer's finite-field interface target asks for, and ES.0's declared input."
       }
      ]
     },
@@ -1573,7 +1652,7 @@
          "fit": "related"
         }
        ],
-       "note": "One-variable Hensel over Z_p, Chevalley-Warning over finite fields and an abstract lifting property (maps from a formally smooth algebra lift along an adically complete ring; declared public lemma, so absent from the declaration index) exist; the multivariable Hensel lift of a nonsingular zero in usable form and density positivity are not stated."
+       "note": "One-variable Hensel over Z_p, Chevalley-Warning over finite fields and an abstract lifting property (maps from a formally smooth algebra lift along an adically complete ring) exist; the multivariable Hensel lift of a nonsingular zero in usable form and density positivity are not stated."
       },
       {
        "target": "Major-arc approximation of exponential sums by S(q,a) v(beta)",
@@ -2710,5 +2789,133 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-07",
+  "date": "2026-09-16",
+  "checked": 141,
+  "corrections": [
+   {
+    "layer": "DiophantineApproximationAndTranscendence:DT.2",
+    "target": "S-unit equations: finiteness of solutions of x + y = 1 (and of nondegenerate sums) in S-units",
+    "was": "cites exist_unique_eq_mul_prod (Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean:506)",
+    "now": "cites NumberField.Units.exist_unique_eq_mul_prod at the same file and line",
+    "why": "The theorem is declared inside namespace NumberField.Units (opened at line 50, closed at line 535), so the bare name does not resolve. The bare name comes from the superseded index declarations.before-public-fix.tsv; the pinned declarations.tsv has the full name, and the note already used it."
+   },
+   {
+    "layer": "DiophantineApproximationAndTranscendence:DT.3",
+    "target": "Chosen complex or p-adic logarithms",
+    "was": "cites TauCeti.logBranch (TauCeti/Analysis/Complex/BranchLogRoot.lean:102) as the branch-log construction",
+    "now": "cites Complex.exists_continuousOn_eqOn_exp_comp (Mathlib/Analysis/Complex/BranchLogRoot.lean:37) and TauCeti.exists_differentiableOn_eqOn_exp_comp (TauCeti/Analysis/Complex/BranchLogRoot.lean:155), both related; note updated",
+    "why": "logBranch is a private noncomputable def, invisible outside its file, and the only private declaration cited in this audit. The public results of that file are the holomorphic branch of log ∘ g on a simply connected open set, built on Mathlib's continuous branch. The note now also says why Tau Ceti's log(1 + u) series does not supply a p-adic logarithm."
+   },
+   {
+    "layer": "DiophantineApproximationAndTranscendence:DT.3",
+    "target": "Exponential and algebraic independence tools: transcendence and algebraic independence predicates, transcendence degree, auxiliary functions and zero estimates",
+    "was": "note: the analytic transcendence machinery (auxiliary functions, Schwarz-lemma extrapolation, zero estimates) is not in Mathlib; only the three field-theoretic citations",
+    "now": "added Complex.dist_le_mul_div_pow_of_mapsTo_ball_of_isLittleO (Mathlib/Analysis/Complex/Schwarz.lean:145) and MeromorphicOn.circleAverage_log_norm (Mathlib/Analysis/Complex/JensenFormula.lean:308) as related; note separates these from the missing multi-point extrapolation and zero estimates; still partial",
+    "why": "Mathlib proves that an analytic f on ball c R1 with values in closedBall (f c) R2 and f - f c = o(|w - c|^n) satisfies dist (f z) (f c) <= R2 (dist z c / R1)^(n+1), the one-point Schwarz lemma with multiplicity, and Jensen's formula. The note's blanket statement read as if no Schwarz lemma existed."
+   },
+   {
+    "layer": "ArithmeticStatistics:ST.0",
+    "target": "Weighted versus unweighted counts: orbit counts weighted by 1/#stabilizer or 1/#Aut",
+    "was": "note: there is no weighted counting function for infinite families ordered by height",
+    "now": "added TauCeti.summatory (TauCeti/Order/Northcott.lean:82) as related; note rewritten; still partial",
+    "why": "TauCeti.summatory N w x is the sum of w over TauCeti.normLE N x, the finite set of indices with N i <= x, for any N : ι → ℕ with Mathlib's Northcott property and any weight w. It is exactly a weighted count over an infinite height-ordered family (Tau Ceti's prime counts primeTheta and primeCount specialise it), so the claim was false; the target stays partial because no orbit or automorphism weighting of curves or forms is set up."
+   },
+   {
+    "layer": "ArithmeticStatistics:ST.0",
+    "target": "Asymptotic densities of subfamilies ordered by height",
+    "was": "two related citations (prime-ideal natural density, Schnirelmann density); the generic height-ordered count not mentioned",
+    "now": "added TauCeti.summatory (TauCeti/Order/Northcott.lean:82) as related; note says it is the carrier but no density is defined; still partial",
+    "why": "The same file proves eventually_summatory_indicator_sub_eq (a subfamily changed on a finite set changes its count by an eventually constant amount), the step a density of a subfamily needs; Tau Ceti's prime-ideal density is built on this carrier."
+   },
+   {
+    "layer": "ExponentialSumsAndCircleMethod:ES.3",
+    "target": "Positivity of local densities from nonsingular local solutions (Hensel lifting; real density)",
+    "was": "note: the formally smooth lifting lemma is a declared public lemma, so absent from the declaration index",
+    "now": "remark removed; the mathematical note is unchanged",
+    "why": "The pinned declarations.tsv, regenerated after the public-declaration fix, indexes Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete at Mathlib/RingTheory/Smooth/AdicCompletion.lean:94. Only the superseded declarations.before-public-fix.tsv lacked it."
+   },
+   {
+    "layer": "ArithmeticStatistics:ST.0",
+    "target": "(layer duplicates)",
+    "was": "duplicates: HeightsRationalPointsAndObstructions:RP.0; DiophantineApproximationAndTranscendence:DT.0; GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+    "now": "added tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+    "why": "EllipticCurves Layer 8 plans exactly the naive height max(4|A|^3, 27B^2) of E_{A,B} that orders the Bhargava-Shankar family, the minimal-pair model that makes it an invariant of the isomorphism class, and the bounded-height finiteness theorem, three of this layer's targets. Neither library has it yet (no shortEquationHeight or IsMinimalPairNF in the baseline)."
+   },
+   {
+    "layer": "ArithmeticStatistics:ST.2",
+    "target": "(layer duplicates)",
+    "was": "duplicates: GeometryOfNumbersAndQuadraticArithmetic:GN.4; ExponentialSumsAndCircleMethod:ES.5",
+    "now": "added tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting",
+    "why": "GlobalNumberFields Layer 3A is the only other atlas layer that plans a lattice-point count with an explicit error term, which Mathlib lacks (the audit's own note), and 3C applies it inside a non-compact fundamental domain for a group action, the setting of this layer's first target. Nothing of it is in the baseline (no card_inter_smul_isBigO or IsLipschitzParametrizable)."
+   },
+   {
+    "layer": "ArithmeticStatistics:ST.3",
+    "target": "(layer duplicates)",
+    "was": "duplicates: AnalyticNumberTheory:AN.4",
+    "now": "added tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one",
+    "why": "The audit notes that neither library has class numbers of binary quadratic forms; ModularForms Layer 11 plans exactly those class numbers, with the stabilizer weighting of ST.0, as the input to the Eichler-Selberg trace formula. They are the summands of this layer's Mertens-Siegel class-number sum."
+   },
+   {
+    "layer": "DiophantineApproximationAndTranscendence:DT.0",
+    "target": "(layer duplicates)",
+    "was": "duplicates: HeightsRationalPointsAndObstructions:RP.0; ArithmeticStatistics:ST.0; tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula; ProbabilisticAndMetricNumberTheory:PM.4",
+    "now": "added GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+    "why": "This layer's sixth target names Minkowski's convex body theorem, and GN.1 is the atlas owner of Blichfeldt and Minkowski's first and second theorems; the overlap is in the target itself, not only in the dependency edge."
+   },
+   {
+    "layer": "DiophantineApproximationAndTranscendence:DT.3",
+    "target": "(layer duplicates)",
+    "was": "duplicates: EffectiveDiophantineMethods:ED.2",
+    "now": "added IntegralIwasawaTheory:L4",
+    "why": "IntegralIwasawaTheory L4 explicitly schedules the proof of Brumer's p-adic analogue of Baker's theorem, with its transcendence argument, and says it could be packaged elsewhere. That is the p-adic, qualitative part of this layer's Baker target, so the two layers would build the same auxiliary-polynomial argument."
+   },
+   {
+    "layer": "DiophantineApproximationAndTranscendence:DT.3",
+    "target": "(layer duplicates)",
+    "was": "duplicates: EffectiveDiophantineMethods:ED.2; IntegralIwasawaTheory:L4",
+    "now": "added DirichletPadicLFunctions:L3",
+    "why": "DT.3's last target is chosen complex or p-adic logarithms, and the audit notes that no p-adic logarithm exists. DirichletPadicLFunctions L3 constructs the Iwasawa branch on all algebraic extensions, which is the logarithm p-adic linear forms are written in."
+   },
+   {
+    "layer": "DiophantineApproximationAndTranscendence:DT.3",
+    "target": "(layer duplicates)",
+    "was": "duplicates: EffectiveDiophantineMethods:ED.2; IntegralIwasawaTheory:L4; DirichletPadicLFunctions:L3",
+    "now": "added ColemanIntegration:L0",
+    "why": "A second atlas construction of the chosen p-adic logarithm branch, with branch dependence recorded, overlapping DT.3's last target."
+   },
+   {
+    "layer": "DiophantineApproximationAndTranscendence:DT.3",
+    "target": "(layer duplicates)",
+    "was": "duplicates: EffectiveDiophantineMethods:ED.2; IntegralIwasawaTheory:L4; DirichletPadicLFunctions:L3; ColemanIntegration:L0",
+    "now": "added tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+    "why": "LocalFieldsRamification Layer 1 is the Tau Ceti roadmap that plans a p-adic logarithm, as named submilestones (localLogarithm, deepUnitExpLogEquiv); it records that the pinned Mathlib has none, which agrees with the audit's note."
+   },
+   {
+    "layer": "DiophantineApproximationAndTranscendence:DT.5",
+    "target": "(layer duplicates)",
+    "was": "duplicates: LogicAndDefinabilityInNumberTheory:LD.6; HeightsRationalPointsAndObstructions:RP.5; ArithmeticDynamics:DY.6",
+    "now": "added PeriodsAndSpecialValues:PS.7",
+    "why": "DT.5's own text says to coordinate period statements with PS, and its last target is the period conjecture stated as an explicit hypothesis; PS.7 is the layer that maintains that statement, and the audit listed only the RP, LD and DY coordination partners."
+   },
+   {
+    "layer": "DiophantineApproximationAndTranscendence:DT.5",
+    "target": "(layer duplicates)",
+    "was": "duplicates: LogicAndDefinabilityInNumberTheory:LD.6; HeightsRationalPointsAndObstructions:RP.5; ArithmeticDynamics:DY.6; PeriodsAndSpecialValues:PS.7",
+    "now": "added DrinfeldModulesAndTModules:DM.8",
+    "why": "DM.8 is the atlas's other algebraic-independence layer, in positive characteristic, where the analogue of the Schanuel-type statement DT.5 keeps conditional is a theorem; recorded as a parallel development, as earlier reviews did for function-field analogues."
+   },
+   {
+    "layer": "ExponentialSumsAndCircleMethod:ES.0",
+    "target": "(layer duplicates)",
+    "was": "duplicates: FiniteFieldsAndCharacterSums:FF.1; FiniteFieldsAndCharacterSums:FF.5; ProbabilisticAndMetricNumberTheory:PM.2; QSeriesPartitionsAndMockModularForms:QM.2",
+    "now": "added FiniteFieldsAndCharacterSums:FF.2",
+    "why": "The audit lists FF.1 (Gauss and Jacobi sums) and FF.5 (certificates) but not FF.2, which owns the other half of the interface target, the Weil-type square-root bounds for Kloosterman and polynomial sums that the audit records as absent."
+   }
+  ],
+  "notes": "Checked all 141 targets of the 30 layers. Mechanically: the 188 citations (173 distinct declarations in 126 files) all exist at the claimed library, file and line; every full name was recomputed from the namespaces of its source file, and one was wrong (exist_unique_eq_mul_prod, really NumberField.Units.exist_unique_eq_mul_prod). One cited declaration, TauCeti.logBranch, is private and was replaced by the public theorems of the same file. Nothing cited is an axiom or a bare structure field. No cited file contains a sorry token, and the only sorry tokens anywhere in Tau Ceti are eleven mentions in docstrings, so no cited Tau Ceti result depends on sorry. The name error and a stale remark in ES.3 both come from the superseded pre-fix declaration index: it had the bare name and lacked the public lemma Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete, which the pinned declarations.tsv now has. Presence claims: the statement of every citation was read against its target, and all 19 present targets were checked in the source. These include selmerGroup₂ (the kernel of the norm class cut by the local conditions, each the preimage of the local descent image, over any Dedekind domain), weak Mordell-Weil for the characteristic-not-2 normal form and Mordell-Weil for every elliptic curve over a number field, the rank bound for any finite subgroup containing the descent image, Mathlib's Height and Northcott API with the degree-normalised absolute height, Legendre's convergent criterion, Dirichlet's theorem, Liouville's inequality, both forms of Siegel's lemma, torus and finite-group character orthogonality, BoundingSieve and the Lambda-squared upper-bound sieve, Dirichlet conductors and primitive characters, and the Borel-Cantelli lemmas. They hold. Verdicts: this batch has no built or process layer. Each layer is partly built exactly when at least one target is present, consistently across all 30. Absences: all 122 absent or partial targets were searched again by concept, under Mathlib naming conventions and synonyms, over the index and the Lean sources of both libraries. Two notes were wrong about what exists. Tau Ceti's TauCeti.summatory (Order/Northcott.lean) is a weighted count over any family ordered by a natural-valued Northcott height, contrary to ST.0. Mathlib has the Schwarz lemma with an order of vanishing and Jensen's formula, which the DT.3 note implied were missing. Neither changes a status. Searches that could have gone the other way did not: the Hasse bound is not proved (only homogeneity of the degree form, deg(1 - Frobenius) = #E, and a pencil bound whose hypothesis nothing supplies); Lindemann-Weierstrass has only its analytic part; Tau Ceti's log(1 + u) series is proved to converge only under ContinuousSMul ℚ≥0, which excludes ℚ_p; Mathlib's Padics/Measure files are abstract functionals, not Haar measures; there are only mean ergodic theorems, no pointwise one; Tau Ceti's 'mixing measures' belong to de Finetti; the Selberg sieve file has no Legendre identity, and its level is used by nothing; nothing outside SelmerGroup.lean mentions selmerGroup₂, so its finiteness is not stated; and there is no divisor bound, multivariable Hensel lemma, Waring or Hasse-Minkowski theorem, binary quadratic form class number, equidistribution notion, Mertens asymptotic or large sieve. Duplicates: all 59 name live, unretired atlas layers, and each claimed overlap is supported by that layer's own description. Eleven were missing and are added: EllipticCurves layer 8 (the curve height max(4|A|^3, 27B^2)) to ST.0, GlobalNumberFields layer 3 (lattice counts with error term) to ST.2, ModularForms layer 11 (Hurwitz class numbers) to ST.3, GN.1 to DT.0, IntegralIwasawaTheory L4, DirichletPadicLFunctions L3, ColemanIntegration L0 and LocalFieldsRamification layer 1 to DT.3, PS.7 and DM.8 to DT.5, and FF.2 to ES.0. Considered and not added: ML.3 and DY.4 (other equidistribution theorems, the first only consuming a Weyl criterion), ED.5 (the Mordell-Weil sieve), AA.2 (Tamagawa measures, not the Tamagawa number of PGL2), AN.2 (PNT in a fixed progression, not uniform in the modulus), EllipticCurves layer 4.5a (Weierstrass rather than binary-quartic invariants) and IG.5 (no counting)."
  }
 }

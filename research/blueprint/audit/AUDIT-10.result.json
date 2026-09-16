@@ -1,0 +1,4535 @@
+{
+ "job": "AUDIT-10",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "ModularCurvesPartII": {
+   "summary": "Neither library contains a modular curve in any form: Tau Ceti's Katz–Mazur roadmap (#81) has no Lean code at this baseline, and there are no generalised elliptic curves, Tate curves, Jacobians, Weil pairings or algebraic stacks, and ℓ-adic cohomology of schemes exists only as Mathlib's bare pro-étale definition. What exists is analytic and group-theoretic: Mathlib's Weierstrass ℘-function with g₂, g₃ and ℘'² = 4℘³ − g₂℘ − g₃, congruence subgroups, cusps with finitely many orbits and widths, q-expansions and their injectivity; Tau Ceti's stabiliser orders at elliptic points, and a large analytic Hecke theory (T_n, diamond and degeneracy operators, q-expansion formulas, newforms, strong multiplicity one). Two geometric inputs of R12.4 are already in Tau Ceti: connectedness of an algebra over an algebraically closed field survives field extension, and connected schemes with domain stalks are irreducible. Everything else — uniformisation, the algebraic/analytic comparison, compactified moduli, integral models, Hecke correspondences, cohomology, Ihara's lemma and A_f — is genuinely missing.",
+   "layers": {
+    "ModularCurvesPartII:R12.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Complex analytic manifold (compact Riemann surface) attached to a smooth projective Weierstrass curve over ℂ",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.instAddCommGroup",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+         "line": 807,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the group of nonsingular points of a Weierstrass curve over a field, but no topology, charts or complex-manifold structure on E(ℂ) and no analytification of schemes in either library (grep for analytification/GAGA is empty)."
+      },
+      {
+       "target": "Uniformisation ℂ/Λ ≅ E_Λ(ℂ) by z ↦ (℘(z), ℘'(z)), compatible with the origin and the group law",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PeriodPair.weierstrassP",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 268,
+         "fit": "related"
+        },
+        {
+         "name": "PeriodPair.derivWeierstrassP",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 519,
+         "fit": "related"
+        },
+        {
+         "name": "PeriodPair.periodic_weierstrassP",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 499,
+         "fit": "related"
+        },
+        {
+         "name": "PeriodPair.order_weierstrassP",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 921,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib constructs ℘ and ℘' of a lattice, proves they are periodic, meromorphic, and that ℘ has a double pole exactly at lattice points; there is no map to the points of a Weierstrass curve, no bijectivity and no addition theorem."
+      },
+      {
+       "target": "Converse Weierstrass construction: the curve y² = 4x³ − g₂x − g₃ of a lattice, with ℘'² = 4℘³ − g₂℘ − g₃ and nonvanishing discriminant",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "PeriodPair",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 60,
+         "fit": "related"
+        },
+        {
+         "name": "PeriodPair.lattice",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "PeriodPair.g₂",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 957,
+         "fit": "exact"
+        },
+        {
+         "name": "PeriodPair.g₃",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 960,
+         "fit": "exact"
+        },
+        {
+         "name": "PeriodPair.derivWeierstrassP_sq",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 1075,
+         "fit": "exact"
+        }
+       ],
+       "note": "The lattice invariants g₂ = 60G₄, g₃ = 140G₆ and the differential equation are proved for lattices spanned by an ℝ-independent pair. Missing: g₂³ − 27g₃² ≠ 0, the resulting `WeierstrassCurve ℂ`, and the statement that every elliptic curve over ℂ arises from a lattice (surjectivity of j on ℍ)."
+      },
+      {
+       "target": "Invariance under homothety: G_k(cΛ) = c⁻ᵏG_k(Λ), so the curve depends on Λ only up to scaling",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PeriodPair.G",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 945,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.j",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+         "line": 389,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.exists_variableChange_of_j_eq",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/IsomOfJ.lean",
+         "line": 331,
+         "fit": "related"
+        }
+       ],
+       "note": "`PeriodPair` carries no scaling operation and no lemma relates G_k of homothetic lattices; the file's own TODO says the lattice Eisenstein series is not yet linked to `ModularForm`. On the curve side Mathlib proves curves with equal j over a separably closed field are isomorphic by a change of variables."
+      },
+      {
+       "target": "Comparison of the algebraic invariant differential and periods with dz on ℂ/Λ",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.invariantDifferential",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/InvariantDifferential.lean",
+         "line": 105,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.Hom.pullbackDifferential_add_invariantDifferential",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Differential.lean",
+         "line": 116,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti defines ω = dx/(2y + a₁x + a₃) as a basis of the Kähler differentials of the function field over any field and proves (f + g)*ω = f*ω + g*ω for isogenies; there is no integration, period lattice or comparison with dz."
+      },
+      {
+       "target": "Scheme-theoretic Weil pairing on E[N] and its comparison with the analytic formula on (1/N)Λ/Λ",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.card_ker_mulByIntIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/KernelCard.lean",
+         "line": 117,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.exists_principal_zsmul_pointPlace_sub_infinity",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/TorsionDivisor.lean",
+         "line": 42,
+         "fit": "related"
+        }
+       ],
+       "note": "No Weil pairing exists in either library. Tau Ceti has only preparatory inputs for its divisor construction — n(T) − n(O) is principal at an n-torsion point, and divisor-evaluation lemmas — and proves #ker[n] = n² over an algebraically closed field with n invertible."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EllipticRegulators:ER.1",
+       "note": "Constructs the complex manifold of an elliptic curve, proves E(ℂ) ≅ ℂ/Λ and identifies invariant differentials and period lattices: the same uniformisation targets."
+      },
+      {
+       "layer": "ComplexComparisonPartII:C6",
+       "note": "Its acceptance tests compute the Hodge line and invariant differential of a complex elliptic curve, overlapping the differential/period comparison here."
+      }
+     ]
+    },
+    "ModularCurvesPartII:R12.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Classification of full, Γ₁(N) and Γ₀(N) level structures on ℂ/Λ_τ and the resulting moduli description of Γ(N)\\ℍ, Γ₁(N)\\ℍ, Γ₀(N)\\ℍ with functorial action",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CongruenceSubgroup.Gamma",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+         "line": 41,
+         "fit": "related"
+        },
+        {
+         "name": "CongruenceSubgroup.Gamma0",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "CongruenceSubgroup.Gamma1",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+         "line": 131,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines the three congruence subgroups of SL(2,ℤ) and their action on ℍ, but neither library has level structures on elliptic curves (naive or Drinfeld) or any moduli interpretation of the orbit spaces; Tau Ceti's Katz–Mazur roadmap (#81) has no Lean code at this baseline."
+      },
+      {
+       "target": "Identification of the ordered-basis determinant (Weil pairing) with the chosen primitive N-th root of unity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on a Weil pairing, which neither library has."
+      },
+      {
+       "target": "Automorphisms at elliptic points and the fine/coarse distinction at small level",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ModularGroup.ellipticOrder",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Modular/Stabilizer.lean",
+         "line": 239,
+         "fit": "related"
+        },
+        {
+         "name": "Subgroup.instIsCyclicStabilizer",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Fuchsian/Stabilizer.lean",
+         "line": 45,
+         "fit": "related"
+        },
+        {
+         "name": "Subgroup.IsArithmetic.properlyDiscontinuous",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/ProperlyDiscontinuous.lean",
+         "line": 31,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.autGroupMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Aut.lean",
+         "line": 222,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti computes the SL(2,ℤ) stabiliser orders (4 at i, 6 at ρ, 2 elsewhere), proves point stabilisers of Fuchsian groups are finite cyclic, and proves Aut(E) ≅ ℤ/2 when j ∉ {0, 1728}; Mathlib proves arithmetic subgroups act properly discontinuously. The matching of stabilisers with Aut(E, level structure) and any fine/coarse statement are absent."
+      },
+      {
+       "target": "The analytic comparison map is an isomorphism of complex analytic spaces, not only a bijection on points",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MulAction.instChartedSpaceQuotient",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Manifold/Instances/Quotient.lean",
+         "line": 48,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib gives a charted-space structure only on quotients by free properly discontinuous actions (its TODO lists the manifold structure); there is no complex structure on Γ\\ℍ at elliptic points and no analytification of the algebraic curves."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraVarieties:V8",
+       "note": "Identifies the fibre of the GL₂ Shimura variety over ζ with Y(N,ζ) and its analytification with Γ(N)\\ℍ, with Γ₁/Γ₀ fine/coarse comparisons: the same identification in adelic language."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
+       "note": "Builds the coarse quotient Riemann surface with its elliptic-point charts, which is the analytic quotient R12.2 derives."
+      }
+     ]
+    },
+    "ModularCurvesPartII:R12.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Local parameter at each cusp and the cusp width",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsCusp",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Cusps.lean",
+         "line": 58,
+         "fit": "related"
+        },
+        {
+         "name": "CuspOrbits",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Cusps.lean",
+         "line": 168,
+         "fit": "related"
+        },
+        {
+         "name": "Subgroup.strictWidthInfty",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Cusps.lean",
+         "line": 321,
+         "fit": "exact"
+        },
+        {
+         "name": "Function.Periodic.qParam",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/Periodic.lean",
+         "line": 40,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Subgroup.integerCuspWidth",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Cusps/Basic.lean",
+         "line": 143,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib defines cusps as parabolic fixed points, proves finiteness of cusp orbits for arithmetic subgroups, the strict width at ∞ (with its values for Γ₀, Γ₁, Γ) and the parameter q = exp(2πiz/h); Tau Ceti adds the integer width of a finite-index subgroup. Widths at other cusps are only reachable by conjugating to ∞, and q is not a chart of a compactified quotient."
+      },
+      {
+       "target": "Comparison of the analytic cusp width and parameter with the Tate parameter of the algebraic curve",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no Tate curve (analytic or formal) in either library."
+      },
+      {
+       "target": "Identification of the compact analytic curve with the analytification of the algebraic compactification (PR81 Layer 10 or R13.4a), extending the affine isomorphism",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.normalization",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Normalization.lean",
+         "line": 123,
+         "fit": "related"
+        }
+       ],
+       "note": "No compactified quotient Riemann surface X(Γ), no algebraic compactified modular curve and no analytification exist; Mathlib's relative normalization, the carrier PR81 Layer 10 uses for X_H, is present."
+      },
+      {
+       "target": "Scheme-theoretic cusp locus of the coarse curve (not assumed reduced)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No modular curve schemes exist to carry a cusp locus."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates",
+       "note": "Constructs the normalised cusp datum, its width w and the coordinate q = exp(2πiσ(z)/w) at every cusp: the analytic local-parameter target."
+      },
+      {
+       "layer": "ShimuraVarieties:V8",
+       "note": "Compares the GL₂ minimal compactifications, cusp loci and Tate parameters through R13.4a/R13.4b."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+       "note": "Computes the cusps of X_H via the Tate parameter (KM 8.11) for prime N ≥ 5 diamond quotients, the class R12.3 reuses."
+      }
+     ]
+    },
+    "ModularCurvesPartII:R12.4": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Connectedness of the fixed-pairing analytic quotient Γ(N)\\ℍ",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "UpperHalfPlane.instContractibleSpace",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/UpperHalfPlane/Topology.lean",
+         "line": 67,
+         "fit": "more general"
+        },
+        {
+         "name": "Quotient.instConnectedSpace",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Connected/Basic.lean",
+         "line": 740,
+         "fit": "more general"
+        }
+       ],
+       "note": "ℍ is contractible, hence connected, and every quotient of a connected space is connected, so the orbit space of any subgroup is connected by instance search. (The contractibility instance is anonymous; its name is Lean's generated one.) Nothing is stated for the modular quotient as a Riemann surface."
+      },
+      {
+       "target": "(i) Invariance of geometric connectedness of the finite-type curve under the algebraically closed extension Q̄ → ℂ",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.connectedSpace_primeSpectrum_tensorProduct_of_isAlgClosed",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Idempotents/Connected/ScalarExtension.lean",
+         "line": 64,
+         "fit": "more general"
+        },
+        {
+         "name": "AlgebraicGeometry.GeometricallyConnected",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Geometrically/Connected.lean",
+         "line": 40,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves that Spec A connected over an algebraically closed field stays connected after any field extension, with no finite-type or reducedness hypothesis — the hard direction for the affine curves Y(N,ζ). The reverse direction (connected over ℂ ⇒ over Q̄) and a scheme-level statement for non-affine curves are not stated; Mathlib only defines geometric connectedness."
+      },
+      {
+       "target": "(ii) Analytic isomorphism of the complex twisted curve Y(ρ)_ℂ with its congruence quotient of ℍ",
+       "library": "absent",
+       "declarations": [],
+       "note": "Needs R12.2 and the twisted curve of PR81 §5C, neither of which exists."
+      },
+      {
+       "target": "(iii) Transfer of analytic connectedness to the algebraic curve via the smooth affine curve comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "No analytification or algebraic/analytic connectedness comparison exists (ComplexComparisonPartII C4 is unbuilt)."
+      },
+      {
+       "target": "Geometric irreducibility from smoothness and connectedness",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.irreducibleSpace_of_connected_of_isDomain_stalk",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/IrreducibleOfConnectedDomainStalk.lean",
+         "line": 395,
+         "fit": "more general"
+        }
+       ],
+       "note": "Tau Ceti proves a locally noetherian connected scheme whose stalks are domains is irreducible. That smooth (regular) stalks are domains is not available (no IsRegularLocalRing → IsDomain in Mathlib), and the twisted-curve identification and determinant compatibility are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#5c-the-twisted-curve-yρ",
+       "note": "PR81 §5C owns the connected ⇒ irreducible leaf for smooth curves over an algebraically closed field and records statements (i)–(iii) of this layer, word for word, as its external connectedness contract."
+      },
+      {
+       "layer": "ComplexComparisonPartII:C4",
+       "note": "Exports the algebraic-versus-analytic connectedness comparison for smooth affine complex curves required by PR81 §5C, which is item (iii) here."
+      }
+     ]
+    },
+    "ModularCurvesPartII:R12.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Weight-two cusp forms ≅ regular (holomorphic) differentials on the compact curve",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CuspForm",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+         "line": 82,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.weilDifferentialSpace",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Differential/Weil.lean",
+         "line": 211,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.finrank_weilDifferentialSpace",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Differential/Dimension.lean",
+         "line": 245,
+         "fit": "related"
+        }
+       ],
+       "note": "Cusp forms exist (Mathlib) and Tau Ceti has Weil differentials of an algebraic function field with dim_F Ω_F = 1, but there is no compact modular curve, no differential forms on Riemann surfaces and no identification S₂(Γ) ≅ H⁰(X(Γ), Ω¹)."
+      },
+      {
+       "target": "Hodge bundle ω matched with the automorphy factor (cτ + d) on ℍ",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Hodge bundle or line bundle on a modular curve exists; the automorphy factor appears only inside Mathlib's slash action."
+      },
+      {
+       "target": "q-expansion of f(q) dq/q and scalar conventions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "UpperHalfPlane.qExpansion",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/QExpansion.lean",
+         "line": 162,
+         "fit": "related"
+        },
+        {
+         "name": "ModularForm.qExpansion_injective",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/QExpansion.lean",
+         "line": 661,
+         "fit": "related"
+        }
+       ],
+       "note": "The analytic q-expansion of a modular form and its injectivity are in Mathlib; the differential f(q) dq/q and the comparison of scalars do not exist."
+      },
+      {
+       "target": "Pullback and trace along the basic isogeny correspondences compared with the arithmetic Hecke action",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.heckeTCuspNat",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Operators.lean",
+         "line": 89,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.qExpansion_coeff_heckeRingHomCuspCharSpace_heckeTCompositeGamma0",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Nebentypus/CoefficientFormula.lean",
+         "line": 114,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CuspForm.levelRaise",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Degeneracy.lean",
+         "line": 362,
+         "fit": "related"
+        },
+        {
+         "name": "diamondOp",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/DiamondOperators.lean",
+         "line": 148,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has T_n, diamond and degeneracy (V_d) operators on cusp forms with the divisor-sum q-expansion formula a_m(T_n f) = Σ_{d|(m,n)} χ(d)d^{k−1}a_{mn/d²}(f); the geometric side (pullback/trace along correspondences on a curve) is absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology",
+       "note": "States S₂(Γ) ≅ H⁰(X(Γ), Ω¹) on the compact analytic curve, the identification of weight-two cusp forms with holomorphic differentials."
+      },
+      {
+       "layer": "ComplexComparisonPartII:C6",
+       "note": "Its acceptance test compares f(q)dq/q with the weight-two Hodge section, the same q-expansion check."
+      },
+      {
+       "layer": "AlgebraicModularFormsAndSerreWeights:R15.1",
+       "note": "Constructs the Hodge bundle and proves agreement of geometric and analytic forms over ℂ, overlapping the Hodge-bundle/automorphy-factor identification."
+      }
+     ]
+    },
+    "ModularCurvesPartII:R12.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Compatibility of the analytic/algebraic comparison with changes of level, diamond operators and complex conjugation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "diamondOp",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/DiamondOperators.lean",
+         "line": 148,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CuspForm.diamondOpCusp_levelRaise",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Degeneracy.lean",
+         "line": 744,
+         "fit": "related"
+        }
+       ],
+       "note": "The comparison itself does not exist. On the analytic side Tau Ceti proves diamond operators commute with the level-raising maps."
+      },
+      {
+       "target": "Fields of definition of the components and of the canonical rational cusp",
+       "library": "absent",
+       "declarations": [],
+       "note": "No modular curve schemes, cusps as sections or component analysis exist."
+      },
+      {
+       "target": "Named theorem replacing #81's conditional geometric-connectedness supplier",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on R12.4, whose transfer steps are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraVarieties:V8",
+       "note": "Proves compatibility of the GL₂ comparisons with the canonical-model condition, level maps and Hecke correspondences, overlapping the level/descent compatibilities."
+      }
+     ]
+    },
+    "ModularCurvesPartII:R13.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Generalised elliptic curves: proper flat curves with elliptic or Néron-polygon geometric fibres, group law on the smooth locus acting on the curve",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.instAddCommGroup",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+         "line": 807,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.IsSingular",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Singular.lean",
+         "line": 76,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.HasMultiplicativeReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 347,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's group of nonsingular points is defined for any Weierstrass curve over a field, so it covers the smooth locus of a nodal cubic, and Tau Ceti proves a Weierstrass model has at most one singular point; there are no relative curves, Néron polygons or group actions over a base."
+      },
+      {
+       "target": "Néron n-gons, contraction/decontraction and the ampleness condition on level structures",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing on polygons of projective lines or contraction exists in either library."
+      },
+      {
+       "target": "Descent and compatibility with #81's elliptic-scheme object on the smooth locus",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Pseudofunctor.IsStack",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/Descent/IsStack.lean",
+         "line": 49,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the abstract stack (effective descent) condition for pseudofunctors, but #81's elliptic schemes and generalised elliptic curves do not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AlgebraicModuliForArithmeticGeometry:R09.4",
+       "note": "Proves the moduli-stack algebraicity results used for generalised elliptic curves, overlapping their stack-level treatment."
+      }
+     ]
+    },
+    "ModularCurvesPartII:R13.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Compactified full and Γ₁(N) moduli problems and the correct Γ₀(n) problem (Česnavičius' refinement with boundary data)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No moduli problems of (generalised) elliptic curves with level structure exist in either library."
+      },
+      {
+       "target": "Algebraicity/representability, properness and normality of the compactified stacks",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Pseudofunctor.IsStack",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/Descent/IsStack.lean",
+         "line": 49,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has algebraic stacks or algebraic spaces (grep AlgebraicSpace/AlgebraicStack/DeligneMumford is empty); only the abstract stack condition exists."
+      },
+      {
+       "target": "Identification of the open substack with #81's affine level problem",
+       "library": "absent",
+       "declarations": [],
+       "note": "#81's affine problems are not formalised."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AlgebraicModuliForArithmeticGeometry:R09.4",
+       "note": "States the algebraicity of the moduli stacks of generalised elliptic curves by explicit atlases, the representability part of this layer."
+      }
+     ]
+    },
+    "ModularCurvesPartII:R13.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Tate curve over ℤ((q)) extended to the generalised-elliptic setting (Tate n-gons) with boundary level data",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Tate curve exists in either library, analytic or formal."
+      },
+      {
+       "target": "Completed local rings at cusps, cusp widths and the Hodge line near the boundary",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Subgroup.strictWidthInfty",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Cusps.lean",
+         "line": 321,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the analytic width at ∞ exists; there are no formal neighbourhoods of cusps or Hodge line."
+      },
+      {
+       "target": "Formal comparison underlying the q-expansion principle",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ModularForm.qExpansion_injective",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/QExpansion.lean",
+         "line": 661,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves the analytic statement that a modular form is determined by its q-expansion; the algebraic q-expansion principle via the Tate curve is absent."
+      },
+      {
+       "target": "Ramification and stabilisers at cusps including characteristics 2 and 3; finite-flat cusp fibre versus reduced locus and Cartier structure",
+       "library": "absent",
+       "declarations": [],
+       "note": "No cusp schemes or relative Cartier divisors exist (grep RelativeEffectiveCartier is empty)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+       "note": "Constructs the Tate curve over a complete valued field, overlapping the Tate-curve construction (not its generalised-elliptic extension)."
+      },
+      {
+       "layer": "ShimuraCompactifications:C4",
+       "note": "Compares the Tate curve, its invariant differential du/u, torsion and q under isogeny, restating part of the Tate-curve analysis."
+      }
+     ]
+    },
+    "ModularCurvesPartII:R13.4": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Combined interface of R13.4a and R13.4b",
+       "library": "absent",
+       "declarations": [],
+       "note": "The layer states no mathematics of its own: it is defined as the conjunction of R13.4a and R13.4b, both of which are unbuilt."
+      }
+     ],
+     "duplicates": []
+    },
+    "ModularCurvesPartII:R13.4a": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Coarse compactified curves from the stack presentations via finite-inertia quotients and normalization, for full, fixed-pairing, Γ₁ and refined Γ₀ level",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.normalization",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Normalization.lean",
+         "line": 123,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has relative normalization of a qcqs morphism with its universal property, but no coarse spaces, stack quotients or modular curves."
+      },
+      {
+       "target": "Properness, normality and permitted base-change statements",
+       "library": "absent",
+       "declarations": [],
+       "note": "No compactified curves exist to carry these properties."
+      },
+      {
+       "target": "Identification of affine opens with PR81 by the moduli universal property and agreement with PR81 Layer 10 for prime N ≥ 5 diamond quotients after inverting N",
+       "library": "absent",
+       "declarations": [],
+       "note": "PR81's curves are not formalised."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+       "note": "Constructs X_H by normalising ℙ¹_j in Y_H for prime N ≥ 5 diamond quotients, the special case with which R13.4a must agree."
+      },
+      {
+       "layer": "AlgebraicModuliForArithmeticGeometry:R09.5",
+       "note": "Proves existence of coarse spaces for finite-inertia quotient presentations with normalisation and base change, the general construction applied here."
+      }
+     ]
+    },
+    "ModularCurvesPartII:R13.4b": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Generic-fibre analytic comparison for R13.4a's curves, including components, determinant and cusp fields",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither the curves nor analytification exist."
+      },
+      {
+       "target": "Extension of degeneracy maps to stack/scheme morphisms or correspondences compatible with the generic-fibre Hecke normalisation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.CuspForm.levelRaise",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Degeneracy.lean",
+         "line": 362,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the analytic degeneracy maps V_d on modular forms exist (Tau Ceti)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraVarieties:V8",
+       "note": "Descends the GL₂ minimal compactifications and constructs level maps and Hecke correspondences over the reflex field with analytic comparison, overlapping this compatibility."
+      },
+      {
+       "layer": "ShimuraCompactifications:C6",
+       "note": "Compares the generic-fibre toroidal/minimal curve for F = ℚ with R13.4a/R13.4b."
+      }
+     ]
+    },
+    "ModularCurvesPartII:R13.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Local models and supersingular intersections of the bad fibres (Deligne–Rapoport/Katz–Mazur) at the levels used by level lowering",
+       "library": "absent",
+       "declarations": [],
+       "note": "No integral models of modular curves, supersingular loci or local models exist."
+      },
+      {
+       "target": "Igusa components",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep Igusa returns nothing in either library."
+      },
+      {
+       "target": "Resolution or base extension giving a regular/semistable model",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Model",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Model/Basic.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Basic.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti packages flat finite-presentation models over a DVR and the numerical types of regular models' special fibres, but has no resolution, regular or semistable models."
+      }
+     ],
+     "duplicates": []
+    },
+    "ModularCurvesPartII:R13.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Dual graphs, component maps, cusp sections and formal parameters of the bad fibres",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.NumericalType",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Basic.lean",
+         "line": 113,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType.intersectionGraph",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Topology.lean",
+         "line": 46,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the intersection graph of an abstract numerical type and its first Betti number, but no special fibres of actual models and no modular-curve bad fibres."
+      },
+      {
+       "target": "Hecke/degeneracy compatibility on bad fibres and inputs to nearby-cycle and character-group computations",
+       "library": "absent",
+       "declarations": [],
+       "note": "No nearby cycles or bad-fibre geometry; Mathlib's pro-étale ℓ-adic cohomology of schemes is only a definition, with no degeneration theory."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+       "note": "Computes the dual graph and nearby-cycle specialisation sequence of strictly semistable curves compatibly with the description used by modular and Shimura curves."
+      }
+     ]
+    },
+    "ModularCurvesPartII:R14.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Isogeny correspondences T_p at good and bad primes, degeneracy maps and diamond operators constructed from the moduli interpretation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "diamondOp",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/DiamondOperators.lean",
+         "line": 148,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CuspForm.levelRaise",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Degeneracy.lean",
+         "line": 362,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.heckeTCuspNat",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Operators.lean",
+         "line": 89,
+         "fit": "related"
+        }
+       ],
+       "note": "The operators exist only analytically on modular and cusp forms (Tau Ceti); there are no correspondences on curves."
+      },
+      {
+       "target": "Extension to compactifications",
+       "library": "absent",
+       "declarations": [],
+       "note": "No compactified curves exist."
+      },
+      {
+       "target": "Composition, double-coset and adjoint formulas",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HeckeRing",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
+         "line": 189,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeCosetModule.mul_comm_of_antiInvolution",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/Commutativity.lean",
+         "line": 459,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.commRingHeckeRingGamma0",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/GL2/Gamma0/Diagonal/Composite.lean",
+         "line": 243,
+         "fit": "related"
+        },
+        {
+         "name": "UpperHalfPlane.peterssonInner_slash_slash_of_det_pos",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Petersson/Adjoint.lean",
+         "line": 119,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines the abstract double-coset Hecke ring of a Hecke pair; Tau Ceti gives it its ring structure, commutativity from an anti-involution, the commutative Γ₀(N) Hecke ring with its multiplication table, and Petersson invariance under slashing. These are group-theoretic/analytic, not relations among geometric correspondences."
+      },
+      {
+       "target": "Comparison of the q-expansion action with ModularForms",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.qExpansion_coeff_heckeRingHomCuspCharSpace_heckeTCompositeGamma0",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Nebentypus/CoefficientFormula.lean",
+         "line": 114,
+         "fit": "related"
+        }
+       ],
+       "note": "The analytic q-expansion formula for T_n is proved; the comparison with an algebraic action does not exist."
+      },
+      {
+       "target": "Coherent/étale trace maps in inseparable or ramified situations",
+       "library": "absent",
+       "declarations": [],
+       "note": "No trace maps on coherent or étale cohomology of curves exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraVarieties:V8",
+       "note": "Constructs level maps and Hecke correspondences on the GL₂ tower over the reflex field with analytic comparison."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+       "note": "Owns the analytic Hecke operators and double-coset formulas that the q-expansion comparison targets."
+      }
+     ]
+    },
+    "ModularCurvesPartII:R14.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Induced maps on Picard/Jacobian objects of modular curves by pullback and norm (J₀(N), J₁(N))",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 94,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.weightedAbelJacobiClass",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/AbelJacobi/Basic.lean",
+         "line": 53,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has abelian varieties over a field and an Abel–Jacobi map into divisor class groups, but no Jacobian variety, Picard scheme or modular curve."
+      },
+      {
+       "target": "Hecke relations and polarisation (Rosati) adjointness on Jacobians",
+       "library": "absent",
+       "declarations": [],
+       "note": "No polarisations or Jacobians exist."
+      },
+      {
+       "target": "Integral Hecke algebra via faithful action on a finite module, finite over the coefficient ring",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.heckeRingHomCuspCharSpace",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Nebentypus/Action.lean",
+         "line": 393,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.commRingHeckeRingGamma0",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/GL2/Gamma0/Diagonal/Composite.lean",
+         "line": 243,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the ring homomorphism from the integral Γ₀(N) Hecke ring to End_ℂ(S_k(N, χ)), so a Hecke algebra over ℂ is implicit; there is no integral lattice or Jacobian for it to act on faithfully and no finiteness over ℤ (grep HeckeAlgebra is empty)."
+      },
+      {
+       "target": "Hecke action on differentials (via R12) and on Tate modules",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Tate modules exist (grep TateModule is empty)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+       "note": "Constructs the integral Hecke algebra via its action on the finite ℤ-module of modular symbols, the same finiteness target by a Betti route."
+      }
+     ]
+    },
+    "ModularCurvesPartII:R14.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Integral étale and Betti H¹ of modular curves with local systems (including Sym^{k−2})",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.EllAdicCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+         "line": 75,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicTopology.singularHomologyFunctor",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicTopology/SingularHomology/Basic.lean",
+         "line": 52,
+         "fit": "related"
+        },
+        {
+         "name": "groupCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean",
+         "line": 186,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.LocalCoefficientSystem",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/LocalCoefficient.lean",
+         "line": 41,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines the pro-étale ℓ-adic cohomology groups Hⁱ(X, ℤ_ℓ) of a scheme (only the definition and its vanishing for the empty scheme), singular homology of spaces and group cohomology; Tau Ceti has local coefficient systems. Nothing is computed for curves, there are no local systems on schemes, and no modular curves exist."
+      },
+      {
+       "target": "Ordinary, compactly supported and parabolic cohomology with the nonproper boundary",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "groupCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean",
+         "line": 186,
+         "fit": "related"
+        }
+       ],
+       "note": "No parabolic cohomology or modular symbols (grep parabolicCohomology/modularSymbol is empty)."
+      },
+      {
+       "target": "Comparison isomorphisms, Poincaré duality, trace and change-of-level compatibility",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep PoincareDuality is empty."
+      },
+      {
+       "target": "Torsion-freeness and finite generation after localising at a non-Eisenstein maximal ideal",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Hecke algebras or cohomology to localise."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ModularSymbolsPadicLFunctions:L0",
+       "note": "Constructs compactly supported/parabolic cohomology and modular symbols with Hecke actions and Eichler–Shimura comparisons at general level."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+       "note": "Builds the modular-symbol lattice and period map, the Betti-side integral structure."
+      },
+      {
+       "layer": "ComplexComparisonPartII:C5",
+       "note": "Constructs the logarithmic de Rham–Betti comparison and distinguishes compact, ordinary and parabolic cohomology for the nonproper modular curves."
+      }
+     ]
+    },
+    "ModularCurvesPartII:R14.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Ihara's lemma and injectivity/saturation of degeneracy maps in the settings used by R20/R22, with torsion, residual-characteristic, level and image conditions",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep Ihara finds nothing in either library; no integral cohomology of modular curves exists."
+      },
+      {
+       "target": "Proof via group/tree geometry (congruence subgroup property of SL₂(ℤ[1/p])) or geometric character groups",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither Bruhat–Tits trees nor character groups of Jacobians exist."
+      }
+     ],
+     "duplicates": []
+    },
+    "ModularCurvesPartII:R14.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Hecke ideal I_f and the quotient A_f = J₁(N)/I_f (or of J₀(N)) as an abelian variety over ℚ for a weight-two newform",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.Newform",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
+         "line": 102,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 94,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has bundled newforms (with eigenvalues at indices prime to the level) and abelian varieties over a field, but no Jacobians of modular curves or quotients of abelian varieties."
+      },
+      {
+       "target": "dim A_f = [K_f : ℚ], differential eigenspaces and the effect of oldforms",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/StrongMultiplicityOne.lean",
+         "line": 87,
+         "fit": "related"
+        }
+       ],
+       "note": "No coefficient field K_f (grep coefficientField/heckeField empty); Tau Ceti proves strong multiplicity one and the old/new decomposition analytically."
+      },
+      {
+       "target": "Nonvanishing of the quotient map and Abel–Jacobi composite",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Abel–Jacobi map to a Jacobian variety."
+      },
+      {
+       "target": "Higher-weight replacement: parabolic cohomology with Sym^{k−2} or Kuga–Sato realisation handed to R19.1",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep KugaSato and parabolic cohomology are empty."
+      }
+     ],
+     "duplicates": []
+    },
+    "ModularCurvesPartII:R14.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Character-group and monodromy exact sequences with degeneracy maps and Hecke action",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.NumericalType.Pic",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Picard/Basic.lean",
+         "line": 204,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the combinatorial Picard group of a numerical type (cokernel of the weighted intersection matrix), not character groups of toric parts of Néron models."
+      },
+      {
+       "target": "Special-fibre Eichler–Shimura relation T_p = Frob + V",
+       "library": "absent",
+       "declarations": [],
+       "note": "No reduction of modular curves or Jacobians exists."
+      },
+      {
+       "target": "Finite-level freeness statements for Taylor–Wiles patching modules",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Hecke modules of cohomology exist."
+      },
+      {
+       "target": "Rational cusp and normalised Abel–Jacobi map used by R29",
+       "library": "absent",
+       "declarations": [],
+       "note": "No cusps as rational points and no Jacobian."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeegnerPointEulerSystems:HE.2",
+       "note": "Establishes the Eichler–Shimura relation in the appropriate geometric category for its reduction congruences."
+      },
+      {
+       "layer": "AutomorphicGaloisRepresentations:R19.1",
+       "note": "Proves the unramified characteristic polynomial by the geometric Eichler–Shimura relation."
+      },
+      {
+       "layer": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+       "note": "Computes the specialisation sequence and monodromy of semistable curves compatibly with the component/Jacobian description for modular curves."
+      }
+     ]
+    }
+   }
+  },
+  "NeronModelsAndSemistableAbelianVarieties": {
+   "summary": "Neither library has Néron models, abelian schemes, formal schemes, Tate modules, Picard schemes, semistable reduction of abelian varieties, or conductors of abelian varieties, so every layer is unbuilt. The available ingredients are equation-level and field-level: Mathlib's integral and minimal Weierstrass models over a DVR with good/multiplicative/additive reduction and the local L-polynomial of an elliptic curve; Tau Ceti's abelian varieties over a field with isogenies and tangent space, the formal-group description of the kernel of reduction E₁, and identity components and finite étale component groups of finite-type affine groups over a field. The one piece of genuine degeneration theory is Tau Ceti's combinatorics of numerical types: Pic(T) as the cokernel of the weighted intersection matrix with its rank-one and torsion results, which is the combinatorial half of the R11.4 component-group description.",
+   "layers": {
+    "NeronModelsAndSemistableAbelianVarieties:R11.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Néron model of an abelian variety: smooth separated finite-type group scheme over a DVR or Dedekind base with the Néron mapping property",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 94,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Smooth",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+         "line": 62,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.IsSeparated",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Separated.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Model",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Model/Basic.lean",
+         "line": 44,
+         "fit": "related"
+        }
+       ],
+       "note": "grep for Néron/Neron finds only the Néron–Tate height pairing. Mathlib has the smooth, separated and finite-type morphism classes, Tau Ceti has abelian varieties over a field and flat finite-presentation models of schemes over a DVR, but there are no group schemes over a Dedekind base, no abelian schemes and no extension property."
+      },
+      {
+       "target": "Local existence over excellent DVRs via weak Néron models and smoothening",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither excellence (grep IsExcellent empty), dilatations/smoothening nor weak Néron models exist."
+      },
+      {
+       "target": "Dedekind local-to-global construction over rings of integers and S-integers: extend over a dense open, glue the remaining local models, global mapping property and finite type",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Set.integer",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
+         "line": 65,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.GlueData",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Gluing.lean",
+         "line": 91,
+         "fit": "related"
+        }
+       ],
+       "note": "S-integers of a Dedekind domain and gluing of schemes exist in Mathlib (Tau Ceti proves the S-integers have finite class group whenever the base ring does); there are no local models to glue."
+      },
+      {
+       "target": "Uniqueness of Néron models and functorial extension of homomorphisms",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Homomorphisms and isogenies exist only between abelian varieties over a field."
+      },
+      {
+       "target": "Global invariant-differential lattice of the Néron model and its localisations",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.TangentSpace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/TangentSpace.lean",
+         "line": 85,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.invariantDifferential",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/InvariantDifferential.lean",
+         "line": 105,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the Zariski tangent space at the identity of an abelian variety over a field and the invariant differential of a Weierstrass curve; no integral lattice of differentials over a ring of integers."
+      },
+      {
+       "target": "Comparison of good reduction with the existence of an abelian-scheme model",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.HasGoodReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 325,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.IsMinimal",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 276,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's good reduction is an equation-level predicate on a minimal Weierstrass equation over a DVR; no abelian schemes or scheme-level comparison."
+      },
+      {
+       "target": "Étale/unramified base-change compatibility of Néron models",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Néron models to base change."
+      }
+     ],
+     "duplicates": []
+    },
+    "NeronModelsAndSemistableAbelianVarieties:R11.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Identity component and component group Φ of the special fibre of a Néron model",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.FiniteTypeCommHopfAlgCat.identityComponent",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Connected/GroupScheme.lean",
+         "line": 68,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.FiniteTypeCommHopfAlgCat.componentGroupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Connected/ComponentGroup/FiniteEtale.lean",
+         "line": 54,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti constructs the identity component and the finite étale component group of a finite-type affine group over a field (over an algebraically closed field for the scheme); special fibres of Néron models are generally not affine and do not exist here."
+      },
+      {
+       "target": "Toric and abelian parts (Chevalley decomposition) and the character group of the toric part",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.CommHopfAlgCat.geometricCharacterGroup",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/CommHopfAlgCat/CharacterLattice/Basic.lean",
+         "line": 67,
+         "fit": "related"
+        }
+       ],
+       "note": "No Chevalley structure theorem for connected commutative group schemes; character groups exist only for affine commutative Hopf algebras."
+      },
+      {
+       "target": "Functoriality under isogeny and the exact sequences used in modular-curve arguments",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Only isogenies of abelian varieties over a field exist."
+      },
+      {
+       "target": "Rational component group Φ(k) distinguished from its geometric points",
+       "library": "absent",
+       "declarations": [],
+       "note": "No component groups of Néron models."
+      },
+      {
+       "target": "For elliptic curves, comparison with the reduction filtration E₁ ⊂ E₀ ⊂ E and Tate's algorithm, including wild primes",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.range_formalPointHomAdicCompletion",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Range.lean",
+         "line": 158,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.HasAdditiveReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 354,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.HasSplitMultiplicativeReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 366,
+         "fit": "related"
+        }
+       ],
+       "note": "The equation-level ingredients are partly present — Mathlib's good/multiplicative/additive reduction classes and Tau Ceti's identification of the formal group Ê(𝔪) with the points whose x-coordinate has a pole (E₁) — but E₀, Tate's algorithm and Kodaira symbols (grep empty) and any Néron-model comparison are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+       "note": "Tate's algorithm there computes c_p = [E(K) : E₀(K)] and the component count, the equation-level side of the elliptic component-group comparison."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+       "note": "Constructs identity components and component groups of affine algebraic groups, the same constructions in the affine setting."
+      }
+     ]
+    },
+    "NeronModelsAndSemistableAbelianVarieties:R11.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Semistable reduction theorem for abelian varieties after a finite extension",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 94,
+         "fit": "related"
+        }
+       ],
+       "note": "No declaration concerns semistable reduction or semi-abelian schemes; the word semistable occurs only in a docstring citing the Stacks chapter on semistable reduction of curves."
+      },
+      {
+       "target": "Grothendieck's monodromy criterion relating semistability to unipotent inertia action on T_ℓ",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Tate modules (grep TateModule empty) and no Galois representations of abelian varieties."
+      },
+      {
+       "target": "Raynaud extension of the formal completion by a torus",
+       "library": "absent",
+       "declarations": [],
+       "note": "No formal schemes (grep FormalScheme empty) and no extensions of abelian schemes by tori."
+      },
+      {
+       "target": "Uniformisation of degenerating abelian varieties/Jacobians with polarisation and lattice conditions",
+       "library": "absent",
+       "declarations": [],
+       "note": "No rigid or formal uniformisation; Tau Ceti's adic-space and Huber-ring foundations do not reach quotients by lattices."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+       "note": "Proves nodal reduction of curves after finite extension and its equivalence with semistable reduction of the Jacobian, the curve case of this layer."
+      }
+     ]
+    },
+    "NeronModelsAndSemistableAbelianVarieties:R11.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Degree-zero Picard scheme / generalised Jacobian of a semistable curve",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.weightedAbelJacobiClass",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/AbelJacobi/Basic.lean",
+         "line": 53,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 94,
+         "fit": "related"
+        }
+       ],
+       "note": "No Picard functor or scheme in either library (grep PicardScheme/PicardFunctor empty); Tau Ceti has degree-zero divisor class groups of curves over a field and abelian varieties."
+      },
+      {
+       "target": "Toric character group identified with H₁ of the dual graph",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.NumericalType.intersectionGraph",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Topology.lean",
+         "line": 46,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType.topologicalGenus",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Topology.lean",
+         "line": 81,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the simple intersection graph of an abstract numerical type and its first Betti number; it forgets edge multiplicities (numbers of nodes) and is not linked to any torus."
+      },
+      {
+       "target": "Grothendieck's monodromy pairing on character groups",
+       "library": "absent",
+       "declarations": [],
+       "note": "No character groups of Néron models."
+      },
+      {
+       "target": "Component group described by the (weighted) intersection matrix under the exact regularity hypotheses",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.NumericalType",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Basic.lean",
+         "line": 113,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType.Pic",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Picard/Basic.lean",
+         "line": 204,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType.picToCoker_injective",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Picard/Basic.lean",
+         "line": 223,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType.finrank_pic",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Picard/Rank.lean",
+         "line": 186,
+         "fit": "related"
+        }
+       ],
+       "note": "The combinatorial side is in Tau Ceti: Pic(T) as the cokernel of the weighted intersection matrix of a numerical type (Stacks 0C7H), its injection into Coker(A) and rank one. Missing: numerical types of actual regular models and the identification of the degree-zero torsion with the Néron component group."
+      },
+      {
+       "target": "Relation of the Picard scheme of the special fibre to the Néron model of the Jacobian",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither object exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion",
+       "note": "Defines numerical types and Pic(T) and compares line bundles on regular models with it, the combinatorial component-group description used here."
+      },
+      {
+       "layer": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+       "note": "Computes the dual graph and specialisation sequence of strictly semistable curves compatibly with their Jacobian/Tate-module description."
+      }
+     ]
+    },
+    "NeronModelsAndSemistableAbelianVarieties:R11.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "ℓ-adic Tate modules of abelian varieties with Galois action",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 94,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.EllAdicCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "grep TateModule/Tate module finds nothing in either library; Mathlib defines pro-étale ℓ-adic cohomology Hⁱ(X, ℤ_ℓ) of schemes but proves nothing about it beyond the empty scheme, and there is no Galois action."
+      },
+      {
+       "target": "Néron–Ogg–Shafarevich criterion (good reduction ⇔ unramified T_ℓ)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.HasGoodReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 325,
+         "fit": "related"
+        }
+       ],
+       "note": "No criterion, even for elliptic curves; only the equation-level good-reduction predicate exists."
+      },
+      {
+       "target": "Good and semistable p-adic comparisons (crystalline/semistable Tate modules) via R06",
+       "library": "absent",
+       "declarations": [],
+       "note": "No p-adic Hodge theory of Galois representations in either library."
+      },
+      {
+       "target": "Conductors of abelian varieties via Artin/Swan conductors (R01)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DirichletCharacter.conductor",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 246,
+         "fit": "related"
+        }
+       ],
+       "note": "The only conductors are those of Dirichlet characters and the ring-theoretic conductor; grep artinConductor/swanConductor is empty."
+      },
+      {
+       "target": "Preservation of good reduction under isogeny",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Isogenies exist only over a field."
+      },
+      {
+       "target": "Local Euler polynomial from monodromy and component data, not just the semisimplified inertia action",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.localPolynomial",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 43,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.LFunction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines the local polynomial of an elliptic curve by reduction type (1 − aT + qT², 1 − T, 1 + T, 1) and the resulting L-function; no Galois-theoretic definition or comparison exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+       "note": "States Néron–Ogg–Shafarevich for elliptic curves (good reduction ⇔ unramified T_ℓ) in three separate statements."
+      },
+      {
+       "layer": "ArithmeticGaloisRepresentations:R01.6",
+       "note": "Constructs Tate modules of elliptic curves and abelian varieties with the good-reduction Frobenius polynomial, isogeny compatibility and the local Euler-polynomial interface."
+      },
+      {
+       "layer": "ArithmeticGaloisRepresentations:R01.3",
+       "note": "Defines Artin/Swan conductors and gives the precise comparison with the conductor of an elliptic curve."
+      },
+      {
+       "layer": "PadicHodgeTheory:R06.6",
+       "note": "Deduces the good-reduction crystalline and semistable-reduction semistable statements for Tate modules."
+      }
+     ]
+    },
+    "NeronModelsAndSemistableAbelianVarieties:R11.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Character-group exact sequences and monodromy maps with degeneracy-map functoriality, supplied to level lowering",
+       "library": "absent",
+       "declarations": [],
+       "note": "An export of R11.2/R11.4 objects, none of which exists."
+      },
+      {
+       "target": "Semistable and good-reduction facts supplied to R25 and to the isogeny-height analysis of R28",
+       "library": "absent",
+       "declarations": [],
+       "note": "Interface over R11.3/R11.5, which are unbuilt."
+      },
+      {
+       "target": "Equation-level versus scheme-level comparison for every elliptic invariant used in R29 (minimal discriminant, reduction type, conductor exponent, component group, minimal differential)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.IsMinimal",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 276,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.HasGoodReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 325,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.localPolynomial",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 43,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.isMinimal_of_valuation_c₄_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MinimalModel.lean",
+         "line": 131,
+         "fit": "related"
+        }
+       ],
+       "note": "The equation-level side exists (minimal models, reduction types, local L-polynomial, a unit-c₄ minimality criterion); the scheme-level Néron invariants and every comparison are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticGaloisRepresentations:R01.6",
+       "note": "Supplies the conductor comparison and local Euler-polynomial interface consumed by R29, the same elliptic-invariant interface."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+       "note": "Builds the equation-level invariants (minimal discriminant, Kodaira symbols, Ogg exponent, c_p) that this layer compares with Néron-model data."
+      }
+     ]
+    }
+   }
+  },
+  "PELModuli": {
+   "summary": "No PEL layer is built: neither library has abelian schemes, polarisations, Rosati involutions, Tate modules, level structures, quasi-isogenies, algebraic spaces or stacks, deformation theory of abelian schemes, higher-dimensional complex tori, analytification, H¹(ℚ, G) for algebraic groups, complex multiplication or canonical models. The libraries supply the linear algebra and generic foundations: Mathlib's star rings, Wedderburn–Artin, adjoint pairs and alternating forms, dual lattices, characteristic polynomials with base change, real signatures, formal smoothness and smooth morphisms of relative dimension n, abstract descent data and stacks, and relative normalisation; Tau Ceti's Sp_{2m} and form-preserving group schemes over any ring (isometries, not similitudes), compatible complex structures with positivity, polarised weight-one Hodge structures, and abelian varieties over a field with endomorphism rings and isogenies. Genuinely missing are the PEL datum itself, similitude groups, the Kottwitz determinant condition and reflex field, and every moduli-theoretic construction and comparison.",
+   "layers": {
+    "PELModuli:M0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Integral, rational and p-integral PEL data (order in a semisimple ℚ-algebra with positive involution, lattice with 𝒪-action, alternating pairing with ⟨bx, y⟩ = ⟨x, b*y⟩, compatible h with positivity) with restriction and rationalisation maps",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LinearMap.IsAdjointPair",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/SesquilinearForm/Basic.lean",
+         "line": 373,
+         "fit": "related"
+        },
+        {
+         "name": "LinearMap.IsAlt",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/SesquilinearForm/Basic.lean",
+         "line": 287,
+         "fit": "related"
+        },
+        {
+         "name": "StarRing",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Star/Basic.lean",
+         "line": 292,
+         "fit": "related"
+        },
+        {
+         "name": "IsSemisimpleRing.exists_algEquiv_pi_matrix_divisionRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/SimpleModule/WedderburnArtin.lean",
+         "line": 191,
+         "fit": "related"
+        },
+        {
+         "name": "Submodule.IsLattice",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/Lattice.lean",
+         "line": 67,
+         "fit": "related"
+        }
+       ],
+       "note": "The separate ingredients are in Mathlib (adjoint pairs of bilinear forms, alternating forms, involutive star rings, Wedderburn–Artin, lattices), but there are no orders in noncommutative algebras, no positivity condition tr(bb*) > 0 for involutions, and no PEL datum (grep PEL / positive involution empty)."
+      },
+      {
+       "target": "Similitude group (GSp/GU) of the pairing with its multiplier character and representation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Symplectic.groupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean",
+         "line": 122,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ConstantForm.groupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/ConstantForm/Basic.lean",
+         "line": 339,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.BilinForm.isometryGroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/BilinearForm/Isometry.lean",
+         "line": 156,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.det_eq_of_transpose_mul_J_mul_eq_smul",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SymplecticMultiplier.lean",
+         "line": 86,
+         "fit": "special case"
+        }
+       ],
+       "note": "Tau Ceti has Sp_{2m} for the standard form and the closed subgroup scheme of GL_n preserving a constant form over any commutative ring — isometry groups, multiplier one — plus a rank-2 lemma that the multiplier of AᵀJA = dJ is det A. grep GSp / similitude finds nothing."
+      },
+      {
+       "target": "Dual lattice, discriminant and bad-prime set of the pairing",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "LinearMap.BilinForm.dualSubmodule",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean",
+         "line": 37,
+         "fit": "related"
+        },
+        {
+         "name": "LinearMap.BilinForm.dualSubmoduleEquivDual",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/BilinearForm/DualLattice.lean",
+         "line": 81,
+         "fit": "related"
+        },
+        {
+         "name": "LinearMap.BilinForm.dualSubmodule_dualSubmodule_flip",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/BilinearForm/DualLattice.lean",
+         "line": 99,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.DiscriminantGroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Group.lean",
+         "line": 109,
+         "fit": "special case"
+        }
+       ],
+       "note": "The dual lattice of any (including alternating) bilinear form and double duality are available; discriminant groups and unimodularity exist only for symmetric integral lattices. No discriminant or bad-prime set for alternating 𝒪-lattices."
+      },
+      {
+       "target": "Real signature data",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "sigPos",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/QuadraticForm/Signature.lean",
+         "line": 65,
+         "fit": "related"
+        },
+        {
+         "name": "QuadraticForm.equivalent_iff_sigPos_eq_and_sigNeg_eq",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/Real.lean",
+         "line": 134,
+         "fit": "related"
+        }
+       ],
+       "note": "Signatures and Sylvester classification exist for real quadratic forms; signatures (p, q) of hermitian forms at the complex places of a CM field do not."
+      },
+      {
+       "target": "Positivity condition related to the associated (polarised weight-one) Hodge structure",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.SymplecticForm.Compatible",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Symplectic/AlmostComplex.lean",
+         "line": 455,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.isPolarization_of_weilOperator_invariant_on_realPoints_of_pos",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeightOne/Polarization.lean",
+         "line": 122,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlmostComplexStructure.hodgeStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeightOne/Basic.lean",
+         "line": 186,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has compatibility of a complex structure J with a symplectic form (J-invariance and positivity of ω(v, Jv)), the weight-one Hodge structure of J, and the Riemann relations implying a polarisation; the 𝒪-linear version is absent."
+      },
+      {
+       "target": "Determinant condition via characteristic polynomials of the 𝒪-action on the Hodge subspace V₀, equivalent to the representation-theoretic condition over a splitting field",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LinearMap.polyCharpoly",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/LinearMap/Polynomial.lean",
+         "line": 363,
+         "fit": "related"
+        },
+        {
+         "name": "LinearMap.polyCharpoly_baseChange",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/LinearMap/Polynomial.lean",
+         "line": 393,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlmostComplexStructure.isCompl_eigenspace_baseChange_I_neg_I",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Symplectic/Complex/Complexification.lean",
+         "line": 38,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the generic characteristic polynomial of a linear family with base change, and Tau Ceti splits V ⊗ ℂ into the ±i eigenspaces of J; no Kottwitz condition (grep empty), and no Brauer–Nesbitt-type comparison in arbitrary characteristic."
+      },
+      {
+       "target": "Reflex field of the determinant condition, identified with D3's reflex field when the datum is Shimura",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Algebra.exists_intermediateField_isSplittingField_finiteDimensional",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/CentralSimple/SplittingDescent.lean",
+         "line": 256,
+         "fit": "related"
+        }
+       ],
+       "note": "grep reflex is empty in both libraries."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HilbertModularVarietiesAndShimuraCurves:H1",
+       "note": "Verifies the determinant condition for the Hilbert–Blumenthal problem, the real-multiplication case of the PEL linear algebra."
+      }
+     ]
+    },
+    "PELModuli:M1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Fibred categories of polarised abelian schemes with 𝒪-endomorphisms, Rosati compatibility, determinant condition and level structure",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 94,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.End",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Functor.IsFibered",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/FiberedCategory/Fibered.lean",
+         "line": 65,
+         "fit": "related"
+        }
+       ],
+       "note": "No abelian schemes, polarisations, dual abelian varieties or Rosati involutions (grep empty); Tau Ceti has abelian varieties over a field with their endomorphism rings, and Mathlib has fibred categories."
+      },
+      {
+       "target": "Prime-to-p level structures as the étale sheaf of trivialisations of the prime-to-p Tate module, and the all-primes adelic variant in characteristic zero",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.CommHopfAlgCat.isPullback_fppfQuotientTorsor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Torsor.lean",
+         "line": 372,
+         "fit": "related"
+        }
+       ],
+       "note": "No Tate modules or level structures; only affine fppf torsors G → G/H exist."
+      },
+      {
+       "target": "Isomorphism, rational quasi-isogeny and prime-to-p quasi-isogeny moduli problems and their comparison under changes of lattice and polarisation type",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "grep quasi-isogeny is empty; isogenies exist only between abelian varieties over a field."
+      },
+      {
+       "target": "Effective descent for objects and morphisms of the moduli problems, without assuming the functor of isomorphism classes is a sheaf",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Pseudofunctor.DescentData",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/Descent/DescentData.lean",
+         "line": 59,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Pseudofunctor.IsStack",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/Descent/IsStack.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "comonadicExtendScalars",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/ModuleCat/Descent.lean",
+         "line": 59,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.descendsAlong_isomorphisms_surjective_inf_flat_inf_quasicompact",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/FlatDescent.lean",
+         "line": 93,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has descent data and the stack condition for pseudofunctors, comonadicity of extension of scalars along faithfully flat maps and fpqc descent of morphism properties; no stack instance is proved for any concrete moduli pseudofunctor and there is no effective descent of schemes."
+      },
+      {
+       "target": "Principal level structure with the pairing constraint and its multiplier/trivialisation at non-self-dual lattices",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LinearMap.det_eq_of_compl₁₂_self_eq_smul",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Determinant.lean",
+         "line": 167,
+         "fit": "related"
+        }
+       ],
+       "note": "No Weil pairing; only the rank-2 linear-algebra fact that an alternating form scaled by d under φ has det φ = d."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HilbertModularVarietiesAndShimuraCurves:H1",
+       "note": "Constructs the Hilbert–Blumenthal moduli problem with polarisation modules and level structures, the real-multiplication instance of these functors."
+      }
+     ]
+    },
+    "PELModuli:M2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Artin-type representability criterion: algebraic Isom functors, finite presentation and limits, deformation/obstruction theory, effectivity, openness",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.LocalRepresentability.isRepresentable",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/Representability.lean",
+         "line": 208,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.LocallyOfFinitePresentation",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/FinitePresentation.lean",
+         "line": 45,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.exists_π_app_comp_eq_of_locallyOfFinitePresentation",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/AffineTransitionLimit.lean",
+         "line": 1224,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.H1Cotangent",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Extension/Cotangent/Basic.lean",
+         "line": 552,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves Zariski-local representability of sheaves by schemes and the limit property of locally finitely presented morphisms; there are no algebraic spaces or stacks and no Artin criteria (grep empty)."
+      },
+      {
+       "target": "Rigidity: a sufficiently rigidifying prime-to-p level kills automorphisms",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.eq_one_of_pow_eq_one_of_sub_one_mem",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/RootsOfUnity/Basic.lean",
+         "line": 32,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.autGroupMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Aut.lean",
+         "line": 222,
+         "fit": "related"
+        }
+       ],
+       "note": "Only a Serre-lemma-type statement for roots of unity in a domain and Aut(E) ≅ ℤ/2 for elliptic curves with j ∉ {0, 1728}."
+      },
+      {
+       "target": "Representing algebraic space with universal abelian scheme, and the stack formulation at levels with stabilisers",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Universal.curve",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Universal.lean",
+         "line": 163,
+         "fit": "related"
+        }
+       ],
+       "note": "The only universal object is the universal Weierstrass curve over ℤ[a₁, …, a₆], not a moduli family."
+      },
+      {
+       "target": "Good-prime hypotheses: unramified order, invertible discriminant/polarisation defect, p = 2 quaternionic exclusion, no level at p",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.not_dvd_discr_iff_isUnramifiedIn",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Different.lean",
+         "line": 193,
+         "fit": "related"
+        }
+       ],
+       "note": "Unramified primes exist for number fields only; no orders in semisimple algebras."
+      },
+      {
+       "target": "Smoothness from the deformation calculation, relative dimension formula and base change",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Algebra.FormallySmooth.iff_comp_surjective",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Smooth/Basic.lean",
+         "line": 371,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.SmoothOfRelativeDimension",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+         "line": 130,
+         "fit": "related"
+        }
+       ],
+       "note": "The infinitesimal lifting criterion and smooth morphisms of relative dimension n (stable under base change) are in Mathlib; Serre–Tate/Grothendieck–Messing deformation theory of abelian schemes is absent (grep empty)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HilbertModularVarietiesAndShimuraCurves:H1",
+       "note": "Verifies the representability hypotheses for the Hilbert–Blumenthal moduli problem, a special case of this layer."
+      }
+     ]
+    },
+    "PELModuli:M3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Complex uniformisation morphism with its family and level data (polarised complex tori ℂ^g/Λ with Riemann forms)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PeriodPair",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 60,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.isPolarization_of_weilOperator_invariant_on_realPoints_of_pos",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeightOne/Polarization.lean",
+         "line": 122,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.SymplecticForm.Compatible",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Symplectic/AlmostComplex.lean",
+         "line": 455,
+         "fit": "related"
+        }
+       ],
+       "note": "Only rank-2 period lattices with ℘, and the linear-algebra Riemann relations; no complex tori of dimension g, theta functions or Siegel space."
+      },
+      {
+       "target": "Analytification of étale presentations, algebraisation of the analytic component isomorphism and descent (scheme/quasi-projectivity in characteristic zero)",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep analytification/GAGA/algebraiz finds nothing."
+      },
+      {
+       "target": "Image in the PEL moduli space by rational isomorphism classes of polarised representations; open-and-closed Shimura components and the disjoint-union statement",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither PEL moduli spaces nor Shimura varieties exist."
+      },
+      {
+       "target": "Indexing of rational forms by ker¹(ℚ, G) with the Hasse principle deciding single components",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.PresheafOfGroups.H1",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/NonabelianCohomology/H1.lean",
+         "line": 197,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.H1",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+         "line": 674,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has nonabelian H¹ of a presheaf of groups on a family of objects and Tau Ceti has continuous H¹ with abelian coefficients; no H¹(ℚ, G) for algebraic groups, ker¹ or Hasse principle (grep empty)."
+      },
+      {
+       "target": "Disconnected type-D similitude groups and comparison of the moduli problem with the identity component",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Orthogonal.groupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Orthogonal/Basic.lean",
+         "line": 99,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.QuadraticMap.orthogonalGroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
+         "line": 133,
+         "fit": "related"
+        }
+       ],
+       "note": "Orthogonal group schemes for the standard form and abstract orthogonal groups exist; no GO/GSO and no component analysis."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AbelianSchemesAndArithmeticModuli:A5",
+       "note": "Proves complex uniformisation with polarisation and level, constructs the Siegel universal analytic family and compares level structures with symplectic lattice trivialisations."
+      },
+      {
+       "layer": "ShimuraVarieties:V5",
+       "note": "Finishes the algebraisation of polarised weight-one variations over smooth algebraic bases using M3 and Borel algebraicity."
+      },
+      {
+       "layer": "HilbertModularVarietiesAndShimuraCurves:H1",
+       "note": "Compares the complex fibres of the Hilbert–Blumenthal problem with the adelic descriptions."
+      }
+     ]
+    },
+    "PELModuli:M4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Compatibility of the moduli Galois action with CM reciprocity and identification of generic-fibre pieces with canonical models",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.IsCMField",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/CMField.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "No complex multiplication, Shimura reciprocity or canonical models (grep canonical model finds only concrete quadratic number fields)."
+      },
+      {
+       "target": "Compatibility of these identifications with changes of level, isogenies and morphisms of PEL data",
+       "library": "absent",
+       "declarations": [],
+       "note": "No moduli spaces or canonical models to compare."
+      },
+      {
+       "target": "Normal integral model at higher p-level as the normalisation of the good-level model in the generic-fibre cover",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.normalization",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Normalization.lean",
+         "line": 123,
+         "fit": "more general"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.normalizationDesc",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Normalization.lean",
+         "line": 373,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.normalizationPullback",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Normalization.lean",
+         "line": 584,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the relative normalisation of a qcqs morphism with its universal property and compatibility with smooth base change — the construction used here — but no good-level model or generic-fibre cover to apply it to."
+      },
+      {
+       "target": "Finiteness, normality and flatness of these normalisations under their actual hypotheses",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsIntegralClosure.finite",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/IntegralClosure.lean",
+         "line": 175,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.IsIntegralClosure.isNoetherianRing",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/IntegralClosure/NormalizationFinite.lean",
+         "line": 400,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Flat",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Flat.lean",
+         "line": 42,
+         "fit": "related"
+        }
+       ],
+       "note": "Finiteness of integral closure is known for separable extensions of integrally closed Noetherian domains and Krull–Akizuki is in Tau Ceti; there are no Nagata/excellent rings and no normal-scheme predicate, so finiteness over ℤ_(p)-schemes is unavailable."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraVarieties:V5",
+       "note": "Applies the main theorem of complex multiplication to the Siegel moduli model to show its Galois action satisfies the canonical-model condition."
+      }
+     ]
+    },
+    "PELModuli:M5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Siegel moduli for every dimension g",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Symplectic.groupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean",
+         "line": 122,
+         "fit": "related"
+        }
+       ],
+       "note": "No moduli of principally polarised abelian varieties (grep Siegel finds only Siegel's lemma)."
+      },
+      {
+       "target": "Genus-one comparison with #81, including its determinant/Weil-pairing convention",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.IsElliptic",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+         "line": 367,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.ofJ",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/ModelsWithJ.lean",
+         "line": 134,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.exists_variableChange_of_j_eq",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/IsomOfJ.lean",
+         "line": 331,
+         "fit": "related"
+        }
+       ],
+       "note": "Elliptic Weierstrass curves over rings and their classification by j over separably closed fields exist, but they are not linked to abelian varieties, #81 is unformalised and there is no Weil pairing."
+      },
+      {
+       "target": "Trace-pairing PEL datum for a totally real field and a polarisation module (handed to H1–H2)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.IsTotallyReal",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
+         "line": 47,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.traceForm",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Trace/Defs.lean",
+         "line": 171,
+         "fit": "related"
+        },
+        {
+         "name": "Submodule.traceDual",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/Different.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.NarrowClassGroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "Totally real fields, the trace form, trace duals (the different) and narrow class groups exist; no PEL datum."
+      },
+      {
+       "target": "Unitary PEL example over a CM field with specified signatures, verifying positivity, reflex field, dimension and good-prime conditions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.IsCMField",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/CMField.lean",
+         "line": 71,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.unitaryGroup",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/UnitaryGroup.lean",
+         "line": 60,
+         "fit": "related"
+        }
+       ],
+       "note": "Only CM fields and abstract unitary matrix groups; no hermitian forms with signatures or unitary group schemes."
+      },
+      {
+       "target": "At least one non-principal polarisation type",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LinearMap.BilinForm.dualSubmodule",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean",
+         "line": 37,
+         "fit": "related"
+        }
+       ],
+       "note": "No polarisations; only dual lattices of bilinear forms."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AbelianSchemesAndArithmeticModuli:A5",
+       "note": "Proves, for genus one, agreement of the Siegel family with #81's elliptic scheme, differential and pairing — the same genus-one comparison."
+      },
+      {
+       "layer": "ShimuraData:D5",
+       "note": "Constructs all Siegel data and the Hilbert trace-pairing symplectic embedding at the level of Shimura data."
+      },
+      {
+       "layer": "HilbertModularVarietiesAndShimuraCurves:H1",
+       "note": "Builds the Hilbert–Blumenthal moduli problem from polarisation modules, the example M5 hands over."
+      }
+     ]
+    },
+    "PELModuli:M6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Moduli stack at arbitrary level and fine scheme/algebraic space at each rigidifying level, with universal abelian scheme and Hodge line bundle",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Pseudofunctor.IsStack",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/Descent/IsStack.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.InvertibleSheaf",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
+         "line": 78,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Bialgebra.CotangentSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Tangent/Cotangent.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "exteriorPower.topEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/ExteriorPower.lean",
+         "line": 280,
+         "fit": "related"
+        }
+       ],
+       "note": "Ingredients only: the abstract stack condition, invertible sheaves, e*Ω for affine groups and top exterior powers of free modules; no moduli stacks, universal families or Hodge line bundle (grep empty)."
+      },
+      {
+       "target": "Comparison of isomorphism classes with rational moduli points via the descent obstruction (a rational coarse point need not carry a rational family)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.quadraticTwist",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 451,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.VariableChange.exists_baseChange_eq_of_map_eq",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/GaloisDescent.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.exists_variableChange_of_j_eq",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/IsomOfJ.lean",
+         "line": 331,
+         "fit": "related"
+        }
+       ],
+       "note": "Only genus-one phenomena: quadratic twists share j, and Galois descent of changes of variables along quadratic extensions."
+      },
+      {
+       "target": "Export of the rational-family comparison to height finiteness (R28.1) and of the universal Hodge line (R35.5)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Northcott",
+         "library": "mathlib",
+         "file": "Mathlib/Order/Northcott.lean",
+         "line": 36,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.finite_setOfPred_mulHeight₁_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 411,
+         "fit": "related"
+        }
+       ],
+       "note": "Interface over the targets above, which do not exist; Northcott finiteness for heights of number-field points is available."
+      },
+      {
+       "target": "Explicit nonempty Siegel and unitary examples with a nonprincipal polarisation",
+       "library": "absent",
+       "declarations": [],
+       "note": "No moduli spaces to be nonempty."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+       "note": "Proves the descent and level-structure arguments converting moduli points into isomorphism classes, the same comparison it consumes from M6."
+      }
+     ]
+    }
+   }
+  },
+  "ShimuraCompactifications": {
+   "summary": "No toroidal or minimal compactification, Shimura variety, abelian scheme or degeneration theory exists in either library, so every layer except the combinatorial and Hodge-theoretic parts of C0 and C1 is unbuilt. Tau Ceti already has the finite-fan combinatorics of C0 (toric cones and faces, finite fans with support, completeness, subdivisions, regular cones and fan morphisms) and complex points of affine monoid algebras, and the linear-algebraic mixed Hodge structures with Deligne splitting and strictness needed in C1, together with dynamic parabolics and Levi decompositions on points, unipotent radicals and centres. Genuinely missing are infinite arithmetic fans with group actions, toric schemes and torus embeddings over any base, rational boundary components and mixed Shimura data, analytic gluing, normal-crossings and projectivity results, semi-abelian degenerations (Tate curve, biextensions, Mumford–Faltings–Chai), integral PEL and Hilbert compactifications, Hodge-line positivity and the Koecher principle.",
+   "layers": {
+    "ShimuraCompactifications:C0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Rational polyhedral cones and their faces",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "TauCeti.Toric.IsToricCone",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Algebraic/Cone.lean",
+         "line": 124,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Toric.IsLatticeRational",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Algebraic/Cone.lean",
+         "line": 69,
+         "fit": "exact"
+        },
+        {
+         "name": "PointedCone.IsFaceOf",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Convex/Cone/Face/Basic.lean",
+         "line": 50,
+         "fit": "exact"
+        },
+        {
+         "name": "PointedCone.FG.finite_face",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Convex/Cone/Face/Finite.lean",
+         "line": 76,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Toric.IsToricCone.of_isFaceOf",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Algebraic/Cone.lean",
+         "line": 170,
+         "fit": "exact"
+        }
+       ],
+       "note": "Tau Ceti's toric cones are finitely generated, lattice-rational, salient real cones for an integral lattice N → V; Mathlib has faces of pointed cones with their lattice, and Tau Ceti proves a finitely generated cone has finitely many faces and faces of toric cones are toric. The description of faces as σ ∩ u⊥ is not stated."
+      },
+      {
+       "target": "Fan axioms: closure under faces, pairwise intersections are common faces",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Toric.Fan",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Algebraic/Fan/Basic.lean",
+         "line": 81,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Toric.Fan.inf_mem",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Algebraic/Fan/Basic.lean",
+         "line": 115,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Toric.FanHom",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Algebraic/Fan/Basic.lean",
+         "line": 224,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's `Fan` has these axioms but requires finitely many cones (a structure field), so it cannot express the infinite arithmetic fans needed here."
+      },
+      {
+       "target": "Arithmetic-admissible collections: arithmetic group action with finitely many orbits, local finiteness in the domain of positivity, support and compatibility conditions at cusps",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LocallyFinite",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/LocallyFinite.lean",
+         "line": 31,
+         "fit": "related"
+        }
+       ],
+       "note": "No group acts on cones or fans in either library, and local finiteness exists only as the generic topological notion."
+      },
+      {
+       "target": "Common refinements and sufficiently fine smooth/projective refinements",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Toric.Fan.IsSubdivision",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Algebraic/Fan/Subdivision.lean",
+         "line": 48,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Toric.Fan.IsSubdivision.toFanHom",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Algebraic/Fan/Subdivision.lean",
+         "line": 95,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Toric.IsRegularCone",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Algebraic/Regular.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Toric.Fan.IsRegular",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Algebraic/Regular.lean",
+         "line": 364,
+         "fit": "related"
+        }
+       ],
+       "note": "The subdivision relation (a preorder, inducing a fan morphism) and regularity of cones/fans are defined; existence of common, smooth or projective refinements is absent, as are strictly convex support functions, and regular cones are not yet shown simplicial."
+      },
+      {
+       "target": "Compatibility with rational parabolic inclusions and level changes",
+       "library": "absent",
+       "declarations": [],
+       "note": "No boundary components or parabolics attached to cones."
+      },
+      {
+       "target": "Affine toric charts over the base rings of integral models",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Toric.AffineSemigroupComplexPoint",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Analytic/AffinePoint.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Toric.isClosedEmbedding_monomialEmbedding",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Analytic/AffinePoint.lean",
+         "line": 261,
+         "fit": "related"
+        },
+        {
+         "name": "AddMonoidAlgebra.finiteType_iff_fg",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/FiniteType.lean",
+         "line": 440,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the ℂ-points of Spec ℂ[S] for a monoid S, with an embedding-independent topology and a closed embedding into ℂʳ, exist; monoid algebras and their finite type are in Mathlib. There is no dual semigroup σ^∨ ∩ M and no affine toric scheme over ℂ, ℤ or a general ring."
+      },
+      {
+       "target": "Gluing of toric charts and torus embeddings relative to a torus torsor by descent",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.IsLocallyDirected.glueData",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Gluing.lean",
+         "line": 663,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.isPullback_fppfQuotientTorsor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Torsor.lean",
+         "line": 372,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's scheme gluing is never applied to fans (no toric variety of any kind exists), and scheme torsors exist only as the affine fppf quotient square; grep torus embedding is empty."
+      },
+      {
+       "target": "Properness from the support criterion under the established fan hypotheses",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Toric.Fan.IsComplete",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Algebraic/Fan/Basic.lean",
+         "line": 142,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.IsProper.of_valuativeCriterion",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/ValuativeCriterion.lean",
+         "line": 341,
+         "fit": "related"
+        }
+       ],
+       "note": "Completeness of a finite fan and the valuative criterion exist; no toric variety to apply them to."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+       "note": "Defines toric cones, rays, regular cones, finite fans, subdivisions, fan morphisms, dual semigroups and affine toric schemes — the finite-fan version of C0's cone, fan and chart targets."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+       "note": "Proves properness of toric maps by the support criterion for finite fans."
+      }
+     ]
+    },
+    "ShimuraCompactifications:C1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Rational boundary components (from V2) of Hermitian symmetric domains",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsCusp",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Cusps.lean",
+         "line": 58,
+         "fit": "special case"
+        },
+        {
+         "name": "CuspOrbits",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Cusps.lean",
+         "line": 168,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only the GL₂ case: cusps of subgroups of GL₂(ℝ) as parabolic fixed points, with finitely many orbits for arithmetic groups. No Hermitian domains or boundary components in general."
+      },
+      {
+       "target": "Associated rational parabolic subgroups, unipotent radicals and their centres, Levi quotients",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Cocharacter.parabolic",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Dynamic/Parabolic.lean",
+         "line": 293,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Cocharacter.leviDecompositionMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Dynamic/LeviDecomposition/Basic.lean",
+         "line": 193,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.FiniteTypeCommHopfAlgCat.unipotentRadicalDefiningIdeal",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Unipotent/Radical/Construction.lean",
+         "line": 72,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.centerDefiningIdeal",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Center/Basic.lean",
+         "line": 305,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GeneralLinear.weightParabolicGroupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Weight/Parabolic.lean",
+         "line": 203,
+         "fit": "special case"
+        }
+       ],
+       "note": "Tau Ceti has dynamic parabolics P(λ) with the Levi decomposition U(λ) ⋊ Z(λ) ≃ P(λ) on points, unipotent radicals and centres of affine groups over a field, and scheme-level weight parabolics only for GL_N. There is no GSp or Siegel parabolic, no classification of ℚ-parabolics, and the centre of a unipotent radical and its character lattice are never specialised."
+      },
+      {
+       "target": "Cones of positivity attached to boundary components",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.PosDefMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/SymmetricMatrix/PosDef.lean",
+         "line": 42,
+         "fit": "special case"
+        },
+        {
+         "name": "Matrix.PosDef.add",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/PosDef.lean",
+         "line": 256,
+         "fit": "related"
+        }
+       ],
+       "note": "Real symmetric positive-definite matrices as an open set (Tau Ceti) closed under sums (Mathlib); not packaged as a cone, and no Hermitian or general self-dual homogeneous cones."
+      },
+      {
+       "target": "Mixed Hodge structures with weight filtration",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Basic.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.deligneSplitting",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/DeligneSplitting.lean",
+         "line": 81,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_WQ_eq_map_WQ",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Strictness.lean",
+         "line": 129,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructureCat",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Category.lean",
+         "line": 50,
+         "fit": "exact"
+        }
+       ],
+       "note": "Linear-algebraic mixed Hodge structures (rational weight filtration, Hodge filtration, pure graded pieces), Deligne's splitting I^{p,q} and strictness of morphisms. Not in Deligne-torus form and with no variations."
+      },
+      {
+       "target": "Mixed Shimura data at the boundary",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep mixed Shimura is empty; pure Shimura data are also absent."
+      },
+      {
+       "target": "Pure quotient of a boundary component and the torus and abelian torsors describing its neighbourhood",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.CommHopfAlgCat.isPullback_fppfQuotientTorsor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Torsor.lean",
+         "line": 372,
+         "fit": "related"
+        }
+       ],
+       "note": "No boundary components and no torsors over boundary strata."
+      },
+      {
+       "target": "Incidence and conjugation formulas, cusp labels and stabilisers",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Subgroup.strictPeriods",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Cusps.lean",
+         "line": 227,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Subgroup.integerCuspWidth",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Cusps/Basic.lean",
+         "line": 143,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only for GL₂: the translation part of the stabiliser of ∞ and cusp widths. No cusp labels in the PEL or general sense."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraVarieties:V2",
+       "note": "Constructs the rational boundary components and their incidence as part of the Baily–Borel construction, the components C1 enriches."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne",
+       "note": "Owns mixed Hodge structures and Deligne's strictness, the mixed Hodge structure C1 needs; built in Tau Ceti."
+      }
+     ]
+    },
+    "ShimuraCompactifications:C2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Local partial compactifications from relative torus embeddings, their transition and separation properties, arithmetic quotient charts and gluing",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TopCat.GlueData",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Gluing.lean",
+         "line": 90,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Toric.mixedMonomialOpenPartialHomeomorph",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Analytic/MixedMonomial.lean",
+         "line": 474,
+         "fit": "related"
+        },
+        {
+         "name": "Subgroup.IsArithmetic.properlyDiscontinuous",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/ProperlyDiscontinuous.lean",
+         "line": 31,
+         "fit": "special case"
+        }
+       ],
+       "note": "No complex analytic spaces or analytic gluing; Tau Ceti has biholomorphic mixed monomial chart changes and Mathlib topological gluing and proper discontinuity for arithmetic subgroups of GL₂."
+      },
+      {
+       "target": "Normality, properness and open immersion of the Shimura variety",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.IsProper",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
+         "line": 42,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.IsOpenImmersion",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/OpenImmersion.lean",
+         "line": 36,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.normalization",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Normalization.lean",
+         "line": 123,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the generic morphism classes and relative normalisation; no Shimura varieties and no normal-scheme predicate."
+      },
+      {
+       "target": "Normal-crossings boundary at neat level for smooth fans; projectivity for projective admissible fans",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.Scheme.CartierDivisor",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/CartierDivisor/Basic.lean",
+         "line": 126,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Proj",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Scheme.lean",
+         "line": 854,
+         "fit": "related"
+        }
+       ],
+       "note": "Cartier divisors and Proj exist (the latter unindexed because of «» quoting); no normal crossings, ample line bundles or projective-morphism predicate."
+      },
+      {
+       "target": "Map to the minimal compactification and inverse images of boundary strata",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep Baily/Satake/minimal compactification finds nothing."
+      },
+      {
+       "target": "Canonical model of the toroidal compactification over the reflex field via boundary canonical models and descent",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.descendsAlong_isOpenImmersion_surjective_inf_flat_inf_quasicompact'",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/FlatDescent.lean",
+         "line": 133,
+         "fit": "related"
+        }
+       ],
+       "note": "Only fpqc descent of morphism properties; no canonical models or descent of schemes."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-3-finite-fan-analytic-gluing",
+       "note": "Glues affine analytic toric charts over a finite fan and proves Hausdorffness and second countability, the local gluing step of C2 for finite fans."
+      }
+     ]
+    },
+    "ShimuraCompactifications:C2.general": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Toroidal gluing and descent of C2 for general Shimura data using the general canonical model, preserving rational boundary components and cusp stabilisers",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither Shimura varieties, general canonical models (V8.general) nor the C2 construction exist in either library."
+      }
+     ],
+     "duplicates": []
+    },
+    "ShimuraCompactifications:C3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Proper maps of toroidal compactifications induced by refinements, with identity and composition laws",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Toric.Fan.IsSubdivision.toFanHom",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Algebraic/Fan/Subdivision.lean",
+         "line": 95,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Toric.FanHom.comp",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Algebraic/Fan/Basic.lean",
+         "line": 297,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the combinatorial fan morphism of a subdivision and composition of fan morphisms; no induced morphism of toric varieties or compactifications."
+      },
+      {
+       "target": "Extension of morphisms of data and Hecke translations to compatible fans; comparison of choices through a common refinement",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeCoset",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
+         "line": 157,
+         "fit": "related"
+        }
+       ],
+       "note": "Hecke double cosets act on modular forms, not on varieties."
+      },
+      {
+       "target": "Structure-sheaf pushforward f_*𝒪 = 𝒪 and normality statements under refinement",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.exists_isIso_morphismRestrict_toNormalization",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/ZariskisMainTheorem.lean",
+         "line": 206,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.IsFinite.of_isProper_of_locallyQuasiFinite",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/ZariskisMainTheorem.lean",
+         "line": 373,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Modules.pushforward",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+         "line": 165,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Grothendieck's Zariski main theorem, proper + quasi-finite ⇒ finite and pushforward of 𝒪-modules; f_*𝒪 = 𝒪 for proper birational maps to normal schemes is not stated."
+      },
+      {
+       "target": "Vanishing of higher direct images as a separate theorem with coefficient hypotheses",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Cohomology/Basic.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Only absolute sheaf cohomology H^i(X, M); no higher direct images."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+       "note": "Shows a star subdivision induces a proper toric map, the finite-fan case of refinement maps."
+      },
+      {
+       "layer": "AutomorphicBundles:B3",
+       "note": "Proves compatibility with refinements and independence of spaces of sections from the chosen admissible fan, overlapping the pushforward/normality statements."
+      }
+     ]
+    },
+    "ShimuraCompactifications:C3.general": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Level, refinement, Hecke and boundary comparison maps for general-data toroidal models",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on C2.general and C3, neither of which exists."
+      }
+     ],
+     "duplicates": []
+    },
+    "ShimuraCompactifications:C4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Semi-abelian schemes, tori over a base with character groups, extensions of abelian schemes by tori",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.torusCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Torus/Basic.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.exists_characterLattice_addEquiv_of_torus",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Torus/CharacterLattice/Basic.lean",
+         "line": 46,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 94,
+         "fit": "related"
+        }
+       ],
+       "note": "Tori with character lattices exist over fields (split tori over any ring), and abelian varieties over fields; nothing over a base and no semi-abelian schemes (grep empty)."
+      },
+      {
+       "target": "Biextensions, 1-motives and the polarised degeneration data with its algebraisation/effectivity theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep biextension / 1-motive / degeneration data is empty; no formal schemes or Grothendieck existence."
+      },
+      {
+       "target": "Formal local description of the universal degeneration, extension of endomorphism structures and comparison of level structures across a boundary chart",
+       "library": "absent",
+       "declarations": [],
+       "note": "No universal families or level structures."
+      },
+      {
+       "target": "Comparison with dimension-one generalised elliptic curves and Tate n-gons",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.nodePolynomial",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/NodePolynomial.lean",
+         "line": 84,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.HasSplitMultiplicativeReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 366,
+         "fit": "related"
+        }
+       ],
+       "note": "Only equation-level nodal reduction (split multiplicative reduction and the tangent quadratic at a node)."
+      },
+      {
+       "target": "Tate curve with invariant differential du/u, its torsion and the behaviour of q under isogeny, distinguished from dq/q and the Kodaira–Spencer map",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.invariantDifferential",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/InvariantDifferential.lean",
+         "line": 105,
+         "fit": "related"
+        },
+        {
+         "name": "Function.Periodic.qParam",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/Periodic.lean",
+         "line": 40,
+         "fit": "related"
+        }
+       ],
+       "note": "No Tate curve (grep empty); only the invariant differential of a Weierstrass curve over a field and the analytic parameter q."
+      },
+      {
+       "target": "Ramification of the cusp map at p-power level",
+       "library": "absent",
+       "declarations": [],
+       "note": "No cusp maps of integral models."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ModularCurvesPartII:R13.3",
+       "note": "Constructs the Tate curve in the generalised-elliptic setting with its formal neighbourhoods of cusps, the dimension-one case C4 imports and compares."
+      },
+      {
+       "layer": "ModularCurvesPartII:R13.1",
+       "note": "Defines generalised elliptic curves and Néron n-gons, the dimension-one degenerations C4 compares with."
+      }
+     ]
+    },
+    "ShimuraCompactifications:C5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Integral toroidal algebraic spaces with universal semi-abelian extensions, formal completion descriptions and properness",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.IsProper",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
+         "line": 42,
+         "fit": "related"
+        }
+       ],
+       "note": "No algebraic spaces, PEL moduli or semi-abelian schemes."
+      },
+      {
+       "target": "Hodge-line positivity and finite generation of graded sections giving the integral minimal compactification and its projectivity",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ModularForm.mvPolynomialEquivModularForms",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/LevelOne/GradedRing.lean",
+         "line": 746,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ModularForm.adjoin_E₄_E₆_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/LevelOne/GradedRing.lean",
+         "line": 760,
+         "fit": "special case"
+        },
+        {
+         "name": "ModularForm.instGCommRing",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+         "line": 567,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Proj",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Scheme.lean",
+         "line": 854,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the analytic level-one case: the graded ring of modular forms for SL₂(ℤ) is ℂ[E₄, E₆]. No Hodge line bundle, ampleness or integral structure."
+      },
+      {
+       "target": "Scheme and quasi-projectivity of the open PEL moduli algebraic space deduced from the compactification",
+       "library": "absent",
+       "declarations": [],
+       "note": "No PEL moduli spaces (grep quasi-projective empty)."
+      },
+      {
+       "target": "Chart and finiteness properties of higher p-level normalisations used by the perfectoid tower",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.normalization",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Normalization.lean",
+         "line": 123,
+         "fit": "related"
+        }
+       ],
+       "note": "Only relative normalisation in general."
+      },
+      {
+       "target": "Export of the good-base quasi-projective moduli realisation and Hodge line to R35.5 and R28.1",
+       "library": "absent",
+       "declarations": [],
+       "note": "Interface over targets that do not exist."
+      }
+     ],
+     "duplicates": []
+    },
+    "ShimuraCompactifications:C6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Hilbert toroidal and minimal models around the ordinary locus with cusp lattice, positivity cone and unit quotient",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.totallyPositiveIntegerUnits",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/TotallyPositive.lean",
+         "line": 157,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.finiteIndex_totallyPositiveUnits",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/TotallyPositive.lean",
+         "line": 312,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.mixedEmbedding.fundamentalCone",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/CanonicalEmbedding/FundamentalCone.lean",
+         "line": 179,
+         "fit": "related"
+        }
+       ],
+       "note": "Totally positive units with finite index and Mathlib's fundamental cone for the unit action exist; no action on the totally positive cone as a pointed cone, no invariant fans and no Hilbert modular varieties (grep empty)."
+      },
+      {
+       "target": "Compatibility of G* polarisation quotients with the compactifications and formal neighbourhoods",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Hilbert moduli or compactifications."
+      },
+      {
+       "target": "Semi-abelian extensions and Hasse ideals used in T3–T5",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep Hasse invariant / semi-abelian is empty."
+      },
+      {
+       "target": "For F = ℚ, comparison of the generic-fibre toroidal/minimal curve with R13.4a/R13.4b (PR81 Layer 10 only for prime N ≥ 5 diamond quotients)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CongruenceSubgroup.Gamma1",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+         "line": 131,
+         "fit": "related"
+        },
+        {
+         "name": "CuspOrbits",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Cusps.lean",
+         "line": 168,
+         "fit": "related"
+        }
+       ],
+       "note": "No modular curves (analytic or algebraic) exist on either side of the comparison."
+      },
+      {
+       "target": "Koecher extension theorem for Hilbert sections when g > 1",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ModularForm",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+         "line": 74,
+         "fit": "related"
+        }
+       ],
+       "note": "grep Koecher is empty; Mathlib's modular forms take boundedness at cusps as an axiom."
+      },
+      {
+       "target": "Cusp forms distinguished by their boundary ideal",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CuspForm",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+         "line": 82,
+         "fit": "special case"
+        },
+        {
+         "name": "OnePoint.IsZeroAt",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/BoundedAtCusp.lean",
+         "line": 54,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.qExpansionOrderAtCusp",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Order/AtCusp.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Only analytic GL₂ cusp forms (vanishing at every cusp) and orders of vanishing at cusps; no boundary ideal on a compactification."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HilbertModularVarietiesAndShimuraCurves:H5",
+       "note": "Identifies the F = ℚ Hilbert constructions with modular curves and computes the real-quadratic boundary components, overlapping the F = ℚ comparison and Hilbert cusp geometry."
+      },
+      {
+       "layer": "OverconvergentAutomorphicForms:O6",
+       "note": "Defines cusp forms by the subcanonical boundary ideal and uses the Koecher statement without confusing extension with vanishing."
+      },
+      {
+       "layer": "ModularCurvesPartII:R13.4b",
+       "note": "Proves the generic-fibre comparison for the compactified modular curves that C6 compares with for F = ℚ."
+      }
+     ]
+    }
+   }
+  },
+  "ShimuraData": {
+   "summary": "Neither library defines Shimura data or any of their ingredients beyond linear algebra: there is no Weil restriction, Deligne torus, Cartan involution, Hermitian symmetric domain, variation of Hodge structure, compact dual, reflex field, special point, Hodge/abelian type, neat level, GSp or Siegel/Hilbert datum. What exists is substantial but lower-level: Tau Ceti's linear-algebraic pure and mixed Hodge structures (opposed filtrations ≃ decompositions, Weil operator i^{p−q}, Tate twists, tensor/dual/internal Hom, weight-one structures from complex structures), which already build the Hodge-structure half of D1; Tau Ceti's affine algebraic groups over a field (tori with Galois-equivariant character lattices and Galois descent, reductive/adjoint/derived groups, central isogenies, dynamic parabolics and Levi decompositions on points, Sp_{2m}); Mathlib's adele rings and idele group; and GL₂-only arithmetic subgroups with ℍ as a transitive proper SL₂(ℝ)-space. The Deligne torus and its representations, the real-group and Hermitian-domain theory, and all datum-level definitions and examples are genuinely missing.",
+   "layers": {
+    "ShimuraData:D0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Weil restriction Res_{L/K} of affine group schemes by its functor-of-points universal property, with products, group operations and base change",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.CommAlgCat.restrictScalars",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/CommAlgCat/RestrictScalars.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.FiniteTypeCommHopfAlgCat.baseChangeFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/FiniteType/BaseChange.lean",
+         "line": 91,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgHom.baseChangePointsMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/BaseChange/Basic.lean",
+         "line": 84,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AffineGroup.Product.pointsMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Product.lean",
+         "line": 120,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.HopfAlgebra.pointsFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/PointsFunctor.lean",
+         "line": 104,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has base change of affine groups with its points adjunction, products and the points functor, and a forgetful restriction-of-scalars functor on commutative algebras; nothing represents A ↦ G(A ⊗_K L). grep for Weil restriction finds only module/Lie restriction of scalars."
+      },
+      {
+       "target": "The Deligne torus and the Hilbert groups Res_{F/ℚ} GL₂ as Weil restrictions, with their datum morphisms",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.GaloisDescent.descendedCoordinateRing",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/GroupAlgebra/Galois/Torus.lean",
+         "line": 88,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.SpecialOrthogonal.torusCommHopfAlgProperty_finiteTypeCoordinateHopfAlgebra_two",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/SpecialOrthogonal/Torus.lean",
+         "line": 306,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti can descend the split torus D(M) along a finite Galois extension from a Galois lattice (which with L = ℂ, k = ℝ, M = ℤ² and the swap would give S) and proves SO₂ is a torus, but neither S nor any Hilbert group is instantiated."
+      },
+      {
+       "target": "Topological groups of real, p-adic and adelic points G(ℝ), G(ℚ_p), G(𝔸) of an affine algebraic group",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.AdeleRing",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.FiniteAdeleRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+         "line": 94,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.IdeleGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 93,
+         "fit": "special case"
+        },
+        {
+         "name": "Matrix.SpecialLinearGroup.isTopologicalGroup",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Group/Matrix.lean",
+         "line": 125,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.discreteTopology_principalSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/Adeles/Discrete.lean",
+         "line": 64,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the adele ring with its topology, G_m(𝔸) as the idele group and topological SL_n/GL_n over topological rings; Tau Ceti proves K is discrete in 𝔸_K. Missing: a topology on the points of a general affine group and the restricted-product topology on G(𝔸_f)."
+      },
+      {
+       "target": "Point comparisons for restriction of scalars: (Res_{L/K} G)(𝔸_K) ≅ G(𝔸_L) and the real points of the Hilbert groups",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither Weil restriction nor the base change 𝔸_L ≅ L ⊗_K 𝔸_K of adele rings exists."
+      },
+      {
+       "target": "Real analytic Lie group structure on G(ℝ)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "LieGroup",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Manifold/Algebra/LieGroup.lean",
+         "line": 72,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Lie.lieSubalgebraOfSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Lie/Subgroup/LieAlgebra.lean",
+         "line": 270,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the (analytic) Lie group class and makes units of complete normed algebras, hence GL_n(ℝ), Lie groups; Tau Ceti is building towards the closed-subgroup theorem, which is not yet proved, so no G(ℝ) for a closed subgroup gets a Lie group structure."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ReductiveGroupsPartII:RG2.0a",
+       "note": "Constructs finite-separable Weil restriction of affine schemes and the Deligne torus S = Res_{ℂ/ℝ} G_m with S(ℝ) = ℂˣ, S_ℂ = G_m × G_m, conjugation, norm and weight maps and its character lattice."
+      },
+      {
+       "layer": "AdelicAlgebraicGroups:AA.1",
+       "note": "Constructs G(F) → G(𝔸), local projections and the restriction-of-scalars point equivalences that D0 applies."
+      },
+      {
+       "layer": "HilbertModularVarietiesAndShimuraCurves:H0",
+       "note": "Constructs the restriction-of-scalars Hilbert group, its scalar-determinant subgroup G*, their domains, the trace-pairing symplectic representation of G* and the reflex fields ℚ."
+      }
+     ]
+    },
+    "ShimuraData:D1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Deligne torus S with its weight (diagonal) and norm maps and the splitting S_ℂ ≅ G_m × G_m with the specified conjugation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.torusCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Torus/Basic.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GaloisDescent.descendedCoordinateRing",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/GroupAlgebra/Galois/Torus.lean",
+         "line": 88,
+         "fit": "related"
+        }
+       ],
+       "note": "grep Deligne torus / Res_{ℂ/ℝ} is empty; the general non-split torus machinery (torus predicate, Galois descent of split tori) would construct it but is never instantiated."
+      },
+      {
+       "target": "Character lattice of S with its Galois action",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.CommHopfAlgCat.geometricCharacterGroup",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/CommHopfAlgCat/CharacterLattice/Basic.lean",
+         "line": 67,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.exists_characterLattice_addEquiv_of_torus",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Torus/CharacterLattice/Basic.lean",
+         "line": 46,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.MultiplicativeTypeCommHopfAlgCat.cocharacterLattice",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/MultiplicativeType/Cocharacter.lean",
+         "line": 194,
+         "fit": "more general"
+        }
+       ],
+       "note": "Character and cocharacter lattices of tori over a field, with the absolute Galois action and X*(T) ≅ ℤⁿ, are in Tau Ceti; the specific lattice ℤ² with the swap for S is not computed."
+      },
+      {
+       "target": "Pure real/rational Hodge structures, Hodge decomposition V^{p,q}, opposed filtrations and morphisms",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Structure.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.piece",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Structure.lean",
+         "line": 156,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.decompositionEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Decomposition.lean",
+         "line": 528,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.IsMorphism",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Morphism.lean",
+         "line": 69,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Structure.lean",
+         "line": 75,
+         "fit": "exact"
+        }
+       ],
+       "note": "Pure Hodge structures of one weight with the conjugation as a parameter (a real structure is a Hodge structure on ℂ ⊗ V with the complexification conjugation), the equivalence of opposed filtrations with Hodge decompositions, and morphisms. A finite direct sum of pure structures of several weights has no dedicated object."
+      },
+      {
+       "target": "Equivalence between finite-dimensional algebraic real representations of S and finite direct sums of pure real Hodge structures; rational-weight criterion over ℚ",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.DiagonalizableGroup.isInternal_weightSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/DiagonalizableGroup/Weight.lean",
+         "line": 103,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.pointRepresentationCategoryEquivalence",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Equivalence.lean",
+         "line": 165,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.realPointsEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Complex/Conjugation.lean",
+         "line": 270,
+         "fit": "related"
+        }
+       ],
+       "note": "The ingredients are there — weight-space decomposition of comodules of diagonalizable groups, point representations ≃ comodules, and real points of a space with conjugation — but no representation of S and no comparison with Hodge structures."
+      },
+      {
+       "target": "Tensor, dual and Tate-twist compatibilities of the equivalence",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.tensorProduct",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/TensorProduct.lean",
+         "line": 109,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.dual",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Dual.lean",
+         "line": 76,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.tateTwist",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Tate/Twist.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.internalHom",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/InternalHom.lean",
+         "line": 230,
+         "fit": "related"
+        }
+       ],
+       "note": "The operations exist on the Hodge side; their compatibility with the corresponding operations on S-representations does not."
+      },
+      {
+       "target": "Sign dictionary: h(i) = C⁻¹ for the existing Weil operator C = i^{p−q}",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.weilOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeilOperator.lean",
+         "line": 83,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.weilOperator_comp_weilOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeilOperator.lean",
+         "line": 144,
+         "fit": "related"
+        }
+       ],
+       "note": "The Weil operator acting by i^{p−q} with C² = (−1)ⁿ exists; h : S → GL(V_ℝ) is not defined, so h(i) = C⁻¹ cannot be stated."
+      },
+      {
+       "target": "Test objects under one sign dictionary: trivial representation, ℚ(1), standard homology of an elliptic curve, adjoint representation of GL₂",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.tate",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Tate/Basic.lean",
+         "line": 90,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.StandardWeightOne.hodgeStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeightOne/Standard.lean",
+         "line": 219,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlmostComplexStructure.hodgeStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeightOne/Basic.lean",
+         "line": 186,
+         "fit": "related"
+        }
+       ],
+       "note": "Tate objects ℤ(m) and the standard weight-one structure on ℤ² from a complex structure exist, but in cohomological weight +1 rather than the homological weight −1 of H₁(E); no elliptic-curve homology or GL₂ adjoint Hodge structure, and no S-action on any of them."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ReductiveGroupsPartII:RG2.0a",
+       "note": "Constructs finite-separable Weil restriction of affine schemes and the Deligne torus S = Res_{ℂ/ℝ} G_m with S(ℝ) = ℂˣ, S_ℂ = G_m × G_m, conjugation, norm and weight maps and its character lattice."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l0--pure-hodge-structures-the-hodge-decomposition",
+       "note": "Owns pure Hodge structures with morphisms, tensor/dual/Hom and Tate twist — the Hodge side of D1, already built in Tau Ceti."
+      }
+     ]
+    },
+    "ShimuraData:D2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Cartan involution defined via the compact real form of the complexified group",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Matrix.isCompact_unitaryGroup",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Algebra/UnitaryGroup.lean",
+         "line": 80,
+         "fit": "related"
+        },
+        {
+         "name": "Representation.IsRealForm",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/RealForm.lean",
+         "line": 120,
+         "fit": "related"
+        }
+       ],
+       "note": "grep Cartan involution / compact real form is empty; U(n) is compact and real forms of representations (not groups) exist."
+      },
+      {
+       "target": "Lie-algebra positivity criterion for Cartan involutions and compatibility with the adjoint quotient",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LieAlgebra.IsKilling",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Killing.lean",
+         "line": 51,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.adjointSemisimpleCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Adjoint/Basic.lean",
+         "line": 60,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.centerQuotientFppfSheaf",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Center/Quotient.lean",
+         "line": 139,
+         "fit": "related"
+        }
+       ],
+       "note": "Only nondegeneracy of the Killing form, an adjoint (trivial-centre semisimple) predicate and G/Z(G) as an fppf sheaf (representability unproved) exist; no definiteness criterion and no map G(ℝ) → G^ad(ℝ)."
+      },
+      {
+       "target": "Stabiliser of h, tangent quotient and the invariant complex structure from the adjoint Hodge decomposition, with integrability from the bracket relations",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.SmoothAlmostComplexStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Symplectic/Manifold/AlmostComplex.lean",
+         "line": 67,
+         "fit": "related"
+        }
+       ],
+       "note": "Smooth almost complex structures exist without any integrability theorem (grep Newlander/Nijenhuis empty)."
+      },
+      {
+       "target": "Homogeneous-space charts, Hausdorffness and second countability of X = G(ℝ)/K_h",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "QuotientGroup.instT2Space",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/ProperAction/Basic.lean",
+         "line": 206,
+         "fit": "related"
+        },
+        {
+         "name": "QuotientGroup.instSecondCountableTopology",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Group/Quotient.lean",
+         "line": 142,
+         "fit": "related"
+        },
+        {
+         "name": "MulAction.instChartedSpaceQuotient",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Manifold/Instances/Quotient.lean",
+         "line": 48,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.quotientStabilizerHomeomorph",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Algebra/GroupAction/Transitive.lean",
+         "line": 55,
+         "fit": "related"
+        }
+       ],
+       "note": "Hausdorffness and second countability of G/H for closed H are in Mathlib; there is no manifold structure on G/K (no closed-subgroup theorem, charts only for free properly discontinuous quotients)."
+      },
+      {
+       "target": "Hermitian symmetric-domain structure on each connected component, allowing compact real factors of ℚ-simple groups",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "UpperHalfPlane.isPretransitiveSL2R",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/UpperHalfPlane/MoebiusAction.lean",
+         "line": 368,
+         "fit": "special case"
+        },
+        {
+         "name": "UpperHalfPlane.instProperSMul",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/UpperHalfPlane/ProperAction.lean",
+         "line": 122,
+         "fit": "special case"
+        },
+        {
+         "name": "UpperHalfPlane.discCoordinateEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/UpperHalfPlane/DiscCoordinate.lean",
+         "line": 119,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only ℍ is present: SL₂(ℝ) acts transitively and properly and ℍ is identified with the disc; Stab(i) = SO(2) and SL₂(ℝ)/SO(2) ≃ ℍ are not stated, and no general symmetric domain exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticLocallySymmetricSpaces:ALS.0",
+       "note": "Constructs Cartan involutions, maximal compact subgroups and the symmetric space with its G(F∞)-action."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions",
+       "note": "States the Cartan decomposition 𝔤 = 𝔨 ⊕ 𝔭 for a real reductive group with Cartan involution θ."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms",
+       "note": "States existence and uniqueness of compact real forms, the input to D2's definition of a Cartan involution."
+      }
+     ]
+    },
+    "ShimuraData:D3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Variation of Hodge structure: local system with holomorphic filtration, fibrewise opposedness and Griffiths transversality",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.LocalCoefficientSystem",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/LocalCoefficient.lean",
+         "line": 41,
+         "fit": "related"
+        },
+        {
+         "name": "ContMDiffVectorBundle",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Manifold/VectorBundle/Basic.lean",
+         "line": 305,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.PeriodDomain.Point",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/PeriodDomain.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "Topological local systems, smooth vector bundles and points of a period domain (with its complex structure explicitly out of scope) exist; no holomorphic bundles, filtrations of bundles or transversality."
+      },
+      {
+       "target": "Homogeneous variation attached to each algebraic representation of G, transversality from adjoint Hodge types, functoriality under tensor operations and change of datum",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on D2 and variations of Hodge structure, neither of which exists."
+      },
+      {
+       "target": "Parabolic subgroup stabilising the Hodge filtration",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Cocharacter.parabolic",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Dynamic/Parabolic.lean",
+         "line": 293,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GeneralLinear.Dynamic.weightParabolicPointsIso",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Dynamic/Weight/Parabolic/Basic.lean",
+         "line": 99,
+         "fit": "special case"
+        }
+       ],
+       "note": "Tau Ceti defines the dynamic parabolic P(λ) of a cocharacter on points (represented as a closed subgroup scheme for GL_N weight cocharacters); its identification with the stabiliser of a filtration is not stated."
+      },
+      {
+       "target": "Compact dual as a flag variety G/P, the Borel embedding and its tangent description",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Grassmannian",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Grassmannian.lean",
+         "line": 68,
+         "fit": "related"
+        },
+        {
+         "name": "Module.Grassmannian.functor",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Grassmannian.lean",
+         "line": 188,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the Grassmannian functor of points (representability is a TODO); no flag varieties, homogeneous projective varieties or Borel embedding."
+      },
+      {
+       "target": "Conjugacy class {µ} over Q̄ with its Galois action, the reflex field as fixed field of its stabiliser, and its finiteness over ℚ",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.MultiplicativeTypeCommHopfAlgCat.stabilizer_cocharacterLattice_isOpen",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/MultiplicativeType/GaloisModule.lean",
+         "line": 88,
+         "fit": "related"
+        },
+        {
+         "name": "InfiniteGalois.isOpen_iff_finite",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Galois/Infinite.lean",
+         "line": 241,
+         "fit": "related"
+        }
+       ],
+       "note": "For tori, stabilisers of cocharacters under the absolute Galois group are open, and open fixing subgroups correspond to finite subextensions, which together would give a finite field of definition; no G(ℂ)-conjugacy classes of cocharacters or reflex field exist (grep reflex empty)."
+      },
+      {
+       "target": "Descent of the flag variety to the reflex field without assuming a rational representative µ",
+       "library": "absent",
+       "declarations": [],
+       "note": "No flag varieties and no descent of varieties along field extensions."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat",
+       "note": "Constructs the complex flag manifold G_ℂ/B, the Borel case of the compact-dual flag variety."
+      }
+     ]
+    },
+    "ShimuraData:D4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Shimura datum (G, X) satisfying Deligne's axioms, the category of data, products, adjoint passage and change by central isogeny",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.reductiveCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Reductive/Basic.lean",
+         "line": 70,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.reductiveCommHopfAlgProperty.tensorProduct",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Reductive/Product.lean",
+         "line": 136,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.IsCentralIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Isogeny/Basic.lean",
+         "line": 76,
+         "fit": "related"
+        }
+       ],
+       "note": "grep Shimura finds only citations of Shimura's 1971 book. Reductive groups over a field, products of reductive groups and central isogenies exist."
+      },
+      {
+       "target": "Special pairs (torus subdata) and special points, compatible with morphisms of data",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.torusCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Torus/Basic.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.IsCMField",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/CMField.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "No special/CM points (grep empty); only tori and CM fields."
+      },
+      {
+       "target": "Hodge type: a morphism of data into a Siegel datum with injective group map",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Symplectic.groupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean",
+         "line": 122,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Comodule.exists_isClosedImmersion_coordinateGroupSchemeHom",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Embedding.lean",
+         "line": 193,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has Sp_{2m} (not GSp) and closed embeddings of affine groups into GL_n; no Siegel datum."
+      },
+      {
+       "target": "Abelian type and pre-abelian type (Hansen–Johansson), with the implications between the three predicates",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.CommHopfAlgCat.derivedGroupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Derived/Basic.lean",
+         "line": 102,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.IsCentralIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Isogeny/Basic.lean",
+         "line": 76,
+         "fit": "related"
+        }
+       ],
+       "note": "Derived groups and central isogenies exist; the datum-level predicates do not."
+      }
+     ],
+     "duplicates": []
+    },
+    "ShimuraData:D5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Neatness with representation independence",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ModularGroup.finite_stabilizer",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Modular/Stabilizer.lean",
+         "line": 87,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.isQuotientCoveringMap_quotientMk_freeLocus",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Algebra/GroupAction/FreeLocus.lean",
+         "line": 76,
+         "fit": "related"
+        }
+       ],
+       "note": "grep neat returns only prose uses of the word; finite stabilisers in SL₂(ℤ) and covering maps on free loci exist."
+      },
+      {
+       "target": "Arithmetic subgroup attached to a compact open level K ⊂ G(𝔸_f) and a connected component; the double quotient G(ℚ)\\X × G(𝔸_f)/K",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Subgroup.IsArithmetic",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/ArithmeticSubgroups.lean",
+         "line": 102,
+         "fit": "special case"
+        },
+        {
+         "name": "CongruenceSubgroup.IsCongruenceSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+         "line": 163,
+         "fit": "special case"
+        },
+        {
+         "name": "CongruenceSubgroup.Gamma",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+         "line": 41,
+         "fit": "special case"
+        },
+        {
+         "name": "DoubleCoset.Quotient",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/DoubleCoset.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "Only GL₂: Mathlib's arithmetic subgroups of GL₂(ℝ) (commensurable with SL₂(ℤ)) and congruence subgroups of SL₂(ℤ), defined directly rather than from compact open subgroups of G(𝔸_f); abstract double cosets exist. No compact open levels or adelic double quotients."
+      },
+      {
+       "target": "Effective arithmetic action after removing its kernel (without deducing faithfulness of central units from neatness)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "sl2zToPSL2R_ker",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/ProjectiveSpecialLinearGroup.lean",
+         "line": 116,
+         "fit": "special case"
+        }
+       ],
+       "note": "For SL₂ only: Tau Ceti identifies the kernel of SL₂(ℤ) → PSL₂(ℝ) with the centre, and Mathlib proves PGL₂(ℝ) acts faithfully on ℍ."
+      },
+      {
+       "target": "Torus/CM Shimura data and their reflex fields",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Shimura data exist."
+      },
+      {
+       "target": "The GL₂ datum with X = ℍ± (dimension, reflex field ℚ, compact dual)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "UpperHalfPlane.glAction",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/UpperHalfPlane/MoebiusAction.lean",
+         "line": 182,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's GL₂(ℝ) action on ℍ lets negative-determinant matrices act through conjugation, so ℍ± with its two components is not modelled."
+      },
+      {
+       "target": "All Siegel data (GSp_{2g}, Siegel double half-space) with dimensions, reflex fields and compact duals",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Symplectic.groupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean",
+         "line": 122,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.SymplecticForm.exists_compatible",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Symplectic/ExistsCompatible.lean",
+         "line": 188,
+         "fit": "related"
+        }
+       ],
+       "note": "No GSp or similitude group (grep empty) and no Siegel space; Tau Ceti has Sp_{2m} and existence of compatible complex structures for a symplectic form."
+      },
+      {
+       "target": "The two Hilbert data (Res_{F/ℚ} GL₂ and G*) for a totally real field, the Hilbert trace-pairing symplectic embedding of G*, and the general Res GL₂ case",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.IsTotallyReal",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
+         "line": 47,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.traceForm",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Trace/Defs.lean",
+         "line": 171,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.NarrowClassGroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "Totally real fields, the trace form and narrow class groups exist; no restriction-of-scalars groups or Hilbert data."
+      },
+      {
+       "target": "Unit tests with a product datum and a torus datum",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Shimura data exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HilbertModularVarietiesAndShimuraCurves:H0",
+       "note": "Constructs the restriction-of-scalars Hilbert group, its scalar-determinant subgroup G*, their domains, the trace-pairing symplectic representation of G* and the reflex fields ℚ."
+      },
+      {
+       "layer": "ShimuraVarieties:V0",
+       "note": "Proves existence of neat congruence subgroups, arithmeticity of G(ℚ)₊ ∩ gKg⁻¹ and the effective-action specialisation, overlapping D5's level material."
+      },
+      {
+       "layer": "ArithmeticLocallySymmetricSpaces:ALS.0",
+       "note": "Proves the decomposition of X_K into arithmetic components with explicit stabilisers, proper discontinuity and freeness at neat level."
+      }
+     ]
+    }
+   }
+  }
+ }
+}
