@@ -1,0 +1,1871 @@
+{
+ "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+ "status": "partial",
+ "summary": "This packet decomposes the Jacobian challenge: a smooth proper geometrically connected curve with a rational point, its Picard functor, the Jacobian as an abelian variety, and the Abel-Jacobi map with its universal property. None of the roadmap's named books (Hartshorne, Liu, Milne's Cornell-Silverman chapter, Mumford, BLR) is in the supplied library. The packet uses authorized public copies: six Stacks Project chapters (Picard Schemes of Curves, Algebraic Curves, Varieties, Divisors, Cohomology of Schemes, Derived Categories of Schemes; version ed88ff78), Milne's Abelian Varieties notes v2.00 (Parts I and III), and Kleiman, The Picard scheme (arXiv). It also uses the library copy of Silverman for genus one. Layer A covers O_X(D) and regular sections, Weil divisors and Cl = Pic, and degree via Euler characteristics. Layer B covers vanishing on affines, Cech cohomology and finiteness, genus and chi-form Riemann-Roch, the dualizing module with Serre duality and deg omega = 2g - 2, and H^1 vanishing in degree >= 2g - 1. Layer C covers flat base change, cohomology and base change (tag 0B91), relative effective Cartier divisors, and Hilb^d = Sym^d. Layer D covers Kleiman's comparison theorem and the Br' obstruction, rigidification, the Stacks representability argument over separably closed fields, Milne's construction with Galois descent, and Kleiman 4.8 and 5.4. Layer E covers rigidity, the tangent space and dim J = g, cube and square, [n], the dual abelian variety and polarizations, and autoduality. Layer F covers the Abel-Jacobi map, closed immersion, Abel maps from symmetric powers, the Albanese property, base change, and genus 0 and 1. All stages are partial: the duality, descent and cube imports and Mumford are unread, and the source conventions conflict with the roadmap's layer order.",
+ "sources": [
+  {
+   "id": "stacks-project-picard-schemes-of-curves",
+   "title": "The Stacks Project, Chapter 44: Picard Schemes of Curves (tag 0B92)",
+   "authors": "The Stacks Project Authors",
+   "edition": "Chapter PDF, Stacks Project version ed88ff78 compiled on July 14, 2026, downloaded 2026-09-16 from the Stacks Project site (GNU Free Documentation License); not in the supplied library, which holds only other Stacks chapters. Page numbers are chapter-internal. 18 pages.",
+   "url": "https://stacks.math.columbia.edu/download/pic.pdf",
+   "sha256": "d2d67eba4fffb7f7d23f3e14b0413d6fb43aff623f27980e6b66476031b27174",
+   "readSections": [
+    "Whole chapter: Section 1 (introduction); Section 2 (Lemmas 2.1-2.5 with proofs, Proposition 2.6 with proof, Remark 2.7); Section 3 (Lemmas 3.1-3.5 with proofs, Proposition 3.6 with proof, Remark 3.7); Section 4 (Definition 4.1, Lemmas 4.2-4.3 with proofs); Section 5 (Lemma 5.1 with proof); Section 6 (Lemma 6.1, Lemma 6.2, Definition 6.3, Lemmas 6.4-6.5, Proposition 6.6, Lemma 6.7, all with proofs); Section 7 (Lemmas 7.1-7.2 with proofs), pp. 1-16"
+   ]
+  },
+  {
+   "id": "stacks-project-algebraic-curves",
+   "title": "The Stacks Project, Chapter 53: Algebraic Curves (tag 0BRV)",
+   "authors": "The Stacks Project Authors",
+   "edition": "Chapter PDF, Stacks Project version ed88ff78 compiled on July 14, 2026, downloaded 2026-09-16 from the Stacks Project site (GNU Free Documentation License); not in the supplied library, which holds only other Stacks chapters. Page numbers are chapter-internal. 71 pages.",
+   "url": "https://stacks.math.columbia.edu/download/curves.pdf",
+   "sha256": "c4e3d4c0fc533a3d46ce07c1bd6ec49f03e02c131da30ed275ada4bc9f82c030",
+   "readSections": [
+    "Section 1 (introduction)",
+    "Section 4 (Lemma 4.1 with proof, Lemma 4.2 with proof, Remark 4.3, Lemmas 4.4-4.6), pp. 7-10",
+    "Section 5 (discussion (5.0.1)-(5.0.5), Lemma 5.1 with proof, Lemma 5.2 (Riemann-Roch) with proof), pp. 10-11",
+    "Section 6 opening (Lemma 6.1 statement), p. 12",
+    "Section 8 (Definition 8.1 with discussion, Lemmas 8.2-8.4 with proofs), pp. 15-16"
+   ]
+  },
+  {
+   "id": "stacks-project-varieties",
+   "title": "The Stacks Project, Chapter 33: Varieties (tag 0209)",
+   "authors": "The Stacks Project Authors",
+   "edition": "Chapter PDF, Stacks Project version ed88ff78 compiled on July 14, 2026, downloaded 2026-09-16 from the Stacks Project site (GNU Free Documentation License); not in the supplied library, which holds only other Stacks chapters. Page numbers are chapter-internal. 113 pages.",
+   "url": "https://stacks.math.columbia.edu/download/varieties.pdf",
+   "sha256": "ed339c312c86721e3f830876da14cabe89a96e83e454a78b7cd355555f4bca45",
+   "readSections": [
+    "Lemma 9.3 statement, p. 20",
+    "Lemma 25.6 statement and proof opening, p. 46",
+    "Lemma 26.2 with proof, p. 48",
+    "Lemmas 43.4-43.5 statements, p. 92",
+    "Section 44 (Definition 44.1, Lemmas 44.2-44.17 with proofs), pp. 94-101",
+    "Lemma 45.1 statement, p. 101"
+   ]
+  },
+  {
+   "id": "stacks-project-divisors",
+   "title": "The Stacks Project, Chapter 31: Divisors (tag 01WO)",
+   "authors": "The Stacks Project Authors",
+   "edition": "Chapter PDF, Stacks Project version ed88ff78 compiled on July 14, 2026, downloaded 2026-09-16 from the Stacks Project site (GNU Free Documentation License); not in the supplied library, which holds only other Stacks chapters. Page numbers are chapter-internal. 94 pages.",
+   "url": "https://stacks.math.columbia.edu/download/divisors.pdf",
+   "sha256": "0527740ac9877baff00aaad784e66aae83ff541dad40d4939028059f9f28a493",
+   "readSections": [
+    "Section 15 (Definition 15.1 with comments, Lemma 15.10, Remark 15.11), pp. 25-27",
+    "Section 16 opening (Lemmas 16.1-16.2 statements), p. 27",
+    "Section 19 (Lemma 19.1 with proof, Definition 19.2, Lemmas 19.3-19.4, Lemma 19.9 statement), pp. 38-41",
+    "Sections 27-28 (Lemma 27.1, Definitions 27.2-27.7, Lemma 27.4, 27.6, Definition 28.1, Lemmas 28.2-28.3, Definition 28.4, Lemma 28.5, (28.5.1), Lemmas 28.6-28.7 with proofs), pp. 63-67"
+   ]
+  },
+  {
+   "id": "stacks-project-cohomology-of-schemes",
+   "title": "The Stacks Project, Chapter 30: Cohomology of Schemes (tag 01X6)",
+   "authors": "The Stacks Project Authors",
+   "edition": "Chapter PDF, Stacks Project version ed88ff78 compiled on July 14, 2026, downloaded 2026-09-16 from the Stacks Project site (GNU Free Documentation License); not in the supplied library, which holds only other Stacks chapters. Page numbers are chapter-internal. 80 pages.",
+   "url": "https://stacks.math.columbia.edu/download/coherent.pdf",
+   "sha256": "b4980a08a8cce98fed6a420364b18c119364a9436577031b28a16863bcbdbfb8",
+   "readSections": [
+    "Section 2 (Lemmas 2.2 and 2.6 with proofs), pp. 2-3",
+    "Lemma 4.2 statement and first proof, pp. 6-7",
+    "Section 5 (Lemma 5.2, flat base change, with proof), pp. 9-10",
+    "Lemma 7.1 with proof, pp. 12-13",
+    "Lemma 17.1 statement, pp. 43-44",
+    "Proposition 19.1 with proof and Lemma 19.2, pp. 49-50"
+   ]
+  },
+  {
+   "id": "stacks-project-derived-categories-of-schemes",
+   "title": "The Stacks Project, Chapter 36: Derived Categories of Schemes (tag 08CU)",
+   "authors": "The Stacks Project Authors",
+   "edition": "Chapter PDF, Stacks Project version ed88ff78 compiled on July 14, 2026, downloaded 2026-09-16 from the Stacks Project site (GNU Free Documentation License); not in the supplied library, which holds only other Stacks chapters. Page numbers are chapter-internal. 109 pages.",
+   "url": "https://stacks.math.columbia.edu/download/perfect.pdf",
+   "sha256": "f79e0ebb628734948a51efd20b75d75c8e5341e4ab493e54f7fc710ebf72fb02",
+   "readSections": [
+    "Lemmas 30.4-30.7 (statements; proofs of 30.4 and 30.6), pp. 74-75",
+    "Section 32 (Lemmas 32.1-32.6 with proofs, Lemma 32.7 statement), pp. 78-80"
+   ]
+  },
+  {
+   "id": "milne-2008-abelian-varieties-v2",
+   "title": "Abelian Varieties (v2.00)",
+   "authors": "J. S. Milne",
+   "edition": "Course notes, version 2.0, March 16, 2008, 172 pages (Part III: Jacobian Varieties); author copy from the author's page; not in the supplied library (Mumford's Abelian Varieties is catalogued as requested). Printed page numbers.",
+   "url": "https://www.jmilne.org/math/CourseNotes/AV.pdf",
+   "sha256": "f5ca4e63e5092a4b102daad1470e4cbed5fe8f82115e3a28c8881e3f67f6aaef",
+   "readSections": [
+    "Conventions (varieties over k), p. v",
+    "I.1 (group varieties, Theorem 1.1, Corollaries 1.2-1.5 with proofs), pp. 7-10",
+    "I.3 (Theorems 3.1-3.2, Lemma 3.3, Theorem 3.4, Lemmas 3.5-3.6, Corollary 3.7, Theorem 3.8, Propositions 3.9-3.10 with proofs), pp. 15-20",
+    "I.4 (Theorems 4.1-4.2 with cited proofs), pp. 20-21",
+    "I.5 (Theorem 5.1 statement, Corollaries 5.2-5.4, Theorem 5.5 with proofs, Remarks 5.6-5.7, 5.8-5.15), pp. 21-26",
+    "I.7 (Proposition 7.1, Theorem 7.2 with proofs, Remarks 7.3-7.4), pp. 32-34",
+    "I.8 (Proposition 8.4, Remarks 8.5-8.7, Lemma 8.8, Theorem 8.9, Proposition 8.14 and the characteristic-zero construction sketch), pp. 34-40",
+    "I.11 (definition of polarization, Theorem 11.1), pp. 53-54",
+    "III.1 (overview, Theorem 1.2, Proposition 1.3, Remark 1.4, Lemma 1.5, Theorems 1.6-1.7, Lemma 1.8, Remarks 1.10-1.12, Propositions 1.13-1.14 with proofs), pp. 85-91",
+    "III.2 (Propositions 2.1-2.3, Lemma 2.4 with proofs, Theorem 2.5), pp. 91-93",
+    "III.3 (Propositions 3.1-3.2, Definition 3.4, Lemma 3.5, Remark 3.6, Propositions 3.7-3.8, Corollary 3.9, Propositions 3.10-3.11, Example 3.12, Theorem 3.13 with proofs, Exercise 3.14, Remark 3.15), pp. 94-98",
+    "III.4 (Lemma 4.1, Proposition 4.2, Corollary 4.3, proof of Theorem 1.6), pp. 98-101",
+    "III.5 (Theorem 5.1, Lemma 5.2, Proposition 5.3, Lemma 5.4, Corollary 5.5 with proofs, Remark 5.6), pp. 101-103",
+    "III.6 (Proposition 6.1, Corollaries 6.2-6.3, Proposition 6.4 with proofs, Remark 6.5, Theorem 6.6, Lemmas 6.7-6.9 with proofs, Remark 6.10, Summary 6.11, Exercise 6.12), pp. 104-108"
+   ]
+  },
+  {
+   "id": "kleiman-2005-the-picard-scheme",
+   "title": "The Picard scheme",
+   "authors": "Steven L. Kleiman",
+   "edition": "arXiv:math/0504020v1 (1 April 2005), 83 pages; published in Fundamental Algebraic Geometry: Grothendieck's FGA Explained, Mathematical Surveys and Monographs 123, AMS 2005; not in the supplied library. Printed page numbers of the arXiv version.",
+   "url": "https://arxiv.org/abs/math/0504020",
+   "sha256": "cc14e62f0ebebb8617777651bbcd08bb7548cb9fe955f3a25bb6491c5f3beeaa",
+   "readSections": [
+    "Section 2 (Definition 2.2, Exercises 2.3-2.4, Theorem 2.5 with both proofs, Exercise 2.6, Lemma 2.7, Definition 2.8, Lemmas 2.9-2.10 with proofs, Remark 2.11), pp. 16-21",
+    "Section 4 (Exercises 4.4 and 4.7, Theorem 4.8 statement and opening of proof), pp. 27-28",
+    "Section 5 (Proposition 5.3, Theorem 5.4 with proof opening, Proposition 5.10 with proof, Theorem 5.11 with proof to (5.11.2), Corollaries 5.13-5.14 with proofs, Remark 5.15, Propositions 5.19 with proof and 5.20 statement), pp. 37-48"
+   ]
+  },
+  {
+   "id": "silverman-arithmetic-of-elliptic-curves-2009",
+   "title": "The Arithmetic of Elliptic Curves",
+   "authors": "Joseph H. Silverman",
+   "edition": "Second edition, Graduate Texts in Mathematics 106, Springer 2009 (DOI 10.1007/978-0-387-09494-6). Copy inspected: the supplied library copy (catalogue record WEIL-PRIVATE-SILVERMAN2009, a user-supplied private copy; not redistributed). Printed page numbers; same source id as in this job's Heights and Neron-model packets.",
+   "url": "https://doi.org/10.1007/978-0-387-09494-6",
+   "sha256": "72ee67bfa1e3fdf582ac7e4b032d7ca0b35a168ed6443ac39c121fbb788cab25",
+   "readSections": [
+    "III.3, Proposition 3.4 with proof, pp. 61-63"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-a-line-bundles-divisors-picard-group-degree/effective-cartier-divisors-invertible-sheaves-and-regular-sections",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+   "title": "Stacks Divisors 15.1, 15.10-15.11, 16.1: the invertible sheaf O_X(D) with its canonical section, and effective Cartier divisors as pairs (L, s) with s a regular section",
+   "kind": "definition",
+   "statement": "Let X be a scheme and D an effective Cartier divisor with invertible ideal sheaf I_D. Then O_X(D) = Hom(I_D, O_X) = I_D^{-1}, with canonical section 1_D coming from the inclusion I_D -> O_X, and O_X(-D) = I_D. D |-> O_X(D) turns addition of effective Cartier divisors into the tensor product, giving a homomorphism EffCart(X)^gp -> Pic(X), where Pic(X) is the group of isomorphism classes of invertible O_X-modules. By Lemma 15.10, 1_D is a regular section. Conversely, a regular section s of an invertible L determines a unique effective Cartier divisor D = Z(s) and a unique isomorphism O_X(D) -> L with 1_D |-> s, so D <-> (L, s) is a bijection onto isomorphism classes of pairs. Remark 15.11 gives the exact sequences 0 -> O_X -> L -> i_*(L|_D) -> 0 and 0 -> L^{-1} -> O_X -> i_*O_D -> 0. On a locally Noetherian scheme, s is regular iff it does not vanish at any associated point (16.1).",
+   "hypotheses": [
+    "Lemma 15.10 is stated with \"Proof. Omitted.\"; Lemma 16.1 has only a hint",
+    "Pic(X) and invertible modules are defined in Modules, Definition 25.9 (not read); O_X(D + D') = O_X(D) (x) O_X(D') is Lemma 15.4, cited in the comments to Definition 15.1 but not read",
+    "General (non-effective) Cartier divisors via meromorphic sections (Divisors sections 24-26) are not decomposed"
+   ],
+   "proofSteps": [
+    "Define O_X(D) as the dual of the invertible ideal I_D; the inclusion I_D -> O_X is the canonical section 1_D.",
+    "Additivity (Lemma 15.4) gives EffCart(X)^gp -> Pic(X), (D, D') |-> O_X(D - D').",
+    "Converse (15.10): locally s = f e with e a generator of L and f a nonzerodivisor; Z(s) is cut out by f, and 1_D |-> s determines the isomorphism."
+   ],
+   "acceptance": [
+    "Roadmap Layer A: the dictionary between Cartier divisors and line bundles, here for effective divisors and regular sections.",
+    "On an integral curve every nonzero section of an invertible sheaf is regular (Varieties 44.12 uses this), so (O_X(D), 1_D) recovers D."
+   ],
+   "sources": [
+    {
+     "sourceId": "stacks-project-divisors",
+     "locator": "Definition 15.1 with comments, Lemma 15.10, Remark 15.11, pp. 25-27; Lemma 16.1, p. 27",
+     "excerpt": "The constructions D ↦ (OX (D), 1D ) and (L, s) ↦ Z(s) give mutually inverse maps",
+     "match": "Literal sentence of Lemma 15.10 (maps-to arrows transliterated); it states the bijection used in the node."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-a-line-bundles-divisors-picard-group-degree/weil-divisors-class-group-and-comparison-with-pic",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+   "title": "Stacks Divisors 27.2-28.7: Weil divisors, Cl(X), the homomorphism Pic(X) -> Cl(X); it is injective for normal X and an isomorphism iff all local rings are UFDs",
+   "kind": "comparison",
+   "statement": "Let X be a locally Noetherian integral scheme. Div(X) is the group of locally finite formal sums of prime divisors (27.2). A rational function f in R(X)^* has div(f) = sum ord_Z(f)[Z] (27.5), and Cl(X) = Div(X)/principal divisors (27.7), with presentation R(X)^* -> Div(X) -> Cl(X) -> 0. For an invertible L with nonzero meromorphic section s, div_L(s) = sum ord_{Z,L}(s)[Z] (28.4). Its class is independent of s (28.3) and additive (28.5), giving Pic(X) -> Cl(X) (28.5.1). This map is injective if X is normal (28.6). The local rings of X are UFDs iff X is normal and Pic(X) -> Cl(X) is surjective, and then Pic(X) = Cl(X) (28.7). For a smooth curve over k the local rings at closed points are DVRs, hence UFDs, so Pic(X) = Cl(X) with Weil divisors sum n_x [x] over closed points.",
+   "hypotheses": [
+    "X locally Noetherian and integral",
+    "The smooth-curve application uses that O_{X,x} is a DVR at closed points of a smooth curve (argued in Stacks Picard Schemes of Curves, proof of Lemma 3.1, via Varieties 25.3 and Algebra 119.7)",
+    "Lemma 28.7 uses Divisors 16.7 (prime divisors on schemes with UFD local rings are effective Cartier) and Algebra 120.6, 120.11, 157.6; none read",
+    "The group isomorphism between Weil divisors and Cartier divisors (not just between their class groups) is not stated in the sections read"
+   ],
+   "proofSteps": [
+    "28.6: if div_L(s) = div(f), then t = f^{-1}s has div_L(t) = 0. Locally t is a unit in every height-one localization of a Noetherian normal domain, hence a unit (Algebra 157.6), so t trivializes L.",
+    "28.7 (1) => (2): UFD local rings are normal. A prime divisor D is an effective Cartier divisor (16.7), and O_X(D) with 1_D maps to [D].",
+    "28.7 (2) => (1): surjectivity makes every height-one prime of each local ring principal, so the local ring is a UFD (Algebra 120.6)."
+   ],
+   "acceptance": [
+    "Roadmap Layer A: Weil = Cartier on a smooth curve, principal divisors, and Cl(X) = Pic X.",
+    "Check that the class of sum n_x [x] maps to O_X(sum n_x x) under the inverse of (28.5.1), compatibly with the degree of A3."
+   ],
+   "sources": [
+    {
+     "sourceId": "stacks-project-divisors",
+     "locator": "Lemma 27.1, Definitions 27.2, 27.3, 27.5, 27.7, Lemmas 27.4, 27.6, pp. 63-65; Definition 28.1, Lemmas 28.2-28.3, Definition 28.4, Lemma 28.5, (28.5.1), Lemmas 28.6-28.7 with proofs, pp. 65-67",
+     "excerpt": "Let X be a locally Noetherian integral scheme. Consider the map (28.5.1) Pic(X) → Cl(X). The following are equivalent (1) the local rings of X are UFDs, and (2) X is normal and Pic(X) → Cl(X) is surjective.",
+     "match": "Literal statement of Lemma 28.7 (arrows transliterated)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-a-line-bundles-divisors-picard-group-degree/degree-of-invertible-sheaves-on-proper-curves-via-euler-characteristic",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+   "title": "Stacks Varieties 44.1-44.14: deg L = chi(L) - chi(O_X); invariance under field extension, additivity, deg O_X(D) = dim_k Gamma(D, O_D), positivity and ampleness",
+   "kind": "definition",
+   "statement": "Let X be a proper scheme of dimension <= 1 over a field k. For an invertible L, deg(L) = chi(X, L) - chi(X, O_X), and deg(E) = chi(E) - n chi(O_X) for E locally free of rank n (44.1). Properties: (44.2) the degree is unchanged by extension of the base field; (44.3) it is additive in short exact sequences; (44.7) deg(E (x) V) = rank(E) deg(V) + rank(V) deg(E), so deg(L (x) M) = deg L + deg M and deg: Pic(X) -> Z is a homomorphism; (44.9) an effective Cartier divisor D is finite over k with deg O_X(D) = deg(D) = dim_k Gamma(D, O_D). On a proper curve (44.12): an L with a nonzero section has deg L >= 0, with equality iff L = O_X; a nonzero map N -> L forces deg L >= deg N, with equality iff it is an isomorphism. Also L is ample iff deg L > 0 (44.14). Pic^0(X) is the kernel of deg, as an abstract group.",
+   "hypotheses": [
+    "X proper of dimension <= 1 over k; chi requires the finite-dimensionality of coherent cohomology (Layer B node on finiteness), and 44.2 uses flat base change (Cohomology of Schemes 5.2, Layer C). The roadmap places degree in Layer A before both, an ordering conflict recorded as a gap and not linked, to avoid a stage cycle",
+    "44.4-44.6 (birational invariance, multiplicities) use Cohomology of Schemes 12.6 (devissage) and 21.2; 44.9 uses Divisors 14.4 and Varieties 20.2, 33.2-33.3",
+    "Agreement with sum_x [kappa(x):k] ord_x: for D = sum n_x x on a smooth curve, dim_k Gamma(D, O_D) = sum_x length(O_{X,x}/m_x^{n_x}) [kappa(x):k] = sum_x n_x [kappa(x):k]. These two equalities are standard length computations not stated in the section read (derived step)"
+   ],
+   "proofSteps": [
+    "44.3 follows from additivity of chi (Varieties 33.2).",
+    "44.5: devissage (Cohomology of Schemes 12.6) proves chi(E (x) F) = r deg(E) + n chi(F) on a proper curve; 44.6 reduces to curves with multiplicities; 44.7 follows.",
+    "44.9: tensor 0 -> O_X -> O_X(D) -> i_*i^*O_X(D) -> 0 with E and use additivity and chi of a finite scheme (33.3).",
+    "44.12: a nonzero section of L on a curve is regular, so L = O_X(D) (Divisors 15.10) and deg L = deg D >= 0, with equality iff D is empty."
+   ],
+   "acceptance": [
+    "Roadmap Layer A warning: chi(L) is the Euler characteristic, not the degree; check deg O_X = 0 and deg O_X(x) = [kappa(x):k].",
+    "Prove the agreement with sum [kappa(x):k] ord_x as a separate lemma (derived step above)."
+   ],
+   "sources": [
+    {
+     "sourceId": "stacks-project-varieties",
+     "locator": "Section 44: Definition 44.1, Lemmas 44.2-44.7, 44.9-44.12, 44.14 with proofs, pp. 94-100",
+     "excerpt": "Let k be a field, let X be a proper scheme of dimension ≤ 1 over k, and let L be an invertible OX -module. The degree of L is defined by deg(L) = χ(X, L) − χ(X, OX )",
+     "match": "Literal Definition 44.1; the roadmap's definition deg L := chi(L) - chi(O_X) is exactly this."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/coherent-cohomology-affine-vanishing-cech-comparison-and-finiteness",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+   "title": "Stacks Cohomology of Schemes 2.2, 2.6, 4.2, 19.1-19.2: vanishing on affines, Cech cohomology for affine intersections, vanishing beyond the number of affines, finiteness for proper morphisms",
+   "kind": "theorem",
+   "statement": "For F quasi-coherent: H^p(U, F) = 0 for U affine and p > 0 (2.2). For an open covering whose finite intersections are affine, Cech cohomology computes H^p(X, F) (2.6). If X is quasi-compact with affine diagonal (e.g. separated) and covered by t affine opens, then H^n(X, F) = 0 for n >= t (4.2). For f: X -> S proper over a locally Noetherian S and F coherent, R^i f_*F is coherent (19.1), and if S = Spec A with A Noetherian, H^i(X, F) is a finite A-module (19.2). For a proper curve over k: every H^i(X, F) is finite-dimensional, and H^i = 0 for i >= 2 once X is covered by two affines.",
+   "hypotheses": [
+    "19.1 is proved by devissage (12.6) and Chow's lemma (18.1) together with Lemmas 16.2-16.3 on projective morphisms; these were not read",
+    "Two-affine cover of a projective curve: X is a closed subscheme of P^n (Varieties 43.4). Choose hypersurfaces H_0, H_1 with X cap H_0 cap H_1 empty (possible since dim X = 1, over a finite field possibly of degree > 1); then X = (X - H_0) cup (X - H_1) with both pieces closed in affine complements, hence affine. This derived step is not stated in the sections read"
+   ],
+   "proofSteps": [
+    "2.2 via Cohomology, Lemma 11.9, using standard open coverings of affines and Lemma 2.1.",
+    "2.6 from 2.2 and Cohomology, Lemma 11.6 (Cech-to-cohomology).",
+    "4.2 by induction on t with a Mayer-Vietoris sequence for X = U cup V, V affine.",
+    "19.2 is the affine case of 19.1 via Lemmas 4.5, 4.6 and 9.1."
+   ],
+   "acceptance": [
+    "Roadmap Layer B: acyclicity of affines, Cech = derived on a separated scheme, finite-dimensionality for proper X/k, and H^2 = 0 on a curve.",
+    "Genus is well defined: g = dim_k H^1(X, O_X) is finite."
+   ],
+   "sources": [
+    {
+     "sourceId": "stacks-project-cohomology-of-schemes",
+     "locator": "Lemmas 2.2 and 2.6 with proofs, pp. 2-3; Lemma 4.2 with first proof, pp. 6-7; Proposition 19.1 with proof and Lemma 19.2, pp. 49-50",
+     "excerpt": "Let S be a locally Noetherian scheme. Let f : X → S be a proper morphism. Let F be a coherent OX -module. Then Ri f∗ F is a coherent OS -module for all i ≥ 0.",
+     "match": "Literal statement of Proposition 19.1."
+    },
+    {
+     "sourceId": "stacks-project-varieties",
+     "locator": "Lemma 43.4 statement, p. 92",
+     "excerpt": "Let X be a proper scheme over a field k. If dim(X) ≤ 1 then X is H-projective over k.",
+     "match": "Literal statement of Lemma 43.4, used for the two-affine cover."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/genus-and-riemann-roch-in-euler-characteristic-form",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+   "title": "Stacks Curves 8.1-8.2, Picard 6.3, Varieties 26.2: genus g = dim H^1(X, O_X) when H^0(X, O_X) = k; Riemann-Roch chi(L) = deg L + 1 - g",
+   "kind": "theorem",
+   "statement": "Let X be proper over k of dimension 1 with H^0(X, O_X) = k. For a proper geometrically integral variety this holds by Varieties 26.2(4), and a smooth projective curve with a k-rational point has it by Picard 6.1. The genus is g = dim_k H^1(X, O_X) (Curves 8.1; Picard 6.3 for smooth projective geometrically irreducible curves), and it does not change under field extension (8.2). With the degree of Layer A, chi(X, L) = deg(L) + chi(X, O_X) = deg(L) + 1 - g for every invertible L, and more generally chi(E) = deg(E) + rank(E)(1 - g).",
+   "hypotheses": [
+    "With the roadmap's definition deg L := chi(L) - chi(O_X), this Riemann-Roch formula is definitional once h^0(O_X) = 1 and H^i(X, O_X) = 0 for i >= 2. The mathematical content lies in the agreement of deg with sum [kappa(x):k] ord_x (Layer A) and in deg omega = 2g - 2 and duality (next node)",
+    "H^0(X, O_X) = k also implies that X is connected, Cohen-Macaulay and equidimensional (Curves 6.1; statement only)"
+   ],
+   "proofSteps": [
+    "chi(O_X) = h^0 - h^1 = 1 - g, since H^i = 0 for i >= 2 (finiteness node).",
+    "Substitute into Varieties Definition 44.1: chi(L) = deg L + chi(O_X).",
+    "Base change: H^i(X_{k'}, O) = H^i(X, O) (x)_k k' (Cohomology of Schemes 5.2), so h^0 = 1 and g are preserved (Curves 8.2)."
+   ],
+   "acceptance": [
+    "Roadmap Layer B: g := dim_k H^1(X, O_X) and chi(L) = deg L + 1 - g.",
+    "Check genus 0 for P^1, and the plane-curve formula g = (d - 1)(d - 2)/2 (Curves section 9, located only)."
+   ],
+   "sources": [
+    {
+     "sourceId": "stacks-project-algebraic-curves",
+     "locator": "Definition 8.1 with the following discussion, Lemma 8.2 with proof, pp. 15-16",
+     "excerpt": "Let k be a field. Let X be a proper scheme over k having dimension 1 and H 0 (X, OX ) = k. Then the genus of X is g = dimk H 1 (X, OX ).",
+     "match": "Literal Definition 8.1."
+    },
+    {
+     "sourceId": "stacks-project-varieties",
+     "locator": "Lemma 26.2 with proof, p. 48",
+     "excerpt": "Let X be a proper variety over k. Then (1) K = H 0 (X, OX ) is a field which is a finite extension of the field k",
+     "match": "Literal opening of Lemma 26.2; part (4) gives K = k for geometrically integral X."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/dualizing-module-serre-duality-and-degree-of-the-canonical-sheaf",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+   "title": "Stacks Curves 4.1-4.3, 5.1-5.2, 8.3-8.4: the dualizing module (omega_X = Omega_{X/k} for smooth X), Serre duality H^i(E)^vee = H^{1-i}(E^vee (x) omega_X), and deg omega_X = -2 chi(O_X) = 2g - 2",
+   "kind": "theorem",
+   "statement": "Let X be proper of dimension <= 1 over k. There is a dualizing complex omega_X^* with the following properties: omega_X = H^{-1}(omega_X^*) is coherent Cohen-Macaulay; Ext^i(K, omega_X^*) = Hom_k(H^{-i}(X, K), k); Hom(F, omega_X) = Hom_k(H^1(X, F), k); and omega_X = Omega_{X/k} when X -> Spec k is smooth of relative dimension 1 (4.1). If X is Cohen-Macaulay and equidimensional of dimension 1, then Ext^{1+i}(F, omega_X) = Hom_k(H^{-i}(X, F), k) (4.2). Hence, for E finite locally free, Hom_k(H^{-i}(X, E), k) = H^{1+i}(X, E^vee (x) omega_X), and for L invertible h^0(L) = h^1(L^{-1} (x) omega_X) and h^1(L) = h^0(L^{-1} (x) omega_X) (Remark 4.3). If X is Gorenstein and equidimensional of dimension 1 (5.2): omega_X is invertible, deg omega_X = -2 chi(X, O_X), chi(E) = deg(E) - (1/2) rank(E) deg(omega_X), and dim H^i(E) = dim H^{1-i}(E^vee (x) omega_X). If moreover H^0(O_X) = k, then deg omega_X = 2g - 2 (8.3). For smooth X, dim H^0(Omega_{X/k}) = g and deg Omega_{X/k} = 2g - 2 (8.4).",
+   "hypotheses": [
+    "4.1 is deduced from Duality for Schemes (the right adjoint a of Rf_*, Remark 12.5, Examples 22.1-22.2, Lemmas 15.7, 21.1, 22.4-22.5) and Dualizing Complexes 20.2; none read",
+    "5.2 uses deg(E) = deg(c_1(E) cap [X]_1) (Chow Homology 41.3, not read). Nonsingular curves are Gorenstein by Duality for Schemes 24.3 (not read)",
+    "The roadmap's H^i(L) = H^{1-i}(omega (x) L^{-1})^* is 4.2(4) with Remark 4.3; the source gives canonical isomorphisms of k-vector spaces"
+   ],
+   "proofSteps": [
+    "4.1: take omega_X^* = a(O_{Spec k}); property (4) holds by adjunction, and (6) follows from Duality for Schemes 15.7.",
+    "4.2: in the Cohen-Macaulay case omega_X^* = omega_X[1] (Duality for Schemes 23.1).",
+    "5.1: chi(O_X) = chi(omega_X^*), since H^i(X, omega_X^*) = H^{-i}(X, O_X)^vee; in the Cohen-Macaulay case this gives chi(O_X) = -chi(omega_X).",
+    "5.2: apply chi(E) = deg(c_1(E) cap [X]_1) + rank(E) chi(O_X) to omega_X and combine with 5.1 to get 2 chi(O_X) = -deg omega_X; substitute back for general E.",
+    "8.3-8.4: chi(O_X) = 1 - g, and Omega_{X/k} = omega_X by 4.1(6)."
+   ],
+   "acceptance": [
+    "Roadmap Layer B: Serre duality with the relative dualizing sheaf, and deg omega_{X/k} = 2g - 2.",
+    "Check g = dim H^0(X, Omega_{X/k}) (8.1.1, 8.4), and H^1(L) = 0 for deg L > 2g - 2 (used in Layer D)."
+   ],
+   "sources": [
+    {
+     "sourceId": "stacks-project-algebraic-curves",
+     "locator": "Lemma 4.1 with proof, Lemma 4.2 with proof, Remark 4.3, pp. 7-8; Lemma 5.1 and Lemma 5.2 (Riemann-Roch) with proofs, pp. 10-11; Lemmas 8.3-8.4 with proofs, p. 16",
+     "excerpt": "Let X be a proper scheme over a field k which is Gorenstein and equidimensional of dimension 1. Let ωX be as in Lemma 4.1. Then (1) ωX is an invertible OX -module, (2) deg(ωX ) = −2χ(X, OX )",
+     "match": "Literal opening of Lemma 5.2 (Riemann-Roch); the remaining parts are as stated in the node."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/vanishing-of-h1-in-degree-at-least-2g-minus-1",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+   "title": "Stacks Varieties 44.16-44.17 and Milne III.1: over an algebraically closed field some invertible sheaves have (h^0, h^1) = (1, 0) and some (0, 0); H^1(X, L) = 0 whenever deg L >= 2g - 1, so every degree-r class with r > 2g - 2 is effective",
+   "kind": "lemma",
+   "statement": "Let k be algebraically closed and X a proper curve over k. There exist an invertible L with h^0 = 1, h^1 = 0 and an invertible N with h^0 = h^1 = 0 (44.16). With g = dim H^1(X, O_X), every invertible L with deg L >= 2g - 1 has H^1(X, L) = 0 (44.17), hence h^0(L) = deg L + 1 - g. In Milne's form: for a divisor D with deg D = r > 2g - 2, deg(K - D) < 0 gives l(K - D) = 0, so l(D) = r + 1 - g > 0 and every divisor class of degree r contains an effective divisor.",
+   "hypotheses": [
+    "k algebraically closed in 44.16-44.17. Over a general field, apply them after base change, using Varieties 44.2 and flat base change of cohomology (derived step)",
+    "44.16 uses the dense open of nonsingular points (Varieties 25.8) and the ample-sheaf vanishing criterion (Cohomology of Schemes 17.1)",
+    "Milne's version uses Riemann-Roch with the canonical divisor K, and deg K = 2g - 2"
+   ],
+   "proofSteps": [
+    "44.16: start from L = O(d) with H^1 = 0 and H^0 nonzero; decrease h^0 by twisting with the ideal of a closed point at which a chosen section does not vanish.",
+    "44.17: deg N = g - 1, so L (x) N^{-1} has degree >= g and a section s with zero scheme D. Then 0 -> N -> L -> i_*(L|_D) -> 0 gives H^1(L) = 0, because H^0(L) -> H^0(L|_D) is an isomorphism between spaces of dimension deg L - (g - 1)."
+   ],
+   "acceptance": [
+    "Roadmap Layer D route 1: every invertible sheaf of degree d >= g is effective, and h^0 = d + 1 - g for d >= 2g - 1; these facts make the Abel maps surjective and smooth."
+   ],
+   "sources": [
+    {
+     "sourceId": "stacks-project-varieties",
+     "locator": "Lemmas 44.16-44.17 with proofs, pp. 100-101",
+     "excerpt": "Set g = dimk H 1 (X, OX ). For every invertible OX -module L with deg(L) ≥ 2g − 1 we have H 1 (X, L) = 0.",
+     "match": "Literal second half of Lemma 44.17."
+    },
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III.1, construction overview before Definitions and main statements, p. 87",
+     "excerpt": "In particular, every divisor class of degree r contains an effective divisor, and so the map",
+     "match": "Literal sentence following Milne's Riemann-Roch computation for r > 2g - 2."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/flat-base-change-for-quasi-coherent-cohomology",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+   "title": "Stacks Cohomology of Schemes 5.2 and 7.1: flat base change g^*R^i f_*F = R^i f'_*(g')^*F, and the relative Cech complex computing Rf_*F",
+   "kind": "theorem",
+   "statement": "Consider a cartesian square with g: S' -> S flat and f: X -> S quasi-compact and quasi-separated, and let F be quasi-coherent on X. Then g^*R^i f_*F -> R^i f'_*(g')^*F is an isomorphism, and for S = Spec A, S' = Spec B, H^i(X, F) (x)_A B = H^i(X_B, F_B) (5.2). If X is quasi-compact and X, S have affine diagonal, a finite affine cover U gives a complex of quasi-coherent sheaves C^*(U, f, F) with C^*(U, f, F) = Rf_*F functorially in F (7.1). In particular, H^i(X_{k'}, F_{k'}) = H^i(X, F) (x)_k k' for a field extension k'/k.",
+   "hypotheses": [
+    "5.2 reduces to the affine case through quasi-coherence of higher direct images (Lemmas 4.5-4.6) and computes with Cech complexes; the key input is exactness of - (x)_A B"
+   ],
+   "proofSteps": [
+    "Reduce (1) to (2): the question is local on S', and R^i f_*F is quasi-coherent with sections H^i(X, F) over an affine S.",
+    "For (2), compute H^i by the alternating Cech complex of a finite affine cover (in the qcqs case via the Cech-to-cohomology spectral sequence) and use flatness of A -> B."
+   ],
+   "acceptance": [
+    "Roadmap Layer C: flat base change.",
+    "Consumers in this packet: invariance of genus under field extension (Layer B), and O_T -> f_{T*}O_{X_T} is an isomorphism for T over a field (Picard 6.1, Layer D)."
+   ],
+   "sources": [
+    {
+     "sourceId": "stacks-project-cohomology-of-schemes",
+     "locator": "Lemma 5.2 (flat base change) with proof, pp. 9-10; Lemma 7.1 with proof, pp. 12-13",
+     "excerpt": "Assume that g is flat and that f is quasi-compact and quasi-separated. For any i ≥ 0 (1) the base change map of Cohomology, Lemma 17.1 is an isomorphism",
+     "match": "Literal part of Lemma 5.2."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/cohomology-and-base-change-semicontinuity-and-locally-constant-euler-characteristic",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+   "title": "Stacks Derived Categories of Schemes 30.4, 32.1-32.6 (tag 0B91 is Lemma 30.4) with Milne I.4.2: Rf_*F is perfect and commutes with arbitrary base change; semicontinuity; chi is locally constant; open loci where Rf_*F is locally free in one degree; f_*O_X = O_S universally",
+   "kind": "theorem",
+   "statement": "Let f: X -> S be proper of finite presentation and G finitely presented and flat over S. Then Rf_*G is perfect and its formation commutes with arbitrary base change (30.4). Consequences: s |-> dim H^i(X_s, F_s) is upper semicontinuous with locally constructible level sets, compatibly with base change (32.1); s |-> chi(X_s, F_s) is locally constant (32.2); for fixed i, r there is an open U with T -> S factoring through U iff Rf_{T*}F_T is finite locally free of rank r in degree i (32.3); R^i f_*F = 0 for i > 0 makes f_*F locally free and compatible with base change (32.4); and if f is proper, flat and of finite presentation with geometrically reduced and connected fibres, then f_*O_X = O_S universally (32.5-32.6). Milne I Theorem 4.2 records the same package for proper flat regular maps and locally free sheaves (flat base change, local constancy of chi, semicontinuity, local freeness when h^r is constant, and the H^1 = 0 case).",
+   "hypotheses": [
+    "30.4 is a special case of Lemma 30.1, and 32.1-32.3 follow from Lemmas 31.1-31.3 on perfect complexes; 30.1 and 31.1-31.3 were not read. 32.5 uses More on Algebra 76.2 and 78.2",
+    "Milne I.4.2 cites Mumford, Abelian Varieties section 5, and Hartshorne III.12.11 for all proofs",
+    "The roadmap mentions the theorem on formal functions (Cohomology of Schemes 20.5) for Grothendieck's route; the route decomposed here does not use it"
+   ],
+   "proofSteps": [
+    "Set K = Rf_*F, which is perfect and compatible with base change, so H^i(X_s, F_s) = H^i(K (x)^L kappa(s)).",
+    "Apply the perfect-complex Lemmas 31.1-31.3 to get semicontinuity, local constancy of chi and the open locus.",
+    "32.5-32.6: E = Rf_*O_X has tor amplitude in [0, oo) and H^0(E (x)^L kappa(s)) = kappa(s). Hence H^0(E) is finite locally free of rank 1 and O_S -> f_*O_X is an isomorphism, checked on residue fields."
+   ],
+   "acceptance": [
+    "Roadmap Layer C: cohomology and base change, and semicontinuity (Grauert).",
+    "Consumers: Picard 6.2 (the open subfunctor F), 6.4 (reduction to fibres), and 6.7 (Pic^d as open and closed pieces via chi); the roadmap Layer D hypothesis f_*O_X = O universally (32.6)."
+   ],
+   "sources": [
+    {
+     "sourceId": "stacks-project-derived-categories-of-schemes",
+     "locator": "Lemma 30.4 with proof, p. 74; Lemmas 32.1-32.6 with proofs, pp. 78-80",
+     "excerpt": "Let G be an OX -module of finite presentation, flat over S. Then Rf∗ G is a perfect object of D(OS ) and its formation commutes with arbitrary base change.",
+     "match": "Literal part (2) of Lemma 30.4 (tag 0B91), the \"cohomology and base change\" tag cited by the roadmap."
+    },
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "I.4, Theorem 4.2 with its cited proofs, pp. 20-21",
+     "excerpt": "is upper semicontinuous (i.e., jumps on closed subsets)",
+     "match": "Literal phrase from Theorem 4.2(c)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/relative-effective-cartier-divisors-on-smooth-relative-curves",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+   "title": "Stacks Divisors 19.1-19.9, Picard 3.1-3.3 and Milne III 3.4-3.11: relative effective Cartier divisors, base change, sums; on a smooth proper relative curve they are exactly the closed subschemes finite locally free over the base",
+   "kind": "lemma",
+   "statement": "A relative effective Cartier divisor on X/S is an effective Cartier divisor D that is flat over S (Divisors 19.2). Its pullback along any S' -> S is again an effective Cartier divisor (19.1). Sums (19.3) and differences D_2 = D_1 + D for D_1 inside D_2 (19.4) stay relative. For X -> S flat and locally of finite presentation, a locally principal closed subscheme whose fibres are effective Cartier divisors is a relative effective Cartier divisor, and so is a finitely presented closed subscheme flat over S with such fibres (19.9). For X -> S smooth of relative dimension 1 and D a closed subscheme (Picard 3.1): if D is finite locally free over S it is a relative effective Cartier divisor; D is relative effective Cartier iff D -> S is locally quasi-finite, flat and locally of finite presentation, which implies locally quasi-finite and flat. The first implication is an equivalence when X -> S is proper, and the last one when S is locally Noetherian. Degrees add under sums (3.2), and D_1 inside D_2 gives D of degree d_2 - d_1 with D_2 = D_1 + D (3.3). Milne: D corresponds to (L(D), s_D) with L/sO_X flat over T (3.6). There is a fibrewise criterion (3.8). For C -> T proper smooth of relative dimension 1, D is relative effective iff finite and flat over T, and the image of a section is a relative divisor of degree 1 (3.9). Inclusion can be checked fibrewise (3.10).",
+   "hypotheses": [
+    "Picard 3.1 over a field uses that O_{X,x} is a DVR at closed points of a smooth curve (Varieties 25.3, Algebra 119.7), and that ideals not vanishing at generic points are invertible (Divisors 16.2)",
+    "Milne 3.8 uses the fibre-by-fibre flatness criterion (Bourbaki, Commutative Algebra III 5.4), cited"
+   ],
+   "proofSteps": [
+    "Divisors 19.1 and 19.3 are the algebra facts that h (resp. h_1 h_2) stays a nonzerodivisor with B/hB flat over A after base change (Algebra 39.12-39.13).",
+    "Picard 3.1: (2) <=> (3) via Divisors 19.9 and the case of a field; for proper X/S, (1) <=> (2) because a proper locally quasi-finite morphism is finite (More on Morphisms 44.1).",
+    "Picard 3.2: D_1 + D_2 is relative effective (19.3) and proper, hence finite locally free; the degree adds by a local computation over a field."
+   ],
+   "acceptance": [
+    "Roadmap Layer C: relative effective Cartier divisors as the geometric input to the Abel maps.",
+    "Check that the graph of a section of C -> T is a relative effective divisor of degree 1 (Milne 3.9)."
+   ],
+   "sources": [
+    {
+     "sourceId": "stacks-project-divisors",
+     "locator": "Lemma 19.1 with proof, Definition 19.2, Lemmas 19.3-19.4 with proofs, Lemma 19.9 statement, pp. 38-41",
+     "excerpt": "A relative effective Cartier divisor on X/S is an effective Cartier divisor D ⊂ X such that D → S is a flat morphism of schemes.",
+     "match": "Literal Definition 19.2."
+    },
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Section 3: Lemmas 3.1-3.3 with proofs, pp. 5-7",
+     "excerpt": "For a smooth morphism X → S of relative dimension 1 the functor HilbdX/S parametrizes relative effective Cartier divisors",
+     "match": "Literal opening sentence of section 3."
+    },
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III.3: Definition 3.4, Lemma 3.5, Remark 3.6, Propositions 3.7-3.8, Corollary 3.9, Propositions 3.10-3.11, pp. 95-98",
+     "excerpt": "A closed subspace D of C is a relative effective divisor on C/T if and only if it is finite and flat over T",
+     "match": "Literal Corollary 3.9 (first part)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/hilbert-scheme-of-points-equals-symmetric-power-of-a-smooth-proper-curve",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+   "title": "Stacks Picard 2.1-3.7 and Milne III 3.1-3.2, 3.12-3.15: Hilb^d_{X/k} = X^(d) is a smooth proper variety of dimension d representing relative effective divisors of degree d; X^d -> Hilb^d is finite locally free of degree d!",
+   "kind": "theorem",
+   "statement": "Hilb^d_{X/S}(T) is the set of closed subschemes Z of X_T that are finite locally free of degree d over T. It is an fpqc sheaf (2.1), limit preserving for X/S of finite presentation (2.2), and closed immersions induce closed immersions (2.3). It is separated if X/S is (2.4), and representable for affine X/S (2.5) and whenever any d points of a fibre lie in an affine open (2.6), for instance for quasi-projective f (2.7). For X -> S smooth of relative dimension 1 with all Hilb^d representable: Hilb^d x X -> Hilb^{d+1}, (D, x) |-> D + x, is finite locally free of degree d + 1 (3.4), and Hilb^d is smooth of relative dimension d (3.5). For X a geometrically irreducible smooth proper curve over a field k (3.6): Hilb^d_{X/k} is a smooth proper variety of dimension d whose K-points are the effective Cartier divisors of degree d on X_K; addition Hilb^{d_1} x Hilb^{d_2} -> Hilb^{d_1+d_2} is finite locally free of degree binom(d_1+d_2, d_1); and X^d -> Hilb^d is finite locally free of degree d!. The universal divisor D_univ gives O(D_univ) restricting to O_X(D) on [D] x X (3.7). Milne constructs C^(r) = S_r\\C^r (3.1, citing Mumford), proves it nonsingular via k[[X_1..X_r]]^{S_r} = k[[sigma_1..sigma_r]] (3.2), and shows C^(r) represents Div^r_C on k-schemes (3.13), i.e. C^(r) is the Hilbert scheme with constant polynomial r (3.15).",
+   "hypotheses": [
+    "Picard 2.5 constructs the universal algebra by explicit equations; 2.6 omits the reduction to affine S (\"Details omitted\"); 3.5 omits the check of the relative dimension",
+    "Milne 3.1 refers to Mumford (1970) II section 7 and III section 11 for the existence of V^(r). Theorem 3.13 asserts a finite flat cover T' -> T splitting D and uses descent (Milne, Etale Cohomology I 2.17) without details",
+    "Projectivity of X (Varieties 43.4) is what allows 2.6-2.7; projectivity of Hilb^d itself is not stated in Proposition 3.6 (proper only)"
+   ],
+   "proofSteps": [
+    "Represent Hilb^d for affine X by subfunctors F_W on which d chosen functions form a basis of O_Z (2.5), and glue over affine opens (2.6).",
+    "Identify degree-d relative effective divisors on smooth relative curves with Hilb^d (3.1), and identify D |-> D + x with the universal divisor (3.4).",
+    "Induct: Hilb^d x X is smooth and finite locally free over Hilb^{d+1}, so Hilb^{d+1} is smooth (Descent 14.5) (3.5).",
+    "X^d -> Hilb^d is finite locally free of degree d!, which gives properness and irreducibility (3.6)."
+   ],
+   "acceptance": [
+    "Roadmap Layer C: symmetric powers Sym^d X exist and are smooth for a smooth curve; record projectivity as a separate derived claim (X^d is projective and X^d -> Hilb^d is finite and surjective).",
+    "Check Hilb^0 = S and Hilb^1 = X."
+   ],
+   "sources": [
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Section 2: Lemmas 2.1-2.5, Proposition 2.6 with proofs, Remark 2.7; Section 3: Lemmas 3.4-3.5, Proposition 3.6 with proofs, Remark 3.7, pp. 1-8",
+     "excerpt": "Let X be a geometrically irreducible smooth proper curve over a field k. (1) The functors HilbdX/k are representable by smooth proper varieties HilbdX/k of dimension d over k.",
+     "match": "Literal opening of Proposition 3.6."
+    },
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III.3: Propositions 3.1-3.2 with proofs, Example 3.12, Theorem 3.13 with proof, Exercise 3.14, Remark 3.15, pp. 94-98",
+     "excerpt": "For any relative effective divisor D on (C × T)/T of degree r, there is a unique morphism",
+     "match": "Literal opening of Theorem 3.13."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/relative-picard-functors-comparison-theorem-and-brauer-obstruction",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+   "title": "Kleiman 2.2-2.7, 2.11 and Stacks Picard 4.1-4.2: T |-> Pic(X_T)/Pic(T) and its Zariski, etale and fppf sheafifications; injectivity when O_S -> f_*O_X holds universally; the Br' obstruction",
+   "kind": "comparison",
+   "statement": "For f: X -> S, Kleiman defines Pic_{X/S}(T) := Pic(X_T)/Pic(T), with associated sheaves Pic_{(X/S)(zar)}, Pic_{(X/S)(et)} and Pic_{(X/S)(fppf)} (2.2). Stacks defines the Picard functor as the fppf sheafification of T |-> Pic(X_T) (Definition 4.1), which is the same fppf sheaf. If O_S -> f_*O_X holds universally, the natural maps Pic_{X/S} -> Pic_{(zar)} -> Pic_{(et)} -> Pic_{(fppf)} are injective (Kleiman 2.5(1)); equivalently 0 -> Pic(T) -> Pic(X_T) -> Pic_{X/S,fppf}(T) is exact (Stacks 4.2). Kleiman Remark 2.11: the low-degree exact sequence of the Leray spectral sequence for G_m gives 0 -> Pic(T) -> Pic(X_T) -> Pic_{(X/S)(et)}(T) -> Br'(T) -> Br'(X_T), so the obstruction to representing an etale-local family by an invertible sheaf on X_T lies in Br'(T). For curves, Milne III Remark 1.11 records 0 -> P^0_C(k) -> J(k) -> Br(k). Kleiman Exercise 2.4: for the real conic u^2 + v^2 + w^2 = 0, Pic_{(zar)} -> Pic_{(et)} is not surjective on R-points.",
+   "hypotheses": [
+    "Kleiman Lemma 2.7 (read): if O_S = f_*O_X, then N |-> f^*N is fully faithful on locally free sheaves of finite rank, with essential image the M such that f_*M is locally free and f^*f_*M -> M is an isomorphism",
+    "Stacks 4.2 uses fppf descent of invertible modules (Descent, Proposition 5.2; supplier SchemeAndStackFoundations SF.1)",
+    "Remark 2.11 cites Grothendieck's Brauer-group exposes for Br' and for the etale = fppf comparison of H^p(T, G_m); not read. Exercise 2.4 is answered in Kleiman Appendix A, not read",
+    "Milne 1.11 cites Lichtenbaum (1969) for the image of J(k) in Br(k) over p-adic fields"
+   ],
+   "proofSteps": [
+    "Kleiman 2.5(1): if lambda in Pic_{X/S}(T) dies after an fppf covering p, then p_X^*L = f_{T'}^*N'. Hence f_{T*}L is invertible and f_T^*f_{T*}L -> L is an isomorphism after faithfully flat pullback (Lemma 2.7), so lambda = 0. The Zariski and etale cases follow formally.",
+    "Stacks 4.2: if f^*N is trivial then N = f_*f^*N = O_S. If L dies after an fppf cover, the local trivializations differ by units of O_T and form a descent datum for an invertible N with f^*N = L.",
+    "Remark 2.11: use Pic = H^1(G_m), f_{T*}G_m = G_m, and the exact sequence of terms of low degree."
+   ],
+   "acceptance": [
+    "Roadmap Layer D: keep T |-> Pic(X_T)/Pic(T), its sheafifications and the rigidified functor distinct, and record the Br-flavoured obstruction.",
+    "Check the real conic, and check Milne 1.11 over a p-adic field (image of J(k) in Br(k) = Q/Z is (1/P)Z/Z with P the period; cited).",
+    "Picard stack: for flat, proper, finitely presented morphisms it is an algebraic stack (Stacks, Quot and Hilbert Spaces, Proposition 99.10.2, tag 0D04). Only the statement was looked up."
+   ],
+   "sources": [
+    {
+     "sourceId": "kleiman-2005-the-picard-scheme",
+     "locator": "Definition 2.2, Exercises 2.3-2.4, p. 17; Theorem 2.5, Exercise 2.6, Lemma 2.7 with proof, p. 18; proofs of Theorem 2.5, pp. 19-20; Remark 2.11, pp. 20-21",
+     "excerpt": "Assume OS −→ f∗ OX holds universally; that is, for any S-scheme T , the comorphism of fT is an isomorphism",
+     "match": "Literal hypothesis of the Comparison Theorem 2.5 (isomorphism arrow transliterated)."
+    },
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Definition 4.1, Lemma 4.2 with proof, pp. 8-9",
+     "excerpt": "The Picard functor PicX/S is the fppf sheafification of the functor",
+     "match": "Literal Definition 4.1."
+    },
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III.1: Remarks 1.10-1.12, pp. 89-90",
+     "excerpt": "There is always an exact sequence 0 → PC0 (k) → J(k) → Br(k) where Br(k) is the Brauer group of k.",
+     "match": "Literal Remark 1.11 (arrows transliterated)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/rigidification-along-a-section-and-the-split-exact-sequence",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+   "title": "Kleiman 2.5(2), 2.8-2.10, Stacks Picard 4.3 and 6.1, Milne III 1.7-1.8: with a section and O_T = f_{T*}O_{X_T} universally, Pic_{X/S}(T) = ker(sigma_T^*) and rigidified pairs have no automorphisms; a smooth projective curve with a k-point satisfies the hypotheses",
+   "kind": "theorem",
+   "statement": "Suppose f: X -> S has a section sigma and O_T -> f_{T*}O_{X_T} is an isomorphism for all T. Then 0 -> Pic(T) -> Pic(X_T) -> Pic_{X/S}(T) -> 0 is split exact with splitting sigma_T^* (Stacks 4.3), and all four of Kleiman's functors coincide (Kleiman 2.5(2)). Pic_{X/S}(T) is the group of isomorphism classes of pairs (L, u) with u: O_T = sigma_T^*L (Kleiman 2.9), and every automorphism of such a pair is trivial (2.10). If X is a smooth projective curve over k with a k-rational point, these hypotheses hold (Stacks 6.1): H^0(X, O_X) = k' is a field (Varieties 26.2) admitting a k-algebra map k' -> k, so k' = k, and flat base change gives O_T = f_{T*}O_{X_T}. Hence Pic_{X/k} = Pic_{X/k,sigma}: T |-> ker(sigma_T^*: Pic(X_T) -> Pic(T)). Milne 1.8 identifies P^0_C(T) with {L of fibre degree 0 with L|{P} x T trivial}, and deduces from the existence theorem a divisorial correspondence M_P between (C, P) and J that is universal for divisorial correspondences with (C, P) (Theorem 1.7).",
+   "hypotheses": [
+    "Stacks 4.3 and Kleiman 2.5(2) use fppf descent of invertible modules together with a rigidification (Descent, Proposition 5.2; \"small detail omitted\" in Stacks)",
+    "Stacks 6.1 needs X to be a variety (integral) so that H^0(X, O_X) is a field"
+   ],
+   "proofSteps": [
+    "Kleiman 2.9: replace M by L = M (x) f_T^*sigma_T^*M^{-1}, which is canonically rigidified; injectivity via v: L = f_T^*N.",
+    "Kleiman 2.10: an automorphism v of (L, u) lies in H^0(O_{X_T}) = H^0(O_T) and sigma_T^*v = 1, so v = 1.",
+    "Stacks 4.3: K(T) = ker(sigma_T^*) is a direct summand of Pic(X_T). K is an fppf sheaf: scale the gluing isomorphisms phi_ij so that they respect the rigidifications, and then the cocycle f_ijk equals 1.",
+    "Stacks 6.1: a rational point is a section; H^0(O_X) = k; flat base change."
+   ],
+   "acceptance": [
+    "Roadmap Layer D: the section x_0 rigidifies the functor (line bundles trivialized along x_{0,T}; the Poincare bundle) and removes the Brauer obstruction.",
+    "Check that Pic(X) -> Pic_{X/k}(k) is bijective when X(k) is nonempty, and that it fails for the real conic."
+   ],
+   "sources": [
+    {
+     "sourceId": "kleiman-2005-the-picard-scheme",
+     "locator": "Definition 2.8, Lemmas 2.9-2.10 with proofs, proof of Part 2 of Theorem 2.5, pp. 19-20",
+     "excerpt": "Let T be an S-scheme, L an invertible sheaf on XT , and u a g-rigidification of L. Then every automorphism of the pair (L, u) is trivial.",
+     "match": "Literal conclusion of Lemma 2.10."
+    },
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Lemma 4.3 with proof, pp. 9-10; Lemma 6.1 with proof and the definition of Pic_{X/k,sigma}, p. 11",
+     "excerpt": "Let X be a smooth projective curve over k which has a k-rational point. Then the hypotheses of Lemma 4.3 are satisfied.",
+     "match": "Literal Lemma 6.1."
+    },
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III.1: Theorem 1.7, Lemma 1.8 with proof, pp. 88-89",
+     "excerpt": "Then there is a divisorial correspondence MP between (C, P ) and J such that, for every divisorial correspondence L between (C, P ) and a pointed k-scheme",
+     "match": "Literal part of Theorem 1.7."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/representability-criterion-and-the-open-subfunctor-inside-hilb-g",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+   "title": "Stacks Picard 5.1, 6.2-6.4: a Zariski sheaf of groups with a suitable representable open subfunctor is a group scheme; F(T) = {L : Rf_{T*}L invertible in degree 0} is open in Pic_{X/k,sigma} and is represented by an open subscheme of Hilb^g",
+   "kind": "theorem",
+   "statement": "(5.1) Let G: (Sch/k)^op -> Groups be a Zariski sheaf. Suppose F is a subfunctor such that F is representable, F -> G is representable by open immersions, and for every field K over k and g in G(K) some g' in G(k) has g'g in F(K). Then G is a group scheme over k. (6.2) For X a smooth projective curve with k-point sigma, F(T) = {L in Pic_{X/k,sigma}(T) : Rf_{T*}L is an invertible O_T-module in degree 0} is a subfunctor representable by open immersions (Derived Categories of Schemes 32.3 with i = 0, r = 1). The genus is g = dim H^1(X, O_X) (6.3). (6.4) F is represented by the open W of H = Hilb^g_{X/k} over which L_H = O(D_univ) (x) pr_H^*sigma_H^*O(D_univ)^{-1} lies in F. For L in F(T) with Rf_{T*}L = N[0], the adjunction section of L (x) f_T^*N^{-1} vanishes on a relative effective Cartier divisor D finite locally free of degree g over T: on fibres h^0 = 1 and h^1 = 0, so deg L_t = chi(L_t) - chi(O) = 1 - (1 - g) = g.",
+   "hypotheses": [
+    "5.1 is Schemes, Lemma 15.4 (functorial gluing), not read",
+    "6.4 omits the check that L |-> m is inverse to h_W -> F",
+    "6.4 uses Hilb^g, which assumes X geometrically irreducible; for a smooth projective curve with a k-point this follows from H^0(O_X) = k plus smoothness (derived; not stated in the chapter)"
+   ],
+   "proofSteps": [
+    "5.1: cover G by the translates F_i = {g : g_i g in F} for g_i in G(k); each F_i = F is an open subfunctor, and condition (2)(c) makes the F_i cover G.",
+    "6.2: apply Derived Categories of Schemes 32.3 to L on X x T -> T.",
+    "6.4: L_H gives h_H -> Pic_{X/k,sigma}, and W is the preimage of F. Build the inverse from the zero scheme of the adjunction section and check on fibres (Varieties 44.1) that it is an effective Cartier divisor of degree g."
+   ],
+   "acceptance": [
+    "Roadmap Layer D route 1: the Abel map D |-> O_X(D - g x_0) identifies an open subscheme of Sym^g X with an open subscheme of the Jacobian."
+   ],
+   "sources": [
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Lemma 5.1 with proof, p. 10; Lemma 6.2, Definition 6.3, Lemma 6.4 with proof, pp. 11-12",
+     "excerpt": "The open subfunctor F defined in Lemma 6.2 is representable by an open subscheme of HilbgX/k .",
+     "match": "Literal conclusion of Lemma 6.4."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/representability-of-the-picard-scheme-over-a-separably-closed-field",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+   "title": "Stacks Picard 6.5-6.7: for k separably closed and X smooth projective, Pic_{X/k} is representable, a disjoint union of g-dimensional smooth proper Pic^d; Pic^0 is an open and closed subgroup scheme; gamma_d: Hilb^d -> Pic^d is surjective for d >= g, smooth for d >= 2g - 1 and birational for d = g",
+   "kind": "theorem",
+   "statement": "(6.5) Let k be separably closed, K/k a field extension and L invertible on X_K. Some invertible L_0 on X gives h^0(L (x) L_0) = 1 and h^1 = 0. (6.6) Pic_{X/k} is representable: conditions (1), (2)(a)-(c) of 5.1 hold by 4.3, 6.2, 6.4 and 6.5. (6.7) Pic_{X/k} is the disjoint union of open and closed Pic^d, where chi(X_t, L_t) = d + 1 - g (Derived Categories of Schemes 32.2), and the k-points of Pic^d are the invertible sheaves of degree d. Pic^0 is an open and closed subgroup scheme. gamma_d: Hilb^d -> Pic^d comes from O(D_univ). gamma_g is an open immersion on a nonempty open, so Pic is smooth of dimension g; it is separated (Groupoids 7.3), and every Pic^d is proper. gamma_d is surjective for d >= g, since chi > 0 gives sections. It is smooth for d >= 2g - 1, because its fibre over L is Proj(Sym Gamma(X, L)^*) = P^{d-g} and it is flat by the fibre-dimension criterion (Algebra 128.1).",
+   "hypotheses": [
+    "k separably closed: 6.5 uses that k-rational points are dense (Varieties 25.6). The chapter introduction says \"algebraically closed\"",
+    "Source slip: in the proof of 6.7 the sentence \"This finishes the proof of (2)\" concludes properness, which is part (1)",
+    "Smoothness of gamma_d cites Varieties 44.17, which is stated over an algebraically closed field (base change needed), and the identification of the fibre with Proj(Sym Gamma(X, L)^*) is omitted",
+    "Over a general field with a k-rational point the chapter does not prove representability; see the Milne construction and Kleiman 4.8 nodes"
+   ],
+   "proofSteps": [
+    "6.5: twist by a high power of an ample L_0 to get H^0 nonzero and H^1 = 0, then decrease h^0 by twisting with ideals of k-rational points at which a section does not vanish.",
+    "6.6: apply Lemma 5.1 to Pic_{X/k,sigma} with the open subfunctor F.",
+    "6.7: decompose by chi; the translates of the open of Hilb^g cover Pic, which gives smoothness and dimension g; properness from the surjection gamma_d for d >= g and translation; smoothness of gamma_d for d >= 2g - 1 from constant fibre dimension d - g."
+   ],
+   "acceptance": [
+    "Roadmap Layer D: Pic^0 is the degree-0 open and closed component; mind local constancy of degree in flat families (Derived Categories of Schemes 32.2).",
+    "Roadmap Layer D route 1: AJ_g is birational and surjective over kbar.",
+    "Roadmap Layer D: properness of Pic^0, not merely representability."
+   ],
+   "sources": [
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Lemma 6.5, Proposition 6.6, Lemma 6.7 with proofs, pp. 12-15",
+     "excerpt": "Let k be a separably closed field. Let X be a smooth projective curve over k. The Picard functor PicX/k is representable.",
+     "match": "Literal Proposition 6.6."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/milne-construction-of-the-jacobian-over-an-arbitrary-field-with-galois-descent",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+   "title": "Milne III 1.6, 1.13-1.14, 4.1-4.3: an abelian variety J with P^0_C -> J an isomorphism whenever C(T) is nonempty, glued from closed subvarieties of opens of C^(r) (r > 2g) and descended from a finite Galois extension",
+   "kind": "construction",
+   "statement": "Let C be a complete nonsingular curve over k. (1.6) There is an abelian variety J and a morphism iota: P^0_C -> J such that iota(T) is an isomorphism whenever C(T) is nonempty; (J, iota) is unique, and if P is in C(k) then J represents P^0_C (1.8). Construction (section 4, g > 0): fix r > 2g and use P^r_C = P^0_C via L |-> L (x) p^*L(rP). (4.1) A section of f: Div^r_C -> P^r_C would represent P^r_C by a closed subscheme of C^(r). (4.2) For an (r - g)-tuple gamma of k-points with D_gamma = sum P_i, C^gamma = {D : h^0(D_t - D_gamma) = 1} is open in C^(r). On P^gamma(T) = {L : h^0(L_t (x) L_gamma^{-1}) = 1} a section is built from the invertible sheaf q_*(L (x) p^*L_gamma^{-1}), which commutes with base change (I 4.2e) since h^1 = 0 by Riemann-Roch. If k is separably closed, the C^gamma cover C^(r). (4.3) P^gamma is represented by a closed subvariety J^gamma of C^gamma. After extending k so that the gamma_i are k-rational, glue the J^{gamma_i} along the open J^{gamma_i, gamma_j}. The result J represents P^r_C, is a group variety, and is complete because C^(r) -> J is surjective. (1.14) If 1.6 holds for C_{k'} with k'/k finite separable, it holds for C: the universal family gives a Galois descent datum on J', which descends by 1.13(a), and rigidified pairs fixed by the Galois group descend by 1.13(b).",
+   "hypotheses": [
+    "Milne works with functors on algebraic k-spaces in his sense (finite type, nonclosed points omitted), not on all k-schemes",
+    "Galois descent 1.13(a) is cited to AG 16.23 and needs J' quasi-projective, i.e. projectivity of abelian varieties (I 6.4), whose proof uses the theorem of the cube, deferred in these notes. This Layer D step therefore consumes Layer E; it is recorded as an ordering gap and not linked, to avoid a stage cycle",
+    "\"It is easy to see\" that P^{gamma, gamma'} is represented by an open J^{gamma, gamma'} and that the glued J represents P^r_C; details not written",
+    "Separatedness of the glued J is not argued in the notes (a group scheme locally of finite type over a field is separated; Stacks cites Groupoids 7.3)",
+    "The construction method is credited to Kollar (footnote)"
+   ],
+   "proofSteps": [
+    "Reduce to P^r_C for a fixed r > 2g (twist by rP).",
+    "Cover C^(r) by the opens C^gamma (k separably closed) and construct sections s_gamma: P^gamma -> C^gamma (4.2(b)).",
+    "Represent each P^gamma by a closed subvariety J^gamma (4.1, 4.3) and glue.",
+    "Completeness from the surjection C^(r) -> J; group structure from the group functor P^0_C.",
+    "Descend from k^sep (finite level) to k by 1.13-1.14."
+   ],
+   "acceptance": [
+    "Roadmap end goal: JacobianVariety X x_0, an abelian variety over k representing the rigidified degree-0 Picard functor.",
+    "Roadmap Layer D route 1 (Abel maps from symmetric powers), with the descent step made explicit.",
+    "Compare with Stacks Picard 6.6 over k^sep and with Kleiman 4.8."
+   ],
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III.1: Theorem 1.6, Remark 1.10, Propositions 1.13-1.14 with proofs, pp. 88-91; III.4: Lemma 4.1, Proposition 4.2, Corollary 4.3 and the proof of Theorem 1.6, pp. 98-101",
+     "excerpt": "There exists an abelian variety J over k and a morphism of functors ι : PC0 → J such that ι(T ) : PC0 (T ) → J(T ) is an isomorphism whenever C(T ) is nonempty.",
+     "match": "Literal Theorem 1.6 (symbols transliterated)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/grothendieck-existence-theorem-and-projectivity-of-pic-zero",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+   "title": "Kleiman 4.8, 5.3-5.4, 5.19-5.20: Pic_{X/S} exists for X/S projective and flat with integral geometric fibres and represents the etale sheaf; Pic^0 is an open and closed subgroup of finite type, quasi-projective, and projective for geometrically normal X",
+   "kind": "theorem",
+   "statement": "(4.8) If f: X -> S is projective Zariski locally over S and flat with integral geometric fibres, then Pic_{X/S} exists, is separated and locally of finite type over S, and represents Pic_{(X/S)(et)}. If moreover S is Noetherian and X/S projective, it is a disjoint union of open subschemes, each an increasing union of open quasi-projective S-schemes. (5.3) Over a field, if Pic_{X/k} exists and represents the fppf sheaf, then Pic_{X/k} is separated; it is smooth if it has a geometrically reduced open subscheme; and Pic^0_{X/k} is an open and closed subgroup scheme of finite type, geometrically irreducible, whose formation commutes with field extension. (5.4) If X/k is projective and geometrically integral, Pic^0_{X/k} exists and is quasi-projective, and it is projective if X is geometrically normal. (5.19) If Pic_{X/S} represents the etale sheaf and H^2(O_{X_s}) = 0, then Pic_{X/S} is smooth over a neighbourhood of s. (5.20) If the Pic^0 of the fibres are smooth of constant dimension, Pic^0_{X/S} is an open group subscheme of finite type; it is closed and proper if the fibres are complete and Pic_{X/S} is separated.",
+   "hypotheses": [
+    "4.8 is proved through Hilbert and Quot schemes and relative representability (Kleiman sections 3-4); only the statement and the opening of the proof were read",
+    "5.4 uses Exercise 4.11 and EGA IV 2.7.1; 5.19 uses semicontinuity and the property of exchange (EGA III 7.7.5, 7.7.10) and the infinitesimal lifting criterion (proof read)",
+    "For a curve H^2(X, O_X) = 0, so 5.19 gives smoothness (derived combination)"
+   ],
+   "proofSteps": [
+    "4.8: reduce to S Noetherian and X/S projective; (1) follows from (2).",
+    "5.4: Pic^0 is of finite type by 5.3 and quasi-projective by Exercise 4.11; for geometrically normal X, properness reduces to kbar (EGA IV 2.7.1).",
+    "5.19: pass to a strictly local base with algebraically closed residue field; lift invertible sheaves along square-zero thickenings, using H^2(f_T^*I) = H^0(R^2 f_{T*} f_T^*I) = 0."
+   ],
+   "acceptance": [
+    "Roadmap Layer D route 2: the general Picard scheme, then specialize.",
+    "Roadmap Layer D: projectivity of Pic^0 for a smooth projective curve (geometrically normal)."
+   ],
+   "sources": [
+    {
+     "sourceId": "kleiman-2005-the-picard-scheme",
+     "locator": "Exercise 4.7, Theorem 4.8 statement and opening of proof, pp. 27-28; Proposition 5.3, Theorem 5.4 with opening of proof, pp. 37-38; Propositions 5.19-5.20, pp. 47-48",
+     "excerpt": "Assume f : X → S is projective Zariski locally over S, and is flat with integral geometric fibers. (1) Then PicX/S exists, is separated and locally of finite type over S, and represents Pic(X/S) (ét) .",
+     "match": "Literal Theorem 4.8(1)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/abelian-varieties-rigidity-homomorphisms-and-rational-maps",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+   "title": "Milne I 1.1-1.5, 3.1-3.9: the rigidity theorem; pointed maps of abelian varieties are homomorphisms; commutativity; rational maps from nonsingular varieties into abelian varieties are regular; birational abelian varieties are isomorphic",
+   "kind": "theorem",
+   "statement": "A group variety over k is nonsingular; a connected one is geometrically connected and irreducible. An abelian variety is a complete connected group variety. (1.1) If alpha: V x W -> U with V complete and V x W geometrically irreducible collapses V x {w_0} and {v_0} x W to u_0, then alpha is constant. (1.2) Every regular map of abelian varieties is a homomorphism followed by a translation. (1.4) The group law is commutative. (1.5) A morphism h: V x W -> A with h(v_0, w_0) = 0 decomposes uniquely as f p + g q. (3.1) A rational map from a normal variety to a complete one is defined outside codimension >= 2. (3.2) A rational map from a nonsingular variety into an abelian variety is regular, because (3.3) the indeterminacy locus of a rational map into a group variety is empty or of pure codimension 1. (3.4) Rigidity holds without completeness for maps from a geometrically irreducible product of nonsingular varieties into an abelian variety. (3.7) A rational map from a group variety into an abelian variety is a homomorphism followed by a translation. (3.8) Birationally equivalent abelian varieties are isomorphic. (3.9) Rational maps from A^1 or P^1 into an abelian variety are constant.",
+   "hypotheses": [
+    "Milne's varieties are geometrically reduced separated schemes of finite type with nonclosed points omitted; the roadmap's definition (smooth, proper, geometrically connected group scheme over k) agrees with Milne's complete connected group variety (derived: a geometrically reduced group scheme of finite type over a field is smooth, and Milne shows connected group varieties are geometrically connected)",
+    "The general case of 3.1 uses the valuative criterion of properness (Hartshorne II 4.7); 3.3 uses divisors on the nonsingular V x V (AG chapter 12); 3.4 uses 3.5-3.6 (curves through a point are dense)"
+   ],
+   "proofSteps": [
+    "1.1: over kbar, Z = q(alpha^{-1}(U - U_0)) is closed; for w outside Z, alpha(V x {w}) is a complete connected subvariety of the affine U_0, hence a point; by irreducibility alpha is constant.",
+    "1.2: apply 1.1 to (a, a') |-> alpha(a + a') - alpha(a) - alpha(a').",
+    "1.4: the inverse map fixes 0, so it is a homomorphism by 1.2.",
+    "3.2: combine 3.1 with 3.3."
+   ],
+   "acceptance": [
+    "Roadmap Layer E: abelian variety API; commutativity is automatic by rigidity.",
+    "Consumer inside this packet: the Albanese property (Milne III 6.1 uses I 1.2 and I 3.2)."
+   ],
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "I.1: definitions, Theorem 1.1, Corollaries 1.2, 1.4, 1.5 with proofs, pp. 7-10; I.3: Theorems 3.1-3.2, Lemma 3.3, Theorem 3.4, Corollary 3.7, Theorem 3.8, Proposition 3.9 with proofs, pp. 15-20",
+     "excerpt": "A rational map α : V → A from a nonsingular variety to an abelian variety is defined on the whole of V .",
+     "match": "Literal Theorem 3.2 (arrow transliterated)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/tangent-space-of-the-jacobian-and-dimension-equals-genus",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+   "title": "Milne III 2.1 and Kleiman 5.11-5.15, 5.19: T_0 Pic^0_{X/k} = H^1(X, O_X) via a |-> 1 + a epsilon; dim J = g, and Pic of a curve is smooth because H^2(X, O_X) = 0",
+   "kind": "theorem",
+   "statement": "T_0(J) = ker(J(k[epsilon]) -> J(k)) equals T_0(P^0_C) = ker(H^1(C_epsilon, O^*) -> H^1(C, O^*)). The latter is identified with H^1(C, O_C) via a |-> exp(a epsilon) = 1 + a epsilon, since O_{C_epsilon} = O_C + O_C epsilon (Milne 2.1). The comparison map is an isomorphism when C(k) is nonempty, and in general by base change. Kleiman 5.11: T_0 Pic_{X/k} = H^1(O_X) whenever Pic_{X/k} exists and represents the etale sheaf. 5.13: dim Pic_{X/k} <= h^1(O_X), with equality iff Pic is smooth at 0, and then smooth everywhere. 5.14: in characteristic 0 it is always smooth (Cartier). 5.15: it can fail to be smooth for surfaces in characteristic p. 5.19: H^2(O_X) = 0 implies smoothness. For a curve H^2 = 0, so Pic^0_{X/k} is smooth of dimension g.",
+   "hypotheses": [
+    "Milne's proof identifies T_0 of the functor with T_0(J) through J(k[epsilon]); the vector-space structure on T_0 is compared through Kleiman's dual-number argument (5.11, read up to (5.11.2))",
+    "Smoothness for curves combines Kleiman 5.19 with H^2 = 0 (Layer B finiteness node); Stacks Picard 6.7 gets smoothness from Hilb^g instead",
+    "Milne I Remark 8.7(e) states H^1(A, O_A) = T_0(A^vee) for abelian varieties, \"one can show easily\""
+   ],
+   "proofSteps": [
+    "Tangent vectors at 0 are k[epsilon]-points reducing to 0 (5.11.1-5.11.2).",
+    "P^0_C(k[epsilon]) consists of invertible sheaves on C_epsilon of degree 0 on C; the kernel is H^1(C, 1 + epsilon O_C) = H^1(C, O_C).",
+    "dim J = dim T_0 J = g once J is smooth (J is an abelian variety, or Kleiman 5.13 with 5.19)."
+   ],
+   "acceptance": [
+    "Roadmap acceptance check: dim(Jac X) = genus X via T_0 Pic^0 = H^1(X, O_X).",
+    "Check that no perfect-field assumption is used (Kleiman 5.11 and 5.19 are over an arbitrary field)."
+   ],
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III.2: Proposition 2.1 with proof, p. 91; I.8: Remark 8.7(e), p. 37",
+     "excerpt": "The tangent space to J at 0 is canonically isomorphic to H 1 (C, OC ); consequently, the dimension of J is equal to the genus of C .",
+     "match": "Literal Proposition 2.1."
+    },
+    {
+     "sourceId": "kleiman-2005-the-picard-scheme",
+     "locator": "Theorem 5.11 with proof to (5.11.2), pp. 42-43; Corollaries 5.13-5.14 with proofs, Remark 5.15, p. 44; Proposition 5.19 with proof, p. 47",
+     "excerpt": "Let T0 PicX/k denote the tangent space at 0. Then T0 PicX/k = H1 (OX ).",
+     "match": "Literal Theorem 5.11 conclusion."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/theorem-of-the-cube-and-theorem-of-the-square",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+   "title": "Milne I 5.1-5.7, 5.12-5.15: the theorem of the cube (statement; proof deferred in the notes), n_A^*L = L^{(n^2+n)/2} (x) (-1)^*L^{(n^2-n)/2}, the theorem of the square, and a |-> t_a^*L (x) L^{-1} is a homomorphism",
+   "kind": "theorem",
+   "statement": "(5.1) Let U, V, W be complete geometrically irreducible varieties with base points. An invertible L on U x V x W is trivial if its restrictions to U x V x {w_0}, U x {v_0} x W and {u_0} x V x W are trivial. (5.2) For L on an abelian variety A, p_123^*L (x) p_12^*L^{-1} (x) p_23^*L^{-1} (x) p_13^*L^{-1} (x) p_1^*L (x) p_2^*L (x) p_3^*L is trivial on A^3. (5.3) The same holds after pulling back along (f, g, h): V -> A^3. (5.4) n_A^*L = L^{(n^2+n)/2} (x) ((-1)_A^*L)^{(n^2-n)/2}; so n_A^*L = L^{n^2} if L is symmetric and L^n if L is antisymmetric. (5.5) t_{a+b}^*L (x) L = t_a^*L (x) t_b^*L. (5.6) a |-> t_a^*L (x) L^{-1}: A(k) -> Pic(A) is a homomorphism. (5.13) Triviality of an invertible sheaf on a complete variety descends from any field extension. (5.15) For V complete, t |-> dim Gamma(V_t, L_t) is upper semicontinuous, and if it is constant then q_*L is locally free.",
+   "hypotheses": [
+    "The notes state for Theorem 5.1: \"We defer the proof until later in this section [actually, until the next version]\". The theorem of the cube is an unread import (Mumford, Abelian Varieties, catalogued as requested)",
+    "5.15: \"We omit the proof. See Mumford 1970, II 5\""
+   ],
+   "proofSteps": [
+    "5.2: the restrictions to A x A x {0}, {0} x A x A and A x {0} x A are trivial; apply 5.1.",
+    "5.3: pull back 5.2 along (f, g, h).",
+    "5.4: apply 5.3 to (n_A, 1_A, (-1)_A) and induct on n.",
+    "5.5: apply 5.3 to x |-> x, x |-> a, x |-> b."
+   ],
+   "acceptance": [
+    "Roadmap Layer E: theorem of the cube and of the square (not needed for the group law on Pic^0).",
+    "Consumers inside this packet: the degree of n_A (I 7.2) and Lemma 8.8 (t_a^*L (x) L^{-1} is in Pic^0)."
+   ],
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "I.5: Theorem 5.1 statement, Corollaries 5.2-5.4 and Theorem 5.5 with proofs, Remarks 5.6-5.7, 5.8-5.15, pp. 21-26",
+     "excerpt": "Then an invertible sheaf L on U × V × W is trivial if its restrictions to U × V × {w0}, U × {v0} × W , {u0} × V × W are all trivial.",
+     "match": "Literal conclusion of Theorem 5.1."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/isogenies-multiplication-by-n-and-p-torsion",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+   "title": "Milne I 7.1-7.4: isogenies are finite, flat and surjective; n_A is an isogeny of degree n^{2g}, etale iff the characteristic does not divide n; A[n](k^sep) = (Z/n)^{2g} and T_l A is free of rank 2g; the structure of Ker(p) is stated",
+   "kind": "theorem",
+   "statement": "(7.1) For a homomorphism alpha: A -> B the following are equivalent: alpha is an isogeny; dim A = dim B and alpha is surjective; dim A = dim B and Ker(alpha) is finite; alpha is finite, flat and surjective. Kernels are taken as group schemes (fibres in the sense of algebraic spaces). (7.2) If dim A = g and n > 0, then n_A is an isogeny of degree n^{2g}. It is etale in characteristic 0, and in characteristic p > 0 it is etale iff p does not divide n. (7.3) For k separably closed and p not dividing n, A_n(k) is free over Z/nZ of rank 2g; for l != char k, T_l A is free of rank 2g over Z_l (\"One shows\"), with an action of Gal(k^sep/k). (7.4) Over an algebraically closed field of characteristic p, Ker(p) = (Z/pZ)^r x alpha_p^{2g-2r} x mu_p^r with 0 <= r <= g (stated).",
+   "hypotheses": [
+    "7.2 uses I 6.4 (abelian varieties are projective, via the cube) and AG 12.10 (intersection numbers under finite maps)",
+    "\"It is true, but not quite obvious, that d(alpha + beta)_0 = (d alpha)_0 + (d beta)_0\" is asserted without proof",
+    "7.3 (rank of T_l A) and 7.4 (structure of Ker p) are stated without proof"
+   ],
+   "proofSteps": [
+    "Take a symmetric very ample L; then n_A^*L = L^{n^2} (I 5.4) is ample and trivial on Ker(n_A), so the kernel is finite.",
+    "Compare self-intersection numbers: (n_A^*D)^g = deg(n_A)(D^g) and n_A^*D = n^2 D, so deg n_A = n^{2g}.",
+    "Etaleness: (dn_A)_0 is multiplication by n on T_0 A, and homogeneity spreads the conclusion over A."
+   ],
+   "acceptance": [
+    "Roadmap Layer E: [n] is an isogeny; in characteristic p the p-torsion is non-etale and isogenies can be inseparable; no hidden perfect-field assumption.",
+    "Consumer check for WeilConjectures WC.5: T_l J is free of rank 2g. The comparison b_1 = 2g also needs H^1_et(X, Z_l) = Hom(T_l J, Z_l), which is not in the sources read."
+   ],
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "I.7: Proposition 7.1, Theorem 7.2 with proofs, Remarks 7.3-7.4, pp. 32-34",
+     "excerpt": "Then nA : A → A is an isogeny of degree n2g . It is always étale when k has characteristic zero, and it is étale when k has characteristic p ≠ 0 if and only if p does not divide n.",
+     "match": "Literal Theorem 7.2 (symbols transliterated)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/dual-abelian-variety-poincare-sheaf-and-polarizations",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+   "title": "Milne I 8.4-8.14, 11.1: Pic^0(A), the dual abelian variety (A^vee, P) by its universal property, phi_L: A -> A^vee, the construction A^vee = A/K(L) (sketched in characteristic 0), polarizations and principal polarizations",
+   "kind": "definition",
+   "statement": "For L on A, K(L) = {a : (m^*L (x) p^*L^{-1})|_{A x {a}} trivial} is closed. Pic^0(A) consists of the L with K(L) = A, equivalently t_a^*L = L over kbar for all a, equivalently m^*L = p^*L (x) q^*L (8.4). The dual (A^vee, P) is defined by the universal property: P|_{A x {b}} is in Pic^0, P|_{{0} x A^vee} is trivial, and every family L on A x T with the same two properties is (1 x alpha)^*P for a unique alpha: T -> A^vee. It is unique, commutes with extension of scalars, satisfies A^vee(k) = Pic^0(A), and T_0 A^vee = H^1(A, O_A) (8.7). t_a^*L (x) L^{-1} lies in Pic^0 by the theorem of the square (8.8). Criteria for a divisorial correspondence to be a duality are 8.9 (proof cited to Mumford). For ample L, phi_L maps A onto Pic^0(A) (8.14, cited). In characteristic 0 over algebraically closed k, A^vee is constructed as A/K(L) with the universal property for normal parameter varieties; in characteristic p the notes refer to Mumford chapter III. A polarization is an isogeny lambda: A -> A^vee which over kbar has the form phi_L for an ample L; it is principal if deg lambda = 1 (section 11). For L invertible, deg phi_L = chi(L)^2, and chi(L) = (D^g)/g! for L = L(D) (11.1, cited to Mumford).",
+   "hypotheses": [
+    "The existence of A^vee in characteristic p, and its universal property over all schemes, are cited to Mumford chapter III (requested, not available)",
+    "Proposition 8.10 (quotients by finite groups) is sketched; Theorem 8.9, Proposition 8.14 and Theorem 11.1 have cited proofs only"
+   ],
+   "proofSteps": [
+    "8.4: the equivalences follow from the definition of K(L) and the seesaw principle (5.18).",
+    "8.8: [D_a - D]_b - [D_a - D] = D_{a+b} + D - (D_a + D_b), which is linearly equivalent to 0 by the theorem of the square.",
+    "Characteristic 0 sketch: A^vee = A/K(L); the graph of T -> A^vee is a closed subvariety of T x A^vee mapping bijectively to T, hence isomorphically by Zariski's Main Theorem."
+   ],
+   "acceptance": [
+    "Roadmap Layer E: the dual abelian variety and polarizations (for the principal polarization of Jac, see the autoduality node)."
+   ],
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "I.8: Proposition 8.4, Remark 8.7, Lemma 8.8, Theorem 8.9, Proposition 8.14 and the construction sketch, pp. 34-40; I.11: definition of polarization, Theorem 11.1, pp. 53-54",
+     "excerpt": "A polarization of an abelian variety A is an isogeny λ : A → A∨ such that, over kal , λ becomes of the form φL for some ample sheaf L on Akal .",
+     "match": "Literal definition of polarization (symbols transliterated)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/autoduality-of-the-jacobian-and-the-canonical-principal-polarization",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+   "title": "Milne III 6.6-6.12: for Theta = W^{g-1}, phi_{L(Theta)}: J -> J^vee is an isomorphism, the canonical principal polarization, with inverse -f^vee",
+   "kind": "theorem",
+   "statement": "Let P be in C(k), g > 0, and Theta = W^{g-1}, the image of C^(g-1) in J (changing P translates Theta). (6.6) phi_{L(Theta)}: J -> J^vee is an isomorphism, so 1 x phi_{L(Theta)} identifies (J x J, L'(Theta)) with (J x J^vee, P), where L'(Theta) = m^*L(Theta) (x) p^*L(Theta)^{-1} (x) q^*L(Theta)^{-1}. Proof: (6.7) on the dense open U of points a whose f^(g)-fibre is a single divisor D(a) of g distinct points, f^{-1}(Theta^-_a) = D(a) as Cartier divisors; (6.8) f^*L(Theta^-_a) = L(D) when f^(g)(D) = a, and M_P = (f x (-1))^*L'(Theta^-), which equals (f x (-1))^*L'(Theta) (Remark 6.10(b)); (6.9) for f^vee: J^vee -> J defined by (1 x f^vee)^*M_P = (f x 1)^*P, the maps -f^vee and phi_{L(Theta)} are inverse. Summary 6.11: phi_{L(Theta)} is the canonical principal polarization, M_P = (f x 1)^*L'(Theta)^{-1}, L^P = (f x f)^*L'(Theta)^{-1}, and f^vee = -phi_{L(Theta)}^{-1}.",
+   "hypotheses": [
+    "The PDF text layer drops minus signs in Lemma 6.9 and Summary 6.11; the signs were checked on the page images (printed pp. 106-108)",
+    "The proof reduces to algebraically closed k and uses Milne 1986 (Abelian varieties, in Cornell-Silverman) 12.13 together with I 5.16 and I 5.19, cited",
+    "Lemma 6.7 uses AG 10.9, 10.12 and 8.19 and Hartshorne II Exercise 4.9; Exercise 6.12 ((Theta^g) = g!) is left to the reader",
+    "The proof uses the Abel-Jacobi map f^P, the universal correspondence M_P and Theorem 5.1 on C^(g) -> J from Layer F. This Layer E theorem therefore depends on Layer F, an ordering gap left unlinked to avoid a stage cycle"
+   ],
+   "proofSteps": [
+    "Lemma 6.7: fibre-degree count for C x Theta -> J (degree g from (5.5)).",
+    "Lemma 6.8: compare M_P with the pullback of L'(Theta^-) on the dense open U, then everywhere via I 5.19 and I 5.16.",
+    "Lemma 6.9: compose the correspondences and use that the identity is the only map fixing M_P."
+   ],
+   "acceptance": [
+    "Roadmap Layer E: the theta divisor gives Jac a principal polarization."
+   ],
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III.6: Theorem 6.6, Lemmas 6.7-6.9 with proofs, Remark 6.10, Summary 6.11, Exercise 6.12, pp. 105-108",
+     "excerpt": "The map φL(Θ) : J → J∨ is an isomorphism; therefore, 1 × φL(Θ) is an isomorphism",
+     "match": "Literal opening of Theorem 6.6 (symbols transliterated)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/abel-jacobi-morphism-from-the-universal-divisorial-correspondence",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+   "title": "Milne III 2 (before 2.2): the Abel-Jacobi map f^P: C -> J, defined by L^P = L(Delta - {P} x C - C x {P}) and M_P, sends Q |-> [Q - P]; independence of P and translation rules",
+   "kind": "construction",
+   "statement": "For P in C(k), L^P = L(Delta - C x {P} - {P} x C) on C x C is symmetric, with L^P|_{C x {Q}} = L(Q - P); it is a divisorial correspondence between (C, P) and itself. By Theorem 1.7 there is a unique f^P: C -> J with f^P(P) = 0 and (1 x f^P)^*M_P = L^P. On points f^P(Q) = [Q - P]. The induced map sum n_Q Q |-> sum n_Q f^P(Q) on degree-0 divisors is independent of P, surjective onto J(k), and has the principal divisors as kernel. f^{P'} is f^P composed with translation by [P - P'], and f^{sigma P} = sigma(f^P) for sigma in Gal(k'/k). If g = 0 then J = 0. Stacks route: gamma_1: Hilb^1 = X -> Pic^1 followed by (x) O(-x_0) (Picard 6.7(4)).",
+   "hypotheses": [
+    "Uses Theorem 1.7 (universal divisorial correspondence), which rests on the existence theorem 1.6",
+    "The surjectivity of divisors onto J(k) uses J(k) = Pic^0(C), valid when C(k) is nonempty"
+   ],
+   "proofSteps": [
+    "Check that L^P restricts trivially to {P} x C and C x {P}.",
+    "Apply the universal property of (J, M_P) to L^P.",
+    "Read off the action on points through M_a = L(Q - P)."
+   ],
+   "acceptance": [
+    "Roadmap Layer F: the Abel-Jacobi morphism aj: X -> Jac X with x_0 |-> 0 (the d = 1 Abel map)."
+   ],
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III.2: construction of f^P and the following paragraphs, pp. 91-92",
+     "excerpt": "Therefore, according to (1.7) there is a unique map f P : C → J such that f P (P ) = 0",
+     "match": "Literal sentence defining f^P (arrow transliterated)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/abel-jacobi-is-a-closed-immersion-in-positive-genus",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+   "title": "Milne III 2.2-2.4: f^*: Gamma(J, Omega^1) = Gamma(C, Omega^1), and for g > 0 f^P is a closed immersion because it is injective on kbar-points and on tangent spaces",
+   "kind": "theorem",
+   "statement": "(2.2) f^*: Gamma(J, Omega^1_J) -> Gamma(C, Omega^1_C) is an isomorphism, compatibly with T_0(J)^vee = H^1(C, O_C)^vee = Gamma(C, Omega^1) (duality). (2.4) If f: V -> W is a map of varieties over an algebraically closed field with V complete, injective on points and on tangent spaces, then f is a closed immersion. (2.3) For g > 0, f^P is a closed immersion (in particular f^P(C) is nonsingular). It is injective, because Q - Q' linearly equivalent to 0 with Q != Q' is impossible in positive genus. At P, tangent injectivity amounts to surjectivity of h_C: Gamma(C, Omega^1) -> T_P(C)^vee, whose kernel Gamma(C, Omega^1(-P)) is dual to H^1(C, L(P)), of dimension g - 1 by Riemann-Roch. At other points it follows by translation.",
+   "hypotheses": [
+    "The commutative diagram in 2.2 is \"left as an exercise to the reader (unfortunately rather complicated)\"",
+    "The reduction \"It suffices to prove this in the case that k is algebraically closed\" uses fpqc descent of the closed-immersion property, not argued",
+    "Uses the tangent space identification T_0 J = H^1(C, O_C) from Layer E and Riemann-Roch with duality from Layer B"
+   ],
+   "proofSteps": [
+    "Injectivity on kbar-points from genus > 0.",
+    "Tangent injectivity at P via the dual map Gamma(J, Omega^1) -> Gamma(C, Omega^1) -> T_P(C)^vee and Riemann-Roch; translate to other points.",
+    "Apply Lemma 2.4 (Nakayama on local rings)."
+   ],
+   "acceptance": [
+    "Roadmap acceptance check: aj is a closed immersion for genus X >= 1 (checked after base change to kbar, hence over k)."
+   ],
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III.2: Propositions 2.2-2.3, Lemma 2.4 with proofs, pp. 92-93",
+     "excerpt": "The map f P is a closed immersion (that is, its image f P (C) is closed and f P is an isomorphism from C onto f P (C)); in particular, f P (C) is nonsingular.",
+     "match": "Literal Proposition 2.3."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/abel-maps-from-symmetric-powers-birationality-and-fibres",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+   "title": "Milne III 5.1-5.6: f^(r): C^(r) -> W^r is birational for r <= g (so C^(g) -> J is birational); 0 -> T_D F -> T_D C^(r) -> T_a J is exact; for r > 2g - 2, f^(r) is smooth with fibres P^{r-g}",
+   "kind": "theorem",
+   "statement": "Let g > 0 and P in C(k), with f = f^P, and let f^(r): C^(r) -> J send D to [D - rP], with image W^r = f(C) + ... + f(C). (5.1) For r <= g, f^(r): C^(r) -> W^r is birational, so f^(g) is birational onto J. The fibre F through D is the linear system |D|, and 0 -> T_D(F) -> T_D(C^(r)) -> T_a(J) is exact. (5.2) If h^1(D) > 0 then h^1(D + Q) = h^1(D) - 1 for Q in a dense open. For r <= g there is an open subset of C^r with h^0(sum P_i) = 1. (5.3) Gamma(C, Omega^1) = Gamma(C^r, Omega^1)^{S_r} = Gamma(C^(r), Omega^1), and for all r >= 1, f^(r)*: Gamma(J, Omega^1) -> Gamma(C^(r), Omega^1) is an isomorphism; omega' vanishes at D iff (omega) >= D. (5.5) f^r: C^r -> W^r has degree r! for r <= g. (5.6) J is the unique abelian variety birational to C^(g) (the basis of Weil's construction); the fibre of f^(r) through D is Div^D_C = P^{h^0(D)-1}; for r > 2g - 2, df^(r) is surjective, so f^(r) is smooth with fibres the copies of P^{r-g}.",
+   "hypotheses": [
+    "5.1 and 5.3 are proved over algebraically closed k; 5.3 uses Proposition 2.2, whose diagram is left as an exercise",
+    "Remark 5.6(c) cites Chapter I 3.10 and Hartshorne III 10.4"
+   ],
+   "proofSteps": [
+    "5.2 by duality: H^1(C, L(D + Q))^vee is the space of differentials in Gamma(C, Omega^1(-D)) vanishing at Q.",
+    "On the open set of 5.2(b), f^(r) is injective on points, so it is birational or purely inseparable; the tangent sequence excludes inseparability.",
+    "Exactness of the tangent sequence: the image of df^(r) has dimension g - h^1(D), and Riemann-Roch gives the matching dimension of |D| (Lemma 5.4 for the local computation at rQ)."
+   ],
+   "acceptance": [
+    "Roadmap Layer D route 1: AJ_d: Sym^d X -> Pic^d, normalized by D |-> O_X(D - d x_0), is birational and surjective for d = g over kbar.",
+    "Consumer inside this packet: the Albanese universal property (6.1) uses birationality of f^(g)."
+   ],
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III.5: Theorem 5.1, Lemma 5.2, Proposition 5.3, Lemma 5.4, Corollary 5.5 with proofs, Remark 5.6, pp. 101-103",
+     "excerpt": "For all r ≤ g, the morphism f (r) : C (r) → W r is birational; ... f (g) is a birational map from C (g) onto J .",
+     "match": "Literal Theorem 5.1(a) with the hyphenated \"in particular\" elided."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/albanese-universal-property-of-the-jacobian",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+   "title": "Milne III 6.1-6.5: every phi: C -> A into an abelian variety with phi(P) = 0 factors uniquely as psi o f^P with psi a homomorphism; (J, F) with F(P_1, P_2) = f^P(P_1) - f^P(P_2) is the Albanese variety even without a rational point",
+   "kind": "theorem",
+   "statement": "(6.1) Let P be in C(k) and g > 0. For any phi: C -> A into an abelian variety with phi(P) = 0 there is a unique homomorphism psi: J -> A with phi = psi o f^P. Proof: (P_1, ..., P_g) |-> sum phi(P_i) is symmetric, so it factors through C^(g). Since f^(g) is birational (5.1), this gives a rational map J -> A, which is regular (I 3.2) and a homomorphism (I 1.2). Uniqueness holds because J = f(C) + ... + f(C) (g summands). (6.2) A divisorial correspondence N between (C, P) and J with (1 x f^P)^*N = L^P is isomorphic to M_P. (6.3) Hom_k(J_1, J_2) is in bijection with isomorphism classes of divisorial correspondences between (C_1, P_1) and (C_2, P_2). (6.4) For phi: C x C -> A vanishing on the diagonal there is a unique homomorphism psi: J -> A with psi o F = phi, where F: C x C -> J, (P_1, P_2) |-> f^P(P_1) - f^P(P_2), is defined over k even without a rational point (Galois descent by uniqueness). (6.5) (J, F) is the Albanese variety of C in the sense of Lang.",
+   "hypotheses": [
+    "6.1 assumes g > 0 (standing assumption of section 6) and uses Theorem 5.1 (birationality of f^(g)), I 3.2 (extension of rational maps into abelian varieties) and I 1.2 (rigidity)",
+    "6.2 reduces to algebraically closed k via I 5.13",
+    "Roadmap caveat: the Jacobian and the Albanese variety have opposite functorialities in general; the sources identify them only for curves"
+   ],
+   "proofSteps": [
+    "Form the symmetric map C^g -> A and factor it through C^(g).",
+    "Transport it to a rational map J -> A along the birational f^(g); it is regular by I 3.2 and a homomorphism by I 1.2.",
+    "Uniqueness: two such homomorphisms agree on W^g = J."
+   ],
+   "acceptance": [
+    "Roadmap Layer F universal property: for every abelian variety A and pointed f: (X, x_0) -> (A, 0) there is a unique homomorphism phi: Jac X -> A with f = phi o aj.",
+    "Roadmap: comparison of independently built Jacobians is automatic from the universal property."
+   ],
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III.6: Proposition 6.1, Corollaries 6.2-6.3, Proposition 6.4 with proofs, Remark 6.5, pp. 104-105",
+     "excerpt": "for any map φ : C → A from C into an abelian variety sending P to 0, there is a unique homomorphism ψ : J → A such that φ = ψ ◦ f P .",
+     "match": "Literal universal property in Proposition 6.1 (symbols transliterated)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/base-change-compatibility-of-the-jacobian",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+   "title": "Milne III 1.4(b), I 8.7(b); Stacks Picard remark after 4.1; Kleiman Exercise 4.4: the formation of Pic_{X/S} and of the Jacobian commutes with extension of the base field",
+   "kind": "lemma",
+   "statement": "Jac(C_{k'}) = Jac(C)_{k'} for every field extension k'/k (Milne 1.4(b), stated). The Picard variety commutes with extension of scalars (I 8.7(b)). For T over S, Pic_{X_T/T} is the restriction of Pic_{X/S} to (Sch/T)_fppf (Stacks, remark after Definition 4.1). If Pic_{X/S} exists, then Pic_{X/S} x_S S' = Pic_{X'/S'} (Kleiman Exercise 4.4). With a k-point, the rigidified functor Pic_{X/k,sigma} restricted to k'-schemes is Pic_{X_{k'}/k', sigma_{k'}}, so by Yoneda a representing scheme base-changes to a representing scheme. Degree (Varieties 44.2) and genus (Curves 8.2) are unchanged.",
+   "hypotheses": [
+    "Milne states 1.4(b) without proof; Kleiman 4.4 is an exercise whose answer (Appendix A) was not read",
+    "The Yoneda argument is a derived step from the functorial definitions (Layer D nodes)"
+   ],
+   "proofSteps": [
+    "For T a k'-scheme, X_{k'} x_{k'} T = X x_k T and sigma_{k', T} = sigma_T, so the two rigidified functors agree on k'-schemes.",
+    "A representing object for the functor over k represents its restriction to k'-schemes after base change (Yoneda).",
+    "The Abel-Jacobi maps correspond, since L^P base-changes to L^{P_{k'}}."
+   ],
+   "acceptance": [
+    "Roadmap end goal: (JacobianVariety X x_0).baseChange K = JacobianVariety (X.baseChange K) (x_0.baseChange K).",
+    "Roadmap Layer F: base-change compatibility along k -> K (relies on Layer C)."
+   ],
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III.1: Remark 1.4(b), p. 86; I.8: Remark 8.7(b), p. 37",
+     "excerpt": "The Jacobian variety commutes with extension of scalars",
+     "match": "Literal Remark 1.4(b) opening."
+    },
+    {
+     "sourceId": "kleiman-2005-the-picard-scheme",
+     "locator": "Exercise 4.4, p. 27",
+     "excerpt": "Assume PicX/S exists, and let S ′ be an S-scheme. Show that",
+     "match": "Literal opening of Exercise 4.4."
+    },
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Remark following Definition 4.1, p. 9",
+     "excerpt": "An often used remark is that if T ∈ Ob((Sch/S)fppf), then PicXT /T is the restriction of PicX/S to (Sch/T )f ppf",
+     "match": "Literal remark after Definition 4.1."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/genus-zero-and-genus-one-checks",
+   "parentStageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+   "title": "Milne III 1.4(e) and Silverman III.3.4: Jac = 0 in genus 0; for (E, O) of genus 1, P |-> [(P) - (O)] is a bijection E -> Pic^0(E) over Kbar matching the chord-tangent group law",
+   "kind": "comparison",
+   "statement": "Genus 0: Pic^0 = 0 even over the algebraic closure, so Jac(C) = 0 (Milne 1.4(e)). Genus 1 with a rational point: Jac(C) = C (Milne 1.4(e), stated; otherwise they differ). Silverman III.3.4, over Kbar: every D in Div^0(E) is linearly equivalent to (P) - (O) for a unique P, by Riemann-Roch dim L(D + (O)) = 1 and III.3.3. This gives sigma: Pic^0(E) = E with inverse kappa(P) = [(P) - (O)], and kappa(P + Q) = kappa(P) + kappa(Q) for the geometric group law of a Weierstrass cubic. The scheme-level isomorphism Jac(E, O) = E is not proved in the sources read. A derived argument: f^O: E -> J is a closed immersion (g = 1), J is smooth and connected of dimension 1, so f^O is an isomorphism, and it is a homomorphism by rigidity.",
+   "hypotheses": [
+    "Silverman assumes K perfect and works with points over Kbar; III.3.4 is a statement about groups of Kbar-points and divisor classes",
+    "The derived scheme-level argument uses the closed-immersion node, the dimension node, and rigidity (Milne I 1.2)"
+   ],
+   "proofSteps": [
+    "Silverman (a): take f spanning L(D + (O)); div(f) = -D - (O) + (P).",
+    "Silverman (c)-(d): (P) ~ (P') implies P = P' in genus 1 (III.3.3).",
+    "Silverman (e): lines through P and Q give kappa(P + Q) = kappa(P) + kappa(Q)."
+   ],
+   "acceptance": [
+    "Roadmap acceptance: Jac(E, O) = E, reconciled with Mathlib's E(k) group law built via the class group (template only; see gap)."
+   ],
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III.1: Remark 1.4(e), p. 86",
+     "excerpt": "If C has genus 1, then Jac(C) = C (provided C has a rational point; otherwise it differs from C",
+     "match": "Literal Remark 1.4(e), genus-one part."
+    },
+    {
+     "sourceId": "silverman-arithmetic-of-elliptic-curves-2009",
+     "locator": "III.3: Proposition 3.4 with proof, pp. 61-63",
+     "excerpt": "Thus σ induces a bijection of sets (which we also denote by σ), σ : Pic0 (E) → E.",
+     "match": "Literal Proposition 3.4(c) conclusion (arrow transliterated)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "links": [
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-a-line-bundles-divisors-picard-group-degree/effective-cartier-divisors-invertible-sheaves-and-regular-sections",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-a-line-bundles-divisors-picard-group-degree/weil-divisors-class-group-and-comparison-with-pic",
+   "reason": "Divisors 28.7 identifies the class of a prime divisor D with the image of O_X(D), using its canonical section 1_D (Definition 15.1).",
+   "sources": [
+    {
+     "sourceId": "stacks-project-divisors",
+     "locator": "Proof of Lemma 28.7, p. 67"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-a-line-bundles-divisors-picard-group-degree/effective-cartier-divisors-invertible-sheaves-and-regular-sections",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-a-line-bundles-divisors-picard-group-degree/degree-of-invertible-sheaves-on-proper-curves-via-euler-characteristic",
+   "reason": "Varieties 44.9 tensors the exact sequence 0 -> O_X -> O_X(D) -> i_*i^*O_X(D) -> 0 of Definition 15.1, and 44.12 writes L = O_X(D) using Divisors 15.10.",
+   "sources": [
+    {
+     "sourceId": "stacks-project-varieties",
+     "locator": "Proofs of Lemmas 44.9 and 44.12, pp. 97-99"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-a-line-bundles-divisors-picard-group-degree/degree-of-invertible-sheaves-on-proper-curves-via-euler-characteristic",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/genus-and-riemann-roch-in-euler-characteristic-form",
+   "reason": "Riemann-Roch chi(L) = deg L + 1 - g substitutes Definition 44.1 of the degree; Picard 6.4 computes deg L_t = chi(L_t) - chi(O) in the same way.",
+   "sources": [
+    {
+     "sourceId": "stacks-project-algebraic-curves",
+     "locator": "Section 5, (5.0.1), p. 10"
+    },
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Proof of Lemma 6.4, p. 12"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/coherent-cohomology-affine-vanishing-cech-comparison-and-finiteness",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/genus-and-riemann-roch-in-euler-characteristic-form",
+   "reason": "chi(O_X) = 1 - g needs finite-dimensional H^0 and H^1 and H^i = 0 for i >= 2 on a proper curve.",
+   "sources": [
+    {
+     "sourceId": "stacks-project-cohomology-of-schemes",
+     "locator": "Lemma 4.2, p. 6; Lemma 19.2, p. 50"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/flat-base-change-for-quasi-coherent-cohomology",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/genus-and-riemann-roch-in-euler-characteristic-form",
+   "reason": "Curves 8.2 proves that H^0(O_X) = k and the genus are invariant under field extension by Cohomology of Schemes 5.2. New stage edge Layer C -> Layer B, against the roadmap order.",
+   "sources": [
+    {
+     "sourceId": "stacks-project-algebraic-curves",
+     "locator": "Proof of Lemma 8.2, p. 16"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/genus-and-riemann-roch-in-euler-characteristic-form",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/dualizing-module-serre-duality-and-degree-of-the-canonical-sheaf",
+   "reason": "deg omega_X = 2g - 2 (Curves 8.3) follows from deg omega_X = -2 chi(O_X) (5.2) and chi(O_X) = 1 - g.",
+   "sources": [
+    {
+     "sourceId": "stacks-project-algebraic-curves",
+     "locator": "Proof of Lemma 8.3, p. 16"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/genus-and-riemann-roch-in-euler-characteristic-form",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/vanishing-of-h1-in-degree-at-least-2g-minus-1",
+   "reason": "Varieties 44.17 computes deg N = chi(N) - chi(O_X) = 0 - (1 - g) = g - 1 with g = dim H^1(X, O_X).",
+   "sources": [
+    {
+     "sourceId": "stacks-project-varieties",
+     "locator": "Proof of Lemma 44.17, p. 101"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-a-line-bundles-divisors-picard-group-degree/degree-of-invertible-sheaves-on-proper-curves-via-euler-characteristic",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/vanishing-of-h1-in-degree-at-least-2g-minus-1",
+   "reason": "Varieties 44.17 uses additivity of degree (44.7), and the zero scheme of a section is an effective Cartier divisor of degree deg L - (g - 1) (44.9).",
+   "sources": [
+    {
+     "sourceId": "stacks-project-varieties",
+     "locator": "Proof of Lemma 44.17, p. 101"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-a-line-bundles-divisors-picard-group-degree/effective-cartier-divisors-invertible-sheaves-and-regular-sections",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/relative-effective-cartier-divisors-on-smooth-relative-curves",
+   "reason": "Relative effective Cartier divisors are effective Cartier divisors flat over the base (Divisors 19.2). Milne describes them by pairs (L(D), s_D) (3.6).",
+   "sources": [
+    {
+     "sourceId": "stacks-project-divisors",
+     "locator": "Definition 19.2, Lemma 19.3, pp. 38-39"
+    },
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III Remark 3.6, p. 96"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/relative-effective-cartier-divisors-on-smooth-relative-curves",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/hilbert-scheme-of-points-equals-symmetric-power-of-a-smooth-proper-curve",
+   "reason": "Picard 3.1 identifies closed subschemes finite locally free of degree d with relative effective Cartier divisors on smooth relative curves; 3.4-3.6 use sums (3.2) and differences (3.3).",
+   "sources": [
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Proofs of Lemmas 3.4-3.5 and Proposition 3.6, pp. 7-8"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/relative-picard-functors-comparison-theorem-and-brauer-obstruction",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/rigidification-along-a-section-and-the-split-exact-sequence",
+   "reason": "The rigidified description (Stacks 4.3, Kleiman 2.5(2)) refines the injectivity of Stacks 4.2 and Kleiman 2.5(1).",
+   "sources": [
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Proof of Lemma 4.3, p. 10"
+    },
+    {
+     "sourceId": "kleiman-2005-the-picard-scheme",
+     "locator": "Proof of Part 2 of Theorem 2.5, p. 19"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/flat-base-change-for-quasi-coherent-cohomology",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/rigidification-along-a-section-and-the-split-exact-sequence",
+   "reason": "Picard 6.1 gets O_T = f_{T*}O_{X_T} for every k-scheme T by flat base change (Cohomology of Schemes 5.2).",
+   "sources": [
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Proof of Lemma 6.1, p. 11"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/rigidification-along-a-section-and-the-split-exact-sequence",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/representability-criterion-and-the-open-subfunctor-inside-hilb-g",
+   "reason": "Lemmas 6.2 and 6.4 use the rigidified functor Pic_{X/k,sigma}, which is isomorphic to Pic_{X/k} by Lemmas 6.1 and 4.3.",
+   "sources": [
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Discussion after Lemma 6.1, p. 11"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/cohomology-and-base-change-semicontinuity-and-locally-constant-euler-characteristic",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/representability-criterion-and-the-open-subfunctor-inside-hilb-g",
+   "reason": "Picard 6.2 is Derived Categories of Schemes 32.3 with i = 0, r = 1; 6.4 reduces its claim to fibres by 30.4.",
+   "sources": [
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Lemma 6.2 and proof of Lemma 6.4, pp. 11-12"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/hilbert-scheme-of-points-equals-symmetric-power-of-a-smooth-proper-curve",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/representability-criterion-and-the-open-subfunctor-inside-hilb-g",
+   "reason": "Lemma 6.4 represents F by an open subscheme of Hilb^g_{X/k}, using the universal divisor D_univ (Proposition 3.6, Remark 3.7).",
+   "sources": [
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Proof of Lemma 6.4, pp. 11-12"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/genus-and-riemann-roch-in-euler-characteristic-form",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/representability-criterion-and-the-open-subfunctor-inside-hilb-g",
+   "reason": "The degree count deg L_t = chi(L_t) - chi(O) = 1 - (1 - g) = g in Lemma 6.4 uses the genus.",
+   "sources": [
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Proof of Lemma 6.4, p. 12"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/representability-criterion-and-the-open-subfunctor-inside-hilb-g",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/representability-of-the-picard-scheme-over-a-separably-closed-field",
+   "reason": "Proposition 6.6 checks criterion 5.1 with the open subfunctor F of Lemmas 6.2 and 6.4.",
+   "sources": [
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Proof of Proposition 6.6, p. 13"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/cohomology-and-base-change-semicontinuity-and-locally-constant-euler-characteristic",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/representability-of-the-picard-scheme-over-a-separably-closed-field",
+   "reason": "Lemma 6.7 splits Pic_{X/k,sigma} into open and closed pieces Pic^d by local constancy of chi (Derived Categories of Schemes 32.2).",
+   "sources": [
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Proof of Lemma 6.7, p. 14"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/vanishing-of-h1-in-degree-at-least-2g-minus-1",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/representability-of-the-picard-scheme-over-a-separably-closed-field",
+   "reason": "Smoothness of gamma_d for d >= 2g - 1 uses dim H^0(X, L) = d + 1 - g (Varieties 44.17).",
+   "sources": [
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Proof of Lemma 6.7, p. 15"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/hilbert-scheme-of-points-equals-symmetric-power-of-a-smooth-proper-curve",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/representability-of-the-picard-scheme-over-a-separably-closed-field",
+   "reason": "gamma_d comes from O(D_univ) (Remark 3.7), and Pic is smooth of dimension g because Hilb^g is (Proposition 3.6).",
+   "sources": [
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Proof of Lemma 6.7, p. 14"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/hilbert-scheme-of-points-equals-symmetric-power-of-a-smooth-proper-curve",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/milne-construction-of-the-jacobian-over-an-arbitrary-field-with-galois-descent",
+   "reason": "Milne represents Div^r_C by C^(r) (Theorem 3.13) and builds J from closed subvarieties of open subsets of C^(r).",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III Lemma 4.1 and Proposition 4.2, pp. 99-100"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/cohomology-and-base-change-semicontinuity-and-locally-constant-euler-characteristic",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/milne-construction-of-the-jacobian-over-an-arbitrary-field-with-galois-descent",
+   "reason": "Proposition 4.2 uses semicontinuity (I 4.2c) for the open C^gamma, and base change (I 4.2e) for q_*(L (x) p^*L_gamma^{-1}).",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III proof of Proposition 4.2, pp. 99-100"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/vanishing-of-h1-in-degree-at-least-2g-minus-1",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/milne-construction-of-the-jacobian-over-an-arbitrary-field-with-galois-descent",
+   "reason": "For r > 2g - 2 every divisor class of degree r is effective; Proposition 4.2(b) uses h^1(D_t - D_gamma) = 0, which follows from Riemann-Roch.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III.1 overview, p. 87; proof of Proposition 4.2(b), p. 100"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/rigidification-along-a-section-and-the-split-exact-sequence",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/milne-construction-of-the-jacobian-over-an-arbitrary-field-with-galois-descent",
+   "reason": "Lemma 1.8 identifies P^0_C(T) with rigidified families when C has a k-point, and Proposition 1.14 descends rigidified pairs, which have no automorphisms.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III proofs of Lemma 1.8 and Proposition 1.14, pp. 88-91"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/relative-picard-functors-comparison-theorem-and-brauer-obstruction",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/grothendieck-existence-theorem-and-projectivity-of-pic-zero",
+   "reason": "Kleiman 4.8 represents the etale sheaf Pic_{(X/S)(et)}; 5.3-5.4 pass to the fppf sheaf through the comparison theorem 2.5.",
+   "sources": [
+    {
+     "sourceId": "kleiman-2005-the-picard-scheme",
+     "locator": "Theorem 4.8, p. 27; proof of Theorem 5.4, p. 38"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/milne-construction-of-the-jacobian-over-an-arbitrary-field-with-galois-descent",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/tangent-space-of-the-jacobian-and-dimension-equals-genus",
+   "reason": "Milne 2.1 computes T_0(J) through the functor P^0_C represented by J.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III proof of Proposition 2.1, p. 91"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/grothendieck-existence-theorem-and-projectivity-of-pic-zero",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/tangent-space-of-the-jacobian-and-dimension-equals-genus",
+   "reason": "Kleiman 5.11 and 5.13 assume Pic_{X/k} exists and represents the etale sheaf (Theorem 4.8); 5.19 gives smoothness when H^2(O_X) = 0.",
+   "sources": [
+    {
+     "sourceId": "kleiman-2005-the-picard-scheme",
+     "locator": "Theorem 5.11, Corollary 5.13, Proposition 5.19, pp. 42-47"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/coherent-cohomology-affine-vanishing-cech-comparison-and-finiteness",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/tangent-space-of-the-jacobian-and-dimension-equals-genus",
+   "reason": "Smoothness via Kleiman 5.19 needs H^2(X, O_X) = 0 on a curve (Cohomology of Schemes 4.2 with a cover by two affines).",
+   "sources": [
+    {
+     "sourceId": "kleiman-2005-the-picard-scheme",
+     "locator": "Proposition 5.19, p. 47"
+    },
+    {
+     "sourceId": "stacks-project-cohomology-of-schemes",
+     "locator": "Lemma 4.2, p. 6"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/theorem-of-the-cube-and-theorem-of-the-square",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/isogenies-multiplication-by-n-and-p-torsion",
+   "reason": "Theorem 7.2 uses n_A^*L = L^{n^2} for a symmetric L (Corollary 5.4).",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "I proof of Theorem 7.2, p. 33"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/theorem-of-the-cube-and-theorem-of-the-square",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/dual-abelian-variety-poincare-sheaf-and-polarizations",
+   "reason": "Lemma 8.8 (t_a^*L (x) L^{-1} lies in Pic^0) is the theorem of the square; K(L) and Proposition 8.4 use 5.19 and the seesaw principle 5.18.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "I definition of K(L), Proposition 8.4 and Lemma 8.8, pp. 34-37"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/dual-abelian-variety-poincare-sheaf-and-polarizations",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/autoduality-of-the-jacobian-and-the-canonical-principal-polarization",
+   "reason": "Autoduality compares L'(Theta) with the Poincare sheaf P on J x J^vee, using the universal property of (J^vee, P).",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III Theorem 6.6 and Lemma 6.9, pp. 105-107"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/milne-construction-of-the-jacobian-over-an-arbitrary-field-with-galois-descent",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/abel-jacobi-morphism-from-the-universal-divisorial-correspondence",
+   "reason": "f^P is defined from the universal divisorial correspondence M_P of Theorem 1.7, which Lemma 1.8 derives from Theorem 1.6.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III.2 construction of f^P, p. 91"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/abel-jacobi-morphism-from-the-universal-divisorial-correspondence",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/abel-jacobi-is-a-closed-immersion-in-positive-genus",
+   "reason": "Proposition 2.3 is about f = f^P.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III proof of Proposition 2.3, p. 92"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/tangent-space-of-the-jacobian-and-dimension-equals-genus",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/abel-jacobi-is-a-closed-immersion-in-positive-genus",
+   "reason": "Tangent injectivity at P uses T_0(J)^vee = H^1(C, O_C)^vee = Gamma(C, Omega^1) (Propositions 2.1-2.2).",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III Propositions 2.2-2.3, p. 92"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/dualizing-module-serre-duality-and-degree-of-the-canonical-sheaf",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/abel-jacobi-is-a-closed-immersion-in-positive-genus",
+   "reason": "The kernel Gamma(C, Omega^1(-P)) is dual to H^1(C, L(P)), which has dimension g - 1 by Riemann-Roch and duality.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III proof of Proposition 2.3, p. 93"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/hilbert-scheme-of-points-equals-symmetric-power-of-a-smooth-proper-curve",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/abel-maps-from-symmetric-powers-birationality-and-fibres",
+   "reason": "Theorem 5.1 studies f^(r) on the symmetric power C^(r) and its completed local rings k[[sigma_1, ..., sigma_r]] (3.2).",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III Theorem 5.1 and proof of Proposition 5.3, pp. 101-103"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/abel-jacobi-morphism-from-the-universal-divisorial-correspondence",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/abel-maps-from-symmetric-powers-birationality-and-fibres",
+   "reason": "f^(r) is induced by the symmetric map f^r = sum_i f^P o p_i.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III.5 opening, p. 101"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/dualizing-module-serre-duality-and-degree-of-the-canonical-sheaf",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/abel-maps-from-symmetric-powers-birationality-and-fibres",
+   "reason": "Lemma 5.2 and the exact tangent sequence use H^1(C, L(D))^vee = Gamma(C, Omega^1(-D)) and Riemann-Roch.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III Lemma 5.2 and proof of Theorem 5.1(b), pp. 101-103"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/abel-maps-from-symmetric-powers-birationality-and-fibres",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/albanese-universal-property-of-the-jacobian",
+   "reason": "Proposition 6.1 transports the symmetric map C^g -> A along the birational f^(g) of Theorem 5.1.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III proof of Proposition 6.1, p. 104"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/abelian-varieties-rigidity-homomorphisms-and-rational-maps",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/albanese-universal-property-of-the-jacobian",
+   "reason": "Proposition 6.1 uses I 3.2 (rational maps into abelian varieties are regular) and I 1.2 (pointed maps are homomorphisms).",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III proof of Proposition 6.1, p. 104"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/abel-jacobi-morphism-from-the-universal-divisorial-correspondence",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/albanese-universal-property-of-the-jacobian",
+   "reason": "The universal property is stated for f^P.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III Proposition 6.1, p. 104"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/rigidification-along-a-section-and-the-split-exact-sequence",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/base-change-compatibility-of-the-jacobian",
+   "reason": "Base change of the rigidified functor Pic_{X/k,sigma} to k'-schemes, together with Yoneda.",
+   "sources": [
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Remark after Definition 4.1, p. 9"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/flat-base-change-for-quasi-coherent-cohomology",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/base-change-compatibility-of-the-jacobian",
+   "reason": "Degree, genus and H^0(O_X) = k are preserved under field extension by flat base change.",
+   "sources": [
+    {
+     "sourceId": "stacks-project-cohomology-of-schemes",
+     "locator": "Lemma 5.2, p. 10"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/abel-jacobi-is-a-closed-immersion-in-positive-genus",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/genus-zero-and-genus-one-checks",
+   "reason": "The derived scheme-level argument for Jac(E, O) = E uses that f^O is a closed immersion in genus 1.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III Proposition 2.3, p. 92; Remark 1.4(e), p. 86"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/tangent-space-of-the-jacobian-and-dimension-equals-genus",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/genus-zero-and-genus-one-checks",
+   "reason": "dim J = g = 1 in the derived genus-one argument.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III Proposition 2.1, p. 91"
+    }
+   ]
+  },
+  {
+   "source": "SchemeAndStackFoundations:SF.1",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/rigidification-along-a-section-and-the-split-exact-sequence",
+   "reason": "Stacks Picard 4.3 and Kleiman 2.5(2) descend rigidified invertible modules along fppf coverings (Descent, Proposition 5.2). SchemeAndStackFoundations SF.1 owns effective fpqc/fppf descent. New stage edge SF.1 -> Layer D.",
+   "sources": [
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Proof of Lemma 4.3, p. 10"
+    },
+    {
+     "sourceId": "kleiman-2005-the-picard-scheme",
+     "locator": "Proof of Part 2 of Theorem 2.5, pp. 19-20"
+    }
+   ]
+  },
+  {
+   "source": "SchemeAndStackFoundations:SF.1",
+   "target": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/hilbert-scheme-of-points-equals-symmetric-power-of-a-smooth-proper-curve",
+   "reason": "Stacks Picard 2.1 proves that Hilb^d is an fpqc sheaf by effective descent for closed immersions (Descent, Lemma 37.2), and Milne 3.13 descends along a finite flat splitting cover; SF.1 owns effective descent. New stage edge SF.1 -> Layer C.",
+   "sources": [
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Proof of Lemma 2.1, p. 2"
+    },
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III proof of Theorem 3.13, p. 98"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/dualizing-module-serre-duality-and-degree-of-the-canonical-sheaf",
+   "target": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+   "reason": "AlgebraicCurves 12E names JacobianChallenge Layers A-B (O_X(D), coherent cohomology over k, the chi-form Riemann-Roch, Serre duality) as prerequisites of its comparison contract (H^0 = L(D), genus, canonical class). The contract is restricted to smooth proper geometrically connected X_F with F/k separably generated. New stage edge Layer B -> AlgebraicCurves Layer 12.",
+   "sources": [
+    {
+     "sourceId": "stacks-project-algebraic-curves",
+     "locator": "Remark 4.3, Lemma 5.2, Lemma 8.4, pp. 8-16"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/dualizing-module-serre-duality-and-degree-of-the-canonical-sheaf",
+   "target": "SchemeAndStackFoundations:SF.3",
+   "reason": "SchemeAndStackFoundations SF.3 integrates the JacobianChallenge exports \"divisors, line bundles, Riemann-Roch, Serre duality, genus\". New stage edge Layer B -> SF.3.",
+   "sources": [
+    {
+     "sourceId": "stacks-project-algebraic-curves",
+     "locator": "Lemma 5.2 and Lemmas 8.3-8.4, pp. 11-16"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/milne-construction-of-the-jacobian-over-an-arbitrary-field-with-galois-descent",
+   "target": "SchemeAndStackFoundations:SF.3",
+   "reason": "SF.3 also integrates \"Picard schemes and Jacobians\" and records the hypotheses of Abel-Jacobi constructions. Its acceptance item (Jacobian Tate module versus H^1_et) is not supplied here. New stage edge Layer D -> SF.3.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III Theorem 1.6, p. 88"
+    },
+    {
+     "sourceId": "stacks-project-picard-schemes-of-curves",
+     "locator": "Proposition 6.6, p. 13"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/milne-construction-of-the-jacobian-over-an-arbitrary-field-with-galois-descent",
+   "target": "NeronModelsAndSemistableAbelianVarieties:R11.4/neron-models-of-jacobians-from-the-picard-functor-of-a-regular-model",
+   "reason": "NeronModels R11.4 says smooth proper Jacobians are owned by JacobianChallenge. Raynaud 8.2.1 and SGA 7 IX 12.1 identify the Neron model of the Jacobian of the generic fibre, whose existence over the fraction field is supplied here. New stage edge Layer D -> R11.4.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "III Theorem 1.6 and Remark 1.4(b), pp. 86-88"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/abelian-varieties-rigidity-homomorphisms-and-rational-maps",
+   "target": "AbelianSchemesAndArithmeticModuli:A6",
+   "reason": "AbelianSchemesAndArithmeticModuli A6 extends \"the field Hom/End API of JacobianChallenge\". Rigidity, homomorphisms, commutativity and extension of rational maps are that API. New stage edge Layer E -> A6.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "I Corollaries 1.2-1.5 and Theorem 3.2, pp. 9-17"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/abelian-varieties-rigidity-homomorphisms-and-rational-maps",
+   "target": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+   "reason": "FiniteFlatGroups R07.2 imports field-valued abelian varieties from JacobianChallenge/R10. New stage edge Layer E -> R07.2.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "I.1 definitions, p. 8"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/isogenies-multiplication-by-n-and-p-torsion",
+   "target": "WeilConjectures:WC.5",
+   "reason": "WeilConjectures WC.5 identifies b_1 = 2g \"using the actual curve/Jacobian cohomology supplier\" (atlas edge UPSTREAM:JacobianChallenge -> WC.5). This node supplies deg n_A = n^{2g} and T_l J free of rank 2g (Remark 7.3, stated). The comparison H^1_et(X, Z_l) = Hom(T_l J, Z_l) is not in the sources read.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "I Theorem 7.2 and Remark 7.3, pp. 33-34"
+    }
+   ]
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/isogenies-multiplication-by-n-and-p-torsion",
+   "target": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+   "reason": "EDC.2:trace-purity builds the curve trace from divisor degree, Kummer classes and \"Jacobian/Kummer inputs\" assigned to JacobianChallenge (atlas edge UPSTREAM:JacobianChallenge -> EDC.2:trace-purity). This node supplies n_A surjective with finite kernel, hence divisibility of Pic^0(X_kbar) = J(kbar), and J[n] of order n^{2g} for n prime to p. The Kummer-sequence computation itself is not in the sources read.",
+   "sources": [
+    {
+     "sourceId": "milne-2008-abelian-varieties-v2",
+     "locator": "I Theorem 7.2 and Remark 7.3, pp. 33-34"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+   "status": "partial",
+   "remaining": [
+    "Standing-hypotheses lemma (smooth + proper + geometrically connected => geometrically integral): not read.",
+    "Group isomorphism Weil = Cartier and non-effective Cartier divisors (Divisors 24-26): not read; Divisors 15.10 has no proof in the source.",
+    "Agreement deg L = sum [kappa(x):k] ord_x: derived, not quoted; the Euler-characteristic degree depends on Layers B-C (ordering gap)."
+   ]
+  },
+  {
+   "stageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+   "status": "partial",
+   "remaining": [
+    "Duality for Schemes and Dualizing Complexes behind Curves 4.1-4.2, and Chow Homology 41.3 behind Riemann-Roch 5.2: unread imports.",
+    "Proof of finiteness (Cohomology of Schemes 19.1: devissage, Chow's lemma, projective case): only the top-level proof read.",
+    "Two-affine cover of a projective curve: derived step."
+   ]
+  },
+  {
+   "stageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+   "status": "partial",
+   "remaining": [
+    "Perfect-complex lemmas (Derived Categories of Schemes 30.1, 31.1-31.3) behind cohomology and base change: unread.",
+    "Theorem on formal functions (Grothendieck's route): not used by the decomposed route and not read.",
+    "Projectivity of Sym^d X: derived (Stacks 3.6 gives proper); Milne 3.1 cites Mumford for existence of symmetric powers."
+   ]
+  },
+  {
+   "stageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+   "status": "partial",
+   "remaining": [
+    "Representability over a general field with a rational point: Stacks proves only the separably closed case; Milne's Galois descent cites AG 16.23 and needs projectivity of abelian varieties; Kleiman 4.8 proof (Hilbert/Quot) unread.",
+    "Descent inputs (Stacks Descent 5.2, 37.2), functorial gluing (Schemes 15.4), separatedness of group schemes (Groupoids 7.3): unread.",
+    "Picard stack versus sheaf: only the statement of Stacks tag 0D04 looked up."
+   ]
+  },
+  {
+   "stageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+   "status": "partial",
+   "remaining": [
+    "Theorem of the cube (proof deferred in Milne), projectivity of abelian varieties (Milne I 6.4), dual abelian variety in characteristic p and Theorems 8.9, 8.14, 11.1: cited to Mumford (requested).",
+    "Rank of T_l A and structure of Ker(p): stated only.",
+    "Autoduality uses Layer F results (ordering gap)."
+   ]
+  },
+  {
+   "stageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+   "status": "partial",
+   "remaining": [
+    "Milne III 2.2 diagram (left as an exercise) behind the closed-immersion and Abel-map results; reductions to algebraically closed k.",
+    "Base-change compatibility is stated (Milne 1.4(b)) and derived by Yoneda; Kleiman Exercise 4.4 answer unread.",
+    "Scheme-level Jac(E, O) = E and reconciliation with Mathlib's class-group group law: derived or not decomposed.",
+    "Etale-cohomology interfaces (T_l J versus H^1_et) requested by consumers: not in the sources read."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Standing hypotheses and the curve conventions of the sources are not reconciled",
+   "neededBy": [
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/rigidification-along-a-section-and-the-split-exact-sequence",
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/representability-criterion-and-the-open-subfunctor-inside-hilb-g"
+   ],
+   "detail": "The roadmap asks for the lemma that a smooth, proper, geometrically connected curve is geometrically integral, and it uses H^0(X, O_X) = k. The sources use different conventions. Stacks \"curves\" are integral varieties, and Picard 3.6 assumes geometric irreducibility. Milne's varieties are geometrically reduced and omit nonclosed points. Kleiman assumes integral geometric fibres. Stacks Varieties 9.3 and 26.2 were read only as statements; the lemmas \"smooth implies geometrically reduced\" and \"a connected normal Noetherian scheme is irreducible\" were not read. Candidate primitives (unchecked): Mathlib AlgebraicGeometry/Geometrically/Integral.lean and Connected.lean. Next source action: Stacks Varieties sections 6-10 and 25."
+  },
+  {
+   "title": "Ordering conflicts between roadmap layers, left unlinked to avoid stage cycles",
+   "neededBy": [
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-a-line-bundles-divisors-picard-group-degree/degree-of-invertible-sheaves-on-proper-curves-via-euler-characteristic",
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/milne-construction-of-the-jacobian-over-an-arbitrary-field-with-galois-descent",
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/autoduality-of-the-jacobian-and-the-canonical-principal-polarization"
+   ],
+   "detail": "Three dependencies run against the roadmap's layer order. (i) Layer A defines deg L = chi(L) - chi(O_X), which needs Layer B finiteness (Cohomology of Schemes 19.2, 4.2); Varieties 44.2 needs Layer C flat base change. Linking these would create a Layer A <-> B/C cycle, since A feeds B and C. (ii) Milne's Layer D construction descends J along a Galois extension (III 1.13(a), citing AG 16.23), which needs J' quasi-projective, i.e. projectivity of abelian varieties (I 6.4, via the Layer E theorem of the cube). Stacks Picard 6.7 uses instead that group schemes over a field are separated (Groupoids 7.3). (iii) Layer E autoduality (III 6.6-6.9) uses the Abel-Jacobi map, M_P and Theorem 5.1 of Layer F. The one reversal that was linked is C -> B (flat base change for the genus), which is acyclic. Orchestrator decision needed: reorder these sub-results or accept cross-layer edges."
+  },
+  {
+   "title": "Serre duality and deg omega = 2g - 2 rest on Duality for Schemes and Chow Homology, which were not read",
+   "neededBy": [
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality/dualizing-module-serre-duality-and-degree-of-the-canonical-sheaf"
+   ],
+   "detail": "Curves 4.1-4.2 derive the dualizing module from Duality for Schemes: the right adjoint a, Remark 12.5, Examples 22.1-22.2, Lemmas 15.7, 21.1, 22.4-22.5, 23.1 and 24.2-24.4. They also use Dualizing Complexes 20.2. Curves 5.2 uses Chow Homology 41.3 (deg E = deg(c_1(E) cap [X]_1)). None of these was read, and Hartshorne III.7 and IV.1, named by the roadmap, are not available. The TauCeti function-field Riemann-Roch (TauCeti/FieldTheory/FunctionField/RiemannRoch: Genus, Basic, DegreeZero; Differential/CanonicalDivisor) is a candidate for the comparison contract with AlgebraicCurves Layer 12 (unchecked). Next source action: Stacks Duality for Schemes sections 3, 12, 15-16 and 21-24, and Chow Homology section 41."
+  },
+  {
+   "title": "Representability over an arbitrary field with a rational point is not proved line by line in any source read",
+   "neededBy": [
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/representability-of-the-picard-scheme-over-a-separably-closed-field",
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/milne-construction-of-the-jacobian-over-an-arbitrary-field-with-galois-descent",
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-d-the-relative-picard-functor-and-the-jacobian-scheme/grothendieck-existence-theorem-and-projectivity-of-pic-zero"
+   ],
+   "detail": "Stacks proves representability only for separably closed k (Picard 6.5-6.6), although its introduction says \"algebraically closed\". Milne's descent from k^sep (III 1.13-1.14) cites AG 16.23 and Serre or Waterhouse for Galois descent, and leaves the gluing claims (\"It is easy to see\") and separatedness unwritten. Kleiman 4.8 is proved through Hilbert and Quot schemes (Kleiman sections 3-4), read only to the opening of the proof. Also unread: Stacks Descent (Proposition 5.2, Lemma 37.2), Schemes 15.4 (functorial gluing), Groupoids 7.3, and the Quot and Hilbert Spaces chapter (tag 0D04: the Picard stack is algebraic; statement only). Next source action: Kleiman sections 3-4 and Appendix A (Exercises 4.4, 4.11), Stacks Descent sections 5-6 and 37, and a Galois-descent reference for quasi-projective schemes."
+  },
+  {
+   "title": "The theorem of the cube, the dual abelian variety in characteristic p and the polarization degree formulas are cited to Mumford, which is not available",
+   "neededBy": [
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/theorem-of-the-cube-and-theorem-of-the-square",
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/dual-abelian-variety-poincare-sheaf-and-polarizations",
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/autoduality-of-the-jacobian-and-the-canonical-principal-polarization",
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/isogenies-multiplication-by-n-and-p-torsion"
+   ],
+   "detail": "Milne defers the proof of the theorem of the cube (I 5.1) \"until the next version\". He cites Mumford for 5.15, 8.9, 8.14, the characteristic-p construction of A^vee, and 11.1. Projectivity of abelian varieties (I 6.4, not read), used by 7.2 and by the descent step, rests on the cube. The additivity of differentials in 7.2, the rank of T_l A (7.3) and the structure of Ker(p) (7.4) are asserted. Mumford, Abelian Varieties, is catalogued as requested. Candidate primitives (unchecked): TauCeti/AlgebraicGeometry/AbelianVariety (the AbelianVariety structure, baseChange, TangentSpace, isogenies, mulBy, End) and Mathlib AlgebraicGeometry/Group/Abelian.lean (commutativity of proper geometrically integral group objects). Next source action: Mumford sections 5-8 and 13 once acquired, or Milne I sections 6 and 8-9 in full."
+  },
+  {
+   "title": "Omitted steps inside Milne's Jacobian chapter",
+   "neededBy": [
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/abel-jacobi-is-a-closed-immersion-in-positive-genus",
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/abel-maps-from-symmetric-powers-birationality-and-fibres",
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/hilbert-scheme-of-points-equals-symmetric-power-of-a-smooth-proper-curve",
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/base-change-compatibility-of-the-jacobian"
+   ],
+   "detail": "Several steps are omitted in Milne's Jacobian chapter. The commutative diagram of III 2.2 is \"left as an exercise to the reader (unfortunately rather complicated)\", and 5.3 depends on it. Existence of symmetric powers (3.1) is cited to Mumford. Theorem 3.13 asserts a finite flat splitting cover and descent without details. Remark 1.4(b) (base change) is stated without proof, and the answer to Kleiman's Exercise 4.4 (Appendix A) was not read. The reductions to algebraically closed k in 2.3, 5.1 and 6.2 need descent of closed immersions and of isomorphisms of invertible sheaves (I 5.13 covers the latter). The PDF text layer drops minus signs in III.6; Lemma 6.9 and Summary 6.11 were checked on page images. Next source action: Milne, Jacobian varieties, in Cornell-Silverman (1986), and Kleiman Appendix A."
+  },
+  {
+   "title": "Genus-one identification at scheme level and reconciliation with Mathlib's elliptic-curve group law",
+   "neededBy": [
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-f-abeljacobi-and-the-universal-property/genus-zero-and-genus-one-checks"
+   ],
+   "detail": "Milne III 1.4(e) states Jac(C) = C in genus 1 without proof. Silverman III.3.4 proves only the bijection E(Kbar) -> Pic^0(E_Kbar) with compatible group laws. The scheme-level isomorphism is a derived argument (closed immersion, dimension one, rigidity). The roadmap asks to reconcile it with Mathlib's E(k) group law, built via the class group (ClassGroup.mk W.FunctionField (XYIdeal' ...) in Mathlib AlgebraicGeometry/EllipticCurve/Affine/Point.lean, present in the local Mathlib, unchecked). That needs a comparison between Pic of the projective model and the class group of the affine coordinate ring, which is not decomposed."
+  },
+  {
+   "title": "Layer A-C formal content beyond the Stacks statements read",
+   "neededBy": [
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-a-line-bundles-divisors-picard-group-degree/effective-cartier-divisors-invertible-sheaves-and-regular-sections",
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-a-line-bundles-divisors-picard-group-degree/weil-divisors-class-group-and-comparison-with-pic",
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/cohomology-and-base-change-semicontinuity-and-locally-constant-euler-characteristic",
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-c-relative-coherent-cohomology-and-base-change/flat-base-change-for-quasi-coherent-cohomology"
+   ],
+   "detail": "Divisors 15.10 has \"Proof. Omitted.\". The group isomorphism Weil = Cartier (not only Cl = Pic) and non-effective Cartier divisors via meromorphic sections (Divisors 24-26) were not read. The agreement deg O_X(D) = sum n_x [kappa(x):k] is derived, not quoted. Unread: Derived Categories of Schemes 30.1 and 31.1-31.3 (perfect complexes), and Cohomology of Schemes 12.6, 16.2-16.3 and 18.1 (devissage, projective case, Chow's lemma). Hartshorne II-III, named by the roadmap, is not available. Candidate primitives (unchecked): TauCeti/AlgebraicGeometry/CartierDivisor, WeilDivisor (including PicZeroQuotient.lean), LineBundle and Cohomology (EulerCharacteristic.lean); Mathlib RingTheory/PicardGroup.lean (CommRing.Pic, affine charts only) and CategoryTheory/Sites/SheafCohomology (abstract only). Next source action: Stacks Divisors 14 and 24-26, Derived Categories of Schemes 30-31, Cohomology of Schemes 12 and 16-18."
+  },
+  {
+   "title": "Consumer interfaces that need etale cohomology of the Jacobian are not supplied",
+   "neededBy": [
+    "tauceti:TauCetiRoadmap/JacobianChallenge:layer-e-abelian-varieties/isogenies-multiplication-by-n-and-p-torsion",
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property"
+   ],
+   "detail": "Several consumers need H^1_et(X_kbar, Z_l(1)) = T_l J and the Kummer sequence for G_m on X: WeilConjectures WC.5 (b_1 = 2g), EtaleDualityAndPerverseSheaves EDC.2:trace-purity (Kummer classes), SchemeAndStackFoundations SF.3 (Jacobian Tate module versus H^1_et) and PadicHodgeTheory R06.5 (\"General etale realization is consumed from #196/JacobianChallenge\"). None of this is in the sources read, and Milne I 7.3 states the rank of T_l A without proof. GrossZagierAndArithmeticHeights GZ.2, DeligneWeightsAndPurity DWP.1 and SchemeKTheoryOperations S.7 also name JacobianChallenge; their statements were not checked against the node IDs, and no links were added. Next source action: Milne, Lectures on Etale Cohomology, section 14, and Milne AV III section 9, or SGA 4 1/2 (Arcata)."
+  }
+ ]
+}
