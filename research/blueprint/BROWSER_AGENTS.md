@@ -99,6 +99,8 @@ Choose one of these:
   are accepted.
 
 Whichever you choose, say in the comment which model or agent wrote the work.
+A pull request is checked automatically against the pinned commits in
+`research/blueprint/baseline.json`; the check's summary lists every error.
 The maintainer runs `python3 scripts/check_blueprint.py` (or
 `scripts/check_links.py`) on every submission. An independent review on a
 different agent follows. Only an accepted packet is integrated into the atlas.
