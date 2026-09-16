@@ -66,7 +66,15 @@
     },
     "preSubmissionRevision": "c0ef517ffdf50d37ca4be50468e0c0d249b3f298",
     "preSubmissionCheck": "Issue comments still identify this session as the sole accepted claimant, state:claimed; target output absent. Blob hashes of all five documents furnishing link evidence and baseline.json match the input revision. Full atlas graph validation is delegated to the actual PR workflow and is not represented as having run locally.",
-    "baselineBlob": "fdb00afdfae8e5728e070f310f5a880707764bc2"
+    "baselineBlob": "fdb00afdfae8e5728e070f310f5a880707764bc2",
+    "submission": {
+      "pullRequest": 785,
+      "branch": "cgp-0d677fbc2f21/link-profinite-cohomology",
+      "claimComment": 5699145622,
+      "acceptanceComment": 5699147944,
+      "submissionComment": 5699660157
+    },
+    "coordinationNotice": "After submission, the same worker label was found on issue #22 claim 5697549504 and acceptance 5697551437. That claim was not made in this run. This run is identified by issue #25 claim 5699145622 and PR #785; it does not assert ownership of #22. No other claim was released or modified, and new job acquisition stopped pending disambiguation."
   },
   "links": [
     {
@@ -248,7 +256,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
       "target": "MotivicEtaleKTheory:M.5c",
-      "reason": "The natural norm-residue map has a multiplicative comparison in all degrees on its Galois-cohomology target H^j(F,μ_{ell^r}^{⊗j}), with ell invertible in F. That target uses the supplier’s graded cup with the tensor pairings between twists, rather than the low-degree six-shape API alone. Motivic operations, the Rost motive, the norm-variety argument and the proof of the isomorphism are not supplied by this edge and remain M.5a–d responsibilities.",
+      "reason": "For the mod-ell theorem in M.5c, the natural norm-residue map needs multiplicative compatibility in all degrees on its Galois-cohomology target H^j(F,μ_ell^{⊗j}), with ell invertible in F. This target uses the supplier’s graded cup and the tensor pairings between twists, not just its low-degree six-shape API. The prime-power passage belongs to M.5d, not this mod-ell stage. Motivic operations, Rost motives, norm varieties and the isomorphism proof remain M.5a–d responsibilities.",
       "confidence": "inferred",
       "evidence": [
         {
@@ -346,7 +354,7 @@
     "Inspect all 18 pre-existing matching link packets in full for target-touching entries, and refresh that search at submission/integration time. Existing ClassFieldTheory and ProfiniteProPGroups interfaces were inspected as deduplication leads, not independently reviewed.",
     "Resolve the precise finite-index algebraic induction/coinduction input of ProfiniteCohomology Layer 7 by checking actual pinned declarations and the exact upstream stage; do not infer the needed Z-module generality from a finite-dimensional character theorem.",
     "Resolve the named-but-unanchored ProfiniteCohomology prerequisite in LanglandsParameterStacks LP0 with a precise abelian/nonabelian and Weil/profinite comparison contract.",
-    "Obtain independent mathematical review and the full repository check_links.py result; structural validation alone does not certify mathematical sufficiency or complete catalogue coverage."
+    "Obtain independent mathematical review and repeat scripts/check_links.py against the integration revision. The first submitted packet passed the complete PR workflow with zero errors and warnings; this is not mathematical approval or complete catalogue coverage."
   ],
   "gaps": [
     {
@@ -371,5 +379,19 @@
       ],
       "detail": "The links supply Kummer for positive m invertible in the field, with its natural μ_m action. T.7’s shorthand m must retain these hypotheses. Scheme étale comparison, residue-characteristic variants, roots-of-unity trivializations and compact inverse limits need their own identified constructions."
     }
-  ]
+  ],
+  "validation": {
+    "local": "JSON parse and limited packet-only structural checks passed; complete check_links.py not run locally.",
+    "workflow": {
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/actions/runs/35112557658",
+      "jobId": 104849735254,
+      "sourceHead": "9de8354e7d05be11b48604caed89162ff99b1d77",
+      "testMerge": "e2ca46f4f194be1be4cc1b59291948a7e6ed29ec",
+      "base": "5fd9a4536478b9abffe59986d4a551397fc11cc9",
+      "command": "python3 scripts/check_links.py research/blueprint/links/tauceti_TauCetiRoadmap_ProfiniteCohomology.json",
+      "result": "0 error(s), 0 warning(s)",
+      "observedAt": "2026-09-16T15:02:21Z",
+      "note": "Actual job log read; 12 links, 1 overlap, 11 examined. Subsequent metadata/wording changes need their own check. This is structural validation, not independent mathematical review."
+    }
+  }
 }
