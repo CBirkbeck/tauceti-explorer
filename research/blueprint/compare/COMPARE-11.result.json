@@ -1,0 +1,399 @@
+{
+ "job": "COMPARE-11",
+ "notes": {
+  "tauceti:TauCetiRoadmap/GrothendieckEulerForms": {
+   "targets": "Quillen exact categories and conflation-exact functors; split, exact, abelian and triangulated K0 (ungraded and graded) with universal properties and bounded-complex comparisons; the resolution theorem; the Cartan map K0(proj A) -> G0(mod A), its matrix and unimodularity under finite global dimension; the Ext-Euler pairing and its descent to K0; the sesquilinear q-Euler form over Z[q,q^-1] with q = +-1 specialisations; left and right numerical Grothendieck groups.",
+   "baselineHas": [
+    "TauCeti.ExactStructure (TauCeti/CategoryTheory/Exact/ExactStructure.lean), Layer 0 complete",
+    "TauCeti.PresentedK0, ExactK0, AbelianK0, TriangulatedK0, LaurentK0 and TauCeti.ExactStructure.resolutionEquiv (TauCeti/CategoryTheory/GrothendieckGroup/)",
+    "TauCeti.cartanMap and cartanEquiv (TauCeti/Algebra/Category/ModuleCat/CartanMap.lean); Krull-Schmidt and projective covers (TauCeti/RingTheory/KrullSchmidt/, TauCeti/Algebra/Module/ProjectiveCover/)",
+    "TauCeti.extEulerPairing and extEulerNumericalPairing_nondegenerate (TauCeti/Algebra/Homology/EulerCharacteristic/ExtEuler/)"
+   ],
+   "missing": [
+    "L2: split K0 vs triangulated K0 of the bounded homotopy category, and the bounded derived-category comparison",
+    "L3: general resolving subcategories (Weibel II.7.6), homotopy-unique comparison maps, graded and linear resolutions",
+    "L4: bases of K0(proj A) and G0(mod A), Hom-dimension formulas, Cartan and graded Cartan matrices, unimodularity (inputs from the quiver roadmap are largely present)",
+    "L5-L7: naturality and quiver Ringel-form comparisons; chi_q descended to Laurent K0 as a sesquilinear form, Gram matrices, q = +-1 specialisation and the graded/ungraded comparison; bar-stable Laurent radicals; worked examples",
+    "No unbuilt theory is taken from other roadmaps"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/NumberFieldArithmetic": {
+   "targets": "Decomposition-group splitting criteria and the double-coset law; the Artin symbol and ideal Artin map with tower laws; the index formula, relative Dedekind-Kummer, Dedekind's criterion and Dedekind's theorem (factorisation type = Frobenius cycle type); the relative discriminant and ramified support; the finite-place local-global dictionary (semilocal decomposition, D_Q = Gal(L_w/K_v), localisation of the different); the different-exponent formula via ramification groups and the tame/wild exponents; subfields, monogenicity, rank-one unit certificates; the LMFDB worked suite.",
+   "baselineHas": [
+    "Mathlib IsArithFrobAt, KummerDedekind, differentIdeal, IsDecompositionField, HeightOneSpectrum.adicCompletion",
+    "NumberField.artinSymbol with Frobenius/Tower.lean, Frobenius/Restriction.lean and NumberField/Ideal/ArtinMap.lean (TauCeti/NumberTheory/NumberField/)",
+    "TauCeti.relDiscr and dvd_relDiscr_iff_exists_not_isUnramifiedAt (TauCeti/RingTheory/DedekindDomain/Discriminant/); NumberField/Index/, Discriminant/Stickelberger.lean, RamificationInertia/DoubleCoset/",
+    "HeightOneSpectrum.isNonarchimedeanLocalField_adicCompletion (TauCeti/RingTheory/DedekindDomain/AdicValuation/ValuativeRel.lean) and completionAlgHom (TauCeti/NumberTheory/NumberField/LocalGlobal/Completion.lean)"
+   ],
+   "missing": [
+    "L3: Dedekind's criterion, Dedekind's theorem and its reducible-polynomial corollary, common index divisors",
+    "L5: semilocal equivalence K_v (x) L = prod L_w, local-global norm and trace, matching local and global e and f, decompositionHom as an isomorphism, the completed-integer integral-closure package, localisation of the different",
+    "L6: global ramification groups compared with the local lower filtration, the different-exponent formula, tame/wild exponents, the permutation discriminant formula",
+    "From LocalFieldsRamification (unbuilt in Tau Ceti): lower-numbering filtration, local monogenicity, Hilbert's different formula, tame and wild bounds",
+    "L7-L8: subfield dictionary, rank-one prime-degree unit certificates, dyadic splitting law, LMFDB label prefix and worked suite"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/Chebotarev": {
+   "targets": "The Chebotarev density theorem for an arbitrary finite Galois extension of number fields, in Dirichlet-density and natural-density form, with psi_C(x) ~ (#C/#G)x and pi_C(x) ~ (#C/#G)x/log x, proved by cyclotomic crossing without Artin L-functions and a Wiener-Ikehara argument.",
+   "baselineHas": [
+    "NumberField.Chebotarev.frobeniusPrimeSet, NumberField.exists_auxiliaryPrime, TauCeti.fixedField_zpowers_isCyclotomicExtension and frobeniusPsi_sub_frobeniusTheta_isLittleO (TauCeti/NumberTheory/Chebotarev/)",
+    "NumberField.artinSymbol_map_restrictNormalHom and the base-change power law (TauCeti/NumberTheory/NumberField/ArtinSymbol.lean)",
+    "Mathlib NumberField.Set.HasDirichletDensity and primeIdealZetaSum (Mathlib/NumberTheory/NumberField/DirichletDensity.lean); Mathlib NumberField.Ideal.tendsto_norm_le_and_mk_eq_div_atTop",
+    "Tau Ceti ArithmeticDirichletSeries/ (Euler products, Perron, HasNaturalDensity), LSeries/WienerIkehara/ (smoothed Fourier limit), LSeries/ThreeFourOne.lean, GlobalNumberFields.RayClassGroup"
+   ],
+   "missing": [
+    "From GlobalNumberFields (planned): ray-class characters and ideal counting in each ray class with a power-saving remainder",
+    "From ArithmeticDirichletSeries (planned or partial): the Dirichlet-density calculus and the full Wiener-Ikehara theorem",
+    "L3-L6: density normalisation; continuation of cyclotomic character L-series across Re s = 1 with the trivial pole and nonvanishing; cyclotomic density and the arithmetic-progression case",
+    "L8-L10: exact fixed-field fibre count and exceptional set, abelian Chebotarev, general Dirichlet-density Chebotarev",
+    "L11-L14: remaining discard estimates and the logarithmic-derivative identity, the weighted transfer and Tauberian crossing, theta_C and pi_C, natural density"
+   ]
+  },
+  "ColemanPowerSeries": {
+   "targets": "RJW Theorems 10.2/10.13 (Coleman power series = norm-compatible units), 10.15 (Coleman map with recorded sign), 11.9, 12.9/12.17 (0 -> Z_p(1) -> U_inf,1 -> Z_p[[G]] -> Z_p(1) -> 0) and 12.23 (U+_inf,1 / C+_inf,1 = Z_p[[G+]]/(I(G+) zeta_p)).",
+   "baselineHas": [
+    "Mathlib AbstractMeasure.amiceTransformEquiv (Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean) and the Mahler basis",
+    "Mathlib PowerSeries Weierstrass division and preparation (Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean)",
+    "Mathlib cyclotomic-unit lemmas IsPrimitiveRoot.associated_sub_one_pow_sub_one_of_coprime (Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean) and cyclotomic fields",
+    "Tau Ceti local-field unit filtrations and Teichmuller lifts (TauCeti/NumberTheory/LocalField/)"
+   ],
+   "missing": [
+    "From PadicMeasuresIwasawaAlgebras L0-L5 (unbuilt): measures on profinite spaces, completed group rings and convolution, phi/psi operators, pseudo-measures, the Iwasawa structure theorem and characteristic ideals, determinants and compact exactness",
+    "From DirichletPadicLFunctions L0-L1: the Kubota-Leopoldt pseudo-measure (recorded further inputs: L2-L3, LocallyAnalyticDistributions L0-L3, rigid character spaces, Tate zeta integrals)",
+    "From IntegralIwasawaTheory L0: global cyclotomic units and the index formula [E+ : C+] = h+ (regulator with L(1,chi))",
+    "L0-L1: the local cyclotomic tower and norm-compatible units; the Coleman norm operator and Theorem 10.13",
+    "L2-L4: the Coleman map and its sign; kernel and cokernel sequences; cyclotomic-unit generators and Theorem 12.23"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/FuchsianOrbifolds": {
+   "targets": "The effective PSL(2,R) action with proper discontinuity and finite cyclic stabilisers; the orbifold quotient as a Riemann surface; the Poincare polygon theorem and its converse via Dirichlet polygons, triangle groups; cusp data, q-coordinates and the compactified quotient as a compact Riemann surface; degree theory, Riemann-Hurwitz and orbifold Euler characteristic; X(1) = P^1 via the descended j-function.",
+   "baselineHas": [
+    "Mathlib UpperHalfPlane.instProperlyDiscontinuousSL2RSubgroup (Mathlib/Analysis/Complex/UpperHalfPlane/ProperAction.lean) and ModularGroup.fd",
+    "Tau Ceti PSL action and proper action (TauCeti/Analysis/Complex/UpperHalfPlane/PSLAction.lean, TauCeti/Analysis/Complex/Fuchsian/ProperAction.lean) and Subgroup.instIsCyclicStabilizer (Fuchsian/Stabilizer.lean)",
+    "TauCeti.riemannMapping (TauCeti/Analysis/Complex/Conformal/RiemannMapping/); universal covers (TauCeti/AlgebraicTopology/UniversalCover/)",
+    "Mathlib modular forms with q-expansions, E4, E6 and Delta (Mathlib/NumberTheory/ModularForms/)"
+   ],
+   "missing": [
+    "L0-L1: the free-locus covering quotient; elliptic charts glued into the orbifold quotient Riemann surface; descent of functions with the order formula",
+    "L2: hyperbolic polygons, Gauss-Bonnet, the Poincare polygon theorem, finite-sided Dirichlet polygons for cofinite groups, triangle groups",
+    "L3-L4: parabolic classification, precisely invariant horodiscs, q-coordinates; the compactified quotient with its atlas, compactness and finite-index maps",
+    "L5: finite holomorphic maps, degree, divisor pullback, the branched-cover Euler characteristic and Riemann-Hurwitz, taking from AlgebraicTopology (unbuilt excision, cellular homology, CW Euler characteristic, finite-cover multiplicativity) and a smooth triangulation of compact surfaces (GeometricTopology)",
+    "L6: the normalised j-function inputs (ModularForms), P^1 as a complex manifold, then X(1) = P^1"
+   ]
+  },
+  "DeformationAndDerivedPatchingAlgebra": {
+   "targets": "Schlessinger's criterion; depth, Cohen-Macaulay, Auslander-Buchsbaum and complete-intersection criteria; characteristic-zero points of finite O-algebras; Taylor-Wiles-Kisin patching of modules with support and faithfulness conclusions; perfect complexes, derived completion and the Tor spectral sequence; Calegari-Geraghty patching of complexes; amplitude, depth and component-support inequalities and the ACC+ derived length identity.",
+   "baselineHas": [
+    "Mathlib IsRegularLocalRing (Mathlib/RingTheory/RegularLocalRing/Defs.lean) and Krull dimension",
+    "Mathlib RingTheory.Sequence.IsWeaklyRegular and Rees' depth theorem ModuleCat.exists_isRegular_tfae (Mathlib/RingTheory/Regular/)",
+    "Mathlib projective dimension (Mathlib/Algebra/Category/ModuleCat/ProjectiveDimension.lean) and AdicCompletion",
+    "Mathlib DerivedCategory with Ext, SpectralSequence (Mathlib/Algebra/Homology/SpectralSequence/) and Tor (Mathlib/CategoryTheory/Monoidal/Tor.lean)"
+   ],
+   "missing": [
+    "R03.1-R03.2: complete local Noetherian coefficient categories, completed tensor products, small extensions; Schlessinger's criterion, hulls and obstruction theory",
+    "R03.3-R03.4: Cohen-Macaulay rings and modules, Auslander-Buchsbaum, complete-intersection criteria; characteristic-zero points and finiteness criteria",
+    "R03.5-R03.6: ultrapatching of modules; support transport and nearly-faithful conclusions",
+    "P7: perfect complexes over local rings, minimal complexes, Tor-amplitude, derived tensor and completion, derived Nakayama, the Tor spectral sequence, derived Mittag-Leffler",
+    "P8-P9: patched complexes over S_inf; amplitude and depth inequalities, derived Ihara avoidance, the derived length identity. No other roadmap supplies any of this"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/DGAInfinity": {
+   "targets": "DG and A-infinity algebras, categories, modules and bimodules with unit strictification; Kadeishvili minimal models and D(A) = D_inf(H*A); bar-cobar and Maurer-Cartan twisting; twisted complexes, pretriangulated envelopes and Perf; derived Morita theory with compact generators; Drinfeld DG quotients and the Verdier comparison; Hochschild cochains, Gerstenhaber deformation theory, Massey products and intrinsic formality; smoothness, properness, Serre functors, Calabi-Yau completions and Shklyarov HRR; Euler forms on K0(Perf); relative quadratic and derived Koszul duality.",
+   "baselineHas": [
+    "TauCeti.koszulBraidedCategory (TauCeti/Algebra/Homology/Monoidal/Braiding.lean) and TauCeti.linearHomComplexEnrichedCategory",
+    "TauCeti.ReducedTensorWords and gradedCoderivEquivTaylor (TauCeti/LinearAlgebra/TensorCoalgebra/); TauCeti.Contraction.normalize",
+    "TauCeti.AInfinityAlgebra with strict homs and units (TauCeti/Algebra/Homology/AInfinity/); TauCeti.IsDGAlgebra and IsDGLeftModule (TauCeti/Algebra/Homology/DG/)",
+    "Mathlib CochainComplex.HomComplex, DerivedCategory, Karoubi envelope and triangulated localisation"
+   ],
+   "missing": [
+    "L0-L2: completed tensor coalgebra and duals; DG categories, DG modules and bimodules, DG Yoneda; A-infinity morphisms, homotopies, categories, functor categories, modules and bimodules, unit strictification",
+    "L3-L4: tree transfer, Kadeishvili's theorem, the perturbation lemma, D(A) = D_inf(H*A); bar-cobar adjunction, U(A) = Omega B A, Maurer-Cartan twisting regimes",
+    "L5-L7: localisation of A-infinity modules, semi-free resolutions, twisted complexes, pretr(C), Perf and compact objects; derived Morita theory; DG and A-infinity quotients with Drinfeld's comparison",
+    "L8-L9: Hochschild complexes, braces, Gerstenhaber bracket, deformation and obstruction theory, Massey products, formality; smooth and proper categories, inverse dualising bimodule, Calabi-Yau completions, Serre functors, Chern characters and HRR",
+    "L10-L11: K0(Perf) Euler forms (using the nearly finished GrothendieckEulerForms); quadratic duals, Koszulity and derived Koszul duality"
+   ]
+  },
+  "SelmerIwasawaCohomology": {
+   "targets": "The Kummer comparison H^1(F, Z_p(1)) = lim F^x/(F^x)^(p^m); Selmer structures, Selmer complexes and their duality; Iwasawa cohomology with control theorems and the determinant formulation; Bloch-Kato and ordinary local conditions; RJW section 13.5 and the statement of Conjecture 13.21.",
+   "baselineHas": [
+    "Mathlib groupCohomology (Mathlib/RepresentationTheory/Homological/GroupCohomology/) and continuous cohomology functoriality",
+    "Tau Ceti continuous-cohomology corestriction and Shapiro (TauCeti/RepresentationTheory/Homological/ContCohomology/Corestriction.lean, Shapiro.lean)",
+    "Mathlib Selmer group K(S,n) (Mathlib/RingTheory/DedekindDomain/SelmerGroup.lean) and Tau Ceti SInteger/SelmerGroup/",
+    "Mathlib Fontaine theta and B_dR+ (Mathlib/RingTheory/Perfectoid/FontaineTheta.lean, BDeRham.lean)"
+   ],
+   "missing": [
+    "From ArithmeticGaloisDuality R02.1-R02.4 and D7 (unbuilt): compact-coefficient cohomology with lim^1, Hochschild-Serre, global finiteness and Euler characteristic, Poitou-Tate duality, which need local Tate duality and global class field theory (Tau Ceti ClassFieldTheory has only class formations)",
+    "From PadicHodgeTheory R06.1-R06.2 and PadicHodgeRegulators L0-L1: period rings, admissibility and Bloch-Kato exponentials (recorded with perfectoid and A_inf prerequisites)",
+    "From PadicMeasuresIwasawaAlgebras L1 and L5 and IntegralIwasawaTheory L0-L1: completed group rings, determinants, cyclotomic units and the Iwasawa modules X and Y; L1 requires ColemanPowerSeries L4, so all of that roadmap is included",
+    "L0-L2: the integral Kummer comparison, annihilators of the chosen local conditions, Selmer structures and Selmer complexes",
+    "L3-L4: Iwasawa cohomology, control theorems, determinant lines and characteristic ideals, Bloch-Kato and ordinary conditions, Conjecture 13.21"
+   ]
+  },
+  "AutomorphicGaloisRepresentations": {
+   "targets": "Galois representations attached to classical newforms (Eichler-Shimura/Deligne, Deligne-Serre) and to Hilbert and quaternionic forms; purity and compatible systems; local-global compatibility away from p (Weil-Deligne, local Langlands) and at p (crystalline, semistable, de Rham); representations and determinant laws over localised Hecke algebras; V_l(A_f) as a sum of rho_(f,lambda).",
+   "baselineHas": [
+    "Mathlib ModularForm and CuspForm with q-expansions (Mathlib/NumberTheory/ModularForms/)",
+    "Tau Ceti modular-form newform and Atkin-Lehner theory (TauCeti/NumberTheory/ModularForms/) and Hecke rings (TauCeti/NumberTheory/HeckeRing/)",
+    "Tau Ceti abelian-variety basics (TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean)",
+    "Mathlib B_dR+ (Mathlib/RingTheory/Perfectoid/BDeRham.lean); no Galois representations, etale cohomology or Hecke algebras of modular curves"
+   ],
+   "missing": [
+    "From ModularCurvesPartII R12-R14: moduli of elliptic curves, integral and compactified models, Jacobians, Hecke correspondences, cohomological realisations and the Eichler-Shimura relation",
+    "From WeightsInEtaleCohomology R34 (with the etale-cohomology, perverse-sheaf and vanishing-cycle roadmaps): etale cohomology with Weil I and Weil II",
+    "From GL2AutomorphicRepresentationsAndTransfer R16-R17 and HilbertModularVarietiesAndShimuraCurves R18: local Langlands for GL2, global Jacquet-Langlands via the trace formula, Shimura-curve cohomology, Cerednik-Drinfeld uniformisation",
+    "From PadicHodgeTheory R06.5 and ArithmeticGaloisRepresentations R01: geometric p-adic comparison theorems; continuous representations and Weil-Deligne data",
+    "R19.1-R19.6: all six layers of the roadmap. The recorded closure is about 335 stages in 50 roadmaps"
+   ]
+  },
+  "LanglandsParameterStacks": {
+   "targets": "Representability, flatness and lci-ness of Z^1(W_E/P, dual G) of dimension dim G; the stack of L-parameters and its derived structure; the excursion algebra and FS VIII.3.8/VIII.4; integral reductive invariant theory with good filtrations (FS VIII.5); Perf of the parameter stack generated by representation bundles, with the Rep(dual G) action.",
+   "baselineHas": [
+    "Mathlib condensed mathematics including Mathlib/Condensed/Solid.lean",
+    "Mathlib SSet.Quasicategory basics (Mathlib/AlgebraicTopology/Quasicategory/)",
+    "Mathlib naive cotangent complex (Mathlib/RingTheory/Extension/Cotangent/Basic.lean)",
+    "Tau Ceti Weyl modules for classical groups (TauCeti/RepresentationTheory/ClassicalGroups/WeylModule.lean) and algebraic-group basics (TauCeti/Algebra/AlgebraicGroup/)"
+   ],
+   "missing": [
+    "From EnhancedDerivedSheaves E0-E5 (unbuilt): stable, presentable and monoidal infinity-categories, animated rings, Ind-completion",
+    "From ReductiveGroupsPartII RG2.0a/RG2.5, DerivedDeRhamCohomology DD.0 and VStackSheavesAndLisseCategories VS2: split reductive groups and integral dual data over Z, cotangent complexes, condensed and solid foundations. VS2's diamond and perfectoid prerequisites inflate the recorded closure (about 112 stages)",
+    "From LocalFieldsRamification and ProfiniteCohomology: Weil groups with tame and wild inertia, continuous cocycles",
+    "LP0-LP2: condensed and discretised Weil-group cocycles; representability, lci-ness and the derived mapping stack; the excursion algebra and semisimple L-parameters",
+    "LP3-LP4: Weyl and dual Weyl modules, good filtrations, Donkin subgroups, vanishing of invariant cohomology; Perf and Ind-Perf of the stack, generated by Rep(dual G)"
+   ]
+  },
+  "OrdinaryAutomorphicFormsAndModularityLifting": {
+   "targets": "Hida ordinary projectors and control for modular and Hilbert Hecke modules; nearly ordinary and Eisenstein control; ordinary Galois families and ordinary deformation rings; ordinary R=T and modularity lifting; the Skinner-Wiles residually reducible results; exports for Serre's conjecture.",
+   "baselineHas": [
+    "Mathlib ModularForm and CuspForm with q-expansions (Mathlib/NumberTheory/ModularForms/)",
+    "Tau Ceti Hecke rings and newforms (TauCeti/NumberTheory/HeckeRing/, TauCeti/NumberTheory/ModularForms/)",
+    "Mathlib IsRegularLocalRing and Weierstrass preparation",
+    "Mathlib AbstractMeasure on Z_p (Mathlib/NumberTheory/Padics/Measure/)"
+   ],
+   "missing": [
+    "All of AutomorphicGaloisRepresentations R19.1-R19.6 and its closure (etale cohomology, Weil II, p-adic comparison, Jacquet-Langlands, Shimura curves)",
+    "From PadicFamilies L0a/L0/L5 and PadicMeasuresIwasawaAlgebras L1: Hida theory and completed group rings",
+    "From GlobalGaloisDeformations R04.3-R04.5 and LocalGaloisDeformationRings R08.3: deformation functors, Taylor-Wiles primes, Kisin's potentially semistable deformation rings",
+    "From DeformationAndDerivedPatchingAlgebra R03.1-R03.5, HilbertModularVarieties R18.4 and ModularCurvesPartII R14.3: patching algebra, Hilbert and modular Hecke modules",
+    "R21.1-R21.6: ordinary projectors, control, ordinary families, R=T, Skinner-Wiles. The recorded closure is about 394 stages in 62 roadmaps"
+   ]
+  },
+  "Polylogarithms": {
+   "targets": "Classical and Bloch-Wigner polylogarithms with the five-term relation; the weight-two regulator identified with Borel's (Bloch-Suslin); Goncharov's weight-three complex and the weight-three Zagier theorem; statements of Zagier's conjecture and the Goncharov-Rudenko weight-four case; polylogarithmic regulator complexes for curves; the Leopoldt statement.",
+   "baselineHas": [
+    "Mathlib complex logarithm, cpow and power-series analysis (Mathlib/Analysis/SpecialFunctions/)",
+    "Mathlib NumberField.Units.regulator (Mathlib/NumberTheory/NumberField/Units/Regulator.lean) and NumberField.dedekindZeta",
+    "Mathlib group homology (Mathlib/RepresentationTheory/Homological/GroupHomology/)",
+    "Tau Ceti EffectiveBounds regulator bounds (TauCeti/NumberTheory/EffectiveBounds/Regulator.lean); no algebraic K-theory or polylogarithms in the baseline"
+   ],
+   "missing": [
+    "P.1: Li_n with continuation and branches, the Bloch-Wigner function, the five-term identity",
+    "From K3BlochGroups V.1-V.4 and BorelRegulators R.1-R.7: homological K3, Bloch groups, Suslin's exact sequence; arithmetic groups, relative Lie-algebra cohomology, Borel's stable cohomology, the Borel regulator and zeta proportionality",
+    "From GeneralAlgebraicKTheory, KTheoryLowDegrees, StableHomotopyKTheory and SchemeKTheoryOperations: Quillen and Waldhausen K-theory, the plus construction, spectra, K-theory of schemes with Adams operations",
+    "From MotivicEtaleKTheory M.1-M.8 (the recorded chain includes the norm-residue theorem), ArithmeticKTheory N.1-N.4 and PadicHodgeRegulators D.1: higher Chow groups, the motivic spectral sequence, regulators, the p-adic logarithm",
+    "P.2-P.6: the Bloch regulator comparison, Goncharov's weight-3 complex and comparison, the statement infrastructure, curve regulators, Leopoldt. The recorded closure is about 171 stages in 36 roadmaps"
+   ]
+  },
+  "PotentialModularityAndCompatibleSystems": {
+   "targets": "Moret-Bailly's theorem; potential residual modularity (KW II Theorem 6.1); potential modularity of given lifts; finiteness of global deformation rings (KW II Theorem 10.1) and characteristic-zero points; prescribed local lifts; the KW I Theorem 4.1 interface; compatible systems from potential modularity; change of residual characteristic; general compatible-system operations.",
+   "baselineHas": [
+    "Mathlib scheme theory and smooth morphisms (Mathlib/AlgebraicGeometry/)",
+    "Tau Ceti abelian-variety basics (TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean)",
+    "Mathlib ModularForm and CuspForm; Tau Ceti Hecke rings",
+    "Mathlib IsRegularLocalRing and Krull dimension"
+   ],
+   "missing": [
+    "All of OrdinaryAutomorphicFormsAndModularityLifting R21.1-R21.6, and through it all of AutomorphicGaloisRepresentations",
+    "From GL2ModularityLifting R22 (including Kisin's method and dyadic lifting), GlobalGaloisDeformations R04 and LocalGaloisDeformationRings R08: the full modularity-lifting and deformation-ring theory",
+    "From GL2AutomorphicRepresentationsAndTransfer R17.5-R17.6: automorphic induction, Langlands-Tunnell and solvable base change",
+    "From HilbertModularVarieties H6, AlgebraicModuli R09.3, PadicHodgeTheory R06.2-R06.3 and ArithmeticGaloisRepresentations G7/R01.5: twisted Hilbert-Blumenthal moduli, algebraic spaces, period functors and representation operations",
+    "R23.1-R24.6: Moret-Bailly, the auxiliary moduli problem, potential modularity, finiteness, lifts, compatible systems. The recorded closure is about 429 stages in 65 roadmaps"
+   ]
+  },
+  "NoncommutativeAndEquivariantIwasawa": {
+   "targets": "Lambda(G) = O[[G]] for compact p-adic Lie groups G; the canonical Ore localisation; K1(Lambda_S) -> K0(Lambda, Lambda_S) and characteristic elements; Artin evaluation, reduced norms and SK1; equivariant Iwasawa complexes; zeta elements; the Kakde and Ritter-Weiss noncommutative main conjectures for totally real fields; descent and leading terms.",
+   "baselineHas": [
+    "Mathlib OreLocalization (Mathlib/RingTheory/OreLocalization/Basic.lean)",
+    "Mathlib AbstractMeasure on Z_p and Weierstrass preparation",
+    "Mathlib and Tau Ceti continuous group cohomology with Shapiro and corestriction (TauCeti/RepresentationTheory/Homological/ContCohomology/)",
+    "Tau Ceti exact and split K0 (TauCeti/CategoryTheory/GrothendieckGroup/); no K1 or Iwasawa algebras"
+   ],
+   "missing": [
+    "From PadicMeasuresIwasawaAlgebras L0-L5 plus Lazard-type p-adic Lie group theory: completed group rings, noetherianity and module theory",
+    "From GeneralAlgebraicKTheory K.1-K.6 and StableHomotopyKTheory: K1, relative K0 and localisation sequences; reduced norms and SK1",
+    "From ArithmeticGaloisDuality R02.1-R02.4 and D7 (which need class field theory) and SelmerIwasawaCohomology L0-L3: Poitou-Tate, compact supports, Iwasawa complexes",
+    "From IntegralIwasawaTheory I.1-I.9, AutomorphicPadicLFunctions L0-L3 and IntegralHeckeAndGaloisDeterminants IHG.6: Deligne-Ribet p-adic L-functions via Hilbert Eisenstein series, the integral Brumer-Stark theorem (which also needs Galois representations of Hilbert modular forms, not recorded as an edge), Kurihara's all-prime main conjecture",
+    "NE.0-NE.7: Ore sets, characteristic elements, SK1 ambiguity, equivariant complexes, zeta elements, the Kakde and Ritter-Weiss proofs, descent. The recorded closure is about 120 stages in 35 roadmaps"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+   "b": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "GrothendieckEulerForms already has exact structures, all four K0 groups, the resolution theorem, the Cartan map for rings, Ext-Euler descent and numerical quotients; it still needs bounded-complex comparisons, Cartan-matrix bases and a sesquilinear chi_q. NumberFieldArithmetic still needs Dedekind's theorem, the whole completion dictionary (semilocal decomposition, D_Q = Gal(L_w/K_v), localisation of the different) and global ramification groups with the different-exponent formula, on top of an unbuilt local lower-filtration theory."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+   "b": "tauceti:TauCetiRoadmap/Chebotarev",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "NumberFieldArithmetic's remaining gap is broad but classical: the completion dictionary, ramification groups with the imported local Hilbert different formula, Dedekind's theorem and unit certificates, with much of Layers 1-4 already in Tau Ceti. Chebotarev, whose Artin-symbol inputs are built, still needs deeper stacked analysis: ray-class characters with per-class ideal counting and a power-saving error, continuation and 1-line nonvanishing of cyclotomic Hecke L-series, the full Wiener-Ikehara theorem and density calculus, then its crossing, abelian, general and weighted Tauberian layers."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/Chebotarev",
+   "b": "ColemanPowerSeries",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Chebotarev builds on existing Artin symbols, Dirichlet-series and Euler-product infrastructure and part of Wiener-Ikehara; it needs Hecke-character analysis plus crossing layers. ColemanPowerSeries rests on an entirely unbuilt stack (completed group rings, pseudo-measures and Iwasawa structure theory, the Kubota-Leopoldt pseudo-measure, the cyclotomic-unit index formula) before its own five layers: the Coleman norm operator, the Coleman map, the exact sequences and Theorem 12.23."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+   "b": "ColemanPowerSeries",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "FuchsianOrbifolds needs its own geometric layers (orbifold charts, the Poincare polygon theorem with Dirichlet polygons, cusp compactification, degree theory) plus borrowed CW Euler-characteristic and triangulation topology for Riemann-Hurwitz. ColemanPowerSeries needs a somewhat larger and deeper arithmetic stack that is entirely unbuilt: Iwasawa algebras with the structure theorem and determinants, the Kubota-Leopoldt pseudo-measure and the cyclotomic-unit index formula (plus recorded p-adic distribution and Tate-thesis inputs), under the Coleman norm operator, Coleman map and Iwasawa's local-unit theorem."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+   "b": "DeformationAndDerivedPatchingAlgebra",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "DeformationAndDerivedPatchingAlgebra is self-contained commutative and derived algebra on a strong Mathlib base (regular sequences, Rees depth, projective dimension, derived categories, spectral sequences); it needs Schlessinger, Cohen-Macaulay/Auslander-Buchsbaum, patching, perfect complexes and Calegari-Geraghty patching. FuchsianOrbifolds needs more: its almost unbuilt geometry (orbifold quotient surfaces, the Poincare polygon theorem and Dirichlet polygons, cusps and compactification, degree theory) plus an unbuilt algebraic-topology stack (excision, cellular homology, CW Euler characteristic, smooth triangulation) for Riemann-Hurwitz."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "b": "DeformationAndDerivedPatchingAlgebra",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Both are self-contained algebra, but DGAInfinity has twelve heavily stacked layers still to build on top of its landed sign, coalgebra and A-infinity definitions: A-infinity categories and modules, Kadeishvili transfer, bar-cobar, twisted complexes and Perf, derived Morita theory, Drinfeld quotients, Hochschild deformation theory, Calabi-Yau completions and HRR, Koszul duality. DeformationAndDerivedPatchingAlgebra's Schlessinger, Cohen-Macaulay, patching and perfect-complex layers are fewer and rest on more existing Mathlib commutative algebra."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "b": "SelmerIwasawaCohomology",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "DGAInfinity's missing theory is large but internal homological algebra. SelmerIwasawaCohomology takes an unbuilt arithmetic stack from other roadmaps: Poitou-Tate and compact-coefficient cohomology (which need local and global class field theory), period rings and Bloch-Kato exponentials, Iwasawa algebras, and the Iwasawa modules X and Y through IntegralIwasawaTheory L1, which includes all of ColemanPowerSeries. Selmer complexes, Iwasawa cohomology and control theorems come on top."
+  },
+  {
+   "a": "SelmerIwasawaCohomology",
+   "b": "AutomorphicGaloisRepresentations",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "SelmerIwasawaCohomology needs Galois cohomology and duality, period rings and Iwasawa theory (about 57 recorded upstream stages). AutomorphicGaloisRepresentations needs modular and Shimura curves over Z with Jacobians and the Eichler-Shimura relation, etale cohomology with Weil I/II, geometric p-adic comparison theorems, local Langlands and global Jacquet-Langlands for GL2 (about 335 upstream stages) before its six layers."
+  },
+  {
+   "a": "LanglandsParameterStacks",
+   "b": "AutomorphicGaloisRepresentations",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "LanglandsParameterStacks needs infinity-categorical foundations, split reductive groups over Z with good-filtration representation theory, condensed/solid inputs and the FS VIII parameter-stack theory. AutomorphicGaloisRepresentations' recorded closure already contains most of those foundations (EnhancedDerivedSheaves, ReductiveGroupsPartII) and adds the arithmetic geometry of modular and Shimura curves, etale cohomology with Weil II, p-adic comparison theorems and GL2 automorphic transfer."
+  },
+  {
+   "a": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "b": "LanglandsParameterStacks",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "OrdinaryAutomorphicFormsAndModularityLifting consumes all of AutomorphicGaloisRepresentations (Shimura-curve and modular-curve cohomology, Weil II, p-adic comparison, Jacquet-Langlands). On top it needs Hida theory, Kisin's potentially semistable deformation rings, Taylor-Wiles primes and patching before ordinary R=T and Skinner-Wiles. LanglandsParameterStacks' infinity-categorical, reductive-group and parameter-stack theory is smaller, and most of its foundations also lie in Ordinary's closure."
+  },
+  {
+   "a": "Polylogarithms",
+   "b": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Beyond elementary polylogarithms, Polylogarithms needs a huge unbuilt K-theoretic stack: Quillen/Waldhausen K-theory, Suslin's K3 and Bloch groups, Borel's regulator theorem, and motivic cohomology with the motivic spectral sequence (about 171 recorded upstream stages). OrdinaryAutomorphicFormsAndModularityLifting stacks more (about 394 stages): all of AutomorphicGaloisRepresentations (etale cohomology with Weil II, p-adic comparison, Shimura curves, Jacquet-Langlands) plus Hida theory, Kisin deformation rings and patching."
+  },
+  {
+   "a": "Polylogarithms",
+   "b": "PotentialModularityAndCompatibleSystems",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Polylogarithms' K-theory, Borel-regulator and motivic-cohomology prerequisites are vast. PotentialModularityAndCompatibleSystems contains the whole Ordinary/AutomorphicGaloisRepresentations closure and adds Kisin-style GL2 modularity lifting, Langlands-Tunnell and automorphic induction, twisted Hilbert-Blumenthal moduli and Moret-Bailly's theorem (about 429 upstream stages), before its own potential-modularity and compatible-system layers."
+  },
+  {
+   "a": "NoncommutativeAndEquivariantIwasawa",
+   "b": "PotentialModularityAndCompatibleSystems",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "NoncommutativeAndEquivariantIwasawa needs Lambda(G) theory, K1 and SK1, Poitou-Tate, and the abelian main conjecture via Deligne-Ribet and integral Brumer-Stark (which needs Hilbert modular Galois representations). PotentialModularityAndCompatibleSystems contains all of AutomorphicGaloisRepresentations and OrdinaryAutomorphicForms, the complete GL2 modularity-lifting and deformation theory, Langlands-Tunnell and Moret-Bailly; it is a strictly larger and deeper stack."
+  },
+  {
+   "a": "NoncommutativeAndEquivariantIwasawa",
+   "b": "LanglandsParameterStacks",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "LanglandsParameterStacks needs infinity-categorical foundations, split reductive groups over Z with Weyl modules and good filtrations, condensed/solid inputs and FS VIII (its recorded diamond/perfectoid closure is mostly inflation through VS2). NoncommutativeAndEquivariantIwasawa's recorded closure carries comparable derived foundations and adds much more arithmetic: class field theory and Poitou-Tate, Selmer and Iwasawa complexes, Deligne-Ribet p-adic L-functions, integral Brumer-Stark (itself needing Hilbert modular Galois representations) and Kurihara's main conjecture, under Lazard-type Lambda(G) theory, K1 and SK1, and Kakde's proof."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+   "b": "DeformationAndDerivedPatchingAlgebra",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "GrothendieckEulerForms has most of its spine landed and lacks only bounded-complex comparisons, general resolving subcategories, Cartan-matrix bases and the sesquilinear q-Euler form, with the needed Krull-Schmidt and projective-cover inputs already in Tau Ceti. DeformationAndDerivedPatchingAlgebra has nothing of its own built: complete local coefficient categories, Schlessinger, Cohen-Macaulay/Auslander-Buchsbaum and complete-intersection criteria, patching, perfect complexes with derived completion and the Tor spectral sequence, and Calegari-Geraghty patching all remain."
+  },
+  {
+   "a": "Polylogarithms",
+   "b": "NoncommutativeAndEquivariantIwasawa",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Polylogarithms needs higher K-theory, Suslin's K3/Bloch-group theorem, Borel's regulator theorem and higher Chow groups with the motivic spectral sequence; its larger recorded closure (about 171 stages) is partly inflated by the norm-residue chain, which enters only through a readiness checkpoint. NoncommutativeAndEquivariantIwasawa needs class field theory and Poitou-Tate, Selmer/Iwasawa complexes, Deligne-Ribet p-adic L-functions and Kurihara's main conjecture via integral Brumer-Stark, which also requires Galois representations of Hilbert modular forms not recorded as an edge. It adds Lazard-type Lambda(G) theory, K1/SK1 and Kakde's proof, which makes it slightly farther."
+  },
+  {
+   "a": "ColemanPowerSeries",
+   "b": "SelmerIwasawaCohomology",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "SelmerIwasawaCohomology's supplier IntegralIwasawaTheory L1 requires ColemanPowerSeries L4, so all of Coleman's missing theory (Iwasawa algebras, Kubota-Leopoldt, the Coleman map, cyclotomic-unit index) lies inside Selmer's. Selmer adds compact-coefficient cohomology and Poitou-Tate (needing class field theory), period rings and Bloch-Kato exponentials, and its own Selmer-complex, Iwasawa-cohomology and control layers."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/Chebotarev",
+   "b": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Chebotarev's remaining work is ray-class counting and characters, Hecke L-series continuation and nonvanishing, the full Wiener-Ikehara theorem and crossing layers, on a well-advanced base: Artin symbols, the Frobenius prime-set carrier, Euler products and the auxiliary-prime and fixed-field machinery. FuchsianOrbifolds has only begun Layer 0. It still needs the orbifold quotient Riemann surface, the Poincare polygon theorem and Dirichlet polygons, cusp compactification and degree theory, plus borrowed unbuilt topology (excision, cellular homology, CW Euler characteristic, smooth triangulation) for Riemann-Hurwitz."
+  },
+  {
+   "a": "PotentialModularityAndCompatibleSystems",
+   "b": "AutomorphicGaloisRepresentations",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "PotentialModularityAndCompatibleSystems consumes AutomorphicGaloisRepresentations R19.6, and hence all of its missing theory, directly and through OrdinaryAutomorphicForms. It adds Hida and Kisin deformation theory, GL2 modularity lifting, Langlands-Tunnell and automorphic induction, twisted Hilbert-Blumenthal moduli with Moret-Bailly, and its own potential-modularity and compatible-system layers."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "b": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "DGAInfinity's gap (A-infinity categories, minimal models, derived Morita theory, DG quotients, Hochschild and Calabi-Yau theory, Koszul duality) is large but internal algebra on landed foundations. OrdinaryAutomorphicFormsAndModularityLifting needs all of AutomorphicGaloisRepresentations (modular and Shimura curves, etale cohomology with Weil II, p-adic comparison, Jacquet-Langlands) plus Hida theory, deformation rings and patching (about 394 upstream stages)."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+   "b": "ColemanPowerSeries",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "NumberFieldArithmetic's remaining theory is classical and about half built: the completion dictionary, local and global ramification groups with Hilbert's different formula, Dedekind's theorem and unit certificates. ColemanPowerSeries needs an entirely unbuilt Iwasawa-theoretic stack (completed group rings, pseudo-measures, the structure theorem, Kubota-Leopoldt, the cyclotomic-unit index formula) under five unbuilt layers of Coleman power-series theory."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/Chebotarev",
+   "b": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "GrothendieckEulerForms has its categorical spine landed and lacks only bounded-complex K0 comparisons, general resolving subcategories, Cartan-matrix bases and the sesquilinear q-Euler form. Chebotarev still needs ray-class characters and per-class ideal counting, Hecke L-series continuation and nonvanishing, the full Wiener-Ikehara theorem, and eight untouched density, crossing and Tauberian layers."
+  },
+  {
+   "a": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "b": "SelmerIwasawaCohomology",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "SelmerIwasawaCohomology needs Galois duality (with class field theory), period rings and Iwasawa theory including Coleman's (about 57 upstream stages). OrdinaryAutomorphicFormsAndModularityLifting needs all of AutomorphicGaloisRepresentations (modular and Shimura curves, etale cohomology with Weil II, p-adic comparison, Jacquet-Langlands) plus Hida theory, Kisin deformation rings and patching (about 394 stages). Its recorded closure even includes Selmer L0-L2."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+   "b": "DeformationAndDerivedPatchingAlgebra",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "NumberFieldArithmetic still needs the completion dictionary, local ramification groups with Hilbert's different formula, global ramification groups, Dedekind's theorem and unit certificates, but its Layers 1-4 and the completion and local-field instances are largely in Tau Ceti. DeformationAndDerivedPatchingAlgebra has nothing of its own built and must stack complete local coefficient categories, Schlessinger, Cohen-Macaulay/Auslander-Buchsbaum, patching and support theory, then perfect complexes, derived completion, the Tor spectral sequence and Calegari-Geraghty derived patching."
+  }
+ ]
+}
