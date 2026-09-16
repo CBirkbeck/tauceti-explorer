@@ -3,7 +3,7 @@
  "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
  "roadmaps": {
   "tauceti:TauCetiRoadmap/PolynomialGaloisGroups": {
-   "summary": "The lower half of this roadmap is largely built, mostly in Tau Ceti's TauCeti/FieldTheory/GaloisGroups/ and TauCeti/GroupTheory/Perm/ (sorry-free): the degree/orbit/stabilizer dictionary, fullCycleType with a full API, the block↔intermediate-field order anti-isomorphism, 2-transitivity, the fibre-product description of Gal(pq), the whole discriminant layer (root-product formula, base change, discr ≠ 0 ↔ separable, δ = discrSqrt, the alternating-group test, the quadratic extension discrField), factorDegrees with its API, Frobenius orbits over a finite field, general wreath products, and the reference subgroups nTj for n ≤ 5. Mathlib contributes more than the roadmap's summary credits: block_stabilizerOrderIso (Wielandt 7.5) is already there, as is the whole Jordan file with the swap and 3-cycle theorems. Genuinely missing: everything specific to resolvents beyond the universal machinery — there is no ResolventSpec, none of the three registered invariants, no resolventCubic or resolventSextic, no factorization theorem, no Tschirnhaus transform, no quartic decision table and no quintic solvability criterion; Jordan's p-cycle theorem (still a TODO in Mathlib's Jordan.lean) and the imprimitivity wreath embedding; the whole of Layer 6 above the label definitions — HasGaloisLabel, the classification of transitive subgroups for n ≤ 5, and QuinticCertificate; the imported Dedekind statement and the membership statement of Layer 5; and all of Layer 9. Layer 9 has no declaration of any kind in the baseline.",
+   "summary": "The lower half of this roadmap is largely built, mostly in Tau Ceti's TauCeti/FieldTheory/GaloisGroups/ and TauCeti/GroupTheory/Perm/ (sorry-free): the degree/orbit/stabilizer dictionary, fullCycleType with a full API, the block↔intermediate-field order anti-isomorphism, 2-transitivity, the fibre-product description of Gal(pq), the whole discriminant layer (root-product formula, base change, discr ≠ 0 ↔ separable, δ = discrSqrt, the alternating-group test, the quadratic extension discrField, though without base-field functoriality or the worked cubic instances), factorDegrees with its API, Frobenius orbits over a finite field, general wreath products (without the primitivity theorem for the product action or the comparison with RegularWreathProduct), and the reference subgroups nTj for n ≤ 5. Mathlib contributes more than the roadmap's summary credits: block_stabilizerOrderIso (Wielandt 7.5) is already there, as is the whole Jordan file with the swap and 3-cycle theorems. Two items called absent have their ingredients in the libraries: the conjugate-field dictionary (IsGalois.map_fixingSubgroup, Subgroup.fixedField_map_conj, algHomAdjoinIntegralEquiv) and the root-enumeration facts of Layer 4 (Polynomial.splits_iff_card_roots, nodup_roots_iff_of_splits). Genuinely missing: everything specific to resolvents beyond the universal machinery — there is no ResolventSpec, none of the three registered invariants, no resolventCubic or resolventSextic, no factorization theorem, no Tschirnhaus transform, no quartic decision table and no quintic solvability criterion; Jordan's p-cycle theorem (still a TODO in Mathlib's Jordan.lean) and the imprimitivity wreath embedding; the whole of Layer 6 above the label definitions — HasGaloisLabel, the classification of transitive subgroups for n ≤ 5, and QuinticCertificate; the imported Dedekind statement and the membership statement of Layer 5; and all of Layer 9. Layer 9 has no declaration of any kind in the baseline.",
    "layers": {
     "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial": {
      "verdict": "partly built",
@@ -31,7 +31,7 @@
          "library": "tauceti",
          "file": "TauCeti/FieldTheory/GaloisGroups/Degree.lean",
          "line": 91,
-         "fit": "more general"
+         "fit": "related"
         },
         {
          "name": "Polynomial.card_rootSet_eq_natDegree",
@@ -220,8 +220,36 @@
       },
       {
        "target": "Conjugate fields: G/H in equivariant bijection with the roots and with the F-embeddings; conjugate subfields correspond to conjugates of H; their number is [G : N_G(H)]",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
+        {
+         "name": "IsGalois.map_fixingSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Galois/Basic.lean",
+         "line": 444,
+         "fit": "more general"
+        },
+        {
+         "name": "Subgroup.fixedField_map_conj",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/Galois/FixedField.lean",
+         "line": 169,
+         "fit": "more general"
+        },
+        {
+         "name": "IntermediateField.algHomAdjoinIntegralEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/IntermediateField/Adjoin/Basic.lean",
+         "line": 639,
+         "fit": "related"
+        },
+        {
+         "name": "MulAction.orbitEquivQuotientStabilizer",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/GroupAction/Quotient.lean",
+         "line": 170,
+         "fit": "related"
+        },
         {
          "name": "TauCeti.fixedField_stabilizer",
          "library": "tauceti",
@@ -230,7 +258,7 @@
          "fit": "related"
         }
        ],
-       "note": "Nothing in the baseline counts conjugate subfields by the normalizer index or sets up the embeddings bijection; grep for conjugate-field statements in both libraries finds only unrelated Multiquadratic and representation-theoretic lemmas."
+       "note": "The ingredients are there: conjugate subfields correspond to conjugate subgroups (IsGalois.map_fixingSubgroup in Mathlib, Subgroup.fixedField_map_conj in Tau Ceti, both for general extensions), the F-embeddings of F(α) are in bijection with the roots of its minimal polynomial (IntermediateField.algHomAdjoinIntegralEquiv), G/H ≃ orbit (MulAction.orbitEquivQuotientStabilizer), and the stabilizer's fixed field is F(α). Missing: the three statements assembled for f.Gal, the G-equivariance of the bijections, and the count [G : N_G(H)] of conjugate fields."
       }
      ],
      "duplicates": [
@@ -241,6 +269,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-3-the-index-dedekindkummer-and-dedekinds-theorem",
        "note": "States Dedekind's theorem using this layer's fullCycleType, and is the declared supplier of the theorem Layer 5 imports."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-7-subfields-integral-bases-monogenicity-and-explicit-units",
+       "note": "Its milestone 7.1 builds the same permutation representation for a number field K: the action of Gal(M/ℚ) on the embeddings K →ₐ[ℚ] M, transitive and faithful with card = [K : ℚ], and a permutation embedding into S_n that is canonical only up to conjugacy. That is this layer's embeddings side of the conjugate-field dictionary and its normal-closure setup, specialized to ℚ."
       }
      ]
     },
@@ -312,7 +344,7 @@
       },
       {
        "target": "General wreath products (ι → D) ⋊ Perm ι and (ι → D) ⋊ Q, with constructors, order formulas, functoriality, edge cases, and the two actions",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.WreathProduct",
@@ -419,6 +451,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/BelyiMaps#layer-1-passports-blocks-and-finite-label-semantics",
        "note": "Also works with MulAction.IsBlock and block systems for monodromy groups, and states its label membership 'exactly as PolynomialGaloisGroups spells label membership'; the block theory is shared, not duplicated."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-13-the-evens-norm",
+       "note": "Milestone 1 of its general Evens-norm construction is 'the wreath product itself': the permutation wreath product (X → D) ⋊ Q for a Q-set X, generalizing Mathlib's RegularWreathProduct. That is the same object as this layer's general wreath product, so one construction should serve both."
       }
      ]
     },
@@ -608,22 +644,20 @@
        "note": "Layer 0's orbit statement is the whole content of this item, and the layer's rule that nothing quantifies over 'the' root of a reducible polynomial is respected throughout the files."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-7-subfields-integral-bases-monogenicity-and-explicit-units",
+       "note": "Its milestone 7.1 packages the order-reversing equivalence between IntermediateField ℚ K and the subgroups of Gal(M/ℚ) containing the fixing subgroup of K. That is the Galois side of this layer's stabilizer and intermediate-field dictionary, with the stabilizer of a root as the fixing subgroup, for number fields."
+      }
+     ]
     },
     "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-3-the-discriminant-and-the-alternating-group": {
-     "verdict": "built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "The root-product formula: for monic f of degree n splitting in L, discr f = ∏_{i<j} (rᵢ − rⱼ)²",
        "library": "tauceti",
        "declarations": [
-        {
-         "name": "Polynomial.Monic.discr_eq_prod_roots_sub_sq_of_splits",
-         "library": "tauceti",
-         "file": "TauCeti/RingTheory/Polynomial/Resultant/Discriminant.lean",
-         "line": 372,
-         "fit": "exact"
-        },
         {
          "name": "Polynomial.Monic.discr_eq_prod_roots_sub_sq",
          "library": "tauceti",
@@ -776,7 +810,7 @@
       },
       {
        "target": "The discriminant quadratic extension F(√disc f) with its API: characterization, fixed field of the even part, functoriality, edge cases",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.discrField",
@@ -814,7 +848,7 @@
          "fit": "exact"
         }
        ],
-       "note": "The full fourteen-declaration API: the splitting field of X² − C (discr f), trivial iff the discriminant is a square, Galois, its fixed-field identification with the even part of the image, and transport along a base-field isomorphism."
+       "note": "Built: discrField as the adjunction of the square roots of discr f (a splitting field of X² − C (discr f) when one exists), trivial exactly when the discriminant is a square, of degree 2 otherwise, Galois away from characteristic 2, and the comparison theorem fixedField_evenAutSubgroup. discrField_map is naturality in the ambient extension E (along E ≃ₐ[F] E′). Missing: the functoriality the layer asks for in the base field, meaning invariance under an isomorphism of base fields and base change along F → F′ when the discriminant stays a nonsquare."
       },
       {
        "target": "Worked instances as acceptance tests: the quadratic case, x³ − 3x − 1 with discr 81 a square, x³ − 2 with discr −108 not",
@@ -823,7 +857,12 @@
        "note": "No declaration in the baseline computes the discriminant of x³ − 3x − 1 or x³ − 2, or states the corresponding alternating-group membership; grep for those polynomials in both libraries finds nothing. These are acceptance tests rather than theory, so the layer stands otherwise complete."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-3-the-index-dedekindkummer-and-dedekinds-theorem",
+       "note": "Its milestone 3.2 proves Algebra.discr of the power basis of an integral primitive element equal to Polynomial.discr (minpoly ℤ θ), noting that Mathlib never connects the two. That is the number-field case of this layer's comparison lemma, which Tau Ceti has in general as Algebra.discr_powerBasis_eq_minpoly_discr."
+      }
+     ]
     },
     "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-4-resolvents": {
      "verdict": "partly built",
@@ -991,7 +1030,7 @@
       },
       {
        "target": "Root data: a root enumeration forces splitting, and is injective iff the mapped polynomial is separable",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.map_vietaHom_eq_galResolvent_of_roots",
@@ -999,9 +1038,30 @@
          "file": "TauCeti/FieldTheory/GaloisGroups/Resolvent/Specialization.lean",
          "line": 196,
          "fit": "related"
+        },
+        {
+         "name": "Polynomial.splits_iff_card_roots",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Splits.lean",
+         "line": 373,
+         "fit": "more general"
+        },
+        {
+         "name": "Polynomial.nodup_roots_iff_of_splits",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Separable.lean",
+         "line": 451,
+         "fit": "more general"
+        },
+        {
+         "name": "Polynomial.nodup_aroots_iff_of_splits",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Separable.lean",
+         "line": 463,
+         "fit": "more general"
         }
        ],
-       "note": "The agreement theorem takes a root enumeration as a hypothesis but neither of the two named milestones about it — splitting from a full enumeration, and injectivity ↔ separability — exists as a declaration."
+       "note": "Mathlib supplies the content: splits ↔ card roots = natDegree (Polynomial.splits_iff_card_roots), and for a nonzero split polynomial, roots nodup ↔ separable (Polynomial.nodup_roots_iff_of_splits, and nodup_aroots_iff_of_splits for the mapped polynomial). Missing: the two milestones stated for a root enumeration x : Fin n → L, splitting from a full enumeration and injectivity of x ↔ separability. The agreement theorem map_vietaHom_eq_galResolvent_of_roots takes such an enumeration as a hypothesis."
       },
       {
        "target": "The factorization theorem: under separability of the specialized resolvent, the irreducible factors correspond to the Galois orbits on Sₙ/H, with the rational-root corollary",
@@ -1464,7 +1524,7 @@
    }
   },
   "tauceti:TauCetiRoadmap/QuadraticFormInvariants": {
-   "summary": "The bottom of the roadmap is largely built and the top is not. Tau Ceti already has the whole of Layer 1 (hyperbolic plane, Witt decomposition, Witt cancellation, reflections, Cartan–Dieudonné, Witt's extension theorem), almost all of Layer 0 (the square-class group with its multiplicative avatar and finiteness, Represents / unitValueSet with the representation criterion, the binary normal forms, the chain relation with Witt's chain-equivalence theorem, and RegularFormClass as the quotient), and the discriminant half of Layer 3 (discr, signedDiscr, the sum/product/scaling formulas, base change), plus a substantial Layer 2 (quaternion norm form and pure norm form, Nrd multiplicativity, and the split cases (1,b), (a,−a), (a,b²) and the Steinberg relation as explicit AlgEquivs onto M₂(K)). Everything above that is absent: no Witt ring and no fundamental ideal, no Pfister forms, no quaternion symbol in Br(K), no Hasse or Clifford invariant, no Hilbert symbol, no quadratic defect, no local classification, no comparison of H²(G_K, μ₂) with the Brauer group, no cup-norm theorem, no Stiefel–Whitney classes and no Scharlau transfer — grep over both baselines for hasseInvariant, hilbertSymbol, wittRing, fundamentalIdeal, pfister, quadraticDefect and stiefelWhitney finds nothing. The substrates those layers consume are partly in place (Tau Ceti's BrauerGroup with its CommGroup structure and base change, the CentralSimple directory, the local-field normalized valuation, unit filtration, graded pieces and Teichmüller lift, the Kummer map into H¹, and a low-degree continuous cup product), so the missing work is the quadratic-form content itself rather than its foundations. One correction to the roadmap's own framing: Layer 2's centrality input is not entirely missing — TauCeti.Quaternion.instIsCentral proves ℍ[R] central, though only for the standard structure constants and not for ℍ[K,a,b].",
+   "summary": "The bottom of the roadmap is largely built and the top is not. Tau Ceti already has most of Layer 1 (hyperbolic plane, Witt decomposition for regular forms, Witt cancellation, reflections, Cartan–Dieudonné, Witt's extension theorem; missing are the decomposition of degenerate forms, Lam I.4.4 and the monotonicity of the Witt index under base change), almost all of Layer 0 (the square-class group with its multiplicative avatar and finiteness, Represents / unitValueSet with the representation criterion, the binary normal forms, the chain relation with Witt's chain-equivalence theorem, and RegularFormClass as the quotient), and the discriminant half of Layer 3 (discr, signedDiscr, the sum/product/scaling formulas, base change; not yet the Gram-determinant description), plus a substantial Layer 2 (quaternion norm form and pure norm form, Nrd multiplicativity, and the split cases (1,b), (a,−a), (a,b²) and the Steinberg relation as explicit AlgEquivs onto M₂(K)). Everything above that is absent: no Witt ring and no fundamental ideal, no Pfister forms, no quaternion symbol in Br(K), no Hasse or Clifford invariant, no Hilbert symbol, no quadratic defect, no local classification, no comparison of H²(G_K, μ₂) with the Brauer group, no cup-norm theorem, no Stiefel–Whitney classes and no Scharlau transfer — grep over both baselines for hasseInvariant, hilbertSymbol, wittRing, fundamentalIdeal, pfister, quadraticDefect and stiefelWhitney finds nothing. The substrates those layers consume are partly in place (Tau Ceti's BrauerGroup with its CommGroup structure and base change, the CentralSimple directory, the local-field normalized valuation, unit filtration, graded pieces and Teichmüller lift, the injective Kummer map into H¹ but not the Kummer isomorphism, since Hilbert 90 for G_K is missing, a low-degree continuous cup product and corestriction for an abstract open subgroup, Mathlib's Valuation.IsUniformizer, the odd-residue case of the local square theorem, and central simplicity of the Clifford algebra of a split even-dimensional form), so the missing work is the quadratic-form content itself rather than its foundations. One correction to the roadmap's own framing: Layer 2's centrality input is not entirely missing — TauCeti.Quaternion.instIsCentral proves ℍ[R] central, though only for the standard structure constants and not for ℍ[K,a,b].",
    "layers": {
     "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence": {
      "verdict": "partly built",
@@ -1736,7 +1796,7 @@
      ]
     },
     "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory": {
-     "verdict": "built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "The hyperbolic plane ⟨1,−1⟩: it represents every unit, ⟨a,−a⟩ ≅ ℍ_q, a regular isotropic form splits off a hyperbolic plane, and is universal",
@@ -1782,7 +1842,7 @@
       },
       {
        "target": "Witt decomposition (Lam I.4.1), the Witt index, the anisotropic part, and their uniqueness",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.RegularFormClass.wittDecomposition",
@@ -1820,7 +1880,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Stated on RegularFormClass, where regularity is built in, so the radical summand q_t is absent by construction; uniqueness of the two parts is eq_of_nsmul_hyperbolicClass_add_eq."
+       "note": "Built for regular forms: RegularFormClass.wittDecomposition, wittIndex, anisotropicPart, uniqueness (eq_of_nsmul_hyperbolicClass_add_eq), rank = 2·wittIndex + rank of the anisotropic part, and the form-level QuadraticForm.exists_equivalent_hyperbolicPresentation_prod for Nondegenerate Q. Missing: the decomposition of a degenerate form with its radical summand q_t, and Lam I.4.4, that the Witt index of a regular form is the dimension of a maximal totally isotropic subspace. No totally isotropic subspace of a quadratic form is defined in either library."
       },
       {
        "target": "Witt cancellation (Lam I.4.2) for a regular cancelled summand",
@@ -1841,13 +1901,6 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.isLeftCancelAdd_regularFormClass",
-         "library": "tauceti",
-         "file": "TauCeti/LinearAlgebra/QuadraticForm/Witt/Cancellation.lean",
-         "line": 214,
-         "fit": "exact"
-        },
-        {
          "name": "TauCeti.equivalent_of_equivalent_prod_of_span_singleton_eq_top",
          "library": "tauceti",
          "file": "TauCeti/LinearAlgebra/QuadraticForm/Witt/Cancellation.lean",
@@ -1855,31 +1908,38 @@
          "fit": "related"
         }
        ],
-       "note": "Proved through the rank-one case and reflections, exactly the Lam I.4.5–I.4.7 route, and packaged as IsCancelAdd on RegularFormClass — which is the form Layer 4's Grothendieck construction would need."
+       "note": "Proved through the rank-one case and reflections, exactly the Lam I.4.5–I.4.7 route, and packaged as IsCancelAdd on RegularFormClass — which is the form Layer 4's Grothendieck construction would need. The cancellativity is the anonymous public instance IsCancelAdd (RegularFormClass K) at Witt/Cancellation.lean:226, built from a private left-cancellation lemma."
       },
       {
        "target": "Reflections and Cartan–Dieudonné: τ_v is an involutive isometry fixing v^⊥, and every isometry is a product of at most n reflections",
        "library": "tauceti",
        "declarations": [
         {
-         "name": "TauCeti.QuadraticMap.anisotropicReflection",
+         "name": "TauCeti.QuadraticMap.reflection",
          "library": "tauceti",
-         "file": "TauCeti/LinearAlgebra/QuadraticForm/CartanDieudonne/Basic.lean",
-         "line": 47,
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
+         "line": 425,
          "fit": "exact"
         },
         {
-         "name": "TauCeti.QuadraticMap.anisotropicReflection_mul_self",
+         "name": "TauCeti.QuadraticMap.reflection_mem_orthogonalGroup",
          "library": "tauceti",
-         "file": "TauCeti/LinearAlgebra/QuadraticForm/CartanDieudonne/Basic.lean",
-         "line": 91,
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
+         "line": 504,
          "fit": "exact"
         },
         {
-         "name": "TauCeti.QuadraticMap.exists_reflectionWord_of_finrank_eq",
+         "name": "TauCeti.QuadraticMap.reflection_apply_of_isOrtho",
          "library": "tauceti",
-         "file": "TauCeti/LinearAlgebra/QuadraticForm/CartanDieudonne/Basic.lean",
-         "line": 449,
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
+         "line": 475,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.QuadraticMap.reflection_mul_self",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
+         "line": 479,
          "fit": "exact"
         },
         {
@@ -1888,16 +1948,9 @@
          "file": "TauCeti/LinearAlgebra/QuadraticForm/CartanDieudonne/Basic.lean",
          "line": 656,
          "fit": "exact"
-        },
-        {
-         "name": "TauCeti.QuadraticMap.exists_even_reflectionOrthogonal_list_prod_eq",
-         "library": "tauceti",
-         "file": "TauCeti/LinearAlgebra/QuadraticForm/CartanDieudonne/SpecialOrthogonal.lean",
-         "line": 44,
-         "fit": "more general"
         }
        ],
-       "note": "With the length bound (reflectionWord of length ≤ finrank) and the even-length refinement for the special orthogonal group; the exceptional-case analysis that the 𝔽₂ counterexample lives in is carried explicitly."
+       "note": "The public API in OrthogonalGroup.lean: reflection (y ↦ y − (polar Q v y / Q v)·v), an element of orthogonalGroup, with reflection_apply_self (τ_v v = −v), reflection_apply_of_isOrtho (τ_v fixes v^⊥) and reflection_mul_self. Cartan–Dieudonné is exists_reflectionOrthogonal_list_prod_eq, at most finrank reflections under NeZero 2, with the even-length refinement exists_even_reflectionOrthogonal_list_prod_eq for SO(Q). The CartanDieudonne/Basic.lean helpers anisotropicReflection and exists_reflectionWord_of_finrank_eq are private."
       },
       {
        "target": "Witt's extension theorem (Lam I.4.9): an isometry between regular subspaces extends to the whole space",
@@ -1922,7 +1975,7 @@
       },
       {
        "target": "Functoriality: the Witt index and anisotropic part are isometry invariants, with the base-change caveat",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.RegularFormClass.wittIndex_nsmul_hyperbolicClass_add",
@@ -1944,12 +1997,24 @@
          "file": "TauCeti/LinearAlgebra/QuadraticForm/Witt/Decomposition.lean",
          "line": 343,
          "fit": "exact"
+        },
+        {
+         "name": "QuadraticForm.not_anisotropic_baseChange",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/BaseChange.lean",
+         "line": 312,
+         "fit": "related"
         }
        ],
-       "note": "Invariance is automatic because both are defined on the isometry-class quotient; no statement in the baseline claims that anisotropicPart commutes with base change, so the ⚠ is respected."
+       "note": "Invariance under isometry is automatic, because wittIndex and anisotropicPart are defined on the isometry-class quotient, and no statement claims that anisotropicPart commutes with base change, so the ⚠ is respected. Missing: the monotonicity of the Witt index under a field extension. Only isotropy preservation (QuadraticForm.not_anisotropic_baseChange) is stated."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-2-the-pin-and-spin-groups-and-the-double-covers",
+       "note": "Its summit, surjectivity of pinToOrthogonal and spinToSpecialOrthogonal, rests on Cartan–Dieudonné (every isometry is a product of reflections). Tau Ceti's CliffordAlgebra/CartanDieudonne.lean was written for that roadmap, and the QuadraticForm/CartanDieudonne files prove the theorem this layer asks for, so the reflection theory is shared."
+      }
+     ]
     },
     "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion": {
      "verdict": "partly built",
@@ -2142,7 +2207,7 @@
       },
       {
        "target": "Discriminant and signed discriminant on RegularFormClass, well defined through Gram determinants and through the product of a diagonalization, with the two descriptions agreeing",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.RegularFormClass.discr",
@@ -2173,14 +2238,14 @@
          "fit": "exact"
         },
         {
-         "name": "QuadraticMap.orthogonalDetSquareClass",
+         "name": "QuadraticForm.discr'_weightedSumSquares",
          "library": "tauceti",
-         "file": "TauCeti/LinearAlgebra/QuadraticForm/DetSquareClass.lean",
-         "line": 36,
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/Diagonal/Basic.lean",
+         "line": 217,
          "fit": "related"
         }
        ],
-       "note": "The product description is the definition and the Gram-determinant comparison is orthogonalDetSquareClass in DetSquareClass.lean; well-definedness is squareClass_prod_eq_of_equivalent, proved from the chain theorem."
+       "note": "The product-of-a-diagonalization description is the definition, and its well-definedness is squareClass_prod_eq_of_equivalent, which goes through isSquare_prod_mul_prod_of_equivalent and so through Gram determinants of diagonal forms (QuadraticForm.discr'_weightedSumSquares). discr_formClass computes the class of a regular form from any diagonalization. Missing: the Gram-determinant description of discr for a general regular form (Mathlib's discr′ in a basis) and the theorem that the two descriptions agree. The previously cited orthogonalDetSquareClass is the determinant of an orthogonal map mod squares, which is unrelated."
       },
       {
        "target": "The exact formulas for d and d± under ⊥, scaling and ⊗, plus signedDiscr_eq_sign_mul_discr and the standard values",
@@ -2280,13 +2345,6 @@
          "fit": "related"
         },
         {
-         "name": "TauCeti.isLeftCancelAdd_regularFormClass",
-         "library": "tauceti",
-         "file": "TauCeti/LinearAlgebra/QuadraticForm/Witt/Cancellation.lean",
-         "line": 214,
-         "fit": "related"
-        },
-        {
          "name": "TauCeti.RegularFormClass.baseChange",
          "library": "tauceti",
          "file": "TauCeti/LinearAlgebra/QuadraticForm/RegularFormClass/BaseChange.lean",
@@ -2294,7 +2352,7 @@
          "fit": "related"
         }
        ],
-       "note": "Missing: both rings. The commutative semiring (RegularFormClass K, ⊥, ⊗) is built and is cancellative, which is exactly the input a Grothendieck construction needs, but no Grothendieck group is formed and no quotient by the hyperbolic ideal is taken. Grep for wittRing/wittGrothendieck/wittClass in both libraries finds nothing."
+       "note": "Missing: both rings. The commutative semiring (RegularFormClass K, ⊥, ⊗) is built and is cancellative, which is exactly the input a Grothendieck construction needs, but no Grothendieck group is formed and no quotient by the hyperbolic ideal is taken. Grep for wittRing/wittGrothendieck/wittClass in both libraries finds nothing. The cancellativity is the anonymous public instance IsCancelAdd (RegularFormClass K), Witt/Cancellation.lean:226."
       },
       {
        "target": "The fundamental ideal I(K), the additive generation of Iⁿ by n-fold Pfister forms, and I/I² ≅ Kˣ/(Kˣ)² through d±",
@@ -2325,6 +2383,10 @@
       {
        "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
        "note": "A specification-stage stage that lists 'Witt groups, discriminants, Clifford/Hasse invariants, local classification and Hasse–Minkowski' as one integration target, so it nominally covers Layers 3–6 of this roadmap at a much coarser grain."
+      },
+      {
+       "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+       "note": "Constructs Grothendieck–Witt and Witt groups of exact categories with duality, with the hyperbolic and forgetful maps, and must 'recover degree-zero forms'. Over a field in which 2 is invertible its GW₀ and W₀ are this layer's Ŵ(K) and W(K). It is a coarser, categorical specification of the same objects."
       }
      ]
     },
@@ -2422,7 +2484,7 @@
       },
       {
        "target": "The Clifford invariant: central simplicity of the Clifford algebra (even rank) and of its even subalgebra (odd rank), Equivalent-invariance, and the Lam V.3.20 comparison with s",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "CliffordAlgebra",
@@ -2443,10 +2505,24 @@
          "library": "tauceti",
          "file": "TauCeti/RepresentationTheory/Spin/Structure.lean",
          "line": 219,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.SpinPolarizationData.isSimpleRing_cliffordAlgebra",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Spin/Structure.lean",
+         "line": 213,
+         "fit": "special case"
+        },
+        {
+         "name": "CliffordAlgebra.equivOfIsometry",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
+         "line": 382,
          "fit": "related"
         }
        ],
-       "note": "Mathlib supplies the Clifford algebra and its even subalgebra, as the layer says. Tau Ceti has one centrality statement for a Clifford algebra, but it is inside the Spin development under a polarization hypothesis and is not the parity-indexed central-simplicity theorem; cliffordInvariant does not exist."
+       "note": "In place: the Clifford algebra and its even subalgebra (Mathlib); the algebra equivalence induced by an isometry (Mathlib CliffordAlgebra.equivOfIsometry); central simplicity of CliffordAlgebra Q for even-dimensional forms with a polarization, i.e. split forms (Tau Ceti Spin/Structure.lean). Missing: central simplicity for every regular form of even rank and of the even subalgebra in odd rank, cliffordInvariant itself, and the Lam V.3.20 comparison with the Hasse invariant."
       },
       {
        "target": "The I² homomorphism in six steps: additivity on I², the value on ⟨⟨a,b⟩⟩, vanishing on ⟨⟨a,b,c⟩⟩, generation, cliffordHomI2 and the quotient cliffordHomI2Bar on I²/I³",
@@ -2488,14 +2564,6 @@
       }
      ],
      "duplicates": [
-      {
-       "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6a-the-local-field-substrate-consumed",
-       "note": "Layer 6's description is the concatenation of 6A–6E; each target is stated in full in its own sublayer."
-      },
-      {
-       "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
-       "note": "Same umbrella relation; 6C carries the Hilbert symbol and localHasse that the layer's headline theorems are stated with."
-      },
       {
        "layer": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support",
        "note": "Consumes localHasse and hilbertSymbol_unramified from 6C by name for the finite-place invariants of a global form; it is a consumer, not a second construction."
@@ -2573,18 +2641,18 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.iInf_unitFiltration",
+         "name": "TauCeti.unitFiltrationGradedSuccEquivResidueField",
          "library": "tauceti",
-         "file": "TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean",
-         "line": 287,
+         "file": "TauCeti/NumberTheory/LocalField/UnitFiltration/Graded.lean",
+         "line": 253,
          "fit": "exact"
         }
        ],
-       "note": "Present with both membership forms, antitonicity, the trivial intersection, openness and compactness, and the graded-piece identification with the residue-field units; the Teichmüller section is in Teichmuller.lean."
+       "note": "Present: the filtration with both membership forms, antitonicity, trivial intersection (iInf_unitFiltration), openness and compactness. Both graded isomorphisms are in place, the multiplicative U(K,0)/U(K,1) ≃* 𝓀[K]ˣ (unitFiltrationGradedZeroEquivResidueFieldUnits) and the additive U(K,i)/U(K,i+1) ≃+ 𝓀[K] for i ≥ 1 (unitFiltrationGradedSuccEquivResidueField, UnitFiltration/Graded.lean). The Teichmüller section is in Teichmuller.lean."
       },
       {
        "target": "IsUniformizer as a named predicate, the level e = v_K(2) as natCastValuation, and the absolute ramification index",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.normalizedValuation_eq_one_iff",
@@ -2592,13 +2660,41 @@
          "file": "TauCeti/NumberTheory/LocalField/NormalizedValuation.lean",
          "line": 204,
          "fit": "related"
+        },
+        {
+         "name": "Valuation.IsUniformizer",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/Discrete/Basic.lean",
+         "line": 199,
+         "fit": "more general"
+        },
+        {
+         "name": "Valuation.exists_isUniformizer_of_isCyclic_of_nontrivial",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/Discrete/Basic.lean",
+         "line": 296,
+         "fit": "more general"
+        },
+        {
+         "name": "Valuation.isUniformizer_of_maximalIdeal_eq_span",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/Discrete/Basic.lean",
+         "line": 409,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.normalizedValuation_irreducible",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/NormalizedValuation.lean",
+         "line": 295,
+         "fit": "related"
         }
        ],
-       "note": "Missing at this pin. There is an IsUniformizer for places of a function field (TauCeti/FieldTheory/FunctionField/Place) but none for a local field, and natCastValuation / absoluteRamificationIndex do not exist, so the level e has no name."
+       "note": "The uniformizer predicate exists in general: Mathlib's Valuation.IsUniformizer, with existence and the comparison to generators of the maximal ideal, applies to (valuation K) of a nonarchimedean local field (Tau Ceti uses it in NormalizedValuation.lean). Tau Ceti's normalizedValuation_irreducible and normalizedValuation_eq_one_iff connect Irreducible to the normalized valuation. Missing: IsUniformizer phrased as v_K(π) = 1 for the normalized valuation with its equivalence lemma, and the level e. There is no natCastValuation, dyadicLevel or absoluteRamificationIndex."
       },
       {
        "target": "The local square theorem in its sharp form, and the square-class counts in the 4·q^e form",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.powerSubgroup",
@@ -2612,7 +2708,7 @@
          "library": "tauceti",
          "file": "TauCeti/NumberTheory/LocalField/PowerSubgroup.lean",
          "line": 86,
-         "fit": "related"
+         "fit": "special case"
         },
         {
          "name": "TauCeti.isOpen_of_isUnit_index",
@@ -2622,7 +2718,7 @@
          "fit": "related"
         }
        ],
-       "note": "Missing. PowerSubgroup.lean has the odd-residue-characteristic half (U(K,1) consists of n-th powers when n is a unit, and the power subgroup is open of finite index), but there is no card_squareClasses_of_isUnit, no dyadic count, and no sharp local square theorem."
+       "note": "Proved: the e = 0 case of the local square theorem, as U(K,1) ⊆ n-th powers for n invertible in 𝒪[K] (PowerSubgroup.lean), with openness and finite index of the power subgroup. Missing: the dyadic containment U(K, 2e+1) ⊆ (Kˣ)², its sharpness U(K, 2e) ⊄ (Kˣ)², and the counts 4 and 4·q^e (no card_squareClasses_of_isUnit or dyadic count in either library)."
       },
       {
        "target": "The unramified quadratic extension in the norm-equation form 6B and 6C consume, and the norm group",
@@ -2635,6 +2731,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
        "note": "The declared owner of unitFiltration, the power-class counts and the Teichmüller lift; 6A is explicitly a consumption sublayer, so this is a supplier contract rather than a duplication."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+       "note": "The declared supplier of normalizedValuation, natCastValuation and absoluteRamificationIndex, which 6A reads the level e through. Its audit (AUDIT-04) records the reverse link. A supplier contract, not a second construction."
       }
      ]
     },
@@ -2698,6 +2798,10 @@
       {
        "layer": "K2SymbolsBrauer:T.7",
        "note": "Also compares a Hilbert norm-residue symbol with the cup product of Kummer classes, but through K₂ and the norm-residue map rather than through quadratic forms; the overlap is the local identification, at a different level of generality."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+       "note": "Declares itself 'the canonical owner of the cohomological local Hilbert pairing': localSymbol as Kummer cup followed by the invariant, with bilinearity and the Steinberg relation, and at exponent two localArtinMap_quadratic_eq_hilbertSymbol. The same local symbol and its bimultiplicativity are proved there cohomologically and here through norms and defects; item 13's hilbertSymbol_eq_cohomological identifies them."
       }
      ]
     },
@@ -2788,10 +2892,6 @@
      ],
      "duplicates": [
       {
-       "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²",
-       "note": "Layer 7 is the umbrella; 7B carries the comparison theorem that is its headline."
-      },
-      {
        "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
        "note": "Owns the Kummer map, powerClassQuotient and the Hilbert 90 interface that 7A consumes; already partly built in Tau Ceti's GaloisCohomology directory."
       }
@@ -2802,7 +2902,7 @@
      "targets": [
       {
        "target": "The Kummer coefficient object and the Kummer map Kˣ/(Kˣ)ⁿ → H¹(G_K, μₙ), consumed",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.KummerCoeff",
@@ -2840,7 +2940,7 @@
          "fit": "exact"
         }
        ],
-       "note": "The supplier's side is built: the Kummer short exact sequence of coefficient objects, the map on units, its kernel, and the injective map on power classes."
+       "note": "Built: UnitsCoeff and KummerCoeff with their continuity, the Kummer short exact sequence, the Kummer map on units with kernel the n-th powers, and the injective map on power classes. Missing from what 7A consumes: the Kummer isomorphism (surjectivity, i.e. Hilbert 90 for G_K), its restriction and norm laws, and h2KummerToUnits. No hilbert90 or kummerIso exists in either library."
       },
       {
        "target": "The continuous cup product at the μ₂ pairing, consumed",
@@ -2893,24 +2993,38 @@
       },
       {
        "target": "The corestriction/transfer along a finite separable L/K, consumed",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.ContCohomology.explicitCor0",
          "library": "tauceti",
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Corestriction.lean",
          "line": 204,
-         "fit": "exact"
+         "fit": "related"
         },
         {
-         "name": "TauCeti.ContCohomology.cochainsCor1",
+         "name": "TauCeti.ContCohomology.explicitCor1",
          "library": "tauceti",
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Corestriction.lean",
-         "line": 253,
-         "fit": "exact"
+         "line": 457,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitCor2",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Corestriction.lean",
+         "line": 850,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitCor2_comp_res2",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Corestriction.lean",
+         "line": 893,
+         "fit": "related"
         }
        ],
-       "note": "The corestriction is built in low degrees, with the projection formula in ProjectionFormula.lean; what is missing is its μ₂-level adapter."
+       "note": "Built in the abstract: explicitCor0, explicitCor1 and explicitCor2 for an open subgroup U ≤ G, independent of the transversal, with cor ∘ res (explicitCor2_comp_res2) and the projection formula (ProjectionFormula.lean). Missing: corestriction in higher degrees and the Mackey formula, the passage from L/K to the open subgroup G_L ≤ G_K with galoisRes, galoisCor and galoisEvens, and the μ₂-level adapters."
       }
      ],
      "duplicates": [
@@ -3046,6 +3160,34 @@
      "verdict": "not built",
      "targets": [
       {
+       "target": "Which functional: the nonzero K-linear functionals L → K form an Lˣ-torsor, and Tr ≠ 0 for separable L/K",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Algebra.trace_ne_zero",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Trace/Basic.lean",
+         "line": 517,
+         "fit": "exact"
+        },
+        {
+         "name": "traceForm_nondegenerate",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Trace/Basic.lean",
+         "line": 504,
+         "fit": "related"
+        },
+        {
+         "name": "LinearMap.BilinForm.toDual",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/BilinearForm/Properties.lean",
+         "line": 350,
+         "fit": "related"
+        }
+       ],
+       "note": "The separable half is in Mathlib: Algebra.trace_ne_zero, and nondegeneracy of the trace form (traceForm_nondegenerate), which through LinearMap.BilinForm.toDual writes every K-functional as x ↦ Tr(λx) with λ unique. Missing: the torsor statement for an arbitrary finite L/K, that Hom_K(L,K) is one-dimensional over L, which the change-of-functional theorem needs."
+      },
+      {
        "target": "The Scharlau transfer s_* along a K-linear functional on L, with its isometry-invariance and Witt-ring properties",
        "library": "absent",
        "declarations": [
@@ -3064,14 +3206,28 @@
        "library": "absent",
        "declarations": [
         {
-         "name": "TauCeti.traceQuadraticForm",
+         "name": "Algebra.traceForm",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Trace/Defs.lean",
+         "line": 171,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Algebra.trace_eq_zero_of_sq_algebraMap_of_not_mem_range",
          "library": "tauceti",
-         "file": "TauCeti/Algebra/Lie/GeneralLinear/TraceForm.lean",
-         "line": 188,
+         "file": "TauCeti/FieldTheory/Trace.lean",
+         "line": 46,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Algebra.discr_one_elem_eq_of_sq_algebraMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/Trace.lean",
+         "line": 78,
          "fit": "related"
         }
        ],
-       "note": "Absent for a field extension. Tau Ceti's traceQuadraticForm is the Lie-theoretic trace form on 𝔤𝔩, not Algebra.traceForm of L/K, and the file TauCeti/NumberTheory/EffectiveBounds/TraceForm.lean the layer cites carries the effective-bounds trace form rather than a transfer."
+       "note": "Absent: without the Scharlau transfer there is no Tr_*⟨1⟩ to compare. The inputs the layer names exist. Mathlib has Algebra.traceForm, and TauCeti/FieldTheory/Trace.lean has the diagonalization API for square-root bases (the trace of x with x² ∈ K, x ∉ K vanishes, and the discriminant of {1, x}), which gives ⟨2, 2d⟩ for K(√d). TauCeti/NumberTheory/EffectiveBounds/TraceForm.lean only holds worked examples. Tau Ceti's traceQuadraticForm is the trace form of gl_n, which is unrelated."
       },
       {
        "target": "The relative Stiefel–Whitney formula (Kahn), and the calculational corollary on diagonal tuples",
@@ -3411,7 +3567,7 @@
          "library": "tauceti",
          "file": "TauCeti/Analysis/Contour/Winding/Vanishing.lean",
          "line": 93,
-         "fit": "exact"
+         "fit": "special case"
         }
        ],
        "note": "Stated for any unbounded component of the complement (closed curve, piecewise C¹ or raw regularity; also for cycles). No sorry."
@@ -3487,14 +3643,14 @@
          "library": "tauceti",
          "file": "TauCeti/Analysis/Contour/ModelSector/Winding.lean",
          "line": 55,
-         "fit": "special case"
+         "fit": "related"
         },
         {
          "name": "TauCeti.Contour.windingNumber_at_rho",
          "library": "tauceti",
          "file": "TauCeti/Analysis/Contour/ModelSector/Winding.lean",
          "line": 67,
-         "fit": "special case"
+         "fit": "related"
         },
         {
          "name": "TauCeti.ModularForm.windingNumber_fdBoundary_rho_add_one",
@@ -3522,7 +3678,7 @@
          "library": "tauceti",
          "file": "TauCeti/Analysis/Contour/Crossing/Finiteness.lean",
          "line": 173,
-         "fit": "exact"
+         "fit": "related"
         }
        ],
        "note": "(uIcc a b ∩ γ⁻¹{z₀}).Finite for any IsPwC1ImmersionOn curve (closedness not needed); crossings are isolated by the non-vanishing one-sided tangents. No sorry."
@@ -3536,21 +3692,21 @@
          "library": "tauceti",
          "file": "TauCeti/Analysis/Contour/Crossing/ImmersionDecomposition.lean",
          "line": 66,
-         "fit": "exact"
+         "fit": "special case"
         },
         {
          "name": "TauCeti.Contour.IsPwC1ImmersionOn.exists_avoiding_curve_windingNumber_eq",
          "library": "tauceti",
          "file": "TauCeti/Analysis/Contour/Crossing/ImmersionDecomposition.lean",
          "line": 202,
-         "fit": "exact"
+         "fit": "special case"
         },
         {
          "name": "TauCeti.Contour.IsPwC1ImmersionOn.exists_int_windingNumber_eq_add_sum_crossingAngle",
          "library": "tauceti",
          "file": "TauCeti/Analysis/Contour/Winding/CrossingAngleSum.lean",
          "line": 298,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "TauCeti.Contour.windingNumber_eq_zero_exciseCrossing_modelSector",
@@ -3571,7 +3727,7 @@
          "library": "tauceti",
          "file": "TauCeti/Analysis/Contour/Winding/RealIntegral/OnCurve.lean",
          "line": 479,
-         "fit": "more general"
+         "fit": "related"
         },
         {
          "name": "TauCeti.Contour.isBounded_image_realWindingIntegrand_of_interior_crossings",
@@ -3654,7 +3810,12 @@
        "note": "Im of any PV of (z−w)⁻¹ along γ equals the ordinary integral of the real integrand whenever the latter is interval-integrable; the curve may pass through w. No sorry."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-1-the-valence-formula-general-level",
+       "note": "Needs the seeded values of this layer, winding ½ at the smooth boundary point i and 1/6 at each ρ-corner summing to ⅓. The ModularForms development recomputes the corner value for the fundamental-domain boundary (TauCeti.ModularForm.windingNumber_fdBoundary_rho_add_one), which the audit cites here."
+      }
+     ]
     },
     "tauceti:Completed/ContourIntegration#layer-2-residues-the-cauchy-primitive-and-the-classical-residue-theorem": {
      "verdict": "built",
@@ -3668,21 +3829,21 @@
          "library": "tauceti",
          "file": "TauCeti/Analysis/Contour/ArcFTC.lean",
          "line": 70,
-         "fit": "exact"
+         "fit": "special case"
         },
         {
          "name": "TauCeti.Contour.integral_comp_mul_eq_sub_of_hasDerivAt",
          "library": "tauceti",
          "file": "TauCeti/Analysis/Contour/ArcFTC.lean",
          "line": 57,
-         "fit": "exact"
+         "fit": "special case"
         },
         {
          "name": "TauCeti.Contour.integral_comp_mul_deriv_eq_zero_of_hasDerivAt_of_closed",
          "library": "tauceti",
          "file": "TauCeti/Analysis/Contour/ArcFTC.lean",
          "line": 88,
-         "fit": "exact"
+         "fit": "special case"
         },
         {
          "name": "intervalIntegral.integral_eq_sub_of_hasDerivAt",
@@ -3699,7 +3860,7 @@
          "fit": "special case"
         }
        ],
-       "note": "Tau Ceti asks HasDerivAt G (g (γ t)) (γ t) only at parameters in the open interval, plus continuity of G∘γ and integrability (weaker than a neighbourhood of the image). Mathlib has the real FTC and the circle case only."
+       "note": "Tau Ceti asks HasDerivAt G (g (γ t)) (γ t) only at parameters in the open interval, plus continuity of G∘γ and integrability (weaker than a neighbourhood of the image). Mathlib has the real FTC and the circle case only. All three Tau Ceti forms (ArcFTC.lean:57, 70, 88) also need γ differentiable at every interior parameter. So they apply to arcs without corners, and a piecewise-C¹ curve with corners has to be split at its breakpoints first. No FTC for an arbitrary primitive along a piecewise-C¹ curve is packaged."
       },
       {
        "target": "Cauchy's theorem for a contractible contour, reconciled with Mathlib's disc statements",
@@ -3734,14 +3895,14 @@
          "fit": "special case"
         },
         {
-         "name": "DifferentiableOn.isExactOn_ball",
+         "name": "ContinuousMap.Homotopy.curveIntegral_add_curveIntegral_eq_of_hasFDerivWithinAt",
          "library": "mathlib",
-         "file": "Mathlib/Analysis/Complex/HasPrimitives.lean",
-         "line": 291,
-         "fit": "related"
+         "file": "Mathlib/MeasureTheory/Integral/CurveIntegral/Poincare.lean",
+         "line": 257,
+         "fit": "special case"
         }
        ],
-       "note": "Tau Ceti: a piecewise-C¹ loop with a continuous Path.Homotopy to the constant path inside open Ω integrates holomorphic f to 0; also any closed piecewise-C¹ curve in a star-shaped open set or disc. Obtained from the Layer-3 homology theorem rather than from the arc FTC. Mathlib only has circles/rectangles/annuli and primitives on discs (simply connected domains are a TODO in HasPrimitives)."
+       "note": "Tau Ceti: a piecewise-C¹ loop with a continuous Path.Homotopy to the constant path inside open Ω integrates holomorphic f to 0; also any closed piecewise-C¹ curve in a star-shaped open set or disc. Obtained from the Layer-3 homology theorem rather than from the arc FTC. Mathlib has the circle, rectangle and annulus theorems, primitives on convex sets (Convex.exists_forall_hasDerivWithinAt, CurveIntegral/Poincare.lean:396) and invariance of the curve integral of a closed 1-form under a C² homotopy (curveIntegral_add_curveIntegral_eq_of_hasFDerivWithinAt), a Cauchy theorem for C²-contractible paths. Simply connected domains are a TODO in HasPrimitives."
       },
       {
        "target": "Residue Res_{z₀} f as the order-(−1) Laurent coefficient, built on meromorphicOrderAt",
@@ -4005,9 +4166,16 @@
          "file": "TauCeti/Analysis/Contour/Argument/Principle.lean",
          "line": 132,
          "fit": "related"
+        },
+        {
+         "name": "meromorphicOrderAt_logDeriv_eq_neg_one",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Meromorphic/Order.lean",
+         "line": 1036,
+         "fit": "related"
         }
        ],
-       "note": "f meromorphic at z₀ with meromorphicOrderAt f z₀ = n ∈ ℤ gives residue (logDeriv f) z₀ = n. Mathlib has only AnalyticAt.tendsto_mul_logDeriv_simple_zero (simple zeros). No sorry."
+       "note": "f meromorphic at z₀ with meromorphicOrderAt f z₀ = n ∈ ℤ gives residue (logDeriv f) z₀ = n. Mathlib knows that logDeriv f has a simple pole at every zero or pole of f, of any multiplicity (meromorphicOrderAt_logDeriv_eq_neg_one, and _nonneg at points of order 0), and has AnalyticAt.tendsto_mul_logDeriv_simple_zero for simple zeros. It does not compute the residue. No sorry."
       },
       {
        "target": "Argument principle (2πi)⁻¹ ∮_C f'/f = Σ_z ord_z f (zeros minus poles, with multiplicity)",
@@ -4097,7 +4265,7 @@
          "fit": "special case"
         }
        ],
-       "note": "Single closed piecewise-C¹ curve and genuine ℤ-cycles, with null-homology imposed on the whole cycle (cancellation between generators allowed). Mathlib has only disc/annulus/rectangle Cauchy theorems. No sorry."
+       "note": "Single closed piecewise-C¹ curve and genuine ℤ-cycles, with null-homology imposed on the whole cycle (cancellation between generators allowed). Mathlib has the disc, annulus and rectangle Cauchy theorems and invariance of curve integrals under C² homotopies (CurveIntegral/Poincare.lean), but no homology form. No sorry."
       },
       {
        "target": "Homology form of the Cauchy integral formula f(z)·n_z(C) = (2πi)⁻¹ ∮_C f(w)/(w − z) dw",
@@ -4421,12 +4589,17 @@
        "note": "The engine is an argument principle for a null-homologous closed immersion running through the zeros and poles (PV of f'/f = 2πi Σ n_z(γ) ord_z f, basepoint off S). The level-one valence formula ord_∞ + ½ord_i + ⅓ord_ρ + Σ ord_q = k/12 is proved sorry-free in the ModularForms consumer (whole LevelOne directory has no sorry)."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-1-the-valence-formula-general-level",
+       "note": "Proves the level-one valence formula as the contour integral of f′/f around the fundamental-domain boundary, with i and ρ on the contour weighted by the Hungerbühler–Wasem winding numbers ½ and 1/6. That is this layer's application target, and the audit cites its TauCeti.ModularForm.valence_formula as evidence."
+      }
+     ]
     }
    }
   },
   "tauceti:Completed/OrthogonalL2Bases": {
-   "summary": "Every target of this completed roadmap is in Tau Ceti, sorry-free: the Hermite polynomial API (derivative recursion, Gaussian-weight integrability, the one-step pairing recursion, the generating function, and both orthogonality normalizations), the Hermite functions ψₙ with their regularity, SchwartzMap packaging, parity, ladder relations, creation/annihilation/number/oscillator CLMs and the eigen-equation, hermiteHilbertBasis with coe_hermiteHilbertBasis and Parseval, the Fourier-eigenfunction relation on the 2π-scaled functions, the Gaussian measure-side basis with the dilation lemma, the family-agnostic spine (moment determinacy in Probability/Moments, weightL2Isometry, HilbertBasis.mapₗᵢ, hilbertBasisOfWeightedMeasure / hilbertBasisOfOrthogonalSystem, prodHilbertBasis and piHilbertBasis), the Chebyshev instance with its cosine transfer, and both multidimensional Hermite bases. Mathlib contributes the Hermite polynomials themselves (Polynomial.hermite, degree_hermite, the Rodrigues formula), the Chebyshev polynomials with measureT and its orthogonality relations, HilbertBasis.mkOfOrthogonalEqBot, and the Fourier-integral machinery — and, as the roadmap claims, nothing else: no Hermite functions, no weight-to-measure L² isometry, no ≃ₗᵢ-transport of a HilbertBasis, and OrthonormalBasis.tensorProduct is Fintype-indexed and abstract, so it does not give the L²(μ ⊗ ν) statement B3 proves. Nothing on this roadmap is genuinely missing; the only things the documents name as still open — IsFiniteMeasure measureT and the real→RCLike cast of Chebyshev completeness — are both discharged in the baseline.",
+   "summary": "Every target of this completed roadmap is in Tau Ceti, sorry-free: the Hermite polynomial API (derivative recursion, Gaussian-weight integrability, the one-step pairing recursion, the generating function, and both orthogonality normalizations), the Hermite functions ψₙ with their regularity, SchwartzMap packaging, parity, ladder relations, creation/annihilation/number/oscillator CLMs and the eigen-equation, hermiteHilbertBasis with coe_hermiteHilbertBasis and Parseval, the Fourier-eigenfunction relation on the 2π-scaled functions, the Gaussian measure-side basis with the dilation lemma, the family-agnostic spine (moment determinacy in Probability/Moments, weightL2Isometry, HilbertBasis.mapₗᵢ, hilbertBasisOfWeightedMeasure / hilbertBasisOfOrthogonalSystem, prodHilbertBasis and piHilbertBasis), the Chebyshev instance with its cosine transfer, and both multidimensional Hermite bases. Mathlib contributes the Hermite polynomials themselves (Polynomial.hermite, degree_hermite, the Rodrigues formula), the Chebyshev polynomials with measureT and its orthogonality relations, HilbertBasis.mkOfOrthogonalEqBot, and the Fourier-integral machinery behind the Fourier-eigenfunction relation, plus the complexMGF/charFun and signed-measure (withDensityᵥ) API that the moment-determinacy engine runs on — and, as the roadmap claims, nothing else: no Hermite functions, no weight-to-measure L² isometry, no ≃ₗᵢ-transport of a HilbertBasis, and OrthonormalBasis.tensorProduct is Fintype-indexed and abstract, so it does not give the L²(μ ⊗ ν) statement B3 proves. Nothing on this roadmap is genuinely missing; the three open targets Part C names — IsFiniteMeasure measureT, the compactly supported instance of B1's moment lemma, and the real→RCLike cast of Chebyshev completeness — are all discharged in the baseline.",
    "layers": {
     "tauceti:Completed/OrthogonalL2Bases#part-a--the-hermite-basis-of-l²ℝ-the-v1-anchor": {
      "verdict": "built",
@@ -4502,16 +4675,7 @@
        "note": "The file layout follows the roadmap: TauCeti/RingTheory/Polynomial/Hermite/{Derivative,GeneratingFunction,Real}.lean and TauCeti/Analysis/SpecialFunctions/Hermite/**."
       }
      ],
-     "duplicates": [
-      {
-       "layer": "tauceti:Completed/OrthogonalL2Bases#a1--hermite-polynomial-api",
-       "note": "Part A is the umbrella whose text is the concatenation of A1, A2, A3 and A3′; the targets are stated there in full."
-      },
-      {
-       "layer": "tauceti:Completed/OrthogonalL2Bases#a3--the-hermite-basis-of-l²ℝ-𝕜",
-       "note": "Owns the headline hermiteHilbertBasis milestone that Part A announces."
-      }
-     ]
+     "duplicates": []
     },
     "tauceti:Completed/OrthogonalL2Bases#a1--hermite-polynomial-api": {
      "verdict": "built",
@@ -4549,7 +4713,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Mathlib has hermite_succ (the three-term recursion) and degree/leadingCoeff/monicity but not the derivative identity; Tau Ceti adds it in the Polynomial namespace, as the roadmap's placement note asks."
+       "note": "Mathlib has the defining recursion hermite_succ (hermite (n+1) = X·hermite n − derivative (hermite n)) and degree/leadingCoeff/monicity, but not the derivative identity. Tau Ceti adds it in the Polynomial namespace, as the roadmap's placement note asks, together with the three-term recurrence hermite_add_two. derivative_hermite_succ is deliberately not @[simp], because its left side is already reduced by the simp lemma derivative_hermite. This is a documented deviation from the layer's '(+ @[simp])'."
       },
       {
        "target": "Integrability of a polynomial against the Gaussian weight",
@@ -4563,10 +4727,10 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.integrable_aeval_mul_aeval_mul_gaussian",
+         "name": "TauCeti.integrable_eval_mul_gaussianEnvelope",
          "library": "tauceti",
-         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Orthogonality.lean",
-         "line": 75,
+         "file": "TauCeti/Probability/Distributions/Gaussian/PolynomialMemLp.lean",
+         "line": 100,
          "fit": "more general"
         }
        ],
@@ -4591,14 +4755,14 @@
          "fit": "related"
         },
         {
-         "name": "TauCeti.aeval_derivative_hermite",
+         "name": "Polynomial.derivative_hermite",
          "library": "tauceti",
-         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Orthogonality.lean",
-         "line": 67,
+         "file": "TauCeti/RingTheory/Polynomial/Hermite/Derivative.lean",
+         "line": 74,
          "fit": "related"
         }
        ],
-       "note": "One integration by parts against Mathlib's Rodrigues formula (Hermite/Gaussian.lean), exactly the route the layer prescribes."
+       "note": "One integration by parts (integral_eq_zero_of_hasDerivAt_of_integrable) against the Rodrigues-type step H′ₙ = x·Hₙ − H_{n+1}, which a private lemma of Orthogonality.lean reads off Mathlib's hermite_succ. That is the route the layer prescribes. Mathlib's Rodrigues formula deriv_gaussian_eq_hermite_mul_gaussian is not used, and Hermite/Gaussian.lean is not imported. Stated for p : ℤ[X]."
       },
       {
        "target": "The generating function ∑' n, Hₙ(x)·tⁿ/n! = e^{xt − t²/2}",
@@ -4688,18 +4852,18 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.hermiteSchwartzMap",
+         "name": "TauCeti.continuous_hermiteFunction",
          "library": "tauceti",
-         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Schwartz.lean",
-         "line": 131,
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Basic.lean",
+         "line": 85,
          "fit": "exact"
         },
         {
-         "name": "TauCeti.integrable_hermiteFunction",
+         "name": "TauCeti.coe_hermiteSchwartzMap",
          "library": "tauceti",
-         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/MemLp.lean",
-         "line": 75,
-         "fit": "related"
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Schwartz.lean",
+         "line": 149,
+         "fit": "exact"
         }
        ],
        "note": "The SchwartzMap packaging is there (with the gaussianSchwartzMap and temperate-growth infrastructure behind it), so the ladder relations do elevate to 𝒮(ℝ) as the layer intends."
@@ -4769,24 +4933,24 @@
          "library": "tauceti",
          "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Operator.lean",
          "line": 44,
-         "fit": "more general"
+         "fit": "related"
         },
         {
-         "name": "TauCeti.hermiteCreationCLM",
+         "name": "TauCeti.hermiteAnnihilationCLM_apply_hermiteSchwartzMap",
          "library": "tauceti",
          "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Operator.lean",
-         "line": 49,
-         "fit": "more general"
+         "line": 73,
+         "fit": "exact"
         },
         {
-         "name": "TauCeti.hermiteNumberCLM",
+         "name": "TauCeti.hermiteCreationCLM_apply_hermiteSchwartzMap",
          "library": "tauceti",
          "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Operator.lean",
-         "line": 153,
-         "fit": "more general"
+         "line": 86,
+         "fit": "exact"
         }
        ],
-       "note": "More than the layer asks: the pointwise ladder identities are there, and a, a† and the number operator are already packaged as continuous linear maps on 𝒮(ℝ), which the layer deliberately deferred downstream."
+       "note": "The pointwise ladder identities (mul_hermiteFunction, deriv_hermiteFunction, and the combined mul_add_deriv_hermiteFunction / mul_sub_deriv_hermiteFunction in Ladder.lean) and aψₙ = √n ψ_{n−1}, a†ψₙ = √(n+1) ψ_{n+1} as theorems about the continuous linear maps hermiteAnnihilationCLM and hermiteCreationCLM on 𝒮(ℝ). The canonical commutation relation holds there (Operator.lean), exactly the Schwartz-level form the layer wanted. The packaging on L² that the layer defers downstream does not exist yet."
       },
       {
        "target": "Milestone: pointwise orthonormality ∫ ψₘψₙ = δₘₙ",
@@ -4873,24 +5037,31 @@
          "library": "tauceti",
          "file": "TauCeti/Analysis/InnerProductSpace/PolynomialCompleteness.lean",
          "line": 165,
-         "fit": "more general"
+         "fit": "related"
         },
         {
          "name": "TauCeti.ae_eq_zero_of_forall_moment_eq_zero",
          "library": "tauceti",
          "file": "TauCeti/Probability/Moments/VanishingMoments.lean",
          "line": 229,
-         "fit": "more general"
+         "fit": "related"
         },
         {
-         "name": "TauCeti.exp_moment_gaussianWeight",
+         "name": "TauCeti.integrable_exp_mul_abs_gaussianWeight",
          "library": "tauceti",
-         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/HilbertBasis.lean",
-         "line": 50,
+         "file": "TauCeti/Probability/Distributions/Gaussian/PolynomialMemLp.lean",
+         "line": 47,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.hasSum_hermiteFunctionLp_expansion",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Parseval.lean",
+         "line": 70,
+         "fit": "more general"
         }
        ],
-       "note": "Completeness is obtained as the B1/B2 instance rather than proved again for the Hermite family — the 𝕜-generic statement covers ℝ and ℂ in one theorem, as the layer requires. The load-bearing moment lemma lives in Probability/Moments/VanishingMoments.lean."
+       "note": "No standalone Hermite completeness lemma exists. The statement follows from hermiteHilbertBasis, or from the expansion hasSum_hermiteFunctionLp_expansion (every f ∈ L² is the sum of its Hermite series). Completeness is obtained as the B1/B2 instance: the polynomial completeness theorem in L²(w·μ), transported by weightL2Isometry. The moment lemma it rests on goes through Mathlib's withDensityᵥ signed-measure API and characteristic functions (see B1), not the fourierIntegral route the layer prescribes. The statement is 𝕜-generic."
       },
       {
        "target": "Fourier eigenfunction: the Hermite functions diagonalize the Fourier transform, with the 2π-scaling convention pinned",
@@ -5015,13 +5186,6 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.gaussianHermiteHilbertBasisAux",
-         "library": "tauceti",
-         "file": "TauCeti/Probability/Distributions/Gaussian/Hermite/Basis.lean",
-         "line": 107,
-         "fit": "related"
-        },
-        {
          "name": "TauCeti.hilbertBasisOfWeightedMeasure",
          "library": "tauceti",
          "file": "TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean",
@@ -5055,13 +5219,6 @@
          "file": "TauCeti/Probability/Distributions/Gaussian/Hermite/MemLp.lean",
          "line": 46,
          "fit": "exact"
-        },
-        {
-         "name": "TauCeti.memLp_hermiteℝ_normalized",
-         "library": "tauceti",
-         "file": "TauCeti/Probability/Distributions/Gaussian/Hermite/Basis.lean",
-         "line": 98,
-         "fit": "special case"
         }
        ],
        "note": "Under the roadmap's own name, with the variance parameter as specified."
@@ -5143,20 +5300,7 @@
        "note": "All three live in family-agnostic files (Probability/Moments, Analysis/InnerProductSpace/{WeightedOrthogonalBasis, PolynomialCompleteness, L2/Product, L2/Pi}) with no mention of Hermite or Chebyshev, as the layer requires."
       }
      ],
-     "duplicates": [
-      {
-       "layer": "tauceti:Completed/OrthogonalL2Bases#b1--completeness-toolkit-moment-determinacy",
-       "note": "Part B is the umbrella whose text is the concatenation of B1, B2 and B3; each target is stated in full in its own sub-layer."
-      },
-      {
-       "layer": "tauceti:Completed/OrthogonalL2Bases#b2--orthogonality-relation--hilbertbasis",
-       "note": "Same umbrella relation."
-      },
-      {
-       "layer": "tauceti:Completed/OrthogonalL2Bases#b3--l²-product-basis",
-       "note": "Same umbrella relation."
-      }
-     ]
+     "duplicates": []
     },
     "tauceti:Completed/OrthogonalL2Bases#b1--completeness-toolkit-moment-determinacy": {
      "verdict": "built",
@@ -5177,20 +5321,13 @@
          "library": "tauceti",
          "file": "TauCeti/Probability/Moments/VanishingMoments.lean",
          "line": 303,
-         "fit": "more general"
+         "fit": "related"
         },
         {
          "name": "TauCeti.ae_eq_zero_of_forall_moment_eq_zero_of_finite_expMoments",
          "library": "tauceti",
          "file": "TauCeti/Probability/Moments/VanishingMoments.lean",
          "line": 348,
-         "fit": "more general"
-        },
-        {
-         "name": "TauCeti.complexMGF_eventuallyEq_of_forall_integral_pow_eq",
-         "library": "tauceti",
-         "file": "TauCeti/Probability/Moments/Determinacy.lean",
-         "line": 89,
          "fit": "related"
         },
         {
@@ -5199,9 +5336,16 @@
          "file": "TauCeti/Probability/Moments/Determinacy.lean",
          "line": 145,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.charFun_eq_of_forall_integral_pow_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Moments/Determinacy.lean",
+         "line": 112,
+         "fit": "related"
         }
        ],
-       "note": "The hypothesis is the weighted-L¹ integrability the layer insists on (∫ e^{a|x|}|g| < ∞), not a pointwise bound, and the single-positive-a variant is there too; routed through the analytic complex MGF / characteristic function, which is the fourierIntegral-side argument in Mathlib's idiom rather than a signed-measure detour."
+       "note": "The hypothesis is the weighted-L¹ integrability the layer insists on (∫ e^{a|x|}|g| < ∞ for one positive a), not a pointwise bound. The route is not the entire-𝓕 route: ae_eq_zero_of_forall_moment_eq_zero goes through Mathlib's signed-measure API (Integrable.ae_eq_of_withDensityᵥ_eq, withDensityᵥ_eq_withDensity_pos_part_sub_withDensity_neg_part). It compares the finite measures g⁺·ν and g⁻·ν by moment determinacy, which uses complexMGF and charFun (charFun_eq_of_forall_integral_pow_eq, Measure.ext_of_forall_integral_pow_eq). The measure-level wrappers _of_exists_integrable_exp and _of_finite_expMoments add MemLp g 2 ν and an exponential moment of ν. Mathlib has Measure.ext_of_complexMGF_eq but no moment determinacy."
       },
       {
        "target": "The √w-envelope form: g ∈ L²(dx) orthogonal to every pₙ·√w implies g = 0, distinguished from L²(w)-orthogonality",
@@ -5212,14 +5356,14 @@
          "library": "tauceti",
          "file": "TauCeti/Analysis/InnerProductSpace/PolynomialCompleteness.lean",
          "line": 165,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "TauCeti.orthogonal_span_range_bareNormalizedLp_eq_bot_of_span_eq_top",
          "library": "tauceti",
          "file": "TauCeti/Analysis/InnerProductSpace/PolynomialCompleteness.lean",
          "line": 110,
-         "fit": "more general"
+         "fit": "related"
         },
         {
          "name": "TauCeti.memLp_two_bareNormalized",
@@ -5229,14 +5373,21 @@
          "fit": "related"
         },
         {
-         "name": "TauCeti.integral_pow_mul_clm_eq_zero",
+         "name": "TauCeti.hilbertBasisOfOrthogonalSystem",
          "library": "tauceti",
-         "file": "TauCeti/Probability/Moments/VanishingMoments.lean",
-         "line": 279,
+         "file": "TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean",
+         "line": 193,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.coeFn_hilbertBasisOfOrthogonalSystem",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean",
+         "line": 225,
          "fit": "related"
         }
        ],
-       "note": "Stated on the weighted measure w·μ for an exact-degree polynomial family, which is the form both the Hermite and Chebyshev instances consume; the envelope/measure distinction is handled by weightL2Isometry rather than by two separate completeness theorems."
+       "note": "The polynomial completeness theorems are stated in L²(w·μ), which is the L²(w) form the layer says not to conflate with the envelope form. The √w-envelope completeness follows from hilbertBasisOfOrthogonalSystem, a Hilbert basis of L²(μ) whose vectors are a.e. fₙ·√w/√cₙ (coeFn_hilbertBasisOfOrthogonalSystem), so its span has trivial orthogonal complement. The two forms are related by weightL2Isometry rather than proved twice. No standalone envelope-form theorem is stated."
       },
       {
        "target": "The compact-support case (Chebyshev) goes through the same lemma",
@@ -5257,10 +5408,10 @@
          "fit": "related"
         },
         {
-         "name": "TauCeti.isFiniteMeasure_of_integrable_exp_mul_abs",
+         "name": "TauCeti.integrable_exp_mul_abs_smul_measureT",
          "library": "tauceti",
-         "file": "TauCeti/Probability/Moments/VanishingMoments.lean",
-         "line": 248,
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Measure.lean",
+         "line": 221,
          "fit": "related"
         }
        ],
@@ -5281,14 +5432,14 @@
          "library": "tauceti",
          "file": "TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean",
          "line": 193,
-         "fit": "exact"
+         "fit": "more general"
         },
         {
          "name": "TauCeti.orthonormal_bareNormalizedLp",
          "library": "tauceti",
          "file": "TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean",
          "line": 156,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "TauCeti.bareNormalizedLp",
@@ -5296,6 +5447,13 @@
          "file": "TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean",
          "line": 69,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.chebyshevTEnvelopeHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Envelope.lean",
+         "line": 161,
+         "fit": "special case"
         }
        ],
        "note": "Stated over an arbitrary measurable space with an arbitrary measure and weight (0 < w a.e.), with the cast through algebraMap ℝ 𝕜; the Chebyshev instance does land on a compact weighted measure, so the genericity is real and exercised."
@@ -5352,16 +5510,9 @@
          "file": "TauCeti/MeasureTheory/Function/WeightL2Isometry.lean",
          "line": 163,
          "fit": "exact"
-        },
-        {
-         "name": "TauCeti.eLpNorm_sqrt_smul_withDensity",
-         "library": "tauceti",
-         "file": "TauCeti/MeasureTheory/Function/WeightL2Isometry.lean",
-         "line": 55,
-         "fit": "related"
         }
        ],
-       "note": "In TauCeti/MeasureTheory/Function/, free of any polynomial content, with the element-level pin — the generality and placement the layer prescribes. No Mathlib analogue."
+       "note": "In TauCeti/MeasureTheory/Function/, free of any polynomial content, with the element-level pin, the generality and placement the layer prescribes. Mathlib's nearest analogue is the L¹ linear isometry MeasureTheory.withDensitySMulLI, which is not an L² statement and not an equivalence."
       },
       {
        "target": "HilbertBasis.mapₗᵢ: transport of a Hilbert basis along a linear isometry equivalence",
@@ -5692,13 +5843,20 @@
          "library": "tauceti",
          "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Cosine/HilbertBasis.lean",
          "line": 66,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "TauCeti.chebyshevTHilbertBasis_repr_chebyshevCosineL2Equiv_symm",
          "library": "tauceti",
          "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Cosine/HilbertBasis.lean",
          "line": 93,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.coeFn_chebyshevCosineHilbertBasis",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Cosine/HilbertBasis.lean",
+         "line": 48,
          "fit": "exact"
         }
        ],
@@ -6079,13 +6237,6 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.eqOn_of_subseq_limits",
-         "library": "tauceti",
-         "file": "TauCeti/Analysis/Complex/Conformal/Vitali.lean",
-         "line": 97,
-         "fit": "related"
-        },
-        {
          "name": "TauCeti.exists_differentiableOn_tendstoLocallyUniformlyOn_of_isLocallyBoundedOn",
          "library": "tauceti",
          "file": "TauCeti/Analysis/Complex/Conformal/Vitali.lean",
@@ -6152,7 +6303,7 @@
          "library": "tauceti",
          "file": "TauCeti/Analysis/Complex/Conformal/SchwarzPick/AutomorphismIsometry.lean",
          "line": 73,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "TauCeti.exists_forall_unitDisc_eq_unitDiscStandardAutomorphismEquiv_of_pseudoHyperbolicExpr_map_eq",
@@ -6173,6 +6324,13 @@
          "library": "tauceti",
          "file": "TauCeti/Analysis/Complex/Conformal/SchwarzPick/Isometry.lean",
          "line": 93,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.norm_deriv_div_one_sub_norm_sq_le",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/SchwarzPick/Derivative.lean",
+         "line": 106,
          "fit": "exact"
         }
        ],
@@ -6327,13 +6485,6 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.nonempty_homeomorph_unitDisc_of_isSimplyConnected",
-         "library": "tauceti",
-         "file": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Equivalence.lean",
-         "line": 170,
-         "fit": "exact"
-        },
-        {
          "name": "TauCeti.riemannMapping_homeomorph",
          "library": "tauceti",
          "file": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Conformal.lean",
@@ -6374,13 +6525,6 @@
          "file": "TauCeti/Analysis/Complex/Conformal/Koebe.lean",
          "line": 244,
          "fit": "exact"
-        },
-        {
-         "name": "TauCeti.moebius",
-         "library": "tauceti",
-         "file": "TauCeti/Analysis/Complex/Conformal/Koebe.lean",
-         "line": 83,
-         "fit": "related"
         }
        ],
        "note": "Exactly the standard route the layer prescribes — Montel + Hurwitz give the maximizer, and the Koebe square-root trick shows a non-surjective maximizer can be beaten."
@@ -6429,7 +6573,7 @@
       },
       {
        "target": "The square-root / holomorphic-log step, consumed from Mathlib's BranchLogRoot",
-       "library": "mathlib",
+       "library": "both",
        "declarations": [
         {
          "name": "Complex.exists_continuousOn_pow_eq",
@@ -6446,18 +6590,11 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.exists_sq_eq_sub_injOn_ne_zero",
-         "library": "tauceti",
-         "file": "TauCeti/Analysis/Complex/Conformal/DiscInjection.lean",
-         "line": 77,
-         "fit": "related"
-        },
-        {
          "name": "TauCeti.exists_differentiableOn_pow_eq",
          "library": "tauceti",
          "file": "TauCeti/Analysis/Complex/BranchLogRoot.lean",
          "line": 165,
-         "fit": "related"
+         "fit": "exact"
         }
        ],
        "note": "Mathlib supplies continuous branches of log and n-th roots on a simply connected open set; TauCeti/Analysis/Complex/BranchLogRoot.lean upgrades the log branch to a holomorphic one and derives holomorphic n-th roots from it, and DiscInjection.lean's square-root trick uses that, exactly as the layer directs."
@@ -6854,5 +6991,525 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-05",
+  "date": "2026-09-16",
+  "checked": 239,
+  "corrections": [
+   {
+    "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial",
+    "target": "Degree bookkeeping: rootSet has natDegree elements, the action is faithful, Nat.card p.Gal = Nat.card of the image",
+    "was": "TauCeti.natCard_gal_dvd_factorial_natDegree fit 'more general'",
+    "now": "fit 'related'",
+    "why": "Nat.card p.Gal ∣ p.natDegree! is a corollary of the faithful action, not a more general form of the degree bookkeeping."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial",
+    "target": "Conjugate fields: G/H in equivariant bijection with the roots and with the F-embeddings; conjugate subfields correspond to conjugates of H; their number is [G : N_G(H)]",
+    "was": "absent",
+    "now": "partial",
+    "why": "The equivariance of the Galois correspondence under conjugation is proved in both libraries: Mathlib's IsGalois.map_fixingSubgroup gives (σE).fixingSubgroup = σ·E.fixingSubgroup·σ⁻¹, and Tau Ceti's Subgroup.fixedField_map_conj gives fixedField (σHσ⁻¹) = σ(fixedField H), for any extension. Mathlib's IntermediateField.algHomAdjoinIntegralEquiv is the bijection between F-embeddings of F(α) and roots of minpoly F α, and MulAction.orbitEquivQuotientStabilizer gives G/H ≃ orbit. The audit's grep found only Multiquadratic lemmas."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-1-permutation-groups-blocks-and-wreath-products",
+    "target": "General wreath products (ι → D) ⋊ Perm ι and (ι → D) ⋊ Q, with constructors, order formulas, functoriality, edge cases, and the two actions",
+    "was": "tauceti",
+    "now": "partial",
+    "why": "The audit's own note lists two missing items of this milestone: the primitivity theorem for the product action, and the comparison MulEquiv D ≀ᵣ Q ≃* (Q → D) ⋊ Q′. The dihedral example WreathProduct (ZMod 2) (Fin 2) is also missing. WreathProduct.lean mentions RegularWreathProduct only in its docstring. With parts of the milestone missing, the target is partial."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-1-permutation-groups-blocks-and-wreath-products",
+    "target": "(layer duplicates)",
+    "was": "one duplicate listed (BelyiMaps Layer 1)",
+    "now": "added ProfiniteCohomology Layer 13",
+    "why": "ProfiniteCohomology Layer 13 lists as its first milestone the permutation wreath product (X → D) ⋊ Q generalizing RegularWreathProduct, the object this layer also asks for."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-3-the-discriminant-and-the-alternating-group",
+    "target": "The discriminant quadratic extension F(√disc f) with its API: characterization, fixed field of the even part, functoriality, edge cases",
+    "was": "tauceti",
+    "now": "partial",
+    "why": "Functoriality in the base field is missing. The layer asks that F(√disc f) be preserved by an isomorphism of base fields and commute with base change F → F′ when the discriminant stays a nonsquare. TauCeti.discrField_map is naturality in the ambient extension (ψ : E ≃ₐ[F] E′), not in F. No declaration in Discriminant/Field.lean, or anywhere else, changes the base field. The note's 'transport along a base-field isomorphism' misreads discrField_map."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-3-the-discriminant-and-the-alternating-group",
+    "target": "(layer verdict)",
+    "was": "built",
+    "now": "partly built",
+    "why": "One target is absent (the worked instances x³ − 3x − 1 and x³ − 2) and one is now partial (base-change functoriality of the discriminant field), so 'built' overstates the layer."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-3-the-discriminant-and-the-alternating-group",
+    "target": "(layer duplicates)",
+    "was": "no duplicates listed",
+    "now": "added NumberFieldArithmetic Layer 3",
+    "why": "NumberFieldArithmetic 3.2 asks for Algebra.discr (power basis) = Polynomial.discr (minpoly), the same comparison as this layer's discriminant-API consistency lemma."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-4-resolvents",
+    "target": "Root data: a root enumeration forces splitting, and is injective iff the mapped polynomial is separable",
+    "was": "absent",
+    "now": "partial",
+    "why": "Mathlib has both facts in general form. Polynomial.splits_iff_card_roots says a polynomial splits iff card roots = natDegree, so an enumeration of the roots by Fin natDegree forces splitting. Polynomial.nodup_roots_iff_of_splits and nodup_aroots_iff_of_splits say a nonzero split polynomial has no repeated roots iff it is separable, and injectivity of the enumeration is nodup of univ.val.map x. Only the enumeration-shaped statements are missing."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory",
+    "target": "Witt decomposition (Lam I.4.1), the Witt index, the anisotropic part, and their uniqueness",
+    "was": "tauceti",
+    "now": "partial",
+    "why": "Two parts of the milestone are missing. (1) The decomposition of every form, degenerate ones included, as q_t ⊥ m×ℍ ⊥ q_a with q_t the zero form on the radical. Tau Ceti has it only for regular forms (RegularFormClass, and QuadraticForm.exists_equivalent_hyperbolicPresentation_prod for Nondegenerate Q). (2) Lam I.4.4: for regular q the Witt index is the dimension of a maximal totally isotropic subspace. Neither library has a totally isotropic subspace notion for quadratic forms (only SymplecticForm.IsIsotropic and FiniteBilinearModule.IsIsotropic)."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory",
+    "target": "Reflections and Cartan–Dieudonné: τ_v is an involutive isometry fixing v^⊥, and every isometry is a product of at most n reflections",
+    "was": "cited private TauCeti.QuadraticMap.anisotropicReflection, anisotropicReflection_mul_self, exists_reflectionWord_of_finrank_eq (and exists_even_reflectionOrthogonal_list_prod_eq)",
+    "now": "cites the public TauCeti.QuadraticMap.reflection, reflection_mem_orthogonalGroup, reflection_apply_of_isOrtho, reflection_mul_self and exists_reflectionOrthogonal_list_prod_eq; library unchanged (tauceti)",
+    "why": "Three of the five citations were private declarations of CartanDieudonne/Basic.lean, which no consumer can use. The public reflection API the layer asks for (isometry, τ_v v = −v, fixes v^⊥, involution) is in QuadraticForm/OrthogonalGroup.lean:425-504."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory",
+    "target": "Functoriality: the Witt index and anisotropic part are isometry invariants, with the base-change caveat",
+    "was": "tauceti",
+    "now": "partial",
+    "why": "The functoriality bullet also asks that under a field extension the Witt index cannot decrease. No declaration relates wittIndex to base change. Tau Ceti has only QuadraticForm.not_anisotropic_baseChange (isotropy survives a flat faithful base change) and RegularFormClass.baseChange with rank and discr, which do not mention the Witt index."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory",
+    "target": "(layer verdict)",
+    "was": "built",
+    "now": "partly built",
+    "why": "Witt decomposition lacks the degenerate case and Lam I.4.4, and functoriality lacks Witt-index monotonicity under base change. Both targets are now partial."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory",
+    "target": "(layer duplicates)",
+    "was": "no duplicates listed",
+    "now": "added SpinRepresentations Layer 2",
+    "why": "SpinRepresentations Layer 2 needs Cartan–Dieudonné for the surjectivity of Pin → O, the same theorem as this layer's."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group",
+    "target": "Discriminant and signed discriminant on RegularFormClass, well defined through Gram determinants and through the product of a diagonalization, with the two descriptions agreeing",
+    "was": "tauceti",
+    "now": "partial",
+    "why": "QuadraticMap.orthogonalDetSquareClass (DetSquareClass.lean:36) is the determinant of an orthogonal transformation taken modulo squares, a homomorphism O(Q) → Kˣ/(Kˣ)². It is not the Gram-determinant description of the discriminant. No declaration identifies RegularFormClass.discr (formClass Q hQ) with the Gram determinant discr′ of a general form. Only the diagonal case QuadraticForm.discr'_weightedSumSquares (Diagonal/Basic.lean:217) exists, and it is used inside isSquare_prod_mul_prod_of_equivalent."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal",
+    "target": "(layer duplicates)",
+    "was": "two duplicates listed (GlobalQuadraticForms Layer 8, GN.2)",
+    "now": "added GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+    "why": "GN.6 builds Grothendieck–Witt and Witt groups and asks to recover the degree-zero forms, which for a field are Ŵ(K) and W(K)."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-5-the-brauer-valued-invariants",
+    "target": "The Clifford invariant: central simplicity of the Clifford algebra (even rank) and of its even subalgebra (odd rank), Equivalent-invariance, and the Lam V.3.20 comparison with s",
+    "was": "absent",
+    "now": "partial",
+    "why": "Parts of the milestone exist. Mathlib's CliffordAlgebra.equivOfIsometry turns an isometry into an algebra equivalence of Clifford algebras, which is the Equivalent-invariance bullet. Tau Ceti proves CliffordAlgebra Q central (isCentral_cliffordAlgebra) and simple (isSimpleRing_cliffordAlgebra) for even-dimensional Q carrying SpinPolarizationData, the split case of the central-simplicity bullet."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field",
+    "target": "(layer duplicates)",
+    "was": "listed its own sublayers 6A and 6C as duplicates",
+    "now": "removed; GlobalQuadraticForms Layer 2 kept",
+    "why": "6A–6E are the children of Layer 6 (parentStageId), and Layer 6's description is their concatenation. A sublayer of the same roadmap is not another owner of a target, and listing only two of the five children was inconsistent."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6a-the-local-field-substrate-consumed",
+    "target": "The unit filtration, its graded pieces, and their cardinalities",
+    "was": "note credited only the depth-zero graded piece (residue-field units)",
+    "now": "cites the additive graded pieces TauCeti.unitFiltrationGradedSuccEquivResidueField (Graded.lean:253); library unchanged (tauceti)",
+    "why": "The layer stresses that 6B needs the additive form U(K,i)/U(K,i+1) ≃ 𝓀[K]⁺ for i ≥ 1. Tau Ceti has it in UnitFiltration/Graded.lean, which the entry did not mention."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6a-the-local-field-substrate-consumed",
+    "target": "IsUniformizer as a named predicate, the level e = v_K(2) as natCastValuation, and the absolute ramification index",
+    "was": "absent",
+    "now": "partial",
+    "why": "The note's 'none for a local field' is wrong. Mathlib's Valuation.IsUniformizer (RingTheory/Valuation/Discrete/Basic.lean:199) applies to the valuation of a nonarchimedean local field, and Tau Ceti uses it so in NormalizedValuation.lean:325. Existence is Valuation.exists_isUniformizer_of_isCyclic_of_nontrivial, and the comparison with a generator of the maximal ideal is isUniformizer_of_maximalIdeal_eq_span. Tau Ceti's normalizedValuation_irreducible gives v_K(π) = 1 for irreducible π. The level e = v_K(2) is still missing."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6a-the-local-field-substrate-consumed",
+    "target": "The local square theorem in its sharp form, and the square-class counts in the 4·q^e form",
+    "was": "absent",
+    "now": "partial",
+    "why": "The containment half is proved for odd residue characteristic (e = 0). TauCeti.unitFiltration_one_le_range_powMonoidHom_of_isUnit gives U(K,1) ⊆ (Kˣ)ⁿ whenever n is a unit in 𝒪[K], so at n = 2 it is U(K, 2e+1) ⊆ (Kˣ)². The dyadic case, sharpness and the square-class counts are missing."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
+    "target": "(layer duplicates)",
+    "was": "two duplicates listed (GlobalQuadraticForms Layer 2, K2SymbolsBrauer:T.7)",
+    "now": "added ClassFieldTheory Layer 5",
+    "why": "ClassFieldTheory Layer 5 owns the cohomological local Hilbert pairing with its bilinearity and Steinberg relation, the same local symbol that 6C builds with values in ±1."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-7-the-brauer-group-in-galois-cohomology",
+    "target": "(layer duplicates)",
+    "was": "listed its own sublayer 7B as a duplicate",
+    "now": "removed; ProfiniteCohomology Layer 9 kept",
+    "why": "7A–7C are the children of Layer 7 and its description is their concatenation. A sublayer is not another owner of a target."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7a-the-mod-2-operations-consumed-and-the-μ₂-adapters",
+    "target": "The Kummer coefficient object and the Kummer map Kˣ/(Kˣ)ⁿ → H¹(G_K, μₙ), consumed",
+    "was": "tauceti",
+    "now": "partial",
+    "why": "The layer consumes the supplier's Kummer isomorphism, not just the map. Its prerequisites name kummerIso, kummerMapCanonical, kummerIso_res, kummerIso_norm, hilbert90 and h2KummerToUnits, and none of them exists. Tau Ceti has only the injective kummerClassMap : Kˣ/(Kˣ)ⁿ → H¹(G_K, μₙ), whose docstring says surjectivity needs Hilbert 90, which is not there."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7a-the-mod-2-operations-consumed-and-the-μ₂-adapters",
+    "target": "The corestriction/transfer along a finite separable L/K, consumed",
+    "was": "tauceti",
+    "now": "partial",
+    "why": "What exists is corestriction for an open subgroup of an abstract profinite group, in degrees 0, 1 and 2, with cor ∘ res and the projection formula. The layer consumes the Galois-level transfer along a finite separable L/K: galoisSubgroup (G_L ≤ G_K), galoisRes, galoisCor, galoisEvens, and corestriction_mackey. None of these exists, and AbsoluteGaloisGroup.lean has no API attaching G_L to an extension L/K."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-9-transfer-and-the-relative-stiefel-whitney-formula",
+    "target": "The trace form: Tr_*⟨1⟩ is the quadratic form of Algebra.traceForm",
+    "was": "related citation TauCeti.traceQuadraticForm (the Lie-algebra trace form on gl_n)",
+    "now": "related citations Algebra.traceForm, TauCeti.Algebra.trace_eq_zero_of_sq_algebraMap_of_not_mem_range, TauCeti.Algebra.discr_one_elem_eq_of_sq_algebraMap; still absent",
+    "why": "The layer tells the implementer to prove Tr_*⟨1⟩ = ⟨2, 2d⟩ through TauCeti/FieldTheory/Trace's diagonalization API, which exists, and on Mathlib's Algebra.traceForm. The gl_n trace form cited before has nothing to do with a field extension."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-9-transfer-and-the-relative-stiefel-whitney-formula",
+    "target": "Which functional: the nonzero K-linear functionals L → K form an Lˣ-torsor, and Tr ≠ 0 for separable L/K",
+    "was": "no target (milestone omitted)",
+    "now": "partial",
+    "why": "The layer's first milestone, 'Which functional', had no target. Mathlib proves Tr ≠ 0 for separable L/K and nondegeneracy of the trace form, which covers the separable case of the torsor statement. The general statement is missing."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l2--schwarz-lemma-extensions",
+    "target": "The derivative form of Schwarz–Pick, and the rigidity/equality case",
+    "was": "derivative form cited as TauCeti.norm_deriv_div_one_sub_norm_sq_unitDiscStandardAutomorphismFormula_of_norm_lt_one (exact)",
+    "now": "adds TauCeti.norm_deriv_div_one_sub_norm_sq_le (exact); the automorphism equality is related; library unchanged (tauceti)",
+    "why": "The cited declaration is the equality case for the standard disc automorphisms. The infinitesimal Schwarz–Pick inequality ‖f′ z‖/(1 − ‖f z‖²) ≤ 1/(1 − ‖z‖²) for every holomorphic self-map is TauCeti.norm_deriv_div_one_sub_norm_sq_le (SchwarzPick/Derivative.lean:106)."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l3--the-riemann-mapping-theorem-summit",
+    "target": "The square-root / holomorphic-log step, consumed from Mathlib's BranchLogRoot",
+    "was": "mathlib",
+    "now": "both",
+    "why": "Mathlib's BranchLogRoot gives only continuous branches of log and n-th roots. The holomorphic square root the Koebe step uses is Tau Ceti's exists_differentiableOn_pow_eq (Analysis/Complex/BranchLogRoot.lean:165), built on Mathlib's API as the layer directs, so the step is in both libraries."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+    "target": "(roadmap summary)",
+    "was": "the quadratic extension discrField), factorDegrees",
+    "now": "the quadratic extension discrField, though without base-field functoriality or the worked cubic instances), factorDegrees",
+    "why": "Brought in line with the Layer 3 corrections: discrField is natural only in the ambient extension, and the worked instances are absent."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+    "target": "(roadmap summary)",
+    "was": "general wreath products, and the reference subgroups",
+    "now": "general wreath products (without the primitivity theorem for the product action or the comparison with RegularWreathProduct), and the reference subgroups",
+    "why": "Brought in line with the Layer 1 correction: the wreath-product milestone is partial."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+    "target": "(roadmap summary)",
+    "was": "Genuinely missing: everything specific to resolvents",
+    "now": "Two items called absent have their ingredients in the libraries: the conjugate-field dictionary (IsGalois.map_fixingSubgroup, Subgroup.fixedField_map_conj, algHomAdjoinIntegralEquiv) and the root-enumeration facts of Layer 4 (Polynomial.splits_iff_card_roots, nodup_roots_iff_of_splits). Genuinely missing: everything specific to resolvents",
+    "why": "Brought in line with the Layer 0 and Layer 4 corrections from absent to partial."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+    "target": "(roadmap summary)",
+    "was": "Tau Ceti already has the whole of Layer 1 (hyperbolic plane, Witt decomposition, Witt cancellation, reflections, Cartan–Dieudonné, Witt's extension theorem)",
+    "now": "Tau Ceti already has most of Layer 1 (hyperbolic plane, Witt decomposition for regular forms, Witt cancellation, reflections, Cartan–Dieudonné, Witt's extension theorem; missing are the decomposition of degenerate forms, Lam I.4.4 and the monotonicity of the Witt index under base change)",
+    "why": "Brought in line with the Layer 1 corrections: Witt decomposition and functoriality are partial, and the layer is partly built."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+    "target": "(roadmap summary)",
+    "was": "the discriminant half of Layer 3 (discr, signedDiscr, the sum/product/scaling formulas, base change)",
+    "now": "the discriminant half of Layer 3 (discr, signedDiscr, the sum/product/scaling formulas, base change; not yet the Gram-determinant description)",
+    "why": "Brought in line with the Layer 3 correction: the Gram-determinant comparison was miscited as orthogonalDetSquareClass."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+    "target": "(roadmap summary)",
+    "was": "the Kummer map into H¹, and a low-degree continuous cup product)",
+    "now": "the injective Kummer map into H¹ but not the Kummer isomorphism, since Hilbert 90 for G_K is missing, a low-degree continuous cup product and corestriction for an abstract open subgroup, Mathlib's Valuation.IsUniformizer, the odd-residue case of the local square theorem, and central simplicity of the Clifford algebra of a split even-dimensional form)",
+    "why": "Brought in line with the 6A, 7A and Layer 5 corrections."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial",
+    "target": "(layer duplicates)",
+    "was": "two duplicates listed (BelyiMaps Layer 0, NumberFieldArithmetic Layer 3)",
+    "now": "added NumberFieldArithmetic Layer 7",
+    "why": "NumberFieldArithmetic 7.1 restates the embedding action and the conjugacy-class ambiguity of the permutation representation for a number field and its normal closure."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-2-the-dictionary-between-galois-theory-and-permutations",
+    "target": "(layer duplicates)",
+    "was": "no duplicates listed",
+    "now": "added NumberFieldArithmetic Layer 7",
+    "why": "NumberFieldArithmetic 7.1 asks for the subfield dictionary IntermediateField ℚ K ≃o (subgroups ⊇ Gal(M/K))ᵒᵈ, which is this layer's stabilizer and intermediate-field correspondence."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6a-the-local-field-substrate-consumed",
+    "target": "(layer duplicates)",
+    "was": "one duplicate listed (LocalFieldsRamification Layer 1)",
+    "now": "added LocalFieldsRamification Layer 0",
+    "why": "6A consumes LocalFieldsRamification Layer 0's normalizedValuation and natCastValuation by name, and AUDIT-04 records that link from the other side."
+   },
+   {
+    "layer": "tauceti:Completed/ContourIntegration#layer-0-curves-cycles-and-the-generalized-winding-number",
+    "target": "n_{z₀}(C) = 0 on the unbounded component of ℂ ∖ C",
+    "was": "TauCeti.Contour.windingNumber_eventually_zero_cocompact exact",
+    "now": "TauCeti.Contour.windingNumber_eventually_zero_cocompact special case; library unchanged (tauceti)",
+    "why": "windingNumber_eventually_zero_cocompact (Winding/Vanishing.lean:93) only says the winding number is 0 for w near infinity (eventually along cocompact ℂ), not on the whole unbounded component."
+   },
+   {
+    "layer": "tauceti:Completed/ContourIntegration#layer-1-the-geometry-of-the-generalized-winding-number-hw-2",
+    "target": "Seeded values: winding ½ at a smooth boundary point (semicircle, α = π) and 1/6 at a π/3 corner",
+    "was": "TauCeti.Contour.windingNumber_at_i special case; TauCeti.Contour.windingNumber_at_rho special case",
+    "now": "TauCeti.Contour.windingNumber_at_i related; TauCeti.Contour.windingNumber_at_rho related; library unchanged (tauceti)",
+    "why": "windingNumber_at_i and windingNumber_at_rho (ModelSector/Winding.lean:55, 67) compute the index integral of an open circular arc over [0, π] and [0, π/3]. They are ingredients, not the winding number of a closed curve at a boundary point. The model-sector values are windingNumber_closedModelSector_eq_half and _eq_one_div_six."
+   },
+   {
+    "layer": "tauceti:Completed/ContourIntegration#layer-1-the-geometry-of-the-generalized-winding-number-hw-2",
+    "target": "HW Prop 2.2 (finiteness): a closed piecewise-C¹ immersion meets any point only finitely often",
+    "was": "TauCeti.Contour.IsPwC1ImmersionOn.eventually_ne_nhdsNE exact",
+    "now": "TauCeti.Contour.IsPwC1ImmersionOn.eventually_ne_nhdsNE related; library unchanged (tauceti)",
+    "why": "eventually_ne_nhdsNE (Crossing/Finiteness.lean:173) only says an interior crossing is isolated. That is a step towards finiteness, which is finite_crossings."
+   },
+   {
+    "layer": "tauceti:Completed/ContourIntegration#layer-1-the-geometry-of-the-generalized-winding-number-hw-2",
+    "target": "HW Prop 2.2 (winding decomposition): n_{z₀}(Λ) = n_{z₀}(Λ̃) + Σ_ℓ α_ℓ/2π with Λ̃ avoiding z₀",
+    "was": "TauCeti.Contour.IsPwC1ImmersionOn.exists_crossingDecomposition exact; TauCeti.Contour.IsPwC1ImmersionOn.exists_avoiding_curve_windingNumber_eq exact; TauCeti.Contour.IsPwC1ImmersionOn.exists_int_windingNumber_eq_add_sum_crossingAngle exact",
+    "now": "TauCeti.Contour.IsPwC1ImmersionOn.exists_crossingDecomposition special case; TauCeti.Contour.IsPwC1ImmersionOn.exists_avoiding_curve_windingNumber_eq special case; TauCeti.Contour.IsPwC1ImmersionOn.exists_int_windingNumber_eq_add_sum_crossingAngle related; library unchanged (tauceti)",
+    "why": "Both decomposition theorems (ImmersionDecomposition.lean:66, 202) need a < b and a basepoint γ a ≠ s. The layer has no basepoint condition and no re-basing lemma exists, so they are special cases; the note already records the hypothesis. exists_int_windingNumber_eq_add_sum_crossingAngle (CrossingAngleSum.lean:298) only gives ∃ k : ℤ, n = k + Σ angle/2π, and its docstring says the excision 'is not performed here'."
+   },
+   {
+    "layer": "tauceti:Completed/ContourIntegration#layer-1-the-geometry-of-the-generalized-winding-number-hw-2",
+    "target": "HW Prop 2.3: for a closed piecewise-C^{1,1} immersion, n₀(Λ) = (1/2π)∫(xẏ − yẋ)/(x²+y²) dt with bounded integrand (no PV)",
+    "was": "TauCeti.Contour.windingNumber_eq_real_integral_of_closed_interior_crossings more general",
+    "now": "TauCeti.Contour.windingNumber_eq_real_integral_of_closed_interior_crossings related; library unchanged (tauceti)",
+    "why": "windingNumber_eq_real_integral_of_closed_interior_crossings (Winding/RealIntegral/OnCurve.lean:479) needs weaker regularity than the layer (one-sided C^{1,1} at crossings) but adds the basepoint hypothesis γ a ≠ s. The two statements are incomparable, so 'more general' overstates it. The boundedness and integrability siblings need no basepoint hypothesis and stay 'more general'."
+   },
+   {
+    "layer": "tauceti:Completed/ContourIntegration#layer-2-residues-the-cauchy-primitive-and-the-classical-residue-theorem",
+    "target": "FTC along an arc: F' = f along the image of γ ⇒ ∮_γ f = F(γ b) − F(γ a); hence 0 for a closed curve",
+    "was": "Tau Ceti FTC lemmas 'exact'; note silent on the curve hypothesis",
+    "now": "fit 'special case' for integral_comp_mul_deriv_eq_sub_of_hasDerivAt, integral_comp_mul_eq_sub_of_hasDerivAt and integral_comp_mul_deriv_eq_zero_of_hasDerivAt_of_closed, with the hypothesis recorded in the note; library unchanged (tauceti)",
+    "why": "Each lemma assumes DifferentiableAt ℝ γ t (or HasDerivAt γ) at every t in the open interval, which excludes a piecewise-C¹ curve with a corner, the roadmap's standing curve object. The closed-curve form has the same hypothesis."
+   },
+   {
+    "layer": "tauceti:Completed/ContourIntegration#layer-2-residues-the-cauchy-primitive-and-the-classical-residue-theorem",
+    "target": "Cauchy's theorem for a contractible contour, reconciled with Mathlib's disc statements",
+    "was": "note: 'Mathlib only has circles/rectangles/annuli and primitives on discs'; cited DifferentiableOn.isExactOn_ball",
+    "now": "cites ContinuousMap.Homotopy.curveIntegral_add_curveIntegral_eq_of_hasFDerivWithinAt (special case) and records convex primitives; library unchanged (tauceti)",
+    "why": "Mathlib's CurveIntegral/Poincare.lean proves curve-integral invariance under a C² homotopy (line 257) and the existence of primitives on any convex set (line 396). The note understated Mathlib, and the C² homotopy theorem is a special case of this target."
+   },
+   {
+    "layer": "tauceti:Completed/ContourIntegration#layer-2-residues-the-cauchy-primitive-and-the-classical-residue-theorem",
+    "target": "Res_z(f'/f) = ord_z f",
+    "was": "note: 'Mathlib has only AnalyticAt.tendsto_mul_logDeriv_simple_zero (simple zeros)'",
+    "now": "cites Mathlib meromorphicOrderAt_logDeriv_eq_neg_one (related) and corrects the note; library unchanged (tauceti)",
+    "why": "Mathlib/Analysis/Meromorphic/Order.lean:1036 proves that logDeriv f has meromorphic order −1 at any zero or pole of finite nonzero order, and :1050 treats order-zero points. So the 'only simple zeros' claim is wrong, though Mathlib still gives no residue value."
+   },
+   {
+    "layer": "tauceti:Completed/ContourIntegration#layer-3-the-global-homological-cauchy-theorem",
+    "target": "Homology Cauchy theorem: f holomorphic on open Ω, C a cycle in Ω null-homologous in Ω ⇒ ∮_C f = 0",
+    "was": "note: 'Mathlib has only disc/annulus/rectangle Cauchy theorems'",
+    "now": "note also records Mathlib's C²-homotopy invariance of curve integrals; library unchanged (tauceti)",
+    "why": "ContinuousMap.Homotopy.curveIntegral_add_curveIntegral_eq_of_hasFDerivWithinAt (Poincare.lean:257) is a Mathlib Cauchy theorem beyond discs, annuli and rectangles."
+   },
+   {
+    "layer": "tauceti:Completed/ContourIntegration#layer-4-the-hungerbühlerwasem-generalized-residue-theorem-hw-theorem-33",
+    "target": "(layer duplicates)",
+    "was": "no duplicates listed",
+    "now": "added ModularForms Layer 1",
+    "why": "ModularForms Layer 1 states the valence formula through the on-contour HW weights at i and ρ, the application this layer lists as its last target."
+   },
+   {
+    "layer": "tauceti:Completed/ContourIntegration#layer-1-the-geometry-of-the-generalized-winding-number-hw-2",
+    "target": "(layer duplicates)",
+    "was": "no duplicates listed",
+    "now": "added ModularForms Layer 1",
+    "why": "ModularForms Layer 1 restates the ½ and 1/6 winding values as its elliptic weights and has its own fundamental-domain version of them."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases#part-a--the-hermite-basis-of-l²ℝ-the-v1-anchor",
+    "target": "(layer duplicates)",
+    "was": "listed its own sub-layers A1 and A3 as duplicates",
+    "now": "removed (no duplicates)",
+    "why": "A1, A2, A3 and A3′ are the children of Part A (parentStageId), and Part A's text is their concatenation. A sub-layer of the same roadmap is not another owner of a target, and listing two of the four children was inconsistent."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases#part-b--the-family-agnostic-spine-the-reusable-layer",
+    "target": "(layer duplicates)",
+    "was": "listed its own sub-layers B1, B2 and B3 as duplicates",
+    "now": "removed (no duplicates)",
+    "why": "B1–B3 are the children of Part B (parentStageId). A sub-layer of the same roadmap is not another owner of a target."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases#a1--hermite-polynomial-api",
+    "target": "derivative (hermite (n+1)) = (n+1) • hermite n, and Mathlib's degree_hermite reused",
+    "was": "note: Mathlib's hermite_succ is 'the three-term recursion'; silent on @[simp]",
+    "now": "note: hermite_succ is the defining recursion, the three-term recurrence is Tau Ceti's hermite_add_two, and the @[simp] deviation is recorded; library unchanged (tauceti)",
+    "why": "Mathlib/RingTheory/Polynomial/Hermite/Basic.lean:54 states hermite (n+1) = X·hermite n − derivative (hermite n). The three-term recurrence is Tau Ceti's Polynomial.hermite_add_two (Hermite/Derivative.lean:95). The layer asks for @[simp] on derivative_hermite_succ, and its docstring explains why it is not."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases#a1--hermite-polynomial-api",
+    "target": "Integrability of a polynomial against the Gaussian weight",
+    "was": "cited private TauCeti.integrable_aeval_mul_aeval_mul_gaussian as 'more general'",
+    "now": "cites the public TauCeti.integrable_eval_mul_gaussianEnvelope (more general); library unchanged (tauceti)",
+    "why": "integrable_aeval_mul_aeval_mul_gaussian (Hermite/Orthogonality.lean:75) is private and a special case: it rewrites to integrable_aeval_mul_gaussian at p·q. The public generalization, any real polynomial against any Gaussian envelope, is integrable_eval_mul_gaussianEnvelope (Gaussian/PolynomialMemLp.lean:100)."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases#a1--hermite-polynomial-api",
+    "target": "The one-step weighted-pairing recursion ∫ p·H_{n+1}·w = ∫ p'·Hₙ·w (via Rodrigues)",
+    "was": "cited private TauCeti.aeval_derivative_hermite; note: IBP 'against Mathlib's Rodrigues formula (Hermite/Gaussian.lean)'",
+    "now": "cites public Polynomial.derivative_hermite (related); note describes the actual proof; library unchanged (tauceti)",
+    "why": "aeval_derivative_hermite (Orthogonality.lean:67) is private. The proof of integral_aeval_mul_hermite_succ (lines 85–113) differentiates p·Hₙ·e^{−x²/2} using that step derived from hermite_succ. It neither uses nor imports Mathlib's Rodrigues formula."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases#a2--the-hermite-functions-ψₙ--ℝ--ℝ",
+    "target": "hermiteFunction with its regularity: Continuous, ContDiff ℝ ⊤, MemLp 2, and a SchwartzMap",
+    "was": "cited the definition hermiteSchwartzMap (exact) and integrable_hermiteFunction (related); Continuous uncited",
+    "now": "cites continuous_hermiteFunction and coe_hermiteSchwartzMap (⇑(hermiteSchwartzMap n) = hermiteFunction n), both exact; library unchanged (tauceti)",
+    "why": "The layer asks for Continuous and for 'a SchwartzMap ℝ ℝ with this underlying function'. The second is the theorem coe_hermiteSchwartzMap (Schwartz.lean:149), not the definition, and continuity is continuous_hermiteFunction (Basic.lean:85). Neither was cited."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases#a2--the-hermite-functions-ψₙ--ℝ--ℝ",
+    "target": "Ladder relations x·ψₙ and ψₙ′ in terms of ψ_{n±1}, and the a, a† operators",
+    "was": "cited the definitions hermiteAnnihilationCLM, hermiteCreationCLM, hermiteNumberCLM as 'more general'; note called the 𝒮(ℝ) operators the deferred item",
+    "now": "cites the theorems hermiteAnnihilationCLM_apply_hermiteSchwartzMap and hermiteCreationCLM_apply_hermiteSchwartzMap (exact), hermiteAnnihilationCLM related; note distinguishes 𝒮(ℝ) from the deferred L² packaging; library unchanged (tauceti)",
+    "why": "aψₙ = √n ψ_{n−1} and a†ψₙ = √(n+1) ψ_{n+1} are the theorems at Operator.lean:73 and :86, and the operator definitions alone assert nothing. The layer defers packaging a, a† on L², which is still missing, and asks for 𝒮(ℝ)-level statements, which exist."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases#a3--the-hermite-basis-of-l²ℝ-𝕜",
+    "target": "Completeness: f orthogonal to every ψₙ implies f = 0 a.e., by the entire-Fourier-transform / vanishing-moments route",
+    "was": "orthogonal_span_range_bareNormalizedLp_eq_bot and ae_eq_zero_of_forall_moment_eq_zero 'more general'; private exp_moment_gaussianWeight cited",
+    "now": "both 'related' (ingredients); cites public integrable_exp_mul_abs_gaussianWeight (related) and hasSum_hermiteFunctionLp_expansion (more general); library unchanged (tauceti)",
+    "why": "The two cited theorems are the weighted-measure polynomial completeness and the moment lemma, ingredients that reach ψₙ only through weightL2Isometry, so they are not generalizations of the statement about ψₙ. exp_moment_gaussianWeight (Hermite/Function/HilbertBasis.lean:50) is private, and its public source is integrable_exp_mul_abs_gaussianWeight (Gaussian/PolynomialMemLp.lean:47). The statement itself follows from hasSum_hermiteFunctionLp_expansion (Parseval.lean:70)."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases#a3--the-gaussian-hermite-basis-measure-side-the-enhancements-named-instance",
+    "target": "gaussianHermiteHilbertBasis 𝕜 : HilbertBasis ℕ 𝕜 (Lp 𝕜 2 (gaussianReal 0 1)), the bare normalized Hₙ/√(n!)",
+    "was": "cited private TauCeti.gaussianHermiteHilbertBasisAux (related)",
+    "now": "dropped; the public gaussianHermiteHilbertBasis and hilbertBasisOfWeightedMeasure remain; library unchanged (tauceti)",
+    "why": "gaussianHermiteHilbertBasisAux (Gaussian/Hermite/Basis.lean:107) is a private noncomputable def, which no consumer can use."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases#a3--the-gaussian-hermite-basis-measure-side-the-enhancements-named-instance",
+    "target": "memLp_hermite_gaussianReal (n) (v): variance-general L² membership of Hₙ/√(n!) under gaussianReal 0 v",
+    "was": "cited private TauCeti.memLp_hermiteℝ_normalized (special case)",
+    "now": "dropped; the public exact memLp_hermite_gaussianReal remains; library unchanged (tauceti)",
+    "why": "memLp_hermiteℝ_normalized (Gaussian/Hermite/Basis.lean:98) is a private theorem."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases#b1--completeness-toolkit-moment-determinacy",
+    "target": "Moment determinacy: an L¹ function with all exponential moments finite and all polynomial moments zero is a.e. zero",
+    "was": "two measure-level wrappers 'more general'; private complexMGF_eventuallyEq_of_forall_integral_pow_eq cited; note: routed through the complex MGF 'rather than a signed-measure detour'",
+    "now": "wrappers 'related'; cites public charFun_eq_of_forall_integral_pow_eq; note describes the signed-measure route actually taken; library unchanged (tauceti)",
+    "why": "The proof (VanishingMoments.lean:233–240) uses withDensityᵥ and withDensityᵥ_eq_withDensity_pos_part_sub_withDensity_neg_part, a finite-signed-measure argument, so the note stated the opposite of what the code does. _of_exists_integrable_exp (:303) and _of_finite_expMoments (:348) are measure-level corollaries with an extra MemLp 2 and ν-moment hypothesis, the latter 'strictly stronger' by its own docstring. complexMGF_eventuallyEq_of_forall_integral_pow_eq (Determinacy.lean:89) is private."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases#b1--completeness-toolkit-moment-determinacy",
+    "target": "The √w-envelope form: g ∈ L²(dx) orthogonal to every pₙ·√w implies g = 0, distinguished from L²(w)-orthogonality",
+    "was": "orthogonal_span_range_bareNormalizedLp_eq_bot 'exact' (and _of_span_eq_top 'more general'); private integral_pow_mul_clm_eq_zero cited",
+    "now": "both 'related'; cites hilbertBasisOfOrthogonalSystem (more general) and coeFn_hilbertBasisOfOrthogonalSystem (related); library unchanged (tauceti)",
+    "why": "orthogonal_span_range_bareNormalizedLp_eq_bot (PolynomialCompleteness.lean:165) concludes completeness inside Lp 𝕜 2 (μ.withDensity w), the L²(w) form. The layer calls that a distinct statement from the envelope form this target names, which follows from the envelope Hilbert basis (WeightedOrthogonalBasis.lean:193, 225). integral_pow_mul_clm_eq_zero (VanishingMoments.lean:279) is private."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases#b1--completeness-toolkit-moment-determinacy",
+    "target": "The compact-support case (Chebyshev) goes through the same lemma",
+    "was": "cited private TauCeti.isFiniteMeasure_of_integrable_exp_mul_abs (related)",
+    "now": "cites the public compact-support input TauCeti.integrable_exp_mul_abs_smul_measureT (related); library unchanged (tauceti)",
+    "why": "isFiniteMeasure_of_integrable_exp_mul_abs (VanishingMoments.lean:248) is private. The public Chebyshev-side statement that every exponential moment is finite on measureT is integrable_exp_mul_abs_smul_measureT (Chebyshev/Measure.lean:221)."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases#b2--orthogonality-relation--hilbertbasis",
+    "target": "From ∫ pₘpₙ w ∂μ = cₙδ plus completeness to a HilbertBasis of L²(μ) via the √w normalization, for any σ-finite μ",
+    "was": "hilbertBasisOfOrthogonalSystem 'exact'; orthonormal_bareNormalizedLp 'exact'; Chebyshev instance uncited",
+    "now": "hilbertBasisOfOrthogonalSystem 'more general'; orthonormal_bareNormalizedLp 'related'; cites chebyshevTEnvelopeHilbertBasis (special case); library unchanged (tauceti)",
+    "why": "hilbertBasisOfOrthogonalSystem takes arbitrary functions fₙ on any measurable space and needs no σ-finiteness, which is more than polynomials on ℝ with σ-finite μ. orthonormal_bareNormalizedLp is orthonormality of fₙ/√cₙ in L²(w·μ), not of the √w-normalized functions in L²(μ). The note's claim that the Chebyshev instance exercises the bridge is backed by chebyshevTEnvelopeHilbertBasis (Chebyshev/Envelope.lean:161)."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases#b2--orthogonality-relation--hilbertbasis",
+    "target": "weightL2Isometry : L²(w·μ) ≃ₗᵢ L²(μ), multiplication by √w, over an arbitrary measurable space",
+    "was": "cited private TauCeti.eLpNorm_sqrt_smul_withDensity; note: 'No Mathlib analogue'",
+    "now": "dropped the private citation; the note records Mathlib's L¹ analogue withDensitySMulLI; library unchanged (tauceti)",
+    "why": "eLpNorm_sqrt_smul_withDensity (WeightL2Isometry.lean:55) is private. Mathlib has MeasureTheory.withDensitySMulLI : Lp E 1 (μ.withDensity f) →ₗᵢ[ℝ] Lp E 1 μ (L1Space/Integrable.lean:864), the p = 1 analogue."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases#part-c--a-second-family-the-chebyshev-basis-of-l²-11",
+    "target": "Acceptance target: the basis corresponds to the cosine basis under x = cos θ",
+    "was": "chebyshevCosineL2Equiv_normalizedChebyshevTLp 'exact'; the cosine identification uncited",
+    "now": "chebyshevCosineL2Equiv_normalizedChebyshevTLp 'related'; cites coeFn_chebyshevCosineHilbertBasis (exact); library unchanged (tauceti)",
+    "why": "chebyshevCosineHilbertBasis is defined as the transport of chebyshevTHilbertBasis along chebyshevCosineL2Equiv (Cosine/HilbertBasis.lean:42–44), so the cited lemma holds by definition. The statement that the transported vectors are the normalized cosines cos(nθ)/√cₙ is coeFn_chebyshevCosineHilbertBasis (:48)."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases",
+    "target": "(roadmap summary)",
+    "was": "and the Fourier-integral machinery — and, as the roadmap claims,",
+    "now": "and the Fourier-integral machinery behind the Fourier-eigenfunction relation, plus the complexMGF/charFun and signed-measure (withDensityᵥ) API that the moment-determinacy engine runs on — and, as the roadmap claims,",
+    "why": "Brought in line with the B1 correction: the moment-determinacy engine rests on complexMGF/charFun and a signed-measure step, not on Fourier integrals, which Mathlib contributes for the eigenfunction relation instead."
+   },
+   {
+    "layer": "tauceti:Completed/OrthogonalL2Bases",
+    "target": "(roadmap summary)",
+    "was": "the only things the documents name as still open — IsFiniteMeasure measureT and the real→RCLike cast of Chebyshev completeness — are both discharged in the baseline.",
+    "now": "the three open targets Part C names — IsFiniteMeasure measureT, the compactly supported instance of B1's moment lemma, and the real→RCLike cast of Chebyshev completeness — are all discharged in the baseline.",
+    "why": "Part C lists three open targets, not two, and all three are discharged."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-3-the-discriminant-and-the-alternating-group",
+    "target": "The root-product formula: for monic f of degree n splitting in L, discr f = ∏_{i<j} (rᵢ − rⱼ)²",
+    "was": "cited private Polynomial.Monic.discr_eq_prod_roots_sub_sq_of_splits (exact)",
+    "now": "dropped; library unchanged (tauceti)",
+    "why": "A private theorem (Resultant/Discriminant.lean:372) no consumer can use. The public exact Polynomial.Monic.discr_eq_prod_roots_sub_sq and discr_prod_X_sub_C remain cited."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory",
+    "target": "Witt cancellation (Lam I.4.2) for a regular cancelled summand",
+    "was": "cited private TauCeti.isLeftCancelAdd_regularFormClass (exact)",
+    "now": "dropped; library unchanged (tauceti)",
+    "why": "A private theorem (Witt/Cancellation.lean:214). The public form is the anonymous instance IsCancelAdd (RegularFormClass K) at line 226, next to the public exact equivalent_of_equivalent_prod and _right."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal",
+    "target": "The Witt–Grothendieck ring Ŵ(K) and the Witt ring W(K), with functoriality and the dimension map to ZMod 2",
+    "was": "cited private TauCeti.isLeftCancelAdd_regularFormClass (related)",
+    "now": "dropped; library unchanged (partial)",
+    "why": "A private theorem (Witt/Cancellation.lean:214). The cancellativity the note relies on is the anonymous public instance IsCancelAdd (RegularFormClass K) at line 226."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l1--normal-families--montel-the-analytic-theorem-not-montelspace",
+    "target": "Vitali's theorem: a locally bounded family converging pointwise on a set with a limit point converges locally uniformly",
+    "was": "cited private TauCeti.eqOn_of_subseq_limits (related)",
+    "now": "dropped; library unchanged (tauceti)",
+    "why": "A private theorem (Conformal/Vitali.lean:97). The public vitali, vitali_of_tendsto and tendstoLocallyUniformlyOn_of_isLocallyBoundedOn_of_forall_tendsto remain cited."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l3--the-riemann-mapping-theorem-summit",
+    "target": "The biholomorphism packaging: holomorphic inverse, partial homeomorphism, homeomorphism of Ω with the disc",
+    "was": "cited private TauCeti.nonempty_homeomorph_unitDisc_of_isSimplyConnected (exact)",
+    "now": "dropped; library unchanged (tauceti)",
+    "why": "A private lemma (RiemannMapping/Equivalence.lean:170). The public riemannMapping_homeomorph gives the same homeomorphism for a proper domain and remains cited."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l3--the-riemann-mapping-theorem-summit",
+    "target": "The extremal-family argument: the pointed injection family is nonempty and normal, and |f′(z₀)| attains its maximum",
+    "was": "cited private TauCeti.moebius (related)",
+    "now": "dropped; library unchanged (tauceti)",
+    "why": "A private definition (Conformal/Koebe.lean:83). The public exists_isMaxOn_norm_deriv_of_isSimplyConnected, exists_isPointedDiscInjectionOn_one_lt_norm_deriv and surjOn_ball_of_isMaxOn remain cited."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l3--the-riemann-mapping-theorem-summit",
+    "target": "The square-root / holomorphic-log step, consumed from Mathlib's BranchLogRoot",
+    "was": "cited private TauCeti.exists_sq_eq_sub_injOn_ne_zero (related)",
+    "now": "dropped; library unchanged (both)",
+    "why": "A private theorem (Conformal/DiscInjection.lean:77). The public holomorphic root TauCeti.exists_differentiableOn_pow_eq and Mathlib's BranchLogRoot lemmas remain cited."
+   }
+  ],
+  "notes": "Reviewed all 239 targets of the 49 layers: the audit's 238 plus one milestone it omitted. Mechanical check: all 678 original citations resolve in the pinned index at the cited file and line. No cited declaration body contains sorry or admit, and at the pin Tau Ceti has no sorry token outside comments and declares no axiom. Every citation was then read in the Lean source and compared with the layer text. PolynomialGaloisGroups, QuadraticFormInvariants and ConformalMapping were read by the reviewer. ContourIntegration and OrthogonalL2Bases were checked target by target by two delegated read-only passes, and every issue they reported was re-verified at source by the reviewer before being applied. Result: 73 corrections, and after them 695 citations, all resolving at file and line, at most five per target, with 19 private citations removed or replaced. Presence claims that overstated the Lean, 7 now partial: PGG general wreath products (no product-action primitivity theorem or RegularWreathProduct comparison, as the audit's own note said); PGG discrField (naturality only in the ambient extension, no base-field functoriality); QFI Witt decomposition (regular forms only, no degenerate q_t summand, no Lam I.4.4, and no totally isotropic subspace notion in either library); QFI Witt-index functoriality (no monotonicity under base change); QFI discriminant (the Gram-determinant comparison was miscited as QuadraticMap.orthogonalDetSquareClass, the determinant of an orthogonal map mod squares; only the diagonal discr'_weightedSumSquares exists); QFI 7A Kummer (only the injective kummerClassMap: no kummerIso, hilbert90 or h2KummerToUnits); QFI 7A corestriction (abstract open-subgroup cor in degrees 0–2 only, no G_L ≤ G_K transfer). Verdicts: PGG Layer 3 and QFI Layer 1 are now 'partly built'. Absence claims contradicted by the libraries, 5 now partial: PGG conjugate fields (Mathlib IsGalois.map_fixingSubgroup, Tau Ceti Subgroup.fixedField_map_conj, IntermediateField.algHomAdjoinIntegralEquiv); PGG root enumerations (Polynomial.splits_iff_card_roots, nodup_roots_iff_of_splits); QFI Clifford invariant (Mathlib CliffordAlgebra.equivOfIsometry, and Tau Ceti central simplicity for polarized even-dimensional forms); QFI 6A uniformizer (Mathlib Valuation.IsUniformizer applies to a local field's valuation, contrary to the note); QFI 6A local square theorem (the e = 0 case, unitFiltration_one_le_range_powMonoidHom_of_isUnit). ConformalMapping's BranchLogRoot step is 'both', since the holomorphic root is Tau Ceti's exists_differentiableOn_pow_eq. Added target: QFI Layer 9 'which functional' (partial, Mathlib Algebra.trace_ne_zero and traceForm_nondegenerate). Citation fixes: QFI Cartan–Dieudonné now cites the public reflection API; CM derivative Schwarz–Pick is norm_deriv_div_one_sub_norm_sq_le; QFI 9 trace form no longer cites the gl_n trace form. Fit labels were downgraded where hypotheses were extra or weaker: CI decomposition lemmas carry a basepoint hypothesis, and the CI FTC lemmas need differentiability at every interior point. Notes were corrected where they misstated Mathlib or the proof route: Mathlib's logDeriv order lemmas, its C² homotopy invariance and convex primitives; hermite_succ is not the three-term recurrence; the pairing recursion does not use Mathlib's Rodrigues formula; moment determinacy goes through withDensityᵥ, i.e. a signed-measure argument. Duplicates: all 36 original ids resolve, none is retired. Removed 8 entries in 4 layers that listed the layer's own sub-layers (QFI 6 → 6A/6C, QFI 7 → 7B, OL2B Part A → A1/A3, Part B → B1–B3). Added 10: ProfiniteCohomology 13 (wreath product) for PGG 1; NumberFieldArithmetic 3 (§3.2 power-basis discriminant) for PGG 3; NumberFieldArithmetic 7 (§7.1 subfield dictionary) for PGG 0 and 2; SpinRepresentations 2 (Cartan–Dieudonné) for QFI 1; GN.6 (Grothendieck–Witt groups) for QFI 4; ClassFieldTheory 5 (cohomological Hilbert pairing) for QFI 6C; LocalFieldsRamification 0 for QFI 6A; ModularForms 1 (valence formula with HW weights) for CI 1 and 4. Every other absent claim holds after an independent search by name, Mathlib naming convention and docstring grep over both trees. There is no resolvent theory, transitive-group classification, Jordan p-cycle theorem, Witt ring, Pfister form, Hilbert symbol, quadratic defect, Hasse/Clifford invariant, H²–Brauer comparison, Stiefel–Whitney class, Scharlau transfer, prime end or converse Schwarz–Christoffel theorem. Left unchanged: two explicitly out-of-scope items are still listed as absent targets with that remark (CM L5 prime ends, OL2B Part D Laguerre/Jacobi). The roadmap summaries were brought in line with the corrections."
  }
 }

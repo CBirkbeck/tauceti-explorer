@@ -2001,14 +2001,14 @@
        "library": "partial",
        "declarations": [
         {
-         "name": "FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality",
+         "name": "TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean",
          "line": 232,
          "fit": "more general"
         },
         {
-         "name": "FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDualDualIso",
+         "name": "TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDualDualIso",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean",
          "line": 320,
@@ -2080,7 +2080,7 @@
        "library": "partial",
        "declarations": [
         {
-         "name": "FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality",
+         "name": "TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean",
          "line": 232,
@@ -2285,7 +2285,7 @@
    }
   },
   "AnabelianGeometryAndNonabelianChabauty": {
-   "summary": "Nothing this roadmap owns exists in either library. The decisive gap is at the very bottom: there is no étale fundamental group of a scheme anywhere in the baseline — Mathlib's `CategoryTheory/Galois/` develops Galois categories, fibre functors, Galois objects, prorepresentability and `IsFundamentalGroup` in the abstract, and `RingTheory/Etale/Finite.lean` has the category of finite étale algebras over a ring with its fibre functor at a geometric point, but the two are not joined, nothing covers a non-affine scheme, and the abstract theory is instantiated only for finite `G`-sets and, in Tau Ceti, for finite covering spaces of a space. Without it there are no path torsors, no Galois sections, no unipotent quotients and no Selmer varieties; independently, no declaration concerns Chabauty's method or Coleman integration (the two words occur only in Tau Ceti provenance comments), and `iteratedIntegral`, `NeronSeveri` and `anabelian` occur nowhere, and there is no p-adic height, no de Rham or rigid cohomology of a curve, no nonabelian `H¹`, and no Jacobian. The genuinely usable inputs are Mathlib's abstract Galois-category API, its finite étale algebras, low-degree abelian group cohomology and continuous cohomology (much extended in Tau Ceti), and Tau Ceti's Tannakian and unipotent-algebraic-group machinery, which would be the target category of NC.2. NC.6 is an export and conditionality-bookkeeping layer with no mathematics of its own.",
+   "summary": "Nothing this roadmap owns exists in either library. The decisive gap is at the very bottom: there is no étale fundamental group of a scheme anywhere in the baseline — Mathlib's `CategoryTheory/Galois/` develops Galois categories, fibre functors, Galois objects, prorepresentability and `IsFundamentalGroup` in the abstract, and `RingTheory/Etale/Finite.lean` has the category of finite étale algebras over a ring with its fibre functor at a geometric point, but the two are not joined, nothing covers a non-affine scheme, and the abstract theory is instantiated only for finite `G`-sets and, in Tau Ceti, for finite covering spaces of a space. Without it there are no path torsors, no Galois sections, no unipotent quotients and no Selmer varieties; independently, no declaration concerns Chabauty's method or Coleman integration (the two words occur only in Tau Ceti provenance comments), and `iteratedIntegral`, `NeronSeveri` and `anabelian` occur nowhere; there is no p-adic height, no de Rham or rigid cohomology of a curve, no nonabelian `H¹`, and no Jacobian. The genuinely usable inputs are Mathlib's abstract Galois-category API, its finite étale algebras, low-degree abelian group cohomology and continuous cohomology (much extended in Tau Ceti), and Tau Ceti's Tannakian and unipotent-algebraic-group machinery, which would be the target category of NC.2. NC.6 is an export and conditionality-bookkeeping layer with no mathematics of its own.",
    "layers": {
     "AnabelianGeometryAndNonabelianChabauty:NC.0": {
      "verdict": "not built",
@@ -2499,7 +2499,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib has abelian group cohomology in low degree with inflation–restriction, and continuous cohomology of a topological group (`continuousCohomology`, from homogeneous continuous cochains), which Tau Ceti develops much further (`TauCeti/RepresentationTheory/Homological/ContCohomology/`, with the Kummer sequence for the absolute Galois group). Nonabelian group cohomology is an explicit TODO in Mathlib's `GroupCohomology/LowDegree.lean`, and no `H¹` with values in a nonabelian group with action exists in either library. Nonabelian torsor-valued cohomology is absent from both libraries."
+       "note": "Mathlib has abelian group cohomology in low degree with inflation–restriction, and continuous cohomology of a topological group (`continuousCohomology`, from homogeneous continuous cochains), which Tau Ceti develops much further (`TauCeti/RepresentationTheory/Homological/ContCohomology/`, applied in `TauCeti/FieldTheory/GaloisCohomology/` to the Kummer sequence of the absolute Galois group). Nonabelian group cohomology is an explicit TODO in Mathlib's `GroupCohomology/LowDegree.lean`, and no `H¹` with values in a nonabelian group with action exists in either library. Nonabelian torsor-valued cohomology is absent from both libraries."
       },
       {
        "target": "local unramified and crystalline conditions at each place, retaining bad-place conditions",
@@ -2887,7 +2887,7 @@
        "library": "partial",
        "declarations": [
         {
-         "name": "FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality",
+         "name": "TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean",
          "line": 232,
@@ -3828,8 +3828,29 @@
     "was": "not listed",
     "now": "added HeightsRationalPointsAndObstructions:RP.5",
     "why": "RP.5 owns Mordell–Lang and Manin–Mumford for abelian varieties, the group case of the dynamical Mordell–Lang and unlikely-intersection endpoints DY.6 records."
+   },
+   {
+    "layer": "AbelianSchemesAndArithmeticModuli:A3",
+    "target": "Cartier duality imported from R07.1 and the Weil pairing between `A[n]` and `A∨[n]`",
+    "was": "cited `FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality`, `FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDualDualIso`",
+    "now": "`TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality`, `TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDualDualIso`",
+    "why": "The declarations live in `namespace TauCeti` (FiniteLocallyFree.lean:65–350); the index drops the prefix because an anonymous `namespace … end` block at lines 157–217 misleads its extractor. Lean reports the unprefixed names as unknown constants and resolves the prefixed ones."
+   },
+   {
+    "layer": "AbelianSchemesAndArithmeticModuli:A4",
+    "target": "imported p-divisible groups, Cartier duality and connected–étale sequences (R07.1–R07.2) and Grothendieck–Messing deformation theory (R07.6)",
+    "was": "cited `FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality`",
+    "now": "`TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality`",
+    "why": "The declarations live in `namespace TauCeti` (FiniteLocallyFree.lean:65–350); the index drops the prefix because an anonymous `namespace … end` block at lines 157–217 misleads its extractor. Lean reports the unprefixed names as unknown constants and resolves the prefixed ones."
+   },
+   {
+    "layer": "ArakelovGeometryAndAbelianHeights:R35.4",
+    "target": "treatment of primes dividing the isogeny degree by finite-flat and p-divisible-group theory",
+    "was": "cited `FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality`",
+    "now": "`TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality`",
+    "why": "The declarations live in `namespace TauCeti` (FiniteLocallyFree.lean:65–350); the index drops the prefix because an anonymous `namespace … end` block at lines 157–217 misleads its extractor. Lean reports the unprefixed names as unknown constants and resolves the prefixed ones."
    }
   ],
-  "notes": "Reviewed all 147 targets of the five roadmaps. Mechanical check: the audit's 258 citations (238 distinct declarations in 70 files) all resolve in the pinned declarations.tsv at the claimed library, file and line; no cited file contains a sorry token (at this pin Tau Ceti has sorry and axiom only inside comments); nothing cited is an axiom, and the cited structures and classes are carriers, not proofs. Three cited names were aliases deprecated on 2026-07-09 and are replaced by their targets. Statements: every cited declaration was read against its target. The five built verdicts (ArithmeticDirichletSeries Layers 0–4) were confirmed target by target, and both process verdicts (A0, NC.6) match their layer text. Absences: essentially every absent or partial claim was searched again by concept and by Mathlib naming convention, over the index and both source trees. Substantive errors found and fixed: (1) the Wiener–Ikehara entry and the summary said the Chebyshev growth bound is derived, but only O(t log t) is, which the source file itself calls one logarithm short of Chebyshev; (2) AbelianSchemes A3's [n] target was marked absent, although Tau Ceti proves deg [n] = n², the separability criterion for [n] and #ker [n] = n² for elliptic curves over a field, so the target is partial and A3 is now partly built, and the claim that no isogeny has a degree was wrong; (3) ArithmeticDynamics DY.0 put periodic and preperiodic points wholly in Mathlib, but preperiodic points are defined in neither library; (4) Arakelov R35.6 said Northcott is done in the generality needed, including tuples, but Mathlib has it only for elements and lists projective Northcott as a TODO; (5) NC.3 said there is no continuous cohomology of a Galois group, but Mathlib defines continuous cohomology and Tau Ceti builds the Kummer map into H¹(G_K, μₙ) on it. Several 'zero occurrences' claims (Siegel, Chabauty, Coleman, semistable, Pic of a scheme) were literally false and are reworded; their substance stands. Missed inputs now cited include Mathlib's finite étale algebras with their fibre functor (NC.0), Mathlib's Chebyshev file (ADS), the polynomial-map height bounds h(F x) = N h(x) + O(1) (DY.1), the Weierstrass ℘ equation (A5), Tau Ceti's fppf quotient sheaf and elliptic isogeny degree (A3, R35.4), its Tannakian reconstruction theorem (NC.2) and the Galois action on roots (DY.5). Duplicates: all 58 original claims resolve to live atlas stages, none in the retired FoundationsAndLibraryIntegration, and each is borne out by the target stage's text (NC.2 → R06.5 and NC.3 → R02.6 are declared-supplier links, and their notes say so); 11 were added, for 69 in all. 47 corrections in all; after them there are 281 citations, each checked at its exact file and line and sorry-free."
+  "notes": "Reviewed all 147 targets of the five roadmaps. Mechanical check: the audit's 258 citations (238 distinct declarations in 70 files) all resolve in the pinned declarations.tsv at the claimed library, file and line; no cited file contains a sorry token (at this pin Tau Ceti has sorry and axiom only inside comments); nothing cited is an axiom, and the cited structures and classes are carriers, not proofs. Three cited names were aliases deprecated on 2026-07-09 and are replaced by their targets. Two more were wrong: the index records `FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality` and `.cartierDualDualIso` without their `TauCeti.` namespace (an anonymous `namespace … end` block earlier in the file misleads its extractor), and the audit copied them into four citations. Lean check: in a build pinned to the same Mathlib with byte-identical sources, all 242 distinct cited declarations from the 86 files built there resolve once those two names carry their prefix, with axioms only among propext, Classical.choice and Quot.sound; the other three files (NaturalDensity, Prime/Psi, ResidueDegree) were checked at source, where their namespaces are unambiguous. Statements: every cited declaration was read against its target. The five built verdicts (ArithmeticDirichletSeries Layers 0–4) were confirmed target by target, and both process verdicts (A0, NC.6) match their layer text. Absences: essentially every absent or partial claim was searched again by concept and by Mathlib naming convention, over the index and both source trees. Substantive errors found and fixed: (1) the Wiener–Ikehara entry and the summary said the Chebyshev growth bound is derived, but only O(t log t) is, which the source file itself calls one logarithm short of Chebyshev; (2) AbelianSchemes A3's [n] target was marked absent, although Tau Ceti proves deg [n] = n², the separability criterion for [n] and #ker [n] = n² for elliptic curves over a field, so the target is partial and A3 is now partly built, and the claim that no isogeny has a degree was wrong; (3) ArithmeticDynamics DY.0 put periodic and preperiodic points wholly in Mathlib, but preperiodic points are defined in neither library; (4) Arakelov R35.6 said Northcott is done in the generality needed, including tuples, but Mathlib has it only for elements and lists projective Northcott as a TODO; (5) NC.3 said there is no continuous cohomology of a Galois group, but Mathlib defines continuous cohomology and Tau Ceti builds the Kummer map into H¹(G_K, μₙ) on it. Several 'zero occurrences' claims (Siegel, Chabauty, Coleman, semistable, Pic of a scheme) were literally false and are reworded; their substance stands. Missed inputs now cited include Mathlib's finite étale algebras with their fibre functor (NC.0), Mathlib's Chebyshev file (ADS), the polynomial-map height bounds h(F x) = N h(x) + O(1) (DY.1), the Weierstrass ℘ equation (A5), Tau Ceti's fppf quotient sheaf and elliptic isogeny degree (A3, R35.4), its Tannakian reconstruction theorem (NC.2) and the Galois action on roots (DY.5). Duplicates: all 58 original claims resolve to live atlas stages, none in the retired FoundationsAndLibraryIntegration, and each is borne out by the target stage's text (NC.2 → R06.5 and NC.3 → R02.6 are declared-supplier links, and their notes say so); 11 were added, for 69 in all. 50 corrections in all; after them there are 281 citations, each checked at its exact file and line and sorry-free."
  }
 }
