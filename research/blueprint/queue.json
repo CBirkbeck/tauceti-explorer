@@ -145,13 +145,16 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/CLASSIFY-01.md",
-   "state": "running",
+   "state": "done",
    "account": "claude2",
    "lane": 2,
    "attempts": 2,
    "startedAt": "2026-09-16T11:14:07Z",
-   "note": "interrupted by an orchestrator restart at 25/36 roadmaps; the next attempt continues from the saved file",
-   "promptPreface": "CONTINUATION: an earlier attempt saved research/blueprint/classify/CLASSIFY-01.result.json. Keep its entries (check them briefly) and classify only the roadmaps it lacks, then rewrite the whole file.\n\n"
+   "note": "",
+   "promptPreface": "CONTINUATION: an earlier attempt saved research/blueprint/classify/CLASSIFY-01.result.json. Keep its entries (check them briefly) and classify only the roadmaps it lacks, then rewrite the whole file.\n\n",
+   "finishedAt": "2026-09-16T11:37:23Z",
+   "seconds": 1393,
+   "result": {}
   },
   {
    "id": "CLASSIFY-02",
@@ -257,11 +260,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/CLASSIFY-03.md",
-   "state": "pending",
-   "account": null,
-   "lane": 1,
-   "attempts": 1,
-   "startedAt": "2026-09-16T11:14:07Z",
+   "state": "running",
+   "account": "claude2",
+   "lane": 2,
+   "attempts": 2,
+   "startedAt": "2026-09-16T11:37:25Z",
    "note": "released after a usage limit on claude6/1 at 2026-09-16T11:14:11Z",
    "promptPreface": "CONTINUATION: an earlier attempt saved research/blueprint/classify/CLASSIFY-03.result.json. Keep its entries (check them briefly) and classify only the roadmaps it lacks, then rewrite the whole file.\n\n"
   },
@@ -585,7 +588,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_EllipticCurves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #14"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
@@ -819,7 +823,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_Chebotarev.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #21"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_Chebotarev",
@@ -1347,7 +1352,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_Completed_OrthogonalL2Bases.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #37"
   },
   {
    "id": "REV-LINK-tauceti_Completed_OrthogonalL2Bases",
@@ -1446,7 +1452,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_AnalyticToricGeometry.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #40"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_AnalyticToricGeometry",
@@ -2205,7 +2212,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #63"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations",
