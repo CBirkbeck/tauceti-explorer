@@ -8,8 +8,8 @@
    "14G"
   ],
   "cluster": "arithmetic-geometry",
-  "distance": 7,
-  "distanceRationale": "Mathlib has smooth morphisms and equation-level reduction types of Weierstrass curves, and Tau Ceti has abelian varieties over a field, DVR models of curves and the combinatorial Picard group of a fibre's intersection matrix. There are no abelian schemes, Néron models or smoothening, no Tate modules of abelian varieties, and no semiabelian schemes, Raynaud extensions or generalised Jacobians. The targets (BLR, SGA 7 IX, Faltings–Chai degeneration) need several research-level layers on top of the missing abelian-scheme and formal-geometry theory.",
+  "distance": 8,
+  "distanceRationale": "Mathlib has smooth morphisms and equation-level reduction types of Weierstrass curves, and Tau Ceti has abelian varieties over a field, DVR models of curves and the combinatorial Picard group of a fibre's intersection matrix. There are no abelian schemes, Néron models or smoothening, no Tate modules of abelian varieties, and no semiabelian schemes, Raynaud extensions or generalised Jacobians. The targets (BLR, SGA 7 IX, Faltings–Chai degeneration) need several research-level layers on top of the missing abelian-scheme, formal/rigid-geometry and Tate-module theory. The good/semistable Galois comparisons of R11.5 also need p-adic Hodge theory.",
   "mathlibEvidence": [
    "mathlib:WeierstrassCurve.HasGoodReduction, WeierstrassCurve.HasMultiplicativeReduction (Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean) — equation-level reduction types only",
    "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety (TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean) — abelian varieties over a field, no abelian schemes over a base",
@@ -369,8 +369,8 @@
    "14K"
   ],
   "cluster": "arithmetic-geometry",
-  "distance": 8,
-  "distanceRationale": "Tau Ceti supplies the linear-algebra and group inputs: polarized Hodge structures, the split symplectic group scheme with its reductivity, and isogenies of abelian varieties over a field. There are no algebraic spaces or stacks and no Artin representability, no abelian schemes with polarizations, Rosati involutions or level structures, no Weil pairings, no deformation theory of abelian schemes and no Shimura varieties. Lan's and Kottwitz's constructions need several research-level layers on top of these missing foundations.",
+  "distance": 9,
+  "distanceRationale": "Tau Ceti supplies the linear-algebra and group inputs: polarized Hodge structures, the split symplectic group scheme with its reductivity, and isogenies of abelian varieties over a field. There are no algebraic spaces or stacks and no Artin representability, no abelian schemes with polarizations, Rosati involutions or level structures, no Weil pairings, no deformation theory of abelian schemes and no Shimura varieties. Lan's and Kottwitz's constructions rest on many of these unbuilt theories. The generic-fibre comparison and canonical-model stages (M3–M4) also need Baily–Borel/Borel algebraicity and the theory of complex multiplication.",
   "mathlibEvidence": [
    "tauceti:TauCeti.Hodge.Polarization (TauCeti/Geometry/Hodge/Polarization.lean) — polarized Hodge structures, the linear-algebra side of a PEL datum",
    "tauceti:TauCeti.Symplectic.coordinateHopfAlgebra (TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean) — split symplectic group scheme, with no similitude group of a PEL datum",
@@ -1200,10 +1200,10 @@
   ],
   "cluster": "p-adic-geometry",
   "distance": 8,
-  "distanceRationale": "Tau Ceti has built Huber pairs and Tate rings, the adic spectrum with rational subsets, and a structure presheaf on Spa. Mathlib has the tilt, the multiplicative untilt map and θ. There is no sheafiness theorem or adic space, and no almost ring theory, perfectoid Tate rings, tilting equivalence, almost purity or perfectoid étale site. The later stages (limits, pro-étale presentations, finite quotients, torsor descent) need Scholze's diamond-era results and the prismatic quotient theorem: several research-level layers.",
+  "distanceRationale": "Tau Ceti has built Huber pairs and Tate rings, the adic spectrum with rational subsets, and a structure presheaf on Spa with a rational-cover sheaf criterion. Mathlib has the tilt, the multiplicative untilt map and θ. There is no sheafiness theorem or adic space, and no almost ring theory, perfectoid Tate rings, tilting equivalence, almost purity or perfectoid étale site. The later stages (limits, pro-étale presentations, finite quotients, torsor descent) need Scholze's diamond-era results and the prismatic quotient theorem: several research-level layers.",
   "mathlibEvidence": [
    "tauceti:TauCeti.Huber.Pair (TauCeti/RingTheory/Huber/Pair.lean) and TauCeti.Huber.IsTateRing (TauCeti/RingTheory/Huber/Basic.lean)",
-   "tauceti:TauCeti.ValuationSpectrum.presentationLimitPresheaf (TauCeti/AlgebraicGeometry/AdicSpace/Spa/StructurePresheaf/Basic.lean) — structure presheaf on Spa, without a sheafiness theorem or adic spaces",
+   "tauceti:TauCeti.ValuationSpectrum.presentationLimitPresheaf (TauCeti/AlgebraicGeometry/AdicSpace/Spa/StructurePresheaf/Basic.lean) — structure presheaf on Spa, with a rational-cover sheaf criterion (isSheaf_iff_isSheafFor_rationalCover) but no sheafiness theorem or adic spaces",
    "mathlib:PreTilt.untilt (Mathlib/RingTheory/Perfectoid/Untilt.lean) — multiplicative untilt map, not the tilting equivalence",
    "mathlib:WittVector.fontaineTheta (Mathlib/RingTheory/Perfectoid/FontaineTheta.lean)",
    "absent: almost mathematics, perfectoid Tate rings and spaces, the tilting equivalence, almost purity, perfectoid étale and pro-étale sites, tilde-limits (no declarations matching IsPerfectoid, PerfectoidRing, AlmostZero, AlmostPurity, an AdicSpace structure, TildeLimit)"
@@ -1903,7 +1903,7 @@
    "mathlib:MeasureTheory.measure_limsup_atTop_eq_zero (Mathlib/MeasureTheory/OuterMeasure/BorelCantelli.lean) — Borel–Cantelli, convergence half",
    "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_tendsto_charFun (Mathlib/MeasureTheory/Measure/LevyConvergence.lean) — Lévy continuity theorem",
    "mathlib:AddCircle.ergodic_zsmul (Mathlib/Dynamics/Ergodic/AddCircle.lean) — ergodicity of multiplication maps on the circle",
-   "mathlib:Real.exists_rat_abs_sub_lt_and_lt_of_irrational (Mathlib/NumberTheory/DiophantineApproximation/Basic.lean) and GenContFract (Mathlib/Algebra/ContinuedFractions/Basic.lean)",
+   "mathlib:Real.exists_rat_abs_sub_lt_and_lt_of_irrational (Mathlib/NumberTheory/DiophantineApproximation/Basic.lean) — Dirichlet-type rational approximation",
    "mathlib:ArithmeticFunction.cardDistinctFactors (Mathlib/NumberTheory/ArithmeticFunction/Misc.lean) — ω(n)",
    "absent: Weyl's equidistribution criterion, discrepancy, Mertens' Σ1/p estimate, Turán–Kubilius and Erdős–Kac, Khintchine and Duffin–Schaeffer theorems, the Gauss measure of continued fractions (no declarations matching Equidistribut, Discrepancy, ErdosKac, TuranKubilius, DuffinSchaeffer, GaussMap)"
   ],
@@ -2486,8 +2486,8 @@
   "distance": 6,
   "distanceRationale": "The SF.0 layer is largely in Mathlib: schemes, flat/étale/smooth/proper/separated morphisms, quasi-coherent modules, big Zariski/étale/fpqc topologies and sheaf cohomology on sites. Tau Ceti adds Riemann–Roch consequences for function fields and Abel–Jacobi classes of Weil divisors. Several substantial layers are missing: algebraic spaces and stacks with effective descent, étale base-change theorems, Picard schemes, formal schemes and deformation theory, Chow groups and intersection theory, and de Jong's alterations.",
   "mathlibEvidence": [
-   "mathlib:AlgebraicGeometry.IsProper, AlgebraicGeometry.Etale, AlgebraicGeometry.Smooth (Mathlib/AlgebraicGeometry/Morphisms/) — morphism properties",
-   "mathlib:AlgebraicGeometry.Scheme.etaleTopology (Mathlib/AlgebraicGeometry/Sites/Etale.lean) and AlgebraicGeometry.Scheme.fpqcTopology (Mathlib/AlgebraicGeometry/Sites/Fpqc.lean)",
+   "mathlib:AlgebraicGeometry.IsProper (Mathlib/AlgebraicGeometry/Morphisms/Proper.lean) — one of the flat/étale/smooth/proper/separated morphism classes already present",
+   "mathlib:AlgebraicGeometry.Scheme.etaleTopology (Mathlib/AlgebraicGeometry/Sites/Etale.lean) — big étale site, with an fpqc topology alongside",
    "mathlib:CategoryTheory.Sheaf.H (Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean) — sheaf cohomology on sites, with no base-change theorems",
    "tauceti:TauCeti.Divisor.dim_eq_degree_add_one_sub_genus_of_two_mul_genus_sub_one_le_degree (TauCeti/FieldTheory/FunctionField/Consequences/HighDegree.lean) — Riemann–Roch for function fields in high degree",
    "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.weightedAbelJacobiClass (TauCeti/AlgebraicGeometry/WeilDivisor/AbelJacobi/Basic.lean)",
@@ -3160,6 +3160,179 @@
     "msc": [
      "11N35",
      "11-02"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+  "primaryMsc": "11G",
+  "secondaryMsc": [
+   "11F",
+   "14K",
+   "11R"
+  ],
+  "cluster": "arithmetic-geometry",
+  "distance": 8,
+  "distanceRationale": "Mathlib has Minkowski's discriminant bound, Hermite finiteness and different ideals. Tau Ceti has elementary Chebyshev bounds, finite locally free group schemes with Cartier duality and abelian varieties over a field. The discriminant stages are close, but Fontaine's and Schoof's theorems need Fontaine's ramification bound for finite flat group schemes over ℤ_p, Tate modules, Néron models and semistable reduction. The terminal cases also use potential modularity and ordinary lifting, so several research-level layers are missing.",
+  "mathlibEvidence": [
+   "mathlib:NumberField.abs_discr_ge (Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean) — Minkowski lower bound for discriminants",
+   "mathlib:differentIdeal (Mathlib/RingTheory/DedekindDomain/Different.lean) — the local input to discriminant upper bounds",
+   "tauceti:TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat (TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean) — finite locally free group schemes, without Fontaine's ramification bound",
+   "tauceti:TauCeti.primePsi_le_ncard_mul_log (TauCeti/NumberTheory/ArithmeticDirichletSeries/Prime/Psi.lean) — elementary Chebyshev bounds, not Rosser–Schoenfeld's explicit estimates",
+   "absent: Odlyzko-type analytic discriminant bounds, Fontaine's bound on ramification of finite flat group schemes over ℤ_p, Tate modules, Néron models and semistable reduction, the Tate/Serre/Fontaine/Schoof nonexistence theorems (no declarations matching Odlyzko, RootDiscriminant, FiniteFlat, Raynaud, TateModule, NeronModel)"
+  ],
+  "references": [
+   {
+    "title": "Il n'y a pas de variété abélienne sur ℤ",
+    "authors": "Fontaine, Jean-Marc",
+    "zbmath": 3989548,
+    "msc": [
+     "14K15",
+     "11G10",
+     "11G30"
+    ]
+   },
+   {
+    "title": "Abelian varieties over ℚ with bad reduction in one prime only",
+    "authors": "Schoof, René",
+    "zbmath": 2211028,
+    "msc": [
+     "11G10",
+     "14K15"
+    ]
+   },
+   {
+    "title": "The non-existence of certain Galois extensions of ℚ unramified outside 2",
+    "authors": "Tate, John",
+    "zbmath": 705083,
+    "msc": [
+     "11S15",
+     "11S31",
+     "11S37"
+    ]
+   },
+   {
+    "title": "Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)",
+    "authors": "Serre, Jean-Pierre",
+    "zbmath": 4043940,
+    "msc": [
+     "11F80",
+     "11F33",
+     "11G05",
+     "11R32",
+     "11R39"
+    ]
+   },
+   {
+    "title": "Serre's modularity conjecture: the level one case",
+    "authors": "Khare, Chandrashekhar",
+    "zbmath": 5077493,
+    "msc": [
+     "11F80",
+     "11F11",
+     "11R39"
+    ]
+   },
+   {
+    "title": "A simplified proof of Serre's conjecture",
+    "authors": "Dieulefait, Luis Victor; Pacetti, Ariel Martín",
+    "zbmath": 7733909,
+    "msc": [
+     "11F33"
+    ]
+   },
+   {
+    "title": "Approximate formulas for some functions of prime numbers",
+    "authors": "Rosser, J. Barkley; Schoenfeld, Lowell",
+    "zbmath": 3197247,
+    "msc": [
+     "11N05",
+     "11A41"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "SmoothRepresentationsOfLocalGroups",
+  "primaryMsc": "22E",
+  "secondaryMsc": [
+   "11F",
+   "20C"
+  ],
+  "cluster": "lie-theory-and-representations",
+  "distance": 8,
+  "distanceRationale": "Mathlib has abstract double-coset Hecke rings and algebraic induction with Frobenius reciprocity, and Tau Ceti has smooth discrete modules over profinite groups. There is no category of smooth representations of locally profinite groups, no C_c^∞ Hecke algebra with idempotents, and no compact or parabolic induction, Jacquet functors or second adjointness. Admissibility, the Bernstein decomposition and center, the Satake transform and Bernstein–Zelevinsky/co-Whittaker theory are also missing. The early stages are graduate theory, but Bernstein's theory, Helm's integral families and the Dat–Helm–Kurinczuk–Moss finiteness (built on parameter stacks and excursion operators) add several research-level layers.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.SmoothDiscreteTopRep (TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean) — smooth discrete modules for profinite groups",
+   "mathlib:HeckeRing (Mathlib/NumberTheory/HeckeRing/Defs.lean) — abstract double-coset Hecke rings, with no C_c^∞(G) convolution algebra",
+   "mathlib:Rep.ind (Mathlib/RepresentationTheory/Induced.lean) and Rep.resIndAdjunction (Mathlib/RepresentationTheory/FiniteIndex.lean) — algebraic induction, with no smooth or compact induction",
+   "absent: smooth representations of locally profinite groups, Jacquet functors and parabolic induction, second adjointness, admissibility and supercuspidal support, the Bernstein center, the Satake transform, Bernstein–Zelevinsky derivatives and co-Whittaker modules (no declarations matching Jacquet, ParabolicInduction, Supercuspidal, BernsteinCenter, SatakeTransform, Whittaker)"
+  ],
+  "references": [
+   {
+    "title": "Introduction to the theory of admissible representations of p-adic reductive groups (notes)",
+    "authors": "Casselman, W.",
+    "zbmath": null,
+    "msc": []
+   },
+   {
+    "title": "Representations of p-adic groups (Harvard lectures 1992)",
+    "authors": "Bernstein, Joseph",
+    "zbmath": null,
+    "msc": []
+   },
+   {
+    "title": "Le \"centre\" de Bernstein (rédigé par P. Deligne)",
+    "authors": "Bernstein, I. N.",
+    "zbmath": 3966501,
+    "msc": [
+     "22E50",
+     "43A22"
+    ]
+   },
+   {
+    "title": "Induced representations of reductive p-adic groups. I",
+    "authors": "Bernstein, I. N.; Zelevinsky, A. V.",
+    "zbmath": 3639915,
+    "msc": [
+     "22E50"
+    ]
+   },
+   {
+    "title": "Theory of spherical functions on reductive algebraic groups over p-adic fields",
+    "authors": "Satake, Ichirô",
+    "zbmath": 3198158,
+    "msc": []
+   },
+   {
+    "title": "Représentations l-modulaires d'un groupe réductif p-adique avec l ≠ p",
+    "authors": "Vignéras, Marie-France",
+    "zbmath": 921901,
+    "msc": [
+     "22-02",
+     "22E50"
+    ]
+   },
+   {
+    "title": "The Bernstein center of the category of smooth W(k)[GL_n(F)]-modules",
+    "authors": "Helm, David",
+    "zbmath": 6601299,
+    "msc": [
+     "11F33",
+     "11F70",
+     "22E50"
+    ]
+   },
+   {
+    "title": "Finiteness for Hecke algebras of p-adic groups",
+    "authors": "Dat, Jean-François; Helm, David; Kurinczuk, Robert; Moss, Gilbert",
+    "zbmath": 7837971,
+    "msc": [
+     "22E50",
+     "20C08",
+     "11F70",
+     "11F80"
     ]
    }
   ]

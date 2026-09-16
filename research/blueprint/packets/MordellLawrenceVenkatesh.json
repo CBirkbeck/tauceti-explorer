@@ -1,0 +1,3448 @@
+{
+ "roadmapId": "MordellLawrenceVenkatesh",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "status": "partial",
+ "summary": "Blueprint of Faltings's theorem by the method of Lawrence and Venkatesh (arXiv:1807.02721v3, §§2–8). LV.0 supplies the linear algebra (dimension of centralizers of semilinear automorphisms), the group Aff(q) with its commutator-product map, the counting of generating tuples and isotropic subgroups, and the symplectic transvection and Goursat lemmas that turn Dehn twists into Zariski-dense monodromy. LV.1 proves Faltings's finiteness lemma for semisimple p-adic Galois representations with fixed dimension, ramification set and weight, defines friendly places through the largest CM subfield, and proves that global purity forces the Hodge filtrations of crystalline representations at friendly places to have weight w/2 (LV Lemmas 2.8–2.10). LV.2–LV.4 set up abelian-by-finite families with good models, Gauss–Manin transport on p-adic residue disks with its convergence estimate and its compatibility with crystalline Frobenius, the Lagrangian period varieties, the complex and p-adic period maps that share one power series, and the finiteness criterion of LV Proposition 3.4. LV.5 is the S-unit theorem. LV.6 proves LV Proposition 5.3 (rational points on the base of an abelian-by-finite family with full monodromy). LV.7 constructs the Hurwitz space of Aff(q)-covers branched at one point and the Kodaira–Parshin family of reduced Pryms. LV.8–LV.9 compute its monodromy with mapping class groups (LV Theorem 8.1). LV.10 chooses q and a friendly place v by Dirichlet and Chebotarev, bounds size_v through the Weil pairing on H^1(Y, ℤ/(q−1)), and concludes Theorem 5.4. The general theories consumed (p-adic Hodge theory, crystalline cohomology and the comparison theorem, abelian schemes and their degree-one realizations, étale fundamental groups, class field theory, Chebotarev, algebraic groups, singular homology and covering spaces) are requested from their owners.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:AddChar.card_eq",
+    "kind": "lemma",
+    "module": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
+    "provides": "A finite abelian group has as many ℂ-valued additive characters as elements.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Etale",
+    "kind": "class",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/Etale.lean",
+    "provides": "Étale morphisms of schemes.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.IsFinite",
+    "kind": "class",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/Finite.lean",
+    "provides": "Finite morphisms of schemes.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.IsProper",
+    "kind": "class",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
+    "provides": "Proper morphisms of schemes (separated, universally closed, locally of finite type).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.IsProper.eq_valuativeCriterion",
+    "kind": "lemma",
+    "module": "Mathlib/AlgebraicGeometry/ValuativeCriterion.lean",
+    "provides": "Valuative criterion: proper = valuative criterion ∧ quasi-compact ∧ quasi-separated ∧ locally of finite type.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Smooth",
+    "kind": "class",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+    "provides": "Smooth morphisms of schemes.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.spread_out_of_isGermInjective",
+    "kind": "lemma",
+    "module": "Mathlib/AlgebraicGeometry/SpreadingOut.lean",
+    "provides": "A morphism of stalks Spec 𝒪_{X,x} → Spec 𝒪_{Y,y} over S spreads out to an open neighbourhood of x when Y is locally of finite type and X is germ-injective at x.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq",
+    "kind": "theorem",
+    "module": "Mathlib/Analysis/Analytic/Uniqueness.lean",
+    "provides": "Identity theorem: analytic functions on a preconnected open set that agree near a point agree on the set.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:CharacterModule",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Module/CharacterModule.lean",
+    "provides": "The character module A →+ AddCircle (1 : ℚ) (ℚ/ℤ-valued characters) of an abelian group A.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:CharacterModule.dual_surjective_of_injective",
+    "kind": "lemma",
+    "module": "Mathlib/Algebra/Module/CharacterModule.lean",
+    "provides": "Restriction of ℚ/ℤ-valued characters along an injective map is surjective (ℚ/ℤ is injective).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Field.exists_primitive_element",
+    "kind": "theorem",
+    "module": "Mathlib/FieldTheory/PrimitiveElement.lean",
+    "provides": "Primitive element theorem for finite separable extensions: some α has F⟮α⟯ = ⊤.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:FixedPoints.finrank_eq_card",
+    "kind": "theorem",
+    "module": "Mathlib/FieldTheory/Fixed.lean",
+    "provides": "For a finite group G acting faithfully on a field F, [F : F^G] = |G|.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:FormalMultilinearSeries.radius",
+    "kind": "def",
+    "module": "Mathlib/Analysis/Analytic/ConvergenceRadius.lean",
+    "provides": "The radius of convergence of a formal multilinear series.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:HasFPowerSeriesOnBall",
+    "kind": "structure",
+    "module": "Mathlib/Analysis/Analytic/Basic.lean",
+    "provides": "A function is given by a power series on a ball of positive radius.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Ideal.quotientInfRingEquivPiQuotient",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+    "provides": "Chinese remainder theorem: for pairwise coprime ideals f i, R ⧸ ⨅ f i ≃+* Π R ⧸ f i.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:InfiniteGalois.fixedField_fixingSubgroup",
+    "kind": "lemma",
+    "module": "Mathlib/FieldTheory/Galois/Infinite.lean",
+    "provides": "Infinite Galois correspondence: the fixed field of the fixing subgroup of an intermediate field L is L.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:InfiniteGalois.fixingSubgroup_fixedField",
+    "kind": "lemma",
+    "module": "Mathlib/FieldTheory/Galois/Infinite.lean",
+    "provides": "Infinite Galois correspondence: the fixing subgroup of the fixed field of a closed subgroup H is H.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:IsArithFrobAt",
+    "kind": "abbrev",
+    "module": "Mathlib/RingTheory/Frobenius.lean",
+    "provides": "σ is an arithmetic Frobenius at Q: σ(x) ≡ x^q mod Q with q the residue cardinality of the base.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:IsGalois.of_fixed_field",
+    "kind": "instance",
+    "module": "Mathlib/FieldTheory/Galois/Basic.lean",
+    "provides": "Artin: for a finite group G acting on a field E, the extension E/E^G is Galois.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:IsSemisimpleRing.exists_algEquiv_pi_matrix_divisionRing",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/SimpleModule/WedderburnArtin.lean",
+    "provides": "Wedderburn–Artin: a semisimple algebra is a finite product of matrix algebras over division algebras.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:LieAlgebra.IsSimple",
+    "kind": "class",
+    "module": "Mathlib/Algebra/Lie/Semisimple/Defs.lean",
+    "provides": "A Lie algebra is simple: its only ideals are ⊥ and ⊤ and it is not abelian.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:LieAlgebra.Symplectic.sp",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Lie/Classical.lean",
+    "provides": "The symplectic Lie algebra sp as the skew-adjoint matrices for the standard form J.",
+    "checked": "statement read at the pinned commit (via the baseline search report)"
+   },
+   {
+    "ref": "mathlib:LinearMap.BilinForm.finrank_orthogonal",
+    "kind": "lemma",
+    "module": "Mathlib/LinearAlgebra/BilinearForm/Orthogonal.lean",
+    "provides": "For a nondegenerate bilinear form, dim W^⊥ = dim V − dim W.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:LinearMap.transvection",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Transvection/Basic.lean",
+    "provides": "The linear map x ↦ x + f(x)·v for a linear form f and a vector v.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Matrix.SL2.transvection_induction",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+    "provides": "Every element of SL(2, F) over a field is a product of elementary transvections (induction principle).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Module.finrank_baseChange",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+    "provides": "finrank R (R ⊗[S] M') = finrank S M' (dimension is invariant under base change).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:MvPowerSeries",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+    "provides": "Multivariate formal power series (σ →₀ ℕ) → R.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:MvPowerSeries.IsRestricted",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/MvPowerSeries/Restricted.lean",
+    "provides": "A multivariate power series over a normed ring is c-restricted if ‖coeff t‖·∏ c_i^{t_i} → 0 cofinitely.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Nat.factorization_factorial_le_div_pred",
+    "kind": "theorem",
+    "module": "Mathlib/Data/Nat/Choose/Factorization.lean",
+    "provides": "Legendre's bound v_p(n!) ≤ n/(p−1).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:NumberField.IsCMField",
+    "kind": "class",
+    "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
+    "provides": "A CM field: totally complex and quadratic over its maximal real subfield.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:NumberField.IsCMField.complexEmbedding_complexConj",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
+    "provides": "For a CM field K and every complex embedding φ, φ(complexConj x) = conj(φ x).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:NumberField.Units.dirichletUnitTheorem.unitLattice_span_eq_top",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+    "provides": "Dirichlet: the real span of the logarithmic unit lattice (coordinates at the infinite places w ≠ w₀) is the whole space.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:NumberField.Units.logEmbedding",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+    "provides": "The logarithmic embedding u ↦ (mult w · log w(u))_{w ≠ w₀} of the units of 𝓞_K.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:NumberField.maximalRealSubfield",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
+    "provides": "The subfield of x ∈ K with φ(x) real for every complex embedding φ (the maximal totally real subfield).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Polynomial.coeff_le_of_roots_le",
+    "kind": "theorem",
+    "module": "Mathlib/Topology/Algebra/Polynomial.lean",
+    "provides": "For a monic polynomial split over a normed field with all roots of norm ≤ B, ‖coeff i‖ ≤ B^(d−i)·C(d, i).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Set.integer",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
+    "provides": "The subalgebra of S-integers of the fraction field of a Dedekind domain.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Set.unit",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
+    "provides": "The subgroup of S-units.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Submodule.le_of_le_smul_of_le_jacobson_bot",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Nakayama.lean",
+    "provides": "Nakayama: for N' finitely generated and I in the Jacobson radical, N' ≤ N ⊔ I•N' implies N' ≤ N.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:ZMod.card_units_eq_totient",
+    "kind": "theorem",
+    "module": "Mathlib/Data/Nat/Totient.lean",
+    "provides": "The unit group of ZMod n has φ(n) elements.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:cyclotomicCharacter",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+    "provides": "The p-adic cyclotomic character (L ≃+* L) →* ℤ_[p]ˣ.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "tauceti:LinearMap.GeneralLinearGroup.IsUnipotent",
+    "kind": "def",
+    "module": "TauCeti/LinearAlgebra/GeneralLinearGroup/Unipotent.lean",
+    "provides": "A linear automorphism g is unipotent if g − 1 is nilpotent.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "tauceti:NumberField.artinSymbol",
+    "kind": "def",
+    "module": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+    "provides": "The Frobenius conjugacy class in Gal(L/K) of a prime 𝔭 of 𝓞_K unramified in L.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "tauceti:Rep.mackeyDecomposition",
+    "kind": "def",
+    "module": "TauCeti/RepresentationTheory/Induction/Mackey/Decomposition.lean",
+    "provides": "Mackey decomposition Res_K Ind_H A ≅ ⊕ over double cosets of the induced restricted representations, for subgroups H, K of any group.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "tauceti:TauCeti.BilinForm.isometryGroup",
+    "kind": "def",
+    "module": "TauCeti/LinearAlgebra/BilinearForm/Isometry.lean",
+    "provides": "The subgroup of linear automorphisms preserving a bilinear form B (Sp(V, ω) when B = ω is alternating nondegenerate).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "tauceti:TauCeti.LocalCoefficientSystem.monodromyRepresentation",
+    "kind": "def",
+    "module": "TauCeti/AlgebraicTopology/LocalCoefficient.lean",
+    "provides": "The monodromy representation of a local coefficient system at a base point.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "tauceti:TauCeti.Symplectic.geometricallyConnectedCommHopfAlgProperty_coordinateHopfAlgebra",
+    "kind": "theorem",
+    "module": "TauCeti/Algebra/AlgebraicGroup/Symplectic/Connected.lean",
+    "provides": "The symplectic group scheme Sp_{2m} is geometrically connected over every field.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "tauceti:TauCeti.nonempty_linearEquiv_of_finrank_linearMap_eq",
+    "kind": "theorem",
+    "module": "TauCeti/RingTheory/Semisimple/Multiplicity.lean",
+    "provides": "Over a finite-dimensional semisimple algebra, finite modules with equal Hom-dimensions from every simple left ideal are isomorphic.",
+    "checked": "statement read at the pinned commit"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "lv2020",
+   "title": "Diophantine problems and p-adic period mappings",
+   "authors": "Brian Lawrence; Akshay Venkatesh",
+   "edition": "arXiv:1807.02721v3 (25 October 2019), 76 pp.; published Invent. Math. 221 (2020), 893–999, doi:10.1007/s00222-020-00966-7. Locators are to the arXiv v3 pagination.",
+   "url": "https://arxiv.org/pdf/1807.02721v3",
+   "sha256": "e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b",
+   "readSections": [
+    "§1 Introduction (pp. 1–8)",
+    "§2 Notation and preparatory results (pp. 8–15)",
+    "§3 Fibers with good reduction in a family (pp. 15–20)",
+    "§4 The S-unit equation (pp. 20–24)",
+    "§5 Outline of the argument for Mordell's conjecture (pp. 25–28)",
+    "§6 Rational points on the base of an abelian-by-finite family (pp. 28–34)",
+    "§7 The Kodaira–Parshin family (pp. 34–39)",
+    "§8 The monodromy of Kodaira–Parshin families (pp. 39–51)",
+    "§9 (pp. 51–55), read to confirm that the Mordell argument does not use it",
+    "References (pp. 74–76)"
+   ]
+  },
+  {
+   "id": "brinon-conrad",
+   "title": "CMI summer school notes on p-adic Hodge theory (preliminary version)",
+   "authors": "Olivier Brinon; Brian Conrad",
+   "edition": "Preliminary version (2009), 290 pp.",
+   "url": "https://math.stanford.edu/~conrad/papers/notes.pdf",
+   "sha256": "f27d508bc64b3c9e2e9de5041429b2cb6a909b2cd72ff8096c20493f27b5a187",
+   "readSections": [
+    "§2.2 Theorem 2.2.7 (Tate–Sen), p. 15",
+    "§6.3 Example 6.3.1, Propositions 6.3.2–6.3.3, pp. 76–77",
+    "§8.1 Definition 8.1.1, Proposition 8.1.2, pp. 102–103",
+    "§8.2 Definition 8.2.1, p. 110",
+    "§9.1 Propositions 9.1.9 and 9.1.11, pp. 134–135",
+    "§9.3 Theorem 9.3.4, p. 147"
+   ]
+  },
+  {
+   "id": "farb-margalit",
+   "title": "A primer on mapping class groups",
+   "authors": "Benson Farb; Dan Margalit",
+   "edition": "Version 5.0 (the authors' freely distributed version, 509 pp.; published by Princeton University Press, 2012). Page numbers are the printed ones.",
+   "url": "https://pagine.dm.unipi.it/~a019210/Farb%20Magalit_Primer%20on%20Teichmuller%20theory.pdf",
+   "sha256": "46c4cc848134ba38d6e7fe15462aac3069796db23b0e34a50a9018773d7fc7f2",
+   "readSections": [
+    "§3.6.2 Proposition 3.19 (pp. 89–90)",
+    "§4.2 Theorem 4.6, Fact 4.7 and the proof (pp. 101–105)",
+    "§6.2 Proposition 6.2 (p. 173)",
+    "§6.3 Proposition 6.3, Theorem 6.4 (pp. 176–177)"
+   ]
+  },
+  {
+   "id": "milne-cm",
+   "title": "Complex Multiplication",
+   "authors": "J. S. Milne",
+   "edition": "Course notes (version posted at jmilne.org, accessed 2026-09-16)",
+   "url": "https://www.jmilne.org/math/CourseNotes/CM.pdf",
+   "sha256": "0ac337a885d72f6938f15724b897f568fe350d0d754d0b52370b8f3a01d2e2b5",
+   "readSections": [
+    "Chapter I, CM-algebras: Proposition 1.4, Corollary 1.5, Remarks 1.6–1.7 (pp. 10–11)",
+    "Chapter I, Infinity types: Proposition 4.9 and its proof (pp. 37–38)"
+   ]
+  },
+  {
+   "id": "sga1",
+   "title": "Revêtements étales et groupe fondamental (SGA 1)",
+   "authors": "A. Grothendieck; M. Raynaud",
+   "edition": "Updated edition, arXiv:math/0206203 (Documents Mathématiques 3, SMF 2003)",
+   "url": "https://arxiv.org/pdf/math/0206203",
+   "sha256": "8e64218d356456c534eebf996940f0f957e43b54f1a080241debe12cbaf60d3c",
+   "readSections": [
+    "Exposé XII §5, Théorème 5.1 (Riemann existence), pp. 251–252",
+    "Exposé XIII §4, Proposition 4.3 and Exemples 4.4, pp. 307–309"
+   ]
+  },
+  {
+   "id": "deligne-bourbaki-616",
+   "title": "Preuve des conjectures de Tate et de Shafarevitch (d'après G. Faltings)",
+   "authors": "Pierre Deligne",
+   "edition": "Séminaire Bourbaki, exposé 616 (1983/84), Astérisque 121–122 (1985)",
+   "url": "http://www.numdam.org/item/SB_1983-1984__26__25_0.pdf",
+   "sha256": "b0865c63f3c65e768c388e5d575a1395ab401c0edaf45a49305679fb16c73a77",
+   "readSections": [
+    "§3, Théorème 3.1 and its proof (pp. 17–18 of the numdam file)"
+   ]
+  },
+  {
+   "id": "faltings-1983",
+   "title": "Endlichkeitssätze für abelsche Varietäten über Zahlkörpern",
+   "authors": "Gerd Faltings",
+   "edition": "Invent. Math. 73 (1983), 349–366",
+   "url": "https://math.uchicago.edu/~drinfeld/Deligne%27s_conjecture_Manin_conf/Faltings_argument/Faltings.pdf",
+   "sha256": "0b7fb3e505d5d63e3e6c5913daf15bd843488e59f80f8d5176b154ac8faa3fc2",
+   "readSections": [
+    "§3 Lemma 4 (p. 357)",
+    "§5 Satz 5 and its proof (pp. 362–363)"
+   ]
+  },
+  {
+   "id": "berthelot-ogus",
+   "title": "Notes on Crystalline Cohomology",
+   "authors": "Pierre Berthelot; Arthur Ogus",
+   "edition": "Princeton University Press / University of Tokyo Press, 1978",
+   "url": "https://math.bu.edu/people/yangzhe/BO_Crystalline.pdf",
+   "sha256": "f3565d2ce264c92a71f8f98495df563bbacfcbe75ee83b834aa620931c2e5534",
+   "readSections": [
+    "§7, Corollaries 7.3–7.4 and Corollary 7.9 (pp. 7.4–7.16)"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/galois-tensor-splitting",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "Splitting of a finite separable extension after base change to a splitting field",
+   "kind": "lemma",
+   "statement": "Let E/F be a finite separable field extension and Ω a field containing F over which the minimal polynomial of a primitive element of E splits (for instance an algebraically closed field containing F). Let Σ = Hom_F(E, Ω). The Ω-algebra map E ⊗_F Ω → Ω^Σ, e ⊗ x ↦ (τ(e)x)_{τ∈Σ}, is an isomorphism. Consequently every E ⊗_F Ω-module M decomposes as M = ⊕_{τ∈Σ} M^τ, where M^τ = {m : (e ⊗ 1)m = (1 ⊗ τ(e))m for all e ∈ E}, and the projections are given by the primitive idempotents.",
+   "hypotheses": [
+    "E/F finite separable",
+    "Ω ⊇ F a field in which the minimal polynomial of a primitive element of E splits"
+   ],
+   "proofSteps": [
+    "Choose a primitive element α with E = F(α) (primitive element theorem) and let f be its minimal polynomial, which is separable.",
+    "E ⊗_F Ω ≅ Ω[X]/(f); since f splits over Ω into the distinct linear factors X − τ(α), τ ∈ Σ, the ideals (X − τ(α)) are pairwise coprime and the Chinese remainder theorem gives Ω[X]/(f) ≅ ∏_τ Ω[X]/(X − τ(α)) ≅ Ω^Σ.",
+    "Trace the composite on e ⊗ x to identify it with e ⊗ x ↦ (τ(e)x)_τ.",
+    "The primitive idempotents of Ω^Σ act on any module and cut out the eigen-decomposition M = ⊕ M^τ."
+   ],
+   "acceptance": [
+    "For E = ℚ(i), F = ℚ, Ω = ℂ: ℚ(i) ⊗ ℂ ≅ ℂ × ℂ via i ↦ (i, −i).",
+    "The decomposition is functorial in M and compatible with tensor products."
+   ],
+   "prerequisites": [
+    "mathlib:Field.exists_primitive_element",
+    "mathlib:Ideal.quotientInfRingEquivPiQuotient"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.1, proof of Lemma 2.1, p. 9",
+     "excerpt": "Then V̄ = V ⊗F F̄ is a E ⊗F F̄ ≃ F̄ Σ -module, and splitting by idempotents of E ⊗F F̄ we get a decomposition",
+     "match": "The splitting used in the proof of Lemma 2.1; the node isolates it as a lemma."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/LinearAlgebra/GaloisSplitting",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/semilinear-centralizer",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "The centralizer of a semilinear automorphism",
+   "kind": "definition",
+   "statement": "Let σ be a field automorphism of E and φ : V → V a σ-semilinear bijection of a finite-dimensional E-vector space (φ(ev) = σ(e)φ(v)). The centralizer Z(φ) := {f ∈ End_E(V) : f ∘ φ = φ ∘ f}. It is a subalgebra of End_E(V) over the fixed field F = E^σ (not an E-subspace in general), and its unit group Z(φ)^× = Z(φ) ∩ GL_E(V) is the group of E-linear automorphisms commuting with φ.",
+   "hypotheses": [
+    "σ ∈ Aut(E)",
+    "φ σ-semilinear and bijective",
+    "dim_E V < ∞"
+   ],
+   "proofSteps": [
+    "Define Z(φ) as the kernel of the F-linear map End_E(V) → End(V), f ↦ fφ − φf; check that fφ − φf is additive and that for c ∈ F, (cf)φ = c(fφ) since σ(c) = c.",
+    "Closure under composition and identity is immediate, so Z(φ) is an F-subalgebra."
+   ],
+   "acceptance": [
+    "Z(id_V) = End_E(V) when σ = id.",
+    "For E = ℚ_{p²}, φ = σ ⊕ σ on E², Z(φ) = M_2(ℚ_p)."
+   ],
+   "prerequisites": [
+    "mathlib:LinearMap.transvection"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.1, Lemma 2.1, p. 9",
+     "excerpt": "Define the centralizer Z(φ) of φ in the ring of E-linear endomorphisms of V via Z(φ) = {f : V → V an E-linear map, f φ = φf }; it is an F -vector space.",
+     "match": "Definition of Z(φ) and its F-structure."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "semilinearCentralizer",
+     "role": "constructor",
+     "statement": "Z(φ) as an F-subalgebra of End_E(V), F = fixedField σ."
+    },
+    {
+     "name": "mem_semilinearCentralizer",
+     "role": "characterisation",
+     "statement": "f ∈ Z(φ) ↔ f ∘ φ = φ ∘ f."
+    },
+    {
+     "name": "semilinearCentralizer_le_pow",
+     "role": "relation",
+     "statement": "Z(φ) ⊆ Z(φ^n) for every n ≥ 1 (φ^n is σ^n-semilinear)."
+    },
+    {
+     "name": "units_semilinearCentralizer",
+     "role": "characterisation",
+     "statement": "Z(φ)^× = {g ∈ GL_E(V) : gφ = φg}; it acts on subspaces of V and on filtrations preserving the φ-stable structure."
+    },
+    {
+     "name": "semilinearCentralizer_linear",
+     "role": "compatibility",
+     "statement": "When σ = id, Z(φ) is the usual centralizer of the linear map φ (Mathlib Subalgebra.centralizer)."
+    },
+    {
+     "name": "semilinearCentralizer_conj",
+     "role": "functoriality",
+     "statement": "For an E-linear iso u : V ≅ W, u Z(φ) u⁻¹ = Z(uφu⁻¹)."
+    },
+    {
+     "name": "semilinearCentralizer_scalar",
+     "role": "example",
+     "statement": "If φ = σ ⊗ 1 on E ⊗_F V₀ then Z(φ) = End_F(V₀) ⊗ 1."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/LinearAlgebra/SemilinearCentralizer",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/semilinear-centralizer-finrank",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "Dimension of the centralizer of a semilinear automorphism (LV Lemma 2.1)",
+   "kind": "theorem",
+   "statement": "Let σ be an automorphism of the field E of finite order e with fixed field F, V an E-vector space of dimension d and φ a σ-semilinear bijection of V. Then dim_F Z(φ) = dim_E Z(φ^e), where φ^e is E-linear; in particular dim_F Z(φ) ≤ d².",
+   "hypotheses": [
+    "σ of finite order e, F = E^σ",
+    "dim_E V = d",
+    "φ σ-semilinear and bijective"
+   ],
+   "proofSteps": [
+    "By Artin's theorem E/F is Galois with group ⟨σ⟩ of order e.",
+    "Let F̄ be an algebraic closure of F and Σ = Hom_F(E, F̄); by the splitting lemma V̄ = V ⊗_F F̄ = ⊕_{τ∈Σ} V̄^τ.",
+    "φ̄ = φ ⊗ 1 is F̄-linear and maps V̄^τ onto V̄^{τσ^{-1}}; the orbits of σ on Σ form one cycle τ₀, τ₀σ^{-1}, …, τ₀σ^{-(e−1)}.",
+    "Z(φ) ⊗_F F̄ is the centralizer of φ̄ inside End_{E⊗F̄}(V̄) (kernels commute with the flat base change F → F̄); an element (f_τ) of it is determined by f_{τ₀}, which commutes with φ̄^e|V̄^{τ₀}, and every such f_{τ₀} extends uniquely by f_{τ₀σ^{-i}} = φ̄^i f_{τ₀} φ̄^{-i}. Hence Z(φ) ⊗ F̄ ≅ centralizer of φ̄^e on V̄^{τ₀}.",
+    "(V̄^{τ₀}, φ̄^e) is the base change of (V, φ^e) along τ₀ : E → F̄, so its centralizer has F̄-dimension dim_E Z(φ^e).",
+    "Compare dimensions using invariance of dimension under base change; the bound follows from Z(φ^e) ⊆ End_E(V)."
+   ],
+   "acceptance": [
+    "E = ℚ_{p²}, F = ℚ_p, φ = σ ⊕ σ on E²: both sides equal 4.",
+    "If φ^e is a scalar then dim_F Z(φ) = d².",
+    "If φ^e has distinct eigenvalues in E then dim_F Z(φ) ≤ d."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.0/galois-tensor-splitting",
+    "MordellLawrenceVenkatesh:LV.0/semilinear-centralizer",
+    "mathlib:IsGalois.of_fixed_field",
+    "mathlib:FixedPoints.finrank_eq_card",
+    "mathlib:Module.finrank_baseChange"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.1, Lemma 2.1 and proof, p. 9",
+     "excerpt": "it is an F -vector space. Then dimF Z(φ) = dimE Z(φe ), where φe : V → V is now E-linear. In particular, dimF Z(φ) ⩽ (dimE V )2 .",
+     "match": "Statement of Lemma 2.1."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.1, proof of Lemma 2.1, p. 9",
+     "excerpt": "projection to the τ0 factor induces an isomorphism e Z(φ) ≃ centralizer of φ on V̄ τ0 .",
+     "match": "The key step, reproduced as proof steps 4–5."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/LinearAlgebra/SemilinearCentralizer",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/semilinear-centralizer-unramified",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "Frobenius centralizers over unramified extensions of a p-adic field",
+   "kind": "lemma",
+   "statement": "Let K_v/ℚ_p be finite unramified of degree f_v, L/K_v finite unramified of degree r, and σ_L the arithmetic Frobenius of L over ℚ_p. Let V be an L-vector space of dimension n and φ a σ_L-semilinear bijection. Then Z(φ) ⊆ Z(φ^{f_v}); the latter is a K_v-subalgebra of End_L(V) with dim_{K_v} Z(φ^{f_v}) = dim_L Z(φ^{f_v r}) ≤ n²; its unit group is the group of K_v-points of the K_v-group scheme of units of this K_v-algebra, a smooth connected affine group of dimension dim_{K_v} Z(φ^{f_v}).",
+   "hypotheses": [
+    "K_v/ℚ_p unramified of degree f_v",
+    "L/K_v unramified of degree r",
+    "φ σ_L-semilinear bijective, dim_L V = n"
+   ],
+   "proofSteps": [
+    "σ_L^{f_v} generates Gal(L/K_v), which is cyclic of order r with fixed field K_v (unramified extensions of local fields are Galois with Frobenius generator).",
+    "φ^{f_v} is σ_L^{f_v}-semilinear; apply the dimension formula for semilinear centralizers with e = r.",
+    "Z(φ) ⊆ Z(φ^{f_v}) is the power relation of the centralizer API.",
+    "The unit group of a finite-dimensional K_v-algebra A is represented by the open subscheme of the affine space of A where the norm is invertible; it is smooth and connected of dimension dim A."
+   ],
+   "acceptance": [
+    "K_v = ℚ_p, L = ℚ_{p^r}, V = L with φ = σ_L: Z(φ) = ℚ_p and Z(φ^{1}) = ℚ_p has dimension 1 = dim_L Z(φ^r).",
+    "The bound dim ≤ 4d² for n = 2d used in LV Lemma 6.2."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.0/semilinear-centralizer-finrank",
+    "FoundationsAndLibraryIntegration:LI.4"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, proof of Lemma 6.2, p. 31",
+     "excerpt": "Apply Lemma 2.1 to the field extension K(y00 )w /Kv to see that this Frobenius central- izer has Kv -dimension at most (dimK(y00 )w0 Vy00 ,w0 )2 = 4d2 .",
+     "match": "The application of Lemma 2.1 to an unramified extension of K_v."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/LinearAlgebra/SemilinearCentralizer",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius — LocalFieldsRamification Layer 2 (unramified extensions and Frobenius)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/affine-group",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "The affine group Aff(q) of a prime field",
+   "kind": "definition",
+   "statement": "For a prime q ≥ 3, Aff(q) is the subgroup of Sym(𝔽_q) consisting of the permutations x ↦ ax + b with a ∈ 𝔽_q^×, b ∈ 𝔽_q. It is isomorphic to the semidirect product 𝔽_q^+ ⋊ 𝔽_q^×; λ : Aff(q) → 𝔽_q^×, (x ↦ ax+b) ↦ a, is a surjective homomorphism with kernel the translations 𝔽_q^+; H_q = 𝔽_q^× (the maps x ↦ ax) is the stabilizer of 0.",
+   "hypotheses": [
+    "q ≥ 3 prime"
+   ],
+   "proofSteps": [
+    "Define Aff(q) as the image of the injective homomorphism 𝔽_q^+ ⋊ 𝔽_q^× → Sym(𝔽_q), (b, a) ↦ (x ↦ ax + b).",
+    "λ is the projection to 𝔽_q^×; its kernel is the image of 𝔽_q^+.",
+    "The stabilizer of 0 consists of the maps with b = 0."
+   ],
+   "acceptance": [
+    "Aff(3) ≅ S_3 = Sym(𝔽_3).",
+    "|Aff(5)| = 20 and Aff(5) is the Frobenius group F₂₀."
+   ],
+   "prerequisites": [
+    "mathlib:ZMod.card_units_eq_totient"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.6, p. 14",
+     "excerpt": "Aff(q) ∼= (Fq )+ o (Fq )∗ ; this group has important applications in the theory of qualifying examinations.",
+     "match": "Definition of Aff(q) as a permutation group and its semidirect-product structure."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "affineGroup",
+     "role": "constructor",
+     "statement": "Aff(q) as a subgroup of Equiv.Perm (ZMod q)."
+    },
+    {
+     "name": "affineGroup.mk",
+     "role": "constructor",
+     "statement": "For a ∈ (ZMod q)ˣ and b ∈ ZMod q, the element x ↦ ax + b; mk a b = mk a' b' ↔ a = a' ∧ b = b'."
+    },
+    {
+     "name": "affineGroup.mulEquivSemidirect",
+     "role": "equivalence",
+     "statement": "Aff(q) ≃* Multiplicative (ZMod q) ⋊ (ZMod q)ˣ with the scaling action."
+    },
+    {
+     "name": "affineGroup.linearPart",
+     "role": "data",
+     "statement": "The surjective homomorphism λ : Aff(q) →* (ZMod q)ˣ, λ(mk a b) = a."
+    },
+    {
+     "name": "affineGroup.ker_linearPart",
+     "role": "characterisation",
+     "statement": "ker λ = the translations {mk 1 b}, a normal subgroup isomorphic to ZMod q."
+    },
+    {
+     "name": "affineGroup.mk_mul_mk",
+     "role": "simp",
+     "statement": "mk a b * mk a' b' = mk (a a') (a b' + b); (mk a b)⁻¹ = mk a⁻¹ (−a⁻¹ b)."
+    },
+    {
+     "name": "affineGroup.card",
+     "role": "other",
+     "statement": "|Aff(q)| = q(q − 1)."
+    },
+    {
+     "name": "affineGroup.stabilizer_zero",
+     "role": "characterisation",
+     "statement": "The stabilizer of 0 is H_q = {mk a 0} ≃* (ZMod q)ˣ; its index is q and Aff(q) acts on 𝔽_q ≅ Aff(q)/H_q."
+    },
+    {
+     "name": "affineGroup.commutator_eq",
+     "role": "relation",
+     "statement": "[mk a b, mk a' b'] = mk 1 (b(1 − a') − b'(1 − a)); the commutator subgroup is the translation subgroup."
+    },
+    {
+     "name": "affineGroup.isPretransitive",
+     "role": "instance",
+     "statement": "Aff(q) acts sharply 2-transitively on 𝔽_q."
+    },
+    {
+     "name": "affineGroup.example_three",
+     "role": "example",
+     "statement": "Aff(3) = Equiv.Perm (ZMod 3)."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/GroupTheory/AffineGroup",
+    "namespace": "TauCeti.LawrenceVenkatesh.AffineGroup"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/affine-group-cycle-type",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "Cycle types of elements of Aff(q)",
+   "kind": "lemma",
+   "statement": "Let q ≥ 3 be prime and g = (x ↦ ax + b) ∈ Aff(q). If a ≠ 1, then g has exactly one fixed point and all its other cycles have length ord(a), the order of a in 𝔽_q^×. If a = 1 and b ≠ 0, g is a q-cycle. If g = 1 all cycles are fixed points. In particular the cycle type of g in Sym(𝔽_q) determines whether λ(g) = 1, and when λ(g) ≠ 1 it determines ord(λ(g)).",
+   "hypotheses": [
+    "q ≥ 3 prime"
+   ],
+   "proofSteps": [
+    "If a ≠ 1, conjugating by the translation moving the unique fixed point b/(1 − a) to 0 turns g into x ↦ ax, whose nonzero orbits are cosets of ⟨a⟩ in 𝔽_q^×.",
+    "If a = 1, b ≠ 0, the orbit of any x is x + 𝔽_q b = 𝔽_q since q is prime."
+   ],
+   "acceptance": [
+    "In Aff(5), x ↦ 2x + 1 has cycle type (1, 4); x ↦ 4x has cycle type (1, 2, 2); x ↦ x + 1 is a 5-cycle."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.0/affine-group"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§8.3, p. 42",
+     "excerpt": "If e maps to an element of Aff(q) that is not in F+ q , i.e. has nontrivial image a ∈ F∗q , then (d1 , . . . , dk ) = (1, ordq (a), ordq (a), . . . , ordq (a)). - If e maps to a nonzero element of F+ q then (d1 , . . . , dk ) = (q).",
+     "match": "The list of cycle structures used in §8.3."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/GroupTheory/AffineGroup",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/affine-group-centralizer",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "Aff(q) is centre-free, has trivial centralizer and is self-normalizing in Sym(𝔽_q)",
+   "kind": "lemma",
+   "statement": "For a prime q ≥ 3: (a) the centralizer of Aff(q) in Sym(𝔽_q) is trivial; in particular Aff(q) has trivial centre; (b) the normalizer of Aff(q) in Sym(𝔽_q) is Aff(q). Consequently, for a group Γ, two surjections Γ → Aff(q) are conjugate under Sym(𝔽_q) (as transitive actions on 𝔽_q with image Aff(q)) if and only if they are conjugate under Aff(q), and a surjection Γ → Aff(q) has trivial stabilizer under conjugation by Aff(q).",
+   "hypotheses": [
+    "q ≥ 3 prime"
+   ],
+   "proofSteps": [
+    "(a) A permutation c commuting with all translations satisfies c(x + 1) = c(x) + 1, so c is a translation x ↦ x + t; commuting with x ↦ ax (a ≠ 1) forces at = t, so t = 0.",
+    "(b) If s ∈ Sym(𝔽_q) normalizes Aff(q), it normalizes the unique Sylow q-subgroup 𝔽_q^+ (normal, of index q − 1 prime to q); after composing with a translation s fixes 0 and normalizes ⟨x ↦ x+1⟩, so s(x + 1) = s(x) + c for some c ≠ 0, whence s(x) = cx ∈ Aff(q).",
+    "The consequences follow: a Sym-conjugacy between two surjections is given by an element normalizing Aff(q); the stabilizer of a surjection φ under conjugation is the centralizer of φ(Γ) = Aff(q), which is trivial."
+   ],
+   "acceptance": [
+    "Aff(3) = S_3 is self-normalizing and centre-free.",
+    "The translation subgroup of Aff(q) has nontrivial centralizer (itself), so surjectivity is needed."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.0/affine-group"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§8.2, footnote 5, p. 39",
+     "excerpt": "A priori, the map is defined up to conjugation by the normalizer of Aff(q) in Sym(F ). This normalizer is q equal to Aff(q).",
+     "match": "Part (b)."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§8.2.1, p. 40",
+     "excerpt": "Aff(q) has trivial centralizer in Sym(Fq ), such elements lift uniquely to mapping classes on Z,",
+     "match": "Part (a); centre-freeness is the hypothesis of Proposition 7.1."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/GroupTheory/AffineGroup",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/commutator-product-map",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "The commutator-product map on Aff(q)^{2s} (LV Lemma 2.11)",
+   "kind": "theorem",
+   "statement": "Let q ≥ 3 be prime, s ≥ 1 and f : Aff(q)^{2s} → 𝔽_q^+, f(g₁, g₁', …, g_s, g_s') = [g₁, g₁'] ⋯ [g_s, g_s'] (with [x, y] = xyx⁻¹y⁻¹). Let Λ : Aff(q)^{2s} → (𝔽_q^×)^{2s} apply λ componentwise. Then: (a) if f(g) ≠ 0, then g generates Aff(q) if and only if the entries of Λ(g) generate 𝔽_q^×, and in that case g generates Aff(q); (b) the image of {g : f(g) ≠ 0, g generates Aff(q)} under Λ is exactly the set of 2s-tuples whose entries generate 𝔽_q^×; (c) every fibre of this restricted map over a point of its image has exactly q^{2s−1}(q − 1) elements.",
+   "hypotheses": [
+    "q ≥ 3 prime",
+    "s ≥ 1"
+   ],
+   "proofSteps": [
+    "Write g_i = mk(y_i, b_i), g_i' = mk(y_i', b_i'); by the commutator formula f(g) = Σ_i (b_i(1 − y_i') − b_i'(1 − y_i)), an affine-linear function of b = (b_i, b_i') ∈ 𝔽_q^{2s} for fixed y.",
+    "If the y's generate 𝔽_q^× then some y_i or y_i' differs from 1 (q ≥ 3), so f is a nonconstant affine-linear function on the fibre 𝔽_q^{2s}; exactly q^{2s} − q^{2s−1} points have f ≠ 0.",
+    "If f(g) ≠ 0, the subgroup ⟨g⟩ contains a nonzero translation, hence all of 𝔽_q^+ (prime order), and ⟨g⟩ = Aff(q) iff its image λ(⟨g⟩) = ⟨y⟩ is 𝔽_q^×.",
+    "Conversely a generating tuple has generating image under the surjection λ. Combine."
+   ],
+   "acceptance": [
+    "q = 3, s = 1: the image consists of the 3 pairs in {±1}² generating {±1}, each fibre has 3·2 = 6 elements, giving the 18 generating pairs of S_3 (all with nonzero commutator).",
+    "q = 3, s = 2: 15 · 54 = 810 tuples, giving 135 conjugacy classes."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.0/affine-group"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.6, Lemma 2.11, p. 14",
+     "excerpt": "consists precisely of those (2s)- tuples in F∗q whose entries generate F∗q . The fiber above any point in the image has the same size.",
+     "match": "Statement of Lemma 2.11."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.6, proof of Lemma 2.11, p. 14",
+     "excerpt": "The fiber of Aff(q)2s above y is (in obvious coordinates) an affine space over Fq , and the map f is a nontrivial affine-linear map; each fiber thus has size q 2s−1 (q − 1).",
+     "match": "Proof step 2."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/GroupTheory/AffineGroup",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/generating-tuples-card",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "Counting generating tuples of ℤ/N",
+   "kind": "lemma",
+   "statement": "For integers N ≥ 1 and k ≥ 2, the number of k-tuples (y₁, …, y_k) ∈ (ℤ/N)^k whose entries generate ℤ/N as a group is J_k(N) = N^k ∏_{ℓ | N prime} (1 − ℓ^{−k}), and J_k(N) ≥ N^k/2.",
+   "hypotheses": [
+    "N ≥ 1",
+    "k ≥ 2"
+   ],
+   "proofSteps": [
+    "A tuple generates ℤ/N iff for every prime ℓ | N not all entries lie in ℓℤ/N (the maximal subgroups of ℤ/N are the ℓℤ/N).",
+    "By the Chinese remainder theorem the count is multiplicative in N; for N = ℓ^a the non-generating tuples are those in (ℓℤ/ℓ^a)^k, of which there are ℓ^{(a−1)k}, giving ℓ^{ak}(1 − ℓ^{−k}).",
+    "∏_ℓ (1 − ℓ^{−k}) ≥ ∏_ℓ (1 − ℓ^{−2}) ≥ 1 − Σ_ℓ ℓ^{−2}.",
+    "Σ_{ℓ prime} ℓ^{−2} ≤ 1/4 + Σ_{j≥1} (2j+1)^{−2} < 1/4 + Σ_{j≥1} 1/(4j(j+1)) = 1/2, since (2j+1)² > 4j(j+1)."
+   ],
+   "acceptance": [
+    "N = 6, k = 2: J₂(6) = 36 · (3/4) · (8/9) = 24 ≥ 18.",
+    "N prime: J_k(N) = N^k − 1."
+   ],
+   "prerequisites": [
+    "mathlib:Ideal.quotientInfRingEquivPiQuotient",
+    "mathlib:ZMod.card_units_eq_totient"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§5, proof of Theorem 5.4, p. 28",
+     "excerpt": "The number of generating (2g)-tuples in Z/N equals #(Z/N )∗ × P2g−1 (Z/N ), which equals N 2g ·",
+     "match": "The count and the lower bound ≥ N^{2g}/2 used in Theorem 5.4."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/GroupTheory/GeneratingTuples",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/isotropic-subgroup-card",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "Isotropic subgroups for a perfect pairing on a finite abelian group",
+   "kind": "lemma",
+   "statement": "Let A be a finite abelian group and ⟨·,·⟩ : A × A → ℚ/ℤ a biadditive pairing that is perfect in the sense that a ↦ ⟨·, a⟩ is a bijection from A to its character module Hom(A, ℚ/ℤ). If B ≤ A satisfies ⟨B, B⟩ = 0 then |B|² ≤ |A|. No symmetry of the pairing is assumed. (A pairing with values in ℤ/N ⊂ ℚ/ℤ, or in a cyclic group μ_N^∨ ≅ ℤ/N after a choice of generator, is a special case.)",
+   "hypotheses": [
+    "A finite abelian",
+    "the pairing is perfect on the right"
+   ],
+   "proofSteps": [
+    "B^⊥ := {a : ⟨b, a⟩ = 0 for all b ∈ B} contains B by isotropy.",
+    "The composite A → Hom(A, ℚ/ℤ) → Hom(B, ℚ/ℤ) is surjective: the first map is bijective and restriction of ℚ/ℤ-valued characters along the injection B ↪ A is surjective.",
+    "Its kernel is B^⊥, so |B^⊥| = |A| / |Hom(B, ℚ/ℤ)|; and |Hom(B, ℚ/ℤ)| = |B| because ℚ/ℤ-valued characters of the finite group B are the same as ℂ-valued ones (t ↦ exp(2πit) identifies ℚ/ℤ with the roots of unity in ℂ^×) and there are |B| of those.",
+    "Hence |B| ≤ |B^⊥| = |A|/|B|."
+   ],
+   "acceptance": [
+    "A = (ℤ/N)² with the determinant pairing: a cyclic subgroup of order N is isotropic and |B|² = |A|.",
+    "The symmetric case agrees with Tau Ceti's IsNondegenerate.card_orthogonalQuotient_mul_card_sq."
+   ],
+   "prerequisites": [
+    "mathlib:CharacterModule",
+    "mathlib:CharacterModule.dual_surjective_of_injective",
+    "mathlib:AddChar.card_eq"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§5, proof of Theorem 5.4, p. 28",
+     "excerpt": "Now if A is a finite abelian group endowed with a nondegenerate pairing √ A×A → Q/Z then any subgroup B ⊂ A such that hB, Bi = 0 has order at most A.",
+     "match": "The statement; LV apply it to the image of 2M with an alternating pairing."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/GroupTheory/IsotropicBound",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/minimal-subrepresentation-half",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "Minimal subrepresentations of a representation with an invariant form up to similitude",
+   "kind": "lemma",
+   "statement": "Let G be a group, k a field, V a finite-dimensional k-linear representation of G and B a nondegenerate bilinear form on V that is symmetric or alternating, with B(gx, gy) = χ(g)B(x, y) for a character χ : G → k^×. If V is not irreducible and W ⊆ V is a nonzero subrepresentation of minimal dimension, then dim W ≤ dim V / 2.",
+   "hypotheses": [
+    "B nondegenerate, symmetric or alternating",
+    "G preserves B up to the scalar χ",
+    "V reducible"
+   ],
+   "proofSteps": [
+    "W^⊥ is a subrepresentation because G preserves B up to scalars, and so is W ∩ W^⊥.",
+    "By minimality W ∩ W^⊥ is 0 or W.",
+    "If W ⊆ W^⊥ then dim W ≤ dim V − dim W.",
+    "If W ∩ W^⊥ = 0 then W^⊥ is a nonzero subrepresentation of dimension dim V − dim W (V ≠ W since V is reducible), so by minimality dim W ≤ dim W^⊥ = dim V − dim W."
+   ],
+   "acceptance": [
+    "V = V₁ ⊕ V₂ orthogonal with dim V₁ = 1, dim V₂ = 3: the minimal W has dim 1 ≤ 2.",
+    "The Tate module of an abelian variety with the Weil pairing (χ the cyclotomic character)."
+   ],
+   "prerequisites": [
+    "mathlib:LinearMap.BilinForm.finrank_orthogonal"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, proof of Lemma 6.1, p. 32",
+     "excerpt": "because it preserves (up to similitude) a bilinear form, we have dim Wy0 ⩽ 12 dim ρy0 , thus (6.8).",
+     "match": "The inequality (6.8) in the proof of the Sublemma."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/RepresentationTheory/MinimalSubrepresentation",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/symplectic-transvection",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "Symplectic transvections",
+   "kind": "definition",
+   "statement": "Let (V, ω) be a finite-dimensional symplectic space over a field k of characteristic zero (ω nondegenerate alternating, written ⟨·,·⟩). For v ∈ V and r ∈ k, T_v^r : V → V is x ↦ x + r⟨v, x⟩v, and T_v := T_v^1. It is the Mathlib transvection with linear form r⟨v, ·⟩ and vector v (the form vanishes on v).",
+   "hypotheses": [
+    "(V, ω) symplectic over k, char k = 0"
+   ],
+   "proofSteps": [
+    "Define T_v^r := LinearMap.transvection (r·⟨v, ·⟩) v; since ⟨v, v⟩ = 0 it is invertible with inverse T_v^{−r}.",
+    "Check ⟨T_v^r x, T_v^r y⟩ = ⟨x, y⟩ using bilinearity and ⟨v, v⟩ = 0."
+   ],
+   "acceptance": [
+    "In the basis (e, f) of k² with ⟨e, f⟩ = 1, T_e^r = [[1, r], [0, 1]] and T_f^r = [[1, 0], [−r, 1]].",
+    "T_0^r = id."
+   ],
+   "prerequisites": [
+    "mathlib:LinearMap.transvection",
+    "tauceti:TauCeti.BilinForm.isometryGroup"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.7, (2.4), p. 15",
+     "excerpt": "Any unipotent element of Sp(V ) whose fixed space has codimension 1 is of the form (2.4) Tvr : x 7→ x + rhv, xiv for some v ∈ V, r ∈ K. We call Tvr a transvection with center v, and write Tv for Tv1 .",
+     "match": "Definition of T_v^r and the characterization recorded as an API item."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "symplecticTransvection",
+     "role": "constructor",
+     "statement": "T_v^r ∈ Sp(V, ω) (as an element of TauCeti.BilinForm.isometryGroup ω)."
+    },
+    {
+     "name": "symplecticTransvection_apply",
+     "role": "simp",
+     "statement": "T_v^r x = x + r⟨v, x⟩ v."
+    },
+    {
+     "name": "symplecticTransvection_add",
+     "role": "relation",
+     "statement": "T_v^r T_v^s = T_v^{r+s}; T_v^0 = 1; (T_v^r)⁻¹ = T_v^{−r}."
+    },
+    {
+     "name": "symplecticTransvection_smul",
+     "role": "relation",
+     "statement": "T_{cv}^r = T_v^{c² r}."
+    },
+    {
+     "name": "conj_symplecticTransvection",
+     "role": "functoriality",
+     "statement": "g T_v^r g⁻¹ = T_{gv}^r for g ∈ Sp(V, ω)."
+    },
+    {
+     "name": "isUnipotent_symplecticTransvection",
+     "role": "other",
+     "statement": "T_v^r is unipotent: (T_v^r − 1)² = 0."
+    },
+    {
+     "name": "fixedPoints_symplecticTransvection",
+     "role": "characterisation",
+     "statement": "For v ≠ 0 and r ≠ 0 the fixed space of T_v^r is v^⊥, of codimension 1, and the image of T_v^r − 1 is k·v."
+    },
+    {
+     "name": "eq_symplecticTransvection_of_codim_one",
+     "role": "characterisation",
+     "statement": "A unipotent element of Sp(V, ω) whose fixed space has codimension 1 equals T_v^r for some v ≠ 0, r ≠ 0."
+    },
+    {
+     "name": "symplecticTransvection_eq_transvection",
+     "role": "compatibility",
+     "statement": "T_v^r = LinearMap.transvection (r • ω v) v."
+    },
+    {
+     "name": "symplecticTransvection_sl2",
+     "role": "example",
+     "statement": "On (k², det) the transvections T_e^r, T_f^r are the elementary matrices of SL(2, k)."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/LinearAlgebra/SymplecticTransvection",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/zariski-closure-transvection-powers",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "The Zariski closure of the powers of a transvection",
+   "kind": "lemma",
+   "statement": "Let (V, ω) be symplectic over a field k of characteristic zero and v ∈ V nonzero. The Zariski closure in Sp(V) of the cyclic group {T_v^n : n ∈ ℤ} is the one-parameter unipotent subgroup U_v = {T_v^r : r ∈ k}, the image of the closed immersion 𝔾_a → Sp(V), r ↦ T_v^r. More generally the Zariski closure of {T_v^{nr₀} : n ∈ ℤ} is U_v for every r₀ ≠ 0.",
+   "hypotheses": [
+    "char k = 0",
+    "v ≠ 0"
+   ],
+   "proofSteps": [
+    "r ↦ T_v^r is a homomorphism 𝔾_a → Sp(V) and a closed immersion (its coordinate functions include r·(a linear form) with nonzero coefficient).",
+    "The image of ℤ r₀ is an infinite subset of 𝔾_a(k) = k because char k = 0; an infinite subset of the affine line is Zariski dense.",
+    "The Zariski closure of the image equals the image of the closure under a closed immersion."
+   ],
+   "acceptance": [
+    "V = k², v = e: the closure of {[[1, n], [0, 1]]} is the upper unipotent subgroup.",
+    "In characteristic p the closure of ℤ is finite; the hypothesis char k = 0 is needed."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.0/symplectic-transvection",
+    "FoundationsAndLibraryIntegration:LI.4"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.7, proof of Lemma 2.13, p. 15",
+     "excerpt": "The statement then amounts to the fact that SL(2) is generated, as an algebraic group, by upper and lower triangular matrices.",
+     "match": "The algebraic-group generation uses the full unipotent subgroups, which this lemma extracts from the integer powers."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/LinearAlgebra/SymplecticTransvection",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components — ReductiveGroups Layer 3 (closed subgroups, identity components)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/transvection-pair-closure",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "Two transvections with nonzero pairing (LV Lemma 2.13)",
+   "kind": "lemma",
+   "statement": "Let (V, ω) be symplectic over a field k of characteristic zero and v₁, v₂ ∈ V linearly independent with ⟨v₁, v₂⟩ ≠ 0. The Zariski closure of the subgroup generated by T_{v₁} and T_{v₂} contains T_v^r for every v ∈ span(v₁, v₂) and every r ∈ k; in fact it contains the subgroup Sp(P) × 1 of Sp(V) for P = span(v₁, v₂), acting trivially on P^⊥.",
+   "hypotheses": [
+    "char k = 0",
+    "v₁, v₂ linearly independent",
+    "⟨v₁, v₂⟩ ≠ 0"
+   ],
+   "proofSteps": [
+    "P = span(v₁, v₂) is a nondegenerate plane, V = P ⊕ P^⊥, and T_{v₁}, T_{v₂} act trivially on P^⊥.",
+    "The closure contains U_{v₁} and U_{v₂} (Zariski closure of transvection powers).",
+    "In the basis (v₁, v₂/⟨v₁,v₂⟩) of P, U_{v₁} and U_{v₂} are the upper and lower elementary unipotent subgroups of SL(P) = Sp(P); every element of SL(2, k) is a product of elementary transvections, so the closure contains SL(P) × 1.",
+    "For v ∈ P, T_v^r restricted to P lies in Sp(P) and is the identity on P^⊥."
+   ],
+   "acceptance": [
+    "V = k², v₁ = e, v₂ = f: the closure of ⟨[[1,1],[0,1]], [[1,0],[−1,1]]⟩ (a finite-index subgroup of SL₂(ℤ)) is SL₂.",
+    "If ⟨v₁, v₂⟩ = 0 the two transvections commute and the closure is two-dimensional unipotent."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.0/zariski-closure-transvection-powers",
+    "mathlib:Matrix.SL2.transvection_induction",
+    "FoundationsAndLibraryIntegration:LI.4"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.7, Lemma 2.13, p. 15",
+     "excerpt": "The Zariski closure of the subgroup generated by Tv1 , Tv2 also contains Tv for every v ∈ Span(v1 , v2 ).",
+     "match": "Statement (LV work over ℚ; the proof is valid over any field of characteristic zero)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/LinearAlgebra/SymplecticTransvection",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components — ReductiveGroups Layer 3 (closed subgroups, identity components)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/transvection-graph-closure",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "Transvections along a connected intersection graph (LV Lemma 2.14)",
+   "kind": "lemma",
+   "statement": "Let (V, ω) be symplectic over a field k of characteristic zero and S ⊆ V a finite set of vectors. Form the graph on S with an edge between v, v' when ⟨v, v'⟩ ≠ 0. If this graph is connected then the Zariski closure of the subgroup generated by {T_v : v ∈ S} contains T_w for every w in the span of S. If moreover S spans V, the closure is Sp(V).",
+   "hypotheses": [
+    "char k = 0",
+    "S finite with connected intersection graph"
+   ],
+   "proofSteps": [
+    "Induct on |S|: remove a vertex v whose deletion leaves S₀ connected (a leaf of a spanning tree); by induction the closure G contains T_w for all w ∈ W = span(S₀).",
+    "For w ∈ W with ⟨w, v⟩ ≠ 0, the transvection-pair lemma applied to T_w, T_v (both in G) gives T_x ∈ G for x = w + v, and T_{cx} for all c.",
+    "The set {w ∈ W : ⟨w, v⟩ ≠ 0} is a nonempty Zariski-open subset of W (nonempty since v has a neighbour in S₀), so {T_{w+v}} is dense in {T_{w+v} : w ∈ W} and the closedness of G gives all T_x for x ∈ W + kv.",
+    "If S spans V, the transvections generate Sp(V) as an abstract group, so the closure is Sp(V)."
+   ],
+   "acceptance": [
+    "A symplectic basis e₁, f₁, e₂, f₂ is not connected; adding e₁ + e₂ connects it.",
+    "For S a chain of vanishing cycles the closure is Sp(span S)."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.0/transvection-pair-closure",
+    "FoundationsAndLibraryIntegration:LI.4"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.7, Lemma 2.14, p. 15",
+     "excerpt": "Make a graph whose set of vertices are S, having an edge between v1 and v2 if and only if hv1 , v2 i 6= 0. If this graph is connected, then the Zariski closure of the group generated by the transvections Tv , for v ∈ S, contains Tw for any w in the span of S.",
+     "match": "Statement; the proof is the induction reproduced above."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/LinearAlgebra/SymplecticTransvection",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   },
+   "notes": "The last sentence (generation of Sp(V) by transvections when S spans) is the form used in LV Lemma 8.9; generation of Sp(V) by symplectic transvections is requested from ReductiveGroups Layer 7 together with the other structure of Sp. Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components — ReductiveGroups Layer 3 (closed subgroups, identity components)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/lie-algebra-goursat",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "Goursat's lemma for simple Lie algebras (Ribet)",
+   "kind": "lemma",
+   "statement": "Let 𝔤₁, …, 𝔤_N be simple Lie algebras over a field k and 𝔥 ⊆ 𝔤₁ × ⋯ × 𝔤_N a Lie subalgebra whose projection to 𝔤_i × 𝔤_j is surjective for every pair i < j (and to each 𝔤_i when N = 1). Then 𝔥 = 𝔤₁ × ⋯ × 𝔤_N.",
+   "hypotheses": [
+    "each 𝔤_i simple (LieAlgebra.IsSimple)",
+    "all pairwise projections surjective"
+   ],
+   "proofSteps": [
+    "Induct on N; the case N = 1 is the hypothesis. Assume 𝔥 surjects onto 𝔤₁ × ⋯ × 𝔤_{N−1} by induction (the pairwise hypothesis passes to sub-products).",
+    "The kernel 𝔫 of the projection 𝔥 → 𝔤₁ × ⋯ × 𝔤_{N−1} is an ideal of 𝔥 contained in 𝔤_N; its image is an ideal of 𝔤_N because 𝔥 → 𝔤_N is surjective. If 𝔫 = 𝔤_N we are done.",
+    "Otherwise 𝔫 = 0 by simplicity and 𝔥 is the graph of a surjective Lie homomorphism θ : 𝔤₁ × ⋯ × 𝔤_{N−1} → 𝔤_N; its kernel is an ideal, hence a product of all but one factor 𝔤_i (the ideals of a product of simple algebras are sub-products), so θ factors through a single 𝔤_i and the projection of 𝔥 to 𝔤_i × 𝔤_N is a graph, contradicting surjectivity."
+   ],
+   "acceptance": [
+    "𝔤 × 𝔤 with the diagonal: not surjective onto the pair, and indeed a proper subalgebra.",
+    "N = 3 with 𝔥 = {(x, y, x)}: fails the hypothesis for the pair (1, 3)."
+   ],
+   "prerequisites": [
+    "mathlib:LieAlgebra.IsSimple"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.7, before Lemma 2.12, p. 14",
+     "excerpt": "The following statement is an algebraic version of Goursat’s lemma (cf. [33, Lemma 5.2.1]). One uses the fact that the Lie algebra spV of Sp(V ) is simple, and that all the automorphisms of spV are inner.",
+     "match": "LV cite Ribet's Lemma 5.2.1 for the Lie-algebra Goursat lemma used in Lemma 2.12."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Algebra/Lie/Goursat",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/symplectic-pair-lemma",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "A closed subgroup of Sp(V) × Sp(V) with surjective projections and an unbalanced unipotent pair",
+   "kind": "lemma",
+   "statement": "Let k be an algebraically closed field of characteristic zero, (V, ω) symplectic of dimension ≥ 2 and G ⊆ Sp(V) × Sp(V) a Zariski-closed subgroup whose projections π₁, π₂ to both factors are surjective. If some g ∈ G has π₁(g), π₂(g) unipotent with fixed spaces of different dimensions, then Lie(G) = 𝔰𝔭(V) × 𝔰𝔭(V) and G = Sp(V) × Sp(V).",
+   "hypotheses": [
+    "k algebraically closed of characteristic 0",
+    "π₁(G) = π₂(G) = Sp(V)",
+    "g ∈ G with π₁(g), π₂(g) unipotent and dim Fix π₁(g) ≠ dim Fix π₂(g)"
+   ],
+   "proofSteps": [
+    "Lie(G) ⊆ 𝔰𝔭(V) × 𝔰𝔭(V) projects onto both factors (surjective homomorphisms of smooth groups in characteristic zero are surjective on Lie algebras).",
+    "By Goursat for the simple Lie algebra 𝔰𝔭(V), either Lie(G) is the whole product (then G° = Sp(V)² since Sp(V) is connected, so G = Sp(V)²), or Lie(G) is the graph of an automorphism θ of 𝔰𝔭(V).",
+    "In the second case θ = Ad(h) for some h ∈ Sp(V)(k) (automorphisms of 𝔰𝔭(V) over an algebraically closed field are inner), and G° is the graph {(x, hxh^{-1})} (connected subgroups are determined by their Lie algebras in characteristic zero).",
+    "Every (a, b) ∈ G normalizes G°, so a⁻¹h⁻¹bh centralizes Sp(V) and b = ±hah⁻¹ (centre {±1}).",
+    "Apply this to g: π₂(g) = ±hπ₁(g)h⁻¹; a unipotent element is not the negative of a unipotent element in characteristic zero, so π₂(g) = hπ₁(g)h⁻¹ has a fixed space of the same dimension — a contradiction."
+   ],
+   "acceptance": [
+    "The diagonal subgroup satisfies the projection hypothesis but has no unbalanced pair.",
+    "For V = k² with g = (u, 1), u a nontrivial transvection, the lemma gives SL₂ × SL₂."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.0/lie-algebra-goursat",
+    "tauceti:TauCeti.Symplectic.geometricallyConnectedCommHopfAlgProperty_coordinateHopfAlgebra",
+    "tauceti:LinearMap.GeneralLinearGroup.IsUnipotent",
+    "mathlib:LieAlgebra.Symplectic.sp",
+    "FoundationsAndLibraryIntegration:LI.4"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.7, Lemma 2.12, p. 14–15",
+     "excerpt": "For 1 ⩽ i, j ⩽ N , there exists g ∈ G such that πi (g) and πj (g) are unipotent with fixed spaces of different dimensions.",
+     "match": "The unipotent hypothesis whose role is made explicit in proof step 5 (LV give no written proof)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/LinearAlgebra/SymplecticGoursat",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation — ReductiveGroups Layer 2 (Lie algebras of algebraic groups); tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components — ReductiveGroups Layer 3 (closed subgroups, identity components); tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups — ReductiveGroups Layer 6 (reductive and semisimple groups, centres); tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory — ReductiveGroups Layer 7 (structure theory)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.0/symplectic-goursat",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.0",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ],
+   "title": "Zariski-closed subgroups of Sp(V)^N (LV Lemma 2.12)",
+   "kind": "theorem",
+   "statement": "Let k be a field of characteristic zero, (V, ω) a symplectic space of dimension ≥ 2 and G ⊆ Sp(V)^N a Zariski-closed subgroup such that (i) each projection π_i : G → Sp(V) is surjective and (ii) for all i ≠ j there is g ∈ G with π_i(g), π_j(g) unipotent with fixed spaces of different dimensions. Then G = Sp(V)^N.",
+   "hypotheses": [
+    "char k = 0",
+    "(i) surjective projections",
+    "(ii) unbalanced unipotent pairs for all i ≠ j"
+   ],
+   "proofSteps": [
+    "Base change to an algebraic closure k̄: the hypotheses persist (surjectivity and closedness are geometric; the elements g are k-points) and G = Sp(V)^N can be checked over k̄.",
+    "For each pair i < j apply the pair lemma to the image of G in Sp(V) × Sp(V) (closed, as the image of a homomorphism of algebraic groups): Lie of that image is 𝔰𝔭(V)².",
+    "Hence Lie(G) ⊆ 𝔰𝔭(V)^N surjects onto every pair of factors; by the Lie-algebra Goursat lemma Lie(G) = 𝔰𝔭(V)^N.",
+    "G° is a connected closed subgroup of the connected group Sp(V)^N with the same Lie algebra, hence G° = Sp(V)^N and G = Sp(V)^N."
+   ],
+   "acceptance": [
+    "N = 1: the statement reduces to hypothesis (i).",
+    "The variant in LV Lemma 4.3: SL₂ = Sp₂, and an element (1, …, u, …, 1) with u a nontrivial unipotent gives the unbalanced pairs."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.0/symplectic-pair-lemma",
+    "MordellLawrenceVenkatesh:LV.0/lie-algebra-goursat",
+    "FoundationsAndLibraryIntegration:LI.4"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.7, Lemma 2.12, p. 14–15",
+     "excerpt": "Suppose G is an algebraic subgroup of Sp(V )N , satisfying the following conditions. • For 1 ⩽ i ⩽ N , the projection πi : G → Sp(V ) onto the i-th factor is surjective.",
+     "match": "Statement of Lemma 2.12 (continued by condition (ii) and the conclusion G = Sp(V)^N)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/LinearAlgebra/SymplecticGoursat",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation — ReductiveGroups Layer 2 (Lie algebras of algebraic groups); tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components — ReductiveGroups Layer 3 (closed subgroups, identity components)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.1/trace-determines-semisimple",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.1",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "title": "Semisimple representations in characteristic zero are determined by their traces",
+   "kind": "theorem",
+   "statement": "Let G be a group, k a field of characteristic zero and V, W finite-dimensional semisimple k-linear representations of G with tr(g | V) = tr(g | W) for every g ∈ G. Then V ≅ W as representations.",
+   "hypotheses": [
+    "char k = 0",
+    "V, W finite-dimensional and semisimple"
+   ],
+   "proofSteps": [
+    "Let A be the image of k[G] in End_k(V) × End_k(W); it is a finite-dimensional k-algebra and V ⊕ W is a faithful semisimple A-module, so A is a semisimple algebra (its Jacobson radical annihilates every semisimple module).",
+    "The linear forms t_V, t_W : A → k, a ↦ tr(a | V), tr(a | W), agree on the image of G, which spans A; hence t_V = t_W.",
+    "By Wedderburn–Artin A = ∏_i A_i with A_i simple; let e_i be the corresponding central idempotents and S_i the simple module of A_i. Then t_V(e_i) = m_i(V) · dim_k S_i where m_i(V) is the multiplicity of S_i in V.",
+    "Since char k = 0, m_i(V) = m_i(W) for all i; therefore dim_k Hom_A(S_i, V) = dim_k Hom_A(S_i, W) for every simple left ideal, and the multiplicity criterion gives V ≅ W as A-modules, hence as representations."
+   ],
+   "acceptance": [
+    "For a finite group this recovers Representation.nonempty_equiv_of_character_eq.",
+    "The hypothesis char k = 0 is needed: over 𝔽_p, V and V ⊕ V^{⊕ p} have the same traces."
+   ],
+   "prerequisites": [
+    "tauceti:TauCeti.nonempty_linearEquiv_of_finrank_linearMap_eq",
+    "mathlib:IsSemisimpleRing.exists_algEquiv_pi_matrix_divisionRing"
+   ],
+   "sources": [
+    {
+     "sourceId": "deligne-bourbaki-616",
+     "locator": "§3, proof of Théorème 3.1, p. 17 (numdam file)",
+     "excerpt": "représentation l-adique semi-simple de d, p : Gal(k/k) GL(d,Qn) , ~ non ramifiée en dehors de S, uniquement déterminée (à isomorphisme de repré- sentations près)",
+     "match": "Deligne's argument ends by concluding from equality of characters that the semisimple representations are isomorphic; this node is that step."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/RepresentationTheory/TraceDetermines",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   },
+   "notes": "Wedderburn–Artin in algebra form is Mathlib IsSemisimpleRing.exists_algEquiv_pi_matrix_divisionRing; the multiplicity criterion is the cited Tau Ceti theorem."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.1/weil-polynomials-finite",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.1",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "title": "Finiteness of integer Weil polynomials of fixed degree and weight",
+   "kind": "lemma",
+   "statement": "For a real number q > 1 and integers d ≥ 0 and w, the set of monic P ∈ ℤ[X] of degree d all of whose complex roots have absolute value q^{w/2} is finite.",
+   "hypotheses": [
+    "q > 1",
+    "d ≥ 0"
+   ],
+   "proofSteps": [
+    "By the coefficient bound for monic split polynomials over ℂ with roots of norm ≤ B = q^{w/2}, the i-th coefficient has absolute value at most B^{d−i}·C(d, i).",
+    "The coefficients are integers bounded independently of P, so there are finitely many possibilities."
+   ],
+   "acceptance": [
+    "q = p, d = 2, w = 1: the Weil polynomials X² − aX + p with |a| ≤ 2√p.",
+    "d = 0: only P = 1."
+   ],
+   "prerequisites": [
+    "mathlib:Polynomial.coeff_le_of_roots_le"
+   ],
+   "sources": [
+    {
+     "sourceId": "faltings-1983",
+     "locator": "§5, proof of Satz 5, p. 362",
+     "excerpt": "Nach den Weil-Vermutungen gibt es f'tir v~S nur endlich viele M~glichkeiten ffir den lokalen L-Faktor Lv(A,s ).",
+     "match": "Faltings uses exactly this finiteness (via the Weil conjectures) for the local L-factors."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/NumberTheory/WeilPolynomial",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.1/frobenius-test-set",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.1",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "title": "A finite set of Frobenius traces determines a representation (Faltings–Deligne)",
+   "kind": "theorem",
+   "statement": "Let K be a number field, T a finite set of finite places of K, p a prime and d ≥ 1. There is a finite set T' of finite places of K, disjoint from T, with the following property: if ρ₁, ρ₂ : G_K → GL_d(ℚ_p) are continuous representations unramified outside T such that tr ρ₁(Frob_v) = tr ρ₂(Frob_v) for all v ∈ T', then tr ρ₁ = tr ρ₂ on G_K; if moreover ρ₁ and ρ₂ are semisimple, then ρ₁ ≅ ρ₂.",
+   "hypotheses": [
+    "K a number field",
+    "T finite set of finite places (in applications T contains the places above p)",
+    "continuous representations of dimension d unramified outside T"
+   ],
+   "proofSteps": [
+    "Let K'' be the compositum of all finite Galois extensions of K of degree at most p^{2d²} unramified outside T; it is a finite Galois extension of K by Hermite–Minkowski.",
+    "By Chebotarev choose a finite set T' of finite places of K, disjoint from T and unramified in K'', whose Frobenius classes cover Gal(K''/K).",
+    "Given ρ₁, ρ₂, choose G_K-stable ℤ_p-lattices (compactness) and let M ⊆ M_d(ℤ_p) × M_d(ℤ_p) be the ℤ_p-span of the image of G_K under ρ₁ × ρ₂; M is a ℤ_p-subalgebra, free of rank ≤ 2d², spanned by the image of G_K.",
+    "The image of G_K in (M/pM)^× has fewer than p^{2d²} elements and is cut out by a Galois extension of K unramified outside T, hence of K''; so every element of this image is the image of a conjugate of some Frob_v, v ∈ T'.",
+    "The linear form δ = tr ∘ pr₁ − tr ∘ pr₂ on M vanishes on all conjugates of ρ(Frob_v), v ∈ T' (traces are conjugation invariant); these elements span M/pM, so by Nakayama they span M over ℤ_p, and δ = 0 on M ⊇ ρ(G_K).",
+    "If ρ₁, ρ₂ are semisimple, equality of traces gives ρ₁ ≅ ρ₂ (trace criterion over ℚ_p)."
+   ],
+   "acceptance": [
+    "K = ℚ, T = {p}, d = 1: T' reduces to a set of primes whose classes generate the relevant ray class group.",
+    "Two non-isomorphic non-semisimple representations with the same semisimplification show the semisimplicity hypothesis is needed for the last clause."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.1/trace-determines-semisimple",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.1/hermite-minkowski-finiteness-of-extensions-unramified-outside-S",
+    "FoundationsAndLibraryIntegration:LI.4",
+    "ArithmeticGaloisRepresentations:R01.1",
+    "mathlib:IsArithFrobAt",
+    "tauceti:NumberField.artinSymbol",
+    "mathlib:Submodule.le_of_le_smul_of_le_jacobson_bot"
+   ],
+   "sources": [
+    {
+     "sourceId": "deligne-bourbaki-616",
+     "locator": "§3, proof of Théorème 3.1, pp. 17–18 (numdam file)",
+     "excerpt": "Par Nakayama, pothèse, chaque élément de cette image est un (Pi > les (pi (v T) engendrent ZZl-linéairement E x M .",
+     "match": "Deligne's Nakayama step (OCR of the numdam scan): the Frobenius images generate M linearly."
+    },
+    {
+     "sourceId": "faltings-1983",
+     "locator": "§5, proof of Satz 5, pp. 362–363",
+     "excerpt": "Dann ist M freier Z r M o d u l vom Rang < 8 g2, und M besitzt Darstellungen auf T~(A0 und T1(A2).",
+     "match": "Faltings's version of the same argument (for Tate modules), with the rank bound on M."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.3, proof of Lemma 2.3, p. 10",
+     "excerpt": "This is a consequence of Hermite–Minkowski finiteness; see the proof of [15, Satz 5], or [46, V, Proposition 2.7].",
+     "match": "LV cite this argument for Lemma 2.3."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/NumberTheory/FaltingsFiniteness",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev — Chebotarev Layer 10 (Dirichlet-density Chebotarev, infinitude of every Frobenius class)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.1/faltings-finiteness",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.1",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "title": "Faltings's finiteness lemma (LV Lemma 2.3)",
+   "kind": "theorem",
+   "statement": "Let K be a number field, T a finite set of finite places of K, p a prime and w, d ≥ 0 integers. Up to isomorphism there are only finitely many semisimple continuous representations ρ : G_K → GL_d(ℚ_p) that are unramified outside T, pure of weight w outside T and have integral Frobenius polynomials outside T. (LV state the lemma with 'unramified outside S' for a set S not containing the places above p, while applying it to p-adic cohomology; the correct and intended hypothesis allows T to contain the places above p.)",
+   "hypotheses": [
+    "T finite set of finite places, containing the places above p in all applications",
+    "ρ semisimple, continuous, of dimension d",
+    "for v ∉ T: ρ unramified at v, the characteristic polynomial of ρ(Frob_v^geom) lies in ℤ[X] and has all complex roots of absolute value q_v^{w/2}"
+   ],
+   "proofSteps": [
+    "Let T' be a Frobenius test set for (K, T, p, d).",
+    "For v ∈ T' the characteristic polynomial of ρ(Frob_v^geom) is one of the finitely many integer Weil polynomials of degree d and weight w for q = q_v; it determines the characteristic polynomial, hence the trace, of ρ(Frob_v) = ρ(Frob_v^geom)^{-1}.",
+    "So the tuple (tr ρ(Frob_v))_{v∈T'} takes finitely many values, and representations with the same tuple are isomorphic by the test-set theorem."
+   ],
+   "acceptance": [
+    "d = 1, w = 0, T = ∅ over ℚ: only the trivial character (finite order characters unramified everywhere).",
+    "Without integrality the lemma fails: twists by characters with algebraic non-integral Frobenius values of the right absolute value."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.1/frobenius-test-set",
+    "MordellLawrenceVenkatesh:LV.1/weil-polynomials-finite",
+    "WeightsInEtaleCohomology:R34.1",
+    "DeligneWeightsAndPurity:DWP.0"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.3, Lemma 2.3, p. 9",
+     "excerpt": "(Faltings) Fix integers w, d ⩾ 0, and fix K and S as above. There are, up to conjugation, only finitely many semisimple Galois representations ρ : GK → GLd (Qp ) such that (a) ρ is unramified outside S, and (b) ρ is pure of weight w,",
+     "match": "Statement of Lemma 2.3 (continued by the integrality condition (c))."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/NumberTheory/FaltingsFiniteness",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.1/cm-or-totally-real-criterion",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.1",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "title": "CM or totally real fields via complex conjugations",
+   "kind": "lemma",
+   "statement": "Fix an algebraic closure ℚ̄ and let C ⊆ Gal(ℚ̄/ℚ) be the set of complex conjugations (the automorphisms ι⁻¹ ∘ conj ∘ ι for embeddings ι : ℚ̄ → ℂ). A number field F ⊆ ℚ̄ is totally real or CM if and only if c₁c₂ fixes F pointwise for all c₁, c₂ ∈ C. In that case there is an automorphism s_F of F with s_F² = 1 and c ∘ τ = τ ∘ s_F for every c ∈ C and every embedding τ : F → ℚ̄; s_F = 1 iff F is totally real, and s_F is the complex conjugation of F when F is CM.",
+   "hypotheses": [
+    "F ⊆ ℚ̄ a number field"
+   ],
+   "proofSteps": [
+    "If F is CM, every complex embedding φ satisfies φ ∘ complexConj = conj ∘ φ; translating through ι gives c ∘ τ = τ ∘ s_F for all c ∈ C and τ, hence c₁c₂τ = τ. If F is totally real, every c ∈ C fixes every τ(F).",
+    "Conversely the hypothesis is conjugation invariant, so c₁c₂ ∘ τ = τ for every τ, i.e. c ∘ τ is independent of c ∈ C.",
+    "Taking τ the inclusion and c' = gcg⁻¹ with g ∈ Gal(ℚ̄/F) shows c(F) is fixed by Gal(ℚ̄/F), so c(F) = F and s_F := c|_F is an automorphism with c ∘ τ = τ ∘ s_F for all τ.",
+    "If s_F = 1 all embeddings are real; otherwise F^{s_F} is totally real, [F : F^{s_F}] = 2 and no embedding of F is real, so F is CM (Milne, Proposition 1.4 (b) ⇒ (a))."
+   ],
+   "acceptance": [
+    "ℚ(i) is CM with s = conjugation; ℚ(√2) is totally real; ℚ(2^{1/3}) is neither, and indeed two complex conjugations act differently on its conjugate fields."
+   ],
+   "prerequisites": [
+    "mathlib:NumberField.IsCMField",
+    "mathlib:NumberField.IsCMField.complexEmbedding_complexConj",
+    "mathlib:NumberField.maximalRealSubfield"
+   ],
+   "sources": [
+    {
+     "sourceId": "milne-cm",
+     "locator": "Chapter I, Proposition 1.4 and Remark 1.6, p. 10",
+     "excerpt": "Note that a number field E is CM if and only if it has exactly one complex conjugation (by (b)).",
+     "match": "Proposition 1.4 (b): a CM field is characterized by a single automorphism realizing complex conjugation under every embedding."
+    },
+    {
+     "sourceId": "milne-cm",
+     "locator": "Chapter I, Remark 1.6, p. 10",
+     "excerpt": "i.e., it is the subfield corresponding to the closure of the group generated by",
+     "match": "The fixed-field description used in the converse direction."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/NumberTheory/CMFields",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.1/largest-cm-subfield",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.1",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "title": "The largest CM-or-totally-real subfield of a number field",
+   "kind": "definition",
+   "statement": "Let K ⊆ ℚ̄ be a number field, H ⊆ Gal(ℚ̄/ℚ) the closed subgroup topologically generated by {c₁c₂ : c₁, c₂ ∈ C} and H⁺ the closed subgroup generated by C. Put E_K := K ∩ ℚ̄^H and E_K⁺ := K ∩ ℚ̄^{H⁺}. Then E_K⁺ is the maximal totally real subfield of K, E_K is the largest subfield of K that is totally real or CM, [E_K : E_K⁺] ≤ 2, and E_K is CM if and only if K has a CM subfield (in which case E_K is the maximal CM subfield of LV Definition 2.7 and E_K⁺ its maximal totally real subfield).",
+   "hypotheses": [
+    "K ⊆ ℚ̄ a number field"
+   ],
+   "proofSteps": [
+    "A subfield F ⊆ K is fixed by H iff it is totally real or CM (criterion lemma), so E_K is the largest such subfield; similarly F is fixed by H⁺ iff it is totally real.",
+    "H has index at most 2 in H⁺ (every c ∈ C lies in cH for a fixed c), so [E_K : E_K⁺] ≤ 2.",
+    "If K contains a CM field F then F ⊆ E_K is not totally real, so E_K ≠ E_K⁺ and E_K is CM; conversely E_K CM gives a CM subfield."
+   ],
+   "acceptance": [
+    "K = ℚ(ζ_n), n ≥ 3: E_K = K.",
+    "K = ℚ(2^{1/3}): E_K = E_K⁺ = ℚ.",
+    "K = ℚ(i, 2^{1/4}): E_K = ℚ(i)."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.1/cm-or-totally-real-criterion",
+    "mathlib:InfiniteGalois.fixedField_fixingSubgroup",
+    "mathlib:InfiniteGalois.fixingSubgroup_fixedField",
+    "mathlib:NumberField.maximalRealSubfield"
+   ],
+   "sources": [
+    {
+     "sourceId": "milne-cm",
+     "locator": "Chapter I, Remark 1.7, pp. 10–11",
+     "excerpt": "Since a composite of totally real fields is totally real, K contains a largest totally real subfield F .",
+     "match": "Existence of the largest totally real subfield; the remark continues with the largest CM subfield K ∩ ℚ^cm."
+    },
+    {
+     "sourceId": "milne-cm",
+     "locator": "Chapter I, Corollary 1.5, p. 10",
+     "excerpt": "A finite composite of CM-subfields of a field is CM; in particular, the Galois closure of a CM-field in any larger field is CM.",
+     "match": "Why a largest CM subfield exists."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "largestCMSubfield",
+     "role": "constructor",
+     "statement": "E_K as an IntermediateField ℚ K."
+    },
+    {
+     "name": "largestTotallyRealSubfield",
+     "role": "constructor",
+     "statement": "E_K⁺, equal to Mathlib's maximalRealSubfield K."
+    },
+    {
+     "name": "largestTotallyRealSubfield_eq_maximalRealSubfield",
+     "role": "compatibility",
+     "statement": "E_K⁺ = NumberField.maximalRealSubfield K as subfields of K."
+    },
+    {
+     "name": "le_largestCMSubfield_iff",
+     "role": "characterisation",
+     "statement": "A subfield F ≤ K satisfies F ≤ E_K iff F is totally real or CM."
+    },
+    {
+     "name": "isCMField_largestCMSubfield_iff",
+     "role": "characterisation",
+     "statement": "IsCMField E_K ↔ K has a CM subfield ↔ E_K ≠ E_K⁺."
+    },
+    {
+     "name": "finrank_largestCMSubfield_div",
+     "role": "other",
+     "statement": "[E_K : E_K⁺] ∈ {1, 2}."
+    },
+    {
+     "name": "largestCMSubfield_map",
+     "role": "functoriality",
+     "statement": "For a field isomorphism σ : K ≃ K', σ(E_K) = E_{K'}."
+    },
+    {
+     "name": "embeddings_eq_on_largestCMSubfield_iff",
+     "role": "characterisation",
+     "statement": "Two embeddings τ, τ' : K → ℚ̄ agree on E_K iff τ' = hτ for some h in the closure H."
+    },
+    {
+     "name": "largestCMSubfield_cyclotomic",
+     "role": "example",
+     "statement": "E_{ℚ(ζ_n)} = ℚ(ζ_n) for n ≥ 3; E_{ℚ(2^{1/3})} = ℚ."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/NumberTheory/CMFields",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.1/infinity-type-factorization",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.1",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "title": "Functions on embeddings with constant conjugate sum factor through the largest CM subfield (Artin–Weil)",
+   "kind": "lemma",
+   "statement": "Let K ⊆ ℚ̄ be a number field, w ∈ ℤ and m : Hom(K, ℚ̄) → ℤ with m(c ∘ τ) + m(τ) = w for all τ and all complex conjugations c ∈ C. Then m(τ) depends only on τ|_{E_K}. If K has no CM subfield then m(τ) = w/2 for all τ; in particular w is even.",
+   "hypotheses": [
+    "m(c∘τ) + m(τ) = w for all c ∈ C and all τ"
+   ],
+   "proofSteps": [
+    "For c₁, c₂ ∈ C, m(c₁c₂τ) = w − m(c₂τ) = m(τ); so m is invariant under the subgroup generated by the c₁c₂, and, being locally constant for the (continuous) action on the finite set Hom(K, ℚ̄), under its closure H.",
+    "By the infinite Galois correspondence, two embeddings that agree on E_K = K ∩ ℚ̄^H differ by an element of H; hence m factors through restriction to E_K.",
+    "If K has no CM subfield then E_K is totally real, so c ∘ τ and τ agree on E_K; hence m(cτ) = m(τ) and 2m(τ) = w."
+   ],
+   "acceptance": [
+    "K = ℚ(i), m(id) = 1, m(conj) = 0, w = 1: the infinity type of the CM elliptic curve with multiplication by ℤ[i].",
+    "K = ℚ: m ≡ w/2."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.1/largest-cm-subfield",
+    "mathlib:InfiniteGalois.fixedField_fixingSubgroup"
+   ],
+   "sources": [
+    {
+     "sourceId": "milne-cm",
+     "locator": "Chapter I, Infinity types, proof of Proposition 4.9, pp. 37–38",
+     "excerpt": "agree on K 0 if and only if they differ by such a commutator.24",
+     "match": "The factorization step (a) ⇒ (b)(i) of Proposition 4.9."
+    },
+    {
+     "sourceId": "milne-cm",
+     "locator": "Chapter I, Infinity types, proof of Proposition 4.9, p. 38",
+     "excerpt": "doesn't contain a CM-field, and let K 0 be the largest totally real subfield.",
+     "match": "The case without CM subfield."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.4, before the proof of Lemma 2.8, p. 12",
+     "excerpt": "The key point is due to Artin and Weil: an algebraic Hecke character factors through the norm map to the maximal CM subfield.",
+     "match": "LV's statement of the input."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/NumberTheory/CMFields",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.1/friendly-place",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.1",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "title": "Friendly places (LV Definition 2.7)",
+   "kind": "definition",
+   "statement": "Let K be a number field and v a finite place of K. If K has a CM subfield, v is friendly when it is unramified over ℚ and lies above a place of E_K⁺ that is inert in the CM field E_K. If K has no CM subfield, v is friendly when it is unramified over ℚ.",
+   "hypotheses": [
+    "K a number field",
+    "v a finite place of K"
+   ],
+   "proofSteps": [
+    "Define IsFriendly v by cases on whether E_K is CM, using the largest CM subfield and the decomposition behaviour of the place of E_K⁺ below v.",
+    "Record the group-theoretic reformulation: for an embedding ι_p : ℚ̄ → ℚ̄_p inducing v on K and its decomposition group D ⊆ Gal(ℚ̄/ℚ), v is friendly iff v is unramified over ℚ and, when E_K is CM, some δ ∈ D satisfies δ ∘ τ = τ ∘ s_{E_K} on E_K for the embedding τ = inclusion."
+   ],
+   "acceptance": [
+    "K = ℚ: every prime is friendly.",
+    "K = ℚ(i): v is friendly iff it lies above p ≡ 3 mod 4.",
+    "K = ℚ(2^{1/3}): every place unramified over ℚ is friendly."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.1/largest-cm-subfield",
+    "mathlib:IsArithFrobAt"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.4, Definition 2.7, p. 12",
+     "excerpt": "(Friendly places). Let K be a number field. • If K has a CM subfield, then let E be its maximal CM subfield and E + the maximal totally real subfield of E. In this case, we say that a place v of K is friendly if it is unramified over Q, and it lies above a place of E + that is inert in E.",
+     "match": "The definition, continued by the no-CM case."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "IsFriendly",
+     "role": "constructor",
+     "statement": "The predicate on HeightOneSpectrum (𝓞 K)."
+    },
+    {
+     "name": "IsFriendly.isUnramified",
+     "role": "projection",
+     "statement": "A friendly place is unramified over ℚ."
+    },
+    {
+     "name": "isFriendly_iff_of_not_hasCMSubfield",
+     "role": "characterisation",
+     "statement": "If K has no CM subfield, IsFriendly v ↔ v is unramified over ℚ."
+    },
+    {
+     "name": "isFriendly_iff_exists_decomposition",
+     "role": "characterisation",
+     "statement": "IsFriendly v ↔ v unramified over ℚ ∧ (E_K CM → ∃ δ in the decomposition group at v with δ acting on E_K as its complex conjugation)."
+    },
+    {
+     "name": "isFriendly_of_frobenius",
+     "role": "other",
+     "statement": "If Frob_℘ ∈ Gal(K'/ℚ) (K' Galois over ℚ containing K) restricts to the nontrivial automorphism of E_K over E_K⁺, then the place of K below ℘ is friendly when unramified over ℚ (used with Chebotarev in LV.10)."
+    },
+    {
+     "name": "isFriendly_map",
+     "role": "functoriality",
+     "statement": "Friendliness is preserved by isomorphisms of number fields."
+    },
+    {
+     "name": "isFriendly_rat",
+     "role": "example",
+     "statement": "Over ℚ every prime is friendly; over ℚ(i) exactly the primes above p ≡ 3 mod 4."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/NumberTheory/FriendlyPlace",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.1/friendly-exponent-half",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.1",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "title": "At a friendly place a place-constant function with the conjugation relation takes the value w/2",
+   "kind": "lemma",
+   "statement": "Let K ⊆ ℚ̄ be a number field, p a prime, ι_p : ℚ̄ → ℚ̄_p an embedding, and for each τ ∈ Hom(K, ℚ̄) let v(τ) be the place of K above p induced by ι_p ∘ τ. Let m : Hom(K, ℚ̄) → ℤ satisfy m(c∘τ) + m(τ) = w for all c ∈ C and τ, and assume m(τ) depends only on v(τ). Then for every friendly place v above p, m(τ) = w/2 whenever v(τ) = v.",
+   "hypotheses": [
+    "m(c∘τ) + m(τ) = w",
+    "m constant on {τ : v(τ) = v'} for each v' | p",
+    "v friendly above p"
+   ],
+   "proofSteps": [
+    "If K has no CM subfield, the factorization lemma gives m ≡ w/2.",
+    "Otherwise fix τ₀ with v(τ₀) = v. Friendliness gives δ in the decomposition group of ι_p with δ ∘ τ₀ = τ₀ ∘ s_{E_K} on E_K; then v(δ ∘ τ₀) = v.",
+    "For any c ∈ C, c ∘ τ₀ = τ₀ ∘ s_{E_K} on E_K (criterion lemma), so δ ∘ τ₀ and c ∘ τ₀ agree on E_K and m(δτ₀) = m(cτ₀) by the factorization lemma.",
+    "Place-constancy gives m(δτ₀) = m(τ₀); hence m(τ₀) = m(cτ₀) = w − m(τ₀)."
+   ],
+   "acceptance": [
+    "K = ℚ(i), p ≡ 3 mod 4: the unique place above p is friendly and the conclusion is m ≡ w/2 on both embeddings.",
+    "K = ℚ(i), p ≡ 1 mod 4: the two places above p may carry exponents (1, 0) — the CM elliptic curve — so friendliness is necessary."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.1/infinity-type-factorization",
+    "MordellLawrenceVenkatesh:LV.1/friendly-place",
+    "MordellLawrenceVenkatesh:LV.1/cm-or-totally-real-criterion"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.4, proof of Lemma 2.8, pp. 12–13",
+     "excerpt": "In particular, by definition, v lies above an inert prime of E/E + .",
+     "match": "The use of friendliness in LV's proof; the node gives a direct group-theoretic argument replacing the Serre-torus computation."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/NumberTheory/FriendlyPlace",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.1/de-rham-character-locally-algebraic",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.1",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "title": "De Rham ℚ_p-valued characters are locally algebraic",
+   "kind": "lemma",
+   "statement": "Let F/ℚ_p be a finite extension and ψ : G_F → ℚ_p^× a continuous character that is de Rham, and let k ∈ ℤ be the unique filtration jump of the one-dimensional F-space D_dR(ψ). Then ψ·χ_cyc^{k} has finite image on the inertia group I_F; equivalently, ψ ∘ Art_F agrees with u ↦ N_{F/ℚ_p}(u)^{k} on an open subgroup of 𝒪_F^×. (With the conventions of this roadmap, D_dR(ℚ_p(n)) has its jump at −n and χ_cyc(Art_F(u)) = N_{F/ℚ_p}(u)^{-1}.)",
+   "hypotheses": [
+    "F/ℚ_p finite",
+    "ψ continuous, de Rham, ℚ_p-valued"
+   ],
+   "proofSteps": [
+    "η := ψ·χ_cyc^{k} is de Rham and D_dR(η) = D_dR(ψ) ⊗ D_dR(ℚ_p(k)) has its jump at k − k = 0 (tensor compatibility of D_dR and the computation of D_dR(ℚ_p(n))).",
+    "A de Rham representation is Hodge–Tate with gr D_dR = D_HT, so (ℂ_F(η))^{G_F} ≠ 0.",
+    "η(G_F) ⊆ ℚ_p^× is a commutative p-adic Lie group of dimension ≤ 1; by the Tate–Sen theorem (ℂ_F(η))^{G_F} = 0 unless η(I_F) is finite. Hence η(I_F) is finite.",
+    "By local class field theory Art_F(𝒪_F^×) is the image of inertia in G_F^{ab} and χ_cyc ∘ Art_F = N_{F/ℚ_p}^{-1} on units, so ψ ∘ Art_F(u) = N(u)^{k}·η(Art_F(u)); the finite-order character η ∘ Art_F is trivial on an open subgroup."
+   ],
+   "acceptance": [
+    "ψ = χ_cyc^{-1} = ℚ_p(−1): k = 1 and ψ ∘ Art_F = N on units.",
+    "An unramified character: k = 0.",
+    "With coefficients in a larger field the exponent may vary with the embedding; the ℚ_p-rationality forces the single exponent k."
+   ],
+   "prerequisites": [
+    "PadicHodgeTheory:R06.2",
+    "FoundationsAndLibraryIntegration:LI.4",
+    "mathlib:cyclotomicCharacter"
+   ],
+   "sources": [
+    {
+     "sourceId": "brinon-conrad",
+     "locator": "Example 6.3.1 and Proposition 6.3.2, p. 76",
+     "excerpt": "For n ∈ Z, DdR (Qp (n)) is 1-dimensional with its unique filtration jump in degree −n (i.e., gr−n is nonzero). Proposition 6.3.2. If V is de Rham then V is Hodge–Tate and gr(DdR (V )) = DHT (V ) as graded K-vector spaces.",
+     "match": "Proof steps 1–2."
+    },
+    {
+     "sourceId": "brinon-conrad",
+     "locator": "Theorem 2.2.7, p. 15",
+     "excerpt": "if η : GK → OK is a continuous character such that η(GK ) is a commu- tative p-adic Lie group of dimension at most 1 (i.e., η(GK ) is finite or contains Zp as an open subgroup) and if CK (η) denotes CK with the twisted GK -action",
+     "match": "Proof step 3 (Tate–Sen)."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.4, p. 12",
+     "excerpt": "This condition is implied by being Hodge–Tate at primes above p, by a theorem of Tate [40, Chapter III, Appendix].",
+     "match": "LV's appeal to local algebraicity."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/NumberTheory/PureCharacters",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors — ClassFieldTheory Layer 7 (absolute local Artin map and its cyclotomic normalization)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.1/pure-character-conjugation-relation",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.1",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "title": "Global purity forces the conjugation relation on Hodge–Tate exponents",
+   "kind": "lemma",
+   "statement": "Let K be a number field, p a prime, ι_p : ℚ̄ → ℚ̄_p an embedding, and η : G_K → ℚ_p^× a continuous character that is unramified outside a finite set T of finite places containing those above p, pure of weight w outside T, and de Rham at every place v' | p with filtration jump k_{v'}. For τ ∈ Hom(K, ℚ̄) put m(τ) := k_{v(τ)}. Then m(c ∘ τ) + m(τ) = w for every complex conjugation c ∈ C and every τ.",
+   "hypotheses": [
+    "η continuous, unramified outside finite T ⊇ {v | p}",
+    "η pure of weight w outside T",
+    "η de Rham at every place above p"
+   ],
+   "proofSteps": [
+    "By class field theory η ∘ Art_K is a continuous character of the idele class group, trivial on principal ideles, whose component at ℘ ∉ T is unramified with η(Art_℘(ϖ_℘)) = η(Frob_℘).",
+    "By local algebraicity there is an open subgroup U ⊆ ∏_{v'|p} 𝒪_{v'}^× on which the p-component equals x ↦ ∏_{v'|p} N_{K_{v'}/ℚ_p}(x_{v'})^{k_{v'}} = ∏_τ ι_p(τ(x))^{m(τ)} for x ∈ K.",
+    "Let Λ ⊆ K^× be the finite-index subgroup of totally positive α with α ∈ U and α a unit in the kernel of η_℘ at every ℘ ∈ T above no p. Reciprocity gives ∏_τ τ(α)^{m(τ)} = ∏_{℘∉T} η(Frob_℘)^{−v_℘(α)} for α ∈ Λ, an algebraic number.",
+    "Purity (|ι(η(Frob_℘))| = q_℘^{−w/2}) gives |ι_∞(∏_τ τ(α)^{m(τ)})| = |N_{K/ℚ}(α)|^{w/2} for every embedding ι_∞ : ℚ̄ → ℂ, i.e. Σ_τ (m(τ) − w/2) log|ι_∞τ(α)| = 0.",
+    "Grouping τ by the archimedean place of ι_∞ ∘ τ gives Σ_u a_u log|α|_u = 0 for all α ∈ Λ, with a_u the sum of m(τ) − w/2 over the embeddings inducing u. The vectors (log|α|_u)_u, α ∈ Λ, span ℝ^{places}: Λ contains a finite-index subgroup of the units, whose log vectors span the trace-zero hyperplane by Dirichlet's unit theorem, and an integer n > 1 whose log vector is not in that hyperplane. So every a_u = 0.",
+    "For a complex place u the two embeddings are τ and c_ι ∘ τ with c_ι = ι_∞⁻¹ ∘ conj ∘ ι_∞, giving m(τ) + m(c_ι τ) = w; every c ∈ C is of the form c_ι. For a real place c_ι ∘ τ = τ and a_u = 0 reads 2m(τ) = w."
+   ],
+   "acceptance": [
+    "η = χ_cyc^{−1} over any K: m ≡ 1 and w = 2.",
+    "K = ℚ(i), p ≡ 1 mod 4 split as v₁v₂: the two ℚ_p-valued characters cut out by the ℤ[i]-action on H¹ of y² = x³ − x have exponents (1, 0) and (0, 1) at (v₁, v₂); the relation m(τ) + m(cτ) = 1 holds, and the value w/2 is not attained at the non-friendly places."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.1/de-rham-character-locally-algebraic",
+    "FoundationsAndLibraryIntegration:LI.4",
+    "WeightsInEtaleCohomology:R34.1",
+    "mathlib:NumberField.Units.dirichletUnitTheorem.unitLattice_span_eq_top",
+    "mathlib:NumberField.Units.logEmbedding",
+    "mathlib:Set.unit"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.4, proof of Lemma 2.8, p. 12",
+     "excerpt": "Because of the purity assertion, if λ ∈ K ∗ is a unit at all ramified primes for η, then η(λ) is an algebraic number all of whose conjugates have absolute value NK/Q (λ)w/2 .",
+     "match": "The reciprocity-and-purity step, reproduced in proof steps 3–4."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/NumberTheory/PureCharacters",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity — ClassFieldTheory Layer 11 (global Artin reciprocity and local–global compatibility); tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors — ClassFieldTheory Layer 7 (absolute local Artin map and its cyclotomic normalization)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.1/pure-character-friendly",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.1",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "title": "Pure characters at friendly places (LV Lemma 2.8, stated on units)",
+   "kind": "theorem",
+   "statement": "Let v be a friendly place of the number field K above p and η : G_K → ℚ_p^× a continuous character, unramified outside a finite set, pure of weight w outside that set, and de Rham at every place above p. Then w is even, the filtration jump of D_dR(η|_{G_{K_v}}) is w/2, and η ∘ Art_{K_v} agrees with N_{K_v/ℚ_p}^{w/2} on an open subgroup of 𝒪_{K_v}^×. (LV state η²|_{K_v^×} = χ·Norm^w on all of K_v^×; on a uniformizer this fails already for η = χ_cyc^{−1} over ℚ, and only the restriction to units, which is what LV use, is asserted here.)",
+   "hypotheses": [
+    "v friendly above p",
+    "η continuous, finitely ramified, pure of weight w, de Rham above p"
+   ],
+   "proofSteps": [
+    "Enlarge the ramification set to contain the places above p; the conjugation relation holds for m(τ) = k_{v(τ)}.",
+    "m is place-constant by construction, so the friendly-exponent lemma gives k_v = w/2; since k_v ∈ ℤ, w is even.",
+    "Local algebraicity at v gives the statement on units."
+   ],
+   "acceptance": [
+    "K = ℚ: η = χ_cyc^{−w/2}·(finite order on inertia).",
+    "For η = χ_cyc^{−1} over ℚ: η∘Art(p) = 1 while p² ≠ 1, so the identity cannot hold on uniformizers."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.1/pure-character-conjugation-relation",
+    "MordellLawrenceVenkatesh:LV.1/friendly-exponent-half",
+    "MordellLawrenceVenkatesh:LV.1/de-rham-character-locally-algebraic"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.4, Lemma 2.8, p. 12",
+     "excerpt": "Let v be any friendly place of K, lying above the prime p of Q. For any continuous character η : Gal(K̄/K) −→ Q∗p , ramified at only finitely many places, pure of weight w, and locally algebraic at each prime above p, one has",
+     "match": "Statement of Lemma 2.8 (continued: η²|_{K_v^*} = χ · Norm^w, w even, Hodge–Tate weight w/2)."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.4, after Lemma 2.8, p. 12",
+     "excerpt": "Note that if the coefficients are enlarged from Q∗p to Q∗p2 , the statement above is no longer true; an example is given by the idele class character associated to a CM elliptic curve.",
+     "match": "Why the ℚ_p-coefficient hypothesis matters (place-constancy of m)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/NumberTheory/PureCharacters",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.1/filtration-weight",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.1",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "title": "The weight of a filtration (LV (2.2))",
+   "kind": "definition",
+   "statement": "For a nonzero finite-dimensional vector space D over a field with a finite exhaustive separated decreasing filtration, weight_F(D) := t_H(D)/dim D ∈ ℚ, where t_H(D) = Σ_j j·dim gr^j D is the Hodge number of the filtered space. When F⁰D = D and the jumps are ≥ 0 this is LV's Σ_{j≥0} j dim gr^j(D)/dim D.",
+   "hypotheses": [
+    "D nonzero, finite-dimensional, finitely filtered"
+   ],
+   "proofSteps": [
+    "Define weight_F as the rational number t_H(D)/dim D using the Hodge number of the filtered vector space (PadicHodgeTheory R06.2, Brinon–Conrad Definition 8.1.1)."
+   ],
+   "acceptance": [
+    "H¹_dR of an abelian variety of dimension g with the Hodge filtration: weight 1/2.",
+    "D_dR(ℚ_p(−1)): weight 1."
+   ],
+   "prerequisites": [
+    "PadicHodgeTheory:R06.2"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.5, (2.2), p. 13",
+     "excerpt": "For a decreasing filtration F • V on a vector space V (with F 0 V = V ) we define the weight of the filtration to be",
+     "match": "Definition (2.2)."
+    },
+    {
+     "sourceId": "brinon-conrad",
+     "locator": "Definition 8.1.1, p. 102",
+     "excerpt": "The y-coordinate of the rightmost endpoint of PH (D) is the Hodge number X tH (D) = i · dimF gri (D).",
+     "match": "The Hodge number t_H used in the definition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "filtrationWeight",
+     "role": "constructor",
+     "statement": "weight_F(D) = t_H(D)/dim D for a nonzero filtered vector space."
+    },
+    {
+     "name": "filtrationWeight_eq",
+     "role": "characterisation",
+     "statement": "weight_F(D) · dim D = Σ_j j dim gr^j D."
+    },
+    {
+     "name": "filtrationWeight_det",
+     "role": "relation",
+     "statement": "t_H(det D) = t_H(D), so the jump of det D is dim D · weight_F(D)."
+    },
+    {
+     "name": "filtrationWeight_directSum",
+     "role": "relation",
+     "statement": "weight_F(D ⊕ D') = (dim D weight_F(D) + dim D' weight_F(D'))/(dim D + dim D')."
+    },
+    {
+     "name": "filtrationWeight_restrictScalars",
+     "role": "compatibility",
+     "statement": "For F'/F finite and D an F'-filtered space viewed over F, t_H over F is [F':F] times t_H over F', so the weight is unchanged."
+    },
+    {
+     "name": "filtrationWeight_sub_quotient",
+     "role": "relation",
+     "statement": "t_H is additive on strict short exact sequences."
+    },
+    {
+     "name": "filtrationWeight_twist",
+     "role": "relation",
+     "statement": "Shifting the filtration by n adds n to the weight."
+    },
+    {
+     "name": "filtrationWeight_example",
+     "role": "example",
+     "statement": "A two-step filtration with dim F¹ = a on a space of dimension n has weight a/n."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PadicHodge/FiltrationWeight",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.1/hodge-weight-pure-representation",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.1",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "title": "Hodge weight of a pure representation at a friendly place (LV Lemma 2.9)",
+   "kind": "theorem",
+   "statement": "Let K be a number field, v a friendly place above p, and V a continuous representation of G_K on a nonzero finite-dimensional ℚ_p-vector space that is unramified outside a finite set, pure of weight w outside it, and de Rham (for instance crystalline) at every place above p. Then the weight of the Hodge filtration on D_dR(V|_{G_{K_v}}) equals w/2.",
+   "hypotheses": [
+    "v friendly above p",
+    "V finitely ramified, pure of weight w, de Rham above p"
+   ],
+   "proofSteps": [
+    "det V is a continuous character, pure of weight w·dim V (the product of the Frobenius eigenvalues) and de Rham above p.",
+    "D_dR(det V) = det D_dR(V) as filtered spaces, so its jump is t_H(D_dR(V)).",
+    "The friendly-place theorem for det V gives t_H(D_dR(V|_{K_v})) = w·dim V/2."
+   ],
+   "acceptance": [
+    "V = H¹_et(A_{K̄}, ℚ_p) for an abelian variety with good reduction above p: weight 1/2, matching dim F¹ = g."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.1/pure-character-friendly",
+    "MordellLawrenceVenkatesh:LV.1/filtration-weight",
+    "PadicHodgeTheory:R06.2",
+    "WeightsInEtaleCohomology:R34.1"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.5, Lemma 2.9 and proof, p. 13",
+     "excerpt": "Then the weight of the Hodge filtration on VdR equals w/2. Proof. Apply Lemma 2.8 to det(V ).",
+     "match": "Statement and proof of Lemma 2.9 (LV state it with D_cris; the de Rham version is equivalent for crystalline V)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PadicHodge/FiltrationWeight",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.1/de-rham-of-induced",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.1",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "title": "D_dR of an induced representation at a place",
+   "kind": "lemma",
+   "statement": "Let L/K be a finite extension of number fields, v a place of K above p, and ρ a continuous representation of G_L on a finite-dimensional ℚ_p-space that is de Rham at every place u of L above v. Then Ind_{G_L}^{G_K} ρ restricted to G_{K_v} is de Rham and D_dR,K_v(Ind ρ|_{G_{K_v}}) ≅ ⊕_{u|v} D_dR,L_u(ρ|_{G_{L_u}}) as filtered K_v-vector spaces (each summand viewed over K_v by restriction of scalars).",
+   "hypotheses": [
+    "L/K finite",
+    "ρ de Rham at the places above v"
+   ],
+   "proofSteps": [
+    "The double cosets G_{K_v}\\G_K/G_L correspond to the places u | v, and Mackey's formula gives Res_{G_{K_v}} Ind_{G_L}^{G_K} ρ ≅ ⊕_{u|v} Ind_{G_{L_u}}^{G_{K_v}} Res_{G_{L_u}} ρ (the decomposition is algebraic and compatible with the topologies since all indices are finite).",
+    "For a finite extension F'/F of p-adic fields, D_dR,F(Ind_{G_{F'}}^{G_F} W) = (Ind W ⊗ B_dR)^{G_F} = (W ⊗ B_dR)^{G_{F'}} = D_dR,F'(W), compatibly with filtrations (Shapiro for invariants, PadicHodgeTheory R06.2)."
+   ],
+   "acceptance": [
+    "L = K: the formula is trivial.",
+    "ρ trivial and L/K unramified of degree r at v inert: D_dR(Ind 1) = L_u with the trivial filtration, of K_v-dimension r."
+   ],
+   "prerequisites": [
+    "PadicHodgeTheory:R06.2",
+    "ArithmeticGaloisRepresentations:R01.1",
+    "tauceti:Rep.mackeyDecomposition"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.5, proof of Lemma 2.10, p. 14",
+     "excerpt": "We apply Lemma 2.9 to IndG GL ρ and to the place v.",
+     "match": "LV's proof applies p-adic Hodge theory to the induced representation and splits it over the places u | v."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PadicHodge/FiltrationWeight",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.1/hodge-weight-sum-over-places",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.1",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "title": "Hodge weights summed over places above a friendly place (LV Lemma 2.10)",
+   "kind": "theorem",
+   "statement": "Let L/K be a finite extension of number fields, v a friendly place of K above p, and ρ : G_L → GL_n(ℚ_p) continuous, finitely ramified, pure of weight w outside a finite set and de Rham at every place of L above p. Let a_u(ρ) be the weight of the Hodge filtration of D_dR(ρ|_{G_{L_u}}). Then Σ_{u|v} [L_u : K_v]·a_u(ρ) = [L : K]·w/2.",
+   "hypotheses": [
+    "v friendly place of K above p",
+    "ρ finitely ramified, pure of weight w, de Rham above p"
+   ],
+   "proofSteps": [
+    "V = Ind_{G_L}^{G_K} ρ is continuous, finitely ramified, de Rham above p and pure of weight w outside a finite set (the Frobenius eigenvalues of an induced representation at an unramified place are roots of those of ρ at the places above it, with the same normalized absolute values).",
+    "The Hodge-weight theorem for V at v gives weight w/2 for D_dR(V|_{K_v}).",
+    "By the induction lemma, D_dR(V|_{K_v}) = ⊕_{u|v} D_dR,L_u(ρ) with K_v-dimensions [L_u:K_v]·n and t_H = [L_u:K_v]·n·a_u(ρ); compare with dim V = [L:K]·n."
+   ],
+   "acceptance": [
+    "L = K: Lemma 2.9.",
+    "K = ℚ, p unramified in L: Σ_{u|p} f_u a_u = [L:ℚ] w/2, the form used in LV Lemma 4.4."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.1/hodge-weight-pure-representation",
+    "MordellLawrenceVenkatesh:LV.1/de-rham-of-induced",
+    "WeightsInEtaleCohomology:R34.1",
+    "ArithmeticGaloisRepresentations:R01.1"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§2.5, Lemma 2.10, p. 13–14",
+     "excerpt": "Let K be a number field, and L ⊃ K a finite extension. Let ρ : GL → GLn (Qp ) be a representation of GL that is crystalline at all primes above p, and pure of",
+     "match": "Statement of Lemma 2.10 (continued on p. 14 with the displayed identity)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/PadicHodge/FiltrationWeight",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.1/abelian-variety-cohomology-properties",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.1",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "title": "The Galois representation on H¹ of an abelian variety",
+   "kind": "theorem",
+   "statement": "Let A be an abelian variety over a number field L with good reduction outside a finite set S_A of finite places, p a prime and ρ_A = H¹_et(A_{L̄}, ℚ_p) (the ℚ_p-dual of V_p(A)), of dimension 2 dim A. Then: (a) ρ_A is unramified outside S_A ∪ {u | p}; (b) for u ∉ S_A ∪ {u | p} the characteristic polynomial of ρ_A(Frob_u^geom) is the characteristic polynomial of the q_u-Frobenius endomorphism of the reduction A_u, which lies in ℤ[X] and has all complex roots of absolute value q_u^{1/2}; so ρ_A is pure of weight 1 with integral Frobenius polynomials outside S_A ∪ {u | p}; (c) ρ_A is crystalline at every u | p with u ∉ S_A; (d) a polarization of A induces a perfect alternating G_L-equivariant pairing ρ_A × ρ_A → ℚ_p(−1).",
+   "hypotheses": [
+    "A abelian variety over a number field L",
+    "good reduction outside S_A"
+   ],
+   "proofSteps": [
+    "(a) Néron–Ogg–Shafarevich for u ∤ p; (b) the good-reduction Frobenius polynomial of the Tate module and the Weil bound for abelian varieties over finite fields, dualized; (c) good reduction implies crystalline Tate modules; (d) the Weil pairing of the polarization on Tate modules, dualized."
+   ],
+   "acceptance": [
+    "An elliptic curve with good reduction at u: X² − a_u X + q_u with |a_u| ≤ 2√q_u.",
+    "The pairing in (d) for the Legendre curve is the cup product on H¹."
+   ],
+   "prerequisites": [
+    "NeronModelsAndSemistableAbelianVarieties:R11.5",
+    "ArithmeticGaloisRepresentations:R01.6",
+    "DeligneWeightsAndPurity:DWP.1",
+    "PadicHodgeTheory:R06.6",
+    "AbelianSchemesAndArithmeticModuli:A3",
+    "SchemeAndStackFoundations:SF.3"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, proof of Proposition 5.3, p. 29–30",
+     "excerpt": "the fiber Xy0 of X → Y 0 above y 0 is a d-dimensional abelian variety over the field K(y 0 );",
+     "match": "The representations to which Lemmas 2.3 and 2.10 are applied in §6."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, proof of Lemma 6.1, p. 32",
+     "excerpt": "because it preserves (up to similitude) a bilinear form, we have dim Wy0 ⩽ 12 dim ρy0 , thus (6.8).",
+     "match": "Part (d) is the form used in (6.8)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/NumberTheory/AbelianVarietyGalois",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.2/abelian-by-finite-family",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.2",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.2"
+   ],
+   "title": "Abelian-by-finite families (LV Definition 5.1)",
+   "kind": "definition",
+   "statement": "Let B be a scheme and Y a B-scheme. An abelian-by-finite family over Y is a pair of morphisms X →f Y' →π Y together with a polarization λ of f, where π is finite étale and (f : X → Y', zero section, λ) is a polarized abelian scheme of constant relative dimension d. The composite π ∘ f is smooth and proper of relative dimension d. For a point y of Y, E_y := Γ(π^{-1}(y), 𝒪) is a finite étale κ(y)-algebra and the fibre X_y = (π∘f)^{-1}(y) is naturally an E_y-scheme. A polarized abelian scheme over Y is the case π = id.",
+   "hypotheses": [
+    "π : Y' → Y finite étale",
+    "f : X → Y' abelian scheme of relative dimension d with polarization λ"
+   ],
+   "proofSteps": [
+    "Bundle the data (Y', π, X, f, zero section, λ) with the finite-étale and abelian-scheme predicates.",
+    "The composite is smooth and proper as a composite of smooth proper morphisms."
+   ],
+   "acceptance": [
+    "The polarized abelian scheme X → Y with π = id.",
+    "The Legendre variant X → ℙ¹∖{0, μ_m, ∞} → ℙ¹∖{0,1,∞} of LV §4.2 (LV.5).",
+    "The Kodaira–Parshin family X_q → Y'_q → Y (LV.7)."
+   ],
+   "prerequisites": [
+    "AbelianSchemesAndArithmeticModuli:A1",
+    "AbelianSchemesAndArithmeticModuli:A2",
+    "mathlib:AlgebraicGeometry.IsFinite",
+    "mathlib:AlgebraicGeometry.Etale",
+    "mathlib:AlgebraicGeometry.IsProper",
+    "mathlib:AlgebraicGeometry.Smooth"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§5, Definition 5.1, p. 25",
+     "excerpt": "An abelian-by-finite family over Y is a sequence of morphisms π X −→ Y 0 −→ Y where π is finite étale, and X → Y 0 is (equipped with the structure of) a polarized abelian scheme.",
+     "match": "The definition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "AbelianByFiniteFamily",
+     "role": "constructor",
+     "statement": "The structure (Y', π, X, f, e, λ) over a B-scheme Y."
+    },
+    {
+     "name": "AbelianByFiniteFamily.relDim",
+     "role": "data",
+     "statement": "The relative dimension d of f."
+    },
+    {
+     "name": "AbelianByFiniteFamily.total",
+     "role": "projection",
+     "statement": "The composite π ∘ f : X → Y, smooth and proper of relative dimension d."
+    },
+    {
+     "name": "AbelianByFiniteFamily.baseChange",
+     "role": "functoriality",
+     "statement": "Pullback along Y₁ → Y and along B₁ → B, with base change of π, f and λ; compatible with composition and identity."
+    },
+    {
+     "name": "AbelianByFiniteFamily.fibreAlgebra",
+     "role": "data",
+     "statement": "E_y = Γ(π^{-1}(y), 𝒪), a finite étale κ(y)-algebra whose factors are the residue fields of the points of Y' over y."
+    },
+    {
+     "name": "AbelianByFiniteFamily.fibre",
+     "role": "projection",
+     "statement": "The fibre X_y as an E_y-scheme; over each point y' of π^{-1}(y) it is the polarized abelian variety X_{y'} over κ(y')."
+    },
+    {
+     "name": "AbelianByFiniteFamily.ofAbelianScheme",
+     "role": "coercion",
+     "statement": "A polarized abelian scheme over Y is an abelian-by-finite family with π = id."
+    },
+    {
+     "name": "AbelianByFiniteFamily.restrictScalars",
+     "role": "other",
+     "statement": "The total space as a smooth proper Y-scheme, forgetting the factorization."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Family/AbelianByFinite",
+    "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.2/good-model",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.2",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.2"
+   ],
+   "title": "Good models over rings of S-integers",
+   "kind": "definition",
+   "statement": "Let K be a number field, S a finite set of places containing the archimedean ones and 𝒪 = 𝒪_S. A good model over 𝒪 of an abelian-by-finite family X → Y' → Y over a smooth K-variety Y is an abelian-by-finite family 𝒳 → 𝒴' → 𝒴 over 𝒪 whose base change to K is the given one, with 𝒴 smooth over 𝒪 (and proper over 𝒪 when Y is proper over K), and such that the relative de Rham cohomology H¹_dR(𝒳/𝒴') and its Hodge filtration F¹ are locally free with locally free quotient and commute with base change, and the Gauss–Manin connection of X/Y extends to 𝒳/𝒴 over 𝒪 (LV §3.1).",
+   "hypotheses": [
+    "Y smooth over K",
+    "𝒪 = 𝒪_S"
+   ],
+   "proofSteps": [
+    "Define the predicate on a model; for abelian schemes the local freeness and base change of H¹_dR and F¹ and the integral Gauss–Manin connection are properties of the relative de Rham realization over any smooth 𝒪-base (AbelianSchemesAndArithmeticModuli A4), so the defining conditions reduce to: 𝒳 → 𝒴' → 𝒴 is an abelian-by-finite family over 𝒪 with 𝒴/𝒪 smooth (proper when Y is) recovering the given family over K."
+   ],
+   "acceptance": [
+    "The Legendre family over ℤ[1/2][t, 1/(t(1−t))] is a good model of its generic fibre with S = {2, ∞}.",
+    "If Y is proper, Y(K) = 𝒴(𝒪) by the valuative criterion, so every rational point is integral."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.2/abelian-by-finite-family",
+    "AbelianSchemesAndArithmeticModuli:A4",
+    "mathlib:Set.integer",
+    "mathlib:AlgebraicGeometry.IsProper.eq_valuativeCriterion"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§5, Definition 5.1, p. 25",
+     "excerpt": "A good model for such a family, over an S-integer ring O ⊂ K, is a family X → Y 0 → Y of smooth, proper O-schemes, satisfying the same conditions and also the assumptions at the start of §3.1, and recovering X → Y 0 → Y on base change to K.",
+     "match": "The definition."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.1, p. 15",
+     "excerpt": "Suppose that this admits a good model over O, i.e. it extends to a proper smooth mor- phism π : X → Y of smooth O-schemes.",
+     "match": "The assumptions of §3.1 referred to by Definition 5.1."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "IsGoodModel",
+     "role": "constructor",
+     "statement": "The predicate that an abelian-by-finite family over 𝒪_S is a good model of a family over K."
+    },
+    {
+     "name": "IsGoodModel.baseChange",
+     "role": "functoriality",
+     "statement": "A good model over 𝒪_S gives a good model over 𝒪_{S'} for S ⊆ S'."
+    },
+    {
+     "name": "IsGoodModel.integralPoints",
+     "role": "characterisation",
+     "statement": "If Y is proper, every K-point of Y extends uniquely to an 𝒪-point of 𝒴."
+    },
+    {
+     "name": "IsGoodModel.fibre_goodReduction",
+     "role": "other",
+     "statement": "For y ∈ 𝒴(𝒪) and y' over y, X_{y'} has good reduction at every place of K(y') not above S, and K(y')/K is unramified outside S."
+    },
+    {
+     "name": "IsGoodModel.deRham_locallyFree",
+     "role": "projection",
+     "statement": "H¹_dR(𝒳/𝒴') and F¹ are locally free with locally free quotient."
+    },
+    {
+     "name": "IsGoodModel.of_polarizedAbelianScheme",
+     "role": "example",
+     "statement": "The case π = id."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Family/GoodModel",
+    "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.2/good-model-exists",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.2",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.2"
+   ],
+   "title": "Existence of good models after enlarging S",
+   "kind": "lemma",
+   "statement": "Let X → Y' → Y be an abelian-by-finite family over a smooth (respectively smooth proper) K-variety Y. There is a finite set S of places of K such that the family has a good model over 𝒪_S with 𝒴 smooth (respectively smooth and proper) over 𝒪_S. Any two good models become isomorphic over 𝒪_{S'} for some finite S' ⊇ S.",
+   "hypotheses": [
+    "Y smooth (proper) over K",
+    "K a number field"
+   ],
+   "proofSteps": [
+    "K = colim 𝒪_S over finite S; the finitely presented schemes Y, Y', X, the morphisms π, f, the zero section and the polarization descend to some 𝒪_S (limit arguments), and so do the properties smooth, proper, finite étale, and 'abelian scheme' (smooth proper group scheme with geometrically connected fibres) after enlarging S.",
+    "The degree-one de Rham realization of an abelian scheme over a smooth 𝒪_S-base has the required local freeness, base change and integral Gauss–Manin connection.",
+    "Uniqueness: an isomorphism over K of finitely presented objects descends to some 𝒪_{S'}."
+   ],
+   "acceptance": [
+    "X = E × Y for a fixed elliptic curve E over K: S = the bad places of E and of Y."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.2/good-model",
+    "SchemeAndStackFoundations:SF.0",
+    "AbelianSchemesAndArithmeticModuli:A4",
+    "mathlib:AlgebraicGeometry.spread_out_of_isGermInjective"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.1, p. 15",
+     "excerpt": "There is no harm in these as- sumptions, because the sheaves in question are coherent OY -modules which are free over the generic point of O [11, Theorem 5.5]; so the assumptions can always be achieved by possibly enlarging the set S of primes.",
+     "match": "Why the conditions can be arranged after enlarging S."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Family/GoodModel",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.2/de-rham-bundle",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.2",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.2"
+   ],
+   "title": "The de Rham bundle of an abelian-by-finite family",
+   "kind": "construction",
+   "statement": "For a good model 𝒳 →f 𝒴' →π 𝒴 over 𝒪 = 𝒪_S, put ℰ := π_*𝒪_{𝒴'} (a finite étale 𝒪_𝒴-algebra) and ℋ := π_* H¹_dR(𝒳/𝒴'). Then ℋ is a locally free ℰ-module of rank 2d, with: (a) the Hodge sub-bundle F¹ℋ = π_*F¹, locally free of ℰ-rank d with locally free quotient; (b) the polarization pairing ⟨·,·⟩ : ℋ × ℋ → ℰ, ℰ-bilinear, alternating and perfect, for which F¹ℋ is Lagrangian; (c) the Gauss–Manin connection ∇ : ℋ → ℋ ⊗ Ω¹_{𝒴/𝒪}, integrable, satisfying ∇(e·x) = d_ℰ(e)·x + e·∇x for the canonical integrable connection d_ℰ on the étale algebra ℰ, and horizontal pairing d_ℰ⟨x, x'⟩ = ⟨∇x, x'⟩ + ⟨x, ∇x'⟩. For y ∈ 𝒴(R) with R an 𝒪-algebra, y^*ℋ = H¹_dR(X_y/R) as a module over E_y = y^*ℰ, compatibly with (a)–(c) and with the de Rham cohomology of the total space X → Y.",
+   "hypotheses": [
+    "good model over 𝒪_S"
+   ],
+   "proofSteps": [
+    "Apply the degree-one de Rham realization of the polarized abelian scheme 𝒳/𝒴' (relative H¹_dR, Hodge exact sequence, Gauss–Manin connection relative to 𝒪, cup-product pairing induced by λ, base change).",
+    "Push forward along the finite étale π: π_* of a locally free module is locally free; ℰ acts through π_*𝒪_{𝒴'}; since π is étale, Ω¹_{𝒴'/𝒪} = π^*Ω¹_{𝒴/𝒪}, so the Gauss–Manin connection of 𝒳/𝒴' pushes forward to a connection on ℋ with the stated Leibniz rule; it coincides with the Gauss–Manin connection of the composite 𝒳 → 𝒴.",
+    "The pairing pushes forward to an ℰ-valued pairing; perfectness and the Lagrangian property of F¹ are fibrewise statements for abelian varieties.",
+    "Base change of π_* along y is exact because π is finite flat."
+   ],
+   "acceptance": [
+    "For the Legendre family, ℰ = 𝒪 and ℋ has basis dx/y, x dx/y with the Picard–Fuchs connection.",
+    "For π = id, ℋ = H¹_dR(𝒳/𝒴) with its usual structures."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.2/good-model",
+    "AbelianSchemesAndArithmeticModuli:A4",
+    "AbelianSchemesAndArithmeticModuli:A2",
+    "mathlib:AlgebraicGeometry.Etale",
+    "mathlib:AlgebraicGeometry.IsFinite"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, proof of Proposition 5.3, p. 29",
+     "excerpt": "Moreover, the polarization on X induces an Ey -bilinear symplectic pairing 1 1 HdR (Xy /K) × HdR (Xy /K) −→ Ey .",
+     "match": "The E_y-structure and the symplectic pairing on the fibres."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§4.3, proof of Lemma 4.2, p. 22",
+     "excerpt": "by compatibility of Gauss–Manin connection with the cup product, is compatible with their module structures over the corresponding H 0 s.",
+     "match": "The ℰ-linearity of the Gauss–Manin connection."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "deRhamBundle",
+     "role": "constructor",
+     "statement": "ℋ as a locally free ℰ-module of rank 2d on 𝒴."
+    },
+    {
+     "name": "deRhamBundle.hodge",
+     "role": "data",
+     "statement": "The Hodge sub-bundle F¹ℋ of ℰ-rank d."
+    },
+    {
+     "name": "deRhamBundle.pairing",
+     "role": "data",
+     "statement": "The ℰ-bilinear perfect alternating pairing with F¹ℋ Lagrangian."
+    },
+    {
+     "name": "deRhamBundle.gaussManin",
+     "role": "data",
+     "statement": "The integrable connection ∇ with the ℰ-Leibniz rule and horizontal pairing."
+    },
+    {
+     "name": "deRhamBundle.fibreEquiv",
+     "role": "equivalence",
+     "statement": "y^*ℋ ≃ H¹_dR(X_y/R) as E_y-modules with filtration and pairing."
+    },
+    {
+     "name": "deRhamBundle.fibreDecomp",
+     "role": "characterisation",
+     "statement": "Over a field L ⊇ K, H¹_dR(X_y/L) = ∏ over the factors of E_y ⊗ L of the de Rham cohomology of the corresponding abelian varieties (LV (6.2))."
+    },
+    {
+     "name": "deRhamBundle.baseChange",
+     "role": "functoriality",
+     "statement": "Compatibility with base change of the family and with restriction to open subschemes of 𝒴."
+    },
+    {
+     "name": "deRhamBundle.eq_gaussManin_total",
+     "role": "compatibility",
+     "statement": "∇ is the Gauss–Manin connection of the smooth proper morphism 𝒳 → 𝒴 on H¹_dR(𝒳/𝒴) = ℋ."
+    },
+    {
+     "name": "deRhamBundle.legendre",
+     "role": "example",
+     "statement": "For the Legendre family, the basis dx/y, x dx/y and its connection matrix."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Family/DeRhamBundle",
+    "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.2/residue-disk",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.2",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.2"
+   ],
+   "title": "Residue disks and their coordinates",
+   "kind": "definition",
+   "statement": "Let 𝒴 be smooth of relative dimension m over 𝒪 = 𝒪_S, v a finite place of K not in S with K_v/ℚ_p unramified, and y₀ ∈ 𝒴(𝒪_v) with reduction ȳ₀ ∈ 𝒴(k_v). The residue disk is Ω_v(y₀) := {y ∈ 𝒴(𝒪_v) : y ≡ y₀ mod v}. A system of parameters at y₀ is (z₁, …, z_m) ⊆ 𝒪_{𝒴⊗𝒪_(v), ȳ₀} generating the kernel of the map to 𝒪_(v) given by y₀, so that (p, z₁, …, z_m) is a regular system of parameters. Then the completed local ring is 𝒪_v[[z₁, …, z_m]] and y ↦ (z₁(y), …, z_m(y)) is a bijection Ω_v(y₀) → (p𝒪_v)^m.",
+   "hypotheses": [
+    "𝒴 smooth over 𝒪_S of relative dimension m",
+    "v ∉ S, K_v/ℚ_p unramified",
+    "y₀ ∈ 𝒴(𝒪_v)"
+   ],
+   "proofSteps": [
+    "Parameters exist because 𝒴 is smooth over 𝒪 at ȳ₀ and y₀ is a section through ȳ₀.",
+    "Since K_v is unramified, 𝒪_v = W(k_v) and the completed local ring of the smooth 𝒪_v-scheme at the k_v-point ȳ₀ is 𝒪_v[[z]].",
+    "𝒪_v-points reducing to ȳ₀ are continuous 𝒪_v-algebra maps 𝒪_v[[z]] → 𝒪_v, i.e. values z ∈ (p𝒪_v)^m (formal smoothness and completeness)."
+   ],
+   "acceptance": [
+    "𝒴 = 𝔸¹: Ω_v(y₀) = y₀ + p𝒪_v with z = t − t₀.",
+    "Changing parameters changes the bijection by an 𝒪_v-analytic automorphism of (p𝒪_v)^m."
+   ],
+   "prerequisites": [
+    "SchemeAndStackFoundations:SF.0",
+    "FoundationsAndLibraryIntegration:LI.4",
+    "mathlib:AlgebraicGeometry.Smooth",
+    "mathlib:MvPowerSeries"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.3, pp. 16–17",
+     "excerpt": "we may do this so that (z1 , . . . , zm ) generate the kernel of the morphism OY,y0 → O(v)",
+     "match": "Choice of parameters; LV continue: the completed local ring is O_v[[z_1, …, z_m]]."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "residueDisk",
+     "role": "constructor",
+     "statement": "Ω_v(y₀) as a subset of 𝒴(𝒪_v)."
+    },
+    {
+     "name": "residueDisk.coords",
+     "role": "data",
+     "statement": "The bijection z : Ω_v(y₀) ≃ (p𝒪_v)^m attached to a system of parameters."
+    },
+    {
+     "name": "residueDisk.coords_germ",
+     "role": "characterisation",
+     "statement": "For f ∈ 𝒪_{𝒴,ȳ₀}, f(y) is the value at z(y) of the Taylor expansion of f, a power series with coefficients in 𝒪_(v)."
+    },
+    {
+     "name": "residueDisk.mem_iff",
+     "role": "characterisation",
+     "statement": "y ∈ Ω_v(y₀) ↔ y and y₀ have the same reduction."
+    },
+    {
+     "name": "residueDisk.coords_change",
+     "role": "other",
+     "statement": "Two systems of parameters differ by an 𝒪_v-analytic isomorphism given by power series in 𝒪_v[[z]]."
+    },
+    {
+     "name": "residueDisk.finiteEtale",
+     "role": "functoriality",
+     "statement": "For a finite étale π : 𝒴' → 𝒴, π^{-1}(Ω_v(y₀)) is the disjoint union of the residue disks of the points of 𝒴'(𝒪_{v'}) over y₀, compatibly with coordinates."
+    },
+    {
+     "name": "residueDisk.cover",
+     "role": "other",
+     "statement": "𝒴(𝒪_v) is the finite disjoint union of the residue disks of its points; if 𝒴 is proper, Y(K_v) = 𝒴(𝒪_v)."
+    },
+    {
+     "name": "residueDisk.affineLine",
+     "role": "example",
+     "statement": "The residue disks of 𝔸¹(ℤ_p) are the cosets of pℤ_p."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Family/ResidueDisk",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius — LocalFieldsRamification Layer 2 (unramified extensions and Frobenius)."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.2/formal-horizontal-sections",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.2",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.2"
+   ],
+   "title": "Formal horizontal sections of an integrable connection with integral coefficients",
+   "kind": "lemma",
+   "statement": "Let R be a subring of a field K of characteristic zero, r ≥ 1, and A_1, …, A_m ∈ M_r(R[[z_1, …, z_m]]) satisfying the integrability condition ∂_k A_l − ∂_l A_k + [A_k, A_l] = 0. There is a unique Φ ∈ GL_r(K[[z]]) with Φ(0) = 1 and ∂_k Φ = −A_k Φ for all k. Writing Φ = Σ_α Φ_α z^α, one has α!·Φ_α ∈ M_r(R) for every multi-index α, where α! = ∏ α_i!; the same holds for Φ^{-1}, which solves ∂_k Ψ = Ψ A_k.",
+   "hypotheses": [
+    "char K = 0",
+    "A_k integral over R",
+    "integrability"
+   ],
+   "proofSteps": [
+    "The equations give the recursion (α_k + 1)Φ_{α+e_k} = −Σ_{β ≤ α} A_{k,α−β} Φ_β; integrability makes the values obtained through different k agree, so a unique formal solution exists (induction on |α|).",
+    "Multiplying by α!: (α + e_k)! Φ_{α+e_k} = −Σ_{β≤α} (α!/β!) A_{k,α−β} (β! Φ_β), and α!/β! is an integer for β ≤ α; induction gives integrality of α!Φ_α.",
+    "Φ^{-1} satisfies the transposed system with the same shape of recursion."
+   ],
+   "acceptance": [
+    "m = 1, r = 1, A = −1: Φ = exp(z) with α!Φ_α = 1.",
+    "A = 0: Φ = 1."
+   ],
+   "prerequisites": [
+    "mathlib:MvPowerSeries"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.3, (3.6) and the following paragraph, pp. 16–17",
+     "excerpt": "We may write down a formal solution to (3.6), where the fi are given by formal power series in K[[z1 , . . . , zm ]].",
+     "match": "The formal solution; the integrality estimate is the 'direct computation' LV refer to."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Family/FormalSolutions",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.2/horizontal-sections-padic-convergence",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.2",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.2"
+   ],
+   "title": "p-adic convergence of formal horizontal sections on the residue disk",
+   "kind": "lemma",
+   "statement": "In the setting of the formal-solution lemma, let R = 𝒪_(v) ⊆ K for a finite place v with K_v/ℚ_p unramified and p > 2. Then Φ and Φ^{-1} converge absolutely for z ∈ K_v^m with |z_i|_v < |p|_v^{1/(p−1)}. More precisely the series x ↦ Φ(p x) has coefficients p^{|α|}Φ_α ∈ M_r(𝒪_v) tending to zero, so it is a restricted power series over 𝒪_v in x ∈ 𝒪_v^m; in particular Φ(z) ∈ GL_r(𝒪_v) and Φ(z) ≡ 1 mod p for z ∈ (p𝒪_v)^m.",
+   "hypotheses": [
+    "K_v/ℚ_p unramified",
+    "p > 2",
+    "A_k with 𝒪_(v)-integral coefficients"
+   ],
+   "proofSteps": [
+    "By the formal-solution lemma |Φ_α|_v ≤ |α!|_v^{-1}, and Legendre's bound v_p(n!) ≤ n/(p−1) gives |α!|_v^{-1} ≤ p^{|α|/(p−1)} (v unramified, so |p|_v = p^{-1}).",
+    "Hence |p^{|α|}Φ_α|_v ≤ p^{−|α|(p−2)/(p−1)} → 0 for p ≥ 3, and Φ(z) converges for |z_i| < p^{−1/(p−1)}.",
+    "The constant term is 1 and all other terms of Φ(px) are divisible by p (as |α|(p−2)/(p−1) > 0 and the valuation is an integer ≥ 1 once positive), so Φ(z) ≡ 1 mod p and is invertible; the same for Φ^{-1}."
+   ],
+   "acceptance": [
+    "p = 3: Φ = exp(z) converges on |z| < 3^{-1/2}, which contains 3ℤ_3.",
+    "p = 2 fails: exp(z) does not converge on 2ℤ_2, which is why LV assume p > 2."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.2/formal-horizontal-sections",
+    "mathlib:Nat.factorization_factorial_le_div_pred",
+    "mathlib:MvPowerSeries.IsRestricted"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.3, p. 17",
+     "excerpt": "By assumption, we have p > 2, and v is unramified above p.",
+     "match": "The hypotheses used for convergence on the residue disk; LV state convergence for |z_i|_v < |p|_v^{1/(p−1)} just before."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Family/FormalSolutions",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.2/horizontal-sections-complex-convergence",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.2",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.2"
+   ],
+   "title": "Complex convergence of formal horizontal sections (majorants)",
+   "kind": "lemma",
+   "statement": "In the setting of the formal-solution lemma, let ι : K → ℂ be an embedding and suppose that the entries of the ι-images of all A_k converge on a polydisk around 0. Then ι(Φ) converges on a polydisk around 0 and is the holomorphic fundamental solution there: ∂_k ι(Φ) = −ι(A_k) ι(Φ), ι(Φ)(0) = 1.",
+   "hypotheses": [
+    "ι : K → ℂ",
+    "ι(A_k) convergent near 0"
+   ],
+   "proofSteps": [
+    "Cauchy's estimates give M, ρ > 0 with ‖ι(A_{k,α})‖ ≤ M ρ^{−|α|} for all k and α; the series Â(z) = M/(1 − (z_1+⋯+z_m)/ρ) has coefficients M·(|α|!/α!)·ρ^{−|α|} ≥ M ρ^{−|α|}, so it majorizes every ι(A_k).",
+    "The scalar system ∂_k Φ̂ = Â Φ̂ (k = 1…m) is integrable and has the solution Φ̂ = (1 − (z_1+⋯+z_m)/ρ)^{−Mρ}, which converges for Σ|z_i| < ρ.",
+    "By induction on |α| using the recursion, ‖ι(Φ_α)‖ ≤ Φ̂_α; so ι(Φ) converges where Φ̂ does, and termwise differentiation gives the differential equation."
+   ],
+   "acceptance": [
+    "m = 1, A = −a/(1 − z) with a ∈ ℚ: ∂Φ = aΦ/(1 − z) and Φ = (1 − z)^{−a}, converging for |z| < 1."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.2/formal-horizontal-sections",
+    "mathlib:HasFPowerSeriesOnBall",
+    "mathlib:FormalMultilinearSeries.radius"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.3, p. 17",
+     "excerpt": "We may write down a formal solution to (3.6), where the fi are given by formal power series in K[[z1 , . . . , zm ]].",
+     "match": "LV assert ι-adic absolute convergence for small |z_i|_ℂ; the node supplies Cauchy's majorant argument."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Family/FormalSolutions",
+    "namespace": "TauCeti.LawrenceVenkatesh"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-padic",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.2",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.2"
+   ],
+   "title": "p-adic Gauss–Manin transport on a residue disk (LV (3.7))",
+   "kind": "construction",
+   "statement": "Let 𝒳 → 𝒴' → 𝒴 be a good model, v ∉ S with K_v/ℚ_p unramified and p > 2, y₀ ∈ 𝒴(𝒪_v), and choose parameters z at y₀ and a basis v_1, …, v_r of ℋ on a neighbourhood of ȳ₀ (compatible with the Hodge filtration at y₀). For y ∈ Ω_v(y₀) the matrix Φ(z(y)) of horizontal sections defines an 𝒪_v-linear isomorphism T_v(y) : ℋ_{y₀} ⊗ 𝒪_v → ℋ_y ⊗ 𝒪_v, the Gauss–Manin transport. It is independent of the choices of basis and parameters, satisfies T_v(y₀) = id, is compatible with the ℰ-structure along the transport ℰ_{y₀} ⊗ 𝒪_v ≅ ℰ_y ⊗ 𝒪_v (LV (6.3)), preserves the polarization pairing, and satisfies T_v(y'') = T_{v}(y', y'') ∘ T_v(y') for the transport based at y' ∈ Ω_v(y₀).",
+   "hypotheses": [
+    "good model",
+    "v ∉ S, K_v/ℚ_p unramified, p > 2",
+    "y, y₀ in one residue disk"
+   ],
+   "proofSteps": [
+    "The connection matrix of ∇ in the basis (v_i) has coefficients in 𝒪_(v)[[z]] (the Taylor expansions of sections of Ω¹ over a neighbourhood of ȳ₀).",
+    "The formal solution Φ converges on (p𝒪_v)^m with values in GL_r(𝒪_v); define T_v(y) as the map sending the fibre at y₀ of a horizontal formal section to its value at y.",
+    "Independence of choices: two formal horizontal frames differ by a constant matrix, and a change of parameters is an analytic substitution.",
+    "ℰ is itself a module with integrable connection d_ℰ; its transport is a ring isomorphism, and the Leibniz rule makes T_v(y) semilinear over it; horizontality of the pairing makes T_v(y) preserve it.",
+    "The cocycle identity follows from uniqueness of horizontal sections."
+   ],
+   "acceptance": [
+    "For the constant family the transport is the identity.",
+    "For ℰ: the transport identifies E_{y₀} ⊗ K_v = ∏ K(y₀')_w with E_y ⊗ K_v factor by factor, giving the bijection (6.4) of pairs (y', w) over (y, v) and (y₀', w₀) over (y₀, v)."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.2/de-rham-bundle",
+    "MordellLawrenceVenkatesh:LV.2/residue-disk",
+    "MordellLawrenceVenkatesh:LV.2/horizontal-sections-padic-convergence"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.3, (3.7), p. 17",
+     "excerpt": "By assumption, we have p > 2, and v is unramified above p. Thus we obtain an identification q q ∼ (3.7) GM : HdR (Xy0 /Kv ) → HdR (Xy /Kv ) whenever y ∈ Y(Ov ) satisfies y ≡ y0 modulo v,",
+     "match": "The transport (3.7)."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§6, (6.3)–(6.6), p. 30",
+     "excerpt": "is compatible with the Gauss-Manin isomorphism 1 GM 1 (6.5) HdR (Xy /Kv ) −→ HdR (Xy0 /Kv ).",
+     "match": "Compatibility with the ℰ-structure used in §6."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "gaussManinTransport",
+     "role": "constructor",
+     "statement": "T_v(y) : ℋ_{y₀} ⊗ 𝒪_v ≃ ℋ_y ⊗ 𝒪_v for y ∈ Ω_v(y₀)."
+    },
+    {
+     "name": "gaussManinTransport_self",
+     "role": "simp",
+     "statement": "T_v(y₀) = id."
+    },
+    {
+     "name": "gaussManinTransport_trans",
+     "role": "relation",
+     "statement": "Transitivity T_v(y'') = T_{y'}(y'') ∘ T_v(y') for y', y'' in one disk."
+    },
+    {
+     "name": "gaussManinTransport_algebra",
+     "role": "other",
+     "statement": "The transport of ℰ is a ring isomorphism E_{y₀} ⊗ 𝒪_v ≃ E_y ⊗ 𝒪_v and T_v(y) is semilinear over it."
+    },
+    {
+     "name": "gaussManinTransport_pairing",
+     "role": "relation",
+     "statement": "⟨T_v(y)x, T_v(y)x'⟩ = T_ℰ(⟨x, x'⟩)."
+    },
+    {
+     "name": "gaussManinTransport_matrix",
+     "role": "characterisation",
+     "statement": "In a basis near ȳ₀, the matrix of T_v(y) is Φ(z(y)), with entries restricted power series in z/p."
+    },
+    {
+     "name": "gaussManinTransport_indep",
+     "role": "extensionality",
+     "statement": "T_v(y) does not depend on the basis or on the parameters."
+    },
+    {
+     "name": "gaussManinTransport_pairs",
+     "role": "equivalence",
+     "statement": "The induced bijection between the points (y', w) over (y, v) and (y₀', w₀) over (y₀, v), with K(y')_w ≅ K(y₀')_{w₀} (LV (6.4), (6.6))."
+    },
+    {
+     "name": "gaussManinTransport_constant",
+     "role": "example",
+     "statement": "For a constant family T_v(y) = id."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Family/GaussManinTransport",
+    "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-complex",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.2",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.2"
+   ],
+   "title": "Complex Gauss–Manin transport and Betti parallel transport (LV (3.8))",
+   "kind": "construction",
+   "statement": "Let ι : K → ℂ, y₀ ∈ Y(ℂ) and Ω_ℂ ⊆ Y(ℂ) a contractible open neighbourhood of y₀. For y ∈ Ω_ℂ the holomorphic horizontal sections of (ℋ^an, ∇^an) define T_ℂ(y) : ℋ_{y₀} ⊗_ι ℂ ≅ ℋ_y ⊗_ι ℂ; near y₀ its matrix is ι(Φ)(z(y)) for the same formal series Φ as in the p-adic case. Under the de Rham–Betti comparison ℋ_y ⊗ ℂ = H¹_B(X_y(ℂ), ℂ) = ⊕_{y' ↦ y} H¹_B(X_{y'}(ℂ), ℂ), T_ℂ(y) is parallel transport in the local system R¹(π∘f)_*ℂ along any path in Ω_ℂ; it is compatible with the ℰ-structure and the polarization.",
+   "hypotheses": [
+    "ι : K → ℂ",
+    "Ω_ℂ contractible"
+   ],
+   "proofSteps": [
+    "Near y₀ the complex convergence lemma gives the holomorphic fundamental matrix ι(Φ); on the contractible Ω_ℂ horizontal sections extend uniquely (analytic continuation along paths, identity theorem).",
+    "Horizontal sections of the analytic Gauss–Manin connection are the locally constant sections of the Betti local system (de Rham–Betti comparison for proper smooth families with Gauss–Manin compatibility, in degree one for abelian schemes).",
+    "ℰ ⊗ ℂ corresponds to the locally constant functions on the covering Y'(ℂ) → Y(ℂ), giving the decomposition over the points above y."
+   ],
+   "acceptance": [
+    "For the Legendre family, T_ℂ(y) is given by the periods of dx/y and x dx/y along a transported basis of H₁.",
+    "Monodromy: for a loop γ at y₀ the analytic continuation of T_ℂ is the monodromy of the local system."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.2/de-rham-bundle",
+    "MordellLawrenceVenkatesh:LV.2/horizontal-sections-complex-convergence",
+    "ComplexComparisonPartII:C5",
+    "AbelianSchemesAndArithmeticModuli:A5",
+    "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq",
+    "tauceti:TauCeti.LocalCoefficientSystem.monodromyRepresentation"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.3, (3.8), p. 17",
+     "excerpt": "q q ∼ (3.8) GM : HdR (Xy0 ,C /C) → HdR (Xy,C /C), when y ∈ YC (C) is sufficiently close to y0 .",
+     "match": "The complex transport."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.2, p. 16",
+     "excerpt": "In particular, monodromy defines a representation µ : π1 (YC (C), y0 ) −→ GL(VC ),",
+     "match": "The Betti local system and its monodromy."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "gaussManinTransportComplex",
+     "role": "constructor",
+     "statement": "T_ℂ(y) for y in a contractible neighbourhood of y₀."
+    },
+    {
+     "name": "gaussManinTransportComplex_eq_parallel",
+     "role": "compatibility",
+     "statement": "T_ℂ(y) is Betti parallel transport under the de Rham–Betti comparison."
+    },
+    {
+     "name": "gaussManinTransportComplex_series",
+     "role": "characterisation",
+     "statement": "Near y₀, the matrix of T_ℂ(y) is ι(Φ)(z(y)) with Φ the formal solution of LV (3.6)."
+    },
+    {
+     "name": "gaussManinTransportComplex_trans",
+     "role": "relation",
+     "statement": "Transitivity along paths in Ω_ℂ."
+    },
+    {
+     "name": "gaussManinTransportComplex_pairing",
+     "role": "relation",
+     "statement": "Compatibility with the polarization and the ℰ-structure."
+    },
+    {
+     "name": "gaussManinTransportComplex_monodromy",
+     "role": "other",
+     "statement": "Analytic continuation along a loop γ at y₀ gives the monodromy μ(γ)."
+    },
+    {
+     "name": "gaussManinTransportComplex_legendre",
+     "role": "example",
+     "statement": "The Legendre family's period matrix."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Family/GaussManinTransport",
+    "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
+   }
+  },
+  {
+   "id": "MordellLawrenceVenkatesh:LV.2/crystalline-frobenius-on-fibres",
+   "parentStageId": "MordellLawrenceVenkatesh:LV.2",
+   "realises": [
+    "MordellLawrenceVenkatesh:LV.2"
+   ],
+   "title": "Crystalline Frobenius on the de Rham cohomology of the fibres and its compatibility with Gauss–Manin transport (LV (3.9))",
+   "kind": "construction",
+   "statement": "In the p-adic setting (v ∉ S, K_v/ℚ_p unramified, p > 2), for y ∈ 𝒴(𝒪_v) let φ_y be the bijective endomorphism of ℋ_y ⊗ K_v = H¹_dR(X_y/K_v) transported from the crystalline Frobenius of H¹_cris(X_ȳ/W(k_v))[1/p] through the Berthelot–Ogus isomorphism for the lift X_y of the special fibre X_ȳ. Then: (a) φ_y is σ-semilinear for the Frobenius σ of K_v, and semilinear over the Frobenius of E_y ⊗ K_v = ∏_{(y',w)} K(y')_w, which is the product of the arithmetic Frobenii of the unramified extensions K(y')_w/ℚ_p; on the factor H¹_dR(X_{y',w}/K(y')_w) it is the crystalline Frobenius of that abelian variety; (b) for y ∈ Ω_v(y₀), T_v(y) ∘ φ_{y₀} = φ_y ∘ T_v(y).",
+   "hypotheses": [
+    "good model",
+    "v ∉ S, K_v/ℚ_p unramified, p > 2",
+    "y ∈ 𝒴(𝒪_v)"
+   ],
+   "proofSteps": [
+    "The Berthelot–Ogus comparison identifies crystalline cohomology of the special fibre with the de Rham cohomology of any smooth proper lift; the crystalline Frobenius is σ-semilinear and bijective after inverting p.",
+    "The relative crystalline cohomology of 𝒳_{k_v}/𝒴_{k_v} is a crystal whose value on the formal completion of 𝒴 along ȳ₀ is ℋ with ∇, and whose transition isomorphisms between the two sections y, y₀ (same reduction) are given by the Taylor series of ∇; for p > 2 and v unramified this series converges on the PD-thickening defined by p and equals T_v(y).",
+    "Crystalline Frobenius is functorial for the transition isomorphisms of the crystal, hence commutes with T_v(y).",
+    "The finite étale 𝒴' contributes H⁰, on which crystalline Frobenius is the Frobenius of the étale algebra; the E-semilinearity follows from compatibility of Frobenius with cup product."
+   ],
+   "acceptance": [
+    "For an elliptic curve with ordinary reduction, φ has slopes 0 and 1 on the two-dimensional H¹_dR; for supersingular reduction both slopes are 1/2.",
+    "For the constant family X = A × 𝒴, φ_y = φ_{y₀} under the identity transport."
+   ],
+   "prerequisites": [
+    "MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-padic",
+    "MordellLawrenceVenkatesh:LV.2/de-rham-bundle",
+    "CrystallineCohomology:CR.1",
+    "CrystallineCohomology:CR.2",
+    "CrystallineCohomology:CR.3",
+    "CrystallineCohomology:CR.7",
+    "FoundationsAndLibraryIntegration:LI.4"
+   ],
+   "sources": [
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.3, (3.9), p. 17",
+     "excerpt": "the diag- onal arrows are the canonical identification [6, Corollary 7.4] of crystalline cohomology with the de Rham cohomology of a lift, and the commutativity of the diagram can be deduced from the results of [5, Chapter V] (see Proposition 3.6.4 and prior discussion).",
+     "match": "Diagram (3.9) and its sources."
+    },
+    {
+     "sourceId": "lv2020",
+     "locator": "§3.3, p. 17",
+     "excerpt": "which is semilinear with respect to the Frobenius on the unramified extension Kv /Qp .",
+     "match": "The semilinearity of φ_v."
+    },
+    {
+     "sourceId": "berthelot-ogus",
+     "locator": "§7, Corollary 7.4, p. 7.4",
+     "excerpt": "Suppose X/S is smooth, is defined by a sub PD ideal of I, and Then there is a natural quasi-isomorphism:",
+     "match": "The comparison of crystalline cohomology with the de Rham cohomology of a lift (formula lost in the text extraction)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "crystallineFrobenius",
+     "role": "constructor",
+     "statement": "φ_y on ℋ_y ⊗ K_v for y ∈ 𝒴(𝒪_v)."
+    },
+    {
+     "name": "crystallineFrobenius_semilinear",
+     "role": "other",
+     "statement": "φ_y(a·x) = σ(a)·φ_y(x) for a ∈ K_v, and φ_y(e·x) = Frob(e)·φ_y(x) for e ∈ E_y ⊗ K_v."
+    },
+    {
+     "name": "crystallineFrobenius_bijective",
+     "role": "other",
+     "statement": "φ_y is bijective."
+    },
+    {
+     "name": "crystallineFrobenius_transport",
+     "role": "relation",
+     "statement": "T_v(y) ∘ φ_{y₀} = φ_y ∘ T_v(y) for y in the disk of y₀."
+    },
+    {
+     "name": "crystallineFrobenius_factor",
+     "role": "compatibility",
+     "statement": "On the factor indexed by (y', w), φ_y is the crystalline Frobenius of X_{y'} ⊗ K(y')_w, semilinear for the arithmetic Frobenius of K(y')_w over ℚ_p."
+    },
+    {
+     "name": "crystallineFrobenius_pairing",
+     "role": "relation",
+     "statement": "⟨φx, φx'⟩ = p·Frob⟨x, x'⟩ for the polarization pairing."
+    },
+    {
+     "name": "crystallineFrobenius_example",
+     "role": "example",
+     "statement": "Ordinary and supersingular elliptic curves."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/LawrenceVenkatesh/Family/CrystallineFrobenius",
+    "namespace": "TauCeti.LawrenceVenkatesh.AbelianByFiniteFamily"
+   },
+   "notes": "Upstream Tau Ceti inputs, consumed through FoundationsAndLibraryIntegration LI.4: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius — LocalFieldsRamification Layer 2 (unramified extensions and Frobenius)."
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+   "need": "For an affine algebraic group G over a field k and an abstract subgroup Γ ⊆ G(k): the Zariski closure of Γ, the smallest closed subgroup scheme whose k-points contain Γ (reduced, with Γ Zariski dense in it); its formation commutes with field extension; a finite-index subgroup of Γ has closure with the same identity component; the closure of the image of Γ under a homomorphism of algebraic groups is the image of the closure; subgroups normalizing Γ normalize its closure; in characteristic zero an infinite subgroup of 𝔾_a(k) is Zariski dense; images of homomorphisms of algebraic groups are closed.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.0/zariski-closure-transvection-powers",
+    "MordellLawrenceVenkatesh:LV.0/transvection-pair-closure",
+    "MordellLawrenceVenkatesh:LV.0/transvection-graph-closure",
+    "MordellLawrenceVenkatesh:LV.0/symplectic-pair-lemma",
+    "MordellLawrenceVenkatesh:LV.0/symplectic-goursat"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+   "need": "In characteristic zero: the Lie algebra of a closed subgroup of GL(V) as a Lie subalgebra of gl(V); a connected closed subgroup is determined by its Lie algebra (H ⊆ G connected with Lie H = Lie G implies H = G); a surjective homomorphism of smooth algebraic groups is surjective on Lie algebras; Lie of a product is the product of the Lie algebras.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.0/symplectic-pair-lemma",
+    "MordellLawrenceVenkatesh:LV.0/symplectic-goursat"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+   "need": "For a symplectic space (V, ω) of dimension ≥ 2 over an algebraically closed field of characteristic zero: Sp(V) is connected, its centre is {±1}, and every closed normal subgroup of Sp(V) is either Sp(V) or contained in {±1}.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.0/symplectic-pair-lemma"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+   "need": "For (V, ω) as above: the Lie algebra sp(V) is simple, every Lie algebra automorphism of sp(V) is Ad(h) for some h ∈ Sp(V)(k), and Sp(V)(k) is generated by the symplectic transvections x ↦ x + r⟨v, x⟩v.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.0/symplectic-pair-lemma",
+    "MordellLawrenceVenkatesh:LV.0/transvection-graph-closure"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+   "need": "A finite unramified extension L/K of p-adic fields is cyclic Galois of degree f(L/K), generated by the arithmetic Frobenius, and the arithmetic Frobenius of L over ℚ_p restricts on L to a generator whose f(K/ℚ_p)-th power generates Gal(L/K).",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.0/semilinear-centralizer-unramified"
+   ]
+  },
+  {
+   "supplier": "ArithmeticGaloisRepresentations:R01.1",
+   "need": "For a profinite group G and a continuous representation ρ : G → GL(V) on a finite-dimensional ℚ_p-vector space: existence of a G-stable ℤ_p-lattice; restriction to and induction from open subgroups (with continuity), Mackey's decomposition of Res_{D} Ind_{H} for closed D and open H, and the notion of semisimplicity with its stability under restriction to open normal subgroups.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.1/frobenius-test-set",
+    "MordellLawrenceVenkatesh:LV.1/de-rham-of-induced",
+    "MordellLawrenceVenkatesh:LV.1/hodge-weight-sum-over-places"
+   ]
+  },
+  {
+   "supplier": "WeightsInEtaleCohomology:R34.1",
+   "need": "For a number field K, a finite set T of finite places and a continuous representation ρ of G_K on a finite-dimensional ℚ_p-space: the predicates 'pure of weight w outside T' (unramified at v ∉ T and every root of the characteristic polynomial of ρ(Frob_v^geom) is an algebraic number with all complex absolute values q_v^{w/2}) and 'integral Frobenius polynomials outside T', with stability under subrepresentations, quotients, direct sums, duals (w ↦ −w), tensor products (weights add), determinants (weight w·dim), Tate twists (ℚ_p(n) has weight −2n), restriction to G_L (T replaced by the places above T) and induction from G_L for L/K finite (same weight, T enlarged by the places ramified in L).",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.1/faltings-finiteness",
+    "MordellLawrenceVenkatesh:LV.1/pure-character-conjugation-relation",
+    "MordellLawrenceVenkatesh:LV.1/hodge-weight-pure-representation",
+    "MordellLawrenceVenkatesh:LV.1/hodge-weight-sum-over-places"
+   ]
+  },
+  {
+   "supplier": "DeligneWeightsAndPurity:DWP.0",
+   "need": "Weil q-numbers of weight w: algebraic numbers all of whose complex absolute values are q^{w/2}, with stability under products, inverses and conjugation.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.1/faltings-finiteness"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+   "need": "For a finite Galois extension L/K of number fields, a conjugacy class C of Gal(L/K) and a finite set T of places of K, there is a finite place v ∉ T unramified in L whose Artin symbol is C (infinitude of frobeniusPrimeSet K L C).",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.1/frobenius-test-set"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+   "need": "For a number field K and a continuous character η : G_K → ℚ_p^× unramified outside a finite set T: η ∘ Art_K is a continuous character of the idele class group, trivial on principal ideles, whose component at a finite place ℘ ∉ T is unramified with value η(Frob_℘) (arithmetic Frobenius) on a uniformizer, whose component at a place above p is η|_{G_{K_℘}} ∘ Art_{K_℘}, and whose archimedean component is trivial on the identity component.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.1/pure-character-conjugation-relation"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+   "need": "For a finite extension F/ℚ_p: Art_F(𝒪_F^×) is the image of the inertia group in G_F^ab, and χ_cyc(Art_F(u)) = N_{F/ℚ_p}(u)^{−1} for u ∈ 𝒪_F^× (cyclotomicCharacter_artinMap).",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.1/de-rham-character-locally-algebraic",
+    "MordellLawrenceVenkatesh:LV.1/pure-character-conjugation-relation"
+   ]
+  },
+  {
+   "supplier": "PadicHodgeTheory:R06.2",
+   "need": "(i) D_dR on de Rham representations of G_F (F/ℚ_p finite) is exact with strict filtrations and compatible with tensor products, duals and determinants as a functor to filtered F-vector spaces (Brinon–Conrad Proposition 6.3.3); (ii) D_dR(ℚ_p(n)) has its unique jump in degree −n (Example 6.3.1) and a de Rham representation is Hodge–Tate with gr D_dR = D_HT (Proposition 6.3.2); (iii) the Tate–Sen theorem: for a continuous character η with η(G_F) a commutative p-adic Lie group of dimension ≤ 1, (ℂ_F(η))^{G_F} = 0 unless η(I_F) is finite (Theorem 2.2.7); (iv) for F'/F finite, D_dR,F(Ind_{G_{F'}}^{G_F} W) ≅ D_dR,F'(W) as filtered F-spaces, and de Rham/crystalline representations are stable under subquotients and under induction from unramified extensions; (v) the Hodge number t_H of filtered vector spaces with additivity on strict exact sequences and t_H(det D) = t_H(D), t_H(D ⊗ D') = dim D t_H(D') + dim D' t_H(D) (Proposition 8.1.2).",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.1/de-rham-character-locally-algebraic",
+    "MordellLawrenceVenkatesh:LV.1/filtration-weight",
+    "MordellLawrenceVenkatesh:LV.1/hodge-weight-pure-representation",
+    "MordellLawrenceVenkatesh:LV.1/de-rham-of-induced"
+   ]
+  },
+  {
+   "supplier": "ArithmeticGaloisRepresentations:R01.6",
+   "need": "For an abelian variety A over a number field L with good reduction at a finite place u ∤ p: V_p(A) is unramified at u and the characteristic polynomial of Frob_u on V_p(A) equals the characteristic polynomial of the q_u-Frobenius endomorphism of the reduction, a monic polynomial in ℤ[X] of degree 2 dim A independent of p (good-reduction Frobenius polynomial).",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.1/abelian-variety-cohomology-properties"
+   ]
+  },
+  {
+   "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+   "need": "Néron–Ogg–Shafarevich: an abelian variety over a number field with good reduction at u has V_p unramified at u for every p different from the residue characteristic of u.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.1/abelian-variety-cohomology-properties"
+   ]
+  },
+  {
+   "supplier": "DeligneWeightsAndPurity:DWP.1",
+   "need": "Weil's theorem: every complex root of the characteristic polynomial of the Frobenius endomorphism of an abelian variety over 𝔽_q has absolute value q^{1/2}.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.1/abelian-variety-cohomology-properties"
+   ]
+  },
+  {
+   "supplier": "PadicHodgeTheory:R06.6",
+   "need": "For an abelian variety A over a finite extension F/ℚ_p with good reduction, V_p(A) and H¹_et(A_{F̄}, ℚ_p) are crystalline G_F-representations.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.1/abelian-variety-cohomology-properties"
+   ]
+  },
+  {
+   "supplier": "AbelianSchemesAndArithmeticModuli:A3",
+   "need": "A polarization λ of an abelian variety A over a field of characteristic ≠ p induces a perfect alternating Galois-equivariant pairing V_p(A) × V_p(A) → ℚ_p(1) (the λ-Weil pairing), hence a perfect alternating pairing on H¹_et(A, ℚ_p) with values in ℚ_p(−1).",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.1/abelian-variety-cohomology-properties"
+   ]
+  },
+  {
+   "supplier": "SchemeAndStackFoundations:SF.3",
+   "need": "For an abelian variety A over a field F of characteristic ≠ p, a Galois-equivariant isomorphism H¹_et(A_{F̄}, ℚ_p) ≅ Hom(V_p(A), ℚ_p), compatible with pullback along homomorphisms and with the cup product/Weil pairing.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.1/abelian-variety-cohomology-properties"
+   ]
+  },
+  {
+   "supplier": "AbelianSchemesAndArithmeticModuli:A1",
+   "need": "Abelian schemes over an arbitrary base (smooth proper group schemes with geometrically connected fibres), their relative dimension, base change and homomorphisms.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.2/abelian-by-finite-family"
+   ]
+  },
+  {
+   "supplier": "AbelianSchemesAndArithmeticModuli:A2",
+   "need": "Polarizations of abelian schemes (λ : A → A^∨ with the positivity condition), stable under base change; the polarization of a relative Jacobian.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.2/abelian-by-finite-family",
+    "MordellLawrenceVenkatesh:LV.2/de-rham-bundle"
+   ]
+  },
+  {
+   "supplier": "AbelianSchemesAndArithmeticModuli:A4",
+   "need": "For an abelian scheme f : A → T of relative dimension d over a smooth 𝒪_S-scheme T: relative H¹_dR(A/T) locally free of rank 2d with Hodge exact sequence 0 → f_*Ω¹ → H¹_dR → R¹f_*𝒪 → 0 (locally free terms), compatible with arbitrary base change; the Gauss–Manin connection relative to 𝒪_S, integrable; the cup-product pairing induced by a polarization, perfect and alternating, with F¹ Lagrangian and horizontal for ∇; all compatible with base change and with the analytic comparison over ℂ.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.2/good-model",
+    "MordellLawrenceVenkatesh:LV.2/good-model-exists",
+    "MordellLawrenceVenkatesh:LV.2/de-rham-bundle"
+   ]
+  },
+  {
+   "supplier": "AbelianSchemesAndArithmeticModuli:A5",
+   "need": "For an abelian scheme over a smooth complex variety T, the degree-one de Rham–Betti comparison H¹_dR(A/T)^an ≅ R¹f_*ℂ ⊗ 𝒪^an identifies ∇ with the connection whose horizontal sections are R¹f_*ℂ, and R¹f_*ℤ is a local system (Ehresmann).",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-complex"
+   ]
+  },
+  {
+   "supplier": "ComplexComparisonPartII:C5",
+   "need": "For a smooth proper morphism of complex algebraic varieties, the analytic Gauss–Manin connection on the relative algebraic de Rham cohomology has the Betti local system R^q f_*ℂ as sheaf of horizontal sections (relative Gauss–Manin compatibility of the algebraic de Rham–Betti comparison).",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-complex"
+   ]
+  },
+  {
+   "supplier": "CrystallineCohomology:CR.1",
+   "need": "Crystals on the crystalline site of a smooth k-scheme and their description, on a p-adic formal lift, as modules with integrable quasi-nilpotent connection whose transition isomorphisms between two sections with the same reduction are given by the Taylor series of the connection (convergent on the PD-thickening; for p > 2 and an unramified base the ideal (p) has topologically nilpotent divided powers).",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.2/crystalline-frobenius-on-fibres"
+   ]
+  },
+  {
+   "supplier": "CrystallineCohomology:CR.2",
+   "need": "For a smooth proper lift 𝔛 over W(k) of a smooth proper k-scheme X₀: the natural isomorphism H^q_cris(X₀/W(k)) ≅ H^q_dR(𝔛/W(k)) (Berthelot–Ogus Corollary 7.4) and its naturality in the lift.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.2/crystalline-frobenius-on-fibres"
+   ]
+  },
+  {
+   "supplier": "CrystallineCohomology:CR.3",
+   "need": "The Frobenius endomorphism of H^q_cris(X₀/W(k)) of a smooth proper k-scheme, semilinear for the Witt vector Frobenius and bijective after inverting p, functorial in X₀ and compatible with cup products.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.2/crystalline-frobenius-on-fibres"
+   ]
+  },
+  {
+   "supplier": "CrystallineCohomology:CR.7",
+   "need": "Relative Gauss–Manin interface: for a smooth proper morphism g : 𝒳 → 𝒴 of smooth formal schemes over W(k) with locally free H^q_dR commuting with base change, the higher direct image R^q g_cris* 𝒪 is a crystal on 𝒴_k whose associated module with connection is (H^q_dR(𝒳/𝒴), ∇_GM), and whose value at a W(k')-point y is H^q_cris(𝒳_{ȳ}/W(k')), compatibly with Frobenius.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.2/crystalline-frobenius-on-fibres"
+   ]
+  },
+  {
+   "supplier": "SchemeAndStackFoundations:SF.0",
+   "need": "(i) Spreading out: for a number field K = colim 𝒪_S, finitely presented schemes, morphisms and group-scheme structures over K descend to some 𝒪_S, uniquely up to enlarging S, and the properties finite étale, smooth, proper, abelian scheme descend after enlarging S (EGA IV §8, 17.7.8). (ii) For a smooth 𝒪_S-scheme of relative dimension m, a place v ∉ S with 𝒪_v unramified and an 𝒪_v-point y₀, the completed local ring at the reduction is 𝒪_v[[z₁,…,z_m]] for a system of parameters vanishing at y₀, and 𝒪_v-points with the same reduction correspond to (p𝒪_v)^m.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.2/good-model-exists",
+    "MordellLawrenceVenkatesh:LV.2/residue-disk"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+   "need": "For K_v/ℚ_p unramified, 𝒪_v = W(k_v), |p|_v = p^{-1}, and every finite unramified extension of K_v is cyclic with the arithmetic Frobenius as generator.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.2/residue-disk",
+    "MordellLawrenceVenkatesh:LV.2/crystalline-frobenius-on-fibres"
+   ]
+  },
+  {
+   "supplier": "FoundationsAndLibraryIntegration:LI.4",
+   "need": "Integrate LocalFieldsRamification Layer 2 (unramified extensions and Frobenius) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius below are available to consumers.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.0/semilinear-centralizer-unramified",
+    "MordellLawrenceVenkatesh:LV.2/residue-disk",
+    "MordellLawrenceVenkatesh:LV.2/crystalline-frobenius-on-fibres"
+   ]
+  },
+  {
+   "supplier": "FoundationsAndLibraryIntegration:LI.4",
+   "need": "Integrate ReductiveGroups Layer 3 (closed subgroups, identity components) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components below are available to consumers.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.0/zariski-closure-transvection-powers",
+    "MordellLawrenceVenkatesh:LV.0/transvection-pair-closure",
+    "MordellLawrenceVenkatesh:LV.0/transvection-graph-closure",
+    "MordellLawrenceVenkatesh:LV.0/symplectic-pair-lemma",
+    "MordellLawrenceVenkatesh:LV.0/symplectic-goursat"
+   ]
+  },
+  {
+   "supplier": "FoundationsAndLibraryIntegration:LI.4",
+   "need": "Integrate ReductiveGroups Layer 2 (Lie algebras of algebraic groups) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation below are available to consumers.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.0/symplectic-pair-lemma",
+    "MordellLawrenceVenkatesh:LV.0/symplectic-goursat"
+   ]
+  },
+  {
+   "supplier": "FoundationsAndLibraryIntegration:LI.4",
+   "need": "Integrate ReductiveGroups Layer 6 (reductive and semisimple groups, centres) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups below are available to consumers.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.0/symplectic-pair-lemma"
+   ]
+  },
+  {
+   "supplier": "FoundationsAndLibraryIntegration:LI.4",
+   "need": "Integrate ReductiveGroups Layer 7 (structure theory) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory below are available to consumers.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.0/symplectic-pair-lemma"
+   ]
+  },
+  {
+   "supplier": "FoundationsAndLibraryIntegration:LI.4",
+   "need": "Integrate Chebotarev Layer 10 (Dirichlet-density Chebotarev, infinitude of every Frobenius class) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev below are available to consumers.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.1/frobenius-test-set"
+   ]
+  },
+  {
+   "supplier": "FoundationsAndLibraryIntegration:LI.4",
+   "need": "Integrate ClassFieldTheory Layer 7 (absolute local Artin map and its cyclotomic normalization) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors below are available to consumers.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.1/de-rham-character-locally-algebraic",
+    "MordellLawrenceVenkatesh:LV.1/pure-character-conjugation-relation"
+   ]
+  },
+  {
+   "supplier": "FoundationsAndLibraryIntegration:LI.4",
+   "need": "Integrate ClassFieldTheory Layer 11 (global Artin reciprocity and local–global compatibility) from the pinned Tau Ceti snapshot (tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity) with a declaration-level import ledger, so that the statements requested from tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity below are available to consumers.",
+   "neededBy": [
+    "MordellLawrenceVenkatesh:LV.1/pure-character-conjugation-relation"
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "MordellLawrenceVenkatesh:LV.0",
+   "status": "source_decomposed",
+   "remaining": []
+  },
+  {
+   "stageId": "MordellLawrenceVenkatesh:LV.1",
+   "status": "source_decomposed",
+   "remaining": []
+  },
+  {
+   "stageId": "MordellLawrenceVenkatesh:LV.2",
+   "status": "source_decomposed",
+   "remaining": []
+  },
+  {
+   "stageId": "MordellLawrenceVenkatesh:LV.3",
+   "status": "not_read",
+   "remaining": [
+    "No nodes written yet for this layer."
+   ]
+  },
+  {
+   "stageId": "MordellLawrenceVenkatesh:LV.4",
+   "status": "not_read",
+   "remaining": [
+    "No nodes written yet for this layer."
+   ]
+  },
+  {
+   "stageId": "MordellLawrenceVenkatesh:LV.5",
+   "status": "not_read",
+   "remaining": [
+    "No nodes written yet for this layer."
+   ]
+  },
+  {
+   "stageId": "MordellLawrenceVenkatesh:LV.6",
+   "status": "not_read",
+   "remaining": [
+    "No nodes written yet for this layer."
+   ]
+  },
+  {
+   "stageId": "MordellLawrenceVenkatesh:LV.7",
+   "status": "not_read",
+   "remaining": [
+    "No nodes written yet for this layer."
+   ]
+  },
+  {
+   "stageId": "MordellLawrenceVenkatesh:LV.8",
+   "status": "not_read",
+   "remaining": [
+    "No nodes written yet for this layer."
+   ]
+  },
+  {
+   "stageId": "MordellLawrenceVenkatesh:LV.9",
+   "status": "not_read",
+   "remaining": [
+    "No nodes written yet for this layer."
+   ]
+  },
+  {
+   "stageId": "MordellLawrenceVenkatesh:LV.10",
+   "status": "not_read",
+   "remaining": [
+    "No nodes written yet for this layer."
+   ]
+  }
+ ],
+ "gaps": [],
+ "restructure": [
+  {
+   "action": "split",
+   "roadmaps": [
+    "MordellLawrenceVenkatesh",
+    "tauceti:TauCetiRoadmap/GeometricTopology"
+   ],
+   "detail": "No roadmap in the atlas owns mapping class groups of surfaces. LV.8 therefore carries general nodes (the mapping class group of a surface with punctures and boundary, Dehn twists and their action on homology, the Birman exact sequence and point-pushing, the capping sequence, representability of primitive classes by simple closed curves, surjectivity of the symplectic representation) that are not specific to the Lawrence–Venkatesh proof.",
+   "proposal": "Create a roadmap MappingClassGroups (group topology) owning Farb–Margalit Chapters 1–6 material: surfaces with boundary and punctures, isotopy classes of simple closed curves, the change-of-coordinates principle, Dehn twists, the Birman exact sequence, capping and cutting homomorphisms, the symplectic representation and its surjectivity. Its prerequisites are AlgebraicTopology Stages 2–6, UniversalCovers and GeometricTopology Layer 1. MordellLawrenceVenkatesh LV.8 keeps only the Aff(q)-cover material (primitive homology, lifts of Dehn twists, LV Lemmas 8.2–8.4, Proposition 8.5, Lemma 8.11) and takes the general nodes from the new roadmap."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "MordellLawrenceVenkatesh",
+    "HeightsRationalPointsAndObstructions",
+    "FaltingsFinitenessAndIsogenyTheorems"
+   ],
+   "detail": "HeightsRationalPointsAndObstructions RP.4 (through FaltingsFinitenessAndIsogenyTheorems R28.5 and its Satz 7 node) and MordellLawrenceVenkatesh LV.10 prove the same statement, Faltings's theorem, by different routes.",
+   "proposal": "State the theorem once, as a single named declaration (proposed home: tauceti:TauCetiRoadmap/AlgebraicCurves or SchemeAndStackFoundations SF.3, which own curves and genus), and let RP.4 and LV.10 each target a proof of that declaration. RP.4 keeps Parshin's covering reduction, Shafarevich finiteness and Siegel's theorem; LV.10 keeps the p-adic period route. Neither roadmap depends on the other."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "MordellLawrenceVenkatesh",
+    "LefschetzPencilsAndVanishingCycles",
+    "tauceti:TauCetiRoadmap/ReductiveGroups"
+   ],
+   "detail": "LefschetzPencilsAndVanishingCycles LPV.5 proves (Deligne, Weil I 5.11) that an irreducible symplectic Lie algebra generated by square-zero operators x ↦ ⟨x, δ⟩δ is all of sp(V), and MordellLawrenceVenkatesh LV.0 proves the group-level transvection-generation lemmas LV 2.13–2.14 and the symplectic Goursat lemma 2.12. Both rest on the same structure theory of Sp(V) (centre, almost simplicity, simplicity of sp(V), inner automorphisms, generation by transvections), which ReductiveGroups owns but does not state for Sp.",
+   "proposal": "ReductiveGroups Layer 6/7 states the structure of Sp(V) listed above as named targets (with the Zariski closure of abstract subgroups in Layer 3); LPV.5 and LV.0 consume them and keep only their application-specific generation lemmas."
+  }
+ ]
+}

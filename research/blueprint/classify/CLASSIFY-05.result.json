@@ -1,0 +1,1926 @@
+[
+ {
+  "roadmapId": "SpecialValuesBirchTate",
+  "primaryMsc": "11R",
+  "secondaryMsc": [
+   "19F",
+   "11S",
+   "19D"
+  ],
+  "cluster": "iwasawa-theory-and-special-values",
+  "distance": 10,
+  "distanceRationale": "Only the analytic scaffolding of the base case exists: Mathlib has the Dedekind zeta L-series (no continuation to s = -1) and zeta(-1) = -1/12 via Bernoulli numbers, but neither library has K_2 of rings of integers, Tate's K_2/Galois-cohomology comparison, Iwasawa modules or main conjectures. The headline all-prime theorem for every totally real field combines Wiles's main conjecture with Kurihara's 2025 theorem and a Kurihara-to-Kolster comparison that the roadmap itself says is still to be proved, on top of the ArithmeticKTheory and IntegralIwasawaTheory programmes (both 9).",
+  "mathlibEvidence": [
+   "mathlib:NumberField.dedekindZeta (Mathlib/NumberTheory/NumberField/DedekindZeta.lean) — Dedekind zeta function as the L-series of ideal counts, with the class number formula for the residue at s = 1; no analytic continuation or functional equation, so zeta_F(-1), its sign and rationality are not available",
+   "mathlib:riemannZeta_neg_nat_eq_bernoulli (Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean) — zeta(-k) = (-1)^k B_{k+1}/(k+1), which gives zeta_Q(-1) = -1/12 for the B.3 base case; nothing for totally real fields other than Q",
+   "mathlib:continuousCohomology (Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean) — continuous cohomology of topological group representations with low-degree API (TauCeti adds functoriality and corestriction under TauCeti/RepresentationTheory/Homological/ContCohomology/); no Galois cohomology of number fields with Q/Z(2) coefficients, no w_2(F) and no Poitou–Tate/Euler-characteristic theory",
+   "absent: algebraic K-theory of rings (K_2(O_F), Steinberg group, tame kernel, localisation sequence), Tate's K_2 comparison, Iwasawa main conjectures, p-adic L-functions of totally real fields and any Birch–Tate or Lichtenbaum statement (no declarations matching KTheory|MilnorK|SteinbergGroup|tameKernel|mainConjecture|characteristicIdeal|padicLFunction|BirchTate|Lichtenbaum; the only 'Iwasawa' hits are Iwasawa's simplicity criterion in Mathlib/GroupTheory/GroupAction/Iwasawa.lean)"
+  ],
+  "references": [
+   {
+    "title": "Algebraic \\(K\\)-theory of rings of integers in local and global fields",
+    "authors": "Weibel, Charles",
+    "zbmath": 2247517,
+    "msc": [
+     "19F27",
+     "19D50"
+    ]
+   },
+   {
+    "title": "The Iwasawa conjecture for totally real fields",
+    "authors": "Wiles, A.",
+    "zbmath": 4185753,
+    "msc": [
+     "11R23",
+     "11R80",
+     "11S40",
+     "11F11"
+    ]
+   },
+   {
+    "title": "A relation between the 2-primary parts of the main conjecture and the Birch-Tate-conjecture",
+    "authors": "Kolster, Manfred",
+    "zbmath": 4105078,
+    "msc": [
+     "11R70",
+     "11R18"
+    ]
+   },
+   {
+    "title": "On class groups and Iwasawa modules of CM-fields",
+    "authors": "Kurihara, Masato",
+    "zbmath": 8128917,
+    "msc": [
+     "11R23",
+     "11R29",
+     "11R42"
+    ]
+   },
+   {
+    "title": "Relations between \\(K_2\\) and Galois cohomology",
+    "authors": "Tate, John",
+    "zbmath": 3559703,
+    "msc": [
+     "11R70",
+     "11R34",
+     "12G05",
+     "19F15"
+    ]
+   },
+   {
+    "title": "The \\(K\\)-book. An introduction to algebraic \\(K\\)-theory",
+    "authors": "Weibel, Charles A.",
+    "zbmath": 6123945,
+    "msc": [
+     "19-00",
+     "19-01",
+     "19Axx",
+     "19Bxx",
+     "19Cxx",
+     "19Dxx",
+     "19Fxx",
+     "19L64",
+     "19E08",
+     "19F27",
+     "19M05"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "StableHomotopyKTheory",
+  "primaryMsc": "19D",
+  "secondaryMsc": [
+   "55P",
+   "18F",
+   "18G"
+  ],
+  "cluster": "k-theory-and-motives",
+  "distance": 5,
+  "distanceRationale": "The simplicial and unstable starting points exist: Mathlib has nerves, geometric realisation, Kan complexes, group homology and spectral objects, and TauCeti has K(G,1) spaces with basepoint-change and loop-space API for homotopy groups. Everything the roadmap owns is missing, though: homotopy-fibre long exact sequences, Quillen's Theorems A and B, the plus construction, group completion, spectra with the stable homotopy category and S-construction deloopings, and Bockstein/lim^1 sequences. That is several layers of standard graduate homotopy theory, but no research-level input.",
+  "mathlibEvidence": [
+   "mathlib:CategoryTheory.nerve (Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean) — nerve of a small category as a simplicial set, realisable through SSet.toTop (Mathlib/AlgebraicTopology/SingularSet.lean); no contractibility lemmas for categories with initial/terminal objects, no bisimplicial diagonal comparison and no Quillen Theorem A or B",
+   "mathlib:SSet.KanComplex (Mathlib/AlgebraicTopology/SimplicialSet/KanComplex.lean) — Kan complexes alongside basic model-category scaffolding for simplicial sets; no comparison of simplicial and topological homotopy groups and no homotopy-fibre long exact sequence (the only homotopyFiber declarations are HomologicalComplex.homotopyFiber for chain complexes)",
+   "tauceti:TauCeti.IsEilenbergMacLaneSpaceOne (TauCeti/AlgebraicTopology/EilenbergMacLane/Basic.lean) — K(G,1) spaces, with basepoint change, loop spaces and products for homotopy groups in TauCeti/Topology/Homotopy/HomotopyGroup/; BG is not built as the realised nerve of G (Mathlib's classifyingSpaceUniversalCover is only the simplicial G-set EG used for group-cohomology resolutions)",
+   "mathlib:groupHomology (Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean) — group homology with coefficients, needed to define acyclic maps; no comparison with the singular homology of BG and no Hurewicz theorem",
+   "absent: plus construction, group completion (Gamma-spaces, group-completion theorem), spectra, suspension spectra and the stable homotopy category, Waldhausen S-construction deloopings, Bockstein and Milnor lim^1 sequences, p-completion of spectra (no declarations matching plusConstruction|groupCompletion|GammaSpace|suspensionSpectrum|stableHomotopy|Prespectrum|Bockstein|lim1|derivedLim|Hurewicz|homotopyPullback|Waldhausen; spectral sequences exist only for spectral objects in Mathlib/Algebra/Homology/SpectralObject/)"
+  ],
+  "references": [
+   {
+    "title": "The \\(K\\)-book. An introduction to algebraic \\(K\\)-theory",
+    "authors": "Weibel, Charles A.",
+    "zbmath": 6123945,
+    "msc": [
+     "19-00",
+     "19-01",
+     "19Axx",
+     "19Bxx",
+     "19Cxx",
+     "19Dxx",
+     "19Fxx",
+     "19L64",
+     "19E08",
+     "19F27",
+     "19M05"
+    ]
+   },
+   {
+    "title": "Higher algebraic \\(K\\)-theory. I",
+    "authors": "Quillen, Daniel",
+    "zbmath": 3457106,
+    "msc": [
+     "18F25",
+     "14C35",
+     "14C15",
+     "18G30"
+    ]
+   },
+   {
+    "title": "Deloopings in algebraic \\(K\\)-theory",
+    "authors": "Carlsson, Gunnar",
+    "zbmath": 2247513,
+    "msc": [
+     "19-00",
+     "19D06",
+     "19D10",
+     "19D23",
+     "19D35",
+     "19D50",
+     "55P42",
+     "55P47"
+    ]
+   },
+   {
+    "title": "Algebraic K-theory of spaces",
+    "authors": "Waldhausen, Friedhelm",
+    "zbmath": 3927168,
+    "msc": [
+     "18F25",
+     "55N15",
+     "57Q60",
+     "55R50",
+     "18D30"
+    ]
+   },
+   {
+    "title": "The motivic spectral sequence",
+    "authors": "Grayson, Daniel R.",
+    "zbmath": 2247514,
+    "msc": [
+     "19E15",
+     "14F42",
+     "18G40"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "TropicalAndBerkovichArithmetic",
+  "primaryMsc": "14G",
+  "secondaryMsc": [
+   "14T",
+   "14H",
+   "05C"
+  ],
+  "cluster": "p-adic-geometry",
+  "distance": 7,
+  "distanceRationale": "Mathlib has multiplicative ring seminorms, Gauss norms that are absolute values on K[X], and ℂ_p. Tau Ceti has the adic closed polydisc with its classical points and Riemann–Roch for function fields. There are no Berkovich spectra or analytic spaces, no metric graphs or graph Riemann–Roch, no semistable or formal models and skeleta, no tropicalization, and no model metrics or Chambert-Loir measures. Several layers of research-level nonarchimedean geometry must be built before the faithful-tropicalization and measure targets.",
+  "mathlibEvidence": [
+   "mathlib:MulRingSeminorm (Mathlib/Analysis/Normed/Unbundled/RingSeminorm.lean) — multiplicative ring seminorms, the would-be points of a Berkovich spectrum; there is no space of bounded multiplicative seminorms on a Banach algebra with its topology, completed residue fields or gluing into analytic spaces",
+   "mathlib:Polynomial.gaussNorm_isAbsoluteValue (Mathlib/RingTheory/Polynomial/GaussNorm.lean) — the radius-c Gauss norm on K[X] is a multiplicative absolute value (the seminorm of a type II/III Gauss point); no classification of points of the Berkovich line, paths, hyperbolic metric or annulus skeleta",
+   "tauceti:TauCeti.ValuationSpectrum.closedPolydisc (TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean) — the adic closed polydisc Spa(A⟨T⟩, A⟨T⟩°) with its classical points only; no rank-one/maximal-generalization comparison with a Berkovich spectrum",
+   "tauceti:TauCeti.exists_isRiemannRochDivisor (TauCeti/FieldTheory/FunctionField/Differential/CanonicalDivisor.lean) — Riemann–Roch for algebraic function fields, the algebraic side of Baker's specialization inequality; nothing on divisors on graphs",
+   "absent: Berkovich analytic spaces, metric graphs with divisors, Laplacians and graph Riemann–Roch, semistable/formal models and skeleta, tropicalization of subvarieties of tori, model metrics and Chambert-Loir measures, Tate/Mumford uniformization (no declarations matching Berkovich, Tropicali[sz], MetricGraph, ChipFiring, Semistable, FormalScheme, TateCurve, MumfordCurve, Schottky, SphericallyComplete; Mathlib's Tropical is only the tropical semiring)"
+  ],
+  "references": [
+   {
+    "title": "Nonarchimedean geometry, tropicalization, and metrics on curves",
+    "authors": "Baker, Matthew; Payne, Sam; Rabinoff, Joseph",
+    "zbmath": 6609386,
+    "msc": [
+     "14T25",
+     "14G22",
+     "14M25"
+    ]
+   },
+   {
+    "title": "Spectral theory and analytic geometry over non-Archimedean fields",
+    "authors": "Berkovich, Vladimir G.",
+    "zbmath": 47872,
+    "msc": [
+     "14G20",
+     "32P05"
+    ]
+   },
+   {
+    "title": "Measures and equidistribution in Berkovich spaces",
+    "authors": "Chambert-Loir, Antoine",
+    "zbmath": 5039459,
+    "msc": [
+     "14G22",
+     "11G40",
+     "14G25"
+    ]
+   },
+   {
+    "title": "Specialization of linear systems from curves to graphs (with an appendix by Brian Conrad)",
+    "authors": "Baker, Matthew",
+    "zbmath": 5529340,
+    "msc": [
+     "14H25",
+     "05C99",
+     "14H51",
+     "14H55"
+    ]
+   },
+   {
+    "title": "Riemann-Roch and Abel-Jacobi theory on a finite graph",
+    "authors": "Baker, Matthew; Norine, Serguei",
+    "zbmath": 5197742,
+    "msc": [
+     "05C38",
+     "14H55",
+     "05C25"
+    ]
+   },
+   {
+    "title": "Étale cohomology of rigid analytic varieties and adic spaces",
+    "authors": "Huber, Roland",
+    "zbmath": 981434,
+    "msc": [
+     "14F20",
+     "32P05"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "VStackSheavesAndLisseCategories",
+  "primaryMsc": "14F",
+  "secondaryMsc": [
+   "14G",
+   "22E",
+   "18F"
+  ],
+  "cluster": "geometric-langlands",
+  "distance": 10,
+  "distanceRationale": "The library has condensed modules with a provisional solidity predicate, 1-categorical derived categories and Tau Ceti's smooth discrete representations. It has no diamonds or v-stacks, no enhanced sheaf categories with six operations, no ULA or lisse sheaves, no solid derived categories and no Bun_G. The targets are the sheaf-theoretic chapters of Fargues–Scholze (IV, V, VII), research-frontier results resting on the unbuilt ECD six-operation, enhanced-category and Bun_G theories.",
+  "mathlibEvidence": [
+   "mathlib:CondensedMod.IsSolid (Mathlib/Condensed/Solid.lean) — a solidity predicate whose own TODO says it is not the correct definition over a general ring; no solid tensor product, derived solid category or solidification adjunction",
+   "mathlib:Condensed.profiniteSolidification (Mathlib/Condensed/Solid.lean) — the map ℤ[S] → ℤ[S]^solid built as a right Kan extension; that ℤ[S]^solid is solid is still a TODO",
+   "mathlib:DerivedCategory (Mathlib/Algebra/Homology/DerivedCategory/Basic.lean) — 1-categorical derived categories of abelian categories; no enhanced sheaf categories on v-stacks, compact generation or semiorthogonal decompositions",
+   "tauceti:TauCeti.SmoothDiscreteTopRep (TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean) — smooth discrete modules over a topological group; no derived category of smooth representations of locally pro-p groups or compact induction",
+   "absent: diamonds and Artin v-stacks, cohomologically smooth maps and exceptional pullback, ULA sheaves, lisse and solid sheaf categories, hyperbolic localization, Drinfeld's lemma, Bun_G and its strata (no declarations matching ArtinStack, VStack, VSheaf, Perfectoid, CohomologicallySmooth, LocallyAcyclic, Lisse, HyperbolicLocali, Drinfeld, BunG, Semiorthogonal)"
+  ],
+  "references": [
+   {
+    "title": "Geometrization of the local Langlands correspondence",
+    "authors": "Fargues, Laurent; Scholze, Peter",
+    "zbmath": 8244242,
+    "msc": [
+     "11-XX",
+     "14-XX"
+    ]
+   },
+   {
+    "title": "Etale cohomology of diamonds",
+    "authors": "Scholze, Peter",
+    "zbmath": 900499667,
+    "msc": [
+     "14F20",
+     "14F05",
+     "14G22",
+     "14G20"
+    ],
+    "arxiv": "1709.07343",
+    "arxivCategories": [
+     "math.AG",
+     "math.NT"
+    ]
+   },
+   {
+    "title": "Lectures on Condensed Mathematics",
+    "authors": "Scholze, Peter",
+    "zbmath": 903031334,
+    "msc": [
+     "54-XX",
+     "18F10",
+     "18F70",
+     "46M18",
+     "18F60",
+     "46M05"
+    ],
+    "arxiv": "2605.03658",
+    "arxivCategories": [
+     "math.NT",
+     "math.AG",
+     "math.CT",
+     "math.FA",
+     "math.GN"
+    ]
+   },
+   {
+    "title": "Lectures on Analytic Geometry",
+    "authors": "Scholze, Peter",
+    "zbmath": 903031331,
+    "msc": [
+     "46M05",
+     "46M18",
+     "14A30",
+     "32J25"
+    ],
+    "arxiv": "2605.03655",
+    "arxivCategories": [
+     "math.AG",
+     "math.CT",
+     "math.FA",
+     "math.NT"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "VectorBundlesAndIsocrystals",
+  "primaryMsc": "14G",
+  "secondaryMsc": [
+   "14F",
+   "11S",
+   "14H"
+  ],
+  "cluster": "p-adic-geometry",
+  "distance": 9,
+  "distanceRationale": "Mathlib has Witt vectors and the Dieudonné–Manin classification of one-dimensional isocrystals, plus locally free sheaves of modules. Tau Ceti has Brauer groups with division-algebra representatives and affinoid adic spectra of Huber pairs. There is no Fargues–Fontaine curve (absolute or relative), no degree/slope or Harder–Narasimhan theory for its bundles, no perfectoid spaces or diamonds and no Banach–Colmez spaces. Apart from the classical VB0, the targets are research-level Fargues–Fontaine, Kedlaya–Liu and Fargues–Scholze results resting on those unbuilt theories.",
+  "mathlibEvidence": [
+   "mathlib:WittVector.isocrystal_classification (Mathlib/RingTheory/WittVector/Isocrystal.lean) — Dieudonné–Manin for one-dimensional isocrystals over W(k)[1/p] with k algebraically closed; no higher-rank classification, rational slopes, ramified E-breve or endomorphism division algebras",
+   "tauceti:TauCeti.BrauerGroup.exists_eq_mk_centralDivisionRing (TauCeti/Algebra/BrauerGroup/Division.lean) — Brauer classes are represented by central division algebras; no local invariant Br(E) ≅ ℚ/ℤ or cyclic-algebra computation for the slope division algebras",
+   "mathlib:SheafOfModules.LocalGeneratorsData.IsLocallyFreeData (Mathlib/Algebra/Category/ModuleCat/Sheaf/LocallyFree.lean) — locally free sheaves of modules, with no degree, slope, semistability or Harder–Narasimhan filtration",
+   "tauceti:TauCeti.ValuationSpectrum.spa (TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean) — affinoid adic spectra only; no glued adic spaces, no Y_S or X_S = Y_S/φ^ℤ, and no schematic Proj curve",
+   "absent: Fargues–Fontaine curves and the bundles O(λ), Harder–Narasimhan polygons and relative HN filtrations, Banach–Colmez spaces, perfectoid spaces and diamonds, slope-zero bundles as pro-étale E-local systems (no declarations matching FarguesFontaine, HarderNarasimhan, BanachColmez, Perfectoid, DieudonneManin, LubinTate, CyclicAlgebra)"
+  ],
+  "references": [
+   {
+    "title": "Geometrization of the local Langlands correspondence",
+    "authors": "Fargues, Laurent; Scholze, Peter",
+    "zbmath": 8244242,
+    "msc": [
+     "11-XX",
+     "14-XX"
+    ]
+   },
+   {
+    "title": "Courbes et fibrés vectoriels en théorie de Hodge p-adique",
+    "authors": "Fargues, Laurent; Fontaine, Jean-Marc",
+    "zbmath": 7005651,
+    "msc": [
+     "14-02",
+     "14G20",
+     "14F30",
+     "11S31",
+     "11S37"
+    ]
+   },
+   {
+    "title": "Relative p-adic Hodge theory: foundations",
+    "authors": "Kedlaya, Kiran S.; Liu, Ruochuan",
+    "zbmath": 6456685,
+    "msc": [
+     "14G22",
+     "11S15",
+     "13J07",
+     "13F35",
+     "14C30",
+     "14F30"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:Completed/ContourIntegration",
+  "primaryMsc": "30E",
+  "secondaryMsc": [
+   "53A"
+  ],
+  "cluster": "analysis",
+  "distance": 0,
+  "distanceRationale": "The roadmap is complete and its headline theorems are in Tau Ceti: the Hungerbühler–Wasem generalized residue theorem (single curve and null-homologous cycles, plus the simple-pole form), HW Propositions 2.2 and 2.3, the classical residue theorem, the argument principle and the homology Cauchy theorem all exist in TauCeti/Analysis/Contour, and no file under that directory contains sorry. What is absent is only generalisation beyond the pinned scope (the paper's accumulation-free singular sets and essential singularities), so nothing remains to build.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.Contour.Cycle.hungerbuhlerWasem_residueTheorem (TauCeti/Analysis/Contour/Cycle/HungerbuhlerWasem.lean) — HW Thm 3.3: for a null-homologous contour cycle of piecewise-C¹ immersions satisfying conditions (A′) and (B), the principal value exists and equals 2πi times the sum of generalized winding numbers times residues over a finite meromorphic singular set that may lie on the cycle; it does not cover the paper's accumulation-free singular sets or locally straight essential singularities",
+   "tauceti:TauCeti.Contour.homologyCauchyTheorem (TauCeti/Analysis/Contour/HomologyCauchy.lean) — the homology form of Cauchy's theorem (Layer 3, via Dixon's argument): a holomorphic function integrates to zero along a closed contour null-homologous in its open domain; the Cauchy formulas are TauCeti.Contour.cauchyIntegralFormula_nullHomologous and its derivative forms",
+   "tauceti:TauCeti.Contour.IsPwC1ImmersionOn.exists_crossingDecomposition (TauCeti/Analysis/Contour/Crossing/ImmersionDecomposition.lean) — HW Prop 2.2: a closed piecewise-C¹ immersion splits into a curve avoiding the point plus finitely many model sectors, so the winding number is an integer plus crossing angles over 2π; HW Prop 2.3 is TauCeti.Contour.windingNumber_eq_real_integral_of_closed_interior_crossings (TauCeti/Analysis/Contour/Winding/RealIntegral/OnCurve.lean). Both are stated for one immersion, not for cycles",
+   "tauceti:TauCeti.Contour.argumentPrinciple (TauCeti/Analysis/Contour/Argument/Principle.lean) — the argument principle on circles, with null-homologous forms in Argument/Cycle.lean; the classical residue theorem is TauCeti.Contour.classicalResidueTheorem_circle and TauCeti.Contour.Cycle.classicalResidueTheorem_nullHomologous",
+   "mathlib:Complex.two_pi_I_inv_smul_circleIntegral_sub_inv_smul_of_differentiable_on_off_countable (Mathlib/Analysis/Complex/CauchyIntegral.lean) — Mathlib's Cauchy integral formula on a disc, the substrate the roadmap consumes; Mathlib itself has no residue, winding-number, argument-principle or principal-value declarations (grep of Mathlib names for residue/winding/argumentPrinciple finds nothing in complex analysis)"
+  ],
+  "references": [
+   {
+    "title": "Non-integer valued winding numbers and a generalized residue theorem",
+    "authors": "Hungerbühler, Norbert; Wasem, Micha",
+    "zbmath": 7132205,
+    "msc": [
+     "30E20",
+     "53A04"
+    ]
+   },
+   {
+    "title": "A brief proof of Cauchy's integral theorem",
+    "authors": "Dixon, J. D.",
+    "zbmath": 3326647,
+    "msc": [
+     "30E20"
+    ]
+   },
+   {
+    "title": "Complex analysis, an introduction to the theory of analytic functions of one complex variable",
+    "authors": "Ahlfors, Lars V.",
+    "zbmath": 3082776,
+    "msc": []
+   },
+   {
+    "title": "Complex analysis. 2nd ed",
+    "authors": "Lang, Serge",
+    "zbmath": 3895331,
+    "msc": [
+     "30-01"
+    ]
+   },
+   {
+    "title": "Applied and computational complex analysis. Vol. 1: Power series, integration, conformal mapping, location of zeros",
+    "authors": "Henrici, Peter",
+    "zbmath": 3489473,
+    "msc": [
+     "30-02",
+     "65-02",
+     "65E05"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:Completed/EffectiveBounds",
+  "primaryMsc": "11R",
+  "secondaryMsc": [
+   "11H",
+   "11Y"
+  ],
+  "cluster": "algebraic-number-theory",
+  "distance": 1,
+  "distanceRationale": "Every headline target of the roadmap is present and sorry-free in Tau Ceti: the discriminant bound from an integral basis, the X²·2ⁿ ideal count, h_F ≤ |d_F|·4ⁿ, the unit-square index bound, the measure-free doubling engine and the summit, an explicit count of number fields of bounded discriminant; they sit on Mathlib's Minkowski theory and Hermite finiteness. The score is 1 rather than 0 only because the Layer-3 explicit regulator lower bounds are proved just for unit rank zero, and the aspirational Brauer–Siegel theorem is absent.",
+  "mathlibEvidence": [
+   "tauceti:NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le (TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean) — effective Hermite–Minkowski: the number of finite-dimensional subfields K of a fixed A/ℚ with |d_K| ≤ N is at most (2·coeffBoundOfDiscrBdd N + 1)^(rankOfDiscrBdd N + 1)·rankOfDiscrBdd N; the roadmap's summit, stated only inside a fixed ambient extension, as the roadmap asks",
+   "tauceti:NumberField.classNumber_le_bound (TauCeti/NumberTheory/EffectiveBounds/ClassNumber/Basic.lean) — h_F ≤ |d_F|·4^[F:ℚ], from NumberField.card_ideal_absNorm_le (#{I ≠ ⊥ : N(I) ≤ X} ≤ X²·2ⁿ, IdealCount/Basic.lean); with NumberField.units_sq_index_le and NumberField.abs_discr_le_of_basis_isIntegral this completes Layer 1",
+   "mathlib:NumberField.finite_of_discr_bdd (Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean) — Hermite's finiteness theorem, with NumberField.abs_discr_ge (Minkowski's lower bound); qualitative only, no explicit count",
+   "tauceti:TauCeti.GeometryOfNumbers.ncard_inter_box_two_le_pow_mul_ncard_inter_box_one (TauCeti/NumberTheory/GeometryOfNumbers/Doubling.lean) — measure-free doubling #(Λ ∩ box r 2) ≤ 49^#ι·#(Λ ∩ box r 1) for an additive subgroup of ι → ℂ (Layer 0); no volumetric or covolume statement",
+   "absent: explicit regulator lower bounds beyond unit rank zero and the Brauer–Siegel theorem (Tau Ceti has only NumberField.Units.one_le_regulator_of_rank_eq_zero and its rank-zero corollaries in TauCeti/NumberTheory/EffectiveBounds/Regulator.lean, Mathlib only NumberField.Units.regulator_pos; no declarations matching brauer.?siegel|regulator_lower|lower_bound_regulator|zimmert|friedman)"
+  ],
+  "references": [
+   {
+    "title": "Algebraic number theory. Transl. from the German by Norbert Schappacher",
+    "authors": "Neukirch, Jürgen",
+    "zbmath": 1313469,
+    "msc": [
+     "11Rxx",
+     "11Sxx",
+     "11-02",
+     "11-01"
+    ]
+   },
+   {
+    "title": "A course in computational algebraic number theory",
+    "authors": "Cohen, Henri",
+    "zbmath": 435565,
+    "msc": [
+     "11Y40",
+     "11-02",
+     "11Y16",
+     "11Y05",
+     "11Y11",
+     "11Rxx"
+    ]
+   },
+   {
+    "title": "Elementary and analytic theory of algebraic numbers",
+    "authors": "Narkiewicz, Władysław",
+    "zbmath": 3433971,
+    "msc": [
+     "11Rxx",
+     "11-01",
+     "11-02",
+     "11R04",
+     "11R18",
+     "11R27",
+     "11R29",
+     "11R42",
+     "11R45",
+     "11R56",
+     "11S15",
+     "11S40"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:Completed/IntegralLattices",
+  "primaryMsc": "11E",
+  "secondaryMsc": [
+   "11H",
+   "17B",
+   "15A"
+  ],
+  "cluster": "algebraic-number-theory",
+  "distance": 0,
+  "distanceRationale": "Every layer of the roadmap is already formalized in Tau Ceti under TauCeti/LinearAlgebra/IntegralLattice: the headline gluing theorem (Nikulin's Proposition 1.4.1, A_{L_H} isometric to H^perp/H), the even-overlattice/isotropic-subgroup order isomorphism, the index/discriminant formula, all ADE discriminant-form rows and the explicit isometry E8 = D8^+. Only Mathlib's carrier and duality primitives are used underneath; nothing remains to build.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.IntegralLattice.IntermediateCarrier.discriminantOrthogonalQuotientIsometry (TauCeti/LinearAlgebra/IntegralLattice/Overlattice/OrthogonalQuotient/Quadratic.lean) — the discriminant quadratic module of an even overlattice L ≤ M ≤ L^∨ is isometric to H^⊥/H for H = M/L (Nikulin, Prop. 1.4.1, half-norm convention); subsingleton_orthogonalQuotient_iff_isUnimodular and IntermediateCarrier.dual_eq_self_iff_isLagrangian give the unimodular ⇔ Lagrangian criterion",
+   "tauceti:TauCeti.IntegralLattice.evenIntermediateCarrierOrderIsoIsotropicSubgroup (TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Isotropic.lean) — order isomorphism between even overlattices of an even lattice and quadratic-isotropic subgroups of A_L, with the bilinear analogue integralIntermediateCarrierOrderIsoIsotropicSubgroup and the index formula IntermediateCarrier.IsIntegral.discriminant_eq_discriminant_div_index_sq",
+   "tauceti:TauCeti.IntegralLattice.natCard_discriminantGroup_eq_natAbs_gramDet (TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Cardinality.lean) — #(L^∨/L) = |det Gram(L)| for a nondegenerate lattice; the Smith-normal-form splitting A_L ≃ ∏ ZMod d_i is discriminantGroupInvariantFactorsEquiv (Discriminant/Smith.lean)",
+   "tauceti:TauCeti.IntegralLattice.typeE₈IsometryD8Plus (TauCeti/LinearAlgebra/IntegralLattice/RootLattice/D8Plus/Isometry.lean) — an actual lattice isometry E₈ ≅ D₈^+ in Bourbaki numbering; the table rows are typeADiscriminantQuadraticIsometry, checkerboardDiscriminantQuadraticIsometry / checkerboardCyclicQuadraticIsometry (D_n even/odd) and typeE₆/typeE₇DiscriminantQuadraticIsometry",
+   "mathlib:LinearMap.BilinForm.dualSubmodule (Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean) — the dual lattice used as L^∨ (with Submodule.IsLattice as carrier class); Mathlib alone has no bundled integral lattice, discriminant group/form or overlattice correspondence (no mathlib declarations matching discriminantGroup|DiscriminantForm|overlattice|IntegralLattice)"
+  ],
+  "references": [
+   {
+    "title": "Integral symmetric bilinear forms and some of their applications",
+    "authors": "Nikulin, V. V.",
+    "zbmath": 3665037,
+    "msc": [
+     "11E12",
+     "14C25",
+     "14J10",
+     "14J17",
+     "32J15",
+     "57R45"
+    ]
+   },
+   {
+    "title": "Sphere packings, lattices and groups. With additional contributions by E. Bannai, R. E. Borcherds, J. Leech, S. P. Norton, A. M. Odlyzko, R. A. Parker, L. Queen and B. B. Venkov.",
+    "authors": "Conway, J. H.; Sloane, N. J. A.",
+    "zbmath": 1224949,
+    "msc": [
+     "52C17",
+     "52C07",
+     "11H06",
+     "11-02",
+     "05-02",
+     "05B40",
+     "52-02",
+     "03B30",
+     "05B05",
+     "20D08",
+     "11F27",
+     "94B99"
+    ]
+   },
+   {
+    "title": "Lattices and codes. A course partially based on lectures by Friedrich Hirzebruch",
+    "authors": "Ebeling, Wolfgang",
+    "zbmath": 6088652,
+    "msc": [
+     "11H06",
+     "94B05",
+     "11F11",
+     "11-01",
+     "94-01",
+     "11H55",
+     "11F27",
+     "11E12",
+     "11H71"
+    ]
+   },
+   {
+    "title": "Elements of mathematics. Lie groups and Lie algebras. Chapters 4--6. Transl. from the French by Andrew Pressley",
+    "authors": "Bourbaki, Nicolas",
+    "zbmath": 1713119,
+    "msc": [
+     "17-02",
+     "22-02",
+     "22E10",
+     "22E15",
+     "22E60",
+     "17B20",
+     "20E42",
+     "20F55",
+     "51F15"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+  "primaryMsc": "42C",
+  "secondaryMsc": [
+   "33C",
+   "44A",
+   "46C"
+  ],
+  "cluster": "analysis",
+  "distance": 0,
+  "distanceRationale": "The roadmap is completed. Every headline target is a Tau Ceti declaration with no sorry: the Hermite L²(ℝ) basis and its Gaussian-measure counterpart, the moment-determinacy completeness lemma, the orthogonality-relation→HilbertBasis bridges and weighted-L² isometry, the L² product and pi bases, the multidimensional Hermite bases, and the Chebyshev basis with its cosine transfer. The Fourier-eigenfunction and oscillator extras are also proved.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.hermiteHilbertBasis (TauCeti/Analysis/SpecialFunctions/Hermite/Function/HilbertBasis.lean) — Part A headline: the Hermite functions form a HilbertBasis ℕ 𝕜 (Lp 𝕜 2 volume) for every RCLike 𝕜. coe_hermiteHilbertBasis pins the basis vectors, and the file sits beside hermiteFunction_oscillator (-ψₙ'' + x²ψₙ = (2n+1)ψₙ) and fourier_twoPiHermiteFunction, the (-i)ⁿ Fourier eigen-relation for the 2π-rescaled functions",
+   "tauceti:TauCeti.ae_eq_zero_of_forall_moment_eq_zero (TauCeti/Probability/Moments/VanishingMoments.lean) — B1 moment determinacy: a function with a finite exponential moment and all polynomial moments zero vanishes a.e. It feeds orthogonal_span_range_bareNormalizedLp_eq_bot and the B2 bridges hilbertBasisOfOrthogonalSystem / hilbertBasisOfWeightedMeasure (TauCeti/Analysis/InnerProductSpace/WeightedOrthogonalBasis.lean)",
+   "tauceti:TauCeti.prodHilbertBasis (TauCeti/Analysis/InnerProductSpace/L2/Product.lean) — B3: pointwise products of Hilbert bases of L²(μ) and L²(ν), both σ-finite, form a Hilbert basis of L²(μ.prod ν). It is iterated as piHilbertBasis and instantiated in Part D as hermiteFunctionPiBasis and gaussianHermitePiBasis",
+   "tauceti:TauCeti.chebyshevTHilbertBasis (TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/HilbertBasis.lean) — Part C: the normalized Chebyshev T polynomials form a Hilbert basis of L²(measureT), with the cosine transfer chebyshevCosineHilbertBasis. TauCeti.weightL2Isometry (TauCeti/MeasureTheory/Function/WeightL2Isometry.lean) and HilbertBasis.mapₗᵢ give both normalizations, e.g. gaussianHermiteHilbertBasis on N(0,1)",
+   "mathlib:Polynomial.Chebyshev.integral_eval_T_real_mul_eval_T_real_measureT_of_ne (Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean) — Mathlib has only this Chebyshev orthogonality integral and the abstract HilbertBasis.mkOfOrthogonalEqBot API. It has no Hermite or Chebyshev Hilbert basis, no L² product basis and no weighted-L² isometry (no mathlib declarations matching hermite.*(HilbertBasis|basis|orthonormal)|HilbertBasis.*(prod|pi|tensor)|withDensity.*LinearIsometry)"
+  ],
+  "references": [
+   {
+    "title": "Orthogonal polynomials.",
+    "authors": "Szegő, Gábor",
+    "zbmath": 3037624,
+    "msc": [
+     "33-02",
+     "42-02",
+     "33C45",
+     "33C47",
+     "42C05"
+    ]
+   },
+   {
+    "title": "The classical moment problem and some related questions in analysis. Translated from 1961 Russian original by N. Kemmer",
+    "authors": "Akhiezer, N. I.",
+    "zbmath": 3219899,
+    "msc": [
+     "44A60",
+     "44-02"
+    ]
+   },
+   {
+    "title": "Szegő's theorem and its descendants. Spectral theory for \\(L^2\\) perturbations of orthogonal polynomials",
+    "authors": "Simon, Barry",
+    "zbmath": 5826344,
+    "msc": [
+     "33-02",
+     "33C47",
+     "33D50"
+    ]
+   },
+   {
+    "title": "Methods of modern mathematical physics. II: Fourier analysis, self- adjointness",
+    "authors": "Reed, Michael; Simon, Barry",
+    "zbmath": 3483022,
+    "msc": [
+     "47-02",
+     "42-02",
+     "46F10",
+     "42A38",
+     "47B25",
+     "47F05",
+     "35R20",
+     "46N99"
+    ]
+   },
+   {
+    "title": "Harmonic analysis in phase space",
+    "authors": "Folland, Gerald B.",
+    "zbmath": 42454,
+    "msc": [
+     "43-02",
+     "43A80",
+     "22E70",
+     "35S05",
+     "81-02",
+     "43A85"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+  "primaryMsc": "94B",
+  "secondaryMsc": [
+   "11H",
+   "11E",
+   "11T"
+  ],
+  "cluster": "combinatorics",
+  "distance": 3,
+  "distanceRationale": "All prerequisites are present (Mathlib's Hamming distance, dot-product orthogonals and finite-field additive characters; Tau Ceti's completed integral-lattice gluing theory and coordinate-power finite quadratic modules), but Tau Ceti's coding layer so far only fixes the carriers and generator/parity-check matrices. Minimum distance, puncturing/shortening, weight enumerators and MacWilliams, Type II codes, the Golay/hexacode/tetracode computations and Construction A — one layer of standard textbook theory plus explicit finite verification — are still to be built.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.LinearCode (TauCeti/InformationTheory/Coding/Basic.lean) — linear and additive codes as Submodule/AddSubgroup aliases; together with Matrix.generatedBy, Matrix.checkedBy and LinearCode.exists_isGeneratorMatrix (TauCeti/InformationTheory/Coding/Matrix.lean) this covers only part of Layer 1 (no puncturing, shortening, direct sums, code equivalences or minimum distance)",
+   "mathlib:hammingNorm (Mathlib/InformationTheory/Hamming.lean) — Hamming weight and hammingDist on finite Pi types; Mathlib has no linear-code, minimum-distance or dual-code API (the linear-code PR is not in the baseline; Mathlib/InformationTheory/Coding only treats prefix-free/Kraft source codes)",
+   "mathlib:AddChar.sum_eq_zero_of_ne_one (Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean) — vanishing of nontrivial additive character sums, with AddChar.FiniteField.primitiveChar, the tools for the character-sum proof of MacWilliams; the identity itself and weight enumerators are not formalized",
+   "tauceti:TauCeti.FiniteQuadraticModule.isIsotropic_coordinatePower_iff (TauCeti/LinearAlgebra/FiniteBilinearModule/CoordinatePower.lean) — coordinate powers of finite bilinear/quadratic alphabets with nondegeneracy and isotropy criteria (the Layer 2/7 interface); the C^⊥/C comparison can consume IntegralLattice.IntermediateCarrier.discriminantOrthogonalQuotientIsometry, but no code-to-discriminant isometry exists",
+   "absent: MacWilliams identity, weight enumerators/distributions, minimum distance, doubly-even/Type II codes, tetracode, hexacode, binary and ternary Golay codes, Construction A (no declarations matching MacWilliams|weightEnumerator|weightDistribution|enumerator|minDist|minimumDistance|golay|hexacode|tetracode|constructionA|doublyEven|typeII|puncture|shorten in either library)"
+  ],
+  "references": [
+   {
+    "title": "Fundamentals of error-correcting codes",
+    "authors": "Huffman, W. Cary; Pless, Vera",
+    "zbmath": 2006094,
+    "msc": [
+     "94Bxx",
+     "94-01"
+    ]
+   },
+   {
+    "title": "The theory of error-correcting codes. Parts I, II",
+    "authors": "MacWilliams, F. J.; Sloane, N. J. A.",
+    "zbmath": 3577144,
+    "msc": [
+     "94Bxx",
+     "94-02",
+     "05Bxx",
+     "11T71"
+    ]
+   },
+   {
+    "title": "Sphere packings, lattices and groups. With additional contributions by E. Bannai, R. E. Borcherds, J. Leech, S. P. Norton, A. M. Odlyzko, R. A. Parker, L. Queen and B. B. Venkov.",
+    "authors": "Conway, J. H.; Sloane, N. J. A.",
+    "zbmath": 1224949,
+    "msc": [
+     "52C17",
+     "52C07",
+     "11H06",
+     "11-02",
+     "05-02",
+     "05B40",
+     "52-02",
+     "03B30",
+     "05B05",
+     "20D08",
+     "11F27",
+     "94B99"
+    ]
+   },
+   {
+    "title": "Lattices and codes. A course partially based on lectures by Friedrich Hirzebruch",
+    "authors": "Ebeling, Wolfgang",
+    "zbmath": 6088652,
+    "msc": [
+     "11H06",
+     "94B05",
+     "11F11",
+     "11-01",
+     "94-01",
+     "11H55",
+     "11F27",
+     "11E12",
+     "11H71"
+    ]
+   },
+   {
+    "title": "Classification of ternary extremal self-dual codes of length 28",
+    "authors": "Harada, Masaaki; Munemasa, Akihiro; Venkov, Boris",
+    "zbmath": 5813120,
+    "msc": [
+     "94B05",
+     "11H71"
+    ]
+   },
+   {
+    "title": "The codes and the lattices of Hadamard matrices",
+    "authors": "Munemasa, Akihiro; Tamura, Hiroki",
+    "zbmath": 6030327,
+    "msc": [
+     "05B20",
+     "15B34",
+     "94B05"
+    ]
+   },
+   {
+    "title": "Type II self-dual codes over finite rings and even unimodular lattices",
+    "authors": "Dougherty, Steven T.; Gulliver, T. Aaron; Harada, Masaaki",
+    "zbmath": 1334703,
+    "msc": [
+     "94B60"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "primaryMsc": "14H",
+  "secondaryMsc": [
+   "11R",
+   "14A",
+   "12F"
+  ],
+  "cluster": "algebraic-geometry",
+  "distance": 3,
+  "distanceRationale": "The headline theorem is already proved: Tau Ceti has a sorry-free function-field Riemann–Roch with the whole Stichtenoth Ch. 1 chain (product formula, genus, Weil differentials and canonical class, strong approximation, Weierstrass gaps, finite Cl⁰ over finite constants), much of the extension theory (fundamental identity, conorm, different divisor with tame exponent and tower law) and the elliptic point–place dictionary. What is left is roughly one layer of standard graduate theory: the cotrace and Hurwitz genus formula, constant-field extensions, the hyperelliptic and plane-curve genus formulas, Weierstrass points and the 84(g−1) bound, and the curves ↔ function-fields dictionary with its cohomological comparison.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.exists_isRiemannRochDivisor (TauCeti/FieldTheory/FunctionField/Differential/CanonicalDivisor.lean) — Riemann–Roch ℓ(D) = deg D + 1 − g + ℓ(W − D) for any function field with exact constant field, W the divisor of a nonzero Weil differential, with deg W = 2g − 2 and ℓ(W) = g proved alongside; the Layers 0–5 files (Place/, Divisor/, Repartition/, RiemannRoch/, Consequences/) contain no sorry",
+   "tauceti:TauCeti.Divisor.different_eq_conorm_add (TauCeti/FieldTheory/FunctionField/Different/Tower.lean) — transitivity of the different divisor in separable towers, with TauCeti.Place.ramificationIdx_eq_differentExponent_add_one (tame d = e − 1, residue-separable) and TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable (fundamental identity); no cotrace of Weil differentials and no Hurwitz genus formula",
+   "tauceti:WeierstrassCurve.Affine.pointEquivDegreeOnePlace (TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/PointPlace.lean) — points of a Weierstrass curve ≃ degree-one places of its function field (Layer 10 compatibility milestone), with TauCeti.Place.degreeOneAddEquivDegreeZeroClassGroup for elliptic function fields; no proof that W.FunctionField has genus 1, no hyperelliptic or plane-curve model classes",
+   "mathlib:AlgebraicGeometry.Scheme.Hom.normalization (Mathlib/AlgebraicGeometry/Normalization.lean) — relative normalization of a scheme morphism, a tool for normalizing ℙ¹ in F (Layer 12B); no regular projective model of a function field, no anti-equivalence, no Serre duality or dualizing sheaf in either library",
+   "absent: Hurwitz genus formula, Clifford's theorem, hyperelliptic and plane-curve genus formulas, Weierstrass points, automorphism-group finiteness and the 84(g−1) bound (no declarations matching hurwitz|cotr|clifford|hyperelliptic|wronskian|weierstrassPoint|planeCurve in Mathlib or TauCeti function-field files; the only 'hurwitz' hits are the complex-analytic zeros theorem)"
+  ],
+  "references": [
+   {
+    "title": "Algebraic function fields and codes",
+    "authors": "Stichtenoth, Henning",
+    "zbmath": 5367219,
+    "msc": [
+     "14H05",
+     "14-01",
+     "94-01",
+     "94B27",
+     "11R58",
+     "11T71"
+    ]
+   },
+   {
+    "title": "Algebraic curves",
+    "authors": "Fulton, W.",
+    "zbmath": 3288410,
+    "msc": [],
+    "note": "The roadmap cites the 2008 edition, which has no zbMATH record; this is the first edition (W. A. Benjamin, 1969), as the brief's edition rule requires. The 1989 Addison-Wesley reprint is zbMATH 194422, msc 14Hxx, 14C35, 14-02, 14A10, 14-01."
+   },
+   {
+    "title": "Algebraic functions and projective curves",
+    "authors": "Goldschmidt, David M.",
+    "zbmath": 1836560,
+    "msc": [
+     "14H05",
+     "11R42",
+     "11R58",
+     "14G10",
+     "14G50"
+    ]
+   },
+   {
+    "title": "Topics in the theory of algebraic function fields",
+    "authors": "Villa Salvador, Gabriel Daniel",
+    "zbmath": 5060435,
+    "msc": [
+     "11-02",
+     "11R58",
+     "11R32",
+     "14H05",
+     "11R60",
+     "11G09"
+    ]
+   },
+   {
+    "title": "Algebraic geometry and arithmetic curves",
+    "authors": "Liu, Qing",
+    "zbmath": 1748084,
+    "msc": [
+     "14Exx",
+     "14G40",
+     "14-01",
+     "14-02",
+     "14A15"
+    ]
+   },
+   {
+    "title": "Algebraic geometry",
+    "authors": "Hartshorne, Robin",
+    "zbmath": 3572315,
+    "msc": [
+     "14Axx",
+     "14Fxx",
+     "14Hxx",
+     "14Jxx",
+     "14Exx",
+     "14Nxx",
+     "14-02"
+    ]
+   },
+   {
+    "title": "Lectures on the theory of algebraic functions of one variable",
+    "authors": "Deuring, Max",
+    "zbmath": 3394308,
+    "msc": [
+     "14-01",
+     "11R58",
+     "14H10",
+     "14H05"
+    ]
+   },
+   {
+    "title": "Number theory in function fields",
+    "authors": "Rosen, Michael",
+    "zbmath": 1716471,
+    "msc": [
+     "11R58",
+     "11-01",
+     "11-02",
+     "11R60",
+     "11T55"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+  "primaryMsc": "55N",
+  "secondaryMsc": [
+   "55Q",
+   "55T",
+   "55P"
+  ],
+  "cluster": "topology",
+  "distance": 4,
+  "distanceRationale": "The singular-chain layer is in place (Mathlib's singular homology with homotopy invariance and H_0, CW complexes, cubical homotopy groups, spectral-sequence framework; Tau Ceti's relative singular homology with pair and triple long exact sequences, local coefficient systems, and the generation half of groupoid van Kampen), but every headline theorem is missing: excision/Mayer-Vietoris, cellular homology, cohomology products and Poincare duality, Kunneth and Serre spectral sequences, Hurewicz and Whitehead. These are several stacked layers of standard graduate textbook theory, not research-level theory.",
+  "mathlibEvidence": [
+   "tauceti:TopPair.singularHomology_exact_relative (TauCeti/AlgebraicTopology/Singular/Relative.lean) — relative singular chains/homology of a TopPair built from Mathlib's SSetPair, with exactness of the pair long exact sequence (triple sequence in Singular/Triple.lean, (X, empty) comparison in Singular/Empty.lean); no excision, Mayer-Vietoris, dimension or additivity axiom",
+   "mathlib:TopCat.Homotopy.congr_homologyMap_singularChainComplexFunctor (Mathlib/AlgebraicTopology/SingularHomology/HomotopyInvariance.lean) — homotopy invariance of singular homology with coefficients in a preadditive category (H_0 in HomologyZero.lean, axiom interface TopPair.HomologyPretheory in EilenbergSteenrod.lean); no homology of spheres or discs",
+   "tauceti:TauCeti.FundamentalGroupoid.iSup_im_map_subtypeVal_eq_top (TauCeti/AlgebraicTopology/FundamentalGroupoid/CoverGeneration.lean) — generation half of groupoid van Kampen for a cover (with uniqueness TauCeti.FundamentalGroupoid.functor_ext); the colimit universal property, based van Kampen and presentation corollaries are absent",
+   "mathlib:Topology.RelCWComplex.closedCell (Mathlib/Topology/CWComplex/Classical/Basic.lean) — classical relative CW complexes with cells, characteristic maps, finiteness and subcomplexes; no cellular chain complex, cellular approximation or homotopy extension property",
+   "absent: excision and Mayer-Vietoris for singular homology, cellular homology, singular cohomology with cup/cap products, Poincare duality, Kunneth/Eilenberg-Zilber, Serre spectral sequence, relative homotopy groups, Hurewicz and topological Whitehead theorems (no declarations matching excision|MayerVietoris|cellular|singularCohomology|cupProduct|capProduct|PoincareDuality|Kunneth|EilenbergZilber|AlexanderWhitney|Hurewicz|BasedTopPair|relativeHomotopyGroup other than unrelated contour-integral, scheme/site-cohomology and model-category declarations)"
+  ],
+  "references": [
+   {
+    "title": "Algebraic topology",
+    "authors": "Hatcher, Allen",
+    "zbmath": 2103273,
+    "msc": [
+     "55-01",
+     "55Nxx",
+     "55Pxx",
+     "55Qxx"
+    ]
+   },
+   {
+    "title": "Foundations of algebraic topology",
+    "authors": "Eilenberg, Samuel; Steenrod, Norman",
+    "zbmath": 3074646,
+    "msc": [
+     "55-01"
+    ]
+   },
+   {
+    "title": "Elements of homotopy theory",
+    "authors": "Whitehead, George W.",
+    "zbmath": 3631581,
+    "msc": [
+     "55-02",
+     "54Bxx",
+     "54C15",
+     "54C20",
+     "54C35",
+     "57Q05",
+     "57T05",
+     "57T10",
+     "57T15",
+     "57T20",
+     "57T25"
+    ]
+   },
+   {
+    "title": "Homologie singulière des espaces fibrés. Applications",
+    "authors": "Serre, Jean-Pierre",
+    "zbmath": 3070264,
+    "msc": []
+   },
+   {
+    "title": "Lectures on algebraic topology",
+    "authors": "Dold, A.",
+    "zbmath": 3371258,
+    "msc": [
+     "55-01",
+     "57Q05",
+     "55U05",
+     "54H25",
+     "55U25",
+     "55M25",
+     "55M15",
+     "57T05",
+     "55N25",
+     "55N05"
+    ]
+   },
+   {
+    "title": "Topology and groupoids",
+    "authors": "Brown, Ronald",
+    "zbmath": 5018137,
+    "msc": [
+     "55-01",
+     "54-01",
+     "57M05",
+     "18F99",
+     "57M10",
+     "54B30",
+     "55U35"
+    ]
+   },
+   {
+    "title": "Simplicial objects in algebraic topology",
+    "authors": "May, J. P.",
+    "zbmath": 3264757,
+    "msc": []
+   },
+   {
+    "title": "A user's guide to spectral sequences.",
+    "authors": "McCleary, John",
+    "zbmath": 1565334,
+    "msc": [
+     "55-02",
+     "55Txx",
+     "57T35",
+     "18G40",
+     "57T15",
+     "55R40",
+     "55R20",
+     "55Q40",
+     "55Q45",
+     "55M05",
+     "57R19",
+     "55U10",
+     "17B56",
+     "20J05",
+     "18F25",
+     "18G15",
+     "22E41"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+  "primaryMsc": "11M",
+  "secondaryMsc": [
+   "11N",
+   "11R",
+   "40E"
+  ],
+  "cluster": "analytic-number-theory",
+  "distance": 2,
+  "distanceRationale": "Tau Ceti already proves, sorry-free, Layers 0–5 (ideal arithmetic functions and weights, norm regrouping, convolution and Möbius, ideal Euler products and logarithmic derivatives, two-sided ideal counts with abscissa 1, higher-prime-power and residue-degree estimates), most of Layer 6 (Abel summation, truncated Perron, the ϑ→π transfer), natural density, Landau/3-4-1 positivity and the smoothed Wiener–Ikehara limit. What remains is standard and less than one layer: the Tauberian passage to the sharp wienerIkehara, the Dirichlet-density bound predicates, calculus and all-prime normalization, the cancellation continuation, and the packaged PNT transfer.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.IdealArithmeticFunction.normCoeff_eq_eulerProduct (TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Basic.lean) — Euler product for multiplicative ideal arithmetic functions; with TauCeti.regroupByNorm, TauCeti.idealCount_linearBounds, TauCeti.abscissaOfAbsConv_normCoeff_one and TauCeti.MultiplicativeIdealWeight.logDeriv_LSeries_eq_neg_tsum_vonMangoldtTransform it covers the Layer 0–5 contracts",
+   "tauceti:TauCeti.LSeries.tendsto_tsum_term_mul_fourier_atTop (TauCeti/NumberTheory/LSeries/WienerIkehara/Asymptotic.lean) — smoothed Wiener–Ikehara: if G = LSeries a − A/(s−1) extends continuously to Re s ≥ 1, the Fourier-weighted sums tend to 2π·A·ψ(0); it does not give the sharp limit x⁻¹∑_{n≤x} a n → κ",
+   "tauceti:TauCeti.LSeries.landau (TauCeti/NumberTheory/LSeries/Landau.lean) — Landau's theorem (no analytic continuation across the real abscissa for nonnegative coefficients); the 3-4-1 package is TauCeti.LSeries.isNonnegativeTrigonometricCombination_threeFourOne",
+   "tauceti:TauCeti.tendsto_truncatedPerron_LSeries (TauCeti/NumberTheory/ArithmeticDirichletSeries/Perron/Formula.lean) — limiting arithmetic Perron formula with the sharp step; TauCeti.primeCount_asymptotic_of_primeTheta (Transfer.lean) gives ϑ ~ δx ⇒ π ~ δ·Li, and TauCeti.standardPrimePowerRemoval gives ψ − ϑ = o(x)",
+   "absent: wienerIkehara, PrimeBoundaryRemainder, primeNumberTheoremTransfer, HasCancellation, continuedLFunctionOfWeight, IsLower/UpperDirichletDensityBound, and any Dirichlet-density calculus beyond Mathlib's basic NumberField.Set.HasDirichletDensity lemmas (no declarations matching wienerIkehara|PrimeBoundaryRemainder|primeNumberTheoremTransfer|HasCancellation|continuedLFunction|LowerDirichletDensity|UpperDirichletDensity|hasDirichletDensity_; no Tau Ceti names containing DirichletDensity)"
+  ],
+  "references": [
+   {
+    "title": "Multiplicative number theory",
+    "authors": "Davenport, Harold",
+    "zbmath": 3255845,
+    "msc": [
+     "11-02",
+     "11-01",
+     "11Mxx",
+     "11Nxx",
+     "11Lxx",
+     "11P32",
+     "11N35"
+    ]
+   },
+   {
+    "title": "Tauberian theory. A century of developments",
+    "authors": "Korevaar, Jacob",
+    "zbmath": 2120945,
+    "msc": [
+     "40E05",
+     "11M45",
+     "40-02",
+     "11-02",
+     "11-03",
+     "11N05",
+     "40-03",
+     "42-02",
+     "40E20"
+    ]
+   },
+   {
+    "title": "Introduction to analytic and probabilistic number theory. Transl. from the 2nd French ed. by C.B.Thomas",
+    "authors": "Tenenbaum, Gérald",
+    "zbmath": 783336,
+    "msc": [
+     "11-01",
+     "11-02",
+     "11Nxx",
+     "11Kxx",
+     "11Mxx",
+     "11Lxx",
+     "11N35",
+     "11N37",
+     "11N56",
+     "11A41",
+     "11A25",
+     "11K65",
+     "11L40",
+     "11N60",
+     "11M06",
+     "11M45",
+     "11N05",
+     "11N13",
+     "11L07"
+    ]
+   },
+   {
+    "title": "Algebraic number theory. Transl. from the German by Norbert Schappacher",
+    "authors": "Neukirch, Jürgen",
+    "zbmath": 1313469,
+    "msc": [
+     "11Rxx",
+     "11Sxx",
+     "11-02",
+     "11-01"
+    ]
+   },
+   {
+    "title": "The theory of the Riemann zeta-function. 2nd ed., rev. by D. R. Heath-Brown",
+    "authors": "Titchmarsh, E. C.",
+    "zbmath": 3968684,
+    "msc": [
+     "11M06",
+     "11-02",
+     "11M26",
+     "11N37",
+     "11L03"
+    ]
+   },
+   {
+    "title": "Local fields",
+    "authors": "Serre, Jean-Pierre",
+    "zbmath": 3222140,
+    "msc": [
+     "11Sxx",
+     "11-01",
+     "11-02",
+     "14Gxx",
+     "11S31",
+     "20J06",
+     "12G05"
+    ]
+   },
+   {
+    "title": "Algebraic Number Theory",
+    "authors": "Milne, J. S.",
+    "zbmath": null,
+    "msc": [],
+    "note": "Course notes (jmilne.org), not a published book; zbMATH queries ti:\"Algebraic number theory\" au:Milne and au:Milne ti:\"number theory\" returned no results."
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+  "primaryMsc": "20D",
+  "secondaryMsc": [
+   "20G",
+   "20F",
+   "17B"
+  ],
+  "cluster": "group-theory",
+  "distance": 4,
+  "distanceRationale": "Much of the named statement already exists in Tau Ceti: the I0 indices, all 26 sporadic presentations, and fixed-point candidate groups for every Lie-type family except ³D₄, ²G₂, ²F₄ and the Tits group. Still missing are those four branches, which need the tripled D₄ carrier and the short-root carriers with their special isogenies, and the A0 assembly of ClassificationStatement. The L4 and L5 identifications also depend on objects that neither library has: Mathlib's suzukiGroup, and pinned Chevalley–Demazure group schemes over ℤ.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.SporadicName.presentation (TauCeti/GroupTheory/SpecificGroups/CFSG/Sporadic/Presentation.lean) — all 26 sporadic groups as explicit cited finite presentations (S0/S1), with count checks TauCeti.presentation_matchesMetadata and the relator compiler lemma TauCeti.Relator.toWord_toFreeGroup; as intended, nothing about order or simplicity",
+   "tauceti:TauCeti.TypeALieIndex.Group (TauCeti/GroupTheory/SpecificGroups/CFSG/TypeA.lean) — L0–L3 candidate (derived subgroup of the Steinberg fixed points modulo its centre) on an explicit carrier; the same per-family Group exists for TypeBLieIndex, TypeCLieIndex, TypeDLieIndex, TypeTwistedDLieIndex, TypeE6LieIndex, TypeTwistedE6LieIndex, TypeE7LieIndex, UnimodularExceptionalIndex (E₈, F₄, G₂ on the Geck carrier) and SuzukiLieIndex",
+   "tauceti:TauCeti.LieTypeIndex.Valid (TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean) — I0: standard ranges, duplicate-representative table, dynkinType, characteristic and field order, graph permutations and Suzuki–Ree exponents; the 26-name enumeration (card_sporadicName) and the inductive CFSGIndex are in the same file",
+   "absent: ³D₄, ²G₂, ²F₄ and Tits branches and the A0 assembly (no Group/steinberg declarations for TypeTrialityD4LieIndex or the Ree/Tits indices — SuzukiReeIndex.datumSpecialIsogeny is only root-datum data; no declarations matching ClassificationStatement|CFSGIndex.Group|ValidLieTypeIndex.Group|classificationStatement_of_zero)",
+   "absent: pinned Chevalley–Demazure group schemes over ℤ for L5 and Mathlib's suzukiGroup for L4 (no declarations matching ChevalleyDemazure|Demazure|Pinning|Kostant|suzukiGroup in either library)"
+  ],
+  "references": [
+   {
+    "title": "Simple groups of Lie type",
+    "authors": "Carter, Roger W.",
+    "zbmath": 3392741,
+    "msc": [
+     "20D06",
+     "20-02",
+     "17B40"
+    ]
+   },
+   {
+    "title": "Finite groups of Lie type. Conjugacy classes and complex characters",
+    "authors": "Carter, Roger W.",
+    "zbmath": 3904833,
+    "msc": [
+     "20G05",
+     "20-02",
+     "20G10",
+     "20G40",
+     "14L35",
+     "17B35"
+    ]
+   },
+   {
+    "title": "The classification of the finite simple groups. Part I, Chapter A: Almost simple \\(K\\)-groups",
+    "authors": "Gorenstein, Daniel; Lyons, Richard; Solomon, Ronald",
+    "zbmath": 1111401,
+    "msc": [
+     "20D05",
+     "20-02",
+     "20D06",
+     "20D08"
+    ]
+   },
+   {
+    "title": "Atlas of finite groups. Maximal subgroups and ordinary characters for simple groups. With comput. assist. from J. G. Thackray",
+    "authors": "Conway, J. H.; Curtis, R. T.; Norton, S. P.; Parker, R. A.; Wilson, R. A.",
+    "zbmath": 3906699,
+    "msc": [
+     "20-02",
+     "20-04",
+     "20D08",
+     "20Cxx",
+     "20D05",
+     "20D06",
+     "20D30",
+     "20G40"
+    ]
+   },
+   {
+    "title": "On the cohomology of the Ree groups and kernels of exceptional isogenies",
+    "authors": "Radu, Aura-Cristiana",
+    "zbmath": 7596225,
+    "msc": [
+     "20G10",
+     "20J06",
+     "20G05"
+    ]
+   },
+   {
+    "title": "Presenting the Monster?",
+    "authors": "Norton, Simon",
+    "zbmath": 10424,
+    "msc": [
+     "20D08",
+     "20F05"
+    ]
+   },
+   {
+    "title": "\\(Y\\)-groups via transitive extension",
+    "authors": "Ivanov, A. A.",
+    "zbmath": 1348165,
+    "msc": [
+     "20F05",
+     "05C25",
+     "20D08"
+    ]
+   },
+   {
+    "title": "A presentation of the Monster and a set of matrices which satisfy it.",
+    "authors": "Farooq, Adeel; Norton, Simon; Wilson, Robert A.",
+    "zbmath": 6221942,
+    "msc": [
+     "20D08",
+     "20F05",
+     "20C40",
+     "68W30"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+  "primaryMsc": "11R",
+  "secondaryMsc": [
+   "11S",
+   "20J",
+   "12G"
+  ],
+  "cluster": "algebraic-number-theory",
+  "distance": 5,
+  "distanceRationale": "Tau Ceti supplies only the scaffolding: formations, normal layers, restriction/inflation towers and abelian layers (Layer 1 and part of Layer 4), low-degree Tate identifications (Ĥ⁰ = norm quotient, Ĥ⁻² ≃ G^ab), cyclic periodicity, a Herbrand quotient, low-degree continuous cup products and Brauer groups of central simple algebras. Everything from Tate's theorem onward is absent (class formations and fundamental classes, the local invariant and local reciprocity, local existence and the Weil group, the Brauer sequence, global reciprocity and existence, the Hasse norm theorem, class fields, Kronecker–Weber and Hilbert reciprocity), which is several layers of standard graduate, but not research-level, theory.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.ClassFieldTheory.Formation (TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean) — Artin–Tate formation on a profinite group, with NormalLayer, norm quotient, NormalLayer.tateHZeroEquivNormQuotient, LayerRestriction/LayerRefinement towers and OpenNormalSubgroup.maximalAbelianLayer (Formation/AbelianLayer.lean); no ClassFormation, fundamental class, tateIso or Artin map",
+   "tauceti:TauCeti.TateCohomology.HNegTwoAddEquivAbelianization (TauCeti/RepresentationTheory/Homological/TateCohomology/LowDegree.lean) — Ĥ⁻²(G,ℤ) ≃ G^ab, alongside TauCeti.TateCohomology.herbrandQuotient and cyclic periodicity; provides the low-degree identifications Layer 0 asks for, but no Tate cup product in all degrees and no Tate's theorem",
+   "mathlib:tateCohomology (Mathlib/RepresentationTheory/Homological/TateCohomology/Basic.lean) — integer-graded Tate cohomology with connecting map and long exact sequence; no cup products, restriction or corestriction there (Tau Ceti's continuous cohomology adds cups only in bidegrees p + q ≤ 2)",
+   "mathlib:BrauerGroup (Mathlib/Algebra/BrauerGroup/Defs.lean) — Brauer group of central simple algebras (Tau Ceti adds base change, splitting, quaternion and real cases); no local invariant Br(K_v) ≃ ℚ/ℤ and no Brauer–Hasse–Noether sequence",
+   "absent: class formations, local and global Artin maps, local and global existence, the Weil group, Hilbert symbols, the Hasse norm theorem, Hilbert/ray/ring class fields and Kronecker–Weber (no declarations matching ClassFormation|fundamentalClass|artinMap|localArtin|WeilGroup|hilbertSymbol|hasseNorm|classField|kroneckerWeber|lubin, and no Hilbert-reciprocity derivation of quadratic reciprocity; Mathlib's legendreSym.quadratic_reciprocity is elementary)"
+  ],
+  "references": [
+   {
+    "title": "Class field theory",
+    "authors": "Artin, Emil; Tate, John",
+    "zbmath": 5486630,
+    "msc": [
+     "11R37",
+     "11R23",
+     "11-02",
+     "11-01",
+     "01A75",
+     "11R34",
+     "11S15",
+     "11S31"
+    ]
+   },
+   {
+    "title": "Global class field theory",
+    "authors": "Tate, J. T.",
+    "zbmath": 5663802,
+    "msc": [
+     "11R37"
+    ]
+   },
+   {
+    "title": "Class Field Theory",
+    "authors": "Milne, J. S.",
+    "zbmath": null,
+    "msc": [],
+    "note": "Course notes v4.03 (jmilne.org), not a published book; zbMATH query ti:\"Class field theory\" au:Milne returned no results."
+   },
+   {
+    "title": "Local fields. Translated from the French by Marvin Jay Greenberg",
+    "authors": "Serre, Jean-Pierre",
+    "zbmath": 3657912,
+    "msc": [
+     "11Sxx",
+     "11-01",
+     "11-02",
+     "14Gxx"
+    ]
+   },
+   {
+    "title": "The higher dimensional cohomology groups of class field theory",
+    "authors": "Tate, John",
+    "zbmath": 3073132,
+    "msc": []
+   },
+   {
+    "title": "Cohomology of number fields",
+    "authors": "Neukirch, Jürgen; Schmidt, Alexander; Wingberg, Kay",
+    "zbmath": 1391019,
+    "msc": [
+     "11-02",
+     "12-02",
+     "11R33",
+     "11R34",
+     "11S25",
+     "12G05",
+     "11R32",
+     "12F10",
+     "11R23",
+     "20J06",
+     "20E18"
+    ]
+   },
+   {
+    "title": "Algebraic number theory. Transl. from the German by Norbert Schappacher",
+    "authors": "Neukirch, Jürgen",
+    "zbmath": 1313469,
+    "msc": [
+     "11Rxx",
+     "11Sxx",
+     "11-02",
+     "11-01"
+    ]
+   },
+   {
+    "title": "Sur la théorie du corps de classes",
+    "authors": "Weil, André",
+    "zbmath": 3067742,
+    "msc": []
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+  "primaryMsc": "57K",
+  "secondaryMsc": [
+   "57R",
+   "32S",
+   "53D"
+  ],
+  "cluster": "topology",
+  "distance": 5,
+  "distanceRationale": "Tau Ceti already has the grid objects and the first milestones of Lanes G and L: grid diagrams and states, integral bigradings, the fully blocked, simply blocked and unblocked complexes with d^2 = 0, the graded Euler characteristic as a grid determinant, grid links as diagrams modulo moves, and F_2[U] lattice homology with a nonzero U-tower. The headline results still need several layers of self-contained but research-level combinatorics: commutation and stabilization invariance, the bigraded F[U]-module structure theorem and tau, the Milnor conjecture and slice-genus bound, sign assignments, and the whole OSS stable HF-hat theory, for which no Heegaard diagram layer exists.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.GridDiagram.unblockedDifferential_comp_self_eq_zero (TauCeti/KnotTheory/Grid/Differential/Square/Zero.lean) — d^2 = 0 for the unblocked grid complex GC^- over characteristic-two coefficients, with the simply and fully blocked specializations (packaged as complexes in Grid/Chain/Complex.lean); no pentagon/hexagon commutation maps or stabilization mapping cone, so no invariance",
+   "tauceti:TauCeti.OddComponentGridDiagram.gradedEulerChar_eq_smul_T_mul_det_weightMatrix (TauCeti/KnotTheory/Grid/EulerCharacteristic.lean) — the graded Euler characteristic of the bigraded grid chain module is the grid determinant (chain-level side of Lane G.4); not yet identified with the Alexander polynomial of the knot in TauCeti/KnotTheory/Alexander.lean",
+   "tauceti:TauCeti.GridDiagram.toGridLink_eq_iff_movesTo (TauCeti/KnotTheory/Grid/Move.lean) — grid links defined as diagrams modulo cyclic permutation, commutation and stabilization; only cyclic permutation and the diagram symmetries are shown to act on the complexes (Differential/CyclicPermutation.lean, Differential/Symmetry.lean)",
+   "tauceti:TauCeti.PlumbingGraph.not_isZero_latticeHomology (TauCeti/LowDimTopology/Plumbing/Tower.lean) — F_2[U] lattice homology of a negative-definite plumbing is nonzero via a free U-tower (d^2 = 0 in Plumbing/Differential.lean, E_8 example in Plumbing/E8.lean); Neumann blow-ups are treated only at lattice and weight level, with no gradings, d-invariant or homology invariance",
+   "absent: tau invariant, unknotting number, Milnor conjecture, slice-genus bound, Legendrian/transverse grid invariants, sign assignments, filtered grid complex, Heegaard diagrams and stable HF-hat (no declarations matching milnor|unknotting|tauInvariant|pentagon|hexagon|sliceGenus|Legendrian|signAssignment|Heegaard|Floer in either library)"
+  ],
+  "references": [
+   {
+    "title": "Grid homology for knots and links",
+    "authors": "Ozsváth, Peter S.; Stipsicz, András I.; Szabó, Zoltán",
+    "zbmath": 6525743,
+    "msc": [
+     "57-02",
+     "57M25",
+     "57M27",
+     "57R58",
+     "53D10"
+    ]
+   },
+   {
+    "title": "On combinatorial link Floer homology",
+    "authors": "Manolescu, Ciprian; Ozsváth, Peter; Szabó, Zoltán; Thurston, Dylan",
+    "zbmath": 5221957,
+    "msc": [
+     "57R58",
+     "57M25",
+     "57M27"
+    ]
+   },
+   {
+    "title": "Combinatorial Heegaard Floer homology and nice Heegaard diagrams",
+    "authors": "Ozsváth, Peter; Stipsicz, András I.; Szabó, Zoltán",
+    "zbmath": 6060982,
+    "msc": [
+     "57R58",
+     "57M27"
+    ]
+   },
+   {
+    "title": "Lattice cohomology of normal surface singularities",
+    "authors": "Némethi, András",
+    "zbmath": 5310670,
+    "msc": [
+     "14J17",
+     "32S25",
+     "57M27",
+     "14J80"
+    ]
+   },
+   {
+    "title": "Grid diagrams and the Ozsváth-Szabó tau-invariant",
+    "authors": "Sarkar, Sucharit",
+    "zbmath": 6194623,
+    "msc": [
+     "57M25"
+    ]
+   },
+   {
+    "title": "A combinatorial description of knot Floer homology",
+    "authors": "Manolescu, Ciprian; Ozsváth, Peter S.; Sarkar, Sucharit",
+    "zbmath": 5578753,
+    "msc": [
+     "57M27",
+     "57M25",
+     "57R58"
+    ]
+   },
+   {
+    "title": "Combinatorial Heegaard Floer homology and sign assignments",
+    "authors": "Ozsváth, Peter; Stipsicz, András I.; Szabó, Zoltán",
+    "zbmath": 6271798,
+    "msc": [
+     "57M27",
+     "57R58"
+    ]
+   },
+   {
+    "title": "Sign refinement for combinatorial link Floer homology",
+    "authors": "Gallais, Étienne",
+    "zbmath": 5344779,
+    "msc": [
+     "57R58",
+     "57M27"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+  "primaryMsc": "30C",
+  "secondaryMsc": [
+   "30D",
+   "30F"
+  ],
+  "cluster": "analysis",
+  "distance": 1,
+  "distanceRationale": "Tau Ceti already has the summit and layers L0–L5: Rouché, Hurwitz, Morera, Montel and Vitali; Schwarz–Pick and the Poincaré disc; the Riemann mapping theorem; Schwarz reflection and the monodromy theorem; and Carathéodory's theorem for Jordan domains. What remains is L6, the global Schwarz–Christoffel theorem: its integrand, primitive and boundary edges exist, but not the conformal map onto a prescribed polygon or the prevertex parameter problem. That is one standard textbook theorem resting on layers already built.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.riemannMapping (TauCeti/Analysis/Complex/Conformal/RiemannMapping/Existence.lean) — the Riemann mapping theorem (L3): a simply connected open proper subset of ℂ admits a holomorphic bijection onto the unit disc with nonvanishing derivative; normalized and uniqueness forms are in RiemannMapping/Normalization.lean",
+   "tauceti:TauCeti.exists_homeomorph_closedBall_closure_of_isJordanCurve_frontier (TauCeti/Analysis/Complex/Conformal/Jordan/Approach.lean) — Carathéodory's boundary correspondence for bounded Jordan domains (L5): the Riemann map extends to a homeomorphism from the closed disc onto the closure; no prime-ends theory (explicitly outside L5)",
+   "tauceti:TauCeti.differentiableOn_schwarzReflection_of_symmetric (TauCeti/Analysis/Complex/Conformal/Reflection/Principle.lean) — Schwarz reflection across the real axis (L4), with line, arc and circle variants beside it; the monodromy theorem is TauCeti.continuesInside_iff_exists_analyticOnNhd, and the L0–L1 engine is TauCeti.rouche, TauCeti.hurwitz, TauCeti.morera, TauCeti.montel and TauCeti.vitali",
+   "tauceti:TauCeti.schwarzChristoffelPrimitive (TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Primitive.lean) — the normalized Schwarz–Christoffel primitive, conformal on the upper half-plane, with boundary values and injective straight edges in neighbouring files (L6, partial); there is no theorem that it maps the half-plane onto a prescribed polygon, and no existence result for prevertices",
+   "mathlib:Complex.exists_mapsTo_unitBall_injOn_deriv_ne_zero (Mathlib/Analysis/Complex/RiemannMapping.lean) — only a partial step of the Riemann mapping theorem (an injective holomorphic map of the domain into the unit ball); Mathlib also has the Schwarz lemma and branches of log and roots, but no complete Riemann mapping theorem, Montel, Rouché, reflection or boundary correspondence"
+  ],
+  "references": [
+   {
+    "title": "Complex analysis, an introduction to the theory of analytic functions of one complex variable",
+    "authors": "Ahlfors, Lars V.",
+    "zbmath": 3082776,
+    "msc": []
+   },
+   {
+    "title": "Functions of one complex variable",
+    "authors": "Conway, John B.",
+    "zbmath": 3435823,
+    "msc": [
+     "30-01",
+     "31-01"
+    ]
+   },
+   {
+    "title": "Real and complex analysis",
+    "authors": "Rudin, Walter",
+    "zbmath": 3228674,
+    "msc": [
+     "26-01",
+     "30-01",
+     "46-01"
+    ]
+   },
+   {
+    "title": "Conformal invariants. Topics in geometric function theory",
+    "authors": "Ahlfors, Lars V.",
+    "zbmath": 3427691,
+    "msc": [
+     "30-02",
+     "30C50",
+     "30C55",
+     "30C70",
+     "30C85",
+     "30F10",
+     "30D40",
+     "30D50",
+     "30C80"
+    ]
+   },
+   {
+    "title": "Complex analysis",
+    "authors": "Stein, Elias M.; Shakarchi, Rami",
+    "zbmath": 1889799,
+    "msc": [
+     "30-01"
+    ]
+   },
+   {
+    "title": "Classical topics in complex function theory. Transl. by Leslie Kay",
+    "authors": "Remmert, Reinhold",
+    "zbmath": 1105191,
+    "msc": [
+     "30-02",
+     "32-02"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+  "primaryMsc": "05C",
+  "secondaryMsc": [
+   "60G",
+   "28A",
+   "46C"
+  ],
+  "cluster": "combinatorics",
+  "distance": 3,
+  "distanceRationale": "Tau Ceti already proves the basic layers: graphons, homomorphism densities, the cut norm, a cut distance that satisfies the triangle inequality on any probability space, the graphon-space metric quotient, both counting lemmas, Frieze–Kannan weak regularity, total boundedness, agreement of the coupling and map forms of the cut distance, Goodman/Mantel/Sidorenko-C4, and the setup for sampling and exchangeable graph laws. What is missing is one layer of standard results from Lovász's monograph: completeness and compactness of graphon space, inverse counting (separation), the equivalence of the two convergence notions, Lovász–Szegedy representability, and the Diaconis–Janson mixture representation. The tools these need (martingales, Prokhorov, McDiarmid) are already available.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.DenseGraphLimits.counting_lemma (TauCeti/Combinatorics/DenseGraphLimits/Counting.lean) — the counting lemma |t(F,U) − t(F,W)| ≤ e(F)·‖U − W‖□ for graphons on one probability space, plus the two-space coupling form counting_lemma_coupling. It gives only the easy direction of separation (forall_homDensity_eq_of_cutDist_eq_zero), not the inverse counting lemma",
+   "tauceti:TauCeti.DenseGraphLimits.weak_regularity_frieze_kannan (TauCeti/Combinatorics/DenseGraphLimits/StepGraphon/Regularity.lean) — Frieze–Kannan weak regularity for graphons with at most 4^(⌈1/ε²⌉+1) parts, proved from the graphonPartitionEnergy increment. It also drives the triangle inequality cutDist_triangle on arbitrary probability spaces; it does not give compactness",
+   "tauceti:TauCeti.DenseGraphLimits.totallyBounded_graphonSpaceI (TauCeti/Combinatorics/DenseGraphLimits/GraphonSpace/TotallyBounded.lean) — the cut-distance quotient GraphonSpaceI (a metric SeparationQuotient) is totally bounded. Completeness and the Lovász–Szegedy CompactSpace GraphonSpaceI are not proved",
+   "tauceti:TauCeti.DenseGraphLimits.cutDist_eq_cutDistPullback (TauCeti/Combinatorics/DenseGraphLimits/CutMetric/Pullback/Basic.lean) — the coupling and measure-preserving-map cut distances agree on standard Borel spaces, atoms allowed (Janson Thm 6.9 via Thm A.9). Not built: the atomless mod-null equivalence with (I, volume), and Janson Thm 7.1 (every graphon, on any probability space, has a [0,1] representative at cut distance zero)",
+   "absent: compactness/completeness of graphon space, inverse counting, the convergence equivalence, Lovász–Szegedy representability, the graphon-mixture representation of exchangeable graph laws, and sampling convergence of cut distance (no declarations matching cutDist_eq_zero_of_forall_homDensity|tendsto_graphonSpace_iff|lovasz_szegedy|graphParamMobius|exists_graphon_of_isDissociated|mixtureExchangeableLaw|graphonMixtureLawEquiv|ae_tendsto_cutDist|cutDist_tendsto_inProbability; no CompactSpace/CompleteSpace under TauCeti/Combinatorics/DenseGraphLimits; Mathlib has no graphon, cutNorm, cutDist or homDensity declarations)"
+  ],
+  "references": [
+   {
+    "title": "Large networks and graph limits",
+    "authors": "Lovász, László",
+    "zbmath": 6122804,
+    "msc": [
+     "05-02",
+     "05C60",
+     "05C42",
+     "05C80",
+     "05C35",
+     "05C82",
+     "05C63",
+     "68R10",
+     "05C90"
+    ]
+   },
+   {
+    "title": "Limits of dense graph sequences",
+    "authors": "Lovász, László; Szegedy, Balázs",
+    "zbmath": 5116336,
+    "msc": [
+     "05C80",
+     "05C50"
+    ]
+   },
+   {
+    "title": "Graphons, cut norm and distance, couplings and rearrangements",
+    "authors": "Janson, Svante",
+    "zbmath": 6182968,
+    "msc": [
+     "05-02",
+     "05C99",
+     "28A20"
+    ]
+   },
+   {
+    "title": "Szemerédi's lemma for the analyst",
+    "authors": "Lovász, László; Szegedy, Balázs",
+    "zbmath": 5152562,
+    "msc": [
+     "46C99",
+     "05C80"
+    ]
+   },
+   {
+    "title": "Convergent sequences of dense graphs. I: Subgraph frequencies, metric properties and testing",
+    "authors": "Borgs, C.; Chayes, J. T.; Lovász, L.; Sós, V. T.; Vesztergombi, K.",
+    "zbmath": 5365072,
+    "msc": [
+     "05C42"
+    ]
+   },
+   {
+    "title": "Graph limits and exchangeable random graphs",
+    "authors": "Diaconis, Persi; Janson, Svante",
+    "zbmath": 5504139,
+    "msc": [
+     "60G09",
+     "05C80",
+     "05C62"
+    ]
+   },
+   {
+    "title": "Convergent sequences of dense graphs. II. Multiway cuts and statistical physics",
+    "authors": "Borgs, Christian; Chayes, Jennifer T.; Lovász, László; Sós, Vera T.; Vesztergombi, Katalin",
+    "zbmath": 6074013,
+    "msc": [
+     "05C42"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "primaryMsc": "11G",
+  "secondaryMsc": [
+   "14H",
+   "14G",
+   "11R"
+  ],
+  "cluster": "arithmetic-geometry",
+  "distance": 4,
+  "distanceRationale": "Tau Ceti already proves the headline Mordell–Weil theorem over number fields, together with canonical heights, the regulator, explicit 2-descent and Nagell–Lutz, and has a function-field isogeny theory with Frobenius, [n] of degree n² and deg(1 − π_q) = #E(𝔽_q). Several layers of standard graduate theory (AEC/ATAEC) are still missing and none is research-level: the dual isogeny and the Hasse bound itself, E[N] with the Weil pairing and Tate modules, Tate's algorithm, conductors and the Tate curve, H¹-classified twists, global minimal models, and cohomological Selmer groups and Sha.",
+  "mathlibEvidence": [
+   "tauceti:WeierstrassCurve.Affine.fg_point_of_numberField (TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean) — Mordell–Weil, AddGroup.FG W.Point over a number field, via weak Mordell–Weil and the naive height; the tree also has WeierstrassCurve.Affine.Point.canonicalHeight, WeierstrassCurve.Affine.regulator, the explicit selmerGroup₂ and WeierstrassCurve.lutz_nagell, but no cohomological Selmer group or Sha",
+   "tauceti:TauCeti.Isogeny.degree_oneSubFrobeniusIsogeny_eq_pointCount (TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Degree.lean) — deg(1 − π_q) = #E(𝔽_q) for the coordinate-ring isogeny type, alongside TauCeti.Isogeny.degree_frobeniusIsogeny, TauCeti.Isogeny.degree_mulByIntIsogeny and the TauCeti.Isogeny.Hom group; no dual isogeny, and no Hasse bound a_q² ≤ 4q",
+   "tauceti:WeierstrassCurve.quadraticTwistPointEquiv (TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean) — quadratic twists, with j-invariance and the twisted Galois action on points; no H¹(Gal, Aut) classification of general twists",
+   "mathlib:WeierstrassCurve.HasSplitMultiplicativeReduction (Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean) — reduction types and minimal models over a DVR only; neither library has Kodaira symbols, conductor exponents, Tate's algorithm, the Tate curve or global minimal models over number fields (Tau Ceti's WeierstrassCurve.range_formalPointHomAdicCompletion covers only the formal-group piece of the filtration)",
+   "absent: E[N] ≅ (ℤ/N)², the Weil pairing, Tate modules, the Hasse bound, Selmer structures and Sha (no declarations matching weilPairing|torsion_addEquiv|TateModule|hasse|kodaira|tateCurve|chatelet|Sha in either library; Tau Ceti's TauCeti.Matrix.sq_le_four_mul_of_exists_nonneg_pencil_det is only the linear-algebra step of a conditional Hasse route)"
+  ],
+  "references": [
+   {
+    "title": "The arithmetic of elliptic curves",
+    "authors": "Silverman, Joseph H.",
+    "zbmath": 5549721,
+    "msc": [
+     "11-01",
+     "11G05",
+     "14-01",
+     "11G07",
+     "11G10",
+     "11G20",
+     "11G40",
+     "14H52",
+     "14G05",
+     "11Gxx",
+     "14H25",
+     "11Y16",
+     "20J06"
+    ]
+   },
+   {
+    "title": "Advanced topics in the arithmetic of elliptic curves",
+    "authors": "Silverman, Joseph H.",
+    "zbmath": 706265,
+    "msc": [
+     "14H52",
+     "14G40",
+     "11-02",
+     "11Gxx",
+     "14-02",
+     "11G07",
+     "11G05",
+     "14G10"
+    ]
+   },
+   {
+    "title": "Zur Theorie der abstrakten elliptischen Funktionenkörper. III: Die Struktur des Meromorphismenringes. Die Riemannsche Vermutung",
+    "authors": "Hasse, Helmut",
+    "zbmath": 3022434,
+    "msc": [
+     "11R58",
+     "14H05"
+    ],
+    "note": "The roadmap cites the Crelle 175 (1936) paper for the Hasse bound without naming a part. zbMATH splits it into parts I (3022063), II (3022433) and III (3022434); part III is the one proving the Riemann hypothesis, so it is used here."
+   },
+   {
+    "title": "Algorithm for determining the type of a singular fiber in an elliptic pencil.",
+    "authors": "Tate, J.",
+    "zbmath": 5910917,
+    "msc": [
+     "14G25",
+     "14K15"
+    ]
+   },
+   {
+    "title": "A review of non-Archimedean elliptic functions.",
+    "authors": "Tate, John",
+    "zbmath": 824720,
+    "msc": [
+     "11G07",
+     "14G20"
+    ]
+   },
+   {
+    "title": "Isogenies between elliptic curves.",
+    "authors": "Vélu, Jacques",
+    "zbmath": 3356934,
+    "msc": [
+     "11G05",
+     "14H52",
+     "14K02"
+    ]
+   },
+   {
+    "title": "Algebraic function fields and codes",
+    "authors": "Stichtenoth, Henning",
+    "zbmath": 5367219,
+    "msc": [
+     "14H05",
+     "14-01",
+     "94-01",
+     "94B27",
+     "11R58",
+     "11T71"
+    ]
+   },
+   {
+    "title": "Euler systems. (Hermann Weyl lectures)",
+    "authors": "Rubin, Karl",
+    "zbmath": 1438384,
+    "msc": [
+     "11-02",
+     "11R34",
+     "11R23",
+     "11R18",
+     "11G05"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+  "primaryMsc": "60G",
+  "secondaryMsc": [
+   "28A",
+   "37A",
+   "60F"
+  ],
+  "cluster": "probability",
+  "distance": 1,
+  "distanceRationale": "Tau Ceti proves the v1 summit (de Finetti–Ryll-Nardzewski, in the conditionally-i.i.d. form) by all three routes. It also proves reverse-martingale convergence, the uniqueness, empirical-measure, zero-one/ergodic/extreme-point interfaces, Hewitt–Savage, finite de Finetti, the countable-index version and the Diaconis–Freedman Markov-exchangeable representation. The only headline item still missing is the hard converse of the Aldous–Hoover representation for exchangeable arrays; its easy direction and the row-coding and dissociation infrastructure are already present.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.Probability.deFinetti_RyllNardzewski_equivalence (TauCeti/Probability/DeFinetti/Theorem.lean) — the v1 summit: for a nonempty standard Borel value space and finite μ, Contractable ↔ Exchangeable ∧ ConditionallyIID, where ConditionallyIID is the joint-law disintegration rather than the mixture identity. Companions: deFinetti, conditionallyIID_of_contractable, conditionallyIID_ae_unique and mixedIID_mixingLaw_unique",
+   "tauceti:TauCeti.Probability.deFinetti_viaKoopman (TauCeti/Probability/DeFinetti/ViaKoopman/Theorem.lean) — the Koopman/mean-ergodic route. deFinetti_viaL2 (TauCeti/Probability/DeFinetti/ViaL2/Theorem.lean) and the reverse-martingale route on MeasureTheory.tendsto_ae_condExp_iInf (TauCeti/Probability/Martingale/Convergence.lean) are also proved, so all three proof routes of the roadmap are complete",
+   "tauceti:TauCeti.Probability.ExchangeableAt.finiteDeFinetti (TauCeti/Probability/Exchangeability/FiniteDeFinetti.lean) — the Diaconis–Freedman finite de Finetti bound choose m 2 / n, eventwise in both directions. Together with hewittSavage_trivial_of_iIndep, exchangeableSigma_trivial_iff_iid, exchangeable_extreme_iff_iid and conditionallyIID_of_exchangeableFamily, this puts the Layer 6–8 sequence theory in place",
+   "tauceti:TauCeti.Probability.MarkovExchangeable.mixedMarkovChain (TauCeti/Probability/Exchangeability/Recurrence/RowExchangeable.lean) — the Diaconis–Freedman representation: a recurrent Markov exchangeable process that starts at a fixed state is a mixture of Markov chains (the Layer 8 'Markov exchangeability' item)",
+   "tauceti:TauCeti.Probability.AldousHoover.jointlyExchangeable_jointArray (TauCeti/Probability/Exchangeability/Arrays/AldousHoover/Basic.lean) — only the easy direction of Aldous–Hoover: arrays coded as f(U, U_i, U_j, U_{ij}) are exchangeable. separatelyExchangeable_iff_exists_coding gives a row-level coding only. Absent: the hard converse that every exchangeable array has such a coding (no declaration builds a separateArray/jointArray coding from an exchangeable array). Mathlib has no exchangeability declarations"
+  ],
+  "references": [
+   {
+    "title": "Probabilistic symmetries and invariance principles.",
+    "authors": "Kallenberg, Olav",
+    "zbmath": 2207309,
+    "msc": [
+     "60-02",
+     "60G09"
+    ]
+   },
+   {
+    "title": "Exchangeability and related topics",
+    "authors": "Aldous, David J.",
+    "zbmath": 3896009,
+    "msc": [
+     "60G09",
+     "60G07",
+     "60E05",
+     "60G57",
+     "60B11"
+    ]
+   },
+   {
+    "title": "La prevision: Ses lois logiques, ses sources subjectives",
+    "authors": "De Finetti, Bruno",
+    "zbmath": 3026923,
+    "msc": []
+   },
+   {
+    "title": "On stationary sequences of random variables and the de Finetti's equivalence",
+    "authors": "Ryll-Nardzewski, Czeslaw",
+    "zbmath": 3126036,
+    "msc": []
+   },
+   {
+    "title": "Symmetric measures on Cartesian products",
+    "authors": "Hewitt, Edwin; Savage, Leonard J.",
+    "zbmath": 3112911,
+    "msc": [
+     "28Axx"
+    ]
+   },
+   {
+    "title": "Finite exchangeable sequences",
+    "authors": "Diaconis, P.; Freedman, D.",
+    "zbmath": 3676900,
+    "msc": [
+     "60G10",
+     "60J05"
+    ]
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+  "primaryMsc": "57R",
+  "secondaryMsc": [
+   "53D",
+   "57K",
+   "58J"
+  ],
+  "cluster": "topology",
+  "distance": 9,
+  "distanceRationale": "Tau Ceti has made a real start on the lowest analytic layers: Fredholm operators and index stability, finite-dimensional Morse-Sard, Sard-Smale, the Morse lemma and index, gradient flows, and definitions of almost complex structures and pseudoholomorphic maps. Every headline object is still missing, and so is every layer under it: stable manifolds and Morse-Smale transversality, trajectory compactness and gluing, the Cauchy-Riemann elliptic package and spectral-flow index theorem, Gromov compactness, J-curve transversality and gluing, Lagrangian Floer homology, and Sym^g geometry with Heegaard diagrams and spin^c structures.",
+  "mathlibEvidence": [
+   "tauceti:TauCeti.isMeagre_image_criticalPoints_of_isFredholm (TauCeti/Analysis/Fredholm/SardSmale.lean) — the Sard-Smale theorem for Fredholm maps, built on Mathlib's ContinuousLinearMap.IsFredholm with Tau Ceti's index stability (Fredholm/SmallPerturbation.lean, CompactPerturbation.lean) and finite-dimensional Morse-Sard (Analysis/Calculus/Sard/); no Fredholm theory of Cauchy-Riemann operators on strips, spectral flow or Riemann-Roch with boundary",
+   "tauceti:TauCeti.IsNondegenerateCriticalPoint.exists_morse_chart (TauCeti/Analysis/Calculus/Morse/NormalForm.lean) — the Morse(-Palais) lemma, with Morse index, negative gradient flows, stable/unstable sets and genericity of Morse functions in Analysis/Calculus/Morse/; no stable-manifold theorem, Morse-Smale transversality, broken-trajectory compactness, gluing, Morse complex or comparison with singular homology",
+   "tauceti:TauCeti.IsPseudoholomorphicAt (TauCeti/Geometry/Symplectic/Manifold/JHolomorphic.lean) — the nonlinear Cauchy-Riemann equation between almost complex manifolds, alongside symplectic, totally real and Lagrangian linear algebra and a pointwise energy identity (Geometry/Symplectic/); no elliptic regularity, Gromov compactness, transversality or gluing for J-holomorphic strips",
+   "absent: Calderon-Zygmund estimates, Maslov index of Lagrangian paths and spectral flow, Gromov compactness, Lagrangian Floer homology, symmetric products Sym^g of surfaces, Heegaard diagrams, 3-manifold spin^c structures, HF-hat (no declarations matching CalderonZygmund|spectralFlow|FloerHomology|FloerComplex|MorseSmale|MorseComplex|Heegaard|removableSingular; Maslov only as grid gradings, Gromov only Gromov-Hausdorff, spinc only Lie-theoretic spin carriers)"
+  ],
+  "references": [
+   {
+    "title": "Holomorphic disks and topological invariants for closed three-manifolds",
+    "authors": "Ozsváth, Peter; Szabó, Zoltán",
+    "zbmath": 2144173,
+    "msc": [
+     "57M27",
+     "57R58",
+     "32Q65",
+     "57R15"
+    ]
+   },
+   {
+    "title": "\\(J\\)-holomorphic curves and symplectic topology",
+    "authors": "McDuff, Dusa; Salamon, Dietmar",
+    "zbmath": 6054087,
+    "msc": [
+     "53-02",
+     "53D05",
+     "53D45",
+     "53D35",
+     "57R17",
+     "37J05",
+     "58J05"
+    ]
+   },
+   {
+    "title": "Holomorphic disks and three-manifold invariants: properties and applications",
+    "authors": "Ozsváth, Peter; Szabó, Zoltán",
+    "zbmath": 2144174,
+    "msc": [
+     "57M27",
+     "57R58",
+     "32Q65"
+    ]
+   },
+   {
+    "title": "Morse theory and Floer homology. Translated from the French by Reinie Erné",
+    "authors": "Audin, Michèle; Damian, Mihai",
+    "zbmath": 6210056,
+    "msc": [
+     "57-01",
+     "57R58",
+     "53D40"
+    ]
+   },
+   {
+    "title": "Morse homology",
+    "authors": "Schwarz, Matthias",
+    "zbmath": 436377,
+    "msc": [
+     "57R70",
+     "57-01",
+     "55N10",
+     "57R19",
+     "58A05"
+    ]
+   },
+   {
+    "title": "Symplectic topology and Floer homology. Volume 2: Floer homology and its applications",
+    "authors": "Oh, Yong-Geun",
+    "zbmath": 6448001,
+    "msc": [
+     "53-02",
+     "53D40",
+     "53D12"
+    ]
+   },
+   {
+    "title": "The spectral flow and the Maslov index",
+    "authors": "Robbin, Joel; Salamon, Dietmar",
+    "zbmath": 761833,
+    "msc": [
+     "58J20",
+     "47A53",
+     "58J32"
+    ]
+   },
+   {
+    "title": "Hamiltonian handleslides for Heegard Floer homology",
+    "authors": "Perutz, Timothy",
+    "zbmath": 5663532,
+    "msc": [
+     "30F20",
+     "53D40"
+    ]
+   }
+  ]
+ }
+]
