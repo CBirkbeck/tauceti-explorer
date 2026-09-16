@@ -42,10 +42,15 @@ The `state:` label says where the job stands:
 
 ## 3. Resources
 
+If a tool cannot open a file because it is too large, use the extracts in
+`research/blueprint/atlas/`. They contain the same records as `data/atlas.json`
+and are generated from it; every file is below 1 MB.
+
+
 | What | Where |
 | --- | --- |
 | Roadmap documents | `content/campaign/<Id>/README.md` and `content/tau-ceti/<path>/README.md` in this repository |
-| Stage records (ids, titles, prerequisites) | the issue body, `data/atlas.json` (large; search it for the stage ids), and the roadmap document |
+| Stage records, descriptions and dependency edges | `research/blueprint/atlas/` (see its README): `roadmaps/<id>.json` for one roadmap, `index.json` for all roadmaps and stages, `areas/<area>-<n>.json` for catalogue-wide text search, `stage-edges.json` for every recorded link. `data/atlas.json` itself is about 14 MB and too large for GitHub's file readers. |
 | Reviewed decompositions already integrated | `data/decompositions/<Id>.json` |
 | Other blueprints and links | `research/blueprint/packets/`, `research/blueprint/links/`, `research/blueprint/reserved-ids.json` |
 | Mathlib at the pinned commit | https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174 |
